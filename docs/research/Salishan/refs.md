@@ -122,7 +122,7 @@ Counts below are what `oracle_check.py` and `reader_check.py` report on 2026-09-
 
 Only Mellesmoen and Kye reproduces its table.
 
-Wolfe is the one whose wrong-language column matters most, because it is the only paper here holding more than two languages. It reads zero. The `who` column carries the language on every row and the reader keys its output to the same column, so a Sechelt suffix cannot arrive in the Twana data by falling through a branch.
+Wolfe is the one whose wrong-language column matters most, because it is the only paper here holding more than two languages. It reads zero. The `who` column carries the language on every row and the reader keys its output to the same column, and a Sechelt suffix cannot arrive in the Twana data by falling through a branch.
 
 `2013_Lindley_Lyon` is read off the rendered pages: all twelve texts, both the running transcription and the interlinear, with the footnotes, free translations, commentary, the appendix paradigms and the abbreviation list. What remains is 46 forms the table holds that the draft does not, and 37 strings in the draft that no row holds. All 83 fall in one of the five classes the section below names, which makes the count a measurement of the draft.
 
@@ -132,7 +132,7 @@ Its reader takes `build/papers/2013_Lindley_Lyon.page.txt` and is graded in the 
 
 Its reader misses 1037 of the 1413 forms, and 5 of those are a single token. The rest are a gloss line, a parse line, a word gloss or a running paragraph held whole, against a reader that writes the interlinear a token at a time.
 
-Three of the eleven carry a `.oracle.md` beside the table, which is where a note about that paper goes. The `.tsv` itself holds no comment syntax and no prose header, so a CSV linter can read it: a header on line 1 and the same field count on every row.
+Three of the eleven carry a `.oracle.md` beside the table, which is where a note about that paper goes. The `.tsv` itself holds no comment syntax and no prose header, which lets a CSV linter read it: a header on line 1 and the same field count on every row.
 
 `oracle_check.py` tests the hand extraction against the paper both ways. `reader_check.py` tests the reader against the hand extraction.
 
@@ -194,7 +194,7 @@ Every schwa is `@`, every lateral fricative `ì`, every pharyngeal `Q`, every gl
 
 The consequence for method is why this section exists. A hand extraction taken from one of these `.txt` files records the font's encoding and not the paper, and it then verifies clean against that same file in both directions, because both sides of the check are reading the one damaged artifact. That is how this was found here, after two such tables had been built.
 
-What replaces it: `pdf2png.py` renders the pages to `build/pages/<stem>/page_NNN.png` and the reading is done from the image. `draft_page_text.py` writes `build/papers/<stem>.page.txt`, a draft of the page in the shared orthography, line for line with the extraction so a page of one is a page of the other, and `lyon_encoding.py` holds the rules it applies. The draft is a starting point a person corrects against the rendered page, never a source. Two things it cannot decide:
+What replaces it: `pdf2png.py` renders the pages to `build/pages/<stem>/page_NNN.png` and the reading is done from the image. `draft_page_text.py` writes `build/papers/<stem>.page.txt`, a draft of the page in the shared orthography, line for line with the extraction, which makes a page of one a page of the other, and `lyon_encoding.py` holds the rules it applies. The draft is a starting point a person corrects against the rendered page, never a source. Two things it cannot decide:
 
 * **Labialization**, for the reason above. It writes `ʷ` after the consonants that take one, which is right for `kʷ qʷ xʷ x̌ʷ` and wrong wherever a real `w` follows a consonant. It errs in both directions, and page 315 has one of each. `púlxwi` gets a `ʷ` it should not have, and section 3.2 settles that by parsing the word `√púlx-wi`. `lkʷu·········t` loses the one it should have, because the inserted space split it into `lk` and `wu·········t` before the rule could see the consonant, and section 3.2 parses that one `√lkʷ=ut`. The rule runs over the whole line, so it reaches the English as well: stanza 117's word gloss `he.fell.off.backwards` comes out `he.fell.off.backʷards`.
 * **Word boundaries.** The PDF inserts a space in front of a letter carrying a mark. `s ’plá ’ks@lx` is one word and `iP ’kl` is two, and both are a space in front of a marked letter. Page 25 settles the first as `sp̓lák̓səlx`, page 24 the second as `iʔ k̓l`.
@@ -206,7 +206,7 @@ What replaces it: `pdf2png.py` renders the pages to `build/pages/<stem>/page_NNN
 
 All 83 disagreements the check reports on `2013_Lindley_Lyon` fall in these classes now that it has been read off the pages in full, and nothing else does. The last two classes occur in the priests paper alone. That count is the measurement the draft exists to produce.
 
-One thing the extraction is better evidence for than the rendered page. The transposition moves a mark off its letter and preserves it, so a token's mark count survives the channel exactly. At the scale these pages render, a run like `m̓y̓m̓y̓á` cannot be told from `m̓ym̓á` by eye, and reading the page alone undercounts. The text settles it: stanza 112 arrives as `s- m̓ y̓- m̓ y̓-á y̓-s`, which is five marks, so the word is `s-m̓y̓-m̓y̓-áy̓-s`. Take the count from the text and the boundaries from the page.
+One thing the extraction is better evidence for than the rendered page. The transposition moves a mark off its letter and preserves it, and a token's mark count survives the channel exactly. At the scale these pages render, a run like `m̓y̓m̓y̓á` cannot be told from `m̓ym̓á` by eye, and reading the page alone undercounts. The text settles it: stanza 112 arrives as `s- m̓ y̓- m̓ y̓-á y̓-s`, which is five marks, so the word is `s-m̓y̓-m̓y̓-áy̓-s`. Take the count from the text and the boundaries from the page.
 
 `get_papers.py` applies the same test inside `converted()` and writes a `.unfaithful` file beside the text naming the fonts. It fires only when a PDF is converted, and conversion skips any PDF that already has text beside it, so the 146 already on disk carry no such file. The table above was produced by running the same test over them directly.
 
@@ -222,13 +222,13 @@ and the text holds
 
 Every schwa is `a`, every raised `ʷ` is `W`, the wedge over `x` is gone, and `sudᶻigʷicuts` comes through as `sudZigWiOltS`. The six pages give 200 forms the table holds that the text does not.
 
-The difference from the Lyon papers matters more than the size of it. There the damage is a font's renumbering, which is deterministic: one code always stands for one glyph, so a table inverts it and `lyon_encoding.py` is that table. Here the damage is a reader guessing at shapes on a scan, and `sudᶻigʷicuts` to `sudZigWiOltS` is not a substitution anything can run backwards. There is nothing to build. The hand extraction is not a check on the extraction for this paper, it is the only correct record of it.
+The difference from the Lyon papers matters more than the size of it. There the damage is a font's renumbering, which is deterministic: one code always stands for one glyph, which lets a table invert it, and `lyon_encoding.py` is that table. Here the damage is a reader guessing at shapes on a scan, and `sudᶻigʷicuts` to `sudZigWiOltS` is not a substitution anything can run backwards. There is nothing to build. The hand extraction is not a check on the extraction for this paper, it is the only correct record of it.
 
 That also puts a floor under the whole method. A paper this old cannot be verified in both directions, because one direction has no sound source to verify against. What `oracle_check.py` reports on it is the distance between a page and its OCR, which is worth having and is not the same measurement it makes elsewhere.
 
 One defect the paper exposed in the check itself. `oracle_check.bare()` strips `?` as punctuation, and this orthography and the 1983 typescript's both write the glottal stop as `?`. So `?ə` bares to `ə` and a word with a glottal stop cannot be told from one without. It is the same class as the apostrophe case the hand extraction already found. The answer has to be per paper, since `?` is punctuation in every other paper here, so nothing has been changed.
 
-Page 6 of that paper is a comparative appendix in Upper Chehalis and Cowlitz, thirteen sentences of two other Salishan languages. The table names each of them in its own column so a reader cannot put them in a Lushootseed corpus.
+Page 6 of that paper is a comparative appendix in Upper Chehalis and Cowlitz, thirteen sentences of two other Salishan languages. The table names each of them in its own column, which keeps a reader from putting them in a Lushootseed corpus.
 
 ### The delta is a mutation probability distribution
 
@@ -288,7 +288,7 @@ Two things in that reader are worth naming because no other paper here needs the
 
 `anchor_sift_algorithmic_extraction/symbol_sift.py`. Reading a broken word off a rendered page works and does not scale: twenty papers at twenty-four pages each is four hundred images, and every reading is a judgment nobody can check afterward. This asks the sift instead.
 
-A break site is a place where the extraction has two tokens and the paper may have had one. The candidates are the two joined by each combining mark the paper writes, and joined by nothing, which is the reading where the space is a real boundary. A candidate counts as attested where the paper writes it as a token, and where the paper writes it inside one: `qʷal út` is `qʷal̓út`, which Davis and Mellesmoen never prints alone and does print inside `qʷəqʷal̓út`. Scoring is the radix from `boundary_check.py`, with run counts taken from the tokens carrying no break and flattened to maximum entropy, so a run common everywhere contributes nothing and what is left belongs to that restoration.
+A break site is a place where the extraction has two tokens and the paper may have had one. The candidates are the two joined by each combining mark the paper writes, and joined by nothing, which is the reading where the space is a real boundary. A candidate counts as attested where the paper writes it as a token, and where the paper writes it inside one: `qʷal út` is `qʷal̓út`, which Davis and Mellesmoen never prints alone and does print inside `qʷəqʷal̓út`. Scoring is the radix from `boundary_check.py`, with run counts taken from the tokens carrying no break and flattened to maximum entropy. A run common everywhere contributes nothing and what is left belongs to that restoration.
 
 **It finds 86 sites across the fifteen papers with readers, and every one of those papers already reports 100 percent coverage.** That is not a contradiction, it is the blind spot `inserted_space.py` names: the coverage check puts both sides through the same repair, and a word broken in the source and broken in the extraction matches itself.
 
@@ -370,7 +370,7 @@ The same measurement on the other nine papers is not comparable and should not b
 
 The waveform on its own is not enough. A vowel is a harmonic series under an envelope, and two recordings of one vowel share the envelope while the harmonics sit wherever the speaker's pitch put them, so comparing samples compares the harmonics. The analysis is spectral and the envelope is smoothed off the source before anything is compared.
 
-What a person hears is not what the microphone recorded, and it differs between listeners by physiology and by how much hearing they have lost. The weighting is an argument, with `NO_LOSS` standing for a listener who has lost none. A real audiogram is the six frequencies a hearing test is run at with the loss in dB at each, and the loss comes off a band before loudness, so a band a listener cannot hear stops reaching the code.
+What a person hears is not what the microphone recorded, and it differs between listeners by physiology and by how much hearing they have lost. The weighting is an argument, with `NO_LOSS` standing for a listener who has lost none. A real audiogram is the six frequencies a hearing test is run at with the loss in dB at each, and the loss comes off a band before loudness, and a band a listener cannot hear stops reaching the code.
 
 Some sounds are the same sound at different frequencies. A phone said by a small speaker and by a large one differs by a scaling of the whole spectrum. The 64 bands are log spaced, so that scaling is a shift along the band axis, and the magnitude of a Fourier transform along that axis is unchanged by the shift. That transform is the segment field.
 
@@ -417,7 +417,7 @@ Fifty of them are about Lushootseed or Skagit. The heaviest, by how much they di
 
 `paper_language.py` reads each paper's front matter for the names the literature uses for each language and attributes a paper where it names one and no other. Over the 154 texts it attributes 122 and leaves 32, which are the comparative papers and are correctly left. Lushootseed leads at 43 papers, Nuxalk follows at 32.
 
-Counting how much of a language each unread paper actually holds gives a different order, and it is the one that matters for this work. Lushootseed has 40 unread papers and 593 distinct language tokens across all of them together, which is less than one Nater appendix. The reason is the section above: most of the Lushootseed literature is older and writes the glottal stop as `?` and the schwa as `a` or `E`, so a mark set built on the modern orthography reads those papers as holding no language at all. Comox has 8 unread papers and 1899 tokens, St'át'imcets 10 and 1297, Nuxalk 29 and 1046.
+Counting how much of a language each unread paper actually holds gives a different order, and it is the one that matters for this work. Lushootseed has 40 unread papers and 593 distinct language tokens across all of them together, which is less than one Nater appendix. The reason is the section above: most of the Lushootseed literature is older and writes the glottal stop as `?` and the schwa as `a` or `E`, and a mark set built on the modern orthography reads those papers as holding no language at all. Comox has 8 unread papers and 1899 tokens, St'át'imcets 10 and 1297, Nuxalk 29 and 1046.
 
 So the count of papers per language is not the count of language per language, and picking by the first number would spend the next month on texts a check cannot yet see into. What Lushootseed needs is not another paper but the treatment `1983_Hilbert` and `1975_Hilbert_Hess` already have, which is a per-paper mark set for the orthography that paper is actually written in.
 

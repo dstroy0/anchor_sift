@@ -24,7 +24,7 @@ The instructions used to say to download the PDFs, convert each to text, and nam
 
 **The encoding.** `pdftotext` writes Latin-1 unless told otherwise, and Latin-1 has no ʔ, no ə and no ɬ. A paper converted that way still opens and still looks like a paper, with the language taken out of it.
 
-**The reading order.** Given `-enc UTF-8` the characters survive, and the page comes out in layout order, so a running header prints above the title it sits under and a two-column table interleaves. `pypdf` reads a page in the order the PDF stores it, which is what the readers were written against, and `get_papers.py` uses it. Converting `Mellesmoen_Kye_ICSNL61.pdf` gives 1462 lines identical, in order, to the copy in `build/papers/`.
+**The reading order.** Given `-enc UTF-8` the characters survive, and the page comes out in layout order, and a running header prints above the title it sits under and a two-column table interleaves. `pypdf` reads a page in the order the PDF stores it, which is what the readers were written against, and `get_papers.py` uses it. Converting `Mellesmoen_Kye_ICSNL61.pdf` gives 1462 lines identical, in order, to the copy in `build/papers/`.
 
 The script identifies itself by name, purpose and address in its user agent. The archive answers a request carrying none with an HTML page instead of the file; its `robots.txt` disallows only `wp-admin`, `wp-login`, the cache and trackbacks.
 
@@ -111,7 +111,7 @@ python tools/dev_env/Salishan/draft_page_text.py 2013_Lindley_Lyon
 
 The first renders each page to `build/pages/<stem>/page_NNN.png`. Arguments are the stem, the first page, the last page, and optionally a scale, which defaults to 3 and puts a 12pt body around 50 pixels tall, where a stacked diacritic stops being a guess.
 
-The second writes `build/papers/<stem>.page.txt`, line for line with the extraction so a page of one is a page of the other. It is a draft, and `oracle_check.py` reads it in place of the extraction for these two papers, which makes it the thing being graded and not the thing that grades. The rules are in `lyon_encoding.py`. Two of them cannot be settled without looking at the page: which `w` is a labialized consonant, and which inserted space is a word boundary. `refs.md` names those and the four other classes the check keeps reporting.
+The second writes `build/papers/<stem>.page.txt`, line for line with the extraction, which makes a page of one a page of the other. It is a draft, and `oracle_check.py` reads it in place of the extraction for these two papers, which makes it the thing being graded and not the thing that grades. The rules are in `lyon_encoding.py`. Two of them cannot be settled without looking at the page: which `w` is a labialized consonant, and which inserted space is a word boundary. `refs.md` names those and the four other classes the check keeps reporting.
 
 Both of these papers' readers take that file too, and so does `coverage_check.py`. They swap `page_text.py` in for `font_repair.py` to do it, because applying the mapping to text it has already been applied to destroys the text. Steps 2 and 3 therefore have to run before step 4 for these two, and running the readers without them leaves the last drafted text on disk in the corpus.
 
