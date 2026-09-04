@@ -1,0 +1,8 @@
+# Black is the Python formatter for this repo. It formats test/harness.py - the library itself is C,
+# and nothing under include/ or test/unit/ is Python.
+#
+# line-length matches ColumnLimit in .clang-format and max_line_length in .editorconfig, so C and
+# Python wrap at the same width and a side-by-side diff of a tool and the code it rewrites lines up.
+[tool.black]
+line-length = 120
+target-version = ["py38"]

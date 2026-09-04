@@ -1,0 +1,68 @@
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#
+# Site configuration. The markdown under docs/ is the source and nothing here rewrites it, which
+# keeps a file reading the same on GitHub as it does on the site.
+#
+#   pip install mkdocs-material
+#   mkdocs serve     # http://127.0.0.1:8000, rebuilds as you edit
+#   mkdocs build     # writes site/
+#
+# Deployment is the GitHub Action in .github/workflows/docs.yml. Nothing needs running by hand.
+
+site_name: anchor sift
+site_description: Measuring how far something sits from the most disordered arrangement of its own parts.
+site_url: https://dstroy0.github.io/anchor_sift/
+repo_url: https://github.com/dstroy0/anchor_sift
+repo_name: dstroy0/anchor_sift
+copyright: Copyright &copy; 2026 Douglas Quigg (dstroy0). AGPL-3.0-or-later, commercial, or educator license.
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - content.code.copy
+    - toc.follow
+  palette:
+    # The ledger is long and gets read at length, so both schemes are offered and neither is forced.
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Dark
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Light
+
+markdown_extensions:
+  # The ledger is full of inline and display math. Without arithmatex it renders as literal dollars.
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+
+extra_javascript:
+  - javascript/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Terms: research/terms.md
+  - The method: research/anchor-sift-method.md
+  - The paper: research/anchor-sift.md
+  - Ledger: research/anchor-sift-ledger.md
+  - Salishan:
+      - Whose words these are: research/Salishan/pure_corpus/README.md
+      - Sources: research/Salishan/refs.md
+      - How wrong it could be: research/Salishan/corpus-derivation.md
+      - The method on these papers: research/Salishan/anchor-sift-salishan.md
+      - Running notes: research/Salishan/running.md

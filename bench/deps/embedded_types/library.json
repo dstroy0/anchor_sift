@@ -1,0 +1,65 @@
+{
+  "name": "embedded_types",
+  "version": "1.0.0",
+  "description": "Fixed-width integer aliases, a machine word derived from the target's pointer width, and the compile-time machinery a C11 embedded library is written in. Header only, no allocation, nothing at startup; the only headers it reaches for are stddef and stdint.",
+  "keywords": [
+    "types",
+    "stdint",
+    "fixed-width",
+    "word",
+    "static-assert",
+    "attributes",
+    "portability",
+    "unaligned",
+    "dispatch-table",
+    "header-only",
+    "embedded",
+    "c11"
+  ],
+  "homepage": "https://github.com/dstroy0/embedded_types",
+  "authors": [
+    {
+      "name": "Douglas Quigg",
+      "email": "dquigg123@gmail.com",
+      "url": "https://github.com/dstroy0",
+      "maintainer": true
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dstroy0/embedded_types.git"
+  },
+  "license": "AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational",
+  "frameworks": "*",
+  "platforms": "*",
+  "headers": [
+    "embed_types.h",
+    "embed_compiler_directives.h",
+    "embed_dispatch_layout.h"
+  ],
+  "export": {
+    "exclude": [
+      ".github",
+      ".gitignore",
+      ".gitattributes",
+      ".editorconfig",
+      ".clang-format",
+      ".clang-format-ignore",
+      ".clangd",
+      ".prettierignore",
+      "build",
+      "test",
+      "cmake",
+      "package.json",
+      "package-lock.json",
+      "pyproject.toml",
+      "sonar-project.properties"
+    ]
+  },
+  "build": {
+    "srcDir": "include",
+    "includeDir": "include",
+    "unflags": ["-std=gnu99"],
+    "flags": ["-std=gnu11"]
+  }
+}

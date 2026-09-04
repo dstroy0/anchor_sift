@@ -1,0 +1,25 @@
+{
+  "name": "embedded-types-ci-tooling",
+  "version": "v0.0.0",
+  "private": true,
+  "description": "Dev/CI tooling manifest for embedded_types. Node is here for prettier and cspell only; the library itself has no JavaScript.",
+  "license": "AGPL-3.0-or-later",
+  "homepage": "https://github.com/dstroy0/embedded_types",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dstroy0/embedded_types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dstroy0/embedded_types/issues"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{md,json,yml,yaml,css,html,js,cjs,mjs}\"",
+    "format:check": "prettier --check \"**/*.{md,json,yml,yaml,css,html,js,cjs,mjs}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

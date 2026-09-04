@@ -1,0 +1,63 @@
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#
+# Builds the site from docs/ and publishes it to GitHub Pages.
+#
+# One thing has to be done by hand once, in the repository settings: Pages, Source, GitHub Actions.
+# Until that is set the build succeeds and the deploy step fails, which is the failure mode to
+# expect on the first run.
+#
+# The site then lands at https://dstroy0.github.io/anchor_sift/
+
+name: docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time. A second push while the first is publishing would otherwise race it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Pinned. An unpinned theme means the site can change appearance on a push that touched
+      # nothing, and then the diff does not explain the difference.
+      - name: Install
+        run: pip install mkdocs-material==9.5.44
+
+      - name: Build
+        run: mkdocs build --strict
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

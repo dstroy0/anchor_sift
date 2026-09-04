@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: embedded_types
+abstract: >-
+    Fixed-width integer aliases, a boolean, a machine word derived from the
+    target's pointer width, an index type, and an unaligned-access word for C11
+    embedded work. Also a static assertion, feature probes, attribute wrappers,
+    and compile-time assertions that pin a dispatch table's members to consecutive
+    slots. Header only, nothing allocated, nothing run at startup.
+type: software
+authors:
+    - given-names: Douglas
+      family-names: Quigg
+      email: dquigg123@gmail.com
+      alias: dstroy0
+repository-code: "https://github.com/dstroy0/embedded_types"
+url: "https://github.com/dstroy0/embedded_types"
+license: AGPL-3.0-or-later
+version: 1.0.0
+date-released: "2026-08-30"
+keywords:
+    - types
+    - fixed-width
+    - word
+    - static-assert
+    - attributes
+    - portability
+    - unaligned
+    - dispatch-table
+    - header-only
+    - embedded
+    - c11

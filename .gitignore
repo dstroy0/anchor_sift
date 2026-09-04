@@ -1,0 +1,26 @@
+# Build trees and fetched data. Corpora, papers, audio and page renders run to about
+# 1.9 GB and every one of them is reproducible from the tools in this repository, so
+# none of it is carried in git.
+build/
+build-*/
+
+# The rendered site. mkdocs build writes it and the GitHub Action rebuilds it on every push, so a
+# copy in git is one that goes stale the moment a page changes.
+site/
+
+# The hand extractions. Every row is a form transcribed out of a published paper, so the tables are
+# those papers' text and not this work's to redistribute. The derivations built on them are this
+# work's and stay in the repository: the ledger, the bound, the checks and the code are all here.
+# The tables are held outside git and go to anyone who has the papers and asks.
+*.oracle.tsv
+
+# Python caches. The tools here are run directly and cache next to themselves.
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor and OS leavings.
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

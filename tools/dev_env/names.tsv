@@ -1,0 +1,137 @@
+# The rename table. Tab-separated. Source of truth for tools/dev_env/rename_modules.py - edit here,
+# not in the script.
+#
+# ================================================================================================
+# MODULES   old  latin  stem  pascal
+# ================================================================================================
+# old      the directory the module arrived in
+# latin    the category name: directory, filename, include path, header guard, typedef prefix
+# stem     the shortened Latin stem: namespace instance, and the default symbol infix
+# pascal   the latin name in PascalCase, for the Ns / Vars / V / Ctx / Args typedefs
+#
+MODULE	confinium	confinium	confin	Confinium
+MODULE	bitio	bitio	bitio	Bitio
+MODULE	bytes	byteio	byteio	Byteio
+MODULE	dma	memoriam_praetereo	praet	MemoriamPraetereo
+MODULE	endian	endian	endian	Endian
+MODULE	float_bits	fractio	fract	Fractio
+MODULE	membuild	verba_scribo	verba	VerbaScribo
+MODULE	plaintext	clarus_custodiae	clarus	ClarusCustodiae
+MODULE	protoframe	numeros_scribo	numer	NumerosScribo
+MODULE	protomem	memoria_operor	memor	MemoriaOperor
+MODULE	protostr	cellularum_laboro	cellul	CellularumLaboro
+MODULE	psram_pool	confinium_externum	exter	ConfiniumExternum
+MODULE	rawmemcpy	proximus_operor	proxim	ProximusOperor
+MODULE	ring	confinium_exclusivum_infinitas	infin	ConfiniumExclusivumInfinitas
+MODULE	secure	occultum_custodiae	occult	OccultumCustodiae
+MODULE	span	spatium	spat	Spatium
+MODULE	swar	verbum_scrutor	scrut	VerbumScrutor
+#
+# ================================================================================================
+# INFIXES   old_infix  new_infix
+# ================================================================================================
+# The mmgr_<infix>_ prefix each symbol carries. Read out of the code, not assumed from the
+# directory: protomem declares mmgr_mem_*, membuild declares mmgr_sb_*, bitio declares mmgr_bitw_*.
+#
+# An infix that NAMES ITS MODULE collapses to that module's stem. An infix that names a distinct
+# CONCEPT inside the module keeps its own identity, because collapsing it would merge two things
+# that are not the same thing. tools/dev_env checked this rather than assuming it: collapsing
+# rawmemcpy's three onto one stem merged seven symbol pairs including the aligned and the unaligned
+# load, and collapsing cspan onto span merged the const and non-const constructors.
+#
+INFIX	confin	confin
+INFIX	bitw	bitio
+INFIX	bw	byteio
+INFIX	br	byteio
+INFIX	dbl	fract
+INFIX	sb	verba
+INFIX	plaintext	clarus
+INFIX	frame	numer
+INFIX	mem	memor
+INFIX	psram	exter
+INFIX	ring	infin
+INFIX	secure	occult
+INFIX	swar	scrut
+INFIX	span	spat
+#
+# The three access strategies of proximus_operor. Not one thing under three names: raw is
+# unaligned, al is aligned, mv may alias. Merging them is a miscompile the compiler cannot report.
+INFIX	raw	proxim
+INFIX	al	aequus
+INFIX	mv	migro
+#
+# The const span. Long form in the declaration, f- for fixus in the symbol.
+INFIX	cspan	fspat
+#
+# Unchanged. mpint and pingpong name concepts, not modules; worker is cross-cutting and is
+# declared by confinium but used by the pools.
+INFIX	dma	praet
+INFIX	mpint	mpint
+INFIX	pingpong	pingpong
+INFIX	worker	worker
+#
+# ================================================================================================
+# VERBS   old  new
+# ================================================================================================
+# The public face is English. A handle is built from ordered slots, every slot optional and spent
+# only where it disambiguates: [fundamental type]_[security]_[what it is]_[action].
+#
+# temporary replaces the old scratch name entirely, and persistent is the other tier.
+#
+# free_bytes is NOT a release and does not take the release verb. It returns a count of bytes still
+# available between the two tiers, so it becomes buf_available. persist_free DOES take a pointer, so
+# it is a real release and does take the release verb.
+#
+VERB	scratch_alloc_aligned	temporary_buf_alloc_aligned
+VERB	scratch_alloc	temporary_buf_alloc
+VERB	scratch_release	temporary_buf_release
+VERB	scratch_reset	temporary_buf_reset
+VERB	scratch_mark	temporary_buf_mark
+VERB	scratch_used	temporary_buf_used
+VERB	persist_alloc	persistent_buf_alloc
+VERB	persist_free	persistent_buf_release
+VERB	persist_used	persistent_buf_used
+VERB	free_bytes	buf_available
+VERB	secure_wipe	zero_buf
+VERB	alloc	buf_alloc
+VERB	release	buf_release
+
+# ================================================================================================
+# TYPES   old  new
+# ================================================================================================
+# The data typedefs keep the existing lowercase mmgr_ convention - they are the public C API types
+# and the prefix is what namespaces them. They take the STEM rather than the long Latin, because the
+# symbol pass already produced mmgr_confin_set, and a type spelled mmgr_confinium beside a function
+# spelled mmgr_confin_set_add reads as two different modules.
+#
+TYPE	mmgr_span	mmgr_spat
+TYPE	mmgr_cspan	mmgr_fspat
+TYPE	mmgr_confin	mmgr_confin
+TYPE	mmgr_sb	mmgr_verba
+TYPE	mmgr_bit_writer	mmgr_bitio_writer
+#
+# ================================================================================================
+# NS   old_type  old_instance  new_type  new_instance
+# ================================================================================================
+# The namespace type is PascalCase and takes the FULL Latin name - it is the module's identity, it
+# appears once per module, and nothing about it is repeated at a call site. The instance beside it
+# is the stem, because that IS the call site: memor.cpy(work), not memoria_operor.cpy(work).
+#
+# The instance is rewritten ONLY at its declaration and at `<name>.` member access. Never as a bare
+# identifier: `mem` is also a struct member holding the pool storage, `span` and `raw` are
+# function-pointer member names inside these very structs, and `secure` appears inside an assert
+# message. A bare-identifier rename corrupts all four.
+#
+NS	BitwNs	bitw	BitioNs	bitio
+NS	BytesNs	bytes	ByteioNs	byteio
+NS	DblNs	dbl	FractioNs	fract
+NS	EndianNs	endian	EndianNs	endian
+NS	FrameNs	frame	NumerosScriboNs	numer
+NS	MemNs	mem	MemoriaOperorNs	memor
+NS	PlainNs	plain	ClarusCustodiaeNs	clarus
+NS	RawNs	raw	ProximusOperorNs	proxim
+NS	SecureNs	secure	OccultumCustodiaeNs	occult
+NS	SpanNs	span	SpatiumNs	spat
+NS	StrNs	str	CellularumLaboroNs	cellul
+NS	SwarNs	swar	VerbumScrutorNs	scrut
+NS	SbNs	Sb	VerbaScriboNs	verba

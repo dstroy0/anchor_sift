@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+*.sh text eol=lf
+
+.githooks/** text eol=lf
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary
+*.a binary
+*.o binary

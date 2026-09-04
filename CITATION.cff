@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using these metadata, and cite the speakers whose languages the corpus holds."
+title: anchor_sift
+abstract: >-
+  A method that measures how far an object sits from the most disordered arrangement
+  of its own parts. The reference is built by maximizing entropy under constraints the
+  object itself supplies, so there is no training, no prior and no model of the domain.
+  One construction, unchanged, has read a published crystal cell edge to 0.0006
+  angstroms, an image width, a Vigenere key length, and a published dialect border
+  inside Lushootseed that it was never shown. It knows nothing and it generates
+  nothing. The Salishan corpus it is measured against is the speech of named people,
+  hand extracted and verified in two directions against the papers it came from.
+type: software
+authors:
+  - given-names: Douglas
+    family-names: Quigg
+    email: dquigg123@gmail.com
+    alias: dstroy0
+repository-code: "https://github.com/dstroy0/anchor_sift"
+url: "https://github.com/dstroy0/anchor_sift"
+license: AGPL-3.0-or-later
+version: 0.1.0
+date-released: "2026-09-04"
+keywords:
+  - maximum-entropy
+  - permutation-null
+  - relative-entropy
+  - filtering
+  - necessary-condition
+  - salishan
+  - corpus-linguistics
+  - dialectometry
+  - crystallography
+  - information-theory

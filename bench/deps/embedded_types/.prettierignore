@@ -1,0 +1,13 @@
+package-lock.json
+
+LICENSE
+LICENSES/
+
+build/
+build-*/
+cmake-build-*/
+.scannerwork/
+bw-output/
+compile_commands.json
+
+node_modules/

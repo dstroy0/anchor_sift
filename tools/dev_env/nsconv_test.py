@@ -1,0 +1,295 @@
+import os, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.stdout.reconfigure(encoding="utf-8")
+import nsconv as N
+
+fails = 0
+
+
+def eq(name, got, want):
+    global fails
+    if got != want:
+        fails += 1
+        print("FAIL %s\n  got:  %r\n  want: %r" % (name, got, want))
+    else:
+        print("ok   %s" % name)
+
+
+# 1. a ')' inside a string literal must not close the call - the bug that truncated gcm(key)
+s = 'f(a, ")", b)'
+eq("literal paren", s[2 : N.close_paren(s, 2) - 1], 'a, ")", b')
+
+# 2. a ',' inside a literal is not an argument separator
+eq("literal comma", N.split_args('a, "x,y", b'), ["a", '"x,y"', "b"])
+
+# 3. a nested call keeps its own parens
+eq("nested call", N.split_args("gcm(key), n12, NULL"), ["gcm(key)", "n12", "NULL"])
+
+# 4. an escaped quote does not end the literal
+eq("escaped quote", N.split_args('"a\\"b,c", d'), ['"a\\"b,c"', "d"])
+
+# 5. the statement start of a call on a macro CONTINUATION line is the macro, not the line
+src = (
+    "void t(void)\n"
+    "{\n"
+    "    TEST_ASSERT_EQUAL_HEX16(TLS_VERSION_1_3,\n"
+    "                            old_call(a, b));\n"
+    "}\n"
+)
+pos = src.index("old_call")
+eq(
+    "stmt start crosses the macro line",
+    src[N.statement_start(src, pos) :].split("\n")[0].strip(),
+    "TEST_ASSERT_EQUAL_HEX16(TLS_VERSION_1_3,",
+)
+
+# 6. rewriting that call hoists staging ABOVE the assert and leaves the value inside it
+end = N.close_paren(src, pos + len("old_call("))
+out = N.rewrite(src, pos, end, ["Ns.args.a = a;", "Ns.args.b = b;", "Ns.entry(w);"], "Ns.value")
+eq(
+    "hoist above the assert",
+    out,
+    "void t(void)\n"
+    "{\n"
+    "    Ns.args.a = a;\n"
+    "    Ns.args.b = b;\n"
+    "    Ns.entry(w);\n"
+    "    TEST_ASSERT_EQUAL_HEX16(TLS_VERSION_1_3,\n"
+    "                            Ns.value);\n"
+    "}\n",
+)
+
+# 7. a call that IS the statement loses its ';' and leaves only staging
+src2 = "void t(void)\n{\n    old_call(a, b);\n}\n"
+pos2 = src2.index("old_call")
+end2 = N.close_paren(src2, pos2 + len("old_call("))
+eq(
+    "bare statement",
+    N.rewrite(src2, pos2, end2, ["Ns.args.a = a;", "Ns.entry(w);"], "Ns.value"),
+    "void t(void)\n{\n    Ns.args.a = a;\n    Ns.entry(w);\n}\n",
+)
+
+# 8. a call used as a loop condition keeps the loop's shape (staging hoisted above the whole 'while')
+src3 = "void t(void)\n{\n    while ((n = old_call(a)) > 0)\n    {\n    }\n}\n"
+pos3 = src3.index("old_call")
+end3 = N.close_paren(src3, pos3 + len("old_call("))
+try:
+    N.rewrite(src3, pos3, end3, ["Ns.entry(w);"], "Ns.n")
+    eq("loop condition refused", "converted", "refused")
+except ValueError:
+    eq("loop condition refused", "refused", "refused")
+
+# 9. a trailing comment on the PREVIOUS statement is text: the statement start is the call's own
+# line, so the staging does not land above the statement before it
+src4 = "void t(void)\n{\n    fill(1); // the oldest loculus\n\n    old_call(a);\n}\n"
+pos4 = src4.index("old_call")
+end4 = N.close_paren(src4, pos4 + len("old_call("))
+eq(
+    "trailing comment does not move the statement start",
+    N.rewrite(src4, pos4, end4, ["Ns.args.a = a;", "Ns.entry(w);"], "Ns.ok"),
+    "void t(void)\n{\n    fill(1); // the oldest loculus\n\n    Ns.args.a = a;\n    Ns.entry(w);\n}\n",
+)
+
+# 10. and neither does a block comment sitting between the two statements
+src5 = "void t(void)\n{\n    fill(1);\n    /* the oldest loculus */\n    old_call(a);\n}\n"
+pos5 = src5.index("old_call")
+end5 = N.close_paren(src5, pos5 + len("old_call("))
+eq(
+    "block comment does not move the statement start",
+    N.rewrite(src5, pos5, end5, ["Ns.entry(w);"], "Ns.ok"),
+    "void t(void)\n{\n    fill(1);\n    /* the oldest loculus */\n    Ns.entry(w);\n}\n",
+)
+
+# 11. a call inside a macro that re-evaluates its argument is refused: hoisting it above DBENCH_OP
+# would time an addition and call the entry once
+src6 = 'void t(void)\n{\n    DBENCH_OP("x", 200000, sink += old_call(a));\n}\n'
+pos6 = src6.index("old_call")
+end6 = N.close_paren(src6, pos6 + len("old_call("))
+try:
+    N.rewrite(src6, pos6, end6, ["Ns.entry(w);"], "Ns.n")
+    eq("repeating macro refused", "converted", "refused")
+except ValueError:
+    eq("repeating macro refused", "refused", "refused")
+
+# 11a. the right operand of || is refused: `if (!r8(REG, &irq) || !old_call(irq))` fills irq in the
+# left operand and reads it in the right, so a hoisted call sees the value from before the read
+src6a = "void t(void)\n{\n    if (!r8(REG, &irq) || !old_call(irq))\n    {\n        return;\n    }\n}\n"
+pos6a = src6a.index("old_call")
+end6a = N.close_paren(src6a, pos6a + len("old_call("))
+try:
+    N.rewrite(src6a, pos6a, end6a, ["Ns.entry(w);"], "Ns.ok")
+    eq("short-circuit right operand refused", "converted", "refused")
+except ValueError:
+    eq("short-circuit right operand refused", "refused", "refused")
+
+# 11a2. and && the same way
+src6c = "void t(void)\n{\n    if (ready() && old_call(a))\n    {\n        return;\n    }\n}\n"
+pos6c = src6c.index("old_call")
+end6c = N.close_paren(src6c, pos6c + len("old_call("))
+try:
+    N.rewrite(src6c, pos6c, end6c, ["Ns.entry(w);"], "Ns.ok")
+    eq("short-circuit && right operand refused", "converted", "refused")
+except ValueError:
+    eq("short-circuit && right operand refused", "refused", "refused")
+
+# 11a3. but the LEFT operand has nothing before it to be gated by, so it still converts
+src6d = "void t(void)\n{\n    if (old_call(a) || fallback())\n    {\n        return;\n    }\n}\n"
+pos6d = src6d.index("old_call")
+end6d = N.close_paren(src6d, pos6d + len("old_call("))
+eq(
+    "short-circuit left operand still converts",
+    N.rewrite(src6d, pos6d, end6d, ["Ns.entry(w);"], "Ns.ok"),
+    "void t(void)\n{\n    Ns.entry(w);\n    if (Ns.ok || fallback())\n    {\n        return;\n    }\n}\n",
+)
+
+# 11a4. a conditional operator gates its branches too, and missing it is worse than missing `&&`:
+# the staging for the second branch was hoisted INTO the middle of the expression. smb_client's
+# `return algo == CMAC ? verify_cmac(...) : verify(...)` came out a syntax error, and the half that
+# parsed ran verify_cmac unconditionally.
+for label, src6e in (
+    ("ternary true branch refused", "void t(void)\n{\n    return c ? old_call(a) : other(a);\n}\n"),
+    ("ternary false branch refused", "void t(void)\n{\n    return c ? other(a) : old_call(a);\n}\n"),
+):
+    pos6e = src6e.index("old_call")
+    end6e = N.close_paren(src6e, pos6e + len("old_call("))
+    try:
+        N.rewrite(src6e, pos6e, end6e, ["Ns.entry(w);"], "Ns.ok")
+        eq(label, "converted", "refused")
+    except ValueError:
+        eq(label, "refused", "refused")
+
+# 11a5. a label's colon is not a conditional's, so a call after one still converts
+src6f = "void t(void)\n{\n    goto done;\ndone:\n    old_call(a);\n}\n"
+pos6f = src6f.index("old_call")
+end6f = N.close_paren(src6f, pos6f + len("old_call("))
+eq(
+    "a label colon does not refuse the call under it",
+    N.rewrite(src6f, pos6f, end6f, ["Ns.entry(w);"], "Ns.ok"),
+    "void t(void)\n{\n    goto done;\ndone:\n    Ns.entry(w);\n}\n",
+)
+
+# 11b. DBENCH_BULK hands its expr to the same DBENCH_CYCLES loop, and was missed once: a bench came
+# out with the entry hoisted above it, timing `sink += Ns.n`
+src6b = 'void t(void)\n{\n    DBENCH_BULK("x", 50000, 21, sink += old_call(a));\n}\n'
+pos6b = src6b.index("old_call")
+end6b = N.close_paren(src6b, pos6b + len("old_call("))
+try:
+    N.rewrite(src6b, pos6b, end6b, ["Ns.entry(w);"], "Ns.n")
+    eq("DBENCH_BULK refused", "converted", "refused")
+except ValueError:
+    eq("DBENCH_BULK refused", "refused", "refused")
+
+# 12. and a TEST_ASSERT, which evaluates its argument once, is still converted
+src7 = "void t(void)\n{\n    TEST_ASSERT_EQUAL_INT(3, old_call(a));\n}\n"
+pos7 = src7.index("old_call")
+end7 = N.close_paren(src7, pos7 + len("old_call("))
+eq(
+    "single-evaluation macro still converts",
+    N.rewrite(src7, pos7, end7, ["Ns.entry(w);"], "Ns.n"),
+    "void t(void)\n{\n    Ns.entry(w);\n    TEST_ASSERT_EQUAL_INT(3, Ns.n);\n}\n",
+)
+
+# 13. a `#if` / `#endif` bounds the arm. The walk back used to run past both and land the staging in
+# the PREVIOUS arm, so the call ran under another capability's gate and the read ran under none.
+src8 = (
+    "void t(void)\n" "{\n" "#if A\n" "    reg(one());\n" "#endif\n" "#if B\n" "    reg(old_call());\n" "#endif\n" "}\n"
+)
+pos8 = src8.index("old_call")
+end8 = N.close_paren(src8, pos8 + len("old_call("))
+eq(
+    "staging stays inside its own #if arm",
+    N.rewrite(src8, pos8, end8, ["Ns.entry(w);"], "Ns.ptr"),
+    "void t(void)\n{\n#if A\n    reg(one());\n#endif\n#if B\n    Ns.entry(w);\n    reg(Ns.ptr);\n#endif\n}\n",
+)
+
+# 13b. the first statement of an arm has the directive directly above it and nothing else
+src8b = "void t(void)\n{\n#if B\n    reg(old_call());\n#endif\n}\n"
+pos8b = src8b.index("old_call")
+end8b = N.close_paren(src8b, pos8b + len("old_call("))
+eq(
+    "first statement in an arm hoists below the #if",
+    N.rewrite(src8b, pos8b, end8b, ["Ns.entry(w);"], "Ns.ptr"),
+    "void t(void)\n{\n#if B\n    Ns.entry(w);\n    reg(Ns.ptr);\n#endif\n}\n",
+)
+
+# 13c. a plain statement above the call is still where the staging goes: a directive is a boundary,
+# not a magnet
+src8c = "void t(void)\n{\n    int a = 1;\n    reg(old_call());\n}\n"
+pos8c = src8c.index("old_call")
+end8c = N.close_paren(src8c, pos8c + len("old_call("))
+eq(
+    "no directive, no change",
+    N.rewrite(src8c, pos8c, end8c, ["Ns.entry(w);"], "Ns.ptr"),
+    "void t(void)\n{\n    int a = 1;\n    Ns.entry(w);\n    reg(Ns.ptr);\n}\n",
+)
+
+# 14. one statement becomes several, so a braceless control head has to gain a brace. Without it
+# dtls_conn's `else` kept only the first staging line and ran the other five unconditionally, which
+# overwrote the RawPublicKey Certificate with the X.509 one.
+src9 = "void t(void)\n{\n    if (rpk)\n    {\n        x = 1;\n    }\n    else\n        n = old_call(a);\n}\n"
+pos9 = src9.index("old_call")
+end9 = N.close_paren(src9, pos9 + len("old_call("))
+eq(
+    "braceless else gains a brace",
+    N.rewrite(src9, pos9, end9, ["Ns.args.a = a;", "Ns.entry(w);"], "Ns.n"),
+    "void t(void)\n{\n    if (rpk)\n    {\n        x = 1;\n    }\n    else\n{\n        Ns.args.a = a;\n"
+    "        Ns.entry(w);\n        n = Ns.n;\n        }\n}\n",
+)
+
+# 14a. a `#endif` between the head and its body does not hide the head
+src9a = "void t(void)\n{\n    if (r)\n    {\n        x = 1;\n    }\n    else\n#endif\n        n = old_call(a);\n}\n"
+pos9a = src9a.index("old_call")
+end9a = N.close_paren(src9a, pos9a + len("old_call("))
+eq(
+    "brace lands past the #endif",
+    N.rewrite(src9a, pos9a, end9a, ["Ns.args.a = a;", "Ns.entry(w);"], "Ns.n"),
+    "void t(void)\n{\n    if (r)\n    {\n        x = 1;\n    }\n    else\n#endif\n{\n        Ns.args.a = a;\n"
+    "        Ns.entry(w);\n        n = Ns.n;\n        }\n}\n",
+)
+
+# 14b. a braceless `if` body is one statement to statement_start, so the staging used to land ABOVE
+# the head and the call ran whatever the condition said.
+src9b = "void t(void)\n{\n    if (ok)\n        n = old_call(a);\n    next();\n}\n"
+pos9b = src9b.index("old_call")
+end9b = N.close_paren(src9b, pos9b + len("old_call("))
+eq(
+    "braceless if keeps the call guarded",
+    N.rewrite(src9b, pos9b, end9b, ["Ns.args.a = a;", "Ns.entry(w);"], "Ns.n"),
+    "void t(void)\n{\n    if (ok)\n{\n        Ns.args.a = a;\n        Ns.entry(w);\n"
+    "        n = Ns.n;\n        }\n    next();\n}\n",
+)
+
+# 14c. the same with the call's value unused: the whole statement is the body
+src9c = "void t(void)\n{\n    if (ok)\n        old_call(a);\n    next();\n}\n"
+pos9c = src9c.index("old_call")
+end9c = N.close_paren(src9c, pos9c + len("old_call("))
+eq(
+    "braceless if with an unused result stays guarded",
+    N.rewrite(src9c, pos9c, end9c, ["Ns.args.a = a;", "Ns.entry(w);"], "Ns.n"),
+    "void t(void)\n{\n    if (ok)\n{\n        Ns.args.a = a;\n        Ns.entry(w);\n        }\n    next();\n}\n",
+)
+
+# 14d. a body that already has its brace does not get a second one
+src9d = "void t(void)\n{\n    if (ok)\n    {\n        n = old_call(a);\n    }\n}\n"
+pos9d = src9d.index("old_call")
+end9d = N.close_paren(src9d, pos9d + len("old_call("))
+eq(
+    "an already braced body is left alone",
+    N.rewrite(src9d, pos9d, end9d, ["Ns.args.a = a;", "Ns.entry(w);"], "Ns.n"),
+    "void t(void)\n{\n    if (ok)\n    {\n        Ns.args.a = a;\n        Ns.entry(w);\n        n = Ns.n;\n    }\n}\n",
+)
+
+# 14e. a call in the head's own condition is not a body, and the plain statement is untouched
+src9e = "void t(void)\n{\n    if (old_call(a))\n    {\n        step();\n    }\n}\n"
+pos9e = src9e.index("old_call")
+end9e = N.close_paren(src9e, pos9e + len("old_call("))
+eq(
+    "a condition call is not braced as a body",
+    N.rewrite(src9e, pos9e, end9e, ["Ns.args.a = a;", "Ns.entry(w);"], "Ns.ok"),
+    "void t(void)\n{\n    Ns.args.a = a;\n    Ns.entry(w);\n    if (Ns.ok)\n    {\n        step();\n    }\n}\n",
+)
+
+print()
+print("FAILURES:", fails)
+sys.exit(1 if fails else 0)
