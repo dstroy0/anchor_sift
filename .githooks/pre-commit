@@ -1,0 +1,33 @@
+#!/bin/sh
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#
+# Runs the docs check before a commit is written.
+#
+# It lives in the repository instead of .git/hooks so it is version controlled and everyone gets the
+# same one. Turn it on once per clone:
+#
+#     git config core.hooksPath .githooks
+#
+# Breaking findings stop the commit: an empty table, an em dash, a link to a file that is not there.
+# Those render as a broken page and a reader sees them. Prose findings are printed and let through,
+# because the prose backlog predates the check and a hook nobody can satisfy gets turned off.
+#
+# To see everything and fail on all of it:  python tools/dev_env/docs_check.py docs --strict
+# To commit past it once:                   git commit --no-verify
+
+if [ ! -d docs ]; then
+    exit 0
+fi
+
+python tools/dev_env/docs_check.py docs
+status=$?
+
+if [ "$status" -ne 0 ]; then
+    echo ""
+    echo "  commit stopped: $status breaking finding(s) in docs/"
+    echo "  fix them, or commit with --no-verify if you know why"
+    exit 1
+fi
+
+exit 0

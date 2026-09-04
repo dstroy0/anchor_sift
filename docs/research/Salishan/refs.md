@@ -7,8 +7,6 @@ Everything here is generable using the tools/dev_env/ scripts or reachable at a 
 
 ## Speakers
 
-| Speaker | Language | Recorded |
-|---|---|---|
 **These languages belong to the people who speak them, and none of this work exists without them.** The corpus everything else here is measured against is their words, written down.
 
 The list of who is in it is [`pure_corpus/README.md`](pure_corpus/README.md), which opens every entry with the speaker and carries the conditions they set. That file is written from `corpus_script_extraction/paper_config.py` by `hand_extraction/pure_corpus_index.py`. A speaker's name is therefore typed in exactly one place, and this document keeps no second copy of it to drift.
