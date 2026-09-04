@@ -19,7 +19,7 @@ A linguist wrote the paper. A person read the paper into a table. Neither of tho
 
 **These tools can regenerate language and can produce predictive speech, and that capability is the reason the next paragraph exists.** `text_regeneration.py`, `to_phonemes.py` and the sound representation work are in this repository and they do what they are named for. Pretending otherwise would be a false claim about the code, and a safeguard resting on a false claim is not a safeguard.
 
-**Regeneration is faithful near the subject and escapes it with distance, and nothing here marks where that happens.** Close to the center of mass of the subject the output is a copy and carries nothing new. Move outward and it carries more, until at some radix from that center it reaches escape velocity and is no longer that language at all. Past that point it becomes incoherent and the tail recursively explodes, each step compounding the last, so output taken far beyond the boundary is obvious nonsense and nobody is fooled by it.
+**Regeneration is faithful near the subject and escapes it with distance, and nothing here marks where that happens.** Close to the center of mass of the subject the output is a copy and carries nothing new. Move outward and it carries more, until at some distance from that center it leaves the source distribution entirely and is no longer that language. Past that point it becomes incoherent and the tail recursively explodes, each step compounding the last, so output taken far beyond the boundary is obvious nonsense and nobody is fooled by it.
 
 Immediately before that boundary is a narrow band where the output is still coherent and may already not be the language. No result these tools produce is labeled with which side of it they fell on.
 
@@ -27,7 +27,7 @@ Immediately before that boundary is a narrow band where the output is still cohe
 
 **I will not build it that way and I will not allow it to be built that way.** Every tool for language that comes out of this work requires a human to review its output. That is a condition of use and not a recommendation.
 
-The rest follows from it. The sift finds candidates and it does not read them. Every corpus here was hand extracted and verified in two directions against its source paper by a person. A pipeline that took a regenerated form and published it, taught it, or fed it onward unread would be presenting something past escape velocity as a language, and for a language with few remaining speakers that harm is not recoverable.
+The rest follows from it. The sift finds candidates and it does not read them. Every corpus here was hand extracted and verified in two directions against its source paper by a person. A pipeline that took a regenerated form and published it, taught it, or fed it onward unread would be presenting something drawn from outside that distribution as a language, and for a language with few remaining speakers that harm is not recoverable.
 
 **What it is instead:** a purpose built universal information miner that runs on human timescales. Seconds on a laptop, against a database somebody else published. Not a geological schedule and not a data center.
 
