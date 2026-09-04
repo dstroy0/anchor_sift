@@ -17,7 +17,7 @@ A linguist wrote the paper. A person read the paper into a table. Neither of tho
 
 **A speaker's words are their own.** The corpus holds what named people said, attributed to them, and nothing here transfers that. A form these tools recover, predict or regenerate is not a new utterance by that speaker and must never be presented as one.
 
-**These tools can regenerate language and can produce predictive speech, and that capability is the reason the next paragraph exists.** `text_regeneration.py`, `to_phonemes.py` and the sound representation work are in this repository and they do what their names say. Pretending otherwise would be a false claim about the code, and a safeguard resting on a false claim is not a safeguard.
+**These tools can regenerate language and can produce predictive speech, and that capability is the reason the next paragraph exists.** `text_regeneration.py`, `to_phonemes.py` and the sound representation work are in this repository and they do what they are named for. Pretending otherwise would be a false claim about the code, and a safeguard resting on a false claim is not a safeguard.
 
 **Regeneration is faithful near the subject and escapes it with distance, and nothing here marks where that happens.** Close to the center of mass of the subject the output is a copy and carries nothing new. Move outward and it carries more, until at some radix from that center it reaches escape velocity and is no longer that language at all. Past that point it becomes incoherent and the tail recursively explodes, each step compounding the last, so output taken far beyond the boundary is obvious nonsense and nobody is fooled by it.
 
@@ -45,7 +45,7 @@ Building a reference by maximizing entropy under the constraints the object supp
 
 `bench/kernel/` is the part with the widest reach outside this work, and it builds and runs on its own with a C11 compiler and nothing else.
 
-**It is a sound filter.** A subset of a pattern's points is a necessary condition, so no arrangement of anchors can lose a true occurrence. That is a proof and not a measurement, and it uses no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional, which means a discrepancy is always an over-count and is therefore detectable without knowing the answer.
+**It is a sound filter.** A subset of a pattern's points is a necessary condition, so no arrangement of anchors can lose a true occurrence. That is a proof. It uses no order, no dimension and no alphabet, and no measurement stands behind it. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional, which means a discrepancy is always an over-count and is therefore detectable without knowing the answer.
 
 **It carries `m` bits of state and nothing else**, where `m` is the pattern length, and that is independent of the alphabet and of the dimension. A Horspool shift table is the size of the alphabet; a q-gram index is the size of the text. On a real-valued or unenumerable alphabet neither of those can be built at any size, and this still runs. That is the capability claim, and it is separate from any speed claim.
 
@@ -57,7 +57,7 @@ Building a reference by maximizing entropy under the constraints the object supp
 
 **So the kernel carries a dispatcher, and it grades itself.** `anchor_sift_choose` picks an arm from two numbers that are already free: collision entropy from one histogram pass, and the needle length, known at the call. The driver times every arm and prints what the dispatcher chose beside what was actually fastest. It picks the fastest on 19 of 21 rows, and its worst miss costs 1.40x.
 
-That miss is the interesting row. A period-16 counter uses sixteen symbols evenly, so its collision entropy reads 4.0 and its effective alphabet equals the symbols it uses, and the dispatcher calls a perfectly structured corpus memoryless. Collision entropy is permutation invariant and cannot see an arrangement, which this document's first proposition states, and the dispatcher inherits that blindness exactly. Fixing it needs a structure signal, not a better threshold.
+That miss is the interesting row. A period-16 counter uses sixteen symbols evenly, so its collision entropy reads 4.0 and its effective alphabet equals the symbols it uses, and the dispatcher calls a perfectly structured corpus memoryless. Collision entropy is permutation invariant and cannot see an arrangement, which this document's first proposition states, and the dispatcher inherits that blindness exactly. Fixing it needs a quantity that reads arrangement. No threshold on this one reaches it.
 
 ```
 cmake -S bench -B build/bench -G Ninja -DCMAKE_BUILD_TYPE=Release

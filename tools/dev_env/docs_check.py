@@ -25,6 +25,14 @@ BANNED = (
     # where a reader would otherwise land on the wrong one, which no regex can tell apart. This is
     # the instance that was called out, and the list grows one phrase at a time for that reason.
     r"cost and not a defect",
+    # The same shape, caught by its grammar. It reports where the standard permits it too, which is
+    # why it is a prose finding and never a breaking one: a person decides each site.
+    r"\b(is|was|are|were) an? [\w-]+ and not an? [\w-]+",
+    # Nothing inanimate speaks. The standard names the subjects it bans: a name, a spelling, a token
+    # or a type. A paper, a table and an entry are texts and legitimately say things, and an earlier
+    # version of this pattern included them and reported nine sites that were all correct.
+    r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
+    r"conveys|convey|announces|announce|advertises|advertise)\b",
     r"\bso a\b",
     r"load-bearing",
     r"\blabelled\b",

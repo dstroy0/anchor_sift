@@ -11,7 +11,7 @@ A search kernel in C11, a driver that times it, Python tools that fetch and read
 
 `bench/kernel/anchor_sift.c` holds four search arms and a dispatcher.
 
-**Every arm is sound and none is defensive.** A subset of a pattern's points is a necessary condition, so no arm can lose a true occurrence, and that is a proof and not a check. What no arm does is validate its arguments: `corpus`, `needle` and their lengths are used as given, with no null test and no overflow test on `corpus_len` or `needle_len`. It is bench code called from a driver that builds its own inputs.
+**Every arm is sound and none is defensive.** A subset of a pattern's points is a necessary condition, so no arm can lose a true occurrence. That is a proof, and nothing in the code tests for it. What no arm does is validate its arguments: `corpus`, `needle` and their lengths are used as given, with no null test and no overflow test on `corpus_len` or `needle_len`. It is bench code called from a driver that builds its own inputs.
 
 **Do not put it behind untrusted input without bounding the call first.** A `needle_len` larger than `corpus_len` is handled, a `needle_len` of zero is not, and neither pointer is checked. If you reach for this from somewhere that takes input from outside, the bounds check is yours to add and belongs at your boundary.
 
