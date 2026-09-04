@@ -1,226 +1,226 @@
 first_seen	line	lead
-2026-09-02	30	No completeness.
-2026-09-02	33	Three corollaries.
-2026-09-02	36	Collision entropy is permutation invariant, so it cannot detect an arrangement.
-2026-09-02	43	What is derivable here and what is not falls exactly on the line between the two propositions.
-2026-09-02	60	The shuffle is the maximum entropy background, which is why it cannot be wrong.
-2026-09-04	65	Exactly one distribution maximizes entropy under a given constraint, and that is where the finality comes from.
-2026-09-02	75	The maximum entropy domain is the best case for this filter, so $2^{-H_2}$ per anchor is a floor.
-2026-09-02	87	It is also the largest difference obtainable.
-2026-09-02	106	Ownership of the three guarantees.
-2026-09-02	143	Collision entropy is close to a constant for a language, so the quantities derived from it are too.
-2026-09-02	160	It does not survive a change of source, so it is not a property of the language.
-2026-09-02	173	Corruption is detectable from the histogram, and windowing the histogram locates it.
-2026-09-02	189	The same sieve runs at every window and does not stop where the estimator breaks.
-2026-09-02	198	An unnamed quantity in the halving ladder.
-2026-09-02	251	How many anchors to place is the log of the domain in the effective alphabet.
-2026-09-02	259	The cut per anchor is the constant Section 4.4 names, checked without fitting.
-2026-09-02	267	A language carries constants of its own, and the arrangement measure is not one of them.
-2026-09-02	287	That finding is published and belongs to Montemurro and Zanette.
-2026-09-02	299	The rare half also departs from the null on a second source and in four more language families.
-2026-09-02	310	The published semantic primes are not the frequent half, and they divide along the same line it does.
-2026-09-02	328	The rare half departs from the null in every kind of writing, and the frequent half does not.
-2026-09-02	342	Folding line endings is right for prose and wrong for source, and it moved one measure and not the other.
-2026-09-02	354	In a formal language the human layer is measurable because it is definitionally what the compiler discards.
-2026-09-02	362	The case channel is community convention and it does not separate formal languages from prose.
-2026-09-02	372	The language labels on that source are not reliable and the ones carrying findings were checked.
-2026-09-02	382	VHDL is the strongest case of a convention with no machine content, because the language cannot see it.
-2026-09-02	394	The control that was missing all along: a structured domain with no author and no selection.
-2026-09-02	408	Nor is the signature human, on the fairest comparison available.
-2026-09-04	425	The slice was wrong for a vocalization and correcting it changes the answer.
-2026-09-02	437	The band where much animal communication happens is absent from the recordings by construction.
-2026-09-02	446	Recorded for the band instead of despite it, the blue whale is the furthest from the null of anything measured here.
-2026-09-02	467	On a continuous irregular domain the construction as implemented finds nothing, and the matcher is why.
-2026-09-02	489	Corrected, it works, and the correction took two steps because the first null deleted the wrong property.
-2026-09-02	500	The reading of that result is wrong and the proof of it refuted the rule it produced.
-2026-09-02	519	A picture read as a sequence returns its own width, and the construction was already written for it.
-2026-09-02	540	On a board layout the same residue is a grid setting, and it separates two tool communities.
-2026-09-02	564	What survives that correction in the frequent half is formatting.
-2026-09-02	570	The cell rarest rule holds across kinds of writing.
-2026-09-02	576	The product rule error is a measurement and not only a defect.
-2026-09-02	583	The best filter measured is the rarest symbol inside each cell, and it is not the rule in use.
-2026-09-02	592	The product rule fails in the tail and not in the middle, and reporting it as a mean hid that.
-2026-09-02	600	Sizing from the measured pair helps the tail and not the typical case.
-2026-09-02	608	The sizing error distribution, by quantile, and what a buffer would have to hold.
-2026-09-02	624	What cell selection buys has a peak and then gives it all back.
-2026-09-02	630	The tail is the needle recurring in the corpus, and placement does not reach it.
-2026-09-02	637	There are two structure meters here operating at different spans, and they agree.
-2026-09-02	646	Collision entropy cannot see structure, which is why the null had to exist.
-2026-09-02	652	Predicting the aggregate rate and predicting one search are different problems.
-2026-09-02	657	The product rule is accurate where it does not matter and wrong where it is needed.
-2026-09-02	662	Where the anchors are placed changes the sizing more than which symbols they are.
-2026-09-02	670	On a perfectly periodic domain the placement rule stops mattering.
-2026-09-02	676	How far a vocabulary spreads across subjects is measurable, and it is the one scale here with resolved bands.
-2026-09-02	690	A cipher cannot remove what this measure reads unless it spends key equal to the message.
-2026-09-02	699	Subsampling attenuates by a known factor.
-2026-09-02	705	One quantity does three jobs.
-2026-09-02	708	Five instruments agree on the zero information object, and that is one assumption held five times.
-2026-09-02	715	The symbol width was never justified and it is not free.
-2026-09-02	735	No drift rate was obtained, over three designs that each lost to a different confound.
-2026-09-02	744	What that work did establish is a floor and a ceiling with nothing between them.
-2026-09-02	750	The pattern across all seven is one sentence.
-2026-09-02	754	Said as state: one entry is a table walk and six are memory.
-2026-09-04	763	Why the center of mass row loses, and it is the equilibrium argument arriving from the other side.
-2026-09-04	791	Where the constant is given, the method works immediately, and that is what separates chemistry from language here.
-2026-09-04	806	Where the substrate is indifferent, the whole of the departure from maximum entropy is intention, and three measurements in this document are that one measurement.
-2026-09-04	839	Said in one line: ask a question loaded with what you are certain of, and read what comes back.
-2026-09-04	847	What is universal here is the soundness, and it is universal because it is deductive. What is not universal is the reading, and that is Proposition 2.
-2026-09-04	877	A thermodynamic argument for universal yield is available and it is about the wrong system.
-2026-09-04	887	The span across domains is the claim, and it is one construction and not a family of them.
-2026-09-04	912	On telling a human apart, the refuted claim and the supported one are not the same claim, and conflating them understates what is here.
-2026-09-04	929	Which means the signature is read as an inverse, and reading it any other way is reading the center.
-2026-09-04	948	A lattice is measured and a protein is measured, and they are not the same result.
-2026-09-04	956	Real crystals are read exactly, with published ground truth, and that is the strongest row here.
-2026-09-04	966	A protein and a crystal are the same object to this construction, and the difference in the two results is the instrument and not the domain.
-2026-09-04	984	Why it crosses the physical and the conceptual is the center-of-mass argument, and that is the whole of the mechanism.
-2026-09-04	1004	Posit: the departure has a band, and a master works inside it.
-2026-09-04	1019	They found it without any of this, which is the part that makes it worth recording.
-2026-09-04	1041	A symbol a bad digitization dropped is recoverable from the distribution, and the document supplies its own answer key.
-2026-09-04	1055	Inconsistent damage corrects itself and systematic damage does not, and that is the whole of when this works.
-2026-09-04	1076	Two things that follow and that nobody has run.
-2026-09-04	1096	Partial knowledge of the boundaries is enough, and that is Proposition 1 and not a new claim.
-2026-09-02	1109	Where the one winning mechanism breaks, and why it is the same mechanism.
-2026-09-02	1117	Where to branch between the two arrangements is derivable and lands at the effective alphabet.
-2026-09-02	1134	That makes the branch decidable at run time from two cheap numbers.
-2026-09-02	1139	The advantage between the two arrangements has a minimum and a maximum, both measured.
-2026-09-02	1150	The needle is drawn from the corpus, so the benchmark answers an easier question than the one posed.
-2026-09-02	1160	Correctness is measured in thirteen geometries and speed in one, and that one is the dominated case.
-2026-09-02	1172	Why the rare anchor loses on a line.
-2026-09-02	1179	The vectorized cost model, measured and much smaller than derived.
-2026-09-02	1184	A long search is verification bound.
-2026-09-02	1190	Both propositions are now measurements and not only arguments.
-2026-09-02	1197	The one directional error is a control signal.
-2026-09-02	1202	A threshold on shift agreement needs a permutation null and not a formula.
-2026-09-02	1208	The Finnish outlier was a genre confound of mine, not agglutination.
-2026-09-02	1215	The symbol width was chosen by habit, and a Greek text is where that showed.
-2026-09-02	1221	Vocabulary compression separates a translation from a composition.
-2026-09-02	1226	Exact matching cannot see an inflected formula, so epic register went undetected.
-2026-09-02	1231	The most regular thing in a text file is almost never the language.
-2026-09-02	1236	A boundary has to be regular enough to find and irregular enough to locate with.
-2026-09-02	1243	The pattern free detector finds periodicity and nothing else.
-2026-09-02	1247	A stride calibrated on one known pattern does not transfer.
-2026-09-02	1255	The failure was not where it was flagged.
-2026-09-02	1312	A constructed null deletes one property and it has to be the one being asked about. Proofed and refuted.
-2026-09-02	1330	Two instruments are in use here and they keep being reported as one.
-2026-09-02	1339	One representation for every corpus, reduced by a sum over vectors. Built, run over 273 corpora, and it does not replace the shift detector.
-2026-09-02	1358	The volume has no dimension to assign, and assigning one was the defect behind the picture failure.
-2026-09-02	1373	The numbering given to the symbols was suspected and cleared, except on pictures where it is the point.
-2026-09-02	1380	The two instruments are not measuring one quantity, and that part is settled by construction and not by a number.
-2026-09-02	1387	The explanation offered for that split was wrong and its own test refuted it.
-2026-09-02	1394	What singles those corpora out is how long they stay near a value, not how small their steps are.
-2026-09-02	1416	Abruptness orders the magnitude inside art and inverts outside it, at rho 0.786 over seven paintings, which is not enough paintings.
-2026-09-02	1434	The high frequency part of a painting was called camera noise and it is not, which reverses the conclusion drawn from it.
-2026-09-02	1444	The exponent of the power against frequency is the first quantity here that holds still, and every earlier statistic had a scale inside it.
-2026-09-02	1460	A plane goes through one dimension when the coordinates are interleaved, and the exponent halves.
-2026-09-02	1470	The squashing works at any number of dimensions, and it was checked against fields whose exponent was put in by hand.
-2026-09-02	1491	Under half of that shortfall belongs to the curve and the rest is what one dimension cannot hold.
-2026-09-02	1500	A line through a set carries how many dimensions the set has, and it took two failures to measure it.
-2026-09-02	1519	The exponent identifies a family and rebuilds nothing, which is this document's own first proposition turning up as a measurement.
-2026-09-02	1533	Saying that where each frequency sits costs as much as the set was too strong, and it confused needing every angle with needing every angle exactly.
-2026-09-02	1552	Text has no approximate representation at all, and the three bit result on pictures does not carry to it.
-2026-09-02	1563	Quoting the coefficient in levels compares alphabets and not languages, and dividing by the range each alphabet occupies is what makes them comparable.
-2026-09-02	1582	Which symbol follows which identifies a language where every scalar failed, and its mistakes are the language families.
-2026-09-02	1591	Whether the information in a text closes at a finite order is not settled here, and the reading that appeared to settle it was measuring its own sample size.
-2026-09-02	1608	What a text gains at each distance describes the text and not the language, and it is twice as much a property of where the text came from.
-2026-09-02	1631	Read by matching instead of by counting, the text has not closed at a quarter of a million characters.
-2026-09-02	1648	That null was the wrong one for the question and the right one gives the same answer.
-2026-09-02	1674	Where the reading stops working is now measured instead of guessed, because the shuffle has an answer that is arithmetic.
-2026-09-02	1700	A dirty corpus does not give a slightly wrong answer, it gives a confidently inverted one, and it has happened twice here.
-2026-09-03	1717	The best test here was assembled out of the failures before it and could not have been designed first.
-2026-09-02	1735	Every bound put on a quantity in this work has had to be taken back off, and the reading improved each time it was.
-2026-09-02	1760	The reading belongs to the language by a margin of about seven percent, and this bounds every language result in this document.
-2026-09-02	1777	Being a procedure leaves no mark here that being formally written does not already leave.
-2026-09-03	1798	Every negative result in this section is ambiguous in a way the positives are not, and they have all been written as though they were not.
-2026-09-03	1814	The oldest continuous language traditions on earth are outside this work entirely, and two separate things put them there.
-2026-09-02	1830	Everything measured in this work is the writing of people who were taught to write.
-2026-09-02	1837	Matched across two works that share nothing, what survives is the family and not the language.
-2026-09-02	1854	Every cross language reading in this work compared different books, and holding the content fixed turns out to cost the family result almost nothing.
-2026-09-02	1877	One binary alphabet carries every script at a small cost, once the codes line up with the characters.
-2026-09-02	1895	Comparing the binary webs at one width compared different resolutions against each other, and reading every width at once recovers half of what that cost.
-2026-09-02	1913	It is not sound enough to be a first pass, which is what it was reached for.
-2026-09-03	1926	Of what separates two German books, the author is worth 11 percent, the century 1 percent, and the book itself 88.
-2026-09-03	1936	The reading is not one reading, because a character is a morpheme in some writing and a fragment of one in the rest.
-2026-09-03	1953	Tone is the first thing measured here that clears the floor everything else sank under.
-2026-09-03	1971	Repeated outside the family, the decomposition holds.
-2026-09-03	1980	Three numbers beat four thousand at finding a Japanese writer, by nearly five to one.
-2026-09-03	1990	Every structural result in this section was measured on one branch of one family.
-2026-09-03	2003	Across three centuries of one language, with dates nobody here chose, time leaves a mark of about five percent.
-2026-09-03	2023	Dividing the frequencies out of the reading compresses every distance toward the average and does not separate script from structure.
-2026-09-03	2044	A writer is found at the word and not at the character, which is the same split the languages showed one level down.
-2026-09-03	2066	Every language carries more than one reading per written word, and a walk through a sentence multiplies possibilities and cannot collapse.
-2026-09-03	2078	The prediction that went with this was backwards and the correction is the finding.
-2026-09-03	2090	Words for sounds follow the border and not the family.
-2026-09-03	2112	Read as sounds instead of letters the pattern holds and the effect halves.
-2026-09-03	2131	The families survive losing the alphabet entirely, and the claim below that they do not is wrong.
-2026-09-03	2146	Most of what this reading calls naming a language is matching an alphabet.
-2026-09-03	2172	Mining the field's own settings for language constants does not work from abstracts, and the first result that looked like it worked was noise.
-2026-09-03	2193	Run against every task here, the square wins two of four by margins the size of the noise, and the character frequencies alone come within three points of it.
-2026-09-03	2212	Twenty one numbers do what four thousand were doing.
-2026-09-03	2232	Cut down to two symbols the relationship still shows, and what is left is word length.
-2026-09-03	2251	The one clean success was challenged on its spelling and survived.
-2026-09-03	2264	Given a close pair with nothing in the way, the reading finds it, and that fixes how far it reaches.
-2026-09-02	2285	With the language held fixed and only the characters changed, the reading moves by twice what changing nothing moves, and where a text came from moves it more than either.
-2026-09-03	2309	A family separated by an ocean is found, and the same test loses a relative three times older, which puts the depth limit on both sides of one run.
-2026-09-02	2329	On the family built to tell descent from contact, the reading follows contact.
-2026-09-02	2352	On a family whose branchings are ordered, the reading returns the opposite of the family, and that weakens the European result badly.
-2026-09-02	2376	The inversion was untranslated English in the files, and cutting each to its own script brings the family back.
-2026-09-02	2392	What remains after cleaning is real and is about the writing.
-2026-09-02	2423	Grouping the languages by those squares returns the families, and the tree it is scored against is argued and not measured.
-2026-09-02	2431	Greek sitting nearest Hebrew was called a script artifact here and it is neither an artifact nor a miss.
-2026-09-02	2439	One of the four Greek texts is a Greek to English lexicon and had been standing in every Greek reading in this work.
-2026-09-02	2453	The generated corpora mostly stay outside the languages and the kinds are not cleanly separated.
-2026-09-02	2469	No quantity measured here identifies a language, and the coefficient is among the weaker ones at it.
-2026-09-02	2491	Reading the alphabetic languages at word width makes it worse, and what it separates them by is morphology.
-2026-09-02	2502	The coefficient only becomes a property of the corpus once it is taken at the numbering it converges to.
-2026-09-02	2522	The spread of the values is the whole of it, and the generating parameters reach the result only through that one number.
-2026-09-02	2545	A protein represented by its bonds in assembly order returns the chemistry, and two earlier representations of the same molecules returned nothing because each discarded the thing that carries it.
-2026-09-02	2561	The reader used everywhere else in this work cannot see that period, and the reason is structural.
-2026-09-02	2580	It does not work on proteins, and the prediction that it would was wrong.
-2026-09-02	2601	What the interleaved curve loses is what carries the count, and the two are the same property.
-2026-09-02	2621	The ordering is stable under a sixteenfold coarsening, at rho 0.893, so it is not a reading of the sampling.
-2026-09-02	2628	Print the content and not only the statistic. Proofed as an audit, upheld, and it demonstrated itself on its own output.
-2026-09-02	2644	The quantities here are heavy tailed by default, and a mean and a deviation need the distribution checked first. Proofed on the core measure, upheld in practice and wrong in its description.
-2026-09-02	2657	The shape of that distribution is itself a second detector.
-2026-09-02	2662	A negative control cannot show that an instrument works. Proofed, and it passes for one of the two instruments here.
-2026-09-02	2673	The quantization does not lose the parameter, it moves it into the ratio between two lags.
-2026-09-02	2691	A quantity that fails to conserve under a change that should not move it indicates the instrument and not the domain. Proofed as a battery, and it earns its keep.
-2026-09-02	2707	The wrong expectation.
-2026-09-02	2715	The symbol width has to match the scale of the structure being looked for. Proofed and refined, and it corrects two earlier diagnoses.
-2026-09-04	2734	Derivative work should sit closer to the center than original work does, and that is a different claim from the human signature this document refuted. Posited and untested.
-2026-09-04	2754	Why the nearest measurement here does not settle it either way.
-2026-09-04	2763	It is not a claim about text.
-2026-09-04	2793	A reading is undetermined until its partition is fixed, in any dimension and in any state, and a partition is fixed in one of three ways.
-2026-09-04	2815	Where this already exists and it is not the quantum reading.
-2026-09-04	2839	The confound that would produce a false result, also from this document.
-2026-09-04	2847	What would settle it, and the design is already in this document.
-2026-09-02	2861	A spatially correlated domain of more than one dimension.
-2026-09-02	2866	The mechanism of the product rule failure, since the obvious candidate is refuted.
-2026-09-02	2876	Which anchor rule to prefer, as a curve and not two points.
-2026-09-02	2884	Whether the memoryless control is enough of a null for the heterogeneity result.
-2026-09-02	2888	Whether subject heterogeneity predicts anything about anchor quality.
-2026-09-02	2894	Baeza-Yates and Régnier, average running time of Boyer-Moore-Horspool.
-2026-09-02	2898	The filtration literature in approximate string matching, which is the closer prior art and is blocked.
-2026-09-02	2905	The approximate membership literature, for a contract this work shares and did not invent.
-2026-09-02	2914	A structured system that no person produced.
-2026-09-02	2919	Lemmatized text.
-2026-09-02	2923	A corpus series matched for form and densely sampled.
-2026-09-02	2928	The site reports behind Section 4.13.08.
-2026-09-02	2932	Separating the count of subjects from the distance between them.
-2026-09-02	2936	Section 7.2 and Section 7.3 are in the wrong order in the paper.
-2026-09-02	2942	Vishkin's dueling paradigm and deterministic sampling, from Neuburger's survey.
-2026-09-02	2946	What that citation should not be stretched to cover.
-2026-09-04	2955	Jaynes, Information Theory and Statistical Mechanics, Physical Review 106(4):620-630, May 15 1957.
-2026-09-04	2963	What the reading corrected.
-2026-09-02	2970	Parrondo, Horowitz and Sagawa, Thermodynamics of information.
-2026-09-02	2976	The Sproat and Rao exchange on entropy and the Indus script, all four items in full.
-2026-09-02	2985	What that reading cost.
-2026-09-02	2995	Montemurro and Zanette on the entropy of word ordering, PLoS ONE 6(5):e19875, 2011.
-2026-09-02	3003	The Natural Semantic Metalanguage prime inventory, read as the published chart of 65.
-2026-09-02	3011	The published corpus of cryptographic oracles.
-2026-09-02	3014	Comparison against more published entropy estimators.
-2026-09-02	3019	A genuinely unenumerable alphabet.
-2026-09-02	3022	Whether the invariant results are evidence for anything.
-2026-09-02	3026	What the surviving statistic actually detects.
-2026-09-02	3035	Making `ancorae` instantiable.
-2026-09-02	3040	The praet and DMA integration.
-2026-09-02	3044	Audience for the paper.
+2026-09-02	31	No completeness.
+2026-09-02	34	Three corollaries.
+2026-09-02	37	Collision entropy is permutation invariant, so it cannot detect an arrangement.
+2026-09-02	44	What is derivable here and what is not falls exactly on the line between the two propositions.
+2026-09-02	61	The shuffle is the maximum entropy background, which is why it cannot be wrong.
+2026-09-04	66	Exactly one distribution maximizes entropy under a given constraint, and that is where the finality comes from.
+2026-09-02	76	The maximum entropy domain is the best case for this filter, so $2^{-H_2}$ per anchor is a floor.
+2026-09-02	88	It is also the largest difference obtainable.
+2026-09-02	107	Ownership of the three guarantees.
+2026-09-02	144	Collision entropy is close to a constant for a language, so the quantities derived from it are too.
+2026-09-02	161	It does not survive a change of source, so it is not a property of the language.
+2026-09-02	174	Corruption is detectable from the histogram, and windowing the histogram locates it.
+2026-09-02	190	The same sieve runs at every window and does not stop where the estimator breaks.
+2026-09-02	199	An unnamed quantity in the halving ladder.
+2026-09-02	252	How many anchors to place is the log of the domain in the effective alphabet.
+2026-09-02	260	The cut per anchor is the constant Section 4.4 names, checked without fitting.
+2026-09-02	268	A language carries constants of its own, and the arrangement measure is not one of them.
+2026-09-02	288	That finding is published and belongs to Montemurro and Zanette.
+2026-09-02	300	The rare half also departs from the null on a second source and in four more language families.
+2026-09-02	311	The published semantic primes are not the frequent half, and they divide along the same line it does.
+2026-09-02	329	The rare half departs from the null in every kind of writing, and the frequent half does not.
+2026-09-02	343	Folding line endings is right for prose and wrong for source, and it moved one measure and not the other.
+2026-09-02	355	In a formal language the human layer is measurable because it is definitionally what the compiler discards.
+2026-09-02	363	The case channel is community convention and it does not separate formal languages from prose.
+2026-09-02	373	The language labels on that source are not reliable and the ones carrying findings were checked.
+2026-09-02	383	VHDL is the strongest case of a convention with no machine content, because the language cannot see it.
+2026-09-02	395	The control that was missing all along: a structured domain with no author and no selection.
+2026-09-02	409	Nor is the signature human, on the fairest comparison available.
+2026-09-04	426	The slice was wrong for a vocalization and correcting it changes the answer.
+2026-09-02	438	The band where much animal communication happens is absent from the recordings by construction.
+2026-09-02	447	Recorded for the band instead of despite it, the blue whale is the furthest from the null of anything measured here.
+2026-09-02	468	On a continuous irregular domain the construction as implemented finds nothing, and the matcher is why.
+2026-09-02	490	Corrected, it works, and the correction took two steps because the first null deleted the wrong property.
+2026-09-02	501	The reading of that result is wrong and the proof of it refuted the rule it produced.
+2026-09-02	520	A picture read as a sequence returns its own width, and the construction was already written for it.
+2026-09-02	541	On a board layout the same residue is a grid setting, and it separates two tool communities.
+2026-09-02	565	What survives that correction in the frequent half is formatting.
+2026-09-02	571	The cell rarest rule holds across kinds of writing.
+2026-09-02	577	The product rule error is a measurement and not only a defect.
+2026-09-02	584	The best filter measured is the rarest symbol inside each cell, and it is not the rule in use.
+2026-09-02	593	The product rule fails in the tail and not in the middle, and reporting it as a mean hid that.
+2026-09-02	601	Sizing from the measured pair helps the tail and not the typical case.
+2026-09-02	609	The sizing error distribution, by quantile, and what a buffer would have to hold.
+2026-09-02	625	What cell selection buys has a peak and then gives it all back.
+2026-09-02	631	The tail is the needle recurring in the corpus, and placement does not reach it.
+2026-09-02	638	There are two structure meters here operating at different spans, and they agree.
+2026-09-02	647	Collision entropy cannot see structure, which is why the null had to exist.
+2026-09-02	653	Predicting the aggregate rate and predicting one search are different problems.
+2026-09-02	658	The product rule is accurate where it does not matter and wrong where it is needed.
+2026-09-02	663	Where the anchors are placed changes the sizing more than which symbols they are.
+2026-09-02	671	On a perfectly periodic domain the placement rule stops mattering.
+2026-09-02	677	How far a vocabulary spreads across subjects is measurable, and it is the one scale here with resolved bands.
+2026-09-02	691	A cipher cannot remove what this measure reads unless it spends key equal to the message.
+2026-09-02	700	Subsampling attenuates by a known factor.
+2026-09-02	706	One quantity does three jobs.
+2026-09-02	709	Five instruments agree on the zero information object, and that is one assumption held five times.
+2026-09-02	716	The symbol width was never justified and it is not free.
+2026-09-02	736	No drift rate was obtained, over three designs that each lost to a different confound.
+2026-09-02	745	What that work did establish is a floor and a ceiling with nothing between them.
+2026-09-02	751	The pattern across all seven is one sentence.
+2026-09-02	755	Said as state: one entry is a table walk and six are memory.
+2026-09-04	764	Why the center of mass row loses, and it is the equilibrium argument arriving from the other side.
+2026-09-04	792	Where the constant is given, the method works immediately, and that is what separates chemistry from language here.
+2026-09-04	807	Where the substrate is indifferent, the whole of the departure from maximum entropy is intention, and three measurements in this document are that one measurement.
+2026-09-04	840	Said in one line: ask a question loaded with what you are certain of, and read what comes back.
+2026-09-04	848	What is universal here is the soundness, and it is universal because it is deductive. What is not universal is the reading, and that is Proposition 2.
+2026-09-04	878	A thermodynamic argument for universal yield is available and it is about the wrong system.
+2026-09-04	888	The span across domains is the claim, and it is one construction and not a family of them.
+2026-09-04	913	On telling a human apart, the refuted claim and the supported one are not the same claim, and conflating them understates what is here.
+2026-09-04	930	Which means the signature is read as an inverse, and reading it any other way is reading the center.
+2026-09-04	949	A lattice is measured and a protein is measured, and they are not the same result.
+2026-09-04	957	Real crystals are read exactly, with published ground truth, and that is the strongest row here.
+2026-09-04	967	A protein and a crystal are the same object to this construction, and the difference in the two results is the instrument and not the domain.
+2026-09-04	985	Why it crosses the physical and the conceptual is the center-of-mass argument, and that is the whole of the mechanism.
+2026-09-04	1005	Posit: the departure has a band, and a master works inside it.
+2026-09-04	1020	They found it without any of this, which is the part that makes it worth recording.
+2026-09-04	1042	A symbol a bad digitization dropped is recoverable from the distribution, and the document supplies its own answer key.
+2026-09-04	1056	Inconsistent damage corrects itself and systematic damage does not, and that is the whole of when this works.
+2026-09-04	1077	Two things that follow and that nobody has run.
+2026-09-04	1097	Partial knowledge of the boundaries is enough, and that is Proposition 1 and not a new claim.
+2026-09-02	1110	Where the one winning mechanism breaks, and why it is the same mechanism.
+2026-09-02	1118	Where to branch between the two arrangements is derivable and lands at the effective alphabet.
+2026-09-02	1135	That makes the branch decidable at run time from two cheap numbers.
+2026-09-02	1140	The advantage between the two arrangements has a minimum and a maximum, both measured.
+2026-09-02	1151	The needle is drawn from the corpus, so the benchmark answers an easier question than the one posed.
+2026-09-02	1161	Correctness is measured in thirteen geometries and speed in one, and that one is the dominated case.
+2026-09-02	1173	Why the rare anchor loses on a line.
+2026-09-02	1180	The vectorized cost model, measured and much smaller than derived.
+2026-09-02	1185	A long search is verification bound.
+2026-09-02	1191	Both propositions are now measurements and not only arguments.
+2026-09-02	1198	The one directional error is a control signal.
+2026-09-02	1203	A threshold on shift agreement needs a permutation null and not a formula.
+2026-09-02	1209	The Finnish outlier was a genre confound of mine, not agglutination.
+2026-09-02	1216	The symbol width was chosen by habit, and a Greek text is where that showed.
+2026-09-02	1222	Vocabulary compression separates a translation from a composition.
+2026-09-02	1227	Exact matching cannot see an inflected formula, so epic register went undetected.
+2026-09-02	1232	The most regular thing in a text file is almost never the language.
+2026-09-02	1237	A boundary has to be regular enough to find and irregular enough to locate with.
+2026-09-02	1244	The pattern free detector finds periodicity and nothing else.
+2026-09-02	1248	A stride calibrated on one known pattern does not transfer.
+2026-09-02	1256	The failure was not where it was flagged.
+2026-09-02	1313	A constructed null deletes one property and it has to be the one being asked about. Proofed and refuted.
+2026-09-02	1331	Two instruments are in use here and they keep being reported as one.
+2026-09-02	1340	One representation for every corpus, reduced by a sum over vectors. Built, run over 273 corpora, and it does not replace the shift detector.
+2026-09-02	1359	The volume has no dimension to assign, and assigning one was the defect behind the picture failure.
+2026-09-02	1374	The numbering given to the symbols was suspected and cleared, except on pictures where it is the point.
+2026-09-02	1381	The two instruments are not measuring one quantity, and that part is settled by construction and not by a number.
+2026-09-02	1388	The explanation offered for that split was wrong and its own test refuted it.
+2026-09-02	1395	What singles those corpora out is how long they stay near a value, not how small their steps are.
+2026-09-02	1417	Abruptness orders the magnitude inside art and inverts outside it, at rho 0.786 over seven paintings, which is not enough paintings.
+2026-09-02	1435	The high frequency part of a painting was called camera noise and it is not, which reverses the conclusion drawn from it.
+2026-09-02	1445	The exponent of the power against frequency is the first quantity here that holds still, and every earlier statistic had a scale inside it.
+2026-09-02	1461	A plane goes through one dimension when the coordinates are interleaved, and the exponent halves.
+2026-09-02	1471	The squashing works at any number of dimensions, and it was checked against fields whose exponent was put in by hand.
+2026-09-02	1492	Under half of that shortfall belongs to the curve and the rest is what one dimension cannot hold.
+2026-09-02	1501	A line through a set carries how many dimensions the set has, and it took two failures to measure it.
+2026-09-02	1520	The exponent identifies a family and rebuilds nothing, which is this document's own first proposition turning up as a measurement.
+2026-09-02	1534	Saying that where each frequency sits costs as much as the set was too strong, and it confused needing every angle with needing every angle exactly.
+2026-09-02	1553	Text has no approximate representation at all, and the three bit result on pictures does not carry to it.
+2026-09-02	1564	Quoting the coefficient in levels compares alphabets and not languages, and dividing by the range each alphabet occupies is what makes them comparable.
+2026-09-02	1583	Which symbol follows which identifies a language where every scalar failed, and its mistakes are the language families.
+2026-09-02	1592	Whether the information in a text closes at a finite order is not settled here, and the reading that appeared to settle it was measuring its own sample size.
+2026-09-02	1609	What a text gains at each distance describes the text and not the language, and it is twice as much a property of where the text came from.
+2026-09-02	1632	Read by matching instead of by counting, the text has not closed at a quarter of a million characters.
+2026-09-02	1649	That null was the wrong one for the question and the right one gives the same answer.
+2026-09-02	1675	Where the reading stops working is now measured instead of guessed, because the shuffle has an answer that is arithmetic.
+2026-09-02	1701	A dirty corpus does not give a slightly wrong answer, it gives a confidently inverted one, and it has happened twice here.
+2026-09-03	1718	The best test here was assembled out of the failures before it and could not have been designed first.
+2026-09-02	1736	Every bound put on a quantity in this work has had to be taken back off, and the reading improved each time it was.
+2026-09-02	1761	The reading belongs to the language by a margin of about seven percent, and this bounds every language result in this document.
+2026-09-02	1778	Being a procedure leaves no mark here that being formally written does not already leave.
+2026-09-03	1799	Every negative result in this section is ambiguous in a way the positives are not, and they have all been written as though they were not.
+2026-09-03	1815	The oldest continuous language traditions on earth are outside this work entirely, and two separate things put them there.
+2026-09-02	1831	Everything measured in this work is the writing of people who were taught to write.
+2026-09-02	1838	Matched across two works that share nothing, what survives is the family and not the language.
+2026-09-02	1855	Every cross language reading in this work compared different books, and holding the content fixed turns out to cost the family result almost nothing.
+2026-09-02	1878	One binary alphabet carries every script at a small cost, once the codes line up with the characters.
+2026-09-02	1896	Comparing the binary webs at one width compared different resolutions against each other, and reading every width at once recovers half of what that cost.
+2026-09-02	1914	It is not sound enough to be a first pass, which is what it was reached for.
+2026-09-03	1927	Of what separates two German books, the author is worth 11 percent, the century 1 percent, and the book itself 88.
+2026-09-03	1937	The reading is not one reading, because a character is a morpheme in some writing and a fragment of one in the rest.
+2026-09-03	1954	Tone is the first thing measured here that clears the floor everything else sank under.
+2026-09-03	1972	Repeated outside the family, the decomposition holds.
+2026-09-03	1981	Three numbers beat four thousand at finding a Japanese writer, by nearly five to one.
+2026-09-03	1991	Every structural result in this section was measured on one branch of one family.
+2026-09-03	2004	Across three centuries of one language, with dates nobody here chose, time leaves a mark of about five percent.
+2026-09-03	2024	Dividing the frequencies out of the reading compresses every distance toward the average and does not separate script from structure.
+2026-09-03	2045	A writer is found at the word and not at the character, which is the same split the languages showed one level down.
+2026-09-03	2067	Every language carries more than one reading per written word, and a walk through a sentence multiplies possibilities and cannot collapse.
+2026-09-03	2079	The prediction that went with this was backwards and the correction is the finding.
+2026-09-03	2091	Words for sounds follow the border and not the family.
+2026-09-03	2113	Read as sounds instead of letters the pattern holds and the effect halves.
+2026-09-03	2132	The families survive losing the alphabet entirely, and the claim below that they do not is wrong.
+2026-09-03	2147	Most of what this reading calls naming a language is matching an alphabet.
+2026-09-03	2173	Mining the field's own settings for language constants does not work from abstracts, and the first result that looked like it worked was noise.
+2026-09-03	2194	Run against every task here, the square wins two of four by margins the size of the noise, and the character frequencies alone come within three points of it.
+2026-09-03	2213	Twenty one numbers do what four thousand were doing.
+2026-09-03	2233	Cut down to two symbols the relationship still shows, and what is left is word length.
+2026-09-03	2252	The one clean success was challenged on its spelling and survived.
+2026-09-03	2265	Given a close pair with nothing in the way, the reading finds it, and that fixes how far it reaches.
+2026-09-02	2286	With the language held fixed and only the characters changed, the reading moves by twice what changing nothing moves, and where a text came from moves it more than either.
+2026-09-03	2310	A family separated by an ocean is found, and the same test loses a relative three times older, which puts the depth limit on both sides of one run.
+2026-09-02	2330	On the family built to tell descent from contact, the reading follows contact.
+2026-09-02	2353	On a family whose branchings are ordered, the reading returns the opposite of the family, and that weakens the European result badly.
+2026-09-02	2377	The inversion was untranslated English in the files, and cutting each to its own script brings the family back.
+2026-09-02	2393	What remains after cleaning is real and is about the writing.
+2026-09-02	2424	Grouping the languages by those squares returns the families, and the tree it is scored against is argued and not measured.
+2026-09-02	2432	Greek sitting nearest Hebrew was called a script artifact here and it is neither an artifact nor a miss.
+2026-09-02	2440	One of the four Greek texts is a Greek to English lexicon and had been standing in every Greek reading in this work.
+2026-09-02	2454	The generated corpora mostly stay outside the languages and the kinds are not cleanly separated.
+2026-09-02	2470	No quantity measured here identifies a language, and the coefficient is among the weaker ones at it.
+2026-09-02	2492	Reading the alphabetic languages at word width makes it worse, and what it separates them by is morphology.
+2026-09-02	2503	The coefficient only becomes a property of the corpus once it is taken at the numbering it converges to.
+2026-09-02	2523	The spread of the values is the whole of it, and the generating parameters reach the result only through that one number.
+2026-09-02	2546	A protein represented by its bonds in assembly order returns the chemistry, and two earlier representations of the same molecules returned nothing because each discarded the thing that carries it.
+2026-09-02	2562	The reader used everywhere else in this work cannot see that period, and the reason is structural.
+2026-09-02	2581	It does not work on proteins, and the prediction that it would was wrong.
+2026-09-02	2602	What the interleaved curve loses is what carries the count, and the two are the same property.
+2026-09-02	2622	The ordering is stable under a sixteenfold coarsening, at rho 0.893, so it is not a reading of the sampling.
+2026-09-02	2629	Print the content and not only the statistic. Proofed as an audit, upheld, and it demonstrated itself on its own output.
+2026-09-02	2645	The quantities here are heavy tailed by default, and a mean and a deviation need the distribution checked first. Proofed on the core measure, upheld in practice and wrong in its description.
+2026-09-02	2658	The shape of that distribution is itself a second detector.
+2026-09-02	2663	A negative control cannot show that an instrument works. Proofed, and it passes for one of the two instruments here.
+2026-09-02	2674	The quantization does not lose the parameter, it moves it into the ratio between two lags.
+2026-09-02	2692	A quantity that fails to conserve under a change that should not move it indicates the instrument and not the domain. Proofed as a battery, and it earns its keep.
+2026-09-02	2708	The wrong expectation.
+2026-09-02	2716	The symbol width has to match the scale of the structure being looked for. Proofed and refined, and it corrects two earlier diagnoses.
+2026-09-04	2735	Derivative work should sit closer to the center than original work does, and that is a different claim from the human signature this document refuted. Posited and untested.
+2026-09-04	2755	Why the nearest measurement here does not settle it either way.
+2026-09-04	2764	It is not a claim about text.
+2026-09-04	2794	A reading is undetermined until its partition is fixed, in any dimension and in any state, and a partition is fixed in one of three ways.
+2026-09-04	2816	Where this already exists.
+2026-09-04	2837	The confound that would produce a false result, also from this document.
+2026-09-04	2845	What would settle it, and the design is already in this document.
+2026-09-02	2859	A spatially correlated domain of more than one dimension.
+2026-09-02	2864	The mechanism of the product rule failure, since the obvious candidate is refuted.
+2026-09-02	2874	Which anchor rule to prefer, as a curve and not two points.
+2026-09-02	2882	Whether the memoryless control is enough of a null for the heterogeneity result.
+2026-09-02	2886	Whether subject heterogeneity predicts anything about anchor quality.
+2026-09-02	2892	Baeza-Yates and Régnier, average running time of Boyer-Moore-Horspool.
+2026-09-02	2896	The filtration literature in approximate string matching, which is the closer prior art and is blocked.
+2026-09-02	2903	The approximate membership literature, for a contract this work shares and did not invent.
+2026-09-02	2912	A structured system that no person produced.
+2026-09-02	2917	Lemmatized text.
+2026-09-02	2921	A corpus series matched for form and densely sampled.
+2026-09-02	2926	The site reports behind Section 4.13.08.
+2026-09-02	2930	Separating the count of subjects from the distance between them.
+2026-09-02	2934	Section 7.2 and Section 7.3 are in the wrong order in the paper.
+2026-09-02	2940	Vishkin's dueling paradigm and deterministic sampling, from Neuburger's survey.
+2026-09-02	2944	What that citation should not be stretched to cover.
+2026-09-04	2953	Jaynes, Information Theory and Statistical Mechanics, Physical Review 106(4):620-630, May 15 1957.
+2026-09-04	2961	What the reading corrected.
+2026-09-02	2968	Parrondo, Horowitz and Sagawa, Thermodynamics of information.
+2026-09-02	2974	The Sproat and Rao exchange on entropy and the Indus script, all four items in full.
+2026-09-02	2983	What that reading cost.
+2026-09-02	2993	Montemurro and Zanette on the entropy of word ordering, PLoS ONE 6(5):e19875, 2011.
+2026-09-02	3001	The Natural Semantic Metalanguage prime inventory, read as the published chart of 65.
+2026-09-02	3009	The published corpus of cryptographic oracles.
+2026-09-02	3012	Comparison against more published entropy estimators.
+2026-09-02	3017	A genuinely unenumerable alphabet.
+2026-09-02	3020	Whether the invariant results are evidence for anything.
+2026-09-02	3024	What the surviving statistic actually detects.
+2026-09-02	3033	Making `ancorae` instantiable.
+2026-09-02	3038	The praet and DMA integration.
+2026-09-02	3042	Audience for the paper.

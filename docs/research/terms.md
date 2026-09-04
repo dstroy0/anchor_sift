@@ -43,26 +43,6 @@ The departure is a distance from a measured state to its own maximum entropy sta
 
 That correspondence does not carry down to the individual statistics, and assuming it does is a recorded error. **Relative entropy**, also called **Kullback-Leibler divergence** and written `D(p‖q)`, is the field's name for a distance between two distributions. The ledger records at Section 4.3.1 that the quantity governing an anchor measure's worth is not one of those. What the tools compute is a dispersion of gaps against a permutation null, or a standardized residual against pooled counts flattened to maximum entropy. Both are departures from a maximum entropy reference and neither is a relative entropy, and calling them one imports properties they do not have.
 
-## Translations from the working vocabulary
-
-The research was thought in one vocabulary and is written in another. This table holds the pairs, so a reader who meets the working phrasing in a note or a commit can find the claim it became, and so the renderings can be checked instead of taken on trust.
-
-Two rows are corrections and not translations. They are marked, because in those the claim changed and not only the wording.
-
-| working phrasing | as written here | note |
-|---|---|---|
-| ask the universe a question loaded with what you are certain of | maximizing entropy under the constraints the object supplies | Jaynes's principle |
-| the constant we orbit | the null, or the reference distribution | |
-| the delta, the departure | the distance from a state to its maximum entropy state under the same constraint | equal to the free energy above equilibrium |
-| set, measured, observed | stipulated, estimated, supervised | a modeling choice, an estimate, ground truth |
-| superposition, imaginary until measured | partition dependence | classical, and not the quantum sense |
-| any medium is a point cloud of vectors and magnitudes | points carrying values, which is what the invariant is stated over | dimensions one to eight, no alphabet |
-| an infinite sieve | a cascade of necessary conditions | sound by Proposition 1, incomplete by Proposition 2 |
-| the nand of bits | functionally complete over necessary-condition filters | not over search generally, since a shift table is not a filter |
-| escape velocity | the radius past which a reconstruction leaves the subject | kept, because the mechanism is stated beside it |
-| **correction:** infinite information | finite, bounded by $\log N$ at any fixed scale | inexhaustible across scales, not unbounded at one |
-| **correction:** entropy is the death of information | maximum entropy is the death of mutual information | Shannon entropy is at its maximum there, not its minimum |
-
 ## The two instruments
 
 These are not synonyms and the ledger's rows are not interchangeable between them. Both are the same construction under Proposition 1.
