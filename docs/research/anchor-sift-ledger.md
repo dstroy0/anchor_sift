@@ -414,6 +414,47 @@ those marginals, which fixes the counts only in expectation. The two agree in th
 finite length. This document uses the first as its null and the second as its control without
 recording anywhere that they differ, and no row here is known to turn on the difference.
 
+**The field's name for the validity half is distribution-free, and that name bounds how far it has to
+be checked.** A permutation null is drawn by relabeling the sample it was handed, so the reference
+rests on exchangeability and takes nothing from whatever process produced the sample. The level of the
+test therefore holds for all source distributions at once, and the statistical term for that property
+is distribution-free, or nonparametric. The shuffle entry above reaches the same reference from the
+other side. A background asserting nothing past the observed counts holds against any source
+distribution.
+
+The question of whether it works here, and then on all corpora of the same kind, has two halves, and
+this is the half with its answer already in hand. There is nothing to check per corpus, because the
+quantifier was discharged by proof before any corpus was read, and that proof is Fisher's from 1935,
+recorded below under the wider version of the same correction. A hundred agreeing corpora carry the
+weight of one, since the property was in doubt on none of them.
+
+It covers the source and it stops at the partition. The reference is exact once the parts are fixed,
+and fixing them is a separate act with an entry of its own below, where a domain built to carry
+structure at one scale reads 0.117 at every width dividing that scale and 0.450 at every width coprime
+to it. Which of those two numbers a reader is holding is settled by the partition, and being
+distribution-free does not reach that choice.
+
+**The reach has no such proof, and closing it is years of work with no shortcut in it.** Proposition 2
+already sets the division. Soundness belongs to the construction and cost belongs to the domain's
+distribution. This document holds the rows where the construction is sound and reads nothing, a
+memoryless corpus at 1.00 and the digits of the square root of two at 1.00. A claim covering a whole
+kind of object is therefore empirical, quantified over a set nobody has enumerated, and no run of any
+length settles it.
+
+The span table is ten measurements. An eleventh raises the count and moves the quantifier no distance,
+because each row is an instance of the same kind of evidence as the row above it. Getting from ten
+instances to a statement about a domain takes a controlled series inside that domain with an outside
+answer attached, which the doped lattice posit below sets out for one domain, where the arithmetic is
+free and obtaining the point cloud is the expense. Ten domains held to that standard is a program of
+years, and no arrangement of the existing rows shortens it.
+
+How it reads is worth recording beside the arithmetic. Ten domains under one construction already
+strains a reader before they reach the caveats, and a row added at the current standard strains it
+further while supplying no more support than the last one did. The two halves therefore go over
+separately. The level is distribution-free and proved, and the reach is a list of measurements each
+carrying its own floor. Handed over together they read as a claim of universal yield, which the 1.00
+rows in this document refute.
+
 **The maximum entropy domain is the best case for this filter, so $2^{-H_2}$ per anchor is a floor.** A
 filter that selects on symbol rarity reads only the marginals, so an arrangement can add correlated hits
 and cannot make the marginals more informative than independence already makes them. Structure therefore
