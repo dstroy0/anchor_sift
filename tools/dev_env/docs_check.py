@@ -21,6 +21,10 @@ import sys
 BANNED = (
     r"\brather\b",
     r"\badd up\b",
+    # Named by hand. The X-not-Y shape is banned generally by the writing standard and permitted
+    # where a reader would otherwise land on the wrong one, which no regex can tell apart. This is
+    # the instance that was called out, and the list grows one phrase at a time for that reason.
+    r"cost and not a defect",
     r"\bso a\b",
     r"load-bearing",
     r"\blabelled\b",
