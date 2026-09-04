@@ -31,8 +31,9 @@ BANNED = (
     r"\bcentre\b",
     r"\bwhilst\b",
     r"\bamongst\b",
-    r"\borganis",
-    r"\banalyse\b",
+    # Bounded to the verb and its forms. A bare \borganis also matches organism, which is a word.
+    r"\borganis(e|es|ed|ing|ation|ations)\b",
+    r"\banalyse(s|d)?\b",
 )
 
 EM_DASH = "—"

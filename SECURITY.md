@@ -1,55 +1,47 @@
-# Security {#proj_security}
+# Security
 
-## What this library is responsible for
+**Purpose:** Know what this repository is responsible for, what it is not, and where to report something.
+**Scope:** `bench/kernel/`, `bench/driver/`, `tools/dev_env/`, `ports/`
 
-MMgr hands out bounded views over storage a caller supplied. Its security properties are therefore
-narrow and worth stating exactly, because the gap between what it does and what a reader assumes it
-does is where the bugs live.
+## What is here
 
-**It does bound its own reads and writes.** Every entry takes a capacity or a read cap and stops
-there. A span that runs out of room latches `overflow` and keeps latching it; a short read latches
-`err`. Neither is cleared by a later call, so a long run of appends is checked once at the end
-rather than after every one.
+A search kernel in C11, a driver that times it, Python tools that fetch and read published papers, and two ports of one statistic. There is no server, no daemon, no network listener and no persistent state. Nothing here runs unattended.
 
-**It does zero secrets on request.** `occult.wipe()` writes through a `volatile` word pointer, so
-the store cannot be optimized away the way a plain `memset` before a free can be. That is the only
-thing in the library that promises a value is actually gone from memory.
+## The kernel
 
-**It checks its extents at the declaration, not at run time.** A cellblock is declared, never
-initialized: the pool macro emits the storage and its alignment, `LocusCarcerum(name, ...)` emits the
-state as data, and no call inspects a base and a length while the program runs.
+`bench/kernel/anchor_sift.c` holds four search arms and a dispatcher.
 
-A cellblock can no longer disagree with the storage behind it, because both come from the same
-declaration. The pool asserts its own `sizeof` against the byte count it was handed, and
-`MMGR_CARCER_BODY` asserts the same `sizeof` is a power of two and holds at least one cell. A
-mismatch fails the build.
+**Every arm is sound and none is defensive.** A subset of a pattern's points is a necessary condition, so no arm can lose a true occurrence, and that is a proof and not a check. What no arm does is validate its arguments: `corpus`, `needle` and their lengths are used as given, with no null test and no overflow test on `corpus_len` or `needle_len`. It is bench code called from a driver that builds its own inputs.
 
-What is still taken as written is everything reached through a pointer the library did not hand out.
-An address the caller supplies is used as given.
+**Do not put it behind untrusted input without bounding the call first.** A `needle_len` larger than `corpus_len` is handled, a `needle_len` of zero is not, and neither pointer is checked. If you reach for this from somewhere that takes input from outside, the bounds check is yours to add and belongs at your boundary.
 
-**It does not protect against a caller holding a stale pointer.** Interim storage is released by
-mark, not by pointer. Nothing is reallocated and nothing moves, so a pointer handed out after a mark
-is dead the moment that mark is released - and it still points at readable memory.
+**The dispatcher chooses speed and never correctness.** `anchor_sift_choose` returns an arm, every arm returns the same count, and a wrong choice costs cycles. A dispatch defect cannot produce a wrong answer.
 
-**It is not concurrent, and there is no knob that makes it so.** There is no synchronization
-anywhere in the allocator because there is nothing to synchronize: a region is a pointer, an extent
-and two offsets, used by whoever holds it, and two contexts that must not share get two regions. The
-lock-free ring in `memoria_anularis` is the one concurrent part, it is single-producer
-single-consumer, and it is not safe for more.
+## The Python tools
 
-## Hardening the build
+**They reach the network.** `tools/dev_env/Salishan/get_papers.py` fetches from a public archive and is the only thing here that opens a socket. It identifies itself by name and purpose in its user agent. Nothing else in the tree fetches anything.
 
-Set `MMGR_DEBUG_CHECKS=1` and point `MMGR_ASSERT` at something that aborts. That is the `checks`
-environment, and it is a real gate rather than a decoration: it compiles in the contract asserts, so
-a violated precondition fails a test rather than being a no-op nobody notices. Run it in CI, not
-just locally.
+**They parse PDFs.** The readers run `pypdf` and `pypdfium2` over files downloaded from the web, which is a real parser surface and it is not this work's parser. Keep those dependencies current, and treat a PDF from anywhere else the way you would treat any untrusted document.
+
+**They write only under `build/`.** No tool writes outside it except the generators that emit documentation, and those write to fixed paths under `docs/`.
+
+## The vendored library
+
+`bench/deps/` is [MMgr](https://github.com/dstroy0/MMgr), vendored so the kernel builds standalone, and it keeps its own attribution. Its security properties are its own and are documented in that repository. Nothing here extends or restates them.
+
+## The concern that is not a vulnerability
+
+The largest risk this work carries is not a memory bug. **The tools can regenerate language and can produce predictive speech**, and regeneration stays faithful near the subject and escapes it with distance, with nothing marking where that happens. Output taken from past that boundary and presented as somebody's language is the harm, and for a language with few remaining speakers it is not recoverable.
+
+**A tool for language that comes out of this work requires a human to review its output.** That is a condition of use. If you find this work being run without one, that is worth reporting here even though no CVE describes it.
 
 ## Reporting
 
-Open a private security advisory at
-<https://github.com/dstroy0/MMgr/security/advisories/new>, or e-mail dquigg123@gmail.com. Please
-include the environment (`host`, `word32`, `word16`, `idx16`, `checks`), the compiler, and the
-smallest input that shows the behavior.
+Open a private security advisory at <https://github.com/dstroy0/anchor_sift/security/advisories/new>, or email dquigg123@gmail.com.
 
-This is a pre-1.0 library maintained by one person. There is no patch SLA. Fixes land on `main` and
-are noted in @ref proj_changelog.
+For a defect in the kernel, include the compiler, the corpus and needle that show it, and whether `anchor_sift_naive` disagrees. For anything in the Python, include the file and the input.
+
+This is research maintained by one person. There is no patch schedule. Fixes land on `main`.
+
+**Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
+**Date:** 2026-09-04

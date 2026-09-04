@@ -1,6 +1,6 @@
 # Anchors as necessary conditions
 
-**Purpose:** Separate what an anchor proves from what it costs, so a reader can tell which claims here
+**Purpose:** Separate what an anchor proves from what it costs, letting a reader tell which claims here
 need no data and which ones are only as good as the measurements under them.
 **Scope:** `test/bench/bench_ancorae_sift.c`, `test/bench/bench_ancorae_lattice.c`,
 `test/bench/bench_ancorae_entropy.c`, `src/impensa_ancorae_acus/`, `test/support/mmgr_sha256.h`,
@@ -103,7 +103,7 @@ For every $A \subseteq D$, every domain, and every base,
 
 $$\mathrm{Occ}(s) \;\Longrightarrow\; \mathrm{Anc}_A(s)$$
 
-The proof is that $A$ is a subset of $D$, so a conjunction over $D$ contains the conjunction over $A$.
+The proof is that $A$ is a subset of $D$, and a conjunction over $D$ contains the conjunction over $A$.
 The search runs the contrapositive:
 
 $$\neg\,\mathrm{Anc}_A(s) \;\Longrightarrow\; \neg\,\mathrm{Occ}(s)$$
@@ -122,7 +122,7 @@ and differing on some $d \in D \setminus A$, and the definitions permit such an 
 $|\Sigma| > 1$. The only $A$ for which the converse holds is $A = D$, where the filter has become the
 verification.
 
-So a matching anchor establishes nothing. The exact compare cannot be removed by any amount of
+A matching anchor establishes nothing. The exact compare cannot be removed by any amount of
 knowledge about the domain, and adding anchors reduces the survivors without ever reaching certainty.
 
 ### 2.4 Three corollaries
@@ -644,7 +644,7 @@ arithmetic is exact.
 #### 4.6.1 Where a stack runs out of space, derived
 
 Section 2.5 budgets a search in bits: reducing $N$ candidates to $O(1)$ survivors needs $\log_2 N$ bits
-and one anchor supplies $-\log_2 q$ of them. For an uninformed anchor that is $H_2$ bits, so a stack of
+and one anchor supplies $-\log_2 q$ of them. For an uninformed anchor that is $H_2$ bits, and a stack of
 $n$ exhausts the space at
 
 $$n \;=\; \frac{\log_2 N}{H_2}$$
@@ -669,7 +669,7 @@ second way.** `structured` has the largest cascade ratio and the largest gap. `f
 all, so no stack of any size removes anything, and the row that never exhausts is the same corpus every
 other instrument reports zero on.
 
-So a stack terminates at three or four here, and it terminates because the space is spent and not
+A stack terminates at three or four here, and it terminates because the space is spent and not
 because the arithmetic fails.
 
 ### 4.7 Separation, periodicity, and a layout prediction
@@ -830,7 +830,7 @@ $\Pr[d > j] = (1-q)^j$, so
 $$\mathbb{E}[\text{advance}(a)] \;=\; \sum_{j=0}^{a}(1-q)^j \;=\; \frac{1 - (1-q)^{a+1}}{q}$$
 
 This climbs and saturates at $1/q = 2^{H_2}$, passing 95% of that ceiling near $a = 3 \cdot 2^{H_2}$.
-Below that radius the advance is still growing and the largest offset wins, so a rarer symbol cannot
+Below that radius the advance is still growing and the largest offset wins, and a rarer symbol cannot
 pay for the ceiling it costs. Above it the advance is flat and the rarity term decides alone.
 
 The chosen offset over $m-1$, against the radius, with the bar at the predicted crossing:
@@ -984,7 +984,7 @@ derivation above. Adding it accounts for the measurements to within 3%:
 | `periodic16` | 31.5 | 256 | 10.5 | 298.0 | 296.0 |
 | `uniform` | 19.8 | 256 | 15.0 | 290.8 | 287.6 |
 
-**So a long search is verification bound and not filter bound.** The floor is $m$ reads for any
+**A long search is verification bound and not filter bound.** The floor is $m$ reads for any
 algorithm that must confirm the match, and at $m = 256$ Horspool runs at 1.10 to 1.57 times that floor
 while free order runs at 1.04 to 1.16. Both are already near a bound that no filtering strategy can
 move, which is why an order of magnitude was never available. The saving that does exist is the gap
@@ -1008,7 +1008,7 @@ appears in the state.
 #### 4.9.6 Declining to confirm, and what it costs
 
 Section 4.9.5 finds a long search verification bound, so the obvious question is whether the
-verification can be dropped. Proposition 1 says every occurrence survives every anchor set, so a
+verification can be dropped. Proposition 1 says every occurrence survives every anchor set, and a
 survivor set the same size as the occurrence set contains exactly the occurrences and confirming
 distinguishes nothing. The arm below probes at the stride that leaves one survivor in expectation,
 declares the survivors, and never confirms.
@@ -1134,7 +1134,7 @@ one for choosing among values.
 is a proportional response with a leak. Adding an accumulated term at 0.002 and a trend term at 0.05
 gives a mean of 1.005 against the lag alone and is worse on 24 of 35 rows, with the largest losses on
 the periodic corpus where the trend term follows the oscillation. An advance is a small integer whose
-variance is close to its mean, so a difference between consecutive errors is mostly noise and a term
+variance is close to its mean, and a difference between consecutive errors is mostly noise and a term
 proportional to it mostly injects noise.
 
 **Rejecting answers at the ambient level and amplifying the rest.** Replacing the lag with a deadband
@@ -1174,7 +1174,7 @@ The ratio falls with width on every corpus. Reading English a byte at a time yie
 read against 0.984 at a single bit, so the byte carving gives up 15% of the discrimination available in
 the same number of bits, and a sixteen bit symbol gives up 40%.
 
-**The flat corpus is not flat.** It is `0x41` repeated, and `01000001` has period eight, so a window of
+**The flat corpus is not flat.** It is `0x41` repeated, `01000001` has period eight, and a window of
 six bits or more takes exactly eight distinct values whatever the corpus length. Its collision entropy
 is therefore $\log_2 8 = 3$ bits exactly, which is what the sweep reports at widths 6, 8, 12 and 16,
 and 0.678 bits at width one. The object every other section of this document reports zero on carries
@@ -1549,7 +1549,7 @@ between those. The instrument has a slow regime and a total regime with no resol
 That gap is where a civilization ending sits. A port silting up until the city is abandoned does not
 speed up the drift of the vocabulary spoken there, it removes the speakers, and the ground then
 carries a different language. Ephesus runs through Anatolian, Ionic Greek, Koine, Byzantine Greek and
-Turkish by that route. So a change at the edge of a civilization is a substitution and not a rate, and
+Turkish by that route. A change at the edge of a civilization is a substitution and not a rate, and
 substitution is discrete, which is a mechanism for changes arriving in groups that does not require
 the drift rate to vary at all. Measuring it needs a replacement event with text on both sides of it.
 The drift rate is the only quantity these measurements compute, so the question is outside them.
@@ -1566,7 +1566,7 @@ at all. Grave assemblages running to tens of thousands of worked beads, in mater
 continent, are evidence of an organized system carrying status and obligation, and the labor in one of
 them is measured in years. Bodies assembled from several individuals, kept above ground for
 generations and then buried under an occupied floor, are a deliberate link to the past maintained in
-bone. Both are societies holding continuity hard, and neither leaves a term that can be read. So a
+bone. Both are societies holding continuity hard, and neither leaves a term that can be read. A
 gap in the written record across an event is not evidence that continuity failed there, and this
 document measures the one channel that happens to survive as text.
 
@@ -1724,7 +1724,7 @@ the cutting: the pieces are equal in length so they do not align with book bound
 straddle two books, and a short piece has fewer words clearing the occurrence floor.
 
 So the quantity responds to subjects being added and removed while length is held fixed, which is a
-stronger statement than the table of labelled corpora supports on its own.
+stronger statement than the table of labeled corpora supports on its own.
 
 It is not a count on its own. Two English works joined give 0.685, close to the 0.667 of a corpus of 37
 plays, because a novel and an epic poem stand further apart than two plays of one period do. What the
@@ -1737,7 +1737,7 @@ subject and identifies no meaning. It counts how far the vocabulary gathers.
 
 #### 4.13.1 The same text over four marks
 
-Every row above is alphabetic, so a regularity common to all of them could belong to that way of
+Every row above is alphabetic, and a regularity common to all of them could belong to that way of
 writing instead of to language. Re-encoding one of them settles it, because a re-encoding holds the
 meaning fixed and changes nothing else. Morse carries the same words over two marks and two silences,
 and `tools/dev_env/encode_percussive.py` produces it.
@@ -1764,7 +1764,7 @@ alphabetic writing. Both survive into a four symbol percussive representation of
 
 #### 4.13.2 One message, two code tables
 
-Morse had regional variants that gave different codes to the same letters, so a code table is a choice
+Morse had regional variants that gave different codes to the same letters, and a code table is a choice
 and not part of what is being said. Permuting it holds the message, the language and the set of code
 lengths all fixed and changes only which letter received which code. That separates a property of the
 message from a property of the encoding, and the two regularities should come apart under it: how often
@@ -1796,7 +1796,7 @@ short strings exist and only slightly a fact about anyone's choices.
 
 #### 4.13.3 Which of these belong to a language, decided by variance
 
-Every result above compares one text in one language against another text in another, so a difference
+Every result above compares one text in one language against another text in another, and a difference
 could belong to the language or to the text. Separating those needs replication inside a language, and
 the sections above have twelve English texts and one or two of everything else.
 
@@ -1832,7 +1832,7 @@ inventory, moves every structural quantity by tens of deviations and leaves the 
 where it was.
 
 That is why the results in Sections 4.13.05 and 4.13.1 hold over seven language families and two scripts.
-The measure was never reading which language it was given, so a change of language had nothing in it to
+The measure was never reading which language it was given, and a change of language had nothing in it to
 disturb. It also bounds what those results can mean: a quantity that cannot tell Finnish from Chinese
 cannot be evidence about any particular language, and Section 7.4 records separately that it is not
 evidence about language at all.
@@ -1940,7 +1940,7 @@ holds something else. Survivors are the complement. That is the whole method, an
 comparison that steers control flow, no position computed from a value just read, no ordering on
 positions, no metric, and no dimension.
 
-Proposition 1 is why the pieces commute: a refutation depends only on the cell that produced it, so a
+Proposition 1 is why the pieces commute: a refutation depends only on the cell that produced it, and a
 set of reads contributes a union and a union does not remember the order it was built in. The
 consequences are all mechanical from there. Reads can be issued together because none waits on another.
 Accumulation is a bitwise OR. The surviving set is a complement. The mask is $m$ bits wide whatever the
@@ -2268,7 +2268,7 @@ in at a fixed rate, so nothing links one position to the next.
 
 A first version of that control had two arms, one uniform and one weighted by English letter
 frequencies, with the alphabet fixed at 26 and the delimiter rate at 0.18. Three of those four numbers
-came from English, so a result resembling English established nothing. The sweep below varies the
+came from English, and a result resembling English established nothing. The sweep below varies the
 alphabet from 8 to 64 symbols, the delimiter rate from 0.06 to 0.35, and the letter distribution across
 uniform, two geometric falls and the English weights, with only the last row carrying any value taken
 from a language.
@@ -2327,14 +2327,14 @@ nothing the measure reads, which is what a bijection has to do.
 A repeating key of length $k$ sends one plaintext symbol to $k$ ciphertext symbols by position, and the
 mean gap grows with $k$ as that predicts. The measurement is being divided and not destroyed, and by
 $k = 4$ the split gaps exceed what a statistic over gaps can read. The pattern is
-still recoverable there by separating the positions that share a key offset, so a ratio near one in
+still recoverable there by separating the positions that share a key offset, and a ratio near one in
 those rows is a limit of this measure and is not evidence that anything was erased. An attempt to
 recover it that way is reported in the next paragraph and failed for an unrelated reason.
 
 The last row is different in kind. When the key is as long as the message the ratio reaches 1.01, which
 is the floor the memoryless controls occupy. That is the one case where the structure is absent from the
 text instead of hidden in it, because it now resides in the key, and it is the condition for perfect
-secrecy. So a bijection cannot remove what this measure reads unless it spends key material equal to the
+secrecy. A bijection cannot remove what this measure reads unless it spends key material equal to the
 message.
 
 One check on that was attempted and does not support anything. Taking every eighth symbol of the
@@ -2349,7 +2349,7 @@ Every result above comes from a detector that returns one symbol, the one whose 
 and that rejects any candidate occurring less often than once in 64 symbols. Two consequences follow
 from that construction and neither was intended. The occurrence floor admits only frequent symbols, so
 the detector can only ever report on the head of the distribution. And ranking by regularity treats
-variability as failure, so a symbol whose occurrences cluster is scored as a poor candidate.
+variability as failure, and a symbol whose occurrences cluster is scored as a poor candidate.
 
 Under a Zipf distribution the head carries the token count and the tail carries the information, because
 the surprisal of a symbol is $-\log p$ and the many rare symbols each contribute more of it. Scoring
@@ -2415,7 +2415,7 @@ every stride except the ones that align the cosets with the key, where it withho
 
 The plaintext row is what makes that readable, and taking a scan without it invites two errors. The
 baseline is not flat, climbing from 0.800 at a stride of 2 to 0.941 at 16 as the subsampling removes
-structure on its own, so a dip has to be judged against that curve and not against 1.0. And the value
+structure on its own, and a dip has to be judged against that curve and not against 1.0. And the value
 coprime strides take is a property of the key length: with a key of 8 they sit near 1.0 because the
 structure is divided eight ways, while with a key of 3 they sit between 0.909 and 0.975 because a
 three way division hides less.
@@ -2433,7 +2433,7 @@ contributes $1/s$ as many points to the coset. Deciding that a cluster is presen
 and counting significance grows as the square root of the count, so the signal falls as $1/\sqrt{s}$.
 
 That sets what a scan can reach. Structure is not lost at a stride, it is attenuated by a known factor,
-so a longer corpus buys back any stride at quadratic cost.
+and a longer corpus buys back any stride at quadratic cost.
 
 #### 7.4.3 The surviving measure ranks structure, and a formal language outranks prose
 

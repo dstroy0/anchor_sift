@@ -1,122 +1,70 @@
-# Contributing {#proj_contributing}
+# Contributing
 
-## Build and test
+**Purpose:** Know what a contribution here looks like, what the checks are, and which rule is not negotiable.
+**Scope:** the whole repository
 
-All five environments are one build. `cmake/MMgrModule.cmake` emits `mmgr_<module>_<env>` for every
-entry in `MMGR_ENVIRONMENTS`, so a single configure builds `host`, `word32`, `word16`, `idx16` and
-`checks` together, and a single `ctest` run covers all five.
+## The condition that comes before everything
 
-```sh
-cmake -S . -B build -DMMGR_BUILD_TESTS=ON
-cmake --build build --parallel
-ctest --test-dir build --output-on-failure
-```
+**A tool for language that comes out of this work requires a human to review its output.** The tools here can regenerate language and can produce predictive speech, and whether a regenerated form is still somebody's language belongs to a native speaker and not to an algorithm.
 
-A clean run is 160 CTest targets. `test_memoriam_praetereo` and `test_memoria_externa` are not
-among them unless `MMGR_ENABLE_DMA` or `MMGR_ENABLE_EXTRAM` is on. They are skipped loudly, through
-`MMGR_SUITES_SKIPPED` and a CMake status message, because a silently dropped suite leaves a passing
-run that tested less than it looks like.
+A contribution that removes a person from that loop, or that makes it easier to skip them, is not accepted. This is not a style preference and there is no version of the repository where it is relaxed.
 
-A capability gates the whole suite, never a case inside one. A suite that compiles half its cases
-away still reports as passing.
+## What a contribution is
 
-## Formatting
+This is a research body with code attached. Three kinds of change are useful:
 
-Three formatters, one per language, each owning its own files and nothing else. All three wrap at
-120 columns, so a Python tool and the C it rewrites line up in a side-by-side diff.
+**A measurement.** A number with its conditions attached: what corpus, what length, what it was measured against, and what the floor was. A ratio with no denominator is not a result. Every figure in `docs/research/anchor-sift-ledger.md` names the tool that produced it, and a new one does the same.
 
-```sh
-find src test -name '*.c' -o -name '*.h' | grep -v '^test/vendor/' | xargs clang-format -i
-black tools
-npm run format
-```
+**A correction.** The ledger keeps its own corrections and it is the most valuable thing in the repository. A claim that turns out to be wrong stays on the page beside the measurement that killed it. If you find a figure that does not reproduce, the contribution is the demonstration, not a quiet edit.
 
-CI checks and never rewrites. A formatter that rewrites on CI produces commits nobody reviewed and
-races the author's own push; the fix belongs in the working tree.
+**A precedent.** Several results here are rediscoveries of published work. This repository has been wrong about priority before, at Montemurro and Zanette, and the entry says so. If you know the prior art for something claimed here, that is worth more than a patch.
 
-## Comments
+## What is not in the repository
 
-Public headers carry Doxygen comments. Implementation files carry a comment only where the code
-cannot say it for itself - a bound that is not obvious, a cast that is load-bearing, a failure mode
-you would see at runtime. A comment that restates the line is worse than none.
+The 20 hand extraction tables under `docs/research/Salishan/pure_corpus/` are not carried in git. Every row is a form transcribed out of a published paper, so the tables are those papers' text and not this work's to redistribute. `refs.md` gives the address of every source paper, and the tables go to anyone who has the papers and asks.
 
-Every header opens with an SPDX line and a `@file` block. The group is `mod_<stem>`, the stem
-column of `tools/dev_env/names.tsv`, and `docs/groups.dox` already declares it - do not add a
-`@defgroup` to a header.
+The derivations built on them are here in full: the ledger, the bound, the checks and the code.
 
-```c
-/* MMgr - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
- * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
- */
-/**
- * @file spatium.h
- * @ingroup mod_spat
- * @brief A buffer, its capacity and a cursor, carried as one object.
- *
- * What the module is for, and what a caller has to know before using it. Warnings about what is
- * not checked go here, not in every entry.
- */
-```
+The corpora, page renders and audio under `build/` are also absent and run to about 1.9 GB. `tools/dev_env/Salishan/get_papers.py` fetches the papers and the tools rebuild the rest.
 
-A config struct documents its members with `@param` in the struct's own block. Do not repeat them
-on the entries that read it - they are aggregate-initialized members, not function parameters, and
-listing them as parameters of a one-argument function reads as a lie:
+## Checks
 
-```c
-/**
- * @brief The one argument every entry in this module takes.
- *
- * @param buf Caller-owned storage [BORROWS]. The span does not release it.
- * @param cap Size of the storage in bytes.
- */
-typedef struct
-{
-    uint8_t *const buf;
-    const size_t cap;
-} SpatiumCfg;
-
-/**
- * @brief Builds a span over `buf`.
- *
- * @param c Reads `buf` and `cap`.
- * @return The span, by value.
- *
- * @slot{0}
- * @warning Does not check that `buf` is non-NULL.
- */
-mmgr_span mmgr_spat_from(const SpatiumCfg *c);
-```
-
-`@slot{n}` is the entry's position in the dispatch table, `@ns{name}` names the table, and
-`[BORROWS]`, `[TAKES OWNERSHIP]` and `[RETURNS OWNERSHIP]` mark who owns a pointer. Everything is
-a borrow here, so `[BORROWS]` is what you will write.
-
-Doxygen takes one branch of a `#if`. Put the doc block on the branch it takes, not above the
-`#if`, or the entity comes out undocumented - `docs/Doxyfile` sets `PREDEFINED` and that is what
-decides which branch that is.
-
-Run `doxygen docs/Doxyfile` before committing. `WARN_IF_UNDOCUMENTED` is on, so anything you added
-and did not document shows up in `docs/doxygen-warnings.log`.
-
-## Adding a module
-
-1. A directory under `src/`.
-2. A three-line `CMakeLists.txt` calling `mmgr_add_module()`. Nothing central lists the modules, so
-   there is no registry to keep in step.
-3. One line in `src/CMakeLists.txt`.
-4. One `@defgroup` in `docs/groups.dox`, placed where it belongs in the data path.
-5. One guide in `docs/modules/`.
-6. A row in `tools/dev_env/names.tsv`.
-
-## Documentation
-
-Anything in `docs/` that can be derived from the tree **is** derived from the tree and lives inside
-a generated region. Regenerate before committing:
+**Prose.** The writing standard is checked instead of remembered:
 
 ```sh
-python -m tools.ci_tooling.ci gen
-python -m tools.ci_tooling.ci check
+python tools/dev_env/docs_check.py docs
+python tools/dev_env/docs_check.py docs --strict
 ```
 
-Never hand-edit between the `BEGIN GENERATED` and `END GENERATED` markers. They are HTML comments,
-and each one names the generator that owns that region.
+Breaking findings are an empty table, an em dash, and a link to a file that is not there. Those stop a commit. Prose findings are printed and let through, because the prose backlog predates the check.
+
+Turn the hook on once per clone:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+**The kernel.** C11 and nothing else. No Python, no device toolchain:
+
+```sh
+cmake -S bench -B build/bench -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build build/bench
+./build/bench/bench_ancorae_cycles
+```
+
+Every arm has to agree with `anchor_sift_naive` on every row. A row printing `DIFFER` is a defect and its timing means nothing, because a measurement of an arm returning the wrong answer is a measurement of the wrong program.
+
+**The ports.** `ports/R/` and `ports/matlab/` carry the permutation null measure. The Python in `tools/dev_env/proof_conservation.py` is the reference: a port is correct when it lands inside the reseeding floor of it, since each language draws its null from a different generator and none of them can agree to the last digit.
+
+## Writing
+
+Prose here is plain. One fact per sentence, subject and verb and object, no em dashes, American spellings. `docs/research/terms.md` says which words are the field's and which this work minted, and the field's word wins wherever one exists.
+
+`docs/research/Salishan/pure_corpus/README.md` is generated from `paper_config.py` by `pure_corpus_index.py`, which keeps a speaker's name typed in exactly one place. Do not edit it by hand.
+
+## Licensing
+
+Contributions fall under the same terms the repository carries: AGPL-3.0-or-later, or a negotiated commercial license, or an educator's license issued to a person. The root `README.md` states the scheme in full.
+
+**Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
+**Date:** 2026-09-04
