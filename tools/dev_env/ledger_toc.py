@@ -79,20 +79,38 @@ def stripped(lines):
     return out
 
 
+def lead_at(lines, at):
+    """The bold lead opening at index `at`, or None where that line opens none.
+
+    A lead runs to its closing ** and the ledger hard wraps near a hundred columns, so many of them
+    close on the next line or the one after. Matching inside one line found 156 of the 228 lines that
+    open with **, and the seventy odd it missed were entries left out of the contents with nothing
+    reporting their absence. Four lines is the longest lead in the file plus room.
+    """
+    if not lines[at].startswith("**"):
+        return None
+    joined = ""
+    for step in range(at, min(at + 4, len(lines))):
+        piece = lines[step].strip()
+        joined = piece if not joined else (joined + " " + piece)
+        hit = LEAD.match(joined)
+        if hit:
+            return hit.group(1).strip()
+    return None
+
+
 def entries(lines):
     """Every entry in order: its line in this list, the section over it, and its lead."""
     found = []
     section = ""
-    for at, line in enumerate(lines, start=1):
-        head = SECTION.match(line)
+    for at in range(len(lines)):
+        head = SECTION.match(lines[at])
         if head:
             section = head.group(2).strip()
             continue
-        hit = LEAD.match(line)
-        if hit:
-            lead = hit.group(1).strip()
-            if usable(lead):
-                found.append((at, section, lead))
+        lead = lead_at(lines, at)
+        if lead and usable(lead):
+            found.append((at + 1, section, lead))
     return found
 
 
