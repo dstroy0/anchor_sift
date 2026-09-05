@@ -228,7 +228,7 @@ def bag_digest(stmts, rename, fold_nums):
     return digest(parts)
 
 
-# --- carving the source into units -------------------------------------------
+# --- slice the source into units -------------------------------------------
 
 
 def functions(tokens):

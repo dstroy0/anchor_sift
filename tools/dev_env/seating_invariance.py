@@ -12,7 +12,7 @@
 # symbol is given. The bit volume Gray codes those numbers so that two values one apart differ in one
 # bit, which is only meaningful where being one apart already meant something. A greyscale level, a sound
 # amplitude and an ASCII code all carry that order. A number handed out in order of first appearance does
-# not, and neither does one handed out by a re-carving.
+# not, and neither does one handed out by a re-slice.
 #
 # The corpora that read strongest are exactly the ones whose bytes carry a real order, and the ones that
 # read near zero are the ones numbered here. That is what this checks. Each corpus is measured under its

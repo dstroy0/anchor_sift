@@ -1110,9 +1110,9 @@ static uint32_t s_width_counts[1u << WIDEST_SYMBOL];
  * @param[in] corpus_len How many.
  * @param[in] stamp      Fingerprint of the linked cost table.
  * @note Every other row in this file reads the corpus eight bits at a time, which is a choice nobody
- *       here made deliberately. A corpus is a bit pattern and the byte boundary is one carving of it,
+ *       here made deliberately. A corpus is a bit pattern and the byte boundary is one slice of it,
  *       so the entropy this document treats as a property of the data is really a property of the data
- *       and that carving together.
+ *       and that slice together.
  * @note What matters to a search is not what one read yields but what one bit of reading yields, since
  *       a wider read touches more of the corpus. The last column is that ratio, and the width that
  *       maximizes it is the width worth reading at.

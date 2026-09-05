@@ -381,7 +381,7 @@ in this work is a model and can be false. This one is the data with one property
 
 **Exactly one distribution maximizes entropy under a given constraint, and that is where the finality
 comes from.** Entropy is strictly concave, and a constraint fixing counts or marginals is linear and
-carves out a convex set, so the constrained maximum exists and is attained at a single point. The
+slices out a convex set, so the constrained maximum exists and is attained at a single point. The
 background is therefore reached by solving a condition and never by searching, which is why it carries no
 seed, no local optimum and no variation between runs. An infinite set of arrangements is reduced to one
 reference by that condition, and a departure measured against it is a number instead of the best figure

@@ -161,8 +161,10 @@ promise. Three guarantees with three owners, and only the first is this document
 
 For an uninformed anchor, the symbol is drawn from the domain by the domain's own frequencies, so
 
-$$q \;=\; \sum_{\sigma \in \Sigma} p(\sigma)^2 \;=\; 2^{-H_2}, \qquad
-H_2 \;=\; -\log_2 \sum_{\sigma} p(\sigma)^2$$
+$$
+q \;=\; \sum_{\sigma \in \Sigma} p(\sigma)^2 \;=\; 2^{-H_2}, \qquad
+H_2 \;=\; -\log_2 \sum_{\sigma} p(\sigma)^2
+$$
 
 with $H_2$ the Renyi entropy of order two. This predicts the uninformed candidate count from the
 domain alone, before any pattern is chosen, and Section 4.4 tests it.
@@ -190,12 +192,12 @@ the only place the method is certain. Everything to the right of the candidate i
 
 ### 3.1 What each bench measures
 
-| bench | question | reports |
-|---|---|---|
-| `bench_ancorae_sift.c` | cost and independence over byte strings | candidates, skip, $I(d)$, $z$, refusals |
-| `bench_ancorae_lattice.c` | whether Proposition 1 survives off the line | candidates, refusals |
-| `bench_ancorae_entropy.c` | what the candidate count estimator is worth | bias, root mean square error |
-| `bench_ancorae_ab.c` | how a whole search compares to one built another way | corpus symbol accesses |
+| bench                     | question                                             | reports                                 |
+| ------------------------- | ---------------------------------------------------- | --------------------------------------- |
+| `bench_ancorae_sift.c`    | cost and independence over byte strings              | candidates, skip, $I(d)$, $z$, refusals |
+| `bench_ancorae_lattice.c` | whether Proposition 1 survives off the line          | candidates, refusals                    |
+| `bench_ancorae_entropy.c` | what the candidate count estimator is worth          | bias, root mean square error            |
+| `bench_ancorae_ab.c`      | how a whole search compares to one built another way | corpus symbol accesses                  |
 
 All four report counts. Nothing is timed, no row is a performance claim, and every number is a
 property of the data and the geometry, identical on every part.
@@ -214,13 +216,13 @@ a passing one (`test/bench/bench_ancorae_sift.c:715-757`).
 
 Four corpora, 2048 bytes each except where stated, chosen to span the range of factor complexity:
 
-| corpus | content | $H_2$ (bits) |
-|---|---|---|
-| `flat` | one byte repeated | 0.000 |
-| `structured` | 1408 bytes of C source | 3.620 |
-| `english` | non-repeating English prose | 3.692 |
-| `periodic16` | 16 byte fixed width records, layout repeating and content not | 4.611 |
-| `uniform` | SHA-256 in counter mode | 7.832 |
+| corpus       | content                                                       | $H_2$ (bits) |
+| ------------ | ------------------------------------------------------------- | ------------ |
+| `flat`       | one byte repeated                                             | 0.000        |
+| `structured` | 1408 bytes of C source                                        | 3.620        |
+| `english`    | non-repeating English prose                                   | 3.692        |
+| `periodic16` | 16 byte fixed width records, layout repeating and content not | 4.611        |
+| `uniform`    | SHA-256 in counter mode                                       | 7.832        |
 
 Needles are drawn from the corpus so every one genuinely occurs. A corpus built by repeating a unit is
 self similar at that scale and every needle then occurs once per repetition by construction, which
@@ -232,11 +234,11 @@ ruined an earlier measurement recorded in Section 6.5. The fill truncates instea
 Three, differing as much as the interface allows (`test/bench/bench_ancorae_sift.c:342-347`,
 `361-420`):
 
-| policy | how a symbol is priced |
-|---|---|
-| `table` | the linked cost table, ranking a byte by rarity |
+| policy   | how a symbol is priced                                                    |
+| -------- | ------------------------------------------------------------------------- |
+| `table`  | the linked cost table, ranking a byte by rarity                           |
 | `random` | a permutation of 0 through 255 drawn from SHA-256, unrelated to frequency |
-| `maxent` | one cost for every byte, so the table carries no information |
+| `maxent` | one cost for every byte, so the table carries no information              |
 
 `random` is a permutation, so every cost stays distinct and the picker behaves exactly as under the
 real table. The only thing removed is the table being right. `maxent` makes the picker take the
@@ -250,14 +252,14 @@ callback answering whether two positions carry the same symbol
 (`test/bench/bench_ancorae_lattice.c:80`, `193-239`). The core has no dimension parameter, because the
 geometry is entirely inside the base list, and no symbol type, because it only asks whether two agree.
 
-| case | $G$ | $D$ |
-|---|---|---|
-| `line1d` | $\mathbb{Z}$ | 8 contiguous offsets |
-| `grid2d_box` | $\mathbb{Z}^2$ | a 2 by 4 rectangle |
-| `grid2d_scatter` | $\mathbb{Z}^2$ | 8 points in a 5 by 5 window, no row or column filled |
-| `grid2d_turned` | $\mathbb{Z}^2$ | that scatter under $(r,c) \mapsto (c, 4-r)$ |
-| `cube3d_box` | $\mathbb{Z}^3$ | a 2 by 2 by 2 block |
-| `field1d_complex` | $\mathbb{Z}$ | 8 contiguous offsets over complex symbols |
+| case                 | $G$                             | $D$                                                           |
+| -------------------- | ------------------------------- | ------------------------------------------------------------- |
+| `line1d`             | $\mathbb{Z}$                    | 8 contiguous offsets                                          |
+| `grid2d_box`         | $\mathbb{Z}^2$                  | a 2 by 4 rectangle                                            |
+| `grid2d_scatter`     | $\mathbb{Z}^2$                  | 8 points in a 5 by 5 window, no row or column filled          |
+| `grid2d_turned`      | $\mathbb{Z}^2$                  | that scatter under $(r,c) \mapsto (c, 4-r)$                   |
+| `cube3d_box`         | $\mathbb{Z}^3$                  | a 2 by 2 by 2 block                                           |
+| `field1d_complex`    | $\mathbb{Z}$                    | 8 contiguous offsets over complex symbols                     |
 | `cube1d` to `cube8d` | $\mathbb{Z}^d$, $d = 1 \dots 8$ | a star: the origin, then one step out along each axis in turn |
 
 `field1d_complex` holds `double _Complex` values built from square roots of primes, compared over
@@ -278,12 +280,12 @@ transform sampling at lengths 256, 1024, 4096 and 16384, with 64 independent tri
 
 Four estimators of the same quantity are scored by bias and root mean square error in bits:
 
-| estimator | expression | needs |
-|---|---|---|
-| plug in | $\sum_\sigma \hat p(\sigma)^2$ | a histogram |
-| unbiased | $\sum_\sigma n_\sigma(n_\sigma-1) / N(N-1)$ | a histogram |
-| probe, self counted | mean over probes of matching positions over $N$ | neither |
-| probe, self excluded | the same, less the probe's own match | neither |
+| estimator            | expression                                      | needs       |
+| -------------------- | ----------------------------------------------- | ----------- |
+| plug in              | $\sum_\sigma \hat p(\sigma)^2$                  | a histogram |
+| unbiased             | $\sum_\sigma n_\sigma(n_\sigma-1) / N(N-1)$     | a histogram |
+| probe, self counted  | mean over probes of matching positions over $N$ | neither     |
+| probe, self excluded | the same, less the probe's own match            | neither     |
 
 The unbiased estimator and the first order bias correction of the plug in estimator are the same
 expression, so they are one estimator and not two
@@ -309,16 +311,16 @@ distribution, so no distributional parameter can reach it. Everything else on th
 
 **The cost is one number.** Each of these is a function of $2^{-H_2}$ and the two sizes $m$ and $N$:
 
-| quantity | form | where |
-|---|---|---|
-| candidate rate per position | $2^{-H_2}$ | 4.4 |
-| alignments settled by one read | $m(1-2^{-H_2})$ | 4.4.1 |
-| estimator bias correction | $(1-C)/((N-1)C\ln 2)$ | 4.5.1 |
+| quantity                           | form                            | where |
+| ---------------------------------- | ------------------------------- | ----- |
+| candidate rate per position        | $2^{-H_2}$                      | 4.4   |
+| alignments settled by one read     | $m(1-2^{-H_2})$                 | 4.4.1 |
+| estimator bias correction          | $(1-C)/((N-1)C\ln 2)$           | 4.5.1 |
 | fraction an in-order walk collects | $1/((1+m2^{-H_2})(1-2^{-H_2}))$ | 4.9.4 |
-| where the advance saturates | $3 \cdot 2^{H_2}$ | 4.9.2 |
-| anchors before the space is spent | $\log_2 N / H_2$ | 4.6.1 |
-| free order probe stride | $m H_2 / \log_2(m H_2 \ln 2)$ | 4.9.5 |
-| candidates in $d$ dimensions | $1 + (P-1)2^{-nH_2}$ | 4.2 |
+| where the advance saturates        | $3 \cdot 2^{H_2}$               | 4.9.2 |
+| anchors before the space is spent  | $\log_2 N / H_2$                | 4.6.1 |
+| free order probe stride            | $m H_2 / \log_2(m H_2 \ln 2)$   | 4.9.5 |
+| candidates in $d$ dimensions       | $1 + (P-1)2^{-nH_2}$            | 4.2   |
 
 The last row is the one that makes the others worth stating together. It holds unchanged from a line to
 an eight dimensional hypercube, over an alphabet of complex numbers with irrational parts, which is
@@ -326,15 +328,15 @@ where the parameter shows it does not depend on the geometry or on what a symbol
 
 **It stops in three places, and every failure recorded in this document is one of them.**
 
-*The number is not unique, it is indexed by a carving.* There is no $H_2$ of a corpus, only $H_2(w)$ of
+_The number is not unique, it is indexed by a slice._ There is no $H_2$ of a corpus, only $H_2(w)$ of
 a corpus read $w$ bits at a time, and Section 4.10 measures it falling from 0.984 to 0.600 bits per bit
 between $w = 1$ and $w = 16$ on English. Every figure above uses $w = 8$, which nothing here justifies.
 
-*A second moment is not a distribution.* Section 4.3.1 needs the expected minimum of $m$ size biased
+_A second moment is not a distribution._ Section 4.3.1 needs the expected minimum of $m$ size biased
 draws, which is a property of the whole order statistics. Entropy orders the corpora wrongly there, and
 Section 4.8 prices a mismatched reference at 25 to 30 times, which no collision probability predicts.
 
-*Independence is assumed throughout and fails.* Section 4.6 measures the product rule wrong by four
+_Independence is assumed throughout and fails._ Section 4.6 measures the product rule wrong by four
 orders of magnitude, Section 4.7 finds correlation surviving to separation seven, Section 4.6.1 has
 2.98 anchors predicted against 6 measured at $m = 16$, and Section 4.9.3 has the distance field losing
 on periodic data alone. The parameter predicts none of these, because each is a statement about the
@@ -363,14 +365,14 @@ further eight hypercubes of dimension one through eight:
 
 Candidates admitted, rule `shuffled`, against the $N \cdot 2^{-n}$ the two symbol alphabet predicts:
 
-| domain | $n{=}1$ | $n{=}2$ | $n{=}3$ | $n{=}4$ | $n{=}5$ | $n{=}6$ |
-|---|---|---|---|---|---|---|
-| predicted | 2044.5 | 1022.3 | 511.1 | 255.6 | 127.8 | 63.9 |
-| `line1d` | 2044.7 | 1025.7 | 516.7 | 259.4 | 129.2 | 65.4 |
-| `grid2d_scatter` | 1797.8 | 901.5 | 449.5 | 223.1 | 112.6 | 56.9 |
-| `grid2d_turned` | 1801.7 | 902.7 | 448.6 | 223.3 | 112.1 | 56.7 |
-| `cube3d_box` | 1685.3 | 840.5 | 422.3 | 212.7 | 105.2 | 52.3 |
-| `field1d_complex` | 2046.4 | 1023.4 | 511.9 | 256.2 | 128.9 | 64.7 |
+| domain            | $n{=}1$ | $n{=}2$ | $n{=}3$ | $n{=}4$ | $n{=}5$ | $n{=}6$ |
+| ----------------- | ------- | ------- | ------- | ------- | ------- | ------- |
+| predicted         | 2044.5  | 1022.3  | 511.1   | 255.6   | 127.8   | 63.9    |
+| `line1d`          | 2044.7  | 1025.7  | 516.7   | 259.4   | 129.2   | 65.4    |
+| `grid2d_scatter`  | 1797.8  | 901.5   | 449.5   | 223.1   | 112.6   | 56.9    |
+| `grid2d_turned`   | 1801.7  | 902.7   | 448.6   | 223.3   | 112.1   | 56.7    |
+| `cube3d_box`      | 1685.3  | 840.5   | 422.3   | 212.7   | 105.2   | 52.3    |
+| `field1d_complex` | 2046.4  | 1023.4  | 511.9   | 256.2   | 128.9   | 64.7    |
 
 The grid and cube rows sit below the prediction because those geometries admit fewer base positions,
 3600 and 3375 against 4089 on the line. Within each row the halving per anchor is what the model
@@ -389,9 +391,9 @@ every point it has and is never a lower dimensional figure sitting in a larger s
 (`test/bench/bench_ancorae_lattice.c:686`). Against $1 + (P-1)2^{-n}$ for $P$ positions and $n$
 anchors, which includes the one match the pattern is guaranteed against itself:
 
-| dimension | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-|---|---|---|---|---|---|---|---|---|
-| positions | 4089 | 3600 | 4913 | 4096 | 1024 | 729 | 2187 | 256 |
+| dimension        | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     |
+| ---------------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| positions        | 4089  | 3600  | 4913  | 4096  | 1024  | 729   | 2187  | 256   |
 | ratio at $n{=}1$ | 1.001 | 1.000 | 1.000 | 1.001 | 1.001 | 1.007 | 0.999 | 0.995 |
 | ratio at $n{=}3$ | 0.991 | 0.995 | 1.002 | 1.000 | 0.994 | 1.028 | 0.999 | 0.970 |
 | ratio at $n{=}6$ | 0.969 | 1.020 | 1.017 | 1.001 | 0.980 | 0.996 | 1.013 | 0.979 |
@@ -408,13 +410,13 @@ made a third time.
 
 Candidates admitted by one anchor at needle 16, english cost table, fingerprint `69c2e2df`:
 
-| corpus | $H_2$ | `table` | `random` | `maxent` | table over maxent |
-|---|---|---|---|---|---|
-| `flat` | 0.00 | 2032 | 2032 | 2032 | 1.00 |
-| `structured` | 3.62 | 17.6 | 47.9 | 113.3 | 6.43 |
-| `english` | 3.69 | 26.9 | 108.6 | 149.5 | 5.56 |
-| `periodic16` | 4.61 | 44.4 | 96.8 | 82.3 | 1.85 |
-| `uniform` | 7.83 | 7.53 | 7.84 | 7.61 | 1.01 |
+| corpus       | $H_2$ | `table` | `random` | `maxent` | table over maxent |
+| ------------ | ----- | ------- | -------- | -------- | ----------------- |
+| `flat`       | 0.00  | 2032    | 2032     | 2032     | 1.00              |
+| `structured` | 3.62  | 17.6    | 47.9     | 113.3    | 6.43              |
+| `english`    | 3.69  | 26.9    | 108.6    | 149.5    | 5.56              |
+| `periodic16` | 4.61  | 44.4    | 96.8     | 82.3     | 1.85              |
+| `uniform`    | 7.83  | 7.53    | 7.84     | 7.61     | 1.01              |
 
 On `flat` no anchor can ever fail, so all eighteen combinations of policy and anchor count report 2032
 candidates out of 2033 positions. On `uniform` the three policies agree to within 4%. Between them the
@@ -435,8 +437,10 @@ $$F(t) \;=\; \sum_{\sigma:\, p_\sigma \le t} p_\sigma$$
 
 for the size biased distribution function, the survival form of the expectation gives
 
-$$\mathbb{E}[\min\nolimits_m] \;=\; \int_0^1 \bigl(1 - F(t)\bigr)^m \, dt, \qquad
-\text{ceiling}(m) \;=\; \frac{\sum_\sigma p_\sigma^2}{\mathbb{E}[\min_m]}$$
+$$
+\mathbb{E}[\min\nolimits_m] \;=\; \int_0^1 \bigl(1 - F(t)\bigr)^m \, dt, \qquad
+\text{ceiling}(m) \;=\; \frac{\sum_\sigma p_\sigma^2}{\mathbb{E}[\min_m]}
+$$
 
 The numerator is the uninformed rate from Section 2.5, so the quotient is what a table matched to the
 corpus would buy over no table at all. It is an upper bound on every measure, since no rule can pick a
@@ -451,13 +455,13 @@ entropy plays no part in either case.
 
 Computed at needle 16 from each corpus's own frequencies (`test/bench/bench_ancorae_sift.c:933`):
 
-| corpus | $H_2$ | uninformed rate | informed rate | ceiling | measured | captured |
-|---|---|---|---|---|---|---|
-| `flat` | 0.000 | 1.000000 | 1.000000 | 1.000 | 1.00 | exact |
-| `structured` | 3.620 | 0.081313 | 0.004483 | 18.14 | 6.43 | 35% |
-| `english` | 3.692 | 0.077371 | 0.011887 | 6.51 | 5.56 | 85% |
-| `periodic16` | 4.611 | 0.040927 | 0.013708 | 2.99 | 1.85 | 62% |
-| `uniform` | 7.832 | 0.004389 | 0.002172 | 2.02 | 1.01 | 50% |
+| corpus       | $H_2$ | uninformed rate | informed rate | ceiling | measured | captured |
+| ------------ | ----- | --------------- | ------------- | ------- | -------- | -------- |
+| `flat`       | 0.000 | 1.000000        | 1.000000      | 1.000   | 1.00     | exact    |
+| `structured` | 3.620 | 0.081313        | 0.004483      | 18.14   | 6.43     | 35%      |
+| `english`    | 3.692 | 0.077371        | 0.011887      | 6.51    | 5.56     | 85%      |
+| `periodic16` | 4.611 | 0.040927        | 0.013708      | 2.99    | 1.85     | 62%      |
+| `uniform`    | 7.832 | 0.004389        | 0.002172      | 2.02    | 1.01     | 50%      |
 
 The ceiling orders the corpora where entropy does not, and it is exact at the point mass.
 
@@ -478,13 +482,13 @@ under-represent. The measured 1.01 is that impossibility, quantified.
 Predicted `maxent` candidate count against measured, with one subtracted from each prediction because
 the cost rows exclude the needle's own occurrence:
 
-| corpus | $H_2$ | predicted | measured | error |
-|---|---|---|---|---|
-| `flat` | 0.000 | 2033 | 2032 | 0.05% |
-| `structured` | 3.620 | 112.3 | 113.3 | 0.9% |
-| `english` | 3.692 | 156.3 | 149.5 | 4.3% |
-| `periodic16` | 4.611 | 82.2 | 82.3 | 0.1% |
-| `uniform` | 7.832 | 7.92 | 7.61 | 4.0% |
+| corpus       | $H_2$ | predicted | measured | error |
+| ------------ | ----- | --------- | -------- | ----- |
+| `flat`       | 0.000 | 2033      | 2032     | 0.05% |
+| `structured` | 3.620 | 112.3     | 113.3    | 0.9%  |
+| `english`    | 3.692 | 156.3     | 149.5    | 4.3%  |
+| `periodic16` | 4.611 | 82.2      | 82.3     | 0.1%  |
+| `uniform`    | 7.832 | 7.92      | 7.61     | 4.0%  |
 
 The residual is sampling bias in the needle draw. Needles are taken at a fixed stride, so on English
 the anchor byte is a biased letter draw, and the two rows with the largest error are the two whose
@@ -510,13 +514,13 @@ The quantity that sets the candidate rate in Section 4.4 sets the refutation dis
 once as a rate and once as a length. Measured at every needle length over every corpus
 (`test/bench/bench_ancorae_sift.c:1024`):
 
-| corpus | $m{=}4$ | $m{=}16$ | $m{=}64$ | $m{=}256$ | refuted over $m$ |
-|---|---|---|---|---|---|
-| `english` | 0.9962 | 0.9997 | 1.0000 | 1.0002 | 0.923 |
-| `structured` | 0.9939 | 0.9991 | 0.9985 | 0.9934 | 0.917 |
-| `periodic16` | 0.9999 | 0.9999 | 1.0001 | 1.0001 | 0.959 |
-| `uniform` | 1.0001 | 1.0000 | 1.0000 | 1.0000 | 0.996 |
-| `flat` | exact | exact | exact | exact | 0.000 |
+| corpus       | $m{=}4$ | $m{=}16$ | $m{=}64$ | $m{=}256$ | refuted over $m$ |
+| ------------ | ------- | -------- | -------- | --------- | ---------------- |
+| `english`    | 0.9962  | 0.9997   | 1.0000   | 1.0002    | 0.923            |
+| `structured` | 0.9939  | 0.9991   | 0.9985   | 0.9934    | 0.917            |
+| `periodic16` | 0.9999  | 0.9999   | 1.0001   | 1.0001    | 0.959            |
+| `uniform`    | 1.0001  | 1.0000   | 1.0000   | 1.0000    | 0.996            |
+| `flat`       | exact   | exact    | exact    | exact     | 0.000            |
 
 Entries are measured over predicted. This policy produces 35 rows, of which 28 carry a ratio and it
 stays between 0.9934 and 1.0011. Over all three policies, 84 rows carry a ratio and the range is
@@ -536,13 +540,13 @@ strings.
 
 Bias and root mean square error in bits, 64 trials, probe budget 64:
 
-| source | $N$ | true $H_2$ | plug in | unbiased | probe, self | probe, no self |
-|---|---|---|---|---|---|---|
-| `uniform256` | 256 | 8.000 | -0.984 / 0.986 | +0.029 / 0.126 | -0.964 / 0.969 | +0.074 / 0.210 |
-| `uniform256` | 1024 | 8.000 | -0.325 / 0.325 | -0.005 / 0.029 | -0.324 / 0.335 | -0.003 / 0.108 |
-| `uniform256` | 4096 | 8.000 | -0.088 / 0.089 | -0.001 / 0.007 | -0.077 / 0.085 | +0.010 / 0.040 |
-| `zipf1.0` | 4096 | 4.515 | -0.008 / 0.061 | -0.001 / 0.061 | -0.050 / 0.204 | -0.042 / 0.203 |
-| `skew0.99` | 4096 | 0.029 | -0.000 / 0.005 | -0.000 / 0.005 | +0.000 / 0.019 | +0.000 / 0.020 |
+| source       | $N$  | true $H_2$ | plug in        | unbiased       | probe, self    | probe, no self |
+| ------------ | ---- | ---------- | -------------- | -------------- | -------------- | -------------- |
+| `uniform256` | 256  | 8.000      | -0.984 / 0.986 | +0.029 / 0.126 | -0.964 / 0.969 | +0.074 / 0.210 |
+| `uniform256` | 1024 | 8.000      | -0.325 / 0.325 | -0.005 / 0.029 | -0.324 / 0.335 | -0.003 / 0.108 |
+| `uniform256` | 4096 | 8.000      | -0.088 / 0.089 | -0.001 / 0.007 | -0.077 / 0.085 | +0.010 / 0.040 |
+| `zipf1.0`    | 4096 | 4.515      | -0.008 / 0.061 | -0.001 / 0.061 | -0.050 / 0.204 | -0.042 / 0.203 |
+| `skew0.99`   | 4096 | 0.029      | -0.000 / 0.005 | -0.000 / 0.005 | +0.000 / 0.019 | +0.000 / 0.020 |
 
 **The probe counting its own match reproduces the plug in estimator, and excluding it reproduces the
 unbiased estimator.** At `uniform256` and $N=256$ the plug in bias is $-0.984$ bits and the probe with
@@ -553,11 +557,11 @@ from the other direction.
 **The probe is worse than both published estimators at every setting tested.** Its error is set by the
 probe budget and not by the corpus length. Root mean square error at $N = 16384$, `zipf1.0`:
 
-| probe budget | 16 | 64 | 256 | 1024 | 4096 |
-|---|---|---|---|---|---|
+| probe budget   | 16    | 64    | 256   | 1024  | 4096  |
+| -------------- | ----- | ----- | ----- | ----- | ----- |
 | probe, no self | 0.602 | 0.252 | 0.122 | 0.062 | 0.039 |
-| unbiased | 0.028 | 0.028 | 0.028 | 0.028 | 0.028 |
-| ratio | 21.7 | 9.1 | 4.4 | 2.2 | 1.4 |
+| unbiased       | 0.028 | 0.028 | 0.028 | 0.028 | 0.028 |
+| ratio          | 21.7  | 9.1   | 4.4   | 2.2   | 1.4   |
 
 The probe's error falls as one over the square root of the budget and converges toward the unbiased
 estimator without reaching it. The probe is also more expensive, at $O(kN)$ against $O(N)$ for a
@@ -576,8 +580,10 @@ estimates Renyi entropy at the next order.
 At order two the correction has a closed form. Writing $C = \sum_\sigma \hat p(\sigma)^2$ for the plug
 in collision probability, the corrected form is $(CN-1)/(N-1)$, so the two differ by
 
-$$\Delta C \;=\; \frac{1 - C}{N-1}, \qquad
-\Delta H_2 \;\approx\; \frac{1-C}{(N-1)\,C\,\ln 2}\ \text{bits}$$
+$$
+\Delta C \;=\; \frac{1 - C}{N-1}, \qquad
+\Delta H_2 \;\approx\; \frac{1-C}{(N-1)\,C\,\ln 2}\ \text{bits}
+$$
 
 That numerator answers the question the ladder was built for. A point mass has $C = 1$ exactly, so
 $1 - C$ is exactly zero and the correction is exactly zero, for every length. The same holds at every
@@ -587,17 +593,17 @@ orders 2 through 5 and lengths 256, 1024, 4096 and 16384, every entry is 0.0000 
 
 Correction magnitude in bits at order 2, $N = 4096$, 64 trials, against the closed form:
 
-| source | $H_2$ | predicted | measured |
-|---|---|---|---|
-| `point1` | 0.000 | 0.0000 | 0.0000 |
-| `skew0.99` | 0.029 | 0.0000 | 0.0000 |
-| `skew0.90` | 0.286 | 0.0001 | 0.0001 |
-| `uniform2` | 1.000 | 0.0004 | 0.0004 |
-| `zipf1.5` | 2.364 | 0.0015 | 0.0015 |
-| `uniform16` | 4.000 | 0.0053 | 0.0053 |
-| `zipf1.0` | 4.515 | 0.0077 | 0.0077 |
-| `zipf0.5` | 7.254 | 0.0534 | 0.0525 |
-| `uniform256` | 8.000 | 0.0898 | 0.0871 |
+| source       | $H_2$ | predicted | measured |
+| ------------ | ----- | --------- | -------- |
+| `point1`     | 0.000 | 0.0000    | 0.0000   |
+| `skew0.99`   | 0.029 | 0.0000    | 0.0000   |
+| `skew0.90`   | 0.286 | 0.0001    | 0.0001   |
+| `uniform2`   | 1.000 | 0.0004    | 0.0004   |
+| `zipf1.5`    | 2.364 | 0.0015    | 0.0015   |
+| `uniform16`  | 4.000 | 0.0053    | 0.0053   |
+| `zipf1.0`    | 4.515 | 0.0077    | 0.0077   |
+| `zipf0.5`    | 7.254 | 0.0534    | 0.0525   |
+| `uniform256` | 8.000 | 0.0898    | 0.0871   |
 
 The form holds across four orders of magnitude in the correction, with the largest disagreement at
 `uniform256` where the first order approximation of the logarithm is weakest.
@@ -625,13 +631,13 @@ at $N = 4096$. The two were measured on different source sets and no joint sweep
 Ratio of observed candidates to the independence prediction, needle 16
 (`test/bench/bench_ancorae_sift.c:541-632`):
 
-| corpus | policy | $n{=}2$ | $n{=}3$ | $n{=}4$ | $n{=}5$ | $n{=}6$ |
-|---|---|---|---|---|---|---|
-| `uniform` | `table` | 1.23 | - | - | - | - |
-| `english` | `table` | 1.44 | 3.80 | 7.68 | 160.7 | - |
-| `structured` | `table` | 8.46 | 163.2 | 663.4 | 2226.5 | 8186.1 |
-| `english` | `maxent` | 2.20 | 12.1 | 77.4 | 438.4 | 2409.4 |
-| `structured` | `maxent` | 2.34 | 8.53 | 28.9 | 118.0 | 389.7 |
+| corpus       | policy   | $n{=}2$ | $n{=}3$ | $n{=}4$ | $n{=}5$ | $n{=}6$ |
+| ------------ | -------- | ------- | ------- | ------- | ------- | ------- |
+| `uniform`    | `table`  | 1.23    | -       | -       | -       | -       |
+| `english`    | `table`  | 1.44    | 3.80    | 7.68    | 160.7   | -       |
+| `structured` | `table`  | 8.46    | 163.2   | 663.4   | 2226.5  | 8186.1  |
+| `english`    | `maxent` | 2.20    | 12.1    | 77.4    | 438.4   | 2409.4  |
+| `structured` | `maxent` | 2.34    | 8.53    | 28.9    | 118.0   | 389.7   |
 
 A dash marks a cell where the survivors reached zero, so the ratio has no content.
 
@@ -651,13 +657,13 @@ $$n \;=\; \frac{\log_2 N}{H_2}$$
 
 Against the first anchor count whose measured excess candidate count reaches zero:
 
-| corpus | $H_2$ | $N$ | predicted | measured, $m = 64$ and 256 | measured, $m = 16$ |
-|---|---|---|---|---|---|
-| `uniform` | 7.832 | 2048 | 1.40 | 3 | 3 |
-| `periodic16` | 4.611 | 2048 | 2.39 | 3 to 4 | 4 |
-| `structured` | 3.620 | 1408 | 2.89 | beyond 6 | beyond 6 |
-| `english` | 3.692 | 2048 | 2.98 | 3 | 6 |
-| `flat` | 0.000 | 2048 | unbounded | never | never |
+| corpus       | $H_2$ | $N$  | predicted | measured, $m = 64$ and 256 | measured, $m = 16$ |
+| ------------ | ----- | ---- | --------- | -------------------------- | ------------------ |
+| `uniform`    | 7.832 | 2048 | 1.40      | 3                          | 3                  |
+| `periodic16` | 4.611 | 2048 | 2.39      | 3 to 4                     | 4                  |
+| `structured` | 3.620 | 1408 | 2.89      | beyond 6                   | beyond 6           |
+| `english`    | 3.692 | 2048 | 2.98      | 3                          | 6                  |
+| `flat`       | 0.000 | 2048 | unbounded | never                      | never              |
 
 The prediction assumes each anchor contributes its full $H_2$ bits, which requires them to be
 independent. Section 4.7 puts that at separation 7 and above. At $m = 64$ and beyond there is room for
@@ -676,9 +682,9 @@ because the arithmetic fails.
 
 Independence $I(d)$ against anchor separation, needle 64, policy `table`:
 
-| stride | 1 | 2 | 3 | 5 | 7 | 8 | 13 | 17 |
-|---|---|---|---|---|---|---|---|---|
-| `english` | 6.05 | 2.59 | 1.50 | 1.21 | 0.99 | 1.02 | 1.07 | 1.21 |
+| stride       | 1    | 2    | 3    | 5    | 7    | 8    | 13   | 17   |
+| ------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| `english`    | 6.05 | 2.59 | 1.50 | 1.21 | 0.99 | 1.02 | 1.07 | 1.21 |
 | `structured` | 6.20 | 3.70 | 3.79 | 2.88 | 1.46 | 1.54 | 1.07 | 1.17 |
 
 Correlation is a function of distance and not of needle length, dying by stride 7 in both corpora. The
@@ -688,12 +694,12 @@ $|z|$ in that row is at most 1.7, consistent with independence at every stride m
 
 On `periodic16`, reported as $z$:
 
-| stride | 3 | 7 | 11 | 16 | 17 |
-|---|---|---|---|---|---|
-| needle 32 | 0.9 | **4.0** | -0.7 | **5.3** | 0.7 |
-| needle 64 | -0.3 | **6.6** | -0.1 | **12.3** | 0.4 |
-| needle 128 | -0.1 | **6.5** | 0.7 | **13.1** | 0.5 |
-| needle 256 | -0.4 | **5.5** | 0.7 | **12.6** | 1.4 |
+| stride     | 3    | 7       | 11   | 16       | 17  |
+| ---------- | ---- | ------- | ---- | -------- | --- |
+| needle 32  | 0.9  | **4.0** | -0.7 | **5.3**  | 0.7 |
+| needle 64  | -0.3 | **6.6** | -0.1 | **12.3** | 0.4 |
+| needle 128 | -0.1 | **6.5** | 0.7  | **13.1** | 0.5 |
+| needle 256 | -0.4 | **5.5** | 0.7  | **12.6** | 1.4 |
 
 A stride equal to the record period is the strongest correlation measured anywhere here, $I = 5.82$ at
 $z = 12.3$, reproducing at every needle length. A coprime stride of 17 is clean.
@@ -710,17 +716,17 @@ Here $T = 16$ and the punctuation sits at $F = \{4,11,15\}$, so $\hat{D} = \{4,7
 is $|z| > 2$, and lags 1 and 2 are excluded because short range correlation is present in every corpus
 here, English included at $I(1) = 6.05$.
 
-| $d$ | in $\hat{D}$ | $I(d)$ | $z$ | measured | verdict |
-|---|---|---|---|---|---|
-| 3 | no | 0.95 | -0.3 | independent | agrees |
-| 4 | **yes** | 0.96 | -0.3 | independent | **necessity fails** |
-| 5 | no | 1.31 | 2.1 | correlated | **sufficiency fails** |
-| 7 | **yes** | 2.46 | 6.6 | correlated | agrees |
-| 8 | no | 1.64 | 4.1 | correlated | **sufficiency fails** |
-| 11 | **yes** | 0.99 | -0.1 | independent | **necessity fails** |
-| 13 | no | 1.13 | 0.9 | independent | agrees |
-| 16 | **yes** | 5.82 | 12.3 | correlated | agrees |
-| 17 | no | 1.08 | 0.4 | independent | agrees |
+| $d$ | in $\hat{D}$ | $I(d)$ | $z$  | measured    | verdict               |
+| --- | ------------ | ------ | ---- | ----------- | --------------------- |
+| 3   | no           | 0.95   | -0.3 | independent | agrees                |
+| 4   | **yes**      | 0.96   | -0.3 | independent | **necessity fails**   |
+| 5   | no           | 1.31   | 2.1  | correlated  | **sufficiency fails** |
+| 7   | **yes**      | 2.46   | 6.6  | correlated  | agrees                |
+| 8   | no           | 1.64   | 4.1  | correlated  | **sufficiency fails** |
+| 11  | **yes**      | 0.99   | -0.1 | independent | **necessity fails**   |
+| 13  | no           | 1.13   | 0.9  | independent | agrees                |
+| 16  | **yes**      | 5.82   | 12.3 | correlated  | agrees                |
+| 17  | no           | 1.08   | 0.4  | independent | agrees                |
 
 Five of nine agree, and the four failures are the result. The $d = 5$ row sits at $z = 2.1$ against a
 threshold of 2.0, so that one is a borderline call.
@@ -741,12 +747,12 @@ periodicity.
 $I(d)$ and the skip are both divergences from a reference, and the cost table is that reference. A
 build links exactly one of five. Skip distance at needle 64, stride 0:
 
-| corpus | english | generic | uri | route |
-|---|---|---|---|---|
-| english prose | 159.1 | **168.0** | 5.8 | 6.0 |
-| C source | 147.7 | **206.7** | 5.9 | 6.8 |
-| periodic records | 73.2 | 73.2 | 16.6 | 9.5 |
-| uniform (control) | 277.1 | 256.0 | 277.7 | 277.1 |
+| corpus            | english | generic   | uri   | route |
+| ----------------- | ------- | --------- | ----- | ----- |
+| english prose     | 159.1   | **168.0** | 5.8   | 6.0   |
+| C source          | 147.7   | **206.7** | 5.9   | 6.8   |
+| periodic records  | 73.2    | 73.2      | 16.6  | 9.5   |
+| uniform (control) | 277.1   | 256.0     | 277.7 | 277.1 |
 
 This table was measured against an earlier control generator and its uniform row is on that generator.
 The claim it carries is that the four profiles agree there, and that claim does not depend on which
@@ -781,12 +787,12 @@ rarest byte takes the best candidate rate and gives up advance.
 
 Corpus reads per search, mean over 64 needles, english cost table:
 
-| corpus | $m$ | Horspool | rare anchor | salted anchor | rare over Horspool |
-|---|---|---|---|---|---|
-| `english` | 16 | 361.0 | 671.8 | 694.9 | 1.86 |
-| `structured` | 16 | 170.3 | 363.0 | 332.8 | 2.13 |
-| `periodic16` | 16 | 360.1 | 1551.2 | 859.1 | 4.31 |
-| `uniform` | 16 | 281.6 | 3517.0 | 720.5 | 12.49 |
+| corpus       | $m$ | Horspool | rare anchor | salted anchor | rare over Horspool |
+| ------------ | --- | -------- | ----------- | ------------- | ------------------ |
+| `english`    | 16  | 361.0    | 671.8       | 694.9         | 1.86               |
+| `structured` | 16  | 170.3    | 363.0       | 332.8         | 2.13               |
+| `periodic16` | 16  | 360.1    | 1551.2      | 859.1         | 4.31               |
+| `uniform`    | 16  | 281.6    | 3517.0      | 720.5         | 12.49              |
 
 The rare anchor loses on every corpus and every needle length tested, by 1.2 to 25 times, on the mean
 and on the worst case over the 64 needles. Salting the offset does not recover it. Adding the rare byte
@@ -811,12 +817,12 @@ Horspool maximizes the ceiling and ignores the frequencies. The rare anchor maxi
 rate and ignores the ceiling. Choosing the offset that maximizes the product, using the corpus's own
 frequencies:
 
-| corpus | $m$ | chosen offset of $m-1 = 31$ | vs Horspool |
-|---|---|---|---|
-| `uniform` | 32 | 31.00 | 1.0000 |
-| `english` | 32 | 28.97 | 0.9692 |
-| `structured` | 32 | 29.73 | 0.8902 |
-| `periodic16` | 32 | 30.66 | 1.0273 |
+| corpus       | $m$ | chosen offset of $m-1 = 31$ | vs Horspool |
+| ------------ | --- | --------------------------- | ----------- |
+| `uniform`    | 32  | 31.00                       | 1.0000      |
+| `english`    | 32  | 28.97                       | 0.9692      |
+| `structured` | 32  | 29.73                       | 0.8902      |
+| `periodic16` | 32  | 30.66                       | 1.0273      |
 
 On `uniform` it selects $m-1$ at every needle length and ties Horspool to four decimal places. On C
 source it gives up two units of ceiling to reach a rarer byte and wins 11%. This arm reads the whole
@@ -835,12 +841,12 @@ pay for the ceiling it costs. Above it the advance is flat and the rarity term d
 
 The chosen offset over $m-1$, against the radius, with the bar at the predicted crossing:
 
-| corpus | $3\cdot 2^{H_2}$ | 8 | 16 | 32 | 64 | 128 | 256 |
-|---|---|---|---|---|---|---|---|
-| `uniform` | 683.6 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 0.998 |
-| `periodic16` | 73.3 | 1.000 | 0.996 | 0.989 | 0.974 | 0.888 | 0.770 |
-| `english` | 38.8 | 0.993 | 0.975 | 0.935 | 0.911 | 0.869 | 0.774 |
-| `structured` | 36.9 | 0.993 | 0.968 | 0.959 | 0.963 | 0.913 | 0.893 |
+| corpus       | $3\cdot 2^{H_2}$ | 8     | 16    | 32    | 64    | 128   | 256   |
+| ------------ | ---------------- | ----- | ----- | ----- | ----- | ----- | ----- |
+| `uniform`    | 683.6            | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 0.998 |
+| `periodic16` | 73.3             | 1.000 | 0.996 | 0.989 | 0.974 | 0.888 | 0.770 |
+| `english`    | 38.8             | 0.993 | 0.975 | 0.935 | 0.911 | 0.869 | 0.774 |
+| `structured` | 36.9             | 0.993 | 0.968 | 0.959 | 0.963 | 0.913 | 0.893 |
 
 `uniform` has a radius larger than any needle tested, so no needle reaches the flat zone and the
 optimum stays at $m-1$ throughout, which it does to three decimals at five lengths of six.
@@ -861,14 +867,14 @@ only be revised downward as answers arrive. And one answer updates every offset,
 another offset would have taken from the same cell is fixed by where the needle carries the observed
 symbol, which one backward pass over the needle computes without any table over symbols.
 
-| corpus | $m$ | Horspool | product rule, given the histogram | field, given nothing |
-|---|---|---|---|---|
-| `structured` | 32 | 136.6 | 121.6 | **118.5** |
-| `structured` | 64 | 129.5 | 128.9 | **121.7** |
-| `structured` | 4 | 445.2 | 445.2 | **426.0** |
-| `structured` | 128 | 177.6 | 170.2 | **168.3** |
-| `english` | 128 | 274.4 | 255.7 | 266.4 |
-| `uniform` | all | | | 1.000 to 1.008 of Horspool |
+| corpus       | $m$ | Horspool | product rule, given the histogram | field, given nothing       |
+| ------------ | --- | -------- | --------------------------------- | -------------------------- |
+| `structured` | 32  | 136.6    | 121.6                             | **118.5**                  |
+| `structured` | 64  | 129.5    | 128.9                             | **121.7**                  |
+| `structured` | 4   | 445.2    | 445.2                             | **426.0**                  |
+| `structured` | 128 | 177.6    | 170.2                             | **168.3**                  |
+| `english`    | 128 | 274.4    | 255.7                             | 266.4                      |
+| `uniform`    | all |          |                                   | 1.000 to 1.008 of Horspool |
 
 The field beats Horspool on 15 of 28 rows, by 13.2% at best, and beats the product rule on every
 `structured` row despite the product rule being given the corpus histogram it was never shown. The
@@ -886,12 +892,12 @@ records make it depend on the column, and the two cells are different columns.
 
 The field over Horspool, by needle length:
 
-| corpus | 4 | 8 | 16 | 32 | 64 | 128 | 256 |
-|---|---|---|---|---|---|---|---|
+| corpus       | 4     | 8     | 16        | 32        | 64    | 128   | 256   |
+| ------------ | ----- | ----- | --------- | --------- | ----- | ----- | ----- |
 | `periodic16` | 1.000 | 1.003 | **1.050** | **1.056** | 1.024 | 1.006 | 0.953 |
-| `structured` | 0.957 | 0.946 | 0.908 | 0.868 | 0.940 | 0.947 | 0.992 |
-| `english` | 1.002 | 1.003 | 0.998 | 0.994 | 0.985 | 0.971 | 0.981 |
-| `uniform` | 1.000 | 1.000 | 1.004 | 1.005 | 1.008 | 1.004 | 1.000 |
+| `structured` | 0.957 | 0.946 | 0.908     | 0.868     | 0.940 | 0.947 | 0.992 |
+| `english`    | 1.002 | 1.003 | 0.998     | 0.994     | 0.985 | 0.971 | 0.981 |
+| `uniform`    | 1.000 | 1.000 | 1.004     | 1.005     | 1.008 | 1.004 | 1.000 |
 
 `periodic16` is the only corpus above one across a run of lengths, and the loss peaks at 16 and 32,
 the record period and twice it, falling away on either side. The three corpora with no column
@@ -918,14 +924,14 @@ $$\text{harvest} \;\approx\; \frac{1}{\bigl(1 + m\,2^{-H_2}\bigr)\bigl(1 - 2^{-H
 Against the reads already reported, with no parameter fitted. The measured column is a lower bound,
 since a read count includes verification and therefore understates the mean advance:
 
-| corpus | $m$ | $H_2$ | predicted | measured at least |
-|---|---|---|---|---|
-| `structured` | 16 | 3.620 | 47.3% | 47% |
-| `english` | 16 | 3.692 | 48.4% | 52% |
-| `periodic16` | 16 | 4.611 | 63.0% | 74% |
-| `uniform` | 16 | 7.832 | 93.9% | 91% |
-| `english` | 64 | 3.692 | 18.2% | 19% |
-| `english` | 256 | 3.692 | 5.2% | 3% |
+| corpus       | $m$ | $H_2$ | predicted | measured at least |
+| ------------ | --- | ----- | --------- | ----------------- |
+| `structured` | 16  | 3.620 | 47.3%     | 47%               |
+| `english`    | 16  | 3.692 | 48.4%     | 52%               |
+| `periodic16` | 16  | 4.611 | 63.0%     | 74%               |
+| `uniform`    | 16  | 7.832 | 93.9%     | 91%               |
+| `english`    | 64  | 3.692 | 18.2%     | 19%               |
+| `english`    | 256 | 3.692 | 5.2%      | 3%                |
 
 The harvest is monotone in $H_2$ at fixed $m$, reading 47%, 52%, 74% and 91% across the four corpora
 in entropy order, and it collapses as $m$ grows because a longer needle carries more copies of whatever
@@ -951,21 +957,23 @@ cells to read, and those can be fixed in advance. Reading at stride $k$ covers e
 times, so with $x = m/k$ the survivors are $N 2^{-H_2 x}$, the probe reads are $Nx/m$, and the total is
 minimized at
 
-$$x \;=\; \frac{\log_2\!\left(m H_2 \ln 2\right)}{H_2},
-\qquad \text{reads} \;\approx\; \frac{N}{m}\left[x + \frac{1}{H_2 \ln 2}\right]$$
+$$
+x \;=\; \frac{\log_2\!\left(m H_2 \ln 2\right)}{H_2},
+\qquad \text{reads} \;\approx\; \frac{N}{m}\left[x + \frac{1}{H_2 \ln 2}\right]
+$$
 
 That model predicted savings of 11 to 26 times at $m = 256$. It was wrong by an order of magnitude,
 and the way it was wrong is the useful part.
 
 Measured, as in-order reads over free-order reads, so above one is a saving:
 
-| corpus | $m = 4$ | $m = 16$ | $m = 64$ | $m = 128$ | $m = 256$ |
-|---|---|---|---|---|---|
-| `english` | 0.96 | 0.85 | 1.38 | **1.47** | 1.33 |
-| `structured` | 1.07 | 0.81 | 1.13 | 1.16 | 1.08 |
-| `periodic16` | 0.63 | 0.76 | 0.99 | 1.20 | 1.36 |
-| `uniform` | 0.44 | 0.27 | 0.93 | 0.94 | 0.98 |
-| `mixed` | 0.66 | 0.82 | 0.80 | 0.93 | 1.05 |
+| corpus       | $m = 4$ | $m = 16$ | $m = 64$ | $m = 128$ | $m = 256$ |
+| ------------ | ------- | -------- | -------- | --------- | --------- |
+| `english`    | 0.96    | 0.85     | 1.38     | **1.47**  | 1.33      |
+| `structured` | 1.07    | 0.81     | 1.13     | 1.16      | 1.08      |
+| `periodic16` | 0.63    | 0.76     | 0.99     | 1.20      | 1.36      |
+| `uniform`    | 0.44    | 0.27     | 0.93     | 0.94      | 0.98      |
+| `mixed`      | 0.66    | 0.82     | 0.80     | 0.93      | 1.05      |
 
 The dependency depth is 2 on every row, as the construction requires.
 
@@ -977,12 +985,12 @@ Every needle here is drawn from the corpus it is searched in, so every search mu
 occurrence, and confirming a match of length $m$ costs $m$ reads. That term is absent from the
 derivation above. Adding it accounts for the measurements to within 3%:
 
-| corpus | probes | $+\,m$ | $+$ false survivors | predicted | measured |
-|---|---|---|---|---|---|
-| `english` | 25.1 | 256 | 9.0 | 290.1 | 289.7 |
-| `structured` | 9.7 | 256 | 0.0 | 265.7 | 267.0 |
-| `periodic16` | 31.5 | 256 | 10.5 | 298.0 | 296.0 |
-| `uniform` | 19.8 | 256 | 15.0 | 290.8 | 287.6 |
+| corpus       | probes | $+\,m$ | $+$ false survivors | predicted | measured |
+| ------------ | ------ | ------ | ------------------- | --------- | -------- |
+| `english`    | 25.1   | 256    | 9.0                 | 290.1     | 289.7    |
+| `structured` | 9.7    | 256    | 0.0                 | 265.7     | 267.0    |
+| `periodic16` | 31.5   | 256    | 10.5                | 298.0     | 296.0    |
+| `uniform`    | 19.8   | 256    | 15.0                | 290.8     | 287.6    |
 
 **A long search is verification bound and not filter bound.** The floor is $m$ reads for any
 algorithm that must confirm the match, and at $m = 256$ Horspool runs at 1.10 to 1.57 times that floor
@@ -1015,13 +1023,13 @@ declares the survivors, and never confirms.
 
 It is cheap and it is wrong.
 
-| corpus | $m$ | in-order reads | unconfirmed reads | saving | searches wrong, of 64 |
-|---|---|---|---|---|---|
-| `structured` | 256 | 287.5 | 14.0 | 20.5 | 51 |
-| `english` | 256 | 384.9 | 34.0 | 11.3 | 32 |
-| `uniform` | 256 | 281.6 | 25.0 | 11.3 | 64 |
-| `structured` | 128 | 177.6 | 27.0 | 6.6 | 49 |
-| `english` | 4 | 916.5 | 2789.0 | 0.33 | 0 |
+| corpus       | $m$ | in-order reads | unconfirmed reads | saving | searches wrong, of 64 |
+| ------------ | --- | -------------- | ----------------- | ------ | --------------------- |
+| `structured` | 256 | 287.5          | 14.0              | 20.5   | 51                    |
+| `english`    | 256 | 384.9          | 34.0              | 11.3   | 32                    |
+| `uniform`    | 256 | 281.6          | 25.0              | 11.3   | 64                    |
+| `structured` | 128 | 177.6          | 27.0              | 6.6    | 49                    |
+| `english`    | 4   | 916.5          | 2789.0            | 0.33   | 0                     |
 
 The last row is the only shape that is ever right: at stride one every cell is read, nothing false can
 survive, and the cost is worse than reading the corpus straight through. Everywhere else the saving is
@@ -1043,14 +1051,14 @@ directional and monotone in the stride can be bisected, so one needle whose occu
 can find the largest stride reproducing that count, in $\log_2 m$ passes. Applying that stride to the
 other 63 needles:
 
-| corpus | $m$ | calibrated | derived | wrong of 63 | over in-order reads |
-|---|---|---|---|---|---|
-| `structured` | 256 | 98 | 91 | 23 | 22.1 |
-| `english` | 256 | 75 | 84 | 28 | 10.1 |
-| `uniform` | 256 | 145 | 170 | 59 | 9.7 |
-| `periodic16` | 256 | 66 | 99 | 1 | 6.4 |
-| `uniform` | 16 | 9 | 11 | 62 | 0.6 |
-| `english` | 8 | 1 | 3 | 0 | 0.19 |
+| corpus       | $m$ | calibrated | derived | wrong of 63 | over in-order reads |
+| ------------ | --- | ---------- | ------- | ----------- | ------------------- |
+| `structured` | 256 | 98         | 91      | 23          | 22.1                |
+| `english`    | 256 | 75         | 84      | 28          | 10.1                |
+| `uniform`    | 256 | 145        | 170     | 59          | 9.7                 |
+| `periodic16` | 256 | 66         | 99      | 1           | 6.4                 |
+| `uniform`    | 16  | 9          | 11      | 62          | 0.6                 |
+| `english`    | 8   | 1          | 3       | 0           | 0.19                |
 
 Every row with no errors is a row where calibration drove the stride to one or two, which reads nearly
 every cell and costs more than an in-order search. Every row that is fast is also wrong on a third to
@@ -1086,13 +1094,13 @@ the survivors overlap most, which is a function of the answers so far and of not
 when a read separates nothing and confirms what remains
 (`test/bench/bench_ancorae_ab.c:1122`).
 
-| corpus | reads at $m = 256$ | probes among them | reads over the floor | in-order over the floor |
-|---|---|---|---|---|
-| `structured` | 262.1 | 9.5 | 1.02 | 1.12 |
-| `uniform` | 277.7 | 23.5 | 1.08 | 1.10 |
-| `english` | 279.4 | 26.6 | 1.09 | 1.50 |
-| `mixed` | 281.8 | 28.7 | 1.10 | 1.21 |
-| `periodic16` | 307.4 | 45.4 | 1.20 | 1.57 |
+| corpus       | reads at $m = 256$ | probes among them | reads over the floor | in-order over the floor |
+| ------------ | ------------------ | ----------------- | -------------------- | ----------------------- |
+| `structured` | 262.1              | 9.5               | 1.02                 | 1.12                    |
+| `uniform`    | 277.7              | 23.5              | 1.08                 | 1.10                    |
+| `english`    | 279.4              | 26.6              | 1.09                 | 1.50                    |
+| `mixed`      | 281.8              | 28.7              | 1.10                 | 1.21                    |
+| `periodic16` | 307.4              | 45.4              | 1.20                 | 1.57                    |
 
 The floor is the $m$ reads Section 4.9.5 identifies as irreducible. This runs within 2% to 20% of it
 where an in-order search runs within 10% to 57%, and it is exact on all 35 rows with a mirror residual
@@ -1151,8 +1159,8 @@ worth nothing.
 
 Section 2.1 declines to assume the alphabet is enumerable. It does not follow that a symbol is a byte,
 and nothing in this document justifies eight bits. A corpus is a bit pattern, and where one symbol ends
-and the next begins is a carving imposed on it. Every $H_2$ reported before this section is a property
-of the corpus and that carving together.
+and the next begins is a slice imposed on it. Every $H_2$ reported before this section is a property
+of the corpus and that slice together.
 
 Proposition 1 does not mention the width, so soundness holds at every width at once. What the width
 moves is cost. A read of $w$ bits costs $w$ bits of reading and yields $H_2(w)$ bits of discrimination,
@@ -1162,23 +1170,23 @@ $H_2(w)/w$.
 Measured over windows taken at every bit offset, since a read can begin anywhere
 (`test/bench/bench_ancorae_sift.c:1122`):
 
-| corpus | $w{=}1$ | $w{=}2$ | $w{=}4$ | $w{=}8$ | $w{=}12$ | $w{=}16$ |
-|---|---|---|---|---|---|---|
-| `english` | 0.984 | 0.984 | 0.969 | 0.856 | 0.696 | 0.600 |
-| `structured` | 0.967 | 0.966 | 0.954 | 0.850 | 0.670 | 0.541 |
-| `periodic16` | 0.989 | 0.988 | 0.944 | 0.888 | 0.792 | 0.726 |
-| `uniform` | 1.000 | 1.000 | 1.000 | 0.997 | 0.973 | 0.855 |
-| `flat` | 0.678 | 0.708 | 0.670 | 0.375 | 0.250 | 0.188 |
+| corpus       | $w{=}1$ | $w{=}2$ | $w{=}4$ | $w{=}8$ | $w{=}12$ | $w{=}16$ |
+| ------------ | ------- | ------- | ------- | ------- | -------- | -------- |
+| `english`    | 0.984   | 0.984   | 0.969   | 0.856   | 0.696    | 0.600    |
+| `structured` | 0.967   | 0.966   | 0.954   | 0.850   | 0.670    | 0.541    |
+| `periodic16` | 0.989   | 0.988   | 0.944   | 0.888   | 0.792    | 0.726    |
+| `uniform`    | 1.000   | 1.000   | 1.000   | 0.997   | 0.973    | 0.855    |
+| `flat`       | 0.678   | 0.708   | 0.670   | 0.375   | 0.250    | 0.188    |
 
 The ratio falls with width on every corpus. Reading English a byte at a time yields 0.856 bits per bit
-read against 0.984 at a single bit, so the byte carving gives up 15% of the discrimination available in
+read against 0.984 at a single bit, so the byte slice gives up 15% of the discrimination available in
 the same number of bits, and a sixteen bit symbol gives up 40%.
 
 **The flat corpus is not flat.** It is `0x41` repeated, `01000001` has period eight, and a window of
 six bits or more takes exactly eight distinct values whatever the corpus length. Its collision entropy
 is therefore $\log_2 8 = 3$ bits exactly, which is what the sweep reports at widths 6, 8, 12 and 16,
 and 0.678 bits at width one. The object every other section of this document reports zero on carries
-three bits under a carving one bit narrower.
+three bits under a slice one bit narrower.
 
 **What this does not settle.** $H_2(w)/w$ is the right comparison only where reading costs by the bit.
 Where a read costs the same whatever its width, which is the case for a machine word, the quantity to
@@ -1203,13 +1211,13 @@ A shuffle of the same bytes settles it. It preserves the byte histogram exactly,
 probability is unchanged, and it destroys every relation between positions, which is the only thing a
 shift can be. Whatever the detector reports there is what it reports on nothing.
 
-| corpus | shifts reported | on the shuffle | difference | strongest shift |
-|---|---|---|---|---|
-| `periodic16` | 92 | 0 | **92** | 560 |
-| `uniform` | 12 | 16 | -4 | 919 |
-| `mixed` | 4 | 6 | -2 | 416 |
-| `structured` | 1 | 1 | 0 | 984 |
-| `english` | 0 | 0 | 0 | 1719 |
+| corpus       | shifts reported | on the shuffle | difference | strongest shift |
+| ------------ | --------------- | -------------- | ---------- | --------------- |
+| `periodic16` | 92              | 0              | **92**     | 560             |
+| `uniform`    | 12              | 16             | -4         | 919             |
+| `mixed`      | 4               | 6              | -2         | 416             |
+| `structured` | 1               | 1              | 0          | 984             |
+| `english`    | 0               | 0              | 0          | 1719            |
 
 One corpus has structure of this kind and it is the one built with a period. Its strongest shift is
 560, and $560 = 35 \times 16$, so the detector recovered a multiple of the record length without being
@@ -1236,13 +1244,13 @@ one threshold reads the same on any alphabet and any corpus
 (`test/bench/bench_ancorae_ab.c:1482`). The shuffle calibrates it as before: it holds every symbol's
 count and destroys where they sit, so in it every symbol's gaps are geometric by construction.
 
-| corpus | symbol found | mean gap | dispersion | on the shuffle | ratio |
-|---|---|---|---|---|---|
-| `english` | `0x20`, space | 5.58 | 0.162 | 0.599 | 3.70 |
-| `periodic16` | `0x0A`, newline | 16.00 | 0.0000 | 0.653 | unbounded |
-| `structured` | `0x3B`, semicolon | 59.9 | 0.353 | 0.413 | 1.17 |
-| `uniform` | `0x45` | 177.6 | 0.324 | 0.339 | 1.05 |
-| `mixed` | `0x6B` | 134.0 | 0.814 | 0.400 | 0.49 |
+| corpus       | symbol found      | mean gap | dispersion | on the shuffle | ratio     |
+| ------------ | ----------------- | -------- | ---------- | -------------- | --------- |
+| `english`    | `0x20`, space     | 5.58     | 0.162      | 0.599          | 3.70      |
+| `periodic16` | `0x0A`, newline   | 16.00    | 0.0000     | 0.653          | unbounded |
+| `structured` | `0x3B`, semicolon | 59.9     | 0.353      | 0.413          | 1.17      |
+| `uniform`    | `0x45`            | 177.6    | 0.324      | 0.339          | 1.05      |
+| `mixed`      | `0x6B`            | 134.0    | 0.814      | 0.400          | 0.49      |
 
 Each corpus that has a boundary marker returns it. English returns the space, at a mean gap of 5.58,
 which is a word and its separator. The record corpus returns the newline at exactly 16.00 with a
@@ -1266,15 +1274,15 @@ carries $k-1$ gaps between them that any true occurrence has to reproduce. That 
 own, before any other symbol is looked at
 (`test/bench/bench_ancorae_ab.c:1605`).
 
-| corpus | $m$ | boundaries in the needle | survivors | reduction |
-|---|---|---|---|---|
-| `english` | 16 | 2.88 | 37.3 | 74 |
-| `english` | 32 | 5.72 | 1.75 | 1572 |
-| `english` | 64 | 11.45 | 1.00 | 2726 |
-| `english` | 256 | 46.0 | 1.00 | 2534 |
-| `structured` | 256 | 4.27 | 1.01 | 923 |
-| `periodic16` | 64 | 4.00 | 252.1 | 16.0 |
-| `periodic16` | 256 | 16.00 | 240.3 | 16.0 |
+| corpus       | $m$ | boundaries in the needle | survivors | reduction |
+| ------------ | --- | ------------------------ | --------- | --------- |
+| `english`    | 16  | 2.88                     | 37.3      | 74        |
+| `english`    | 32  | 5.72                     | 1.75      | 1572      |
+| `english`    | 64  | 11.45                    | 1.00      | 2726      |
+| `english`    | 256 | 46.0                     | 1.00      | 2534      |
+| `structured` | 256 | 4.27                     | 1.01      | 923       |
+| `periodic16` | 64  | 4.00                     | 252.1     | 16.0      |
+| `periodic16` | 256 | 16.00                    | 240.3     | 16.0      |
 
 On English the spacing alone locates the needle uniquely from a needle length of 64 upward, using a
 symbol that is 17.9% of the corpus and is therefore the worst anchor in it by rarity. The filter
@@ -1309,14 +1317,14 @@ Six public domain texts, fetched by `tools/dev_env/fetch_language_corpora.py` an
 file wrapped at a fixed width carries a return every fifty odd bytes and the detector finds the
 publisher's formatting before it finds the language.
 
-| text | family | year | boundary | gap | Zipf slope | brevity |
-|---|---|---|---|---|---|---|
-| Cervantes, *Don Quixote* | Romance | 1605 | `0x20` | 5.13 | -1.047 | -0.305 |
-| King James Bible | Germanic | 1611 | `0x20` | 4.70 | -0.925 | -0.244 |
-| Goethe, *Faust* | Germanic | 1808 | `0x20` | 5.09 | -0.723 | -0.364 |
-| Austen, *Pride and Prejudice* | Germanic | 1813 | `0x20` | 4.94 | -0.875 | -0.301 |
-| Hugo, *Les Misérables* | Romance | 1862 | `0x20` | 5.40 | -0.950 | -0.321 |
-| *Kalevala* | Uralic | 1849 | `0x2C` | 43.7 | -0.563 | -0.153 |
+| text                          | family   | year | boundary | gap  | Zipf slope | brevity |
+| ----------------------------- | -------- | ---- | -------- | ---- | ---------- | ------- |
+| Cervantes, _Don Quixote_      | Romance  | 1605 | `0x20`   | 5.13 | -1.047     | -0.305  |
+| King James Bible              | Germanic | 1611 | `0x20`   | 4.70 | -0.925     | -0.244  |
+| Goethe, _Faust_               | Germanic | 1808 | `0x20`   | 5.09 | -0.723     | -0.364  |
+| Austen, _Pride and Prejudice_ | Germanic | 1813 | `0x20`   | 4.94 | -0.875     | -0.301  |
+| Hugo, _Les Misérables_        | Romance  | 1862 | `0x20`   | 5.40 | -0.950     | -0.321  |
+| _Kalevala_                    | Uralic   | 1849 | `0x2C`   | 43.7 | -0.563     | -0.153  |
 
 Five of the six locate the same boundary symbol without being told there is one, at a mean gap between
 4.70 and 5.40. The Zipf slopes sit between -0.72 and -1.05 against a stated -1, and the brevity
@@ -1324,15 +1332,15 @@ correlation is negative in every row. Cervantes and Hugo are 257 years and two c
 differ by 0.10 in slope and 0.016 in brevity.
 
 **The Finnish row is a genre confound and not a property of Finnish.** Every other text here is running
-prose and the *Kalevala* is verse in strict trochaic tetrameter, compiled from oral songs, so its lines
+prose and the _Kalevala_ is verse in strict trochaic tetrameter, compiled from oral songs, so its lines
 are more regular than its words and the detector finds the line. Replacing it with Finnish prose
 settles it:
 
-| text | boundary | gap | Zipf | brevity | distinct per token |
-|---|---|---|---|---|---|
-| Kivi, *Seitsemän veljestä*, prose, 1870 | `0x20` | 6.82 | -0.828 | -0.298 | 0.37 |
-| *Kalevala*, verse, 1849 | `0x2C` | 43.7 | -0.563 | -0.153 | 0.91 |
-| Austen, prose, 1813 | `0x20` | 4.94 | -0.875 | -0.301 | 0.11 |
+| text                                    | boundary | gap  | Zipf   | brevity | distinct per token |
+| --------------------------------------- | -------- | ---- | ------ | ------- | ------------------ |
+| Kivi, _Seitsemän veljestä_, prose, 1870 | `0x20`   | 6.82 | -0.828 | -0.298  | 0.37               |
+| _Kalevala_, verse, 1849                 | `0x2C`   | 43.7 | -0.563 | -0.153  | 0.91               |
+| Austen, prose, 1813                     | `0x20`   | 4.94 | -0.875 | -0.301  | 0.11               |
 
 Finnish prose finds the space and returns a brevity of -0.298 against English prose at -0.301. The
 failure was the meter and not the morphology, and an earlier draft of this section said otherwise.
@@ -1352,12 +1360,12 @@ behaves differently enough that genre is a variable this has not controlled for 
 Four times in this section the tightest spacing in a file belonged to the file and not to what was
 written in it.
 
-| what was found | where |
-|---|---|
-| `0x0D`, the line ending of a text wrapped at a fixed width | 5 of the 6 texts, before line endings were folded |
-| `Heading`, Project Gutenberg's own markup | Austen's narrowest company in Section 4.14 |
-| `0x2A` at a gap of 2.02 and a dispersion of 0.005, a ruled separator | a Greek text |
-| `0x30` at a gap of 816, verse numbering | the same Greek text |
+| what was found                                                       | where                                             |
+| -------------------------------------------------------------------- | ------------------------------------------------- |
+| `0x0D`, the line ending of a text wrapped at a fixed width           | 5 of the 6 texts, before line endings were folded |
+| `Heading`, Project Gutenberg's own markup                            | Austen's narrowest company in Section 4.14        |
+| `0x2A` at a gap of 2.02 and a dispersion of 0.005, a ruled separator | a Greek text                                      |
+| `0x30` at a gap of 816, verse numbering                              | the same Greek text                               |
 
 The most regular thing in a text file is almost never the language, because a language is produced by
 somebody composing and a file format is produced by a rule. Every result in Sections 4.12 to 4.14
@@ -1374,7 +1382,7 @@ covered in Section 4.13.05, and both leave every corpus that already worked unch
 #### 4.13.05 A Greek text, once its symbols are symbols
 
 Every measurement above counted bytes, and no part of this document justified that. Section 4.10
-already establishes the carving as a choice the method has to make, and the byte was chosen here by
+already establishes the slice as a choice the method has to make, and the byte was chosen here by
 habit.
 
 A Greek text exposes it. The detector returned `0x68` at a mean gap of 21.24, which is not the word
@@ -1391,22 +1399,22 @@ one fits in a byte with room left. Re-seating them in order of first appearance,
 with respect to every statistic measured, and folding line endings as the byte path already does, the
 detector returns `U+0020` as the boundary at a mean gap of 4.42 and the text reads:
 
-| corpus | zipf slope | brevity | types at 25k | bits per word |
-|---|---|---|---|---|
-| `greek_iliad` | -0.878 | -0.352 | 7001 | 10.318 |
-| `english_1813_austen` | -0.875 | -0.285 | 5690 | 9.792 |
-| `french_1862_hugo` | -0.950 | -0.311 | 7432 | 10.324 |
-| `german_1808_goethe` | -0.723 | -0.357 | 8064 | 10.891 |
-| `finnish_1870_kivi_prose` | -0.828 | -0.313 | 11841 | 11.900 |
+| corpus                    | zipf slope | brevity | types at 25k | bits per word |
+| ------------------------- | ---------- | ------- | ------------ | ------------- |
+| `greek_iliad`             | -0.878     | -0.352  | 7001         | 10.318        |
+| `english_1813_austen`     | -0.875     | -0.285  | 5690         | 9.792         |
+| `french_1862_hugo`        | -0.950     | -0.311  | 7432         | 10.324        |
+| `german_1808_goethe`      | -0.723     | -0.357  | 8064         | 10.891        |
+| `finnish_1870_kivi_prose` | -0.828     | -0.313  | 11841        | 11.900        |
 
 Greek sits inside the group on every column, carrying the second strongest brevity correlation of any
 natural text measured here. Nothing in the detector knows Greek, and the only thing it needed was the
 width.
 
-Two checks say the re-carving is not doing the work itself. Applied to the English text, where the
+Two checks say the re-slice is not doing the work itself. Applied to the English text, where the
 byte was already the right width, it moves the Zipf slope from -0.875 to -0.875 and the type count
 from 5691 to 5690. And the boundary it finds is not planted: seats are assigned by first appearance,
-the detector ranks candidates on gap regularity, and it recovers `U+0020` in all four texts re-carved
+the detector ranks candidates on gap regularity, and it recovers `U+0020` in all four texts re-sliced
 this way.
 
 #### 4.13.06 What a translation does to two unrelated measures
@@ -1455,7 +1463,7 @@ So this document makes no claim about epic register, and it withdraws the explan
 for not finding one. Three measurements over five texts in three languages, two of them chosen to
 remove the confound blamed the first time, return nothing that separates epic from prose.
 
-The burst figures cannot be read back on a re-carved corpus at all, because the reporting path prints
+The burst figures cannot be read back on a re-sliced corpus at all, because the reporting path prints
 the matched unit as bytes and those bytes are seat indices after Section 4.13.05 re-seats them.
 
 There is a limit behind all three failures that no better instrument reaches. Every measure here reads
@@ -1472,14 +1480,14 @@ Two frequency bands are compared as a Jaccard overlap (`tools/dev_env/measure_dr
 100 words of an English text are almost all function words and move slowly. Ranks 500 to 2000 are
 mostly content and follow the subject.
 
-| pair | years apart | form | top 100 | ranks 500 to 2000 |
-|---|---|---|---|---|
-| Milton 1667, Pope 1720 | 53 | both epic verse | 0.5625 | 0.2310 |
-| King James 1611, Shakespeare 1623 | 12 | scripture, plays | 0.5038 | 0.1596 |
-| Pope 1720, Austen 1813 | 93 | epic verse, novel | 0.3889 | 0.1207 |
-| King James 1611, Austen 1813 | 202 | scripture, novel | 0.3699 | 0.1054 |
-| Kalevala 1849, Kivi 1870 | 21 | Finnish verse, Finnish novel | 0.2121 | 0.0684 |
-| Austen 1813, Hugo 1862 | control | different languages | 0.0204 | 0.0132 |
+| pair                              | years apart | form                         | top 100 | ranks 500 to 2000 |
+| --------------------------------- | ----------- | ---------------------------- | ------- | ----------------- |
+| Milton 1667, Pope 1720            | 53          | both epic verse              | 0.5625  | 0.2310            |
+| King James 1611, Shakespeare 1623 | 12          | scripture, plays             | 0.5038  | 0.1596            |
+| Pope 1720, Austen 1813            | 93          | epic verse, novel            | 0.3889  | 0.1207            |
+| King James 1611, Austen 1813      | 202         | scripture, novel             | 0.3699  | 0.1054            |
+| Kalevala 1849, Kivi 1870          | 21          | Finnish verse, Finnish novel | 0.2121  | 0.0684            |
+| Austen 1813, Hugo 1862            | control     | different languages          | 0.0204  | 0.0132            |
 
 The last row shows the measure behaves, since two languages share almost nothing and the figure goes
 to the floor. The first two rows show it cannot answer the question. Fifty three years with the form
@@ -1518,11 +1526,11 @@ were measured against each other. Douay Rheims 1609 and the King James 1611 are 
 were made by rival translators from different sources, which prices translator choice with the era
 held still. The World English Bible is 389 years after the King James.
 
-| pair | years apart | top 100 | ranks 500 to 2000 |
-|---|---|---|---|
-| Douay 1609, King James 1611 | 2 | 0.8519 | 0.5440 |
-| King James 1611, World English 2000 | 389 | 0.7857 | 0.6243 |
-| Douay 1609, World English 2000 | 391 | 0.7699 | 0.4684 |
+| pair                                | years apart | top 100 | ranks 500 to 2000 |
+| ----------------------------------- | ----------- | ------- | ----------------- |
+| Douay 1609, King James 1611         | 2           | 0.8519  | 0.5440            |
+| King James 1611, World English 2000 | 389         | 0.7857  | 0.6243            |
+| Douay 1609, World English 2000      | 391         | 0.7699  | 0.4684            |
 
 Every figure here is far above the genre varied pairs above, which confirms the subject was carrying
 most of that difference. Within these three the era is the smaller term. Two years across a change of
@@ -1555,7 +1563,7 @@ the drift rate to vary at all. Measuring it needs a replacement event with text 
 The drift rate is the only quantity these measurements compute, so the question is outside them.
 
 For the oldest replacement events there is no text on either side and there will not be one. Göbekli
-Tepe was backfilled by the people who built it around 8000 BC and carries carved pillars, repeated
+Tepe was backfilled by the people who built it around 8000 BC and carries sliced pillars, repeated
 animal figures and an evident organizing intent, with no recoverable language attached to any of it.
 The community ending events in the archaeological record are the same shape, legible in the deposit
 and silent in every respect this document measures. So the limit there is not the size of the corpus
@@ -1589,7 +1597,7 @@ table, which is the part a person designed and the part actually transmitted, an
 correlation returns at -0.550 against -0.652 for the intact table while the Zipf slope does not move,
 -1.183 against -1.185. The assignment of codes to letters was destroyed and the measurements
 reassembled out of the wreckage, because they were never held in that assignment. They belong to the
-distribution of the words being encoded, and they reappear through any re-carving of the symbols.
+distribution of the words being encoded, and they reappear through any re-slice of the symbols.
 
 So these regularities are not transmitted and do not need a surviving channel between two instances of
 them. They are properties of whatever produces a message, and they recur wherever that kind of
@@ -1631,15 +1639,15 @@ carrying regular boundaries and the rare one carrying clustering. Neither measur
 Printing the twelve most frequent words of each corpus (`tools/dev_env/top_words.py`) shows what fills
 the half that all of the statistics describe without naming:
 
-| corpus | twelve most frequent words |
-|---|---|
-| `english_1813_austen` | the to of and her i a in was she that it |
-| `english_1611_kjv` | the and of to that in he shall unto for i his |
-| `french_1862_hugo` | de il la et le l à un les que une d |
-| `german_1808_goethe` | und ich die der nicht das ein ist zu du in sie |
-| `spanish_1605_cervantes` | que de y la a en el no los se con por |
+| corpus                    | twelve most frequent words                           |
+| ------------------------- | ---------------------------------------------------- |
+| `english_1813_austen`     | the to of and her i a in was she that it             |
+| `english_1611_kjv`        | the and of to that in he shall unto for i his        |
+| `french_1862_hugo`        | de il la et le l à un les que une d                  |
+| `german_1808_goethe`      | und ich die der nicht das ein ist zu du in sie       |
+| `spanish_1605_cervantes`  | que de y la a en el no los se con por                |
 | `finnish_1870_kivi_prose` | ja mutta hän juhani on niin kuin nyt oli ei he hänen |
-| `greek_iliad` | και κι του ο το να τον τα τους με τ η |
+| `greek_iliad`             | και κι του ο το να τον τα τους με τ η                |
 
 Every head carries reference to persons. English has `her`, `i`, `she` and `it`, German has `ich`, `du`
 and `sie`, Finnish has `hän`, `he` and `hänen`, and Greek carries `του`, `τον` and `τους`. Each also
@@ -1652,13 +1660,13 @@ weak in one direction: a gerund used as a noun and an adjective built from a par
 endings without being verbs, so every figure is an upper bound
 (`tools/dev_env/head_tail_parts.py:31-36`).
 
-| corpus | head, percent ending in `-ed` or `-ing` | rare half |
-|---|---|---|
-| `english_1667_milton_epic` | 10.1 | 22.3 |
-| `english_1623_shakespeare` | 9.7 | 18.5 |
-| `english_1813_austen` | 16.9 | 23.7 |
-| `english_1611_kjv` | 12.9 | 15.4 |
-| `monkey_a26_d18_english` | 0.0 | 0.0 |
+| corpus                     | head, percent ending in `-ed` or `-ing` | rare half |
+| -------------------------- | --------------------------------------- | --------- |
+| `english_1667_milton_epic` | 10.1                                    | 22.3      |
+| `english_1623_shakespeare` | 9.7                                     | 18.5      |
+| `english_1813_austen`      | 16.9                                    | 23.7      |
+| `english_1611_kjv`         | 12.9                                    | 15.4      |
+| `monkey_a26_d18_english`   | 0.0                                     | 0.0       |
 
 The rare half carries more of it in all four, by 1.19 to 2.21 times, and the memoryless control produces
 none, so the enrichment is not an artifact of counting endings. The King James is the weakest row and
@@ -1681,26 +1689,26 @@ reporting, between 7 and 20 words cleared the occurrence floor, and the predicti
 
 The corpus averages themselves separate, which the first question was not asking about.
 
-| corpus | word burstiness | what the corpus is |
-|---|---|---|
-| `monkey_a26_d18_geom90` | 1.010 | a memoryless process |
-| `greek_iliad` | 0.833 | one poem |
-| `english_1813_austen` | 0.828 | one novel |
-| `english_1667_milton_epic` | 0.796 | one poem |
-| `spanish_1605_cervantes` | 0.780 | one novel |
-| `english_1720_pope_iliad_epic` | 0.780 | one poem |
-| `finnish_1870_kivi_prose` | 0.770 | one novel |
-| `french_1862_hugo` | 0.758 | one novel |
-| `english_1623_shakespeare` | 0.667 | 37 plays |
-| C source | 0.533 | 40 files |
-| `english_1611_kjv` | 0.509 | 66 books |
+| corpus                         | word burstiness | what the corpus is   |
+| ------------------------------ | --------------- | -------------------- |
+| `monkey_a26_d18_geom90`        | 1.010           | a memoryless process |
+| `greek_iliad`                  | 0.833           | one poem             |
+| `english_1813_austen`          | 0.828           | one novel            |
+| `english_1667_milton_epic`     | 0.796           | one poem             |
+| `spanish_1605_cervantes`       | 0.780           | one novel            |
+| `english_1720_pope_iliad_epic` | 0.780           | one poem             |
+| `finnish_1870_kivi_prose`      | 0.770           | one novel            |
+| `french_1862_hugo`             | 0.758           | one novel            |
+| `english_1623_shakespeare`     | 0.667           | 37 plays             |
+| C source                       | 0.533           | 40 files             |
+| `english_1611_kjv`             | 0.509           | 66 books             |
 
 Single works occupy 0.758 to 0.833 over four languages and three centuries, collections occupy 0.509 to
 0.667, and the memoryless control sits at 1.010. The bands do not overlap. The C sources fall with the
 collections, which is what forty files each concerning a different module should give.
 
 Hugo is the lowest of the single works and that supports the reading instead of straining it.
-*Les Misérables* runs to five volumes and turns aside into Waterloo, the sewers of Paris and the history
+_Les Misérables_ runs to five volumes and turns aside into Waterloo, the sewers of Paris and the history
 of a convent, so it is the most topically varied single work measured here and it sits nearest the
 collection band.
 
@@ -1710,13 +1718,13 @@ applied by hand and could be tracking whatever those labels correlate with. Two 
 length held near 900000 characters so the walk cannot be a length effect, gives 0.828 for one work, 0.685
 for two and 0.626 for three. Cutting the 66 book collection into equal pieces walks the other way:
 
-| pieces | books per piece | mean | highest piece |
-|---|---|---|---|
-| 1 | 66 | 0.509 | |
-| 8 | 8.2 | 0.612 | 0.700 |
-| 16 | 4.1 | 0.648 | 0.740 |
-| 32 | 2.1 | 0.681 | 0.835 |
-| 64 | 1.0 | 0.708 | 0.847 |
+| pieces | books per piece | mean  | highest piece |
+| ------ | --------------- | ----- | ------------- |
+| 1      | 66              | 0.509 |               |
+| 8      | 8.2             | 0.612 | 0.700         |
+| 16     | 4.1             | 0.648 | 0.740         |
+| 32     | 2.1             | 0.681 | 0.835         |
+| 64     | 1.0             | 0.708 | 0.847         |
 
 The climb continues at every cut, and at one book per piece the highest pieces reach 0.847, which is
 inside the band the single works occupy. The mean stays at 0.708 for two reasons that are properties of
@@ -1742,10 +1750,10 @@ writing instead of to language. Re-encoding one of them settles it, because a re
 meaning fixed and changes nothing else. Morse carries the same words over two marks and two silences,
 and `tools/dev_env/encode_percussive.py` produces it.
 
-| | boundary | gap | dispersion | Zipf | brevity |
-|---|---|---|---|---|---|
-| Austen 1813, as written | `0x20` | 4.94 | 0.374 | -0.875 | -0.301 |
-| Austen 1813, in Morse | `0x20` | 4.59 | 0.217 | -1.185 | -0.652 |
+|                         | boundary | gap  | dispersion | Zipf   | brevity |
+| ----------------------- | -------- | ---- | ---------- | ------ | ------- |
+| Austen 1813, as written | `0x20`   | 4.94 | 0.374      | -0.875 | -0.301  |
+| Austen 1813, in Morse   | `0x20`   | 4.59 | 0.217      | -1.185 | -0.652  |
 
 Given four distinct marks and no letters, the detector finds a boundary and both regularities are
 present. Brevity is more than twice as strong, which looked at first like the one result here that was
@@ -1771,10 +1779,10 @@ message from a property of the encoding, and the two regularities should come ap
 a word recurs cannot depend on how its letters are spelled, and how long a code is was somebody's
 decision.
 
-| | Zipf | brevity | encoded bytes |
-|---|---|---|---|
-| Morse, the real table | -1.185 | -0.652 | 2,001,933 |
-| Morse, the same codes permuted | -1.183 | -0.550 | 2,580,891 |
+|                                | Zipf   | brevity | encoded bytes |
+| ------------------------------ | ------ | ------- | ------------- |
+| Morse, the real table          | -1.185 | -0.652  | 2,001,933     |
+| Morse, the same codes permuted | -1.183 | -0.550  | 2,580,891     |
 
 **Zipf is unchanged to two parts in a thousand**, which is what a property of the message has to do
 under a relabeling of its symbols.
@@ -1811,11 +1819,11 @@ The question is then a variance question. If a quantity belongs to a language, i
 language is small against its spread between languages, which is what an analysis of variance reports
 (`tools/dev_env/language_variance.R`).
 
-| quantity | spread within | spread between | $F$ | $p$ |
-|---|---|---|---|---|
-| mean distance between boundaries | 0.3327 | 0.6980 | 13.21 | $3.5 \times 10^{-6}$ |
-| collision entropy | 0.0430 | 0.0746 | 9.02 | $6.2 \times 10^{-5}$ |
-| rare half against a permutation null | 0.0731 | 0.0342 | 0.66 | 0.68 |
+| quantity                             | spread within | spread between | $F$   | $p$                  |
+| ------------------------------------ | ------------- | -------------- | ----- | -------------------- |
+| mean distance between boundaries     | 0.3327        | 0.6980         | 13.21 | $3.5 \times 10^{-6}$ |
+| collision entropy                    | 0.0430        | 0.0746         | 9.02  | $6.2 \times 10^{-5}$ |
+| rare half against a permutation null | 0.0731        | 0.0342         | 0.66  | 0.68                 |
 
 The first two belong to a language. How long its words are and what its character inventory looks like
 separate the seven at $p$ below $10^{-4}$, so those are constants of a language and the earlier readings
@@ -1837,8 +1845,8 @@ disturb. It also bounds what those results can mean: a quantity that cannot tell
 cannot be evidence about any particular language, and Section 7.4 records separately that it is not
 evidence about language at all.
 
-**This conclusion is not new and the credit is not this document's.** Montemurro and Zanette, *Universal
-Entropy of Word Ordering Across Linguistic Families*, PLoS ONE 6(5):e19875 (2011), measure the entropy a
+**This conclusion is not new and the credit is not this document's.** Montemurro and Zanette, _Universal
+Entropy of Word Ordering Across Linguistic Families_, PLoS ONE 6(5):e19875 (2011), measure the entropy a
 text loses when its words are shuffled, which is the same null used here, over 7077 texts in eight
 corpora spanning Indo-European, Finno-Ugric, Austronesian, Afroasiatic and Sino-Tibetan families and the
 Sumerian isolate. They report the quantity bounded near 3.3 bits per word across all of them, with a
@@ -1876,13 +1884,13 @@ followers as occurrences, and a unit belonging to a narrow subject has far fewer
 
 The lowest variety among units seen at least 24 times, over the first 25000 units:
 
-| King James Bible | seen | followers | variety | Austen | seen | followers | variety |
-|---|---|---|---|---|---|---|---|
-| `years,` | 32 | 1 | 0.031 | `Heading` | 29 | 1 | 0.034 |
-| `king` | 25 | 1 | 0.040 | `Mrs.` | 73 | 17 | 0.233 |
-| `said` | 133 | 11 | 0.083 | `Mr.` | 178 | 46 | 0.258 |
-| `sons` | 53 | 7 | 0.132 | `Miss` | 119 | 32 | 0.269 |
-| `And` | 788 | 120 | 0.152 | `I` | 354 | 107 | 0.302 |
+| King James Bible | seen | followers | variety | Austen    | seen | followers | variety |
+| ---------------- | ---- | --------- | ------- | --------- | ---- | --------- | ------- |
+| `years,`         | 32   | 1         | 0.031   | `Heading` | 29   | 1         | 0.034   |
+| `king`           | 25   | 1         | 0.040   | `Mrs.`    | 73   | 17        | 0.233   |
+| `said`           | 133  | 11        | 0.083   | `Mr.`     | 178  | 46        | 0.258   |
+| `sons`           | 53   | 7         | 0.132   | `Miss`    | 119  | 32        | 0.269   |
+| `And`            | 788  | 120       | 0.152   | `I`       | 354  | 107       | 0.302   |
 
 Austen's three lowest, after one artifact, are the three honorifics. A title in a Regency novel precedes
 a small closed set of surnames, so the social system the book runs on is visible as a statistic.
@@ -1909,14 +1917,14 @@ near one. A unit belonging to a subject arrives in bursts where that subject is 
 dispersion is far above one. That is Section 4.12's statistic read at its other end
 (`test/bench/bench_ancorae_ab.c:2187`).
 
-| King James Bible | seen | burst | Cervantes | seen | burst | Austen | seen | burst |
-|---|---|---|---|---|---|---|---|---|
-| `years,` | 32 | 20.8 | `Donde` | 48 | 18.5 | `you` | 205 | 4.3 |
-| `begat` | 67 | 20.0 | `Sancho` | 52 | 9.7 | `I` | 354 | 3.6 |
-| `lived` | 34 | 13.6 | `aventura` | 37 | 8.0 | `Bingley,` | 26 | 3.4 |
-| `king` | 25 | 9.5 | `trata` | 25 | 7.8 | `had` | 179 | 3.0 |
-| `waters` | 28 | 9.4 | `historia` | 25 | 4.0 | `Miss` | 119 | 2.8 |
-| `Esau` | 28 | 8.3 | `dijo` | 51 | 3.9 | `he` | 195 | 2.5 |
+| King James Bible | seen | burst | Cervantes  | seen | burst | Austen     | seen | burst |
+| ---------------- | ---- | ----- | ---------- | ---- | ----- | ---------- | ---- | ----- |
+| `years,`         | 32   | 20.8  | `Donde`    | 48   | 18.5  | `you`      | 205  | 4.3   |
+| `begat`          | 67   | 20.0  | `Sancho`   | 52   | 9.7   | `I`        | 354  | 3.6   |
+| `lived`          | 34   | 13.6  | `aventura` | 37   | 8.0   | `Bingley,` | 26   | 3.4   |
+| `king`           | 25   | 9.5   | `trata`    | 25   | 7.8   | `had`      | 179  | 3.0   |
+| `waters`         | 28   | 9.4   | `historia` | 25   | 4.0   | `Miss`     | 119  | 2.8   |
+| `Esau`           | 28   | 8.3   | `dijo`     | 51   | 3.9   | `he`       | 195  | 2.5   |
 
 **The connectives are gone.** Neither `the`, `and`, `of` nor `And` appears in any of the three lists,
 though each is among the most frequent units in its text. Being spread evenly puts them at the floor of
@@ -1966,7 +1974,7 @@ or for what a symbol happens to be.
 A single scalar fixing a cost surface across every dimension and every alphabet would be a strong claim
 if it were unqualified. It is not unqualified, and the next three sections are the qualifications.
 
-### 5.3 The number is indexed by a carving nobody chose
+### 5.3 The number is indexed by a slice nobody chose
 
 There is no collision entropy of a corpus. There is a collision entropy of a corpus read $w$ bits at a
 time, and Section 4.10 measures $H_2(w)/w$ falling from 0.984 to 0.600 on English between one bit and
@@ -2056,11 +2064,11 @@ budget.
 
 Two of the three constants are exponential in $H_2$, so that error does not stay small:
 
-| constant | sensitivity | at 0.25 bits | at 0.60 bits |
-|---|---|---|---|
-| saturation radius $3\cdot 2^{H_2}$ | $\mathrm{d}r/r = \ln 2 \cdot \mathrm{d}H_2$ | 17% | 51% |
-| harvest, through $m\,2^{-H_2}$ | the same exponential | 17% | 51% |
-| exhaustion $\log_2 N / H_2$ | $\mathrm{d}n/n = -\mathrm{d}H_2/H_2$ | 6.8% | 16% |
+| constant                           | sensitivity                                 | at 0.25 bits | at 0.60 bits |
+| ---------------------------------- | ------------------------------------------- | ------------ | ------------ |
+| saturation radius $3\cdot 2^{H_2}$ | $\mathrm{d}r/r = \ln 2 \cdot \mathrm{d}H_2$ | 17%          | 51%          |
+| harvest, through $m\,2^{-H_2}$     | the same exponential                        | 17%          | 51%          |
+| exhaustion $\log_2 N / H_2$        | $\mathrm{d}n/n = -\mathrm{d}H_2/H_2$        | 6.8%         | 16%          |
 
 At a 16 probe budget the saturation radius is known to about half its value. For `periodic16` that
 moves the crossing from 73 to somewhere between 36 and 110, a range spanning two of the needle lengths
@@ -2119,7 +2127,7 @@ substring search, rare byte prefilter and vector backends are separate files tha
 no claim is made about them.
 
 The arXiv preprint at `2601.03271` selects a single anchor, $a = \arg\min_i \mathrm{freq}(P[i])$, and
-reports character comparisons on the *Divina Commedia*. Having one anchor, it contains no separation,
+reports character comparisons on the _Divina Commedia_. Having one anchor, it contains no separation,
 independence or joint probability treatment, and uses no periodic or fixed width data.
 
 Neither document contains the separation analysis here. That is a claim about two documents and not
@@ -2178,7 +2186,7 @@ analysis, and skipping the analysis while keeping a fixed probe set is the arran
 
 ### 7.3 The average case analysis, and what its metric cannot see
 
-Read from Tsai, *Average Case Analysis of the Boyer-Moore Algorithm*, Random Structures and Algorithms
+Read from Tsai, _Average Case Analysis of the Boyer-Moore Algorithm_, Random Structures and Algorithms
 28, 481 (2006), pages 1 to 4 and 14 to 16 of 18. Sections 4 and 5, which carry the Markov chain
 derivation, were not read.
 
@@ -2209,7 +2217,7 @@ which Section 7.1 credits to Vishkin.
 
 Sections 4.3 and 4.8 reach for a physical analogy: a reference measure is worth the divergence of the
 domain from it, and at equilibrium there is no gradient and nothing to extract. Read from Parrondo,
-Horowitz and Sagawa, *Thermodynamics of information*, Nature Physics 11, 131 (2015).
+Horowitz and Sagawa, _Thermodynamics of information_, Nature Physics 11, 131 (2015).
 
 The results are sharper than the analogy. For a system in a statistical state $\rho$ with Hamiltonian
 $\mathcal{H}_0$, the non-equilibrium free energy is
@@ -2237,8 +2245,8 @@ background and no result in this document rests on it.
 
 Section 4.13 measures a Zipf slope, a brevity correlation and a boundary regularity on ten corpora and
 reads their agreement as a property of how people produce language. Exactly that inference has been
-argued over in print. Four items were read in full: Sproat, *Ancient Symbols, Computational Linguistics,
-and the Reviewing Practices of the General Science Journals*, Computational Linguistics 36(3):585, and
+argued over in print. Four items were read in full: Sproat, _Ancient Symbols, Computational Linguistics,
+and the Reviewing Practices of the General Science Journals_, Computational Linguistics 36(3):585, and
 in 36(4) the replies from Rao and colleagues at 795, from Lee and colleagues at 791, and Sproat's answer
 to both at 807.
 
@@ -2273,12 +2281,12 @@ alphabet from 8 to 64 symbols, the delimiter rate from 0.06 to 0.35, and the let
 uniform, two geometric falls and the English weights, with only the last row carrying any value taken
 from a language.
 
-| measure | ten memoryless arms | ten natural corpora | separates |
-|---|---|---|---|
-| Zipf slope | -0.978 to -1.332 | -0.723 to -1.185 | no |
-| brevity correlation | -0.124 to -0.401 | -0.247 to -0.364 | no |
-| types at 25k | 5824 to 22160 | 4171 to 11854 | no |
-| dispersion against a permutation null | 0.99 to 1.01 | 1.79 to 4.82 | yes |
+| measure                               | ten memoryless arms | ten natural corpora | separates |
+| ------------------------------------- | ------------------- | ------------------- | --------- |
+| Zipf slope                            | -0.978 to -1.332    | -0.723 to -1.185    | no        |
+| brevity correlation                   | -0.124 to -0.401    | -0.247 to -0.364    | no        |
+| types at 25k                          | 5824 to 22160       | 4171 to 11854       | no        |
+| dispersion against a permutation null | 0.99 to 1.01        | 1.79 to 4.82        | yes       |
 
 Three of the four measures fail. The Zipf slope from a geometric distribution carrying no language at
 all is -0.996, against -0.988 for the English weighted arm, so the seeding was never what produced a
@@ -2310,15 +2318,15 @@ non-linguistic system passes this test as well, so the question is what it takes
 passing it. One English corpus was put through transforms that keep every symbol in the same seat range,
 so the same measurement path reads all of them (`tools/dev_env/transform_corpus.py`).
 
-| transform | key length | ratio | mean gap |
-|---|---|---|---|
-| none | | 2.91 | 5.29 |
-| one fixed permutation of the seats | 1 permutation | 2.91 | 5.29 |
-| repeating key | 1 | 2.91 | 5.29 |
-| repeating key | 2 | 1.51 | 10.47 |
-| repeating key | 3 | 1.17 | 15.10 |
-| repeating key | 4 | 1.06 | 25.16 |
-| full length pseudorandom addend | 728751 | 1.01 | 29.66 |
+| transform                          | key length    | ratio | mean gap |
+| ---------------------------------- | ------------- | ----- | -------- |
+| none                               |               | 2.91  | 5.29     |
+| one fixed permutation of the seats | 1 permutation | 2.91  | 5.29     |
+| repeating key                      | 1             | 2.91  | 5.29     |
+| repeating key                      | 2             | 1.51  | 10.47    |
+| repeating key                      | 3             | 1.17  | 15.10    |
+| repeating key                      | 4             | 1.06  | 25.16    |
+| full length pseudorandom addend    | 728751        | 1.01  | 29.66    |
 
 A permutation of the symbols reproduces the measurement to four decimal places, and the boundary is
 found at a different seat carrying an identical dispersion of 0.2815. Relabeling every symbol changes
@@ -2357,14 +2365,14 @@ every symbol against the same permutation null instead of one
 (`tools/dev_env/measure_spectrum.py:34-51`) gives the mean ratio over each half of the symbols by
 frequency:
 
-| corpus | head half | tail half |
-|---|---|---|
-| `english_1611_kjv` | 0.96 | 0.59 |
-| `finnish_1870_kivi_prose` | 0.97 | 0.62 |
-| `french_1862_hugo` | 0.96 | 0.69 |
-| `english_1813_austen` | 0.95 | 0.73 |
-| `greek_iliad` | 1.06 | 0.75 |
-| `monkey_a26_d18_geom90` | 1.00 | 1.00 |
+| corpus                    | head half | tail half |
+| ------------------------- | --------- | --------- |
+| `english_1611_kjv`        | 0.96      | 0.59      |
+| `finnish_1870_kivi_prose` | 0.97      | 0.62      |
+| `french_1862_hugo`        | 0.96      | 0.69      |
+| `english_1813_austen`     | 0.95      | 0.73      |
+| `greek_iliad`             | 1.06      | 0.75      |
+| `monkey_a26_d18_geom90`   | 1.00      | 1.00      |
 
 The tail departs from the null by 0.25 to 0.41 where the head departs by 0.03 to 0.06, and the
 memoryless control sits at 1.00 in both halves, so the departure is a property of the corpora and not of
@@ -2402,9 +2410,9 @@ is what the previous paragraph shows the measure cannot see.
 The period does not have to be known. Scanning the stride over two ciphertexts of the same plaintext,
 one with a key length of 3 and one with 8, against the plaintext scanned the same way:
 
-| stride | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 12 | 16 |
-|---|---|---|---|---|---|---|---|---|---|---|
-| plaintext | 0.800 | 0.830 | 0.876 | 0.889 | 0.895 | 0.895 | 0.896 | 0.897 | 0.896 | 0.941 |
+| stride       | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 12    | 16    |
+| ------------ | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| plaintext    | 0.800 | 0.830 | 0.876 | 0.889 | 0.895 | 0.895 | 0.896 | 0.897 | 0.896 | 0.941 |
 | key length 3 | 0.909 | 0.830 | 0.935 | 0.952 | 0.895 | 0.975 | 0.950 | 0.897 | 0.896 | 0.984 |
 | key length 8 | 0.963 | 1.002 | 0.913 | 1.004 | 0.977 | 1.010 | 0.896 | 1.007 | 0.958 | 0.941 |
 
@@ -2443,11 +2451,11 @@ this repository were measured as a corpus, 422887 bytes over 94 distinct symbols
 language is produced under constraints that share nothing with a vocal tract or a listener decoding in
 real time.
 
-| corpus | head half | tail half |
-|---|---|---|
-| C source | 0.59 | 0.50 |
-| `english_1813_austen` | 0.95 | 0.73 |
-| `monkey_a26_d18_geom90` | 1.00 | 1.00 |
+| corpus                  | head half | tail half |
+| ----------------------- | --------- | --------- |
+| C source                | 0.59      | 0.50      |
+| `english_1813_austen`   | 0.95      | 0.73      |
+| `monkey_a26_d18_geom90` | 1.00      | 1.00      |
 
 The C source departs from the null further than the English does on both halves. So the measure orders
 these three by how much structure they carry, and a formal language carries more of it than prose does,
@@ -2469,10 +2477,10 @@ which span an arrangement occupied. Cutting the corpus into blocks of $B$ symbol
 blocks keeps everything shorter than $B$ and destroys everything longer
 (`tools/dev_env/block_shuffle_null.py:52-59`), so sweeping $B$ locates the signal.
 
-| block span | 1 | 8 | 32 | 128 | 512 | 2048 | 8192 |
-|---|---|---|---|---|---|---|---|
-| `english_1813_austen` tail | 0.725 | 0.727 | 0.729 | 0.811 | 0.846 | 0.934 | 0.975 |
-| C source tail | 0.500 | 0.524 | 0.550 | 0.623 | 0.713 | 0.825 | 0.915 |
+| block span                   | 1     | 8     | 32    | 128   | 512   | 2048  | 8192  |
+| ---------------------------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| `english_1813_austen` tail   | 0.725 | 0.727 | 0.729 | 0.811 | 0.846 | 0.934 | 0.975 |
+| C source tail                | 0.500 | 0.524 | 0.550 | 0.623 | 0.713 | 0.825 | 0.915 |
 | `monkey_a26_d18_geom90` tail | 0.997 | 1.001 | 1.001 | 0.998 | 0.999 | 1.001 | 1.000 |
 
 The memoryless control reads 1.0 at every span, so the sweep introduces nothing by itself.
@@ -2587,17 +2595,17 @@ compressions. The empty message is the fifth, which RFC 8448 section 3 prints as
 each one's source and digest recorded in `MANIFEST.json`, with every file's hash checked before a
 vector is read from it.
 
-| suite | source | count | what it reaches that nothing else does |
-|---|---|---|---|
-| CAVP ShortMsg | NIST | 65 | one shot, 0 to 64 bytes |
-| CAVP LongMsg | NIST | 64 | 163 to 6400 bytes |
-| CAVP Monte | NIST | 100 × 1000 | chained state: each digest feeds the next |
-| CAVP bit ShortMsg | NIST | 513 | 448 do not end on a byte |
-| CAVP bit LongMsg | NIST | 512 | 448 do not end on a byte |
-| CAVP HMAC | NIST | 225 | 150 carry truncated tags |
-| Wycheproof HMAC | C2SP `b61843a9` | 46 | 20 modified tags that must not reproduce |
-| streaming splits | invariant | 3321 cuts | every split of one message must reach one digest |
-| differential | second implementation | 424 | padding edges plus random lengths |
+| suite             | source                | count      | what it reaches that nothing else does           |
+| ----------------- | --------------------- | ---------- | ------------------------------------------------ |
+| CAVP ShortMsg     | NIST                  | 65         | one shot, 0 to 64 bytes                          |
+| CAVP LongMsg      | NIST                  | 64         | 163 to 6400 bytes                                |
+| CAVP Monte        | NIST                  | 100 × 1000 | chained state: each digest feeds the next        |
+| CAVP bit ShortMsg | NIST                  | 513        | 448 do not end on a byte                         |
+| CAVP bit LongMsg  | NIST                  | 512        | 448 do not end on a byte                         |
+| CAVP HMAC         | NIST                  | 225        | 150 carry truncated tags                         |
+| Wycheproof HMAC   | C2SP `b61843a9`       | 46         | 20 modified tags that must not reproduce         |
+| streaming splits  | invariant             | 3321 cuts  | every split of one message must reach one digest |
+| differential      | second implementation | 424        | padding edges plus random lengths                |
 
 1554 published vectors from two bodies, none of them written here. Monte earns its place twice over: a
 hash whose state carries wrongly between blocks passes every one shot table and fails on Monte's first

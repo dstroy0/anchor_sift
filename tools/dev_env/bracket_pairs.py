@@ -7,10 +7,10 @@
 #
 #   Usage:  python tools/dev_env/bracket_pairs.py corpus.txt [more.txt ...]
 #
-# Carving a corpus at one symbol per byte assumes the meaningful unit is a byte. A programming language
+# slice a corpus at one symbol per byte assumes the meaningful unit is a byte. A programming language
 # breaks that in a way prose does not: a conditional expression is written with its two halves apart,
 # and the distance between them is whatever the middle expression happens to be. So the construct is one
-# unit at a separation the carving cannot see, and the two halves appear as unrelated symbols.
+# unit at a separation the slice cannot see, and the two halves appear as unrelated symbols.
 #
 # Reported here is how much of a source file is made of such constructs and how far apart their halves
 # sit, since a correlation at a variable distance is exactly what a product of marginals cannot model
@@ -21,7 +21,7 @@ import os
 import statistics
 import sys
 
-# Opening and closing halves that a byte carving separates
+# Opening and closing halves that a byte slice separates
 PAIRS = (("?", ":"), ("(", ")"), ("{", "}"), ("[", "]"))
 
 

@@ -2,7 +2,7 @@
 # MMgr - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Apply reversible transforms to a re-carved corpus, for Section 7.4 of docs/research/anchor-sift.md.
+# Apply reversible transforms to a re-sliced corpus, for Section 7.4 of docs/research/anchor-sift.md.
 #
 #   Usage:  python tools/dev_env/transform_corpus.py source.sym
 #
@@ -48,13 +48,17 @@ def substitute(seats, low, high, rng):
 def repeatkey(seats, low, high, rng):
     span = high - low + 1
     key = [rng.randrange(span) for _ in range(KEY_LENGTH)]
-    return bytearray(low + ((value - low) + key[index % KEY_LENGTH]) % span
-                     for index, value in enumerate(seats))
+    return bytearray(
+        low + ((value - low) + key[index % KEY_LENGTH]) % span
+        for index, value in enumerate(seats)
+    )
 
 
 def keystream(seats, low, high, rng):
     span = high - low + 1
-    return bytearray(low + ((value - low) + rng.randrange(span)) % span for value in seats)
+    return bytearray(
+        low + ((value - low) + rng.randrange(span)) % span for value in seats
+    )
 
 
 def counter(seats, low, high, rng):
@@ -73,7 +77,9 @@ def repeatkey_coset(seats, low, high, rng):
     measure cannot see.
     """
     enciphered = repeatkey(seats, low, high, rng)
-    return bytearray(enciphered[index] for index in range(0, len(enciphered), KEY_LENGTH))
+    return bytearray(
+        enciphered[index] for index in range(0, len(enciphered), KEY_LENGTH)
+    )
 
 
 def repeatkey_of(length):
@@ -85,11 +91,15 @@ def repeatkey_of(length):
     the measure can read them and the result says nothing about whether the pattern is still present.
     Sweeping k from 1 upward keeps the comparison inside the range the measure can see.
     """
+
     def apply(seats, low, high, rng):
         span = high - low + 1
         key = [rng.randrange(span) for _ in range(length)]
-        return bytearray(low + ((value - low) + key[index % length]) % span
-                         for index, value in enumerate(seats))
+        return bytearray(
+            low + ((value - low) + key[index % length]) % span
+            for index, value in enumerate(seats)
+        )
+
     return apply
 
 
@@ -101,7 +111,9 @@ def keystream_coset(seats, low, high, rng):
     the subsampling.
     """
     enciphered = keystream(seats, low, high, rng)
-    return bytearray(enciphered[index] for index in range(0, len(enciphered), KEY_LENGTH))
+    return bytearray(
+        enciphered[index] for index in range(0, len(enciphered), KEY_LENGTH)
+    )
 
 
 TRANSFORMS = (
@@ -139,8 +151,10 @@ def main():
         target = "%s_%s.sym" % (stem, name)
         with open(target, "wb") as handle:
             handle.write(bytes(out))
-        print("  %-42s %d symbols, seats %d to %d"
-              % (os.path.basename(target), len(out), min(out), max(out)))
+        print(
+            "  %-42s %d symbols, seats %d to %d"
+            % (os.path.basename(target), len(out), min(out), max(out))
+        )
 
     return 0
 

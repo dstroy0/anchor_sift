@@ -2,11 +2,11 @@
 # MMgr - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Re-carve a vocalization at the scale its units occupy, for Section 4.10 of docs/research/anchor-sift.md.
+# Re-slice a vocalization at the scale its units occupy, for Section 4.10 of docs/research/anchor-sift.md.
 #
 #   Usage:  python tools/dev_env/envelope_scale.py corpus.sym [more.sym ...]
 #
-# The vocalizations were measured at 8 kHz with one byte a sample, and that is the wrong carving for the
+# The vocalizations were measured at 8 kHz with one byte a sample, and that is the wrong slice for the
 # structure they are supposed to carry. A whale song unit runs one to three seconds and its phrases and
 # themes run longer, and a wolf howl is seconds. A statistic over the gaps between rare amplitudes at
 # 8 kHz therefore reads inside a single unit and never sees the arrangement of units.
@@ -51,7 +51,9 @@ def main():
         print("usage: envelope_scale.py corpus.sym [more.sym ...]")
         return 1
 
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     for path in sys.argv[1:]:
         if not os.path.isfile(path):
             continue
@@ -59,15 +61,24 @@ def main():
             seats = handle.read()
         marks = envelope(seats, BLOCK)
         if len(marks) < 2000:
-            out.write("  %-24s %d envelope symbols, too few\n"
-                      % (os.path.basename(path)[:-4], len(marks)))
+            out.write(
+                "  %-24s %d envelope symbols, too few\n"
+                % (os.path.basename(path)[:-4], len(marks))
+            )
             continue
         target = os.path.join(os.path.dirname(path), "env_%s" % os.path.basename(path))
         with open(target, "wb") as handle:
             handle.write(marks)
-        out.write("  %-24s %d samples to %d envelope symbols at %d Hz, %d levels\n"
-                  % (os.path.basename(path)[:-4], len(seats), len(marks), 8000 // BLOCK,
-                     len(set(marks))))
+        out.write(
+            "  %-24s %d samples to %d envelope symbols at %d Hz, %d levels\n"
+            % (
+                os.path.basename(path)[:-4],
+                len(seats),
+                len(marks),
+                8000 // BLOCK,
+                len(set(marks)),
+            )
+        )
     out.flush()
     return 0
 

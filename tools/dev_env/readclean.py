@@ -16,7 +16,7 @@ that then looks wrong IS wrong, rather than being a mismatch the reader was prim
 
 WHAT BLIND KEEPS, AND WHY IT IS NOT A GENERIC RENAMER. This tree has one shape, and the shape is
 grammar rather than vocabulary: an entry is a function-pointer member of an `<X>Ns` table, operands
-are members of `<X>V`, state is carved out of `MMGR_<X>_BORROW` at `<X>_OFF_*` offsets under a
+are members of `<X>V`, state is sliced out of `MMGR_<X>_BORROW` at `<X>_OFF_*` offsets under a
 static_assert. Blinding that away would leave text no one can check conformity against. So the
 suffixes and the fixed vocabulary survive and only the IDENTITY moves:
 
@@ -274,7 +274,9 @@ def resolve(rel):
     rel = rel.replace("/", os.sep)
     for base in BASES:
         p = os.path.join(base, rel)
-        if os.path.exists(p) or os.path.exists(p[:-2] + ".c" if p.endswith(".h") else p):
+        if os.path.exists(p) or os.path.exists(
+            p[:-2] + ".c" if p.endswith(".h") else p
+        ):
             return p
     return os.path.join(ROOT, rel)
 
@@ -283,7 +285,11 @@ def paths(rel):
     """A module header pairs with its .c; anything else (a test .c, a suite dir) stands alone."""
     p = resolve(rel)
     if os.path.isdir(p):
-        return sorted(os.path.join(p, n) for n in os.listdir(p) if n.endswith((".c", ".h")) and n != "unity_runner.c")
+        return sorted(
+            os.path.join(p, n)
+            for n in os.listdir(p)
+            if n.endswith((".c", ".h")) and n != "unity_runner.c"
+        )
     if rel.endswith(".h"):
         return [x for x in (p, p[:-2] + ".c") if os.path.exists(x)]
     return [p] if os.path.exists(p) else []
@@ -307,7 +313,9 @@ def stripped(p):
     conformity pass ends up confirming the prose instead of the code.
     """
     text = io.open(p, encoding="utf-8", errors="replace").read()
-    return "\n".join(ln.rstrip() for ln in rewrite(text, False).splitlines() if ln.strip())
+    return "\n".join(
+        ln.rstrip() for ln in rewrite(text, False).splitlines() if ln.strip()
+    )
 
 
 class Blinder(object):
@@ -364,12 +372,15 @@ class Blinder(object):
             if m:
                 out = "%s_%s_H" % (m.group(1), self._object(m.group(2)))
         if out is None:
-            # A carved region: `SHA256_OFF_W` and `SHA256_CTX(w)` are the offset and the cast that
+            # A sliced region: `SHA256_OFF_W` and `SHA256_CTX(w)` are the offset and the cast that
             # reads it. The module stem is blinded; which region it is becomes a letter, because
             # "the second region" is the only thing about it a reader should be trusting.
             m = re.match(r"^([A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*?)_OFF_([A-Z0-9_]+)$", name)
             if m:
-                out = "%s_OFF_%s" % (self._object(m.group(1)), self._region(m.group(1), m.group(2)))
+                out = "%s_OFF_%s" % (
+                    self._object(m.group(1)),
+                    self._region(m.group(1), m.group(2)),
+                )
         if out is None and name.isupper() and "_" in name:
             # The cast that reads a region, beside the offset that locates it. `SHA256_CTX(w)` and
             # `SHA256_OFF_CTX` name the same region, so they take the same letter - `X1_A(w)` at
@@ -380,7 +391,10 @@ class Blinder(object):
                     continue
                 stem, rest = name[:cut], name[cut + 1 :]
                 if ("obj", stem) in self.table and rest:
-                    out = "%s_%s" % (self.table[("obj", stem)], self._region(stem, rest))
+                    out = "%s_%s" % (
+                        self.table[("obj", stem)],
+                        self._region(stem, rest),
+                    )
                     break
         if out is None:
             m = RE_FN.match(name)
@@ -436,7 +450,12 @@ class Blinder(object):
         # is registered ahead of the general pass, or it falls through and reads as another local.
         for e in ENTRY_MEMBER.finditer(text):
             nm = e.group(1)
-            if mask[e.start()] and nm not in self.table and nm not in SAFE and nm not in self.keep:
+            if (
+                mask[e.start()]
+                and nm not in self.table
+                and nm not in SAFE
+                and nm not in self.keep
+            ):
                 self.table[nm] = self._next("e")
 
         # A REGION MACRO is named for its region by its BODY, not by its own spelling: sha256.c
@@ -449,7 +468,10 @@ class Blinder(object):
                 continue
             off = re.search(r"\b([A-Z][A-Z0-9_]*?)_OFF_([A-Z0-9_]+)\b", body)
             if off:
-                self.table[nm] = "%s_%s" % (self._object(off.group(1)), self._region(off.group(1), off.group(2)))
+                self.table[nm] = "%s_%s" % (
+                    self._object(off.group(1)),
+                    self._region(off.group(1), off.group(2)),
+                )
 
         out, at = [], 0
         for m in IDENT.finditer(text):
@@ -462,7 +484,11 @@ class Blinder(object):
         return "".join(out)
 
     def legend(self):
-        return sorted((v, k) for k, v in self.table.items() if isinstance(k, str) and isinstance(v, str))
+        return sorted(
+            (v, k)
+            for k, v in self.table.items()
+            if isinstance(k, str) and isinstance(v, str)
+        )
 
 
 def show_code(p, _state):
@@ -550,9 +576,15 @@ def main():
             with io.open(legend, "w", encoding="utf-8", newline="") as f:
                 for generic, real in pairs:
                     f.write("%-12s %s\n" % (generic, real))
-            print("\n[legend: %d names -> %s. Read it AFTER you have formed a judgement.]" % (len(pairs), legend))
+            print(
+                "\n[legend: %d names -> %s. Read it AFTER you have formed a judgement.]"
+                % (len(pairs), legend)
+            )
         else:
-            print("\n[%d names blinded. No legend written: pass --legend FILE if you need one.]" % len(pairs))
+            print(
+                "\n[%d names blinded. No legend written: pass --legend FILE if you need one.]"
+                % len(pairs)
+            )
     return 0
 
 

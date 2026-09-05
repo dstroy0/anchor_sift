@@ -37,7 +37,7 @@ WANTED = [
     # English or to the translation. This is the control that separates them.
     (100, "english_1623_shakespeare.txt", "English, Indo-European Germanic, 1623"),
     # Not a Latin script, so the byte is the wrong symbol width for it. Section 4.13.05 measures it
-    # after tools/dev_env/normalize_symbols.py re-carves it.
+    # after tools/dev_env/normalize_symbols.py re-slices it.
     (36248, "greek_iliad.txt", "Greek, Indo-European Hellenic, Greek script"),
     # Section 4.13.07 failed to find an epic register in the Greek Iliad, where an epithet declines
     # with its noun and no exact match survives. These two carry the register in a language that

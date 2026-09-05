@@ -7,7 +7,7 @@
 #
 #   Usage:  python tools/dev_env/case_channel.py corpus.txt [more.txt ...]
 #
-# A byte carving keeps upper and lower case as separate symbols and treats them as unrelated, which is
+# A byte slice keeps upper and lower case as separate symbols and treats them as unrelated, which is
 # right for prose and loses something in a source file. In C the case of an identifier is what says
 # which kind of thing it is: an upper snake name is a macro, a leading capital is a type, a lower snake
 # name is a variable. So case is a second channel carried on the same symbols, and it is legible from

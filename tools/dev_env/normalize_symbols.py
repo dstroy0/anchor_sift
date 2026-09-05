@@ -2,7 +2,7 @@
 # MMgr - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Re-carve a corpus so one symbol occupies one byte, for the universals test in
+# Re-slice a corpus so one symbol occupies one byte, for the universals test in
 # docs/research/anchor-sift.md.
 #
 # Section 4.10 says the symbol width is a choice, and the measurements in Sections 4.12 to 4.14 made
@@ -29,7 +29,7 @@ def utf8_shape(raw):
     """Report the sequence widths present, from the bytes alone.
 
     Reads UTF-8's own framing instead of taking the encoding on trust, so a file that is not UTF-8
-    is reported as such and not silently re-carved into nonsense.
+    is reported as such and not silently re-sliced into nonsense.
     """
     widths = Counter()
     index = 0
@@ -79,9 +79,14 @@ def main():
         return 1
 
     total = sum(widths.values())
-    shape = ", ".join("%d byte %.1f%%" % (span, 100.0 * widths[span] / total)
-                      for span in sorted(widths))
-    print("%s\n  %d symbols over %d bytes, %s" % (os.path.basename(source), total, len(raw), shape))
+    shape = ", ".join(
+        "%d byte %.1f%%" % (span, 100.0 * widths[span] / total)
+        for span in sorted(widths)
+    )
+    print(
+        "%s\n  %d symbols over %d bytes, %s"
+        % (os.path.basename(source), total, len(raw), shape)
+    )
 
     # A wrapped prose file puts a line ending at a more regular spacing than its own word boundary, and
     # Section 4.13.0 has that artifact winning the detector four times already, so the endings are folded
