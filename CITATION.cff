@@ -1,5 +1,5 @@
-cff-version: 1.2.0
-message: "If you use this work, please cite it using these metadata, and cite the speakers whose languages the corpus holds."
+cff-version: 0.0.0
+message: "If you use this work, you MUST cite the speakers whose languages the corpus holds."
 title: anchor_sift
 abstract: >-
   A method that measures how far an object sits from the most disordered arrangement
@@ -19,7 +19,7 @@ authors:
 repository-code: "https://github.com/dstroy0/anchor_sift"
 url: "https://github.com/dstroy0/anchor_sift"
 license: AGPL-3.0-or-later
-version: 0.1.0
+version: 0.0.0
 date-released: "2026-09-04"
 keywords:
   - maximum-entropy

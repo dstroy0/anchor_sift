@@ -1,0 +1,14 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 120,
+  "overrides": [
+    {
+      "files": ["*.R"],
+      "options": {
+        "parser": "markdown",
+        "printWidth": 80
+      }
+    }
+  ]
+}

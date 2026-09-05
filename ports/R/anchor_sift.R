@@ -25,7 +25,9 @@ ANCHOR_SIFT_SEEDS <- 12L
 #' every ratio by sqrt(n/(n-1)), which is small and is still a different number.
 anchor_sift_pstdev <- function(values) {
   count <- length(values)
-  if (count < 1L) return(NA_real_)
+  if (count < 1L) {
+    return(NA_real_)
+  }
   centered <- values - mean(values)
   sqrt(sum(centered * centered) / count)
 }
@@ -62,14 +64,18 @@ anchor_sift_departure <- function(seats, seed = 0L,
                                   min_occurrences = ANCHOR_SIFT_MIN_OCCURRENCES) {
   counts <- table(seats)
   live <- anchor_sift_dispersion(seats, min_occurrences)
-  if (length(live) < 1L) return(NA_real_)
+  if (length(live) < 1L) {
+    return(NA_real_)
+  }
 
   set.seed(seed)
   dead <- anchor_sift_dispersion(sample(seats), min_occurrences)
 
   shared <- intersect(names(live), names(dead))
   shared <- shared[live[shared] > 0]
-  if (length(shared) < 4L) return(NA_real_)
+  if (length(shared) < 4L) {
+    return(NA_real_)
+  }
 
   ratios <- dead[shared] / live[shared]
   # Sorted by how often each symbol occurs, most frequent first, then the back half taken. That
@@ -89,9 +95,11 @@ anchor_sift_departure <- function(seats, seed = 0L,
 #' @param seeds how many reseeds to average over.
 #' @return list with mean and sd of the departure across seeds.
 anchor_sift_floor <- function(seats, seeds = ANCHOR_SIFT_SEEDS) {
-  taken <- vapply(seq_len(seeds) - 1L,
-                  function(one) anchor_sift_departure(seats, seed = one),
-                  numeric(1))
+  taken <- vapply(
+    seq_len(seeds) - 1L,
+    function(one) anchor_sift_departure(seats, seed = one),
+    numeric(1)
+  )
   taken <- taken[!is.na(taken)]
   list(mean = mean(taken), sd = stats::sd(taken), n = length(taken))
 }

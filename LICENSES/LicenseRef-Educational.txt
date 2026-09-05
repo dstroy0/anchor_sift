@@ -1,11 +1,11 @@
-embedded_types Educator's License
+anchor_sift Educator's License
 
 Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 
 THIS DOCUMENT DOES NOT GRANT ANYTHING BY BEING READ.
 
 It states the terms of a license that exists only when the Licensor has issued it to a named person
-in writing. Absent that writing, every use of embedded_types falls under AGPL-3.0-or-later, and this
+in writing. Absent that writing, every use of anchor_sift falls under AGPL-3.0-or-later, and this
 document has no effect on that use. The SPDX identifier LicenseRef-Educational in a source file
 records that these terms are available, not that they apply.
 

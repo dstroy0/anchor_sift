@@ -1,4 +1,4 @@
-embedded_types Commercial License
+anchor_sift Commercial License
 
 Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 
@@ -6,13 +6,13 @@ THIS DOCUMENT DOES NOT GRANT ANYTHING BY BEING READ.
 
 It records that commercial terms are available and describes how they are reached. A commercial
 license exists only as a contract signed by the Licensor and the licensee. Absent that contract,
-every use of embedded_types falls under AGPL-3.0-or-later. The SPDX identifier
+every use of anchor_sift falls under AGPL-3.0-or-later. The SPDX identifier
 LicenseRef-Commercial in a source file records that this route exists, not that it applies.
 
 
 1. WHY THIS ROUTE EXISTS
 
-embedded_types is consumed as source. A build compiles these headers into the program that includes
+anchor_sift is consumed as source. A build compiles these headers into the program that includes
 them, and AGPL-3.0-or-later then governs that program, including section 13's obligation where users
 interact with a modified program over a network.
 
@@ -27,7 +27,7 @@ document withdraws it.
 
 2.1  "Licensor" means Douglas Quigg (dstroy0), who holds the copyright in the Software.
 
-2.2  "Software" means embedded_types, in source or any derived form.
+2.2  "Software" means anchor_sift, in source or any derived form.
 
 2.3  "Contract" means a written agreement signed by the Licensor and the licensee, which sets the
      scope, the term, the fee, and the support and warranty terms for a particular use.
