@@ -28,5 +28,10 @@
       complex curve, the closer it sits to imaginary the more information we can extract.
       its definition is a function, and I cannot define that function until I finish the
       extraction.
-
-      
+9. Conjecture: The universe is a knowable set that exists; any subset of the universe must necessarily
+      exist. Any set can be represented approximately through conservation of information. Using
+      an undefined and unbound set of n dimensions allows asking questions from other unbound undefined 
+      sets of n dimensions. Unbound undefined objects of n dimensions encode everything about themselves
+      in themselves. Bounding the object under examination poisons it with unnatural information and 
+      destroys infinite discrimination.
+      Consummatio omnino pulchra est.
