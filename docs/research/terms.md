@@ -38,7 +38,8 @@ properties.
 
 **refutation distance.** How far into a pattern a mismatch is expected to appear, quoted as $m(1-2^{-H_2})$. The field would call it the expected verification depth.
 
-**oracle.** A hand extraction that records what a paper holds, used as the control a reader is graded against. Standard software testing usage, listed because in a linguistics setting the word usually means something else.
+**oracle.** A hand extraction that records what a paper holds, used as the control a reader is graded against. Standard software testing usage, listed because in a linguistics setting the word usually means something else. Yes, but to the algorithm, an oracle 
+speaks, so metaphorically the oracle files do speak here, and are themselves a distillation of the object in question to ask it questions about itself. Traditionally, oracles were suspected or believed to know the unknown, the oracles here define the known so the unknown must necessarily be a member of the inverse set of the oracle (pure corpus). Crucially, we know how to encode the meaning we want to inspect the inverse of into the object in question which sharpens the output of the set. e.g. In traditional Chinese, there are well recorded rulesets for a long time span. Their written language morphemes encode the writers intent explicitly, and written languages that combine all information about scene and subject into a single unit are inherently easier to identify by familial type and authorship signature. I don't know why, I speculate it might be valuable to walk that path backwards looking for a more overarching boundary there. 
 
 ## The reference, and what the field calls it
 
