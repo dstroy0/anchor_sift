@@ -28,7 +28,7 @@ AGPL-3.0-or-later is available to everyone, costs nothing, and asks none of this
 
 1.1  "Licensor" means Douglas Quigg (dstroy0), who holds the copyright in the Software.
 
-1.2  "Software" means embedded_types, in source or any derived form.
+1.2  "Software" means anchor_sift (or derivative names present here), in source or any derived form.
 
 1.3  "Licensee" means the individual person named in the writing issued under Section 2. A licence
      under this document is issued to a person and never to a department, laboratory, or institution.
@@ -52,6 +52,16 @@ AGPL-3.0-or-later is available to everyone, costs nothing, and asks none of this
 2.3  A grant covers the use described in the request. Use materially beyond what was described is
      outside the grant and falls back to AGPL-3.0-or-later.
 
+2.4  I grant you a license through a channel of my own, all licenses are mine, forever. My intention
+     will not be corrupted in any way, the spirit of the license is the law, not the words themselves.
+     It does not matter if you believe you have some loophole, I can revoke any license at any time for
+     any reason. In perpetuity means forever, until it doesn't. The point is to stop malfeasance, AND
+     keep the money where the discovery is which OFTEN gets taken BY the institution the ideas are 
+     occurring AT which is MORALLY WRONG and I WILL NOT ALLOW IT. I WILL transfer the royalty ladder
+     to a trustee at YOUR institution that I choose and you have zero power over who I choose and what
+     they do with the funds THEY earned FOR you, it was their idea that was monetized after all and they
+     should be able to research those implications, that is what is truly valuable. The copyleft license 
+     assures you have zero institutional control if misuse is detected, simple as that.
 
 3. GRANT
 
@@ -70,17 +80,22 @@ for Academic Purposes.
 4.2  Credit to Participants. Students, research staff, and faculty who contributed to the work shall
      be credited in the same materials, in accordance with the Institution's own authorship and
      attribution norms. This condition is a term of the license, and the Licensor may take it into
-     account under Section 5.
+     account under Section 5. Attribution or citation here means breaking from mandatory community order
+     the speaker MUST be credited first, no matter what, I do not care about established scientific 
+     community standards that order scientist first "because that's the way we've always done it".
 
 4.3  No Sharing Under These Terms. This license covers the Licensee alone. It extends to no
      colleague, student, assistant, collaborator, department, laboratory, or institution, and it
      extends to no person by reason of working on the same project, sitting in the same group, or
-     being supervised by the Licensee.
+     being supervised by the Licensee. Unless I give you permission to share, which occurs regularly.
+     The point is to stop this from being abused, sharing for research is encouraged and allowed. 
 
 4.4  Each Person Holds Their Own. Another person who wants these terms applies under Section 2 and
      receives a writing of their own. There is no grandfathering: no person acquires this license by
      inheritance, succession, assignment, transfer, association, or the passage of time, and no
-     course of dealing, silence, or prior tolerance by the Licensor creates one.
+     course of dealing, silence, or prior tolerance by the Licensor creates one. This is applicable 
+     all of the time, even when someone is given a license by me to share, I still hold their license
+     and THEY control the license in your institution at my will.
 
 4.5  What Sharing Falls Back To. Any copy the Licensee passes to any other person is governed by
      AGPL-3.0-or-later, and that person receives the Software under the AGPL alone. Nothing in this
