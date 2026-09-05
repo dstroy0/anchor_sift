@@ -25,7 +25,12 @@ A term with no field equivalent is marked as such. That is a flag on the term an
 
 **radix.** In `tools/dev_env/Salishan/anchor_sift_algorithmic_extraction/boundary_check.py` this names the per-run test that flattens pooled counts to maximum entropy and scores each run as its own binomial. It has nothing to do with a number base. The field would call it a per-feature standardized residual against a pooled null. The name is a poor one and is kept because the code carries it.
 
-**squash.** The function in `tools/dev_env/Salishan/anchor_sift/anchor_sift.py` that reduces a text to a distribution over byte-pair cells. The field term is a feature histogram or a bigram distribution.
+**squash.** The function in `tools/dev_env/Salishan/anchor_sift/anchor_sift.py` that reduces a text to a distribution over byte-pair cells. The field term is a feature histogram or a bigram distribution. 
+Conceptually, I mean squash in the literal sense, by collapsing a point cloud of n dimensions onto a single dimensional plane, its state cannot be known without measuring it first. How do you measure the
+infinite? You don't. You observe the objects delta from now until maximum entropy because its maximum entropy state must necessarily be encoded into the object inside of a closed physical system. This 
+dimensional delta produces an enormous amount of deductive information. So squash seems appropriate, you squish the infinite into the manageable using an approximate representation of everything, as a 
+point cloud of vectors and magnitudes, that is never bound because that would contaminate it, and because the limits are quite literally encoded into the object by its physical or conceptual (idiomatic?)
+properties. 
 
 **self distance, D_self.** The distance between two halves of one corpus, used as the resolution floor any between-corpus reading has to clear. The field term is a within-class distance or a split-half estimate. Two documents here quote it as a floor, and `docs/research/Salishan/refs.md` records that cutting a corpus at its midpoint measures paper order instead of resolution, which is why the halves are sampled by alternating.
 
