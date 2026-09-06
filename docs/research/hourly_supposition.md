@@ -78,3 +78,14 @@
       Quantum Theory's Holographic Principle: The 3D information of a volume can be
       encoded onto its 2D boundary. The universe is a set Sigma; the measurement is Δnull.
       the engine itself is the topological boundary.
+14. that escalated quickly. hello world. It has been ~5 whole days since this algorithm was
+      born and I've spent nearly all of it thinking and reading Salishan, I wish I could speak
+      it. Regsrding the Salishan corpus I still have a ways to go there, need to be careful,
+      I don't introduce any errors. I arbitrsrily decided to multiply the hand verificatiom,
+      more passes are good diminishing returns are worth it.
+15. performance now tail accuracy is the largest target for performance increase, and it needs
+      to floor and get floored much faster, once I figure out the math I will microopt
+      the engine for superscalar hosts and the asm breakdown can be part of the teaching portion
+      with the engine. I will do it a few ways, full asm, plus pure C23 SWAR at machine word width,
+      frsctional, branch to follow a baseline, use more bus width if there is hw accel,I will write
+      it after I finish hand extracting Salishan.
