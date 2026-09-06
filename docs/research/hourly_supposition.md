@@ -39,3 +39,12 @@
       for percent inclusion vs error reduction but it is a recursive function of the tail,
       and I predict a natural curve, a line indicates a branch is available to potentially hit
       my personal 10^-26 goal. 
+11. Posit: Noise ECC from one domain shares affine regularity through the relationship of field
+      transforms (I would call them mutations if viewed from the perspective of the underlying data) 
+      From an operational sense, it is strictly a dimensionless field transform but this algorithm 
+      fails on bounding, so it is critical to maintain that conceptual logic when performing any 
+      transforms to ensure no dimensional reductio. This is because we aren't transforming, 
+      we are mutating the data which conserves infinite variability, while transformation conceptually
+      necessarily requires a goal other than asking the data a question, so "conceptually" would 
+      introduce unnatural information, mutation has no goal it is random and random noise filters 
+      itself on inversion.
