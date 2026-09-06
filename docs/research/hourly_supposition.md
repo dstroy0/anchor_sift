@@ -35,3 +35,7 @@
       in themselves. Bounding the object under examination poisons it with unnatural information and 
       destroys infinite discrimination.
       Consummatio omnino pulchra est.
+10. Tail error correction: It seems any random distribution with no affine works best, I havent plotted 
+      for percent inclusion vs error reduction but it is a recursive function of the tail,
+      and I predict a natural curve, a line indicates a branch is available to potentially hit
+      my personal 10^-26 goal. 
