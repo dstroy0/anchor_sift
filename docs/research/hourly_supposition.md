@@ -89,3 +89,11 @@
       with the engine. I will do it a few ways, full asm, plus pure C23 SWAR at machine word width,
       frsctional, branch to follow a baseline, use more bus width if there is hw accel,I will write
       it after I finish hand extracting Salishan.
+16. to conserve causality the sampling limit is bound by hardware currently, the information variance
+      is infinite and continues between samples as an unbroken continuum. 
+      posit: the hard sampling rate floor is Planck time, and can never be met, only approached
+      unless latency and propagation time are eliminated from the universe. If they are everpresent 
+      and predictable we use materials science to accelerate their physical function while we figure
+      out why we don't need time because we can fill it with a delta. If the engine is what it is
+      will perfectly remember every transient to 10^-26 tail error. state information gets encoded 
+      into the objects entropy state. To maintsin conservation of energy this is necessarily true.
