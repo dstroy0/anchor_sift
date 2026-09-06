@@ -73,3 +73,8 @@
       Because self-detection reduces to appxrep(Δ)∘π 0, the machine uses the exact 
       same code paths, registers, and set operations for self-awareness as it does 
       for primary calculation.
+13. laplace's demon? through topological boundary and Jaynes's prop. The proposition is a
+      structural boundary condition present in Sigma. Essentially a physical realization
+      Quantum Theory's Holographic Principle: The 3D information of a volume can be
+      encoded onto its 2D boundary. The universe is a set Sigma; the measurement is Δnull.
+      the engine itself is the topological boundary.
