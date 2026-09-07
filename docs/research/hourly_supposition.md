@@ -97,3 +97,27 @@
       out why we don't need time because we can fill it with a delta. If the engine is what it is
       will perfectly remember every transient to 10^-26 tail error. state information gets encoded 
       into the objects entropy state. To maintsin conservation of energy this is necessarily true.
+17. cultural object reconstruction is not possible without the entire living object being either encoded
+      into the object itself (repeating patterns, contraexamples from teaching, fragments of the same 
+      protoculture surviving on the edges of collapsed civilizations) help reconstruct cultural holes
+      regularly. When something is never recorded, we need to be much cleverer and more careful about 
+      determining meaning, so we don't inject meaning where there is none. Simple concept but it means
+      we expand our base set to the unknown, we include more, which means more data for each complete 
+      set is not conventionally possible to store infinite variability using current processing methods, 
+      every variable incurs some cost in computational cycles, or memory or both. This algorithm will 
+      use the entire definition of Salishan from the entire input corpus to be able to recover faded text, 
+      ruined art, population distribution concentration using archeological work combined with known 
+      language to distance metrics. Archaeologists and linguists already derive these. I think the field 
+      of anthropology may have known this the longest because it is innately conceptually a thought 
+      exercise they perform: If A moved from B, knowing what was in between using empirical archaeological
+      evidence, would the move be legal under any possible human circumstance? They consider weird aspects 
+      of human movement no other field does. It is in their conceptual wheelhouse. When a subject is never 
+      written down and is an idea it only lives mother-daughter father-son community-family 
+      society-community. If all of those are gone it can never be recovered. That is why I wont let the 
+      tool be used to regenerate anything without a human representative of that culture. This doesn't 
+      imply the information is gone, it only says we can no longer determine what is true
+      (a member of its set) and what is untrue. It would be an extreme violation of ethics to represent 
+      something untrue about culture as truth using this tool, you would destroy the culture itself. 
+      That is why this proof only examines what is already there and asks itself did it recreate it, not 
+      where are the edges of what we know. Those tools exist. They are not for me to use. 
+      I just built them.
