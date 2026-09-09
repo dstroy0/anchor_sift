@@ -48,7 +48,12 @@ ANCHOR = {
     "HERE": "<tool>",
     "BUILD": "build",
     "PAPERS": "build/papers",
+    "ORACLES": "build/oracles",
+    "AUDIO": "build/audio",
+    "SOUND": "build/sound",
     "CORPORA": "build/corpora",
+    "APART": "build/corpora/claude_prose_by_source",
+    "CHAPTERS": "theory/<book>/chapters",
     "OUT": "<out>",
     "TARGET": "<target>",
 }

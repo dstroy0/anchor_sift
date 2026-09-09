@@ -1,22 +1,23 @@
 # Anchor sift
 
 **Purpose:** Find out what this method measures, what it has read, and where it fails, without running anything first.
-**Scope:** `src/engine/`, `theory/`, `tools/`
+**Scope:** `src/`, `data/`, `analysis/`, `maint/`, `examples/`, `theory/`
 
 ## Contents
 
 1. [The algorithm](#the-algorithm)
 2. [Areas of research](#areas-of-research)
-3. [Two instruments, and they are not interchangeable](#two-instruments-and-they-are-not-interchangeable)
-4. [The sift](#the-sift)
-5. [Ports](#ports)
-6. [What it knows](#what-it-knows)
-7. [Whose language this is](#whose-language-this-is)
-8. [The condition of use](#the-condition-of-use)
-9. [Where to start](#where-to-start)
-10. [What is not here](#what-is-not-here)
-11. [Licensing, dual](#licensing-dual)
-12. [A note on how this is written](#a-note-on-how-this-is-written)
+3. [Where things are](#where-things-are)
+4. [Two instruments, and they are not interchangeable](#two-instruments-and-they-are-not-interchangeable)
+5. [The sift](#the-sift)
+6. [Ports](#ports)
+7. [What it knows](#what-it-knows)
+8. [Whose language this is](#whose-language-this-is)
+9. [The condition of use](#the-condition-of-use)
+10. [Where to start](#where-to-start)
+11. [What is not here](#what-is-not-here)
+12. [Licensing, dual](#licensing-dual)
+13. [A note on how this is written](#a-note-on-how-this-is-written)
 
 ## The algorithm
 
@@ -52,6 +53,22 @@ A dialect border inside Lushootseed, labeled by Mellesmoen and Kye and then held
 An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length. A protein backbone returns bond lengths of 1.45, 1.52 and 1.33 against chemistry's 1.46, 1.52 and 1.33. None of them was told anything.
 
 The ledger holds the rest, including every row that failed and why.
+
+## Where things are
+
+Each directory answers one question, and that question is the rule for what goes in it. There is no `tools/`, deliberately: a directory meaning "a script" takes everything, and this repository had the engine's own measure library, a research subject's whole pipeline and the prose checker filed together under that name.
+
+| | what it operates on | |
+|---|---|---|
+| `src/` | points and values, no domain | the engine, and the R and MATLAB ports |
+| `data/` | external material | fetchers, and the Salishan pipeline |
+| `analysis/` | a corpus, through `src/` | surveys the books ask for |
+| `examples/` | a corpus, through `src/` | 98 numbered demonstrations, eight domains |
+| `maint/` | the repository itself | records, gates, prose checks, the book build |
+| `theory/` | the argument | four books |
+| `docs/` | the reader | setup and usage |
+
+`build/` is generated and disposable, and nothing irreplaceable is reachable through it.
 
 ## Two instruments, and they are not interchangeable
 

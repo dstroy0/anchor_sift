@@ -1,7 +1,7 @@
 # Setup
 
 **Purpose:** Get the engine building and the examples running, and know what each dependency is actually for.
-**Scope:** `src/engine/`, `examples/`, `tools/`.
+**Scope:** `src/engine/`, `examples/`, `maint/`, `data/`.
 
 Nothing here needs a GPU, a service, or a network connection except the fetchers, and those are named below.
 
@@ -79,9 +79,13 @@ The hand extractions are not fetchable. They are transcribed out of published pa
 ## Checks
 
 ```sh
-python maint/prose/docs_check.py          the register check over every document and comment
-python maint/catalog.py --check  every example carries its catalog number
+python maint/prose/docs_check.py      the register check over every document and comment
+python maint/catalog.py --check       every example carries its catalog number
+python maint/catalog_verify.py        where an example's description and its code disagree
+python maint/write_survey.py          every file write in the tree, and where it lands
 ```
+
+Four more gates run against the two closed repositories and say so and stop without them: `maint/corpus_manifest.py`, `maint/verify_private_sync.py`, `maint/speech_gate.py` and `maint/citations.py`. Each takes `--bypass`, and `ANCHOR_SIFT_BYPASS=1` carries that into a commit hook.
 
 `.githooks/pre-commit` runs the first of these. Turn it on once per clone:
 

@@ -30,6 +30,18 @@ Only `representation` knows a domain exists. It has `text`, `sound`, `picture` a
 
 `src/engine/python/README.md` is the map.
 
+## Where the rest of it is
+
+| | what it operates on |
+|---|---|
+| `src/` | points and values, no domain. The engine and the ports |
+| `data/` | external material. Fetchers, and one subject's pipeline |
+| `analysis/` | a corpus, through `src/`. Surveys the books ask for |
+| `examples/` | a corpus, through `src/`. Numbered demonstrations |
+| `maint/` | the repository itself. Records, gates, prose checks, the book build |
+
+Each of `data/`, `analysis/` and `maint/` carries a README saying what belongs in it.
+
 ## Reading the result
 
 A measurement carries a floor. The floor is what the same measure returns on a shuffle of the same symbols, an arrangement carrying no structure at all.
