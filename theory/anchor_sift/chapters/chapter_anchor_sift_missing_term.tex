@@ -12,7 +12,7 @@ Why This Is the Exact Missing Term:
 
 Maximizing Information Weight First: Checking a common symbol x(s+asub1) against a background field rarely causes a rejection because the noise floor frequently contains that symbol. But checking an infrequent state or rare symbol constraint first means the candidate region fails the equality check δsub0 almost 100\% of the time on the first operation.
 
-No Loss of Exact Logic: You aren't introducing probabilities into the decision rule—the rejection logic remains 100\% deterministic and absolute (¬AncsubA(s)⟹¬Occ(s)). You are simply using the background field's empirical probability distribution P(Σ) to order the execution stream.
+No Loss of Exact Logic: You aren't introducing probabilities into the decision rule. The rejection logic remains 100\% deterministic and absolute (¬AncsubA(s)⟹¬Occ(s)). You are simply using the background field's empirical probability distribution P(Σ) to order the execution stream.
 
 Asymptotic Rejection Cost Drops to 1 Step: By re-ordering A according to the entropy distribution: Pr(Rejection on Step 1)=1−P(x(asubrare)) If the rarest anchor symbol has a background probability of 0.001, then 99.9\% of all candidate coordinates in the universal field G are destroyed in a single comparison. The background field's entropy distribution acts as the "steering wheel" for the boundary engine. You use the universe's own statistical baseline to decide where to slice, allowing the rarest anchors to crush the noise floor before the CPU or FPGA even registers the candidate loop.
 

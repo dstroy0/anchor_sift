@@ -31,6 +31,12 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+/* The GPU arm is compiled as C++ by nvcc and calls straight into these, which are compiled as C.
+ * Without this the C++ side would look for mangled names that no C translation unit ever emits. */
+extern "C" {
+#endif
+
 /**
  * @brief Limbs per exact integer, at 32 bits each.
  *
@@ -43,8 +49,33 @@
 #define ANCHOR_EXACT_LIMBS 108u
 #endif
 
-/** @brief Decimal digits the fixed width is guaranteed to hold, matching representation.exact. */
+/**
+ * @brief Decimal digits the fixed width is guaranteed to hold, matching representation.exact.
+ *
+ * @note A declared floor and never the capacity. 108 limbs is 3456 bits, which actually holds 1040
+ *       decimal digits, so 16 of them are headroom this constant does not promise.
+ * @warning Never size a buffer from this. A width computed from digits is short the moment anybody
+ *          raises the floor toward the real capacity, and a device allocation sized that way would
+ *          be short by exactly the amount nobody was watching. Size from ANCHOR_EXACT_LIMBS or from
+ *          sizeof(AnchorExactInteger), which cannot drift apart from the array they describe.
+ * @note Defined on both arms, like the limb count. A build can then raise the floor and the assert
+ *       below decides whether the width holds it. A knob the build cannot set is a knob whose guard
+ *       has never been exercised.
+ */
+#ifndef ANCHOR_EXACT_DIGITS
 #define ANCHOR_EXACT_DIGITS 1024u
+#endif
+
+/**
+ * @brief Bits the fixed width actually carries. Every size is taken from this or from the limbs.
+ */
+#define ANCHOR_EXACT_BITS (ANCHOR_EXACT_LIMBS * 32u)
+
+/* The declared floor has to fit the width, and the build can decide that. A decimal digit needs
+ * log2(10) bits, which is 3.3219, carried here as 3322 parts in a thousand and rounded up so the
+ * test is never optimistic. A floor raised past the width fails compilation with this line. */
+_Static_assert((((ANCHOR_EXACT_DIGITS * 3322u) / 1000u) + 1u) <= ANCHOR_EXACT_BITS,
+               "ANCHOR_EXACT_DIGITS declares more decimal digits than ANCHOR_EXACT_LIMBS holds");
 
 /**
  * @brief An exact integer, magnitude in limbs and sign held apart from it.
@@ -193,5 +224,28 @@ uint64_t anchor_exact_hash(const AnchorExactInteger *value);
  */
 size_t anchor_exact_agreement(const AnchorExactInteger *positions, const uint64_t *values,
                               size_t count, const AnchorExactInteger *lag);
+
+/**
+ * @brief The same count, with the equality test supplied by the caller.
+ *
+ * @param[in] equal     Whether two integers hold the same value [BORROWS].
+ * @param[in] positions Positions carrying values [BORROWS].
+ * @param[in] values    The value standing at each position [BORROWS].
+ * @param[in] count     How many positions.
+ * @param[in] lag       The offset to test [BORROWS].
+ * @return              How many positions agree with the place one lag above them.
+ * @note Every arm runs this one function and supplies only its own equality test. An arm that
+ *       carried its own search would be a different algorithm, and timing it against the portable
+ *       arm would measure the algorithm instead of the instruction set. The AVX2 arm did carry its
+ *       own, and its advantage read 3.44x against an ordered search and 1.75x against this one.
+ */
+size_t anchor_exact_agreement_using(int (*equal)(const AnchorExactInteger *left,
+                                                 const AnchorExactInteger *right),
+                                    const AnchorExactInteger *positions, const uint64_t *values,
+                                    size_t count, const AnchorExactInteger *lag);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* ANCHOR_EXACT_LIMBS_H */

@@ -14,6 +14,7 @@ The research is in `theory/`, as books. It was kept here as markdown once. Two c
 | `theory/Salishan/` | Whose words the corpus holds, how wrong it could be, running the extraction, and the sources. |
 | `theory/thought_experiments/` | The posits whose experiment cannot be built as written. |
 | `theory/cryptography/sha256/` | Where SHA-256's structure is, where it stops, and how each null was measured. A corpus built to carry no natural structure, which makes it a contra-example. |
+| `theory/crystallography/` | Reading a published cell edge back off the arrangement, and what the reader's own voxel was costing before it was removed. The one positive control here whose answer came from outside this work. |
 
 ## Building them
 

@@ -17,6 +17,18 @@
 # width, no limb, no carry the author of exact_limbs.c wrote, and no shared line of code. Where the
 # two disagree the disagreement is real.
 #
+# WHAT THIS CHECK CANNOT SEE
+#
+# Both sides read one contract, and that contract is exact_limbs.h. Agreement here is evidence the
+# contract is unambiguous and that two implementations read it the same way. It is not evidence
+# that either reading matches a deposit.
+#
+# A CIF, or any third format, could define decimal text differently from the way this header does.
+# Both arms would then be wrong together and every row below would still come back green. That
+# failure is invisible from here and the only thing that finds it is a published number: the
+# crystallography oracle compares a recovered period against a cell edge somebody else measured,
+# That check has an answer from outside this tree, and this one does not.
+#
 # WHAT IS BEING COMPARED
 #
 # The C prints a sign and its limbs in hex, least significant first. This reassembles that into an
@@ -26,6 +38,7 @@
 
 import io
 import os
+import re
 import subprocess
 import sys
 
@@ -43,6 +56,58 @@ if not os.path.isfile(DRIVER):
 # one. Nothing is read back from the C to construct it.
 RUN_PLACES = 64
 RUN_STEP = 4
+
+
+def constant(path, pattern):
+    """One constant read out of a source file as text, without importing or compiling it.
+
+    Read as text deliberately. Importing the python module would make this file the same
+    implementation it is supposed to be checking, and compiling the header would need a compiler
+    where a regular expression will do.
+    """
+    with io.open(os.path.join(ROOT, path), encoding="utf-8", errors="replace") as handle:
+        # MULTILINE, since a constant sits at the start of its own line and not the start of a file.
+        found = re.search(pattern, handle.read(), re.MULTILINE)
+    return int(found.group(1)) if found else None
+
+
+def version_lock(out):
+    """Whether the two arms are built against the same contract.
+
+    The C carries a limb count and a declared digit floor; the python side carries the scale it
+    ingests at. They are separate declarations of one number, and nothing in either file refers to
+    the other, so they can drift apart silently. A drift makes the two arms disagree about values
+    neither of them is wrong about individually. That is the hardest kind of disagreement to read.
+
+    Returns 1 where they agree, 0 where they do not.
+    """
+    limbs = constant("src/engine/c/portable/exact_limbs.h",
+                     r"#define\s+ANCHOR_EXACT_LIMBS\s+(\d+)")
+    floor = constant("src/engine/c/portable/exact_limbs.h",
+                     r"#define\s+ANCHOR_EXACT_DIGITS\s+(\d+)")
+    scale = constant("src/engine/python/representation/exact.py",
+                     r"^SCALE_DIGITS\s*=\s*(\d+)")
+
+    if (limbs is None) or (floor is None) or (scale is None):
+        out.write("  could not read the contract constants from both sides\n")
+        return 0
+
+    # The width has to hold the floor, and the python scale has to be the same floor. A python scale
+    # above the C floor would ingest values the C refuses; below it, the two would disagree about
+    # what fits.
+    held = (32 * limbs)
+    room = ((floor * 3322) // 1000) + 1
+    if room > held:
+        out.write("  CONTRACT: %d digits declared, %d limbs hold %d bits, needs %d\n"
+                  % (floor, limbs, held, room))
+        return 0
+    if scale != floor:
+        out.write("  CONTRACT: python ingests at %d digits, C declares %d\n" % (scale, floor))
+        return 0
+
+    out.write("  contract: %d limbs, %d bits, %d digits declared on both sides\n"
+              % (limbs, held, floor))
+    return 1
 
 
 def value_of(sign, limbs):
@@ -71,6 +136,13 @@ def exact_of(text, places):
         sign = -1 if body[0] == "-" else 1
         body = body[1:]
     whole, point, part = body.partition(".")
+
+    # Trailing zeros in the fraction are not places. 1.2300 and 1.23 are one number and a scale of
+    # two places holds both exactly, so counting the zeros refuses a value that needs no rounding.
+    # Written out here instead of imported, because this file is the second implementation and an
+    # import would make it the same one.
+    part = part.rstrip("0")
+
     digits = whole + part
     if (not digits) or (not digits.isdigit()):
         return None
@@ -196,6 +268,11 @@ def main():
 
     out.write("\n  %d rows checked at %d limbs, %d decimal places, %d bits wide\n"
               % (checked, limbs, places, width))
+
+    # Checked after the rows. A contract drift is then reported beside the disagreement it caused
+    # instead of in place of it. Both are failures and neither substitutes for the other.
+    locked = version_lock(out)
+
     if wrong:
         out.write("\n  DISAGREEMENTS (%d)\n" % len(wrong))
         for one in wrong[:40]:
@@ -208,7 +285,7 @@ def main():
 
     out.write("  every row agrees with python integer arithmetic\n\n")
     out.flush()
-    return 0
+    return 0 if locked else 1
 
 
 if __name__ == "__main__":

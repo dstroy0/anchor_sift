@@ -30,6 +30,12 @@ import sys
 for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
+# The engine's instrument directory, found by walking up to the repository. anchor_sift lives in the
+# engine and not beside this file, and nothing on the path above reaches it.
+_at = os.path.dirname(os.path.abspath(__file__))
+while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+    _at = os.path.dirname(_at)
+sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
 
 from anchor_sift import distance, self_distance, squash, support
 from corpus_growth import candidates_by_language, pure_by_language

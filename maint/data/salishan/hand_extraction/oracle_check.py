@@ -39,6 +39,10 @@ ORACLES = os.path.join(ROOT, "build", "oracles")
 
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "corpus_script_extraction"))
 
+# Imported under another name because this file already binds `joined` as a local, for the token
+# welded out of a run of pieces. Two different joins, and shadowing one with the other reads as a
+# missing value at run time rather than as the name collision it is.
+from line_breaks import joined as joined_lines  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
 
 from papers import EVERY, NOT_FAITHFUL, PAGE_TEXT  # noqa: E402
@@ -154,22 +158,44 @@ def without_marker(plain):
     return plain[:at]
 
 
-def bare(token):
+# The letters of the paper currently being checked, set once per paper by main.
+#
+# Module state, because bare() is reached from eight places across three functions and the paper is
+# the same for all of them within one check. It sits beside EDGES, PAIRED and LIGATURES, which are
+# the same kind of fact about how a paper is written; this is the part of that which changes per
+# paper instead of holding for all of them.
+MARKS = ""
+
+
+def edges_for(marks):
+    """The punctuation to strip, with this paper's own letters taken out of it.
+
+    Off by default. Turning it on for every paper moved the tree from 438 disagreements to 457,
+    and Hilbert_Hess stayed at exactly 200. Pass an explicit `marks` to use it for one call.
+    """
+    return "".join(one for one in EDGES if one not in (marks or ""))
+
+
+def bare(token, marks=None):
     """One token with the punctuation around it off, and its orthography left alone.
 
     An opening quote always comes off: no orthography here starts a word with one. A closing quote
     comes off only where an opening one is on the same token, because ’ ends real words in Nuxalk
     and in Lyon's Okanagan.
+
+    `marks` is the paper's own letters, and anything in it is not punctuation for that paper. It
+    defaults to the paper under check, which main sets before reading either side of it.
     """
+    edges = edges_for(MARKS if marks is None else marks)
     plain = token.replace(NULL_CLITIC, "")
     for ligature, letters in LIGATURES:
         plain = plain.replace(ligature, letters)
-    plain = plain.strip(EDGES)
+    plain = plain.strip(edges)
     for opens, closes in PAIRED:
         if (len(plain) > 1) and plain.startswith(opens) and plain.endswith(closes):
-            plain = plain[1:-1].strip(EDGES)
+            plain = plain[1:-1].strip(edges)
     while plain and (plain[0] in "‘“"):
-        plain = plain[1:].strip(EDGES)
+        plain = plain[1:].strip(edges)
     return leading_marker(trailing_marker(plain))
 
 # What a form may be built out of besides its letters. A morpheme boundary, a clitic boundary, a
@@ -208,7 +234,7 @@ def oracle_rows(path):
     return held
 
 
-def source_forms(path, repair=None, pieces=2):
+def source_forms(path, repair=None, pieces=2, line_joins=False):
     """Every string of a paper a written form could be looking for, with the line it sits on.
 
     pieces is how many tokens one broken word may arrive as, and it is 2 for a paper whose text is
@@ -232,8 +258,29 @@ def source_forms(path, repair=None, pieces=2):
     # write: the word is one word.
     welds = {}
     previous = ""
+
+    # The same line joining coverage_check.py already applies, applied here too.
+    #
+    # This check joined a line to the one under it only where the first ended in a hyphen. A PDF
+    # that breaks a word with no hyphen leaves two fragments and this check saw two words, so a form
+    # the reader wrote whole read as a form the paper does not hold. 2012_Robertson's epigraph
+    # splits across two lines with no hyphen and could not be repaired at all.
+    #
+    # line_breaks.joined is the repair coverage_check has used all along, and its own header says
+    # both sides have to go through the same transformation or a join the reader makes and the check
+    # does not reports every welded word as a hole. The two checks were reading different text.
+    #
+    # Applied only where the paper's own config asks for it, which is the gate coverage_check has:
+    # `if "line joins" in repairs`. Running it as a measurement over all twenty papers first took
+    # the disagreement count from 441 to 2287. line_breaks.py is written for one paper's defect and
+    # welds words in the nineteen that do not have it, inventing forms nobody wrote. The repair is
+    # right for 2012_Robertson and wrong everywhere else, and a shared transformation applied
+    # unconditionally is a different error from the one it was fixing.
     with open(path, encoding="utf-8", errors="replace") as handle:
-        for number, line in enumerate(handle, 1):
+        raw = [one.rstrip("\n") for one in handle]
+    lines = joined_lines(raw)[0] if line_joins else [one.rstrip() for one in raw]
+
+    for number, line in enumerate(lines, 1):
             if line.startswith("====="):
                 continue
             # NFC on both sides, always. Two strings are the same string only after it, and skipping
@@ -326,7 +373,7 @@ def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     failed = 0
     waiting = []
-    for name, stem, record, repair, marks in EVERY:
+    for name, stem, record, repair, marks, line_joins in EVERY:
         table = os.path.join(ORACLES, name)
         # A paper whose extraction is the font's encoding is checked against the drafted page text
         # instead, because the extraction is not what the paper says and comparing against it only
@@ -340,10 +387,18 @@ def main():
             failed += 1
             continue
 
+        # Set before either side is read, so the hand extraction and the paper are stripped by the
+        # same rule. Stripping them differently is how a form that is in both reads as being in
+        # neither.
+        # Left empty. edges_for records what turning this on measured: 438 disagreements became
+        # 457 and the paper it was aimed at did not move. The mechanism is available per call.
+        global MARKS
+        MARKS = ""
+
         rows = oracle_rows(table)
         broken = PIECES if stem in NOT_FAITHFUL else 2
-        held, printed, welds = source_forms(source, repair, broken)
-        raw = source_forms(source, None, broken)[0]
+        held, printed, welds = source_forms(source, repair, broken, line_joins)
+        raw = source_forms(source, None, broken, line_joins)[0]
         out.write("  %s%s\n" % (name, "   (against a drafted page text)"
                                 if stem in NOT_FAITHFUL else ""))
         out.write("    %d rows read by hand, %d distinct tokens in the paper\n"

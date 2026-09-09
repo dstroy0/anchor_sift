@@ -26,10 +26,19 @@
 #include <stdio.h>
 #include <string.h>
 
-/** @brief Values every operation below is run over. Deposited crystal numbers and awkward cases. */
+/**
+ * @brief Values every operation below is run over. Deposited crystal numbers and awkward cases.
+ *
+ * @note The last group are contract cases, not arithmetic ones. A cross check against a second
+ *       implementation found this arm refusing 1.2300 at a scale that accepted 1.23, which is a
+ *       refusal to hold a value that needed no rounding. They are here so the same divergence
+ *       cannot return without a row moving.
+ */
 static const char *const SUBJECTS[] = {
     "4.76050", "0.35216", "10.1000", "8.6633", "14.0574", "0", "1", "-1", "0.000001",
     "999999999.999999999", "3.1049", "-11.4085", "0.5", "2", "4.76050(5)", "1000000000000",
+    "1.2300", "1.0000000000000000000000000", "4.7605000000000000000000000", "1.", ".5", "-0",
+    "0.000000000000000000000000000", "1.0000000000000000000000001", ".", "1.2.3", "1e6",
 };
 
 /** @brief How many subjects, for a driver that has to pair every one with every other. */

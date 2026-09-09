@@ -9,9 +9,17 @@ Every entry read has a cell with right angles. Oblique cells are skipped, not me
 
 That is a real restriction on coverage. It restricts which crystals were read and claims nothing about which crystals could be. Whether the same detector reads a monoclinic or triclinic cell after a shear is untested here, and the honest answer is that nobody has tried it.
 
-\section{One voxel, one atom}
+\section{Two atoms are two atoms}
 
-At 0.25 angstroms two atoms can land on the same voxel and the later one overwrites the earlier. Nothing recovers the lost site. For the lattice period this is harmless, because the period is a property of the repeating arrangement and not of any particular site, but it means the grid is not the structure and should not be used as though it were.
+This section used to record a limit that no longer exists. At 0.25 angstroms two atoms could land on the same voxel and the later one overwrote the earlier, with nothing recovering the lost site. It was harmless for the lattice period, since a period is a property of the repeating arrangement and not of any particular site, but it meant the grid was not the structure.
+
+Exact coordinates collide only where a deposit puts two sites at the same place, so nothing is lost that the deposit did not already carry. The limit was the reader's and it is gone with the reader that had it.
+
+\section{Exact does not mean true}
+
+The exact reading recovers the number a deposit carries and stops there. A cell edge written as 4.76050(5) has an uncertainty of five in its last place, fixed by the people who measured the crystal, and dropping that bracket is all this work does with it. Agreeing with a deposit to the digit is agreement with a deposit.
+
+What the exactness rules out is a second uncertainty underneath the first. The instrument contributes nothing to the error, so whatever error remains is the deposit's and can be argued about on its own terms.
 
 \section{The detector is not the measure}
 

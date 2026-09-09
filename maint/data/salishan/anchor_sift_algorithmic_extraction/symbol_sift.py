@@ -45,7 +45,13 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 for _category in os.scandir(HERE):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
-sys.path.insert(0, os.path.join(os.path.dirname(HERE), "instrument"))
+# The engine's instrument directory, found by walking up to the repository rather than by
+# counting parents. Counting put this at maint/data/instrument, which has never existed, and
+# the import failed with a missing module instead of a wrong path.
+_at = os.path.dirname(os.path.abspath(__file__))
+while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+    _at = os.path.dirname(_at)
+sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
 
 from paper_config import by_stem  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402

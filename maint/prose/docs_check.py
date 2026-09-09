@@ -655,8 +655,12 @@ QUOTED = (
     re.compile(r"salish and neighbouring", re.IGNORECASE),
 )
 
-# Prose lives in pages and in comments, and the same voice writes both.
-CHECKED = (".md", ".py", ".c", ".h")
+# Prose lives in pages, in comments, and in the books, and the same voice writes all three.
+#
+# .tex was absent from this tuple until now, so no theory book had ever been register checked. The
+# books are the longest continuous prose in the tree and the only part written to be read straight
+# through, which made them the worst thing to have been leaving out.
+CHECKED = (".md", ".py", ".c", ".h", ".tex")
 
 # Every place this project keeps prose. A README beside the code makes the same claims a page under
 # docs makes, and is read by the same people.
@@ -680,7 +684,7 @@ while (REPOSITORY != os.path.dirname(REPOSITORY)) \
 # A root that no longer exists is not an error this could see. The guard below is what turns that
 # into one, and the count at the foot is still the thing to watch after a move.
 DEFAULT_ROOTS = tuple(os.path.join(REPOSITORY, one)
-                      for one in ("docs", "src", "examples", "maint"))
+                      for one in ("docs", "src", "examples", "maint", "theory"))
 
 for one in DEFAULT_ROOTS:
     if not os.path.isdir(one):
@@ -873,6 +877,57 @@ def quieted(lines):
     return kept
 
 
+def tex_prose(lines):
+    """A LaTeX source with its markup blanked and its sentences left, line numbers preserved.
+
+    A .tex file is prose all the way down, unlike a source file where prose sits in the comments.
+    What has to come out is the markup, and only the markup that is not language: a \\textbf or an
+    \\emph wraps a sentence somebody wrote and it stays, while a \\texttt wraps a path and a \\label
+    wraps an identifier, and reading either as prose reports findings against a filename.
+
+    Math is dropped whole. A displayed equation is symbols, and an inline $x$ carries no sentence.
+
+    Nothing here parses TeX. It removes the constructs that produce false findings and leaves the
+    rest, which is the same trade prose_only already makes about string literals in source.
+    """
+    kept = []
+    for line in lines:
+        held = line
+
+        # Comment to end of line, on an unescaped percent. A note to a co-author is prose and would
+        # be worth checking, but it is also where a stray brace or a half sentence lives, so it goes
+        # with the markup rather than being reported against.
+        held = re.sub(r"(?<!\\)%.*$", "", held)
+
+        # Math, inline and displayed. Done before commands, since a command inside math goes with it.
+        held = re.sub(r"\$\$.*?\$\$", " ", held)
+        held = re.sub(r"(?<!\\)\$.*?(?<!\\)\$", " ", held)
+        held = re.sub(r"\\\[.*?\\\]", " ", held)
+        held = re.sub(r"\\\(.*?\\\)", " ", held)
+
+        # Commands whose braces hold an identifier and never a sentence. The argument goes with the
+        # command. \allowbreak{} appears mid-path in this tree's citations and would otherwise leave
+        # its fragments behind as words.
+        held = re.sub(r"\\(texttt|verb|url|href|path|label|ref|eqref|cite\w*|input|include|"
+                      r"includegraphics|usepackage|documentclass|bibliography\w*|hypersetup|"
+                      r"newcommand|renewcommand|def|allowbreak|textbackslash)\s*(\[[^\]]*\])?"
+                      r"(\{[^{}]*\})*", " ", held)
+
+        # Environment openers and closers, which name the environment and carry no sentence.
+        held = re.sub(r"\\(begin|end)\s*\{[^{}]*\}(\[[^\]]*\])?(\{[^{}]*\})*", " ", held)
+
+        # Every remaining command keeps its braces, since \textbf{a sentence} is a sentence. The
+        # command name itself goes, and so do the braces around it.
+        held = re.sub(r"\\[A-Za-z@]+\s*(\[[^\]]*\])?", " ", held)
+        held = held.replace("{", " ").replace("}", " ")
+
+        # Alignment and cell separators in a table, which glue unrelated words into a phrase.
+        held = held.replace("&", " ").replace("\\\\", " ")
+
+        kept.append(held)
+    return quieted(kept)
+
+
 def prose_only(path, lines):
     """The comment and docstring lines of a source file, with the code blanked out.
 
@@ -882,6 +937,8 @@ def prose_only(path, lines):
     """
     if path.endswith(".md"):
         return quieted(lines)
+    if path.endswith(".tex"):
+        return tex_prose(lines)
 
     kept = []
     in_block = False
@@ -970,7 +1027,17 @@ def main():
             print("    %s%s" % (one, "" if os.path.exists(one) else "   does not exist"))
         return 2
 
-    return (breaking + prose) if strict else breaking
+    # One for a refusal and two for the sentinel, never a count. Returning the number of findings
+    # made a run with exactly two breaking findings indistinguishable from a run that read nothing,
+    # and the commit hook tests for 2 by name and would have printed "the docs check read nothing"
+    # over a real pair of em dashes. Pointing this at theory/ for the first time produced exactly
+    # that: 43 files, 2 breaking, and an exit code that said the opposite of what happened.
+    #
+    # A count is the wrong shape for an exit status besides. They wrap at 256, so 256 findings
+    # would have exited 0.
+    if breaking or (strict and prose):
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

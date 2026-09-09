@@ -17,6 +17,7 @@
 
 #include "exact_limbs.h"
 
+#include <stdlib.h>
 #include <string.h>
 
 /** @brief Bits per limb. */
@@ -338,10 +339,48 @@ AnchorExactStatus anchor_exact_from_decimal(const char *text, size_t length, uin
         at++;
     }
 
+    // Where the number ends, found before anything is accumulated. Trailing zeros in the fraction
+    // are dropped here instead of counted as places: 1.2300 and 1.23 are the same number and a
+    // scale of two places holds both exactly, so counting the zeros made the first refuse at a
+    // scale the second passed. That is a refusal to represent a value needing no rounding at all.
+    // Trimming has to happen before accumulation because this representation cannot divide the
+    // zeros back out afterward.
+    size_t ends = at;
+    size_t point_at = length;
+    for (size_t scan = at; scan < length; scan++)
+    {
+        const char one = text[scan];
+        if ((one == '(') || (one == ' ') || (one == '\t') || (one == '\n') || (one == '\r'))
+        {
+            break;
+        }
+        if (one == '.')
+        {
+            if (point_at != length)
+            {
+                return ANCHOR_EXACT_NOT_DECIMAL;
+            }
+            point_at = scan;
+        }
+        ends = scan + 1u;
+    }
+    if (point_at != length)
+    {
+        while ((ends > (point_at + 1u)) && (text[ends - 1u] == '0'))
+        {
+            ends--;
+        }
+        // Every fractional digit was a zero, so the point itself carries nothing either.
+        if (ends == (point_at + 1u))
+        {
+            ends = point_at;
+        }
+    }
+
     uint32_t places = 0u;
     int seen_point = 0;
     int seen_digit = 0;
-    for (; at < length; at++)
+    for (; at < ends; at++)
     {
         const char one = text[at];
         if (one == '(')
@@ -418,6 +457,9 @@ uint64_t anchor_exact_hash(const AnchorExactInteger *value)
  * @param[in] count     How many.
  * @param[in] wanted    The position to find [BORROWS].
  * @return              Its index, or count where it is absent.
+ * @note Kept because it needs no allocation and answers where a caller holds only the run. The
+ *       measure below does not use it: an ordering is not a property the set has, and asking for
+ *       one costs a comparison per step of the search.
  */
 static size_t find_position(const AnchorExactInteger *positions, size_t count,
                             const AnchorExactInteger *wanted)
@@ -447,6 +489,81 @@ static size_t find_position(const AnchorExactInteger *positions, size_t count,
 size_t anchor_exact_agreement(const AnchorExactInteger *positions, const uint64_t *values,
                               size_t count, const AnchorExactInteger *lag)
 {
+    return anchor_exact_agreement_using(anchor_exact_equal, positions, values, count, lag);
+}
+
+size_t anchor_exact_agreement_using(int (*equal)(const AnchorExactInteger *left,
+                                                 const AnchorExactInteger *right),
+                                    const AnchorExactInteger *positions, const uint64_t *values,
+                                    size_t count, const AnchorExactInteger *lag)
+{
+    // What the measure asks of the set is membership: is there a point exactly one lag away, and
+    // does it carry the same value. A set has no ordering, and a search that walks one imposes a
+    // structure the domain never had and pays a full limb comparison at every step of it.
+    //
+    // An open addressed table keyed on the hash answers the same question in one probe on average.
+    // The hash is not trusted on its own: a hit is confirmed with a full comparison, since two
+    // distinct coordinates reading as equal is the error this whole path exists to prevent.
+    //
+    // This is what the python side has always done. Its `placed` is a dict, and the two arms were
+    // running different algorithms for one operation.
+    if (count == 0u)
+    {
+        return 0u;
+    }
+
+    size_t slots = 1u;
+    while (slots < (count * 2u))
+    {
+        slots <<= 1u;
+    }
+
+    size_t *table = (size_t *)malloc(slots * sizeof(size_t));
+    if (table == NULL)
+    {
+        // No table, so the ordered search answers instead. Slower and correct beats absent.
+        size_t agreed = 0u;
+        for (size_t at = 0u; at < count; at++)
+        {
+            AnchorExactInteger moved;
+            if (anchor_exact_add(&positions[at], lag, &moved) != ANCHOR_EXACT_OK)
+            {
+                continue;
+            }
+            const size_t found = find_position(positions, count, &moved);
+            if ((found < count) && (values[found] == values[at]))
+            {
+                agreed++;
+            }
+        }
+        return agreed;
+    }
+
+    for (size_t at = 0u; at < slots; at++)
+    {
+        table[at] = count;
+    }
+
+    const size_t mask = slots - 1u;
+    for (size_t at = 0u; at < count; at++)
+    {
+        size_t slot = (size_t)(anchor_exact_hash(&positions[at]) & (uint64_t)mask);
+        while (table[slot] != count)
+        {
+            // A position landing twice keeps the first, matching a dict built by insertion where
+            // the reader never writes the same key twice.
+            if (equal(&positions[table[slot]], &positions[at]) != 0)
+            {
+                break;
+            }
+            slot = (slot + 1u) & mask;
+        }
+        if (table[slot] == count)
+        {
+            table[slot] = at;
+        }
+    }
+
     size_t agreed = 0u;
     for (size_t at = 0u; at < count; at++)
     {
@@ -455,11 +572,21 @@ size_t anchor_exact_agreement(const AnchorExactInteger *positions, const uint64_
         {
             continue;
         }
-        const size_t found = find_position(positions, count, &moved);
-        if ((found < count) && (values[found] == values[at]))
+        size_t slot = (size_t)(anchor_exact_hash(&moved) & (uint64_t)mask);
+        while (table[slot] != count)
         {
-            agreed++;
+            if (equal(&positions[table[slot]], &moved) != 0)
+            {
+                if (values[table[slot]] == values[at])
+                {
+                    agreed++;
+                }
+                break;
+            }
+            slot = (slot + 1u) & mask;
         }
     }
+
+    free(table);
     return agreed;
 }

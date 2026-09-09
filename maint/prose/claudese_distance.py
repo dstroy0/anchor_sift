@@ -4,7 +4,7 @@
 #
 # Find the assistant register in this tree by measuring against a written sample of it.
 #
-#   Usage:  python maint/prose/claudese_distance.py [--worst N]
+#   Usage:  python maint/prose/claudese_distance.py [<root> ...] [--worst N]
 #
 # WHY A POSITIVE CONTROL CHANGES THE QUESTION
 #
@@ -201,9 +201,13 @@ def shuffled(words, seed):
     return held
 
 
-def prose_of_path(path):
-    """The prose of one file, for the explain mode."""
-    return prose_distance.prose_of(path)
+def prose_of_path(path, where=None):
+    """The prose of one file, for the explain mode.
+
+    `where` is the tree the path is relative to, and defaults to this repository. It is a parameter
+    and not a module global because the caller may be measuring another repository.
+    """
+    return prose_distance.prose_of(os.path.join(where or prose_distance.ROOT, path))
 
 
 def pulls(mine, claudese, human, ranks=24):
@@ -360,6 +364,14 @@ def main():
     if "--worst" in sys.argv:
         worst = int(sys.argv[sys.argv.index("--worst") + 1])
 
+    # The tree under measurement, which is not always this one. A path used to be accepted and
+    # ignored, so a caller measuring another repository got this one's number and no indication of
+    # it. The path is echoed for the same reason the file count is: a number with no subject named
+    # beside it is a number somebody will attach to the wrong thing.
+    where, roots = prose_distance.named_roots(sys.argv)
+    if where is not None:
+        out.write("\n  measuring %s\n" % where.replace("\\", "/"))
+
     # The fetched million words are the pole. The hand-written fixture stays as a check on it: it
     # was written to be the register at full strength, so it should land near the fetched pole, and
     # if it does not then one of the two is not what it claims.
@@ -439,10 +451,10 @@ def main():
         return code
 
     rows = []
-    for path in prose_distance.repository_files():
+    for path in prose_distance.repository_files(where, roots):
         if "fixtures" in path:
             continue
-        text = prose_distance.prose_of(path)
+        text = prose_distance.prose_of(os.path.join(where or prose_distance.ROOT, path))
         if len(text) < LEAST:
             continue
         mine_full, count = profile(words_of(text))
@@ -480,7 +492,7 @@ def main():
     # One file explained. Which words in it carry it toward the assistant pole, named in order.
     if "--explain" in sys.argv:
         wanted = sys.argv[sys.argv.index("--explain") + 1].replace("\\", "/")
-        text = prose_of_path(wanted)
+        text = prose_of_path(wanted, where)
         if not text:
             out.write("\n  no prose at %s\n" % wanted)
         else:
@@ -519,7 +531,7 @@ def main():
     # file's margin and 33 edits spent on them can do no more than that.
     if "--decompose" in sys.argv:
         wanted = sys.argv[sys.argv.index("--decompose") + 1].replace("\\", "/")
-        text = prose_of_path(wanted)
+        text = prose_of_path(wanted, where)
         if not text:
             out.write("\n  no prose at %s\n" % wanted)
             out.flush()
@@ -607,10 +619,10 @@ def main():
     # noise. No web distance is reported per file for that reason. The repository as one body is
     # 400,000 words and is the reading a web can actually be asked for.
     whole = []
-    for path in prose_distance.repository_files():
+    for path in prose_distance.repository_files(where, roots):
         if "fixtures" in path:
             continue
-        whole.extend(words_of(prose_distance.prose_of(path)))
+        whole.extend(words_of(prose_distance.prose_of(os.path.join(where or prose_distance.ROOT, path))))
     if whole and ("claudese" in webs):
         ours, count = web_profile(whole)
         null, _ = web_profile(shuffled(whole, 0x5EED))

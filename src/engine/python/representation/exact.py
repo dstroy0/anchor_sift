@@ -105,8 +105,18 @@ def units(text):
         body = body[1:]
 
     whole, point, part = body.partition(".")
-    if point and not part:
-        part = ""
+    if (not whole.isdigit()) and whole:
+        raise ValueError("%r is not plain decimal text" % text)
+    if part and (not part.isdigit()):
+        raise ValueError("%r is not plain decimal text" % text)
+
+    # Trailing zeros in the fraction are dropped before the places are counted. 1.2300 and 1.23 are
+    # the same number, and a scale of two places holds both of them exactly. Counting the zeros as
+    # places made the first refuse at a scale the second passed, which is a refusal to represent a
+    # value that needed no rounding at all. A cross check against a second implementation is what
+    # surfaced it.
+    part = part.rstrip("0")
+
     digits = whole + part
     if (not digits) or (not digits.isdigit()):
         raise ValueError("%r is not plain decimal text" % text)

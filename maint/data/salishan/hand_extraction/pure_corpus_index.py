@@ -32,7 +32,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ORACLES = os.path.join(ROOT, "build", "oracles")
 
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "corpus_script_extraction"))
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(HERE)), "book"))
+# Built from the repository root and not by counting parents. Counting put this at data/book, which
+# has never existed, and the import failed with a missing module rather than a wrong path.
+sys.path.insert(0, os.path.join(ROOT, "maint", "book"))
 
 import markdown_to_latex  # noqa: E402
 from paper_config import PAPERS  # noqa: E402

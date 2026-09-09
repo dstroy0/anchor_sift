@@ -52,9 +52,95 @@ target_compile_options(anchor_sift_kernel_counted PRIVATE ${SIFT_WARNINGS})
 # The exact integer as a fixed width limb array, which is the same value the python engine ingests
 # and a different transform of it. Portable C11 with no intrinsic and no 128 bit type, so it builds
 # anywhere and is the arm every vectorized one is checked against.
-add_library(anchor_exact_portable STATIC portable/exact_limbs.c)
+add_library(anchor_exact_portable STATIC portable/exact_limbs.c portable/exact_arm_portable.c)
 target_include_directories(anchor_exact_portable PUBLIC portable)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
+
+# Which vectorized arm this target can carry. Decided from the processor the build targets, and
+# every gate is defined on both arms so #if always has a value and an unset build is never a silent
+# false. An arm that is compiled in still asks the processor at run time before it is used.
+set(ANCHOR_ARM_SOURCES "")
+set(ANCHOR_ARM_DEFINES "")
+set(ANCHOR_ARM_OPTIONS "")
+set(ANCHOR_ARM_INCLUDES "")
+
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
+    # The AVX2 loops are one file for both x86 platforms. A second copy would be one edit away from
+    # disagreeing, and a disagreement between two arms is a defect by definition. What each platform
+    # directory holds is detection, which is the part that genuinely differs.
+    list(APPEND ANCHOR_ARM_INCLUDES vectorized_win)
+    if(WIN32)
+        list(APPEND ANCHOR_ARM_SOURCES vectorized_win/exact_arm_avx2.c)
+    else()
+        list(APPEND ANCHOR_ARM_SOURCES vectorized_linux/exact_arm_avx2.c)
+    endif()
+    list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_AVX2=1)
+    # -mavx2 permits the intrinsics in this translation unit. It does not permit the compiler to
+    # assume AVX2 anywhere else, because no other translation unit is built with it.
+    if(NOT MSVC)
+        list(APPEND ANCHOR_ARM_OPTIONS -mavx2)
+    else()
+        list(APPEND ANCHOR_ARM_OPTIONS /arch:AVX2)
+    endif()
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
+    list(APPEND ANCHOR_ARM_SOURCES vectorized_rpi/exact_arm_neon.c)
+    list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_NEON=1)
+    # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build
+    # does need one, and asks for the softfp ABI's NEON rather than assuming a hard float target.
+    if(NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
+        list(APPEND ANCHOR_ARM_OPTIONS -mfpu=neon)
+    endif()
+endif()
+
+# The two arms with no hardware anywhere in this project. They are compiled where the compiler
+# accepts the flags and are gated at run time like every other arm, so a machine without the feature
+# reports them absent and never calls in. Their names carry that they have never been run.
+#
+# Compiled as their own targets, because -mavx512f and +sve let the compiler use those instructions
+# anywhere in the translation unit carrying the flag. Confining each to one file is what keeps a
+# build from emitting an instruction the running part cannot execute outside the detected path.
+include(CheckCCompilerFlag)
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)$" AND NOT MSVC)
+    check_c_compiler_flag("-mavx512f -mavx512bw -mavx512vl" ANCHOR_CC_TAKES_AVX512)
+    if(ANCHOR_CC_TAKES_AVX512)
+        add_library(anchor_exact_avx512 STATIC vectorized_win/exact_arm_avx512.c)
+        target_link_libraries(anchor_exact_avx512 PUBLIC anchor_exact_portable)
+        target_include_directories(anchor_exact_avx512 PUBLIC vectorized_win)
+        target_compile_definitions(anchor_exact_avx512 PUBLIC ANCHOR_EXACT_HAVE_AVX512=1)
+        target_compile_options(anchor_exact_avx512
+            PRIVATE ${SIFT_WARNINGS} -mavx512f -mavx512bw -mavx512vl)
+        list(APPEND ANCHOR_EXTRA_ARMS anchor_exact_avx512)
+    endif()
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
+    check_c_compiler_flag("-march=armv8.2-a+sve" ANCHOR_CC_TAKES_SVE)
+    if(ANCHOR_CC_TAKES_SVE)
+        add_library(anchor_exact_sve STATIC vectorized_rpi/exact_arm_sve.c)
+        target_link_libraries(anchor_exact_sve PUBLIC anchor_exact_portable)
+        target_include_directories(anchor_exact_sve PUBLIC vectorized_rpi)
+        target_compile_definitions(anchor_exact_sve PUBLIC ANCHOR_EXACT_HAVE_SVE=1)
+        target_compile_options(anchor_exact_sve PRIVATE ${SIFT_WARNINGS} -march=armv8.2-a+sve)
+        list(APPEND ANCHOR_EXTRA_ARMS anchor_exact_sve)
+    endif()
+endif()
+
+if(ANCHOR_ARM_SOURCES)
+    add_library(anchor_exact_arms STATIC ${ANCHOR_ARM_SOURCES})
+    target_link_libraries(anchor_exact_arms PUBLIC anchor_exact_portable ${ANCHOR_EXTRA_ARMS})
+    target_include_directories(anchor_exact_arms PUBLIC ${ANCHOR_ARM_INCLUDES})
+    target_compile_definitions(anchor_exact_arms PUBLIC ${ANCHOR_ARM_DEFINES})
+    target_compile_options(anchor_exact_arms PRIVATE ${SIFT_WARNINGS} ${ANCHOR_ARM_OPTIONS})
+else()
+    # No vectorized arm for this processor. The library still exists so the driver links the same
+    # way everywhere, and it carries only the portable arm.
+    add_library(anchor_exact_arms INTERFACE)
+    target_link_libraries(anchor_exact_arms INTERFACE anchor_exact_portable)
+endif()
+
+# Grades every arm present against the portable one, then times them. A disagreement is a defect and
+# a time is a cost, and the two are never traded against each other.
+add_executable(bench_exact_arms bench/bench_exact_arms.c)
+target_link_libraries(bench_exact_arms PRIVATE anchor_exact_arms anchor_exact_portable)
+target_compile_options(bench_exact_arms PRIVATE ${SIFT_WARNINGS})
 
 # Prints what the limb arithmetic produced and decides nothing about whether it is right.
 # maint/check_exact_limbs.py recomputes every row with python integers and compares.

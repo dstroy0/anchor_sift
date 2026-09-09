@@ -142,7 +142,7 @@ def main():
     # graded is how this file reported 12 of 12 on the day the twelfth paper had a table and no
     # reader. The two lists are kept apart because the thing to do about them is different.
     unwritten = []
-    for name, stem, record, repair, marks in EVERY:
+    for name, stem, record, repair, marks, _line_joins in EVERY:
         table = os.path.join(ORACLES, name)
         written = os.path.join(CORPORA, record)
         if not os.path.isfile(table):

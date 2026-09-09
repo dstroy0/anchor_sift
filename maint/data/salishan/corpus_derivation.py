@@ -38,8 +38,16 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 for _category in os.scandir(HERE):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
-sys.path.insert(0, os.path.join(os.path.dirname(HERE), "instrument"))
-sys.path.insert(0, os.path.join(os.path.dirname(HERE), "book"))
+# The engine's instrument directory, found by walking up to the repository rather than by
+# counting parents. Counting put this at maint/data/instrument, which has never existed, and
+# the import failed with a missing module instead of a wrong path.
+_at = os.path.dirname(os.path.abspath(__file__))
+while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+    _at = os.path.dirname(_at)
+sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
+# Built from the repository, not by counting parents. Counting put this at maint/data/book, which
+# has never existed, and the import failed with a missing module rather than a wrong path.
+sys.path.insert(0, os.path.join(_at, "maint", "book"))
 
 import boundary_check as border  # noqa: E402
 import markdown_to_latex  # noqa: E402
@@ -121,7 +129,7 @@ def alphabets():
     several papers takes all of them, the alphabet the sift gets to apply to that dialect.
     """
     held = {}
-    for name, stem, record, repair, marks in EVERY:
+    for name, stem, record, repair, marks, _line_joins in EVERY:
         language = BY_CORPUS.get(record.split("_")[1])
         if language:
             held[language] = held.get(language, "") + marks
@@ -216,7 +224,7 @@ def corpus_at(readers):
     paper was added, and that puts it on the same axis as the algorithm curve beside it.
     """
     sizes = {}
-    for name, stem, record, repair, marks in EVERY:
+    for name, stem, record, repair, marks, _line_joins in EVERY:
         path = os.path.join(CORPORA, "%s.pure.txt" % record[:-4])
         if not os.path.isfile(path):
             continue
@@ -450,7 +458,7 @@ def measured():
     """Every paper's trials and failures, taken from the checks themselves."""
     seen = blocks(reported(oracle), ORACLE_PHRASES)
     held = []
-    for name, stem, record, repair, marks in EVERY:
+    for name, stem, record, repair, marks, _line_joins in EVERY:
         counts = seen.get(stem)
         if counts is None:
             continue
@@ -590,7 +598,7 @@ def graded():
     """What reader_check saw, per paper that has a reader on disk."""
     seen = blocks(reported(reader), READER_PHRASES)
     held = []
-    for name, stem, record, repair, marks in EVERY:
+    for name, stem, record, repair, marks, _line_joins in EVERY:
         counts = seen.get(stem)
         if not counts or ("wanted" not in counts):
             continue

@@ -42,5 +42,7 @@ NOT_FAITHFUL = ("19-Lyon_ICSNL50_final-78", "2013_Lindley_Lyon")
 PAGE_TEXT = "%s.page.txt"
 
 # The oracle's filename, the paper's stem in build/papers, the record the reader wrote, the repair
-# that reader applies to its source, and what that paper writes its language with.
-EVERY = tuple((one.oracle, one.stem, one.record, one.repair, one.marks) for one in PAPERS)
+# that reader applies to its source, what that paper writes its language with, and whether its
+# extraction breaks words across lines. The last one is the gate coverage_check.py already applies:
+# line_breaks.py repairs one paper's defect and welds words in the papers that do not have it.
+EVERY = tuple((one.oracle, one.stem, one.record, one.repair, one.marks, ("line joins" in (one.coverage or ()))) for one in PAPERS)

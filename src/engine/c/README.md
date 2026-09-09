@@ -13,6 +13,72 @@ cmake --build build/engine_c
 
 No ESP-IDF, no device toolchain, no Python, and nothing from the vendored library. This shares no code with `src/engine/python/` and is not a binding for it. The two implement the same construction and are checked against each other by agreeing on counts.
 
+## The exact integer, and the arms that read it
+
+`portable/exact_limbs.{c,h}` holds an exact integer as a fixed width array of 32 bit limbs. It is the same value `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
+
+Fixed width is the only bound the representation has, and it is declared instead of discovered. 108 limbs is 3456 bits, holding the 1024 decimal digits the Python side ingests at. A value that will not fit raises `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
+
+An **arm** is one implementation of the operations the measure asks for. Every arm answers the same counts, and the portable C11 one is the reference. Where two disagree, one of them has a defect and nothing about the difference is a tradeoff.
+
+| directory | arm | instruction |
+|---|---|---|
+| `portable/` | `portable` | none, C11 alone |
+| `vectorized_win/` | `avx2-win` | `vpcmpeqd` on `ymm`, eight limbs at once |
+| `vectorized_win/` | `avx512-unrun` | `vpcmpeqd` on `zmm` against a mask, sixteen at once |
+| `vectorized_linux/` | `avx2-linux` | the same `ymm` loops, different detection |
+| `vectorized_rpi/` | `neon` | `cmeq` and `uminv`, four limbs at once |
+| `vectorized_rpi/` | `sve-unrun` | `whilelo`, `cmpne`, `ptest`, whatever length the part has |
+| `../gpu/` | `cuda` | one position per thread, not one limb per lane |
+
+The AVX2 loops live in one file that both x86 directories compile. Their arithmetic is identical and a second copy would be one edit away from disagreeing. What each platform directory holds is detection, and detection is the part that genuinely differs. Every arm asks the processor at run time before it is used, because the build machine and the running machine are not the same machine.
+
+### Three grades, and they are never interchanged
+
+**agrees** means the arm was run on real hardware and compared against portable item by item. **builds** means it compiled for a target and real machine code was confirmed generated. **emits** means the object file was disassembled and the instructions it was written to use were confirmed present.
+
+```
+bash maint/engine/verify_arm_asm.sh     what each arm emits
+bash maint/engine/verify_gpu_arch.sh    what the CUDA arm generates, per architecture
+./build/engine_c/bench_exact_arms 8192  what each arm answers, against portable
+```
+
+Reading emitted instructions rules out a header that silently fell back to scalar code, an intrinsic the compiler emulated instead of issuing, and a flag that was accepted and ignored. It says nothing about behavior. AVX-512 and SVE have no hardware in this project and carry `unrun` in their own names for that reason. A row of results then cannot show one beside a run arm without the difference being visible.
+
+That check earns its keep. The SVE row first reported no `whilelt` emitted. The cause was a wrong expectation and not wrong code: `svwhilelt_b32` on unsigned operands emits `whilelo`, since `WHILELT` is the signed form.
+
+### Every arm runs one algorithm
+
+The measure asks the set for membership: is there a point exactly one lag away carrying the same value. That is a hash lookup, and `anchor_exact_agreement_using` is the only implementation of it in the tree. An arm supplies its equality test and contributes nothing further.
+
+It was not so at first, and the numbers that produced are worth recording. Every arm carried its own ordered search, portable included. A full comparison then ran at each step of a binary search, and the vector arms looked very strong against it. AVX2 read **3.44x**. Moving portable alone to the hash dropped it to **1.75x**, which measured nothing, because the two arms were running different algorithms by then. Moving every arm to the hash gives **1.19x**. That is the figure, being the only one where the sole difference is the instruction.
+
+A vector arm timed against a reference doing work the problem never asked for is measuring its own speedup at a benchmark.
+
+### What was measured
+
+Run against portable, agreeing on every lag at every size:
+
+| arm | machine | 1,024 | 8,192 | 65,536 |
+|---|---|---|---|---|
+| `avx2-win` | MinGW gcc 13.2, this host | 1.38x | 1.20x | 1.19x |
+| `avx2-linux` | WSL gcc 14.2 | 1.24x | 1.26x | 1.41x |
+| `avx2-linux` | WSL clang 20.1 | 1.15x | 1.11x | 1.11x |
+| `neon` | Pi 5, Cortex-A76, gcc 14.2 | 1.16x | 1.12x | 1.10x |
+| `cuda` | RTX 3070, compute 8.6 | **0.34x** | 1.29x at 4,096 | 8.63x |
+
+Widening the comparison buys ten to forty percent. It cannot buy three times, because the comparison is no longer most of the work: the hash probe and the memory it touches are.
+
+**These are host clock timings and the host is not quiet.** `clock()` on this platform measures wall time, so anything else running on the machine moves the numbers. Another session was running processor work in bursts through the afternoon and said so, which is the only reason it is known. Every CUDA figure above is a median of five runs taken on an idle card; the spread across those five is 0.29 to 0.45 at a thousand positions and 7.82 to 9.13 at sixty five thousand, so a lone run is worth about ten percent either way. The gcc-14 row is a median of five for the same reason, taken after one run read 0.89x, an outright loss.
+
+Device side timing through CUDA events would be immune to this and the host arms would still not be. Both arms of a ratio run back to back in one process, so load moves them together and mostly cancels, which is why the medians landed within ten percent of the single runs they replaced.
+
+**Read the CUDA row from the left.** It **loses at a thousand positions**, breaks even near four thousand, and wins eight times at sixty five thousand. The crossover is the bus and not the kernel: this arm copies the whole run to the device before it computes anything, so the loss at small sizes is a property of the transfer and travels with the arm wherever it goes. Sizing a workload from the 8.04x alone would put it where the arm is three times slower than doing nothing special.
+
+A ratio holds only against the portable arm in **that same build**. The CUDA driver is compiled by MSVC and the CMake one by MinGW, and their portable arms are not the same object. A number in one row therefore does not compare to a number in another.
+
+The CUDA arm generates real SASS for ten architectures, Turing through every Blackwell target and Hopper's HBM3 part. Only compute 8.6 has hardware here and only it is run.
+
 ## What is here
 
 | file | what it is |

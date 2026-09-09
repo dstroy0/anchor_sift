@@ -1,11 +1,11 @@
 \chapter{What this is}
 
 \textbf{Purpose:} State the construction, and mark the boundary of what this work can claim about it.
-\textbf{Scope:} \texttt{examples/\allowbreak{}crystals/\allowbreak{}6\_\allowbreak{}oracle/\allowbreak{}proof\_\allowbreak{}positive\_\allowbreak{}control.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}representation/\allowbreak{}structure/\allowbreak{}crystal.\allowbreak{}py}
+\textbf{Scope:} \texttt{examples/\allowbreak{}crystallography/\allowbreak{}6\_\allowbreak{}oracle/\allowbreak{}proof\_\allowbreak{}positive\_\allowbreak{}control.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}representation/\allowbreak{}exact.\allowbreak{}py}
 
 \section{The construction}
 
-Tile a published unit cell, quantize it onto a voxel grid, and score how well the grid agrees with a copy of itself shifted by each lag along one axis. The lag where agreement peaks is the cell edge.
+Tile a published unit cell, carry every site as an exact integer, and score how well the arrangement agrees with itself shifted by each candidate offset along one axis. The offset where agreement peaks is the cell edge.
 
 That is an autocorrelation, and it is one because of what the code does. \texttt{lattice\_\allowbreak{}agreement} compares a grid against a shifted copy of itself and returns the share of positions holding the same value, swept over every lag. The claim can be checked against the file and rests on nothing else.
 

@@ -4,7 +4,7 @@
 #
 # Score this repository's own prose against English, on the bench that already measures English.
 #
-#   Usage:  python maint/prose/prose_distance.py [--worst N]
+#   Usage:  python maint/prose/prose_distance.py [<root> ...] [--worst N]
 #
 # WHAT THIS ANSWERS
 #
@@ -88,8 +88,8 @@ def tex_prose(lines):
 def prose_of(path):
     """The comment, docstring and markdown text of one file, with the code removed.
 
-    The same extraction docs_check runs, so the two tools read the same thing, apart from .tex which
-    docs_check does not yet read at all.
+    The same extraction docs_check runs, so the two tools read the same thing. That now includes
+    .tex, which docs_check read for the first time on 2026-09-09 and had never read before.
     """
     full = path if os.path.isabs(path) else os.path.join(ROOT, path)
     if not os.path.isfile(full):
@@ -103,20 +103,69 @@ def prose_of(path):
     return " ".join(one.strip() for one in kept if one.strip())
 
 
-def repository_files():
-    """Every prose file under the roots docs_check reads, and the theory books beside them."""
+# The roots read where the caller names none. `tools` sat in this tuple long after that directory
+# was split into data, analysis and maint, so the walk skipped a directory that no longer existed
+# and read fewer files than it reported, silently.
+DEFAULT_ROOTS = ("docs", "src", "examples", "maint", "theory")
+
+
+def repository_files(where=None, roots=None):
+    """Every prose file under `roots`, relative to `where`.
+
+    `where` defaults to this repository and `roots` to the ones above. Both are arguments because
+    this tool measures the distance of a body of writing from a human pole, and the body of writing
+    is not always this tree.
+
+    It used to take neither. A caller naming a path had it ignored, and the tool measured
+    anchor_sift and reported the number as though it were theirs. A session working in another
+    repository believed it had a reading for that repository until the word count at the foot said
+    186862, which was this tree. Silently measuring the wrong subject is the failure that looks most
+    like success.
+    """
+    where = where or ROOT
     found = []
-    for root in ("docs", "src", "examples", "tools", "theory"):
-        base = os.path.join(ROOT, root)
+    for root in (roots or DEFAULT_ROOTS):
+        base = root if os.path.isabs(root) else os.path.join(where, root)
         if not os.path.isdir(base):
             continue
         for folder, dirs, names in os.walk(base):
             dirs[:] = [one for one in dirs if one not in docs_check.SKIP_DIRS]
             for name in sorted(names):
-                if not name.endswith(docs_check.CHECKED + (".tex",)):
+                if not name.endswith(docs_check.CHECKED):
                     continue
-                found.append(os.path.relpath(os.path.join(folder, name), ROOT).replace("\\", "/"))
+                found.append(os.path.relpath(os.path.join(folder, name), where).replace("\\", "/"))
     return found
+
+
+def named_roots(argv):
+    """The roots a caller named, and the tree they sit under, or (None, None) for the defaults.
+
+    A named root that does not exist stops the run. Falling through to the defaults there is how a
+    caller ends up holding this tree's number and believing it is their own.
+    """
+    given = []
+    skip = False
+    for at, one in enumerate(argv[1:], start=1):
+        if skip:
+            skip = False
+            continue
+        if one.startswith("--"):
+            # --worst, --band, --explain and --decompose each take a value.
+            skip = one in ("--worst", "--band", "--explain", "--decompose")
+            continue
+        given.append(one)
+    if not given:
+        return None, None
+
+    for one in given:
+        if not os.path.isdir(one):
+            raise SystemExit("  %s is not a directory. Nothing was measured, so nothing passed."
+                             % one)
+    where = os.path.commonpath([os.path.abspath(one) for one in given]) if len(given) > 1 \
+        else os.path.abspath(given[0])
+    if os.path.isfile(where):
+        where = os.path.dirname(where)
+    return where, [os.path.abspath(one) for one in given]
 
 
 def median(values):
@@ -167,9 +216,13 @@ def main():
     out.write("    median %.4f\n" % median(scores))
     out.write("    worst  %.4f  %s\n" % (human[-1][0], human[-1][1]))
 
+    where, roots = named_roots(sys.argv)
+    if where is not None:
+        out.write("\n  measuring %s\n" % where.replace("\\", "/"))
+
     mine = []
-    for path in repository_files():
-        text = prose_of(path)
+    for path in repository_files(where, roots):
+        text = prose_of(os.path.join(where or ROOT, path))
         if (len(text) < LEAST) or not looks_like_writing(text):
             continue
         mine.append((surprise(text, counts, total), path))
