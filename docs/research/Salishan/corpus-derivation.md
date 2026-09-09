@@ -1,13 +1,13 @@
 # Corpus derivation
 
 **Purpose:** Say how wrong the pure corpus could be, from what the checks have actually seen, and say what the number rests on.
-**Scope:** `tools/dev_env/Salishan/corpus_derivation.py`, which writes this file, and the three checks it reads.
+**Scope:** `tools/Salishan/corpus_derivation.py`, which writes this file, and the three checks it reads.
 
-Rewritten by `python tools/dev_env/Salishan/corpus_derivation.py` after every change to a hand extraction. Nothing in it is typed by hand.
+Rewritten by `python tools/Salishan/corpus_derivation.py` after every change to a hand extraction. Nothing in it is typed by hand.
 
 ## 1. What is being estimated
 
-For one line of the pure corpus, the probability that it is not what it claims to be: not the target language, or not what the paper printed. Every number below is an upper bound on that, never a measurement of it, because every check that matters reports zero and zero failures in a sample is not a rate of zero.
+For one line of the pure corpus, the probability that it is not what it claims to be: not the target language, or not what the paper printed. Every number below is an upper bound on that, never a measurement of it, because the checks that matter report zero and zero failures in a sample is not a rate of zero.
 
 With no failures in N independent trials the true rate is under 3/N with 95 percent confidence. That is the rule of three and it is what turns a clean check into a number. Where a check did see a failure, the observed rate is reported instead, because it is larger than any bound would be.
 
@@ -19,11 +19,11 @@ A paper contributes trials only where its extracted text is what the page prints
 
 **Why the left panel is here.** The bound in Section 3 is a single number and a single number cannot show whether it came from one clean paper or from 16. The panel puts every paper on the picture so the shape of the evidence is visible: how much each one contributed, and which ones failed anything. A reader should come away able to say which papers the number rests on.
 
-**What to read off it.** Every paper is one point, trials against failures. The 16 on the zero line are the whole of the evidence. The 4 above it are checked against a text that is not what their page prints, so what is plotted for them is damage in the source and not a mistake in the table. The reader squares are a separate measurement in their own color, and they sit high: a reader is a script and it gets a great deal wrong. Section 5 gives those per paper, which is the only form they mean anything in.
+**What to read off it.** Every paper is one point, trials against failures. The 16 on the zero line are the evidence. The 4 above it are checked against a text that is not what their page prints, so what is plotted for them is damage in the source and not a mistake in the table. The reader squares are a separate measurement in their own color, and they sit high: a reader is a script and it gets a great deal wrong. Section 5 gives those per paper, the only form they mean anything in.
 
 **Why the right panel is here.** The extraction has a lifetime and the question is what carries it. A person reads a paper at a fixed accuracy however large the corpus gets, so that arm is flat. The algorithm's accuracy is a function of corpus size, so that arm climbs. Whether and where they cross decides whether the corpus is worth growing for its own sake, and the panel is what answers it.
 
-**What to read off it.** The algorithm arm is the fraction of dialects whose distance from the other corpora pooled into one reference corpus clears twice their resolution. It starts at zero, because a small corpus resolves nothing, and it crosses the reader arm at 1.73e+04 byte pairs, which is behind the corpus already on disk. Both arms are drawn: byte pairs alone, and byte pairs with the dialect's own alphabet applied first. Comparing an algorithm given nothing against a person given a page is not a fair comparison, and the alphabet is the first part of what the extraction already knows that it can be handed.
+**What to read off it.** The algorithm arm is the fraction of dialects whose distance from the other corpora pooled into one reference corpus clears twice their resolution. It starts at zero, because a small corpus resolves nothing, and it crosses the reader arm at 1.73e+04 byte pairs, which is behind the corpus already on disk. Both arms are drawn: byte pairs alone, and byte pairs with the dialect's own alphabet applied first. Comparing an algorithm given nothing beside a person given a page is not a fair comparison, and the alphabet is the first part of what the extraction already knows that it can be handed.
 
 | Paper | Rows | Forms checked | Not in paper | Tokens checked | No row holds | Counts |
 |---|---|---|---|---|---|---|
@@ -68,7 +68,7 @@ A line has to pass all three. Taking them as independent, the joint bound is the
 
 ### How much of that number has settled
 
-Three significant figures is a format, not a finding. The digit worth reporting is the one that has stopped moving, and the way to find it is to watch the bound as each paper joined the corpus.
+Three significant figures is a format, not a finding. The digit worth reporting has stopped moving, and the way to find it is to watch the bound as each paper joined the corpus.
 
 | Papers counted | Joint bound |
 |---|---|
@@ -112,10 +112,10 @@ What a number that small would actually need is more channels that fail independ
 The independence is the weak part and it is weak in three named places.
 
 * **One person read every table.** The three channels catch different kinds of mistake but they do not catch a systematic misreading of one orthography, because the same reading produced the row and the expectation. This is the largest unmodelled term and no amount of trials touches it.
-* **Direction one and direction two share a source.** Both ask questions of the same extracted text. A paper whose text is wrong in a way nobody has noticed fails both at once, which is why the papers with a known-damaged source are excluded from the count instead of given a worse bound.
+* **Direction one and direction two share a source.** Both ask questions of the same extracted text. A paper whose text is wrong in a way nobody has noticed fails both at once, and for that reason the papers with a known-damaged source are excluded from the count instead of given a worse bound.
 * **Every channel runs through one codebase.** `salish_marking.py` and `salish_unsorted.py` decide what counts as a language token, and all three channels ask them. A defect in either is common to all three at once, and two such defects have already been found this way. Both are in `refs.md`.
 
-What would move the number honestly is a second person reading a table that has already been read. That is the one addition that fails for a reason none of the three share, and until it exists the first bullet stands above every number in this file.
+What would move the number honestly is a second person reading a table that has already been read. That is the only addition that fails for a reason none of the three share, and until it exists the first bullet stands above every number in this file.
 
 ## 5. Readers against their tables
 
@@ -140,25 +140,25 @@ What would move the number honestly is a second person reading a table that has 
 | `2013_Nater` | 2560 | 1857 | 4039 | 2189 | 0 |
 | `Hall-et-al_-ICSNL_61-1` | 468 | 299 | 777 | 117 | 0 |
 
-The readers get a great deal wrong. The median reproduces 0.619 of what its table asks for, and the spread runs from one paper to the next with no common rate behind it, because each reader was written against one paper's layout. That is why these are a table and not a term in Section 3.
+The readers get a great deal wrong. The median reproduces 0.619 of what its table asks for, and the spread runs from one paper to the next with no common rate behind it, because each reader was written to one paper's layout. That is why these are a table in Section 3 instead of a term.
 
-A reader that does not reproduce a row is not by itself an impurity. The row is in the hand extraction either way, and the extraction is the oracle. What the last two columns count is what the reader added, which is the part that can reach the pure stream without a person having written it.
+A reader that does not reproduce a row is not by itself an impurity. The row is in the hand extraction either way, and the extraction is the oracle. What the last two columns count is what the reader added, the part that can reach the pure stream without a person having written it.
 
 ## 6. The word web
 
-`tools/dev_env/Salishan/word_web/word_web.py` joins every form in the hand extractions to the forms it is related to, and writes one file per group under `build/corpora`. It has three kinds of edge, each measured off the extraction and none of them listed by hand.
+`tools/Salishan/word_web/word_web.py` joins every form in the hand extractions to the forms it is related to, and writes one file per group under `build/corpora`. It has three kinds of edge, each measured off the extraction and none of them listed by hand.
 
-* **concept**, two forms whose glosses share a content word. This is the edge that crosses an orthography, because the gloss is the one part of a form that two papers wrote the same way.
-* **shape**, two forms of one group sharing a leading or trailing run of four characters. Salish morphology is heavily affixed and reduplicating. A shared run is usually a shared root or affix, and it is a measurement and not a parse.
+* **concept**, two forms whose glosses share a content word. This is the edge that crosses an orthography, because the gloss is the only part of a form that two papers wrote the same way.
+* **shape**, two forms of one group sharing a leading or trailing run of four characters. Salish morphology is heavily affixed and reduplicating. A shared run is usually a shared root or affix, and the shape edge measures that run without parsing it.
 * **context**, two forms written in the same section of the same paper by the same speaker.
 
-The web is what makes an anchor a concept expressed as a distribution instead of a bag of characters. The byte pair distribution cannot see that two orthographies wrote one word, and the concept edge is where that is recorded.
+The web makes an anchor a concept expressed as a distribution instead of a bag of characters. The byte pair distribution cannot see that two orthographies wrote one word, and the concept edge is where that is recorded.
 
 ## 7. The dialect border
 
 Lushootseed is not one dialect. The northern and southern varieties have known land and family borders, and Mellesmoen and Kye's stress paper labels every form it cites with which one it came from. The hand extraction copied that into the `who` column, so the border sits on disk as a fact published by a linguist.
 
-That makes it the one thing a test of this algorithm almost never has: an answer that did not come from the algorithm. `anchor_sift_algorithmic_extraction/boundary_check.py` loads the labels, sets them aside, and only compares at the end.
+That makes it something a test of this algorithm almost never has: an answer that did not come from the algorithm. `anchor_sift_algorithmic_extraction/boundary_check.py` loads the labels, sets them aside, and only compares at the end.
 
 Comparing whole distributions does not work at this size. The method resolves at 6707 bytes and the two varieties hold 1469 and 2768, so neither the byte pair distribution nor the word web separates them, and a blind partition scores no better than the majority class. The check prints what that route would need: about 2.9 times the labeled Lushootseed now on disk.
 
@@ -179,7 +179,7 @@ The concept is held fixed while this is asked, over the 58 concepts both varieti
 
 The last column of the first table is the test that is allowed to fail. The border is put back on the same forms at random 200 times and the radix run again on each, and at width 2 only 1 of those random borders found as much as the published one. Swapping the two sides also negates every deviate exactly, but that is what this estimator does on any two sets whatever and it is evidence of nothing.
 
-The term carrying the border is the stressed schwa, and it is southern: 45 of them against 6 in the north over the same concepts. The paper those labels came from is Mellesmoen and Kye's comparative analysis of stress in northern and southern Lushootseed. The algorithm was shown the forms and never the labels, and what it returned is what the paper is about.
+The term carrying the border is the stressed schwa, and it is southern: 45 of them to 6 in the north over the same concepts. The paper those labels came from is Mellesmoen and Kye's comparative analysis of stress in northern and southern Lushootseed. The algorithm was shown the forms and never the labels, and what it returned is what the paper is about.
 
 **Compiled By:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Generated by:** `tools/dev_env/Salishan/corpus_derivation.py`
+**Generated by:** `tools/Salishan/corpus_derivation.py`

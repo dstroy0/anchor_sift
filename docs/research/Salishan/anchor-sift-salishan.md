@@ -1,7 +1,7 @@
 # Anchor-sift on Salishan
 
 **Purpose:** Apply the anchor-sift method to the Salishan papers: find the language, and decide what may join a pure corpus.
-**Scope:** `tools/dev_env/Salishan/`
+**Scope:** `tools/Salishan/`
 
 The method is in `../anchor-sift-method.md`. This is what happens when it is fed these papers.
 
@@ -45,11 +45,11 @@ The thirteenth, `1975_Hilbert_Hess`, is read and has no reader yet, so `reader_c
 
 Seven anchors: six languages and English. 20 of the 21 pairs are readable, at distances 0.510 to 0.835 against split-half floors of 0.157 to 0.641. The pair that does not read is Lushootseed against Nsyilxcən, 0.620 apart with the Lushootseed anchor's own floor at 0.641.
 
-That floor is not the resolution of the estimator at 219 lines, and treating it as one was an error. `self_distance` cuts a corpus at its midpoint, and a corpus is its papers concatenated in file order, so the cut lands on a paper boundary and reports the distance between whichever papers it separated. Lushootseed is two papers in two dialects and two orthographies, and the midpoint puts one on each side. Shuffling the corpus before the cut puts a mixture on both sides and the floor falls to 0.305. Every corpus moves the same way, by 1.35 to 3.64 times, and the unshuffled number is the larger every time. A resolution cannot rise when its sample grows, and this one does, which is what gives it away.
+That floor is not the resolution of the estimator at 219 lines, and treating it as one was an error. `self_distance` cuts a corpus at its midpoint, and a corpus is its papers concatenated in file order, so the cut lands on a paper boundary and reports the distance between whichever papers it separated. Lushootseed is two papers in two dialects and two orthographies, and the midpoint puts one on each side. Shuffling the corpus before the cut puts a mixture on both sides and the floor falls to 0.305. Every corpus moves the same way, by 1.35 to 3.64 times, and the unshuffled number is the larger every time. A resolution cannot rise when its sample grows, and this one does, which gives it away.
 
 Read at the shuffled floors, all 15 pairs among the six languages separate, Lushootseed against Nsyilxcən included, and six of the 15 change verdict. The 21 above counts the same six languages plus English, which adds six more pairs.
 
-The papers are a separate question and the anchor floors do not decide it. `language_check.py` prints the worst anchor D_self and then judges each paper against that paper's own split-half instead, which is the right thing to judge it against. Of the 106 papers naming a language the anchors know, 3 are readable and the distributions agree with the prose on all 3. Of the 103 that are not, 8 hold too small a sample to ask and 95 fail for one reason: the gap between the nearest anchor and the runner-up has a median of 0.0247, against a median paper floor of 0.3527. The gap is fourteen times inside the noise.
+The papers are a separate question and the anchor floors do not decide it. `language_check.py` prints the worst anchor D_self and then judges each paper against that paper's own split-half instead, the right thing to judge it against. Of the 106 papers naming a language the anchors know, 3 are readable and the distributions agree with the prose on all 3. Of the 103 that are not, 8 hold too small a sample to ask and 95 fail for one reason: the gap between the nearest anchor and the runner-up has a median of 0.0247, against a median paper floor of 0.3527. The gap is fourteen times inside the noise.
 
 Sifted from the papers with no reader:
 
@@ -72,7 +72,7 @@ Admission on each corpus's own growth curve:
 
 nɬeʔkepmxcín took every candidate and stayed where it was. Comox and Nuxalk refused all of theirs: tipping the whole set into Comox takes it from 407 cells to 2586 and its split-half distance from 0.196 to 0.457, which is a second distribution arriving instead of more of the first.
 
-Lushootseed took all 1262 and its split-half distance fell from 0.641 to 0.416. The admission rule is a ceiling and nothing else, and a corpus sitting above the band it belongs in will admit whatever pulls it down. What was pulling it down here is now known: 0.641 is two dialects on opposite sides of the midpoint cut, and 1262 candidates dropped into the middle of them dilute that split without teaching the anchor anything. A falling floor was read as a corpus improving when it was a boundary being blurred.
+Lushootseed took all 1262 and its split-half distance fell from 0.641 to 0.416. The admission rule is only a ceiling, and a corpus sitting above the band it belongs in will admit whatever pulls it down. What was pulling it down here is now known: 0.641 is two dialects on opposite sides of the midpoint cut, and 1262 candidates dropped into the middle of them dilute that split without teaching the anchor anything. A falling floor was read as a corpus improving when it was a boundary being blurred.
 
 Seven languages hold candidates and have no hand-read corpus to grow: Halkomelem 739, Montana Salish 136, Twana 72, Secwepemctsín 33, Straits 23, Squamish 17, Upper Chehalis 14.
 
@@ -82,7 +82,7 @@ Support is still climbing on every one of these corpora. None has seen its own a
 
 The sift finds candidates. It does not read them. The corpus is still hand extracted and verified in three passes, for line and for notation, and this exists to say where to look.
 
-Growing the Lushootseed anchor does not unlock the 103 papers, and an earlier version of this document said it would. The 95 that are large enough to ask fail because a paper's residue sits almost the same distance from all six language anchors: the median gap between the nearest and the runner-up is 0.0247 and the median paper floor is 0.3527. Nothing about the anchors' own sizes moves those two numbers past each other.
+Growing the Lushootseed anchor does not resolve the 103 papers, and an earlier version of this document said it would. The 95 that are large enough to ask fail because a paper's residue sits almost the same distance from all six language anchors: the median gap between the nearest and the runner-up is 0.0247 and the median paper floor is 0.3527. Nothing about the anchors' own sizes moves those two numbers past each other.
 
 What the 95 need is a measure that separates the anchors as seen from a mixed residue, which the byte pair distribution does not. `corpus-derivation.md` section 7 has the first thing that does: holding a concept fixed with the word web's gloss edge, flattening the pooled counts to maximum entropy, and testing one run at a time. That recovers a published dialect border inside Lushootseed at a corpus size where the whole-distribution comparison needs 2.9 times more text. It has not yet been turned on the 95, and that is the next thing to try.
 

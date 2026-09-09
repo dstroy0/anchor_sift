@@ -13,21 +13,43 @@
 # Those render as a broken page and a reader sees them. Prose findings are printed and let through,
 # because the prose backlog predates the check and a hook nobody can satisfy gets turned off.
 #
-# To see everything and fail on all of it:  python tools/dev_env/docs_check.py docs --strict
+# To see everything and fail on all of it:  python tools/prose/docs_check.py --strict
 # To commit past it once:                   git commit --no-verify
+#
+# WHY THIS RESOLVES ITS OWN PATHS
+#
+# Every path here is built from the hook's own location. The first version tested for a docs
+# directory in the working directory and exited 0 when it did not find one, and it named the checker
+# by a path that later moved. Both faults pass silently: a hook that cannot find the tool and a hook
+# that cannot find the files both let the commit through while looking like they ran.
 
-if [ ! -d docs ]; then
-    exit 0
-fi
+set -u
 
-python tools/dev_env/docs_check.py docs
-status=$?
+REPO=$(cd "$(dirname "$0")/.." && pwd)
+CHECK="$REPO/tools/prose/docs_check.py"
 
-if [ "$status" -ne 0 ]; then
-    echo ""
-    echo "  commit stopped: $status breaking finding(s) in docs/"
-    echo "  fix them, or commit with --no-verify if you know why"
+if [ ! -f "$CHECK" ]; then
+    echo "  commit stopped: no docs check at $CHECK"
+    echo "  the hook has the wrong path, or the checkout is incomplete."
     exit 1
 fi
 
-exit 0
+# No argument, so the checker uses its own four roots: docs, src, examples and tools. Naming only
+# docs here once left twelve READMEs beside the code unchecked, and one of them was carrying a
+# paragraph inside a table.
+python "$CHECK"
+status=$?
+
+if [ "$status" -eq 0 ]; then
+    exit 0
+fi
+
+echo ""
+if [ "$status" -eq 2 ]; then
+    # The checker returns this when it read no files at all. That is never a pass.
+    echo "  commit stopped: the docs check read nothing, so nothing was checked."
+else
+    echo "  commit stopped: breaking finding(s) above."
+fi
+echo "  fix them, or commit with --no-verify if you know why"
+exit 1

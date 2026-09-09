@@ -1,0 +1,62 @@
+{
+  "note": "Published SHA-256 vectors, vendored. Refresh with tools/dev_env/vendor_test_vectors.py.",
+  "consumed_by": "test/harness.py vectors",
+  "files": [
+    {
+      "file": "nist_cavp_sha256shortmsg.rsp",
+      "source": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Algorithm-Validation-Program/documents/shs/shabytetestvectors.zip",
+      "archive_sha256": "929ef80b7b3418aca026643f6f248815913b60e01741a44bba9e118067f4c9b8",
+      "member": "shabytetestvectors/SHA256ShortMsg.rsp",
+      "sha256": "75e1cb83994638481808e225b9eb0c1ebd0c232d952ac42b61abce6363be283c",
+      "what": "NIST CAVP byte oriented SHA-256 vectors"
+    },
+    {
+      "file": "nist_cavp_sha256longmsg.rsp",
+      "source": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Algorithm-Validation-Program/documents/shs/shabytetestvectors.zip",
+      "archive_sha256": "929ef80b7b3418aca026643f6f248815913b60e01741a44bba9e118067f4c9b8",
+      "member": "shabytetestvectors/SHA256LongMsg.rsp",
+      "sha256": "6fac36f37360bcf74ffcf4465c18e30d6d5a04cc90885b901fc3130c16060974",
+      "what": "NIST CAVP byte oriented SHA-256 vectors"
+    },
+    {
+      "file": "nist_cavp_sha256monte.rsp",
+      "source": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Algorithm-Validation-Program/documents/shs/shabytetestvectors.zip",
+      "archive_sha256": "929ef80b7b3418aca026643f6f248815913b60e01741a44bba9e118067f4c9b8",
+      "member": "shabytetestvectors/SHA256Monte.rsp",
+      "sha256": "29ea30c6bb4b84e425fb8c1d731c6bb852dac935825f2bd1143e5d3c4f10bfb9",
+      "what": "NIST CAVP byte oriented SHA-256 vectors"
+    },
+    {
+      "file": "nist_cavp_bit_sha256shortmsg.rsp",
+      "source": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Algorithm-Validation-Program/documents/shs/shabittestvectors.zip",
+      "archive_sha256": "cd7b9f11680c6e0ccdbe13b28403f2017b5ff48789152162461e0a24fb4c5d45",
+      "member": "shabittestvectors/SHA256ShortMsg.rsp",
+      "sha256": "3993d9bb135b37f9226420032630f0e34d9b20556160baa9d85546cc421f183e",
+      "what": "NIST CAVP bit oriented SHA-256 vectors, Len counts bits"
+    },
+    {
+      "file": "nist_cavp_bit_sha256longmsg.rsp",
+      "source": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Algorithm-Validation-Program/documents/shs/shabittestvectors.zip",
+      "archive_sha256": "cd7b9f11680c6e0ccdbe13b28403f2017b5ff48789152162461e0a24fb4c5d45",
+      "member": "shabittestvectors/SHA256LongMsg.rsp",
+      "sha256": "a6228c355f9c35faf37658d1290fa9044b252204056b4db56eb1d5a623be9897",
+      "what": "NIST CAVP bit oriented SHA-256 vectors, Len counts bits"
+    },
+    {
+      "file": "nist_cavp_hmac_sha256.rsp",
+      "source": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Algorithm-Validation-Program/documents/mac/hmactestvectors.zip",
+      "archive_sha256": "418c3837d38f249d6668146bd0090db24dd3c02d2e6797e3de33860a387ae4bd",
+      "member": "HMAC.rsp [L=32]",
+      "sha256": "fb1c3c118f0f6f90590e0796bb9ed9338bc0de9afb7770b01eb09e71d40376e9",
+      "what": "NIST CAVP HMAC-SHA-256, truncated tag lengths included"
+    },
+    {
+      "file": "wycheproof_hmac_sha256.json",
+      "source": "https://github.com/C2SP/wycheproof",
+      "commit": "b61843a9a5115bb758134b6a1f5d5e502d445342",
+      "member": "testvectors_v1\\hmac_sha256_test.json",
+      "sha256": "3286208d54542e4992902da358bb24f338125e3338555aea929025d9cbbe7b0d",
+      "what": "Wycheproof HMAC-SHA-256, adversarial subset curated by ProtoCore"
+    }
+  ]
+}

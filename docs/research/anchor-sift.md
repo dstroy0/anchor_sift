@@ -1,4 +1,4 @@
-# Anchors as necessary conditions
+# Necessary Conditions for Pattern Occurrence
 
 **Purpose:** Separate what an anchor proves from what it costs, letting a reader tell which claims here
 need no data and which ones are only as good as the measurements under them.
@@ -41,10 +41,10 @@ builds no histogram and never enumerates the alphabet.
 The correction that separates the two forms is the exclusion of a coincident index, and applying it
 recursively gives the unbiased estimators at higher Renyi orders. Its magnitude at order two has the
 closed form $(1-C)/((N-1)C\ln 2)$ bits for a plug in collision probability $C$, confirmed across nine
-sources spanning four orders of magnitude. The numerator vanishes exactly at a point mass, so on a
+sources spanning four orders of magnitude. The numerator vanishes exactly at a point mass. On a
 source carrying no entropy the correction is identically zero at every order and every length.
 
-Put against the classical algorithms on one corpus and one counter, anchoring at the rarest symbol
+Compared with the classical algorithms on one corpus and one counter, anchoring at the rarest symbol
 loses to a Horspool shift on every corpus and needle length by 1.2 to 25 times, because an anchor at
 offset $a$ can advance by at most $a+1$, and advance is what governs search cost. Candidate rate does
 not. Treating the two as factors of one product recovers the loss and wins 11% on C source. Replacing
@@ -73,37 +73,54 @@ transfers. Section 6 states the limits as numbers. Sections 7 and 8 cover the pr
 and what remains open.
 
 The digest implementation in `test/support` appears here as an instrument. It generates the uniform
-control corpus and serves as the test oracle, so the strength of that control is the strength of its
+control corpus and serves as the test oracle. The strength of that control is the strength of its
 vectors. Appendix A covers it.
 
-## 2. Theory
+## 2. Mathematical Framework
 
-### 2.1 Definitions
+### 2.1 Ambient Algebra and Pattern Support
 
-Let $\Sigma$ be a set of symbols. No structure on $\Sigma$ is assumed: no order, no metric, no finite
+Let $\Sigma$ be the carrier of symbols. No structure on $\Sigma$ is assumed: no order, no metric, no finite
 cardinality, and no way to enumerate its members. The only operation available is a decidable
 equality between two positions.
 
-Let $(G,+)$ be an additive group of displacements and let a domain be a map $x$ from a subset of $G$
-to $\Sigma$. A pattern is a finite set $D \subset G$ of displacements together with the symbols a
-chosen base position carries at them. For a base $t$ and a candidate base $s$, define
+Let $(G,+)$ be an additive group of displacements and let a domain be a map $x$ from an admissible
+subset of $G$ to $\Sigma$. A pattern is a finite displacement configuration with support
+$D \subset G$, together with the symbols a chosen base position carries at those displacements. For a
+base $t$ and a candidate base $s$, define
 
 $$\mathrm{Occ}(s) \iff \forall d \in D:\; x(s+d) = x(t+d)$$
 
-An anchor set is any subset $A \subseteq D$, and
+An anchor choice is any subconfiguration $A \subseteq D$, and
 
 $$\mathrm{Anc}_A(s) \iff \forall a \in A:\; x(s+a) = x(t+a)$$
+
+The null used here is the $\Sigma$-delta null, and its operational form is the permutation null already
+used throughout this work. Semantically, $\Sigma$ projects its internal structure onto an induced
+topology $\tau_\Sigma$; the instrument then examines that structured carrier against its own constrained
+reference. Let $\Pi_\Sigma$ be the family of permutations that preserve the observed carrier counts and
+stated partition. The reference is sampled as $x^\circ_\Sigma = \pi(x)$ for $\pi \in \Pi_\Sigma$, and
+for a statistic $M$ the measured residual is
+
+$$\Delta_\Sigma[M] = M(x) - \mathbb{E}_{\pi \sim \Pi_\Sigma}\!\left[M\bigl(\pi(x)\bigr)\right]$$
+
+This is not a new operator or code path: it is the permutation-null measure already implemented. The
+residual is the object of study. It does not claim
+that a hidden generator has been reconstructed, and it does not invoke Laplace's demon. A predictive or
+reconstructive engine that attempts to infer the complete state from its laws would be a separate
+measurement. Here $\Sigma$ supplies both the topology and the reference, and the instrument examines
+the engine's residue in the object itself.
 
 Nothing in either definition requires $G$ to be the integers, $D$ to be contiguous, or $\Sigma$ to be
 known.
 
-### 2.2 Proposition 1: soundness
+### 2.2 Soundness of Subconfiguration Filtering
 
 For every $A \subseteq D$, every domain, and every base,
 
 $$\mathrm{Occ}(s) \;\Longrightarrow\; \mathrm{Anc}_A(s)$$
 
-The proof is that $A$ is a subset of $D$, and a conjunction over $D$ contains the conjunction over $A$.
+The proof is that $A$ is a subconfiguration of $D$, and a conjunction over $D$ contains the conjunction over $A$.
 The search runs the contrapositive:
 
 $$\neg\,\mathrm{Anc}_A(s) \;\Longrightarrow\; \neg\,\mathrm{Occ}(s)$$
@@ -111,9 +128,9 @@ $$\neg\,\mathrm{Anc}_A(s) \;\Longrightarrow\; \neg\,\mathrm{Occ}(s)$$
 A position an anchor rejects is settled exactly and permanently, with no verification, and no later
 stage revisits it.
 
-### 2.3 Proposition 2: no completeness
+### 2.3 Failure of Completeness
 
-For every proper subset $A \subsetneq D$, the converse
+For every proper subconfiguration $A \subsetneq D$, the converse
 
 $$\mathrm{Anc}_A(s) \;\Longrightarrow\; \mathrm{Occ}(s)$$
 
@@ -125,9 +142,9 @@ verification.
 A matching anchor establishes nothing. The exact compare cannot be removed by any amount of
 knowledge about the domain, and adding anchors reduces the survivors without ever reaching certainty.
 
-### 2.4 Three corollaries
+### 2.4 Structural Corollaries
 
-**The selection rule is free.** Proposition 1 quantifies over every subset and never mentions what
+**The selection rule is free.** Proposition 1 quantifies over every subconfiguration and never mentions what
 chose one. No cost table, no random table, and no absence of a table can produce a false negative.
 What a measure moves is how often the rejection fires, which is cost.
 
@@ -136,11 +153,11 @@ cannot be enumerated no frequency table exists, and the flat measure is what rem
 is therefore the base case for this construction, and a weighted table is the special case a known
 domain affords.
 
-**The index set need not be ordered.** The definitions use $+$ and never $<$. A grid, a volume, and a
-rotated point configuration differ only in which elements of $G$ appear in $D$. A rotation is a
-permutation of $D$, so it changes no term in either predicate.
+**The displacement support need not be ordered.** The definitions use $+$ and never $<$. A grid, a volume,
+and a rotated point configuration differ only in which members of $G$ appear in $D$. A rotation is a
+permutation of $D$, which changes no term in either predicate.
 
-### 2.5 The cost model
+### 2.5 Probabilistic Cost Model
 
 Model occurrences of an anchor symbol as a Bernoulli process at rate $q$. Over $N$ candidate
 positions,
@@ -152,7 +169,7 @@ never touches. Reducing $N$ candidates to $O(1)$ survivors requires $\log_2 N$ b
 and one anchor supplies $-\log_2 q$ bits.
 
 The second expression is Kac's lemma. For a stationary ergodic source the expected return time to a
-set of measure $q$ is exactly $1/q$, so the skip is a recurrence time and not an artifact of the
+set of measure $q$ is exactly $1/q$. The skip is a recurrence time and not an artifact of the
 filter. That names an assumption the construction does not supply. Proposition 1 guarantees that no
 occurrence is lost, and Section 2.5 prices the search, and neither says a pattern occurs at all. That
 last guarantee belongs to the source: a stationary ergodic process visits any event of positive
@@ -169,7 +186,7 @@ $$
 with $H_2$ the Renyi entropy of order two. This predicts the uninformed candidate count from the
 domain alone, before any pattern is chosen, and Section 4.4 tests it.
 
-### 2.6 The construction as a diagram
+### 2.6 Filtering Pipeline
 
 ```mermaid
 flowchart LR
@@ -188,9 +205,9 @@ flowchart LR
 **Figure 1.** The anchor filter, as `bench_ancorae_lattice.c:193-239` implements it. The green box is
 the only place the method is certain. Everything to the right of the candidate is cost.
 
-## 3. Methods
+## 3. Experimental Design
 
-### 3.1 What each bench measures
+### 3.1 Benchmarks and Estimands
 
 | bench                     | question                                             | reports                                 |
 | ------------------------- | ---------------------------------------------------- | --------------------------------------- |
@@ -202,17 +219,17 @@ the only place the method is certain. Everything to the right of the candidate i
 All four report counts. Nothing is timed, no row is a performance claim, and every number is a
 property of the data and the geometry, identical on every part.
 
-### 3.2 Separating the two claims in the reporting
+### 3.2 Correctness and Cost Estimands
 
 Every row carries a correctness column and a cost column, graded differently. The correctness column
 counts true occurrences that an anchor rejected, and Proposition 1 says it has one acceptable value.
 A nonzero entry there would be a defect in the bench, never a property of a domain. The cost column is
 expected to move with the measure, the anchor count and the geometry.
 
-A verdict of `none` is printed where a case had nothing to check, so an empty sweep cannot be read as
-a passing one (`test/bench/bench_ancorae_sift.c:715-757`).
+A verdict of `none` is printed where a case had nothing to check, which keeps an empty sweep from
+being read as a passing one (`test/bench/bench_ancorae_sift.c:715-757`).
 
-### 3.3 Byte corpora
+### 3.3 Byte-String Corpora
 
 Four corpora, 2048 bytes each except where stated, chosen to span the range of factor complexity:
 
@@ -229,7 +246,7 @@ self similar at that scale and every needle then occurs once per repetition by c
 ruined an earlier measurement recorded in Section 6.5. The fill truncates instead of repeating
 (`test/bench/bench_ancorae_sift.c:190-193`).
 
-### 3.4 Anchor selection measures
+### 3.4 Anchor-Selection Policies
 
 Three, differing as much as the interface allows (`test/bench/bench_ancorae_sift.c:342-347`,
 `361-420`):
@@ -240,12 +257,12 @@ Three, differing as much as the interface allows (`test/bench/bench_ancorae_sift
 | `random` | a permutation of 0 through 255 drawn from SHA-256, unrelated to frequency |
 | `maxent` | one cost for every byte, so the table carries no information              |
 
-`random` is a permutation, so every cost stays distinct and the picker behaves exactly as under the
+`random` is a permutation. Every cost stays distinct and the picker behaves exactly as under the
 real table. The only thing removed is the table being right. `maxent` makes the picker take the
-leftmost offsets, so anchors land adjacent, which is the hardest arrangement for two rates to
+leftmost offsets, landing anchors adjacent, the hardest arrangement for two rates to
 multiply.
 
-### 3.5 Geometries
+### 3.5 Geometric Configurations
 
 Six cases share one core that receives a list of valid base positions, a list of displacements, and a
 callback answering whether two positions carry the same symbol
@@ -266,13 +283,13 @@ geometry is entirely inside the base list, and no symbol type, because it only a
 their storage (`test/bench/bench_ancorae_lattice.c:479-511`). No value is read, ordered, or
 interpreted anywhere in the file.
 
-Anchor subsets are chosen by three uninformed rules: the leading points, an even stride across them,
+Anchor subconfigurations are chosen by three uninformed rules: the leading points, an even stride across them,
 and a permutation drawn from SHA-256 (`test/bench/bench_ancorae_lattice.c:291`). No cost table exists
 in that file and none can, since a domain with an unenumerable alphabet has no frequencies to weigh.
 
-### 3.6 Estimator comparison
+### 3.6 Collision-Entropy Estimation
 
-Sources are written down as distributions before any data exists, so the true collision probability is
+Sources are written down as distributions before any data exists. The true collision probability is
 known in advance and no estimator is scored against a histogram of the corpus it was computed from
 (`test/bench/bench_ancorae_entropy.c:160`). Eight sources: uniform over 2, 16 and 256 symbols; Zipf at
 exponents 0.5, 1.0 and 1.5; and two point sources at 0.90 and 0.99. Corpora are drawn by inverse
@@ -288,8 +305,7 @@ Four estimators of the same quantity are scored by bias and root mean square err
 | probe, self excluded | the same, less the probe's own match            | neither     |
 
 The unbiased estimator and the first order bias correction of the plug in estimator are the same
-expression, so they are one estimator and not two
-(`test/bench/bench_ancorae_entropy.c:256-344`).
+expression (`test/bench/bench_ancorae_entropy.c:256-344`).
 
 A fifth quantity, the most common value estimate of min entropy from NIST SP 800-90B section 6.3.1, is
 computed for context and is not scored on the same scale, because min entropy is a different property
@@ -297,17 +313,17 @@ computed for context and is not scored on the same scale, because min entropy is
 
 ## 4. Results
 
-### 4.0 One number, and the three places it stops
+### 4.0 Overview of Identified Quantities
 
 The sections below read as a list of separate findings and are not one. They are a single quantity, the
 collision probability $2^{-H_2}$, determining every cost in the construction, together with the three
 conditions under which it stops determining anything. This section says which is which so the rest can
 be read as one argument.
 
-**Nothing about correctness is in this at all.** Sections 4.1 and 4.2 report zero refusals over
+**Nothing about correctness is in this.** Sections 4.1 and 4.2 report zero refusals over
 9,396,207 and 213,840 true occurrences, across three selection measures, thirteen geometries,
 dimensions one through eight, a rotated point set, and a complex alphabet. Proposition 1 mentions no
-distribution, so no distributional parameter can reach it. Everything else on this page is cost.
+distribution. No distributional parameter can reach it. Everything else on this page is cost.
 
 **The cost is one number.** Each of these is a function of $2^{-H_2}$ and the two sizes $m$ and $N$:
 
@@ -322,7 +338,7 @@ distribution, so no distributional parameter can reach it. Everything else on th
 | free order probe stride            | $m H_2 / \log_2(m H_2 \ln 2)$   | 4.9.5 |
 | candidates in $d$ dimensions       | $1 + (P-1)2^{-nH_2}$            | 4.2   |
 
-The last row is the one that makes the others worth stating together. It holds unchanged from a line to
+The last row makes the others worth stating together. It holds unchanged from a line to
 an eight dimensional hypercube, over an alphabet of complex numbers with irrational parts, which is
 where the parameter shows it does not depend on the geometry or on what a symbol is.
 
@@ -338,13 +354,13 @@ Section 4.8 prices a mismatched reference at 25 to 30 times, which no collision 
 
 _Independence is assumed throughout and fails._ Section 4.6 measures the product rule wrong by four
 orders of magnitude, Section 4.7 finds correlation surviving to separation seven, Section 4.6.1 has
-2.98 anchors predicted against 6 measured at $m = 16$, and Section 4.9.3 has the distance field losing
+2.98 anchors predicted versus 6 measured at $m = 16$, and Section 4.9.3 has the distance field losing
 on periodic data alone. The parameter predicts none of these, because each is a statement about the
 joint distribution and it is a statement about a marginal.
 
-### 4.1 The invariant over byte strings
+### 4.1 Soundness on Byte Strings
 
-Sweeping three policies, one to six anchors, five corpora, and needle lengths 1, 2, 3, 4, 16, 64, 256,
+A sweep over three policies, one to six anchors, five corpora, and needle lengths 1, 2, 3, 4, 16, 64, 256,
 1024 and 2048:
 
 **582 rows hold. 9,396,207 true occurrences examined. 0 refused.**
@@ -354,16 +370,16 @@ than the anchor count. That cause was checked and no row reports `none` for any 
 
 The degenerate lengths are in the sweep deliberately. A needle of one byte is the shortest thing that
 can carry an anchor, a needle as long as the corpus leaves one position, and the flat corpus makes
-every position an occurrence, so it offers the largest number of true results available to lose.
+every position an occurrence.
 
-### 4.2 The invariant off the line
+### 4.2 Soundness Across Geometries
 
-Sweeping three uninformed selection rules and one to six anchors over the six geometries above and a
+A sweep of three uninformed selection rules and one to six anchors over the six geometries above and a
 further eight hypercubes of dimension one through eight:
 
 **252 rows hold. 213,840 true occurrences examined. 0 refused.**
 
-Candidates admitted, rule `shuffled`, against the $N \cdot 2^{-n}$ the two symbol alphabet predicts:
+Candidates admitted, rule `shuffled`, beside the $N \cdot 2^{-n}$ the two symbol alphabet predicts:
 
 | domain            | $n{=}1$ | $n{=}2$ | $n{=}3$ | $n{=}4$ | $n{=}5$ | $n{=}6$ |
 | ----------------- | ------- | ------- | ------- | ------- | ------- | ------- |
@@ -375,7 +391,7 @@ Candidates admitted, rule `shuffled`, against the $N \cdot 2^{-n}$ the two symbo
 | `field1d_complex` | 2046.4  | 1023.4  | 511.9   | 256.2   | 128.9   | 64.7    |
 
 The grid and cube rows sit below the prediction because those geometries admit fewer base positions,
-3600 and 3375 against 4089 on the line. Within each row the halving per anchor is what the model
+3600 and 3375 compared with 4089 on the line. Within each row the halving per anchor is what the model
 gives.
 
 **A rotation is invisible.** `grid2d_scatter` and `grid2d_turned` are the same eight points a quarter
@@ -386,9 +402,9 @@ measurement.
 every count, with the geometry held fixed and only the symbol type changed.
 
 **The cost law holds at every dimension swept.** The hypercube cases place one pattern point at the
-origin and each of the rest one step out along the next axis, so the pattern touches a new axis for
+origin and each of the rest one step out along the next axis. The pattern touches a new axis for
 every point it has and is never a lower dimensional figure sitting in a larger space
-(`test/bench/bench_ancorae_lattice.c:686`). Against $1 + (P-1)2^{-n}$ for $P$ positions and $n$
+(`test/bench/bench_ancorae_lattice.c:686`). Relative to $1 + (P-1)2^{-n}$ for $P$ positions and $n$
 anchors, which includes the one match the pattern is guaranteed against itself:
 
 | dimension        | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     |
@@ -399,14 +415,14 @@ anchors, which includes the one match the pattern is guaranteed against itself:
 | ratio at $n{=}6$ | 0.969 | 1.020 | 1.017 | 1.001 | 0.980 | 0.996 | 1.013 | 0.979 |
 
 Across all 48 rows the ratio stays between 0.969 and 1.028. Seven points off the origin can touch at
-most seven axes, so the dimension eight pattern spans seven of its eight, which is a limit of the
+most seven axes, which leaves the dimension eight pattern spanning seven of its eight, a limit of the
 pattern size and not of the construction.
 
 An earlier version of this table omitted the guaranteed self match from the prediction and drifted to
 a ratio of 1.22 at the smallest domain. That is the same error recorded twice already in Section 6.5,
 made a third time.
 
-### 4.3 What the measure is worth
+### 4.3 Selection-Policy Efficiency
 
 Candidates admitted by one anchor at needle 16, english cost table, fingerprint `69c2e2df`:
 
@@ -418,7 +434,7 @@ Candidates admitted by one anchor at needle 16, english cost table, fingerprint 
 | `periodic16` | 4.61  | 44.4    | 96.8     | 82.3     | 1.85              |
 | `uniform`    | 7.83  | 7.53    | 7.84     | 7.61     | 1.01              |
 
-On `flat` no anchor can ever fail, so all eighteen combinations of policy and anchor count report 2032
+On `flat` no anchor can ever fail. All eighteen combinations of policy and anchor count report 2032
 candidates out of 2033 positions. On `uniform` the three policies agree to within 4%. Between them the
 informed table is worth 6.4 times.
 
@@ -427,7 +443,7 @@ The column ordering rules out entropy as the governing quantity. `periodic16` ca
 non-degenerate corpora and the second largest ratio. Section 4.3.1 derives the quantity that does
 govern it.
 
-#### 4.3.1 What a measure can be worth, and its ceiling
+#### 4.3.1 Efficiency Bound for Size-Biased Order Statistics
 
 An informed anchor is the rarest symbol among the $m$ that a pattern carries, and a pattern drawn from
 the corpus presents each symbol with probability equal to its own frequency. So the informed rate is
@@ -443,14 +459,14 @@ $$
 $$
 
 The numerator is the uninformed rate from Section 2.5, so the quotient is what a table matched to the
-corpus would buy over no table at all. It is an upper bound on every measure, since no rule can pick a
-symbol rarer than the rarest one present.
+corpus would buy over no table at all. The quotient is an upper bound on every measure, since no rule
+can pick a symbol rarer than the rarest one present.
 
 **The ceiling is exactly 1 if and only if $p$ is uniform on its support.** If every nonzero $p_\sigma$
 equals $1/k$ then $F$ is a single step, the integral collapses to $1/k$, and $\sum_\sigma p_\sigma^2$
 is also $1/k$. If two nonzero probabilities differ then the rarest of $m$ draws is strictly below the
 size biased mean for $m \ge 2$ and the quotient exceeds one. A point mass and a uniform distribution
-are both uniform on their support, which is why both ends of Section 4.3 report a ratio of one, and
+are both uniform on their support. Both ends of Section 4.3 report a ratio of one for that reason, and
 entropy plays no part in either case.
 
 Computed at needle 16 from each corpus's own frequencies (`test/bench/bench_ancorae_sift.c:933`):
@@ -466,20 +482,20 @@ Computed at needle 16 from each corpus's own frequencies (`test/bench/bench_anco
 The ceiling orders the corpora where entropy does not, and it is exact at the point mass.
 
 Two readings of the gap between ceiling and measured are separable. On `english` the linked table is
-the English table, and 85% is the highest fraction captured anywhere in the study, which is the matched
+the English table, and 85% is the highest fraction captured anywhere in the study, the matched
 table effect appearing as a number. On `structured` the same table reaches 35% of a much larger
 ceiling, which is a mismatch cost.
 
 The `uniform` row needs its own reading. Its ceiling of 2.02 is not a property of the source, which is
-uniform and therefore has a ceiling of exactly 1 by the statement above. It is a property of the
-sample: 2033 draws over 256 symbols do not land uniformly, and the resulting fluctuation leaves
+uniform and therefore has a ceiling of exactly 1 by the statement above. That ceiling is a property
+of the sample: 2033 draws over 256 symbols do not land uniformly, and the resulting fluctuation leaves
 something for an oracle to exploit. No fixed table can capture it, because the fluctuation is not a
 feature of the source and a table cannot know which symbols this particular corpus happened to
 under-represent. The measured 1.01 is that impossibility, quantified.
 
-### 4.4 The collision entropy prediction
+### 4.4 Collision-Entropy Prediction
 
-Predicted `maxent` candidate count against measured, with one subtracted from each prediction because
+Predicted `maxent` candidate count compared with measured, with one subtracted from each prediction because
 the cost rows exclude the needle's own occurrence:
 
 | corpus       | $H_2$ | predicted | measured | error |
@@ -490,11 +506,11 @@ the cost rows exclude the needle's own occurrence:
 | `periodic16` | 4.611 | 82.2      | 82.3     | 0.1%  |
 | `uniform`    | 7.832 | 7.92      | 7.61     | 4.0%  |
 
-The residual is sampling bias in the needle draw. Needles are taken at a fixed stride, so on English
+The residual is sampling bias in the needle draw. Needles are taken at a fixed stride. On English
 the anchor byte is a biased letter draw, and the two rows with the largest error are the two whose
 stride interacts with their structure.
 
-#### 4.4.1 A refutation is not local
+#### 4.4.1 Refutation Radius
 
 Sections 2.2 and 4.1 treat a refutation as settling one position, and it settles many.
 
@@ -533,10 +549,10 @@ the alignments touching it on English prose and 99.6% on a uniform corpus.
 
 This is the bad character shift of classical string search, reached from Proposition 1 instead of from
 a shift table, and priced by the collision probability. Nothing in the derivation uses an order on
-positions, so it carries to the geometries of Section 4.2, though it was measured only on byte
+positions. The result carries to the geometries of Section 4.2, though it was measured only on byte
 strings.
 
-### 4.5 The candidate count as an estimator
+### 4.5 Candidate Count as an Entropy Estimator
 
 Bias and root mean square error in bits, 64 trials, probe budget 64:
 
@@ -564,12 +580,12 @@ probe budget and not by the corpus length. Root mean square error at $N = 16384$
 | ratio          | 21.7  | 9.1   | 4.4   | 2.2   | 1.4   |
 
 The probe's error falls as one over the square root of the budget and converges toward the unbiased
-estimator without reaching it. The probe is also more expensive, at $O(kN)$ against $O(N)$ for a
+estimator without reaching it. The probe is also more expensive, at $O(kN)$ versus $O(N)$ for a
 histogram. Its one advantage is the constraint it survives: it builds no histogram and never
-enumerates the alphabet, so it applies where the other two cannot be computed at all. In a search it
-is free, because the candidate count is a byproduct of work already being done.
+enumerates the alphabet, which lets it apply where the other two cannot be computed at all. In a
+search it is free, because the candidate count is a byproduct of work already being done.
 
-#### 4.5.1 The correction applied recursively
+#### 4.5.1 Falling-Factorial Bias Correction
 
 The correction excludes a position from being paired with itself. Applied $k$ deep it excludes every
 tuple in which any two indices coincide, which is a falling factorial in the numerator and the
@@ -585,13 +601,13 @@ $$
 \Delta H_2 \;\approx\; \frac{1-C}{(N-1)\,C\,\ln 2}\ \text{bits}
 $$
 
-That numerator answers the question the ladder was built for. A point mass has $C = 1$ exactly, so
-$1 - C$ is exactly zero and the correction is exactly zero, for every length. The same holds at every
+That numerator answers the question the ladder was built for. A point mass has $C = 1$ exactly, which
+puts $1 - C$ at exactly zero and the correction at exactly zero, for every length. The same holds at every
 order: with one symbol $n_\sigma = N$, the plug in form gives $\sum \hat p^m = 1$ and the corrected
-form gives $N^{(m)}/N^{(m)} = 1$, so both are one and their difference is not merely small. Measured at
-orders 2 through 5 and lengths 256, 1024, 4096 and 16384, every entry is 0.0000 bits.
+form gives $N^{(m)}/N^{(m)} = 1$. Measured at orders 2 through 5 and lengths 256, 1024, 4096 and
+16384, every entry is 0.0000 bits.
 
-Correction magnitude in bits at order 2, $N = 4096$, 64 trials, against the closed form:
+Correction magnitude in bits at order 2, $N = 4096$, 64 trials, compared with the closed form:
 
 | source       | $H_2$ | predicted | measured |
 | ------------ | ----- | --------- | -------- |
@@ -622,11 +638,11 @@ source it shrinks, because higher moments concentrate on the head symbol where t
 This correction and the ceiling in Section 4.3.1 answer to different properties of a distribution and
 neither one predicts the other. The ceiling is one when the probabilities are equal on the support, at
 any entropy and any corpus length. The correction is zero only at a point mass, and its size is set by
-how many times each symbol was seen, so it falls with corpus length while the ceiling does not. A
-uniform source and a point mass share a ceiling of one and have corrections of 0.0871 and 0.0000 bits
+how many times each symbol was seen. The correction falls with corpus length while the ceiling does not.
+A uniform source and a point mass share a ceiling of one and have corrections of 0.0871 and 0.0000 bits
 at $N = 4096$. The two were measured on different source sets and no joint sweep was run.
 
-### 4.6 Stacking anchors, and the product rule
+### 4.6 Dependence in Anchor Cascades
 
 Ratio of observed candidates to the independence prediction, needle 16
 (`test/bench/bench_ancorae_sift.c:541-632`):
@@ -644,10 +660,10 @@ A dash marks a cell where the survivors reached zero, so the ratio has no conten
 The product rule overpromises and the error compounds with every anchor added. On `structured` under
 the informed table it is wrong by three orders of magnitude at four anchors and by four at six. The
 direction is the dangerous one: more candidates survive than the arithmetic predicts. On `uniform` the
-ratio holds at 1.23 and the survivors reach zero by three anchors, which is the regime where the
+ratio holds at 1.23 and the survivors reach zero by three anchors, the regime where the
 arithmetic is exact.
 
-#### 4.6.1 Where a stack runs out of space, derived
+#### 4.6.1 Cascade Depth Under Independence
 
 Section 2.5 budgets a search in bits: reducing $N$ candidates to $O(1)$ survivors needs $\log_2 N$ bits
 and one anchor supplies $-\log_2 q$ of them. For an uninformed anchor that is $H_2$ bits, and a stack of
@@ -655,7 +671,7 @@ $n$ exhausts the space at
 
 $$n \;=\; \frac{\log_2 N}{H_2}$$
 
-Against the first anchor count whose measured excess candidate count reaches zero:
+Beside the first anchor count whose measured excess candidate count reaches zero:
 
 | corpus       | $H_2$ | $N$  | predicted | measured, $m = 64$ and 256 | measured, $m = 16$ |
 | ------------ | ----- | ---- | --------- | -------------------------- | ------------------ |
@@ -672,15 +688,15 @@ the anchors sit close enough to be correlated, each supplies less than $H_2$ bit
 
 **The gap between predicted and measured exhaustion is the independence failure of Section 4.6, read a
 second way.** `structured` has the largest cascade ratio and the largest gap. `flat` carries no bits at
-all, so no stack of any size removes anything, and the row that never exhausts is the same corpus every
+all. No stack of any size removes anything, and the row that never exhausts is the same corpus every
 other instrument reports zero on.
 
 A stack terminates at three or four here, and it terminates because the space is spent and not
 because the arithmetic fails.
 
-### 4.7 Separation, periodicity, and a layout prediction
+### 4.7 Dependence by Separation and Periodicity
 
-Independence $I(d)$ against anchor separation, needle 64, policy `table`:
+Independence $I(d)$ by anchor separation, needle 64, policy `table`:
 
 | stride       | 1    | 2    | 3    | 5    | 7    | 8    | 13   | 17   |
 | ------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -689,7 +705,7 @@ Independence $I(d)$ against anchor separation, needle 64, policy `table`:
 
 Correlation is a function of distance and not of needle length, dying by stride 7 in both corpora. The
 `uniform` control is reported as $z$ and not as $I$: its joint excess runs from 0.00 to 0.09 against a
-prediction of 0.03, so the ratio swings between 0.00 and 3.03 on counts too small to carry one. Every
+prediction of 0.03. The ratio swings between 0.00 and 3.03 on counts too small to carry one. Every
 $|z|$ in that row is at most 1.7, consistent with independence at every stride measured.
 
 On `periodic16`, reported as $z$:
@@ -706,7 +722,7 @@ $z = 12.3$, reproducing at every needle length. A coprime stride of 17 is clean.
 
 $I(d)$ is an exponentiated pointwise mutual information, so $\mathrm{PMI}(d) = \log_2 I(d)$ and
 the second anchor's contribution is $-\log_2 p_\beta - \mathrm{PMI}(d)$. At $I = 5.82$ the loss
-is 2.54 bits, so an anchor nominally worth 8 delivers 5.5.
+is 2.54 bits. An anchor nominally worth 8 delivers 5.5.
 
 For fixed width records of period $T$ with field offsets $F$, a layout bound predicts
 
@@ -729,7 +745,7 @@ here, English included at $I(1) = 6.05$.
 | 17  | no           | 1.08   | 0.4  | independent | agrees                |
 
 Five of nine agree, and the four failures are the result. The $d = 5$ row sits at $z = 2.1$ against a
-threshold of 2.0, so that one is a borderline call.
+threshold of 2.0.
 
 Necessity fails at $d \in \{4,11\}$ because a predicted distance only bites when the picker selects
 both of its endpoints, and selection is driven by the cost table. Sufficiency fails at $d = 8$ because
@@ -738,11 +754,11 @@ as written omits. Adding harmonics would capture that and would widen $\hat{D}$,
 necessity side. So $\hat{D}$ bounds the risky set in neither direction, and the rule that survives is
 the weak one: a stride is safe when it has been measured to be.
 
-One confound is stated here so no reader has to find it. The anchor is picked by the English cost
-table applied to non-English data, so these rows measure the profile mismatch as well as the
+One confound is stated here instead of left for a reader to find. The anchor is picked by the English cost
+table applied to non-English data. These rows measure the profile mismatch as well as the
 periodicity.
 
-### 4.8 The reference measure
+### 4.8 Reference-Measure Mismatch
 
 $I(d)$ and the skip are both divergences from a reference, and the cost table is that reference. A
 build links exactly one of five. Skip distance at needle 64, stride 0:
@@ -759,11 +775,12 @@ The claim it carries is that the four profiles agree there, and that claim does 
 uniform source was used.
 
 The wrong reference costs 25 to 30 times. `uri` and `route` take the skip on real text from about 160
-to about 6, which is the largest effect measured anywhere in this document.
+to about 6, the largest effect measured anywhere in this document.
 
 The prediction that a corpus matched table wins is refuted. `generic` beats `english` on English prose
 and beats it decisively on C source. So the case for instantiating the table is not that it should
-match the data, which is unsupported. It is that the wrong table costs 25 times and a build holds one.
+match the data, which is unsupported. The case is that the wrong table costs 25 times and a build
+holds one.
 
 On the uniform corpus every reference performs the same, at 277.1, 256.0, 277.7 and 277.1. At maximum
 entropy the choice of $Q$ stops mattering, because there is no gradient for a reference to be a
@@ -771,18 +788,18 @@ reference to, and $D(P\|P) = 0$. The policy sweep in Section 4.3 reaches the sam
 other side, removing the reference entirely instead of replacing it, and the uniform corpus again
 refuses to separate.
 
-### 4.9 The construction against the classical algorithms
+### 4.9 Ordered Search Versus Anchor Filtering
 
 Sections 4.3 through 4.6 measure candidate rates, which is not the same objective as the work a whole
 search performs. `bench_ancorae_ab.c` puts every arm on one corpus, one needle set, and one counter,
 which is corpus symbol accesses, and checks every arm's occurrence set against a brute force scan. A
 row whose arms disagree prints BROKEN and is not read.
 
-#### 4.9.1 A rare anchor loses to a shift
+#### 4.9.1 Rare-Anchor Search Cost
 
 An anchor at offset $a$ can advance the search by at most $a+1$, since past that the pattern has left
 the cell behind and the read constrains nothing. Horspool anchors at $m-1$, the largest offset a
-pattern has, so it takes the largest advance available and the worst candidate rate. Anchoring at the
+pattern has, taking the largest advance available and the worst candidate rate. Anchoring at the
 rarest byte takes the best candidate rate and gives up advance.
 
 Corpus reads per search, mean over 64 needles, english cost table:
@@ -798,7 +815,7 @@ The rare anchor loses on every corpus and every needle length tested, by 1.2 to 
 and on the worst case over the 64 needles. Salting the offset does not recover it. Adding the rare byte
 as a filter on top of Horspool buys between 0.0% and 2.6%.
 
-The loss is largest on `uniform`, where no rare byte exists, so the cost table selects an offset
+The loss is largest on `uniform`, where no rare byte exists. The cost table selects an offset
 unrelated to the data and the advance ceiling collapses with it. Search cost is governed by advance
 distance and candidate rate is not the binding constraint.
 
@@ -806,7 +823,7 @@ This comparison is only available on a line. Horspool needs a total order to hav
 translation along it to shift, and neither exists for the index sets of Section 4.2. What it measures
 is the cost of generality where the extra structure is present to be exploited.
 
-#### 4.9.2 The objective is a product
+#### 4.9.2 Joint Objective: Rejection and Advance
 
 Rejection rate and advance distance are two factors of one quantity. A read at offset $a$ returning
 symbol $c$ advances by $\mathrm{adv}_a(c)$, so an anchor is worth
@@ -826,8 +843,8 @@ frequencies:
 
 On `uniform` it selects $m-1$ at every needle length and ties Horspool to four decimal places. On C
 source it gives up two units of ceiling to reach a rarer byte and wins 11%. This arm reads the whole
-corpus's frequencies before searching and that cost is not counted, so it is a ceiling on anchor choice
-and not a usable rule.
+corpus's frequencies before searching and that cost is not counted, which makes it a ceiling on anchor
+choice and not a usable rule.
 
 Which of those two happens is decided in advance by one number. Modeling the needle as carrying the
 observed symbol at rate $q = 2^{-H_2}$ per position, the distance to the nearest earlier occurrence has
@@ -839,7 +856,7 @@ This climbs and saturates at $1/q = 2^{H_2}$, passing 95% of that ceiling near $
 Below that radius the advance is still growing and the largest offset wins, and a rarer symbol cannot
 pay for the ceiling it costs. Above it the advance is flat and the rarity term decides alone.
 
-The chosen offset over $m-1$, against the radius, with the bar at the predicted crossing:
+The chosen offset over $m-1$, beside the radius, with the bar at the predicted crossing:
 
 | corpus       | $3\cdot 2^{H_2}$ | 8     | 16    | 32    | 64    | 128   | 256   |
 | ------------ | ---------------- | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -848,13 +865,13 @@ The chosen offset over $m-1$, against the radius, with the bar at the predicted 
 | `english`    | 38.8             | 0.993 | 0.975 | 0.935 | 0.911 | 0.869 | 0.774 |
 | `structured` | 36.9             | 0.993 | 0.968 | 0.959 | 0.963 | 0.913 | 0.893 |
 
-`uniform` has a radius larger than any needle tested, so no needle reaches the flat zone and the
+`uniform` has a radius larger than any needle tested. No needle reaches the flat zone and the
 optimum stays at $m-1$ throughout, which it does to three decimals at five lengths of six.
 `periodic16` crosses between 64 and 128, and its chosen offset falls from 0.974 to 0.888 across exactly
-that gap. The two corpora with radii near 37 have already begun drifting while nominally below it, so
-$3 \cdot 2^{H_2}$ is the right scale and not a sharp edge.
+that gap. The two corpora with radii near 37 have already begun drifting while nominally below it,
+which makes $3 \cdot 2^{H_2}$ the right scale and not a sharp edge.
 
-#### 4.9.3 Measuring the distance instead of the mass
+#### 4.9.3 Online Advance Estimation
 
 A frequency table needs the alphabet to be finite and enumerable, which Section 2.1 does not assume.
 What stays finite when the alphabet does not is the advance, because an advance is a count of
@@ -862,7 +879,7 @@ positions. So the field below holds one running advance per offset, $m$ numbers,
 of the problem never appears.
 
 Two properties come from the construction and not from tuning. Each offset starts at $a+1$, the
-advance it can be proved to reach, so the field opens at the last offset, which is Horspool, and can
+advance it can be proved to reach. The field opens at the last offset, which is Horspool, and can
 only be revised downward as answers arrive. And one answer updates every offset, because the advance
 another offset would have taken from the same cell is fixed by where the needle carries the observed
 symbol, which one backward pass over the needle computes without any table over symbols.
@@ -878,16 +895,16 @@ symbol, which one backward pass over the needle computes without any table over 
 
 The field beats Horspool on 15 of 28 rows, by 13.2% at best, and beats the product rule on every
 `structured` row despite the product rule being given the corpus histogram it was never shown. The
-product rule derives advance through a global frequency model, and the field measures advance directly
-and forgets at a rate of 0.1, so it follows local structure a global histogram averages away.
+product rule derives advance through a global frequency model. The field measures advance directly
+and forgets at a rate of 0.1, following local structure a global histogram averages away.
 
 Crediting only the offset that asked, instead of all of them, leaves the field at parity with Horspool
 (0.95 to 1.05). The gain is in the counterfactual credit and not in the adaptation.
 
-That credit carries an assumption, and the one corpus where the field loses is the one that violates
+That credit carries an assumption, and the one corpus where the field loses violates
 it. A read at offset $a$ returns the symbol in cell $s+a$, and the credit given to offset $a'$ is the
-advance that symbol would have bought there. The cell offset $a'$ would actually have read is $s+a'$,
-so the credit is sound only where the symbol distribution does not depend on position. Fixed width
+advance that symbol would have bought there. The cell offset $a'$ would actually have read is $s+a'$.
+The credit is sound only where the symbol distribution does not depend on position. Fixed width
 records make it depend on the column, and the two cells are different columns.
 
 The field over Horspool, by needle length:
@@ -905,9 +922,9 @@ structure show nothing. So the mechanism that buys 13.2% and the mechanism that 
 same one, and what separates the two cases is whether position carries information the credit ignores.
 
 Reading the second cell instead of inferring it would remove the assumption at the price of a read,
-which is the sample efficiency the counterfactual exists to buy. That trade is not measured here.
+the sample efficiency the counterfactual exists to buy. That trade is not measured here.
 
-#### 4.9.4 What insisting on order costs, derived from the rows above
+#### 4.9.4 Ordered Harvest of Refutations
 
 Section 4.4.1 counts the alignments one read makes it possible to refute, and Section 4.9.1 counts the
 reads a greedy in-order shift performs. Those two are enough to price the ordering constraint without
@@ -915,13 +932,13 @@ measuring anything further.
 
 A read returning symbol $c$ refutes every alignment whose needle position holds something else, which
 is $m(1-2^{-H_2})$ of them in expectation. A shift that must proceed in order can only take the
-contiguous run up to the nearest alignment that survives, so it stops at the nearest occurrence of $c$
-in the needle. That symbol occurs about $m\,2^{-H_2}$ times, placing the nearest one about
+contiguous run up to the nearest alignment that survives. The shift stops at the nearest occurrence of
+$c$ in the needle. That symbol occurs about $m\,2^{-H_2}$ times, placing the nearest one about
 $m/(1+m\,2^{-H_2})$ away, so the fraction of the available refutation a greedy shift collects is
 
 $$\text{harvest} \;\approx\; \frac{1}{\bigl(1 + m\,2^{-H_2}\bigr)\bigl(1 - 2^{-H_2}\bigr)}$$
 
-Against the reads already reported, with no parameter fitted. The measured column is a lower bound,
+Set beside the reads already reported, with no parameter fitted. The measured column is a lower bound,
 since a read count includes verification and therefore understates the mean advance:
 
 | corpus       | $m$ | $H_2$ | predicted | measured at least |
@@ -938,21 +955,20 @@ in entropy order, and it collapses as $m$ grows because a longer needle carries 
 was read.
 
 **The consequence for a search that gives up the order.** For large $m$ the harvest tends to
-$2^{H_2}/m$, so the ceiling on what dropping the constraint can buy is $m\,2^{-H_2}$, which is the
+$2^{H_2}/m$, so the ceiling on what dropping the constraint can buy is $m\,2^{-H_2}$, the
 expected number of times the observed symbol occurs in the needle. That is roughly 20 on English prose
 at $m = 256$ and 1.07 on the uniform corpus at $m = 16$. The regime where order costs something is low
 entropy and long needles, and there is nothing to collect at high entropy and short ones.
 
-Every refutation a read makes available is exact and permanent by Proposition 1, so none of this
-information is destroyed by being ignored. A greedy in-order shift declines to collect between 3% and
-99% of it, and the table says which.
+Every refutation a read makes available is exact and permanent by Proposition 1. A greedy in-order
+shift declines to collect between 3% and 99% of it, and the table says which.
 
-#### 4.9.5 Giving up the order, priced
+#### 4.9.5 Unordered Probe Allocation
 
 Section 4.9.4 says how much refutation an in-order walk declines to collect. This one spends it.
 
-If order is free then a read is not attached to an anchor at all. One read of one cell refutes every
-alignment whose needle position holds a different symbol, so there is nothing to choose except which
+If order is free then a read is not attached to an anchor. One read of one cell refutes every
+alignment whose needle position holds a different symbol. Nothing is left to choose except which
 cells to read, and those can be fixed in advance. Reading at stride $k$ covers each alignment $m/k$
 times, so with $x = m/k$ the survivors are $N 2^{-H_2 x}$, the probe reads are $Nx/m$, and the total is
 minimized at
@@ -981,7 +997,7 @@ The dependency depth is 2 on every row, as the construction requires.
 $m = 256$ are 1, 7, 8, 11 and 2 across the five corpora, against a prediction of 1.25 to 3.84. The
 reads went somewhere the model never counted.
 
-Every needle here is drawn from the corpus it is searched in, so every search must confirm one genuine
+Every needle here is drawn from the corpus it is searched in. Every search must confirm one genuine
 occurrence, and confirming a match of length $m$ costs $m$ reads. That term is absent from the
 derivation above. Adding it accounts for the measurements to within 3%:
 
@@ -995,33 +1011,33 @@ derivation above. Adding it accounts for the measurements to within 3%:
 **A long search is verification bound and not filter bound.** The floor is $m$ reads for any
 algorithm that must confirm the match, and at $m = 256$ Horspool runs at 1.10 to 1.57 times that floor
 while free order runs at 1.04 to 1.16. Both are already near a bound that no filtering strategy can
-move, which is why an order of magnitude was never available. The saving that does exist is the gap
+move. An order of magnitude was never available for that reason. The saving that does exist is the gap
 between those two ratios, and 1.47 at $m = 128$ on English is the largest of it measured.
 
 At short needles free order loses, badly on the uniform corpus at 0.27, because probing at a stride
 below the needle length costs more reads than a shift does and there is no verification floor to hide
 behind.
 
-**The accumulation is bitwise, and that is what makes the count reachable.** A refutation set is a set
+**The accumulation is bitwise, and that makes the count reachable.** A refutation set is a set
 of alignments, sets union commutatively by Proposition 1, and a set of alignments is a bit vector. So
 accumulating a read costs $\lceil m/W \rceil$ word operations for a machine word of $W$ bits, the
 surviving set is the complement, and no other structure is needed. At $m = 256$ with 64 bit words the
 whole probe phase is 25 reads and 100 word operations, at a dependency depth of two, against 385
 strictly sequential reads.
 
-The mask table is indexed by pattern position, so it is $m$ bits wide whatever the alphabet is and
+The mask table is indexed by pattern position. It is $m$ bits wide whatever the alphabet is and
 whatever the dimension is. That is why Section 2.1 can decline to bound either one at no cost: neither
 appears in the state.
 
-#### 4.9.6 Declining to confirm, and what it costs
+#### 4.9.6 Verification Necessity
 
-Section 4.9.5 finds a long search verification bound, so the obvious question is whether the
+Section 4.9.5 finds a long search verification bound. The obvious question is whether the
 verification can be dropped. Proposition 1 says every occurrence survives every anchor set, and a
 survivor set the same size as the occurrence set contains exactly the occurrences and confirming
 distinguishes nothing. The arm below probes at the stride that leaves one survivor in expectation,
 declares the survivors, and never confirms.
 
-It is cheap and it is wrong.
+The arm is cheap and it is wrong.
 
 | corpus       | $m$ | in-order reads | unconfirmed reads | saving | searches wrong, of 64 |
 | ------------ | --- | -------------- | ----------------- | ------ | --------------------- |
@@ -1042,13 +1058,13 @@ until now, and this is the first place it is visible in data. Proposition 2 is v
 column: survivors are a strict superset and probing does not close the gap short of reading everything.
 
 **The error is one directional, which makes it a signal.** Since a miss is impossible, any discrepancy
-is an over-count, so an over-count is detectable without knowing the answer and means exactly one
+is an over-count. An over-count is detectable without knowing the answer and means exactly one
 thing: the stride is too coarse. The transition is sharp. On English at $m = 4$ the stride moves from 1
 to 2 and the searches in error move from 0 to 61 of 64.
 
 **Calibrating the stride on one known pattern does not make it safe for others.** A signal that is one
-directional and monotone in the stride can be bisected, so one needle whose occurrence count is known
-can find the largest stride reproducing that count, in $\log_2 m$ passes. Applying that stride to the
+directional and monotone in the stride can be bisected, which lets one needle whose occurrence count
+is known find the largest stride reproducing that count, in $\log_2 m$ passes. Applying that stride to the
 other 63 needles:
 
 | corpus       | $m$ | calibrated | derived | wrong of 63 | over in-order reads |
@@ -1080,18 +1096,17 @@ a term with nothing probabilistic in it.
 A model can be wrong in the place it was not being watched. The caveat attached to this section named
 the weakest assumption and the error was in an assumption not stated at all.
 
-#### 4.9.7 Choosing each probe from the answers already received
+#### 4.9.7 Adaptive Probe Selection
 
 Section 7.1 separates two arrangements. A fixed probe set can be made safe by deriving it from the
-pattern in advance, which is what deterministic sampling does. A fixed probe set without that
-derivation is what Sections 4.9.5 and 4.9.6 measure failing. The third arrangement holds no probe set
-at all.
+pattern in advance, and deterministic sampling does it. A fixed probe set without that
+derivation is what Sections 4.9.5 and 4.9.6 measure failing. The third arrangement holds no probe set.
 
-The rule needs no pattern analysis and no distribution. The symbol about to be read is unknown, so
-every candidate position kills the same expected fraction of the alignments it touches, and what
+The rule needs no pattern analysis and no distribution. The symbol about to be read is unknown.
+Every candidate position kills the same expected fraction of the alignments it touches, and what
 differs between positions is how many living alignments touch them at all. So the next read goes where
-the survivors overlap most, which is a function of the answers so far and of nothing else. It stops
-when a read separates nothing and confirms what remains
+the survivors overlap most, which is a function of the answers so far and of nothing else. The rule
+stops when a read separates nothing and confirms what remains
 (`test/bench/bench_ancorae_ab.c:1122`).
 
 | corpus       | reads at $m = 256$ | probes among them | reads over the floor | in-order over the floor |
@@ -1104,20 +1119,20 @@ when a read separates nothing and confirms what remains
 
 The floor is the $m$ reads Section 4.9.5 identifies as irreducible. This runs within 2% to 20% of it
 where an in-order search runs within 10% to 57%, and it is exact on all 35 rows with a mirror residual
-of zero. It reads fewer cells than an in-order search on 22 of the 35, by up to 1.57 times at $m = 64$
-and 128.
+of zero. The rule reads fewer cells than an in-order search on 22 of the 35, by up to 1.57 times at
+$m = 64$ and 128.
 
 **The selecting phase is small without being made small.** Nine probes settle `structured` at
-$m = 256$, against $\log_2 256 = 8$, which is the size deterministic sampling reaches by analyzing the
+$m = 256$, beside $\log_2 256 = 8$, the size deterministic sampling reaches by analyzing the
 pattern first. English and uniform take 23 to 27. Nothing here derives a sample, carries state between
 searches, or looks at the pattern before the first read.
 
 **Two limits.** The logarithmic size in the published method is a worst case guarantee and this is a
-mean over 64 needles on five corpora with no guarantee of any kind. And it loses on `periodic16` at
-needle lengths 8 through 32, between 0.64 and 0.86, which is the positional structure that Sections
+mean over 64 needles on five corpora with no guarantee. And it loses on `periodic16` at
+needle lengths 8 through 32, between 0.64 and 0.86, the positional structure that Sections
 4.7 and 4.9.3 fail on for the same reason.
 
-#### 4.9.8 Five mechanisms that did not pay
+#### 4.9.8 Negative Control Mechanisms
 
 Recorded because each was built, measured on the case it was designed for, and kept. Two of them are
 control laws over the field of Section 4.9.3, where the process variable is an advance, which is a
@@ -1133,9 +1148,9 @@ converges to within 1% of every other. The mechanism has no measured benefit and
 **Pulling the anchor to the field's center of mass.** Selecting the offset at
 $\sum_i v_i i / \sum_i v_i$ instead of the offset with the largest $v_i$ loses on every row, by 2% to
 42% against the largest and by up to 48% against Horspool. The field is roughly increasing in offset
-because each entry starts at $a+1$, so its balance point sits near two thirds of the way along and
+because each entry starts at $a+1$. Its balance point sits near two thirds of the way along and
 carries a mediocre ceiling. The centroid is a canonical location and the mean of a utility is not the
-argument that maximizes it, so the construction that gives Section 2.1 its reference point is the wrong
+argument that maximizes it. The construction that gives Section 2.1 its reference point is the wrong
 one for choosing among values.
 
 **Adding accumulated and trend terms to the update.** The field's update is a first order lag, which
@@ -1155,7 +1170,7 @@ the offset that asked, changes how much information one observation yields. Over
 measured here, extracting more per observation is worth 13.2% and responding to it more cleverly is
 worth nothing.
 
-### 4.10 The symbol width is a choice, and every entropy above depends on it
+### 4.10 Symbol Width and Entropy Rate
 
 Section 2.1 declines to assume the alphabet is enumerable. It does not follow that a symbol is a byte,
 and nothing in this document justifies eight bits. A corpus is a bit pattern, and where one symbol ends
@@ -1163,8 +1178,8 @@ and the next begins is a slice imposed on it. Every $H_2$ reported before this s
 of the corpus and that slice together.
 
 Proposition 1 does not mention the width, so soundness holds at every width at once. What the width
-moves is cost. A read of $w$ bits costs $w$ bits of reading and yields $H_2(w)$ bits of discrimination,
-so what a search spends is $w \log_2 N / H_2(w)$ and the quantity to compare across widths is
+moves is cost. A read of $w$ bits costs $w$ bits of reading and yields $H_2(w)$ bits of discrimination.
+What a search spends is $w \log_2 N / H_2(w)$ and the quantity to compare across widths is
 $H_2(w)/w$.
 
 Measured over windows taken at every bit offset, since a read can begin anywhere
@@ -1179,22 +1194,22 @@ Measured over windows taken at every bit offset, since a read can begin anywhere
 | `flat`       | 0.678   | 0.708   | 0.670   | 0.375   | 0.250    | 0.188    |
 
 The ratio falls with width on every corpus. Reading English a byte at a time yields 0.856 bits per bit
-read against 0.984 at a single bit, so the byte slice gives up 15% of the discrimination available in
+read against 0.984 at a single bit. The byte slice gives up 15% of the discrimination available in
 the same number of bits, and a sixteen bit symbol gives up 40%.
 
 **The flat corpus is not flat.** It is `0x41` repeated, `01000001` has period eight, and a window of
 six bits or more takes exactly eight distinct values whatever the corpus length. Its collision entropy
-is therefore $\log_2 8 = 3$ bits exactly, which is what the sweep reports at widths 6, 8, 12 and 16,
+is therefore $\log_2 8 = 3$ bits exactly. The sweep reports it at widths 6, 8, 12 and 16,
 and 0.678 bits at width one. The object every other section of this document reports zero on carries
 three bits under a slice one bit narrower.
 
 **What this does not settle.** $H_2(w)/w$ is the right comparison only where reading costs by the bit.
-Where a read costs the same whatever its width, which is the case for a machine word, the quantity to
+Where a read costs the same whatever its width, as with a machine word, the quantity to
 maximize is $H_2(w)$ itself, and that grows monotonically with $w$ on every row above. The three cost
 models disagree about which width is best, this document counts reads under the third of them, and none
 of the earlier sections states which one it is assuming.
 
-### 4.11 Searching without a pattern
+### 4.11 Period Detection Without a Pattern
 
 Every measurement before this one is given a needle. The construction does not require one. A shift $d$
 is the hypothesis that the corpus agrees with itself $d$ apart, a pair of read cells whose positions
@@ -1203,12 +1218,12 @@ string, it is every shift at once, and the reads are shared across all of them: 
 $k(k-1)/2$ tests. Here 512 reads test 130,816 pairs
 (`test/bench/bench_ancorae_ab.c:1315`).
 
-**The threshold cannot be trusted and is not.** Tests of one shift share read positions, so they are
+**The threshold cannot be trusted and is not.** Tests of one shift share read positions. They are
 not independent and a standard error computed as though they were is too small. The first run of this
 reported twelve shifts on the uniform corpus, which is SHA-256 output and has nothing to find.
 
-A shuffle of the same bytes settles it. It preserves the byte histogram exactly, so the collision
-probability is unchanged, and it destroys every relation between positions, which is the only thing a
+A shuffle of the same bytes settles it. The shuffle preserves the byte histogram exactly, leaving the
+collision probability unchanged, and destroys every relation between positions, the only thing a
 shift can be. Whatever the detector reports there is what it reports on nothing.
 
 | corpus       | shifts reported | on the shuffle | difference | strongest shift |
@@ -1219,30 +1234,30 @@ shift can be. Whatever the detector reports there is what it reports on nothing.
 | `structured` | 1               | 1              | 0          | 984             |
 | `english`    | 0               | 0              | 0          | 1719            |
 
-One corpus has structure of this kind and it is the one built with a period. Its strongest shift is
-560, and $560 = 35 \times 16$, so the detector recovered a multiple of the record length without being
+One corpus has structure of this kind, and it is the corpus built with a period. Its strongest shift is
+560, and $560 = 35 \times 16$. The detector recovered a multiple of the record length without being
 given the record length or a pattern to look for. The `mixed` corpus peaks at 416, also a multiple of
 16, which is its periodic quarter showing through below the threshold.
 
 **What it does not find is as informative.** English prose and C source report nothing above their
 shuffles, and English peaks lower than its own shuffle does. Both plainly have structure. What they do
-not have is agreement with themselves at a fixed offset, which is the only hypothesis this formulation
-tests. Repetition at irregular positions, which is what a word or an identifier is, needs a different
+not have is agreement with themselves at a fixed offset, the only hypothesis this formulation
+tests. A word or an identifier repeats at irregular positions, and that needs a different
 query. The detector finds periodicity and is silent on everything else.
 
-### 4.12 Looking for what a language cannot do without
+### 4.12 Boundary Detection
 
 Section 4.11 asks whether a corpus repeats at a fixed offset, and prose does not. A different question
-reaches it. Whatever else a language is, it composes units, so something in it marks where one unit
+reaches it. Whatever else a language is, it composes units. Something in it marks where one unit
 ends, by a separator or by a rule. If nothing does then nothing is a unit. That has a signature the
 same reads can measure.
 
-If a symbol's positions carry no structure, the gaps between its occurrences are geometric, so the
+If a symbol's positions carry no structure, the gaps between its occurrences are geometric. The
 ratio of the variance of the gaps to their squared mean sits near one. A separator has bounded unit
-length, so its gaps are far tighter and the ratio falls. The statistic has no units and no scale, so
-one threshold reads the same on any alphabet and any corpus
+length, so its gaps are far tighter and the ratio falls. The statistic has no units and no scale.
+One threshold reads the same on any alphabet and any corpus
 (`test/bench/bench_ancorae_ab.c:1482`). The shuffle calibrates it as before: it holds every symbol's
-count and destroys where they sit, so in it every symbol's gaps are geometric by construction.
+count and destroys where they sit. In the shuffle every symbol's gaps are geometric by construction.
 
 | corpus       | symbol found      | mean gap | dispersion | on the shuffle | ratio     |
 | ------------ | ----------------- | -------- | ---------- | -------------- | --------- |
@@ -1254,9 +1269,8 @@ count and destroys where they sit, so in it every symbol's gaps are geometric by
 
 Each corpus that has a boundary marker returns it. English returns the space, at a mean gap of 5.58,
 which is a word and its separator. The record corpus returns the newline at exactly 16.00 with a
-dispersion of exactly zero, so both the terminator and the record length come back. C source returns
-the semicolon, which is its statement terminator, at a weak 1.17, because statement lengths vary far
-more than word lengths do.
+dispersion of exactly zero. C source returns the semicolon, which is its statement terminator, at a
+weak 1.17, because statement lengths vary far more than word lengths do.
 
 The uniform corpus returns 1.05, which is nothing, and the mixed corpus returns 0.49, which is less
 regular than its own shuffle. Four languages laid end to end have no single marker that is regular
@@ -1264,10 +1278,10 @@ across all of them, and the statistic says so instead of reporting the marker of
 longest.
 
 Nothing here is given a pattern, a dictionary, or a notion of what a unit is. What makes the comparison
-sound is that both objects are finite and hold the same symbols, so the null is constructed and not
+sound is that both objects are finite and hold the same symbols. The null is constructed and not
 assumed.
 
-#### 4.12.1 The boundaries locate as well as mark, up to a point
+#### 4.12.1 Boundary Spacing as a Filter
 
 A known boundary symbol turns a corpus into a sequence of gaps, and a needle carrying $k$ boundaries
 carries $k-1$ gaps between them that any true occurrence has to reproduce. That run is a filter on its
@@ -1286,13 +1300,13 @@ own, before any other symbol is looked at
 
 On English the spacing alone locates the needle uniquely from a needle length of 64 upward, using a
 symbol that is 17.9% of the corpus and is therefore the worst anchor in it by rarity. The filter
-strengthens as the needle lengthens because a longer needle carries more boundaries, which is the
+strengthens as the needle lengthens because a longer needle carries more boundaries, the
 property being tested.
 
 **The record corpus is the counterexample and it does not move.** Its reduction is exactly 16.0 at
 every needle length and at every boundary count, because its newlines are perfectly periodic: the
 spacing fixes the alignment modulo 16 and says nothing further. A boundary of period $T$ carries
-$\log_2 T$ bits and no more, however many of them a needle holds.
+$\log_2 T$ bits, however many of them a needle holds.
 
 That inverts Section 4.12. `periodic16` reported the tightest spacing found anywhere, a dispersion of
 exactly zero, and its boundaries are the least useful for locating anything. English reported 0.162 and
@@ -1300,10 +1314,10 @@ its boundaries locate uniquely. A boundary has to be regular enough to be found 
 carry a position, and the variation in the spacing is the part that does the second job.
 
 The uniform corpus also reduces to a single survivor, at a marker rate of 0.0049. That is the rare
-anchor of Section 4.3 working normally and not a boundary, which is what a corpus with no boundaries
+anchor of Section 4.3 working normally and not a boundary, exactly what a corpus with no boundaries
 should produce.
 
-### 4.13 The same regularities across three families and two and a half centuries
+### 4.13 Cross-Linguistic Regularities
 
 Section 4.12 finds a boundary and Section 4.12.1 uses it. Neither says whether what it found is a
 property of language or of the one English sample it was run on, which was written by the author of
@@ -1312,7 +1326,7 @@ frequency of a unit falls as roughly the reciprocal of its rank, and the frequen
 ones. Both are consequences of communicating under a fixed cognitive budget, so neither should care
 what the language is or when it was written.
 
-Six public domain texts, fetched by `tools/dev_env/fetch_language_corpora.py` and read by
+Six public domain texts, fetched by `tools/corpora/fetch_language_corpora.py` and read by
 `bench_ancorae_ab.c` given a path. Line endings are folded into the space first, because a plain text
 file wrapped at a fixed width carries a return every fifty odd bytes and the detector finds the
 publisher's formatting before it finds the language.
@@ -1332,7 +1346,7 @@ correlation is negative in every row. Cervantes and Hugo are 257 years and two c
 differ by 0.10 in slope and 0.016 in brevity.
 
 **The Finnish row is a genre confound and not a property of Finnish.** Every other text here is running
-prose and the _Kalevala_ is verse in strict trochaic tetrameter, compiled from oral songs, so its lines
+prose and the _Kalevala_ is verse in strict trochaic tetrameter, compiled from oral songs. Its lines
 are more regular than its words and the detector finds the line. Replacing it with Finnish prose
 settles it:
 
@@ -1346,7 +1360,7 @@ Finnish prose finds the space and returns a brevity of -0.298 against English pr
 failure was the meter and not the morphology, and an earlier draft of this section said otherwise.
 
 **Agglutination is visible, in two places that are not the failure.** The mean word is 6.82 bytes
-against 4.94, and the distinct forms per token are 0.37 against 0.11, because a case heavy language
+compared with 4.94, and the distinct forms per token are 0.37 against 0.11, because a case heavy language
 spells one root many ways. Neither impairs the detector.
 
 **What this does and does not establish.** Six prose texts, four languages, three families including
@@ -1355,7 +1369,7 @@ that the regularities survive changes of language, family, morphology and centur
 It is not evidence about logographic scripts or spoken language, and the one verse text in the set
 behaves differently enough that genre is a variable this has not controlled for beyond replacing it.
 
-#### 4.13.0 What the detector keeps finding instead of a language
+#### 4.13.0 Format Artifacts
 
 Four times in this section the tightest spacing in a file belonged to the file and not to what was
 written in it.
@@ -1372,16 +1386,16 @@ somebody composing and a file format is produced by a rule. Every result in Sect
 required a layer of the format to be removed first, and the ones above were caught by reading the
 output and not by any check inside the method.
 
-Two conditions now sit on a candidate boundary and both came out of these failures. It has to have a
-dispersion above 0.05, because Section 4.12.1 shows that a perfectly regular boundary fixes the phase
-of its own period and carries nothing else, which is what decoration and padding do. And it has to
+Two conditions now sit on a candidate boundary and both came out of these failures. A boundary has to
+have a dispersion above 0.05, because Section 4.12.1 shows that a perfectly regular boundary fixes the
+phase of its own period and carries nothing else, as decoration and padding do. And it has to
 occur at least once in 64 bytes. A symbol can be regular and still be a page number, which marks the
 page and not the unit. Both were added while trying to read a text that was failing for a third reason
 covered in Section 4.13.05, and both leave every corpus that already worked unchanged.
 
-#### 4.13.05 A Greek text, once its symbols are symbols
+#### 4.13.05 Unicode Symbolization
 
-Every measurement above counted bytes, and no part of this document justified that. Section 4.10
+Every measurement above counted bytes, and this document did not justify that. Section 4.10
 already establishes the slice as a choice the method has to make, and the byte was chosen here by
 habit.
 
@@ -1393,8 +1407,8 @@ that framing out of the Greek text gives 71.3% two byte sequences against 99.4% 
 the English one (`tools/dev_env/normalize_symbols.py:29-58`). A byte level detector on the Greek text
 was measuring code units, and half a letter is not a symbol.
 
-The alphabet is finite, which is what makes this recoverable. Greek has been written with a bounded
-set of letters in every period it was written in, and the text carries 144 distinct symbols, so each
+The alphabet is finite, and that makes this recoverable. Greek has been written with a bounded
+set of letters in every period it was written in, and the text carries 144 distinct symbols. Each
 one fits in a byte with room left. Re-seating them in order of first appearance, which is arbitrary
 with respect to every statistic measured, and folding line endings as the byte path already does, the
 detector returns `U+0020` as the boundary at a mean gap of 4.42 and the text reads:
@@ -1417,24 +1431,24 @@ from 5691 to 5690. And the boundary it finds is not planted: seats are assigned 
 the detector ranks candidates on gap regularity, and it recovers `U+0020` in all four texts re-sliced
 this way.
 
-#### 4.13.06 What a translation does to two unrelated measures
+#### 4.13.06 Translation and Composition
 
 The 1611 King James and the 1623 Shakespeare are twelve years apart in one language, one translated
 from Hebrew and Aramaic and one composed. Capped at the same 1048576 symbols, Shakespeare uses fewer
 tokens, 188474 against 199878, and 92% more distinct types, 25031 against 13058. So the King James
 carries the smallest vocabulary of any prose measured here, and the century is not what put it there.
 
-The brevity correlation separates the same pair without using vocabulary at all. It runs -0.247 for
+The brevity correlation separates the same pair without using vocabulary. It runs -0.247 for
 the King James against -0.315 for Shakespeare, and every text composed in its own language sits
 between -0.285 and -0.357. Brevity is a property of production, since the speaker shortening a
-frequent word is the one paying for the length. A translator is not that speaker and chooses for
+frequent word pays for the length. A translator is not that speaker and chooses for
 sense, which decouples the frequency from the length.
 
 Two measures with nothing in common therefore separate a translation from a composition of the same
 decade, and a source language whose words carry several senses at once is the mechanism both of them
 would report. Neither measurement identifies that mechanism, and neither reads a word.
 
-#### 4.13.07 Twice failing to measure a genre
+#### 4.13.07 Genre Controls
 
 Epic was tested for a distinct register and twice returned nothing, both times for a reason in the
 instrument.
@@ -1444,7 +1458,7 @@ returned 108 formulas per 25000 tokens against 142 for Shakespeare and 128 for A
 signature.
 
 Inflection was the first explanation offered for that, on the reasoning that a Homeric epithet
-declines with its noun so no exact match survives, and it is wrong. English barely inflects, so the
+declines with its noun so no exact match survives, and it is wrong. English barely inflects. The
 test was repeated on two English epics that are each a single work. Milton returns 120 and Pope's
 Iliad returns 98, both under Austen's 128 on the same prose novel the Greek text was already under.
 Pope carries the same story as the Greek text in a language where the stated mechanism cannot operate,
@@ -1463,7 +1477,7 @@ So this document makes no claim about epic register, and it withdraws the explan
 for not finding one. Three measurements over five texts in three languages, two of them chosen to
 remove the confound blamed the first time, return nothing that separates epic from prose.
 
-The burst figures cannot be read back on a re-sliced corpus at all, because the reporting path prints
+The burst figures cannot be read back on a re-sliced corpus, because the reporting path prints
 the matched unit as bytes and those bytes are seat indices after Section 4.13.05 re-seats them.
 
 There is a limit behind all three failures that no better instrument reaches. Every measure here reads
@@ -1473,10 +1487,10 @@ respect being measured. This is Proposition 2 arriving from the direction of the
 is a necessary condition of human production and never a sufficient one for what happened. A text can
 carry every regularity in Section 4.13 and describe nothing that occurred.
 
-#### 4.13.08 An attempt at a drift rate, and why the corpus cannot carry one
+#### 4.13.08 Diachronic Drift
 
 Drift is a distance between two texts, so it needs a comparison the per corpus measures do not make.
-Two frequency bands are compared as a Jaccard overlap (`tools/dev_env/measure_drift.py:38-52`). The top
+Two frequency bands are compared as a Jaccard overlap (`examples/language/4_measure/measure_drift.py:38-52`). The top
 100 words of an English text are almost all function words and move slowly. Ranks 500 to 2000 are
 mostly content and follow the subject.
 
@@ -1491,8 +1505,8 @@ mostly content and follow the subject.
 
 The last row shows the measure behaves, since two languages share almost nothing and the figure goes
 to the floor. The first two rows show it cannot answer the question. Fifty three years with the form
-held constant preserves more of the common vocabulary than twelve years across a change of form, so
-the genre term is larger than the time term and one genre matched pair cannot separate them.
+held constant preserves more of the common vocabulary than twelve years across a change of form. The
+genre term is larger than the time term and one genre matched pair cannot separate them.
 
 A second objection is stronger than the statistical one. A drift floor is a claim about a population
 living out normal lifespans in one place with nothing interrupting the chain of transmission, and the
@@ -1514,12 +1528,12 @@ to 1720, and 0.00052 across 1720 to 1813. The first interval covers the civil wa
 plague and the fire, and it moves 8.9 times faster than the second, which covers the settled period
 after the Restoration. That ordering is what a drift rate responding to disruption would produce.
 
-It is not evidence of one. The 1667 to 1720 interval is the only pair in the series matched for form,
-so the slowest interval is also the one interval where the largest confound was removed. The
+That ordering is not evidence of one. The 1667 to 1720 interval is the only pair in the series matched
+for form. The slowest interval is also the one interval where the largest confound was removed. The
 disruption term and the genre term take the same value on the same rows, and nothing measured here
 separates them. Whether a perturbation produces an oscillation is a further question this corpus
 cannot reach at all: five samples spread unevenly over 202 years are fewer than two per period for any
-period worth proposing, so no periodicity is detectable and none is excluded.
+period worth proposing. No periodicity is detectable and none is excluded.
 
 Holding the subject fixed removes the genre term by construction, so three translations of one book
 were measured against each other. Douay Rheims 1609 and the King James 1611 are two years apart and
@@ -1534,20 +1548,20 @@ held still. The World English Bible is 389 years after the King James.
 
 Every figure here is far above the genre varied pairs above, which confirms the subject was carrying
 most of that difference. Within these three the era is the smaller term. Two years across a change of
-translator costs 0.1481 of the top 100 band and 389 years costs 0.0662, so the language moving for
+translator costs 0.1481 of the top 100 band and 389 years costs 0.0662. The language moving for
 four centuries does less to the common vocabulary than the choice of who is translating.
 
 The content band settles it. The King James and the World English agree better across 389 years,
 0.6243, than the two translations two years apart do, 0.5440. Douay Rheims came through the Latin
-Vulgate and the World English descends from the American Standard in the King James line, so that
+Vulgate and the World English descends from the American Standard in the King James line. That
 column is reporting which textual tradition a translation stands in.
 
 Three designs have now been tried and each one lost to a different confound: pairs matched for form
 lost to genre, a fixed reference series lost to genre, and a fixed subject lost to translator lineage.
-Every series reachable here varies something that moves vocabulary harder than time does, so no drift
+Every series reachable here varies something that moves vocabulary harder than time does. No drift
 rate is reported and the bunching of changes against periods of disruption is not tested. What the
 last table does support is the stability itself. A top 100 overlap of 0.7857 across 389 years is a
-common vocabulary that barely moves, which is the condition any bunching would have to be visible
+common vocabulary that barely moves, the condition any bunching would have to be visible
 against.
 
 There is a further limit in the measure that no additional corpus removes. Across 389 years of one
@@ -1557,9 +1571,9 @@ between those. The instrument has a slow regime and a total regime with no resol
 That gap is where a civilization ending sits. A port silting up until the city is abandoned does not
 speed up the drift of the vocabulary spoken there, it removes the speakers, and the ground then
 carries a different language. Ephesus runs through Anatolian, Ionic Greek, Koine, Byzantine Greek and
-Turkish by that route. A change at the edge of a civilization is a substitution and not a rate, and
+Turkish by that route. A change at the edge of a civilization is a substitution, and
 substitution is discrete, which is a mechanism for changes arriving in groups that does not require
-the drift rate to vary at all. Measuring it needs a replacement event with text on both sides of it.
+the drift rate to vary. Measuring it needs a replacement event with text on both sides of it.
 The drift rate is the only quantity these measurements compute, so the question is outside them.
 
 For the oldest replacement events there is no text on either side and there will not be one. Göbekli
@@ -1569,8 +1583,8 @@ The community ending events in the archaeological record are the same shape, leg
 and silent in every respect this document measures. So the limit there is not the size of the corpus
 available. There is no reading that recovers what those marks meant.
 
-Writing is also one channel among several, and the others carry information this document cannot read
-at all. Grave assemblages running to tens of thousands of worked beads, in materials sourced across a
+Writing is also one channel among several, and the others carry information this document cannot read.
+Grave assemblages running to tens of thousands of worked beads, in materials sourced across a
 continent, are evidence of an organized system carrying status and obligation, and the labor in one of
 them is measured in years. Bodies assembled from several individuals, kept above ground for
 generations and then buried under an occupied floor, are a deliberate link to the past maintained in
@@ -1579,11 +1593,11 @@ gap in the written record across an event is not evidence that continuity failed
 document measures the one channel that happens to survive as text.
 
 There is a selection effect in this that no corpus work removes. Britain and Ireland carry no
-indigenous writing until the Roman period, so the community ending deposits found there predate any
+indigenous writing until the Roman period. The community ending deposits found there predate any
 local written record by two thousand years at the recent end and by far more at the older end. The
 events most likely to show changes arriving in groups are therefore the events that systematically
 leave nothing to read, and the intervals that can be measured are the ones mild enough that a writing
-tradition survived them. Those are the intervals where drift is what happened, which is what the
+tradition survived them. Those are the intervals where drift is what happened, and it is what the
 measurements above report. A corpus of written language is a sample of the surviving cases, and it is
 biased against the phenomenon being asked about.
 
@@ -1591,9 +1605,9 @@ That is the strongest form of the asymmetry this document is built on. A pattern
 present and its meaning permanently unrecoverable, which is Proposition 1 holding while Proposition 2
 refuses, stated by the record instead of by an argument.
 
-None of this makes the regularities fragile, and the reason is the one result in this section that
+None of this makes the regularities fragile, and the reason is the only result in this section that
 came from a controlled destruction instead of a comparison. Section 4.13.1 permutes the Morse code
-table, which is the part a person designed and the part actually transmitted, and the brevity
+table, the part a person designed and the part actually transmitted, and the brevity
 correlation returns at -0.550 against -0.652 for the intact table while the Zipf slope does not move,
 -1.183 against -1.185. The assignment of codes to letters was destroyed and the measurements
 reassembled out of the wreckage, because they were never held in that assignment. They belong to the
@@ -1607,8 +1621,8 @@ same measures for that reason and not because anything passed between them.
 The mechanism is that a shorter code for a more frequent symbol is what minimizes an expected
 transmission cost, which is a result in coding theory and not a fact about people. Any system paying
 per unit sent, over enough repetitions, arrives at it. So does a telegraph operator assigning codes by
-hand, which is why Section 4.13.1 finds most of Morse's brevity surviving the destruction of the table
-he designed. A language is solved against one set of constraints, a vocal tract of fixed bandwidth, a
+hand, and for that reason Section 4.13.1 finds most of Morse's brevity surviving the destruction of the table
+he designed. A language is solved under one set of constraints, a vocal tract of fixed bandwidth, a
 working memory holding a few items, a listener decoding in real time and a finite childhood to learn
 in, and the optimum belongs to that constraint set instead of to any lineage. Nothing inherits the
 answer. Each language derives it again, because the problem is still there. That is why losing the
@@ -1616,28 +1630,28 @@ content does not remove the regularity: the regularity was never stored, and the
 regenerate it outlast every artifact.
 
 One caution belongs with this and it is now measured. Distributions of this shape also arise from
-processes doing no optimizing at all, and Section 7.4 runs that counterexample against these same
+processes doing no optimizing, and Section 7.4 runs that counterexample against these same
 measures. Independent character draws carrying a delimiter return a Zipf slope of -0.988, inside the
-range every natural corpus here occupies, so the Zipf slope in this section carries no evidence about
+range every natural corpus here occupies. The Zipf slope in this section carries no evidence about
 production and is withdrawn as such. The brevity correlation survives weakened, at -0.222 for the
 control against -0.247 to -0.364 for natural text. The boundary regularity against a permutation null
-survives intact, at 1.00 for the control against 1.79 and above for natural text. It does not weaken
-the method in this document, and strengthens it. A structure produced by nearly any generator is a better
+survives intact, at 1.00 for the control against 1.79 and above for natural text. The counterexample
+does not weaken the method in this document, and strengthens it. A structure produced by nearly any generator is a better
 thing to key on than one belonging to a special class of them, and the requirement here was never that
-the source be a language. What the method needs is that something regular produced the bytes, which is
-why it needs no alphabet, no dimension and no interpretation.
+the source be a language. What the method needs is that something regular produced the bytes. It needs
+no alphabet, no dimension and no interpretation for that reason.
 
 The measures in Section 4.13 are also close to a question that has been asked before, since deciding
 whether an undeciphered corpus is a language at all is what a Zipf slope and a brevity correlation get
 used for. That literature exists and it is contested. It is not cited here because it has not been
 read in full, and Section 7 states what was read and what it cost.
 
-#### 4.13.09 What occupies each half of the distribution
+#### 4.13.09 Frequency-Stratified Structure
 
 Section 7.4.1 finds the two halves of the frequency distribution behaving differently, the frequent one
 carrying regular boundaries and the rare one carrying clustering. Neither measurement reads a word.
-Printing the twelve most frequent words of each corpus (`tools/dev_env/top_words.py`) shows what fills
-the half that all of the statistics describe without naming:
+Printing the twelve most frequent words of each corpus (`examples/language/4_measure/top_words.py`) shows what fills
+the half that the statistics describe without naming:
 
 | corpus                    | twelve most frequent words                           |
 | ------------------------- | ---------------------------------------------------- |
@@ -1655,10 +1669,10 @@ carries a conjunction, and each carries either a copula or a negation or both. F
 case: it has no articles to occupy those positions, and a proper name, `juhani`, takes one of them.
 
 The corresponding claim about the rare half is that it carries the actions, which needs counting. No
-part of speech tagger is available here, so English verb inflection stands in for one, and the proxy is
+part of speech tagger is available here. English verb inflection stands in for one, and the proxy is
 weak in one direction: a gerund used as a noun and an adjective built from a participle both carry these
 endings without being verbs, so every figure is an upper bound
-(`tools/dev_env/head_tail_parts.py:31-36`).
+(`examples/language/4_measure/head_tail_parts.py:31-36`).
 
 | corpus                     | head, percent ending in `-ed` or `-ing` | rare half |
 | -------------------------- | --------------------------------------- | --------- |
@@ -1679,7 +1693,7 @@ what any text means, and the statistics in Section 7.4 that separate a corpus fr
 do not know that either half exists.
 
 Scoring individual words for clustering against the same permutation null
-(`tools/dev_env/word_burstiness.py:44-72`) answers two questions, and only the second of them comes out.
+(`examples/language/4_measure/word_burstiness.py:44-72`) answers two questions, and only the second of them comes out.
 
 The first was whether words for things people do constantly, instead of things a passage is about,
 spread more evenly than the rest. Section 7.4.4 predicts they should. A supplied English set of them
@@ -1705,16 +1719,16 @@ The corpus averages themselves separate, which the first question was not asking
 
 Single works occupy 0.758 to 0.833 over four languages and three centuries, collections occupy 0.509 to
 0.667, and the memoryless control sits at 1.010. The bands do not overlap. The C sources fall with the
-collections, which is what forty files each concerning a different module should give.
+collections, the result forty files each concerning a different module should give.
 
 Hugo is the lowest of the single works and that supports the reading instead of straining it.
 _Les Misérables_ runs to five volumes and turns aside into Waterloo, the sewers of Paris and the history
-of a convent, so it is the most topically varied single work measured here and it sits nearest the
-collection band.
+of a convent, which makes it the most topically varied single work measured here and puts it nearest
+the collection band.
 
-Every corpus in that table arrived already being one thing or the other, so the reading rests on labels
+Every corpus in that table arrived already being one thing or the other. The reading rests on labels
 applied by hand and could be tracking whatever those labels correlate with. Two manipulations settle it
-(`tools/dev_env/heterogeneity_control.py`). Joining English single works into one corpus, with the total
+(`examples/any_corpus/3_reference/heterogeneity_control.py`). Joining English single works into one corpus, with the total
 length held near 900000 characters so the walk cannot be a length effect, gives 0.828 for one work, 0.685
 for two and 0.626 for three. Cutting the 66 book collection into equal pieces walks the other way:
 
@@ -1734,21 +1748,21 @@ straddle two books, and a short piece has fewer words clearing the occurrence fl
 So the quantity responds to subjects being added and removed while length is held fixed, which is a
 stronger statement than the table of labeled corpora supports on its own.
 
-It is not a count on its own. Two English works joined give 0.685, close to the 0.667 of a corpus of 37
-plays, because a novel and an epic poem stand further apart than two plays of one period do. What the
-measure reads is how far the vocabulary spreads across subjects, with the number of them and the
-distance between them both contributing and neither separated here.
+The quantity is not a count on its own. Two English works joined give 0.685, close to the 0.667 of a
+corpus of 37 plays, because a novel and an epic poem stand further apart than two plays of one period
+do. What the measure reads is how far the vocabulary spreads across subjects, with the number of them
+and the distance between them both contributing and neither separated here.
 
 That is a property of what a text is about, recovered without reading any of it, and it is the only
 measurement in this document that orders corpora on a scale with resolved bands. It still names no
 subject and identifies no meaning. It counts how far the vocabulary gathers.
 
-#### 4.13.1 The same text over four marks
+#### 4.13.1 Re-encoding Invariance
 
 Every row above is alphabetic, and a regularity common to all of them could belong to that way of
 writing instead of to language. Re-encoding one of them settles it, because a re-encoding holds the
 meaning fixed and changes nothing else. Morse carries the same words over two marks and two silences,
-and `tools/dev_env/encode_percussive.py` produces it.
+and `examples/language/1_represent/encode_percussive.py` produces it.
 
 |                         | boundary | gap  | dispersion | Zipf   | brevity |
 | ----------------------- | -------- | ---- | ---------- | ------ | ------- |
@@ -1763,14 +1777,14 @@ Section 4.13.2 tests that and it is mostly not so.
 **The two rows are not at the same level and should not be read as a pair.** English splits at words.
 Morse splits at the letter gap, because within a word that gap is more regular than the word gap is.
 The unit counts say so: 1187 distinct units is far more than the 36 codes Morse has, and the encoder
-writes the word slash with no space beside it, so the last code of one word, the slash, and the first
+writes the word slash with no space beside it. The last code of one word, the slash, and the first
 code of the next form one unit. Thirty six codes plus up to 1296 such pairs brackets the 1187 seen. The
 transcription invented a vocabulary of boundary spanning pairs that is in neither language.
 
 What the row does establish is narrow and is the part worth having. Neither regularity is a property of
 alphabetic writing. Both survive into a four symbol percussive representation of the same text.
 
-#### 4.13.2 One message, two code tables
+#### 4.13.2 Code-Table Permutation
 
 Morse had regional variants that gave different codes to the same letters, and a code table is a choice
 and not part of what is being said. Permuting it holds the message, the language and the set of code
@@ -1784,13 +1798,13 @@ decision.
 | Morse, the real table          | -1.185 | -0.652  | 2,001,933     |
 | Morse, the same codes permuted | -1.183 | -0.550  | 2,580,891     |
 
-**Zipf is unchanged to two parts in a thousand**, which is what a property of the message has to do
+**Zipf is unchanged to two parts in a thousand**, and a property of the message must be invariant
 under a relabeling of its symbols.
 
 **Brevity is nearly unchanged, and that refutes the reading offered in Section 4.13.1.** A permuted
-table keeps a correlation of -0.550, so at most 0.10 of the -0.652 can be credited to Morse assigning
+table keeps a correlation of -0.550. At most 0.10 of the -0.652 can be credited to Morse assigning
 short codes to frequent letters. The rest is structural: short strings recur more often because there
-are fewer short strings, and that holds for any table whatever. The stronger brevity in the Morse rows
+are fewer short strings, and that holds for any table. The stronger brevity in the Morse rows
 than in the English row is mostly an artifact of the unit length distribution and not evidence of
 design.
 
@@ -1802,7 +1816,7 @@ So the two are not the same kind of claim. Zipf is invariant under re-encoding a
 message. The brevity correlation is also largely invariant, which makes it mostly a fact about how many
 short strings exist and only slightly a fact about anyone's choices.
 
-#### 4.13.3 Which of these belong to a language, decided by variance
+#### 4.13.3 Within-Language Variance
 
 Every result above compares one text in one language against another text in another, and a difference
 could belong to the language or to the text. Separating those needs replication inside a language, and
@@ -1810,14 +1824,14 @@ the sections above have twelve English texts and one or two of everything else.
 
 Four texts were taken in each of seven alphabetic languages from Project Gutenberg's own index for each,
 so the selection is not chosen by hand, and four Chinese novels beside them
-(`tools/dev_env/fetch_by_language.py`). Everything is measured at character width and not at byte width
-(`tools/dev_env/language_constant.py:44-70`). That is required for the Chinese to be comparable at all,
+(`tools/corpora/fetch_by_language.py`). Everything is measured at character width and not at byte width
+(`examples/language/4_measure/language_constant.py:44-70`). That is required for the Chinese to be comparable at all,
 since one of those novels carries 3164 distinct characters where no byte seating reaches, and it is also
 the width at which a Chinese symbol is a morpheme instead of a part of one.
 
 The question is then a variance question. If a quantity belongs to a language, its spread within one
-language is small against its spread between languages, which is what an analysis of variance reports
-(`tools/dev_env/language_variance.R`).
+language is small beside its spread between languages, the ratio an analysis of variance reports
+(`src/engine/r/hypotheses/language_variance.R`).
 
 | quantity                             | spread within | spread between | $F$   | $p$                  |
 | ------------------------------------ | ------------- | -------------- | ----- | -------------------- |
@@ -1826,12 +1840,12 @@ language is small against its spread between languages, which is what an analysi
 | rare half against a permutation null | 0.0731        | 0.0342         | 0.66  | 0.68                 |
 
 The first two belong to a language. How long its words are and what its character inventory looks like
-separate the seven at $p$ below $10^{-4}$, so those are constants of a language and the earlier readings
+separate the seven at $p$ below $10^{-4}$. Those are constants of a language and the earlier readings
 of them are readings of the language.
 
-The third does not. Its spread between languages, 0.0342, is smaller than its spread within one, 0.0731,
-so two novels in one language differ on it by more than two languages do. It carries no information
-about which language produced the text.
+The third does not. Its spread between languages, 0.0342, is smaller than its spread within one,
+0.0731. Two novels in one language differ on it by more than two languages do. That quantity carries
+no information about which language produced the text.
 
 Chinese decides it. Measured in within language standard deviations from the mean of the seven, it
 stands 66.0 away on collision entropy and 22.1 away on the mean distance between boundaries, and 0.5 away
@@ -1843,11 +1857,11 @@ That is why the results in Sections 4.13.05 and 4.13.1 hold over seven language 
 The measure was never reading which language it was given, and a change of language had nothing in it to
 disturb. It also bounds what those results can mean: a quantity that cannot tell Finnish from Chinese
 cannot be evidence about any particular language, and Section 7.4 records separately that it is not
-evidence about language at all.
+evidence about language.
 
 **This conclusion is not new and the credit is not this document's.** Montemurro and Zanette, _Universal
 Entropy of Word Ordering Across Linguistic Families_, PLoS ONE 6(5):e19875 (2011), measure the entropy a
-text loses when its words are shuffled, which is the same null used here, over 7077 texts in eight
+text loses when its words are shuffled, the same null used here, over 7077 texts in eight
 corpora spanning Indo-European, Finno-Ugric, Austronesian, Afroasiatic and Sino-Tibetan families and the
 Sumerian isolate. They report the quantity bounded near 3.3 bits per word across all of them, with a
 relative variability of 0.07 against 0.23 for the entropy itself, and they name it a statistical
@@ -1861,20 +1875,19 @@ statistics is worth something. The finding is theirs.
 What this document adds has to be stated carefully, because two different instruments appear in it and
 they have been run together in earlier drafts. The dispersion measure used here has been applied to text,
 to source code and to recorded sound, which are unlike media, and it separates an arranged domain from an
-unarranged one in each. It has not been applied to the pictures in Section 4.11 or to the crystal
-lattices, which were measured by the shift detector instead, and that is a separate instrument with a
-separate null.
+unarranged one in each. The measure has not been applied to the pictures in Section 4.11 or to the
+crystal lattices, which were measured by the shift detector instead, and that is a separate instrument
+with a separate null.
 
 Even inside the media it does cover, the readings are not directly comparable. A waveform carries a
 smoothness that text does not, the symbol width differs between them, and Section 4.10 establishes that
 the width governs what is visible. So the supportable claim is that one measure runs on unlike media and
 separates in each of them, and not that it returns comparable values across them.
 
-Four texts in a language is a small sample and all of them come from one publisher, so the figures for
-any single language here carry the selection of that source with them. What the variance decomposition
-needs is replication, which it has, and not breadth.
+Four texts in a language is a small sample and all of them come from one publisher. What the variance
+decomposition needs is replication, which it has, and not breadth.
 
-### 4.14 What a unit keeps company with
+### 4.14 Contextual Diversity
 
 Frequency cannot separate two kinds of common unit. In an English bible `the` and `God` are both
 frequent, and one is frequent because it attaches to anything while the other is frequent because the
@@ -1893,26 +1906,26 @@ The lowest variety among units seen at least 24 times, over the first 25000 unit
 | `And`            | 788  | 120       | 0.152   | `I`       | 354  | 107       | 0.302   |
 
 Austen's three lowest, after one artifact, are the three honorifics. A title in a Regency novel precedes
-a small closed set of surnames, so the social system the book runs on is visible as a statistic.
+a small closed set of surnames. The social system the book runs on is visible as a statistic.
 
-The bible's are its register and its formulas. `And` occurring 788 times with a variety of 0.152 is very
+The bible's are its register and its formulas. `And` occurring 788 times with variety 0.152 is very
 low for a conjunction and is the paratactic style the translation is known for. `years,` and `king`
-each have exactly one follower across every occurrence, which is the genealogy and the regnal formula.
+each have exactly one follower across every occurrence, the genealogy and the regnal formula.
 
-Nothing here knows English, knows what a name or a title is, or has a dictionary of any kind.
+Nothing here knows English, knows what a name or a title is, or has a dictionary.
 
-**Two limits.** `Heading` is Project Gutenberg's markup and not Austen, which is the same class of
-artifact as the line wrapping in Section 4.13. And narrow company marks formulaic context in general,
-so it returns stock phrases such as `said unto` alongside culturally weighted words and does not
+**Two limits.** `Heading` is Project Gutenberg's markup and not Austen, the same class of
+artifact as the line wrapping in Section 4.13. And narrow company marks formulaic context in general.
+It returns stock phrases such as `said unto` alongside culturally weighted words and does not
 distinguish the two. Cultural weight is one of the things that produces this signature and not the only
 one.
 
-#### 4.14.1 Where a unit falls, which removes the connectives
+#### 4.14.1 Burstiness and Grammatical Connectives
 
 Narrow company catches connectives along with subjects, and a connective is the wrong answer twice
 over: it is needed everywhere, so it says nothing about what a text is about, and its form varies
 between languages while its job does not. Where a unit falls separates them. A unit doing grammatical
-work is spread evenly, so the gaps between its occurrences are near geometric and their dispersion sits
+work is spread evenly. The gaps between its occurrences are near geometric and their dispersion sits
 near one. A unit belonging to a subject arrives in bursts where that subject is discussed, so its
 dispersion is far above one. That is Section 4.12's statistic read at its other end
 (`test/bench/bench_ancorae_ab.c:2187`).
@@ -1928,23 +1941,23 @@ dispersion is far above one. That is Section 4.12's statistic read at its other 
 
 **The connectives are gone.** Neither `the`, `and`, `of` nor `And` appears in any of the three lists,
 though each is among the most frequent units in its text. Being spread evenly puts them at the floor of
-this statistic, so they are discarded without a stopword list, a grammar or a dictionary.
+this statistic. They are discarded without a stopword list, a grammar or a dictionary.
 
 What comes back is the begetting and living of Genesis, Sancho and his adventures, and the pronouns of a
 novel carried by dialogue. Three languages and three centuries through one statistic.
 
 **The size of the numbers carries something as well.** The bible bursts between 6.6 and 20.8 and the
 novel only between 2.5 and 4.3. A compilation of books written centuries apart has vocabulary that
-clusters hard by section, and a single novel is homogeneous enough that little clusters at all, so the
+clusters hard by section, and a single novel is homogeneous enough that little clusters at all. The
 scale of the statistic reports how uniform a text is.
 
 ## 5. Discussion
 
-### 5.1 The solve carries no branch, no order, and no dimension
+### 5.1 Algebraic Structure of the Filter
 
 Strip the cost away and what remains is small. The state is one bit for each alignment, alive or dead.
 A read of one cell selects a mask over the pattern's positions and clears the alignments whose position
-holds something else. Survivors are the complement. That is the whole method, and it contains no
+holds something else. Survivors are the complement. That is the entire method, and it contains no
 comparison that steers control flow, no position computed from a value just read, no ordering on
 positions, no metric, and no dimension.
 
@@ -1952,13 +1965,13 @@ Proposition 1 is why the pieces commute: a refutation depends only on the cell t
 set of reads contributes a union and a union does not remember the order it was built in. The
 consequences are all mechanical from there. Reads can be issued together because none waits on another.
 Accumulation is a bitwise OR. The surviving set is a complement. The mask is $m$ bits wide whatever the
-alphabet holds and however many dimensions the index set has, so neither quantity appears in the state
+alphabet holds and however many dimensions the index set has. Neither quantity appears in the state
 and neither needs a bound.
 
 Entropy is nowhere in that description. It enters one line later, when the question becomes how many
 reads are needed, and it never returns.
 
-### 5.2 One number carries the whole cost surface
+### 5.2 Collision Entropy as Cost Parameter
 
 Section 4.0 lists eight quantities that are each a function of $2^{-H_2}$ and the two sizes. They were
 derived at different times for different reasons and several were measured before anyone noticed they
@@ -1966,7 +1979,7 @@ were the same parameter. The candidate rate, the refutation distance, the estima
 the fraction an in-order walk collects, the offset where advance saturates, the number of anchors
 before the space is spent, the free order probe stride, and the candidate count in $d$ dimensions.
 
-The last of those is the one that makes the collection meaningful instead of coincidental. The same
+The last of those makes the collection meaningful instead of coincidental. The same
 expression holds from a line to an eight dimensional hypercube and over an alphabet of complex numbers
 with irrational parts, which is where the parameter demonstrates it is not standing in for the geometry
 or for what a symbol happens to be.
@@ -1974,7 +1987,7 @@ or for what a symbol happens to be.
 A single scalar fixing a cost surface across every dimension and every alphabet would be a strong claim
 if it were unqualified. It is not unqualified, and the next three sections are the qualifications.
 
-### 5.3 The number is indexed by a slice nobody chose
+### 5.3 Dependence on Symbolization
 
 There is no collision entropy of a corpus. There is a collision entropy of a corpus read $w$ bits at a
 time, and Section 4.10 measures $H_2(w)/w$ falling from 0.984 to 0.600 on English between one bit and
@@ -1988,18 +2001,18 @@ Sections 4.3, 4.4, 4.4.1 and 4.5.1, and their agreement looked like independent 
 read bytes. The object carries three bits one bit narrower, and the five agreements are one assumption
 held five times.
 
-### 5.4 A second moment is not a distribution
+### 5.4 Higher-Order Distributional Information
 
 Two results in this document depend on more of the distribution than its collision probability, and
 neither is predicted by it.
 
 Section 4.3.1 gives what a measure can be worth as the uninformed rate over the expected minimum of $m$
-size biased draws, and that ratio is one exactly when the probabilities are equal on the support. It is
-a property of the order statistics. Entropy orders the corpora wrongly: `structured` has the lowest
+size biased draws, and that ratio is one exactly when the probabilities are equal on the support. The
+ratio is a property of the order statistics. Entropy orders the corpora wrongly: `structured` has the lowest
 collision entropy of the four and the highest ceiling. Section 4.8 then prices a mismatched reference at
-25 to 30 times, which is the largest effect measured anywhere here and which no marginal predicts.
+25 to 30 times, the largest effect measured anywhere here and one no marginal predicts.
 
-### 5.5 Independence is assumed everywhere and fails everywhere it is tested
+### 5.5 Dependence Violations
 
 Every expression in Section 5.2 treats anchors as independent. Four measurements say they are not.
 
@@ -2012,10 +2025,10 @@ because crediting every offset from one read assumes the symbol distribution doe
 position.
 
 Those are four faces of one thing. The parameter is a marginal and each failure is a statement about a
-joint, so the boundary is not an accident of these corpora. It is where a marginal stops being able to
+joint. The boundary is not an accident of these corpora. It is where a marginal stops being able to
 say anything.
 
-### 5.6 What transfers
+### 5.6 Transferable Results
 
 The product rule failure is the portable one. Any structure that stacks cheap filters and sizes itself
 by multiplying their rates inherits it on structured data, in the same direction, and under-provisions.
@@ -2029,32 +2042,32 @@ from cost at Proposition 1 and never rejoined it. Every claim in this document t
 where that separation held, and every claim that fell is one where a cost measurement was allowed to
 stand in for a property of the thing.
 
-## 6. Threats to validity
+## 6. Limitations and Validity
 
 Everything below is finite, and the point of this section is to say what finite means as a number.
 
-### 6.1 Finite domains
+### 6.1 Finite Sample Domains
 
 Corpora are 1408 to 2048 bytes in the sift bench, 3375 to 4089 positions in the lattice bench, and 256
 to 16384 symbols in the estimator bench. Needle lengths reach 2048 and anchor counts reach six.
-Proposition 1 quantifies over unbounded sets and the measurements do not, so the invariant results are
+Proposition 1 quantifies over unbounded sets and the measurements do not. The invariant results are
 evidence that the implementation agrees with the proposition over the ranges named and are not
 evidence for the proposition itself, which needs none.
 
-### 6.2 Finite alphabets
+### 6.2 Finite Carriers
 
 Symbols are drawn from an alphabet of at most 256 values in every bench, and the complex domain uses
 two. A claim that the construction tolerates an unenumerable alphabet is supported here by the core
 never reading a value (`test/bench/bench_ancorae_lattice.c:80`, `193-239`) and not by a measurement on
 an unenumerable alphabet, which cannot be performed.
 
-### 6.3 Finite representation
+### 6.3 Finite Precision
 
-The complex domain's symbols are square roots of primes held in `double`, so the values stored are
+The complex domain's symbols are square roots of primes held in `double`. The values stored are
 rational approximations of irrationals. Equality is decided over storage, so the approximation affects
 which symbols are distinct and never whether the comparison is sound.
 
-### 6.4 Every derived constant is conditional on an estimate, and the dependence is exponential
+### 6.4 Sensitivity to Entropy Estimation
 
 Sections 4.6.1, 4.9.2 and 4.9.4 derive constants that take $H_2$ as an input. All three were computed
 here from a full histogram over the corpus, which presumes the alphabet can be enumerated. Section 2.1
@@ -2072,14 +2085,14 @@ Two of the three constants are exponential in $H_2$, so that error does not stay
 
 At a 16 probe budget the saturation radius is known to about half its value. For `periodic16` that
 moves the crossing from 73 to somewhere between 36 and 110, a range spanning two of the needle lengths
-tested, so the cold and hot classification of a given search is not always decidable from a cheap
+tested. The cold and hot classification of a given search is not always decidable from a cheap
 estimate. The exhaustion count is the mildest of the three and stays inside 16%.
 
 None of this reaches Sections 2.2, 2.3 or 4.1 to 4.2. Soundness, the absence of completeness, and every
-invariant row are indifferent to whether the distribution is known at all, which is the property that
+invariant row are indifferent to whether the distribution is known, the property that
 made them deductive in the first place.
 
-### 6.5 Corrections made during the work
+### 6.5 Corrections to the Analysis
 
 Recorded because each was invisible until something contradicted it.
 
@@ -2091,7 +2104,7 @@ counts were too small to carry one. A control generator changed from a 64 bit xo
 counter mode while its own comment still described the xorshift, which moved the uniform skip figures
 from 261.1, 262.7 and 261.1 to 271.9, 273.6 and 281.3 (`test/bench/bench_ancorae_sift.c:252-262`). A
 dimension sweep whose predicted column again omitted the guaranteed self match, drifting to a ratio of
-1.22 at the smallest domain until the term was restored, which is the first correction in this list
+1.22 at the smallest domain until the term was restored, the first correction in this list
 made a third time. An interpretation of Section 4.3 that named entropy as the quantity governing what
 a measure is worth, which the corpus ordering contradicts and Section 4.3.1 replaces. And a claim about
 prior art asserted from search engine snippets before either source had been read.
@@ -2099,7 +2112,7 @@ prior art asserted from search engine snippets before either source had been rea
 The first entry recurring three times is the finding, not the anecdote. A pattern drawn from the data
 it is searched in always matches itself, and every model written here has had to be told so separately.
 
-### 6.6 Not measured
+### 6.6 Unmeasured Quantities
 
 Any vectorized cost model. Every figure in Section 4.9 counts sequential reads, and a shift is
 inherently serial because the next position cannot be computed until the current one has been read.
@@ -2109,12 +2122,12 @@ decide whether the arrangement in Section 4.9.3 belongs in the library, and it h
 
 The estimator's behavior against published estimators other than the two in Section 4.5. The
 construction on a domain whose alphabet is genuinely unenumerable. A spatially correlated domain of
-more than one dimension, which is what a centroid based anchor rule would need to be tested on, since
+more than one dimension, where a centroid based anchor rule would need to be tested, since
 on an independent domain every point of a pattern is interchangeable and such a rule correctly shows
 nothing. Any timing figure: what a SWAR word costs is a per part question and no host number answers
 it.
 
-## 7. Prior art, as read
+## 7. Related Work
 
 Two sources were read in full. Both were reached because a search suggested they were close, and a
 search result is not a reading.
@@ -2133,9 +2146,9 @@ independence or joint probability treatment, and uses no periodic or fixed width
 Neither document contains the separation analysis here. That is a claim about two documents and not
 about the literature, and it is the strongest form the evidence supports.
 
-### 7.1 Order free elimination is Vishkin's, and so is most of what surrounds it
+### 7.1 Order-Free Filtering and Deterministic Sampling
 
-Section 2.2 makes each refutation depend only on the cell that produced it, so the set of alignments
+Section 2.2 makes each refutation depend only on the cell that produced it. The set of alignments
 ruled out by a group of reads is a union and does not depend on the order they were read in. That
 observation is the dueling paradigm, introduced by Vishkin, and its consequences were worked out at
 the time. Read from Neuburger's survey, sections 1.3 and 1.4.
@@ -2166,25 +2179,25 @@ the repair for it predates this document.
 combinatorial and worst case. It selects a rarer symbol without pricing what rarity is worth, and it
 carries no distribution over the alphabet.
 
-It also carries a precondition that the construction in Section 2 does not. The deterministic sample is
-built from the pattern before any text is read: the pattern is stacked, a witness column is chosen, the
-less frequent of two symbols is taken, and the procedure repeats over the pattern's own self overlap
-structure. That is a preprocessing pass requiring the pattern in hand and analyzable in advance, and it
-buys a worst case guarantee at $\log m$ probes.
+The prior art also carries a precondition that the construction in Section 2 does not. The
+deterministic sample is built from the pattern before any text is read: the pattern is stacked, a
+witness column is chosen, the less frequent of two symbols is taken, and the procedure repeats over
+the pattern's own self overlap structure. That is a preprocessing pass requiring the pattern in hand
+and analyzable in advance, and it buys a worst case guarantee at $\log m$ probes.
 
-An adaptive search declines that pass. It has no probe set until answers start arriving, so it has no
+An adaptive search declines that pass. It has no probe set until answers start arriving and no
 guarantee either, and Section 4.9.6 measures what that costs: probing without confirming is wrong on a
 third to almost all of the searches at any stride above one. What it has instead is that the error is
-one directional. A miss is impossible under Proposition 1, so more probing can only reduce the error
+one directional. A miss is impossible under Proposition 1. More probing can only reduce the error
 and never introduce one, and accuracy is monotone in effort with no preprocessing and no bound on how
 far it can be taken.
 
 Section 4.9.6 also measures why the two cannot be traded freely. The safe stride is a property of the
-pattern, which is exactly what a per pattern preprocessing pass would determine, and a stride
+pattern, the quantity a per pattern preprocessing pass would determine, and a stride
 calibrated on one pattern is wrong on 0 to 62 of 63 others. A fixed probe set needs the per pattern
 analysis, and skipping the analysis while keeping a fixed probe set is the arrangement that fails.
 
-### 7.3 The average case analysis, and what its metric cannot see
+### 7.3 Average-Case String Matching
 
 Read from Tsai, _Average Case Analysis of the Boyer-Moore Algorithm_, Random Structures and Algorithms
 28, 481 (2006), pages 1 to 4 and 14 to 16 of 18. Sections 4 and 5, which carry the Markov chain
@@ -2213,7 +2226,7 @@ something it never did. The gap is not a defect in thirty years of analysis. It 
 metric measures, and it becomes visible only once the traversal order is treated as a free variable,
 which Section 7.1 credits to Vishkin.
 
-### 7.2 What the thermodynamic bound actually says, and where this document may not use it
+### 7.2 Thermodynamic Information Bounds
 
 Sections 4.3 and 4.8 reach for a physical analogy: a reference measure is worth the divergence of the
 domain from it, and at equilibrium there is no gradient and nothing to extract. Read from Parrondo,
@@ -2241,7 +2254,7 @@ the distribution is uniform on its support. That quantity is not a relative entr
 and the table, and the corpus ordering shows entropy does not govern it. The physics is invoked as
 background and no result in this document rests on it.
 
-### 7.4 Whether these statistics identify a language, and what that costs Section 4.13
+### 7.4 Statistical Identification of Language
 
 Section 4.13 measures a Zipf slope, a brevity correlation and a boundary regularity on ten corpora and
 reads their agreement as a property of how people produce language. Exactly that inference has been
@@ -2266,12 +2279,12 @@ they extend the measurement to block entropies up to $N = 6$ where they report t
 counterexamples failing to track. They also supply non-linguistic controls that are not artificial,
 namely DNA, protein, Fortran and music, which occupy entropic ranges away from the linguistic ones.
 Their own description of the Zipf-Mandelbrot property is that it is "often considered a necessary
-(though not sufficient) condition for language", which is the asymmetry between Proposition 1 and
+(though not sufficient) condition for language", the asymmetry between Proposition 1 and
 Proposition 2 reached from a different direction and by different people.
 
 **What this costs Section 4.13, measured and not conceded in the abstract.** Sproat's counterexample
 class was built and run through the same code that produced every other row
-(`tools/dev_env/gen_monkey_corpus.py`). Characters are drawn independently and a delimiter is dropped
+(`tools/corpora/gen_monkey_corpus.py`). Characters are drawn independently and a delimiter is dropped
 in at a fixed rate, so nothing links one position to the next.
 
 A first version of that control had two arms, one uniform and one weighted by English letter
@@ -2289,7 +2302,7 @@ from a language.
 | dispersion against a permutation null | 0.99 to 1.01        | 1.79 to 4.82        | yes       |
 
 Three of the four measures fail. The Zipf slope from a geometric distribution carrying no language at
-all is -0.996, against -0.988 for the English weighted arm, so the seeding was never what produced a
+all is -0.996, against -0.988 for the English weighted arm. The seeding was never what produced a
 natural looking value and non-uniformity alone is enough. This is the distinction between random and
 random-and-equiprobable that Sproat says the original work confused, and the uniform arms do sit
 outside the natural range at -1.224 and -1.332. The brevity correlation is worse than a failure to
@@ -2310,13 +2323,13 @@ surviving measure establishes that a corpus is not memoryless. It does not estab
 language, and this document does not claim it does.
 
 The surviving measure is also the one Section 7.2 can price. A corpus equal to its own shuffle carries
-no gradient and offers nothing to extract, which is the equilibrium reading holding exactly, and the
+no gradient and offers nothing to extract, the equilibrium reading holding exactly, and the
 ratio above one is a distance from that equilibrium.
 
 **What a cipher does to the surviving measure.** Sproat's stated limit is that a structured
-non-linguistic system passes this test as well, so the question is what it takes to make a text stop
-passing it. One English corpus was put through transforms that keep every symbol in the same seat range,
-so the same measurement path reads all of them (`tools/dev_env/transform_corpus.py`).
+non-linguistic system passes this test as well, which leaves the question of what it takes to make a
+text stop passing it. One English corpus was put through transforms that keep every symbol in the same
+seat range, so the same measurement path reads all of them (`tools/dev_env/transform_corpus.py`).
 
 | transform                          | key length    | ratio | mean gap |
 | ---------------------------------- | ------------- | ----- | -------- |
@@ -2330,7 +2343,7 @@ so the same measurement path reads all of them (`tools/dev_env/transform_corpus.
 
 A permutation of the symbols reproduces the measurement to four decimal places, and the boundary is
 found at a different seat carrying an identical dispersion of 0.2815. Relabeling every symbol changes
-nothing the measure reads, which is what a bijection has to do.
+nothing the measure reads, which a bijection has to do.
 
 A repeating key of length $k$ sends one plaintext symbol to $k$ ciphertext symbols by position, and the
 mean gap grows with $k$ as that predicts. The measurement is being divided and not destroyed, and by
@@ -2339,8 +2352,8 @@ still recoverable there by separating the positions that share a key offset, and
 those rows is a limit of this measure and is not evidence that anything was erased. An attempt to
 recover it that way is reported in the next paragraph and failed for an unrelated reason.
 
-The last row is different in kind. When the key is as long as the message the ratio reaches 1.01, which
-is the floor the memoryless controls occupy. That is the one case where the structure is absent from the
+The last row is different in kind. When the key is as long as the message the ratio reaches 1.01, the
+floor the memoryless controls occupy. That is the only case where the structure is absent from the
 text instead of hidden in it, because it now resides in the key, and it is the condition for perfect
 secrecy. A bijection cannot remove what this measure reads unless it spends key material equal to the
 message.
@@ -2348,15 +2361,15 @@ message.
 One check on that was attempted and does not support anything. Taking every eighth symbol of the
 $k = 8$ cipher isolates one key offset, which should leave a pure substitution, and it returns 0.95. The
 word boundary in this corpus sits at a period near 5.3 symbols and sampling at a stride of 8 is above
-that period, so the subsampling destroys the boundary regularity on its own, with or without a cipher.
+that period. The subsampling destroys the boundary regularity on its own, with or without a cipher.
 The row measures the sampling and not the transform.
 
-#### 7.4.1 The detector reads the half of the distribution carrying less of the information
+#### 7.4.1 Frequency-Stratified Information
 
 Every result above comes from a detector that returns one symbol, the one whose gaps are most regular,
 and that rejects any candidate occurring less often than once in 64 symbols. Two consequences follow
-from that construction and neither was intended. The occurrence floor admits only frequent symbols, so
-the detector can only ever report on the head of the distribution. And ranking by regularity treats
+from that construction and neither was intended. The occurrence floor admits only frequent symbols.
+The detector can only ever report on the head of the distribution. And ranking by regularity treats
 variability as failure, and a symbol whose occurrences cluster is scored as a poor candidate.
 
 Under a Zipf distribution the head carries the token count and the tail carries the information, because
@@ -2375,13 +2388,13 @@ frequency:
 | `monkey_a26_d18_geom90`   | 1.00      | 1.00      |
 
 The tail departs from the null by 0.25 to 0.41 where the head departs by 0.03 to 0.06, and the
-memoryless control sits at 1.00 in both halves, so the departure is a property of the corpora and not of
-the measure. The direction is below one, which is the real corpus carrying gaps more variable than its
-shuffle. That is clustering: a rare word appears several times in one passage and nowhere else. It is
-structure, and the ranking used everywhere above scores it as the opposite.
+memoryless control sits at 1.00 in both halves, which makes the departure a property of the corpora and
+not of the measure. The direction is below one, the real corpus carrying gaps more variable than its
+shuffle. That is clustering: a rare word appears several times in one passage and nowhere else.
+Clustering is structure, and the ranking used everywhere above scores it as the opposite.
 
 The averages also separate better than the winner does. A head average of 0.95 to 1.06 against a control
-at 1.00 does not separate at all, and every separation reported earlier in this section came from the
+at 1.00 does not separate, and every separation reported earlier in this section came from the
 single best head symbol, which has to be found. The tail average separates from the control across all
 five corpora without selecting any symbol.
 
@@ -2390,12 +2403,12 @@ occurrence floor added in Section 4.13.0 to reject decoration. Nothing above is 
 boundary results stand as measured. What is withdrawn is the implication that the boundary is where the
 structure is.
 
-#### 7.4.2 What the surviving measure is invariant to, and the one thing that defeats it
+#### 7.4.2 Invariance and Periodic Obfuscation
 
 The transforms in Section 7.4 leave the tail measure exactly where the head measure was left, and
 running them through it characterizes the measure completely. Cosets are scored with
 `tools/dev_env/supersample_cosets.py`, which splits a corpus at a stride, scores every coset and
-averages, so all of the text is read and none of the length is spent.
+averages. All of the text is read and none of the length is spent.
 
 A relabeling of the symbols changes nothing, because the measure reads gaps between occurrences and a
 permutation moves which seat carries which gaps. The single symbol result is identical to four decimals
@@ -2419,17 +2432,17 @@ one with a key length of 3 and one with 8, against the plaintext scanned the sam
 Each ciphertext equals the plaintext exactly at every stride that is a multiple of its key length, at 3,
 6, 9 and 12 for the first and at 8 and 16 for the second, and lies above the plaintext everywhere else.
 The cipher is not producing a dip at the period. It is withholding the plaintext's own structure at
-every stride except the ones that align the cosets with the key, where it withholds nothing at all.
+every stride except the ones that align the cosets with the key, where it withholds nothing.
 
-The plaintext row is what makes that readable, and taking a scan without it invites two errors. The
+The plaintext row makes that readable, and taking a scan without it invites two errors. The
 baseline is not flat, climbing from 0.800 at a stride of 2 to 0.941 at 16 as the subsampling removes
 structure on its own, and a dip has to be judged against that curve and not against 1.0. And the value
 coprime strides take is a property of the key length: with a key of 8 they sit near 1.0 because the
 structure is divided eight ways, while with a key of 3 they sit between 0.909 and 0.975 because a
 three way division hides less.
 
-The baseline is not an artifact of the shortening. Each coset holds one stride's worth of the corpus, so
-a scan compares estimates from different amounts of text and from whatever symbols cleared the
+The baseline is not an artifact of the shortening. Each coset holds one stride's worth of the corpus.
+A scan therefore compares estimates from different amounts of text and from whatever symbols cleared the
 occurrence floor at that length. Truncating every coset to 45000 symbols removes both, and the curve
 still climbs, from 0.769 at a stride of 2 to 0.936 at 16.
 
@@ -2438,12 +2451,12 @@ Its shape is $1 - c/\sqrt{s}$ in the stride $s$. Fitting the capped curve gives 
 follows from what the tail measure reads. Its signal is rare symbols clustering into passages, and at a
 fixed coset length a larger stride spans proportionally more of the original text, so each cluster
 contributes $1/s$ as many points to the coset. Deciding that a cluster is present is a counting problem
-and counting significance grows as the square root of the count, so the signal falls as $1/\sqrt{s}$.
+and counting significance grows as the square root of the count. The signal falls as $1/\sqrt{s}$.
 
 That sets what a scan can reach. Structure is not lost at a stride, it is attenuated by a known factor,
 and a longer corpus buys back any stride at quadratic cost.
 
-#### 7.4.3 The surviving measure ranks structure, and a formal language outranks prose
+#### 7.4.3 Structural Ranking of Formal and Natural Languages
 
 Sproat's stated limit is that a system with structure and no language passes this test, and every
 control in Section 7.4 so far has been memoryless, which tests only the other side. The C sources in
@@ -2459,23 +2472,23 @@ real time.
 
 The C source departs from the null further than the English does on both halves. So the measure orders
 these three by how much structure they carry, and a formal language carries more of it than prose does,
-which is what fixed syntax, repeated identifiers and aligned indentation produce. It is a structure
+the product of fixed syntax, repeated identifiers and aligned indentation. The measure is a structure
 meter. Nothing in it identifies a natural language, and the earlier statement that it establishes only
 that a corpus is not memoryless is now measured on the instrument itself instead of taken from the
 literature.
 
 One reading survives this and is not tested by it. Both corpora that score away from the null were
-written by people, so the result is consistent with the measure detecting production by a person while
+written by people. The result is consistent with the measure detecting production by a person while
 failing to distinguish which kind. Separating those needs a system carrying structure that no person
 produced, of the sort Rao and colleagues reach for with genomes and protein sequences. No such control
 is measured here, so no claim of that kind is made.
 
-#### 7.4.4 The span the structure sits at separates prose from source code
+#### 7.4.4 Scale Localization of Structure
 
 The null used above shuffles single symbols, which destroys every arrangement at once and cannot say
 which span an arrangement occupied. Cutting the corpus into blocks of $B$ symbols and shuffling the
 blocks keeps everything shorter than $B$ and destroys everything longer
-(`tools/dev_env/block_shuffle_null.py:52-59`), so sweeping $B$ locates the signal.
+(`tools/dev_env/block_shuffle_null.py:52-59`). A sweep over $B$ locates the signal.
 
 | block span                   | 1     | 8     | 32    | 128   | 512   | 2048  | 8192  |
 | ---------------------------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -2510,7 +2523,7 @@ this measurement reaches what a text is about, and the span is the only quantity
 
 The corresponding figures for the frequent half move non-monotonically over the same sweep, from 0.945
 at a span of 1 to 0.913 at 32 and back to 0.993 at 8192. That half is a mean over many symbols carrying
-little structure individually, so it is too diluted to support a claim and none is made from it.
+little structure individually. The mean is too diluted to support a claim and none is made from it.
 
 The minimum over the scan is the key length in both cases, at 0.830 for the first and 0.896 for the
 second. Following a doubling ladder finds the second and misses the first, since 3 is not reached by
@@ -2532,7 +2545,7 @@ description could undo.
 **The same finding points the other way for the method.** Section 4.13.08 argues that these
 regularities are regenerated by the conditions that produce a message and are not carried between
 instances. Sproat's position is the stronger form of that: the structure arises from generators with no
-communicative intent at all, dice included. A method keying on a property that nearly every generator
+communicative intent, dice included. A method keying on a property that nearly every generator
 produces has a wider domain than one keying on a property special to language, and Section 2.1 never
 required the source to be a language. It requires that something regular produced the bytes.
 
@@ -2556,13 +2569,13 @@ the survivors by up to four orders of magnitude on structured data, always in th
 under-provisions. And a filter of this shape settles $m(1-2^{-H_2})$ alignments per read instead of
 one, which is a property of the necessary condition and not of any particular shift table.
 
-Where an order on positions exists, that order is most of the available structure and a shift takes it,
-so the candidate rate this document spends its length measuring is not what governs a search. Section
+Where an order on positions exists, that order is most of the available structure and a shift takes it.
+The candidate rate this document spends its length measuring is not what governs a search. Section
 4.9 records that as a loss of 1.2 to 25 times and then recovers it, first by treating rejection and
 advance as one product and then by measuring the advance directly. The arrangement that wins holds no
-model of the alphabet at all, which is the only form of it that Section 2.1's assumptions permit.
+model of the alphabet, the only form of it that Section 2.1's assumptions permit.
 
-## 9. Reproduction
+## 9. Reproducibility
 
 Every figure comes from four self contained programs and one cost profile. Build and run them with:
 
@@ -2578,18 +2591,18 @@ fingerprint of the 256 linked costs, `69c2e2df` for the english profile, because
 link time singleton and a binary reports on one profile only. The estimator bench takes
 `-DPROBE_SAMPLES=k` to reproduce the budget sweep in Section 4.5.
 
-## Appendix A: the digest as oracle
+## Appendix A: Digest Oracle
 
 `mmgr_sha256` is test support and nothing in `src/` reaches it. A digest computed by the code under
 test agrees with that code whatever the code did, and testing precept 1 in this tree is that the
 library is never its own oracle.
 
-It is held to five published vectors by `mmgr_sha256_self_test` (`test/support/mmgr_sha256.c:398`).
-RFC 6234 section 8.5 supplies four that sit on the padding boundaries: `"abc"`, the 56 octet message
-whose padding overflows into a second block, 64 octets fed ten times so padding forms a whole block
-alone, and one million `'a'` which pushes the length field past $2^{23}$ bits over 15,625
-compressions. The empty message is the fifth, which RFC 8448 section 3 prints as the TLS 1.3
-`Transcript-Hash("")`.
+`mmgr_sha256` is held to five published vectors by `mmgr_sha256_self_test`
+(`test/support/mmgr_sha256.c:398`). RFC 6234 section 8.5 supplies four that sit on the padding
+boundaries: `"abc"`, the 56 octet message whose padding overflows into a second block, 64 octets fed
+ten times so padding forms a whole block alone, and one million `'a'` which pushes the length field
+past $2^{23}$ bits over 15,625 compressions. The empty message is the fifth, which RFC 8448 section 3
+prints as the TLS 1.3 `Transcript-Hash("")`.
 
 `harness.py vectors` runs the normative suites offline against bytes vendored under `test/vectors`,
 each one's source and digest recorded in `MANIFEST.json`, with every file's hash checked before a
@@ -2609,8 +2622,9 @@ vector is read from it.
 
 1554 published vectors from two bodies, none of them written here. Monte earns its place twice over: a
 hash whose state carries wrongly between blocks passes every one shot table and fails on Monte's first
-checkpoint. Every vector in every published suite hashes its message in a single call, so none reaches
-`mmgr_sha256_take`, and the split and differential rows are the only thing testing the streaming path.
+checkpoint. Every vector in every published suite hashes its message in a single call, none of which
+reaches `mmgr_sha256_take`, and the split and differential rows are the only thing testing the
+streaming path.
 
 This is two bodies and not the published corpus of cryptographic oracles. Widening it is open work.
 

@@ -1,0 +1,95 @@
+% ====================================================================
+% PREAMBLE.TEX - shared by every theory under theory/
+% ====================================================================
+% Every book shares this file, so a layout change reaches all of them. Build them with
+% tools/book/build_theory.sh, which compiles twice and fails on a dropped glyph.
+%
+% Compile with lualatex. pdflatex stops dead on the first Greek letter in the construction chapter,
+% and these books quote 392 IPA characters, 182 spacing modifiers and 175 combining marks besides.
+% LuaHBTeX shapes those marks through HarfBuzz, which is what puts a Salishan ejective on its letter
+% instead of beside it.
+
+\usepackage{iftex}
+\RequireLuaTeX
+
+\usepackage{fontspec}
+
+% Charis SIL is SIL's own text face for exactly this material: full IPA, the Americanist letters
+% the Salishan papers are written with, and combining marks that sit correctly on the letters this
+% corpus stacks them on. DejaVu stands behind it for the arrows, box drawing and math operators the
+% ledger tables use, which Charis does not carry.
+\directlua{
+  luaotfload.add_fallback("theoryfallback", {
+    "DejaVuSerif:mode=harf;",
+    "DejaVuSans:mode=harf;",
+  })
+}
+
+% The monospace face needs its own chain. The oracle pages mark a space with U+02FD, the modifier
+% letter shelf, and DejaVu Sans Mono does not carry it: the Salishan book dropped that character
+% six times and still built, which is the failure this whole engine change exists to stop. Charis
+% carries it, so it stands behind the mono face.
+\directlua{
+  luaotfload.add_fallback("theorymonofallback", {
+    "CharisSIL:mode=harf;",
+    "DejaVuSans:mode=harf;",
+  })
+}
+
+\setmainfont{Charis SIL}[
+  Ligatures=TeX,
+  Numbers=OldStyle,
+  RawFeature={fallback=theoryfallback},
+]
+\setsansfont{DejaVu Sans}[Ligatures=TeX, Scale=MatchLowercase]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase, RawFeature={fallback=theorymonofallback}]
+
+\usepackage[eulerchapternumbers, listings, style=linedheaders,
+pdfspacing]{classicthesis}
+
+% classicthesis sets its own text face after it loads. These put the Unicode faces back, because a
+% book that silently drops a letter of the language it is about is worse than one that fails.
+\setmainfont{Charis SIL}[
+  Ligatures=TeX,
+  Numbers=OldStyle,
+  RawFeature={fallback=theoryfallback},
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase, RawFeature={fallback=theorymonofallback}]
+
+\let\eth\relax
+\usepackage{amsmath,amsthm}
+\usepackage{unicode-math}
+\setmathfont{DejaVu Math TeX Gyre}
+\usepackage{array,booktabs,longtable}
+\usepackage{ragged2e}
+\renewcommand{\cfttoctitlefont}{\hfill\spacedallcaps}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftparaleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubparaleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforechapskip}{1.25em}
+\setlength{\cftbeforesecskip}{0.45em}
+\setlength{\cftbeforesubsecskip}{0.25em}
+\setlength{\cftbeforesubsubsecskip}{0.15em}
+\setlength{\cftbeforeparaskip}{0.1em}
+\cftsetpnumwidth{2.5em}
+\cftsetrmarg{3em}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\setcounter{LTchunksize}{8}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\input{../macros.tex}
+\providecommand{\subsetneq}{\mathrel{\subset\!\not=}}

@@ -8,10 +8,19 @@ build-*/
 # copy in git is one that goes stale the moment a page changes.
 site/
 
-# The hand extractions. Every row is a form transcribed out of a published paper, so the tables are
-# those papers' text and not this work's to redistribute. The derivations built on them are this
-# work's and stay in the repository: the ledger, the bound, the checks and the code are all here.
-# The tables are held outside git and go to anyone who has the papers and asks.
+# Cloned dependencies. MMgr used to sit here as four separate partial copies of itself, each one
+# byte identical to the original and none of them recording which commit it came from, so a stale
+# copy and a current one looked the same. `python tools/maintain/get_deps.py` clones it instead, and
+# git in the clone answers what is checked out. Same rule as build/ and site/: what a tool can
+# fetch is not carried here.
+deps/
+
+# The hand extractions and the papers they were read from. Every row is a form transcribed out of a
+# published paper, so the tables are those papers' text and not this work's to redistribute, and the
+# papers are their authors' copyright. Both live in a closed repository, inventoried by
+# tools/maintain/corpus_manifest.py and signed there, and reach this tree under build/oracles and
+# build/papers through tools/maintain/private_sync.py. The derivations built on them are this work's
+# and stay in the repository: the ledger, the bound, the checks and the code are all here.
 *.oracle.tsv
 
 # Python caches. The tools here are run directly and cache next to themselves.

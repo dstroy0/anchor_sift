@@ -25,15 +25,15 @@ The 20 hand extraction tables under `docs/research/Salishan/pure_corpus/` are no
 
 The derivations built on them are here in full: the ledger, the bound, the checks and the code.
 
-The corpora, page renders and audio under `build/` are also absent and run to about 1.9 GB. `tools/dev_env/Salishan/get_papers.py` fetches the papers and the tools rebuild the rest.
+The corpora, page renders and audio under `build/` are also absent and run to about 1.9 GB. `tools/Salishan/get_papers.py` fetches the papers and the tools rebuild the rest.
 
 ## Checks
 
 **Prose.** The writing standard is checked instead of remembered:
 
 ```sh
-python tools/dev_env/docs_check.py docs
-python tools/dev_env/docs_check.py docs --strict
+python tools/prose/docs_check.py docs
+python tools/prose/docs_check.py docs --strict
 ```
 
 Breaking findings are an empty table, an em dash, and a link to a file that is not there. Those stop a commit. Prose findings are printed and let through, because the prose backlog predates the check.
@@ -54,7 +54,7 @@ cmake --build build/bench
 
 Every arm has to agree with `anchor_sift_naive` on every row. A row printing `DIFFER` is a defect and its timing means nothing, because a measurement of an arm returning the wrong answer is a measurement of the wrong program.
 
-**The ports.** `ports/R/` and `ports/matlab/` carry the permutation null measure. The Python in `tools/dev_env/proof_conservation.py` is the reference: a port is correct when it lands inside the reseeding floor of it, since each language draws its null from a different generator and none of them can agree to the last digit.
+**The ports.** `ports/R/` and `ports/matlab/` carry the permutation null measure. The Python in `examples/proofs/posits/proof_conservation.py` is the reference: a port is correct when it lands inside the reseeding floor of it, since each language draws its null from a different generator and none of them can agree to the last digit.
 
 ## Writing
 

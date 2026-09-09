@@ -2,7 +2,7 @@
 
 Measure how far something sits from the most disordered arrangement of its own parts.
 
-That is the whole construction. Every domain below is that one sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is built from the object's own parts, so there is no prior to estimate, no training set to collect and no model of the domain to write.
+That is the construction. Every domain below is that one sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is built from the object's own parts, so there is no prior to estimate, no training set to collect and no model of the domain to write.
 
 ## The languages here belong to the people who speak them
 
@@ -26,6 +26,9 @@ Regeneration stays faithful near the subject and escapes it with distance, and n
 | whose words the corpus holds | [Whose words these are](research/Salishan/pure_corpus/README.md) |
 | how wrong the corpus could be | [How wrong it could be](research/Salishan/corpus-derivation.md) |
 | every source, held or cited | [Sources](research/Salishan/refs.md) |
+| the speculative end, sorted by what could refuse it | [Thought experiments](research/thought-experiments/README.md) |
+
+Each of those is also a typeset book under `theory/`, one directory per theory, sharing a preamble. `theory/workbook` is the ledger. `theory/thought_experiments` is the end of the table that carries no measurements, and it is kept apart deliberately.
 
 **Read the ledger before quoting any figure.** It keeps its own corrections: claims that were withdrawn stay on the page beside the measurement that killed them, and several results here are rediscoveries of published work with the precedent named.
 
@@ -33,17 +36,19 @@ Regeneration stays faithful near the subject and escapes it with distance, and n
 
 | | reads | external ground truth |
 |---|---|---|
-| shift agreement detector | a period or an offset, by how often a shift agrees with itself | three times, from published crystal cell edges |
+| shift agreement detector | a period or an offset, by how often a shift agrees with itself | 453 of 453 axes, from published crystal cell edges |
 | permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none |
 
 The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Most of the confusion this work has had to correct came from reporting one of these as the other.
 
 ## The code
 
-The search kernel builds and runs on its own with a C11 compiler and nothing else, and the permutation null measure is ported to R and to MATLAB. Both are described in the [repository README](https://github.com/dstroy0/anchor_sift).
+The search kernel builds and runs on its own with a C11 compiler and no other tool, and the permutation null measure is ported to R and to MATLAB. Both are described in the [repository README](https://github.com/dstroy0/anchor_sift).
 
 ```
-cmake -S bench -B build/bench -G Ninja -DCMAKE_BUILD_TYPE=Release
-cmake --build build/bench
-./build/bench/bench_ancorae_cycles
+cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build build/engine_c
+./build/engine_c/bench_lattice
+./build/engine_c/bench_coherence
+./build/engine_c/bench_dispatch
 ```

@@ -1,7 +1,7 @@
 # Anchor sift
 
 **Purpose:** Find out what this method measures, what it has actually read, and where it fails, without having to run anything first.
-**Scope:** `tools/dev_env/`, `docs/research/`
+**Scope:** `tools/`, `docs/research/`
 
 ## The languages here belong to the people who speak them
 
@@ -73,7 +73,7 @@ cmake --build build/bench
 |---|---|---|
 | R | `ports/R/anchor_sift.R` | runs, checked against the reference |
 | MATLAB and Octave | `ports/matlab/anchor_sift_departure.m` | logic checked, not executed here |
-| Python | `tools/dev_env/proof_conservation.py` | the reference every figure came out of |
+| Python | `examples/proofs/posits/proof_conservation.py` | the reference every figure came out of |
 
 The reference is the Python. A port is correct when it lands inside the reseeding floor of it, since each language draws its null from a different generator and none of them can agree to the last digit.
 
@@ -107,7 +107,7 @@ The ledger holds the rest, including every row that failed and why.
 
 ## What is not here
 
-The corpora, papers, audio and rendered pages are about 1.9 GB and none of it is in git. `tools/dev_env/Salishan/get_papers.py` fetches the papers and the tools rebuild the rest. Addresses for everything are in `docs/research/Salishan/refs.md`.
+The corpora, papers, audio and rendered pages are about 1.9 GB and none of it is in git. `tools/Salishan/get_papers.py` fetches the papers and the tools rebuild the rest. Addresses for everything are in `docs/research/Salishan/refs.md`.
 
 The C implementation of the sift, its benches and its cycle timer live in [MMgr](https://github.com/dstroy0/MMgr) under `src/impensa_ancorae_acus/` and `test/bench/`. The ledger cites those paths and they are in that repository, not this one.
 
