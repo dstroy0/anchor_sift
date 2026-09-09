@@ -4,7 +4,7 @@
 # Catalog: LNG-6-002
 #
 # Pull the glossed examples out of an extracted proceedings volume and measure what the English
-# translation throws away, for Section 4.13 of docs/research/anchor-sift.md.
+# translation throws away, for Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/6_oracle/gloss_harvest.py icsnl2016
 #

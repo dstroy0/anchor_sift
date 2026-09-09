@@ -4,7 +4,7 @@
 # Catalog: LNG-4-018
 #
 # Take apart what makes two German books read differently, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/german_variation.py
 #

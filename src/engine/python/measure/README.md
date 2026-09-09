@@ -59,7 +59,7 @@ The permutation null measure carries most of the findings in this work and has o
 
 The shift agreement detector has external ground truth across 453 axes of published crystal cell edges, recovering every one inside one voxel. It also returned an image width and a Vigenère key length with nothing told to it.
 
-Three separate claims in this work merged the two: a positive control was reported for the measure that never received one, a cross media claim was written for a measure that had not been run on two of the media, and an ordering of structure meters was drawn between them. Each was corrected after the fact. Read `docs/research/anchor-sift-ledger.md` before quoting any row.
+Three separate claims in this work merged the two: a positive control was reported for the measure that never received one, a cross media claim was written for a measure that had not been run on two of the media, and an ordering of structure meters was drawn between them. Each was corrected after the fact. Read `theory/workbook` before quoting any row.
 
 ## What a histogram measure cannot see
 

@@ -1,5 +1,5 @@
 {
-  "note": "Published SHA-256 vectors, vendored. Refresh with tools/dev_env/vendor_test_vectors.py.",
+  "note": "Published SHA-256 vectors, vendored. Refresh with maint/vendor_test_vectors.py.",
   "consumed_by": "test/harness.py vectors",
   "files": [
     {

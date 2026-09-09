@@ -4,7 +4,7 @@
 # Catalog: LNG-1-005
 #
 # Test whether the bit volume measures a corpus or the numbering given to its symbols, for Section 4.2 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/1_represent/seating_invariance.py
 #

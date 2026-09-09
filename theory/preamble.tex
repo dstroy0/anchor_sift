@@ -2,7 +2,7 @@
 % PREAMBLE.TEX - shared by every theory under theory/
 % ====================================================================
 % Every book shares this file, so a layout change reaches all of them. Build them with
-% tools/book/build_theory.sh, which compiles twice and fails on a dropped glyph.
+% maint/book/build_theory.sh, which compiles twice and fails on a dropped glyph.
 %
 % Compile with lualatex. pdflatex stops dead on the first Greek letter in the construction chapter,
 % and these books quote 392 IPA characters, 182 spacing modifiers and 175 combining marks besides.
@@ -62,6 +62,10 @@ pdfspacing]{classicthesis}
 \setmathfont{DejaVu Math TeX Gyre}
 \usepackage{array,booktabs,longtable}
 \usepackage{ragged2e}
+% Figures. corpus_derivation.py draws with matplotlib and saves a PDF beside its chapter, because
+% LuaLaTeX includes PDF directly and needs Inkscape on the machine to include an SVG.
+\usepackage{graphicx}
+\graphicspath{{./}{./chapters/}}
 \renewcommand{\cfttoctitlefont}{\hfill\spacedallcaps}
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}

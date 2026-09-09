@@ -4,7 +4,7 @@
 # Catalog: LNG-4-021
 #
 # Take the writing system out and see whether the family comes back, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/indic_common.py
 #

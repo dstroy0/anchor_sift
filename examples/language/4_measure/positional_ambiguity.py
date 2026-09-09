@@ -4,7 +4,7 @@
 # Catalog: LNG-4-031
 #
 # Test whether a word's ambiguity depends on where in the sentence it sits, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/positional_ambiguity.py
 #

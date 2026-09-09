@@ -4,7 +4,7 @@
 # Catalog: LNG-4-003
 #
 # Measure what folding letter case costs each language, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/case_cue.py
 #

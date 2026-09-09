@@ -4,7 +4,7 @@
 # Catalog: LNG-4-034
 #
 # Test whether writing a procedure leaves a mark of its own, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/register_bands.py
 #

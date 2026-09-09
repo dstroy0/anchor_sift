@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-036
 #
-# Separate what a language is from what it is written in, for Section 4.13 of docs/research/anchor-sift.md.
+# Separate what a language is from what it is written in, for Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/script_confound.py
 #

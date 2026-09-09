@@ -4,7 +4,7 @@
 # Catalog: LNG-4-005
 #
 # Split a word's ambiguity into the part about what kind of word it is and the part about which form of
-# it this is, for Section 4.13 of docs/research/anchor-sift.md.
+# it this is, for Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/category_or_inflection.py
 #

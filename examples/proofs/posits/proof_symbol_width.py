@@ -4,7 +4,7 @@
 # Catalog: PRF-x-004
 #
 # Proof of the posit that the symbol width has to match the scale of the structure, from the posits
-# section of docs/research/anchor-sift-ledger.md.
+# section of theory/workbook.
 #
 #   Usage:  python examples/proofs/posits/proof_symbol_width.py
 #

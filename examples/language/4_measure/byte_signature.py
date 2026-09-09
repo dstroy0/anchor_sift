@@ -4,7 +4,7 @@
 # Catalog: LNG-4-002
 #
 # Test whether nɬeʔkepmxcín carries a signature the way every other language measured here does, reading
-# the text as bytes, for Section 4.13 of docs/research/anchor-sift.md.
+# the text as bytes, for Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/byte_signature.py
 #

@@ -4,7 +4,7 @@
 # Catalog: SRC-4-003
 #
 # Measure coordinate quantization in a board layout, for the symbol width discussion in Section 4.10 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/source/4_measure/layout_grid.py layout.txt [more.txt ...]
 #

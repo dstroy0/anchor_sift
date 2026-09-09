@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-012
 #
-# Give the reading more of the language to work with, for Section 4.13 of docs/research/anchor-sift.md.
+# Give the reading more of the language to work with, for Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/deeper_web.py
 #

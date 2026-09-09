@@ -4,7 +4,7 @@
 # Catalog: LNG-4-004
 #
 # Separate the grammar a capital letter carries from the arithmetic of splitting a vocabulary, for
-# Section 4.13 of docs/research/anchor-sift.md.
+# Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/case_or_splitting.py
 #

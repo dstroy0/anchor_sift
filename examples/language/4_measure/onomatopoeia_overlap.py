@@ -4,7 +4,7 @@
 # Catalog: LNG-4-029
 #
 # Test whether two unrelated languages that farmed the same basin keep similar words for sounds, for
-# Section 4.13 of docs/research/anchor-sift.md.
+# Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/onomatopoeia_overlap.py
 #

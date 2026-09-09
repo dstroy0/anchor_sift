@@ -4,7 +4,7 @@
 # Catalog: LNG-4-044
 #
 # Find what the reading is actually keying on when it names a language, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/what_carries_it.py
 #
@@ -36,7 +36,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
-sys.path.insert(0, os.path.join(ROOT, "tools", "instrument"))
+sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
 
 from corpus_gate import load  # noqa: E402
 from measure.web import web  # noqa: E402

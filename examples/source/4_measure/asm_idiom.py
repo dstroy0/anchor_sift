@@ -4,7 +4,7 @@
 # Catalog: SRC-4-001
 #
 # Count choices between semantically identical instruction sequences, for the symbol width discussion in
-# Section 4.10 of docs/research/anchor-sift.md.
+# Section 4.10 of theory/anchor_sift.
 #
 #   Usage:  python examples/source/4_measure/asm_idiom.py corpus.txt [more.txt ...]
 #

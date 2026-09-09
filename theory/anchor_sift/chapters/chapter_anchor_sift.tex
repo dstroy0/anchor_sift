@@ -1104,7 +1104,7 @@ The uniform corpus also reduces to a single survivor, at a marker rate of 0.0049
 
 Section 4.12 finds a boundary and Section 4.12.1 uses it. Neither says whether what it found is a property of language or of the one English sample it was run on, which was written by the author of this document. Two regularities are claimed to hold of every natural language and of nothing else: the frequency of a unit falls as roughly the reciprocal of its rank, and the frequent units are the short ones. Both are consequences of communicating under a fixed cognitive budget. Neither should care what the language is or when it was written.
 
-Six public domain texts, fetched by \texttt{tools/\allowbreak{}corpora/\allowbreak{}fetch\_\allowbreak{}language\_\allowbreak{}corpora.\allowbreak{}py} and read by \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c} given a path. Line endings are folded into the space first, because a plain text file wrapped at a fixed width carries a return every fifty odd bytes and the detector finds the publisher's formatting before it finds the language.
+Six public domain texts, fetched by \texttt{data/\allowbreak{}fetch/\allowbreak{}fetch\_\allowbreak{}language\_\allowbreak{}corpora.\allowbreak{}py} and read by \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c} given a path. Line endings are folded into the space first, because a plain text file wrapped at a fixed width carries a return every fifty odd bytes and the detector finds the publisher's formatting before it finds the language.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1171,7 +1171,7 @@ Two conditions now sit on a candidate boundary and both came out of these failur
 
 Every measurement above counted bytes, and no part of this document justified that. Section 4.10 already establishes the slice as a choice the method has to make, and the byte was chosen here by habit.
 
-A Greek text exposes it. The detector returned \texttt{0x68} at a mean gap of 21.24, which is not the word boundary, and the universals collapsed to a Zipf slope of \texttt{-\allowbreak{}0.\allowbreak{}049}. The cause is visible in the file without knowing what language it holds. UTF-8 announces its own framing, a lead byte from \texttt{0x\allowbreak{}C2} to \texttt{0x\allowbreak{}DF} opening a two byte sequence and every following byte lying between \texttt{0x80} and \texttt{0x\allowbreak{}BF}, and reading that framing out of the Greek text gives 71.3\% two byte sequences against 99.4\% one byte sequences for the English one (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}normalize\_\allowbreak{}symbols.\allowbreak{}py:29-\allowbreak{}58}). A byte level detector on the Greek text was measuring code units, and half a letter is not a symbol.
+A Greek text exposes it. The detector returned \texttt{0x68} at a mean gap of 21.24, which is not the word boundary, and the universals collapsed to a Zipf slope of \texttt{-\allowbreak{}0.\allowbreak{}049}. The cause is visible in the file without knowing what language it holds. UTF-8 announces its own framing, a lead byte from \texttt{0x\allowbreak{}C2} to \texttt{0x\allowbreak{}DF} opening a two byte sequence and every following byte lying between \texttt{0x80} and \texttt{0x\allowbreak{}BF}, and reading that framing out of the Greek text gives 71.3\% two byte sequences against 99.4\% one byte sequences for the English one (\texttt{data/\allowbreak{}normalize\_\allowbreak{}symbols.\allowbreak{}py:29-\allowbreak{}58}). A byte level detector on the Greek text was measuring code units, and half a letter is not a symbol.
 
 The alphabet is finite, which is what makes this recoverable. Greek has been written with a bounded set of letters in every period it was written in, and the text carries 144 distinct symbols, so each one fits in a byte with room left. Re-seating them in order of first appearance, which is arbitrary with respect to every statistic measured, and folding line endings as the byte path already does, the detector returns \texttt{U+0020} as the boundary at a mean gap of 4.42 and the text reads:
 
@@ -1222,7 +1222,7 @@ There is a limit behind all three failures that no better instrument reaches. Ev
 
 \paragraph{4.13.08 Diachronic Drift}
 
-Drift is a distance between two texts, which needs a comparison the per corpus measures do not make. Two frequency bands are compared as a Jaccard overlap (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}measure\_\allowbreak{}drift.\allowbreak{}py:38-\allowbreak{}52}). The top 100 words of an English text are almost all function words and move slowly. Ranks 500 to 2000 are mostly content and follow the subject.
+Drift is a distance between two texts, which needs a comparison the per corpus measures do not make. Two frequency bands are compared as a Jaccard overlap (\texttt{data/\allowbreak{}measure\_\allowbreak{}drift.\allowbreak{}py:38-\allowbreak{}52}). The top 100 words of an English text are almost all function words and move slowly. Ranks 500 to 2000 are mostly content and follow the subject.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1318,7 +1318,7 @@ corpus & twelve most frequent words \\
 
 Every head carries reference to persons. English has \texttt{her}, \texttt{i}, \texttt{she} and \texttt{it}, German has \texttt{ich}, \texttt{du} and \texttt{sie}, Finnish has \texttt{hän}, \texttt{he} and \texttt{hänen}, and Greek carries \texttt{του}, \texttt{τον} and \texttt{τους}. Each also carries a conjunction, and each carries either a copula or a negation or both. Finnish is the sharpest case: it has no articles to occupy those positions, and a proper name, \texttt{juhani}, takes one of them.
 
-The corresponding claim about the rare half is that it carries the actions, which needs counting. No part of speech tagger is available here. English verb inflection stands in for one, and the proxy is weak in one direction: a gerund used as a noun and an adjective built from a participle both carry these endings without being verbs, so every figure is an upper bound (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}head\_\allowbreak{}tail\_\allowbreak{}parts.\allowbreak{}py:31-\allowbreak{}36}).
+The corresponding claim about the rare half is that it carries the actions, which needs counting. No part of speech tagger is available here. English verb inflection stands in for one, and the proxy is weak in one direction: a gerund used as a noun and an adjective built from a participle both carry these endings without being verbs, so every figure is an upper bound (\texttt{data/\allowbreak{}head\_\allowbreak{}tail\_\allowbreak{}parts.\allowbreak{}py:31-\allowbreak{}36}).
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1339,7 +1339,7 @@ The rare half carries more of it in all four, by 1.19 to 2.21 times, and the mem
 
 So the frequent half holds the machinery for referring to people and predicating anything of them, and the rare half holds more of what is being done. That describes the two halves. The description reaches nothing about what any text means, and the statistics in Section 7.4 that separate a corpus from a shuffle of itself do not know that either half exists.
 
-Scoring individual words for clustering against the same permutation null (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}word\_\allowbreak{}burstiness.\allowbreak{}py:44-\allowbreak{}72}) answers two questions, and only the second of them comes out.
+Scoring individual words for clustering against the same permutation null (\texttt{data/\allowbreak{}word\_\allowbreak{}burstiness.\allowbreak{}py:44-\allowbreak{}72}) answers two questions, and only the second of them comes out.
 
 The first was whether words for things people do constantly, instead of things a passage is about, spread more evenly than the rest. Section 7.4.4 predicts they should. A supplied English set of them gives 0.843 against a corpus average of 0.828 for Austen, 0.521 against 0.509 for the King James, and 0.809 against 0.796 for Milton. The direction is the predicted one every time and the size is not worth reporting, between 7 and 20 words cleared the occurrence floor, and the prediction is not established.
 
@@ -1445,7 +1445,7 @@ So the two are not the same kind of claim. Zipf is invariant under re-encoding a
 
 Every result above compares one text in one language against another text in another, and a difference could belong to the language or to the text. Separating those needs replication inside a language, and the sections above have twelve English texts and one or two of everything else.
 
-Four texts were taken in each of seven alphabetic languages from Project Gutenberg's own index for each, which is not a hand chosen selection, and four Chinese novels beside them (\texttt{tools/\allowbreak{}corpora/\allowbreak{}fetch\_\allowbreak{}by\_\allowbreak{}language.\allowbreak{}py}). Everything is measured at character width and not at byte width (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}language\_\allowbreak{}constant.\allowbreak{}py:44-\allowbreak{}70}). That is required for the Chinese to be comparable at all, since one of those novels carries 3164 distinct characters where no byte seating reaches, and it is also the width at which a Chinese symbol is a morpheme instead of a part of one.
+Four texts were taken in each of seven alphabetic languages from Project Gutenberg's own index for each, which is not a hand chosen selection, and four Chinese novels beside them (\texttt{data/\allowbreak{}fetch/\allowbreak{}fetch\_\allowbreak{}by\_\allowbreak{}language.\allowbreak{}py}). Everything is measured at character width and not at byte width (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}language\_\allowbreak{}constant.\allowbreak{}py:44-\allowbreak{}70}). That is required for the Chinese to be comparable at all, since one of those novels carries 3164 distinct characters where no byte seating reaches, and it is also the width at which a Chinese symbol is a morpheme instead of a part of one.
 
 The question is then a variance question. If a quantity belongs to a language, its spread within one language is small against its spread between languages, which is what an analysis of variance reports (\texttt{src/\allowbreak{}engine/\allowbreak{}r/\allowbreak{}hypotheses/\allowbreak{}language\_\allowbreak{}variance.\allowbreak{}R}).
 
@@ -1692,7 +1692,7 @@ Sproat's case is that these statistics do not separate language from anything el
 
 Rao and colleagues answer that sufficiency was never claimed. Their framework is inductive, estimating a posterior over a linguistic hypothesis from several properties at once, of which entropy is one, and they extend the measurement to block entropies up to \(N = 6\) where they report the artificial counterexamples failing to track. They also supply non-linguistic controls that are not artificial, namely DNA, protein, Fortran and music, which occupy entropic ranges away from the linguistic ones. Their own description of the Zipf-Mandelbrot property is that it is "often considered a necessary (though not sufficient) condition for language", which is the asymmetry between Proposition 1 and Proposition 2 reached from a different direction and by different people.
 
-\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's counterexample class was built and run through the same code that produced every other row (\texttt{tools/\allowbreak{}corpora/\allowbreak{}gen\_\allowbreak{}monkey\_\allowbreak{}corpus.\allowbreak{}py}). Characters are drawn independently and a delimiter is dropped in at a fixed rate.
+\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's counterexample class was built and run through the same code that produced every other row (\texttt{data/\allowbreak{}fetch/\allowbreak{}gen\_\allowbreak{}monkey\_\allowbreak{}corpus.\allowbreak{}py}). Characters are drawn independently and a delimiter is dropped in at a fixed rate.
 
 A first version of that control had two arms, one uniform and one weighted by English letter frequencies, with the alphabet fixed at 26 and the delimiter rate at 0.18. Three of those four numbers came from English, and a result resembling English established nothing. The sweep below varies the alphabet from 8 to 64 symbols, the delimiter rate from 0.06 to 0.35, and the letter distribution across uniform, two geometric falls and the English weights, with only the last row carrying any value taken from a language.
 
@@ -1718,7 +1718,7 @@ That one separates completely, and across the whole sweep. Every memoryless arm 
 
 The surviving measure is also the one Section 7.2 can price. A corpus equal to its own shuffle carries no gradient and offers nothing to extract, which is the equilibrium reading holding exactly, and the ratio above one is a distance from that equilibrium.
 
-\textbf{What a cipher does to the surviving measure.} Sproat's stated limit is that a structured non-linguistic system passes this test as well. The question is what it takes to make a text stop passing it. One English corpus was put through transforms that keep every symbol in the same seat range, so the same measurement path reads all of them (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}transform\_\allowbreak{}corpus.\allowbreak{}py}).
+\textbf{What a cipher does to the surviving measure.} Sproat's stated limit is that a structured non-linguistic system passes this test as well. The question is what it takes to make a text stop passing it. One English corpus was put through transforms that keep every symbol in the same seat range, so the same measurement path reads all of them (\texttt{data/\allowbreak{}transform\_\allowbreak{}corpus.\allowbreak{}py}).
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1749,7 +1749,7 @@ One check on that was attempted and does not support anything. Taking every eigh
 
 Every result above comes from a detector that returns one symbol, the one whose gaps are most regular, and that rejects any candidate occurring less often than once in 64 symbols. Two consequences follow from that construction and neither was intended. The occurrence floor admits only frequent symbols, so the detector can only ever report on the head of the distribution. And ranking by regularity treats variability as failure, and a symbol whose occurrences cluster is scored as a poor candidate.
 
-Under a Zipf distribution the head carries the token count and the tail carries the information, because the surprisal of a symbol is \(-\log p\) and the many rare symbols each contribute more of it. Scoring every symbol against the same permutation null instead of one (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}measure\_\allowbreak{}spectrum.\allowbreak{}py:34-\allowbreak{}51}) gives the mean ratio over each half of the symbols by frequency:
+Under a Zipf distribution the head carries the token count and the tail carries the information, because the surprisal of a symbol is \(-\log p\) and the many rare symbols each contribute more of it. Scoring every symbol against the same permutation null instead of one (\texttt{data/\allowbreak{}measure\_\allowbreak{}spectrum.\allowbreak{}py:34-\allowbreak{}51}) gives the mean ratio over each half of the symbols by frequency:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1775,7 +1775,7 @@ So the measure that survived Section 7.4 is the weaker of two, and the stronger 
 
 \paragraph{7.4.2 Invariance and Periodic Obfuscation}
 
-The transforms in Section 7.4 leave the tail measure exactly where the head measure was left, and running them through it characterizes the measure completely. Cosets are scored with \texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}supersample\_\allowbreak{}cosets.\allowbreak{}py}, which splits a corpus at a stride, scores every coset and averages, reading all of the text and spending none of the length.
+The transforms in Section 7.4 leave the tail measure exactly where the head measure was left, and running them through it characterizes the measure completely. Cosets are scored with \texttt{data/\allowbreak{}supersample\_\allowbreak{}cosets.\allowbreak{}py}, which splits a corpus at a stride, scores every coset and averages, reading all of the text and spending none of the length.
 
 A relabeling of the symbols changes nothing, because the measure reads gaps between occurrences and a permutation moves which seat carries which gaps. The single symbol result is identical to four decimals at 0.2815, and over the whole spectrum a substitution is likewise invisible.
 
@@ -1829,7 +1829,7 @@ One reading survives this and is not tested by it. Both corpora that score away 
 
 \paragraph{7.4.4 Scale Localization of Structure}
 
-The null used above shuffles single symbols, which destroys every arrangement at once and cannot say which span an arrangement occupied. Cutting the corpus into blocks of \(B\) symbols and shuffling the blocks keeps everything shorter than \(B\) and destroys everything longer (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}block\_\allowbreak{}shuffle\_\allowbreak{}null.\allowbreak{}py:52-\allowbreak{}59}), so sweeping \(B\) locates the signal.
+The null used above shuffles single symbols, which destroys every arrangement at once and cannot say which span an arrangement occupied. Cutting the corpus into blocks of \(B\) symbols and shuffling the blocks keeps everything shorter than \(B\) and destroys everything longer (\texttt{data/\allowbreak{}block\_\allowbreak{}shuffle\_\allowbreak{}null.\allowbreak{}py:52-\allowbreak{}59}), so sweeping \(B\) locates the signal.
 
 \tiny
 \setlength{\tabcolsep}{2pt}

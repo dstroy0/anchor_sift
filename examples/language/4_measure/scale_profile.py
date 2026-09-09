@@ -4,7 +4,7 @@
 # Catalog: LNG-4-035
 #
 # Describe a text by what it gains at each distance, not by one number, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/scale_profile.py
 #

@@ -4,7 +4,7 @@
 # Catalog: LNG-4-040
 #
 # Count how many readings one written word carries, and what that does over a sentence, for Section 4.13
-# of docs/research/anchor-sift.md.
+# of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/syncretism.py
 #

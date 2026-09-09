@@ -4,7 +4,7 @@
 # Catalog: LNG-6-001
 #
 # Count what a nɬeʔkepmxcín narrative marks as done deliberately and what it marks as merely happening, for
-# Section 4.13 of docs/research/anchor-sift.md.
+# Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/6_oracle/control_values.py HallPhillipsICSNL60
 #

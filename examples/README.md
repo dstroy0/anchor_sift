@@ -51,7 +51,7 @@ A reading that was tried and did not work stays in its subject, next to whatever
 
 ## Fetchers are not examples
 
-Thirty three scripts that download or generate corpora used to sit in here, leaving one directory holding fifty three files. They are in `tools/corpora/` now. Getting a corpus is a separate job from reading one.
+Thirty three scripts that download or generate corpora used to sit in here, leaving one directory holding fifty three files. They are in `data/fetch/` now. Getting a corpus is a separate job from reading one.
 
 ## Nothing in the engine imports from here
 
@@ -66,7 +66,7 @@ python examples/any_corpus/4_measure/collision_entropy.py
 python examples/crystals/6_oracle/proof_positive_control.py
 ```
 
-Most need corpora under `build/`, which comes to about 1.9 GB and is not in git. `tools/corpora/` fetches them. `python tools/maintain/get_deps.py` clones what the C side needs.
+Most need corpora under `build/`, which comes to about 1.9 GB and is not in git. `data/fetch/` fetches them. `python maint/get_deps.py` clones what the C side needs.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-08

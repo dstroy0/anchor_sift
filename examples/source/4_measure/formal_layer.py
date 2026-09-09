@@ -4,7 +4,7 @@
 # Catalog: SRC-4-002
 #
 # Measure the two channels a programming language does not need, across languages, for the symbol width
-# discussion in Section 4.10 of docs/research/anchor-sift.md.
+# discussion in Section 4.10 of theory/anchor_sift.
 #
 #   Usage:  python examples/source/4_measure/formal_layer.py corpus.txt [more.txt ...]
 #

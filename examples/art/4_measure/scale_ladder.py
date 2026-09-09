@@ -4,7 +4,7 @@
 # Catalog: ART-4-004
 #
 # Separate what was made from how it was recorded by measuring across scales, for Section 4.11 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/art/4_measure/scale_ladder.py
 #

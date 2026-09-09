@@ -4,7 +4,7 @@
 # Catalog: ART-4-002
 #
 # Put the two instruments in this work on the same picture and see whether they agree, for Section 4.11 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/art/4_measure/picture_width_agreement.py
 #

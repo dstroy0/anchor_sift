@@ -4,7 +4,7 @@
 # Catalog: PRO-1-002
 #
 # Read a protein as the chain it is instead of as a cloud of points, for Section 4.2 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/proteins/1_represent/protein_chain.py
 #

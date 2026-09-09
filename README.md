@@ -3,64 +3,30 @@
 **Purpose:** Find out what this method measures, what it has read, and where it fails, without running anything first.
 **Scope:** `src/engine/`, `theory/`, `tools/`
 
+## Contents
+
+1. [The algorithm](#the-algorithm)
+2. [Areas of research](#areas-of-research)
+3. [Two instruments, and they are not interchangeable](#two-instruments-and-they-are-not-interchangeable)
+4. [The sift](#the-sift)
+5. [Ports](#ports)
+6. [What it knows](#what-it-knows)
+7. [Whose language this is](#whose-language-this-is)
+8. [The condition of use](#the-condition-of-use)
+9. [Where to start](#where-to-start)
+10. [What is not here](#what-is-not-here)
+11. [Licensing, dual](#licensing-dual)
+12. [A note on how this is written](#a-note-on-how-this-is-written)
+
+## The algorithm
+
 Measure how far something sits from the most disordered arrangement of its own parts.
 
 That is the construction. Every domain below is that sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is built from the object's own parts, so there is no prior to estimate, no training set to collect, and no model of the domain to write.
 
 Building a reference by maximizing entropy under the constraints the object supplies is Jaynes's principle. The departure from it is the free energy above equilibrium.
 
-## The languages here belong to the people who speak them
-
-The corpus everything is measured against is Salishan speech, written down. **This work does not exist without the speakers.**
-
-Every table opens with the person who spoke, before the linguist who published and before anyone who read it into a file. Where a paper cites a published dictionary and never says who spoke, its entry says so instead of guessing. The Salishan book carries that index, written speaker first, from `paper_config.py`, the only file where a speaker's name is typed.
-
-A linguist wrote the paper. A person read the paper into a table. Neither of those is whose language it is.
-
-## The condition of use
-
-These tools read a language and can put one back. `to_phonemes.py`, `encode_percussive.py` and the sound representation work do what they are named for, and `regeneration_limit.py` measures how much of a source a regeneration recovers. Saying otherwise would be a false claim about the code, and a safeguard resting on a false claim is not a safeguard.
-
-Regeneration is faithful near the subject and escapes it with distance. Close to the center of mass of the subject the output is a copy. Move outward and it carries more, until at some distance it leaves the source distribution and is no longer that language. Past that it becomes obvious nonsense and nobody is fooled.
-
-Immediately before that boundary is a narrow band where the output is still coherent and may already not be the language. **Nothing here marks which side of it a result fell on.**
-
-That band is where a native speaker belongs. The question there is *is this mine*, which is a question of anthropology, of philosophy, and for many communities of what is sacred. No amount of measurement turns it into a question an algorithm can answer.
-
-**Every tool for language that comes out of this work requires a human to review its output.** That is a condition of use, not a recommendation. For a language with few remaining speakers, publishing a form drawn from outside the distribution as though it were the language is not a recoverable harm.
-
-## What it knows
-
-Nothing. There is no model, no training, no corpus of examples, no prior. It has no knowledge of language, chemistry or images and never acquires any. It computes one distance and every result came out of that.
-
-It runs on human timescales: seconds on a laptop against a database somebody else published. Its reach is unbounded, because it assumes nothing about the domain and needs only that the object is not already at maximum entropy. Every single reading is finite and carries a stated floor. Where the floor is not cleared, the honest answer is that nothing was read.
-
-## Two instruments, and they are not interchangeable
-
-Most of the confusion this work has had to correct came from reporting one as the other.
-
-| | what it reads | external ground truth |
-|---|---|---|
-| shift agreement detector | a period or an offset, from how often a shift agrees with itself | three times, from published crystal cell edges |
-| permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none |
-
-The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Read the ledger before quoting any row of it.
-
-## What it has read
-
-Eight domains have been run end to end, under `examples/`: language, art, crystals, proteins, sound, source code, arbitrary corpora, and the proofs that pin the numbers. The same six parts read all of them.
-
-Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
-
-A dialect border inside Lushootseed, labeled by Mellesmoen and Kye and then held out, comes back as the stressed schwa, southern, beaten by 1 of 200 random borders over the same forms.
-
-An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length. A protein backbone returns bond lengths of 1.45, 1.52 and 1.33 against chemistry's 1.46, 1.52 and 1.33. None of them was told anything.
-
-The ledger holds the rest, including every row that failed and why.
-
-## The engine, in six parts
-
-One construction runs through all six. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference that partition allows, and read the departure from it. The sift and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
+One construction runs through all six parts. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference that partition allows, and read the departure from it. The sift and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
 
 | part | what it holds |
 |---|---|
@@ -74,6 +40,29 @@ One construction runs through all six. Represent the object as points carrying v
 Everything downstream of `representation` sees points and values and cannot tell a painting from a paragraph, so one instrument reads both. Four subjects have their own directories: `text`, `sound`, `picture` and `structure`, all under `representation`, the only part that knows a domain exists.
 
 `src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora.
+
+## Areas of research
+
+Eight domains have been run end to end, under `examples/`: language, art, crystals, proteins, sound, source code, arbitrary corpora, and the proofs that pin the numbers. The same six parts read all of them.
+
+Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
+
+A dialect border inside Lushootseed, labeled by Mellesmoen and Kye and then held out, comes back as the stressed schwa, southern, beaten by 1 of 200 random borders over the same forms.
+
+An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length. A protein backbone returns bond lengths of 1.45, 1.52 and 1.33 against chemistry's 1.46, 1.52 and 1.33. None of them was told anything.
+
+The ledger holds the rest, including every row that failed and why.
+
+## Two instruments, and they are not interchangeable
+
+Most of the confusion this work has had to correct came from reporting one as the other.
+
+| | what it reads | external ground truth |
+|---|---|---|
+| shift agreement detector | a period or an offset, from how often a shift agrees with itself | three times, from published crystal cell edges |
+| permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none |
+
+The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Read the ledger before quoting any row of it.
 
 ## The sift
 
@@ -107,12 +96,38 @@ The permutation null measure on its own is the part a statistician or corpus lin
 
 A port is correct when it lands inside the reseeding floor of the Python, since each language draws its null from a different generator and none can agree to the last digit. Checked on 200000 symbols over twelve seeds: a clustered sequence reads 0.4228 in Python and 0.4282 in R against a floor of 0.0092, and a memoryless one reads 0.9953 and 0.9933 against a floor of 0.0044. Both gaps sit at about half a floor.
 
+## What it knows
+
+Nothing. There is no model, no training, no corpus of examples, no prior. It has no knowledge of language, chemistry or images and never acquires any. It computes one distance and every result came out of that.
+
+It runs on human timescales: seconds on a laptop against a database somebody else published. Its reach is unbounded, because it assumes nothing about the domain and needs only that the object is not already at maximum entropy. Every single reading is finite and carries a stated floor. Where the floor is not cleared, the honest answer is that nothing was read.
+
+## Whose language this is
+
+The corpus everything is measured against is Salishan speech, written down. **This work does not exist without the speakers.**
+
+Every table opens with the person who spoke, before the linguist who published and before anyone who read it into a file. Where a paper cites a published dictionary and never says who spoke, its entry says so instead of guessing. The Salishan book carries that index, written speaker first, from `paper_config.py`, the only file where a speaker's name is typed.
+
+A linguist wrote the paper. A person read the paper into a table. Neither of those is whose language it is.
+
+## The condition of use
+
+These tools read a language and can put one back. `to_phonemes.py`, `encode_percussive.py` and the sound representation work do what they are named for, and `regeneration_limit.py` measures how much of a source a regeneration recovers. Saying otherwise would be a false claim about the code, and a safeguard resting on a false claim is not a safeguard.
+
+Regeneration is faithful near the subject and escapes it with distance. Close to the center of mass of the subject the output is a copy. Move outward and it carries more, until at some distance it leaves the source distribution and is no longer that language. Past that it becomes obvious nonsense and nobody is fooled.
+
+Immediately before that boundary is a narrow band where the output is still coherent and may already not be the language. **Nothing here marks which side of it a result fell on.**
+
+That band is where a native speaker belongs. The question there is *is this mine*, which is a question of anthropology, of philosophy, and for many communities of what is sacred. No amount of measurement turns it into a question an algorithm can answer.
+
+**Every tool for language that comes out of this work requires a human to review its output.** That is a condition of use, not a recommendation. For a language with few remaining speakers, publishing a form drawn from outside the distribution as though it were the language is not a recoverable harm.
+
 ## Where to start
 
 The research is four books under `theory/`. Build them:
 
 ```sh
-sh tools/book/build_theory.sh
+sh maint/book/build_theory.sh
 ```
 
 | you want | book |
@@ -124,9 +139,9 @@ sh tools/book/build_theory.sh
 
 ## What is not here
 
-The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `tools/Salishan/get_papers.py` fetches the papers from the public archive and the tools rebuild the rest.
+The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `data/salishan/get_papers.py` fetches the papers from the public archive and the tools rebuild the rest.
 
-The hand extractions are forms transcribed out of published papers, so the tables are those papers' text and not this work's to redistribute. They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `tools/maintain/private_sync.py`. Everything that does not read a paper or a table runs without them.
+The hand extractions are forms transcribed out of published papers, so the tables are those papers' text and not this work's to redistribute. They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/verify_private_sync.py`. Everything that does not read a paper or a table runs without them.
 
 ## Licensing, dual
 

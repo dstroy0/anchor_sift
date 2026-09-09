@@ -4,7 +4,7 @@
 # Catalog: LNG-4-037
 #
 # Ask whether the reading follows the language or the writing, with one held fixed at a time, for
-# Section 4.13 of docs/research/anchor-sift.md.
+# Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/script_or_language.py
 #
@@ -37,7 +37,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
-sys.path.insert(0, os.path.join(ROOT, "tools", "instrument"))
+sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
 
 from corpus_gate import load  # noqa: E402
 from measure.web import web  # noqa: E402

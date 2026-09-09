@@ -4,7 +4,7 @@
 # Catalog: ANY-4-007
 #
 # One volume and one reduction for every corpus, with no dimension assigned to any of them, for Section
-# 4.2 of docs/research/anchor-sift.md.
+# 4.2 of theory/anchor_sift.
 #
 #   Usage:  python examples/any_corpus/4_measure/point_volume.py
 #

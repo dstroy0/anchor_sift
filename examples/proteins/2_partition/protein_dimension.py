@@ -4,7 +4,7 @@
 # Catalog: PRO-2-001
 #
 # Read the dimension count off real structures instead of made ones, for Section 4.2 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/proteins/2_partition/protein_dimension.py
 #

@@ -4,7 +4,7 @@
 # Catalog: LNG-2-001
 #
 # Read the settings other people chose for their own languages, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/2_partition/mine_ngram_orders.py [--take]
 #

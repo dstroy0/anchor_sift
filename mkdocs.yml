@@ -56,4 +56,6 @@ extra_javascript:
 
 nav:
   - Home: index.md
+  - Setup: setup.md
+  - Using it: usage.md
   - Research: research/index.md

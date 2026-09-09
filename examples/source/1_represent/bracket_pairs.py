@@ -4,7 +4,7 @@
 # Catalog: SRC-1-001
 #
 # Count constructs whose two halves sit at a variable distance, for the symbol width discussion in
-# Section 4.10 of docs/research/anchor-sift.md.
+# Section 4.10 of theory/anchor_sift.
 #
 #   Usage:  python examples/source/1_represent/bracket_pairs.py corpus.txt [more.txt ...]
 #

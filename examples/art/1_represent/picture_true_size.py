@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: ART-1-001
 #
-# Report the true dimensions of the stored pictures, for Section 4.11 of docs/research/anchor-sift.md.
+# Report the true dimensions of the stored pictures, for Section 4.11 of theory/anchor_sift.
 #
 #   Usage:  python examples/art/1_represent/picture_true_size.py
 #

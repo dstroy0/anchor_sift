@@ -19,15 +19,15 @@ A search kernel in C11, a driver that times it, Python tools that fetch and read
 
 ## The Python tools
 
-**They reach the network.** `tools/Salishan/get_papers.py` fetches from a public archive and is the only thing here that opens a socket. It identifies itself by name and purpose in its user agent. Nothing else in the tree fetches anything.
+**They reach the network.** `data/salishan/get_papers.py` fetches from a public archive and is the only thing here that opens a socket. It identifies itself by name and purpose in its user agent. Nothing else in the tree fetches anything.
 
 **They parse PDFs.** The readers run `pypdf` and `pypdfium2` over files downloaded from the web, which is a real parser surface and it is not this work's parser. Keep those dependencies current, and treat a PDF from anywhere else the way you would treat any untrusted document.
 
-**They write only under `build/`.** Three exceptions, all of them fixed paths: the two generators that emit documentation write chapters under `theory/Salishan/chapters/`, `tools/maintain/vendor_test_vectors.py` writes `test/vectors/`, and `tools/maintain/get_deps.py` clones into `deps/`. `python tools/maintain/write_survey.py` reads every script for the files it opens and reports where each one lands, so that list is checked instead of remembered.
+**They write only under `build/`.** Three exceptions, all of them fixed paths: the two generators that emit documentation write chapters under `theory/Salishan/chapters/`, `maint/vendor_test_vectors.py` writes `test/vectors/`, and `maint/get_deps.py` clones into `deps/`. `python maint/write_survey.py` reads every script for the files it opens and reports where each one lands, so that list is checked instead of remembered.
 
 ## The vendored library
 
-`deps/mmgr` is [MMgr](https://github.com/dstroy0/MMgr), cloned by `python tools/maintain/get_deps.py` so the benches build against its SHA-256, and it keeps its own attribution. Nothing under `deps/` is carried in git and nothing here writes into the clone. Its security properties are its own and are documented in that repository. Nothing here extends or restates them.
+`deps/mmgr` is [MMgr](https://github.com/dstroy0/MMgr), cloned by `python maint/get_deps.py` so the benches build against its SHA-256, and it keeps its own attribution. Nothing under `deps/` is carried in git and nothing here writes into the clone. Its security properties are its own and are documented in that repository. Nothing here extends or restates them.
 
 ## The concern that is not a vulnerability
 

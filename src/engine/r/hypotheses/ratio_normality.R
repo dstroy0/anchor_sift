@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Test whether the per symbol ratios are normally distributed, for the heavy tail posit in
-# docs/research/anchor-sift-ledger.md.
+# theory/workbook.
 #
 #   Usage:  Rscript src/engine/r/hypotheses/ratio_normality.R [build/ratios.csv]
 #

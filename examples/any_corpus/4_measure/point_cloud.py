@@ -4,9 +4,9 @@
 # Catalog: ANY-4-006
 #
 # One representation and one reduction for every corpus in this work, for Section 4.2 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
-#   Usage:  python examples/measure/point_cloud.py
+#   Usage:  python examples/any_corpus/4_measure/point_cloud.py
 #
 # Two instruments are in use in this work and three separate claims merged them, because both return a
 # ratio near one for nothing and a departure for something. A row in a table does not carry which

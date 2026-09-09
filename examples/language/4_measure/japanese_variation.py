@@ -4,7 +4,7 @@
 # Catalog: LNG-4-022
 #
 # Repeat outside Indo-European the one decomposition that was only done inside it, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/japanese_variation.py
 #
@@ -36,7 +36,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
-sys.path.insert(0, os.path.join(ROOT, "tools", "instrument"))
+sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
 
 from corpus_gate import load  # noqa: E402
 from measure.web import web  # noqa: E402

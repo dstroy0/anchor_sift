@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: ART-4-003
 #
-# Measure how much of a set a summary can put back, for Section 4.11 of docs/research/anchor-sift.md.
+# Measure how much of a set a summary can put back, for Section 4.11 of theory/anchor_sift.
 #
 #   Usage:  python examples/art/4_measure/regeneration_limit.py
 #

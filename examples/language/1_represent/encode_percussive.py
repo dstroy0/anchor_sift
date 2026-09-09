@@ -4,7 +4,7 @@
 # Catalog: LNG-1-004
 #
 # Re-encode an existing corpus into a percussive representation, for the universals test in
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 # Section 4.13 measures six alphabetic texts. All six are written in scripts where one mark is one
 # sound. A regularity found in all of them could belong to that script family instead of to

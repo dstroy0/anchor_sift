@@ -4,7 +4,7 @@
 # Catalog: LNG-4-024
 #
 # Test whether languages converge once their numbering is taken away, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/language_convergence.py
 #

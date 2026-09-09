@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Test the halving ladder's loss ratio against collision entropy, for the ledger entry in
-# docs/research/anchor-sift-ledger.md.
+# theory/workbook.
 #
 #   Usage:  Rscript src/engine/r/hypotheses/ladder_analysis.R [build/ladder.csv]
 #

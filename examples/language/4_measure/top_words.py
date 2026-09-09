@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-042
 #
-# Print the most frequent words of each corpus, for Section 4.13 of docs/research/anchor-sift.md.
+# Print the most frequent words of each corpus, for Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/top_words.py corpus.txt [more.txt ...]
 #

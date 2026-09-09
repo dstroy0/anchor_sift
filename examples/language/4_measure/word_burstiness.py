@@ -4,7 +4,7 @@
 # Catalog: LNG-4-045
 #
 # Score individual words for clustering against a permutation null, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/word_burstiness.py corpus.txt [more.txt ...]
 #

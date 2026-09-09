@@ -4,7 +4,7 @@
 # Catalog: LNG-4-038
 #
 # Decide whether the reading belongs to a language or to where the text came from, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/source_or_language.py
 #

@@ -2,9 +2,9 @@
 
 \section{Salish sources}
 
-\textbf{Purpose:} Find the source behind any line in the extracted corpora, and know what is held on disk against what is only cited. \textbf{Scope:} \texttt{build/\allowbreak{}papers/\allowbreak{}}, \texttt{build/\allowbreak{}corpora/\allowbreak{}}, \texttt{build/\allowbreak{}audio/\allowbreak{}}, and \texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}Salishan/\allowbreak{}}
+\textbf{Purpose:} Find the source behind any line in the extracted corpora, and know what is held on disk against what is only cited. \textbf{Scope:} \texttt{build/\allowbreak{}papers/\allowbreak{}}, \texttt{build/\allowbreak{}corpora/\allowbreak{}}, \texttt{build/\allowbreak{}audio/\allowbreak{}}, and \texttt{data/\allowbreak{}salishan/\allowbreak{}}
 
-Everything here is generable using the tools/dev\_env/ scripts or reachable at a stated address. Where a recording is known to exist but is not a member of the corpus, it is noted.
+Everything here is generable using the data/ scripts or reachable at a stated address. Where a recording is known to exist but is not a member of the corpus, it is noted.
 
 \subsection{Speakers}
 
@@ -16,7 +16,7 @@ Fifteen of the twenty papers name their speakers. The other five cite a publishe
 
 \subsection{Text sources, extracted}
 
-Eleven papers, each read by its own file in \texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}Salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}} and each with a hand extraction beside it in \texttt{hand\_\allowbreak{}extraction/\allowbreak{}}. Every token of the language in each is accounted for in the corpus built from it, and \texttt{coverage\_\allowbreak{}check.\allowbreak{}py} is what says so. For the two Lyon papers that statement is about the extracted text, which is the font's own encoding and not what the page prints. The section below on those two says what that means.
+Eleven papers, each read by its own file in \texttt{data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}} and each with a hand extraction beside it in \texttt{hand\_\allowbreak{}extraction/\allowbreak{}}. Every token of the language in each is accounted for in the corpus built from it, and \texttt{coverage\_\allowbreak{}check.\allowbreak{}py} is what says so. For the two Lyon papers that statement is about the extracted text, which is the font's own encoding and not what the page prints. The section below on those two says what that means.
 
 A twelfth, \texttt{2012\_\allowbreak{}Robertson}, now has both. \texttt{extract\_\allowbreak{}robertson.\allowbreak{}py} reads it, \texttt{coverage\_\allowbreak{}check.\allowbreak{}py} puts it at 100 percent like the other eleven, and both hand-extraction checks grade it.
 
@@ -36,7 +36,7 @@ Section 3.1.1 argues from two other languages, and the \texttt{who} column carri
 
 The fourth column of its two tables is whichever language Nater is comparing against, and \texttt{extract\_\allowbreak{}nater\_\allowbreak{}etymology.\allowbreak{}py} finds where that column starts by the token that opens it: one of the sixteen abbreviations section 1.1 defines, a language the body spells out, or a reconstruction opening with an asterisk. Haisla, Heiltsuk, Oowekyala and Kwak̓wala are North Wakashan. Proto-Athabascan, Eyak, Carrier and Tahltan are Na-Dene. Nootka, Quileute, Chinook and Yurok are four families past that. Squamish, Sechelt, Shuswap, Lillooet and Halkomelem are Salish and still not this language. The \texttt{who} column carries all of it, the reader puts zero forms under the wrong language, and only Bella Coola reaches the pure file.
 
-The paper prints that column's own language at the head of every table page, as \texttt{Line Gloss BC CS Cognates}, and the reader reads it from there (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}Salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}extract\_\allowbreak{}nater\_\allowbreak{}etymology.\allowbreak{}py:80}). A bare \texttt{*ƛ‟ǝp} under that head is Coast Salish and holds nothing in itself that an explicit tag would have supplied. Reading the head moved 326 reconstructions out of the unclassified file and under the name of the group they reconstruct.
+The paper prints that column's own language at the head of every table page, as \texttt{Line Gloss BC CS Cognates}, and the reader reads it from there (\texttt{data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}extract\_\allowbreak{}nater\_\allowbreak{}etymology.\allowbreak{}py:80}). A bare \texttt{*ƛ‟ǝp} under that head is Coast Salish and holds nothing in itself that an explicit tag would have supplied. Reading the head moved 326 reconstructions out of the unclassified file and under the name of the group they reconstruct.
 
 \textbf{Section 4 prints each of its entries twice.} \texttt{AKW'A} and \texttt{ʔak‟ʷa} are one word, and section 2.1 gives the mapping: \texttt{ʷ} is written \texttt{w}, \texttt{c} is \texttt{ts}, \texttt{ƛ‟} is \texttt{tl‟}, \texttt{ɬ} is \texttt{lh}, \texttt{x} is \texttt{c}, \texttt{χ} is \texttt{x}, and \texttt{ʔ} is \texttt{7}. Both are Bella Coola and the table records both. Only the phonemic column reaches the pure file, because two orthographies in one stream would put the byte pairs of a transliteration into the measurement of a language.
 
@@ -60,7 +60,7 @@ A fifteenth, \texttt{ICSNL59\_\allowbreak{}Nater\_\allowbreak{}2\_\allowbreak{}f
 
 A fourteenth, \texttt{Wolfe\allowbreak{}ICSNL60}, is a different shape from all of them and has both. It is a comparative reconstruction. Instead of one speaker telling one story it cites lexical suffixes from published dictionaries of eighteen languages, laid out in columns under a two-letter abbreviation. Its hand extraction is 772 rows and verifies in both directions with nothing left over. The section below on what a pure corpus is for says why it writes a \texttt{.\allowbreak{}pure.\allowbreak{}tsv} keyed by language where every other reader writes a flat \texttt{.\allowbreak{}pure.\allowbreak{}txt}.
 
-Nothing here needs fetching by hand. \texttt{python tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}Salishan/\allowbreak{}get\_\allowbreak{}papers.\allowbreak{}py} reads the archive index, downloads these eleven and converts them. Every address below was checked; the local filename in \texttt{build/\allowbreak{}papers/\allowbreak{}} is the PDF's own name.
+Nothing here needs fetching by hand. \texttt{python data/\allowbreak{}salishan/\allowbreak{}get\_\allowbreak{}papers.\allowbreak{}py} reads the archive index, downloads these eleven and converts them. Every address below was checked; the local filename in \texttt{build/\allowbreak{}papers/\allowbreak{}} is the PDF's own name.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -95,7 +95,7 @@ Records are named speaker first: \texttt{<spoken by>\_\allowbreak{}<paper>\_\all
 
 \subsection{Hand extraction}
 
-The reader is not the source of the corpus. Each paper is read by a person into \texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}Salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}<paper>.\allowbreak{}oracle.\allowbreak{}tsv}, which says for every form in the paper what it is, and the reader is graded against that.
+The reader is not the source of the corpus. Each paper is read by a person into \texttt{data/\allowbreak{}salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}<paper>.\allowbreak{}oracle.\allowbreak{}tsv}, which says for every form in the paper what it is, and the reader is graded against that.
 
 Sixteen of the twenty verify against their paper in both directions: no form written that the paper does not hold, no token in the paper that no row covers. The other four are the papers whose extracted text is not what the page says, and what their remaining disagreements measure is the damage in that text. The two sections after this one are about them.
 

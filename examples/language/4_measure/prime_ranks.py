@@ -4,7 +4,7 @@
 # Catalog: LNG-4-032
 #
 # Where the semantic primes fall in a frequency ranking, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/prime_ranks.py corpus.txt [more.txt ...]
 #

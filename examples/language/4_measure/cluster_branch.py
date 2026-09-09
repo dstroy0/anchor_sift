@@ -4,7 +4,7 @@
 # Catalog: LNG-4-009
 #
 # Find out whether the case branch can be gated by a group or has to be gated by a table, for Section
-# 4.13 of docs/research/anchor-sift.md.
+# 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/case_or_splitting.py   (writes build/case_branch.csv)
 #           python examples/language/4_measure/cluster_branch.py

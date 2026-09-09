@@ -4,7 +4,7 @@
 # Catalog: LNG-1-002
 #
 # Put every language into one binary alphabet and read the web there, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/1_represent/binary_web.py
 #

@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-027
 #
-# Compare the vocabulary of two corpora, for the drift measurement in docs/research/anchor-sift.md.
+# Compare the vocabulary of two corpora, for the drift measurement in theory/anchor_sift.
 #
 # Section 4.13 measures each text on its own. Drift is a claim about the distance between two of them,
 # so it needs a comparison the per corpus measures cannot give.

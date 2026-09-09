@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-025
 #
-# Test whether a language's coefficient identifies it, for Section 4.13 of docs/research/anchor-sift.md.
+# Test whether a language's coefficient identifies it, for Section 4.13 of theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/language_identity.py
 #

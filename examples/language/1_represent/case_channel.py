@@ -4,7 +4,7 @@
 # Catalog: LNG-1-003
 #
 # Measure letter case as a channel, for the symbol width discussion in Section 4.10 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/1_represent/case_channel.py corpus.txt [more.txt ...]
 #

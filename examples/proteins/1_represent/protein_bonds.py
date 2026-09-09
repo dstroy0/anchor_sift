@@ -4,7 +4,7 @@
 # Catalog: PRO-1-001
 #
 # Represent a protein by its bonds in the order the chain was assembled, for Section 4.2 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/proteins/1_represent/protein_bonds.py
 #

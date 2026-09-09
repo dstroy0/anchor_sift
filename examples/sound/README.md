@@ -20,7 +20,7 @@ That mistake cost a published ordering, and it is why the only script here is a 
 
 **Stage four depends on stage three.** Without that null there is no background to measure a departure from.
 
-The recordings are fetched by `tools/corpora/vocalization_domain.py` and `tools/corpora/infrasound_domain.py`.
+The recordings are fetched by `data/fetch/vocalization_domain.py` and `data/fetch/infrasound_domain.py`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-08

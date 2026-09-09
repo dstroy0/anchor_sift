@@ -4,7 +4,7 @@
 # Catalog: LNG-4-015
 #
 # Score the reading against a family whose branchings are ordered, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/dravidian_structure.py
 #

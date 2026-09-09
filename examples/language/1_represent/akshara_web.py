@@ -4,7 +4,7 @@
 # Catalog: LNG-1-001
 #
 # Read a writing system at the unit it puts its context in, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/language/1_represent/akshara_web.py
 #

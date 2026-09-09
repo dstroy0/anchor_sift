@@ -13,7 +13,7 @@
 # Those render as a broken page and a reader sees them. Prose findings are printed and let through,
 # because the prose backlog predates the check and a hook nobody can satisfy gets turned off.
 #
-# To see everything and fail on all of it:  python tools/prose/docs_check.py --strict
+# To see everything and fail on all of it:  python maint/prose/docs_check.py --strict
 # To commit past it once:                   git commit --no-verify
 #
 # WHY THIS RESOLVES ITS OWN PATHS
@@ -26,7 +26,7 @@
 set -u
 
 REPO=$(cd "$(dirname "$0")/.." && pwd)
-CHECK="$REPO/tools/prose/docs_check.py"
+CHECK="$REPO/maint/prose/docs_check.py"
 
 if [ ! -f "$CHECK" ]; then
     echo "  commit stopped: no docs check at $CHECK"
@@ -48,7 +48,7 @@ status=$?
 # exits 2, because the question cannot be asked at all without it, and a check that reads nothing
 # is never a pass. The second one catches everybody outside this work, so ANCHOR_SIFT_BYPASS=1
 # carries the tool's own --bypass in and the commit goes through with the bypass printed.
-CITATIONS="$REPO/tools/maintain/citations.py"
+CITATIONS="$REPO/maint/citations.py"
 if [ -f "$CITATIONS" ]; then
     # Held in a variable and not a file. A hook writes nothing beside the source, and build/ is
     # not there on a fresh clone.

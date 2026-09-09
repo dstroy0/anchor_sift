@@ -4,7 +4,7 @@
 # Catalog: PRF-x-003
 #
 # Proof of the posit that a constructed null must delete the property being asked about, from the posits
-# section of docs/research/anchor-sift-ledger.md.
+# section of theory/workbook.
 #
 #   Usage:  python examples/proofs/posits/proof_null_property.py
 #

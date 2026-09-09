@@ -4,7 +4,7 @@
 # Catalog: ANY-4-004
 #
 # Corrupt a corpus at known rates and report what each detector sees, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/any_corpus/4_measure/noise_detection.py corpus.sym
 #

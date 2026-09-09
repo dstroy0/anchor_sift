@@ -4,7 +4,7 @@
 # Catalog: ANY-3-002
 #
 # Build and dismantle collections, to test what word burstiness is reading, for Section 4.13 of
-# docs/research/anchor-sift.md.
+# theory/anchor_sift.
 #
 #   Usage:  python examples/any_corpus/3_reference/heterogeneity_control.py
 #
@@ -30,7 +30,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
-SCORER = os.path.join(ROOT, "tools", "dev_env", "word_burstiness.py")
+SCORER = os.path.join(ROOT, "examples", "language", "4_measure", "word_burstiness.py")
 
 # English single works, so the walk is not a change of language
 JOINED = ("english_1813_austen", "english_1667_milton_epic", "english_1720_pope_iliad_epic")

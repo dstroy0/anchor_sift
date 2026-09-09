@@ -26,7 +26,7 @@ No ESP-IDF, no device toolchain, no Python, and nothing from the vendored librar
 | `bench/bench_sift.c` | candidates, skip distance and anchor independence over byte strings. Not wired up |
 | `bench/bench_entropy.c`, `bench/bench_ab.c`, `bench/bench_cycles.c` | not wired up |
 
-Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` used to sit in `bench/`; it is MMgr's test support and it lives in MMgr, at `deps/mmgr/test/support/`. Run `python tools/maintain/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it: `bench_corpora` fills every corpus with splitmix64.
+Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` used to sit in `bench/`; it is MMgr's test support and it lives in MMgr, at `deps/mmgr/test/support/`. Run `python maint/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it: `bench_corpora` fills every corpus with splitmix64.
 
 `bench_corpora` is shared so the scaling bench and the dispatch bench cannot disagree about what skewed means. One measures a rate against a prediction and the other scores a rule with a clock, and a rule scored on corpora the prediction never saw is a rule scored against nothing.
 

@@ -15,7 +15,7 @@ A script that answers a question nobody has assigned to a subject. A first attem
 
 **A failure does not belong here.** A stage that was tried and did not work is evidence and it stays in its subject beside the readings that came after it. The Dravidian family failing to appear under a codepoint reading sits in `language/4_measure`, next to the two readings that repaired it, because a reader who finds only the repair does not know what it repaired.
 
-**A fetcher does not belong here.** Acquiring a corpus is not a stage of reading one. Those are in `tools/corpora/`.
+**A fetcher does not belong here.** Acquiring a corpus is not a stage of reading one. Those are in `data/fetch/`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-08
