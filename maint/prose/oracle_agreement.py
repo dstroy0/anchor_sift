@@ -86,7 +86,7 @@ def main():
 
     out.write("\n  %s\n" % APART.replace("\\", "/"))
     if not os.path.isdir(APART):
-        out.write("  no per source corpora. Run data/fetch/fetch_claude_prose.py first.\n\n")
+        out.write("  no per source corpora. Run maint/data/fetch/fetch_claude_prose.py first.\n\n")
         out.flush()
         return 2
 

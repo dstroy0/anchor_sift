@@ -36,7 +36,7 @@ Where a subject has no script for a stage, the directory is absent. That means n
 | `language` | written text: books, encyclopedia articles, two parallel translations | 1, 2, 3, 4, 6 |
 | `art` | paintings, stored as bytes that are really a plane | 1, 2, 4 |
 | `proteins` | structures from the Protein Data Bank | 1, 2, 5 |
-| `crystals` | published cells from the Crystallography Open Database | 6 |
+| `crystallography` | published cells from the Crystallography Open Database | 1, 2, 3, 4, 5, 6 |
 | `sound` | animal and human vocalizations | 1 |
 | `source` | programming languages, assembly, board layouts | 1, 4 |
 | `proofs` | proofs of the posits the ledger cites | `posits` |
@@ -51,7 +51,7 @@ A reading that was tried and did not work stays in its subject, next to whatever
 
 ## Fetchers are not examples
 
-Thirty three scripts that download or generate corpora used to sit in here, leaving one directory holding fifty three files. They are in `data/fetch/` now. Getting a corpus is a separate job from reading one.
+Thirty three scripts that download or generate corpora used to sit in here, leaving one directory holding fifty three files. They are in `maint/data/fetch/` now. Getting a corpus is a separate job from reading one.
 
 ## Nothing in the engine imports from here
 
@@ -63,10 +63,10 @@ Two scripts import a sibling from the same directory. `cluster_branch.py` uses `
 
 ```
 python examples/any_corpus/4_measure/collision_entropy.py
-python examples/crystals/6_oracle/proof_positive_control.py
+python examples/crystallography/6_oracle/proof_positive_control.py
 ```
 
-Most need corpora under `build/`, which comes to about 1.9 GB and is not in git. `data/fetch/` fetches them. `python maint/get_deps.py` clones what the C side needs.
+Most need corpora under `build/`, which comes to about 1.9 GB and is not in git. `maint/data/fetch/` fetches them. `python maint/deps/get_deps.py` clones what the C side needs.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-08

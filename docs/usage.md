@@ -35,12 +35,11 @@ Only `representation` knows a domain exists. It has `text`, `sound`, `picture` a
 | | what it operates on |
 |---|---|
 | `src/` | points and values, no domain. The engine and the ports |
-| `data/` | external material. Fetchers, and one subject's pipeline |
-| `analysis/` | a corpus, through `src/`. Surveys the books ask for |
 | `examples/` | a corpus, through `src/`. Numbered demonstrations |
-| `maint/` | the repository itself. Records, gates, prose checks, the book build |
+| `theory/` | the books, and the ledger they cite |
+| `maint/` | the repository itself. Records, gates, prose checks, fetchers, the book build |
 
-Each of `data/`, `analysis/` and `maint/` carries a README saying what belongs in it.
+`maint/` is sorted into eleven categories and holds no loose scripts. `maint/README.md` states what belongs in each, including `maint/data/` for external material and `maint/analysis/` for the surveys the books ask for.
 
 ## Reading the result
 
@@ -62,10 +61,10 @@ The floor moves with sample size. One computed on a large corpus bounds nothing 
 | `proofs` | 4 | the numbers that pin the ledger |
 | `proteins` | 4 | backbone coordinates |
 | `source` | 4 | source code as a symbol stream |
-| `crystals` | 1 | cell edges, against published ones |
+| `crystallography` | 6 | cell edges, against published ones |
 | `sound` | 1 | recordings as bit fields |
 
-Every example carries a catalog number in its header, `LNG-4-012` and so on. A citation to that number survives the file moving. `maint/catalog.py` is the registry.
+Every example carries a catalog number in its header, `LNG-4-012` and so on. A citation to that number survives the file moving. `maint/catalog/catalog.py` is the registry.
 
 ## The search kernel
 

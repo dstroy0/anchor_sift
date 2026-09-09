@@ -1,0 +1,79 @@
+\chapter{The evidence}
+
+\textbf{Purpose:} Report every number the sweep produced, including the ones that went furthest wrong.
+\textbf{Scope:} \texttt{examples/\allowbreak{}crystals/\allowbreak{}6\_\allowbreak{}oracle/\allowbreak{}proof\_\allowbreak{}positive\_\allowbreak{}control.\allowbreak{}py}, run 2026-09-09
+
+\section{What was swept}
+
+Sixty four mineral names were put to the Crystallography Open Database by text search. Every entry returned with right angles was fetched, tiled, voxelized at 0.25 angstroms and asked for its period along each of its three axes.
+
+\begin{longtable}{@{}p{0.55\textwidth}p{0.37\textwidth}@{}}
+\toprule
+\endhead
+names searched & 64 \\
+minerals that returned a usable entry & 55 \\
+structures read & 151 \\
+axes measured & 453 \\
+\bottomrule
+\end{longtable}
+
+One structure contributes up to three axes, and every axis is an independent question carrying its own published answer. A wrong result cannot hide in a small denominator, which a sweep buys and a sample does not. The first version of this control took three minerals and returned three exact answers, and a coincidence still lives at three.
+
+\section{The result}
+
+\begin{longtable}{@{}p{0.55\textwidth}p{0.37\textwidth}@{}}
+\toprule
+\endhead
+axes inside one voxel of 0.25 angstroms & 453 of 453, 100.0 percent \\
+mean absolute error & 0.0124 angstroms \\
+median absolute error & 0.0108 angstroms \\
+90th percentile & 0.0243 angstroms \\
+99th percentile & 0.0404 angstroms \\
+worst single axis & 0.0554 angstroms \\
+axes inside 0.05 angstroms & 452 of 453, 99.8 percent \\
+axes inside 0.01 angstroms & 199 of 453, 43.9 percent \\
+\bottomrule
+\end{longtable}
+
+The failure stated in advance was an axis missing its published edge by more than one voxel. No axis did. The worst was 0.0554 angstroms, which is under a quarter of the grid the measurement was taken on.
+
+\section{The sign, and it carries more than the magnitude}
+
+\begin{longtable}{@{}p{0.55\textwidth}p{0.37\textwidth}@{}}
+\toprule
+\endhead
+mean signed error & $-0.0067$ angstroms \\
+axes read long & 120 \\
+axes read short & 327 \\
+\bottomrule
+\end{longtable}
+
+\textbf{This is a bias and it should be reported as one.} The detector reads short about three times as often as it reads long, and the mean sits below zero by roughly half the median absolute error. A symmetric error would put those counts near even.
+
+The cause is not established here. The candidate explanation is the voxel floor: a site is assigned to the voxel it falls in, which truncates toward the origin, and a period accumulated over many truncated positions would come back short. That is a hypothesis about a rounding rule, it predicts a bias of about half a voxel spread over the tiling, and it has not been tested by re-running with a different rounding. Until it is, the bias is a measured fact with no mechanism attached.
+
+Nothing in the headline result depends on which explanation is right. A bias of $-0.0067$ against a tolerance of 0.25 does not move any axis across the threshold.
+
+\section{The four worst axes}
+
+\begin{longtable}{@{}p{0.20\textwidth}p{0.14\textwidth}p{0.06\textwidth}p{0.16\textwidth}p{0.16\textwidth}p{0.14\textwidth}@{}}
+\toprule
+mineral & entry & axis & published & read & error \\
+\midrule
+\endhead
+corundum & 1544906 & c & 2.8446 & 2.9000 & $+0.0554$ \\
+herzenbergite & 9008295 & a & 4.1480 & 4.1000 & $-0.0480$ \\
+quartz & 4339381 & c & 15.4780 & 15.5250 & $+0.0470$ \\
+herzenbergite & 9008785 & b & 11.1800 & 11.1389 & $-0.0411$ \\
+\bottomrule
+\end{longtable}
+
+Herzenbergite appears twice, and it is the mineral that failed outright before the harmonic family was capped at two members. It is the hardest case in the set and it is now inside tolerance on both entries.
+
+Note that the two largest errors have opposite signs. The worst case is not the bias, it is the resolution of the straddling ratio described in the quantization chapter, and those are separate effects.
+
+\section{What this table is not}
+
+It is not a measurement of any of these minerals. Every published edge in the table was measured by somebody else, to more precision than this reaches, and is the input the recovered value is graded against.
+
+It is also not 453 independent structures. It is 453 axes over 151 structures over 55 minerals, and several minerals contribute many entries. Treating the 453 as independent samples of anything would overstate what a sweep of 55 minerals shows.

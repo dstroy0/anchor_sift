@@ -12,8 +12,15 @@
 # Built at -O2 whatever the build type says. A Debug bench measures the debug build, which is not a
 # number anyone wants.
 #
-#   sift/    the arms and the dispatcher, which is the thing under test
-#   bench/   the drivers that build corpora, count or time, and print rows
+#   portable/          the arms and the dispatcher in C11 alone, which is the thing under test
+#   vectorized_win/    the same operations under the widest SIMD an x86 Windows build detects
+#   vectorized_linux/  the same, detected on an x86 Linux build
+#   vectorized_rpi/    the same, on ARM NEON
+#   bench/             the drivers that build corpora, count or time, and print rows
+#
+# The portable arm is the reference and every other arm is checked against it. An arm that disagrees
+# with portable is wrong, whatever it measures, and the vectorized directories exist to be faster at
+# an answer portable already fixed.
 #
 # The kernel is compiled twice from one source. The counted build carries probe and verification
 # counters; the timed build is the same object it was without them. Two builds instead of one flag
@@ -30,17 +37,30 @@ set(SIFT_WARNINGS $<$<C_COMPILER_ID:GNU,Clang>:-O2 -Wall -Wextra>)
 
 # The kernel as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a
 # measurement.
-add_library(anchor_sift_kernel STATIC sift/anchor_sift.c)
-target_include_directories(anchor_sift_kernel PUBLIC sift)
+add_library(anchor_sift_kernel STATIC portable/anchor_sift.c)
+target_include_directories(anchor_sift_kernel PUBLIC portable)
 target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
 
 # The same source with the counters compiled in. ANCHOR_SIFT_COUNT_READS is PUBLIC so a driver
 # linking this library sees the same value the library was built with, which is what keeps a driver
 # from calling anchor_sift_counters_reset against a kernel that does not define it.
-add_library(anchor_sift_kernel_counted STATIC sift/anchor_sift.c)
-target_include_directories(anchor_sift_kernel_counted PUBLIC sift)
+add_library(anchor_sift_kernel_counted STATIC portable/anchor_sift.c)
+target_include_directories(anchor_sift_kernel_counted PUBLIC portable)
 target_compile_definitions(anchor_sift_kernel_counted PUBLIC ANCHOR_SIFT_COUNT_READS=1)
 target_compile_options(anchor_sift_kernel_counted PRIVATE ${SIFT_WARNINGS})
+
+# The exact integer as a fixed width limb array, which is the same value the python engine ingests
+# and a different transform of it. Portable C11 with no intrinsic and no 128 bit type, so it builds
+# anywhere and is the arm every vectorized one is checked against.
+add_library(anchor_exact_portable STATIC portable/exact_limbs.c)
+target_include_directories(anchor_exact_portable PUBLIC portable)
+target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
+
+# Prints what the limb arithmetic produced and decides nothing about whether it is right.
+# maint/check_exact_limbs.py recomputes every row with python integers and compares.
+add_executable(bench_exact bench/bench_exact.c)
+target_link_libraries(bench_exact PRIVATE anchor_exact_portable)
+target_compile_options(bench_exact PRIVATE ${SIFT_WARNINGS})
 
 # The generated corpora and the two statistics a dispatch decision is made from. Shared so the
 # scaling bench and the dispatch bench cannot disagree about what skewed means: one measures a rate

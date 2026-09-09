@@ -1,7 +1,7 @@
 # The engine in C
 
 **Purpose:** Build and run the sift and its benches using only a C11 compiler, and find which bench answers which question.
-**Scope:** `src/engine/c/sift/`, `src/engine/c/bench/`
+**Scope:** `src/engine/c/portable/`, `src/engine/c/vectorized_win/`, `src/engine/c/vectorized_linux/`, `src/engine/c/vectorized_rpi/`, `src/engine/c/bench/`
 
 ```
 cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
@@ -17,7 +17,7 @@ No ESP-IDF, no device toolchain, no Python, and nothing from the vendored librar
 
 | file | what it is |
 |---|---|
-| `sift/anchor_sift.{c,h}` | three arms and a dispatcher, with no clock and no output |
+| `portable/anchor_sift.{c,h}` | three arms and a dispatcher, with no clock and no output |
 | `bench/bench_corpora.{c,h}` | the generated corpora and the two statistics a dispatch decision reads |
 | `bench/bench_lattice.c` | soundness, where the claim actually lives |
 | `bench/bench_scaling.c` | what the sift costs per alignment as the corpus grows |
@@ -26,7 +26,7 @@ No ESP-IDF, no device toolchain, no Python, and nothing from the vendored librar
 | `bench/bench_sift.c` | candidates, skip distance and anchor independence over byte strings. Not wired up |
 | `bench/bench_entropy.c`, `bench/bench_ab.c`, `bench/bench_cycles.c` | not wired up |
 
-Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` used to sit in `bench/`; it is MMgr's test support and it lives in MMgr, at `deps/mmgr/test/support/`. Run `python maint/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it: `bench_corpora` fills every corpus with splitmix64.
+Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` used to sit in `bench/`; it is MMgr's test support and it lives in MMgr, at `deps/mmgr/test/support/`. Run `python maint/deps/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it: `bench_corpora` fills every corpus with splitmix64.
 
 `bench_corpora` is shared so the scaling bench and the dispatch bench cannot disagree about what skewed means. One measures a rate against a prediction and the other scores a rule with a clock, and a rule scored on corpora the prediction never saw is a rule scored against nothing.
 

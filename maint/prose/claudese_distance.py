@@ -380,7 +380,7 @@ def main():
         claudese_text = fixture_text
         pole_name = os.path.relpath(FIXTURE, ROOT).replace("\\", "/") + "  (hand written, small)"
     else:
-        out.write("  no assistant pole. Run data/fetch/fetch_claude_prose.py\n")
+        out.write("  no assistant pole. Run maint/data/fetch/fetch_claude_prose.py\n")
         out.flush()
         return 1
 

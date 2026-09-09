@@ -25,7 +25,7 @@ The 20 hand extraction tables under `theory/Salishan/` are not carried in git. E
 
 The derivations built on them are here in full: the ledger, the bound, the checks and the code.
 
-The corpora, page renders and audio under `build/` are also absent and run to about 1.9 GB. `data/salishan/get_papers.py` fetches the papers and the tools rebuild the rest.
+The corpora, page renders and audio under `build/` are also absent and run to about 1.9 GB. `maint/data/salishan/get_papers.py` fetches the papers and the tools rebuild the rest.
 
 ## Checks
 

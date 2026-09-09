@@ -156,9 +156,9 @@ sh maint/book/build_theory.sh
 
 ## What is not here
 
-The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `data/salishan/get_papers.py` fetches the papers from the public archive and the tools rebuild the rest.
+The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `maint/data/salishan/get_papers.py` fetches the papers from the public archive and the tools rebuild the rest.
 
-The hand extractions are forms transcribed out of published papers, so the tables are those papers' text and not this work's to redistribute. They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/verify_private_sync.py`. Everything that does not read a paper or a table runs without them.
+The hand extractions are forms transcribed out of published papers, so the tables are those papers' text and not this work's to redistribute. They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/corpus/verify_private_sync.py`. Everything that does not read a paper or a table runs without them.
 
 ## Licensing, dual
 

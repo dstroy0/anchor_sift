@@ -665,13 +665,28 @@ CHECKED = (".md", ".py", ".c", ".h")
 # once, and from anywhere but the root they matched nothing: the run reported zero files, zero
 # findings and success. A commit hook calling it that way lets every commit through and reports the
 # prose as checked.
-REPOSITORY = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+REPOSITORY = os.path.dirname(os.path.abspath(__file__))
+# Walks up to the repository instead of counting directories to it. Counting is what broke
+# every path in this tree the last time anything moved.
+while (REPOSITORY != os.path.dirname(REPOSITORY)) \
+        and not os.path.isdir(os.path.join(REPOSITORY, "src", "engine")):
+    REPOSITORY = os.path.dirname(REPOSITORY)
+
 # Every directory holding writing of this project's own. It named tools/ until that directory was
 # split into data/, analysis/ and maint/, and the run then read 188 files instead of 317 and still
-# exited 0. A root that no longer exists is not an error this could see, so the count at the foot
-# is the thing to watch after a move.
+# exited 0. data/ and analysis/ later moved under maint/ and stayed listed here as though they were
+# still at the top, which is the same defect a second time.
+#
+# A root that no longer exists is not an error this could see. The guard below is what turns that
+# into one, and the count at the foot is still the thing to watch after a move.
 DEFAULT_ROOTS = tuple(os.path.join(REPOSITORY, one)
-                      for one in ("docs", "src", "examples", "data", "analysis", "maint"))
+                      for one in ("docs", "src", "examples", "maint"))
+
+for one in DEFAULT_ROOTS:
+    if not os.path.isdir(one):
+        raise SystemExit("docs_check: %s is listed as a prose root and does not exist. A missing "
+                         "root reads as zero findings and exits 0, which passes every commit."
+                         % one)
 
 
 def private_roots():

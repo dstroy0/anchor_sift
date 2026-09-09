@@ -10,7 +10,7 @@ Run from the repository root. Everything writes under \texttt{build/\allowbreak{
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
 python -m pip install pypdf pypdfium2 requests numpy soundfile
-python data/salishan/get_papers.py
+python maint/data/salishan/get_papers.py
 \end{lstlisting}
 
 That fetches the eleven papers the readers need and writes \texttt{build/\allowbreak{}papers/\allowbreak{}<name>.\allowbreak{}txt} for each. Nothing else in this directory works until it has run, and it is the only step that touches the network. \texttt{pypdfium2} renders a page to an image, which two of the eleven papers need and the other nine do not. \texttt{numpy} and \texttt{soundfile} are for the sound representation and nothing in the text pipeline imports them; \texttt{soundfile} is what decodes the mp3s in \texttt{build/\allowbreak{}audio/\allowbreak{}}, which are not fetched by this script.
@@ -50,13 +50,13 @@ Steps 2 and 3 apply only to a paper the fetch flagged \texttt{NOT THE PAGE}, whi
 \subsection{Where the tools are}
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
-data/salishan/get_papers.py                         the archive
-data/salishan/pdf2png.py                            the page as an image
-data/salishan/draft_page_text.py                    the page as a first draft
-data/salishan/hand_extraction/                      the control
-data/salishan/anchor_sift_algorithmic_extraction/                          the algorithm
-data/salishan/corpus_script_extraction/             the eleven readers
-data/salishan/anchor_sift_algorithmic_extraction/   the sift applied
+maint/data/salishan/get_papers.py                         the archive
+maint/data/salishan/pdf2png.py                            the page as an image
+maint/data/salishan/draft_page_text.py                    the page as a first draft
+maint/data/salishan/hand_extraction/                      the control
+maint/data/salishan/anchor_sift_algorithmic_extraction/                          the algorithm
+maint/data/salishan/corpus_script_extraction/             the eleven readers
+maint/data/salishan/anchor_sift_algorithmic_extraction/   the sift applied
 salishan_corpus/analysis/sound/          the recordings as bits, in the closed corpus
 \end{lstlisting}
 
@@ -106,8 +106,8 @@ Checks each reader against the hand extraction. Grades whether it found each for
 \texttt{19-\allowbreak{}Lyon\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}78} and \texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon} are set in a font that renumbers its glyph codes and declares no map back to Unicode. Their \texttt{build/\allowbreak{}papers/\allowbreak{}*.\allowbreak{}txt} holds the font's alphabet and not what the page prints. \texttt{refs.\allowbreak{}md} has the detail, the other four papers in the same class, and why the damaged text is kept.
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
-python data/salishan/pdf2png.py 2013_Lindley_Lyon 1 70
-python data/salishan/draft_page_text.py 2013_Lindley_Lyon
+python maint/data/salishan/pdf2png.py 2013_Lindley_Lyon 1 70
+python maint/data/salishan/draft_page_text.py 2013_Lindley_Lyon
 \end{lstlisting}
 
 The first renders each page to \texttt{build/\allowbreak{}pages/\allowbreak{}<stem>/\allowbreak{}page\_\allowbreak{}NNN.\allowbreak{}png}. Arguments are the stem, the first page, the last page, and optionally a scale, which defaults to 3 and puts a 12pt body around 50 pixels tall, where a stacked diacritic stops being a guess.

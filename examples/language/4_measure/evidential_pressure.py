@@ -6,7 +6,7 @@
 # Test whether languages that mark where a claim came from are found where the surroundings are hardest,
 # for Section 4.13 of theory/anchor_sift.
 #
-#   Usage:  python data/fetch/wals_fetch.py        (once, to get the tables)
+#   Usage:  python maint/data/fetch/wals_fetch.py        (once, to get the tables)
 #           python examples/language/4_measure/evidential_pressure.py
 #
 # The claim is that where many things in the surroundings kill people, the pressure to teach is severe,

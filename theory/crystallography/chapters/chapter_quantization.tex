@@ -1,0 +1,28 @@
+\chapter{Where the precision comes from}
+
+\textbf{Purpose:} Explain how an answer lands finer than the grid it was measured on, since that is the part a reader is right to disbelieve.
+\textbf{Scope:} \texttt{recover\_\allowbreak{}lattice\_\allowbreak{}period} in \texttt{measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py}
+
+\section{The objection}
+
+The grid is 0.25 angstroms. Errors below that are reported. A reader should stop there and ask how a measurement resolves anything finer than the spacing it samples at, because most of the time the answer is that it does not and the extra digits are decoration.
+
+\section{Quantization moves the period, it does not destroy it}
+
+A cell edge is almost never a whole number of voxels. On a 4.148 angstrom axis at 0.25 the period is 16.59 voxels. Successive tiles therefore do not land on the same lag: they land alternately on 16 and on 17, and the share of the agreement sitting at the upper lag carries the fraction between them.
+
+So the quantity is not lost at quantization, it is moved into the ratio between two adjacent lags. The recovered edge is the lag plus that fraction, times the voxel. Nothing is interpolated between samples that were never taken. Both lags were measured, and their relative weight is a measured quantity too.
+
+\textbf{This is why tiling matters beyond having more than one period.} The fraction is only readable because many tiles are present and their offsets accumulate. One period gives one lag and no ratio.
+
+\section{What answers the objection}
+
+The measurement does. 453 axes, every one inside a voxel, median absolute error 0.0108 angstroms against a grid of 0.25, each against a cell edge somebody else published. Rerunning the sweep against the same entries either reproduces that or it does not.
+
+Whether the mechanism above is the standard account of why a period estimate beats the sample spacing is a separate question, and this chapter does not answer it.
+
+\section{What this does not license}
+
+It does not license reporting arbitrary precision. The fraction is a ratio of two agreement scores, and both are noisy. What the sweep supports is an error distribution, reported in the evidence chapter with its worst case and its sign, and not a claim about any single axis being exact.
+
+An entry whose two straddling lags score nearly equally has a fraction near one half, and the least information about which side to fall on. That is visible in the reported agreement column, and the larger errors sit there.

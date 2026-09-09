@@ -1,0 +1,33 @@
+% Hand-written. markdown_to_latex.py is retired: theory/ is the source.
+%
+% Compile from this directory so the shared inputs resolve:
+%     latexmk -pdf -outdir=../../build/theory/crystallography main.tex
+\documentclass[11pt,paper=a4,twoside,openright,titlepage,
+headinclude,footinclude,BCOR=5mm]{scrbook}
+
+\input{../preamble.tex}
+
+\begin{document}
+\frenchspacing
+\emergencystretch=3em
+\hbadness=10000
+\vbadness=10000
+\hfuzz=8pt
+\cfoot*{}
+\ofoot*{\pagemark}
+
+\frontmatter
+\pagestyle{plain}
+\include{frontmatter/titlepage}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{scrheadings}
+
+\include{chapters/chapter_whose_result}
+\include{chapters/chapter_the_measurement}
+\include{chapters/chapter_evidence}
+\include{chapters/chapter_quantization}
+\include{chapters/chapter_where_it_stops}
+\end{document}

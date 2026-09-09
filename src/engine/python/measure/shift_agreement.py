@@ -120,6 +120,73 @@ def lattice_agreement(grid, axis, lag):
     return float(((left == right) & occupied).sum()) / float(tried)
 
 
+def exact_agreement(placed, lag):
+    """How many exact places carry the same value as the place exactly one lag away.
+
+    `placed` maps an integer position to the value sitting there, at whatever scale the caller
+    chose. A lag is an integer at that same scale, so the comparison is equality between integers
+    and carries no tolerance at all. Nothing is sampled and nothing is bounded.
+
+    This is the sparse counterpart of agreement(). That one walks an array and samples every
+    STRIDE positions to keep a long sequence affordable; a point set has nothing to walk, the
+    occupied places are few, and a dictionary lookup costs the same whatever the scale. Precision
+    is free here in a way it is not there, and a larger scale runs no slower.
+
+    The value has to be compared and not just the position. Ignoring it reads a rocksalt cell at
+    half its published edge, correctly: the two sublattices interleave, so the positions alone do
+    repeat every a/2 and only the elements distinguish the two halves. lattice_agreement compares
+    element codes on the grid for the same reason.
+    """
+    return sum(1 for one, value in placed.items() if placed.get(one + lag) == value)
+
+
+def recover_exact_period(placed, families=2):
+    """The period of an exact point set, read off the whole of its own difference set.
+
+    Every difference between two places is a candidate, and that set is complete: a period that
+    agrees with anything at all appears in it. There is no sweep, no ceiling and no stride, so
+    nothing here narrows what can be found.
+
+    The family rule matches recover_lattice_period and it is needed for the same reason. A
+    set with period P agrees with itself at 2P and 3P as well, so the tallest lag alone reports a
+    harmonic. A candidate is scored as the mean over itself and its multiples, and the family is
+    capped at `families` members: a family growing as the candidate shrinks lets a short wrong
+    candidate win by holding more members, needing only one good lag among them.
+
+    Returns (period, agreement at it) as exact integers, or (None, None) where nothing agreed.
+    """
+    if len(placed) < 3:
+        return None, None
+
+    ordered = sorted(placed)
+    candidates = set()
+    for at, first in enumerate(ordered):
+        for second in ordered[at + 1:]:
+            candidates.add(second - first)
+    if not candidates:
+        return None, None
+
+    scores = {}
+    for lag in candidates:
+        scores[lag] = exact_agreement(placed, lag)
+
+    best = None
+    period = None
+    for candidate in sorted(candidates):
+        family = [scores[candidate * step] for step in range(1, families + 1)
+                  if (candidate * step) in scores]
+        if len(family) < families:
+            continue
+        mean = sum(family) / float(len(family))
+        if (best is None) or (mean > best):
+            best = mean
+            period = candidate
+
+    if period is None:
+        return None, None
+    return period, scores[period]
+
+
 def recover_lattice_period(grid, axis, most=None):
     """The period along one axis of a grid, and the fraction between the two lags straddling it.
 
