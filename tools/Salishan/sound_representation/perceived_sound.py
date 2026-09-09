@@ -72,7 +72,7 @@ PROSODY_BITS = 4
 TINY = 1e-12
 
 # A listener with no measured loss. An audiogram is the frequencies a hearing test was run at and
-# the loss in dB at each of them, which is how an audiologist reports one. The loss is taken off
+# the loss in dB at each of them, as an audiologist reports one. The loss is taken off
 # each band before loudness. A band a listener cannot hear stops reaching the code.
 NO_LOSS = ((250.0, 500.0, 1000.0, 2000.0, 4000.0, 8000.0), (0.0,) * 6)
 
@@ -103,8 +103,8 @@ def band_matrix(width, rate, centers, gain):
     recording, because neither the window nor the rate changes inside one.
 
     The edges are the geometric means between neighboring centers. A band near 8000 Hz is wide
-    and one near 80 Hz is narrow. That is the shape of a person's own frequency resolution, and it
-    is what the log spacing was chosen for.
+    and one near 80 Hz is narrow. A person's own frequency resolution has that shape, and the log
+    spacing was chosen to follow it.
     """
     at = numpy.fft.rfftfreq(width, 1.0 / rate)
     edges = numpy.concatenate(([centers[0] ** 2 / centers[1]],

@@ -173,7 +173,7 @@ int main(void)
                 if (needle_len >= (corpus_len / 4u))
                 {
                     // A needle that is a noticeable share of the corpus admits no reading of how the
-                    // cost behaves as the corpus grows, and that is the only question here.
+                    // cost behaves as the corpus grows, the only question here.
                     continue;
                 }
 

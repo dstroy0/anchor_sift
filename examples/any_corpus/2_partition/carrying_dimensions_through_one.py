@@ -16,7 +16,7 @@
 # Hilbert curve never jumps, since consecutive positions along it are always neighbors. The
 # difference between them is what the jumps cost and the remainder is what folding costs.
 #
-# The two do not have one winner, and that is the finding. Hilbert is the better reading of the
+# The two do not have one winner. Hilbert is the better reading of the
 # exponent and the worse reading of the dimension count, because a jump is a block completing and
 # which block completes is which axis just turned over.
 

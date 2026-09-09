@@ -15,7 +15,7 @@
 # not, and neither does one handed out by a re-slice.
 #
 # The corpora that read strongest are exactly the ones whose bytes carry a real order, and the ones that
-# read near zero are the ones numbered here. That is what this checks. Each corpus is measured under its
+# read near zero are the ones numbered here. This checks for exactly that. Each corpus is measured under its
 # own numbering and then under random renumberings of the same symbols, which leave every frequency and
 # every position untouched and change only which number each symbol was given.
 #

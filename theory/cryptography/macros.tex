@@ -1,0 +1,11 @@
+% A shim, not a second copy of the macros.
+%
+% theory/preamble.tex ends with \input{../macros.tex}, which LaTeX resolves against the directory
+% lualatex was started in. Every other book compiles from theory/<book>/, one level down, where
+% that path lands on theory/macros.tex correctly. This book compiles from
+% theory/cryptography/<book>/, one level deeper, where the same path lands here instead.
+%
+% So this file forwards to the real one. Editing the shared preamble to use a robust path would
+% reach every book in the tree for the sake of one, and a second copy of the macros would be a
+% second thing to keep true.
+\input{../../macros.tex}

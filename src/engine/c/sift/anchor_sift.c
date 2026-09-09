@@ -54,7 +54,7 @@ void anchor_sift_counters_reset(void)
  * @param[in]  wanted     How many to choose.
  * @param[in]  needle_len Length of the needle they index.
  * @note One draw per cell keeps the spread and gives the anchor set no period of its own. An even
- *       comb shares a period with whatever the domain carries, and that is the failure it avoids.
+ *       comb shares a period with whatever the domain carries, the failure this avoids.
  */
 static void choose_offsets(size_t *offsets, size_t wanted, size_t needle_len)
 {

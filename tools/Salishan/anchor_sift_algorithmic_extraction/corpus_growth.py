@@ -6,8 +6,8 @@
 #
 #   Usage:  python tools/Salishan/anchor_sift_algorithmic_extraction/corpus_growth.py
 #
-# A corpus of n members is a sample of a distribution, not the distribution. That is why a candidate
-# that looks nothing like anything already in the corpus is not thereby disqualified: at this n the
+# A corpus of n members is a sample of a distribution, not the distribution. A candidate that looks
+# nothing like anything already in the corpus is therefore not disqualified: at this n the
 # corpus does not yet cover its own support, and support is still climbing.
 #
 # So the question is not whether a candidate resembles a member. It is whether the corpus with the

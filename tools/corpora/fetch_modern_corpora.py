@@ -14,7 +14,7 @@
 #
 # The shards are 430 MB of Parquet each and the row data needed is a small fraction of one. Parquet
 # carries a footer holding the byte offset of every row group, so an HTTP range reader can fetch the
-# footer, then fetch one row group, and skip the rest. That is what HttpRanged exists for.
+# footer, then fetch one row group, and skip the rest. HttpRanged exists for that.
 
 import io
 import json

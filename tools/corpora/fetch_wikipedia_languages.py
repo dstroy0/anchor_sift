@@ -38,7 +38,7 @@ MOST_REQUESTS = 40
 # One language at a time with a pause between requests. Six at once with no pacing was refused outright
 # for every language, and a public interface that answers 429 is asking to be asked more slowly. The
 # waits are kept short: quadrupling four times means a language whose requests are all refused takes
-# hours to report that it failed, which is how the first attempt spent its time.
+# hours to report that it failed. The first attempt spent its time exactly that way.
 WORKERS = 1
 PAUSE = 1.1
 RETRIES = 2

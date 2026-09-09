@@ -16,7 +16,7 @@
 # Three of those axes missed before the family rule was fixed, all short by a factor near two thirds.
 # The cause was dimensional. Family size grew as the candidate shrank. A short wrong candidate held
 # more multiples and only had to catch one good lag among them. A cell edge is not a whole
-# number of voxels, and that is what supplied the good lag: on a 4.148 angstrom axis the period is
+# number of voxels, and the remainder supplied the good lag: on a 4.148 angstrom axis the period is
 # 16.59 voxels, so lag 16 sits 0.59 away while lag 33 sits 0.18 from twice it. Lag 33 therefore
 # agreed better than the fundamental, and it fell inside the family of 11 and outside the family of
 # 16. Capping every family at two multiples equalized the comparison and the three came back.

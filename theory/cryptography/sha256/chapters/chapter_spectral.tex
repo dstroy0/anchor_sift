@@ -1,0 +1,81 @@
+\chapter{The spectral reading}
+
+\textbf{Purpose:} Read the dependency matrix with every cell rather than its largest, which finds a law the maximum cannot see and then confirms the null harder than the maximum can. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}sac.\allowbreak{}cu}.
+
+\section{Why a maximum was the wrong reading}
+
+Every strict avalanche reading in the literature and in this work takes the largest of \(131{,}072\) cells and discards the other \(131{,}071\). That is what makes it peak at \(\sqrt{2 \ln N}\) whatever the function does. A structure spread thinly across many cells is invisible to a maximum and plain to a sum.
+
+SHA-256 is built from rotations, and a rotation makes bit \(j\) depend on bit \(j - r\). If any of that survives into the dependency matrix it appears as a function of \((\text{input bit} - \text{output bit}) \bmod 32\), spread over every word pair rather than concentrated anywhere. Folding the cells onto that residue puts \(4096\) of them behind each number instead of one.
+
+The fold is signed rather than absolute, deliberately. Taking magnitudes first would fold noise into a positive bias and manufacture a signal in every class.
+
+\section{A ridge that does not move}
+
+\begin{center}
+\begin{tabular}{rrrrl}
+\toprule
+rounds & residue & sigmas & walked & verdict \\
+\midrule
+12 & 26 & 15773.15 & --- & structure \\
+13 & 26 & 13724.82 & \(+0\) & structure \\
+14 & 26 & 11676.61 & \(+0\) & structure \\
+15 & 26 & 9627.78 & \(+0\) & structure \\
+16 & 26 & 7580.54 & \(+0\) & structure \\
+17 & 26 & 5546.15 & \(+0\) & structure \\
+18 & 26 & 3551.43 & \(+0\) & structure \\
+19 & 26 & 1916.81 & \(+0\) & structure \\
+20 & 26 & 789.13 & \(+0\) & structure \\
+21 & 26 & 160.61 & \(+0\) & structure \\
+22 & 1 & 13.13 & \(+7\) & collapsed \\
+23 & 12 & 2.09 & --- & flat \\
+32 & 8 & 2.07 & --- & flat \\
+64 & 31 & 2.04 & --- & flat \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The ridge does not walk.} Residue twenty-six dominates for ten consecutive rounds. It is a fixed point of the composition rather than something rotating, which answers the question of whether an inverse rotation could unwind it: there is no moving structure to chase.
+
+Not claimed: which rotation residue twenty-six corresponds to. After twelve rounds the effective residue is a composition of many rotations, and attributing it to \(\Sigma_1\)'s \(\mathrm{ROTR}25\) or \(\Sigma_0\)'s \(\mathrm{ROTR}22\) because they sit nearby would be reading a coincidence.
+
+\section{The decay is quantized}
+
+The first four differences are \(2048.33\), \(2048.21\), \(2048.83\) and \(2047.24\). One sigma of the class mean at that sample is \(1.526 \times 10^{-5}\), so \(2048\) sigmas is exactly \(1/32\).
+
+\textbf{The ridge loses one thirty-second of its amplitude per round} --- one bit position of thirty-two going diffuse --- holding to four decimal places for five rounds, then accelerating into collapse at twenty-two. It is a quantized linear decay and not a smooth exponential, which is what a function made of discrete operations should produce and what a continuous model would not predict.
+
+\subsection{Verified at four times the sample}
+
+The law came out of a sample where \(2048\) sigmas happened to equal one thirty-second, and \(2048\) is \(2^{11}\) while the trials were \(2^{18}\). Every clean power of two in that arithmetic came from the chosen sample size, and a law exact at only one sample size is the shape of the measurement rather than a law.
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+ & \(2^{18}\) trials & \(2^{20}\) trials & ratio \\
+\midrule
+round 12 & 15773.15 & 31546.74 & 2.0001 \\
+round 13 & 13724.82 & 27450.50 & \\
+round 14 & 11676.61 & 23354.13 & \\
+\midrule
+differences & 2048.33 & 4096.24 & \\
+ & 2048.21 & 4096.37 & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Sigma doubled for four times the trials, which is \(\sqrt{k}\) exactly, while the absolute deviation held at \(4096 \times 2^{-17} = 1/32\). That is the signature of signal, and the precise opposite of the refuted avalanche dip, which held its sigma and shrank its deviation.
+
+\section{The strongest null in this work}
+
+Past round twenty-three the fold reads \(2.09\), \(2.07\) and \(2.04\) against a null peak of \(2.63\), at three depths, with \(4096\) cells behind each number rather than one. That is roughly sixty-four times the sensitivity the maximum had, finding nothing.
+
+The harmonic sweep agrees. The round-twenty-three profile wanders within two sigmas with no visible pattern, and its discrete transform peaks at \(f_{13}\) with magnitude \(1.80\) against a null peak of \(2.35\): no repeating trend, no harmonics, no side lobes.
+
+\section{What the spectral reading settles}
+
+\textbf{Structure exists and is lawful} at rounds twelve to twenty-one: a fixed residue, a quantized decay, verified at two sample sizes.
+
+\textbf{It is gone by round twenty-three}, at sixty-four times the sensitivity of every earlier reading.
+
+\textbf{The unwinding idea is answered negatively} rather than left untried. Nothing rotates, so there is nothing an inverse rotation could follow.

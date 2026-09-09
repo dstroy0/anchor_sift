@@ -27,11 +27,11 @@
 #   missing      the inventory lists it and the tree does not have it. Something was deleted, or a
 #                checkout is partial, and any measurement citing it is now unreproducible.
 #   unrecorded   the tree has it and the inventory does not. A file arrived without being entered,
-#                which is how an untracked table ends up inside a published result.
+#                and an untracked table ends up inside a published result that way.
 #   changed      both have it and the bytes differ. A repair was applied and the inventory was not
 #                rewritten, so every hash quoted since is wrong.
 #
-# Any of the three exits non-zero. That is what a commit gate needs. Run it with no
+# Any of the three exits non-zero, leaving it usable as a commit gate. Run it with no
 # argument to check, and with --write only when the disagreement is one you meant.
 #
 # ROW COUNTS ARE PART OF THE RECORD

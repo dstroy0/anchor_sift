@@ -506,8 +506,8 @@ def settled(papers, carried):
     where it stops changing.
 
     Returns the running values and the count of leading significant digits that agree across the
-    last STEADY of them. A bound still falling with every paper has none, and that is the honest
-    result while the extraction is still buying accuracy: the exponent is the finding and the
+    last STEADY of them. A bound still falling with every paper has none, and reporting none is
+    honest while the extraction is still buying accuracy: the exponent is the finding and the
     mantissa is a number in flight.
     """
     running = []
@@ -642,7 +642,7 @@ def main():
     running, stable = settled(sound, carried)
 
     # Built in memory, then handed to the converter that produced every other chapter. The document
-    # is written as markdown here because that is what these 69 lines already say, and converting
+    # is written as markdown here because these 69 lines already say it, and converting
     # once at the end is cheaper than restating all of them in LaTeX.
     with io.StringIO() as handle:
         handle.write("# Corpus derivation\n\n")

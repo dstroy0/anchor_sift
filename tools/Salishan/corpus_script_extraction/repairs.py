@@ -23,7 +23,7 @@
 #
 # Collapse is nowhere and cannot be anywhere. It destroys a distinction instead of disguising it:
 # page kʷ and page wist both arrive as w and nothing separates them afterward. A paper carrying a
-# collapse is read off its rendered pages, and that is the only answer there is.
+# collapse is read off its rendered pages, and there is no other answer.
 #
 # Transposition is not here because the one family that needs it needs a whole conversion table with
 # it. lyon_encoding.py is that table and it is that font's grain, not a general one.

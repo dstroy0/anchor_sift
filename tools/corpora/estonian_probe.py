@@ -8,7 +8,7 @@
 #
 # Estonian is one of the three languages in the test that separated descent from contact, and it behaved
 # worst of the three: its nearest of everything held was Romanian, which is neither its family nor a
-# neighbor it borrowed from, and that is what a reading close to noise looks like. Finnish went to Swedish and
+# neighbor it borrowed from. A reading that close to noise looks like this. Finnish went to Swedish and
 # Hungarian to Czech, which are contact relationships and mean something. Romanian means nothing.
 #
 # So the Uralic result rests on two languages behaving sensibly and one behaving randomly, and the

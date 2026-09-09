@@ -26,8 +26,8 @@
 #              that turn up together in one telling are related by that telling.
 #
 # The web is per language and is written to build/corpora/<language>.web.tsv. Nothing here decides
-# what a language is: the who column of the extraction says, and where it says northern or southern
-# that is what it says, because the paper said so.
+# what a language is: the who column of the extraction says, and where it says northern or southern,
+# the paper said so.
 
 import collections
 import glob
@@ -180,8 +180,8 @@ def concept_profile(edges):
 def by_language():
     """Every extraction's rows regrouped under the language its who column names.
 
-    A paper whose who column says northern and southern is two languages here, because that is what
-    the paper says its forms are. The dialect border is not being discovered at this step and is not
+    A paper whose who column says northern and southern is two languages here, because the paper
+    says its forms are. The dialect border is not being discovered at this step and is not
     being guessed at: it is being read off the extraction, so anything measured against it later is
     measured against a label that came from the paper.
     """

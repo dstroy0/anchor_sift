@@ -65,7 +65,7 @@ Three separate claims in this work merged the two: a positive control was report
 
 Collision entropy is permutation invariant. A corpus and its own shuffle carry identical values, exactly and not approximately, so no entropy of this order separates a structured domain from a rearrangement of the same symbols.
 
-The C bench measures that failing in the open. On a corpus of period sixteen the histogram predicts one alignment in 65536 survives four anchors, and one in sixteen actually does, a factor of 4096 that converges as the corpus grows. That is why the permutation null had to exist and why a second instrument was not a convenience.
+The C bench measures that failing in the open. On a corpus of period sixteen the histogram predicts one alignment in 65536 survives four anchors, and one in sixteen actually does, a factor of 4096 that converges as the corpus grows. The permutation null exists for that reason, and a second instrument was never a convenience.
 
 ## Two cautions the numbers here have earned
 

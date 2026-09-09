@@ -1,0 +1,51 @@
+\chapter{Refuted, with what killed each}
+
+\textbf{Purpose:} Keep the dead claims rather than delete them, because a refuted claim with its cause attached is the cheapest kind of knowledge and several of these were load-bearing for a while. \textbf{Scope:} the whole of the SHA-256 work.
+
+\section{This work's own casualties}
+
+\textbf{Forward converges, the inverse does not.} Refuted. Read as a statistic rather than as a threshold crossing, the inverse scales as \(\sqrt{N}\) at every depth from nine to fourteen: ratios of \(4.00\), \(4.00\), \(3.99\), \(3.99\), \(4.22\), \(3.83\) for sixteenfold more pairs. Both directions have walls; only the shape of the approach differs.
+
+\textbf{The inverse has no wall, sixteen and climbing.} Refuted. It dies at fifteen and round sixteen reads \(2.438\), \(1.317\), \(0.881\) as pairs rise, which is noise shrinking. One more round per fourfold increase was the decay rate being measured, not a trend to project.
+
+\textbf{The word statistic goes blind at round ten.} Refuted. The per-bit refinement sees more where there is more --- inverse round fourteen reads \(18.5\) by bit against \(7.5\) by word --- but no depth in either direction reads by bit and not by word.
+
+\textbf{Forward round ten is small rather than off.} Refuted. At \(2^{30}\) pairs a continued slope predicts \(9.706\) and it reads \(2.386\), unmoved across \(2^{26}\), \(2^{28}\), \(2^{30}\). The same extrapolation on the inverse as a control lands within four significant figures at all three sizes.
+
+\textbf{Decay is geometric, \(29.7\times\) forward against \(2.1\times\) inverse.} Refuted. Sweeping from round one shows both accelerate; that comparison put forward at its steepest against the inverse four rounds earlier on the same shape. The first fitted slope of \(1.469\) per round was fitted through rounds pinned at the statistic's ceiling.
+
+\textbf{The peak destruction rate tracks word width.} Refuted. Peaks read \(3.50\), \(2.05\), \(1.67\), \(3.54\), \(5.24\), \(3.03\), \(4.86\) bits against widths of \(2.00\) to \(5.00\), and the column is not measurable at that resolution regardless.
+
+\textbf{The schedule pair is lossy because it carries shifts.} Refuted. All four functions have rank thirty-two and kernel zero.
+
+\textbf{The sparse words step by four.} Refuted. The exact trace floors the nonce at \(2, 1, 6, 2, 4, 2, 7, 6, 5, 2, 11\) across \(W_{18}\) to \(W_{28}\); only \(W_{19}\) is a genuine path and the floor-two words are \(18, 21, 23, 27\), spaced three, two, four. The step was which cancellations cleared the sampling floor.
+
+\textbf{A minimum weight per word measures sparsity.} Refuted. A minimum is a tail statistic: at \(2^{27}\) pairs chance alone gives a one-bit word once per word. The rate against \(33/2^{32}\) is the measurement.
+
+\textbf{A floor of one means the path is reachable.} Refuted. \(W_0\) floors at one on \(W_{33}\) and was never observed in \(2^{25}\) pairs. The floor wants a carry-free chain and that chance falls with its length.
+
+\textbf{Nonce bit thirty-one carries \(180\) sigma.} Refuted. The sweep covered \(2^{31}\) nonces, so bit thirty-one is zero in every sample against an expectation computed over the full space. The kernel now takes a sixty-four-bit bound and always sweeps the whole \(2^{32}\).
+
+\textbf{The \(5.0\%\) word-round saving is worth \(5.0\%\) of runtime.} Refuted on the CPU. Implemented, exactly correct on two hundred thousand nonces, and measured at \(0.998\), \(0.978\), \(1.079\), \(0.957\) --- median about \(1.00\). Word-rounds bound arithmetic, not runtime. On the device, where the kernel is ALU and power bound, the same change is worth \(4.34\%\).
+
+\textbf{A single timed pass can resolve a five percent effect.} Refuted. One pass each read \(0.935\) to \(1.166\), a spread wider than the effect.
+
+\textbf{Register pressure limits the device kernel.} Refuted. Thirty-eight registers, zero spill stores, zero spill loads, and occupancy capped by the thread limit rather than by registers.
+
+\textbf{Single-bit masks can see linear structure.} Refuted by its own control. A \(\mathrm{GF}(2)\)-linear function's output bit is an exclusive-or of many input bits and is balanced against any single one, so the known-linear arm read the noise floor exactly like every other arm. The linear axis remains untested.
+
+\textbf{The width sweep measures annihilated state functions at several widths.} Refuted. That is the raw-amount object; in the clamped object \(\Sigma_0\) is clean at every width and only width twelve carries a kernel.
+
+\section{Taken from the published literature}
+
+\textbf{SHA-256 fails the strict avalanche criterion at rounds fifty-four to fifty-seven.} Refuted. Measured at three sample sizes, the absolute deviation halves each time \(k\) quadruples --- \(1/\sqrt{k}\) exactly --- while the sigma holds at \(4.5\) across a sixteenfold range. The threshold crossed is \(5.327\) sigmas against a null that peaks at \(4.85\) unaided.
+
+\textbf{SHA-256 never meets the strict avalanche criterion at any round.} Refuted. The persistent \(0.21\%\) is \(4.2\) sigmas at a million trials, \emph{below} what the maximum of \(131{,}072\) null draws produces without any function at all.
+
+\textbf{Choice and majority dampen each other, ratio \(0.508\).} Reproduced at \(0.5082\) and then explained. Choice alone gives a SAC-mean of \(0.01562361\), majority alone \(0.01560888\), and the two together \(0.01562336\) --- identical to choice alone to two parts in ten million. The pair does not dampen; majority contributes no diffusion that choice does not already provide, so measured is \(A\) while the independence model predicts about \(2A\) and the ratio is one half by construction.
+
+\section{The shape they share}
+
+Five of these are one error: a maximum over \(N\) cells compared against a threshold built for a single test. Two published, three here. Two more are a trend read from a threshold crossing rather than from the statistic. Two more are a baseline measured under different conditions from the effect.
+
+None of them required new cryptanalysis to kill. All of them required measuring the null the same way as the effect.

@@ -51,7 +51,7 @@ A reading that was tried and did not work stays in its subject, next to whatever
 
 ## Fetchers are not examples
 
-Thirty three scripts that download or generate corpora used to sit in here, which is how one directory ended up holding fifty three files. They are in `tools/corpora/` now. Getting a corpus is a separate job from reading one.
+Thirty three scripts that download or generate corpora used to sit in here, leaving one directory holding fifty three files. They are in `tools/corpora/` now. Getting a corpus is a separate job from reading one.
 
 ## Nothing in the engine imports from here
 

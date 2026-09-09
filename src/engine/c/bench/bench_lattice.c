@@ -22,7 +22,7 @@
  *       the caller built. It never learns what a symbol is, because it only ever asks whether two of
  *       them agree. A core that cannot see either one cannot depend on either one.
  * @note Counts, not cycles. Every number here is a property of the data and the geometry, identical on
- *       every part, so nothing needs a board and nothing here is a timing claim.
+ *       every part, so nothing needs a board.
  */
 #include <complex.h>
 #include <math.h>
@@ -832,8 +832,8 @@ static ptrdiff_t s_hypercube_points[PATTERN_POINTS_MAX];
  */
 static size_t build_hypercube(unsigned dimension, unsigned side, unsigned points, size_t *cells)
 {
-    // The span along one axis, which is how far the last point reaches once the axes have been
-    // cycled through. A pattern of one point is the origin alone and spans a single cell, which the
+    // The span along one axis: how far the last point reaches once the axes have been cycled
+    // through. A pattern of one point is the origin alone and spans a single cell, which the
     // general form would compute by subtracting two from one in unsigned arithmetic.
     const unsigned extent = (points <= 1u) ? 1u : (2u + ((points - 2u) / dimension));
 

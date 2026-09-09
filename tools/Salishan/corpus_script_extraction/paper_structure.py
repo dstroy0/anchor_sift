@@ -14,8 +14,8 @@
 #
 # All four were visible in the shape of the file and none of them were visible in a summary of it. This
 # reports the shape: the headings, how many numbered blocks sit under each section, whether timestamps
-# appear, and which characters the paper writes the language with. That is what an extractor has to be
-# built against, and it is far less to read than forty pages.
+# appear, and which characters the paper writes the language with. An extractor is built against
+# that, and it is far less to read than forty pages.
 #
 # Nothing is extracted here and nothing is decided. A heading that looks wrong in this report is a heading
 # that will be wrong in the extractor.

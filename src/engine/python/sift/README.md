@@ -9,7 +9,7 @@
 
 ## The proposition, and what it does not mention
 
-Any subset of a pattern's points is a necessary condition, so no selection rule can lose a true occurrence. The proof uses no order, no dimension, no alphabet, and no interpretation of a symbol. That is why a mineral, a fold, a picture, a cipher and a sentence are one object to it, and why nothing was ported between those cases: there was nothing to port.
+Any subset of a pattern's points is a necessary condition, so no selection rule can lose a true occurrence. The proof uses no order, no dimension, no alphabet, and no interpretation of a symbol. A mineral, a fold, a picture, a cipher and a sentence are therefore one object to it, and nothing was ported between those cases: there was nothing to port.
 
 The converse does not hold for any proper subset, so the exact compare is irreducible and every surviving candidate has to be confirmed. Errors are therefore one directional: a discrepancy is always an over-count and is detectable without knowing the answer.
 

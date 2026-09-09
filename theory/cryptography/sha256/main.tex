@@ -1,0 +1,36 @@
+% Hand-written. markdown_to_latex.py is retired: theory/ is the source.
+%
+% Compile from this directory so the shared inputs resolve:
+%     latexmk -pdf -outdir=../../../build/theory/cryptography/sha256 main.tex
+%
+% One directory deeper than the other books, so the preamble is two levels up rather than one.
+\documentclass[11pt,paper=a4,twoside,openright,titlepage,
+headinclude,footinclude,BCOR=5mm]{scrbook}
+
+\input{../../preamble.tex}
+
+\begin{document}
+\frenchspacing
+\emergencystretch=3em
+\hbadness=10000
+\vbadness=10000
+\hfuzz=8pt
+\cfoot*{}
+\ofoot*{\pagemark}
+
+\frontmatter
+\pagestyle{plain}
+\include{frontmatter/titlepage}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{scrheadings}
+
+\include{chapters/chapter_instrument}
+\include{chapters/chapter_chain}
+\include{chapters/chapter_operations}
+\include{chapters/chapter_spectral}
+\include{chapters/chapter_refuted}
+\include{chapters/chapter_against_the_field}
+\end{document}

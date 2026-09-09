@@ -21,8 +21,8 @@
 #
 # The target is resolved from the source text and not from a run. A path built at runtime out of a
 # variable this cannot follow comes back as unresolved and is reported that way instead of being
-# guessed at. An unresolved write is not an accusation: it is the set of calls a person still has to
-# read. Reporting them as a separate count keeps that honest.
+# guessed at. Unresolved writes are the calls a person still has to read, and they are counted
+# separately so the resolved figures stay honest.
 #
 # Reading a file for writing is what is looked for, in the forms this tree actually uses: the open
 # builtin with a mode carrying w, a or x, io.open the same way, and pathlib's write_text and

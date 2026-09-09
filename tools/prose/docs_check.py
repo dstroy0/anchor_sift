@@ -322,6 +322,41 @@ BANNED = (
     r"\bi (don'?t|do not) have (the ability|access|personal)\b",
     r"\bmy training data\b",
     r"\b(i apologi[sz]e|my apologies|sorry for the)\b",
+    # Tier four, and the test for it was a search. Each shape below was looked up and returned no
+    # result dated before 2020. A phrase people did not write until models wrote it is a phrase to
+    # cut. The distance instrument reads the same tree the same way: 79.6 percent of the margin on
+    # docs/research/index.md sat on sentence shape.
+    #
+    # A clause that announces a conclusion and carries no fact.
+    r"\bthat is (what|why|the (difference|point|whole|answer|test|reason|rule|shape|cost))\b",
+    # Searched with the measuring word attached as well. "which is how far" returns nothing dated
+    # before 2020 either, so the exemption it looked like it deserved was not there.
+    r"\bwhich is (what|why|how|the (difference|point|whole|answer|reason|rule))\b",
+    r"\band that is (what|why|the)\b",
+    # Defining a thing by what it is not.
+    r"\b(checking|reading|running|measuring|saying) [a-z]+ is not [a-z]+ing\b",
+    r"\bis not an? (accusation|argument|claim|answer|excuse|guess|estimate)\b",
+    # proof and evidence are the field's own words here. "a row that checked nothing is not
+    # evidence that anything held" is a precise claim about a bench and it stays.
+    r"\bis not (a pass|passing|failing)\b",
+    r"\bworse than (not|nothing|none|no |having)\b",
+    r"\bis worse than a\b",
+    # A fact restated as its own inversion, which reads as a maxim and adds nothing.
+    r"\bstated (once|twice)\b",
+    r"\btwo facts that\b",
+    r"\bone fact per\b",
+    # Machinery given intent. A run does not say anything and a file does not answer.
+    # A run of characters is the field's own term and predates all of this. Only the execution
+    # sense is banned, so the verb has to be one a program does.
+    r"\ba run that (finishes|reads|reports|says|passes|fails|completes|knows|decides)\b",
+    r"\b(the (file|tool|check|hook|run|number|count|table)) (says|answers|knows|decides)\b",
+    # Hedges, and a pointer left behind after the thing it pointed at was cut.
+    r"\bthe ordinary (case|answer)\b",
+    r"\bnothing else here\b",
+    # "nothing here is a timing claim" states a scope and stays. The banned form is the flourish
+    # that closes a paragraph on nothing.
+    r"\bnothing here is (new|magic|special|clever|hidden|secret|surprising)\b",
+    r"\band nothing else\b",
 )
 
 # docs-check: quoting
@@ -564,8 +599,8 @@ CHECKED = (".md", ".py", ".c", ".h")
 #
 # Held against the repository and not against the working directory. These were plain relative names
 # once, and from anywhere but the root they matched nothing: the run reported zero files, zero
-# findings and success. A commit hook calling it that way passes every commit and says the prose was
-# checked, which is worse than not running at all.
+# findings and success. A commit hook calling it that way lets every commit through and reports the
+# prose as checked.
 REPOSITORY = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DEFAULT_ROOTS = tuple(os.path.join(REPOSITORY, one)
                       for one in ("docs", "src", "examples", "tools"))
@@ -704,13 +739,18 @@ def walk_markdown(roots):
         for here, dirs, names in os.walk(root):
             dirs[:] = [one for one in dirs if one not in SKIP_DIRS]
             found.extend(os.path.join(here, name) for name in names if name.endswith(CHECKED))
-    return found
+    # This file writes down every phrase it bans, so it matches itself on nearly all of them. The
+    # markers below were tried first and did not hold up. Quieting 258 patterns one pair at a time
+    # buries the list under its own pragmas, and a reader scrolling past a hundred of them stops
+    # reading them.
+    mine = os.path.abspath(__file__)
+    return [one for one in found if os.path.abspath(one) != mine]
 
 
-# Turns the scan off between the two markers. A file that documents a banned phrase has to write it
-# down, and this one documents 241 of them. Hyphenating each into is-what-makes would satisfy the
-# regex and cost the reader the phrase they came to see. The markers are explicit and a reader can
-# see what is exempt and why, which a silent per-file exemption would not give them.
+# Turns the scan off between the two markers, for the other files that have to quote a banned phrase
+# to explain it. Hyphenating one into is-what-makes would satisfy the regex and cost the reader the
+# phrase they came to see. The markers are explicit and a reader can see what is exempt and why,
+# where a silent per-file exemption shows them neither.
 QUIET_OPEN = "docs-check: quoting"
 QUIET_CLOSE = "docs-check: end quoting"
 
@@ -751,7 +791,7 @@ def prose_only(path, lines):
             # form closed a block by testing that the line was longer than five characters. A
             # closing triple quote on its own line measured three and reopened the block it was
             # closing. Every code line after the first multi-line docstring in a file was then read
-            # as prose, which is how EM_DASH = "-" reported itself as an em dash and how a
+            # as prose. EM_DASH = "-" then reported itself as an em dash, and a
             # `for row in summary` reported itself as the filler phrase.
             marks = stripped.count('"""') + stripped.count("'''")
             if marks:

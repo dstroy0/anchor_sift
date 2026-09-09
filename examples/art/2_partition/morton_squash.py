@@ -9,8 +9,8 @@
 #
 # The single instrument failed on pictures for one reason. A picture stored row by row puts two positions
 # that sit one above each other a whole width apart in the file. A reader that does not know the width
-# cannot see the second dimension at all. That is what made the bit volume return heights, and what forced
-# every measurement since to be handed a width it should not have needed.
+# cannot see the second dimension at all. The bit volume returned heights for that reason, and every
+# measurement since has had to be handed a width it should not have needed.
 #
 # Interleaving the coordinates removes the need. Taking one bit from the column, then one from the row,
 # then the next from each, gives an index where positions close in the plane are close in the index, and

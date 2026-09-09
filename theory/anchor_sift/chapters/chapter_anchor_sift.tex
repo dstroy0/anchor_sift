@@ -1104,7 +1104,7 @@ The uniform corpus also reduces to a single survivor, at a marker rate of 0.0049
 
 Section 4.12 finds a boundary and Section 4.12.1 uses it. Neither says whether what it found is a property of language or of the one English sample it was run on, which was written by the author of this document. Two regularities are claimed to hold of every natural language and of nothing else: the frequency of a unit falls as roughly the reciprocal of its rank, and the frequent units are the short ones. Both are consequences of communicating under a fixed cognitive budget. Neither should care what the language is or when it was written.
 
-Six public domain texts, fetched by \texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}fetch\_\allowbreak{}language\_\allowbreak{}corpora.\allowbreak{}py} and read by \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c} given a path. Line endings are folded into the space first, because a plain text file wrapped at a fixed width carries a return every fifty odd bytes and the detector finds the publisher's formatting before it finds the language.
+Six public domain texts, fetched by \texttt{tools/\allowbreak{}corpora/\allowbreak{}fetch\_\allowbreak{}language\_\allowbreak{}corpora.\allowbreak{}py} and read by \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c} given a path. Line endings are folded into the space first, because a plain text file wrapped at a fixed width carries a return every fifty odd bytes and the detector finds the publisher's formatting before it finds the language.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1297,7 +1297,7 @@ The measures in Section 4.13 are also close to a question that has been asked be
 
 \paragraph{4.13.09 Frequency-Stratified Structure}
 
-Section 7.4.1 finds the two halves of the frequency distribution behaving differently, the frequent one carrying regular boundaries and the rare one carrying clustering. Neither measurement reads a word. Printing the twelve most frequent words of each corpus (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}top\_\allowbreak{}words.\allowbreak{}py}) shows what fills the half that all of the statistics describe without naming:
+Section 7.4.1 finds the two halves of the frequency distribution behaving differently, the frequent one carrying regular boundaries and the rare one carrying clustering. Neither measurement reads a word. Printing the twelve most frequent words of each corpus (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}top\_\allowbreak{}words.\allowbreak{}py}) shows what fills the half that all of the statistics describe without naming:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1370,7 +1370,7 @@ Single works occupy 0.758 to 0.833 over four languages and three centuries, coll
 
 Hugo is the lowest of the single works and that supports the reading instead of straining it. \_Les Misérables\_ runs to five volumes and turns aside into Waterloo, the sewers of Paris and the history of a convent. It is the most topically varied single work measured here and it sits nearest the collection band.
 
-Every corpus in that table arrived already being one thing or the other. The reading rests on labels applied by hand and could be tracking whatever those labels correlate with. Two manipulations settle it (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}heterogeneity\_\allowbreak{}control.\allowbreak{}py}). Joining English single works into one corpus, with the total length held near 900000 characters so the walk cannot be a length effect, gives 0.828 for one work, 0.685 for two and 0.626 for three. Cutting the 66 book collection into equal pieces walks the other way:
+Every corpus in that table arrived already being one thing or the other. The reading rests on labels applied by hand and could be tracking whatever those labels correlate with. Two manipulations settle it (\texttt{examples/\allowbreak{}any\_\allowbreak{}corpus/\allowbreak{}3\_\allowbreak{}reference/\allowbreak{}heterogeneity\_\allowbreak{}control.\allowbreak{}py}). Joining English single works into one corpus, with the total length held near 900000 characters so the walk cannot be a length effect, gives 0.828 for one work, 0.685 for two and 0.626 for three. Cutting the 66 book collection into equal pieces walks the other way:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1397,7 +1397,7 @@ That is a property of what a text is about, recovered without reading any of it,
 
 \paragraph{4.13.1 Re-encoding Invariance}
 
-Every row above is alphabetic, and a regularity common to all of them could belong to that way of writing instead of to language. Re-encoding one of them settles it, because a re-encoding holds the meaning fixed and changes nothing else. Morse carries the same words over two marks and two silences, and \texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}encode\_\allowbreak{}percussive.\allowbreak{}py} produces it.
+Every row above is alphabetic, and a regularity common to all of them could belong to that way of writing instead of to language. Re-encoding one of them settles it, because a re-encoding holds the meaning fixed and changes nothing else. Morse carries the same words over two marks and two silences, and \texttt{examples/\allowbreak{}language/\allowbreak{}1\_\allowbreak{}represent/\allowbreak{}encode\_\allowbreak{}percussive.\allowbreak{}py} produces it.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1445,9 +1445,9 @@ So the two are not the same kind of claim. Zipf is invariant under re-encoding a
 
 Every result above compares one text in one language against another text in another, and a difference could belong to the language or to the text. Separating those needs replication inside a language, and the sections above have twelve English texts and one or two of everything else.
 
-Four texts were taken in each of seven alphabetic languages from Project Gutenberg's own index for each, which is not a hand chosen selection, and four Chinese novels beside them (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}fetch\_\allowbreak{}by\_\allowbreak{}language.\allowbreak{}py}). Everything is measured at character width and not at byte width (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}language\_\allowbreak{}constant.\allowbreak{}py:44-\allowbreak{}70}). That is required for the Chinese to be comparable at all, since one of those novels carries 3164 distinct characters where no byte seating reaches, and it is also the width at which a Chinese symbol is a morpheme instead of a part of one.
+Four texts were taken in each of seven alphabetic languages from Project Gutenberg's own index for each, which is not a hand chosen selection, and four Chinese novels beside them (\texttt{tools/\allowbreak{}corpora/\allowbreak{}fetch\_\allowbreak{}by\_\allowbreak{}language.\allowbreak{}py}). Everything is measured at character width and not at byte width (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}language\_\allowbreak{}constant.\allowbreak{}py:44-\allowbreak{}70}). That is required for the Chinese to be comparable at all, since one of those novels carries 3164 distinct characters where no byte seating reaches, and it is also the width at which a Chinese symbol is a morpheme instead of a part of one.
 
-The question is then a variance question. If a quantity belongs to a language, its spread within one language is small against its spread between languages, which is what an analysis of variance reports (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}language\_\allowbreak{}variance.\allowbreak{}R}).
+The question is then a variance question. If a quantity belongs to a language, its spread within one language is small against its spread between languages, which is what an analysis of variance reports (\texttt{src/\allowbreak{}engine/\allowbreak{}r/\allowbreak{}hypotheses/\allowbreak{}language\_\allowbreak{}variance.\allowbreak{}R}).
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1692,7 +1692,7 @@ Sproat's case is that these statistics do not separate language from anything el
 
 Rao and colleagues answer that sufficiency was never claimed. Their framework is inductive, estimating a posterior over a linguistic hypothesis from several properties at once, of which entropy is one, and they extend the measurement to block entropies up to \(N = 6\) where they report the artificial counterexamples failing to track. They also supply non-linguistic controls that are not artificial, namely DNA, protein, Fortran and music, which occupy entropic ranges away from the linguistic ones. Their own description of the Zipf-Mandelbrot property is that it is "often considered a necessary (though not sufficient) condition for language", which is the asymmetry between Proposition 1 and Proposition 2 reached from a different direction and by different people.
 
-\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's counterexample class was built and run through the same code that produced every other row (\texttt{tools/\allowbreak{}dev\_\allowbreak{}env/\allowbreak{}gen\_\allowbreak{}monkey\_\allowbreak{}corpus.\allowbreak{}py}). Characters are drawn independently and a delimiter is dropped in at a fixed rate.
+\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's counterexample class was built and run through the same code that produced every other row (\texttt{tools/\allowbreak{}corpora/\allowbreak{}gen\_\allowbreak{}monkey\_\allowbreak{}corpus.\allowbreak{}py}). Characters are drawn independently and a delimiter is dropped in at a fixed rate.
 
 A first version of that control had two arms, one uniform and one weighted by English letter frequencies, with the alphabet fixed at 26 and the delimiter rate at 0.18. Three of those four numbers came from English, and a result resembling English established nothing. The sweep below varies the alphabet from 8 to 64 symbols, the delimiter rate from 0.06 to 0.35, and the letter distribution across uniform, two geometric falls and the English weights, with only the last row carrying any value taken from a language.
 

@@ -17,7 +17,7 @@ Drawing uniformly from the arrangements of a fixed multiset is the least committ
 
 The constrained maximum exists and sits at a single point because entropy is strictly concave and a constraint fixing counts or marginals is linear. The background is solved for and never searched for. It therefore carries no seed, no local optimum and no variation between runs.
 
-Where the only constraints are single symbol frequencies the maximizer factorizes, which makes the reference **memoryless by construction and not by assumption**. That is why a memoryless corpus returns 1.00: its distance from the reference is zero. Reading those rows as a baseline that happens to sit near one understates what they are.
+Where the only constraints are single symbol frequencies the maximizer factorizes, which makes the reference **memoryless by construction and not by assumption**. A memoryless corpus therefore returns 1.00: its distance from the reference is zero. Reading those rows as a baseline that happens to sit near one understates what they are.
 
 ## The results that held and the ones that did not
 

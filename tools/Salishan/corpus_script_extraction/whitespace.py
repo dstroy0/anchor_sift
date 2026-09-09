@@ -19,7 +19,7 @@
 #
 # WHICH MARKS HOLD A SPACE OPEN IS PER PAPER
 #
-# That is what differs between these papers, and it is an argument instead of a constant. Two tests
+# The papers differ on exactly this, so it is an argument instead of a constant. Two tests
 # cover every paper in the tree. stacked_but_not reads the Unicode combining class and takes an
 # exclusion, which a paper needs when a word can end in a stressed vowel: closing after the accent
 # in ntes neʔé e sqyéytn gives neʔée, which the language does not have. any_of names a set outright,

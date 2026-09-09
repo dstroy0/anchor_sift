@@ -40,8 +40,8 @@ PUNCTUATION = ".,!?;:“”‘’\"'()[]…"
 # mid-word. 476 of them are in five of these papers. They are not a decision about a glyph the way
 # the font substitutions are: ﬁ is fi, so this is applied without a test.
 #
-# Left alone they put ﬁve into a corpus and make a word fail to match itself, which is how this was
-# found: a case-sensitive match against the pure corpus turned up five against ﬁve.
+# Left alone they put ﬁve into a corpus and make a word fail to match itself. This was found that
+# way: a case-sensitive match against the pure corpus turned up five against ﬁve.
 LIGATURES = (("ﬃ", "ffi"), ("ﬄ", "ffl"), ("ﬁ", "fi"), ("ﬂ", "fl"),
              ("ﬀ", "ff"), ("ﬅ", "st"), ("ﬆ", "st"))
 

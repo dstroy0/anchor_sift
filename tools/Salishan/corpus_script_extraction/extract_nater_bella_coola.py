@@ -52,7 +52,7 @@ NUMBERED_BLOCK = re.compile(r"^\((\d{1,4})\)\s*(.*)$")
 QUOTED = re.compile(r"^['‘“]")
 HEADING = re.compile(r"^(\d)\s+(\S.*)$")
 
-# A form with its gloss in single quotes, which is how sections 1 and 2 cite one. The space between
+# A form with its gloss in single quotes, as sections 1 and 2 cite one. The space between
 # them is optional: the paper prints ci˽‘INDEF.FEM.PROX’ with none.
 FORM_GLOSS = re.compile(r"(\S+?)\s*[‘']([^’']*)[’']")
 

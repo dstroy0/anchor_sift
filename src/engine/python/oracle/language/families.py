@@ -15,7 +15,7 @@
 # They are written down before the distances are computed, which lets a grouping be scored instead
 # of admired afterward.
 #
-# What agreement with them is worth, stated once so no caller has to restate it. A family tree is a
+# What agreement with them is worth, set down here so no caller has to restate it. A family tree is a
 # reconstruction argued from cognates and sound correspondences, so agreement is agreement with a
 # scholarly consensus and not a check against a fact, and where the two disagree nothing here can
 # say whether the instrument or the reconstruction is wrong. That is a different kind of check from

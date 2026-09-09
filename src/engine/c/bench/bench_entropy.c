@@ -69,8 +69,7 @@
  * @note The point of naming the distribution instead of measuring a corpus. An estimator scored
  *       against a histogram of the same corpus it was computed from is scored against itself, and
  *       every estimator here would pass. Scored against the distribution that generated the corpus,
- *       an estimator can be wrong, and that is the only condition under which the score means
- *       anything.
+ *       an estimator can be wrong. The score means something only under that condition.
  */
 typedef struct
 {

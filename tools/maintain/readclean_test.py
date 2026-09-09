@@ -4,8 +4,8 @@
 """Self-test for readclean.py: what the blind pass removes, and what it must NOT remove.
 
 Both halves have to be checked. A pass that removes too little leaves the names it was meant to take
-off. A pass that removes too much leaves text nothing can be checked against, and that is the easier
-mistake to ship, because the output still looks blinded.
+off. A pass that removes too much leaves text nothing can be checked against. That mistake ships
+more easily, because the output still looks blinded.
 """
 
 import os, sys

@@ -398,7 +398,7 @@ def main():
             if (marked != token) and (marked in written):
                 continue
             # A form run together with its own parse, as Lyon's extraction leaves cáwt@t,√cáwt-tt.
-            # The table holds the word and the analysis apart, which is how the paper sets them.
+            # The table holds the word and the analysis apart, as the paper sets them.
             at_root = surface_parse_join(token)
             if (at_root > 0) and all((one in written) for one in
                                      (bare(token[:at_root]), bare(token[at_root:]))

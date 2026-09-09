@@ -105,8 +105,8 @@ def radix(north, south, width):
     nothing however common it is, and what is left in a cell is the part one variety has and the
     other does not.
 
-    Each run is then its own test instead of a term in one big one. That is why this
-    can be asked at a size the distributions cannot be: a run needs enough of itself, not enough of
+    Each run is then its own test instead of a term in one big one. The question can therefore be
+    asked at a size the distributions cannot be: a run needs enough of itself, not enough of
     the language.
 
     Returns [(deviate, run, in north, in south), ...], largest first, and the number of runs that

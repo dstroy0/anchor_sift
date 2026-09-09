@@ -49,7 +49,7 @@ BITS = (1, 2, 3, 4, 6)
 
 
 def agreement(left, right):
-    """Correlation between two grids, which is how much of one the other put back."""
+    """Correlation between two grids: how much of one the other put back."""
     first = left.astype(numpy.float64).ravel()
     second = right.astype(numpy.float64).ravel()
     first = first - first.mean()

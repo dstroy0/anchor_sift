@@ -17,7 +17,7 @@
 # differ in one bit and distance in the volume means what distance in the alphabet meant. A window
 # of n bits slid along the stream is a point in binary n space, and n is swept instead of guessed.
 #
-# The sum over n does not converge and that is the result: every arranged corpus is still climbing
+# The sum over n does not converge, and the divergence is the result: every arranged corpus is still climbing
 # at 64 bits, the widest measured. A ceiling would therefore decide the total, so the quantity that
 # does not depend on one is the exponent of the growth. The memoryless corpora are the control,
 # since an estimated correlation matrix grows lopsided with its size on its own, and that bias would

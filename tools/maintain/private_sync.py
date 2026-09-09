@@ -22,9 +22,9 @@
 #
 # WHAT THE CHECK IS FOR
 #
-# Every copy is verified against the SHA-256 in MANIFEST.tsv, the file the corpus owner signs. A run
-# that finishes clean says the bytes under build/ are the bytes that signature covers. A number
-# measured here then ties to that signature and to nothing else.
+# Every copy is verified against the SHA-256 in MANIFEST.tsv, the file the corpus owner signs. After
+# a clean run the bytes under build/ are the bytes that signature covers, and a number measured here
+# ties to that signature.
 #
 # A file already present with the right hash is left alone. A second run costs one pass of hashing
 # and no copying.
@@ -51,7 +51,7 @@ def private_root():
     """The closed corpus, taken from the first of three places that has it.
 
     ANCHOR_SIFT_PRIVATE wins, for a checkout that keeps it somewhere of its own. Then the clone
-    get_deps leaves under deps/, which is how it arrives on a machine that only consumes it. Then
+    get_deps leaves under deps/, the route onto a machine that only consumes it. Then
     the authoring copy beside this checkout, which is where it is edited and signed before being
     pushed anywhere.
     """

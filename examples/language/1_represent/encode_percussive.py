@@ -36,7 +36,7 @@ CODE = {
     "5": ".....", "6": "-....", "7": "--...", "8": "---..", "9": "----.",
 }
 
-# One space between letters and a slash between words, which is how Morse is written down. Both are
+# One space between letters and a slash between words, following how Morse is written down. Both are
 # silences in the transmitted form and both are single bytes here, so the detector meets two candidate
 # boundaries and picks whichever is the more regular.
 LETTER_GAP = " "

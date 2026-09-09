@@ -1,0 +1,92 @@
+\chapter{The operations}
+
+\textbf{Purpose:} Separate what each sub-function does, because the category they share is defined by exclusion and hides three different jobs. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}space.\allowbreak{}cpp}, \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}sac.\allowbreak{}cu}.
+
+\section{The bucket is defined by exclusion}
+
+Cryptography's word for the part a linear model cannot hold is \emph{nonlinear}, which is a negative definition. Choice, majority and the carry are filed together because none of them is linear, not because they resemble each other. Measuring them separately shows three unrelated jobs and one operation doing nothing detectable at all.
+
+\section{All four mixing functions are bijections}
+
+The suspicion was that the schedule pair should be lossy where the state pair is not, since \(\sigma_0\) and \(\sigma_1\) each carry a shift and a shift discards bits where a rotation cannot. All four are \(\mathrm{GF}(2)\)-linear, so this needs no sampling: each is a \(32 \times 32\) matrix and its image is two to its rank.
+
+\begin{center}
+\begin{tabular}{llrr}
+\toprule
+function & terms & rank & kernel \\
+\midrule
+\(\Sigma_0\) & \(\mathrm{ROTR}2 \oplus \mathrm{ROTR}13 \oplus \mathrm{ROTR}22\) & 32 & 0 \\
+\(\Sigma_1\) & \(\mathrm{ROTR}6 \oplus \mathrm{ROTR}11 \oplus \mathrm{ROTR}25\) & 32 & 0 \\
+\(\sigma_0\) & \(\mathrm{ROTR}7 \oplus \mathrm{ROTR}18 \oplus \mathrm{SHR}3\) & 32 & 0 \\
+\(\sigma_1\) & \(\mathrm{ROTR}17 \oplus \mathrm{ROTR}19 \oplus \mathrm{SHR}10\) & 32 & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Every one is a bijection. Exclusive-or against two rotations restores what the shift drops, so the schedule pair collides no earlier than the state pair. Handschuh and Gilbert state this for the \(\Sigma\) pair; the measurement here reproduces it for all four independently.
+
+\section{The narrowed rank deficit in closed form}
+
+Narrowed, they do lose rank, and the deficit is exact. A rotation right by \(a\) on a \(w\)-bit word is multiplication by \(x^{w-a}\) in \(\mathrm{GF}(2)[x]/(x^w + 1)\), so three rotations exclusive-ored is multiplication by a three-term polynomial and the kernel is
+\[
+  \deg \gcd\!\left(p(x),\, x^w + 1\right)
+\]
+exactly. Checked against the elimination at eight widths, it agrees at every one, including the two nonzero cases: \(\Sigma_0\) losing four ranks at width six and \(\Sigma_1\) losing two at width twelve.
+
+\textbf{A hazard the tree now carries.} \texttt{bench\_\allowbreak{}space} uses the raw scaled amounts, which can come out zero and make a term the identity, while \texttt{bench\_\allowbreak{}narrow} forces every amount nonzero and the three distinct. The two narrowed SHA-256s are different objects and their rows must not be read against each other. Measured on the clamped object, \(\Sigma_0\) carries no kernel at any width and the only damaged width is twelve.
+
+The clamping also manufactures structure the standard does not have. Where two amounts scale onto the same value the distinctness rule steps one apart by exactly one, and twenty-two pairs of amounts sit one apart across the narrowed widths against zero at width thirty-two. None of SHA-256's four functions has an adjacent pair; nearly every narrowed one does.
+
+\section{Three jobs, isolated}
+
+Removing one nonlinear source at a time cannot discriminate. Full, no-majority and no-choice all read the same algebraic degree, because whichever is removed the others cover for it. \textbf{The operations mix, and from outside the bucket looks homogeneous.} Leaving exactly one nonlinear operation standing on the linear spine isolates what it can do alone.
+
+\subsection{Algebraic degree}
+
+Degree is proved rather than sampled. A Boolean function of degree below \(d\) has every \(d\)-th order derivative identically zero, and that derivative is the exclusive-or of the output over all corners of a \(d\)-dimensional input cube. One nonzero fold settles it.
+
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+rounds & full & Maj only & Choose only & carry only & linear \\
+\midrule
+2 & 3 & 1 & 1 & 4 & 1 \\
+3 & 6 & 2 & 1 & 6 & 1 \\
+4 & 9 & 2 & 2 & 9 & 1 \\
+5 & \(\geq 18\) & 3 & 3 & \(\geq 18\) & 1 \\
+6 & \(\geq 18\) & 3 & 3 & \(\geq 18\) & 1 \\
+7 & \(\geq 18\) & 5 & 5 & \(\geq 18\) & 1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The carry alone reproduces the whole function's degree}, and at round two exceeds it. Choice alone and majority alone reach degree five by round seven while the full function is past eighteen by round five. Integer addition is the sole source of algebraic degree in SHA-256 and the two nonlinear Boolean functions supply almost none of it.
+
+The \(\geq 18\) entries are the cube ceiling of the bench rather than a measurement, so what is proved is the separation and not the carry's absolute degree.
+
+\subsection{The whole map}
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+operation & diffusion, whether & diffusion, speed & degree \\
+\midrule
+carry & no & \textbf{yes} & \textbf{effectively all} \\
+choice & \textbf{yes} & some & almost none \\
+majority & no & no & almost none \\
+\(\Sigma_0, \Sigma_1\), schedule, \(K\) & no & no & no \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Removing addition alone still reaches the same diffusion plateau as the full function, so the carry is not what makes diffusion happen; the nonlinearity of choice and majority is, and the carry changes how fast rather than whether. That matches the published finding that removing addition costs about two rounds rather than stopping diffusion.
+
+\subsection{Majority is redundant on four measures}
+
+Majority contributes nothing detectable to the SAC level, nothing to the dampening ratio, nothing to round-to-round diffusion speed, and nothing to algebraic degree. Both published papers also find the majority-removed variant indistinguishable from unmodified. Whatever it is for, nothing measured here can see it, and the linear axis that might carry it is untested for reasons given in the chapter on refutations.
+
+\section{The mechanism has a shape}
+
+Choice and majority act inside the bit lattice, where \(\mathrm{GF}(2)\) describes them. A carry leaves its bit position, travels where \(\mathrm{GF}(2)\) has no coordinate, and rejoins one position higher. The measurement says that path outside the lattice carries essentially all the degree.
+
+It is also why a bijection can appear to destroy information while destroying none. The round stays invertible and the difference stays exact; a \(\mathrm{GF}(2)\)-shaped instrument simply loses the ability to describe it and reports noise. Remove the extradimensional path and nothing ever becomes indescribable, which is exactly what the linear variant pinned at \(0.5\) for all sixty-four rounds is showing.

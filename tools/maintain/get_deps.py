@@ -28,7 +28,7 @@
 # ANCHOR_SIFT_PRIVATE_REPO and is not written down here, because the address of a closed repository
 # does not belong in a public one.
 #
-# Failing to clone it is the ordinary case and is reported that way, not as an error. The papers can
+# Failing to clone it is expected and is reported that way, not as an error. The papers can
 # be rebuilt from the public archive by anyone: tools/Salishan/get_papers.py fetches all 993 ICSNL
 # papers by name and converts them. What cannot be rebuilt is the hand extraction, and that goes to
 # anyone who has the papers and asks.

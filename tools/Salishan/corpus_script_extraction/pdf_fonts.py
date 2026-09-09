@@ -28,7 +28,7 @@ PAPERS = os.path.join(ROOT, "build", "papers")
 
 
 def fonts_of(path):
-    """Every font the pages of a PDF refer to, with what the file says about each one."""
+    """Every font the pages of a PDF refer to, with the metadata recorded for each one."""
     import pypdf
 
     reader = pypdf.PdfReader(path)

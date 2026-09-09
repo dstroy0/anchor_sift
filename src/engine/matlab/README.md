@@ -21,7 +21,7 @@ Runs unchanged on Octave.
 
 The Python at `src/engine/python/measure/dispersion.py` is the reference, because every figure in the ledger came out of it. A port is correct when it lands inside the reseeding floor of the reference, since each language draws its null from a different generator and none of them can agree to the last digit.
 
-The logic here was checked by reading and has not been executed in this tree. That is the difference between it and the R port, and it is stated here so nobody has to discover it.
+The logic here was checked by reading and has not been executed in this tree. The R port has been run. Stated here so nobody has to discover it.
 
 ## One thing a port has to get right
 

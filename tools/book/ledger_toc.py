@@ -16,9 +16,8 @@
 # date this runs.
 #
 # Line numbers shift when the contents are inserted, so the block is built twice: once to learn how
-# tall it is, and once with every line number moved by that height. A number here is exact or it is
-# worse than nothing, because a reader who jumps to it and lands somewhere else stops trusting the
-# rest of the file.
+# tall it is, and once with every line number moved by that height. A number here has to be exact.
+# A reader who jumps to one and lands somewhere else stops trusting the rest of the file.
 
 import datetime
 import os

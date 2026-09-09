@@ -9,7 +9,7 @@
 #   python tools/Salishan/get_papers.py --convert   convert PDFs already on disk
 #   python tools/Salishan/get_papers.py --list      print what would be fetched
 #
-# Nothing else here works without build/papers/, and the instructions used to be "download the PDFs,
+# The rest of the pipeline needs build/papers/, and the instructions used to be "download the PDFs,
 # convert each to text, and name the text file after the PDF". That is three chances to get it wrong
 # before anything runs, and one of them is silent.
 #

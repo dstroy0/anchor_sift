@@ -6,7 +6,7 @@ That is the construction. Every domain below is that one sentence with a differe
 
 ## The languages here belong to the people who speak them
 
-The corpus this work is measured against is Salishan speech, written down. **It does not exist without the speakers.** [Whose words these are](research/Salishan/pure_corpus/README.md) opens every entry with the person who spoke, before the linguist who published and before anyone who read a paper into a file.
+The corpus this work is measured against is Salishan speech, written down. **It does not exist without the speakers.** The Salishan book opens every entry with the person who spoke, before the linguist who published and before anyone who read a paper into a file.
 
 A linguist wrote the paper. A person read the paper into a table. Neither of those is whose language it is.
 
@@ -18,17 +18,16 @@ Regeneration stays faithful near the subject and escapes it with distance, and n
 
 ## Start here
 
-| you want | read |
-|---|---|
-| the vocabulary, and which words are the field's | [Terms](research/terms.md) |
-| the construction on its own | [The method](research/anchor-sift-method.md) |
-| what is settled, what is open, what was withdrawn | [Ledger](research/anchor-sift-ledger.md) |
-| whose words the corpus holds | [Whose words these are](research/Salishan/pure_corpus/README.md) |
-| how wrong the corpus could be | [How wrong it could be](research/Salishan/corpus-derivation.md) |
-| every source, held or cited | [Sources](research/Salishan/refs.md) |
-| the speculative end, sorted by what could refuse it | [Thought experiments](research/thought-experiments/README.md) |
+The research is four typeset books under `theory/`, and [Research](research/index.md) says how to build them.
 
-Each of those is also a typeset book under `theory/`, one directory per theory, sharing a preamble. `theory/workbook` is the ledger. `theory/thought_experiments` is the end of the table that carries no measurements, and it is kept apart deliberately.
+| you want | book |
+|---|---|
+| the construction, the method, and the vocabulary | `theory/anchor_sift` |
+| what is settled, what is open, what was withdrawn | `theory/workbook` |
+| whose words the corpus holds, and how wrong it could be | `theory/Salishan` |
+| the speculative end, sorted by what could refuse it | `theory/thought_experiments` |
+
+The workbook holds a claim beside the work that settles it. The thought experiments hold the posits whose experiment cannot be built as written, and they are kept apart deliberately.
 
 **Read the ledger before quoting any figure.** It keeps its own corrections: claims that were withdrawn stay on the page beside the measurement that killed them, and several results here are rediscoveries of published work with the precedent named.
 

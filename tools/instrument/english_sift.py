@@ -272,8 +272,8 @@ def sorted_into(text, english, language, margin=0.5):
 
     Returns "english", "language", or "residue". The margin is in bits per byte pair. A line inside
     it is nearer neither anchor than it is to the other, and those are the glosses, the formatting
-    and the damage. That set is small, and that is the point of splitting three ways: what is left for
-    a person to look at is the part no measure settled.
+    and the damage. That set is small, and splitting three ways leaves a person only the part no
+    measure settled.
     """
     if not looks_like_writing(text):
         return "residue"

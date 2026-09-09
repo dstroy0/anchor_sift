@@ -128,8 +128,8 @@ NORTHERN = "northern"
 FORM_IN = re.compile(r"(\S+)\s+in\s+([A-Zʔ][^\s(,.;:]*)")
 
 # What the paper calls each language, and what this corpus calls it. Squamish, Twana, Sechelt and
-# ʔayʔaǰuθəm are cited here for comparison and are not Lushootseed, and that is why the names are
-# read at all: čalaš ‘hand’ sits in a Lushootseed paper and is a Twana word.
+# ʔayʔaǰuθəm are cited here for comparison and are not Lushootseed. The names are read for that
+# reason: čalaš ‘hand’ sits in a Lushootseed paper and is a Twana word.
 LANGUAGES = {
     "Southern": SOUTHERN,
     "Northern": NORTHERN,

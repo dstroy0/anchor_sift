@@ -77,8 +77,8 @@ def exponent_plane(values, width):
     """The exponent over a picture read as a plane, against radial frequency.
 
     A picture read as one long line carries its width as a periodicity, and a slope through that is
-    not the slope of the picture. That is why the paintings first came back near half of what a
-    natural scene gives, and why the width has to be supplied here.
+    not the slope of the picture. The paintings first came back near half of what a natural scene
+    gives for that reason, and the width has to be supplied here.
     """
     rows = len(values) // width
     if rows < 64:

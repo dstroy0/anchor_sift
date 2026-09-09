@@ -13,7 +13,7 @@
 # to one on Japanese authorship. So the question is whether there is any task here it wins.
 #
 # Six descriptions of the same texts are run against four questions. The comparison that carries the
-# most here is the marginal, which is how often each character is used with nothing about what follows
+# most here is the marginal: how often each character is used, with nothing about what follows
 # what. It is the square with its structure removed. If the marginal matches the square, then the
 # transitions the square exists to hold are worth nothing, and every result in this section rests on
 # letter frequencies.

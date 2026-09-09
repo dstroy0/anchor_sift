@@ -15,8 +15,8 @@
 #
 # The old material is French. Le Viandier is around 1300, the Menagier de Paris around 1393, and Chiquart
 # around 1420, all of them written down when nothing about recording a procedure was settled, and all of
-# them documented at length. English cookery of that period survives mostly through later editors, which
-# is how the one medieval English book here arrives dated to its eighteenth century editor instead of to
+# them documented at length. English cookery of that period survives mostly through later editors, and
+# the one medieval English book here arrives dated to its eighteenth century editor instead of to
 # itself.
 #
 # Anything found is stored apart from the English books, since a difference between the two sets would

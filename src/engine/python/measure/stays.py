@@ -30,8 +30,7 @@ BAND_SHARE = 0.25
 def mean_stay(values, band):
     """Mean run length before the value leaves a band around where the run started.
 
-    That is what a flat region gives and what an oscillation does not, however smooth the
-    oscillation is. The same count on a shuffle of the corpus is the floor, since a band of any
+    A flat region gives that and an oscillation does not, however smooth the oscillation is. The same count on a shuffle of the corpus is the floor, since a band of any
     width catches some positions by chance.
     """
     total = 0

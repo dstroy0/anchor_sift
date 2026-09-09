@@ -24,8 +24,8 @@
  *       skip is the corpus length over the occurrence count, and it decides whether a sieve
  *       can visit a space it could never enumerate.
  * @warning The cost table is a link time singleton. A build links exactly one of the five profiles
- *          and this binary can only report on that one. It does not even carry its own name, and
- *          that is why every row below is stamped with a fingerprint of the 256 costs. Comparing
+ *          and this binary can only report on that one. It does not even carry its own name, so
+ *          every row below is stamped with a fingerprint of the 256 costs instead. Comparing
  *          profiles takes five builds, and the current design charges that.
  */
 #include "impensa_ancorae_acus/impensa_ancorae_acus.h"
@@ -330,10 +330,10 @@ static void histogram(const uint8_t *corpus, size_t length, uint32_t *counts)
 /**
  * @brief How an anchor gets picked out of a needle.
  *
- * @note The policy is a free variable, and that is the point of having it. An anchor is a condition
+ * @note The policy is deliberately a free variable. An anchor is a condition
  *       copied out of the needle. A position that really does hold the needle satisfies every
- *       anchor whatever chose it. Correctness cannot turn on the policy. What the policy moves is how
- *       many false candidates survive, and that is cost.
+ *       anchor whatever chose it. Correctness cannot turn on the policy. The policy moves how many
+ *       false candidates survive, and those cost cycles.
  * @note ANCHOR_BY_TABLE asks the linked cost table, which ranks a byte by how rare it is.
  *       ANCHOR_BY_RANDOM assigns costs by a permutation with no relation to how often a byte occurs.
  *       ANCHOR_BY_MAXIMUM_ENTROPY gives every byte the same cost. That table carries no information
@@ -709,9 +709,8 @@ static void report_cascade(const char *name, const uint8_t *corpus, size_t corpu
  * @note The deductive half, run as code. An anchor is a byte lifted out of the needle at an offset
  *       inside the needle. A position holding the whole needle holds that byte at that offset. The
  *       argument never names how many anchors there are, what picked them, how large the alphabet is,
- *       or that positions are ordered, and that is why every sweep in main can vary all four and
- *       still expect zero back. A nonzero return is an implementation defect and never a property of
- *       the data.
+ *       or that positions are ordered. Every sweep in main varies all four and still expects zero
+ *       back. A nonzero return is an implementation defect and never a property of the data.
  */
 static uint32_t refused_occurrences(const uint8_t *corpus, size_t length, const uint8_t *needle, size_t needle_len,
                                     const size_t *offsets, unsigned count, uint32_t *found)
@@ -840,9 +839,9 @@ static void report(const char *name, const uint8_t *corpus, size_t corpus_len, s
 
         const size_t first_at = cheapest_offset(needle, needle_len, needle_len, policy);
 
-        // Stride zero asks the table for the second anchor as well, and that is the policy the
-        // tree has now. Any other stride pins the second anchor a fixed distance away, and that
-        // tests whether the distance decorrelates the pair or the corpus defeats it
+        // Stride zero asks the table for the second anchor as well. The tree ships that policy.
+        // Any other stride pins the second anchor a fixed distance away, testing whether the
+        // distance decorrelates the pair or the corpus defeats it
         size_t second_at;
 
         if (anchor_stride == 0u)
@@ -1148,7 +1147,7 @@ static void report_widths(const char *name, const uint8_t *corpus, size_t corpus
             for (unsigned step = 0u; step < width; step++)
             {
                 const size_t at = bit + step;
-                // Bits are taken most significant first inside each byte, which is how a byte is
+                // Bits are taken most significant first inside each byte, matching how a byte is
                 // written down and how the standard's padding indexes them
                 const unsigned held = (corpus[at / 8u] >> (7u - (at % 8u))) & 1u;
 

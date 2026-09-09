@@ -168,8 +168,8 @@ def main():
             handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
                          % (at, who or spot, kind, crossings, content))
 
-    # The Bella Coola words alone, one per line. Heiltsuk is held out by the who column, and that is
-    # why the column is there.
+    # The Bella Coola words alone, one per line. Heiltsuk is held out by the who column, which the
+    # column exists for.
     pure = TARGET[:-4] + ".pure.txt"
     kept = 0
     already = set()

@@ -10,7 +10,7 @@
 # Written for one paper. Reading the whole paper first is what this file is an argument for: stories 1 and
 # 2 number their parts X.1 preamble, X.2 nɬeʔkepmxcín, X.3 English, X.4 gloss, and story 3 has no preamble
 # subsection, so it runs 6.1, 6.2, 6.3 instead. A rule that assumed X.4 returned nothing for story 3 and
-# reported no error, which is how a third of a paper leaves without anyone noticing.
+# reported no error. A third of a paper left that way without anyone noticing.
 #
 # Kʷəɬtəzétkʷu moves between her languages inside her own telling, in the introduction and again inside
 # stories 2 and 3, and the paper glosses those English words as part of the sentence. A line she mixed is
@@ -278,8 +278,8 @@ def main():
                 rows.append(("N", count, story, number, "speaker comment", comment))
 
     # Every line of the paper no section reached, added to the record as unclassified. The marked
-    # file then holds every token of the language the paper printed, and that is the point of
-    # extracting it. They are held out of the pure stream and listed in the flag file, so this
+    # file then holds every token of the language the paper printed. They are held out of the
+    # pure stream and listed in the flag file, so this
     # makes the record complete without pretending anything has been classified.
     missed = unreached(lines, covered_tokens(one[5] for one in rows))
     for page, where, reason, missing, text in missed:

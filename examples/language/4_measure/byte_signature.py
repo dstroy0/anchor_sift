@@ -74,14 +74,14 @@ def treebank_text(path, want):
 
 
 def bare(text):
-    """The text with every space taken out, which is how the corpora become comparable.
+    """The text with every space taken out, leaving the corpora comparable.
 
     The extraction put a space after each combining mark, and no treebank has those, so comparing
     the texts as they stand would measure the renderer. Taking every space out of every corpus
     removes that and removes the word divisions, which were never settled here anyway. It also
     makes the earlier repair a no-op: the repair only ever deleted spaces. A repaired text and
     an unrepaired one are the same string once all the spaces are gone. Nothing is fused and
-    nothing is decided, and that is the point of reading it this way.
+    nothing is decided.
     """
     return "".join(text.split())
 

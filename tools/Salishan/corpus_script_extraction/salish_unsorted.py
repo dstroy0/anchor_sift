@@ -60,7 +60,7 @@ def digit_artifact(plain):
     St'át'imcets writes the glottal stop as 7 and a word of it can open with one: 7áts’xen is in
     the Alexander narrative. What is not a word is 7Mattina, where the extraction welded a footnote
     marker onto a name, nor 17Nellie, nor 1970s, nor 1SG.POSS, nor the 1line the extraction made of
-    a table. Every one of those is ASCII after its digits and the word is not, and that is the test.
+    a table. Every one of those is ASCII after its digits and the word is not. The test reads that.
     """
     if not plain[0].isdigit():
         return False

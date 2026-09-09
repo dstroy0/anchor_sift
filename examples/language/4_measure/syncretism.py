@@ -16,8 +16,8 @@
 # It also answers a question left open by the earlier work here, where a reading over a growing window
 # kept climbing and would not settle. If the average written word carries more than one reading, then
 # taking a second word multiplies the readings instead of settling the first, and the possibilities over a
-# sentence grow as a product. Below one they cannot grow. That is the difference between a walk that
-# explodes and one that collapses, and it is a property of a language and not of any parser.
+# sentence grow as a product. Below one they cannot grow. A walk either explodes or collapses on
+# that threshold, and where it falls is a property of a language and not of any parser.
 #
 # Two counts are reported because they answer different questions. How many readings a word carries when
 # it is met at random in running text, the count a reader faces. And how many the average distinct

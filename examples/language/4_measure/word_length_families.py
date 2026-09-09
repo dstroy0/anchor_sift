@@ -13,7 +13,7 @@
 # pairings: Zulu 5.70 against Xhosa 5.88, Spanish 4.41 against French 4.66, with Finnish at 6.41, which
 # separates it from Spanish.
 #
-# If that is what the reading rests on, then word length alone should do what the reading does, and the
+# If the reading rests on that, then word length alone should do what the reading does, and the
 # four thousand numbers of a character square are carrying a signal that two numbers hold. Worth knowing
 # either way: if the square wins, it holds something the lengths do not, and if it does not, most of the
 # machinery in this section was unnecessary.

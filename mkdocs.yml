@@ -56,13 +56,4 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Terms: research/terms.md
-  - The method: research/anchor-sift-method.md
-  - The paper: research/anchor-sift.md
-  - Ledger: research/anchor-sift-ledger.md
-  - Salishan:
-      - Whose words these are: research/Salishan/pure_corpus/README.md
-      - Sources: research/Salishan/refs.md
-      - How wrong it could be: research/Salishan/corpus-derivation.md
-      - The method on these papers: research/Salishan/anchor-sift-salishan.md
-      - Running notes: research/Salishan/running.md
+  - Research: research/index.md

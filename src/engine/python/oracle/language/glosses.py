@@ -54,7 +54,7 @@ def is_gloss(line):
 
     An abbreviation key names more categories than any real example does, and it quotes a gloss
     beside each one, matching everything an example matches and matching it harder. A key chains its
-    definitions with semicolons and colons, and that is what rules it out here. One volume's key was
+    definitions with semicolons and colons, and that rules it out here. One volume's key was
     read as the richest example in it before this test existed.
     """
     if (line.count(";") >= 2) or (line.count(": ") >= 2):

@@ -43,9 +43,9 @@ JOIN_FLOOR = 4
 def fragment(trimmed):
     """Whether a line is half of something the extraction broke across a line break.
 
-    Two shapes. A bare stanza number, which is how Text 2 sets stanza 1: the 1 is alone and patah is
-    under it. And a short run with a letter in it, with any stanza number stepped over first, which
-    is how Text 1 sets the same stanza: 1 o above l ha l kukpi.
+    Two shapes. A bare stanza number, as Text 2 sets stanza 1: the 1 is alone and patah is
+    under it. And a short run with a letter in it, with any stanza number stepped over first, as
+    Text 1 sets the same stanza: 1 o above l ha l kukpi.
 
     Letters alone is too narrow for the second one. The morphemic row opens a root with a slash and
     stanza 5's broke at /té above km w -s, and a fragment required to be all letters leaves it.

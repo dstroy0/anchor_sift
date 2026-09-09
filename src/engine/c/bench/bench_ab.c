@@ -22,8 +22,8 @@
  *       pattern has. That is the longest possible advance and the worst possible candidate rate.
  *       Anchoring at the rarest byte takes the best candidate rate and gives up advance in exchange.
  *       Which one wins is arithmetic over a corpus and is not obvious from either property alone.
- * @note The counter is corpus symbol accesses. Every algorithm reads cells out of the same corpus and
- *       that is the resource they share. Counting reads compares the algorithms instead of comparing
+ * @note The counter is corpus symbol accesses. Every algorithm reads cells out of the same corpus,
+ *       the one resource they share. Counting reads compares the algorithms instead of comparing
  *       their inner loops. No timing appears here and no row is a performance claim.
  * @warning Every algorithm below is written here. A defect in one would show as a result. All of
  *          them are held to the occurrence set that a brute force scan finds, and a row that
@@ -105,7 +105,7 @@ static uint8_t s_ab_uniform[AB_CORPUS_BYTES];
  * @note The case every other corpus here fails to be. English, then C source, then fixed width
  *       records, then uniform bytes. A search crosses three boundaries, and anything it learned
  *       about one region is wrong in the next. A field accumulated over the whole thing describes no
- *       part of it, and that is the only condition under which discarding the field can pay.
+ *       part of it. Discarding the field pays only under that condition.
  */
 static uint8_t s_ab_mixed[AB_CORPUS_BYTES];
 

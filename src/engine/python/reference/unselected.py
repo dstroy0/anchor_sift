@@ -39,7 +39,7 @@ def sqrt_two_digits(count=DIGITS):
     """Digits of the square root of two, from one integer square root.
 
     Fully determined and conjectured normal, so it should carry no arrangement to find. It returns
-    1.00 and that is the reading working correctly on a domain that holds nothing.
+    1.00, the reading working correctly on a domain that holds nothing.
 
     Writing the root out passes an interpreter guard that refuses to render an integer wider than
     4300 digits, which exists to catch an accidental conversion of a huge number. This one is not

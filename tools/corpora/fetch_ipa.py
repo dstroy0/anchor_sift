@@ -17,8 +17,8 @@
 # through that, which means the noise was working against it, but the reading is still of letters.
 #
 # The dictionary carries transcriptions beside the words. Fetching those replaces the letters with the
-# sounds and removes the whole confound. That is the difference between saying these words resemble
-# each other and saying these spellings do.
+# sounds and removes the confound. Saying these words resemble each other is a different claim from
+# saying these spellings do.
 #
 # Pages are asked for fifty at a time, since asking one at a time would be twelve hundred requests, and
 # the pace is kept slow because this interface has refused this work several times tonight for asking too

@@ -23,8 +23,8 @@
 # sits at one, the settled end, because a language with a single category has nothing to be ambiguous
 # between and any annotation of it records one kind of word everywhere. The instrument would call it
 # clean. The work of deciding whether a root is predicating or referring still has to happen, and it
-# happens somewhere this measurement cannot reach. That is the reason to keep the two factors apart and
-# to distrust a low category factor without asking what produced it.
+# happens somewhere this measurement cannot reach. Keep the two factors apart for that reason, and
+# distrust a low category factor without asking what produced it.
 #
 # What makes Straits Salish hard is that its resolver is not written down.
 # Meaning there follows the season and the state of the land, which is shared knowledge between speakers

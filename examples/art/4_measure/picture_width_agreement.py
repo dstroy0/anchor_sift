@@ -13,7 +13,7 @@
 #
 # A picture stored row by row carries its width as a period, so both instruments should be able to find
 # it. The shift detector reads the share of positions equal to the position one lag away and takes the
-# lag where that share peaks, which is how Section 4.11 recovered a record period. The point cloud
+# lag where that share peaks. Section 4.11 recovered a record period that way. The point cloud
 # reduction reads the displacement from each point to the nearest point holding the same value, and at
 # the true width the picture reshapes into a plane where those displacements are short and directional,
 # while at a wrong width the rows slide against each other and the arrangement is scrambled.

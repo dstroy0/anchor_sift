@@ -7,7 +7,7 @@
 #   Usage:  python tools/Salishan/anchor_sift_algorithmic_extraction/language_check.py
 #
 # anchor_sift.py holds the algorithm and has nothing in it to tune. This file only decides what to
-# hand it, and that is the work: the same measure that says nothing about a whole paper
+# hand it, and the deciding is the work: the same measure that says nothing about a whole paper
 # says something about a block of one.
 #
 # Anchors are the corpora nine hand-read papers produced, one per language, plus the English those
