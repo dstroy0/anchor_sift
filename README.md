@@ -48,38 +48,56 @@ The permutation null measure carries most of the findings and has only been show
 
 ## What it has read
 
+Eight domains have been run end to end, under `examples/`: language, art, crystals, proteins, sound, source code, arbitrary corpora, and the proofs that pin the numbers. The same six parts read all of them.
+
 Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
 
 A dialect border inside Lushootseed, labeled by Mellesmoen and Kye and then held out, comes back as the stressed schwa, southern, beaten by 1 of 200 random borders over the same forms.
 
-An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length. Neither was told anything.
+An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length. A protein backbone returns bond lengths of 1.45, 1.52 and 1.33 against chemistry's 1.46, 1.52 and 1.33. None of them was told anything.
 
 The ledger holds the rest, including every row that failed and why.
 
-## The search kernel
+## The engine, in six parts
 
-`src/engine/c/sift/anchor_sift.c` builds and runs with a C11 compiler alone.
+One construction runs through all six. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference that partition allows, and read the departure from it. The sift and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
+
+| part | what it holds |
+|---|---|
+| `representation` | any domain written as points carrying values, and the re-seatings that put one symbol in one place |
+| `partition` | the unit and the scale those points are read at |
+| `reference` | the maximum entropy background under the constraints the object supplies |
+| `measure` | the departure from that background |
+| `sift` | the sound filter, a necessary condition over any index set |
+| `oracle` | agreement with ground truth somebody else published |
+
+Everything downstream of `representation` sees points and values and cannot tell a painting from a paragraph, so one instrument reads both. Four subjects have their own directories: `text`, `sound`, `picture` and `structure`, all under `representation`, the only part that knows a domain exists.
+
+`src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora.
+
+## The sift
+
+`src/engine/c/sift/anchor_sift.c` builds and runs with a C11 compiler alone. The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
 
 **It is a sound filter.** A subset of a pattern's points is a necessary condition, so no arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
 
-**It carries `m` bits of state**, for a pattern of length `m`, independent of alphabet and dimension. A Horspool shift table is the size of the alphabet and a q-gram index is the size of the text. On a real-valued or unenumerable alphabet neither can be built at any size, and this still runs. That is a capability claim, separate from any speed claim.
+**It carries `m` bits of state**, for a pattern of length `m`, independent of alphabet and dimension. Nothing is indexed and no table is built over the alphabet. A real-valued or unenumerable alphabet therefore costs it nothing. That is a capability claim and it is separate from any speed claim.
 
-**It searches with no pattern at all.** Given only bytes it recovered a multiple of a record period from 512 reads, at 92 shifts against 0 on a shuffle of the same bytes. Horspool has no table to build and cannot run.
+**It searches with no pattern at all.** Given only bytes it recovered a multiple of a record period from 512 reads, at 92 shifts against 0 on a shuffle of the same bytes.
 
-**Against Horspool the crossover runs opposite to the read count.** On a skewed corpus at 65536 bytes the free-order arm is 2.54x faster at a needle of 4 and loses from 32 upward, because Horspool's shift grows with the needle. Counted in reads the advantage grows with the needle; counted in cycles it shrinks. Reads are the right unit for a bound and the wrong one for a dispatch decision.
+**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an arm from two numbers already free: collision entropy from one histogram pass, and the needle length known at the call. `bench_cycles.c` times every arm and prints what the dispatcher chose beside what was fastest. It picks the fastest on 19 of 21 rows and its worst miss costs 1.40x.
 
-**So the kernel dispatches, and grades itself.** `anchor_sift_choose` picks an arm from two numbers already free: collision entropy from one histogram pass, and the needle length known at the call. `bench_cycles.c` times every arm and prints what the dispatcher chose beside what was fastest. It picks the fastest on 19 of 21 rows and its worst miss costs 1.40x.
-
-That miss is the interesting row. A period-16 counter uses sixteen symbols evenly, so its collision entropy reads 4.0 and the dispatcher calls a perfectly structured corpus memoryless. Collision entropy is permutation invariant and cannot see an arrangement, and the dispatcher inherits that blindness exactly. Fixing it needs a quantity that reads arrangement. No threshold on this one reaches it.
+That miss is the interesting row. A period-16 counter uses sixteen symbols evenly, so its collision entropy reads 4.0 and the dispatcher calls a perfectly structured corpus memoryless. Collision entropy is permutation invariant and cannot see an arrangement, and the dispatcher inherits that blindness exactly. Fixing it needs a quantity that reads arrangement, and no threshold on this one reaches it.
 
 ```sh
-cmake -S src/engine/c -B build/engine -G Ninja -DCMAKE_BUILD_TYPE=Release
-cmake --build build/engine
+cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build build/engine_c
+./build/engine_c/bench_lattice
 ```
 
-## Ports, for people who do not want to run the C
+## Ports
 
-The permutation null measure on its own is the part a statistician or corpus linguist reaches for. The kernel is a systems artifact; this is the instrument.
+The permutation null measure on its own is the part a statistician or corpus linguist reaches for.
 
 | language | file | status |
 |---|---|---|

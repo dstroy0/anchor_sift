@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: ANY-4-003
 #
 # Run only the halving ladder from examples/any_corpus/4_measure/noise_detection.py, over many corpora, so the loss
 # ratio can be plotted against collision entropy.

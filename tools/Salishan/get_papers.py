@@ -49,10 +49,20 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 INDEX = "https://lingpapers.sites.olt.ubc.ca/icsnl-volumes/"
 
-# Identifies the tool, its purpose and who to complain to. A request carrying no user agent gets an
-# interstitial HTML page back instead of the file. Naming the client is the courtesy every guide to
-# harvesting an academic archive asks for. The site's robots.txt disallows only wp-admin, wp-login,
-# the cache and trackbacks.
+# Identifies the tool, its purpose and who to complain to. Naming the client is the courtesy every
+# guide to harvesting an academic archive asks for. The site's robots.txt disallows only wp-admin,
+# wp-login, the cache and trackbacks.
+#
+# IT IS NO LONGER WHAT OPENS THE DOOR
+#
+# This used to be the whole mechanism: a request with no user agent got an interstitial page and a
+# request naming itself got the file. On 2026-09-09 both get the same 31 KB page. UBC now serves
+# the index and every PDF under a browser verification check that says it is there to stop
+# automated traffic, and it is answered by running JavaScript, not by saying who you are.
+#
+# So this string is still correct and still worth sending, and it no longer gets past anything. A
+# check meant to be passed by a person is that person's to pass. The way to fetch in bulk from here
+# is to ask the archive, at the address above, and the address is in this string for that reason.
 AGENT = ("Salishan-corpus-tools/1.0 (+https://github.com/dstroy0/anchor_sift; "
          "academic corpus extraction; dquigg123@gmail.com)")
 
@@ -246,6 +256,21 @@ def main():
     out.write("  reading the archive index\n")
     every = index_of(session)
     out.write("  %d papers listed at %s\n\n" % (len(every), INDEX))
+
+    # An index with nothing in it is never an empty archive. On 2026-09-09 the site answered every
+    # address, the index page and each PDF alike, with a 31 KB browser verification page: UBC put a
+    # bot check in front of the whole host. Reporting zero and carrying on would have walked the
+    # whole list reporting each paper as not in the index, which reads as an archive that lost its
+    # contents. --all would have printed 846 of those.
+    if not every:
+        out.write("  the index page listed no papers at all, which is not what an archive with\n")
+        out.write("  993 of them looks like. The page is there and answers 200, so the address is\n")
+        out.write("  right and something else is being served.\n\n")
+        out.write("  Open %s in a browser and see what it says.\n" % INDEX)
+        out.write("  Where a check has to be passed by a person, it is yours to pass, not this\n")
+        out.write("  tool's to work around. Put the PDFs in build/papers and run --convert.\n\n")
+        out.flush()
+        return 2
 
     if given.stem:
         stems = given.stem

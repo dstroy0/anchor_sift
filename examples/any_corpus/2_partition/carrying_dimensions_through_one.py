@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: ANY-2-001
 #
 # What a set of n dimensions costs when it is carried through one, against a known answer.
 #

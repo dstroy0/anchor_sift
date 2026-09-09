@@ -40,6 +40,28 @@ fi
 python "$CHECK"
 status=$?
 
+# The citation registry, and it refuses. A name used in this tree with no row means the work rests
+# on somebody's result and does not say whose, and that is the same class of defect the corpus
+# manifest gate catches one domain over.
+#
+# It refuses two ways. A name with no row exits 1. The closed citations repository being absent
+# exits 2, because the question cannot be asked at all without it, and a check that reads nothing
+# is never a pass. The second one catches everybody outside this work, so ANCHOR_SIFT_BYPASS=1
+# carries the tool's own --bypass in and the commit goes through with the bypass printed.
+CITATIONS="$REPO/tools/maintain/citations.py"
+if [ -f "$CITATIONS" ]; then
+    # Held in a variable and not a file. A hook writes nothing beside the source, and build/ is
+    # not there on a fresh clone.
+    said=$(python "$CITATIONS" --check 2>&1)
+    citations=$?
+    if [ "$citations" -ne 0 ]; then
+        echo "$said"
+        echo ""
+        echo "  commit stopped: the citation gate was not answered."
+        exit 1
+    fi
+fi
+
 if [ "$status" -eq 0 ]; then
     exit 0
 fi

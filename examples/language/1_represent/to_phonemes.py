@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: LNG-1-006
 #
 # Put five spellings into one set of sounds, for Section 4.13 of docs/research/anchor-sift.md.
 #

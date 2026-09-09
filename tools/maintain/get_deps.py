@@ -20,15 +20,24 @@
 # through the FetchContent block in deps/mmgr/deps/CMakeLists.txt. Cloning it here as well would put
 # a second copy at a second commit, the thing this script exists to stop.
 #
-# THE CLOSED ONE
+# THE CLOSED ONES
 #
-# The Salishan corpus is a dependency that almost nobody can clone. The hand extractions are forms
-# transcribed out of published papers and the papers are their authors' copyright, so neither is
-# this work's to redistribute and both sit in a closed repository. Its address is read from
-# ANCHOR_SIFT_PRIVATE_REPO and is not written down here, because the address of a closed repository
-# does not belong in a public one.
+# Two dependencies here are ones almost nobody can clone, and they are closed for two different
+# reasons.
 #
-# Failing to clone it is expected and is reported that way, not as an error. The papers can
+# The Salishan corpus holds forms transcribed out of published papers, and the papers are their
+# authors' copyright, so neither is this work's to redistribute. Under that sits the reason that
+# matters more: the forms are the words of the people whose languages they are, held on the
+# conditions those speakers set.
+#
+# anchor_sift_citations holds the published mathematics the measurements are built on. Its reason
+# is ordinary copyright.
+#
+# Both addresses are read from a variable, ANCHOR_SIFT_PRIVATE_REPO and ANCHOR_SIFT_CITATIONS_REPO,
+# and neither is written down here, because the address of a closed repository does not belong in a
+# public one.
+#
+# Failing to clone either is expected and is reported that way, not as an error. The papers can
 # be rebuilt from the public archive by anyone: tools/Salishan/get_papers.py fetches all 993 ICSNL
 # papers by name and converts them. What cannot be rebuilt is the hand extraction, and that goes to
 # anyone who has the papers and asks.
@@ -41,6 +50,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 DEPS = os.path.join(ROOT, "deps")
 
 PRIVATE_ENV = "ANCHOR_SIFT_PRIVATE_REPO"
+CITATIONS_ENV = "ANCHOR_SIFT_CITATIONS_REPO"
 
 # Name, repository, and what this tree wants it for.
 WANTED = (
@@ -50,6 +60,9 @@ WANTED = (
     ("salishan_corpus", os.environ.get(PRIVATE_ENV),
      "the hand extractions and the papers they were read from. Closed, and the ordinary answer "
      "here is that you do not have it."),
+    ("anchor_sift_citations", os.environ.get(CITATIONS_ENV),
+     "the published mathematics the measurements are built on, and SOURCES.tsv naming it. Closed "
+     "because the sources are their authors' copyright."),
 )
 
 
@@ -69,10 +82,13 @@ def main():
         print("    %s" % why)
 
         if repository is None:
+            # Two closed repositories read their address from two variables, and naming the wrong
+            # one sends somebody to set a variable that would not have helped.
             print("    no %s set, so it is not fetched. Nothing else here needs it."
-                  % PRIVATE_ENV)
-            print("    to rebuild the papers from the public archive instead:")
-            print("      python tools/Salishan/get_papers.py")
+                  % (CITATIONS_ENV if name == "anchor_sift_citations" else PRIVATE_ENV))
+            if name == "salishan_corpus":
+                print("    to rebuild the papers from the public archive instead:")
+                print("      python tools/Salishan/get_papers.py")
             continue
 
         if os.path.isdir(os.path.join(where, ".git")):
@@ -87,9 +103,9 @@ def main():
         code, said = run(["git", "clone", "--depth", "1", repository, where], DEPS)
         if code != 0:
             trouble = said.splitlines()[-1] if said else "unknown"
-            if name == "salishan_corpus":
+            if name in ("salishan_corpus", "anchor_sift_citations"):
                 # Being refused here is the expected answer for everyone outside the work, and the
-                # rest of the tree runs without it.
+                # rest of the tree runs without either of them.
                 print("    not available to this checkout: %s" % trouble)
                 continue
             print("    could not clone: %s" % trouble)

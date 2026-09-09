@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: PRF-x-001
 #
 # Proof of the posit that a quantity failing to conserve indicates the instrument, from the posits
 # section of docs/research/anchor-sift-ledger.md.

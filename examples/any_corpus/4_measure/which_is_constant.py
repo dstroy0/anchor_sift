@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: ANY-4-010
 #
 # Compare how stable two candidate invariants are across sources, for the ledger entry on collision
 # entropy in docs/research/anchor-sift-ledger.md.

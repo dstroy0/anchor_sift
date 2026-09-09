@@ -357,6 +357,45 @@ BANNED = (
     # that closes a paragraph on nothing.
     r"\bnothing here is (new|magic|special|clever|hidden|secret|surprising)\b",
     r"\band nothing else\b",
+    # Tier five, the preachy register, and the whole tier came out of one session's own output.
+    # Writing about a corpus that belongs to somebody else pulls prose toward the sermon, and the
+    # sermon is worse than useless here: every line in this repository carries one person's name,
+    # and a paragraph telling the reader how to feel about the material reads as that person
+    # performing rather than stating. The ethics are in the permission column and in what the gates
+    # refuse. They do not need narrating on top.
+    #
+    # The rule this tier enforces is that a fact is stated once, flat, and left alone.
+    #
+    # Moral entitlement. Whatever is owed here is settled in the licence and in SPEECH.tsv.
+    r"\b(is|are|was|were) (the least|what) (they|we|he|she|you|somebody) (are |is |)?(owed|deserve)",
+    r"\b(the least|more) (they|we|you) (deserve|are owed)\b",
+    r"\bwe owe (them|him|her|you|it)\b",
+    r"\bentitled to (make|take|say|claim)\b",
+    # Ranking two things by worth. Three patterns were tried here and dropped after they fired on
+    # real engineering prose in this tree. "a miss is worth more than a hit here" is a claim about
+    # what a diagnostic tells you, "the whole point of the file" names what a function is for, and
+    # "as distinctive as it should be" is a measurement against a prediction. None of those is the
+    # register this tier is after, and banning them would have cost five true sentences to catch
+    # two of mine. What is left is the shape that only ever shows up in a sermon.
+    r"\bthe more valuable\b",
+    r"\bthe (smallest|least) part of what\b",
+    r"\bworth more than (the|their|his|her|any) \w+ (itself|themselves)\b",
+    # Aphorism built on a moral antithesis. "something done, never something suffered" is the shape.
+    r"\b(something|anything) [a-z]+ed, never (something|anything)\b",
+    r"\bnever something (suffered|taken|lost|given)\b",
+    # Declaring what a thing means to the reader.
+    r"\bis what makes it (beautiful|worth|matter|special|right)\b",
+    r"\bthat is the (beauty|tragedy|point) of\b",
+    r"\ba person is not a\b",
+    # Piety markers and the invitation to reflect.
+    r"\b(it bears remembering|let us remember|we must remember|never forget)\b",
+    r"\bwith the respect (it|they|that) deserve",
+    r"\b(honou?r|honou?ring) (the|their|his|her) (memory|words|wishes|legacy)\b",
+    # Announcing one's own virtue in doing the ordinary thing. The comma is what separates the
+    # flourish from the measurement: "as distinctive as it should be" is a comparison and
+    # ", as it should be" is a pat on the back.
+    r"\bthe right thing to do\b",
+    r",\s*as it should be\b",
 )
 
 # docs-check: quoting

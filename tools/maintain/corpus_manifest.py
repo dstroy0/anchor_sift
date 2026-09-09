@@ -7,6 +7,7 @@
 #   python tools/maintain/corpus_manifest.py            reconcile, and say what disagrees
 #   python tools/maintain/corpus_manifest.py --write    rewrite the inventory from what is on disk
 #   python tools/maintain/corpus_manifest.py --root D   work on the tree at D
+#   python tools/maintain/corpus_manifest.py --bypass   answer the gate without satisfying it
 #
 # WHY THE INVENTORY EXISTS
 #
@@ -19,6 +20,14 @@
 # The record survives a withdrawal. The corpus licence says the material can be refocused on the
 # communities' request and never made available again, and a hash of a file that no longer exists is
 # still a true statement about what a measurement was taken over. A copy of the file would not be.
+#
+# TWO TREES TAKE THIS
+#
+# salishan_corpus holds the hand extractions and the papers they were read off. anchor_sift_citations
+# holds the math the measurements are built on, which is published work under its own copyright and
+# is closed for that reason and not for the community one. The reasons differ and the inventory does
+# not: both answer the question of which exact bytes a number was taken over, and both are signed at
+# the inventory so the answer survives the file. --root picks the tree.
 #
 # WHAT RECONCILING CATCHES
 #
@@ -48,21 +57,35 @@ import sys
 FIELDS = ("sha256", "bytes", "rows", "path")
 NAME = "MANIFEST.tsv"
 
+# The one way past the gate, spelled the same here and in citations.py because a person who has
+# met one of them should not have to learn a second name for the same thing. The variable is how
+# the flag reaches a commit hook, where nobody is typing arguments.
+BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
+
 # Written by the tool and never entered as content, so they are not themselves inventoried.
 IGNORED = (NAME, NAME + ".asc", ".git", ".gitignore", "hooks", "README.md")
 
 
 def rows_in(path):
-    """Data rows of a tab separated table, or an empty string for anything else."""
+    """Data rows of a tab separated table, or an empty string for anything else.
+
+    Taking line one as the header and counting everything after it was wrong for a table that
+    opens with a comment block. SOURCES.tsv has nine of those and reported 28 rows against its 18
+    sources. The header is the first line that is neither blank nor a comment, and the count is
+    what comes after that.
+    """
     if not path.endswith(".tsv"):
         return ""
     count = 0
+    header = False
     with io.open(path, encoding="utf-8", errors="replace") as handle:
-        for number, line in enumerate(handle):
-            if number == 0:
+        for line in handle:
+            if not line.strip() or line.startswith("#"):
                 continue
-            if line.strip():
-                count += 1
+            if not header:
+                header = True
+                continue
+            count += 1
     return str(count)
 
 
@@ -130,7 +153,10 @@ def write_manifest(root, rows, out):
     total = sum(int(one["bytes"]) for one in rows.values())
     tables = [one for one in rows.values() if one["rows"]]
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write("# Master inventory of the private Salishan corpus.\n")
+        # Two closed repositories take this tool, so the line names the one it was pointed at.
+        # A citations inventory headed "the private Salishan corpus" is a false statement about
+        # what was signed, and the signature is the whole reason the header is read.
+        handle.write("# Master inventory of %s.\n" % os.path.basename(root.rstrip("/\\")))
         handle.write("# Rewritten by tools/maintain/corpus_manifest.py --write in anchor_sift.\n")
         handle.write("# Reconciled before every commit. Sign this file, not the corpus.\n")
         handle.write("#\n")
@@ -150,6 +176,7 @@ def write_manifest(root, rows, out):
 
 def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    bypassing = ("--bypass" in sys.argv) or bool(os.environ.get(BYPASS_ENV))
     root = None
     if "--root" in sys.argv:
         root = sys.argv[sys.argv.index("--root") + 1]
@@ -162,7 +189,12 @@ def main():
 
     if not os.path.isdir(root):
         out.write("\n  no private corpus at %s\n" % root.replace("\\", "/"))
-        out.write("  set --root, or clone it there.\n\n")
+        out.write("  set --root, or clone it there.\n")
+        if bypassing:
+            out.write("  bypassed.\n\n")
+            out.flush()
+            return 0
+        out.write("  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV)
         out.flush()
         return 2
 
@@ -198,7 +230,12 @@ def main():
             out.write("    and %d more\n" % (len(held) - 40))
 
     if missing or unrecorded or changed:
-        out.write("\n  the tree and the inventory disagree. Nothing is signed until they do not.\n\n")
+        if bypassing:
+            out.write("\n  the tree and the inventory disagree. Bypassed, and nothing is signed.\n\n")
+            out.flush()
+            return 0
+        out.write("\n  the tree and the inventory disagree. Nothing is signed until they do not.\n")
+        out.write("  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV)
         out.flush()
         return 1
 

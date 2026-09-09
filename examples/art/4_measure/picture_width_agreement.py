@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: ART-4-002
 #
 # Put the two instruments in this work on the same picture and see whether they agree, for Section 4.11 of
 # docs/research/anchor-sift.md.

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: LNG-4-005
 #
 # Split a word's ambiguity into the part about what kind of word it is and the part about which form of
 # it this is, for Section 4.13 of docs/research/anchor-sift.md.
