@@ -338,7 +338,13 @@ PAPERS = (
           "Lushootseed",
           marks=HILBERT_HESS,
           note="A 1975 typescript, scanned, and what is on disk is OCR of the scan. The paper "
-               "names no speaker for its examples."),
+               "names no speaker for its examples. The OCR carries none of the orthography: zero "
+               "schwas, zero raised w, zero barred l, zero wedges, against 169, 77, 41 and 33 in "
+               "the hand extraction. It writes taqWsablu for taqʷšəblu and slahal for sləhal. That "
+               "is the whole of the 200 direction-one disagreements filed against this paper, and "
+               "they are the source text and not the reader. It needs a drafted page text and a "
+               "place in NOT_FAITHFUL, the way the two Lyon papers have, before the check against "
+               "it means anything."),
     Paper("2012_Robertson",
           "2012_Robertson.oracle.tsv",
           "CharleyAlexisMayoos-WilliamCelestin_BCIndigenousPeoplesChinukPipaScript_Robertson"
