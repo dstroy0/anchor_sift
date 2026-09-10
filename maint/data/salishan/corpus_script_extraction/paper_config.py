@@ -240,10 +240,36 @@ ELMENDORF_COMPARATIVE = "?ə" + "čšɬƛθɪᴀ" + "ʷʸ" + "áäéíóú" + "�
 # not about this set, because SHARED already holds ƛ; naming it here as an addition would be a
 # character that changes nothing and a comment that reads as though it does.
 #
-# ɔ and ɨ are the two vowel colourings TT give for q and k. The ɨ is a reading taken from its
+# ɔ and ɨ are the two vowel colorings TT give for q and k. The ɨ is a reading taken from its
 # pairing with ɔ and not from the glyph, which is a typed i carrying a raised mark, and the table
 # says so on a row of its own rather than promoting it here.
 HAMP_TILLAMOOK = SHARED + "?" + "̣" + "ɔɨæʌɪ"
+
+# Kinkade on Columbian deictics, with Kalispel, Coeur d'Alene and three Colville forms beside it.
+# Read off the oracle's own form column and not composed by hand: acute, grave, caron, dot below, æ
+# and small capital ɪ are what those rows hold past SHARED.
+#
+# The grave is a live contrast in this paper and not decoration. Three -ákst pairs print an acute in
+# the base and a grave on that same vowel in the derived form, scxaʔánəm against scxaʔànəmákst being
+# the clearest. A set without U+0300 reads half of that alternation as unmarked.
+#
+# æ and ɪ belong to the two authors quoted, not to Kinkade: æ is Reichard's throughout her Coeur
+# d'Alene forms, and ɪ is the reduplicant vowel of cɪciʔ and cɪciy̓æ, which the table records as an
+# assigned reading of a short curled stroke and not as a glyph anyone identified.
+KINKADE_COLUMBIAN = SHARED + "̣" + "́̀̌" + "æɪ"
+
+# Givens and Hall on Bev Phillips's telling of The Moon and the Birchbark Canoe. Read off the
+# oracle's own form column: past SHARED these rows hold the acute and the dot below, and nothing
+# else. No grave and no caron anywhere in the paper.
+#
+# Its lateral is U+026C, which is what the file encodes and what every other Nɬeʔkepmxcín row in the
+# corpus uses. The embedded font draws that character with a bar through the stem, so a reader
+# working from page renders sees U+0142 and writes it. The table's symbol note records the trap.
+#
+# The paper's own footnote 1 names the orthography: a form of the North American Phonetic Alphabet
+# employed by Thompson and Thompson 1992 and 1996. That is a paper stating what its characters are,
+# which is the strongest provenance available for a marks set here.
+GIVENS_HALL_NLEKEPMXCIN = SHARED + "́" + "̣"
 
 # Every paper, and whose language is in it.
 #
@@ -479,20 +505,25 @@ PAPERS = (
           "",
           "nɬeʔkepmxcín",
           speakers=("Bev Phillips, Lytton (ƛ̓q̓əmcín) dialect",),
+          marks=GIVENS_HALL_NLEKEPMXCIN,
           note="Katherine Givens and Brent Hall, The Moon and the Birchbark Canoe "
-               "(ɬ máʕxetn pe ɬ qʷɬinéwɬ), ICSNL 58. Registered ahead of being read, because the "
-               "corpus holds its recording and the speaker was named nowhere. Page 1: the story "
-               "was recounted in Nɬeʔkepmxcín by Bev Phillips, a native speaker of the Lytton "
-               "dialect, who also helped with the translation, and Givens and Hall transcribed "
-               "and glossed it. She is quoted on the page choosing the story and saying creation "
-               "stories are not just stories to us, and the paper's first footnote thanks her for "
-               "entrusting it to them. The recording is held as "
+               "(ɬ máʕxetn pe ɬ qʷɬinéwɬ), ICSNL 58. Seven pages, read one at a time off page "
+               "renders. Page 1: the story was recounted in Nɬeʔkepmxcín by Bev Phillips, a "
+               "native speaker of the Lytton dialect, who also helped with the translation, and "
+               "Givens and Hall transcribed and glossed it. She is quoted on the page choosing "
+               "the story and saying creation stories are not just stories to us, and the paper's "
+               "first footnote thanks her for entrusting it to them. The recording is held as "
                "speech/icsnl_proceedings/ICSNL58_GivensHall_MoonAndBirchbarkCanoe.mp3, which is "
                "the only one of the three whose name carries the transcribers and not the "
                "speaker, and a reader working from that filename alone read it as a second "
-               "speaker. The alphabet is not set here because the paper has not been read; it "
-               "carries the default and oracle_check lists it as still to be read by hand, so "
-               "nothing is checked against a guessed alphabet."),
+               "speaker. Footnote 4 defines (VG), a volunteered gloss, as a translated sentence "
+               "BP offered, so the parenthesis at the right margin is the only thing separating "
+               "her English from the authors', and examples 12, 13 and 14 lack it. Its section 4 "
+               "repeats every sentence of section 2 in morpheme-broken form, which gave a second "
+               "independent reading of every word and turned up three places where the two tiers "
+               "disagree. Footnotes 2, 6, 7 and 8 each declare a mark or a parsing the authors "
+               "reached by ear or by inference, which is more than any other paper here states "
+               "about its own readings."),
     Paper("1967_Hess",
           "1967_Hess.oracle.tsv",
           "",
@@ -532,6 +563,27 @@ PAPERS = (
                "conference against one of a later year. One mark is unresolved and marked so in "
                "the table: a short raised stroke over the s of the Columbia ska'u on page 7, "
                "which is not the wedge the Upper Chehalis sča'u carries two words earlier."),
+    Paper("1967_Kinkade",
+          "1967_Kinkade.oracle.tsv",
+          "",
+          "Columbian",
+          marks=KINKADE_COLUMBIAN,
+          note="M. Dale Kinkade, Deictics in Columbian: A Work Paper, ICSNL 2. Twelve pages, read "
+               "one at a time off page renders. Columbian is what it is about; Kalispel comes from "
+               "Vogt 1940, Coeur d'Alene from Reichard 1938, and three Colville forms from an "
+               "unnamed speaker who also knew Columbian. Every row carries its own language in the "
+               "who column. No speaker is named anywhere in the paper: it says my Cm informants "
+               "and nothing more, so the forms in this table were said by people it does not "
+               "identify. Its typewriter has three raised marks and the table's symbol notes turn "
+               "on telling them apart, a comma with a thick head and a curling tail, a V wedge, "
+               "and a straight acute. čén̓ on page 10 carries all three in one word and is the "
+               "control. The wedge appears only in the Kalispel and Coeur d'Alene forms, ten times "
+               "for ten, and never in the Columbian ones, whose seven caron readings are assigned "
+               "and are all x̌ or the č of čiílx. Whether that split is about the language or about "
+               "page order is not decidable here, because the wedge first appears on page 8 and "
+               "every Columbian form was typed on pages 1 to 7. 1967_Elmendorf, from the same "
+               "conference, distinguishes a wedge from a short raised stroke in its own table, so "
+               "the distinction is one these typescripts can carry."),
 )
 
 

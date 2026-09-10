@@ -42,7 +42,7 @@ MARKED = "ʔʕɬłƛəχ"
 # own paper's marks: applying this test corpus wide would strike 311 distinct tokens the hand
 # extractions hold, 151 of them in 2013_Nater and 152 in 22-Nater-Bella-Coola-tale-10, which is
 # most of what those two papers carry. It would do it silently. The four readers that use it today
-# each apply it inside one paper they were written for, which is why it is safe where it stands.
+# each apply it inside one paper they were written for, and it is safe where it stands for that.
 CAPS_RUN = re.compile(r"[A-Z]{2,}")
 
 PUNCTUATION = ".,!?;:“”‘’\"'()[]…"
@@ -85,6 +85,13 @@ PRACTICAL = "7"
 # Two files had their own copy of this union spelled out, salish_unsorted and hand_extraction's
 # papers, and MARKED was the default wherever a caller passed nothing. Both are read from here now.
 # A per-paper set is written as this plus what that paper adds, never as its own alphabet.
+#
+# THIS SET CARRIES NO PHONETIC CONTENT. ɬ and ł are both members because both occur, and nothing
+# here says the two are one sound. A distribution taken over these characters is a distribution over
+# what a transcriber typed. The table that takes a written form and returns the sound it stands for
+# is build/experiments/salish_phonemes.py. The Salishan book's chapter on going from the page to a
+# distribution over sounds names the three stages, character, segment and sound, and says which tool
+# belongs to each and what a measurement reads if a stage is skipped.
 TEXT_SPACE = MARKED + PRACTICAL + "̓̔̕ʷ˽"
 
 

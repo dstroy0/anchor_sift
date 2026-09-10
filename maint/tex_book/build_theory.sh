@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # Build every theory book under theory/ with LuaLaTeX, into build/theory/<book>/.
 #
-#   Usage:  sh maint/book/build_theory.sh [<book> ...]
+#   Usage:  sh maint/tex_book/build_theory.sh [<book> ...]
 #
 # Two passes, because the table of contents is written on the first and read on the second. The
 # engine is lualatex and not pdflatex: these books quote Salishan orthography, IPA and Greek, and

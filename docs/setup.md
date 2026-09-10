@@ -44,13 +44,13 @@ That produces the benches. Start with `build/engine_c/bench_lattice`.
 LuaLaTeX, from TeX Live or MiKTeX. The build runs it twice per book, because the table of contents is written on the first pass and read on the second.
 
 ```sh
-sh maint/book/build_theory.sh
+sh maint/tex_book/build_theory.sh
 ```
 
 PDFs land in `build/theory/<book>/main.pdf`. One book on its own:
 
 ```sh
-sh maint/book/build_theory.sh workbook
+sh maint/tex_book/build_theory.sh workbook
 ```
 
 The build fails if a book drops a glyph. That is deliberate: these books set Salishan orthography, and a missing character is a silently wrong page.

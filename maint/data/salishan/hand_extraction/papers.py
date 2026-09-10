@@ -45,16 +45,18 @@ PAGE_TEXT = "%s.page.txt"
 # These are OCR of typed pages, not a font encoding, so there is no mapping to invert: the scan lost
 # the marks and nothing in the file records what they were.
 #
-# Counted over the nine marks the corpus uses, in every registered paper's text. These four hold
+# Counted over the nine marks the corpus uses, in every registered paper's text. These five hold
 # zero schwa, zero barred l, zero barred lambda, zero c and s with caron, zero raised w, zero comma
 # above, zero caron and zero dot below. 1975_Hilbert_Hess writes taqWsablu where the page prints
 # taqʷšəblu, and 1967_Hess writes "The Lorph I-(e)bl in Snohomish" for "The Morph /-(ə)b/ in
 # Snohomish". 1967_Elmendorf loses the English too, printing TES'l'S OF A HYPOfBESIS and dating
-# itself 1961.
+# itself 1961. 1967_Kinkade holds no glottal stop either, in 19653 characters: its line 54 reads
+# nlafWalqWpcxWta? ?aci~ftcin where the page prints nləʕʷálqʷpcxʷtaʔ ʔacíx̣x̌cín, and it gives the
+# horse word as ~a~c{n for x̣x̌cín.
 #
-# All three papers of ICSNL 2 read here so far are in this state, which is a fact about the 1967
-# typescripts and not about any one of them. Registering 1967_Hamp without this entry put 338
-# disagreements into the tree in one step, every one of them the scan and none of them the reader.
+# All four papers of ICSNL 2 read here are in this state, which is a fact about the 1967 typescripts
+# and not about any one of them. Registering 1967_Hamp without this entry put 338 disagreements into
+# the tree in one step, every one of them the scan and none of them the reader.
 #
 # 19-Lyon_ICSNL50_final-78 and 2013_Lindley_Lyon count zero on the same nine and are not here,
 # because draft_page_text.py can put their orthography back from the font encoding. 1983_Hilbert
@@ -66,7 +68,8 @@ PAGE_TEXT = "%s.page.txt"
 # the reading is right to differ from. The check states the condition instead and counts nothing.
 # What would settle them is a page text transcribed from the scan, the way the two Lyon papers have
 # one generated.
-ORTHOGRAPHY_ABSENT = ("1975_Hilbert_Hess", "1967_Hess", "1967_Elmendorf", "1967_Hamp")
+ORTHOGRAPHY_ABSENT = ("1975_Hilbert_Hess", "1967_Hess", "1967_Elmendorf", "1967_Hamp",
+                      "1967_Kinkade")
 
 # The oracle's filename, the paper's stem in build/papers, the record the reader wrote, the repair
 # that reader applies to its source, what that paper writes its language with, and whether its

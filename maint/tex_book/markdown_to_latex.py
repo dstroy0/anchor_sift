@@ -233,7 +233,7 @@ def convert(source, title):
 # BOOKS, TITLEPAGE, MAIN and chapter_stem were cut from here. They were build_book's inputs: the
 # per book list of chapters, the two document templates, and the source path to chapter name rule.
 # build_book is gone, every source path the list named was deleted when the research moved into
-# theory/, and maint/book/build_theory.sh finds the books by globbing theory for main.tex, so the
+# theory/, and maint/tex_book/build_theory.sh finds the books by globbing theory for main.tex, so the
 # list cannot go stale by being wrong about what exists.
 
 
@@ -253,7 +253,7 @@ def main():
     # their chapters from markdown they generate in memory. Nothing writes a chapter from a file.
     print("  This module is imported for convert(), which turns markdown into a TeX chapter.")
     print("  It no longer builds books. theory/ is the source and its chapters are edited by hand.")
-    print("  Build the PDFs with: sh maint/book/build_theory.sh")
+    print("  Build the PDFs with: sh maint/tex_book/build_theory.sh")
     return 1
 
 

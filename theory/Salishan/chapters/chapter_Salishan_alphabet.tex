@@ -1,0 +1,196 @@
+\chapter{From the page to a distribution over sounds}
+
+\textbf{Purpose:} Follow one Salishan word from the mark on the page to a symbol a distribution can
+be taken over, and say which stage each tool in this tree belongs to, so that a reader measuring
+anything on this corpus knows what their symbols stand for.
+\textbf{Scope:}
+\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}marking.\allowbreak{}py},
+\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}paper\_\allowbreak{}config.\allowbreak{}py},
+\texttt{build/\allowbreak{}experiments/\allowbreak{}salish\_\allowbreak{}phonemes.\allowbreak{}py},
+the hand extractions under \texttt{oracles/\allowbreak{}} in the corpus.
+
+This chapter exists because the question keeps being asked and answered in conversation. The answer
+lives in a header comment in \texttt{build/\allowbreak{}experiments/\allowbreak{}}, which is not
+where anybody looks, and the reader who needs it is the reader who does not yet know it is there.
+
+\section{Three stages, and they are not interchangeable}
+
+A symbol in this corpus can mean three different things, and a distribution taken over each of them
+answers a different question.
+
+\begin{enumerate}
+  \item A \textbf{character} is a codepoint in a file. A distribution over characters is a
+        distribution over what a transcriber typed.
+  \item A \textbf{segment} is a base with everything that modifies it. A distribution over segments
+        is a distribution over the units the orthography writes.
+  \item A \textbf{sound} is what the segment stands for, with the spellings of one sound collapsed.
+        A distribution over sounds is the first one that is about the language.
+\end{enumerate}
+
+Each stage discards something the stage before it carried, and each discard is a claim that has to
+be true. Skipping a stage does not leave the measurement neutral. It leaves it measuring the thing
+that stage was there to remove.
+
+\section{Stage zero, the page}
+
+Nothing above starts until somebody has read the paper. A text extraction of a scanned typescript is
+not the paper: all four ICSNL 2 papers held here carry none of their own orthography in their text
+layer, zero of the nine marks the corpus uses, and
+\texttt{ORTHOGRAPHY\_\allowbreak{}ABSENT} in
+\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}papers.\allowbreak{}py}
+names them so that no check grades a correct reading against a file the reading is right to differ
+from.
+
+The trap runs the other way as well. \emph{The Moon and the Birchbark Canoe} is born digital and its
+text layer is faithful, but the embedded font draws U+026C, the l with a belt, as an l with a bar
+through the stem. A reader working from page renders sees ł and writes ł. The paper's text layer
+holds U+026C 112 times and U+0142 not once. The glyph on the page and the character the page is
+drawing are two different questions, and the hand extraction records the second with the first
+written down beside it.
+
+\section{Stage one, characters}
+
+\texttt{TEXT\_\allowbreak{}SPACE} is the union of every character these orthographies write their
+languages with
+(\texttt{salish\_\allowbreak{}marking.\allowbreak{}py:88}). It is built from
+\texttt{MARKED}, the marked consonants and the schwa
+(\texttt{salish\_\allowbreak{}marking.\allowbreak{}py:30}), \texttt{PRACTICAL}, the digit 7
+(\texttt{salish\_\allowbreak{}marking.\allowbreak{}py:76}), and the stacked glottalization marks,
+the labialization modifier and Nater's raised space.
+
+Two things about it are worth stating plainly, because both have caused a wrong measurement here.
+
+\textbf{It is a membership test and not an alphabet.} Its job is to answer whether a token is in one
+of these languages. A per-paper set is written as this plus what that paper adds, never as that
+paper's own alphabet, and the reason is in the file: a test built on one paper's characters reads
+every other paper as holding no language, and then reports nothing missing from them either.
+
+\textbf{It carries no phonetic content at all.} \texttt{ɬ} and \texttt{ł} are both in it, as separate
+members, because both occur. Nothing in \texttt{TEXT\_\allowbreak{}SPACE} says they are one sound.
+
+Typographic ligatures are repaired before anything else, without a test, because \texttt{ﬁ} is
+\texttt{fi} and no decision is involved
+(\texttt{salish\_\allowbreak{}marking.\allowbreak{}py:56}). That one was found by a case sensitive
+match turning up five against ﬁve.
+
+\section{Stage two, segments}
+
+\texttt{ʷ} is not a segment. It is labialization on the consonant before it. \texttt{̓} is not a
+segment either; it is glottalization on the base it sits over. Counting per character measures two
+halves of one segment as though they were independent.
+
+The rule is to join every combining mark and every modifier letter to the base in front of it. The
+hand extractions already do this when they write a form. Applied to Bev Phillips's
+\emph{When Old One Created the Earth}, it turns 5552 characters over 35 distinct into 4839 segments
+over 50 distinct. The inventory grows under clustering instead of shrinking, because \texttt{kʷ} and
+\texttt{k} stop being one letter counted twice. Twenty of the fifty carry a mark or a modifier:
+
+\begin{quote}
+\texttt{c̓ kʷ k̓ k̓ʷ m̓ n̓ p̓ qʷ q̓ q̓ʷ w̓ xʷ x̣ x̣ʷ y̓ z̓ ƛ̓ ə́ ʕʷ ʕ̓ʷ}
+\end{quote}
+
+\texttt{ə́} is one of the fifty. It is the segment that carried the Lushootseed dialect border. At
+the character level it is two codepoints, and the radix found it at width two for that reason.
+
+There is no shared function in this tree that performs this clustering. The rule is stated in prose,
+followed by hand in the oracles, and implemented once inside
+\texttt{build/\allowbreak{}experiments/\allowbreak{}pooled\_\allowbreak{}sound.\allowbreak{}py}.
+Anyone measuring segments today writes it again.
+
+\section{Stage three, sounds}
+
+\texttt{build/\allowbreak{}experiments/\allowbreak{}salish\_\allowbreak{}phonemes.\allowbreak{}py}
+holds the table that takes a spelling and returns the sound it stands for. Every asking of this
+question arrives at that file, and nothing in the tree points to it.
+
+The spellings that differ across the corpus, counted by segment over the hand extractions that
+existed when the table was built, which was 23 of them:
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\arraybackslash}p{\dimexpr\textwidth*3/4-2\tabcolsep\relax}@{}}
+\toprule
+Sound & How the corpus writes it \\
+\midrule
+lateral fricative & \texttt{ɬ} in seventeen papers, \texttt{ł} in four. LaFontaine and Janzen write \texttt{ł} 329 times and \texttt{ɬ} never. Nater's voiceless paper writes \texttt{ł} 98 times and \texttt{ɬ} three. \\
+glottal stop & \texttt{ʔ} in most, the digit \texttt{7} in the van Eijk orthography. Alexander and Davis write \texttt{7} 934 times and \texttt{ʔ} four. Matthewson and Redan write \texttt{7} 125 times and \texttt{ʔ} twice. A capital \texttt{Ɂ} occurs in one paper. \\
+uvular fricative & \texttt{χ}, \texttt{x̌} and \texttt{x̣}, all three in six or more papers. \\
+schwa & \texttt{ə} at U+0259 and \texttt{ǝ} at U+01DD, a turned e and a different codepoint. \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+Three of those four were named in the refs chapter. The fourth came out of counting, and so did the
+capital glottal stop and the aspirated \texttt{pʰ} and \texttt{tʰ} that only Nater writes. That is
+the argument for building the table by counting the corpus instead of from a description of it.
+
+\subsection{Where the correspondences come from}
+
+Nater states his own, in a paper this corpus holds: \texttt{/ł/ = /ɬ/}, \texttt{/χ/ = /x̌/},
+\texttt{/χʷ/ = /x̌ʷ/}, \texttt{/p’, t’, q’/ = /p̓, t̓, q̓/}, \texttt{/kʷ’, qʷ’/ = /k̓ʷ, q̓ʷ/} and
+\texttt{/’/ = [ʔ]}. A linguist writing down what his own symbols equal is the strongest source
+available here. The van Eijk 7 is declared in the tree already. The rest follow the standard
+descriptions of Americanist transcription, they were assigned by hand, and any error in them is an
+error in every result taken downstream.
+
+\subsection{Two errors that table had, both caught by reading its own output}
+
+The first draft sent \texttt{kʷ} and \texttt{qʷ} to one symbol. A labialized velar and a labialized
+uvular are different phonemes in these languages, and the collapse showed itself at once:
+\texttt{kʷɬ}, \texttt{qɬ} and \texttt{qʷł} arrived as one form, which merges three words.
+
+The second draft gave the uvular fricative the symbol \texttt{x}. A plain velar \texttt{x} already
+passes through as that same symbol. The mapped uvular and the unmapped velar then met in one cell.
+A pass-through is not free of the namespace it passes into.
+
+Every sound now takes a codepoint of its own from the private use area, assigned by the table and
+never typed, so no sound can collide with a letter the corpus writes. Both errors are recorded
+instead of quietly fixed, because a table like this is exactly where a wrong assertion is invisible:
+nothing downstream can tell a real merger from a typo.
+
+\subsection{What the mapping does not claim}
+
+Mapping \texttt{ɬ} and \texttt{ł} to one symbol says two spellings are one sound. That is a fact
+about transcription practice. Whether Nuxalk's lateral fricative and Lushootseed's are the same
+sound is a question for a comparativist, and nothing here asserts it. What the mapping buys is
+narrow and it is enough: a difference measured afterward is not the difference between two typists.
+
+\section{What a distribution reads at each stage}
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\arraybackslash}p{\dimexpr\textwidth*3/4-2\tabcolsep\relax}@{}}
+\toprule
+Over what & What the number is about \\
+\midrule
+bytes & the encoding, and whether a mark is precomposed or decomposed \\
+characters & the transcriber, and which conference volume the paper appeared in \\
+segments & the orthography, comparable inside one paper and across papers sharing a convention \\
+sounds & the language, comparable across every paper in the corpus \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The failure this ordering exists to prevent has a shape worth naming. A model counting character
+bigrams reads two dialects that share a word as maximally far apart, because it is measuring the
+transcriber and not the speaker. The distance is real, it is stable, it will replicate, and it is
+about the wrong thing.
+
+\section{What is not built}
+
+Three gaps, stated so that nobody has to rediscover them.
+
+\textbf{The phoneme table lives in an experiment.} It is under
+\texttt{build/\allowbreak{}experiments/\allowbreak{}} and nothing in the engine imports it. Work
+needing sounds today either finds that file or writes the table again.
+
+\textbf{The clustering rule has no shared implementation.} Stage two is prose plus one copy inside
+one experiment.
+
+\textbf{The word web is still built on written forms.} The refs chapter states this and it is
+unchanged: nothing takes a character out of \texttt{TEXT\_\allowbreak{}SPACE} and hands back what it
+stands for at the point the web is built, so two dialects writing one word two ways are still two
+nodes. Stage three is what would close it.
+
+\textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
+\textbf{Date:} 2026-09-10

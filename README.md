@@ -144,7 +144,7 @@ That band is where a native speaker belongs. The question there is *is this mine
 The research is four books under `theory/`. Build them:
 
 ```sh
-sh maint/book/build_theory.sh
+sh maint/tex_book/build_theory.sh
 ```
 
 | you want | book |
