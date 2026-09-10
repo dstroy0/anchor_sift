@@ -1,61 +1,84 @@
-# Blob visualization tools
+# Viewers
 
-`view` is a symbolic link to where these are maintained. It resolves where both trees sit side by
-side under `git_project`, and dangles anywhere else.
+Each is a Python generator plus an HTML template. The generator writes the numbers into the
+template as one JSON literal and emits a single self-contained file: no server, no install, no
+fetch at run time. Standard library only.
 
-Three generators, each writing one self-contained HTML file. No server, no install, no dependencies
-past the standard library. Open the output in a browser.
+## What is general and what belongs to this tree
 
-## A raw binary
+The general ones take their input as an argument and open nothing else. They are the toolkit
+candidates. The rest hardcode a path into this repository and are examples of the pattern,
+not tools:
+
+| general | reads |
+|---|---|
+| `build_blob_view.py` | any file you name |
+| `build_field_view.py` | any long-format table you name |
+| `build_chart_view.py` | any table you name |
+| `build_plot_view.py` | an expression you type |
+| `build_sound_view.py` | a wav you name, or its own generated signal |
+| `build_sweep_view.py` | the same, swept across analysis settings |
+| `dsp.py` `exact.py` `settings.py` | shared, no inputs of their own |
+
+| stays here | why |
+|---|---|
+| `build_voxel_view.py` `build_shadow_view.py` `build_sources_view.py` | open `src/bench/*.csv` |
+| `make_shadow_figure.py` | opens `src/bench/shadows.csv` |
+| `build_step_view.py` | traces SHA-256, which is this tree's subject |
+
+Checked by opening each one and never by pattern: `make_shadow_figure.py` reads as general to a
+grep for `src/bench` because it builds the path with two nested `dirname` calls, and it is not.
+
+## Opening state
+
+Every general generator takes `--set key=value`, repeatable. A caller asks for a view instead of
+publishing one and describing which controls to move. An unknown key exits with the list of known
+ones, because a typo is otherwise silent and the page just opens looking wrong.
 
 ```
-python view/build_blob_view.py firmware.bin
+python build_blob_view.py file.bin --set shape=hilbert --set spin=0.3 --set theme=dark
+python build_field_view.py data.csv --set floor=20 --set order=64 --set contrast=0.35
 ```
 
-Folds the bytes into a grid and builds eight readings of them: the byte, bits set, delta from the
-previous byte, windowed entropy, distinct values in the window, run length, high nibble, low nibble.
+Settings cover the step and representation, the transform, the overlay, the ramp and contrast, box
+opacity, the observer as yaw, pitch and distance, and spin in turns per minute.
 
-Width is the only assumption. Nothing in a blob says how wide it is, so structure that appears at
-one width and not another belongs to the width:
-
-```
-python view/build_blob_view.py firmware.bin --width 16 --offset 4096 --rows 4096
-```
-
-`--rows 0` reads the whole file. Past about 200,000 cells the page gets heavy, and it says so.
-
-## Any table
+## Solids
 
 ```
-python view/build_field_view.py data.csv
+python build_blob_view.py FILE                 any binary, eight readings of its bytes
+python build_field_view.py TABLE.csv           any long-format table
+python build_plot_view.py "sin(x)*cos(y)"      an expression over a grid
 ```
 
-Long format, one row per cell. It works out which column holds the value, which one is the depth axis, and
-which are the series, then says what it decided. Name them yourself when the guess is wrong:
+All three write the same page: the data as a mesh you turn, 32 representations, 9 transforms.
+Height and color are the value.
+
+The readouts box holds the distribution. Drag it to select a range, click for one bin; matching
+cells light up with a count and a share. Click a cell in the object and its value is marked on the
+distribution.
+
+## Flat charts
 
 ```
-python view/build_field_view.py data.csv --value amplitude --depth time --field sensor
+python build_chart_view.py TABLE.csv
+python build_chart_view.py TABLE.csv --x time --y temperature pressure
+python build_chart_view.py long.csv --split sensor --y value --kind scatter
 ```
 
-## Both, once open
+Line, scatter, step, bar, area. Hover reads the nearest point, drag zooms x, double click resets,
+series toggle off, y switches to log. It prints which columns it chose, making a wrong guess visible.
 
-The same seven embeddings apply to whatever was loaded: plane, tube, toroid, sphere, cone, helix,
-balloon. The embedding is a choice, not a measurement. Structure that shows under one shape and
-vanishes under another belongs to the map, not to the data, so what agrees across shapes is
-the part worth keeping.
+## One hash
 
-Height and color are the value. The Floor slider hides the quietest cells, which is how a large
-page becomes tractable.
+```
+python build_step_view.py --bit 96
+```
 
-## The rest
+Two SHA-256 traces, a message and the same message with one bit flipped, every intermediate kept.
 
-`build_step_view.py`, `build_shadow_view.py`, `build_sources_view.py` and `make_shadow_figure.py`
-are the same machinery pointed at one specific measurement, and read files that only exist in the
-repository they came from. They are here as worked examples of the pattern, not as tools for
-general use.
+## On representations
 
-That pattern: a generator computes numbers and injects them into a template as a single JSON
-literal, replacing one marker. The template is a complete working page that can be opened and
-edited with a browser on it; the generator never touches layout. Adding a viewer means writing a
-generator that emits `{depth, depthLabel, valueLabel, title, blurb, fields:[{key, label, axis,
-rows}]}`, where `rows` is one array per series over the depth axis.
+A representation decides where a cell sits. Joining the ends of an axis says the last value is next
+to the first, which is a period the picture adds. The plane joins nothing. Keep the reading that
+holds up when it is drawn several ways.

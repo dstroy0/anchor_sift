@@ -1,0 +1,390 @@
+<title>SHA-256 Step by Step</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap">
+<style>
+  :root {
+    --ground: #F3F5F8; --panel: #FFFFFF; --sunk: #E9EDF2; --ink: #161A21;
+    --muted: #58616F; --rule: #DBE1E9; --cool: #2F7FB5; --warm: #D2552A; --signal: #1E9E71;
+    --off: #C7CFDA; --on: #161A21;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0E1116; --panel: #161B23; --sunk: #0A0D12; --ink: #DCE3ED;
+      --muted: #78849A; --rule: #262E3B; --cool: #4FA8DE; --warm: #E5703C; --signal: #63D2A4;
+      --off: #2E3846; --on: #DCE3ED;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0E1116; --panel: #161B23; --sunk: #0A0D12; --ink: #DCE3ED;
+    --muted: #78849A; --rule: #262E3B; --cool: #4FA8DE; --warm: #E5703C; --signal: #63D2A4;
+    --off: #2E3846; --on: #DCE3ED;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 15px; line-height: 1.55;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 36px 24px 64px; }
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 20px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 9px;
+  }
+  h1 {
+    font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600;
+    font-size: clamp(27px, 4vw, 38px); margin: 0 0 11px; letter-spacing: -.015em;
+  }
+  .standfirst { margin: 0; max-width: 66ch; color: var(--muted); }
+  .standfirst b { color: var(--ink); font-weight: 600; }
+
+  .scrub {
+    display: flex; align-items: center; gap: 14px; margin: 0 0 8px;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 3px; padding: 12px 15px;
+  }
+  .scrub label {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .scrub input[type=range] { flex: 1; accent-color: var(--signal); }
+  .scrub output {
+    font-family: "IBM Plex Mono", monospace; font-size: 17px; font-weight: 600;
+    font-variant-numeric: tabular-nums; min-width: 2.5ch; text-align: right;
+  }
+  .scrub .tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--muted);
+  }
+
+  canvas#weights { display: block; width: 100%; height: 74px; margin-bottom: 18px; border-radius: 3px; }
+
+  .grid {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 14px 15px; overflow-x: auto;
+  }
+  table { border-collapse: collapse; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+  th, td { padding: 1px 0; white-space: nowrap; }
+  th.name, td.name {
+    text-align: right; padding-right: 12px; color: var(--muted); font-size: 11.5px;
+    position: sticky; left: 0; background: var(--panel);
+  }
+  td.hex { padding-left: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .bits { letter-spacing: 0; }
+  .b { display: inline-block; width: 11px; text-align: center; }
+  .z { color: var(--off); }
+  .o { color: var(--on); }
+  .d { background: var(--warm); color: #fff; font-weight: 600; border-radius: 2px; }
+  tr.rule td, tr.rule th { border-top: 1px solid var(--rule); padding-top: 6px; }
+  .ruler { color: var(--muted); font-size: 10px; }
+
+  .pills { display: flex; gap: 3px; flex-wrap: wrap; }
+  .pills button {
+    font: inherit; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; cursor: pointer;
+    padding: 3px 8px; border: 1px solid var(--rule); background: var(--panel);
+    color: var(--muted); border-radius: 2px;
+  }
+  .pills button[aria-pressed="true"] {
+    background: var(--sunk); color: var(--ink); border-color: var(--muted); font-weight: 600;
+  }
+  .pills button:focus-visible { outline: 2px solid var(--signal); outline-offset: 1px; }
+
+  .b { cursor: pointer; }
+  .b:hover { outline: 1px solid var(--signal); }
+  #probe {
+    margin-top: 12px; background: var(--sunk); border-radius: 3px; padding: 11px 13px;
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted);
+    min-height: 2.6em;
+  }
+  #probe b { color: var(--ink); }
+  #probe .hit { color: var(--warm); font-weight: 600; }
+
+  .legend {
+    margin: 22px 0 0; padding-top: 18px; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: 13.5px; max-width: 76ch;
+  }
+  .legend b { color: var(--ink); font-weight: 600; }
+  .swatch {
+    display: inline-block; width: 11px; height: 11px; background: var(--warm);
+    border-radius: 2px; vertical-align: -1px;
+  }
+  code {
+    font-family: "IBM Plex Mono", monospace; font-size: .92em; background: var(--sunk);
+    padding: .1em .34em; border-radius: 2px;
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">One message and the same message with one bit flipped</p>
+    <h1>SHA-256 Step by Step</h1>
+    <p class="standfirst">
+      Every intermediate of every round, for a pair of messages differing in a single input bit.
+      A single trace shows values; a pair shows <b>propagation</b>. Orange marks a bit where the two
+      differ &mdash; that is the difference itself, travelling.
+    </p>
+  </header>
+
+  <div class="scrub">
+    <label>View</label>
+    <div class="pills" id="modes"></div>
+    <label style="margin-left:8px">Show</label>
+    <div class="pills" id="picks"></div>
+  </div>
+
+  <div class="scrub">
+    <label for="round">Round</label>
+    <input type="range" id="round" min="0" max="63" value="0" step="1">
+    <output id="round-out">0</output>
+    <span class="tag" id="summary"></span>
+  </div>
+
+  <canvas id="weights" width="1000" height="74"></canvas>
+
+  <div class="grid">
+    <table id="table"></table>
+  </div>
+  <div id="probe">Click any bit to follow it: its value on both sides, and every round where that
+    position of that variable differs.</div>
+
+  <p class="legend">
+    <b>How to read it.</b> Bit 31 is at the left, bit 0 at the right, as the word is written.
+    <span class="swatch"></span> marks a differing bit. <code>W</code> is the schedule word this
+    round consumes; <code>S1</code> and <code>S0</code> are the two big sigmas; <code>T1</code> and
+    <code>T2</code> the temporaries. Only <code>a</code> and <code>e</code> are computed each round
+    &mdash; the other six are copies shifted along, which is why a difference in <code>b</code> is
+    just <code>a</code>'s difference one round late.
+    <br><br>
+    Scrub from zero and three things happen in order: nothing differs at all while the flipped word
+    is still outside the light cone; then a single orange bit appears in <code>W</code> and
+    <code>T1</code>; then the sigmas turn that one bit into three at separated positions, the carry
+    smears each of them upward, and within a few rounds half the bits are orange and stay there.
+  </p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var DATA = /*STEP_DATA*/null;
+  if (!DATA) { return; }
+
+  var at = 0;
+  var mode = "round";
+  var chosen = {};
+  DATA.keys.forEach(function (k) { chosen[k] = true; });
+  var table = document.getElementById("table");
+  var weights = document.getElementById("weights");
+
+  function token(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  function bitsRow(value, diff, name, round) {
+    var out = "";
+    for (var i = 31; i >= 0; i -= 1) {
+      var set = (value >>> i) & 1;
+      var moved = (diff >>> i) & 1;
+      out += '<span class="b ' + (moved ? "d" : (set ? "o" : "z"))
+             + '" data-name="' + name + '" data-bit="' + i + '" data-round="' + round + '">'
+             + set + "</span>";
+    }
+    return out;
+  }
+
+  /** Every round where one bit position of one variable differs between the two sides. */
+  function follow(name, bit) {
+    var index = DATA.keys.indexOf(name);
+    var hits = [];
+    for (var r = 0; r < 64; r += 1) {
+      var d = (DATA.rounds[r].base[index] ^ DATA.rounds[r].flip[index]) >>> 0;
+      if ((d >>> bit) & 1) { hits.push(r); }
+    }
+    return hits;
+  }
+
+  function runs(list) {
+    /** Contiguous stretches, because "3 to 63" reads and sixty-one numbers do not. */
+    if (!list.length) { return "never"; }
+    var out = [];
+    var from = list[0];
+    var prev = list[0];
+    for (var i = 1; i <= list.length; i += 1) {
+      if (i === list.length || list[i] !== prev + 1) {
+        out.push(from === prev ? String(from) : (from + "-" + prev));
+        if (i < list.length) { from = list[i]; }
+      }
+      if (i < list.length) { prev = list[i]; }
+    }
+    return out.join(", ");
+  }
+
+  function probe(name, bit, round) {
+    var index = DATA.keys.indexOf(name);
+    var base = DATA.rounds[round].base[index] >>> 0;
+    var flip = DATA.rounds[round].flip[index] >>> 0;
+    var here = ((base >>> bit) & 1) !== ((flip >>> bit) & 1);
+    var hits = follow(name, bit);
+    document.getElementById("probe").innerHTML =
+      "<b>" + name + "[" + bit + "]</b> at round " + round + ": base "
+      + ((base >>> bit) & 1) + ", flipped " + ((flip >>> bit) & 1)
+      + (here ? ' <span class="hit">differs here</span>' : " same here")
+      + "<br>differs at rounds: <b>" + runs(hits) + "</b>"
+      + "  &middot;  " + hits.length + " of 64";
+  }
+
+  function hex(value) {
+    var s = (value >>> 0).toString(16);
+    while (s.length < 8) { s = "0" + s; }
+    return s;
+  }
+
+  function draw() {
+    var rows = [];
+    rows.push('<tr><th class="name"></th><th class="ruler" style="text-align:left">'
+              + "bit 31 . . . 0</th><th></th></tr>");
+
+    if (mode === "round") {
+      // One round, every chosen variable. Good for seeing a round's internals at once.
+      var round = DATA.rounds[at];
+      for (var k = 0; k < DATA.keys.length; k += 1) {
+        var name = DATA.keys[k];
+        if (!chosen[name]) { continue; }
+        var base = round.base[k];
+        var flip = round.flip[k];
+        var diff = (base ^ flip) >>> 0;
+        var breakBefore = (name === "T1" || name === "a") ? ' class="rule"' : "";
+        rows.push("<tr" + breakBefore + '><td class="name">' + name + "</td>"
+                  + '<td class="bits">' + bitsRow(base >>> 0, diff, name, at) + "</td>"
+                  + '<td class="hex">' + hex(base)
+                  + (diff ? '  <span style="color:var(--warm)">' + popcount(diff) + " differ</span>"
+                          : "  same") + "</td></tr>");
+      }
+    } else {
+      // One variable, every round. This is the view propagation reads in: the light cone is the
+      // blank block at the top and the avalanche is where the orange fills in.
+      var only = null;
+      for (var n = 0; n < DATA.keys.length; n += 1) {
+        if (chosen[DATA.keys[n]]) { only = DATA.keys[n]; break; }
+      }
+      if (only === null) { only = "a"; }
+      var idx = DATA.keys.indexOf(only);
+      for (var r = 0; r < 64; r += 1) {
+        var b2 = DATA.rounds[r].base[idx];
+        var f2 = DATA.rounds[r].flip[idx];
+        var d2 = (b2 ^ f2) >>> 0;
+        var mark = (r === at) ? ' class="rule"' : "";
+        rows.push("<tr" + mark + '><td class="name">' + only + " r" + r + "</td>"
+                  + '<td class="bits">' + bitsRow(b2 >>> 0, d2, only, r) + "</td>"
+                  + '<td class="hex">' + hex(b2)
+                  + (d2 ? '  <span style="color:var(--warm)">' + popcount(d2) + "</span>"
+                        : "  same") + "</td></tr>");
+      }
+    }
+    table.innerHTML = rows.join("");
+
+    var da = (DATA.rounds[at].base[DATA.keys.indexOf("a")]
+              ^ DATA.rounds[at].flip[DATA.keys.indexOf("a")]) >>> 0;
+    document.getElementById("summary").textContent =
+      "a differs in " + popcount(da) + " of 32 bits";
+  }
+
+  function popcount(v) {
+    var n = 0;
+    v = v >>> 0;
+    while (v) { n += v & 1; v >>>= 1; }
+    return n;
+  }
+
+  function drawWeights() {
+    var width = weights.clientWidth || 1000;
+    var ratio = window.devicePixelRatio || 1;
+    weights.width = Math.round(width * ratio);
+    weights.height = Math.round(74 * ratio);
+    var ctx = weights.getContext("2d");
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.clearRect(0, 0, width, 74);
+
+    var ai = DATA.keys.indexOf("a");
+    var step = width / 64;
+    for (var r = 0; r < 64; r += 1) {
+      var diff = (DATA.rounds[r].base[ai] ^ DATA.rounds[r].flip[ai]) >>> 0;
+      var high = (popcount(diff) / 32) * 58;
+      ctx.fillStyle = (r === at) ? token("--signal") : token("--warm");
+      ctx.fillRect(r * step, 66 - high, Math.max(1, step - 1.2), high);
+    }
+    ctx.fillStyle = token("--muted");
+    ctx.font = "10px 'IBM Plex Mono', monospace";
+    ctx.fillText("bits of a differing, round 0 to 63", 2, 72);
+  }
+
+  // Mode: one round with every variable, or one variable across every round.
+  var modes = document.getElementById("modes");
+  [{ key: "round", label: "a round" }, { key: "variable", label: "a variable" }]
+    .forEach(function (each) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.textContent = each.label;
+      button.setAttribute("aria-pressed", each.key === mode ? "true" : "false");
+      button.addEventListener("click", function () {
+        mode = each.key;
+        if (mode === "variable") {
+          // One variable at a time, so the first chosen becomes the only chosen.
+          var first = DATA.keys.filter(function (k) { return chosen[k]; })[0] || "a";
+          DATA.keys.forEach(function (k) { chosen[k] = (k === first); });
+          paintPicks();
+        }
+        Array.prototype.forEach.call(modes.children, function (other) {
+          other.setAttribute("aria-pressed", other === button ? "true" : "false");
+        });
+        draw();
+      });
+      modes.appendChild(button);
+    });
+
+  var picks = document.getElementById("picks");
+  function paintPicks() {
+    Array.prototype.forEach.call(picks.children, function (button) {
+      button.setAttribute("aria-pressed", chosen[button.textContent] ? "true" : "false");
+    });
+  }
+  DATA.keys.forEach(function (name) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.textContent = name;
+    button.addEventListener("click", function () {
+      if (mode === "variable") {
+        DATA.keys.forEach(function (k) { chosen[k] = (k === name); });
+      } else {
+        chosen[name] = !chosen[name];
+      }
+      paintPicks();
+      draw();
+    });
+    picks.appendChild(button);
+  });
+  paintPicks();
+
+  // Clicking a bit follows that position of that variable through every round.
+  table.addEventListener("click", function (event) {
+    var cell = event.target.closest(".b");
+    if (!cell) { return; }
+    probe(cell.dataset.name, parseInt(cell.dataset.bit, 10),
+          parseInt(cell.dataset.round, 10));
+  });
+
+  var slider = document.getElementById("round");
+  slider.addEventListener("input", function () {
+    at = parseInt(this.value, 10);
+    document.getElementById("round-out").textContent = at;
+    draw();
+    drawWeights();
+  });
+
+  window.addEventListener("resize", drawWeights);
+  if (window.matchMedia) {
+    var watch = window.matchMedia("(prefers-color-scheme: dark)");
+    if (watch.addEventListener) {
+      watch.addEventListener("change", function () { draw(); drawWeights(); });
+    }
+  }
+
+  draw();
+  drawWeights();
+}());
+</script>

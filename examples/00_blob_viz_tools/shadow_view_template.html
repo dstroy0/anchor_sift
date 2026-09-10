@@ -1,0 +1,514 @@
+<title>Shadows of SHA-256</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+  :root {
+    --ground:   #F3F5F8;
+    --panel:    #FFFFFF;
+    --sunk:     #E9EDF2;
+    --ink:      #161A21;
+    --muted:    #58616F;
+    --rule:     #DBE1E9;
+    --cool:     #2F7FB5;
+    --warm:     #D2552A;
+    --signal:   #1E9E71;
+    --shadow:   0 1px 2px rgba(20, 30, 45, .07), 0 8px 24px rgba(20, 30, 45, .06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0E1116;
+      --panel:  #161B23;
+      --sunk:   #0A0D12;
+      --ink:    #DCE3ED;
+      --muted:  #78849A;
+      --rule:   #262E3B;
+      --cool:   #4FA8DE;
+      --warm:   #E5703C;
+      --signal: #63D2A4;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0E1116;
+    --panel:  #161B23;
+    --sunk:   #0A0D12;
+    --ink:    #DCE3ED;
+    --muted:  #78849A;
+    --rule:   #262E3B;
+    --cool:   #4FA8DE;
+    --warm:   #E5703C;
+    --signal: #63D2A4;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 40px 24px 72px; }
+
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 22px; margin-bottom: 26px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 10px;
+  }
+  h1 {
+    font-family: "IBM Plex Serif", Georgia, serif;
+    font-weight: 600; font-size: clamp(28px, 4vw, 40px);
+    margin: 0 0 12px; letter-spacing: -.015em; text-wrap: balance;
+  }
+  .standfirst { margin: 0; max-width: 64ch; color: var(--muted); }
+  .standfirst b { color: var(--ink); font-weight: 600; }
+
+  .console {
+    display: grid; grid-template-columns: 232px minmax(0, 1fr); gap: 22px;
+    align-items: start;
+  }
+  @media (max-width: 860px) { .console { grid-template-columns: 1fr; } }
+
+  .rail { display: flex; flex-direction: column; gap: 18px; }
+
+  fieldset {
+    border: 1px solid var(--rule); border-radius: 3px; padding: 14px 14px 16px;
+    margin: 0; background: var(--panel);
+  }
+  legend {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--muted); padding: 0 6px;
+  }
+
+  .choices { display: flex; flex-direction: column; gap: 2px; }
+  .choice {
+    display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 8px;
+    border: 0; background: none; color: var(--muted); cursor: pointer;
+    font: inherit; font-size: 13.5px; text-align: left;
+    padding: 7px 8px; border-radius: 2px; width: 100%;
+  }
+  .choice:hover { background: var(--sunk); color: var(--ink); }
+  .choice[aria-pressed="true"] { background: var(--sunk); color: var(--ink); font-weight: 600; }
+  .choice[aria-pressed="true"] .dim { color: var(--signal); }
+  .choice .dim {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; color: var(--muted); font-weight: 400;
+  }
+  .choice:focus-visible { outline: 2px solid var(--signal); outline-offset: 1px; }
+
+  .toggles { display: flex; gap: 6px; }
+  .toggles button {
+    flex: 1; font: inherit; font-size: 12.5px; cursor: pointer;
+    padding: 6px 4px; border: 1px solid var(--rule); border-radius: 2px;
+    background: var(--panel); color: var(--muted);
+  }
+  .toggles button[aria-pressed="true"] {
+    background: var(--sunk); color: var(--ink); border-color: var(--muted); font-weight: 600;
+  }
+  .toggles button:focus-visible { outline: 2px solid var(--signal); outline-offset: 1px; }
+
+  .stage {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 18px; box-shadow: var(--shadow); overflow-x: auto;
+  }
+  .stage h2 {
+    font-family: "IBM Plex Serif", Georgia, serif;
+    font-size: 18px; font-weight: 600; margin: 0 0 3px;
+  }
+  .stage .note { margin: 0 0 16px; color: var(--muted); font-size: 13.5px; max-width: 68ch; }
+
+  canvas { display: block; width: 100%; image-rendering: pixelated; border-radius: 2px; }
+  #profile { image-rendering: auto; margin-top: 4px; }
+
+  .axis {
+    display: flex; justify-content: space-between;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; color: var(--muted); margin-top: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .scrub { display: flex; align-items: center; gap: 14px; margin-top: 18px; }
+  .scrub input[type=range] { flex: 1; accent-color: var(--signal); }
+  .scrub label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  }
+  .scrub output {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums;
+    min-width: 3ch; text-align: right;
+  }
+
+  .readout {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+    gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+    border-radius: 3px; margin-top: 22px; overflow: hidden;
+  }
+  .cell { background: var(--panel); padding: 11px 13px; }
+  .cell dt {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 3px;
+  }
+  .cell dd {
+    margin: 0; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums;
+  }
+
+  .key { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+  .key .bar { height: 9px; flex: 1; border-radius: 2px; }
+  .key span {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+
+  .legend-note {
+    margin: 26px 0 0; padding-top: 20px; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: 13.5px; max-width: 74ch;
+  }
+  .legend-note b { color: var(--ink); font-weight: 600; }
+  code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .92em;
+    background: var(--sunk); padding: .1em .34em; border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Dependency field &middot; 512 input bits &times; 256 output bits &times; 64 rounds</p>
+    <h1>Shadows of SHA-256</h1>
+    <p class="standfirst">
+      The object is three-dimensional and has 8.4&nbsp;million cells, so nobody looks at it directly.
+      Every reading is a <b>shadow</b> &mdash; the field collapsed along one axis. The residue fold is
+      one shadow; the chi-square is the same object flattened all the way to a single number. These
+      are the four shadows this instrument can cast, each measured at 2<sup>18</sup> message pairs
+      per cell with an independent seed at every round.
+    </p>
+  </header>
+
+  <div class="console">
+    <div class="rail">
+      <fieldset>
+        <legend>Projection</legend>
+        <div class="choices" id="choices"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Scale</legend>
+        <div class="toggles" id="scales">
+          <button type="button" data-scale="log" aria-pressed="true">Signed log</button>
+          <button type="button" data-scale="linear" aria-pressed="false">Linear</button>
+        </div>
+        <p style="margin:11px 0 0;font-size:12.5px;color:var(--muted)">
+          The ridge starts near 15,000&sigma; and ends under 1&sigma;. Linear shows only the first
+          ten rounds; signed log shows the whole life of it.
+        </p>
+      </fieldset>
+    </div>
+
+    <div class="stage">
+      <h2 id="stage-title">Residue against round</h2>
+      <p class="note" id="stage-note"></p>
+
+      <canvas id="map" width="64" height="32" role="img"
+              aria-label="Heat map of the dependency field, rounds along the horizontal axis"></canvas>
+      <div class="axis"><span>round 1</span><span>16</span><span>32</span><span>48</span><span>64</span></div>
+
+      <div class="key">
+        <span id="key-low">&minus;</span>
+        <canvas class="bar" id="keybar" width="256" height="9"></canvas>
+        <span id="key-high">+</span>
+      </div>
+
+      <div class="scrub">
+        <label for="round">Round</label>
+        <input type="range" id="round" min="1" max="64" value="14" step="1">
+        <output id="round-out">14</output>
+      </div>
+
+      <canvas id="profile" width="720" height="150" role="img"
+              aria-label="Profile of the selected round across the projection axis"></canvas>
+
+      <dl class="readout">
+        <div class="cell"><dt>Peak this round</dt><dd id="peak">&mdash;</dd></div>
+        <div class="cell"><dt>Sits at</dt><dd id="peak-at">&mdash;</dd></div>
+        <div class="cell"><dt>Total power</dt><dd id="power">&mdash;</dd></div>
+        <div class="cell"><dt>Null peak</dt><dd id="null">&mdash;</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <p class="legend-note">
+    <b>How to read it.</b> Colour is the signed deviation in standard errors: blue below chance,
+    orange above, and the panel color is exactly zero, so a shadow that shows nothing is showing
+    nothing. In the residue view the ridge sits at class&nbsp;26 and loses one thirty-second of its
+    amplitude per round from round&nbsp;12, holding to four decimal places for five rounds before
+    the knee. It is gone by round&nbsp;23, and past that the whole field is white noise at every lag
+    in both axes. <b>Nothing in these shadows walks:</b> a Doppler scan built to detect drift reads
+    <code>|drift| &le; 0.09</code> at all fifteen spatial frequencies, against a positive control it
+    recovers at 131&sigma;.
+  </p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var DATA = /*SHADOW_DATA*/null;
+  if (!DATA) { return; }
+
+  var VIEWS = [
+    { key: "residue", label: "Residue", dim: "32 × 64", signed: true,
+      title: "Residue against round",
+      note: "The field folded onto (input bit − output bit) mod 32, which is the coordinate the rotations act in. 4,096 cells stand behind every square, so this shadow sees structure a maximum cannot.",
+      axis: function (i) { return "residue " + i; } },
+    { key: "inbit", label: "Input bits", dim: "512 × 64", signed: false,
+      title: "Every input bit against round",
+      note: "Power in each of the 512 message bits, unfolded. Excess over the 256 expected per row, so a bit that behaves reads zero rather than 256.",
+      axis: function (i) { return "bit " + i + " (word " + Math.floor(i / 32) + ")"; } },
+    { key: "outbit", label: "Output bits", dim: "256 × 64", signed: false,
+      title: "Every output bit against round",
+      note: "The same collapse taken the other way: power in each of the 256 state bits. The eight words of the chaining value are 32 rows apart.",
+      axis: function (i) { return "bit " + i + " (word " + Math.floor(i / 32) + ")"; } },
+    { key: "word", label: "Word pairs", dim: "128 × 64", signed: false,
+      title: "Input word against output word",
+      note: "The coarse block view: 16 message words against 8 state words, 1,024 cells behind each square. Rows are grouped by message word, so each block of eight is one word's reach across the whole state.",
+      axis: function (i) { return "W" + Math.floor(i / 8) + " → s" + (i % 8); } }
+  ];
+
+  var view = VIEWS[0];
+  var scale = "log";
+  var atRound = 14;
+
+  var map = document.getElementById("map");
+  var mapCtx = map.getContext("2d");
+  var profile = document.getElementById("profile");
+  var profCtx = profile.getContext("2d");
+  var keybar = document.getElementById("keybar");
+
+  /** Flattens the word projection's two axes into the one row index the renderer wants. */
+  function planeFor(key) {
+    if (key !== "word") { return DATA[key]; }
+    var rows = [];
+    for (var inWord = 0; inWord < DATA.word.length; inWord += 1) {
+      for (var outWord = 0; outWord < DATA.word[inWord].length; outWord += 1) {
+        rows.push(DATA.word[inWord][outWord]);
+      }
+    }
+    return rows;
+  }
+
+  function readToken(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  function toRgb(hex) {
+    var clean = hex.replace("#", "");
+    if (clean.length === 3) {
+      clean = clean[0] + clean[0] + clean[1] + clean[1] + clean[2] + clean[2];
+    }
+    var n = parseInt(clean, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+
+  var palette = {};
+  function refreshPalette() {
+    palette.zero = toRgb(readToken("--panel"));
+    palette.cool = toRgb(readToken("--cool"));
+    palette.warm = toRgb(readToken("--warm"));
+    palette.ink = readToken("--ink");
+    palette.muted = readToken("--muted");
+    palette.rule = readToken("--rule");
+    palette.signal = readToken("--signal");
+  }
+
+  /** Diverging ramp: zero takes the panel color so an empty shadow reads as empty. */
+  function colorAt(t) {
+    var end = t < 0 ? palette.cool : palette.warm;
+    var k = Math.min(1, Math.abs(t));
+    var eased = Math.pow(k, 0.72);
+    return [
+      Math.round(palette.zero[0] + (end[0] - palette.zero[0]) * eased),
+      Math.round(palette.zero[1] + (end[1] - palette.zero[1]) * eased),
+      Math.round(palette.zero[2] + (end[2] - palette.zero[2]) * eased)
+    ];
+  }
+
+  /** Signed log keeps the sign and compresses six decades into the same ramp. */
+  function shaped(value, ceiling) {
+    if (scale === "linear") { return ceiling === 0 ? 0 : value / ceiling; }
+    var top = Math.log10(1 + ceiling);
+    if (top === 0) { return 0; }
+    var here = Math.log10(1 + Math.abs(value)) / top;
+    return value < 0 ? -here : here;
+  }
+
+  function ceilingOf(rows) {
+    var most = 0;
+    for (var r = 0; r < rows.length; r += 1) {
+      for (var c = 0; c < rows[r].length; c += 1) {
+        var size = Math.abs(rows[r][c]);
+        if (size > most) { most = size; }
+      }
+    }
+    return most;
+  }
+
+  function drawMap(rows, ceiling) {
+    map.width = DATA.rounds;
+    map.height = rows.length;
+    var image = mapCtx.createImageData(DATA.rounds, rows.length);
+    for (var r = 0; r < rows.length; r += 1) {
+      for (var c = 0; c < DATA.rounds; c += 1) {
+        var rgb = colorAt(shaped(rows[r][c], ceiling));
+        var at = ((r * DATA.rounds) + c) * 4;
+        image.data[at] = rgb[0];
+        image.data[at + 1] = rgb[1];
+        image.data[at + 2] = rgb[2];
+        image.data[at + 3] = 255;
+      }
+    }
+    mapCtx.putImageData(image, 0, 0);
+    map.style.height = Math.max(150, Math.min(430, rows.length * (rows.length > 64 ? 0.85 : 8))) + "px";
+  }
+
+  function drawKey(ceiling) {
+    var ctx = keybar.getContext("2d");
+    var image = ctx.createImageData(keybar.width, keybar.height);
+    for (var x = 0; x < keybar.width; x += 1) {
+      var t = ((x / (keybar.width - 1)) * 2) - 1;
+      var rgb = colorAt(t);
+      for (var y = 0; y < keybar.height; y += 1) {
+        var at = ((y * keybar.width) + x) * 4;
+        image.data[at] = rgb[0];
+        image.data[at + 1] = rgb[1];
+        image.data[at + 2] = rgb[2];
+        image.data[at + 3] = 255;
+      }
+    }
+    ctx.putImageData(image, 0, 0);
+    var shown = ceiling >= 1000 ? Math.round(ceiling / 100) / 10 + "k" : Math.round(ceiling);
+    document.getElementById("key-low").textContent = view.signed ? "−" + shown : "0";
+    document.getElementById("key-high").textContent = "+" + shown;
+  }
+
+  function drawProfile(rows, ceiling) {
+    var width = profile.clientWidth || 720;
+    var ratio = window.devicePixelRatio || 1;
+    profile.width = Math.round(width * ratio);
+    profile.height = Math.round(150 * ratio);
+    profile.style.height = "150px";
+    profCtx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    profCtx.clearRect(0, 0, width, 150);
+
+    var slot = atRound - 1;
+    var pad = 10;
+    var mid = 150 / 2;
+    var span = rows.length;
+    var reach = 0;
+    var at;
+    for (at = 0; at < span; at += 1) {
+      var size = Math.abs(rows[at][slot]);
+      if (size > reach) { reach = size; }
+    }
+    var scaleTo = Math.max(reach, ceiling * 0.02, 1);
+
+    profCtx.strokeStyle = palette.rule;
+    profCtx.lineWidth = 1;
+    profCtx.beginPath();
+    profCtx.moveTo(0, mid);
+    profCtx.lineTo(width, mid);
+    profCtx.stroke();
+
+    var step = width / span;
+    for (at = 0; at < span; at += 1) {
+      var here = rows[at][slot];
+      var high = (Math.abs(here) / scaleTo) * (mid - pad);
+      var rgb = colorAt(here < 0 ? -0.85 : 0.85);
+      profCtx.fillStyle = "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ")";
+      profCtx.fillRect(at * step, here < 0 ? mid : mid - high, Math.max(1, step - 0.6), high);
+    }
+
+    profCtx.fillStyle = palette.muted;
+    profCtx.font = "10px 'IBM Plex Mono', monospace";
+    profCtx.fillText("peak " + Math.round(reach) + "σ at round " + atRound, 4, 12);
+  }
+
+  function refresh() {
+    refreshPalette();
+    var rows = planeFor(view.key);
+    var ceiling = ceilingOf(rows);
+
+    document.getElementById("stage-title").textContent = view.title;
+    document.getElementById("stage-note").textContent = view.note;
+
+    drawMap(rows, ceiling);
+    drawKey(ceiling);
+    drawProfile(rows, ceiling);
+
+    var slot = atRound - 1;
+    var best = 0;
+    var bestAt = 0;
+    var power = 0;
+    for (var at = 0; at < rows.length; at += 1) {
+      var here = rows[at][slot];
+      power += here * here;
+      if (Math.abs(here) > Math.abs(best)) { best = here; bestAt = at; }
+    }
+    document.getElementById("peak").textContent =
+      (best >= 0 ? "+" : "−") + Math.round(Math.abs(best)).toLocaleString() + "σ";
+    document.getElementById("peak-at").textContent = view.axis(bestAt);
+    document.getElementById("power").textContent = Math.round(Math.sqrt(power)).toLocaleString();
+    document.getElementById("null").textContent =
+      (Math.sqrt(2 * Math.log(rows.length))).toFixed(2) + "σ";
+  }
+
+  var choices = document.getElementById("choices");
+  VIEWS.forEach(function (each) {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "choice";
+    button.setAttribute("aria-pressed", each === view ? "true" : "false");
+    button.innerHTML = "<span>" + each.label + "</span><span class=\"dim\">" + each.dim + "</span>";
+    button.addEventListener("click", function () {
+      view = each;
+      Array.prototype.forEach.call(choices.children, function (other, index) {
+        other.setAttribute("aria-pressed", VIEWS[index] === view ? "true" : "false");
+      });
+      refresh();
+    });
+    choices.appendChild(button);
+  });
+
+  document.getElementById("scales").addEventListener("click", function (event) {
+    var button = event.target.closest("button[data-scale]");
+    if (!button) { return; }
+    scale = button.dataset.scale;
+    Array.prototype.forEach.call(this.children, function (other) {
+      other.setAttribute("aria-pressed", other === button ? "true" : "false");
+    });
+    refresh();
+  });
+
+  var slider = document.getElementById("round");
+  slider.addEventListener("input", function () {
+    atRound = parseInt(this.value, 10);
+    document.getElementById("round-out").textContent = atRound;
+    refresh();
+  });
+
+  window.addEventListener("resize", refresh);
+  if (window.matchMedia) {
+    var watch = window.matchMedia("(prefers-color-scheme: dark)");
+    if (watch.addEventListener) { watch.addEventListener("change", refresh); }
+  }
+
+  refresh();
+}());
+</script>

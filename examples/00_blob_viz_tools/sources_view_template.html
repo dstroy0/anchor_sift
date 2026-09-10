@@ -1,0 +1,296 @@
+<title>SHA-256 Against Noise</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap">
+<style>
+  :root {
+    --ground: #F3F5F8; --panel: #FFFFFF; --sunk: #E9EDF2; --ink: #161A21;
+    --muted: #58616F; --rule: #DBE1E9; --cool: #2F7FB5; --warm: #D2552A; --signal: #1E9E71;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0E1116; --panel: #161B23; --sunk: #0A0D12; --ink: #DCE3ED;
+      --muted: #78849A; --rule: #262E3B; --cool: #4FA8DE; --warm: #E5703C; --signal: #63D2A4;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0E1116; --panel: #161B23; --sunk: #0A0D12; --ink: #DCE3ED;
+    --muted: #78849A; --rule: #262E3B; --cool: #4FA8DE; --warm: #E5703C; --signal: #63D2A4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 15px; line-height: 1.55;
+  }
+  .wrap { max-width: 1220px; margin: 0 auto; padding: 36px 24px 60px; }
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 22px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 9px;
+  }
+  h1 {
+    font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600;
+    font-size: clamp(27px, 4vw, 38px); margin: 0 0 11px; letter-spacing: -.015em;
+  }
+  .standfirst { margin: 0; max-width: 66ch; color: var(--muted); }
+  .standfirst b { color: var(--ink); font-weight: 600; }
+
+  .bar { display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-end; margin-bottom: 20px; }
+  .group { display: flex; flex-direction: column; gap: 6px; }
+  .group span {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .pills { display: flex; gap: 4px; }
+  .pills button {
+    font: inherit; font-size: 13px; cursor: pointer; padding: 6px 12px;
+    border: 1px solid var(--rule); background: var(--panel); color: var(--muted); border-radius: 2px;
+  }
+  .pills button[aria-pressed="true"] {
+    background: var(--sunk); color: var(--ink); border-color: var(--muted); font-weight: 600;
+  }
+  .pills button:focus-visible { outline: 2px solid var(--signal); outline-offset: 1px; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 820px) { .pair { grid-template-columns: 1fr; } }
+  .panel {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 3px; padding: 15px;
+  }
+  .panel h2 {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .1em;
+    text-transform: uppercase; margin: 0 0 3px; color: var(--ink);
+  }
+  .panel p.sub { margin: 0 0 12px; font-size: 12.5px; color: var(--muted); }
+  canvas { display: block; width: 100%; image-rendering: pixelated; border-radius: 2px; }
+  .axis {
+    display: flex; justify-content: space-between; font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px; color: var(--muted); margin-top: 6px; font-variant-numeric: tabular-nums;
+  }
+  .stat {
+    margin-top: 12px; font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+    color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+  .stat b { color: var(--ink); }
+  .note {
+    margin: 24px 0 0; padding-top: 18px; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: 13.5px; max-width: 76ch;
+  }
+  .note b { color: var(--ink); font-weight: 600; }
+  code {
+    font-family: "IBM Plex Mono", monospace; font-size: .92em; background: var(--sunk);
+    padding: .1em .34em; border-radius: 2px;
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">The same projection from two sources, drawn the same way</p>
+    <h1>SHA-256 Against Noise</h1>
+    <p class="standfirst">
+      Every null in this research is a number. This is the same question asked by looking: put the
+      measured field beside a matrix that is <b>pseudorandom by construction</b> &mdash; same kernel
+      shape, same tally, same denominator, compression replaced by random words &mdash; and see
+      whether they can be told apart. Anything the two share is the harness. Anything only one has
+      belongs to that source.
+    </p>
+  </header>
+
+  <div class="bar">
+    <div class="group"><span>Left</span><div class="pills" id="left"></div></div>
+    <div class="group"><span>Right</span><div class="pills" id="right"></div></div>
+    <div class="group"><span>Projection</span><div class="pills" id="kinds"></div></div>
+    <div class="group"><span>Scale</span><div class="pills" id="scales"></div></div>
+  </div>
+
+  <div class="pair">
+    <div class="panel">
+      <h2 id="left-name">&mdash;</h2>
+      <p class="sub" id="left-sub"></p>
+      <canvas id="left-map" width="48" height="32"></canvas>
+      <div class="axis"><span>round 1</span><span>16</span><span>32</span><span>48</span></div>
+      <p class="stat" id="left-stat"></p>
+    </div>
+    <div class="panel">
+      <h2 id="right-name">&mdash;</h2>
+      <p class="sub" id="right-sub"></p>
+      <canvas id="right-map" width="48" height="32"></canvas>
+      <div class="axis"><span>round 1</span><span>16</span><span>32</span><span>48</span></div>
+      <p class="stat" id="right-stat"></p>
+    </div>
+  </div>
+
+  <p class="note">
+    <b>Both panels share one color scale</b>, taken from whichever side reaches further, so the
+    comparison is fair and a quiet field looks quiet rather than being stretched to fill the ramp.
+    The statistic under each is the root-mean-square deviation across the whole field in standard
+    errors: <code>1.00</code> is exactly what a binomial matrix gives, so a source reading near one
+    is indistinguishable from noise by that measure however it looks. The residue projection is
+    signed, blue below chance and orange above; the bit projections are power and cannot be
+    negative, which is a limitation of that readout rather than of the field.
+  </p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var DATA = /*SOURCES_DATA*/null;
+  if (!DATA || !DATA.order || !DATA.order.length) { return; }
+
+  var ABOUT = {
+    "sha256": "the real compression function",
+    "psrand": "pseudorandom by construction: the null",
+    "no_addition": "integer addition removed, so no carries",
+    "no_sigma1": "Sigma1 removed"
+  };
+
+  var KINDS = [
+    { key: "residue", label: "Residue", rows: 32, signed: true },
+    { key: "outbit", label: "Output bits", rows: 256, signed: false },
+    { key: "inbit", label: "Input bits", rows: 512, signed: false }
+  ];
+
+  var left = DATA.order[0];
+  var right = DATA.order.length > 1 ? DATA.order[1] : DATA.order[0];
+  var kind = KINDS[0];
+  var scale = "log";
+
+  function token(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+  function toRgb(hex) {
+    var c = hex.replace("#", "");
+    if (c.length === 3) { c = c[0]+c[0]+c[1]+c[1]+c[2]+c[2]; }
+    var n = parseInt(c, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+
+  function planeOf(name) {
+    var box = DATA.sources[name];
+    return (box && box[kind.key]) ? box[kind.key] : null;
+  }
+
+  function ceilingOf(rows) {
+    var most = 0;
+    for (var r = 0; r < rows.length; r += 1) {
+      for (var c = 0; c < rows[r].length; c += 1) {
+        var v = Math.abs(rows[r][c]);
+        if (v > most) { most = v; }
+      }
+    }
+    return most;
+  }
+
+  function shaped(value, ceiling) {
+    if (scale === "linear") { return ceiling > 0 ? value / ceiling : 0; }
+    var top = Math.log10(1 + ceiling);
+    if (top <= 0) { return 0; }
+    var here = Math.log10(1 + Math.abs(value)) / top;
+    return value < 0 ? -here : here;
+  }
+
+  function paint(canvas, rows, ceiling, zero, cool, warm) {
+    canvas.width = DATA.rounds;
+    canvas.height = rows.length;
+    var ctx = canvas.getContext("2d");
+    var image = ctx.createImageData(DATA.rounds, rows.length);
+    for (var r = 0; r < rows.length; r += 1) {
+      for (var c = 0; c < DATA.rounds; c += 1) {
+        var t = shaped(rows[r][c], ceiling);
+        var end = t < 0 ? cool : warm;
+        var eased = Math.pow(Math.min(1, Math.abs(t)), 0.72);
+        var at = ((r * DATA.rounds) + c) * 4;
+        image.data[at] = Math.round(zero[0] + (end[0] - zero[0]) * eased);
+        image.data[at + 1] = Math.round(zero[1] + (end[1] - zero[1]) * eased);
+        image.data[at + 2] = Math.round(zero[2] + (end[2] - zero[2]) * eased);
+        image.data[at + 3] = 255;
+      }
+    }
+    ctx.putImageData(image, 0, 0);
+    canvas.style.height = Math.max(150, Math.min(400, rows.length * (rows.length > 64 ? 0.8 : 8)))
+                          + "px";
+  }
+
+  /** Root-mean-square deviation in standard errors. A binomial field gives exactly one. */
+  function restless(rows) {
+    var total = 0;
+    var count = 0;
+    for (var r = 0; r < rows.length; r += 1) {
+      for (var c = 0; c < rows[r].length; c += 1) {
+        var v = rows[r][c];
+        if (kind.signed) {
+          total += v * v;
+        } else {
+          // The bit projections are already a sum of squares over their row, offset by the
+          // expected value, so the per-cell figure is recovered by dividing it back out.
+          total += Math.abs(v) / (kind.key === "inbit" ? 256 : 512);
+        }
+        count += 1;
+      }
+    }
+    return kind.signed ? Math.sqrt(total / count) : Math.sqrt(1 + (total / count));
+  }
+
+  function refresh() {
+    var zero = toRgb(token("--panel"));
+    var cool = toRgb(token("--cool"));
+    var warm = toRgb(token("--warm"));
+
+    var a = planeOf(left);
+    var b = planeOf(right);
+    if (!a || !b) { return; }
+
+    var ceiling = Math.max(ceilingOf(a), ceilingOf(b));
+
+    paint(document.getElementById("left-map"), a, ceiling, zero, cool, warm);
+    paint(document.getElementById("right-map"), b, ceiling, zero, cool, warm);
+
+    document.getElementById("left-name").textContent = left;
+    document.getElementById("right-name").textContent = right;
+    document.getElementById("left-sub").textContent = ABOUT[left] || "";
+    document.getElementById("right-sub").textContent = ABOUT[right] || "";
+    document.getElementById("left-stat").innerHTML =
+      "rms deviation <b>" + restless(a).toFixed(3) + "</b> &middot; peak " +
+      Math.round(ceilingOf(a)).toLocaleString();
+    document.getElementById("right-stat").innerHTML =
+      "rms deviation <b>" + restless(b).toFixed(3) + "</b> &middot; peak " +
+      Math.round(ceilingOf(b)).toLocaleString();
+  }
+
+  function pills(host, items, get, set) {
+    items.forEach(function (each) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.textContent = each.label;
+      button.setAttribute("aria-pressed", get() === each.value ? "true" : "false");
+      button.addEventListener("click", function () {
+        set(each.value);
+        Array.prototype.forEach.call(host.children, function (other, index) {
+          other.setAttribute("aria-pressed", items[index].value === get() ? "true" : "false");
+        });
+        refresh();
+      });
+      host.appendChild(button);
+    });
+  }
+
+  var names = DATA.order.map(function (n) { return { label: n, value: n }; });
+  pills(document.getElementById("left"), names, function () { return left; },
+        function (v) { left = v; });
+  pills(document.getElementById("right"), names, function () { return right; },
+        function (v) { right = v; });
+  pills(document.getElementById("kinds"),
+        KINDS.map(function (k) { return { label: k.label, value: k.key }; }),
+        function () { return kind.key; },
+        function (v) {
+          KINDS.forEach(function (k) { if (k.key === v) { kind = k; } });
+        });
+  pills(document.getElementById("scales"),
+        [{ label: "Signed log", value: "log" }, { label: "Linear", value: "linear" }],
+        function () { return scale; }, function (v) { scale = v; });
+
+  if (window.matchMedia) {
+    var watch = window.matchMedia("(prefers-color-scheme: dark)");
+    if (watch.addEventListener) { watch.addEventListener("change", refresh); }
+  }
+  window.addEventListener("resize", refresh);
+  refresh();
+}());
+</script>
