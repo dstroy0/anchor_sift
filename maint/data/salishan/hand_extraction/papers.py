@@ -41,6 +41,33 @@ NOT_FAITHFUL = ("19-Lyon_ICSNL50_final-78", "2013_Lindley_Lyon")
 # What to read for a paper whose extraction is not the page.
 PAGE_TEXT = "%s.page.txt"
 
+# Papers whose extraction holds none of the orthography and which have no drafted page text either.
+# These are OCR of typed pages, not a font encoding, so there is no mapping to invert: the scan lost
+# the marks and nothing in the file records what they were.
+#
+# Counted over the nine marks the corpus uses, in every registered paper's text. These four hold
+# zero schwa, zero barred l, zero barred lambda, zero c and s with caron, zero raised w, zero comma
+# above, zero caron and zero dot below. 1975_Hilbert_Hess writes taqWsablu where the page prints
+# taqʷšəblu, and 1967_Hess writes "The Lorph I-(e)bl in Snohomish" for "The Morph /-(ə)b/ in
+# Snohomish". 1967_Elmendorf loses the English too, printing TES'l'S OF A HYPOfBESIS and dating
+# itself 1961.
+#
+# All three papers of ICSNL 2 read here so far are in this state, which is a fact about the 1967
+# typescripts and not about any one of them. Registering 1967_Hamp without this entry put 338
+# disagreements into the tree in one step, every one of them the scan and none of them the reader.
+#
+# 19-Lyon_ICSNL50_final-78 and 2013_Lindley_Lyon count zero on the same nine and are not here,
+# because draft_page_text.py can put their orthography back from the font encoding. 1983_Hilbert
+# counts zero as well and is not here either: its text encodes the orthography another way, its
+# entry declares that alphabet as DAMAGED, and its hand extraction was written to match.
+#
+# A hand extraction of one of these cannot be checked against its paper's text, because that text is
+# not the paper. Reporting the difference as disagreements grades a correct reading against a file
+# the reading is right to differ from. The check states the condition instead and counts nothing.
+# What would settle them is a page text transcribed from the scan, the way the two Lyon papers have
+# one generated.
+ORTHOGRAPHY_ABSENT = ("1975_Hilbert_Hess", "1967_Hess", "1967_Elmendorf", "1967_Hamp")
+
 # The oracle's filename, the paper's stem in build/papers, the record the reader wrote, the repair
 # that reader applies to its source, what that paper writes its language with, and whether its
 # extraction breaks words across lines. The last one is the gate coverage_check.py already applies:

@@ -244,6 +244,22 @@ def drafted(line):
     LETTERS runs on a Salish token only. Its codes are ordinary characters elsewhere, and ; was the
     one that showed it: Lyon ends a clause with a semicolon in his English, and mapping the line
     without asking turned long ago over there; we came into over there· we came.
+
+    labialized runs over the whole joined line, and that is a known defect with a measured cost on
+    both sides. Running it line-wide reads the w of an English gloss as a labializing one wherever
+    a k or a q or an x stands in front of it, so backwards is drafted backʷards and
+    he.fell.off.backwards is drafted he.fell.off.backʷards, and the check then reports the hand
+    extraction as disagreeing with the paper over a word of English.
+
+    Gating it on salish() instead is worse and was measured: the drafted ʷ count falls from 1624 to
+    1172 on 19-Lyon and from 1729 to 1017 on Lindley, and the tree goes from 214 disagreements to
+    827. salish() asks for a mark of the orthography or a medial P, and kwukw carries neither, so
+    the tokens that most need labializing are exactly the ones that gate turns off.
+
+    a_gloss() does not separate them either: it wants a run of two capitals, and backwards has
+    none. What actually distinguishes them is the line, not the token, since the five-line
+    interlinear puts glosses on a line of their own. Deciding that is a change to what this draft
+    says a page reads, so it waits on the pages rather than on a heuristic.
     """
     for before, after in WEDGE:
         line = line.replace(before, after)

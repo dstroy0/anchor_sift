@@ -45,7 +45,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(HERE), "corpus_script_extraction
 from line_breaks import joined as joined_lines  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
 
-from papers import EVERY, NOT_FAITHFUL, PAGE_TEXT  # noqa: E402
+from papers import EVERY, NOT_FAITHFUL, ORTHOGRAPHY_ABSENT, PAGE_TEXT  # noqa: E402
 
 EDGES = ".,!?;:“”\"()[]…«»{}/*•→≤≥"
 
@@ -469,6 +469,16 @@ def main():
         out.write("    %d language tokens in the paper that no row holds\n" % len(missed))
         for number, token in missed:
             out.write("      line %-6d %s\n" % (number, token))
+
+        # A paper whose text lost the orthography is not something the table can be graded against.
+        # The counts above are still printed, because hiding them would hide the size of the gap,
+        # but they are not disagreements: the reading is right and the file it is being compared
+        # with is not the paper.
+        if stem in ORTHOGRAPHY_ABSENT:
+            out.write("    not counted. This paper's text holds none of its orthography and it has "
+                      "no page text,\n    so the two sides above are not comparable. See "
+                      "ORTHOGRAPHY_ABSENT in papers.py.\n")
+            continue
 
         failed += len(unfound) + len(missed)
 

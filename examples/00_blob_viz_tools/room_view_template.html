@@ -1,0 +1,1031 @@
+<title>Inside The Shell</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root {
+  --ink: #e8ebf0; --dim: #99a1ae; --faint: #5f6773; --ground: #06070a;
+  --panel: #12141a; --edge: #262b34; --hot: #ff8a45;
+}
+:root[data-theme="light"] {
+  --ink: #14161b; --dim: #5b626e; --faint: #949cab; --ground: #e9ebef;
+  --panel: #f7f8fa; --edge: #ccd1d9; --hot: #cf5418;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font: 12px/1.5 "Segoe UI", system-ui, -apple-system, sans-serif; overflow: hidden;
+}
+#stage { position: fixed; inset: 0; }
+canvas { display: block; }
+.box {
+  position: fixed; background: var(--panel); border: 1px solid var(--edge);
+  border-radius: 5px; padding: 9px 11px 10px; opacity: 0.9;
+  box-shadow: 0 2px 18px rgba(0,0,0,0.5); user-select: none;
+}
+.box h4 {
+  margin: 0 0 7px; font-size: 10px; font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--dim); cursor: move;
+}
+.row { display: flex; align-items: center; gap: 7px; margin: 4px 0; }
+.row label { flex: 0 0 78px; color: var(--dim); font-size: 11px; }
+.row input[type=range] { flex: 1; min-width: 84px; height: 3px; accent-color: var(--hot); }
+.row .val { flex: 0 0 60px; text-align: right; font-variant-numeric: tabular-nums; font-size: 11px; }
+select {
+  background: var(--ground); color: var(--ink); border: 1px solid var(--edge);
+  border-radius: 3px; padding: 2px 5px; font: inherit; font-size: 11px; cursor: pointer;
+}
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 11px; }
+td { padding: 1px 8px 1px 0; text-align: right; }
+td:first-child { text-align: left; color: var(--dim); }
+#ask {
+  position: fixed; top: 12px; right: 14px; width: 20px; height: 20px; border-radius: 50%;
+  border: 1px solid var(--edge); background: var(--panel); color: var(--dim);
+  font-size: 12px; line-height: 18px; text-align: center; cursor: help; opacity: 0.55; z-index: 40;
+}
+#ask:hover { opacity: 1; }
+#tile {
+  position: fixed; top: 38px; right: 14px; width: 344px; background: var(--panel);
+  border: 1px solid var(--edge); border-radius: 5px; padding: 12px 14px; z-index: 39;
+  font-size: 11.5px; line-height: 1.62; color: var(--dim);
+}
+#tile b { color: var(--ink); } #tile p { margin: 0 0 8px; } #tile p:last-child { margin: 0; }
+#where {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: 16px;
+  font-size: 11px; color: var(--faint); letter-spacing: 0.05em; pointer-events: none;
+}
+/* The labels sit still and a line goes out to find the thing. Pinned to the object instead, they
+   slide about with it and the eye spends its time tracking the writing rather than reading it. */
+.tag {
+  position: fixed; pointer-events: none; white-space: nowrap;
+  font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 3px;
+  background: rgba(10,12,16,0.72); border: 1px solid currentColor;
+  text-shadow: 0 0 6px rgba(0,0,0,0.9); z-index: 21;
+}
+.tag[hidden] { display: none; }
+#tagBeam { color: #ffcf95; left: 20px; top: 46%; }
+#tagEdge { color: #8fb4d8; right: 20px; bottom: 24%; }
+#leads {
+  position: fixed; inset: 0; pointer-events: none; z-index: 20;
+}
+#leads line { stroke-width: 1; opacity: 0.7; }
+#leads circle { fill: none; stroke-width: 1; opacity: 0.85; }
+</style>
+
+<div id="stage"></div>
+<div id="ask">?</div>
+<div id="tile" hidden></div>
+<div id="where"></div>
+<svg id="leads" width="100%" height="100%">
+  <line id="leadBeam" stroke="#ffcf95"></line>
+  <circle id="dotBeam" r="7" stroke="#ffcf95"></circle>
+  <line id="leadEdge" stroke="#8fb4d8"></line>
+  <circle id="dotEdge" r="7" stroke="#8fb4d8"></circle>
+</svg>
+<div class="tag" id="tagBeam">neutrino source</div>
+<div class="tag" id="tagEdge">boundary surface</div>
+
+<div class="box" id="panel" style="left:14px; top:14px; width:236px;">
+  <h4>The room</h4>
+  <div class="row">
+    <label>wall</label>
+    <select id="shell">
+      <option value="sphere">sphere</option>
+      <option value="cube">cube</option>
+      <option value="hexagon">hexagonal drum</option>
+      <option value="octahedron">octahedron</option>
+      <option value="dodecahedron">twelve faces</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>shell shape</label>
+    <select id="core">
+      <option value="sphere">sphere</option>
+      <option value="cube">cube</option>
+      <option value="octahedron">octahedron</option>
+      <option value="cone">cone</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>you are</label>
+    <input type="range" id="dist" min="4" max="260" value="62">
+    <span class="val" id="distOut">–</span>
+  </div>
+  <div class="row">
+    <label>dwell</label>
+    <input type="range" id="dwell" min="0" max="100" value="0">
+    <span class="val" id="dwellOut">early</span>
+  </div>
+  <div class="row">
+    <label>beam energy</label>
+    <input type="range" id="energy" min="0" max="100" value="34">
+    <span class="val" id="energyOut">0.34</span>
+  </div>
+  <div class="row">
+    <label>beam around</label>
+    <input type="range" id="beamA" min="0" max="360" value="40">
+    <span class="val" id="beamAOut">40&deg;</span>
+  </div>
+  <div class="row">
+    <label>beam up</label>
+    <input type="range" id="beamB" min="-88" max="88" value="26">
+    <span class="val" id="beamBOut">26&deg;</span>
+  </div>
+  <div class="row">
+    <label>beam out</label>
+    <input type="range" id="beamR" min="10" max="95" value="52">
+    <span class="val" id="beamROut">0.52</span>
+  </div>
+  <div class="row">
+    <label>disc</label>
+    <input type="range" id="flat" min="6" max="100" value="100">
+    <span class="val" id="flatOut">1.00</span>
+  </div>
+  <div class="row">
+    <label>shell</label>
+    <input type="range" id="veil" min="0" max="60" value="5">
+    <span class="val" id="veilOut">0.05</span>
+  </div>
+  <div class="row">
+    <label>motion</label>
+    <input type="range" id="rate" min="0" max="100" value="40">
+    <span class="val" id="rateOut">running</span>
+  </div>
+</div>
+
+<div class="box" id="counts" style="right:14px; top:70px; width:238px;">
+  <h4>What stops the beam</h4>
+  <table id="countTable"></table>
+</div>
+
+<script>
+var DATA = /*ROOM_DATA*/null;
+
+var stage = document.getElementById("stage");
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(58, 1, 0.02, 400);
+var renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+stage.appendChild(renderer.domElement);
+
+var ROOM = 120;     // the wall you stand inside
+var SHELL = 17;     // the inner boundary the lights are confined by
+
+// ---------------------------------------------------------------------------------------------
+// The room. Every one of these is the same object seen from inside: a closed surface with the
+// reader within it. Back faces, because the outside of this is somebody else's inside and is not
+// what is being looked at. It is dark, and it receives shadows, and those two together are the
+// whole apparatus.
+// ---------------------------------------------------------------------------------------------
+
+var wallStuff = new THREE.MeshStandardMaterial({
+  color: 0x13161c, roughness: 1.0, metalness: 0.0, side: THREE.DoubleSide,
+  transparent: true, opacity: 1.0
+});
+
+function shellGeometry(kind) {
+  if (kind === "cube") { return new THREE.BoxGeometry(ROOM * 1.5, ROOM * 1.5, ROOM * 1.5); }
+  if (kind === "hexagon") { return new THREE.CylinderGeometry(ROOM, ROOM, ROOM * 1.6, 6, 1); }
+  if (kind === "octahedron") { return new THREE.OctahedronGeometry(ROOM * 1.25, 0); }
+  if (kind === "dodecahedron") { return new THREE.DodecahedronGeometry(ROOM * 1.1, 0); }
+  return new THREE.SphereGeometry(ROOM, 72, 48);
+}
+
+var room = new THREE.Mesh(shellGeometry(DATA.shell), wallStuff);
+room.receiveShadow = true;
+scene.add(room);
+
+function setShell(kind) {
+  room.geometry.dispose();
+  room.geometry = shellGeometry(kind);
+}
+document.getElementById("shell").value = DATA.shell;
+
+// ---------------------------------------------------------------------------------------------
+// The inner boundary. It is a window to whoever is outside it and a wall to everything inside, and
+// both of those are drawn here: the reader sees straight through it, and the lights turn around at
+// it. Nothing about a boundary requires it to stop light in order to stop matter.
+// ---------------------------------------------------------------------------------------------
+
+var veilStuff = new THREE.MeshBasicMaterial({
+  color: 0x5f86b0, transparent: true, opacity: 0.05,
+  side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending
+});
+function coreGeometry(kind) {
+  if (kind === "cube") { return new THREE.BoxGeometry(SHELL * 2, SHELL * 2, SHELL * 2); }
+  if (kind === "octahedron") { return new THREE.OctahedronGeometry(SHELL, 0); }
+  if (kind === "cone") { return new THREE.ConeGeometry(SHELL, SHELL * 2, 56, 1, false); }
+  return new THREE.SphereGeometry(SHELL, 64, 40);
+}
+
+var veil = new THREE.Mesh(coreGeometry(DATA.core || "sphere"), veilStuff);
+scene.add(veil);
+
+function setCore(kind) {
+  veil.geometry.dispose();
+  veil.geometry = coreGeometry(kind);
+}
+
+// ---------------------------------------------------------------------------------------------
+// The lights inside. Small, many, and going wherever they were going until the shell turns them
+// around. Each one has a stopping power, and whether it casts a shadow is a question about that
+// number against the beam's energy and never about how bright it looks.
+// ---------------------------------------------------------------------------------------------
+
+// A soft round fall-off, drawn once and shared. Every light gets one of these over it, because a
+// small shaded ball at this size reads as a grey speck and a light does not: what says light is the
+// halo around it, and the halo costs one texture for the whole cloud.
+function haloTexture() {
+  var pad = document.createElement("canvas");
+  pad.width = 64; pad.height = 64;
+  var pen = pad.getContext("2d");
+  var wash = pen.createRadialGradient(32, 32, 0, 32, 32, 32);
+  wash.addColorStop(0.0, "rgba(255,255,255,1)");
+  wash.addColorStop(0.25, "rgba(255,235,205,0.55)");
+  wash.addColorStop(1.0, "rgba(255,220,180,0)");
+  pen.fillStyle = wash;
+  pen.fillRect(0, 0, 64, 64);
+  return new THREE.CanvasTexture(pad);
+}
+var HALO = haloTexture();
+
+// The cloud is held in plain arrays and drawn in two calls. One mesh per light with one sprite over
+// it was 320 objects, and a point light casts its shadow by rendering the scene six times, so every
+// frame was walking nineteen hundred draws before anything moved. The physics here was never the
+// cost. Two instanced meshes and one point cloud draw the same picture in three.
+var things = DATA.things;
+var COUNT = things.length;
+
+var atX = new Float32Array(COUNT), atY = new Float32Array(COUNT), atZ = new Float32Array(COUNT);
+var vX = new Float32Array(COUNT), vY = new Float32Array(COUNT), vZ = new Float32Array(COUNT);
+var rad = new Float32Array(COUNT), stops = new Float32Array(COUNT), spread = new Float32Array(COUNT);
+var tint = new Float32Array(COUNT * 3);
+
+for (var i = 0; i < COUNT; i++) {
+  var thing = things[i];
+  atX[i] = thing.at[0] * SHELL; atY[i] = thing.at[1] * SHELL; atZ[i] = thing.at[2] * SHELL;
+  vX[i] = thing.vel[0]; vY[i] = thing.vel[1]; vZ[i] = thing.vel[2];
+  rad[i] = thing.size * SHELL;
+  stops[i] = thing.stops;
+  spread[i] = thing.size * SHELL * 3.4;
+  var warmth = new THREE.Color().setHSL(0.09 + 0.06 * (1 - thing.stops), 0.85,
+                                        0.45 + 0.35 * thing.glow);
+  tint[i * 3] = warmth.r; tint[i * 3 + 1] = warmth.g; tint[i * 3 + 2] = warmth.b;
+}
+
+// Two instanced meshes and never one. Casting a shadow is a property of a whole mesh, so the lights
+// that stop the beam and the lights that pass it have to be different objects. The alternative is a
+// mesh per light, which is what this replaced.
+var ballGeometry = new THREE.SphereGeometry(1, 8, 6);
+var ballStuff = new THREE.MeshBasicMaterial({ vertexColors: false });
+
+var stoppers = new THREE.InstancedMesh(ballGeometry, ballStuff, COUNT);
+stoppers.castShadow = true;
+stoppers.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+scene.add(stoppers);
+
+var passers = new THREE.InstancedMesh(ballGeometry, ballStuff.clone(), COUNT);
+passers.castShadow = false;
+passers.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+scene.add(passers);
+
+// Halos as one point cloud with a size per point. A sprite is an object with a matrix and a draw of
+// its own; a point is six floats. The shader is here because the built-in point material carries one
+// size for the whole cloud, and these lights are not all the same size.
+var haloAt = new Float32Array(COUNT * 3);
+var haloTint = new Float32Array(COUNT * 3);
+var haloSize = new Float32Array(COUNT);
+
+var haloGeometry = new THREE.BufferGeometry();
+haloGeometry.setAttribute("position", new THREE.BufferAttribute(haloAt, 3));
+haloGeometry.setAttribute("tint", new THREE.BufferAttribute(haloTint, 3));
+haloGeometry.setAttribute("wide", new THREE.BufferAttribute(haloSize, 1));
+
+var haloStuff = new THREE.ShaderMaterial({
+  uniforms: { map: { value: HALO }, lift: { value: 1.0 } },
+  vertexShader: [
+    "attribute vec3 tint;",
+    "attribute float wide;",
+    "varying vec3 vTint;",
+    "void main() {",
+    "  vTint = tint;",
+    "  vec4 seen = modelViewMatrix * vec4(position, 1.0);",
+    "  gl_PointSize = wide * 320.0 / max(1.0, -seen.z);",
+    "  gl_Position = projectionMatrix * seen;",
+    "}"
+  ].join("\n"),
+  fragmentShader: [
+    "uniform sampler2D map;",
+    "uniform float lift;",
+    "varying vec3 vTint;",
+    "void main() {",
+    "  vec4 shape = texture2D(map, gl_PointCoord);",
+    "  gl_FragColor = vec4(vTint * lift, 1.0) * shape;",
+    "}"
+  ].join("\n"),
+  transparent: true,
+  depthWrite: false,
+  blending: THREE.AdditiveBlending
+});
+
+var halos = new THREE.Points(haloGeometry, haloStuff);
+halos.frustumCulled = false;
+scene.add(halos);
+
+// ---------------------------------------------------------------------------------------------
+// The trace left behind. Heat put into a wire does not arrive everywhere at once: it stays where it
+// was put and leaks away from there, so what a moving source leaves is a tail that fades, and the
+// length of that tail is the dwell time rather than a decoration on it.
+//
+// Each light keeps its last few places in a ring, oldest overwritten. Brightness falls off with how
+// long ago a place was visited, so at no dwell only the head is lit and the cloud reads as points,
+// and at full dwell each light drags a lit wire behind it. Nothing here is a blur applied to the
+// picture afterwards. It is the same light, still being counted from where it used to be.
+// ---------------------------------------------------------------------------------------------
+
+var TRAIL = 18;
+var trailAt = new Float32Array(COUNT * TRAIL * 3);
+var trailTint = new Float32Array(COUNT * TRAIL * 3);
+var trailSize = new Float32Array(COUNT * TRAIL);
+var trailHead = 0;
+var trailReady = false;
+
+var trailGeometry = new THREE.BufferGeometry();
+trailGeometry.setAttribute("position", new THREE.BufferAttribute(trailAt, 3));
+trailGeometry.setAttribute("tint", new THREE.BufferAttribute(trailTint, 3));
+trailGeometry.setAttribute("wide", new THREE.BufferAttribute(trailSize, 1));
+
+var trails = new THREE.Points(trailGeometry, haloStuff.clone());
+trails.frustumCulled = false;
+scene.add(trails);
+
+// ---------------------------------------------------------------------------------------------
+// The same trace as it reaches the boundary.
+//
+// From inside, dwell is a tail behind a moving light. From outside there is no tail to see, because
+// the inside is not what an outside observer has: what they have is the surface, and the tail
+// arrives there as a smear. So the history is carried twice, once where it happened and once
+// projected onto the shell, and the second one is what the boundary actually holds.
+//
+// The smear is worth more than the spot. A spot says where something is; a smear says where it was
+// going and how long it took, so its length is the dwell and its direction is the direction of
+// travel. Both come off a surface that never moved.
+// ---------------------------------------------------------------------------------------------
+
+var smearAt = new Float32Array(COUNT * TRAIL * 3);
+var smearTint = new Float32Array(COUNT * TRAIL * 3);
+var smearSize = new Float32Array(COUNT * TRAIL);
+
+var smearGeometry = new THREE.BufferGeometry();
+smearGeometry.setAttribute("position", new THREE.BufferAttribute(smearAt, 3));
+smearGeometry.setAttribute("tint", new THREE.BufferAttribute(smearTint, 3));
+smearGeometry.setAttribute("wide", new THREE.BufferAttribute(smearSize, 1));
+
+var smears = new THREE.Points(smearGeometry, haloStuff.clone());
+smears.frustumCulled = false;
+scene.add(smears);
+
+var landed = new THREE.Vector3();
+var toward = new THREE.Vector3();
+
+function ontoSurface(x, y, z, a, b, out) {
+  // Pushed straight out until the shape's own measure reads one. Two passes, because the measure
+  // scales with position for the sphere, the cube and the octahedron and lands exactly on the
+  // first, while the cone's does not and needs the second.
+  out.set(x, y, z);
+  for (var pass = 0; pass < 2; pass++) {
+    var q = measure(state.core, out.x, out.y, out.z, a, b, toward);
+    if (q < 1e-5) { out.set(0, b, 0); return; }
+    out.multiplyScalar(1 / q);
+  }
+}
+
+function layTrail() {
+  var slot = trailHead;
+  var across = SHELL, upright = SHELL * state.flat;
+  for (var k = 0; k < COUNT; k++) {
+    var at = (k * TRAIL + slot) * 3;
+    trailAt[at] = atX[k]; trailAt[at + 1] = atY[k]; trailAt[at + 2] = atZ[k];
+    ontoSurface(atX[k], atY[k], atZ[k], across, upright, landed);
+    smearAt[at] = landed.x * 1.006;
+    smearAt[at + 1] = landed.y * 1.006;
+    smearAt[at + 2] = landed.z * 1.006;
+  }
+  trailHead = (trailHead + 1) % TRAIL;
+  if (trailHead === 0) { trailReady = true; }
+
+  // Age is counted back from the newest slot, so the brightest end is always where the light is now.
+  var life = state.dwell * TRAIL;
+  for (var k2 = 0; k2 < COUNT; k2++) {
+    for (var j = 0; j < TRAIL; j++) {
+      var age = (trailHead - 1 - j + TRAIL * 2) % TRAIL;
+      var lit = life < 0.02 ? (age === 0 ? 1 : 0) : Math.exp(-age / life);
+      var to = (k2 * TRAIL + j) * 3;
+      trailTint[to] = tint[k2 * 3] * lit * 0.7;
+      trailTint[to + 1] = tint[k2 * 3 + 1] * lit * 0.7;
+      trailTint[to + 2] = tint[k2 * 3 + 2] * lit * 0.7;
+      trailSize[k2 * TRAIL + j] = spread[k2] * (0.35 + 0.4 * lit);
+
+      // What lands on the shell is brighter and broader than what made it, since the boundary is
+      // being read rather than the thing itself, and a smear is what a spot becomes once it has had
+      // time to move.
+      smearTint[to] = tint[k2 * 3] * lit * 0.95;
+      smearTint[to + 1] = tint[k2 * 3 + 1] * lit * 0.95;
+      smearTint[to + 2] = tint[k2 * 3 + 2] * lit * 0.95;
+      smearSize[k2 * TRAIL + j] = spread[k2] * (0.5 + 0.6 * lit);
+    }
+  }
+  trailGeometry.attributes.position.needsUpdate = true;
+  trailGeometry.attributes.tint.needsUpdate = true;
+  trailGeometry.attributes.wide.needsUpdate = true;
+  smearGeometry.attributes.position.needsUpdate = true;
+  smearGeometry.attributes.tint.needsUpdate = true;
+  smearGeometry.attributes.wide.needsUpdate = true;
+}
+
+// ---------------------------------------------------------------------------------------------
+// The medium. There is matter between the lights, and matter in the way is the reason a beam is
+// visible along its length instead of only where it lands. Each mote is lit by how close it sits to
+// the beam, so moving the beam lights a different part of the room and the scattering is drawn from
+// the same position the shadows are drawn from.
+// ---------------------------------------------------------------------------------------------
+
+var MOTES = 3400;
+var duskAt = new Float32Array(MOTES * 3);
+var duskLit = new Float32Array(MOTES * 3);
+var duskSeed = 1;
+
+function nextDusk() {
+  duskSeed = (duskSeed * 1103515245 + 12345) & 0x7FFFFFFF;
+  return duskSeed / 2147483648;
+}
+
+for (var m = 0; m < MOTES; m++) {
+  var mh = 2 * nextDusk() - 1;
+  var ma = 2 * Math.PI * nextDusk();
+  var mf = Math.sqrt(Math.max(0, 1 - mh * mh));
+  var mr = ROOM * Math.pow(nextDusk(), 0.42);
+  duskAt[m * 3] = mf * Math.cos(ma) * mr;
+  duskAt[m * 3 + 1] = mh * mr;
+  duskAt[m * 3 + 2] = mf * Math.sin(ma) * mr;
+}
+
+var duskGeometry = new THREE.BufferGeometry();
+duskGeometry.setAttribute("position", new THREE.BufferAttribute(duskAt, 3));
+duskGeometry.setAttribute("color", new THREE.BufferAttribute(duskLit, 3));
+var dusk = new THREE.Points(duskGeometry, new THREE.PointsMaterial({
+  size: ROOM * 0.014, map: HALO, vertexColors: true, transparent: true, opacity: 0.5,
+  blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true
+}));
+scene.add(dusk);
+
+var DUST_GAIN = ROOM * ROOM * 0.02;
+var DUST_SOFT = ROOM * 2.0;
+
+function lightTheDusk() {
+  var bx = beam.position.x, by = beam.position.y, bz = beam.position.z;
+  for (var k = 0; k < MOTES; k++) {
+    var dx = duskAt[k * 3] - bx, dy = duskAt[k * 3 + 1] - by, dz = duskAt[k * 3 + 2] - bz;
+    var far = dx * dx + dy * dy + dz * dz;
+    // Scaled to the room. These constants were fixed numbers tuned against a wall thirty units
+    // out, so moving the wall to a hundred and twenty left every mote at a thousandth of the
+    // brightness it wanted and the medium simply vanished.
+    var lit = DUST_GAIN / (far + DUST_SOFT);
+    if (lit > 0.42) { lit = 0.42; }
+    duskLit[k * 3] = lit;
+    duskLit[k * 3 + 1] = lit * 0.86;
+    duskLit[k * 3 + 2] = lit * 0.66;
+  }
+  duskGeometry.attributes.color.needsUpdate = true;
+}
+
+// ---------------------------------------------------------------------------------------------
+// The beam. Carried, not fixed, and the only thing in here that makes a shadow.
+// ---------------------------------------------------------------------------------------------
+
+var beam = new THREE.PointLight(0xfff0dd, 3.6, ROOM * 2.6, 1.0);
+beam.castShadow = true;
+beam.shadow.mapSize.width = 1024;
+beam.shadow.mapSize.height = 1024;
+beam.shadow.camera.near = 0.4;
+beam.shadow.camera.far = ROOM * 2.2;
+beam.shadow.bias = -0.0022;
+scene.add(beam);
+
+var lamp = new THREE.Mesh(
+  new THREE.SphereGeometry(ROOM * 0.014, 14, 10),
+  new THREE.MeshBasicMaterial({ color: 0xfff3e2 })
+);
+scene.add(lamp);
+
+// Barely any fill. A room with ambient light in it has no shadows worth the name, and the whole
+// reading here is what fails to arrive somewhere.
+var ambient = new THREE.AmbientLight(0x04050a, 1.0);
+scene.add(ambient);
+
+// ---------------------------------------------------------------------------------------------
+// Dwell. Diffusion is not a blur applied to a picture, it is how long the light stayed inside
+// before it left, and both readings come off one medium sorted by arrival.
+//
+// Light that leaves early went nearly straight, so it still knows what it passed and prints an
+// edge. Light that leaves late has turned over so many times that it arrives from every direction
+// at once, so it fills the shadow it would otherwise have cast and carries how much instead of
+// where. The same photons either way: the gate decides which of them are being counted, and the
+// two are held to one total so that opening it late does not conjure light that was not there.
+// ---------------------------------------------------------------------------------------------
+
+var BEAM_TOTAL = 3.6;
+var fill = new THREE.PointLight(0xcfe0ff, 0.0, ROOM * 3.0, 0.55);
+fill.castShadow = false;
+scene.add(fill);
+
+// ---------------------------------------------------------------------------------------------
+// Standing somewhere. The reader is always inside something: the distance runs from the middle of
+// the cloud out to just short of the wall, and crossing the inner shell is a thing that happens on
+// the way rather than a mode that gets switched.
+// ---------------------------------------------------------------------------------------------
+
+var target = new THREE.Vector3(0, 0, 0);
+var lookFrom = new THREE.Vector3(0, 2, 18);
+var upVec = new THREE.Vector3(0, 1, 0);
+var side = new THREE.Vector3();
+
+function screenRight() {
+  side.crossVectors(upVec, lookFrom);
+  if (side.lengthSq() < 1e-9) { side.set(1, 0, 0); }
+  return side.normalize();
+}
+
+var state = { energy: 0.34, veil: 0.05, rate: 0.40, beamA: 40, beamB: 26, beamR: 0.52, flat: 1.0, dwell: 0.0, core: (DATA.core || "sphere") };
+
+function placeBeam() {
+  var a = state.beamA * Math.PI / 180;
+  var b = state.beamB * Math.PI / 180;
+  var r = state.beamR * ROOM;
+  beam.position.set(r * Math.cos(b) * Math.cos(a), r * Math.sin(b), r * Math.cos(b) * Math.sin(a));
+  lamp.position.copy(beam.position);
+  fill.position.copy(beam.position);
+  if (typeof lightTheDusk === "function") { lightTheDusk(); }
+}
+
+// Which mesh a light belongs to, decided once per change of energy instead of once per frame. The
+// lists hold indices, so a light moving between them costs nothing but a place in an array.
+var stopList = new Int32Array(COUNT);
+var passList = new Int32Array(COUNT);
+var stopCount = 0, passCount = 0;
+
+function applyEnergy() {
+  stopCount = 0; passCount = 0;
+  for (var k = 0; k < COUNT; k++) {
+    if (stops[k] > state.energy) { stopList[stopCount++] = k; }
+    else { passList[passCount++] = k; }
+  }
+  stoppers.count = stopCount;
+  passers.count = passCount;
+
+  // A light the beam goes through is still there and still lit. Dimming it says which ones the beam
+  // is stopped by; hiding it would say the beam decides what exists.
+  var colour = new THREE.Color();
+  var k2;
+  for (k2 = 0; k2 < stopCount; k2++) {
+    var s = stopList[k2];
+    colour.setRGB(tint[s * 3], tint[s * 3 + 1], tint[s * 3 + 2]);
+    stoppers.setColorAt(k2, colour);
+  }
+  for (k2 = 0; k2 < passCount; k2++) {
+    var p = passList[k2];
+    colour.setRGB(tint[p * 3] * 0.45, tint[p * 3 + 1] * 0.45, tint[p * 3 + 2] * 0.45);
+    passers.setColorAt(k2, colour);
+  }
+  if (stoppers.instanceColor) { stoppers.instanceColor.needsUpdate = true; }
+  if (passers.instanceColor) { passers.instanceColor.needsUpdate = true; }
+  return stopCount;
+}
+
+function drawCounts(stopping) {
+  var inside = lookFrom.length() < SHELL;
+  var rows = [
+    ["lights inside", COUNT],
+    ["stopping the beam", stopping],
+    ["passing it", COUNT - stopping],
+    ["", ""],
+    ["you are", inside ? "within the shell" : "outside it, in the room"],
+    ["standing at", lookFrom.length().toFixed(1)],
+    ["shell at", SHELL.toFixed(1)],
+    ["wall at", ROOM.toFixed(1)],
+    ["", ""],
+    ["source", DATA.source]
+  ];
+  var html = "";
+  for (var i = 0; i < rows.length; i++) {
+    if (rows[i][0] === "") { html += "<tr><td colspan=2 style='height:5px'></td></tr>"; continue; }
+    html += "<tr><td>" + rows[i][0] + "</td><td>" + rows[i][1] + "</td></tr>";
+  }
+  document.getElementById("countTable").innerHTML = html;
+
+  var out = lookFrom.length() > ROOM;
+  document.getElementById("where").textContent = out
+    ? "outside the room, reading its surface"
+    : (inside ? "inside the shell, among them" : "in the room, the shell ahead of you");
+}
+
+// ---------------------------------------------------------------------------------------------
+// Wiring.
+// ---------------------------------------------------------------------------------------------
+
+function bind(id, outId, apply, format) {
+  var input = document.getElementById(id);
+  var out = document.getElementById(outId);
+  function run() {
+    var shown = apply(Number(input.value));
+    if (out) { out.textContent = format ? format(shown) : shown; }
+  }
+  input.addEventListener("input", run);
+  run();
+}
+
+bind("dist", "distOut", function (raw) {
+  lookFrom.setLength(ROOM * raw / 100);
+  return raw / 100;
+}, function (v) { return (v * ROOM).toFixed(1); });
+
+bind("energy", "energyOut", function (raw) {
+  state.energy = raw / 100;
+  drawCounts(applyEnergy());
+  return state.energy;
+}, function (v) { return v.toFixed(2); });
+
+bind("beamA", "beamAOut", function (raw) { state.beamA = raw; placeBeam(); return raw; },
+  function (v) { return v + "°"; });
+bind("beamB", "beamBOut", function (raw) { state.beamB = raw; placeBeam(); return raw; },
+  function (v) { return v + "°"; });
+bind("beamR", "beamROut", function (raw) { state.beamR = raw / 100; placeBeam(); return raw / 100; },
+  function (v) { return v.toFixed(2); });
+
+bind("dwell", "dwellOut", function (raw) {
+  // One total, split by when the light leaves. Early light still knows what it passed and prints
+  // an edge; late light arrives from everywhere and fills the shadow instead. Letting both rise
+  // together would be inventing photons that were never emitted.
+  state.dwell = raw / 100;
+  beam.intensity = BEAM_TOTAL * (1 - 0.75 * state.dwell);
+  fill.intensity = BEAM_TOTAL * 0.55 * state.dwell;
+  ambient.intensity = 1.0 + 2.2 * state.dwell;
+  return state.dwell;
+}, function (v) { return v < 0.02 ? "early" : (v > 0.7 ? "late" : v.toFixed(2)); });
+
+bind("flat", "flatOut", function (raw) {
+  // Squashing the boundary squashes what it holds, and nothing is added or removed on the way. The
+  // shell mesh is scaled by the same number the wall test uses, so what is drawn and what turns the
+  // lights around are one surface and cannot drift apart.
+  state.flat = raw / 100;
+  veil.scale.set(1, state.flat, 1);
+  return state.flat;
+}, function (v) { return v.toFixed(2); });
+
+bind("veil", "veilOut", function (raw) {
+  state.veil = raw / 100;
+  return state.veil;
+}, function (v) { return v.toFixed(2); });
+
+bind("rate", "rateOut", function (raw) {
+  state.rate = raw / 100;
+  return state.rate;
+}, function (v) { return v < 0.005 ? "still" : "running"; });
+
+document.getElementById("shell").addEventListener("change", function (event) {
+  setShell(event.target.value);
+});
+
+document.getElementById("core").value = DATA.core || "sphere";
+document.getElementById("core").addEventListener("change", function (event) {
+  // The shape the lights are held by, swapped under them while they are moving. Nothing about the
+  // cloud is rebuilt: the same population carries on against a different wall, which is the only
+  // way to see that the wall being a different shape changes nothing about what is held.
+  state.core = event.target.value;
+  setCore(state.core);
+});
+
+function movable(box) {
+  var handle = box.querySelector("h4");
+  var holding = false, fromX = 0, fromY = 0, wasX = 0, wasY = 0;
+  handle.addEventListener("mousedown", function (event) {
+    holding = true; fromX = event.clientX; fromY = event.clientY;
+    var spot = box.getBoundingClientRect();
+    wasX = spot.left; wasY = spot.top;
+    box.style.right = "auto"; box.style.bottom = "auto";
+    event.preventDefault();
+  });
+  window.addEventListener("mousemove", function (event) {
+    if (!holding) { return; }
+    box.style.left = (wasX + event.clientX - fromX) + "px";
+    box.style.top = (wasY + event.clientY - fromY) + "px";
+  });
+  window.addEventListener("mouseup", function () { holding = false; });
+}
+var allBoxes = document.querySelectorAll(".box");
+for (var q = 0; q < allBoxes.length; q++) { movable(allBoxes[q]); }
+
+var dragging = false, lastX = 0, lastY = 0;
+renderer.domElement.addEventListener("mousedown", function (event) {
+  dragging = true; lastX = event.clientX; lastY = event.clientY;
+});
+window.addEventListener("mouseup", function () { dragging = false; });
+window.addEventListener("mousemove", function (event) {
+  if (!dragging) { return; }
+  var dx = event.clientX - lastX, dy = event.clientY - lastY;
+  lastX = event.clientX; lastY = event.clientY;
+  var right = screenRight().clone();
+  lookFrom.applyAxisAngle(upVec, -dx * 0.005);
+  lookFrom.applyAxisAngle(right, -dy * 0.005);
+  upVec.applyAxisAngle(right, -dy * 0.005).normalize();
+});
+renderer.domElement.addEventListener("wheel", function (event) {
+  event.preventDefault();
+  var slider = document.getElementById("dist");
+  slider.value = String(Math.max(4, Math.min(260,
+    Number(slider.value) * (event.deltaY > 0 ? 1.07 : 0.93))));
+  slider.dispatchEvent(new Event("input"));
+}, { passive: false });
+
+var ask = document.getElementById("ask");
+var tile = document.getElementById("tile");
+tile.innerHTML =
+  "<p>You are standing inside a dark room, and inside that room is a shell holding " +
+  things.length + " small lights that cannot leave it.</p>" +
+  "<p><b>The shell is a window to you and a wall to them.</b> You see straight through it; they " +
+  "turn around at it. Nothing about a boundary requires it to stop light in order to stop matter, " +
+  "and that is the whole arrangement: what leaves is the light, what stays is what emitted it.</p>" +
+  "<p><b>The beam is carried.</b> Move it and the shadows sweep across the wall. A shadow that " +
+  "sweeps says more than one that sits: two things overlapping from one place come apart from the " +
+  "next, and how fast a shadow slides gives the depth of what cast it.</p>" +
+  "<p><b>Energy decides what stops it.</b> Each light has a stopping power. Raise the energy and " +
+  "shadows switch off one at a time, weakest first, because a probe that mostly passes through is " +
+  "a cross-section falling with energy and not a wall turning into a window.</p>" +
+  "<p><b>Change the wall.</b> Sphere, cube, drum, twelve faces. The pattern looks different on each " +
+  "and carries the same thing, since what a boundary can hold is set by its area and the finest " +
+  "detail reaching it. If that failed on any shape the whole account would be wrong, so it is a " +
+  "control and not a decoration.</p>" +
+  "<p>Zoom all the way in and you pass through the shell and stand among them. Zoom out and the " +
+  "shell is an object ahead of you and the room is what you are inside. There is no view from " +
+  "nowhere: you are always inside something.</p>";
+ask.addEventListener("mouseenter", function () { tile.hidden = false; });
+tile.addEventListener("mouseleave", function () { tile.hidden = true; });
+ask.addEventListener("mouseleave", function () {
+  setTimeout(function () { if (!tile.matches(":hover")) { tile.hidden = true; } }, 220);
+});
+
+function fit() {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener("resize", fit);
+fit();
+
+var opening = DATA.settings || {};
+if (opening.theme) { document.documentElement.setAttribute("data-theme", opening.theme); }
+
+placeBeam();
+drawCounts(applyEnergy());
+
+var clock = new THREE.Clock();
+
+// The boundary is an ellipsoid, and a sphere is the case where it has not been squashed. Flatten
+// runs the vertical semi-axis down toward a disc while the two across stay put, so the cloud goes
+// from a ball to a sheet without anything being added or taken away.
+//
+// The wall test is the ellipsoid's own: a point is outside where (x/a)^2 + (y/b)^2 + (z/c)^2 passes
+// one. Turning around at it needs the ellipsoid normal, which points along (x/a^2, y/b^2, z/c^2) and
+// is not the direction back to the middle. Reflecting off the radial direction instead looks right
+// on a sphere and wrong on everything else, and the error grows exactly as the disc flattens.
+var pos = new THREE.Vector3();
+var norm = new THREE.Vector3();
+var mat = new THREE.Matrix4();
+
+// ---------------------------------------------------------------------------------------------
+// The wall the lights are held by, whatever shape it has been given.
+//
+// Each shape supplies one number that is under one inside and over one outside, and the outward
+// direction where it is over. That is all confinement needs, and writing it that way is the claim
+// being made: a curved wall, a flat-faced one and one with a point on it are the same wall as far
+// as anything inside is concerned. Every one of them is closed, which is the part that matters.
+//
+// The normal is the shape's own and never the direction back to the middle. Those agree on a
+// sphere and on nothing else, and a light bouncing off a cube by its radial direction slides along
+// the faces toward the corners and piles up there. It looks like physics and it is a wrong normal.
+// ---------------------------------------------------------------------------------------------
+
+function measure(kind, x, y, z, a, b, out) {
+  var rho, allowed, ax, ay, az, q;
+  if (kind === "cube") {
+    ax = Math.abs(x) / a; ay = Math.abs(y) / b; az = Math.abs(z) / a;
+    q = Math.max(ax, ay, az);
+    if (ax >= ay && ax >= az) { out.set(x < 0 ? -1 : 1, 0, 0); }
+    else if (ay >= az) { out.set(0, y < 0 ? -1 : 1, 0); }
+    else { out.set(0, 0, z < 0 ? -1 : 1); }
+    return q;
+  }
+  if (kind === "octahedron") {
+    q = Math.abs(x) / a + Math.abs(y) / b + Math.abs(z) / a;
+    out.set((x < 0 ? -1 : 1) / a, (y < 0 ? -1 : 1) / b, (z < 0 ? -1 : 1) / a).normalize();
+    return q;
+  }
+  if (kind === "cone") {
+    // Apex up, base down. The room allowed at a height closes to nothing at the point, so a light
+    // heading for the tip runs out of room rather than reaching it.
+    rho = Math.sqrt(x * x + z * z);
+    allowed = Math.max(1e-4, a * (b - y) / (2 * b));
+    var qSide = rho / allowed;
+    var qFloor = -y / b;
+    if (qSide >= qFloor) {
+      if (rho < 1e-6) { out.set(0, 1, 0); }
+      else { out.set(x / rho, a / (2 * b), z / rho).normalize(); }
+      return qSide;
+    }
+    out.set(0, -1, 0);
+    return qFloor;
+  }
+  ax = x / a; ay = y / b; az = z / a;
+  q = Math.sqrt(ax * ax + ay * ay + az * az);
+  out.set(x / (a * a), y / (b * b), z / (a * a)).normalize();
+  return q;
+}
+
+function step(gap) {
+  var kind = state.core;
+  var squash = state.flat;
+  var across = SHELL, upright = SHELL * squash;
+  var move = gap * state.rate * 6.0 * SHELL * 0.1;
+  var running = state.rate > 0.005;
+
+  var wroteStop = 0, wrotePass = 0;
+  for (var k = 0; k < COUNT; k++) {
+    var a = Math.max(1e-3, across - rad[k]);
+    var b = Math.max(1e-3, upright - rad[k]);
+
+    if (running) {
+      atX[k] += vX[k] * move; atY[k] += vY[k] * move; atZ[k] += vZ[k] * move;
+
+      var reach = measure(kind, atX[k], atY[k], atZ[k], a, b, norm);
+      if (reach > 1) {
+        var along = vX[k] * norm.x + vY[k] * norm.y + vZ[k] * norm.z;
+        if (along > 0) {
+          // The speed it arrived with is the speed it leaves with. A light that lost a little here
+          // would drain the cloud inward over a few minutes, slowly enough to read as the scene
+          // settling rather than as a leak.
+          vX[k] -= 2 * along * norm.x; vY[k] -= 2 * along * norm.y; vZ[k] -= 2 * along * norm.z;
+        }
+        // Put it back on the wall. Every one of these shapes is star-shaped about the middle, so
+        // pulling straight in reaches the surface, and for the three whose measure scales with the
+        // position it lands on it exactly. The cone is checked again because its measure does not.
+        var back = 1 / reach;
+        atX[k] *= back; atY[k] *= back; atZ[k] *= back;
+        if (kind === "cone" && measure(kind, atX[k], atY[k], atZ[k], a, b, norm) > 1) {
+          atY[k] = Math.max(-b, Math.min(b * 0.98, atY[k]));
+          var room = Math.max(1e-4, a * (b - atY[k]) / (2 * b));
+          var here = Math.sqrt(atX[k] * atX[k] + atZ[k] * atZ[k]);
+          if (here > room) { atX[k] *= room / here; atZ[k] *= room / here; }
+        }
+      }
+    }
+
+    pos.set(atX[k], atY[k], atZ[k]);
+    mat.makeScale(rad[k], rad[k], rad[k]);
+    mat.setPosition(pos);
+    if (stops[k] > state.energy) { stoppers.setMatrixAt(wroteStop++, mat); }
+    else { passers.setMatrixAt(wrotePass++, mat); }
+
+    // A halo belongs to the interior as much as the light does. At full size it reaches past the
+    // shell and draws light outside a boundary nothing inside is able to cross, and that is the one
+    // claim this room is making. Capped by the room left, measured the same way the wall is.
+    var slack = Math.max(0, 1 - measure(kind, atX[k], atY[k], atZ[k], across, upright, norm));
+    haloAt[k * 3] = atX[k]; haloAt[k * 3 + 1] = atY[k]; haloAt[k * 3 + 2] = atZ[k];
+    haloSize[k] = Math.min(spread[k], slack * across * 1.4);
+    var fade = Math.min(1, slack * 5.0);
+    haloTint[k * 3] = tint[k * 3] * fade;
+    haloTint[k * 3 + 1] = tint[k * 3 + 1] * fade;
+    haloTint[k * 3 + 2] = tint[k * 3 + 2] * fade;
+  }
+
+  stoppers.instanceMatrix.needsUpdate = true;
+  passers.instanceMatrix.needsUpdate = true;
+  haloGeometry.attributes.position.needsUpdate = true;
+  haloGeometry.attributes.tint.needsUpdate = true;
+  haloGeometry.attributes.wide.needsUpdate = true;
+}
+
+// ---------------------------------------------------------------------------------------------
+// Callouts. Each label is a flat pane the reader can drag anywhere, and the line finds it: the end
+// of the leader is wherever the segment from the target crosses that pane's own edge, so the line
+// touches the box and never runs across it. Nothing about where the label sits changes where the
+// thing is, which is the only reason the label is allowed to move at all.
+// ---------------------------------------------------------------------------------------------
+
+var flatPoint = new THREE.Vector3();
+
+function edgeOf(rect, fromX, fromY) {
+  var midX = rect.left + rect.width / 2;
+  var midY = rect.top + rect.height / 2;
+  var runX = fromX - midX, runY = fromY - midY;
+  if (runX === 0 && runY === 0) { return [midX, midY]; }
+  // How far along the segment the box wall sits, taken as the smaller of the two axis crossings.
+  var stepX = runX === 0 ? Infinity : (rect.width / 2) / Math.abs(runX);
+  var stepY = runY === 0 ? Infinity : (rect.height / 2) / Math.abs(runY);
+  var reach = Math.min(stepX, stepY, 1);
+  return [midX + runX * reach, midY + runY * reach];
+}
+
+function callout(where, tagId, lineId, dotId) {
+  var tag = document.getElementById(tagId);
+  var lead = document.getElementById(lineId);
+  var dot = document.getElementById(dotId);
+
+  flatPoint.copy(where).project(camera);
+  var behind = flatPoint.z > 1 || flatPoint.z < -1;
+  if (behind) {
+    tag.hidden = true;
+    lead.setAttribute("stroke-opacity", "0");
+    dot.setAttribute("stroke-opacity", "0");
+    return;
+  }
+  tag.hidden = false;
+  lead.setAttribute("stroke-opacity", "0.7");
+  dot.setAttribute("stroke-opacity", "0.85");
+
+  var atX = (flatPoint.x * 0.5 + 0.5) * window.innerWidth;
+  var atY = (-flatPoint.y * 0.5 + 0.5) * window.innerHeight;
+  var rect = tag.getBoundingClientRect();
+  var hook = edgeOf(rect, atX, atY);
+
+  lead.setAttribute("x1", hook[0]); lead.setAttribute("y1", hook[1]);
+  lead.setAttribute("x2", atX); lead.setAttribute("y2", atY);
+  dot.setAttribute("cx", atX); dot.setAttribute("cy", atY);
+}
+
+function draggableTag(tag) {
+  tag.style.pointerEvents = "auto";
+  tag.style.cursor = "move";
+  var holding = false, fromX = 0, fromY = 0, wasX = 0, wasY = 0;
+  tag.addEventListener("mousedown", function (event) {
+    holding = true;
+    fromX = event.clientX; fromY = event.clientY;
+    var spot = tag.getBoundingClientRect();
+    wasX = spot.left; wasY = spot.top;
+    tag.style.right = "auto"; tag.style.bottom = "auto";
+    event.preventDefault();
+    event.stopPropagation();
+  });
+  window.addEventListener("mousemove", function (event) {
+    if (!holding) { return; }
+    tag.style.left = (wasX + event.clientX - fromX) + "px";
+    tag.style.top = (wasY + event.clientY - fromY) + "px";
+  });
+  window.addEventListener("mouseup", function () { holding = false; });
+}
+draggableTag(document.getElementById("tagBeam"));
+draggableTag(document.getElementById("tagEdge"));
+
+var edgeMark = new THREE.Vector3();
+
+var sinceTrail = 0;
+
+function turn() {
+  var gap = Math.min(0.05, clock.getDelta());
+  step(gap);
+
+  // The trace is laid on its own clock and not once a frame. Tied to the frame rate the tail gets
+  // shorter on a fast machine and longer on a slow one, which makes the dwell time a property of
+  // the hardware rather than of the medium.
+  sinceTrail += gap;
+  if (sinceTrail > 0.045) { sinceTrail = 0; layTrail(); }
+
+  // The boundary is marked where it actually is, which moves as the disc is squashed.
+  edgeMark.set(0, SHELL * state.flat, 0);
+  callout(beam.position, "tagBeam", "leadBeam", "dotBeam");
+  callout(edgeMark, "tagEdge", "leadEdge", "dotEdge");
+
+  // The shell fades as it is crossed. Standing inside a surface drawn at full strength puts a wash
+  // over everything being looked at, and the surface is not what is being looked at from in there.
+  var here = lookFrom.length();
+  var through = Math.max(0, Math.min(1, (here - SHELL * 0.55) / (SHELL * 0.6)));
+  veilStuff.opacity = state.veil * through;
+
+  // Step outside the room and the room's own wall becomes the thing being read. It goes part way to
+  // transparent so what is inside registers on it, which is the same reading one shell out: the
+  // surface of a thing is where what is inside it is legible from. Standing outside is not a
+  // different kind of looking, it is the same looking against a bigger boundary.
+  var beyond = Math.max(0, Math.min(1, (here - ROOM) / (ROOM * 0.5)));
+  wallStuff.opacity = 1 - 0.72 * beyond;
+  wallStuff.depthWrite = beyond < 0.02;
+
+  camera.position.copy(target).add(lookFrom);
+  camera.up.copy(upVec);
+  camera.lookAt(target);
+  renderer.render(scene, camera);
+  requestAnimationFrame(turn);
+}
+turn();
+
+setInterval(function () { drawCounts(applyEnergy()); }, 400);
+</script>

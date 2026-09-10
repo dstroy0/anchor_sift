@@ -29,9 +29,20 @@ import re
 
 MARKED = "ʔʕɬłƛəχ"
 
-# A run of two or more capitals is a gloss label or an acronym, and none of these orthographies
-# writes a word that way: APPL, INCEPT, 1SG.POSS, D/C, NMLZ. Finding one in a line that should hold
-# a word is how every reader here tells that it has lost its place in a block.
+# A run of two or more capitals is a gloss label or an acronym in the papers that use this:
+# APPL, INCEPT, 1SG.POSS, D/C, NMLZ. Finding one in a line that should hold a word is how a reader
+# tells that it has lost its place in a block.
+#
+# USE IT INSIDE A READER THAT KNOWS ITS OWN PAPER, NEVER CORPUS WIDE. It used to say that none of
+# these orthographies writes a word that way, and that is false. Nater writes his roots and his
+# headwords in capitals, which is his convention and not a label: √ALATS', ALH7ALHTSIM, S7AYK'S.
+# Kim writes reduplication templates the same way, CVC-CV́C and C1VC2-C1V́C2X.
+#
+# Measured over every oracle, counting only tokens that already pass is_language_token under their
+# own paper's marks: applying this test corpus wide would strike 311 distinct tokens the hand
+# extractions hold, 151 of them in 2013_Nater and 152 in 22-Nater-Bella-Coola-tale-10, which is
+# most of what those two papers carry. It would do it silently. The four readers that use it today
+# each apply it inside one paper they were written for, which is why it is safe where it stands.
 CAPS_RUN = re.compile(r"[A-Z]{2,}")
 
 PUNCTUATION = ".,!?;:“”‘’\"'()[]…"

@@ -221,6 +221,30 @@ DAVIS_MELLESMOEN_DROPPED = (
     ("l=ta=q̓íl q-s=a", "l=ta=q̓ílq-s=a"),
 )
 
+# Hess's Snohomish, read off the pages of the 1967 typescript. The glottal stop is ?, the uvular is
+# x under a dot, and ŋ is there once, in the Straits cognate of the suffix the paper is about. Every
+# character in this set was counted in the hand extraction before it was written here.
+HESS_SNOHOMISH = "?ə" + "čšɬƛŋ" + "ʷ" + "áéíúàìù" + "̣̓́̀"
+
+# Elmendorf's comparative vocabularies, thirteen languages in one paper. The uvular is again x under
+# a dot, and this one adds the Americanist small capitals ɪ and ᴀ for lax vowels, θ, a raised y, and
+# a raised dot for length. The apostrophe is in the set because Boas and Haeberlin's forms carry one
+# inside the word, as in sča'u, and dropping it would split those forms in two.
+ELMENDORF_COMPARATIVE = "?ə" + "čšɬƛθɪᴀ" + "ʷʸ" + "áäéíóú" + "̣̓́" + "·'"
+
+# Hamp on Tillamook. This paper cites no words: what it sets out is four consonant inventories and
+# two feature matrices, so its language content is segments and not forms.
+#
+# Reichard's chart is the one of the four that carries the plain lateral affricate as well as the
+# glottalized, the other three carrying the glottalized alone. That is a fact about the charts and
+# not about this set, because SHARED already holds ƛ; naming it here as an addition would be a
+# character that changes nothing and a comment that reads as though it does.
+#
+# ɔ and ɨ are the two vowel colourings TT give for q and k. The ɨ is a reading taken from its
+# pairing with ɔ and not from the glyph, which is a typed i carrying a raised mark, and the table
+# says so on a row of its own rather than promoting it here.
+HAMP_TILLAMOOK = SHARED + "?" + "̣" + "ɔɨæʌɪ"
+
 # Every paper, and whose language is in it.
 #
 # The speakers are named from the papers themselves. Where a paper cites a published dictionary and
@@ -432,6 +456,82 @@ PAPERS = (
           note="Its data has three sources: van Eijk's dictionary, Davis et al. in preparation, "
                "and elicitation with Carl Alexander. It labels forms (U) and (L) for Upper and "
                "Lower St'át'imcets, the second external dialect label in the archive."),
+    Paper("1967_Hamp",
+          "1967_Hamp.oracle.tsv",
+          "",
+          "Tillamook",
+          marks=HAMP_TILLAMOOK,
+          note="Eric P. Hamp, Another Look at Tillamook Phonology, ICSNL 2. It cites no words, so "
+               "its language content is four consonant inventories set side by side and two "
+               "feature matrices. No speaker is named, and the paper works throughout from "
+               "Thompson and Thompson, Reichard, Kinkade, Drachman and Edel. What it does record "
+               "is that a Tillamook speaker was living in 1967 and it does not say who: the "
+               "urgency of the matter is put as being that there is yet a surviving speaker "
+               "available for possible re-check, and page 2 grants one sense of its claim only "
+               "on the assumption that a last remaining speaker is typical of a community. Both "
+               "sentences are in the table. The Twana chart is used, in the page's own words, "
+               "without his permission, meaning Drachman's. The dot under the uvular fricatives "
+               "prints solid in some cells of these charts and as an open ring in others, and the "
+               "two positions swap between the Tillamook and Twana charts, so it is one mark and "
+               "the variation is the typewriter."),
+    Paper("ICSNL58_Givens_Hall_final",
+          "ICSNL58_Givens_Hall_final.oracle.tsv",
+          "",
+          "nɬeʔkepmxcín",
+          speakers=("Bev Phillips, Lytton (ƛ̓q̓əmcín) dialect",),
+          note="Katherine Givens and Brent Hall, The Moon and the Birchbark Canoe "
+               "(ɬ máʕxetn pe ɬ qʷɬinéwɬ), ICSNL 58. Registered ahead of being read, because the "
+               "corpus holds its recording and the speaker was named nowhere. Page 1: the story "
+               "was recounted in Nɬeʔkepmxcín by Bev Phillips, a native speaker of the Lytton "
+               "dialect, who also helped with the translation, and Givens and Hall transcribed "
+               "and glossed it. She is quoted on the page choosing the story and saying creation "
+               "stories are not just stories to us, and the paper's first footnote thanks her for "
+               "entrusting it to them. The recording is held as "
+               "speech/icsnl_proceedings/ICSNL58_GivensHall_MoonAndBirchbarkCanoe.mp3, which is "
+               "the only one of the three whose name carries the transcribers and not the "
+               "speaker, and a reader working from that filename alone read it as a second "
+               "speaker. The alphabet is not set here because the paper has not been read; it "
+               "carries the default and oracle_check lists it as still to be read by hand, so "
+               "nothing is checked against a guessed alphabet."),
+    Paper("1967_Hess",
+          "1967_Hess.oracle.tsv",
+          "",
+          "Snohomish",
+          marks=HESS_SNOHOMISH,
+          note="Thom Hess, The Morph /-(ə)b/ in Snohomish, ICSNL 2. The first paper here read by "
+               "hand with no reader written for it, so the record slot is empty and the oracle is "
+               "checked against the paper's own text. Nobody is named as having said any of it: "
+               "the forms are Hess's Snohomish data and the paper gives no speaker, so the slot "
+               "stays empty rather than taking his name. Its marked characters are settled on "
+               "page 3, by eye and inside one table: xáyəb 'laugh' and xʷúyub 'sell' print a bare "
+               "x where ƛ̓áɬəb 'salty' prints a barred x body with a glottal tick, t̓ádəb 'bitter' "
+               "prints the same t as the English word taste on the first line of that page with a "
+               "tick added, and d̓áƛ̓əb 'cloud' carries a hook at the top of its d and a bar across "
+               "the foot, one composite, where the d of t̓ádəb one column away is bare. Below 16x "
+               "either half of that composite can drop out, which is what makes it read as two "
+               "different marks. Two later readings agree about the barred lambda and "
+               "neither is the authority for what this page prints: 1975_Hilbert_Hess sets the "
+               "same character in dəxʷgʷəƛ̓əlads, and Nater's Coast Salish *ƛ̓aɬ 'bitter, salt' "
+               "matches ƛ̓áɬəb segment for segment. The d̓ is the one mark the table first had no "
+               "symbol note for and the one place a mark was dropped, which is why it is named "
+               "here. Footnote 7 has no call and no text: the run goes 6 at the foot of page 4 "
+               "then 8 at the foot of page 5."),
+    Paper("1967_Elmendorf",
+          "1967_Elmendorf.oracle.tsv",
+          "",
+          "Twana",
+          marks=ELMENDORF_COMPARATIVE,
+          note="William W. Elmendorf, Word Tabu and Change Rates, ICSNL 2. Thirteen languages are "
+               "cited in it and Twana is the one it is about, so that is the language named here; "
+               "every row carries its own language in the who column. No speaker is named "
+               "anywhere: the forms come from Boas and Haeberlin 1927, Krueger 1967, McIlwraith "
+               "1948, Walters 1938 and Ray 1932, from Warren Snyder's Suquamish list and Wayne "
+               "Suttles' Squamish field notes, and from Elmendorf's own field data. This "
+               "typescript writes its uvular as x under a dot where 1975_Hilbert_Hess writes it "
+               "under a caron, and 1967_Hess agrees with it, which is two papers of one "
+               "conference against one of a later year. One mark is unresolved and marked so in "
+               "the table: a short raised stroke over the s of the Columbia ska'u on page 7, "
+               "which is not the wedge the Upper Chehalis sča'u carries two words earlier."),
 )
 
 

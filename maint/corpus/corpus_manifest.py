@@ -84,8 +84,12 @@ BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 # it is faithful enough to put the recording back, so it stays inside the closed repository and is
 # never written into a public tree. It is not inventoried and not committed: what the record has
 # to pin is the recording and the code, and the derivation follows from those two.
+#
+# pages/ is the same case as build/. A page render is pdf2png.py run over a paper already in
+# papers/, so the PDF's hash below pins it, and a clone that has not rendered a paper yet would
+# read every one of its pages as a file the inventory lists and the tree does not have.
 IGNORED = (NAME, NAME + ".asc", AUDIO, AUDIO + ".asc", ".git", ".gitignore", "hooks",
-           "README.md", "__pycache__", "build")
+           "README.md", "__pycache__", "build", "pages")
 
 
 def rows_in(path):
