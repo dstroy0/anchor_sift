@@ -1,0 +1,27 @@
+# repotools.lock - written by `repotools fetch`. Do not edit.
+#
+# installed_path    toolkit_source_path    digest
+#
+# Every file here came from the repo_tools checkout and is maintained there. A file absent
+# from this list belongs to this repository and the toolkit never reads it.
+
+maint/repotools/docs/docs_maint/math_hazards.py docs/docs_maint/math_hazards.py 9fef15a4d1863a71
+maint/repotools/docs/docs_maint/quotes.py docs/docs_maint/quotes.py 8bbad6f8c384125a
+maint/repotools/lib/repotools/__init__.py lib/repotools/__init__.py 0b8196993556ca3f
+maint/repotools/lib/repotools/boot.py lib/repotools/boot.py 348a8353fbfc289b
+maint/repotools/lib/repotools/cli.py lib/repotools/cli.py 4bf2880dc728b99c
+maint/repotools/lib/repotools/config.py lib/repotools/config.py 434ca6b14bcbb4fe
+maint/repotools/lib/repotools/defaults.toml lib/repotools/defaults.toml 293104d135298c33
+maint/repotools/lib/repotools/fetch.py lib/repotools/fetch.py e13425bb922f46ae
+maint/repotools/lib/repotools/findings.py lib/repotools/findings.py bb1158878b9e2ca0
+maint/repotools/lib/repotools/root.py lib/repotools/root.py 677bb1f27a459dba
+maint/repotools/lib/repotools/shape.py lib/repotools/shape.py dffd5839b6ab3b7f
+maint/repotools/media_tools/source_render/src2png.py media_tools/source_render/src2png.py f0458b7d5b16cda4
+maint/repotools/repo/repo_maint/catalog.py repo/repo_maint/catalog.py 3137bafde039eb23
+maint/repotools/repo/repo_maint/corpus_manifest.py repo/repo_maint/corpus_manifest.py c0985e7ee26eb5cf
+maint/repotools/repo/repo_maint/gates.py repo/repo_maint/gates.py 67d95bcad3094021
+maint/repotools/repo/repo_maint/hooks/pre-commit repo/repo_maint/hooks/pre-commit 63bd209837f120c1
+maint/repotools/repo/repo_maint/inventory.py repo/repo_maint/inventory.py 960d950d19c85cf7
+maint/repotools/repo/repo_maint/promotion.py repo/repo_maint/promotion.py e385d61f6097e272
+maint/repotools/repo/repo_maint/version.py repo/repo_maint/version.py efa1ddfa43dc5315
+maint/repotools/repo/repo_maint/write_survey.py repo/repo_maint/write_survey.py 7c08053483ef77ee

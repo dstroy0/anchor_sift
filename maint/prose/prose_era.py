@@ -205,7 +205,7 @@ def main():
     # how far two decades of the same field already sit from each other.
     steps = [distance(profiles[order[at]], profiles[order[at + 1]]) for at in range(len(order) - 1)]
     if steps:
-        out.write("\n  one decade to the next averages %.4f, so a distance near that is one\n"
+        out.write("\n  one decade to the next averages %.4f. A distance near that is one\n"
                   % (sum(steps) / len(steps)))
         out.write("  decade's worth of drift, and the repository sits %.4f from its nearest\n"
                   % scored[0][0])

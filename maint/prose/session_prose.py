@@ -9,9 +9,10 @@
 # WHY A TRANSCRIPT BEATS A PUBLISHED CORPUS HERE
 #
 # Every dataset on a public host carries a model name that nobody outside can verify, and the one
-# time that was tested here it failed: a corpus labeled Claude 3 Opus fired the eight phrases this
-# repository had confirmed as the assistant signature at 1.3 per hundred thousand words against
-# this tree at 26.4, and that reading said the phrases were local to the tree. It was wrong.
+# time that was tested here it failed: a corpus labeled as an earlier model generation, two years
+# older, fired the eight phrases this repository had confirmed as the assistant signature at 1.3
+# per hundred thousand words against this tree at 26.4, and that reading said the phrases were
+# local to the tree. It was wrong.
 # A transcript needs no label. The assistant turns in it were written by the model that wrote them.
 #
 # WHAT IS TAKEN

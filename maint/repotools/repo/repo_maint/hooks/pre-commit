@@ -1,0 +1,52 @@
+#!/bin/sh
+# repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#
+# The one pre-commit hook. What it runs comes from the repository's own repotools.toml:
+#
+#     [hooks]
+#     gates = ["docs_check", "fetch_check"]
+#
+# Turn it on once per clone, pointing git at the tracked directory so what runs is what is tracked:
+#
+#     git config core.hooksPath tools/repotools/repo/repo_maint/hooks
+#
+# To see everything and fail on all of it:  gates.py --strict
+# To commit past it once:                   git commit --no-verify
+#
+# WHY THIS RESOLVES ITS OWN PATHS
+#
+# Every path is built by walking up from this hook's own location for the marker, never by counting
+# directories to it and never from the working directory. Git runs a hook from the repository root,
+# but a worktree, a submodule and a `git -C` invocation each make that a different directory, and a
+# counted path is wrong in all three.
+#
+# WHY THERE IS NO `if [ -f ... ]` HERE
+#
+# The four hooks this replaces each guarded their checker with one, so a checker that moved read as
+# "not applicable" and the gate turned itself off. Every commit for the rest of that day passed
+# without it and nothing said so. A gate that cannot be run is a refusal, and gates.py raises with
+# the paths it tried. The only test below is for the driver itself, and it stops the commit.
+
+set -u
+
+here=$(cd "$(dirname "$0")" && pwd)
+
+# Walk up for the toolkit marker. The guard stops the walk at the filesystem root; without it a hook
+# run from outside a checkout loops on a directory that is its own parent.
+at="$here"
+while [ ! -d "$at/lib/repotools" ] && [ "$at" != "/" ] && [ "$at" != "$(dirname "$at")" ]; do
+    at=$(dirname "$at")
+done
+
+driver="$at/repo/repo_maint/gates.py"
+
+if [ ! -f "$driver" ]; then
+    echo "  commit stopped: no gate driver at $driver"
+    echo "  This hook was copied out of the toolkit instead of being fetched with it."
+    echo "  Point git at the fetched directory: git config core.hooksPath <fetched>/repo/repo_maint/hooks"
+    exit 1
+fi
+
+python "$driver" "$@"
+exit $?

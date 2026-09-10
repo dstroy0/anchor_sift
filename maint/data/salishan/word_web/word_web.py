@@ -39,7 +39,7 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 for _category in os.scandir(HERE):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
-# The engine's instrument directory, found by walking up to the repository rather than by
+# The engine's instrument directory, found by walking up to the repository and not by
 # counting parents. Counting put this at maint/data/instrument, which has never existed, and
 # the import failed with a missing module instead of a wrong path.
 _at = os.path.dirname(os.path.abspath(__file__))

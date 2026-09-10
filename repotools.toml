@@ -1,0 +1,78 @@
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# Joins anchor_sift to repo_tools. Everything not stated here takes the default in
+# lib/repotools/defaults.toml.
+#
+#   repotools config     what this file resolves to
+#   repotools fetch      copy the named sets in, and write repotools.lock
+#   repotools check      report a fetched tool edited here, or one the toolkit moved past
+
+[project]
+name = "anchor_sift"
+version = "0.1.0"
+spdx = "AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational"
+copyright = "Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>"
+prefix = "ANCHOR_SIFT"
+
+[layout]
+# This repository keeps its tools under maint/ and not tools/, which is the one line that differs
+# from the template. Every tool asks for the kind and never for the directory.
+source = ["src"]
+docs = ["docs", "theory"]
+examples = ["examples"]
+tests = ["test"]
+tools = "maint"
+scratch = "build"
+
+[code]
+# The engine is written six times over, in C, CUDA, Python, R, MATLAB and the headers those need.
+# This list selects a parser and never a scope.
+extensions = [".c", ".h", ".cu", ".py"]
+skip_files = []
+
+[prose]
+# theory/ is where the research lives and it is the longest continuous prose in the tree. docs/ is
+# four pointer pages. maint/ carries file headers that make the same kind of claim a page does, and
+# docs_check reads .tex as well, so the books are in scope.
+roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "maint"]
+# Left empty on purpose. private_roots used to guess the two closed repositories as siblings of
+# whatever tree was under check, and a public AGPL library that adopted the toolkit then emitted
+# Salishan researcher surnames and paper identifiers into output whose whole purpose is to be pasted
+# into a commit message. It is opt in now. anchor_sift is the public repository and the corpus is
+# checked from inside the corpus, so this stays empty.
+extra_roots = []
+
+[hooks]
+# docs_check is the prose gate. fetch_check is repotools check, which reports a fetched tool edited
+# in place. A gate named here that cannot be found stops the commit; absent is never a pass.
+gates = ["docs_check", "fetch_check"]
+
+[hooks.docs_check]
+# Named, because the prose checker lives in the toolkit's no_replicate_ set, which is local only and
+# never fetched. Every repository asking for this gate has to point at its own copy or the gate
+# refuses, and refusing is correct: it is the one check nothing can supply for you.
+tool = "maint/prose/docs_check.py"
+roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "maint"]
+
+[fetch]
+# What anchor_sift pulls, and why each one.
+#
+#   lib/repotools            comes with every fetch regardless; named so a reader sees what lands
+#   media_tools/source_render  src2png.py, which renders a file to PNG pages. This is the tool the
+#                            hand extraction reads pages with, and it was adopted out of this tree
+#   docs/docs_maint          math_hazards.py and quotes.py, both already used here by path
+#   repo/repo_maint          gates.py, corpus_manifest.py, write_survey.py, inventory.py
+#
+# code/code_maint is NOT fetched. It holds a readclean.py that is a different tool sharing a name
+# with the one in maint/source, and dedup.py and strip_comments.py were adopted out of this tree, so
+# fetching the set back would land three files over three this repository already has. Named files
+# from it can be fetched later one at a time.
+sets = [
+    "lib/repotools",
+    "media_tools/source_render",
+    "docs/docs_maint",
+    "repo/repo_maint",
+]
+# Relative to [layout] tools, so this resolves to maint/repotools and not maint/maint/repotools.
+into = "repotools"

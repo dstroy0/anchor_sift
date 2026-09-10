@@ -20,7 +20,7 @@ the three papers.
 \subsection{The question}
 
 The ledger states it and leaves it open. Its wording is that pitch against the speaker's own median
-is a per-speaker constant subtracted, which is the center of mass again, so what remains in that
+is a per-speaker constant subtracted, the center of mass again, so what remains in that
 field is the residual, and whether that residual identifies the speaker has not been asked.
 
 The field is already built.
@@ -69,7 +69,7 @@ cannot confirm identification, and its failure settles the matter.
 Every recording is trimmed to 23489 frames, the shortest, because a null taken at one length bounds
 nothing about another. The floor is the recording split by alternating frames and measured against
 itself, which samples it instead of cutting it in place. A midpoint cut would put the first half of
-a narrative against the second and report the distance between two passages, which is the defect the
+a narrative against the second and report the distance between two passages, the defect the
 corpus chapter records inflating every anchor floor by 1.35 to 3.64 times.
 
 \tiny
@@ -133,7 +133,7 @@ One recording, cut in half once, and the two halves compared twice. In the first
 \texttt{represented} runs on the whole recording and the frames are cut afterwards, so one rotation
 computed over both halves is used for both. In the second, each half of the samples goes through
 \texttt{represented} alone and carries a rotation computed over itself. The audio is identical and
-every other step is identical, so the gap is the rotation and nothing else.
+every other step is identical, so the gap is the rotation.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -152,7 +152,7 @@ At six bits the rotation multiplies the distance between two halves of one recor
 times. It costs +0.15 to +0.28 at eight, ten and twelve bits as well.
 
 The measured distances between recordings' segment fields at six bits are 0.2309, 0.2346 and 0.2819,
-which is the same size as the rotation cost on its own. \textbf{A segment distance taken between two
+the same size as the rotation cost on its own. \textbf{A segment distance taken between two
 recordings is reading their bases.} The field is not comparable across recordings without a shared
 rotation, and every segment row in the previous section is withdrawn as a reading of speech.
 
@@ -166,7 +166,7 @@ them would mix pitch back into the field the segment code was made shift invaria
 Loudness, pitch against the speaker's own median, the movement of that pitch and voicing mean the
 same thing in every recording.
 
-So the one field that could carry the ledger's question is the one that is comparable, and the
+So the field that could carry the ledger's question is the comparable one, and the
 answer it gives is negative.
 
 \subsection{A correction, recorded because the tree exists to prevent it}
@@ -216,8 +216,8 @@ bits are sign extension: at two bits they take two values with the commonest hol
 samples.
 
 A linear slice of a waveform spends its levels where the signal is not. That is the same defect the
-ledger records four separate ways, and the correction is the one \texttt{envelope.\allowbreak{}py}
-already states.
+ledger records four separate ways, and \texttt{envelope.\allowbreak{}py} already states the
+correction.
 
 Two seatings are therefore reported. Linear over the range each recording uses, whose \(H_2\) curve
 is a fact about the amplitude distribution. And quantile, which puts an equal share of samples in
@@ -257,7 +257,7 @@ The \emph{Moon} row at 5.9 seconds sits on 43 blocks and is scatter.
 
 Three recordings, one curve, monotone across four orders of magnitude in span.
 
-\subsection{There is no unit scale in it, and that is the result}
+\subsection{There is no unit scale in it, and that absence is the result}
 
 The obvious reading of that table is a knee somewhere near the word, and the text of one of these
 recordings is on disk to check it against: 1736 words over 1350 seconds is 0.778 seconds a word,
@@ -273,9 +273,9 @@ smoothly and fits a power law in the span:
 over a 64-fold range of spans, with every one of eleven points landing between 0.88 and 1.19 of the
 fit. Nothing happens at 0.778 seconds. Nothing happens anywhere.
 
-\textbf{So the waveform's arrangement has no characteristic scale.} That is a finding and not a
+\textbf{So the waveform's arrangement has no characteristic scale.} That is a finding. It is not a
 failure to find one, and it is the case the ledger already names: data carrying structure at every
-scale has no characteristic scale for a window, a band or a ceiling to sit at, which is why every
+scale has no characteristic scale for a window, a band or a ceiling to sit at, so every
 such bound in this work had to be removed. What holds still for such data is how the quantity changes
 with scale, and here that is an exponent measured to \(r^2 = 0.988\).
 
@@ -333,7 +333,7 @@ was spoken in and the exact letters she said}, and nothing in this tree produced
 been sitting in the gloss column of a table that was checked against its paper in both directions.
 
 Checked before it was used: the timestamps run forward, the last is 1336 s against a 1350 s
-recording, and the 126 sentences cover the whole of it. A sentence runs 2 to 40 seconds, median 10.
+recording, and the 126 sentences cover all of it. A sentence runs 2 to 40 seconds, median 10.
 
 \subsection{A segment is a grapheme cluster and not a character}
 
@@ -341,14 +341,14 @@ recording, and the 126 sentences cover the whole of it. A sentence runs 2 to 40 
 glottalization on the base it sits over. Pooling per character would measure two halves of one
 segment as though they were independent.
 
-Joining every mark and modifier to the base in front of it, which is the rule the oracles already
+Joining every mark and modifier to the base in front of it, the rule the oracles already
 use, turns 5552 characters over 35 distinct into \textbf{4839 segments over 50 distinct}. Twenty of
 the fifty carry a mark or a modifier: \texttt{c̓ kʷ k̓ k̓ʷ m̓ n̓ p̓ qʷ q̓ q̓ʷ w̓ xʷ x̣ x̣ʷ y̓ z̓ ƛ̓ ə́ ʕʷ ʕ̓ʷ}.
-The inventory grows under clustering rather than shrinking, because \texttt{kʷ} and \texttt{k} stop
+The inventory grows under clustering, because \texttt{kʷ} and \texttt{k} stop
 being one letter counted twice.
 
 \texttt{ə́} is one of the fifty, at 45 instances. It is the same segment that carried the Lushootseed
-border, and at the character level it was two codepoints, which is why the radix found it at width
+border, and at the character level it was two codepoints, so the radix found it at width
 two.
 
 \subsection{Placing a segment inside its sentence, and why the crude answer is allowed}
@@ -365,8 +365,8 @@ holding together at the resolution even spacing allows.
 \subsection{What the pooled sound gives}
 
 Each interval becomes the loudness heard in 64 log spaced bands, out of the engine's own
-\texttt{perceived\_\allowbreak{}sound}, normalized so a loud instance and a quiet one of one segment
-are one shape. A segment type's sound is the mean over its instances, which is the sum. Thirty-four
+\texttt{perceived\_\allowbreak{}sound}, normalized so that a loud instance and a quiet one of one segment
+are one shape. A segment type's sound is the mean over its instances, and that is their sum. Thirty-four
 of the fifty types carry at least 24 instances.
 
 \tiny
@@ -408,7 +408,7 @@ sentence of ten seconds holding thirty-eight segments currently gives each one 0
 nearer 0.05, so most intervals straddle a boundary or land in silence. That is where the scatter is.
 
 What must not be done is to let the audio choose the letters. The timestamps and the transcription are
-the whole of what makes this supervision rather than an estimate, and an alignment tuned until the
+everything that makes this supervision and not an estimate, and an alignment tuned until the
 letters separate would be the algorithm scoring itself against a split it proposed, which the ledger
 records as the failure that passes forever.
 

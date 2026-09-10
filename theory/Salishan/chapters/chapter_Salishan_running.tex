@@ -17,7 +17,7 @@ That fetches the eleven papers the readers need and writes \texttt{build/\allowb
 
 \texttt{-\allowbreak{}-\allowbreak{}all} fetches all 993 papers in the archive instead of the eleven. \texttt{-\allowbreak{}-\allowbreak{}list} prints what would be fetched and stops. \texttt{-\allowbreak{}-\allowbreak{}convert} converts PDFs already sitting in \texttt{build/\allowbreak{}papers/\allowbreak{}} and fetches nothing, skipping any PDF that already has text beside it. \texttt{-\allowbreak{}-\allowbreak{}stem <name>} takes one paper by its filename.
 
-A converted paper whose fonts renumber their codes and declare no \texttt{/\allowbreak{}To\allowbreak{}Unicode} map gets a \texttt{.\allowbreak{}unfaithful} file written beside its text, naming those fonts, and the run says \texttt{NOT THE PAGE} on that line. The text is written anyway, because leaving a gap makes every later run try the paper again, and nothing downstream should read it as the paper. Six of the 146 PDFs on disk are in that class. \texttt{docs/\allowbreak{}research/\allowbreak{}Salishan/\allowbreak{}refs.\allowbreak{}md} names them and says what to do instead.
+A converted paper whose fonts renumber their codes and declare no \texttt{/\allowbreak{}To\allowbreak{}Unicode} map gets a \texttt{.\allowbreak{}unfaithful} file written beside its text, naming those fonts, and the run says \texttt{NOT THE PAGE} on that line. The text is written anyway, because leaving a gap makes every later run try the paper again, and nothing downstream should read it as the paper. Six of the 146 PDFs on disk are in that class. \texttt{theory/\allowbreak{}Salishan/\allowbreak{}chapters/\allowbreak{}chapter\_\allowbreak{}Salishan\_\allowbreak{}refs.\allowbreak{}tex} names them and says what to do instead.
 
 \subsection{Why there is a script for it}
 
@@ -54,7 +54,7 @@ maint/data/salishan/get_papers.py                         the archive
 maint/data/salishan/pdf2png.py                            the page as an image
 maint/data/salishan/draft_page_text.py                    the page as a first draft
 maint/data/salishan/hand_extraction/                      the control
-maint/data/salishan/anchor_sift_algorithmic_extraction/                          the algorithm
+src/engine/python/instrument/                             the algorithm
 maint/data/salishan/corpus_script_extraction/             the eleven readers
 maint/data/salishan/anchor_sift_algorithmic_extraction/   the sift applied
 salishan_corpus/analysis/sound/          the recordings as bits, in the closed corpus
@@ -64,7 +64,7 @@ Each script finds the repository by walking up to the tree holding \texttt{build
 
 \subsection{The twelve readers}
 
-One per paper. Each takes no arguments and rebuilds that paper's corpus. Written \texttt{S/\allowbreak{}} for \texttt{data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}}.
+One per paper. Each takes no arguments and rebuilds that paper's corpus. Written \texttt{S/\allowbreak{}} for \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}}.
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
 python S/extract_garcia.py
@@ -85,7 +85,7 @@ Each prints its line counts, how many target-language forms reached the pure str
 
 \subsection{The workflow the readers exist inside}
 
-A reader is not the source of the corpus. The hand extraction is, and the reader is graded against it. Written \texttt{H/\allowbreak{}} for \texttt{data/\allowbreak{}salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}}.
+A reader is not the source of the corpus. The hand extraction is, and the reader is graded against it. Written \texttt{H/\allowbreak{}} for \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}}.
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
 python H/oracle_check.py
@@ -139,7 +139,7 @@ Matches the sifted output case-sensitively against the pure corpus. A form that 
 
 \subsection{The sift}
 
-Written \texttt{A/\allowbreak{}} for \texttt{data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift/\allowbreak{}} and \texttt{X/\allowbreak{}} for \texttt{data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}}.
+Written \texttt{A/\allowbreak{}} for \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}instrument/\allowbreak{}} and \texttt{X/\allowbreak{}} for \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}}.
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
 python A/english_sift.py --check
@@ -166,14 +166,14 @@ The first reads which language each paper is about out of its own title and abst
 
 \subsection{The sound representation}
 
-This one does not read \texttt{build/\allowbreak{}papers/\allowbreak{}} and nothing in the text pipeline depends on it. The sound representation reads the recordings, and it is the only tool that does, which is why it lives in the closed corpus repository and is run from there. Its SHA-256 sits in that repository's \texttt{MANIFEST.\allowbreak{}tsv} beside the recordings' own, so a representation carries the hash of what it read and the hash of what read it.
+This one does not read \texttt{build/\allowbreak{}papers/\allowbreak{}} and nothing in the text pipeline depends on it. The sound representation reads the recordings, and it is the only tool that does, which is why it lives in the closed corpus repository and is run from there. Its SHA-256 sits in that repository's \texttt{MANIFEST.\allowbreak{}tsv} beside the recordings' own. A representation therefore carries the hash of what it read and the hash of what read it.
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
 python analysis/sound/binary_sound.py
 python analysis/sound/binary_sound.py <stem>
 \end{lstlisting}
 
-Writes \texttt{build/\allowbreak{}sound/\allowbreak{}<stem>.\allowbreak{}bits.\allowbreak{}tsv} in this tree, one row per 10 ms frame: the time, a 24 bit segment field, and a 4 bit prosody field. With no argument it does every recording in the corpus repository's \texttt{speech/\allowbreak{}}; a stem is a filename there without its extension. The output lands here rather than in the closed repository so that repository's bytes hold still between runs, since a signature over an inventory that moves on every run says nothing.
+Writes \texttt{build/\allowbreak{}sound/\allowbreak{}<stem>.\allowbreak{}bits.\allowbreak{}tsv} in this tree, one row per 10 ms frame: the time, a 24 bit segment field, and a 4 bit prosody field. With no argument it does every recording in the corpus repository's \texttt{speech/\allowbreak{}}; a stem is a filename there without its extension. The output lands here and not in the closed repository, so that repository's bytes hold still between runs. A signature over an inventory that moves on every run says nothing.
 
 What it prints is the delta from a flat distribution over each field, at 6, 8, 10, 12, 14 and 24 bits, with how many states each width reached. Read the narrow widths. A 24 bit field has 16.8 million states and the longest recording has 135 thousand frames, so the wide figure is about the frame count. \texttt{refs.\allowbreak{}md} has the measured numbers and the four facts about hearing the method is built on.
 
@@ -201,7 +201,7 @@ Module & Holds \\
 \texttt{S/\allowbreak{}line\_\allowbreak{}breaks.\allowbreak{}py} & putting back a word that extraction broke across two lines, shared by that reader and the coverage check \\
 \texttt{lyon\_\allowbreak{}encoding.\allowbreak{}py} & the NimbusRomNo9L codes read as the orthography, for the drafted page text \\
 \texttt{H/\allowbreak{}papers.\allowbreak{}py} & which hand extraction goes with which paper, its repair, and its marks \\
-\texttt{sound\_\allowbreak{}representation/\allowbreak{}perceived\_\allowbreak{}sound.\allowbreak{}py} & a recording as bits: the log spaced bands, the audiogram, the shift invariant segment field, the prosody field, and the rotation that brings the sample to maximum entropy \\
+\texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}representation/\allowbreak{}sound/\allowbreak{}perceived\_\allowbreak{}sound.\allowbreak{}py} & a recording as bits: the log spaced bands, the audiogram, the shift invariant segment field, the prosody field, and the rotation that brings the sample to maximum entropy \\
 \bottomrule
 \end{longtable}
 \normalsize

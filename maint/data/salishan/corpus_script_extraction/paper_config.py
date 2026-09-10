@@ -242,7 +242,7 @@ ELMENDORF_COMPARATIVE = "?ə" + "čšɬƛθɪᴀ" + "ʷʸ" + "áäéíóú" + "�
 #
 # ɔ and ɨ are the two vowel colorings TT give for q and k. The ɨ is a reading taken from its
 # pairing with ɔ and not from the glyph, which is a typed i carrying a raised mark, and the table
-# says so on a row of its own rather than promoting it here.
+# says so on a row of its own and does not promote it here.
 HAMP_TILLAMOOK = SHARED + "?" + "̣" + "ɔɨæʌɪ"
 
 # Kinkade on Columbian deictics, with Kalispel, Coeur d'Alene and three Colville forms beside it.
@@ -263,13 +263,43 @@ KINKADE_COLUMBIAN = SHARED + "̣" + "́̀̌" + "æɪ"
 # else. No grave and no caron anywhere in the paper.
 #
 # Its lateral is U+026C, which is what the file encodes and what every other Nɬeʔkepmxcín row in the
-# corpus uses. The embedded font draws that character with a bar through the stem, so a reader
-# working from page renders sees U+0142 and writes it. The table's symbol note records the trap.
+# corpus uses. The embedded font draws that character with a bar through the stem. A reader working
+# from page renders sees U+0142 and writes it. The table's symbol note records the trap.
 #
 # The paper's own footnote 1 names the orthography: a form of the North American Phonetic Alphabet
 # employed by Thompson and Thompson 1992 and 1996. That is a paper stating what its characters are,
 # which is the strongest provenance available for a marks set here.
 GIVENS_HALL_NLEKEPMXCIN = SHARED + "́" + "̣"
+
+# This paper's extraction flattens its own labialization in 24 places and gets it right in 94. The
+# raised w is U+02B7 ninety four times and a plain full size w twenty four, for the same segment, in
+# words the text layer also writes correctly elsewhere. The page is consistent and the extraction is
+# not, so the hand extraction differing from it is the extraction's defect and not the reading's.
+#
+# Every site was enumerated and every one read off a page render before it was entered here, which
+# is what corrected() asks of a pair. Seven patterns cover all twenty four:
+#
+#   xwúy̓   xʷúy̓ceʔs on page 2 lines 2, 6 and 14 and in the segmentation of examples 4, 11, 20, 24
+#   xwʔít  xʷʔít on page 2 lines 3 and 5, example 5, example 9, example 18
+#   cúkw   cúkʷsc on page 2 line 1 and cúkʷ-s-c in example 2
+#   tox̣w   tox̣ʷtés on page 2 line 1, read again at 34x in example 3 where the dot below is visible
+#   zxwé   szxʷépmx on page 2 line 4 and s-zxʷép-mx in example 7
+#   tmixw  tmixʷíyxs on page 2 line 4 and e=tmixʷ-íyxs in example 7
+#   pkw    npkʷə́ps on page 2 line 7 and s=n-pkʷ-ə́p=s in example 13
+#
+# Written as seven patterns and not as a rule mapping every Cw to Cʷ. The rule is the guess
+# draft_page_text.py already makes and papers.py already warns about, that page kʷ and page wist both
+# arrive as w and a draft labializes whichever consonant takes it. Here the sites are counted, so
+# each pattern is evidence about one word. None of them is a rule about a letter.
+GIVENS_HALL_FLATTENED = (
+    ("xwúy̓", "xʷúy̓"),
+    ("xwʔít", "xʷʔít"),
+    ("cúkw", "cúkʷ"),
+    ("tox̣w", "tox̣ʷ"),
+    ("zxwé", "zxʷé"),
+    ("tmixw", "tmixʷ"),
+    ("pkw", "pkʷ"),
+)
 
 # Every paper, and whose language is in it.
 #
@@ -506,6 +536,10 @@ PAPERS = (
           "nɬeʔkepmxcín",
           speakers=("Bev Phillips, Lytton (ƛ̓q̓əmcín) dialect",),
           marks=GIVENS_HALL_NLEKEPMXCIN,
+          # Composition before the corrections, for the reason it runs first everywhere: corrected()
+          # composes its own patterns, and a pattern meeting decomposed text matches nothing.
+          repair=sequence(INSERTED_SPACE, composed(), corrected(GIVENS_HALL_FLATTENED)),
+          coverage=("inserted spaces", "flattened labialization"),
           note="Katherine Givens and Brent Hall, The Moon and the Birchbark Canoe "
                "(ɬ máʕxetn pe ɬ qʷɬinéwɬ), ICSNL 58. Seven pages, read one at a time off page "
                "renders. Page 1: the story was recounted in Nɬeʔkepmxcín by Bev Phillips, a "
@@ -533,7 +567,7 @@ PAPERS = (
                "hand with no reader written for it, so the record slot is empty and the oracle is "
                "checked against the paper's own text. Nobody is named as having said any of it: "
                "the forms are Hess's Snohomish data and the paper gives no speaker, so the slot "
-               "stays empty rather than taking his name. Its marked characters are settled on "
+               "stays empty. His name does not go in it. Its marked characters are settled on "
                "page 3, by eye and inside one table: xáyəb 'laugh' and xʷúyub 'sell' print a bare "
                "x where ƛ̓áɬəb 'salty' prints a barred x body with a glottal tick, t̓ádəb 'bitter' "
                "prints the same t as the English word taste on the first line of that page with a "

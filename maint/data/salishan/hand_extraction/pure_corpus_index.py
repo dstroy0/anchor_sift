@@ -32,9 +32,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ORACLES = os.path.join(ROOT, "build", "oracles")
 
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "corpus_script_extraction"))
-# Built from the repository root and not by counting parents. Counting put this at data/book, which
-# has never existed, and the import failed with a missing module rather than a wrong path.
-sys.path.insert(0, os.path.join(ROOT, "maint", "book"))
+# Built from the repository root and not by counting parents. Counting put this at data/book,
+# which has never existed, and the import failed with a missing module instead of a wrong path.
+sys.path.insert(0, os.path.join(ROOT, "maint", "tex_book"))
 
 import markdown_to_latex  # noqa: E402
 from paper_config import PAPERS  # noqa: E402
@@ -86,8 +86,9 @@ def main():
         handle.write("Conditions the speakers set are recorded with them below and hold "
                      "wherever this corpus is used.\n\n")
         handle.write("Written by `maint/data/salishan/hand_extraction/pure_corpus_index.py` "
-                     "from `corpus_script_extraction/paper_config.py`, the only place a "
-                     "speaker's name is typed.\n\n")
+                     "from `maint/data/salishan/corpus_script_extraction/paper_config.py`, "
+                     "the only place a speaker's name is typed. Nothing in this chapter is typed "
+                     "by hand, and an edit made here is lost the next time that script runs.\n\n")
 
         for paper, rows in found:
             handle.write("## %s\n\n" % paper.language)

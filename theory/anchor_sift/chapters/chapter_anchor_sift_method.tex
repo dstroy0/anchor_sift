@@ -2,7 +2,7 @@
 
 \section{Byte-Pair Distribution Method}
 
-\textbf{Purpose:} Run the byte-pair distribution pipeline: squash text to a flat distribution, measure distance, establish validity by split-half, correct for support, cluster, and control for family. \textbf{Scope:} \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}byte\_\allowbreak{}signature.\allowbreak{}py}, \texttt{data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}purity.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}instrument/\allowbreak{}corpus\_\allowbreak{}gate.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}case\_\allowbreak{}or\_\allowbreak{}splitting.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}cluster\_\allowbreak{}profiles.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}evidential\_\allowbreak{}pressure.\allowbreak{}py}
+\textbf{Purpose:} Run the byte-pair distribution pipeline: squash text to a flat distribution, measure distance, establish validity by split-half, correct for support, cluster, and control for family. \textbf{Scope:} \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}byte\_\allowbreak{}signature.\allowbreak{}py}, \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}purity.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}instrument/\allowbreak{}corpus\_\allowbreak{}gate.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}case\_\allowbreak{}or\_\allowbreak{}splitting.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}cluster\_\allowbreak{}profiles.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}evidential\_\allowbreak{}pressure.\allowbreak{}py}
 
 \subsection{1. Pair Encoding}
 
@@ -50,7 +50,7 @@ Given the character sets \(S = \{s_1 \dots s_q\}\) that carry the distinctive pa
 
 \(\mathrm{sets}(T) = \sum_{s \in S} \mathbf{1}\bigl[\,\exists\, c \in T,\ c \in s\,\bigr], \qquad \mu(T) = \frac{10^3}{|T_\alpha|}\bigl|\{\,c \in T : \mathrm{comb}(c)\,\}\bigr|\)
 
-where \(T_\alpha\) is the alphabetic subsequence and \(\mathrm{comb}\) marks combining characters. Extraction loss drops combining marks first, so \(\mu \to 0\) with \(\mathrm{sets} \ll q\) identifies a corrupted file whose surviving text is still well-formed (\texttt{data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}purity.\allowbreak{}py:57-\allowbreak{}71}).
+where \(T_\alpha\) is the alphabetic subsequence and \(\mathrm{comb}\) marks combining characters. Extraction loss drops combining marks first, so \(\mu \to 0\) with \(\mathrm{sets} \ll q\) identifies a corrupted file whose surviving text is still well-formed (\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}purity.\allowbreak{}py:57-\allowbreak{}71}).
 
 Run on 60 extracted papers with \(q=7\): one file scored \(\mathrm{sets} \ge 5\) with \(\mu > 0\). The rest lost the marks entirely.
 

@@ -50,7 +50,12 @@ PAGE_TEXT = "%s.page.txt"
 # above, zero caron and zero dot below. 1975_Hilbert_Hess writes taqWsablu where the page prints
 # taqʷšəblu, and 1967_Hess writes "The Lorph I-(e)bl in Snohomish" for "The Morph /-(ə)b/ in
 # Snohomish". 1967_Elmendorf loses the English too, printing TES'l'S OF A HYPOfBESIS and dating
-# itself 1961. 1967_Kinkade holds no glottal stop either, in 19653 characters: its line 54 reads
+# itself 1961, and its scan is bad enough that 196 of its tokens pass is_language_token and every
+# one is debris: 'l'wana, '!'wana, 'rWana and six other shapes for Twana, plus 'paralle1 and 'exicon.
+# They pass because the apostrophes and digits the scan injects are characters this corpus's marks
+# set holds as orthography. That number is the largest in the tree by an order of magnitude and it
+# is not a gap in the reading, which is worth stating because it reads like one.
+# 1967_Kinkade holds no glottal stop either, in 19653 characters: its line 54 reads
 # nlafWalqWpcxWta? ?aci~ftcin where the page prints nləʕʷálqʷpcxʷtaʔ ʔacíx̣x̌cín, and it gives the
 # horse word as ~a~c{n for x̣x̌cín.
 #

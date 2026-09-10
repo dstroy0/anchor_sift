@@ -13,7 +13,7 @@
 #
 # A hand extraction taken off that text records the extractor. The page is the source, so the page
 # is what gets read, and the images go under build/pages. That path reaches pages/ in the closed
-# corpus, the way build/papers and build/oracles reach papers/ and oracles/, so a paper's PDF, its
+# corpus, the way build/papers and build/oracles reach papers/ and oracles/. A paper's PDF, its
 # text and the pictures a reader worked from all sit in one place.
 
 import os

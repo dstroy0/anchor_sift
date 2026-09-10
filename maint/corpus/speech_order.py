@@ -261,7 +261,7 @@ def main():
     if not seed and any((row.get("order_key") or "").strip() for row in rows):
         out.write("  rows carry an order_key and the file has no seed line.\n")
         out.write("  a draw was made here and its seed was dropped, so drawing again would\n")
-        out.write("  replace it rather than reproduce it. Put the seed back:\n")
+        out.write("  replace it and not reproduce it. Put the seed back:\n")
         out.write("      %s<the seed that run printed>\n" % SEED_MARK)
         out.write("  or --redraw --yes to accept a new draw and lose the old order.\n\n")
         if not redrawing:

@@ -105,7 +105,7 @@ check "neon aarch64" aarch64-linux-gnu-gcc \
 # whilelo and not whilelt. svwhilelt_b32 takes unsigned operands here, and the unsigned form of the
 # while instruction is WHILELO, lower-than; WHILELT is the signed one. This row asked for whilelt
 # first and reported the arm as not emitting it, which was correct: the arm emits whilelo. The check
-# caught a wrong expectation rather than wrong code, which is the case it is least likely to be
+# caught a wrong expectation and not wrong code, which is the case it is least likely to be
 # trusted on and the one worth writing down.
 check "sve neoverse" aarch64-linux-gnu-gcc \
     "-O2 -march=armv8.2-a+sve -I$PORTABLE -I$RPI -DANCHOR_EXACT_HAVE_SVE=1" \

@@ -361,7 +361,7 @@ BANNED = (
     # Writing about a corpus that belongs to somebody else pulls prose toward the sermon, and the
     # sermon is worse than useless here: every line in this repository carries one person's name,
     # and a paragraph telling the reader how to feel about the material reads as that person
-    # performing rather than stating. The ethics are in the permission column and in what the gates
+    # performing and not stating. The ethics are in the permission column and in what the gates
     # refuse. They do not need narrating on top.
     #
     # The rule this tier enforces is that a fact is stated once, flat, and left alone.
@@ -477,7 +477,7 @@ BANNED = (
 # because those messages were written while the same phrases were under active suppression.
 #
 # An earlier note here said the vocabulary tier was refuted because humans use those words. That
-# was measured against a corpus labelled Claude 3 Opus, a different model and a different year, and
+# was measured against a corpus from an earlier model generation, two years older, and
 # it was wrong. Humans do use them. The assistant uses the list at 1.66 times the human rate.
 # docs-check: end quoting
 
@@ -775,8 +775,17 @@ def runs(lines):
 PASSAGE = re.compile(r"[\"“][^\"“”]{16,600}[\"”]")
 
 
-def banned_tokens(lines, quotations=False):
-    found = []
+def banned_hits(lines, quotations=False):
+    """Every banned token in one file, as (line number, pattern, matched text).
+
+    One site is yielded once. A run is scanned whole, and two patterns that overlap would otherwise
+    report the same words twice: "which is exactly what" matches both which-is-what and
+    is-exactly-what, and repairing the sentence closes both at once.
+
+    banned_tokens turns these into the findings a reader sees, and submission_check counts them per
+    pattern against the rate a human writer carries. Both read the same hits, so a count and a
+    finding cannot disagree about what fired.
+    """
     seen = set()
     for text, offsets in runs(lines):
         quoted = [span.span() for name in QUOTED for span in name.finditer(text)]
@@ -795,15 +804,21 @@ def banned_tokens(lines, quotations=False):
                 if key in seen:
                     continue
                 seen.add(key)
-                rate = HUMAN_RATE.get(pattern, 0.0)
-                where = stage_of(pattern)
-                if rate:
-                    note = "%s token %r, humans use it %.1f per 100k" % (
-                        where, " ".join(token.split()), rate)
-                else:
-                    note = "%s token %r, unused in 1.1M human words" % (
-                        where, " ".join(token.split()))
-                found.append((at, note))
+                yield (at, pattern, token)
+
+
+def banned_tokens(lines, quotations=False):
+    found = []
+    for at, pattern, token in banned_hits(lines, quotations):
+        rate = HUMAN_RATE.get(pattern, 0.0)
+        where = stage_of(pattern)
+        if rate:
+            note = "%s token %r, humans use it %.1f per 100k" % (
+                where, " ".join(token.split()), rate)
+        else:
+            note = "%s token %r, unused in 1.1M human words" % (
+                where, " ".join(token.split()))
+        found.append((at, note))
     return sorted(found)
 
 
@@ -877,6 +892,61 @@ def quieted(lines):
     return kept
 
 
+# The audit on the mechanism above, written because the mechanism was found being misused. A marker
+# pair protects a quotation, and a quotation has edges: it opens and closes where a sentence does. A
+# pair used to silence a finding lands wherever the token sits, in the middle of a sentence. The two
+# misused pairs in this tree closed on "four megabytes" and on "is not placed by this, and", where
+# all four correct pairs closed on a finished sentence.
+#
+# Only the closing marker is tested. An opening marker sits above the quoted material in both shapes
+# and tells them apart from nothing.
+#
+# Both halves of the tell have to agree before anything is reported: no sentence-ending punctuation
+# before the marker, and a lowercase word after it. Either half alone fires on a table that ends in
+# a bracket, or on a paragraph that happens to open lowercase.
+#
+# Reported and never refused. The evidence is six pairs, four correct against two misused, and the
+# failure mode is a legitimate quotation of a fragment, which is a real thing to want to write. The
+# one correct pair quoting two words closes cleanly because the sentence around it was written to
+# close cleanly, and that will not hold for every future one. Raising this to breaking wants more
+# pairs to have been right about, and not more confidence about six.
+SENTENCE_END = (".", "?", "!", ":", ";", '"', "'", ")", "`")
+CONTINUATION = re.compile(r"^[a-z]")
+
+
+def near_marker(lines, at, step):
+    """The nearest line carrying text on one side of a marker, without its comment marker.
+
+    Blank lines and bare comment markers are stepped over. A pair set off by an empty comment line
+    above and below is the shape that reads best, and stopping on one would report every block that
+    was laid out with any care.
+    """
+    walk = at + step
+    while 0 <= walk < len(lines):
+        body = lines[walk].strip().lstrip("#/*%").strip()
+        if body:
+            return body
+        walk += step
+    return None
+
+
+def marker_edges(lines):
+    """Findings for a quiet block whose closing marker cuts a sentence in half."""
+    found = []
+    for at, line in enumerate(lines):
+        if QUIET_CLOSE not in line:
+            continue
+        before = near_marker(lines, at, -1)
+        after = near_marker(lines, at, 1)
+        if (before is None) or (after is None):
+            continue
+        if before.endswith(SENTENCE_END) or not CONTINUATION.match(after):
+            continue
+        found.append((at + 1, "quiet block closes in the middle of a sentence. A marker pair "
+                              "protects a quotation, and this pair is hiding a finding"))
+    return found
+
+
 def tex_prose(lines):
     """A LaTeX source with its markup blanked and its sentences left, line numbers preserved.
 
@@ -896,7 +966,7 @@ def tex_prose(lines):
 
         # Comment to end of line, on an unescaped percent. A note to a co-author is prose and would
         # be worth checking, but it is also where a stray brace or a half sentence lives, so it goes
-        # with the markup rather than being reported against.
+        # with the markup and is not reported against.
         held = re.sub(r"(?<!\\)%.*$", "", held)
 
         # Math, inline and displayed. Done before commands, since a command inside math goes with it.
@@ -1005,8 +1075,9 @@ def main():
         structural = em_dashes(said)
         if path.endswith(".md"):
             structural += empty_tables(lines) + dead_links(path, lines)
-        # These read wrong and render fine.
-        wording = banned_tokens(said, quotations=path.endswith(".md"))
+        # These read wrong and render fine. marker_edges reads the raw lines, since quieted() has
+        # already blanked the content the tell is measured on by the time prose_only returns.
+        wording = banned_tokens(said, quotations=path.endswith(".md")) + marker_edges(lines)
 
         for at, what in sorted(structural):
             print("  BREAK %s:%d: %s" % (path.replace("\\", "/"), at, what))

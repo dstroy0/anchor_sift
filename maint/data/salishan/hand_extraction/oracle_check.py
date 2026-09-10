@@ -41,7 +41,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(HERE), "corpus_script_extraction
 
 # Imported under another name because this file already binds `joined` as a local, for the token
 # welded out of a run of pieces. Two different joins, and shadowing one with the other reads as a
-# missing value at run time rather than as the name collision it is.
+# missing value at run time. It is a name collision.
 from line_breaks import joined as joined_lines  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
 
@@ -262,8 +262,8 @@ def source_forms(path, repair=None, pieces=2, line_joins=False):
     # The same line joining coverage_check.py already applies, applied here too.
     #
     # This check joined a line to the one under it only where the first ended in a hyphen. A PDF
-    # that breaks a word with no hyphen leaves two fragments and this check saw two words, so a form
-    # the reader wrote whole read as a form the paper does not hold. 2012_Robertson's epigraph
+    # that breaks a word with no hyphen leaves two fragments and this check saw two words. A form
+    # the reader wrote whole then read as a form the paper does not hold. 2012_Robertson's epigraph
     # splits across two lines with no hyphen and could not be repaired at all.
     #
     # line_breaks.joined is the repair coverage_check has used all along, and its own header says

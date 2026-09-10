@@ -44,6 +44,20 @@ Turn the hook on once per clone:
 git config core.hooksPath .githooks
 ```
 
+**A contribution's own prose.** The condition at the top of this file had no check attached to it. This is that check:
+
+```sh
+python maint/prose/submission_check.py <path to the contribution>
+```
+
+It reads the prose of a submission and reports two things. Any model vendor named in it, which catches only the careless case. And how often it reaches for the 285 phrases `docs_check.py` bans, as a rate per hundred thousand words, against the rate a human research writer carries for the same list. That baseline is 387.9, counted over 759,815 words of the papers under `build/papers`, and it is summed from the same table the findings come from so the two cannot disagree.
+
+Two poles calibrate it. A page written deliberately in the machine register measures 12.5 times the human rate. Three Salishan papers measure 0.5, 0.6 and 0.9.
+
+Read the word count before the ratio. The denominator is the prose left after code, math and markup come out, and a submission that is mostly a word list or interlinear glosses will count high and rate low.
+
+It reports and it does not decide. Nothing in it prints a verdict, and a hook that rejected a contribution on its output would automate away the person the rule at the top of this file exists to require. A low number is not evidence of anything either: the rates are a floor, and anyone who knows the list can write around it.
+
 **The kernel.** C11 and nothing else. No Python, no device toolchain:
 
 ```sh

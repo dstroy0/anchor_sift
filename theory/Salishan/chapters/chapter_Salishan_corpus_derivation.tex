@@ -1,8 +1,8 @@
 \chapter{How wrong it could be}
 
-\textbf{Purpose:} Say how wrong the pure corpus could be, from what the checks have actually seen, and say what the number rests on. \textbf{Scope:} \texttt{data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}derivation.\allowbreak{}py}, which writes this file, and the three checks it reads.
+\textbf{Purpose:} Say how wrong the pure corpus could be, from what the checks have actually seen, and say what the number rests on. \textbf{Scope:} \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}derivation.\allowbreak{}py}, which writes this file, and the three checks it reads.
 
-Rewritten by \texttt{python data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}derivation.\allowbreak{}py} after every change to a hand extraction. Nothing in it is typed by hand.
+Rewritten by \texttt{python maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}derivation.\allowbreak{}py} after every change to a hand extraction. Nothing in it is typed by hand.
 
 \subsection{1. What is being estimated}
 
@@ -12,7 +12,7 @@ With no failures in N independent trials the true rate is under 3/N with 95 perc
 
 \subsection{2. What the checks have seen}
 
-A paper contributes trials only where its extracted text is what the page prints. The others are checked against a damaged source, so their disagreements measure the source and not the table. \texttt{refs.\allowbreak{}md} names each of them.
+A paper contributes trials only where its extracted text is what the page prints. The others are checked against a damaged source, so their disagreements measure the source and not the table. The references chapter names each of them.
 
 \begin{figure}[htbp]
 \centering
@@ -20,9 +20,9 @@ A paper contributes trials only where its extracted text is what the page prints
 \caption{Hand extraction against its paper}
 \end{figure}
 
-\textbf{Why the left panel is here.} The bound in Section 3 is a single number and a single number cannot show whether it came from one clean paper or from 16. The panel puts every paper on the picture so the shape of the evidence is visible: how much each one contributed, and which ones failed anything. A reader should come away able to say which papers the number rests on.
+\textbf{Why the left panel is here.} The bound in Section 3 is a single number and a single number cannot show whether it came from one clean paper or from 17. The panel puts every paper on the picture so the shape of the evidence is visible: how much each one contributed, and which ones failed anything. A reader should come away able to say which papers the number rests on.
 
-\textbf{What to read off it.} Every paper is one point, trials against failures. The 16 on the zero line are the evidence. The 4 above it are checked against a text that is not what their page prints. The reader squares are a separate measurement in their own color, and they sit high: a reader is a script and it gets a great deal wrong. Section 5 gives those per paper, the only form they mean anything in.
+\textbf{What to read off it.} Every paper is one point, trials against failures. The 16 on the zero line are the evidence. The 9 above it are checked against a text that is not what their page prints. The reader squares are a separate measurement in their own color, and they sit high: a reader is a script and it gets a great deal wrong. Section 5 gives those per paper, the only form they mean anything in.
 
 \textbf{Why the right panel is here.} The extraction has a lifetime and the question is what carries it. A person reads a paper at a fixed accuracy however large the corpus gets, so that arm is flat. The algorithm's accuracy is a function of corpus size, so that arm climbs. Whether and where they cross decides whether the corpus is worth growing for its own sake, and the panel is what answers it.
 
@@ -46,19 +46,24 @@ Paper & Rows & Forms checked & Not in paper & Tokens checked & No row holds & Co
 \texttt{19-\allowbreak{}Lyon\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}78} & 1417 & 2788 & 41 & 1175 & 32 & no \\
 \texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon} & 653 & 2424 & 46 & 1218 & 37 & no \\
 \texttt{1975\_\allowbreak{}Hilbert\_\allowbreak{}Hess} & 74 & 429 & 200 & 25 & 24 & no \\
-\texttt{2012\_\allowbreak{}Robertson} & 195 & 1324 & 40 & 102 & 21 & no \\
+\texttt{2012\_\allowbreak{}Robertson} & 195 & 1324 & 38 & 102 & 20 & no \\
 \texttt{Wolfe\allowbreak{}ICSNL60} & 772 & 763 & 0 & 378 & 0 & yes \\
 \texttt{ICSNL59\_\allowbreak{}Nater\_\allowbreak{}2\_\allowbreak{}final} & 671 & 762 & 0 & 282 & 0 & yes \\
 \texttt{Lyon\allowbreak{}ICSNL60\_\allowbreak{}Inch-\allowbreak{}2} & 537 & 666 & 0 & 435 & 0 & yes \\
 \texttt{Kim\_\allowbreak{}Twana\allowbreak{}Reduplication\_\allowbreak{}final} & 358 & 528 & 0 & 297 & 0 & yes \\
 \texttt{2013\_\allowbreak{}Nater} & 2605 & 2524 & 0 & 1896 & 0 & yes \\
-\texttt{Hall-\allowbreak{}et-\allowbreak{}al\_\allowbreak{}-\allowbreak{}ICSNL\_\allowbreak{}61-\allowbreak{}1} & 494 & 504 & 0 & 369 & 0 & yes \\
+\texttt{Hall-\allowbreak{}et-\allowbreak{}al\_\allowbreak{}-\allowbreak{}ICSNL\_\allowbreak{}61-\allowbreak{}1} & 494 & 508 & 0 & 369 & 0 & yes \\
 \texttt{ICSNL58\_\allowbreak{}Davis\_\allowbreak{}Mellesmoen\_\allowbreak{}final} & 441 & 483 & 0 & 425 & 0 & yes \\
+\texttt{1967\_\allowbreak{}Hamp} & 154 & 1176 & 337 & 1 & 1 & no \\
+\texttt{ICSNL58\_\allowbreak{}Givens\_\allowbreak{}Hall\_\allowbreak{}final} & 178 & 896 & 97 & 161 & 2 & yes \\
+\texttt{1967\_\allowbreak{}Hess} & 248 & 707 & 281 & 16 & 16 & no \\
+\texttt{1967\_\allowbreak{}Elmendorf} & 276 & 1445 & 631 & 197 & 196 & no \\
+\texttt{1967\_\allowbreak{}Kinkade} & 316 & 871 & 518 & 1 & 1 & no \\
 \bottomrule
 \end{longtable}
 \normalsize
 
-16 of the 20 hand extractions are checked against a sound source. Together they put 14255 distinct written forms and 7290 language tokens through the two directions.
+17 of the 25 hand extractions are checked against a sound source. Together they put 15155 distinct written forms and 7451 language tokens through the two directions.
 
 \subsection{3. The channels}
 
@@ -72,8 +77,8 @@ The reader counts are not a channel here. A reader is written for one paper, and
 \toprule
 Channel & Failures & Trials & Bound \\
 \midrule
-a form written that the paper does not hold & 0 & 14255 & 0.00021 \\
-a token in the paper that no row holds & 0 & 7290 & 0.000412 \\
+a form written that the paper does not hold & 97 & 15155 & 0.0064 \\
+a token in the paper that no row holds & 2 & 7451 & 0.000268 \\
 a token the corpus lost on the way out & 3 & 9512 & 0.000315 \\
 \bottomrule
 \end{longtable}
@@ -81,7 +86,7 @@ a token the corpus lost on the way out & 3 & 9512 & 0.000315 \\
 
 A line has to pass all three. Taking them as independent, the joint bound is the product:
 
-\textbf{2.73e-11} per line
+\textbf{5.42e-10} per line
 
 \subsubsection{How much of that number has settled}
 
@@ -107,13 +112,14 @@ Papers counted & Joint bound \\
 12 & 6.457e-11 \\
 13 & 5.743e-11 \\
 14 & 3.293e-11 \\
-15 & 3.002e-11 \\
+15 & 3.001e-11 \\
 16 & 2.731e-11 \\
+17 & 5.419e-10 \\
 \bottomrule
 \end{longtable}
 \normalsize
 
-The last 3 papers agree to 1 significant figure.
+No digit has settled. The bound falls with every paper because every paper adds trials and none has yet added a failure. Quoting 5.42e-10 as though the 85 meant something would be reporting the format. What the table says is that the extraction is still buying accuracy at the rate of about one order of magnitude every 11.1 papers, and the digit to report will settle when that stops.
 
 \subsubsection{Where 1e-26 lands}
 
@@ -125,14 +131,14 @@ The target this file was asked for is 1e-26 per line over the whole extraction. 
 \toprule
 Channel & Trials now & Trials at 993 papers & Bound then \\
 \midrule
-a form written that the paper does not hold & 14255 & 884700 & 3.39e-06 \\
-a token in the paper that no row holds & 7290 & 452435 & 6.63e-06 \\
-a token the corpus lost on the way out & 9512 & 590338 & 5.08e-06 \\
+a form written that the paper does not hold & 15155 & 885230 & 3.39e-06 \\
+a token in the paper that no row holds & 7451 & 435226 & 6.89e-06 \\
+a token the corpus lost on the way out & 9512 & 555612 & 5.4e-06 \\
 \bottomrule
 \end{longtable}
 \normalsize
 
-Reading all 993 papers of the archive, and finding nothing wrong in any of them, takes the joint bound from 2.73e-11 to about 1.14e-16. That is 10 orders of magnitude short of 1e-26.
+Reading all 993 papers of the archive, and finding nothing wrong in any of them, takes the joint bound from 5.42e-10 to about 1.26e-16. That is 10 orders of magnitude short of 1e-26.
 
 Closing the rest by counting is not available. Each channel would have to reach about 1e+09 trials, which is roughly 2e+03 times the whole archive. There is no reading schedule that gets there, and a file claiming 1e-26 from these three channels would be reporting a number nothing measured.
 
@@ -145,7 +151,7 @@ The independence is the weak part and it is weak in three named places.
 \begin{itemize}
 \item \textbf{One person read every table.} The three channels catch different kinds of mistake but they do not catch a systematic misreading of one orthography, because the same reading produced the row and the expectation. This is the largest unmodelled term and no amount of trials touches it.
 \item \textbf{Direction one and direction two share a source.} Both ask questions of the same extracted text. A paper whose text is wrong in a way nobody has noticed fails both at once, and for that reason the papers with a known-damaged source are excluded from the count instead of given a worse bound.
-\item \textbf{Every channel runs through one codebase.} \texttt{salish\_\allowbreak{}marking.\allowbreak{}py} and \texttt{salish\_\allowbreak{}unsorted.\allowbreak{}py} decide what counts as a language token, and all three channels ask them. A defect in either is common to all three at once, and two such defects have already been found this way. Both are in \texttt{refs.\allowbreak{}md}.
+\item \textbf{Every channel runs through one codebase.} \texttt{salish\_\allowbreak{}marking.\allowbreak{}py} and \texttt{salish\_\allowbreak{}unsorted.\allowbreak{}py} decide what counts as a language token, and all three channels ask them. A defect in either is common to all three at once, and two such defects have already been found this way. Both are in the references chapter.
 \end{itemize}
 
 What would move the number honestly is a second person reading a table that has already been read. That is the addition that fails for a reason none of the three share, and until it exists the first bullet stands above every number in this file.
@@ -186,7 +192,7 @@ A reader that does not reproduce a row is not by itself an impurity. The row is 
 
 \subsection{6. The word web}
 
-\texttt{data/\allowbreak{}salishan/\allowbreak{}word\_\allowbreak{}web/\allowbreak{}word\_\allowbreak{}web.\allowbreak{}py} joins every form in the hand extractions to the forms it is related to, and writes one file per group under \texttt{build/\allowbreak{}corpora}. The web has three kinds of edge, each measured off the extraction and none of them listed by hand.
+\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}word\_\allowbreak{}web/\allowbreak{}word\_\allowbreak{}web.\allowbreak{}py} joins every form in the hand extractions to the forms it is related to, and writes one file per group under \texttt{build/\allowbreak{}corpora}. The web has three kinds of edge, each measured off the extraction and none of them listed by hand.
 
 \begin{itemize}
 \item \textbf{concept}, two forms whose glosses share a content word. This is the edge that crosses an orthography, because the gloss is the only part of a form that two papers wrote the same way.
@@ -200,7 +206,7 @@ The web makes an anchor a concept expressed as a distribution instead of a bag o
 
 Lushootseed is not one dialect. The northern and southern varieties have known land and family borders, and Mellesmoen and Kye's stress paper labels every form it cites with which one it came from. The hand extraction copied that into the \texttt{who} column, so the border sits on disk as a fact published by a linguist.
 
-That makes it something a test of this algorithm almost never has: an answer that did not come from the algorithm. \texttt{anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}boundary\_\allowbreak{}check.\allowbreak{}py} loads the labels, sets them aside, and only compares at the end.
+That makes it something a test of this algorithm almost never has: an answer that did not come from the algorithm. \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}boundary\_\allowbreak{}check.\allowbreak{}py} loads the labels, sets them aside, and only compares at the end.
 
 Comparing whole distributions does not work at this size. The method resolves at 6707 bytes and the two varieties hold 1469 and 2768. Neither the byte pair distribution nor the word web separates them, and a blind partition scores no better than the majority class. The check prints what that route would need: about 2.9 times the labeled Lushootseed now on disk.
 
@@ -237,5 +243,5 @@ The last column of the first table is the test that is allowed to fail. The bord
 
 The term carrying the border is the stressed schwa, and it is southern: 45 of them to 6 in the north over the same concepts. The paper those labels came from is Mellesmoen and Kye's comparative analysis of stress in northern and southern Lushootseed. The algorithm was shown the forms and never the labels, and what it returned is what the paper is about.
 
-\textbf{Compiled By:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com> \textbf{Generated by:} \texttt{data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}derivation.\allowbreak{}py}
+\textbf{Compiled By:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com> \textbf{Generated by:} \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}derivation.\allowbreak{}py}
 

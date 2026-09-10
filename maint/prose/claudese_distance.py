@@ -19,7 +19,6 @@
 # repository. Matching the subject makes it usable, because it is not a distance to a 1667 epic or
 # to a linguistics paper, so genre, locale and era are all held fixed and the only thing left free
 # to vary is the register.
-# docs-check: quoting
 #
 # THE SPLIT IS THE ONE boundary_check ALREADY USES
 #
@@ -30,9 +29,8 @@
 # WHAT WOULD MAKE THIS WRONG
 #
 # The positive pole is one page by one writer on one day. It is a sample of the register, not the
-# register, and a file can sit near it for sharing a subject rather than a voice. The margin column
+# register, and a file can sit near it for sharing a subject and not a voice. The margin column
 # is there for that: a file inside the resolution reported at the foot is not placed by this, and
-# docs-check: end quoting
 # the honest answer for it is that nothing was read.
 #
 # The fixture must never be repaired. docs_check skips the directory it lives in for that reason,
@@ -365,7 +363,7 @@ def main():
         worst = int(sys.argv[sys.argv.index("--worst") + 1])
 
     # The tree under measurement, which is not always this one. A path used to be accepted and
-    # ignored, so a caller measuring another repository got this one's number and no indication of
+    # ignored. A caller measuring another repository got this one's number and no indication of
     # it. The path is echoed for the same reason the file count is: a number with no subject named
     # beside it is a number somebody will attach to the wrong thing.
     where, roots = prose_distance.named_roots(sys.argv)

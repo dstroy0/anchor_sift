@@ -16,10 +16,8 @@
 # published finds ten, and most are image captions, token ledgers, or a single example wrapped in
 # metadata. Two carry usable assistant prose and one of those answers 401. What lands is about
 # fifteen thousand words, not the million this file was first written to fetch.
-# docs-check: quoting
 #
-# The reason is visible in the schema rather than the prose. The largest of them is four megabytes
-# docs-check: end quoting
+# The reason is visible in the schema and not in the prose. The largest of them is four megabytes
 # and 84 percent of that is system prompts: 3,340,667 characters of system against 124,727 of
 # assistant. The coding set is mostly code, which is stripped. A public corpus of this model writing
 # English at length does not appear to exist yet, and a pole of this size resolves an extreme and

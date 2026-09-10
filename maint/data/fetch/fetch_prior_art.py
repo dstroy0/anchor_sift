@@ -9,7 +9,7 @@
 #
 # WHAT THIS IS ALLOWED TO REACH
 #
-# Open archives run by the publishers themselves, and nothing else. Math-Net.Ru is the Russian
+# Open archives run by the publishers themselves. Nothing else is reached. Math-Net.Ru is the Russian
 # Academy of Sciences' own archive and carries Doklady Akademii Nauk, which is where Kolmogorov 1958
 # and Sinai 1959 appeared. That is the publisher offering its own back catalogue, not a mirror and
 # not a shadow library.
@@ -22,7 +22,7 @@
 # THE COURTESIES ARE THE ONLY PATH TO THE NETWORK
 #
 # One identifying User-Agent with a contact address, one request at a time, a pause between them
-# longer than any published limit, and a cache so a second run asks for nothing. A tool that has to
+# longer than any published limit, and a cache so that a second run asks for nothing. A tool that has to
 # remember to be polite will forget.
 #
 # WHAT IT CANNOT GET IS THE OUTPUT THAT MATTERS
@@ -75,7 +75,7 @@ WANTED = (
                 "automorphisms of Lebesgue spaces, Doklady Akademii Nauk SSSR 119(5):861-864, 1958",
         "why": "Kolmogorov-Sinai entropy is defined as a supremum over partitions, which is where "
                "the partition dependence this document observes was already answered",
-        # dan22922, and the identifier came from the archive's own article page rather than from a
+        # dan22922, and the identifier came from the archive's own article page and not from a
         # pattern. The first attempt used dan22851, which was invented and returned a metallurgy
         # paper. Confirmed at https://www.mathnet.ru/eng/dan22922: Kolmogorov, Dokl. Akad. Nauk
         # SSSR 119:5 (1958) 861-864, offering "Full-text PDF (581 kB)".
@@ -111,7 +111,7 @@ def confirms(path, must_hold, out):
 
     The check reads the file's own text for words the paper must contain. Where the file is a page
     scan and yields no text, it cannot be confirmed, and cannot-confirm is reported as a refusal
-    rather than a pass: a scan has to be rendered and read by a person, and that is a worklist item.
+    and not a pass: a scan has to be rendered and read by a person, and that is a worklist item.
     """
     try:
         from pypdf import PdfReader

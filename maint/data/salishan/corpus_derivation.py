@@ -38,16 +38,16 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 for _category in os.scandir(HERE):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
-# The engine's instrument directory, found by walking up to the repository rather than by
+# The engine's instrument directory, found by walking up to the repository and not by
 # counting parents. Counting put this at maint/data/instrument, which has never existed, and
 # the import failed with a missing module instead of a wrong path.
 _at = os.path.dirname(os.path.abspath(__file__))
 while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
-# Built from the repository, not by counting parents. Counting put this at maint/data/book, which
-# has never existed, and the import failed with a missing module rather than a wrong path.
-sys.path.insert(0, os.path.join(_at, "maint", "book"))
+# Built from the repository and not by counting parents. Counting put this at maint/data/book,
+# which has never existed, and the import failed with a missing module instead of a wrong path.
+sys.path.insert(0, os.path.join(_at, "maint", "tex_book"))
 
 import boundary_check as border  # noqa: E402
 import markdown_to_latex  # noqa: E402
@@ -56,7 +56,7 @@ import oracle_check as oracle  # noqa: E402
 import reader_check as reader  # noqa: E402
 from anchor_sift import distance, self_distance, squash  # noqa: E402
 from language_check import BY_CORPUS  # noqa: E402
-from papers import EVERY, NOT_FAITHFUL, PAGE_TEXT  # noqa: E402
+from papers import EVERY, NOT_FAITHFUL, ORTHOGRAPHY_ABSENT, PAGE_TEXT  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
 
 ROOT = os.path.abspath(__file__)
@@ -78,7 +78,14 @@ FIGURE = os.path.join(CHAPTERS, "corpus-derivation.pdf")
 # The papers whose extracted text is not what the page prints. A check against one of these is
 # measuring the source. Its disagreements say nothing about the table and it contributes no
 # trials to the bound. The references chapter in theory/Salishan names each and says what happened.
-UNSOUND = set(NOT_FAITHFUL) | {"2012_Robertson", "1975_Hilbert_Hess"}
+#
+# ORTHOGRAPHY_ABSENT is read from papers.py and not restated here. It used to be, as the single stem
+# 1975_Hilbert_Hess, and the other four in that tuple were counted into the bound as though their
+# tables disagreed with their papers. oracle_check refuses to count those same five and prints why,
+# so the two tools were reading one fact two ways and the bound published in the chapter carried
+# 1864 and 216 failures that the check next door declines to report at all. That is exactly the
+# drift reported() warns about further down, arriving in the exclusion set instead of in the count.
+UNSOUND = set(NOT_FAITHFUL) | set(ORTHOGRAPHY_ABSENT) | {"2012_Robertson"}
 
 # The rule of three. With no failures in trials, the true rate is under this with 95 percent
 # confidence. That rule is the standard bound for a zero numerator and it is why a clean check
@@ -130,6 +137,17 @@ def alphabets():
     """
     held = {}
     for name, stem, record, repair, marks, _line_joins in EVERY:
+        # A paper with no reader carries an empty record and writes no corpus file. Splitting that
+        # raised IndexError and took the whole chapter down with it: five of the twenty five papers
+        # are in that state, four of them because their text holds none of their orthography and no
+        # reader can be written against it.
+        #
+        # Skipped, and nothing is defaulted in its place. This table is read only by pure_corpora,
+        # which walks the corpus files actually on disk and keys them by the same BY_CORPUS name.
+        # A paper with no corpus file has nothing for an alphabet to be applied to and contributes
+        # no marks that anything would look up.
+        if not record:
+            continue
         language = BY_CORPUS.get(record.split("_")[1])
         if language:
             held[language] = held.get(language, "") + marks
@@ -679,8 +697,8 @@ def main():
         handle.write("## 2. What the checks have seen\n\n")
         handle.write("A paper contributes trials only where its extracted text is what the page "
                      "prints. The others are checked against a damaged source, so their "
-                     "disagreements measure the source and not the table. "
-                     "`refs.md` names each of them.\n\n")
+                     "disagreements measure the source and not the table. The references chapter "
+                     "names each of them.\n\n")
         handle.write("![Hand extraction against its paper](corpus-derivation.pdf)\n\n")
         handle.write("**Why the left panel is here.** The bound in Section 3 is a single number "
                      "and a single number cannot show whether it came from one clean paper or from "
@@ -803,7 +821,8 @@ def main():
         handle.write("* **Every channel runs through one codebase.** `salish_marking.py` and "
                      "`salish_unsorted.py` decide what counts as a language token, and all three "
                      "channels ask them. A defect in either is common to all three at once, and "
-                     "two such defects have already been found this way. Both are in `refs.md`.\n\n")
+                     "two such defects have already been found this way. Both are in the "
+                     "references chapter.\n\n")
         handle.write("What would move the number honestly is a second person reading a table that "
                      "has already been read. That is the addition that fails for a reason none "
                      "of the three share, and until it exists the first bullet stands above every "
@@ -853,8 +872,8 @@ def main():
                      "by a linguist.\n\n")
         handle.write("That makes it something a test of this algorithm almost never has: an "
                      "answer that did not come from the algorithm. "
-                     "`anchor_sift_algorithmic_extraction/boundary_check.py` loads the labels, "
-                     "sets them aside, and only compares at the end.\n\n")
+                     "`maint/data/salishan/anchor_sift_algorithmic_extraction/boundary_check.py` "
+                     "loads the labels, sets them aside, and only compares at the end.\n\n")
         handle.write("Comparing whole distributions does not work at this size. The method "
                      "resolves at 6707 bytes and the two varieties hold 1469 and 2768. Neither "
                      "the byte pair distribution nor the word web separates them, and a blind "

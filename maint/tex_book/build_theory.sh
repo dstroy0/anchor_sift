@@ -22,14 +22,14 @@ if [ -d "$MIKTEX" ]; then
     export PATH
 fi
 
-# Every directory under theory/ holding a main.tex, so a new book builds by being created. The four
+# Every directory under theory/ holding a main.tex. A new book builds by being created. The four
 # names were listed here once, and a book added after that line was written would not have built.
 if [ $# -gt 0 ]; then
     BOOKS=$*
 else
     # Two depths, because a book may sit under a subject directory: theory/<book>/ as most do, and
     # theory/<subject>/<book>/ as the cryptography one does. What is kept is the path below theory/
-    # rather than the basename, since that is what the loop below joins back onto $ROOT.
+    # and not the basename, since that is what the loop below joins back onto $ROOT.
     BOOKS=$(for one in "$ROOT"/theory/*/main.tex "$ROOT"/theory/*/*/main.tex; do
         [ -f "$one" ] || continue
         one_dir=$(dirname "$one")

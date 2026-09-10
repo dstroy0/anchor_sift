@@ -74,7 +74,7 @@ The detector read short about three times as often as it read long, and the mean
 
 An earlier version of this chapter named the voxel floor as the candidate explanation, predicted a bias of about half a voxel spread over the tiling, and said plainly that it had not been tested by re-running with a different rounding, so the bias was a measured fact with no mechanism attached.
 
-\textbf{It has now been tested, by removing the rounding rather than changing it.} The exact reading of the same 453 axes has a signed error of zero, 0 axes long and 0 axes short. The bias was the voxel floor in its entirety. Nothing of it survives when sites are not assigned to cells.
+\textbf{It has now been tested, by removing the rounding.} The exact reading of the same 453 axes has a signed error of zero, 0 axes long and 0 axes short. The bias was the voxel floor in its entirety. Nothing of it survives when sites are not assigned to cells.
 
 That is the strongest form the test could take. Changing the rounding rule would have moved the bias and left the question of how much was rule and how much was something else. Removing the quantization removes the bias completely, which settles it.
 

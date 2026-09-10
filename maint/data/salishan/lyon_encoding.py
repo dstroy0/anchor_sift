@@ -259,7 +259,7 @@ def drafted(line):
     a_gloss() does not separate them either: it wants a run of two capitals, and backwards has
     none. What actually distinguishes them is the line, not the token, since the five-line
     interlinear puts glosses on a line of their own. Deciding that is a change to what this draft
-    says a page reads, so it waits on the pages rather than on a heuristic.
+    says a page reads, so it waits on the pages and not on a heuristic.
     """
     for before, after in WEDGE:
         line = line.replace(before, after)

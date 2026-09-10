@@ -8,7 +8,7 @@
 #
 # nvcc needs a host compiler and on Windows that host compiler is MSVC, never MinGW. The rest of
 # this tree builds with MinGW, and MinGW objects do not link against MSVC objects, so the GPU arm
-# gets its own build rather than joining the CMake one. Everything it needs is compiled here by the
+# gets its own build and does not join the CMake one. Everything it needs is compiled here by the
 # same host compiler nvcc is driving, which is what keeps the ABI consistent inside this binary.
 #
 # Architectures default to the one this machine carries. Naming others compiles for them as well,

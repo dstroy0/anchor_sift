@@ -1,7 +1,7 @@
 \chapter{Where the precision comes from}
 
 \textbf{Purpose:} Explain how an answer landed finer than the grid it was measured on, and why that question stopped needing an answer.
-\textbf{Scope:} \texttt{recover\_\allowbreak{}lattice\_\allowbreak{}period} and \texttt{recover\_\allowbreak{}exact\_\allowbreak{}period} in \texttt{measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py}
+\textbf{Scope:} \texttt{recover\_\allowbreak{}lattice\_\allowbreak{}period} and \texttt{recover\_\allowbreak{}exact\_\allowbreak{}period} in \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py}
 
 \section{The objection}
 
@@ -23,7 +23,7 @@ Measured, that recovery worked. Three cells at 10.1000, 8.6633 and 14.0574 angst
 
 Everything above answers a question this work created. The voxel came from the reader in this tree and not from the deposit: a CIF publishes a cell edge to five decimal places, and the grid was imposed before the detector ever saw it.
 
-Carry the sites as exact integers instead and the objection dissolves rather than being answered. There is no sample spacing to beat, no straddling lags, no fraction to resolve, and no error distribution to report. The same 453 axes come back equal to their published edges.
+Carry the sites as exact integers instead and the objection dissolves. It is not answered. There is no sample spacing to beat, no straddling lags, no fraction to resolve, and no error distribution to report. The same 453 axes come back equal to their published edges.
 
 The lesson generalizes past crystals, which is why the chapter keeps both halves. An instrument that answers finer than its own resolution deserves the scrutiny this chapter opens with. Sometimes the mechanism is sound, as it was here. It is still worth asking first whether the resolution was anybody's to impose.
 
