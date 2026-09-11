@@ -558,7 +558,7 @@ source & \(N\) & true \(H_2\) & plug in & unbiased & probe, self & probe, no sel
 \end{longtable}
 \normalsize
 
-**The probe counting its own match reproduces the plug in estimator, and excluding it reproduces the unbiased estimator.** At \texttt{uniform256} and \(N=256\) the plug in bias is \(-0.984\) bits and the probe with self is \(-0.964\); the unbiased bias is \(+0.029\) and the probe without self is \(+0.074\). The subtraction that Section 6.5 records as a measurement error is the standard bias correction, reached from the other direction.
+\noindent\textbf{The probe counting its own match reproduces the plug in estimator, and excluding it reproduces the unbiased estimator.} At \texttt{uniform256} and \(N=256\) the plug in bias is \(-0.984\) bits and the probe with self is \(-0.964\); the unbiased bias is \(+0.029\) and the probe without self is \(+0.074\). The subtraction that Section 6.5 records as a measurement error is the standard bias correction, reached from the other direction.
 
 \noindent\textbf{The probe is worse than both published estimators at every setting tested.} Its error is set by the probe budget and not by the corpus length. Root mean square error at \(N = 16384\), \texttt{zipf1.\allowbreak{}0}:
 
@@ -667,7 +667,7 @@ corpus & \(H_2\) & \(N\) & predicted & measured, \(m = 64\) and 256 & measured, 
 
 The prediction assumes each anchor contributes its full \(H_2\) bits, which requires them to be independent. Section 4.7 puts that at separation 7 and above. At \(m = 64\) and beyond there is room for that and the bound is exact on English, predicting 2.98 against a measured 3. At \(m = 16\) there is not, the anchors sit close enough to be correlated, each supplies less than \(H_2\) bits, and English needs 6.
 
-**The gap between predicted and measured exhaustion is the independence failure of Section 4.6, read a second way.** \texttt{structured} has the largest cascade ratio and the largest gap. \texttt{flat} carries no bits at all. No stack of any size removes anything, and the row that never exhausts is the same corpus every other instrument reports zero on.
+\noindent\textbf{The gap between predicted and measured exhaustion is the independence failure of Section 4.6, read a second way.} \texttt{structured} has the largest cascade ratio and the largest gap. \texttt{flat} carries no bits at all. No stack of any size removes anything, and the row that never exhausts is the same corpus every other instrument reports zero on.
 
 A stack terminates at three or four here, and it terminates because the space is spent and not because the arithmetic fails.
 
