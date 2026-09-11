@@ -1,7 +1,7 @@
-# The engine in MATLAB
+# The MATLAB port
 
-**Purpose:** Read the permutation null measure from MATLAB or Octave without installing anything else.
-**Scope:** `src/engine/matlab/measure/`
+**Purpose:** Read the permutation null measure from MATLAB or Octave.
+**Scope:** `evidence/sims/matlab/`
 
 ```matlab
 value = anchor_sift_departure(double(uint8(text)));
@@ -9,13 +9,13 @@ value = anchor_sift_departure(double(uint8(text)));
 
 | file | what it is |
 |---|---|
-| `measure/anchor_sift_departure.m` | the permutation null measure, ported |
+| `anchor_sift_departure.m` | the permutation null measure, ported |
 
 ## What it computes
 
 How far a sequence sits from a shuffle of itself, read through the gaps between repeated symbols, averaged over the rare half of the alphabet. A memoryless source returns about 1.00. Natural language returns 0.48 to 0.76. Below 1 means the live sequence is more dispersed than its own shuffle, which is clustering.
 
-Runs unchanged on Octave.
+Runs unchanged on Octave, and needs no toolboxes.
 
 ## What it is checked against
 

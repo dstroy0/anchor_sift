@@ -72,7 +72,7 @@ PAIRED = (("‘", "’"), ("'", "'"), ("“", "”"))
 PIECES = 6
 
 # The mark Lyon opens every parsed root with.
-ROOT = "√"
+ROOT_MARK = "√"
 
 # What stands in front of a √ inside one parse. yaQ•√yáQt is a reduplicant and its root, n+√ ’ks+tan
 # a preposition and its root: one form each. A √ with anything else in front of it is the point
@@ -82,7 +82,7 @@ INSIDE_PARSE = "+-•="
 
 def surface_parse_join(token):
     """Where a token runs a form into its own parse, the position the parse starts at, else -1."""
-    at = token.find(ROOT)
+    at = token.find(ROOT_MARK)
     if (at <= 0) or (token[at - 1] in INSIDE_PARSE):
         return -1
     return at
@@ -91,6 +91,17 @@ def surface_parse_join(token):
 # occurrence is the typesetter's and the letters underneath are what the paper says. Lyon's
 # translations carry ﬁnish, ﬁll and ﬁrst, and a table typed at a keyboard holds none of them.
 LIGATURES = (("ﬁ", "fi"), ("ﬂ", "fl"), ("ﬀ", "ff"), ("ﬃ", "ffi"), ("ﬄ", "ffl"))
+
+# The three spellings of one apostrophe, folded to the plain one. A typesetter sets ’ where a
+# person at a keyboard types ', and NFC does not unify them because they are separate characters
+# and not normalization variants. ICSNL58_Givens_Hall_final holds 39 plain apostrophes in its form
+# column against 62 typographic ones in the paper, and the checker could never match those rows.
+#
+# This folds and never strips. ’ is the glottalization mark in Nuxalk and in Lyon's Okanagan, and
+# taking it off is the fault the PAIRED note below was written about. Folding leaves the mark on
+# the form and only settles which codepoint it is written with, so a glottalized form still has to
+# meet a glottalized form and can never match a plain one.
+QUOTES = (("’", "'"), ("‘", "'"))
 
 
 # A footnote number, a second closing quote, and a mangled one. All three sit past the sentence's
@@ -196,7 +207,14 @@ def bare(token, marks=None):
             plain = plain[1:-1].strip(edges)
     while plain and (plain[0] in "‘“"):
         plain = plain[1:].strip(edges)
-    return leading_marker(trailing_marker(plain))
+    plain = leading_marker(trailing_marker(plain))
+    # Last, after every strip has run. Folding earlier turns ’form’ into 'form', which PAIRED then
+    # takes the quotes off both ends of, and one of those ends was the glottalization mark. The
+    # strips have to see the characters the page actually printed; only the comparison needs the
+    # two spellings settled.
+    for typographic, plain_quote in QUOTES:
+        plain = plain.replace(typographic, plain_quote)
+    return plain
 
 # What a form may be built out of besides its letters. A morpheme boundary, a clitic boundary, a
 # reduplication tilde and the parentheses around a deleted segment are all part of how the paper
@@ -220,7 +238,13 @@ def pieces(form):
 
 
 def oracle_rows(path):
-    """Every row of a hand extraction, as where, dialect, kind, form, gloss."""
+    """Every row of a hand extraction, as where, who, kind, form, gloss.
+
+    Twenty-four of the twenty-five files declare that header. Mellesmoen_Kye_ICSNL61 declares
+    `dialect` in the second column and fills it with dialect labels instead of the people who
+    spoke. That is an open question and not a settled second shape, so this reader takes the
+    column by position and compares it against nothing, and both files parse.
+    """
     held = []
     with open(path, encoding="utf-8") as handle:
         for line in handle:
@@ -231,6 +255,34 @@ def oracle_rows(path):
                 continue
             held.append((fields[0], fields[1], fields[2], fields[3],
                          fields[4] if len(fields) > 4 else ""))
+    return held
+
+
+def wrong_width(path):
+    """Every row that is not four or five fields wide, as (line number, field count).
+
+    Four is a row with no gloss and five is a full one. Every oracle on disk is one or the
+    other, so any other width is damage and not a shape somebody chose.
+
+    A short row is dropped by oracle_rows and says nothing. A wide one is worse, because it is
+    kept and everything past the fifth field goes unread. One tab written where a space belongs
+    turns `n > <null> / n_` into `n > <null>`, moves the conditioning environment into the gloss
+    column where nothing reads it as one, and drops the name of the rule off the end. A
+    conditioned rule becomes an unconditional one, attributed to a named language, and the row
+    still looks well formed. Four rows of one staged copy carried exactly that for four months.
+    Nothing caught it because one byte had been swapped for one byte: same file size, same line
+    count, same row count.
+    """
+    held = []
+    with open(path, encoding="utf-8") as handle:
+        for number, line in enumerate(handle, 1):
+            if line.startswith("#"):
+                continue
+            fields = line.rstrip("\n").split("\t")
+            if fields[0] == "where":
+                continue
+            if len(fields) not in (4, 5):
+                held.append((number, len(fields)))
     return held
 
 
@@ -396,6 +448,17 @@ def main():
         MARKS = ""
 
         rows = oracle_rows(table)
+
+        # Width first, because it is structural and holds whether or not the content can be
+        # graded. A paper in ORTHOGRAPHY_ABSENT returns before the counts below, and a damaged
+        # row there is still a damaged row.
+        wide = wrong_width(table)
+        if wide:
+            out.write("    %d row(s) of the wrong width\n" % len(wide))
+            for number, count in wide:
+                out.write("      line %-6d %d fields, expected 4 or 5\n" % (number, count))
+            failed += len(wide)
+
         broken = PIECES if stem in NOT_FAITHFUL else 2
         held, printed, welds = source_forms(source, repair, broken, line_joins)
         raw = source_forms(source, None, broken, line_joins)[0]
@@ -413,7 +476,7 @@ def main():
         unfound = []
         cost = []
         written = set()
-        for where, dialect, kind, form, gloss in rows:
+        for where, who, kind, form, gloss in rows:
             for piece in pieces(form):
                 written.add(piece)
                 if piece in held:

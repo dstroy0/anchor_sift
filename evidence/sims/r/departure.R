@@ -3,11 +3,15 @@
 #
 # The permutation null measure, in R.
 #
-# This is a port of examples/proofs/posits/proof_conservation.py and it computes the same number. Where the
+# This is a port of evidence/proofs/posits/proof_conservation.py and it computes the same number. Where the
 # two disagree the Python is the reference, because every figure in the ledger came out of it.
 #
-#   source("ports/R/anchor_sift.R")
-#   anchor_sift_departure(utf8ToInt("some long text..."))
+#   source("evidence/sims/r/departure.R")
+#   anchor_sift_file("corpus.sym")
+#
+# A symbol is a byte, because the reference reads its corpus with open(path, "rb"). Do not hand this
+# the output of utf8ToInt: that is one symbol per codepoint where the reference takes one per UTF-8
+# byte, and on any text that is not ASCII the two measure different sequences.
 #
 # What it measures: how far a sequence sits from a shuffle of itself, read through the gaps between
 # repeated symbols. A memoryless source returns about 1.00. Natural language returns 0.48 to 0.76.
@@ -79,8 +83,10 @@ anchor_sift_departure <- function(seats, seed = 0L,
 
   ratios <- dead[shared] / live[shared]
   # Sorted by how often each symbol occurs, most frequent first, then the back half taken. That
-  # back half is the rare half and it is the only part quoted anywhere in this work.
-  order_by_count <- order(as.numeric(counts[shared]), decreasing = TRUE)
+  # back half is the rare half and it is the only part quoted anywhere in this work. Ties on count
+  # fall by ratio, descending, because the reference sorts (count, ratio) pairs. A tie straddling
+  # the midpoint would otherwise seat a different symbol in the rare half than the reference does.
+  order_by_count <- order(as.numeric(counts[shared]), ratios, decreasing = TRUE)
   ranked <- ratios[order_by_count]
   mean(ranked[(floor(length(ranked) / 2) + 1L):length(ranked)])
 }
@@ -101,7 +107,9 @@ anchor_sift_floor <- function(seats, seeds = ANCHOR_SIFT_SEEDS) {
     numeric(1)
   )
   taken <- taken[!is.na(taken)]
-  list(mean = mean(taken), sd = stats::sd(taken), n = length(taken))
+  # Population sd, matching the reference's statistics.pstdev. stats::sd divides by n-1 and
+  # inflates the floor by sqrt(n/(n-1)), and the floor is what every other number is read against.
+  list(mean = mean(taken), sd = anchor_sift_pstdev(taken), n = length(taken))
 }
 
 #' Convenience: read a text file as bytes and measure it.

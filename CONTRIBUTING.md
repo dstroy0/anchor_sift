@@ -68,7 +68,7 @@ cmake --build build/bench
 
 Every arm has to agree with `anchor_sift_naive` on every row. A row printing `DIFFER` is a defect and its timing means nothing, because a measurement of an arm returning the wrong answer is a measurement of the wrong program.
 
-**The ports.** `ports/R/` and `ports/matlab/` carry the permutation null measure. The Python in `examples/proofs/posits/proof_conservation.py` is the reference: a port is correct when it lands inside the reseeding floor of it, since each language draws its null from a different generator and none of them can agree to the last digit.
+**The ports.** `evidence/sims/r/departure.R` and `evidence/sims/matlab/anchor_sift_departure.m` carry the permutation null measure. The Python in `evidence/proofs/posits/proof_conservation.py` is the reference: a port is correct when it lands inside the reseeding floor of it, since each language draws its null from a different generator and none of them can agree to the last digit.
 
 ## Writing
 

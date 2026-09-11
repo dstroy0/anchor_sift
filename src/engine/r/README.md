@@ -1,7 +1,7 @@
 # The engine in R
 
-**Purpose:** Test whether the assumptions the other implementations rest on actually hold, and read the measure from R.
-**Scope:** `src/engine/r/measure/`, `src/engine/r/hypotheses/`
+**Purpose:** Test whether the assumptions the other implementations rest on actually hold.
+**Scope:** `src/engine/r/hypotheses/`
 
 R is here for one reason the other implementations cannot cover. The Python side computes means, standard deviations, slopes, standard errors and t values, and every one of those assumes a distribution. Python's standard library carries no Shapiro-Wilk, no analysis of variance, no Wilcoxon and no Spearman, so the assumption went unchecked until these existed.
 
@@ -18,7 +18,6 @@ Each reads a CSV the Python writes. Nothing here measures a corpus.
 | `hypotheses/ratio_normality.R` | are the per symbol ratios normal, and if not, which way do they fail |
 | `hypotheses/ladder_analysis.R` | does the least squares fit's own assumption hold, and does anything survive without it |
 | `hypotheses/language_variance.R` | is the spread within one language small next to the spread between languages |
-| `measure/departure.R` | the permutation null measure, ported |
 
 ## What these found, and why they exist
 
@@ -34,9 +33,7 @@ That failure is the result and not the absence of one. A universal has to look e
 
 ## The port
 
-`measure/departure.R` computes the same number as the Python reference, and where the two disagree the Python is the reference because every figure in the ledger came out of it. Checked on 200000 symbols over twelve seeds: a clustered sequence reads 0.4228 in Python and 0.4282 here against a floor of 0.0092, and a memoryless one reads 0.9953 and 0.9933 against a floor of 0.0044. Both gaps sit at about half a floor.
-
-It uses a population standard deviation. R's default divides by `n-1`, and taking that one shifts every ratio by `sqrt(n/(n-1))`, which is small and is still a different number.
+The R port of the permutation null measure is not here. It sits with the reference it is checked against, at `evidence/sims/r/departure.R`, and the agreement figures are in the root `README.md`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-08

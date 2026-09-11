@@ -1,7 +1,7 @@
 # Anchor sift
 
 **Purpose:** Find out what this method measures, what it has read, and where it fails, without running anything first.
-**Scope:** `src/`, `data/`, `analysis/`, `maint/`, `examples/`, `theory/`
+**Scope:** `src/`, `data/`, `analysis/`, `maint/`, `examples/`, `evidence/`, `theory/`
 
 ## Contents
 
@@ -44,7 +44,7 @@ Everything downstream of `representation` sees points and values and cannot tell
 
 ## Areas of research
 
-Eight domains have been run end to end, under `examples/`: language, art, crystals, proteins, sound, source code, arbitrary corpora, and the proofs that pin the numbers. The same six parts read all of them.
+Seven domains have been run end to end under `examples/`: language, art, crystals, proteins, sound, source code and arbitrary corpora. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts read all of them.
 
 Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
 
@@ -60,7 +60,8 @@ Each directory answers one question, and that question is the rule for what goes
 
 | | what it operates on | |
 |---|---|---|
-| `src/` | points and values, no domain | the engine, and the R and MATLAB ports |
+| `src/` | points and values, no domain | the engine |
+| `evidence/` | the claims | the proofs, and the R and MATLAB ports |
 | `data/` | external material | fetchers, and the Salishan pipeline |
 | `analysis/` | a corpus, through `src/` | surveys the books ask for |
 | `examples/` | a corpus, through `src/` | 98 numbered demonstrations, eight domains |
@@ -108,8 +109,8 @@ The permutation null measure on its own is the part a statistician or corpus lin
 | language | file | status |
 |---|---|---|
 | Python | `src/engine/python/` | the reference every figure came out of |
-| R | `src/engine/r/measure/departure.R` | runs, checked against the reference |
-| MATLAB and Octave | `src/engine/matlab/measure/anchor_sift_departure.m` | logic checked, not executed here |
+| R | `evidence/sims/r/departure.R` | runs, checked against the reference |
+| MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` | logic checked, not executed here |
 
 A port is correct when it lands inside the reseeding floor of the Python, since each language draws its null from a different generator and none can agree to the last digit. Checked on 200000 symbols over twelve seeds: a clustered sequence reads 0.4228 in Python and 0.4282 in R against a floor of 0.0092, and a memoryless one reads 0.9953 and 0.9933 against a floor of 0.0044. Both gaps sit at about half a floor.
 

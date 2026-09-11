@@ -10,7 +10,7 @@ function value = anchor_sift_departure(seats, seed, min_occurrences)
 %   A memoryless source returns about 1.00. Natural language returns 0.48 to 0.76. Below 1 means
 %   the live sequence is more dispersed than its own shuffle, which is clustering.
 %
-%   This is a port of examples/proofs/posits/proof_conservation.py and computes the same number. Where the
+%   This is a port of evidence/proofs/posits/proof_conservation.py and computes the same number. Where the
 %   two disagree the Python is the reference, because every figure in the ledger came out of it.
 %
 %   Runs unchanged on Octave.
@@ -31,7 +31,14 @@ function value = anchor_sift_departure(seats, seed, min_occurrences)
 
     % The null. Same multiset, every position destroyed, which is the one background that cannot be
     % wrong about the property it removes because it is the data with that property gone.
-    rand('seed', seed);                                     %#ok<RAND>
+    % rng is the seeding call that pins randperm. rand('seed', ...) is the legacy interface and does
+    % not pin it across versions. Octave before 8 has no rng, so the legacy call stays as a fallback
+    % and those builds reproduce only against themselves.
+    if exist('rng', 'builtin') || exist('rng', 'file')
+        rng(seed, 'twister');
+    else
+        rand('seed', seed);                                 %#ok<RAND>
+    end
     shuffled = seats(randperm(numel(seats)));
     [dead_symbols, dead_spread] = local_dispersion(shuffled, min_occurrences);
 
@@ -47,9 +54,11 @@ function value = anchor_sift_departure(seats, seed, min_occurrences)
 
     % Sorted by how often each symbol occurs, most frequent first, then the back half taken. That
     % back half is the rare half and it is the only part quoted anywhere in this work. The frequent
-    % half tracks corpus length and is not comparable between corpora of different sizes.
+    % half tracks corpus length and is not comparable between corpora of different sizes. Ties on
+    % count fall by ratio, descending, because the reference sorts (count, ratio) pairs. A tie
+    % straddling the midpoint would otherwise seat a different symbol in the rare half.
     [~, shared_at] = ismember(shared, live_symbols);
-    [~, order_by_count] = sort(counts(shared_at), 'descend');
+    [~, order_by_count] = sortrows([counts(shared_at), ratios], [-1 -2]);
     ranked = ratios(order_by_count);
     value = mean(ranked(floor(numel(ranked) / 2) + 1 : end));
 end

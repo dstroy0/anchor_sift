@@ -34,7 +34,8 @@ Only `representation` knows a domain exists. It has `text`, `sound`, `picture` a
 
 | | what it operates on |
 |---|---|
-| `src/` | points and values, no domain. The engine and the ports |
+| `src/` | points and values, no domain. The engine |
+| `evidence/` | the claims. The proofs, and the R and MATLAB ports |
 | `examples/` | a corpus, through `src/`. Numbered demonstrations |
 | `theory/` | the books, and the ledger they cite |
 | `maint/` | the repository itself. Records, gates, prose checks, fetchers, the book build |
@@ -49,16 +50,15 @@ A measurement carries a floor. The floor is what the same measure returns on a s
 
 The floor moves with sample size. One computed on a large corpus bounds nothing about a short file. The examples compute it at the size actually measured.
 
-## The eight domains
+## The seven domains
 
-`examples/` runs the same six parts end to end on real material.
+`examples/` runs the same six parts end to end on real material. The four proofs that pin the ledger sit apart, under `evidence/proofs/posits/`.
 
 | domain | examples | what it reads |
 |---|---|---|
 | `language` | 60 | corpora, orthographies, dialect borders |
 | `any_corpus` | 18 | any symbol sequence, domain unspecified |
 | `art` | 6 | images as byte sequences |
-| `proofs` | 4 | the numbers that pin the ledger |
 | `proteins` | 4 | backbone coordinates |
 | `source` | 4 | source code as a symbol stream |
 | `crystallography` | 6 | cell edges, against published ones |
@@ -80,8 +80,8 @@ The Python in `src/engine/python/sift/` implements the same construction and sha
 
 | language | file |
 |---|---|
-| R | `src/engine/r/measure/departure.R` |
-| MATLAB and Octave | `src/engine/matlab/measure/anchor_sift_departure.m` |
+| R | `evidence/sims/r/departure.R` |
+| MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` |
 
 A port is correct when it lands inside the reseeding floor of the Python, since each language draws its null from a different generator and none agree to the last digit.
 

@@ -6,7 +6,7 @@
 # Proof of the posit that the content has to be printed and not only the statistic, from the posits
 # section of theory/workbook.
 #
-#   Usage:  python examples/proofs/posits/proof_corpus_audit.py
+#   Usage:  python evidence/proofs/posits/proof_corpus_audit.py
 #
 # Nine problems in this work were found by reading output and none by a statistic going out of range. Six
 # were a format read as language, being line wrapping, publisher markup, a ruled separator, verse

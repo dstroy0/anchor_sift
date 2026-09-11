@@ -6,7 +6,7 @@
 # Proof of the posit that a quantity failing to conserve indicates the instrument, from the posits
 # section of theory/workbook.
 #
-#   Usage:  python examples/proofs/posits/proof_conservation.py corpus.sym
+#   Usage:  python evidence/proofs/posits/proof_conservation.py corpus.sym
 #
 # The posit came from one case, where the same measure over a quarter, a half and the whole of a corpus
 # gave 1.41, 1.25 and 19684 and the discontinuity was a mean over a heavy tail. One case is an anecdote.

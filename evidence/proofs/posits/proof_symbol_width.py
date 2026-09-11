@@ -6,7 +6,7 @@
 # Proof of the posit that the symbol width has to match the scale of the structure, from the posits
 # section of theory/workbook.
 #
-#   Usage:  python examples/proofs/posits/proof_symbol_width.py
+#   Usage:  python evidence/proofs/posits/proof_symbol_width.py
 #
 # The posit came from three failures: a Greek text read one byte at a time where its script spends two, a
 # vocalization read at 8 kHz where its units run seconds, and a protein read with exact voxel equality

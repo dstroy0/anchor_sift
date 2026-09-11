@@ -92,10 +92,10 @@ LNG-4-046	live	examples/language/4_measure/word_length_families.py
 LNG-6-001	live	examples/language/6_oracle/control_values.py
 LNG-6-002	live	examples/language/6_oracle/gloss_harvest.py
 LNG-6-003	live	examples/language/6_oracle/language_families.py
-PRF-x-001	live	examples/proofs/posits/proof_conservation.py
-PRF-x-002	live	examples/proofs/posits/proof_corpus_audit.py
-PRF-x-003	live	examples/proofs/posits/proof_null_property.py
-PRF-x-004	live	examples/proofs/posits/proof_symbol_width.py
+PRF-x-001	live	evidence/proofs/posits/proof_conservation.py
+PRF-x-002	live	evidence/proofs/posits/proof_corpus_audit.py
+PRF-x-003	live	evidence/proofs/posits/proof_null_property.py
+PRF-x-004	live	evidence/proofs/posits/proof_symbol_width.py
 PRO-1-001	live	examples/proteins/1_represent/protein_bonds.py
 PRO-1-002	live	examples/proteins/1_represent/protein_chain.py
 PRO-2-001	live	examples/proteins/2_partition/protein_dimension.py
