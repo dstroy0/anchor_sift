@@ -90,8 +90,28 @@ pdfspacing]{classicthesis}
 % alone and the greyness of the page moves from one page to the next. classicthesis loads
 % microtype already, so these go on the copy it loaded.
 \microtypesetup{protrusion=true,expansion=true,final=true}
+
+% Page breaking. Nothing set these before, so a line could be stranded alone at the top or the foot
+% of a page and vertical space was stretched to force a flush bottom, which is what pulls a table
+% apart across a break.
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+% A page ends where its text ends. Without this TeX stretches the space between blocks to reach the
+% bottom margin, and a table near the foot gets split to make the arithmetic work.
+\raggedbottom
+
+% The chapters number their own sections, 1 through 9, and every cross-reference in the prose uses
+% that scheme: Section 2.5, Section 4.4, Section 7.1. LaTeX was numbering them a second time on top,
+% so a heading read "1.1.3  3. Experimental Design". This numbers chapter and section only and
+% leaves the rest to the text. tocdepth stays where it is, so they are still in the contents.
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{2}
 % Figures. corpus_derivation.py draws with matplotlib and saves a PDF beside its chapter, because
 % LuaLaTeX includes PDF directly and needs Inkscape on the machine to include an SVG.
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric,arrows.meta}
 \usepackage{graphicx}
 \graphicspath{{./}{./chapters/}}
 \renewcommand{\cfttoctitlefont}{\hfill\spacedallcaps}
@@ -102,11 +122,11 @@ pdfspacing]{classicthesis}
 \renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftparaleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubparaleader}{\cftdotfill{\cftdotsep}}
-\setlength{\cftbeforechapskip}{1.25em}
-\setlength{\cftbeforesecskip}{0.45em}
-\setlength{\cftbeforesubsecskip}{0.25em}
-\setlength{\cftbeforesubsubsecskip}{0.15em}
-\setlength{\cftbeforeparaskip}{0.1em}
+\setlength{\cftbeforechapskip}{0.9em}
+\setlength{\cftbeforesecskip}{0.2em}
+\setlength{\cftbeforesubsecskip}{0.1em}
+\setlength{\cftbeforesubsubsecskip}{0.05em}
+\setlength{\cftbeforeparaskip}{0.05em}
 \cftsetpnumwidth{2.5em}
 \cftsetrmarg{3em}
 \setlength{\LTleft}{0pt}

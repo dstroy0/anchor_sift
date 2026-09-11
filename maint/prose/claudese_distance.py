@@ -174,7 +174,7 @@ def web_profile(words, run=2):
     """A distribution over runs of `run` adjacent words. The word web, not the bag of words.
 
     A bag of words is invariant under permutation: shuffle the corpus and every count is identical.
-    The permutation null against a bag is therefore exactly zero, and this repository already
+    The null permutation against a bag is therefore exactly zero, and this repository already
     records the general form of that in the ledger, where collision entropy carries the same
     invariance and cannot separate a corpus from its own shuffle.
 
@@ -591,9 +591,9 @@ def main():
     out.write("\n  margin is human distance minus claudese distance. Positive means the file reads\n")
     out.write("  more like the assistant sample than like the papers.\n")
 
-    # The permutation null, run against each pole itself. This is the check that says whether the
+    # The null permutation, run against each pole itself. This is the check that says whether the
     # measure above can see anything at all.
-    out.write("\n  the permutation null, each pole against a shuffle of its own words\n")
+    out.write("\n  the null permutation, each pole against a shuffle of its own words\n")
     out.write("    %-12s %-16s %s\n" % ("pole", "bag of words", "word web"))
     webs = {}
     for name, words in (("claudese", claudese_all), ("human", human_all)):

@@ -9,6 +9,6 @@ never searched for. It carries no seed and no local optimum. Where the only cons
 symbol frequencies the maximizer factorizes, leaving a reference that is memoryless by construction
 instead of by assumption.
 
-What belongs here: permutation nulls, block shuffles that keep structure up to a stated span, and
+What belongs here: null permutations, block shuffles that keep structure up to a stated span, and
 the memoryless controls. What does not: the statistic read against them, which is measure.
 """

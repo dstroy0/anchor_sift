@@ -15,7 +15,7 @@
 #
 # Reported here is how much of a source file is made of such constructs and how far apart their halves
 # sit. A correlation at a variable distance is the thing a product of marginals cannot model and a
-# permutation null does detect.
+# null permutation does detect.
 
 import io
 import os

@@ -6,7 +6,7 @@
 #
 #   Usage:  from reference.unselected import sqrt_two_digits, prime_gaps
 #
-# Every corpus in this work that departs from a permutation null was made by a person, so the
+# Every corpus in this work that departs from a null permutation was made by a person, so the
 # measure detecting arrangement and the measure detecting human production were never separated by
 # anything measured. The control has to be a domain with structure and no author.
 #

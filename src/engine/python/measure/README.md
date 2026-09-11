@@ -5,7 +5,7 @@
 
 | module | what it holds |
 |---|---|
-| `dispersion.py` | `dispersion_by_symbol`, `halves`, `rare_half`. The permutation null measure, which most findings rest on |
+| `dispersion.py` | `dispersion_by_symbol`, `halves`, `rare_half`. The null permutation identity, which most findings rest on |
 | `web.py` | `web`, `marginal`, `deep_web`, `structural`, `leave_one_out`. Which symbol follows which |
 | `word_lengths.py` | `word_lengths`, `length_spread`, `marks_boundaries`. Twenty one numbers that match four thousand |
 | `vocabulary.py` | `common_vocabulary`, `word_profile`. The unit where a writer is actually found |
@@ -55,7 +55,7 @@ A dispersion of 0.28 says nothing. The same dispersion against a shuffle of the 
 
 ## Two instruments, and they are not interchangeable as evidence
 
-The permutation null measure carries most of the findings in this work and has only ever been shown not to invent structure on memoryless input. It has no positive control with an answer from outside.
+The null permutation identity carries most of the findings in this work and has only ever been shown not to invent structure on memoryless input. It has no positive control with an answer from outside.
 
 The shift agreement detector has external ground truth across 453 axes of published crystal cell edges, recovering every one inside one voxel. It also returned an image width and a Vigenère key length with nothing told to it.
 
@@ -65,7 +65,7 @@ Three separate claims in this work merged the two: a positive control was report
 
 Collision entropy is permutation invariant. A corpus and its own shuffle carry identical values, exactly and not approximately, so no entropy of this order separates a structured domain from a rearrangement of the same symbols.
 
-The C bench measures that failing in the open. On a corpus of period sixteen the histogram predicts one alignment in 65536 survives four anchors, and one in sixteen actually does, a factor of 4096 that converges as the corpus grows. The permutation null exists for that reason, and a second instrument was never a convenience.
+The C bench measures that failing in the open. On a corpus of period sixteen the histogram predicts one alignment in 65536 survives four anchors, and one in sixteen actually does, a factor of 4096 that converges as the corpus grows. The null permutation exists for that reason, and a second instrument was never a convenience.
 
 ## Two cautions the numbers here have earned
 

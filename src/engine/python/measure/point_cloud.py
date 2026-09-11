@@ -123,7 +123,7 @@ def reduce_sequence(values, width, seed=SEED, least=MIN_OCCURRENCES, need=MIN_VA
 
 
 def reduce_cloud(coords, values, width, dims, seed=SEED, least=MIN_OCCURRENCES, need=MIN_VALUES):
-    """Both channels over a cloud in two or more dimensions, against the same permutation null.
+    """Both channels over a cloud in two or more dimensions, against the same null permutation.
 
     Returns (rare half of the length channel, values scored, orientation channel), where the
     orientation channel is None if no value gave a scorable tensor. Returns None where too few

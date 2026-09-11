@@ -50,7 +50,7 @@ def dispersion(symbols):
 
 
 def measure(text):
-    """Collision entropy, the commonest symbol's share, and the rare half against a permutation null."""
+    """Collision entropy, the commonest symbol's share, and the rare half against a null permutation."""
     symbols = list(text)
     counts = collections.Counter(symbols)
     total = float(len(symbols))

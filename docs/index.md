@@ -29,8 +29,8 @@ A linguist wrote the paper. A person read the paper into a table. Neither of tho
 | | reads | external ground truth |
 |---|---|---|
 | shift agreement detector | a period or an offset, by how often a shift agrees with itself | 453 of 453 axes, from published crystal cell edges |
-| permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none |
+| null permutation identity | a departure from the maximum entropy arrangement of the same multiset | none |
 
-The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Most of the confusion this work has had to correct came from reporting one of these as the other.
+The null permutation identity carries most of the findings and has only been shown not to invent structure on memoryless input. Most of the confusion this work has had to correct came from reporting one of these as the other.
 
 **Read the ledger before quoting any figure.** It keeps its own corrections: claims that were withdrawn stay on the page beside the measurement that killed them, and several results here are rediscoveries of published work with the precedent named.

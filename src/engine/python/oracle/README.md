@@ -21,7 +21,7 @@ A partition is fixed by stipulation, by estimation, or by supervision. A stipula
 
 Jaynes states it as the content of the second law: information about the state of a system may be lost by many routes, and "the only way in which it can be gained is by carrying out further measurements."
 
-New information enters the engine here and nowhere else. That boundary does not bend. A permutation null is a reference built from the object itself and settles nothing from outside it, however carefully it is constructed.
+New information enters the engine here and nowhere else. That boundary does not bend. A null permutation is a reference built from the object itself and settles nothing from outside it, however carefully it is constructed.
 
 ## The two strongest results in this work are both supervised
 

@@ -21,7 +21,7 @@
 # agreed better than the fundamental, and it fell inside the family of 11 and outside the family of
 # 16. Capping every family at two multiples equalized the comparison and the three came back.
 #
-# It is not the permutation null measure and the two are not interchangeable as evidence. Three
+# It is not the null permutation identity and the two are not interchangeable as evidence. Three
 # separate claims in this work merged them: a positive control was reported for the measure that
 # never received one, a cross media claim was written for a measure that had not been run on two of
 # the media, and an ordering of structure meters was drawn between them. Each was corrected after
@@ -36,7 +36,7 @@
 # standard error computed as though they were independent comes out far too small. The first run
 # reported
 # twelve findings on SHA-256 output, and a shuffle of the same bytes reported sixteen. Only a
-# permutation null makes a count mean anything.
+# null permutation makes a count mean anything.
 
 import numpy
 

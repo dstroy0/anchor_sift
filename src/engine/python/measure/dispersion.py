@@ -61,7 +61,7 @@ def halves(seats, null=None, seed=SEED, least=MIN_OCCURRENCES):
     """Mean null-to-live dispersion ratio over the frequent half and the rare half of the symbols.
 
     Pass `null` to score against a background built elsewhere, such as a block shuffle that keeps
-    structure up to a stated span. Left as None it builds the plain permutation null, which destroys
+    structure up to a stated span. Left as None it builds the plain null permutation, which destroys
     every arrangement at once and therefore cannot say which span the structure lives at.
 
     Returns (frequent, rare), or (None, None) where too few symbols cleared the occurrence floor.

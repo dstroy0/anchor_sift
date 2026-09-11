@@ -10,7 +10,7 @@
 #
 # Two quantities in this work respond to different things and neither is a checksum. Collision entropy is
 # computed from the histogram, so it is permutation invariant and cannot depend on where corruption sits,
-# only on how much of it there is. Dispersion against a permutation null is computed from the positions,
+# only on how much of it there is. Dispersion against a null permutation is computed from the positions,
 # so it responds to arrangement and is blind to a change that leaves the counts alone.
 #
 # Corruption is applied two ways to separate them. Scattered draws land uniformly across the corpus and
@@ -55,7 +55,7 @@ def dispersion_by_symbol(seats):
 
 
 def tail_ratio(seats, seed):
-    """Mean permutation null ratio over the rare half of the symbols."""
+    """Mean null permutation ratio over the rare half of the symbols."""
     counts = {}
     for value in seats:
         counts[value] = counts.get(value, 0) + 1

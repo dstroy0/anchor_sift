@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-045
 #
-# Score individual words for clustering against a permutation null, for Section 4.13 of
+# Score individual words for clustering against a null permutation, for Section 4.13 of
 # theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/word_burstiness.py corpus.txt [more.txt ...]

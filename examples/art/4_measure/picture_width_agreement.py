@@ -63,7 +63,7 @@ def shift_peak(data, widths):
 
 
 def cloud_peak(data, widths):
-    """The width where reshaping the file into a plane departs furthest from the permutation null."""
+    """The width where reshaping the file into a plane departs furthest from the null permutation."""
     marks = []
     for width in widths:
         grid = data.reshape(-1, width)

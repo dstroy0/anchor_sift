@@ -17,7 +17,9 @@ headinclude,footinclude,BCOR=5mm]{scrbook}
 \vbadness=10000
 \hfuzz=2pt
 \cfoot*{}
-\ofoot*{\pagemark}
+% No \ofoot here. classicthesis puts the folio in the running head and gives the footer a folio on
+% plain pages only. An \ofoot*{\pagemark} sets both styles and printed the page number twice on
+% every page of the mainmatter, once in the header and once at the foot.
 
 \frontmatter
 \pagestyle{plain}

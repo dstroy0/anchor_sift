@@ -11,7 +11,7 @@
 # One corpus gave a loss ratio of 1.600 with a standard error of 0.107, an interval containing several
 # named constants and identifying none. Three more gave 1.049, 1.388 and 2.352, which rules out a
 # constant and leaves an ordering with the alphabet weight over four points. This runs the ladder alone,
-# without the corruption rate sweep and the permutation nulls, so every corpus already fetched can be
+# without the corruption rate sweep and the null permutations, so every corpus already fetched can be
 # measured and the ordering either survives twelve points or does not.
 
 import io

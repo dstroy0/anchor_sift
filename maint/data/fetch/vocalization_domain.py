@@ -7,7 +7,7 @@
 #
 #   Usage:  python maint/data/fetch/vocalization_domain.py
 #
-# The permutation null separates every human corpus measured here from every memoryless one, and a
+# The null permutation separates every human corpus measured here from every memoryless one, and a
 # structured domain under no selection, the gaps between primes, departs from it by 0.07 where human text
 # departs by 0.22 to 0.68. That leaves a gap in the middle that nothing has occupied.
 #

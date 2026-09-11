@@ -12,6 +12,6 @@ Supervision is also the only one of the three ways a partition is fixed that add
 sample did not hold, so this part is where new information enters the engine and nowhere else.
 
 What belongs here: two direction checks against a source, corpus gates, and positive controls with
-published ground truth. What does not: a permutation null, which is a reference built from the
+published ground truth. What does not: a null permutation, which is a reference built from the
 object itself and settles nothing from outside it.
 """

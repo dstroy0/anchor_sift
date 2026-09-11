@@ -58,7 +58,7 @@ def main():
                       % (span, head, tail, span))
         out.write("\n")
 
-    out.write("  a block of one destroys every arrangement, which is the plain permutation null\n")
+    out.write("  a block of one destroys every arrangement, which is the plain null permutation\n")
     out.write("  the span where the reading returns to that value is where its signal lives\n")
     out.flush()
     return 0

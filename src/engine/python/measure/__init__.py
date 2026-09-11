@@ -8,7 +8,7 @@ dispersion against a shuffle of the same bytes says the positions carry somethin
 reads only the histogram is permutation invariant and cannot see an arrangement. The two instruments
 in this work stay separate for that reason, and they are not interchangeable as evidence.
 
-What belongs here: the permutation null ratio, the transition web, the spectral exponent, collision
+What belongs here: the null permutation ratio, the transition web, the spectral exponent, collision
 entropy and the quantities derived from it. What does not: the background itself, which is
 reference, and any check against an outside answer, which is oracle.
 """

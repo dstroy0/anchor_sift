@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: ANY-4-002
 #
-# The permutation null ratio for every symbol, so the head and the tail can be compared directly.
+# The null permutation ratio for every symbol, so the head and the tail can be compared directly.
 #
 #   Usage:  python examples/any_corpus/4_measure/head_and_tail.py corpus.sym [more.sym ...]
 #

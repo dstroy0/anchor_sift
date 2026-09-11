@@ -1,14 +1,14 @@
-\chapter{The method}
+\chapter{The method of precision measurement}
 
-\section{Pattern occurrence}
+\section{Leverage pattern occurrence}
 
-\textbf{Purpose:} Separate what an anchor proves from what it takes to run, letting a reader tell which claims here need no data and which ones are only as good as the measurements under them. \textbf{Scope:} \texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c}, \texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c}, \texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c}, \texttt{src/\allowbreak{}impensa\_\allowbreak{}ancorae\_\allowbreak{}acus/\allowbreak{}}, \texttt{test/\allowbreak{}support/\allowbreak{}mmgr\_\allowbreak{}sha256.\allowbreak{}h}, \texttt{test/\allowbreak{}support/\allowbreak{}mmgr\_\allowbreak{}sha256.\allowbreak{}c}
+\textbf{Purpose:} Determine what identity gains in information versus what it takes to compute. \textbf{Test scope:} \texttt{test/\allowbreak{}bench/\allowbreak{}}, \texttt{test/\allowbreak{}support/\allowbreak{}}, \texttt{src/\allowbreak{}impensa\_\allowbreak{}ancorae\_\allowbreak{}acus/\allowbreak{}}
 
-A refutation is shown to settle more than the position it was tested at. One read of one cell settles every alignment whose pattern symbol differs from what was found, which is \(m(1-2^{-H_2})\) of them in expectation, confirmed to within 0.7\% over 84 rows spanning three selection measures. The collision probability that sets the candidate rate therefore also sets the refutation distance, appearing once as a rate and once as a length.
+A contrapositive is shown to dwell at test position. One read of one cell settles every alignment whose pattern symbol differs from what was found, which is \(m(1-2^{-H_2})\) of them in expectation, confirmed to within 0.7\% over 84 rows spanning three selection measures. The collision probability that sets the candidate rate therefore also sets the contrapositive indication distance, appearing once as a rate and once as a length.
 
-The candidate count is shown to be an estimator of Renyi entropy of order two, equal in expectation to the plug in estimator when the probe's own match is counted and to the standard unbiased estimator when it is not. Scored against published estimators on sources with known parameters, it is worse in both accuracy and running time at every setting tested, converging toward the unbiased estimator as the probe budget approaches the corpus length. Its only advantage is the constraint it survives: it builds no histogram and never enumerates the alphabet.
+The identity candidate count is shown to be an estimator of Renyi entropy of order two, equal in expectation to the plug in estimator when the probe's own match is counted and to the standard unbiased estimator when it is not. Candidate hits are scored against published estimators on sources with known parameters. When the term is scored that way it is worse in both accuracy and running time at every setting tested. It converged toward the unbiased estimator as the probe budget approached the corpus length.
 
-The correction that separates the two forms is the exclusion of a coincident index, and applying it recursively gives the unbiased estimators at higher Renyi orders. Its magnitude at order two has the closed form \((1-C)/((N-1)C\ln 2)\) bits for a plug in collision probability \(C\), confirmed across nine sources spanning four orders of magnitude. The numerator vanishes exactly at a point mass. On a source with no entropy in it the correction is identically zero at every order and every length.
+Its only advantage is the constraint it survives: it builds no histogram and never enumerates the alphabet. The correction is the exclusion of a coincident index, and recursively applying gives the unbiased estimators at higher Renyi orders. Its magnitude at order two has the closed form \((1-C)/((N-1)C\ln 2)\) bits for a plug in collision probability \(C\), confirmed across nine sources spanning four orders of magnitude. The numerator vanishes exactly at a point mass. On a source with no entropy in it the correction is identically zero at every order and every length.
 
 Put against the classical algorithms on one corpus and one counter, anchoring at the rarest symbol loses to a Horspool shift on every corpus and needle length by 1.2 to 25 times, because an anchor at offset \(a\) can advance by at most \(a+1\), and advance governs the number of symbol accesses. Candidate rate does not. Treating the two as factors of one product recovers the loss and comes out 11\% ahead on C source. Replacing the frequency model with a running advance per offset, which needs no alphabet, comes out 13.2\% ahead and beats a rule handed the corpus histogram outright.
 
@@ -75,57 +75,60 @@ engine remains invariant under translation, permutation, or change of coordinate
 Let \(\Sigma\) be the carrier of symbols. No structure on \(\Sigma\) is assumed: no order, no metric, no finite cardinality, and no way to enumerate its members. The only operation available is a decidable equality between two positions.
 
 Let \((G,+)\) be an additive group of displacements and let a domain be a map \(x\) from an admissible subset of \(G\) to \(\Sigma\). A pattern is a finite displacement configuration with support \(D \subset G\), together with the symbols found at those displacements from a chosen base position. For a base \(t\) and a candidate base \(s\), define
-
-\(\mathrm{Occ}(s) \iff \forall d \in D:\; x(s+d) = x(t+d)\)
-
+\[
+  \mathrm{Occ}(s) \iff \forall d \in D:\; x(s+d) = x(t+d)
+\]
 An anchor choice is any subconfiguration \(A \subseteq D\), and
 
-\(\mathrm{Anc}_A(s) \iff \forall a \in A:\; x(s+a) = x(t+a)\)
+\[
+  \mathrm{Anc}_A(s) \iff \forall a \in A:\; x(s+a) = x(t+a)
+\]
 
-The null used here is the \(\Sigma\)-delta null, and its operational form is the permutation null already used throughout this work. Semantically, \(\Sigma\) projects its internal structure onto an induced topology \(\tau_\Sigma\); the instrument then examines that structured carrier against its own constrained reference. Let \(\Pi_\Sigma\) be the family of permutations that preserve the observed carrier counts and stated partition. The reference is sampled as \(x^\circ_\Sigma = \pi(x)\) for \(\pi \in \Pi_\Sigma\), and for a statistic \(M\) the measured residual is
-
-\(\Delta_\Sigma[M] = M(x) - \mathbb{E}_{\pi \sim \Pi_\Sigma}\!\left[M\bigl(\pi(x)\bigr)\right]\)
-
-This is not a new operator or code path: it is the permutation-null measure already implemented. The residual is the object of study. The measure does not claim that a hidden generator has been reconstructed, and it does not invoke Laplace's demon. A predictive or reconstructive engine that attempts to infer the complete state from its laws would be a separate measurement. Here \(\Sigma\) supplies both the topology and the reference, and the instrument examines the engine's residue in the object itself.
+The null used here is the \(\Sigma\)-delta null, and its operational form is the null permutation already used throughout this work. Semantically, \(\Sigma\) projects its internal structure onto an induced topology \(\tau_\Sigma\); the instrument then examines that structured carrier against its own constrained reference. Let \(\Pi_\Sigma\) be the family of permutations that preserve the observed carrier counts and stated partition. The reference is sampled as \(x^\circ_\Sigma = \pi(x)\) for \(\pi \in \Pi_\Sigma\), and for a statistic \(M\) the measured residual is
+\[
+  \Delta_\Sigma[M] = M(x) - \mathbb{E}_{\pi \sim \Pi_\Sigma}\!\left[M\bigl(\pi(x)\bigr)\right]
+\]
+This is not a new operator or code path: it is the null permutation identity already implemented. The residual is the object of study. The measure does not claim that a hidden generator has been reconstructed, and it does not invoke Laplace's demon. A predictive or reconstructive engine that attempts to infer the complete state from its laws would be a separate measurement. Here \(\Sigma\) supplies both the topology and the reference, and the instrument examines the engine's residue in the object itself.
 
 Nothing in either definition requires \(G\) to be the integers, \(D\) to be contiguous, or \(\Sigma\) to be known.
 
 \subsubsection{2.2 Soundness of Subconfiguration Filtering}
 
 For every \(A \subseteq D\), every domain, and every base,
-
-\(\mathrm{Occ}(s) \;\Longrightarrow\; \mathrm{Anc}_A(s)\)
-
+\[
+  \mathrm{Occ}(s) \;\Longrightarrow\; \mathrm{Anc}_A(s)
+\]
 The proof is that \(A\) is a subconfiguration of \(D\), and a conjunction over \(D\) contains the conjunction over \(A\). The search runs the contrapositive:
-
-\(\neg\,\mathrm{Anc}_A(s) \;\Longrightarrow\; \neg\,\mathrm{Occ}(s)\)
+\[
+  \neg\,\mathrm{Anc}_A(s) \;\Longrightarrow\; \neg\,\mathrm{Occ}(s)
+\]
 
 A position an anchor rejects is settled exactly and permanently, with no verification, and no later stage revisits it.
 
 \subsubsection{2.3 Failure of Completeness}
 
 For every proper subconfiguration \(A \subsetneq D\), the converse
-
-\(\mathrm{Anc}_A(s) \;\Longrightarrow\; \mathrm{Occ}(s)\)
-
+\[
+  \mathrm{Anc}_A(s) \;\Longrightarrow\; \mathrm{Occ}(s)
+\]
 is not entailed, in any domain and in any state. A witness is any \(s\) agreeing with the base on \(A\) and differing on some \(d \in D \setminus A\), and the definitions permit such an \(s\) whenever \(|\Sigma| > 1\). The converse is true for one \(A\) only, \(A = D\), where the filter has become the verification.
 
 A matching anchor establishes nothing. The exact compare cannot be removed by any amount of knowledge about the domain, and adding anchors reduces the survivors without ever reaching certainty.
 
 \subsubsection{2.4 Structural Corollaries}
 
-\textbf{The selection rule is free.} Proposition 1 quantifies over every subconfiguration and never mentions what chose one. No frequency table, no random table, and no absence of a table can produce a false negative. What a measure moves is how often the rejection fires.
+\noindent\textbf{The selection rule is free.} Proposition 1 quantifies over every subconfiguration and never mentions what chose one. No frequency table, no random table, and no absence of a table can produce a false negative. What a measure moves is how often the rejection fires.
 
-\textbf{The alphabet need not be known.} Both predicates are equalities between positions. Where \(\Sigma\) cannot be enumerated no frequency table exists, and the flat measure is what remains. Maximum entropy is therefore the base case for this construction, and a weighted table is the special case available on a known domain.
+\noindent\textbf{The alphabet need not be known.} Both predicates are equalities between positions. Where \(\Sigma\) cannot be enumerated no frequency table exists, and the flat measure is what remains. Maximum entropy is therefore the base case for this construction, and a weighted table is the special case available on a known domain.
 
-\textbf{The displacement support need not be ordered.} The definitions use \(+\) and never \(<\). A grid, a volume, and a rotated point configuration differ only in which members of \(G\) appear in \(D\). A rotation is a permutation of \(D\), which changes no term in either predicate.
+\noindent\textbf{The displacement support need not be ordered.} The definitions use \(+\) and never \(<\). A grid, a volume, and a rotated point configuration differ only in which members of \(G\) appear in \(D\). A rotation is a permutation of \(D\), which changes no term in either predicate.
 
 \subsubsection{2.5 Probabilistic Model of Symbol Accesses}
 
 Model occurrences of an anchor symbol as a Bernoulli process at rate \(q\). Over \(N\) candidate positions,
-
-\(\mathbb{E}[C_1] = N q, \qquad \mathbb{E}[S] = \frac{1}{q}\)
-
+\[
+  \mathbb{E}[C_1] = N q, \qquad \mathbb{E}[S] = \frac{1}{q}
+\]
 \(\mathbb{E}[C_1]\) is what the verify step reaches and \(\mathbb{E}[S]\) is the run a skipping search never touches. Reducing \(N\) candidates to \(O(1)\) survivors requires \(\log_2 N\) bits of discrimination and one anchor supplies \(-\log_2 q\) bits.
 
 The second expression is Kac's lemma. For a stationary ergodic source the expected return time to a set of measure \(q\) is exactly \(1/q\), which makes the skip a recurrence time and not an artifact of the filter. That names an assumption the construction does not supply. Proposition 1 guarantees that no occurrence is lost, and Section 2.5 counts the symbol accesses, and neither says a pattern occurs at all. That last guarantee belongs to the source: a stationary ergodic process visits any event of positive probability almost surely, and there is no such promise for a process that is not stationary or not ergodic. Three guarantees with three owners, and only the first is this document's.
@@ -141,47 +144,94 @@ with \(H_2\) the Renyi entropy of order two. This predicts the uninformed candid
 
 \subsubsection{2.6 Filtering Pipeline}
 
-\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
-flowchart LR
-    P["position s"] --> A{"anchor a in A<br/>x(s+a) == x(t+a) ?"}
-    A -->|"fails"| R["REFUTED<br/>exact, final<br/>never revisited"]
-    A -->|"passes"| C["candidate<br/>Proposition 2:<br/>proves nothing"]
-    C --> V{"exact compare<br/>every d in D"}
-    V -->|"agrees"| O["occurrence"]
-    V -->|"differs"| F["false positive"]
-    LIC["(c) 2026 Douglas Quigg (dstroy0)<br/>AGPL-3.0-or-later OR LicenseRef-Commercial"]
-    style R fill:#1f6f43,color:#fff
-    style V fill:#7a4a1f,color:#fff
-    style LIC fill:#eeeeee,color:#333333,stroke-dasharray: 3 3
-\end{lstlisting}
+\begin{center}
+\begin{tikzpicture}[
+    node distance = 11mm and 14mm,
+    every node/.style = {font=\small},
+    box/.style   = {draw, rounded corners=1pt, align=center, inner sep=4pt},
+    test/.style  = {draw, align=center, inner sep=4pt, rounded corners=1pt},
+    final/.style = {draw, rounded corners=1pt, align=center, inner sep=4pt,
+                    fill=black!75, text=white},
+    verify/.style= {draw, align=center, inner sep=4pt, rounded corners=1pt, fill=black!10},
+    edge/.style  = {-latex, thin},
+    lab/.style   = {font=\footnotesize, inner sep=2pt}
+  ]
+  \node[box]                          (pos)  {position $s$};
+  \node[test, right=of pos]           (anc)  {anchor $a \in A$\\[-2pt]
+                                              $x(s+a) = x(t+a)$?};
+  \node[box, right=of anc]            (cand) {candidate\\[-2pt]
+                                              proves nothing};
+  \node[final, below=of anc]          (ref)  {refuted\\[-2pt]
+                                              exact, final, never revisited};
+  \node[verify, below=of cand]        (ver)  {exact compare\\[-2pt]
+                                              every $d \in D$};
+  \node[box, below left=11mm and 1mm of ver]  (occ) {occurrence};
+  \node[box, below right=11mm and 1mm of ver] (fp)  {false positive};
 
-\textbf{Figure 1.} The anchor filter, as \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:193-\allowbreak{}239} implements it. The green box is the only place the method is certain. Everything to the right of the candidate is work.
+  \draw[edge] (pos)  -- (anc);
+  \draw[edge] (anc)  -- node[lab, above] {passes} (cand);
+  \draw[edge] (anc)  -- node[lab, left]  {fails}  (ref);
+  \draw[edge] (cand) -- (ver);
+  \draw[edge] (ver)  -- node[lab, left]  {agrees}  (occ);
+  \draw[edge] (ver)  -- node[lab, right] {differs} (fp);
+\end{tikzpicture}
+\end{center}
+
+\noindent\textbf{Figure 1.} The anchor filter, as \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:193-\allowbreak{}239} implements it. Refuted is the only box the method reaches with certainty. Everything below the candidate is work.
 
 \subsection{3. Experimental Design}
 
-\subsubsection{3.1 Benchmarks and Estimands}
+\subsubsection{3.1 What runs the measurements}
 
-\tiny
-\setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+Two kinds of program, answering two kinds of question. The benches answer what the propositions
+claim, on data written to have a known answer. The examples answer what a domain does, on data
+nobody here made.
+
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
 \toprule
 bench & question & reports \\
 \midrule
-\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c} & cost and independence over byte strings & candidates, skip, \(I(d)\), \(z\), refusals \\
-\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c} & whether Proposition 1 survives off the line & candidates, refusals \\
-\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c} & what the candidate count estimator is worth & bias, root mean square error \\
-\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c} & how a whole search compares to one built another way & corpus symbol accesses \\
+\texttt{bench\_ancorae\_sift.c} &
+  admission and independence over byte strings &
+  candidates, skip, \(I(d)\), \(z\), refusals \\
+\addlinespace[0.4em]
+\texttt{bench\_ancorae\_lattice.c} &
+  whether Proposition 1 survives off the line &
+  candidates, refusals \\
+\addlinespace[0.4em]
+\texttt{bench\_ancorae\_entropy.c} &
+  what the candidate count estimator is worth &
+  bias, root mean square error \\
+\addlinespace[0.4em]
+\texttt{bench\_ancorae\_ab.c} &
+  how a whole search compares to one built another way &
+  corpus symbol accesses \\
 \bottomrule
-\end{longtable}
-\normalsize
+\end{tabular}
+\end{center}
 
-All four report counts. Nothing is timed, no row is a performance claim, and every number is a property of the data and the geometry, identical on every part.
+The examples under \texttt{examples/\allowbreak{}} are 122 scripts over seven domains, each one a stage of the same pipeline, and every domain result in the other theories comes from one of them. Appendix B lists the stages and what each domain reaches.
 
-\subsubsection{3.2 Correctness and Cost Estimands}
+Nothing anywhere is timed. No row is a performance claim, and every number is a property of the
+data and the geometry, identical on every part.
 
-Every row carries a correctness column and a cost column, graded differently. The correctness column counts true occurrences that an anchor rejected, and Proposition 1 says it has one acceptable value. A nonzero entry there would be a defect in the bench, never a property of a domain. The cost column is expected to move with the measure, the anchor count and the geometry.
+\subsubsection{3.2 What every row has to report}
 
-A verdict of \texttt{none} is printed where a case had nothing to check (\texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:715-\allowbreak{}757}).
+Every row of every bench reports two things, and they are graded differently.
+
+\noindent\textbf{Refusals.} The count of true occurrences an anchor rejected. Proposition 1 says this has one
+acceptable value, and it is zero. A nonzero entry is a defect in the bench and never a property of
+a domain: no distribution, no geometry and no alphabet can reach a claim that quantifies over every
+subconfiguration. A row that reports a refusal is a row to fix, not a finding.
+
+\noindent\textbf{Admissions.} The count of positions that passed the anchors and reached the exact compare.
+This one is expected to move, with the measure, the anchor count and the geometry, and Section 4
+is the record of it moving. It has no correct value.
+
+A case with nothing to check prints \texttt{none} instead of zero, so a row that had no work to do
+cannot be read as a row that did the work and found nothing
+(\texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:715-\allowbreak{}757}).
 
 \subsubsection{3.3 Byte-String Corpora}
 
@@ -189,7 +239,7 @@ Four corpora, 2048 bytes each except where stated, chosen to span the range of f
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
 \toprule
 corpus & content & \(H_2\) (bits) \\
 \midrule
@@ -210,7 +260,7 @@ Three, differing as much as the interface allows (\texttt{test/\allowbreak{}benc
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}@{}}
 \toprule
 policy & how a symbol is priced \\
 \midrule
@@ -229,7 +279,7 @@ Six cases share one core that receives a list of valid base positions, a list of
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
 \toprule
 case & \(G\) & \(D\) \\
 \midrule
@@ -256,7 +306,7 @@ Four estimators of the same quantity are scored by bias and root mean square err
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
 \toprule
 estimator & expression & needs \\
 \midrule
@@ -278,13 +328,13 @@ A fifth quantity, the most common value estimate of min entropy from NIST SP 800
 
 The sections below read as a list of separate findings and are not one. They are a single quantity, the collision probability \(2^{-H_2}\), determining every cost in the construction, together with the three conditions under which it stops determining anything. This section says which is which so the rest can be read as one argument.
 
-\textbf{Nothing about correctness is in this at all.} Sections 4.1 and 4.2 report zero refusals over 9,396,207 and 213,840 true occurrences, across three selection measures, thirteen geometries, dimensions one through eight, a rotated point set, and a complex alphabet. Proposition 1 mentions no distribution. No distributional parameter can reach it. Everything else on this page is cost.
+\noindent\textbf{Nothing about correctness is in this at all.} Sections 4.1 and 4.2 report zero refusals over 9,396,207 and 213,840 true occurrences, across three selection measures, thirteen geometries, dimensions one through eight, a rotated point set, and a complex alphabet. Proposition 1 mentions no distribution. No distributional parameter can reach it. Everything else on this page is cost.
 
-\textbf{The cost is one number.} Each of these is a function of \(2^{-H_2}\) and the two sizes \(m\) and \(N\):
+\noindent\textbf{The cost is one number.} Each of these is a function of \(2^{-H_2}\) and the two sizes \(m\) and \(N\):
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
 \toprule
 quantity & form & where \\
 \midrule
@@ -302,7 +352,7 @@ candidates in \(d\) dimensions & \(1 + (P-1)2^{-nH_2}\) & 4.2 \\
 
 The last row is the one that makes the others worth stating together. That form holds unchanged from a line to an eight dimensional hypercube, over an alphabet of complex numbers with irrational parts, which is where the parameter shows it does not depend on the geometry or on what a symbol is.
 
-\textbf{It stops in three places, and every failure recorded in this document is one of them.}
+\noindent\textbf{It stops in three places, and every failure recorded in this document is one of them.}
 
 \_The number is not unique, it is indexed by a slice.\_ There is no \(H_2\) of a corpus, only \(H_2(w)\) of a corpus read \(w\) bits at a time, and Section 4.10 measures it falling from 0.984 to 0.600 bits per bit between \(w = 1\) and \(w = 16\) on English. Every figure above uses \(w = 8\), which nothing here justifies.
 
@@ -314,7 +364,7 @@ The last row is the one that makes the others worth stating together. That form 
 
 Sweeping three policies, one to six anchors, five corpora, and needle lengths 1, 2, 3, 4, 16, 64, 256, 1024 and 2048:
 
-\textbf{582 rows hold. 9,396,207 true occurrences examined. 0 refused.}
+\noindent\textbf{582 rows hold. 9,396,207 true occurrences examined. 0 refused.}
 
 A further 210 rows report \texttt{none}, and each is a case where the needle carries fewer distinct offsets than the anchor count. That cause was checked and no row reports \texttt{none} for any other reason.
 
@@ -324,13 +374,13 @@ The degenerate lengths are in the sweep deliberately. A needle of one byte is th
 
 Sweeping three uninformed selection rules and one to six anchors over the six geometries above and a further eight hypercubes of dimension one through eight:
 
-\textbf{252 rows hold. 213,840 true occurrences examined. 0 refused.}
+\noindent\textbf{252 rows hold. 213,840 true occurrences examined. 0 refused.}
 
 Candidates admitted, rule \texttt{shuffled}, against the \(N \cdot 2^{-n}\) the two symbol alphabet predicts:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
 \toprule
 domain & \(n{=}1\) & \(n{=}2\) & \(n{=}3\) & \(n{=}4\) & \(n{=}5\) & \(n{=}6\) \\
 \midrule
@@ -346,15 +396,15 @@ predicted & 2044.5 & 1022.3 & 511.1 & 255.6 & 127.8 & 63.9 \\
 
 The grid and cube rows sit below the prediction because those geometries admit fewer base positions, 3600 and 3375 against 4089 on the line. Within each row the halving per anchor is what the model gives.
 
-\textbf{A rotation is invisible.} \texttt{grid2d\_\allowbreak{}scatter} and \texttt{grid2d\_\allowbreak{}turned} are the same eight points a quarter turn apart and agree at every anchor count, which puts Section 2.4's third corollary on a measurement.
+\noindent\textbf{A rotation is invisible.} \texttt{grid2d\_\allowbreak{}scatter} and \texttt{grid2d\_\allowbreak{}turned} are the same eight points a quarter turn apart and agree at every anchor count, which puts Section 2.4's third corollary on a measurement.
 
-\textbf{The complex alphabet behaves as bytes do.} \texttt{field1d\_\allowbreak{}complex} matches \texttt{line1d} to within 0.1\% at every count, with the geometry held fixed and only the symbol type changed.
+\noindent\textbf{The complex alphabet behaves as bytes do.} \texttt{field1d\_\allowbreak{}complex} matches \texttt{line1d} to within 0.1\% at every count, with the geometry held fixed and only the symbol type changed.
 
-\textbf{The cost law holds at every dimension swept.} The hypercube cases place one pattern point at the origin and each of the rest one step out along the next axis. The pattern touches a new axis for every point it has and is never a lower dimensional figure sitting in a larger space (\texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:686}). Against \(1 + (P-1)2^{-n}\) for \(P\) positions and \(n\) anchors, which includes the one match the pattern is guaranteed against itself:
+\noindent\textbf{The cost law holds at every dimension swept.} The hypercube cases place one pattern point at the origin and each of the rest one step out along the next axis. The pattern touches a new axis for every point it has and is never a lower dimensional figure sitting in a larger space (\texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:686}). Against \(1 + (P-1)2^{-n}\) for \(P\) positions and \(n\) anchors, which includes the one match the pattern is guaranteed against itself:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}@{}}
 \toprule
 dimension & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
 \midrule
@@ -376,7 +426,7 @@ Candidates admitted by one anchor at needle 16, english cost table, fingerprint 
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(H_2\) & \texttt{table} & \texttt{random} & \texttt{maxent} & table over maxent \\
 \midrule
@@ -408,13 +458,13 @@ for the size biased distribution function, the survival form of the expectation 
 
 The numerator is the uninformed rate from Section 2.5, which makes the quotient what a table matched to the corpus would buy over no table at all. The ceiling is an upper bound on every measure, since no rule can pick a symbol rarer than the rarest one present.
 
-\textbf{The ceiling is exactly 1 if and only if \(p\) is uniform on its support.} If every nonzero \(p_\sigma\) equals \(1/k\) then \(F\) is a single step, the integral collapses to \(1/k\), and \(\sum_\sigma p_\sigma^2\) is also \(1/k\). If two nonzero probabilities differ then the rarest of \(m\) draws is strictly below the size biased mean for \(m \ge 2\) and the quotient exceeds one. A point mass and a uniform distribution are both uniform on their support, so both ends of Section 4.3 report a ratio of one, and entropy plays no part in either case.
+\noindent\textbf{The ceiling is exactly 1 if and only if \(p\) is uniform on its support.} If every nonzero \(p_\sigma\) equals \(1/k\) then \(F\) is a single step, the integral collapses to \(1/k\), and \(\sum_\sigma p_\sigma^2\) is also \(1/k\). If two nonzero probabilities differ then the rarest of \(m\) draws is strictly below the size biased mean for \(m \ge 2\) and the quotient exceeds one. A point mass and a uniform distribution are both uniform on their support, so both ends of Section 4.3 report a ratio of one, and entropy plays no part in either case.
 
 Computed at needle 16 from each corpus's own frequencies (\texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:933}):
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(H_2\) & uninformed rate & informed rate & ceiling & measured & captured \\
 \midrule
@@ -439,7 +489,7 @@ Predicted \texttt{maxent} candidate count against measured, with one subtracted 
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(H_2\) & predicted & measured & error \\
 \midrule
@@ -466,11 +516,11 @@ A symbol the pattern does not carry refutes every alignment touching the cell. T
 
 \(\mathbb{E}[R] \;=\; m\Bigl(1 - \sum_\sigma p_\sigma^2\Bigr) \;=\; m\bigl(1 - 2^{-H_2}\bigr)\)
 
-The quantity that sets the candidate rate in Section 4.4 sets the refutation distance here, appearing once as a rate and once as a length. Measured at every needle length over every corpus (\texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:1024}):
+The quantity that sets the candidate rate in Section 4.4 sets the contrapositive indication distance here, appearing once as a rate and once as a length. Measured at every needle length over every corpus (\texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:1024}):
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m{=}4\) & \(m{=}16\) & \(m{=}64\) & \(m{=}256\) & refuted over \(m\) \\
 \midrule
@@ -495,7 +545,7 @@ Bias and root mean square error in bits, 64 trials, probe budget 64:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
 \toprule
 source & \(N\) & true \(H_2\) & plug in & unbiased & probe, self & probe, no self \\
 \midrule
@@ -510,11 +560,11 @@ source & \(N\) & true \(H_2\) & plug in & unbiased & probe, self & probe, no sel
 
 **The probe counting its own match reproduces the plug in estimator, and excluding it reproduces the unbiased estimator.** At \texttt{uniform256} and \(N=256\) the plug in bias is \(-0.984\) bits and the probe with self is \(-0.964\); the unbiased bias is \(+0.029\) and the probe without self is \(+0.074\). The subtraction that Section 6.5 records as a measurement error is the standard bias correction, reached from the other direction.
 
-\textbf{The probe is worse than both published estimators at every setting tested.} Its error is set by the probe budget and not by the corpus length. Root mean square error at \(N = 16384\), \texttt{zipf1.\allowbreak{}0}:
+\noindent\textbf{The probe is worse than both published estimators at every setting tested.} Its error is set by the probe budget and not by the corpus length. Root mean square error at \(N = 16384\), \texttt{zipf1.\allowbreak{}0}:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 probe budget & 16 & 64 & 256 & 1024 & 4096 \\
 \midrule
@@ -544,7 +594,7 @@ Correction magnitude in bits at order 2, \(N = 4096\), 64 trials, against the cl
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
 source & \(H_2\) & predicted & measured \\
 \midrule
@@ -575,7 +625,7 @@ Ratio of observed candidates to the independence prediction, needle 16 (\texttt{
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
 \toprule
 corpus & policy & \(n{=}2\) & \(n{=}3\) & \(n{=}4\) & \(n{=}5\) & \(n{=}6\) \\
 \midrule
@@ -602,7 +652,7 @@ Against the first anchor count whose measured excess candidate count reaches zer
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(H_2\) & \(N\) & predicted & measured, \(m = 64\) and 256 & measured, \(m = 16\) \\
 \midrule
@@ -627,7 +677,7 @@ Independence \(I(d)\) against anchor separation, needle 64, policy \texttt{table
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}@{}}
 \toprule
 stride & 1 & 2 & 3 & 5 & 7 & 8 & 13 & 17 \\
 \midrule
@@ -643,7 +693,7 @@ On \texttt{periodic16}, reported as \(z\):
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 stride & 3 & 7 & 11 & 16 & 17 \\
 \midrule
@@ -667,7 +717,7 @@ Here \(T = 16\) and the punctuation sits at \(F = \{4,11,15\}\), so \(\hat{D} = 
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 \(d\) & in \(\hat{D}\) & \(I(d)\) & \(z\) & measured & verdict \\
 \midrule
@@ -696,7 +746,7 @@ One confound is stated here instead of left for a reader to find. The anchor is 
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 corpus & english & generic & uri & route \\
 \midrule
@@ -728,7 +778,7 @@ Corpus reads per search, mean over 64 needles, english cost table:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m\) & Horspool & rare anchor & salted anchor & rare over Horspool \\
 \midrule
@@ -756,7 +806,7 @@ Horspool maximizes the ceiling and ignores the frequencies. The rare anchor maxi
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m\) & chosen offset of \(m-1 = 31\) & vs Horspool \\
 \midrule
@@ -780,7 +830,7 @@ The chosen offset over \(m-1\), against the radius, with the bar at the predicte
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(3\cdot 2^{H_2}\) & 8 & 16 & 32 & 64 & 128 & 256 \\
 \midrule
@@ -802,7 +852,7 @@ Two properties come from the construction and not from tuning. Each offset start
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m\) & Horspool & product rule, given the histogram & field, given nothing \\
 \midrule
@@ -826,7 +876,7 @@ The field over Horspool, by needle length:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}@{}}
 \toprule
 corpus & 4 & 8 & 16 & 32 & 64 & 128 & 256 \\
 \midrule
@@ -854,7 +904,7 @@ Against the reads already reported, with no parameter fitted. The measured colum
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m\) & \(H_2\) & predicted & measured at least \\
 \midrule
@@ -870,7 +920,7 @@ corpus & \(m\) & \(H_2\) & predicted & measured at least \\
 
 The harvest is monotone in \(H_2\) at fixed \(m\), reading 47\%, 52\%, 74\% and 91\% across the four corpora in entropy order, and it collapses as \(m\) grows because a longer needle carries more copies of whatever was read.
 
-\textbf{The consequence for a search that gives up the order.} For large \(m\) the harvest tends to \(2^{H_2}/m\), so the ceiling on what dropping the constraint can buy is \(m\,2^{-H_2}\), the expected number of times the observed symbol occurs in the needle. That is roughly 20 on English prose at \(m = 256\) and 1.07 on the uniform corpus at \(m = 16\). The regime where order costs something is low entropy and long needles, and there is nothing to collect at high entropy and short ones.
+\noindent\textbf{The consequence for a search that gives up the order.} For large \(m\) the harvest tends to \(2^{H_2}/m\), so the ceiling on what dropping the constraint can buy is \(m\,2^{-H_2}\), the expected number of times the observed symbol occurs in the needle. That is roughly 20 on English prose at \(m = 256\) and 1.07 on the uniform corpus at \(m = 16\). The regime where order costs something is low entropy and long needles, and there is nothing to collect at high entropy and short ones.
 
 Every refutation a read makes available is exact and permanent by Proposition 1. None of this information is destroyed by being ignored. A greedy in-order shift declines to collect between 3\% and 99\% of it, and the table below gives the figure per row.
 
@@ -891,7 +941,7 @@ Measured, as in-order reads over free-order reads, so above one is a saving:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m = 4\) & \(m = 16\) & \(m = 64\) & \(m = 128\) & \(m = 256\) \\
 \midrule
@@ -906,13 +956,13 @@ corpus & \(m = 4\) & \(m = 16\) & \(m = 64\) & \(m = 128\) & \(m = 256\) \\
 
 The dependency depth is 2 on every row, as the construction requires.
 
-\textbf{The probe phase behaved exactly as modeled and the model still failed.} Survivors after probing at \(m = 256\) are 1, 7, 8, 11 and 2 across the five corpora, against a prediction of 1.25 to 3.84. The reads went somewhere the model never counted.
+\noindent\textbf{The probe phase behaved exactly as modeled and the model still failed.} Survivors after probing at \(m = 256\) are 1, 7, 8, 11 and 2 across the five corpora, against a prediction of 1.25 to 3.84. The reads went somewhere the model never counted.
 
 Every needle here is drawn from the corpus it is searched in. Every search must confirm one genuine occurrence, and confirming a match of length \(m\) costs \(m\) reads. That term is absent from the derivation above. Adding it accounts for the measurements to within 3\%:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & probes & \(+\,m\) & \(+\) false survivors & predicted & measured \\
 \midrule
@@ -924,11 +974,11 @@ corpus & probes & \(+\,m\) & \(+\) false survivors & predicted & measured \\
 \end{longtable}
 \normalsize
 
-\textbf{A long search is verification bound and not filter bound.} The floor is \(m\) reads for any algorithm that must confirm the match, and at \(m = 256\) Horspool runs at 1.10 to 1.57 times that floor while free order runs at 1.04 to 1.16. Both are already near a bound that no filtering strategy can move, so an order of magnitude was never available. The saving that does exist is the gap between those two ratios, and 1.47 at \(m = 128\) on English is the largest of it measured.
+\noindent\textbf{A long search is verification bound and not filter bound.} The floor is \(m\) reads for any algorithm that must confirm the match, and at \(m = 256\) Horspool runs at 1.10 to 1.57 times that floor while free order runs at 1.04 to 1.16. Both are already near a bound that no filtering strategy can move, so an order of magnitude was never available. The saving that does exist is the gap between those two ratios, and 1.47 at \(m = 128\) on English is the largest of it measured.
 
 At short needles free order loses, badly on the uniform corpus at 0.27, because probing at a stride below the needle length costs more reads than a shift does and there is no verification floor to hide behind.
 
-\textbf{The accumulation is bitwise, and that makes the count reachable.} A refutation set is a set of alignments, sets union commutatively by Proposition 1, and a set of alignments is a bit vector. So accumulating a read costs \(\lceil m/W \rceil\) word operations for a machine word of \(W\) bits, the surviving set is the complement, and no other structure is needed. At \(m = 256\) with 64 bit words the whole probe phase is 25 reads and 100 word operations, at a dependency depth of two, against 385 strictly sequential reads.
+\noindent\textbf{The accumulation is bitwise, and that makes the count reachable.} A refutation set is a set of alignments, sets union commutatively by Proposition 1, and a set of alignments is a bit vector. So accumulating a read costs \(\lceil m/W \rceil\) word operations for a machine word of \(W\) bits, the surviving set is the complement, and no other structure is needed. At \(m = 256\) with 64 bit words the whole probe phase is 25 reads and 100 word operations, at a dependency depth of two, against 385 strictly sequential reads.
 
 The mask table is indexed by pattern position, which makes it \(m\) bits wide whatever the alphabet is and whatever the dimension is. Section 2.1 can therefore decline to bound either one at no cost: neither appears in the state.
 
@@ -940,7 +990,7 @@ The arm is cheap and it is wrong.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m\) & in-order reads & unconfirmed reads & saving & searches wrong, of 64 \\
 \midrule
@@ -955,15 +1005,15 @@ corpus & \(m\) & in-order reads & unconfirmed reads & saving & searches wrong, o
 
 The last row is the only shape that is ever right: at stride one every cell is read, nothing false can survive, and the cost is worse than reading the corpus straight through. Everywhere else the saving is real and the answer is wrong on half to all of the searches.
 
-\textbf{The two propositions appear here as measurements.} Across all 35 rows the count of searches that over-report equals the count that are wrong. Not one search in any corpus, at any needle length, at any stride, ever reported fewer occurrences than exist. Proposition 1 has been an argument in this document until now, and this is the first place it is visible in data. Proposition 2 is visible in the same column: survivors are a strict superset and probing does not close the gap short of reading everything.
+\noindent\textbf{The two propositions appear here as measurements.} Across all 35 rows the count of searches that over-report equals the count that are wrong. Not one search in any corpus, at any needle length, at any stride, ever reported fewer occurrences than exist. Proposition 1 has been an argument in this document until now, and this is the first place it is visible in data. Proposition 2 is visible in the same column: survivors are a strict superset and probing does not close the gap short of reading everything.
 
-\textbf{The error is one directional, which makes it a signal.} Since a miss is impossible, any discrepancy is an over-count. An over-count is detectable without knowing the answer and means exactly one thing: the stride is too coarse. The transition is sharp. On English at \(m = 4\) the stride moves from 1 to 2 and the searches in error move from 0 to 61 of 64.
+\noindent\textbf{The error is one directional, which makes it a signal.} Since a miss is impossible, any discrepancy is an over-count. An over-count is detectable without knowing the answer and means exactly one thing: the stride is too coarse. The transition is sharp. On English at \(m = 4\) the stride moves from 1 to 2 and the searches in error move from 0 to 61 of 64.
 
-\textbf{Calibrating the stride on one known pattern does not make it safe for others.} A signal that is one directional and monotone in the stride can be bisected. One needle whose occurrence count is known can find the largest stride reproducing that count, in \(\log_2 m\) passes. Applying that stride to the other 63 needles:
+\noindent\textbf{Calibrating the stride on one known pattern does not make it safe for others.} A signal that is one directional and monotone in the stride can be bisected. One needle whose occurrence count is known can find the largest stride reproducing that count, in \(\log_2 m\) passes. Applying that stride to the other 63 needles:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m\) & calibrated & derived & wrong of 63 & over in-order reads \\
 \midrule
@@ -981,7 +1031,7 @@ Every row with no errors is a row where calibration drove the stride to one or t
 
 The calibrated stride and the derived stride agree closely, 98 against 91 and 75 against 84 and 44 against 45, so the failure is not a mis-set constant. The safe stride is a property of the pattern and the corpus together: a pattern carrying rare symbols tolerates a long stride and one carrying common symbols does not, and a measurement on one pattern bounds nothing about another. One known constant calibrates one pattern.
 
-\textbf{What the failure was, since it was predicted to be something else.} This section originally reported the model's 11 to 26 times as its result, flagged as resting on the independence assumption that Section 4.6 measures failing worst on \texttt{structured}. That flag was aimed at the wrong thing. The independence assumption held: predicted survivors 1.25 to 3.84 against measured 1 to 11. What the model omitted was the \(m\) reads needed to confirm the occurrence every needle is guaranteed to have, a term with nothing probabilistic in it.
+\noindent\textbf{What the failure was, since it was predicted to be something else.} This section originally reported the model's 11 to 26 times as its result, flagged as resting on the independence assumption that Section 4.6 measures failing worst on \texttt{structured}. That flag was aimed at the wrong thing. The independence assumption held: predicted survivors 1.25 to 3.84 against measured 1 to 11. What the model omitted was the \(m\) reads needed to confirm the occurrence every needle is guaranteed to have, a term with nothing probabilistic in it.
 
 A model can be wrong in the place it was not being watched. The caveat attached to this section named the weakest assumption and the error was in an assumption not stated at all.
 
@@ -993,7 +1043,7 @@ The rule needs no pattern analysis and no distribution. The symbol about to be r
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 corpus & reads at \(m = 256\) & probes among them & reads over the floor & in-order over the floor \\
 \midrule
@@ -1008,23 +1058,23 @@ corpus & reads at \(m = 256\) & probes among them & reads over the floor & in-or
 
 The floor is the \(m\) reads Section 4.9.5 identifies as irreducible. This runs within 2\% to 20\% of it where an in-order search runs within 10\% to 57\%, and it is exact on all 35 rows with a mirror residual of zero. The rule reads fewer cells than an in-order search on 22 of the 35, by up to 1.57 times at \(m = 64\) and 128.
 
-\textbf{The selecting phase is small without being made small.} Nine probes settle \texttt{structured} at \(m = 256\), against \(\log_2 256 = 8\), the size deterministic sampling reaches by analyzing the pattern first. English and uniform take 23 to 27. Nothing here derives a sample, carries state between searches, or looks at the pattern before the first read.
+\noindent\textbf{The selecting phase is small without being made small.} Nine probes settle \texttt{structured} at \(m = 256\), against \(\log_2 256 = 8\), the size deterministic sampling reaches by analyzing the pattern first. English and uniform take 23 to 27. Nothing here derives a sample, carries state between searches, or looks at the pattern before the first read.
 
-\textbf{Two limits.} The logarithmic size in the published method is a worst case guarantee and this is a mean over 64 needles on five corpora with no guarantee of any kind. And it loses on \texttt{periodic16} at needle lengths 8 through 32, between 0.64 and 0.86. That is the positional structure Sections 4.7 and 4.9.3 fail on for the same reason.
+\noindent\textbf{Two limits.} The logarithmic size in the published method is a worst case guarantee and this is a mean over 64 needles on five corpora with no guarantee of any kind. And it loses on \texttt{periodic16} at needle lengths 8 through 32, between 0.64 and 0.86. That is the positional structure Sections 4.7 and 4.9.3 fail on for the same reason.
 
 \paragraph{4.9.8 Negative Control Mechanisms}
 
 Recorded because each was built, measured on the case it was designed for, and kept. Two of them are control laws over the field of Section 4.9.3, where the process variable is an advance, which is a small integer with a variance close to its mean.
 
-\textbf{Discarding the field on divergence.} A short window mean of the advance against a long window mean detects a corpus whose character has changed, and every offset returns to its provable ceiling, which restores the anchor to \(m-1\). Over the four homogeneous corpora the detector never fires on 15 of 28 rows and moves the result by at most 1\% where it does. A fifth corpus of four regions laid end to end, English then C source then records then uniform bytes, was built for it, and every arm on that corpus converges to within 1\% of every other. The mechanism has no measured benefit and no measured cost.
+\noindent\textbf{Discarding the field on divergence.} A short window mean of the advance against a long window mean detects a corpus whose character has changed, and every offset returns to its provable ceiling, which restores the anchor to \(m-1\). Over the four homogeneous corpora the detector never fires on 15 of 28 rows and moves the result by at most 1\% where it does. A fifth corpus of four regions laid end to end, English then C source then records then uniform bytes, was built for it, and every arm on that corpus converges to within 1\% of every other. The mechanism has no measured benefit and no measured cost.
 
-\textbf{Pulling the anchor to the field's center of mass.} Selecting the offset at \(\sum_i v_i i / \sum_i v_i\) instead of the offset with the largest \(v_i\) loses on every row, by 2\% to 42\% against the largest and by up to 48\% against Horspool. The field is roughly increasing in offset because each entry starts at \(a+1\). Its balance point sits near two thirds of the way along and carries a mediocre ceiling. The centroid is a canonical location and the mean of a utility is not the argument that maximizes it, so the construction that gives Section 2.1 its reference point is the wrong one for choosing among values.
+\noindent\textbf{Pulling the anchor to the field's center of mass.} Selecting the offset at \(\sum_i v_i i / \sum_i v_i\) instead of the offset with the largest \(v_i\) loses on every row, by 2\% to 42\% against the largest and by up to 48\% against Horspool. The field is roughly increasing in offset because each entry starts at \(a+1\). Its balance point sits near two thirds of the way along and carries a mediocre ceiling. The centroid is a canonical location and the mean of a utility is not the argument that maximizes it, so the construction that gives Section 2.1 its reference point is the wrong one for choosing among values.
 
-\textbf{Adding accumulated and trend terms to the update.} The field's update is a first order lag, which is a proportional response with a leak. Adding an accumulated term at 0.002 and a trend term at 0.05 gives a mean of 1.005 against the lag alone and is worse on 24 of 35 rows, with the largest losses on the periodic corpus where the trend term follows the oscillation. An advance is a small integer whose variance is close to its mean, and a difference between consecutive errors is mostly noise and a term proportional to it mostly injects noise.
+\noindent\textbf{Adding accumulated and trend terms to the update.} The field's update is a first order lag, which is a proportional response with a leak. Adding an accumulated term at 0.002 and a trend term at 0.05 gives a mean of 1.005 against the lag alone and is worse on 24 of 35 rows, with the largest losses on the periodic corpus where the trend term follows the oscillation. An advance is a small integer whose variance is close to its mean, and a difference between consecutive errors is mostly noise and a term proportional to it mostly injects noise.
 
-\textbf{Rejecting answers at the ambient level and amplifying the rest.} Replacing the lag with a deadband against the running mean advance, full weight applied outside it and settling back to the provable ceiling inside it, gives a mean of 1.014 against the lag and is better on 2 of 35 rows.
+\noindent\textbf{Rejecting answers at the ambient level and amplifying the rest.} Replacing the lag with a deadband against the running mean advance, full weight applied outside it and settling back to the provable ceiling inside it, gives a mean of 1.014 against the lag and is better on 2 of 35 rows.
 
-\textbf{What the five have in common.} Each changes how the search responds to information it already has. The one change in Section 4.9.3 that did pay, crediting every offset from one answer instead of only the offset that asked, changes how much information one observation yields. Over the seven arrangements measured here, extracting more per observation is worth 13.2\% and responding to it more cleverly is worth nothing.
+\noindent\textbf{What the five have in common.} Each changes how the search responds to information it already has. The one change in Section 4.9.3 that did pay, crediting every offset from one answer instead of only the offset that asked, changes how much information one observation yields. Over the seven arrangements measured here, extracting more per observation is worth 13.2\% and responding to it more cleverly is worth nothing.
 
 \subsubsection{4.10 Symbol Width and Entropy Rate}
 
@@ -1036,7 +1086,7 @@ Measured over windows taken at every bit offset, since a read can begin anywhere
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(w{=}1\) & \(w{=}2\) & \(w{=}4\) & \(w{=}8\) & \(w{=}12\) & \(w{=}16\) \\
 \midrule
@@ -1051,21 +1101,21 @@ corpus & \(w{=}1\) & \(w{=}2\) & \(w{=}4\) & \(w{=}8\) & \(w{=}12\) & \(w{=}16\)
 
 The ratio falls with width on every corpus. Reading English a byte at a time yields 0.856 bits per bit read against 0.984 at a single bit. The byte slice gives up 15\% of the discrimination available in the same number of bits, and a sixteen bit symbol gives up 40\%.
 
-\textbf{The flat corpus is not flat.} It is \texttt{0x41} repeated, \texttt{01000001} has period eight, and a window of six bits or more takes exactly eight distinct values whatever the corpus length. Its collision entropy is therefore \(\log_2 8 = 3\) bits exactly. The sweep reports that at widths 6, 8, 12 and 16, and 0.678 bits at width one. The object every other section of this document reports zero on carries three bits under a slice one bit narrower.
+\noindent\textbf{The flat corpus is not flat.} It is \texttt{0x41} repeated, \texttt{01000001} has period eight, and a window of six bits or more takes exactly eight distinct values whatever the corpus length. Its collision entropy is therefore \(\log_2 8 = 3\) bits exactly. The sweep reports that at widths 6, 8, 12 and 16, and 0.678 bits at width one. The object every other section of this document reports zero on carries three bits under a slice one bit narrower.
 
-\textbf{What this does not settle.} \(H_2(w)/w\) is the right comparison only where reading costs by the bit. Where a read costs the same whatever its width, as it does for a machine word, the quantity to maximize is \(H_2(w)\) itself, and that grows monotonically with \(w\) on every row above. The three cost models disagree about which width is best, this document counts reads under the third of them, and none of the earlier sections states which one it is assuming.
+\noindent\textbf{What this does not settle.} \(H_2(w)/w\) is the right comparison only where reading costs by the bit. Where a read costs the same whatever its width, as it does for a machine word, the quantity to maximize is \(H_2(w)\) itself, and that grows monotonically with \(w\) on every row above. The three cost models disagree about which width is best, this document counts reads under the third of them, and none of the earlier sections states which one it is assuming.
 
 \subsubsection{4.11 Period Detection Without a Pattern}
 
 Every measurement before this one is given a needle. The construction does not require one. A shift \(d\) is the hypothesis that the corpus agrees with itself \(d\) apart, a pair of read cells whose positions differ by \(d\) is a test of it, and one disagreement refutes it permanently. So the pattern is not one string, it is every shift at once, and the reads are shared across all of them: \(k\) cells carry \(k(k-1)/2\) tests. Here 512 reads test 130,816 pairs (\texttt{test/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c:1315}).
 
-\textbf{The threshold cannot be trusted and is not.} Tests of one shift share read positions and are not independent, and a standard error computed as though they were is too small. The first run of this reported twelve shifts on the uniform corpus, which is SHA-256 output and has nothing to find.
+\noindent\textbf{The threshold cannot be trusted and is not.} Tests of one shift share read positions and are not independent, and a standard error computed as though they were is too small. The first run of this reported twelve shifts on the uniform corpus, which is SHA-256 output and has nothing to find.
 
 A shuffle of the same bytes settles it. It preserves the byte histogram exactly, so the collision probability is unchanged, and it destroys every relation between positions, and that is all a shift can be. Whatever the detector reports there is what it reports on nothing.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 corpus & shifts reported & on the shuffle & difference & strongest shift \\
 \midrule
@@ -1080,7 +1130,7 @@ corpus & shifts reported & on the shuffle & difference & strongest shift \\
 
 One corpus has structure of this kind and it is the one built with a period. Its strongest shift is 560, and \(560 = 35 \times 16\). The detector recovered a multiple of the record length without being given the record length or a pattern to look for. The \texttt{mixed} corpus peaks at 416, also a multiple of 16, which is its periodic quarter showing through below the threshold.
 
-\textbf{What it does not find is as informative.} English prose and C source report nothing above their shuffles, and English peaks lower than its own shuffle does. Both plainly have structure. What they do not have is agreement with themselves at a fixed offset. That is the only hypothesis this formulation tests. Repetition at irregular positions, which is what a word or an identifier is, needs a different query. The detector finds periodicity and is silent on everything else.
+\noindent\textbf{What it does not find is as informative.} English prose and C source report nothing above their shuffles, and English peaks lower than its own shuffle does. Both plainly have structure. What they do not have is agreement with themselves at a fixed offset. That is the only hypothesis this formulation tests. Repetition at irregular positions, which is what a word or an identifier is, needs a different query. The detector finds periodicity and is silent on everything else.
 
 \subsubsection{4.12 Boundary Detection}
 
@@ -1090,7 +1140,7 @@ If a symbol's positions carry no structure, the gaps between its occurrences are
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 corpus & symbol found & mean gap & dispersion & on the shuffle & ratio \\
 \midrule
@@ -1115,7 +1165,7 @@ A known boundary symbol turns a corpus into a sequence of gaps, and a needle car
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 corpus & \(m\) & boundaries in the needle & survivors & reduction \\
 \midrule
@@ -1132,7 +1182,7 @@ corpus & \(m\) & boundaries in the needle & survivors & reduction \\
 
 On English the spacing alone locates the needle uniquely from a needle length of 64 upward, using a symbol that is 17.9\% of the corpus and is therefore the worst anchor in it by rarity. The filter strengthens as the needle lengthens because a longer needle carries more boundaries, and the boundary count is the property being tested.
 
-\textbf{The record corpus is the counterexample and it does not move.} Its reduction is exactly 16.0 at every needle length and at every boundary count, because its newlines are perfectly periodic: the spacing fixes the alignment modulo 16 and says nothing further. A boundary of period \(T\) carries \(\log_2 T\) bits and no more, however many of them a needle holds.
+\noindent\textbf{The record corpus is the counterexample and it does not move.} Its reduction is exactly 16.0 at every needle length and at every boundary count, because its newlines are perfectly periodic: the spacing fixes the alignment modulo 16 and says nothing further. A boundary of period \(T\) carries \(\log_2 T\) bits and no more, however many of them a needle holds.
 
 That inverts Section 4.12. \texttt{periodic16} reported the tightest spacing found anywhere, a dispersion of exactly zero, and its boundaries are the least useful for locating anything. English reported 0.162 and its boundaries locate uniquely. A boundary has to be regular enough to be found and irregular enough to carry a position, and the variation in the spacing is the part that does the second job.
 
@@ -1146,7 +1196,7 @@ Six public domain texts, fetched by \texttt{maint/\allowbreak{}data/\allowbreak{
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/7-2\tabcolsep\relax}@{}}
 \toprule
 text & family & year & boundary & gap & Zipf slope & brevity \\
 \midrule
@@ -1162,11 +1212,11 @@ Hugo, \_Les Misérables\_ & Romance & 1862 & \texttt{0x20} & 5.40 & -0.950 & -0.
 
 Five of the six locate the same boundary symbol without being told there is one, at a mean gap between 4.70 and 5.40. The Zipf slopes sit between -0.72 and -1.05 against a stated -1, and the brevity correlation is negative in every row. Cervantes and Hugo are 257 years and two countries apart and differ by 0.10 in slope and 0.016 in brevity.
 
-\textbf{The Finnish row is a genre confound and not a property of Finnish.} Every other text here is running prose and the \_Kalevala\_ is verse in strict trochaic tetrameter, compiled from oral songs. Its lines are more regular than its words and the detector finds the line. Replacing it with Finnish prose settles it:
+\noindent\textbf{The Finnish row is a genre confound and not a property of Finnish.} Every other text here is running prose and the \_Kalevala\_ is verse in strict trochaic tetrameter, compiled from oral songs. Its lines are more regular than its words and the detector finds the line. Replacing it with Finnish prose settles it:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
 text & boundary & gap & Zipf & brevity & distinct per token \\
 \midrule
@@ -1179,9 +1229,9 @@ Austen, prose, 1813 & \texttt{0x20} & 4.94 & -0.875 & -0.301 & 0.11 \\
 
 Finnish prose finds the space and returns a brevity of -0.298 against English prose at -0.301. The meter produced the failure, not the morphology, and an earlier draft of this section said otherwise.
 
-\textbf{Agglutination is visible, in two places that are not the failure.} The mean word is 6.82 bytes against 4.94, and the distinct forms per token are 0.37 against 0.11, because a case heavy language spells one root many ways. Neither impairs the detector.
+\noindent\textbf{Agglutination is visible, in two places that are not the failure.} The mean word is 6.82 bytes against 4.94, and the distinct forms per token are 0.37 against 0.11, because a case heavy language spells one root many ways. Neither impairs the detector.
 
-\textbf{What this does and does not establish.} Six prose texts, four languages, three families including one that is not Indo-European, from 1605 to 1870, every one in an alphabetic script. It is evidence that the regularities survive changes of language, family, morphology and century within that setting. It is not evidence about logographic scripts or spoken language, and the one verse text in the set behaves differently enough that genre is a variable this has not controlled for beyond replacing it.
+\noindent\textbf{What this does and does not establish.} Six prose texts, four languages, three families including one that is not Indo-European, from 1605 to 1870, every one in an alphabetic script. It is evidence that the regularities survive changes of language, family, morphology and century within that setting. It is not evidence about logographic scripts or spoken language, and the one verse text in the set behaves differently enough that genre is a variable this has not controlled for beyond replacing it.
 
 \paragraph{4.13.0 Format Artifacts}
 
@@ -1189,7 +1239,7 @@ Four times in this section the tightest spacing in a file belonged to the file a
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}@{}}
 \toprule
 what was found & where \\
 \midrule
@@ -1215,7 +1265,7 @@ The alphabet is finite, so this is recoverable. Greek has been written with a bo
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 corpus & zipf slope & brevity & types at 25k & bits per word \\
 \midrule
@@ -1264,7 +1314,7 @@ Drift is a distance between two texts, which needs a comparison the per corpus m
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 pair & years apart & form & top 100 & ranks 500 to 2000 \\
 \midrule
@@ -1294,7 +1344,7 @@ Holding the subject fixed removes the genre term by construction. Three translat
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
 pair & years apart & top 100 & ranks 500 to 2000 \\
 \midrule
@@ -1329,7 +1379,7 @@ So these regularities are not transmitted and do not need a surviving channel be
 
 The mechanism is that a shorter code for a more frequent symbol is what minimizes an expected transmission cost, which is a result in coding theory and not a fact about people. Any system paying per unit sent, over enough repetitions, arrives at it. So does a telegraph operator assigning codes by hand. Section 4.13.1 finds most of Morse's brevity surviving the destruction of the table he designed. A language is solved against one set of constraints, a vocal tract of fixed bandwidth, a working memory holding a few items, a listener decoding in real time and a finite childhood to learn in, and the optimum belongs to that constraint set instead of to any lineage. Nothing inherits the answer. Each language derives it again, because the problem is still there. Losing the content therefore does not remove the regularity: the regularity was never stored, and the conditions that regenerate it outlast every artifact.
 
-One caution belongs with this and it is now measured. Distributions of this shape also arise from processes doing no optimizing at all, and Section 7.4 runs that counterexample against these same measures. Independent character draws carrying a delimiter return a Zipf slope of -0.988, inside the range every natural corpus here occupies. The Zipf slope in this section carries no evidence about production and is withdrawn as such. The brevity correlation survives weakened, at -0.222 for the control against -0.247 to -0.364 for natural text. The boundary regularity against a permutation null survives intact, at 1.00 for the control against 1.79 and above for natural text. That counterexample does not weaken the method in this document, and strengthens it. A structure produced by nearly any generator is a better thing to key on than one belonging to a special class of them, and the requirement here was never that the source be a language. What the method needs is that something regular produced the bytes, so it needs no alphabet, no dimension and no interpretation.
+One caution belongs with this and it is now measured. Distributions of this shape also arise from processes doing no optimizing at all, and Section 7.4 runs that counterexample against these same measures. Independent character draws carrying a delimiter return a Zipf slope of -0.988, inside the range every natural corpus here occupies. The Zipf slope in this section carries no evidence about production and is withdrawn as such. The brevity correlation survives weakened, at -0.222 for the control against -0.247 to -0.364 for natural text. The boundary regularity against a null permutation survives intact, at 1.00 for the control against 1.79 and above for natural text. That counterexample does not weaken the method in this document, and strengthens it. A structure produced by nearly any generator is a better thing to key on than one belonging to a special class of them, and the requirement here was never that the source be a language. What the method needs is that something regular produced the bytes, so it needs no alphabet, no dimension and no interpretation.
 
 The measures in Section 4.13 are also close to a question that has been asked before, since deciding whether an undeciphered corpus is a language at all is what a Zipf slope and a brevity correlation get used for. That literature exists and it is contested. It is not cited here because it has not been read in full, and Section 7 states what was read and what it cost.
 
@@ -1339,7 +1389,7 @@ Section 7.4.1 finds the two halves of the frequency distribution behaving differ
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}@{}}
 \toprule
 corpus & twelve most frequent words \\
 \midrule
@@ -1360,7 +1410,7 @@ The corresponding claim about the rare half is that it carries the actions, whic
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
 \toprule
 corpus & head, percent ending in \texttt{-\allowbreak{}ed} or \texttt{-\allowbreak{}ing} & rare half \\
 \midrule
@@ -1377,7 +1427,7 @@ The rare half carries more of it in all four, by 1.19 to 2.21 times, and the mem
 
 So the frequent half holds the machinery for referring to people and predicating anything of them, and the rare half holds more of what is being done. That describes the two halves. The description reaches nothing about what any text means, and the statistics in Section 7.4 that separate a corpus from a shuffle of itself do not know that either half exists.
 
-Scoring individual words for clustering against the same permutation null (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}word\_\allowbreak{}burstiness.\allowbreak{}py:44-\allowbreak{}72}) answers two questions, and only the second of them comes out.
+Scoring individual words for clustering against the same null permutation (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}word\_\allowbreak{}burstiness.\allowbreak{}py:44-\allowbreak{}72}) answers two questions, and only the second of them comes out.
 
 The first was whether words for things people do constantly, instead of things a passage is about, spread more evenly than the rest. Section 7.4.4 predicts they should. A supplied English set of them gives 0.843 against a corpus average of 0.828 for Austen, 0.521 against 0.509 for the King James, and 0.809 against 0.796 for Milton. The direction is the predicted one every time and the size is not worth reporting, between 7 and 20 words cleared the occurrence floor, and the prediction is not established.
 
@@ -1385,7 +1435,7 @@ The corpus averages themselves separate, which the first question was not asking
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
 \toprule
 corpus & word burstiness & what the corpus is \\
 \midrule
@@ -1412,7 +1462,7 @@ Every corpus in that table arrived already being one thing or the other. The rea
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
 pieces & books per piece & mean & highest piece \\
 \midrule
@@ -1439,7 +1489,7 @@ Every row above is alphabetic, and a regularity common to all of them could belo
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
 \toprule
  & boundary & gap & dispersion & Zipf & brevity \\
 \midrule
@@ -1451,7 +1501,7 @@ Austen 1813, in Morse & \texttt{0x20} & 4.59 & 0.217 & -1.185 & -0.652 \\
 
 Given four distinct marks and no letters, the detector finds a boundary and both regularities are present. Brevity is more than twice as strong, which looked at first like the one result here that was designed and not discovered, since Morse assigns its shortest codes to the most frequent letters. Section 4.13.2 tests that and it is mostly not so.
 
-\textbf{The two rows are not at the same level and should not be read as a pair.} English splits at words. Morse splits at the letter gap, because within a word that gap is more regular than the word gap is. The unit counts say so: 1187 distinct units is far more than the 36 codes Morse has, and the encoder writes the word slash with no space beside it. The last code of one word, the slash, and the first code of the next form one unit. Thirty six codes plus up to 1296 such pairs brackets the 1187 seen. The transcription invented a vocabulary of boundary spanning pairs that is in neither language.
+\noindent\textbf{The two rows are not at the same level and should not be read as a pair.} English splits at words. Morse splits at the letter gap, because within a word that gap is more regular than the word gap is. The unit counts say so: 1187 distinct units is far more than the 36 codes Morse has, and the encoder writes the word slash with no space beside it. The last code of one word, the slash, and the first code of the next form one unit. Thirty six codes plus up to 1296 such pairs brackets the 1187 seen. The transcription invented a vocabulary of boundary spanning pairs that is in neither language.
 
 What the row does establish is narrow and is the part worth having. Neither regularity is a property of alphabetic writing. Both survive into a four symbol percussive representation of the same text.
 
@@ -1461,7 +1511,7 @@ Morse had regional variants that gave different codes to the same letters, and a
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
  & Zipf & brevity & encoded bytes \\
 \midrule
@@ -1471,11 +1521,11 @@ Morse, the same codes permuted & -1.183 & -0.550 & 2,580,891 \\
 \end{longtable}
 \normalsize
 
-\textbf{Zipf is unchanged to two parts in a thousand}. A property of the message has to do that under a relabeling of its symbols.
+\noindent\textbf{Zipf is unchanged to two parts in a thousand}. A property of the message has to do that under a relabeling of its symbols.
 
-\textbf{Brevity is nearly unchanged, and that refutes the reading offered in Section 4.13.1.} A permuted table keeps a correlation of -0.550. At most 0.10 of the -0.652 can be credited to Morse assigning short codes to frequent letters. The rest is structural: short strings recur more often because there are fewer short strings, and that holds for any table whatever. The stronger brevity in the Morse rows than in the English row is mostly an artifact of the unit length distribution and not evidence of design.
+\noindent\textbf{Brevity is nearly unchanged, and that refutes the reading offered in Section 4.13.1.} A permuted table keeps a correlation of -0.550. At most 0.10 of the -0.652 can be credited to Morse assigning short codes to frequent letters. The rest is structural: short strings recur more often because there are fewer short strings, and that holds for any table whatever. The stronger brevity in the Morse rows than in the English row is mostly an artifact of the unit length distribution and not evidence of design.
 
-\textbf{What the design does buy is the length.} The real table encodes the same text in 22.4\% fewer bytes than a permutation of its own codes. That is Morse's engineering, and it appears in transmission cost and not in the correlation it was attributed to.
+\noindent\textbf{What the design does buy is the length.} The real table encodes the same text in 22.4\% fewer bytes than a permutation of its own codes. That is Morse's engineering, and it appears in transmission cost and not in the correlation it was attributed to.
 
 So the two are not the same kind of claim. Zipf is invariant under re-encoding and is about the message. The brevity correlation is also largely invariant, which makes it mostly a fact about how many short strings exist and only slightly a fact about anyone's choices.
 
@@ -1489,13 +1539,13 @@ The question is then a variance question. If a quantity belongs to a language, i
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/5-2\tabcolsep\relax}@{}}
 \toprule
 quantity & spread within & spread between & \(F\) & \(p\) \\
 \midrule
 mean distance between boundaries & 0.3327 & 0.6980 & 13.21 & \(3.5 \times 10^{-6}\) \\
 collision entropy & 0.0430 & 0.0746 & 9.02 & \(6.2 \times 10^{-5}\) \\
-rare half against a permutation null & 0.0731 & 0.0342 & 0.66 & 0.68 \\
+rare half against a null permutation & 0.0731 & 0.0342 & 0.66 & 0.68 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1508,7 +1558,7 @@ Chinese decides it. Measured in within language standard deviations from the mea
 
 The results in Sections 4.13.05 and 4.13.1 hold over seven language families and two scripts for that reason. The measure was never reading which language it was given, and a change of language had nothing in it to disturb. It also bounds what those results can mean: a quantity that cannot tell Finnish from Chinese cannot be evidence about any particular language, and Section 7.4 records separately that it is not evidence about language at all.
 
-\textbf{This conclusion is not new and the credit is not this document's.} Montemurro and Zanette, \_Universal Entropy of Word Ordering Across Linguistic Families\_, PLoS ONE 6(5):e19875 (2011), measure the entropy a text loses when its words are shuffled, the same null used here, over 7077 texts in eight corpora spanning Indo-European, Finno-Ugric, Austronesian, Afroasiatic and Sino-Tibetan families and the Sumerian isolate. They report the quantity bounded near 3.3 bits per word across all of them, with a relative variability of 0.07 against 0.23 for the entropy itself, and they name it a statistical linguistic universal. Their sample is two hundred times the size of this one and reaches Old Egyptian and Sumerian, which this one does not.
+\noindent\textbf{This conclusion is not new and the credit is not this document's.} Montemurro and Zanette, \_Universal Entropy of Word Ordering Across Linguistic Families\_, PLoS ONE 6(5):e19875 (2011), measure the entropy a text loses when its words are shuffled, the same null used here, over 7077 texts in eight corpora spanning Indo-European, Finno-Ugric, Austronesian, Afroasiatic and Sino-Tibetan families and the Sumerian isolate. They report the quantity bounded near 3.3 bits per word across all of them, with a relative variability of 0.07 against 0.23 for the entropy itself, and they name it a statistical linguistic universal. Their sample is two hundred times the size of this one and reaches Old Egyptian and Sumerian, which this one does not.
 
 The statistic here is not theirs, since they measure a Shannon entropy reduction in bits per word and this measures a dispersion of gaps over the rare half of the symbols, and the agreement of two unlike statistics is worth something. The finding is theirs.
 
@@ -1526,7 +1576,7 @@ The lowest variety among units seen at least 24 times, over the first 25000 unit
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}@{}}
 \toprule
 King James Bible & seen & followers & variety & Austen & seen & followers & variety \\
 \midrule
@@ -1545,7 +1595,7 @@ The bible's are its register and its formulas. \texttt{And} occurring 788 times 
 
 Nothing here knows English, knows what a name or a title is, or has a dictionary of any kind.
 
-\textbf{Two limits.} \texttt{Heading} is Project Gutenberg's markup and not Austen, the same class of artifact as the line wrapping in Section 4.13. And narrow company marks formulaic context in general, which returns stock phrases such as \texttt{said unto} alongside culturally weighted words and does not distinguish the two. Cultural weight is one of the things that produces this signature and not the only one.
+\noindent\textbf{Two limits.} \texttt{Heading} is Project Gutenberg's markup and not Austen, the same class of artifact as the line wrapping in Section 4.13. And narrow company marks formulaic context in general, which returns stock phrases such as \texttt{said unto} alongside culturally weighted words and does not distinguish the two. Cultural weight is one of the things that produces this signature and not the only one.
 
 \paragraph{4.14.1 Burstiness and Grammatical Connectives}
 
@@ -1553,7 +1603,7 @@ Narrow company catches connectives along with subjects, and a connective is the 
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/9-2\tabcolsep\relax}@{}}
 \toprule
 King James Bible & seen & burst & Cervantes & seen & burst & Austen & seen & burst \\
 \midrule
@@ -1567,11 +1617,11 @@ King James Bible & seen & burst & Cervantes & seen & burst & Austen & seen & bur
 \end{longtable}
 \normalsize
 
-\textbf{The connectives are gone.} Neither \texttt{the}, \texttt{and}, \texttt{of} nor \texttt{And} appears in any of the three lists, though each is among the most frequent units in its text. Being spread evenly puts them at the floor of this statistic. They are discarded without a stopword list, a grammar or a dictionary.
+\noindent\textbf{The connectives are gone.} Neither \texttt{the}, \texttt{and}, \texttt{of} nor \texttt{And} appears in any of the three lists, though each is among the most frequent units in its text. Being spread evenly puts them at the floor of this statistic. They are discarded without a stopword list, a grammar or a dictionary.
 
 What comes back is the begetting and living of Genesis, Sancho and his adventures, and the pronouns of a novel carried by dialogue. Three languages and three centuries through one statistic.
 
-\textbf{The size of the numbers carries something as well.} The bible bursts between 6.6 and 20.8 and the novel only between 2.5 and 4.3. A compilation of books written centuries apart has vocabulary that clusters hard by section, and a single novel is homogeneous enough that little clusters at all. The scale of the statistic reports how uniform a text is.
+\noindent\textbf{The size of the numbers carries something as well.} The bible bursts between 6.6 and 20.8 and the novel only between 2.5 and 4.3. A compilation of books written centuries apart has vocabulary that clusters hard by section, and a single novel is homogeneous enough that little clusters at all. The scale of the statistic reports how uniform a text is.
 
 \subsection{5. Discussion}
 
@@ -1585,7 +1635,7 @@ Entropy is nowhere in that description. It enters one line later, when the quest
 
 \subsubsection{5.2 Collision Entropy as Cost Parameter}
 
-Section 4.0 lists eight quantities that are each a function of \(2^{-H_2}\) and the two sizes. They were derived at different times for different reasons and several were measured before anyone noticed they were the same parameter. The candidate rate, the refutation distance, the estimator's bias correction, the fraction an in-order walk collects, the offset where advance saturates, the number of anchors before the space is spent, the free order probe stride, and the candidate count in \(d\) dimensions.
+Section 4.0 lists eight quantities that are each a function of \(2^{-H_2}\) and the two sizes. They were derived at different times for different reasons and several were measured before anyone noticed they were the same parameter. The candidate rate, the contrapositive indication distance, the estimator's bias correction, the fraction an in-order walk collects, the offset where advance saturates, the number of anchors before the space is spent, the free order probe stride, and the candidate count in \(d\) dimensions.
 
 The last of those is the one that makes the collection meaningful instead of coincidental. The same expression holds from a line to an eight dimensional hypercube and over an alphabet of complex numbers with irrational parts, which is where the parameter demonstrates it is not standing in for the geometry or for what a symbol happens to be.
 
@@ -1643,7 +1693,7 @@ Two of the three constants are exponential in \(H_2\), so that error does not st
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
 constant & sensitivity & at 0.25 bits & at 0.60 bits \\
 \midrule
@@ -1694,7 +1744,7 @@ Rare symbol selection appears inside that construction. The pattern is stacked \
 
 Periodicity is a stated precondition there, with a published repair. The guarantee holds "for a non-periodic pattern," and a periodic pattern is reduced by taking its prefix of size \(2\pi-1\), which is not periodic, then linking neighboring occurrences. The failure recorded in Section 4.9.3, peaking at needle lengths equal to the record period and twice it, is that precondition being violated, and the repair for it predates this document.
 
-\textbf{What that leaves, stated more carefully than a first reading of it allowed.} The prior art above is combinatorial and worst case. It selects a rarer symbol without pricing what rarity is worth, and it carries no distribution over the alphabet.
+\noindent\textbf{What that leaves, stated more carefully than a first reading of it allowed.} The prior art above is combinatorial and worst case. It selects a rarer symbol without pricing what rarity is worth, and it carries no distribution over the alphabet.
 
 The prior art also carries a precondition that the construction in Section 2 does not. The deterministic sample is built from the pattern before any text is read: the pattern is stacked, a witness column is chosen, the less frequent of two symbols is taken, and the procedure repeats over the pattern's own self overlap structure. That is a preprocessing pass requiring the pattern in hand and analyzable in advance, and it buys a worst case guarantee at \(\log m\) probes.
 
@@ -1708,9 +1758,9 @@ Read from Tsai, \_Average Case Analysis of the Boyer-Moore Algorithm\_, Random S
 
 The quantity that literature computes is \(C_n\), the number of character comparisons, and the constant is \(\mu = \lim_{n\to\infty} \mathbb{E}(C_n/n)\). Baeza-Yates and colleagues "applied an analytic approach to the average-case analysis of the BMH algorithm. Under the assumption that the text is independent and identically distributed (iid), they derived an exact expression for the linearity constant". Mahmoud, Smythe and Régnier established asymptotic normality of \(C_n\), Smythe extended the text model to Markov, and Tsai adds a Berry-Esseen bound.
 
-\textbf{The parameter is alphabet cardinality.} The text is written over "a set of \(q\) characters", every numeric result is computed at \(q = 2\), 4 and 8, the error term is \((m-K-1)/q^K\), and the experiment uses text "built randomly". Under a uniform alphabet \(\sum_\sigma p_\sigma^2 = 1/q\) exactly, so \(2^{H_2} = 1/\sum p^2\) is the effective alphabet size and the collision probability used throughout this document is that \(q\) carried to the non-uniform case. The transition probabilities in their framework are written for a general distribution, so the generalization is available there and is not taken. This document does not claim a new quantity, it claims the classical one at a weaker assumption.
+\noindent\textbf{The parameter is alphabet cardinality.} The text is written over "a set of \(q\) characters", every numeric result is computed at \(q = 2\), 4 and 8, the error term is \((m-K-1)/q^K\), and the experiment uses text "built randomly". Under a uniform alphabet \(\sum_\sigma p_\sigma^2 = 1/q\) exactly, so \(2^{H_2} = 1/\sum p^2\) is the effective alphabet size and the collision probability used throughout this document is that \(q\) carried to the non-uniform case. The transition probabilities in their framework are written for a general distribution, so the generalization is available there and is not taken. This document does not claim a new quantity, it claims the classical one at a weaker assumption.
 
-\textbf{A comparison count cannot see a declined refutation.} Section 4.9.4 prices what an in-order shift leaves uncollected, between 3\% and 99\% depending on the needle length. That quantity is invisible to \(C_n\), because a comparison count records what the algorithm did and a forfeited refutation is something it never did. The gap is not a defect in thirty years of analysis. It is outside what the metric measures, and it becomes visible only once the traversal order is treated as a free variable, which Section 7.1 credits to Vishkin.
+\noindent\textbf{A comparison count cannot see a declined refutation.} Section 4.9.4 prices what an in-order shift leaves uncollected, between 3\% and 99\% depending on the needle length. That quantity is invisible to \(C_n\), because a comparison count records what the algorithm did and a forfeited refutation is something it never did. The gap is not a defect in thirty years of analysis. It is outside what the metric measures, and it becomes visible only once the traversal order is treated as a free variable, which Section 7.1 credits to Vishkin.
 
 \subsubsection{7.2 Thermodynamic Information Bounds}
 
@@ -1720,7 +1770,7 @@ The results are sharper than the analogy. For a system in a statistical state \(
 
 For measurement the bound is on mutual information, not on a divergence from an arbitrary reference: \(\Delta \mathcal{F}_{\text{meas}} = kTI(X;M)\), and for a cyclic feedback process \(W \ge -kTI(X(t_{\text{ms}});M)\), so the extractable work is "proportional to the information acquired in the measurement". The Szilárd engine saturates it because its outcome is left or right with equal probability, "giving \(H(M) = \ln 2\)".
 
-\textbf{Where this document departs from the analogy.} The equilibrium reading holds: a domain with no structure offers nothing, and Sections 4.3 and 4.8 measure exactly that in the rows that refuse to separate. The reference measure reading does not survive Section 4.3.1. What a measure can be worth here is the uninformed rate over the expected minimum of \(m\) size biased draws, which equals one when the distribution is uniform on its support. That quantity is not a relative entropy between the domain and the table, and the corpus ordering shows entropy does not govern it. The physics is invoked as background and no result in this document rests on it.
+\noindent\textbf{Where this document departs from the analogy.} The equilibrium reading holds: a domain with no structure offers nothing, and Sections 4.3 and 4.8 measure exactly that in the rows that refuse to separate. The reference measure reading does not survive Section 4.3.1. What a measure can be worth here is the uninformed rate over the expected minimum of \(m\) size biased draws, which equals one when the distribution is uniform on its support. That quantity is not a relative entropy between the domain and the table, and the corpus ordering shows entropy does not govern it. The physics is invoked as background and no result in this document rests on it.
 
 \subsubsection{7.4 Statistical Identification of Language}
 
@@ -1730,20 +1780,20 @@ Sproat's case is that these statistics do not separate language from anything el
 
 Rao and colleagues answer that sufficiency was never claimed. Their framework is inductive, estimating a posterior over a linguistic hypothesis from several properties at once, of which entropy is one, and they extend the measurement to block entropies up to \(N = 6\) where they report the artificial counterexamples failing to track. They also supply non-linguistic controls that are not artificial, namely DNA, protein, Fortran and music, which occupy entropic ranges away from the linguistic ones. Their own description of the Zipf-Mandelbrot property is that it is "often considered a necessary (though not sufficient) condition for language", the asymmetry between Proposition 1 and Proposition 2 reached from a different direction and by different people.
 
-\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's counterexample class was built and run through the same code that produced every other row (\texttt{maint/\allowbreak{}data/\allowbreak{}fetch/\allowbreak{}gen\_\allowbreak{}monkey\_\allowbreak{}corpus.\allowbreak{}py}). Characters are drawn independently and a delimiter is dropped in at a fixed rate.
+\noindent\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's counterexample class was built and run through the same code that produced every other row (\texttt{maint/\allowbreak{}data/\allowbreak{}fetch/\allowbreak{}gen\_\allowbreak{}monkey\_\allowbreak{}corpus.\allowbreak{}py}). Characters are drawn independently and a delimiter is dropped in at a fixed rate.
 
 A first version of that control had two arms, one uniform and one weighted by English letter frequencies, with the alphabet fixed at 26 and the delimiter rate at 0.18. Three of those four numbers came from English, and a result resembling English established nothing. The sweep below varies the alphabet from 8 to 64 symbols, the delimiter rate from 0.06 to 0.35, and the letter distribution across uniform, two geometric falls and the English weights, with only the last row carrying any value taken from a language.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
 measure & ten memoryless arms & ten natural corpora & separates \\
 \midrule
 Zipf slope & -0.978 to -1.332 & -0.723 to -1.185 & no \\
 brevity correlation & -0.124 to -0.401 & -0.247 to -0.364 & no \\
 types at 25k & 5824 to 22160 & 4171 to 11854 & no \\
-dispersion against a permutation null & 0.99 to 1.01 & 1.79 to 4.82 & yes \\
+dispersion against a null permutation & 0.99 to 1.01 & 1.79 to 4.82 & yes \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1756,11 +1806,11 @@ That one separates completely, and across the whole sweep. Every memoryless arm 
 
 The surviving measure is also the one Section 7.2 can price. A corpus equal to its own shuffle carries no gradient and offers nothing to extract. The equilibrium reading holds exactly here, and the ratio above one is a distance from that equilibrium.
 
-\textbf{What a cipher does to the surviving measure.} Sproat's stated limit is that a structured non-linguistic system passes this test as well. The question is what it takes to make a text stop passing it. One English corpus was put through transforms that keep every symbol in the same seat range, so the same measurement path reads all of them (\texttt{data/\allowbreak{}transform\_\allowbreak{}corpus.\allowbreak{}py}).
+\noindent\textbf{What a cipher does to the surviving measure.} Sproat's stated limit is that a structured non-linguistic system passes this test as well. The question is what it takes to make a text stop passing it. One English corpus was put through transforms that keep every symbol in the same seat range, so the same measurement path reads all of them (\texttt{data/\allowbreak{}transform\_\allowbreak{}corpus.\allowbreak{}py}).
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
 transform & key length & ratio & mean gap \\
 \midrule
@@ -1787,11 +1837,11 @@ One check on that was attempted and does not support anything. Taking every eigh
 
 Every result above comes from a detector that returns one symbol, the one whose gaps are most regular, and that rejects any candidate occurring less often than once in 64 symbols. Two consequences follow from that construction and neither was intended. The occurrence floor admits only frequent symbols, so the detector can only ever report on the head of the distribution. And ranking by regularity treats variability as failure, and a symbol whose occurrences cluster is scored as a poor candidate.
 
-Under a Zipf distribution the head carries the token count and the tail carries the information, because the surprisal of a symbol is \(-\log p\) and the many rare symbols each contribute more of it. Scoring every symbol against the same permutation null instead of one (\texttt{data/\allowbreak{}measure\_\allowbreak{}spectrum.\allowbreak{}py:34-\allowbreak{}51}) gives the mean ratio over each half of the symbols by frequency:
+Under a Zipf distribution the head carries the token count and the tail carries the information, because the surprisal of a symbol is \(-\log p\) and the many rare symbols each contribute more of it. Scoring every symbol against the same null permutation instead of one (\texttt{data/\allowbreak{}measure\_\allowbreak{}spectrum.\allowbreak{}py:34-\allowbreak{}51}) gives the mean ratio over each half of the symbols by frequency:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
 \toprule
 corpus & head half & tail half \\
 \midrule
@@ -1823,7 +1873,7 @@ The period does not have to be known. Scanning the stride over two ciphertexts o
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/11-2\tabcolsep\relax}@{}}
 \toprule
 stride & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 12 & 16 \\
 \midrule
@@ -1850,7 +1900,7 @@ Sproat's stated limit is that a system with structure and no language passes thi
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
 \toprule
 corpus & head half & tail half \\
 \midrule
@@ -1871,7 +1921,7 @@ The null used above shuffles single symbols, which destroys every arrangement at
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/8-2\tabcolsep\relax}@{}}
 \toprule
 block span & 1 & 8 & 32 & 128 & 512 & 2048 & 8192 \\
 \midrule
@@ -1900,7 +1950,7 @@ One transform defeats all of it. A pseudorandom addend as long as the message gi
 
 So the measure is invariant under relabeling, divided but not destroyed by any periodic key, and recoverable from that division without knowing the period. It is defeated only where key material equals message length. That is a complete statement of what it detects, and it is the same statement in both directions: the structure this document keys on cannot be removed by any transform that a shorter description could undo.
 
-\textbf{The same finding points the other way for the method.} Section 4.13.08 argues that these regularities are regenerated by the conditions that produce a message and are not carried between instances. Sproat's position is the stronger form of that: the structure arises from generators with no communicative intent at all, dice included. A method keying on a property that nearly every generator produces has a wider domain than one keying on a property special to language, and Section 2.1 never required the source to be a language. It requires that something regular produced the bytes.
+\noindent\textbf{The same finding points the other way for the method.} Section 4.13.08 argues that these regularities are regenerated by the conditions that produce a message and are not carried between instances. Sproat's position is the stronger form of that: the structure arises from generators with no communicative intent at all, dice included. A method keying on a property that nearly every generator produces has a wider domain than one keying on a property special to language, and Section 2.1 never required the source to be a language. It requires that something regular produced the bytes.
 
 \subsection{8. Conclusion}
 
@@ -1950,7 +2000,7 @@ The same line builds \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\
 
 \tiny
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\setlength{\rightskip}{0pt}\setlength{\parfillskip}{0pt}\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
 \toprule
 suite & source & count & what it reaches that nothing else does \\
 \midrule
@@ -1981,6 +2031,50 @@ const uint8_t marker = (uint8_t)(kept | (uint8_t)(0x80u >> spare));
 There is one padding implementation, \texttt{mmgr\_\allowbreak{}sha256\_\allowbreak{}finish\_\allowbreak{}with(running, marker, total\_\allowbreak{}bits, digest)}, and both public entries are that function with its two arguments filled in differently. The byte case passes \texttt{0x80} and \texttt{length * 8}, so no second copy exists to drift from the first.
 
 The interface is \texttt{begin}, \texttt{take}, \texttt{finish} with the one shot built on top (\texttt{test/\allowbreak{}support/\allowbreak{}mmgr\_\allowbreak{}sha256.\allowbreak{}h:59-\allowbreak{}99}). It is streaming because a one shot form cannot run the standard's own vectors: TEST3 is a megabyte and an ATSAMD51 has 192 KB of RAM.
+
+\subsection{Appendix B: The examples tree}
+
+Every domain enters at stage 1 and leaves at whichever stage it has an answer for.
+
+The examples under \texttt{examples/\allowbreak{}} are 122 scripts over seven domains, each one a
+stage of the same pipeline. A domain enters at stage 1 and leaves at whichever stage it has an
+answer for.
+
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.71\textwidth}@{}}
+\toprule
+stage & what it settles \\
+\midrule
+\texttt{1\_represent} & what counts as a part, and how a part is written down \\
+\texttt{2\_partition}  & how the parts are cut into the cells a distribution is taken over \\
+\texttt{3\_reference}  & the maximum entropy arrangement the object is measured against \\
+\texttt{4\_measure}    & the departure from it \\
+\texttt{5\_sift}       & what the departure admits or refuses \\
+\texttt{6\_oracle}     & the outside answer, where a domain has one \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}rl@{}}
+\toprule
+domain & scripts & reaches \\
+\midrule
+\texttt{language}        & 60 & oracle \\
+\texttt{any\_corpus}     & 18 & sift \\
+\texttt{art}             &  6 & measure \\
+\texttt{crystallography} &  6 & oracle \\
+\texttt{proteins}        &  4 & sift \\
+\texttt{source}          &  4 & measure \\
+\texttt{sound}           &  1 & represent \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two domains reach an oracle and the rest stop short of one. Crystallography has published cell
+edges and language has hand extractions, and those are the only two places an answer exists that
+this work did not produce. Everything else is measured against its own null permutation and says
+so.
 
 ---
 
