@@ -4,7 +4,7 @@
 #
 # Find the characters and commands inside a document's math that break before the math is rendered.
 #
-#   Usage:  python maint/tex_book/math_hazards.py theory/anchor_sift [more.md]
+#   Usage:  python maint/texbuild/math_hazards.py theory/anchor_sift [more.md]
 #
 # Markdown gets the first pass at the text and the math renderer gets the second, so anything that means
 # something to markdown or to HTML is consumed before the formula is ever parsed. Three of these turned up

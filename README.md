@@ -64,9 +64,9 @@ Each directory answers one question, and that question is the rule for what goes
 | `evidence/` | the claims | the proofs, and the R and MATLAB ports |
 | `data/` | external material | fetchers, and the Salishan pipeline |
 | `analysis/` | a corpus, through `src/` | surveys the books ask for |
-| `examples/` | a corpus, through `src/` | 98 numbered demonstrations, eight domains |
+| `examples/` | a corpus, through `src/` | 99 numbered demonstrations, seven domains |
 | `maint/` | the repository itself | records, gates, prose checks, the book build |
-| `theory/` | the argument | four books |
+| `theory/` | the argument | seven books |
 | `docs/` | the reader | setup and usage |
 
 `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
@@ -142,10 +142,10 @@ That band is where a native speaker belongs. The question there is *is this mine
 
 ## Where to start
 
-The research is four books under `theory/`. Build them:
+The research is seven books under `theory/`. Build them:
 
 ```sh
-sh maint/tex_book/build_theory.sh
+sh maint/texbuild/build_theory.sh
 ```
 
 | you want | book |
@@ -154,6 +154,9 @@ sh maint/tex_book/build_theory.sh
 | what is settled, what is open, what was withdrawn | `theory/workbook` |
 | whose words the corpus holds, and how wrong it could be | `theory/Salishan` |
 | the posits whose experiment cannot be built | `theory/thought_experiments` |
+| a published cell edge read back off a voxel grid, and whose result that is | `theory/crystallography` |
+| where the structure in SHA-256 is, where it stops, and how each null was measured | `theory/cryptography/sha256` |
+| the corpus, the state of the field, and what this toolkit reaches | `theory/millennium` |
 
 ## What is not here
 
@@ -176,4 +179,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 The ledger keeps its own corrections. Claims that were withdrawn stay on the page with the measurement that killed them, because a document recording only what survived is not evidence. Several results are rediscoveries of published work, and where that is known the precedent is named.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-09
+**Date:** 2026-09-11

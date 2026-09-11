@@ -45,9 +45,9 @@ _at = os.path.dirname(os.path.abspath(__file__))
 while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
-# Built from the repository and not by counting parents. Counting put this at maint/data/book,
+# Built from the repository and not by counting parents. Counting put this at maint/data/texbuild,
 # which has never existed, and the import failed with a missing module instead of a wrong path.
-sys.path.insert(0, os.path.join(_at, "maint", "tex_book"))
+sys.path.insert(0, os.path.join(_at, "maint", "texbuild"))
 
 import boundary_check as border  # noqa: E402
 import markdown_to_latex  # noqa: E402
@@ -690,7 +690,7 @@ def main():
                      "the checks that matter report zero and zero failures in a sample is not "
                      "a rate of zero.\n\n")
         handle.write("With no failures in N independent trials the true rate is under 3/N with 95 "
-                     "percent confidence. That is the rule of three and it is what turns a clean "
+                     "percent confidence. That bound is the rule of three, and it turns a clean "
                      "check into a number. Where a check did see a failure, the observed rate is "
                      "reported instead, because it is larger than any bound would be.\n\n")
 
@@ -769,8 +769,8 @@ def main():
         else:
             handle.write("\nNo digit has settled. The bound falls with every paper because every "
                          "paper adds trials and none has yet added a failure. Quoting %.3g as "
-                         "though the 85 meant something would be reporting the format. What the "
-                         "table says is that the extraction is still buying accuracy at the rate "
+                         "though the 85 meant something would be reporting the format. The table "
+                         "shows the extraction still buying accuracy at the rate "
                          "of about one order of magnitude every %.1f papers, and the digit to "
                          "report will settle when that stops.\n\n"
                          % (joint, len(running) / max(1e-9, math.log10(running[0] / running[-1]))
@@ -804,7 +804,7 @@ def main():
                      "independently, not more trials in these three. Section 7 is one: a term "
                      "recovered from the forms and scored against a border a linguist published, "
                      "which fails for a reason none of the three share. Independent channels "
-                     "multiply, and that is the route to an exponent like this one. Section 4 "
+                     "multiply, and that is how an exponent like this one is reached. Section 4 "
                      "is where the independence is doubted, and it should be read before this "
                      "number is quoted anywhere.\n\n")
 
@@ -838,7 +838,7 @@ def main():
         handle.write("\nThe readers get a great deal wrong. The median reproduces %.3f of what its "
                      "table asks for, and the spread runs from one paper to the next with no "
                      "common rate behind it, because each reader was written to one paper's "
-                     "layout. That is why these are a table in Section 3 instead of a term.\n\n"
+                     "layout. These are a table in Section 3 instead of a term for that reason.\n\n"
                      % rate)
         handle.write("A reader that does not reproduce a row is not by itself an impurity. The row "
                      "is in the hand extraction either way, and the extraction is the oracle. What "
@@ -914,8 +914,8 @@ def main():
                              "fail. The border is put back on the same forms at random %d times "
                              "and the radix run again on each, and at width %d only %d of those "
                              "random borders found as much as the published one. Swapping the two "
-                             "sides also negates every deviate exactly, but that is what this "
-                             "estimator does on any two sets whatever and it is evidence of "
+                             "sides also negates every deviate exactly, but this estimator does "
+                             "that on any two sets whatever and it is evidence of "
                              "nothing.\n\n"
                              % (leading["trials"], leading["width"], leading["beaten"]))
                 handle.write("The term carrying the border is the stressed schwa, and it is "

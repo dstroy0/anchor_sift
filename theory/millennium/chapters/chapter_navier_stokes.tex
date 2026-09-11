@@ -1,0 +1,183 @@
+\chapter{Navier--Stokes, and what a formalization checks}
+
+\textbf{Purpose:} Record what the official problem asks, what was published against it on
+2026-09-08, and the result of checking the published formalization's statement against the problem
+statement point by point. \textbf{Scope:} Fefferman's Clay problem description, 6 pages; OpenAI,
+\emph{Finite time blowup for Navier--Stokes}, 166 pages; the Lean~4 repository
+\texttt{openai/\allowbreak{}NavierStokesAndEuler}, four source files of 2{,}669 read.
+
+\section{What the problem asks}
+
+Fefferman's official description sets up the incompressible equations on $\R^n$ for $n=2$ or $3$,
+with viscosity $\nu > 0$, and imposes decay and regularity conditions numbered (4) through (11). It
+then states, in the sentence that governs everything after it:
+
+\begin{quote}
+To give reasonable leeway to solvers while retaining the heart of the problem, we ask for a proof
+of one of the following four statements.
+\end{quote}
+
+The four are (A) existence and smoothness on $\R^3$, (B) the same on $\R^3/\Z^3$, (C) breakdown on
+$\R^3$, and (D) breakdown on $\R^3/\Z^3$. In (A) and (B) the force $f$ is taken identically zero. In
+(C) and (D) it is not. Statement (C) reads, in his words, that for $\nu>0$ and $n=3$ there exist a
+smooth divergence-free $u^\circ$ on $\R^3$ \emph{and a smooth} $f(x,t)$ on
+$\R^3\times[0,\infty)$, satisfying (4) and (5), for which there exist no solutions $(p,u)$ of (1),
+(2), (3), (6), (7) on $\R^3\times[0,\infty)$. Statement (D) is the same with (8) and (9) on the data
+and (10) and (11) on the solution.
+
+So a smooth external force is named inside two of the four statements, and a proof of any one of
+the four is what the problem asks for. The only occurrence of the word \emph{prize} in the document
+is a remark that the Euler equations are not on the Clay Institute's list. There is no passage
+reserving the problem for (A) or (B).
+
+The conditions that matter for the check below are (4), rapid decay of every derivative of the
+initial data; (5), rapid decay of every space-time derivative of the force on the closed half-line;
+(6), smoothness of $p$ and $u$ on $\R^n\times[0,\infty)$; and (7), $\int|u(x,t)|^2\,dx$ bounded by
+one constant for all $t\ge0$, which Fefferman annotates \emph{bounded energy}.
+
+\textbf{The document carries errata and they are load-bearing.} The first reads that the further
+condition $p(x+e_j,t)=p(x,t)$ should be made explicit in Eqn (8). The periodic problem therefore
+requires a periodic pressure, which the body of the statement does not say.
+
+\section{What was published against it}
+
+On 2026-09-08 OpenAI published \emph{Finite time blowup for Navier--Stokes}, 166 pages, together
+with a companion Euler paper and a Lean~4 repository. Its Theorem 1.1 is a construction, not
+directly a non-existence statement:
+
+\begin{quote}
+For every $\nu>0$ there exist a force $f \in C_c^\infty(\R^3\times(0,1);\R^3)$, a compact set
+$K\subset\R^3$, and smooth velocity and pressure fields $u,p$ on $\R^3\times[0,1)$ satisfying
+$\partial_t u + (u\cdot\nabla)u - \nu\Delta u + \nabla p = f$, $\nabla\cdot u = 0$,
+$u(\cdot,0)=0$, such that $\operatorname{supp} u(\cdot,t)\cup\operatorname{supp}p(\cdot,t)\subseteq
+K$ for every $0\le t<1$, $\sup_t \|u(t)\|_{L^2(\R^3)} < \infty$, and
+$\limsup_{t\to1}\|u(t)\|_{L^\infty(\R^3)} = \infty$.
+\end{quote}
+
+Constructing one solution that blows up does not by itself establish (C). Statement (C) asks that
+\emph{no} smooth bounded-energy solution exist on the whole half-line for that datum and force, and
+a blowing-up solution leaves open whether some other smooth global one exists. The paper closes
+that gap and says so in the sentence after the theorem, asserting that consequently there is no
+smooth solution on $\R^3\times[0,\infty)$ with the same force and initial datum whose kinetic
+energy is uniformly bounded, and that this establishes alternative (C) as stated by Fefferman.
+
+The argument for the gap is in the proof of Theorem 1.1 in section 10.4. Smoothness and fixed
+compact support put the field in $C([0,T];H^3)$ for each $T<1$; the embedding
+$H^3(\R^3)\hookrightarrow L^\infty(\R^3)$ excludes a classical $H^3$ continuation through time one;
+a difference-energy calculation with Gr\"onwall gives uniqueness on every shorter interval, making
+$[0,1)$ the maximal classical existence interval. A supposed global smooth competitor of uniformly
+bounded energy is then forced by the comparison lemma to agree with the constructed field
+throughout $[0,1)$, which contradicts its own boundedness. Every fixed positive viscosity is
+reached by a spatial rescaling that leaves the singular time at one.
+
+Statement (D) is Corollary 10.6, obtained by rescaling the compact supports into the interior of a
+fundamental cube and summing integer translates, whose supports stay disjoint so the nonlinear term
+survives. The corollary's proof states that the pressure is periodic as well, \emph{as required in
+the erratum to the problem statement}. The authors read the errata.
+
+\section{What a proof assistant does not check}
+
+This project's position on machine-checked proof, stated before this chapter was written, is that
+Lean verifies the deduction and never the claim. A proof assistant confirms that a conclusion
+follows from the assumptions as written. It cannot confirm that the statement formalized is the
+statement anybody meant. A machine-checked proof of a neighbouring theorem compiles exactly as
+cleanly as a machine-checked proof of the right one, and nothing in the compile distinguishes them.
+The burden therefore moves entirely onto the formalized statement, and that statement is a
+translation, which is the part no proof assistant checks.
+
+That makes the formalized statement a finite document a person reads word by word. The rest of this
+chapter is that reading.
+
+\section{The statement check}
+
+Six points were checked against the Lean statement in
+\texttt{ComparatorChallenges/\allowbreak{}NavierStokes.\allowbreak{}lean} and against Fefferman's
+numbered conditions. The first five were specified before the file was opened. The sixth was added
+because the file itself raised it.
+
+\begin{center}
+\begin{tabular}{@{}p{0.30\textwidth}p{0.44\textwidth}c@{}}
+\toprule
+Point & What the Lean statement carries & Verdict \\
+\midrule
+Viscosity strictly positive, and not a vanishing-viscosity limit
+& \texttt{(nu : R) (hnu : nu > 0)}, universally quantified over the theorem
+& matches \\[0.5em]
+Condition (4) on the initial data, unrelaxed
+& \texttt{InitialVelocityConditionDecay}: divergence-free, $C^\infty$, and for every derivative
+order $m$ and every $K$ a constant $C$ with
+$\|\nabla^m u_0(x)\| \le C/(1+\|x\|)^K$
+& matches \\[0.5em]
+Condition (5) on the force, unrelaxed, on the closed half-line
+& \texttt{ForceConditionDecay}: $C^\infty$ on $\mathrm{univ}\times[0,\infty)$ and
+$\|\nabla^m f(x,t)\| \le C/(1+\|x\|+t)^K$ for all $t\ge0$
+& matches \\[0.5em]
+Conclusion in the negated existential form Fefferman quantifies
+& \texttt{not (exists v p, NavierStokesExistence\-AndSmoothnessRn nu u0 f v p)}
+& matches \\[0.5em]
+Energy bounded uniformly in time, not at $t=0$ alone
+& \texttt{globally\_bounded\_energy}: there exists $E$ such that for all $t\ge0$,
+$\int\|v(x,t)\|^2 < E$; plus square-integrability at each $t\ge0$
+& matches \\[0.5em]
+The periodic pressure condition from the errata
+& \texttt{isOnePeriodic\_pressure} on the periodic structure, annotated in the source as following
+the Clay errata
+& matches \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The equation itself is encoded with the time derivative taken as a derivative within
+$[0,\infty)$, which is the right treatment given that Fefferman states equation (1) on the closed
+half-line. Divergence is defined as the trace of the Jacobian and carries an explicit junk value of
+zero at points of non-differentiability, which is declared in the source rather than left implicit.
+
+\section{The statement is not the authors' own, and that is the strongest fact here}
+
+The file carrying the statement is a \emph{comparator challenge}. Its header records that it was
+copied, at a named commit, from the Formal Conjectures project's Lean formalization of the
+Navier--Stokes problem statement, that the breakdown alternatives (C) and (D) are retained
+\emph{including their intentional placeholder gaps}, and that neither the proof root nor the
+submission imports it. Both theorems in that file end in a placeholder and prove nothing. It is a
+yardstick and not a result.
+
+The discharge is a separate module. It restates both theorems with textually identical statements
+and closes each by applying a bridge lemma from the project's own development, declaring no axioms
+and leaving no placeholder, and it ends by printing the axiom dependencies of both theorems. The
+repository's instructions direct a checker to verify the two challenges with an external checking
+tool under a sandbox, using an independent exporter and an independent kernel rather than Lean's
+own.
+
+That architecture is a direct answer to the objection this chapter opened with. The concern is that
+an author who writes both the statement and the proof can machine-check a translation of their own
+choosing. Here the statement was written by a third party, published beforehand, for the purpose of
+stating the problem and not of being proved; the authors adopted it unmodified and discharged it;
+and the axiom base is printed rather than asserted. The translation is still the thing to read, and
+this chapter read it, but the party that wrote it had no stake in what would later be proved
+against it.
+
+\section{What was not verified, stated here and not in a footnote}
+
+\textbf{Nothing here was machine-checked.} The Lean development was not built. No proof was
+executed, no axiom output was observed, and the claim that the discharge module compiles without
+placeholders rests on reading its source text rather than on running it. The check in this chapter
+is a reading of four files out of 2{,}669.
+
+\textbf{The proof was not read.} The 166-page paper was read at its abstract, its introduction, its
+Theorem 1.1, the section 10.4 argument that bridges to the non-existence form, and Corollary 10.6.
+The mathematical content of sections 3 through 9 and the three appendices was not read. The bridge
+lemma the discharge module applies was not traced into the development.
+
+\textbf{The priority dispute was not investigated.} A dispute over credit is running in this field.
+It was not examined for this book, no position is taken on it, and nothing in this chapter bears on
+it either way.
+
+\textbf{One reported fact is recorded as reported.} That the authors have stated they will not claim
+the Millennium Prize appeared in a headline encountered during the search and was not confirmed
+against any statement of theirs. It is written here as an unverified report and should not be
+repeated from this book as anything else.
+
+\textbf{And the status question is separate from the mathematics question.} Whether the Clay
+Mathematics Institute has accepted, awarded, or will award anything was not verified and is not
+asserted. What this chapter establishes is narrower and is the part that is checkable: the
+statement discharged in Lean is the statement Fefferman wrote, on all six points examined.

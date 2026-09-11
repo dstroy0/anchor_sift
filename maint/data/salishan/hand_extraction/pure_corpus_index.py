@@ -32,9 +32,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ORACLES = os.path.join(ROOT, "build", "oracles")
 
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "corpus_script_extraction"))
-# Built from the repository root and not by counting parents. Counting put this at data/book,
+# Built from the repository root and not by counting parents. Counting put this at data/texbuild,
 # which has never existed, and the import failed with a missing module instead of a wrong path.
-sys.path.insert(0, os.path.join(ROOT, "maint", "tex_book"))
+sys.path.insert(0, os.path.join(ROOT, "maint", "texbuild"))
 
 import markdown_to_latex  # noqa: E402
 from paper_config import PAPERS  # noqa: E402

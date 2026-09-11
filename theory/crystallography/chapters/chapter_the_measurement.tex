@@ -24,9 +24,9 @@ An axis is read as a lookup from a coordinate to the arrangement standing at it.
 
 The values have to be in the comparison. Leaving them out reads a rocksalt cell at half its published edge, correctly: the two sublattices interleave, so the positions alone do repeat every $a/2$ and only the elements distinguish the two halves.
 
-The candidates are every difference between two occupied coordinates, which is the complete set. A period that agrees with anything at all is by construction a difference between two things that agree, so it is in the set. There is no sweep, no ceiling and no stride, and nothing in the measure narrows what can be found.
+The candidates are every difference between two occupied coordinates, and that set is complete. A period that agrees with anything at all is by construction a difference between two things that agree, so it is in the set. There is no sweep, no ceiling and no stride, and nothing in the measure narrows what can be found.
 
-\textbf{Membership is the only relation asked of the set, so the search is a lookup and not an ordering.} A binary search over sorted coordinates answers the same question and imposes an order the set does not have, paying a full comparison at every step of it. The engine's C arms did exactly that until it was noticed.
+\textbf{Membership is the only relation asked of the set, so the search is a lookup.} A binary search over sorted coordinates answers the same question and imposes an order the set does not have, paying a full comparison at every step of it. The engine's C arms did exactly that until it was noticed.
 
 \textbf{Taking the tallest lag is wrong, and it was taken that way first.} A lattice of period $P$ agrees with itself just as well at $2P$ and at $3P$. Which of those is tallest is settled by noise, so the tallest lag reports a harmonic and not the fundamental. Read that way, published cell edges came back at almost exactly twice their value on ten of eighteen axes.
 
@@ -42,4 +42,4 @@ Stated before the numbers, since afterwards it is worth nothing.
 
 A recovered period not equal to the published edge would mean the detector is not reading the period. A near miss counts as a miss, since nothing in this path rounds and there is no tolerance to fall inside. A systematic bias in one direction would mean it is reading the tiling and not the crystal, since the tiling is the only structure present that the mineral did not put there. Both are visible in the reported columns without knowing which entry is which.
 
-The gridded reading set that bar at one voxel instead, because it had a voxel. It passed 453 of 453 and carried a bias of $-0.0067$ angstroms that it could not account for. The exact reading passes the stricter test and has no bias to explain, which is the same evidence read without a floor under it.
+The gridded reading set that bar at one voxel instead, because it had a voxel. It passed 453 of 453 and carried a bias of $-0.0067$ angstroms that it could not account for. The exact reading passes the stricter test and has no bias to explain. That is the same evidence, read without a floor under it.

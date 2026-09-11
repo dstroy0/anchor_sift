@@ -28,6 +28,29 @@ __pycache__/
 *.pyc
 *.pyo
 
+# What a LaTeX run leaves beside the source when it is not given an output directory.
+#
+# maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this. TeXworks
+# and TeXShop compile IN PLACE, so a book opened in one of those to look at it comes back with a
+# .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/anchor_sift picked
+# up twelve such files that way, 705,688 bytes of it one synctex, and the arXiv packager copied
+# every one of them into a submission before it learned to skip them.
+#
+# main.pdf is named rather than *.pdf on purpose. The corpus derivation chapter includes a
+# matplotlib figure that is a PDF and belongs to the source.
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+*.synctex
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+theory/*/main.pdf
+theory/*/*/main.pdf
+
 # Editor and OS leavings.
 .vscode/
 .idea/

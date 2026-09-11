@@ -7,20 +7,22 @@
 
 Tile a published unit cell, carry every site as an exact integer, and score how well the arrangement agrees with itself shifted by each candidate offset along one axis. The offset where agreement peaks is the cell edge.
 
-That is an autocorrelation, and it is one because of what the code does. \texttt{lattice\_\allowbreak{}agreement} compares a grid against a shifted copy of itself and returns the share of positions holding the same value, swept over every lag. The claim can be checked against the file and rests on nothing else.
+That is an autocorrelation. \texttt{lattice\_\allowbreak{}agreement} takes one lag, compares the grid against a copy of itself shifted by that lag along one axis, and returns the share of \emph{occupied} cells whose neighbor at that distance carries the same value. The caller sweeps the lag.
+
+Empty cells are left out. The measurement depends on that exclusion: a voxel grid built from atom sites is mostly empty, so counting the empty positions would report how empty the grid is, which every structure agrees on. The claim is checkable against \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py:97}.
 
 \section{Somebody has almost certainly been here first}
 
 An autocorrelation of density in a crystal is very unlikely to be new. A century of crystallography has worked on exactly this object, and the reasonable prior is that this construction has a name, a date and a literature behind it.
 
-That is the good outcome and not the bad one. This construction was reached from a general question about how far an arrangement sits from the most disordered arrangement of its own parts, with no crystal in mind. Arriving from there at something a field already uses is evidence that the general question is pointed at something real, and it would be a worse result to arrive somewhere nobody had ever needed to go.
+That is the good outcome and not the bad one. This construction was reached from a general question about how far an arrangement sits from the most disordered arrangement of its own parts, with no crystal in mind. Arriving from there at something a field already uses is evidence that the general question is pointed at something real. Arriving somewhere nobody had ever needed to go would have been the weaker result.
 
-\textbf{So no priority is claimed here, and none is wanted.} What is missing is the reading: somebody has to work through the crystallographic literature and write down what it says, and that has not been done. Until it is, nothing in these chapters is a claim to a new method and nothing in them is an attribution either. The reading is worth doing for its own sake, and whoever does it will find out what this actually is.
+\textbf{So no priority is claimed here, and nobody wants any.} The reading is what is missing: somebody has to work through the crystallographic literature and write down what it says, and that has not been done. Until it is, nothing in these chapters is a claim to a new method and nothing in them is an attribution either. The reading is worth doing for its own sake, and whoever does it will find out what this actually is.
 
-\section{Why a crystal is the control and not the subject}
+\section{Why the crystal is here as a control}
 
 The interest of this chapter is not the cell edge. Cell edges are published, refined to more decimal places than anything here reaches, and recovering one adds nothing to crystallography.
 
-The interest is that the answer is known in advance by somebody else. Every other control in this work until the protein structures was a memoryless process, and a memoryless control can only show that an instrument does not invent structure. It cannot show that the instrument finds structure that is there. Those are different claims, and an instrument has to earn the second.
+The interest is that the answer is known in advance by somebody else. Every other control in this work until the protein structures was a memoryless process, and a memoryless control shows only that an instrument does not invent structure. It cannot show that the instrument finds structure that is there. Those are different claims, and an instrument has to earn the second.
 
 A crystal earns it. The periodicity is not inferred from the measurement, it is a fact about the mineral, and the Crystallography Open Database publishes the cell for every entry it holds. The number the detector has to hit was written down before this instrument existed, by people with no interest in whether it works.

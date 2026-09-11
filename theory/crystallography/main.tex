@@ -1,4 +1,9 @@
+% !TEX TS-program = lualatex
 % Hand-written. markdown_to_latex.py is retired: theory/ is the source.
+%
+% The line above picks the engine in TeXworks and TeXShop. Typesetting this with pdfLaTeX stops on
+% \RequireLuaTeX in the preamble, and preamble.tex on its own stops sooner than that: it carries no
+% \documentclass because this file supplies one and then reads it.
 %
 % Compile from this directory so the shared inputs resolve:
 %     latexmk -pdf -outdir=../../build/theory/crystallography main.tex
@@ -19,6 +24,8 @@ headinclude,footinclude,BCOR=5mm]{scrbook}
 \frontmatter
 \pagestyle{plain}
 \include{frontmatter/titlepage}
+\input{../dedication.tex}
+\include{frontmatter/abstract}
 
 \tableofcontents
 

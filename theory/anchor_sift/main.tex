@@ -1,5 +1,10 @@
+% !TEX TS-program = lualatex
 % Edited by hand. theory/ is the source; docs/research points here.
-% Build with sh maint/tex_book/build_theory.sh anchor_sift
+% Build with sh maint/texbuild/build_theory.sh anchor_sift
+%
+% The line above picks the engine in TeXworks and TeXShop. Typesetting this with pdfLaTeX stops on
+% \RequireLuaTeX in the preamble, and preamble.tex on its own stops sooner than that: it carries no
+% \documentclass because this file supplies one and then reads it.
 \documentclass[11pt,paper=a4,twoside,openright,titlepage,
 headinclude,footinclude,BCOR=5mm]{scrbook}
 
@@ -17,6 +22,7 @@ headinclude,footinclude,BCOR=5mm]{scrbook}
 \frontmatter
 \pagestyle{plain}
 \include{frontmatter/titlepage}
+\input{../dedication.tex}
 \include{frontmatter/abstract}
 
 \tableofcontents

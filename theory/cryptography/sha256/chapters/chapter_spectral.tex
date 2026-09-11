@@ -4,7 +4,7 @@
 
 \section{Why a maximum was the wrong reading}
 
-Every strict avalanche reading in the literature and in this work takes the largest of \(131{,}072\) cells and discards the other \(131{,}071\). That is what makes it peak at \(\sqrt{2 \ln N}\) whatever the function does. A structure spread thinly across many cells is invisible to a maximum and plain to a sum.
+Every strict avalanche reading in the literature and in this work takes the largest of \(131{,}072\) cells and discards the other \(131{,}071\). A maximum over that many cells peaks at \(\sqrt{2 \ln N}\) whatever the function does. A structure spread thinly across many cells is invisible to a maximum and plain to a sum.
 
 SHA-256 is built from rotations, and a rotation makes bit \(j\) depend on bit \(j - r\). If any of that survives into the dependency matrix it appears as a function of \((\text{input bit} - \text{output bit}) \bmod 32\), spread over every word pair rather than concentrated anywhere. Folding the cells onto that residue puts \(4096\) of them behind each number instead of one.
 

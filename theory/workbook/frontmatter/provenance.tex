@@ -1,0 +1,99 @@
+\pdfbookmark[1]{How this was found}{Provenance}
+\chapter*{How this was found}
+
+This section records the order in which things happened, because the order bears on how the results
+should be read.
+
+\section*{The author's position}
+
+I have no classical training in mathematics, linguistics, crystallography, cryptography or
+information theory. I am self-taught across all of them, arrived at each one sideways, and did not
+come to any of them through a curriculum, a supervisor or a department. I also have difficulty
+communicating, which is why the prose in these books is checked by a tool rather than trusted.
+
+That is stated first because it explains the shape of what follows. Somebody trained in a field
+reads its literature before building, and meets a precedent before writing a line. I built first and
+read afterward. Every precedent named in these books was found that way, and finding one late is not
+the same as finding one early.
+
+\section*{Why the refuted entries are kept}
+
+Honesty is the stated reason and it is not the working one.
+
+I do not limit myself to conventional thought, or to conventional mathematics, and I do not accept a
+result because it arrived looking the way a result is supposed to look. That is how several things
+here were found. It is also how somebody working this way gets a long way down a wrong road without
+anybody stopping them, because there is no field standing behind me to say the road is wrong.
+
+So the ledger is the thing that stops me. Writing down what a measurement killed, beside the claim
+it killed, is how I keep scrutinizing what I already think I know. An entry that says what was
+believed, what was measured, and which of the two lost is a check I can run on myself later, and it
+is the only check available to somebody with no supervisor and no committee.
+
+So an entry here is not a confession and should not be read as one. Refuted entries are
+working notes. The document would be less useful without them and so would I.
+
+\section*{The timeline is in the repository and it is signed}
+
+The first commit of this repository is dated 2026-09-04 and carries a GPG signature. Its subject is
+human language signature detection research. Seven days separate it from the date on this page.
+
+Most of what is cited in these books I had not read before that commit. That is checkable rather
+than asserted: the history records when each result appeared, when each search for a precedent was
+run, and when the citation was entered. A reader who doubts the order can read it off the commits
+instead of taking this section's word for it.
+
+The seven days are also why the precedents arrive where they do. There was no interval in which to
+read a field first. Each result was built, and then somebody went looking for who had already had
+it.
+
+\section*{The order the precedents were found in}
+
+The construction was reached from one general question, about how far an arrangement sits from the
+most disordered arrangement of its own parts. No crystal, no cipher and no corpus was in mind. Each
+domain here is that question with a different answer to what counts as a part.
+
+Arriving from there at something a field already uses is the good outcome. It is evidence the
+general question points at something real, and arriving somewhere nobody had ever needed to go would
+have been the weaker result. What it costs is priority, and no priority is claimed here.
+
+Each precedent was found by asking, once a result existed, how such a thing could have gone
+unnoticed. That question is what produced the search, and the search is what produced the citation.
+
+\begin{itemize}
+  \item \textbf{The cross-language ordering result.} Montemurro and Zanette,
+    \_Universal Entropy of Word Ordering Across Linguistic Families\_, PLoS ONE 6(5):e19875, 2011.
+    Two hundred times the sample here, reaching Old Egyptian and Sumerian, and fourteen years
+    earlier. The conclusion is theirs. This work reached it independently and later.
+  \item \textbf{The permutation null.} Fisher, 1935, and standard in statistics ever since.
+  \item \textbf{The maximum entropy reference.} Jaynes, 1957, and standard in physics.
+  \item \textbf{Filtering with a necessary condition.} Standard in string matching, with Navarro
+    reporting it dominating a large range of parameters. A necessary condition used to discard
+    candidates, with a mandatory verification pass, is the filtering paradigm and it has a
+    literature. No claim of novelty for the construction survives that reading.
+  \item \textbf{The injectivity of the $\Sigma$ functions.} Handschuh and Gilbert, by a polynomial
+    argument, reproduced here for all four functions rather than two.
+\end{itemize}
+
+\section*{Where the reading has not been done, and it is marked}
+
+The crystallographic literature has not been worked through. An autocorrelation of density in a
+crystal is very unlikely to be new, a century of the field has worked on exactly that object, and
+the reasonable prior is that the construction has a name, a date and a literature behind it. Nobody
+here has gone and found out. Until somebody does, nothing in that book is a claim to a new method
+and nothing in it is an attribution either.
+
+\section*{What now checks this}
+
+A claim that something here is new, first, or absent from the literature is a claim about everybody
+else's work, and it is the one kind of claim this repository cannot settle from inside itself.
+\texttt{maint/\allowbreak{}citations/\allowbreak{}prior\_\allowbreak{}works.\allowbreak{}py} reads
+the books for that shape and reports every instance that carries neither a reference nor a plain
+statement that the reading has not been done. It reports and never decides, because no pattern
+separates a claim about this work's priority from a description of somebody else's.
+
+\texttt{maint/\allowbreak{}citations/\allowbreak{}citations.\allowbreak{}py} holds the other half. A
+surname in a comment is not a citation, and a source is registered only once somebody has the thing
+open and can enter an author, a year, a title and an identifier. A row entered and left empty is the
+honest state of a source nobody has looked up, and it holds until somebody looks it up.
+\cleardoublepage

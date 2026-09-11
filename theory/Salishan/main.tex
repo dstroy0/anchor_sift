@@ -1,4 +1,10 @@
-% Edited by hand. Nothing generates this file; sh maint/tex_book/build_theory.sh compiles it.
+% !TEX TS-program = lualatex
+% Edited by hand. Nothing generates this file; sh maint/texbuild/build_theory.sh compiles it.
+%
+% The line above picks the engine in TeXworks and TeXShop. Typesetting this with pdfLaTeX stops on
+% \RequireLuaTeX in the preamble, and preamble.tex on its own stops sooner than that: it carries no
+% \documentclass because this file supplies one and then reads it.
+%
 % Compile from this directory so the shared inputs resolve:
 %     latexmk -pdf -outdir=../../build/theory/Salishan main.tex
 \documentclass[11pt,paper=a4,twoside,openright,titlepage,
@@ -18,6 +24,8 @@ headinclude,footinclude,BCOR=5mm]{scrbook}
 \frontmatter
 \pagestyle{plain}
 \include{frontmatter/titlepage}
+\input{../dedication.tex}
+\include{frontmatter/abstract}
 
 \tableofcontents
 

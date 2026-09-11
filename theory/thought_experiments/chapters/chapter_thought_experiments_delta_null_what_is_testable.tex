@@ -8,7 +8,7 @@ The idea is filed as wacky and it is. It keeps its own theory instead of sitting
 
 \subsection{Three claims, and where each one stands}
 
-\textbf{Invariance under translation, permutation, and change of coordinate representation. Measured, and it holds.} This is not an argument, it is what \texttt{bench\_\allowbreak{}lattice} sweeps: 3,421 rows over alphabets of 2 to 256 symbols, patterns of 1 to 32 points, dimensions 1 through 8, a rotated point set, a scatter no rectangle covers, a complex alphabet with irrational parts compared over its storage, and an order check against a permuted base list. 465,546 true occurrences, none refused. The core takes a base list, a displacement list, and a callback answering whether two positions carry the same symbol, so it has no dimension parameter and no symbol type, and a core that cannot see either one cannot depend on either one.
+\textbf{Invariance under translation, permutation, and change of coordinate representation. Measured, and it holds.} \texttt{bench\_\allowbreak{}lattice} sweeps exactly this: 3,421 rows over alphabets of 2 to 256 symbols, patterns of 1 to 32 points, dimensions 1 through 8, a rotated point set, a scatter no rectangle covers, a complex alphabet with irrational parts compared over its storage, and an order check against a permuted base list. 465,546 true occurrences, none refused. The core takes a base list, a displacement list, and a callback answering whether two positions carry the same symbol, so it has no dimension parameter and no symbol type, and a core that cannot see either one cannot depend on either one.
 
 \textbf{Hitting the boundary once permanently excludes the point. Measured, and it holds.} The contrapositive is Proposition 1: any subset of a pattern's points is a necessary condition. A failure at one anchor refutes the alignment and no later evidence can restore it. Every arm in the kernel rests on that, and every bench running two arms against the exact compare checks it on every row.
 
@@ -16,7 +16,7 @@ The idea is filed as wacky and it is. It keeps its own theory instead of sitting
 
 \subsection{So the demon can refuse and cannot predict}
 
-The strong form is dead and the measurement that killed it was already in the tree before the idea was written down. What survives is the weak form, and the weak form is the algorithm: an anchor set is a boundary, crossing it is final, and nothing about crossing it tells you what was on the other side.
+The strong form is dead and the measurement that killed it was already in the tree before the idea was written down. The weak form survives, and the weak form is the algorithm: an anchor set is a boundary, crossing it is final, and nothing about crossing it tells you what was on the other side.
 
 That is worth keeping because it is a real constraint and not a disappointment. A filter that refutes cheaply and determines nothing is the shape the whole construction has, and it is the reason soundness is free while completeness costs a full compare.
 

@@ -1,8 +1,13 @@
 % ====================================================================
 % PREAMBLE.TEX - shared by every theory under theory/
 % ====================================================================
+% THIS FILE IS NOT A DOCUMENT AND WILL NOT TYPESET ON ITS OWN. It carries no \documentclass,
+% because a book supplies one and then reads this. Opening it in TeXworks and pressing typeset
+% stops at the first \usepackage with "LaTeX Error: \usepackage before \documentclass". Open the
+% book's main.tex instead; each one names lualatex on its first line so the engine is already set.
+%
 % Every book shares this file. A layout change reaches all of them. Build them with
-% maint/tex_book/build_theory.sh, which compiles twice and fails on a dropped glyph.
+% maint/texbuild/build_theory.sh, which compiles twice and fails on a dropped glyph.
 %
 % Compile with lualatex. pdflatex stops dead on the first Greek letter in the construction chapter,
 % and these books quote 392 IPA characters, 182 spacing modifiers and 175 combining marks besides.
@@ -55,6 +60,23 @@ pdfspacing]{classicthesis}
   RawFeature={fallback=theoryfallback},
 ]
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase, RawFeature={fallback=theorymonofallback}]
+
+% The text block, set after classicthesis so this wins.
+%
+% classicthesis calls \areaset[current]{356pt}{700pt} on A4 at 11pt. An A4 page is 597pt wide, so
+% that leaves 241pt of margin, and a 7em marginpar gutter is carved out of one side of it. Forty
+% percent of every page is blank, which is a page design for a printed thesis read at a desk with a
+% pencil. These books are read on a screen and posted to an archive.
+%
+% 430pt against 597pt puts the text at 72 percent and keeps about 29mm a side. Wider than that and
+% the line runs past what is comfortable to read at 11pt; narrower and the longtables in the ledger
+% and the reproductions chapter start breaking columns they currently fit.
+%
+% The marginpar gutter goes with it. Nothing in these six books sets a margin note, so the space was
+% reserved for a feature none of them use.
+\areaset[current]{430pt}{720pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
 
 \let\eth\relax
 \usepackage{amsmath,amsthm}

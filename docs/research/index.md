@@ -1,7 +1,7 @@
 # Research
 
 **Purpose:** Say where the research is and how to build it.
-**Scope:** `theory/`, and `maint/tex_book/build_theory.sh`, which builds it.
+**Scope:** `theory/`, and `maint/texbuild/build_theory.sh`, which builds it.
 
 The research is in `theory/`, as books. It was kept here as markdown once. Two copies of a document drift apart, and the copy a reader finds first is then wrong.
 
@@ -19,7 +19,7 @@ The research is in `theory/`, as books. It was kept here as markdown once. Two c
 ## Building them
 
 ```sh
-sh maint/tex_book/build_theory.sh
+sh maint/texbuild/build_theory.sh
 ```
 
 The PDFs land in `build/theory/<book>/main.pdf`. The build runs LuaLaTeX twice, because the table of contents is written on the first pass and read on the second, and it fails if any book drops a glyph.
@@ -27,7 +27,7 @@ The PDFs land in `build/theory/<book>/main.pdf`. The build runs LuaLaTeX twice, 
 One book on its own:
 
 ```sh
-sh maint/tex_book/build_theory.sh workbook
+sh maint/texbuild/build_theory.sh workbook
 ```
 
 ## What the split is for

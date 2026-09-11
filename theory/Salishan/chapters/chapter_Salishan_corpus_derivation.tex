@@ -8,7 +8,7 @@ Rewritten by \texttt{python maint/\allowbreak{}data/\allowbreak{}salishan/\allow
 
 For one line of the pure corpus, the probability that it is not what it claims to be: not the target language, or not what the paper printed. Every number below is an upper bound on that, never a measurement of it, because the checks that matter report zero and zero failures in a sample is not a rate of zero.
 
-With no failures in N independent trials the true rate is under 3/N with 95 percent confidence. That is the rule of three and it is what turns a clean check into a number. Where a check did see a failure, the observed rate is reported instead, because it is larger than any bound would be.
+With no failures in N independent trials the true rate is under 3/N with 95 percent confidence. That bound is the rule of three, and it turns a clean check into a number. Where a check did see a failure, the observed rate is reported instead, because it is larger than any bound would be.
 
 \subsection{2. What the checks have seen}
 
@@ -39,7 +39,7 @@ Paper & Rows & Forms checked & Not in paper & Tokens checked & No row holds & Co
 \texttt{Matthewson\_\allowbreak{}Redan\_\allowbreak{}ICSNL61} & 104 & 225 & 0 & 123 & 0 & yes \\
 \texttt{Alexander\allowbreak{}Davis\_\allowbreak{}ICSNL61} & 541 & 1476 & 0 & 282 & 0 & yes \\
 \texttt{22-\allowbreak{}Nater-\allowbreak{}Bella-\allowbreak{}Coola-\allowbreak{}tale-\allowbreak{}10} & 285 & 579 & 0 & 313 & 0 & yes \\
-\texttt{ICSNL59\_\allowbreak{}La\allowbreak{}Fontaine\_\allowbreak{}Janzen\_\allowbreak{}final} & 226 & 830 & 0 & 349 & 0 & yes \\
+\texttt{ICSNL59\_\allowbreak{}La\allowbreak{}Fontaine\_\allowbreak{}Janzen\_\allowbreak{}final} & 226 & 829 & 0 & 349 & 0 & yes \\
 \texttt{ICSNL59\_\allowbreak{}Garcia\_\allowbreak{}Hannon\_\allowbreak{}Stacey\_\allowbreak{}final} & 371 & 784 & 0 & 488 & 0 & yes \\
 \texttt{ICSNL56\_\allowbreak{}Davis\allowbreak{}J\_\allowbreak{}2\_\allowbreak{}final-\allowbreak{}1} & 1661 & 2131 & 0 & 557 & 0 & yes \\
 \texttt{Hall\allowbreak{}Phillips\allowbreak{}ICSNL60} & 406 & 1118 & 0 & 639 & 0 & yes \\
@@ -55,7 +55,7 @@ Paper & Rows & Forms checked & Not in paper & Tokens checked & No row holds & Co
 \texttt{Hall-\allowbreak{}et-\allowbreak{}al\_\allowbreak{}-\allowbreak{}ICSNL\_\allowbreak{}61-\allowbreak{}1} & 494 & 508 & 0 & 369 & 0 & yes \\
 \texttt{ICSNL58\_\allowbreak{}Davis\_\allowbreak{}Mellesmoen\_\allowbreak{}final} & 441 & 483 & 0 & 425 & 0 & yes \\
 \texttt{1967\_\allowbreak{}Hamp} & 154 & 1176 & 337 & 1 & 1 & no \\
-\texttt{ICSNL58\_\allowbreak{}Givens\_\allowbreak{}Hall\_\allowbreak{}final} & 178 & 896 & 97 & 161 & 2 & yes \\
+\texttt{ICSNL58\_\allowbreak{}Givens\_\allowbreak{}Hall\_\allowbreak{}final} & 178 & 896 & 80 & 161 & 2 & yes \\
 \texttt{1967\_\allowbreak{}Hess} & 248 & 707 & 281 & 16 & 16 & no \\
 \texttt{1967\_\allowbreak{}Elmendorf} & 276 & 1445 & 631 & 197 & 196 & no \\
 \texttt{1967\_\allowbreak{}Kinkade} & 316 & 871 & 518 & 1 & 1 & no \\
@@ -63,7 +63,7 @@ Paper & Rows & Forms checked & Not in paper & Tokens checked & No row holds & Co
 \end{longtable}
 \normalsize
 
-17 of the 25 hand extractions are checked against a sound source. Together they put 15155 distinct written forms and 7451 language tokens through the two directions.
+17 of the 25 hand extractions are checked against a sound source. Together they put 15154 distinct written forms and 7451 language tokens through the two directions.
 
 \subsection{3. The channels}
 
@@ -77,7 +77,7 @@ The reader counts are not a channel here. A reader is written for one paper, and
 \toprule
 Channel & Failures & Trials & Bound \\
 \midrule
-a form written that the paper does not hold & 97 & 15155 & 0.0064 \\
+a form written that the paper does not hold & 80 & 15154 & 0.00528 \\
 a token in the paper that no row holds & 2 & 7451 & 0.000268 \\
 a token the corpus lost on the way out & 3 & 9512 & 0.000315 \\
 \bottomrule
@@ -86,7 +86,7 @@ a token the corpus lost on the way out & 3 & 9512 & 0.000315 \\
 
 A line has to pass all three. Taking them as independent, the joint bound is the product:
 
-\textbf{5.42e-10} per line
+\textbf{4.47e-10} per line
 
 \subsubsection{How much of that number has settled}
 
@@ -103,23 +103,23 @@ Papers counted & Joint bound \\
 3 & 4.421e-09 \\
 4 & 1.275e-09 \\
 5 & 7.64e-10 \\
-6 & 4.666e-10 \\
-7 & 2.954e-10 \\
+6 & 4.667e-10 \\
+7 & 2.955e-10 \\
 8 & 1.6e-10 \\
 9 & 1.103e-10 \\
-10 & 9.007e-11 \\
-11 & 7.684e-11 \\
-12 & 6.457e-11 \\
-13 & 5.743e-11 \\
-14 & 3.293e-11 \\
-15 & 3.001e-11 \\
+10 & 9.008e-11 \\
+11 & 7.685e-11 \\
+12 & 6.458e-11 \\
+13 & 5.744e-11 \\
+14 & 3.294e-11 \\
+15 & 3.002e-11 \\
 16 & 2.731e-11 \\
-17 & 5.419e-10 \\
+17 & 4.469e-10 \\
 \bottomrule
 \end{longtable}
 \normalsize
 
-No digit has settled. The bound falls with every paper because every paper adds trials and none has yet added a failure. Quoting 5.42e-10 as though the 85 meant something would be reporting the format. What the table says is that the extraction is still buying accuracy at the rate of about one order of magnitude every 11.1 papers, and the digit to report will settle when that stops.
+No digit has settled. The bound falls with every paper because every paper adds trials and none has yet added a failure. Quoting 4.47e-10 as though the 85 meant something would be reporting the format. The table shows the extraction still buying accuracy at the rate of about one order of magnitude every 10.5 papers, and the digit to report will settle when that stops.
 
 \subsubsection{Where 1e-26 lands}
 
@@ -131,18 +131,18 @@ The target this file was asked for is 1e-26 per line over the whole extraction. 
 \toprule
 Channel & Trials now & Trials at 993 papers & Bound then \\
 \midrule
-a form written that the paper does not hold & 15155 & 885230 & 3.39e-06 \\
+a form written that the paper does not hold & 15154 & 885171 & 3.39e-06 \\
 a token in the paper that no row holds & 7451 & 435226 & 6.89e-06 \\
 a token the corpus lost on the way out & 9512 & 555612 & 5.4e-06 \\
 \bottomrule
 \end{longtable}
 \normalsize
 
-Reading all 993 papers of the archive, and finding nothing wrong in any of them, takes the joint bound from 5.42e-10 to about 1.26e-16. That is 10 orders of magnitude short of 1e-26.
+Reading all 993 papers of the archive, and finding nothing wrong in any of them, takes the joint bound from 4.47e-10 to about 1.26e-16. That is 10 orders of magnitude short of 1e-26.
 
 Closing the rest by counting is not available. Each channel would have to reach about 1e+09 trials, which is roughly 2e+03 times the whole archive. There is no reading schedule that gets there, and a file claiming 1e-26 from these three channels would be reporting a number nothing measured.
 
-What a number that small would actually need is more channels that fail independently, not more trials in these three. Section 7 is one: a term recovered from the forms and scored against a border a linguist published, which fails for a reason none of the three share. Independent channels multiply, and that is the route to an exponent like this one. Section 4 is where the independence is doubted, and it should be read before this number is quoted anywhere.
+What a number that small would actually need is more channels that fail independently, not more trials in these three. Section 7 is one: a term recovered from the forms and scored against a border a linguist published, which fails for a reason none of the three share. Independent channels multiply, and that is how an exponent like this one is reached. Section 4 is where the independence is doubted, and it should be read before this number is quoted anywhere.
 
 \subsection{4. What the number rests on}
 
@@ -186,7 +186,7 @@ Paper & Rows asked for & Reproduced & Items written & Invented & Wrong language 
 \end{longtable}
 \normalsize
 
-The readers get a great deal wrong. The median reproduces 0.619 of what its table asks for, and the spread runs from one paper to the next with no common rate behind it, because each reader was written to one paper's layout. That is why these are a table in Section 3 instead of a term.
+The readers get a great deal wrong. The median reproduces 0.619 of what its table asks for, and the spread runs from one paper to the next with no common rate behind it, because each reader was written to one paper's layout. These are a table in Section 3 instead of a term for that reason.
 
 A reader that does not reproduce a row is not by itself an impurity. The row is in the hand extraction either way, and the extraction is the oracle. What the last two columns count is what the reader added, the part that can reach the pure stream without a person having written it.
 
@@ -239,7 +239,7 @@ Term & Deviate & Northern & Southern \\
 \end{longtable}
 \normalsize
 
-The last column of the first table is the test that is allowed to fail. The border is put back on the same forms at random 200 times and the radix run again on each, and at width 2 only 1 of those random borders found as much as the published one. Swapping the two sides also negates every deviate exactly, but that is what this estimator does on any two sets whatever and it is evidence of nothing.
+The last column of the first table is the test that is allowed to fail. The border is put back on the same forms at random 200 times and the radix run again on each, and at width 2 only 1 of those random borders found as much as the published one. Swapping the two sides also negates every deviate exactly, but this estimator does that on any two sets whatever and it is evidence of nothing.
 
 The term carrying the border is the stressed schwa, and it is southern: 45 of them to 6 in the north over the same concepts. The paper those labels came from is Mellesmoen and Kye's comparative analysis of stress in northern and southern Lushootseed. The algorithm was shown the forms and never the labels, and what it returned is what the paper is about.
 
