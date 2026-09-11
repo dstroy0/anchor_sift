@@ -1,16 +1,16 @@
 \chapter{Refuted, with what killed each}
 
-\textbf{Purpose:} Keep the dead claims rather than delete them, because a refuted claim with its cause attached is the cheapest kind of knowledge and several of these were relied on for a while. \textbf{Scope:} the whole of the SHA-256 work.
+\textbf{Purpose:} Keep the dead claims on the page, because a refuted claim with its cause attached is the cheapest kind of knowledge and several of these were relied on for a while. \textbf{Scope:} every chapter of the SHA-256 work.
 
 \section{This work's own casualties}
 
-\textbf{Forward converges, the inverse does not.} Refuted. Read as a statistic rather than as a threshold crossing, the inverse scales as \(\sqrt{N}\) at every depth from nine to fourteen: ratios of \(4.00\), \(4.00\), \(3.99\), \(3.99\), \(4.22\), \(3.83\) for sixteenfold more pairs. Both directions have walls; only the shape of the approach differs.
+\textbf{Forward converges, the inverse does not.} Refuted. Read as a statistic instead of as a threshold crossing, the inverse scales as \(\sqrt{N}\) at every depth from nine to fourteen: ratios of \(4.00\), \(4.00\), \(3.99\), \(3.99\), \(4.22\), \(3.83\) for sixteenfold more pairs. Both directions have walls; only the shape of the approach differs.
 
 \textbf{The inverse has no wall, sixteen and climbing.} Refuted. It dies at fifteen and round sixteen reads \(2.438\), \(1.317\), \(0.881\) as pairs rise, which is noise shrinking. One more round per fourfold increase was the decay rate being measured, not a trend to project.
 
 \textbf{The word statistic goes blind at round ten.} Refuted. The per-bit refinement sees more where there is more --- inverse round fourteen reads \(18.5\) by bit against \(7.5\) by word --- but no depth in either direction reads by bit and not by word.
 
-\textbf{Forward round ten is small rather than off.} Refuted. At \(2^{30}\) pairs a continued slope predicts \(9.706\) and it reads \(2.386\), unmoved across \(2^{26}\), \(2^{28}\), \(2^{30}\). The same extrapolation on the inverse as a control lands within four significant figures at all three sizes.
+\textbf{Forward round ten is merely small.} Refuted. At \(2^{30}\) pairs a continued slope predicts \(9.706\) and it reads \(2.386\), unmoved across \(2^{26}\), \(2^{28}\), \(2^{30}\). The same extrapolation on the inverse as a control lands within four significant figures at all three sizes.
 
 \textbf{Decay is geometric, \(29.7\times\) forward against \(2.1\times\) inverse.} Refuted. Sweeping from round one shows both accelerate; that comparison put forward at its steepest against the inverse four rounds earlier on the same shape. The first fitted slope of \(1.469\) per round was fitted through rounds pinned at the statistic's ceiling.
 
@@ -30,7 +30,7 @@
 
 \textbf{A single timed pass can resolve a five percent effect.} Refuted. One pass each read \(0.935\) to \(1.166\), a spread wider than the effect.
 
-\textbf{Register pressure limits the device kernel.} Refuted. Thirty-eight registers, zero spill stores, zero spill loads, and occupancy capped by the thread limit rather than by registers.
+\textbf{Register pressure limits the device kernel.} Refuted. Thirty-eight registers, zero spill stores, zero spill loads, and occupancy capped by the thread limit. Registers are not what caps it.
 
 \textbf{Single-bit masks can see linear structure.} Refuted by its own control. A \(\mathrm{GF}(2)\)-linear function's output bit is an exclusive-or of many input bits and is balanced against any single one, so the known-linear arm read the noise floor exactly like every other arm. The linear axis remains untested.
 
@@ -46,6 +46,6 @@
 
 \section{The shape they share}
 
-Five of these are one error: a maximum over \(N\) cells compared against a threshold built for a single test. Two published, three here. Two more are a trend read from a threshold crossing rather than from the statistic. Two more are a baseline measured under different conditions from the effect.
+Five of these are one error: a maximum over \(N\) cells compared against a threshold built for a single test. Two published, three here. Two more are a trend read from a threshold crossing instead of from the statistic. Two more are a baseline measured under different conditions from the effect.
 
 None of them required new cryptanalysis to kill. All of them required measuring the null the same way as the effect.

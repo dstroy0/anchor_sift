@@ -2,9 +2,10 @@
 
 \textbf{Purpose:} Record what the official problem asks, what was published against it on
 2026-09-08, and the result of checking the published formalization's statement against the problem
-statement point by point. \textbf{Scope:} Fefferman's Clay problem description, 6 pages; OpenAI,
-\emph{Finite time blowup for Navier--Stokes}, 166 pages; the Lean~4 repository
-\texttt{openai/\allowbreak{}NavierStokesAndEuler}, four source files of 2{,}669 read.
+statement point by point. \textbf{Scope:} Fefferman's Clay problem description, 6 pages;
+\emph{OpenAI 2026 Navier-Stokes}, 166 pages; \emph{OpenAI 2026 Euler}, 57 pages; the Lean~4
+repository \texttt{openai/\allowbreak{}NavierStokesAndEuler}, four source files of 2{,}669 read,
+one of them the adapted \emph{Formal Conjectures} statement.
 
 \section{What the problem asks}
 
@@ -25,8 +26,8 @@ $\R^3\times[0,\infty)$, satisfying (4) and (5), for which there exist no solutio
 (2), (3), (6), (7) on $\R^3\times[0,\infty)$. Statement (D) is the same with (8) and (9) on the data
 and (10) and (11) on the solution.
 
-So a smooth external force is named inside two of the four statements, and a proof of any one of
-the four is what the problem asks for. The only occurrence of the word \emph{prize} in the document
+A smooth external force is therefore named inside two of the four statements, and a proof of any
+one of the four is what the problem asks for. The only occurrence of the word \emph{prize} in the document
 is a remark that the Euler equations are not on the Clay Institute's list. There is no passage
 reserving the problem for (A) or (B).
 
@@ -35,7 +36,7 @@ initial data; (5), rapid decay of every space-time derivative of the force on th
 (6), smoothness of $p$ and $u$ on $\R^n\times[0,\infty)$; and (7), $\int|u(x,t)|^2\,dx$ bounded by
 one constant for all $t\ge0$, which Fefferman annotates \emph{bounded energy}.
 
-\textbf{The document carries errata and they are load-bearing.} The first reads that the further
+\textbf{The document carries errata and one of them adds a condition.} The first reads that the further
 condition $p(x+e_j,t)=p(x,t)$ should be made explicit in Eqn (8). The periodic problem therefore
 requires a periodic pressure, which the body of the statement does not say.
 
@@ -57,8 +58,8 @@ $\limsup_{t\to1}\|u(t)\|_{L^\infty(\R^3)} = \infty$.
 Constructing one solution that blows up does not by itself establish (C). Statement (C) asks that
 \emph{no} smooth bounded-energy solution exist on the whole half-line for that datum and force, and
 a blowing-up solution leaves open whether some other smooth global one exists. The paper closes
-that gap and says so in the sentence after the theorem, asserting that consequently there is no
-smooth solution on $\R^3\times[0,\infty)$ with the same force and initial datum whose kinetic
+that gap and says so in the sentence after the theorem, asserting that there is then no smooth
+solution on $\R^3\times[0,\infty)$ with the same force and initial datum whose kinetic
 energy is uniformly bounded, and that this establishes alternative (C) as stated by Fefferman.
 
 The argument for the gap is in the proof of Theorem 1.1 in section 10.4. Smoothness and fixed
@@ -80,10 +81,10 @@ the erratum to the problem statement}. The authors read the errata.
 This project's position on machine-checked proof, stated before this chapter was written, is that
 Lean verifies the deduction and never the claim. A proof assistant confirms that a conclusion
 follows from the assumptions as written. It cannot confirm that the statement formalized is the
-statement anybody meant. A machine-checked proof of a neighbouring theorem compiles exactly as
+statement anybody meant. A machine-checked proof of a neighboring theorem compiles exactly as
 cleanly as a machine-checked proof of the right one, and nothing in the compile distinguishes them.
 The burden therefore moves entirely onto the formalized statement, and that statement is a
-translation, which is the part no proof assistant checks.
+translation. No proof assistant checks a translation.
 
 That makes the formalized statement a finite document a person reads word by word. The rest of this
 chapter is that reading.
@@ -128,45 +129,95 @@ the Clay errata
 \end{center}
 
 The equation itself is encoded with the time derivative taken as a derivative within
-$[0,\infty)$, which is the right treatment given that Fefferman states equation (1) on the closed
-half-line. Divergence is defined as the trace of the Jacobian and carries an explicit junk value of
-zero at points of non-differentiability, which is declared in the source rather than left implicit.
+$[0,\infty)$. Fefferman states equation (1) on the closed half-line, and the Lean encoding follows
+him there. Divergence is defined as the trace of the Jacobian and carries an explicit junk value of
+zero at points of non-differentiability, which the source declares instead of leaving implicit.
 
-\section{The statement is not the authors' own, and that is the strongest fact here}
+\section{The statement is not the authors' own}
 
 The file carrying the statement is a \emph{comparator challenge}. Its header records that it was
 copied, at a named commit, from the Formal Conjectures project's Lean formalization of the
 Navier--Stokes problem statement, that the breakdown alternatives (C) and (D) are retained
 \emph{including their intentional placeholder gaps}, and that neither the proof root nor the
 submission imports it. Both theorems in that file end in a placeholder and prove nothing. It is a
-yardstick and not a result.
+yardstick.
 
 The discharge is a separate module. It restates both theorems with textually identical statements
 and closes each by applying a bridge lemma from the project's own development, declaring no axioms
 and leaving no placeholder, and it ends by printing the axiom dependencies of both theorems. The
 repository's instructions direct a checker to verify the two challenges with an external checking
-tool under a sandbox, using an independent exporter and an independent kernel rather than Lean's
+tool under a sandbox, using an independent exporter and an independent kernel instead of Lean's
 own.
 
 That architecture is a direct answer to the objection this chapter opened with. The concern is that
 an author who writes both the statement and the proof can machine-check a translation of their own
 choosing. Here the statement was written by a third party, published beforehand, for the purpose of
 stating the problem and not of being proved; the authors adopted it unmodified and discharged it;
-and the axiom base is printed rather than asserted. The translation is still the thing to read, and
+and the axiom base is printed for a reader to check. The translation is still the thing to read, and
 this chapter read it, but the party that wrote it had no stake in what would later be proved
 against it.
+
+\section{The unforced Euler companion}
+
+A second paper was published alongside, \emph{Finite time blowup for the Euler equation}, 57 pages,
+and it matters here for one reason: it is unforced.
+
+It studies the unforced incompressible Euler equations on $\R^3$, $\partial_t u + (u\cdot\nabla)u +
+\nabla p = 0$ with $\nabla\cdot u = 0$, taking initial data in the smooth compactly supported
+divergence-free class and writing $T(u_0)$ for the maximal lifespan of the smooth solution. Its
+Theorem 1.1 asserts that there exists such a $u_0$ with $0 < T(u_0) < \infty$, whose smooth
+solution satisfies $\limsup_{t\to T}\|u(t)\|_{L^\infty} = \infty$ and
+$\int_0^T \|\operatorname{curl} u(t)\|_{L^\infty}\,dt = \infty$.
+
+The second divergence is not decoration. The Beale--Kato--Majda criterion, which the paper states
+and attributes, says a smooth three-dimensional Euler solution continues past $T$ whenever that
+integral is finite. Finite-time breakdown therefore requires it to diverge, and the theorem
+delivers exactly the quantity the criterion demands. By the authors' own account the Euler result
+came first, as the easier problem, and was used to prompt the Navier--Stokes effort.
+
+\textbf{This is not a Millennium result and is not recorded as one.} Fefferman's statement says the
+problems are also open and very important for the Euler equations at $\nu = 0$, and that the Euler
+equation is not on the Clay Institute's list of prize problems. The distinction is his and is kept
+here.
+
+\section{What the unforced Euler result does not settle}
+
+The reason to hold this paper is a question put to this work directly: what is left as the forcing
+goes to zero? The test behind it is whether a mechanism repairs a property of the object or a
+property of the setup, and a mechanism that needs the force to be there has taught us about forced
+systems and nothing about the unforced problem.
+
+The Euler paper looks like the answer and is not. \textbf{Removing the force and removing the
+viscosity are different removals.} Statements (A) and (B), the two alternatives that remain open on
+anybody's reading, are $\nu > 0$ with $f$ identically zero. The Euler equations are $\nu = 0$. So
+an unforced blowup at zero viscosity does not transfer, and it does not transfer for the precise
+reason that the regularity problem exists: the viscous term is the smoothing whose sufficiency is
+the entire question. A construction that blows up with no viscosity to fight is not evidence about
+what happens when there is.
+
+Put as the limit test, the two papers move in orthogonal directions. One removes the viscosity and
+keeps nothing to resist the amplification. The other keeps the viscosity and supplies a force. The
+open cases keep the viscosity and remove the force, and neither paper is that case.
+
+\textbf{That is an argument from the shapes of the statements and not from their mechanisms.} The
+amplification mechanism was not read in either paper, and the honest version of the limit test
+requires reading it instead of reasoning from the abstract. What is recorded here is that the
+question is still open and that the obvious shortcut to it does not work.
 
 \section{What was not verified, stated here and not in a footnote}
 
 \textbf{Nothing here was machine-checked.} The Lean development was not built. No proof was
 executed, no axiom output was observed, and the claim that the discharge module compiles without
-placeholders rests on reading its source text rather than on running it. The check in this chapter
+placeholders rests on reading its source text. The check in this chapter
 is a reading of four files out of 2{,}669.
 
 \textbf{The proof was not read.} The 166-page paper was read at its abstract, its introduction, its
 Theorem 1.1, the section 10.4 argument that bridges to the non-existence form, and Corollary 10.6.
 The mathematical content of sections 3 through 9 and the three appendices was not read. The bridge
-lemma the discharge module applies was not traced into the development.
+lemma the discharge module applies was not traced into the development. Of the Euler paper's 57
+pages, only the abstract, the introduction and Theorem 1.1 were read; its amplification
+mechanism, the part the limit test actually needs, was not. Nothing in this chapter rests
+on the correctness of either proof, and nothing in it could, because neither was read.
 
 \textbf{The priority dispute was not investigated.} A dispute over credit is running in this field.
 It was not examined for this book, no position is taken on it, and nothing in this chapter bears on

@@ -10,7 +10,7 @@ bound that constrains it. \textbf{Scope:}
 2026-09-11 in answer to a direct question, and is recorded for Douglas Quigg to rule on. It is not
 this book's recommendation and no work has begun on it.
 
-\section{The trap, which is the obvious answer}
+\section{The obvious answer, and why it is the trap}
 
 Riemann is what an engine whose edge is arbitrary precision reaches for first, and it is the wrong
 choice for a reason that has nothing to do with how good the arithmetic is.
@@ -30,14 +30,14 @@ boundary has not been worked out.
 
 \textbf{The specific figures on Riemann given for this argument were not independently checked.}
 The claim that zeros have been computed at height $10^{22}$ and that verification has covered the
-first $10^{13}$ of them was supplied with the recommendation and is recorded as supplied. It is not
-load-bearing for the argument, which turns on the conjecture not being precision-bound rather than
-on any particular height reached.
+first $10^{13}$ of them was supplied with the recommendation and is recorded as supplied. The
+argument does not depend on it, because it turns on the conjecture not being precision-bound,
+whatever height has been reached.
 
 \section{The recommendation}
 
-Birch and Swinnerton-Dyer, on the ground that it is the one Millennium problem whose obstruction
-matches the instrument rather than whose subject does.
+Birch and Swinnerton-Dyer, on the ground that its obstruction matches the instrument, where the
+other Millennium problems match only in subject.
 
 It is the only one of them found by computation: Birch and Swinnerton-Dyer fitting curves
 numerically on EDSAC. It is natively experimental, and the refined conjecture is an exact numerical
@@ -69,7 +69,7 @@ give its inputs one.
 \section{The null: the derived version is withdrawn}
 
 A null was offered with the recommendation and then withdrawn by its author in the same exchange.
-The withdrawal is the substantive part and is recorded here rather than only in the ledger.
+The withdrawal is the substantive part and is recorded here as well as in the ledger.
 
 \textbf{Withdrawn.} That a real number carrying no integrality structure has its distance to the
 nearest integer distributed uniformly on $[0,\tfrac12]$, so that landing within $10^{-N}$ of an
@@ -92,9 +92,9 @@ the same pipeline and with the same inputs and the same precision losses, in two
 quotient with the rank taken one too high or one too low gives a condition under which the identity
 should not hold, and the distribution of distance-to-nearest-integer across many curves is then the
 null itself. Computing the quotient across many curves whose $\mathrm{Sha}$ is known gives the
-spread of the residual about the true integer, which is the instrument's own floor and which will be
-dominated by the period and the regulator rather than by the arithmetic. The second is the positive
-control and the floor measurement in one pass.
+spread of the residual about the true integer. That spread is the instrument's own floor, and the
+period and the regulator will dominate it well before the arithmetic does. The second is the
+positive control and the floor measurement in one pass.
 
 The consequence changes what may be claimed. The honest bound is not $10^{-N}$ for $N$ digits of
 arithmetic. It is however close the pipeline gets on a curve whose answer is already known. If the
@@ -104,24 +104,24 @@ carries.
 \section{The measured bound that constrains this, and it was checked}
 
 \texttt{bbp\_scaling.py} in the BTCminer tree measures what depth costs in the integer relation
-search, and its recorded results were read in the file rather than taken on report.
+search, and its recorded results were read in the file instead of taken on report.
 
-The relation search costs precision raised to 2.64, measured, against 2.585 predicted from a
-Karatsuba host multiply near width$^{1.585}$ times a count linear in the width. The reduction is not
-the culprit. A device multiply only beats the host above 1{,}024 limbs, which is 32{,}768 bits, and
-because the mean operand is 0.642 times the precision, the mean multiply reaches that crossover only
-at about 51{,}000 binary places, where the file records one cell at 51{,}036 places costing 26.2
-hours.
+Cost goes as precision to the 2.64. That is the measured exponent. Predicted was 2.585, from a
+Karatsuba host multiply near width$^{1.585}$ against a count linear in the width. Blame does not
+fall on the reduction.
 
-For the recommended measurement this is permissive: the precision that binds is tens to hundreds of
-digits, nowhere near that wall. It bounds two other things. Nothing should be planned that needs
-relation detection at tens of thousands of digits, and the card should not be expected to rescue it.
-The file's own note records that the opposite was predicted before the measurement was taken.
+Where the card overtakes the host: 1{,}024 limbs. Call it 32{,}768 bits. Mean operand runs 0.642 of
+the precision, so the mean multiply arrives at that crossover somewhere near 51{,}000 binary places.
+One cell at 51{,}036 places, by the file's own table, costs 26.2 hours.
+
+None of that binds the recommended measurement, which wants tens to hundreds of digits. Two other
+things it does bind. Relation detection at tens of thousands of digits is off the table. So is any
+plan resting on the card to rescue it. The file carries a note that the prediction ran the other way
+before anyone measured.
 
 \section{A precondition that has to be settled first}
 
-The work spans two repositories with different governance, and this was established by checking
-rather than assumed.
+The work spans two repositories with different governance, and this was established by checking.
 
 The arithmetic the recommendation depends on lives in the BTCminer tree and is classified EXTERNAL
 in \texttt{PARTITION.\allowbreak{}tsv} under a ruling quoted there from Douglas Quigg on
@@ -132,14 +132,15 @@ line of attack is not blocked by the partition.
 \textbf{The adjacent material is blocked, and the boundary is narrow.} The same file classifies the
 harmonic machinery as internal, under a separate ruling quoted there that anything used to derive
 anisotropic properties is internal. A line of attack that begins wanting that machinery has crossed
-into held material and stops for a ruling rather than proceeding.
+into held material and stops for a ruling.
 
 The theory books are in a different repository from the arithmetic, with its own custodian. Anything
 that wants files from both needs that settled before it starts and not after.
 
 \section{What is not claimed}
 
-This is verification and not proof, and the distinction is the whole of the problem.
+This is verification and not proof, and that distinction governs everything claimed in this
+chapter.
 
 A measurement of this kind produces evidence for particular instances of the conjecture, in the way
 the original EDSAC work did. A verified instance at unusual rank or unusual precision is a real

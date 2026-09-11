@@ -1,14 +1,14 @@
 \chapter{The spectral reading}
 
-\textbf{Purpose:} Read the dependency matrix with every cell rather than its largest, which finds a law the maximum cannot see and then confirms the null harder than the maximum can. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}sac.\allowbreak{}cu}.
+\textbf{Purpose:} Read the dependency matrix with every cell instead of its largest, which finds a law the maximum cannot see and then confirms the null harder than the maximum can. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}sac.\allowbreak{}cu}.
 
 \section{Why a maximum was the wrong reading}
 
 Every strict avalanche reading in the literature and in this work takes the largest of \(131{,}072\) cells and discards the other \(131{,}071\). A maximum over that many cells peaks at \(\sqrt{2 \ln N}\) whatever the function does. A structure spread thinly across many cells is invisible to a maximum and plain to a sum.
 
-SHA-256 is built from rotations, and a rotation makes bit \(j\) depend on bit \(j - r\). If any of that survives into the dependency matrix it appears as a function of \((\text{input bit} - \text{output bit}) \bmod 32\), spread over every word pair rather than concentrated anywhere. Folding the cells onto that residue puts \(4096\) of them behind each number instead of one.
+SHA-256 is built from rotations, and a rotation makes bit \(j\) depend on bit \(j - r\). If any of that survives into the dependency matrix it appears as a function of \((\text{input bit} - \text{output bit}) \bmod 32\), spread over every word pair and concentrated nowhere. Folding the cells onto that residue puts \(4096\) of them behind each number instead of one.
 
-The fold is signed rather than absolute, deliberately. Taking magnitudes first would fold noise into a positive bias and manufacture a signal in every class.
+The fold is signed, deliberately. Taking magnitudes first would fold noise into a positive bias and manufacture a signal in every class.
 
 \section{A ridge that does not move}
 
@@ -35,7 +35,7 @@ rounds & residue & sigmas & walked & verdict \\
 \end{tabular}
 \end{center}
 
-\textbf{The ridge does not walk.} Residue twenty-six dominates for ten consecutive rounds. It is a fixed point of the composition rather than something rotating, which answers the question of whether an inverse rotation could unwind it: there is no moving structure to chase.
+\textbf{The ridge does not walk.} Residue twenty-six dominates for ten consecutive rounds. It is a fixed point of the composition and nothing rotates, which answers the question of whether an inverse rotation could unwind it: there is no moving structure to chase.
 
 Not claimed: which rotation residue twenty-six corresponds to. After twelve rounds the effective residue is a composition of many rotations, and attributing it to \(\Sigma_1\)'s \(\mathrm{ROTR}25\) or \(\Sigma_0\)'s \(\mathrm{ROTR}22\) because they sit nearby would be reading a coincidence.
 
@@ -43,11 +43,11 @@ Not claimed: which rotation residue twenty-six corresponds to. After twelve roun
 
 The first four differences are \(2048.33\), \(2048.21\), \(2048.83\) and \(2047.24\). One sigma of the class mean at that sample is \(1.526 \times 10^{-5}\), so \(2048\) sigmas is exactly \(1/32\).
 
-\textbf{The ridge loses one thirty-second of its amplitude per round} --- one bit position of thirty-two going diffuse --- holding to four decimal places for five rounds, then accelerating into collapse at twenty-two. It is a quantized linear decay and not a smooth exponential, which is what a function made of discrete operations should produce and what a continuous model would not predict.
+\textbf{The ridge loses one thirty-second of its amplitude per round} --- one bit position of thirty-two going diffuse --- holding to four decimal places for five rounds, then accelerating into collapse at twenty-two. It is a quantized linear decay and not a smooth exponential. A function made of discrete operations should produce exactly that, and a continuous model would not predict it.
 
 \subsection{Verified at four times the sample}
 
-The law came out of a sample where \(2048\) sigmas happened to equal one thirty-second, and \(2048\) is \(2^{11}\) while the trials were \(2^{18}\). Every clean power of two in that arithmetic came from the chosen sample size, and a law exact at only one sample size is the shape of the measurement rather than a law.
+The law came out of a sample where \(2048\) sigmas happened to equal one thirty-second, and \(2048\) is \(2^{11}\) while the trials were \(2^{18}\). Every clean power of two in that arithmetic came from the chosen sample size, and a law exact at only one sample size is reporting the shape of the measurement.
 
 \begin{center}
 \begin{tabular}{lrrr}
@@ -68,7 +68,7 @@ Sigma doubled for four times the trials, which is \(\sqrt{k}\) exactly, while th
 
 \section{The strongest null in this work}
 
-Past round twenty-three the fold reads \(2.09\), \(2.07\) and \(2.04\) against a null peak of \(2.63\), at three depths, with \(4096\) cells behind each number rather than one. That is roughly sixty-four times the sensitivity the maximum had, finding nothing.
+Past round twenty-three the fold reads \(2.09\), \(2.07\) and \(2.04\) against a null peak of \(2.63\), at three depths, with \(4096\) cells behind each number instead of one. That is roughly sixty-four times the sensitivity the maximum had, finding nothing.
 
 The harmonic sweep agrees. The round-twenty-three profile wanders within two sigmas with no visible pattern, and its discrete transform peaks at \(f_{13}\) with magnitude \(1.80\) against a null peak of \(2.35\): no repeating trend, no harmonics, no side lobes.
 
@@ -78,4 +78,4 @@ The harmonic sweep agrees. The round-twenty-three profile wanders within two sig
 
 \textbf{It is gone by round twenty-three}, at sixty-four times the sensitivity of every earlier reading.
 
-\textbf{The unwinding idea is answered negatively} rather than left untried. Nothing rotates, so there is nothing an inverse rotation could follow.
+\textbf{The unwinding idea is answered negatively}, and it was not left untried. Nothing rotates, so there is nothing an inverse rotation could follow.

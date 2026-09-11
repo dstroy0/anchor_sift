@@ -43,7 +43,7 @@ Removing one nonlinear source at a time cannot discriminate. Full, no-majority a
 
 \subsection{Algebraic degree}
 
-Degree is proved rather than sampled. A Boolean function of degree below \(d\) has every \(d\)-th order derivative identically zero, and that derivative is the exclusive-or of the output over all corners of a \(d\)-dimensional input cube. One nonzero fold settles it.
+Degree is proved. Nothing here samples it. A Boolean function of degree below \(d\) has every \(d\)-th order derivative identically zero, and that derivative is the exclusive-or of the output over all corners of a \(d\)-dimensional input cube. One nonzero fold settles it.
 
 \begin{center}
 \begin{tabular}{rrrrrr}
@@ -62,7 +62,7 @@ rounds & full & Maj only & Choose only & carry only & linear \\
 
 \textbf{The carry alone reproduces the whole function's degree}, and at round two exceeds it. Choice alone and majority alone reach degree five by round seven while the full function is past eighteen by round five. Integer addition is the sole source of algebraic degree in SHA-256 and the two nonlinear Boolean functions supply almost none of it.
 
-The \(\geq 18\) entries are the cube ceiling of the bench rather than a measurement. These numbers establish the separation. They do not measure the carry's absolute degree.
+The \(\geq 18\) entries are the cube ceiling of the bench. No measurement produced them. These numbers establish the separation. They do not measure the carry's absolute degree.
 
 \subsection{The whole map}
 
@@ -79,7 +79,7 @@ majority & no & no & almost none \\
 \end{tabular}
 \end{center}
 
-Removing addition alone still reaches the same diffusion plateau as the full function, so the carry is not what makes diffusion happen; the nonlinearity of choice and majority is, and the carry changes how fast rather than whether. That matches the published finding that removing addition costs about two rounds rather than stopping diffusion.
+Removing addition alone still reaches the same diffusion plateau as the full function, so the carry is not what makes diffusion happen; the nonlinearity of choice and majority is, and the carry changes how fast diffusion happens without changing whether it happens. That matches the published finding that removing addition costs about two rounds and does not stop diffusion.
 
 \subsection{Majority is redundant on four measures}
 
@@ -87,6 +87,6 @@ Majority contributes nothing detectable to the SAC level, nothing to the dampeni
 
 \section{The mechanism has a shape}
 
-Choice and majority act inside the bit lattice, where \(\mathrm{GF}(2)\) describes them. A carry leaves its bit position, travels where \(\mathrm{GF}(2)\) has no coordinate, and rejoins one position higher. The measurement says that path outside the lattice carries essentially all the degree.
+Choice and majority act inside the bit lattice, where \(\mathrm{GF}(2)\) describes them. A carry leaves its bit position, travels where \(\mathrm{GF}(2)\) has no coordinate, and rejoins one position higher. The measurement says that path outside the lattice carries almost all the degree.
 
-It is also why a bijection can appear to destroy information while destroying none. The round stays invertible and the difference stays exact; a \(\mathrm{GF}(2)\)-shaped instrument simply loses the ability to describe it and reports noise. Remove the extradimensional path and nothing ever becomes indescribable, which is exactly what the linear variant pinned at \(0.5\) for all sixty-four rounds is showing.
+It is also why a bijection can appear to destroy information while destroying none. The round stays invertible and the difference stays exact; a \(\mathrm{GF}(2)\)-shaped instrument simply loses the ability to describe it and reports noise. Remove the extradimensional path and nothing ever becomes indescribable. The linear variant, pinned at \(0.5\) for all sixty-four rounds, shows that.

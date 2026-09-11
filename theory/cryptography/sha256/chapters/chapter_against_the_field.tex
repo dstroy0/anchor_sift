@@ -20,7 +20,7 @@ this work's deepest probe of any kind & \(\approx 23\) \\
 
 That is not a contradiction. It is two different measurements. This work asks how far a \emph{random} difference stays statistically visible under undirected probing. The published attacks construct a \emph{chosen} differential path, using local collisions and message freedom to cancel differences as they arise. A constructed path survives where a random one is long gone.
 
-\textbf{So no null in this book means ``nothing survives past round twenty-three.''} It means undirected statistics stop seeing there, and something directed reaches thirty-one in practice. Every refutation recorded here inherits that caveat, because every one of them probes rather than constructs.
+\textbf{So no null in this book means ``nothing survives past round twenty-three.''} It means undirected statistics stop seeing there, and something directed reaches thirty-one in practice. Every refutation recorded here inherits that caveat, because every one of them probes and none of them constructs.
 
 The gap is not sensitivity. The spectral fold demonstrated sixty-four times the sensitivity of the maximum and bought zero extra rounds. It is the difference between watching and steering.
 
@@ -28,7 +28,7 @@ The gap is not sensitivity. The spectral fold demonstrated sixty-four times the 
 
 \textbf{The avalanche onset reproduces exactly.} At \(2^{20}\) trials, matching the published million, the SAC value reads \(899.7\) sigmas at round twenty-one, \(152.7\) at twenty-two and \(4.5\) at twenty-three. Round twenty-three, independently, with an independent implementation. The instrument is validated on a published result before it is used on anything contested.
 
-\textbf{The \(\Sigma\) functions are injective in \(\mathrm{GF}(2)\)}, which Handschuh and Gilbert show by the polynomial argument and which the rank measurement reproduces here for all four functions rather than two. The closed form for the narrowed deficit, \(\deg \gcd(p(x), x^w+1)\), extends it; no narrowed-width formula was found in the literature.
+\textbf{The \(\Sigma\) functions are injective in \(\mathrm{GF}(2)\)}, which Handschuh and Gilbert show by the polynomial argument and which the rank measurement reproduces here for all four functions. Their argument covers two. The closed form for the narrowed deficit, \(\deg \gcd(p(x), x^w+1)\), extends it; no narrowed-width formula was found in the literature.
 
 \textbf{Majority is redundant.} Both published papers find the majority-removed variant indistinguishable from unmodified, and four independent measurements here agree.
 
@@ -42,11 +42,11 @@ Both avalanche papers group choice, \(\Sigma_1\) and integer addition together a
 
 The carry looked like unexplored ground and is the most heavily mapped part of the subject. Lipmaa and Moriai gave exact algorithms for the differential probability of addition modulo \(2^n\) in 2001, in closed form and logarithmic time, reducing the hardest case from \(\Omega(2^{4n})\) to \(\Theta(\log n)\). Additive differential probabilities of exclusive-or, UNAF, bit-vector differential models and work on the non-independence of chained modular additions extend it, with results still appearing in 2025. The thirty-one-step collision is built from that machinery.
 
-So the finding that the carry supplies the algebraic degree is a rediscovery of why the field lives in carry space, not a gap in it. The rules there are not undefined; they were solved twenty-five years ago and are hard rather than unmapped.
+So the finding that the carry supplies the algebraic degree is a rediscovery of why the field lives in carry space, not a gap in it. The rules there are not undefined; they were solved twenty-five years ago. The ground is mapped and it is hard.
 
 \section{What appears to be unstated}
 
-Offered as candidates rather than claims, since a literature search cannot prove absence:
+Offered as candidates, since a literature search cannot prove absence:
 
 \begin{itemize}
   \item The separation of diffusion from degree across the same three operations.
@@ -62,6 +62,6 @@ Offered as candidates rather than claims, since a literature search cannot prove
 
 \textbf{Message freedom.} A collision attack varies the whole message to steer the path. Mining fixes all but thirty-two bits, so most published technique may not transfer --- but that is an argument about applicability and not a measurement.
 
-\textbf{The linear axis}, which needs Walsh masks rather than single bits and is a transform over \(2^{512}\) of them.
+\textbf{The linear axis}, which needs Walsh masks where these probes use single bits, and is a transform over \(2^{512}\) of them.
 
 \textbf{Majority's purpose}, which remains unexplained on every measure available here.
