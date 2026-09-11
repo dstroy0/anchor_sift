@@ -1,0 +1,212 @@
+\chapter{Running the extraction}
+
+\section{Running the scripts}
+
+\textbf{Purpose:} Go from an empty checkout to every corpus, check and sift result in this directory, without owning the archive first. \textbf{Scope:} \texttt{data/\allowbreak{}salishan/\allowbreak{}}
+
+Run from the repository root. Everything writes under \texttt{build/\allowbreak{}}.
+
+\subsection{Start here}
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python -m pip install pypdf pypdfium2 requests numpy soundfile
+python maint/data/salishan/get_papers.py
+\end{lstlisting}
+
+That fetches the eleven papers the readers need and writes \texttt{build/\allowbreak{}papers/\allowbreak{}<name>.\allowbreak{}txt} for each. Nothing else in this directory works until it has run, and it is the only step that touches the network. \texttt{pypdfium2} renders a page to an image, which two of the eleven papers need and the other nine do not. \texttt{numpy} and \texttt{soundfile} are for the sound representation and nothing in the text pipeline imports them; \texttt{soundfile} is what decodes the mp3s in \texttt{build/\allowbreak{}audio/\allowbreak{}}, which are not fetched by this script.
+
+\texttt{-\allowbreak{}-\allowbreak{}all} fetches all 993 papers in the archive instead of the eleven. \texttt{-\allowbreak{}-\allowbreak{}list} prints what would be fetched and stops. \texttt{-\allowbreak{}-\allowbreak{}convert} converts PDFs already sitting in \texttt{build/\allowbreak{}papers/\allowbreak{}} and fetches nothing, skipping any PDF that already has text beside it. \texttt{-\allowbreak{}-\allowbreak{}stem <name>} takes one paper by its filename.
+
+A converted paper whose fonts renumber their codes and declare no \texttt{/\allowbreak{}To\allowbreak{}Unicode} map gets a \texttt{.\allowbreak{}unfaithful} file written beside its text, naming those fonts, and the run prints \texttt{NOT THE PAGE} on that line. The text is written anyway, because leaving a gap makes every later run try the paper again, and nothing downstream should read it as the paper. Six of the 146 PDFs on disk are in that class. \texttt{theory/\allowbreak{}Salishan/\allowbreak{}chapters/\allowbreak{}chapter\_\allowbreak{}Salishan\_\allowbreak{}refs.\allowbreak{}tex} names them and says what to do instead.
+
+\subsection{Why there is a script for it}
+
+The instructions used to say to download the PDFs, convert each to text, and name the text after the PDF. Two of those three steps have a wrong answer that looks like a right one.
+
+\textbf{The encoding.} \texttt{pdftotext} writes Latin-1 unless told otherwise, and Latin-1 has no ʔ, no ə and no ɬ. A paper converted that way still opens and still looks like a paper, with the language taken out of it.
+
+\textbf{The reading order.} Given \texttt{-\allowbreak{}enc UTF-\allowbreak{}8} the characters survive, and the page comes out in layout order, and a running header prints above the title it sits under and a two-column table interleaves. \texttt{pypdf} reads a page in the order the PDF stores it. The readers were written against that order, and \texttt{get\_\allowbreak{}papers.\allowbreak{}py} uses it. Converting \texttt{Mellesmoen\_\allowbreak{}Kye\_\allowbreak{}ICSNL61.\allowbreak{}pdf} gives 1462 lines identical, in order, to the copy in \texttt{build/\allowbreak{}papers/\allowbreak{}}.
+
+The script identifies itself by name, purpose and address in its user agent. The archive answers a request carrying none with an HTML page instead of the file; its \texttt{robots.\allowbreak{}txt} disallows only \texttt{wp-\allowbreak{}admin}, \texttt{wp-\allowbreak{}login}, the cache and trackbacks.
+
+\subsection{Order}
+
+Nothing after the fetch needs the network. The sift depends on the readers, because its second anchor is the corpus they produce.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+1. get_papers.py       build/papers/*.txt
+2. pdf2png.py          build/pages/<stem>/page_NNN.png
+3. draft_page_text.py  build/papers/<stem>.page.txt
+4. the eleven readers  build/corpora/*.txt, *.pure.txt, *.unclassifiable.tsv
+5. oracle_check.py     the hand extractions against the papers
+6. reader_check.py     the readers against the hand extractions
+7. coverage_check.py   reads 4, reports missing tokens
+8. english_sift.py     reads 4 for both anchors
+9. sift_extract.py     reads 4, writes build/corpora/sifted/
+\end{lstlisting}
+
+Steps 2 and 3 apply only to a paper the fetch flagged \texttt{NOT THE PAGE}, which is two of the eleven. For the other nine the extracted text is what the page says and both steps are skipped.
+
+\subsection{Where the tools are}
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+maint/data/salishan/get_papers.py                         the archive
+maint/data/salishan/pdf2png.py                            the page as an image
+maint/data/salishan/draft_page_text.py                    the page as a first draft
+maint/data/salishan/hand_extraction/                      the control
+src/engine/python/instrument/                             the algorithm
+maint/data/salishan/corpus_script_extraction/             the eleven readers
+maint/data/salishan/anchor_sift_algorithmic_extraction/   the sift applied
+salishan_corpus/analysis/sound/          the recordings as bits, in the closed corpus
+\end{lstlisting}
+
+Each script finds the repository by walking up to the tree holding \texttt{build/\allowbreak{}}.
+
+\subsection{The twelve readers}
+
+One per paper. Each takes no arguments and rebuilds that paper's corpus. Written \texttt{S/\allowbreak{}} for \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}}.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python S/extract_garcia.py
+python S/extract_hall_phillips.py
+python S/extract_lafontaine_janzen.py
+python S/extract_matthewson_redan.py
+python S/extract_alexander_davis.py
+python S/extract_mary_george.py
+python S/extract_nater_bella_coola.py
+python S/extract_lyon_priests.py
+python S/extract_lindley_lyon.py
+python S/extract_hilbert.py
+python S/extract_mellesmoen_kye.py
+python S/extract_robertson.py
+\end{lstlisting}
+
+Each prints its line counts, how many target-language forms reached the pure stream, and how many lines it could not sort. The two Lyon readers also report how many interlinear blocks read cleanly.
+
+\subsection{The workflow the readers exist inside}
+
+A reader is not the source of the corpus. The hand extraction is, and the reader is graded against it. Written \texttt{H/\allowbreak{}} for \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}}.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python H/oracle_check.py
+\end{lstlisting}
+
+Checks each hand extraction against the paper it was read off, in both directions. A form written down that the paper does not hold is a typing slip. A word in the paper that no row holds is a row somebody skipped. That is what a person reading a thirty-seven page paper into a table produces. Both must be zero.
+
+Two papers are checked against a drafted page text and the output line says so. For those, direction one measures the draft and not the table: a form the table holds and the draft does not is a place where a person read the page and a rule in \texttt{lyon\_\allowbreak{}encoding.\allowbreak{}py} got it wrong. Direction two still means what it means everywhere else.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python H/reader_check.py
+\end{lstlisting}
+
+Checks each reader against the hand extraction. Grades whether it found each form, whether it says the same kind, and whether it says the same dialect. Kind decides the corpus. A rejected tableau candidate filed as a citation puts a form the paper's own analysis rejects into the pure stream, and nothing downstream asks again.
+
+\subsection{When the text is not the page}
+
+\texttt{19-\allowbreak{}Lyon\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}78} and \texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon} are set in a font that renumbers its glyph codes and declares no map back to Unicode. Their \texttt{build/\allowbreak{}papers/\allowbreak{}*.\allowbreak{}txt} holds the font's alphabet and not what the page prints. \texttt{refs.\allowbreak{}md} has the detail, the other four papers in the same class, and why the damaged text is kept.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python maint/data/salishan/pdf2png.py 2013_Lindley_Lyon 1 70
+python maint/data/salishan/draft_page_text.py 2013_Lindley_Lyon
+\end{lstlisting}
+
+The first renders each page to \texttt{build/\allowbreak{}pages/\allowbreak{}<stem>/\allowbreak{}page\_\allowbreak{}NNN.\allowbreak{}png}. Arguments are the stem, the first page, the last page, and optionally a scale, which defaults to 3 and puts a 12pt body around 50 pixels tall, where a stacked diacritic stops being a guess.
+
+The second writes \texttt{build/\allowbreak{}papers/\allowbreak{}<stem>.\allowbreak{}page.\allowbreak{}txt}, line for line with the extraction, which makes a page of one a page of the other. That file is a draft, and \texttt{oracle\_\allowbreak{}check.\allowbreak{}py} reads it in place of the extraction for these two papers, which makes it the thing being graded and not the thing that grades. The rules are in \texttt{lyon\_\allowbreak{}encoding.\allowbreak{}py}. Two of them cannot be settled without looking at the page: which \texttt{w} is a labialized consonant, and which inserted space is a word boundary. \texttt{refs.\allowbreak{}md} names those and the four other classes the check keeps reporting.
+
+Both of these papers' readers take that file too, and so does \texttt{coverage\_\allowbreak{}check.\allowbreak{}py}. They swap \texttt{page\_\allowbreak{}text.\allowbreak{}py} in for \texttt{font\_\allowbreak{}repair.\allowbreak{}py} to do it, because applying the mapping to text it has already been applied to destroys the text. Steps 2 and 3 therefore have to run before step 4 for these two, and running the readers without them leaves the last drafted text on disk in the corpus.
+
+\subsection{Checks}
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python S/coverage_check.py
+\end{lstlisting}
+
+Diffs every language token in each paper against the corpus built from it. Both sides go through the same repairs first. Expected result is 0 missing on all eleven. For the two papers named above it reads the extracted text, where 0 means the reader got everything the font's encoding held, which is a weaker statement than it is for the other nine.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python S/font_substitution.py <damaged paper> <clean reference> [more]
+python S/font_substitution.py 19-Lyon_ICSNL50_final-78 LyonICSNL60_Inch-2
+\end{lstlisting}
+
+Tests a candidate character mapping by counting how many damaged tokens become forms attested in a clean paper. Read the change between the two rates, not either one alone.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python S/case_delta.py
+\end{lstlisting}
+
+Matches the sifted output case-sensitively against the pure corpus. A form that matches only once case is folded is the same word written wrong, and the count of those is the formatting damage.
+
+\subsection{The sift}
+
+Written \texttt{A/\allowbreak{}} for \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}instrument/\allowbreak{}} and \texttt{X/\allowbreak{}} for \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}}.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python A/english_sift.py --check
+\end{lstlisting}
+
+Calibrates against the control. Prints how the known-pure corpus and the known-English spans separate, under one anchor and under two.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python A/english_sift.py <paper stem> [more stems]
+python A/english_sift.py 1983_Hilbert
+\end{lstlisting}
+
+Scores one paper's lines against English and prints the twenty English accounts for least. A stem is a filename in \texttt{build/\allowbreak{}papers/\allowbreak{}} without its extension.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python X/paper_language.py
+python X/sift_extract.py
+python X/language_check.py
+python X/corpus_growth.py
+python X/corpus_admit.py
+\end{lstlisting}
+
+The first reads which language each paper is about out of its own title and abstract. The second sorts every paper without a reader against both anchors and writes \texttt{build/\allowbreak{}corpora/\allowbreak{}sifted/\allowbreak{}}. The third asks whether the distributions agree with what each paper says it is about, with section 3 deciding whether the reading may be made at all. The last two print each corpus's split-half distance, support and entropy as it grows, and admit candidates in batches while the corpus stays on that curve.
+
+\subsection{The sound representation}
+
+Located in the closed corpus repository and run from there. Its SHA-256 is listed in that repository's \texttt{MANIFEST.\allowbreak{}tsv}, next to the recordings'.
+
+\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
+python analysis/sound/binary_sound.py
+python analysis/sound/binary_sound.py <stem>
+\end{lstlisting}
+
+Writes \texttt{build/\allowbreak{}sound/\allowbreak{}<stem>.\allowbreak{}bits.\allowbreak{}tsv} in this tree, one row per 10 ms frame: the time, a 24 bit segment field, and a 4 bit prosody field. With no argument it does every recording in the corpus repository's \texttt{speech/\allowbreak{}}; a stem is a filename there without its extension. The output lands here and not in the closed repository, so that repository's bytes hold still between runs. A signature over an inventory that moves on every run says nothing.
+
+What it prints is the delta from a flat distribution over each field, at 6, 8, 10, 12, 14 and 24 bits, with how many states each width reached. Read the narrow widths. A 24 bit field has 16.8 million states and the longest recording has 135 thousand frames, so the wide figure is about the frame count. \texttt{refs.\allowbreak{}md} has the measured numbers and the four facts about hearing the method is built on.
+
+\subsection{What the modules are for}
+
+These are imported, not run.
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/2-2\tabcolsep\relax}@{}}
+\toprule
+Module & Holds \\
+\midrule
+\texttt{A/\allowbreak{}anchor\_\allowbreak{}sift.\allowbreak{}py} & the method itself: squash, total variation, split-half, support, entropy \\
+\texttt{A/\allowbreak{}english\_\allowbreak{}sift.\allowbreak{}py} & the English anchor and the per-line screen built on it \\
+\texttt{S/\allowbreak{}salish\_\allowbreak{}marking.\allowbreak{}py} & the T and N marking convention, \texttt{tagged\_\allowbreak{}spans}, \texttt{TEXT\_\allowbreak{}SPACE}, \texttt{CAPS\_\allowbreak{}RUN}, ligatures \\
+\texttt{S/\allowbreak{}page\_\allowbreak{}text.\allowbreak{}py} & what a reader needs where its source is the drafted page text: every repair a pass-through, and the language test asked on the orthography \\
+\texttt{S/\allowbreak{}salish\_\allowbreak{}unsorted.\allowbreak{}py} & the flag file, and what counts as a language token \\
+\texttt{S/\allowbreak{}font\_\allowbreak{}repair.\allowbreak{}py} & the Lyon substitution table and the three forms of applying it \\
+\texttt{S/\allowbreak{}space\_\allowbreak{}repair.\allowbreak{}py} & putting back together words the Lyon extraction split internally \\
+\texttt{S/\allowbreak{}inserted\_\allowbreak{}space.\allowbreak{}py} & closing the space a PDF leaves after a stacked diacritic \\
+\texttt{S/\allowbreak{}mellesmoen\_\allowbreak{}kye\_\allowbreak{}repair.\allowbreak{}py} & the same, with a wider mark set that paper's two spaces allow \\
+\texttt{S/\allowbreak{}mary\_\allowbreak{}george\_\allowbreak{}repair.\allowbreak{}py} & the same again, where the grave is glottalization and the acute is stress \\
+\texttt{S/\allowbreak{}glyph\_\allowbreak{}names.\allowbreak{}py} & the glyph names Robertson's extraction printed, read back as the characters they name \\
+\texttt{S/\allowbreak{}line\_\allowbreak{}breaks.\allowbreak{}py} & putting back a word that extraction broke across two lines, shared by that reader and the coverage check \\
+\texttt{lyon\_\allowbreak{}encoding.\allowbreak{}py} & the NimbusRomNo9L codes read as the orthography, for the drafted page text \\
+\texttt{H/\allowbreak{}papers.\allowbreak{}py} & which hand extraction goes with which paper, its repair, and its marks \\
+\texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}representation/\allowbreak{}sound/\allowbreak{}perceived\_\allowbreak{}sound.\allowbreak{}py} & a recording as bits: the log spaced bands, the audiogram, the shift invariant segment field, the prosody field, and the rotation that brings the sample to maximum entropy \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\texttt{TEXT\_\allowbreak{}SPACE} is the one definition of what characters these orthographies are written with. \texttt{salish\_\allowbreak{}unsorted.\allowbreak{}py} and \texttt{H/\allowbreak{}papers.\allowbreak{}py} each held their own copy of that union until the copies were noticed; both read it from \texttt{salish\_\allowbreak{}marking.\allowbreak{}py} now, and a per-paper set is written as that plus what the paper adds.
+
+\textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com> \textbf{Date:} 2026-09-04
+

@@ -1,0 +1,34 @@
+\chapter{Where the precision comes from}
+
+\textbf{Purpose:} Explain how an answer landed finer than the grid it was measured on, and why that question stopped needing an answer.
+\textbf{Scope:} \texttt{recover\_\allowbreak{}lattice\_\allowbreak{}period} and \texttt{recover\_\allowbreak{}exact\_\allowbreak{}period} in \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py}
+
+\section{The objection}
+
+The grid was 0.25 angstroms. Errors below that were reported. A reader should stop there and ask how a measurement resolves anything finer than the spacing it samples at, because most of the time the answer is that it does not and the extra digits are decoration.
+
+That objection was correct to raise and it had an answer. The answer is kept below, because the mechanism is real and applies to any measurement taken on a grid. What follows it is the better resolution, which is that the grid was never necessary.
+
+\section{Quantization moves the period, it does not destroy it}
+
+A cell edge is almost never a whole number of voxels. On a 4.148 angstrom axis at 0.25 the period is 16.59 voxels. Successive tiles therefore do not land on the same lag: they land alternately on 16 and on 17, and the share of the agreement sitting at the upper lag carries the fraction between them.
+
+So the quantity is not lost at quantization, it is moved into the ratio between two adjacent lags. The recovered edge is the lag plus that fraction, times the voxel. Nothing is interpolated between samples that were never taken. Both lags were measured, and their relative weight is a measured quantity too.
+
+\textbf{This is why tiling mattered beyond having more than one period.} The fraction is only readable because many tiles are present and their offsets accumulate. One period gives one lag and no ratio.
+
+Measured, that recovery worked. Three cells at 10.1000, 8.6633 and 14.0574 angstroms came back at 10.1018, 8.6545 and 14.0568, and across the whole sweep 453 axes landed inside a voxel at a median absolute error of 0.0108.
+
+\section{The better answer, which is that the question was ours}
+
+Everything above answers a question this work created. The voxel came from the reader in this tree and not from the deposit: a CIF publishes a cell edge to five decimal places, and the grid was imposed before the detector ever saw it.
+
+Carry the sites as exact integers instead and the objection dissolves. It is not answered. There is no sample spacing to beat, no straddling lags, no fraction to resolve, and no error distribution to report. The same 453 axes come back equal to their published edges.
+
+The lesson generalizes past crystals. The chapter keeps both halves for that reason. An instrument that answers finer than its own resolution deserves the scrutiny this chapter opens with. Sometimes the mechanism is sound, as it was here. It is still worth asking first whether the resolution was anybody's to impose.
+
+\section{What this does not license}
+
+It does not license a claim that a cell edge is now known to a thousand digits. The exact reading recovers the number the deposit carries and stops there. A deposited edge written as 4.76050(5) has an uncertainty of five in its last place, fixed upstream by the people who measured the crystal, and dropping that bracket is all this work does with it.
+
+What the exactness buys is that no second uncertainty is added underneath the first. The instrument contributes nothing to the error, so whatever error remains belongs to the deposit and can be argued about on its own terms.

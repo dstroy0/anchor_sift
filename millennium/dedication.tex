@@ -1,0 +1,29 @@
+% The dedication, one copy per theory, kept identical by hand.
+%
+% Read with \input from each main.tex, immediately after the titlepage and before the abstract.
+% \input and not \include, because \include writes an aux file and this is one page.
+%
+% No heading, no page number, alone on its own page. A dedication with a heading reads as a section
+% and stops being a dedication.
+\cleardoublepage
+\thispagestyle{empty}
+\pdfbookmark[1]{Dedication}{Dedication}
+\null\vfill
+\begin{center}
+  \begin{minipage}{0.72\textwidth}
+    \centering
+    \itshape
+    For Megan, my loving wife, the only person that really understands what I mean
+    when I speak.
+
+    \vspace{1.6em}
+
+    For Autumn and Opal, without you this thought would have never occurred.
+
+    \vspace{1.6em}
+
+    To everyone else, I wish you well.
+  \end{minipage}
+\end{center}
+\vfill\vfill
+\cleardoublepage

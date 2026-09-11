@@ -1,0 +1,156 @@
+% ====================================================================
+% PREAMBLE.TEX - shared by every theory under theory/
+% ====================================================================
+% THIS FILE IS NOT A DOCUMENT AND WILL NOT TYPESET ON ITS OWN. It carries no \documentclass,
+% because a book supplies one and then reads this. Opening it in TeXworks and pressing typeset
+% stops at the first \usepackage with "LaTeX Error: \usepackage before \documentclass". Open the
+% book's main.tex instead; each one names lualatex on its first line so the engine is already set.
+%
+% Every book shares this file. A layout change reaches all of them. Build them with
+% maint/texbuild/build_theory.sh, which compiles twice and fails on a dropped glyph.
+%
+% Compile with lualatex. pdflatex stops dead on the first Greek letter in the construction chapter,
+% and these books quote 392 IPA characters, 182 spacing modifiers and 175 combining marks besides.
+% LuaHBTeX shapes those marks through HarfBuzz, which is what puts a Salishan ejective on its letter
+% instead of beside it.
+
+\usepackage{iftex}
+\RequireLuaTeX
+
+\usepackage{fontspec}
+
+% Charis SIL is SIL's own text face for exactly this material: full IPA, the Americanist letters
+% the Salishan papers are written with, and combining marks that sit correctly on the letters this
+% corpus stacks them on. DejaVu stands behind it for the arrows, box drawing and math operators the
+% workbook tables use, which Charis does not carry.
+\directlua{
+  luaotfload.add_fallback("theoryfallback", {
+    "DejaVuSerif:mode=harf;",
+    "DejaVuSans:mode=harf;",
+  })
+}
+
+% The monospace face needs its own chain. The oracle pages mark a space with U+02FD, the modifier
+% letter shelf, and DejaVu Sans Mono does not carry it: the Salishan book dropped that character
+% six times and still built, which is the failure this whole engine change exists to stop. Charis
+% carries it, so it stands behind the mono face.
+\directlua{
+  luaotfload.add_fallback("theorymonofallback", {
+    "CharisSIL:mode=harf;",
+    "DejaVuSans:mode=harf;",
+  })
+}
+
+\setmainfont{Charis SIL}[
+  Ligatures=TeX,
+  Numbers=OldStyle,
+  RawFeature={fallback=theoryfallback},
+]
+\setsansfont{DejaVu Sans}[Ligatures=TeX, Scale=MatchLowercase]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase, RawFeature={fallback=theorymonofallback}]
+
+\usepackage[eulerchapternumbers, listings, style=linedheaders,
+pdfspacing]{classicthesis}
+
+% classicthesis sets its own text face after it loads. These put the Unicode faces back, because a
+% book that silently drops a letter of the language it is about is worse than one that fails.
+\setmainfont{Charis SIL}[
+  Ligatures=TeX,
+  Numbers=OldStyle,
+  RawFeature={fallback=theoryfallback},
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase, RawFeature={fallback=theorymonofallback}]
+
+% The text block, set after classicthesis so this wins.
+%
+% classicthesis calls \areaset[current]{356pt}{700pt} on A4 at 11pt. An A4 page is 597pt wide, so
+% that leaves 241pt of margin, and a 7em marginpar gutter is carved out of one side of it. Forty
+% percent of every page is blank, which is a page design for a printed thesis read at a desk with a
+% pencil. These books are read on a screen and posted to an archive.
+%
+% 430pt against 597pt puts the text at 72 percent and keeps about 29mm a side. Wider than that and
+% the line runs past what is comfortable to read at 11pt; narrower and the longtables in the workbook
+% and the reproductions chapter start breaking columns they currently fit.
+%
+% The marginpar gutter goes with it. No book under theory/ sets a margin note, so the space was
+% reserved for a feature none of them use.
+\areaset[current]{430pt}{720pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+\let\eth\relax
+\usepackage{amsmath,amsthm}
+\usepackage{unicode-math}
+% Times-metric, to sit with Charis SIL. DejaVu Math is wide and sans-metric and put
+% gaps around every inline formula.
+\setmathfont{TeX Gyre Termes Math}
+\usepackage{array,booktabs,longtable}
+\usepackage{ragged2e}
+% Font expansion and margin protrusion. Without them TeX sets a line with interword space
+% alone and the greyness of the page moves from one page to the next. classicthesis loads
+% microtype already, so these go on the copy it loaded.
+\microtypesetup{protrusion=true,expansion=true,final=true}
+
+% Page breaking. Nothing set these before, so a line could be stranded alone at the top or the foot
+% of a page and vertical space was stretched to force a flush bottom, which is what pulls a table
+% apart across a break.
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+% A page ends where its text ends. Without this TeX stretches the space between blocks to reach the
+% bottom margin, and a table near the foot gets split to make the arithmetic work.
+\raggedbottom
+
+% The chapters number their own sections, 1 through 9, and every cross-reference in the prose uses
+% that scheme: Section 2.5, Section 4.4, Section 7.1. LaTeX was numbering them a second time on top,
+% so a heading read "1.1.3  3. Experimental Design". This numbers chapter and section only and
+% leaves the rest to the text. tocdepth stays where it is, so they are still in the contents.
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{2}
+% Figures. corpus_derivation.py draws with matplotlib and saves a PDF beside its chapter, because
+% LuaLaTeX includes PDF directly and needs Inkscape on the machine to include an SVG.
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric,arrows.meta}
+\usepackage{graphicx}
+\graphicspath{{./}{./chapters/}}
+\renewcommand{\cfttoctitlefont}{\hfill\spacedallcaps}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftparaleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubparaleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforechapskip}{0.9em}
+\setlength{\cftbeforesecskip}{0.2em}
+\setlength{\cftbeforesubsecskip}{0.1em}
+\setlength{\cftbeforesubsubsecskip}{0.05em}
+\setlength{\cftbeforeparaskip}{0.05em}
+\cftsetpnumwidth{2.5em}
+\cftsetrmarg{3em}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\setcounter{LTchunksize}{8}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+% ====================================================================
+% MACROS.TEX - Classic Math Shorthand
+% ====================================================================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\providecommand{\subsetneq}{\mathrel{\subset\!\not=}}

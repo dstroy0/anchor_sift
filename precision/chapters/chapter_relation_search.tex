@@ -1,0 +1,77 @@
+\chapter{The relation search, and where the card stops helping}
+
+\textbf{Purpose:} Measure what an integer relation search costs as a function of the precision it runs at, identify which part of it carries that cost, and state the consequence for whether a device can help. \textbf{Scope:} one cell of the search, host arithmetic, with the author's prediction recorded beside the measurement that contradicted it.
+
+Everything below is measured in arithmetic: places of precision, multiplies, operand width, seconds. No figure here counts an operation belonging to any particular subject the search might be pointed at.
+
+\section{What the search returns, and why that matters}
+
+Almost every measurement in this body of work returns a bound or a null. An integer relation search returns a statement: a closed form either holds or it does not, and anybody can check it in an afternoon without repeating the work that found it.
+
+Its control is the 1996 BBP formula for \(\pi\). Pointed at base sixteen, power one, stride eight, the pipeline returns an exact relation, and the known formula holds on the same values to \(895\) bits of \(900\), the remainder being the series truncation. The gate runs in both directions: it recovers a planted relation exactly and it rejects unrelated numbers.
+
+The relation found is not unique, and an early version of this control demanded that it be. Bailey's compendium notes that the auxiliary sums satisfy zero relations among themselves, so the exact relations form a lattice and the known formula is one member of it. Demanding a particular member was the wrong control, and it reported a correct answer as a failure.
+
+\section{The measurement}
+
+One cell, \(\pi\) at base sixteen, power one, stride eight, on the host:
+
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+places & seconds & multiplies & mean width & Gram-Schmidt rebuilds \\
+\midrule
+550 & \(1.28\) & \(1{,}048{,}433\) & 387 & \(1{,}477\) \\
+1{,}100 & \(4.66\) & \(1{,}853{,}850\) & 730 & \(2{,}612\) \\
+2{,}200 & \(23.32\) & \(3{,}433{,}155\) & \(1{,}423\) & \(4{,}838\) \\
+4{,}400 & \(145.57\) & \(6{,}671{,}400\) & \(2{,}825\) & \textemdash{} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Read as growth per doubling of the precision:
+
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+doubling & time & exponent & multiplies & mean width \\
+\midrule
+550 to 1{,}100 & \(3.64\times\) & \(1.86\) & \(1.77\times\) & \(1.89\times\) \\
+1{,}100 to 2{,}200 & \(5.00\times\) & \(2.32\) & \(1.85\times\) & \(1.95\times\) \\
+2{,}200 to 4{,}400 & \(6.24\times\) & \(2.64\) & \(1.94\times\) & \(1.99\times\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The exponent is not flat and should not be quoted as though it were.} It reads \(1.86\), then \(2.32\), then \(2.64\), rising across the range and still rising at the last step. The figure \(2.64\) is the largest doubling measured and it is the right one to carry forward, because the smaller cells sit where fixed costs still show. Quoting it as a constant across the whole range would overstate what the four rows support.
+
+\section{Which part carries the cost}
+
+The measurement was built to test whether the lattice reduction is the culprit, and the answer is that it is not. That is the opposite of what was predicted before the run, and the prediction is recorded here because a chapter reporting only the answer is worth less than one reporting the wrong expectation beside it.
+
+Gram-Schmidt rebuilds grow \(1.77\times\) then \(1.85\times\) per doubling, which is close to linear in the precision and is the same rate the multiply count grows at over the same two steps. The reduction is not outpacing anything.
+
+The multiply is what carries it. The mean operand width grows \(1.89\), \(1.95\), \(1.99\) per doubling, so it is linear in the precision to within the resolution of four rows. Karatsuba costs \(\mathrm{width}^{1.585}\), and a linear width against a roughly linear count of multiplies predicts an exponent of \(1 + 1.585 = 2.585\). The measurement returned \(2.64\).
+
+Agreement to that tolerance on a four-row fit is not a proof of the mechanism, and it is what the mechanism predicts while the alternative predicts something else. A reduction-bound search would show rebuilds growing faster than the multiply count, and they do not.
+
+\section{The consequence, and it is the part worth publishing}
+
+A device multiply only beats the host above operands of \(32{,}768\) bits. That crossover is itself a measured property and it moved once already: \(192\) ms of context per call meant it originally sat at \(16{,}384\) limbs, and one persistent process moved it down to \(1{,}024\).
+
+The mean operand in this search is \(0.642\) times the precision, read directly off the last row, \(2825/4400\). The precision at which the mean operand reaches the device crossover is therefore
+\[
+32768 / 0.642 \approx 51{,}000 \text{ places}
+\]
+
+Scaling the measured \(145.57\) s at \(4{,}400\) places by \((51000/4400)^{2.64}\) gives about \(26\) hours for one cell there, and a \(240\)-cell grid is about \(261\) days.
+
+\textbf{The precision at which the card becomes the right machine is a precision at which a single cell takes a day.} That is the finding. No amount of device is the answer to this search, and that is measured instead of argued: the two thresholds are separated by a factor the hardware does not close, and closing it would need a different multiply instead of a faster one.
+
+\section{What this does not settle}
+
+The exponent is fitted on four rows spanning three doublings, and the largest is the only one near the asymptote. A fifth row would tighten it and has not been run.
+
+The crossover at \(32{,}768\) bits is a property of one device and one host, measured on one desktop. It moves with either.
+
+And the mechanism argument is an inference from two rates agreeing with a prediction, not a direct attribution. The reduction is ruled out, since its growth is close to linear and does not outpace the multiply count. What the multiply's exponent is exactly, as against what Karatsuba predicts for it, would need the multiply timed on its own across the same widths.

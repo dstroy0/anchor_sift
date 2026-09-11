@@ -1,0 +1,67 @@
+\chapter{Against the field}
+
+\textbf{Purpose:} Place this work beside the published record, because assuming a gap is the error that a literature check exists to prevent and it was nearly made twice. \textbf{Scope:} checked 2026-09-09.
+
+\section{The frontier is three times deeper than any probe here}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+ & rounds of 64 \\
+\midrule
+practical collision, ASIACRYPT 2024 & \textbf{31} \\
+semi-free-start collision, Li and others & \textbf{39} \\
+earlier collisions, Sanadhya and Sarkar 2008 & 23, 24 \\
+this work's forward wall & \textbf{10} \\
+this work's deepest probe of any kind & \(\approx 23\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+That is not a contradiction. It is two different measurements. This work asks how far a \emph{random} difference stays statistically visible under undirected probing. The published attacks construct a \emph{chosen} differential path, using local collisions and message freedom to cancel differences as they arise. A constructed path survives where a random one is long gone.
+
+\textbf{So no null here means ``nothing survives past round twenty-three.''} It means undirected statistics stop seeing there, and something directed reaches thirty-one in practice. The same caveat applies to every refutation here. Undirected probing throughout.
+
+The gap is not sensitivity. The spectral fold is sixty-four times as sensitive as the maximum and stops at the same round. Watching against steering.
+
+\section{Where the agreements fall}
+
+\textbf{The avalanche onset reproduces exactly.} At \(2^{20}\) trials, matching the published million, the SAC value reads \(899.7\) sigmas at round twenty-one, \(152.7\) at twenty-two and \(4.5\) at twenty-three. Round twenty-three, independently, with an independent implementation. That reproduction validates the instrument before it is used on anything contested.
+
+\textbf{The \(\Sigma\) functions are injective in \(\mathrm{GF}(2)\)}, which Handschuh and Gilbert show by the polynomial argument and which the rank measurement reproduces here for all four functions, not two. The closed form for the narrowed deficit, \(\deg \gcd(p(x), x^w+1)\), extends it; no narrowed-width formula was found in the literature.
+
+\textbf{Majority is redundant.} Both published papers find the majority-removed variant indistinguishable from unmodified, and four independent measurements here agree.
+
+\textbf{Diffusion contributors.} The published work names \(\Sigma_1\), integer addition, choice and the message scheduler as contributing at the earliest rounds, which is consistent with the mixing depth of three measured independently here.
+
+\section{Where the emphasis differs}
+
+Both avalanche papers group choice, \(\Sigma_1\) and integer addition together as diffusion contributors. That grouping is correct for diffusion and wrong for degree. The isolation measurements here say \textbf{choice supplies diffusion and the carry supplies degree}, and those are different jobs sharing one category.
+
+\section{Carry space is mapped, not empty}
+
+The carry looked like unexplored ground and is the most heavily mapped part of the subject. Lipmaa and Moriai gave exact algorithms for the differential probability of addition modulo \(2^n\) in 2001, in closed form and logarithmic time, reducing the hardest case from \(\Omega(2^{4n})\) to \(\Theta(\log n)\). Additive differential probabilities of exclusive-or, UNAF, bit-vector differential models and work on the non-independence of chained modular additions extend it, with results still appearing in 2025. The thirty-one-step collision is built from that machinery.
+
+So the finding that the carry supplies the algebraic degree is a rediscovery of why the field lives in carry space, not a gap in it. The rules there are not undefined; they were solved twenty-five years ago and are hard, not unmapped.
+
+\section{What appears to be unstated}
+
+Offered as candidates, not claims, since a literature search cannot prove absence:
+
+\begin{itemize}
+  \item The separation of diffusion from degree across the same three operations.
+  \item The chain law \(\mathrm{wall} = \mathrm{count} + 2\) and its decomposition into a mixing depth of three and a transport of \(\mathrm{count} - 1\).
+  \item The two half-chain offsets, one constant in the chain length and one growing with it.
+  \item The closed form for the narrowed rank deficit.
+  \item The quantized \(1/32\) per-round decay of the residue ridge.
+\end{itemize}
+
+\section{Untested here}
+
+\textbf{Constructed differential paths.} Everything here probes and nothing builds. The thirty-one-step result is a path someone designed. Detection is the weaker instrument by a factor of three in rounds, and that gap is the honest summary of this work's reach.
+
+\textbf{Message freedom.} A collision attack varies the whole message to steer the path. Mining fixes all but thirty-two bits, so most published technique may not transfer, but that is an argument about applicability and not a measurement.
+
+\textbf{The linear axis}, which needs Walsh masks, not single bits, and is a transform over \(2^{512}\) of them.
+
+\textbf{Majority's purpose}, which remains unexplained on every measure available here.

@@ -1,0 +1,103 @@
+\chapter{The evidence}
+
+\textbf{Purpose:} Report every number the sweep produced, including the ones that went furthest wrong, and what changed when the reader stopped rounding.
+\textbf{Scope:} \texttt{examples/\allowbreak{}crystallography/\allowbreak{}6\_\allowbreak{}oracle/\allowbreak{}proof\_\allowbreak{}positive\_\allowbreak{}control.\allowbreak{}py}, catalog \texttt{CRY-6-001}, run 2026-09-09
+
+\section{What was swept}
+
+Sixty four mineral names were put to the Crystallography Open Database by text search. Every entry returned with right angles was fetched, tiled, and asked for its period along each of its three axes.
+
+\begin{longtable}{@{}p{0.55\textwidth}p{0.37\textwidth}@{}}
+\toprule
+\endhead
+names searched & 64 \\
+minerals that returned a usable entry & 55 \\
+structures read & 151 \\
+axes measured & 453 \\
+\bottomrule
+\end{longtable}
+
+One structure contributes up to three axes, and every axis is an independent question carrying its own published answer. A wrong result cannot hide in a small denominator, which a sweep buys and a sample does not. The first version of this control took three minerals and returned three exact answers, and a coincidence still lives at three.
+
+The same corpus was read twice, and the difference between the two readings is the subject of this chapter. The first reading put every site on a grid of 0.25 angstroms before the detector saw it. The second carried each site as an exact integer and rounded nothing.
+
+\section{The result}
+
+\begin{longtable}{@{}p{0.55\textwidth}p{0.37\textwidth}@{}}
+\toprule
+\endhead
+axes equal to the published edge & 453 of 453, 100.0 percent \\
+error & zero, on every axis \\
+tolerance applied & none \\
+\bottomrule
+\end{longtable}
+
+Equal as integers, and not inside a tolerance. Every coordinate is carried at $10^{-1024}$ angstroms, a period is read off the whole difference set of the axis, and the comparison against the published edge is an equality between two integers. There is no tolerance to set and no error to average, because there is no error.
+
+The failure stated in advance was any axis whose recovered period was not equal to its published edge. A near miss would have counted as a miss, since nothing in this path rounds. No axis missed.
+
+\section{The reading this replaced, and what it was measuring}
+
+The same 453 axes, read on the grid:
+
+\begin{longtable}{@{}p{0.55\textwidth}p{0.37\textwidth}@{}}
+\toprule
+\endhead
+axes inside one voxel of 0.25 angstroms & 453 of 453, 100.0 percent \\
+axes equal to the published edge & 0 of 453 \\
+mean absolute error & 0.0124 angstroms \\
+median absolute error & 0.0108 angstroms \\
+90th percentile & 0.0243 angstroms \\
+99th percentile & 0.0404 angstroms \\
+worst single axis & 0.0554 angstroms \\
+\bottomrule
+\end{longtable}
+
+Read alone, that is a good result. Read beside the exact one, it says something else: the grid reading never once landed on the published edge, and every figure in the table is the grid.
+
+None of that error was in the deposit and none of it was in the detector. A cell edge is published to five decimal places and the detector compares integers. The 0.0124 was introduced by this work, in the reader, before the measurement began, and it was then reported as the accuracy of the instrument.
+
+\section{The bias, and its cause is now settled}
+
+The grid reading carried a bias:
+
+\begin{longtable}{@{}p{0.55\textwidth}p{0.37\textwidth}@{}}
+\toprule
+\endhead
+mean signed error & $-0.0067$ angstroms \\
+axes read long & 120 \\
+axes read short & 327 \\
+\bottomrule
+\end{longtable}
+
+The detector read short about three times as often as it read long, and the mean sat below zero by roughly half the median absolute error. A symmetric error would have put those counts near even.
+
+An earlier version of this chapter named the voxel floor as the candidate explanation, predicted a bias of about half a voxel spread over the tiling, and said plainly that it had not been tested by re-running with a different rounding, so the bias was a measured fact with no mechanism attached.
+
+\textbf{It has now been tested, by removing the rounding.} The exact reading of the same 453 axes has a signed error of zero, 0 axes long and 0 axes short. The bias was the voxel floor in its entirety. Nothing of it survives when sites are not assigned to cells.
+
+That is the strongest form the test could take. Changing the rounding rule would have moved the bias and left the question of how much was rule and how much was something else. Removing the quantization removes the bias completely, which settles it.
+
+\section{The four worst axes, and where they are now}
+
+\begin{longtable}{@{}p{0.18\textwidth}p{0.13\textwidth}p{0.05\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.13\textwidth}p{0.10\textwidth}@{}}
+\toprule
+mineral & entry & axis & published & on the grid & grid error & exact \\
+\midrule
+\endhead
+corundum & 1544906 & c & 2.8446 & 2.9000 & $+0.0554$ & 2.8446 \\
+herzenbergite & 9008295 & a & 4.1480 & 4.1000 & $-0.0480$ & 4.1480 \\
+quartz & 4339381 & c & 15.4780 & 15.5250 & $+0.0470$ & 15.4780 \\
+herzenbergite & 9008785 & b & 11.1800 & 11.1389 & $-0.0411$ & 11.1800 \\
+\bottomrule
+\end{longtable}
+
+Herzenbergite appears twice, and it is the mineral that failed outright before the harmonic family was capped at two members. It was the hardest case in the set on the grid. It is exact on both entries now, and so is every other axis, so the concept of a worst axis no longer applies to this measurement.
+
+The two largest grid errors had opposite signs, which was worth noting when the grid was the reading: the worst case was not the bias but the resolution of the straddling ratio, and those were separate effects. Both are properties of a quantization that is no longer performed.
+
+\section{What this table is not}
+
+It is not a measurement of any of these minerals. Every published edge in the table was measured by somebody else, to a precision this does not reach, and is the input the recovered value is graded against. The exact reading recovers the deposited number and makes no claim beyond it: agreeing with a deposit to the digit is not the same as the deposit being right, and the bracketed uncertainty a deposit carries is a quantum fixed upstream by the people who measured it.
+
+It is also not 453 independent structures. It is 453 axes over 151 structures over 55 minerals, and several minerals contribute many entries. Treating the 453 as independent samples of anything would overstate what a sweep of 55 minerals shows.

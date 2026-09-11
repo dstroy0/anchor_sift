@@ -1,0 +1,181 @@
+\chapter{What a boundary holds}
+
+A closed surface holds a number of separable readings set by its own measure divided by the finest detail reaching it, raised to the dimension of the surface. Shape does not enter. Topology does not enter. Only the measure and the resolution do.
+
+Two consequences follow. What a region holds scales with the area of its boundary and never with its volume. And a source at depth $d$ inside a ball of radius $R$ reaches harmonic degree $l$ as $(r/R)^l$, so depth sets bandwidth, and a source prints a patch of angular size about $d/R$ however small the source itself is. A spot on a boundary is always wider than the thing that made it.
+
+\section{Depth sets bandwidth}
+
+Under diffusion the boundary response to one interior source at radius $r$ is the Poisson kernel, and its Legendre expansion carries $(2l+1)(r/R)^l$ at degree $l$. Everything else follows from that line. A source at the middle reaches degree zero alone and spreads over the whole sphere. A source against the shell reaches every degree and prints a small bright spot.
+
+Reading the depth back out of a spectrum is a slope: dividing out the shape term and the conduction term leaves a straight line in degree whose gradient is twice the logarithm of $r/R$. Measured against sources placed at known depths, the recovery returns 0.3000, 0.5500, 0.8000 and 0.9200 for radii of 0.30, 0.55, 0.80 and 0.92. It holds under conduction as well, and that check caught an exponent being applied twice.
+
+\section{The area law, counted exactly}
+
+Degrees up to $l$ carry $(l+1)^2$ modes on an ordinary sphere, and the general count in $n$ dimensions is a sum of two binomial coefficients. That count is a whole number with a formula, so it needs no sampling and no rounding.
+
+Weyl's law predicts the same count from the surface measure alone: the volume of the unit ball in the boundary's own dimension, times the boundary's measure, times the eigenvalue to half that dimension, over two pi to that dimension. The two sides share no term. Compared at 2, 3, 5, 8, 12, 19, 24 and 40 dimensions, they agree to within 0.0122 percent, and at forty dimensions the exact count is a 157 digit integer.
+
+The residual is a remainder, never a disagreement. At nineteen dimensions it runs 0.1131, 0.0282, 0.0070 and 0.0018 percent as the degree quadruples each time. Falling by four for every quadrupling is what an error term of order one over the degree does.
+
+\section{The flat torus, and why it matters}
+
+Spherical harmonics settle the dimension half of the claim, alone, because they live on spheres. A cube's surface has no such formula, which left shape resting on packing.
+
+A flat torus has one. Glue opposite edges of a square and the eigenvalues of the Laplacian become $(2\pi/L)^2$ times the squared length of an integer vector, so counting modes below a cutoff is counting integer points inside a ball. The count is an integer, it holds no transcendental, and it is available at any dimension by raising the every-square series to a power and adding up its coefficients.
+
+This is worth having because a flat torus is not a sphere in any respect that could smuggle the answer in. It is flat where the sphere is curved. It has a hole where the sphere has none. Its symmetry group is a lattice where the sphere's is a rotation group. The same constant comes off both, exactly, with nothing sampled.
+
+It also puts the remainder into known company. The difference between the exact lattice count and the volume of the ball is the lattice point problem, the Gauss circle problem in two dimensions and open in general. The leading term of the area law is settled here and the remainder is somebody else's open question.
+
+\section{Why shape cannot enter}
+
+A seam where two edges meet contributes nothing to a surface measure. Neither do a cube's edges, its corners, or the point where three facets meet. Every one of them is measure zero on the surface, so none of them can move a count that depends on measure alone.
+
+Shape does not enter for that reason, and it is not a coincidence to be confirmed one shape at a time. A cube differs from a sphere precisely in its edges and corners, and those are exactly the parts that carry no measure. The count cannot see them. Overlap would be the exception, since overlap has positive measure and would count the same area twice.
+
+The same rule governs the packing that measures this. Packed points may touch and may not overlap, and tangency is the densest limit. Touch freely, never overlap, and the measure is untouched either way.
+
+\section{Diffusion is dwell}
+
+Diffusion is not a blur applied to a picture. It is how long the light stayed inside before it left, and both readings come off one medium sorted by arrival.
+
+Light that leaves early went nearly straight, still knows what it passed, and prints an edge. Light that leaves late has turned over so many times that it arrives from every direction at once, so it fills the shadow it would otherwise have cast and carries how much in place of where. The same photons either way. A clock decides which of them are being counted.
+
+That split is worth more than either half. A steady reading cannot separate absorption from scattering: a weakly absorbing dense medium and a strongly absorbing sparse one give the same number. Adding the clock breaks the degeneracy. The earliest arrivals give the shortest path and the straight-line geometry, the mean arrival gives the absorption, the spread of arrivals gives the scattering, and the tail gives the deepest excursions.
+
+\section{The smear}
+
+From inside, dwell is a tail behind a moving source. From outside there is no tail to see, because the inside is not what an outside observer has. What they have is the surface, and the tail arrives there as a smear.
+
+The smear is worth more than the spot. A spot says where something is. A smear says where it was going and how long it took: its length is the dwell and its direction is the direction of travel, and both come off a surface that never moved.
+
+\section{The conditions}
+
+The account needs four things and fails without any of them.
+
+\textbf{Closed.} An open surface bounds no region, so there is no interior to determine and flux leaves unaccounted. A surface pinched at isolated points and open between them fails on both counts: it is not a manifold at the pinch and it is still bounded everywhere else.
+
+\textbf{Orientable, for containment only.} Weyl's law holds on any compact surface, orientable or not, so the counting survives. What needs orientability is the outward normal, without which inside and outside are not defined. A non-orientable boundary keeps its capacity and loses its containment.
+
+\textbf{A gradient.} No gradient, no flux. No flux, and the boundary records a uniform nothing however long it is watched.
+
+\textbf{Coherence.} A hologram works by interfering a coherent field with a reference, which records phase as intensity on a two dimensional plate. Without coherence only intensity survives, and recovering the interior from intensity alone is the phase retrieval problem: non-unique in one dimension, generically unique and badly conditioned above it. Coherence is the difference between an inversion that is linear and a guess that is not.
+
+Coherence also supplies the length the count was missing. The number of readings is unbounded as the resolution improves and finite at any resolution, so the bound only becomes a number once something fixes a shortest length. In an optical setting the coherence length is that length, and the capacity is the area over the coherence area.
+
+\section{What is not established}
+
+\textbf{Anisotropy.} The boundary map on an anisotropic medium is invariant under any diffeomorphism fixing the boundary, and a family of interiors then gives identical boundary data. Motion alone does not rescue this, since transforming the medium and its contents together leaves the boundary untouched. Motion under a law does: a diffeomorphism relabels space, straight lines curve, Keplerian orbits stop obeying Kepler, and only the untransformed world satisfies the law it was supposed to obey. Recovering orbital radii from a boundary light curve rests on exactly this, and the work is being done by Kepler and not by geometry.
+
+\textbf{Stability.} Uniqueness is not stability. Recovering detail at scale $x$ needs precision growing exponentially in $1/x$, so everything is recoverable in principle and buried under noise in practice. The spectrum of a real measurement dies by degree 46, and past there the inversion divides by a gain already below one part in a million.
+
+\textbf{Shape above five dimensions.} Verified at three and five dimensions, where sphere, cube and cross-polytope give the same constant to within a factor of 1.14. Above that the count has to be packed, and packing stays honest only while the gap is well under the typical distance between two points on the surface. Holding to that limit at nineteen dimensions needs candidates in the hundreds of millions against a kept set in the hundreds of thousands.
+
+\textbf{The constant out front.} The scaling is provable and shape independent. The constant depends on packing density, which is known to be optimal in dimensions one, two, three, eight and twenty-four and open everywhere else. Dimension nineteen is open. The measurements here use a greedy packing, which reaches roughly half of the optimum and reaches it identically on every shape, so it measures shape dependence and never packing efficiency.
+
+\section{Three defects, and how each was caught}
+
+Every one of these produced a plausible number and none announced itself.
+
+The half-integer arm of the gamma function was written with $(2j+1)/2$ where it wanted $(2j-1)/2$. It starts one step along and returns twice the right answer at every odd argument, so the surface measure of every odd-dimensional sphere was doubled. The constant then alternated high and low with the parity of the dimension. The cube never touches the gamma function and stayed flat, which pointed at it. A count computed from the area and then checked against the area would have agreed with itself and found nothing.
+
+A limit on how wide a packing gap may be was written down and then ignored while picking gaps that would saturate quickly. The constants came back spread by three, seven and fourteen times at twelve, sixteen and nineteen dimensions, and read exactly like shape dependence. They were one gap being too wide, on every shape at once.
+
+A remainder was tested for the wrong behavior. The error in a lattice count oscillates while its envelope falls, so requiring each radius to beat the one before it fails on a correct count. It did. Measured over a band of radii instead of at a point, the envelope comes down by a factor of forty-eight.
+
+\section{The demon, priced}
+
+Laplace's demon knows the state of everything and computes the rest. Quantum indeterminacy refuted
+it qualitatively. What the measurements here do is price the classical failure. That is the more
+useful statement.
+
+A demon reading a boundary gets the measure over the resolution, raised to the dimension of the
+boundary. That is finite at any resolution and unbounded across resolutions, so nothing stops it
+improving except the cost of improving. The cost is exponential: recovering detail at scale $x$
+needs precision growing like the exponential of $1/x$, because the inversion divides by a gain
+falling as $(r/R)^l$. The spectrum of a real measurement dies by degree 46, and past there the
+division is by a number already under one part in a million. The demon meets no wall of principle.
+It meets a bill.
+
+The distinction that matters cuts against the reading this work invites. Verifying the area law
+establishes that the channel is that wide. It does not establish that the interior holds only that
+much. Counted the ordinary way, a volume carries $(R/x)^n$ degrees of freedom while its boundary
+carries $(R/x)^{n-1}$, leaving the boundary short by a factor of $R/x$. The holographic principle says
+the interior really is only boundary-sized and nothing is lost. That is a physical conjecture and
+nothing here tests it. The pipe was measured. What has to fit through it was not.
+
+The fork is sharp. If the holographic principle holds, a demon at the boundary has exactly enough
+and its only difficulty is precision. If it does not, the demon is short by $R/x$ however precise it
+becomes, and a counting deficit is not a rounding one. No arithmetic buys it back.
+
+A third pressure applies either way. The demon sits inside the region it computes, so its own state
+is written on the same boundary and counted against the same budget. A demon storing a description
+of the interior has to store it somewhere the interior can already see.
+
+\section{Reading the dimension off a line}
+
+A periodic structure in $n$ dimensions, cut at an irrational angle and projected into fewer, comes
+out quasiperiodic: never one period, but several with irrational ratios between them. Penrose
+tilings are a five dimensional lattice seen in two. The correspondence runs both ways, so any
+quasiperiodic pattern lifts to a periodic lattice in high enough dimension.
+
+That turns into a measurement. The count of rationally independent periods in a one dimensional
+reading equals the dimension of the lattice it was cut from. Cutting a square lattice at the golden
+slope and reading it back gives two gap lengths and never three, their ratio the golden mean to one
+part in ten to the fourteenth, their counts to four parts in ten thousand, no period at any length
+up to half the sequence, and every strong peak named by a pair of whole numbers against two
+generators. Against one generator the worst peak misses by 0.382 of it. Against two, by six parts in
+ten thousand.
+
+A boundary reading can therefore report the dimension of a structure it never had access to, by counting
+how many of its periods refuse to be multiples of one another.
+
+\section{A fourth defect: the wrong quantity held small}
+
+The packing gap has to be small against the shape's own geometry. It was instead held to a fraction
+of the typical distance between two points on the surface, and in high dimensions those are not the
+same requirement.
+
+The separation between two points drawn on a sphere concentrates near root two whatever the
+dimension is. A gap held at half of that is half the radius of curvature, and a cap that wide is
+nothing like the flat disc the count assumes it is. A cube's facets are flat and suffer none of it,
+so the two shapes part company and the answer reads as shape dependence. That criterion passed a
+twelve dimensional run whose constants spread by 2.1 times: sphere 5.37, cube 11.41, cross-polytope
+8.20.
+
+Measured against the shape instead, at a gap well under every radius in play, the same three shapes
+give 0.664, 0.644 and 0.650 at three dimensions, 0.660, 0.619 and 0.640 at four, and 0.689, 0.627
+and 0.658 at five. Spread 1.03, 1.07 and 1.10.
+
+The shape half of the claim is verified there, and it is also the end of what packing reaches. Five
+dimensions took ten million candidates for twenty thousand kept points, and the count needed to stay
+in the flat regime grows the way a packing number does. No card makes that cheap at nineteen
+dimensions. The limit is structural and never a compute budget, and the exact routes on a sphere and
+on a flat torus are what reach up there.
+
+\section{The nesting, both directions}
+
+Every boundary is inside another one, and everything a boundary holds is a boundary of its own. The
+outside of a shell is the inside of the next shell out, and the contents of a shell are shells with
+contents. Running outward: the cloud is inside its shell, the shell is inside the room, the room is
+inside whatever holds the room, and in this case what holds it is a universe. Running inward: each
+light is a closed surface, its own constituents are confined by it, and their traces smear across it
+exactly as the cloud's traces smear across the shell.
+
+Neither direction terminates on its own, and both terminate for the reader.
+
+Downward it stops at resolution. A constituent's smear on its own small surface subtends less than
+the finest detail the boundary between it and the observer can carry, so below that it is not there
+to be seen, and drawing it anyway would be inventing detail no boundary holds. The recursion
+stopping where resolution stops is the area law applied to the picture instead of stated about it.
+
+Upward it stops at whatever the observer is inside. There is no vantage point outside everything,
+since standing outside one boundary places the observer inside the next. Stepping back from a wall
+does not escape a boundary; it changes which boundary is being read.
+
+One level was measured. A source at depth $r$ reaches degree $l$ as $(r/R)^l$, the count on that
+boundary follows the area law, and the same constant comes off different shapes. That the
+arrangement repeats at every scale is a structural claim about the shape of the account and never a
+result taken from it. It follows if the same physics holds at every scale, and that premise was
+assumed and never measured.

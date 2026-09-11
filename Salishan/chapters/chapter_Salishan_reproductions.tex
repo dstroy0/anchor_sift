@@ -1,0 +1,182 @@
+\chapter{Reproducing what the linguists claimed}
+
+\section{Nater on Bella Coola}
+
+\textbf{Purpose:} Take a claim a linguist published about one of these languages, and find out
+whether the corpus on disk reproduces it. \textbf{Scope:}
+\texttt{build/\allowbreak{}experiments/\allowbreak{}nater\_\allowbreak{}bella\_\allowbreak{}coola.\allowbreak{}py},
+the Nuxalk corpora under \texttt{build/\allowbreak{}corpora/\allowbreak{}}.
+
+\textbf{Margaret Siwallace} told the tale this is measured over. Hank Nater wrote it down and
+published it, and a person read it into a table for this work. The language is hers.
+
+\subsection{Why this is a different kind of test}
+
+Almost every reading in this work is scored against the corpus it came out of. Section 7 of
+\texttt{corpus-\allowbreak{}derivation} is the exception that mattered most: a border a linguist
+published, held out, and recovered. This is the second of that kind and it is cheaper, because the
+answer was printed in a table forty years ago and nothing here can move it.
+
+Nater's ICSNL59 paper, \emph{Voiceless Words in Bella Coola: Fact vs. Fiction}, disputes Mellesmoen
+(2021) on four points. Its Table 1 prints the Bella Coola phoneme inventory with a per centum
+distribution across the entire morpheme inventory, from Nater (1984:27). Thirty-four phonemes with
+a percentage each. Transcribed off the page they sum to 99.98. That sum is how the transcription is
+checked: a table with a row dropped still looks like a table, and one that sums to 100 does not have
+a row missing.
+
+That table is an oracle in the strict sense this tree uses. It is a measurement somebody else made,
+over a sample this work has never seen, and no reading taken here can adjust it.
+
+\subsection{What had to be thrown out first}
+
+Three Nuxalk corpora sit in \texttt{build/\allowbreak{}corpora/\allowbreak{}}. Two of them cannot
+carry this measurement and neither says so in its name.
+
+\textbf{One is nearly a tenth English.} The purity control is a word list built from
+\texttt{cc\_\allowbreak{}english.\allowbreak{}txt}, four letters and up, which is already in the tree
+for the sift's own anchor. \texttt{How Salish is Bella Coola} scores 169 English tokens in 1934, at
+0.087: \emph{introduction}, \emph{however}, \emph{cognates}, \emph{database}. The other two score
+0.018 and 0.008.
+
+The mark set is not the test used here, and using it would have been the obvious mistake. A mark set
+calls a token the language when it carries one of the characters the language is written with, and
+Ayajuthem and St'át'imcets are written in practical orthographies that use none of them. Asked that
+way, Mary George's corpus reads 0.639 foreign and Carl Alexander's 0.602, when both are the
+language. An English word list has the opposite failure and it is the harmless one: it can only
+accuse a token of being English, and a Bella Coola word is not in an English dictionary.
+
+\textbf{One is Nater's own cluster charts.} The pure stream for the voiceless-words paper holds
+\texttt{ck}, \texttt{cp}, \texttt{cq}, \texttt{kƛ'i}: those are the entries of his Tables 2 to 5,
+lifted out of the paper by its reader. Counting phonemes over that file counts an obstruent cluster
+inventory as though it were speech, and pooling it with the narrative inflated every obstruent while
+leaving \texttt{a} five per cent short.
+
+It is told from speech by measuring it. The tale runs 8.50 phonemes to a word with 0.954 of its
+words carrying a vowel; the chart runs under three phonemes with under a third of its entries
+vowelled. A chart has that shape and a language does not. The check is in the script and not
+in a list of filenames, so the next chart to arrive is caught by the same test.
+
+Margaret Siwallace's tale remains: 217 words, 644 phonemes read as a morpheme inventory,
+31 characters no phoneme accounts for.
+
+\subsection{The reproduction}
+
+Counted as a morpheme inventory, the way Nater counted it, the tale sits at a total variation of
+0.169 from his table.
+
+Three of his rows read exactly zero in the corpus: the vocalic sonorants \texttt{m̩}, \texttt{n̩} and
+\texttt{l̩}. The corpus does not write the syllabicity diacritic and spells \texttt{m̩} as
+\texttt{m}. That is a fact about the extraction and not about Bella Coola, and it puts 3.58 per cent
+of the published table in cells the corpus can never fill while inflating the three plain sonorants
+by the same mass.
+
+Folding his syllabic rows into their plain counterparts is a correction to the oracle. Doing it
+without saying so would make this worthless. Made openly, it predicts where the
+three plain sonorants should land, and they land there:
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\toprule
+Phoneme & Nater, folded & The tale & Difference \\
+\midrule
+\texttt{m} & 4.99 & 5.59 & +0.60 \\
+\texttt{n} & 4.91 & 5.43 & +0.52 \\
+\texttt{l} & 4.82 & 4.50 & -0.32 \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The total variation falls from 0.169 to \textbf{0.136}, and that fall of 0.033 measures what
+the three unwritten diacritics were costing.
+
+Several rows agree closely without any correction at all. \texttt{a}, the most frequent phoneme in
+the language, reads 15.06 against 15.84. \texttt{i} reads 7.92 against 8.12. \texttt{ƛ'} reads 0.93
+against 0.95, \texttt{xʷ} 1.09 against 1.17, \texttt{c'} 1.86 against 1.78.
+
+\subsection{Whether 0.136 is anything}
+
+A total variation is a number until it has a floor under it and a wrong answer beside it.
+
+\textbf{The floor.} The tale is split by alternating words, which samples it instead of cutting it
+in place, and the two halves are measured against each other. That is the resolution of this count
+at 644 phonemes: \textbf{0.066}. The reading sits at about twice its own floor, so there is a real
+gap between this corpus and the published table and it is not all noise.
+
+\textbf{The wrong answer.} The same count is taken over every other Salishan corpus on disk and
+scored against Nater's Bella Coola table. Fourteen of them are large enough to ask.
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\toprule
+Corpus & Phonemes & From Nater's table \\
+\midrule
+Margaret Siwallace, Bella Coola & 644 & \textbf{0.136} \\
+Delphine Derrickson Armstrong and Dave Michele & 1001 & 0.239 \\
+Mary George & 3295 & 0.299 \\
+George Lezard and others & 3709 & 0.299 \\
+Martha Lamont and Annie Jack & 550 & 0.315 \\
+Lottie Lindley & 4138 & 0.318 \\
+Susie Sampson Peter and Martha LaMont & 728 & 0.360 \\
+Carl Alexander & 3106 & 0.392 \\
+\texttt{wlwlmelst} and Maurice Michell & 1130 & 0.392 \\
+Charley Alexis Mayoos and William Celestin & 373 & 0.397 \\
+Linda Redan & 700 & 0.407 \\
+Kweltezetkwu and Bernice Garcia & 1333 & 0.414 \\
+Bev Phillips & 1530 & 0.444 \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The nearest language that is not Bella Coola sits at 0.239, and several of those corpora are five
+times the size of the tale. The gap from Bella Coola to the runner-up is 0.103, which is a floor and
+a half. A 217-word tale, read out of a PDF by a script and checked by hand, lands nearer a phoneme
+table published in 1984 than fourteen other Salishan corpora do.
+
+That is a positive control on the corpus and not on the method. What it says is that the extraction,
+the reader and the three checks preserved enough of Bella Coola for a frequency count to find its
+way home.
+
+\subsection{The claim about nuclei}
+
+Mellesmoen's Good Enough Nucleus Hypothesis, as Nater quotes it, holds that every word has at least
+one syllable and that anything equal or greater in sonority to a fricative may stand in the nuclear
+position. Nater disputes the exclusion of stops, cites all-stop words and roots, and concludes with
+Newman (1947) that Bella Coola is largely non-syllabic.
+
+Whether such words are in this corpus is a count. In Margaret Siwallace's tale, \textbf{17 distinct
+morphemes carry no sonorant and no vowel}: \texttt{ck}, \texttt{cx}, \texttt{c'kt}, \texttt{kł},
+\texttt{kʷc}, \texttt{kʷƛ'}, \texttt{k'x}, \texttt{skʷ'}, \texttt{sx}, \texttt{tx}, \texttt{tχ},
+\texttt{tχʷ}, \texttt{t'xʷ}, \texttt{xł}, \texttt{xʷc} among them. One of the 17 is built from stops
+alone: \texttt{kʷkʷ'}.
+
+The cluster chart answers this question 103 times over and the answer is worth nothing, because
+every entry in it is an obstruent cluster by construction. Reciting the table a claim was argued
+from is not evidence for the claim. The narrative is the only line here that bears on it, and one
+short tale is what it rests on.
+
+This counts occurrences and argues nothing about syllable theory, which nothing here reaches. What can be
+said is that voiceless words are in the running speech on disk, at 17 in a single tale, so they are
+not an artifact of citation lists.
+
+\subsection{What this cannot do}
+
+\textbf{The areal claim is out of reach.} Nater's fourth point is that long obstruent clustering is
+shared with Oowekyala, at Rivers Inlet, and is therefore areal and not inherited. Oowekyala is
+Wakashan and there is no Oowekyala on disk. The test has a shape: the same phoneme count over an
+Oowekyala corpus, against Bella Coola and against the Salishan corpora, with the question being
+whether Bella Coola sits nearer its neighbor than its family. Nothing here can run it until that
+corpus exists, and saying so is as far as this goes.
+
+\textbf{The residual is not explained.} After the fold, \texttt{s} is 3.32 low, \texttt{ʔ} 2.01
+high, \texttt{u} 2.36 high and \texttt{kʷ} 1.90 high. \texttt{s} is the most frequent obstruent in
+the language and one 217-word tale is a thin sample of it. Whether that gap is the sample, the
+genre, or a difference between Nater's morpheme inventory and any running narrative is not decided
+here, and more Bella Coola narrative is what would decide it.
+
+\textbf{A morpheme inventory built from marked boundaries is not the one Nater had.} His was a
+lexicographer's list. This one is what the corpus marks with a hyphen and a shelf, deduplicated.
+They are the same kind of object and they are not the same object.
+
+\textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
