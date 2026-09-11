@@ -196,11 +196,11 @@ bench & question & reports \\
   admission and independence over byte strings &
   candidates, skip, \(I(d)\), \(z\), refusals \\
 \addlinespace[0.4em]
-\texttt{bench\_ancorae\_lattice.c} &
+\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c} &
   whether Proposition 1 survives off the line &
   candidates, refusals \\
 \addlinespace[0.4em]
-\texttt{bench\_ancorae\_entropy.c} &
+\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c} &
   what the candidate count estimator is worth &
   bias, root mean square error \\
 \addlinespace[0.4em]
@@ -354,11 +354,11 @@ The last row is the one that makes the others worth stating together. That form 
 
 \noindent\textbf{It stops in three places, and every failure recorded in this document is one of them.}
 
-\_The number is not unique, it is indexed by a slice.\_ There is no \(H_2\) of a corpus, only \(H_2(w)\) of a corpus read \(w\) bits at a time, and Section 4.10 measures it falling from 0.984 to 0.600 bits per bit between \(w = 1\) and \(w = 16\) on English. Every figure above uses \(w = 8\), which nothing here justifies.
+\noindent\emph{The number is not unique, it is indexed by a slice.} There is no \(H_2\) of a corpus, only \(H_2(w)\) of a corpus read \(w\) bits at a time, and Section 4.10 measures it falling from 0.984 to 0.600 bits per bit between \(w = 1\) and \(w = 16\) on English. Every figure above uses \(w = 8\), which nothing here justifies.
 
-\_A second moment is not a distribution.\_ Section 4.3.1 needs the expected minimum of \(m\) size biased draws, which is a property of the whole order statistics. Entropy orders the corpora wrongly there, and Section 4.8 prices a mismatched reference at 25 to 30 times, which no collision probability predicts.
+\noindent\emph{A second moment is not a distribution.} Section 4.3.1 needs the expected minimum of \(m\) size biased draws, which is a property of the whole order statistics. Entropy orders the corpora wrongly there, and Section 4.8 prices a mismatched reference at 25 to 30 times, which no collision probability predicts.
 
-\_Independence is assumed throughout and fails.\_ Section 4.6 measures the product rule wrong by four orders of magnitude, Section 4.7 finds correlation surviving to separation seven, Section 4.6.1 has 2.98 anchors predicted against 6 measured at \(m = 16\), and Section 4.9.3 has the distance field losing on periodic data alone. The parameter predicts none of these, because each is a statement about the joint distribution and it is a statement about a marginal.
+\noindent\emph{Independence is assumed throughout and fails.} Section 4.6 measures the product rule wrong by four orders of magnitude, Section 4.7 finds correlation surviving to separation seven, Section 4.6.1 has 2.98 anchors predicted against 6 measured at \(m = 16\), and Section 4.9.3 has the distance field losing on periodic data alone. The parameter predicts none of these, because each is a statement about the joint distribution and it is a statement about a marginal.
 
 \subsubsection{4.1 Soundness on Byte Strings}
 
@@ -1200,19 +1200,19 @@ Six public domain texts, fetched by \texttt{maint/\allowbreak{}data/\allowbreak{
 \toprule
 text & family & year & boundary & gap & Zipf slope & brevity \\
 \midrule
-Cervantes, \_Don Quixote\_ & Romance & 1605 & \texttt{0x20} & 5.13 & -1.047 & -0.305 \\
+Cervantes, \emph{Don Quixote} & Romance & 1605 & \texttt{0x20} & 5.13 & -1.047 & -0.305 \\
 King James Bible & Germanic & 1611 & \texttt{0x20} & 4.70 & -0.925 & -0.244 \\
-Goethe, \_Faust\_ & Germanic & 1808 & \texttt{0x20} & 5.09 & -0.723 & -0.364 \\
-Austen, \_Pride and Prejudice\_ & Germanic & 1813 & \texttt{0x20} & 4.94 & -0.875 & -0.301 \\
-Hugo, \_Les Misérables\_ & Romance & 1862 & \texttt{0x20} & 5.40 & -0.950 & -0.321 \\
-\_Kalevala\_ & Uralic & 1849 & \texttt{0x2C} & 43.7 & -0.563 & -0.153 \\
+Goethe, \emph{Faust} & Germanic & 1808 & \texttt{0x20} & 5.09 & -0.723 & -0.364 \\
+Austen, \emph{Pride and Prejudice} & Germanic & 1813 & \texttt{0x20} & 4.94 & -0.875 & -0.301 \\
+Hugo, \emph{Les Misérables} & Romance & 1862 & \texttt{0x20} & 5.40 & -0.950 & -0.321 \\
+\emph{Kalevala} & Uralic & 1849 & \texttt{0x2C} & 43.7 & -0.563 & -0.153 \\
 \bottomrule
 \end{longtable}
 \normalsize
 
 Five of the six locate the same boundary symbol without being told there is one, at a mean gap between 4.70 and 5.40. The Zipf slopes sit between -0.72 and -1.05 against a stated -1, and the brevity correlation is negative in every row. Cervantes and Hugo are 257 years and two countries apart and differ by 0.10 in slope and 0.016 in brevity.
 
-\noindent\textbf{The Finnish row is a genre confound and not a property of Finnish.} Every other text here is running prose and the \_Kalevala\_ is verse in strict trochaic tetrameter, compiled from oral songs. Its lines are more regular than its words and the detector finds the line. Replacing it with Finnish prose settles it:
+\noindent\textbf{The Finnish row is a genre confound and not a property of Finnish.} Every other text here is running prose and the \emph{Kalevala} is verse in strict trochaic tetrameter, compiled from oral songs. Its lines are more regular than its words and the detector finds the line. Replacing it with Finnish prose settles it:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1220,8 +1220,8 @@ Five of the six locate the same boundary symbol without being told there is one,
 \toprule
 text & boundary & gap & Zipf & brevity & distinct per token \\
 \midrule
-Kivi, \_Seitsemän veljestä\_, prose, 1870 & \texttt{0x20} & 6.82 & -0.828 & -0.298 & 0.37 \\
-\_Kalevala\_, verse, 1849 & \texttt{0x2C} & 43.7 & -0.563 & -0.153 & 0.91 \\
+Kivi, \emph{Seitsemän veljestä}, prose, 1870 & \texttt{0x20} & 6.82 & -0.828 & -0.298 & 0.37 \\
+\emph{Kalevala}, verse, 1849 & \texttt{0x2C} & 43.7 & -0.563 & -0.153 & 0.91 \\
 Austen, prose, 1813 & \texttt{0x20} & 4.94 & -0.875 & -0.301 & 0.11 \\
 \bottomrule
 \end{longtable}
@@ -1456,7 +1456,7 @@ C source & 0.533 & 40 files \\
 
 Single works occupy 0.758 to 0.833 over four languages and three centuries, collections occupy 0.509 to 0.667, and the memoryless control sits at 1.010. The bands do not overlap. The C sources fall with the collections, and forty files each concerning a different module should give that.
 
-Hugo is the lowest of the single works and that supports the reading instead of straining it. \_Les Misérables\_ runs to five volumes and turns aside into Waterloo, the sewers of Paris and the history of a convent. It is the most topically varied single work measured here and it sits nearest the collection band.
+Hugo is the lowest of the single works and that supports the reading instead of straining it. \emph{Les Misérables} runs to five volumes and turns aside into Waterloo, the sewers of Paris and the history of a convent. It is the most topically varied single work measured here and it sits nearest the collection band.
 
 Every corpus in that table arrived already being one thing or the other. The reading rests on labels applied by hand and could be tracking whatever those labels correlate with. Two manipulations settle it (\texttt{examples/\allowbreak{}any\_\allowbreak{}corpus/\allowbreak{}3\_\allowbreak{}reference/\allowbreak{}heterogeneity\_\allowbreak{}control.\allowbreak{}py}). Joining English single works into one corpus, with the total length held near 900000 characters so the walk cannot be a length effect, gives 0.828 for one work, 0.685 for two and 0.626 for three. Cutting the 66 book collection into equal pieces walks the other way:
 
@@ -1558,7 +1558,7 @@ Chinese decides it. Measured in within language standard deviations from the mea
 
 The results in Sections 4.13.05 and 4.13.1 hold over seven language families and two scripts for that reason. The measure was never reading which language it was given, and a change of language had nothing in it to disturb. It also bounds what those results can mean: a quantity that cannot tell Finnish from Chinese cannot be evidence about any particular language, and Section 7.4 records separately that it is not evidence about language at all.
 
-\noindent\textbf{This conclusion is not new and the credit is not this document's.} Montemurro and Zanette, \_Universal Entropy of Word Ordering Across Linguistic Families\_, PLoS ONE 6(5):e19875 (2011), measure the entropy a text loses when its words are shuffled, the same null used here, over 7077 texts in eight corpora spanning Indo-European, Finno-Ugric, Austronesian, Afroasiatic and Sino-Tibetan families and the Sumerian isolate. They report the quantity bounded near 3.3 bits per word across all of them, with a relative variability of 0.07 against 0.23 for the entropy itself, and they name it a statistical linguistic universal. Their sample is two hundred times the size of this one and reaches Old Egyptian and Sumerian, which this one does not.
+\noindent\textbf{This conclusion is not new and the credit is not this document's.} Montemurro and Zanette, \emph{Universal Entropy of Word Ordering Across Linguistic Families}, PLoS ONE 6(5):e19875 (2011), measure the entropy a text loses when its words are shuffled, the same null used here, over 7077 texts in eight corpora spanning Indo-European, Finno-Ugric, Austronesian, Afroasiatic and Sino-Tibetan families and the Sumerian isolate. They report the quantity bounded near 3.3 bits per word across all of them, with a relative variability of 0.07 against 0.23 for the entropy itself, and they name it a statistical linguistic universal. Their sample is two hundred times the size of this one and reaches Old Egyptian and Sumerian, which this one does not.
 
 The statistic here is not theirs, since they measure a Shannon entropy reduction in bits per word and this measures a dispersion of gaps over the rare half of the symbols, and the agreement of two unlike statistics is worth something. The finding is theirs.
 
@@ -1728,7 +1728,7 @@ Two sources were read in full. Both were reached because a search suggested they
 
 The \texttt{memchr} crate's \texttt{arch/\allowbreak{}all/\allowbreak{}packedpair} module selects two byte positions by a frequency rank and uses the pair as a prefilter. The only constraint that module places on where the two sit is that their indices differ, and nothing in it treats their separation as a variable or their rates as independent. That statement covers the one module read. It does not describe the crate, whose substring search, rare byte prefilter and vector backends are separate files that were not read, and no claim is made about them.
 
-The arXiv preprint at \texttt{2601.\allowbreak{}03271} selects a single anchor, \(a = \arg\min_i \mathrm{freq}(P[i])\), and reports character comparisons on the \_Divina Commedia\_. Having one anchor, it contains no separation, independence or joint probability treatment, and uses no periodic or fixed width data.
+The arXiv preprint at \texttt{2601.\allowbreak{}03271} selects a single anchor, \(a = \arg\min_i \mathrm{freq}(P[i])\), and reports character comparisons on the \emph{Divina Commedia}. Having one anchor, it contains no separation, independence or joint probability treatment, and uses no periodic or fixed width data.
 
 Neither document contains the separation analysis here. That is a claim about two documents and not about the literature, and it is the strongest form the evidence supports.
 
@@ -1754,7 +1754,7 @@ Section 4.9.6 also measures why the two cannot be traded freely. The safe stride
 
 \subsubsection{7.3 Average-Case String Matching}
 
-Read from Tsai, \_Average Case Analysis of the Boyer-Moore Algorithm\_, Random Structures and Algorithms 28, 481 (2006), pages 1 to 4 and 14 to 16 of 18. Sections 4 and 5, which carry the Markov chain derivation, were not read.
+Read from Tsai, \emph{Average Case Analysis of the Boyer-Moore Algorithm}, Random Structures and Algorithms 28, 481 (2006), pages 1 to 4 and 14 to 16 of 18. Sections 4 and 5, which carry the Markov chain derivation, were not read.
 
 The quantity that literature computes is \(C_n\), the number of character comparisons, and the constant is \(\mu = \lim_{n\to\infty} \mathbb{E}(C_n/n)\). Baeza-Yates and colleagues "applied an analytic approach to the average-case analysis of the BMH algorithm. Under the assumption that the text is independent and identically distributed (iid), they derived an exact expression for the linearity constant". Mahmoud, Smythe and Régnier established asymptotic normality of \(C_n\), Smythe extended the text model to Markov, and Tsai adds a Berry-Esseen bound.
 
@@ -1764,7 +1764,7 @@ The quantity that literature computes is \(C_n\), the number of character compar
 
 \subsubsection{7.2 Thermodynamic Information Bounds}
 
-Sections 4.3 and 4.8 reach for a physical analogy: a reference measure is worth the divergence of the domain from it, and at equilibrium there is no gradient and nothing to extract. Read from Parrondo, Horowitz and Sagawa, \_Thermodynamics of information\_, Nature Physics 11, 131 (2015).
+Sections 4.3 and 4.8 reach for a physical analogy: a reference measure is worth the divergence of the domain from it, and at equilibrium there is no gradient and nothing to extract. Read from Parrondo, Horowitz and Sagawa, \emph{Thermodynamics of information}, Nature Physics 11, 131 (2015).
 
 The results are sharper than the analogy. For a system in a statistical state \(\rho\) with Hamiltonian \(\mathcal{H}_0\), the non-equilibrium free energy is \(\mathcal{F}(\rho;\mathcal{H}_0) \equiv \langle \mathcal{H}_0\rangle_\rho - TS(\rho)\), and Box 1 states that "\(-W_{\text{diss}}\) is the maximum work that can be extracted from the non-equilibrium state \(\rho\)", with \(\mathcal{F}(\rho;\mathcal{H}_0) \ge \mathcal{F}(\rho_0)\) for any \(\rho\). The second law for isothermal processes between non-equilibrium states is \(T\Delta S_{\text{tot}} = W_{\text{diss}} \equiv W - \Delta\mathcal{F} \ge 0\).
 
@@ -1774,7 +1774,7 @@ For measurement the bound is on mutual information, not on a divergence from an 
 
 \subsubsection{7.4 Statistical Identification of Language}
 
-Section 4.13 measures a Zipf slope, a brevity correlation and a boundary regularity on ten corpora and reads their agreement as a property of how people produce language. Exactly that inference has been argued over in print. Four items were read in full: Sproat, \_Ancient Symbols, Computational Linguistics, and the Reviewing Practices of the General Science Journals\_, Computational Linguistics 36(3):585, and in 36(4) the replies from Rao and colleagues at 795, from Lee and colleagues at 791, and Sproat's answer to both at 807.
+Section 4.13 measures a Zipf slope, a brevity correlation and a boundary regularity on ten corpora and reads their agreement as a property of how people produce language. Exactly that inference has been argued over in print. Four items were read in full: Sproat, \emph{Ancient Symbols, Computational Linguistics, and the Reviewing Practices of the General Science Journals}, Computational Linguistics 36(3):585, and in 36(4) the replies from Rao and colleagues at 795, from Lee and colleagues at 791, and Sproat's answer to both at 807.
 
 Sproat's case is that these statistics do not separate language from anything else, and he demonstrates it instead of asserting it. Applying the published classifier of Lee and colleagues to Mesopotamian deity symbols from kudurru boundary stones, a system known to be non-linguistic, returns \(C_r = 8.0\) and \(U_r = 1.55\) and classifies it as writing. Applying it to 75 "texts" produced by successive tosses of seven six-sided dice returns \(C_r = 12.64\) and \(U_r = 1.18\), which the same decision tree reports as a syllabic writing system. For the conditional entropy measure he notes that a memoryless process with a Zipfian and non-equiprobable unigram distribution, carrying conditional independence between symbols, reproduces the published curves. His conclusion is that neither result distinguishes "structure that derives from linguistic constraints from structure that derives from some other kind of constraints."
 
@@ -2076,7 +2076,9 @@ edges and language has hand extractions, and those are the only two places an an
 this work did not produce. Everything else is measured against its own null permutation and says
 so.
 
----
+% A Markdown horizontal rule that came through the conversion. LaTeX set it as a stray em dash
+% floating above the attribution.
+\medskip
 
 \textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com> \textbf{Date:} 2026-09-01 \textbf{Copyright:} (c) 2026 Douglas Quigg (dstroy0). All rights reserved. \textbf{License:} AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational. Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a negotiated commercial licensing contract or an educator's license issued to you personally.
 
