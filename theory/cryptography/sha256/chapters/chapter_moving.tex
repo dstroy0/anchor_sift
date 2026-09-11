@@ -16,8 +16,8 @@ see one part in a hundred thousand both report ``nothing'' on the same data, and
 result is interesting.
 
 So the harness is made to carry a plane wave of stated amplitude. A matrix is built that is
-binomial by construction --- the same kernel shape, the same shared tally, the same atomics and the
-same denominator as the real arm, with the compression replaced by randomness --- and into it a
+binomial by construction (the same kernel shape, the same shared tally, the same atomics and the
+same denominator as the real arm, with the compression replaced by randomness), and into it a
 bias of \(\pm 2^{-(k+1)}\) is driven, positive or negative according to the sign of a wave at each
 cell's residue. The bias is built without arithmetic on probabilities: a fair bit or-ed with a rare
 bit at \(2^{-k}\) lands on \(0.5 + 2^{-(k+1)}\) exactly, and and-ed with its complement lands on
@@ -68,7 +68,7 @@ The two axes agree to three digits, and that agreement is the reflection symmetr
 \section{The field is white}
 
 A designed function should leave a residual with no length scale at all. A field that is
-\emph{smooth} --- correlated between neighboring cells --- would be structure that survived the
+\emph{smooth}, correlated between neighboring cells, would be structure that survived the
 mixing, and it is the kind of thing an eye reports on noise readily enough that it has to be
 measured and not looked at.
 
@@ -110,7 +110,7 @@ discarded.
 
 But the rounds are not independent samples of an unknown thing. They are a deterministic sequence,
 so the structure at round \(r\) is related to the structure at \(r+1\) by the round function, and
-that relation is carried in the \emph{phase} of the residue spectrum --- which every earlier
+that relation is carried in the \emph{phase} of the residue spectrum, which every earlier
 reading threw away by taking a magnitude. A structure standing still holds its phase. One drifting
 at \(v\) residues per round advances it by \(2\pi f v / 32\) each round. Noise does neither.
 
@@ -132,7 +132,7 @@ step of \(f\) times as much phase.
 
 A uniform grid in \(v\) is therefore correct at one frequency and wrong at all the others. The
 first pass used one, and at \(f = 15\) its step was \(1.875\) in drift where forty-two rounds
-resolve \(0.195\) --- ten times too coarse to be safe. That mattered, because the first pass's
+resolve \(0.195\), ten times too coarse to be safe. That mattered, because the first pass's
 loudest SHA-256 cell sat at exactly \(f = 15\). Scanning uniformly in drift is the same map with
 the degenerate point resolved, and it is one grid that is correct at every frequency at once.
 
@@ -146,7 +146,7 @@ the degenerate point resolved, and it is one grid that is correct at every frequ
 magnitude & 4.02 & \(\mathbf{131.24}\) & 3.98 & 4.66 \\
 phase only & 4.04 & 9.15 & 4.15 & 4.66 \\
 best window & 4.07 & 94.58 & 4.37 & 4.66 \\
-standing still & 2.19 & 3.50 & 2.25 & --- \\
+standing still & 2.19 & 3.50 & 2.25 & \textemdash{} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -175,7 +175,7 @@ Read against \(4.12\), SHA-256's \(4.37\) would have been announced as a detecti
 it is flat, and so is the harness at \(4.07\).
 
 \textbf{The phase channel is ceiling-limited.} Summing \(R\) unit vectors cannot exceed \(R\), so
-that statistic is bounded above by \(\sqrt{2R}\) whatever the data does --- \(9.17\) at forty-two
+that statistic is bounded above by \(\sqrt{2R}\) whatever the data does, \(9.17\) at forty-two
 rounds. The injected wave reads \(9.15\), which is saturation and not a measurement. Against a
 null peak of \(4.66\) the channel has a factor of two of usable range, so discarding amplitude is a
 good idea that this baseline cannot afford. It would need many more rounds than SHA-256 has.

@@ -8,7 +8,7 @@
 
 \textbf{The inverse has no wall, sixteen and climbing.} Refuted. It dies at fifteen and round sixteen reads \(2.438\), \(1.317\), \(0.881\) as pairs rise, which is noise shrinking. One more round per fourfold increase was the decay rate being measured, not a trend to project.
 
-\textbf{The word statistic goes blind at round ten.} Refuted. The per-bit refinement sees more where there is more --- inverse round fourteen reads \(18.5\) by bit against \(7.5\) by word --- but no depth in either direction reads by bit and not by word.
+\textbf{The word statistic goes blind at round ten.} Refuted. The per-bit refinement sees more where there is more (inverse round fourteen reads \(18.5\) by bit against \(7.5\) by word), but no depth in either direction reads by bit and not by word.
 
 \textbf{Forward round ten is small, not off.} Refuted. At \(2^{30}\) pairs a continued slope predicts \(9.706\) and it reads \(2.386\), unmoved across \(2^{26}\), \(2^{28}\), \(2^{30}\). The same extrapolation on the inverse as a control lands within four significant figures at all three sizes.
 
@@ -26,7 +26,7 @@
 
 \textbf{Nonce bit thirty-one carries \(180\) sigma.} Refuted. The sweep covered \(2^{31}\) nonces, so bit thirty-one is zero in every sample against an expectation computed over the full space. The kernel now takes a sixty-four-bit bound and always sweeps the whole \(2^{32}\).
 
-\textbf{The \(5.0\%\) word-round saving is worth \(5.0\%\) of runtime.} Refuted on the CPU. Implemented, exactly correct on two hundred thousand nonces, and measured at \(0.998\), \(0.978\), \(1.079\), \(0.957\) --- median about \(1.00\). Word-rounds bound arithmetic, not runtime. On the device, where the kernel is ALU and power bound, the same change is worth \(4.34\%\).
+\textbf{The \(5.0\%\) word-round saving is worth \(5.0\%\) of runtime.} Refuted on the CPU. Implemented, exactly correct on two hundred thousand nonces, and measured at \(0.998\), \(0.978\), \(1.079\), \(0.957\), with a median about \(1.00\). Word-rounds bound arithmetic, not runtime. On the device, where the kernel is ALU and power bound, the same change is worth \(4.34\%\).
 
 \textbf{A single timed pass can resolve a five percent effect.} Refuted. One pass each read \(0.935\) to \(1.166\), a spread wider than the effect.
 
@@ -38,22 +38,22 @@
 
 \textbf{The octant alphabet saturates.} Refuted by the object, never by the statistic. Every version of that measurement read the finalized digest, where \(0\) of \(378\) carried words match the words they are copied from; on the round's own working state \(378\) of \(378\) match. The finalization adds the initial vector back modulo \(2^{32}\) and destroys the structure being looked for, leaving the reading unable to see the register shift at any sample size. On the state the delta starts at \(1.27\times\) the redraw floor and crosses to \(0.76\times\): a trend, with no saturation in it.
 
-\textbf{The octant delta sits at a level.} Refuted three times, once per level asserted --- a ramp, then a stationary value, then a floor. The quantity has a trend and crosses its own null between the ends of the run, so every threshold placed on it was a threshold on the wrong shape.
+\textbf{The octant delta sits at a level.} Refuted three times, once per level asserted. A ramp, then a stationary value, then a floor. The quantity has a trend and crosses its own null between the ends of the run, so every threshold placed on it was a threshold on the wrong shape.
 
 \textbf{Sixty-four distinct signatures out of sixty-four rounds is coherence.} Refuted by a rank. The eight-letter reading is a linear map of rank \(8\) on a \(256\)-dimensional source, leaving seven free numbers at fixed weight and \(248\) directions that move no letter at all. Seven reals separate sixty-four arbitrary states whether or not the seven carry meaning, so distinctness at that sample size is free and was reported as a result.
 
 \section{Taken from the published literature}
 
-\textbf{SHA-256 fails the strict avalanche criterion at rounds fifty-four to fifty-seven.} Refuted. Measured at three sample sizes, the absolute deviation halves each time \(k\) quadruples --- \(1/\sqrt{k}\) exactly --- while the sigma holds at \(4.5\) across a sixteenfold range. The threshold crossed is \(5.327\) sigmas against a null that peaks at \(4.85\) unaided.
+\textbf{SHA-256 fails the strict avalanche criterion at rounds fifty-four to fifty-seven.} Refuted. Measured at three sample sizes, the absolute deviation halves each time \(k\) quadruples, \(1/\sqrt{k}\) exactly, while the sigma holds at \(4.5\) across a sixteenfold range. The threshold crossed is \(5.327\) sigmas against a null that peaks at \(4.85\) unaided.
 
 \textbf{SHA-256 never meets the strict avalanche criterion at any round.} Refuted. The persistent \(0.21\%\) is \(4.2\) sigmas at a million trials, \emph{below} what the maximum of \(131{,}072\) null draws produces without any function at all.
 
-\textbf{Choice and majority dampen each other, ratio \(0.508\).} Reproduced at \(0.5082\) and then explained. Choice alone gives a SAC-mean of \(0.01562361\), majority alone \(0.01560888\), and the two together \(0.01562336\) --- identical to choice alone to two parts in ten million. The pair does not dampen; majority contributes no diffusion that choice does not already provide, so measured is \(A\) while the independence model predicts about \(2A\) and the ratio is one half by construction.
+\textbf{Choice and majority dampen each other, ratio \(0.508\).} Reproduced at \(0.5082\) and then explained. Choice alone gives a SAC-mean of \(0.01562361\), majority alone \(0.01560888\), and the two together \(0.01562336\), identical to choice alone to two parts in ten million. The pair does not dampen; majority contributes no diffusion that choice does not already provide, so measured is \(A\) while the independence model predicts about \(2A\) and the ratio is one half by construction.
 
 \section{The shape they share}
 
-Five of these are one error: a maximum over \(N\) cells compared against a threshold built for a single test. Two published, three here. Two more are a trend read from a threshold crossing instead of from the statistic. Two more are a baseline measured under different conditions from the effect. Three more are a level asserted for a quantity that has a trend --- the same error inverted, and it took three tries to see.
+Five of these are one error: a maximum over \(N\) cells compared against a threshold built for a single test. Two published, three here. Two more are a trend read from a threshold crossing instead of from the statistic. Two more are a baseline measured under different conditions from the effect. Three more are a level asserted for a quantity that has a trend. That is the same error inverted, and it took three tries to see.
 
-Two are a different shape and a worse one. \textbf{The saturation claim read the wrong object}, and the coherence claim \textbf{counted a separation that a rank makes free}. Neither could have been caught by a better null, because the null was fine: one measured a state that did not contain the effect, and the other measured a quantity whose dimension was too small to carry it. The discipline therefore needs a second rule beside the first --- \textbf{name the object, and count the dimensions of the reading} --- and both failures stay silent in the direction that looks like a result.
+Two are a different shape and a worse one. \textbf{The saturation claim read the wrong object}, and the coherence claim \textbf{counted a separation that a rank makes free}. Neither could have been caught by a better null, because the null was fine: one measured a state that did not contain the effect, and the other measured a quantity whose dimension was too small to carry it. The discipline therefore needs a second rule beside the first (\textbf{name the object, and count the dimensions of the reading}), and both failures stay silent in the direction that looks like a result.
 
 None of them required new cryptanalysis to kill. All but two required measuring the null the same way as the effect; those two required asking what was being read.

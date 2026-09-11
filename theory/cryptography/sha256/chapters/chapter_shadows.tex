@@ -7,8 +7,8 @@ carry the argument that a table of numbers had already got wrong. \textbf{Scope:
 
 \section{Everything here is a projection}
 
-The object is three-dimensional --- \(512\) input bits by \(256\) output bits by \(64\) rounds,
-\(8.4\) million cells --- and nobody looks at that directly. Every reading in this work is a
+The object is three-dimensional (\(512\) input bits by \(256\) output bits by \(64\) rounds,
+\(8.4\) million cells), and nobody looks at that directly. Every reading in this work is a
 \emph{shadow}: the residue fold is the field collapsed along one axis, and the chi-square is the
 same object flattened all the way to a single number. A shadow is cast from one angle, and until
 these arms were built nothing here had looked from a second one.
@@ -39,7 +39,7 @@ res | 1234567890123456789012345678901234567890
 
 \textbf{Every row is the same row.} There is nothing further to it. The reading that produced the ridge
 took the largest of these thirty-two and reported its amplitude in standard errors, without ever
-subtracting what all thirty-two share --- and what they share is nearly everything they have.
+subtracting what all thirty-two share, and what they share is nearly everything they have.
 
 Two things put that offset into every class at once. The avalanche is incomplete at these depths.
 And the message schedule imposes a causal boundary: round \(t\) consumes \(W_t\), so message word
@@ -63,7 +63,7 @@ res | 1234567890123456789012345678901234567890
 
 The band that lights up is \(0\), \(6\), \(11\), \(25\), \(31\), and every one of those is a named
 operation: the diagonal, \(\Sigma_1\)'s three rotation amounts, and \(-1 \bmod 32\) for the
-carry. Residue twenty-six --- the ridge --- is on the other side, negative, part of the complement
+carry. Residue twenty-six (the ridge) is on the other side, negative, part of the complement
 the positive band forces.
 
 \section{The waterfall}
@@ -100,8 +100,8 @@ The projection sums \(z^{2}\) over the row, and \(z^{2}\) cannot tell a rate of 
 one: both give \(z = \mp\sqrt{n}\) and \(z^{2} = n\). The sum is sign-blind. A bit that changes
 nothing and a bit that flips its outputs \emph{every single time} land on the same plateau.
 
-The evidence is a bit that has no business being there. Bit \(511\) --- the most significant bit of
-message word fifteen --- still sits at the plateau at round seventeen, a round after word fifteen
+The evidence is a bit that has no business being there. Bit \(511\) (the most significant bit of
+message word fifteen) still sits at the plateau at round seventeen, a round after word fifteen
 has entered. It cannot be causally dead: flipping the top bit of an addend always flips the top bit
 of the sum, because the carry out of bit thirty-one is discarded modulo \(2^{32}\). It flips bit
 thirty-one of \(a\) and of \(e\) with probability one. Rate one, \(z = +\sqrt{n}\), and the same
@@ -113,8 +113,8 @@ bits ride one round longer than the rest of their word for a reason that is arit
 causal: they never generate a carry, so nothing about them is yet data-dependent.
 
 \textbf{The cliff is where determinism ends, not where causality begins.} Every number in this
-chapter survives the correction --- the constant, the waterfall, the shift invariance, the diagonal
-at thirty-two bits per round --- but the name was wrong, and a wrong name misleads further than a
+chapter survives the correction (the constant, the waterfall, the shift invariance, the diagonal
+at thirty-two bits per round), but the name was wrong, and a wrong name misleads further than a
 wrong number does.
 
 The register chains are the second waterfall and they are ducts, not mixers. \(b\), \(c\)
@@ -138,8 +138,8 @@ its classes from \(6.59\) to \(1.92\), and class six does not merely fade but fl
 \(-0.11\), because without addition there are no carries and nothing is transported at
 \(-1 \bmod 32\) at all.
 
-It also explains a result recorded elsewhere as a null. The Doppler scan found nothing moving ---
-drift within \(0.09\) of zero at all fifteen spatial frequencies --- and that is not the absence of
+It also explains a result recorded elsewhere as a null. The Doppler scan found nothing moving
+(drift within \(0.09\) of zero at all fifteen spatial frequencies), and that is not the absence of
 structure. \textbf{A standing wave around a fixed obstacle does not drift.} The round function is
 the same at every depth, and the only quantity that does vary with the round, the constant \(K_t\), was
 measured twice by different means to contribute nothing to diffusion. The rocks do not move, so
@@ -149,8 +149,8 @@ their wake cannot. Zero Doppler was the mechanism reporting itself.
 
 The shadow arm was built to be looked at. It refuted the largest claim in this work, extended the
 constant-decrement law two rounds earlier than it had been recorded, reproduced the ridge amplitude
-from independent seeds to five significant figures, and --- through a control built for an entirely
-different purpose --- explained the knee at round seventeen as the message schedule switching on.
+from independent seeds to five significant figures, and, through a control built for an entirely
+different purpose, explained the knee at round seventeen as the message schedule switching on.
 
 None of that was what it was for. That is the pattern of this whole body: build the instrument,
 then spend it on the truth.

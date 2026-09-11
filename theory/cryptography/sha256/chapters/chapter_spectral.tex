@@ -17,7 +17,7 @@ The fold is signed and not absolute, deliberately. Taking magnitudes first would
 \toprule
 rounds & residue & sigmas & walked & verdict \\
 \midrule
-12 & 26 & 15773.15 & --- & structure \\
+12 & 26 & 15773.15 & \textemdash{} & structure \\
 13 & 26 & 13724.82 & \(+0\) & structure \\
 14 & 26 & 11676.61 & \(+0\) & structure \\
 15 & 26 & 9627.78 & \(+0\) & structure \\
@@ -28,9 +28,9 @@ rounds & residue & sigmas & walked & verdict \\
 20 & 26 & 789.13 & \(+0\) & structure \\
 21 & 26 & 160.61 & \(+0\) & structure \\
 22 & 1 & 13.13 & \(+7\) & collapsed \\
-23 & 12 & 2.09 & --- & flat \\
-32 & 8 & 2.07 & --- & flat \\
-64 & 31 & 2.04 & --- & flat \\
+23 & 12 & 2.09 & \textemdash{} & flat \\
+32 & 8 & 2.07 & \textemdash{} & flat \\
+64 & 31 & 2.04 & \textemdash{} & flat \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -40,14 +40,14 @@ rounds & residue & sigmas & walked & verdict \\
 Not claimed: which rotation residue twenty-six corresponds to. After twelve rounds the effective residue is a composition of many rotations, and attributing it to \(\Sigma_1\)'s \(\mathrm{ROTR}25\) or \(\Sigma_0\)'s \(\mathrm{ROTR}22\) because they sit nearby would be reading a coincidence.
 
 \begin{center}
-\fbox{\parbox{0.92\textwidth}{\textbf{Refuted by a later measurement. Read \S\ref{sec:commonmode} before believing anything above.} The reading never subtracted what all thirty-two classes share. Incomplete avalanche and the message-schedule light cone both produce a large offset in every class --- neither depends on the output bit, so both spread evenly over all thirty-two residues --- and the loudest class is then mostly that offset. Residue twenty-six's deviation from the class mean is \(-1.36\) sigmas against a null peak of \(2.63\), and it is a deficit, not a ridge. The decay of \(1/32\) per round is real but it is the decay of the common mode, not of anything at residue twenty-six.}}
+\fbox{\parbox{0.92\textwidth}{\textbf{Refuted by a later measurement. Read \S\ref{sec:commonmode} before believing anything above.} The reading never subtracted what all thirty-two classes share. Incomplete avalanche and the message-schedule light cone both produce a large offset in every class (neither depends on the output bit, so both spread evenly over all thirty-two residues), and the loudest class is then mostly that offset. Residue twenty-six's deviation from the class mean is \(-1.36\) sigmas against a null peak of \(2.63\), and it is a deficit, not a ridge. The decay of \(1/32\) per round is real but it is the decay of the common mode, not of anything at residue twenty-six.}}
 \end{center}
 
 \section{The decay is quantized}
 
 The first four differences are \(2048.33\), \(2048.21\), \(2048.83\) and \(2047.24\). One sigma of the class mean at that sample is \(1.526 \times 10^{-5}\), so \(2048\) sigmas is exactly \(1/32\).
 
-\textbf{The ridge loses one thirty-second of its amplitude per round} --- one bit position of thirty-two going diffuse --- holding to four decimal places for five rounds, then accelerating into collapse at twenty-two. It is a quantized linear decay and not a smooth exponential, as a function made of discrete operations should produce and what a continuous model would not predict.
+\textbf{The ridge loses one thirty-second of its amplitude per round}, one bit position of thirty-two going diffuse, holding to four decimal places for five rounds, then accelerating into collapse at twenty-two. It is a quantized linear decay and not a smooth exponential, as a function made of discrete operations should produce and what a continuous model would not predict.
 
 \subsection{Verified at four times the sample}
 
@@ -94,7 +94,7 @@ result.
 Two things put a large offset into \emph{every} class at once. The avalanche is incomplete at these
 depths, so most cells sit far from one half. And the message schedule imposes a light cone: round
 \(t\) consumes \(W_t\), so message word \(w\) cannot affect the state before round \(w+1\), and
-until then flipping any of its bits changes nothing at all --- a cell pinned at \(-\sqrt{n}\)
+until then flipping any of its bits changes nothing at all, a cell pinned at \(-\sqrt{n}\)
 exactly. Neither of those depends on the output bit, so both spread evenly over all thirty-two
 residues and concentrating in none of them.
 
@@ -140,8 +140,8 @@ rounds, from six to sixteen, while the common mode falls by a factor of nearly t
 of the other classes is constant at \(1174\) over the same span. The field is two components: a
 common mode that decays and a class pattern that does not move at all.
 
-Classes zero and thirty-one were predictable in advance --- any account of this function expects the
-diagonal and the carry to dominate --- so they are not the finding. \textbf{The finding is that
+Classes zero and thirty-one were predictable in advance (any account of this function expects the
+diagonal and the carry to dominate), so they are not the finding. \textbf{The finding is that
 \(\Sigma_1\)'s three amounts appear and \(\Sigma_0\)'s barely do.} All three of
 \(\{6, 11, 25\}\) land in the top six at every depth, which is about one chance in \(225\) at a
 single depth, or one in \(112\) allowing that \(\Sigma_0\) would have counted equally.

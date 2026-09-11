@@ -1,6 +1,6 @@
 \chapter{The boundary as an instrument}
 
-\textbf{Purpose:} State what a boundary reading can recover, what it provably cannot, and which of this work's boundary results are algebra instead of measurement --- because the strongest claim in this chapter is a counting argument that no precision, no sample size and no number of probes can move, and the weakest was a conclusion drawn from reading the wrong object. \textbf{Scope:} \texttt{tools/\allowbreak{}view/\allowbreak{}\{boundary\_read, octant\_lex, reading\_rank, sphere\_field\}.py} and the room viewer, all in the BTC tree; literature checked 2026-09-10.
+\textbf{Purpose:} State what a boundary reading can recover, what it provably cannot, and which of this work's boundary results are algebra instead of measurement, because the strongest claim in this chapter is a counting argument that no precision, no sample size and no number of probes can move, and the weakest was a conclusion drawn from reading the wrong object. \textbf{Scope:} \texttt{tools/\allowbreak{}view/\allowbreak{}\{boundary\_read, octant\_lex, reading\_rank, sphere\_field\}.py} and the room viewer, all in the BTC tree; literature checked 2026-09-10.
 
 \section{The octant decomposition}
 
@@ -18,7 +18,7 @@ That gives an eight-letter alphabet: the fraction of the lit set sitting in each
 
 Place index \(k\) of \(N\) on the golden spiral: height \(1 - 2(k + \tfrac12)/N\), longitude \(k\gamma\) with \(\gamma = \pi(3 - \sqrt5)\).
 
-Shift every index by \(n\). Longitude advances by \(n\gamma\) and height by \(-2n/N\), a rotation about the polar axis composed with a slide along it --- a screw. Its pitch is
+Shift every index by \(n\). Longitude advances by \(n\gamma\) and height by \(-2n/N\), a rotation about the polar axis composed with a slide along it. That is a screw. Its pitch is
 \[
   \frac{\text{slide}}{\text{turn}} = \frac{-2n/N}{n\gamma} = \frac{-2}{N\gamma},
 \]
@@ -89,7 +89,7 @@ Two further points from the same paper are worth recording. Their synthetic test
 
 \textbf{A reading to degree \(L\) carries exactly \((L+1)^2\) real numbers about its source, whatever the source is.} That is how many coefficients there are. The lit set here has \(256\) degrees of freedom. Where \((L+1)^2 < 256\) the reading is a linear map of rank at most \((L+1)^2\) from a \(256\)-dimensional space, so its null space has dimension at least the shortfall, and every direction in that null space is a change to the object that moves no coefficient at all.
 
-Measured on the golden placement at full depth and no conduction, the most favourable case there is --- both kernels sit below one and both are diagonal, so either can only shrink a singular value:
+Both kernels sit below one and both are diagonal, so either can only shrink a singular value. Measured on the golden placement at full depth and no conduction, the most favorable case there is:
 
 \begin{center}
 \begin{tabular}{rrrrr}
@@ -131,19 +131,19 @@ So the honest form of ``the beams map the whole object'' is this: \textbf{beams 
 
 \section{Deformation without motion}
 
-The claim under test is that the boundary contorts while nothing moves: the far side of the sphere stays undisturbed, the enclosed volume stays stable, no coordinate is displaced, and therefore in the topological sense there has been no motion --- only deformation.
+The claim under test is that the boundary contorts while nothing moves: the far side of the sphere stays undisturbed, the enclosed volume stays stable, no coordinate is displaced, and therefore in the topological sense there has been no motion, only deformation.
 
 The coefficients support a precise version of this. The reading is a section over a \emph{fixed} sphere, and a deformation is a change of the coefficient vector at fixed support. Degree zero is the monopole, the integral over the whole sphere, and it holds the conserved quantity: to the extent \(a_{00}\) holds, the reading has redistributed instead of added.
 
-The measured effect is a large amplification of a small move. Over one full run the degree-zero swing reads \(0.12\) while the degrees above it swing \(0.27\) to \(0.88\) --- the low degrees sit nearly fixed and the high degrees cascade, and a small move at the bottom accompanies a large move everywhere else. These are the plateau scalars.
+The measured effect is a large amplification of a small move. Over one full run the degree-zero swing reads \(0.12\) while the degrees above it swing \(0.27\) to \(0.88\). The low degrees sit nearly fixed and the high degrees cascade, and a small move at the bottom accompanies a large move everywhere else. These are the plateau scalars.
 
-\textbf{The attribution matters more than the measurement.} Both kernels are diagonal in degree, so depth and conduction reweight degrees and never mix them. A degree-zero plateau is therefore stable under both, and high-degree structure is what either kernel most strongly amplifies or kills --- conduction alone is a low-pass at degree about \(1/\sqrt{\tau}\). The amplification belongs to the kernels, and it must appear for any object read this way. That is worth more than the measurement, and it is also why the measurement is not evidence about SHA-256 by itself.
+\textbf{The attribution matters more than the measurement.} Both kernels are diagonal in degree, so depth and conduction reweight degrees and never mix them. A degree-zero plateau is therefore stable under both, and high-degree structure is what either kernel most strongly amplifies or kills. Conduction alone is a low-pass at degree about \(1/\sqrt{\tau}\). The amplification belongs to the kernels, and it must appear for any object read this way. That is worth more than the measurement, and it is also why the measurement is not evidence about SHA-256 by itself.
 
 Two limits belong with it. The even and odd lobe split and the exponential falloff visible in the power bars are artifacts of the ring placement and the depth control, never of the hash. And the degree-zero swing above is read off the viewer over one run: an instrument reading with no error bar, not a bench result.
 
 \section{The delta, and reading the wrong object}
 
-The eight-letter word, round by round, on the working state of the compression function, against a floor measured the same way --- two unrelated states of the same weight, redrawn:
+The eight-letter word, round by round, on the working state of the compression function, against a floor measured the same way from two unrelated states of the same weight, redrawn:
 
 \begin{center}
 \begin{tabular}{lrr}
@@ -172,7 +172,7 @@ carried words matching, on the finalized digest & \(0\) of \(378\) \\
 
 On the digest the register shift is not present at all, and a measurement that cannot see the shift was reported as evidence that the alphabet had saturated. It had not. The instrument chapter's rule is to measure the null under the same conditions as the effect; this failure sits one level beneath it. \textbf{Name the object being read, because reading the wrong one fails silently and in the direction that looks like a result.}
 
-Three assertions of my own about this same number were withdrawn before the fourth stood, and they failed in one way: each asserted a \emph{level} --- a ramp, a stationary value, a floor --- for a quantity that has a \emph{trend}. They are listed in the refutations chapter under that shape.
+Three assertions of my own about this same number were withdrawn before the fourth stood, and they failed in one way: each asserted a \emph{level} (a ramp, a stationary value, a floor) for a quantity that has a \emph{trend}. They are listed in the refutations chapter under that shape.
 
 \section{The transform table}
 \label{sec:transforms}
@@ -194,7 +194,7 @@ pixel prefilter & \(e^{-l(l+1)\sigma^2/2}\, a_{lm}\) & yes & direction per degre
 band truncation & keep \(l \le L\) & yes & every kept coefficient \\
 parity & \((-1)^{l}\, a_{lm}\) & yes & \(P_l\) \\
 index screw & rotation \(n\gamma\), slide \(-2n/N\) & yes & \(P_l\) \\
-synthesis & \(f(\hat n) = \sum a_{lm} Y_{lm}(\hat n)\) & no & --- \\
+synthesis & \(f(\hat n) = \sum a_{lm} Y_{lm}(\hat n)\) & no & none \\
 translation of the origin & mixes every degree & \textbf{no} & nothing per degree \\
 octant indicators & project onto eight indicators & \textbf{no} & total weight \\
 \bottomrule
@@ -244,9 +244,9 @@ field & largest & typical & normal, median & normal, 95th \\
 \midrule
 degree \(1\) alone & \(0.0010\) & \(0.0004\) & \(1.25^\circ\) & \(5.85^\circ\) \\
 degree \(10\) alone & \(0.0592\) & \(0.0108\) & \(7.47^\circ\) & \(\mathbf{47.15^\circ}\) \\
-flat spectrum to \(10\) & \(0.0312\) & \(0.0050\) & \(5.85^\circ\) & --- \\
-\(63\) deposits at \(r/R = 0.80\) & \(0.0273\) & \(0.0061\) & \(6.67^\circ\) & --- \\
-\(63\) deposits at \(r/R = 0.40\) & \(0.0075\) & \(0.0015\) & \(2.14^\circ\) & --- \\
+flat spectrum to \(10\) & \(0.0312\) & \(0.0050\) & \(5.85^\circ\) & \textemdash{} \\
+\(63\) deposits at \(r/R = 0.80\) & \(0.0273\) & \(0.0061\) & \(6.67^\circ\) & \textemdash{} \\
+\(63\) deposits at \(r/R = 0.40\) & \(0.0075\) & \(0.0015\) & \(2.14^\circ\) & \textemdash{} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -287,7 +287,7 @@ Eight readings, spanning float32 through decimal at sixty-two places. Host and d
 \midrule
 slope, decades per digit & \(0.9861\) & \(1.0000\) \\
 worst departure from the line & \(0.246\) decades & \(0\) \\
-span covered & \(55\) orders of magnitude & --- \\
+span covered & \(55\) orders of magnitude & \textemdash{} \\
 \bottomrule
 \end{tabular}
 \end{center}

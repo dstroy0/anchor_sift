@@ -60,7 +60,7 @@ round & bits & width & cells & words \\
 area, moving at exactly thirty-two bits per round without changing form.} That is a soliton: a shape
 that propagates without dispersing. It is stationary in the co-moving frame, and so no reading
 that averaged over rounds could see it, and it sits at the same slope of thirty-two that the
-slant-stack found statistically at \(7.18\) sigmas --- except that this is exact, with no variance
+slant-stack found statistically at \(7.18\) sigmas, except that this is exact, with no variance
 across eleven rounds.
 
 \section{Taking it apart}
@@ -81,14 +81,14 @@ skewed, residue 25 & 56 & \(\Sigma_1\)'s \(\mathrm{ROTR}25\), alone \\
 
 The aligned half is arithmetic. Flipping bit \(k\) of an addend always flips bit \(k\) of the sum,
 because carries only run upward, so bit \(k\) of a message word drives bit \(k\) of \(T_1\) and
-thence of \(a\) and of \(e\) --- two cells per bit, over four words of thirty-two bits:
+thence of \(a\) and of \(e\), two cells per bit, over four words of thirty-two bits:
 \(4 \times 32 \times 2 = 256\).
 
 The word breakdown closes too. The newest word contributes \(64\) and is purely aligned; the three
 behind it contribute \(78\) each, being \(64\) aligned and \(14\) skewed; the oldest contributes
 \(14\), skewed only, its aligned cells already mixed away. Four times sixty-four is two hundred and
 fifty-six, four times fourteen is fifty-six, and the certain cells spread perfectly evenly over the
-eight state words --- thirty-nine each, at every depth.
+eight state words, thirty-nine each, at every depth.
 
 \subsection{Where the explanation fails}
 
@@ -97,7 +97,7 @@ none at \(\mathrm{ROTR}11\), none at any of \(\Sigma_0\)'s amounts, at rounds ei
 alike.
 
 The natural mechanism does not survive that. If carries destroy certainty at every position above
-the lowest flipped one, then the lowest of \(\Sigma_1\)'s three images should be the survivor --- and
+the lowest flipped one, then the lowest of \(\Sigma_1\)'s three images should be the survivor, and
 at source bit twenty that is \(k - 11 = 9\), below \(k - 25 = 27\), so residue eleven should appear.
 It never does.
 
@@ -127,8 +127,8 @@ coincidence resting on a wrong number, and it is retracted.
 Their limit is not arbitrary and its mechanism is a boundary this work found independently. A local
 collision spans nine steps, and a deterministic construction requires it to sit entirely inside the
 sixteen free message words, since those can be solved for directly while every later word is a
-function of them. So it cannot begin after step seven --- ``obtaining deterministic collisions up to
-22 rounds did not require the (single) local collision to extend beyond Step 15'' --- and beyond
+function of them. So it cannot begin after step seven (``obtaining deterministic collisions up to
+22 rounds did not require the (single) local collision to extend beyond Step 15''), and beyond
 that some expanded word necessarily carries a difference and determinism ends.
 
 That is the message expansion switching on, which the schedule ablation in the previous chapter
