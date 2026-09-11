@@ -22,7 +22,7 @@
 % Charis SIL is SIL's own text face for exactly this material: full IPA, the Americanist letters
 % the Salishan papers are written with, and combining marks that sit correctly on the letters this
 % corpus stacks them on. DejaVu stands behind it for the arrows, box drawing and math operators the
-% ledger tables use, which Charis does not carry.
+% workbook tables use, which Charis does not carry.
 \directlua{
   luaotfload.add_fallback("theoryfallback", {
     "DejaVuSerif:mode=harf;",
@@ -69,7 +69,7 @@ pdfspacing]{classicthesis}
 % pencil. These books are read on a screen and posted to an archive.
 %
 % 430pt against 597pt puts the text at 72 percent and keeps about 29mm a side. Wider than that and
-% the line runs past what is comfortable to read at 11pt; narrower and the longtables in the ledger
+% the line runs past what is comfortable to read at 11pt; narrower and the longtables in the workbook
 % and the reproductions chapter start breaking columns they currently fit.
 %
 % The marginpar gutter goes with it. No book under theory/ sets a margin note, so the space was
@@ -81,9 +81,15 @@ pdfspacing]{classicthesis}
 \let\eth\relax
 \usepackage{amsmath,amsthm}
 \usepackage{unicode-math}
-\setmathfont{DejaVu Math TeX Gyre}
+% Times-metric, to sit with Charis SIL. DejaVu Math is wide and sans-metric and put
+% gaps around every inline formula.
+\setmathfont{TeX Gyre Termes Math}
 \usepackage{array,booktabs,longtable}
 \usepackage{ragged2e}
+% Font expansion and margin protrusion. Without them TeX sets a line with interword space
+% alone and the greyness of the page moves from one page to the next. classicthesis loads
+% microtype already, so these go on the copy it loaded.
+\microtypesetup{protrusion=true,expansion=true,final=true}
 % Figures. corpus_derivation.py draws with matplotlib and saves a PDF beside its chapter, because
 % LuaLaTeX includes PDF directly and needs Inkscape on the machine to include an SVG.
 \usepackage{graphicx}
@@ -117,5 +123,14 @@ pdfspacing]{classicthesis}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 
-\input{../macros.tex}
+% ====================================================================
+% MACROS.TEX - Classic Math Shorthand
+% ====================================================================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
 \providecommand{\subsetneq}{\mathrel{\subset\!\not=}}

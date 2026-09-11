@@ -1,9 +1,7 @@
-% The dedication, shared by every book under theory/ so one wording reaches all six.
+% The dedication, one copy per theory, kept identical by hand.
 %
 % Read with \input from each main.tex, immediately after the titlepage and before the abstract.
-% \input rather than \include because the path climbs out of the book directory, the same way
-% preamble.tex does, and maint/texbuild/submission_package.py brings it inside the submission and
-% rewrites that line.
+% \input and not \include, because \include writes an aux file and this is one page.
 %
 % No heading, no page number, alone on its own page. A dedication with a heading reads as a section
 % and stops being a dedication.

@@ -497,6 +497,184 @@ BANNED = (
     r"\bdeceptively simple\b",
     r"\bstay(?:ing)? ahead of the curve\b",
     r"\bhas never been more important\b",
+
+    # Tier seven, and the first tier an outside detector found instead of a person. One passage of
+    # theory/Salishan/chapters/chapter_Salishan_pure_corpus_README.tex read 35.6 percent machine
+    # written. Six constructions came out of it and the same passage read 4.5 percent, with every
+    # fact and every number unchanged. The patterns below are those six.
+    #
+    # What they share is that each one puts the document in the subject position and gives it a
+    # verb of authority or of reading. A page does not settle a character and a reading is not an
+    # authority. A person settled it, off that page.
+    r"\bis (?:the|an?) authority for\b",
+    r"\bit then reads as\b",
+    r"\bare settled on page\b",
+    # The temporal hedge on a state nobody dated. Either the table has the note or it does not.
+    r"\b(?:table|document|page|file|row) first had no\b",
+    # A colon splicing two independent clauses, which is the elaboration shape section 6 bans in
+    # prose and which the detector scores the same way.
+    r"\bhas no call and no text:",
+
+    # Tier eight. Sapling scored the passage these came from at 0.1 percent, every sentence 0.0,
+    # and the author read the same passage and said it was not his writing. An outside detector is
+    # trained on published machine prose. Whether a page sounds like the person whose name is on
+    # the book is a different question and it does not answer it.
+    #
+    # These four came out by ear. All of them name a table field and then give it something to do.
+    # The tree already calls that field the who column, and somebody fills it in by hand.
+    r"\bthe slot stays empty\b",
+    r"\bwere read off page\b",
+    r"\bread by hand with no reader\b",
+    r"\bthe record slot is empty\b",
+    # Four words where one does. The entry that carried this now reads "No speaker named."
+    r"\bis named as having\b",
+    r"\bnobody wrote an? \w+ for this one\b",
+    # Padding on a possessive. The paper's text is the paper.
+    r"\b(?:paper|page|file|table|document)'s own text\b",
+    # The instrument named by category and then given a passive. It has a filename: oracle.tsv,
+    # and the entry now reads "Oracle.tsv checked against the paper."
+    r"\bthe oracle is checked against\b",
+
+    # One entry of chapter_Salishan_pure_corpus_README.tex was read out loud against these and
+    # every one came out. What is left of that entry is eleven facts and no sentence about them.
+    #
+    # A reading, a page or a mark given authority over a question.
+    r"\bneither (?:is|settles|decides|says) what\b",
+    r"\bis (?:not )?the authority for what\b",
+    # A count announced as a superlative instead of given.
+    r"\bonly mark dropped\b",
+    r"\bthe only place a \w+ was dropped\b",
+    # A footnote reported as though its absence were an event.
+    r"\bhas no call and no text\b",
+    # The mark has a name. The book uses glottalization mark three times.
+    r"\bglottal tick\b",
+    r"\bwith a tick added\b",
+    # Two sentences restating the sentence before them. Where the magnification already appeared,
+    # saying it again is the paragraph explaining itself.
+    r"\bat that magnification\b",
+    # Declaring a field empty, in a document whose rule is that an empty field says so by being
+    # empty.
+    r"\bwho column empty\b",
+    r"\bhis name does not go in it\b",
+    # A participle standing in for the condition. Name the condition: doing it without saying so.
+    r"\bmade quietly\b",
+    r"\bif it were made quietly\b",
+    # A pipeline given a dependency. Name the caller: no text tool calls it.
+    r"\bnothing in the \w+ pipeline depends\b",
+    r"\bnothing downstream depends\b",
+    # A digest placed somewhere by itself. Name the file that carries it.
+    r"\bits SHA-256 sits in\b",
+    r"\b(?:hash|digest|checksum) sits in\b",
+    # A tool or a representation given eyes. A script reads a file, a representation is the output.
+    r"\b(?:sound|text|word) representation reads\b",
+    r"\bthe representation reads\b",
+    # Deixis repeating the heading it sits under.
+    r"(?m)^This one does not read\b",
+    r"\bno (?:text|other) tool calls it\b",
+    # Exclusivity asserted about a set the reader cannot see. Either it is the only one, cited, or
+    # the clause comes out.
+    r"\band no other tool does\b",
+    r"\bno other \w+ does\b",
+    # A file given a residence. It is kept somewhere and run from somewhere, by somebody.
+    r"\blives in the closed\b",
+    r"\bit lives in\b",
+    r"\band is run from there\b",
+    # A script given eyes, under a heading that already named it.
+    r"\breads the recordings\b",
+    # The summarizing sentence at the end of a paragraph, restating what the paragraph said. The
+    # paragraph is the statement.
+    r"(?m)^A \w+ therefore\b",
+    # carry and hold, in every form. A digest is listed in a manifest. A value is in a column. A
+    # form appears on a page.
+    #
+    # The first version of this tier banned carry alone. The repair pass wrote hold everywhere
+    # instead.
+    #
+    # 868 findings in theory/ when these went in, against 35 before. 268 in the ledger, 156 in
+    # chapter_anchor_sift, 89 in chapter_Salishan_refs.
+    # The verb, in every inflection. The noun stays: in SHA-256 the carry is the arithmetic carry
+    # and a whole chapter is about it. 18 noun uses against 33 verb uses in theory/cryptography.
+    r"\bcarr(?:ies|ied|ying)\b",
+    r"(?<!the )(?<!a )(?<!an )(?<!its )(?<!no )(?<!of )\bcarry\b",
+    r"\bhold(?:s|ing)?\b",
+
+    # The provenance section of the workbook, read out loud. Every one of these came out of one
+    # page.
+    #
+    # shape, where nothing has a shape. The topology books use it for a real one and are the only
+    # place it stands.
+    r"\bfor that shape and reports\b",
+    r"\bthat shape\b",
+    # A claim described by its three possible forms instead of stated.
+    r"\ba claim that something here is new\b",
+    r"\bnew, first,? or absent\b",
+    # A repository given the power to settle things, then denied it.
+    r"\bcannot settle that kind of claim\b",
+    r"\bfrom inside itself\b",
+    # Position standing in for the relation. A reference is attached to a claim or it is missing.
+    r"\bno reference beside it\b",
+    r"\bbeside it\b",
+    # The reading, as a thing that happens without a reader.
+    r"\bthe reading has not been done\b",
+    # A script given a character: it reports, it never decides, it is honest about itself.
+    r"\bit reports and never decides\b",
+    r"\breports and never\b",
+    # An emphatic tail on a count that was already exact.
+    r"\bare mixed at all\b",
+    r"\b(?:is|are|was|were) \w+ at all\b",
+    # slot, in every form. Nothing here has slots. A field has a name already: the who column, the
+    # year field, the identifier. A chaining state has positions, and FIPS 180-4 calls its eight
+    # a through h the working variables.
+    #
+    # 29 hits in theory/ when this went in, 25 of them in the SHA-256 chain chapter.
+    r"\bslot(?:s|ted|ting)?\b",
+    # A copy given a job. The value is the same at both ends and nothing moved it.
+    r"\ba copy that transports\b",
+    r"\btransports a \w+ without\b",
+    # A fact filed somewhere by itself, and a section named for an accounting nobody kept.
+    r"\band is recorded\b",
+    r"\bunder what it cost\b",
+    # A verdict announced, then restated as its own announcement. The word is Unconfirmed, or
+    # Inconclusive.
+    r"\bis unconfirmed and is recorded\b",
+    r"\bunconfirmed and written down\b",
+    r"\bthe candidate mechanism\b",
+    r"\brecorded as a candidate\b",
+    # book. These are theories. 115 uses in theory/ when this went in, 24 of them in the ledger.
+    r"\bbooks?\b",
+    # construction. It is a method.
+    r"\bconstruction\b",
+    # A caveat given descendants, and the pair of clauses that always follows it.
+    r"\binherits that\b",
+    r"\brecorded here inherits\b",
+    r"\bevery one of them \w+ and none of them\b",
+    r"\bnone of them \w+s\b",
+    # cost, in every form. A retrieval that took five attempts took five attempts. Say the number.
+    #
+    # No exception. Give the number and its units: corpus symbol accesses, character comparisons,
+    # cycles, bytes.
+    r"\bcost(?:s|ed|ing)?\b",
+    r"\ba measured cost\b",
+    # The rest of the transaction. A fold does not buy rounds, an arm does not win, a measurement
+    # does not earn or spend or pay. 84 of these in theory/ when they went in: buys 19, wins 17,
+    # earns 8, spends 7.
+    r"\bbuy(?:s|ing)?\b",
+    r"\bbought\b",
+    r"\bpay(?:s|ing)?\b",
+    r"\bpaid\b",
+    r"\bspend(?:s|ing)?\b",
+    r"\bspent\b",
+    r"\bearn(?:s|ed|ing)?\b",
+    r"\bafford(?:s|ed|ing)?\b",
+    r"\bwin(?:s|ning)?\b",
+    r"\bwon\b",
+    # reads. A fold does not read, a measure does not read, a detector does not read. A person
+    # reads. 214 in theory/ when this went in, against 378 read and 367 reading, and those two
+    # stay because a person is doing them: read by hand, I read it, a reading somebody made.
+    r"\breads\b",
+    # price goes in with it. A repair pass that swaps one for the other has changed nothing, and
+    # this tree already says a section prices a search.
+    r"\bpric(?:e|es|ed|ing)\b",
 )
 
 # docs-check: quoting

@@ -1,6 +1,6 @@
 \chapter{The instrument}
 
-\textbf{Purpose:} State the measurement discipline before any result, because every wrong claim in this work failed the same way and the correction is one rule. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}\{depth,words,space,sparse,trap,sac\}} in the Cryptography tree.
+\textbf{Purpose:} State the measurement discipline before any result, because every wrong claim in this work failed the same way and the correction is one rule. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}\{depth,words,space,sparse,trap,sac\}} in the BTC tree.
 
 \section{One rule}
 
@@ -10,7 +10,7 @@
 
 The largest of \(N\) draws from a standard normal sits near \(\sqrt{2 \ln N}\) whether or not anything is there. That is a property of taking a maximum and it cannot be tuned away. Compared against a threshold built for a single test, a maximum manufactures signal.
 
-The figure is not small. A \(512 \times 256\) dependency matrix holds \(131{,}072\) cells and its largest deviation peaks at \(4.85\) standard errors under the null. A Bonferroni threshold at \(99\%\) confidence over the same matrix sits at \(5.327\). The alarm and the null are half a standard error apart. A fluctuation crosses it now and then and reads as a discovery.
+The figure is not small. A \(512 \times 256\) dependency matrix holds \(131{,}072\) cells and its largest deviation peaks at \(4.85\) standard errors under the null. A Bonferroni threshold at \(99\%\) confidence over the same matrix sits at \(5.327\). The alarm and the null are half a standard error apart. At that separation a fluctuation crosses it now and then and reads as a discovery.
 
 This error appears five times in the material: twice in published work and three times in this. It is listed by name in the chapter on refutations.
 
@@ -26,7 +26,7 @@ The same test settled both directions in this work. It killed a published diffus
 
 \subsection{A baseline must be measured the same way}
 
-A single timed pass cannot resolve a five percent effect on a machine that is doing anything else. One pass each read from \(0.935\) to \(1.166\) on the same pair of arms, a spread wider than the effect. A first run of any bench on an idle device reads roughly ten percent low while the clock ramps. A warm measurement against a cold baseline then invents a gain that is not there.
+A single timed pass cannot resolve a five percent effect on a machine that is doing anything else. One pass each read from \(0.935\) to \(1.166\) on the same pair of arms, a spread wider than the effect. A first run of any bench on an idle device reads roughly ten percent low while the clock ramps. A warm measurement against a cold baseline therefore invents a gain that is not there.
 
 Best-of-seven with the arms alternating, and the baseline re-measured under the identical protocol, is what the throughput figures in this work use.
 
@@ -34,15 +34,15 @@ Best-of-seven with the arms alternating, and the baseline re-measured under the 
 
 Every null above is statistical: a distribution the measurement is held against. One better kind is available and is worth more than any of them, because no sample size rescues a wrong one.
 
-Strip SHA-256 to rotations, exclusive-or and constants and it is \(\mathrm{GF}(2)\)-linear. A one-bit input difference then produces a \emph{deterministic} output difference, the same one for every message, so every cell of the dependency matrix is exactly \(0\) or exactly \(1\) and never one half. The deviation is pinned at \(0.5\) at every round, forever, and algebra is what pins it.
+Strip SHA-256 to rotations, exclusive-or and constants and it is \(\mathrm{GF}(2)\)-linear. A one-bit input difference then produces a \emph{deterministic} output difference, the same one for every message, so every cell of the dependency matrix is exactly \(0\) or exactly \(1\) and never one half. The deviation is pinned at \(0.5\) at every round, forever, by algebra and not by measurement.
 
 It reads \(0.50000000\) at rounds \(8\), \(23\), \(40\) and \(64\), to eight decimal places.
 
-That control caught two errors it was not built for. The first attempt at it removed only integer addition and was not linear at all, because choice and majority use conjunction and stay nonlinear whatever addition does; the arm read \(0.0093\) against an expected \(0.5\) and failed loudly. The second was a conclusion written into the bench before the run, claiming the carry caused the diffusion, which the run contradicted.
+That control caught two errors it was not built for. The first attempt at it removed only integer addition and was not linear at all, because choice and majority use conjunction and stay nonlinear whatever addition does; the arm read \(0.0093\) where \(0.5\) was required, and failed loudly. The second was a conclusion written into the bench before the run, claiming the carry caused the diffusion, which the run contradicted.
 
 \section{What follows from the discipline}
 
-Four anchors in this work are analytic, and the rest of the book rests on them:
+Four anchors in this work are analytic, not statistical, and the argument rests on them:
 
 \begin{itemize}
   \item The round is a bijection exactly: twenty thousand round trips, zero failures.
@@ -51,4 +51,4 @@ Four anchors in this work are analytic, and the rest of the book rests on them:
   \item The linear variant is pinned at \(0.5\) at every round.
 \end{itemize}
 
-Everything else in this book is a measurement, and every measurement carries the sample size it was made at.
+Everything else here is a measurement, and every measurement states the sample size it was made at.

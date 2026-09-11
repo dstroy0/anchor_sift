@@ -2,7 +2,7 @@
 
 \section{What the prosody field holds}
 
-\textbf{Purpose:} Ask the question the ledger records as unasked, whether the prosody residual
+\textbf{Purpose:} Ask the question the workbook records as unasked, whether the prosody residual
 identifies the speaker, and report what the sound representation turned out to hold instead.
 \textbf{Scope:}
 \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}representation/\allowbreak{}sound/\allowbreak{}perceived\_\allowbreak{}sound.\allowbreak{}py},
@@ -19,7 +19,7 @@ the three papers.
 
 \subsection{The question}
 
-The ledger states it and leaves it open. Its wording is that pitch against the speaker's own median
+The workbook states it and leaves it open. Its wording is that pitch against the speaker's own median
 is a per-speaker constant subtracted, the center of mass again, so what remains in that
 field is the residual, and whether that residual identifies the speaker has not been asked.
 
@@ -53,7 +53,7 @@ count and not the speech: 16.8 million states against 134997 frames. The module'
 so and the narrow widths are what it asks to be read.
 
 These are also the first recordings held here at the length the vocalization work said it needed.
-The ledger records that true unit scale was not reachable with the earlier clips, that a one minute
+The workbook records that true unit scale was not reachable with the earlier clips, that a one minute
 clip gives 1053 symbols for a whale and 281 for a bird, and that measuring the arrangement of units
 needs tens of minutes. Two of these are 13.9 and 22.5 minutes.
 
@@ -166,7 +166,7 @@ them would mix pitch back into the field the segment code was made shift invaria
 Loudness, pitch against the speaker's own median, the movement of that pitch and voicing mean the
 same thing in every recording.
 
-So the field that could carry the ledger's question is the comparable one, and the
+So the field that could carry the workbook's question is the comparable one, and the
 answer it gives is negative.
 
 \subsection{A correction, recorded because the tree exists to prevent it}
@@ -196,7 +196,7 @@ necessary condition, and a necessary condition that fails settles the question.
 \texttt{perceived\_\allowbreak{}sound} reduces a recording to 28 bits every 10 ms and discards the
 rest. It takes an envelope, smooths the harmonic comb off it, keeps 24 coefficients, rotates them
 onto that recording's own singular vectors, and cuts every column at its median. Each of those is a
-bound, and the ledger's own entry on bounds is that every one put on a quantity in this work has had
+bound, and the workbook's own entry on bounds is that every one put on a quantity in this work has had
 to be taken back off, ten times in one sitting, because the number then describes the choice.
 
 The decoded waveform has no such choice in it. All three recordings are written out here at full
@@ -216,7 +216,7 @@ bits are sign extension: at two bits they take two values with the commonest hol
 samples.
 
 A linear slice of a waveform spends its levels where the signal is not. That is the same defect the
-ledger records four separate ways, and \texttt{envelope.\allowbreak{}py} already states the
+workbook records four separate ways, and \texttt{envelope.\allowbreak{}py} already states the
 correction.
 
 Two seatings are therefore reported. Linear over the range each recording uses, whose \(H_2\) curve
@@ -228,7 +228,7 @@ afterward is arrangement and not loudness. It is the same subtraction radix make
 \subsection{Where the arrangement sits}
 
 The block shuffle keeps everything shorter than its span and destroys everything longer, so sweeping
-the span locates the structure instead of only detecting it. The ledger builds this null on text and
+the span locates the structure instead of only detecting it. The workbook builds this null on text and
 records it as never run on a waveform, and as unreachable with the earlier clips because measuring
 the arrangement of units needs recordings of tens of minutes. These are 3.9, 13.9 and 22.5.
 
@@ -252,7 +252,7 @@ Span, seconds & \emph{Moon} & \emph{Sorry} & \emph{Old One} & What that span is 
 \normalsize
 
 A ratio above one is the live recording carrying gaps more variable than its own shuffle, which is
-clustering. The ledger writes the same quantity as a ratio below one and the two are reciprocals.
+clustering. The workbook writes the same quantity as a ratio below one and the two are reciprocals.
 The \emph{Moon} row at 5.9 seconds sits on 43 blocks and is scatter.
 
 Three recordings, one curve, monotone across four orders of magnitude in span.
@@ -274,7 +274,7 @@ over a 64-fold range of spans, with every one of eleven points landing between 0
 fit. Nothing happens at 0.778 seconds. Nothing happens anywhere.
 
 \textbf{So the waveform's arrangement has no characteristic scale.} That is a finding. It is not a
-failure to find one, and it is the case the ledger already names: data carrying structure at every
+failure to find one, and it is the case the workbook already names: data carrying structure at every
 scale has no characteristic scale for a window, a band or a ceiling to sit at, so every
 such bound in this work had to be removed. What holds still for such data is how the quantity changes
 with scale, and here that is an exponent measured to \(r^2 = 0.988\).
@@ -318,7 +318,7 @@ forms, and nothing takes a character out of \texttt{TEXT\_\allowbreak{}SPACE} an
 stands for, so two dialects writing one word two ways are still two nodes.
 
 The section above went looking for the unit in the waveform alone and found a power law with no knee.
-That is the middle of the three ways a partition is fixed, an estimate, and the ledger says an
+That is the middle of the three ways a partition is fixed, an estimate, and the workbook says an
 estimate reaches nothing past what the sample already carries. The third way adds information the
 sample does not hold, and it is the only one that does.
 
@@ -409,7 +409,7 @@ nearer 0.05, so most intervals straddle a boundary or land in silence. That is w
 
 What must not be done is to let the audio choose the letters. The timestamps and the transcription are
 everything that makes this supervision and not an estimate, and an alignment tuned until the
-letters separate would be the algorithm scoring itself against a split it proposed, which the ledger
+letters separate would be the algorithm scoring itself against a split it proposed, which the workbook
 records as the failure that passes forever.
 
 \textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

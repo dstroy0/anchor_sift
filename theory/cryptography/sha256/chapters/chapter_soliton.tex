@@ -1,0 +1,170 @@
+\chapter{A soliton, and the boundary it shares}
+
+\textbf{Purpose:} Stop squaring the projection, find the object that squaring hid, and take it apart
+until every number in it is accounted for. \textbf{Scope:}
+\texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}sac.\allowbreak{}cu}, the
+\texttt{signed} and \texttt{cells} arms.
+
+\section{What squaring destroyed}
+
+Every projection in the preceding chapters sums \(z^{2}\) along an axis, and \(z^{2}\) cannot
+separate a rate of zero from a rate of one: both give \(z = \mp\sqrt{n}\) and the same square. The
+sum is blind to sign. A cell that changes nothing and a cell that flips its output \emph{every
+single time} land on the same value and are drawn at the same height in the same color.
+
+The obvious repair is worse. Summing signed \(z\) makes a row that is half never-flipping and half
+always-flipping come to zero, the same total a fully mixed row gives, and hides the same
+distinction one level down.
+
+So the three states are counted and not summed. A count of zero makes the cell \emph{never}; a
+count of every trial makes it \emph{always}; any count between the two makes it \emph{mixed}. Those
+three are exclusive and cover every case, and nothing cancels.
+
+\section{Something that does not move while everything else does}
+
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+round & never & always & mixed \\
+\midrule
+6 & 99{,}051 & \textbf{312} & 31{,}709 \\
+10 & 66{,}294 & \textbf{312} & 64{,}466 \\
+16 & 17{,}126 & \textbf{312} & 113{,}634 \\
+17 & 9{,}840 & 248 & 120{,}984 \\
+21 & 0 & 0 & 131{,}072 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The \emph{always} count holds at exactly \(312\) for eleven consecutive rounds while \emph{never}
+falls by a factor of \(5.8\) and \emph{mixed} climbs by eighty-two thousand around it.
+
+It is not standing still in the field. It is travelling.
+
+\begin{center}
+\begin{tabular}{rlrrl}
+\toprule
+round & bits & width & cells & words \\
+\midrule
+6 & 57--191 & 135 & 312 & 1--5 \\
+8 & 121--255 & 135 & 312 & 3--7 \\
+10 & 185--319 & 135 & 312 & 5--9 \\
+12 & 249--383 & 135 & 312 & 7--11 \\
+14 & 313--447 & 135 & 312 & 9--13 \\
+16 & 377--511 & 135 & 312 & 11--15 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{A rigid object, one hundred and thirty-five bits wide and three hundred and twelve cells in
+area, moving at exactly thirty-two bits per round without changing form.} That is a soliton: a shape
+that propagates without dispersing. It is stationary in the co-moving frame, and so no reading
+that averaged over rounds could see it, and it sits at the same slope of thirty-two that the
+slant-stack found statistically at \(7.18\) sigmas --- except that this is exact, with no variance
+across eleven rounds.
+
+\section{Taking it apart}
+
+The projection sums over the output axis, so it cannot say which output bits these are. Naming them
+accounts for every number.
+
+\begin{center}
+\begin{tabular}{lrl}
+\toprule
+part & count & mechanism \\
+\midrule
+aligned, residue 0 & 256 & integer addition \\
+skewed, residue 25 & 56 & \(\Sigma_1\)'s \(\mathrm{ROTR}25\), alone \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The aligned half is arithmetic. Flipping bit \(k\) of an addend always flips bit \(k\) of the sum,
+because carries only run upward, so bit \(k\) of a message word drives bit \(k\) of \(T_1\) and
+thence of \(a\) and of \(e\) --- two cells per bit, over four words of thirty-two bits:
+\(4 \times 32 \times 2 = 256\).
+
+The word breakdown closes too. The newest word contributes \(64\) and is purely aligned; the three
+behind it contribute \(78\) each, being \(64\) aligned and \(14\) skewed; the oldest contributes
+\(14\), skewed only, its aligned cells already mixed away. Four times sixty-four is two hundred and
+fifty-six, four times fourteen is fifty-six, and the certain cells spread perfectly evenly over the
+eight state words --- thirty-nine each, at every depth.
+
+\subsection{Where the explanation fails}
+
+Every one of the fifty-six skewed cells sits at residue twenty-five. None at \(\mathrm{ROTR}6\),
+none at \(\mathrm{ROTR}11\), none at any of \(\Sigma_0\)'s amounts, at rounds eight, ten and twelve
+alike.
+
+The natural mechanism does not survive that. If carries destroy certainty at every position above
+the lowest flipped one, then the lowest of \(\Sigma_1\)'s three images should be the survivor --- and
+at source bit twenty that is \(k - 11 = 9\), below \(k - 25 = 27\), so residue eleven should appear.
+It never does.
+
+\textbf{The aligned half is understood and the skewed half is an exact measurement with a wrong
+explanation.} That is worth more than a vague open question, because it names the observation the
+next model has to reproduce.
+
+\section{The boundary this shares with the published work}
+
+A soliton of probability-one paths is what a local-collision construction is built out of, so this
+object has neighbors in the published work. An earlier draft of this section claimed a numerical
+coincidence that does not exist, and the correction is more interesting than the claim was.
+
+\subsection{A retracted claim}
+
+That draft read: \emph{Sanadhya and Sarkar construct deterministic twenty-one step collisions, and
+the signed projection says probability-one propagation ends at round twenty-one; two opposite
+methods on one number.} It was written from a search-engine summary and not from the paper.
+
+\textbf{The deterministic limit is twenty-two, not twenty-one.} The same two authors passed
+twenty-one within months of the paper cited, and record it themselves: ``Deterministic constructions
+of up to 22-round SHA-2 collisions are described using the SS local collision.'' The match was a
+coincidence resting on a wrong number, and it is retracted.
+
+\subsection{The boundary that is real}
+
+Their limit is not arbitrary and its mechanism is a boundary this work found independently. A local
+collision spans nine steps, and a deterministic construction requires it to sit entirely inside the
+sixteen free message words, since those can be solved for directly while every later word is a
+function of them. So it cannot begin after step seven --- ``obtaining deterministic collisions up to
+22 rounds did not require the (single) local collision to extend beyond Step 15'' --- and beyond
+that some expanded word necessarily carries a difference and determinism ends.
+
+That is the message expansion switching on, which the schedule ablation in the previous chapter
+locates at round seventeen, bit for bit. \textbf{The published deterministic ceiling and the knee
+measured here are the same structural fact}, approached from construction and from measurement.
+Round twenty-one, where the last certain cell disappears, is a different and later boundary.
+
+\subsection{What the sources actually say}
+
+\textbf{On the most significant bit.} Sanadhya and Sarkar state that ``since the XOR and additive
+differences coincide for the most significant bit, to achieve higher probability, it is advantageous
+to ensure that many bits in the differential path are MSBs'', because a one-bit difference survives
+addition ``with probability one if the differing bit is the most significant bit, else with
+probability half''.
+
+That is \emph{adjacent to} the aligned half of this object and not the same statement, and an
+earlier draft ran them together. Their claim is that a difference stays weight one only at the MSB.
+The claim here is that bit \(k\) of an addend always flips bit \(k\) of the sum, which holds at every
+\(k\); what the MSB adds is that no carry leaves it. Both follow from the carry running one way, but
+they are different facts and only the second is what the \(256\) aligned cells count.
+
+\textbf{On the message expansion.} ``The message expansion of SHA-2 does not play any role in first
+16 steps'', stated near-verbatim, and the local collisions of that work span nine steps.
+
+\textbf{On the avalanche measurements.} Vaughn and Borowczak test all \(127\) non-empty combinations
+of the seven sub-functions, and name \(\Sigma_1\), integer addition, Choose and the message scheduler
+as those contributing to the avalanche criterion at the earliest rounds throughout. That is the
+\(T_1\) asymmetry of the operations chapter, found by ablation and not by spectrum, and it is
+their result before it was this one's.
+
+Their round figures want quoting carefully. Full SHA-256 exhibits the criterion at round twenty-
+three, \emph{fails it between rounds fifty-four and fifty-seven}, and exhibits it again at
+fifty-eight. Twenty-three is the floor across combinations, not the full function's plateau.
+
+\textbf{And this work disagrees with them about the dip.} The refutations chapter records the
+fifty-four to fifty-seven failure as not reproducing at roughly four times their sample. That
+disagreement is left standing and not reconciled: their threshold is a Bonferroni bound at
+ninety-nine per cent over \(131{,}072\) simultaneous tests, and the dip sits close enough to it that
+sample size decides the answer.

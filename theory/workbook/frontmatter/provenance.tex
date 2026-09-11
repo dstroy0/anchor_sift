@@ -25,7 +25,7 @@ result because it arrived looking the way a result is supposed to look. That is 
 here were found. It is also how somebody working this way gets a long way down a wrong road without
 anybody stopping them, because there is no field standing behind me to say the road is wrong.
 
-So the ledger is the thing that stops me. Writing down what a measurement killed, beside the claim
+So the workbook is the thing that stops me. Writing down what a measurement killed, beside the claim
 it killed, is how I keep scrutinizing what I already think I know. An entry that says what was
 believed, what was measured, and which of the two lost is a check I can run on myself later, and it
 is the only check available to somebody with no supervisor and no committee.
@@ -35,7 +35,7 @@ working notes. The document would be less useful without them and so would I.
 
 \section*{The timeline is in the repository and it is signed}
 
-The first commit of this repository is dated 2026-09-04 and carries a GPG signature. Its subject is
+The first commit of this repository is dated 2026-09-04 and is signed with my GPG key. Its subject is
 human language signature detection research. Seven days separate it from the date on this page.
 
 Most of what is cited in these books I had not read before that commit. That is checkable and not
@@ -55,7 +55,7 @@ domain here is that question with a different answer to what counts as a part.
 
 Arriving from there at something a field already uses is the good outcome. It is evidence the
 general question points at something real, and arriving somewhere nobody had ever needed to go would
-have been the weaker result. What it costs is priority, and no priority is claimed here.
+have been the weaker result. It gives up priority. I claim none here.
 
 Each precedent was found by asking, once a result existed, how such a thing could have gone
 unnoticed. That question is what produced the search, and the search is what produced the citation.
@@ -75,7 +75,7 @@ unnoticed. That question is what produced the search, and the search is what pro
     argument, reproduced here for all four functions instead of two.
 \end{itemize}
 
-\section*{Where the reading has not been done, and it is marked}
+\section*{What I have not read}
 
 The crystallographic literature has not been worked through. An autocorrelation of density in a
 crystal is very unlikely to be new, a century of the field has worked on exactly that object, and
@@ -85,15 +85,14 @@ and nothing in it is an attribution either.
 
 \section*{What now checks this}
 
-A claim that something here is new, first, or absent from the literature is a claim about everybody
-else's work, and this repository cannot settle that kind of claim from inside itself.
-\texttt{maint/\allowbreak{}citations/\allowbreak{}prior\_\allowbreak{}works.\allowbreak{}py} reads
-the books for that shape and reports every instance that carries neither a reference nor a plain
-statement that the reading has not been done. It reports and never decides, because no pattern
-separates a claim about this work's priority from a description of somebody else's.
+Novelty is a claim about other people's work. Nothing in this repository can check one.
 
-\texttt{maint/\allowbreak{}citations/\allowbreak{}citations.\allowbreak{}py} holds the other half. A
-surname in a comment is not a citation, and a source is registered only once somebody has the thing
-open and can enter an author, a year, a title and an identifier. A row entered and left empty is the
-honest state of a source nobody has looked up, and it holds until somebody looks it up.
+\texttt{maint/\allowbreak{}citations/\allowbreak{}prior\_\allowbreak{}works.\allowbreak{}py} reports
+every novelty claim in the books with no citation attached and no line saying I have not read the
+literature. I decide each one. No pattern separates my priority claim from my description of
+somebody else's work.
+
+\texttt{maint/\allowbreak{}citations/\allowbreak{}citations.\allowbreak{}py} is the other half. A
+surname in a comment is not a citation. I register a source once I have it open and can enter an
+author, a year, a title and an identifier. An empty row means I have not looked it up yet.
 \cleardoublepage

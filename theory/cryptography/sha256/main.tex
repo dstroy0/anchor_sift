@@ -1,10 +1,6 @@
 % !TEX TS-program = lualatex
 % Hand-written. markdown_to_latex.py is retired: theory/ is the source.
 %
-% The line above picks the engine in TeXworks and TeXShop. Typesetting this with pdfLaTeX stops on
-% \RequireLuaTeX in the preamble, and preamble.tex on its own stops sooner than that: it carries no
-% \documentclass because this file supplies one and then reads it.
-%
 % Compile from this directory so the shared inputs resolve:
 %     latexmk -pdf -outdir=../../../build/theory/cryptography/sha256 main.tex
 %
@@ -12,21 +8,20 @@
 \documentclass[11pt,paper=a4,twoside,openright,titlepage,
 headinclude,footinclude,BCOR=5mm]{scrbook}
 
-\input{../../preamble.tex}
+\input{preamble.tex}
 
 \begin{document}
 \frenchspacing
-\emergencystretch=3em
-\hbadness=10000
+\emergencystretch=1em
+\hbadness=2000
 \vbadness=10000
-\hfuzz=8pt
+\hfuzz=2pt
 \cfoot*{}
 \ofoot*{\pagemark}
 
 \frontmatter
 \pagestyle{plain}
 \include{frontmatter/titlepage}
-\input{../../dedication.tex}
 \include{frontmatter/abstract}
 
 \tableofcontents
@@ -38,6 +33,11 @@ headinclude,footinclude,BCOR=5mm]{scrbook}
 \include{chapters/chapter_chain}
 \include{chapters/chapter_operations}
 \include{chapters/chapter_spectral}
+\include{chapters/chapter_moving}
+\include{chapters/chapter_shadows}
+\include{chapters/chapter_soliton}
+\include{chapters/chapter_boundary}
 \include{chapters/chapter_refuted}
 \include{chapters/chapter_against_the_field}
+\include{chapters/chapter_sources}
 \end{document}

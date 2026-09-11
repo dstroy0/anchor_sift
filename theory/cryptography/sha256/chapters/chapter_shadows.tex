@@ -1,0 +1,156 @@
+\chapter{Shadows of the object}
+
+\textbf{Purpose:} Look at the whole field instead of at a statistic of it, and let the picture
+carry the argument that a table of numbers had already got wrong. \textbf{Scope:}
+\texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}sac.\allowbreak{}cu} (the
+\texttt{shadow} and \texttt{assay} arms), \texttt{tools/\allowbreak{}radar\_\allowbreak{}receive.py}.
+
+\section{Everything here is a projection}
+
+The object is three-dimensional --- \(512\) input bits by \(256\) output bits by \(64\) rounds,
+\(8.4\) million cells --- and nobody looks at that directly. Every reading in this work is a
+\emph{shadow}: the residue fold is the field collapsed along one axis, and the chi-square is the
+same object flattened all the way to a single number. A shadow is cast from one angle, and until
+these arms were built nothing here had looked from a second one.
+
+That matters more than it sounds, because the projection-slice theorem says a shadow's transform is
+a slice through the object's transform. Shadows are not impressions of the thing; they are the
+thing, along a plane. Enough of them reconstruct it.
+
+\section{The figure that refutes the ridge}
+
+Here is the residue fold as measured, forty rounds across, thirty-two classes down. Density is
+magnitude on a log scale, and the two character ramps carry the sign because a printed page has no
+hue to spare.
+
+\begin{verbatim}
+res | 1234567890123456789012345678901234567890
+----+-----------------------------------------
+  0 | @@@@@@@@@@%%%%#*:ll..               . ,
+  1 | @@@@@@@@@@@@@%%%%#*+-;
+  2 | @@@@@@@@@@@@%%%%##*--
+  3 | @@@@@@@@@@@@@%%%%#*+     .   , ,    . ,
+  6 | @@@@@@@@@@@@%%%#*+ll  ,
+ 11 | @@@@@@@@@@@@%%%##*cl        .    ,  .
+ 25 | @@@@@@@@@@@%%%%#*-ll   ,
+ 26 | @@@@@@@@@@@@@@%%%##*=. ,
+ 31 | @@@@@@@@@@@@%%%##*++-
+\end{verbatim}
+
+\textbf{Every row is the same row.} There is nothing further to it. The reading that produced the ridge
+took the largest of these thirty-two and reported its amplitude in standard errors, without ever
+subtracting what all thirty-two share --- and what they share is nearly everything they have.
+
+Two things put that offset into every class at once. The avalanche is incomplete at these depths.
+And the message schedule imposes a causal boundary: round \(t\) consumes \(W_t\), so message word
+\(w\) cannot affect the state before round \(w+1\), and until then flipping any of its bits changes
+nothing at all. Neither depends on the output bit, so neither can concentrate in any residue.
+
+Now the same field with the class mean removed at each depth.
+
+\begin{verbatim}
+res | 1234567890123456789012345678901234567890
+----+-----------------------------------------
+  0 | KWWWWWWWWWWWWWWWWWKxi               ..,
+  1 | =**##############**+-;           ..
+  2 | =cxxddddddddddddddxx:     .         .
+  6 | =dKKWWWWWWWWWWWWWKKdi ,   ,  .
+ 11 | =ddKKKKKKKKKKKKKKKKdi    ,  .    ,. .
+ 25 | =dKKWWWWWWWWWWWWWKKdi, , ,,            ,
+ 26 | =#%%%%%%%%%%%%%%%%%#+. ,
+ 31 | dKKKWKKKKKKKKKKKKKdi=
+\end{verbatim}
+
+The band that lights up is \(0\), \(6\), \(11\), \(25\), \(31\), and every one of those is a named
+operation: the diagonal, \(\Sigma_1\)'s three rotation amounts, and \(-1 \bmod 32\) for the
+carry. Residue twenty-six --- the ridge --- is on the other side, negative, part of the complement
+the positive band forces.
+
+\section{The waterfall}
+
+The light cone is usually drawn as a staircase, and staircase is the wrong word. Nothing steps. Each
+message word's influence \emph{falls}, from the dead plateau through a cascade of about seven
+rounds, and each word begins its fall one round after the last. Sixteen overlapping waterfalls,
+offset in time.
+
+\begin{center}
+\begin{tabular}{lrrrrrrr}
+\toprule
+word & \multicolumn{7}{c}{rounds past its own wavefront} \\
+\midrule
+1 & 65717950 & 56156848 & 39901486 & 23149438 & 7750636 & 524352 & 3713 \\
+5 & 65715565 & 56038264 & 39759693 & 22991641 & 7598227 & 517213 & 3795 \\
+10 & 65710620 & 56030538 & 39770014 & 23005491 & 7602562 & 514235 & 3793 \\
+15 & 65712398 & 56032235 & 39694484 & 22916534 & 7543738 & 442264 & 1969 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Aligned to its own wavefront every word falls the same way, to one part in \(10^{4}\) at the lip and
+one part in forty five rounds down. The plateau above the lip is \(67{,}108{,}608.0\) to the last
+digit, being \(256(n-1)\) at \(n = 2^{18}\): not a large measurement but an exact structural
+constant.
+
+\subsection{What the plateau actually is}
+
+It is tempting to read that constant as \emph{the input cannot reach the output yet}, and this work
+did read it that way for a while. That is wrong, and the statistic says so if it is asked properly.
+
+The projection sums \(z^{2}\) over the row, and \(z^{2}\) cannot tell a rate of zero from a rate of
+one: both give \(z = \mp\sqrt{n}\) and \(z^{2} = n\). The sum is sign-blind. A bit that changes
+nothing and a bit that flips its outputs \emph{every single time} land on the same plateau.
+
+The evidence is a bit that has no business being there. Bit \(511\) --- the most significant bit of
+message word fifteen --- still sits at the plateau at round seventeen, a round after word fifteen
+has entered. It cannot be causally dead: flipping the top bit of an addend always flips the top bit
+of the sum, because the carry out of bit thirty-one is discarded modulo \(2^{32}\). It flips bit
+thirty-one of \(a\) and of \(e\) with probability one. Rate one, \(z = +\sqrt{n}\), and the same
+\(z^{2}\) as rate zero.
+
+\textbf{So the plateau is where the function is still perfectly predictable}, and being outside the
+causal cone is only the special case where the prediction is \emph{no change}. The most significant
+bits ride one round longer than the rest of their word for a reason that is arithmetic and not
+causal: they never generate a carry, so nothing about them is yet data-dependent.
+
+\textbf{The cliff is where determinism ends, not where causality begins.} Every number in this
+chapter survives the correction --- the constant, the waterfall, the shift invariance, the diagonal
+at thirty-two bits per round --- but the name was wrong, and a wrong name misleads further than a
+wrong number does.
+
+The register chains are the second waterfall and they are ducts, not mixers. \(b\), \(c\)
+and \(d\) are copies of \(a\) delayed one, two and three rounds, with no mixing and no attenuation,
+so information is carried forward intact. The duct length is therefore what sets where the wall
+sits.
+
+\section{Rocks in the river}
+
+What the residue band shows is not the operations. It is their \emph{wake}.
+
+The difference is what propagates; \(\Sigma_1\), the carry and the diagonal correspondence are
+obstacles standing in that flow, and each disturbs it by being there. A residue class carries
+amplitude because an operation upstream keeps moving bits by that distance, so the disturbance
+piles up at that offset and stays there.
+
+That reading is not a figure of speech, because the assay tests it directly and it is the strongest
+result in this work. Take the rock out of the river and the wake goes: removing \(\Sigma_1\) drives
+its classes from \(6.59\) to \(1.92\), and class six does not merely fade but flips sign, from
+\(+6.83\) to \(-4.28\). Removing integer addition drives the carry class from \(+5.46\) to
+\(-0.11\), because without addition there are no carries and nothing is transported at
+\(-1 \bmod 32\) at all.
+
+It also explains a result recorded elsewhere as a null. The Doppler scan found nothing moving ---
+drift within \(0.09\) of zero at all fifteen spatial frequencies --- and that is not the absence of
+structure. \textbf{A standing wave around a fixed obstacle does not drift.} The round function is
+the same at every depth, and the only quantity that does vary with the round, the constant \(K_t\), was
+measured twice by different means to contribute nothing to diffusion. The rocks do not move, so
+their wake cannot. Zero Doppler was the mechanism reporting itself.
+
+\section{What the picture cost, and what it bought}
+
+The shadow arm was built to be looked at. It refuted the largest claim in this work, extended the
+constant-decrement law two rounds earlier than it had been recorded, reproduced the ridge amplitude
+from independent seeds to five significant figures, and --- through a control built for an entirely
+different purpose --- explained the knee at round seventeen as the message schedule switching on.
+
+None of that was what it was for. That is the pattern of this whole body: build the instrument,
+then spend it on the truth.
