@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# repotools-stamp: repo/repo_maint/write_survey.py 7c08053483ef77ee
+# repotools-stamp: repo/repo_maint/write_survey.py 3c958f60de41b808
 # repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Every file this tree writes, and where it lands.
 #
-#   Usage:  python maint/tree/write_survey.py [--all]
+#   Usage:  python repo/repo_maint/write_survey.py [--all]
 #
 # WHY THIS EXISTS
 #

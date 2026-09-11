@@ -19,7 +19,9 @@ prefix = "ANCHOR_SIFT"
 # This repository keeps its tools under maint/ and not tools/, which is the one line that differs
 # from the template. Every tool asks for the kind and never for the directory.
 source = ["src"]
-docs = ["docs", "theory"]
+# Two theory trees. The workbook is authored here in theory/ because it is the book about this
+# engine; the other seven are authored upstream in theory_bucket and arrive as a subtree.
+docs = ["docs", "theory", "theory_bucket"]
 examples = ["examples"]
 tests = ["test"]
 tools = "maint"
@@ -32,10 +34,14 @@ extensions = [".c", ".h", ".cu", ".py"]
 skip_files = []
 
 [prose]
-# theory/ is where the research lives and it is the longest continuous prose in the tree. docs/ is
-# four pointer pages. maint/ carries file headers that make the same kind of claim a page does, and
-# docs_check reads .tex as well, so the books are in scope.
-roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "maint"]
+# The theory trees are where the research lives and they are the longest continuous prose here.
+# docs/ is four pointer pages. maint/ carries file headers that make the same kind of claim a page
+# does, and docs_check reads .tex as well, so the books are in scope.
+#
+# Both trees are named. Leaving theory_bucket out reads as zero findings over eighty files and exits
+# 0, and theory/ still existing for the workbook means nothing reports the gap.
+roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "theory_bucket", "src", "examples",
+         "maint"]
 # Left empty on purpose. private_roots used to guess the two closed repositories as siblings of
 # whatever tree was under check, and a public AGPL library that adopted the toolkit then emitted
 # Salishan researcher surnames and paper identifiers into output whose whole purpose is to be pasted
@@ -53,7 +59,8 @@ gates = ["docs_check", "fetch_check"]
 # never fetched. Every repository asking for this gate has to point at its own copy or the gate
 # refuses, and refusing is correct: it is the one check nothing can supply for you.
 tool = "maint/prose/docs_check.py"
-roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "maint"]
+roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "theory_bucket", "src", "examples",
+         "maint"]
 
 [fetch]
 # What anchor_sift pulls, and why each one.

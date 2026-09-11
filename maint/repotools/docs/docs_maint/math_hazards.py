@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# repotools-stamp: docs/docs_maint/math_hazards.py 9fef15a4d1863a71
+# repotools-stamp: docs/docs_maint/math_hazards.py 815d3b4fdd9a2b6c
 # repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Find the characters and commands inside a document's math that break before the math is rendered.
 #
-#   Usage:  python maint/book/math_hazards.py theory/anchor_sift [more.md]
+#   Usage:  python docs/docs_maint/math_hazards.py <document.md> [more.md]
 #
 # Markdown gets the first pass at the text and the math renderer gets the second, so anything that means
 # something to markdown or to HTML is consumed before the formula is ever parsed. Three of these turned up

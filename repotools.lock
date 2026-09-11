@@ -5,7 +5,7 @@
 # Every file here came from the repo_tools checkout and is maintained there. A file absent
 # from this list belongs to this repository and the toolkit never reads it.
 
-maint/repotools/docs/docs_maint/math_hazards.py docs/docs_maint/math_hazards.py 9fef15a4d1863a71
+maint/repotools/docs/docs_maint/math_hazards.py docs/docs_maint/math_hazards.py 815d3b4fdd9a2b6c
 maint/repotools/docs/docs_maint/quotes.py docs/docs_maint/quotes.py 8bbad6f8c384125a
 maint/repotools/lib/repotools/__init__.py lib/repotools/__init__.py 0b8196993556ca3f
 maint/repotools/lib/repotools/boot.py lib/repotools/boot.py 348a8353fbfc289b
@@ -24,4 +24,4 @@ maint/repotools/repo/repo_maint/hooks/pre-commit repo/repo_maint/hooks/pre-commi
 maint/repotools/repo/repo_maint/inventory.py repo/repo_maint/inventory.py 960d950d19c85cf7
 maint/repotools/repo/repo_maint/promotion.py repo/repo_maint/promotion.py e385d61f6097e272
 maint/repotools/repo/repo_maint/version.py repo/repo_maint/version.py efa1ddfa43dc5315
-maint/repotools/repo/repo_maint/write_survey.py repo/repo_maint/write_survey.py 7c08053483ef77ee
+maint/repotools/repo/repo_maint/write_survey.py repo/repo_maint/write_survey.py 3c958f60de41b808
