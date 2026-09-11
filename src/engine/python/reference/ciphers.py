@@ -16,7 +16,7 @@
 # the only mapping here that erases anything. A counter carries no text at all and is perfectly
 # regular. That last case bounds the limit: it is structured and nobody produced it.
 #
-# The measured answer is that a cipher cannot remove what this reads unless it spends key equal to
+# The measured answer is that a cipher cannot remove what this reads unless its key is as long as
 # the message. A substitution reproduces the boundary dispersion to four decimals. A repeating key
 # of length 8 leaves a corpus that looks memoryless read whole, and splitting it at stride 8 and
 # averaging the cosets returns the plaintext value exactly, since each coset was enciphered by one

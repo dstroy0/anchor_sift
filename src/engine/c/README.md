@@ -45,7 +45,7 @@ bash maint/engine/verify_gpu_arch.sh    what the CUDA arm generates, per archite
 
 Reading emitted instructions rules out a header that silently fell back to scalar code, an intrinsic the compiler emulated instead of issuing, and a flag that was accepted and ignored. It says nothing about behavior. AVX-512 and SVE have no hardware in this project and carry `unrun` in their own names for that reason. A row of results then cannot show one beside a run arm without the difference being visible.
 
-That check earns its keep. The SVE row first reported no `whilelt` emitted. The cause was a wrong expectation and not wrong code: `svwhilelt_b32` on unsigned operands emits `whilelo`, since `WHILELT` is the signed form.
+That check has already caught one thing. The SVE row first reported no `whilelt` emitted. The cause was a wrong expectation and not wrong code: `svwhilelt_b32` on unsigned operands emits `whilelo`, since `WHILELT` is the signed form.
 
 ### Every arm runs one algorithm
 
@@ -67,13 +67,13 @@ Run against portable, agreeing on every lag at every size:
 | `neon` | Pi 5, Cortex-A76, gcc 14.2 | 1.16x | 1.12x | 1.10x |
 | `cuda` | RTX 3070, compute 8.6 | **0.34x** | 1.29x at 4,096 | 8.63x |
 
-Widening the comparison buys ten to forty percent. It cannot buy three times, because the comparison is no longer most of the work: the hash probe and the memory it touches are.
+Widening the comparison is worth ten to forty percent. It cannot reach three times, because the comparison is no longer most of the work: the hash probe and the memory it touches are.
 
 **These are host clock timings and the host is not quiet.** `clock()` on this platform measures wall time, so anything else running on the machine moves the numbers. Another session was running processor work in bursts through the afternoon and said so, which is the only reason it is known. Every CUDA figure above is a median of five runs taken on an idle card; the spread across those five is 0.29 to 0.45 at a thousand positions and 7.82 to 9.13 at sixty five thousand. A lone run is worth about ten percent either way. The gcc-14 row is a median of five for the same reason, taken after one run read 0.89x, an outright loss.
 
 Device side timing through CUDA events would be immune to this and the host arms would still not be. Both arms of a ratio run back to back in one process, so load moves them together and mostly cancels, which is why the medians landed within ten percent of the single runs they replaced.
 
-**Read the CUDA row from the left.** It **loses at a thousand positions**, breaks even near four thousand, and wins eight times at sixty five thousand. The crossover is the bus and not the kernel: this arm copies the whole run to the device before it computes anything, so the loss at small sizes is a property of the transfer and travels with the arm wherever it goes. Sizing a workload from the 8.63x alone would put it where the arm is three times slower than doing nothing special.
+**Read the CUDA row from the left.** It **runs slower at a thousand positions**, breaks even near four thousand, and runs eight times faster at sixty five thousand. The crossover is the bus and not the kernel: this arm copies the whole run to the device before it computes anything, so the loss at small sizes is a property of the transfer and travels with the arm wherever it goes. Sizing a workload from the 8.63x alone would put it where the arm is three times slower than doing nothing special.
 
 A ratio holds only against the portable arm in **that same build**. The CUDA driver is compiled by MSVC and the CMake one by MinGW, and their portable arms are not the same object. A number in one row therefore does not compare to a number in another.
 
@@ -170,7 +170,7 @@ The period is recovered with nothing supplied. Each candidate is scored against 
 
 Survivors have to stay put and do. The anchors dropped were refuting nothing. The bench checks it on every row instead of assuming it.
 
-**Be clear about the size of this.** Fifteen percent of the probes is a few percent of the search, because the probes are one byte each and the verification behind them reads the whole needle. The reason to read coherence first is not this saving. It is that a corpus with a period cannot be filtered below `1/P` by anchors, however many are placed, and knowing that before the search is the difference between choosing a different discriminator and paying four times over for one bit.
+**Be clear about the size of this.** Fifteen percent of the probes is a few percent of the search, because the probes are one byte each and the verification behind them reads the whole needle. The reason to read coherence first is not this saving. It is that a corpus with a period cannot be filtered below `1/P` by anchors, however many are placed, and knowing that before the search is the difference between choosing a different discriminator and probing four times over for one bit.
 
 **What it does not settle.** The periodic corpus here is a clean single orbit, the extreme case. On a clean orbit no anchor spacing helps, since the offset cancels out of the test entirely. A real corpus carries partial coherence, and the collapse would be partial with it. The spacing is computed and reported but not acted on: justifying that needs a partially coherent corpus, and there is not one here. `anchor_sift_anchors_for` returns 1 on any corpus that clears the detection floor, where a partially coherent corpus would want a count somewhere between one and four.
 
@@ -192,7 +192,7 @@ The repair was not to switch to the documented rule, because the documented rule
 | flatness then length, as documented | 33 of 42 | 153,483,501 |
 | flatness alone | 41 of 42 | 1,975,242 |
 
-**The flatness threshold survives the sweep and the needle length ceiling does not.** Every threshold from 0.34 to 0.96 scores identically, because the three corpora read 0.96, 0.33 and 1.00 and nothing lies between them. The 0.85 the kernel carried sits inside that interval and stays. The ceiling of 16 is beaten by having no ceiling: the free order arm wins on a skewed corpus at every needle length from 4 to 256, by 2.95 times on average and 3.42 times at its widest.
+**The flatness threshold survives the sweep and the needle length ceiling does not.** Every threshold from 0.34 to 0.96 scores identically, because the three corpora read 0.96, 0.33 and 1.00 and nothing lies between them. The 0.85 the kernel carried sits inside that interval and stays. The ceiling of 16 is beaten by having no ceiling: the free order arm is faster on a skewed corpus at every needle length from 4 to 256, by 2.95 times on average and 3.42 times at its widest.
 
 Counting rows is the weaker of the two scores and both are printed. A rule that gets a row wrong where the arms differ by one percent has cost one percent, and cycles given up is what a dispatcher exists to minimize. On that score the shipped rule was giving up ninety times what the fixed one gives up.
 
@@ -208,7 +208,7 @@ Per corpus, for a caller who holds one:
 
 **Horspool is gone from the kernel and the older drivers still call it.** `bench_cycles.c` puts `anchor_sift_horspool` in its arms table. That driver does not compile, because no such symbol exists in the tree.
 
-Horspool was also the wrong comparison. It needs an ordered index set and a shift table the size of the alphabet; the sift needs neither. Timing the two side by side on a byte line runs the sift in the one domain where discarding order buys nothing.
+Horspool was also the wrong comparison. It needs an ordered index set and a shift table the size of the alphabet; the sift needs neither. Timing the two side by side on a byte line runs the sift in the one domain where discarding order gains nothing.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-08

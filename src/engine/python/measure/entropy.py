@@ -58,7 +58,8 @@ def uninformed_rate(bits, anchors=1):
 
     This is the maximum entropy case and therefore a floor: a filter selecting on symbol rarity reads
     only the marginals, so an arrangement can add correlated hits and cannot make the marginals more
-    informative than independence already makes them. Structure costs this filter and never pays it.
+    informative than independence already makes them. Structure only makes this filter worse, never
+    better.
     """
     return 2.0 ** (-bits * anchors)
 

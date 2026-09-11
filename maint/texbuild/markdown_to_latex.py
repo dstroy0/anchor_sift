@@ -49,7 +49,14 @@ def inline(value):
     value = escape_text(value)
     value = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", value)
     value = re.sub(r"\*(.+?)\*", r"\\emph{\1}", value)
-    value = re.sub(r"(?<!\\)_([^_]+)_", r"\\emph{\1}", value)
+    # Matched against the escaped form, because escape_text ran on the line above and every
+    # underscore is \_ by the time this reads it. The old pattern refused exactly those: its
+    # (?<!\\) was written for raw text and, run here, it never matched once. A _title_ reached the
+    # page as \_title\_ and typeset as two literal underscores around the words.
+    #
+    # Word boundaries on both ends keep an identifier out of it, so read_me_first stays whole.
+    value = re.sub(r"(?<![A-Za-z0-9])\\_(\S(?:(?!\\_).)*?)\\_(?![A-Za-z0-9])",
+                   r"\\emph{\1}", value)
     value = re.sub(
         r"\x00(\d+)\x00", lambda match: protected[int(match.group(1))], value
     )
@@ -151,6 +158,15 @@ def convert(source, title):
             continue
         if not line.strip():
             flush_paragraph()
+            index += 1
+            continue
+        # A thematic break. Nothing read it, so the dashes joined the paragraph, went through
+        # inline() unescaped and typeset as an em dash, which is the one character the prose check
+        # calls breaking. It becomes space: the division is what the author wrote, and a rule drawn
+        # across the page is a decoration nobody asked for.
+        if re.fullmatch(r"\s*(?:-{3,}|\*{3,}|_{3,})\s*", line):
+            flush_paragraph()
+            output.extend([r"\medskip", ""])
             index += 1
             continue
         # A figure on its own line. Without this the tag went through inline() and came out as

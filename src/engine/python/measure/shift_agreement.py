@@ -61,8 +61,8 @@ def agreement(data, lag, stride=STRIDE):
 def strongest_lags(data, most=1200, keep=8, stride=STRIDE):
     """The lags where the sequence agrees with itself most, strongest first.
 
-    A real period shows with its neighbors beside it and its harmonics behind it. A lag that won by
-    chance has neither.
+    A real period shows with its neighbors beside it and its harmonics behind it. A lag that stands
+    tallest by chance has neither.
     """
     marks = []
     for lag in range(1, min(most, len(data) // 4)):
@@ -151,7 +151,7 @@ def recover_exact_period(placed, families=2):
     set with period P agrees with itself at 2P and 3P as well, so the tallest lag alone reports a
     harmonic. A candidate is scored as the mean over itself and its multiples, and the family is
     capped at `families` members: a family growing as the candidate shrinks lets a short wrong
-    candidate win by holding more members, needing only one good lag among them.
+    candidate score highest by holding more members, needing only one good lag among them.
 
     Returns (period, agreement at it) as exact integers, or (None, None) where nothing agreed.
     """
@@ -216,13 +216,13 @@ def recover_lattice_period(grid, axis, most=None):
     for period in range(2, (reach // 2) + 1):
         # Exactly two multiples for every candidate, never more. Family size otherwise grows as the
         # candidate shrinks, and the score is a mean over the family. A short wrong candidate can
-        # win by holding more members. It only has to catch one good lag among them.
+        # score highest by holding more members. It only has to catch one good lag among them.
         #
         # A cell edge is not a whole number of voxels, and that supplies the good lag. On a
         # 4.148 angstrom axis at 0.25 the period is 16.59 voxels, so lag 16 is off by 0.59 and lag 33
         # is off by 0.18. Lag 33 therefore agrees better than the fundamental does. A sweep to
-        # 2P + 6 puts 33 inside the family of 11 and outside the family of 16, and 11 wins an axis
-        # it has no business winning. Herzenbergite, molybdite and one more all failed this way, each
+        # 2P + 6 puts 33 inside the family of 11 and outside the family of 16, and 11 scores highest
+        # on an axis it does not fit. Herzenbergite, molybdite and one more all failed this way, each
         # reading short by a factor near two thirds.
         family = [agreements[step] for step in (period, 2 * period) if step <= reach]
         outside = [value for step, value in agreements.items() if (step % period) != 0]

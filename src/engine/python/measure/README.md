@@ -39,11 +39,11 @@ Score a candidate against its own multiples and against every lag outside that f
 
 **Reach for a period this way and never by sorting.** The failure looks like a clean result: a confident number, a high agreement, and a factor of exactly two that nothing in the output flags.
 
-## Every family gets exactly two multiples, or the short candidate wins
+## Every family gets exactly two multiples, or the short candidate scores highest
 
-Family scoring has a second failure and it is dimensional. Family size grows as the candidate shrinks, and the score is a mean over the family. A short wrong candidate can win by holding more members and catching one good lag among them.
+Family scoring has a second failure and it is dimensional. Family size grows as the candidate shrinks, and the score is a mean over the family. A short wrong candidate can score highest by holding more members and catching one good lag among them.
 
-The good lag comes from the period not being a whole number of lags. On herzenbergite's 4.148 angstrom axis at a voxel of 0.25 the period is 16.59 lags, so lag 16 sits 0.59 away from the fundamental while lag 33 sits 0.18 away from twice it. **Lag 33 therefore agrees better than the fundamental does.** A sweep to 2P + 6 puts 33 inside the family of candidate 11 and outside the family of candidate 16, and 11 wins an axis it has no business winning.
+The good lag comes from the period not being a whole number of lags. On herzenbergite's 4.148 angstrom axis at a voxel of 0.25 the period is 16.59 lags, so lag 16 sits 0.59 away from the fundamental while lag 33 sits 0.18 away from twice it. **Lag 33 therefore agrees better than the fundamental does.** A sweep to 2P + 6 puts 33 inside the family of candidate 11 and outside the family of candidate 16, and 11 scores highest on an axis it does not fit.
 
 Three published cell edges came back short by a factor near two thirds this way, all three of them strongly anisotropic orthorhombic cells, which is where a non-integer period and a long sweep collide. Capping every family at its first two multiples equalizes the comparison, and the sweep went from 450 of 453 to **453 of 453**, mean absolute error 0.0330 to 0.0124.
 
@@ -67,7 +67,7 @@ Collision entropy is permutation invariant. A corpus and its own shuffle carry i
 
 The C bench measures that failing in the open. On a corpus of period sixteen the histogram predicts one alignment in 65536 survives four anchors, and one in sixteen actually does, a factor of 4096 that converges as the corpus grows. The null permutation exists for that reason, and a second instrument was never a convenience.
 
-## Two cautions the numbers here have earned
+## Two cautions these numbers produced
 
 **These quantities are heavy tailed by default.** A mean over a sample where one draw in twenty five carried 96% of it put figures three orders too large into several entries. Use the median, and print the maximum beside it.
 

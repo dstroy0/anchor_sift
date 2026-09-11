@@ -18,9 +18,9 @@
 # character's code with the start of the next and measured neither. One code to one character
 # returns 40.0 percent at 32 codes and 13 of 22.
 #
-# What it costs and what it buys. About 13 points of identification and two families against reading
-# the characters as they come, and what it buys is that it needs nothing said about any script,
-# drops no symbols, and puts every language in the same codes.
+# The trade. It loses about 13 points of identification and two families against reading the
+# characters as they come. In exchange it needs nothing said about any script, drops no symbols,
+# and puts every language in the same codes.
 #
 # Where it loses is worth knowing before reaching for it. Telling two languages apart needs the shape
 # of a distribution, which binning by rank keeps. Knowing that two languages are related rests on the

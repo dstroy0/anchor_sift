@@ -1080,6 +1080,46 @@ def em_dashes(lines):
     return [(at + 1, "em dash") for at, line in enumerate(lines) if EM_DASH in line]
 
 
+# Markdown that survived the conversion into .tex. Every one of these is valid LaTeX, so the book
+# compiles with no error, no warning and no dropped glyph, and carries the artifact to the archive.
+#
+# The em dash rule above could not see any of it. A --- is an em dash after typesetting and the
+# check was looking for the character, so the one spelling a converter actually produces was the one
+# spelling it missed.
+#
+# All three were found by reading rendered pages, which is what this exists to stop. In delta_null a
+# --- set as a stray dash above the attribution on printed page 53, two claims wrapped in asterisks
+# set as literal asterisks, and seventeen titles wrapped in escaped underscores set as literal
+# underscores around Don Quixote, Faust and the Kalevala.
+#
+# Read against the stripped prose, which is what keeps a filename out of the count: tex_prose removes
+# \texttt{} with its braces, so the escaped underscores inside a path are gone before this sees the
+# line.
+MARKDOWN_RULE = re.compile(r"^\s*-{3,}\s*$")
+MARKDOWN_BOLD = re.compile(r"\*\*(?=\S)[^*]*\S\*\*")
+MARKDOWN_ITALIC = re.compile(r"(?<![A-Za-z0-9])\\_(?=[A-Za-z])[^\\]*\\_(?![A-Za-z0-9])")
+
+# A drawing, not emphasis. The SHA-256 shadow chapters plot one row per bit and the asterisks in
+# those rows are ink. Three or more of the characters a plot is ruled with says so.
+ASCII_ART = re.compile(r"[#=|+~^]{3,}")
+
+
+def markdown_leftovers(lines):
+    """Markdown left in a .tex source, which typesets as punctuation a reader sees on the page."""
+    found = []
+    for at, line in enumerate(lines):
+        if ASCII_ART.search(line):
+            continue
+        if MARKDOWN_RULE.match(line):
+            found.append((at + 1, "markdown rule left in .tex, which typesets as an em dash"))
+        if MARKDOWN_BOLD.search(line):
+            found.append((at + 1, "markdown bold left in .tex, which typesets as literal asterisks"))
+        if MARKDOWN_ITALIC.search(line):
+            found.append((at + 1,
+                          "markdown italics left in .tex, which typesets as literal underscores"))
+    return found
+
+
 def dead_links(path, lines):
     """A relative link to a file that is not there. Absolute and external links are left alone."""
     here = os.path.dirname(path)
@@ -1329,6 +1369,10 @@ def main():
         structural = em_dashes(said)
         if path.endswith(".md"):
             structural += empty_tables(lines) + dead_links(path, lines)
+        # Markdown left in a .tex builds clean and reaches the reader as punctuation, which is the
+        # same failure an em dash is and belongs in the same column.
+        if path.endswith(".tex"):
+            structural += markdown_leftovers(said)
         # These read wrong and render fine. marker_edges reads the raw lines, since quieted() has
         # already blanked the content the tell is measured on by the time prose_only returns.
         wording = banned_tokens(said, quotations=path.endswith(".md")) + marker_edges(lines)

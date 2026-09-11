@@ -11,7 +11,7 @@
  * @date 2026-09-09
  *
  * @note Two columns and they are graded to different standards. A disagreement is a defect. A time
- *       is a cost. An arm that is faster and disagrees has not won anything.
+ *       is a cost. An arm that is faster and disagrees is still a defect.
  * @note The portable arm is the reference and is never skipped. Every other arm is asked the same
  *       questions on the same data in the same order, and the answers are compared item by item
  *       one at a time and never in aggregate, because two different sets of mistakes can sum to
@@ -32,8 +32,8 @@
  * @brief The most positions the planted run can hold.
  *
  * @note The run actually used is chosen at run time and defaults to a quarter of this. Size is the
- *       axis that decides whether an arm is worth its overhead: a vectorized arm pays nothing to
- *       start and wins immediately, and the CUDA arm copies the whole run across a bus before it
+ *       axis that decides whether an arm is worth its overhead: a vectorized arm has no startup
+ *       cost and is faster immediately, and the CUDA arm copies the whole run across a bus before it
  *       computes anything, so it loses at every size below where that copy is amortized. Reporting
  *       one size would hide which of those two shapes an arm has.
  */

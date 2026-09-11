@@ -29,7 +29,7 @@ The results that failed were measured against a background that was assumed. The
 
 The three shuffles are graded, and each grade answers a different question. A full permutation destroys every arrangement at once and cannot say which span the structure lives at. A block shuffle keeps everything shorter than the block and destroys everything longer, and a sweep of the block width locates where a measure's signal sits. Scrambling inside blocks does the reverse: it keeps how the composition drifts across a text and destroys only the order. That separates a dependency reaching across a text from the text changing subject.
 
-The ciphers are graded the same way, and the measured answer is that a cipher cannot remove what this reads unless it spends key equal to the message. A substitution reproduces the reading to four decimals. A repeating key of length 8 splits the gaps eight ways, and averaging the eight cosets returns the plaintext value exactly. Only a full length pad erases anything.
+The ciphers are graded the same way, and the measured answer is that a cipher cannot remove what this reads unless its key is as long as the message. A substitution reproduces the reading to four decimals. A repeating key of length 8 splits the gaps eight ways, and averaging the eight cosets returns the plaintext value exactly. Only a full length pad erases anything.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-08

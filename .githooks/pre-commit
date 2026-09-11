@@ -9,9 +9,15 @@
 #
 #     git config core.hooksPath .githooks
 #
-# Breaking findings stop the commit: an empty table, an em dash, a link to a file that is not there.
-# Those render as a broken page and a reader sees them. Prose findings are printed and let through,
-# because the prose backlog predates the check and a hook nobody can satisfy gets turned off.
+# Breaking findings stop the commit: an empty table, an em dash, a link to a file that is not there,
+# and markdown left in a .tex. Those render as a broken page and a reader sees them. Prose findings
+# are printed and let through, because the prose backlog predates the check and a hook nobody can
+# satisfy gets turned off.
+#
+# The markdown case was added after three of them were found by reading rendered pages instead. A
+# --- typesets as an em dash, so the check that had been looking for the character missed the one
+# spelling a converter produces; asterisks and escaped underscores reach the page as themselves.
+# None of the three is a LaTeX error, so the book builds clean and carries them to the archive.
 #
 # To see everything and fail on all of it:  python maint/prose/docs_check.py --strict
 # To commit past it once:                   git commit --no-verify

@@ -82,7 +82,7 @@ def main():
                      "linguist wrote the paper and a person read the paper into a table, and "
                      "neither of those is whose language it is. Where a paper cites a published "
                      "dictionary and never says who spoke, the entry says so, and the linguist "
-                     "does not go in the slot.\n\n")
+                     "does not go in the who column.\n\n")
         handle.write("Conditions the speakers set are recorded with them below and hold "
                      "wherever this corpus is used.\n\n")
         handle.write("Written by `maint/data/salishan/hand_extraction/pure_corpus_index.py` "

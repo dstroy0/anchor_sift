@@ -75,11 +75,11 @@ def best_count(marks, rng, candidates=CANDIDATES, draws=DRAWS):
 
     The straight part is subtracted first, since the magnitudes sit on a trend that would otherwise
     dominate the grouping. Each candidate is then scored against shuffles of the same readings,
-    which holds the group count fixed so that splitting few readings into many groups cannot win on
-    arithmetic alone.
+    which holds the group count fixed so that splitting few readings into many groups cannot raise
+    the score on arithmetic alone.
 
     Returns the count, its score in standard deviations above its own shuffles, and every candidate
-    scored, letting a win that barely beat its runner up show as one.
+    scored, letting a top candidate that barely beat its runner up show as one.
     """
     if len(marks) < 8:
         return None, None, []

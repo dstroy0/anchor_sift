@@ -15,11 +15,11 @@
  * @note The bench this replaces compared the sift with Boyer-Moore-Horspool on a byte line.
  *       Horspool needs an ordered index set and a shift table the size of the alphabet, and the
  *       sift needs neither, so that comparison ran on Horspool's own ground in the one domain where
- *       discarding order buys nothing. It measured a case the construction is positioned to lose and
+ *       discarding order gains nothing. It measured a case the construction is positioned to lose and
  *       left the case it exists for unmeasured. The only reference arm here is the exact compare,
  *       and it serves as the soundness oracle. It was not entered as a competitor.
  * @note Two questions are kept apart because their answers behave differently. A needle drawn from
- *       the corpus is present, so every search confirms a genuine occurrence and pays a verification
+ *       the corpus is present, so every search confirms a genuine occurrence and runs a verification
  *       whatever the filter did, and that floor is why arms converge as the needle grows. A needle
  *       drawn from an independent stream is almost never present. That case is the stated problem,
  *       a pattern of arbitrary width that the domain does not hold. With no occurrence there is no
@@ -63,7 +63,7 @@ static const size_t CORPUS_LENGTHS[] = {
  *       needle to needle spread on a skewed corpus is heavy tailed, and a row resting on four
  *       needles at the top of the sweep and sixty four at the bottom moves for that reason alone.
  *       It read as a factor of 2.5 fall in the candidate rate that was entirely the sample size.
- *       The count is fixed here and the runtime is paid instead.
+ *       The count is fixed here and the longer runtime is accepted instead.
  */
 #define NEEDLES_PER_ROW 32u
 

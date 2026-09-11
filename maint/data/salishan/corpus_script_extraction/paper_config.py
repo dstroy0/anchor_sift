@@ -547,7 +547,7 @@ PAPERS = (
                "Givens and Hall transcribed and glossed it. She is quoted on the page choosing "
                "the story and saying creation stories are not just stories to us, and the paper's "
                "first footnote thanks her for entrusting it to them. The recording is held as "
-               "speech/icsnl_proceedings/ICSNL58_GivensHall_MoonAndBirchbarkCanoe.mp3, which is "
+               "speech/icsnl_proceedings/ICSNL58_GivensHall_MoonAndBirchbarkCanoe.mp3, "
                "the only one of the three whose name carries the transcribers and not the "
                "speaker, and a reader working from that filename alone read it as a second "
                "speaker. Footnote 4 defines (VG), a volunteered gloss, as a translated sentence "
@@ -563,31 +563,24 @@ PAPERS = (
           "",
           "Snohomish",
           marks=HESS_SNOHOMISH,
-          note="Thom Hess, The Morph /-(ə)b/ in Snohomish, ICSNL 2. The first paper here read by "
-               "hand with no reader written for it, so the record slot is empty and the oracle is "
-               "checked against the paper's own text. Nobody is named as having said any of it: "
-               "the forms are Hess's Snohomish data and the paper gives no speaker, so the slot "
-               "stays empty. His name does not go in it. Its marked characters are settled on "
+          note="Thom Hess, The Morph /-(ə)b/ in Snohomish, ICSNL 2. Oracle.tsv checked against the "
+               "paper. No speaker named. The forms are Hess's Snohomish data. Marked characters, "
                "page 3, by eye and inside one table: xáyəb 'laugh' and xʷúyub 'sell' print a bare "
-               "x where ƛ̓áɬəb 'salty' prints a barred x body with a glottal tick, t̓ádəb 'bitter' "
-               "prints the same t as the English word taste on the first line of that page with a "
-               "tick added, and d̓áƛ̓əb 'cloud' carries a hook at the top of its d and a bar across "
-               "the foot, one composite, where the d of t̓ádəb one column away is bare. Below 16x "
-               "either half of that composite can drop out, and it then reads as two "
-               "different marks. Two later readings agree about the barred lambda and "
-               "neither is the authority for what this page prints: 1975_Hilbert_Hess sets the "
-               "same character in dəxʷgʷəƛ̓əlads, and Nater's Coast Salish *ƛ̓aɬ 'bitter, salt' "
-               "matches ƛ̓áɬəb segment for segment. The d̓ is the one mark the table first had no "
-               "symbol note for and the one place a mark was dropped, which is why it is named "
-               "here. Footnote 7 has no call and no text: the run goes 6 at the foot of page 4 "
-               "then 8 at the foot of page 5."),
+               "x where ƛ̓áɬəb 'salty' prints a barred x body with a glottalization mark, t̓ádəb "
+               "'bitter' prints the same t as the English word taste on the first line of that "
+               "page with a glottalization mark added, and d̓áƛ̓əb 'cloud' carries a hook at the "
+               "top of its d and a bar across the foot, one composite, where the d of t̓ádəb one "
+               "column away is bare. Below 16x either half of that composite drops out. Glyphs in "
+               "the printed text unclear. 1975_Hilbert_Hess sets the same character in "
+               "dəxʷgʷəƛ̓əlads, and Nater's Coast Salish *ƛ̓aɬ 'bitter, salt' matches ƛ̓áɬəb "
+               "segment for segment."),
     Paper("1967_Elmendorf",
           "1967_Elmendorf.oracle.tsv",
           "",
           "Twana",
           marks=ELMENDORF_COMPARATIVE,
           note="William W. Elmendorf, Word Tabu and Change Rates, ICSNL 2. Thirteen languages are "
-               "cited in it and Twana is the one it is about, so that is the language named here; "
+               "cited in it and Twana is its subject, so that is the language named here; "
                "every row carries its own language in the who column. No speaker is named "
                "anywhere: the forms come from Boas and Haeberlin 1927, Krueger 1967, McIlwraith "
                "1948, Walters 1938 and Ray 1932, from Warren Snyder's Suquamish list and Wayne "

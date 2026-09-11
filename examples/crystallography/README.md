@@ -6,7 +6,7 @@
 | stage | script | what it answers |
 |---|---|---|
 | `1_represent` | `a_cell_as_exact_points.py` | what the reader keeps and what it threw away |
-| `2_partition` | `what_a_grid_costs.py` | what the voxel cost and what the scale bought |
+| `2_partition` | `what_a_grid_costs.py` | what the voxel cost and what the scale recovered |
 | `3_reference` | `what_a_grid_invents.py` | how much of a reading a shuffle also reaches |
 | `4_measure` | `period_from_the_difference_set.py` | what the instrument returns, with no answer key |
 | `5_sift` | `lattice_breaks_the_product_rule.py` | how far the histogram bound is out on a lattice |
@@ -57,7 +57,7 @@ python examples/crystallography/4_measure/period_from_the_difference_set.py 25
 
 The oracle fills `build/cod` from the archive and everything else reads that cache. The archive is a public service run by people; a second run costs it nothing and the pause between requests is not negotiable.
 
-Stage three is the slow one. Its grid arm compares a full 320 cubed volume at every lag, three times per entry. The exact arm does not pay that cost.
+Stage three is the slow one. Its grid arm compares a full 320 cubed volume at every lag, three times per entry. The exact arm does not have that cost.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-09

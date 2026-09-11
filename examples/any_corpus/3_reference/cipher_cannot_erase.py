@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: ANY-3-001
 #
-# A cipher cannot remove what this measure reads unless it spends key equal to the message.
+# A cipher cannot remove what this measure reads unless its key is as long as the message.
 #
 #   Usage:  python examples/any_corpus/3_reference/cipher_cannot_erase.py corpus.sym
 #
@@ -12,7 +12,7 @@
 # k sends one plaintext symbol to k ciphertext symbols by position, so the gaps are split k ways and
 # the whole ciphertext can look memoryless. Taking every k-th symbol undoes the splitting without
 # knowing the key, since each coset was enciphered by a single substitution, and averaging all k
-# cosets spends no length at all because every symbol lands in exactly one of them.
+# cosets loses no length at all because every symbol lands in exactly one of them.
 #
 # A pseudorandom addend as long as the message is the only operation here that erases anything.
 #

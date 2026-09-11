@@ -89,7 +89,7 @@ size_t anchor_sift_naive(const uint8_t *corpus, size_t corpus_len, const uint8_t
  * @param[in] needle     Bytes to find [BORROWS].
  * @param[in] needle_len How many.
  * @return               How many alignments match exactly.
- * @note Short circuiting makes each probe wait on the one before it. Measured, this wins on a
+ * @note Short circuiting makes each probe wait on the one before it. Measured, this is faster on a
  *       memoryless corpus, where the first probe rejects almost every alignment on its own.
  */
 size_t anchor_sift_inorder(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,

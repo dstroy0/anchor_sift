@@ -44,7 +44,7 @@ typedef enum
  * @note The seed is a parameter because the needles that are not taken from the corpus have to come
  *       from the same distribution as the corpus. Drawing them uniformly instead puts bytes in them
  *       that a skewed corpus never holds. The filter then rejects on the alphabet instead of at the
- *       rate the histogram predicts, reporting a filtration efficiency nothing earned.
+ *       rate the histogram predicts, reporting a filtration efficiency the filter did not produce.
  */
 void bench_build_bytes(uint8_t *bytes, size_t length, CorpusKind kind, uint64_t seed);
 

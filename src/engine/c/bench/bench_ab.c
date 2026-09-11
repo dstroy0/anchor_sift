@@ -13,15 +13,16 @@
  *
  * @note What this settles. The sift bench measures how many candidates an anchor admits, which says
  *       nothing about how a whole search compares to one built a different way. Reducing candidates
- *       and reducing work are not the same objective, and a filter can win the first and lose the
- *       second.
+ *       and reducing work are not the same objective, and a filter can improve the first and lose
+ *       the second.
  * @note The tradeoff being measured, stated before the numbers so it cannot be discovered afterward.
  *       A failed anchor at pattern offset a lets the pattern advance until some earlier pattern
- *       position carries the byte that was read, and past the cell entirely when none does. The
+ *       position has the byte that was read, and past the cell entirely when none does. The
  *       largest advance available is therefore a+1. Horspool anchors at m-1, the largest offset a
  *       pattern has. That is the longest possible advance and the worst possible candidate rate.
  *       Anchoring at the rarest byte takes the best candidate rate and gives up advance in exchange.
- *       Which one wins is arithmetic over a corpus and is not obvious from either property alone.
+ *       Which one comes out ahead is arithmetic over a corpus and is not obvious from either
+ *       property alone.
  * @note The counter is corpus symbol accesses. Every algorithm reads cells out of the same corpus,
  *       the one resource they share. Counting reads compares the algorithms instead of comparing
  *       their inner loops. No timing appears here and no row is a performance claim.
@@ -85,7 +86,7 @@
  * @brief What one algorithm did on one needle.
  *
  * @note Both fields matter and for different reasons. @c reads is the measurement. @c found is the
- *       check, because an algorithm that reads fewer cells and misses occurrences has not won
+ *       check, because an algorithm that reads fewer cells and misses occurrences has not improved
  *       anything.
  */
 typedef struct
@@ -105,7 +106,7 @@ static uint8_t s_ab_uniform[AB_CORPUS_BYTES];
  * @note The case every other corpus here fails to be. English, then C source, then fixed width
  *       records, then uniform bytes. A search crosses three boundaries, and anything it learned
  *       about one region is wrong in the next. A field accumulated over the whole thing describes no
- *       part of it. Discarding the field pays only under that condition.
+ *       part of it. Discarding the field helps only under that condition.
  */
 static uint8_t s_ab_mixed[AB_CORPUS_BYTES];
 
@@ -388,7 +389,7 @@ static AbResult ab_kmp(const uint8_t *corpus, size_t corpus_len, const uint8_t *
  *       At anchor = needle_len - 1 this is Horspool. At the offset the cost table likes best it is
  *       the arrangement this study argues for. Writing them as one function means a difference in the
  *       rows cannot come from a difference in the code.
- * @note The advance is the smallest step that brings a pattern position carrying the byte just read
+ * @note The advance is the smallest step that brings a pattern position with the byte just read
  *       onto the cell it was read from, and anchor + 1 when the pattern has no such position before
  *       the anchor. That is the largest advance the read justifies. The ceiling on it is anchor + 1,
  *       and an anchor in the middle of the pattern gives up advance it cannot recover.
@@ -403,7 +404,7 @@ static AbResult ab_anchored(const uint8_t *corpus, size_t corpus_len, const uint
     {
         advance[byte] = anchor + 1u;
     }
-    // Nearest pattern position at or before the anchor carrying each byte. Walking upward leaves the
+    // Nearest pattern position at or before the anchor with each byte. Walking upward leaves the
     // closest one in place, the smallest advance and therefore the only safe one
     for (size_t index = 0u; index < anchor; index++)
     {
@@ -459,7 +460,7 @@ static AbResult ab_anchored(const uint8_t *corpus, size_t corpus_len, const uint
  * @note The arrangement the other arms leave untested. Shift distance and candidate rate are two
  *       different objectives and the anchored arms each pick one: the last position gives the longest
  *       advance a read can justify, and the rarest byte admits the fewest candidates. Neither
- *       excludes the other. This shifts from the last position and spends one extra read at the
+ *       excludes the other. This shifts from the last position and takes one extra read at the
  *       rarest byte before committing to a full compare.
  */
 static AbResult ab_horspool_rare(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle, size_t needle_len,
@@ -534,10 +535,10 @@ static AbResult ab_horspool_rare(const uint8_t *corpus, size_t corpus_len, const
  * @param[in] frequency  Corpus frequency per byte value, summing to one [BORROWS].
  * @return               The offset maximizing the expected advance per read.
  * @note What the two fixed rules each get half of. A read at offset a advances the search by the
- *       distance to the nearest earlier pattern position carrying the byte that was read, capped at
+ *       distance to the nearest earlier pattern position with the byte that was read, capped at
  *       a + 1, and it advances by one when the byte matches and a compare has to run. The value of an
  *       anchor is that advance averaged over what the corpus actually emits, which is a product of how
- *       often the read rejects and how far a rejection carries. The last position maximizes the cap
+ *       often the read rejects and how far a rejection reaches. The last position maximizes the cap
  *       and ignores the frequencies. The rarest byte maximizes the rejection rate and ignores the cap.
  * @note The frequencies come from the corpus and not from a table compiled into the binary. On a
  *       corpus with no rare byte every offset rejects equally often, the product is decided by the cap
@@ -591,10 +592,10 @@ static size_t ab_best_anchor(const uint8_t *needle, size_t length, const double 
  * @param[in] needle_len Bytes in it.
  * @return               Reads performed and occurrences found.
  * @note Every other arm here decides where to read before it has read anything, from a table compiled
- *       into the binary or from a histogram obtained some other way. This one holds no prior and asks.
- *       It reads, evaluates what the answer rules out, records what came back, and lets the answers so
- *       far decide where to read next. The frequencies are never supplied because the corpus emits
- *       them, and the reads that carry them had to happen anyway.
+ *       into the binary or from a histogram obtained some other way. This one starts with no prior
+ *       and asks. It reads, evaluates what the answer rules out, records what came back, and lets the
+ *       answers so far decide where to read next. The frequencies are never supplied because the
+ *       corpus emits them, and the reads that produce them had to happen anyway.
  * @note The starting state is a flat count over every byte value, the state of knowing
  *       nothing. Under a flat estimate every value rejects equally often, the expected advance is
  *       decided by the cap alone, and the best offset is the last one. So this begins as Horspool
@@ -712,7 +713,7 @@ static AbResult ab_interrogative(const uint8_t *corpus, size_t corpus_len, const
 }
 
 /**
- * @brief Finds every occurrence while holding no model of the alphabet at all.
+ * @brief Finds every occurrence while keeping no model of the alphabet at all.
  *
  * @param[in] corpus     Bytes to search [BORROWS].
  * @param[in] corpus_len How many.
@@ -721,10 +722,10 @@ static AbResult ab_interrogative(const uint8_t *corpus, size_t corpus_len, const
  * @param[in] carried    Running advance per offset kept between searches, or NULL to start cold
  *                       [BORROWS].
  * @return               Reads performed and occurrences found.
- * @note Why this holds no counts. Every other adaptive arm here estimates a frequency per symbol,
+ * @note Why this keeps no counts. Every other adaptive arm here estimates a frequency per symbol,
  *       which needs the alphabet to be finite and enumerable. A domain whose symbols cannot be
  *       enumerated has no such table and never will, however long it is observed. What can still be
- *       observed is the distance an answer carried, because a distance is a count of positions and
+ *       observed is the distance an answer reached, because a distance is a count of positions and
  *       stays finite whatever the alphabet does. So this measures the distance directly and never
  *       forms the distribution it would otherwise have been derived from.
  * @note The state is one running distance per candidate offset, which is needle_len numbers. The
@@ -735,7 +736,7 @@ static AbResult ab_interrogative(const uint8_t *corpus, size_t corpus_len, const
  *       Every offset starts at its own ceiling and can only be revised downward. The largest
  *       ceiling is the last offset, so the search opens as Horspool and gives up ground only where an
  *       answer has shown the ceiling to be out of reach.
- * @note The running value forgets. An offset that stops paying loses its lead and the search
+ * @note The running value forgets. An offset that stops delivering loses its lead and the search
  *       reconsiders. A corpus that changes character partway through is the case that needs it.
  */
 static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle, size_t needle_len,
@@ -747,14 +748,14 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
     size_t advance[256];
     AbResult result = {0u, 0u};
 
-    // Two means of the same quantity at two speeds. The quick one is what the corpus is paying now and
+    // Two means of the same quantity at two speeds. The quick one is what the corpus is delivering now and
     // the slow one is what the accumulated field expects. The quick one falling away from the slow one
     // is the field describing a region the search has already left
     double recent = 0.0;
     double settled = 0.0;
     size_t since_reset = 0u;
 
-    // The ambient advance this corpus is paying, taken across every answer and not per offset. That
+    // The ambient advance this corpus is delivering, taken across every answer and not per offset. That
     // advance is the level an answer has to stand out from to count as saying anything
     double background = (double)needle_len / 2.0;
 
@@ -773,7 +774,7 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
     {
         for (size_t offset = 0u; offset < needle_len; offset++)
         {
-            // The provable ceiling for this offset, the most an answer there could ever buy
+            // The provable ceiling for this offset, the most an answer there could ever reach
             value[offset] = (double)(offset + 1u);
         }
     }
@@ -828,11 +829,11 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
         }
         start += travelled;
 
-        // One answer, credited to every offset. What a read at some other offset would have earned
-        // from this same cell is decided by where the needle carries the symbol just seen, a property
+        // One answer, credited to every offset. What a read at some other offset would have reached
+        // from this same cell is decided by where the needle has the symbol just seen, a property
         // of the needle that can be worked out for all of them without a table over symbols. A single
-        // backward walk gives the nearest earlier position holding it, the advance that offset would
-        // have taken, and offsets the needle never carries it before earn their full ceiling. A tenth
+        // backward walk gives the nearest earlier position with it, the advance that offset would
+        // have taken, and offsets where the needle never has it before reach their full ceiling. A tenth
         // is slow enough to ignore one unlucky answer and quick enough to notice a corpus that has
         // changed
         size_t previous = needle_len;
@@ -852,11 +853,11 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
             if (gain_trend < 0.0)
             {
                 // Filtered against the ambient level instead of against the running estimate. Most
-                // answers land where the background already sits and carry nothing. They are dropped
+                // answers land where the background already sits and say nothing. They are dropped
                 // whole and never reach the estimate. An answer far enough off the ambient level is
                 // signal, and it is applied at full weight. What is not reinforced settles back to
-                // the ceiling it can be proved to have. A deviation has to keep being paid for to be
-                // kept
+                // the ceiling it can be proved to have. A deviation has to keep being re-confirmed to
+                // be kept
                 const double excess = would_travel - background;
                 const double deadband = 0.25 * background;
 
@@ -930,9 +931,9 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
 
         if (pull_to_center != 0u)
         {
-            // Where the mass pulls. Every offset votes with the distance it has been earning, and the
+            // Where the mass pulls. Every offset votes with the distance it has been reaching, and the
             // anchor goes to the balance point of those votes. That balance point is the same
-            // construction as the centroid of the pattern's own points, one level up: a mean of
+            // shape as the centroid of the pattern's own points, one level up: a mean of
             // positions weighted by something, needing no metric and no ordering to be well
             // defined. Taking the single best offset instead lets one lucky answer move the anchor,
             // and the balance point does not move until enough answers agree
@@ -996,9 +997,9 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
  *       position from the symbol it just read, which makes the reads a chain. The positions here are
  *       fixed before the first one happens, so no read waits on another and the chain has length one.
  * @note What that costs. A greedy shift always jumps to the next position not yet ruled out, the
- *       most any single read can buy. A fixed stride reads some cells that a greedy walk would
- *       have skipped. The count below is what that waste amounts to, and the depth beside it is what
- *       it bought.
+ *       most any single read can remove. A fixed stride reads some cells that a greedy walk would
+ *       have skipped. The count below is what that waste amounts to, and the depth next to it is what
+ *       the waste returned.
  * @note The verify phase depends on the probe phase, so the reported depth is two: every probe read is
  *       independent of every other, and every verify read waits only on the probes.
  */
@@ -2457,7 +2458,7 @@ static void ab_report(const char *name, const uint8_t *corpus, size_t corpus_len
     }
 
     // The stride that leaves about as many survivors as there are occurrences. Probing that hard costs
-    // more probes and removes the confirmation entirely, the step priced at the needle's whole
+    // more probes and removes the confirmation entirely, the step costed at the needle's whole
     // length
     const double alignments = (double)((corpus_len - needle_len) + 1u);
     const double covers_unique = (renyi > 0.0) ? (log2(alignments) / renyi) : 1.0;
@@ -2479,8 +2480,8 @@ static void ab_report(const char *name, const uint8_t *corpus, size_t corpus_len
     const size_t step = (corpus_len - needle_len) / AB_SAMPLES;
 
     // Five arms: the reference, KMP, and three anchored searches differing only in where the anchor
-    // sits. The mean is what a fair corpus rewards and the worst case is where a fixed rule pays for
-    // being predictable
+    // sits. The mean is what an even corpus gives and the worst case is where a fixed rule suffers
+    // for being predictable
     double totals[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     uint64_t worst[12] = {0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u};
     size_t free_depth = 0u;
