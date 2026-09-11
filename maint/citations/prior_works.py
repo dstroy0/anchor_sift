@@ -57,7 +57,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
 
 # The books and the pages. src/ and maint/ are excluded: a comment claiming a method is new is
 # worth catching too, but the first pass is aimed at what gets posted.
-DEFAULT_ROOTS = ("theory", "docs", "README.md")
+DEFAULT_ROOTS = ("theory", "theory_bucket", "docs", "README.md")
 CHECKED = (".tex", ".md")
 SKIP_DIRS = (".git", "build", "site", "deps", "__pycache__", "fixtures")
 

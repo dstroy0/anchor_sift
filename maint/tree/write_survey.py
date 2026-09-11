@@ -92,7 +92,8 @@ def literal(node):
 
 # The directories a repository path can start with. A write whose target begins with one of these,
 # behind whatever local name held the repository root, is resolved to it.
-TOP = ("build", "docs", "test", "deps", "tools", "src", "examples", "theory", "site")
+TOP = ("build", "docs", "test", "deps", "tools", "src", "examples", "theory", "theory_bucket",
+       "site")
 
 ROOTED = re.compile(r"^\$[A-Za-z_][A-Za-z0-9_]*/(?=(?:%s)/)" % "|".join(TOP))
 

@@ -50,6 +50,8 @@ __pycache__/
 *.fdb_latexmk
 theory/*/main.pdf
 theory/*/*/main.pdf
+theory_bucket/*/main.pdf
+theory_bucket/*/*/main.pdf
 
 # Editor and OS leavings.
 .vscode/

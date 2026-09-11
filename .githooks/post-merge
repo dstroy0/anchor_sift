@@ -1,0 +1,106 @@
+#!/bin/sh
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#
+# Brings the theory books down after a pull, so the release always carries the current ones.
+#
+# It lives in the repository instead of .git/hooks so it is version controlled and everyone gets the
+# same one. Turn it on once per clone:
+#
+#     git config core.hooksPath .githooks
+#
+# THE DIRECTION
+#
+# theory_bucket is upstream and this repository is downstream. The seven books are authored there
+# and arrive here as a git subtree under theory_bucket/, which is why they sit in the tree instead of
+# behind a submodule pointer: a clone gets them without a second fetch and they ship with the
+# release. The workbook is not one of them. It is the book about this engine, it lives in theory/,
+# and it is authored here.
+#
+# An edit typed into theory_bucket/ here is lost the next time this runs. Take it upstream, open a
+# pull request against that repository, and it comes back down through this hook.
+#
+# WHY THIS REFUSES INSTEAD OF PULLING, MOST OF THE TIME
+#
+# A hook that writes commits behind someone's back is worse than no hook. git subtree pull makes a
+# merge commit, and making one during another merge, on a detached head, or over a dirty tree
+# produces a mess that is hard to read afterwards and easy to push by accident. So every condition
+# below is checked first and the hook says what it found and does nothing when any of them fails.
+#
+# The one case it acts on is the safe one: on the main branch, with nothing uncommitted, with the
+# upstream reachable and actually ahead. Everything else prints the command and leaves it to a
+# person.
+#
+# ANCHOR_SIFT_NO_SUBTREE=1 turns it off for a clone that does not want the network on every pull.
+
+set -u
+
+REPO=$(cd "$(dirname "$0")/.." && pwd)
+PREFIX=theory_bucket
+UPSTREAM=https://github.com/dstroy0/theory_bucket.git
+
+if [ "${ANCHOR_SIFT_NO_SUBTREE:-0}" = "1" ]; then
+    exit 0
+fi
+
+# A clone that has not taken the subtree yet is not an error. Nothing to refresh and nothing to say.
+if [ ! -d "$REPO/$PREFIX" ]; then
+    exit 0
+fi
+
+cd "$REPO" || exit 0
+
+say_manual() {
+    echo "  theory not refreshed: $1"
+    echo "  when you are ready:  git subtree pull --prefix=$PREFIX $UPSTREAM main --squash"
+}
+
+branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null)
+if [ -z "$branch" ]; then
+    say_manual "detached head"
+    exit 0
+fi
+if [ "$branch" != "main" ]; then
+    say_manual "on branch $branch, not main"
+    exit 0
+fi
+
+# A subtree pull over uncommitted work stops partway and leaves the tree in conflict. The check is
+# cheap and the alternative is somebody losing an afternoon.
+if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
+    say_manual "the working tree has uncommitted changes"
+    exit 0
+fi
+
+# Mid-merge, mid-rebase, mid-cherry-pick. git reports these as directories and files under .git.
+gitdir=$(git rev-parse --git-dir 2>/dev/null)
+if [ -f "$gitdir/MERGE_HEAD" ] || [ -d "$gitdir/rebase-merge" ] || [ -d "$gitdir/rebase-apply" ]; then
+    say_manual "another merge or rebase is in progress"
+    exit 0
+fi
+
+# Offline is normal and is not a failure. The books already in the tree are what gets used.
+if ! git fetch --quiet "$UPSTREAM" main 2>/dev/null; then
+    echo "  theory not refreshed: upstream unreachable, using the books already in the tree"
+    exit 0
+fi
+
+# Nothing to do is the common case, and it should be silent. The subtree's content is compared
+# against what was just fetched, so a pull only runs when the books actually moved.
+fetched=$(git rev-parse FETCH_HEAD 2>/dev/null)
+if [ -z "$fetched" ]; then
+    exit 0
+fi
+if git diff --quiet FETCH_HEAD:. "HEAD:$PREFIX" 2>/dev/null; then
+    exit 0
+fi
+
+echo "  theory moved upstream, bringing it down"
+if git subtree pull --prefix="$PREFIX" "$UPSTREAM" main --squash; then
+    echo "  theory refreshed from $UPSTREAM"
+else
+    echo ""
+    echo "  the subtree pull did not finish. The tree is mid-merge and needs a person."
+    echo "  resolve it, or:  git merge --abort"
+    exit 1
+fi

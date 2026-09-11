@@ -937,8 +937,13 @@ while (REPOSITORY != os.path.dirname(REPOSITORY)) \
 #
 # A root that no longer exists is not an error this could see. The guard below is what turns that
 # into one, and the count at the foot is still the thing to watch after a move.
+#
+# theory_bucket is the third instance. Seven books moved out of theory/ into a subtree at
+# theory_bucket/, theory/ still existed because the workbook stayed in it, so the guard below stayed
+# quiet and eighty files of prose went unread. The guard catches a root that vanished and never a
+# root that emptied, and the count at the foot is the only thing that shows the difference.
 DEFAULT_ROOTS = tuple(os.path.join(REPOSITORY, one)
-                      for one in ("docs", "src", "examples", "maint", "theory"))
+                      for one in ("docs", "src", "examples", "maint", "theory", "theory_bucket"))
 
 for one in DEFAULT_ROOTS:
     if not os.path.isdir(one):

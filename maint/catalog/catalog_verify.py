@@ -34,6 +34,7 @@
 # the description would expect, and it will be run by somebody who read only the description.
 
 import io
+import itertools
 import os
 import re
 import sys
@@ -97,8 +98,11 @@ def header_of(text):
 def theory_sections():
     """Every section number the theory books actually carry."""
     held = set()
-    theory = os.path.join(ROOT, "theory")
-    for base, dirs, names in os.walk(theory):
+    # Both trees. The workbook stays in theory/ because it is the book about this engine, and the
+    # other seven are pulled in under theory_bucket/ as a subtree. Walking only the first reports
+    # every section those seven carry as missing.
+    roots = (os.path.join(ROOT, "theory"), os.path.join(ROOT, "theory_bucket"))
+    for base, dirs, names in itertools.chain.from_iterable(os.walk(one) for one in roots):
         dirs[:] = [one for one in dirs if one != "__pycache__"]
         for name in names:
             if not name.endswith(".tex"):

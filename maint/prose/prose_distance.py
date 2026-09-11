@@ -106,7 +106,7 @@ def prose_of(path):
 # The roots read where the caller names none. `tools` sat in this tuple long after that directory
 # was split into data, analysis and maint, so the walk skipped a directory that no longer existed
 # and read fewer files than it reported, silently.
-DEFAULT_ROOTS = ("docs", "src", "examples", "maint", "theory")
+DEFAULT_ROOTS = ("docs", "src", "examples", "maint", "theory", "theory_bucket")
 
 
 def repository_files(where=None, roots=None):

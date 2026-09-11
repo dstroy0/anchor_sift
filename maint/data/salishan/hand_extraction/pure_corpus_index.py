@@ -41,7 +41,11 @@ from paper_config import PAPERS  # noqa: E402
 
 # The chapter is the output. theory/ is the source and docs/research points at it. A markdown page
 # written beside the tables would be a second copy where the pointer belongs.
-INDEX = os.path.join(ROOT, "theory", "Salishan", "chapters",
+# The Salishan book is authored upstream in theory_bucket and reaches this tree as a subtree, so the
+# chapter is written there. What this produces is carried upstream like any other change to those
+# books: a pull overwrites theory_bucket/ here, and a generated chapter left only in this tree goes
+# the same way a hand edit does.
+INDEX = os.path.join(ROOT, "theory_bucket", "Salishan", "chapters",
                      "chapter_Salishan_pure_corpus_README.tex")
 
 

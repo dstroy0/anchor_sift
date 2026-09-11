@@ -81,8 +81,8 @@ PAPERS = os.path.join(ROOT, "build", "papers")
 sys.path.insert(0, os.path.join(ROOT, "data", "salishan", "corpus_script_extraction"))
 
 # Where this tree's own writing lives. build/ is the corpus itself and deps/ is somebody else's.
-SEARCHED = ("docs", "theory", "src", "examples", "tools", "README.md", "SECURITY.md",
-            "CONTRIBUTING.md")
+SEARCHED = ("docs", "theory", "theory_bucket", "src", "examples", "tools", "README.md",
+            "SECURITY.md", "CONTRIBUTING.md")
 SKIP = ("__pycache__", ".git", "build", "deps", "site")
 TEXT = (".md", ".tex", ".py", ".c", ".h", ".R", ".m", ".sh")
 

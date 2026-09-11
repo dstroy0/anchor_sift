@@ -30,16 +30,28 @@ else
     # Two depths, because a book may sit under a subject directory: theory/<book>/ as most do, and
     # theory/<subject>/<book>/ as the cryptography one does. What is kept is the path below theory/
     # and not the basename, since that is what the loop below joins back onto $ROOT.
-    BOOKS=$(for one in "$ROOT"/theory/*/main.tex "$ROOT"/theory/*/*/main.tex; do
+    # Two trees as well as two depths. The workbook stays in theory/ because it is the book about
+    # this engine; the other seven are pulled in under theory_bucket/ as a subtree. The tree name is
+    # stripped here so a book is named the same way whichever one holds it, and a name typed on the
+    # command line keeps working.
+    BOOKS=$(for one in "$ROOT"/theory/*/main.tex "$ROOT"/theory/*/*/main.tex \
+                       "$ROOT"/theory_bucket/*/main.tex "$ROOT"/theory_bucket/*/*/main.tex; do
         [ -f "$one" ] || continue
         one_dir=$(dirname "$one")
+        one_dir=${one_dir#"$ROOT"/theory_bucket/}
         echo "${one_dir#"$ROOT"/theory/}"
     done)
 fi
 STATUS=0
 
 for book in $BOOKS; do
-    src="$ROOT/theory/$book"
+    # Resolved against both trees, so a book moving between them does not change how it is named
+    # here or on the command line. Output stays under build/theory/ either way.
+    if [ -f "$ROOT/theory/$book/main.tex" ]; then
+        src="$ROOT/theory/$book"
+    else
+        src="$ROOT/theory_bucket/$book"
+    fi
     out="$ROOT/build/theory/$book"
     if [ ! -f "$src/main.tex" ]; then
         echo "  no such book: $book"

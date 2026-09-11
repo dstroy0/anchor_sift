@@ -94,8 +94,8 @@ BUCKET = re.compile(r"^[a-z_]+(/[a-z_]+){1,3}$")
 ENTERED = ("bucket", "author", "year", "title", "identifier", "file", "differs")
 
 # Where this tree's own writing lives. build/ is fetched material and deps/ is somebody else's.
-SEARCHED = ("theory", "docs", "src", "tools", "examples", "README.md", "SECURITY.md",
-            "CONTRIBUTING.md")
+SEARCHED = ("theory", "theory_bucket", "docs", "src", "tools", "examples", "README.md",
+            "SECURITY.md", "CONTRIBUTING.md")
 SKIP = ("__pycache__", ".git", "build", "deps", "site")
 TEXT = (".md", ".tex", ".py", ".c", ".h", ".R", ".m", ".sh", ".bib")
 

@@ -71,7 +71,10 @@ CORPORA = os.path.join(ROOT, "build", "corpora")
 # chapter was in theory/, which left the book referring to a picture in another directory and put
 # a research artifact inside what is otherwise repository documentation. PDF because matplotlib
 # writes it from the same savefig call and LuaLaTeX includes it without Inkscape.
-CHAPTERS = os.path.join(ROOT, "theory", "Salishan", "chapters")
+# The Salishan book is authored upstream in theory_bucket and reaches this tree as a subtree, so the
+# chapter and its figure are written there, and what this produces is carried upstream like any other
+# change to those books.
+CHAPTERS = os.path.join(ROOT, "theory_bucket", "Salishan", "chapters")
 TARGET = os.path.join(CHAPTERS, "chapter_Salishan_corpus_derivation.tex")
 FIGURE = os.path.join(CHAPTERS, "corpus-derivation.pdf")
 

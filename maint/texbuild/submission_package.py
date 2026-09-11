@@ -92,6 +92,11 @@ ROOT = os.path.abspath(__file__)
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "build")):
     ROOT = os.path.dirname(ROOT)
 THEORY = os.path.join(ROOT, "theory")
+# The seven books pulled in from upstream as a subtree. The workbook stays in theory/ because it is
+# the book about this engine. A book is named the same way whichever tree holds it, so nothing
+# outside this file has to know which one it came from.
+THEORY_BUCKET = os.path.join(ROOT, "theory_bucket")
+TREES = (THEORY, THEORY_BUCKET)
 OUT = os.path.join(ROOT, "build", "submission")
 
 # The files every book shares, which sit in theory/ and not in any book. These are copied into the
@@ -327,18 +332,28 @@ def flat_tar(out):
     return os.path.basename(archive), os.path.getsize(archive)
 
 
-def books():
-    """Every book under theory/, as its path below theory/.
+def book_tree(book):
+    """Which tree holds this book, or None where no tree does."""
+    for tree in TREES:
+        if os.path.isfile(os.path.join(tree, book, "main.tex")):
+            return tree
+    return None
 
-    Two depths, matching build_theory.sh. theory/<book>/ is where most of them sit, and
-    theory/<subject>/<book>/ is where the cryptography one does.
+
+def books():
+    """Every book in either tree, as its path below whichever tree holds it.
+
+    Two depths, matching build_theory.sh. <book>/ is where most of them sit, and <subject>/<book>/
+    is where the cryptography one does. The tree name is not part of the returned path: a book that
+    moves between theory/ and theory_bucket/ keeps the name a caller already types.
     """
     import glob
     found = []
-    for pattern in (("*", "main.tex"), ("*", "*", "main.tex")):
-        for one in sorted(glob.glob(os.path.join(THEORY, *pattern))):
-            found.append(os.path.relpath(os.path.dirname(one), THEORY).replace("\\", "/"))
-    return found
+    for tree in TREES:
+        for pattern in (("*", "main.tex"), ("*", "*", "main.tex")):
+            for one in sorted(glob.glob(os.path.join(tree, *pattern))):
+                found.append(os.path.relpath(os.path.dirname(one), tree).replace("\\", "/"))
+    return sorted(set(found))
 
 
 def rewrite(text):
@@ -364,7 +379,7 @@ def rewrite(text):
 
 def assemble(book, out):
     """One book copied into out, with the shared files inside it. Returns what was rewritten."""
-    source = os.path.join(THEORY, book)
+    source = os.path.join(book_tree(book) or THEORY, book)
     if os.path.isdir(out):
         shutil.rmtree(out)
     shutil.copytree(source, out, ignore=lambda where, names: [one for one in names
@@ -459,7 +474,7 @@ def main():
     status = 0
 
     for book in (named or books()):
-        if not os.path.isfile(os.path.join(THEORY, book, "main.tex")):
+        if book_tree(book) is None:
             out.write("  no such book: %s\n" % book)
             status = 1
             continue
