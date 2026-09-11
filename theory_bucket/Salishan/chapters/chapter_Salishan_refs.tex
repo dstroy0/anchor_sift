@@ -1,0 +1,523 @@
+\chapter{Sources}
+
+\section{Salish sources}
+
+\textbf{Purpose:} Find the source behind any line in the extracted corpora, and know what is held on disk against what is only cited. \textbf{Scope:} \texttt{build/\allowbreak{}papers/\allowbreak{}}, \texttt{build/\allowbreak{}corpora/\allowbreak{}}, \texttt{build/\allowbreak{}audio/\allowbreak{}}, and \texttt{data/\allowbreak{}salishan/\allowbreak{}}
+
+Everything here is generable using the data/ scripts or reachable at a stated address. Where a recording is known to exist but is not a member of the corpus, it is noted.
+
+\subsection{Speakers}
+
+\textbf{These languages belong to the people who speak them, and none of this work exists without them.} The corpus everything else here is measured against is their words, written down.
+
+The list of who is in it is [\texttt{pure\_\allowbreak{}corpus/\allowbreak{}README.\allowbreak{}md}](pure\_corpus/README.md), which opens every entry with the speaker and carries the conditions they set. That file is written from \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}paper\_\allowbreak{}config.\allowbreak{}py} by \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}pure\_\allowbreak{}corpus\_\allowbreak{}index.\allowbreak{}py}. A speaker's name is therefore typed in exactly one place, and this document keeps no second copy of it to drift.
+
+Fifteen of the twenty papers name their speakers. The other five cite a published dictionary and never say who spoke, and their entries say so. A linguist wrote the paper and a person read the paper into a table, and neither of those is whose language it is.
+
+\subsection{Text sources, extracted}
+
+Eleven papers, each read by its own file in \texttt{data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}} and each with a hand extraction beside it in \texttt{hand\_\allowbreak{}extraction/\allowbreak{}}. Every token of the language in each is accounted for in the corpus built from it, and \texttt{coverage\_\allowbreak{}check.\allowbreak{}py} says so. For the two Lyon papers that statement is about the extracted text, the font's own encoding and not what the page prints. The section below on those two says what that means.
+
+A twelfth, \texttt{2012\_\allowbreak{}Robertson}, now has both. \texttt{extract\_\allowbreak{}robertson.\allowbreak{}py} reads it, \texttt{coverage\_\allowbreak{}check.\allowbreak{}py} puts it at 100 percent like the other eleven, and both hand-extraction checks grade it.
+
+A thirteenth, \texttt{1975\_\allowbreak{}Hilbert\_\allowbreak{}Hess}, is read by hand and has no reader. \texttt{papers.\allowbreak{}py} carries it so \texttt{oracle\_\allowbreak{}check.\allowbreak{}py} grades it, and \texttt{reader\_\allowbreak{}check.\allowbreak{}py} lists it under the papers waiting for one. The section on papers whose extracted text is not the page says why a reader for it would have nothing sound to read.
+
+\textbf{A nineteenth, \texttt{Hall-\allowbreak{}et-\allowbreak{}al\_\allowbreak{}-\allowbreak{}ICSNL\_\allowbreak{}61-\allowbreak{}1}, prints every form twice and only one of the two was said.} Hall, Luntzlara, Mellesmoen and Reid are arguing about what the nɬeʔkepmxcín transitive suffixes are underlyingly. Each example carries a surface form in square brackets and the underlying form they propose for it in slashes: \texttt{[wéc̓entis]} beside \texttt{/\allowbreak{}wéc̓e-\allowbreak{}n-\allowbreak{}t-\allowbreak{}ey-\allowbreak{}es/\allowbreak{}}. The hand extraction is 494 rows and verifies in both directions with nothing left over.
+
+That layout makes the delimiter the evidence, and \texttt{extract\_\allowbreak{}hall\_\allowbreak{}ctr.\allowbreak{}py} reads nothing else. A bracketed run is a word and reaches the pure file. A slashed run is the authors' analysis, holds morpheme boundaries and a null-morpheme sign, and does not. A star marks a form the analysis predicts and the language does not have, written \texttt{*[kícetxʷ]} in one place and \texttt{[*kícexʷ]} in another. The reader tests for both shapes. The delimiters stay on the form in the record, because the record holds what the page printed, and come off on the way to the pure file, where the entry is the word.
+
+Two things the reader deliberately does not find. Examples (24) and (29) to (31) are ordered-rule derivations and every line between the underlying form and the surface form is a stage: \texttt{kícntene}, \texttt{kícntne}, \texttt{kícnne}, \texttt{kícne}. Those carry no delimiter, because the paper sets them in a column. The prose also prints some surface forms bare, \texttt{kicnəxʷ} and \texttt{wíktxʷ} among them. The hand extraction has all of them and the reader leaves them unclassified, which for a form nobody said is the safe direction to be wrong in.
+
+Section 3.1.1 argues from two other languages, and the \texttt{who} column carries them: ʔayʔaǰuθəm has \texttt{-\allowbreak{}θi} and St'át'imcets has \texttt{-\allowbreak{}ci}, and Newman's proto-Salish \texttt{*c} and \texttt{*ci} are cited beside them. The reader puts zero forms under the wrong language. One string is genuinely ambiguous and is worth naming: \texttt{-\allowbreak{}ci} is both the St'át'imcets suffix the paper cites and the nɬeʔkepmxcín suffix the paper proposes. Nothing in the token separates them. \texttt{-\allowbreak{}ci} enters as nɬeʔkepmxcín, which the paper argues it is.
+
+\textbf{A bug this paper's coverage check caught in the reader.} The reader files whatever its two patterns did not reach, and it built that leftover by taking the matched forms out of the line by name. Page 13 carries \texttt{/\allowbreak{}ʔ/\allowbreak{}}, which yields the one-character form \texttt{ʔ}, and taking that out of the page by name took it out of \texttt{\{n, n̓, h, ʔ\}]morpheme-\allowbreak{}t-\allowbreak{}\_\allowbreak{}\_\allowbreak{}\_\allowbreak{}} as well. The spans come out by position now. One token still does not come back, and it is the same brace artifact the Lyon inchoatives paper has: \texttt{ʔ\}]morpheme-\allowbreak{}t-\allowbreak{}\_\allowbreak{}\_\allowbreak{}\_\allowbreak{}} holds a \texttt{\}}, the record delimits its spans with braces, and the check splits it on the way back out. The token is in the paper and in the record, and the paper stands at 99.7 percent for it.
+
+\textbf{An eighteenth, \texttt{2013\_\allowbreak{}Nater}, is the largest table in the set.} Nater is asking how Salish Bella Coola is, and his answer is his whole lexicon sorted by where each word came from: 209 proto-Salish, 94 Coastal, 63 Interior, 214 non-Salish, 34 areal, and 661 of unknown origin. That is 1407 numbered entries over 52 pages, more of one language than the rest of this set holds together. The hand extraction is 2605 rows and verifies in both directions with nothing left over.
+
+The fourth column of its two tables is whichever language Nater is comparing against, and \texttt{extract\_\allowbreak{}nater\_\allowbreak{}etymology.\allowbreak{}py} finds where that column starts by the token that opens it: one of the sixteen abbreviations section 1.1 defines, a language the body spells out, or a reconstruction opening with an asterisk. Haisla, Heiltsuk, Oowekyala and Kwak̓wala are North Wakashan. Proto-Athabascan, Eyak, Carrier and Tahltan are Na-Dene. Nootka, Quileute, Chinook and Yurok are four families past that. Squamish, Sechelt, Shuswap, Lillooet and Halkomelem are Salish and still not this language. The \texttt{who} column carries all of it, the reader puts zero forms under the wrong language, and only Bella Coola reaches the pure file.
+
+The paper prints that column's own language at the head of every table page, as \texttt{Line Gloss BC CS Cognates}, and the reader reads it from there (\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}extract\_\allowbreak{}nater\_\allowbreak{}etymology.\allowbreak{}py:80}). A bare \texttt{*ƛ‟ǝp} under that head is Coast Salish and holds nothing in itself that an explicit tag would have supplied. Reading the head moved 326 reconstructions out of the unclassified file and under the name of the group they reconstruct.
+
+\textbf{Section 4 prints each of its entries twice.} \texttt{AKW'A} and \texttt{ʔak‟ʷa} are one word, and section 2.1 gives the mapping: \texttt{ʷ} is written \texttt{w}, \texttt{c} is \texttt{ts}, \texttt{ƛ‟} is \texttt{tl‟}, \texttt{ɬ} is \texttt{lh}, \texttt{x} is \texttt{c}, \texttt{χ} is \texttt{x}, and \texttt{ʔ} is \texttt{7}. Both are Bella Coola and the table records both. Only the phonemic column reaches the pure file, because two orthographies in one stream would put the byte pairs of a transliteration into the measurement of a language.
+
+\textbf{One paper can write one sound two ways.} The tables set every ejective as \texttt{‟}, U+201F, 1763 times. Section 3's prose sets it as \texttt{’}, U+2019, 51 times. The prose's \texttt{t’nχʷ} and the appendix's \texttt{t‟nχʷ} are one word in two encodings. The schwa does the same, \texttt{ǝ} U+01DD 183 times against \texttt{ə} U+0259 52 times, and NFC unifies neither pair. This is the same class of finding as the three characters for the lateral fricative and the two for the glottal stop below. This paper is the first here to hold both sides of that class, and a mark set built from the tables alone reads section 3 as English.
+
+Its practical orthography also writes the glottal stop as the digit \texttt{7}, which the shared mark set holds. A citation like \texttt{Sq67:137} or \texttt{Ku02:86-\allowbreak{}87} therefore carries a character of the language, and direction two asks about it. Three rows of the table exist for that reason. Nothing has been changed to stop it, because a digit that is a letter in one orthography cannot also be punctuation in a check that covers that orthography.
+
+Its reader is graded at 2560 forms asked for, 703 not found, 2189 invented. Both of the large numbers are one structural difference counted from two sides: the table records each cognate as its own row, and the reader writes the cognate column as the single string the paper printed. \texttt{*ƛ‟ǝp „deep (water)‟} is one item against two rows. That is the Lyon papers' disagreement inverted, and it is the shape the section on hand extraction describes.
+
+A seventeenth, \texttt{Kim\_\allowbreak{}Twana\allowbreak{}Reduplication\_\allowbreak{}final}, is the first Twana paper here, and Twana had no anchor at all before it. Its hand extraction is 362 rows and its reader writes 252 Twana forms. Every Twana form in it is Drachman's, out of a 1969 dissertation the paper calls the only reliable reference in existence for Twana CVC reduplication. What is on these pages is close to everything written down.
+
+Kim also carries the trap this set makes easiest to fall into. Example (1) sits where the data usually starts and it is Tillamook, in Edel's 1939 transcription with its own vowel letters; (19) and (20) are Thompson and Lillooet; footnote 9 mixes Puget Sound Salish, Moses-Columbian and a row of English phonetics. The \texttt{who} column carries all of it and the footnote is left unclassified, because the language changes inside one sentence there.
+
+\textbf{The lateral fricative has a third character.} \texttt{salish\_\allowbreak{}marking.\allowbreak{}py} says papers differ between \texttt{ɬ} and \texttt{ł} and carries both. Kim writes it \texttt{ɫ}, U+026B, sixty-two times. A mark set holding the other two reads every one of those tokens as English. The same paper writes the glottal stop two ways, \texttt{ʔ} where it is phonemic and \texttt{ˀ} where a rule derived it, which its footnote 11 states outright.
+
+A sixteenth, \texttt{Lyon\allowbreak{}ICSNL60\_\allowbreak{}Inch-\allowbreak{}2}, is Lyon's survey of how 48 Nsyilxcn roots inchoativize, elicited from ɬk̓mxnalqs Delphine Derrickson-Armstrong and c̓əskʕáknaʔ Dave Michele of stq̓aʔtkʷɬniw̓t. Its hand extraction is 537 rows and verifies in both directions. Most cells of its two tables are starred, which is a form the linguist built and the speakers rejected; those are held out of the pure stream, because a smaller corpus is better than one seeded with words the language does not have. The reader writes 295 Nsyilxcn forms and files the Spokane, Secwepemctsín, Lillooet, nxaʔamxčín, Thompson and Coeur d'Alene cognates under their own languages.
+
+This was the first paper here below 100 percent coverage, at 99.5, and the two tokens are worth naming because neither is a word. \texttt{closed\_\allowbreak{}spaces} closes the space after a glottalization mark, and on page 9 that mark ends a real word twice, welding \texttt{√pul̕} and \texttt{púl̕} onto the \texttt{qt:\{} that opens the dictionary quotation after them. The welded tokens hold a brace, the record delimits its spans with braces, and \texttt{coverage\_\allowbreak{}check} therefore splits them on the way back out. They exist in neither the page nor any corpus. The corpus is correct not to hold them, and the check is correct to say it does not.
+
+A fifteenth, \texttt{ICSNL59\_\allowbreak{}Nater\_\allowbreak{}2\_\allowbreak{}final}, is Nater arguing that Bella Coola has words with no vowel in them, and its data is 127 numbered entries that are each a run of two to four consonants. Six more entries and two comparison tables are Heiltsuk, Oowekyala, Kwak̓wala and Haisla, which are North Wakashan and not Salish at all. The \texttt{who} column is doing more work here than anywhere else in the set. Its hand extraction is 671 rows and verifies in both directions with nothing left over.
+
+A fourteenth, \texttt{Wolfe\allowbreak{}ICSNL60}, is a different shape from all of them and has both. It is a comparative reconstruction. Instead of one speaker telling one story it cites lexical suffixes from published dictionaries of eighteen languages, laid out in columns under a two-letter abbreviation. Its hand extraction is 772 rows and verifies in both directions with nothing left over. The section below on what a pure corpus is for says why it writes a \texttt{.\allowbreak{}pure.\allowbreak{}tsv} keyed by language where every other reader writes a flat \texttt{.\allowbreak{}pure.\allowbreak{}txt}.
+
+Nothing here needs fetching by hand. \texttt{python maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}get\_\allowbreak{}papers.\allowbreak{}py} reads the archive index, downloads these eleven and converts them. Every address below was checked; the local filename in \texttt{build/\allowbreak{}papers/\allowbreak{}} is the PDF's own name.
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\toprule
+Paper & Reader & PDF \\
+\midrule
+Three Glossed Nɬeʔkepmxcín Narratives by Kʷəɬtəzétkʷu (Bernice Garcia). Garcia, Hannon and Stacey. ICSNL 59, 2024 & \texttt{extract\_\allowbreak{}garcia.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2024/\allowbreak{}07/\allowbreak{}ICSNL59\_\allowbreak{}Garcia\_\allowbreak{}Hannon\_\allowbreak{}Stacey\_\allowbreak{}final.\allowbreak{}pdf} \\
+ɬ cutés us ɬ qəɬmín ɬ tmíxʷ (When Old One Created the Earth). Hall and Phillips. ICSNL 60, 2025 & \texttt{extract\_\allowbreak{}hall\_\allowbreak{}phillips.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2025/\allowbreak{}07/\allowbreak{}Hall\allowbreak{}Phillips\allowbreak{}ICSNL60.\allowbreak{}pdf} \\
+Four Stories by wlwlmelst. LaFontaine and Janzen. ICSNL 59, 2024 & \texttt{extract\_\allowbreak{}lafontaine\_\allowbreak{}janzen.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2024/\allowbreak{}07/\allowbreak{}ICSNL59\_\allowbreak{}La\allowbreak{}Fontaine\_\allowbreak{}Janzen\_\allowbreak{}final.\allowbreak{}pdf} \\
+Cw7aoz káti7 láti7 ku naxwít (There was definitely no snake there). Matthewson and Redan. ICSNL 61 & \texttt{extract\_\allowbreak{}matthewson\_\allowbreak{}redan.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2026/\allowbreak{}07/\allowbreak{}Matthewson\_\allowbreak{}Redan\_\allowbreak{}ICSNL61.\allowbreak{}pdf} \\
+I Tsícwas sQwa7yán'ak Áku7 Graveyard Valley. Alexander and Davis. ICSNL 61 & \texttt{extract\_\allowbreak{}alexander\_\allowbreak{}davis.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2026/\allowbreak{}07/\allowbreak{}Alexander\allowbreak{}Davis\_\allowbreak{}ICSNL61.\allowbreak{}pdf} \\
+Mary George Personal Narratives. John Hamilton Davis. ICSNL 56, 2021 & \texttt{extract\_\allowbreak{}mary\_\allowbreak{}george.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2021/\allowbreak{}08/\allowbreak{}ICSNL56\_\allowbreak{}Davis\allowbreak{}J\_\allowbreak{}2\_\allowbreak{}final-\allowbreak{}1.\allowbreak{}pdf} \\
+A Bella Coola tale: The Frog Children. Nater. ICSNL 50, 2015 & \texttt{extract\_\allowbreak{}nater\_\allowbreak{}bella\_\allowbreak{}coola.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2018/\allowbreak{}01/\allowbreak{}22-\allowbreak{}Nater-\allowbreak{}Bella-\allowbreak{}Coola-\allowbreak{}tale-\allowbreak{}10.\allowbreak{}pdf} \\
+Three Okanagan stories about priests. Lyon. ICSNL 50, 2015 & \texttt{extract\_\allowbreak{}lyon\_\allowbreak{}priests.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2018/\allowbreak{}01/\allowbreak{}19-\allowbreak{}Lyon\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}78.\allowbreak{}pdf} \\
+12 more Upper Nicola Okanagan narratives. Lindley and Lyon. 2013 & \texttt{extract\_\allowbreak{}lindley\_\allowbreak{}lyon.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2018/\allowbreak{}01/\allowbreak{}2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon.\allowbreak{}pdf} \\
+Poking Fun in Lushootseed. Vi taqʷšəblu Hilbert. ICSNL 1983 & \texttt{extract\_\allowbreak{}hilbert.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2018/\allowbreak{}03/\allowbreak{}1983\_\allowbreak{}Hilbert.\allowbreak{}pdf} \\
+A Comparative Analysis of Stress in Northern and Southern Lushootseed. Mellesmoen and Kye. ICSNL 61 & \texttt{extract\_\allowbreak{}mellesmoen\_\allowbreak{}kye.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2026/\allowbreak{}07/\allowbreak{}Mellesmoen\_\allowbreak{}Kye\_\allowbreak{}ICSNL61.\allowbreak{}pdf} \\
+Lexical Suffixes and Connectives in Proto-Central Salish and Beyond. Wolfe. ICSNL 60, 2025 & \texttt{extract\_\allowbreak{}wolfe.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2025/\allowbreak{}07/\allowbreak{}Wolfe\allowbreak{}ICSNL60.\allowbreak{}pdf} \\
+Voiceless Words in Bella Coola: Fact vs. Fiction. Nater. ICSNL 59, 2024 & \texttt{extract\_\allowbreak{}nater\_\allowbreak{}voiceless.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2024/\allowbreak{}07/\allowbreak{}ICSNL59\_\allowbreak{}Nater\_\allowbreak{}2\_\allowbreak{}final.\allowbreak{}pdf} \\
+Nsyilxcn Inchoatives and their Distributions Across Root Types. Lyon. ICSNL 60, 2025 & \texttt{extract\_\allowbreak{}lyon\_\allowbreak{}inchoatives.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2025/\allowbreak{}07/\allowbreak{}Lyon\allowbreak{}ICSNL60\_\allowbreak{}Inch-\allowbreak{}2.\allowbreak{}pdf} \\
+The truncated reduplication in Twana. Kim. ICSNL 52, 2017 & \texttt{extract\_\allowbreak{}kim\_\allowbreak{}twana.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2017/\allowbreak{}07/\allowbreak{}Kim\_\allowbreak{}Twana\allowbreak{}Reduplication\_\allowbreak{}final.\allowbreak{}pdf} \\
+How Salish is Bella Coola? Nater. 2013 & \texttt{extract\_\allowbreak{}nater\_\allowbreak{}etymology.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2018/\allowbreak{}01/\allowbreak{}2013\_\allowbreak{}Nater.\allowbreak{}pdf} \\
+Ctrl-Alt-Delete: The Control Directive and Associated /t/ Deletion in nɬeʔkepmxcín. Hall, Luntzlara, Mellesmoen and Reid. ICSNL 61 & \texttt{extract\_\allowbreak{}hall\_\allowbreak{}ctr.\allowbreak{}py} & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2026/\allowbreak{}07/\allowbreak{}Hall-\allowbreak{}et-\allowbreak{}al.\allowbreak{}-\allowbreak{}ICSNL\_\allowbreak{}61-\allowbreak{}1.\allowbreak{}pdf} \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+Each reader writes into \texttt{build/\allowbreak{}corpora/\allowbreak{}}: the marked record, a \texttt{.\allowbreak{}pure.\allowbreak{}txt} holding only target-language speech, a \texttt{.\allowbreak{}unclassifiable.\allowbreak{}tsv} listing what it could not type, and for the two Lyon papers a \texttt{.\allowbreak{}words.\allowbreak{}txt} giving the word forms recovered from the interlinear.
+
+Records are named speaker first: \texttt{<spoken by>\_\allowbreak{}<paper>\_\allowbreak{}<who wrote it down>\_\allowbreak{}Salish\_\allowbreak{}<language>\_\allowbreak{}<year>\_\allowbreak{}<mixed>}. The speaker is who the corpus is of.
+
+\subsection{Hand extraction}
+
+The reader is not the source of the corpus. Each paper is read by a person into \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}<paper>.\allowbreak{}oracle.\allowbreak{}tsv}, which says for every form in the paper what it is, and the reader is graded against that.
+
+Sixteen of the twenty verify against their paper in both directions: no form written that the paper does not hold, no token in the paper that no row covers. The other four are the papers whose extracted text is not what the page says, and what their remaining disagreements measure is the damage in that text. The two sections after this one are about them.
+
+Kim was the fifth until this pass. Its four direction-one failures were the extraction doubling a combining mark on a phonetic form, and closing them by transcribing the doubled form would have put a corrupt string in the table. \texttt{paper\_\allowbreak{}config.\allowbreak{}KIM\_\allowbreak{}DOUBLED} corrects the four at the source instead, which made that paper faithful and moved it into the sound count.
+
+\textbf{One hole in direction two is not a hole in a table, and Nater's paper is where that shows.} His argument is that Bella Coola has words with no vowel in them. Entries like \texttt{kp} 'each, all, every', \texttt{tp} 'spotted', \texttt{ps}, \texttt{px} and \texttt{sx} are plain ASCII with nothing in them that any mark set can catch. \texttt{is\_\allowbreak{}language\_\allowbreak{}token} needs a marked character, and about thirty of the 133 entries are invisible to direction two. Direction one still checks every one of them, because it looks for what the table wrote down. The apostrophe was tried as a way in, since Nater writes every ejective with one; it also makes every English gloss a word of the language, because a gloss ends in a closing quote and the two characters are the same. That trade is a few hundred false holes for about thirty real ones. The apostrophe stays out and the limit is recorded here instead.
+
+Counts below are what \texttt{oracle\_\allowbreak{}check.\allowbreak{}py} and \texttt{reader\_\allowbreak{}check.\allowbreak{}py} report on 2026-09-04. "Asked for" is how many distinct written forms the rows yield, the denominator for the column beside it. "Invented" is a form the reader put in the corpus that no row asks for.
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/4-2\tabcolsep\relax}@{}}
+\toprule
+Paper & Rows read by hand & Forms asked for & Reader \\
+\midrule
+Mellesmoen and Kye, ICSNL 61 & 467 & 443 & reproduces it exactly \\
+Hilbert, ICSNL 1983 & 60 & 52 & 2 not found, 8 over-runs it flags itself, 1 invented \\
+Matthewson and Redan, ICSNL 61 & 104 & 103 & 44 not found, 217 invented \\
+Alexander and Davis, ICSNL 61 & 541 & 532 & 339 not found, 914 invented \\
+Nater, ICSNL 50 & 285 & 285 & 29 not found, 80 invented \\
+LaFontaine and Janzen, ICSNL 59 & 226 & 225 & 81 not found, 136 invented \\
+Garcia, Hannon and Stacey, ICSNL 59 & 371 & 369 & 150 not found, 748 invented \\
+Mary George, ICSNL 56 & 1661 & 1654 & 663 not found, 574 invented, 362 in the wrong dialect \\
+Hall and Phillips, ICSNL 60 & 406 & 399 & 209 not found, 521 invented \\
+Lyon, ICSNL 50 & 1417 & 1413 & 1037 not found, 2134 invented, 193 in the wrong dialect \\
+Lindley and Lyon, 2013 & 653 & 653 & 312 not found, 996 invented, 198 typed differently \\
+Robertson, 2012 & 195 & 193 & 92 not found, of which 59 are prose the reader does not read \\
+Hilbert and Hess, 1975 & 74 & 74 & no reader written yet \\
+Wolfe, ICSNL 60 & 772 & 678 & 153 not found, of which most is front matter and section prose the reader does not read; 224 invented, 0 in the wrong language \\
+Nater, ICSNL 59 & 671 & 288 & 136 not found, the cluster charts the reader does not read; 337 invented, 0 in the wrong language \\
+Lyon, ICSNL 60 (inchoatives) & 537 & 491 & 76 not found, 61 invented, 0 in the wrong language; 146 typed differently, the table's own column vocabulary against the reader's one kind \\
+Kim, ICSNL 52 & 358 & 295 & 67 not found, 124 invented, 0 in the wrong language; 18 the reader flagged instead of guessing at \\
+Nater, 2013 (etymologies) & 2605 & 2560 & 703 not found, 2189 invented, 0 in the wrong language; 280 typed differently. The two large numbers are one difference counted twice, named in the section on this paper above \\
+Hall, Luntzlara, Mellesmoen and Reid, ICSNL 61 & 494 & 468 & 169 not found, 117 invented, 0 in the wrong language; 72 typed differently. What it does not find is the front matter, the prose-cited affixes, the derivation columns and the rules, none of which carries a delimiter \\
+Davis and Mellesmoen, ICSNL 58 & 441 & 441 & no reader written yet \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+Only Mellesmoen and Kye reproduces its table.
+
+Wolfe's wrong-language column carries the most weight, because it is the only paper here holding more than two languages. That column reads zero. The \texttt{who} column carries the language on every row and the reader keys its output to the same column, and a Sechelt suffix cannot arrive in the Twana data by falling through a branch.
+
+\texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon} is read off the rendered pages: all twelve texts, both the running transcription and the interlinear, with the footnotes, free translations, commentary, the appendix paradigms and the abbreviation list. What remains is 46 forms the table holds that the draft does not, and 37 strings in the draft that no row holds. All 83 fall in one of the five classes the section below names, which makes the count a measurement of the draft.
+
+Its reader takes \texttt{build/\allowbreak{}papers/\allowbreak{}2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon.\allowbreak{}page.\allowbreak{}txt} and is graded in the orthography the table is written in. The reader misses 312 of the 653 rows, and 56 of those 312 are a single token. The other 256 are a row holding a whole translation, parse line or narrative paragraph, and the reader writes each of those as separate items instead of as the one string the row asks for.
+
+\texttt{19-\allowbreak{}Lyon\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}78} is read the same way and is finished. The 1417 rows cover the title, the abstract, all three stories as running text and again as interlinear, the twenty-five footnotes, the section metadata and the references. What remains is 41 forms the table holds that the draft does not, and 32 strings in the draft that no row holds, and the two lists are the same finding twice: every one of the 32 is a form the draft got wrong and the table therefore does not carry.
+
+Its reader misses 1037 of the 1413 forms, and 5 of those are a single token. The rest are a gloss line, a parse line, a word gloss or a running paragraph held whole, against a reader that writes the interlinear a token at a time.
+
+Three of the eleven carry a \texttt{.\allowbreak{}oracle.\allowbreak{}md} beside the table, which is where a note about that paper goes. The \texttt{.\allowbreak{}tsv} itself holds no comment syntax and no prose header, which lets a CSV linter read it: a header on line 1 and the same field count on every row.
+
+\texttt{oracle\_\allowbreak{}check.\allowbreak{}py} tests the hand extraction against the paper both ways. \texttt{reader\_\allowbreak{}check.\allowbreak{}py} tests the reader against the hand extraction.
+
+\texttt{corpus\_\allowbreak{}derivation.\allowbreak{}py} turns what those two and \texttt{coverage\_\allowbreak{}check.\allowbreak{}py} report into a bound on the per-line error rate, and rewrites \texttt{corpus-\allowbreak{}derivation.\allowbreak{}md} from it after every change to a table. That script reads the checks by running them and parsing their own output, and never recomputes what they compute, because an earlier version reimplemented the same quantities and drifted: it reported 16 direction-one failures where \texttt{oracle\_\allowbreak{}check} reports 0. The bound now stands at 2.73e-11 per line across three channels. One of the three has seen a failure and is reported at its observed rate; the other two are at the rule-of-three bound, over 14255 and 7290 trials. The bound has moved the wrong way twice: from 6.03e-11 up to 6.83e-11 when a reader turned out to be losing forms, and from 3.06e-11 up to 4.01e-11 when the Hall paper arrived carrying a token its record cannot give back. Both rises are the measurement working. A bound that only ever falls is measuring the papers that were easy to add. The bound fell to 2.73e-11 when the Kim corrections closed the last four direction-one failures and moved that paper into the sound count. The first significant figure has now settled, and the last three papers agree on it. The document's section 4 names the three places its independence is thin. The reader counts are deliberately not one of the three channels: a reader is written for one paper. Its error rate is a fact about that paper, and pooling eighteen of them would report a rate nothing is sampling.
+
+Two errors it found that coverage could not, because coverage was 100 percent through both:
+
+\begin{itemize}
+\item The Hilbert record credited Vi Hilbert as the speaker. She wrote the paper; the twenty-one examples were said by her aunt \textbf{Susie Sampson Peter} of the Upper Skagit and by \textbf{Martha LaMont}, recorded by Leon Metcalf between 1950 and 1958 and by Thom Hess in 1963.
+\item Example 2's English translation is a single line, "High class, high class was Raven." The record had it with the next eleven lines of Hilbert's commentary welded on, as something Susie Sampson Peter said. The typescript sets examples in an indented column and the essay at full width; the extraction dropped the indent and the width is what recovers it.
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Six of the eleven PDFs break words in half.} They leave a space after a stacked diacritic, so \texttt{K̓weswapáw̓} arrives as \texttt{K̓} and \texttt{weswapáw̓}. Counts: Hall and Phillips 996, Garcia 943, LaFontaine and Janzen 478, Mellesmoen and Kye 298, Matthewson and Redan 169, Mary George 159. The coverage check cannot see it, because it puts both sides through the same repair and a word broken on both sides matches itself. \texttt{inserted\_\allowbreak{}space.\allowbreak{}py} closes it; \texttt{ʷ} is held out, because it is a spacing letter and a space after one is a real boundary.
+\end{itemize}
+
+The stress accents are held out of that repair. A word can end in a stressed vowel, and \texttt{ntes neʔé e sqyéytn} in LaFontaine and Janzen closes to \texttt{neʔée}, which the language does not have. Mellesmoen and Kye passes its own wider set instead, because that PDF prints two spaces at a real boundary and a lone space after an acute there is always the inserted one.
+
+Matthewson and Redan carries a second form of the same damage that no rule can close safely. The PDF also breaks \emph{before} a marked letter: \texttt{cácl̓ep} arrives as \texttt{các l̓ep}. The same shape is a real word boundary at \texttt{lta q̓íl̓qa}, and nothing in the characters separates the two. The reader leaves both alone; the hand extraction has the true forms. That paper's reader is also blind to sections 1.2 and 1.3, where the story's title and five St'át'imcets forms are cited in prose.
+
+Three more the hand extraction found, none of them visible to a coverage check:
+
+\begin{itemize}
+\item \textbf{\texttt{reader\_\allowbreak{}check} was reading a fraction of each record.} Its span pattern rejected any kind holding a space, and nine of the eleven readers write one: \texttt{symbol note}, \texttt{running speech}, \texttt{stage direction}, \texttt{word gloss}, \texttt{free translation}, \texttt{cited example}, \texttt{morpheme entry}, \texttt{speaker comment}, \texttt{orthography chart}.
+\item \textbf{The apostrophe is a letter.} \texttt{’} is glottalization in Nuxalk and in Lyon's Okanagan, and stripping it as punctuation turned the enclitic \texttt{˽c’} into \texttt{˽c}.
+\item \textbf{Nater's reader kept section 2 as six blocks of prose} where the paper lists about forty prepositions, articles, deictics and enclitics, each with its own gloss, and never read section 1, where \texttt{sma} and \texttt{sʔalac’i} are defined.
+\end{itemize}
+
+\subsection{Papers whose extracted text is not the page}
+
+Six of the 146 PDFs in \texttt{build/\allowbreak{}papers/\allowbreak{}} carry a font that renumbers its glyph codes with an \texttt{/\allowbreak{}Encoding} \texttt{/\allowbreak{}Differences} array and declares no \texttt{/\allowbreak{}To\allowbreak{}Unicode} map. An extractor is then handed code numbers with nothing to turn them into, reads them in a default encoding, and what can land in the \texttt{.\allowbreak{}txt} is the font's private alphabet.
+
+Every one of the six has now been opened against its own rendered pages, and they came out four different ways.
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\toprule
+Paper & Fonts declaring no map back to Unicode & What the page says happened \\
+\midrule
+\texttt{19-\allowbreak{}Lyon\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}78} & NimbusRomNo9L Regu, Medi, ReguItal & damaged, and read off the pages in full \\
+\texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon} & NimbusRomNo9L Regu, Medi, ReguItal & damaged the same way, and read off the pages in full \\
+\texttt{Lyon-\allowbreak{}final} & NimbusRomNo9L Regu, Medi, MediItal, ReguItal & damaged, by a different table \\
+\texttt{2012\_\allowbreak{}Robertson} & Symbol and five TrueType subsets & damaged four ways, one of them decodable exactly \\
+\texttt{21-\allowbreak{}Abraham\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}4} & NimbusRomNo9L Regu, Medi & clean \\
+\texttt{2011\_\allowbreak{}Lonsdale\_\allowbreak{}Matsushita} & Courier, Times-Roman, Times-Italic, CMSY10 & clean \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+A missing \texttt{/\allowbreak{}To\allowbreak{}Unicode} is not the fault by itself. 141 of the 146 hold a font without one and nearly all of them extract correctly, because a standard encoding already says what the codes mean and every extractor has that table. It is the renumbering that does the damage, and 6 of those 141 renumber.
+
+The renumbering is a risk. Two of the six extract correctly, and both were checked line for line against a rendered page.
+
+\texttt{21-\allowbreak{}Abraham\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}4} is St'át'imc in the van Eijk orthography, which is ASCII apart from the accented vowels. Its renumbered codes never reach a character they would damage. All four pages come through, down to the apostrophes: page 1's first line reads \texttt{Ats’xenlhkán ta sásqets áku7 Nséq’a (Charlie Mack’s), lti Líl’wata Tsel’álh c.\allowbreak{}walh,} on the page and in the text.
+
+\texttt{2011\_\allowbreak{}Lonsdale\_\allowbreak{}Matsushita} is clean for a different reason: it prints its Lushootseed in the ASCII transliteration its own parser reads, so there is nothing on the page for a font to lose. Page 5 sets \texttt{LEFT-\allowbreak{}WALL ?u+ da?a +d ?Elg\allowbreak{}WE? ?E k\allowbreak{}Wi s+ g\allowbreak{}Wistalb ti?E? Suk\allowbreak{}WE? .\allowbreak{}} and the extraction gives that string exactly. The \texttt{?} is the glottal stop, \texttt{E} the schwa and \texttt{W} the labialization, on the page as much as in the file.
+
+The list says which files to open. The page says what happened to each.
+
+Page 23 of \texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon} prints
+
+cítxʷsəlx uɬ t̓i nyʕ̓ip ck̓aʔítət
+
+and \texttt{build/\allowbreak{}papers/\allowbreak{}2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon.\allowbreak{}txt} holds
+
+cítxws@lx uì ’ti ny ’Qip c ’kaPít@t
+
+Every schwa is \texttt{@}, every lateral fricative \texttt{ì}, every pharyngeal \texttt{Q}, every glottal stop \texttt{P}; the wedge stands in front of its letter as \texttt{ˇx}, the ejective mark stands in front of its letter instead of over it, and the word \texttt{ck̓aʔítət} is split. \texttt{pypdf} and \texttt{pypdfium2} lose the same things, which makes this a property of the file and not of one library.
+
+\textbf{One part of the loss cannot be inverted.} Labialization is written with a raised w and the page also has a plain w. Both arrive as \texttt{w}. Page \texttt{kʷukʷ} and page \texttt{wist} are the same string in the text, and nothing in the file separates them.
+
+The consequence for method is why this section exists. A hand extraction taken from one of these \texttt{.\allowbreak{}txt} files records the font's encoding and not the paper, and it then verifies clean against that same file in both directions, because both sides of the check are reading the one damaged artifact. That is how this was found here, after two such tables had been built.
+
+What replaces it: \texttt{pdf2png.\allowbreak{}py} renders the pages to \texttt{build/\allowbreak{}pages/\allowbreak{}<stem>/\allowbreak{}page\_\allowbreak{}NNN.\allowbreak{}png} and the reading is done from the image. \texttt{draft\_\allowbreak{}page\_\allowbreak{}text.\allowbreak{}py} writes \texttt{build/\allowbreak{}papers/\allowbreak{}<stem>.\allowbreak{}page.\allowbreak{}txt}, a draft of the page in the shared orthography, line for line with the extraction, which makes a page of one a page of the other, and \texttt{lyon\_\allowbreak{}encoding.\allowbreak{}py} holds the rules it applies. The draft is a starting point a person corrects against the rendered page, never a source. Two things it cannot decide:
+
+\begin{itemize}
+\item \textbf{Labialization}, for the reason above. The drafter writes \texttt{ʷ} after the consonants that take one, which is right for \texttt{kʷ qʷ xʷ x̌ʷ} and wrong wherever a real \texttt{w} follows a consonant. The rule errs in both directions, and page 315 has one of each. \texttt{púlxwi} gets a \texttt{ʷ} it should not have, and section 3.2 settles that by parsing the word \texttt{√púlx-\allowbreak{}wi}. \texttt{lkʷu·········t} loses the one it should have, because the inserted space split it into \texttt{lk} and \texttt{wu·········t} before the rule could see the consonant, and section 3.2 parses that one \texttt{√lkʷ=ut}. The rule runs over the whole line and reaches the English as well: stanza 117's word gloss \texttt{he.\allowbreak{}fell.\allowbreak{}off.\allowbreak{}backwards} comes out \texttt{he.\allowbreak{}fell.\allowbreak{}off.\allowbreak{}backʷards}.
+\item \textbf{Word boundaries.} The PDF inserts a space in front of a letter carrying a mark. \texttt{s ’plá ’ks@lx} is one word and \texttt{i\allowbreak{}P ’kl} is two, and both are a space in front of a marked letter. Page 25 settles the first as \texttt{sp̓lák̓səlx}, page 24 the second as \texttt{iʔ k̓l}.
+\item \textbf{The space that was not inserted.} Where the PDF leaves the mark against its letter there is nothing to key on, and a medial \texttt{’} is also the apostrophe of \texttt{Lyon’s}. \texttt{nkw’ritkw}, \texttt{xw’tilx} and \texttt{wa’y} keep the mark standing in front of its letter; the pages read them \texttt{nkʷr̓itkʷ}, \texttt{xʷt̓ilx} and \texttt{way̓}.
+\item \textbf{A P-initial word with no other mark on it.} \texttt{Pitx}, \texttt{Pums}, \texttt{Pistkm} and \texttt{Paksyilx} come through as English, because a capital P opening a token that holds nothing else is the shape of \texttt{Papers} and \texttt{Penticton}.
+\item \textbf{The dropped space.} At a change of font and at some line ends the PDF loses the space entirely, so \texttt{Okanagan yaxʷt}, \texttt{uɬ ny}, \texttt{məɬ ixíʔ} and \texttt{axáʔ ikɬcítxʷ} arrive welded into one token.
+\item \textbf{A run of the length mark before a closing quote.} The raised dot arrives as \texttt{;}, and a rule turns it back wherever a letter or a spacing mark follows it, because a lone \texttt{;} is also Lyon's semicolon. A run of eight is never punctuation, and \texttt{staʔx̌íləm “whoa········”} is the only place where a run is followed by a closing quote instead. That pattern occurs twice, both in \texttt{19-\allowbreak{}Lyon\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}78}, and \texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon} holds no run at all.
+\item \textbf{A one-letter gloss label that is also a glyph code.} A gloss token is recognized by a run of two capitals, because one capital on its own is also \texttt{i\allowbreak{}P} and \texttt{Philosophical} (\texttt{lyon\_\allowbreak{}encoding.\allowbreak{}py:116}). Stanza 108's gloss line labels the question marker \texttt{Q}, one capital, so the token falls through to the Salish branch and comes out \texttt{ʕ}. Nothing inside the token separates the two readings, and the drafter does not track which line a token sits on. That label occurs twice, both in \texttt{19-\allowbreak{}Lyon\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}78}.
+\end{itemize}
+
+All 83 disagreements the check reports on \texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon} fall in these classes now that it has been read off the pages in full. The last two classes occur in the priests paper alone. That count is the measurement the draft exists to produce.
+
+One thing the extraction is better evidence for than the rendered page. The transposition moves a mark off its letter and preserves it, and a token's mark count survives the channel exactly. At the scale these pages render, a run like \texttt{m̓y̓m̓y̓á} cannot be told from \texttt{m̓ym̓á} by eye, and reading the page alone undercounts. The text settles it: stanza 112 arrives as \texttt{s-\allowbreak{} m̓ y̓-\allowbreak{} m̓ y̓-\allowbreak{}á y̓-\allowbreak{}s}, which is five marks, so the word is \texttt{s-\allowbreak{}m̓y̓-\allowbreak{}m̓y̓-\allowbreak{}áy̓-\allowbreak{}s}. Take the count from the text and the boundaries from the page.
+
+\texttt{get\_\allowbreak{}papers.\allowbreak{}py} applies the same test inside \texttt{converted()} and writes a \texttt{.\allowbreak{}unfaithful} file beside the text naming the fonts. The test fires only when a PDF is converted, and conversion skips any PDF that already has text beside it. The table above was produced by running the same test over them directly.
+
+\subsubsection{A scanned typescript is a worse case than any font}
+
+\texttt{1975\_\allowbreak{}Hilbert\_\allowbreak{}Hess} carries no font problem at all. It is a 1975 typescript, scanned, and what sits in \texttt{build/\allowbreak{}papers/\allowbreak{}} is OCR of the scan. Page 1 prints
+
+kʷa? ləcux̌əčadadid dxʷ?al ti?ə? s?acuss (h)əlgʷə? dəxʷx̌əbil ?ə ti?ə?.
+
+and the text holds
+
+kWa? lacuXacadadid dxW?al ti?a? s?acuss (h)algWa? daxwxabil ?a ti?a?
+
+Every schwa is \texttt{a}, every raised \texttt{ʷ} is \texttt{W}, the wedge over \texttt{x} is gone, and \texttt{sudᶻigʷicuts} comes through as \texttt{sud\allowbreak{}Zig\allowbreak{}Wi\allowbreak{}Olt\allowbreak{}S}. The six pages give 200 forms the table holds that the text does not.
+
+The difference from the Lyon papers matters more than the size of it. There the damage is a font's renumbering, which is deterministic: one code always stands for one glyph, which lets a table invert it, and \texttt{lyon\_\allowbreak{}encoding.\allowbreak{}py} is that table. Here the damage is a reader guessing at shapes on a scan, and \texttt{sudᶻigʷicuts} to \texttt{sud\allowbreak{}Zig\allowbreak{}Wi\allowbreak{}Olt\allowbreak{}S} is not a substitution anything can run backwards. There is nothing to build. The hand extraction is not a check on the extraction for this paper, it is the only correct record of it.
+
+That also puts a floor under the whole method. A paper this old cannot be verified in both directions, because one direction has no sound source to verify against. What \texttt{oracle\_\allowbreak{}check.\allowbreak{}py} reports on it is the distance between a page and its OCR, which is worth having and is not the same measurement it makes elsewhere.
+
+One defect the paper exposed in the check itself. \texttt{oracle\_\allowbreak{}check.\allowbreak{}bare()} strips \texttt{?} as punctuation, and this orthography and the 1983 typescript's both write the glottal stop as \texttt{?}. So \texttt{?ə} bares to \texttt{ə} and a word with a glottal stop cannot be told from one without. This defect is the same class as the apostrophe case the hand extraction already found. The answer has to be per paper, since \texttt{?} is punctuation in every other paper here. Nothing has been changed.
+
+Page 6 of that paper is a comparative appendix in Upper Chehalis and Cowlitz, thirteen sentences of two other Salishan languages. The table names each of them in its own column, which keeps a reader from putting them in a Lushootseed corpus.
+
+\subsubsection{The delta is a mutation probability distribution}
+
+Everything above treats the damage as a hazard to route around. The damage is also the one calibrated mutation sample in the archive, and the damaged text is kept for that reason.
+
+Two encodings of one text, aligned line for line, with the page settling which is right, is a measured channel. \texttt{build/\allowbreak{}papers/\allowbreak{}<stem>.\allowbreak{}txt} is the mutated side, \texttt{.\allowbreak{}page.\allowbreak{}txt} is the drafted side, and the hand extraction read off the rendered page is ground truth for both. No other paper here has a second encoding of the same page to compare against.
+
+The mutations sort into five kinds, and the last two are what make this a distribution instead of a rewrite table.
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\toprule
+Kind & Instances & Invertible \\
+\midrule
+Substitution, one symbol for one & \texttt{ə}→\texttt{@}, \texttt{ɬ}→\texttt{ì}, \texttt{ʕ}→\texttt{Q}, \texttt{ʔ}→\texttt{P}, \texttt{ƛ}→\texttt{ň}, \texttt{·}→\texttt{;} & yes \\
+Collapse, two symbols onto one & \texttt{ʷ}→\texttt{w}, and plain \texttt{w}→\texttt{w} & no \\
+Transposition & a combining mark over its letter becomes a spacing mark before it: \texttt{k̓}→\texttt{’k}, \texttt{x̌}→\texttt{ˇx} & yes \\
+Insertion & a space appears in front of a letter carrying a mark & not decidable alone \\
+Deletion & the space at a change of font is dropped, welding two words & not decidable alone \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The insertion does not always fire. \texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon.\allowbreak{}txt} holds \texttt{wa ’y} in most places and \texttt{wa’y} in three, for the single word the page prints as \texttt{way̓}. So its rate lies strictly between 0 and 1, and the same input shape has two outputs. That is a probability, not a rule, and it is why a repair applied without the page welds words that were never one word.
+
+The deletion fires where the paper changes font mid-sentence. Footnote 5 of the same paper sets its cited forms in italic inside roman prose, and the two arrive as \texttt{Okanaganyaxʷt} and \texttt{Okanaganyaʕyáʕt}, each one token where the page prints two words. The second is recoverable, because \texttt{yaʕyáʕt} is a common word and appears on its own elsewhere in the paper. The first is not: \texttt{yaxʷt} occurs nowhere else. Which of the two happens depends on the rest of the corpus and not on the token. That is the second reason this is a distribution.
+
+The collapse sets a ceiling. No recovery, however good, separates page \texttt{kʷukʷ} from page \texttt{wist} in the mutated text, because the channel destroyed the distinction instead of disguising it. Anything downstream that claims to have recovered a labialized consonant on these two papers is claiming something the file cannot support.
+
+A detector keyed to a glyph inventory reads the mutated side as holding no language at all. That is not hypothetical: \texttt{is\_\allowbreak{}language\_\allowbreak{}token} did exactly that on these two papers until the marks set for them was corrected, and it reported a paper with eleven unread texts as fully covered. A detector reading the distribution of symbols survives the same input. The pure corpus says how well a vector separates the target language from the English around it. This pair says how much mutation it takes before it stops separating them at all.
+
+Nothing in the tree measures the per-symbol rates yet. \texttt{font\_\allowbreak{}substitution.\allowbreak{}py} scores a candidate mapping by how many mutated tokens become forms attested in a clean paper, which is a proxy for the answer. The page-verified table is the answer itself for the lines it covers, and it grows one text at a time.
+
+\textbf{The distribution was going to convert the rest, and that has now been tested.} Four of the six papers above are set in NimbusRomNo9L, and the two with page-verified tables beside them supplied the candidate mapping for the other two. Both of those were checked against their own rendered pages. Neither takes it, for two different reasons.
+
+\texttt{21-\allowbreak{}Abraham\_\allowbreak{}ICSNL50\_\allowbreak{}final-\allowbreak{}4} has nothing to convert, for the reason the section above gives. \texttt{font\_\allowbreak{}substitution.\allowbreak{}py} on it is measuring a paper that is already right.
+
+\texttt{Lyon-\allowbreak{}final} is damaged and wants a different table. The paper is John Lyon on the linguistic evidence for a Francis Drake landing in Oregon, and the language data in it comes from Frachtenberg's Oregon transcriptions. \texttt{ì} for \texttt{ɬ} carries over and so does the transposed acute, but the paper also needs a transposed macron the Okanagan papers never use, \texttt{E} for \texttt{ɛ}, and several more marks. One code disagrees outright. \texttt{;} is the raised length dot in the Okanagan papers and the glottalization mark here. Page 24's \texttt{kʼeuʼts!} arrives as \texttt{k;eu´ts!}, and applying the Okanagan table to this paper would silently turn every glottalization into a length mark. \texttt{font\_\allowbreak{}substitution.\allowbreak{}py} puts 4 of 407 occurrences into attested forms against 5 before it, the same answer measured from the other side.
+
+So the conversion table is per document and not per font family. Reading these two papers off the page still recovers two papers and still produces a table, and what that table converts is the two of them.
+
+\texttt{2012\_\allowbreak{}Robertson} is damaged four ways, and one of them costs nothing. Its extractor could not resolve a glyph and printed the glyph's name instead, so the text holds \texttt{/\allowbreak{}uni0294oo /\allowbreak{}uni026C /\allowbreak{}xé/\allowbreak{}uni0294} where page 30 sets a morphemic line. A \texttt{/\allowbreak{}uni\allowbreak{}XXXX} name carries the code point it stands for, and \texttt{/\allowbreak{}uni0294} is \texttt{ʔ}, \texttt{/\allowbreak{}uni026C} is \texttt{ɬ}, \texttt{/\allowbreak{}uni0259} is \texttt{ə} and \texttt{/\allowbreak{}uni019B} is \texttt{ƛ}. \texttt{glyph\_\allowbreak{}names.\allowbreak{}py} turns all 103 of them back, along with \texttt{/\allowbreak{}combiningdotbelow} and \texttt{/\allowbreak{}combiningacuteaccent}, and after it runs no glyph name is left standing anywhere in the paper. That part is arithmetic and exact.
+
+The other three came off the pages, and the first of them is why the decode is not the whole recovery.
+
+\begin{itemize}
+\item \textbf{Labialization, collapsed exactly as it is in the Lyon papers.} Page 30 sets \texttt{/\allowbreak{}kʷú[·kʷ]piʔ} and the text gives \texttt{/\allowbreak{}kwú[·kw]pi/\allowbreak{}uni0294}. The paper's own prose loses it too: page 30 names its symbols \texttt{(č, š, xʷ)} and the text holds \texttt{( č, š, x w)}, with a space where the raised letter was. Every flag the hand extraction raises on this paper so far is this one.
+\item \textbf{A word broken across two lines with no hyphen.} 42 lines of the extraction hold nothing but a fragment: \texttt{Da} above \texttt{vid D.\allowbreak{} Robertson}, \texttt{ma} above \texttt{ximal efficiency}. Most of them are in the interlinear, where the break falls inside a gloss: \texttt{A} above \texttt{UG-\allowbreak{}}, \texttt{s} above \texttt{ick}, \texttt{gr} above \texttt{eet}. A rule that joins every fragment line to the one under it would be wrong in the alphabet tables, where \texttt{wa}, \texttt{wi} and \texttt{waw} are Chinuk pipa letter names and each is a line of its own.
+\item \textbf{A glyph repeated where the page prints it once.} Page 1's epigraph prints \texttt{t’íxʷəɬ γ-\allowbreak{}ʔ-\allowbreak{}[χ-\allowbreak{}]q’y-\allowbreak{}n’-\allowbreak{}tén} with one \texttt{ɬ} and one \texttt{ʔ}, and the text holds four of each. The doubling happens on 2 lines in the paper and both are set in bold italic.
+\end{itemize}
+
+The hand extraction is 195 rows and covers both Salish texts whole, the Chinuk pipa and Chinook Jargon forms cited through the analysis, and the two bibliography entries written in Chinuk Wawa. What it leaves is 40 forms the table holds that the text does not, and 21 strings in the text that no row holds. Those two lists are the same finding twice, as they are in the priests paper: 14 of the 21 are the damaged form of something the table carries correctly, 4 are the doubled epigraph, and 3 are page ranges in the bibliography that \texttt{is\_\allowbreak{}language\_\allowbreak{}token} reads as language because they hold a digit inside a token.
+
+Texts 3 through 6 are Chinook Jargon, which is a pidgin. They are the paper's own material and they are not Salish. The table marks who each form belongs to for that reason, and \texttt{Chinook Jargon} in that column is the instruction to a reader to keep the form out of the target stream.
+
+\texttt{extract\_\allowbreak{}robertson.\allowbreak{}py} reads it against that table. The reader finds all 20 stanzas of Text 1 and all 7 of Text 2 with their numbering intact, and it reproduces the four rows of a stanza wherever the extraction did not break a word inside a line. Of the 92 rows it does not reproduce, 59 are the analysis prose and the cited forms, which the reader does not read and which stay in the record as unclassified. The 33 that sit inside the two texts split as 10 differing from the reader by the lost labialization alone and 23 by a word the extraction broke in the middle of a line, where the first half ends a long line and the reader has nothing short to key on.
+
+Two things in that reader are worth naming because no other paper here needs them. The transliteration row is plain ASCII, so \texttt{o l ha l kukpi,} carries no character of the modern orthography and the test every other reader leans on would call it English. The row is marked by where it sits. And the pure stream takes the transliteration row alone: the morphemic row is Robertson's analysis and holds forms nobody wrote, the distinction \texttt{salish\_\allowbreak{}marking.\allowbreak{}py} draws between what was said and what was worked out afterward.
+
+\texttt{line\_\allowbreak{}breaks.\allowbreak{}py} holds the join, because \texttt{coverage\_\allowbreak{}check.\allowbreak{}py} has to apply it too. That check compares a paper against its extraction and its own header says both sides go through the same transformation first, and a join the reader makes and the check does not reports every welded word as a hole. With it applied the paper is at 100 percent like the other eleven.
+
+\texttt{lyon\_\allowbreak{}encoding.\allowbreak{}py} holds that table for NimbusRomNo9L as it stands, with the labialization rule still a guess and the insertion rate still unmeasured.
+
+\subsubsection{The algorithm reads the damage the blanket repair cannot}
+
+\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}symbol\_\allowbreak{}sift.\allowbreak{}py}. Reading a broken word off a rendered page works and does not scale: twenty papers at twenty-four pages each is four hundred images, and every reading is a judgment nobody can check afterward. This asks the sift instead.
+
+A break site is a place where the extraction has two tokens and the paper may have had one. The candidates are the two joined by each combining mark the paper writes, and joined by nothing, the reading where the space is a real boundary. A candidate counts as attested where the paper writes it as a token, and where the paper writes it inside one: \texttt{qʷal út} is \texttt{qʷal̓út}, which Davis and Mellesmoen never prints alone and does print inside \texttt{qʷəqʷal̓út}. Scoring is the radix from \texttt{boundary\_\allowbreak{}check.\allowbreak{}py}, with run counts taken from the tokens carrying no break and flattened to maximum entropy. A run common everywhere contributes nothing and what is left belongs to that restoration.
+
+\textbf{It finds 86 sites across the fifteen papers with readers, and every one of those papers already reports 100 percent coverage.} That is not a contradiction, it is the blind spot \texttt{inserted\_\allowbreak{}space.\allowbreak{}py} names: the coverage check puts both sides through the same repair, and a word broken in the source and broken in the extraction matches itself.
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\toprule
+paper & read & declined on score \\
+\midrule
+Garcia, Hannon and Stacey & 24 & 9 \\
+Hall and Phillips & 24 & 0 \\
+LaFontaine and Janzen & 18 & 2 \\
+Davis and Mellesmoen & 4 & 1 \\
+Kim & 4 & 0 \\
+Mary George & 4 & 0 \\
+Alexander and Davis & 2 & 2 \\
+Nater, ICSNL 59 & 2 & 0 \\
+Lyon, inchoatives & 2 & 0 \\
+Matthewson and Redan & 1 & 1 \\
+Wolfe & 1 & 0 \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The Garcia row is worth looking at first. \texttt{Kʷ əɬtəzétkʷu} reads as \texttt{Kʷəɬtəzétkʷu} at a score of 478.0, and that is Kʷəɬtəzétkʷu's own name broken in half in a paper that passes every check. \texttt{N ɬeʔkepmxcín} reads as \texttt{Nɬeʔkepmxcín} at 302.8 and \texttt{s ƛ̓eʔxímn.\allowbreak{}} as \texttt{sƛ̓eʔxímn.\allowbreak{}} at 244.1. A mark drawn at random from that paper's inventory lands on an attested form 0.000 of the time over 6600 draws.
+
+\texttt{closed\_\allowbreak{}spaces} cannot reach any of them and is right not to. The break follows \texttt{ʷ}, which is deliberately outside the joining set because it is a spacing modifier letter on the baseline and a space after one is normally a real boundary: including it welded thirteen pairs of real words in one paper. A blanket rule has to choose once for the whole corpus. This decides per site, from what the paper itself writes, so it can take \texttt{Kʷ əɬtəzétkʷu} and leave \texttt{bəlkʷ ‘return’} alone.
+
+The score separates them. Garcia's \texttt{w ɬ} scores -1.4 and is declined, because the runs \texttt{wɬ} would make sit below where a flat distribution puts them, which is this paper saying it does not write words shaped that way. Nine of Garcia's 33 sites are declined on that test.
+
+\textbf{Nothing has been changed on the strength of this.} These are candidate corrections. Applying them rewrites the corpora and moves what every downstream measurement reads, which is a decision to take deliberately and measure, not a repair to slip in. What the table above establishes is that the damage is there, that it is larger than the checks can see, and that it is readable without a person opening a page.
+
+\subsubsection{What the corpus measures now}
+
+The pure corpus is 2314 lines and 16898 tokens across the eleven papers that have both a reader and an anchor to count under. 749 of those lines and 6762 of those tokens, 40 percent of it, come from the two papers set in the font that renumbers its codes. The twelfth reader, Robertson, writes a pure file of its own and is not in that total: its paper is Thompson and Secwepemctsín written in Chinuk pipa, and \texttt{language\_\allowbreak{}check.\allowbreak{}BY\_\allowbreak{}CORPUS} has no entry for it. The five readers written after it are outside the total for the same reason. Wolfe holds eighteen languages and writes no flat pure file at all. The two Nater word lists, the Lyon inchoatives and the Kim reduplications each write one, and none of the four has a \texttt{BY\_\allowbreak{}CORPUS} entry, because a word list and a narrative in one language sit about as far apart as two languages do: Nater's voiceless list measures 0.7783 from the Nuxalk narrative corpus and Lyon's inchoatives 0.6436 from Nsyilxcən's, against between-language distances of 0.51 to 0.83. Joining one to an anchor would move the anchor toward the shape of a dictionary page.
+
+Both of those readers now take \texttt{build/\allowbreak{}papers/\allowbreak{}<stem>.\allowbreak{}page.\allowbreak{}txt}. They used to take \texttt{<stem>.\allowbreak{}txt}, and what that put in the corpus was the font's alphabet with only the substitutions \texttt{font\_\allowbreak{}repair.\allowbreak{}py} covers applied to it. The measurement that says so is \texttt{2013\_\allowbreak{}Lindley\_\allowbreak{}Lyon}, whose table is read off the pages in full and which takes no repair. The table and the corpus compare token for token with nothing in between.
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\toprule
+ & reading the extraction & reading the page text \\
+\midrule
+corpus tokens the table holds & 1231 of 1878, 66\% & 2204 of 2535, 87\% \\
+marks standing in front of their letter & 1832 & 54 \\
+labialized consonants written with a plain \texttt{w} & 1630 & 42 \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The counts in the last two rows are for both Lyon papers together. The corpus used to hold \texttt{iks’ma’yɬtím} where the page holds \texttt{iksm̓ay̓ɬtím}, and \texttt{sqwlqwlstwíxwtət} where the page holds \texttt{sqʷlqʷlstwíxʷtət}. The corpus now holds what the page holds.
+
+What is left of the 13 percent is the inserted space: a word arrives in pieces and the corpus keeps the pieces, so \texttt{incítxʷ} is in it as \texttt{incítx w}. \texttt{space\_\allowbreak{}repair.\allowbreak{}py} exists to close those and cannot reach these, because the vocabulary it joins with comes from the interlinear's form column, which in this paper is the parse and carries morpheme hyphens the running text does not.
+
+\texttt{page\_\allowbreak{}text.\allowbreak{}py} is what the two readers swap in for \texttt{font\_\allowbreak{}repair.\allowbreak{}py}. Every repair in it returns its line unchanged, because applying the mapping to text that has already been through it destroys the text. \texttt{P} to \texttt{ʔ} turns \texttt{Papers} into \texttt{ʔapers} and the gloss label \texttt{APPL} into \texttt{AʔʔL}. Its \texttt{language\_\allowbreak{}line} and \texttt{carries\_\allowbreak{}orthography} had to be rewritten instead of passed through, because \texttt{font\_\allowbreak{}repair}'s versions ask whether a line holds a character only the damaged orthography writes, and the page text holds none of them by construction.
+
+\texttt{coverage\_\allowbreak{}check.\allowbreak{}py} reads the same page text for these two, under a \texttt{page} entry in its repair list, and all twelve papers with readers are back to 100 percent coverage.
+
+\subsubsection{What a pure corpus is for}
+
+The purity of both sources is the constraint everything else answers to. The target is the Salishan ingestion and the reference corpus is English, and a boundary drawn between two distributions says nothing about the languages if either side is holding something other than what it claims.
+
+\textbf{A paper holding eighteen languages has no single pure stream, and Wolfe is the first one here that does.} Every other reader writes a \texttt{.\allowbreak{}pure.\allowbreak{}txt} of one language, because every other paper is one speaker telling one story. Wolfe cites lexical suffixes from published dictionaries of Sliammon, Sechelt, Squamish, three kinds of Halkomelem, three kinds of Straits, Klallam, Lushootseed, Twana, Tillamook, Quinault and two Tsamosan languages. Pouring those into one file builds a corpus of no language at all, and it would be a corpus the sift is then measured against, where that mistake cannot be recovered from at all. So \texttt{extract\_\allowbreak{}wolfe.\allowbreak{}py} writes a \texttt{.\allowbreak{}pure.\allowbreak{}tsv} with the language in the first column and no flat pure file, and \texttt{language\_\allowbreak{}check.\allowbreak{}BY\_\allowbreak{}CORPUS} has no entry for the paper, so nothing joins an anchor by accident.
+
+Two further things are held out of that file. A reconstruction is a form the author worked out and nobody has ever said one, the distinction \texttt{salish\_\allowbreak{}marking} already draws between a transcription and a segmentation line, applied to a proto-form. And the predicted reflexes of Tables 6 and 8, which give for each language the form expected if the reconstruction was stressed, the form expected if it was not, and the form actually attested; the extraction does not keep those three columns apart reliably. Nothing is lost by that, because the attested forms of both tables are printed again in examples (1) and (6) where the columns are unambiguous.
+
+The oracles can also be turned on themselves. Every one of them is verified against its own paper. They should agree with each other about what these languages look like, and one of them can be measured against the rest of them taken together as the reference corpus. A row that sits oddly against everything else verified is one of two things: a slip in the transcription, or a real property of that paper nobody has noticed. Both are worth opening the paper for, and neither is visible from inside one table.
+
+The leave-one-out shape of that now runs at the language level. \texttt{corpus\_\allowbreak{}derivation.\allowbreak{}py} measures each dialect against the other five pooled into one reference corpus, the question the sift is actually asked, and all six stand off the pool. That shape does not yet run per row, and running it per row would name a paper to open.
+
+Once each dialect's corpus is pure, the dialects become each other's reference corpora. A boundary drawn between Nsyilxcən and Nɬeʔkepmxcín is a claim about where one ends and the other begins, and it is worth drawing because of what sits near it: forms that two dialects share and a third has lost, which is where onomatopoeia that has gone out of one of them would show.
+
+\textbf{One such boundary has now been drawn and scored against an answer the algorithm did not supply.} Lushootseed is not one dialect, and Mellesmoen and Kye's stress paper labels every form it cites northern or southern. The hand extraction copied that label into the \texttt{who} column. The border sits on disk as a published fact, from one paper, in one orthography, by one transcriber. \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}boundary\_\allowbreak{}check.\allowbreak{}py} loads those labels, sets them aside, and only compares at the end. Comparing whole distributions fails at this size and says so: the two varieties hold 1469 and 2768 bytes against a method that resolves at 6707, and a blind partition scores exactly the majority class. Holding the concept fixed with the web's gloss edge, flattening the pooled run counts to maximum entropy, and testing one run at a time does find it. The term is the stressed schwa \texttt{ə́}, southern, 45 against 6 over the 58 concepts both varieties name. Putting the border back at random 200 times, 1 of those random borders finds as much. \texttt{corpus-\allowbreak{}derivation.\allowbreak{}md} section 7 carries the tables.
+
+\textbf{That comparison has to run on a sound representation in binary, not on the characters.} These orthographies write the same sound differently and the difference is arbitrary. The lateral fricative is \texttt{ɬ} in one paper here and \texttt{ł} in another. The glottal stop is \texttt{ʔ} in most and the digit \texttt{7} in the van Eijk papers. Labialization is a raised \texttt{ʷ} in some and a plain \texttt{w} in others. A model counting character bigrams reads two dialects that share a word as maximally far apart, because it is measuring the transcriber and not the speaker. Encoding each segment as its features and comparing those makes the distance a fact about the languages.
+
+The plan those two things sit inside runs in three stages. First the pure text corpus, which fixes what each dialect writes and is what the whole hand extraction workflow above exists to produce. Then a sound representation measured off recordings, where a segment is a set of binary features and the alphabet in \texttt{TEXT\_\allowbreak{}SPACE} maps onto those features one written symbol at a time. Then a probability distribution over that representation, the thing an interdialect boundary is drawn on. The word webs are built on the encoded forms, so two dialects writing one word two ways arrive at one node.
+
+The recordings are what the sound representation is measured from, and \texttt{build/\allowbreak{}audio/\allowbreak{}} holds three of them. All three are nɬeʔkepmxcín and two are Bev Phillips. That is enough to build an encoding against and short of what a second dialect would take. The section below names the recordings that exist and are not published with their papers.
+
+Stage two is built and the section after this one gives what it measures. The word web is built as well, on the written forms: \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}word\_\allowbreak{}web/\allowbreak{}word\_\allowbreak{}web.\allowbreak{}py} joins every form in the hand extractions to the forms it is related to and writes one file per group under \texttt{build/\allowbreak{}corpora}. The web has three kinds of edge. A \textbf{concept} edge joins two forms whose glosses share a content word. It crosses an orthography, because the gloss is the only part of a form two papers wrote the same way. A \textbf{shape} edge joins two forms sharing a leading or trailing run of four characters, which in these languages is usually a shared root or affix. A \textbf{context} edge joins two forms written in the same section of one paper by one speaker. The web stands at 7062 forms and 373575 edges across nineteen groups, up from 3382 and 37484 before the Nater etymologies joined it. The edge count grew ninefold on twice the forms, and a dictionary does that to a web keyed on glosses: 1275 entries each carrying an English gloss give the concept edge far more to join than the same number of words in running narrative.
+
+What has not been built is the join between the web and the sound representation: nothing takes a character out of \texttt{TEXT\_\allowbreak{}SPACE} and hands back the features it stands for. The web's nodes are still written forms, and two dialects writing one word two ways are still two nodes. \texttt{TEXT\_\allowbreak{}SPACE} in \texttt{salish\_\allowbreak{}marking.\allowbreak{}py} is the inventory of characters these papers are written with, which is that join's other side, and it stays one definition instead of a copy per file for that reason.
+
+\texttt{english\_\allowbreak{}sift.\allowbreak{}py -\allowbreak{}-\allowbreak{}check} reports the separation as healthy against that corpus. Under one anchor, 2285 known-pure lines sit at a median of 15.15 against 1899 known-English spans at 8.49, and a cut at 9.28 keeps 99.0 percent of the pure corpus while admitting 15.3 percent of the English. Under two anchors, 96 percent of the pure lines come back as language and 98 percent of the English spans as English. Those figures say the two anchors are far apart. They do not say the language anchor is the language, and \texttt{anchor-\allowbreak{}sift-\allowbreak{}salishan.\allowbreak{}md} has what the six per-language anchors do, where they fail to separate, and why.
+
+The same measurement on the other nine papers is not comparable and should not be read as one. Each of those goes through its own repair before the comparison, and several of those orthographies write labialization with a plain \texttt{w}.
+
+\subsubsection{The binary sound representation}
+
+\texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}representation/\allowbreak{}sound/\allowbreak{}perceived\_\allowbreak{}sound.\allowbreak{}py} turns a recording into two bit fields per 10 ms frame, and \texttt{binary\_\allowbreak{}sound.\allowbreak{}py} writes them to \texttt{build/\allowbreak{}sound/\allowbreak{}<stem>.\allowbreak{}bits.\allowbreak{}tsv}. Four facts about hearing set its shape, and each of them is in the code.
+
+The waveform on its own is not enough. A vowel is a harmonic series under an envelope, and two recordings of one vowel share the envelope while the harmonics sit wherever the speaker's pitch put them. The analysis is spectral and the envelope is smoothed off the source before anything is compared.
+
+What a person hears is not what the microphone recorded, and it differs between listeners by physiology and by how much hearing they have lost. The weighting is an argument, with \texttt{NO\_\allowbreak{}LOSS} standing for a listener who has lost none. A real audiogram is the six frequencies a hearing test is run at with the loss in dB at each, and the loss comes off a band before loudness, and a band a listener cannot hear stops reaching the code.
+
+Some sounds are the same sound at different frequencies. A phone said by a small speaker and by a large one differs by a scaling of the whole spectrum. The 64 bands are log spaced, which makes that scaling a shift along the band axis, and the magnitude of a Fourier transform along that axis is unchanged by the shift. That transform is the segment field.
+
+And some sounds that differ only in frequency mean different things. Stress carries an acute in every orthography in this corpus, and a field made shift invariant to buy the paragraph above would put a stressed form and an unstressed one at one address. The prosody field is separate for that reason and holds loudness, pitch against the speaker's own median, how that pitch is moving, and voicing.
+
+\textbf{Bringing the sample to maximum entropy makes the delta readable.} Each bit is cut at its own column's median over the recording and splits the frames in half, and the segment columns are rotated onto their principal axes first so that no bit restates another. All 24 segment bits come out set on 0.500 of frames on all three recordings, and all 64 of the six bit states and all 256 of the eight bit states are reached on all three. A recording that used those states evenly would be noise, and the distance from that flat reference is the structure in it.
+
+Measured on 2026-09-04 over the three recordings in \texttt{build/\allowbreak{}audio/\allowbreak{}}, with the entropy and total variation out of \texttt{anchor\_\allowbreak{}sift.\allowbreak{}py}:
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/6-2\tabcolsep\relax}@{}}
+\toprule
+Recording & Frames & 8 bits & 10 bits & 12 bits & Prosody \\
+\midrule
+Givens and Hall, ICSNL 58 & 23489 & 0.2157 & 0.2538 & 0.3161 & 0.3708 \\
+Hall and Phillips, ICSNL 59 & 83249 & 0.2364 & 0.2863 & 0.3207 & 0.3498 \\
+Hall and Phillips, ICSNL 60 & 134997 & 0.1859 & 0.2200 & 0.2519 & 0.4594 \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+Each number is the total variation between the codes that width of field took and the flat distribution over its states. The width is part of the figure because the field has to be sampled to be read. At 12 bits the longest recording puts 33 frames in each of 4096 states; at 24 bits it puts 133820 codes in 16.8 million states, which measures the frame count and not the recording. The run reports 6, 8, 10, 12 and 14 bits for that reason, with how many states each width reached.
+
+All three recordings came from the nɬeʔkepmxcín Lab and two of them are Bev Phillips. These numbers are the method working and not a comparison of dialects. A second dialect's recording is what turns them into a reading.
+
+\subsection{Audio sources}
+
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr\textwidth/3-2\tabcolsep\relax}@{}}
+\toprule
+Recording & Address & Held \\
+\midrule
+Hall and Phillips, xʷíʔ kʷ páq (You Will Be Sorry), ICSNL 59 & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2024/\allowbreak{}07/\allowbreak{}ICSNL59\_\allowbreak{}Hall\_\allowbreak{}Phillips\_\allowbreak{}audio.\allowbreak{}mp3} & yes, 13.4 MB \\
+Givens and Hall, The Moon and the Birchbark Canoe, ICSNL 58 & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2023/\allowbreak{}07/\allowbreak{}ICSNL58\_\allowbreak{}Givens\_\allowbreak{}Hall\_\allowbreak{}The\_\allowbreak{}Moon\_\allowbreak{}and\_\allowbreak{}the\_\allowbreak{}Birchbark\_\allowbreak{}Canoe.\allowbreak{}mp3} & yes, 7.5 MB \\
+Hall and Phillips, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ, ICSNL 60 & \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2025/\allowbreak{}07/\allowbreak{}2025-\allowbreak{}05-\allowbreak{}29\_\allowbreak{}BP\_\allowbreak{}storyrevised\_\allowbreak{}trimmed.\allowbreak{}mp3} & yes, 17.1 MB \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The third is Bev Phillips reading the story \texttt{extract\_\allowbreak{}hall\_\allowbreak{}phillips.\allowbreak{}py} reads, so it is an oracle for that extraction and not only a source.
+
+Recordings named in papers and not published with them:
+
+\begin{itemize}
+\item Qwa7yán'ak, Graveyard Valley narrative. Just over half an hour, recorded by Henry Davis at Nxwísten on 7 July 2025, published with the ICSNL 61 paper.
+\item K̓weswapáw̓ (Linda Redan). Three minutes twenty-eight seconds, told over Zoom on 31 October 2025. Audio and video are held by her.
+\item George Lezard, 1966, recorded by Randy Bouchard.
+\item Nellie Guitterez, 1978 or 1979, recorded by Yvonne Hébert at an Elders' Gathering in Quilchena.
+\end{itemize}
+
+\subsection{Text sources}
+
+\texttt{build/\allowbreak{}papers/\allowbreak{}} holds 152 extracted paper texts and 146 of the PDFs they came from. Eighteen have a reader and a hand extraction and one more has a hand extraction alone. That leaves 133 of the 152 unread and 841 of the archive's 993 not fetched. Six of the 146 are in the class the section above describes, and their texts are the font's encoding.
+
+Fifty of them are about Lushootseed or Skagit. The heaviest, by how much they discuss it, are \texttt{Mellesmoen\_\allowbreak{}Kye\_\allowbreak{}ICSNL61.\allowbreak{}txt}, \texttt{Beck\_\allowbreak{}2007.\allowbreak{}txt}, \texttt{1994\_\allowbreak{}Beck.\allowbreak{}txt}, \texttt{1995\_\allowbreak{}Beck.\allowbreak{}txt}, \texttt{1998\_\allowbreak{}Cort.\allowbreak{}txt}, \texttt{2000\_\allowbreak{}Barthmaier.\allowbreak{}txt}, \texttt{1996\_\allowbreak{}Beck.\allowbreak{}txt}, \texttt{ICSNL58\_\allowbreak{}Kye\_\allowbreak{}final.\allowbreak{}txt}, \texttt{01\_\allowbreak{}ICSNL55\_\allowbreak{}Beck\_\allowbreak{}final.\allowbreak{}txt} and \texttt{2002\_\allowbreak{}Lonsdale.\allowbreak{}txt}. \texttt{1983\_\allowbreak{}Hilbert.\allowbreak{}txt} is in that set.
+
+\subsubsection{Which paper to read next}
+
+\texttt{paper\_\allowbreak{}language.\allowbreak{}py} reads each paper's front matter for the names the literature uses for each language and attributes a paper where it names one and no other. Over the 154 texts it attributes 122 and leaves 32, which are the comparative papers and are correctly left. Lushootseed leads at 43 papers, Nuxalk follows at 32.
+
+Counting how much of a language each unread paper actually holds gives a different order, and it is the order to read by. Lushootseed has 40 unread papers and 593 distinct language tokens across all of them together, which is less than one Nater appendix. The reason is the section above: most of the Lushootseed literature is older and writes the glottal stop as \texttt{?} and the schwa as \texttt{a} or \texttt{E}, and a mark set built on the modern orthography reads those papers as holding no language at all. Comox has 8 unread papers and 1899 tokens, St'át'imcets 10 and 1297, Nuxalk 29 and 1046.
+
+So the count of papers per language is not the count of language per language, and picking by the first number would spend the next month on texts a check cannot yet see into. What Lushootseed needs is not another paper but the treatment \texttt{1983\_\allowbreak{}Hilbert} and \texttt{1975\_\allowbreak{}Hilbert\_\allowbreak{}Hess} already have, which is a per-paper mark set for the orthography that paper is actually written in.
+
+\subsection{Verification sources}
+
+Sources used to test a transformation instead of to supply text. Each answers a question the code that made the change cannot answer about itself.
+
+\begin{itemize}
+\item \texttt{Lyon\allowbreak{}ICSNL60\_\allowbreak{}Inch-\allowbreak{}2.\allowbreak{}txt}. Lyon's later paper on Nsyilxcən, whose extraction kept its characters. Used twice: to test the font substitution table, which moved attested tokens from 1 of 3599 to 811 on one paper and 2 of 4332 to 965 on the other, and to test the word list recovered from the interlinear, where none of the broken forms had its pieces attested apart and 4 percent and 36 percent were attested once joined.
+\item Each paper's own second printing. Hall and Phillips, Garcia, and both Lyon papers print their stories twice, once as running text and once word by word, so one printing checks a reading of the other.
+\end{itemize}
+
+\subsection{Community sources}
+
+\begin{itemize}
+\item Puyallup Tribal Language Program, \texttt{https:/\allowbreak{}/\allowbreak{}www.\allowbreak{}puyalluptriballanguage.\allowbreak{}org/\allowbreak{}}
+\item The Salish Institute, \texttt{https:/\allowbreak{}/\allowbreak{}www.\allowbreak{}thesalishinstitute.\allowbreak{}com/\allowbreak{}salish-\allowbreak{}language}
+\end{itemize}
+
+\subsection{Where the volumes live}
+
+\begin{itemize}
+\item \textbf{Every paper, one page, 993 links: \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}icsnl-\allowbreak{}volumes/\allowbreak{}}.} ICSNL 1967 to present. The 152 texts in \texttt{build/\allowbreak{}papers/\allowbreak{}} came from here, and anyone without them starts here.
+\item UBCWPL, \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}}. Volumes 33 (1998) to 61 (2026).
+\item ICSNL archives, \texttt{https:/\allowbreak{}/\allowbreak{}blogs.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}icsnl/\allowbreak{}icsnl-\allowbreak{}archives-\allowbreak{}and-\allowbreak{}precedings/\allowbreak{}}. Volumes 1 to 32 are the Kinkade Collection.
+\item nɬeʔkepmxcín Lab, \texttt{https:/\allowbreak{}/\allowbreak{}blogs.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}nlab/\allowbreak{}projects-\allowbreak{}publications/\allowbreak{}}. Where the three audio addresses came from.
+\end{itemize}
+
+Whole volumes: ICSNL 50, \texttt{https:/\allowbreak{}/\allowbreak{}lingpapers.\allowbreak{}sites.\allowbreak{}olt.\allowbreak{}ubc.\allowbreak{}ca/\allowbreak{}files/\allowbreak{}2018/\allowbreak{}01/\allowbreak{}ICSNL2015-\allowbreak{}fullonline.\allowbreak{}pdf}.
+
+Paper addresses follow \texttt{files/\allowbreak{}<year>/\allowbreak{}<month>/\allowbreak{}<name>.\allowbreak{}pdf}, and \texttt{<name>} is the local filename in \texttt{build/\allowbreak{}papers/\allowbreak{}}. UBC answers a command-line fetch with a bot-defense captcha; a browser gets the same file.
+
+\textbf{Compiled By:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com> \textbf{Date:} 2026-09-04
+

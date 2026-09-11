@@ -1,0 +1,42 @@
+% !TEX TS-program = lualatex
+% Edited by hand. Nothing generates this file; sh maint/texbuild/build_theory.sh compiles it.
+%
+% The line above picks the engine in TeXworks and TeXShop. Typesetting this with pdfLaTeX stops on
+% \RequireLuaTeX in the preamble, and preamble.tex on its own stops sooner than that: it carries no
+% \documentclass because this file supplies one and then reads it.
+%
+% Compile from this directory so the shared inputs resolve:
+%     latexmk -pdf -outdir=../../build/theory/thought_experiments main.tex
+\documentclass[11pt,paper=a4,twoside,openright,titlepage,
+headinclude,footinclude,BCOR=5mm]{scrbook}
+
+\input{preamble.tex}
+
+\begin{document}
+\frenchspacing
+\emergencystretch=1em
+\hbadness=2000
+\vbadness=10000
+\hfuzz=2pt
+\cfoot*{}
+\ofoot*{\pagemark}
+
+\frontmatter
+\pagestyle{plain}
+\include{frontmatter/titlepage}
+\input{dedication.tex}
+\include{frontmatter/abstract}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{scrheadings}
+
+\include{chapters/chapter_thought_experiments_README}
+\include{chapters/chapter_thought_experiments_delta_null}
+\include{chapters/chapter_thought_experiments_delta_null_what_is_testable}
+\include{chapters/chapter_thought_experiments_hourly_supposition}
+\include{chapters/chapter_thought_experiments_absolute_zero}
+\include{chapters/chapter_thought_experiments_boundary_holds}
+\include{chapters/chapter_thought_experiments_unification}
+\end{document}

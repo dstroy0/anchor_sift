@@ -1,0 +1,77 @@
+\chapter{The chain}
+
+\textbf{Purpose:} Give the wall an exact law and decompose it, putting a depth figure within reach of computation instead of search. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}words.\allowbreak{}cu}, \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}depth\_\allowbreak{}cuda.\allowbreak{}cu}.
+
+\section{The wall is the chain length}
+
+A one-bit difference in the chaining state stops being visible to a per-word Hamming statistic at a definite depth. That depth is not a property of the mixing functions. It is the number of words on the shift chain.
+
+The round function generalizes to any even word count: majority and \(\Sigma_0\) read the low half's head, choice and \(\Sigma_1\) read the high half's head, and the two halves join the way the standard joins them. At eight words this is SHA-256 exactly and not a model of it, so that row is the control.
+
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+words & wall & \(\text{words} + 2\) \\
+\midrule
+8 & 10 & 10 \\
+10 & 12 & 12 \\
+12 & 14 & 14 \\
+14 & 16 & 16 \\
+16 & 18 & 18 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Eight words reproduces the wall of \(10\) measured independently by the depth bench, and that agreement is what the other rows are read against.
+
+\textbf{The offset is structure, not sample size.} The same table returns identical at \(2^{20}\), \(2^{24}\) and \(2^{28}\) pairs, a two-hundred-and-fifty-six-fold range with no drift. A cliff predicts that and a slope does not: a collapse completing inside one round cannot be pushed by adding samples.
+
+\section{Why plus two}
+
+Two of the chain's working variables are mixed. Index zero takes \(T_1 + T_2\) and index \(\mathrm{half}\) takes \(d + T_1\). Every other index is \(\mathrm{state}[i] = \mathrm{state}[i-1]\). A difference moves down the chain unchanged. So whatever the join produced \(\mathrm{count} - 1\) rounds earlier is still sitting at the tail of the chain, and the wall should be a mixing depth plus a transport delay, not one quantity.
+
+Reading each index's own death depth instead of the largest across them shows it. Every index from the \(e\) join to the tail dies at exactly \(k + 3\):
+
+\begin{center}
+\begin{tabular}{rll}
+\toprule
+words & indices from the \(e\) join & dies at \\
+\midrule
+8 & 4, 5, 6, 7 & 7, 8, 9, 10 \\
+10 & 5, 6, 7, 8, 9 & 8, 9, 10, 11, 12 \\
+12 & 6, 7, 8, 9, 10, 11 & 9, 10, 11, 12, 13, 14 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The last index is \(\mathrm{count} - 1\), so \(\mathrm{wall} = (\mathrm{count} - 1) + 3 = \mathrm{count} + 2\). The \(3\) is the round function's mixing depth, how long \(T_1\) and \(T_2\) take to saturate a freshly computed word, and it does not depend on the word count. The wall therefore tracks the count one for one. The \(-1\) is that the chain is \(\mathrm{count} - 1\) hops from the join to the tail and not \(\mathrm{count}\).
+
+\section{The two halves are different chains}
+
+The \(a\) half was read as irregular before. It is not irregular. Both halves are chains of copies below one mixed head, and both follow an exact law; the laws differ in how they depend on the chain length, and comparing a count-dependent offset against a count-independent expectation makes one of them look like noise.
+
+\begin{center}
+\begin{tabular}{rlll}
+\toprule
+words & \(a\) half & \(e\) half & apart \\
+\midrule
+8 & index \(+\, 6.00\) & index \(+\, 3.00\) & 3.00 \\
+10 & index \(+\, 7.00\) & index \(+\, 3.00\) & 4.00 \\
+12 & index \(+\, 8.00\) & index \(+\, 3.00\) & 5.00 \\
+14 & index \(+\, 9.00\) & index \(+\, 3.00\) & 6.00 \\
+16 & index \(+\, 9.75\) & index \(+\, 3.00\) & 6.75 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The \(e\) half is index \(+\,3\) at every count, exactly. The \(a\) half is index \(+\, \mathrm{half} + 2\)}, giving six, seven, eight and nine for halves of four, five, six and seven. The \(9.75\) at sixteen words is one index misreading where the law gives ten.
+
+So the \(e\) half's saturation depth does not depend on the chain length and the \(a\) half's does, growing one round per added word pair.
+
+\textbf{Which half sets the wall.} The \(a\) half's tail is index \(\mathrm{half}-1\) and dies at \((\mathrm{half}-1) + \mathrm{half} + 2 = \mathrm{count} + 1\). The \(e\) half's tail is index \(\mathrm{count}-1\) and dies at \(\mathrm{count} + 2\). The \(e\) half tail is one round deeper, so the wall comes from the \(e\) half even though the \(e\) half saturates faster per index. It wins by extending to the end of the chain and not by being slower.
+
+Unconfirmed: \(a\) takes \(T_1\) plus \(T_2\), both halves fully mixed, while \(e\) takes \(d\), a raw copy of the \(a\) half's tail, plus \(T_1\). Twice the mixing into \(a\) is consistent with it saturating sooner per index, and \(e\) reading a raw copy is consistent with its offset not tracking the chain. Neither is measured; only the laws are.
+
+\section{Six words is degenerate}
+
+Six words does not wall within thirty rounds. At three words per half, choice reads the entire high half and majority the entire low half, so neither function selects among words any more. It is excluded, not explained away.

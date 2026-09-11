@@ -1,0 +1,40 @@
+\chapter{Where it stops}
+
+\textbf{Purpose:} State the boundary of the claim, so nothing here is quoted past what it supports.
+\textbf{Scope:} the whole chapter set.
+
+\section{Right angles only}
+
+Every entry read has a cell with right angles. Oblique cells are skipped, not measured and reported as failures. A shift along a grid index is a shift along a crystal axis only when the axes are orthogonal, and on an oblique cell the grid would have to be sheared first.
+
+That is a real restriction on coverage. It restricts which crystals were read and claims nothing about which crystals could be. Whether the same detector reads a monoclinic or triclinic cell after a shear is untested here, and the honest answer is that nobody has tried it.
+
+\section{Two atoms are two atoms}
+
+This section used to record a limit that no longer exists. At 0.25 angstroms two atoms could land on the same voxel and the later one overwrote the earlier, with nothing recovering the lost site. It was harmless for the lattice period, since a period is a property of the repeating arrangement and not of any particular site, but it meant the grid was not the structure.
+
+Exact coordinates collide only where a deposit puts two sites at the same place, so nothing is lost that the deposit did not already carry. The limit was the reader's and it is gone with the reader that had it.
+
+\section{Exact does not mean true}
+
+The exact reading recovers the number a deposit carries and stops there. A cell edge written as 4.76050(5) has an uncertainty of five in its last place, fixed by the people who measured the crystal, and dropping that bracket is all this work does with it. Agreeing with a deposit to the digit is agreement with a deposit.
+
+What the exactness rules out is a second uncertainty underneath the first. The instrument contributes nothing to the error, so whatever error remains is the deposit's and can be argued about on its own terms.
+
+\section{The detector is not the measure}
+
+This work carries two instruments and reporting one as the other has caused most of the confusion it has had to correct. The crystal result belongs to the shift agreement detector, the same one that returns an image width from a byte sequence and a key length from a Vigenère cipher. It is the instrument that has external ground truth.
+
+The null permutation identity, which carries most of the findings elsewhere in this work, has no external positive control and is not what read these cells. A crystal row does not transfer to it. Anyone quoting the crystal agreement as evidence that the departure measure works has moved a result between two instruments that share nothing but a repository.
+
+\section{What a cell edge is worth here}
+
+Nothing to crystallography. The cells were published to more decimal places than this reaches, by refinement procedures built for the purpose, and a cell recovered from a deposited cell is a round trip and not a new measurement.
+
+What it is worth is the direction of the evidence. An instrument that finds a period nobody told it about, on hundreds of axes whose answers were written down in advance by other people, has been shown to find structure that is there. Every control before it could only show the instrument does not invent structure that is not. Those are different claims and only one of them can be earned with a memoryless control.
+
+\section{The open question this leaves}
+
+The detector reads a periodicity. A crystal is the case where periodicity is exact and known, so it is the easiest possible instance and it says nothing about the hard one: how far the period has to degrade before the detector stops finding it. Disorder, thermal displacement, a superlattice, an incommensurate modulation and a quasicrystal are all cases where the answer is interesting and none of them was measured.
+
+That is the experiment worth running next, and it is worth running against published structures where the degree of disorder is itself published, which keeps the answer somebody else's number.
