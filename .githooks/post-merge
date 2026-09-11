@@ -85,13 +85,21 @@ if ! git fetch --quiet "$UPSTREAM" main 2>/dev/null; then
     exit 0
 fi
 
-# Nothing to do is the common case, and it should be silent. The subtree's content is compared
-# against what was just fetched, so a pull only runs when the books actually moved.
-fetched=$(git rev-parse FETCH_HEAD 2>/dev/null)
-if [ -z "$fetched" ]; then
+# Nothing to do is the common case, and it should be silent. Two tree objects are compared by their
+# ids: what upstream holds at its root, against what this tree holds under the prefix. Identical ids
+# mean identical content and there is nothing to pull.
+#
+# The first version of this compared with git diff --quiet FETCH_HEAD:. HEAD:theory_bucket. That
+# path spelling is not valid, git exits 128 on it, and 128 is not zero, so the test read every
+# already-current subtree as changed and ran a pull on every merge. A check that cannot fail closed
+# has to be one whose failure is distinguishable from its answer.
+theirs=$(git rev-parse --verify --quiet "FETCH_HEAD^{tree}" 2>/dev/null)
+ours=$(git rev-parse --verify --quiet "HEAD:$PREFIX" 2>/dev/null)
+if [ -z "$theirs" ] || [ -z "$ours" ]; then
+    say_manual "could not read both trees to compare them"
     exit 0
 fi
-if git diff --quiet FETCH_HEAD:. "HEAD:$PREFIX" 2>/dev/null; then
+if [ "$theirs" = "$ours" ]; then
     exit 0
 fi
 
