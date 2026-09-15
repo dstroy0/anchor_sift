@@ -60,7 +60,7 @@ A dialect border inside Lushootseed, labeled by Mellesmoen and Kye and then held
 
 An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length. A protein backbone returns bond lengths of 1.45, 1.52 and 1.33 against chemistry's 1.46, 1.52 and 1.33. None of them was told anything.
 
-The ledger holds the rest, including every row that failed and why.
+The workbook holds the rest, including every row that failed and why.
 
 ## Where things are
 
@@ -128,25 +128,49 @@ Nothing. There is no model, no training, no corpus of examples, no prior. It has
 
 It runs on human timescales: seconds on a laptop against a database somebody else published. Its reach is unbounded, because it assumes nothing about the domain and needs only that the object is not already at maximum entropy. Every single reading is finite and carries a stated floor. Where the floor is not cleared, the honest answer is that nothing was read.
 
-## Whose language this is
+## Language research: Whose language this is
 
-The corpus everything is measured against is Salishan speech, written down. **This work does not exist without the speakers.**
+The largest language corpus, and the one everything else in the languages category is currently measured against is Salishan speech, which was written down by a linguist or their transcriber in almost all cases. 
 
-Every table opens with the person who spoke, before the linguist who published and before anyone who read it into a file. Where a paper cites a published dictionary and never says who spoke, its entry says so instead of guessing. The Salishan book carries that index, written speaker first, from `paper_config.py`, the only file where a speaker's name is typed.
+**This work does not exist without the speakers.**
 
-A linguist wrote the paper. A person read the paper into a table. Neither of those is whose language it is.
+Every table in the Salishan corpus opens with the person who spoke, before the linguist who published and before anyone who read it into a file. 
+Where a paper cites a published dictionary and never says who spoke, its entry says so. 
+The Salishan theory book carries that index, written speaker first.
+
+The rationale is simple: 
+   1. A linguist wrote the paper.
+   2. A person read the paper into a table.
+   3. Neither of those is whose language it is in almost every case.
+   4. Here, and for any derivative, you must list the person who was teaching us about their language first.
+   5. It's fair.
+   6. It acknowledges their contribution.
+   7. It makes performing meta-analysis about the language itself vs. the linguist or transcriptionist's style far less cumbersome over time.
+ **here, respect is identical to research efficiency**
 
 ## The condition of use
 
-These tools read a language and can put one back. `to_phonemes.py`, `encode_percussive.py` and the sound representation work do what they are named for, and `regeneration_limit.py` measures how much of a source a regeneration recovers. Saying otherwise would be a false claim about the code, and a safeguard resting on a false claim is not a safeguard.
+These tools read a language and can put one back. 
+`to_phonemes.py`, `encode_percussive.py` and the sound representation work do what they are named for, and `regeneration_limit.py` measures how much of a source a regeneration recovers. 
+Saying otherwise would be a false claim about the code, and a safeguard resting on a false claim is not a safeguard.
 
-Regeneration is faithful near the subject and escapes it with distance. Close to the center of mass of the subject the output is a copy. Move outward and it carries more, until at some distance it leaves the source distribution and is no longer that language. Past that it becomes obvious nonsense and nobody is fooled.
+Regeneration is faithful near the subject and escapes it with distance. 
+Close to the center of mass of the subject the output is a copy. 
+Move outward and it carries more, until at some distance it leaves the source distribution and is no longer that language. 
+Past that it becomes obvious nonsense and nobody is fooled.
 
-Immediately before that boundary is a narrow band where the output is still coherent and may already not be the language. **Nothing here marks which side of it a result fell on.**
+Immediately before that boundary is a narrow band where the output is still coherent and may already not be the language. 
 
-That band is where a native speaker belongs. The question there is *is this mine*, which is a question of anthropology, of philosophy, and for many communities of what is sacred. No amount of measurement turns it into a question an algorithm can answer.
+**Nothing here marks which side of it a result fell on.**
 
-**Every tool for language that comes out of this work requires a human to review its output.** That is a condition of use, not a recommendation. For a language with few remaining speakers, publishing a form drawn from outside the distribution as though it were the language is not a recoverable harm.
+That band is where a native speaker belongs. 
+The question there is *is this mine*, which is a question of anthropology, of philosophy, and for many communities of what is sacred. 
+No amount of measurement turns it into a question an algorithm can answer.
+
+**Every tool for language that comes out of this work requires a human to review its output.** 
+
+That is a condition of use, not a recommendation. 
+For a language with few remaining speakers, publishing a form drawn from outside the distribution as though it were the language is not a recoverable harm.
 
 ## Where to start
 
@@ -170,15 +194,21 @@ sh maint/texbuild/build_theory.sh
 
 The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `maint/data/salishan/get_papers.py` fetches the papers from the public archive and the tools rebuild the rest.
 
-The hand extractions are forms transcribed out of published papers, so the tables are those papers' text and not this work's to redistribute. They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/corpus/verify_private_sync.py`. Everything that does not read a paper or a table runs without them.
+The hand extractions are forms transcribed out of published papers, so the tables are those papers' text and not this work's to redistribute. 
+They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/corpus/verify_private_sync.py`. 
+Everything that does not read a paper or a table runs without them.
 
 ## Licensing, dual
 
 Licensed AGPL-3.0-or-later, with commercial contracts available. It will always be free to use under the AGPL.
 
-Educators: for an exception to use this in classrooms or research projects, email dstroy0 (Douglas Quigg) <dquigg123@gmail.com> from your `.edu` or `.org` faculty address. Exceptions are granted case by case and govern your use, specifically the accreditation requirement of underlying systems in research or presentation materials. Where an academic exemption leads to a viable market product the license shifts to a royalty ladder, set off the goodwill shown and how well students and other faculty were credited. A portion goes to your institution at a minimum, and straight to your department where their rules allow.
+Educators: for an exception to use this in classrooms or research projects, email dstroy0 (Douglas Quigg) <dquigg123@gmail.com> from your `.edu` or `.org` faculty address. 
+Exceptions are granted case by case and govern your use, specifically the accreditation requirement of underlying systems in research or presentation materials. 
+Where an academic exemption leads to a viable market product the license shifts to a royalty ladder, set off the goodwill shown and how well students and other faculty were credited. 
+A portion goes to your institution at a minimum, and straight to your department where their rules allow.
 
-**Every license already offered for this work under MMgr transfers here on the same terms.** Nobody holding one needs to do anything and no term changes because the files moved. `LICENSE` and `LICENSES/` are the same files that tree carries.
+**Every license already offered for this work under MMgr transfers here on the same terms.** 
+Nobody holding one needs to do anything and no term changes because the files moved. `LICENSE` and `LICENSES/` are the same files that tree carries.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
