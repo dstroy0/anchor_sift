@@ -1,6 +1,6 @@
-# Anchor sift
+# Anchor sift: an algorithm for precision measurement
 
-**Purpose:** Find out what this method measures, what it has read, and where it fails, without running anything first.
+**Purpose:** Find an object's information entropy.
 **Scope:** `src/`, `data/`, `analysis/`, `maint/`, `examples/`, `evidence/`, `theory/`
 
 ## Contents
@@ -21,30 +21,38 @@
 
 ## The algorithm
 
-Measure how far something sits from the most disordered arrangement of its own parts.
+Measure how far something sits from the most disordered arrangement of its own parts. (Shannon's information entropy)
 
-That is the construction. Every domain below is that sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is built from the object's own parts, so there is no prior to estimate, no training set to collect, and no model of the domain to write.
+That is the most basic construction. 
+
+Every domain below is that sentence with a different answer to what counts as a part: 
+- atoms in a cell
+- symbols in a corpus
+- bytes in a file
+- coordinates in a board layout
+
+The reference is built from the object's own parts, there is no prior to estimate, no training set, no model, or neural net representation of the domain.
 
 Building a reference by maximizing entropy under the constraints the object supplies is Jaynes's principle. The departure from it is the free energy above equilibrium.
 
-One construction runs through all six parts. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference that partition allows, and read the departure from it. The sift and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
+The basic construction Identity:Null Permutation runs through all six parts. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference that partition allows, and read the departure from it. The sift and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
 
-| part | what it holds |
+| part | what it does |
 |---|---|
 | `representation` | any domain written as points carrying values, and the re-seatings that put one symbol in one place |
-| `partition` | the unit and the scale those points are read at |
+| `partition` | the unit(s) and the scale those points are read at |
 | `reference` | the maximum entropy background under the constraints the object supplies |
 | `measure` | the departure from that background |
 | `sift` | the sound filter, a necessary condition over any index set |
-| `oracle` | agreement with ground truth somebody else published |
+| `oracle` | agreement with ground truth that somebody else published |
 
-Everything downstream of `representation` sees points and values and cannot tell a painting from a paragraph, so one instrument reads both. Four subjects have their own directories: `text`, `sound`, `picture` and `structure`, all under `representation`, the only part that knows a domain exists.
+Everything downstream of `representation` sees points and values and is blind to what an object is, so one instrument reads both. Four subjects have their own directories: `text`, `sound`, `picture` and `structure`, all under `representation`, the only part that knows a domain exists.
 
 `src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora.
 
 ## Areas of research
 
-Seven domains have been run end to end under `examples/`: language, art, crystals, proteins, sound, source code and arbitrary corpora. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts read all of them.
+Seven domains have been run end to end under `examples/`: language, art, crystals, proteins, sound, source code and arbitrary corpora. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end-to-end and agree.
 
 Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
 
@@ -56,7 +64,7 @@ The ledger holds the rest, including every row that failed and why.
 
 ## Where things are
 
-Each directory answers one question, and that question is the rule for what goes in it. There is no `tools/`, deliberately: a directory meaning "a script" takes everything, and this repository had the engine's own measure library, a research subject's whole pipeline and the prose checker filed together under that name.
+Each directory serves one purpose, things are in disarray currently.
 
 | | what it operates on | |
 |---|---|---|
@@ -80,7 +88,7 @@ Most of the confusion this work has had to correct came from reporting one as th
 | shift agreement detector | a period or an offset, from how often a shift agrees with itself | three times, from published crystal cell edges |
 | permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none |
 
-The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Read the ledger before quoting any row of it.
+The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Read the workbook before quoting any row of it.
 
 ## The sift
 
@@ -176,7 +184,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
 ## A note on how this is written
 
-The ledger keeps its own corrections. Claims that were withdrawn stay on the page with the measurement that killed them, because a document recording only what survived is not evidence. Several results are rediscoveries of published work, and where that is known the precedent is named.
+1. The workbook always keeps its own corrections.
+   - Claims that were withdrawn stay on the page with the measurement that killed them.
+   - A document recording only what survived is not evidence.
+2. Several results are rediscoveries of published work, and where that is known the precedent is named.
+   - citation is ongoing, any corrections are appreciated and welcome, attribution is critical.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-11
