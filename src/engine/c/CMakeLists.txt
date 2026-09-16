@@ -56,6 +56,16 @@ add_library(anchor_exact_portable STATIC portable/exact_limbs.c portable/exact_a
 target_include_directories(anchor_exact_portable PUBLIC portable)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
+# The steering term: the census the engine reads off the field it is about to search, the rarity
+# ordering taken from that census, and the dispatch test. Placed after the limb library because it
+# links it: the dispatch comparison is 100*total^2 against 85*distinct*sum(count^2), both of which
+# outgrow 64 bits on a corpus of any size. Carrying them exactly is why that test is no longer a
+# floating point one, so the dependency is the point rather than an inconvenience.
+add_library(anchor_steer STATIC portable/anchor_steer.c)
+target_include_directories(anchor_steer PUBLIC portable)
+target_link_libraries(anchor_steer PUBLIC anchor_exact_portable)
+target_compile_options(anchor_steer PRIVATE ${SIFT_WARNINGS})
+
 # Which vectorized arm this target can carry. Decided from the processor the build targets, and
 # every gate is defined on both arms so #if always has a value and an unset build is never a silent
 # false. An arm that is compiled in still asks the processor at run time before it is used.
@@ -171,6 +181,13 @@ target_compile_options(bench_scaling_cycles PRIVATE ${SIFT_WARNINGS})
 # compile against the counted one rather than printing a number nobody should read.
 add_executable(bench_dispatch bench/bench_dispatch.c)
 target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
+
+# Grades the entropy-ordered rejection vector. Three things in one run: the steered arm returns the
+# reference arm's count at a residual of exactly zero, the ordering reduces probe reads on a field
+# where rarity varies, and the exact dispatch agrees with answers derived from the rule by hand.
+# Carries its own negative control, ordering commonest symbol first, which must read more.
+add_executable(bench_steer bench/bench_steer.c)
+target_link_libraries(bench_steer PRIVATE anchor_steer anchor_sift_kernel)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 
 # The ingestion reading: at what scale does the corpus agree with itself, and what does that cost
