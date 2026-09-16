@@ -146,6 +146,9 @@ def main():
     shared_total = 0
     skipped_sites = 0
     pairs = {}
+    order = {}
+    coupled = {}
+    widest = []
     listed = 0
     started = time.time()
 
@@ -162,8 +165,19 @@ def main():
             continue
         doped += 1
         shared_total += len(found)
+        kinds = set()
         for elements in found.values():
             pairs[elements] = pairs.get(elements, 0) + 1
+            # How many elements share the one position. Two is the ordinary case and the tail is
+            # where the interesting chemistry is: a rare earth site runs to ten.
+            order[len(elements)] = order.get(len(elements), 0) + 1
+            if len(elements) >= 4:
+                widest.append((name[:-4], len(elements), "/".join(elements)))
+            kinds.add(elements)
+        # Distinct substitution types in one deposit. Two at once is a coupled substitution, which
+        # is how a lattice stays charge balanced while swapping ions of different charge: the
+        # plagioclase series runs Al/Si against Ca/Na, and neither half works alone.
+        coupled[len(kinds)] = coupled.get(len(kinds), 0) + 1
         if listed < SHOWN:
             listed += 1
             sites = len(crystal.site_table(text))
@@ -206,6 +220,25 @@ def main():
     out.write("  reading convenience and not the measurement\n")
     for elements, count in sorted(folded.items(), key=lambda pair: -pair[1])[:15]:
         out.write("     %-28s %d\n" % ("/".join(elements), count))
+
+    out.write("\n  how many elements share one position\n")
+    for how_many, count in sorted(order.items()):
+        out.write("     %-3d elements   %d positions\n" % (how_many, count))
+    out.write("     two is the ordinary case. The tail is not noise: a rare earth site takes\n")
+    out.write("     whichever lanthanides were available when the crystal grew, and a spinel\n")
+    out.write("     will hold most of the first transition row at once.\n")
+
+    if widest:
+        out.write("\n  the widest sites found\n")
+        for name, count, elements in sorted(widest, key=lambda row: -row[1])[:8]:
+            out.write("     %-12s %-3d %s\n" % (name, count, elements[:58]))
+
+    out.write("\n  distinct substitution types in one deposit\n")
+    for how_many, count in sorted(coupled.items()):
+        out.write("     %-3d distinct   %d entries\n" % (how_many, count))
+    out.write("     two at once is a coupled substitution. A lattice swapping ions of unequal\n")
+    out.write("     charge has to balance it somewhere else, and the plagioclase series is the\n")
+    out.write("     standard case: Al for Si on one site against Ca for Na on another.\n")
 
     out.write("\n  no occupancy was read. Stage six checks these against the published column.\n\n")
     out.flush()
