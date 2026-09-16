@@ -186,6 +186,20 @@ So F7's inequality is the right assertion and my own test could not reach the st
 
 Unchanged under the transitive closure, for a stated reason: a different rank means no edge in the closure, so the predicate is false on that pair, so agreement still implies a shared rank. The closure only makes same-rank weaker, which widens the gap the inequality allows and cannot invert it.
 
+### R9. The volume renderer documented a census parameter it discards
+
+Found by the theorist in published code, verified here, fixed at `ca62234`.
+
+`anchor_volume_render_host` took a `census` parameter documented as "Rarity source for ANCHOR_CHANNEL_RARITY, or NULL". It discarded it (`src/engine/c/portable/anchor_raster.c:473`) and built its own from `corpus` (`src/engine/c/portable/anchor_raster.c:502`). A document describing behavior the code does not have.
+
+**The failure it enables has no symptom.** A caller passing NULL is correct, and every caller in this tree passes NULL, so nothing crashed and nothing was unsound. A caller passing a census built over something ELSE, a reference distribution or a census taken over a sampled slice, would have that rarity source silently replaced by one computed from the corpus in front of it. The render succeeds. The picture is plausible. Nothing reports anything.
+
+**Verification passed straight over it.** The theorist tested this renderer the same morning and reported 20 volume rows filled 32768 with 0 collisions, which is true and which never touches this parameter. "The volume renderer is verified" was a sentence both of us wrote and it did not cover this.
+
+**Fixed by correcting the document, not by removing the parameter**, because a tunable with no reader is an integration point that is never deleted and never described as unimplemented. The declaration now says the call builds its own census from `corpus`, that this parameter is reserved for a caller supplied rarity source, and that an earlier form of the line called it the rarity source and was wrong. The same note sits at the discard site, so a reader of either meets it.
+
+**Swept for the class rather than the instance**, which is the lesson from R8's sibling an hour earlier. Every discarded parameter in the engine and the renderer was checked: `raster_value`'s is a static helper, and `anchor_raster_device`'s are the stub arm on a build with no CUDA, which is documented as refusing. `census` was the only public parameter documented as used and not used.
+
 ## Open
 
 ### O1. What the engine actually is, given the universe is the tape
