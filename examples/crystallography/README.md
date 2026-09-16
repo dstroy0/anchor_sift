@@ -41,6 +41,8 @@ Stage four shows what the measure considers. There is no sweep and no ceiling. E
 
 Stage five is the reading the old README said had not been done. The anchor cascade over a published cell survives at **3.85 times** the product of its anchors' rates, up to 30 times on one entry. The product rule assumes anchors are positioned independently and a lattice is the arrangement where they are least so. It stays a necessary condition either way, since everything holding the pattern still survives.
 
+**That figure was measured on twelve structures and it does not survive the whole cache.** Over 3639 structures it is 0.97, and the section below says why the two numbers are both correct and why neither should be quoted alone.
+
 The crystal case is also the only one where the cascade needs no tolerance. A protein is a cloud of real valued coordinates, so two occurrences of one motif never land on identical offsets, and `examples/proteins/5_sift` extends a tolerance of one voxel in each direction to get any match at all. Here a displacement either lands on an occupied place or does not.
 
 ## Doping is in the motif, and the period never sees it
@@ -79,7 +81,7 @@ The detector and the oracle report 6655 and 6662 shared positions from the same 
 difference is the detector's early return: it treats an entry whose coordinates all fail to parse as
 unreadable, and the oracle does not.
 
-### The growth series, which is the point rather than a caveat
+### The growth series
 
 The same measurement over a growing corpus:
 
@@ -90,15 +92,24 @@ The same measurement over a growing corpus:
 | 1200 | 712 | 712, all |
 | 3744 | 4352 | 4301, with 51 over a full site |
 | 6730 | 6662 | 6596, with 66 over a full site |
+| 7414 | 7208 | 7136, with 72 over a full site |
+| 8799 | 8152 | 8079, with 73 over a full site |
+
+The last row is the first one measured against a cache that had stopped growing. Every figure above it
+was taken while the fetch was still running, so each is quoted with the moment attached.
+It is also the row that says what the inconsistent positions are: 1426 more entries produced ONE more
+position over a full site, 72 to 73. The count is not tracking the corpus. These are a fixed set of
+old depositions and not a rate at which deposits are written wrong, and the earlier rows were
+climbing because the corpus had not yet reached the end of them.
 
 This section previously read "the result did not soften as the corpus grew ... tripling the
 detections moved nothing", written at 1200. **It softened.** Perfect consistency held to 1200 entries
 and stopped holding somewhere before 3744, and the honest statement is not that the earlier claim was
 wrong but that it was a true measurement of a range, quoted as though the range were the world.
 
-That is a stronger result than the original, not a retreat from it. A detector that holds across
+That is a stronger result than the original. A detector that holds across
 1200 deposits and then meets 66 deposit defects at 6730 is an instrument meeting a real corpus. The
-original framing had no room for that outcome, which is what was wrong with it.
+original framing was wrong because it had no room for that outcome.
 
 ### What the inconsistent positions are
 
@@ -116,13 +127,12 @@ leaves the deposit.
 **That count was described here as the one that would falsify the reading, and that was a badly
 built test.** A number whose appearance is supposed to settle a question cannot settle it when both
 answers produce the same number. Naming a falsifier without naming what distinguishes it from the
-alternative leaves a test that looks decisive and is not. What distinguishes them is reading the
-deposit, and 1.0% of shared positions in this corpus are deposits disagreeing with themselves rather
-than an instrument disagreeing with them.
+alternative leaves a test that looks decisive and is not. Reading the deposit distinguishes them, and
+it shows 1.0% of shared positions in this corpus to be deposits disagreeing with themselves.
 
 The converse is the half that is easy to lose. 10460 positions carry a single element under full
-occupancy. Those are vacancies and not doping: nothing substitutes there, the atom is simply absent
-some of the time. A detector that called every occupancy under 1 a dopant would be wrong on all
+occupancy. Those are vacancies. Nothing substitutes there, and the atom is simply absent some of
+the time. A detector that called every occupancy under 1 a dopant would be wrong on all
 10460, and they outnumber the shared positions by more than three to two.
 
 What the substitutions are is not something the measure was told. Folding charge and case together,
@@ -131,21 +141,21 @@ at 146. Al/Si with Ca/Na is the plagioclase coupled substitution, which is to sa
 substitution in the crust came out on top of a reading that knows no chemistry and never looked at a
 cell.
 
-Doping does not disturb the recovered period, and the reason is structural rather than lucky. The
+Doping does not disturb the recovered period. The
 cell repeats whatever it contains, dopant included, so the lattice is untouched. An ideal doped
 crystal is still exactly periodic, and stage four's two measures read two different things out of
 one set of points.
 
 ### How complex the doping gets
 
-Two elements on one position is the ordinary case and it is not the interesting one. Reading one
+Two elements on one position is the ordinary case. Reading one
 cell each across the corpus, 705 positions hold two elements, 34 hold three, and the tail runs to
 **one position holding ten**: `Ce/Dy/Er/Gd/La/Nd/Pr/Sm/Y/Yb`, a rare earth site that took whichever
 lanthanides were in the melt. Three separate spinels hold seven at once, `Al/Cr/Fe/Mg/Ni/Ti/V`.
 
-Counting distinct substitution types per deposit rather than per position, 135 entries carry one and
-**83 carry two at once**. Two at once is a coupled substitution, which is how a lattice swaps ions of
-unequal charge and stays balanced: the plagioclase series runs Al for Si on one site against Ca for
+Counting distinct substitution types per deposit, 135 entries carry one and
+**83 carry two at once**. Two at once is a coupled substitution. A lattice swaps ions of unequal
+charge that way and stays balanced. The plagioclase series runs Al for Si on one site against Ca for
 Na on another, and neither half works alone. The measure was not told that and has no charges in it.
 
 ### Symmetry expansion counts more places and finds no more doping
@@ -167,9 +177,9 @@ carries one onto the other. Tantalum and tungsten substitute readily, so this is
 solution that the asymmetric unit does not show.
 
 `1509166` puts O at (0, 1/2, 0) at full occupancy and Ag at (1/2, 0, 1/2) at half, in `I 4/m m m`.
-The I centring carries the first exactly onto the second, so an anion and a cation share one orbit
-summing to one and a half atoms on a site that holds one. That is not chemistry. It is a defect in a
-published deposit, and nothing short of expansion surfaces it.
+The I centring carries the first exactly onto the second. An anion and a cation share one orbit
+summing to one and a half atoms on a site that holds one. That is a defect in a published deposit,
+and nothing short of expansion surfaces it.
 
 So expansion is a detection. A poor detector by rate, and the right tool for what it finds.
 
@@ -181,15 +191,15 @@ settled fact. The same measurement has read four values:
 | corpus | count | why it was that |
 |---|---|---|
 | 1228 entries | 0 | the real cases were not in the corpus yet |
-| 2801 entries | 5 | three of the five were a parser artefact |
-| 2853 entries | 2 | artefact removed, two real cases remain |
+| 2801 entries | 5 | three of the five were a parser artifact |
+| 2853 entries | 2 | artifact removed, two real cases remain |
 | 6668 entries | 3 | a third arrived with the corpus, not yet inspected |
 
 Each was correct for its corpus and its parser. A reader learns more from the sequence than from the
 final value, because the sequence says what the measurement is sensitive to: corpus size found the
 real cases, and a parser defect invented three others.
 
-The artefact is worth naming. Deposits mark an undetermined position with the sentinel `-1` and the
+The artifact is worth naming. Deposits mark an undetermined position with the sentinel `-1` and the
 flag `dum`, which reduces into the cell at the origin and collides with whatever real atom sits
 there. Dickinson's 1920 wulfenite (`1011170`) writes its unsolved oxygen that way, and the reading
 reported Mo and O sharing a site. A cation and an anion cannot occupy one place, and that
@@ -199,16 +209,15 @@ impossibility is the only thing that announced it: no consistency check and no s
 Dropping them changed what every exact reading in this subject ingests, so both published figures
 were re-read with `dum` kept and dropped over all six entries that carry one. No recovered period
 moved and no agreement with a published edge flipped: **453 of 453 and 1455 of 1455 both stand.**
-The reason is structural rather than lucky, and it is the boundary rather than the reassurance. A
-spurious atom at the origin is tiled into every copy of the cell, so it shifts every plane the same
+A spurious atom at the origin is tiled into every copy of the cell, so it shifts every plane the same
 way and leaves the agreeing lags unchanged. A period is a statement about repetition and a defect
 that repeats perfectly does not disturb it. A count, a density or any distance would have moved.
 
 The expansion is exact, and that took a second scale. A translation of 1/3 is not a decimal at any
 number of places, because 10^n factors into twos and fives and three divides neither. An R centred
 operation is full of thirds and the corpus is full of R-3. Carrying those through the decimal scale
-would displace every copy they generate, so a symmetry copy would land beside the atom it should
-have landed on rather than on it, and the doping at that place would vanish silently. Coordinates in
+would displace every copy they generate. A symmetry copy would land beside the atom it should have
+landed on, and the doping at that place would vanish silently. Coordinates in
 `representation/structure/symmetry.py` are therefore integers in units of 1/(24 · 10^1024), and an
 operation whose denominator does not divide 24 raises instead of rounding. Across the corpus nothing
 raised: 24 held every operation the deposits published, eighths included.
@@ -221,6 +230,138 @@ minerals that carry doping are overwhelmingly monoclinic and triclinic, so 498 o
 back unreadable. The measure looked like it was failing on three quarters of the corpus. It was
 being handed three quarters less corpus. Reaching for the smallest reading that answers the
 question fixed it, and the same run then read every entry.
+
+### The lesson was applied to stages four and six and not to stage five
+
+Stages four and six read `crystal.exact_sites`, which works in fractional space and consults no cell
+and no angle. Stage five still reads `crystal.exact_points`, at
+`examples/crystallography/5_sift/lattice_breaks_the_product_rule.py:142`, so it still pays the cost
+the section above describes. A refused entry returns `(None, None)` and the loop does `continue`, and
+the closing line then reports a median over whatever survived with nothing on the page naming the
+denominator.
+
+`maint/analysis/survey/crystal_gate_census.py` counts what that costs. **Measured over `build/cod`
+2026-09-16 after the fetch finished, 8885 entries:**
+
+| verdict | entries | share |
+|---|---|---|
+| admitted to the exact reading | 4470 | 50.3% |
+| refused, cell not right angled | 4411 | 49.6% |
+| refused, no cell published | 4 | 0.0% |
+| refused, no atom sites | 0 | 0.0% |
+| refused, coordinate not plain decimal | 0 | 0.0% |
+
+The same census at 7459 entries, taken while the fetch was still running, gave 3708 admitted against
+3747 refused, which is 49.7% against 50.2%. The gate's tax is a property of the gate and of what the
+fetch searches for, and it does not move as the corpus grows.
+
+Half is the least interesting number here. The refusal is not spread evenly over the corpus, because
+a right angle is a property of the crystal system and the crystal system is not independent of the
+mineral family the fetch searched under:
+
+| family | entries | admitted | share |
+|---|---|---|---|
+| garnet | 408 | 398 | 97.5% |
+| spinel | 738 | 715 | 96.9% |
+| melilite | 131 | 125 | 95.4% |
+| olivine | 450 | 429 | 95.3% |
+| perovskite | 167 | 152 | 91.0% |
+| carbonate | 403 | 122 | 30.3% |
+| tourmaline | 283 | 13 | 4.6% |
+| amphibole | 363 | 13 | 3.6% |
+| feldspar | 275 | 8 | 2.9% |
+| apatite | 303 | 7 | 2.3% |
+
+A stage five figure over this cache is a figure about its cubic and orthorhombic half. Feldspar
+contributes 8 entries out of 275 and amphibole 13 out of 363, and neither absence appears anywhere in
+the output. A check that cannot fail closed has to be one whose failure is distinguishable from its
+answer, and zero findings over a root that vanished counts as a defect. The census exists so the
+denominator can be quoted beside the result.
+
+The two censuses together show the refusal is structural. Amphibole grew
+from 307 entries to 363 and its admitted count stayed at 13, so none of the 56 that arrived were
+admitted. Apatite grew from 286 to 303 and stayed at 7. Mica grew from 361 to 365 and stayed at 52.
+A family's crystal system is a fact about the mineral. A bigger sample of it does not arrive any
+more right angled than the sample already held.
+
+Carbonate is the exception, and its admitted share shows what the family column means. Carbonate
+went from 154 entries at 5.2% admitted to 403 at 30.3%, so 114 of the 249 that arrived were
+admitted, against 8 of the original 154. `maint/data/fetch/fetch_cod_doped.py` states in its header
+that the family is provenance and records the search term that returned the entry. The family
+carries no mineral classification. Rhombohedral calcite and orthorhombic aragonite are both
+carbonates and only one of them has right angles. A family whose admitted share moves that far
+between two samples is a family whose label is holding more than one crystal system. The header's
+warning arrives here as a number.
+
+Whether the gate should be lifted is a separate question. This section measures what the gate refuses.
+
+### The product rule fails in both directions, and the default limit only ever showed one
+
+`examples/crystallography/5_sift/lattice_breaks_the_product_rule.py` stops at 12 structures unless a
+count is passed. **Run over the whole cache 2026-09-16 it reads 3639 structures and draws 145560
+needles, and its closing median is 0.97.** At 12 structures that median is 4.33 and at 40 it is 4.53.
+
+**This stage is measured at the 7459 entry moment and the two above it are measured at 8885.** The
+cache finished filling after this run and stage five was not repeated on the larger one, because the
+repeat costs hours and a partial repeat would mislead. The cache is walked in filename order. A run
+stopped early has seen the low identifiers and almost none of the single-element structures, the
+same bias described below arriving by a different route. A
+complete measurement at a named moment is worth more than an incomplete one at a later moment.
+
+3639 is the second denominator this stage drops quietly. The census above admits 3708 entries to the
+exact reading, and the run reports 3639, because a structure from which no needle can be drawn hits
+`if not ratios: continue` and leaves no trace in the output. The 69 entries between the two numbers
+are not failures of the cascade and they are not successes either. They are entries it never asked a
+question of.
+
+The median did not drift. It is reporting a mixture of two populations that fail the product rule in
+opposite directions, and `maint/analysis/survey/sift_ratio_by_elements.py` separates them:
+
+| population | structures | median of per-structure medians | share above 1 |
+|---|---|---|---|
+| one element | 1959 | 0.32 | **0.0%** |
+| more than one element | 1680 | 5.91 | **95.4%** |
+| every structure | 3639 | 0.98 | 44.0% |
+
+The separation is total. Not one of the 1959 single-element structures has a median above 1, and
+95.4% of the multi-element ones do. By element count:
+
+| elements | structures | median of medians |
+|---|---|---|
+| 1 | 1959 | 0.32 |
+| 2 | 127 | 3.84 |
+| 3 | 445 | 6.13 |
+| 4 | 505 | 6.08 |
+| 5 | 327 | 7.77 |
+| 6 | 135 | 7.67 |
+| 9 | 24 | 9.25 |
+| 10 | 23 | 9.55 |
+
+The mechanism is stated in that tool's header and it is two different faults wearing one number. An
+anchor is `element E at displacement d` and the rule credits it with the rate at which E occurs. In
+a structure holding one element every anchor matches compositionally at every occupied place, each
+rate is 1, and the rule predicts nothing is filtered. What filters an alignment there is whether the
+displacement lands on an occupied place at all, which is geometry the rule does not model, so it
+over predicts and the ratio falls under 1. In a structure holding several elements the rates are
+genuinely below 1 and the rule's other assumption fails instead: it takes the anchors to be
+positioned independently, and a lattice is where they are least so, so it under predicts and the
+ratio rises well above 1.
+
+**The 3.85 in the section above is a true measurement of the multi-element population, quoted as
+though it were the corpus.** It is the same fault the doping growth series records one section
+earlier, found a second time in a different stage, and the default limit of 12 is what hid it.
+
+The cache is walked in filename order and a COD identifier sorts as text, so the order is an
+accident of how the archive numbers its entries and it is not random with respect to composition.
+1920 of the 1959 single-element structures carry an identifier at or above 9000000, and the first
+single-element structure of the run is its **345th** row. **Any limit under 345 sees none of them**,
+which means every figure this stage has published was drawn from a pure multi-element sample without
+anything saying so. 12 was not an unlucky draw. No reachable small limit would have been a lucky
+one.
+
+A closing median over the mixture describes neither population and moves with whatever the fetch
+last gathered. The two rows are the result. The combined row is an artifact of this cache's
+composition and should not be quoted at all.
 
 ## The first attempt at this was built wrong twice
 
