@@ -35,6 +35,14 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 set(SIFT_WARNINGS $<$<C_COMPILER_ID:GNU,Clang>:-O2 -Wall -Wextra>)
 
+# The repository root, computed once. Tests live outside this directory, and a target naming one
+# through an inline ../../../ chain breaks the moment either file moves. Guarded because
+# test_arm_agreement introduced the same variable on another branch and the two must not collide
+# when they meet.
+if(NOT DEFINED ANCHOR_SIFT_ROOT)
+    get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
+endif()
+
 # The kernel as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a
 # measurement.
 add_library(anchor_sift_kernel STATIC portable/anchor_sift.c)
@@ -274,8 +282,14 @@ target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
 # reference arm's count at a residual of exactly zero, the ordering reduces probe reads on a field
 # where rarity varies, and the exact dispatch agrees with answers derived from the rule by hand.
 # Carries its own negative control, ordering commonest symbol first, which must read more.
-add_executable(bench_steer bench/bench_steer.c)
-target_link_libraries(bench_steer PRIVATE anchor_steer anchor_sift_kernel)
+# Grades the entropy-ordered rejection vector. In test/ and not bench/ because it answers whether the
+# engine is correct and never how fast: it carries no timing call, and the probe reads it measures
+# are assertions rather than reported costs. Ordering commonest symbol first must read MORE than the
+# unsteered order or the run fails, which is what makes the steering testable at all.
+#
+# Resolved from a computed root rather than an inline relative chain, matching test_arm_agreement.
+add_executable(test_steer ${ANCHOR_SIFT_ROOT}/test/engine/test_steer.c)
+target_link_libraries(test_steer PRIVATE anchor_steer anchor_sift_kernel)
 
 # Sweeps every render configuration, four layouts by four channels, writes each as a PGM, grades the
 # host raster against the device one byte for byte where a device is present, and times the frame
