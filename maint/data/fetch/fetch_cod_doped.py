@@ -126,7 +126,7 @@ def main():
     added = 0
     started = time.time()
     for name in WANTED:
-        if (len(have) + added) >= target:
+        if len(have) >= target:
             break
         out.write("  %-18s " % name)
         out.flush()
@@ -157,7 +157,7 @@ def main():
 
         took = 0
         for number in numbers:
-            if (len(have) + added) >= target:
+            if len(have) >= target:
                 break
             text = fetched(CIF % number, out)
             time.sleep(PAUSE)
