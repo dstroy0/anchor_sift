@@ -107,7 +107,7 @@ detections moved nothing", written at 1200. **It softened.** Perfect consistency
 and stopped holding somewhere before 3744, and the honest statement is not that the earlier claim was
 wrong but that it was a true measurement of a range, quoted as though the range were the world.
 
-That is a stronger result than the original, not a retreat from it. A detector that holds across
+That is a stronger result than the original. A detector that holds across
 1200 deposits and then meets 66 deposit defects at 6730 is an instrument meeting a real corpus. The
 original framing was wrong because it had no room for that outcome.
 
@@ -131,8 +131,8 @@ alternative leaves a test that looks decisive and is not. Reading the deposit di
 it shows 1.0% of shared positions in this corpus to be deposits disagreeing with themselves.
 
 The converse is the half that is easy to lose. 10460 positions carry a single element under full
-occupancy. Those are vacancies and not doping: nothing substitutes there, the atom is simply absent
-some of the time. A detector that called every occupancy under 1 a dopant would be wrong on all
+occupancy. Those are vacancies. Nothing substitutes there, and the atom is simply absent some of
+the time. A detector that called every occupancy under 1 a dopant would be wrong on all
 10460, and they outnumber the shared positions by more than three to two.
 
 What the substitutions are is not something the measure was told. Folding charge and case together,
@@ -148,7 +148,7 @@ one set of points.
 
 ### How complex the doping gets
 
-Two elements on one position is the ordinary case and it is not the interesting one. Reading one
+Two elements on one position is the ordinary case. Reading one
 cell each across the corpus, 705 positions hold two elements, 34 hold three, and the tail runs to
 **one position holding ten**: `Ce/Dy/Er/Gd/La/Nd/Pr/Sm/Y/Yb`, a rare earth site that took whichever
 lanthanides were in the melt. Three separate spinels hold seven at once, `Al/Cr/Fe/Mg/Ni/Ti/V`.
@@ -178,8 +178,8 @@ solution that the asymmetric unit does not show.
 
 `1509166` puts O at (0, 1/2, 0) at full occupancy and Ag at (1/2, 0, 1/2) at half, in `I 4/m m m`.
 The I centring carries the first exactly onto the second. An anion and a cation share one orbit
-summing to one and a half atoms on a site that holds one. That is not chemistry. It is a defect in a
-published deposit, and nothing short of expansion surfaces it.
+summing to one and a half atoms on a site that holds one. That is a defect in a published deposit,
+and nothing short of expansion surfaces it.
 
 So expansion is a detection. A poor detector by rate, and the right tool for what it finds.
 
@@ -274,11 +274,11 @@ mineral family the fetch searched under:
 
 A stage five figure over this cache is a figure about its cubic and orthorhombic half. Feldspar
 contributes 8 entries out of 275 and amphibole 13 out of 363, and neither absence appears anywhere in
-the output. `DEVELOPMENT_RULES` names this case: a check that cannot fail closed has to be one whose
-failure is distinguishable from its answer, and zero findings over a root that vanished counts as a
-defect. The census exists so the denominator can be quoted beside the result.
+the output. A check that cannot fail closed has to be one whose failure is distinguishable from its
+answer, and zero findings over a root that vanished counts as a defect. The census exists so the
+denominator can be quoted beside the result.
 
-The two censuses together say the refusal is structural and not a sampling accident. Amphibole grew
+The two censuses together show the refusal is structural. Amphibole grew
 from 307 entries to 363 and its admitted count stayed at 13, so none of the 56 that arrived were
 admitted. Apatite grew from 286 to 303 and stayed at 7. Mica grew from 361 to 365 and stayed at 52.
 A family's crystal system is a fact about the mineral. A bigger sample of it does not arrive any
@@ -293,8 +293,7 @@ carbonates and only one of them has right angles. A family whose admitted share 
 between two samples is a family whose label is holding more than one crystal system. The header's
 warning arrives here as a number.
 
-Whether the gate should be lifted is a separate question and it is argued in
-`PROPOSALS/CRYSTAL_EXACT_PATH_RIGHT_ANGLE_GATE.md`. This measures the gate and does not answer that.
+Whether the gate should be lifted is a separate question. This section measures what the gate refuses.
 
 ### The product rule fails in both directions, and the default limit only ever showed one
 
@@ -304,9 +303,9 @@ needles, and its closing median is 0.97.** At 12 structures that median is 4.33 
 
 **This stage is measured at the 7459 entry moment and the two above it are measured at 8885.** The
 cache finished filling after this run and stage five was not repeated on the larger one, because the
-repeat costs hours and a partial repeat is worth less than nothing here: the cache is walked in
-filename order. A run stopped early has seen the low identifiers and almost none of the
-single-element structures, the same bias described below arriving by a different route. A
+repeat costs hours and a partial repeat would mislead. The cache is walked in filename order. A run
+stopped early has seen the low identifiers and almost none of the single-element structures, the
+same bias described below arriving by a different route. A
 complete measurement at a named moment is worth more than an incomplete one at a later moment.
 
 3639 is the second denominator this stage drops quietly. The census above admits 3708 entries to the
