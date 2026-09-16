@@ -50,6 +50,37 @@ typedef struct
 } AnchorSteerArm;
 
 /**
+ * @brief Scans served by any arm since the last reset.
+ *
+ * A CORRECTNESS SUITE CANNOT DETECT AN UNUSED IMPLEMENTATION. An arm that is compiled, graded and
+ * never called produces no wrong answer, so every count stays identical and every test keeps
+ * passing. That is not a hypothetical: the AVX2 arm here was built, graded against portable and
+ * benched at 33 times its rate while the planner went on running its own scalar loop, and nothing in
+ * the suite said so.
+ *
+ * These two counters make the wiring assertable. The claim is not that the arms agree, which the
+ * differential already covers, but that the arm the machine carries actually RAN. A test reads them
+ * after a planner run and requires the wide count to be non-zero wherever a wide arm reports itself
+ * present.
+ */
+extern uint64_t anchor_steer_scan_calls;
+
+/** @brief Scans served by a vectorized arm since the last reset. */
+extern uint64_t anchor_steer_wide_calls;
+
+/** @brief Sets both scan counters to zero. */
+void anchor_steer_scan_counters_reset(void);
+
+/**
+ * @brief The widest arm this machine carries, which is what the planner calls.
+ *
+ * @return The arm. Never null, since the portable one is always present.
+ * @note Resolved on every call. A caller in a hot path holds the result rather than asking again,
+ *       because the processor query costs more than a scan does.
+ */
+const AnchorSteerArm *anchor_steer_best_arm(void);
+
+/**
  * @brief The portable C11 arm, the reference every other arm is graded against.
  *
  * @return A pointer to the arm. Never null, since this arm runs anywhere a C11 compiler built it.

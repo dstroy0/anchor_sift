@@ -310,13 +310,25 @@ static int adversarial_case_boundaries(void)
 }
 
 /**
- * @brief Case 4. A symbol the field never produces, graded on the count and on the reads.
+ * @brief Case 4. A symbol the field never produces, graded on the count and on the ordering paying.
  *
- * @return 0 where the count is zero and the read count is at most one a alignment, 1 otherwise.
- * @note TWO CLAIMS, GRADED SEPARATELY. The count being zero says the answer is right. The reads
- *       being at most one an alignment says the ordering put the absent symbol first, and that is what
- *       the magnitude rule promises. An engine passing the first and failing the second is correct
- *       and is not steering.
+ * @return 0 where both arms count zero and the steered arm reads strictly fewer, 1 otherwise.
+ * @note TWO CLAIMS, GRADED SEPARATELY. The count being zero says the answer is right. The steered
+ *       arm reading fewer bytes than the spatial arm says the ordering put the absent symbol first,
+ *       and that is what the magnitude rule promises. An engine passing the first and failing the
+ *       second is correct and is not steering, and one assertion covering both would hide it.
+ * @note THE SECOND CLAIM IS A RELATIONSHIP, and an earlier version of this case made it a CONSTANT.
+ *       It asserted at most one read an alignment, passed at exactly that bound with no margin, and
+ *       was therefore one read away from failing. A vectorized arm examines a whole vector whether
+ *       the ordering needed it or not, so an arm doing strictly less work can read more bytes and
+ *       break an assertion that a scalar arm satisfies. A case that fails on a correct
+ *       implementation is a case somebody disables during a vectorization pass and never restores.
+ *       Comparing the two arms survives whatever read accounting either of them uses, because both
+ *       are counted the same way.
+ * @note THE FIELD CARRIES THREE SYMBOLS so the needle's other bytes are common in it. The spatial
+ *       order then pays for its first probe agreeing about a third of the time, which separates the
+ *       arms by a margin instead of by a rounding. The absent byte stays absent, so the count stays
+ *       zero.
  */
 static int adversarial_case_absent_symbol(void)
 {
@@ -330,32 +342,46 @@ static int adversarial_case_absent_symbol(void)
         return 1;
     }
 
-    // Every byte below 0x80, so 0xFF appears nowhere and the needle cannot occur.
+    // Three symbols, all of them carried by the needle, and 0xFF is not one of them.
     uint64_t state = 0xD1B54A32D192ED03ULL;
     for (size_t at = 0u; at < ADVERSARIAL_CORPUS; at += 1u)
     {
-        corpus[at] = (uint8_t)(adversarial_next(&state) & 0x7Fu);
+        corpus[at] = (uint8_t)('a' + (adversarial_next(&state) % 3u));
     }
 
-    anchor_steer_probes_reset();
-    const size_t count = anchor_steer_count(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle), 1);
-    const uint64_t reads = anchor_steer_probes;
     const size_t alignments = ADVERSARIAL_CORPUS - sizeof(needle) + 1u;
 
-    if (count != 0u)
+    anchor_steer_probes_reset();
+    const size_t plain_count = anchor_steer_count(corpus, ADVERSARIAL_CORPUS, needle,
+                                                  sizeof(needle), 0);
+    const uint64_t plain_reads = anchor_steer_probes;
+
+    anchor_steer_probes_reset();
+    const size_t steered_count = anchor_steer_count(corpus, ADVERSARIAL_CORPUS, needle,
+                                                    sizeof(needle), 1);
+    const uint64_t steered_reads = anchor_steer_probes;
+
+    if ((plain_count != 0u) || (steered_count != 0u))
     {
-        printf("    FAIL absent symbol count: %zu against 0\n", count);
+        printf("    FAIL absent symbol count: unsteered %zu, steered %zu, both should be 0\n",
+               plain_count, steered_count);
         failed = 1;
     }
-    if (reads > (uint64_t)alignments)
+    if (steered_reads >= plain_reads)
     {
-        printf("    FAIL absent symbol reads: %llu over %zu alignments, above one each\n",
-                    (unsigned long long)reads, alignments);
+        printf("    FAIL the ordering did not pay: steered %llu reads against unsteered %llu, so "
+               "the absent symbol was not tested first\n",
+               (unsigned long long)steered_reads, (unsigned long long)plain_reads);
         failed = 1;
     }
 
-    printf("  absent symbol, %llu reads over %zu alignments, verdict %s\n",
-                (unsigned long long)reads, alignments, (failed == 0) ? "ok" : "FAILS");
+    // Reported and never asserted. A scalar arm puts the steered figure at one read an alignment,
+    // and a reader noticing that number move learns something the pass condition deliberately
+    // does not depend on.
+    printf("  absent symbol over %zu alignments, steered %llu reads against unsteered %llu, "
+           "verdict %s\n",
+           alignments, (unsigned long long)steered_reads, (unsigned long long)plain_reads,
+           (failed == 0) ? "ok" : "FAILS");
     free(corpus);
     return failed;
 }

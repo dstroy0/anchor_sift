@@ -99,6 +99,11 @@ static int steer_avx2_present(void)
 size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
                                       const uint8_t *alive, uint8_t wanted, size_t offset)
 {
+    /* Counted before the argument check, so a caller passing nothing still records that this arm
+     * was the one asked. The claim the counters carry is which arm RAN and not what it returned. */
+    anchor_steer_scan_calls += 1u;
+    anchor_steer_wide_calls += 1u;
+
     if ((corpus == NULL) || (alive == NULL) || (alignments == 0u))
     {
         return 0u;

@@ -30,6 +30,7 @@
 
 #include "anchor_sift.h"
 #include "anchor_steer.h"
+#include "anchor_steer_arm.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -616,6 +617,72 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     return failed;
 }
 
+/**
+ * @brief Asserts that the arm this machine carries was actually taken, not merely compiled.
+ *
+ * @return Count of failures.
+ *
+ * THIS IS NOT A CORRECTNESS CHECK AND IT CANNOT BE ONE. An arm that is compiled, graded and never
+ * called produces no wrong answer. Every count stays identical, every differential passes, and the
+ * suite reports green while the engine runs the scalar path it always ran. That happened here: the
+ * AVX2 arm was built, graded against portable and benched at thirty-three times its rate while
+ * anchor_steer.c went on calling its own loop, and nothing in the suite could say so, because
+ * identical counts are exactly what an unused implementation produces.
+ *
+ * The claim asserted here is about the WIRING. Run the planner, then require that the widest arm
+ * reporting itself present is the one the scan counter says ran. A machine with no wide arm passes
+ * on the portable count alone, which is correct rather than a waiver: there is nothing to have
+ * failed to wire.
+ */
+static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
+                              size_t needle_len)
+{
+    int failed = 0;
+    const size_t alignments = (corpus_len - needle_len) + 1u;
+    uint8_t *scratch = (uint8_t *)malloc(alignments);
+    if (scratch == NULL)
+    {
+        printf("  allocation failed in the wiring check\n");
+        return 1;
+    }
+
+    const AnchorSteerArm *best = anchor_steer_best_arm();
+    const int wide_present = (strcmp(best->name, "portable") != 0) ? 1 : 0;
+
+    printf("\n  THE ARM IS WIRED, not merely compiled.\n\n");
+
+    anchor_steer_scan_counters_reset();
+    size_t spawned[ANCHOR_STEER_ANCHORS];
+    (void)anchor_steer_spawn_coarms(spawned, ANCHOR_STEER_ANCHORS, corpus, corpus_len, needle,
+                                    needle_len, scratch, alignments, 1u);
+
+    printf("  %18s %14s %14s %10s\n", "widest arm", "scans", "wide scans", "verdict");
+
+    const int ok = (anchor_steer_scan_calls > 0u)
+                && ((wide_present == 0) || (anchor_steer_wide_calls > 0u));
+    printf("  %18s %14llu %14llu %10s\n", best->name,
+           (unsigned long long)anchor_steer_scan_calls,
+           (unsigned long long)anchor_steer_wide_calls, ok ? "ok" : "FAILS");
+
+    if (anchor_steer_scan_calls == 0u)
+    {
+        printf("    the planner served no scan through an arm at all\n");
+        failed += 1;
+    }
+    else if ((wide_present != 0) && (anchor_steer_wide_calls == 0u))
+    {
+        printf("    %s reports present and the planner never called it\n", best->name);
+        failed += 1;
+    }
+    else if (wide_present == 0)
+    {
+        printf("    no wide arm on this machine, so the portable count is the whole claim\n");
+    }
+
+    free(scratch);
+    return failed;
+}
+
 int main(void)
 {
     uint8_t *corpus = (uint8_t *)malloc(STEER_CORPUS);
@@ -642,6 +709,7 @@ int main(void)
     failed += check_ordering_pays(corpus, STEER_CORPUS, needle, sizeof(needle));
     failed += check_dispatch_exact();
     failed += check_exact_matches_double();
+    failed += check_arm_is_wired(corpus, STEER_CORPUS, needle, sizeof(needle));
 
     printf("\n  ARMS, EYES AND COARMS, spawned and swept against a reference count.\n");
     failed += grade_field("synthetic skewed", corpus, STEER_CORPUS);

@@ -17,9 +17,34 @@
 
 #include "anchor_steer_arm.h"
 
+uint64_t anchor_steer_scan_calls = 0u;
+uint64_t anchor_steer_wide_calls = 0u;
+
+void anchor_steer_scan_counters_reset(void)
+{
+    anchor_steer_scan_calls = 0u;
+    anchor_steer_wide_calls = 0u;
+}
+
+const AnchorSteerArm *anchor_steer_best_arm(void)
+{
+#if defined(ANCHOR_STEER_HAVE_AVX2) && ANCHOR_STEER_HAVE_AVX2
+    {
+        const AnchorSteerArm *wide = anchor_steer_avx2_arm();
+        if (wide != NULL)
+        {
+            return wide;
+        }
+    }
+#endif
+    return anchor_steer_portable_arm();
+}
+
 size_t anchor_steer_truthy_after_portable(const uint8_t *corpus, size_t alignments,
                                           const uint8_t *alive, uint8_t wanted, size_t offset)
 {
+    anchor_steer_scan_calls += 1u;
+
     if ((corpus == NULL) || (alive == NULL) || (alignments == 0u))
     {
         return 0u;
