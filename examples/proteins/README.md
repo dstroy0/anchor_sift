@@ -80,20 +80,42 @@ the flat background, about a sixth of the plane, which is how much a structure w
 all would reach. Live sits well above the shuffle, and the shuffle well above the flat floor, on
 every entry.
 
-**Stage six** is the positive control the subject lacked. It sweeps 300 X-ray structures at 1.5
-angstroms or better, recovers each one's outlier rate from the torsions alone, and compares it to
-the rate wwPDB published for that entry.
+**Stage six** is the positive control the subject lacked. It draws 1000 proteins at random from
+every X-ray entry in the open Protein Data Bank, recovers each one's outlier rate from the torsions
+alone, and compares it to the rate wwPDB published for that entry. The archive is open and keyless
+the same way the Crystallography Open Database is, which is what let crystallography build its
+control, and the draw is seeded so it repeats.
 
-**Of 292 structures graded, 233 land on the published outlier rate exactly, and 40 more within a
-single residue: 93.5 percent agree to within one residue, from the torsions alone.** The 19 that do
-not are all in one direction. Eighteen of the nineteen count more outliers than wwPDB, not fewer,
-and the widest is five residues on a 114-residue chain. Nothing here was tuned to reach that: the
-contours and cutoffs are MolProbity's, the corpus is the archive's own search result sorted by
-resolution, and the sweep was run once through.
+The corpus is random on purpose. Sorting by resolution and taking the top was the wrong control:
+the best-resolved structures are almost all zero outliers, so an instrument that only ever answered
+zero would have passed. A random protein spans the whole quality range and carries published rates
+from zero to several percent, and reproducing that spread is the test.
 
-The agreement is not exact equality on every structure, and it was never going to be. A miss here
-is one-directional, and that direction is the finding: where the two disagree, this reading counts
-one or two residues as outliers that the pipeline's own count does not, almost never the reverse.
+**Of 1000 random proteins graded, 535 land on the published outlier rate exactly, and 149 more
+within a single residue: 684 of 1000 agree to within one residue.** That is lower than a sorted
+corpus reaches, and it is meant to be. The disagreement tracks resolution, cleanly and in one
+direction:
+
+| resolution | within one residue |
+|---|---|
+| 1.0 A | 42 of 46 (91%) |
+| 1.5 A | 164 of 205 (80%) |
+| 2.0 A | 304 of 410 (74%) |
+| 2.5 A | 113 of 204 (55%) |
+| 3.0 A | 50 of 91 (55%) |
+| 3.5 A and worse | 11 of 44 (25%) |
+
+At the resolution where the backbone is placed to a fraction of an angstrom, the reading reproduces
+the published rate almost every time. Where the coordinates are uncertain, the two counts diverge.
+And the divergence has a direction: of the 316 misses, 299 count more outliers than wwPDB, not
+fewer. The reading is not finding structure that is absent; it is scoring residues the pipeline's
+own count leaves out, and it does so more often exactly where the model is least certain. Nothing
+was tuned to reach this: the contours and cutoffs are MolProbity's, the corpus is a seeded random
+draw from every X-ray protein entry, and the sweep ran once through.
+
+The agreement is not exact equality on every structure, and it was never going to be. Where the two
+disagree the direction is the finding: this reading counts residues as outliers that the pipeline's
+own count does not, almost never the reverse.
 The angle is not in dispute, since the decimal `atan2` agrees with a double to fourteen places.
 What differs is which residues each side scores at all. Chain ends, alternate locations and
 residues at a break are counting conventions, and the last residue of disagreement lives there. The
@@ -119,14 +141,21 @@ domain that reads through it.
 ```
 python examples/proteins/4_measure/outlier_rate_from_the_rules.py
 python examples/proteins/3_reference/what_a_shuffle_reaches.py
-python examples/proteins/6_oracle/published_outlier_rate.py 300
+python examples/proteins/6_oracle/published_outlier_rate.py 1000
 ```
+
+The oracle takes how many proteins to grade, defaulting to 1000. It draws from a seeded shuffle of
+every X-ray protein entry, so a smaller number is a prefix of the same corpus and a larger one
+extends it; the draw is the same on every machine. The corpus is a target to reach, not a slice off
+the top: an entry with no PDB-format file or no published number is skipped and the next id drawn,
+until the target grades.
 
 Stages three and four read the six curated structures in
 `representation.structure.protein.WANTED` and cache them under `build/corpora`. The oracle fetches
-its corpus from the RCSB search and its published numbers from the RCSB data API, and caches
-everything under `build/rama`; a second run costs the archives nothing. The reference contours are
-fetched once from the Richardson laboratory's public repository and cached beside them.
+its coordinate files and its published numbers from the open RCSB mirror of the Protein Data Bank,
+which needs no account or key, and caches everything under `build/corpora` and `build/rama`; a
+second run costs the archive nothing. The reference contours are fetched once from the Richardson
+laboratory's public repository and cached beside them.
 
 The rules are not this work's. The Top8000 Ramachandran contours are published by the Richardson
 laboratory at <https://github.com/rlabduke/reference_data> under CC BY 4.0, and are the same
