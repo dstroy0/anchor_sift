@@ -5,13 +5,23 @@
 
 The engine searches by placing anchors on the needle and testing them at every alignment. An alignment that disagrees at any anchor cannot hold the needle, so it is rejected without a full compare. Which anchors it places, the order it tests them in, and the shape each one takes were all fixed before the corpus was looked at. This document covers the code that decides those three from the corpus instead.
 
-## Every arrangement of the probes is a null
+## Every probe is a necessary condition
 
-An alignment survives only when every probe agrees with the needle, and the survivor is then verified with a full compare (`src/engine/c/portable/anchor_steer.c:666`). Agreement across a probe set is a conjunction, and a conjunction does not depend on the order its terms are tested in. Reordering the probes, moving them, or changing their shape therefore leaves the surviving set identical and leaves the count identical.
+Each probe tests whether the corpus at some offset carries the needle's own byte at that offset (`src/engine/c/portable/anchor_steer.c:445-457`). A true occurrence agrees at every offset, so it agrees at every probe. Each probe is therefore a necessary condition of an occurrence, a conjunction of necessary conditions is itself one, and no true occurrence is lost by any probe set. Survivors are then filtered by a full compare (`src/engine/c/portable/anchor_steer.c:666`), which removes the false ones. The count is exact for any probe set whatever.
 
-A move that cannot change the answer is what this tree calls a null. The arrangements of a probe set form a group of such moves, and choosing among them is steering.
+Order independence follows from that, because conjunction commutes. Reordering the probes, moving them, or changing their shape leaves the surviving set identical. A move that cannot change the answer is what this tree calls a null, and choosing among the arrangements is steering.
 
-One consequence shapes the whole design. A planner that samples badly, ranks wrongly, or contains a defect still produces some arrangement, and every arrangement yields the same count. Correctness is not a quantity the planner can spend. Speed is the only one it can spend, and that bounds the damage a bad planner does to the time it takes. An approximate planner is therefore safe to build and safe to interrupt.
+One consequence shapes the whole design. A planner that samples badly, ranks wrongly, or contains a defect still produces some probe set, and every probe set yields the same count. Correctness is not a quantity the planner can spend. Speed is the only one it can spend, and that bounds the damage a bad planner does to the time it takes. The empty plan makes this vivid: destroy every probe, send every alignment to the full compare, and the answer is still exactly right at maximum cost.
+
+## What keeps a probe inside the family
+
+The guarantee above covers necessary conditions and nothing wider, so the value of the guarantee depends on every probe staying inside that family. Three things in the code hold the boundary. `anchor_steer_probe_fits` keeps the origin below `needle_len` and requires every position the probe reads to stay inside the needle (`src/engine/c/portable/anchor_steer.c:416-441`). Candidate generation rejects any shape failing that test before it is scored (`src/engine/c/portable/anchor_steer.c:545`). The comparison reads `needle[offset]`, the needle's own byte at the offset being tested (`src/engine/c/portable/anchor_steer.c:445-457`).
+
+Three shapes would leave the family, and a probe type added later can leave it silently with a missing occurrence as the only symptom.
+
+A probe reading outside the needle has nothing to compare against. A probe comparing against any value other than the needle's own byte at that offset tests something an occurrence does not have to satisfy. A predicate taken from the census instead of from the needle is the live danger in a steering engine: a rule like "skip alignments in a low-rarity region" is not implied by occurrence and drops true hits. The census chooses among probes and must never become one.
+
+A fourth case is latent. An eye here is a conjunction of byte equalities, so the rule holds. If an eye ever becomes an actual integral, an aggregate is a necessary condition only when both sides are computed identically in exact arithmetic. Two different summation orders in floating point would let a true occurrence fail its own test.
 
 ## The census is the engine reading its own field
 
@@ -58,7 +68,11 @@ Two separate properties hold, and the second one carries the argument.
 
 The descent is bounded. One probe is placed per level, a placed probe is never reconsidered, and the depth is `wanted`, which the guard holds at or under `ANCHOR_STEER_ANCHORS` (`src/engine/c/portable/anchor_steer.c:299-302`). That constant is 4 (`src/engine/c/portable/anchor_steer.h:68`). No branch in the descent lets corpus content change how many levels run, only which probe a level picks. The depth is fixed before the program starts, and the loop terminates for the reason a `for` loop over a fixed array does.
 
-The stronger property is that correctness never depends on termination. Every intermediate state of the descent is a complete valid arrangement, because every arrangement is a null and every null yields the same count. The refinement can be stopped at any instant and the measurement taken from it is correct. Running longer buys speed and cannot buy or lose an answer.
+The stronger property is that correctness never depends on termination. Every intermediate state of the descent is a complete valid probe set, and every probe set yields the same count. The refinement can be stopped at any instant and the measurement taken with the plan it had reached is correct. Running longer buys speed and cannot buy or lose an answer.
+
+**There are two loops and only one of them has that property.** Plan refinement is anytime and can run as long as anyone wants it to. The sweep over alignments has to run to completion, and stopping it early loses occurrences. A reader who takes the anytime property as a property of the search itself will stop the measurement and get a wrong count.
+
+The bound in the first paragraph is still doing work once the anytime property is stated, and it is doing different work. The anytime property gives safety, since every reachable plan is correct. The bound gives liveness, since the planner emits a plan and the sweep begins. In a design that plans and then sweeps, an anytime planner that never returns produces no measurement at all.
 
 The halting problem asks whether termination can be decided for an arbitrary program. Here the question does not arise, because no answer depends on it. That is a stronger position than a decidable halt. The loop therefore carries no iteration cap and no watchdog. A bound enforced at compile time does not need one, and a runtime check would imply the bound were in doubt. `anchor_steer_spawn_coarms` returns the depth it reached, and `bench_steer.c` asserts that depth instead of trusting this section.
 
@@ -66,7 +80,11 @@ The halting problem asks whether termination can be decided for an arbitrary pro
 
 A level that finds no candidate leaving fewer survivors than it started with has found a probe that rejects nothing an earlier probe had not already rejected. Placing it would read a byte per alignment and buy none. The descent stops there and every level below it is destroyed with it, and the returned count tells the caller how many probes survived (`src/engine/c/portable/anchor_steer.c:383-386`).
 
-`anchor_sift_anchors_for` already does this for one case, returning a single anchor on a periodic corpus because at a period every anchor tests the same congruence (`src/engine/c/portable/anchor_sift.c:223-232`). The rule here measures the redundancy per level against the field, so it also reaches fields whose redundancy no period search would name.
+`anchor_sift_anchors_for` already does this for one case, returning a single anchor on a periodic corpus because at a period the offsets cancel and every anchor tests the same congruence (`src/engine/c/portable/anchor_sift.h:136-141`). The rule here reaches further. The header warns that a period found is not a period the whole corpus keeps, that a partially coherent corpus wants a count between one and the full set, and that nothing there measures that case (`src/engine/c/portable/anchor_sift.h:145-147`). This rule measures it, along with redundancy from constant runs, local low entropy and correlated positions, none of which a period argument sees.
+
+The two are different kinds of statement and the guide keeps them apart. The period argument is a theorem over every corpus of that period. This rule is an observation about one field, taken on a sample of it when `sample_stride` is above one, so "pruned nothing on this sample" does not establish "can prune nothing". Being wrong costs speed and cannot cost the count.
+
+Destroying the levels below a destroyed probe is a separate action needing its own reason. A level that prunes nothing does not imply the next one prunes nothing. The descent stops anyway, as a bound on planning cost, and the cost of that choice is a probe set smaller than the field might have supported.
 
 ## Arms and eyes are one shape
 
@@ -87,7 +105,11 @@ Measured on the AGPL license text tracked in this repository, 24654 bytes and 24
 
 Every route returned the reference count. The sweep spawned one eye of length 2 at origin 0 with step 19, and it read more than the two coarms did. An eye of length L reads up to L bytes per alignment where an arm reads one, so it moves the same bytes the equivalent arms move and removes only the branch decisions between them. Reach for an eye where branches cost more than reads, and measure before assuming that holds.
 
-One read per alignment is the floor for any arrangement, because an alignment must be looked at at least once to be rejected. The coarm route reached it on this field.
+One read per alignment is the floor for a scheme that decides each alignment from reads taken at that alignment, because such a scheme has to look at an alignment to reject it. The coarm route reached that floor on this field.
+
+It is not a floor on string search. Boyer-Moore, Horspool, Sunday and the factor-based methods skip alignments outright: a mismatch at one alignment proves non-occurrence across a range, and the skipped alignments are never read. Horspool averages about `corpus_len / needle_len` comparisons, so its reads per alignment fall below one and keep falling as the needle grows.
+
+The engine gives that up deliberately. A bad-character shift table is indexed by symbol, and `README.md:91` claims state proportional to the needle, no table over the alphabet, and no cost for a real-valued or unenumerable alphabet. Sublinear skipping by shift table trades that claim away. The good suffix rule is the exception worth knowing about: it is precomputed from the needle alone, it skips alignments, and it needs no alphabet table, so sublinear behavior is reachable without giving up the capability. Nothing here implements it.
 
 ## Running the graders
 
@@ -102,6 +124,12 @@ Two drivers in `src/engine/c/bench/` do not compile with MSVC and the script doe
 ## What is not checked here
 
 The planner costs are stated in the header as worst cases and are not measured. `anchor_steer_sweep_probes` performs `wanted * needle_len^2 * max_length * alignments / sample_stride` byte comparisons at worst, which exceeds the scan it plans for on any but a short needle. `sample_stride` is the control and no default is recommended, because the crossover was not measured.
+
+Reads are the wrong statistic for a contiguous eye and the table above inherits that. A step-1 eye of length L is one wide load that the machine may satisfy in a single memory transaction, and counting L reads charges it for work done once. Short-circuiting also makes the trip count vary, and a varying trip count costs a mispredicted branch per alignment. The branchless free-order arm exists for that reason (`src/engine/c/portable/anchor_sift.h:106-110`). An eye evaluated branchlessly trades L reads for one predictable branch. Deciding whether eyes ever pay needs a cycle measurement, and none was taken.
+
+The exact dispatch was graded against eleven fields swept from flat to concentrated, agreeing with the double form of the same rule on all eleven. That shows the change is harmless. It does not show it was needed, because no field was constructed whose double-form verdict falls inside the old series error of the threshold. Until one is, the improvement is argued from the algebra and not demonstrated.
+
+The dispatch comparison needs headroom above `total^2`. Its right side reaches `85 * distinct * sum(count^2)`, about 2^14.4 times `total^2` at 256 distinct symbols, putting a four gigabyte corpus near 2^79. `AnchorExactInteger` holds 108 limbs of 32 bits, or 3456 bits (`src/engine/c/portable/exact_limbs.h:49`, `src/engine/c/portable/exact_limbs.h:72`), which covers that with room left. No bench exercises a corpus near that size. The headroom is read off the declaration and has not been measured.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-16
