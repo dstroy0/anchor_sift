@@ -39,6 +39,22 @@ REPO=$(cd "$(dirname "$0")/.." && pwd)
 PREFIX=theory_bucket
 UPSTREAM=https://github.com/dstroy0/theory_bucket.git
 
+# HELD 2026-09-16, UNTIL DOUGLAS RULES ON WHICH THEORY IS PUBLISHABLE. Everything below this block is
+# the design and none of it runs while this block stands.
+#
+# This repository is public. theory_bucket's remote is private, and on 2026-09-16 its main was 88
+# files past the squash held under theory_bucket/ here, including engine material nobody has reviewed
+# for a public tree. The pull below runs when a merge lands on a clean main in the shared checkout
+# with the upstream reachable, and this machine's credentials reach it. The result is a commit on
+# main carrying that material, one push from publication, made without a person deciding.
+#
+# Deleting this hook is Douglas's call and is planned separately. This block only stops the automatic
+# pull. The manual command still works, and running it by hand is a person making that decision.
+# To lift the hold, delete this block.
+echo "  theory not refreshed: automatic pull held pending the publication ruling"
+echo "  when you are ready:  git subtree pull --prefix=$PREFIX $UPSTREAM main --squash"
+exit 0
+
 if [ "${ANCHOR_SIFT_NO_SUBTREE:-0}" = "1" ]; then
     exit 0
 fi
