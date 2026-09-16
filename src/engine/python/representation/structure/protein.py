@@ -208,3 +208,117 @@ def steps(runs):
         good = (lengths >= STEP_LOW) & (lengths <= STEP_HIGH)
         kept.append((moves[good], lengths[good]))
     return kept
+
+
+# The three coordinate columns of a PDB ATOM record, each written to exactly three decimal places.
+# Read as integers at that scale, a dihedral is a ratio of cross and dot products in which the scale
+# cancels, so the angle is exact in the coordinates the deposit actually wrote.
+COORD_PLACES = 3
+
+
+def phi_psi(text):
+    """Every residue's backbone torsions phi, psi and omega, as exact integer terms.
+
+    A protein's fold does not live in where its atoms are. Rigidly moving the whole molecule leaves
+    the fold untouched, so the coordinates carry an orientation and a position the fold does not
+    have. What the fold lives in is the backbone torsions, and those are what the Ramachandran rules
+    are written over. This reads them and keeps them exact.
+
+    A torsion is a ratio. For the four atoms across a bond it is atan2(Y, X) with
+
+        Y = -(n1 x b2) . n2      X = n1 . n2       n1 = b1 x b2, n2 = b2 x b3
+
+    where b1, b2, b3 are the three bond vectors. Every one of Y and X is an integer when the atoms
+    are, so nothing is rounded to form them. The only irrational step is the atan2 itself, and it is
+    not taken here. The caller is handed Y, and the two integers C and S whose product C * sqrt(S)
+    is X, and renders the angle to a stated precision. This mirrors representation.exact: the reader
+    stays integer, and the one place an irrational is unavoidable is named and deferred, not buried
+    in a float that fixes a precision nobody chose.
+
+    X is returned split because its own sqrt is where the irrational sits. atan2(Y, dot . |b2|) and
+    atan2(Y / |b2|, dot) are the same angle, so the |b2| is factored out as sqrt(S) with
+    S = b2 . b2 and C = n1 . n2, and the caller multiplies them at whatever precision it declares.
+
+    The sign is the IUPAC convention, fixed not by assertion but by measurement: with it, a corpus
+    of deposited structures reproduces each one's wwPDB-published Ramachandran outlier rate, and
+    with it negated every structure reads as its own mirror image and almost nothing agrees.
+
+    Returns a list in chain and sequence order, one entry per residue carrying both neighbors:
+
+        {"chain", "seq", "name", "next_name",
+         "phi": (Y, C, S), "psi": (Y, C, S), "omega": (Y, C, S)}
+
+    omega is the peptide torsion CA-C-N-CA into this residue, from which a caller tells a cis proline
+    from a trans one. A residue at a chain end or across a break, where a neighbor is missing, is
+    left out rather than joined across the gap.
+    """
+    def scaled(field):
+        body = field.strip()
+        sign = 1
+        if body[:1] in ("+", "-"):
+            sign = -1 if body[0] == "-" else 1
+            body = body[1:]
+        whole, _, part = body.partition(".")
+        part = (part + "000")[:COORD_PLACES]
+        return sign * int((whole or "0") + part)
+
+    def cross(one, two):
+        return (one[1] * two[2] - one[2] * two[1],
+                one[2] * two[0] - one[0] * two[2],
+                one[0] * two[1] - one[1] * two[0])
+
+    def dot(one, two):
+        return one[0] * two[0] + one[1] * two[1] + one[2] * two[2]
+
+    def less(one, two):
+        return (one[0] - two[0], one[1] - two[1], one[2] - two[2])
+
+    def torsion(p0, p1, p2, p3):
+        b1 = less(p1, p0)
+        b2 = less(p2, p1)
+        b3 = less(p3, p2)
+        n1 = cross(b1, b2)
+        n2 = cross(b2, b3)
+        return (-dot(cross(n1, b2), n2), dot(n1, n2), dot(b2, b2))
+
+    # Backbone atoms in file order, gathered per residue, keeping the first alternate location only,
+    # because a second one repeats a residue and puts a zero length bond into the walk.
+    order = []
+    seen = {}
+    for line in text.splitlines():
+        if not line.startswith("ATOM"):
+            continue
+        atom = line[12:16].strip()
+        if atom not in BACKBONE:
+            continue
+        if line[16] not in (" ", "A"):
+            continue
+        key = (line[21], line[22:27])
+        if key not in seen:
+            seen[key] = {"chain": line[21], "seq": line[22:27].strip(),
+                         "name": line[17:20].strip()}
+            order.append(key)
+        try:
+            seen[key][atom] = (scaled(line[30:38]), scaled(line[38:46]), scaled(line[46:54]))
+        except ValueError:
+            continue
+
+    # One list of complete residues per chain, in the order the file lists them.
+    chains = {}
+    for key in order:
+        record = seen[key]
+        if all(atom in record for atom in BACKBONE):
+            chains.setdefault(record["chain"], []).append(record)
+
+    found = []
+    for chain in chains.values():
+        for at in range(1, len(chain) - 1):
+            prev, here, nxt = chain[at - 1], chain[at], chain[at + 1]
+            found.append({
+                "chain": here["chain"], "seq": here["seq"],
+                "name": here["name"], "next_name": nxt["name"],
+                "phi": torsion(prev["C"], here["N"], here["CA"], here["C"]),
+                "psi": torsion(here["N"], here["CA"], here["C"], nxt["N"]),
+                "omega": torsion(prev["CA"], prev["C"], here["N"], here["CA"]),
+            })
+    return found
