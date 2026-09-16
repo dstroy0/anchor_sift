@@ -110,19 +110,12 @@ def doped_sites(text):
     deposit that writes ? for a coordinate is declining to give one, and a site with no position
     cannot share a position with anything.
     """
-    rows = crystal.site_table(text)
-    if not rows:
-        return None, 0
-    points = []
-    skipped = 0
-    for along_a, along_b, along_c, element, _occupancy in rows:
-        try:
-            position = (exact.scaled(along_a), exact.scaled(along_b), exact.scaled(along_c))
-        except ValueError:
-            skipped += 1
-            continue
-        points.append((position, element))
-    return exact.contested(points), skipped
+    sites, skipped = crystal.exact_sites(text)
+    if not sites:
+        return None, skipped
+    # The occupancy is dropped here and read at stage six. Which field this projects is the whole
+    # difference between this reading and the oracle's; the reading itself is one function.
+    return exact.contested([(position, element) for position, element, _ in sites]), skipped
 
 
 def main():

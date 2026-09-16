@@ -195,6 +195,47 @@ def site_table(text, dummies=False):
     return rows
 
 
+def exact_sites(text):
+    """The deposit's atom sites as exact points in fractional space, with nothing rounded.
+
+    Returns (sites, skipped) where each site is ((a, b, c), element, occupancy) with the
+    coordinates exact integers at representation.exact.SCALE_DIGITS, and `skipped` counts the sites
+    whose coordinates were not plain decimal text. A deposit writing `?` for a coordinate is
+    declining to give one, and a site with no position cannot be compared with anything, so it is
+    counted rather than guessed at.
+
+    No cell, no edges, no angles and no tiling. This is fractional space, which is all a reading
+    about which sites share a position needs, and it is why such a reading works on a cell that
+    exact_points refuses.
+
+    THIS EXISTS BECAUSE IT WAS WRITTEN THREE TIMES
+
+    The same loop appeared in doping_from_shared_sites.py, doping_after_symmetry_expansion.py and
+    doping_against_deposited_occupancy.py: walk site_table, scale three coordinates, catch
+    ValueError, count the skip. Three copies of one primitive, differing only in what each kept
+    afterwards, which is the shape a copy takes just before it starts to drift.
+
+    The subject's own README already records this fault one layer up, where the first crystal
+    reading was written as a separate file that reimplemented a parse crystal.py already did: a
+    second copy of a reader is one edit away from disagreeing with the first about what a deposit
+    says. Three copies is three chances.
+
+    The callers differ in what they project from this, not in how they read it. One drops the
+    occupancy, one groups by position, one expands by symmetry afterwards. Those are arguments to a
+    reading and not readings of their own.
+    """
+    sites = []
+    skipped = 0
+    for along_a, along_b, along_c, element, occupancy in site_table(text):
+        try:
+            position = (exact.scaled(along_a), exact.scaled(along_b), exact.scaled(along_c))
+        except ValueError:
+            skipped += 1
+            continue
+        sites.append((position, element, occupancy))
+    return sites, skipped
+
+
 def right_angled(raw):
     """Whether a raw cell's three angles all sit inside RIGHT_ANGLE_SLACK of a right angle.
 

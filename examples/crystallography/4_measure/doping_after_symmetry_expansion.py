@@ -110,16 +110,13 @@ def families():
 
 
 def sites(text):
-    """The deposit's atom sites as exact points, and how many coordinates would not parse."""
-    points = []
-    skipped = 0
-    for along_a, along_b, along_c, element, _occupancy in crystal.site_table(text):
-        try:
-            points.append(((exact.scaled(along_a), exact.scaled(along_b), exact.scaled(along_c)),
-                           element))
-        except ValueError:
-            skipped += 1
-    return points, skipped
+    """The deposit's atom sites as exact points, and how many coordinates would not parse.
+
+    A projection of crystal.exact_sites, which is where the reading lives. This one keeps the
+    element and drops the occupancy, then hands the result to the symmetry expansion.
+    """
+    found, skipped = crystal.exact_sites(text)
+    return [(position, element) for position, element, _ in found], skipped
 
 
 def main():
