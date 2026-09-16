@@ -26,7 +26,7 @@
  *       the tail would otherwise be an eighth of the work.
  */
 
-#include "exact_arm.h"
+#include "arm.h"
 
 #if defined(ANCHOR_EXACT_HAVE_AVX512) && ANCHOR_EXACT_HAVE_AVX512
 

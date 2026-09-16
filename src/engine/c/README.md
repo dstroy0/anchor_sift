@@ -1,7 +1,7 @@
 # The engine in C
 
 **Purpose:** Build and run the sift and its benches using only a C11 compiler, and find which bench answers which question.
-**Scope:** `src/engine/c/portable/`, `src/engine/c/vectorized_win/`, `src/engine/c/vectorized_linux/`, `src/engine/c/vectorized_rpi/`, `src/engine/c/bench/`
+**Scope:** `src/engine/c/portable/`, `src/engine/c/no_rounding/`, `src/engine/c/bench/`
 
 ```
 cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
@@ -15,23 +15,24 @@ No ESP-IDF, no device toolchain, no Python, and nothing from the vendored librar
 
 ## The exact integer, and the arms that read it
 
-`portable/exact_limbs.{c,h}` holds an exact integer as a fixed width array of 32 bit limbs. It is the same value `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
+`no_rounding/exact_integer.{c,h}` holds an exact integer as a fixed width array of 32 bit limbs. The directory name states what the arithmetic is for: it removes rounding, so a comparison is exact. It is the same value `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
 
 Fixed width is the only bound the representation has, and it is declared instead of discovered. 108 limbs is 3456 bits, holding the 1024 decimal digits the Python side ingests at. A value that will not fit raises `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
 
 An **arm** is one implementation of the operations the measure asks for. Every arm answers the same counts, and the portable C11 one is the reference. Where two disagree, one of them has a defect and nothing about the difference is a tradeoff.
 
-| directory | arm | instruction |
-|---|---|---|
-| `portable/` | `portable` | none, C11 alone |
-| `vectorized_win/` | `avx2-win` | `vpcmpeqd` on `ymm`, eight limbs at once |
-| `vectorized_win/` | `avx512-unrun` | `vpcmpeqd` on `zmm` against a mask, sixteen at once |
-| `vectorized_linux/` | `avx2-linux` | the same `ymm` loops, different detection |
-| `vectorized_rpi/` | `neon` | `cmeq` and `uminv`, four limbs at once |
-| `vectorized_rpi/` | `sve-unrun` | `whilelo`, `cmpne`, `ptest`, whatever length the part has |
-| `../gpu/` | `cuda` | one position per thread, not one limb per lane |
+Every arm is one file in `no_rounding/`, named for its instruction set, so the set of arms is a directory listing.
 
-The AVX2 loops live in one file that both x86 directories compile. Their arithmetic is identical and a second copy would be one edit away from disagreeing. What each platform directory holds is detection, and detection is the part that genuinely differs. Every arm asks the processor at run time before it is used, because the build machine and the running machine are not the same machine.
+| file | arm | instruction |
+|---|---|---|
+| `no_rounding/arm_portable.c` | `portable` | none, C11 alone |
+| `no_rounding/arm_avx2.c` | `avx2-win` or `avx2-linux` | `vpcmpeqd` on `ymm`, eight limbs at once |
+| `no_rounding/arm_avx512.c` | `avx512-unrun` | `vpcmpeqd` on `zmm` against a mask, sixteen at once |
+| `no_rounding/arm_neon.c` | `neon` | `cmeq` and `uminv`, four limbs at once |
+| `no_rounding/arm_sve.c` | `sve-unrun` | `whilelo`, `cmpne`, whatever length the part has |
+| `no_rounding/arm_cuda.cu` | `cuda` | one position per thread, not one limb per lane |
+
+The AVX2 arm is one file for every x86 build. It carries both detection paths, MSVC's `cpuid` and the builtin GCC and Clang share, and reports the operating system in its own name so two builds running the same instructions are still told apart in a row. Every arm asks the processor at run time before it is used, because the build machine and the running machine are not the same machine.
 
 ### Three grades, and they are never interchanged
 
@@ -83,7 +84,8 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 
 | file | what it is |
 |---|---|
-| `portable/anchor_sift.{c,h}` | three arms and a dispatcher, with no clock and no output |
+| `no_rounding/` | the exact integer and every arm that reads it, one file per instruction set |
+| `portable/anchor_sift.{c,h}` | the search, the steering and the scan, with no clock and no output |
 | `bench/bench_corpora.{c,h}` | the generated corpora and the two statistics a dispatch decision reads |
 | `bench/bench_lattice.c` | soundness, where the claim actually lives |
 | `bench/bench_scaling.c` | what the sift costs per alignment as the corpus grows |

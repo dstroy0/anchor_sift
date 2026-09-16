@@ -46,8 +46,8 @@ endif()
 # The exact integer as a fixed width limb array, which is the same value the python engine ingests
 # and a different transform of it. Portable C11 with no intrinsic and no 128 bit type, so it builds
 # anywhere and is the engine every vectorized one is checked against.
-add_library(anchor_exact_portable STATIC portable/exact_limbs.c portable/exact_arm_portable.c)
-target_include_directories(anchor_exact_portable PUBLIC portable)
+add_library(anchor_exact_portable STATIC no_rounding/exact_integer.c no_rounding/arm_portable.c)
+target_include_directories(anchor_exact_portable PUBLIC no_rounding)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
 # THE ENGINE, AS ONE TRANSLATION UNIT. The search, the steering and the wide scan were three files
@@ -79,7 +79,7 @@ endif()
 # The engine as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a
 # measurement.
 add_library(anchor_sift_kernel STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel PUBLIC portable)
+target_include_directories(anchor_sift_kernel PUBLIC portable no_rounding)
 target_compile_definitions(anchor_sift_kernel PUBLIC ${ANCHOR_SIFT_DEFINES})
 target_link_libraries(anchor_sift_kernel PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
@@ -88,7 +88,7 @@ target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
 # linking this library sees the same value the library was built with, which is what keeps a driver
 # from calling anchor_sift_counters_reset against a kernel that does not define it.
 add_library(anchor_sift_kernel_counted STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel_counted PUBLIC portable)
+target_include_directories(anchor_sift_kernel_counted PUBLIC portable no_rounding)
 target_compile_definitions(anchor_sift_kernel_counted PUBLIC ${ANCHOR_SIFT_DEFINES}
     ANCHOR_SIFT_COUNT_READS=1)
 target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)
@@ -165,7 +165,7 @@ set(ANCHOR_ARM_INCLUDES "")
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     # One AVX2 arm for every x86 build. It carries both detection paths, MSVC's cpuid and the
     # builtin GCC and Clang share, so there is no per operating system copy to disagree with it.
-    list(APPEND ANCHOR_ARM_SOURCES vectorized_win/exact_arm_avx2.c)
+    list(APPEND ANCHOR_ARM_SOURCES no_rounding/arm_avx2.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_AVX2=1)
     # -mavx2 permits the intrinsics in this translation unit. It does not permit the compiler to
     # assume AVX2 anywhere else, because no other translation unit is built with it.
@@ -175,7 +175,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
         list(APPEND ANCHOR_ARM_OPTIONS /arch:AVX2)
     endif()
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
-    list(APPEND ANCHOR_ARM_SOURCES vectorized_rpi/exact_arm_neon.c)
+    list(APPEND ANCHOR_ARM_SOURCES no_rounding/arm_neon.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_NEON=1)
     # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build
     # does need one, and asks for the softfp ABI's NEON rather than assuming a hard float target.
@@ -195,7 +195,7 @@ include(CheckCCompilerFlag)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)$" AND NOT MSVC)
     check_c_compiler_flag("-mavx512f -mavx512bw -mavx512vl" ANCHOR_CC_TAKES_AVX512)
     if(ANCHOR_CC_TAKES_AVX512)
-        add_library(anchor_exact_avx512 STATIC vectorized_win/exact_arm_avx512.c)
+        add_library(anchor_exact_avx512 STATIC no_rounding/arm_avx512.c)
         target_link_libraries(anchor_exact_avx512 PUBLIC anchor_exact_portable)
         target_compile_definitions(anchor_exact_avx512 PUBLIC ANCHOR_EXACT_HAVE_AVX512=1)
         target_compile_options(anchor_exact_avx512
@@ -205,7 +205,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)$" AND NOT MSVC)
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
     check_c_compiler_flag("-march=armv8.2-a+sve" ANCHOR_CC_TAKES_SVE)
     if(ANCHOR_CC_TAKES_SVE)
-        add_library(anchor_exact_sve STATIC vectorized_rpi/exact_arm_sve.c)
+        add_library(anchor_exact_sve STATIC no_rounding/arm_sve.c)
         target_link_libraries(anchor_exact_sve PUBLIC anchor_exact_portable)
         target_compile_definitions(anchor_exact_sve PUBLIC ANCHOR_EXACT_HAVE_SVE=1)
         target_compile_options(anchor_exact_sve PRIVATE ${SIFT_WARNINGS} -march=armv8.2-a+sve)

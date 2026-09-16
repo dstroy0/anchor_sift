@@ -22,8 +22,8 @@
  *       coordination. Threads share nothing and write one atomic increment each at most.
  */
 
-#include "exact_arm.h"
-#include "exact_gpu.h"
+#include "arm.h"
+#include "arm_cuda.h"
 
 #include <cuda_runtime.h>
 

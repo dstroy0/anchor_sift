@@ -119,9 +119,9 @@ def version_lock(out):
 
     Returns 1 where they agree, 0 where they do not.
     """
-    limbs = constant("src/engine/c/portable/exact_limbs.h",
+    limbs = constant("src/engine/c/no_rounding/exact_integer.h",
                      r"#define\s+ANCHOR_EXACT_LIMBS\s+(\d+)")
-    floor = constant("src/engine/c/portable/exact_limbs.h",
+    floor = constant("src/engine/c/no_rounding/exact_integer.h",
                      r"#define\s+ANCHOR_EXACT_DIGITS\s+(\d+)")
     scale = constant("src/engine/python/representation/exact.py",
                      r"^SCALE_DIGITS\s*=\s*(\d+)")

@@ -21,7 +21,7 @@
  *       portable while both are wrong is still caught.
  */
 
-#include "exact_arm.h"
+#include "arm.h"
 
 #include <stdio.h>
 #include <string.h>

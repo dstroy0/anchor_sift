@@ -28,7 +28,7 @@
  *       no information. The first difference is near the top and the scan finds it at once.
  */
 
-#include "exact_arm.h"
+#include "arm.h"
 
 #include <immintrin.h>
 

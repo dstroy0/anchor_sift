@@ -15,7 +15,7 @@
  *       get the same answer sooner.
  */
 
-#include "exact_limbs.h"
+#include "exact_integer.h"
 
 #include <stdlib.h>
 #include <string.h>

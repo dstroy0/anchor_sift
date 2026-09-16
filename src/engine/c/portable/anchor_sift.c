@@ -16,7 +16,7 @@
  */
 
 #include "anchor_sift.h"
-#include "exact_limbs.h"
+#include "exact_integer.h"
 
 #include <string.h>
 

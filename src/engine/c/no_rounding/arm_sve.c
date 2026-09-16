@@ -26,7 +26,7 @@
  *       guessing.
  */
 
-#include "exact_arm.h"
+#include "arm.h"
 
 #if defined(ANCHOR_EXACT_HAVE_SVE) && ANCHOR_EXACT_HAVE_SVE
 

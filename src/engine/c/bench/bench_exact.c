@@ -21,7 +21,7 @@
  *       put a second thing to be wrong between the arithmetic and the check.
  */
 
-#include "exact_limbs.h"
+#include "exact_integer.h"
 
 #include <stdio.h>
 #include <string.h>

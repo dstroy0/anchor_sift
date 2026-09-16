@@ -23,7 +23,7 @@
 #ifndef ANCHOR_EXACT_GPU_H
 #define ANCHOR_EXACT_GPU_H
 
-#include "exact_limbs.h"
+#include "exact_integer.h"
 
 #ifdef __cplusplus
 extern "C" {

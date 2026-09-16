@@ -21,7 +21,7 @@
  *       lane: that is zero exactly when some lane failed to match.
  */
 
-#include "exact_arm.h"
+#include "arm.h"
 
 #if defined(__aarch64__) || defined(__ARM_NEON) || defined(_M_ARM64)
 #include <arm_neon.h>

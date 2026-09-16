@@ -22,7 +22,7 @@
 #ifndef ANCHOR_EXACT_ARM_H
 #define ANCHOR_EXACT_ARM_H
 
-#include "exact_limbs.h"
+#include "exact_integer.h"
 
 #ifdef __cplusplus
 /* The GPU arm is compiled as C++ by nvcc and defines its arm here, while every other arm is C. */
