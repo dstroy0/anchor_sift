@@ -163,15 +163,10 @@ set(ANCHOR_ARM_OPTIONS "")
 set(ANCHOR_ARM_INCLUDES "")
 
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
-    # The AVX2 loops are one file for both x86 platforms. A second copy would be one edit away from
-    # disagreeing, and a disagreement between two arms is a defect by definition. What each platform
-    # directory holds is detection, which is the part that genuinely differs.
+    # One AVX2 arm for every x86 build. It carries both detection paths, MSVC's cpuid and the
+    # builtin GCC and Clang share, so there is no per operating system copy to disagree with it.
     list(APPEND ANCHOR_ARM_INCLUDES vectorized_win)
-    if(WIN32)
-        list(APPEND ANCHOR_ARM_SOURCES vectorized_win/exact_arm_avx2.c)
-    else()
-        list(APPEND ANCHOR_ARM_SOURCES vectorized_linux/exact_arm_avx2.c)
-    endif()
+    list(APPEND ANCHOR_ARM_SOURCES vectorized_win/exact_arm_avx2.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_AVX2=1)
     # -mavx2 permits the intrinsics in this translation unit. It does not permit the compiler to
     # assume AVX2 anywhere else, because no other translation unit is built with it.
