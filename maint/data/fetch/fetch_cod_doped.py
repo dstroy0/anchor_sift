@@ -49,9 +49,11 @@
 # for bulk copying and one rsync is cheaper for them than ten thousand requests. Use
 # fetch_cod_bulk.py for those. This stays the right tool for a targeted few hundred.
 
+import http.client
 import io
 import json
 import os
+import socket
 import sys
 import time
 import urllib.error
@@ -151,9 +153,16 @@ def fetched(url, out):
             request = urllib.request.Request(url, headers=AGENT)
             with urllib.request.urlopen(request, timeout=180) as response:
                 return response.read().decode("utf-8", errors="replace")
-        except (urllib.error.URLError, OSError, ValueError) as reason:
+        except (urllib.error.URLError, http.client.HTTPException, socket.timeout,
+                OSError, ValueError) as reason:
             # The archive closes a connection now and then under a sweep this size. A dropped
             # request is not an absent entry, so it is retried before being given up on.
+            #
+            # http.client.HTTPException is in that list because leaving it out killed a run at 1836
+            # entries. A truncated response raises IncompleteRead, which descends from
+            # HTTPException and not from URLError or OSError, so it walked straight through a
+            # handler that looked complete. The failure mode is worth naming: every ordinary network
+            # error was retried and the one that ends a four hour sweep was the one not caught.
             if attempt == (TRIES - 1):
                 out.write("      gave up on %s: %s\n" % (url.rsplit("/", 1)[-1], reason))
                 out.flush()
@@ -260,9 +269,16 @@ def main():
             time.sleep(PAUSE)
             if not text or "_atom_site" not in text:
                 continue
-            with io.open(os.path.join(CACHE, number + ".cif"), "w",
-                         encoding="utf-8", errors="replace") as handle:
-                handle.write(text)
+            try:
+                with io.open(os.path.join(CACHE, number + ".cif"), "w",
+                             encoding="utf-8", errors="replace") as handle:
+                    handle.write(text)
+            except OSError as reason:
+                # One entry that will not write does not end the sweep. The alternative is losing
+                # every request made after it to a full disk or a locked file.
+                out.write("      could not write %s: %s\n" % (number, reason))
+                out.flush()
+                continue
             have.add(number)
             if number not in already:
                 families.write("%s\t%s\t%s\n" % (number, family, name))
