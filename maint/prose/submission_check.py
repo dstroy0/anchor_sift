@@ -244,9 +244,29 @@ def walk(roots):
 
 
 def git(root, *arguments):
-    """One git command in one repository, as text, or None where git refused."""
+    """One git command in one repository, as text, or None where git refused.
+
+    core.quotePath is turned OFF for every call rather than at the two sites that list paths.
+
+    With it on, which is git's default, a path holding any character outside ASCII comes back
+    quoted and octal-escaped: papers/...Kwak’wala.pdf is returned as
+    "papers/...Kwak\\342\\200\\231wala.pdf". tracked() then joins that to the root and produces a
+    path that does not exist, so the file is dropped from the listing with no error. A screen that
+    cannot see a file reports it clean.
+
+    This is not hypothetical in this tree. The Salishan corpus tracks two papers whose names carry
+    U+2019, which is ordinary Salishan orthography, and a listing without this flag returns 0 of
+    them where one with it returns 2. The corpus custodian hit it twice in one day -- catalogued it
+    in the morning, wrote a rule about it, and walked into it again four hours later on the same
+    character in the same repository.
+
+    That is the argument for putting it in the helper. A rule recorded in a document has to be
+    remembered by whoever writes the next call site; a flag in the one function every call goes
+    through does not.
+    """
     try:
-        done = subprocess.run(("git",) + arguments, cwd=root, capture_output=True, timeout=120)
+        done = subprocess.run(("git", "-c", "core.quotePath=false") + arguments, cwd=root,
+                              capture_output=True, timeout=120)
     except (OSError, subprocess.SubprocessError):
         return None
     if done.returncode != 0:
