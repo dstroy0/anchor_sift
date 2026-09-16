@@ -93,15 +93,30 @@ REGISTRY = os.path.join(HERE, "catalog.tsv")
 # Three letters per domain, which lets a number be read without the registry open.
 DOMAIN = {
     "00_blob_viz_tools": "VIZ",
+    "0_experimental": "EXP",
     "any_corpus": "ANY",
     "art": "ART",
+    "cell_tracking": "CEL",
     "crystallography": "CRY",
+    "game_theory": "GAM",
     "language": "LNG",
     "proteins": "PRO",
     "proofs": "PRF",
     "sound": "SND",
     "source": "SRC",
 }
+
+# CEL, GAM and EXP were added after seventeen examples had already been written carrying numbers
+# their authors minted by pattern. A domain absent from this table makes slot_of return None, the
+# file reports as NO DOMAIN and not numbered, and the hand-written header sits there looking issued.
+# Two sessions did that independently and neither was told by anything until --check was run, which
+# is the argument for running it rather than copying the shape of a number that is already there.
+#
+# EXP is the VIZ case again rather than a ninth subject. 0_experimental holds work that reads no
+# corpus yet, so it names no domain in the sense the others do, and its files take stage x like
+# anything outside a numbered pipeline directory. They are numbered because a number survives a
+# move: an example that later earns a subject stage keeps the number it was issued here, and every
+# citation written against it still resolves.
 
 # VIZ is not a domain in the sense the other eight are. Those name what a corpus is of, and the
 # viz tools read any blob: whatever arrives as points carrying values, with no domain in it. They

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: EXP-x-003
 #
 # Hamming(7,4) rejecting a channel's bit-flips by selecting the codeword the parity checks allow.
 #
