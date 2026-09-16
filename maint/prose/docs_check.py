@@ -34,7 +34,17 @@ BANNED = (
     # version of this pattern included them and reported nine sites that were all correct.
     r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
     r"conveys|convey|announces|announce|advertises|advertise)\b",
-    r"\bso a\b",
+    # The article is part of the construction, not part of the noun, so both spellings belong in one
+    # pattern. This read `\bso a\b` and therefore never matched `so an` at all: the ban names a
+    # clause, the pattern implemented a token, and the difference was invisible because the tool
+    # reported zero for a form it could not see. Across seven scoped ProtoCore files, 21 of 105
+    # instances are `so an`. Every count of this construction taken before now measured the matcher
+    # rather than the tree.
+    #
+    # The FREQUENCY entry below deliberately keeps the narrow `\bso a\b`. Its rate was measured over
+    # that spelling alone across 759,815 human words, and widening the pattern there would carry a
+    # rate to a population it was never taken over.
+    r"\bso an?\b",
     r"load-bearing",
     r"\blabelled\b",
     r"\bmodelled\b",
