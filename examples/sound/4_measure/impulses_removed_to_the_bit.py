@@ -164,7 +164,8 @@ def main():
     # 3c. negative controls: the score must be able to NOT be 100. A clean signal has nothing to
     #     restore, and a COHERENT noise is the class majority itself, so consensus keeps it rather than
     #     removing it -- that is the other detector's job. Both must fail to reach a real reduction.
-    out.write("  negative controls (must not read 100 against the clean signal):\n")
+    out.write("  negative controls: the score licensing the 100 is the 0 the wrong noise scores.\n")
+    out.write("  a coherent noise is the class majority, so consensus keeps it; only impulses are removed:\n")
     out.write("  %-24s %-14s %s\n" % ("case", "period", "outcome"))
     hum = (-40, 20, -20, 40, 0)                          # a coherent addend: the wrong KIND for this
     wrong_kind = [clean[n] + hum[n % len(hum)] for n in range(len(clean))]

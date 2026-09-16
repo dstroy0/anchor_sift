@@ -218,8 +218,10 @@ def main():
     #     with no coherent noise, and the wrong KIND of noise. Both must sit inside the null band, the
     #     spread a shuffle reaches, so the detector declines and removes nothing.
     band = null_band(byte_view, REACH, DRAWS)
-    out.write("  negative controls (a period is present only above the null band %.3f over %d shuffles):\n"
-              % (float(band), DRAWS))
+    boundary = band[-1] if band else None
+    out.write("  negative controls: the score licensing the 100 is the 0 the wrong noise scores.\n")
+    out.write("  null band over %d shuffles spans %.3f to %.3f; a period must clear the top %.3f:\n"
+              % (DRAWS, band[0], band[-1], band[-1]))
     out.write("  %-22s %-12s %-12s %s\n" % ("case", "live ratio", "above band", "outcome"))
 
     empty = list(target)                                   # no coherent noise at all
@@ -230,7 +232,7 @@ def main():
             ("wrong kind (impulses)", mismatched, target, True)):
         arm_bytes = [value + PEDESTAL for value in arm]
         seen, live, _ = recover_period(arm_bytes, REACH)
-        present = (live is not None) and (band is not None) and (live > band)
+        present = (live is not None) and (boundary is not None) and (live > boundary)
         if present:
             output = mean_residual(arm, seen)
             got = reduction(arm, output, clean)

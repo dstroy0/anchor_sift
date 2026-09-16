@@ -197,8 +197,10 @@ def main():
     #     pattern injected rather than the detection of a fixed pattern. A stack with no fixed pattern
     #     and a stack corrupted by impulses must both sit inside the null band and be declined.
     band = null_band(byte_view, frame, DRAWS)
-    out.write("  negative controls (a frame period is present only above the null band %.3f over %d shuffles):\n"
-              % (float(band), DRAWS))
+    boundary = band[-1] if band else None
+    out.write("  negative controls: the score licensing the 100 is the 0 the wrong noise scores.\n")
+    out.write("  null band over %d shuffles spans %.3f to %.3f; a frame period must clear the top %.3f:\n"
+              % (DRAWS, band[0], band[-1], band[-1]))
     out.write("  %-24s %-12s %-12s %s\n" % ("case", "live ratio", "above band", "outcome"))
 
     no_pattern = list(scene)                                       # a moving scene, no fixed pattern
@@ -209,7 +211,7 @@ def main():
             ("wrong kind (impulses)", wrong_kind, True)):
         arm_bytes = [value + PEDESTAL for value in arm]
         seen, live, _ = recover_period(arm_bytes, frame)
-        present = (live is not None) and (band is not None) and (live > band)
+        present = (live is not None) and (boundary is not None) and (live > boundary)
         if present:
             got = reduction(arm, mean_residual(arm, seen), scene)
             outcome = "remove -> NRR %.2f%%" % (float(got) * 100.0)
