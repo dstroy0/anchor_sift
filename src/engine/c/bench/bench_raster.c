@@ -283,14 +283,17 @@ int main(void)
     // so, which is why this is counted and not eyeballed.
     printf("\n  VOLUME SWEEP, %u layouts by %u channels into 32 by 32 by 32\n\n",
            (unsigned)ANCHOR_VOLUME_LAYOUTS, (unsigned)ANCHOR_RASTER_CHANNELS);
-    printf("  %16s %14s %10s %12s %10s\n", "layout", "channel", "filled", "collisions", "verdict");
+    const int have_device_volume = anchor_volume_device_available();
+    printf("  %16s %14s %10s %12s %14s %10s\n", "layout", "channel", "filled", "collisions",
+           "host/device", "verdict");
 
     const size_t volume_edge = 32u;
     const size_t volume_cells = volume_edge * volume_edge * volume_edge;
     uint8_t *const voxels = (uint8_t *)malloc(volume_cells);
+    uint8_t *const device_voxels = (uint8_t *)malloc(volume_cells);
     size_t *const seen = (size_t *)malloc(volume_cells * sizeof(size_t));
 
-    if ((voxels == NULL) || (seen == NULL))
+    if ((voxels == NULL) || (device_voxels == NULL) || (seen == NULL))
     {
         printf("  volume allocation failed\n");
         failed += 1;
@@ -311,10 +314,10 @@ int main(void)
                                                                steered, coarms, NULL);
                 if (rendered == 0)
                 {
-                    printf("  %16s %14s %10s %12s %10s\n",
+                    printf("  %16s %14s %10s %12s %14s %10s\n",
                            anchor_volume_layout_name((AnchorVolumeLayout)layout),
                            anchor_raster_channel_name((AnchorRasterChannel)channel),
-                           "-", "-", "REFUSED");
+                           "-", "-", "-", "REFUSED");
                     failed += 1;
                     continue;
                 }
@@ -350,11 +353,36 @@ int main(void)
                     }
                 }
 
-                printf("  %16s %14s %10zu %12zu %10s\n",
+                // The device volume against the host, voxel for voxel. The raster is integer
+                // valued, so agreement is exact and a single differing voxel is a defect. Where no
+                // device is present this is a skip and never a pass.
+                const char *agreement = "host only";
+                int device_failed = 0;
+                if (have_device_volume != 0)
+                {
+                    if (anchor_volume_device(device_voxels, &config, corpus, RASTER_CORPUS, needle,
+                                             RASTER_NEEDLE, steered, coarms, NULL) == 0)
+                    {
+                        agreement = "device refused";
+                        device_failed = 1;
+                    }
+                    else if (first_difference(voxels, device_voxels, volume_cells) != volume_cells)
+                    {
+                        agreement = "DIFFERS";
+                        device_failed = 1;
+                    }
+                    else
+                    {
+                        agreement = "ok";
+                    }
+                }
+
+                const int row_ok = (collisions == 0u) && (device_failed == 0);
+                printf("  %16s %14s %10zu %12zu %14s %10s\n",
                        anchor_volume_layout_name((AnchorVolumeLayout)layout),
                        anchor_raster_channel_name((AnchorRasterChannel)channel),
-                       filled, collisions, (collisions == 0u) ? "ok" : "FAILS");
-                failed += (collisions == 0u) ? 0 : 1;
+                       filled, collisions, agreement, row_ok ? "ok" : "FAILS");
+                failed += (row_ok == 0) ? 1 : 0;
             }
         }
 
@@ -384,6 +412,7 @@ int main(void)
     }
 
     free(voxels);
+    free(device_voxels);
     free(seen);
 
     printf("\n  %d check(s) failed\n", failed);

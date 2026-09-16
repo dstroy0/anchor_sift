@@ -262,11 +262,10 @@ size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment
  *                        not.
  * @return                1 where the volume was written, 0 where the configuration was refused.
  *
- * @note HOST ONLY, AND THE DEVICE VOLUME IS NOT WIRED. anchor_raster_render prefers the device for a
- *       sheet. There is no device volume kernel, and this entry does not pretend otherwise by
- *       falling back silently: a caller wanting to know asks anchor_volume_device_available, which
- *       answers 0 on every build today. A stub reporting itself present is the defect this tree has
- *       spent a day removing.
+ * @note THE HOST ARM. anchor_volume_render is the entry a caller should use: it prefers the device
+ *       and falls back here, the same way anchor_raster_render does for a sheet. This arm and
+ *       anchor_volume_device stay public because a grader has to call one specific arm and compare
+ *       it against the other. That comparison is the only check on the device copy.
  */
 int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
                               const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
@@ -274,10 +273,47 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
                               size_t probe_count, const void *census);
 
 /**
- * @brief Whether a device volume renderer exists on this build.
+ * @brief Renders a volume on whichever arm this machine has, preferring the device.
  *
- * @return 0 on every build today. Declared so a caller can ask instead of assuming, and so the
- *         answer has one place to change when a kernel is written.
+ * @param[out] voxels     width*height*depth bytes, written whole [BORROWS].
+ * @param[in]  config     Render configuration [BORROWS].
+ * @param[in]  corpus     Bytes under examination [BORROWS].
+ * @param[in]  corpus_len How many.
+ * @param[in]  needle     Bytes being searched for [BORROWS].
+ * @param[in]  needle_len How many.
+ * @param[in]  probes     Probes in evaluation order [BORROWS].
+ * @param[in]  probe_count How many probes.
+ * @param[in]  census     RESERVED AND NOT READ, as in anchor_volume_render_host [BORROWS].
+ * @return                1 on success, 0 where both arms refused.
+ *
+ * THE ENTRY A CALLER SHOULD USE, matching anchor_raster_render for the sheet. Both arms produce the
+ * same bytes, so choosing between them is a performance decision and never a correctness one. This
+ * asks the device first and falls back to the host, so a render happens if either arm can do it.
+ */
+int anchor_volume_render(uint8_t *voxels, const AnchorVolumeConfig *config, const uint8_t *corpus,
+                         size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                         const AnchorRasterProbe *probes, size_t probe_count, const void *census);
+
+/**
+ * @brief Renders the object under examination into a volume, on the device.
+ *
+ * @return 1 where the volume was written, 0 where an argument was rejected, the layout refused the
+ *         configuration, no device answered, or the device work failed. Produces the same bytes
+ *         anchor_volume_render_host produces for the same arguments, which bench_raster grades voxel
+ *         for voxel. A difference is a defect in one of the two and never a tradeoff.
+ * @note Always returns 0 in a build compiled without the device renderer, so a caller written
+ *       against both arms links and runs either way.
+ */
+int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *config, const uint8_t *corpus,
+                         size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                         const AnchorRasterProbe *probes, size_t probe_count, const void *census);
+
+/**
+ * @brief Whether a usable CUDA device is present for the device volume renderer.
+ *
+ * @return 1 where a device is present and this build carries the device volume renderer, 0
+ *         otherwise. Always 0 in a build compiled without it, so a caller written against both arms
+ *         links and runs either way, and asks this before calling anchor_volume_device.
  */
 int anchor_volume_device_available(void);
 
