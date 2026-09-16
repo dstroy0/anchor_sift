@@ -135,6 +135,11 @@ typedef struct
     CorpusKind kind;
     double entropy;
     size_t distinct;
+    /* The dispatch rule reads the field's census now rather than an entropy in double, and this
+     * bench scores the rule against the clock, so a row has to carry what the rule consumes. The
+     * entropy and the distinct count above stay because this bench PRINTS them; they are its report
+     * and no longer the engine's input. */
+    AnchorFieldCensus census;
     size_t needle_len;
     unsigned present;
     uint64_t inorder;
@@ -317,6 +322,7 @@ static size_t measure_rows(Row *rows, uint8_t *corpus, uint8_t *absent)
                 rows[written].kind = KINDS[which];
                 rows[written].entropy = entropy;
                 rows[written].distinct = distinct;
+                anchor_field_census(corpus, CORPUS_BYTES, &rows[written].census);
                 rows[written].needle_len = needle_len;
                 rows[written].present = present;
                 rows[written].inorder = inorder;
@@ -577,8 +583,7 @@ static void score_named(const Row *rows, size_t count)
     {
         // No period supplied. This bench scores which arm to run, and the anchor count the period
         // would set is bench_coherence's question.
-        const AnchorSiftPlan plan = {rows[slot].entropy, rows[slot].distinct,
-                                     rows[slot].needle_len, 0u};
+        const AnchorSiftPlan plan = {&rows[slot].census, rows[slot].needle_len, 0u};
         const AnchorSiftArm chosen = anchor_sift_choose(&plan);
         const uint64_t paid = (chosen == anchor_sift_free) ? rows[slot].freed : rows[slot].inorder;
 

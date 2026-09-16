@@ -22,6 +22,11 @@
 #include <stddef.h>
 #include <stdint.h>
 
+/* The dispatch rule reads the field's census directly, so the plan carries one. This is what makes
+ * the rule exact: the census holds integer counts and the comparison clears its denominators into
+ * integers, where the old form took a logarithm and approximated a power of two in double. */
+#include "anchor_steer.h"
+
 /** @brief Anchors the sift arms place. The cascade depth log2(N)/H2 sits near five on these corpora. */
 #define ANCHOR_SIFT_ANCHORS 4u
 
@@ -115,17 +120,28 @@ size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t 
 /**
  * @brief What the dispatcher needs to choose an arm, all of it cheap to obtain.
  *
- * @note `needle_len` is carried and not read. A ceiling on it was swept over every value the bench
- *       measures and no ceiling beat having none, so the rule below does not consult it. It stays
- *       in the plan because it is free at the call site and because a crossover outside the lengths
- *       measured is the thing a later sweep would find.
+ * THE FIELD'S CENSUS AND NOT A NUMBER DERIVED FROM IT. The rule this plan feeds asks whether the
+ * effective alphabet reaches a share of the symbols actually used, and both quantities come out of
+ * one pass over the corpus. Carrying the census means the rule reads them exactly, in integers, and
+ * the engine holds no floating point value anywhere.
+ *
+ * @note `distinct_symbols` USED TO SIT HERE and was removed rather than left unread. The census
+ *       computes the same number authoritatively, and a public structure carrying a second copy
+ *       lets a caller hand over two values that disagree with nothing to catch it. An unread field
+ *       is untidy; a field that can contradict the truth beside it is a defect waiting for someone
+ *       to fill in both.
+ * @note `needle_len` is carried and not read, and that is a different case. A ceiling on it was
+ *       swept over every value the bench measures and no ceiling beat having none, so the rule does
+ *       not consult it. It duplicates nothing, so it stays.
+ * @warning `census` is BORROWED for the duration of every call taking this plan. It is a pointer
+ *          rather than an embedded structure because AnchorFieldCensus is about two kilobytes and a
+ *          plan is passed by pointer on a hot path.
  */
 typedef struct
 {
-    double collision_entropy; /**< H2 of the corpus, one pass over a byte histogram. */
-    size_t distinct_symbols;  /**< How many byte values the corpus actually uses. */
-    size_t needle_len;        /**< Known at the call. Not read by the rule that ships today. */
-    size_t period;            /**< Lag the corpus agrees with itself at, or zero where none. */
+    const AnchorFieldCensus *census; /**< The field's own census, which the rule reads [BORROWS]. */
+    size_t needle_len;               /**< Known at the call. Not read by the rule that ships today. */
+    size_t period;                   /**< Lag the corpus agrees with itself at, or zero where none. */
 } AnchorSiftPlan;
 
 /**

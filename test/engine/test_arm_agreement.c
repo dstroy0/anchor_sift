@@ -120,9 +120,13 @@ int main(void)
         grade(label, anchor_sift_free(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len),
               expected);
 
-        // A plan carrying no period and a flat reading, so the dispatcher has a real decision to
-        // make rather than being steered by a degenerate one.
-        const AnchorSiftPlan plan = {.collision_entropy = 2.3, .distinct_symbols = 5u, .period = 0u};
+        // A plan carrying no period and the corpus's own census, so the dispatcher has a real
+        // decision to make rather than being steered by a degenerate one. The census replaced the
+        // entropy and distinct count the plan used to carry: the rule reads integer counts now and
+        // the engine holds no floating point value anywhere.
+        AnchorFieldCensus census;
+        anchor_field_census(corpus, AGREEMENT_CORPUS_BYTES, &census);
+        const AnchorSiftPlan plan = {.census = &census, .period = 0u};
 
         snprintf(label, sizeof label, "anchor_sift_run");
         grade(label, anchor_sift_run(&plan, corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len),

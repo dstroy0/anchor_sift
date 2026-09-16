@@ -47,6 +47,7 @@ endif()
 # measurement.
 add_library(anchor_sift_kernel STATIC portable/anchor_sift.c)
 target_include_directories(anchor_sift_kernel PUBLIC portable)
+target_link_libraries(anchor_sift_kernel PUBLIC anchor_steer)
 target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
 
 # The same source with the counters compiled in. ANCHOR_SIFT_COUNT_READS is PUBLIC so a driver
@@ -55,6 +56,7 @@ target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
 add_library(anchor_sift_kernel_counted STATIC portable/anchor_sift.c)
 target_include_directories(anchor_sift_kernel_counted PUBLIC portable)
 target_compile_definitions(anchor_sift_kernel_counted PUBLIC ANCHOR_SIFT_COUNT_READS=1)
+target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_steer)
 target_compile_options(anchor_sift_kernel_counted PRIVATE ${SIFT_WARNINGS})
 
 # The exact integer as a fixed width limb array, which is the same value the python engine ingests
