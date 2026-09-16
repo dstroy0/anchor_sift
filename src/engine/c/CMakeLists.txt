@@ -162,6 +162,17 @@ target_include_directories(anchor_raster PUBLIC render)
 target_compile_definitions(anchor_raster PUBLIC ${ANCHOR_RASTER_DEFINES})
 target_compile_options(anchor_raster PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
+# The renderer as a shared library, so the Python arm can reach it through ctypes. It carries the
+# same sources as anchor_raster, so on a CUDA build the device arm is present and a Python caller
+# renders on the device through anchor_raster_render without owning a device path, which the tree's
+# library ban forbids Python anyway. WINDOWS_EXPORT_ALL_SYMBOLS puts the C entries in the export
+# table so ctypes can find them; every other platform exports them by default.
+add_library(anchor_render SHARED ${ANCHOR_RASTER_SOURCES})
+target_include_directories(anchor_render PUBLIC render)
+target_compile_definitions(anchor_render PUBLIC ${ANCHOR_RASTER_DEFINES})
+target_compile_options(anchor_render PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
+set_target_properties(anchor_render PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 # Which vectorized arm this target can carry. Decided from the processor the build targets, and
 # every gate is defined on both arms so #if always has a value and an unset build is never a silent
 # false. An arm that is compiled in still asks the processor at run time before it is used.

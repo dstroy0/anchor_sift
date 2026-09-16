@@ -49,6 +49,10 @@ The parts are allowed to import each other and several have to. A transition web
 
 The one boundary that does not bend is `oracle`. Supervision is the only one of the three ways a partition is fixed that adds information the sample did not hold, so anything carrying an answer from outside belongs there. `FAMILY`, the language tree written from philology before any distance is computed, is an oracle table and not a measure constant.
 
+## The output arm
+
+`render/` is not one of the six. The six parts are the search; `render/` turns what the search saw into an image, as a sheet or a volume, and mirrors `src/engine/c/render/`. Its host arm is pure Python and shares no code with the C renderer, so the two agreeing byte for byte is a check, run by `test/engine/test_render_python.py`. `render_raster` and `render_volume` prefer the device: where the C shared library is reachable they pass through the C dispatch, which renders on the CUDA arm when one is present, and where it is not they fall back to the pure Python host. Python owns no device path because the library ban forbids it one, so the device is reached only through C.
+
 ## The C implementation
 
 `src/engine/c/` holds the sift as C11, with its own bench. It shares no code with this and is not a binding for it. The two implement the same construction and are checked against each other by agreeing on counts. Where they disagree, one of them has a defect.
