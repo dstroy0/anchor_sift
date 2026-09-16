@@ -330,6 +330,17 @@ target_compile_options(bench_steer_arms PRIVATE ${SIFT_WARNINGS})
 # The ingestion reading: at what scale does the corpus agree with itself, and what does that cost
 # the histogram bound. Links the counted kernel because the claim it checks is about probes and
 # survivors, which are reads and not cycles.
+# The oracle route against a counter table as the alphabet grows, and as it does not. Two axes,
+# because one column is not a result: the oracle is flat in alphabet size and the table is linear in
+# it, while at a fixed alphabet both are linear in the corpus and the table is several times faster.
+# A reader shown only the first axis concludes the oracle is simply better, and below the crossover
+# near six times the corpus length that conclusion is wrong.
+#
+# Contributed by the theorist session, read in full and committed here.
+add_executable(bench_sigma bench/bench_sigma.c)
+target_link_libraries(bench_sigma PRIVATE anchor_sift_kernel)
+target_compile_options(bench_sigma PRIVATE ${SIFT_WARNINGS})
+
 add_executable(bench_coherence bench/bench_coherence.c)
 target_link_libraries(bench_coherence PRIVATE anchor_sift_kernel_counted bench_corpora)
 target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
