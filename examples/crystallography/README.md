@@ -93,6 +93,14 @@ The same measurement over a growing corpus:
 | 3744 | 4352 | 4301, with 51 over a full site |
 | 6730 | 6662 | 6596, with 66 over a full site |
 | 7414 | 7208 | 7136, with 72 over a full site |
+| 8799 | 8152 | 8079, with 73 over a full site |
+
+The last row is the first one measured against a cache that had stopped growing. Every figure above it
+was taken while the fetch was still running, which is why they are quoted with the moment attached.
+It is also the row that says what the inconsistent positions are: 1426 more entries produced ONE more
+position over a full site, 72 to 73. The count is not tracking the corpus. These are a fixed set of
+old depositions and not a rate at which deposits are written wrong, and the earlier rows were
+climbing because the corpus had not yet reached the end of them.
 
 This section previously read "the result did not soften as the corpus grew ... tripling the
 detections moved nothing", written at 1200. **It softened.** Perfect consistency held to 1200 entries
@@ -235,15 +243,19 @@ the closing line then reports a median over whatever survived with nothing on th
 denominator.
 
 `maint/analysis/survey/crystal_gate_census.py` counts what that costs. **Measured over `build/cod`
-2026-09-16, 7459 entries at that moment:**
+2026-09-16 after the fetch finished, 8885 entries:**
 
 | verdict | entries | share |
 |---|---|---|
-| admitted to the exact reading | 3708 | 49.7% |
-| refused, cell not right angled | 3747 | 50.2% |
-| refused, no cell published | 4 | 0.1% |
+| admitted to the exact reading | 4470 | 50.3% |
+| refused, cell not right angled | 4411 | 49.6% |
+| refused, no cell published | 4 | 0.0% |
 | refused, no atom sites | 0 | 0.0% |
 | refused, coordinate not plain decimal | 0 | 0.0% |
+
+The same census at 7459 entries, taken while the fetch was still running, gave 3708 admitted against
+3747 refused, which is 49.7% against 50.2%. The gate's tax is a property of the gate and of what the
+fetch searches for, and it does not move as the corpus grows.
 
 Half is the least interesting number here. The refusal is not spread evenly over the corpus, because
 a right angle is a property of the crystal system and the crystal system is not independent of the
@@ -251,22 +263,37 @@ mineral family the fetch searched under:
 
 | family | entries | admitted | share |
 |---|---|---|---|
-| garnet | 393 | 385 | 98.0% |
-| spinel | 592 | 569 | 96.1% |
+| garnet | 408 | 398 | 97.5% |
+| spinel | 738 | 715 | 96.9% |
 | melilite | 131 | 125 | 95.4% |
 | olivine | 450 | 429 | 95.3% |
 | perovskite | 167 | 152 | 91.0% |
-| carbonate | 154 | 8 | 5.2% |
+| carbonate | 403 | 122 | 30.3% |
 | tourmaline | 283 | 13 | 4.6% |
-| amphibole | 307 | 13 | 4.2% |
-| apatite | 286 | 7 | 2.4% |
-| feldspar | 128 | 3 | 2.3% |
+| amphibole | 363 | 13 | 3.6% |
+| feldspar | 275 | 8 | 2.9% |
+| apatite | 303 | 7 | 2.3% |
 
 So a stage five figure over this cache is a figure about its cubic and orthorhombic half. Feldspar
-contributes 3 entries out of 128 and amphibole 13 out of 307, and neither absence appears anywhere in
+contributes 8 entries out of 275 and amphibole 13 out of 363, and neither absence appears anywhere in
 the output. `DEVELOPMENT_RULES` names this case: a check that cannot fail closed has to be one whose
 failure is distinguishable from its answer, and zero findings over a root that vanished is a defect
 and not a pass. The census exists so the denominator can be quoted beside the result.
+
+The two censuses together say the refusal is structural and not a sampling accident. Amphibole grew
+from 307 entries to 363 and its admitted count stayed at 13, so none of the 56 that arrived were
+admitted. Apatite grew from 286 to 303 and stayed at 7. Mica grew from 361 to 365 and stayed at 52.
+A family's crystal system is a fact about the mineral, so a bigger sample of it does not arrive any
+more right angled than the sample already held.
+
+Carbonate is the exception and it is the one that says what the family column actually means. It
+went from 154 entries at 5.2% admitted to 403 at 30.3%, so 114 of the 249 that arrived were
+admitted, against 8 of the original 154. `maint/data/fetch/fetch_cod_doped.py` states in its header
+that the family is provenance and records the search term that returned the entry rather than a
+mineral classification. Rhombohedral calcite and orthorhombic aragonite are both carbonates and only
+one of them has right angles. A family whose admitted share moves that far between two samples is a
+family whose label is holding more than one crystal system, which is the header's warning arriving as
+a number.
 
 Whether the gate should be lifted is a separate question and it is argued in
 `PROPOSALS/CRYSTAL_EXACT_PATH_RIGHT_ANGLE_GATE.md`. This measures the gate and does not answer that.
@@ -276,6 +303,13 @@ Whether the gate should be lifted is a separate question and it is argued in
 `examples/crystallography/5_sift/lattice_breaks_the_product_rule.py` stops at 12 structures unless a
 count is passed. **Run over the whole cache 2026-09-16 it reads 3639 structures and draws 145560
 needles, and its closing median is 0.97.** At 12 structures that median is 4.33 and at 40 it is 4.53.
+
+**This stage is measured at the 7459 entry moment and the two above it are measured at 8885.** The
+cache finished filling after this run and stage five was not repeated on the larger one, because the
+repeat costs hours and a partial repeat is worth less than nothing here: the cache is walked in
+filename order, so a run stopped early has seen the low identifiers and almost none of the
+single-element structures, which is the same bias described below arriving by a different route. A
+complete measurement at a named moment is worth more than an incomplete one at a later moment.
 
 3639 is the second denominator this stage drops quietly. The census above admits 3708 entries to the
 exact reading, and the run reports 3639, because a structure from which no needle can be drawn hits
