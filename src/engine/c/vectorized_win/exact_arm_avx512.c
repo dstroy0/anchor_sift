@@ -6,9 +6,9 @@
  */
 /**
  * @file exact_arm_avx512.c
- * @brief The AVX-512 arm: asking this processor whether it carries AVX-512F, then offering it.
+ * @brief The AVX-512 arm of the exact arithmetic, comparing sixteen 32 bit limbs per instruction.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-09
+ * @date 2026-09-16
  *
  * @note No machine in this project has AVX-512, so this arm has never been run. It is compiled for
  *       the target and its emitted instructions are read by maint/engine/verify_arm_asm.sh, which
@@ -18,13 +18,19 @@
  *       show this arm beside a run one without the difference being visible in the row itself.
  * @note Detection asks for AVX-512F and AVX-512BW together, because the masked load the equality
  *       tail uses is a BW instruction and a part with F alone would fault on it.
+ * @note AVX-512 comparison does not produce a vector of all-ones lanes the way AVX2 does. It writes
+ *       a mask register, one bit per lane, and the comparison is against 0xFFFF for sixteen lanes.
+ *       That is a different instruction shape and not a widening of the AVX2 one.
+ * @note 108 limbs is six full sixteen-lane blocks and a remainder of twelve. The remainder is handled
+ *       with a masked load instead of a scalar tail, since a mask is free on this instruction set and
+ *       the tail would otherwise be an eighth of the work.
  */
 
 #include "exact_arm.h"
 
 #if defined(ANCHOR_EXACT_HAVE_AVX512) && ANCHOR_EXACT_HAVE_AVX512
 
-#include "exact_limbs_avx512.h"
+#include <immintrin.h>
 
 #if defined(_MSC_VER)
 #include <intrin.h>
@@ -35,6 +41,12 @@
 #else
 #define ANCHOR_AVX512_CAN_DETECT 0
 #endif
+
+/** @brief Limbs compared per AVX-512 instruction. 512 bits holds sixteen 32 bit limbs. */
+#define ANCHOR_AVX512_LANES 16u
+
+/** @brief Every lane set. A full block of matching limbs compares equal to this. */
+#define ANCHOR_AVX512_ALL ((__mmask16)0xFFFFu)
 
 /**
  * @brief Whether the running processor carries the AVX-512 subsets this arm issues.
@@ -64,7 +76,86 @@ static int avx512_present(void)
 }
 
 /**
- * @brief Whether two integers hold the same value, through the AVX-512 comparison.
+ * @brief Whether two magnitudes are equal, sixteen limbs at a time.
+ *
+ * @param[in] left  First magnitude [BORROWS].
+ * @param[in] right Second magnitude [BORROWS].
+ * @return          1 where every limb matches, 0 otherwise.
+ * @note Walks from the top limb down. A value scaled to 1024 decimal digits carries hundreds of
+ *       trailing zero digits, so the low limbs are zero on both sides and hold no information.
+ */
+static int avx512_magnitude_equal(const uint32_t *left, const uint32_t *right)
+{
+    size_t at = (size_t)ANCHOR_EXACT_LIMBS;
+    while (at >= (size_t)ANCHOR_AVX512_LANES)
+    {
+        at -= (size_t)ANCHOR_AVX512_LANES;
+        const __m512i one = _mm512_loadu_si512((const void *)(left + at));
+        const __m512i two = _mm512_loadu_si512((const void *)(right + at));
+        if (_mm512_cmpeq_epi32_mask(one, two) != ANCHOR_AVX512_ALL)
+        {
+            return 0;
+        }
+    }
+    if (at > 0u)
+    {
+        // The remainder, as a masked load. Lanes past the remainder read as zero on both sides and
+        // compare equal, so the mask is applied to the comparison and not to the load alone.
+        const __mmask16 wanted = (__mmask16)((1u << at) - 1u);
+        const __m512i one = _mm512_maskz_loadu_epi32(wanted, (const void *)left);
+        const __m512i two = _mm512_maskz_loadu_epi32(wanted, (const void *)right);
+        if ((_mm512_cmpeq_epi32_mask(one, two) & wanted) != wanted)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+/**
+ * @brief Orders two magnitudes, sixteen limbs at a time.
+ *
+ * @param[in] left  First magnitude [BORROWS].
+ * @param[in] right Second magnitude [BORROWS].
+ * @return          -1 where left is smaller, 1 where it is larger, 0 where they are equal.
+ * @note The mask marks which lanes differ and not which of them sits highest. The block holding the
+ *       highest difference is found with the mask and then walked backward one limb at a time, which
+ *       runs at most sixteen scalar steps, once per comparison.
+ */
+static int avx512_magnitude_compare(const uint32_t *left, const uint32_t *right)
+{
+    size_t at = (size_t)ANCHOR_EXACT_LIMBS;
+    while (at >= (size_t)ANCHOR_AVX512_LANES)
+    {
+        at -= (size_t)ANCHOR_AVX512_LANES;
+        const __m512i one = _mm512_loadu_si512((const void *)(left + at));
+        const __m512i two = _mm512_loadu_si512((const void *)(right + at));
+        if (_mm512_cmpeq_epi32_mask(one, two) != ANCHOR_AVX512_ALL)
+        {
+            size_t back = at + (size_t)ANCHOR_AVX512_LANES;
+            while (back > at)
+            {
+                back--;
+                if (left[back] != right[back])
+                {
+                    return (left[back] < right[back]) ? -1 : 1;
+                }
+            }
+        }
+    }
+    while (at > 0u)
+    {
+        at--;
+        if (left[at] != right[at])
+        {
+            return (left[at] < right[at]) ? -1 : 1;
+        }
+    }
+    return 0;
+}
+
+/**
+ * @brief Whether two integers hold the same value, sign included.
  *
  * @param[in] left  First integer [BORROWS].
  * @param[in] right Second integer [BORROWS].
@@ -72,23 +163,37 @@ static int avx512_present(void)
  */
 static int arm_equal(const AnchorExactInteger *left, const AnchorExactInteger *right)
 {
-    return anchor_avx512_equal(left, right);
+    if (left->sign != right->sign)
+    {
+        return 0;
+    }
+    return avx512_magnitude_equal(left->limb, right->limb);
 }
 
 /**
- * @brief Orders two integers, through the AVX-512 comparison.
+ * @brief Orders two integers, sign included.
  *
  * @param[in] left  First integer [BORROWS].
  * @param[in] right Second integer [BORROWS].
- * @return          -1, 1 or 0.
+ * @return          -1, 1 or 0, matching anchor_exact_compare exactly.
  */
 static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger *right)
 {
-    return anchor_avx512_compare(left, right);
+    if (left->sign != right->sign)
+    {
+        return (left->sign < right->sign) ? -1 : 1;
+    }
+    const int order = avx512_magnitude_compare(left->limb, right->limb);
+    if (left->sign < 0)
+    {
+        // Both negative, so the larger magnitude is the smaller value.
+        return -order;
+    }
+    return order;
 }
 
 /**
- * @brief Counts agreeing places over a sorted run, through the AVX-512 comparison.
+ * @brief Counts agreeing places over a sorted run, through the AVX-512 equality.
  *
  * @param[in] positions Positions, ascending [BORROWS].
  * @param[in] values    The value standing at each position [BORROWS].

@@ -165,7 +165,6 @@ set(ANCHOR_ARM_INCLUDES "")
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     # One AVX2 arm for every x86 build. It carries both detection paths, MSVC's cpuid and the
     # builtin GCC and Clang share, so there is no per operating system copy to disagree with it.
-    list(APPEND ANCHOR_ARM_INCLUDES vectorized_win)
     list(APPEND ANCHOR_ARM_SOURCES vectorized_win/exact_arm_avx2.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_AVX2=1)
     # -mavx2 permits the intrinsics in this translation unit. It does not permit the compiler to
@@ -198,7 +197,6 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)$" AND NOT MSVC)
     if(ANCHOR_CC_TAKES_AVX512)
         add_library(anchor_exact_avx512 STATIC vectorized_win/exact_arm_avx512.c)
         target_link_libraries(anchor_exact_avx512 PUBLIC anchor_exact_portable)
-        target_include_directories(anchor_exact_avx512 PUBLIC vectorized_win)
         target_compile_definitions(anchor_exact_avx512 PUBLIC ANCHOR_EXACT_HAVE_AVX512=1)
         target_compile_options(anchor_exact_avx512
             PRIVATE ${SIFT_WARNINGS} -mavx512f -mavx512bw -mavx512vl)
@@ -209,7 +207,6 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
     if(ANCHOR_CC_TAKES_SVE)
         add_library(anchor_exact_sve STATIC vectorized_rpi/exact_arm_sve.c)
         target_link_libraries(anchor_exact_sve PUBLIC anchor_exact_portable)
-        target_include_directories(anchor_exact_sve PUBLIC vectorized_rpi)
         target_compile_definitions(anchor_exact_sve PUBLIC ANCHOR_EXACT_HAVE_SVE=1)
         target_compile_options(anchor_exact_sve PRIVATE ${SIFT_WARNINGS} -march=armv8.2-a+sve)
         list(APPEND ANCHOR_EXTRA_ARMS anchor_exact_sve)
