@@ -214,8 +214,10 @@ endforeach()
 # of them builds against this kernel. They are not wired up here, and wiring them up means reading
 # each one first. bench_ab.c alone is 105 KB.
 #
-# Three of them also include "mmgr_sha256.h", which is MMgr's test support and lives in MMgr, at
-# deps/mmgr/test/support. Run `python maint/get_deps.py` to put the clone there, then add
+# All four of them include "mmgr_sha256.h", which is MMgr's test support and lives in MMgr, at
+# deps/mmgr/test/support. This said three until it was counted: bench_ab.c, bench_cycles.c,
+# bench_entropy.c and bench_sift.c all include it, and nothing checked the number against the
+# files. Run `python maint/deps/get_deps.py` to put the clone there, then add
 # that directory to the target's include path and compile its .c beside the driver. Nothing built
 # here needs it: the corpora are filled by splitmix64 in bench_corpora, and bench_lattice carries
 # its own three line shim for the same reason.
