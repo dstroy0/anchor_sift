@@ -12,20 +12,38 @@
 # A CIF lists the asymmetric unit and the operations that generate the rest of the cell.
 # doping_from_shared_sites.py reads the asymmetric unit alone. This reads the cell.
 #
-# The count rises steeply and the honest description of that rise is narrow. Over 1228 readable
-# entries the shared positions go from 712 to 3469, which is 4.87 times as many. Not one of them is
-# a substitution the asymmetric reading missed: **zero entries that showed no shared site before
-# expansion show one after.** Every additional position is a symmetry copy of a site already found.
+# The count rises steeply and almost all of the rise is arithmetic. Over 2853 readable entries the
+# shared positions go from 3424 to 20893, about six times as many, and nearly every added position
+# is a symmetry copy of a site the asymmetric reading already found.
 #
-# So the expansion does not change which entries are doped, and a reading that wants to know whether
-# a mineral dopes should not pay for it. What it changes is how many places in the cell are doped,
-# which is the quantity anything about composition or site multiplicity needs. The two numbers
-# answer different questions and only one of them is a detection.
+# Almost. Two entries hold a shared position that exists only after expansion, and they are worth
+# more than the ratio is.
 #
-# That result was worth measuring precisely because the opposite was plausible. Two sites written
-# separately in the asymmetric unit can be one place after an operation, and had that happened
-# anywhere in this corpus the asymmetric reading would have been undercounting entries and not just
-# positions. It does not happen here. That is a fact about this corpus and not a theorem.
+#   1001125   Ta5+ at (1/2, 1/2, 0.238) and W6+ at (1/2, 1/2, -0.238). An operation taking z to -z
+#             carries one onto the other. Tantalum and tungsten substitute readily, so this is an
+#             ordinary solid solution that the asymmetric unit simply does not show.
+#
+#   1509166   O at (0, 1/2, 0) at full occupancy and Ag at (1/2, 0, 1/2) at half, in I 4/m m m. The
+#             I centring carries the first exactly onto the second, so the deposit has put an anion
+#             and a cation in one orbit summing to one and a half atoms on a site that holds one.
+#             That is not chemistry, it is a defect in a published deposit, and nothing short of
+#             expansion surfaces it.
+#
+# So expansion IS a detection, on 2 entries in 2853. It is a poor detector by rate and the right
+# tool for the thing it finds, and a reading that only wants to know whether a mineral dopes still
+# should not pay for it.
+#
+# THIS SECTION SAID ZERO UNTIL THE CORPUS GREW
+#
+# At 1228 entries the count was 0 and this file asserted that expansion never detects. At 2801 it
+# was 5, and three of those five were an artefact: deposits that mark an undetermined position with
+# the sentinel -1 and the flag `dum`, which reduces into the cell at the origin and collides with
+# whatever real atom sits there. Mo and O sharing a site is chemically impossible and that is how
+# the artefact announced itself. crystal.site_table now drops `dum` rows, and the two survivors
+# above are the real answer.
+#
+# Both halves of that are worth keeping. A claim of zero held for 1228 entries and was false, and a
+# count of five looked like a finding and was mostly a parser reading a placeholder as an atom.
 #
 # A THIRD HAS NO DECIMAL, WHICH IS WHY THIS NEEDED A NEW SCALE
 #
@@ -186,9 +204,12 @@ def main():
 
     out.write("\n  entries with no shared site before expansion that have one after   %d\n"
               % newly_doped)
-    out.write("     This is the number that would make expansion a detection rather than a\n")
-    out.write("     count. Every position the expansion adds is a symmetry copy of a site the\n")
-    out.write("     asymmetric reading already found.\n\n")
+    out.write("     This is the number that makes expansion a detection rather than a count.\n")
+    out.write("     Nearly every position the expansion adds is a symmetry copy of a site the\n")
+    out.write("     asymmetric reading already found, and the few that are not are the whole\n")
+    out.write("     reason to run it. See the header for the two in this corpus: one ordinary\n")
+    out.write("     Ta for W solid solution, and one deposit putting an anion and a cation in\n")
+    out.write("     the same orbit at a sum of one and a half atoms on a site that holds one.\n\n")
     out.flush()
     return 0
 

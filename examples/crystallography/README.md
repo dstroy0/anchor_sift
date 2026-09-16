@@ -102,16 +102,35 @@ Na on another, and neither half works alone. The measure was not told that and h
 A CIF publishes the asymmetric unit and the operations that generate the rest of the cell.
 `doping_after_symmetry_expansion.py` applies them and counts again.
 
-The shared positions go from 712 to 3469, which is 4.87 times as many, and the honest description of
-that rise is narrow. **Zero entries that showed no shared site before expansion show one after.**
-Every position the expansion adds is a symmetry copy of a site the asymmetric reading already found.
-So expansion does not change which entries are doped; it gives the true count of doped places per
-cell, which is what a composition needs and is not a detection.
+Over 2853 readable entries the shared positions go from 3424 to 20893, about six times as many, and
+nearly all of that rise is arithmetic: a symmetry copy of a site the asymmetric reading already
+found. Nearly all. **Two entries hold a shared position that exists only after expansion**, and they
+are worth more than the ratio is.
 
-That was worth measuring because the opposite was plausible. Two sites written separately in the
-asymmetric unit can become one place after an operation, and had that happened anywhere here the
-simpler reading would have been undercounting entries rather than only positions. It does not happen
-in this corpus, which is a fact about this corpus and not a theorem.
+`1001125` puts Ta at (1/2, 1/2, 0.238) and W at (1/2, 1/2, -0.238). An operation taking z to -z
+carries one onto the other. Tantalum and tungsten substitute readily, so this is an ordinary solid
+solution that the asymmetric unit does not show.
+
+`1509166` puts O at (0, 1/2, 0) at full occupancy and Ag at (1/2, 0, 1/2) at half, in `I 4/m m m`.
+The I centring carries the first exactly onto the second, so an anion and a cation share one orbit
+summing to one and a half atoms on a site that holds one. That is not chemistry. It is a defect in a
+published deposit, and nothing short of expansion surfaces it.
+
+So expansion is a detection, on 2 entries in 2853. A poor detector by rate, and the right tool for
+what it finds.
+
+### This section said zero, and the corpus falsified it
+
+At 1228 entries the count was 0 and this README asserted that expansion never detects, only counts.
+At 2801 it was 5. Three of those five were an artefact: deposits mark an undetermined position with
+the sentinel `-1` and the flag `dum`, which reduces into the cell at the origin and collides with
+whatever real atom sits there. Dickinson's 1920 wulfenite (`1011170`) writes its unsolved oxygen that
+way, and the reading reported Mo and O sharing a site. A cation and an anion cannot occupy one place,
+and that impossibility is how the artefact announced itself. `crystal.site_table` now drops `dum`
+rows and the two survivors above are the real answer.
+
+Both halves are worth keeping. A claim of zero held for 1228 entries and was false. A count of five
+looked like a finding and was mostly a parser reading a placeholder as an atom.
 
 The expansion is exact, and that took a second scale. A translation of 1/3 is not a decimal at any
 number of places, because 10^n factors into twos and fives and three divides neither. An R centred
