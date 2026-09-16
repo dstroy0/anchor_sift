@@ -663,10 +663,10 @@ int anchor_field_project(const AnchorFieldProjection *args)
     // because capping is what the previous form did and what it cost is recorded below.
     if (args->classes_length < args->length)
     {
-        if (args->distinct != NULL)
-        {
-            *args->distinct = 0u;
-        }
+        // WRITES NOTHING, LIKE EVERY OTHER REFUSAL HERE. This path used to set `distinct` to zero
+        // while the null and zero-length refusals left it alone, which meant a caller could not tell
+        // a refused zero from a measured zero. Fail closed says a request that cannot be met changes
+        // no state, so no refusal touches it and the return value is the only thing to read.
         return 0;
     }
 

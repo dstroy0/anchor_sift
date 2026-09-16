@@ -996,6 +996,29 @@ static int check_projection_closes(void)
     free(wide_members);
     free(wide_place);
 
+    // A REFUSAL WRITES NOTHING, AND THAT IS CHECKED BY PLANTING A SENTINEL. Fail closed says a
+    // request that cannot be met changes no state. The undersize path used to zero `distinct` while
+    // the null and zero-length paths left it alone, so a caller could not tell a refused zero from a
+    // measured zero. The realistic caller error is sizing the buffers by an expected class count
+    // rather than by `length`, which hands over buffers correct for the field they had in mind.
+    {
+        const size_t sentinel_count = 43981u;
+        size_t planted = sentinel_count;
+        const AnchorFieldProjection undersize = {
+            near_same_in_field, chain, length, ranks, class_of, members, place, length - 1u, &planted
+        };
+
+        const int refused = anchor_field_project(&undersize);
+
+        printf("  %38s %8d %8s %10s\n", "buffers one short, refused", refused, "0",
+               (refused == 0) ? "refused" : "RAN");
+        failed += (refused == 0) ? 0 : 1;
+
+        printf("  %38s %8zu %8zu %10s\n", "and distinct left untouched", planted, sentinel_count,
+               (planted == sentinel_count) ? "ok" : "WROTE");
+        failed += (planted == sentinel_count) ? 0 : 1;
+    }
+
     // The exact predicate on the same field must NOT collapse, or the check above would pass for
     // the wrong reason: a projection that always returned one class would satisfy it.
     size_t exact_classes = 0u;

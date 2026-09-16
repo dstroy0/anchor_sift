@@ -486,7 +486,12 @@ typedef struct
 typedef struct
 {
     AnchorSameAt same_in_field;      /**< Equality between two positions OF THE FIELD. Never null. */
-    const void *field;               /**< Passed to the oracle untouched [BORROWS]. May be null. */
+    const void *field;               /**< Passed to the oracle untouched, never dereferenced here
+                                      *   [BORROWS]. May be null ONLY where the oracle does not
+                                      *   dereference it either, which means an oracle reaching its
+                                      *   data some other way. Passing null to an oracle that reads
+                                      *   it faults inside the oracle, and the engine cannot see
+                                      *   that coming. */
     size_t length;                   /**< Positions to project. Non-zero. */
     uint8_t *ranks;                  /**< One rarity rank per position, written whole [BORROWS]. */
     uint32_t *class_of_position;     /**< Which class each position fell in, one entry per position,
