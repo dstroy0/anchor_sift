@@ -135,16 +135,17 @@ def build_coherent():
         dirty = [shaped[n] + hum[n % period] for n in range(len(shaped))]
         floor.append((depth, reduction(dirty, mean_residual(dirty, period), shaped)))
 
+    untouched = all(mean_residual(target, period)[i] == target[i] for i in range(len(target)))
     wrong = reduction(signal, [window_median(signal, i, 3) for i in range(len(signal))], target)
     return {
         "name": "coherent hum", "reference": "phase mean (period 4)",
-        "nrr": reduction(signal, matched, target),
+        "nrr": reduction(signal, matched, target), "untouched": untouched,
         "routes": ("mean_background", "mean_background_incremental",
                    route_a == route_b, route_a != broken_route and route_b != broken_route),
         "null": "period %s at ratio %.1f vs null band %.2f..%.2f over %d shuffles"
                 % (found, float(live), float(band[0]), float(band[-1]), DRAWS),
-        "floor_label": "target energy at the hum's period (depth)",
-        "floor": floor, "floor_rep": floor[2][1],
+        "floors": [("target energy at the hum's period (depth)", floor)],
+        "floor_rep": floor[2][1],
         "wrong_ref": "window median", "wrong": wrong,
     }
 
@@ -168,23 +169,40 @@ def build_impulse():
     found, agree = recover_exact_period(placed(list(enumerate(signal))), families=2)
     dead, dead_agree = recover_exact_period(placed(list(enumerate(permuted(bytearray(signal))))), families=2)
 
-    floor = []
+    stuck_floor = []
     for stuck in (3, 8, 12, 14):
         crowd = list(clean)
         for step in range(stuck):
             crowd[step * period] = 255                      # a stuck value filling a phase class
-        floor.append((stuck, reduction(crowd, consensus_majority(crowd, period), clean)))
+        stuck_floor.append((stuck, reduction(crowd, consensus_majority(crowd, period), clean)))
 
+    # second mechanism: SCATTERED impulses each land on their own value, so plurality stays robust
+    # well past half a class -- a different floor from the stuck-value one above.
+    scattered_floor = []
+    cycles = len(clean) // period
+    for per_class in (3, 8, 12, 16):
+        sca = list(clean)
+        srng = random.Random(SEED ^ (per_class << 8))
+        for phase in range(period):
+            slots = srng.sample(range(cycles), per_class)
+            for slot in slots:
+                pos = phase + slot * period
+                value = srng.randrange(256)
+                sca[pos] = value if value != clean[pos] else (value + 1) % 256
+        scattered_floor.append((per_class, reduction(sca, consensus_majority(sca, period), clean)))
+
+    untouched = consensus_majority(clean, period) == clean
     mean_bg = mean_background(signal, period)
     wrong = reduction(signal, [Fraction(signal[i]) - mean_bg[i] for i in range(len(signal))], clean)
     return {
         "name": "incoherent impulse", "reference": "phase consensus (period 5)",
-        "nrr": reduction(signal, route_a, clean),
+        "nrr": reduction(signal, route_a, clean), "untouched": untouched,
         "routes": ("consensus_majority", "consensus_median", route_a == route_b, broken_splits),
         "null": "live exact period %s at agreement %s; a shuffle's best is period %s at agreement %s"
                 % (found, agree, dead, dead_agree),
-        "floor_label": "one stuck value filling a phase class (count)",
-        "floor": floor, "floor_rep": floor[3][1],
+        "floors": [("one stuck value filling a phase class (count)", stuck_floor),
+                   ("scattered impulses, plurality stays robust past half (per-class count)", scattered_floor)],
+        "floor_rep": stuck_floor[3][1],
         "wrong_ref": "phase mean (additive)", "wrong": wrong,
     }
 
@@ -226,18 +244,19 @@ def build_motif():
     # floor: contexts that recur only once are groups of one and cannot be denoised
     once = [90, 111, 91, 70, 222, 71]
     once_clean = [90, 100, 91, 70, 200, 71]
-    floor = [(1, reduction(once, similar_background(once, radius), once_clean, [1, 4]))]
+    once_floor = [(1, reduction(once, similar_background(once, radius), once_clean, [1, 4]))]
 
+    untouched = all(similar_background(clean_full, radius)[c] == clean_full[c] for c in centers)
     wrong = reduction(signal, mean_background(signal, 4), clean_full, centers)
     return {
         "name": "recurring motif", "reference": "context mean (radius 1)",
-        "nrr": reduction(signal, route_a, clean_full, centers),
+        "nrr": reduction(signal, route_a, clean_full, centers), "untouched": untouched,
         "routes": ("similar_background", "similar_background_scanned",
                    route_a == route_b, route_a != broken_route),
         "null": "%d contexts recur; live recovers 100%%, but with the centers shuffled the same grouping recovers %s"
                 % (recurring, pct(null_nrr)),
-        "floor_label": "a context that recurs only once (occurrences)",
-        "floor": floor, "floor_rep": floor[0][1],
+        "floors": [("a context that recurs only once (occurrences)", once_floor)],
+        "floor_rep": once_floor[0][1],
         "wrong_ref": "phase mean (period 4)", "wrong": wrong,
     }
 
@@ -265,25 +284,41 @@ def build_outlier():
     matched = restore_at(signal, radius, outliers(signal, radius))
     clean_flags = len(outliers(clean, radius))
 
-    floor = []
+    crowd_floor = []
     for count in (6, 12, 20):
         rng2 = random.Random(SEED ^ count)
         crowd = list(clean)
         for pos in rng2.sample(range(len(clean)), count):
             value = rng2.randrange(256)
             crowd[pos] = value if value != clean[pos] else (value + 1) % 256
-        floor.append((count, reduction(crowd, restore_at(crowd, radius, outliers(crowd, radius)), clean)))
+        crowd_floor.append((count, reduction(crowd, restore_at(crowd, radius, outliers(crowd, radius)), clean)))
 
+    # second mechanism: on a VARYING signal the window median is not the exact value, so the restore
+    # is a floor about the signal rather than about the noise. A monotone ramp + spaced impulses.
+    ramp = [20 + i for i in range(len(clean))]
+    rrng = random.Random(SEED ^ 0xA5)
+    ramp_dirty, rp = list(ramp), []
+    for pos in rrng.sample(range(radius, len(ramp) - radius), len(ramp) - 2 * radius):
+        if any(abs(pos - q) <= 2 * radius + 1 for q in rp):
+            continue
+        ramp_dirty[pos] = ramp[pos] + 90
+        rp.append(pos)
+        if len(rp) >= 6:
+            break
+    ramp_floor = [(len(rp), reduction(ramp_dirty, restore_at(ramp_dirty, radius, outliers(ramp_dirty, radius)), ramp))]
+
+    untouched = restore_at(clean, radius, outliers(clean, radius)) == clean
     wrong = reduction(signal, broken_route, clean)
     return {
         "name": "sparse outlier", "reference": "window median (radius 3)",
-        "nrr": reduction(signal, matched, clean),
+        "nrr": reduction(signal, matched, clean), "untouched": untouched,
         "routes": ("window_median", "window_median_counted",
                    route_a == route_b, route_a != broken_route),
         "null": "flagged %d = the impulses; a clean signal draws %d flags (band drawn from neighbours)"
                 % (len(outliers(signal, radius)), clean_flags),
-        "floor_label": "impulses allowed to crowd, two per window mask one (count)",
-        "floor": floor, "floor_rep": floor[1][1],
+        "floors": [("impulses allowed to crowd, two per window mask one (count)", crowd_floor),
+                   ("a varying ramp restores to the median, not exactly (impulses)", ramp_floor)],
+        "floor_rep": crowd_floor[1][1],
         "wrong_ref": "window mean", "wrong": wrong,
     }
 
@@ -309,14 +344,16 @@ def main():
     ok = True
     for row in rows:
         a, b, agree, splits = row["routes"]
-        ok = ok and (row["nrr"] == 1) and agree and splits
+        ok = ok and (row["nrr"] == 1) and agree and splits and row["untouched"]
         out.write("\n  %s -- reference %s\n" % (row["name"], row["reference"]))
         out.write("    two routes: %s vs %s agree bit-exact: %s; a broken route splits: %s\n"
                   % (a, b, agree, splits))
+        out.write("    no noise: a clean signal comes back untouched: %s\n" % row["untouched"])
         out.write("    drawn null: %s\n" % row["null"])
-        out.write("    floor sweep (%s):\n" % row["floor_label"])
-        for param, value in row["floor"]:
-            out.write("      %-6s -> %s\n" % (param, pct(value)))
+        for label, sweep in row["floors"]:
+            out.write("    floor sweep (%s):\n" % label)
+            for param, value in sweep:
+                out.write("      %-6s -> %s\n" % (param, pct(value)))
 
     out.write("\n  every matched NRR is 100% because each control's noise is identifiable as separate\n")
     out.write("  from its target; the routes agree and a broken one splits, so the agreement is\n")
