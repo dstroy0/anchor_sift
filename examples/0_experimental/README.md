@@ -3,7 +3,7 @@
 **Purpose:** Hold work that has no walk through a corpus yet, so it is visible without being mistaken for a stage.
 **Scope:** `examples/0_experimental/`
 
-Four readings, each taking a filter from another field and running it on this engine's terms. None
+Six readings, each taking a filter from another field and running it on this engine's terms. None
 reads a corpus, which is why they are here and not at a subject stage.
 
 | file | field | what it shows |
@@ -12,6 +12,14 @@ reads a corpus, which is why they are here and not at a subject stage.
 | `hamming_corrects_by_selecting.py` | coding theory | a parity syndrome corrects by selecting the codeword its necessary conditions leave standing |
 | `collaborative_filter.py` | recommender systems | a missing entry predicted from the neighbourhood that shares its known values |
 | `morphology_opening_and_closing.py` | image morphology | erosion and dilation rejecting a speckle by rank, with no threshold |
+| `invariant_consensus_rejects_outliers.py` | robust estimation | the inliers are mutually compatible, so they are a clique, and rejecting outliers is finding it |
+| `theil_sen_robust_trend.py` | robust statistics | a median over pairwise slopes recovers the trend exactly where least squares is dragged off it |
+
+The last two share a floor and it is the same floor. A necessary condition cannot refuse a large
+enough accident: outliers that conspire into a consistent set bigger than the truth take the clique,
+and a conspiracy whose pairs outnumber the clean ones takes the median. Both files sweep that floor
+rather than quoting it, and both also sweep the benign case where the outliers merely scatter, because
+a method with two ways to fail has two floors and one figure is the wrong shape for that.
 
 Each carries a positive control, two routes shown able to disagree, a drawn null, and a stated floor.
 A file earns a subject stage once it reads that subject's corpus; until then it earns this directory.
