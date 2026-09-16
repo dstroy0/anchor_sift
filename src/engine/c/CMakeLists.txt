@@ -61,6 +61,14 @@ target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 # links it: the dispatch comparison is 100*total^2 against 85*distinct*sum(count^2), both of which
 # outgrow 64 bits on a corpus of any size. Carrying them exactly is why that test is no longer a
 # floating point one, so the dependency is the point rather than an inconvenience.
+# The direct renderer. Rasterizes the object under examination straight from engine state, with the
+# layout, channel and reduction taken from a configuration rather than fixed. Links nothing: the
+# host arm is C11 and stdio, and the device arm is built separately by maint/engine/build_gpu_arm.sh
+# because nvcc drives MSVC on Windows while this build uses MinGW.
+add_library(anchor_raster STATIC portable/anchor_raster.c)
+target_include_directories(anchor_raster PUBLIC portable)
+target_compile_options(anchor_raster PRIVATE ${SIFT_WARNINGS})
+
 add_library(anchor_steer STATIC portable/anchor_steer.c)
 target_include_directories(anchor_steer PUBLIC portable)
 target_link_libraries(anchor_steer PUBLIC anchor_exact_portable)
@@ -188,6 +196,12 @@ target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
 # Carries its own negative control, ordering commonest symbol first, which must read more.
 add_executable(bench_steer bench/bench_steer.c)
 target_link_libraries(bench_steer PRIVATE anchor_steer anchor_sift_kernel)
+
+# Sweeps every render configuration, four layouts by four channels, writes each as a PGM, grades the
+# host raster against the device one byte for byte where a device is present, and times the frame
+# rate of a steered probe set against an unsteered one on the same object.
+add_executable(bench_raster bench/bench_raster.c)
+target_link_libraries(bench_raster PRIVATE anchor_raster anchor_steer anchor_sift_kernel)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 
 # The ingestion reading: at what scale does the corpus agree with itself, and what does that cost
