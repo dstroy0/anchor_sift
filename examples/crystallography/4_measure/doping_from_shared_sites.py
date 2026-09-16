@@ -89,6 +89,16 @@ CACHE = os.path.join(ROOT, "build", "cod")
 SHOWN = 20
 
 
+def symbol(written):
+    """An element as deposited, reduced to its bare symbol. Fe2+, Fe+2, FE and Fe all give Fe.
+
+    Used only for the folded summary at the end. Nothing in the detection passes through here: two
+    sites share a position or they do not, and that is decided on the strings as written.
+    """
+    letters = "".join(one for one in written if one.isalpha())
+    return letters.capitalize() if letters else written
+
+
 def doped_sites(text):
     """Positions in one cell carrying more than one element, as {position: (element, ...)}.
 
@@ -174,8 +184,27 @@ def main():
         out.write("  %.1f%% of readable entries are doped by this measure\n"
                   % (100.0 * doped / read))
 
-    out.write("\n  the substitutions found, most common first\n")
-    for elements, count in sorted(pairs.items(), key=lambda pair: -pair[1])[:20]:
+    out.write("\n  the substitutions found, as the deposits wrote them, most common first\n")
+    for elements, count in sorted(pairs.items(), key=lambda pair: -pair[1])[:15]:
+        out.write("     %-28s %d\n" % ("/".join(elements), count))
+
+    # Derived, and labelled as derived. The line above is the measurement: element strings exactly
+    # as deposited. Those strings disagree across deposits for the same chemistry, and the corpus
+    # carries Fe2+, Fe+2, Fe and FE for one element, so the raw tally splits one substitution
+    # across four rows and understates every one of them.
+    #
+    # The grouping below strips the charge and the case to put those back together. It is a reading
+    # convenience and not a result, and it is kept separate for that reason: deciding that Fe2+ and
+    # Fe+2 are the same element is chemistry this measure is not otherwise doing, and folding it
+    # into the measurement would hide a judgement inside a count.
+    folded = {}
+    for elements, count in pairs.items():
+        key = tuple(sorted({symbol(one) for one in elements}))
+        if len(key) > 1:
+            folded[key] = folded.get(key, 0) + count
+    out.write("\n  the same substitutions with charge and case folded together, which is a\n")
+    out.write("  reading convenience and not the measurement\n")
+    for elements, count in sorted(folded.items(), key=lambda pair: -pair[1])[:15]:
         out.write("     %-28s %d\n" % ("/".join(elements), count))
 
     out.write("\n  no occupancy was read. Stage six checks these against the published column.\n\n")
