@@ -196,7 +196,15 @@ def stamped(text):
 
 
 def stamp(text, number):
-    """The same file with its number on the line under the SPDX line."""
+    """The same file with its number on the line under the SPDX line, or None where there is no
+    SPDX line to put it under.
+
+    Returning None rather than the text unchanged is the whole point. Unchanged text is what a file
+    already carrying the right number returns, so the caller could not tell a file it had nothing to
+    do to from a file it could not write to, and reported both as stamped. The registry then held a
+    number for a file whose header would never carry it, --check reported it adrift forever, and the
+    remedy --check named was the run that had just silently skipped it.
+    """
     if CATALOG.search(text):
         return CATALOG.sub(MARK + number, text, count=1)
     lines = text.split("\n")
@@ -204,7 +212,7 @@ def stamp(text, number):
         if line.startswith("# SPDX-License-Identifier:"):
             lines.insert(at + 1, MARK + number)
             return "\n".join(lines)
-    return text
+    return None
 
 
 def main():
@@ -308,6 +316,7 @@ def main():
             out.write("    %s  registry %s, header %s\n" % (path, number, held or "none"))
 
     if assigning:
+        unstampable = []
         for path in found:
             number = by_path.get(path)
             if number is None:
@@ -316,12 +325,26 @@ def main():
             with io.open(full, encoding="utf-8", newline="") as handle:
                 text = handle.read()
             fresh = stamp(text, number)
+            if fresh is None:
+                unstampable.append((path, number))
+                continue
             if fresh != text:
                 with io.open(full, "w", encoding="utf-8", newline="") as handle:
                     handle.write(fresh)
         write_registry(registry)
         out.write("\n  registry written to %s\n"
                   % os.path.relpath(REGISTRY, ROOT).replace("\\", "/"))
+        if unstampable:
+            out.write("  headers stamped except %d\n" % len(unstampable))
+            out.write("\n  NO SPDX LINE TO STAMP UNDER (%d)\n" % len(unstampable))
+            for path, number in unstampable:
+                out.write("    %s  needs %s\n" % (path, number))
+            out.write("\n  Each holds a number in the registry and has no header to write it into.\n")
+            out.write("  --check reports these as adrift, --check says to run --assign, and --assign\n")
+            out.write("  cannot reach them, so the two instructions point at each other until one of\n")
+            out.write("  these files gets the standard header. Giving them a header is the exit.\n\n")
+            out.flush()
+            return 1
         out.write("  headers stamped\n\n")
         out.flush()
         return 0
