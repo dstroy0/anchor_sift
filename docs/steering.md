@@ -9,7 +9,11 @@ The engine searches by placing anchors on the needle and testing them at every a
 
 Each probe tests whether the corpus at some offset carries the needle's own byte at that offset (`src/engine/c/portable/anchor_steer.c:445-457`). A true occurrence agrees at every offset, so it agrees at every probe. Each probe is therefore a necessary condition of an occurrence, a conjunction of necessary conditions is itself one, and no true occurrence is lost by any probe set. Survivors are then filtered by a full compare (`src/engine/c/portable/anchor_steer.c:666`), which removes the false ones. The count is exact for any probe set whatever.
 
-Order independence follows from that, because conjunction commutes. Reordering the probes, moving them, or changing their shape leaves the surviving set identical. A move that cannot change the answer is what this tree calls a null, and choosing among the arrangements is steering.
+Two different invariants follow, and keeping them apart matters. Reordering a probe set leaves the surviving set itself identical, because conjunction commutes. Moving a probe or changing its shape gives a different probe set, which is a different conjunction and a different surviving set: the survivors of one probe strictly contain the survivors of that probe and a second. What stays identical across every probe set is the COUNT, because every surviving set contains all the true occurrences and the full compare removes the rest.
+
+The survivor count depending on which probe is placed is the steering signal itself, measured in `steer_truthy_after_probe` (`src/engine/c/portable/anchor_steer.c:459-480`). A reading that held the surviving set fixed across different probe sets would leave the planner with nothing to rank.
+
+A move that cannot change the answer is what this tree calls a null. Reordering is a null on the surviving set, and every probe set whatever is a null on the count.
 
 One consequence shapes the whole design. A planner that samples badly, ranks wrongly, or contains a defect still produces some probe set, and every probe set yields the same count. Correctness is not a quantity the planner can spend. Speed is the only one it can spend, and that bounds the damage a bad planner does to the time it takes. The empty plan makes this vivid: destroy every probe, send every alignment to the full compare, and the answer is still exactly right at maximum cost.
 
@@ -84,7 +88,13 @@ A level that finds no candidate leaving fewer survivors than it started with has
 
 The two are different kinds of statement and the guide keeps them apart. The period argument is a theorem over every corpus of that period. This rule is an observation about one field, taken on a sample of it when `sample_stride` is above one, so "pruned nothing on this sample" does not establish "can prune nothing". Being wrong costs speed and cannot cost the count.
 
-Destroying the levels below a destroyed probe is a separate action needing its own reason. A level that prunes nothing does not imply the next one prunes nothing. The descent stops anyway, as a bound on planning cost, and the cost of that choice is a probe set smaller than the field might have supported.
+Destroying the levels below a destroyed probe costs nothing, and the reason is an induction rather than a budget.
+
+The destroy test compares the minimum over every candidate against the current population (`src/engine/c/portable/anchor_steer.c:383-386`). When it fires, the minimum leaves the population unchanged, so every candidate leaves it unchanged. Placing one would prune nothing, and the next level would inherit the identical population. Its candidate set is the same set or a subset of it, since the enumeration bounds are arguments and constants that do not vary by level (`src/engine/c/portable/anchor_steer.c:537-542`) and the coarm descent only ever removes a placed position from consideration. Every candidate in a subset of a set that all left the population unchanged also leaves it unchanged, so the next level's minimum is the whole population and its test fires too. By induction every level below prunes nothing.
+
+Stopping is therefore equivalent to continuing, and the probe set is not smaller than the field would have supported. Two changes would void the induction. A candidate set that GROWS at a deeper level breaks it, because a candidate absent from the level that fired has not been shown to prune nothing. A candidate set that varies by level for any other reason breaks it the same way. Shrinking the set does not, which is why removing placed positions is safe.
+
+The argument is exact over the population the planner sees, which is the sampled one when `sample_stride` is above one. Against the full field it carries the same sample caveat as the destroy rule itself.
 
 ## Arms and eyes are one shape
 
@@ -123,7 +133,9 @@ Two drivers in `src/engine/c/bench/` do not compile with MSVC and the script doe
 
 ## What is not checked here
 
-The planner costs are stated in the header as worst cases and are not measured. `anchor_steer_sweep_probes` performs `wanted * needle_len^2 * max_length * alignments / sample_stride` byte comparisons at worst, which exceeds the scan it plans for on any but a short needle. `sample_stride` is the control and no default is recommended, because the crossover was not measured.
+The planner costs are stated in the header as worst cases and are not measured. `anchor_steer_sweep_probes` performs `wanted * needle_len^2 * max_length^2 * alignments / sample_stride` byte comparisons at worst. One factor of `max_length` counts the lengths enumerated and the second comes from scoring, since a candidate of length L costs up to L comparisons and those sum to about `max_length / 2`. `anchor_steer_probe_fits` rejects shapes that do not fit, so the real count sits below that figure.
+
+`sample_stride` is the control and no default is recommended, because the crossover was not measured.
 
 Reads are the wrong statistic for a contiguous eye and the table above inherits that. A step-1 eye of length L is one wide load that the machine may satisfy in a single memory transaction, and counting L reads charges it for work done once. Short-circuiting also makes the trip count vary, and a varying trip count costs a mispredicted branch per alignment. The branchless free-order arm exists for that reason (`src/engine/c/portable/anchor_sift.h:106-110`). An eye evaluated branchlessly trades L reads for one predictable branch. Deciding whether eyes ever pay needs a cycle measurement, and none was taken.
 

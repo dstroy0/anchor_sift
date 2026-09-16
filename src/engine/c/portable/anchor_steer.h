@@ -327,10 +327,15 @@ int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
  * @note Every shape the sweep can spawn leaves the count unchanged, so the whole sweep moves inside
  *       the null group and can be as wrong as it likes without costing an answer.
  * @note Fails closed on scratch exactly as anchor_steer_spawn_coarms does.
- * @warning The sweep is `wanted * needle_len^2 * max_length * alignments / sample_stride` byte
- *          comparisons at worst. That is far more than the scan it plans on any but a tiny needle.
- *          It is a planner for a search that will be run many times against one needle, not for a
- *          single shot, and `sample_stride` is what makes it affordable.
+ * @warning The sweep is `wanted * needle_len^2 * max_length^2 * alignments / sample_stride` byte
+ *          comparisons at worst. One factor of max_length counts the lengths enumerated. The second
+ *          comes from scoring: a candidate of length L costs up to L comparisons, and summing L
+ *          from 1 to max_length averages about max_length/2. An earlier form of this note charged
+ *          one comparison per candidate and understated the bound in the unsafe direction.
+ *          anchor_steer_probe_fits rejects shapes that do not fit, so the real count sits below
+ *          this figure. It is still far more than the scan it plans on any but a tiny needle, and
+ *          it is a planner for a search run many times against one needle rather than for a single
+ *          shot. `sample_stride` is what makes it affordable.
  */
 size_t anchor_steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8_t *corpus,
                                  size_t corpus_len, const uint8_t *needle, size_t needle_len,
