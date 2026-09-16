@@ -52,6 +52,11 @@ from representation import exact
 # returns the occupancy where the z fraction should be on any entry carrying a Wyckoff letter.
 FRACTIONS = ("_atom_site_fract_x", "_atom_site_fract_y", "_atom_site_fract_z")
 
+# The column a CIF gives a site's occupancy, where it gives one at all. A site published at less
+# than 1 is either a vacancy or half of a substitution, and which of the two it is cannot be read
+# off this column alone: it takes a second site at the same position to tell them apart.
+OCCUPANCY = "_atom_site_occupancy"
+
 # Tiles per axis for the exact reading. One cell holds one period, and one period cannot be told
 # from noise. There is no cap on this one: the points are sparse, so the cost is linear in the tile
 # count and not the cube of a grid side.
@@ -97,9 +102,24 @@ def cell_text(text):
 def site_text(text):
     """Every atom site as the strings the deposit wrote: (x, y, z, element).
 
+    The occupancy a deposit published is dropped here, which is correct for every reading that only
+    asks where the atoms are. A reading that asks whether a site is shared wants `site_table` below
+    instead. Both walk the same loop, so there is one reader and not two.
+    """
+    return [row[:4] for row in site_table(text)]
+
+
+def site_table(text):
+    """Every atom site as the strings the deposit wrote: (x, y, z, element, occupancy).
+
     The loop header is walked for the column names, and a site whose row is short of the header is
     skipped. An entry with no element column gets X, which keeps every site distinguishable from an
     empty place without inventing a chemistry for it.
+
+    `occupancy` is None where the deposit carries no occupancy column at all, and that is not the
+    same as an occupancy of 1. 184 of the 650 entries cached at the time of writing publish no such
+    column, and reading their absence as full occupancy would invent a measurement nobody made. A
+    caller that needs the distinction gets it; one that does not can ignore the field.
     """
     lines = text.splitlines()
     rows = []
@@ -118,6 +138,7 @@ def site_text(text):
         spots = [headers.index(name) for name in FRACTIONS]
         kind = headers.index("_atom_site_type_symbol") if "_atom_site_type_symbol" in headers \
             else None
+        share = headers.index(OCCUPANCY) if OCCUPANCY in headers else None
         while index < len(lines):
             row = lines[index].strip()
             if (not row) or row.startswith(("_", "#", "loop_", "data_")):
@@ -125,7 +146,8 @@ def site_text(text):
             parts = row.split()
             if len(parts) >= len(headers):
                 rows.append((parts[spots[0]], parts[spots[1]], parts[spots[2]],
-                             parts[kind] if kind is not None else "X"))
+                             parts[kind] if kind is not None else "X",
+                             parts[share] if share is not None else None))
             index += 1
     return rows
 

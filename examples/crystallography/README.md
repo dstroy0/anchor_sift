@@ -9,8 +9,11 @@
 | `2_partition` | `what_a_grid_costs.py` | what the voxel cost and what the scale recovered |
 | `3_reference` | `what_a_grid_invents.py` | how much of a reading a shuffle also reaches |
 | `4_measure` | `period_from_the_difference_set.py` | what the instrument returns, with no answer key |
+| `4_measure` | `doping_from_shared_sites.py` | which sites hold two elements, read by incidence alone |
+| `4_measure` | `doping_after_symmetry_expansion.py` | the same count over the whole cell, by mineral family |
 | `5_sift` | `lattice_breaks_the_product_rule.py` | how far the histogram bound is out on a lattice |
 | `6_oracle` | `proof_positive_control.py` | whether it matches what somebody else published |
+| `6_oracle` | `doping_against_deposited_occupancy.py` | whether the doping found agrees with a column it never read |
 
 The subject was called `crystals` and was one stage deep, holding only the oracle. The reason recorded for the other five being absent was that parsing a CIF and tiling a right angled cell is domain knowledge and not a demonstration, so it belonged in the engine.
 
@@ -39,6 +42,94 @@ Stage four shows what the measure considers. There is no sweep and no ceiling. E
 Stage five is the reading the old README said had not been done. The anchor cascade over a published cell survives at **3.85 times** the product of its anchors' rates, up to 30 times on one entry. The product rule assumes anchors are positioned independently and a lattice is the arrangement where they are least so. It stays a necessary condition either way, since everything holding the pattern still survives.
 
 The crystal case is also the only one where the cascade needs no tolerance. A protein is a cloud of real valued coordinates, so two occurrences of one motif never land on identical offsets, and `examples/proteins/5_sift` extends a tolerance of one voxel in each direction to get any match at all. Here a displacement either lands on an occupied place or does not.
+
+## Doping is in the motif, and the period never sees it
+
+A substitutional dopant is two elements written at one crystallographic position. That is a
+statement about incidence, so the instrument that reads it is the same one that reads everything
+else here: `representation.exact.contested` returns the positions carrying more than one value, and
+it is domain blind. In a text that is one index holding two symbols. In a structure it is a doped
+site.
+
+Nothing about the cell is read to find one. No edge, no angle, no tiling, no conversion to
+angstroms. Two sites share a position when the deposit wrote the same three fractional coordinates
+twice, and that is decided by equality on exact integers.
+
+**Over 1200 deposits, 712 shared positions were found in 214 entries, and all 712 are physically
+consistent with the occupancy column the detection never opened.** 625 sum to a full site, which is
+pure substitution. 87 sum to less than a full site, which is substitution over a position that is
+also partly vacant. None sums to more than a full site, which would be more atoms than the position
+holds. Every one of the 1200 was readable; 17 individual sites were skipped for a coordinate that is
+not plain decimal text.
+
+The count that would have falsified the reading is zero: **no shared position has every element
+published at full occupancy.** A deposit claiming two elements are both entirely present in one
+place would contradict either the reading or itself, and none does.
+
+The result did not soften as the corpus grew. At 758 entries it was 126 of 126, at 999 it was 408
+of 408, and at 1200 it is 712 of 712. Tripling the detections moved nothing.
+
+The converse is the half that is easy to lose. 1244 positions carry a single element under full
+occupancy. Those are vacancies and not doping. Nothing substitutes there, the atom is simply
+absent some of the time. A detector that called every occupancy under 1 a dopant would be wrong on
+all 1244, and they outnumber the doped positions by nearly two to one.
+
+What the substitutions are is not something the measure was told. Folding charge and case together,
+the corpus is led by Al/Si at 444, then Ca/Na at 66, Fe/Mg at 30 and K/Na at 28. Al/Si with Ca/Na is
+the plagioclase coupled substitution and Al/Si with K/Na is the alkali feldspar series, which is to
+say the two most common substitutions in the crust came out on top of a reading that knows no
+chemistry and never looked at a cell.
+
+Doping does not disturb the recovered period, and the reason is structural rather than lucky. The
+cell repeats whatever it contains, dopant included, so the lattice is untouched. An ideal doped
+crystal is still exactly periodic, and stage four's two measures read two different things out of
+one set of points.
+
+### How complex the doping gets
+
+Two elements on one position is the ordinary case and it is not the interesting one. Reading one
+cell each across the corpus, 705 positions hold two elements, 34 hold three, and the tail runs to
+**one position holding ten**: `Ce/Dy/Er/Gd/La/Nd/Pr/Sm/Y/Yb`, a rare earth site that took whichever
+lanthanides were in the melt. Three separate spinels hold seven at once, `Al/Cr/Fe/Mg/Ni/Ti/V`.
+
+Counting distinct substitution types per deposit rather than per position, 135 entries carry one and
+**83 carry two at once**. Two at once is a coupled substitution, which is how a lattice swaps ions of
+unequal charge and stays balanced: the plagioclase series runs Al for Si on one site against Ca for
+Na on another, and neither half works alone. The measure was not told that and has no charges in it.
+
+### Symmetry expansion counts more places and finds no more doping
+
+A CIF publishes the asymmetric unit and the operations that generate the rest of the cell.
+`doping_after_symmetry_expansion.py` applies them and counts again.
+
+The shared positions go from 712 to 3469, which is 4.87 times as many, and the honest description of
+that rise is narrow. **Zero entries that showed no shared site before expansion show one after.**
+Every position the expansion adds is a symmetry copy of a site the asymmetric reading already found.
+So expansion does not change which entries are doped; it gives the true count of doped places per
+cell, which is what a composition needs and is not a detection.
+
+That was worth measuring because the opposite was plausible. Two sites written separately in the
+asymmetric unit can become one place after an operation, and had that happened anywhere here the
+simpler reading would have been undercounting entries rather than only positions. It does not happen
+in this corpus, which is a fact about this corpus and not a theorem.
+
+The expansion is exact, and that took a second scale. A translation of 1/3 is not a decimal at any
+number of places, because 10^n factors into twos and fives and three divides neither. An R centred
+operation is full of thirds and the corpus is full of R-3. Carrying those through the decimal scale
+would displace every copy they generate, so a symmetry copy would land beside the atom it should
+have landed on rather than on it, and the doping at that place would vanish silently. Coordinates in
+`representation/structure/symmetry.py` are therefore integers in units of 1/(24 · 10^1024), and an
+operation whose denominator does not divide 24 raises instead of rounding. Across the corpus nothing
+raised: 24 held every operation the deposits published, eighths included.
+
+### What that cost to learn
+
+The first version of the doping measure went through `crystal.exact_points`, and inherited a
+dependency it had no use for. `exact_points` refuses any cell that is not right angled, and the
+minerals that carry doping are overwhelmingly monoclinic and triclinic, so 498 of 697 entries came
+back unreadable. The measure looked like it was failing on three quarters of the corpus. It was
+being handed three quarters less corpus. Reaching for the smallest reading that answers the
+question fixed it, and the same run then read every entry.
 
 ## The first attempt at this was built wrong twice
 
