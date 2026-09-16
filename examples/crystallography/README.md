@@ -210,8 +210,7 @@ impossibility is the only thing that announced it: no consistency check and no s
 Dropping them changed what every exact reading in this subject ingests, so both published figures
 were re-read with `dum` kept and dropped over all six entries that carry one. No recovered period
 moved and no agreement with a published edge flipped: **453 of 453 and 1455 of 1455 both stand.**
-The reason is structural rather than lucky, and it is the boundary rather than the reassurance. A
-spurious atom at the origin is tiled into every copy of the cell, so it shifts every plane the same
+A spurious atom at the origin is tiled into every copy of the cell, so it shifts every plane the same
 way and leaves the agreeing lags unchanged. A period is a statement about repetition and a defect
 that repeats perfectly does not disturb it. A count, a density or any distance would have moved.
 
