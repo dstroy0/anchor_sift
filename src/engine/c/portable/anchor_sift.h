@@ -400,7 +400,7 @@ typedef struct
  *       at relabel time, so a field with a thousand classes keeps its 255 rarest apart and merges
  *       the commonest into rank 255. That is the direction the steering needs, because a probe's
  *       survivor count is its class frequency and the rarest class is the best probe available.
- *       The scratch exists to carry those components; the kernel allocates nothing.
+ *       The class buffers exist to carry those components; the kernel allocates nothing.
  *
  * @note `same_in_field` NEED NOT BE TRANSITIVE, AND THE CLASSES ARE ITS TRANSITIVE CLOSURE. This
  *       matters because the predicate that motivates having an oracle at all is not transitive: a
@@ -544,7 +544,7 @@ int anchor_field_project(const AnchorFieldProjection *args);
  * @note It was a separate entry, anchor_steer_spawn_coarms_deep, taking ten positional parameters.
  *       A member an omitted initializer leaves zero does the same work, and two entries sharing one
  *       descent is the drift this structure was adopted to remove.
- * @warning Every pointer here is BORROWED for the duration of the call. `scratch` is written and
+ * @warning Every pointer here is BORROWED for the duration of the call. `survivors` is written and
  *          `corpus` and `needle` are only read.
  */
 typedef struct
@@ -555,8 +555,12 @@ typedef struct
     size_t corpus_len;     /**< How many. Unread where `any` is set. */
     const uint8_t *needle; /**< Bytes to find [BORROWS]. Unread where `any` is set. */
     size_t needle_len;     /**< How many. Unread where `any` is set. */
-    uint8_t *scratch;      /**< One byte per alignment, written during the call [BORROWS]. */
-    size_t scratch_len;    /**< How many. Must reach the alignment count or the call is refused. */
+    uint8_t *survivors;    /**< One byte per alignment, written during the call [BORROWS]. THE
+                            *   DESCENT'S OUTPUT AND NOT A TEMPORARY: it records, per alignment,
+                            *   whether the probes left that alignment standing. A caller wanting
+                            *   only the depth may discard it; a caller wanting to know WHICH
+                            *   alignments survived has no other way to learn it. */
+    size_t survivors_length; /**< How many. Must reach the alignment count or the call is refused. */
     size_t sample_stride;  /**< Plan on every Nth alignment. Zero is read as one. */
     int force_full_depth;  /**< Non-zero descends every level, ignoring the destroy rule. */
     const AnchorField *any; /**< A field of any symbol type [BORROWS]. Null takes the byte path. */
@@ -640,16 +644,16 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
 /**
  * @brief Spawns coarms at the positions that prune most, one per level, and places them in order.
  *
- * @param[out] offsets       Where the chosen offsets are written, in evaluation order [BORROWS].
- * @param[in]  wanted        How many coarms to spawn. At most ANCHOR_STEER_ANCHORS.
- * @param[in]  corpus        Bytes the search will run over [BORROWS].
- * @param[in]  corpus_len    How many.
- * @param[in]  needle        Bytes to find [BORROWS].
- * @param[in]  needle_len    How many.
- * @param[out] scratch       Survivor flags, one byte per alignment [BORROWS].
- * @param[in]  scratch_len   How many bytes of scratch. Must reach the alignment count.
- * @param[in]  sample_stride Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
- * @return                   Coarms actually placed, which equals `wanted` on any valid call.
+ * @param[out] offsets          Where the chosen offsets are written, in evaluation order [BORROWS].
+ * @param[in]  wanted           How many coarms to spawn. At most ANCHOR_STEER_ANCHORS.
+ * @param[in]  corpus           Bytes the search will run over [BORROWS].
+ * @param[in]  corpus_len       How many.
+ * @param[in]  needle           Bytes to find [BORROWS].
+ * @param[in]  needle_len       How many.
+ * @param[out] survivors        Which alignments the probes left standing, one byte each [BORROWS].
+ * @param[in]  survivors_length How many. Must reach the alignment count.
+ * @param[in]  sample_stride    Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
+ * @return                      Coarms actually placed, which equals `wanted` on any valid call.
  *
  * SPAWNING RATHER THAN REORDERING. anchor_steer_plan_recursive takes anchors somebody else placed
  * and decides the order to test them in. This decides WHERE THEY GO. At each level it asks every
@@ -698,10 +702,10 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
  * The return value is there so a caller can read the depth actually reached rather than assume
  * `wanted`, which matters more now that the two can differ.
  *
- * @note FAILS CLOSED ON SCRATCH. Returns 0 without writing `offsets` where `scratch_len` does not
- *       reach the alignment count. The kernel allocates nothing, so the buffer is the caller's and
- *       a buffer too small is refused rather than worked around. Size it at
- *       `corpus_len - needle_len + 1`.
+ * @note FAILS CLOSED ON THE SURVIVOR BUFFER. Returns 0 without writing `offsets` where
+ *       `survivors_length` does not reach the alignment count. The kernel allocates nothing, so the
+ *       buffer is the caller's and a buffer too small is refused rather than worked around. Size it
+ *       at `corpus_len - needle_len + 1`.
  * @note A planner is free to be wrong here for the same reason it is free to be wrong anywhere else
  *       in this file: placement and order change which probe rejects first, never which alignments
  *       survive. The verification is a full compare either way.
@@ -754,8 +758,11 @@ typedef struct
     const uint8_t *needle; /**< Bytes to find [BORROWS]. */
     size_t needle_len;     /**< How many. */
     size_t max_length;     /**< Longest eye to consider. One restricts the sweep to arms. */
-    uint8_t *scratch;      /**< One byte per alignment, written during the call [BORROWS]. */
-    size_t scratch_len;    /**< How many. Must reach the alignment count or the call is refused. */
+    uint8_t *survivors;    /**< One byte per alignment, written during the call [BORROWS]. THE
+                            *   SWEEP'S OUTPUT AND NOT A TEMPORARY, exactly as it is for
+                            *   AnchorSteerDescent: it records which alignments the probes left
+                            *   standing. */
+    size_t survivors_length; /**< How many. Must reach the alignment count or the call is refused. */
     size_t sample_stride;  /**< Plan on every Nth alignment. Zero is read as one. */
 } AnchorSteerSweep;
 
@@ -773,17 +780,17 @@ int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
 /**
  * @brief Spawns probes anywhere on the needle, sweeping shapes, and orders them by pruning.
  *
- * @param[out] probes        Where the chosen probes are written, in evaluation order [BORROWS].
- * @param[in]  wanted        How many to spawn. At most ANCHOR_STEER_ANCHORS.
- * @param[in]  corpus        Bytes the search will run over [BORROWS].
- * @param[in]  corpus_len    How many.
- * @param[in]  needle        Bytes to find [BORROWS].
- * @param[in]  needle_len    How many.
- * @param[in]  max_length    Longest eye to consider. One restricts the sweep to arms.
- * @param[out] scratch       Survivor flags, one byte per alignment [BORROWS].
- * @param[in]  scratch_len   How many bytes of scratch. Must reach the alignment count.
- * @param[in]  sample_stride Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
- * @return                   Probes actually placed.
+ * @param[out] probes           Where the chosen probes are written, in evaluation order [BORROWS].
+ * @param[in]  wanted           How many to spawn. At most ANCHOR_STEER_ANCHORS.
+ * @param[in]  corpus           Bytes the search will run over [BORROWS].
+ * @param[in]  corpus_len       How many.
+ * @param[in]  needle           Bytes to find [BORROWS].
+ * @param[in]  needle_len       How many.
+ * @param[in]  max_length       Longest eye to consider. One restricts the sweep to arms.
+ * @param[out] survivors        Which alignments the probes left standing, one byte each [BORROWS].
+ * @param[in]  survivors_length How many. Must reach the alignment count.
+ * @param[in]  sample_stride    Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
+ * @return                      Probes actually placed.
  *
  * THE SWEEP TOUCHES EVERYTHING IT IS ALLOWED TO REACH. At each level it considers every origin in
  * the needle, every step that keeps the probe inside it, and every length up to `max_length`, scores
@@ -803,7 +810,7 @@ int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
  *
  * @note Every shape the sweep can spawn leaves the count unchanged, so the whole sweep moves inside
  *       the null group and can be as wrong as it likes without costing an answer.
- * @note Fails closed on scratch exactly as anchor_steer_spawn_coarms does.
+ * @note Fails closed on the survivor buffer exactly as anchor_steer_spawn_coarms does.
  * @warning The sweep is `wanted * needle_len^2 * max_length^2 * alignments / sample_stride` byte
  *          comparisons at worst. One factor of max_length counts the lengths enumerated. The second
  *          comes from scoring: a candidate of length L costs up to L comparisons, and summing L

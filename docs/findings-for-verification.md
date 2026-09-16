@@ -172,7 +172,7 @@ Two fields with the same frequency multiset and opposite arrangements, 256 class
 
 **Fixed by refusing.** A field holding more classes than a byte rank can name now returns 0 with `distinct` set to 0, rather than degrading silently. That also enforces the advice already given to three sessions whose fields are this shape: do not project, hand the oracle to a descent, which needs no ranks, no closure and no table. Tested: 400 distinct classes refused, `distinct` reporting 0.
 
-The theorist's alternative fix, labelling with a separate `uint32_t` array of `length` entries so the component count runs unbounded and the clamp applies at relabel time, would make the original sentence true. It needs caller supplied scratch, because the kernel allocates nothing, and it is not taken here. Refusing is smaller and it is the honest answer for a byte ranked output.
+The theorist's alternative fix, labelling with a separate `uint32_t` array of `length` entries so the component count runs unbounded and the clamp applies at relabel time, would make the original sentence true. It needs a caller supplied label array, because the kernel allocates nothing, and it is not taken here. Refusing is smaller and it is the honest answer for a byte ranked output.
 
 **Also fixed:** `distinct` used to report 256 on a 400 class field, so a caller could not distinguish a field with exactly 256 classes from one that had overflowed and was running degraded. Both reported 256.
 

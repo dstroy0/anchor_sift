@@ -765,9 +765,9 @@ static int adversarial_case_stop_equals_continue(void)
     memset(needle, 'm', sizeof(needle));
 
     const size_t alignments = ADVERSARIAL_CORPUS - sizeof(needle) + 1u;
-    uint8_t *const scratch = (uint8_t *)malloc(alignments);
+    uint8_t *const survivors = (uint8_t *)malloc(alignments);
 
-    if (scratch == NULL)
+    if (survivors == NULL)
     {
         printf("    allocation failed\n");
         free(corpus);
@@ -784,8 +784,8 @@ static int adversarial_case_stop_equals_continue(void)
                                              .corpus_len = ADVERSARIAL_CORPUS,
                                              .needle = needle,
                                              .needle_len = sizeof(needle),
-                                             .scratch = scratch,
-                                             .scratch_len = alignments,
+                                             .survivors = survivors,
+                                             .survivors_length = alignments,
                                              .sample_stride = 1u);
     const size_t forced = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                             .offsets = deep,
@@ -794,8 +794,8 @@ static int adversarial_case_stop_equals_continue(void)
                                             .corpus_len = ADVERSARIAL_CORPUS,
                                             .needle = needle,
                                             .needle_len = sizeof(needle),
-                                            .scratch = scratch,
-                                            .scratch_len = alignments,
+                                            .survivors = survivors,
+                                            .survivors_length = alignments,
                                             .sample_stride = 1u,
                                             .force_full_depth = 1);
 
@@ -825,7 +825,7 @@ static int adversarial_case_stop_equals_continue(void)
 
     printf("  stopping equals continuing, %zu probes stopped against %zu forced, verdict %s\n",
            stopped, forced, (failed == 0) ? "ok" : "FAILS");
-    free(scratch);
+    free(survivors);
     free(corpus);
     return failed;
 }
@@ -876,8 +876,8 @@ static int adversarial_case_trichotomy(void)
     memcpy(needle, corpus + 128u, sizeof(needle));
 
     const size_t alignments = (ADVERSARIAL_CORPUS - sizeof(needle)) + 1u;
-    uint8_t *const scratch = (uint8_t *)malloc(alignments);
-    if (scratch == NULL)
+    uint8_t *const survivors = (uint8_t *)malloc(alignments);
+    if (survivors == NULL)
     {
         printf("    allocation failed\n");
         free(corpus);
@@ -898,27 +898,28 @@ static int adversarial_case_trichotomy(void)
     refusals[0].what = "null offsets";
     refusals[0].args = (AnchorSteerDescent){ .offsets = NULL, .count = ANCHOR_STEER_ANCHORS,
         .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
-        .needle_len = sizeof(needle), .scratch = scratch, .scratch_len = alignments };
+        .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments };
     refusals[1].what = "null corpus";
     refusals[1].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
         .corpus = NULL, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
-        .needle_len = sizeof(needle), .scratch = scratch, .scratch_len = alignments };
+        .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments };
     refusals[2].what = "count over the bound";
     refusals[2].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS + 1u,
         .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
-        .needle_len = sizeof(needle), .scratch = scratch, .scratch_len = alignments };
+        .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments };
     refusals[3].what = "needle length zero";
     refusals[3].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
         .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle, .needle_len = 0u,
-        .scratch = scratch, .scratch_len = alignments };
+        .survivors = survivors, .survivors_length = alignments };
     refusals[4].what = "needle longer than corpus";
     refusals[4].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
         .corpus = corpus, .corpus_len = 8u, .needle = needle, .needle_len = sizeof(needle),
-        .scratch = scratch, .scratch_len = alignments };
-    refusals[5].what = "scratch short by one";
+        .survivors = survivors, .survivors_length = alignments };
+    refusals[5].what = "survivor buffer short by one";
     refusals[5].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
         .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
-        .needle_len = sizeof(needle), .scratch = scratch, .scratch_len = alignments - 1u };
+        .needle_len = sizeof(needle), .survivors = survivors,
+        .survivors_length = alignments - 1u };
 
     for (size_t which = 0u; which < 6u; which += 1u)
     {
@@ -960,8 +961,8 @@ static int adversarial_case_trichotomy(void)
                                             .corpus_len = ADVERSARIAL_CORPUS,
                                             .needle = needle,
                                             .needle_len = sizeof(needle),
-                                            .scratch = scratch,
-                                            .scratch_len = alignments,
+                                            .survivors = survivors,
+                                            .survivors_length = alignments,
                                             .sample_stride = 1u,
                                             .force_full_depth = 1);
 
@@ -991,8 +992,8 @@ static int adversarial_case_trichotomy(void)
                                              .corpus_len = ADVERSARIAL_CORPUS,
                                              .needle = needle,
                                              .needle_len = sizeof(needle),
-                                             .scratch = scratch,
-                                             .scratch_len = alignments,
+                                             .survivors = survivors,
+                                             .survivors_length = alignments,
                                              .sample_stride = 1u);
 
     if (stopped > forced)
@@ -1009,7 +1010,7 @@ static int adversarial_case_trichotomy(void)
     printf("    refused 7 malformed questions, recursed to %zu distinct offsets, stopped at %zu,"
            " verdict %s\n", forced, stopped, (failed == 0) ? "ok" : "FAILS");
 
-    free(scratch);
+    free(survivors);
     free(corpus);
     return failed;
 }

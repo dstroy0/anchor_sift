@@ -427,7 +427,7 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
     AnchorExactInteger right;
     AnchorExactInteger sum_of_squares;
     AnchorExactInteger term;
-    AnchorExactInteger scratch;
+    AnchorExactInteger factor;
 
     steer_exact_from_u64(&total, census->total);
 
@@ -436,8 +436,8 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
     {
         return 0;
     }
-    steer_exact_from_u64(&scratch, 100u);
-    if (anchor_exact_multiply(&left, &scratch, &left) != ANCHOR_EXACT_OK)
+    steer_exact_from_u64(&factor, 100u);
+    if (anchor_exact_multiply(&left, &factor, &left) != ANCHOR_EXACT_OK)
     {
         return 0;
     }
@@ -464,13 +464,13 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
     }
 
     // right = 85 * distinct * sum_of_squares
-    steer_exact_from_u64(&scratch, 85u);
-    if (anchor_exact_multiply(&sum_of_squares, &scratch, &right) != ANCHOR_EXACT_OK)
+    steer_exact_from_u64(&factor, 85u);
+    if (anchor_exact_multiply(&sum_of_squares, &factor, &right) != ANCHOR_EXACT_OK)
     {
         return 0;
     }
-    steer_exact_from_u64(&scratch, (uint64_t)census->distinct);
-    if (anchor_exact_multiply(&right, &scratch, &right) != ANCHOR_EXACT_OK)
+    steer_exact_from_u64(&factor, (uint64_t)census->distinct);
+    if (anchor_exact_multiply(&right, &factor, &right) != ANCHOR_EXACT_OK)
     {
         return 0;
     }
@@ -799,7 +799,7 @@ int anchor_field_project(const AnchorFieldProjection *args)
 /** @brief Shared entry the two planners differ only in their candidate set. */
 static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus,
                             size_t corpus_len, const uint8_t *needle, size_t needle_len,
-                            uint8_t *scratch, size_t scratch_len, size_t sample_stride,
+                            uint8_t *survivors, size_t survivors_length, size_t sample_stride,
                             int spawning, int force_full_depth, const AnchorField *any)
 {
     // A field of any symbol type supplies its own extents and its own validity, and the byte
@@ -807,7 +807,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
     // pointers to satisfy a null test, which would pass the guard while meaning nothing.
     if (any != NULL)
     {
-        if ((offsets == NULL) || (scratch == NULL) || (count == 0u) || (any->same == NULL)
+        if ((offsets == NULL) || (survivors == NULL) || (count == 0u) || (any->same == NULL)
          || (any->alignments == 0u) || (any->needle_len == 0u))
         {
             return 0u;
@@ -815,7 +815,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
         needle_len = any->needle_len;
         corpus_len = (any->alignments + any->needle_len) - 1u;
     }
-    else if ((offsets == NULL) || (corpus == NULL) || (needle == NULL) || (scratch == NULL)
+    else if ((offsets == NULL) || (corpus == NULL) || (needle == NULL) || (survivors == NULL)
      || (count == 0u) || (needle_len == 0u) || (needle_len > corpus_len))
     {
         return 0u;
@@ -826,7 +826,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
     }
 
     const size_t alignments = (corpus_len - needle_len) + 1u;
-    if (scratch_len < alignments)
+    if (survivors_length < alignments)
     {
         // FAILS CLOSED. The kernel allocates nothing. A buffer that does not reach the alignment
         // count is refused, and never worked around by planning on part of the field.
@@ -835,9 +835,11 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
 
     const size_t stride = (sample_stride == 0u) ? 1u : sample_stride;
 
+    // Every alignment starts standing and a probe can only ever take one down. That direction is
+    // what makes the descent safe to stop at any level: the set shrinks and never grows back.
     for (size_t at = 0u; at < alignments; at += 1u)
     {
-        scratch[at] = 1u;
+        survivors[at] = 1u;
     }
 
     size_t chosen[ANCHOR_STEER_ANCHORS];
@@ -877,7 +879,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
             }
 
             const size_t standing = steer_truthy_after(corpus, corpus_len, needle, needle_len,
-                                                       scratch, offset, stride, any);
+                                                       survivors, offset, stride, any);
             // Strictly fewer survivors wins. A tie keeps the earlier candidate, which is what makes
             // the descent deterministic on identical input.
             if ((found == 0) || (standing < best_standing))
@@ -905,14 +907,14 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
         // is MEASURED per level against the field instead of inferred from a period, which also
         // catches fields whose redundancy no period search would name.
         if ((force_full_depth == 0)
-         && (best_standing >= steer_truthy_total(scratch, alignments, stride)))
+         && (best_standing >= steer_truthy_total(survivors, alignments, stride)))
         {
             break;
         }
 
         chosen[placed] = best_offset;
         placed += 1u;
-        steer_make_falsy(corpus, corpus_len, needle, needle_len, scratch, best_offset, any);
+        steer_make_falsy(corpus, corpus_len, needle, needle_len, survivors, best_offset, any);
     }
 
     for (size_t slot = 0u; slot < placed; slot += 1u)
@@ -933,8 +935,8 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args)
     // force_full_depth is read from the argument even here: a caller checking that stopping equals
     // continuing has to be able to force the reordering descent too, not only the spawning one.
     return steer_descend(args->offsets, args->count, args->corpus, args->corpus_len, args->needle,
-                         args->needle_len, args->scratch, args->scratch_len, args->sample_stride,
-                         0, args->force_full_depth, args->any);
+                         args->needle_len, args->survivors, args->survivors_length,
+                         args->sample_stride, 0, args->force_full_depth, args->any);
 }
 
 size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args)
@@ -946,8 +948,8 @@ size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args)
 
     // Spawning, so `spawning` is 1 and the candidates are every position in the needle.
     return steer_descend(args->offsets, args->count, args->corpus, args->corpus_len, args->needle,
-                         args->needle_len, args->scratch, args->scratch_len, args->sample_stride,
-                         1, args->force_full_depth, args->any);
+                         args->needle_len, args->survivors, args->survivors_length,
+                         args->sample_stride, 1, args->force_full_depth, args->any);
 }
 
 int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len)
@@ -1038,27 +1040,27 @@ static void steer_make_falsy_probe(const uint8_t *corpus, size_t corpus_len, con
 /**
  * @brief The sweep itself, which the public entry names.
  *
- * @param[out] probes        Chosen probes, in evaluation order [BORROWS].
- * @param[in]  wanted        How many to place. At most ANCHOR_STEER_ANCHORS.
- * @param[in]  corpus        Bytes the search will run over [BORROWS].
- * @param[in]  corpus_len    How many.
- * @param[in]  needle        Bytes to find [BORROWS].
- * @param[in]  needle_len    How many.
- * @param[in]  max_length    Longest eye to consider.
- * @param[out] scratch       Survivor flags, one byte per alignment [BORROWS].
- * @param[in]  scratch_len   How many bytes of scratch.
- * @param[in]  sample_stride Plan on every Nth alignment. 0 is treated as 1.
- * @return                   Probes actually placed.
+ * @param[out] probes           Chosen probes, in evaluation order [BORROWS].
+ * @param[in]  wanted           How many to place. At most ANCHOR_STEER_ANCHORS.
+ * @param[in]  corpus           Bytes the search will run over [BORROWS].
+ * @param[in]  corpus_len       How many.
+ * @param[in]  needle           Bytes to find [BORROWS].
+ * @param[in]  needle_len       How many.
+ * @param[in]  max_length       Longest eye to consider.
+ * @param[out] survivors        Which alignments the probes left standing, one byte each [BORROWS].
+ * @param[in]  survivors_length How many. Must reach the alignment count.
+ * @param[in]  sample_stride    Plan on every Nth alignment. 0 is treated as 1.
+ * @return                      Probes actually placed.
  * @note Static and positional, which is where a long parameter list is allowed to live. The public
  *       surface takes one pointer to a const argument structure; this is the backend it names, and
  *       every check the contract states happens here rather than in the entry.
  */
 static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8_t *corpus,
                                  size_t corpus_len, const uint8_t *needle, size_t needle_len,
-                                 size_t max_length, uint8_t *scratch, size_t scratch_len,
+                                 size_t max_length, uint8_t *survivors, size_t survivors_length,
                                  size_t sample_stride)
 {
-    if ((probes == NULL) || (corpus == NULL) || (needle == NULL) || (scratch == NULL)
+    if ((probes == NULL) || (corpus == NULL) || (needle == NULL) || (survivors == NULL)
      || (wanted == 0u) || (wanted > ANCHOR_STEER_ANCHORS) || (needle_len == 0u)
      || (needle_len > corpus_len) || (max_length == 0u))
     {
@@ -1066,7 +1068,7 @@ static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8
     }
 
     const size_t alignments = (corpus_len - needle_len) + 1u;
-    if (scratch_len < alignments)
+    if (survivors_length < alignments)
     {
         return 0u;
     }
@@ -1074,7 +1076,7 @@ static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8
     const size_t stride = (sample_stride == 0u) ? 1u : sample_stride;
     for (size_t at = 0u; at < alignments; at += 1u)
     {
-        scratch[at] = 1u;
+        survivors[at] = 1u;
     }
 
     size_t placed = 0u;
@@ -1103,7 +1105,7 @@ static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8
                     }
 
                     const size_t standing = steer_truthy_after_probe(corpus, corpus_len, needle,
-                                                                     needle_len, scratch,
+                                                                     needle_len, survivors,
                                                                      &candidate, stride);
                     if ((found == 0) || (standing < best_standing))
                     {
@@ -1119,7 +1121,7 @@ static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8
         {
             break;
         }
-        if (best_standing >= steer_truthy_total(scratch, alignments, stride))
+        if (best_standing >= steer_truthy_total(survivors, alignments, stride))
         {
             // Destroyed for the same reason a coarm is. It prunes nothing and would only read.
             break;
@@ -1127,7 +1129,7 @@ static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8
 
         probes[placed] = best;
         placed += 1u;
-        steer_make_falsy_probe(corpus, corpus_len, needle, needle_len, scratch, &best);
+        steer_make_falsy_probe(corpus, corpus_len, needle, needle_len, survivors, &best);
     }
     return placed;
 }
@@ -1143,8 +1145,8 @@ size_t anchor_steer_sweep_probes(const AnchorSteerSweep *args)
     // Everything else the contract states is checked in steer_sweep_probes, against the values it
     // is going to use, so no check exists in two places to drift apart.
     return steer_sweep_probes(args->probes, args->count, args->corpus, args->corpus_len,
-                              args->needle, args->needle_len, args->max_length, args->scratch,
-                              args->scratch_len, args->sample_stride);
+                              args->needle, args->needle_len, args->max_length, args->survivors,
+                              args->survivors_length, args->sample_stride);
 }
 
 uint64_t anchor_steer_probes = 0u;

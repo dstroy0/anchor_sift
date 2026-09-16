@@ -52,19 +52,23 @@ A single pass ranks every anchor against the whole field. That is the correct qu
 ### Signature
 
 ```c
-size_t anchor_steer_spawn_coarms(size_t *offsets, size_t wanted, const uint8_t *corpus,
-                                 size_t corpus_len, const uint8_t *needle, size_t needle_len,
-                                 uint8_t *scratch, size_t scratch_len, size_t sample_stride);
+size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args);
 ```
 
-* `offsets` [BORROWS] out. Chosen offsets, written in evaluation order. Owned by the caller.
-* `wanted` in. How many coarms to spawn, at most `ANCHOR_STEER_ANCHORS`.
-* `corpus`, `corpus_len` [BORROWS] in. The bytes the search will run over.
-* `needle`, `needle_len` [BORROWS] in. The bytes to find.
-* `scratch`, `scratch_len` [BORROWS] out. Survivor flags, one byte per alignment. Size it at `corpus_len - needle_len + 1`.
-* `sample_stride` in. Plan on every Nth alignment. A value of 0 is treated as 1.
+One pointer to a const argument structure, not a parameter list. Build the structure at the call site with `ANCHOR_STEER_CALL`, which gives it automatic storage and zeroes every member the caller does not name. The members this entry reads (`src/engine/c/portable/anchor_sift.h:550-566`):
 
-Returns the number of coarms placed, at most `wanted`. Returns 0 without writing `offsets` when a pointer is null, when `wanted` exceeds `ANCHOR_STEER_ANCHORS`, or when `scratch_len` does not reach the alignment count (`src/engine/c/portable/anchor_sift.c:614-630`). The kernel allocates nothing. A buffer too small is refused instead of being worked around.
+* `offsets` [BORROWS] out. Chosen offsets, written in evaluation order. Owned by the caller.
+* `count` in. How many coarms to spawn, at most `ANCHOR_STEER_ANCHORS`.
+* `corpus`, `corpus_len` [BORROWS] in. The bytes the search will run over. Unread where `any` is set.
+* `needle`, `needle_len` [BORROWS] in. The bytes to find. Unread where `any` is set.
+* `survivors`, `survivors_length` [BORROWS] out. Which alignments the probes left standing, one byte each. Size it at `corpus_len - needle_len + 1`.
+* `sample_stride` in. Plan on every Nth alignment. A value of 0 is treated as 1.
+* `force_full_depth` in. Non-zero descends every level and ignores the destroy rule.
+* `any` [BORROWS] in. A field of any symbol type. Null takes the byte path.
+
+`survivors` is the descent's output and not a working buffer. It records, per alignment, whether the probes left that alignment standing, and it is the only place that information appears: the return value gives the depth reached and says nothing about which alignments survived. A caller wanting only the depth may ignore it, and a caller wanting the surviving set has no other route to it. This is also why the descent is not a streaming algorithm and why bounds stated for streaming matchers do not describe it.
+
+Returns the number of coarms placed, at most `count`. Returns 0 without writing `offsets` when a pointer is null, when `count` exceeds `ANCHOR_STEER_ANCHORS`, or when `survivors_length` does not reach the alignment count (`src/engine/c/portable/anchor_sift.c:808-834`). The kernel allocates nothing. A buffer too small is refused instead of being worked around.
 
 ## Why halting is the wrong question
 
@@ -147,7 +151,7 @@ This section has now been written three ways and two of them were wrong, so what
 
 ### What is settled
 
-**The trichotomy.** A descent stops, recurses, or refuses to run. It stops when the destroy test fires. It recurses when a level prunes. It refuses, returning zero and writing nothing, when a pointer is null, when the count exceeds `ANCHOR_STEER_ANCHORS`, when the needle length is zero or exceeds the corpus, or when the scratch buffer does not reach the alignment count (`src/engine/c/portable/anchor_sift.c:614-630`). A malformed question does not run. There is no fourth branch in which it revisits a state it has already held.
+**The trichotomy.** A descent stops, recurses, or refuses to run. It stops when the destroy test fires. It recurses when a level prunes. It refuses, returning zero and writing nothing, when a pointer is null, when the count exceeds `ANCHOR_STEER_ANCHORS`, when the needle length is zero or exceeds the corpus, or when the survivor buffer does not reach the alignment count (`src/engine/c/portable/anchor_sift.c:808-834`). A malformed question does not run. There is no fourth branch in which it revisits a state it has already held.
 
 **Soundness does not depend on which branch is taken.** `T` is contained in `S(P)` for the probe set placed right now, and that statement never mentions how `P` was reached or whether the process reaching it will stop. The answer is exact at every instant of a process that need not terminate. The anytime property is not a convenience attached to a terminating computation; it is what makes a non-terminating one useful.
 

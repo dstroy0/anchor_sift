@@ -518,8 +518,8 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     memcpy(needle, corpus + (corpus_len / 3u), sizeof(needle));
 
     const size_t alignments = (corpus_len - needle_len) + 1u;
-    uint8_t *scratch = (uint8_t *)malloc(alignments);
-    if (scratch == NULL)
+    uint8_t *survivors = (uint8_t *)malloc(alignments);
+    if (survivors == NULL)
     {
         printf("  %s: allocation failed\n", label);
         return 1;
@@ -568,8 +568,8 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
                                            .corpus_len = corpus_len,
                                            .needle = needle,
                                            .needle_len = needle_len,
-                                           .scratch = scratch,
-                                           .scratch_len = alignments,
+                                           .survivors = survivors,
+                                           .survivors_length = alignments,
                                            .sample_stride = 1u);
     AnchorProbe recursive[ANCHOR_STEER_ANCHORS];
     for (size_t slot = 0u; slot < depth; slot += 1u)
@@ -596,8 +596,8 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
                                             .corpus_len = corpus_len,
                                             .needle = needle,
                                             .needle_len = needle_len,
-                                            .scratch = scratch,
-                                            .scratch_len = alignments,
+                                            .survivors = survivors,
+                                            .survivors_length = alignments,
                                             .sample_stride = 1u);
     AnchorProbe coarm_probes[ANCHOR_STEER_ANCHORS];
     for (size_t slot = 0u; slot < coarms; slot += 1u)
@@ -625,8 +625,8 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
                                           .needle = needle,
                                           .needle_len = needle_len,
                                           .max_length = 3u,
-                                          .scratch = scratch,
-                                          .scratch_len = alignments,
+                                          .survivors = survivors,
+                                          .survivors_length = alignments,
                                           .sample_stride = 1u);
     uint64_t eye_reads = 0u;
     uint64_t eye_verifications = 0u;
@@ -705,7 +705,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
         }
     }
 
-    free(scratch);
+    free(survivors);
     return failed;
 }
 
@@ -731,8 +731,8 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
 {
     int failed = 0;
     const size_t alignments = (corpus_len - needle_len) + 1u;
-    uint8_t *scratch = (uint8_t *)malloc(alignments);
-    if (scratch == NULL)
+    uint8_t *survivors = (uint8_t *)malloc(alignments);
+    if (survivors == NULL)
     {
         printf("  allocation failed in the wiring check\n");
         return 1;
@@ -752,8 +752,8 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
                             .corpus_len = corpus_len,
                             .needle = needle,
                             .needle_len = needle_len,
-                            .scratch = scratch,
-                            .scratch_len = alignments,
+                            .survivors = survivors,
+                            .survivors_length = alignments,
                             .sample_stride = 1u);
 
     printf("  %18s %14s %14s %10s %10s\n", "widest arm", "scans", "wide scans", "share",
@@ -797,7 +797,7 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
         printf("    no wide arm on this machine, so the portable count is the whole claim\n");
     }
 
-    free(scratch);
+    free(survivors);
     return failed;
 }
 
@@ -1080,8 +1080,8 @@ static int check_any_type_agrees(void)
     memcpy(needle, corpus + 2048u, sizeof(needle));
 
     const size_t alignments = (length - sizeof(needle)) + 1u;
-    uint8_t *const scratch = (uint8_t *)malloc(alignments);
-    if (scratch == NULL)
+    uint8_t *const survivors = (uint8_t *)malloc(alignments);
+    if (survivors == NULL)
     {
         printf("  allocation failed\n");
         free(corpus);
@@ -1096,8 +1096,8 @@ static int check_any_type_agrees(void)
                                                   .corpus_len = length,
                                                   .needle = needle,
                                                   .needle_len = sizeof(needle),
-                                                  .scratch = scratch,
-                                                  .scratch_len = alignments,
+                                                  .survivors = survivors,
+                                                  .survivors_length = alignments,
                                                   .sample_stride = 1u);
 
     const ByteField held = { corpus, needle };
@@ -1107,8 +1107,8 @@ static int check_any_type_agrees(void)
     const size_t placed_oracle = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                                    .offsets = by_oracle,
                                                    .count = ANCHOR_STEER_ANCHORS,
-                                                   .scratch = scratch,
-                                                   .scratch_len = alignments,
+                                                   .survivors = survivors,
+                                                   .survivors_length = alignments,
                                                    .sample_stride = 1u,
                                                    .any = &as_any);
 
@@ -1139,7 +1139,7 @@ static int check_any_type_agrees(void)
     if (samples == NULL)
     {
         printf("  allocation failed\n");
-        free(scratch);
+        free(survivors);
         free(corpus);
         return 1;
     }
@@ -1199,7 +1199,7 @@ static int check_any_type_agrees(void)
     {
         printf("  allocation failed\n");
         free(ranks); free(class_of); free(members); free(place);
-        free(samples); free(scratch); free(corpus);
+        free(samples); free(survivors); free(corpus);
         return 1;
     }
 
@@ -1241,7 +1241,7 @@ static int check_any_type_agrees(void)
 
     free(ranks);
     free(samples);
-    free(scratch);
+    free(survivors);
     free(corpus);
     return failed;
 }

@@ -140,14 +140,14 @@ static int bench_table_once(const uint32_t *corpus, size_t corpus_len, const uin
  * @param[in]     corpus_len How many.
  * @param[in]     needle     Symbols being searched for [BORROWS].
  * @param[in,out] order_out  Placed with the candidates, reordered in place [BORROWS].
- * @param[out]    scratch    One byte per alignment [BORROWS].
+ * @param[out]    survivors  One byte per alignment [BORROWS].
  * @return                   Offsets the descent placed, or 0 where it refused.
  *
  * @note anchor_steer_plan_recursive REORDERS offsets the caller has already placed. The loop below
  *       places them, because an array left uninitialized would have whatever was in memory ranked.
  */
 static size_t bench_oracle_once(const uint32_t *corpus, size_t corpus_len, const uint32_t *needle,
-                                size_t *order_out, uint8_t *scratch)
+                                size_t *order_out, uint8_t *survivors)
 {
     const size_t alignments = (corpus_len - BENCH_NEEDLE_LEN) + 1u;
 
@@ -171,8 +171,8 @@ static size_t bench_oracle_once(const uint32_t *corpus, size_t corpus_len, const
     const AnchorSteerDescent args = {
         .offsets = order_out,
         .count = BENCH_CANDIDATES,
-        .scratch = scratch,
-        .scratch_len = alignments,
+        .survivors = survivors,
+        .survivors_length = alignments,
         .any = &any
     };
 
@@ -201,14 +201,14 @@ static double bench_time_table(const uint32_t *corpus, size_t corpus_len, const 
 }
 
 static double bench_time_oracle(const uint32_t *corpus, size_t corpus_len, const uint32_t *needle,
-                                size_t *order_out, uint8_t *scratch, size_t *placed_out)
+                                size_t *order_out, uint8_t *survivors, size_t *placed_out)
 {
     const clock_t start = clock();
     size_t runs = 0u;
 
     while (bench_elapsed_milliseconds(start) < BENCH_MIN_MILLISECONDS)
     {
-        *placed_out = bench_oracle_once(corpus, corpus_len, needle, order_out, scratch);
+        *placed_out = bench_oracle_once(corpus, corpus_len, needle, order_out, survivors);
         runs += 1u;
         if (runs >= BENCH_MAX_RUNS)
         {
@@ -235,15 +235,15 @@ int main(void)
 {
     const size_t corpus_cap = 1u << 17;
     uint32_t *const corpus = (uint32_t *)malloc(corpus_cap * sizeof(uint32_t));
-    uint8_t *const scratch = (uint8_t *)malloc(corpus_cap);
+    uint8_t *const survivors = (uint8_t *)malloc(corpus_cap);
     uint32_t needle[BENCH_NEEDLE_LEN];
     size_t order[BENCH_CANDIDATES];
 
-    if ((corpus == NULL) || (scratch == NULL))
+    if ((corpus == NULL) || (survivors == NULL))
     {
         printf("  allocation refused, nothing measured\n");
         free(corpus);
-        free(scratch);
+        free(survivors);
         return 1;
     }
 
@@ -266,7 +266,7 @@ int main(void)
 
         const double table_ms = bench_time_table(corpus, corpus_cap, needle, sigma, order);
         size_t placed = 0u;
-        const double oracle_ms = bench_time_oracle(corpus, corpus_cap, needle, order, scratch,
+        const double oracle_ms = bench_time_oracle(corpus, corpus_cap, needle, order, survivors,
                                                    &placed);
 
         printf("  2^%-8u %-12.3f %-14zu %-12.3f %-14zu %zu\n",
@@ -294,7 +294,7 @@ int main(void)
 
         const double table_ms = bench_time_table(corpus, corpus_len, needle, sigma_fixed, order);
         size_t placed = 0u;
-        const double oracle_ms = bench_time_oracle(corpus, corpus_len, needle, order, scratch,
+        const double oracle_ms = bench_time_oracle(corpus, corpus_len, needle, order, survivors,
                                                    &placed);
 
         printf("  %-10zu %-12.3f %-14zu %-12.3f %-14zu %zu\n",
@@ -303,6 +303,6 @@ int main(void)
     }
 
     free(corpus);
-    free(scratch);
+    free(survivors);
     return 0;
 }

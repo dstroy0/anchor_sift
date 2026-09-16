@@ -98,7 +98,7 @@ int main(void)
     const size_t cells = (size_t)RASTER_EDGE * RASTER_EDGE;
     uint8_t *host_pixels = (uint8_t *)malloc(cells);
     uint8_t *device_pixels = (uint8_t *)malloc(cells);
-    uint8_t *scratch = NULL;
+    uint8_t *survivors = NULL;
     if ((corpus == NULL) || (host_pixels == NULL) || (device_pixels == NULL))
     {
         printf("  allocation failed\n");
@@ -111,8 +111,8 @@ int main(void)
     memcpy(needle, corpus + (RASTER_CORPUS / 3u), sizeof(needle));
 
     const size_t alignments = (RASTER_CORPUS - RASTER_NEEDLE) + 1u;
-    scratch = (uint8_t *)malloc(alignments);
-    if (scratch == NULL)
+    survivors = (uint8_t *)malloc(alignments);
+    if (survivors == NULL)
     {
         printf("  allocation failed\n");
         free(corpus); free(host_pixels); free(device_pixels);
@@ -129,8 +129,8 @@ int main(void)
                                             .corpus_len = RASTER_CORPUS,
                                             .needle = needle,
                                             .needle_len = RASTER_NEEDLE,
-                                            .scratch = scratch,
-                                            .scratch_len = alignments,
+                                            .survivors = survivors,
+                                            .survivors_length = alignments,
                                             .sample_stride = 1u);
     AnchorRasterProbe steered[ANCHOR_STEER_ANCHORS];
     for (size_t slot = 0u; slot < coarms; slot += 1u)
@@ -387,6 +387,6 @@ int main(void)
     free(seen);
 
     printf("\n  %d check(s) failed\n", failed);
-    free(corpus); free(host_pixels); free(device_pixels); free(scratch);
+    free(corpus); free(host_pixels); free(device_pixels); free(survivors);
     return (failed == 0) ? 0 : 1;
 }
