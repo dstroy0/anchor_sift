@@ -161,3 +161,23 @@ def recover_period(values, reach, seed=SEED):
 
     live, dead = against_a_shuffle(values, chosen, seed)
     return chosen, live, dead
+
+
+def null_band(values, reach, draws=8, seed=SEED):
+    """The strongest dispersion ratio a shuffle of these values reaches, over `draws` shuffles.
+
+    recover_period always returns its best period, because the best of a set is always something; a
+    structureless sequence has one too, and its ratio is not one but a spread, since which period looks
+    best wanders from shuffle to shuffle. This draws that spread and returns its top. A live reading
+    then means a period is present only when it stands above this band, which is drawn from the data
+    and never a threshold chosen here. `draws` is a declared input, reported with the band.
+
+    Returns the largest ratio any of the shuffles reached, or None where none reached one.
+    """
+    values = list(values)
+    top = None
+    for step in range(draws):
+        _, ratio, _ = recover_period(list(permuted(values, seed + step)), reach, seed + step + 1)
+        if ratio is not None and ((top is None) or (ratio > top)):
+            top = ratio
+    return top
