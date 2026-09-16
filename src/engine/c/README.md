@@ -93,12 +93,17 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 | `bench/bench_scaling.c` | what the sift costs per alignment as the corpus grows |
 | `bench/bench_dispatch.c` | which arm to run, and what the two thresholds should be |
 | `bench/bench_coherence.c` | at what scale the corpus agrees with itself, read before the search |
+| `bench/bench_raster.c` | renders every sheet and volume configuration and grades host against device |
 | `bench/bench_sift.c` | candidates, skip distance and anchor independence over byte strings. Not wired up |
 | `bench/bench_entropy.c`, `bench/bench_ab.c`, `bench/bench_cycles.c` | not wired up |
 
 Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` used to sit in `bench/`; it is MMgr's test support and it lives in MMgr, at `deps/mmgr/test/support/`. Run `python maint/deps/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it: `bench_corpora` fills every corpus with splitmix64.
 
 `bench_corpora` is shared so the scaling bench and the dispatch bench cannot disagree about what skewed means. One measures a rate against a prediction and the other scores a rule with a clock, and a rule scored on corpora the prediction never saw is a rule scored against nothing.
+
+## Rendering
+
+`render/` turns engine state into an image, as a sheet or a volume, with no export step between the state and the pixels. Each renderer has a host arm in C and a device arm in CUDA that produce the same bytes, so a caller uses the dispatch and does not choose an arm: `anchor_raster_render` for a sheet and `anchor_volume_render` for a volume both prefer the device where one is present and fall back to the host where none is. `bench_raster` grades the two arms against each other byte for byte on every configuration, twenty sheet combinations and twenty volume combinations, and a single differing pixel or voxel is a defect. `docs/rendering.md` is the guide: the configuration structures, the layouts and channels, what each is checked against, and what is not checked.
 
 ## bench_lattice, where the soundness claim is tested
 
