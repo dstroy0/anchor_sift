@@ -369,11 +369,13 @@ def internal_coords(atoms):
         n2 = numpy.cross(b2, b3)
         unit_b2 = b2 / numpy.sqrt((b2 ** 2).sum(axis=1))[:, None]
         m = numpy.cross(n1, unit_b2)
-        dihedral[3:] = numpy.arctan2((m * n2).sum(axis=1), (n1 * n2).sum(axis=1))
+        # Negated to the IUPAC sign, so a torsion read here carries the same sign as phi_psi and the
+        # Ramachandran rules: a right-handed alpha helix sits near phi -63, psi -43, not its mirror.
+        dihedral[3:] = -numpy.arctan2((m * n2).sum(axis=1), (n1 * n2).sum(axis=1))
     return bond, angle, dihedral
 
 
-def rebuild(seed, bond, angle, dihedral):
+def rebuild(seed, bond, angle, dihedral, steer=None):
     """Walk the internal terms back into coordinates, each point placed on the three before it.
 
     `seed` is the first three points, which fix where the run sits and how it is turned. `bond`,
@@ -389,6 +391,13 @@ def rebuild(seed, bond, angle, dihedral):
     propagates the length of the run; a distance-geometry transform reads all points at once and
     does not carry it.
 
+    `steer`, when given, is called as steer(index, dihedral_radians) before each point is placed and
+    its return is the direction actually walked. A caller passes it to hold the walk inside a region
+    it alone defines, a truthy cell of a table it supplies, and leaves a direction untouched by
+    returning it as given. The engine stays blind to what makes a direction truthy: the whole of that
+    judgment is the caller's, which keeps the reference table (the Ramachandran grid, say) out of the
+    engine while the walk that reads it is here.
+
     Returns the run as a float array the length of `bond`.
     """
     count = len(bond)
@@ -403,9 +412,42 @@ def rebuild(seed, bond, angle, dihedral):
         side = numpy.cross(normal, axis)
         radius = bond[at]
         turn = angle[at]
-        about = dihedral[at]
+        about = dihedral[at] if steer is None else steer(at, dihedral[at])
         local = numpy.array([-radius * numpy.cos(turn),
                              radius * numpy.sin(turn) * numpy.cos(about),
-                             -radius * numpy.sin(turn) * numpy.sin(about)])
+                             radius * numpy.sin(turn) * numpy.sin(about)])
         out[at] = prev1 + numpy.column_stack([axis, side, normal]) @ local
     return out
+
+
+# TRUTHY AND FALSY STEERING
+#
+# A walk that steers reads a table that says, at each place it might go, true or false: this place is
+# allowed, that one is not. The mechanism is here, in the engine, because the walk is here. What the
+# table means is not: a caller builds it, from the Ramachandran grid or anything else, and hands the
+# walk a `steer` that consults it. `nearest_truthy` is the one piece of that a walk needs from the
+# engine and cannot get from the table alone, since a table only answers about the place it is asked
+# and not where the nearest allowed place is. It knows true from false and nothing more, so it serves
+# any table, and the reference data that fills a particular one stays out of the engine.
+
+
+def nearest_truthy(truthy, row, col):
+    """The nearest cell a boolean grid marks true, searching outward on a torus from (row, col).
+
+    If (row, col) is already true it stands. Otherwise the search grows a square ring, wrapping both
+    axes, and returns the first true cell it reaches; ties inside a ring resolve in a fixed scan
+    order, so the same grid and cell always steer the same way. Returns None only when the grid holds
+    no true cell at all, which a caller reads as a table that forbids everywhere and refuses.
+    """
+    rows, cols = truthy.shape
+    if truthy[row % rows, col % cols]:
+        return (row % rows, col % cols)
+    for radius in range(1, max(rows, cols) + 1):
+        for d_row in range(-radius, radius + 1):
+            for d_col in range(-radius, radius + 1):
+                if max(abs(d_row), abs(d_col)) != radius:
+                    continue
+                here_row, here_col = (row + d_row) % rows, (col + d_col) % cols
+                if truthy[here_row, here_col]:
+                    return (here_row, here_col)
+    return None
