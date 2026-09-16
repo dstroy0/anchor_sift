@@ -263,9 +263,33 @@ I then observed that the regime which would demonstrate the advantage and the re
 
 **Not built.**
 
-### O4. The space lower bound, scope unverified
+### R10. The space lower bound does not apply to the exact path, and the engine is far above it
 
-Online exact pattern matching carries an `Omega(m)` bits space lower bound, and the engine carries `m` bits. I have not verified the theorem's scope and it is deliberately absent from the workbook as a result. A space lower bound usually carries model conditions that decide whether that `m` is the same `m`. If it goes in, it goes in with the hypotheses quoted.
+**Withdrawn.** O4 read: online exact pattern matching carries an `Omega(m)` bits space lower bound and the engine carries `m` bits, which implied the engine sits at a space optimum. The theorist read the paper. It does not, and the truth runs the other way.
+
+Clifford, Jalsenius, Porat and Sach, "Space Lower Bounds for Online Pattern Matching", arXiv:1106.4412, CPM 2011. Abstract verbatim, checked here against the paper and not against a summary:
+
+> We give Omega(m) bit space lower bounds for L_1, L_2, L_infinity, Hamming, edit and swap distances as well as for any algorithm that computes the cross-correlation/convolution.
+
+**Exact pattern matching is not in that list.** The bound is for distance measures. The question I had parked, whether that `m` is the same `m`, was the wrong question: it is not even the same problem.
+
+**The dichotomy is what settles the two paths, and it separates them.** Verbatim:
+
+> We then show a dichotomy between distance functions that have wildcard-like properties and those that do not. In the former case which includes, as an example, pattern matching with character classes, we give Omega(m) bit space lower bounds. For other distance functions, we show that there exist space bounds of Omega(log m) and O(log^2 m) bits.
+
+**The exact byte path falls on the `Omega(log m)` and `O(log^2 m)` side.** Porat and Porat, FOCS 2009, do exact pattern matching in a stream in `O(log m log n)` bits. So the engine carrying `m` bits on the exact path is not meeting a lower bound. It is roughly `m` over a known upper bound.
+
+**The rank projected path is the candidate case and nothing is asserted about it.** Matching on equivalence classes, where a needle position of rank `r` accepts any corpus symbol of rank `r`, is pattern matching with character classes, which the paper names explicitly as an `Omega(m)` case. The reduction has not been written and the theorem is not claimed to transfer. What is established is only that the projected path is where this citation plausibly applies and the exact path is where it plainly does not, which is the opposite of how the entry read.
+
+**Also corrected: the bound is not deterministic only.** Verbatim: "We require that the correct answer is given at each position with constant probability." It binds randomized algorithms too. A summarizer told the theorist deterministic only and the abstract contradicted it. "The lower bound is only for deterministic algorithms" is exactly the plausible sentence that would otherwise have been written here.
+
+**Why the engine carries `m` bits anyway, and it is an interface cost rather than a theorem.** The `O(log^2 m)` route is fingerprinting, reached by combining Karp-Rabin with KMP. Karp-Rabin needs arithmetic on symbols, treating them as numbers modulo a prime. `AnchorField` exposes equality and nothing else: no order, no hash, no element size, no arithmetic. The engine cannot reach that regime, and the reason is its own oracle.
+
+**That is the same trade F14 measured, priced in the other currency.** The equality-only oracle buys independence from alphabet size. F14 prices that in time: a 7.4 times constant factor per corpus symbol, with a crossover near six times the corpus length. This prices it in space: `m` bits where `O(log^2 m)` is achievable for exact matching, because fingerprinting is closed to an engine that refuses to expose a representation. One interface decision, two measured costs. That is a better account of what the oracle costs than a lower bound the engine was never up against.
+
+**How the wrong version got here.** An earlier fetch of the same paper returned a summary naming "Theorem 6" and stating that exact pattern matching requires `Omega(m)` bits. That was recorded as the shape of the result without the abstract being read. Same class as everything else in this section: a plausible sentence from a summary, not checked against the source.
+
+Sources: [arXiv:1106.4412](https://arxiv.org/abs/1106.4412) for the lower bounds and the dichotomy; Porat and Porat, "Exact and Approximate Pattern Matching in the Streaming Model", FOCS 2009, 315 to 323, for the `O(log m log n)` upper bound.
 
 ## What the theorist is asked to do
 
