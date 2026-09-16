@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-002
+#
 """Turns a raw binary file into the shape viewer, with no idea what the file is.
 
 A blob has no columns and no header. Only one structure is available, the one every binary

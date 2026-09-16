@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-013
+#
 """Traces SHA-256 twice, a message and the same message with one bit flipped, and renders it.
 
 Every reading in this work is about what a difference does as it travels. A single trace cannot

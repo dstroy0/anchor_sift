@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-008
+#
 """Puts SHA-256's compression function inside the ball and reads it round by round.
 
     python tools/view/build_sha_sphere_view.py
