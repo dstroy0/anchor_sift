@@ -81,7 +81,7 @@ The detector and the oracle report 6655 and 6662 shared positions from the same 
 difference is the detector's early return: it treats an entry whose coordinates all fail to parse as
 unreadable, and the oracle does not.
 
-### The growth series, which is the point rather than a caveat
+### The growth series
 
 The same measurement over a growing corpus:
 
@@ -96,7 +96,7 @@ The same measurement over a growing corpus:
 | 8799 | 8152 | 8079, with 73 over a full site |
 
 The last row is the first one measured against a cache that had stopped growing. Every figure above it
-was taken while the fetch was still running, which is why they are quoted with the moment attached.
+was taken while the fetch was still running, so each is quoted with the moment attached.
 It is also the row that says what the inconsistent positions are: 1426 more entries produced ONE more
 position over a full site, 72 to 73. The count is not tracking the corpus. These are a fixed set of
 old depositions and not a rate at which deposits are written wrong, and the earlier rows were
@@ -109,7 +109,7 @@ wrong but that it was a true measurement of a range, quoted as though the range 
 
 That is a stronger result than the original, not a retreat from it. A detector that holds across
 1200 deposits and then meets 66 deposit defects at 6730 is an instrument meeting a real corpus. The
-original framing had no room for that outcome, which is what was wrong with it.
+original framing was wrong because it had no room for that outcome.
 
 ### What the inconsistent positions are
 
@@ -127,9 +127,8 @@ leaves the deposit.
 **That count was described here as the one that would falsify the reading, and that was a badly
 built test.** A number whose appearance is supposed to settle a question cannot settle it when both
 answers produce the same number. Naming a falsifier without naming what distinguishes it from the
-alternative leaves a test that looks decisive and is not. What distinguishes them is reading the
-deposit, and 1.0% of shared positions in this corpus are deposits disagreeing with themselves rather
-than an instrument disagreeing with them.
+alternative leaves a test that looks decisive and is not. Reading the deposit distinguishes them, and
+it shows 1.0% of shared positions in this corpus to be deposits disagreeing with themselves.
 
 The converse is the half that is easy to lose. 10460 positions carry a single element under full
 occupancy. Those are vacancies and not doping: nothing substitutes there, the atom is simply absent
@@ -142,7 +141,7 @@ at 146. Al/Si with Ca/Na is the plagioclase coupled substitution, which is to sa
 substitution in the crust came out on top of a reading that knows no chemistry and never looked at a
 cell.
 
-Doping does not disturb the recovered period, and the reason is structural rather than lucky. The
+Doping does not disturb the recovered period. The
 cell repeats whatever it contains, dopant included, so the lattice is untouched. An ideal doped
 crystal is still exactly periodic, and stage four's two measures read two different things out of
 one set of points.
@@ -154,9 +153,9 @@ cell each across the corpus, 705 positions hold two elements, 34 hold three, and
 **one position holding ten**: `Ce/Dy/Er/Gd/La/Nd/Pr/Sm/Y/Yb`, a rare earth site that took whichever
 lanthanides were in the melt. Three separate spinels hold seven at once, `Al/Cr/Fe/Mg/Ni/Ti/V`.
 
-Counting distinct substitution types per deposit rather than per position, 135 entries carry one and
-**83 carry two at once**. Two at once is a coupled substitution, which is how a lattice swaps ions of
-unequal charge and stays balanced: the plagioclase series runs Al for Si on one site against Ca for
+Counting distinct substitution types per deposit, 135 entries carry one and
+**83 carry two at once**. Two at once is a coupled substitution. A lattice swaps ions of unequal
+charge that way and stays balanced. The plagioclase series runs Al for Si on one site against Ca for
 Na on another, and neither half works alone. The measure was not told that and has no charges in it.
 
 ### Symmetry expansion counts more places and finds no more doping
@@ -178,7 +177,7 @@ carries one onto the other. Tantalum and tungsten substitute readily, so this is
 solution that the asymmetric unit does not show.
 
 `1509166` puts O at (0, 1/2, 0) at full occupancy and Ag at (1/2, 0, 1/2) at half, in `I 4/m m m`.
-The I centring carries the first exactly onto the second, so an anion and a cation share one orbit
+The I centring carries the first exactly onto the second. An anion and a cation share one orbit
 summing to one and a half atoms on a site that holds one. That is not chemistry. It is a defect in a
 published deposit, and nothing short of expansion surfaces it.
 
@@ -192,15 +191,15 @@ settled fact. The same measurement has read four values:
 | corpus | count | why it was that |
 |---|---|---|
 | 1228 entries | 0 | the real cases were not in the corpus yet |
-| 2801 entries | 5 | three of the five were a parser artefact |
-| 2853 entries | 2 | artefact removed, two real cases remain |
+| 2801 entries | 5 | three of the five were a parser artifact |
+| 2853 entries | 2 | artifact removed, two real cases remain |
 | 6668 entries | 3 | a third arrived with the corpus, not yet inspected |
 
 Each was correct for its corpus and its parser. A reader learns more from the sequence than from the
 final value, because the sequence says what the measurement is sensitive to: corpus size found the
 real cases, and a parser defect invented three others.
 
-The artefact is worth naming. Deposits mark an undetermined position with the sentinel `-1` and the
+The artifact is worth naming. Deposits mark an undetermined position with the sentinel `-1` and the
 flag `dum`, which reduces into the cell at the origin and collides with whatever real atom sits
 there. Dickinson's 1920 wulfenite (`1011170`) writes its unsolved oxygen that way, and the reading
 reported Mo and O sharing a site. A cation and an anion cannot occupy one place, and that
@@ -217,8 +216,8 @@ that repeats perfectly does not disturb it. A count, a density or any distance w
 The expansion is exact, and that took a second scale. A translation of 1/3 is not a decimal at any
 number of places, because 10^n factors into twos and fives and three divides neither. An R centred
 operation is full of thirds and the corpus is full of R-3. Carrying those through the decimal scale
-would displace every copy they generate, so a symmetry copy would land beside the atom it should
-have landed on rather than on it, and the doping at that place would vanish silently. Coordinates in
+would displace every copy they generate. A symmetry copy would land beside the atom it should have
+landed on, and the doping at that place would vanish silently. Coordinates in
 `representation/structure/symmetry.py` are therefore integers in units of 1/(24 · 10^1024), and an
 operation whose denominator does not divide 24 raises instead of rounding. Across the corpus nothing
 raised: 24 held every operation the deposits published, eighths included.
@@ -273,26 +272,26 @@ mineral family the fetch searched under:
 | feldspar | 275 | 8 | 2.9% |
 | apatite | 303 | 7 | 2.3% |
 
-So a stage five figure over this cache is a figure about its cubic and orthorhombic half. Feldspar
+A stage five figure over this cache is a figure about its cubic and orthorhombic half. Feldspar
 contributes 8 entries out of 275 and amphibole 13 out of 363, and neither absence appears anywhere in
 the output. `DEVELOPMENT_RULES` names this case: a check that cannot fail closed has to be one whose
-failure is distinguishable from its answer, and zero findings over a root that vanished is a defect
-and not a pass. The census exists so the denominator can be quoted beside the result.
+failure is distinguishable from its answer, and zero findings over a root that vanished counts as a
+defect. The census exists so the denominator can be quoted beside the result.
 
 The two censuses together say the refusal is structural and not a sampling accident. Amphibole grew
 from 307 entries to 363 and its admitted count stayed at 13, so none of the 56 that arrived were
 admitted. Apatite grew from 286 to 303 and stayed at 7. Mica grew from 361 to 365 and stayed at 52.
-A family's crystal system is a fact about the mineral, so a bigger sample of it does not arrive any
+A family's crystal system is a fact about the mineral. A bigger sample of it does not arrive any
 more right angled than the sample already held.
 
-Carbonate is the exception and it is the one that says what the family column actually means. It
+Carbonate is the exception, and its admitted share shows what the family column means. Carbonate
 went from 154 entries at 5.2% admitted to 403 at 30.3%, so 114 of the 249 that arrived were
 admitted, against 8 of the original 154. `maint/data/fetch/fetch_cod_doped.py` states in its header
-that the family is provenance and records the search term that returned the entry rather than a
-mineral classification. Rhombohedral calcite and orthorhombic aragonite are both carbonates and only
-one of them has right angles. A family whose admitted share moves that far between two samples is a
-family whose label is holding more than one crystal system, which is the header's warning arriving as
-a number.
+that the family is provenance and records the search term that returned the entry. The family
+carries no mineral classification. Rhombohedral calcite and orthorhombic aragonite are both
+carbonates and only one of them has right angles. A family whose admitted share moves that far
+between two samples is a family whose label is holding more than one crystal system. The header's
+warning arrives here as a number.
 
 Whether the gate should be lifted is a separate question and it is argued in
 `PROPOSALS/CRYSTAL_EXACT_PATH_RIGHT_ANGLE_GATE.md`. This measures the gate and does not answer that.
@@ -306,8 +305,8 @@ needles, and its closing median is 0.97.** At 12 structures that median is 4.33 
 **This stage is measured at the 7459 entry moment and the two above it are measured at 8885.** The
 cache finished filling after this run and stage five was not repeated on the larger one, because the
 repeat costs hours and a partial repeat is worth less than nothing here: the cache is walked in
-filename order, so a run stopped early has seen the low identifiers and almost none of the
-single-element structures, which is the same bias described below arriving by a different route. A
+filename order. A run stopped early has seen the low identifiers and almost none of the
+single-element structures, the same bias described below arriving by a different route. A
 complete measurement at a named moment is worth more than an incomplete one at a later moment.
 
 3639 is the second denominator this stage drops quietly. The census above admits 3708 entries to the
