@@ -38,11 +38,14 @@
 # What a failure would look like, stated before the numbers: any axis where the recovered period is
 # not equal to the published edge. A near miss counts as a miss, since nothing here rounds.
 
+import http.client
 import io
 import json
 import os
+import socket
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -106,7 +109,17 @@ def cached(name, url, out):
             with urllib.request.urlopen(request, timeout=180) as response:
                 text = response.read().decode("utf-8", "replace")
             break
-        except Exception as trouble:
+        except (urllib.error.URLError, http.client.HTTPException, socket.timeout,
+                OSError) as trouble:
+            # This caught bare Exception until now, which retried a NameError or a bad format
+            # string three times and then reported it as the archive refusing. A programming error
+            # presented as a network failure, and the run still printed a denominator.
+            #
+            # HTTPException is named although it is not an OSError subclass: an IncompleteRead
+            # arrives from there and from nowhere else, and it is what ended a sibling sweep at
+            # 1836 entries through a handler that looked complete. The sibling client in
+            # maint/data/fetch/fetch_cod_doped.py:156 now carries the same tuple, one decision
+            # written in two places because neither file may depend on the other.
             if attempt == (TRIES - 1):
                 out.write("      gave up on %s: %s\n" % (name, str(trouble)[:60]))
                 return None, True
