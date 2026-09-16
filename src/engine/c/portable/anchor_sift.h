@@ -576,6 +576,15 @@ typedef struct
 /**
  * @brief Orders the anchors by conditional pruning, one level per anchor, and reports the depth.
  *
+ * @warning THIS REORDERS OFFSETS THE CALLER HAS ALREADY PLACED. IT DOES NOT CHOOSE THEM. `offsets`
+ *          is read on the way in, so a caller who leaves the array uninitialized expecting the
+ *          descent to fill it gets whatever was in that memory ranked, and gets it silently.
+ *          anchor_steer_spawn_coarms is the entry that chooses the positions itself.
+ * @warning `count` ABOVE ANCHOR_STEER_ANCHORS RETURNS ZERO AND SAYS NOTHING. That is the whole
+ *          report: zero is also what a null pointer and a zero needle length return, so a caller
+ *          reading the return value alone cannot tell which guard refused. Check the bound before
+ *          the call, because the call will not tell you.
+ *
  * @param[in,out] offsets       Anchor offsets, reordered in place into evaluation order [BORROWS].
  * @param[in]     count         How many offsets. At most ANCHOR_STEER_ANCHORS.
  * @param[in]     corpus        Bytes the search will run over [BORROWS].

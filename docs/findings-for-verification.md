@@ -214,6 +214,33 @@ Against a growing answer: a strictly growing placed set drawn from a finite prob
 
 The entries take `const uint8_t *corpus` with a `corpus_len`: a window nailed down. The engine cannot ask for more universe. The change is one interface, a reader the engine may call for more in place of a pointer and a length. Until that exists the construction is what the implementation admits and not what it is.
 
+### F14. O3 measured: the oracle is flat in alphabet size and the table is not, with a crossover
+
+Built and measured by the theorist, who went looking for where the table route WINS rather than for the flat line. Both routes answer the same question, ordering four candidate needle offsets by symbol rarity. Table is a direct indexed counter per symbol value, the census generalized to a four byte symbol. Oracle is `anchor_steer_plan_recursive` with `any` set. Four byte symbols, needle 16, each timing repeated to at least 60 ms.
+
+**Alphabet grows, corpus fixed at 131072:**
+
+| sigma | table ms | table bytes | oracle ms | oracle bytes |
+|---|---|---|---|---|
+| 2^8 | 0.062 | 1024 | 1.906 | 131057 |
+| 2^12 | 0.064 | 16384 | 1.935 | 131057 |
+| 2^16 | 0.220 | 262144 | 1.579 | 131057 |
+| 2^20 | 2.542 | 4194304 | 1.622 | 131057 |
+| 2^22 | 9.000 | 16777216 | 1.667 | 131057 |
+| 2^24 | 30.500 | 67108864 | 1.622 | 131057 |
+
+The oracle column is flat across a 65536 fold increase in sigma, with no trend. The table column is linear in sigma once sigma passes the corpus size. At 2^24 the oracle runs 18.8 times faster on 512 times less memory.
+
+**Corpus grows, alphabet fixed at 2^16:** table 0.014, 0.033, 0.110, 0.216 ms against oracle 0.053, 0.201, 0.789, 1.605 at 4096, 16384, 65536 and 131072 positions. **Both linear in corpus and the table 7.4 times faster on every row.** That is the constant factor the oracle pays: the table's per symbol work is one array increment and the oracle's is an indirect call. The oracle buys independence from sigma and pays per corpus symbol for it.
+
+**The crossover is at roughly six times the corpus length.** Fitting the table above 2^20 gives about `0.16 + 1.78e-6 * sigma` ms, meeting the oracle's 1.6 ms near sigma 809000 against a corpus of 131072. Table wins below it, oracle wins above and keeps winning.
+
+**The durable claim is the memory and not the time.** Sigma 2^32 is not measured and was not allocated: 16.0 GB of counters at four bytes a slot. The theorist's own caveat against the timing is the reason to prefer the memory claim. The table route in the bench callocs and frees its counters every iteration, and a real caller searching many needles against one fixed corpus builds the census once and amortizes it, which widens the table's time advantage and means the time column overstates the oracle's case. Memory does not amortize. 16 GB is 16 GB whether it is paid once or a thousand times.
+
+**One behavioral note from the same run.** `placed` came back 2 at sigma 2^8 and 2^12 and 1 from 2^16 up, which is the destroy rule firing: at a large alphabet the first probe cuts the survivors far enough that a second adds nothing. That also explains why the oracle's small sigma rows are its slowest. It is doing more work there, not suffering from sigma.
+
+So the claim boundary in O3 is now partly closed. The trend is measured, it is the trend the construction predicts, and the regime where the table is the right choice is named rather than waved at.
+
 ### O3. The alphabet size bench, which would produce a new number
 
 I killed my own best candidate for a problem the engine uniquely solves. Main and Lorentz give `Omega(n log n)` for repetition detection over a general alphabet, which reads like a barrier the engine walks past. It is not: the bound is `Theta(n log sigma)` and the `n log n` form assumes `Omega(n)` distinct symbols. At `sigma = 256` the factor is 8 and it is linear, so on byte corpora the engine beats nothing asymptotically.
