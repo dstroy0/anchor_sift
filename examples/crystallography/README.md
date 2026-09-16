@@ -116,21 +116,37 @@ The I centring carries the first exactly onto the second, so an anion and a cati
 summing to one and a half atoms on a site that holds one. That is not chemistry. It is a defect in a
 published deposit, and nothing short of expansion surfaces it.
 
-So expansion is a detection, on 2 entries in 2853. A poor detector by rate, and the right tool for
-what it finds.
+So expansion is a detection. A poor detector by rate, and the right tool for what it finds.
 
-### This section said zero, and the corpus falsified it
+### The count is 2 as of a moment, and the moment is the point
 
-At 1228 entries the count was 0 and this README asserted that expansion never detects, only counts.
-At 2801 it was 5. Three of those five were an artefact: deposits mark an undetermined position with
-the sentinel `-1` and the flag `dum`, which reduces into the cell at the origin and collides with
-whatever real atom sits there. Dickinson's 1920 wulfenite (`1011170`) writes its unsolved oxygen that
-way, and the reading reported Mo and O sharing a site. A cation and an anion cannot occupy one place,
-and that impossibility is how the artefact announced itself. `crystal.site_table` now drops `dum`
-rows and the two survivors above are the real answer.
+**2 of 2853 entries, measured 2026-09-16 13:12 UTC, with the corpus still filling.** Not 2 as a
+settled fact. The same measurement has read three different values tonight:
 
-Both halves are worth keeping. A claim of zero held for 1228 entries and was false. A count of five
-looked like a finding and was mostly a parser reading a placeholder as an atom.
+| corpus | count | why it was that |
+|---|---|---|
+| 1228 entries | 0 | the two real cases were not in the corpus yet |
+| 2801 entries | 5 | three of the five were a parser artefact |
+| 2853 entries | 2 | artefact removed, two real cases remain |
+
+Each was correct for its corpus and its parser, and only the last is true. A reader learns more from
+the sequence than from the final value, because the sequence says what the measurement is sensitive
+to: corpus size found the real cases, and a parser defect invented three others.
+
+The artefact is worth naming. Deposits mark an undetermined position with the sentinel `-1` and the
+flag `dum`, which reduces into the cell at the origin and collides with whatever real atom sits
+there. Dickinson's 1920 wulfenite (`1011170`) writes its unsolved oxygen that way, and the reading
+reported Mo and O sharing a site. A cation and an anion cannot occupy one place, and that
+impossibility is the only thing that announced it: no consistency check and no schema would have.
+`crystal.site_table` drops `dum` rows now.
+
+Dropping them changed what every exact reading in this subject ingests, so both published figures
+were re-read with `dum` kept and dropped over all six entries that carry one. No recovered period
+moved and no agreement with a published edge flipped: **453 of 453 and 1455 of 1455 both stand.**
+The reason is structural rather than lucky, and it is the boundary rather than the reassurance. A
+spurious atom at the origin is tiled into every copy of the cell, so it shifts every plane the same
+way and leaves the agreeing lags unchanged. A period is a statement about repetition and a defect
+that repeats perfectly does not disturb it. A count, a density or any distance would have moved.
 
 The expansion is exact, and that took a second scale. A translation of 1/3 is not a decimal at any
 number of places, because 10^n factors into twos and fives and three divides neither. An R centred

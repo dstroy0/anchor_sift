@@ -33,17 +33,24 @@
 # tool for the thing it finds, and a reading that only wants to know whether a mineral dopes still
 # should not pay for it.
 #
-# THIS SECTION SAID ZERO UNTIL THE CORPUS GREW
+# THE COUNT IS 2 AS OF A MOMENT, AND THE MOMENT IS PART OF THE CLAIM
 #
-# At 1228 entries the count was 0 and this file asserted that expansion never detects. At 2801 it
-# was 5, and three of those five were an artefact: deposits that mark an undetermined position with
-# the sentinel -1 and the flag `dum`, which reduces into the cell at the origin and collides with
-# whatever real atom sits there. Mo and O sharing a site is chemically impossible and that is how
-# the artefact announced itself. crystal.site_table now drops `dum` rows, and the two survivors
-# above are the real answer.
+# 2 of 2853 entries, measured 2026-09-16 13:12 UTC, corpus still filling. Not 2 as a settled fact.
+# The same measurement has read three values tonight and only the last is true:
 #
-# Both halves of that are worth keeping. A claim of zero held for 1228 entries and was false, and a
-# count of five looked like a finding and was mostly a parser reading a placeholder as an atom.
+#   1228 entries   0   the two real cases were not in the corpus yet
+#   2801 entries   5   three of the five were a parser artefact
+#   2853 entries   2   artefact removed, two real cases remain
+#
+# Each was correct for its corpus and its parser. The sequence says more than the value does,
+# because it says what the measurement is sensitive to: corpus size found the real cases and a
+# parser defect invented three others. Anyone quoting this number should quote the corpus with it.
+#
+# The artefact was the dum sentinel described in crystal.py: an undetermined position written as -1,
+# reducing into the cell at the origin, landing on whatever real atom sits there. It surfaced as Mo
+# and O sharing a site, which is chemically impossible, and that impossibility was the only thing
+# that announced it. crystal.site_table drops those rows now, and re-reading both published figures
+# with them kept and dropped moved no period and flipped no agreement.
 #
 # A THIRD HAS NO DECIMAL, WHICH IS WHY THIS NEEDED A NEW SCALE
 #

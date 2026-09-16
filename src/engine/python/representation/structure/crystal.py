@@ -69,6 +69,25 @@ OCCUPANCY = "_atom_site_occupancy"
 # This is the same case as `?`, which representation.exact already refuses: a deposit declining to
 # give a value. The only difference is that `?` refuses in the coordinate and this refuses in a
 # column beside it.
+#
+# WHICH MEASURES THIS EVER PUT AT RISK, WHICH IS NARROWER THAN IT LOOKS
+#
+# Dropping these rows changes what site_text returns, and site_text is what exact_points reads, so
+# every exact reading in this subject saw different coordinates the moment the default changed. The
+# published figures were re-read both ways over every entry carrying a dum row: no recovered period
+# moved and no agreement with a published edge flipped.
+#
+# The mechanism matters more than the zero, because it says which readings were never at risk and
+# which would have been. A dum site sits at -1 and reduces into the cell at the origin. exact_points
+# tiles the cell, so the spurious atom appears at the same place in every tile. along() gathers the
+# arrangement at each coordinate, and an atom replicated identically in every copy shifts every
+# plane the same way, leaving the set of agreeing lags unchanged. A period is a statement about
+# repetition and a defect that repeats perfectly does not disturb it.
+#
+# So a period was safe and nothing else was. A count of atoms, a density, a formula weight, an
+# occupancy sum, any distance between two sites: every one of those moves by exactly one spurious
+# atom per cell. Anyone consuming site_text for something other than a period needs that sentence
+# before they trust a number that came out of it.
 CALC_FLAG = "_atom_site_calc_flag"
 DUMMY = "dum"
 
