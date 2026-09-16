@@ -57,6 +57,21 @@ FRACTIONS = ("_atom_site_fract_x", "_atom_site_fract_y", "_atom_site_fract_z")
 # off this column alone: it takes a second site at the same position to tell them apart.
 OCCUPANCY = "_atom_site_occupancy"
 
+# How the deposit says it did not determine a position. A site carrying `dum` is a placeholder and
+# its coordinates are not a measurement: Dickinson's 1920 wulfenite (COD 1011170) writes its oxygen
+# as `O1 O2- 16 f -1. -1. -1. 1. 0 dum`, because the oxygen positions were not solved.
+#
+# Those coordinates are a sentinel and they behave like data. -1 reduces into the cell at the
+# origin, so a dummy oxygen lands on top of whatever real atom sits there and a reading that counts
+# two elements at one position reports Mo and O sharing a site. That is chemically impossible, a
+# cation and an anion do not occupy one place, and it is how the sentinel announces itself.
+#
+# This is the same case as `?`, which representation.exact already refuses: a deposit declining to
+# give a value. The only difference is that `?` refuses in the coordinate and this refuses in a
+# column beside it.
+CALC_FLAG = "_atom_site_calc_flag"
+DUMMY = "dum"
+
 # Tiles per axis for the exact reading. One cell holds one period, and one period cannot be told
 # from noise. There is no cap on this one: the points are sparse, so the cost is linear in the tile
 # count and not the cube of a grid side.
@@ -109,7 +124,7 @@ def site_text(text):
     return [row[:4] for row in site_table(text)]
 
 
-def site_table(text):
+def site_table(text, dummies=False):
     """Every atom site as the strings the deposit wrote: (x, y, z, element, occupancy).
 
     The loop header is walked for the column names, and a site whose row is short of the header is
@@ -120,6 +135,10 @@ def site_table(text):
     same as an occupancy of 1. 184 of the 650 entries cached at the time of writing publish no such
     column, and reading their absence as full occupancy would invent a measurement nobody made. A
     caller that needs the distinction gets it; one that does not can ignore the field.
+
+    Sites the deposit marked `dum` in CALC_FLAG are dropped, because their coordinates are a
+    placeholder and not a position. Pass `dummies=True` to keep them, which is what a reading about
+    how deposits are written would want and what a reading about where atoms are would not.
     """
     lines = text.splitlines()
     rows = []
@@ -139,12 +158,17 @@ def site_table(text):
         kind = headers.index("_atom_site_type_symbol") if "_atom_site_type_symbol" in headers \
             else None
         share = headers.index(OCCUPANCY) if OCCUPANCY in headers else None
+        flag = headers.index(CALC_FLAG) if CALC_FLAG in headers else None
         while index < len(lines):
             row = lines[index].strip()
             if (not row) or row.startswith(("_", "#", "loop_", "data_")):
                 break
             parts = row.split()
             if len(parts) >= len(headers):
+                if (not dummies) and (flag is not None) \
+                        and parts[flag].strip().lower() == DUMMY:
+                    index += 1
+                    continue
                 rows.append((parts[spots[0]], parts[spots[1]], parts[spots[2]],
                              parts[kind] if kind is not None else "X",
                              parts[share] if share is not None else None))
