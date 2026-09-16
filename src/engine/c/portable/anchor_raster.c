@@ -183,6 +183,19 @@ uint8_t anchor_raster_sample(const AnchorRasterConfig *config, const uint8_t *co
             const uint64_t scaled = (missing * 254u) / total;
             return (uint8_t)(1u + scaled);
         }
+        case ANCHOR_CHANNEL_PROVEN:
+        {
+            /* A refuted alignment is proven to hold no occurrence. A survivor is undetermined: the
+             * probes could not refute it and only the full compare decides. Proven takes the higher
+             * value so a minimum reduction behaves as the conjunction this channel needs, a cell
+             * staying proven only while every alignment under it was refuted. */
+            int matched = 0;
+            const size_t level = raster_death_level(corpus, needle, needle_len, probes,
+                                                    probe_count, at, &matched);
+            return (level < probe_count)
+                 ? (uint8_t)ANCHOR_RASTER_PROVEN
+                 : (uint8_t)ANCHOR_RASTER_UNDETERMINED;
+        }
         case ANCHOR_CHANNEL_SURVIVED:
         {
             int matched = 0;
@@ -271,6 +284,7 @@ const char *anchor_raster_channel_name(AnchorRasterChannel channel)
 {
     switch (channel)
     {
+        case ANCHOR_CHANNEL_PROVEN:      { return "proven"; }
         case ANCHOR_CHANNEL_DEATH_LEVEL: { return "death-level"; }
         case ANCHOR_CHANNEL_SURVIVED:    { return "survived"; }
         case ANCHOR_CHANNEL_RARITY:      { return "rarity"; }

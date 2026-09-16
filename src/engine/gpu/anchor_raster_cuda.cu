@@ -171,6 +171,11 @@ __device__ static unsigned char device_sample(const DeviceConfig *config,
     int matched = 0;
     const unsigned long long level = device_death_level(corpus, needle, needle_len, probes,
                                                         probe_count, at, &matched);
+    if (config->channel == ANCHOR_CHANNEL_PROVEN)
+    {
+        return (level < probe_count) ? (unsigned char)ANCHOR_RASTER_PROVEN
+                                     : (unsigned char)ANCHOR_RASTER_UNDETERMINED;
+    }
     if (config->channel == ANCHOR_CHANNEL_SURVIVED)
     {
         return (level >= probe_count) ? (unsigned char)ANCHOR_RASTER_MATCH : (unsigned char)1u;

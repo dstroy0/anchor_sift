@@ -121,7 +121,9 @@ One read per alignment is the floor for a scheme that decides each alignment fro
 
 It is not a floor on string search. Boyer-Moore, Horspool, Sunday and the factor-based methods skip alignments outright: a mismatch at one alignment proves non-occurrence across a range, and the skipped alignments are never read. Horspool averages about `corpus_len / needle_len` comparisons, so its reads per alignment fall below one and keep falling as the needle grows.
 
-The engine gives that up deliberately. A bad-character shift table is indexed by symbol, and `README.md:91` claims state proportional to the needle, no table over the alphabet, and no cost for a real-valued or unenumerable alphabet. Sublinear skipping by shift table trades that claim away. The good suffix rule is the exception worth knowing about: it is precomputed from the needle alone, it skips alignments, and it needs no alphabet table, so sublinear behavior is reachable without giving up the capability. Nothing here implements it.
+The engine gives that up deliberately, and what it spends is worth stating precisely because `README.md:99` makes two separate claims: that the engine carries `m` bits of state for a pattern of length `m`, and that nothing is indexed and no table is built over the alphabet, which is the half covering a real-valued or unenumerable alphabet.
+
+A classical bad character table is indexed by symbol and spends both. A structure built from the needle's own values spends only the first: for each needle position it records the next position to its left carrying the same value, which is `m` positions and therefore `m log m` bits, and it indexes nothing over the alphabet because it tests equality against the `m` values the needle holds. The good suffix rule is not available here at any price. It needs a contiguous right to left comparison to know which suffix matched, and this engine probes an arbitrary subset in an arbitrary order, so adopting it would mean giving up probe placement, which is the thing being steered. Nothing here implements either.
 
 ## Running the graders
 

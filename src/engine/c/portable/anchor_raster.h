@@ -85,8 +85,15 @@ typedef enum
     ANCHOR_CHANNEL_SURVIVED = 1,    /**< Binary. Bright where every probe agreed, dark otherwise. */
     ANCHOR_CHANNEL_RARITY = 2,      /**< Rarity rank of the corpus byte at the alignment, from the
                                      *   census the engine steers by. */
-    ANCHOR_CHANNEL_BYTE = 3         /**< The corpus byte itself, which renders the object raw. */
+    ANCHOR_CHANNEL_BYTE = 3,        /**< The corpus byte itself, which renders the object raw. */
+    ANCHOR_CHANNEL_PROVEN = 4       /**< Two valued. Proven to hold no occurrence, or undetermined. */
 } AnchorRasterChannel;
+
+/** @brief Pixel value for a cell proven to contain no occurrence. */
+#define ANCHOR_RASTER_PROVEN 200u
+
+/** @brief Pixel value for a cell holding at least one alignment the probes could not refute. */
+#define ANCHOR_RASTER_UNDETERMINED 60u
 
 /**
  * @brief How pixels resolve when several alignments map to one cell.
@@ -123,8 +130,29 @@ typedef struct
 /** @brief Number of layouts, for a caller sweeping every one. */
 #define ANCHOR_RASTER_LAYOUTS 4u
 
-/** @brief Number of channels, for a caller sweeping every one. */
-#define ANCHOR_RASTER_CHANNELS 4u
+/**
+ * @brief Number of channels, for a caller sweeping every one.
+ *
+ * THE PROOF CHANNEL IS DIFFERENT IN KIND FROM THE OTHER FOUR AND THE DIFFERENCE IS WORTH STATING.
+ * A probe set is a sound filter: it never loses a true occurrence, and it does admit alignments that
+ * are not one. So the negative direction is certain and the positive is not. A cell where no
+ * alignment survived contains no occurrence, and that is a proof rather than a summary.
+ *
+ * Three properties follow and each one is load bearing. It reduces as a conjunction, a cell being
+ * proven only when every alignment under it was refuted, and conjunction is associative and
+ * commutative, so it rides ANCHOR_REDUCE_MIN and needs no new reduction rule. It is monotone under
+ * refinement, since adding a probe only removes survivors, so a render never retracts a claim it
+ * made earlier. And it inherits the anytime property of the planner: stop the descent anywhere,
+ * render, and every proven pixel is still proven.
+ *
+ * That last one separates this channel from every other. A death level taken from a half-built plan
+ * is a fact about the plan. A proof taken from a half-built plan is a fact about the OBJECT.
+ *
+ * @warning Brightness is not presence anywhere in this renderer, and here least of all.
+ *          ANCHOR_RASTER_PROVEN is brighter than ANCHOR_RASTER_UNDETERMINED and means the opposite
+ *          of an occurrence. ANCHOR_RASTER_MATCH is the only value entitled to assert one.
+ */
+#define ANCHOR_RASTER_CHANNELS 5u
 
 /**
  * @brief One probe as the rasterizer needs it, matching AnchorProbe in anchor_steer.h.
