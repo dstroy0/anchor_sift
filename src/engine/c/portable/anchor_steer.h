@@ -57,6 +57,17 @@ extern "C" {
 #define ANCHOR_STEER_SYMBOLS 256u
 
 /**
+ * @brief Most probes any planner here will place, matching ANCHOR_SIFT_ANCHORS in anchor_sift.h.
+ *
+ * @note THIS CONSTANT IS THE TERMINATION ARGUMENT. Every descent below places one probe per level
+ *       and never revisits one, so the depth is bounded by this value at compile time. It is
+ *       declared here rather than in the implementation because it is part of the contract: a
+ *       caller sizing an array of probes needs it, and a reader asking whether a recursion
+ *       terminates should find its bound in the header rather than having to open the source.
+ */
+#define ANCHOR_STEER_ANCHORS 4u
+
+/**
  * @brief What one pass over a corpus records about the field it is.
  *
  * @note This is the whole of what steers the engine. It is read off the corpus and nothing else
@@ -150,6 +161,181 @@ void anchor_steer_probe_order(size_t *offsets, size_t count, const AnchorFieldCe
  *       the sweep scored, carried exactly instead of rounded.
  */
 int anchor_steer_prefers_free(const AnchorFieldCensus *census);
+
+/**
+ * @brief Orders the anchors by conditional pruning, one level per anchor, and reports the depth.
+ *
+ * @param[in,out] offsets       Anchor offsets, reordered in place into evaluation order [BORROWS].
+ * @param[in]     count         How many offsets. At most ANCHOR_STEER_ANCHORS.
+ * @param[in]     corpus        Bytes the search will run over [BORROWS].
+ * @param[in]     corpus_len    How many.
+ * @param[in]     needle        Bytes to find [BORROWS].
+ * @param[in]     needle_len    How many.
+ * @param[in]     sample_stride Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
+ * @return                      Levels actually descended, which equals `count` on any valid call.
+ *
+ * WHY RECURSION BUYS ANYTHING OVER ONE PASS. anchor_steer_probe_order ranks the anchors once, by
+ * the MARGINAL rarity of each symbol in the whole field. That is the right first question and the
+ * wrong second one: once the first probe has rejected almost everything, the alignments still
+ * standing are no longer a sample of the field. They are the subset that agreed with one specific
+ * symbol, and within that subset the remaining anchors have different pruning power than they had
+ * over the field. Ranking the second anchor by its marginal rarity ignores what the first one just
+ * told you.
+ *
+ * This ranks each level against the alignments that actually survived the levels above it, which is
+ * the CONDITIONAL distribution rather than the marginal one. It also measures survivors directly
+ * instead of inferring them from symbol frequency, so correlation between positions is accounted
+ * for rather than assumed away.
+ *
+ * IT CANNOT FAIL TO TERMINATE, AND NOT BECAUSE ANYBODY CHECKED. The halting problem is about
+ * deciding termination for an ARBITRARY program. This recursion is not arbitrary:
+ *
+ *   - exactly one anchor is placed per level, and a placed anchor is never reconsidered
+ *   - the unplaced set therefore shrinks by exactly one each level and never grows
+ *   - the depth is `count`, which is bounded by ANCHOR_STEER_ANCHORS, a compile-time constant
+ *   - no branch anywhere in the descent depends on corpus content for its DEPTH, only for its
+ *     choice at a level
+ *
+ * So the depth is fixed before the program runs and is readable off the declaration. This is
+ * primitive recursion over a finite set with a constant bound, which terminates by construction the
+ * way a `for` loop over a fixed array does. There is no runtime guard, no iteration cap and no
+ * watchdog here, because a bound enforced at compile time does not need one and a runtime check
+ * would imply the bound were in doubt. The return value exists so a caller can ASSERT the depth
+ * rather than trust this paragraph.
+ *
+ * @note THE PLANNER IS ALLOWED TO BE WRONG. Ordering cannot change which alignments survive, since
+ *       an alignment survives only when every anchor agrees and a conjunction is order independent.
+ *       So a planner that samples, guesses badly, or is outright defective costs speed and cannot
+ *       cost correctness. That is what makes `sample_stride` safe: planning on a subset risks a
+ *       worse order and never a wrong count.
+ * @note Does nothing and returns 0 where any pointer is null, where `count` is zero, or where
+ *       `needle_len` is zero. A zero length needle has no symbol to rank.
+ */
+size_t anchor_steer_plan_recursive(size_t *offsets, size_t count, const uint8_t *corpus,
+                                   size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                   uint8_t *scratch, size_t scratch_len, size_t sample_stride);
+
+/**
+ * @brief Spawns coarms at the positions that prune most, one per level, and places them in order.
+ *
+ * @param[out] offsets       Where the chosen offsets are written, in evaluation order [BORROWS].
+ * @param[in]  wanted        How many coarms to spawn. At most ANCHOR_STEER_ANCHORS.
+ * @param[in]  corpus        Bytes the search will run over [BORROWS].
+ * @param[in]  corpus_len    How many.
+ * @param[in]  needle        Bytes to find [BORROWS].
+ * @param[in]  needle_len    How many.
+ * @param[out] scratch       Survivor flags, one byte per alignment [BORROWS].
+ * @param[in]  scratch_len   How many bytes of scratch. Must reach the alignment count.
+ * @param[in]  sample_stride Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
+ * @return                   Coarms actually placed, which equals `wanted` on any valid call.
+ *
+ * SPAWNING RATHER THAN REORDERING. anchor_steer_plan_recursive takes anchors somebody else placed
+ * and decides the order to test them in. This decides WHERE THEY GO. At each level it asks every
+ * position in the needle how many of the currently surviving alignments would still stand if a
+ * coarm were placed there, and puts one at the position that leaves fewest. The arm is spawned at
+ * the place the field says is worth reading, rather than at a place a spread rule chose before the
+ * field was looked at.
+ *
+ * That is the same steering the rest of this file applies, moved from the order to the placement.
+ * The spread rule in anchor_sift.c answers "where, knowing nothing" and this answers "where, given
+ * the corpus and given what the coarms already placed have ruled out".
+ *
+ * TERMINATION IS THE SAME COMPILE TIME FACT. One coarm per level, a placed position never
+ * reconsidered, depth exactly `wanted` and bounded by ANCHOR_STEER_ANCHORS. Nothing in the descent
+ * lets corpus content change the DEPTH, only the choice made at a level. The return value is there
+ * so a caller can assert the count rather than trust the prose.
+ *
+ * @note FAILS CLOSED ON SCRATCH. Returns 0 without writing `offsets` where `scratch_len` does not
+ *       reach the alignment count. The kernel allocates nothing, so the buffer is the caller's and
+ *       a buffer too small is refused rather than worked around. Size it at
+ *       `corpus_len - needle_len + 1`.
+ * @note A planner is free to be wrong here for the same reason it is free to be wrong anywhere else
+ *       in this file: placement and order change which probe rejects first, never which alignments
+ *       survive. The verification is a full compare either way.
+ * @warning Costs `wanted * needle_len * alignments / sample_stride` byte comparisons to plan. On a
+ *          long needle that exceeds the scan it is planning for. `sample_stride` is the control,
+ *          and bench_steer measures where the trade turns over rather than asserting a default.
+ */
+size_t anchor_steer_spawn_coarms(size_t *offsets, size_t wanted, const uint8_t *corpus,
+                                 size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                 uint8_t *scratch, size_t scratch_len, size_t sample_stride);
+
+/**
+ * @brief One probe placed on the needle. An arm is a point, an eye is a line.
+ *
+ * ONE SHAPE SERVES BOTH, WHICH IS THE SAME STATEMENT arm-records.md MAKES ABOUT READINGS. An arm is
+ * a region integral and an eye is a line integral, and the difference between them lives in the
+ * shape of the support, not in the arithmetic applied to it. Here that means an arm is an eye whose
+ * length is one, and the same test walks both.
+ *
+ * @note `step` is unread at `length` one, and is what makes a longer probe a LINE through the
+ *       needle rather than a run of adjacent bytes. A step that shares a period with the needle
+ *       reads the same residue repeatedly and prunes badly, which is a real failure mode and is why
+ *       the sweep measures steps instead of assuming one.
+ * @note Every position the probe touches must land inside the needle. anchor_steer_probe_fits is
+ *       the test and the sweep applies it before a shape is ever scored.
+ */
+typedef struct
+{
+    size_t origin; /**< First position in the needle this probe reads. */
+    size_t step;   /**< Distance between successive positions. Unread where length is one. */
+    size_t length; /**< Positions read. One is an arm, more is an eye. */
+} AnchorProbe;
+
+/**
+ * @brief Whether every position a probe reads lands inside the needle.
+ *
+ * @param[in] probe      Probe to test [BORROWS].
+ * @param[in] needle_len Length it must fit inside.
+ * @return               1 where it fits, 0 otherwise.
+ * @note Computed without forming the last position as a sum, so a step and length that would
+ *       overflow size_t are refused rather than wrapping into a position that looks valid.
+ */
+int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
+
+/**
+ * @brief Spawns probes anywhere on the needle, sweeping shapes, and orders them by pruning.
+ *
+ * @param[out] probes        Where the chosen probes are written, in evaluation order [BORROWS].
+ * @param[in]  wanted        How many to spawn. At most ANCHOR_STEER_ANCHORS.
+ * @param[in]  corpus        Bytes the search will run over [BORROWS].
+ * @param[in]  corpus_len    How many.
+ * @param[in]  needle        Bytes to find [BORROWS].
+ * @param[in]  needle_len    How many.
+ * @param[in]  max_length    Longest eye to consider. One restricts the sweep to arms.
+ * @param[out] scratch       Survivor flags, one byte per alignment [BORROWS].
+ * @param[in]  scratch_len   How many bytes of scratch. Must reach the alignment count.
+ * @param[in]  sample_stride Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
+ * @return                   Probes actually placed.
+ *
+ * THE SWEEP TOUCHES EVERYTHING IT IS ALLOWED TO REACH. At each level it considers every origin in
+ * the needle, every step that keeps the probe inside it, and every length up to `max_length`, scores
+ * each shape by how many currently truthy alignments would still stand, and spawns the one that
+ * leaves fewest. Nothing about the placement is inherited from a spread rule and nothing about the
+ * shape is assumed; a point probe wins where a point probe is best, and a line wins where a line is.
+ *
+ * AN EYE IS NOT FREE AND THE SWEEP KNOWS IT. A probe of length L reads up to L bytes per alignment
+ * where an arm reads one, so an eye has to prune more than L times as hard to be worth spawning.
+ * The score here is survivors, which does not carry that cost, so the caller comparing an eye
+ * against an arm has to compare READS and not survivors. bench_steer does exactly that and reports
+ * both, which is why the guide recommends measuring rather than reaching for the longest eye.
+ *
+ * TERMINATION, unchanged and for the same reason. One probe per level, `wanted` levels, bounded by
+ * ANCHOR_STEER_ANCHORS at compile time. The sweep inside a level is three nested bounded loops over
+ * needle_len, needle_len and max_length. Nothing in it is data dependent in its EXTENT.
+ *
+ * @note Every shape the sweep can spawn leaves the count unchanged, so the whole sweep moves inside
+ *       the null group and can be as wrong as it likes without costing an answer.
+ * @note Fails closed on scratch exactly as anchor_steer_spawn_coarms does.
+ * @warning The sweep is `wanted * needle_len^2 * max_length * alignments / sample_stride` byte
+ *          comparisons at worst. That is far more than the scan it plans on any but a tiny needle.
+ *          It is a planner for a search that will be run many times against one needle, not for a
+ *          single shot, and `sample_stride` is what makes it affordable.
+ */
+size_t anchor_steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8_t *corpus,
+                                 size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                 size_t max_length, uint8_t *scratch, size_t scratch_len,
+                                 size_t sample_stride);
 
 /** @brief Corpus bytes read by an anchor probe since the last reset. */
 extern uint64_t anchor_steer_probes;

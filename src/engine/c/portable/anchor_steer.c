@@ -192,15 +192,397 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
     return (anchor_exact_compare(&left, &right) < 0) ? 1 : 0;
 }
 
+/* ------------------------------------------------------------------------------------------------
+ * Truthy and falsy steering. The signal is the survivor vector, not the symbol histogram.
+ *
+ * EACH PERMUTATION OF THE ANCHORS IS A NULL, AND EACH NULL IS A STEER. An alignment survives only
+ * when every anchor agrees, and a conjunction does not depend on the order of its terms, so every
+ * ordering of a given anchor set returns the same count. The orderings therefore form a group of
+ * moves that CANNOT change the answer, which is what this tree calls a null. Steering is choosing
+ * which element of that group to apply.
+ *
+ * That is the whole safety argument for everything below, and it is structural rather than
+ * defensive. A planner that samples badly, ranks wrongly, or is outright broken still lands on some
+ * element of the null group, and every element yields the same count. The planner moves inside the
+ * null and the null has one value. Correctness is therefore not something the planner can spend,
+ * and speed is the only currency it holds.
+ * ---------------------------------------------------------------------------------------------- */
+
+/**
+ * @brief How many currently truthy alignments stay truthy when `offset` is tested.
+ *
+ * @param[in] alive  One flag per alignment, non-zero for truthy [BORROWS].
+ * @param[in] stride Sample every Nth alignment. The ranking is a comparison between candidates, so
+ *                   a consistent sample ranks them consistently without reading them all.
+ * @return           Count of survivors, in the sampled population.
+ */
+static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
+                                 size_t needle_len, const uint8_t *alive, size_t offset,
+                                 size_t stride)
+{
+    const size_t alignments = (corpus_len - needle_len) + 1u;
+    const uint8_t wanted = needle[offset];
+    size_t standing = 0u;
+
+    for (size_t at = 0u; at < alignments; at += stride)
+    {
+        if (alive[at] == 0u)
+        {
+            continue;
+        }
+        if (corpus[at + offset] == wanted)
+        {
+            standing += 1u;
+        }
+    }
+    return standing;
+}
+
+/**
+ * @brief How many alignments are truthy right now, in the sampled population.
+ *
+ * @note Sampled at the same stride the candidate scores use, so the comparison between "survivors
+ *       after this probe" and "survivors before it" is between two counts of the same population.
+ *       Mixing a full count with a sampled one would make every probe look like it pruned.
+ */
+static size_t steer_truthy_total(const uint8_t *alive, size_t alignments, size_t stride)
+{
+    size_t standing = 0u;
+
+    for (size_t at = 0u; at < alignments; at += stride)
+    {
+        if (alive[at] != 0u)
+        {
+            standing += 1u;
+        }
+    }
+    return standing;
+}
+
+/**
+ * @brief Turns falsy every alignment that disagrees at `offset`, over the whole population.
+ *
+ * @note Applied at stride one even where the ranking was sampled. The ranking is allowed to be
+ *       approximate because it only picks between nulls; the survivor set is not, because the next
+ *       level ranks against it and an approximate survivor set would compound.
+ */
+static void steer_make_falsy(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
+                             size_t needle_len, uint8_t *alive, size_t offset)
+{
+    const size_t alignments = (corpus_len - needle_len) + 1u;
+    const uint8_t wanted = needle[offset];
+
+    for (size_t at = 0u; at < alignments; at += 1u)
+    {
+        if (alive[at] == 0u)
+        {
+            continue;
+        }
+        if (corpus[at + offset] != wanted)
+        {
+            alive[at] = 0u;
+        }
+    }
+}
+
+/** @brief Shared entry the two planners differ only in their candidate set. */
+static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus,
+                            size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                            uint8_t *scratch, size_t scratch_len, size_t sample_stride,
+                            int spawning)
+{
+    if ((offsets == NULL) || (corpus == NULL) || (needle == NULL) || (scratch == NULL)
+     || (count == 0u) || (needle_len == 0u) || (needle_len > corpus_len))
+    {
+        return 0u;
+    }
+    if (count > ANCHOR_STEER_ANCHORS)
+    {
+        return 0u;
+    }
+
+    const size_t alignments = (corpus_len - needle_len) + 1u;
+    if (scratch_len < alignments)
+    {
+        /* FAILS CLOSED. The kernel allocates nothing, so a buffer that does not reach the alignment
+         * count is refused rather than worked around by planning on part of the field. */
+        return 0u;
+    }
+
+    const size_t stride = (sample_stride == 0u) ? 1u : sample_stride;
+
+    for (size_t at = 0u; at < alignments; at += 1u)
+    {
+        scratch[at] = 1u;
+    }
+
+    size_t chosen[ANCHOR_STEER_ANCHORS];
+    size_t placed = 0u;
+
+    /* THE BOUNDED DESCENT. One coarm per level, the level count fixed at `count`, which the guard
+     * above holds at or under ANCHOR_STEER_ANCHORS. No branch in here lets the corpus change how
+     * many levels run, only which offset a level picks, so the depth is decided before the program
+     * starts and this loop terminates for the same reason a for loop over a fixed array does. */
+    while (placed < count)
+    {
+        size_t best_offset = 0u;
+        size_t best_standing = (size_t)-1;
+        int found = 0;
+
+        const size_t candidates = spawning ? needle_len : count;
+        for (size_t which = 0u; which < candidates; which += 1u)
+        {
+            const size_t offset = spawning ? which : offsets[which];
+            if (offset >= needle_len)
+            {
+                continue;
+            }
+
+            int already = 0;
+            for (size_t seen = 0u; seen < placed; seen += 1u)
+            {
+                if (chosen[seen] == offset)
+                {
+                    already = 1;
+                    break;
+                }
+            }
+            if (already != 0)
+            {
+                continue;
+            }
+
+            const size_t standing = steer_truthy_after(corpus, corpus_len, needle, needle_len,
+                                                       scratch, offset, stride);
+            /* Strictly fewer survivors wins, so a tie keeps the earlier candidate and the descent
+             * is deterministic on identical input. */
+            if ((found == 0) || (standing < best_standing))
+            {
+                best_standing = standing;
+                best_offset = offset;
+                found = 1;
+            }
+        }
+
+        if (found == 0)
+        {
+            break;
+        }
+
+        /* DESTROY WHAT DOES NOT PRUNE. A probe that leaves the truthy population exactly as it
+         * found it rejects nothing an earlier probe had not already rejected, so it would read a
+         * byte per alignment and buy none. The descent stops rather than placing it, and every
+         * level below it is destroyed with it. `placed` is returned, so the caller learns how many
+         * probes survived rather than being handed dead ones to evaluate.
+         *
+         * This is the general form of what anchor_sift_anchors_for does in one special case. That
+         * function returns a single anchor on a periodic corpus, because at a period every anchor
+         * tests the same congruence and the ones after the first are pure cost. Here the judgment
+         * is MEASURED per level against the field rather than inferred from a period, so it also
+         * catches fields whose redundancy no period search would name. */
+        if (best_standing >= steer_truthy_total(scratch, alignments, stride))
+        {
+            break;
+        }
+
+        chosen[placed] = best_offset;
+        placed += 1u;
+        steer_make_falsy(corpus, corpus_len, needle, needle_len, scratch, best_offset);
+    }
+
+    for (size_t slot = 0u; slot < placed; slot += 1u)
+    {
+        offsets[slot] = chosen[slot];
+    }
+    return placed;
+}
+
+size_t anchor_steer_plan_recursive(size_t *offsets, size_t count, const uint8_t *corpus,
+                                   size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                   uint8_t *scratch, size_t scratch_len, size_t sample_stride)
+{
+    return steer_descend(offsets, count, corpus, corpus_len, needle, needle_len, scratch,
+                         scratch_len, sample_stride, 0);
+}
+
+size_t anchor_steer_spawn_coarms(size_t *offsets, size_t wanted, const uint8_t *corpus,
+                                 size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                 uint8_t *scratch, size_t scratch_len, size_t sample_stride)
+{
+    return steer_descend(offsets, wanted, corpus, corpus_len, needle, needle_len, scratch,
+                         scratch_len, sample_stride, 1);
+}
+
+int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len)
+{
+    if ((probe == NULL) || (probe->length == 0u) || (needle_len == 0u))
+    {
+        return 0;
+    }
+    if (probe->origin >= needle_len)
+    {
+        return 0;
+    }
+    if (probe->length == 1u)
+    {
+        return 1;
+    }
+    if (probe->step == 0u)
+    {
+        /* A line of length greater than one with no step reads one position repeatedly. That is an
+         * arm wearing an eye's shape and it is refused rather than silently collapsed. */
+        return 0;
+    }
+
+    /* The last position is origin + step*(length-1). Formed by division against the room actually
+     * left, so a step and length whose product would wrap size_t are refused instead of wrapping
+     * into a position that passes a bounds test. */
+    const size_t reach = needle_len - 1u - probe->origin;
+    return ((probe->length - 1u) <= (reach / probe->step)) ? 1 : 0;
+}
+
+/** @brief Whether one alignment agrees with the needle at every position a probe reads. */
+static int steer_probe_agrees(const uint8_t *corpus, const uint8_t *needle,
+                              const AnchorProbe *probe, size_t at)
+{
+    for (size_t step = 0u; step < probe->length; step += 1u)
+    {
+        const size_t offset = probe->origin + (step * probe->step);
+        if (corpus[at + offset] != needle[offset])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+/** @brief Truthy alignments remaining if `probe` were placed, in the sampled population. */
+static size_t steer_truthy_after_probe(const uint8_t *corpus, size_t corpus_len,
+                                       const uint8_t *needle, size_t needle_len,
+                                       const uint8_t *alive, const AnchorProbe *probe,
+                                       size_t stride)
+{
+    const size_t alignments = (corpus_len - needle_len) + 1u;
+    size_t standing = 0u;
+
+    for (size_t at = 0u; at < alignments; at += stride)
+    {
+        if (alive[at] == 0u)
+        {
+            continue;
+        }
+        if (steer_probe_agrees(corpus, needle, probe, at) != 0)
+        {
+            standing += 1u;
+        }
+    }
+    return standing;
+}
+
+/** @brief Turns falsy every alignment a probe rejects, over the whole population. */
+static void steer_make_falsy_probe(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
+                                   size_t needle_len, uint8_t *alive, const AnchorProbe *probe)
+{
+    const size_t alignments = (corpus_len - needle_len) + 1u;
+
+    for (size_t at = 0u; at < alignments; at += 1u)
+    {
+        if (alive[at] == 0u)
+        {
+            continue;
+        }
+        if (steer_probe_agrees(corpus, needle, probe, at) == 0)
+        {
+            alive[at] = 0u;
+        }
+    }
+}
+
+size_t anchor_steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8_t *corpus,
+                                 size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                 size_t max_length, uint8_t *scratch, size_t scratch_len,
+                                 size_t sample_stride)
+{
+    if ((probes == NULL) || (corpus == NULL) || (needle == NULL) || (scratch == NULL)
+     || (wanted == 0u) || (wanted > ANCHOR_STEER_ANCHORS) || (needle_len == 0u)
+     || (needle_len > corpus_len) || (max_length == 0u))
+    {
+        return 0u;
+    }
+
+    const size_t alignments = (corpus_len - needle_len) + 1u;
+    if (scratch_len < alignments)
+    {
+        return 0u;
+    }
+
+    const size_t stride = (sample_stride == 0u) ? 1u : sample_stride;
+    for (size_t at = 0u; at < alignments; at += 1u)
+    {
+        scratch[at] = 1u;
+    }
+
+    size_t placed = 0u;
+
+    /* THREE BOUNDED LOOPS INSIDE A BOUNDED DESCENT. Origins run to needle_len, steps run to
+     * needle_len, lengths run to max_length, and the descent runs to `wanted`. Every bound is an
+     * argument or a compile time constant and none of them is read from the corpus, so the extent
+     * of this search is fixed before the first byte is examined. */
+    while (placed < wanted)
+    {
+        AnchorProbe best = { 0u, 1u, 1u };
+        size_t best_standing = 0u;
+        int found = 0;
+
+        for (size_t origin = 0u; origin < needle_len; origin += 1u)
+        {
+            for (size_t length = 1u; length <= max_length; length += 1u)
+            {
+                const size_t step_limit = (length == 1u) ? 2u : (needle_len + 1u);
+                for (size_t step = 1u; step < step_limit; step += 1u)
+                {
+                    const AnchorProbe candidate = { origin, step, length };
+                    if (anchor_steer_probe_fits(&candidate, needle_len) == 0)
+                    {
+                        continue;
+                    }
+
+                    const size_t standing = steer_truthy_after_probe(corpus, corpus_len, needle,
+                                                                     needle_len, scratch,
+                                                                     &candidate, stride);
+                    if ((found == 0) || (standing < best_standing))
+                    {
+                        best_standing = standing;
+                        best = candidate;
+                        found = 1;
+                    }
+                }
+            }
+        }
+
+        if (found == 0)
+        {
+            break;
+        }
+        if (best_standing >= steer_truthy_total(scratch, alignments, stride))
+        {
+            /* Destroyed for the same reason a coarm is: it prunes nothing and would only read. */
+            break;
+        }
+
+        probes[placed] = best;
+        placed += 1u;
+        steer_make_falsy_probe(corpus, corpus_len, needle, needle_len, scratch, &best);
+    }
+    return placed;
+}
+
 uint64_t anchor_steer_probes = 0u;
 
 void anchor_steer_probes_reset(void)
 {
     anchor_steer_probes = 0u;
 }
-
-/** @brief Anchors the steered arm places, matching ANCHOR_SIFT_ANCHORS in anchor_sift.h. */
-#define ANCHOR_STEER_ANCHORS 4u
 
 /**
  * @brief Places anchor offsets by spatial spread, one drawn inside each evenly sized cell.

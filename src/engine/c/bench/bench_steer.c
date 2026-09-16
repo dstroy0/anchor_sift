@@ -382,6 +382,240 @@ static int check_exact_matches_double(void)
     return failed;
 }
 
+/**
+ * @brief Prints one graded route, with reads normalized against the alignment count.
+ *
+ * @note The ratio is thousandths by exact integer division, never a double, and the raw reads and
+ *       the alignment count are both on the line so the division can be checked.
+ */
+static void print_route_row(const char *label, size_t probes, size_t count, uint64_t reads,
+                            size_t alignments, int ok)
+{
+    const uint64_t thousandths = (alignments > 0u) ? ((reads * 1000u) / (uint64_t)alignments) : 0u;
+
+    printf("  %26s %8zu %10zu %14llu %8llu.%03llu %10s\n", label, probes, count,
+           (unsigned long long)reads, (unsigned long long)(thousandths / 1000u),
+           (unsigned long long)(thousandths % 1000u), ok ? "ok" : "FAILS");
+}
+
+/** @brief Counts occurrences by evaluating a probe list in order, verifying every survivor. */
+static size_t count_with_probes(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
+                                size_t needle_len, const AnchorProbe *probes, size_t probe_count,
+                                uint64_t *reads)
+{
+    size_t found = 0u;
+    uint64_t taken = 0u;
+
+    for (size_t at = 0u; (at + needle_len) <= corpus_len; at += 1u)
+    {
+        size_t slot = 0u;
+        while (slot < probe_count)
+        {
+            int agrees = 1;
+            for (size_t step = 0u; step < probes[slot].length; step += 1u)
+            {
+                const size_t offset = probes[slot].origin + (step * probes[slot].step);
+                taken += 1u;
+                if (corpus[at + offset] != needle[offset])
+                {
+                    agrees = 0;
+                    break;
+                }
+            }
+            if (agrees == 0)
+            {
+                break;
+            }
+            slot += 1u;
+        }
+        if (slot == probe_count)
+        {
+            if (memcmp(corpus + at, needle, needle_len) == 0)
+            {
+                found += 1u;
+            }
+        }
+    }
+    *reads = taken;
+    return found;
+}
+
+/** @brief Reads a file whole. Returns 0 and leaves `length` at zero where it cannot. */
+static uint8_t *read_whole_file(const char *path, size_t *length)
+{
+    *length = 0u;
+    FILE *handle = fopen(path, "rb");
+    if (handle == NULL)
+    {
+        return NULL;
+    }
+    if (fseek(handle, 0, SEEK_END) != 0)
+    {
+        fclose(handle);
+        return NULL;
+    }
+    const long span = ftell(handle);
+    if (span <= 0)
+    {
+        fclose(handle);
+        return NULL;
+    }
+    rewind(handle);
+
+    uint8_t *bytes = (uint8_t *)malloc((size_t)span);
+    if (bytes == NULL)
+    {
+        fclose(handle);
+        return NULL;
+    }
+    const size_t took = fread(bytes, 1u, (size_t)span, handle);
+    fclose(handle);
+    if (took == 0u)
+    {
+        free(bytes);
+        return NULL;
+    }
+    *length = took;
+    return bytes;
+}
+
+/**
+ * @brief Grades recursion, coarms, eyes and destruction on one field.
+ *
+ * @param[in] label      What to print this field as.
+ * @param[in] corpus     Bytes to search [BORROWS].
+ * @param[in] corpus_len How many.
+ * @return               Count of failures.
+ *
+ * EVERY ROUTE MUST RETURN THE REFERENCE COUNT. Placement and order and shape are all nulls: an
+ * alignment survives only when every probe agrees, a conjunction is order independent, and the
+ * survivor is verified by a full compare whatever probed it. So the count is the invariant and the
+ * reads are the measurement. Anything that moves the count is a defect, and it is graded at exactly
+ * zero difference rather than against a tolerance.
+ */
+static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_len)
+{
+    int failed = 0;
+    const size_t needle_len = 24u;
+    if (corpus_len < (needle_len * 4u))
+    {
+        printf("  %s: too short to grade\n", label);
+        return 1;
+    }
+
+    uint8_t needle[24];
+    memcpy(needle, corpus + (corpus_len / 3u), sizeof(needle));
+
+    const size_t alignments = (corpus_len - needle_len) + 1u;
+    uint8_t *scratch = (uint8_t *)malloc(alignments);
+    if (scratch == NULL)
+    {
+        printf("  %s: allocation failed\n", label);
+        return 1;
+    }
+
+    const size_t want = anchor_sift_naive(corpus, corpus_len, needle, needle_len);
+
+    /* READS PER ALIGNMENT IS THE MEASURE, AND ITS FLOOR IS EXACTLY ONE. Every alignment has to be
+     * looked at at least once to be rejected, so no probe arrangement can read fewer than one byte
+     * per alignment. Printing the raw reads alone hides how close a route is to that floor; the
+     * normalized figure says whether there is anything left to win. Carried in thousandths by exact
+     * integer division, with the numerator and denominator both printed beside it. */
+    printf("\n  FIELD %s, %zu bytes, %zu alignments, reference count %zu\n\n", label, corpus_len,
+           alignments, want);
+    printf("  %26s %8s %10s %14s %12s %10s\n", "route", "probes", "count", "reads", "per align",
+           "verdict");
+
+    /* Spatial placement, unsteered, which is what the engine did before any of this. */
+    AnchorProbe spatial[ANCHOR_STEER_ANCHORS];
+    const size_t cell = needle_len / ANCHOR_STEER_ANCHORS;
+    for (size_t slot = 0u; slot < ANCHOR_STEER_ANCHORS; slot += 1u)
+    {
+        spatial[slot].origin = (slot * cell) + ((cell > 1u) ? ((slot * 7u) % cell) : 0u);
+        spatial[slot].step = 1u;
+        spatial[slot].length = 1u;
+    }
+    uint64_t spatial_reads = 0u;
+    const size_t spatial_count = count_with_probes(corpus, corpus_len, needle, needle_len, spatial,
+                                                   ANCHOR_STEER_ANCHORS, &spatial_reads);
+    print_route_row("spatial, unsteered", ANCHOR_STEER_ANCHORS, spatial_count, spatial_reads,
+                    alignments, spatial_count == want);
+    failed += (spatial_count == want) ? 0 : 1;
+
+    /* Recursive reorder of those same placements. */
+    size_t reordered[ANCHOR_STEER_ANCHORS];
+    for (size_t slot = 0u; slot < ANCHOR_STEER_ANCHORS; slot += 1u)
+    {
+        reordered[slot] = spatial[slot].origin;
+    }
+    const size_t depth = anchor_steer_plan_recursive(reordered, ANCHOR_STEER_ANCHORS, corpus,
+                                                     corpus_len, needle, needle_len, scratch,
+                                                     alignments, 1u);
+    AnchorProbe recursive[ANCHOR_STEER_ANCHORS];
+    for (size_t slot = 0u; slot < depth; slot += 1u)
+    {
+        recursive[slot].origin = reordered[slot];
+        recursive[slot].step = 1u;
+        recursive[slot].length = 1u;
+    }
+    uint64_t recursive_reads = 0u;
+    const size_t recursive_count = count_with_probes(corpus, corpus_len, needle, needle_len,
+                                                     recursive, depth, &recursive_reads);
+    print_route_row("recursive reorder", depth, recursive_count, recursive_reads, alignments,
+                    recursive_count == want);
+    failed += (recursive_count == want) ? 0 : 1;
+
+    /* Coarms spawned wherever the field says, rather than where a spread rule put them. */
+    size_t spawned[ANCHOR_STEER_ANCHORS];
+    const size_t coarms = anchor_steer_spawn_coarms(spawned, ANCHOR_STEER_ANCHORS, corpus,
+                                                    corpus_len, needle, needle_len, scratch,
+                                                    alignments, 1u);
+    AnchorProbe coarm_probes[ANCHOR_STEER_ANCHORS];
+    for (size_t slot = 0u; slot < coarms; slot += 1u)
+    {
+        coarm_probes[slot].origin = spawned[slot];
+        coarm_probes[slot].step = 1u;
+        coarm_probes[slot].length = 1u;
+    }
+    uint64_t coarm_reads = 0u;
+    const size_t coarm_count = count_with_probes(corpus, corpus_len, needle, needle_len,
+                                                 coarm_probes, coarms, &coarm_reads);
+    print_route_row("coarms spawned", coarms, coarm_count, coarm_reads, alignments,
+                    coarm_count == want);
+    failed += (coarm_count == want) ? 0 : 1;
+
+    /* Eyes allowed. A line probe reads more per alignment and has to prune harder to earn it. */
+    AnchorProbe swept[ANCHOR_STEER_ANCHORS];
+    const size_t eyes = anchor_steer_sweep_probes(swept, ANCHOR_STEER_ANCHORS, corpus, corpus_len,
+                                                  needle, needle_len, 3u, scratch, alignments, 1u);
+    uint64_t eye_reads = 0u;
+    const size_t eye_count = count_with_probes(corpus, corpus_len, needle, needle_len, swept, eyes,
+                                               &eye_reads);
+    print_route_row("eyes and arms swept", eyes, eye_count, eye_reads, alignments,
+                    eye_count == want);
+    failed += (eye_count == want) ? 0 : 1;
+
+    printf("    shapes spawned:");
+    for (size_t slot = 0u; slot < eyes; slot += 1u)
+    {
+        printf(" %s(origin %zu, step %zu, length %zu)",
+               (swept[slot].length == 1u) ? "arm" : "eye", swept[slot].origin, swept[slot].step,
+               swept[slot].length);
+    }
+    printf("\n");
+
+    /* THE DEPTH IS A COMPILE TIME FACT AND THIS ASSERTS IT RATHER THAN TRUSTING THE PROSE. */
+    if ((depth > ANCHOR_STEER_ANCHORS) || (coarms > ANCHOR_STEER_ANCHORS)
+     || (eyes > ANCHOR_STEER_ANCHORS))
+    {
+        printf("    a descent exceeded its compile time bound: FAILS\n");
+        failed += 1;
+    }
+
+    free(scratch);
+    return failed;
+}
+
 int main(void)
 {
     uint8_t *corpus = (uint8_t *)malloc(STEER_CORPUS);
@@ -408,6 +642,31 @@ int main(void)
     failed += check_ordering_pays(corpus, STEER_CORPUS, needle, sizeof(needle));
     failed += check_dispatch_exact();
     failed += check_exact_matches_double();
+
+    printf("\n  ARMS, EYES AND COARMS, spawned and swept against a reference count.\n");
+    failed += grade_field("synthetic skewed", corpus, STEER_CORPUS);
+
+    /* A REAL NATURAL OBJECT AND NOT A GENERATOR. Everything above runs on bytes this file wrote,
+     * which share whatever structure the generator happens to have. English prose is a field
+     * nobody here designed: its letter frequencies span three decades, it repeats at no fixed
+     * period, and its correlations between positions are real rather than planted. The license
+     * text is tracked in this repository, so the grader needs no network and no dataset fetch and
+     * runs from a fresh clone. */
+    size_t natural_len = 0u;
+    uint8_t *natural = read_whole_file("../../LICENSES/AGPL-3.0-or-later.txt", &natural_len);
+    if (natural == NULL)
+    {
+        natural = read_whole_file("LICENSES/AGPL-3.0-or-later.txt", &natural_len);
+    }
+    if (natural != NULL)
+    {
+        failed += grade_field("natural, AGPL English text", natural, natural_len);
+        free(natural);
+    }
+    else
+    {
+        printf("\n  natural field not found beside the build, skipped\n");
+    }
 
     printf("\n  %d check(s) failed\n", failed);
     free(corpus);
