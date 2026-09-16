@@ -188,9 +188,20 @@ target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 # It is a negative control as much as a test: on a kernel whose choose_offsets clamps a zero length
 # needle to needle_len - 1u, that wraps to SIZE_MAX and the run reads outside both pointers rather
 # than printing a row.
-add_executable(bench_arm_agreement bench/bench_arm_agreement.c)
-target_link_libraries(bench_arm_agreement PRIVATE anchor_sift_kernel)
-target_compile_options(bench_arm_agreement PRIVATE ${SIFT_WARNINGS})
+#
+# It lives under test/ and not under bench/, because bench/ answers how fast and test/ answers
+# whether it is right, and those are two questions. It was written into bench/ and moved here on
+# Douglas's ruling. The name moved with it: a file called bench_ anything, sitting in test/, keeps
+# exactly the confusion the split was made to remove.
+#
+# The source sits outside this directory because the test tree is at the repository root, so the
+# path is resolved from the root rather than written as a chain of parent directories. Counting
+# directories to a destination is what broke every path in this tree the last time anything moved.
+get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
+
+add_executable(test_arm_agreement "${ANCHOR_SIFT_ROOT}/test/engine/test_arm_agreement.c")
+target_link_libraries(test_arm_agreement PRIVATE anchor_sift_kernel)
+target_compile_options(test_arm_agreement PRIVATE ${SIFT_WARNINGS})
 
 # Soundness where the claim actually lives. Its core takes a base list, a displacement list and a
 # callback answering whether two positions carry the same symbol, so it has no dimension parameter
