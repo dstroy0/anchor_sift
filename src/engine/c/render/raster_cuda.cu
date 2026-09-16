@@ -5,7 +5,7 @@
  * negotiated commercial licensing contract or an educator's license issued to you personally.
  */
 /**
- * @file anchor_raster_cuda.cu
+ * @file raster_cuda.cu
  * @brief The device arm of the direct renderer. Same configuration, same bytes as the host arm.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-16
@@ -22,10 +22,10 @@
  * by arrival would have made the device answer depend on scheduling and could not have been graded
  * against the host at all.
  *
- * @note The transform and the channel are reimplemented here rather than linked, because the host
- *       arm is built by MinGW through CMake and this is built by nvcc driving MSVC. The two cannot
- *       link, which is the same split maint/engine/build_gpu_arm.sh already documents for the exact
- *       arm. bench_raster grading the two rasters byte for byte is what keeps the copies honest.
+ * @note The transform and the channel are reimplemented here, because the host arm is built by
+ *       MinGW through CMake and this is built by nvcc driving MSVC. The two cannot link, the same
+ *       split maint/engine/build_gpu_arm.sh already documents for the exact arm. Where a device is
+ *       present, bench_raster grades the two rasters byte for byte, and a divergence fails a row.
  * @warning A copy is a defect waiting to happen, and this one is only safe because a grader compares
  *          the outputs on every configuration. Delete that grader and this file becomes a second
  *          renderer nobody checks.

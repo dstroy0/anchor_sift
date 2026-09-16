@@ -12,18 +12,19 @@
  *
  * THREE THINGS IN ONE RUN.
  *
- *   EVERY CONFIGURATION IS RENDERED. Four layouts by four channels, every one written out as a PGM
+ *   EVERY CONFIGURATION IS RENDERED. Four layouts by five channels, every one written out as a PGM
  *   and checked for the properties its transform promises. A renderer with options nobody exercises
  *   has options nobody has tested.
  *   HOST AND DEVICE AGREE BYTE FOR BYTE. The raster is integer valued, so agreement is exact and a
- *   single differing pixel is a defect. Where no device is present the run says so and grades the
- *   host alone, which is a skip and never a pass.
- *   FRAME RATE IS MEASURED. The renderer costs what the search costs, so a steered probe set
- *   renders faster than an unsteered one. Both are timed against the same object.
+ *   single differing pixel is a defect. Where no device is present the run reports the device as
+ *   absent, labels every row host only, and grades the host alone. Those rows pass, and the exit
+ *   status shows device agreement only when the device was reported present.
+ *   FRAME RATE IS MEASURED. The renderer costs what the search costs. A steered probe set searches
+ *   faster and renders faster, and both are timed against the same object.
  *
- * @note Every transform is a permutation of the linear cell index, so a layout cannot drop or
+ * @note Every transform is a permutation of the linear cell index. A layout cannot drop or
  *       duplicate an alignment. The grader checks that by counting filled cells, which must match
- *       across all four layouts at a fixed channel.
+ *       the first configuration's count in every configuration of the sweep.
  */
 
 #include "anchor_raster.h"
@@ -355,7 +356,7 @@ int main(void)
 
                 // The device volume against the host, voxel for voxel. The raster is integer
                 // valued, so agreement is exact and a single differing voxel is a defect. Where no
-                // device is present this is a skip and never a pass.
+                // device is present the row reads host only and passes on its collision count alone.
                 const char *agreement = "host only";
                 int device_failed = 0;
                 if (have_device_volume != 0)

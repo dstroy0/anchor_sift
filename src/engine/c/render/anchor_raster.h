@@ -98,7 +98,7 @@ typedef enum
 /**
  * @brief How pixels resolve when several alignments map to one cell.
  *
- * @warning Both rules here are associative and commutative, which is what lets the device reduce in
+ * @warning Both rules here are associative and commutative. That lets the device reduce in
  *          scheduler order and still agree with the host. A rule selecting by arrival, such as
  *          first or last writer, would make the device answer depend on scheduling and must not be
  *          added to this enum.
@@ -212,8 +212,8 @@ typedef enum
 /**
  * @brief The whole input configuration for a volume render.
  *
- * @note Carries the raster's channel, reduce and gain by reference to the same enums rather than by
- *       copy. A channel means one thing in this tree and a second spelling of it is a future
+ * @note Carries the raster's channel, reduce and gain by reference to the same enums, with no copy.
+ *       A channel means one thing in this tree, and a second definition of it would be a future
  *       disagreement.
  * @warning `depth` of zero renders nothing and is refused. A flat render is the raster's job and
  *          this entry does not quietly become one.

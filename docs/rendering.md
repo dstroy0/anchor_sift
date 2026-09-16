@@ -7,12 +7,12 @@ A search produces one outcome per alignment: some probe rejected it, or every pr
 
 ## The entry to call, and why it prefers the device
 
-There are two arms behind each renderer, a host arm in C and a device arm in CUDA, and they produce the same bytes. Choosing between them is a performance decision and never a correctness one, so a caller does not choose. Call the dispatch and it takes the device where one is present and falls back to the host where none is:
+There are two arms behind each renderer, a host arm in C and a device arm in CUDA, and they produce the same bytes. The choice between them affects speed alone, and a caller does not make it. Call the dispatch, and it takes the device where one is present and falls back to the host where none is:
 
 * `anchor_raster_render` for a sheet (`src/engine/c/render/anchor_raster.c:296`).
 * `anchor_volume_render` for a volume (`src/engine/c/render/anchor_raster.c:539`).
 
-Both ask `anchor_raster_device_available` or `anchor_volume_device_available` first, call the device arm, and fall back to the host arm if the device refuses, so a render happens whenever either arm can do it. The single-arm entries stay public because a grader has to call one specific arm and compare it against the other; a caller that does not care should use the dispatch.
+Both ask `anchor_raster_device_available` or `anchor_volume_device_available` first, call the device arm, and fall back to the host arm if the device refuses. A render then happens whenever either arm can do it. The single-arm entries stay public because a grader has to call one specific arm and compare it against the other. A caller that does not care should use the dispatch.
 
 ## Building
 
@@ -32,7 +32,7 @@ Either one detects the toolchain, compiles the device arm where it can, builds t
 
 Three things have to line up for the device arm, and a bare `cmake` configure does none of them. `nvcc` drives a host compiler, which on Windows is MSVC reaching PATH through vcvars, so the PowerShell script imports that environment and the shell script detects its absence and skips CUDA instead of failing. The Visual Studio generator compiles `.cu` only where the toolkit installed its MSBuild integration, which a normal install often skips and which makes CMake stop with "No CUDA toolset found", so Ninja is used where it is available. And `nvcc` is frequently not on PATH even where the toolkit is installed, so both scripts search the standard locations.
 
-Where any of that is missing the build still succeeds with the host arms and reports what it skipped. The stub arms in `anchor_raster.c` are linked instead, the `device_available` calls return 0, and the dispatch entries fall back. A skipped device is reported and never silent.
+Where any of that is missing the build still succeeds with the host arms and reports what it skipped. The stub arms in `anchor_raster.c` are linked instead, the `device_available` calls return 0, and the dispatch entries fall back. A skipped device is always reported.
 
 `maint/engine/build_gpu_raster.ps1` remains for building the device arm alone against a fixed architecture. It is not needed for an ordinary build.
 
@@ -93,23 +93,23 @@ Every layout is a permutation of the linear cell index computed in integer arith
 | `ANCHOR_CHANNEL_BYTE` | the corpus byte | the object raw, with no search applied |
 | `ANCHOR_CHANNEL_PROVEN` | two valued | bright where the cell provably holds no occurrence |
 
-The proof channel differs in kind from the other four. A probe set is a sound filter, so it never loses a true occurrence and it does admit alignments that are not one. The negative direction is therefore certain and the positive is not, and a cell where no alignment survived holds no occurrence as a proof instead of as a summary.
+The proof channel differs in kind from the other four. A probe set is a sound filter, so it never loses a true occurrence and it does admit alignments that are not one. The negative direction is therefore certain and the positive is not, and a cell where no alignment survived is proven to hold no occurrence.
 
-It reduces as a conjunction, a cell staying proven only while every alignment under it was refuted, and conjunction is associative and commutative, so it rides `ANCHOR_REDUCE_MIN` with no new reduction rule. It is monotone under refinement, since adding a probe only removes survivors, so a render never retracts a claim. And it inherits the planner's anytime property: stop the descent anywhere, render, and every proven pixel is still proven. A death level from a half-built plan describes the plan. A proof from a half-built plan describes the object.
+It reduces as a conjunction, a cell staying proven only while every alignment under it was refuted. Conjunction is associative and commutative, so the channel rides `ANCHOR_REDUCE_MIN` with no new reduction rule. It is monotone under refinement, since adding a probe only removes survivors, and a render never retracts a claim. It also inherits the planner's anytime property. Stop the descent anywhere and render, and every proven pixel is still proven. A death level from a half-built plan describes the plan. A proof from a half-built plan describes the object.
 
 Brightness is not presence anywhere in this renderer and least of all here. `ANCHOR_RASTER_PROVEN` is brighter than `ANCHOR_RASTER_UNDETERMINED` and means the opposite of an occurrence. `ANCHOR_RASTER_MATCH` is the only value entitled to assert one.
 
-Every channel is an integer read off engine state (`src/engine/c/render/anchor_raster.c:161`). None is computed in floating point and none is normalized against the image, so a pixel means the same thing in two rasters taken at different sizes.
+Every channel is an integer read off engine state (`src/engine/c/render/anchor_raster.c:161`). None is computed in floating point and none is normalized against the image. A pixel then means the same thing in two rasters taken at different sizes.
 
 ## Reduction, and the constraint on adding one
 
 Several alignments reach one cell whenever the object is larger than the raster. `ANCHOR_REDUCE_MIN` keeps the darkest and `ANCHOR_REDUCE_MAX` keeps the brightest.
 
-Both are associative and commutative, which is what lets the device reduce with `atomicMin` or `atomicMax` in scheduler order and still reach the host's answer. A rule selecting by arrival, such as first or last writer, would make the device result depend on scheduling and could not be graded against the host at all. The header states that as a `@warning` on the enum and it governs anything added to it.
+Both are associative and commutative. That lets the device reduce with `atomicMin` or `atomicMax` in scheduler order and still reach the host's answer. A rule selecting by arrival, such as first or last writer, would make the device result depend on scheduling and could not be graded against the host at all. The header states that as a `@warning` on the enum (`src/engine/c/render/anchor_raster.h:101`), and it governs anything added to it.
 
 ## The volume, the same render in three dimensions
 
-A volume is the sheet render with a third extent and its own set of layouts. It carries the raster's channel, reduce and gain by reference to the same enums, so a channel means one thing across both and a second spelling of it cannot drift.
+A volume is the sheet render with a third extent and its own set of layouts. It carries the raster's channel, reduce and gain by reference to the same enums. A channel means one thing across both, and no second definition of it exists to drift.
 
 ```c
 typedef struct
@@ -149,19 +149,19 @@ The four volume layouts each map an alignment index to a voxel, and each wraps t
 | `ANCHOR_VOLUME_SLABS` | corpus order, filling one sheet before the next |
 | `ANCHOR_VOLUME_BOUSTRO` | every other row reversed and every other slab's rows reversed, so consecutive alignments stay adjacent across both boundaries |
 | `ANCHOR_VOLUME_MORTON` | the bits of x, y and z interleaved, so locality holds on all three axes at once and the block reads as a solid. Requires the extents to be powers of two and refuses others |
-| `ANCHOR_VOLUME_HELIX` | slab major with each slab's rows sheared by its depth index, so a feature at a fixed corpus offset winds through the block |
+| `ANCHOR_VOLUME_HELIX` | slab major with each slab's rows sheared by its depth index, and a feature at a fixed corpus offset winds through the block |
 
 `anchor_volume_cell_for` returns the block size where the layout refuses a configuration, which is Morton on extents that are not all powers of two and any unknown layout. The host returns 0 for the whole render in that case, and the device carries the same refusal into its parallel form through a flag a thread sets when its alignment maps out of range.
 
 ## What is graded
 
-`bench_raster` renders every combination of layout and channel for both the sheet and the volume, and compares the host arm against the device arm byte for byte. The raster is integer valued, so agreement is exact and one differing pixel or voxel is a defect. Where no device is present the run says so and grades the host alone, which is a skip and never a pass.
+`bench_raster` renders every combination of layout and channel for both the sheet and the volume, and compares the host arm against the device arm byte for byte. The raster is integer valued, so agreement is exact and one differing pixel or voxel is a defect. Where no device is present, the run prints the device as absent and grades the host alone. Every row then reads `host only` in its agreement column and `ok` in its verdict, and the run exits 0 (`src/engine/c/bench/bench_raster.c:203-230`, `:359-385`, `:420`). A zero exit shows device agreement only when the run printed the device as present.
 
 The sheet: twenty combinations, four layouts by five channels, each written as a PGM. Measured on this machine, 65536 bytes of corpus, 65513 alignments, a 256 by 256 raster, needle length 24, against an RTX 3070 at `sm_86`: twenty of twenty host and device identical, every layout filling 65513 cells.
 
 The volume: twenty combinations into a 32 by 32 by 32 block. Measured on the same machine and corpus: twenty of twenty host and device identical, every combination filling all 32768 voxels with zero collisions, which confirms each layout is a bijection onto the block.
 
-The device arms reimplement the transform and the channel rather than linking the host's, because the two are built by different compilers that cannot link, the same split `maint/engine/build_gpu_arm.sh` documents for the exact arm. The grader comparing outputs on every configuration is what keeps the copies honest, and the file says so in a `@warning` (`src/engine/c/render/raster_cuda.cu:29`).
+The device arms carry their own copy of the transform and the channel, because the two arms are built by different compilers that cannot link, the same split `maint/engine/build_gpu_arm.sh` documents for the exact arm. Where a device is present, the grader compares outputs on every configuration, and a divergence between the copies fails a row. A `@warning` states this at `src/engine/c/render/raster_cuda.cu:29`.
 
 ## Frame rate, and what the number is
 
@@ -174,11 +174,11 @@ Measured over 200 frames each, death level channel, rows layout, same object, on
 | spatial, unsteered | 4 | 200 | 0.344 | 581.4 |
 | steered coarms | 2 | 200 | 0.268 | 746.3 |
 
-Both rows are the host renderer. The timing loop calls `anchor_raster_host` (`src/engine/c/bench/bench_raster.c:265-268`). No device frame rate has been measured, and the difference between these figures and the ones a Debug CMake build reports is compiler optimization and not hardware.
+Both rows are the host renderer. The timing loop calls `anchor_raster_host` (`src/engine/c/bench/bench_raster.c:265-268`). No device frame rate has been measured. Compiler optimization accounts for the difference between these figures and the ones a Debug CMake build reports.
 
 ## What is not checked here
 
-The device arms are graded for agreement and not for speed. A render that uploads the corpus every frame pays a transfer the host does not, and nothing here measures whether the device wins once that is counted.
+The device arms are graded for agreement only. A render that uploads the corpus every frame pays a transfer the host does not, and nothing here measures whether the device wins once that is counted.
 
 The sweep runs one object size against one raster size, both powers of two, with alignments larger than the cell count. Rectangles, sizes no raster divides, and alignments below the cell count are unexercised, and the column layout carries a fallback for an index that leaves the raster (`src/engine/c/render/anchor_raster.c:142-144`) which no test reaches.
 

@@ -15,7 +15,7 @@ No ESP-IDF, no device toolchain, no Python, and nothing from the vendored librar
 
 ## The exact integer, and the arms that read it
 
-`no_rounding/exact_integer.{c,h}` holds an exact integer as a fixed width array of 32 bit limbs. The directory name states what the arithmetic is for: it removes rounding, so a comparison is exact. It is the same value `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
+`no_rounding/exact_integer.{c,h}` holds an exact integer as a fixed width array of 32 bit limbs. The directory name states what the arithmetic is for. It removes rounding, and a comparison is then exact. It is the same value `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
 
 Fixed width is the only bound the representation has, and it is declared instead of discovered. 108 limbs is 3456 bits, holding the 1024 decimal digits the Python side ingests at. A value that will not fit raises `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
 
@@ -70,11 +70,11 @@ Run against portable, agreeing on every lag at every size:
 
 Widening the comparison is worth ten to forty percent. It cannot reach three times, because the comparison is no longer most of the work: the hash probe and the memory it touches are.
 
-**These are host clock timings and the host is not quiet.** `clock()` on this platform measures wall time, so anything else running on the machine moves the numbers. Another session was running processor work in bursts through the afternoon and said so, which is the only reason it is known. Every CUDA figure above is a median of five runs taken on an idle card; the spread across those five is 0.29 to 0.45 at a thousand positions and 7.82 to 9.13 at sixty five thousand. A lone run is worth about ten percent either way. The gcc-14 row is a median of five for the same reason, taken after one run read 0.89x, an outright loss.
+**These are host clock timings and the host is not quiet.** `clock()` on this platform measures wall time, so anything else running on the machine moves the numbers. Another session was running processor work in bursts through the afternoon and reported it, and that report is the only reason it is known. Every CUDA figure above is a median of five runs taken on an idle card; the spread across those five is 0.29 to 0.45 at a thousand positions and 7.82 to 9.13 at sixty five thousand. A lone run is worth about ten percent either way. The gcc-14 row is a median of five for the same reason, taken after one run read 0.89x, an outright loss.
 
-Device side timing through CUDA events would be immune to this and the host arms would still not be. Both arms of a ratio run back to back in one process, so load moves them together and mostly cancels, which is why the medians landed within ten percent of the single runs they replaced.
+Device side timing through CUDA events would be immune to this and the host arms would still not be. Both arms of a ratio run back to back in one process, so load moves them together and mostly cancels. The medians landed within ten percent of the single runs they replaced for that reason.
 
-**Read the CUDA row from the left.** It **runs slower at a thousand positions**, breaks even near four thousand, and runs eight times faster at sixty five thousand. The crossover is the bus and not the kernel: this arm copies the whole run to the device before it computes anything, so the loss at small sizes is a property of the transfer and travels with the arm wherever it goes. Sizing a workload from the 8.63x alone would put it where the arm is three times slower than doing nothing special.
+**Read the CUDA row from the left.** It **runs slower at a thousand positions**, breaks even near four thousand, and runs eight times faster at sixty five thousand. The bus sets the crossover. This arm copies the whole run to the device before it computes anything, so the loss at small sizes is a property of the transfer and travels with the arm wherever it goes. Sizing a workload from the 8.63x alone would put it where the arm is three times slower than doing nothing special.
 
 A ratio holds only against the portable arm in **that same build**. The CUDA driver is compiled by MSVC and the CMake one by MinGW, and their portable arms are not the same object. A number in one row therefore does not compare to a number in another.
 
@@ -97,13 +97,13 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 | `bench/bench_sift.c` | candidates, skip distance and anchor independence over byte strings. Not wired up |
 | `bench/bench_entropy.c`, `bench/bench_ab.c`, `bench/bench_cycles.c` | not wired up |
 
-Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` used to sit in `bench/`; it is MMgr's test support and it lives in MMgr, at `deps/mmgr/test/support/`. Run `python maint/deps/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it: `bench_corpora` fills every corpus with splitmix64.
+Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` is MMgr's test support, at `deps/mmgr/test/support/`. Run `python maint/deps/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it, since `bench_corpora` fills every corpus with splitmix64.
 
 `bench_corpora` is shared so the scaling bench and the dispatch bench cannot disagree about what skewed means. One measures a rate against a prediction and the other scores a rule with a clock, and a rule scored on corpora the prediction never saw is a rule scored against nothing.
 
 ## Rendering
 
-`render/` turns engine state into an image, as a sheet or a volume, with no export step between the state and the pixels. Each renderer has a host arm in C and a device arm in CUDA that produce the same bytes, so a caller uses the dispatch and does not choose an arm: `anchor_raster_render` for a sheet and `anchor_volume_render` for a volume both prefer the device where one is present and fall back to the host where none is. `bench_raster` grades the two arms against each other byte for byte on every configuration, twenty sheet combinations and twenty volume combinations, and a single differing pixel or voxel is a defect. `docs/rendering.md` is the guide: the configuration structures, the layouts and channels, what each is checked against, and what is not checked.
+`render/` turns engine state into an image, as a sheet or a volume, with no export step between the state and the pixels. Each renderer has a host arm in C and a device arm in CUDA that produce the same bytes. A caller uses the dispatch and does not choose an arm. `anchor_raster_render` for a sheet and `anchor_volume_render` for a volume both prefer the device where one is present and fall back to the host where none is. Where a device is present, `bench_raster` grades the two arms against each other byte for byte on every configuration, twenty sheet combinations and twenty volume combinations, and a single differing pixel or voxel is a defect. `docs/rendering.md` is the guide: the configuration structures, the layouts and channels, what each is checked against, and what is not checked.
 
 ## bench_lattice, where the soundness claim is tested
 
@@ -165,7 +165,7 @@ Where `k` anchors collapse onto one independent probe, the histogram overstates 
 
 The period is recovered with nothing supplied. Each candidate is scored against its own multiples, not by taking the tallest lag: a period of sixteen agrees with itself at 32, 48 and 64 alike, and which of those stands tallest is settled by noise. Scoring against multiples is the same reading `measure.periodicity.sequence_period` performs in the Python engine, where it was caught against a period chemistry fixes at three. The two share no code.
 
-**What this changes about the order of operations.** Coherence is read first and everything downstream follows from it: how many anchors carry information, what spacing keeps them off one residue class, and which of the two predictions to believe. Collision entropy is permutation invariant. No bound built from H2 alone can see arrangement, because a corpus and its own shuffle carry identical H2. Coherence is the reading that can, and it is one pass.
+**What this changes about the order of operations.** Coherence is read first and everything downstream follows from it: how many anchors carry information, what spacing keeps them off one residue class, and which of the two predictions to believe. Collision entropy is permutation invariant. No bound built from H2 alone can see arrangement, because a corpus and its own shuffle carry identical H2. Coherence is the reading that can, and it takes one pass.
 
 ### Setting the anchor count from the recovered size
 
