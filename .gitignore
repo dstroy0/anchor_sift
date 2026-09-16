@@ -63,6 +63,18 @@ theory/*/*/main.pdf
 theory_bucket/*/main.pdf
 theory_bucket/*/*/main.pdf
 
+# What bench_raster drops where it is run from. A run writes 22 of these, and the renderer writes
+# them beside the working directory instead of under build/, so the repository root collects them
+# whenever a bench is run from there. Checked before adding: no tracked file matches any of the
+# three, so these ignore generated output and nothing else.
+#
+# These are extensions and are deliberately unanchored, unlike `deps/`, which had to become
+# `/deps/` after the bare form matched `maint/deps/` at depth and hid two files that were then in
+# no commit in this repository's history.
+*.pgm
+*.raw
+*.raw.txt
+
 # Editor and OS leavings.
 .vscode/
 .idea/
