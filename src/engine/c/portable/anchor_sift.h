@@ -460,13 +460,11 @@ typedef struct
  *          position and reads off the end of it, which is exactly the fault this signature was
  *          changed to prevent after it segfaulted the suite.
  *
- * THE ONE EXTRA STEP, AND IT IS WHAT MAKES ANY TYPE FAST. A probe is required to be a necessary
- * condition of an occurrence and nothing more. Two positions carrying the same symbol necessarily
- * carry the same rank, so rank disagreement PROVES symbol disagreement and a rank probe refutes
- * exactly what a symbol probe refutes minus some of its power. Rank agreement does not prove symbol
- * agreement, and it does not have to: survivors reach the exact compare, which reads the symbols
- * themselves through the oracle. The engine's whole construction is that a necessary condition is
- * free to be weaker than the thing it screens for.
+ * WHY PROJECT AT ALL. A probe only has to be a necessary condition of an occurrence. Within one
+ * projection, two positions in one class carry one rank, so rank disagreement proves symbol
+ * disagreement and a rank probe refutes a subset of what a symbol probe refutes. Rank agreement does
+ * not prove symbol agreement, and a filter does not need it to. The engine's construction is that a
+ * necessary condition may be weaker than the thing it screens for.
  *
  * What that buys is the wide path. An equality oracle cannot be vectorized, because a wide compare
  * is a statement about a representation and the oracle deliberately hides one. Ranks are bytes, so
@@ -477,30 +475,15 @@ typedef struct
  * @note Ranks are ORDERED BY RARITY, rarest first, which is the order the steering already wants.
  *       The rank is therefore not an arbitrary label: rank zero is the class that refutes most
  *       alignments, and a planner reading the projected field gets the entropy ordering for free.
- * @note THE INEQUALITY IS OVER THE SURVIVOR SET AND NOT OVER THE ANSWER. A projected search may
- *       leave MORE survivors than an exact one, because two classes sharing a rank survive a rank
- *       probe together. It never leaves fewer. Those survivors then reach the exact compare, which
- *       reads the real symbols through the caller's own test, so the COUNT returned is the true
- *       count either way. Projecting costs candidates to verify and never costs or adds an
- *       occurrence, and reading the inequality as over-reporting is the misreading to avoid.
- * @warning REFUSES A FIELD HOLDING MORE THAN ANCHOR_STEER_SYMBOLS CLASSES, returning 0 and setting
- *          `distinct` to 0. A byte rank cannot name more, and the alternative was measured and
- *          rejected rather than assumed.
- *
- *          An earlier note here claimed the overflow merged the COMMONEST classes, on the reasoning
- *          that ranks run rarest first. The reasoning is sound and the code did not implement it:
- *          the overflow is decided during discovery, before the rarity sort runs, so the merged set
- *          was chosen by ARRIVAL ORDER. The theorist measured two fields with identical frequency
- *          multisets and opposite arrangements, and the sets they merged had mean occupancies of
- *          1.06 and 9.00. A histogram cannot tell those fields apart.
- *
- *          The natural arrangement is the bad one. A class occurring once has one chance to arrive
- *          early and a class occurring nine times has nine, so the rarest classes arrive last and
- *          the overflow ate exactly them. The rarest class is the best probe the steering has, so
- *          that degradation spends the thing the projection exists to find.
- *
- *          A field this shape should not be projected at all. Hand the oracle to a descent, which
- *          needs no ranks, no closure and no table, and costs nothing extra.
+ * @note A SEARCH OVER RANK FIELDS COUNTS RANK MATCHES, AND THAT EQUALS THE SYMBOL COUNT ONLY AT 256
+ *       CLASSES OR FEWER. Places then run from 0 to 255 and none is clamped, so one rank names one
+ *       class and the two counts are the same integer. Past 256 classes every class at place 255 or
+ *       later takes rank 255, alignments whose symbols differ can agree on every rank, and the byte
+ *       engine's full compare cannot remove them, because on rank fields it compares ranks. The
+ *       count is then an upper bound. It never falls below the symbol count, and case 13 in
+ *       test/engine/test_adversarial.c measures it above: 44 against 1 on a 300-class field. For an
+ *       exact count past 256 classes, check the rank survivors against the symbols through the
+ *       oracle, or give the oracle to a descent directly.
  * @warning COSTS UP TO `length` SQUARED ORACLE CALLS AND THAT IS NOT A LOOSE BOUND. Computing the
  *          transitive closure of a graph reachable only through a pairwise probe needs the pairs,
  *          and the predicate may be one the caller chose for being approximate, so there is no
