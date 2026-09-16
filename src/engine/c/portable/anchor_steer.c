@@ -19,6 +19,7 @@
 #include "anchor_steer.h"
 
 #include "exact_limbs.h"
+#include "anchor_steer_arm.h"
 
 #include <string.h>
 
@@ -222,8 +223,40 @@ static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const
 {
     const size_t alignments = (corpus_len - needle_len) + 1u;
     const uint8_t wanted = needle[offset];
-    size_t standing = 0u;
 
+    /* THE WIDEST ARM THIS MACHINE CARRIES, ASKED ONCE. The scan is where a planner spends its time,
+     * and an arm graded against the portable one but never called is a measurement rather than a
+     * speedup. The arm is resolved once and held, because asking the processor on every candidate
+     * would cost more than the candidates do.
+     *
+     * Only at stride one. A sampled scan walks every Nth alignment and the arms count every one, so
+     * handing a sampled sweep to an arm would change what is being counted. Sampling falls through
+     * to the loop below, which is the same code the portable arm runs. */
+    if (stride == 1u)
+    {
+        static const AnchorSteerArm *chosen = NULL;
+        static int resolved = 0;
+        if (resolved == 0)
+        {
+            chosen = anchor_steer_portable_arm();
+#if defined(ANCHOR_STEER_HAVE_AVX2) && ANCHOR_STEER_HAVE_AVX2
+            {
+                const AnchorSteerArm *wide = anchor_steer_avx2_arm();
+                if (wide != NULL)
+                {
+                    chosen = wide;
+                }
+            }
+#endif
+            resolved = 1;
+        }
+        if (chosen != NULL)
+        {
+            return chosen->count(corpus, alignments, alive, wanted, offset);
+        }
+    }
+
+    size_t standing = 0u;
     for (size_t at = 0u; at < alignments; at += stride)
     {
         if (alive[at] == 0u)
@@ -289,7 +322,7 @@ static void steer_make_falsy(const uint8_t *corpus, size_t corpus_len, const uin
 static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus,
                             size_t corpus_len, const uint8_t *needle, size_t needle_len,
                             uint8_t *scratch, size_t scratch_len, size_t sample_stride,
-                            int spawning)
+                            int spawning, int force_full_depth)
 {
     if ((offsets == NULL) || (corpus == NULL) || (needle == NULL) || (scratch == NULL)
      || (count == 0u) || (needle_len == 0u) || (needle_len > corpus_len))
@@ -380,7 +413,8 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
          * tests the same congruence and the ones after the first are pure cost. Here the judgment
          * is MEASURED per level against the field rather than inferred from a period, so it also
          * catches fields whose redundancy no period search would name. */
-        if (best_standing >= steer_truthy_total(scratch, alignments, stride))
+        if ((force_full_depth == 0)
+         && (best_standing >= steer_truthy_total(scratch, alignments, stride)))
         {
             break;
         }
@@ -402,7 +436,7 @@ size_t anchor_steer_plan_recursive(size_t *offsets, size_t count, const uint8_t 
                                    uint8_t *scratch, size_t scratch_len, size_t sample_stride)
 {
     return steer_descend(offsets, count, corpus, corpus_len, needle, needle_len, scratch,
-                         scratch_len, sample_stride, 0);
+                         scratch_len, sample_stride, 0, 0);
 }
 
 size_t anchor_steer_spawn_coarms(size_t *offsets, size_t wanted, const uint8_t *corpus,
@@ -410,7 +444,16 @@ size_t anchor_steer_spawn_coarms(size_t *offsets, size_t wanted, const uint8_t *
                                  uint8_t *scratch, size_t scratch_len, size_t sample_stride)
 {
     return steer_descend(offsets, wanted, corpus, corpus_len, needle, needle_len, scratch,
-                         scratch_len, sample_stride, 1);
+                         scratch_len, sample_stride, 1, 0);
+}
+
+size_t anchor_steer_spawn_coarms_deep(size_t *offsets, size_t wanted, const uint8_t *corpus,
+                                      size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                      uint8_t *scratch, size_t scratch_len, size_t sample_stride,
+                                      int force_full_depth)
+{
+    return steer_descend(offsets, wanted, corpus, corpus_len, needle, needle_len, scratch,
+                         scratch_len, sample_stride, 1, force_full_depth);
 }
 
 int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len)

@@ -261,6 +261,41 @@ size_t anchor_steer_spawn_coarms(size_t *offsets, size_t wanted, const uint8_t *
                                  uint8_t *scratch, size_t scratch_len, size_t sample_stride);
 
 /**
+ * @brief Spawns coarms with the option of descending every level, ignoring the destroy rule.
+ *
+ * @param[out] offsets          Chosen offsets, in evaluation order [BORROWS].
+ * @param[in]  wanted           How many coarms to spawn. At most ANCHOR_STEER_ANCHORS.
+ * @param[in]  corpus           Bytes the search will run over [BORROWS].
+ * @param[in]  corpus_len       How many.
+ * @param[in]  needle           Bytes to find [BORROWS].
+ * @param[in]  needle_len       How many.
+ * @param[out] scratch          Survivor flags, one byte per alignment [BORROWS].
+ * @param[in]  scratch_len      How many bytes of scratch.
+ * @param[in]  sample_stride    Plan on every Nth alignment. 0 is treated as 1.
+ * @param[in]  force_full_depth Non-zero descends all `wanted` levels whether or not a level prunes.
+ * @return                      Coarms actually placed.
+ *
+ * WHAT THIS PARAMETER EXISTS TO MAKE TESTABLE. The descent normally stops at a level whose best
+ * candidate leaves the truthy population unchanged, and destroys every level below it. That is
+ * sound because the candidate set is non-increasing along the descent, so a level that cannot prune
+ * implies every level below it cannot either. Stopping and continuing are therefore equivalent.
+ *
+ * Equivalent is a claim, and this parameter is what lets a caller check it. With
+ * `force_full_depth` set, THE COUNT PRODUCED BY THE RESULTING PROBE SET MUST BE IDENTICAL and the
+ * placed probe count MAY be larger. A test comparing the two runs gets two separable failures. If
+ * the counts ever differ, the necessary-condition guarantee broke. If the probes placed before the
+ * stop point ever differ, the induction broke. One flag, two distinguishable meanings.
+ *
+ * @note One function with a branch and not two functions sharing a descent. Two entries would drift,
+ *       and a literal argument folds the branch away at every call site that does not use it.
+ * @note anchor_steer_spawn_coarms is this call with `force_full_depth` of zero.
+ */
+size_t anchor_steer_spawn_coarms_deep(size_t *offsets, size_t wanted, const uint8_t *corpus,
+                                      size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                      uint8_t *scratch, size_t scratch_len, size_t sample_stride,
+                                      int force_full_depth);
+
+/**
  * @brief One probe placed on the needle. An arm is a point, an eye is a line.
  *
  * ONE SHAPE SERVES BOTH, WHICH IS THE SAME STATEMENT arm-records.md MAKES ABOUT READINGS. An arm is

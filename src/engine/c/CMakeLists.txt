@@ -150,7 +150,7 @@ target_compile_options(anchor_raster PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARN
 
 add_library(anchor_steer STATIC portable/anchor_steer.c)
 target_include_directories(anchor_steer PUBLIC portable)
-target_link_libraries(anchor_steer PUBLIC anchor_exact_portable)
+target_link_libraries(anchor_steer PUBLIC anchor_exact_portable anchor_steer_arms)
 target_compile_options(anchor_steer PRIVATE ${SIFT_WARNINGS})
 
 # Which vectorized arm this target can carry. Decided from the processor the build targets, and
