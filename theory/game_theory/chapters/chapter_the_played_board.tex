@@ -1,0 +1,141 @@
+\chapter{The played board}
+
+\textbf{Purpose:} Separate what the rules put on a board from what the players did, and report the
+negative that came out. \textbf{Scope:}
+\texttt{examples/\allowbreak{}games/\allowbreak{}\{1\_\allowbreak{}represent,3\_\allowbreak{}reference,4\_\allowbreak{}measure\}/\allowbreak{}}
+
+\section{Why a board is worth reading at all}
+
+Every corpus in this work holds two things at once and cannot separate them. A text carries its
+grammar and its author together, and there is no way to obtain the same author writing under
+different grammar. The workbook's Salishan rows spend real effort on exactly this and the effort does
+not fully succeed.
+
+A board separates them for nothing. The rules are fixed and public. The play is a choice. Three
+players of measurably different strength on one rule set give nine corpora that differ in the second
+alone, and the rule set's contribution is in all nine.
+
+\section{The representation, and what happens to an empty square}
+
+A square is a point and the piece on it is its value. Reversi on sixty four squares, two colours.
+
+Emptiness does not get a symbol. A board part way through a game is mostly empty, and a symbol for
+emptiness puts the game's clock into the histogram, where a measure reading counts will find it and
+report how far along the game was as though it were arrangement. Measurements that read values drop
+the empty squares; the one that reads the grid's shape keeps them, because a hole in a row is part
+of the shape.
+
+The null is this work's null permutation written for a grid: the same pieces on the same squares in
+a uniformly drawn order. It keeps how many of each colour are on the board and which squares are
+occupied at all, and destroys only which colour sits where. Everything a rule imposed is in what it
+destroys.
+
+The measure is the share of occupied squares whose neighbour one step away carries the same colour,
+averaged over both axes. The dispersion measure this work usually quotes needs four symbols clearing
+an occurrence floor and a board has two colours, so this reads the same thing at the one lag a board
+is large enough to carry.
+
+\section{The departure, and the control that says what it is}
+
+Two hundred games with both sides drawing uniformly from the legal moves. Live 0.6555 against a null
+of 0.5350, a ratio of 1.225. Six disjoint batches of two hundred give 1.2253, 1.2193, 1.2219, 1.2238,
+1.2222 and 1.2282, a spread of 0.0089, so the departure is about twenty five times the spread between
+batches.
+
+A departure on its own does not say which ingredient produced it, and a board supplies the control
+for nothing. Play the same board with the same two colours and the same number of squares filled,
+where a move places a piece and nothing is turned over. That game has rules and has play and has no
+flip.
+
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+& live & null & ratio \\
+\midrule
+Reversi, 200 games & 0.6555 & 0.5350 & 1.225 \\
+place-only, 400 boards, from Reversi's opening & 0.4763 & 0.4904 & 0.971 \\
+place-only, 400 boards, from an empty board & 0.4915 & 0.4923 & 0.998 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The departure is the flip rule. A board being a board contributes nothing.
+
+\subsection{The 0.971 row, which was a mistake of ours}
+
+The first version of that control kept Reversi's four fixed centre pieces and read 0.971, three
+floors below the null where the argument wanted one. The gap is the opening itself. Those four
+squares are laid out black over white and white over black, so all four neighbouring pairs inside
+them disagree by construction where a draw would have half of them agree. Four guaranteed
+disagreements out of a hundred and twelve pairs is 0.018 of the reading, which is the whole of the
+gap, and starting from an empty board returns 0.998.
+
+It is kept because it points the other way as well. The same four squares sit under every Reversi row
+above and push them in the same direction, so the 1.225 is understated by about that much and is
+never overstated.
+
+\section{The negative}
+
+The three arms are the textbook ones. Drawing uniformly from the legal moves knows the rules and
+nothing else. Taking the move that turns over the most pieces is the standard weak heuristic and is
+weak here too. Taking a corner where one is offered, and otherwise turning over the fewest pieces, is
+the standard improvement: a corner can never be flipped back, and a small flip leaves the opponent
+fewer replies.
+
+Strength is not asserted. It is played out, and the win share is an independent quantity that is not
+a reading of the departure.
+
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+black v white & live & ratio & black's share of wins \\
+\midrule
+random v random & 0.6555 & 1.225 & 0.380 \\
+random v greedy & 0.6581 & 1.191 & 0.398 \\
+random v corner & 0.6722 & 1.224 & 0.320 \\
+greedy v random & 0.6543 & 1.208 & 0.630 \\
+greedy v greedy & 0.6404 & 1.184 & 0.492 \\
+greedy v corner & 0.6735 & 1.198 & 0.425 \\
+corner v random & 0.6700 & 1.241 & 0.645 \\
+corner v greedy & 0.6881 & 1.194 & 0.672 \\
+corner v corner & 0.6723 & 1.255 & 0.532 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The win shares order the arms cleanly and in the expected direction. Corner beats random 0.645 and
+beats greedy 0.672; greedy beats random 0.630; each arm against itself sits near a half.
+
+The departures do not order them at all. They run 1.184 to 1.255 with no relation to the column
+beside them, and the correlation over the nine pairings is 0.067.
+
+The explanation is the same one that makes the flip rule the source of the departure. Every legal
+move turns over a bracketed run, whoever chose it, so a strong player and a weak one leave the same
+kind of trace and differ only in where on the board they put it. The measure reads what was done to
+the board. It does not read who chose it.
+
+\section{Reading the width back off it}
+
+The picture work claims an image read as a byte sequence returns its own width. A board is the same
+shape of object with a width nobody has to look up.
+
+\begin{center}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+arm & reading & period & margin \\
+\midrule
+random & row major & 8 & 0.0917 \\
+random & column major & 8 & 0.1291 \\
+random & scattered null & 7 & 0.0106 \\
+corner & row major & 8 & 0.1209 \\
+corner & column major & 8 & 0.1368 \\
+corner & scattered null & 10 & 0.0093 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Eight, across the rows and down the columns, on a weak arm and a strong one, at seven to fifteen
+times what the same pieces scattered reach. The null returns a wrong number at a margin near zero,
+which is the correct behaviour: it is asked for a period and reports one with no confidence at all.
+
+That result has a boundary and the next chapter is where it sits.

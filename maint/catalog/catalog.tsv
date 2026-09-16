@@ -32,6 +32,13 @@ CRY-3-001	live	examples/crystallography/3_reference/what_a_grid_invents.py
 CRY-4-001	live	examples/crystallography/4_measure/period_from_the_difference_set.py
 CRY-5-001	live	examples/crystallography/5_sift/lattice_breaks_the_product_rule.py
 CRY-6-001	live	examples/crystallography/6_oracle/proof_positive_control.py
+GAM-1-001	live	examples/games/1_represent/reversi_positions.py
+GAM-2-001	live	examples/games/2_partition/board_width.py
+GAM-3-001	live	examples/games/3_reference/position_null.py
+GAM-4-001	live	examples/games/4_measure/grundy_period.py
+GAM-4-002	live	examples/games/4_measure/rules_and_play.py
+GAM-6-001	live	examples/games/6_oracle/bouton_and_wythoff.py
+GAM-6-002	live	examples/games/6_oracle/sturmian_convergents.py
 LNG-1-001	live	examples/language/1_represent/akshara_web.py
 LNG-1-002	live	examples/language/1_represent/binary_web.py
 LNG-1-003	live	examples/language/1_represent/case_channel.py

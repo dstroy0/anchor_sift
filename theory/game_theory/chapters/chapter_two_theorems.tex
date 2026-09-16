@@ -1,0 +1,78 @@
+\chapter{Two theorems, and neither is this work's}
+
+\textbf{Purpose:} Read two published answers off grids generated without them. \textbf{Scope:}
+\texttt{examples/\allowbreak{}games/\allowbreak{}6\_\allowbreak{}oracle/\allowbreak{}bouton\_\allowbreak{}and\_\allowbreak{}wythoff.\allowbreak{}py}
+
+\section{Bouton, 1901}
+
+Nim is heaps, a move takes any number from one heap, and whoever cannot move loses. Bouton showed
+that a position loses for the player to move exactly when the heap sizes exclusive or to zero.
+
+One consequence of that is readable by counting and needs no exclusive or performed by the reader.
+Fix every heap but one. Exactly one size of the free heap makes the total zero, so every axis line of
+the grid holds exactly one losing position.
+
+\begin{center}
+\begin{tabular}{@{}lrll@{}}
+\toprule
+game & lines & losses per line & loss density \\
+\midrule
+2 heaps of 64 & 64 & \{1\} & 0.01562 \\
+3 heaps of 64 & 4096 & \{1\} & 0.01562 \\
+4 heaps of 32 & 32768 & \{1\} & 0.03125 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The set is one and not a range, on every line, in every arity. A set of the same density scattered
+over the same cells puts exactly one loss in a line of 64 with probability 0.371, so a scatter
+producing all ones over four thousand and ninety six lines is not something to quantify past saying
+it does not happen.
+
+This grid is generated from Bouton's own theorem, which is stated in the module and is why these
+rows are reported as a count and not as a recovery. What they establish is that the property is in
+the grid where a reader can reach it, without arithmetic that knows what Nim is.
+
+\section{Wythoff, 1907}
+
+Wythoff's game is two heaps, where a move takes any number from one heap or the same number from
+both. Wythoff showed the losing positions are the pairs
+\(\left(\lfloor n\varphi \rfloor, \lfloor n\varphi^{2} \rfloor\right)\) and their mirrors.
+
+The grid here is played out by the minimum excludant recursion and holds no formula, so the
+comparison against that closed form is a check and not a definition.
+
+\begin{center}
+\begin{tabular}{@{}rrlrl@{}}
+\toprule
+side & positions & matches the 1907 form & \(a_n/n\) & relative error \\
+\midrule
+200 & 76 & yes & 1.605263 & \(7.89\times10^{-3}\) \\
+400 & 152 & yes & 1.611842 & \(3.83\times10^{-3}\) \\
+800 & 305 & yes & 1.616393 & \(1.01\times10^{-3}\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Every pair agrees with the published one, at every side. The second coordinate minus the first runs
+1, 2, 3, 4 and onward with no exception, which is the other half of Wythoff's statement. And the
+ratio converges on \(\varphi = 1.618034\) from below, reaching one part in a thousand at a side of
+800, which is a published irrational arriving out of a game played by a recursion that was told
+nothing.
+
+\section{Why the pair is here together}
+
+They are the same shape of game and their answers are opposite in the one way this work cares about.
+
+Nim's losing set is built from the exclusive or, which is a bitwise operation, and its regularity is
+exact at every scale. Wythoff's sits on a line of slope \(\varphi\), and a line of irrational slope
+passes through no two lattice points in the same relation twice. Nothing on it repeats, not
+approximately and not eventually.
+
+So the pair is a positive and a negative control with published answers on both sides, which is
+something this work has not had before. The crystallography chapter argues that a memoryless control
+can only show an instrument does not invent structure, and that showing it finds structure that is
+there needs an answer from outside. Nim supplies that answer for nothing. Wythoff supplies the other
+one: an object with real structure that a shift detector must not report a period on.
+
+The detector reports one. That is the next chapter and it is the reason this book exists.

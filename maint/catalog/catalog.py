@@ -57,6 +57,7 @@ DOMAIN = {
     "any_corpus": "ANY",
     "art": "ART",
     "crystallography": "CRY",
+    "games": "GAM",
     "language": "LNG",
     "proteins": "PRO",
     "proofs": "PRF",
@@ -64,7 +65,7 @@ DOMAIN = {
     "source": "SRC",
 }
 
-# VIZ is not a domain in the sense the other eight are. Those name what a corpus is of, and the
+# VIZ is not a domain in the sense the other nine are. Those name what a corpus is of, and the
 # viz tools read any blob: whatever arrives as points carrying values, with no domain in it. They
 # sit first in the listing for that reason, and they carry numbers because they are tools this
 # work uses, and a number survives a file moving where a path does not.

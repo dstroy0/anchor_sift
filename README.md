@@ -46,19 +46,21 @@ The basic construction Identity:Null Permutation runs through all six parts. Rep
 | `sift` | the sound filter, a necessary condition over any index set |
 | `oracle` | agreement with ground truth that somebody else published |
 
-Everything downstream of `representation` sees points and values and is blind to what an object is, so one instrument reads both. Four subjects have their own directories: `text`, `sound`, `picture` and `structure`, all under `representation`, the only part that knows a domain exists.
+Everything downstream of `representation` sees points and values and is blind to what an object is, so one instrument reads both. Five subjects have their own directories: `text`, `sound`, `picture`, `structure` and `game`, all under `representation`, the only part that knows a domain exists.
 
 `src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora.
 
 ## Areas of research
 
-Seven domains have been run end to end under `examples/`: language, art, crystals, proteins, sound, source code and arbitrary corpora. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end-to-end and agree.
+Eight domains have been run end to end under `examples/`: language, art, crystals, proteins, sound, source code, games and arbitrary corpora. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end-to-end and agree.
 
 Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
 
 A dialect border inside Lushootseed, labeled by Mellesmoen and Kye and then held out, comes back as the stressed schwa, southern, beaten by 1 of 200 random borders over the same forms.
 
 An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length. A protein backbone returns bond lengths of 1.45, 1.52 and 1.33 against chemistry's 1.46, 1.52 and 1.33. None of them was told anything.
+
+Subtraction games return their Grundy period on 383 of 383 rows the detector can score, against periods computed by a separate exact routine, at a worst margin of 16 floors. The same detector returns a confident number on a sequence that has no period at all, and what it is reading there is the continued fraction of the sequence's slope.
 
 The workbook holds the rest, including every row that failed and why.
 
@@ -74,7 +76,7 @@ Each directory serves one purpose, things are in disarray currently.
 | `analysis/` | a corpus, through `src/` | surveys the books ask for |
 | `examples/` | a corpus, through `src/` | 99 numbered demonstrations, seven domains |
 | `maint/` | the repository itself | records, gates, prose checks, the book build |
-| `theory/` | the argument | seven books |
+| `theory/` | the argument | eight books |
 | `docs/` | the reader | setup and usage |
 
 `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
@@ -174,7 +176,7 @@ For a language with few remaining speakers, publishing a form drawn from outside
 
 ## Where to start
 
-The research is seven books under `theory/`. Build them:
+The research is eight books under `theory/`. Build them:
 
 ```sh
 sh maint/texbuild/build_theory.sh
@@ -189,6 +191,7 @@ sh maint/texbuild/build_theory.sh
 | a published cell edge read back off a voxel grid, and whose result that is | `theory/crystallography` |
 | where the structure in SHA-256 is, where it stops, and how each null was measured | `theory/cryptography/sha256` |
 | the corpus, the state of the field, and what this toolkit reaches | `theory/millennium` |
+| a domain that supplies its own answers, and the reading it corrected | `theory/game_theory` |
 
 ## What is not here
 
