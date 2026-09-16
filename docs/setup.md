@@ -37,7 +37,7 @@ cmake --build build/engine_c
 
 That produces the benches. Start with `build/engine_c/bench_lattice`.
 
-`src/engine/c/portable/anchor_sift.c` compiles on its own with no build system at all, if you only want the search kernel.
+`src/engine/c/engine/anchor_sift.c` compiles on its own with no build system at all, if you only want the search kernel.
 
 ## The books
 
