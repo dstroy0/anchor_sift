@@ -33,8 +33,8 @@
 /** @brief Corpus bytes the timing runs over. */
 #define ARMS_CORPUS 1048576u
 
-/** @brief Arms this driver can hold. */
-#define ARMS_MAX 4u
+/** @brief Arms this driver can hold: the portable one and every wide arm a build can carry. */
+#define ARMS_MAX 5u
 
 /** @brief Fills a field with a skewed distribution, so agreement rates vary across offsets. */
 static void build_field(uint8_t *corpus, size_t length)
@@ -102,6 +102,21 @@ int main(void)
     arms[arm_count] = anchor_steer_portable_engine();
     arm_count += 1u;
 
+#if defined(ANCHOR_STEER_HAVE_AVX512) && ANCHOR_STEER_HAVE_AVX512
+    {
+        const AnchorSteerEngine *avx512 = anchor_steer_avx512_engine();
+        if (avx512 != NULL)
+        {
+            arms[arm_count] = avx512;
+            arm_count += 1u;
+        }
+        else
+        {
+            printf("  avx512 arm compiled in and reported absent by the processor\n");
+        }
+    }
+#endif
+
 #if defined(ANCHOR_STEER_HAVE_AVX2) && ANCHOR_STEER_HAVE_AVX2
     {
         const AnchorSteerEngine *avx2 = anchor_steer_avx2_engine();
@@ -113,6 +128,32 @@ int main(void)
         else
         {
             printf("  avx2 arm compiled in and reported absent by the processor\n");
+        }
+    }
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_SVE) && ANCHOR_STEER_HAVE_SVE
+    {
+        const AnchorSteerEngine *sve = anchor_steer_sve_engine();
+        if (sve != NULL)
+        {
+            arms[arm_count] = sve;
+            arm_count += 1u;
+        }
+        else
+        {
+            printf("  sve arm compiled in and reported absent by the kernel\n");
+        }
+    }
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_NEON) && ANCHOR_STEER_HAVE_NEON
+    {
+        const AnchorSteerEngine *neon = anchor_steer_neon_engine();
+        if (neon != NULL)
+        {
+            arms[arm_count] = neon;
+            arm_count += 1u;
         }
     }
 #endif

@@ -544,20 +544,15 @@ static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const
     // to the loop below, which is the same code the portable engine runs.
     if (stride == 1u)
     {
+        // Resolved through anchor_steer_best_engine, which holds the one dispatch every arm is added
+        // to. Reproducing the #if ladder here would be a second copy that a new arm could miss, and a
+        // scan that keeps running the old widest arm while a wider one reports itself present is
+        // exactly the unused-implementation defect the scan counters exist to catch.
         static const AnchorSteerEngine *chosen = NULL;
         static int resolved = 0;
         if (resolved == 0)
         {
-            chosen = anchor_steer_portable_engine();
-#if defined(ANCHOR_STEER_HAVE_AVX2) && ANCHOR_STEER_HAVE_AVX2
-            {
-                const AnchorSteerEngine *wide = anchor_steer_avx2_engine();
-                if (wide != NULL)
-                {
-                    chosen = wide;
-                }
-            }
-#endif
+            chosen = anchor_steer_best_engine();
             resolved = 1;
         }
         if (chosen != NULL)
@@ -1419,9 +1414,40 @@ void anchor_steer_scan_counters_reset(void)
 
 const AnchorSteerEngine *anchor_steer_best_engine(void)
 {
+    // Widest first, and each arm asks the processor before it is taken. The x86 arms and the ARM arms
+    // are gated by mutually exclusive build macros, so at most one architecture's ladder is compiled
+    // in and the rest fold away. A present arm returning NULL means the build carried it but the
+    // running part does not, and the next arm down is tried.
+#if defined(ANCHOR_STEER_HAVE_AVX512) && ANCHOR_STEER_HAVE_AVX512
+    {
+        const AnchorSteerEngine *wide = anchor_steer_avx512_engine();
+        if (wide != NULL)
+        {
+            return wide;
+        }
+    }
+#endif
 #if defined(ANCHOR_STEER_HAVE_AVX2) && ANCHOR_STEER_HAVE_AVX2
     {
         const AnchorSteerEngine *wide = anchor_steer_avx2_engine();
+        if (wide != NULL)
+        {
+            return wide;
+        }
+    }
+#endif
+#if defined(ANCHOR_STEER_HAVE_SVE) && ANCHOR_STEER_HAVE_SVE
+    {
+        const AnchorSteerEngine *wide = anchor_steer_sve_engine();
+        if (wide != NULL)
+        {
+            return wide;
+        }
+    }
+#endif
+#if defined(ANCHOR_STEER_HAVE_NEON) && ANCHOR_STEER_HAVE_NEON
+    {
+        const AnchorSteerEngine *wide = anchor_steer_neon_engine();
         if (wide != NULL)
         {
             return wide;

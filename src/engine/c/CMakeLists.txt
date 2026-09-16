@@ -64,24 +64,60 @@ target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 #
 # Each scan arm is its own file, engine/scan_<set>.c, one per instruction set. scan_portable.c is the
 # C11 reference every other arm is graded against; a wide arm carries a compiler flag no other file
-# may see, so it cannot share a translation unit. engine/ carries scan_portable.c and scan_avx2.c
-# today; the other sets are written as they land.
+# may see, so it cannot share a translation unit. engine/ carries scan_portable.c, scan_avx2.c,
+# scan_avx512.c, scan_neon.c and scan_sve.c, the same host sets no_rounding/ carries. The device arm
+# matching no_rounding/arm_cuda.cu lands next.
 set(ANCHOR_SIFT_SOURCES engine/anchor_sift.c engine/scan_portable.c)
 set(ANCHOR_SIFT_DEFINES "")
+
+# Each wide arm's flag is set ON ITS SOURCE FILE and never on the target. A target level flag would
+# let the compiler emit that instruction anywhere in the engine, the portable path included, and a
+# machine without it would meet an illegal instruction instead of a slower answer. Confining the flag
+# to the one file it belongs to is what leaves the run time check something to decide, and it is why
+# each arm is its own translation unit. The set carried here matches no_rounding/: a listing of the
+# two directories names the same instruction sets.
+include(CheckCCompilerFlag)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     list(APPEND ANCHOR_SIFT_SOURCES engine/scan_avx2.c)
     list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_AVX2=1)
-    # The flag is set ON THE SOURCE FILE and not on the target. A target level flag would let the
-    # compiler emit AVX2 anywhere in the engine, the portable path included, and a machine without
-    # AVX2 would meet an illegal instruction instead of a slower answer. Confining the flag to the
-    # one file it belongs to is what leaves the run time check something to decide.
     if(MSVC)
-        set(ANCHOR_SIFT_WIDE_OPTIONS /arch:AVX2)
+        set_source_files_properties(engine/scan_avx2.c PROPERTIES COMPILE_OPTIONS "/arch:AVX2")
     else()
-        set(ANCHOR_SIFT_WIDE_OPTIONS -mavx2)
+        set_source_files_properties(engine/scan_avx2.c PROPERTIES COMPILE_OPTIONS "-mavx2")
     endif()
-    set_source_files_properties(engine/scan_avx2.c
-        PROPERTIES COMPILE_OPTIONS "${ANCHOR_SIFT_WIDE_OPTIONS}")
+
+    # AVX-512 on the GCC and Clang builds that accept the flags. MSVC's AVX-512 handling differs and
+    # no machine here runs the arm, so it is gated to the same compilers the exact avx512 arm gates
+    # to and confirmed by maint/engine/verify_arm_asm.sh rather than by running.
+    if(NOT MSVC)
+        check_c_compiler_flag("-mavx512f -mavx512bw" ANCHOR_STEER_CC_TAKES_AVX512)
+        if(ANCHOR_STEER_CC_TAKES_AVX512)
+            list(APPEND ANCHOR_SIFT_SOURCES engine/scan_avx512.c)
+            list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_AVX512=1)
+            set_source_files_properties(engine/scan_avx512.c
+                PROPERTIES COMPILE_OPTIONS "-mavx512f;-mavx512bw")
+        endif()
+    endif()
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
+    list(APPEND ANCHOR_SIFT_SOURCES engine/scan_neon.c)
+    list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_NEON=1)
+    # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build does
+    # need one, and asks for the softfp ABI's NEON rather than assuming a hard float target.
+    if(NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
+        set_source_files_properties(engine/scan_neon.c PROPERTIES COMPILE_OPTIONS "-mfpu=neon")
+    endif()
+
+    # SVE on the aarch64 compilers that accept it. No part here has SVE, so this is an unrun arm the
+    # emission check reads, the same as the exact sve arm.
+    if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
+        check_c_compiler_flag("-march=armv8.2-a+sve" ANCHOR_STEER_CC_TAKES_SVE)
+        if(ANCHOR_STEER_CC_TAKES_SVE)
+            list(APPEND ANCHOR_SIFT_SOURCES engine/scan_sve.c)
+            list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_SVE=1)
+            set_source_files_properties(engine/scan_sve.c
+                PROPERTIES COMPILE_OPTIONS "-march=armv8.2-a+sve")
+        endif()
+    endif()
 endif()
 
 # The engine as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a

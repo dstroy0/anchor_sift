@@ -995,7 +995,7 @@ size_t anchor_steer_count_with_probes(const uint8_t *corpus, size_t corpus_len,
 
 
 
-/* ---- the scan, folded in ---- */
+/* ---- the scan: the engine interface, the shared counters, the dispatch, one arm per set ---- */
 
 
 /**
@@ -1076,6 +1076,56 @@ const AnchorSteerEngine *anchor_steer_avx2_engine(void);
 /** @brief The scan under AVX2. Same contract as the portable one, same count. */
 size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
                                       const uint8_t *alive, uint8_t wanted, size_t offset);
+
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_AVX512) && ANCHOR_STEER_HAVE_AVX512
+
+/**
+ * @brief The AVX-512 engine, answering sixty-four alignments per compare.
+ *
+ * @return A pointer to the engine, or NULL where this processor does not carry AVX-512.
+ * @note Asks the processor instead of trusting the build. No machine here runs it, so the name it
+ *       carries reads avx512-unrun.
+ */
+const AnchorSteerEngine *anchor_steer_avx512_engine(void);
+
+/** @brief The scan under AVX-512. Same contract as the portable one, same count. */
+size_t anchor_steer_truthy_after_avx512(const uint8_t *corpus, size_t alignments,
+                                        const uint8_t *alive, uint8_t wanted, size_t offset);
+
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_NEON) && ANCHOR_STEER_HAVE_NEON
+
+/**
+ * @brief The NEON engine, answering sixteen alignments per compare.
+ *
+ * @return A pointer to the engine. Never null on a build that reached it, since NEON is part of the
+ *         base aarch64 architecture.
+ */
+const AnchorSteerEngine *anchor_steer_neon_engine(void);
+
+/** @brief The scan under NEON. Same contract as the portable one, same count. */
+size_t anchor_steer_truthy_after_neon(const uint8_t *corpus, size_t alignments,
+                                      const uint8_t *alive, uint8_t wanted, size_t offset);
+
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_SVE) && ANCHOR_STEER_HAVE_SVE
+
+/**
+ * @brief The SVE engine, answering a vector's worth of alignments per compare.
+ *
+ * @return A pointer to the engine, or NULL where the kernel does not report SVE. No machine here
+ *         runs it, so the name it carries reads sve-unrun.
+ * @note Detection reads the kernel capability word, since ARM has no cpuid.
+ */
+const AnchorSteerEngine *anchor_steer_sve_engine(void);
+
+/** @brief The scan under SVE. Same contract as the portable one, same count. */
+size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments,
+                                     const uint8_t *alive, uint8_t wanted, size_t offset);
 
 #endif
 
