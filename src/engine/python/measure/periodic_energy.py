@@ -164,20 +164,26 @@ def recover_period(values, reach, seed=SEED):
 
 
 def null_band(values, reach, draws=8, seed=SEED):
-    """The strongest dispersion ratio a shuffle of these values reaches, over `draws` shuffles.
+    """The dispersion ratios a shuffle of these values reaches, over `draws` shuffles, sorted.
 
     recover_period always returns its best period, because the best of a set is always something; a
     structureless sequence has one too, and its ratio is not one but a spread, since which period looks
-    best wanders from shuffle to shuffle. This draws that spread and returns its top. A live reading
-    then means a period is present only when it stands above this band, which is drawn from the data
-    and never a threshold chosen here. `draws` is a declared input, reported with the band.
+    best wanders from shuffle to shuffle. This draws that spread. A live reading means a period is
+    present only when it stands above the top of this band, which is drawn from the data and never a
+    threshold chosen here. `draws` is a declared input.
 
-    Returns the largest ratio any of the shuffles reached, or None where none reached one.
+    The whole spread is returned, not just its top, so a caller can report how much of a margin is the
+    effect and how much is the draw. At a large separation the spread does not matter; at a single-digit
+    ratio it is the difference between a finding and a shuffle that got lucky. The boundary a reading
+    must clear is the last element; the first and last together are the spread.
+
+    Returns the sorted list of ratios the shuffles reached, empty where none reached one. `draws` is a
+    small sample, so widen it for a marginal case rather than trusting one draw.
     """
     values = list(values)
-    top = None
+    ratios = []
     for step in range(draws):
         _, ratio, _ = recover_period(list(permuted(values, seed + step)), reach, seed + step + 1)
-        if ratio is not None and ((top is None) or (ratio > top)):
-            top = ratio
-    return top
+        if ratio is not None:
+            ratios.append(ratio)
+    return sorted(ratios)
