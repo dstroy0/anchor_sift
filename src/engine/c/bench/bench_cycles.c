@@ -305,9 +305,13 @@ int main(void)
             /* What the dispatcher picks, against what the clock says was quickest. The cost of a
              * wrong pick is the ratio between them, and a dispatcher that rarely picks the fastest
              * is not worth having however cheap its inputs are. */
+            /* The census replaced the entropy and the distinct count in the plan, so the rule reads
+             * integer counts. `entropy` and `distinct` above are still computed and still printed;
+             * they are this bench's report and no longer the engine's input. */
+            AnchorFieldCensus census;
+            anchor_field_census(corpus, CORPUS_BYTES, &census);
             const AnchorSiftPlan plan = {
-                .collision_entropy = entropy,
-                .distinct_symbols = distinct,
+                .census = &census,
                 .needle_len = needle_len,
             };
             const AnchorSiftArm chosen = anchor_sift_choose(&plan);

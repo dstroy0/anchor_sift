@@ -259,10 +259,13 @@ int main(void)
         bench_build_bytes(corpus, CORPUS_BYTES, KINDS[which], CORPUS_SEED);
         bench_build_bytes(absent, NEEDLE_BYTES * NEEDLES_PER_ROW, KINDS[which], ABSENT_SEED);
 
-        size_t distinct = 0u;
-        const double entropy = bench_collision_entropy(corpus, CORPUS_BYTES, &distinct);
-        const AnchorSiftPlan plan = {entropy, distinct, NEEDLE_BYTES, held[which].period};
-        const AnchorSiftPlan flat_plan = {entropy, distinct, NEEDLE_BYTES, 0u};
+        /* The plan carries the field's census now, so the dispatch rule reads integer counts
+         * instead of an entropy in double. bench_collision_entropy is still called above where
+         * this bench REPORTS an entropy; the engine no longer consumes one. */
+        AnchorFieldCensus census;
+        anchor_field_census(corpus, CORPUS_BYTES, &census);
+        const AnchorSiftPlan plan = {&census, NEEDLE_BYTES, held[which].period};
+        const AnchorSiftPlan flat_plan = {&census, NEEDLE_BYTES, 0u};
         const double alignments = (double)(CORPUS_BYTES - NEEDLE_BYTES + 1u)
                                   * (double)NEEDLES_PER_ROW;
 
