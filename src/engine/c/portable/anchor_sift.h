@@ -379,7 +379,12 @@ typedef int (*AnchorSameAt)(const void *field, size_t corpus_at, size_t needle_a
 typedef struct
 {
     AnchorSameAt same;  /**< Equality oracle. Never null. */
-    const void *field;  /**< Passed to the oracle untouched [BORROWS]. May be null if unused. */
+    const void *field;  /**< Passed to the oracle untouched, never dereferenced here [BORROWS]. May
+                         *   be null ONLY where the ORACLE does not dereference it either, which
+                         *   means an oracle reaching its data some other way. The engine never uses
+                         *   it, so "if unused" read as a condition always satisfied; the condition
+                         *   is on the oracle. Passing null to an oracle that reads it faults inside
+                         *   the oracle, where the engine cannot see it coming. */
     size_t alignments;  /**< Positions that can host the pattern. Non-zero. */
     size_t needle_len;  /**< Positions the pattern holds. Non-zero. */
 } AnchorField;
