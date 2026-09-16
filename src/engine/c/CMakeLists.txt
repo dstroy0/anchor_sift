@@ -43,52 +43,56 @@ if(NOT DEFINED ANCHOR_SIFT_ROOT)
     get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
 endif()
 
-# The kernel as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a
+# The exact integer as a fixed width limb array, which is the same value the python engine ingests
+# and a different transform of it. Portable C11 with no intrinsic and no 128 bit type, so it builds
+# anywhere and is the engine every vectorized one is checked against.
+add_library(anchor_exact_portable STATIC portable/exact_limbs.c portable/exact_arm_portable.c)
+target_include_directories(anchor_exact_portable PUBLIC portable)
+target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
+
+# THE ENGINE, AS ONE TRANSLATION UNIT. The search, the steering and the wide scan were three files
+# spelling one primitive: byte equality at a shift, counted over positions. The search counted
+# matches, the steering counted survivors, the scan counted the same survivors wider. Three files
+# meant three include graphs, three library targets and three places to look for one loop, and a
+# reader asking where the engine is got a directory listing for an answer.
+#
+# The vectorized scan is the only source that stays outside it. It is not portable by definition, it
+# carries a compiler flag no other file may see, and only the portable engine is held to C11.
+set(ANCHOR_SIFT_SOURCES portable/anchor_sift.c)
+set(ANCHOR_SIFT_DEFINES "")
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
+    list(APPEND ANCHOR_SIFT_SOURCES vectorized_win/anchor_steer_avx2.c)
+    list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_AVX2=1)
+    # The flag is set ON THE SOURCE FILE and not on the target. A target level flag would let the
+    # compiler emit AVX2 anywhere in the engine, the portable path included, and a machine without
+    # AVX2 would meet an illegal instruction instead of a slower answer. Confining the flag to the
+    # one file it belongs to is what leaves the run time check something to decide.
+    if(MSVC)
+        set(ANCHOR_SIFT_WIDE_OPTIONS /arch:AVX2)
+    else()
+        set(ANCHOR_SIFT_WIDE_OPTIONS -mavx2)
+    endif()
+    set_source_files_properties(vectorized_win/anchor_steer_avx2.c
+        PROPERTIES COMPILE_OPTIONS "${ANCHOR_SIFT_WIDE_OPTIONS}")
+endif()
+
+# The engine as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a
 # measurement.
-add_library(anchor_sift_kernel STATIC portable/anchor_sift.c)
+add_library(anchor_sift_kernel STATIC ${ANCHOR_SIFT_SOURCES})
 target_include_directories(anchor_sift_kernel PUBLIC portable)
-target_link_libraries(anchor_sift_kernel PUBLIC anchor_steer)
+target_compile_definitions(anchor_sift_kernel PUBLIC ${ANCHOR_SIFT_DEFINES})
+target_link_libraries(anchor_sift_kernel PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
 
 # The same source with the counters compiled in. ANCHOR_SIFT_COUNT_READS is PUBLIC so a driver
 # linking this library sees the same value the library was built with, which is what keeps a driver
 # from calling anchor_sift_counters_reset against a kernel that does not define it.
-add_library(anchor_sift_kernel_counted STATIC portable/anchor_sift.c)
+add_library(anchor_sift_kernel_counted STATIC ${ANCHOR_SIFT_SOURCES})
 target_include_directories(anchor_sift_kernel_counted PUBLIC portable)
-target_compile_definitions(anchor_sift_kernel_counted PUBLIC ANCHOR_SIFT_COUNT_READS=1)
-target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_steer)
+target_compile_definitions(anchor_sift_kernel_counted PUBLIC ${ANCHOR_SIFT_DEFINES}
+    ANCHOR_SIFT_COUNT_READS=1)
+target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel_counted PRIVATE ${SIFT_WARNINGS})
-
-# The exact integer as a fixed width limb array, which is the same value the python engine ingests
-# and a different transform of it. Portable C11 with no intrinsic and no 128 bit type, so it builds
-# anywhere and is the arm every vectorized one is checked against.
-add_library(anchor_exact_portable STATIC portable/exact_limbs.c portable/exact_arm_portable.c)
-target_include_directories(anchor_exact_portable PUBLIC portable)
-target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
-
-# The steering scan, one arm per instruction set. The scan is where a planner spends its time: held
-# at one needle offset it asks, across every alignment still standing, whether the corpus agrees with
-# one broadcast byte. That is a wide compare and nothing else, so it vectorizes directly.
-set(ANCHOR_STEER_ARM_SOURCES portable/anchor_steer_arm.c)
-set(ANCHOR_STEER_ARM_DEFINES "")
-set(ANCHOR_STEER_ARM_OPTIONS "")
-if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
-    list(APPEND ANCHOR_STEER_ARM_SOURCES vectorized_win/anchor_steer_avx2.c)
-    list(APPEND ANCHOR_STEER_ARM_DEFINES ANCHOR_STEER_HAVE_AVX2=1)
-    # The flag permits the intrinsics in this translation unit. It does not permit the compiler to
-    # assume AVX2 anywhere else, because no other translation unit is built with it, and the arm
-    # still asks the processor before it is called.
-    if(MSVC)
-        list(APPEND ANCHOR_STEER_ARM_OPTIONS /arch:AVX2)
-    else()
-        list(APPEND ANCHOR_STEER_ARM_OPTIONS -mavx2)
-    endif()
-endif()
-
-add_library(anchor_steer_arms STATIC ${ANCHOR_STEER_ARM_SOURCES})
-target_include_directories(anchor_steer_arms PUBLIC portable)
-target_compile_definitions(anchor_steer_arms PUBLIC ${ANCHOR_STEER_ARM_DEFINES})
-target_compile_options(anchor_steer_arms PRIVATE ${SIFT_WARNINGS} ${ANCHOR_STEER_ARM_OPTIONS})
 
 # The direct renderer, WITH THE DEVICE ARM COMPILED IN WHERE A CUDA TOOLCHAIN IS PRESENT. A machine
 # carrying a device renders on it by default and the caller does not ask. The two arms produce the
@@ -149,11 +153,6 @@ add_library(anchor_raster STATIC ${ANCHOR_RASTER_SOURCES})
 target_include_directories(anchor_raster PUBLIC portable)
 target_compile_definitions(anchor_raster PUBLIC ${ANCHOR_RASTER_DEFINES})
 target_compile_options(anchor_raster PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
-
-add_library(anchor_steer STATIC portable/anchor_steer.c)
-target_include_directories(anchor_steer PUBLIC portable)
-target_link_libraries(anchor_steer PUBLIC anchor_exact_portable anchor_steer_arms)
-target_compile_options(anchor_steer PRIVATE ${SIFT_WARNINGS})
 
 # Which vectorized arm this target can carry. Decided from the processor the build targets, and
 # every gate is defined on both arms so #if always has a value and an unset build is never a silent
@@ -282,7 +281,18 @@ target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
 #
 # Resolved from a computed root rather than an inline relative chain, matching test_arm_agreement.
 add_executable(test_steer ${ANCHOR_SIFT_ROOT}/test/engine/test_steer.c)
-target_link_libraries(test_steer PRIVATE anchor_steer anchor_sift_kernel)
+target_link_libraries(test_steer PRIVATE anchor_sift_kernel bench_corpora)
+
+# The corpus family comes from bench_corpora and is not generated a second time here. One field is
+# not a measurement: a route that reads fewer bytes on a skewed field can read more on a uniform one,
+# and a grader that sees only the field it was tuned on reports the tuning. Linking the shared
+# generator is also what keeps skewed meaning one thing across this tree.
+#
+# The natural field is opened by absolute path, resolved at configure time. It was opened through a
+# relative chain before, which made the run directory decide whether the field existed, and the test
+# printed a skip and passed. A check whose failure is indistinguishable from its answer is not a
+# check, so the path is compiled in and the file being absent is now a reported failure.
+target_compile_definitions(test_steer PRIVATE ANCHOR_SIFT_SOURCE_ROOT="${ANCHOR_SIFT_ROOT}")
 
 # The adversarial suite. Seven cases, every one differential or graded against a count derived by
 # hand, so none of them checks a number somebody wrote down. It attacks the engine from outside its
@@ -294,19 +304,19 @@ target_link_libraries(test_steer PRIVATE anchor_steer anchor_sift_kernel)
 # mutations and their signatures. A suite nobody has watched fail is indistinguishable from an empty
 # loop, so that record is part of the test rather than commentary on it.
 add_executable(test_adversarial "${ANCHOR_SIFT_ROOT}/test/engine/test_adversarial.c")
-target_link_libraries(test_adversarial PRIVATE anchor_steer anchor_sift_kernel)
+target_link_libraries(test_adversarial PRIVATE anchor_sift_kernel)
 
 # Sweeps every render configuration, four layouts by four channels, writes each as a PGM, grades the
 # host raster against the device one byte for byte where a device is present, and times the frame
 # rate of a steered probe set against an unsteered one on the same object.
 add_executable(bench_raster bench/bench_raster.c)
-target_link_libraries(bench_raster PRIVATE anchor_raster anchor_steer anchor_sift_kernel)
+target_link_libraries(bench_raster PRIVATE anchor_raster anchor_sift_kernel)
 
-# Grades every steering scan arm against the portable one and then times them. The lengths it runs
-# sit around the thirty-two lane boundary a wide arm works in, which is where a vector arm's tail
-# handling fails if it is going to.
+# Grades every steering scan against the portable one and then times them. The lengths it runs sit
+# around the thirty-two lane boundary a wide scan works in, which is where a vectorized tail fails
+# if it is going to.
 add_executable(bench_steer_arms bench/bench_steer_arms.c)
-target_link_libraries(bench_steer_arms PRIVATE anchor_steer_arms)
+target_link_libraries(bench_steer_arms PRIVATE anchor_sift_kernel)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 
 # The ingestion reading: at what scale does the corpus agree with itself, and what does that cost

@@ -35,7 +35,7 @@
  *       portable arm runs.
  */
 
-#include "anchor_steer_arm.h"
+#include "anchor_sift.h"
 
 #include <immintrin.h>
 
@@ -148,13 +148,13 @@ size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
     return standing;
 }
 
-const AnchorSteerArm *anchor_steer_avx2_arm(void)
+const AnchorSteerEngine *anchor_steer_avx2_engine(void)
 {
-    static const AnchorSteerArm arm = { "avx2", anchor_steer_truthy_after_avx2 };
+    static const AnchorSteerEngine engine = { "avx2", anchor_steer_truthy_after_avx2 };
 
     if (steer_avx2_present() == 0)
     {
         return NULL;
     }
-    return &arm;
+    return &engine;
 }
