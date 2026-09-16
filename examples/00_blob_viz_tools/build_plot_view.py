@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-006
+#
 """Plots one or more expressions over a grid and hands them to the shape viewer.
 
 The other generators read something that was measured. This one evaluates something that was

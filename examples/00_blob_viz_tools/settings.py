@@ -1,3 +1,7 @@
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-021
+#
 """Opening state for a viewer page, as parameters instead of edits to a template.
 
 Every generator here takes --set key=value, repeatable, and passes the result through to the page.

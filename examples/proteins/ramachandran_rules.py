@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-# Catalog: PRO-RULES
+# Catalog: PRO-x-005
 #
 # The Ramachandran rules, held in one place so the protein stages read them the same way.
 #

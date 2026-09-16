@@ -79,12 +79,18 @@ static void grade(const char *what, size_t measured, size_t expected)
     {
         failures += 1u;
     }
-    // Widened to the widest unsigned the format can name, which loses nothing. size_t has no
-    // printf spelling every runtime this builds on accepts: the MinGW runtime rejects %zu and
-    // prints the letter. Carrying the value up is portable where reaching for a length modifier
-    // one library understands is not.
-    printf("  %-34s measured %-12llu expected %-12llu %s\n", what, (unsigned long long)measured,
-           (unsigned long long)expected, agrees ? "OK" : "DISAGREES");
+    // %zu, which is the spelling the rest of this tree already uses for a size_t. gcc warns on it
+    // here because MinGW's headers assume msvcrt semantics; the runtime actually linked is the
+    // UCRT, which has handled %zu since Visual Studio 2015, and the warning is noise.
+    //
+    // Measured rather than assumed, because an earlier revision of this file got it wrong in the
+    // other direction: it widened every count to unsigned long long and recorded in a comment that
+    // the runtime rejects %zu and prints the letter. That was inferred from the warning and never
+    // observed. A probe printing two %zu followed by a %s prints all three correctly, so argument
+    // consumption does not slip. The widening was a portability choice stated as a repair, and it
+    // put a second printf convention into a tree that already had one.
+    printf("  %-34s measured %-12zu expected %-12zu %s\n", what, measured, expected,
+           agrees ? "OK" : "DISAGREES");
 }
 
 int main(void)
@@ -109,8 +115,7 @@ int main(void)
                                                   needle_len);
         char label[64];
 
-        // Widened for the same reason as in grade().
-        printf("needle_len %llu\n", (unsigned long long)needle_len);
+        printf("needle_len %zu\n", needle_len);
 
         snprintf(label, sizeof label, "anchor_sift_inorder");
         grade(label, anchor_sift_inorder(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len),

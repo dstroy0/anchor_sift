@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-014
+#
 """Sweeps the analysis and draws every setting at once, so an artifact of the analysis is visible.
 
 A spectrogram is a picture of a signal and a picture of the window that made it, and nothing in the

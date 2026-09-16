@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-004
+#
 """Turns any parametric table into the shape viewer, without knowing what the table is about.
 
 The other generators here each read one measurement this repository produces. This one reads a CSV

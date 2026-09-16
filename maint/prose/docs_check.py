@@ -11,7 +11,10 @@
 # and nothing could have caught it. Each check below is a defect that actually reached a published
 # page, and none of them is a matter of taste.
 #
-# Exit status is the count of findings, so it fails a pipeline without needing a flag.
+# Exit status is 0 where nothing breaking was found, 1 for a refusal and 2 for the sentinel. It is
+# never a count. This line claimed a count until today, which had been false since the codes were
+# reworked, and the note at the end of main() carries the incident: returning the number of findings
+# made a run with exactly two breaking findings read as the sentinel for a run that read nothing.
 
 import os
 import re
@@ -34,7 +37,17 @@ BANNED = (
     # version of this pattern included them and reported nine sites that were all correct.
     r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
     r"conveys|convey|announces|announce|advertises|advertise)\b",
-    r"\bso a\b",
+    # The article is part of the construction, not part of the noun, so both spellings belong in one
+    # pattern. This read `\bso a\b` and therefore never matched `so an` at all: the ban names a
+    # clause, the pattern implemented a token, and the difference was invisible because the tool
+    # reported zero for a form it could not see. Across seven scoped ProtoCore files, 21 of 105
+    # instances are `so an`. Every count of this construction taken before now measured the matcher
+    # rather than the tree.
+    #
+    # The FREQUENCY entry below deliberately keeps the narrow `\bso a\b`. Its rate was measured over
+    # that spelling alone across 759,815 human words, and widening the pattern there would carry a
+    # rate to a population it was never taken over.
+    r"\bso an?\b",
     r"load-bearing",
     r"\blabelled\b",
     r"\bmodelled\b",
@@ -1039,7 +1052,7 @@ def private_roots():
 # Fetched or generated, so nothing in them was written here.
 # fixtures holds the positive control for claudese_distance.py, written deliberately in the
 # assistant register. Repairing it would delete the only sample of the thing being detected.
-SKIP_DIRS = (".git", "build", "site", "deps", "__pycache__", ".vscode", "fixtures")
+SKIP_DIRS = (".git", "build", "site", "deps", "__pycache__", ".vscode", "fixtures", ".claude")
 
 # A markdown table separator: | --- | --- |
 SEPARATOR = re.compile(r"^\s*\|[\s:|-]+\|\s*$")
