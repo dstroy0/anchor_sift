@@ -565,6 +565,24 @@ The cost of discarding order, dimension and alphabet is paid on every domain and
 
 The accumulation is still a bitwise OR over an alignment bit vector, the survivors are still its complement, and the mask is still \(m\) bits wide whatever the alphabet and whatever the dimension. Those are properties of the construction and the measurement does not touch them.
 
+\subsubsection{Method: take the better fix}
+
+\textbf{Take the better fix, always. Measure it. Record it. Record the rationale.} Douglas's instruction, 2026-09-16, and it is a rule about deciding rather than about any one defect. It is written here because the session that received it had just done the opposite and the opposite looked reasonable at the time.
+
+\textbf{What the smaller fix was, and why it was tempting.} The projection groups a field into classes and labels them rarest first, and the label is a byte, so a field with more than 255 classes cannot have them all named. The theorist measured what the code did with the excess: it capped the class count during DISCOVERY, before the rarity ordering ran, so the merged set was chosen by arrival order. That direction is the harmful one. A class occurring once has one chance to arrive early and a class occurring nine times has nine, so the rarest classes arrive last and were merged first. Two fields with identical frequency multisets and opposite arrangements merged sets whose mean occupancies were 1.06 and 9.00, which no histogram can separate. The rarest class is the best probe the steering has, so the code was spending exactly what the projection exists to find, and worst on the most natural arrangement.
+
+Two repairs were available. Refuse such a field outright, which is four lines and fails closed. Or carry the classes in caller supplied buffers so the count runs unbounded and the clamp applies at relabel time, which changes the signature and needs the caller to find memory.
+
+\textbf{The smaller one was taken first and three arguments supported it.} It fails closed, which this engine does everywhere. It is small, and the signature had already changed twice that day under a reader who was mid verification and had asked for it to stop moving. And it enforced advice already given to three sessions independently, all of whose fields were the shape that would have been refused.
+
+\textbf{Every one of those arguments is about the cost of the change and none is about the result.} Refusing leaves a capability unbuilt: a field of a thousand classes could keep its 255 rarest apart and get the fast path, and under the refusal it gets nothing. The rule names that directly. A fix chosen because it is cheap to make is chosen on the wrong axis, and the axis it is chosen on is invisible afterwards, because what ships looks deliberate either way.
+
+\textbf{The two halves after "always" are what make it checkable.} Measure it: the better fix is asserted at 400 classes counted rather than capped and 256 ranks used with the rarest kept apart, and the second of those is the assertion the smaller fix would have failed. Record it: both the defect and the discarded alternative are in \texttt{docs/\allowbreak{}findings-for-verification.md}, so a reader meeting the buffers knows what they buy. Without the measurement "better" is a preference; without the record the next person re-derives the same tradeoff and may take the cheap side again.
+
+\textbf{It also settles a conflict this workbook had no rule for.} The theorist, who found the defect, explicitly asked that the signature not be reopened, and their reasoning was sound. A peer's preference about how to work is information. The user's process rule is not. The rule was followed over the peer's preference and the peer was told why, which is the handling this entry exists to fix in advance next time.
+
+\textbf{A rule with no counterweight would be a licence to rewrite everything, and the counterweight is already here.} Better means better as a result, not larger. The fix that did NOT get taken in the same session is the evidence: a proposed change from comparing against one representative per class to comparing every pair was measured first, and it was taken only because the representative form was outright wrong on a predicate that is not transitive, not because it was more thorough. And a separate rework offered in the same hour was declined, because nothing measured showed the current form losing anything.
+
 \subsubsection{Criteria for Result Validity}
 
 Every quantity here is a departure from a background and none is a value. A dispersion of 0.28 says nothing; the same dispersion against a shuffle of the same bytes is 2.91 and says the positions carry something. A Zipf slope of -0.988 is inside the natural range and is also what independent draws give.
