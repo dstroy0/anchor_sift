@@ -113,7 +113,7 @@ if ($LASTEXITCODE -ne 0)
 # against MSVC 14.44: bench_dispatch.c:105 uses CLOCK_MONOTONIC, which is POSIX and absent, and
 # bench_lattice.c:500 onward does not parse. Both predate this script.
 $targets = @("anchor_sift_kernel", "anchor_steer", "anchor_steer_arms", "anchor_raster",
-             "anchor_exact_portable", "test_steer", "bench_steer_arms", "bench_raster",
+             "anchor_exact_portable", "test_steer", "test_adversarial", "test_arm_agreement", "bench_steer_arms", "bench_raster",
              "bench_exact_arms", "bench_exact")
 Write-Host "[*] building"
 foreach ($target in $targets)
@@ -133,7 +133,7 @@ if ($BuildOnly)
 }
 
 $failed = 0
-foreach ($grader in @("test_steer", "bench_steer_arms", "bench_raster", "bench_exact_arms"))
+foreach ($grader in @("test_steer", "test_adversarial", "test_arm_agreement", "bench_steer_arms", "bench_raster", "bench_exact_arms"))
 {
     $exe = Join-Path $build "$grader.exe"
     if (-not (Test-Path $exe))

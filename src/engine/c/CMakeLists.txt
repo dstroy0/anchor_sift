@@ -64,15 +64,6 @@ add_library(anchor_exact_portable STATIC portable/exact_limbs.c portable/exact_a
 target_include_directories(anchor_exact_portable PUBLIC portable)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
-# The steering term: the census the engine reads off the field it is about to search, the rarity
-# ordering taken from that census, and the dispatch test. Placed after the limb library because it
-# links it: the dispatch comparison is 100*total^2 against 85*distinct*sum(count^2), both of which
-# outgrow 64 bits on a corpus of any size. Carrying them exactly is why that test is no longer a
-# floating point one, so the dependency is the point rather than an inconvenience.
-# The direct renderer. Rasterizes the object under examination straight from engine state, with the
-# layout, channel and reduction taken from a configuration rather than fixed. Links nothing: the
-# host arm is C11 and stdio, and the device arm is built separately by maint/engine/build_gpu_arm.sh
-# because nvcc drives MSVC on Windows while this build uses MinGW.
 # The steering scan, one arm per instruction set. The scan is where a planner spends its time: held
 # at one needle offset it asks, across every alignment still standing, whether the corpus agrees with
 # one broadcast byte. That is a wide compare and nothing else, so it vectorizes directly.
@@ -290,6 +281,18 @@ target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
 # Resolved from a computed root rather than an inline relative chain, matching test_arm_agreement.
 add_executable(test_steer ${ANCHOR_SIFT_ROOT}/test/engine/test_steer.c)
 target_link_libraries(test_steer PRIVATE anchor_steer anchor_sift_kernel)
+
+# The adversarial suite. Seven cases, every one differential or graded against a count derived by
+# hand, so none of them checks a number somebody wrote down. It attacks the engine from outside its
+# public surface: overlapping occurrences, both boundary alignments, a field where every survivor is
+# false, and the probe_fits guard including the widest line that must be ADMITTED, since a guard
+# refusing the family is as wrong as one that does not bound it.
+#
+# Its file block records that it has been seen to reject three deliberately broken engines, with the
+# mutations and their signatures. A suite nobody has watched fail is indistinguishable from an empty
+# loop, so that record is part of the test rather than commentary on it.
+add_executable(test_adversarial "${ANCHOR_SIFT_ROOT}/test/engine/test_adversarial.c")
+target_link_libraries(test_adversarial PRIVATE anchor_steer anchor_sift_kernel)
 
 # Sweeps every render configuration, four layouts by four channels, writes each as a PGM, grades the
 # host raster against the device one byte for byte where a device is present, and times the frame
