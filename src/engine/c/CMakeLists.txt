@@ -269,6 +269,13 @@ target_compile_options(bench_scaling_cycles PRIVATE ${SIFT_WARNINGS})
 # compile against the counted one rather than printing a number nobody should read.
 add_executable(bench_dispatch bench/bench_dispatch.c)
 target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
+target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
+
+# Its warnings used to be set fifty lines below, inside bench_steer_arms's block, by a line naming
+# this target instead of that one. bench_dispatch was covered by accident and bench_raster and
+# bench_steer_arms were covered by nothing, which is invisible because a target with no warning
+# flags emits no warnings and reads exactly like a clean one. Every add_executable here now sets its
+# own beside its own link line, so the pairing is checkable by reading down rather than by counting.
 
 # Grades the entropy-ordered rejection vector. Three things in one run: the steered arm returns the
 # reference arm's count at a residual of exactly zero, the ordering reduces probe reads on a field
@@ -311,13 +318,14 @@ target_link_libraries(test_adversarial PRIVATE anchor_sift_kernel)
 # rate of a steered probe set against an unsteered one on the same object.
 add_executable(bench_raster bench/bench_raster.c)
 target_link_libraries(bench_raster PRIVATE anchor_raster anchor_sift_kernel)
+target_compile_options(bench_raster PRIVATE ${SIFT_WARNINGS})
 
 # Grades every steering scan against the portable one and then times them. The lengths it runs sit
 # around the thirty-two lane boundary a wide scan works in, which is where a vectorized tail fails
 # if it is going to.
 add_executable(bench_steer_arms bench/bench_steer_arms.c)
 target_link_libraries(bench_steer_arms PRIVATE anchor_sift_kernel)
-target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
+target_compile_options(bench_steer_arms PRIVATE ${SIFT_WARNINGS})
 
 # The ingestion reading: at what scale does the corpus agree with itself, and what does that cost
 # the histogram bound. Links the counted kernel because the claim it checks is about probes and
