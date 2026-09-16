@@ -77,27 +77,25 @@ echo
 echo "  Instruction selection, read off the object file. This grades emission, never behavior."
 echo
 
-PORTABLE="$ROOT/src/engine/c/portable"
-WIN="$ROOT/src/engine/c/vectorized_win"
-RPI="$ROOT/src/engine/c/vectorized_rpi"
+ARMS="$ROOT/src/engine/c/no_rounding"
 
 # The two arms that also have hardware here. Checked the same way so the grade is comparable, and
 # separately run against portable by bench_exact_arms.
 check "avx2 x86-64" gcc \
-    "-O2 -mavx2 -I$PORTABLE -I$WIN -DANCHOR_EXACT_HAVE_AVX2=1" \
-    "$WIN/exact_arm_avx2.c" objdump \
+    "-O2 -mavx2 -I$ARMS -DANCHOR_EXACT_HAVE_AVX2=1" \
+    "$ARMS/arm_avx2.c" objdump \
     vpcmpeqd ymm
 
 # AVX-512: no hardware here. Emission is the whole of the grade.
 check "avx512 xeon" gcc \
-    "-O2 -mavx512f -mavx512bw -mavx512vl -I$PORTABLE -I$WIN -DANCHOR_EXACT_HAVE_AVX512=1" \
-    "$WIN/exact_arm_avx512.c" objdump \
+    "-O2 -mavx512f -mavx512bw -mavx512vl -I$ARMS -DANCHOR_EXACT_HAVE_AVX512=1" \
+    "$ARMS/arm_avx512.c" objdump \
     vpcmpeqd zmm
 
 # NEON on aarch64, cross compiled. The Pi runs this arm natively and it is separately run there.
 check "neon aarch64" aarch64-linux-gnu-gcc \
-    "-O2 -I$PORTABLE -I$RPI -DANCHOR_EXACT_HAVE_NEON=1" \
-    "$RPI/exact_arm_neon.c" aarch64-linux-gnu-objdump \
+    "-O2 -I$ARMS -DANCHOR_EXACT_HAVE_NEON=1" \
+    "$ARMS/arm_neon.c" aarch64-linux-gnu-objdump \
     cmeq uminv
 
 # SVE: no hardware here. Emission is the whole of the grade.
@@ -108,8 +106,8 @@ check "neon aarch64" aarch64-linux-gnu-gcc \
 # caught a wrong expectation and not wrong code, which is the case it is least likely to be
 # trusted on and the one worth writing down.
 check "sve neoverse" aarch64-linux-gnu-gcc \
-    "-O2 -march=armv8.2-a+sve -I$PORTABLE -I$RPI -DANCHOR_EXACT_HAVE_SVE=1" \
-    "$RPI/exact_arm_sve.c" aarch64-linux-gnu-objdump \
+    "-O2 -march=armv8.2-a+sve -I$ARMS -DANCHOR_EXACT_HAVE_SVE=1" \
+    "$ARMS/arm_sve.c" aarch64-linux-gnu-objdump \
     whilelo cmpne ptest ld1w
 
 echo

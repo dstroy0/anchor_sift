@@ -1,7 +1,7 @@
 # The engine in C
 
 **Purpose:** Build and run the sift and its benches using only a C11 compiler, and find which bench answers which question.
-**Scope:** `src/engine/c/portable/`, `src/engine/c/no_rounding/`, `src/engine/c/bench/`
+**Scope:** `src/engine/c/engine/`, `src/engine/c/no_rounding/`, `src/engine/c/render/`, `src/engine/c/bench/`
 
 ```
 cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
@@ -84,8 +84,10 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 
 | file | what it is |
 |---|---|
+| `engine/anchor_sift.{c,h}` | the search, the steering and the portable scan, with no clock and no output |
+| `engine/scan_<set>.c` | one wide scan arm per instruction set, `scan_avx2.c` today |
 | `no_rounding/` | the exact integer and every arm that reads it, one file per instruction set |
-| `portable/anchor_sift.{c,h}` | the search, the steering and the scan, with no clock and no output |
+| `render/anchor_raster.{c,h}`, `render/raster_cuda.cu` | the direct renderer, host and device |
 | `bench/bench_corpora.{c,h}` | the generated corpora and the two statistics a dispatch decision reads |
 | `bench/bench_lattice.c` | soundness, where the claim actually lives |
 | `bench/bench_scaling.c` | what the sift costs per alignment as the corpus grows |

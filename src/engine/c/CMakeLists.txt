@@ -12,15 +12,23 @@
 # Built at -O2 whatever the build type says. A Debug bench measures the debug build, which is not a
 # number anyone wants.
 #
-#   portable/          the arms and the dispatcher in C11 alone, which is the thing under test
-#   vectorized_win/    the same operations under the widest SIMD an x86 Windows build detects
-#   vectorized_linux/  the same, detected on an x86 Linux build
-#   vectorized_rpi/    the same, on ARM NEON
-#   bench/             the drivers that build corpora, count or time, and print rows
+# A file belongs to a directory by what it is, not by the operating system that builds it:
 #
-# The portable arm is the reference and every other arm is checked against it. An arm that disagrees
-# with portable is wrong, whatever it measures, and the vectorized directories exist to be faster at
-# an answer portable already fixed.
+#   engine/       the search, the steering and the scan. anchor_sift.{c,h} and one scan_<set> file
+#                 per instruction set. A file belongs here when it decides which alignments survive.
+#   no_rounding/  the exact arithmetic and the arms that read it. exact_integer.{c,h}, arm.h, and one
+#                 arm_<set> file per instruction set. The name states what the arithmetic is for: it
+#                 removes rounding, so a comparison is exact. A file belongs here when it is an
+#                 implementation of that arithmetic.
+#   render/       the direct renderer. anchor_raster.{c,h} and raster_cuda.cu. A file belongs here
+#                 when it turns engine state into pixels or voxels.
+#   bench/        the drivers that build corpora, count or time, and print rows.
+#
+# The portable arm is the reference in each family and every other arm is checked against it. An arm
+# that disagrees with portable is wrong, whatever it measures, and the per instruction set files
+# exist to be faster at an answer portable already fixed. An instruction set carried in one family
+# is carried in the other where the operation exists there too, so a listing of engine/ and a
+# listing of no_rounding/ name the same sets.
 #
 # The kernel is compiled twice from one source. The counted build carries probe and verification
 # counters; the timed build is the same object it was without them. Two builds instead of one flag
@@ -50,18 +58,18 @@ add_library(anchor_exact_portable STATIC no_rounding/exact_integer.c no_rounding
 target_include_directories(anchor_exact_portable PUBLIC no_rounding)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
-# THE ENGINE, AS ONE TRANSLATION UNIT. The search, the steering and the wide scan were three files
-# spelling one primitive: byte equality at a shift, counted over positions. The search counted
-# matches, the steering counted survivors, the scan counted the same survivors wider. Three files
-# meant three include graphs, three library targets and three places to look for one loop, and a
-# reader asking where the engine is got a directory listing for an answer.
+# THE ENGINE. The search, the steering and the portable scan are one translation unit, anchor_sift.c,
+# because they spell one primitive: byte equality at a shift, counted over positions. The search
+# counts matches, the steering counts survivors, the portable scan counts the same survivors. One
+# file is one include graph and one place to look for the loop.
 #
-# The vectorized scan is the only source that stays outside it. It is not portable by definition, it
-# carries a compiler flag no other file may see, and only the portable engine is held to C11.
-set(ANCHOR_SIFT_SOURCES portable/anchor_sift.c)
+# A wide scan arm stays a separate file per instruction set, engine/scan_<set>.c, because it is not
+# portable by definition and carries a compiler flag no other file may see. Only the portable engine
+# is held to C11. Today engine/ carries scan_avx2.c; the other sets are written as they land.
+set(ANCHOR_SIFT_SOURCES engine/anchor_sift.c)
 set(ANCHOR_SIFT_DEFINES "")
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
-    list(APPEND ANCHOR_SIFT_SOURCES vectorized_win/anchor_steer_avx2.c)
+    list(APPEND ANCHOR_SIFT_SOURCES engine/scan_avx2.c)
     list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_AVX2=1)
     # The flag is set ON THE SOURCE FILE and not on the target. A target level flag would let the
     # compiler emit AVX2 anywhere in the engine, the portable path included, and a machine without
@@ -72,14 +80,14 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     else()
         set(ANCHOR_SIFT_WIDE_OPTIONS -mavx2)
     endif()
-    set_source_files_properties(vectorized_win/anchor_steer_avx2.c
+    set_source_files_properties(engine/scan_avx2.c
         PROPERTIES COMPILE_OPTIONS "${ANCHOR_SIFT_WIDE_OPTIONS}")
 endif()
 
 # The engine as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a
 # measurement.
 add_library(anchor_sift_kernel STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel PUBLIC portable no_rounding)
+target_include_directories(anchor_sift_kernel PUBLIC engine no_rounding)
 target_compile_definitions(anchor_sift_kernel PUBLIC ${ANCHOR_SIFT_DEFINES})
 target_link_libraries(anchor_sift_kernel PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
@@ -88,7 +96,7 @@ target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
 # linking this library sees the same value the library was built with, which is what keeps a driver
 # from calling anchor_sift_counters_reset against a kernel that does not define it.
 add_library(anchor_sift_kernel_counted STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel_counted PUBLIC portable no_rounding)
+target_include_directories(anchor_sift_kernel_counted PUBLIC engine no_rounding)
 target_compile_definitions(anchor_sift_kernel_counted PUBLIC ${ANCHOR_SIFT_DEFINES}
     ANCHOR_SIFT_COUNT_READS=1)
 target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)

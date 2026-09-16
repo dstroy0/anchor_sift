@@ -103,9 +103,9 @@ try
     }
 
     Write-Host "[*] nvcc -> bench_raster.exe"
-    & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + (Join-Path $src "portable")) `
-        (Join-Path $gpu "anchor_raster_cuda.cu") `
-        anchor_raster.obj anchor_steer.obj exact_limbs.obj anchor_sift.obj bench_raster.obj `
+    & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + $render) `
+        (Join-Path $render "raster_cuda.cu") `
+        anchor_raster.obj exact_integer.obj anchor_sift.obj bench_raster.obj `
         -o bench_raster.exe
     if ($LASTEXITCODE -ne 0)
     {
