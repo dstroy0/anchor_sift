@@ -21,17 +21,15 @@
 # or triclinic, and the right angle restriction is deliberately not applied at fetch time. So the
 # corpus was built to contain exactly the cells the reading gate turns away.
 #
-# A run that skips most of its input and prints a confident median is the case DEVELOPMENT_RULES
-# names directly: a check that cannot fail closed has to be one whose failure is distinguishable
-# from its answer, and zero findings over a root that vanished is a defect and not a pass. This
-# tool makes the denominator visible so a reading can be quoted with it.
+# A run that skips most of its input and prints a confident median is a check whose failure looks
+# like its answer, and zero findings over a root that vanished counts as a defect. This tool exists
+# so the denominator can be quoted beside the result.
 #
 # WHAT IT DOES NOT DO
 #
 # Nothing here is changed on disk, nothing is fetched, and no entry is deleted. This counts.
-# Whether the right angle gate should be lifted is a separate question, argued in
-# PROPOSALS/CRYSTAL_EXACT_PATH_RIGHT_ANGLE_GATE.md, and this tool is the measurement that question
-# needs rather than an answer to it.
+# Whether the right angle gate should be lifted is a separate question, and this tool supplies the
+# measurement that question needs.
 #
 # THE REFUSALS ARE SEPARATED BECAUSE THEY ARE NOT ONE FAULT
 #
