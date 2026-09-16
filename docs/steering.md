@@ -159,6 +159,20 @@ This section has now been written three ways and two of them were wrong, so what
 
 Two things make the question harder than it looks. The trichotomy above says the engine does not cycle, so an unbounded run is a strictly deepening recursion rather than a loop, which is the shape that needs growing storage. Against that, a strictly growing placed set drawn from a finite probe family must terminate, so unbounded recursion requires each new arm to bring a fresh family rather than draw from one shared one.
 
+### What would move the answer, which is one interface and not a rewrite
+
+The engine reads `const uint8_t *corpus` with a `corpus_len`, so it cannot ask for more field than it was handed. Replace that with a reader it may call for more and the picture changes, for a reason worth stating because it is not obvious.
+
+Unbounded reading alone buys nothing. A finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can reach it again. But a reader is a callback the CALLER backs, and a caller may back it with a store that the previous descent's results extend. The write then lives in the caller's loop, the engine stays `const` and gains no write primitive, and the engine still ends up reading what it itself produced. That is the whole of it.
+
+What it composes into keeps everything this document argues for. Growth happens only between descents, on the branch where a descent refuses, which is the shape of asking another slightly different question. Inside a descent the survivors still only shrink, so soundness, the anytime property and termination all hold at the inner level, because all three follow from that one monotonicity. The outer machine is universal and every inner step of it is a sound, terminating, interruptible filter.
+
+Nobody would owe a universality proof for it either. Read a window, act on what was read, append, continue is a tag system, and 2-tag systems have been known universal since Minsky in 1961. What is owed is an encoding into that shape.
+
+The price is exactly the property the engine is sold on. At the outer level termination goes, and that is the evidence rather than a defect to repair: if it stayed decidable whether an outer run finishes, the thing would not be universal. The inner loop keeps its guarantee and the outer one gives up the one it never claimed.
+
+None of this settles the question above. It names what would move the answer and not what the answer is, and nothing in the tree is being built toward it.
+
 ## The interior: the sweep runs the whole legal set
 
 The boundary function is `anchor_steer_probe_fits`, whose domain is probes paired with a needle length and whose range is `{0, 1}` (`src/engine/c/portable/anchor_sift.c:745-770`). It is the characteristic function of the legal probe set: origin inside the needle, and every position the probe reads inside it too, with a step of zero at length above one refused as an arm wearing an eye's shape.

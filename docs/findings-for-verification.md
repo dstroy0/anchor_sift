@@ -210,9 +210,23 @@ Against a growing answer: a strictly growing placed set drawn from a finite prob
 
 **This is not settled and is recorded as unverified in the workbook.** It should not be quoted in either direction.
 
-### O2. The interface is what blocks the construction
+### O2. WANT: the one term that would make the engine a computer
 
-The entries take `const uint8_t *corpus` with a `corpus_len`: a window nailed down. The engine cannot ask for more universe. The change is one interface, a reader the engine may call for more in place of a pointer and a length. Until that exists the construction is what the implementation admits and not what it is.
+**Reframed 2026-09-16 on Douglas's steer, relayed through the theorist.** His words: we are off by one term, that is all, and it just needs unbounding. This entry used to read as a blocker on a classification question. It is a capability somebody might ask for, and it is one interface change.
+
+**The term.** The entries take `const uint8_t *corpus` with a `corpus_len`, which is a window nailed down. The engine cannot ask for more universe. The change is a reader the engine may call for more, in place of a pointer and a length.
+
+**Why that is sufficient and not merely necessary**, which is the part that was missing. Unbounded READ alone does not buy universality: a finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can come back to it. But a reader is a callback the CALLER backs, and a caller can back it with a store that the previous descent's results extend. The write lives in the caller's loop, the engine stays `const`, and the engine still ends up reading what it itself produced. No write primitive enters the engine at all.
+
+**What it composes into, and this is what makes it cheap to keep.** Growth happens only BETWEEN descents, on the refuse branch, which is the "ask another slightly different question" shape. Inside a descent survivors still only shrink, so soundness, the anytime property and termination are all intact at the inner level, since all three follow from that one monotonicity. The result is a Turing complete outer machine whose every inner step is a sound, terminating, interruptible filter. The universality lives in the composition and the inner loop does not change.
+
+**The reduction target is named, so nobody owes a universality proof.** Read a window, act on what was read, append, continue is a tag system. Post introduced them in 1943, Minsky proved 2-tag systems universal in 1961, Cocke and Minsky tightened it in 1964. What would be owed is an encoding into that shape, not a proof from scratch.
+
+**The cost is the evidence.** At the outer level, termination goes. That is not a regression waiting to be fixed: if it were still decidable whether a given outer run finishes, the thing would not be universal. The engine's current selling point is that it always returns an answer, and this trades exactly that, at the outer level only.
+
+**This does not settle O1 and must not be recorded as settling it.** What the engine IS today is unchanged: `ANCHOR_STEER_ANCHORS` is 4, the trichotomy shows it does not cycle, and both were verified this morning. This names what would move the answer, not what the answer is.
+
+**Nothing is blocked on it and nothing is being built.**
 
 ### F14. O3 measured: the oracle is flat in alphabet size and the table is not, with a crossover
 
