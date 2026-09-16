@@ -2,7 +2,6 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRO-x-002
-# Catalog: PRO-VIEW
 #
 # Render the object under exam: a deposited backbone and the one a vector walk rebuilds from a
 # magnitude table and the Ramachandran cell each residue sits in, laid on the same axes so the
