@@ -202,13 +202,25 @@ Found by the theorist in published code, verified here, fixed at `ca62234`.
 
 ## Open
 
-### O1. What the engine actually is, given the universe is the tape
+### F15. O1 settled: one descent is a fixed depth decision procedure, and the cap is not why
 
-The crux is the coarm count. The finite automaton argument takes the state to be one survivor vector over a fixed alignment set, at most `2^|A|` states. If an engine spawns coarms that each carry their own survivor vector, the state is a tuple of vectors and its size grows with the number of arms. `ANCHOR_STEER_ANCHORS` pins that at four today, which makes the question moot for this tree.
+Settled by the theorist against the engine's own declaration, verified here verbatim at `src/engine/c/portable/anchor_sift.h:676`:
 
-Against a growing answer: a strictly growing placed set drawn from a finite probe family must terminate, so unbounded recursion needs each new arm to bring a fresh family rather than draw from one shared one. For a growing answer: the trichotomy says the engine does not cycle, so an unbounded run is a strictly deepening recursion, which is the shape that needs growing storage.
+> One coarm per level, a placed position never reconsidered, depth exactly `wanted` and bounded by ANCHOR_STEER_ANCHORS. Nothing in the descent lets corpus content change the DEPTH, only the choice made at a level.
 
-**This is not settled and is recorded as unverified in the workbook.** It should not be quoted in either direction.
+**The crux dissolves rather than resolving.** O1 asked whether the coarm count grows, because the growing answer needs each arm to carry its own survivor vector so the state becomes a tuple whose size grows with the arm count. One coarm per level means the arms do not multiply: the descent is a chain and not a branching tree, so the state never becomes a growing tuple and the premise that argument rests on is false in this implementation.
+
+**Depth is data independent, and that is the load bearing fact.** `wanted` is a caller constant and corpus content cannot move it, so the shape of the computation is fixed before the run and the data only steers the selection at each level. That is strictly weaker than a finite automaton with data dependent looping, which is in turn strictly weaker than a machine that can fail to halt. One descent is a fixed depth decision procedure over a finite probe family, not a machine whose control flow the input shapes.
+
+**The cap is NOT what settles it**, and the earlier entry implied it was. It said `ANCHOR_STEER_ANCHORS` "pins that at four today, which makes the question moot for this tree", which reads as an accident of a constant that a later constant could undo. It could not. At four billion the depth would still be a caller constant that corpus content cannot move and the classification would not shift one step. An entry resting on the number invites the belief that raising the number reopens the question.
+
+**The argument I gave against a growing answer was right and undersold.** I had it needing a finite probe family: a strictly growing placed set drawn from one must terminate. It does not need the family at all. Depth never consults the data, so termination depends on neither the family being finite, nor the placed set growing, nor the trichotomy. Three independent reasons for one conclusion, and the declaration's is the cheapest.
+
+**The argument I gave for a growing answer was self defeating.** I wrote that the trichotomy says the engine does not cycle, so an unbounded run is a strictly deepening recursion. But non-cycling ON A FINITE STATE SPACE forces termination rather than permitting unbounded depth. Non-cycling is evidence FOR finiteness. I reached for the one property that rules out my own conclusion and did not notice because it sounded like it pointed the other way.
+
+**Scope, stated tightly.** This classifies a SINGLE DESCENT over a fixed corpus and needle. `wanted` is `args->count`, a caller supplied value, so a caller may compute it from data; within one descent it is fixed and the above holds, and across descents that is the caller's loop, which is exactly the boundary O2 draws.
+
+**O1 and O2 are one question asked either side of one interface.** With the corpus nailed down the answer is a fixed depth decision procedure and no coarm count can make it otherwise. With a caller backed reader over a store the previous descent extended, the fixed corpus premise is gone and the outer composite can be universal by the tag system route. O1 was never a hard question that happened to be open; its answer is determined by the interface, and O2 is the only thing that moves it.
 
 ### O2. WANT: the one term that would make the engine a computer
 

@@ -153,11 +153,19 @@ This section has now been written three ways and two of them were wrong, so what
 
 **The methodological error is the durable finding and it survives either answer.** The first version concluded the system is total by observing that every loop inside one invocation is bounded. That is a property of one invocation. A system halting on every input decides its own halting, so the claim needed the outer loop and never looked at it.
 
-### What is open
+### What one descent is
 
-**Whether the construction admits unbounded storage turns on the coarm count, and that is not settled here.** The argument that the engine is a finite automaton takes the state to be one survivor vector over a fixed alignment set, which gives at most `2^|A|` states. If an engine spawns coarms that each carry their own survivor vector, the state is a tuple of vectors and its size grows with the number of arms. `ANCHOR_STEER_ANCHORS` bounds that at four today, which makes the question moot for this tree. Whether a construction that removes the bound has storage growing with recursion depth, and whether that reaches Turing completeness rather than merely unbounded space, is the crux, and it is recorded in the workbook under unverified hypotheses instead of being asserted in either direction.
+The question was whether the construction admits unbounded storage, and it was framed as turning on the coarm count: if an engine spawned coarms that each carried their own survivor vector, the state would be a tuple whose size grows with the arm count.
 
-Two things make the question harder than it looks. The trichotomy above says the engine does not cycle, so an unbounded run is a strictly deepening recursion rather than a loop, which is the shape that needs growing storage. Against that, a strictly growing placed set drawn from a finite probe family must terminate, so unbounded recursion requires each new arm to bring a fresh family rather than draw from one shared one.
+**Settled, and the engine's own declaration settles it.** `anchor_steer_spawn_coarms` states that there is one coarm per level, that depth is exactly `wanted`, and that "nothing in the descent lets corpus content change the DEPTH, only the choice made at a level".
+
+One coarm per level means the arms do not multiply. The descent is a chain, not a branching tree, so the state never becomes a tuple whose size grows, and the premise the growing answer needs is false here. Depth being a caller constant that the corpus cannot move means the shape of the computation is fixed before the run and the data only steers the selection at each level. One descent is therefore a fixed depth decision procedure over a finite probe family, which is strictly weaker than a finite automaton with data dependent looping, which is in turn strictly weaker than a machine that can fail to halt.
+
+**The bound of four is not the reason and it would be a mistake to record it as one.** At four billion the depth would still be a caller constant the corpus cannot move, and the classification would not shift. What carries the argument is that depth is data independent.
+
+Two arguments this section used to give are now retired. Against a growing answer it said a strictly growing placed set drawn from a finite probe family must terminate, which is true and needs no finite family, since depth never consults the data at all. For a growing answer it said the trichotomy shows no cycling, so an unbounded run must be a deepening recursion; that is self defeating, because non-cycling on a finite state space forces termination rather than permitting unbounded depth.
+
+This classifies ONE DESCENT over a fixed corpus and needle. `wanted` is a caller supplied count, so a caller may compute it from data across descents, and that is the caller's loop and belongs to the section below.
 
 ### What would move the answer, which is one interface and not a rewrite
 
