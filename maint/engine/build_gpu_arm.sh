@@ -43,6 +43,16 @@ for one in $ARCHES; do
     GENCODE="$GENCODE -gencode arch=compute_${NUM},code=${one}"
 done
 
+# Removed before the build, so a previous binary cannot survive a failed compile and be run as
+# though it were this one. This script did exactly that for a week: nvcc failed on a header, a
+# binary from Sep 9 was still sitting here, the file existence test below passed, and the bench ran
+# the stale one and reported a device engine that "agreed" with the portable engine at 1.01x. It
+# agreed because it WAS the portable engine, carrying no CUDA at all, and the ratio wandering
+# between 1.01x and 1.14x across runs was two runs of identical code.
+rm -f "$OUT/bench_exact_gpu.exe"
+
+# PIPESTATUS and not $?, because the pipe into grep would otherwise report grep's status and grep
+# succeeds whatever nvcc did. A filter on the output must never decide whether the build passed.
 nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
     -I "$ROOT/src/engine/c/portable" \
     -I "$ROOT/src/engine/gpu" \
@@ -53,9 +63,13 @@ nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
     "$ROOT/src/engine/c/portable/exact_arm_portable.c" \
     "$ROOT/src/engine/c/bench/bench_exact_arms.c" \
     2>&1 | grep -viE "^\s*$|Copyright|Microsoft \(R\)|exact_limbs\.c$|exact_arm_portable\.c$|bench_exact_arms\.c$|exact_agreement\.cu$" | head -20
+NVCC_STATUS=${PIPESTATUS[0]}
 
-if [ ! -f "$OUT/bench_exact_gpu.exe" ]; then
-    echo "  build failed"
+# Both conditions, because each one alone has been wrong here. A status of zero with no file is a
+# linker that wrote nothing; a file with a nonzero status is the stale binary this script used to
+# run. Neither is a build.
+if [ "$NVCC_STATUS" -ne 0 ] || [ ! -f "$OUT/bench_exact_gpu.exe" ]; then
+    echo "  build failed: nvcc exited $NVCC_STATUS"
     exit 1
 fi
 
