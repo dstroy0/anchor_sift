@@ -52,7 +52,7 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
-from measure.periodic_energy import recover_period, against_a_shuffle  # noqa: E402
+from measure.periodic_energy import recover_period, null_band  # noqa: E402
 from reference.periodic import (mean_background, mean_background_incremental,  # noqa: E402
                                 mean_residual)
 from reference.shuffles import permuted  # noqa: E402
@@ -64,6 +64,7 @@ FRAMES = 48
 SWING = 20           # the moving scene's amplitude at a pixel
 PATTERN = 40         # the fixed pattern's amplitude, zero-mean across the frame
 PEDESTAL = 128       # shifts the signed stack into the byte range for the detector's shuffle only
+DRAWS = 8            # shuffles drawn to set the null band a real frame period must stand above
 SEED = 0xF17A
 
 
@@ -108,6 +109,18 @@ def with_static_feature(scene, frame, depth):
     for step in range(len(shaped) // frame):
         shaped[step * frame + 0] += depth
     return shaped
+
+
+def with_impulses(stack, count, swing, seed):
+    """The stack with `count` pixels replaced by a value from nowhere: the wrong KIND of noise.
+
+    Impulses are incoherent, so the frame-period detector should decline them rather than scrub them.
+    """
+    rng = random.Random(seed)
+    out = list(stack)
+    for _ in range(count):
+        out[rng.randrange(len(out))] = rng.randint(-2 * swing, 2 * swing)
+    return out
 
 
 def broken_background(values, period):
@@ -179,6 +192,35 @@ def main():
     wrong_nrr = reduction(stack, wrong_cleaned, scene)
     out.write("  null: rejecting at the wrong period %d reduces noise by %.4f%% (near zero)\n\n"
               % (wrong, float(wrong_nrr) * 100.0))
+
+    # 3c. negative controls: the score must be able to NOT be 100, or it measures the removal of the
+    #     pattern injected rather than the detection of a fixed pattern. A stack with no fixed pattern
+    #     and a stack corrupted by impulses must both sit inside the null band and be declined.
+    band = null_band(byte_view, frame, DRAWS)
+    out.write("  negative controls (a frame period is present only above the null band %.3f over %d shuffles):\n"
+              % (float(band), DRAWS))
+    out.write("  %-24s %-12s %-12s %s\n" % ("case", "live ratio", "above band", "outcome"))
+
+    no_pattern = list(scene)                                       # a moving scene, no fixed pattern
+    wrong_kind = with_impulses(scene, len(scene) // 12, SWING, SEED)   # impulses, the wrong kind
+    for label, arm, has_noise in (
+            ("matched pattern", stack, True),
+            ("no pattern", no_pattern, False),
+            ("wrong kind (impulses)", wrong_kind, True)):
+        arm_bytes = [value + PEDESTAL for value in arm]
+        seen, live, _ = recover_period(arm_bytes, frame)
+        present = (live is not None) and (band is not None) and (live > band)
+        if present:
+            got = reduction(arm, mean_residual(arm, seen), scene)
+            outcome = "remove -> NRR %.2f%%" % (float(got) * 100.0)
+        elif not has_noise:
+            outcome = "decline -> returned untouched: %s" % (list(arm) == scene)
+        else:
+            outcome = "decline -> noise left intact, NRR %.2f%%" % (
+                float(reduction(arm, [Fraction(v) for v in arm], scene)) * 100.0)
+        out.write("  %-24s %-12.3f %-12s %s\n"
+                  % (label, float(live) if live is not None else float("nan"), present, outcome))
+    out.write("\n")
 
     # 4. the floor: a static scene feature is shaped exactly like fixed-pattern noise
     out.write("  floor: a static scene feature cannot be told from a fixed pattern\n")

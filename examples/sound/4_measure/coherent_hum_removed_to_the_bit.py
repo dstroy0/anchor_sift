@@ -58,7 +58,7 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
-from measure.periodic_energy import recover_period, against_a_shuffle, dispersion_ratio  # noqa: E402
+from measure.periodic_energy import recover_period, null_band  # noqa: E402
 from reference.periodic import (mean_background, mean_background_incremental,  # noqa: E402
                                 mean_residual)
 from reference.shuffles import permuted  # noqa: E402
@@ -81,6 +81,7 @@ SWING = 30           # the target's amplitude inside a phase class
 HUM = (-48, -16, 16, 48)   # sums to zero: no constant part for a wrong period to claim
 PEDESTAL = 128       # shifts the signed signal into the byte range for the detector's shuffle only
 REACH = 32           # the longest period the detector considers; it bounds the search, not the answer
+DRAWS = 8            # shuffles drawn to set the null band a real period must stand above
 SEED = 0x50D1
 
 
@@ -119,6 +120,19 @@ def with_own_period_component(target, period, depth):
     for step in range(len(shaped) // period):
         shaped[step * period] += depth
     return shaped
+
+
+def with_impulses(signal, count, swing, seed):
+    """The signal with `count` samples replaced by a value from nowhere: the wrong KIND of noise.
+
+    Impulses are incoherent, so the coherent detector should decline them rather than scrub them. This
+    builds the mismatched negative control.
+    """
+    rng = random.Random(seed)
+    out = list(signal)
+    for _ in range(count):
+        out[rng.randrange(len(out))] = rng.randint(-2 * swing, 2 * swing)
+    return out
 
 
 def broken_background(values, period):
@@ -198,6 +212,37 @@ def main():
     wrong_nrr = reduction(signal, wrong_cleaned, target)
     out.write("  null: rejecting at the wrong period %d reduces noise by %.4f%% (near zero)\n\n"
               % (wrong, float(wrong_nrr) * 100.0))
+
+    # 3c. negative controls: the score must be able to NOT be 100, or it measures the removal of what
+    #     was injected rather than the detection of what is present. Two cases that must fail: a signal
+    #     with no coherent noise, and the wrong KIND of noise. Both must sit inside the null band, the
+    #     spread a shuffle reaches, so the detector declines and removes nothing.
+    band = null_band(byte_view, REACH, DRAWS)
+    out.write("  negative controls (a period is present only above the null band %.3f over %d shuffles):\n"
+              % (float(band), DRAWS))
+    out.write("  %-22s %-12s %-12s %s\n" % ("case", "live ratio", "above band", "outcome"))
+
+    empty = list(target)                                   # no coherent noise at all
+    mismatched = with_impulses(target, len(target) // 12, SWING, SEED)   # wrong kind: impulses
+    for label, arm, clean, has_noise in (
+            ("matched hum", signal, target, True),
+            ("no noise", empty, target, False),
+            ("wrong kind (impulses)", mismatched, target, True)):
+        arm_bytes = [value + PEDESTAL for value in arm]
+        seen, live, _ = recover_period(arm_bytes, REACH)
+        present = (live is not None) and (band is not None) and (live > band)
+        if present:
+            output = mean_residual(arm, seen)
+            got = reduction(arm, output, clean)
+            outcome = "remove -> NRR %.2f%%" % (float(got) * 100.0)
+        elif not has_noise:
+            outcome = "decline -> returned untouched: %s" % (list(arm) == clean)
+        else:
+            kept = reduction(arm, [Fraction(v) for v in arm], clean)
+            outcome = "decline -> noise left intact, NRR %.2f%%" % (float(kept) * 100.0)
+        out.write("  %-22s %-12.3f %-12s %s\n"
+                  % (label, float(live) if live is not None else float("nan"), present, outcome))
+    out.write("\n")
 
     # 4. the floor: a target component at the hum's period is shaped like the hum and is not rejectable
     out.write("  floor: a target component at the hum's period cannot be told from the hum\n")

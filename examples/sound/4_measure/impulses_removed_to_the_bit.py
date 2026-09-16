@@ -161,6 +161,30 @@ def main():
               "        period does not restore, it corrupts, replacing samples with a foreign class)\n\n"
               % (wrong, float(wrong_nrr) * 100.0))
 
+    # 3c. negative controls: the score must be able to NOT be 100. A clean signal has nothing to
+    #     restore, and a COHERENT noise is the class majority itself, so consensus keeps it rather than
+    #     removing it -- that is the other detector's job. Both must fail to reach a real reduction.
+    out.write("  negative controls (must not read 100 against the clean signal):\n")
+    out.write("  %-24s %-14s %s\n" % ("case", "period", "outcome"))
+    hum = (-40, 20, -20, 40, 0)                          # a coherent addend: the wrong KIND for this
+    wrong_kind = [clean[n] + hum[n % len(hum)] for n in range(len(clean))]
+    for label, arm, has_noise in (
+            ("matched impulses", noisy, True),
+            ("no noise", list(clean), False),
+            ("wrong kind (a hum)", wrong_kind, True)):
+        per, _ = recover_exact_period(placed(list(enumerate(arm))), families=2)
+        if per is None:
+            out.write("  %-24s %-14s %s\n" % (label, "none", "decline -> nothing removed"))
+            continue
+        got = consensus_majority(arm, per)
+        if not has_noise:
+            outcome = "returned untouched: %s" % (got == clean)
+        else:
+            got_nrr = reduction(arm, got, clean)
+            outcome = "reduction %.2f%%" % (float(got_nrr) * 100.0)
+        out.write("  %-24s %-14d %s\n" % (label, per, outcome))
+    out.write("\n")
+
     # 4a. scattered impulses: each lands on its own value, so no wrong value out-counts the true one.
     #     the count route recovers them however dense, and the median route is the one that gives way.
     out.write("  floor, scattered impulses (each a value from nowhere), of %d members per class:\n" % CYCLES)
