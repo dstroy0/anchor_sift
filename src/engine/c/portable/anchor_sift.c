@@ -659,7 +659,7 @@ static void steer_make_falsy(const uint8_t *corpus, size_t corpus_len, const uin
  * @note Static and positional, which is where a long parameter list is allowed to live, and the
  *       same shape steer_descend uses for the same reason. The public entries take one const
  *       argument pointer each and both call this.
- * @note THE POPULATION IS THE ARGUMENT AND THAT IS THE WHOLE POINT. One call numbers one
+ * @note THE POPULATION IS THE ARGUMENT. One call numbers one
  *       population, so every rank it produces is comparable with every other rank it produced and
  *       with none produced elsewhere. anchor_field_pair_project hands it a corpus and a needle
  *       together for exactly that reason.
@@ -813,8 +813,8 @@ int anchor_field_project(const AnchorFieldProjection *args)
     }
 
     // FAILS CLOSED ON A SHORT BUFFER. Every position can be its own class, so the three arrays have
-    // to reach `length` or a field of singletons writes past their end. Refused rather than capped,
-    // because capping is what the previous form did and what it cost is recorded below.
+    // to reach `length` or a field of singletons writes past their end. The previous form capped
+    // the arrays, and what that cost is recorded below.
     if (args->classes_length < args->length)
     {
         // WRITES NOTHING, LIKE EVERY OTHER REFUSAL HERE. This path used to set `distinct` to zero

@@ -1112,7 +1112,7 @@ static size_t adversarial_count_symbols(const uint32_t *corpus, size_t corpus_le
  * @brief Counts through two separate projections, one per side. THE BROKEN CONSTRUCTION.
  *
  * @return 1 where both projections ran and `count` was written, 0 where either refused.
- * @note Kept in the suite on purpose as the negative control. A case that cannot show this route
+ * @note Kept in the suite as the negative control. A case that cannot show this route
  *       losing an occurrence cannot show the joint route recovering one.
  */
 static int adversarial_count_apart(const uint32_t *corpus, size_t corpus_length,
@@ -1200,7 +1200,7 @@ static int adversarial_count_together(const uint32_t *corpus, size_t corpus_leng
  *         premise holds, 1 otherwise.
  *
  * @note THE DEFECT. A rank is a symbol's place in the rarity order of the population one call
- *       counted. The class comes from the oracle, which the caller supplies and which is the same
+ *       counted. The class comes from the oracle the caller supplies, and it is the same
  *       function on both sides. The place comes from counting, and two calls count two populations.
  *       Their orders disagree, rank disagreement stops proving symbol disagreement, and a probe
  *       refutes an alignment whose symbols match.
