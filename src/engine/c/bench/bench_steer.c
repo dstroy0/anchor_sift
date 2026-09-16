@@ -276,6 +276,112 @@ static int check_dispatch_exact(void)
     return failed;
 }
 
+/**
+ * @brief Grades the exact rule against the floating point rule it replaces, over many fields.
+ *
+ * @return Count of failures.
+ *
+ * TWO ROUTES TO ONE DECISION. The engine's dispatch used to be a double comparison and is now an
+ * integer one. That is only safe if the two agree, so this runs both over a sweep of fields whose
+ * skew varies from flat to nearly degenerate and compares the verdicts.
+ *
+ * @note The double route here is the rule's MATHEMATICAL form, effective = total^2 / sum(count^2)
+ *       compared against 0.85 * distinct. It is not a transcription of the old two_to_the path,
+ *       which reached the same quantity by taking a logarithm and then approximating a power of two
+ *       with three terms of a series. Comparing against the intended value rather than against that
+ *       approximation is the stronger test: it asks whether the integer rule is right, not whether
+ *       it reproduces an old rounding.
+ * @note A double appears in this function and nowhere in the engine. A bench may carry one to
+ *       describe what the engine decided; the engine may not carry one to decide it.
+ * @note A disagreement is reported and is NOT counted as a failure by itself. Where the two differ
+ *       the field sits within a rounding of the threshold, and there the integer route is correct
+ *       by construction and the double route is the one that moved. The margin is printed so the
+ *       reader can see which case they are looking at.
+ */
+static int check_exact_matches_double(void)
+{
+    int failed = 0;
+    unsigned int agreed = 0u;
+    unsigned int differed = 0u;
+    unsigned int chose_free = 0u;
+    unsigned int chose_inorder = 0u;
+
+    printf("\n  TWO ROUTES TO ONE DECISION, exact integer against the double it replaces.\n\n");
+    printf("  %10s %10s %12s %12s %10s\n", "skew", "distinct", "exact", "double", "verdict");
+
+    for (unsigned int skew = 0u; skew <= 10u; skew += 1u)
+    {
+        AnchorFieldCensus census;
+        memset(&census, 0, sizeof(census));
+
+        /* Field shape sweeps from flat, every symbol equal, to concentrated, where one symbol takes
+         * almost everything. The threshold is crossed somewhere inside this range. */
+        const uint64_t heavy = 1000u + ((uint64_t)skew * 6000u);
+        for (unsigned int symbol = 0u; symbol < 32u; symbol += 1u)
+        {
+            census.occurrences[symbol] = 1000u;
+        }
+        census.occurrences[0] = heavy;
+
+        census.total = 0u;
+        census.distinct = 0u;
+        for (unsigned int symbol = 0u; symbol < ANCHOR_STEER_SYMBOLS; symbol += 1u)
+        {
+            census.total += census.occurrences[symbol];
+            if (census.occurrences[symbol] != 0u)
+            {
+                census.distinct += 1u;
+            }
+        }
+
+        const int exact = anchor_steer_prefers_free(&census);
+
+        double sum_of_squares = 0.0;
+        for (unsigned int symbol = 0u; symbol < ANCHOR_STEER_SYMBOLS; symbol += 1u)
+        {
+            const double count = (double)census.occurrences[symbol];
+            sum_of_squares += count * count;
+        }
+        const double effective = ((double)census.total * (double)census.total) / sum_of_squares;
+        const int by_double = (effective < (0.85 * (double)census.distinct)) ? 1 : 0;
+
+        const int same = (exact == by_double);
+        if (same)
+        {
+            agreed += 1u;
+        }
+        else
+        {
+            differed += 1u;
+        }
+        if (exact != 0)
+        {
+            chose_free += 1u;
+        }
+        else
+        {
+            chose_inorder += 1u;
+        }
+
+        printf("  %10u %10u %12d %12d %10s\n", skew, census.distinct, exact, by_double,
+               same ? "agree" : "differ");
+    }
+
+    printf("\n  %u agreed, %u differed, and the sweep chose free %u times and in order %u times\n",
+           agreed, differed, chose_free, chose_inorder);
+
+    /* THE SWEEP HAS TO CROSS THE THRESHOLD OR THE AGREEMENT PROVES NOTHING. A run where every field
+     * lands on the same side agrees trivially, and would agree just as well against a rule that
+     * ignored its input and returned one answer. Counting the rows is not enough to establish that;
+     * BOTH verdicts have to appear, which is what this tests. */
+    if ((chose_free == 0u) || (chose_inorder == 0u))
+    {
+        printf("  the sweep never crossed the threshold, so the agreement is vacuous: FAILS\n");
+        failed += 1;
+    }
+    return failed;
+}
+
 int main(void)
 {
     uint8_t *corpus = (uint8_t *)malloc(STEER_CORPUS);
@@ -301,6 +407,7 @@ int main(void)
     failed += check_counts_agree(corpus, STEER_CORPUS, needle);
     failed += check_ordering_pays(corpus, STEER_CORPUS, needle, sizeof(needle));
     failed += check_dispatch_exact();
+    failed += check_exact_matches_double();
 
     printf("\n  %d check(s) failed\n", failed);
     free(corpus);
