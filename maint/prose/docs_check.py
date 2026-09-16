@@ -15,6 +15,7 @@
 
 import os
 import re
+import subprocess
 import sys
 
 # The tokens the writing standard bans outright, and the British spellings it bans by pattern.
@@ -952,22 +953,88 @@ for one in DEFAULT_ROOTS:
                          % one)
 
 
-def private_roots():
-    """The closed repositories beside this one, where they are present.
+PRIVATE_NAMES = ("salishan_corpus", "anchor_sift_citations")
 
-    Their READMEs, licences, registers and tools are written here and were going unchecked. Two
-    banned forms sat in the corpus licence for a day because this scan stopped at the public tree.
-    A checkout without them scans four roots and says four, which is the ordinary case for anyone
-    outside this work.
+# The variable that names each closed repository for a checkout keeping it somewhere of its own.
+# Spelled the same as in citations.py, because a person who has met one of them should not have to
+# learn a second name for the same thing.
+PRIVATE_OVERRIDES = {
+    "salishan_corpus": "ANCHOR_SIFT_PRIVATE",
+    "anchor_sift_citations": "ANCHOR_SIFT_CITATIONS",
+}
+
+
+def main_checkout():
+    """The main working tree, which is the one the closed repositories sit beside.
+
+    A linked worktree lives at <repo>/.claude/worktrees/<name>, so a sibling path computed from
+    REPOSITORY lands inside .claude/ and finds nothing. --git-common-dir names the shared .git for
+    the main tree and every linked worktree alike, and its parent is the main checkout. Falls back
+    to REPOSITORY where git cannot answer, which is an exported tree with no history.
     """
-    beside = os.path.join(os.path.dirname(REPOSITORY), "private_repos")
+    try:
+        answer = subprocess.check_output(
+            ["git", "rev-parse", "--git-common-dir"], cwd=REPOSITORY, stderr=subprocess.PIPE
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return REPOSITORY
+
+    common = answer.decode("utf-8", "replace").strip()
+    if not common:
+        return REPOSITORY
+    if not os.path.isabs(common):
+        common = os.path.join(REPOSITORY, common)
+    base = os.path.dirname(os.path.abspath(common))
+    return base if os.path.isdir(base) else REPOSITORY
+
+
+def private_survey():
+    """Every closed repository looked for, split into the ones held and the ones absent.
+
+    Returns (held, absent). Both halves are reported by the caller, and that is the whole point of
+    returning the second one.
+
+    THIS FUNCTION'S OWN REGRESSION, recorded because it is the reason the split exists.
+
+    It used to compute one base, os.path.dirname(REPOSITORY) + "/private_repos". After the move into
+    repos/owned/{public,private} that resolves to repos/owned/public/private_repos, which does not
+    exist, so both closed repositories came back absent and the scan quietly covered the public tree
+    alone. It had been doing that since the move. Nothing could see it, because a run that scans no
+    private roots and a run where there are none to scan printed the same thing: nothing.
+
+    That is the failure this function was written to prevent in the first place -- its docstring
+    already said two banned forms sat in the corpus licence for a day because the scan stopped at
+    the public tree -- and the repair regressed into the same shape one directory move later. So the
+    fix is not only the corrected path. It is that "scanned none" and "there are none" must never
+    again be the same output.
+    """
+    base = main_checkout()
+    owned = os.path.dirname(os.path.dirname(base))
+
     held = []
-    for one in ("salishan_corpus", "anchor_sift_citations"):
-        where = os.environ.get("ANCHOR_SIFT_PRIVATE") if one == "salishan_corpus" else None
-        where = where or os.path.join(beside, one)
-        if os.path.isdir(where):
-            held.append(where)
-    return tuple(held)
+    absent = []
+    for one in PRIVATE_NAMES:
+        named = os.environ.get(PRIVATE_OVERRIDES[one])
+
+        tried = [named] if named else [
+            # Where they live after the move into owned/{public,private}.
+            os.path.join(owned, "private", one),
+            # The layout before it, kept so an unreorganized checkout still works.
+            os.path.join(os.path.dirname(base), "private_repos", one),
+        ]
+
+        found = next((where for where in tried if where and os.path.isdir(where)), None)
+        if found:
+            held.append(found)
+        else:
+            absent.append((one, tuple(where for where in tried if where)))
+
+    return tuple(held), tuple(absent)
+
+
+def private_roots():
+    """The closed repositories that are present, for adding to the roots being scanned."""
+    return private_survey()[0]
 
 # Fetched or generated, so nothing in them was written here.
 # fixtures holds the positive control for claudese_distance.py, written deliberately in the
@@ -1391,6 +1458,21 @@ def main():
         prose += len(wording)
 
     print("  %d file(s) checked, %d breaking, %d prose" % (checked, breaking, prose))
+
+    # Saying which closed repositories were covered and which were looked for and not found.
+    # Before this, a run that covered none and a checkout that has none printed the same nothing,
+    # and that is exactly how this scan stopped covering the private tree for the whole of the
+    # migration without anybody noticing. A count of zero has to be distinguishable from a count
+    # that was never taken, so both halves are printed even when there is nothing to report.
+    if not where_given:
+        held, absent = private_survey()
+        print("  private roots scanned: %d of %d" % (len(held), len(PRIVATE_NAMES)))
+        for one in held:
+            print("    %s" % one.replace("\\", "/"))
+        for name, tried in absent:
+            print("    %s NOT FOUND, looked at:" % name)
+            for where in tried:
+                print("      %s" % where.replace("\\", "/"))
 
     # Checking nothing is not passing. A run that reads no files and reports success is the failure
     # a commit hook cannot see, and it is how a wrong path goes unnoticed for as long as it takes

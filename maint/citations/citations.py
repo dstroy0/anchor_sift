@@ -58,6 +58,7 @@
 import io
 import os
 import re
+import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -124,22 +125,66 @@ NOT_A_NAME = frozenset((
 ))
 
 
-def private_root():
-    """The closed citations repository, taken from the first of three places that has it.
+def main_checkout():
+    """The main working tree, which is the one the private repositories sit beside.
 
-    ANCHOR_SIFT_CITATIONS wins, for a checkout that keeps it somewhere of its own. Then the clone
-    under deps/, the route onto a machine that only consumes it. Then the authoring copy
-    beside this checkout, which is where it is edited and signed.
+    A linked worktree lives at <repo>/.claude/worktrees/<name>, so a sibling path computed from it
+    lands inside .claude/ and finds nothing. Git knows the difference: --git-common-dir names the
+    shared .git directory for the main tree and for every linked worktree alike, and its parent is
+    the main checkout.
+
+    Falls back to ROOT where git cannot answer, which covers an exported tree with no history. That
+    fallback is the ordinary case and not a failure, so it is silent; a private root that is looked
+    for and not found is reported by the caller instead.
+    """
+    try:
+        answer = subprocess.check_output(
+            ["git", "rev-parse", "--git-common-dir"], cwd=HERE, stderr=subprocess.PIPE
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return ROOT
+
+    common = answer.decode("utf-8", "replace").strip()
+    if not common:
+        return ROOT
+    if not os.path.isabs(common):
+        common = os.path.join(HERE, common)
+    base = os.path.dirname(os.path.abspath(common))
+    return base if os.path.isdir(base) else ROOT
+
+
+def private_candidates():
+    """Every place the closed citations repository is looked for, in the order it is looked for.
+
+    Returned rather than searched inline so the caller can say what it looked for when it finds
+    nothing. A gate that reports only "not there" sends the reader to guess at paths, and the
+    guessing is what left this tool pointing at private_repos/ for the whole of the migration.
+    """
+    base = main_checkout()
+    return (
+        # The authoring copy, at repos/owned/private/ beside repos/owned/public/. This is where the
+        # registry actually lives after the move into owned/{public,private}, and its absence from
+        # this list is why --check exited 2 on every commit and every commit needed the bypass.
+        os.path.join(os.path.dirname(os.path.dirname(base)), "private", "anchor_sift_citations"),
+        # The clone under deps/, the route onto a machine that only consumes it.
+        os.path.join(base, "deps", "anchor_sift_citations"),
+        # The layout before the move. Kept so a checkout that has not been reorganized still works.
+        os.path.join(os.path.dirname(base), "private_repos", "anchor_sift_citations"),
+    )
+
+
+def private_root():
+    """The closed citations repository, taken from the first place that has it.
+
+    ANCHOR_SIFT_CITATIONS wins, for a checkout that keeps it somewhere of its own.
     """
     named = os.environ.get("ANCHOR_SIFT_CITATIONS")
     if named:
         return os.path.abspath(named)
-    for candidate in (os.path.join(ROOT, "deps", "anchor_sift_citations"),
-                      os.path.join(os.path.dirname(ROOT), "private_repos",
-                                   "anchor_sift_citations")):
+    for candidate in private_candidates():
         if os.path.isdir(candidate):
             return candidate
-    return os.path.join(ROOT, "deps", "anchor_sift_citations")
+    return private_candidates()[0]
 
 
 def tree_files():
@@ -259,6 +304,13 @@ def main():
     if not os.path.isdir(root):
         out.write("  not there. Clone the closed citations repository, or set"
                   " ANCHOR_SIFT_CITATIONS.\n")
+        # Naming every place it looked, and not only the one it would have used. A gate that
+        # reports a single path it did not find reads as "the repository is missing" when what
+        # happened is that the repository moved and this list did not, which is the state this
+        # tool was in for the whole of the migration.
+        out.write("  looked for it at:\n")
+        for candidate in private_candidates():
+            out.write("      %s\n" % candidate.replace("\\", "/"))
         if bypassing:
             out.write("  bypassed.\n\n")
             out.flush()

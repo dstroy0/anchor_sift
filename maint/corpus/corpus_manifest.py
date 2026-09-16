@@ -88,8 +88,15 @@ BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 # pages/ is the same case as build/. A page render is pdf2png.py run over a paper already in
 # papers/, so the PDF's hash below pins it, and a clone that has not rendered a paper yet would
 # read every one of its pages as a file the inventory lists and the tree does not have.
+#
+# .claude is the same case again and it arrived the way the others did, by something new appearing
+# beside the corpus rather than inside it. A linked git worktree is created under .claude/worktrees/
+# and is a full checkout, so every file of the corpus shows up a second time at a path the inventory
+# does not list. The gate then reads an entire second corpus as unrecorded and refuses every commit,
+# including the commit that would have recorded anything. It is not corpus content: it is a working
+# copy of content already inventoried at its real path.
 IGNORED = (NAME, NAME + ".asc", AUDIO, AUDIO + ".asc", ".git", ".gitignore", "hooks",
-           "README.md", "__pycache__", "build", "pages")
+           "README.md", "__pycache__", "build", "pages", ".claude")
 
 
 def rows_in(path):

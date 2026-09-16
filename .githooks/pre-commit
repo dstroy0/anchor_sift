@@ -31,8 +31,35 @@
 
 set -u
 
-REPO=$(cd "$(dirname "$0")/.." && pwd)
-CHECK="$REPO/maint/prose/docs_check.py"
+# The tree being committed, and not the tree this script happens to sit in. core.hooksPath is an
+# absolute path into the main checkout, so "$0" is always main's copy of this file however many
+# linked worktrees exist. Resolving from it gated every worktree commit on main's WORKING TREE
+# instead of on what was being committed, and main's working tree is whatever the other sessions
+# have half written at that moment. Two commits were stopped that way inside a few minutes, by two
+# different files, neither belonging to the session being stopped. --show-toplevel is correct for
+# the main worktree and for a linked one alike.
+REPO=$(git rev-parse --show-toplevel 2>/dev/null)
+
+if [ -z "$REPO" ]; then
+    echo "  commit stopped: git could not name a working tree to check."
+    exit 1
+fi
+
+# The tools directory is named once, in repotools.toml, and asked for by kind rather than by
+# directory. Hardcoding maint/ here is what makes the tools move under objective 5 a hook edit
+# instead of a config line, and a hook that is edited by hand during a move is a hook that gets it
+# wrong. A missing key stops the commit rather than falling back to a guess: guessing is how this
+# file found its checker at a path that had moved and reported a pass without running it.
+TOOLS=$(sed -n 's/^[[:space:]]*tools[[:space:]]*=[[:space:]]*"\([^"]*\)".*/\1/p' \
+    "$REPO/repotools.toml" 2>/dev/null | head -1)
+
+if [ -z "$TOOLS" ]; then
+    echo "  commit stopped: no [layout] tools key in $REPO/repotools.toml"
+    echo "  the hook will not guess where the tools live."
+    exit 1
+fi
+
+CHECK="$REPO/$TOOLS/prose/docs_check.py"
 
 if [ ! -f "$CHECK" ]; then
     echo "  commit stopped: no docs check at $CHECK"
@@ -55,7 +82,7 @@ status=$?
 # exits 2, because the question cannot be asked at all without it, and a check that reads nothing
 # is never a pass. The second one catches everybody outside this work, so ANCHOR_SIFT_BYPASS=1
 # carries the tool's own --bypass in and the commit goes through with the bypass printed.
-CITATIONS="$REPO/maint/citations/citations.py"
+CITATIONS="$REPO/$TOOLS/citations/citations.py"
 
 # A missing tool stops the commit and is never skipped. This block used to guard with -f and do
 # nothing when the file was absent, so when maint/ was sorted into categories and citations.py moved
