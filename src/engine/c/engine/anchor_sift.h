@@ -69,15 +69,21 @@ void anchor_sift_counters_reset(void);
 #define ANCHOR_STEER_SYMBOLS 256u
 
 /**
- * @brief Most probes any planner here will place, matching ANCHOR_SIFT_ANCHORS in anchor_sift.h.
+ * @brief Most probes any planner here will place, defined as ANCHOR_SIFT_ANCHORS so the two cannot
+ *        drift.
  *
  * @note THIS CONSTANT IS THE TERMINATION ARGUMENT. Every descent below places one probe per level
  *       and never revisits one, so the depth is bounded by this value at compile time. It is
  *       declared here rather than in the implementation because it is part of the contract: a
  *       caller sizing an array of probes needs it, and a reader asking whether a recursion
  *       terminates should find its bound in the header rather than having to open the source.
+ * @note DEFINED FROM ANCHOR_SIFT_ANCHORS, NOT COPIED. An earlier form wrote `4u` here and a comment
+ *       claiming it matched ANCHOR_SIFT_ANCHORS. Nothing held that: the two were independent
+ *       literals, and changing ANCHOR_SIFT_ANCHORS would have left the comment false while every
+ *       file still compiled. Defining one from the other makes the compiler hold the invariant the
+ *       termination argument rests on.
  */
-#define ANCHOR_STEER_ANCHORS 4u
+#define ANCHOR_STEER_ANCHORS ANCHOR_SIFT_ANCHORS
 
 /**
  * @brief What one pass over a corpus records about the field it is.
@@ -694,7 +700,10 @@ typedef struct
  * @param[in]     needle        Bytes to find [BORROWS].
  * @param[in]     needle_len    How many.
  * @param[in]     sample_stride Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
- * @return                      Levels actually descended, which equals `count` on any valid call.
+ * @return                      Levels actually descended, which is AT MOST `count` and is fewer
+ *                              when the destroy rule ends the descent early. `count` on a valid call
+ *                              is the ceiling the depth cannot exceed. Read the return to learn the
+ *                              depth reached, and see the note below on `force_full_depth`.
  *
  * WHY RECURSION BUYS ANYTHING OVER ONE PASS. anchor_steer_probe_order ranks the anchors once, by
  * the MARGINAL rarity of each symbol in the whole field. That is the right first question and the
@@ -751,7 +760,10 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
  * @param[out] survivors        Which alignments the probes left standing, one byte each [BORROWS].
  * @param[in]  survivors_length How many. Must reach the alignment count.
  * @param[in]  sample_stride    Plan on every Nth alignment. 1 reads them all. 0 is treated as 1.
- * @return                      Coarms actually placed, which equals `wanted` on any valid call.
+ * @return                      Coarms actually placed, which is AT MOST `wanted` and is fewer when
+ *                              the destroy rule ends the descent early. `wanted` on a valid call is
+ *                              the ceiling the count cannot exceed. Read the return to learn how many
+ *                              were placed, and size any read of `offsets` by the return itself.
  *
  * SPAWNING RATHER THAN REORDERING. anchor_steer_plan_recursive takes anchors somebody else placed
  * and decides the order to test them in. This decides WHERE THEY GO. At each level it asks every
