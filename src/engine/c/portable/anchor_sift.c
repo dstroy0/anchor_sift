@@ -645,36 +645,29 @@ static void steer_make_falsy(const uint8_t *corpus, size_t corpus_len, const uin
     }
 }
 
-int anchor_field_project(const AnchorFieldProjection *args)
+/**
+ * @brief Numbers one population into classes and puts those classes in rarity order.
+ *
+ * @param[in]  same_in_field         Equality between two positions of the population [BORROWS].
+ * @param[in]  field                 Passed to the oracle untouched [BORROWS].
+ * @param[in]  length                Positions in the population.
+ * @param[out] class_of_position     Which class each position fell in [BORROWS].
+ * @param[out] members_in_class      How many positions each class holds [BORROWS].
+ * @param[out] rarity_place_of_class Where each class sits in the rarity order [BORROWS].
+ * @return                           Classes surviving the merges.
+ *
+ * @note Static and positional, which is where a long parameter list is allowed to live, and the
+ *       same shape steer_descend uses for the same reason. The public entries take one const
+ *       argument pointer each and both call this.
+ * @note THE POPULATION IS THE ARGUMENT AND THAT IS THE WHOLE POINT. One call numbers one
+ *       population, so every rank it produces is comparable with every other rank it produced and
+ *       with none produced elsewhere. anchor_field_pair_project hands it a corpus and a needle
+ *       together for exactly that reason.
+ */
+static size_t field_number_classes(AnchorSameAt same_in_field, const void *field, size_t length,
+                                   uint32_t *class_of_position, uint32_t *members_in_class,
+                                   uint32_t *rarity_place_of_class)
 {
-    if (args == NULL)
-    {
-        return 0;
-    }
-    if ((args->same_in_field == NULL) || (args->ranks == NULL) || (args->length == 0u)
-     || (args->class_of_position == NULL) || (args->members_in_class == NULL)
-     || (args->rarity_place_of_class == NULL))
-    {
-        return 0;
-    }
-
-    // FAILS CLOSED ON A SHORT BUFFER. Every position can be its own class, so the three arrays have
-    // to reach `length` or a field of singletons writes past their end. Refused rather than capped,
-    // because capping is what the previous form did and what it cost is recorded below.
-    if (args->classes_length < args->length)
-    {
-        // WRITES NOTHING, LIKE EVERY OTHER REFUSAL HERE. This path used to set `distinct` to zero
-        // while the null and zero-length refusals left it alone, which meant a caller could not tell
-        // a refused zero from a measured zero. Fail closed says a request that cannot be met changes
-        // no state, so no refusal touches it and the return value is the only thing to read.
-        return 0;
-    }
-
-    const size_t length = args->length;
-    uint32_t *const class_of_position = args->class_of_position;
-    uint32_t *const members_in_class = args->members_in_class;
-    uint32_t *const rarity_place_of_class = args->rarity_place_of_class;
-
     for (size_t at = 0u; at < length; at += 1u)
     {
         class_of_position[at] = (uint32_t)at;
@@ -709,7 +702,7 @@ int anchor_field_project(const AnchorFieldProjection *args)
             {
                 continue;
             }
-            if (args->same_in_field(args->field, at, before) == 0)
+            if (same_in_field(field, at, before) == 0)
             {
                 continue;
             }
@@ -750,7 +743,10 @@ int anchor_field_project(const AnchorFieldProjection *args)
     // find, and worst on the most natural arrangement.
     //
     // A class's place is the number of classes strictly rarer than it, with the class index breaking
-    // ties so the order is total and does not depend on the arrangement.
+    // ties so the order is total and does not depend on the arrangement. THE TIE BREAK IS WHY TWO
+    // POPULATIONS CANNOT SHARE AN ORDER: two singletons tie, the index decides, and the indices come
+    // from where the positions sat in whichever field was numbered. Number the two together and
+    // there is one index space and one answer.
     for (size_t which = 0u; which < length; which += 1u)
     {
         if (members_in_class[which] == 0u)
@@ -776,12 +772,67 @@ int anchor_field_project(const AnchorFieldProjection *args)
         }
         rarity_place_of_class[which] = (uint32_t)rarer;
     }
+    return classes;
+}
+
+/**
+ * @brief Clamps one class's rarity place into a byte rank.
+ *
+ * @param[in] place Where the class sits in the rarity order.
+ * @return          The place, or 255 where it sits past the last rank a byte can hold.
+ *
+ * @note Merging costs discrimination and never soundness. One class takes one place across the
+ *       whole population, so symbol agreement still implies rank agreement after the clamp, and
+ *       that is the direction the filter needs. The alignments a merge admits are rejected by the
+ *       full compare.
+ */
+static uint8_t field_rank_from_place(uint32_t place)
+{
+    return (uint8_t)((place < 255u) ? place : 255u);
+}
+
+int anchor_field_project(const AnchorFieldProjection *args)
+{
+    if (args == NULL)
+    {
+        return 0;
+    }
+    if ((args->same_in_field == NULL) || (args->ranks == NULL) || (args->length == 0u)
+     || (args->class_of_position == NULL) || (args->members_in_class == NULL)
+     || (args->rarity_place_of_class == NULL))
+    {
+        return 0;
+    }
+
+    // Class labels are stored as uint32_t positions. A field wider than that would alias two
+    // positions onto one label and merge classes the oracle never joined, so it is refused. The cast
+    // widens a 32 bit constant into size_t, which holds it on every target this builds for.
+    if (args->length > (size_t)UINT32_MAX)
+    {
+        return 0;
+    }
+
+    // FAILS CLOSED ON A SHORT BUFFER. Every position can be its own class, so the three arrays have
+    // to reach `length` or a field of singletons writes past their end. Refused rather than capped,
+    // because capping is what the previous form did and what it cost is recorded below.
+    if (args->classes_length < args->length)
+    {
+        // WRITES NOTHING, LIKE EVERY OTHER REFUSAL HERE. This path used to set `distinct` to zero
+        // while the null and zero-length refusals left it alone, which meant a caller could not tell
+        // a refused zero from a measured zero. Fail closed says a request that cannot be met changes
+        // no state, so no refusal touches it and the return value is the only thing to read.
+        return 0;
+    }
+
+    const size_t length = args->length;
+    const size_t classes = field_number_classes(args->same_in_field, args->field, length,
+                                                args->class_of_position, args->members_in_class,
+                                                args->rarity_place_of_class);
 
     for (size_t at = 0u; at < length; at += 1u)
     {
-        const uint32_t place = rarity_place_of_class[class_of_position[at]];
-
-        args->ranks[at] = (uint8_t)((place < 255u) ? place : 255u);
+        args->ranks[at] =
+            field_rank_from_place(args->rarity_place_of_class[args->class_of_position[at]]);
     }
 
     if (args->distinct != NULL)
@@ -791,6 +842,70 @@ int anchor_field_project(const AnchorFieldProjection *args)
         // opened rather than the number surviving the merges. A caller reads this to decide whether
         // a projection is worth running, so a healthy number on a collapsed field sends them onto a
         // projection that refutes nothing.
+        *args->distinct = classes;
+    }
+    return 1;
+}
+
+int anchor_field_pair_project(const AnchorFieldPairProjection *args)
+{
+    if (args == NULL)
+    {
+        return 0;
+    }
+    if ((args->same_in_field == NULL) || (args->corpus_ranks == NULL)
+     || (args->needle_ranks == NULL) || (args->class_of_position == NULL)
+     || (args->members_in_class == NULL) || (args->rarity_place_of_class == NULL)
+     || (args->corpus_length == 0u) || (args->needle_length == 0u)
+     || (args->needle_length > args->corpus_length))
+    {
+        return 0;
+    }
+
+    // THE JOINT LENGTH IS A SUM, SO IT IS CHECKED BEFORE IT IS FORMED. Past this point the addition
+    // would wrap to a small length, pass the buffer check below, and project a field far shorter than
+    // the one the caller described.
+    if (args->corpus_length > (SIZE_MAX - args->needle_length))
+    {
+        return 0;
+    }
+    const size_t length = args->corpus_length + args->needle_length;
+
+    // Class labels are stored as uint32_t positions. A joint field wider than that would alias two
+    // positions onto one label and merge classes the oracle never joined, so it is refused. The cast
+    // widens a 32 bit constant into size_t, which holds it on every target this builds for.
+    if (length > (size_t)UINT32_MAX)
+    {
+        return 0;
+    }
+    if (args->classes_length < length)
+    {
+        return 0;
+    }
+
+    const size_t classes = field_number_classes(args->same_in_field, args->field, length,
+                                                args->class_of_position, args->members_in_class,
+                                                args->rarity_place_of_class);
+
+    // ONE POPULATION READ TWO WAYS. Both loops look up the same rarity order. A class present on both
+    // sides takes one rank on both, and rank disagreement between a corpus position and a needle
+    // position proves the two fell in different classes. Two separate projections cannot give that
+    // necessary condition.
+    for (size_t at = 0u; at < args->corpus_length; at += 1u)
+    {
+        args->corpus_ranks[at] =
+            field_rank_from_place(args->rarity_place_of_class[args->class_of_position[at]]);
+    }
+    for (size_t at = 0u; at < args->needle_length; at += 1u)
+    {
+        const size_t joint = args->corpus_length + at;
+
+        args->needle_ranks[at] =
+            field_rank_from_place(args->rarity_place_of_class[args->class_of_position[joint]]);
+    }
+
+    if (args->distinct != NULL)
+    {
         *args->distinct = classes;
     }
     return 1;
