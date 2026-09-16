@@ -80,7 +80,17 @@ TRIES = 3
 # Entries taken per name. The archive treats the count in the query as a hint and returned several
 # hundred for "olivine", which on an early run filled a fifth of the corpus from one family before
 # the sweep reached its second name. The cap below is what actually holds.
-PER_NAME = 60
+#
+# Set against the target rather than for its own sake. At 60 the name list tops out well short of
+# ten thousand, because most names return fewer than sixty and the overlap between related names is
+# large.
+#
+# Raising it alone would undo what it was introduced for. Walking the families in order with a high
+# cap lets olivine and feldspar reach the target before the sulfides are asked at all, which is the
+# same one family corpus the cap was added to prevent, arriving by a different route. The names are
+# therefore interleaved across families below, so the cap governs how deep a single name goes and
+# the interleave governs how evenly the families are sampled. Neither setting is sufficient alone.
+PER_NAME = 120
 
 # Solid solution formers, grouped by the family a mineralogist would put them in. The family is the
 # unit a reading reports by; the names are how the archive is asked.
@@ -192,68 +202,76 @@ def main():
         families.write("# entry\tfamily\tsearch name\n")
         families.flush()
 
+    # Interleaved, not walked family by family. Taking the first name of every family before the
+    # second name of any of them means a target reached early is still spread across the whole list.
+    # Walked in order, a target of ten thousand would be met inside the first few families and the
+    # corpus would carry no sulfides, carbonates or zeolites at all.
+    rounds = []
+    deepest = max(len(names) for _, names in FAMILIES)
+    for step in range(deepest):
+        for family, names in FAMILIES:
+            if step < len(names):
+                rounds.append((family, names[step]))
+
     added = 0
     backfilled = 0
     started = time.time()
-    for family, names in FAMILIES:
+    for family, name in rounds:
         if len(have) >= target:
             break
-        for name in names:
-            if len(have) >= target:
-                break
-            out.write("  %-14s %-18s " % (family, name))
+        out.write("  %-14s %-18s " % (family, name))
+        out.flush()
+        body = fetched(SEARCH % (urllib.request.quote(name), PER_NAME), out)
+        time.sleep(PAUSE)
+        if body is None:
+            out.write("search refused\n")
             out.flush()
-            body = fetched(SEARCH % (urllib.request.quote(name), PER_NAME), out)
-            time.sleep(PAUSE)
-            if body is None:
-                out.write("search refused\n")
-                out.flush()
-                continue
-            try:
-                found = json.loads(body)
-            except ValueError:
-                out.write("search returned nothing readable\n")
-                out.flush()
-                continue
+            continue
+        try:
+            found = json.loads(body)
+        except ValueError:
+            out.write("search returned nothing readable\n")
+            out.flush()
+            continue
 
-            # An entry this search returns that is already cached but carries no family gets one
-            # written now. The corpus was built before families were recorded, so without this the
-            # first twelve hundred entries would stay unlabelled forever. It costs no extra request:
-            # the search response is already in hand and only the CIF fetch is skipped.
-            numbers = []
-            for row in (found if isinstance(found, list) else []):
-                number = str(row.get("file", "")).strip()
-                if not number:
-                    continue
-                if number in have:
-                    if number not in already:
-                        families.write("%s\t%s\t%s\n" % (number, family, name))
-                        already.add(number)
-                        backfilled += 1
-                    continue
-                numbers.append(number)
-            numbers = numbers[:PER_NAME]
-
-            took = 0
-            for number in numbers:
-                if len(have) >= target:
-                    break
-                text = fetched(CIF % number, out)
-                time.sleep(PAUSE)
-                if not text or "_atom_site" not in text:
-                    continue
-                with io.open(os.path.join(CACHE, number + ".cif"), "w",
-                             encoding="utf-8", errors="replace") as handle:
-                    handle.write(text)
-                have.add(number)
+        # An entry this search returns that is already cached but carries no family gets one
+        # written now. The corpus was built before families were recorded, so without this the
+        # first twelve hundred entries would stay unlabelled forever. It costs no extra request:
+        # the search response is already in hand and only the CIF fetch is skipped.
+        numbers = []
+        for row in (found if isinstance(found, list) else []):
+            number = str(row.get("file", "")).strip()
+            if not number:
+                continue
+            if number in have:
                 if number not in already:
                     families.write("%s\t%s\t%s\n" % (number, family, name))
                     already.add(number)
-                added += 1
-                took += 1
-            families.flush()
-            out.write("%d new (%d offered)\n" % (took, len(numbers)))
-            out.flush()
+                    backfilled += 1
+                continue
+            numbers.append(number)
+        numbers = numbers[:PER_NAME]
+
+        took = 0
+        for number in numbers:
+            if len(have) >= target:
+                break
+            text = fetched(CIF % number, out)
+            time.sleep(PAUSE)
+            if not text or "_atom_site" not in text:
+                continue
+            with io.open(os.path.join(CACHE, number + ".cif"), "w",
+                         encoding="utf-8", errors="replace") as handle:
+                handle.write(text)
+            have.add(number)
+            if number not in already:
+                families.write("%s\t%s\t%s\n" % (number, family, name))
+                already.add(number)
+            added += 1
+            took += 1
+        families.flush()
+        out.write("%d new (%d offered)\n" % (took, len(numbers)))
+        out.flush()
 
     families.close()
     out.write("\n  added %d, family backfilled onto %d already cached, cache now %d, %.0fs\n\n"

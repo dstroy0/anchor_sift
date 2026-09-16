@@ -10,6 +10,7 @@
 | `3_reference` | `what_a_grid_invents.py` | how much of a reading a shuffle also reaches |
 | `4_measure` | `period_from_the_difference_set.py` | what the instrument returns, with no answer key |
 | `4_measure` | `doping_from_shared_sites.py` | which sites hold two elements, read by incidence alone |
+| `4_measure` | `doping_after_symmetry_expansion.py` | the same count over the whole cell, by mineral family |
 | `5_sift` | `lattice_breaks_the_product_rule.py` | how far the histogram bound is out on a lattice |
 | `6_oracle` | `proof_positive_control.py` | whether it matches what somebody else published |
 | `6_oracle` | `doping_against_deposited_occupancy.py` | whether the doping found agrees with a column it never read |
@@ -83,6 +84,43 @@ Doping does not disturb the recovered period, and the reason is structural rathe
 cell repeats whatever it contains, dopant included, so the lattice is untouched. An ideal doped
 crystal is still exactly periodic, and stage four's two measures read two different things out of
 one set of points.
+
+### How complex the doping gets
+
+Two elements on one position is the ordinary case and it is not the interesting one. Reading one
+cell each across the corpus, 705 positions hold two elements, 34 hold three, and the tail runs to
+**one position holding ten**: `Ce/Dy/Er/Gd/La/Nd/Pr/Sm/Y/Yb`, a rare earth site that took whichever
+lanthanides were in the melt. Three separate spinels hold seven at once, `Al/Cr/Fe/Mg/Ni/Ti/V`.
+
+Counting distinct substitution types per deposit rather than per position, 135 entries carry one and
+**83 carry two at once**. Two at once is a coupled substitution, which is how a lattice swaps ions of
+unequal charge and stays balanced: the plagioclase series runs Al for Si on one site against Ca for
+Na on another, and neither half works alone. The measure was not told that and has no charges in it.
+
+### Symmetry expansion counts more places and finds no more doping
+
+A CIF publishes the asymmetric unit and the operations that generate the rest of the cell.
+`doping_after_symmetry_expansion.py` applies them and counts again.
+
+The shared positions go from 712 to 3469, which is 4.87 times as many, and the honest description of
+that rise is narrow. **Zero entries that showed no shared site before expansion show one after.**
+Every position the expansion adds is a symmetry copy of a site the asymmetric reading already found.
+So expansion does not change which entries are doped; it gives the true count of doped places per
+cell, which is what a composition needs and is not a detection.
+
+That was worth measuring because the opposite was plausible. Two sites written separately in the
+asymmetric unit can become one place after an operation, and had that happened anywhere here the
+simpler reading would have been undercounting entries rather than only positions. It does not happen
+in this corpus, which is a fact about this corpus and not a theorem.
+
+The expansion is exact, and that took a second scale. A translation of 1/3 is not a decimal at any
+number of places, because 10^n factors into twos and fives and three divides neither. An R centred
+operation is full of thirds and the corpus is full of R-3. Carrying those through the decimal scale
+would displace every copy they generate, so a symmetry copy would land beside the atom it should
+have landed on rather than on it, and the doping at that place would vanish silently. Coordinates in
+`representation/structure/symmetry.py` are therefore integers in units of 1/(24 · 10^1024), and an
+operation whose denominator does not divide 24 raises instead of rounding. Across the corpus nothing
+raised: 24 held every operation the deposits published, eighths included.
 
 ### What that cost to learn
 
