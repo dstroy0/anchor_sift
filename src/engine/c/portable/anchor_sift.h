@@ -612,16 +612,20 @@ typedef struct
  *
  *   - exactly one anchor is placed per level, and a placed anchor is never reconsidered
  *   - the unplaced set therefore shrinks by exactly one each level and never grows
- *   - the depth is `count`, which is bounded by ANCHOR_STEER_ANCHORS, a compile-time constant
- *   - no branch anywhere in the descent depends on corpus content for its DEPTH, only for its
- *     choice at a level
+ *   - the depth is AT MOST `count`, which is bounded by ANCHOR_STEER_ANCHORS, a compile-time
+ *     constant, and the loop cannot run past it whatever the corpus holds
  *
- * So the depth is fixed before the program runs and is readable off the declaration. This is
- * primitive recursion over a finite set with a constant bound, which terminates by construction the
- * way a `for` loop over a fixed array does. There is no runtime guard, no iteration cap and no
- * watchdog here, because a bound enforced at compile time does not need one and a runtime check
- * would imply the bound were in doubt. The return value exists so a caller can ASSERT the depth
- * rather than trust this paragraph.
+ * So the depth is bounded from ABOVE before the program runs, and that bound is what terminates it:
+ * a strictly shrinking unplaced set under a constant ceiling, the way a `for` loop over a fixed
+ * array does. There is no runtime guard, no iteration cap and no watchdog, because a bound enforced
+ * at compile time does not need one.
+ *
+ * THE DEPTH IS NOT FIXED, THOUGH, AND AN EARLIER FORM OF THIS LIST SAID IT WAS. It read "no branch
+ * anywhere in the descent depends on corpus content for its DEPTH, only for its choice at a level",
+ * which is false unless `force_full_depth` is set. The destroy test reads a survivor count off the
+ * corpus and breaks, so the field routinely ends the descent early, and an omitted member is zero so
+ * that is the default path. Depth is a truthy and falsy steer bounded above by a constant, and the
+ * return value exists so a caller can read the depth actually reached rather than assume `count`.
  *
  * @note THE PLANNER IS ALLOWED TO BE WRONG. Ordering cannot change which alignments survive, since
  *       an alignment survives only when every anchor agrees and a conjunction is order independent.
@@ -673,10 +677,26 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
  *          scored exactly, which holds only at `sample_stride` of one. Above one the scoring is
  *          taken on a sample, the oracle is approximate, and the ratio no longer holds as stated.
  *
- * TERMINATION IS THE SAME COMPILE TIME FACT. One coarm per level, a placed position never
- * reconsidered, depth exactly `wanted` and bounded by ANCHOR_STEER_ANCHORS. Nothing in the descent
- * lets corpus content change the DEPTH, only the choice made at a level. The return value is there
- * so a caller can assert the count rather than trust the prose.
+ * TERMINATION IS A BOUND FROM ABOVE AND NOT A FIXED DEPTH. One coarm per level, a placed position
+ * never reconsidered, and depth AT MOST `wanted`, which the guard holds at or under
+ * ANCHOR_STEER_ANCHORS. The loop cannot run longer than that whatever the corpus holds, which is
+ * what makes it terminate.
+ *
+ * IT CAN RUN SHORTER, AND CORPUS CONTENT IS WHAT DECIDES. The destroy test compares the best
+ * candidate's surviving population against the current one, and that count is read off the corpus.
+ * Where nothing prunes, the descent breaks early. `force_full_depth` exists precisely to override
+ * that, and an omitted member is zero, so the DEFAULT path is the one where the field ends the
+ * descent. bench_sigma measures it: with `wanted` fixed at 4 on every row, `placed` comes back 2 at
+ * an alphabet of 2^8 and 1 from 2^16 up, because a larger alphabet lets the first probe cut far
+ * enough that a second buys nothing.
+ *
+ * An earlier form of this block said "nothing in the descent lets corpus content change the DEPTH".
+ * That is true only under `force_full_depth`, it was written as though it were unconditional, and it
+ * contradicted the comment at the break site in the same tree. Depth is a truthy and falsy steer
+ * like everything else here, bounded above by a constant and free to come in under it.
+ *
+ * The return value is there so a caller can read the depth actually reached rather than assume
+ * `wanted`, which matters more now that the two can differ.
  *
  * @note FAILS CLOSED ON SCRATCH. Returns 0 without writing `offsets` where `scratch_len` does not
  *       reach the alignment count. The kernel allocates nothing, so the buffer is the caller's and

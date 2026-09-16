@@ -202,21 +202,25 @@ Found by the theorist in published code, verified here, fixed at `ca62234`.
 
 ## Open
 
-### F15. O1 settled: one descent is a fixed depth decision procedure, and the cap is not why
+### F15. O1 settled: one descent is bounded above by a constant, and depth IS data dependent
 
-Settled by the theorist against the engine's own declaration, verified here verbatim at `src/engine/c/portable/anchor_sift.h:676`:
+**Premise replaced 2026-09-16 after Douglas caught it. The conclusion stands; the reasoning under it did not.**
 
-> One coarm per level, a placed position never reconsidered, depth exactly `wanted` and bounded by ANCHOR_STEER_ANCHORS. Nothing in the descent lets corpus content change the DEPTH, only the choice made at a level.
+The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:676`, which said "Nothing in the descent lets corpus content change the DEPTH, only the choice made at a level". **That line is false on the default path**, it is now corrected in the header, and this entry no longer uses it.
 
-**The crux dissolves rather than resolving.** O1 asked whether the coarm count grows, because the growing answer needs each arm to carry its own survivor vector so the state becomes a tuple whose size grows with the arm count. One coarm per level means the arms do not multiply: the descent is a chain and not a branching tree, so the state never becomes a growing tuple and the premise that argument rests on is false in this implementation.
+`steer_descend` breaks on `(force_full_depth == 0) && (best_standing >= steer_truthy_total(...))` (`src/engine/c/portable/anchor_sift.c:907-911`). `best_standing` is returned by `steer_truthy_after`, which reads the corpus. `force_full_depth` is zero unless a caller names it, and an omitted member is zero, so **on the default path corpus content decides the depth**. The existence of `force_full_depth` is the proof by itself: there would be nothing for it to override if depth were always `wanted`.
 
-**Depth is data independent, and that is the load bearing fact.** `wanted` is a caller constant and corpus content cannot move it, so the shape of the computation is fixed before the run and the data only steers the selection at each level. That is strictly weaker than a finite automaton with data dependent looping, which is in turn strictly weaker than a machine that can fail to halt. One descent is a fixed depth decision procedure over a finite probe family, not a machine whose control flow the input shapes.
+**The counterevidence was in F14 the whole time.** The `placed` column reads 2 at sigma 2^8 and 2^12 and 1 from 2^16 up, with `wanted` fixed at 4 on every row, and F14 explains it as the destroy rule firing because a larger alphabet lets the first probe cut far enough. That is a description of corpus content changing the depth, sitting in this document, above a claim that corpus content cannot change the depth.
 
-**The cap is NOT what settles it**, and the earlier entry implied it was. It said `ANCHOR_STEER_ANCHORS` "pins that at four today, which makes the question moot for this tree", which reads as an accident of a constant that a later constant could undo. It could not. At four billion the depth would still be a caller constant that corpus content cannot move and the classification would not shift one step. An entry resting on the number invites the belief that raising the number reopens the question.
+**What is actually true, and the emphasis was exactly backwards.** Depth is data dependent DOWNWARD ONLY. The destroy rule can cut the descent short; nothing can extend it, because `while (placed < count)` caps it and `count` is at most `ANCHOR_STEER_ANCHORS`.
 
-**The argument I gave against a growing answer was right and undersold.** I had it needing a finite probe family: a strictly growing placed set drawn from one must terminate. It does not need the family at all. Depth never consults the data, so termination depends on neither the family being finite, nor the placed set growing, nor the trichotomy. Three independent reasons for one conclusion, and the declaration's is the cheapest.
+**So the cap is load bearing and data independence is not available.** The earlier entry said the reverse in both directions: that data independence was structural, that the cap was incidental, and that at four billion the classification would not shift. Withdrawn. The bound from above is the only thing doing the work, and it is a constant.
 
-**The argument I gave for a growing answer was self defeating.** I wrote that the trichotomy says the engine does not cycle, so an unbounded run is a strictly deepening recursion. But non-cycling ON A FINITE STATE SPACE forces termination rather than permitting unbounded depth. Non-cycling is evidence FOR finiteness. I reached for the one property that rules out my own conclusion and did not notice because it sounded like it pointed the other way.
+**The corrected classification.** One descent is a finite automaton WITH data dependent control flow, bounded above by a constant. It is not a fixed depth decision procedure, because the destroy test is a genuine conditional branch on data deciding whether to recurse. The constant is what still rules out universality.
+
+**Why removing the cap would not reach universality over a fixed corpus.** The probe family is fixed by `needle_len` and `max_length`, and a placed position is never reconsidered, so the placed set grows strictly through a finite family and the descent halts with or without the bound. A growing corpus grows the family, which is why O2 is still the one term and the tag route still the target.
+
+**One argument from the earlier version is retired outright.** It said the trichotomy shows no cycling, so an unbounded run must be a deepening recursion. That is self defeating: non-cycling on a finite state space forces termination rather than permitting unbounded depth.
 
 **Scope, stated tightly.** This classifies a SINGLE DESCENT over a fixed corpus and needle. `wanted` is `args->count`, a caller supplied value, so a caller may compute it from data; within one descent it is fixed and the above holds, and across descents that is the caller's loop, which is exactly the boundary O2 draws.
 

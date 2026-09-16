@@ -70,7 +70,11 @@ Returns the number of coarms placed, at most `wanted`. Returns 0 without writing
 
 Two separate properties hold, and the second one carries the argument.
 
-The descent is bounded. One probe is placed per level, a placed probe is never reconsidered, and the depth is `wanted`, which the guard holds at or under `ANCHOR_STEER_ANCHORS` (`src/engine/c/portable/anchor_sift.c:618-620`). That constant is 4 (`src/engine/c/portable/anchor_sift.h:74`). No branch in the descent lets corpus content change how many levels run, only which probe a level picks. The depth is fixed before the program starts, and the loop terminates for the reason a `for` loop over a fixed array does.
+The descent is bounded from above. One probe is placed per level, a placed probe is never reconsidered, and the depth is AT MOST `wanted`, which the guard holds at or under `ANCHOR_STEER_ANCHORS` (`src/engine/c/portable/anchor_sift.c:618-620`). That constant is 4 (`src/engine/c/portable/anchor_sift.h:74`). The loop cannot run longer than that whatever the corpus holds, and that is what makes it terminate.
+
+It can run shorter, and the corpus is what decides. The destroy test compares the best candidate's surviving population against the current one, and that count is read off the corpus, so where nothing prunes the descent breaks early. `force_full_depth` exists to override exactly that, and an omitted member is zero, so the default path is the one where the field ends the descent. `bench_sigma` measures it: `wanted` fixed at 4 on every row while `placed` returns 2 at an alphabet of 2^8 and 1 from 2^16 up.
+
+An earlier version of this paragraph said no branch lets corpus content change how many levels run and that the depth is fixed before the program starts. That holds only under `force_full_depth` and was written as though it held always.
 
 The stronger property is that correctness never depends on termination. Every intermediate state of the descent is a complete valid probe set, and every probe set yields the same count. The refinement can be stopped at any instant and the measurement taken with the plan it had reached is correct. Running longer buys speed and cannot buy or lose an answer.
 
@@ -157,13 +161,15 @@ This section has now been written three ways and two of them were wrong, so what
 
 The question was whether the construction admits unbounded storage, and it was framed as turning on the coarm count: if an engine spawned coarms that each carried their own survivor vector, the state would be a tuple whose size grows with the arm count.
 
-**Settled, and the engine's own declaration settles it.** `anchor_steer_spawn_coarms` states that there is one coarm per level, that depth is exactly `wanted`, and that "nothing in the descent lets corpus content change the DEPTH, only the choice made at a level".
+**Settled, and the bound from above is what settles it.** One coarm per level means the arms do not multiply: the descent is a chain and not a branching tree, so the state never becomes a tuple whose size grows, and the premise the growing answer needs is false here. The loop is `while (placed < count)` with `count` at most `ANCHOR_STEER_ANCHORS`, so it cannot run longer than a constant whatever the corpus holds.
 
-One coarm per level means the arms do not multiply. The descent is a chain, not a branching tree, so the state never becomes a tuple whose size grows, and the premise the growing answer needs is false here. Depth being a caller constant that the corpus cannot move means the shape of the computation is fixed before the run and the data only steers the selection at each level. One descent is therefore a fixed depth decision procedure over a finite probe family, which is strictly weaker than a finite automaton with data dependent looping, which is in turn strictly weaker than a machine that can fail to halt.
+One descent is therefore a finite automaton WITH data dependent control flow, bounded above by a constant. It is not a fixed depth decision procedure, because the destroy test is a genuine conditional branch on data that decides whether to recurse.
 
-**The bound of four is not the reason and it would be a mistake to record it as one.** At four billion the depth would still be a caller constant the corpus cannot move, and the classification would not shift. What carries the argument is that depth is data independent.
+**The cap is load bearing and this paragraph used to say the opposite.** An earlier version claimed the depth is data independent and that the constant is incidental, so at four billion the classification would not shift. Both halves are wrong. Depth IS data dependent, downward only: the destroy test can cut the descent short and nothing can extend it. The constant bounding it from above is the only thing ruling out unbounded depth, and at four billion it would still rule it out, which is the point. Data independence is not available as an argument.
 
-Two arguments this section used to give are now retired. Against a growing answer it said a strictly growing placed set drawn from a finite probe family must terminate, which is true and needs no finite family, since depth never consults the data at all. For a growing answer it said the trichotomy shows no cycling, so an unbounded run must be a deepening recursion; that is self defeating, because non-cycling on a finite state space forces termination rather than permitting unbounded depth.
+One argument this section used to give is retired outright. It said the trichotomy shows no cycling, so an unbounded run must be a deepening recursion. That is self defeating, because non-cycling on a finite state space forces termination rather than permitting unbounded depth.
+
+**Why removing the cap would still not reach universality, over a fixed corpus.** With the corpus nailed down the probe family is fixed, and a placed position is never reconsidered, so the placed set grows strictly through a finite family and the descent must halt with or without the bound. What breaks that is a corpus that grows, because a growing corpus grows the family, which is the section below.
 
 This classifies ONE DESCENT over a fixed corpus and needle. `wanted` is a caller supplied count, so a caller may compute it from data across descents, and that is the caller's loop and belongs to the section below.
 
