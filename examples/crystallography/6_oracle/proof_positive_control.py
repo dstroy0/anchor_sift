@@ -37,6 +37,28 @@
 #
 # What a failure would look like, stated before the numbers: any axis where the recovered period is
 # not equal to the published edge. A near miss counts as a miss, since nothing here rounds.
+#
+# THE SOURCE, AND WHAT TO CREDIT FOR IT
+#
+# The Crystallography Open Database, https://www.crystallography.net/cod/, read live through the
+# search and CIF endpoints below and cached under build/cod. COD releases its entries to the public
+# domain, which is the reason a derived corpus here can be redistributed at all and is worth stating
+# beside the URLs instead of being assumed.
+#
+# The database is what this measurement rests on: the published _cell_length_a/b/c of every entry is
+# the answer key, and it was measured, refereed and written down by other people before this
+# instrument existed. The two papers below are what COD asks to be cited in return for using it,
+# which is a different relationship from being the source of the numbers. Both are open access.
+#
+#   Gražulis, S., Daškevič, A., Merkys, A., Chateigner, D., Lutterotti, L., Quirós, M.,
+#   Serebryanaya, N. R., Moeck, P., Downs, R. T., & Le Bail, A. (2012). Crystallography Open
+#   Database (COD): an open-access collection of crystal structures and platform for world-wide
+#   collaboration. Nucleic Acids Research 40(D1), D420-D427. doi:10.1093/nar/gkr900
+#
+#   Gražulis, S., Chateigner, D., Downs, R. T., Yokochi, A. F. T., Quirós, M., Lutterotti, L.,
+#   Manakova, E., Butkus, J., Moeck, P., & Le Bail, A. (2009). Crystallography Open Database, an
+#   open-access collection of crystal structures. Journal of Applied Crystallography 42(4), 726-729.
+#   doi:10.1107/S0021889809016690
 
 import http.client
 import io
