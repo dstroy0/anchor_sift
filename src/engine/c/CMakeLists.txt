@@ -65,6 +65,30 @@ target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 # layout, channel and reduction taken from a configuration rather than fixed. Links nothing: the
 # host arm is C11 and stdio, and the device arm is built separately by maint/engine/build_gpu_arm.sh
 # because nvcc drives MSVC on Windows while this build uses MinGW.
+# The steering scan, one arm per instruction set. The scan is where a planner spends its time: held
+# at one needle offset it asks, across every alignment still standing, whether the corpus agrees with
+# one broadcast byte. That is a wide compare and nothing else, so it vectorizes directly.
+set(ANCHOR_STEER_ARM_SOURCES portable/anchor_steer_arm.c)
+set(ANCHOR_STEER_ARM_DEFINES "")
+set(ANCHOR_STEER_ARM_OPTIONS "")
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
+    list(APPEND ANCHOR_STEER_ARM_SOURCES vectorized_win/anchor_steer_avx2.c)
+    list(APPEND ANCHOR_STEER_ARM_DEFINES ANCHOR_STEER_HAVE_AVX2=1)
+    # The flag permits the intrinsics in this translation unit. It does not permit the compiler to
+    # assume AVX2 anywhere else, because no other translation unit is built with it, and the arm
+    # still asks the processor before it is called.
+    if(MSVC)
+        list(APPEND ANCHOR_STEER_ARM_OPTIONS /arch:AVX2)
+    else()
+        list(APPEND ANCHOR_STEER_ARM_OPTIONS -mavx2)
+    endif()
+endif()
+
+add_library(anchor_steer_arms STATIC ${ANCHOR_STEER_ARM_SOURCES})
+target_include_directories(anchor_steer_arms PUBLIC portable)
+target_compile_definitions(anchor_steer_arms PUBLIC ${ANCHOR_STEER_ARM_DEFINES})
+target_compile_options(anchor_steer_arms PRIVATE ${SIFT_WARNINGS} ${ANCHOR_STEER_ARM_OPTIONS})
+
 add_library(anchor_raster STATIC portable/anchor_raster.c)
 target_include_directories(anchor_raster PUBLIC portable)
 target_compile_options(anchor_raster PRIVATE ${SIFT_WARNINGS})
@@ -202,6 +226,12 @@ target_link_libraries(bench_steer PRIVATE anchor_steer anchor_sift_kernel)
 # rate of a steered probe set against an unsteered one on the same object.
 add_executable(bench_raster bench/bench_raster.c)
 target_link_libraries(bench_raster PRIVATE anchor_raster anchor_steer anchor_sift_kernel)
+
+# Grades every steering scan arm against the portable one and then times them. The lengths it runs
+# sit around the thirty-two lane boundary a wide arm works in, which is where a vector arm's tail
+# handling fails if it is going to.
+add_executable(bench_steer_arms bench/bench_steer_arms.c)
+target_link_libraries(bench_steer_arms PRIVATE anchor_steer_arms)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 
 # The ingestion reading: at what scale does the corpus agree with itself, and what does that cost

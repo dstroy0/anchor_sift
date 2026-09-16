@@ -42,7 +42,7 @@ cmake -S "$src" -B "$build" >/dev/null
 # expected to work there and are simply not built by this script.
 echo "[*] building"
 for target in anchor_sift_kernel anchor_steer anchor_exact_portable \
-              bench_steer bench_exact_arms bench_exact; do
+              bench_steer bench_steer_arms bench_raster bench_exact_arms bench_exact; do
     if ! cmake --build "$build" --target "$target" >/dev/null 2>&1; then
         echo "[!] target $target did not build" >&2
         exit 1
@@ -66,7 +66,7 @@ fi
 # Every grader returns non-zero on a failed check, so the loop below reports the first one that
 # fails and stops rather than printing a wall of output and exiting zero.
 failed=0
-for grader in bench_steer bench_exact_arms; do
+for grader in bench_steer bench_steer_arms bench_raster bench_exact_arms; do
     exe="$bin/$grader"
     [ -f "$exe" ] || exe="$bin/$grader.exe"
     if [ ! -f "$exe" ]; then
