@@ -27,6 +27,10 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* The dispatch rule reads the field's census directly, so the plan carries one. This is what makes
  * the rule exact: the census holds integer counts and the comparison clears its denominators into
  * integers, where the old form took a logarithm and approximated a power of two in double. */
@@ -1129,6 +1133,51 @@ size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments,
 
 #endif
 
+#if defined(ANCHOR_STEER_HAVE_CUDA) && ANCHOR_STEER_HAVE_CUDA
 
+/**
+ * @brief Whether a usable CUDA device is present.
+ *
+ * @return 1 where at least one device answered, 0 otherwise.
+ * @note Asked at run time. A binary built with CUDA still runs on a machine with no device, and the
+ *       arm reports itself absent there instead of failing inside a launch.
+ */
+int anchor_steer_cuda_available(void);
+
+/**
+ * @brief The name and compute capability of the device this arm would use.
+ *
+ * @param[out] text Where the description is written [BORROWS].
+ * @param[in]  room How many bytes `text` holds.
+ * @return          1 where a description was written, 0 where no device answered.
+ */
+int anchor_steer_cuda_describe(char *text, size_t room);
+
+/**
+ * @brief The CUDA engine, one alignment per thread over the whole object.
+ *
+ * @return A pointer to the engine, or NULL where no device answered.
+ * @note Not in anchor_steer_best_engine. The scan is called once per candidate in a descent and the
+ *       survivor vector changes each level, so a per-call host to device copy would cost more than
+ *       the scan saves on all but the largest objects. The arm is graded against portable and timed
+ *       by the GPU build, and a caller that has already put the object on the device calls it
+ *       directly.
+ */
+const AnchorSteerEngine *anchor_steer_cuda_engine(void);
+
+/**
+ * @brief The scan on a CUDA device. Same contract as the portable one, same count.
+ *
+ * @note Falls back to a host count where the device refuses the work, so a driver comparing arms
+ *       reads a count and never a sentinel it would misread as a disagreement.
+ */
+size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t alignments,
+                                      const uint8_t *alive, uint8_t wanted, size_t offset);
+
+#endif
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* ANCHOR_SIFT_H */

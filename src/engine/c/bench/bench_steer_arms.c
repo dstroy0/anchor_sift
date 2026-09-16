@@ -158,6 +158,26 @@ int main(void)
     }
 #endif
 
+#if defined(ANCHOR_STEER_HAVE_CUDA) && ANCHOR_STEER_HAVE_CUDA
+    {
+        const AnchorSteerEngine *cuda = anchor_steer_cuda_engine();
+        if (cuda != NULL)
+        {
+            char device[128];
+            if (anchor_steer_cuda_describe(device, sizeof(device)) != 0)
+            {
+                printf("  cuda device: %s\n", device);
+            }
+            arms[arm_count] = cuda;
+            arm_count += 1u;
+        }
+        else
+        {
+            printf("  cuda arm compiled in and no device answered\n");
+        }
+    }
+#endif
+
     uint8_t *corpus = (uint8_t *)malloc(ARMS_CORPUS);
     uint8_t *alive = (uint8_t *)malloc(ARMS_CORPUS);
     if ((corpus == NULL) || (alive == NULL))
