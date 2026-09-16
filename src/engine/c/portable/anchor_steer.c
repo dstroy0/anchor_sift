@@ -620,6 +620,53 @@ static void steer_choose_offsets(size_t *offsets, size_t wanted, size_t needle_l
     }
 }
 
+size_t anchor_steer_count_with_probes(const uint8_t *corpus, size_t corpus_len,
+                                      const uint8_t *needle, size_t needle_len,
+                                      const AnchorProbe *probes, size_t count)
+{
+    if ((corpus == NULL) || (needle == NULL) || (needle_len > corpus_len) || (needle_len == 0u))
+    {
+        return 0u;
+    }
+    if ((probes == NULL) && (count != 0u))
+    {
+        return 0u;
+    }
+
+    size_t found = 0u;
+    for (size_t at = 0u; (at + needle_len) <= corpus_len; at += 1u)
+    {
+        size_t slot = 0u;
+        while (slot < count)
+        {
+            int agrees = 1;
+            for (size_t step = 0u; step < probes[slot].length; step += 1u)
+            {
+                const size_t offset = probes[slot].origin + (step * probes[slot].step);
+                anchor_steer_probes += 1u;
+                if (corpus[at + offset] != needle[offset])
+                {
+                    agrees = 0;
+                    break;
+                }
+            }
+            if (agrees == 0)
+            {
+                break;
+            }
+            slot += 1u;
+        }
+        if (slot == count)
+        {
+            if (memcmp(corpus + at, needle, needle_len) == 0)
+            {
+                found += 1u;
+            }
+        }
+    }
+    return found;
+}
+
 size_t anchor_steer_count(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
                           size_t needle_len, int steered)
 {

@@ -27,8 +27,73 @@ if ! command -v cmake >/dev/null 2>&1; then
     exit 1
 fi
 
+# A MACHINE WITH A GPU RENDERS ON IT, and getting that by default takes two things a stock configure
+# does not do.
+#
+# The Visual Studio generator compiles .cu only where the CUDA toolkit installed its MSBuild
+# integration, which a normal toolkit install often skips, and CMake then stops with "No CUDA toolset
+# found". Ninja needs no integration, so it is used wherever it is available.
+#
+# And nvcc is frequently not on PATH even where the toolkit is installed, so the standard locations
+# are searched and the newest is put on PATH for the configure. Without this the device arm is
+# silently left out and the renderer falls back to the host on a machine that has a card.
+if [ -z "${CUDA_PATH:-}" ] && ! command -v nvcc >/dev/null 2>&1; then
+    for candidate in "/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA"/v*/bin \
+                     /usr/local/cuda*/bin; do
+        if [ -x "$candidate/nvcc" ] || [ -x "$candidate/nvcc.exe" ]; then
+            PATH="$candidate:$PATH"
+            export PATH
+        fi
+    done
+fi
+
+generator=""
+if command -v ninja >/dev/null 2>&1; then
+    generator="-G Ninja"
+fi
+
+# nvcc drives a host compiler and cannot run without one. On Windows that host compiler is MSVC and
+# it reaches PATH through vcvars, which this shell does not run, so nvcc is present and unusable
+# here. Detecting that now and skipping CUDA is better than letting the configure fail: a failed
+# configure builds nothing, where skipping builds the host arms and says what was skipped.
+# The host compiler nvcc needs is platform specific and the wrong test passes on Windows. Git Bash
+# carries gcc, nvcc there requires cl.exe, and accepting gcc lets the configure get as far as
+# "Cannot find compiler 'cl.exe' in PATH" before failing.
+want_cuda=0
+if command -v nvcc >/dev/null 2>&1; then
+    case "$(uname -s 2>/dev/null)" in
+        MINGW*|MSYS*|CYGWIN*)
+            if command -v cl.exe >/dev/null 2>&1; then
+                want_cuda=1
+            fi
+            ;;
+        *)
+            if command -v cc >/dev/null 2>&1 || command -v gcc >/dev/null 2>&1; then
+                want_cuda=1
+            fi
+            ;;
+    esac
+fi
+
 echo "[*] configuring $src"
-cmake -S "$src" -B "$build" >/dev/null
+if [ "$want_cuda" -eq 1 ]; then
+    echo "[*] nvcc and a host compiler found, the device arm will be compiled in"
+elif command -v nvcc >/dev/null 2>&1; then
+    echo "[*] nvcc found but no host compiler on PATH, so CUDA is skipped here."
+    echo "    On Windows run maint/engine/build_engine.ps1 instead; it imports the MSVC"
+    echo "    environment nvcc needs and compiles the device arm."
+else
+    echo "[*] no nvcc, host arms only"
+fi
+
+# Unquoted on purpose: empty must expand to no argument rather than to an empty one.
+# shellcheck disable=SC2086
+if [ "$want_cuda" -eq 1 ]; then
+    cmake -S "$src" -B "$build" $generator -DCMAKE_BUILD_TYPE=Release >/dev/null
+else
+    cmake -S "$src" -B "$build" $generator -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_DISABLE_FIND_PACKAGE_CUDAToolkit=ON -DANCHOR_SKIP_CUDA=ON >/dev/null
+fi
 
 # NAMED TARGETS AND NOT THE DEFAULT ALL, because two benches in this directory do not compile with
 # MSVC and a bare `cmake --build` therefore fails on Windows with the engine itself built fine.
@@ -77,7 +142,7 @@ for grader in bench_steer bench_steer_arms bench_raster bench_exact_arms; do
 
     echo ""
     echo "[*] $grader"
-    if ! "$exe"; then
+    if ! (cd "$bin" && "$exe"); then
         echo "[!] $grader reported a failure" >&2
         failed=$((failed + 1))
     fi

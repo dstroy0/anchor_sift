@@ -376,6 +376,32 @@ void anchor_steer_probes_reset(void);
 size_t anchor_steer_count(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
                           size_t needle_len, int steered);
 
+/**
+ * @brief Counts occurrences using a probe set the caller supplies, in the order given.
+ *
+ * @param[in] corpus     Bytes to search [BORROWS].
+ * @param[in] corpus_len How many.
+ * @param[in] needle     Bytes to find [BORROWS].
+ * @param[in] needle_len How many.
+ * @param[in] probes     Probes in evaluation order [BORROWS].
+ * @param[in] count      How many probes. Zero sends every alignment to the full compare.
+ * @return               How many alignments match exactly.
+ *
+ * @note THE ENTRY A TEST NEEDS AND A CALLER RARELY DOES. Everything else here chooses its own
+ *       probes, which is the point of a steering engine and is also what makes the guarantee hard
+ *       to attack from outside. This takes the probe set as an argument, so a caller can hand over
+ *       a permutation of one set and check the count is unchanged, hand over a probe built from the
+ *       census instead of the needle and watch the count break, or hand over none at all.
+ * @note The empty probe set is the identity. Every alignment reaches the full compare, the answer
+ *       is exactly right, and the cost is maximal. That is the cheapest total check of the whole
+ *       guarantee and it is why `count` of zero is accepted rather than refused.
+ * @note `anchor_steer_probes` counts the corpus bytes the probes read, as it does for
+ *       anchor_steer_count. Reset it before a run and read it after.
+ */
+size_t anchor_steer_count_with_probes(const uint8_t *corpus, size_t corpus_len,
+                                      const uint8_t *needle, size_t needle_len,
+                                      const AnchorProbe *probes, size_t count);
+
 #ifdef __cplusplus
 }
 #endif

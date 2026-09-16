@@ -293,6 +293,25 @@ const char *anchor_raster_channel_name(AnchorRasterChannel channel)
     }
 }
 
+int anchor_raster_render(uint8_t *pixels, const AnchorRasterConfig *config, const uint8_t *corpus,
+                         size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                         const AnchorRasterProbe *probes, size_t probe_count)
+{
+    /* DEVICE FIRST WHERE THERE IS ONE. Both arms produce the same bytes, so this is a performance
+     * choice and never a correctness one, and a machine carrying a device should use it without the
+     * caller asking for it. */
+    if (anchor_raster_device_available() != 0)
+    {
+        if (anchor_raster_device(pixels, config, corpus, corpus_len, needle, needle_len, probes,
+                                 probe_count) != 0)
+        {
+            return 1;
+        }
+    }
+    return anchor_raster_host(pixels, config, corpus, corpus_len, needle, needle_len, probes,
+                              probe_count);
+}
+
 int anchor_raster_write_pgm(const char *path, const uint8_t *pixels, size_t width, size_t height)
 {
     if ((path == NULL) || (pixels == NULL) || (width == 0u) || (height == 0u))

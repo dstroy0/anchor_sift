@@ -7,21 +7,25 @@ A search produces one outcome per alignment: some probe rejected it, or every pr
 
 ## Building
 
-The host arm builds with the rest of the engine and needs a C11 compiler and nothing else.
+A machine carrying a device renders on it by default. On Windows:
+
+```
+maint\engine\build_engine.ps1
+```
+
+Everywhere else:
 
 ```sh
 maint/engine/build_engine.sh
 ```
 
-Both arms together need the CUDA toolkit and an MSVC host compiler.
+Either one detects the toolchain, compiles the device arm where it can, builds the engine and runs the graders. Call `anchor_raster_render` and it takes the device when one is present.
 
-```
-maint/engine/build_gpu_raster.ps1
-```
+Three things have to line up for that, and a bare `cmake` configure does none of them. `nvcc` drives a host compiler, which on Windows is MSVC reaching PATH through vcvars, so the PowerShell script imports that environment and the shell script detects its absence and skips CUDA rather than failing. The Visual Studio generator compiles `.cu` only where the toolkit installed its MSBuild integration, which a normal install often skips and which makes CMake stop with "No CUDA toolset found", so Ninja is used where it is available. And `nvcc` is frequently not on PATH even where the toolkit is installed, so both scripts search the standard locations.
 
-That script builds `build/engine_gpu/bench_raster.exe` and runs it. Without it the CMake build still produces `bench_raster`, linking the stub device arm in `anchor_raster.c:318-340`, which reports the device as absent and grades the host alone. An absent device is a skip and never a pass.
+Where any of that is missing the build still succeeds with the host arms and reports what it skipped. The stub arms in `anchor_raster.c` are linked instead, `anchor_raster_device_available` returns 0, and `anchor_raster_render` falls back. A skipped device is reported and never silent.
 
-The script compiles the C sources with `cl /std:c11` and then has `nvcc` compile the device file and link the objects. The split is forced. `exact_limbs.h:77` uses `_Static_assert`, which does not exist in the C++ front end `nvcc` would route the C files through, and MSVC's default C mode does not carry it either.
+`maint/engine/build_gpu_raster.ps1` remains for building the device arm alone against a fixed architecture. It is not needed for an ordinary build.
 
 ## Configuring a render
 

@@ -89,9 +89,65 @@ target_include_directories(anchor_steer_arms PUBLIC portable)
 target_compile_definitions(anchor_steer_arms PUBLIC ${ANCHOR_STEER_ARM_DEFINES})
 target_compile_options(anchor_steer_arms PRIVATE ${SIFT_WARNINGS} ${ANCHOR_STEER_ARM_OPTIONS})
 
-add_library(anchor_raster STATIC portable/anchor_raster.c)
+# The direct renderer, WITH THE DEVICE ARM COMPILED IN WHERE A CUDA TOOLCHAIN IS PRESENT. A machine
+# carrying a device renders on it by default and the caller does not ask. The two arms produce the
+# same bytes, so this is a performance decision, and bench_raster grades them against each other on
+# every configuration.
+#
+# The device arm is a .cu and this project is declared C, so CUDA is enabled only when found. Where
+# it is absent the stub arms in anchor_raster.c are linked instead, anchor_raster_device_available
+# returns 0, and anchor_raster_render falls back to the host. Both arms of that gate are defined.
+# A caller that knows CUDA cannot work here says so, and the search below is skipped entirely. The
+# shell script sets this where nvcc is installed but its host compiler is not on PATH, which is a
+# configure that would fail rather than a device that is absent.
+option(ANCHOR_SKIP_CUDA "Do not look for a CUDA toolchain" OFF)
+
+include(CheckLanguage)
+if(NOT ANCHOR_SKIP_CUDA)
+    check_language(CUDA)
+endif()
+
+# check_language only looks on PATH, and a toolkit installed normally is often not on it. A machine
+# with a device and a toolkit should get the device arm regardless, so the standard install
+# locations are searched before giving up. Newest version first, since the directories sort that way.
+if(NOT CMAKE_CUDA_COMPILER AND NOT ANCHOR_SKIP_CUDA)
+    file(GLOB ANCHOR_CUDA_CANDIDATES
+        "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v*/bin/nvcc.exe"
+        "/usr/local/cuda*/bin/nvcc")
+    if(ANCHOR_CUDA_CANDIDATES)
+        list(SORT ANCHOR_CUDA_CANDIDATES)
+        list(REVERSE ANCHOR_CUDA_CANDIDATES)
+        list(GET ANCHOR_CUDA_CANDIDATES 0 CMAKE_CUDA_COMPILER)
+        message(STATUS "anchor_raster: nvcc found off PATH at ${CMAKE_CUDA_COMPILER}")
+    endif()
+endif()
+
+set(ANCHOR_RASTER_SOURCES portable/anchor_raster.c)
+set(ANCHOR_RASTER_DEFINES "")
+if(CMAKE_CUDA_COMPILER)
+    enable_language(CUDA)
+    set(CMAKE_CUDA_STANDARD 17)
+    set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+    if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
+        # native asks the toolkit for the architecture this machine carries. A toolkit too old to
+        # know the keyword falls back to a concrete one rather than failing the configure.
+        if(CMAKE_CUDA_COMPILER_VERSION VERSION_GREATER_EQUAL 11.5)
+            set(CMAKE_CUDA_ARCHITECTURES native)
+        else()
+            set(CMAKE_CUDA_ARCHITECTURES 86)
+        endif()
+    endif()
+    list(APPEND ANCHOR_RASTER_SOURCES ../gpu/anchor_raster_cuda.cu)
+    list(APPEND ANCHOR_RASTER_DEFINES ANCHOR_RASTER_HAVE_CUDA=1)
+    message(STATUS "anchor_raster: device arm compiled in, architectures ${CMAKE_CUDA_ARCHITECTURES}")
+else()
+    message(STATUS "anchor_raster: no CUDA toolchain, host arm only")
+endif()
+
+add_library(anchor_raster STATIC ${ANCHOR_RASTER_SOURCES})
 target_include_directories(anchor_raster PUBLIC portable)
-target_compile_options(anchor_raster PRIVATE ${SIFT_WARNINGS})
+target_compile_definitions(anchor_raster PUBLIC ${ANCHOR_RASTER_DEFINES})
+target_compile_options(anchor_raster PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
 add_library(anchor_steer STATIC portable/anchor_steer.c)
 target_include_directories(anchor_steer PUBLIC portable)

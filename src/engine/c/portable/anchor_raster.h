@@ -237,6 +237,32 @@ const char *anchor_raster_channel_name(AnchorRasterChannel channel);
 int anchor_raster_write_pgm(const char *path, const uint8_t *pixels, size_t width, size_t height);
 
 /**
+ * @brief Renders on whichever arm this machine has, preferring the device.
+ *
+ * @param[out] pixels     Raster, `config->width` bytes per row [BORROWS].
+ * @param[in]  config     Render configuration [BORROWS].
+ * @param[in]  corpus     Bytes under examination [BORROWS].
+ * @param[in]  corpus_len How many.
+ * @param[in]  needle     Bytes being searched for [BORROWS].
+ * @param[in]  needle_len How many.
+ * @param[in]  probes     Probe set in evaluation order [BORROWS].
+ * @param[in]  probe_count How many probes.
+ * @return                1 on success, 0 where both arms refused.
+ *
+ * THE ENTRY A CALLER SHOULD USE. A machine carrying a device should render on it without the caller
+ * asking, and the two arms produce the same bytes, so choosing between them is a performance
+ * decision and never a correctness one. This asks the device first and falls back to the host.
+ *
+ * @note Falls back rather than failing where the device refuses, so a render always happens if
+ *       either arm can do it.
+ * @note anchor_raster_host and anchor_raster_device stay public because a grader has to be able to
+ *       call one specific arm and compare. A caller that does not care should not have to.
+ */
+int anchor_raster_render(uint8_t *pixels, const AnchorRasterConfig *config, const uint8_t *corpus,
+                         size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                         const AnchorRasterProbe *probes, size_t probe_count);
+
+/**
  * @brief Whether a usable CUDA device is present for the device rasterizer.
  *
  * @return 1 where a device is present, 0 otherwise.
