@@ -55,30 +55,81 @@ Nothing about the cell is read to find one. No edge, no angle, no tiling, no con
 angstroms. Two sites share a position when the deposit wrote the same three fractional coordinates
 twice, and that is decided by equality on exact integers.
 
-**Over 1200 deposits, 712 shared positions were found in 214 entries, and all 712 are physically
-consistent with the occupancy column the detection never opened.** 625 sum to a full site, which is
-pure substitution. 87 sum to less than a full site, which is substitution over a position that is
-also partly vacant. None sums to more than a full site, which would be more atoms than the position
-holds. Every one of the 1200 was readable; 17 individual sites were skipped for a coordinate that is
-not plain decimal text.
+### Every figure below is measured at one moment, and the moment is named
 
-The count that would have falsified the reading is zero: **no shared position has every element
-published at full occupancy.** A deposit claiming two elements are both entirely present in one
-place would contradict either the reading or itself, and none does.
+**Corpus of 6727 to 6730 deposits, measured 2026-09-16 16:07 UTC.** The range is not sloppiness: the
+fetch was still running and three entries arrived during the fourteen seconds the two measures took.
+Every number in this section comes from that one snapshot, so they can be compared with each other.
+None of them is final, and the growth series below says why that matters.
 
-The result did not soften as the corpus grew. At 758 entries it was 126 of 126, at 999 it was 408
-of 408, and at 1200 it is 712 of 712. Tripling the detections moved nothing.
+| | |
+|---|---|
+| entries read | 6659 |
+| entries with no atom site loop | 68 |
+| entries carrying at least one shared position | 2019, which is 30.3% |
+| shared positions found by incidence | 6662 |
+| of those, sum to a full site, pure substitution | 5479 |
+| sum to less than a full site, substitution over a partly vacant position | 1117 |
+| sum to **more** than a full site, more atoms than the position holds | **66** |
+| physically consistent | 6596 of 6662, 99.0% |
+| every element published at full occupancy | 9 |
+| single-element positions under full occupancy, declined as vacancies | 10460 |
 
-The converse is the half that is easy to lose. 1244 positions carry a single element under full
-occupancy. Those are vacancies and not doping. Nothing substitutes there, the atom is simply
-absent some of the time. A detector that called every occupancy under 1 a dopant would be wrong on
-all 1244, and they outnumber the doped positions by nearly two to one.
+The detector and the oracle report 6655 and 6662 shared positions from the same corpus, and the
+difference is the detector's early return: it treats an entry whose coordinates all fail to parse as
+unreadable, and the oracle does not.
+
+### The growth series, which is the point rather than a caveat
+
+The same measurement over a growing corpus:
+
+| corpus | shared positions | physically consistent |
+|---|---|---|
+| 758 | 126 | 126, all |
+| 999 | 408 | 408, all |
+| 1200 | 712 | 712, all |
+| 3744 | 4352 | 4301, with 51 over a full site |
+| 6730 | 6662 | 6596, with 66 over a full site |
+
+This section previously read "the result did not soften as the corpus grew ... tripling the
+detections moved nothing", written at 1200. **It softened.** Perfect consistency held to 1200 entries
+and stopped holding somewhere before 3744, and the honest statement is not that the earlier claim was
+wrong but that it was a true measurement of a range, quoted as though the range were the world.
+
+That is a stronger result than the original, not a retreat from it. A detector that holds across
+1200 deposits and then meets 66 deposit defects at 6730 is an instrument meeting a real corpus. The
+original framing had no room for that outcome, which is what was wrong with it.
+
+### What the inconsistent positions are
+
+A shared position where every element is published at full occupancy contradicts either this reading
+or the deposit. Every one inspected has been the deposit. COD 1011256, from 1933, writes
+
+    Si1 Si4+ 8 d 0.25 0.25 0.875 1.
+    Al1 Al3+ 8 d 0.25 0.25 0.875 1.
+
+Identical coordinates, identical Wyckoff letter, both at full occupancy: sixteen atoms on eight
+places. It is how an older deposit describes a disordered site, naming both partners without
+normalizing. The coordinates matching character for character is what rules out the reading and
+leaves the deposit.
+
+**That count was described here as the one that would falsify the reading, and that was a badly
+built test.** A number whose appearance is supposed to settle a question cannot settle it when both
+answers produce the same number. Naming a falsifier without naming what distinguishes it from the
+alternative leaves a test that looks decisive and is not. What distinguishes them is reading the
+deposit, and 1.0% of shared positions in this corpus are deposits disagreeing with themselves rather
+than an instrument disagreeing with them.
+
+The converse is the half that is easy to lose. 10460 positions carry a single element under full
+occupancy. Those are vacancies and not doping: nothing substitutes there, the atom is simply absent
+some of the time. A detector that called every occupancy under 1 a dopant would be wrong on all
+10460, and they outnumber the shared positions by more than three to two.
 
 What the substitutions are is not something the measure was told. Folding charge and case together,
-the corpus is led by Al/Si at 444, then Ca/Na at 66, Fe/Mg at 30 and K/Na at 28. Al/Si with Ca/Na is
-the plagioclase coupled substitution and Al/Si with K/Na is the alkali feldspar series, which is to
-say the two most common substitutions in the crust came out on top of a reading that knows no
-chemistry and never looked at a cell.
+the corpus is led by Al/Si at 1838, then Ca/Na at 403, Fe/Mg at 368, Al/Fe/Mg at 184 and Al/Fe/Mg/Ti
+at 146. Al/Si with Ca/Na is the plagioclase coupled substitution, which is to say the most common
+substitution in the crust came out on top of a reading that knows no chemistry and never looked at a
+cell.
 
 Doping does not disturb the recovered period, and the reason is structural rather than lucky. The
 cell repeats whatever it contains, dopant included, so the lattice is untouched. An ideal doped
@@ -102,10 +153,14 @@ Na on another, and neither half works alone. The measure was not told that and h
 A CIF publishes the asymmetric unit and the operations that generate the rest of the cell.
 `doping_after_symmetry_expansion.py` applies them and counts again.
 
-Over 2853 readable entries the shared positions go from 3424 to 20893, about six times as many, and
-nearly all of that rise is arithmetic: a symmetry copy of a site the asymmetric reading already
-found. Nearly all. **Two entries hold a shared position that exists only after expansion**, and they
-are worth more than the ratio is.
+At the same snapshot, 6668 readable entries, the shared positions go from 6667 to 50188, **7.53 times
+as many**, and nearly all of that rise is arithmetic: a symmetry copy of a site the asymmetric
+reading already found. Nearly all. **Three entries hold a shared position that exists only after
+expansion**, and they are worth more than the ratio is. Two are described below; the third appeared
+with the corpus past 3744 and has not been inspected.
+
+6612 of those entries publish symmetry operations, none was refused for a denominator not dividing
+24, and none was held back by the placement bound.
 
 `1001125` puts Ta at (1/2, 1/2, 0.238) and W at (1/2, 1/2, -0.238). An operation taking z to -z
 carries one onto the other. Tantalum and tungsten substitute readily, so this is an ordinary solid
@@ -118,20 +173,21 @@ published deposit, and nothing short of expansion surfaces it.
 
 So expansion is a detection. A poor detector by rate, and the right tool for what it finds.
 
-### The count is 2 as of a moment, and the moment is the point
+### The count is 3 as of a moment, and the moment is the point
 
-**2 of 2853 entries, measured 2026-09-16 13:12 UTC, with the corpus still filling.** Not 2 as a
-settled fact. The same measurement has read three different values tonight:
+**3 of 6668 entries, measured 2026-09-16 16:07 UTC, with the corpus still filling.** Not 3 as a
+settled fact. The same measurement has read four values:
 
 | corpus | count | why it was that |
 |---|---|---|
-| 1228 entries | 0 | the two real cases were not in the corpus yet |
+| 1228 entries | 0 | the real cases were not in the corpus yet |
 | 2801 entries | 5 | three of the five were a parser artefact |
 | 2853 entries | 2 | artefact removed, two real cases remain |
+| 6668 entries | 3 | a third arrived with the corpus, not yet inspected |
 
-Each was correct for its corpus and its parser, and only the last is true. A reader learns more from
-the sequence than from the final value, because the sequence says what the measurement is sensitive
-to: corpus size found the real cases, and a parser defect invented three others.
+Each was correct for its corpus and its parser. A reader learns more from the sequence than from the
+final value, because the sequence says what the measurement is sensitive to: corpus size found the
+real cases, and a parser defect invented three others.
 
 The artefact is worth naming. Deposits mark an undetermined position with the sentinel `-1` and the
 flag `dum`, which reduces into the cell at the origin and collides with whatever real atom sits
