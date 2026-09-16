@@ -29,8 +29,7 @@
  */
 
 #include "anchor_sift.h"
-#include "anchor_steer.h"
-#include "anchor_steer_arm.h"
+#include "bench_corpora.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -399,13 +398,22 @@ static void print_route_row(const char *label, size_t probes, size_t count, uint
            (unsigned long long)(thousandths % 1000u), ok ? "ok" : "FAILS");
 }
 
-/** @brief Counts occurrences by evaluating a probe list in order, verifying every survivor. */
+/**
+ * @brief Counts occurrences by evaluating a probe list in order, verifying every survivor.
+ *
+ * @param[out] reads         Corpus bytes the probes read.
+ * @param[out] verifications Survivors handed to the exact compare, each of which reads at least one
+ *                           corpus byte. Counted separately because the read floor below is a bound
+ *                           on TOTAL reads, and a probe set of size zero reads nothing through the
+ *                           probes while still deciding every alignment through the compare.
+ */
 static size_t count_with_probes(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
                                 size_t needle_len, const AnchorProbe *probes, size_t probe_count,
-                                uint64_t *reads)
+                                uint64_t *reads, uint64_t *verifications)
 {
     size_t found = 0u;
     uint64_t taken = 0u;
+    uint64_t verified = 0u;
 
     for (size_t at = 0u; (at + needle_len) <= corpus_len; at += 1u)
     {
@@ -431,6 +439,7 @@ static size_t count_with_probes(const uint8_t *corpus, size_t corpus_len, const 
         }
         if (slot == probe_count)
         {
+            verified += 1u;
             if (memcmp(corpus + at, needle, needle_len) == 0)
             {
                 found += 1u;
@@ -438,6 +447,7 @@ static size_t count_with_probes(const uint8_t *corpus, size_t corpus_len, const 
         }
     }
     *reads = taken;
+    *verifications = verified;
     return found;
 }
 
@@ -537,8 +547,10 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
         spatial[slot].length = 1u;
     }
     uint64_t spatial_reads = 0u;
+    uint64_t spatial_verifications = 0u;
     const size_t spatial_count = count_with_probes(corpus, corpus_len, needle, needle_len, spatial,
-                                                   ANCHOR_STEER_ANCHORS, &spatial_reads);
+                                                   ANCHOR_STEER_ANCHORS, &spatial_reads,
+                                                   &spatial_verifications);
     print_route_row("spatial, unsteered", ANCHOR_STEER_ANCHORS, spatial_count, spatial_reads,
                     alignments, spatial_count == want);
     failed += (spatial_count == want) ? 0 : 1;
@@ -549,9 +561,16 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     {
         reordered[slot] = spatial[slot].origin;
     }
-    const size_t depth = anchor_steer_plan_recursive(reordered, ANCHOR_STEER_ANCHORS, corpus,
-                                                     corpus_len, needle, needle_len, scratch,
-                                                     alignments, 1u);
+    const size_t depth = ANCHOR_STEER_CALL(anchor_steer_plan_recursive, AnchorSteerDescent,
+                                           .offsets = reordered,
+                                           .count = ANCHOR_STEER_ANCHORS,
+                                           .corpus = corpus,
+                                           .corpus_len = corpus_len,
+                                           .needle = needle,
+                                           .needle_len = needle_len,
+                                           .scratch = scratch,
+                                           .scratch_len = alignments,
+                                           .sample_stride = 1u);
     AnchorProbe recursive[ANCHOR_STEER_ANCHORS];
     for (size_t slot = 0u; slot < depth; slot += 1u)
     {
@@ -560,17 +579,26 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
         recursive[slot].length = 1u;
     }
     uint64_t recursive_reads = 0u;
+    uint64_t recursive_verifications = 0u;
     const size_t recursive_count = count_with_probes(corpus, corpus_len, needle, needle_len,
-                                                     recursive, depth, &recursive_reads);
+                                                     recursive, depth, &recursive_reads,
+                                                     &recursive_verifications);
     print_route_row("recursive reorder", depth, recursive_count, recursive_reads, alignments,
                     recursive_count == want);
     failed += (recursive_count == want) ? 0 : 1;
 
     /* Coarms spawned wherever the field says, rather than where a spread rule put them. */
     size_t spawned[ANCHOR_STEER_ANCHORS];
-    const size_t coarms = anchor_steer_spawn_coarms(spawned, ANCHOR_STEER_ANCHORS, corpus,
-                                                    corpus_len, needle, needle_len, scratch,
-                                                    alignments, 1u);
+    const size_t coarms = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                                            .offsets = spawned,
+                                            .count = ANCHOR_STEER_ANCHORS,
+                                            .corpus = corpus,
+                                            .corpus_len = corpus_len,
+                                            .needle = needle,
+                                            .needle_len = needle_len,
+                                            .scratch = scratch,
+                                            .scratch_len = alignments,
+                                            .sample_stride = 1u);
     AnchorProbe coarm_probes[ANCHOR_STEER_ANCHORS];
     for (size_t slot = 0u; slot < coarms; slot += 1u)
     {
@@ -579,19 +607,31 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
         coarm_probes[slot].length = 1u;
     }
     uint64_t coarm_reads = 0u;
+    uint64_t coarm_verifications = 0u;
     const size_t coarm_count = count_with_probes(corpus, corpus_len, needle, needle_len,
-                                                 coarm_probes, coarms, &coarm_reads);
+                                                 coarm_probes, coarms, &coarm_reads,
+                                                 &coarm_verifications);
     print_route_row("coarms spawned", coarms, coarm_count, coarm_reads, alignments,
                     coarm_count == want);
     failed += (coarm_count == want) ? 0 : 1;
 
     /* Eyes allowed. A line probe reads more per alignment and has to prune harder to earn it. */
     AnchorProbe swept[ANCHOR_STEER_ANCHORS];
-    const size_t eyes = anchor_steer_sweep_probes(swept, ANCHOR_STEER_ANCHORS, corpus, corpus_len,
-                                                  needle, needle_len, 3u, scratch, alignments, 1u);
+    const size_t eyes = ANCHOR_STEER_CALL(anchor_steer_sweep_probes, AnchorSteerSweep,
+                                          .probes = swept,
+                                          .count = ANCHOR_STEER_ANCHORS,
+                                          .corpus = corpus,
+                                          .corpus_len = corpus_len,
+                                          .needle = needle,
+                                          .needle_len = needle_len,
+                                          .max_length = 3u,
+                                          .scratch = scratch,
+                                          .scratch_len = alignments,
+                                          .sample_stride = 1u);
     uint64_t eye_reads = 0u;
+    uint64_t eye_verifications = 0u;
     const size_t eye_count = count_with_probes(corpus, corpus_len, needle, needle_len, swept, eyes,
-                                               &eye_reads);
+                                               &eye_reads, &eye_verifications);
     print_route_row("eyes and arms swept", eyes, eye_count, eye_reads, alignments,
                     eye_count == want);
     failed += (eye_count == want) ? 0 : 1;
@@ -611,6 +651,58 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     {
         printf("    a descent exceeded its compile time bound: FAILS\n");
         failed += 1;
+    }
+
+    // THE READ FLOOR, ASSERTED ON EVERY ROUTE AND ON THE EMPTY PROBE SET BESIDE THEM.
+    //
+    // The theorem: an engine that decides each alignment from reads taken AT that alignment performs
+    // at least one read per alignment. An alignment decided on zero reads is decided by a function
+    // whose domain is the empty tuple, so its range holds one value and it answers identically at
+    // every alignment. An adversary edits the corpus there and flips whether that alignment matches,
+    // the engine observes nothing different, and one of the two answers is wrong. So total reads,
+    // probe reads plus the compares that follow them, is at least the alignment count, always.
+    //
+    // The empty probe set is the sharp case and it is graded here as a route rather than described.
+    // It takes zero probe reads and sends every alignment to the compare, so its total is exactly
+    // the alignment count. The floor is ATTAINED by the configuration that steers least, which is
+    // what shows the floor is a property of the problem and not an artifact of the steering.
+    uint64_t bare_reads = 0u;
+    uint64_t bare_verifications = 0u;
+    const size_t bare_count = count_with_probes(corpus, corpus_len, needle, needle_len, NULL, 0u,
+                                                &bare_reads, &bare_verifications);
+    failed += (bare_count == want) ? 0 : 1;
+
+    // REPORTED OUTSIDE THE TABLE, BECAUSE IT IS NOT IN THE TABLE'S UNITS. Every row above counts
+    // PROBE reads. The floor is a statement about TOTAL reads, probe reads plus the compares that
+    // follow, and mixing the two down one column would invite a reader to compare a bound against a
+    // cost. The empty probe set takes zero probe reads and one compare per alignment, so in floor
+    // units it sits exactly on the floor. In real bytes it is the most expensive route there is,
+    // since every alignment takes a full compare of up to needle_len bytes.
+    printf("    read floor: %zu alignments, empty probe set takes %llu probe reads and %llu"
+           " compares\n",
+           alignments, (unsigned long long)bare_reads, (unsigned long long)bare_verifications);
+
+    if ((bare_reads != 0u) || (bare_verifications != (uint64_t)alignments))
+    {
+        printf("    the empty probe set did not read exactly once per alignment: FAILS\n");
+        failed += 1;
+    }
+
+    const uint64_t floor_total[5] = {
+        spatial_reads + spatial_verifications,
+        recursive_reads + recursive_verifications,
+        coarm_reads + coarm_verifications,
+        eye_reads + eye_verifications,
+        bare_reads + bare_verifications
+    };
+    for (size_t route = 0u; route < 5u; route += 1u)
+    {
+        if (floor_total[route] < (uint64_t)alignments)
+        {
+            printf("    route %zu broke the read floor, %llu reads over %zu alignments: FAILS\n",
+                   route, (unsigned long long)floor_total[route], alignments);
+            failed += 1;
+        }
     }
 
     free(scratch);
@@ -646,15 +738,23 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
         return 1;
     }
 
-    const AnchorSteerArm *best = anchor_steer_best_arm();
+    const AnchorSteerEngine *best = anchor_steer_best_engine();
     const int wide_present = (strcmp(best->name, "portable") != 0) ? 1 : 0;
 
     printf("\n  THE ARM IS WIRED, not merely compiled.\n\n");
 
     anchor_steer_scan_counters_reset();
     size_t spawned[ANCHOR_STEER_ANCHORS];
-    (void)anchor_steer_spawn_coarms(spawned, ANCHOR_STEER_ANCHORS, corpus, corpus_len, needle,
-                                    needle_len, scratch, alignments, 1u);
+    (void)ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                            .offsets = spawned,
+                            .count = ANCHOR_STEER_ANCHORS,
+                            .corpus = corpus,
+                            .corpus_len = corpus_len,
+                            .needle = needle,
+                            .needle_len = needle_len,
+                            .scratch = scratch,
+                            .scratch_len = alignments,
+                            .sample_stride = 1u);
 
     printf("  %18s %14s %14s %10s %10s\n", "widest arm", "scans", "wide scans", "share",
            "verdict");
@@ -701,6 +801,428 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
     return failed;
 }
 
+/** @brief A byte field reached through the equality oracle, for the agreement check below. */
+typedef struct
+{
+    const uint8_t *corpus;
+    const uint8_t *needle;
+} ByteField;
+
+/** @brief Equality oracle over bytes. The engine never learns that these are bytes. */
+static int byte_same_at(const void *field, size_t corpus_at, size_t needle_at)
+{
+    const ByteField *const held = (const ByteField *)field;
+
+    return (held->corpus[corpus_at] == held->needle[needle_at]) ? 1 : 0;
+}
+
+/** @brief A field of 32 bit samples, which no byte engine can read. */
+typedef struct
+{
+    const uint32_t *corpus;
+    const uint32_t *needle;
+} SampleField;
+
+/** @brief Equality oracle over 32 bit samples, corpus position against needle position. */
+static int sample_same_at(const void *field, size_t corpus_at, size_t needle_at)
+{
+    const SampleField *const held = (const SampleField *)field;
+
+    return (held->corpus[corpus_at] == held->needle[needle_at]) ? 1 : 0;
+}
+
+/**
+ * @brief Equality between two positions OF THE FIELD, which is a different oracle.
+ *
+ * @note Separate from sample_same_at because the two index different spaces. A descent's oracle
+ *       takes a corpus position and a needle position; grouping a field into classes takes two
+ *       field positions. Handing the first to anchor_field_project indexes the needle with a field
+ *       position and reads past its end, which is how this was found.
+ */
+static int sample_same_in_field(const void *field, size_t left, size_t right)
+{
+    const uint32_t *const samples = (const uint32_t *)field;
+
+    return (samples[left] == samples[right]) ? 1 : 0;
+}
+
+/** @brief Tolerance of the non-transitive predicate below, in raw units. */
+#define STEER_TOLERANCE 2u
+
+/**
+ * @brief Within a tolerance, which is meaningful and is NOT transitive.
+ *
+ * @note This is the protein case in miniature. A value within 2 of another and that one within 2 of
+ *       a third does not put the first within 2 of the third, so the relation does not partition the
+ *       field and a grouping that stopped at the first matching representative would put agreeing
+ *       positions in different classes.
+ */
+static int near_same_in_field(const void *field, size_t left, size_t right)
+{
+    const uint32_t *const values = (const uint32_t *)field;
+    const uint32_t a = values[left];
+    const uint32_t b = values[right];
+    const uint32_t gap = (a > b) ? (a - b) : (b - a);
+
+    return (gap <= STEER_TOLERANCE) ? 1 : 0;
+}
+
+/**
+ * @brief Grades the projection under a predicate that is not transitive.
+ *
+ * @return Count of failures.
+ *
+ * THE CASE THAT WAS SILENTLY WRONG. Classes are the transitive closure of the predicate, so
+ * agreement must imply a shared rank even where the predicate chains. The check builds a chain,
+ * 0 1 2 3 4, where each value agrees with its neighbours at a tolerance of 2 and the ends do not
+ * agree with each other at all. The closure is one component, so every position must carry one rank.
+ *
+ * A grouping that stopped at the first matching representative would have produced more than one
+ * class here, and a rank probe built on it would have refuted an alignment holding a true
+ * occurrence. This asserts the closure rather than the first match, which is the difference between
+ * useless and wrong.
+ */
+static int check_projection_closes(void)
+{
+    printf("\n  PROJECTION UNDER A PREDICATE THAT IS NOT TRANSITIVE.\n\n");
+
+    int failed = 0;
+    const size_t length = 5u;
+    const uint32_t chain[5] = { 0u, 1u, 2u, 3u, 4u };
+    uint8_t ranks[5];
+    uint32_t class_of[5];
+    uint32_t members[5];
+    uint32_t place[5];
+    size_t classes = 0u;
+
+    const AnchorFieldProjection loose = {
+        near_same_in_field, chain, length, ranks, class_of, members, place, length, &classes
+    };
+
+    if (anchor_field_project(&loose) == 0)
+    {
+        printf("  the projection refused the chain: FAILS\n");
+        return 1;
+    }
+
+    // The ends disagree, which is what makes the predicate non-transitive rather than merely coarse.
+    if (near_same_in_field(chain, 0u, 4u) != 0)
+    {
+        printf("  the chain ends agree, so this is not the case under test: FAILS\n");
+        failed += 1;
+    }
+
+    size_t differing = 0u;
+    for (size_t at = 1u; at < length; at += 1u)
+    {
+        if (ranks[at] != ranks[0])
+        {
+            differing += 1u;
+        }
+    }
+
+    printf("  %38s %8zu %8s %10s\n", "chain of 5, tolerance 2, classes", classes, "1",
+           (classes == 1u) ? "closed" : "SPLIT");
+    failed += (classes == 1u) ? 0 : 1;
+
+    printf("  %38s %8zu %8s %10s\n", "positions carrying a different rank", differing, "0",
+           (differing == 0u) ? "sound" : "UNSOUND");
+    failed += (differing == 0u) ? 0 : 1;
+
+    // A FIELD WITH MORE CLASSES THAN A BYTE RANK CAN NAME MUST BE REFUSED AND NOT DEGRADED. The
+    // theorist measured the degradation it replaces: the overflow was decided at discovery, before
+    // the rarity sort, so the merged set was chosen by arrival order, and since a rare class arrives
+    // late the overflow ate the rarest classes. Two fields with identical histograms merged sets
+    // whose mean occupancies differed by a factor of 8.5. Refusing is checked here because a silent
+    // degradation is indistinguishable from a good projection at the call site.
+    const size_t wide_len = 400u;
+    uint32_t *const wide = (uint32_t *)malloc(wide_len * sizeof(uint32_t));
+    uint8_t *const wide_ranks = (uint8_t *)malloc(wide_len);
+    uint32_t *const wide_class_of = (uint32_t *)malloc(wide_len * sizeof(uint32_t));
+    uint32_t *const wide_members = (uint32_t *)malloc(wide_len * sizeof(uint32_t));
+    uint32_t *const wide_place = (uint32_t *)malloc(wide_len * sizeof(uint32_t));
+
+    if ((wide == NULL) || (wide_ranks == NULL) || (wide_class_of == NULL)
+     || (wide_members == NULL) || (wide_place == NULL))
+    {
+        printf("  allocation failed\n");
+        failed += 1;
+    }
+    else
+    {
+        for (size_t at = 0u; at < wide_len; at += 1u)
+        {
+            wide[at] = (uint32_t)at;
+        }
+
+        size_t wide_classes = 0u;
+        const AnchorFieldProjection wide_args = {
+            sample_same_in_field, wide, wide_len, wide_ranks, wide_class_of, wide_members,
+            wide_place, wide_len, &wide_classes
+        };
+        const int took = anchor_field_project(&wide_args);
+
+        printf("  %38s %8zu %8s %10s\n", "400 classes, counted not capped", wide_classes, "400",
+               ((took != 0) && (wide_classes == wide_len)) ? "ok" : "FAILS");
+        failed += ((took != 0) && (wide_classes == wide_len)) ? 0 : 1;
+
+        // THE RAREST 255 KEEP THEIR OWN RANKS AND THE COMMONEST MERGE. Every class here holds one
+        // member, so ties break by class index and the first 255 positions take ranks 0 to 254 while
+        // the rest share 255. The form this replaced capped during discovery and merged by ARRIVAL,
+        // which on a natural field eats the rarest classes instead of the commonest.
+        size_t distinct_ranks = 0u;
+        int seen[256];
+        for (size_t slot = 0u; slot < 256u; slot += 1u)
+        {
+            seen[slot] = 0;
+        }
+        for (size_t at = 0u; at < wide_len; at += 1u)
+        {
+            if (seen[wide_ranks[at]] == 0)
+            {
+                seen[wide_ranks[at]] = 1;
+                distinct_ranks += 1u;
+            }
+        }
+
+        printf("  %38s %8zu %8s %10s\n", "ranks used, rarest kept apart", distinct_ranks, "256",
+               (distinct_ranks == 256u) ? "ok" : "FAILS");
+        failed += (distinct_ranks == 256u) ? 0 : 1;
+    }
+
+    free(wide);
+    free(wide_ranks);
+    free(wide_class_of);
+    free(wide_members);
+    free(wide_place);
+
+    // The exact predicate on the same field must NOT collapse, or the check above would pass for
+    // the wrong reason: a projection that always returned one class would satisfy it.
+    size_t exact_classes = 0u;
+    const AnchorFieldProjection strict = {
+        sample_same_in_field, chain, length, ranks, class_of, members, place, length, &exact_classes
+    };
+
+    if (anchor_field_project(&strict) == 0)
+    {
+        printf("  the projection refused the exact predicate: FAILS\n");
+        failed += 1;
+    }
+    else
+    {
+        printf("  %38s %8zu %8s %10s\n", "same field, exact predicate, classes", exact_classes, "5",
+               (exact_classes == 5u) ? "distinct" : "FAILS");
+        failed += (exact_classes == 5u) ? 0 : 1;
+    }
+    return failed;
+}
+
+/**
+ * @brief Grades the any-type path against the byte path, and the projection against the truth.
+ *
+ * @return Count of failures.
+ *
+ * TWO CLAIMS, AND THE SECOND IS THE ONE THAT COULD BE WRONG.
+ *
+ * First, that reaching a byte field through an equality oracle places the SAME offsets as reading it
+ * as bytes. The oracle hides the representation and nothing else, so a different answer would mean
+ * the byte path was using something the proof does not license.
+ *
+ * Second, that projecting a field of any symbol type onto rarity ranks preserves soundness. Two
+ * positions carrying the same symbol necessarily carry the same rank, so rank disagreement proves
+ * symbol disagreement and a rank probe is a necessary condition. Rank agreement proves nothing,
+ * which is why survivors still reach an exact compare. The check is therefore NOT that the projected
+ * count equals the true count: it is that the projected engine loses no true occurrence, which is
+ * the only thing soundness claims. A projection that lost one would be a broken necessary condition
+ * and the whole construction with it.
+ *
+ * The 32 bit sample field is here because a byte engine cannot read it at all. If the projection
+ * works the sample field searches at full speed on the same loop bytes use, which is the point.
+ */
+static int check_any_type_agrees(void)
+{
+    printf("\n  ANY SYMBOL TYPE, AGAINST THE BYTE PATH AND AGAINST THE TRUTH.\n\n");
+
+    int failed = 0;
+    const size_t length = 16384u;
+    uint8_t *const corpus = (uint8_t *)malloc(length);
+    if (corpus == NULL)
+    {
+        printf("  allocation failed\n");
+        return 1;
+    }
+    build_skewed_field(corpus, length);
+
+    uint8_t needle[24];
+    memcpy(needle, corpus + 2048u, sizeof(needle));
+
+    const size_t alignments = (length - sizeof(needle)) + 1u;
+    uint8_t *const scratch = (uint8_t *)malloc(alignments);
+    if (scratch == NULL)
+    {
+        printf("  allocation failed\n");
+        free(corpus);
+        return 1;
+    }
+
+    size_t by_bytes[ANCHOR_STEER_ANCHORS];
+    const size_t placed_bytes = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                                                  .offsets = by_bytes,
+                                                  .count = ANCHOR_STEER_ANCHORS,
+                                                  .corpus = corpus,
+                                                  .corpus_len = length,
+                                                  .needle = needle,
+                                                  .needle_len = sizeof(needle),
+                                                  .scratch = scratch,
+                                                  .scratch_len = alignments,
+                                                  .sample_stride = 1u);
+
+    const ByteField held = { corpus, needle };
+    const AnchorField as_any = { byte_same_at, &held, alignments, sizeof(needle) };
+
+    size_t by_oracle[ANCHOR_STEER_ANCHORS];
+    const size_t placed_oracle = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                                                   .offsets = by_oracle,
+                                                   .count = ANCHOR_STEER_ANCHORS,
+                                                   .scratch = scratch,
+                                                   .scratch_len = alignments,
+                                                   .sample_stride = 1u,
+                                                   .any = &as_any);
+
+    if (placed_bytes != placed_oracle)
+    {
+        printf("  the oracle placed %zu where bytes placed %zu: FAILS\n", placed_oracle,
+               placed_bytes);
+        failed += 1;
+    }
+    else
+    {
+        size_t differing = 0u;
+        for (size_t slot = 0u; slot < placed_bytes; slot += 1u)
+        {
+            if (by_bytes[slot] != by_oracle[slot])
+            {
+                differing += 1u;
+            }
+        }
+        printf("  %38s %8zu %8zu %10s\n", "offsets placed, bytes against oracle", placed_bytes,
+               placed_oracle, (differing == 0u) ? "identical" : "DIFFER");
+        failed += (differing == 0u) ? 0 : 1;
+    }
+
+    // A field no byte engine can read. Projected to ranks it becomes one that every byte engine can.
+    const size_t sample_len = 4096u;
+    uint32_t *const samples = (uint32_t *)malloc(sample_len * sizeof(uint32_t));
+    if (samples == NULL)
+    {
+        printf("  allocation failed\n");
+        free(scratch);
+        free(corpus);
+        return 1;
+    }
+
+    uint64_t state = 0x5EEDu;
+    for (size_t at = 0u; at < sample_len; at += 1u)
+    {
+        state = (state * 6364136223846793005ULL) + 1442695040888963407ULL;
+
+        // Six distinct values at wildly different rates, each far outside a byte, so the rarity
+        // ordering has something to order and no byte engine could have read them.
+        const uint32_t roll = (uint32_t)(state >> 33) % 1000u;
+        if (roll < 500u)      { samples[at] = 0xDEADBEEFu; }
+        else if (roll < 800u) { samples[at] = 0xFEEDFACEu; }
+        else if (roll < 950u) { samples[at] = 0x0BADC0DEu; }
+        else if (roll < 990u) { samples[at] = 0xCAFEBABEu; }
+        else if (roll < 999u) { samples[at] = 0x8BADF00Du; }
+        else                  { samples[at] = 0xABADCAFEu; }
+    }
+
+    uint32_t sample_needle[8];
+    memcpy(sample_needle, samples + 1024u, sizeof(sample_needle));
+
+    const size_t sample_needle_len = sizeof(sample_needle) / sizeof(sample_needle[0]);
+    const size_t sample_alignments = (sample_len - sample_needle_len) + 1u;
+
+    const SampleField sample_held = { samples, sample_needle };
+    const AnchorField sample_any = { sample_same_at, &sample_held, sample_alignments,
+                                     sample_needle_len };
+
+    // The true count, taken through the oracle alone with no projection and no probes. This is what
+    // the projected engine is graded against.
+    size_t truth = 0u;
+    for (size_t at = 0u; at < sample_alignments; at += 1u)
+    {
+        size_t agreed = 0u;
+        while (agreed < sample_needle_len)
+        {
+            if (sample_same_at(&sample_held, at + agreed, agreed) == 0)
+            {
+                break;
+            }
+            agreed += 1u;
+        }
+        if (agreed == sample_needle_len)
+        {
+            truth += 1u;
+        }
+    }
+
+    uint8_t *const ranks = (uint8_t *)malloc(sample_len);
+    uint32_t *const class_of = (uint32_t *)malloc(sample_len * sizeof(uint32_t));
+    uint32_t *const members = (uint32_t *)malloc(sample_len * sizeof(uint32_t));
+    uint32_t *const place = (uint32_t *)malloc(sample_len * sizeof(uint32_t));
+    size_t classes = 0u;
+    if ((ranks == NULL) || (class_of == NULL) || (members == NULL) || (place == NULL))
+    {
+        printf("  allocation failed\n");
+        free(ranks); free(class_of); free(members); free(place);
+        free(samples); free(scratch); free(corpus);
+        return 1;
+    }
+
+    const AnchorFieldProjection sample_projection = {
+        sample_same_in_field, samples, sample_len, ranks, class_of, members, place, sample_len,
+        &classes
+    };
+
+    if (anchor_field_project(&sample_projection) == 0)
+    {
+        printf("  the projection refused the sample field: FAILS\n");
+        failed += 1;
+    }
+    else
+    {
+        uint8_t rank_needle[8];
+        for (size_t at = 0u; at < sample_needle_len; at += 1u)
+        {
+            rank_needle[at] = ranks[1024u + at];
+        }
+
+        // The projected field run on the ordinary byte engine, which is the whole point: a 32 bit
+        // alphabet reaching the same loop bytes use, AVX2 scan included.
+        const size_t projected = anchor_sift_naive(ranks, sample_len, rank_needle,
+                                                   sample_needle_len);
+
+        printf("  %38s %8zu %8zu %10s\n", "classes found, true count", classes, truth,
+               (classes == 6u) ? "ok" : "CLASSES");
+        failed += (classes == 6u) ? 0 : 1;
+
+        // SOUNDNESS IS THE CLAIM AND IT IS ONE SIDED. The projected engine may return MORE than the
+        // truth, because two symbols sharing a rank survive a rank probe. It may never return less,
+        // because same symbol implies same rank. Fewer would mean a true occurrence was lost and the
+        // necessary condition was not one.
+        printf("  %38s %8zu %8zu %10s\n", "projected survivors, never below truth", projected, truth,
+               (projected >= truth) ? "sound" : "UNSOUND");
+        failed += (projected >= truth) ? 0 : 1;
+    }
+
+    free(ranks);
+    free(samples);
+    free(scratch);
+    free(corpus);
+    return failed;
+}
+
 int main(void)
 {
     uint8_t *corpus = (uint8_t *)malloc(STEER_CORPUS);
@@ -728,9 +1250,30 @@ int main(void)
     failed += check_dispatch_exact();
     failed += check_exact_matches_double();
     failed += check_arm_is_wired(corpus, STEER_CORPUS, needle, sizeof(needle));
+    failed += check_any_type_agrees();
+    failed += check_projection_closes();
 
     printf("\n  ARMS, EYES AND COARMS, spawned and swept against a reference count.\n");
     failed += grade_field("synthetic skewed", corpus, STEER_CORPUS);
+
+    // THE CORPUS FAMILY AND NOT ONE CORPUS. The field above is the one the ordering was built
+    // against, and a route graded only there reports the tuning instead of the route. These three
+    // span what a byte field can be: no structure to find, rarity that varies, and a field that
+    // repeats. A route that pays on one of them and costs on another is a route with a domain, and
+    // the domain is what a reader needs.
+    uint8_t *swept = (uint8_t *)malloc(STEER_CORPUS);
+    if (swept == NULL)
+    {
+        printf("  allocation failed\n");
+        free(corpus);
+        return 1;
+    }
+    for (CorpusKind kind = CORPUS_UNIFORM; kind <= CORPUS_PERIODIC; kind += 1)
+    {
+        bench_build_bytes(swept, STEER_CORPUS, kind, 0x5EEDu + (uint64_t)kind);
+        failed += grade_field(bench_corpus_name(kind), swept, STEER_CORPUS);
+    }
+    free(swept);
 
     /* A REAL NATURAL OBJECT AND NOT A GENERATOR. Everything above runs on bytes this file wrote,
      * which share whatever structure the generator happens to have. English prose is a field
@@ -739,11 +1282,8 @@ int main(void)
      * text is tracked in this repository, so the grader needs no network and no dataset fetch and
      * runs from a fresh clone. */
     size_t natural_len = 0u;
-    uint8_t *natural = read_whole_file("../../LICENSES/AGPL-3.0-or-later.txt", &natural_len);
-    if (natural == NULL)
-    {
-        natural = read_whole_file("LICENSES/AGPL-3.0-or-later.txt", &natural_len);
-    }
+    uint8_t *natural = read_whole_file(ANCHOR_SIFT_SOURCE_ROOT "/LICENSES/AGPL-3.0-or-later.txt",
+                                       &natural_len);
     if (natural != NULL)
     {
         failed += grade_field("natural, AGPL English text", natural, natural_len);
@@ -751,7 +1291,12 @@ int main(void)
     }
     else
     {
-        printf("\n  natural field not found beside the build, skipped\n");
+        // A FAILURE AND NOT A SKIP. The path is compiled in, so the file is either there or the
+        // repository is not what this binary was built against. Printing a skip and returning zero
+        // is how the natural field went ungraded without anybody being told.
+        printf("\n  natural field absent at %s, FAILS\n",
+               ANCHOR_SIFT_SOURCE_ROOT "/LICENSES/AGPL-3.0-or-later.txt");
+        failed += 1;
     }
 
     printf("\n  %d check(s) failed\n", failed);

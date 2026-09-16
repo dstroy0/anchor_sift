@@ -70,7 +70,6 @@
  */
 
 #include "anchor_sift.h"
-#include "anchor_steer.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -111,6 +110,17 @@ static uint32_t adversarial_next(uint64_t *const state)
  * @param[in]  state      Generator state, advanced in place [BORROWS].
  * @note An alphabet of one produces a constant field, the degenerate case every rule here
  *       has to survive.
+ * @note NOT A COPY OF CORPUS_SKEWED, checked against bench_corpora.c before this note was written.
+ *       This draws uniformly over an alphabet of N, so the knob is the SIZE of the alphabet and the
+ *       distribution over it is flat. CORPUS_SKEWED draws uniformly over 256 and maps the result
+ *       through a table where each successive symbol takes half the space left, giving a fixed
+ *       dyadic skew over 27 symbols with no knob at all. Neither can produce the other. Folding this
+ *       onto CORPUS_SKEWED would lose the whole sweep, the constant field at alphabet one included,
+ *       which is the case the line above exists for.
+ * @note adversarial_next stays for the same kind of reason. bench_build_bytes takes a seed and fills
+ *       a corpus, and this suite draws alphabet sizes, needle lengths and origins from one stream so
+ *       a failing case reduces from its printed seed. bench_corpora exports no general generator to
+ *       draw those from.
  */
 static void adversarial_fill_field(uint8_t *const corpus, const size_t corpus_len,
                                    const uint32_t alphabet, uint64_t *const state)
@@ -529,6 +539,16 @@ static int adversarial_case_sampling_cost(void)
     }
 
     // A field periodic at 16. A stride sharing that period sees an unrepresentative sample.
+    //
+    // BUILT HERE ON PURPOSE, THOUGH bench_corpora BUILDS THE SAME FIELD. This was briefly folded
+    // onto bench_build_bytes(CORPUS_PERIODIC), whose body is character for character this loop, and
+    // the fold was withdrawn: it would make a test depend on a bench corpus, and a bench corpus that
+    // cannot be retuned without checking what it silently changed in the test suite has stopped
+    // being a benchmark. test/ answers whether the engine is right and bench/ answers how fast, and
+    // the dependency only runs one way.
+    //
+    // What this case needs is A period, not bench's period. The 16 below is free. Nothing here is
+    // coupled to CORPUS_PERIODIC and no edit there can reach this.
     for (size_t at = 0u; at < ADVERSARIAL_CORPUS; at += 1u)
     {
         corpus[at] = (uint8_t)(at % 16u);
@@ -754,14 +774,30 @@ static int adversarial_case_stop_equals_continue(void)
         return 1;
     }
 
-    const size_t stopped = anchor_steer_spawn_coarms_deep(shallow, ANCHOR_STEER_ANCHORS, corpus,
-                                                          ADVERSARIAL_CORPUS, needle,
-                                                          sizeof(needle), scratch, alignments, 1u,
-                                                          0);
-    const size_t forced = anchor_steer_spawn_coarms_deep(deep, ANCHOR_STEER_ANCHORS, corpus,
-                                                         ADVERSARIAL_CORPUS, needle,
-                                                         sizeof(needle), scratch, alignments, 1u,
-                                                         1);
+    // The two runs differ in one member and nothing else, which is the whole point of the case.
+    // force_full_depth is omitted on the first, and an omitted member is zero, which is the destroy
+    // rule honored. Naming it on the second forces every level.
+    const size_t stopped = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                                             .offsets = shallow,
+                                             .count = ANCHOR_STEER_ANCHORS,
+                                             .corpus = corpus,
+                                             .corpus_len = ADVERSARIAL_CORPUS,
+                                             .needle = needle,
+                                             .needle_len = sizeof(needle),
+                                             .scratch = scratch,
+                                             .scratch_len = alignments,
+                                             .sample_stride = 1u);
+    const size_t forced = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                                            .offsets = deep,
+                                            .count = ANCHOR_STEER_ANCHORS,
+                                            .corpus = corpus,
+                                            .corpus_len = ADVERSARIAL_CORPUS,
+                                            .needle = needle,
+                                            .needle_len = sizeof(needle),
+                                            .scratch = scratch,
+                                            .scratch_len = alignments,
+                                            .sample_stride = 1u,
+                                            .force_full_depth = 1);
 
     const size_t reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle));
     const size_t shallow_count = anchor_steer_count(corpus, ADVERSARIAL_CORPUS, needle,
@@ -802,6 +838,182 @@ static int adversarial_case_stop_equals_continue(void)
  *       can fail for the widest set of reasons, and a failure there makes the designed cases below
  *       it easier to read.
  */
+/**
+ * @brief Case 12. A descent stops, recurses, or refuses, and never revisits a state.
+ *
+ * @return Count of failures.
+ *
+ * THE TRICHOTOMY IS A CLAIM AND THIS IS WHERE IT IS ATTACKED. The guide states that a descent takes
+ * one of exactly three branches: it stops when the destroy test fires, it recurses when a level
+ * prunes, and it refuses to run at all when the question is malformed. The fourth branch it denies
+ * is cycling, returning to a state already held.
+ *
+ * Each branch is checked separately and the refusal is checked hardest, because a refusal that
+ * returns zero while having already written to the caller's buffer is indistinguishable from a
+ * refusal that wrote nothing, unless somebody looks at the buffer. Every malformed call below is
+ * made against a buffer filled with a sentinel, and the sentinel has to survive.
+ *
+ * No-revisiting is checked by requiring the placed offsets to be pairwise distinct. A descent that
+ * placed the same offset twice would have returned to a state it already held, since placing a probe
+ * that is already placed leaves the survivor set exactly as it was.
+ */
+static int adversarial_case_trichotomy(void)
+{
+    printf("  a descent stops, recurses, or refuses, and never revisits\n");
+
+    uint8_t *const corpus = (uint8_t *)malloc(ADVERSARIAL_CORPUS);
+    uint8_t needle[16];
+    int failed = 0;
+
+    if (corpus == NULL)
+    {
+        printf("    allocation failed\n");
+        return 1;
+    }
+
+    uint64_t state = 0xC0FFEEu;
+    adversarial_fill_field(corpus, ADVERSARIAL_CORPUS, 6u, &state);
+    memcpy(needle, corpus + 128u, sizeof(needle));
+
+    const size_t alignments = (ADVERSARIAL_CORPUS - sizeof(needle)) + 1u;
+    uint8_t *const scratch = (uint8_t *)malloc(alignments);
+    if (scratch == NULL)
+    {
+        printf("    allocation failed\n");
+        free(corpus);
+        return 1;
+    }
+
+    // REFUSES. Six malformed questions, each against a sentinel filled buffer. The contract is that
+    // a refused call returns zero AND writes nothing, and only the second half needs looking for.
+    const size_t sentinel = (size_t)0xABCDEF01u;
+    struct
+    {
+        const char *what;
+        AnchorSteerDescent args;
+    } refusals[6];
+
+    size_t offsets[ANCHOR_STEER_ANCHORS];
+
+    refusals[0].what = "null offsets";
+    refusals[0].args = (AnchorSteerDescent){ .offsets = NULL, .count = ANCHOR_STEER_ANCHORS,
+        .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
+        .needle_len = sizeof(needle), .scratch = scratch, .scratch_len = alignments };
+    refusals[1].what = "null corpus";
+    refusals[1].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
+        .corpus = NULL, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
+        .needle_len = sizeof(needle), .scratch = scratch, .scratch_len = alignments };
+    refusals[2].what = "count over the bound";
+    refusals[2].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS + 1u,
+        .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
+        .needle_len = sizeof(needle), .scratch = scratch, .scratch_len = alignments };
+    refusals[3].what = "needle length zero";
+    refusals[3].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
+        .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle, .needle_len = 0u,
+        .scratch = scratch, .scratch_len = alignments };
+    refusals[4].what = "needle longer than corpus";
+    refusals[4].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
+        .corpus = corpus, .corpus_len = 8u, .needle = needle, .needle_len = sizeof(needle),
+        .scratch = scratch, .scratch_len = alignments };
+    refusals[5].what = "scratch short by one";
+    refusals[5].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
+        .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
+        .needle_len = sizeof(needle), .scratch = scratch, .scratch_len = alignments - 1u };
+
+    for (size_t which = 0u; which < 6u; which += 1u)
+    {
+        for (size_t slot = 0u; slot < ANCHOR_STEER_ANCHORS; slot += 1u)
+        {
+            offsets[slot] = sentinel;
+        }
+
+        const size_t placed = anchor_steer_spawn_coarms(&refusals[which].args);
+        if (placed != 0u)
+        {
+            printf("    %s ran and placed %zu: FAILS\n", refusals[which].what, placed);
+            failed += 1;
+        }
+        for (size_t slot = 0u; slot < ANCHOR_STEER_ANCHORS; slot += 1u)
+        {
+            if (offsets[slot] != sentinel)
+            {
+                printf("    %s wrote to the caller's buffer: FAILS\n", refusals[which].what);
+                failed += 1;
+                break;
+            }
+        }
+    }
+
+    // A null argument pointer is the seventh refusal and cannot be expressed in the table above.
+    if (anchor_steer_spawn_coarms(NULL) != 0u)
+    {
+        printf("    a null argument pointer ran: FAILS\n");
+        failed += 1;
+    }
+
+    // RECURSES, and NEVER REVISITS. A well formed call places distinct offsets. Forcing full depth
+    // takes the branch that ignores the destroy test, which is the recursing branch by construction.
+    const size_t forced = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                                            .offsets = offsets,
+                                            .count = ANCHOR_STEER_ANCHORS,
+                                            .corpus = corpus,
+                                            .corpus_len = ADVERSARIAL_CORPUS,
+                                            .needle = needle,
+                                            .needle_len = sizeof(needle),
+                                            .scratch = scratch,
+                                            .scratch_len = alignments,
+                                            .sample_stride = 1u,
+                                            .force_full_depth = 1);
+
+    for (size_t slot = 0u; slot < forced; slot += 1u)
+    {
+        for (size_t seen = 0u; seen < slot; seen += 1u)
+        {
+            if (offsets[slot] == offsets[seen])
+            {
+                printf("    offset %zu placed twice, a state was revisited: FAILS\n",
+                       offsets[slot]);
+                failed += 1;
+            }
+        }
+        if (offsets[slot] >= sizeof(needle))
+        {
+            printf("    offset %zu lies outside the needle: FAILS\n", offsets[slot]);
+            failed += 1;
+        }
+    }
+
+    // STOPS. Honoring the destroy test can only place fewer, never more.
+    const size_t stopped = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                                             .offsets = offsets,
+                                             .count = ANCHOR_STEER_ANCHORS,
+                                             .corpus = corpus,
+                                             .corpus_len = ADVERSARIAL_CORPUS,
+                                             .needle = needle,
+                                             .needle_len = sizeof(needle),
+                                             .scratch = scratch,
+                                             .scratch_len = alignments,
+                                             .sample_stride = 1u);
+
+    if (stopped > forced)
+    {
+        printf("    stopping placed more than forcing: FAILS\n");
+        failed += 1;
+    }
+    if (forced > ANCHOR_STEER_ANCHORS)
+    {
+        printf("    forcing exceeded the compile time bound: FAILS\n");
+        failed += 1;
+    }
+
+    printf("    refused 7 malformed questions, recursed to %zu distinct offsets, stopped at %zu,"
+           " verdict %s\n", forced, stopped, (failed == 0) ? "ok" : "FAILS");
+
+    free(scratch);
+    free(corpus);
+    return failed;
+}
+
 int main(void)
 {
     int failed = 0;
@@ -819,6 +1031,7 @@ int main(void)
     failed += adversarial_case_empty_plan();
     failed += adversarial_case_growing_plan();
     failed += adversarial_case_stop_equals_continue();
+    failed += adversarial_case_trichotomy();
 
     printf("\n  %d case(s) failed\n\n", failed);
     return (failed == 0) ? 0 : 1;
