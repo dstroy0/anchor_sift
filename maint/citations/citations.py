@@ -107,7 +107,11 @@ def working_tree():
     build/ anywhere, so the climb runs to the filesystem root and every scanned path is wrong.
 
     git answers the question directly and answers it the same way for the main worktree and a linked
-    one. The climb is kept only as the fallback for an exported tree with no history.
+    one. The climb is kept only as the fallback for an exported tree with no history, and it looks
+    for src/engine rather than build/ because src/engine is TRACKED: a marker the repository
+    contains is present in every checkout of it, and a marker the repository produces is present in
+    none of them until something has already run. This fallback originally kept build/, which left
+    one file climbing to a generated marker after the other fifty-two had stopped.
 
     Not to be confused with main_checkout() below, which deliberately wants the OTHER answer: this
     one is the tree being read, that one is the tree the closed repositories sit beside.
@@ -118,7 +122,7 @@ def working_tree():
 
     climbed = HERE
     while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "build")):
+            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
         climbed = os.path.dirname(climbed)
     return climbed
 
