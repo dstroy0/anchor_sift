@@ -226,6 +226,18 @@ The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:6
 
 **O1 and O2 are one question asked either side of one interface.** With the corpus nailed down the answer is a fixed depth decision procedure and no coarm count can make it otherwise. With a caller backed reader over a store the previous descent extended, the fixed corpus premise is gone and the outer composite can be universal by the tag system route. O1 was never a hard question that happened to be open; its answer is determined by the interface, and O2 is the only thing that moves it.
 
+### O5. WANT: the survivor series the destroy rule actually reads
+
+Found by the theorist while writing `docs/inspection-points.md`, and it is sharper now than it would have been this morning.
+
+The engine computes `best_standing` at every level of the descent and compares it against `steer_truthy_total` to decide whether to stop. Then it discards it. `placed` reports the depth reached, and the raster's `DEATH_LEVEL` channel reports which probe killed each alignment, and **nothing between those two reports the survivor count at each level**, which is the number the decision actually turned on.
+
+A caller who wants it today runs the descent twice with `force_full_depth` flipped and subtracts. That recovers the fact that the destroy rule fired and what its firing cost. It does not recover the reason.
+
+**Why it matters more after F15.** Four documents were just corrected to say depth is a data dependent steer rather than a constant. The quantity that steer reads is the one quantity the engine does not report.
+
+The shape would be a caller supplied array of `count` entries, filled with the survivor count at each level, which is the same contract every other buffer here already has. Nothing is blocked on it and nothing is being built.
+
 ### O2. WANT: the one term that would make the engine a computer
 
 **Reframed 2026-09-16 on Douglas's steer, relayed through the theorist.** His words: we are off by one term, that is all, and it just needs unbounding. This entry used to read as a blocker on a classification question. It is a capability somebody might ask for, and it is one interface change.
