@@ -1,5 +1,5 @@
 # The example catalog. Append only: a number is issued once and never moves.
-# Written by maint/catalog.py --assign.
+# Written by maint/catalog/catalog.py --assign.
 # state is live where the file is there and retired where it is gone.
 catalog	state	path
 ANY-1-001	live	examples/any_corpus/1_represent/one_symbol_one_byte.py
@@ -30,8 +30,10 @@ CRY-1-001	live	examples/crystallography/1_represent/a_cell_as_exact_points.py
 CRY-2-001	live	examples/crystallography/2_partition/what_a_grid_costs.py
 CRY-3-001	live	examples/crystallography/3_reference/what_a_grid_invents.py
 CRY-4-001	live	examples/crystallography/4_measure/period_from_the_difference_set.py
+CRY-4-002	live	examples/crystallography/4_measure/doping_from_shared_sites.py
 CRY-5-001	live	examples/crystallography/5_sift/lattice_breaks_the_product_rule.py
 CRY-6-001	live	examples/crystallography/6_oracle/proof_positive_control.py
+CRY-6-002	live	examples/crystallography/6_oracle/doping_against_deposited_occupancy.py
 LNG-1-001	live	examples/language/1_represent/akshara_web.py
 LNG-1-002	live	examples/language/1_represent/binary_web.py
 LNG-1-003	live	examples/language/1_represent/case_channel.py
@@ -92,10 +94,10 @@ LNG-4-046	live	examples/language/4_measure/word_length_families.py
 LNG-6-001	live	examples/language/6_oracle/control_values.py
 LNG-6-002	live	examples/language/6_oracle/gloss_harvest.py
 LNG-6-003	live	examples/language/6_oracle/language_families.py
-PRF-x-001	live	evidence/proofs/posits/proof_conservation.py
-PRF-x-002	live	evidence/proofs/posits/proof_corpus_audit.py
-PRF-x-003	live	evidence/proofs/posits/proof_null_property.py
-PRF-x-004	live	evidence/proofs/posits/proof_symbol_width.py
+PRF-x-001	retired	evidence/proofs/posits/proof_conservation.py
+PRF-x-002	retired	evidence/proofs/posits/proof_corpus_audit.py
+PRF-x-003	retired	evidence/proofs/posits/proof_null_property.py
+PRF-x-004	retired	evidence/proofs/posits/proof_symbol_width.py
 PRO-1-001	live	examples/proteins/1_represent/protein_bonds.py
 PRO-1-002	live	examples/proteins/1_represent/protein_chain.py
 PRO-2-001	live	examples/proteins/2_partition/protein_dimension.py
@@ -105,3 +107,26 @@ SRC-1-001	live	examples/source/1_represent/bracket_pairs.py
 SRC-4-001	live	examples/source/4_measure/asm_idiom.py
 SRC-4-002	live	examples/source/4_measure/formal_layer.py
 SRC-4-003	live	examples/source/4_measure/layout_grid.py
+VIZ-x-001	live	examples/00_blob_viz_tools/boundary_count.py
+VIZ-x-002	live	examples/00_blob_viz_tools/build_blob_view.py
+VIZ-x-003	live	examples/00_blob_viz_tools/build_chart_view.py
+VIZ-x-004	live	examples/00_blob_viz_tools/build_field_view.py
+VIZ-x-005	live	examples/00_blob_viz_tools/build_orrery_view.py
+VIZ-x-006	live	examples/00_blob_viz_tools/build_plot_view.py
+VIZ-x-007	live	examples/00_blob_viz_tools/build_room_view.py
+VIZ-x-008	live	examples/00_blob_viz_tools/build_sha_sphere_view.py
+VIZ-x-009	live	examples/00_blob_viz_tools/build_shadow_view.py
+VIZ-x-010	live	examples/00_blob_viz_tools/build_sound_view.py
+VIZ-x-011	live	examples/00_blob_viz_tools/build_sources_view.py
+VIZ-x-012	live	examples/00_blob_viz_tools/build_sphere_view.py
+VIZ-x-013	live	examples/00_blob_viz_tools/build_step_view.py
+VIZ-x-014	live	examples/00_blob_viz_tools/build_sweep_view.py
+VIZ-x-015	live	examples/00_blob_viz_tools/build_voxel_view.py
+VIZ-x-016	live	examples/00_blob_viz_tools/cut_project.py
+VIZ-x-017	live	examples/00_blob_viz_tools/dsp.py
+VIZ-x-018	live	examples/00_blob_viz_tools/exact.py
+VIZ-x-019	live	examples/00_blob_viz_tools/gpu_pack.py
+VIZ-x-020	live	examples/00_blob_viz_tools/make_shadow_figure.py
+VIZ-x-021	live	examples/00_blob_viz_tools/settings.py
+VIZ-x-022	live	examples/00_blob_viz_tools/sphere_field.py
+VIZ-x-023	live	examples/00_blob_viz_tools/torus_count.py

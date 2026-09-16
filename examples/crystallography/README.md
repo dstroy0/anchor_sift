@@ -9,8 +9,10 @@
 | `2_partition` | `what_a_grid_costs.py` | what the voxel cost and what the scale recovered |
 | `3_reference` | `what_a_grid_invents.py` | how much of a reading a shuffle also reaches |
 | `4_measure` | `period_from_the_difference_set.py` | what the instrument returns, with no answer key |
+| `4_measure` | `doping_from_shared_sites.py` | which sites hold two elements, read by incidence alone |
 | `5_sift` | `lattice_breaks_the_product_rule.py` | how far the histogram bound is out on a lattice |
 | `6_oracle` | `proof_positive_control.py` | whether it matches what somebody else published |
+| `6_oracle` | `doping_against_deposited_occupancy.py` | whether the doping found agrees with a column it never read |
 
 The subject was called `crystals` and was one stage deep, holding only the oracle. The reason recorded for the other five being absent was that parsing a CIF and tiling a right angled cell is domain knowledge and not a demonstration, so it belonged in the engine.
 
@@ -39,6 +41,46 @@ Stage four shows what the measure considers. There is no sweep and no ceiling. E
 Stage five is the reading the old README said had not been done. The anchor cascade over a published cell survives at **3.85 times** the product of its anchors' rates, up to 30 times on one entry. The product rule assumes anchors are positioned independently and a lattice is the arrangement where they are least so. It stays a necessary condition either way, since everything holding the pattern still survives.
 
 The crystal case is also the only one where the cascade needs no tolerance. A protein is a cloud of real valued coordinates, so two occurrences of one motif never land on identical offsets, and `examples/proteins/5_sift` extends a tolerance of one voxel in each direction to get any match at all. Here a displacement either lands on an occupied place or does not.
+
+## Doping is in the motif, and the period never sees it
+
+A substitutional dopant is two elements written at one crystallographic position. That is a
+statement about incidence, so the instrument that reads it is the same one that reads everything
+else here: `representation.exact.contested` returns the positions carrying more than one value, and
+it is domain blind. In a text that is one index holding two symbols. In a structure it is a doped
+site.
+
+Nothing about the cell is read to find one. No edge, no angle, no tiling, no conversion to
+angstroms. Two sites share a position when the deposit wrote the same three fractional coordinates
+twice, and that is decided by equality on exact integers.
+
+**126 shared positions were found across 758 entries, and all 126 are physically consistent with the
+occupancy column the detection never opened.** 106 sum to a full site, which is pure substitution.
+20 sum to less than a full site, which is substitution over a site that is also partly vacant. None
+sums to more than a full site, which would be more atoms than the position holds.
+
+The count that would have falsified the reading is zero: **no shared position has every element
+published at full occupancy.** A deposit claiming two elements are both entirely present in one
+place would contradict either the reading or itself, and none does.
+
+The converse is the half that is easy to lose. 707 positions carry a single element under full
+occupancy. Those are vacancies and not doping. Nothing substitutes there, the atom is simply
+absent some of the time. A detector that called every occupancy under 1 a dopant would be wrong on
+all 707, and they outnumber the doped sites by more than five to one.
+
+Doping does not disturb the recovered period, and the reason is structural rather than lucky. The
+cell repeats whatever it contains, dopant included, so the lattice is untouched. An ideal doped
+crystal is still exactly periodic, and stage four's two measures read two different things out of
+one set of points.
+
+### What that cost to learn
+
+The first version of the doping measure went through `crystal.exact_points`, and inherited a
+dependency it had no use for. `exact_points` refuses any cell that is not right angled, and the
+minerals that carry doping are overwhelmingly monoclinic and triclinic, so 498 of 697 entries came
+back unreadable. The measure looked like it was failing on three quarters of the corpus. It was
+being handed three quarters less corpus. Reaching for the smallest reading that answers the
+question fixed it, and the same run then read every entry.
 
 ## The first attempt at this was built wrong twice
 

@@ -4,7 +4,7 @@
 #
 # Ingestion that keeps every digit the source wrote, for any domain.
 #
-#   Usage:  from representation.exact import units, scaled, product, placed, along
+#   Usage:  from representation.exact import units, scaled, product, placed, contested, along
 #
 # Every reader in this part turns a file into points carrying values, and until now each one bounded
 # the values on the way in. levels.py holds a protein's angstroms and a shaped field's floating point
@@ -170,6 +170,33 @@ def placed(points):
     every one of them arrives here as the same thing.
     """
     return {position: value for position, value in points}
+
+
+def contested(points):
+    """Positions carrying more than one distinct value, as a lookup to the values at each.
+
+    `placed` above keeps the last value at a repeated position, which is what a reader that
+    overwrites does and is honest about being. It is also lossy in a way that is invisible
+    downstream: a position holding two different values arrives as one value, and which one depends
+    on the order the source happened to list them in.
+
+    That order dependence is the whole of what this exists to expose. A position holding two values
+    is a fact about the source, not a collision to be resolved on the way in, and whether it should
+    be resolved at all is a question for the domain and not for ingestion.
+
+    Returns {position: (value, value, ...)} sorted, holding only the positions where more than one
+    distinct value sits. A position listed twice with the same value is not contested: the source
+    repeated itself and said nothing new.
+
+    Domain blind, like everything else here. In a text this is one index carrying two symbols. In a
+    structure it is one crystallographic site carrying two elements, which is what a substitutional
+    dopant is.
+    """
+    gathered = {}
+    for position, value in points:
+        gathered.setdefault(position, set()).add(value)
+    return {position: tuple(sorted(values))
+            for position, values in gathered.items() if len(values) > 1}
 
 
 def along(points, axis):
