@@ -51,13 +51,27 @@ void anchor_sift_counters_reset(void)
  * @brief Chooses anchor offsets, one drawn inside each evenly sized cell of the needle.
  *
  * @param[out] offsets    Where the chosen offsets are written [BORROWS].
- * @param[in]  wanted     How many to choose.
+ * @param[in]  wanted     How many to choose, at least one.
  * @param[in]  needle_len Length of the needle they index.
  * @note One draw per cell keeps the spread and gives the anchor set no period of its own. An even
  *       comb shares a period with whatever the domain carries, the failure this avoids.
+ * @warning A needle of length zero has no in-range offset to choose. The clamp below computes
+ *          needle_len - 1u, and on size_t that wraps to SIZE_MAX instead of saturating, so every
+ *          offset lands far outside both the corpus and the needle. The arms answer length zero
+ *          before reaching here; this bounds it at the declaration as well, because the arms are
+ *          exported and the clamp reads exactly like the guard that would have prevented it.
  */
 static void choose_offsets(size_t *offsets, size_t wanted, size_t needle_len)
 {
+    if (needle_len == 0u)
+    {
+        for (size_t slot = 0u; slot < wanted; slot += 1u)
+        {
+            offsets[slot] = 0u;
+        }
+        return;
+    }
+
     const size_t cell = needle_len / wanted;
 
     for (size_t slot = 0u; slot < wanted; slot += 1u)
@@ -100,10 +114,21 @@ size_t anchor_sift_naive(const uint8_t *corpus, size_t corpus_len, const uint8_t
  *       are written out and fold into one value with one branch behind them, and a loop over a
  *       runtime count gives that back. A corpus whose count wants reducing is a coherent one, and
  *       a coherent corpus dispatches here anyway.
+ * @note A needle of length zero occurs at every alignment, which is exactly what the naive arm
+ *       returns, so that case is handed to it rather than answered a second way here. An anchor
+ *       cannot be placed in a needle with no bytes, and bounding the offsets is not enough on its
+ *       own: at length zero the alignment loop runs one further than the corpus, so the last
+ *       alignment reads one past its end, and the anchor reads element zero of a needle that has
+ *       none. Both are reads outside memory the caller owns.
  */
 static size_t sift_inorder_n(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
                              size_t needle_len, size_t anchors)
 {
+    if (needle_len == 0u)
+    {
+        return anchor_sift_naive(corpus, corpus_len, needle, needle_len);
+    }
+
     size_t offsets[ANCHOR_SIFT_ANCHORS];
     size_t found = 0u;
 
@@ -142,6 +167,16 @@ size_t anchor_sift_inorder(const uint8_t *corpus, size_t corpus_len, const uint8
 size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
                         size_t needle_len)
 {
+    // Length zero goes to the naive arm, for the reason recorded on sift_inorder_n. This arm
+    // carries the test separately because it is exported and a caller reaches it without passing
+    // through the dispatcher. It is also the arm where bounding the offsets alone would not have
+    // been enough: the read below happens before the alignment loop, so a zeroed offset still
+    // takes element zero of a needle that has none.
+    if (needle_len == 0u)
+    {
+        return anchor_sift_naive(corpus, corpus_len, needle, needle_len);
+    }
+
     size_t offsets[ANCHOR_SIFT_ANCHORS];
     uint8_t wanted[ANCHOR_SIFT_ANCHORS];
     size_t found = 0u;
@@ -207,6 +242,14 @@ static double two_to_the(double exponent)
 
 AnchorSiftArm anchor_sift_choose(const AnchorSiftPlan *plan)
 {
+    // No plan is no statistics, and the arm that needs none is the naive one. The test is here
+    // rather than left to the caller because the first statement below dereferences the pointer,
+    // so there is no later point at which a caller could be told it went wrong.
+    if (plan == NULL)
+    {
+        return anchor_sift_naive;
+    }
+
     const double effective = two_to_the(plan->collision_entropy);
 
     /* A flat corpus refutes almost every alignment on the first probe, so short circuiting reads one
@@ -222,6 +265,13 @@ AnchorSiftArm anchor_sift_choose(const AnchorSiftPlan *plan)
 
 size_t anchor_sift_anchors_for(const AnchorSiftPlan *plan)
 {
+    // No plan is no known period, and an unknown period is the case the full anchor set is for.
+    // Returning the maximum reads more than a known period would need and can lose nothing.
+    if (plan == NULL)
+    {
+        return ANCHOR_SIFT_ANCHORS;
+    }
+
     /* Every anchor after the first tests the congruence the first one already tested, so the reads
      * they perform are their only contribution. */
     if (plan->period != 0u)
@@ -234,7 +284,16 @@ size_t anchor_sift_anchors_for(const AnchorSiftPlan *plan)
 size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t corpus_len,
                        const uint8_t *needle, size_t needle_len)
 {
-    if (anchor_sift_choose(plan) == anchor_sift_free)
+    const AnchorSiftArm arm = anchor_sift_choose(plan);
+
+    // Held and dispatched rather than re-asked, because the choice is now three ways and not two.
+    // Reaching the tail on a null plan would have run the in order arm with the full anchor set,
+    // which is the one outcome the guard in anchor_sift_choose was added to prevent.
+    if (arm == anchor_sift_naive)
+    {
+        return anchor_sift_naive(corpus, corpus_len, needle, needle_len);
+    }
+    if (arm == anchor_sift_free)
     {
         return anchor_sift_free(corpus, corpus_len, needle, needle_len);
     }

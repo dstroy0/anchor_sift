@@ -180,6 +180,18 @@ add_executable(bench_coherence bench/bench_coherence.c)
 target_link_libraries(bench_coherence PRIVATE anchor_sift_kernel_counted bench_corpora)
 target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 
+# Every arm against the naive one at the lengths that bound the input: none, one, two. The kernel's
+# contract is that no arm can lose a true occurrence, so an arm returning anything else is a defect
+# whatever it measures, and this is the driver that says so. Links the uncounted kernel because what
+# is under test is what the arms RETURN and not what they read.
+#
+# It is a negative control as much as a test: on a kernel whose choose_offsets clamps a zero length
+# needle to needle_len - 1u, that wraps to SIZE_MAX and the run reads outside both pointers rather
+# than printing a row.
+add_executable(bench_arm_agreement bench/bench_arm_agreement.c)
+target_link_libraries(bench_arm_agreement PRIVATE anchor_sift_kernel)
+target_compile_options(bench_arm_agreement PRIVATE ${SIFT_WARNINGS})
+
 # Soundness where the claim actually lives. Its core takes a base list, a displacement list and a
 # callback answering whether two positions carry the same symbol, so it has no dimension parameter
 # and no symbol type, and it sweeps one to eight dimensions, a complex irrational alphabet compared
