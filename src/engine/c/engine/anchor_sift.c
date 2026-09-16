@@ -1406,7 +1406,7 @@ size_t anchor_steer_count(const uint8_t *corpus, size_t corpus_len, const uint8_
     return found;
 }
 
-/* ---- the scan, folded in ---- */
+/* ---- the scan: shared counters and the arm dispatch; each arm is its own scan_<set>.c ---- */
 
 uint64_t anchor_steer_scan_calls = 0u;
 uint64_t anchor_steer_wide_calls = 0u;
@@ -1429,36 +1429,4 @@ const AnchorSteerEngine *anchor_steer_best_engine(void)
     }
 #endif
     return anchor_steer_portable_engine();
-}
-
-size_t anchor_steer_truthy_after_portable(const uint8_t *corpus, size_t alignments,
-                                          const uint8_t *alive, uint8_t wanted, size_t offset)
-{
-    anchor_steer_scan_calls += 1u;
-
-    if ((corpus == NULL) || (alive == NULL) || (alignments == 0u))
-    {
-        return 0u;
-    }
-
-    size_t standing = 0u;
-    for (size_t at = 0u; at < alignments; at += 1u)
-    {
-        if (alive[at] == 0u)
-        {
-            continue;
-        }
-        if (corpus[at + offset] == wanted)
-        {
-            standing += 1u;
-        }
-    }
-    return standing;
-}
-
-const AnchorSteerEngine *anchor_steer_portable_engine(void)
-{
-    static const AnchorSteerEngine engine = { "portable", anchor_steer_truthy_after_portable };
-
-    return &engine;
 }

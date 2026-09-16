@@ -58,15 +58,15 @@ add_library(anchor_exact_portable STATIC no_rounding/exact_integer.c no_rounding
 target_include_directories(anchor_exact_portable PUBLIC no_rounding)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
-# THE ENGINE. The search, the steering and the portable scan are one translation unit, anchor_sift.c,
-# because they spell one primitive: byte equality at a shift, counted over positions. The search
-# counts matches, the steering counts survivors, the portable scan counts the same survivors. One
-# file is one include graph and one place to look for the loop.
+# THE ENGINE. anchor_sift.c holds the search, the steering, the shared scan counters and the arm
+# dispatch. They spell one primitive: byte equality at a shift, counted over positions. The search
+# counts matches, the steering counts survivors, a scan arm counts those survivors at one offset.
 #
-# A wide scan arm stays a separate file per instruction set, engine/scan_<set>.c, because it is not
-# portable by definition and carries a compiler flag no other file may see. Only the portable engine
-# is held to C11. Today engine/ carries scan_avx2.c; the other sets are written as they land.
-set(ANCHOR_SIFT_SOURCES engine/anchor_sift.c)
+# Each scan arm is its own file, engine/scan_<set>.c, one per instruction set. scan_portable.c is the
+# C11 reference every other arm is graded against; a wide arm carries a compiler flag no other file
+# may see, so it cannot share a translation unit. engine/ carries scan_portable.c and scan_avx2.c
+# today; the other sets are written as they land.
+set(ANCHOR_SIFT_SOURCES engine/anchor_sift.c engine/scan_portable.c)
 set(ANCHOR_SIFT_DEFINES "")
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     list(APPEND ANCHOR_SIFT_SOURCES engine/scan_avx2.c)
