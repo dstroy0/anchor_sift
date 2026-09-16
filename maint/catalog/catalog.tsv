@@ -132,11 +132,11 @@ PRO-x-004	live	examples/proteins/family_rules.py
 PRO-x-005	live	examples/proteins/ramachandran_rules.py
 SND-1-001	live	examples/sound/1_represent/vocalization_scale.py
 SND-3-001	live	examples/sound/3_reference/period_background_and_its_null.py
-SND-4-001	live	examples/sound/4_measure/coherent_hum_removed_to_the_bit.py
-SND-4-002	live	examples/sound/4_measure/impulses_removed_to_the_bit.py
+SND-4-001	retired	examples/sound/4_measure/coherent_hum_removed_to_the_bit.py
+SND-4-002	retired	examples/sound/4_measure/impulses_removed_to_the_bit.py
 SND-4-003	live	examples/sound/4_measure/noise_removed_to_the_bit.py
-SND-4-004	live	examples/sound/4_measure/outliers_removed_without_a_threshold.py
-SND-4-005	live	examples/sound/4_measure/self_similar_removed_to_the_bit.py
+SND-4-004	retired	examples/sound/4_measure/outliers_removed_without_a_threshold.py
+SND-4-005	retired	examples/sound/4_measure/self_similar_removed_to_the_bit.py
 SRC-1-001	live	examples/source/1_represent/bracket_pairs.py
 SRC-4-001	live	examples/source/4_measure/asm_idiom.py
 SRC-4-002	live	examples/source/4_measure/formal_layer.py
