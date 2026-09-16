@@ -656,13 +656,25 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
     (void)anchor_steer_spawn_coarms(spawned, ANCHOR_STEER_ANCHORS, corpus, corpus_len, needle,
                                     needle_len, scratch, alignments, 1u);
 
-    printf("  %18s %14s %14s %10s\n", "widest arm", "scans", "wide scans", "verdict");
+    printf("  %18s %14s %14s %10s %10s\n", "widest arm", "scans", "wide scans", "share",
+           "verdict");
+
+    /* A COUNT SAYS THE ARM RAN. A SHARE SAYS IT RAN ON THE WORK IT WAS GIVEN. The distinction
+     * matters because they fail differently: a count above zero is satisfied by a single dispatch,
+     * so a change that accidentally routed almost every sweep to the scalar fall-through would keep
+     * the count non-zero and be entirely wrong. This whole planner run is at stride one, which is
+     * the only stride an arm serves, so every scan in it should reach the wide arm and the share
+     * should be the full hundred. */
+    const uint64_t share = (anchor_steer_scan_calls > 0u)
+                         ? ((anchor_steer_wide_calls * 100u) / anchor_steer_scan_calls)
+                         : 0u;
 
     const int ok = (anchor_steer_scan_calls > 0u)
-                && ((wide_present == 0) || (anchor_steer_wide_calls > 0u));
-    printf("  %18s %14llu %14llu %10s\n", best->name,
+                && ((wide_present == 0) || (share == 100u));
+    printf("  %18s %14llu %14llu %9llu%% %10s\n", best->name,
            (unsigned long long)anchor_steer_scan_calls,
-           (unsigned long long)anchor_steer_wide_calls, ok ? "ok" : "FAILS");
+           (unsigned long long)anchor_steer_wide_calls, (unsigned long long)share,
+           ok ? "ok" : "FAILS");
 
     if (anchor_steer_scan_calls == 0u)
     {
@@ -672,6 +684,12 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
     else if ((wide_present != 0) && (anchor_steer_wide_calls == 0u))
     {
         printf("    %s reports present and the planner never called it\n", best->name);
+        failed += 1;
+    }
+    else if ((wide_present != 0) && (share != 100u))
+    {
+        printf("    %s ran on %llu%% of the scans at stride one, so the rest fell through\n",
+               best->name, (unsigned long long)share);
         failed += 1;
     }
     else if (wide_present == 0)

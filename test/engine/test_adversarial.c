@@ -556,6 +556,245 @@ static int adversarial_case_sampling_cost(void)
 }
 
 /**
+ * @brief Case 8. Probe order is a permutation null.
+ *
+ * @return 0 where every order of one probe set returns one count, 1 otherwise.
+ * @note DIFFERENTIAL, AND IT TESTS THE COROLLARY DIRECTLY. An alignment survives only where every
+ *       probe agrees, a conjunction commutes, so the surviving set and the count are the same under
+ *       any order. This was argued from the start and could not be checked until an entry took the
+ *       probe set as an argument.
+ * @note A failure here points at STATE CARRIED BETWEEN PROBES in the implementation and not at the
+ *       theory, because the mathematics has no order in it to get wrong. That is the reading to
+ *       give anyone who hits it.
+ */
+static int adversarial_case_permutation_null(void)
+{
+    uint8_t *const corpus = (uint8_t *)malloc(ADVERSARIAL_CORPUS);
+    uint8_t needle[16];
+    int failed = 0;
+
+    if (corpus == NULL)
+    {
+        printf("    allocation failed\n");
+        return 1;
+    }
+
+    uint64_t state = 0x2545F4914F6CDD1DULL;
+    adversarial_fill_field(corpus, ADVERSARIAL_CORPUS, 6u, &state);
+    memcpy(needle, corpus + 700u, sizeof(needle));
+
+    const AnchorProbe orders[4][3] = {
+        { { 0u, 1u, 1u }, { 7u, 1u, 1u }, { 15u, 1u, 1u } },
+        { { 15u, 1u, 1u }, { 0u, 1u, 1u }, { 7u, 1u, 1u } },
+        { { 7u, 1u, 1u }, { 15u, 1u, 1u }, { 0u, 1u, 1u } },
+        { { 15u, 1u, 1u }, { 7u, 1u, 1u }, { 0u, 1u, 1u } },
+    };
+    const size_t reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle));
+
+    for (size_t which = 0u; which < 4u; which += 1u)
+    {
+        const size_t counted = anchor_steer_count_with_probes(corpus, ADVERSARIAL_CORPUS, needle,
+                                                              sizeof(needle), orders[which], 3u);
+        if (counted != reference)
+        {
+            printf("    FAIL order %zu returned %zu against reference %zu\n", which, counted,
+                   reference);
+            failed = 1;
+        }
+    }
+
+    printf("  probe order as a permutation null, verdict %s\n", (failed == 0) ? "ok" : "FAILS");
+    free(corpus);
+    return failed;
+}
+
+/**
+ * @brief Case 9. The empty probe set is the identity element.
+ *
+ * @return 0 where no probes still returns the exact count at zero probe reads, 1 otherwise.
+ * @note THE CHEAPEST TOTAL CHECK OF THE WHOLE GUARANTEE. With no probes every alignment reaches the
+ *       full compare, so the answer is exactly right and the cost is maximal. If this fails, the
+ *       verifier is wrong and every other count in the tree rests on nothing, because every probe
+ *       set relies on that same compare to remove its false survivors.
+ * @note The read count is graded at zero as a premise check. Probes reading bytes where no probe
+ *       was supplied would mean the entry is choosing its own, and the case would be measuring
+ *       something other than the identity.
+ */
+static int adversarial_case_empty_plan(void)
+{
+    uint8_t *const corpus = (uint8_t *)malloc(ADVERSARIAL_CORPUS);
+    uint8_t needle[12];
+    int failed = 0;
+
+    if (corpus == NULL)
+    {
+        printf("    allocation failed\n");
+        return 1;
+    }
+
+    uint64_t state = 0x14057B7EF767814FULL;
+    adversarial_fill_field(corpus, ADVERSARIAL_CORPUS, 4u, &state);
+    memcpy(needle, corpus + 321u, sizeof(needle));
+
+    const size_t reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle));
+
+    anchor_steer_probes_reset();
+    const size_t counted = anchor_steer_count_with_probes(corpus, ADVERSARIAL_CORPUS, needle,
+                                                          sizeof(needle), NULL, 0u);
+    const uint64_t reads = anchor_steer_probes;
+
+    if (counted != reference)
+    {
+        printf("    FAIL empty plan counted %zu against reference %zu\n", counted, reference);
+        failed = 1;
+    }
+    if (reads != 0u)
+    {
+        printf("    FAIL premise: %llu probe reads with no probes supplied\n",
+               (unsigned long long)reads);
+        failed = 1;
+    }
+
+    printf("  the empty plan, %zu occurrences at %llu probe reads, verdict %s\n", counted,
+           (unsigned long long)reads, (failed == 0) ? "ok" : "FAILS");
+    free(corpus);
+    return failed;
+}
+
+/**
+ * @brief Case 10. Growing a probe set changes the cost and never the count.
+ *
+ * @return 0 where one, two, three and four probes all return the reference count, 1 otherwise.
+ * @note THIS IS THEOREM 1 STATED AS A MEASUREMENT. The count is exact for ANY probe set. A sequence
+ *       of sets returning different counts therefore refutes the necessary-condition guarantee
+ *       itself. Each probe is a necessary condition of an occurrence, a conjunction of them is one,
+ *       and the full compare removes the false survivors.
+ * @note The reads are reported and never asserted, because more probes may read more or fewer bytes
+ *       depending on where the field refutes, and only the count is guaranteed.
+ */
+static int adversarial_case_growing_plan(void)
+{
+    uint8_t *const corpus = (uint8_t *)malloc(ADVERSARIAL_CORPUS);
+    uint8_t needle[20];
+    int failed = 0;
+
+    if (corpus == NULL)
+    {
+        printf("    allocation failed\n");
+        return 1;
+    }
+
+    uint64_t state = 0x76E15D3EFEFDCBBFULL;
+    adversarial_fill_field(corpus, ADVERSARIAL_CORPUS, 5u, &state);
+    memcpy(needle, corpus + 1024u, sizeof(needle));
+
+    const AnchorProbe probes[4] = {
+        { 0u, 1u, 1u }, { 19u, 1u, 1u }, { 9u, 1u, 1u }, { 4u, 5u, 2u },
+    };
+    const size_t reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle));
+
+    for (size_t used = 1u; used <= 4u; used += 1u)
+    {
+        anchor_steer_probes_reset();
+        const size_t counted = anchor_steer_count_with_probes(corpus, ADVERSARIAL_CORPUS, needle,
+                                                              sizeof(needle), probes, used);
+        if (counted != reference)
+        {
+            printf("    FAIL %zu probe(s) counted %zu against reference %zu\n", used, counted,
+                   reference);
+            failed = 1;
+        }
+    }
+
+    printf("  growing the plan over %zu occurrences, verdict %s\n", reference,
+           (failed == 0) ? "ok" : "FAILS");
+    free(corpus);
+    return failed;
+}
+
+/**
+ * @brief Case 11. Stopping at the destroy condition equals running to full depth.
+ *
+ * @return 0 where both descents agree on the count and on every probe the shallow one placed, 1
+ *         otherwise.
+ * @note THE DESTROY THEOREM TESTED BY ITS CONSEQUENCE. Under a candidate set that does not grow
+ *       with the level, a fired stop condition would fire at every level below, so stopping and
+ *       continuing place the same probes up to the stop point and return the same count.
+ * @note TWO FAILURE MODES, AND THEY MEAN DIFFERENT THINGS. Counts differing means the
+ *       necessary-condition guarantee broke, since both probe sets are legal whatever the descent
+ *       chose. The probes before the stop point differing means the induction broke, and the
+ *       candidate set is growing with the level where the theorem requires it not to. Reporting one
+ *       verdict for both would lose that distinction.
+ */
+static int adversarial_case_stop_equals_continue(void)
+{
+    uint8_t *const corpus = (uint8_t *)malloc(ADVERSARIAL_CORPUS);
+    uint8_t needle[16];
+    size_t shallow[ANCHOR_STEER_ANCHORS];
+    size_t deep[ANCHOR_STEER_ANCHORS];
+    int failed = 0;
+
+    if (corpus == NULL)
+    {
+        printf("    allocation failed\n");
+        return 1;
+    }
+
+    // A field of one repeated symbol, where the first probe prunes nothing and the stop fires early.
+    memset(corpus, 'm', ADVERSARIAL_CORPUS);
+    memset(needle, 'm', sizeof(needle));
+
+    const size_t alignments = ADVERSARIAL_CORPUS - sizeof(needle) + 1u;
+    uint8_t *const scratch = (uint8_t *)malloc(alignments);
+
+    if (scratch == NULL)
+    {
+        printf("    allocation failed\n");
+        free(corpus);
+        return 1;
+    }
+
+    const size_t stopped = anchor_steer_spawn_coarms_deep(shallow, ANCHOR_STEER_ANCHORS, corpus,
+                                                          ADVERSARIAL_CORPUS, needle,
+                                                          sizeof(needle), scratch, alignments, 1u,
+                                                          0);
+    const size_t forced = anchor_steer_spawn_coarms_deep(deep, ANCHOR_STEER_ANCHORS, corpus,
+                                                         ADVERSARIAL_CORPUS, needle,
+                                                         sizeof(needle), scratch, alignments, 1u,
+                                                         1);
+
+    const size_t reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle));
+    const size_t shallow_count = anchor_steer_count(corpus, ADVERSARIAL_CORPUS, needle,
+                                                    sizeof(needle), 1);
+
+    if (shallow_count != reference)
+    {
+        printf("    FAIL descent count %zu against reference %zu\n", shallow_count, reference);
+        failed = 1;
+    }
+    for (size_t slot = 0u; slot < stopped; slot += 1u)
+    {
+        if (shallow[slot] != deep[slot])
+        {
+            printf("    FAIL induction: probe %zu is offset %zu stopped and %zu forced\n", slot,
+                   shallow[slot], deep[slot]);
+            failed = 1;
+        }
+    }
+    if (forced < stopped)
+    {
+        printf("    FAIL forced depth %zu below stopped depth %zu\n", forced, stopped);
+        failed = 1;
+    }
+
+    printf("  stopping equals continuing, %zu probes stopped against %zu forced, verdict %s\n",
+           stopped, forced, (failed == 0) ? "ok" : "FAILS");
+    free(scratch);
+    free(corpus);
+    return failed;
+}
+
+/**
  * @brief Runs every case and returns how many failed.
  *
  * @return 0 where every case passes, otherwise the count that failed.
@@ -576,6 +815,10 @@ int main(void)
     failed += adversarial_case_all_survivors_false();
     failed += adversarial_case_family_guard();
     failed += adversarial_case_sampling_cost();
+    failed += adversarial_case_permutation_null();
+    failed += adversarial_case_empty_plan();
+    failed += adversarial_case_growing_plan();
+    failed += adversarial_case_stop_equals_continue();
 
     printf("\n  %d case(s) failed\n\n", failed);
     return (failed == 0) ? 0 : 1;
