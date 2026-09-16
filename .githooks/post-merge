@@ -9,16 +9,16 @@
 #
 #     git config core.hooksPath .githooks
 #
-# THE DIRECTION
+# THE DIRECTION, AS THE OLD DESIGN HAD IT. Read the HELD block below first: this describes what the
+# hook did before it was held, and the routing here is superseded.
 #
-# theory_bucket is upstream and this repository is downstream. The seven books are authored there
-# and arrive here as a git subtree under theory_bucket/, which is why they sit in the tree instead of
-# behind a submodule pointer: a clone gets them without a second fetch and they ship with the
-# release. The workbook is not one of them. It is the book about this engine, it lives in theory/,
-# and it is authored here.
+# theory_bucket was upstream and this repository downstream, with the books arriving as a git subtree
+# under theory_bucket/. That is exactly the route now withheld, because theory_bucket holds
+# unpublished research and this repository is public. The workbook is a separate thing: it is the
+# book about this engine, it lives in theory/, and it is authored here.
 #
-# An edit typed into theory_bucket/ here is lost the next time this runs. Take it upstream, open a
-# pull request against that repository, and it comes back down through this hook.
+# Do not route an edit up into theory_bucket expecting it to come back down. Public books are edited
+# against the public dstroy0/theory repository. theory_bucket does not feed this tree.
 #
 # WHY THIS REFUSES INSTEAD OF PULLING, MOST OF THE TIME
 #
@@ -39,20 +39,27 @@ REPO=$(cd "$(dirname "$0")/.." && pwd)
 PREFIX=theory_bucket
 UPSTREAM=https://github.com/dstroy0/theory_bucket.git
 
-# HELD 2026-09-16, UNTIL DOUGLAS RULES ON WHICH THEORY IS PUBLISHABLE. Everything below this block is
-# the design and none of it runs while this block stands.
+# HELD 2026-09-16, AND THE MANUAL COMMAND IS WITHHELD ON PURPOSE. Everything below this block is the
+# old design and none of it runs while this block stands.
 #
-# This repository is public. theory_bucket's remote is private, and on 2026-09-16 its main was 88
-# files past the squash held under theory_bucket/ here, including engine material nobody has reviewed
-# for a public tree. The pull below runs when a merge lands on a clean main in the shared checkout
-# with the upstream reachable, and this machine's credentials reach it. The result is a commit on
-# main carrying that material, one push from publication, made without a person deciding.
+# theory_bucket's remote is private and Douglas ruled on 2026-09-16 that it holds unpublished
+# research: the held advantage work, engine material nobody has reviewed for a public tree. This
+# repository is public. `git subtree pull` from theory_bucket copies ALL of it under
+# theory_bucket/ here, so the pull the design below performs, and the manual command an earlier hold
+# printed, are both one push from publishing held research. The command is not printed here for that
+# reason: a line a person can copy is the hazard, not only the automatic run.
 #
-# Deleting this hook is Douglas's call and is planned separately. This block only stops the automatic
-# pull. The manual command still works, and running it by hand is a person making that decision.
-# To lift the hold, delete this block.
-echo "  theory not refreshed: automatic pull held pending the publication ruling"
-echo "  when you are ready:  git subtree pull --prefix=$PREFIX $UPSTREAM main --squash"
+# Nothing enters this public repository from theory_bucket. Public theory reaches consumers through
+# the public repository dstroy0/theory instead, and that is the only route. An edit meant for the
+# public books is made against dstroy0/theory, never typed into theory_bucket/ here and never carried
+# up into the private repository.
+#
+# Deleting this hook is Douglas's call and is planned at PLANS/THEORY_MIGRATION.md section 4. This
+# block only stops the hook. To lift the hold, delete this block, and not before the routing above
+# is settled.
+echo "  theory not refreshed: this hook is held (see .githooks/post-merge)"
+echo "  theory_bucket holds unpublished research and does not feed this public repository"
+echo "  public theory reaches consumers through dstroy0/theory, which is the only route in"
 exit 0
 
 if [ "${ANCHOR_SIFT_NO_SUBTREE:-0}" = "1" ]; then
