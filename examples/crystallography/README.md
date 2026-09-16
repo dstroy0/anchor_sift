@@ -54,19 +54,30 @@ Nothing about the cell is read to find one. No edge, no angle, no tiling, no con
 angstroms. Two sites share a position when the deposit wrote the same three fractional coordinates
 twice, and that is decided by equality on exact integers.
 
-**126 shared positions were found across 758 entries, and all 126 are physically consistent with the
-occupancy column the detection never opened.** 106 sum to a full site, which is pure substitution.
-20 sum to less than a full site, which is substitution over a site that is also partly vacant. None
-sums to more than a full site, which would be more atoms than the position holds.
+**Over 1200 deposits, 712 shared positions were found in 214 entries, and all 712 are physically
+consistent with the occupancy column the detection never opened.** 625 sum to a full site, which is
+pure substitution. 87 sum to less than a full site, which is substitution over a position that is
+also partly vacant. None sums to more than a full site, which would be more atoms than the position
+holds. Every one of the 1200 was readable; 17 individual sites were skipped for a coordinate that is
+not plain decimal text.
 
 The count that would have falsified the reading is zero: **no shared position has every element
 published at full occupancy.** A deposit claiming two elements are both entirely present in one
 place would contradict either the reading or itself, and none does.
 
-The converse is the half that is easy to lose. 707 positions carry a single element under full
+The result did not soften as the corpus grew. At 758 entries it was 126 of 126, at 999 it was 408
+of 408, and at 1200 it is 712 of 712. Tripling the detections moved nothing.
+
+The converse is the half that is easy to lose. 1244 positions carry a single element under full
 occupancy. Those are vacancies and not doping. Nothing substitutes there, the atom is simply
 absent some of the time. A detector that called every occupancy under 1 a dopant would be wrong on
-all 707, and they outnumber the doped sites by more than five to one.
+all 1244, and they outnumber the doped positions by nearly two to one.
+
+What the substitutions are is not something the measure was told. Folding charge and case together,
+the corpus is led by Al/Si at 444, then Ca/Na at 66, Fe/Mg at 30 and K/Na at 28. Al/Si with Ca/Na is
+the plagioclase coupled substitution and Al/Si with K/Na is the alkali feldspar series, which is to
+say the two most common substitutions in the crust came out on top of a reading that knows no
+chemistry and never looked at a cell.
 
 Doping does not disturb the recovered period, and the reason is structural rather than lucky. The
 cell repeats whatever it contains, dopant included, so the lattice is untouched. An ideal doped
