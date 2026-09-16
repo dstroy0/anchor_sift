@@ -155,11 +155,14 @@ typedef struct
 #define ANCHOR_RASTER_CHANNELS 5u
 
 /**
- * @brief One probe as the rasterizer needs it, matching AnchorProbe in anchor_steer.h.
+ * @brief One probe as the rasterizer needs it, matching AnchorProbe in anchor_sift.h.
  *
- * @note Declared here rather than including anchor_steer.h so the device translation unit compiles
- *       without pulling in the limb library it does not use. The two layouts are identical and
- *       anchor_raster.c asserts that at compile time.
+ * @note Declared here rather than including the engine header so the device translation unit
+ *       compiles without pulling in the limb library it does not use. The two layouts are identical
+ *       and anchor_raster.c asserts that at compile time.
+ * @note Declared above the volume surface below, which names this type in a signature. A structure
+ *       cannot name a type the compiler has not seen, and this header has been reordered once
+ *       already for the same reason.
  */
 typedef struct
 {
@@ -167,6 +170,125 @@ typedef struct
     size_t step;   /**< Distance between successive positions. */
     size_t length; /**< Positions read. */
 } AnchorRasterProbe;
+
+/**
+ * @brief How an alignment index becomes a voxel position.
+ *
+ * SEPARATE FROM AnchorRasterLayout AND NOT AN EXTENSION OF IT. A raster layout is a bijection onto
+ * a width by height sheet and a volume layout is a bijection onto a width by height by depth block.
+ * Widening the raster enum would change ANCHOR_RASTER_LAYOUTS, which every caller sweeping the
+ * raster uses as its bound, and would hand those callers layouts needing a depth they do not carry.
+ *
+ * @note The channel, the reduce rule and the gain are unchanged and are not duplicated here. Each
+ *       reads one alignment and returns one value, so none of them knows how many dimensions the
+ *       destination has. Only the index to position map changes between a sheet and a block, which
+ *       is the same statement the engine makes about its own index set needing no order and no
+ *       dimension.
+ * @note Every transform here is a bijection computed in integer arithmetic, so a device
+ *       implementation reproduces it exactly and no transform can drop or duplicate an alignment.
+ */
+typedef enum
+{
+    ANCHOR_VOLUME_SLABS = 0,   /**< Slab major. Fills a sheet, then the next sheet behind it. The
+                                *   three dimensional reading of ANCHOR_LAYOUT_ROWS. */
+    ANCHOR_VOLUME_BOUSTRO = 1, /**< Slab major with every other row and every other slab reversed,
+                                *   so consecutive alignments stay adjacent across both boundaries. */
+    ANCHOR_VOLUME_MORTON = 2,  /**< Morton order, interleaving the bits of x, y and z. Locality is
+                                *   preserved on all three axes at once, which is what a linear
+                                *   index set needs to read as a solid rather than as stacked
+                                *   sheets. Requires the extents to be powers of two; a caller
+                                *   giving others gets a refusal rather than a silent remap. */
+    ANCHOR_VOLUME_HELIX = 3    /**< Slab major with each slab's rows shifted by its depth index, so
+                                *   a feature at a fixed corpus offset winds through the block
+                                *   instead of stacking. A shear and not a rotation: a true helix
+                                *   needs trigonometry, this renderer is integer throughout so the
+                                *   host and a device agree exactly, and a shear is the bijection
+                                *   that gives the same reading without leaving the integers. */
+} AnchorVolumeLayout;
+
+/** @brief Number of volume layouts, for a caller sweeping every one. */
+#define ANCHOR_VOLUME_LAYOUTS 4u
+
+/**
+ * @brief The whole input configuration for a volume render.
+ *
+ * @note Carries the raster's channel, reduce and gain by reference to the same enums rather than by
+ *       copy. A channel means one thing in this tree and a second spelling of it is a future
+ *       disagreement.
+ * @warning `depth` of zero renders nothing and is refused. A flat render is the raster's job and
+ *          this entry does not quietly become one.
+ */
+typedef struct
+{
+    size_t width;                /**< Voxels across. Non-zero. */
+    size_t height;               /**< Voxel rows. Non-zero. */
+    size_t depth;                /**< Voxel slabs. Non-zero, and one is refused rather than flattened. */
+    AnchorVolumeLayout layout;   /**< How an alignment index becomes a voxel position. */
+    AnchorRasterChannel channel; /**< What quantity a voxel carries. Same set as the raster. */
+    AnchorRasterReduce reduce;   /**< How collisions resolve. Same set as the raster. */
+    uint8_t gain;                /**< Multiplier on a death level. Zero is treated as one. */
+} AnchorVolumeConfig;
+
+/**
+ * @brief Voxel index an alignment lands on under a configuration's layout.
+ *
+ * @param[in] config    Render configuration [BORROWS].
+ * @param[in] alignment Alignment index.
+ * @return              Index into a width*height*depth block, or the block size where the
+ *                      configuration is unusable, which a caller treats as "not placed".
+ */
+size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment);
+
+/**
+ * @brief Renders the object under examination into a volume, on the host.
+ *
+ * @param[out] voxels     width*height*depth bytes, written whole [BORROWS].
+ * @param[in]  config     Render configuration [BORROWS].
+ * @param[in]  corpus     Bytes under examination [BORROWS].
+ * @param[in]  corpus_len How many.
+ * @param[in]  needle     Bytes being searched for [BORROWS].
+ * @param[in]  needle_len How many.
+ * @param[in]  probes     Probes in evaluation order [BORROWS].
+ * @param[in]  probe_count How many probes.
+ * @param[in]  census     Rarity source for ANCHOR_CHANNEL_RARITY, or NULL [BORROWS].
+ * @return                1 where the volume was written, 0 where the configuration was refused.
+ *
+ * @note HOST ONLY, AND THE DEVICE VOLUME IS NOT WIRED. anchor_raster_render prefers the device for a
+ *       sheet. There is no device volume kernel, and this entry does not pretend otherwise by
+ *       falling back silently: a caller wanting to know asks anchor_volume_device_available, which
+ *       answers 0 on every build today. A stub reporting itself present is the defect this tree has
+ *       spent a day removing.
+ */
+int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
+                              const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
+                              size_t needle_len, const AnchorRasterProbe *probes,
+                              size_t probe_count, const void *census);
+
+/**
+ * @brief Whether a device volume renderer exists on this build.
+ *
+ * @return 0 on every build today. Declared so a caller can ask instead of assuming, and so the
+ *         answer has one place to change when a kernel is written.
+ */
+int anchor_volume_device_available(void);
+
+/**
+ * @brief Writes a volume as a raw byte block beside a text header naming its extents.
+ *
+ * @param[in] path   Destination for the bytes [BORROWS].
+ * @param[in] voxels width*height*depth bytes [BORROWS].
+ * @param[in] config Render configuration, read for the extents [BORROWS].
+ * @return           1 on success, 0 where the file could not be written.
+ *
+ * @note Netpbm has no volume format, so this writes the block raw and states its shape in a sidecar
+ *       rather than inventing a container. A generated file says it is generated and names its
+ *       generator, which the sidecar does.
+ */
+int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
+                            const AnchorVolumeConfig *config);
+
+/** @brief Name of a volume layout, for a caller printing a row. Never null. */
+const char *anchor_volume_layout_name(AnchorVolumeLayout layout);
 
 /**
  * @brief Rasterizes the object under examination on the host.
