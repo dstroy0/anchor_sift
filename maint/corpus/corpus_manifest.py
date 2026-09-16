@@ -52,6 +52,7 @@
 import hashlib
 import io
 import os
+import subprocess
 import sys
 
 FIELDS = ("sha256", "bytes", "rows", "path")
@@ -88,8 +89,15 @@ BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 # pages/ is the same case as build/. A page render is pdf2png.py run over a paper already in
 # papers/, so the PDF's hash below pins it, and a clone that has not rendered a paper yet would
 # read every one of its pages as a file the inventory lists and the tree does not have.
+#
+# .claude is the same case again and it arrived the way the others did, by something new appearing
+# beside the corpus rather than inside it. A linked git worktree is created under .claude/worktrees/
+# and is a full checkout, so every file of the corpus shows up a second time at a path the inventory
+# does not list. The gate then reads an entire second corpus as unrecorded and refuses every commit,
+# including the commit that would have recorded anything. It is not corpus content: it is a working
+# copy of content already inventoried at its real path.
 IGNORED = (NAME, NAME + ".asc", AUDIO, AUDIO + ".asc", ".git", ".gitignore", "hooks",
-           "README.md", "__pycache__", "build", "pages")
+           "README.md", "__pycache__", "build", "pages", ".claude")
 
 
 def rows_in(path):
@@ -217,6 +225,53 @@ def write_manifest(root, rows, out, name=NAME):
                   % (len(tables), sum(int(one["rows"]) for one in tables)))
 
 
+def _main_checkout():
+    """The main working tree, which is the one the closed repositories sit beside.
+
+    Deliberately NOT the tree this tool was run from. A linked worktree lives under
+    <repo>/.claude/worktrees/<name>, so a sibling path computed from it lands inside .claude/ and
+    finds nothing. --git-common-dir names the shared git directory for the main tree and for every
+    linked worktree alike, and its parent is the main checkout.
+
+    Git's own variables are cleared because a rev-parse inheriting a hook's GIT_DIR answers about
+    that repository rather than about the directory it was asked from.
+    """
+    start = os.path.dirname(os.path.abspath(__file__))
+    environment = dict(os.environ)
+    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+        environment.pop(key, None)
+
+    try:
+        said = subprocess.check_output(["git", "rev-parse", "--git-common-dir"], cwd=start,
+                                       stderr=subprocess.PIPE, env=environment)
+    except (OSError, subprocess.CalledProcessError):
+        said = b""
+
+    common = said.decode("utf-8", "replace").strip()
+    if not common:
+        return start
+    if not os.path.isabs(common):
+        common = os.path.join(start, common)
+    base = os.path.dirname(os.path.abspath(common))
+    return base if os.path.isdir(base) else start
+
+
+def _corpus_candidates():
+    """Every place the closed corpus is looked for, in the order it is looked for.
+
+    Returned rather than searched inline so the caller can say what it looked for when it finds
+    nothing. The first entry is the repair: this defaulted to ../private_repos/salishan_corpus,
+    which after the move into repos/owned/{public,private} resolves to
+    repos/owned/public/private_repos and does not exist, so the default was never once correct.
+    """
+    base = _main_checkout()
+    owned = os.path.dirname(os.path.dirname(base))
+    return (
+        os.path.join(owned, "private", "salishan_corpus"),
+        os.path.join(os.path.dirname(base), "private_repos", "salishan_corpus"),
+    )
+
+
 def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
     bypassing = ("--bypass" in sys.argv) or bool(os.environ.get(BYPASS_ENV))
@@ -224,10 +279,8 @@ def main():
     if "--root" in sys.argv:
         root = sys.argv[sys.argv.index("--root") + 1]
     if root is None:
-        here = os.path.dirname(os.path.abspath(__file__))
-        while (here != os.path.dirname(here)) and not os.path.isdir(os.path.join(here, "build")):
-            here = os.path.dirname(here)
-        root = os.path.join(os.path.dirname(here), "private_repos", "salishan_corpus")
+        held = [one for one in _corpus_candidates() if os.path.isdir(one)]
+        root = held[0] if held else _corpus_candidates()[0]
     root = os.path.abspath(root)
 
     if not os.path.isdir(root):

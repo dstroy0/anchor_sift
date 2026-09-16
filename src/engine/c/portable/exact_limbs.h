@@ -74,8 +74,24 @@ extern "C" {
 /* The declared floor has to fit the width, and the build can decide that. A decimal digit needs
  * log2(10) bits, which is 3.3219, carried here as 3322 parts in a thousand and rounded up so the
  * test is never optimistic. A floor raised past the width fails compilation with this line. */
+/* Spelled per language and both arms defined, because nvcc compiles a .cu as C++ where
+ * _Static_assert does not exist. Unguarded, this header failed to compile under nvcc, the GPU arm
+ * was never built, and a stale bench binary carrying no CUDA symbols went on reporting a "cuda" arm
+ * that agreed with the portable one. It agreed because it WAS the portable one. */
+/* Three arms and every one defined, keyed on what the LANGUAGE offers rather than on which
+ * compiler is driving. C++ spells it static_assert, C11 spells it _Static_assert, and a C compiler
+ * older than C11 has neither, where a negative array width fails at compile time on any of them.
+ * Naming a vendor here would only move the hole to the next toolchain that is not that vendor. */
+#if defined(__cplusplus)
+static_assert((((ANCHOR_EXACT_DIGITS * 3322u) / 1000u) + 1u) <= ANCHOR_EXACT_BITS,
+              "ANCHOR_EXACT_DIGITS declares more decimal digits than ANCHOR_EXACT_LIMBS holds");
+#elif defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 201112L)
 _Static_assert((((ANCHOR_EXACT_DIGITS * 3322u) / 1000u) + 1u) <= ANCHOR_EXACT_BITS,
                "ANCHOR_EXACT_DIGITS declares more decimal digits than ANCHOR_EXACT_LIMBS holds");
+#else
+typedef char anchor_exact_digits_fit_the_width[
+    ((((ANCHOR_EXACT_DIGITS * 3322u) / 1000u) + 1u) <= ANCHOR_EXACT_BITS) ? 1 : -1];
+#endif
 
 /**
  * @brief An exact integer, magnitude in limbs and sign held apart from it.

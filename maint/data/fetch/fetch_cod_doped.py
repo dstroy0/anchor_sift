@@ -154,7 +154,7 @@ def fetched(url, out):
             with urllib.request.urlopen(request, timeout=180) as response:
                 return response.read().decode("utf-8", errors="replace")
         except (urllib.error.URLError, http.client.HTTPException, socket.timeout,
-                OSError, ValueError) as reason:
+                OSError) as reason:
             # The archive closes a connection now and then under a sweep this size. A dropped
             # request is not an absent entry, so it is retried before being given up on.
             #
@@ -163,6 +163,14 @@ def fetched(url, out):
             # HTTPException and not from URLError or OSError, so it walked straight through a
             # handler that looked complete. The failure mode is worth naming: every ordinary network
             # error was retried and the one that ends a four hour sweep was the one not caught.
+            #
+            # ValueError was in this list and has been taken out. It was here to catch a decode
+            # failure, and it also catches a programming error: a bad format string or a bad int()
+            # inside this block would be retried three times and then reported as the archive
+            # refusing. That is the same fault as catching bare Exception, one notch smaller, and
+            # the sibling client in examples/crystallography/6_oracle/proof_positive_control.py:109
+            # has the full sized version of it. A network retry should not be able to swallow a bug
+            # in the code doing the retrying.
             if attempt == (TRIES - 1):
                 out.write("      gave up on %s: %s\n" % (url.rsplit("/", 1)[-1], reason))
                 out.flush()

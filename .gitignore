@@ -10,10 +10,20 @@ site/
 
 # Cloned dependencies. MMgr used to sit here as four separate partial copies of itself, each one
 # byte identical to the original and none of them recording which commit it came from, so a stale
-# copy and a current one looked the same. `python tools/maintain/get_deps.py` clones it instead, and
+# copy and a current one looked the same. `python maint/deps/get_deps.py` clones it instead, and
 # git in the clone answers what is checked out. Same rule as build/ and site/: what a tool can
 # fetch is not carried here.
-deps/
+#
+# ANCHORED, and the slash is the whole of the repair. Written as `deps/` with no leading slash this
+# matched a directory named deps at ANY depth, so besides the clone directory it was written for it
+# also swallowed maint/deps/, where get_deps.py and vendor_test_vectors.py live. Both tools were
+# therefore in no commit that has ever existed, while sitting on one machine's disk, and five
+# documents instructed a reader to run a file their clone could not contain. Being ignored AND
+# untracked, `git clean -xfd` would have deleted them with nothing to restore from.
+#
+# The rule written to stop unrecorded copies had silently stopped the tool that does the recording
+# from being carried at all. A pattern anchored to the repository root says what it meant to say.
+/deps/
 
 # The hand extractions and the papers they were read from. Every row is a form transcribed out of a
 # published paper, so the tables are those papers' text and not this work's to redistribute, and the
@@ -52,6 +62,18 @@ theory/*/main.pdf
 theory/*/*/main.pdf
 theory_bucket/*/main.pdf
 theory_bucket/*/*/main.pdf
+
+# What bench_raster drops where it is run from. A run writes 22 of these, and the renderer writes
+# them beside the working directory instead of under build/, so the repository root collects them
+# whenever a bench is run from there. Checked before adding: no tracked file matches any of the
+# three, so these ignore generated output and nothing else.
+#
+# These are extensions and are deliberately unanchored, unlike `deps/`, which had to become
+# `/deps/` after the bare form matched `maint/deps/` at depth and hid two files that were then in
+# no commit in this repository's history.
+*.pgm
+*.raw
+*.raw.txt
 
 # Editor and OS leavings.
 .vscode/

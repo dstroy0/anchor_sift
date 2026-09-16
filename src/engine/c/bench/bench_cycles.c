@@ -195,7 +195,7 @@ static double collision_entropy(const uint8_t *corpus, size_t length, size_t *di
 typedef struct
 {
     const char *name;
-    AnchorSiftArm run;
+    AnchorSiftEngine run;
 } Arm;
 
 /** @brief One corpus under test: what to call it and how it is filled. */
@@ -305,12 +305,16 @@ int main(void)
             /* What the dispatcher picks, against what the clock says was quickest. The cost of a
              * wrong pick is the ratio between them, and a dispatcher that rarely picks the fastest
              * is not worth having however cheap its inputs are. */
+            /* The census replaced the entropy and the distinct count in the plan, so the rule reads
+             * integer counts. `entropy` and `distinct` above are still computed and still printed;
+             * they are this bench's report and no longer the engine's input. */
+            AnchorFieldCensus census;
+            anchor_field_census(corpus, CORPUS_BYTES, &census);
             const AnchorSiftPlan plan = {
-                .collision_entropy = entropy,
-                .distinct_symbols = distinct,
+                .census = &census,
                 .needle_len = needle_len,
             };
-            const AnchorSiftArm chosen = anchor_sift_choose(&plan);
+            const AnchorSiftEngine chosen = anchor_sift_choose(&plan);
 
             size_t fastest = 0u;
             size_t picked = 0u;
@@ -330,7 +334,7 @@ int main(void)
             }
 
             printf("ancorae_dispatch,%s,%zu,%.4f,%zu,%s,%s,%.1f,%.1f,%.3f\n", CORPORA[which].name,
-                   needle_len, entropy, distinct, anchor_sift_arm_name(chosen), ARMS[fastest].name,
+                   needle_len, entropy, distinct, anchor_sift_engine_name(chosen), ARMS[fastest].name,
                    timed[picked], timed[fastest], timed[picked] / timed[fastest]);
         }
     }

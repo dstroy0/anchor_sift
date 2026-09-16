@@ -58,12 +58,76 @@
 import io
 import os
 import re
+import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = HERE
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "build")):
-    ROOT = os.path.dirname(ROOT)
+
+# What git exports into a hook. They name the repository git is already operating on, and a
+# rev-parse that inherits them answers about THAT instead of about the directory it was asked from.
+# The specific way it goes wrong is quiet: with GIT_DIR set and no work tree named, --show-toplevel
+# comes back as the current directory, so this file's own directory became the repository root and
+# every scanned path hung off maint/citations/. It was caught only because the layout guard below
+# refuses a root with no repotools.toml in it; with the old silent fallback it would have scanned
+# almost nothing and exited 0.
+GIT_ENV = ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR")
+
+
+def git_answer(arguments):
+    """One git query about the tree this file sits in, or None where git will not say.
+
+    Asked with the hook's own git variables cleared, so the answer is about the directory asked
+    from and not about whatever repository invoked us.
+    """
+    environment = dict(os.environ)
+    for key in GIT_ENV:
+        environment.pop(key, None)
+
+    try:
+        answer = subprocess.check_output(
+            ["git"] + list(arguments), cwd=HERE, stderr=subprocess.PIPE, env=environment
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+    said = answer.decode("utf-8", "replace").strip()
+    return said or None
+
+
+def working_tree():
+    """The tree this tool is part of, which is not the tree it used to walk up to.
+
+    ROOT was found by climbing from this file until a directory holding build/ appeared. build/ is
+    generated and a linked worktree does not have one, so from a worktree the climb went straight
+    past the worktree root and stopped at the MAIN checkout. The gate then scanned main's tree while
+    reporting on a commit being made from somewhere else, and it did that silently, because landing
+    on a real repository with real files looks exactly like working.
+
+    It also has a second failure at the other end: a clone that has never built anything has no
+    build/ anywhere, so the climb runs to the filesystem root and every scanned path is wrong.
+
+    git answers the question directly and answers it the same way for the main worktree and a linked
+    one. The climb is kept only as the fallback for an exported tree with no history, and it looks
+    for src/engine rather than build/ because src/engine is TRACKED: a marker the repository
+    contains is present in every checkout of it, and a marker the repository produces is present in
+    none of them until something has already run. This fallback originally kept build/, which left
+    one file climbing to a generated marker after the other fifty-two had stopped.
+
+    Not to be confused with main_checkout() below, which deliberately wants the OTHER answer: this
+    one is the tree being read, that one is the tree the closed repositories sit beside.
+    """
+    top = git_answer(["rev-parse", "--show-toplevel"])
+    if top and os.path.isdir(top):
+        return os.path.abspath(top)
+
+    climbed = HERE
+    while (climbed != os.path.dirname(climbed)) \
+            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+        climbed = os.path.dirname(climbed)
+    return climbed
+
+
+ROOT = working_tree()
 
 NAME = "SOURCES.tsv"
 
@@ -93,11 +157,107 @@ BUCKET = re.compile(r"^[a-z_]+(/[a-z_]+){1,3}$")
 # The owner's columns. --seed writes them empty and no run of this tool ever writes them again.
 ENTERED = ("bucket", "author", "year", "title", "identifier", "file", "differs")
 
-# Where this tree's own writing lives. build/ is fetched material and deps/ is somebody else's.
-SEARCHED = ("theory", "theory_bucket", "docs", "src", "tools", "examples", "README.md",
-            "SECURITY.md", "CONTRIBUTING.md")
 SKIP = ("__pycache__", ".git", "build", "deps", "site")
-TEXT = (".md", ".tex", ".py", ".c", ".h", ".R", ".m", ".sh", ".bib")
+
+# What counts as text this tree wrote. A source a reader can find in the tree and the gate cannot
+# read is a source the gate cannot ask about, and the extension list is the whole of what it reads.
+#
+# The six added here were each hiding a real registry question. .tsv hid maint/texbuild/
+# ledger_days.tsv, which carries the fullest bibliographic strings in the repository. .json hid
+# test/vectors/MANIFEST.json, which holds the NIST CAVP and Wycheproof provenance with archive
+# SHA-256s -- a provenance record the citation gate could not see is the exact case this tool
+# exists for. .html hid two citations inside a built view, .rsp is the CAVP response format, and
+# .cff is the repository's own citation file, which it would be absurd for a citation gate to skip.
+TEXT = (".md", ".tex", ".py", ".c", ".h", ".R", ".m", ".sh", ".bib",
+        ".html", ".js", ".json", ".tsv", ".rsp", ".cff")
+
+# One entry of the [layout] table: a bare string, or a list of them.
+LAYOUT_ENTRY = re.compile(r"^\s*([a-z_]+)\s*=\s*(.+?)\s*$")
+
+# The layout kinds that hold writing of this tree's own. Asked for by KIND and never by directory.
+#
+# This is the repair for the defect that brought me here. The list used to name "tools", and this
+# repository has no tools/ directory -- README.md:59 says so deliberately, because the code lives
+# under maint/. os.walk over a directory that does not exist yields nothing and raises nothing, so
+# the entry scanned zero files and reported zero findings, while maint/, evidence/ and test/ were
+# never named at all and so were never scanned either. A gate that reads nothing exits 0.
+#
+# Worth recording rather than quietly fixing: objective 5 moves the tools into tools/, which would
+# have made that directory exist and REPAIRED this half by accident. The gate would have started
+# working and nobody would have learned it had been blind, nor that maint/ had never been in the
+# list in the first place. Inheriting a fix by luck is worse than making it, because the second
+# defect rides out on the first one's coattails.
+WRITTEN_KINDS = ("docs", "source", "examples", "tests", "tools")
+
+# Places with no layout kind of their own. evidence/ holds the proofs that pin the numbers, and the
+# three files are the loose ones at the root.
+EXTRA_SEARCHED = ("evidence", "README.md", "SECURITY.md", "CONTRIBUTING.md", "CITATION.cff")
+
+
+def layout_table():
+    """The [layout] table of repotools.toml, every value as a tuple of names.
+
+    Reads both spellings the table uses: `tools = "maint"` and `docs = ["docs", "theory"]`. An
+    absent file returns an empty table, which the caller turns into a stopped run rather than a
+    silent one.
+    """
+    path = os.path.join(ROOT, "repotools.toml")
+    if not os.path.isfile(path):
+        return {}
+
+    table = {}
+    inside = False
+    with io.open(path, encoding="utf-8", errors="replace") as handle:
+        for line in handle:
+            stripped = line.strip()
+            if stripped.startswith("["):
+                inside = stripped == "[layout]"
+                continue
+            if not inside or not stripped or stripped.startswith("#"):
+                continue
+            entry = LAYOUT_ENTRY.match(line)
+            if entry:
+                table[entry.group(1)] = tuple(re.findall(r'"([^"]*)"', entry.group(2)))
+    return table
+
+
+def searched_names():
+    """Every place this tree's own writing lives, resolved through repotools.toml.
+
+    Refuses rather than guesses, in all three ways it can be wrong: no table, a missing kind, or a
+    named directory that is not on disk. Each of those otherwise reads as a smaller scan that
+    reports fewer findings and exits 0, which is the failure this whole function is about.
+    """
+    table = layout_table()
+    if not table:
+        raise SystemExit("citations: no [layout] table in %s. The directories to scan are named "
+                         "there, and guessing them is how this gate came to scan a tools/ "
+                         "directory that does not exist." % os.path.join(ROOT, "repotools.toml"))
+
+    names = []
+    for kind in WRITTEN_KINDS:
+        if kind not in table:
+            raise SystemExit("citations: repotools.toml [layout] has no %s key. A kind that is "
+                             "not listed is not scanned, and an unscanned tree reports no missing "
+                             "citations." % kind)
+        for one in table[kind]:
+            if one not in names:
+                names.append(one)
+
+    for one in EXTRA_SEARCHED:
+        if one not in names:
+            names.append(one)
+
+    absent = [one for one in names if not os.path.exists(os.path.join(ROOT, one))]
+    if absent:
+        raise SystemExit("citations: %s named for scanning and not on disk. os.walk over a "
+                         "directory that is not there yields nothing and raises nothing, so this "
+                         "stops instead." % ", ".join(absent))
+
+    return tuple(names)
+
+
+SEARCHED = searched_names()
 
 # The names to enter on a first --seed. After that the registry is the vocabulary and this list is
 # only the starting point, kept so an empty registry can be rebuilt from nothing.
@@ -124,22 +284,91 @@ NOT_A_NAME = frozenset((
 ))
 
 
-def private_root():
-    """The closed citations repository, taken from the first of three places that has it.
+def main_checkout():
+    """The main working tree, which is the one the private repositories sit beside.
 
-    ANCHOR_SIFT_CITATIONS wins, for a checkout that keeps it somewhere of its own. Then the clone
-    under deps/, the route onto a machine that only consumes it. Then the authoring copy
-    beside this checkout, which is where it is edited and signed.
+    A linked worktree lives at <repo>/.claude/worktrees/<name>, so a sibling path computed from it
+    lands inside .claude/ and finds nothing. Git knows the difference: --git-common-dir names the
+    shared .git directory for the main tree and for every linked worktree alike, and its parent is
+    the main checkout.
+
+    Falls back to ROOT where git cannot answer, which covers an exported tree with no history. That
+    fallback is the ordinary case and not a failure, so it is silent; a private root that is looked
+    for and not found is reported by the caller instead.
+    """
+    common = git_answer(["rev-parse", "--git-common-dir"])
+    if not common:
+        return ROOT
+    if not os.path.isabs(common):
+        common = os.path.join(HERE, common)
+    base = os.path.dirname(os.path.abspath(common))
+    return base if os.path.isdir(base) else ROOT
+
+
+def private_candidates():
+    """Every place the closed citations repository is looked for, in the order it is looked for.
+
+    Returned rather than searched inline so the caller can say what it looked for when it finds
+    nothing. A gate that reports only "not there" sends the reader to guess at paths, and the
+    guessing is what left this tool pointing at private_repos/ for the whole of the migration.
+    """
+    base = main_checkout()
+    return (
+        # The authoring copy, at repos/owned/private/ beside repos/owned/public/. This is where the
+        # registry actually lives after the move into owned/{public,private}, and its absence from
+        # this list is why --check exited 2 on every commit and every commit needed the bypass.
+        os.path.join(os.path.dirname(os.path.dirname(base)), "private", "anchor_sift_citations"),
+        # The clone under deps/, the route onto a machine that only consumes it.
+        os.path.join(base, "deps", "anchor_sift_citations"),
+        # The layout before the move. Kept so a checkout that has not been reorganized still works.
+        os.path.join(os.path.dirname(base), "private_repos", "anchor_sift_citations"),
+    )
+
+
+def private_root():
+    """The closed citations repository, taken from the first place that has it.
+
+    ANCHOR_SIFT_CITATIONS wins, for a checkout that keeps it somewhere of its own.
     """
     named = os.environ.get("ANCHOR_SIFT_CITATIONS")
     if named:
         return os.path.abspath(named)
-    for candidate in (os.path.join(ROOT, "deps", "anchor_sift_citations"),
-                      os.path.join(os.path.dirname(ROOT), "private_repos",
-                                   "anchor_sift_citations")):
+    for candidate in private_candidates():
         if os.path.isdir(candidate):
             return candidate
-    return os.path.join(ROOT, "deps", "anchor_sift_citations")
+    return private_candidates()[0]
+
+
+# A file this tree produced rather than wrote, announced by its own first line. Matched across the
+# comment leaders the tree uses so the test is about the marker and not about the language.
+GENERATED = re.compile(r"^\s*(?:%+|#+|//+|/\*+)\s*Generated by\b", re.I)
+
+
+def is_generated(path):
+    """Whether a file says on its first line that something generated it.
+
+    THE CIRCULARITY THIS PREVENTS, which is silent and lossy rather than merely untidy.
+
+    theory_bucket/cryptography/sha256/chapters/chapter_sources.tex is written by the book build FROM
+    the citations registry, and it lands inside theory_bucket, which is scanned. So the registry's
+    own bibliography is a file full of the names in the registry. A --seed run over it rewrites
+    first_use from the document that genuinely cites a work to the file that exists only because the
+    row exists, and the real user of the source is erased. The registry ends up recording itself as
+    the reason a source is used.
+
+    It also inflates the use count: every key in a generated bibliography gets at least one hit from
+    it, so such a row can never read as unused and --check cannot tell "cited by the work" from
+    "listed in a bibliography the registry produced".
+
+    Keyed on the file's first line rather than a list of paths, because a path list is a second
+    place to remember something and the marker is already there. SKIP cannot reach this case: it
+    filters directories, and this is a generated file inside a directory that is kept.
+    """
+    try:
+        with io.open(path, encoding="utf-8", errors="replace") as handle:
+            return bool(GENERATED.match(handle.readline()))
+    except OSError:
+        return False
 
 
 def tree_files():
@@ -160,8 +389,11 @@ def tree_files():
                 if not name.endswith(TEXT):
                     continue
                 found = os.path.join(base, name)
-                if os.path.abspath(found) != mine:
-                    yield found
+                if os.path.abspath(found) == mine:
+                    continue
+                if is_generated(found):
+                    continue
+                yield found
 
 
 def read_registry(root):
@@ -259,6 +491,13 @@ def main():
     if not os.path.isdir(root):
         out.write("  not there. Clone the closed citations repository, or set"
                   " ANCHOR_SIFT_CITATIONS.\n")
+        # Naming every place it looked, and not only the one it would have used. A gate that
+        # reports a single path it did not find reads as "the repository is missing" when what
+        # happened is that the repository moved and this list did not, which is the state this
+        # tool was in for the whole of the migration.
+        out.write("  looked for it at:\n")
+        for candidate in private_candidates():
+            out.write("      %s\n" % candidate.replace("\\", "/"))
         if bypassing:
             out.write("  bypassed.\n\n")
             out.flush()

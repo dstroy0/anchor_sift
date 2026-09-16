@@ -7,6 +7,8 @@
 #   python maint/catalog/catalog.py            what is registered and what is not
 #   python maint/catalog/catalog.py --assign   number the new ones and write it into their headers
 #   python maint/catalog/catalog.py --check    fail where a header and the registry disagree
+#   python maint/catalog/catalog.py --header   give a file with no license header one, so --assign
+#                                              has a line to write its number under
 #
 # WHY A NUMBER AND NOT A PATH
 #
@@ -41,12 +43,52 @@
 import io
 import os
 import re
+import subprocess
 import sys
+import tomllib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = HERE
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "build")):
-    ROOT = os.path.dirname(ROOT)
+def _repository_root():
+    """This repository, asked of git rather than inferred from a marker directory.
+
+    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    a linked worktree and a never-built clone both lack it. The climb then walked past the root it
+    was looking for into another checkout entirely, and every path derived from it pointed at a
+    different tree than the tool was run from. That lands on a real repository with real files,
+    which is indistinguishable from working.
+
+    A marker infers the root. Git answers it. The climb below is kept only for an exported tree with
+    no git directory, and it looks for src/engine, which is TRACKED: a marker the repository
+    contains is present in every checkout of it, and a marker the repository produces is present in
+    none of them until something has already run.
+
+    Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
+    inherits it answers about that repository rather than about the directory it was asked from,
+    returning the current directory instead of the root.
+    """
+    start = os.path.dirname(os.path.abspath(__file__))
+    environment = dict(os.environ)
+    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+        environment.pop(key, None)
+
+    try:
+        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
+                                       stderr=subprocess.PIPE, env=environment)
+    except (OSError, subprocess.CalledProcessError):
+        said = b""
+
+    top = said.decode("utf-8", "replace").strip()
+    if top and os.path.isdir(top):
+        return os.path.abspath(top)
+
+    climbed = start
+    while (climbed != os.path.dirname(climbed)) \
+            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+        climbed = os.path.dirname(climbed)
+    return climbed
+
+
+ROOT = _repository_root()
 
 EXAMPLES = os.path.join(ROOT, "examples")
 REGISTRY = os.path.join(HERE, "catalog.tsv")
@@ -54,15 +96,30 @@ REGISTRY = os.path.join(HERE, "catalog.tsv")
 # Three letters per domain, which lets a number be read without the registry open.
 DOMAIN = {
     "00_blob_viz_tools": "VIZ",
+    "0_experimental": "EXP",
     "any_corpus": "ANY",
     "art": "ART",
+    "cell_tracking": "CEL",
     "crystallography": "CRY",
+    "game_theory": "GAM",
     "language": "LNG",
     "proteins": "PRO",
     "proofs": "PRF",
     "sound": "SND",
     "source": "SRC",
 }
+
+# CEL, GAM and EXP were added after seventeen examples had already been written carrying numbers
+# their authors minted by pattern. A domain absent from this table makes slot_of return None, the
+# file reports as NO DOMAIN and not numbered, and the hand-written header sits there looking issued.
+# Two sessions did that independently and neither was told by anything until --check was run, which
+# is the argument for running it rather than copying the shape of a number that is already there.
+#
+# EXP is the VIZ case again rather than a ninth subject. 0_experimental holds work that reads no
+# corpus yet, so it names no domain in the sense the others do, and its files take stage x like
+# anything outside a numbered pipeline directory. They are numbered because a number survives a
+# move: an example that later earns a subject stage keeps the number it was issued here, and every
+# citation written against it still resolves.
 
 # VIZ is not a domain in the sense the other eight are. Those name what a corpus is of, and the
 # viz tools read any blob: whatever arrives as points carrying values, with no domain in it. They
@@ -135,6 +192,44 @@ def write_registry(rows):
             handle.write("%s\t%s\t%s\n" % (number, row["state"], row["path"]))
 
 
+def standard_header():
+    """The license header this tree puts at the top of every file, read from repotools.toml.
+
+    Read rather than spelled here, because a second copy of the SPDX string is a second place to
+    change it and nothing compares the two. repotools.toml already holds the project name, the
+    copyright line and the SPDX expression, and it is the file the rest of the toolkit asks.
+
+    tomllib is the standard library's parser. citations.py hand-scans the same file for its own
+    [layout] table, which predates this and works, but a hand-scanner reads what its author expected
+    the file to look like rather than what TOML says it is.
+    """
+    path = os.path.join(ROOT, "repotools.toml")
+    if not os.path.isfile(path):
+        return None
+    with io.open(path, "rb") as handle:
+        table = tomllib.load(handle)
+    project = table.get("project", {})
+    name = project.get("name")
+    holder = project.get("copyright")
+    spdx = project.get("spdx")
+    if not (name and holder and spdx):
+        return None
+    return ["# %s - %s" % (name, holder), "# SPDX-License-Identifier: %s" % spdx]
+
+
+def headed(text, header, runnable):
+    """The same file with the license header above what it already says, or None where it has one.
+
+    The shebang goes on only where the file is run. Twenty of the twenty-three this was written for
+    carry a __main__ guard and three are imported modules, and a shebang on a module says it is an
+    entry point when it is not.
+    """
+    if "# SPDX-License-Identifier:" in text:
+        return None
+    lines = (["#!/usr/bin/env python3"] if runnable else []) + header + ["#"]
+    return "\n".join(lines) + "\n" + text
+
+
 def stamped(text):
     """The catalog number written in a file's header, or None."""
     found = CATALOG.search(text)
@@ -142,7 +237,15 @@ def stamped(text):
 
 
 def stamp(text, number):
-    """The same file with its number on the line under the SPDX line."""
+    """The same file with its number on the line under the SPDX line, or None where there is no
+    SPDX line to put it under.
+
+    Returning None rather than the text unchanged is the whole point. Unchanged text is what a file
+    already carrying the right number returns, so the caller could not tell a file it had nothing to
+    do to from a file it could not write to, and reported both as stamped. The registry then held a
+    number for a file whose header would never carry it, --check reported it adrift forever, and the
+    remedy --check named was the run that had just silently skipped it.
+    """
     if CATALOG.search(text):
         return CATALOG.sub(MARK + number, text, count=1)
     lines = text.split("\n")
@@ -150,13 +253,14 @@ def stamp(text, number):
         if line.startswith("# SPDX-License-Identifier:"):
             lines.insert(at + 1, MARK + number)
             return "\n".join(lines)
-    return text
+    return None
 
 
 def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
     assigning = "--assign" in sys.argv
     checking = "--check" in sys.argv
+    headering = "--header" in sys.argv
 
     registry = read_registry()
     by_path = {}
@@ -253,7 +357,36 @@ def main():
         for path, number, held in adrift[:12]:
             out.write("    %s  registry %s, header %s\n" % (path, number, held or "none"))
 
+    if headering:
+        header = standard_header()
+        if header is None:
+            out.write("\n  repotools.toml has no [project] with a name, a copyright and an spdx to\n")
+            out.write("  build a header from. Nothing written.\n\n")
+            out.flush()
+            return 1
+        written = []
+        for path in found:
+            full = os.path.join(ROOT, path)
+            with io.open(full, encoding="utf-8", newline="") as handle:
+                text = handle.read()
+            fresh = headed(text, header, "__main__" in text)
+            if fresh is None:
+                continue
+            with io.open(full, "w", encoding="utf-8", newline="") as handle:
+                handle.write(fresh)
+            written.append(path)
+        if written:
+            out.write("\n  HEADER WRITTEN (%d)\n" % len(written))
+            for path in written:
+                out.write("    %s\n" % path)
+            out.write("\n  Run --assign to write each number into the header now under it.\n\n")
+        else:
+            out.write("\n  every example already carries a header\n\n")
+        out.flush()
+        return 0
+
     if assigning:
+        unstampable = []
         for path in found:
             number = by_path.get(path)
             if number is None:
@@ -262,12 +395,26 @@ def main():
             with io.open(full, encoding="utf-8", newline="") as handle:
                 text = handle.read()
             fresh = stamp(text, number)
+            if fresh is None:
+                unstampable.append((path, number))
+                continue
             if fresh != text:
                 with io.open(full, "w", encoding="utf-8", newline="") as handle:
                     handle.write(fresh)
         write_registry(registry)
         out.write("\n  registry written to %s\n"
                   % os.path.relpath(REGISTRY, ROOT).replace("\\", "/"))
+        if unstampable:
+            out.write("  headers stamped except %d\n" % len(unstampable))
+            out.write("\n  NO SPDX LINE TO STAMP UNDER (%d)\n" % len(unstampable))
+            for path, number in unstampable:
+                out.write("    %s  needs %s\n" % (path, number))
+            out.write("\n  Each holds a number in the registry and has no header to write it into.\n")
+            out.write("  --check reports these as adrift, --check says to run --assign, and --assign\n")
+            out.write("  cannot reach them, so the two instructions point at each other until one of\n")
+            out.write("  these files gets the standard header. Giving them a header is the exit.\n\n")
+            out.flush()
+            return 1
         out.write("  headers stamped\n\n")
         out.flush()
         return 0

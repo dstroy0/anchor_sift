@@ -103,26 +103,32 @@ def doped_sites(text):
     """Positions in one cell carrying more than one element, as {position: (element, ...)}.
 
     The deposit's own fractional coordinates, carried exactly as integers, with no cell and no
-    tiling. Returns None where the entry has no atom site loop, which keeps an entry that cannot
-    be read distinct from one that is clean.
+    tiling. Returns None where nothing parsed, which keeps an entry that cannot be read distinct
+    from one that is clean.
+
+    THE TRIGGER FOR THAT None MOVED, AND IT MOVES A REPORTED NUMBER
+
+    It used to be "the deposit has no atom site rows". It is now "no site parsed", because the
+    reading is crystal.exact_sites and an entry whose coordinates all fail to parse comes back with
+    an empty list rather than with rows. A deposit that has rows and no usable coordinate used to be
+    counted readable with nothing shared, and is now counted unreadable.
+
+    The new behaviour is the more correct one, an entry nothing could be read from is not an entry
+    that was read and found clean, but it feeds the "entries read" figure directly, and nothing in
+    the change announces itself at the call site. It is the reason this measure and the stage six
+    oracle report slightly different counts of shared positions from one corpus: the oracle has no
+    equivalent early return.
 
     Raises nothing on a malformed coordinate: the site is skipped and counted by the caller. A
     deposit that writes ? for a coordinate is declining to give one, and a site with no position
     cannot share a position with anything.
     """
-    rows = crystal.site_table(text)
-    if not rows:
-        return None, 0
-    points = []
-    skipped = 0
-    for along_a, along_b, along_c, element, _occupancy in rows:
-        try:
-            position = (exact.scaled(along_a), exact.scaled(along_b), exact.scaled(along_c))
-        except ValueError:
-            skipped += 1
-            continue
-        points.append((position, element))
-    return exact.contested(points), skipped
+    sites, skipped = crystal.exact_sites(text)
+    if not sites:
+        return None, skipped
+    # The occupancy is dropped here and read at stage six. Which field this projects is the whole
+    # difference between this reading and the oracle's; the reading itself is one function.
+    return exact.contested([(position, element) for position, element, _ in sites]), skipped
 
 
 def main():

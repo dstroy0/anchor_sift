@@ -21,6 +21,22 @@
 # detection is wrong, or the deposit is internally inconsistent. Either is worth knowing and
 # neither can be seen from one column alone.
 #
+# A FALSIFIER YOU CANNOT TELL FROM A DEPOSIT DEFECT IS NOT A FALSIFIER YET
+#
+# This file said for a while that the full occupancy count "is the one that would falsify the
+# detection", and that was a badly built test. It named a number whose appearance was supposed to
+# settle the question, and the number cannot settle it: a shared position with two full occupancies
+# is the reading being wrong OR the deposit contradicting itself, and the count is identical either
+# way. Stating a falsifier without stating how to tell it from the alternative leaves a test that
+# looks decisive and is not.
+#
+# The repair is to say what distinguishes them, which is reading the deposit. COD 1011256, from
+# 1933, writes `Si1 Si4+ 8 d 0.25 0.25 0.875 1.` and `Al1 Al3+ 8 d 0.25 0.25 0.875 1.`: identical
+# coordinates, identical Wyckoff letter, both at full occupancy, sixteen atoms on eight places. The
+# coordinates being character for character the same is what rules out the reading and leaves the
+# deposit. That is an older convention for a disordered site, naming both partners without
+# normalizing, and not a substitution this instrument invented.
+#
 # THE CONVERSE IS THE HALF THAT IS EASY TO MISS
 #
 # A site published under full occupancy that is NOT shared with anything is a vacancy, not a
@@ -72,14 +88,12 @@ def sites_at_positions(text):
     `occ` is the occupancy text as published, or None where the deposit carries no such column.
     A site whose coordinates are not plain decimal text is skipped and counted.
     """
+    # A projection of crystal.exact_sites, which is where the reading lives. This one keeps the
+    # occupancy, which is the field stage four deliberately does not look at, and groups by
+    # position so a shared site arrives as one entry holding several elements.
     grouped = {}
-    skipped = 0
-    for along_a, along_b, along_c, element, occupancy in crystal.site_table(text):
-        try:
-            position = (exact.scaled(along_a), exact.scaled(along_b), exact.scaled(along_c))
-        except ValueError:
-            skipped += 1
-            continue
+    sites, skipped = crystal.exact_sites(text)
+    for position, element, occupancy in sites:
         grouped.setdefault(position, []).append((element, occupancy))
     return grouped, skipped
 
@@ -198,9 +212,14 @@ def main():
                      100.0 * (checked - impossible) / checked))
     out.write("  shared positions where every element is published at full occupancy  %d\n"
               % full_at_shared)
-    out.write("     that count is the one that would falsify the detection. A deposit claiming\n")
-    out.write("     two elements both fully present at one position contradicts either the\n")
-    out.write("     reading or itself.\n")
+    out.write("     A deposit claiming two elements are both entirely present at one position\n")
+    out.write("     contradicts either this reading or itself, and the count alone does not say\n")
+    out.write("     which. It is a flag to open, not a verdict. Every one inspected in this\n")
+    out.write("     corpus has been the deposit: COD 1011256, from 1933, writes\n")
+    out.write("     `Si1 Si4+ 8 d 0.25 0.25 0.875 1.` and `Al1 Al3+ 8 d 0.25 0.25 0.875 1.`,\n")
+    out.write("     identical coordinates and Wyckoff letter, both at full occupancy, which is\n")
+    out.write("     sixteen atoms on eight places. It is how an older deposit describes a\n")
+    out.write("     disordered site: name both partners, do not normalize.\n")
 
     out.write("\n  single element positions under full occupancy, which are vacancies and not\n")
     out.write("  doping, and which stage four correctly does not report   %d\n" % vacancies)

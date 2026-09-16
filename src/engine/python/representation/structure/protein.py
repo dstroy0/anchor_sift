@@ -208,3 +208,246 @@ def steps(runs):
         good = (lengths >= STEP_LOW) & (lengths <= STEP_HIGH)
         kept.append((moves[good], lengths[good]))
     return kept
+
+
+# The three coordinate columns of a PDB ATOM record, each written to exactly three decimal places.
+# Read as integers at that scale, a dihedral is a ratio of cross and dot products in which the scale
+# cancels, so the angle is exact in the coordinates the deposit actually wrote.
+COORD_PLACES = 3
+
+
+def phi_psi(text):
+    """Every residue's backbone torsions phi, psi and omega, as exact integer terms.
+
+    A protein's fold does not live in where its atoms are. Rigidly moving the whole molecule leaves
+    the fold untouched, so the coordinates carry an orientation and a position the fold does not
+    have. What the fold lives in is the backbone torsions, and those are what the Ramachandran rules
+    are written over. This reads them and keeps them exact.
+
+    A torsion is a ratio. For the four atoms across a bond it is atan2(Y, X) with
+
+        Y = -(n1 x b2) . n2      X = n1 . n2       n1 = b1 x b2, n2 = b2 x b3
+
+    where b1, b2, b3 are the three bond vectors. Every one of Y and X is an integer when the atoms
+    are, so nothing is rounded to form them. The only irrational step is the atan2 itself, and it is
+    not taken here. The caller is handed Y, and the two integers C and S whose product C * sqrt(S)
+    is X, and renders the angle to a stated precision. This mirrors representation.exact: the reader
+    stays integer, and the one place an irrational is unavoidable is named and deferred, not buried
+    in a float that fixes a precision nobody chose.
+
+    X is returned split because its own sqrt is where the irrational sits. atan2(Y, dot . |b2|) and
+    atan2(Y / |b2|, dot) are the same angle, so the |b2| is factored out as sqrt(S) with
+    S = b2 . b2 and C = n1 . n2, and the caller multiplies them at whatever precision it declares.
+
+    The sign is the IUPAC convention, fixed not by assertion but by measurement: with it, a corpus
+    of deposited structures reproduces each one's wwPDB-published Ramachandran outlier rate, and
+    with it negated every structure reads as its own mirror image and almost nothing agrees.
+
+    Returns a list in chain and sequence order, one entry per residue carrying both neighbors:
+
+        {"chain", "seq", "name", "next_name",
+         "phi": (Y, C, S), "psi": (Y, C, S), "omega": (Y, C, S)}
+
+    omega is the peptide torsion CA-C-N-CA into this residue, from which a caller tells a cis proline
+    from a trans one. A residue at a chain end or across a break, where a neighbor is missing, is
+    left out rather than joined across the gap.
+    """
+    def scaled(field):
+        body = field.strip()
+        sign = 1
+        if body[:1] in ("+", "-"):
+            sign = -1 if body[0] == "-" else 1
+            body = body[1:]
+        whole, _, part = body.partition(".")
+        part = (part + "000")[:COORD_PLACES]
+        return sign * int((whole or "0") + part)
+
+    def cross(one, two):
+        return (one[1] * two[2] - one[2] * two[1],
+                one[2] * two[0] - one[0] * two[2],
+                one[0] * two[1] - one[1] * two[0])
+
+    def dot(one, two):
+        return one[0] * two[0] + one[1] * two[1] + one[2] * two[2]
+
+    def less(one, two):
+        return (one[0] - two[0], one[1] - two[1], one[2] - two[2])
+
+    def torsion(p0, p1, p2, p3):
+        b1 = less(p1, p0)
+        b2 = less(p2, p1)
+        b3 = less(p3, p2)
+        n1 = cross(b1, b2)
+        n2 = cross(b2, b3)
+        return (-dot(cross(n1, b2), n2), dot(n1, n2), dot(b2, b2))
+
+    # Backbone atoms in file order, gathered per residue, keeping the first alternate location only,
+    # because a second one repeats a residue and puts a zero length bond into the walk.
+    order = []
+    seen = {}
+    for line in text.splitlines():
+        if not line.startswith("ATOM"):
+            continue
+        atom = line[12:16].strip()
+        if atom not in BACKBONE:
+            continue
+        if line[16] not in (" ", "A"):
+            continue
+        key = (line[21], line[22:27])
+        if key not in seen:
+            seen[key] = {"chain": line[21], "seq": line[22:27].strip(),
+                         "name": line[17:20].strip()}
+            order.append(key)
+        try:
+            seen[key][atom] = (scaled(line[30:38]), scaled(line[38:46]), scaled(line[46:54]))
+        except ValueError:
+            continue
+
+    # One list of complete residues per chain, in the order the file lists them.
+    chains = {}
+    for key in order:
+        record = seen[key]
+        if all(atom in record for atom in BACKBONE):
+            chains.setdefault(record["chain"], []).append(record)
+
+    found = []
+    for chain in chains.values():
+        for at in range(1, len(chain) - 1):
+            prev, here, nxt = chain[at - 1], chain[at], chain[at + 1]
+            found.append({
+                "chain": here["chain"], "seq": here["seq"],
+                "name": here["name"], "next_name": nxt["name"],
+                "phi": torsion(prev["C"], here["N"], here["CA"], here["C"]),
+                "psi": torsion(here["N"], here["CA"], here["C"], nxt["N"]),
+                "omega": torsion(prev["CA"], prev["C"], here["N"], here["CA"]),
+            })
+    return found
+
+
+# THE WALK BACK TO COORDINATES
+#
+# A run of points, the kind `walk` returns, is fixed by where its first three points sit and, from
+# the fourth on, by how each point stands on the three before it: a bond length, the angle it turns
+# through, and the dihedral about the bond it shares with its predecessor. Those three terms hold no
+# position and no orientation, so they are what survives moving or turning the whole run. `phi_psi`
+# makes this statement for the two torsions of a residue; the same holds for every point of the
+# backbone. `internal_coords` reads the terms off a run and `rebuild` walks them back; handed the
+# terms read off a run, `rebuild` returns that run.
+
+
+def internal_coords(atoms):
+    """Each point's bond length, turn angle and dihedral against the three points before it.
+
+    `atoms` is an ordered run of points, the kind `walk` returns. The first three are the seed and
+    carry no terms. From the fourth on, a point is fixed by its distance to the point before it, the
+    angle it makes at that point with the one before that, and the dihedral about the shared bond.
+
+    Returns three float arrays the length of `atoms`, the seed entries left at zero. The dihedral
+    sign is the one `rebuild` reads back, so `rebuild(atoms[:3], *internal_coords(atoms))` reproduces
+    `atoms`.
+    """
+    count = len(atoms)
+    bond = numpy.zeros(count, dtype=numpy.float64)
+    angle = numpy.zeros(count, dtype=numpy.float64)
+    dihedral = numpy.zeros(count, dtype=numpy.float64)
+    if count < 2:
+        return bond, angle, dihedral
+    edge = numpy.diff(atoms, axis=0)
+    length = numpy.sqrt((edge ** 2).sum(axis=1))
+    bond[1:] = length
+    if count >= 3:
+        # The angle at each interior point, between the edge arriving and the edge leaving it.
+        toward = -edge[:-1]
+        onward = edge[1:]
+        cosine = (toward * onward).sum(axis=1) / (length[:-1] * length[1:])
+        angle[2:] = numpy.arccos(numpy.clip(cosine, -1.0, 1.0))
+    if count >= 4:
+        b1 = edge[:-2]
+        b2 = edge[1:-1]
+        b3 = edge[2:]
+        n1 = numpy.cross(b1, b2)
+        n2 = numpy.cross(b2, b3)
+        unit_b2 = b2 / numpy.sqrt((b2 ** 2).sum(axis=1))[:, None]
+        m = numpy.cross(n1, unit_b2)
+        # Negated to the IUPAC sign, so a torsion read here carries the same sign as phi_psi and the
+        # Ramachandran rules: a right-handed alpha helix sits near phi -63, psi -43, not its mirror.
+        dihedral[3:] = -numpy.arctan2((m * n2).sum(axis=1), (n1 * n2).sum(axis=1))
+    return bond, angle, dihedral
+
+
+def rebuild(seed, bond, angle, dihedral, steer=None):
+    """Walk the internal terms back into coordinates, each point placed on the three before it.
+
+    `seed` is the first three points, which fix where the run sits and how it is turned. `bond`,
+    `angle` and `dihedral` are what `internal_coords` returns. From the fourth point on, each is
+    placed by the one step that reproduces its bond length, its turn angle, and its dihedral about
+    the bond it shares with its predecessor. The frame is built from the three prior points, so an
+    error in one point rides forward into every point after it. The run's shape is read against the
+    deposit with that error carried forward, and superposing the two backbones would hide where it
+    entered.
+
+    This is the Natural Extension Reference Frame placement (Parsons, Holmes, Rojas, Tsai, Strauss,
+    J Comput Chem 2005, doi:10.1002/jcc.20237). The step is sequential, so a small per-point error
+    propagates the length of the run; a distance-geometry transform reads all points at once and
+    does not carry it.
+
+    `steer`, when given, is called as steer(index, dihedral_radians) before each point is placed and
+    its return is the direction actually walked. A caller passes it to hold the walk inside a region
+    it alone defines, a truthy cell of a table it supplies, and leaves a direction untouched by
+    returning it as given. The engine stays blind to what makes a direction truthy: the whole of that
+    judgment is the caller's, which keeps the reference table (the Ramachandran grid, say) out of the
+    engine while the walk that reads it is here.
+
+    Returns the run as a float array the length of `bond`.
+    """
+    count = len(bond)
+    out = numpy.empty((count, 3), dtype=numpy.float64)
+    out[:3] = seed
+    for at in range(3, count):
+        prev3, prev2, prev1 = out[at - 3], out[at - 2], out[at - 1]
+        axis = prev1 - prev2
+        axis = axis / numpy.sqrt((axis ** 2).sum())
+        normal = numpy.cross(prev2 - prev3, axis)
+        normal = normal / numpy.sqrt((normal ** 2).sum())
+        side = numpy.cross(normal, axis)
+        radius = bond[at]
+        turn = angle[at]
+        about = dihedral[at] if steer is None else steer(at, dihedral[at])
+        local = numpy.array([-radius * numpy.cos(turn),
+                             radius * numpy.sin(turn) * numpy.cos(about),
+                             radius * numpy.sin(turn) * numpy.sin(about)])
+        out[at] = prev1 + numpy.column_stack([axis, side, normal]) @ local
+    return out
+
+
+# TRUTHY AND FALSY STEERING
+#
+# A walk that steers reads a table that says, at each place it might go, true or false: this place is
+# allowed, that one is not. The mechanism is here, in the engine, because the walk is here. What the
+# table means is not: a caller builds it, from the Ramachandran grid or anything else, and hands the
+# walk a `steer` that consults it. `nearest_truthy` is the one piece of that a walk needs from the
+# engine and cannot get from the table alone, since a table only answers about the place it is asked
+# and not where the nearest allowed place is. It knows true from false and nothing more, so it serves
+# any table, and the reference data that fills a particular one stays out of the engine.
+
+
+def nearest_truthy(truthy, row, col):
+    """The nearest cell a boolean grid marks true, searching outward on a torus from (row, col).
+
+    If (row, col) is already true it stands. Otherwise the search grows a square ring, wrapping both
+    axes, and returns the first true cell it reaches; ties inside a ring resolve in a fixed scan
+    order, so the same grid and cell always steer the same way. Returns None only when the grid holds
+    no true cell at all, which a caller reads as a table that forbids everywhere and refuses.
+    """
+    rows, cols = truthy.shape
+    if truthy[row % rows, col % cols]:
+        return (row % rows, col % cols)
+    for radius in range(1, max(rows, cols) + 1):
+        for d_row in range(-radius, radius + 1):
+            for d_col in range(-radius, radius + 1):
+                if max(abs(d_row), abs(d_col)) != radius:
+                    continue
+                here_row, here_col = (row + d_row) % rows, (col + d_col) % cols
+                if truthy[here_row, here_col]:
+                    return (here_row, here_col)
+    return None

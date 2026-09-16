@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-011
+#
 """Turns src/bench/sources.csv into a viewer that switches between sources.
 
 Every null in this work is a number. This puts the fields themselves side by side - SHA-256, a

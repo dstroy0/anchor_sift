@@ -10,9 +10,9 @@
  * @author dstroy0 (Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  * @date 2026-09-09
  *
- * @note Every arm returns the same counts. Where two disagree one of them has a defect, and nothing
- *       about the difference is a tradeoff. This is the same contract AnchorSiftArm carries for the
- *       search kernel and it is kept for the same reason.
+ * @note Every engine returns the same counts. Where two disagree one of them has a defect, and
+ *       nothing about the difference is a tradeoff. This is the same contract AnchorSiftEngine
+ *       carries for the search kernel and it is kept for the same reason.
  * @note The portable arm is the reference. It is always present, uses no intrinsic and no compiler
  *       extension, and every other arm is graded against it on the same data.
  * @note An arm reports itself absent at run time where the machine cannot run it. A build that

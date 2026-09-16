@@ -1,3 +1,7 @@
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: VIZ-x-018
+#
 """Arbitrary-precision transform, for when float64 is the thing being measured.
 
 A double carries 53 bits of mantissa. That puts the arithmetic's own noise floor around 300 dB

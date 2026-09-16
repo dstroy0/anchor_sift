@@ -84,13 +84,52 @@ import io
 import os
 import re
 import shutil
+import subprocess
 import sys
 import tarfile
 import zipfile
 
-ROOT = os.path.abspath(__file__)
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "build")):
-    ROOT = os.path.dirname(ROOT)
+def _repository_root():
+    """This repository, asked of git rather than inferred from a marker directory.
+
+    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    a linked worktree and a never-built clone both lack it. The climb then walked past the root it
+    was looking for into another checkout entirely, and every path derived from it pointed at a
+    different tree than the tool was run from. That lands on a real repository with real files,
+    which is indistinguishable from working.
+
+    A marker infers the root. Git answers it. The climb below is kept only for an exported tree with
+    no git directory, and it looks for src/engine, which is TRACKED: a marker the repository
+    contains is present in every checkout of it, and a marker the repository produces is present in
+    none of them until something has already run.
+
+    Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
+    inherits it answers about that repository rather than about the directory it was asked from,
+    returning the current directory instead of the root.
+    """
+    start = os.path.dirname(os.path.abspath(__file__))
+    environment = dict(os.environ)
+    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+        environment.pop(key, None)
+
+    try:
+        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
+                                       stderr=subprocess.PIPE, env=environment)
+    except (OSError, subprocess.CalledProcessError):
+        said = b""
+
+    top = said.decode("utf-8", "replace").strip()
+    if top and os.path.isdir(top):
+        return os.path.abspath(top)
+
+    climbed = start
+    while (climbed != os.path.dirname(climbed)) \
+            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+        climbed = os.path.dirname(climbed)
+    return climbed
+
+
+ROOT = _repository_root()
 THEORY = os.path.join(ROOT, "theory")
 # The seven books pulled in from upstream as a subtree. The workbook stays in theory/ because it is
 # the book about this engine. A book is named the same way whichever tree holds it, so nothing

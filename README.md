@@ -92,7 +92,7 @@ The permutation null measure carries most of the findings and has only been show
 
 ## The sift
 
-`src/engine/c/sift/anchor_sift.c` builds and runs with a C11 compiler alone. The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
+`src/engine/c/portable/anchor_sift.c` builds and runs with a C11 compiler alone. It is the whole engine in one translation unit: the search, the steering that places its probes, and the scan underneath both. The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
 
 **It is a sound filter.** A subset of a pattern's points is a necessary condition, so no arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
 
@@ -100,15 +100,67 @@ The permutation null measure carries most of the findings and has only been show
 
 **It searches with no pattern at all.** Given only bytes it recovered a multiple of a record period from 512 reads, at 92 shifts against 0 on a shuffle of the same bytes.
 
-**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an arm from two numbers already free: collision entropy from one histogram pass, and the needle length known at the call. `bench_cycles.c` times every arm and prints what the dispatcher chose beside what was fastest. It picks the fastest on 19 of 21 rows and its worst miss costs 1.40x.
+**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`, so asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs and the number belongs to the toolchain that produced it, which is why the bench exists and why its output is a recommendation to act on rather than a figure to quote. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
 
-That miss is the interesting row. A period-16 counter uses sixteen symbols evenly, so its collision entropy reads 4.0 and the dispatcher calls a perfectly structured corpus memoryless. Collision entropy is permutation invariant and cannot see an arrangement, and the dispatcher inherits that blindness exactly. Fixing it needs a quantity that reads arrangement, and no threshold on this one reaches it.
+**The needle length term in the shipped rule does nothing on this data.** Scoring flatness alone ties the kernel exactly, same rows and same cycles, so the length term changes no answer on any of the 42. The rule as documented, flatness then length, scores strictly worse than the flatness it contains, and the rule as originally shipped, length alone, is worse than both. A tunable with no reader is an integration point and is neither removed nor described as unimplemented, so it is named here and kept until a row is found where it pays.
+
+Cycles given up is the score that matters, and it inverts the row count. Always taking the free order engine is right on 17 rows of 42, the fewest of any rule on the board, and it still gives up fewer cycles than always taking the short circuiting one, which is right on 25. Counting rows treats a row where the engines differ by one percent the same as one where they differ threefold, so a rule can be wrong more often and cost less.
+
+The dispatcher is still blind in one direction, and the blindness is a property of the statistic. A period-16 counter uses sixteen symbols evenly, so its collision entropy reads 4.0 and a perfectly structured corpus looks memoryless. Collision entropy is permutation invariant and cannot see an arrangement, and the dispatcher inherits that exactly. Going exact removed the rounding, not the blindness. Reading arrangement needs a different quantity, and `anchor_sift_anchors_for` is where one entered: it takes the period the corpus repeats at and drops to a single anchor, because at a known period every anchor after the first tests the same congruence and refutes nothing new.
+
+### Building it, and what each tool answers
+
+One command from a fresh clone. It needs `cmake` and a C11 compiler on `PATH`. There is no network step, no submodule to fetch, no generator to run first, and no library outside the C standard headers.
 
 ```sh
-cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
-cmake --build build/engine_c
-./build/engine_c/bench_lattice
+maint/engine/build_engine.sh               # configure, build, run the graders
+maint/engine/build_engine.sh --build-only  # configure and build, run nothing
 ```
+
+Windows PowerShell uses `maint/engine/build_engine.ps1`, same two forms, and it is the one to reach for on Windows: it imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment, so it pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back, so delete it freely.
+
+Both scripts share that directory, and a CMake cache outranks anything a script prints. Each one now passes the decisive settings on every configure and wipes a cache naming a different toolchain, because the alternative was observed: after a Git Bash run, the PowerShell script announced the MSVC environment and the device arm and then produced a gcc build with no CUDA in it, and every render row read `host only` while the script reported success. The PowerShell script now checks the configure for a CUDA compiler before it builds and fails if the announcement does not hold.
+
+A machine with a card should render on it without being asked, and `bench_raster` prints `device rasterizer: present` and grades all twenty configurations `host/device identical` when it does.
+
+Two questions, two directories, and they are not the same question. `test/` answers whether the engine is right. `bench/` answers how fast it is. A failing test is a defect; a slow bench is a cost.
+
+| run this | it answers |
+|---|---|
+| `test_arm_agreement` | every engine against the naive one at the lengths that bound the input: none, one, two. A disagreement is a defect whatever it measures. |
+| `test_adversarial` | twelve cases built to break the guarantee from outside the public surface: overlapping occurrences, both boundary alignments, a field where every survivor is false, a permutation null, and the probe guard including the widest line that must be admitted. |
+| `test_steer` | the steering, on five fields. Grades the ordering at seven needle lengths, carries a negative control ordering the commonest symbol first that must read MORE, checks the exact dispatch against four fields worked out by hand, and asserts that the widest scan engine the machine carries actually ran. |
+| `bench_dispatch` | which dispatch rule to carry, scored against the clock over 42 rows, sweeping its threshold instead of assuming it. |
+| `bench_steer_arms` | the scan engines graded against the portable one and then timed, at lengths straddling the thirty-two lane boundary where a vectorized tail fails if it is going to. |
+| `bench_scaling_reads` | reads per alignment as the corpus grows. Reads travel between machines and are what an asymptotic claim is made of. |
+| `bench_scaling_cycles` | the same sweep in cycles, which belong to the machine that produced them. |
+| `bench_coherence` | at what scale the corpus agrees with itself, and what that costs the histogram bound. |
+| `bench_raster` | every render configuration. Four sheet layouts by five channels, each written as a PGM and graded host against device byte for byte where a device is present, then four volume layouts by the same five channels into a 32 by 32 by 32 block. |
+| `bench_exact`, `bench_exact_arms` | the fixed width limb arithmetic, and every vectorized limb engine against the portable one. |
+| `bench_lattice` | soundness in one to eight dimensions, over a rotated point set and a scatter no rectangle covers. It holds its own core, because what is under test is the construction and not the byte specialization. |
+
+**The counted build and the timed build are different binaries and cannot be mixed.** `bench_scaling_reads` links the kernel compiled with `ANCHOR_SIFT_COUNT_READS=1`; `bench_scaling_cycles` links the kernel compiled without it. Counting perturbs the timing it would otherwise be reported beside. A driver calling `anchor_sift_counters_reset` therefore fails to link against the timed kernel, and that failure is deliberate.
+
+**Known gap:** `bench_lattice` needs C99 `_Complex` arithmetic and does not build under MSVC, which supplies the types without the operators. Build it with GCC or Clang. Every other target in the table was built and run on MSVC 19.44 x64 at Release for this note. The GCC and Clang paths are exercised by the same CMake file and were not re-run here.
+
+### Rendering the object, flat and solid
+
+The renderer draws the object under examination straight from engine state, so what it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps rather than the same one at two sizes.
+
+`AnchorRasterConfig` renders a sheet: `width` by `height`, one of four layouts, one of five channels, a reduce rule for cells several alignments land on, and a gain. `AnchorVolumeConfig` renders a block: `width` by `height` by `depth`, one of four volume layouts, and the same five channels, the same two reduce rules and the same gain, named by reference to the same enums so a channel means one thing in this tree.
+
+| volume layout | what it is for |
+|---|---|
+| `slabs` | fills a sheet, then the sheet behind it. The three dimensional reading of the row layout. |
+| `boustrophedon` | every other row and every other slab reversed, so consecutive alignments stay adjacent across both boundaries. |
+| `morton` | interleaves the bits of x, y and z, preserving locality on all three axes at once. This is the one that reads as a solid instead of as stacked sheets. Needs power of two extents and refuses others rather than remapping quietly. |
+| `helix` | each slab's rows shifted by its depth index, so a feature at a fixed corpus offset winds through the block. A shear and not a rotation, because a true helix needs trigonometry and this renderer is integer throughout. |
+
+Every layout is a bijection on the cell index, computed in integers. `bench_raster` checks that rather than stating it: it maps every alignment through every layout at every channel and counts collisions, which must be zero. A layout that quietly folded two alignments together would still draw a plausible picture and nothing else would notice.
+
+Netpbm has no volume container, so `anchor_volume_write_raw` writes the block as raw bytes, x fastest, and puts the extents, the layout, the channel, the reduce rule and the gain in a `.txt` sidecar naming the function that generated it. Any volume viewer that reads raw unsigned 8 bit will open it given those three numbers.
+
+**The device renders sheets and does not render volumes.** `anchor_raster_render` prefers the device and `bench_raster` prints `device rasterizer: present` when it has one. There is no device volume kernel, `anchor_volume_device_available` returns 0 on every build, and `anchor_volume_render_host` is host only and named so. It does not fall back silently, because a stub reporting itself present is the defect this tree spent a day removing.
 
 ## Ports
 
