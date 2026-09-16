@@ -25,6 +25,21 @@
 # The module is `cif`. `pcod-cif` on the same server holds PREDICTED structures, and `hkl` holds
 # structure factors. Neither is a deposited crystal, and neither is read here.
 #
+# WHAT OF THE MODULE IS TAKEN
+#
+# The `cif` module's top level is not only entries. The deposits sit under directories named 1 to 9,
+# nested by identifier, and beside them are bin, checks, dictionaries, doc, external-logs, logs and
+# manual-checks, found when the first run of this listed the module. None of those is a deposited
+# crystal. A CIF dictionary is a CIF file. A flatten that took every .cif under the mirror would put
+# dictionaries into the crystal cache as structures, and every reading would then count them.
+# Fetching the logs also costs the archive bandwidth for files nobody reads.
+#
+# So the sync includes the top-level digit directories and excludes everything else, and the flatten
+# accepts a file only when it sits under one of those directories and is named with a seven digit
+# identifier. The flatten check stands on its own and does not rely on the sync filter: a mirror
+# filled by an earlier unfiltered run still flattens to entries only, and whatever it passes over is
+# printed.
+#
 # WHY THERE ARE TWO DIRECTORIES
 #
 # The mirror keeps the archive's own layout, nested by identifier (cif/1/00/00/1000000.cif). A later
@@ -77,6 +92,18 @@ def cif_files(tree):
     return found
 
 
+def is_entry(mirror, name, path):
+    """Whether a mirror CIF is a deposited entry: under a top-level digit directory, seven digits.
+
+    A COD identifier is seven digits and the archive files each one under the directory of its
+    leading digit. Anything else in the module is tooling, documentation or a dictionary.
+    """
+    top = os.path.relpath(path, mirror).split(os.sep)[0]
+    stem = name[:-4]
+    return (len(top) == 1 and top in "123456789" and len(stem) == 7 and stem.isdigit()
+            and stem[0] == top)
+
+
 def sync(source, mirror, out):
     """One rsync of the archive into the mirror. Returns rsync's exit status.
 
@@ -86,7 +113,7 @@ def sync(source, mirror, out):
     """
     os.makedirs(mirror, exist_ok=True)
     parent, leaf = os.path.split(os.path.normpath(mirror))
-    command = ["rsync", "-a", "--stats", source, leaf + "/"]
+    command = ["rsync", "-a", "--stats", "--include=/[1-9]/***", "--exclude=*", source, leaf + "/"]
     out.write("  running  %s\n  from     %s\n\n" % (" ".join(command), parent))
     out.flush()
     return subprocess.call(command, cwd=parent)
@@ -102,7 +129,18 @@ def flatten(mirror, flat, out):
     the day they were fetched, and a later revision in the archive of the same size would read as
     current against that stamp and never be copied.
     """
-    entries = cif_files(mirror)
+    every = cif_files(mirror)
+    entries = [(name, path) for name, path in every if is_entry(mirror, name, path)]
+    passed = [path for name, path in every if not is_entry(mirror, name, path)]
+    out.write("  %d CIF files are entries, %d are not and are left out of the cache\n"
+              % (len(entries), len(passed)))
+    for path in passed[:20]:
+        out.write("    left out  %s\n" % os.path.relpath(path, mirror))
+    if len(passed) > 20:
+        out.write("    and %d more\n" % (len(passed) - 20))
+    if not entries:
+        out.write("  REFUSED: no entry among the mirror's CIF files. This is not a corpus of zero.\n\n")
+        return None
     seen = {}
     for name, path in entries:
         if name in seen:
