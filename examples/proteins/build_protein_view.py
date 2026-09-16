@@ -9,7 +9,10 @@
 # disagreement is read where it enters.
 #
 #   Usage:  python examples/proteins/build_protein_view.py 1UBQ
-#           python examples/proteins/build_protein_view.py 1UBQ --out build/1ubq_view.html
+#           python examples/proteins/build_protein_view.py 1UBQ --out somewhere/else.html
+#
+# The page is written to build/protein_view/<CODE>.html by default, never into the source tree;
+# --out overrides that path.
 #
 # The engine reads the deposit and walks the rebuild; this writes the numbers into a template as one
 # JSON literal and emits a single self-contained page, the same way the blob viewers do. It uses the
@@ -97,7 +100,10 @@ def main():
         sys.stderr.write("give a PDB code, e.g. python build_protein_view.py 1UBQ\n")
         return 2
     code = argv[0].upper()
-    out = argv[argv.index("--out") + 1] if "--out" in argv else os.path.join(HERE, "protein_view.html")
+    # Default output lands under build/, never in the source tree: a generated page belongs there,
+    # and build/ is already ignored. --out overrides the path.
+    out = (argv[argv.index("--out") + 1] if "--out" in argv
+           else os.path.join(ROOT, "build", "protein_view", code + ".html"))
 
     os.makedirs(CORPORA, exist_ok=True)
     text = fetch(code, CORPORA)
@@ -147,6 +153,7 @@ def main():
         raise SystemExit("template is truncated: the script tag is never closed")
     page = page.replace("/*PROTEIN_DATA*/null", json.dumps(payload, separators=(",", ":")))
 
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(page)
 
