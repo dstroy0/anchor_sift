@@ -11,7 +11,10 @@
 # and nothing could have caught it. Each check below is a defect that actually reached a published
 # page, and none of them is a matter of taste.
 #
-# Exit status is the count of findings, so it fails a pipeline without needing a flag.
+# Exit status is 0 where nothing breaking was found, 1 for a refusal and 2 for the sentinel. It is
+# never a count. This line claimed a count until today, which had been false since the codes were
+# reworked, and the note at the end of main() carries the incident: returning the number of findings
+# made a run with exactly two breaking findings read as the sentinel for a run that read nothing.
 
 import os
 import re
