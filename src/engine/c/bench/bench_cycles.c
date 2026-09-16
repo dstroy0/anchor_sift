@@ -195,7 +195,7 @@ static double collision_entropy(const uint8_t *corpus, size_t length, size_t *di
 typedef struct
 {
     const char *name;
-    AnchorSiftArm run;
+    AnchorSiftEngine run;
 } Arm;
 
 /** @brief One corpus under test: what to call it and how it is filled. */
@@ -314,7 +314,7 @@ int main(void)
                 .census = &census,
                 .needle_len = needle_len,
             };
-            const AnchorSiftArm chosen = anchor_sift_choose(&plan);
+            const AnchorSiftEngine chosen = anchor_sift_choose(&plan);
 
             size_t fastest = 0u;
             size_t picked = 0u;
@@ -334,7 +334,7 @@ int main(void)
             }
 
             printf("ancorae_dispatch,%s,%zu,%.4f,%zu,%s,%s,%.1f,%.1f,%.3f\n", CORPORA[which].name,
-                   needle_len, entropy, distinct, anchor_sift_arm_name(chosen), ARMS[fastest].name,
+                   needle_len, entropy, distinct, anchor_sift_engine_name(chosen), ARMS[fastest].name,
                    timed[picked], timed[fastest], timed[picked] / timed[fastest]);
         }
     }

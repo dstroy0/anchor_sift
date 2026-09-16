@@ -23,7 +23,7 @@
  * compare path.
  */
 
-#include "anchor_steer_arm.h"
+#include "anchor_sift.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -97,14 +97,14 @@ int main(void)
 {
     int failed = 0;
 
-    const AnchorSteerArm *arms[ARMS_MAX];
+    const AnchorSteerEngine *arms[ARMS_MAX];
     size_t arm_count = 0u;
-    arms[arm_count] = anchor_steer_portable_arm();
+    arms[arm_count] = anchor_steer_portable_engine();
     arm_count += 1u;
 
 #if defined(ANCHOR_STEER_HAVE_AVX2) && ANCHOR_STEER_HAVE_AVX2
     {
-        const AnchorSteerArm *avx2 = anchor_steer_avx2_arm();
+        const AnchorSteerEngine *avx2 = anchor_steer_avx2_engine();
         if (avx2 != NULL)
         {
             arms[arm_count] = avx2;

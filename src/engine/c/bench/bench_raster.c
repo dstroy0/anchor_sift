@@ -27,7 +27,6 @@
  */
 
 #include "anchor_raster.h"
-#include "anchor_steer.h"
 #include "anchor_sift.h"
 
 #include <stdio.h>
@@ -123,9 +122,16 @@ int main(void)
     /* The probe set the renderer draws with is the one the engine steered to, so the render and the
      * search cost the same thing. An unsteered set is built beside it for the timing comparison. */
     size_t spawned[ANCHOR_STEER_ANCHORS];
-    const size_t coarms = anchor_steer_spawn_coarms(spawned, ANCHOR_STEER_ANCHORS, corpus,
-                                                    RASTER_CORPUS, needle, RASTER_NEEDLE, scratch,
-                                                    alignments, 1u);
+    const size_t coarms = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
+                                            .offsets = spawned,
+                                            .count = ANCHOR_STEER_ANCHORS,
+                                            .corpus = corpus,
+                                            .corpus_len = RASTER_CORPUS,
+                                            .needle = needle,
+                                            .needle_len = RASTER_NEEDLE,
+                                            .scratch = scratch,
+                                            .scratch_len = alignments,
+                                            .sample_stride = 1u);
     AnchorRasterProbe steered[ANCHOR_STEER_ANCHORS];
     for (size_t slot = 0u; slot < coarms; slot += 1u)
     {
@@ -268,6 +274,117 @@ int main(void)
         printf("  %22s %12zu %12.3f %14.1f\n",
                (which == 0u) ? "spatial, unsteered" : "steered coarms", frames, seconds, rate);
     }
+
+    // THE VOLUME SWEEP. Every layout by every channel, into a 32 by 32 by 32 block, with the
+    // bijection checked rather than described. Each layout's contract is that it drops no alignment
+    // and duplicates none, which is exactly the claim that distinct alignments reach distinct cells
+    // whenever the block is large enough to hold them all. A layout that quietly folded two
+    // alignments together would still render a plausible picture, and nothing else here would say
+    // so, which is why this is counted and not eyeballed.
+    printf("\n  VOLUME SWEEP, %u layouts by %u channels into 32 by 32 by 32\n\n",
+           (unsigned)ANCHOR_VOLUME_LAYOUTS, (unsigned)ANCHOR_RASTER_CHANNELS);
+    printf("  %16s %14s %10s %12s %10s\n", "layout", "channel", "filled", "collisions", "verdict");
+
+    const size_t volume_edge = 32u;
+    const size_t volume_cells = volume_edge * volume_edge * volume_edge;
+    uint8_t *const voxels = (uint8_t *)malloc(volume_cells);
+    size_t *const seen = (size_t *)malloc(volume_cells * sizeof(size_t));
+
+    if ((voxels == NULL) || (seen == NULL))
+    {
+        printf("  volume allocation failed\n");
+        failed += 1;
+    }
+    else
+    {
+        for (unsigned layout = 0u; layout < ANCHOR_VOLUME_LAYOUTS; layout += 1u)
+        {
+            for (unsigned channel = 0u; channel < ANCHOR_RASTER_CHANNELS; channel += 1u)
+            {
+                const AnchorVolumeConfig config = {
+                    volume_edge, volume_edge, volume_edge, (AnchorVolumeLayout)layout,
+                    (AnchorRasterChannel)channel, ANCHOR_REDUCE_MAX, 1u
+                };
+
+                const int rendered = anchor_volume_render_host(voxels, &config, corpus,
+                                                               RASTER_CORPUS, needle, RASTER_NEEDLE,
+                                                               steered, coarms, NULL);
+                if (rendered == 0)
+                {
+                    printf("  %16s %14s %10s %12s %10s\n",
+                           anchor_volume_layout_name((AnchorVolumeLayout)layout),
+                           anchor_raster_channel_name((AnchorRasterChannel)channel),
+                           "-", "-", "REFUSED");
+                    failed += 1;
+                    continue;
+                }
+
+                for (size_t cell = 0u; cell < volume_cells; cell += 1u)
+                {
+                    seen[cell] = 0u;
+                }
+
+                size_t collisions = 0u;
+                const size_t checked = (alignments < volume_cells) ? alignments : volume_cells;
+                for (size_t at = 0u; at < checked; at += 1u)
+                {
+                    const size_t cell = anchor_volume_cell_for(&config, at);
+                    if (cell >= volume_cells)
+                    {
+                        collisions += 1u;
+                        continue;
+                    }
+                    seen[cell] += 1u;
+                    if (seen[cell] > 1u)
+                    {
+                        collisions += 1u;
+                    }
+                }
+
+                size_t filled = 0u;
+                for (size_t cell = 0u; cell < volume_cells; cell += 1u)
+                {
+                    if (voxels[cell] != (uint8_t)ANCHOR_RASTER_EMPTY)
+                    {
+                        filled += 1u;
+                    }
+                }
+
+                printf("  %16s %14s %10zu %12zu %10s\n",
+                       anchor_volume_layout_name((AnchorVolumeLayout)layout),
+                       anchor_raster_channel_name((AnchorRasterChannel)channel),
+                       filled, collisions, (collisions == 0u) ? "ok" : "FAILS");
+                failed += (collisions == 0u) ? 0 : 1;
+            }
+        }
+
+        // One block written to disk with its sidecar, so the output path is exercised and not only
+        // declared. Morton is the layout worth looking at, since it is the one that reads as a solid.
+        const AnchorVolumeConfig sample = {
+            volume_edge, volume_edge, volume_edge, ANCHOR_VOLUME_MORTON,
+            ANCHOR_CHANNEL_DEATH_LEVEL, ANCHOR_REDUCE_MAX, 1u
+        };
+        if (anchor_volume_render_host(voxels, &sample, corpus, RASTER_CORPUS, needle, RASTER_NEEDLE,
+                                      steered, coarms, NULL) != 0)
+        {
+            if (anchor_volume_write_raw("anchor_volume_morton_death.raw", voxels, &sample) == 0)
+            {
+                printf("  the volume could not be written\n");
+                failed += 1;
+            }
+            else
+            {
+                printf("\n  wrote anchor_volume_morton_death.raw with its sidecar, %zu bytes\n",
+                       volume_cells);
+            }
+        }
+
+        printf("  device volume renderer: %s\n",
+               (anchor_volume_device_available() != 0) ? "present" : "absent, host only");
+    }
+
+    free(voxels);
+    free(seen);
 
     printf("\n  %d check(s) failed\n", failed);
     free(corpus); free(host_pixels); free(device_pixels); free(scratch);

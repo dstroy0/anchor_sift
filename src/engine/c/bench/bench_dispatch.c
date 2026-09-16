@@ -38,6 +38,12 @@
 #if defined(__x86_64__) || defined(__i386__)
 #include <x86intrin.h>
 #define CYCLES_ARE_REAL 1
+#elif defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
+/* The same part reached through the other compiler's spelling, as in bench_scaling.c. __x86_64__ is
+ * a GCC and Clang predefine that MSVC never sets, and the monotonic substitute below needs
+ * clock_gettime, which MSVC does not ship. */
+#include <intrin.h>
+#define CYCLES_ARE_REAL 1
 #else
 #include <time.h>
 #define CYCLES_ARE_REAL 0
@@ -93,12 +99,21 @@ static const size_t CEILINGS[] = {0u, 4u, 8u, 16u, 32u, 64u, 128u, 256u, SIZE_MA
 static uint64_t cycles_now(void)
 {
 #if CYCLES_ARE_REAL
+#if defined(_MSC_VER)
+    // Ordering deviation: __rdtsc may be reordered against the work being timed. MSVC spells the
+    // compiler barrier _ReadWriteBarrier and rejects the GNU asm form outright.
+    _ReadWriteBarrier();
+    const uint64_t taken = (uint64_t)__rdtsc();
+    _ReadWriteBarrier();
+    return taken;
+#else
     // Ordering deviation: __rdtsc may be reordered against the work being timed. The barriers keep
-    // one arm's loads and stores from crossing them.
+    // one engine's loads and stores from crossing them.
     __asm__ __volatile__("" ::: "memory");
     const uint64_t taken = (uint64_t)__rdtsc();
     __asm__ __volatile__("" ::: "memory");
     return taken;
+#endif
 #else
     struct timespec taken;
 
@@ -242,7 +257,7 @@ static double cycles_given_up(const Row *rows, size_t count, double flat_share, 
  * @param[out] found      Where the occurrence count is written [BORROWS].
  * @return                The smallest cycle count seen across the trials.
  */
-static uint64_t time_arm(AnchorSiftArm arm, const uint8_t *corpus, size_t corpus_len,
+static uint64_t time_arm(AnchorSiftEngine arm, const uint8_t *corpus, size_t corpus_len,
                          const uint8_t *needles, size_t needle_len, unsigned present, size_t *found)
 {
     uint64_t best = UINT64_MAX;
@@ -584,7 +599,7 @@ static void score_named(const Row *rows, size_t count)
         // No period supplied. This bench scores which arm to run, and the anchor count the period
         // would set is bench_coherence's question.
         const AnchorSiftPlan plan = {&rows[slot].census, rows[slot].needle_len, 0u};
-        const AnchorSiftArm chosen = anchor_sift_choose(&plan);
+        const AnchorSiftEngine chosen = anchor_sift_choose(&plan);
         const uint64_t paid = (chosen == anchor_sift_free) ? rows[slot].freed : rows[slot].inorder;
 
         if (paid == quickest(&rows[slot]))

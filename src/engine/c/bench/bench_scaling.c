@@ -43,6 +43,13 @@
 #if defined(__x86_64__) || defined(__i386__)
 #include <x86intrin.h>
 #define CYCLES_ARE_REAL 1
+#elif defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
+/* The same part reached through the other compiler's spelling. __x86_64__ is a GCC and Clang
+ * predefine and MSVC never sets it, so testing it alone sent every MSVC build to the monotonic
+ * substitute, which needs clock_gettime, which MSVC does not ship. The driver then failed to
+ * compile on the platform it was most often built on. */
+#include <intrin.h>
+#define CYCLES_ARE_REAL 1
 #else
 #include <time.h>
 #define CYCLES_ARE_REAL 0
@@ -88,12 +95,21 @@ static const size_t NEEDLE_LENGTHS[] = {4u, 8u, 16u, 32u, 64u, 128u, 256u};
 static uint64_t cycles_now(void)
 {
 #if CYCLES_ARE_REAL
+#if defined(_MSC_VER)
+    // Ordering deviation: __rdtsc may be reordered relative to the work being timed. MSVC spells
+    // the compiler barrier _ReadWriteBarrier and rejects the GNU asm form outright.
+    _ReadWriteBarrier();
+    const uint64_t taken = (uint64_t)__rdtsc();
+    _ReadWriteBarrier();
+    return taken;
+#else
     // Ordering deviation: __rdtsc may be reordered relative to the work being timed. The barriers
-    // keep one arm's loads and stores from crossing them.
+    // keep one engine's loads and stores from crossing them.
     __asm__ __volatile__("" ::: "memory");
     const uint64_t taken = (uint64_t)__rdtsc();
     __asm__ __volatile__("" ::: "memory");
     return taken;
+#endif
 #else
     struct timespec taken;
 
@@ -107,7 +123,7 @@ static uint64_t cycles_now(void)
 typedef struct
 {
     const char *name;
-    AnchorSiftArm run;
+    AnchorSiftEngine run;
 } Arm;
 
 int main(void)
