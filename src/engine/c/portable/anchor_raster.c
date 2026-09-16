@@ -466,6 +466,10 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
                               size_t needle_len, const AnchorRasterProbe *probes,
                               size_t probe_count, const void *census_in)
 {
+    // RESERVED, NOT READ, AND NOT DELETED. The census below is built from `corpus`, so a caller
+    // supplied one is discarded here. The parameter stays because a tunable with no reader is an
+    // integration point rather than dead weight, and the header says so at the declaration instead
+    // of calling it the rarity source, which is what it said until it was measured.
     (void)census_in;
 
     if ((voxels == NULL) || (config == NULL) || (corpus == NULL) || (needle == NULL)

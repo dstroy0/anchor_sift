@@ -250,7 +250,16 @@ size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment
  * @param[in]  needle_len How many.
  * @param[in]  probes     Probes in evaluation order [BORROWS].
  * @param[in]  probe_count How many probes.
- * @param[in]  census     Rarity source for ANCHOR_CHANNEL_RARITY, or NULL [BORROWS].
+ * @param[in]  census     RESERVED AND NOT READ TODAY [BORROWS]. This call builds its own census
+ *                        from `corpus` and uses that for ANCHOR_CHANNEL_RARITY whatever is passed
+ *                        here. The parameter is the integration point for a caller supplied rarity
+ *                        source, a reference distribution or a census taken over a sampled slice,
+ *                        and it is kept rather than removed for that reason. Passing NULL is
+ *                        correct and is what every caller in this tree does. Passing a census
+ *                        built over something else is silently ignored, which has no symptom: the
+ *                        render succeeds and carries rarity computed from the corpus in front of
+ *                        it. An earlier form of this line called it the rarity source, which it is
+ *                        not.
  * @return                1 where the volume was written, 0 where the configuration was refused.
  *
  * @note HOST ONLY, AND THE DEVICE VOLUME IS NOT WIRED. anchor_raster_render prefers the device for a
