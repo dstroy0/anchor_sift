@@ -136,6 +136,49 @@ the crystallography oracle keeps its COD fetch in the example rather than the en
 reimplements the backbone parse, and no bound sits under the engine waiting to charge the next
 domain that reads through it.
 
+## The families the corpus falls into
+
+A ladder stage reads one deposit. `derive_family_rules.py` reads the whole cached corpus at once and
+asks whether the proteins group by their own Ramachandran signature: the two-degree grid occupancy
+of each deposit, coarsened to the resolution a null supports. It writes each group's quirks to
+`family_rules.py`, beside the Ramachandran rules and held out of the engine the same way the oracle
+keeps its archive fetch in the example.
+
+Three controls hold the grouping, and the generator carries all three:
+
+- A null sets the grid resolution. A protein of a few hundred residues cannot fill the 32400 cells
+  of a two-degree grid, so at that grid its signature is sampling noise, and a residue-count-matched
+  random draw reaches the same distance from the corpus. `resolution_sweep` reports where a live
+  signature sits farthest above that null, and the committed grid is ten degrees. The sweep prints
+  on every run.
+- A gap statistic sets the number of families. It is the gap statistic of Tibshirani 2001 against a
+  reference uniform over the data's own PCA box, so a count is kept only where the live dispersion
+  falls below what a structure-free reference of the same shape reaches.
+- A positive control gates the write. Before any family is emitted, the same pipeline runs on
+  synthetic proteins built from four planted archetypes. If it fails to recover that split,
+  `derive_family_rules.py` refuses to write a ruleset, because a grouping found by a method that
+  cannot find a known one means nothing.
+
+With the control passing, the corpus shows a near-continuum: the gap keeps improving as the count
+rises, with only a weak first peak, so the families are soft partitions of a helix-rich to
+sheet-rich continuum and are labeled as such. The committed `family_rules.py` records ten families
+over 10280 deposits, 10267 of which carry a usable signature, at the ten-degree grid. Each family's
+`quirks` is the set of grid cells where it sits more than the whole corpus does, carried as (cell,
+family fraction, corpus fraction, excess) with the largest excess first.
+
+`family_rules.py` is generated, says so in its header, and names `derive_family_rules.py` as its
+author. It is a table of reference data: it exposes `FAMILIES` and `cell_of(phi_degrees,
+psi_degrees)` so a caller can place a residue on the grid the families are written over, and nothing
+in the engine depends on it.
+
+```
+python examples/proteins/derive_family_rules.py
+```
+
+The derivation reports the sweep, the positive control and the gap statistic over every `pdb_*.txt`
+under `build/corpora`, which the oracle and `build_corpus.py` populate; add `--write` to regenerate
+`family_rules.py`. Run `build_corpus.py` first if the corpus is empty.
+
 ## Running one
 
 ```
