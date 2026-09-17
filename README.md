@@ -1,7 +1,7 @@
 # Anchor sift: an algorithm for precision measurement
 
 **Purpose:** Find an object's information entropy.
-**Scope:** `src/`, `data/`, `analysis/`, `maint/`, `examples/`, `evidence/`, `theory/`
+**Scope:** `src/`, `test/`, `maint/`, `examples/`, `evidence/`, `docs/`, `theory/`, `theory_bucket/`
 
 ## Contents
 
@@ -52,7 +52,7 @@ Everything downstream of `representation` sees points and values and is blind to
 
 ## Areas of research
 
-Seven domains have been run end to end under `examples/`: language, art, crystals, proteins, sound, source code and arbitrary corpora. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end-to-end and agree.
+Ten domains have numbered pipelines under `examples/`. Seven have run end to end and agree: language, art, crystals, proteins, sound, source code and arbitrary corpora. Chemistry, game theory and cell tracking are the newest and are being brought to the same standard. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end to end and agree.
 
 Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
 
@@ -64,17 +64,16 @@ The workbook holds the rest, including every row that failed and why.
 
 ## Where things are
 
-Each directory serves one purpose, things are in disarray currently.
+Each directory serves one purpose.
 
 | | what it operates on | |
 |---|---|---|
 | `src/` | points and values, no domain | the engine |
+| `test/` | the engine | the correctness checks |
 | `evidence/` | the claims | the proofs, and the R and MATLAB ports |
-| `data/` | external material | fetchers, and the Salishan pipeline |
-| `analysis/` | a corpus, through `src/` | surveys the books ask for |
-| `examples/` | a corpus, through `src/` | 99 numbered demonstrations, seven domains |
-| `maint/` | the repository itself | records, gates, prose checks, the book build |
-| `theory/` | the argument | seven books |
+| `examples/` | a corpus, through `src/` | 132 numbered demonstrations, ten domains |
+| `maint/` | the repository itself | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline |
+| `theory/`, `theory_bucket/` | the argument | nine books |
 | `docs/` | the reader | setup and usage |
 
 `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
@@ -92,7 +91,7 @@ The permutation null measure carries most of the findings and has only been show
 
 ## The sift
 
-`src/engine/c/portable/anchor_sift.c` builds and runs with a C11 compiler alone. It is the whole engine in one translation unit: the search, the steering that places its probes, and the scan underneath both. The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
+`src/engine/c/engine/anchor_sift.c` builds and runs with a C11 compiler alone. It is the whole engine in one translation unit: the search, the steering that places its probes, and the scan underneath both. The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
 
 **It is a sound filter.** A subset of a pattern's points is a necessary condition, so no arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
 
@@ -226,7 +225,7 @@ For a language with few remaining speakers, publishing a form drawn from outside
 
 ## Where to start
 
-The research is seven books under `theory/`. Build them:
+The research is nine books, built with LuaLaTeX. The workbook and the chemistry book are under `theory/`; the other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
 
 ```sh
 sh maint/texbuild/build_theory.sh
@@ -234,13 +233,15 @@ sh maint/texbuild/build_theory.sh
 
 | you want | book |
 |---|---|
-| the construction, the method, the vocabulary | `theory/anchor_sift` |
-| what is settled, what is open, what was withdrawn | `theory/workbook` |
-| whose words the corpus holds, and how wrong it could be | `theory/Salishan` |
-| the posits whose experiment cannot be built | `theory/thought_experiments` |
-| a published cell edge read back off a voxel grid, and whose result that is | `theory/crystallography` |
-| where the structure in SHA-256 is, where it stops, and how each null was measured | `theory/cryptography/sha256` |
-| the corpus, the state of the field, and what this toolkit reaches | `theory/millennium` |
+| the construction, the method, and what is settled, open or withdrawn | `theory/workbook` |
+| valence read as a necessary condition, and where the oracle enters | `theory/chemistry` |
+| whose words the corpus holds, and how wrong it could be | `theory_bucket/Salishan` |
+| the posits whose experiment cannot be built | `theory_bucket/thought_experiments` |
+| a published cell edge read back off a voxel grid, and whose result that is | `theory_bucket/crystallography` |
+| where the structure in SHA-256 is, where it stops, and how each null was measured | `theory_bucket/cryptography/sha256` |
+| exact arithmetic, the natural constants and the residue codes | `theory_bucket/precision` |
+| the null, its delta, and where the two reconcile | `theory_bucket/delta_null` |
+| the corpus, the state of the field, and what this toolkit reaches | `theory_bucket/millennium` |
 
 ## What is not here
 
@@ -273,4 +274,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
    - citation is ongoing, any corrections are appreciated and welcome, attribution is critical.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-11
+**Date:** 2026-09-16
