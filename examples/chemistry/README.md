@@ -8,9 +8,10 @@ condition and the bond length as an oracle, using the primitives already in the 
 |---|---|---|
 | `1_represent` | `build_molecules.py` | building a molecule as atoms and bonds, and that a formula does not fix a molecule |
 | `3_reference` | `two_nulls_two_questions.py` | which null the octet departs from, and which it does not |
+| `4_measure` | `a_histogram_cannot_see_structure.py` | what a histogram measure reads of a molecule, and what it cannot |
 | `5_sift` | `valence_is_a_necessary_condition.py` | whether the octet refuses no real molecule and prunes the rest, and whether a shuffle of the same atoms loses it |
 
-Stages two, four, and six are not present yet, and the reason is a boundary, not an omission.
+Stages two and six are not present yet, and stage four is present only in the reading that needs no geometry. The reason is a boundary, not an omission.
 
 ## The stages here run on what exists
 
@@ -33,6 +34,13 @@ rewire including the self-bonded graphs that are not molecules. So the octet car
 where and carries nothing about which atoms are joined, and telling one isomer from another is a
 measure question, not a valence question.
 
+Stage four measures, and it measures a limit. Collision entropy reads the atom counts alone, so it is
+permutation invariant, and `a_histogram_cannot_see_structure.py` shows a molecule and any rearrangement
+of its atoms carry the identical value to machine precision, and the two isomers read the same number.
+A histogram reads the formula and no more, which is why arrangement is left to the sift and the choice
+among isomers to a geometry the bond-length oracle carries. This is the measure that composition is not
+structure, and it needs no coordinate to make the point.
+
 Stage five is the sift. The proposition is domain blind: any subset of a pattern's points is a
 necessary condition, so no selection rule loses a true occurrence, and the converse fails, so every
 survivor is confirmed. Valence is that proposition in chemistry. Every atom of a real molecule closes
@@ -54,7 +62,7 @@ They wait on a boundary the engine is holding. The element ledger, the proton co
 the Pauli behavior behind the shell counts and the periodic recurrence, is the atomic structure, and
 it is authored once by the atomic-structure subject in a shared `representation/atom` home. Chemistry
 consumes it and does not transcribe it, because a second element table is a second source of truth for
-a fact chemistry did not establish. Stages two and four need a molecule reader in
+a fact chemistry did not establish. Stage two, and the geometric measures of stage four, need a molecule reader in
 `representation/structure` beside the protein and crystal readers, that imports that ledger and places
 atoms as points in space, and stage six needs `oracle/chemistry`, the bond lengths held as facts apart
 from the language family trees, which the oracle README already reserves a directory for. Stage one
@@ -72,6 +80,7 @@ uses.
 ```
 python examples/chemistry/1_represent/build_molecules.py
 python examples/chemistry/3_reference/two_nulls_two_questions.py
+python examples/chemistry/4_measure/a_histogram_cannot_see_structure.py
 python examples/chemistry/5_sift/valence_is_a_necessary_condition.py
 ```
 
