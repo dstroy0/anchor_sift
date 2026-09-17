@@ -9,6 +9,8 @@ can be inferred from each, and say what cannot be seen at all.
 measurements were taken at `9cbcc08` and earlier; `54f1e25` changed documentation only and no
 `.c` file, so no number below moved with it.
 
+**Since this snapshot, the device volume renderer exists and is graded.** At `54f1e25` there was no device volume kernel and `anchor_volume_device_available` returned 0 on every build. As of 2026-09-17 the kernel is built. `render_volume` is at `src/engine/c/render/raster_cuda.cu:329`, `anchor_volume_device` at `:383`, and the probe at `:373` returns 1 where a device is present and the build carries the kernel; `bench_raster` grades the device volume against the host voxel for voxel. See `docs/rendering.md` and the README.
+
 Every point below was read in the declaration, and the ones marked **run** were exercised on
 2026-09-16 against the tree at `9cbcc08`. Points marked **declared** were read and not exercised.
 
@@ -162,7 +164,7 @@ scores disagree, and both are printed for that reason.
 | point | where | what it says |
 | --- | --- | --- |
 | `anchor_steer_avx2_engine` and the arm getters | `anchor_sift.h:957`, `exact_arm.h:60` onward | a pointer, or NULL where the processor does not carry it |
-| `anchor_volume_device_available` | `anchor_raster.h:282` | 0 on every build today |
+| `anchor_volume_device_available` | `anchor_raster.h:282` | 0 on every build at 54f1e25 |
 
 **The inference.** These ask the processor instead of trusting the build. A NULL means absent and is
 distinguishable from present and broken, and a capability probe answering 0 honestly keeps a
