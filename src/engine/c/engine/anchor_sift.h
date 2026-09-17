@@ -629,9 +629,10 @@ int anchor_field_pair_project(const AnchorFieldPairProjection *args);
  * reader cannot check and a caller can transpose silently.
  *
  * @note AN OMITTED MEMBER IS ZERO AND THAT IS PART OF THE CONTRACT. `sample_stride` of zero is read
- *       as one, `force_full_depth` of zero honors the destroy rule, and `any` of zero takes the byte
- *       path. A caller that names none of the three gets the full sweep, the destroy rule and bytes,
- *       which is what almost every caller wants.
+ *       as one, `force_full_depth` of zero honors the destroy rule, `any` of zero takes the byte
+ *       path, and `resume` of zero resets the survivors to all standing. A caller that names none of
+ *       them gets the full sweep, the destroy rule, bytes, and a fresh survivor set, which is what
+ *       almost every caller wants.
  *
  * ANY SYMBOL TYPE, THROUGH `any`. Set it and the engine reads the field only through an equality
  * oracle, never touching `corpus` or `needle`. That is not a convenience wrapper over the byte path;
@@ -672,6 +673,14 @@ typedef struct
     size_t sample_stride;  /**< Plan on every Nth alignment. Zero is read as one. */
     int force_full_depth;  /**< Non-zero descends every level, ignoring the destroy rule. */
     const AnchorField *any; /**< A field of any symbol type [BORROWS]. Null takes the byte path. */
+    int resume;            /**< Non-zero starts the descent from the survivors already in the buffer
+                            *   instead of resetting them to all standing, which is how a caller
+                            *   composes a recursive spawn: descend, then descend again over the
+                            *   survivors the last descent left, so each child reads only what its
+                            *   parent kept standing. Zero, the default, resets the buffer and is what
+                            *   every existing caller gets. The engine does not check the incoming set
+                            *   is a valid superset; that is the caller's, and a lone survivor is
+                            *   verified against the conditions not yet asked before it is found. */
 } AnchorSteerDescent;
 
 /**

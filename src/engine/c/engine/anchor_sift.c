@@ -910,7 +910,8 @@ int anchor_field_pair_project(const AnchorFieldPairProjection *args)
 static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus,
                             size_t corpus_len, const uint8_t *needle, size_t needle_len,
                             uint8_t *survivors, size_t survivors_length, size_t sample_stride,
-                            int spawning, int force_full_depth, const AnchorField *any)
+                            int spawning, int force_full_depth, const AnchorField *any,
+                            int resume)
 {
     // A field of any symbol type supplies its own extents and its own validity, and the byte
     // pointers go unread. Checked separately rather than by casting the field into the byte
@@ -947,9 +948,21 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
 
     // Every alignment starts standing and a probe can only ever take one down. That direction is
     // what makes the descent safe to stop at any level: the set shrinks and never grows back.
-    for (size_t at = 0u; at < alignments; at += 1u)
+    //
+    // ON RESUME THE SURVIVORS ARE THE INPUT, NOT RESET. A caller composes a recursive spawn by
+    // running one descent, then running the next over the survivors the last one left, so the child
+    // reads only what the parent kept standing and its cost is the survivor count and not the whole
+    // field. The engine cannot check that an incoming survivor set is a valid superset of the true
+    // occurrences; that obligation is the caller's, and it holds when the set came from an earlier
+    // descent on this field. A lone survivor is still not an answer: it has passed only the probes
+    // placed so far, and the caller verifies it against the conditions not yet asked with a full
+    // compare before calling it found.
+    if (resume == 0)
     {
-        survivors[at] = 1u;
+        for (size_t at = 0u; at < alignments; at += 1u)
+        {
+            survivors[at] = 1u;
+        }
     }
 
     size_t chosen[ANCHOR_STEER_ANCHORS];
@@ -1046,7 +1059,8 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args)
     // continuing has to be able to force the reordering descent too, not only the spawning one.
     return steer_descend(args->offsets, args->count, args->corpus, args->corpus_len, args->needle,
                          args->needle_len, args->survivors, args->survivors_length,
-                         args->sample_stride, 0, args->force_full_depth, args->any);
+                         args->sample_stride, 0, args->force_full_depth, args->any,
+                         args->resume);
 }
 
 size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args)
@@ -1059,7 +1073,8 @@ size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args)
     // Spawning, so `spawning` is 1 and the candidates are every position in the needle.
     return steer_descend(args->offsets, args->count, args->corpus, args->corpus_len, args->needle,
                          args->needle_len, args->survivors, args->survivors_length,
-                         args->sample_stride, 1, args->force_full_depth, args->any);
+                         args->sample_stride, 1, args->force_full_depth, args->any,
+                         args->resume);
 }
 
 int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len)
