@@ -50,6 +50,14 @@ Everything downstream of `representation` sees points and values and is blind to
 
 `src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora.
 
+## No bounding, no tuning
+
+The method picks no tolerance, no threshold, and no parameter by judgment. Bounding is choosing a cutoff to make a result come out the way it was expected to. It is the failure this work is built to avoid, and it is not permitted anywhere in it.
+
+Every comparison is exact integer arithmetic. The engine holds no floating-point value, and there is no rounding to hide a chosen bound inside. The null a departure is measured against is drawn by permuting the object's own parts, never computed from a formula that could be tuned. Where a reading appears to need a cutoff, the cutoff is swept and the reading is reported across the whole sweep, as a curve. A positive control runs beside every negative result, because a negative result with no positive control has measured nothing.
+
+A number picked to make a result come out is not a measurement. This work does not carry one, and a contribution that adds one does not land.
+
 ## Areas of research
 
 Ten domains have numbered pipelines under `examples/`. Seven have run end to end and agree: language, art, crystals, proteins, sound, source code and arbitrary corpora. Chemistry, game theory and cell tracking are the newest and are being brought to the same standard. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end to end and agree.
