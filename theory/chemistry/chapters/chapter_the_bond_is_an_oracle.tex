@@ -1,0 +1,51 @@
+\chapter{The bond length is an oracle}
+
+\section{A fact, not a consensus}
+
+The engine keeps its outside answers in one part, the oracle, and grades them. A family tree of
+languages is a reconstruction argued from cognates, so agreement with it is agreement with a
+scholarly consensus and where the two disagree nothing in the engine can say which is wrong. A
+published crystal cell edge is the other kind: somebody measured it, refereed it and wrote it down,
+and the instrument either recovers it or does not. The bond length is that second kind and more so.
+Valence fixes it whatever anyone believes. A carbon-carbon single bond is near $1.54$ angstroms, a
+double near $1.34$, a triple near $1.20$, and a substance does not get a vote.
+
+This is why the oracle README already reserves chemistry a directory. Bond lengths get their own
+place when they arrive, apart from the family trees, because a bond length is a fact and a family
+tree is a consensus and the two must not share a namespace. The value the engine consults for a
+protein already comes from this table: the backbone bonds are near $1.46$, $1.52$ and $1.33$
+angstroms, nitrogen to alpha carbon, alpha carbon to carbon, and the peptide carbon to the next
+nitrogen. None of those three was measured by the instrument that reads the backbone. They were the
+answer it was checked against.
+
+\section{Two domains already rest on it}
+
+The engine has a reader for a protein and a reader for a crystal, and both stand on chemistry without
+naming it. The protein backbone is a chain of bonds whose lengths cycle with a period of three,
+because the three bond types repeat down the chain, and that period is fixed by chemistry before the
+chain is measured. It is the first positive control in the whole work with an answer not produced by
+the sample: a detector that returns anything other than three there is wrong, and no argument
+afterward can save it. The three came from valence, and valence is chemistry.
+
+The crystal is the same fact tiled. A cell edge is a repeat distance, and what sets the repeat is the
+sizes of the atoms and the lengths of the bonds between them, packed into the smallest cell that
+reproduces under translation. The instrument recovers $453$ of $453$ published edges inside one
+voxel, and the thing it is recovering is a bond geometry stacked. So chemistry is not a third domain
+beside the protein and the crystal. It is the layer under both, the building blocks and the one rule
+that fix the lengths those two readers spend their time recovering.
+
+\section{The fact is what makes the trap visible}
+
+An oracle that fixes a period exactly is also what exposes a detector's own failure. A sequence of
+period $P$ agrees with itself as well at $2P$ and $3P$, so a detector that takes the tallest lag
+reports a harmonic about as often as the period, and this has bitten three parts of the engine that
+did not know about each other. It was caught on the protein backbone precisely because chemistry
+said the answer was three: a reader returning six or nine could be called wrong on the spot. Without
+the fixed answer the harmonic passes as a clean result, a confident number with a factor of two that
+nothing flags.
+
+That is the argument for chemistry as an oracle stated from the other side. Its value is not only
+that it supplies an answer, but that the answer is exact and external, so an instrument checked
+against it cannot hide an error inside a tolerance. A bond length carries no spread that a detector's
+mistake can shelter in. It is the hardest test in the tree because it is the one the sample can least
+argue with.
