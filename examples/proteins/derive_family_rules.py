@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# Catalog: PRO-x-003
 # Catalog: PRO-FAMILY
 #
 # Derive the emergent conformational families of the corpus and write their quirks as a ruleset
