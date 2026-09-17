@@ -2790,9 +2790,20 @@ def walk_markdown(roots, ledger=None):
     # buries the list under its own pragmas, and a reader scrolling past a hundred of them stops
     # reading them.
     mine = os.path.abspath(__file__)
+    my_dir = os.path.dirname(mine)
     kept = []
     for one in found:
         if os.path.abspath(one) == mine:
+            continue
+        # This tool's own test files carry banned prose on purpose, to prove the gate flags it, so
+        # repairing them would break the tests. They sit beside this file and are excluded here, the
+        # exclusion recorded like every other. A fixtures/ directory is already skipped by SKIP_DIRS;
+        # these are the tests that live next to the gate rather than under a fixtures directory.
+        one_name = os.path.basename(one)
+        if (os.path.dirname(os.path.abspath(one)) == my_dir) and one_name.startswith("test_docs_check"):
+            if ledger is not None:
+                ledger.note("gate self-test", "carries banned prose to prove the gate flags it",
+                            one.replace("\\", "/"))
             continue
         held = verbatim_root(one)
         if held:
@@ -3039,7 +3050,19 @@ def prose_only(path, lines, ledger=None):
         was = in_block
         if "*/" in line:
             in_block = False
-        kept.append(line if (was or stripped.startswith("//")) else "")
+        if was or stripped.startswith("//"):
+            kept.append(line)
+        elif "//" in line:
+            # A trailing // or ///< comment on a code line. The gate read only a line-leading //
+            # before, so every banned phrase in a trailing comment went unflagged, and about sixty of
+            # them sat unread across idemIP's headers. Keep from the first // to the end and blank the
+            # code before it, which preserves the line number a finding points at. A trailing /* */
+            # block is already caught by in_block above; this is the slash form it missed. Crude about
+            # a // inside a string literal, the same trade this function makes for the leading case.
+            cut = line.index("//")
+            kept.append(line[cut:])
+        else:
+            kept.append("")
     return legal_blank(quieted(kept), path, ledger)
 
 
