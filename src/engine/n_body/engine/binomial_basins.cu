@@ -32,6 +32,39 @@
 #define BINOMIAL_BASINS_PROFILE 0
 #endif
 
+/* The residual in the transform domain where binomial_transform admits the view, else by passes. Both arms are
+   defined; 0 keeps the passes for every view. */
+#if !defined(BINOMIAL_BASINS_TRANSFORM)
+#define BINOMIAL_BASINS_TRANSFORM 1
+#endif
+
+/* The transform is reached only where it is asked for, so a build without it neither includes nor links it. Its
+   stand-ins admit nothing and hand back nothing, which leaves every view to the passes. */
+#if BINOMIAL_BASINS_TRANSFORM
+#include "binomial_transform.h"
+#else
+static inline int binomial_transform_admits(const unsigned int *extents, const unsigned int *smooth_orders,
+                                            const unsigned int *background_orders)
+{
+    (void)extents;
+    (void)smooth_orders;
+    (void)background_orders;
+    return 0;
+}
+
+static inline int binomial_transform_residual(const unsigned short *volume, const unsigned int *extents,
+                                              const unsigned int *smooth_orders,
+                                              const unsigned int *background_orders, unsigned int *residual)
+{
+    (void)volume;
+    (void)extents;
+    (void)smooth_orders;
+    (void)background_orders;
+    (void)residual;
+    return 0;
+}
+#endif
+
 /**
  * @brief Prints the whole microseconds since the last mark, under a stage name, in a profile build.
  *
@@ -61,8 +94,11 @@ static void profile_mark(const char *stage)
 /** @brief Threads per block. */
 #define BINOMIAL_BASINS_BLOCK 256u
 
-/** @brief Voxels walked by one chunk thread where raster order has to be preserved. */
-#define BINOMIAL_BASINS_CHUNK 4096u
+/**
+ * @brief Voxels walked by one chunk thread where raster order has to be preserved. Short, so that many threads
+ *        share the work; the offsets keep raster order across chunks whatever their length.
+ */
+#define BINOMIAL_BASINS_CHUNK 256u
 
 static_assert(sizeof(unsigned int) == 4u, "binomial_basins: unsigned int must be 32 bits, a limb");
 static_assert(sizeof(unsigned long long) == 8u,
@@ -79,6 +115,15 @@ struct DeviceGeometry
     unsigned int voxels;
     unsigned int chunks;
 };
+
+/** @brief One binomial order per axis z y x, as a kernel reads them, passed by value. */
+struct DeviceOrders
+{
+    unsigned int order[3];
+};
+
+/** @brief Pascal's rows 0 to BINOMIAL_BASINS_PASS_ORDER, one row per order, each padded to the widest. */
+#define BINOMIAL_BASINS_ROW_WIDTH (BINOMIAL_BASINS_PASS_ORDER + 1u)
 
 /**
  * @brief The in-line position a half-sample reflected position reads from.
@@ -188,17 +233,21 @@ __global__ static void load_kernel(const unsigned short *volume, unsigned int vo
 /**
  * @brief One binomial pass of an even order along one axis, as host_pass does.
  *
+ * Only the limbs the result can reach are written. The limbs above them in the destination are already zero:
+ * each buffer starts a run zeroed, and within a run the bits a value fits only grow.
+ *
  * @param[in]  source      Limbs read [BORROWS].
  * @param[in]  weights     Pascal's row of the order [BORROWS].
  * @param[in]  order       Even order, at most BINOMIAL_BASINS_PASS_ORDER.
  * @param[in]  axis        0 for z, 1 for y, 2 for x.
  * @param[in]  limbs_in    Limbs that can be nonzero in the source.
+ * @param[in]  limbs_out   Limbs that can be nonzero in the result, at most BINOMIAL_BASINS_LIMBS.
  * @param[in]  geometry    Extents.
  * @param[out] destination Limbs written [BORROWS].
  */
 __global__ static void pass_kernel(const unsigned int *source, const unsigned int *weights,
                                    unsigned int order, unsigned int axis, unsigned int limbs_in,
-                                   DeviceGeometry geometry, unsigned int *destination)
+                                   unsigned int limbs_out, DeviceGeometry geometry, unsigned int *destination)
 {
     const unsigned int voxel = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (voxel >= geometry.voxels)
@@ -244,7 +293,82 @@ __global__ static void pass_kernel(const unsigned int *source, const unsigned in
         }
     }
     unsigned long long carry = 0ull;
+    for (unsigned int limb = 0u; limb < limbs_out; limb += 1u)
+    {
+        const unsigned long long total = accumulator[limb] + carry;
+        // Narrowing to a limb keeps the low 32 bits; the high bits are carried, not lost.
+        destination[(voxel * BINOMIAL_BASINS_LIMBS) + limb] = (unsigned int)(total & 0xFFFFFFFFull);
+        carry = total >> 32u;
+    }
+}
+
+/**
+ * @brief Binomial passes along all three axes at once, one tap per product of the three rows' weights, equal to
+ *        the three passes one after another.
+ *
+ * The weights of the three rows multiply to at most 2^(order z + order y + order x), and every product of a
+ * weight with a limb, summed over every tap, stays within the bound one pass of BINOMIAL_BASINS_PASS_ORDER has,
+ * so long as the three orders together are at most that. The half-sample reflection is separable, so reflecting
+ * each coordinate on its own axis reads what the three passes in turn read.
+ *
+ * @param[in]  source      Limbs read [BORROWS].
+ * @param[in]  weights     Pascal's rows, BINOMIAL_BASINS_ROW_WIDTH to a row [BORROWS].
+ * @param[in]  orders      Even order per axis z y x, together at most BINOMIAL_BASINS_PASS_ORDER.
+ * @param[in]  limbs_in    Limbs that can be nonzero in the source.
+ * @param[in]  limbs_out   Limbs that can be nonzero in the result.
+ * @param[in]  geometry    Extents.
+ * @param[out] destination Limbs written [BORROWS].
+ */
+__global__ static void fused_kernel(const unsigned int *source, const unsigned int *weights, DeviceOrders orders,
+                                    unsigned int limbs_in, unsigned int limbs_out, DeviceGeometry geometry,
+                                    unsigned int *destination)
+{
+    const unsigned int voxel = (blockIdx.x * blockDim.x) + threadIdx.x;
+    if (voxel >= geometry.voxels)
+    {
+        return;
+    }
+    const unsigned int plane = geometry.height * geometry.width;
+    const long long column = (long long)(voxel % geometry.width);
+    const long long row = (long long)((voxel / geometry.width) % geometry.height);
+    const long long slice = (long long)(voxel / plane);
+    const unsigned int *const row_z = &weights[orders.order[0] * BINOMIAL_BASINS_ROW_WIDTH];
+    const unsigned int *const row_y = &weights[orders.order[1] * BINOMIAL_BASINS_ROW_WIDTH];
+    const unsigned int *const row_x = &weights[orders.order[2] * BINOMIAL_BASINS_ROW_WIDTH];
+    unsigned long long accumulator[BINOMIAL_BASINS_LIMBS];
     for (unsigned int limb = 0u; limb < BINOMIAL_BASINS_LIMBS; limb += 1u)
+    {
+        accumulator[limb] = 0ull;
+    }
+    for (unsigned int tap_z = 0u; tap_z <= orders.order[0]; tap_z += 1u)
+    {
+        // Signed, because a tap before the line's start is reflected, not indexed.
+        const unsigned int read_z = device_reflect(slice + (long long)tap_z - (long long)(orders.order[0] / 2u),
+                                                   (long long)geometry.depth);
+        for (unsigned int tap_y = 0u; tap_y <= orders.order[1]; tap_y += 1u)
+        {
+            const unsigned int read_y = device_reflect(row + (long long)tap_y - (long long)(orders.order[1] / 2u),
+                                                       (long long)geometry.height);
+            // Widening both weights is exact; their product is at most 2^32.
+            const unsigned long long weight_zy = (unsigned long long)row_z[tap_z] * (unsigned long long)row_y[tap_y];
+            const unsigned int line = ((read_z * geometry.height) + read_y) * geometry.width;
+            for (unsigned int tap_x = 0u; tap_x <= orders.order[2]; tap_x += 1u)
+            {
+                const unsigned int read_x = device_reflect(column + (long long)tap_x - (long long)(orders.order[2] / 2u),
+                                                           (long long)geometry.width);
+                const unsigned long long weight = weight_zy * (unsigned long long)row_x[tap_x];
+                const unsigned int read = line + read_x;
+                for (unsigned int limb = 0u; limb < limbs_in; limb += 1u)
+                {
+                    // The weight is at most 2^32 and the limb below 2^32, and every tap's product summed stays
+                    // below 2^64, as for one pass.
+                    accumulator[limb] += weight * (unsigned long long)source[(read * BINOMIAL_BASINS_LIMBS) + limb];
+                }
+            }
+        }
+    }
+    unsigned long long carry = 0ull;
+    for (unsigned int limb = 0u; limb < limbs_out; limb += 1u)
     {
         const unsigned long long total = accumulator[limb] + carry;
         // Narrowing to a limb keeps the low 32 bits; the high bits are carried, not lost.
@@ -373,146 +497,100 @@ __global__ static void jump_kernel(const unsigned int *source, unsigned int voxe
 }
 
 /**
- * @brief Adds every positive voxel to its peak's count and index sums.
+ * @brief Adds every positive voxel to its peak's count and index sums, where the peaks are: a count and three
+ *        sums per emitted peak, not per voxel. A positive voxel climbs only to a higher residual, so its peak
+ *        is positive too and has a place among the emitted peaks.
  *
- * @param[in]     positive Whether each voxel is above zero [BORROWS].
- * @param[in]     peak     Each voxel's peak [BORROWS].
- * @param[in]     geometry Extents.
- * @param[in,out] sizes    Positive voxels by peak [BORROWS].
- * @param[in,out] sums     Index sums z y x by peak [BORROWS].
+ * @param[in]     positive  Whether each voxel is above zero [BORROWS].
+ * @param[in]     peak      Each voxel's peak [BORROWS].
+ * @param[in]     slot_at_peak At every peak voxel, its place among the emitted peaks [BORROWS].
+ * @param[in]     geometry  Extents.
+ * @param[in,out] out_sizes Positive voxels by peak, zeroed before the call [BORROWS].
+ * @param[in,out] out_sums  Index sums z y x by peak, zeroed before the call [BORROWS].
  */
 __global__ static void census_kernel(const unsigned char *positive, const unsigned int *peak,
-                                     DeviceGeometry geometry, unsigned int *sizes,
-                                     unsigned long long *sums)
+                                     const unsigned int *slot_at_peak, DeviceGeometry geometry,
+                                     unsigned int *out_sizes, unsigned long long *out_sums)
 {
     const unsigned int voxel = (blockIdx.x * blockDim.x) + threadIdx.x;
     if ((voxel >= geometry.voxels) || (positive[voxel] == 0u))
     {
         return;
     }
-    const unsigned int root = peak[voxel];
+    const unsigned int slot = slot_at_peak[peak[voxel]];
     const unsigned int plane = geometry.height * geometry.width;
-    atomicAdd(&sizes[root], 1u);
+    atomicAdd(&out_sizes[slot], 1u);
     // Widening unsigned int to unsigned long long is exact; the sums need the width, not the terms.
-    atomicAdd(&sums[root * 3u], (unsigned long long)(voxel / plane));
-    atomicAdd(&sums[(root * 3u) + 1u], (unsigned long long)((voxel / geometry.width) % geometry.height));
-    atomicAdd(&sums[(root * 3u) + 2u], (unsigned long long)(voxel % geometry.width));
+    atomicAdd(&out_sums[slot * 3u], (unsigned long long)(voxel / plane));
+    atomicAdd(&out_sums[(slot * 3u) + 1u], (unsigned long long)((voxel / geometry.width) % geometry.height));
+    atomicAdd(&out_sums[(slot * 3u) + 2u], (unsigned long long)(voxel % geometry.width));
 }
 
 /**
- * @brief Counts positive peaks and adjacency faces in each chunk.
+ * @brief Counts, or writes at its offsets, each chunk's positive peaks, adjacency faces and joined faces, in
+ *        raster order.
  *
- * @param[in]  positive     Whether each voxel is above zero [BORROWS].
- * @param[in]  peak         Each voxel's peak [BORROWS].
- * @param[in]  geometry     Extents.
- * @param[out] chunk_peaks  Positive peaks per chunk [BORROWS].
- * @param[out] chunk_faces  Faces between two positive-peaked basins per chunk [BORROWS].
- */
-__global__ static void count_kernel(const unsigned char *positive, const unsigned int *peak,
-                                    DeviceGeometry geometry, unsigned int *chunk_peaks,
-                                    unsigned int *chunk_faces, unsigned int *chunk_joined)
-{
-    const unsigned int chunk = (blockIdx.x * blockDim.x) + threadIdx.x;
-    if (chunk >= geometry.chunks)
-    {
-        return;
-    }
-    const unsigned int plane = geometry.height * geometry.width;
-    const unsigned int first = chunk * BINOMIAL_BASINS_CHUNK;
-    const unsigned int past = ((geometry.voxels - first) < BINOMIAL_BASINS_CHUNK)
-                            ? geometry.voxels
-                            : (first + BINOMIAL_BASINS_CHUNK);
-    unsigned int peaks = 0u;
-    unsigned int faces = 0u;
-    unsigned int joins = 0u;
-    for (unsigned int voxel = first; voxel < past; voxel += 1u)
-    {
-        if ((peak[voxel] == voxel) && (positive[voxel] != 0u))
-        {
-            peaks += 1u;
-        }
-        const unsigned int column = voxel % geometry.width;
-        const unsigned int row = (voxel / geometry.width) % geometry.height;
-        const unsigned int slice = voxel / plane;
-        const unsigned int forward[3] = {voxel + 1u, voxel + geometry.width, voxel + plane};
-        const int inside[3] = {(column + 1u) < geometry.width, (row + 1u) < geometry.height,
-                               (slice + 1u) < geometry.depth};
-        for (unsigned int face = 0u; face < 3u; face += 1u)
-        {
-            if (inside[face] == 0)
-            {
-                continue;
-            }
-            const unsigned int here = peak[voxel];
-            const unsigned int there = peak[forward[face]];
-            if ((here != there) && (positive[here] != 0u) && (positive[there] != 0u))
-            {
-                faces += 1u;
-                if ((positive[voxel] != 0u) && (positive[forward[face]] != 0u))
-                {
-                    joins += 1u;
-                }
-            }
-        }
-    }
-    chunk_peaks[chunk] = peaks;
-    chunk_faces[chunk] = faces;
-    chunk_joined[chunk] = joins;
-}
-
-/**
- * @brief Writes each chunk's peaks and faces at its offsets, in raster order.
+ * A face joins two basins whose peaks are positive; it is joined where both its voxels are positive too, and
+ * every pair is written lower peak first. Faces along one direction repeat the pair across a shared boundary,
+ * so a pair equal to the last one written in the chunk along the same direction is not written again. The
+ * unique pairs are the same, and counting skips exactly what writing skips, since both run this one kernel.
+ * Adjacency faces are counted and written only where they are wanted.
  *
  * @param[in]  residual       Limbs [BORROWS].
  * @param[in]  positive       Whether each voxel is above zero [BORROWS].
  * @param[in]  peak           Each voxel's peak [BORROWS].
- * @param[in]  sizes          Positive voxels by peak [BORROWS].
- * @param[in]  sums           Index sums by peak [BORROWS].
- * @param[in]  peak_offsets   Where each chunk's first peak goes [BORROWS].
+ * @param[in]  want_faces     1 where adjacency faces are wanted.
+ * @param[in]  peak_offsets   Where each chunk's first peak goes, or NULL to count [BORROWS].
  * @param[in]  face_offsets   Where each chunk's first face goes [BORROWS].
+ * @param[in]  joined_offsets Where each chunk's first joined face goes [BORROWS].
  * @param[in]  geometry       Extents.
+ * @param[out] chunk_peaks    Per chunk, positive peaks, written when counting [BORROWS].
+ * @param[out] chunk_faces    Per chunk, adjacency faces, written when counting [BORROWS].
+ * @param[out] chunk_joined   Per chunk, joined faces, written when counting [BORROWS].
  * @param[out] out_indices    Peak indices [BORROWS].
- * @param[out] out_sizes      Sizes [BORROWS].
- * @param[out] out_sums       Sums, three per peak [BORROWS].
+ * @param[out] slot_at_peak   At every peak voxel, its place among the peaks, which the census adds at [BORROWS].
  * @param[out] out_limbs      Residual limbs, BINOMIAL_BASINS_LIMBS per peak [BORROWS].
- * @param[out] out_faces      Pairs, two per face, lower peak first [BORROWS].
+ * @param[out] out_faces      Adjacency pairs, two per face, lower peak first [BORROWS].
+ * @param[out] out_joined     Joined pairs, two per face, lower peak first [BORROWS].
  */
-__global__ static void emit_kernel(const unsigned int *residual, const unsigned char *positive,
-                                   const unsigned int *peak, const unsigned int *sizes,
-                                   const unsigned long long *sums, const unsigned int *peak_offsets,
-                                   const unsigned int *face_offsets, const unsigned int *joined_offsets,
-                                   DeviceGeometry geometry, unsigned int *out_indices,
-                                   unsigned int *out_sizes, unsigned long long *out_sums,
-                                   unsigned int *out_limbs, unsigned int *out_faces,
-                                   unsigned int *out_joined)
+__global__ static void chunk_kernel(const unsigned int *residual, const unsigned char *positive,
+                                    const unsigned int *peak, unsigned int want_faces,
+                                    const unsigned int *peak_offsets, const unsigned int *face_offsets,
+                                    const unsigned int *joined_offsets, DeviceGeometry geometry,
+                                    unsigned int *chunk_peaks, unsigned int *chunk_faces, unsigned int *chunk_joined,
+                                    unsigned int *out_indices, unsigned int *slot_at_peak,
+                                    unsigned int *out_limbs, unsigned int *out_faces, unsigned int *out_joined)
 {
     const unsigned int chunk = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (chunk >= geometry.chunks)
     {
         return;
     }
+    const int writing = (peak_offsets != NULL) ? 1 : 0;
     const unsigned int plane = geometry.height * geometry.width;
     const unsigned int first = chunk * BINOMIAL_BASINS_CHUNK;
     const unsigned int past = ((geometry.voxels - first) < BINOMIAL_BASINS_CHUNK)
                             ? geometry.voxels
                             : (first + BINOMIAL_BASINS_CHUNK);
-    unsigned int peak_slot = peak_offsets[chunk];
-    unsigned int face_slot = face_offsets[chunk];
-    unsigned int joined_slot = joined_offsets[chunk];
+    unsigned int peak_slot = (writing != 0) ? peak_offsets[chunk] : 0u;
+    unsigned int face_slot = (writing != 0) ? face_offsets[chunk] : 0u;
+    unsigned int joined_slot = (writing != 0) ? joined_offsets[chunk] : 0u;
+    // No peak index is 0xFFFFFFFF, so no pair equals these before one is written.
+    unsigned int last_face[6] = {0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu};
+    unsigned int last_joined[6] = {0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu};
     for (unsigned int voxel = first; voxel < past; voxel += 1u)
     {
         if ((peak[voxel] == voxel) && (positive[voxel] != 0u))
         {
-            out_indices[peak_slot] = voxel;
-            out_sizes[peak_slot] = sizes[voxel];
-            for (unsigned int axis = 0u; axis < 3u; axis += 1u)
+            if (writing != 0)
             {
-                out_sums[(peak_slot * 3u) + axis] = sums[(voxel * 3u) + axis];
-            }
-            for (unsigned int limb = 0u; limb < BINOMIAL_BASINS_LIMBS; limb += 1u)
-            {
-                out_limbs[(peak_slot * BINOMIAL_BASINS_LIMBS) + limb] =
-                    residual[(voxel * BINOMIAL_BASINS_LIMBS) + limb];
+                out_indices[peak_slot] = voxel;
+                // The census adds at this peak's place, so it is written where the peak is, once.
+                slot_at_peak[voxel] = peak_slot;
+                for (unsigned int limb = 0u; limb < BINOMIAL_BASINS_LIMBS; limb += 1u)
+                {
+                    out_limbs[(peak_slot * BINOMIAL_BASINS_LIMBS) + limb] = residual[(voxel * BINOMIAL_BASINS_LIMBS) + limb];
+                }
             }
             peak_slot += 1u;
         }
@@ -522,27 +600,50 @@ __global__ static void emit_kernel(const unsigned int *residual, const unsigned 
         const unsigned int forward[3] = {voxel + 1u, voxel + geometry.width, voxel + plane};
         const int inside[3] = {(column + 1u) < geometry.width, (row + 1u) < geometry.height,
                                (slice + 1u) < geometry.depth};
+        const unsigned int here = peak[voxel];
         for (unsigned int face = 0u; face < 3u; face += 1u)
         {
             if (inside[face] == 0)
             {
                 continue;
             }
-            const unsigned int here = peak[voxel];
             const unsigned int there = peak[forward[face]];
-            if ((here != there) && (positive[here] != 0u) && (positive[there] != 0u))
+            if ((here == there) || (positive[here] == 0u) || (positive[there] == 0u))
             {
-                out_faces[face_slot * 2u] = (here < there) ? here : there;
-                out_faces[(face_slot * 2u) + 1u] = (here < there) ? there : here;
-                face_slot += 1u;
-                if ((positive[voxel] != 0u) && (positive[forward[face]] != 0u))
+                continue;
+            }
+            const unsigned int low = (here < there) ? here : there;
+            const unsigned int high = (here < there) ? there : here;
+            if ((want_faces != 0u) && ((last_face[2u * face] != low) || (last_face[(2u * face) + 1u] != high)))
+            {
+                if (writing != 0)
                 {
-                    out_joined[joined_slot * 2u] = (here < there) ? here : there;
-                    out_joined[(joined_slot * 2u) + 1u] = (here < there) ? there : here;
-                    joined_slot += 1u;
+                    out_faces[face_slot * 2u] = low;
+                    out_faces[(face_slot * 2u) + 1u] = high;
                 }
+                face_slot += 1u;
+                last_face[2u * face] = low;
+                last_face[(2u * face) + 1u] = high;
+            }
+            if ((positive[voxel] != 0u) && (positive[forward[face]] != 0u)
+             && ((last_joined[2u * face] != low) || (last_joined[(2u * face) + 1u] != high)))
+            {
+                if (writing != 0)
+                {
+                    out_joined[joined_slot * 2u] = low;
+                    out_joined[(joined_slot * 2u) + 1u] = high;
+                }
+                joined_slot += 1u;
+                last_joined[2u * face] = low;
+                last_joined[(2u * face) + 1u] = high;
             }
         }
+    }
+    if (writing == 0)
+    {
+        chunk_peaks[chunk] = peak_slot;
+        chunk_faces[chunk] = face_slot;
+        chunk_joined[chunk] = joined_slot;
     }
 }
 
@@ -599,8 +700,7 @@ struct DeviceBuffers
     unsigned int *jumped;
     unsigned int *changed;
     unsigned char *positive;
-    unsigned int *sizes;
-    unsigned long long *sums;
+    unsigned int *slot_at_peak;
     unsigned int *chunk_peaks;
     unsigned int *chunk_faces;
     unsigned int *peak_offsets;
@@ -655,8 +755,7 @@ static void device_release(DeviceBuffers *buffers)
     cudaFree(buffers->jumped);
     cudaFree(buffers->changed);
     cudaFree(buffers->positive);
-    cudaFree(buffers->sizes);
-    cudaFree(buffers->sums);
+    cudaFree(buffers->slot_at_peak);
     cudaFree(buffers->chunk_peaks);
     cudaFree(buffers->chunk_faces);
     cudaFree(buffers->peak_offsets);
@@ -684,9 +783,6 @@ static void device_release(DeviceBuffers *buffers)
     free(buffers->host_joined);
 }
 
-/** @brief Pascal's rows 0 to BINOMIAL_BASINS_PASS_ORDER, one row per order, each padded to the widest. */
-#define BINOMIAL_BASINS_ROW_WIDTH (BINOMIAL_BASINS_PASS_ORDER + 1u)
-
 /** @brief The buffers kept between calls, the extents they were sized for, and the output rooms they hold. */
 struct HeldBuffers
 {
@@ -705,35 +801,47 @@ static HeldBuffers s_held_buffers;
  *
  * The weight rows are uploaded here, once, so no smoothing pass waits on a host copy.
  *
- * @param[in] voxels Voxels of the view.
- * @param[in] chunks Chunks of the view.
- * @return           1 with the buffers held, 0 on an allocation failure with nothing held.
+ * @param[in] voxels    Voxels of the view.
+ * @param[in] chunks    Chunks of the view.
+ * @param[in] smoothing 1 where this run smooths on the device, 0 where the transform hands back the residual.
+ * @return              1 with the buffers held, 0 on an allocation failure with nothing held.
  */
-static int device_hold(size_t voxels, size_t chunks)
+static int device_hold(size_t voxels, size_t chunks, int smoothing)
 {
     HeldBuffers *const held = &s_held_buffers;
+    const size_t limb_bytes = voxels * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int);
     if ((held->voxels == voxels) && (voxels != 0u))
     {
-        return 1;
+        // The passes' two buffers are held only where a run smooths here, so a first such run allocates them.
+        DeviceBuffers *const kept = &held->buffers;
+        const int wanted = (smoothing != 0) && (kept->first == NULL);
+        int grown = (wanted == 0) ? 1 : 0;
+        if (wanted != 0)
+        {
+            grown = (cudaMalloc((void **)&kept->first, limb_bytes) == cudaSuccess) ? 1 : 0;
+            grown = grown && (cudaMalloc((void **)&kept->smoothed, limb_bytes) == cudaSuccess);
+        }
+        return grown;
     }
     device_release(&held->buffers);
     memset(held, 0, sizeof(*held));
     DeviceBuffers *const buffers = &held->buffers;
-    const size_t limb_bytes = voxels * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int);
     const size_t words = (voxels + 63u) / 64u;
     int ok = 1;
     ok = ok && (cudaMalloc((void **)&buffers->volume, voxels * sizeof(unsigned short)) == cudaSuccess);
-    ok = ok && (cudaMalloc((void **)&buffers->first, limb_bytes) == cudaSuccess);
+    // The residual the basins climb is always kept; the two the smoothing passes swap between are kept only
+    // where the passes run, because the transform writes the residual straight into it.
+    ok = ok && ((smoothing == 0) || (cudaMalloc((void **)&buffers->first, limb_bytes) == cudaSuccess));
     ok = ok && (cudaMalloc((void **)&buffers->second, limb_bytes) == cudaSuccess);
-    ok = ok && (cudaMalloc((void **)&buffers->smoothed, limb_bytes) == cudaSuccess);
+    ok = ok && ((smoothing == 0) || (cudaMalloc((void **)&buffers->smoothed, limb_bytes) == cudaSuccess));
     ok = ok && (cudaMalloc((void **)&buffers->weights, (size_t)BINOMIAL_BASINS_ROW_WIDTH * BINOMIAL_BASINS_ROW_WIDTH
                                                        * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&buffers->successor, voxels * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&buffers->jumped, voxels * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&buffers->changed, sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&buffers->positive, voxels) == cudaSuccess);
-    ok = ok && (cudaMalloc((void **)&buffers->sizes, voxels * sizeof(unsigned int)) == cudaSuccess);
-    ok = ok && (cudaMalloc((void **)&buffers->sums, voxels * 3u * sizeof(unsigned long long)) == cudaSuccess);
+    // One place per voxel, filled only at the peaks: a count and three sums are held per peak, not per voxel.
+    ok = ok && (cudaMalloc((void **)&buffers->slot_at_peak, voxels * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&buffers->chunk_peaks, chunks * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&buffers->chunk_faces, chunks * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&buffers->peak_offsets, chunks * sizeof(unsigned int)) == cudaSuccess);
@@ -891,10 +999,37 @@ static int device_smooth(DeviceBuffers *buffers, const unsigned int *orders, uns
                          DeviceGeometry geometry)
 {
     const unsigned int blocks = (geometry.voxels + BINOMIAL_BASINS_BLOCK - 1u) / BINOMIAL_BASINS_BLOCK;
+    // Each axis runs whole passes of BINOMIAL_BASINS_PASS_ORDER and one pass of what is left. Where what is left
+    // on more than one axis together fits one pass, those remainders run as one three-axis pass first. Passes of
+    // centred symmetric rows under the half-sample reflection commute, so the order of passes changes nothing.
+    DeviceOrders remainders;
+    unsigned int remainder_total = 0u;
+    unsigned int remainder_axes = 0u;
+    for (unsigned int axis = 0u; axis < 3u; axis += 1u)
+    {
+        remainders.order[axis] = orders[axis] % BINOMIAL_BASINS_PASS_ORDER;
+        remainder_total += remainders.order[axis];
+        remainder_axes += (remainders.order[axis] != 0u) ? 1u : 0u;
+    }
+    const int fuse = (remainder_axes > 1u) && (remainder_total <= BINOMIAL_BASINS_PASS_ORDER);
     int ok = 1;
+    if (fuse != 0)
+    {
+        const unsigned int limbs_in = (*bits + 31u) / 32u;
+        const unsigned int limbs_out = (*bits + remainder_total + 31u) / 32u;
+        fused_kernel<<<blocks, BINOMIAL_BASINS_BLOCK>>>(buffers->first, buffers->weights, remainders, limbs_in,
+                                                        (limbs_out < BINOMIAL_BASINS_LIMBS) ? limbs_out
+                                                                                            : BINOMIAL_BASINS_LIMBS,
+                                                        geometry, buffers->second);
+        ok = device_launched();
+        unsigned int *const swapped = buffers->first;
+        buffers->first = buffers->second;
+        buffers->second = swapped;
+        *bits += remainder_total;
+    }
     for (unsigned int axis = 0u; (axis < 3u) && (ok != 0); axis += 1u)
     {
-        unsigned int remaining = orders[axis];
+        unsigned int remaining = (fuse != 0) ? (orders[axis] - remainders.order[axis]) : orders[axis];
         while ((remaining > 0u) && (ok != 0))
         {
             const unsigned int order = (remaining > BINOMIAL_BASINS_PASS_ORDER)
@@ -902,12 +1037,12 @@ static int device_smooth(DeviceBuffers *buffers, const unsigned int *orders, uns
                                      : remaining;
             // The row for this order was uploaded once with the held buffers.
             const unsigned int *const row = &buffers->weights[order * BINOMIAL_BASINS_ROW_WIDTH];
+            const unsigned int limbs_out = (*bits + order + 31u) / 32u;
             pass_kernel<<<blocks, BINOMIAL_BASINS_BLOCK>>>(buffers->first, row, order, axis, (*bits + 31u) / 32u,
+                                                           (limbs_out < BINOMIAL_BASINS_LIMBS) ? limbs_out
+                                                                                               : BINOMIAL_BASINS_LIMBS,
                                                            geometry, buffers->second);
             ok = device_launched();
-            char probe_name[32];
-            snprintf(probe_name, sizeof(probe_name), "PASS axis %u order %u limbs %u", axis, order, (*bits + 31u) / 32u);
-            profile_mark(probe_name);
             unsigned int *const swapped = buffers->first;
             buffers->first = buffers->second;
             buffers->second = swapped;
@@ -972,38 +1107,52 @@ extern "C" long binomial_basins_run(const BinomialBasinsRequest *args)
     const unsigned int chunk_blocks = (geometry.chunks + BINOMIAL_BASINS_BLOCK - 1u) / BINOMIAL_BASINS_BLOCK;
 
     profile_mark(NULL);
-    // The buffers are held between calls and allocated again only for different extents.
-    int ok = device_hold(voxels, chunks);
+    const unsigned int extents[3] = {geometry.depth, geometry.height, geometry.width};
+    const int transformed = (BINOMIAL_BASINS_TRANSFORM != 0)
+                         && (binomial_transform_admits(extents, args->smooth_orders, args->background_orders) != 0);
+    // The buffers are held between calls and allocated again only for different extents, and the smoothing
+    // passes' two buffers only where the passes will run.
+    int ok = device_hold(voxels, chunks, (transformed == 0) ? 1 : 0);
     DeviceBuffers &buffers = s_held_buffers.buffers;
     profile_mark("allocate");
 
     ok = ok && (cudaMemcpy(buffers.volume, args->volume, voxels * sizeof(unsigned short),
                            cudaMemcpyHostToDevice) == cudaSuccess);
-    ok = ok && (cudaMemset(buffers.first, 0, limb_bytes) == cudaSuccess);
-    if (ok != 0)
+    if ((ok != 0) && (transformed != 0))
     {
-        load_kernel<<<blocks, BINOMIAL_BASINS_BLOCK>>>(buffers.volume, geometry.voxels, buffers.first);
-        ok = device_launched();
+        // The residual in the transform domain: one pointwise product per prime, joined into limbs.
+        ok = binomial_transform_residual(buffers.volume, extents, args->smooth_orders, args->background_orders,
+                                         buffers.second);
+        profile_mark("transform residual");
     }
-
-    profile_mark("upload and load");
-    unsigned int bits = 16u;
-    ok = ok && device_smooth(&buffers, args->smooth_orders, &bits, geometry);
-    ok = ok && (cudaMemcpy(buffers.smoothed, buffers.first, limb_bytes, cudaMemcpyDeviceToDevice) == cudaSuccess);
-    profile_mark("smooth");
-    ok = ok && device_smooth(&buffers, args->background_orders, &bits, geometry);
-    profile_mark("background");
-
-    const unsigned int gain = args->background_orders[0] + args->background_orders[1]
-                            + args->background_orders[2];
-    if (ok != 0)
+    if ((ok != 0) && (transformed == 0))
     {
-        residual_kernel<<<blocks, BINOMIAL_BASINS_BLOCK>>>(buffers.smoothed, buffers.first, gain / 32u,
-                                                           gain % 32u, geometry.voxels, buffers.second);
-        ok = device_launched();
+        // Both smoothing buffers start the run zeroed, so a pass need write only the limbs its result can reach.
+        ok = ok && (cudaMemset(buffers.first, 0, limb_bytes) == cudaSuccess);
+        ok = ok && (cudaMemset(buffers.second, 0, limb_bytes) == cudaSuccess);
+        if (ok != 0)
+        {
+            load_kernel<<<blocks, BINOMIAL_BASINS_BLOCK>>>(buffers.volume, geometry.voxels, buffers.first);
+            ok = device_launched();
+        }
+        profile_mark("upload and load");
+        unsigned int bits = 16u;
+        ok = ok && device_smooth(&buffers, args->smooth_orders, &bits, geometry);
+        ok = ok && (cudaMemcpy(buffers.smoothed, buffers.first, limb_bytes, cudaMemcpyDeviceToDevice) == cudaSuccess);
+        profile_mark("smooth");
+        ok = ok && device_smooth(&buffers, args->background_orders, &bits, geometry);
+        profile_mark("background");
+        const unsigned int gain = args->background_orders[0] + args->background_orders[1]
+                                + args->background_orders[2];
+        if (ok != 0)
+        {
+            residual_kernel<<<blocks, BINOMIAL_BASINS_BLOCK>>>(buffers.smoothed, buffers.first, gain / 32u,
+                                                               gain % 32u, geometry.voxels, buffers.second);
+            ok = device_launched();
+        }
+        profile_mark("residual");
     }
     const unsigned int *const residual = buffers.second;
-    profile_mark("residual");
 
     if (ok != 0)
     {
@@ -1030,19 +1179,15 @@ extern "C" long binomial_basins_run(const BinomialBasinsRequest *args)
     }
     profile_mark("jump");
 
-    ok = ok && (cudaMemset(buffers.sizes, 0, voxels * sizeof(unsigned int)) == cudaSuccess);
-    ok = ok && (cudaMemset(buffers.sums, 0, voxels * 3u * sizeof(unsigned long long)) == cudaSuccess);
+    // Adjacency faces are counted and written only for a caller that passes an adjacency buffer.
+    const unsigned int want_faces = (args->adjacency != NULL) ? 1u : 0u;
     if (ok != 0)
     {
-        census_kernel<<<blocks, BINOMIAL_BASINS_BLOCK>>>(buffers.positive, buffers.successor, geometry,
-                                                         buffers.sizes, buffers.sums);
-        ok = device_launched();
-    }
-    if (ok != 0)
-    {
-        count_kernel<<<chunk_blocks, BINOMIAL_BASINS_BLOCK>>>(buffers.positive, buffers.successor,
-                                                              geometry, buffers.chunk_peaks,
-                                                              buffers.chunk_faces, buffers.chunk_joined);
+        chunk_kernel<<<chunk_blocks, BINOMIAL_BASINS_BLOCK>>>(residual, buffers.positive, buffers.successor,
+                                                              want_faces, NULL, NULL,
+                                                              NULL, geometry, buffers.chunk_peaks,
+                                                              buffers.chunk_faces, buffers.chunk_joined, NULL, NULL,
+                                                              NULL, NULL, NULL);
         ok = device_launched();
     }
     ok = ok && (cudaMemcpy(buffers.host_peak_offsets, buffers.chunk_peaks, chunks * sizeof(unsigned int),
@@ -1051,7 +1196,7 @@ extern "C" long binomial_basins_run(const BinomialBasinsRequest *args)
                            cudaMemcpyDeviceToHost) == cudaSuccess);
     ok = ok && (cudaMemcpy(buffers.host_joined_offsets, buffers.chunk_joined, chunks * sizeof(unsigned int),
                            cudaMemcpyDeviceToHost) == cudaSuccess);
-    profile_mark("census and count");
+    profile_mark("count");
 
     unsigned long long peak_total = 0ull;
     unsigned long long face_total = 0ull;
@@ -1088,16 +1233,26 @@ extern "C" long binomial_basins_run(const BinomialBasinsRequest *args)
                            cudaMemcpyHostToDevice) == cudaSuccess);
     if (ok != 0)
     {
-        emit_kernel<<<chunk_blocks, BINOMIAL_BASINS_BLOCK>>>(residual, buffers.positive, buffers.successor,
-                                                             buffers.sizes, buffers.sums,
-                                                             buffers.peak_offsets, buffers.face_offsets,
-                                                             buffers.joined_offsets, geometry,
-                                                             buffers.out_indices, buffers.out_sizes,
-                                                             buffers.out_sums, buffers.out_limbs,
-                                                             buffers.out_faces, buffers.out_joined);
+        chunk_kernel<<<chunk_blocks, BINOMIAL_BASINS_BLOCK>>>(residual, buffers.positive, buffers.successor,
+                                                              want_faces,
+                                                              buffers.peak_offsets, buffers.face_offsets,
+                                                              buffers.joined_offsets, geometry, NULL, NULL, NULL,
+                                                              buffers.out_indices, buffers.slot_at_peak,
+                                                              buffers.out_limbs,
+                                                              buffers.out_faces, buffers.out_joined);
         ok = device_launched();
     }
-    profile_mark("emit");
+    // Every peak has its place now, so the census counts each basin's positive voxels and sums their indices
+    // straight into the peak's own count and sums.
+    ok = ok && (cudaMemset(buffers.out_sizes, 0, peaks * sizeof(unsigned int)) == cudaSuccess);
+    ok = ok && (cudaMemset(buffers.out_sums, 0, peaks * 3u * sizeof(unsigned long long)) == cudaSuccess);
+    if (ok != 0)
+    {
+        census_kernel<<<blocks, BINOMIAL_BASINS_BLOCK>>>(buffers.positive, buffers.successor, buffers.slot_at_peak,
+                                                         geometry, buffers.out_sizes, buffers.out_sums);
+        ok = device_launched();
+    }
+    profile_mark("emit and census");
     ok = ok && (cudaMemcpy(buffers.host_joined, buffers.out_joined, joins * 2u * sizeof(unsigned int),
                            cudaMemcpyDeviceToHost) == cudaSuccess);
     // A caller that passes no adjacency buffer has not asked for adjacency: its faces are neither

@@ -59,8 +59,10 @@ rm -f "$LIBRARY"
 # The portable references are C11 and are compiled as C11 on their own, by the same host compiler
 # nvcc drives, so the objects link into the same library. The CUDA sources are C++ and never see
 # the flag.
+# The transform is held elsewhere and is not part of this tree, so the basins take every view by their
+# smoothing passes and neither include nor link it.
 DEFINES=(-DBINOMIAL_BASINS_BUILD_DLL=1 -DBASIN_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
-         -DSHIFT_AGREEMENT_BUILD_DLL=1)
+         -DSHIFT_AGREEMENT_BUILD_DLL=1 -DBINOMIAL_BASINS_TRANSFORM=0)
 PORTABLE_OBJECTS=()
 for portable in binomial_basins basin_overlap heaviest_matching shift_agreement; do
     OBJECT="$OUT/${portable}_portable.o"
