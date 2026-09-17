@@ -83,11 +83,6 @@ theorem for this class:
   move is zero.
 - **Defender in front with the attacker behind, and the rook pawn in the corner.** A draw whoever
   moves; the value of the move is zero.
-- **The distribution over the class.** Of the 163328 boards where both sides-to-move are legal, the
-  value of the move is neutral in 135546, positive (the tempo helps the pawn's side) in 27622, and
-  negative (the zugzwang where moving throws the win away) in 160. It takes every sign; the small
-  negative band is the opposition, and the large positive count is the attacker usually wanting the
-  tempo.
 
 The value of the move is positive, zero, or negative by position, and its sign is a table lookup, not
 a constant. The retrograde solve and the agreement with published theory are the two routes.
