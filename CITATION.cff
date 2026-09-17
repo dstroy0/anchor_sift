@@ -19,8 +19,8 @@ authors:
 repository-code: "https://github.com/dstroy0/anchor_sift"
 url: "https://github.com/dstroy0/anchor_sift"
 license: AGPL-3.0-or-later
-version: 1.0.0
-date-released: "2026-09-16"
+version: 1.1.0
+date-released: "2026-09-17"
 keywords:
   - maximum-entropy
   - permutation-null
