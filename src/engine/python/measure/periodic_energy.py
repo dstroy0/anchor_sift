@@ -50,8 +50,9 @@
 # the shuffle could not, and the shuffle's ratio is reported beside the live one so the reader sees
 # the floor it cleared.
 
-from fractions import Fraction
+from functools import cmp_to_key
 
+from reference.exact_ratio import whole, add, sub, over, compare
 from reference.shuffles import permuted, SEED
 
 
@@ -67,17 +68,19 @@ def between_classes(values, period):
     """
     length = len(values)
     if length == 0:
-        return Fraction(0)
+        return whole(0)
     sums = [0] * period
     counts = [0] * period
     for index, value in enumerate(values):
         phase = index % period
         sums[phase] += value
         counts[phase] += 1
-    within = sum(Fraction(sums[phase] * sums[phase], counts[phase])
-                 for phase in range(period) if counts[phase])
-    grand = Fraction(sum(sums) ** 2, length)
-    return within - grand
+    within = whole(0)
+    for phase in range(period):
+        if counts[phase]:
+            within = add(within, (sums[phase] * sums[phase], counts[phase]))
+    grand = (sum(sums) ** 2, length)
+    return sub(within, grand)
 
 
 def total_energy(values):
@@ -88,10 +91,10 @@ def total_energy(values):
     """
     length = len(values)
     if length == 0:
-        return Fraction(0)
+        return whole(0)
     summed = sum(values)
     squares = sum(value * value for value in values)
-    return Fraction(length * squares - summed * summed, length)
+    return (length * squares - summed * summed, length)
 
 
 def dispersion_ratio(values, period):
@@ -109,12 +112,12 @@ def dispersion_ratio(values, period):
     """
     length = len(values)
     between = between_classes(values, period)
-    within = total_energy(values) - between
+    within = sub(total_energy(values), between)
     freedom_between = period - 1
     freedom_within = length - period
-    if (freedom_between <= 0) or (freedom_within <= 0) or (within <= 0):
+    if (freedom_between <= 0) or (freedom_within <= 0) or (compare(within, whole(0)) <= 0):
         return None
-    return (between / freedom_between) / (within / freedom_within)
+    return over(over(between, whole(freedom_between)), over(within, whole(freedom_within)))
 
 
 def against_a_shuffle(values, period, seed=SEED):
@@ -152,7 +155,7 @@ def recover_period(values, reach, seed=SEED):
         ratio = dispersion_ratio(values, period)
         if ratio is None:
             continue
-        if (best is None) or (ratio > best):
+        if (best is None) or (compare(ratio, best) > 0):
             best = ratio
             chosen = period
 
@@ -186,4 +189,4 @@ def null_band(values, reach, draws=8, seed=SEED):
         _, ratio, _ = recover_period(list(permuted(values, seed + step)), reach, seed + step + 1)
         if ratio is not None:
             ratios.append(ratio)
-    return sorted(ratios)
+    return sorted(ratios, key=cmp_to_key(compare))

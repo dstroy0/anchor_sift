@@ -39,7 +39,7 @@
 # class. Each pair is a different algorithm reaching the same rational or the same integer, and the
 # caller checks that they land on it.
 
-from fractions import Fraction
+from reference.exact_ratio import whole, add, sub, over, reduced
 
 
 def phase_totals(values, period):
@@ -66,7 +66,7 @@ def mean_background(values, period):
     value depends only on its phase: it fixes each class's first moment and asserts nothing else.
     """
     sums, counts = phase_totals(values, period)
-    means = [Fraction(sums[phase], counts[phase]) for phase in range(period)]
+    means = [reduced(sums[phase], counts[phase]) for phase in range(period)]
     return [means[index % period] for index in range(len(values))]
 
 
@@ -81,12 +81,12 @@ def mean_background_incremental(values, period):
     means = [None] * period
     length = len(values)
     for phase in range(period):
-        running = Fraction(0)
+        running = whole(0)
         seen = 0
         index = phase
         while index < length:
             seen += 1
-            running += (Fraction(values[index]) - running) / seen
+            running = add(running, over(sub(whole(values[index]), running), whole(seen)))
             index += period
         means[phase] = running
     return [means[index % period] for index in range(length)]
@@ -101,7 +101,7 @@ def mean_residual(values, period, background=None):
     """
     if background is None:
         background = mean_background(values, period)
-    return [Fraction(value) - back for value, back in zip(values, background)]
+    return [sub(whole(value), back) for value, back in zip(values, background)]
 
 
 def consensus_majority(values, period, on_tie=min):
