@@ -44,7 +44,6 @@ import io
 import os
 import random
 import sys
-from fractions import Fraction
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke every path
@@ -56,6 +55,7 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 from measure.periodic_energy import recover_period, null_band  # noqa: E402
 from reference.periodic import (mean_background, mean_background_incremental,  # noqa: E402
                                 mean_residual, consensus_majority, consensus_median)
+from reference.exact_ratio import (whole, sub, mul, add, over, compare, to_float)  # noqa: E402
 
 HEIGHT = 8
 WIDTH = 8
@@ -129,12 +129,15 @@ def per_frame_noise(base, sigma, seed):
 
 
 def reduction(noisy, cleaned, target):
-    """The share of the injected noise energy the reject removed, exact rational."""
-    injected = sum((Fraction(noisy[n]) - target[n]) ** 2 for n in range(len(target)))
-    left = sum((cleaned[n] - target[n]) ** 2 for n in range(len(target)))
+    """The share of the injected noise energy the reject removed, as an exact integer ratio pair."""
+    injected = sum((noisy[n] - target[n]) ** 2 for n in range(len(target)))
     if injected == 0:
-        return Fraction(1)
-    return Fraction(1) - Fraction(left, 1) / injected
+        return whole(1)
+    left = whole(0)
+    for n in range(len(target)):
+        difference = sub(cleaned[n], whole(target[n]))
+        left = add(left, mul(difference, difference))
+    return sub(whole(1), over(left, whole(injected)))
 
 
 def detect_fixed_pattern(stack, frame):
@@ -143,7 +146,7 @@ def detect_fixed_pattern(stack, frame):
     period, live, dead = recover_period(view, frame)
     band = null_band(view, frame, DRAWS)
     top = band[-1] if band else None
-    present = (period == frame) and (live is not None) and (top is not None) and (live > top)
+    present = (period == frame) and (live is not None) and (top is not None) and (compare(live, top) > 0)
     return present, live, top
 
 
@@ -179,16 +182,16 @@ def report_control(out, label, mode, stack, frame, truth):
     if mode == "fixed-pattern":
         present, live, top = detect_fixed_pattern(stack, frame)
         out.write("  %-26s mode fixed-pattern: coherent component present: %s (live %.2f / band %.2f)\n"
-                  % (label, present, float(live) if live is not None else float("nan"),
-                     float(top) if top is not None else float("nan")))
+                  % (label, present, to_float(live) if live is not None else float("nan"),
+                     to_float(top) if top is not None else float("nan")))
         if not present:
             out.write("  %-26s declined: no fixed pattern above the null; uncertainty is not zero.\n\n" % "")
             return
         cleaned, pattern, uncertain = reject_fixed_pattern(stack, frame)
-        exact = all(cleaned[n] == truth[n] for n in range(len(truth)))
+        exact = all(cleaned[n] == whole(truth[n]) for n in range(len(truth)))
         nrr = reduction(stack, cleaned, truth)
         out.write("  %-26s reject per-pixel mean -> subject == truth bit-exact: %s, NRR %.4f%%\n"
-                  % ("", exact, float(nrr) * 100.0))
+                  % ("", exact, to_float(nrr) * 100.0))
         out.write("  %-26s uncertainty: %d of %d pixels flagged (%s)\n\n"
                   % ("", sum(uncertain), frame,
                      "exact zero everywhere" if sum(uncertain) == 0 else "route defect"))
@@ -273,19 +276,19 @@ def run_real(out, mode, in_dir, out_dir):
         present, live, top = detect_fixed_pattern(stack, frame)
         out.write("  %d frames, %dx%d, mode fixed-pattern: pattern present: %s (live %.2f / band %.2f)\n"
                   % (count, width, height, present,
-                     float(live) if live is not None else float("nan"),
-                     float(top) if top is not None else float("nan")))
+                     to_float(live) if live is not None else float("nan"),
+                     to_float(top) if top is not None else float("nan")))
         if not present:
             out.write("  declined: no fixed pattern above the null. nothing removed, and that is the finding.\n")
             return 0
         cleaned, pattern, uncertain = reject_fixed_pattern(stack, frame)
-        low = min(int(v) for v in cleaned)
+        low = min(v[0] // v[1] for v in cleaned)
         for index in range(count):
             block = cleaned[index * frame:(index + 1) * frame]
-            arr = np.array([int(v) - low for v in block], dtype=np.uint16).reshape(height, width)
+            arr = np.array([(v[0] // v[1]) - low for v in block], dtype=np.uint16).reshape(height, width)
             Image.fromarray(arr).save(os.path.join(out_dir, "clean_%03d.png" % index))
-        plow = min(int(v) for v in pattern)
-        parr = np.array([int(v) - plow for v in pattern[:frame]], dtype=np.uint16).reshape(height, width)
+        plow = min(v[0] // v[1] for v in pattern)
+        parr = np.array([(v[0] // v[1]) - plow for v in pattern[:frame]], dtype=np.uint16).reshape(height, width)
         Image.fromarray(parr).save(os.path.join(out_dir, "shared_pattern.png"))
         out.write("  wrote clean_000..%03d.png and shared_pattern.png; %d of %d pixels flagged\n"
                   % (count - 1, sum(uncertain), frame))

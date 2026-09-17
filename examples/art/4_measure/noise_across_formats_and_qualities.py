@@ -54,7 +54,6 @@ import os
 import random
 import sys
 import zipfile
-from fractions import Fraction
 
 import numpy as np
 from PIL import Image
@@ -69,6 +68,8 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 from measure.periodic_energy import recover_period, null_band  # noqa: E402
 from reference.periodic import (mean_background, mean_background_incremental,  # noqa: E402
                                 mean_residual)
+from reference.exact_ratio import (whole, add, sub, mul, over, compare,  # noqa: E402
+                                   to_float, reduced)
 
 
 def _external_datasets():
@@ -195,17 +196,20 @@ def broken_background(values, period):
     for index, value in enumerate(values):
         sums[index % period] += value
         counts[index % period] += 1
-    means = [Fraction(sums[phase], counts[phase] + 1) for phase in range(period)]
+    means = [reduced(sums[phase], counts[phase] + 1) for phase in range(period)]
     return [means[index % period] for index in range(len(values))]
 
 
 def reduction(noisy, cleaned, target):
-    """The share of the injected noise energy the rejection removed, exact rational."""
-    injected = sum((Fraction(noisy[n]) - target[n]) ** 2 for n in range(len(target)))
-    left = sum((cleaned[n] - target[n]) ** 2 for n in range(len(target)))
+    """The share of the injected noise energy the rejection removed, as an exact integer ratio pair."""
+    injected = sum((noisy[n] - target[n]) ** 2 for n in range(len(target)))
     if injected == 0:
-        return Fraction(1)
-    return Fraction(1) - Fraction(left, 1) / injected
+        return whole(1)
+    left = whole(0)
+    for n in range(len(target)):
+        difference = sub(cleaned[n], whole(target[n]))
+        left = add(left, mul(difference, difference))
+    return sub(whole(1), over(left, whole(injected)))
 
 
 def byte_view(values):
@@ -236,7 +240,7 @@ def assess_additive(stack, scene, frame):
     found, live, dead = recover_period(view, frame)
     band = null_band(view, frame, DRAWS)
     boundary = band[-1] if band else None
-    present = (live is not None) and (boundary is not None) and (live > boundary)
+    present = (live is not None) and (boundary is not None) and (compare(live, boundary) > 0)
 
     back_batch = mean_background(stack, frame)
     back_incr = mean_background_incremental(stack, frame)
@@ -245,7 +249,7 @@ def assess_additive(stack, scene, frame):
     broken_splits = (back_batch != back_broken) and (back_incr != back_broken)
 
     cleaned = mean_residual(stack, frame, back_batch)
-    exact = all(cleaned[n] == scene[n] for n in range(len(scene)))
+    exact = all(cleaned[n] == whole(scene[n]) for n in range(len(scene)))
     removed = reduction(stack, cleaned, scene)
     return {
         "found": found, "live": live, "band": band, "boundary": boundary, "present": present,
@@ -332,8 +336,8 @@ def main():
 
     base = assess_additive(stack, scene, gray_frame)
     out.write("  %-22s %-12s %-16s %-11.4f%% %.3f / %.3f\n"
-              % ("in-memory (no file)", "8-bit", "n/a (exact)", float(base["removed"]) * 100.0,
-                 float(base["live"]), float(base["boundary"])))
+              % ("in-memory (no file)", "8-bit", "n/a (exact)", to_float(base["removed"]) * 100.0,
+                 to_float(base["live"]), to_float(base["boundary"])))
 
     png8 = roundtrip(stack, gray_frame, FRAMES, 8, "L", "PNG", 128)
     _format_row(out, "PNG", "8-bit gray", png8, stack, scene, gray_frame)
@@ -355,9 +359,9 @@ def main():
     jarm = assess_additive(jpeg, scene, gray_frame)
     out.write("  %-22s %-12s %-16s %-11.4f%% %.3f / %.3f\n"
               % ("JPEG q92 (lossy)", "8-bit", "identical: %s" % identical,
-                 float(jarm["removed"]) * 100.0,
-                 float(jarm["live"]) if jarm["live"] is not None else float("nan"),
-                 float(jarm["boundary"]) if jarm["boundary"] is not None else float("nan")))
+                 to_float(jarm["removed"]) * 100.0,
+                 to_float(jarm["live"]) if jarm["live"] is not None else float("nan"),
+                 to_float(jarm["boundary"]) if jarm["boundary"] is not None else float("nan")))
     out.write("\n")
 
     # ---- B. NOISE QUALITIES. amplitude of the coherent pattern, then the incoherent kinds. ----
@@ -368,11 +372,11 @@ def main():
         arm = stacked(scene, fixed_pattern(gray_frame, amplitude, SEED), gray_frame)
         got = assess_additive(arm, scene, gray_frame)
         seen = got["present"]
-        outcome = ("remove -> NRR %.2f%%" % (float(got["removed"]) * 100.0)) if seen \
+        outcome = ("remove -> NRR %.2f%%" % (to_float(got["removed"]) * 100.0)) if seen \
             else "decline -> below band (would remove exactly if seen)"
         out.write("  %-26s %-14s %-8s %s\n"
                   % ("fixed pattern amp=%d" % amplitude,
-                     "%.2f / %.2f" % (float(got["live"]), float(got["boundary"])), seen, outcome))
+                     "%.2f / %.2f" % (to_float(got["live"]), to_float(got["boundary"])), seen, outcome))
 
     gauss = per_frame_gaussian(scene, PATTERN, SEED)
     _quality_row(out, "per-frame gaussian s=%d" % PATTERN, gauss, scene, gray_frame)
@@ -385,9 +389,9 @@ def main():
     mixarm = assess_additive(mix, scene, gray_frame)
     out.write("  %-26s %-14s %-8s %s\n"
               % ("pattern + gaussian (mix)",
-                 "%.2f / %.2f" % (float(mixarm["live"]), float(mixarm["boundary"])),
+                 "%.2f / %.2f" % (to_float(mixarm["live"]), to_float(mixarm["boundary"])),
                  mixarm["present"], "remove coherent part -> NRR %.2f%% (measured, not 100)"
-                 % (float(mixarm["removed"]) * 100.0)))
+                 % (to_float(mixarm["removed"]) * 100.0)))
     out.write("\n")
 
     # ---- C. CTC real 16-bit frames. the negative control on real content, then the floor on it. ----
@@ -401,16 +405,16 @@ def main():
         view = byte_view(real)
         _, live, _ = recover_period(view, ctc_frame)
         band = null_band(view, ctc_frame, DRAWS)
-        seen = (live is not None) and bool(band) and (live > band[-1])
+        seen = (live is not None) and bool(band) and (compare(live, band[-1]) > 0)
         out.write("  real as-is: detector live %.3f vs band top %.3f -> %s\n"
-                  % (float(live) if live is not None else float("nan"),
-                     float(band[-1]) if band else float("nan"),
+                  % (to_float(live) if live is not None else float("nan"),
+                     to_float(band[-1]) if band else float("nan"),
                      "fixed pattern present" if seen else "declined (real-world negative control)"))
         real_stack = stacked(real, fixed_pattern(ctc_frame, CTC_PATTERN, SEED), ctc_frame)
         planted = assess_additive(real_stack, real, ctc_frame)
         out.write("  real + known pattern amp=%d: seen=%s, routes agree=%s, NRR %.4f%%\n"
                   % (CTC_PATTERN, planted["present"], planted["routes_agree"],
-                     float(planted["removed"]) * 100.0))
+                     to_float(planted["removed"]) * 100.0))
         out.write("  the shortfall from 100 is the floor: real static background is a per-pixel offset\n")
         out.write("  across the stack, the exact shape of the pattern, so it is removed with it.\n\n")
 
@@ -425,19 +429,19 @@ def _format_row(out, fmt, depth, recovered, stack, scene, frame):
     identical = recovered == stack
     arm = assess_additive(recovered, scene, frame)
     out.write("  %-22s %-12s %-16s %-11.4f%% %.3f / %.3f\n"
-              % (fmt, depth, "identical: %s" % identical, float(arm["removed"]) * 100.0,
-                 float(arm["live"]) if arm["live"] is not None else float("nan"),
-                 float(arm["boundary"]) if arm["boundary"] is not None else float("nan")))
+              % (fmt, depth, "identical: %s" % identical, to_float(arm["removed"]) * 100.0,
+                 to_float(arm["live"]) if arm["live"] is not None else float("nan"),
+                 to_float(arm["boundary"]) if arm["boundary"] is not None else float("nan")))
 
 
 def _quality_row(out, label, arm_stack, scene, frame):
     """One NOISE-QUALITIES row for an incoherent kind: it should be declined and left intact."""
     got = assess_additive(arm_stack, scene, frame)
     seen = got["present"]
-    outcome = ("seen -> NRR %.2f%%" % (float(got["removed"]) * 100.0)) if seen \
-        else "decline -> left intact, NRR %.2f%%" % (float(got["removed"]) * 100.0)
+    outcome = ("seen -> NRR %.2f%%" % (to_float(got["removed"]) * 100.0)) if seen \
+        else "decline -> left intact, NRR %.2f%%" % (to_float(got["removed"]) * 100.0)
     out.write("  %-26s %-14s %-8s %s\n"
-              % (label, "%.2f / %.2f" % (float(got["live"]), float(got["boundary"])), seen, outcome))
+              % (label, "%.2f / %.2f" % (to_float(got["live"]), to_float(got["boundary"])), seen, outcome))
 
 
 if __name__ == "__main__":

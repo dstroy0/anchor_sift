@@ -43,7 +43,6 @@ import io
 import os
 import random
 import sys
-from fractions import Fraction
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
@@ -56,6 +55,8 @@ from measure.periodic_energy import recover_period, null_band  # noqa: E402
 from reference.periodic import (mean_background, mean_background_incremental,  # noqa: E402
                                 mean_residual)
 from reference.shuffles import permuted  # noqa: E402
+from reference.exact_ratio import (whole, add, sub, mul, over, compare,  # noqa: E402
+                                   to_float, reduced)
 
 # The declared inputs, printed with every reading and chosen by nothing the output showed.
 HEIGHT = 8
@@ -130,17 +131,20 @@ def broken_background(values, period):
     for index, value in enumerate(values):
         sums[index % period] += value
         counts[index % period] += 1
-    means = [Fraction(sums[phase], counts[phase] + 1) for phase in range(period)]
+    means = [reduced(sums[phase], counts[phase] + 1) for phase in range(period)]
     return [means[index % period] for index in range(len(values))]
 
 
 def reduction(noisy, cleaned, target):
-    """The share of the injected noise energy the rejection removed, exact."""
-    injected = sum((Fraction(noisy[n]) - target[n]) ** 2 for n in range(len(target)))
-    left = sum((cleaned[n] - target[n]) ** 2 for n in range(len(target)))
+    """The share of the injected noise energy the rejection removed, as an exact integer ratio pair."""
+    injected = sum((noisy[n] - target[n]) ** 2 for n in range(len(target)))
     if injected == 0:
-        return Fraction(1)
-    return Fraction(1) - Fraction(left, 1) / injected
+        return whole(1)
+    left = whole(0)
+    for n in range(len(target)):
+        difference = sub(cleaned[n], whole(target[n]))
+        left = add(left, mul(difference, difference))
+    return sub(whole(1), over(left, whole(injected)))
 
 
 def main():
@@ -164,7 +168,7 @@ def main():
     found, live, dead = recover_period(byte_view, frame)
     out.write("  identify: detector period %s (frame size %d)\n" % (found, frame))
     out.write("  identify: dispersion ratio live %.3f vs its own shuffle %.3f\n"
-              % (float(live), float(dead)))
+              % (to_float(live), to_float(dead)))
 
     # 2. reject with two routes that must be able to disagree
     back_batch = mean_background(stack, frame)
@@ -176,22 +180,23 @@ def main():
     out.write("  reject: the broken route splits from both (the check has teeth): %s\n" % broken_splits)
 
     cleaned = mean_residual(stack, frame, back_batch)
-    exact = all(cleaned[n] == scene[n] for n in range(len(scene)))
+    exact = all(cleaned[n] == whole(scene[n]) for n in range(len(scene)))
     nrr = reduction(stack, cleaned, scene)
     out.write("  reject: residual equals the moving scene as integers: %s\n" % exact)
-    out.write("  reject: noise reduction ratio %s = %.4f%%\n\n" % (nrr, float(nrr) * 100.0))
+    out.write("  reject: noise reduction ratio %s = %.4f%%\n\n"
+              % (("%d" % nrr[0]) if nrr[1] == 1 else ("%d/%d" % nrr), to_float(nrr) * 100.0))
 
     # 3. the null
     shuffled = list(permuted(byte_view, SEED))
     null_found, null_live, null_dead = recover_period(shuffled, frame)
     out.write("  null: shuffled stack detector period %s live %.3f vs shuffle %.3f\n"
-              % (null_found, float(null_live) if null_live is not None else float("nan"),
-                 float(null_dead) if null_dead is not None else float("nan")))
+              % (null_found, to_float(null_live) if null_live is not None else float("nan"),
+                 to_float(null_dead) if null_dead is not None else float("nan")))
     wrong = frame - 1
     wrong_cleaned = mean_residual(stack, wrong)
     wrong_nrr = reduction(stack, wrong_cleaned, scene)
     out.write("  null: rejecting at the wrong period %d reduces noise by %.4f%% (near zero)\n\n"
-              % (wrong, float(wrong_nrr) * 100.0))
+              % (wrong, to_float(wrong_nrr) * 100.0))
 
     # 3c. negative controls: the score must be able to NOT be 100, or it measures the removal of the
     #     pattern injected rather than the detection of a fixed pattern. A stack with no fixed pattern
@@ -200,7 +205,7 @@ def main():
     boundary = band[-1] if band else None
     out.write("  negative controls: the score licensing the 100 is the 0 the wrong noise scores.\n")
     out.write("  null band over %d shuffles spans %.3f to %.3f; a frame period must clear the top %.3f:\n"
-              % (DRAWS, band[0], band[-1], band[-1]))
+              % (DRAWS, to_float(band[0]), to_float(band[-1]), to_float(band[-1])))
     out.write("  %-24s %-12s %-12s %s\n" % ("case", "live ratio", "above band", "outcome"))
 
     no_pattern = list(scene)                                       # a moving scene, no fixed pattern
@@ -211,17 +216,17 @@ def main():
             ("wrong kind (impulses)", wrong_kind, True)):
         arm_bytes = [value + PEDESTAL for value in arm]
         seen, live, _ = recover_period(arm_bytes, frame)
-        present = (live is not None) and (boundary is not None) and (live > boundary)
+        present = (live is not None) and (boundary is not None) and (compare(live, boundary) > 0)
         if present:
             got = reduction(arm, mean_residual(arm, seen), scene)
-            outcome = "remove -> NRR %.2f%%" % (float(got) * 100.0)
+            outcome = "remove -> NRR %.2f%%" % (to_float(got) * 100.0)
         elif not has_noise:
             outcome = "decline -> returned untouched: %s" % (list(arm) == scene)
         else:
             outcome = "decline -> noise left intact, NRR %.2f%%" % (
-                float(reduction(arm, [Fraction(v) for v in arm], scene)) * 100.0)
+                to_float(reduction(arm, [whole(v) for v in arm], scene)) * 100.0)
         out.write("  %-24s %-12.3f %-12s %s\n"
-                  % (label, float(live) if live is not None else float("nan"), present, outcome))
+                  % (label, to_float(live) if live is not None else float("nan"), present, outcome))
     out.write("\n")
 
     # 4. the floor: a static scene feature is shaped exactly like fixed-pattern noise
@@ -233,7 +238,7 @@ def main():
         got = mean_residual(dirty, frame)
         floor_nrr = reduction(dirty, got, shaped)
         note = "full rejection" if depth == 0 else "a static feature, indistinguishable from the pattern"
-        out.write("  %-10d %-14.4f %s\n" % (depth, float(floor_nrr) * 100.0, note))
+        out.write("  %-10d %-14.4f %s\n" % (depth, to_float(floor_nrr) * 100.0, note))
 
     out.write("\n  depth zero is the full rejection: the scene moves everywhere, the pattern is fixed,\n")
     out.write("  so the pattern is removed to the bit and the scene is kept. every row below it is the\n")
