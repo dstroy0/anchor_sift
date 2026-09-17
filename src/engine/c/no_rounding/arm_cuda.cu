@@ -5,7 +5,7 @@
  * negotiated commercial licensing contract or an educator's license issued to you personally.
  */
 /**
- * @file exact_agreement.cu
+ * @file arm_cuda.cu
  * @brief The exact agreement count on a CUDA device, one position per thread.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-09
@@ -16,10 +16,15 @@
  *       that will not fit is refused on the host before anything is copied.
  * @note The device arithmetic is the host arithmetic transcribed. It is not shared source, because
  *       __device__ qualification has to sit on every function, and that means the two can drift.
- *       bench_exact_gpu.cu exists to catch it: every count the device returns is compared against
- *       the count the portable host arm returns on the same data.
- * @note Positions arrive already sorted, which is what lets each thread run a binary search with no
- *       coordination. Threads share nothing and write one atomic increment each at most.
+ *       maint/engine/build_gpu_arm.sh builds bench_exact_arms.c with this arm as
+ *       bench_exact_gpu.exe to catch it: every count the device returns is compared against the
+ *       count the portable host arm returns on the same data.
+ * @note Positions arrive already sorted, and each thread runs a binary search with no coordination.
+ *       Threads share nothing and write one atomic increment each at most.
+ * @note A repeated position sits in adjacent entries once sorted. A thread counts its position only
+ *       where it holds the last of those entries. The search returns the last entry equal to the
+ *       displaced position. The count matches the portable arm, which keeps the last value at a
+ *       repeated position and counts it once.
  */
 
 #include "arm.h"
@@ -204,7 +209,9 @@ __device__ static int device_add(const AnchorExactInteger *left, const AnchorExa
  * @param[in]     lag       The offset to test [BORROWS].
  * @param[in,out] agreed    Where the count is accumulated [BORROWS].
  * @note A thread whose displaced position overruns the fixed width contributes nothing, matching
- *       the host, which skips that position rather than reporting a wrapped one.
+ *       the host, which skips that position and reports no wrapped one.
+ * @note A thread whose position repeats in the next entry contributes nothing. The next entry with
+ *       the same position counts it once, carrying the last value at that position.
  */
 __global__ static void agreement_kernel(const AnchorExactInteger *positions,
                                         const unsigned long long *values, size_t count,
@@ -215,6 +222,10 @@ __global__ static void agreement_kernel(const AnchorExactInteger *positions,
     {
         return;
     }
+    if (((at + 1u) < count) && (device_compare(&positions[at + 1u], &positions[at]) == 0))
+    {
+        return;
+    }
 
     AnchorExactInteger moved;
     if (device_add(&positions[at], lag, &moved) == 0)
@@ -222,19 +233,14 @@ __global__ static void agreement_kernel(const AnchorExactInteger *positions,
         return;
     }
 
+    // Upper bound: the first entry greater than the displaced position. The entry before it is the
+    // last one no greater, and it holds the displaced position exactly where the two compare equal.
     size_t low = 0u;
     size_t high = count;
-    size_t found = count;
     while (low < high)
     {
         const size_t middle = low + ((high - low) / 2u);
-        const int order = device_compare(&positions[middle], &moved);
-        if (order == 0)
-        {
-            found = middle;
-            break;
-        }
-        if (order < 0)
+        if (device_compare(&positions[middle], &moved) <= 0)
         {
             low = middle + 1u;
         }
@@ -242,6 +248,11 @@ __global__ static void agreement_kernel(const AnchorExactInteger *positions,
         {
             high = middle;
         }
+    }
+    size_t found = count;
+    if ((low > 0u) && (device_compare(&positions[low - 1u], &moved) == 0))
+    {
+        found = low - 1u;
     }
 
     if ((found < count) && (values[found] == values[at]))
