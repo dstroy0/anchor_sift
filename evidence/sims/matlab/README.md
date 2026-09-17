@@ -21,7 +21,7 @@ Runs unchanged on Octave, and needs no toolboxes.
 
 The Python at `src/engine/python/measure/dispersion.py` is the reference, because every figure in the ledger came out of it. A port is correct when it lands inside the reseeding floor of the reference, since each language draws its null from a different generator and none of them can agree to the last digit.
 
-The logic here was checked by reading and has not been executed in this tree. The R port has been run. Stated here so nobody has to discover it.
+Both ports have now been run and each lands inside the reference floor. The Octave port, under Octave 11.3.0, reads a departure of 0.7226 on the bytes of an English prose corpus and 0.4947 on a C source corpus, against the Python reference's 0.7192 and 0.4949, each gap smaller than the reseeding floor of about 0.006. MATLAB proper was not available to run here, and this port shares one text with Octave. Stated here so nobody has to discover it.
 
 ## One thing a port has to get right
 
