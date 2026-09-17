@@ -755,6 +755,21 @@ static int adversarial_case_growing_plan(void)
         }
     }
 
+    // A probe that reads past the needle. Its last position is (needle_len - 2) + 4*2, which is
+    // needle_len + 6, so anchor_steer_probe_fits rejects it and the count is 0. Before the guard,
+    // count_with_probes read needle[offset] and corpus[at + offset] off the end of both. The count
+    // it returns is not the reference; a refusal is the point, and 0 is the documented one.
+    {
+        const AnchorProbe overruns = { sizeof(needle) - 2u, 4u, 3u };
+        const size_t refused = anchor_steer_count_with_probes(corpus, ADVERSARIAL_CORPUS, needle,
+                                                              sizeof(needle), &overruns, 1u);
+        if (refused != 0u)
+        {
+            printf("    FAIL a probe past the needle counted %zu, expected the refusal 0\n", refused);
+            failed = 1;
+        }
+    }
+
     printf("  growing the plan over %zu occurrences, verdict %s\n", reference,
            (failed == 0) ? "ok" : "FAILS");
     free(corpus);
