@@ -1306,9 +1306,17 @@ size_t anchor_steer_count_with_probes(const uint8_t *corpus, size_t corpus_len,
                                       const uint8_t *needle, size_t needle_len,
                                       const AnchorProbe *probes, size_t count)
 {
-    if ((corpus == NULL) || (needle == NULL) || (needle_len > corpus_len) || (needle_len == 0u))
+    if ((corpus == NULL) || (needle == NULL) || (needle_len > corpus_len))
     {
         return 0u;
+    }
+    // An empty needle occurs at every alignment. anchor_sift_naive and anchor_steer_count both report
+    // corpus_len + 1 for it, and the reference fixes that answer, so this returns the same before the
+    // loop rather than reading needle[offset] off a needle with no positions. Returning 0 here
+    // disagreed with the reference and with the two counting entries beside it.
+    if (needle_len == 0u)
+    {
+        return corpus_len + 1u;
     }
     if ((probes == NULL) && (count != 0u))
     {
