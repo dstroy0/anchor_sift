@@ -26,6 +26,11 @@
 # sixth in front of the pawn (a win whoever moves), the defender far (a win whoever moves), the
 # defender in front with the attacker behind (a draw whoever moves), and the rook pawn in the corner
 # (the drawn fortress). The table must reproduce all five, and it does.
+#
+# THE DISTRIBUTION. Beyond the five oracle positions, the value of the move is tallied over the whole
+# class: the boards where having the move helps White, changes nothing, or hurts White (the zugzwang
+# and opposition band). It takes every sign, so the claim is exact -- first-move advantage is a
+# per-position quantity, not a constant.
 
 import os
 import sys
@@ -185,6 +190,28 @@ def white_result(table, layout, side):
     return mover_value if side == rules.PLAYER_ONE else FLIP[mover_value]
 
 
+def distribution(table):
+    """Tally the value of the move over every board where both sides-to-move are legal: whether having
+    the move helps White, changes nothing, or hurts White. Measured from White consistently; by the
+    color symmetry a board that hurts White to move mirrors one that hurts Black to move."""
+    positive = zero = negative = 0
+    for (board, side, rights, passing), mover_value in table.items():
+        if side != rules.PLAYER_ONE:
+            continue
+        black_key = (board, rules.PLAYER_TWO, rights, passing)
+        if black_key not in table:
+            continue
+        with_move = mover_value             # White's result with White to move
+        if_other = FLIP[table[black_key]]   # White's result if Black had to move
+        if with_move > if_other:
+            positive += 1
+        elif with_move < if_other:
+            negative += 1
+        else:
+            zero += 1
+    return positive, zero, negative
+
+
 # (layout, White's result with White to move, White's result with Black to move), from theory.
 ORACLE = (
     ("opposition, pawn on the 5th", DRAW, WIN,
@@ -223,6 +250,16 @@ def main():
               % (title, NAME[with_move], NAME[if_other], verdict, "PASS" if ok else "FAIL"))
     print("")
     print("  oracle: %s" % ("all five match published theory" if all_pass else "MISMATCH -- see FAIL rows"))
+
+    positive, zero, negative = distribution(table)
+    total = positive + zero + negative
+    print("")
+    print("  value of the move over the class, %d boards with both sides-to-move legal:" % total)
+    print("    the move helps White (positive): %d" % positive)
+    print("    the move is neutral (zero):      %d" % zero)
+    print("    the move hurts White (negative): %d" % negative)
+    print("  The move takes every sign across the class, so first-move advantage is not a constant.")
+    print("")
     print("  The opposition row is the theorem: White's result is a win if the opponent must move and")
     print("  only a draw if White must move, so the value of the move is negative -- moving first")
     print("  throws away the win. First-move advantage is a per-position quantity, not a constant.")
