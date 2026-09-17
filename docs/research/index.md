@@ -1,21 +1,25 @@
 # Research
 
 **Purpose:** Say where the research is and how to build it.
-**Scope:** `theory/`, and `maint/texbuild/build_theory.sh`, which builds it.
+**Scope:** `theory/`, `theory_bucket/`, and `maint/texbuild/build_theory.sh`, which builds them.
 
-The research is in `theory/`, as books. It was kept here as markdown once. Two copies of a document drift apart, and the copy a reader finds first is then wrong.
+The research is in `theory/` and `theory_bucket/`, as books. It was kept here as markdown once. Two copies of a document drift apart, and the copy a reader finds first is then wrong.
 
 ## The books
 
 | book | what it holds |
 |---|---|
-| `theory/anchor_sift/` | The construction, the method, ordering anchors by rarity, and the terms. |
-| `theory/workbook/` | The ledger: deductive results, hypotheses, and what was measured, filed by whether the posit held. |
-| `theory/Salishan/` | Whose words the corpus holds, how wrong it could be, running the extraction, and the sources. |
-| `theory/thought_experiments/` | The posits whose experiment cannot be built as written. |
-| `theory/cryptography/sha256/` | Where SHA-256's structure is, where it stops, and how each null was measured. A corpus built to carry no natural structure, which makes it a contra-example. |
-| `theory/crystallography/` | Reading a published cell edge back off the arrangement, and what the reader's own voxel was costing before it was removed. The one positive control here whose answer came from outside this work. |
-| `theory/millennium/` | What the corpus holds, where the Navier-Stokes problem stood on 2026-09-11, and what the toolkit was recommended for. Nothing in it was measured and no attack on a problem was begun. |
+| `theory/workbook/` | The construction, the method, ordering anchors by rarity, the terms, and the ledger: deductive results, hypotheses, and what was measured, filed by whether the posit held. |
+| `theory/chemistry/` | Valence read as a necessary condition, and where the oracle enters. |
+| `theory/image_transforms/` | The image transform program, exact, and which of the transforms is built. |
+| `theory/particle_physics/` | Particles as exact charges and shells, and what a quantum number costs. |
+| `theory_bucket/Salishan/` | Whose words the corpus holds, how wrong it could be, running the extraction, and the sources. |
+| `theory_bucket/thought_experiments/` | The posits whose experiment cannot be built as written. |
+| `theory_bucket/crystallography/` | Reading a published cell edge back off the arrangement, and what the reader's own voxel was costing before it was removed. The one positive control here whose answer came from outside this work. |
+| `theory_bucket/cryptography/sha256/` | Where SHA-256's structure is, where it stops, and how each null was measured. A corpus built to carry no natural structure, which makes it a contra-example. |
+| `theory_bucket/precision/` | Exact arithmetic, the natural constants, and the residue codes. |
+| `theory_bucket/delta_null/` | The null, its delta, and where the two reconcile. |
+| `theory_bucket/millennium/` | What the corpus holds, where the Navier-Stokes problem stood on 2026-09-11, and what the toolkit was recommended for. Nothing in it was measured and no attack on a problem was begun. |
 
 ## Building them
 
@@ -38,4 +42,4 @@ The workbook holds a claim and the work that settles it. A conjecture leads the 
 Mixed together those read as one undifferentiated pile, and a conjecture about an unbounded carrier sitting beside a 582-row bench table discredits both. Apart, each reads as what it is.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-11
+**Date:** 2026-09-17

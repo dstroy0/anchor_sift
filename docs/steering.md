@@ -235,7 +235,7 @@ Nothing here has been measured against the optimal probe set, because computing 
 
 ## Arms and eyes are one shape
 
-An arm reads one position and an eye reads a line of them. `AnchorProbe` records an origin, a step and a length, and an arm is a probe of length one (`src/engine/c/engine/anchor_sift.h:843`). One test walks both. `docs/arm-records.md` states the same thing about readings: the difference between a region integral and a line integral lives in the support and not in the arithmetic applied to it.
+An arm reads one position and an eye reads a line of them. `AnchorProbe` records an origin, a step and a length, and an arm is a probe of length one (`src/engine/c/engine/anchor_sift.h:843`). One test walks both. The difference between a region integral and a line integral lives in the support and not in the arithmetic applied to it.
 
 `anchor_steer_sweep_probes` considers every origin in the needle, every step that keeps the probe inside it, and every length up to a caller's maximum, scoring each shape by survivors (`src/engine/c/engine/anchor_sift.c:1173`). A step of zero at a length above one reads one position repeatedly, and `anchor_steer_probe_fits` refuses it (`src/engine/c/engine/anchor_sift.c:1070`).
 
@@ -292,4 +292,4 @@ The exact dispatch was graded against eleven fields swept from flat to concentra
 The dispatch comparison needs headroom above `total^2`. Its right side reaches `85 * distinct * sum(count^2)`, about 2^14.4 times `total^2` at 256 distinct symbols, putting a four gigabyte corpus near 2^79. `AnchorExactInteger` holds 108 limbs of 32 bits, or 3456 bits (`src/engine/c/no_rounding/exact_integer.h:49`, `src/engine/c/no_rounding/exact_integer.h:72`), which covers that with room left. No bench exercises a corpus near that size. The headroom is read off the declaration and has not been measured.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16
+**Date:** 2026-09-17

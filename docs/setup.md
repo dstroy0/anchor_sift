@@ -1,7 +1,7 @@
 # Setup
 
 **Purpose:** Get the engine building and the examples running, and know what each dependency is actually for.
-**Scope:** `src/engine/`, `examples/`, `maint/`, `data/`.
+**Scope:** `src/engine/`, `examples/`, `maint/`.
 
 Nothing here needs a GPU, a service, or a network connection except the fetchers, and those are named below.
 
@@ -28,14 +28,23 @@ Install what a tool asks for when it asks. A missing package is reported by name
 
 ## The C engine
 
-A C11 compiler and CMake. Ninja is the generator used here; a bare `cmake` picks NMake on Windows and fails.
+A C11 compiler and CMake, with Ninja as the generator; a bare `cmake` picks NMake on Windows and fails. One command from a fresh clone configures, builds and runs the graders:
+
+```sh
+maint/engine/build_engine.sh               # configure, build, run the graders
+maint/engine/build_engine.sh --build-only  # configure and build, run nothing
+```
+
+On Windows use `maint/engine/build_engine.ps1`, the same two forms. It imports the MSVC environment and compiles the device rasterizer; the shell script run from Git Bash has no MSVC environment and pins the build to gcc or clang. Output lands in `build/engine_c/`; nothing reads it back and you can delete it freely.
+
+Drive the configure yourself with CMake directly for the lower-level path:
 
 ```sh
 cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build/engine_c
 ```
 
-That produces the benches. Start with `build/engine_c/bench_lattice`.
+That produces the benches and the tests. `bench_lattice` needs C99 `_Complex` and does not build under MSVC, which supplies the types without the operators; build it with GCC or Clang, and every other target builds under all three.
 
 `src/engine/c/engine/anchor_sift.c` compiles on its own with no build system at all, if you only want the search kernel.
 
@@ -94,4 +103,4 @@ git config core.hooksPath .githooks
 ```
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-09
+**Date:** 2026-09-17

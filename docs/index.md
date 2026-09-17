@@ -8,7 +8,7 @@ That is the construction. Every domain is that one sentence with a different ans
 |---|---|
 | [Setup](setup.md) | dependencies, building the engine, building the books |
 | [Using it](usage.md) | run the measure on something of your own |
-| [Research](research/index.md) | the four books under `theory/`, and how to build them |
+| [Research](research/index.md) | the eleven books across `theory/` and `theory_bucket/`, and how to build them |
 
 The repository is at [github.com/dstroy0/anchor_sift](https://github.com/dstroy0/anchor_sift). Its README covers the algorithm, the areas of research, and the licensing.
 
@@ -24,13 +24,15 @@ The corpus this work is measured against is Salishan speech, written down. **It 
 
 A linguist wrote the paper. A person read the paper into a table. Neither of those is whose language it is.
 
-## Two instruments, and they are not interchangeable
+## The detector and the measure are not the same reading
+
+The engine carries many readers, one per file under `src/engine/python/measure/` and `src/engine/python/reference/`. Two are mistaken for each other more than any others:
 
 | | reads | external ground truth |
 |---|---|---|
-| shift agreement detector | a period or an offset, by how often a shift agrees with itself | 453 of 453 axes, from published crystal cell edges |
-| null permutation identity | a departure from the maximum entropy arrangement of the same multiset | none |
+| shift agreement detector | a period or an offset, by how often a shift agrees with itself | three of three exact, from published crystal cell edges (Crystallography Open Database) |
+| permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none |
 
-The null permutation identity carries most of the findings and has only been shown not to invent structure on memoryless input. Most of the confusion this work has had to correct came from reporting one of these as the other.
+The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Most of the confusion this work has had to correct came from reporting one of these as the other.
 
 **Read the ledger before quoting any figure.** It keeps its own corrections: claims that were withdrawn stay on the page beside the measurement that killed them, and several results here are rediscoveries of published work with the precedent named.

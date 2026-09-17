@@ -26,7 +26,7 @@ Run an example with no argument and it prints the usage line and stops.
 | `sift` | filter candidates with a necessary condition |
 | `oracle` | check against ground truth somebody else published |
 
-Only `representation` knows a domain exists. It has `text`, `sound`, `picture` and `structure` under it. Everything downstream sees points and values.
+Only `representation` knows a domain exists. It has `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text` under it. Everything downstream sees points and values.
 
 `src/engine/python/README.md` is the map.
 
@@ -37,10 +37,10 @@ Only `representation` knows a domain exists. It has `text`, `sound`, `picture` a
 | `src/` | points and values, no domain. The engine |
 | `evidence/` | the claims. The proofs, and the R and MATLAB ports |
 | `examples/` | a corpus, through `src/`. Numbered demonstrations |
-| `theory/` | the books, and the ledger they cite |
+| `theory/`, `theory_bucket/` | the books, and the ledger they cite |
 | `maint/` | the repository itself. Records, gates, prose checks, fetchers, the book build |
 
-`maint/` is sorted into eleven categories and holds no loose scripts. `maint/README.md` states what belongs in each, including `maint/data/` for external material and `maint/analysis/` for the surveys the books ask for.
+`maint/` is sorted into categories and holds no loose scripts. `maint/README.md` states what belongs in each, including `maint/data/` for external material and `maint/analysis/` for the surveys the books ask for.
 
 ## Reading the result
 
@@ -50,19 +50,24 @@ A measurement carries a floor. The floor is what the same measure returns on a s
 
 The floor moves with sample size. One computed on a large corpus bounds nothing about a short file. The examples compute it at the size actually measured.
 
-## The seven domains
+## The twelve domains
 
-`examples/` runs the same six parts end to end on real material. The four proofs that pin the ledger sit apart, under `evidence/proofs/posits/`.
+`examples/` runs the same six parts end to end on real material. The proofs that pin the ledger sit apart, under `evidence/proofs/posits/`.
 
 | domain | examples | what it reads |
 |---|---|---|
 | `language` | 60 | corpora, orthographies, dialect borders |
-| `any_corpus` | 18 | any symbol sequence, domain unspecified |
-| `art` | 6 | images as byte sequences |
-| `proteins` | 4 | backbone coordinates |
+| `any_corpus` | 19 | any symbol sequence, domain unspecified |
+| `particle_physics` | 11 | atoms and particles as exact quantum numbers |
+| `game_theory` | 9 | games, by how open the result stays after a move |
+| `crystallography` | 9 | cell edges, against published ones |
+| `art` | 9 | images as byte sequences |
+| `proteins` | 8 | backbone coordinates |
+| `cell_tracking` | 7 | cell positions across frames |
+| `chemistry` | 5 | molecules as atoms and bonds |
 | `source` | 4 | source code as a symbol stream |
-| `crystallography` | 6 | cell edges, against published ones |
-| `sound` | 1 | recordings as bit fields |
+| `sound` | 3 | recordings as bit fields |
+| `molecules` | 3 | molecular formulae, legal from illegal by valence |
 
 Every example carries a catalog number in its header, `LNG-4-012` and so on. A citation to that number survives the file moving. `maint/catalog/catalog.py` is the registry.
 
@@ -78,10 +83,10 @@ The Python in `src/engine/python/sift/` implements the same construction and sha
 
 ## Other languages
 
-| language | file |
-|---|---|
-| R | `evidence/sims/r/departure.R` |
-| MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` |
+| language | file | status |
+|---|---|---|
+| R | `evidence/sims/r/departure.R` | runs, checked against the reference |
+| MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` | run on Octave 11.3.0, inside the reference floor; MATLAB proper not run here |
 
 A port is correct when it lands inside the reseeding floor of the Python, since each language draws its null from a different generator and none agree to the last digit.
 
@@ -90,4 +95,4 @@ A port is correct when it lands inside the reseeding floor of the Python, since 
 Read [the condition of use](https://github.com/dstroy0/anchor_sift#the-condition-of-use) first. These tools regenerate language, and output near the edge of a source distribution can be coherent and already not be the language. Nothing here marks which side of that a result fell on, and a human review of the output is a condition of use.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-09
+**Date:** 2026-09-17
