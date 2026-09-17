@@ -8,16 +8,17 @@
 1. [The algorithm](#the-algorithm)
 2. [Areas of research](#areas-of-research)
 3. [Where things are](#where-things-are)
-4. [Two instruments, and they are not interchangeable](#two-instruments-and-they-are-not-interchangeable)
-5. [The sift](#the-sift)
-6. [Ports](#ports)
-7. [What it knows](#what-it-knows)
-8. [Whose language this is](#whose-language-this-is)
-9. [The condition of use](#the-condition-of-use)
-10. [Where to start](#where-to-start)
-11. [What is not here](#what-is-not-here)
-12. [Licensing, dual](#licensing-dual)
-13. [A note on how this is written](#a-note-on-how-this-is-written)
+4. [The detector and the measure are not the same reading](#the-detector-and-the-measure-are-not-the-same-reading)
+5. [The transforms](#the-transforms)
+6. [The sift](#the-sift)
+7. [Ports](#ports)
+8. [What it knows](#what-it-knows)
+9. [Whose language this is](#whose-language-this-is)
+10. [The condition of use](#the-condition-of-use)
+11. [Where to start](#where-to-start)
+12. [What is not here](#what-is-not-here)
+13. [Licensing, dual](#licensing-dual)
+14. [A note on how this is written](#a-note-on-how-this-is-written)
 
 ## The algorithm
 
@@ -46,7 +47,7 @@ The basic construction Identity:Null Permutation runs through all six parts. Rep
 | `sift` | the sound filter, a necessary condition over any index set |
 | `oracle` | agreement with ground truth that somebody else published |
 
-Everything downstream of `representation` sees points and values and is blind to what an object is, so one instrument reads both. Four subjects have their own directories: `text`, `sound`, `picture` and `structure`, all under `representation`, the only part that knows a domain exists.
+Everything downstream of `representation` sees points and values and is blind to what an object is, so one instrument reads both. Seven subjects have their own directories: `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text`, all under `representation`, the only part that knows a domain exists.
 
 `src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora.
 
@@ -60,7 +61,7 @@ A number picked to make a result come out is not a measurement. This work does n
 
 ## Areas of research
 
-Ten domains have numbered pipelines under `examples/`. Seven have run end to end and agree: language, art, crystals, proteins, sound, source code and arbitrary corpora. Chemistry, game theory and cell tracking are the newest and are being brought to the same standard. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end to end and agree.
+Twelve domains have numbered pipelines under `examples/`. Seven have run end to end and agree: language, art, crystals, proteins, sound, source code and arbitrary corpora. Chemistry, game theory, cell tracking, molecules and particle physics are the newest and are being brought to the same standard. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end to end and agree.
 
 Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
 
@@ -79,23 +80,38 @@ Each directory serves one purpose.
 | `src/` | points and values, no domain | the engine |
 | `test/` | the engine | the correctness checks |
 | `evidence/` | the claims | the proofs, and the R and MATLAB ports |
-| `examples/` | a corpus, through `src/` | 132 numbered demonstrations, ten domains |
+| `examples/` | a corpus, through `src/` | 147 numbered demonstrations, twelve domains |
 | `maint/` | the repository itself | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline |
-| `theory/`, `theory_bucket/` | the argument | nine books |
+| `theory/`, `theory_bucket/` | the argument | eleven books |
 | `docs/` | the reader | setup and usage |
 
 `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
 
-## Two instruments, and they are not interchangeable
+## The detector and the measure are not the same reading
 
-Most of the confusion this work has had to correct came from reporting one as the other.
+The engine carries many readers, one per file under `src/engine/python/measure/` and `src/engine/python/reference/`, and the examples run each on a corpus. Two of them are mistaken for each other more than any others, and reporting one as the other is the error this work has spent the most effort correcting.
 
-| | what it reads | external ground truth |
-|---|---|---|
-| shift agreement detector | a period or an offset, from how often a shift agrees with itself | three times, from published crystal cell edges |
-| permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none |
+The shift agreement detector reads a period or an offset, from how often a shift agrees with itself. The permutation null measure reads how far an object sits from a shuffle of its own parts, and its bit form reads the exact invariances that survive the shuffle. A number from one is not a number from the other.
 
-The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Read the workbook before quoting any row of it.
+What each reader has and has not been shown to do is in the workbook, row by row, including the rows that failed. Read it before quoting any reading. The one reading whose answer came from outside this work is the crystal cell edge, three of three exact from the Crystallography Open Database, recorded under Areas of research above.
+
+## The transforms
+
+The engine carries a large set of transforms, maps that put the object into another representation and, where they invert, back. They are integer and exact, and a transform with an inverse returns the input to the bit on the round trip.
+
+**The number-theoretic transform.** One transform modulo the prime 998244353, the exact stand-in for the Fourier transform with no float formed and no root of unity approximated. `exact_translation_by_ntt.py` recovers a translation by NTT convolution and agrees to the digit with the direct correlation. `ntt_double_transform_inverts.py` shows the transform applied twice is a reflection. The transform is its own inverse up to reversal and scale, and `ntt_twiddle_certificate.py` certifies the prime, the primitive root and the order it rests on.
+
+**Layout and space-filling bijections.** Every render layout is a bijection on the cell index, computed in integers and checked for zero collisions by `bench_raster`: four for a sheet (rows, serpentine, columns, diagonal) and four for a volume (slabs, boustrophedon, Morton, helix). The partition carries the same idea for reading, a Morton interleave and a Hilbert curve that fold any number of dimensions through one without being told the shape.
+
+**Representation embeddings.** A row-major file goes back into the plane it came from given its width. A re-seating renumbers the alphabet so its values spread as little as any numbering allows. Exact decimal ingestion keeps every digit the source wrote as an integer pair and forms no float. A Gray-coded embedding places any corpus as points in a binary volume, one bit changing between neighbors.
+
+**Exact codes.** A redundant residue number system carries an integer as residues over coprime moduli and reconstructs it by the Chinese remainder theorem, the extra moduli making it detect error. Hamming(7,4) carries four data bits as seven and corrects one flip.
+
+**Reference backgrounds.** A maximum-entropy background is built by a transform that deletes a property. A permutation or block shuffle draws the null the whole engine measures against, a phase fold groups positions congruent modulo a period and reassembles them, and a windowed median and a self-similar context map each build a background by nearness or by shared context.
+
+**The image transform program.** `theory/image_transforms` is a book of exact image transforms: translation, rotation with scale and perspective, observed motion, and waves on a surface. Translation is built, and it is the number-theoretic transform above. The rest are stated in the book and not yet implemented in the tree, and the book says which is which.
+
+The full set lives one per file under `src/engine/python/` and in the C renderer, and the workbook records what each has been shown to do. A defensible count is eleven invertible transform families, or seventeen if every render layout is counted on its own, beside several one-way maps.
 
 ## The sift
 
@@ -135,7 +151,7 @@ Two questions, two directories, and they are not the same question. `test/` answ
 | run this | it answers |
 |---|---|
 | `test_arm_agreement` | every engine against the naive one at the lengths that bound the input: none, one, two. A disagreement is a defect whatever it measures. |
-| `test_adversarial` | twelve cases built to break the guarantee from outside the public surface: overlapping occurrences, both boundary alignments, a field where every survivor is false, a permutation null, and the probe guard including the widest line that must be admitted. |
+| `test_adversarial` | thirteen cases built to break the guarantee from outside the public surface: overlapping occurrences, both boundary alignments, a field where every survivor is false, a permutation null, the probe guard including the widest line that must be admitted, and a joint projection. |
 | `test_steer` | the steering, on five fields. Grades the ordering at seven needle lengths, carries a negative control ordering the commonest symbol first that must read MORE, checks the exact dispatch against four fields worked out by hand, and asserts that the widest scan engine the machine carries actually ran. |
 | `bench_dispatch` | which dispatch rule to carry, scored against the clock over 42 rows, sweeping its threshold instead of assuming it. |
 | `bench_steer_arms` | the scan engines graded against the portable one and then timed, at lengths straddling the thirty-two lane boundary where a vectorized tail fails if it is going to. |
@@ -167,7 +183,7 @@ Every layout is a bijection on the cell index, computed in integers. `bench_rast
 
 Netpbm has no volume container, so `anchor_volume_write_raw` writes the block as raw bytes, x fastest, and puts the extents, the layout, the channel, the reduce rule and the gain in a `.txt` sidecar naming the function that generated it. Any volume viewer that reads raw unsigned 8 bit will open it given those three numbers.
 
-**The device renders sheets and does not render volumes.** `anchor_raster_render` prefers the device and `bench_raster` prints `device rasterizer: present` when it has one. There is no device volume kernel, `anchor_volume_device_available` returns 0 on every build, and `anchor_volume_render_host` is host only and named so. It does not fall back silently, because a stub reporting itself present is the defect this tree spent a day removing.
+**The device renders both sheets and volumes, and prefers the device where it is present.** `anchor_raster_render` and the volume renderer both prefer the device. `anchor_volume_device_available` returns 1 where a device is present and the build carries the device volume kernel, and 0 otherwise, so it never reports a stub as present, and `anchor_volume_render_host` stays host only and is named so. `bench_raster` grades the device against the host voxel for voxel and prints `device rasterizer: present` when it has one. Nothing falls back silently, because a stub reporting itself present is the defect this tree spent a day removing.
 
 ## Ports
 
@@ -177,7 +193,7 @@ The permutation null measure on its own is the part a statistician or corpus lin
 |---|---|---|
 | Python | `src/engine/python/` | the reference every figure came out of |
 | R | `evidence/sims/r/departure.R` | runs, checked against the reference |
-| MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` | logic checked, not executed here |
+| MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` | run on Octave 11.3.0, inside the reference floor; MATLAB proper not run here |
 
 A port is correct when it lands inside the reseeding floor of the Python, since each language draws its null from a different generator and none can agree to the last digit. Checked on 200000 symbols over twelve seeds: a clustered sequence reads 0.4228 in Python and 0.4282 in R against a floor of 0.0092, and a memoryless one reads 0.9953 and 0.9933 against a floor of 0.0044. Both gaps sit at about half a floor.
 
@@ -233,7 +249,7 @@ For a language with few remaining speakers, publishing a form drawn from outside
 
 ## Where to start
 
-The research is nine books, built with LuaLaTeX. The workbook and the chemistry book are under `theory/`; the other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
+The research is eleven books, built with LuaLaTeX. Four are under `theory/`: the workbook, chemistry, image transforms and particle physics. The other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
 
 ```sh
 sh maint/texbuild/build_theory.sh
@@ -243,6 +259,8 @@ sh maint/texbuild/build_theory.sh
 |---|---|
 | the construction, the method, and what is settled, open or withdrawn | `theory/workbook` |
 | valence read as a necessary condition, and where the oracle enters | `theory/chemistry` |
+| the image transform program, exact, and which of the transforms is built | `theory/image_transforms` |
+| particles as exact charges and shells, and what a quantum number costs | `theory/particle_physics` |
 | whose words the corpus holds, and how wrong it could be | `theory_bucket/Salishan` |
 | the posits whose experiment cannot be built | `theory_bucket/thought_experiments` |
 | a published cell edge read back off a voxel grid, and whose result that is | `theory_bucket/crystallography` |
