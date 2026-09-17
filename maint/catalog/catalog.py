@@ -100,6 +100,7 @@ DOMAIN = {
     "any_corpus": "ANY",
     "art": "ART",
     "cell_tracking": "CEL",
+    "chemistry": "CHM",
     "crystallography": "CRY",
     "game_theory": "GAM",
     "language": "LNG",
@@ -114,6 +115,8 @@ DOMAIN = {
 # file reports as NO DOMAIN and not numbered, and the hand-written header sits there looking issued.
 # Two sessions did that independently and neither was told by anything until --check was run, which
 # is the argument for running it rather than copying the shape of a number that is already there.
+# CHM joined the same way, after three chemistry examples had landed with no number and --check
+# failed on main naming them.
 #
 # EXP is the VIZ case again rather than a ninth subject. 0_experimental holds work that reads no
 # corpus yet, so it names no domain in the sense the others do, and its files take stage x like
@@ -294,6 +297,34 @@ def main():
         by_path[path] = held
         moved.append((held, was, path))
 
+    # A file the registry has never seen can still carry a number, stamped by its author and
+    # published with it. Issuing that file a different ordinal changes what a citation to the stamp
+    # resolves to, and the registry exists to stop that. The stamp is kept when its domain and stage
+    # match where the file sits and no example already holds that number. Files are claimed in path
+    # order, and a second file stamped with a number the first one claimed takes a fresh ordinal
+    # below and shows up as adrift.
+    claimed = []
+    for path in found:
+        if path in by_path:
+            continue
+        code, stage = slot_of(os.path.join(ROOT, path))
+        if code is None:
+            continue
+        with io.open(os.path.join(ROOT, path), encoding="utf-8", newline="") as handle:
+            held = stamped(handle.read())
+        if (held is None) or (held in registry):
+            continue
+        held_code, held_stage, held_ordinal = held.split("-")
+        if (held_code != code) or (held_stage != stage):
+            continue
+        used = taken.setdefault((code, stage), set())
+        if int(held_ordinal) in used:
+            continue
+        used.add(int(held_ordinal))
+        registry[held] = {"catalog": held, "state": "live", "path": path}
+        by_path[path] = held
+        claimed.append((held, path))
+
     issued = []
     unplaceable = []
     for path in found:
@@ -342,6 +373,12 @@ def main():
         out.write("\n  MOVED, number kept (%d)\n" % len(moved))
         for number, was, now in moved:
             out.write("    %s  %s\n            -> %s\n" % (number, was, now))
+    if claimed:
+        out.write("\n  CLAIMED, the number its header already carried (%d)\n" % len(claimed))
+        for number, path in claimed[:12]:
+            out.write("    %s  %s\n" % (number, path))
+        if len(claimed) > 12:
+            out.write("    and %d more\n" % (len(claimed) - 12))
     if issued:
         out.write("\n  NEW (%d)\n" % len(issued))
         for number, path in issued[:12]:
