@@ -17,12 +17,14 @@ A row here reads **agrees**, **emits**, or **builds**, and the three are not int
 
 Graded across `bench_steer_arms`, which compares every present arm against portable over alignment counts 1, 2, 31, 32, 33, 63, 64, 65, 1000 and 65536, four survivor masks and two offsets, then times a 1048576-alignment sweep at 200 passes. The differential grid is the correctness claim; the rate is the machine's and is named with it.
 
-| arm | machine | toolchain | disagreements | rate against portable |
-|---|---|---|---|---|
-| avx2 | Intel Core i7-5960X (AVX2, no AVX-512) | MSVC toolset 14.44, Release | 0 | 35.71x |
-| avx2 | Intel Core i7-5960X, under WSL Ubuntu | gcc 13.3, Release | 0 | 40.66x |
-| neon | Raspberry Pi 5, Cortex-A76 (aarch64) | gcc 14.2, Release | 0 | 6.53x |
-| cuda | NVIDIA GeForce RTX 3070 (compute 8.6, 46 SMs), host i7-5960X | nvcc 13.3 with MSVC 14.44 | 0 | 1.74x |
+Each rate is alignments per second over the 1048576-alignment sweep at 200 passes. The ratio is the arm rate over the portable rate, and both rates are given beside it. The rates belong to the machine and toolchain named on the row; re-run `bench_steer_arms` to take them on another part.
+
+| arm | machine | toolchain | disagreements | portable | arm | ratio |
+|---|---|---|---|---|---|---|
+| avx2 | Intel Core i7-5960X (AVX2, no AVX-512) | MSVC toolset 14.44, Release | 0 | 4.194e8 | 1.498e10 | 35.71x |
+| avx2 | Intel Core i7-5960X, under WSL Ubuntu | gcc 13.3, Release | 0 | 4.193e8 | 1.705e10 | 40.66x |
+| neon | Raspberry Pi 5, Cortex-A76 (aarch64) | gcc 14.2, Release | 0 | 1.131e9 | 7.387e9 | 6.53x |
+| cuda | NVIDIA GeForce RTX 3070 (compute 8.6, 46 SMs), host i7-5960X | nvcc 13.3 with MSVC 14.44 | 0 | 4.342e8 | 7.571e8 | 1.74x |
 
 The cuda rate is low against the vector arms because the whole object crosses the bus on every call. It wins on the object size measured and grows with it. The arm is graded and timed but not placed in `anchor_steer_best_engine`. The vector arm the planner actually calls is chosen there.
 
