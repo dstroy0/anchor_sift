@@ -33,7 +33,7 @@ A number-theoretic transform of a sequence of length \(n\) over the integers mod
 \[
 \hat{p}_j = \sum_i p_i \, \omega^{ij},
 \]
-where \(\omega\) is an \(n\)-th root of unity modulo \(q\). The powers of \(\omega\) the butterflies evaluate are the \textbf{twiddle constants}. In the Cooley-Tukey butterfly they enter as \(c = a + b\omega\) and \(d = a - b\omega\); in the Gentleman-Sande butterfly as \(c = a + b\) and \(d = (a-b)\omega\). A transform of length \(2^k\) is \(k\) stages of \(n/2\) butterflies, so the twiddles are touched more often than any other value in the computation, and they are the only inputs supposed to be constant.
+where \(\omega\) is an \(n\)-th root of unity modulo \(q\). The powers of \(\omega\) the butterflies evaluate are the \textbf{twiddle constants}. In the Cooley-Tukey butterfly they enter as \(c = a + b\omega\) and \(d = a - b\omega\); in the Gentleman-Sande butterfly as \(c = a + b\) and \(d = (a-b)\omega\). A transform of length \(2^k\) is \(k\) stages of \(n/2\) butterflies. The twiddles are touched more often than any other value in the computation, and they are the only inputs supposed to be constant.
 
 Everything the transform computes depends on that constant having exactly the order it is supposed to have. If the modulus is not prime, or the root has an order shorter than \(n\), the transform still runs. It returns a value of the ordinary shape carrying far less structure than it should, and nothing downstream raises an error, because a wrong twiddle is not detected, it is used. Ravi, Yang, Bhasin, Zhang and Chattopadhyay make this a fault attack: a single electromagnetic fault that sets a twiddle to zero collapses the output entropy enough to recover a Kyber key and to forge a Dilithium signature, including a bypass of Dilithium's own verification.
 
@@ -55,7 +55,7 @@ Let \(N = k \cdot 2^n + 1\) with \(k\) odd and \(k < 2^n\). Then \(N\) is prime 
 
 Every modulus such a transform can use has this shape, because admitting a root of unity of order \(2^n\) is the same as \(2^n\) dividing \(N-1\). The theorem therefore reaches every candidate of concern.
 
-\textbf{A witness is a proof.} Suppose \(a^{(N-1)/2} \equiv -1 \pmod N\), and let \(p\) be any prime factor of \(N\). Then \(a^{(N-1)/2} \equiv -1 \pmod p\) as well, so the order of \(a\) modulo \(p\) divides \(N-1\) and does not divide \((N-1)/2 = k \cdot 2^{n-1}\). Since \(N - 1 = k \cdot 2^n\), the order carries the full \(2^n\), giving \(2^n \mid p-1\) and so \(p \equiv 1 \pmod{2^n}\). Every prime factor of \(N\) is at least \(2^n + 1\). If \(N\) were composite it would have at least two such factors, so \(N \ge (2^n+1)^2 > 2^{2n}\); but \(k < 2^n\) gives \(N = k \cdot 2^n + 1 < 2^{2n} + 1\). The two cannot both hold, so \(N\) is prime. \(\square\)
+\textbf{A witness is a proof.} Suppose \(a^{(N-1)/2} \equiv -1 \pmod N\), and let \(p\) be any prime factor of \(N\). Then \(a^{(N-1)/2} \equiv -1 \pmod p\) as well, and the order of \(a\) modulo \(p\) divides \(N-1\) without dividing \((N-1)/2 = k \cdot 2^{n-1}\). Since \(N - 1 = k \cdot 2^n\), the order carries the full \(2^n\), giving \(2^n \mid p-1\) and \(p \equiv 1 \pmod{2^n}\). Every prime factor of \(N\) is at least \(2^n + 1\). If \(N\) were composite it would have at least two such factors, giving \(N \ge (2^n+1)^2 > 2^{2n}\); but \(k < 2^n\) gives \(N = k \cdot 2^n + 1 < 2^{2n} + 1\). The two cannot both hold, and \(N\) is prime. \(\square\)
 
 The condition \(k < 2^n\) is what the last step needs, and a modulus outside that range is reported out of range instead of tested anyway.
 
@@ -75,9 +75,9 @@ Proving the modulus prime is not enough. The twiddle is \(\omega = g^{(p-1)/L}\)
 For \(L = 2^m\), if \(\omega^L = 1\) and \(\omega^{L/2} \ne 1\), then \(\omega\) has order exactly \(L\).
 \end{proposition}
 
-\textbf{Proof.} The order divides \(L = 2^m\), so it is \(2^j\) for some \(j \le m\). If \(j < m\) then \(2^j\) divides \(2^{m-1} = L/2\), which would give \(\omega^{L/2} = 1\). It does not, so \(j = m\). \(\square\)
+\textbf{Proof.} The order divides \(L = 2^m\) and is therefore \(2^j\) for some \(j \le m\). If \(j < m\) then \(2^j\) divides \(2^{m-1} = L/2\), which would give \(\omega^{L/2} = 1\). It does not, and \(j = m\). \(\square\)
 
-Two exponentiations settle it completely, with no factoring of anything. It is cheap enough to run on every twiddle before every transform, and it is the step the fault attack removes. It refuses a zeroed twiddle, a root of short order, and a root drawn from a composite modulus, all by the same test. The generator is proved as completely: \(g\) generates the whole group if and only if \(g^{(p-1)/q} \ne 1\) for every prime \(q\) dividing \(p-1\), and here \(p - 1 = k \cdot 2^n\) with \(k\) small, so factoring it is factoring \(k\).
+Two exponentiations settle it completely, with no factoring of anything. It is cheap enough to run on every twiddle before every transform, and it is the step the fault attack removes. It refuses a zeroed twiddle, a root of short order, and a root drawn from a composite modulus, all by the same test. The generator is proved as completely: \(g\) generates the whole group if and only if \(g^{(p-1)/q} \ne 1\) for every prime \(q\) dividing \(p-1\), and here \(p - 1 = k \cdot 2^n\) with \(k\) small, and factoring it is factoring \(k\).
 
 \section{A root of half the order, and the only test that catches it}
 
@@ -87,9 +87,9 @@ The twiddle table is a cyclic group, and saying so precisely is what licenses th
 Let \(\omega\) have order exactly \(n\) modulo a prime \(p\), and let \(w_j = \omega^j\) for \(0 \le j < n\). Then \(\{w_j\}\) is the cyclic group of order \(n\) generated by \(\omega\), and \(w_j w_k = w_{(j+k) \bmod n}\) for every \(j\) and \(k\).
 \end{proposition}
 
-\textbf{Proof.} \(w_j w_k = \omega^{j+k}\). Write \(j + k = qn + r\) with \(0 \le r < n\). Then \(\omega^{j+k} = (\omega^n)^q \omega^r = \omega^r = w_r\), and \(r\) is \((j+k) \bmod n\). The identity is \(w_0 = 1\) and the inverse of \(w_j\) is \(w_{n-j}\), so the set is closed, has an identity and has inverses, and is generated by one element. \(\square\)
+\textbf{Proof.} \(w_j w_k = \omega^{j+k}\). Write \(j + k = qn + r\) with \(0 \le r < n\). Then \(\omega^{j+k} = (\omega^n)^q \omega^r = \omega^r = w_r\), and \(r\) is \((j+k) \bmod n\). The identity is \(w_0 = 1\) and the inverse of \(w_j\) is \(w_{n-j}\). The set is closed, has an identity and has inverses, and is generated by one element. \(\square\)
 
-Two consequences are used directly. The table sums to zero: for \(n > 1\), \(\sum_j w_j = (\omega^n - 1)/(\omega - 1) = 0\) exactly, because \(\omega \ne 1\) makes the denominator invertible. And the table is built by one modular multiply per entry, since \(w_{j+1} = w_j \omega\). In floating point that chained construction is warned against because error accumulates; in the exact ring there is no error to accumulate, so the cheap construction and the correct one are the same construction.
+Two consequences are used directly. The table sums to zero: for \(n > 1\), \(\sum_j w_j = (\omega^n - 1)/(\omega - 1) = 0\) exactly, because \(\omega \ne 1\) makes the denominator invertible. And the table is built by one modular multiply per entry, since \(w_{j+1} = w_j \omega\). In floating point that chained construction is warned against because error accumulates; in the exact ring there is no error to accumulate, and the cheap construction and the correct one are the same construction.
 
 That the group law holds is necessary. It holds for the wrong table too, and that gap is what the order test closes.
 
@@ -117,14 +117,14 @@ group law on sampled pairs & passes, 0 of 256 failures \\
 \end{tabular}
 \end{center}
 
-Every invariant computable from the table at \(O(n)\) cost is blind to a half-order root, because each such invariant is a statement the smaller group also satisfies (Figure~\ref{fig:twiddle-group}). The order is not a property any single relation among entries exposes, and every statement cheaper than the order test is one the wrong table meets too, so the two exponentiations are what shows the difference. The order proof is not an optional extra beside the table construction. It is the precondition for the construction being safe, and it has to run first. Stated as a rule: \textbf{prove the order, then generate the table.} Reversing the two produces a fast wrong answer.
+Every invariant computable from the table at \(O(n)\) cost is blind to a half-order root, because each such invariant is a statement the smaller group also satisfies (Figure~\ref{fig:twiddle-group}). The order is not a property any single relation among entries exposes, and every statement cheaper than the order test is one the wrong table meets too. The two exponentiations show the difference, and nothing cheaper does. The order proof is not an optional extra beside the table construction. It is the precondition for the construction being safe, and it has to run first. Stated as a rule: \textbf{prove the order, then generate the table.} Reversing the two produces a fast wrong answer.
 
-The construction was measured. Replacing an exponentiation per butterfly with one table read cut the transform at length \(2^{27}\) from \(2006\) ms to \(680\) ms, a factor of \(2.95\), and the output digest was identical at every length tested. A correct optimization moves the clock and not the answer, and the order proof is what says the fast path is the same path.
+The construction was measured. Replacing an exponentiation per butterfly with one table read cut the transform at length \(2^{27}\) from \(2006\) ms to \(680\) ms, a factor of \(2.95\), and the output digest was identical at every length tested. A correct optimization moves the clock and not the answer. The identical output digest at every length is the evidence that this one did.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.7\textwidth]{twiddle_group_in_field.png}
-\caption{The 256 \(n\)-th roots of unity modulo the Proth prime \(p = 12289\), the twiddle group of an order-256 transform, lit against the other residues of \(p\). Each point sits at its residue value, placed by an integer row layout with no float, no angle and no geometric circle. The roots are a cyclic group under multiplication, but their residues spread across the field, so the group and its order are not visible. A root of half the order, \(\omega^2\) of order 128, generates a proper subgroup and matches the correct root on the identity, the sum, the sum of squares and the sampled group law over the length-\(n\) table; only the order test separates them. Generated by \texttt{proof\_twiddle\_group\_in\_field.py} (PRF-x-014).}
+\caption{The 256 \(n\)-th roots of unity modulo the Proth prime \(p = 12289\), the twiddle group of an order-256 transform, lit against the other residues of \(p\). Each point sits at its residue value, placed by an integer row layout with no float, no angle and no geometric circle. The roots are a cyclic group under multiplication, but their residues spread across the field. The group and its order are not visible. A root of half the order, \(\omega^2\) of order 128, generates a proper subgroup and matches the correct root on the identity, the sum, the sum of squares and the sampled group law over the length-\(n\) table; only the order test separates them. Generated by \texttt{proof\_twiddle\_group\_in\_field.py} (PRF-x-014).}
 \label{fig:twiddle-group}
 \end{figure}
 
@@ -148,7 +148,7 @@ modulus & shape & witness & order \\
 \end{tabular}
 \end{center}
 
-The first run of that kernel agreed with the host on the first modulus and differed in every slot on the other two. The property separating them is not primality, which all three have. It is that \(2013265921\) is below \(2^{31}\) and the other two are above it. In the butterfly, two residues below a modulus above \(2^{31}\) sum past \(2^{32}\) and wrap, silently, in a type that raises nothing, and the same is true of the borrow in the difference. Only the smallest modulus never reached the boundary. Widened to 64 bits, all three agree with the host at every size tested. This is the same failure as the composite modulus one level down: an unstated assumption about the arithmetic, an output of the ordinary shape, and nothing in it saying otherwise. Both were found by running cases that differ in one property, so the failure named its own cause, and neither was found by reading the code.
+The first run of that kernel agreed with the host on the first modulus and differed in every slot on the other two. The property separating them is not primality, which all three have. It is that \(2013265921\) is below \(2^{31}\) and the other two are above it. In the butterfly, two residues below a modulus above \(2^{31}\) sum past \(2^{32}\) and wrap, silently, in a type that raises nothing, and the same is true of the borrow in the difference. Only the smallest modulus never reached the boundary. Widened to 64 bits, all three agree with the host at every size tested. This is the same failure as the composite modulus one level down: an unstated assumption about the arithmetic, an output of the ordinary shape, and nothing in it saying otherwise. Both were found by running cases that differ in one property, and the failure named its own cause; neither was found by reading the code.
 
 \section{What it costs, and why the size is ours to choose}
 
@@ -172,7 +172,7 @@ bits & decimal digits & one proof \\
 
 A \(1{,}233\) digit number is proved prime in under three tenths of a second, deterministically, with the witness recorded beside it. The cost grows as roughly the square of the bit length, since the exponent has \(N\) bits and each squaring costs the multiply. This is the same theorem the large-prime searches run, where the records are Proth primes of several million digits, and the difference between those runs and this table is only how long one is willing to wait.
 
-The tabled moduli are small because they are sized to a machine word: a lane holds sixty-four bits, a product of two residues has to fit in one, and the modulus therefore stops below \(2^{32}\). That is a property of the lane and not of the mathematics. The arithmetic here is on unbounded integers, so the proof runs at any width, and moduli far past anything tabled are produced and proved on demand:
+The tabled moduli are small because they are sized to a machine word: a lane holds sixty-four bits, a product of two residues has to fit in one, and the modulus therefore stops below \(2^{32}\). That is a property of the lane and not of the mathematics. The arithmetic here is on unbounded integers, the proof runs at any width, and moduli far past anything tabled are produced and proved on demand:
 
 \begin{center}
 \begin{tabular}{@{}rlr@{}}
@@ -186,7 +186,7 @@ modulus & shape & transform length \\
 \end{tabular}
 \end{center}
 
-The last admits a transform of length \(281{,}474{,}976{,}710{,}656\). Nobody tables that, because it does not fit in a lane. The floor belongs to the format, and the format is a choice, which is why the certificate is written to run at any width rather than to check a fixed list.
+The last admits a transform of length \(281{,}474{,}976{,}710{,}656\). Nobody tables that, because it does not fit in a lane. The floor belongs to the format, and the format is a choice. The certificate is written to run at any width instead of checking a fixed list.
 
 \section{What this refuses}
 
@@ -194,7 +194,7 @@ A modulus outside Proth's range, where \(k\) is not below \(2^n\), since the con
 
 \section{Reproduction}
 
-The certificate, both rejections and the half-order floor are reproduced by \texttt{examples/0\_experimental/ntt\_twiddle\_certificate.py} in the public \texttt{anchor\_sift} repository (\texttt{github.com/dstroy0/anchor\_sift}). It re-derives every modulus named here from the factorization of \(p-1\), refuses a composite of Proth shape and a false primitive-root claim by the same checks that pass the real constants, and exhibits a root of half the order passing every \(O(n)\) invariant while the order test alone separates it. It reads no corpus and runs on unbounded Python integers, so every verdict is an exact equality with the witness recorded beside it.
+The certificate, both rejections and the half-order floor are reproduced by \texttt{examples/0\_experimental/ntt\_twiddle\_certificate.py} in the public \texttt{anchor\_sift} repository (\texttt{github.com/dstroy0/anchor\_sift}). It re-derives every modulus named here from the factorization of \(p-1\), refuses a composite of Proth shape and a false primitive-root claim by the same checks that pass the real constants, and exhibits a root of half the order passing every \(O(n)\) invariant while the order test alone separates it. It reads no corpus and runs on unbounded Python integers, and every verdict is an exact equality with the witness recorded beside it.
 
 \begin{thebibliography}{9}
 
