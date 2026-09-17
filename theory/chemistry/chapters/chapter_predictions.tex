@@ -3,8 +3,8 @@
 \textbf{Nothing in this chapter has been measured here.} It is the design chemistry adds to the
 engine and the predictions that design makes, stated before the reader exists. The engine reads a
 protein and a crystal but has no reader for a molecule as such, and the oracle for bond lengths is a
-directory reserved and not yet filled. The one demonstration that runs on the primitives already in
-the tree is in \texttt{examples/chemistry} and is described as what it is; everything below is a
+directory reserved and not yet filled. The demonstrations that run on the primitives already in
+the tree are in \texttt{examples/chemistry} and are described as what they are; everything below is a
 prediction the reader would test.
 
 \section{Where the new parts go, and where nothing is added}
@@ -47,11 +47,27 @@ wrong on every mineral, and this is the cleanest place in the tree to show that 
 authorship.
 
 \textbf{Fourth.} Reading a periodic property along $Z$ will recover the shell structure only if the
-period is not read by the tallest lag. The period lengths are $2, 8, 8, 18, 18, 32$, not one number,
-so a detector that sorts lags and takes the top will report a harmonic or a single wrong period. The
-honest reading scores a candidate against its own multiples and reads the shell boundaries as a
-partition, and this is the harmonic trap arriving in a fourth part of the engine before that part is
-written, named here so it cannot be met as a surprise.
+partition it is read against comes from outside the sequence. The engine reads a recurrence in two
+composed steps, and both fix a single period. \texttt{measure/periodicity} scores a candidate period
+against its own family of multiples, and a repeat at three is read as three and not as its harmonic
+six. \texttt{reference/periodic} then builds the maximum-entropy background at that one period, binding
+each position to the positions congruent to it modulo $P$. A periodic property along $Z$ is not one
+period: the shell lengths are $2, 8, 8, 18, 18, 32$, a sequence that grows, so no single $P$ makes the
+phase classes fall on the shell closures, and a reader restricted to one period reports a harmonic, a
+single wrong period, or nothing. The partition module names the fix. A partition is stipulated,
+estimated by a sweep, or supervised from outside. It is not stipulated, since a judgment-picked
+boundary set is the bounding this work forbids. It cannot be estimated, since a sweep for one period
+cannot recover a growing one, and that attempt is the trap. It is supervised: the shell boundaries are
+ground truth the atomic-structure ledger carries, the same kind of fact as the bond-length oracle and
+reached from a second direction. The prediction is that the real assignment departs far from its
+shuffle once the boundaries are supplied, and sits inside the shuffle band to a single-period reader
+without them. The method is shown to run in
+\texttt{examples/chemistry/4\_measure/a\_single\_period\_cannot\_see\_a\_growing\_one.py}, where a
+single-period reader departs on a constant recurrence and goes flat on a growing one while a reader
+handed the boundaries departs; that example writes no element data, and the real sequence and its
+boundaries are the ledger's. This is the harmonic trap, already met for one period in
+\texttt{measure/periodicity} and arriving again where the recurrence grows, named here so it cannot be
+met as a surprise.
 
 \textbf{Fifth.} No reading here will need a bounded element set or a chosen cutoff radius, and any
 that appears to will be measuring the bound. The prediction is the engine's own history restated:

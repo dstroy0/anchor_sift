@@ -9,9 +9,10 @@ condition and the bond length as an oracle, using the primitives already in the 
 | `1_represent` | `build_molecules.py` | building a molecule as atoms and bonds, and that a formula does not fix a molecule |
 | `3_reference` | `two_nulls_two_questions.py` | which null the octet departs from, and which it does not |
 | `4_measure` | `a_histogram_cannot_see_structure.py` | what a histogram measure reads of a molecule, and what it cannot |
+| `4_measure` | `a_single_period_cannot_see_a_growing_one.py` | why a single-period reader misses a growing recurrence, and why the boundaries must be supplied |
 | `5_sift` | `valence_is_a_necessary_condition.py` | whether the octet refuses no real molecule and prunes the rest, and whether a shuffle of the same atoms loses it |
 
-Stages two and six are not present yet, and stage four is present only in the reading that needs no geometry. The reason is a boundary, not an omission.
+Stages two and six are not present yet, and stage four is present only in the readings that need no geometry. The reason is a boundary, not an omission.
 
 ## The stages here run on what exists
 
@@ -37,9 +38,19 @@ measure question, not a valence question.
 Stage four measures, and it measures a limit. Collision entropy reads the atom counts alone, so it is
 permutation invariant, and `a_histogram_cannot_see_structure.py` shows a molecule and any rearrangement
 of its atoms carry the identical value to machine precision, and the two isomers read the same number.
-A histogram reads the formula and no more, which is why arrangement is left to the sift and the choice
+A histogram reads the formula and stops there, so arrangement is left to the sift and the choice
 among isomers to a geometry the bond-length oracle carries. This is the measure that composition is not
 structure, and it needs no coordinate to make the point.
+
+The second stage-four reading is a different measure with a different limit.
+`a_single_period_cannot_see_a_growing_one.py` reads a recurrence two ways. The engine's
+`measure.periodicity` finds one period by scoring a candidate against its own multiples, and
+`reference.periodic` builds the phase background at that period; both fix a single period. A periodic
+property along Z is not one period, because the shell lengths 2, 8, 8, 18, 18, 32 grow, so the
+single-period reader goes flat on the growing recurrence while a reader handed the boundaries departs.
+Those boundaries are a supervised partition, ground truth from outside the sample, so they come from
+the element ledger and not from the sequence. The sawtooth here is synthetic and writes no element
+data; the real sequence and its boundaries are the ledger's to supply.
 
 Stage five is the sift. The proposition is domain blind: any subset of a pattern's points is a
 necessary condition, so no selection rule loses a true occurrence, and the converse fails, so every
@@ -81,11 +92,13 @@ uses.
 python examples/chemistry/1_represent/build_molecules.py
 python examples/chemistry/3_reference/two_nulls_two_questions.py
 python examples/chemistry/4_measure/a_histogram_cannot_see_structure.py
+python examples/chemistry/4_measure/a_single_period_cannot_see_a_growing_one.py
 python examples/chemistry/5_sift/valence_is_a_necessary_condition.py
 ```
 
-Neither reads a file or reaches a network. The molecules and their valences are in the scripts, a
-bonding map that is chemistry's own layer and not the element ledger.
+None of them reads a file or reaches a network. The molecules and their valences are in the scripts, a
+bonding map that is chemistry's own layer and not the element ledger, and the periodic example's
+sequence is a synthetic sawtooth with arbitrary segment lengths, not the shell counts.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16
+**Date:** 2026-09-17
