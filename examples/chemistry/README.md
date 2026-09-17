@@ -7,11 +7,12 @@ condition and the bond length as an oracle, using the primitives already in the 
 | stage | script | what it answers |
 |---|---|---|
 | `1_represent` | `build_molecules.py` | building a molecule as atoms and bonds, and that a formula does not fix a molecule |
+| `3_reference` | `two_nulls_two_questions.py` | which null the octet departs from, and which it does not |
 | `5_sift` | `valence_is_a_necessary_condition.py` | whether the octet refuses no real molecule and prunes the rest, and whether a shuffle of the same atoms loses it |
 
-Stages two through four and six are not present yet, and the reason is a boundary, not an omission.
+Stages two, four, and six are not present yet, and the reason is a boundary, not an omission.
 
-## The two stages here run on what exists
+## The stages here run on what exists
 
 Stage one builds molecules. A molecule is a set of points carrying values, each atom a point carrying
 its element and each bond the vector between two of them, and `build_molecules.py` builds the
@@ -22,6 +23,15 @@ is the gate on the catalog, so a mis-built bond is caught, and the reading it de
 formula does not fix a molecule: ethanol and dimethyl ether are both C2H6O and both close, so the
 formula is a label and not the structure. It holds only chemistry's own valence layer, so it runs
 before the element ledger lands and transcribes no element identity.
+
+Stage three grades the null. A departure is only as good as the background it is read against, so
+`two_nulls_two_questions.py` draws two, each deleting a different property. Permuting which element
+sits on which site deletes the element-to-site match, and the octet departs from it: the real molecule
+closes and most permutations do not. A degree-preserving rewire deletes the connectivity while holding
+each atom's degree at its valence, and the octet does not depart from it at all, closing on every
+rewire including the self-bonded graphs that are not molecules. So the octet carries which element sits
+where and carries nothing about which atoms are joined, and telling one isomer from another is a
+measure question, not a valence question.
 
 Stage five is the sift. The proposition is domain blind: any subset of a pattern's points is a
 necessary condition, so no selection rule loses a true occurrence, and the converse fails, so every
@@ -44,7 +54,7 @@ They wait on a boundary the engine is holding. The element ledger, the proton co
 the Pauli behavior behind the shell counts and the periodic recurrence, is the atomic structure, and
 it is authored once by the atomic-structure subject in a shared `representation/atom` home. Chemistry
 consumes it and does not transcribe it, because a second element table is a second source of truth for
-a fact chemistry did not establish. Stages two through four need a molecule reader in
+a fact chemistry did not establish. Stages two and four need a molecule reader in
 `representation/structure` beside the protein and crystal readers, that imports that ledger and places
 atoms as points in space, and stage six needs `oracle/chemistry`, the bond lengths held as facts apart
 from the language family trees, which the oracle README already reserves a directory for. Stage one
@@ -61,6 +71,7 @@ uses.
 
 ```
 python examples/chemistry/1_represent/build_molecules.py
+python examples/chemistry/3_reference/two_nulls_two_questions.py
 python examples/chemistry/5_sift/valence_is_a_necessary_condition.py
 ```
 
