@@ -415,6 +415,13 @@ add_executable(test_arm_agreement "${ANCHOR_SIFT_ROOT}/test/engine/test_arm_agre
 target_link_libraries(test_arm_agreement PRIVATE anchor_sift_kernel)
 target_compile_options(test_arm_agreement PRIVATE ${SIFT_WARNINGS})
 
+# The O2 composition: a descent resuming from another descent's survivors, driven past one descent's
+# cap. Answers whether the resume path is correct, so it lives in test/ and carries its controls, a
+# planted target found past the cap, a flat field that refuses, an anytime superset and a cost report.
+add_executable(test_o2_spawn "${ANCHOR_SIFT_ROOT}/test/engine/test_o2_spawn.c")
+target_link_libraries(test_o2_spawn PRIVATE anchor_sift_kernel)
+target_compile_options(test_o2_spawn PRIVATE ${SIFT_WARNINGS})
+
 # Soundness where the claim actually lives. Its core takes a base list, a displacement list and a
 # callback answering whether two positions carry the same symbol, so it has no dimension parameter
 # and no symbol type, and it sweeps one to eight dimensions, a complex irrational alphabet compared
