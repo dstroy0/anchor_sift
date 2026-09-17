@@ -268,6 +268,14 @@ BANNED = (
     # tool had ever reported one. The inflection is the article agreeing with the next word, which
     # is not a property the ban turns on.
     r"\bso an?\b",
+    # The comma-then-so consequence clause, widened from the two-token opener above. Douglas ruled on
+    # 2026-09-16 that every comma-so clause is banned whatever word follows, not just the article
+    # form: the-comma-so-the, comma-so-it and comma-so-every cases the opener missed. runs() joins a
+    # comment block with a space, which places a comma ending one line beside the so opening the next,
+    # and this pattern reads that join as one string, catching the across-a-line-break case the same.
+    # Comma-so-that and comma-so-far are different constructions and are excluded. The and-so-on,
+    # if-so and do-so forms carry no comma and never reach this pattern.
+    r",\s+so\s+(?!that\b|far\b)",
     # Banned outright by code-comments section 200, which names three tokens and bounds them in the
     # same sentence: "none has a legitimate use in a comment here". so a and rather are banned for
     # documentation as well by code-documentation section 110, so spelling is the one of the three
@@ -1282,6 +1290,10 @@ AUTHORITY = {
     # code-documentation:110, and `spelling` is scoped to comments by its own sentence.
     r"\brather\b": "code-documentation:110, code-comments:200",
     r"\bso an?\b": "code-documentation:110, code-comments:200",
+    # The comma-so consequence clause code-documentation:112 describes, which the so-a token above
+    # only partly reached. Douglas widened the ban to every comma-so clause on 2026-09-16, recorded at
+    # PLANS/PROSE_SO_CLAUSE_BAN.md. It is a named construction and belongs in Tier A.
+    r",\s+so\s+(?!that\b|far\b)": "code-documentation:112",
     r"\bspelling\b": "code-comments:200, comments only",
     r"\badd up\b": "code-documentation:110",
     # The measured tics. code-documentation:116 through :121 gives each one its rise.
