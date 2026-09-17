@@ -239,6 +239,34 @@ Handoff to the engine (it commits; the specialist touches no git): the example a
 `examples experimental feature`, the posit as `evidence posits feature`, the workbook as
 `workbook birch feature`, and this entry as `workbook precision note`.
 
+## 2026-09-17 entry six: the descent, the rank bound, and reaching Sha
+
+Douglas set two follow-ons: push the descent through correctly, then attempt reaching the first part of
+Sha. Both done, integer-only, validated before landing. The mechanism was steered by the anchor sift
+engine: local solvability as a refute-only necessary-condition probe, the engine's sound one-directional
+filter, with the Hensel level DERIVED from the form (2 v_p(J) + 1) and not a picked cap, the point that
+keeps it clean under the tree's no-bounding rule. An earlier bounded mod-p^k search was dropped: it
+picked a cap and, worse, a too-small cap under-counted the rank, the unsafe direction. The engine also
+corrected a plan to draw a permutation null here; there is nothing to permute in a rank bound, and the
+one-directional filter is the only engine principle that applies.
+
+- `examples/0_experimental/exact_descent_rank.py` (EXP-x-019): the 2-isogeny descent giving a sound rank
+  upper bound `dim Sel(alpha) + dim Sel(alpha') - 2`. Validated against known ranks over rank 0 and rank
+  1: sound (bound >= rank) on every n, tight on all but n=17, and the over-approximation fallback never
+  used (local solvability exact both ways). Two routes pin the rank where an explicit point's lower bound
+  meets the upper bound. Then it reaches the first part of Sha: rank(E_17) = 0 unconditionally by Tunnell
+  (A=16 != 8=2B); the image is then the torsion image, and the leftover dual-side Selmer classes 2, 17, 34
+  are exhibited nontrivial elements of the Tate-Shafarevich group, each certified locally soluble by the
+  probe and coming from no rational point. Positive control: Sha trivial where the descent is tight
+  (n=5,6,7). Imports the curve and Tunnell's counts from exact_congruent_number.py. Handoff
+  `examples experimental feature`, with the README row.
+- `theory/workbook/birch_swinnerton_dyer_workbook.md`: new sections on the descent and on reaching Sha,
+  the Open item narrowed to a full 2-descent for curves whose rank is not independently pinned. Handoff
+  `workbook birch feature`.
+
+Sound, exact, unconditional; claims only the rank upper bound and the exhibited Sha, nothing about BSD.
+Handoff of this entry: `workbook precision note`.
+
 ## Open
 
 - The delta/null theorist is revising `theory_bucket/delta_null` with the scan-arm family and the
