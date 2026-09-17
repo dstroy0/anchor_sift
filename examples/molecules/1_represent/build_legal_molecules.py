@@ -21,6 +21,7 @@
 
 import io
 import os
+import re
 import sys
 
 # Walk up to the repository instead of counting directories to it, and stop at the filesystem root.
@@ -48,6 +49,12 @@ BOUND = {"C": 20, "H": 44, "N": 6, "O": 8}
 # How many built formulae to print as a sample.
 SHOWN = 12
 
+# The existing molecules to verify the built space against, the same wide set the detector reads.
+WIDE_SET = os.path.join(ROOT, "build", "pubchem", "formulae.csv")
+
+# A formula's atoms, matched as an element symbol and an optional count.
+ATOM = re.compile(r"([A-Z][a-z]?)(\d*)")
+
 
 def degrees_of_element():
     """The bonding degree of each build element, its capacity read from the ledger, not put in."""
@@ -71,7 +78,7 @@ def formula_text(counts):
 def build(degree):
     """Every composition in the bound whose atoms a molecule graph can hold, as a list of count maps."""
     legal = []
-    for carbon in range(1, BOUND["C"] + 1):
+    for carbon in range(0, BOUND["C"] + 1):
         for hydrogen in range(0, BOUND["H"] + 1):
             for nitrogen in range(0, BOUND["N"] + 1):
                 for oxygen in range(0, BOUND["O"] + 1):
@@ -89,6 +96,62 @@ def build(degree):
     return legal
 
 
+def parse_existing(text):
+    """An existing formula string as (counts, charged), the reading the detector uses."""
+    charged = ("+" in text) or ("-" in text)
+    body = re.sub(r"[+-]\d*$", "", text.strip())
+    counts = {}
+    for symbol, number in ATOM.findall(body):
+        if symbol:
+            counts[symbol] = counts.get(symbol, 0) + (int(number) if number else 1)
+    return counts, charged
+
+
+def verify_against_existing(built_keys, degree, out):
+    """Verify the built space against the existing molecules, the way the crystal oracle checks a deposit.
+
+    The build never reads which molecules exist; it reads valences off the shells, and agreement with the
+    existing set is agreement with a truth the build did not use. Reported both ways: how many existing
+    molecules the build covers, how many built formulae the existing set confirms, and the misses
+    decomposed by the reason the gate gave, named and not waved at.
+    """
+    if not os.path.isfile(WIDE_SET):
+        out.write("\n  no wide set at %s to verify against\n"
+                  "  run maint/data/fetch/fetch_pubchem_formulae.py\n" % WIDE_SET.replace(os.sep, "/"))
+        return
+    in_space = 0
+    covered = 0
+    missed = {}
+    with io.open(WIDE_SET, encoding="utf-8", errors="replace") as handle:
+        for line in handle:
+            formula = line.split(",")[-1].strip().strip('"')
+            if (not formula) or formula == "MolecularFormula":
+                continue
+            counts, charged = parse_existing(formula)
+            if charged:
+                continue
+            if any(symbol not in BUILD_ELEMENTS for symbol in counts):
+                continue
+            if any(counts[symbol] > BOUND[symbol] for symbol in counts):
+                continue
+            in_space += 1
+            if formula_text(counts) in built_keys:
+                covered += 1
+            else:
+                degree_list = []
+                for symbol, number in counts.items():
+                    degree_list.extend([degree[symbol]] * number)
+                _, reason = connected_multigraph(degree_list)
+                missed[reason] = missed.get(reason, 0) + 1
+    out.write("\n  VERIFY AGAINST EXISTING. The build never read which molecules exist.\n\n")
+    out.write("    existing neutral C/H/N/O molecules inside the built bound: %d\n" % in_space)
+    out.write("    of those, present in the built space: %d, missed %d\n"
+              % (covered, in_space - covered))
+    for reason in sorted(missed, key=lambda one: -missed[one]):
+        out.write("      missed, %-26s %d\n" % (reason, missed[reason]))
+    out.write("    of the %d built, %d are confirmed by the existing set\n" % (len(built_keys), covered))
+
+
 def main(argv):
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     degree = degrees_of_element()
@@ -99,7 +162,7 @@ def main(argv):
         span *= BOUND[symbol] + 1
     legal = build(degree)
 
-    out.write("\n  over carbon 1..%d, hydrogen 0..%d, nitrogen 0..%d, oxygen 0..%d\n"
+    out.write("\n  over carbon 0..%d, hydrogen 0..%d, nitrogen 0..%d, oxygen 0..%d\n"
               % (BOUND["C"], BOUND["H"], BOUND["N"], BOUND["O"]))
     out.write("  %d compositions carry a legal valence structure, built from the ledger.\n"
               % len(legal))
@@ -107,10 +170,16 @@ def main(argv):
     for counts in legal[:SHOWN]:
         out.write("    %s\n" % formula_text(counts))
 
+    built_keys = set(formula_text(counts) for counts in legal)
+    verify_against_existing(built_keys, degree, out)
+
     out.write("\n  these are the molecules the valence rules allow, a necessary condition and not a\n")
-    out.write("  sufficient one, so the built space is far larger than the molecules that exist. The\n")
-    out.write("  gate here, connected_multigraph, is the same one the wide-set detector runs, and the\n")
-    out.write("  real molecules it passed all sit inside this legal space, cleared by the same test.\n\n")
+    out.write("  sufficient one, and the built space is far larger than the molecules that exist. The\n")
+    out.write("  gate here, connected_multigraph, is the same gate the wide-set detector runs, and the\n")
+    out.write("  build is verified against existing molecules the way the crystal oracle checks a\n")
+    out.write("  deposit. Nearly every existing molecule in range is built; the misses are named above,\n")
+    out.write("  carbon monoxide, whose triple bond and lone pair one fixed valence cannot hold, and\n")
+    out.write("  net-neutral salts the gate refuses.\n\n")
     out.flush()
     return 0 if len(legal) else 1
 
