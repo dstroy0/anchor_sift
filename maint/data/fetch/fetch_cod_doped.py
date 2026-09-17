@@ -35,9 +35,8 @@
 # THE RIGHT ANGLE RESTRICTION IS DELIBERATELY NOT APPLIED
 #
 # Most of these are monoclinic or triclinic. The exact reading path does not need a right angle: it
-# multiplies a fractional coordinate by an edge length and never consults a cell angle. See
-# PROPOSALS/CRYSTAL_EXACT_PATH_RIGHT_ANGLE_GATE.md. The doping measure needs even less than that,
-# reading only the atom site loop.
+# multiplies a fractional coordinate by an edge length and never consults a cell angle. The doping
+# measure needs even less than that, reading only the atom site loop.
 #
 # WHAT THIS COSTS SOMEBODY ELSE
 #

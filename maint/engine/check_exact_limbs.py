@@ -95,6 +95,23 @@ if not os.path.isfile(DRIVER):
 RUN_PLACES = 64
 RUN_STEP = 4
 
+# The run with repeated positions, as bench_exact.c lists it: unsorted, with four positions listed
+# twice carrying two values. Built here from the plan, and counted with a dict, which keeps the last
+# value at a repeated position.
+REPEATED_POSITIONS = ("2.00", "0.25", "1.00", "0.25", "0.50", "2.00", "1.25", "0.75", "1.00",
+                      "0.00", "1.50", "0.50")
+REPEATED_VALUES = (1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4)
+
+# The C statuses a refusal row prints.
+WILL_NOT_FIT = 1
+NOT_DECIMAL = 2
+
+# The decimal grammar exact_integer.h documents, written as a regular expression. The C and
+# representation.exact each walk the text byte by byte. A regex shares no step with either. The
+# classes are ASCII by construction: [0-9] and the four padding bytes, with no \d or \s, which also
+# match Unicode digits and whitespace.
+GRAMMAR = re.compile(r"[ \t\r\n]*([+-]?)([0-9]*)(?:\.([0-9]*))?(?:\(([0-9]+)\))?[ \t\r\n]*")
+
 
 def constant(path, pattern):
     """One constant read out of a source file as text, without importing or compiling it.
@@ -119,9 +136,9 @@ def version_lock(out):
 
     Returns 1 where they agree, 0 where they do not.
     """
-    limbs = constant("src/engine/c/portable/exact_limbs.h",
+    limbs = constant("src/engine/c/no_rounding/exact_integer.h",
                      r"#define\s+ANCHOR_EXACT_LIMBS\s+(\d+)")
-    floor = constant("src/engine/c/portable/exact_limbs.h",
+    floor = constant("src/engine/c/no_rounding/exact_integer.h",
                      r"#define\s+ANCHOR_EXACT_DIGITS\s+(\d+)")
     scale = constant("src/engine/python/representation/exact.py",
                      r"^SCALE_DIGITS\s*=\s*(\d+)")
@@ -156,37 +173,57 @@ def value_of(sign, limbs):
     return sign * held
 
 
-def exact_of(text, places):
-    """Decimal text as an integer at `places`, done with python integers alone.
+def measured_of(text, places, width):
+    """Decimal text as (status, value, uncertainty), done with python integers alone.
 
-    Returns None where the text is not plain decimal or carries more places than `places` holds,
-    which are the two cases the C is required to refuse.
+    `status` is 0 where the C must accept the text, and otherwise the refusal status the C must
+    return: NOT_DECIMAL for text outside the grammar, WILL_NOT_FIT for a value or an uncertainty
+    needing more places than `places` or more bits than `width`. `uncertainty` is None where the
+    text carries no bracket. Written out here instead of imported, because this file is the second
+    implementation and an import would make it the same one.
     """
-    body = text.strip()
-    opened = body.find("(")
-    if opened >= 0:
-        closed = body.find(")")
-        body = (body[:opened] + body[closed + 1:]) if closed >= 0 else body[:opened]
-    body = body.strip()
-
-    sign = 1
-    if body[:1] in ("+", "-"):
-        sign = -1 if body[0] == "-" else 1
-        body = body[1:]
-    whole, point, part = body.partition(".")
+    found = GRAMMAR.fullmatch(text)
+    if (found is None) or not (found.group(2) or found.group(3)):
+        return NOT_DECIMAL, None, None
+    sign, whole, bracket = found.group(1), found.group(2), found.group(4)
+    part = found.group(3) or ""
 
     # Trailing zeros in the fraction are not places. 1.2300 and 1.23 are one number and a scale of
     # two places holds both exactly, so counting the zeros refuses a value that needs no rounding.
-    # Written out here instead of imported, because this file is the second implementation and an
-    # import would make it the same one.
-    part = part.rstrip("0")
+    # ".000" is zero, and trimming it to no digit at all must not make it text that is not decimal.
+    trimmed = part.rstrip("0")
+    if len(trimmed) > places:
+        return WILL_NOT_FIT, None, None
+    value = int(whole + trimmed or "0") * (10 ** (places - len(trimmed)))
+    if sign == "-":
+        value = -value
+    if abs(value) >= (1 << width):
+        return WILL_NOT_FIT, None, None
 
-    digits = whole + part
-    if (not digits) or (not digits.isdigit()):
-        return None
+    if bracket is None:
+        return 0, value, None
+    # The bracket counts units of the last place printed, trailing zeros included.
     if len(part) > places:
-        return None
-    return sign * int(digits) * (10 ** (places - len(part)))
+        return WILL_NOT_FIT, None, None
+    uncertainty = int(bracket) * (10 ** (places - len(part)))
+    if uncertainty >= (1 << width):
+        return WILL_NOT_FIT, None, None
+    return 0, value, uncertainty
+
+
+def exact_of(text, places, width=1 << 20):
+    """Decimal text as an integer at `places`, or None where the C is required to refuse it."""
+    status, value, _uncertainty = measured_of(text, places, width)
+    return value if status == 0 else None
+
+
+def text_of(hexed):
+    """A subject's bytes from the hex the C printed, one character per byte.
+
+    Latin-1 maps every byte to one code point. A byte above 0x7F then stays one character that no
+    [0-9] or padding class matches, the same way the C reads it.
+    """
+    return bytes.fromhex(hexed).decode("latin-1")
 
 
 def planted_run(places):
@@ -243,21 +280,68 @@ def main():
 
         if kind == "read":
             index = int(field[1])
-            text = field[2]
-            wanted = exact_of(text, places)
+            text = text_of(field[2])
+            status, wanted, _uncertainty = measured_of(text, places, width)
             if field[3] == "refused":
-                # A refusal has to be one the python side agrees is impossible, or the C is
-                # refusing values it should have read.
-                if wanted is not None:
-                    wrong.append("%s: refused %s, which reads fine at %d places" % (row, text, places))
+                # A refusal has to be the one the python side says is required, of the same kind, or
+                # the C is refusing values it should have read.
+                if int(field[4]) != status:
+                    wrong.append("read %d %r: refused with %s, python says %d"
+                                 % (index, text, field[4], status))
                 subjects[index] = None
             else:
                 got = value_of(int(field[3]), [int(one, 16) for one in field[4:]])
-                if wanted is None:
-                    wrong.append("%s: read %s, which python refuses" % (row, text))
+                if status != 0:
+                    wrong.append("read %d %r: read, which python refuses with %d"
+                                 % (index, text, status))
                 elif got != wanted:
-                    wrong.append("%s: read %s as %d, python says %d" % (row, text, got, wanted))
-                subjects[index] = wanted
+                    wrong.append("read %d %r: read as %d, python says %d"
+                                 % (index, text, got, wanted))
+                subjects[index] = wanted if status == 0 else None
+            checked += 1
+            continue
+
+        if kind == "meas":
+            index = int(field[1])
+            text = text_of(field[2])
+            status, wanted, spread = measured_of(text, places, width)
+            if field[3] == "refused":
+                if int(field[4]) != status:
+                    wrong.append("meas %d %r: refused with %s, python says %d"
+                                 % (index, text, field[4], status))
+            else:
+                carried = int(field[3])
+                got = value_of(int(field[4]), [int(one, 16) for one in field[5:5 + limbs]])
+                rest = field[5 + limbs:]
+                got_spread = value_of(int(rest[0]), [int(one, 16) for one in rest[1:1 + limbs]])
+                if status != 0:
+                    wrong.append("meas %d %r: read, which python refuses with %d"
+                                 % (index, text, status))
+                elif got != wanted:
+                    wrong.append("meas %d %r: value %d, python says %d"
+                                 % (index, text, got, wanted))
+                elif carried != (0 if spread is None else 1):
+                    wrong.append("meas %d %r: carried %d, python says %s"
+                                 % (index, text, carried, spread))
+                elif got_spread != (0 if spread is None else spread):
+                    wrong.append("meas %d %r: uncertainty %d, python says %s"
+                                 % (index, text, got_spread, spread))
+            checked += 1
+            continue
+
+        if kind == "keep":
+            # A refusal must leave its output as it was. The last field is 1 where it did.
+            if field[-1] != "1":
+                wrong.append("%s: a refusal changed its output" % row)
+            checked += 1
+            continue
+
+        if kind == "agreerep":
+            lag = exact_of(field[1], places)
+            positions = [exact_of(one, places) for one in REPEATED_POSITIONS]
+            wanted = agreement(positions, list(REPEATED_VALUES), lag)
+            if int(field[2]) != wanted:
+                wrong.append("%s: got %s, python says %d" % (row, field[2], wanted))
             checked += 1
             continue
 

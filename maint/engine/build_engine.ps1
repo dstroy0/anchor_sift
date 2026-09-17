@@ -160,8 +160,9 @@ if ($haveCuda)
 #
 # anchor_steer and anchor_steer_arms used to be on this list and no longer exist. Both folded into
 # anchor_sift_kernel, which is the whole engine in one translation unit.
-$targets = @("anchor_sift_kernel", "anchor_sift_kernel_counted", "anchor_raster",
+$targets = @("anchor_sift_kernel", "anchor_sift_kernel_counted", "anchor_raster", "anchor_render",
              "anchor_exact_portable", "test_steer", "test_adversarial", "test_arm_agreement",
+             "test_o2_spawn",
              "bench_steer_arms", "bench_raster", "bench_exact_arms", "bench_exact",
              "bench_dispatch", "bench_coherence", "bench_scaling_reads", "bench_scaling_cycles")
 Write-Host "[*] building"
@@ -182,7 +183,7 @@ if ($BuildOnly)
 }
 
 $failed = 0
-foreach ($grader in @("test_steer", "test_adversarial", "test_arm_agreement", "bench_steer_arms", "bench_raster", "bench_exact_arms"))
+foreach ($grader in @("test_steer", "test_adversarial", "test_arm_agreement", "test_o2_spawn", "bench_steer_arms", "bench_raster", "bench_exact_arms"))
 {
     $exe = Join-Path $build "$grader.exe"
     if (-not (Test-Path $exe))

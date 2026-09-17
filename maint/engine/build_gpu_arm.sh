@@ -54,15 +54,14 @@ rm -f "$OUT/bench_exact_gpu.exe"
 # PIPESTATUS and not $?, because the pipe into grep would otherwise report grep's status and grep
 # succeeds whatever nvcc did. A filter on the output must never decide whether the build passed.
 nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
-    -I "$ROOT/src/engine/c/portable" \
-    -I "$ROOT/src/engine/gpu" \
+    -I "$ROOT/src/engine/c/no_rounding" \
     -DANCHOR_EXACT_HAVE_CUDA=1 \
     -o "$OUT/bench_exact_gpu.exe" \
-    "$ROOT/src/engine/gpu/exact_agreement.cu" \
-    "$ROOT/src/engine/c/portable/exact_limbs.c" \
-    "$ROOT/src/engine/c/portable/exact_arm_portable.c" \
+    "$ROOT/src/engine/c/no_rounding/arm_cuda.cu" \
+    "$ROOT/src/engine/c/no_rounding/exact_integer.c" \
+    "$ROOT/src/engine/c/no_rounding/arm_portable.c" \
     "$ROOT/src/engine/c/bench/bench_exact_arms.c" \
-    2>&1 | grep -viE "^\s*$|Copyright|Microsoft \(R\)|exact_limbs\.c$|exact_arm_portable\.c$|bench_exact_arms\.c$|exact_agreement\.cu$" | head -20
+    2>&1 | grep -viE "^\s*$|Copyright|Microsoft \(R\)|exact_integer\.c$|arm_portable\.c$|bench_exact_arms\.c$|arm_cuda\.cu$" | head -20
 NVCC_STATUS=${PIPESTATUS[0]}
 
 # Both conditions, because each one alone has been wrong here. A status of zero with no file is a

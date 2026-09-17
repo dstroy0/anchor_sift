@@ -16,7 +16,7 @@ Builds referenced are MSVC 19.44 x64 Release and MinGW gcc, both exercised. Run 
 
 `anchor_sift.c` and `anchor_sift.h` carry the search, the steering and the scan. `anchor_steer.{c,h}` and `anchor_steer_arm.{c,h}` are gone, absorbed. The `anchor_steer` and `anchor_steer_arms` CMake targets are gone; everything links `anchor_sift_kernel`.
 
-**Check:** `ls src/engine/c/portable/` shows eight files and no `anchor_steer*`. `grep -rn "anchor_steer\.h\|anchor_steer_arm\.h" src/ test/ docs/` returns nothing.
+**Check:** `ls src/engine/c/engine/` shows `anchor_sift.{c,h}` and `scan_avx2.c` and no `anchor_steer*`. `grep -rn "anchor_steer\.h\|anchor_steer_arm\.h" src/ test/ docs/` returns nothing.
 
 ### F2. The vectorized scan is flag confined to its own source
 
@@ -138,7 +138,7 @@ A descent's oracle is asked only whether two positions agree. That is a pairwise
 
 Verifying transitivity costs a cube of the field, so this is a precondition and not a check. It is stated in the header at the declaration, loudly, because the failure mode is a wrong answer and not a refusal.
 
-**Check:** read the warning on `anchor_field_project` in `src/engine/c/portable/anchor_sift.h`, and `examples/proteins/5_sift/protein_domain.py:66-74` for the predicate that breaks it.
+**Check:** read the warning on `anchor_field_project` in `src/engine/c/engine/anchor_sift.h`, and `examples/proteins/5_sift/protein_domain.py:66-74` for the predicate that breaks it.
 
 ### F12. A crystal derived field would be half selected by crystal system, and the selection tracks mineral family
 
@@ -190,7 +190,7 @@ Unchanged under the transitive closure, for a stated reason: a different rank me
 
 Found by the theorist in published code, verified here, fixed at `ca62234`.
 
-`anchor_volume_render_host` took a `census` parameter documented as "Rarity source for ANCHOR_CHANNEL_RARITY, or NULL". It discarded it (`src/engine/c/portable/anchor_raster.c:473`) and built its own from `corpus` (`src/engine/c/portable/anchor_raster.c:502`). A document describing behavior the code does not have.
+`anchor_volume_render_host` took a `census` parameter documented as "Rarity source for ANCHOR_CHANNEL_RARITY, or NULL". It discarded it (`src/engine/c/render/anchor_raster.c:473`) and built its own from `corpus` (`src/engine/c/render/anchor_raster.c:502`). A document describing behavior the code does not have.
 
 **The failure it enables has no symptom.** A caller passing NULL is correct, and every caller in this tree passes NULL, so nothing crashed and nothing was unsound. A caller passing a census built over something ELSE, a reference distribution or a census taken over a sampled slice, would have that rarity source silently replaced by one computed from the corpus in front of it. The render succeeds. The picture is plausible. Nothing reports anything.
 
@@ -208,7 +208,7 @@ Found by the theorist in published code, verified here, fixed at `ca62234`.
 
 The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:676`, which said "Nothing in the descent lets corpus content change the DEPTH, only the choice made at a level". **That line is false on the default path**, it is now corrected in the header, and this entry no longer uses it.
 
-`steer_descend` breaks on `(force_full_depth == 0) && (best_standing >= steer_truthy_total(...))` (`src/engine/c/portable/anchor_sift.c:907-911`). `best_standing` is returned by `steer_truthy_after`, which reads the corpus. `force_full_depth` is zero unless a caller names it, and an omitted member is zero, so **on the default path corpus content decides the depth**. The existence of `force_full_depth` is the proof by itself: there would be nothing for it to override if depth were always `wanted`.
+`steer_descend` breaks on `(force_full_depth == 0) && (best_standing >= steer_truthy_total(...))` (`src/engine/c/engine/anchor_sift.c:1024-1025`). `best_standing` is returned by `steer_truthy_after`, which reads the corpus. `force_full_depth` is zero unless a caller names it, and an omitted member is zero, so **on the default path corpus content decides the depth**. The existence of `force_full_depth` is the proof by itself: there would be nothing for it to override if depth were always `wanted`.
 
 **The counterevidence was in F14 the whole time.** The `placed` column reads 2 at sigma 2^8 and 2^12 and 1 from 2^16 up, with `wanted` fixed at 4 on every row, and F14 explains it as the destroy rule firing because a larger alphabet lets the first probe cut far enough. That is a description of corpus content changing the depth, sitting in this document, above a claim that corpus content cannot change the depth.
 

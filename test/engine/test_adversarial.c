@@ -88,6 +88,18 @@
 #define ADVERSARIAL_SEEDS 64u
 
 /**
+ * @brief Corpus symbols a projected case carries.
+ *
+ * @note Smaller than ADVERSARIAL_CORPUS because the projection's closure is quadratic in the joint
+ *       field and the sweep runs it once per seed. 512 still reaches past 256 classes when the
+ *       alphabet is wide, and case 13 checks that it does.
+ */
+#define ADVERSARIAL_PROJECTED 512u
+
+/** @brief Longest needle a projected case draws. */
+#define ADVERSARIAL_PROJECTED_NEEDLE 8u
+
+/**
  * @brief Next value of the generator, letting a failing case reduce from its printed seed alone.
  *
  * @param[in,out] state Generator state, advanced in place [BORROWS].
@@ -726,6 +738,23 @@ static int adversarial_case_growing_plan(void)
         }
     }
 
+    // The empty-needle boundary, which no other case reaches. An empty needle occurs at every
+    // alignment, so the reference is corpus_len + 1. anchor_steer_count_with_probes returned 0 here
+    // until its guard was split, disagreeing with anchor_sift_naive and anchor_steer_count in the
+    // same tree. The probes cannot be evaluated on a needle with no positions, so the empty probe set
+    // is the one to grade it with.
+    {
+        const size_t empty_reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, 0u);
+        const size_t empty_counted =
+            anchor_steer_count_with_probes(corpus, ADVERSARIAL_CORPUS, needle, 0u, NULL, 0u);
+        if (empty_counted != empty_reference)
+        {
+            printf("    FAIL empty needle counted %zu against reference %zu\n", empty_counted,
+                   empty_reference);
+            failed = 1;
+        }
+    }
+
     printf("  growing the plan over %zu occurrences, verdict %s\n", reference,
            (failed == 0) ? "ok" : "FAILS");
     free(corpus);
@@ -1015,6 +1044,443 @@ static int adversarial_case_trichotomy(void)
     return failed;
 }
 
+/** @brief A corpus and a needle of 32 bit symbols, addressed through one joint index space. */
+typedef struct
+{
+    const uint32_t *corpus; /**< Corpus symbols [BORROWS]. */
+    size_t corpus_length;   /**< How many. Joint positions below this are corpus positions. */
+    const uint32_t *needle; /**< Needle symbols, at joint positions from corpus_length on [BORROWS]. */
+} AdversarialJointSymbols;
+
+/** @brief The three class arrays a projection writes, sized for the widest joint field used here. */
+typedef struct
+{
+    uint32_t *class_of_position;     /**< Which class each position fell in [BORROWS]. */
+    uint32_t *members_in_class;      /**< How many positions each class holds [BORROWS]. */
+    uint32_t *rarity_place_of_class; /**< Where each class sits in the rarity order [BORROWS]. */
+    size_t classes_length;           /**< Entries each of the three holds. */
+} AdversarialClassBuffers;
+
+/**
+ * @brief The symbol at one joint position, corpus first and needle after it.
+ *
+ * @param[in] joint    Both sides [BORROWS].
+ * @param[in] position Joint position.
+ * @return             The symbol held there.
+ */
+static uint32_t adversarial_joint_symbol(const AdversarialJointSymbols *joint, size_t position)
+{
+    if (position < joint->corpus_length)
+    {
+        return joint->corpus[position];
+    }
+    return joint->needle[position - joint->corpus_length];
+}
+
+/** @brief Equality between two joint positions, the oracle anchor_field_pair_project asks. */
+static int adversarial_same_joint(const void *field, size_t left, size_t right)
+{
+    const AdversarialJointSymbols *const joint = (const AdversarialJointSymbols *)field;
+
+    return (adversarial_joint_symbol(joint, left) == adversarial_joint_symbol(joint, right)) ? 1 : 0;
+}
+
+/** @brief Equality between two positions of one symbol array, for projecting one side alone. */
+static int adversarial_same_symbol(const void *field, size_t left, size_t right)
+{
+    const uint32_t *const symbols = (const uint32_t *)field;
+
+    return (symbols[left] == symbols[right]) ? 1 : 0;
+}
+
+/**
+ * @brief Exact occurrences of a needle of 32 bit symbols, found by comparing the symbols directly.
+ *
+ * @param[in] corpus        Symbols searched [BORROWS].
+ * @param[in] corpus_length How many.
+ * @param[in] needle        Symbols searched for [BORROWS].
+ * @param[in] needle_length How many. Non-zero.
+ * @return                  Alignments where every symbol agrees.
+ * @note The truth both projected routes answer to. It shares no code with the projection or with the
+ *       byte engine, which makes agreement with it agreement between two independent routes.
+ */
+static size_t adversarial_count_symbols(const uint32_t *corpus, size_t corpus_length,
+                                        const uint32_t *needle, size_t needle_length)
+{
+    size_t found = 0u;
+
+    for (size_t at = 0u; (at + needle_length) <= corpus_length; at += 1u)
+    {
+        size_t offset = 0u;
+
+        while ((offset < needle_length) && (corpus[at + offset] == needle[offset]))
+        {
+            offset += 1u;
+        }
+        if (offset == needle_length)
+        {
+            found += 1u;
+        }
+    }
+    return found;
+}
+
+/**
+ * @brief Counts through two separate projections, one per side. THE BROKEN CONSTRUCTION.
+ *
+ * @return 1 where both projections ran and `count` was written, 0 where either refused.
+ * @note Kept in the suite as the negative control. A case that cannot show this route
+ *       losing an occurrence cannot show the joint route recovering one.
+ */
+static int adversarial_count_apart(const uint32_t *corpus, size_t corpus_length,
+                                   const uint32_t *needle, size_t needle_length,
+                                   uint8_t *corpus_ranks, uint8_t *needle_ranks,
+                                   const AdversarialClassBuffers *buffers, size_t *count)
+{
+    const AnchorFieldProjection corpus_side = {
+        .same_in_field = adversarial_same_symbol,
+        .field = corpus,
+        .length = corpus_length,
+        .ranks = corpus_ranks,
+        .class_of_position = buffers->class_of_position,
+        .members_in_class = buffers->members_in_class,
+        .rarity_place_of_class = buffers->rarity_place_of_class,
+        .classes_length = buffers->classes_length
+    };
+    const AnchorFieldProjection needle_side = {
+        .same_in_field = adversarial_same_symbol,
+        .field = needle,
+        .length = needle_length,
+        .ranks = needle_ranks,
+        .class_of_position = buffers->class_of_position,
+        .members_in_class = buffers->members_in_class,
+        .rarity_place_of_class = buffers->rarity_place_of_class,
+        .classes_length = buffers->classes_length
+    };
+
+    const int corpus_projected = anchor_field_project(&corpus_side);
+    const int needle_projected = anchor_field_project(&needle_side);
+
+    if ((corpus_projected == 0) || (needle_projected == 0))
+    {
+        return 0;
+    }
+    *count = anchor_steer_count(corpus_ranks, corpus_length, needle_ranks, needle_length, 1);
+    return 1;
+}
+
+/**
+ * @brief Counts through anchor_field_pair_project, which numbers both sides in one population.
+ *
+ * @return 1 where the projection ran and `count` and `distinct` were written, 0 where it refused.
+ */
+static int adversarial_count_together(const uint32_t *corpus, size_t corpus_length,
+                                      const uint32_t *needle, size_t needle_length,
+                                      uint8_t *corpus_ranks, uint8_t *needle_ranks,
+                                      const AdversarialClassBuffers *buffers, size_t *count,
+                                      size_t *distinct)
+{
+    const AdversarialJointSymbols joint = {
+        .corpus = corpus,
+        .corpus_length = corpus_length,
+        .needle = needle
+    };
+    const AnchorFieldPairProjection both = {
+        .same_in_field = adversarial_same_joint,
+        .field = &joint,
+        .corpus_length = corpus_length,
+        .needle_length = needle_length,
+        .corpus_ranks = corpus_ranks,
+        .needle_ranks = needle_ranks,
+        .class_of_position = buffers->class_of_position,
+        .members_in_class = buffers->members_in_class,
+        .rarity_place_of_class = buffers->rarity_place_of_class,
+        .classes_length = buffers->classes_length,
+        .distinct = distinct
+    };
+
+    const int projected = anchor_field_pair_project(&both);
+
+    if (projected == 0)
+    {
+        return 0;
+    }
+    *count = anchor_steer_count(corpus_ranks, corpus_length, needle_ranks, needle_length, 1);
+    return 1;
+}
+
+/**
+ * @brief Case 13. A corpus and needle projected apart lose true occurrences; projected together
+ *        they do not.
+ *
+ * @return 0 where the joint route never undercounts, is exact at 256 classes or fewer, and every
+ *         premise holds, 1 otherwise.
+ *
+ * @note THE DEFECT. A rank is a symbol's place in the rarity order of the population one call
+ *       counted. The class comes from the oracle the caller supplies, and it is the same
+ *       function on both sides. The place comes from counting, and two calls count two populations.
+ *       Their orders disagree, rank disagreement stops proving symbol disagreement, and a probe
+ *       refutes an alignment whose symbols match.
+ *
+ * @note THREE PARTS, EACH WITH ITS PREMISE CHECKED.
+ *       Part one is the counterexample as the theorist reported it, built by hand. The separate
+ *       route MUST return 0 there. If it does not, the case no longer reaches the defect and a
+ *       passing joint route proves nothing.
+ *       Part two is a seeded sweep, needles cut from the corpus on even seeds and drawn
+ *       independently on odd ones, over alphabets from 2 to 399 symbols. It grades the joint route
+ *       against a direct symbol count on every seed, and requires that the sweep reached both the
+ *       exact regime and the clamped one and that the separate route lost at least one occurrence.
+ *       Part three builds a field past 256 classes where the clamp merges the two classes the
+ *       needle uses. The joint rank count must stay at or above the truth and must exceed it, or
+ *       the upper bound anchor_field_pair_project documents has not been measured.
+ *
+ * @note WHY THE SUITE DID NOT CATCH IT. The one projected search in test_steer builds its rank
+ *       needle by copying out of the corpus's own projected ranks (`test/engine/test_steer.c`,
+ *       the loop filling `rank_needle`), so its needle and corpus come from one population by
+ *       construction and the two orders could never disagree.
+ */
+static int adversarial_case_joint_projection(void)
+{
+    const size_t buffer_positions = ADVERSARIAL_PROJECTED + ADVERSARIAL_PROJECTED_NEEDLE;
+    uint32_t *const corpus = (uint32_t *)malloc(ADVERSARIAL_PROJECTED * sizeof(uint32_t));
+    uint8_t *const corpus_ranks = (uint8_t *)malloc(ADVERSARIAL_PROJECTED);
+    const AdversarialClassBuffers buffers = {
+        .class_of_position = (uint32_t *)malloc(buffer_positions * sizeof(uint32_t)),
+        .members_in_class = (uint32_t *)malloc(buffer_positions * sizeof(uint32_t)),
+        .rarity_place_of_class = (uint32_t *)malloc(buffer_positions * sizeof(uint32_t)),
+        .classes_length = buffer_positions
+    };
+    uint32_t needle[ADVERSARIAL_PROJECTED_NEEDLE];
+    uint8_t needle_ranks[ADVERSARIAL_PROJECTED_NEEDLE];
+    int failed = 0;
+
+    if ((corpus == NULL) || (corpus_ranks == NULL) || (buffers.class_of_position == NULL)
+     || (buffers.members_in_class == NULL) || (buffers.rarity_place_of_class == NULL))
+    {
+        printf("    allocation failed\n");
+        free(corpus);
+        free(corpus_ranks);
+        free(buffers.class_of_position);
+        free(buffers.members_in_class);
+        free(buffers.rarity_place_of_class);
+        return 1;
+    }
+
+    // PART ONE. The counterexample as reported: one rare symbol, ten of a middle one, a hundred of a
+    // common one, and the needle common common middle rare occurring once, at 98.
+    const uint32_t symbol_rare = 0x000A0001u;
+    const uint32_t symbol_middle = 0x000B0002u;
+    const uint32_t symbol_common = 0x000C0003u;
+    const size_t reported_length = 1u + 10u + 100u;
+    const size_t reported_needle_length = 4u;
+
+    for (size_t at = 0u; at < reported_length; at += 1u)
+    {
+        corpus[at] = symbol_common;
+    }
+    for (size_t at = 0u; at < 9u; at += 1u)
+    {
+        corpus[at] = symbol_middle;
+    }
+    corpus[100] = symbol_middle;
+    corpus[101] = symbol_rare;
+    needle[0] = symbol_common;
+    needle[1] = symbol_common;
+    needle[2] = symbol_middle;
+    needle[3] = symbol_rare;
+
+    const size_t reported_truth = adversarial_count_symbols(corpus, reported_length, needle,
+                                                            reported_needle_length);
+    size_t reported_apart = 0u;
+    size_t reported_together = 0u;
+    size_t reported_distinct = 0u;
+    const int reported_apart_ran = adversarial_count_apart(corpus, reported_length, needle,
+                                                           reported_needle_length, corpus_ranks,
+                                                           needle_ranks, &buffers,
+                                                           &reported_apart);
+    const int reported_together_ran = adversarial_count_together(corpus, reported_length, needle,
+                                                                 reported_needle_length,
+                                                                 corpus_ranks, needle_ranks,
+                                                                 &buffers, &reported_together,
+                                                                 &reported_distinct);
+
+    printf("  %34s %8s %8s %8s %8s\n", "reported counterexample", "truth", "apart", "together",
+           "classes");
+    printf("  %34s %8zu %8zu %8zu %8zu\n", "C C B A once, at 98", reported_truth, reported_apart,
+           reported_together, reported_distinct);
+
+    if (reported_truth != 1u)
+    {
+        printf("    FAIL premise: the hand built field holds %zu occurrences, not 1\n",
+               reported_truth);
+        failed = 1;
+    }
+    if ((reported_apart_ran == 0) || (reported_apart != 0u))
+    {
+        printf("    FAIL negative control: the separate route did not lose the occurrence, so this"
+               " case no longer reaches the defect\n");
+        failed = 1;
+    }
+    if ((reported_together_ran == 0) || (reported_together != reported_truth))
+    {
+        printf("    FAIL the joint route returned %zu against truth %zu\n", reported_together,
+               reported_truth);
+        failed = 1;
+    }
+
+    // PART TWO. A seeded sweep. Alphabets run from 2 to 399 symbols, which puts 512 positions both
+    // under and over 256 classes.
+    uint64_t state = 0x9E3779B97F4A7C15ULL;
+    size_t exact_regime = 0u;
+    size_t clamped_regime = 0u;
+    size_t apart_losses = 0u;
+
+    for (size_t seed = 0u; seed < ADVERSARIAL_SEEDS; seed += 1u)
+    {
+        const uint32_t alphabet = 2u + (adversarial_next(&state) % 398u);
+        const size_t needle_length = 1u + (adversarial_next(&state) % ADVERSARIAL_PROJECTED_NEEDLE);
+
+        for (size_t at = 0u; at < ADVERSARIAL_PROJECTED; at += 1u)
+        {
+            corpus[at] = 0x00100000u + (adversarial_next(&state) % alphabet);
+        }
+
+        // Even seeds cut the needle out of the corpus, so the truth is at least one. Odd seeds draw
+        // it independently, so the needle holds symbols in proportions the corpus does not.
+        if ((seed % 2u) == 0u)
+        {
+            const size_t origin =
+                adversarial_next(&state) % ((ADVERSARIAL_PROJECTED - needle_length) + 1u);
+
+            for (size_t at = 0u; at < needle_length; at += 1u)
+            {
+                needle[at] = corpus[origin + at];
+            }
+        }
+        else
+        {
+            for (size_t at = 0u; at < needle_length; at += 1u)
+            {
+                needle[at] = 0x00100000u + (adversarial_next(&state) % alphabet);
+            }
+        }
+
+        const size_t truth = adversarial_count_symbols(corpus, ADVERSARIAL_PROJECTED, needle,
+                                                       needle_length);
+        size_t apart = 0u;
+        size_t together = 0u;
+        size_t distinct = 0u;
+        const int apart_ran = adversarial_count_apart(corpus, ADVERSARIAL_PROJECTED, needle,
+                                                      needle_length, corpus_ranks, needle_ranks,
+                                                      &buffers, &apart);
+        const int together_ran = adversarial_count_together(corpus, ADVERSARIAL_PROJECTED, needle,
+                                                            needle_length, corpus_ranks,
+                                                            needle_ranks, &buffers, &together,
+                                                            &distinct);
+
+        if ((apart_ran == 0) || (together_ran == 0))
+        {
+            printf("    FAIL seed %zu: a projection refused a valid field\n", seed);
+            failed = 1;
+            continue;
+        }
+        if (apart < truth)
+        {
+            apart_losses += 1u;
+        }
+
+        // At 256 classes or fewer no place is clamped, so the rank count must equal the truth. Past
+        // that the clamp can merge classes and the rank count must not fall below it.
+        if (distinct <= 256u)
+        {
+            exact_regime += 1u;
+            if (together != truth)
+            {
+                printf("    FAIL seed %zu: %zu classes, joint route %zu against truth %zu\n", seed,
+                       distinct, together, truth);
+                failed = 1;
+            }
+        }
+        else
+        {
+            clamped_regime += 1u;
+            if (together < truth)
+            {
+                printf("    FAIL seed %zu: %zu classes, joint route %zu BELOW truth %zu\n", seed,
+                       distinct, together, truth);
+                failed = 1;
+            }
+        }
+    }
+
+    printf("  %34s %8s %8s %8s\n", "seeded sweep", "exact", "clamped", "lost");
+    printf("  %34s %8zu %8zu %8zu\n", "seeds by regime, apart losses", exact_regime,
+           clamped_regime, apart_losses);
+
+    if ((exact_regime == 0u) || (clamped_regime == 0u))
+    {
+        printf("    FAIL premise: the sweep did not reach both regimes\n");
+        failed = 1;
+    }
+    if (apart_losses == 0u)
+    {
+        printf("    FAIL negative control: the separate route never lost an occurrence across the"
+               " sweep\n");
+        failed = 1;
+    }
+
+    // PART THREE. Three hundred distinct symbols, and a needle cut from positions 260 and 261. Joint
+    // places 0 to 254 stay apart and every class from place 255 on takes rank 255, including both of
+    // the needle's, so every adjacent pair from position 255 on agrees with the needle on rank.
+    const size_t singleton_length = 300u;
+
+    for (size_t at = 0u; at < singleton_length; at += 1u)
+    {
+        // Narrows a position below 300 into 32 bits, which holds it.
+        corpus[at] = 0x00200000u + (uint32_t)at;
+    }
+    needle[0] = corpus[260];
+    needle[1] = corpus[261];
+
+    const size_t clamp_truth = adversarial_count_symbols(corpus, singleton_length, needle, 2u);
+    size_t clamp_together = 0u;
+    size_t clamp_distinct = 0u;
+    const int clamp_ran = adversarial_count_together(corpus, singleton_length, needle, 2u,
+                                                     corpus_ranks, needle_ranks, &buffers,
+                                                     &clamp_together, &clamp_distinct);
+
+    printf("  %34s %8s %8s %8s\n", "clamp merges the needle", "truth", "together", "classes");
+    printf("  %34s %8zu %8zu %8zu\n", "upper bound, never below", clamp_truth, clamp_together,
+           clamp_distinct);
+
+    if ((clamp_ran == 0) || (clamp_distinct <= 256u))
+    {
+        printf("    FAIL premise: the field did not pass 256 classes\n");
+        failed = 1;
+    }
+    if (clamp_together < clamp_truth)
+    {
+        printf("    FAIL the joint route fell below the truth past the clamp\n");
+        failed = 1;
+    }
+    if (clamp_together <= clamp_truth)
+    {
+        printf("    FAIL premise: the clamp merged nothing the needle uses, so the upper bound is"
+               " unmeasured\n");
+        failed = 1;
+    }
+
+    printf("  joint projection keeps every true occurrence, verdict %s\n",
+           (failed == 0) ? "ok" : "FAILS");
+
+    free(corpus);
+    free(corpus_ranks);
+    free(buffers.class_of_position);
+    free(buffers.members_in_class);
+    free(buffers.rarity_place_of_class);
+    return failed;
+}
+
 int main(void)
 {
     int failed = 0;
@@ -1033,6 +1499,7 @@ int main(void)
     failed += adversarial_case_growing_plan();
     failed += adversarial_case_stop_equals_continue();
     failed += adversarial_case_trichotomy();
+    failed += adversarial_case_joint_projection();
 
     printf("\n  %d case(s) failed\n\n", failed);
     return (failed == 0) ? 0 : 1;

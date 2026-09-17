@@ -1,0 +1,57 @@
+\chapter{Chemistry: progress and what is unmeasured}
+
+Working notes for the chemistry subject, dated 2026-09-16. Kept here because a claim recorded beside
+what it still lacks is the only check available on work with no reviewer, and because the subject is
+mostly design and the design should be scrutinized before a reader is written to it.
+
+\section*{The hypothesis}
+
+Chemistry is the general question with the atom as the part: how far an arrangement sits from the most
+disordered arrangement of its own atoms. The building block is the atom, a point carrying an element
+vector; the rule that makes an arrangement non-random is valence; and the bond length valence fixes is
+an oracle of the strongest kind, a fact rather than a consensus. The protein backbone and the crystal
+cell edge both rest on it, so chemistry is the layer under two existing subjects and not a third
+beside them. The full statement is in \texttt{theory/chemistry}.
+
+\section*{The boundary that was found before anything was committed}
+
+The first thing measured was a collision, not a result. The particle-physics subject transcribes the
+element ledger, $Z$ and the electron set and the periodic recurrence, and chemistry consumes exactly
+that. Two transcriptions of one ledger is two sources of truth for a fact neither chemistry nor a
+protein established, so the boundary is: the atomic structure is authored once in a shared
+\texttt{representation/atom} home, and chemistry adds only the bonding layer, valence and bond order
+and the bond-length oracle, on top of it. The engine holds any commit that would duplicate the
+ledger. This was agreed before the element data was written, which is the outcome that boundary
+existed to produce.
+
+\section*{What runs today}
+
+One demonstration runs on the primitives already in the tree,
+\texttt{examples/chemistry/5\_sift/valence\_is\_a\_necessary\_condition.py}. It reads the octet as the
+sift proposition on chemistry: every atom of a real molecule closes, so the octet refuses no molecule
+and prunes the rest, one directional error. Measured over eight real molecules, all eight close, and
+each sits above a drawn null between 0.03 and 0.31, the null being the fraction of element-label
+permutations over the same bond graph that still close. The two negative controls, carbon with five
+hydrogens and bonded helium, are both refused. Two routes are read and shown to disagree: the
+handshake sum holds on a mis-wired peroxide the per-atom octet refuses, so neither route is the other
+twice. The null rates match the arithmetic by hand: water passes one permutation in three, methane
+one in five, ethyne one in six.
+
+\section*{What is unmeasured, and stated so}
+
+Nothing in \texttt{theory/chemistry} beyond that one script has been measured. The molecule reader
+does not exist, the bond-length oracle does not exist, and the periodic-property reading is a
+prediction with a known trap in front of it: the period lengths are $2, 8, 8, 18, 18, 32$, not one
+number, so a detector taking the tallest lag will report a harmonic, and the shell boundaries have to
+be read as a partition instead. The octet demonstration proves a necessary condition, not a
+sufficient one; which isomer a valid formula becomes is left to a measure and is not claimed here.
+Until the shared ledger and the two new engine directories land, the remaining pipeline stages are
+design and are named as design.
+
+\section*{A refutation kept}
+
+The tempting strong claim, that a departure from the disordered background measures human production,
+fails in chemistry as it failed on the prime gaps. A single-element metal packs into a lattice of
+enormous order that no person arranged. So chemistry belongs with the primes, not with the prose:
+arrangement is not authorship, and a reading that took the departure as evidence of design would be
+wrong on every mineral in the ground. Recorded here so it is not rediscovered as a result later.

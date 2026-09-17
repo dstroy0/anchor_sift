@@ -64,9 +64,9 @@ for row in $ARCHES; do
 
     if ! nvcc -ccbin "$MSVC_BIN" -O2 -cubin \
         -gencode "arch=compute_${num},code=${arch}" \
-        -I "$ROOT/src/engine/c/portable" -I "$ROOT/src/engine/gpu" \
+        -I "$ROOT/src/engine/c/no_rounding" \
         -DANCHOR_EXACT_HAVE_CUDA=1 \
-        -o "$cubin" "$ROOT/src/engine/gpu/exact_agreement.cu" >"$WORK/$arch.log" 2>&1; then
+        -o "$cubin" "$ROOT/src/engine/c/no_rounding/arm_cuda.cu" >"$WORK/$arch.log" 2>&1; then
         echo "FAILED to compile"
         grep -iE "error" "$WORK/$arch.log" | head -3 | sed 's/^/      /'
         FAIL=$((FAIL + 1))

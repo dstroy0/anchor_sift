@@ -12,15 +12,23 @@
 # Built at -O2 whatever the build type says. A Debug bench measures the debug build, which is not a
 # number anyone wants.
 #
-#   portable/          the arms and the dispatcher in C11 alone, which is the thing under test
-#   vectorized_win/    the same operations under the widest SIMD an x86 Windows build detects
-#   vectorized_linux/  the same, detected on an x86 Linux build
-#   vectorized_rpi/    the same, on ARM NEON
-#   bench/             the drivers that build corpora, count or time, and print rows
+# A file belongs to a directory by what it is, not by the operating system that builds it:
 #
-# The portable arm is the reference and every other arm is checked against it. An arm that disagrees
-# with portable is wrong, whatever it measures, and the vectorized directories exist to be faster at
-# an answer portable already fixed.
+#   engine/       the search, the steering and the scan. anchor_sift.{c,h} and one scan_<set> file
+#                 per instruction set. A file belongs here when it decides which alignments survive.
+#   no_rounding/  the exact arithmetic and the arms that read it. exact_integer.{c,h}, arm.h, and one
+#                 arm_<set> file per instruction set. The name states what the arithmetic is for: it
+#                 removes rounding, so a comparison is exact. A file belongs here when it is an
+#                 implementation of that arithmetic.
+#   render/       the direct renderer. anchor_raster.{c,h} and raster_cuda.cu. A file belongs here
+#                 when it turns engine state into pixels or voxels.
+#   bench/        the drivers that build corpora, count or time, and print rows.
+#
+# The portable arm is the reference in each family and every other arm is checked against it. An arm
+# that disagrees with portable is wrong, whatever it measures, and the per instruction set files
+# exist to be faster at an answer portable already fixed. An instruction set carried in one family
+# is carried in the other where the operation exists there too, so a listing of engine/ and a
+# listing of no_rounding/ name the same sets.
 #
 # The kernel is compiled twice from one source. The counted build carries probe and verification
 # counters; the timed build is the same object it was without them. Two builds instead of one flag
@@ -46,40 +54,76 @@ endif()
 # The exact integer as a fixed width limb array, which is the same value the python engine ingests
 # and a different transform of it. Portable C11 with no intrinsic and no 128 bit type, so it builds
 # anywhere and is the engine every vectorized one is checked against.
-add_library(anchor_exact_portable STATIC portable/exact_limbs.c portable/exact_arm_portable.c)
-target_include_directories(anchor_exact_portable PUBLIC portable)
+add_library(anchor_exact_portable STATIC no_rounding/exact_integer.c no_rounding/arm_portable.c)
+target_include_directories(anchor_exact_portable PUBLIC no_rounding)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
-# THE ENGINE, AS ONE TRANSLATION UNIT. The search, the steering and the wide scan were three files
-# spelling one primitive: byte equality at a shift, counted over positions. The search counted
-# matches, the steering counted survivors, the scan counted the same survivors wider. Three files
-# meant three include graphs, three library targets and three places to look for one loop, and a
-# reader asking where the engine is got a directory listing for an answer.
+# THE ENGINE. anchor_sift.c holds the search, the steering, the shared scan counters and the arm
+# dispatch. They spell one primitive: byte equality at a shift, counted over positions. The search
+# counts matches, the steering counts survivors, a scan arm counts those survivors at one offset.
 #
-# The vectorized scan is the only source that stays outside it. It is not portable by definition, it
-# carries a compiler flag no other file may see, and only the portable engine is held to C11.
-set(ANCHOR_SIFT_SOURCES portable/anchor_sift.c)
+# Each scan arm is its own file, engine/scan_<set>.c, one per instruction set. scan_portable.c is the
+# C11 reference every other arm is graded against; a wide arm carries a compiler flag no other file
+# may see, so it cannot share a translation unit. engine/ carries scan_portable.c, scan_avx2.c,
+# scan_avx512.c, scan_neon.c and scan_sve.c, the same host sets no_rounding/ carries. The device arm
+# matching no_rounding/arm_cuda.cu lands next.
+set(ANCHOR_SIFT_SOURCES engine/anchor_sift.c engine/scan_portable.c)
 set(ANCHOR_SIFT_DEFINES "")
+
+# Each wide arm's flag is set ON ITS SOURCE FILE and never on the target. A target level flag would
+# let the compiler emit that instruction anywhere in the engine, the portable path included, and a
+# machine without it would meet an illegal instruction instead of a slower answer. Confining the flag
+# to the one file it belongs to is what leaves the run time check something to decide, and it is why
+# each arm is its own translation unit. The set carried here matches no_rounding/: a listing of the
+# two directories names the same instruction sets.
+include(CheckCCompilerFlag)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
-    list(APPEND ANCHOR_SIFT_SOURCES vectorized_win/anchor_steer_avx2.c)
+    list(APPEND ANCHOR_SIFT_SOURCES engine/scan_avx2.c)
     list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_AVX2=1)
-    # The flag is set ON THE SOURCE FILE and not on the target. A target level flag would let the
-    # compiler emit AVX2 anywhere in the engine, the portable path included, and a machine without
-    # AVX2 would meet an illegal instruction instead of a slower answer. Confining the flag to the
-    # one file it belongs to is what leaves the run time check something to decide.
     if(MSVC)
-        set(ANCHOR_SIFT_WIDE_OPTIONS /arch:AVX2)
+        set_source_files_properties(engine/scan_avx2.c PROPERTIES COMPILE_OPTIONS "/arch:AVX2")
     else()
-        set(ANCHOR_SIFT_WIDE_OPTIONS -mavx2)
+        set_source_files_properties(engine/scan_avx2.c PROPERTIES COMPILE_OPTIONS "-mavx2")
     endif()
-    set_source_files_properties(vectorized_win/anchor_steer_avx2.c
-        PROPERTIES COMPILE_OPTIONS "${ANCHOR_SIFT_WIDE_OPTIONS}")
+
+    # AVX-512 on the GCC and Clang builds that accept the flags. MSVC's AVX-512 handling differs and
+    # no machine here runs the arm, so it is gated to the same compilers the exact avx512 arm gates
+    # to and confirmed by maint/engine/verify_arm_asm.sh rather than by running.
+    if(NOT MSVC)
+        check_c_compiler_flag("-mavx512f -mavx512bw" ANCHOR_STEER_CC_TAKES_AVX512)
+        if(ANCHOR_STEER_CC_TAKES_AVX512)
+            list(APPEND ANCHOR_SIFT_SOURCES engine/scan_avx512.c)
+            list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_AVX512=1)
+            set_source_files_properties(engine/scan_avx512.c
+                PROPERTIES COMPILE_OPTIONS "-mavx512f;-mavx512bw")
+        endif()
+    endif()
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
+    list(APPEND ANCHOR_SIFT_SOURCES engine/scan_neon.c)
+    list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_NEON=1)
+    # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build does
+    # need one, and asks for the softfp ABI's NEON rather than assuming a hard float target.
+    if(NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
+        set_source_files_properties(engine/scan_neon.c PROPERTIES COMPILE_OPTIONS "-mfpu=neon")
+    endif()
+
+    # SVE on the aarch64 compilers that accept it. No part here has SVE, so this is an unrun arm the
+    # emission check reads, the same as the exact sve arm.
+    if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
+        check_c_compiler_flag("-march=armv8.2-a+sve" ANCHOR_STEER_CC_TAKES_SVE)
+        if(ANCHOR_STEER_CC_TAKES_SVE)
+            list(APPEND ANCHOR_SIFT_SOURCES engine/scan_sve.c)
+            list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_SVE=1)
+            set_source_files_properties(engine/scan_sve.c
+                PROPERTIES COMPILE_OPTIONS "-march=armv8.2-a+sve")
+        endif()
+    endif()
 endif()
 
 # The engine as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a
 # measurement.
 add_library(anchor_sift_kernel STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel PUBLIC portable)
+target_include_directories(anchor_sift_kernel PUBLIC engine no_rounding)
 target_compile_definitions(anchor_sift_kernel PUBLIC ${ANCHOR_SIFT_DEFINES})
 target_link_libraries(anchor_sift_kernel PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
@@ -88,7 +132,7 @@ target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
 # linking this library sees the same value the library was built with, which is what keeps a driver
 # from calling anchor_sift_counters_reset against a kernel that does not define it.
 add_library(anchor_sift_kernel_counted STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel_counted PUBLIC portable)
+target_include_directories(anchor_sift_kernel_counted PUBLIC engine no_rounding)
 target_compile_definitions(anchor_sift_kernel_counted PUBLIC ${ANCHOR_SIFT_DEFINES}
     ANCHOR_SIFT_COUNT_READS=1)
 target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)
@@ -127,7 +171,7 @@ if(NOT CMAKE_CUDA_COMPILER AND NOT ANCHOR_SKIP_CUDA)
     endif()
 endif()
 
-set(ANCHOR_RASTER_SOURCES portable/anchor_raster.c)
+set(ANCHOR_RASTER_SOURCES render/anchor_raster.c)
 set(ANCHOR_RASTER_DEFINES "")
 if(CMAKE_CUDA_COMPILER)
     enable_language(CUDA)
@@ -142,7 +186,7 @@ if(CMAKE_CUDA_COMPILER)
             set(CMAKE_CUDA_ARCHITECTURES 86)
         endif()
     endif()
-    list(APPEND ANCHOR_RASTER_SOURCES ../gpu/anchor_raster_cuda.cu)
+    list(APPEND ANCHOR_RASTER_SOURCES render/raster_cuda.cu)
     list(APPEND ANCHOR_RASTER_DEFINES ANCHOR_RASTER_HAVE_CUDA=1)
     message(STATUS "anchor_raster: device arm compiled in, architectures ${CMAKE_CUDA_ARCHITECTURES}")
 else()
@@ -150,9 +194,20 @@ else()
 endif()
 
 add_library(anchor_raster STATIC ${ANCHOR_RASTER_SOURCES})
-target_include_directories(anchor_raster PUBLIC portable)
+target_include_directories(anchor_raster PUBLIC render)
 target_compile_definitions(anchor_raster PUBLIC ${ANCHOR_RASTER_DEFINES})
 target_compile_options(anchor_raster PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
+
+# The renderer as a shared library, so the Python arm can reach it through ctypes. It carries the
+# same sources as anchor_raster, so on a CUDA build the device arm is present and a Python caller
+# renders on the device through anchor_raster_render without owning a device path, which the tree's
+# library ban forbids Python anyway. WINDOWS_EXPORT_ALL_SYMBOLS puts the C entries in the export
+# table so ctypes can find them; every other platform exports them by default.
+add_library(anchor_render SHARED ${ANCHOR_RASTER_SOURCES})
+target_include_directories(anchor_render PUBLIC render)
+target_compile_definitions(anchor_render PUBLIC ${ANCHOR_RASTER_DEFINES})
+target_compile_options(anchor_render PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
+set_target_properties(anchor_render PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 # Which vectorized arm this target can carry. Decided from the processor the build targets, and
 # every gate is defined on both arms so #if always has a value and an unset build is never a silent
@@ -163,15 +218,9 @@ set(ANCHOR_ARM_OPTIONS "")
 set(ANCHOR_ARM_INCLUDES "")
 
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
-    # The AVX2 loops are one file for both x86 platforms. A second copy would be one edit away from
-    # disagreeing, and a disagreement between two arms is a defect by definition. What each platform
-    # directory holds is detection, which is the part that genuinely differs.
-    list(APPEND ANCHOR_ARM_INCLUDES vectorized_win)
-    if(WIN32)
-        list(APPEND ANCHOR_ARM_SOURCES vectorized_win/exact_arm_avx2.c)
-    else()
-        list(APPEND ANCHOR_ARM_SOURCES vectorized_linux/exact_arm_avx2.c)
-    endif()
+    # One AVX2 arm for every x86 build. It carries both detection paths, MSVC's cpuid and the
+    # builtin GCC and Clang share, so there is no per operating system copy to disagree with it.
+    list(APPEND ANCHOR_ARM_SOURCES no_rounding/arm_avx2.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_AVX2=1)
     # -mavx2 permits the intrinsics in this translation unit. It does not permit the compiler to
     # assume AVX2 anywhere else, because no other translation unit is built with it.
@@ -181,7 +230,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
         list(APPEND ANCHOR_ARM_OPTIONS /arch:AVX2)
     endif()
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
-    list(APPEND ANCHOR_ARM_SOURCES vectorized_rpi/exact_arm_neon.c)
+    list(APPEND ANCHOR_ARM_SOURCES no_rounding/arm_neon.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_NEON=1)
     # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build
     # does need one, and asks for the softfp ABI's NEON rather than assuming a hard float target.
@@ -201,9 +250,8 @@ include(CheckCCompilerFlag)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)$" AND NOT MSVC)
     check_c_compiler_flag("-mavx512f -mavx512bw -mavx512vl" ANCHOR_CC_TAKES_AVX512)
     if(ANCHOR_CC_TAKES_AVX512)
-        add_library(anchor_exact_avx512 STATIC vectorized_win/exact_arm_avx512.c)
+        add_library(anchor_exact_avx512 STATIC no_rounding/arm_avx512.c)
         target_link_libraries(anchor_exact_avx512 PUBLIC anchor_exact_portable)
-        target_include_directories(anchor_exact_avx512 PUBLIC vectorized_win)
         target_compile_definitions(anchor_exact_avx512 PUBLIC ANCHOR_EXACT_HAVE_AVX512=1)
         target_compile_options(anchor_exact_avx512
             PRIVATE ${SIFT_WARNINGS} -mavx512f -mavx512bw -mavx512vl)
@@ -212,9 +260,8 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)$" AND NOT MSVC)
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
     check_c_compiler_flag("-march=armv8.2-a+sve" ANCHOR_CC_TAKES_SVE)
     if(ANCHOR_CC_TAKES_SVE)
-        add_library(anchor_exact_sve STATIC vectorized_rpi/exact_arm_sve.c)
+        add_library(anchor_exact_sve STATIC no_rounding/arm_sve.c)
         target_link_libraries(anchor_exact_sve PUBLIC anchor_exact_portable)
-        target_include_directories(anchor_exact_sve PUBLIC vectorized_rpi)
         target_compile_definitions(anchor_exact_sve PUBLIC ANCHOR_EXACT_HAVE_SVE=1)
         target_compile_options(anchor_exact_sve PRIVATE ${SIFT_WARNINGS} -march=armv8.2-a+sve)
         list(APPEND ANCHOR_EXTRA_ARMS anchor_exact_sve)
@@ -367,6 +414,13 @@ get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." A
 add_executable(test_arm_agreement "${ANCHOR_SIFT_ROOT}/test/engine/test_arm_agreement.c")
 target_link_libraries(test_arm_agreement PRIVATE anchor_sift_kernel)
 target_compile_options(test_arm_agreement PRIVATE ${SIFT_WARNINGS})
+
+# The O2 composition: a descent resuming from another descent's survivors, driven past one descent's
+# cap. Answers whether the resume path is correct, so it lives in test/ and carries its controls, a
+# planted target found past the cap, a flat field that refuses, an anytime superset and a cost report.
+add_executable(test_o2_spawn "${ANCHOR_SIFT_ROOT}/test/engine/test_o2_spawn.c")
+target_link_libraries(test_o2_spawn PRIVATE anchor_sift_kernel)
+target_compile_options(test_o2_spawn PRIVATE ${SIFT_WARNINGS})
 
 # Soundness where the claim actually lives. Its core takes a base list, a displacement list and a
 # callback answering whether two positions carry the same symbol, so it has no dimension parameter

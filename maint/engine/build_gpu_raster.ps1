@@ -22,7 +22,7 @@ $ErrorActionPreference = "Stop"
 
 $root = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $src = Join-Path $root "src\engine\c"
-$gpu = Join-Path $root "src\engine\gpu"
+$render = Join-Path $src "render"
 $out = Join-Path $root "build\engine_gpu"
 
 if (-not (Get-Command nvcc -ErrorAction SilentlyContinue))
@@ -69,29 +69,32 @@ New-Item -ItemType Directory -Force $out | Out-Null
 # ANCHOR_RASTER_HAVE_CUDA is what suppresses the stub arms in anchor_raster.c. Defined on this build
 # and undefined on the CMake one, so exactly one definition of each device symbol ever exists.
 $defines = "-DANCHOR_RASTER_HAVE_CUDA=1"
-$includes = "-I`"$src\portable`" -I`"$gpu`""
+$includes = "-I`"$src\portable`" -I`"$src\no_rounding`" -I`"$render`""
 
 # TWO STEPS, AND THE SPLIT IS FORCED RATHER THAN CHOSEN. The C sources use _Static_assert, which is
 # C11. Handing them to nvcc compiles them through the C++ front end, where that keyword does not
 # exist, and MSVC's default C mode does not carry it either. So the C files are compiled first by cl
 # at /std:c11, and nvcc compiles the device file and links the objects. Passing -x cu over the whole
-# set fails at exact_limbs.h:77 and passing them to nvcc by extension fails the same way.
-$portableInclude = "/I" + (Join-Path $src "portable")
+# set fails at exact_integer.h:77 and passing them to nvcc by extension fails the same way.
+$clIncludes = @(
+    "/I" + (Join-Path $src "portable"),
+    "/I" + (Join-Path $src "no_rounding"),
+    "/I" + $render
+)
 
 Push-Location $out
 try
 {
     Write-Host "[*] cl /std:c11 -> objects"
     $units = @(
-        (Join-Path $src "portable\anchor_raster.c"),
-        (Join-Path $src "portable\anchor_steer.c"),
-        (Join-Path $src "portable\exact_limbs.c"),
+        (Join-Path $render "anchor_raster.c"),
+        (Join-Path $src "no_rounding\exact_integer.c"),
         (Join-Path $src "portable\anchor_sift.c"),
         (Join-Path $src "bench\bench_raster.c")
     )
     foreach ($unit in $units)
     {
-        & cl /nologo /std:c11 /O2 /DANCHOR_RASTER_HAVE_CUDA=1 $portableInclude /c $unit | Out-Null
+        & cl /nologo /std:c11 /O2 /DANCHOR_RASTER_HAVE_CUDA=1 $clIncludes /c $unit | Out-Null
         if ($LASTEXITCODE -ne 0)
         {
             Write-Error "cl failed on $unit"
@@ -100,9 +103,9 @@ try
     }
 
     Write-Host "[*] nvcc -> bench_raster.exe"
-    & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + (Join-Path $src "portable")) `
-        (Join-Path $gpu "anchor_raster_cuda.cu") `
-        anchor_raster.obj anchor_steer.obj exact_limbs.obj anchor_sift.obj bench_raster.obj `
+    & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + $render) `
+        (Join-Path $render "raster_cuda.cu") `
+        anchor_raster.obj exact_integer.obj anchor_sift.obj bench_raster.obj `
         -o bench_raster.exe
     if ($LASTEXITCODE -ne 0)
     {
