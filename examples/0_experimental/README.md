@@ -3,7 +3,7 @@
 **Purpose:** Hold work that has no walk through a corpus yet, keeping it visible without being mistaken for a stage.
 **Scope:** `examples/0_experimental/`
 
-Nineteen readings. Six take a filter from another field and run it on this engine's terms. Thirteen carry
+Twenty. Six take a filter from another field and run it on this engine's terms. Thirteen carry
 the exact arithmetic behind the precision work: the number theoretic transform's precision constants, a
 translation recovered by it, the identity spread that multiplies precision across the constants, a
 redundant residue code that detects uncertainty on exact integers, a ladder of checks each catching what
@@ -11,7 +11,8 @@ the one below it misses, the last digit of pi at any floor, the transform's wave
 boundary, the zeta values at the even integers, the symmetry group of the zeta zeros, the
 Navier-Stokes equations on the unit torus with their sets run against the boundary function, the
 Navier-Stokes energy cascade and coefficient growth of one datum, the congruent number problem on
-Birch and Swinnerton-Dyer, and a descent bounding the rank of those curves. None reads a corpus, and none
+Birch and Swinnerton-Dyer, and a descent bounding the rank of those curves. One carries a payload machine
+to machine as a vector of exact magnitudes read like a Turing-machine tape. None reads a corpus, and none
 sits at a subject stage.
 
 | file | field | what it shows |
@@ -35,6 +36,7 @@ sits at a subject stage.
 | `exact_navier_stokes_cascade.py` | fluid dynamics | the same solution map made visible: a generic datum's energy front advancing one mode shell per order while the Arnold-Beltrami-Childress datum stays in one shell, the shell energies summing to the total by Parseval and agreeing across the velocity and vorticity routes, and the coefficient growth whose limit is the reciprocal of the analyticity time, an exact constant for ABC and a completeness horizon for the generic datum; claims nothing about any of Fefferman's four alternatives |
 | `exact_congruent_number.py` | number theory | the congruent number problem on Birch and Swinnerton-Dyer, in exact integers and rationals: Tunnell's theta count reproducing Fermat's non-congruent 1 unconditionally and refusing 3, the elliptic-curve group law over Q exact, and the n=5 witness where Fibonacci's triangle (3/2, 20/3, 41/6) and the infinite-order point on y^2=x^3-25x are one certificate; the analytic side (the L-value, period, regulator) left as the stated floor, and the Tunnell converse flagged as conditional on the conjecture; claims nothing about BSD |
 | `exact_descent_rank.py` | number theory | a descent by 2-isogeny on y^2=x^3-n^2x giving a sound rank upper bound in exact integers, with local solvability as a refute-only probe whose Hensel level is derived from the form and never picked; it reproduces the known ranks over rank 0 and rank 1, pins the rank where an explicit point's lower bound meets the bound, and at n=17 reaches the first part of the Tate-Shafarevich group, exhibiting the classes 2, 17, 34 as nontrivial Sha elements that are locally soluble everywhere yet come from no rational point (rank 0 unconditional by Tunnell); claims only a rank upper bound and the exact Sha it exhibits |
+| `magnitude_vector_transfer.py` | data transfer | a payload carried machine to machine as a vector of exact integer magnitudes read like a Turing-machine tape, where one small tape stands for an output too large to hold and any byte of it is reached without building it, dense where the payload repeats and at source size where it does not |
 
 The robust-estimation pair, `invariant_consensus_rejects_outliers.py` and `theil_sen_robust_trend.py`,
 share a floor and it is the same floor. A necessary condition cannot refuse a large enough accident:
