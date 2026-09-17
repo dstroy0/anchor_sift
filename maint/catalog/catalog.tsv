@@ -40,6 +40,7 @@ CEL-6-001	live	examples/cell_tracking/6_oracle/entropy_before_a_division.py
 CHM-1-001	live	examples/chemistry/1_represent/build_molecules.py
 CHM-3-001	live	examples/chemistry/3_reference/two_nulls_two_questions.py
 CHM-4-001	live	examples/chemistry/4_measure/a_histogram_cannot_see_structure.py
+CHM-4-002	live	examples/chemistry/4_measure/a_single_period_cannot_see_a_growing_one.py
 CHM-5-001	live	examples/chemistry/5_sift/valence_is_a_necessary_condition.py
 CRY-1-001	live	examples/crystallography/1_represent/a_cell_as_exact_points.py
 CRY-2-001	live	examples/crystallography/2_partition/what_a_grid_costs.py
@@ -73,6 +74,7 @@ GAM-5-001	live	examples/game_theory/5_sift/survivorship_changes_the_question.py
 GAM-6-001	live	examples/game_theory/6_oracle/against_published_values.py
 GAM-6-002	live	examples/game_theory/6_oracle/first_move_advantage.py
 GAM-6-003	live	examples/game_theory/6_oracle/kpk_value_of_move.py
+GAM-6-004	live	examples/game_theory/6_oracle/krk_both_sides.py
 LNG-1-001	live	examples/language/1_represent/akshara_web.py
 LNG-1-002	live	examples/language/1_represent/binary_web.py
 LNG-1-003	live	examples/language/1_represent/case_channel.py

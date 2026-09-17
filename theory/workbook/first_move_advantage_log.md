@@ -87,6 +87,23 @@ theorem for this class:
 The value of the move is positive, zero, or negative by position, and its sign is a table lookup, not
 a constant. The retrograde solve and the agreement with published theory are the two routes.
 
+## The exact predictor plays both sides, K+R vs K
+
+Reproduced by `examples/game_theory/6_oracle/krk_both_sides.py` (about half a minute; the position
+graph is folded by the eight board symmetries, valid because no pawn breaks them). The tablebase is
+extended with distance to mate and a move rule -- the winning side takes the move of least distance to
+mate, the losing side the most -- and the exact predictor then plays a whole game as both sides. K+R
+vs K is the class where this closes: a forced win, no promotion, and the game stays in the class until
+mate.
+
+- From the rook's side to move the value is a win at distance 23 plies, and the predictor plays it out
+  in exactly 23 plies to mate. From the bare king's side to move the value is a loss at 28 plies, and
+  it plays out in exactly 28. The played length equaling the solved distance is the check: the static
+  value and the played game are two routes to one number.
+- The repository holds no corpus of human games, so the real movesets are the predictor's own optimal
+  play from a real starting position, both sides driven by the exact predictor. A win for the rook's
+  side is the loss for the bare king, one decisive game read from both ends.
+
 ## Fleet cross-checks
 
 Every domain asked reported the same discipline for taming an unbounded set, and each added a caution
