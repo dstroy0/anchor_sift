@@ -196,6 +196,60 @@ Cayley-Bacharach theorem, equivalently Riemann-Roch on the genus-one curve; the 
 implementation realizes it on a sample and does not reprove it in general. What is never inherited is a
 statement about `L`, `R_inf`, or `Sha`, because no constructor here produces one.
 
+## The descent: a sound rank upper bound
+
+`examples/0_experimental/exact_descent_rank.py`, run and exit 0. This does the rank the earlier entry
+left open, as a bound and not a claim. A descent by 2-isogeny gives
+`rank E = dim Sel(alpha) + dim Sel(alpha') - 2`, where the Selmer group is the square classes `d` whose
+torsor `C_d : w^2 = d u^4 + f z^4` has a point over `R` and every `Q_p`. The image of the descent sits
+inside the Selmer group, and `dim Sel` over-approximates it, and the count is therefore a sound rank
+UPPER bound: it can never fall below the true rank. It is exact when the 2-part of `Sha` vanishes.
+
+Local solvability is a refute-only probe, the engine's one-directional discipline (confirmed with the
+anchor sift engine, who also corrected an earlier plan: there is no permutation null to draw for a rank
+bound). A class starts admitted and is dropped only on a certificate: a wrong sign over `R` (the exact
+condition `d > 0` or `f > 0`), or a `Q_p` obstruction. The `p`-adic decision is Hensel with the level
+DERIVED from the form, not picked: a solution modulo `p^k` whose Jacobian has valuation `j` lifts once
+`k >= 2j + 1`, and the absence of any lifting residue up to the level the form's own valuations force
+certifies insolubility. The recursion lifts residues digit by digit; branch death is the insolubility
+certificate, a lifting residue the solubility certificate, and across the whole validation the
+over-approximation fallback was never used, and the local decision was exact both ways. There is no
+judgment cap. An earlier bounded mod-`p^k` search was dropped for two reasons: it picked a cap, banned by
+the tree's no-bounding rule, and a too-small cap returned false insolubility, dropped soluble classes,
+and under-counted the rank, the unsafe direction.
+
+Measured. The bound is sound on every `n` in a table covering rank 0 and rank 1, and tight (equal to the
+known rank) on all but one. Two routes pin the rank exactly where they meet: the descent upper bound and
+an explicit rational point's lower bound, `rank >= 1` from a point of infinite order. For `n = 1, 3` the
+upper bound is 0 and there is no point, giving rank 0; for `n = 5, 6, 7` the upper bound is 1 and a
+point of infinite order gives 1, giving rank 1.
+
+The one gap is `n = 17`: the bound is 2 while the rank is 0. Because the over-approximation fallback was
+never used, that 2 is the true 2-isogeny Selmer bound, and the gap is the Tate-Shafarevich group, the
+known limit of a first descent. The validation covers rank 0 and rank 1; rank-2 congruent numbers are
+large and outside it.
+
+## Reaching the first part of Sha
+
+The `n = 17` gap is not left as a floor. It is reached: the descent exhibits the nontrivial elements of
+the Tate-Shafarevich group that cause it, exactly and unconditionally.
+
+The rank of `E_17` is 0 unconditionally, by Tunnell: `A(17) = 16` and `2 B(17) = 8` are unequal, hence 17
+is not a congruent number with no appeal to the conjecture, and `rank = 0`. With rank 0 the group `E(Q)`
+is its torsion, and the descent image is then the torsion image. For the map `alpha`, `E` has full
+2-torsion and `alpha` of it is `Sel(alpha) = {-17, -1, 1, 17}`, the whole Selmer group, giving
+`Sha[phi] = 0` there. For the dual map `alpha'`, the relation `dim im(alpha) + dim im(alpha') - 2 = rank = 0` with
+`dim im(alpha) = 2` forces `im(alpha') = {1}`, while `Sel(alpha') = {1, 2, 17, 34}` has dimension 2. The
+quotient is `Sha[phihat]`, of dimension 2, and its nontrivial classes are `2, 17, 34`.
+
+Each of `2, 17, 34` is a torsor the refute-only probe certifies locally soluble at every place, in the
+Selmer group, yet it comes from no rational point, because the rank is 0 and every rational point is
+accounted for by the torsion. Those are exhibited nontrivial elements of the Tate-Shafarevich group,
+exact and unconditional, and they are the exact obstruction that keeps the first descent from pinning the
+rank of `E_17`. Positive control: where the descent is tight, at `n = 5, 6, 7`, `bound - rank = 0`, and
+the 2-isogeny part of Sha is trivial. This claims only the exhibited Sha and the rank upper bound, and
+nothing about BSD.
+
 ## Prior art, named with respect
 
 Every object here belongs to the field. The problem statement and its sets are Andrew Wiles's for the
@@ -207,15 +261,22 @@ local bound is Hasse's. The continuation of the L-series is Hasse's conjecture, 
 by Wiles, Taylor-Wiles, and Breuil-Conrad-Diamond-Taylor. The rank results are Coates and Wiles's, Gross
 and Zagier's, and Kolyvagin's. The congruent-number criterion is J. Tunnell, "A classical Diophantine
 problem and modular forms of weight 3/2", Invent. Math. 72 (1983). Faltings proved Mordell's conjecture;
-Elkies used a point of infinite order against Euler's conjecture. Cited from Wiles's statement and from
-memory of the literature, unread here except that statement; the two files verify only the exact rational
-and integer quantities and rest on no unread result. This workbook adds no new mathematics.
+Elkies used a point of infinite order against Euler's conjecture. The descent by 2-isogeny, the Selmer
+and Tate-Shafarevich groups, and the torsor are classical, in Cassels and Tate and in the standard
+treatments of Silverman, "The Arithmetic of Elliptic Curves" (the congruent-number descent is worked in
+its section X.6), and Cremona, "Algorithms for Modular Elliptic Curves"; Hensel's lemma gives the
+lifting and the derived level. Cited from Wiles's statement and from memory of the literature, unread
+here except that statement; the files verify only the exact rational and integer quantities and rest on
+no unread result, and the derived Hensel level is validated against the reproduction of known ranks.
+This workbook adds no new mathematics.
 
 ## Open, not done
 
-- The rank `r` of a curve is exact once a Mordell-Weil basis is given, but finding the basis, and proving
-  a given set generates, is the hard part and is not attempted here. A descent, even a 2-descent, would
-  reach it for small curves and is a larger poke than this entry.
+- The rank descent is done as a sound upper bound (the section above), pinned to the exact rank where an
+  explicit point meets it, and at `n = 17` the gap is reached as exhibited Sha. What stays open is
+  computing Sha for a curve whose rank is not independently pinned: at `n = 17` the exhibition leans on
+  rank 0 from Tunnell, and a full 2-descent using both torsion points would give the Selmer group and
+  hence Sha without that input. Not attempted here.
 - The analytic side needs `L^{(r)}(E, 1)`, the real period and the regulator. The toolkit chapter's honest
   shape is established algorithms for the L-value, modular symbols or Dokchitser, with this engine
   supplying precision underneath, and the first task is to find whether that seam works at all. Not
