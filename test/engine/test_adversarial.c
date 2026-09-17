@@ -738,6 +738,23 @@ static int adversarial_case_growing_plan(void)
         }
     }
 
+    // The empty-needle boundary, which no other case reaches. An empty needle occurs at every
+    // alignment, so the reference is corpus_len + 1. anchor_steer_count_with_probes returned 0 here
+    // until its guard was split, disagreeing with anchor_sift_naive and anchor_steer_count in the
+    // same tree. The probes cannot be evaluated on a needle with no positions, so the empty probe set
+    // is the one to grade it with.
+    {
+        const size_t empty_reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, 0u);
+        const size_t empty_counted =
+            anchor_steer_count_with_probes(corpus, ADVERSARIAL_CORPUS, needle, 0u, NULL, 0u);
+        if (empty_counted != empty_reference)
+        {
+            printf("    FAIL empty needle counted %zu against reference %zu\n", empty_counted,
+                   empty_reference);
+            failed = 1;
+        }
+    }
+
     printf("  growing the plan over %zu occurrences, verdict %s\n", reference,
            (failed == 0) ? "ok" : "FAILS");
     free(corpus);
