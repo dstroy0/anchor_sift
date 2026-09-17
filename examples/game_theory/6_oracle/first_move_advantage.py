@@ -13,7 +13,7 @@
 # subject refuses exactly that, so the question is put as a magnitude instead.
 #
 # THE WINDICATOR. Each player carries one number, its winning-path mass: the probability that play
-# from this position reaches THAT player's win, an exact Fraction in [0, 1]. It closes to 1 as a win
+# from this position reaches THAT player's win, an exact rational in native integers, in [0, 1]. It closes to 1 as a win
 # becomes forced and rests at 0 when no winning path survives. A winning path bottoms out where the
 # opponent has no legal move (checkmate is verdict()==WIN/LOSS with no reply). The two windicators
 # are separate state, one per player, from PLAYER_ONE's and PLAYER_TWO's own side.
@@ -47,13 +47,73 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
-import fractions  # noqa: E402
-
 from representation.game import chess, rules  # noqa: E402
 
 GAME = chess.Chess()
 NO_RIGHTS = (False, False, False, False)
-HALF = fractions.Fraction(1, 2)
+
+
+# ---- exact rationals in native integers, with no fractions or math library ----
+# A windicator is a probability, a rational in [0, 1], carried as a reduced (numerator, denominator)
+# pair of native integers. The denominator is widened by hand; nothing is rounded.
+
+def _gcd(first, second):
+    first = first if first >= 0 else -first
+    second = second if second >= 0 else -second
+    while second:
+        first, second = second, first % second
+    return first
+
+
+def _reduce(numerator, denominator):
+    if denominator < 0:
+        numerator, denominator = -numerator, -denominator
+    divisor = _gcd(numerator, denominator) or 1
+    return (numerator // divisor, denominator // divisor)
+
+
+ZERO = (0, 1)
+ONE = (1, 1)
+
+
+def radd(left, right):
+    (left_num, left_den), (right_num, right_den) = left, right
+    return _reduce(left_num * right_den + right_num * left_den, left_den * right_den)
+
+
+def rsub(left, right):
+    (left_num, left_den), (right_num, right_den) = left, right
+    return _reduce(left_num * right_den - right_num * left_den, left_den * right_den)
+
+
+def rshare(rational, parts):
+    """A rational divided by a positive integer branching factor."""
+    numerator, denominator = rational
+    return _reduce(numerator, denominator * parts)
+
+
+def rshow(rational):
+    numerator, denominator = rational
+    return str(numerator) if denominator == 1 else "%d/%d" % (numerator, denominator)
+
+
+def rdecimal(rational, places=6):
+    """A decimal string built by integer division only, readable without a float."""
+    numerator, denominator = rational
+    sign = "-" if numerator < 0 else ""
+    numerator = abs(numerator)
+    whole = numerator // denominator
+    frac = (numerator % denominator) * (10 ** places) // denominator
+    return "%s%d.%0*d" % (sign, whole, places, frac)
+
+
+def _random_stream(seed):
+    """A seeded stream of native integers (a linear congruential generator, MMIX constants), so the
+    sampled route needs no library. The high bits are taken to avoid a bare LCG's low-bit bias."""
+    state = seed & ((1 << 64) - 1)
+    while True:
+        state = (state * 6364136223846793005 + 1442695040888963407) & ((1 << 64) - 1)
+        yield state >> 33
 
 
 # ---- tournament draw rules: the field's own finiteness, not an analyst's horizon ----
@@ -105,17 +165,17 @@ def windicator(state, target, depth, halfmove, history, weight):
     """
     verdict = tournament_verdict(state, halfmove, history)
     if verdict is not None:
-        return weight if verdict == target else fractions.Fraction(0)
+        return weight if verdict == target else ZERO
     if depth <= 0:
-        return fractions.Fraction(0)  # a horizon reached is not a win; mass here is not counted
+        return ZERO  # a horizon reached is not a win; mass here is not counted
     moves = GAME.moves(state)
-    share = weight / len(moves)
+    share = rshare(weight, len(moves))
     history[state] = history.get(state, 0) + 1
-    total = fractions.Fraction(0)
+    total = ZERO
     for move in moves:
         child = GAME.apply(state, move)
         nxt = 0 if is_pawn_or_capture(state, move) else halfmove + 1
-        total += windicator(child, target, depth - 1, nxt, history, share)
+        total = radd(total, windicator(child, target, depth - 1, nxt, history, share))
     if history[state] == 1:
         del history[state]
     else:
@@ -130,8 +190,7 @@ def sampled_windicator(state, target, depth, trials, seed):
     gap is sampling error and shrinks with the trial count. The seed is an input of the measurement
     and is reported with the result, so the number is reproducible.
     """
-    import random
-    generator = random.Random(seed)
+    stream = _random_stream(seed)
     wins = 0
     for _ in range(trials):
         current = state
@@ -147,11 +206,12 @@ def sampled_windicator(state, target, depth, trials, seed):
                 break
             if step == depth:
                 break  # horizon reached with no verdict: not a win, as the enumerator counts it
-            move = generator.choice(GAME.moves(current))
+            moves = GAME.moves(current)
+            move = moves[next(stream) % len(moves)]
             history[current] = history.get(current, 0) + 1
             halfmove = 0 if is_pawn_or_capture(current, move) else halfmove + 1
             current = GAME.apply(current, move)
-    return fractions.Fraction(wins, trials)
+    return _reduce(wins, trials)
 
 
 def per_move_paths(state, target, depth):
@@ -165,7 +225,7 @@ def per_move_paths(state, target, depth):
         child = GAME.apply(state, move)
         history = {state: 1}
         nxt = 0 if is_pawn_or_capture(state, move) else 1
-        mass = windicator(child, target, depth - 1, nxt, history, fractions.Fraction(1))
+        mass = windicator(child, target, depth - 1, nxt, history, ONE)
         rows.append((mass, move))
     return rows
 
@@ -187,21 +247,21 @@ REPEAT_CYCLE = ("a1b3", "g8f8", "b3a1", "f8g8")  # White knight out and back, Bl
 
 def show_windicators(title, layout, depth, trials=0, seed=0):
     state = chess.from_layout(layout, rights=NO_RIGHTS)
-    p1 = windicator(state, rules.WIN, depth, 0, {}, fractions.Fraction(1))
-    p2 = windicator(state, rules.LOSS, depth, 0, {}, fractions.Fraction(1))
+    p1 = windicator(state, rules.WIN, depth, 0, {}, ONE)
+    p2 = windicator(state, rules.LOSS, depth, 0, {}, ONE)
     print("")
     print("%s   (depth=%d plies)" % (title, depth))
     print("  windicator W(P1) = %-12s W(P2) = %-12s   signed W(P1)-W(P2) = %s"
-          % (str(p1), str(p2), str(p1 - p2)))
+          % (rshow(p1), rshow(p2), rshow(rsub(p1, p2))))
     if trials:
         sampled = sampled_windicator(state, rules.WIN, depth, trials, seed)
-        print("  two routes on W(P1): enumerated = %.6f, sampled = %.6f  (trials=%d seed=%d)"
-              % (float(p1), float(sampled), trials, seed))
+        print("  two routes on W(P1): enumerated = %s, sampled = %s, difference = %s  (trials=%d seed=%s)"
+              % (rdecimal(p1), rdecimal(sampled), rdecimal(rsub(p1, sampled)), trials, hex(seed)))
     rows = per_move_paths(state, rules.WIN, depth)
-    truthy = [move for mass, move in rows if mass > 0]
+    truthy = [move for mass, move in rows if mass[0] > 0]
     print("  P1 moves that keep a branch-to-win (truthy): %d of %d; the rest prune every one (falsy)"
           % (len(truthy), len(rows)))
-    forced = [chess.move_name(move) for mass, move in rows if mass == 1]
+    forced = [chess.move_name(move) for mass, move in rows if mass == ONE]
     if forced:
         print("  moves that force the win outright (mass = 1): %s" % ", ".join(forced))
 
