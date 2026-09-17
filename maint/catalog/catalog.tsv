@@ -66,6 +66,10 @@ EXP-x-012	live	examples/0_experimental/pi_has_no_last_digit.py
 EXP-x-013	live	examples/0_experimental/ntt_double_transform_inverts.py
 EXP-x-014	live	examples/0_experimental/exact_zeta_values.py
 EXP-x-015	live	examples/0_experimental/zeta_zero_symmetry.py
+EXP-x-016	live	examples/0_experimental/exact_navier_stokes_on_torus.py
+EXP-x-017	live	examples/0_experimental/exact_navier_stokes_cascade.py
+EXP-x-018	live	examples/0_experimental/exact_congruent_number.py
+EXP-x-019	live	examples/0_experimental/exact_descent_rank.py
 GAM-1-001	live	examples/game_theory/1_represent/four_games_one_protocol.py
 GAM-2-001	live	examples/game_theory/2_partition/what_the_branching_costs.py
 GAM-3-001	live	examples/game_theory/3_reference/what_random_play_reaches.py
