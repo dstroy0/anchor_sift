@@ -1,0 +1,75 @@
+\chapter{Accumulation and the periodic law}
+
+\textbf{The figures here are measured on the ideal filling and are deterministic.} The ideal filling
+is defined first, because every later claim is a claim about it and not about a measured atom.
+
+\section{The ideal filling}
+
+The ledger at
+\texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}representation/\allowbreak{}atom/\allowbreak{}element.py}
+builds an element's electrons in Madelung order, lowest principal plus azimuthal first, and Hund's
+rule inside a subshell, every magnetic orbital taking a spin-up electron before any takes spin-down.
+The order fills 1s through 7p, and its capacities run to 118 exactly, so it names every element from
+hydrogen to oganesson and no further.
+
+This is the necessary condition, the filling the periodic law would follow if nothing competed with
+it. Real atoms deviate: chromium, copper and others fill against the order, and those measured
+configurations belong to the oracle stage of the next chapter. The represent field carries the ideal,
+and it says so, so that no reader takes the ideal for a measurement.
+
+\section{Exclusion is an accumulation}
+
+Two fermions may not occupy one state. An electron added to an atom therefore cannot join the
+electrons already in the lowest state; it takes the next state the exclusion leaves open, and the one
+after that takes the next again. Electrons accumulate into successive states, and the stack of
+occupied states is the shell structure. Exclusion is not a bookkeeping rule laid over the atom. It is
+the reason the atom has structure at all.
+
+That accumulation is faithful here for a reason the first chapter gave. A reading that rounded two
+close states together would lose an electron from the stack and shorten a shell. The exact reading
+never does, because its discrimination is unbounded, and an accumulation of fermions stays an
+accumulation and never collapses. Exactness lets the engine hold the stack, and exclusion makes the
+stack tall.
+
+\section{The recurrence, against a drawn null}
+
+The differentiating electron of an element is the last one the order adds, and its group signature is
+its azimuthal type and its subshell's population with the principal number dropped. Dropping the
+principal number leaves sodium and lithium reading the same signature, and that recurrence down the
+table is the periodic law. It is measured by an equality match rate, how often a signature equals the
+one a fixed number of elements ahead, in
+\texttt{examples/\allowbreak{}particle\_physics/\allowbreak{}3\_reference/\allowbreak{}what\_exclusion\_builds.py}.
+
+A match rate means nothing without the rate a shuffle of the same signatures reaches, so two
+backgrounds are drawn, each deleting a property from the data. The first keeps the census and deletes
+the order: a uniform permutation of the same signatures, which fixes every count exactly. Its floor
+is the real floor, and the match rate at the row lengths falls to it, so the recurrence is in the
+order the shells fill and not in the counts. The second deletes the exclusion: every electron drops
+to 1s, an element becomes a count of electrons in one state, every signature is distinct, and the
+match rate and its floor are both zero. Without exclusion there is a ladder of counts and no table.
+The real accumulation is the positive control, and it is the only arm that carries the recurrence.
+
+\section{The row lengths, off the difference set}
+
+The recurrence does not sit at one lag. The match rate stands above its floor at 32, at 18 and at 8,
+and at their sums, because the rows of the table are 2, 8, 8, 18, 18, 32, 32 and not one length. A
+reader reporting a single period would be wrong for most of the table, the harmonic trap the
+periodicity primitive records from the other side. What is one number per row is the gap between
+shell closures, and
+\texttt{examples/\allowbreak{}particle\_physics/\allowbreak{}4\_measure/\allowbreak{}shell\_closures\_from\_the\_difference\_set.py}
+reads them off the signatures: a closure is a filled p subshell, with helium closing the first row.
+
+\begin{center}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+closure at $Z$ & 2 & 10 & 18 & 36 & 54 & 86 & 118 \\
+\midrule
+row length     &   & 8  & 8  & 18 & 18 & 32 & 32 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The closures are the noble gases, and the gaps between them are the row lengths, with no row
+told to the reader. This is the difference-set reading of the crystallography chapter moved to one
+dimension: a period is a difference between two things that agree, so the differences are the complete
+candidate set.

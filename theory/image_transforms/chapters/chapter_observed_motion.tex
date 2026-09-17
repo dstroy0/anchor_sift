@@ -1,0 +1,51 @@
+\chapter{Observed motion is two motions}
+
+\section{The sum a sequence records}
+
+Let an object sit at position $p(t)$ in some frame of reference fixed to the thing being watched,
+and let the view map that frame to image coordinates by a transform $T_t$. The image records
+$x(t) = T_t(p(t))$, and the displacement between two frames is
+\[
+x(t+1) - x(t) \;=\; \underbrace{T_{t+1}(p(t)) - T_t(p(t))}_{\text{the view moved}}
+\;+\; \underbrace{T_{t+1}(p(t+1)) - T_{t+1}(p(t))}_{\text{the object moved}} .
+\]
+Nothing about an image separates the two terms. A tracker that links an object to whatever lies
+nearest its last image position is linking along the sum, and where the first term is as large as
+the second it is following the view.
+
+Optical flow on a moving surface writes the same decomposition. Where the observed points lie on a
+surface that itself moves, the total velocity of a point moving along a level line of constant
+intensity is
+\[
+\hat{\mathbf{M}} \;=\; \hat{\mathbf{V}} + \hat{\mathbf{v}},
+\]
+where $\hat{\mathbf{V}}$ is the velocity of the surface and $\hat{\mathbf{v}}$ is the tangential
+velocity of the points relative to it. The flow is posed for $\hat{\mathbf{v}}$ alone, once the
+surface velocity is fixed by a choice of parametrization.
+
+\section{Plane plus parallax}
+
+For a camera moving through a three dimensional scene the stratification is published and precise.
+Register the images by the homography of one dominant plane. That single projective transform
+removes every effect of camera rotation, zoom and calibration without computing any of them
+explicitly. What remains has two sources only: parallax, which the camera's translation produces
+at points off the plane, and objects that moved on their own. The residual parallax field is
+epipolar, radial about the epipole, so a residual that is not radial about that point is independent
+motion.
+
+Irani and Anandan used this to stratify moving object detection from two dimensional scenes up to
+full three dimensional ones, and extended the recovery of planar parallax to many frames at once.
+Triggs related the plane plus parallax representation to the tensors of multiple view geometry.
+
+\section{The order transforms are removed in}
+
+The lesson carried through this book is an order. Remove the transform of the whole view first,
+because every object shares it. Then remove what a group of objects shares, a medium flowing or a
+surface turning under them. What is left is each object's own motion, and only that is what a
+tracker should link on. Each stage explains part of the residual of the stage before it, and each
+stage that is skipped leaves its motion inside every object's apparent step.
+
+Two consequences follow before any method is chosen. First, the view's motion is estimated from
+everything in the image, not from the objects being tracked, because everything in the image shares
+it. Second, a view that orbits its subject while the subject moves changes perspective as well as
+position, so a translation alone cannot be the whole first stage.

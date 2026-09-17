@@ -1,0 +1,62 @@
+\chapter{Rotation, scale and perspective}
+
+\section{Rotation and scale as translations}
+
+The magnitude of a Fourier transform does not change when the image translates, which is why it is
+called the Fourier-Mellin invariant. Resample that magnitude on a log-polar grid and the two
+remaining similarity parameters become translations: a rotation of the image is a translation
+along the angle axis, and a uniform scaling by a constant factor is a translation along the log
+radius axis. Phase correlation in log-polar space recovers rotation and scale, the image is corrected
+for both, and phase correlation in the original space then recovers the translation. Reddy and
+Chatterji give the FFT based technique; later work adds pseudo-polar transforms and robustness
+to noise. Log-polar resampling in the spatial domain also recovers large scale changes, at least
+four-fold, and arbitrary rotations as a preprocessing step.
+
+\section{Rotation in three dimensions}
+
+A turning specimen in a volume is a rotation in the group $SO(3)$, and the log-polar trick does not
+carry over because $SO(3)$ is not a product of circles. Two published routes do.
+
+\textbf{Through projections.} The projection-slice theorem states that the Fourier transform of a
+projection of a volume is a central slice of the volume's Fourier transform. Combined with phase
+correlation it estimates rotation parameters from projections, including perspective projections
+and in the presence of translational offsets, and it widens the capture range of iterative
+registration substantially: in one clinical evaluation initialised registration succeeded in 68.6
+percent of cases against 28.8 percent uninitialised.
+
+\textbf{Through spherical harmonics.} Makadia and Daniilidis estimate rotation directly from
+functions on the sphere, without correspondences. Spherical harmonic coefficients undergo a unitary
+map when the function is rotated. The correlation of two spherical functions is a function on
+$SO(3)$, and its $SO(3)$ Fourier transform is the pointwise product of the two functions' spherical
+harmonic coefficients. The rotation is the peak of that correlation, found by a direct search over a
+grid on $SO(3)$ whose resolution is set by the harmonic bandwidth. The same construction registers
+three dimensional point clouds.
+
+A space of spherical harmonics of degree $n$ has dimension $2n+1$, and its members are
+eigenfunctions of the Laplace-Beltrami operator with eigenvalue $n(n+1)$. Degree 1 is where a rigid
+turn of the whole sphere lives, which is why rotation is read off the lowest degrees and finer
+motion off higher ones.
+
+\section{Perspective}
+
+A homography is a projective transform. It maps points between two views exactly in two cases: a
+planar scene seen under arbitrary camera motion, and an arbitrary scene seen under pure camera
+rotation. It preserves collinearity and not parallelism, length or angle. With four point
+correspondences the direct linear transform solves for it as a linear system, and random sample
+consensus makes the estimate robust to wrong correspondences.
+
+Without correspondences the warp is estimated directly from intensities. Lucas and Kanade's
+alignment, reviewed in a unifying framework by Baker and Matthews, treats translation, affine and
+homography warps alike: it linearises the image around the current warp and updates the parameters
+by gradient descent. The inverse compositional form precomputes the expensive terms once, on the
+template, and is the efficient variant most extensions can use without losing that efficiency.
+
+\section{Rigid registration from point constellations}
+
+Where views differ by a large rotation, intensity based alignment loses its capture range and point
+based registration keeps it. One published method, built for multi-view volumetric microscopy,
+embeds fiducial points and matches their constellations with a local geometric descriptor invariant
+to translation and rotation, reaching an average displacement of about one pixel. Because it depends
+only on repeatable point detections it is more robust than intensity based registration and orders of
+magnitude faster, and the same software is used to stabilise three dimensional time series, not only
+to align views.

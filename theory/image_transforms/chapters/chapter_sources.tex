@@ -1,0 +1,88 @@
+\chapter{Sources}
+
+Each source is listed with the claims this book takes from it. Links are as retrieved in September
+2026.
+
+\section*{Observed motion and parallax}
+
+\textbf{M. Irani and P. Anandan}, direct recovery of planar parallax from multiple frames. Plane plus
+parallax, residual parallax as an epipolar field, stratified detection of independent motion.
+\url{https://www.wisdom.weizmann.ac.il/~irani/PAPERS/MultiFrameParallax.pdf}
+
+\textbf{B. Triggs}, Plane + Parallax, Tensors and Factorization, ECCV 2000. The relation of plane plus
+parallax to multiple view tensors.
+\url{https://lear.inrialpes.fr/people/triggs/pubs/Triggs-eccv00.pdf}
+
+\textbf{Moving objects detection with a moving camera: a comprehensive review}. Plane registration
+removes rotation, zoom and calibration; the residual is parallax or independent motion.
+\url{https://arxiv.org/pdf/2001.05238}
+
+\section*{Translation}
+
+\textbf{Phase correlation}, overview of the Fourier shift theorem method.
+\url{https://en.wikipedia.org/wiki/Phase_correlation}
+
+\textbf{H. Foroosh, J. Zerubia and M. Berthod}, Extension of phase correlation to subpixel
+registration. The Dirichlet kernel peak and its closed form sub-pixel reading.
+\url{https://www.cs.ucf.edu/~foroosh/subreg.pdf}
+
+\textbf{Phase correlation for N-dimensional data}, the rank one tensor motion model and its higher
+order singular value decomposition. \url{https://doi.org/10.1109/tip.2005.849327}
+
+\textbf{scikit-image}, cross-correlation registration with upsampled matrix multiplication DFT.
+\url{https://scikit-image.org/docs/0.12.x/auto_examples/transform/plot_register_translation.html}
+
+\textbf{Sample drift correction following 4D confocal time-lapse imaging}. Phase correlation
+registration of every time point.
+\url{https://pmc.ncbi.nlm.nih.gov/articles/PMC4166950/}
+
+\section*{Rotation, scale and perspective}
+
+\textbf{B. S. Reddy and B. N. Chatterji}, An FFT-based technique for translation, rotation and
+scale-invariant image registration. The Fourier-Mellin invariant and log-polar resampling.
+\url{http://www.liralab.it/teaching/SINA_10/slides-current/fourier-mellin-paper.pdf}
+
+\textbf{Fourier-Mellin registration of noisy images}.
+\url{https://doi.org/10.1109/tip.2005.854501}
+
+\textbf{I. M. J. van der Bom and colleagues}, Robust initialization of 2D-3D image registration using
+the projection-slice theorem and phase correlation, Medical Physics 2010.
+\url{https://pubmed.ncbi.nlm.nih.gov/20443510/}
+
+\textbf{A. Makadia and K. Daniilidis}, Rotation recovery from spherical images without
+correspondences, IEEE TPAMI 2006. Spherical harmonic coefficients under rotation, and correlation on
+$SO(3)$ as a product of coefficients. \url{https://doi.org/10.1109/tpami.2006.150}
+
+\textbf{A. Makadia, A. Patterson and K. Daniilidis}, Fully automatic registration of 3D point clouds.
+\url{https://www.cis.upenn.edu/~kostas/mypub.dir/makadia06cvpr.pdf}
+
+\textbf{S. Baker and I. Matthews}, Lucas-Kanade 20 years on: a unifying framework, IJCV 2004.
+Translation, affine and homography warps; the inverse compositional algorithm.
+\url{https://www.ri.cmu.edu/pub_files/pub3/baker_simon_2002_3/baker_simon_2002_3.pdf}
+
+\textbf{Direct linear transformation}, homography estimation from correspondences.
+\url{https://en.wikipedia.org/wiki/Direct_linear_transformation}
+
+\textbf{S. Preibisch, S. Saalfeld, J. Schindelin and P. Tomancak}, Software for bead-based registration
+of selective plane illumination microscopy data, Nature Methods 2010. Translation and rotation
+invariant constellation descriptors. \url{https://www.nature.com/articles/nmeth0610-418}
+
+\section*{Flow on a surface}
+
+\textbf{L. F. Lang and O. Scherzer}, Optical flow on evolving sphere-like surfaces, 2015. Radially
+parametrised surfaces, scalar harmonic surface fitting, tangential vector spherical harmonics, the
+generalised optical flow equation $\hat{\mathbf{M}} = \hat{\mathbf{V}} + \hat{\mathbf{v}}$.
+\url{https://arxiv.org/abs/1506.03358}
+
+\textbf{A rapid and well-conditioned algorithm for the Helmholtz-Hodge decomposition of vector fields
+on the sphere}. Vector spherical harmonics as the natural Helmholtz-Hodge basis.
+\url{https://arxiv.org/pdf/1809.04555}
+
+\section*{Exact transforms}
+
+\textbf{Exact convolutions by number-theoretic transforms}, DTIC report.
+\url{https://apps.dtic.mil/sti/trecms/pdf/ADA013395.pdf}
+
+\textbf{Number theoretic transforms and their applications in image processing}, error-free
+convolution and correlation over finite rings.
+\url{https://www.sciencedirect.com/science/chapter/bookseries/abs/pii/S1076567008702167}

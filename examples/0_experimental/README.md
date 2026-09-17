@@ -3,19 +3,21 @@
 **Purpose:** Hold work that has no walk through a corpus yet, so it is visible without being mistaken for a stage.
 **Scope:** `examples/0_experimental/`
 
-Fifteen readings. Six take a filter from another field and run it on this engine's terms. Nine carry
+Eighteen readings. Six take a filter from another field and run it on this engine's terms. Twelve carry
 the exact arithmetic behind the precision work: the number theoretic transform's precision constants, a
 translation recovered by it, the identity spread that multiplies precision across the constants, a
 redundant residue code that detects uncertainty on exact integers, a ladder of checks each catching what
 the one below it misses, the last digit of pi at any floor, the transform's wave inversion at its
-boundary, the zeta values at the even integers, and the symmetry group of the zeta zeros. None reads a
-corpus, so none sits at a subject stage.
+boundary, the zeta values at the even integers, the symmetry group of the zeta zeros, the
+Navier-Stokes equations on the unit torus with their sets run against the boundary function, the
+Navier-Stokes energy cascade and coefficient growth of one datum, and the congruent number problem on
+Birch and Swinnerton-Dyer. None reads a corpus, so none sits at a subject stage.
 
 | file | field | what it shows |
 |---|---|---|
 | `bloom_is_the_sift_theorem.py` | databases | a Bloom filter is the anchor cascade's theorem, with the same one-directional error |
 | `hamming_corrects_by_selecting.py` | coding theory | a parity syndrome corrects by selecting the codeword its necessary conditions leave standing |
-| `collaborative_filter.py` | recommender systems | a missing entry predicted from the neighbourhood that shares its known values |
+| `collaborative_filter.py` | recommender systems | a missing entry predicted from the neighborhood that shares its known values |
 | `morphology_opening_and_closing.py` | image morphology | erosion and dilation rejecting a speckle by rank, with no threshold |
 | `invariant_consensus_rejects_outliers.py` | robust estimation | the inliers are mutually compatible, so they are a clique, and rejecting outliers is finding it |
 | `theil_sen_robust_trend.py` | robust statistics | a median over pairwise slopes recovers the trend exactly where least squares is dragged off it |
@@ -28,11 +30,14 @@ corpus, so none sits at a subject stage.
 | `ntt_double_transform_inverts.py` | signal processing | the transform applied twice reflects the sequence exactly, a wave inversion (the DFT's order-four structure over a finite field), and its cyclic length is the format boundary |
 | `exact_zeta_values.py` | analytic number theory | the Riemann zeta function at the even integers, exact from the Bernoulli numbers, cross-checked by Euler's pi-free convolution identity, touching the values and never the zeros |
 | `zeta_zero_symmetry.py` | analytic number theory | the Klein four-group symmetry of the zeta zeros verified exactly on Gaussian rationals, with the critical line as its fixed set; records structure, computes no zero, claims nothing about the hypothesis |
+| `exact_navier_stokes_on_torus.py` | fluid dynamics | the Navier-Stokes equations on the unit torus in the engine's exact integer arithmetic, Gaussian integers times powers of pi over one integer denominator per field: the Arnold-Beltrami-Childress solution reproduced by a velocity route and a vorticity route to the integer, a generic datum's Taylor coefficients outrunning any fixed mode horizon, the viscosity moved by an exact scaling, the two removals shown on instances, and the countable island of nameable fields in the data class; claims nothing about any of Fefferman's four alternatives |
+| `exact_navier_stokes_cascade.py` | fluid dynamics | the same solution map made visible: a generic datum's energy front advancing one mode shell per order while the Arnold-Beltrami-Childress datum stays in one shell, the shell energies summing to the total by Parseval and agreeing across the velocity and vorticity routes, and the coefficient growth whose limit is the reciprocal of the analyticity time, an exact constant for ABC and a completeness horizon for the generic datum; claims nothing about any of Fefferman's four alternatives |
+| `exact_congruent_number.py` | number theory | the congruent number problem on Birch and Swinnerton-Dyer, in exact integers and rationals: Tunnell's theta count reproducing Fermat's non-congruent 1 unconditionally and refusing 3, the elliptic-curve group law over Q exact, and the n=5 witness where Fibonacci's triangle (3/2, 20/3, 41/6) and the infinite-order point on y^2=x^3-25x are one certificate; the analytic side (the L-value, period, regulator) left as the stated floor, and the Tunnell converse flagged as conditional on the conjecture; claims nothing about BSD |
 
 The robust-estimation pair, `invariant_consensus_rejects_outliers.py` and `theil_sen_robust_trend.py`,
 share a floor and it is the same floor. A necessary condition cannot refuse a large enough accident:
 outliers that conspire into a consistent set bigger than the truth take the clique, and a conspiracy
-whose pairs outnumber the clean ones takes the median. Both files sweep that floor rather than quoting
+whose pairs outnumber the clean ones takes the median. Both files sweep that floor in place of quoting
 it, and both also sweep the benign case where the outliers merely scatter, because a method with two
 ways to fail has two floors and one figure is the wrong shape for that.
 

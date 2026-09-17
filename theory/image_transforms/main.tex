@@ -6,7 +6,7 @@
 % \documentclass because this file supplies one and then reads it.
 %
 % Compile from this directory so the shared inputs resolve:
-%     latexmk -pdf -outdir=../../build/theory/workbook main.tex
+%     latexmk -pdf -outdir=../../build/theory/image_transforms main.tex
 \documentclass[11pt,paper=a4,twoside,openright,titlepage,
 headinclude,footinclude,BCOR=5mm]{scrbook}
 
@@ -26,13 +26,16 @@ headinclude,footinclude,BCOR=5mm]{scrbook}
 \include{frontmatter/titlepage}
 \input{dedication.tex}
 \include{frontmatter/abstract}
-\include{frontmatter/provenance}
 
 \tableofcontents
 
 \mainmatter
 \pagestyle{scrheadings}
 
-\include{chapters/chapter_anchor_sift_workbook}
-\include{chapters/chapter_particle_physics}
+\include{chapters/chapter_observed_motion}
+\include{chapters/chapter_translation}
+\include{chapters/chapter_rotation_scale_perspective}
+\include{chapters/chapter_waves_on_a_surface}
+\include{chapters/chapter_exact_arithmetic}
+\include{chapters/chapter_sources}
 \end{document}

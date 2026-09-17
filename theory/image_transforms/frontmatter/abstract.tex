@@ -1,0 +1,24 @@
+\pdfbookmark[1]{Abstract}{Abstract}
+\chapter*{Abstract}
+
+\textbf{The subject is the transform between two views of the same thing.} An object tracked through
+a sequence of images, in any number of dimensions, is seen through a view that itself moves. What
+the images record is the object's motion and the view's motion added together, and a tracker that
+reads the sum as the object's motion follows the view instead of the object. This book collects the
+published ways a view's motion is recovered from the images alone, in the order of the transforms
+they recover: translation, rotation and scale, perspective, and flow over a curved surface that the
+tracked objects travel on.
+
+\textbf{What is quoted and what is new.} Every method in the first four chapters is published and
+cited in the last, and is described here as its authors state it. Every one of them is computed in
+floating point: a fast Fourier transform, a least squares fit, an iterative solver stopped at a
+tolerance. The fifth chapter is the design this work adds, which carries the same transforms in
+exact arithmetic: integer fields, number theoretic transforms whose counts never reach their
+modulus, and rational rotations. Nothing in the fifth chapter has been measured here. It states what
+exactness is predicted to change, so the predictions are on the page before any result is.
+
+\textbf{Why the order matters.} A transform recovered first is removed before the next is looked
+for, and each removal leaves a residual that the next transform explains. Plane plus parallax states
+this for camera motion: register the dominant plane, and what remains is parallax plus the motion of
+whatever moved on its own. The same stratification holds for any subject that drifts, turns and
+deforms in front of a view that moves too, and it is the organising idea of the book.
