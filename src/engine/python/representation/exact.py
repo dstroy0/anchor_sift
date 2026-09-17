@@ -4,7 +4,8 @@
 #
 # Ingestion that keeps every digit the source wrote, for any domain.
 #
-#   Usage:  from representation.exact import units, scaled, product, placed, contested, along
+#   Usage:  from representation.exact import units, scaled, measured, product, placed, contested,
+#                                              along
 #
 # Every reader in this part turns a file into points carrying values, and until now each one bounded
 # the values on the way in. levels.py holds a protein's angstroms and a shaped field's floating point
@@ -86,41 +87,91 @@ class WillNotFit(ValueError):
     """
 
 
+# The four whitespace bytes decimal text may be padded with, and the ten digits it may carry. ASCII
+# only, matching exact_integer.c. str.strip() and str.isdigit() also take Unicode whitespace and
+# digits, and those made this side accept text the C refused.
+PADDING = " \t\r\n"
+DIGITS = "0123456789"
+
+
+def _layout(text):
+    """Decimal text split into its parts, or ValueError where it breaks the grammar.
+
+    Returns (sign, whole, fraction, uncertainty) as strings of ASCII digits, with uncertainty None
+    where the text carries no bracket. exact_integer.h documents this grammar on
+    anchor_exact_from_decimal: padding, an optional sign, digits with at most one point where either
+    side may be empty but not both, an optional (digits), padding, and the end of the text.
+
+    The whole text is checked before any number is built. The C arm checks it the same way, so both
+    refuse malformed text as not decimal before either refuses a value as too wide.
+
+    An earlier version cut the bracket out and joined the text on either side of it, which read
+    "1.2(3)4" as 1.24 while the C read 1.2, and it accepted "1.23(" with no closing bracket.
+    """
+    body = str(text)
+    at = 0
+    end = len(body)
+    while at < end and body[at] in PADDING:
+        at += 1
+
+    sign = 1
+    if at < end and body[at] in "+-":
+        sign = -1 if body[at] == "-" else 1
+        at += 1
+
+    start = at
+    while at < end and body[at] in DIGITS:
+        at += 1
+    whole = body[start:at]
+
+    fraction = ""
+    if at < end and body[at] == ".":
+        at += 1
+        start = at
+        while at < end and body[at] in DIGITS:
+            at += 1
+        fraction = body[start:at]
+
+    if not whole and not fraction:
+        raise ValueError("%r is not plain decimal text" % text)
+
+    uncertainty = None
+    if at < end and body[at] == "(":
+        at += 1
+        start = at
+        while at < end and body[at] in DIGITS:
+            at += 1
+        if at == start or at >= end or body[at] != ")":
+            raise ValueError("%r is not plain decimal text" % text)
+        uncertainty = body[start:at]
+        at += 1
+
+    while at < end and body[at] in PADDING:
+        at += 1
+    if at != end:
+        raise ValueError("%r is not plain decimal text" % text)
+    return sign, whole, fraction, uncertainty
+
+
 def units(text):
     """Decimal text as (numerator, decimal places). The pair holds the number with nothing lost.
 
-    A bracketed uncertainty is not part of the number and is dropped. Raises ValueError on anything
-    that is not plain decimal text, exponent notation included, since silently accepting one would
-    put a rounding back in the path this exists to keep clear.
+    A bracketed uncertainty is not part of the number and is dropped; `measured` keeps it. Raises
+    ValueError on anything that is not plain decimal text in the grammar `_layout` documents,
+    exponent notation included, since silently accepting one would put a rounding back in the path
+    this exists to keep clear.
     """
-    body = str(text).strip()
-    opened = body.find("(")
-    if opened >= 0:
-        body = body[:opened] + body[body.find(")") + 1:] if ")" in body else body[:opened]
-    body = body.strip()
-
-    sign = 1
-    if body[:1] in ("+", "-"):
-        sign = -1 if body[0] == "-" else 1
-        body = body[1:]
-
-    whole, point, part = body.partition(".")
-    if (not whole.isdigit()) and whole:
-        raise ValueError("%r is not plain decimal text" % text)
-    if part and (not part.isdigit()):
-        raise ValueError("%r is not plain decimal text" % text)
+    sign, whole, fraction, _uncertainty = _layout(text)
 
     # Trailing zeros in the fraction are dropped before the places are counted. 1.2300 and 1.23 are
     # the same number, and a scale of two places holds both of them exactly. Counting the zeros as
     # places made the first refuse at a scale the second passed, which is a refusal to represent a
     # value that needed no rounding at all. A cross check against a second implementation is what
-    # surfaced it.
-    part = part.rstrip("0")
-
-    digits = whole + part
-    if (not digits) or (not digits.isdigit()):
-        raise ValueError("%r is not plain decimal text" % text)
-    return sign * int(digits), len(part)
+    # surfaced it. ".000" is zero at no places. Dropping all three zeros once left no digit behind,
+    # and the text was refused as not decimal. Measured 2026-09-16 over 8885 cached COD deposits,
+    # that skipped 149 atom sites in 59 of them.
+    fraction = fraction.rstrip("0")
+    return sign * int((whole + fraction) or "0"), len(fraction)
 
 
 def at_scale(numerator, places, digits=SCALE_DIGITS):
@@ -135,9 +186,36 @@ def at_scale(numerator, places, digits=SCALE_DIGITS):
 
 
 def scaled(text, digits=SCALE_DIGITS):
-    """Decimal text straight to an exact integer at `digits` decimal places."""
+    """Decimal text straight to an exact integer at `digits` decimal places.
+
+    The result equals the value of the text. Text with fewer places than `digits` is padded with
+    zeros, which is exact for the text and is not the digits of a longer number the text was cut
+    from. A constant printed to 1000 places and read at 1024 carries 24 zero places.
+    """
     numerator, places = units(text)
     return at_scale(numerator, places, digits)
+
+
+def measured(text, digits=SCALE_DIGITS):
+    """Decimal text as (value, uncertainty), both exact integers at `digits` decimal places.
+
+    `uncertainty` is None where the text carries no bracket. The bracketed digits count units of the
+    last place PRINTED in the value, trailing zeros included. "1.2300(5)" is 1.23 with an
+    uncertainty of 0.0005, and "137(2)" is 137 with an uncertainty of 2. Raises ValueError on text
+    `units` refuses, and WillNotFit where the value or the uncertainty needs more places than
+    `digits`.
+
+    A measured constant keeps its uncertainty through here. The CODATA 2022 fine-structure constant
+    is 7.2973525643e-3 with a standard uncertainty of 0.0000000011e-3. `scaled` would hold it at
+    1024 places with no record that 11 of them are measured. anchor_exact_from_measured is the C arm
+    of this function and returns the same pair.
+    """
+    sign, whole, fraction, uncertainty = _layout(text)
+    trimmed = fraction.rstrip("0")
+    value = at_scale(sign * int((whole + trimmed) or "0"), len(trimmed), digits)
+    if uncertainty is None:
+        return value, None
+    return value, at_scale(int(uncertainty), len(fraction), digits)
 
 
 def product(left, right):

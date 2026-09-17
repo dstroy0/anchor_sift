@@ -5,7 +5,7 @@
  * negotiated commercial licensing contract or an educator's license issued to you personally.
  */
 /**
- * @file exact_limbs.h
+ * @file exact_integer.h
  * @brief An exact integer held as a fixed width array of limbs, and the operations a measure needs.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-09
@@ -24,6 +24,10 @@
  *       arm.
  * @note The reference implementation is portable C11. Every vectorized arm is checked against it
  *       and is wrong where it disagrees, whatever it measures.
+ * @note There is no division. A product of two values at a scale of 10^d sits at 10^2d and needs a
+ *       division to return to 10^d, and its intermediate needs twice the width. A constant derived
+ *       by division, such as h over 2 pi, is computed in arbitrary precision outside this type and
+ *       read in as finished decimal text. The multiply refuses a product that overruns the width.
  */
 #ifndef ANCHOR_EXACT_LIMBS_H
 #define ANCHOR_EXACT_LIMBS_H
@@ -54,6 +58,10 @@ extern "C" {
  *
  * @note A declared floor and never the capacity. 108 limbs is 3456 bits, which actually holds 1040
  *       decimal digits, so 16 of them are headroom this constant does not promise.
+ * @note The floor counts every digit of the stored integer, the integer part of the value included.
+ *       A value carried at d decimal places is stored as value times 10^d. At d = 1024 the width
+ *       holds a magnitude below 2^3456 / 10^1024, about 2.289e16, and refuses anything larger. The
+ *       CODATA 2022 kilogram-hertz relationship, 1.35639248965e50, needs 3569 bits at 1024 places.
  * @warning Never size a buffer from this. A width computed from digits is short the moment anybody
  *          raises the floor toward the real capacity, and a device allocation sized that way would
  *          be short by exactly the amount nobody was watching. Size from ANCHOR_EXACT_LIMBS or from
@@ -150,6 +158,7 @@ int anchor_exact_compare(const AnchorExactInteger *left, const AnchorExactIntege
  * @param[in]  right  Second addend [BORROWS].
  * @param[out] result Sum [BORROWS]. May alias either input.
  * @return            ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT where the sum needs more limbs.
+ * @note On a refusal `result` is left unchanged.
  */
 AnchorExactStatus anchor_exact_add(const AnchorExactInteger *left, const AnchorExactInteger *right,
                                    AnchorExactInteger *result);
@@ -163,6 +172,7 @@ AnchorExactStatus anchor_exact_add(const AnchorExactInteger *left, const AnchorE
  * @return            ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT where the result needs more
  *                    limbs.
  * @note The difference set a period is read from is built entirely out of this call.
+ * @note On a refusal `result` is left unchanged.
  */
 AnchorExactStatus anchor_exact_subtract(const AnchorExactInteger *left,
                                         const AnchorExactInteger *right,
@@ -178,6 +188,7 @@ AnchorExactStatus anchor_exact_subtract(const AnchorExactInteger *left,
  *                    limbs than the width holds.
  * @note Schoolbook, the right choice at this width. Karatsuba crosses over in the
  *       thousands of limbs and this is a hundred, so the recursion would cost more than it saves.
+ * @note On a refusal `result` is left unchanged.
  * @warning A product overruns the fixed width far sooner than a sum does. Ingesting a coordinate
  *          multiplies a fraction by a cell edge exactly once for that reason.
  */
@@ -191,6 +202,8 @@ AnchorExactStatus anchor_exact_multiply(const AnchorExactInteger *left,
  * @param[in,out] value Integer to scale [BORROWS].
  * @param[in]     power How many powers of ten to apply.
  * @return              ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT.
+ * @note On a refusal `value` is left unchanged. An earlier version wrote the low limbs of an
+ *       overrun product into `value` before refusing, which left a wrapped magnitude behind.
  */
 AnchorExactStatus anchor_exact_scale_by_ten(AnchorExactInteger *value, uint32_t power);
 
@@ -205,12 +218,56 @@ AnchorExactStatus anchor_exact_scale_by_ten(AnchorExactInteger *value, uint32_t 
  * @return            ANCHOR_EXACT_OK, ANCHOR_EXACT_NOT_DECIMAL where the text is not plain decimal,
  *                    or ANCHOR_EXACT_WILL_NOT_FIT where the value carries more decimal places than
  *                    `digits` holds or needs more limbs than the width holds.
+ * @note The accepted text is, in order: any spaces, tabs, carriage returns or line feeds; an
+ *       optional + or -; one or more ASCII digits with at most one decimal point among them, where
+ *       either side of the point may be empty but not both; an optional uncertainty of one or more
+ *       ASCII digits between ( and ); any spaces, tabs, carriage returns or line feeds; the end of
+ *       the text. Anything else is ANCHOR_EXACT_NOT_DECIMAL, and that is decided before any
+ *       ANCHOR_EXACT_WILL_NOT_FIT. representation.exact.units accepts exactly the same text.
+ * @note Trailing zeros after the point are not counted as places. ".000" reads as zero and
+ *       "1.2300" reads at two places.
+ * @note The uncertainty is dropped and the call still returns ANCHOR_EXACT_OK. A reading of
+ *       deposited coordinates wants only the value. anchor_exact_from_measured returns both.
+ * @note The result equals the value of the text. Text carrying fewer places than `digits` is
+ *       padded with zeros, which is exact for the text. Where the text is a truncated expansion of
+ *       a longer number, such as a constant printed to 1000 places and read at 1024, the padded
+ *       places are zeros and not the digits of that number. Supply text carrying at least `digits`
+ *       places for such a number.
  * @note Refusing a value with too many places is the same refusal representation.exact makes, and
  *       for the same reason: a scale that rounds is a quantum this end imposed, and it has to be an
  *       error and never a quiet loss.
+ * @note On a refusal `value` is left unchanged.
  */
 AnchorExactStatus anchor_exact_from_decimal(const char *text, size_t length, uint32_t digits,
                                             AnchorExactInteger *value);
+
+/**
+ * @brief Reads decimal text into an exact value and an exact uncertainty, both at one scale.
+ *
+ * @param[in]  text        Decimal text in the grammar anchor_exact_from_decimal accepts [BORROWS].
+ * @param[in]  length      How many bytes of text.
+ * @param[in]  digits      Decimal places to carry both results at.
+ * @param[out] value       Where the value is written [BORROWS].
+ * @param[out] uncertainty Where the uncertainty is written, as a non-negative integer [BORROWS].
+ * @param[out] carried     Set to 1 where the text carried a bracketed uncertainty and 0 where it
+ *                         carried none [BORROWS].
+ * @return                 ANCHOR_EXACT_OK, ANCHOR_EXACT_NOT_DECIMAL, or ANCHOR_EXACT_WILL_NOT_FIT
+ *                         where the value or the uncertainty needs more places than `digits` or
+ *                         more limbs than the width holds.
+ * @note Exists for measured constants. The CODATA 2022 fine-structure constant is published as
+ *       7.2973525643e-3 with a standard uncertainty of 0.0000000011e-3. Read at 1024 places without
+ *       that uncertainty, the stored integer has 1024 places and no record that 11 are measured.
+ * @note The bracketed digits count units of the last place PRINTED in the value, trailing zeros
+ *       included. "1.2300(5)" is 1.23 with an uncertainty of 0.0005, and "137(2)" is 137 with an
+ *       uncertainty of 2. That place count can exceed the value's own after its trailing zeros are
+ *       dropped, so the uncertainty can refuse at a scale the value fits.
+ * @note A text with no bracket returns a zero uncertainty with `carried` at 0. A text of "(0)"
+ *       returns a zero uncertainty with `carried` at 1, a value stated as exact by its source.
+ * @note On a refusal `value`, `uncertainty` and `carried` are left unchanged.
+ */
+AnchorExactStatus anchor_exact_from_measured(const char *text, size_t length, uint32_t digits,
+                                             AnchorExactInteger *value,
+                                             AnchorExactInteger *uncertainty, int *carried);
 
 /**
  * @brief A 64 bit hash of an exact value, for keying a lookup by position.
@@ -225,18 +282,20 @@ AnchorExactStatus anchor_exact_from_decimal(const char *text, size_t length, uin
 uint64_t anchor_exact_hash(const AnchorExactInteger *value);
 
 /**
- * @brief Counts places whose value equals the value one lag away, over a sorted run of positions.
+ * @brief Counts positions whose value equals the value one lag away.
  *
- * @param[in] positions Positions, ascending, each carrying an index into `values` [BORROWS].
+ * @param[in] positions Positions, in any order, each carrying an index into `values` [BORROWS].
  * @param[in] values    The value standing at each position [BORROWS].
  * @param[in] count     How many positions.
  * @param[in] lag       The offset to test, as an exact integer [BORROWS].
- * @return              How many positions have a position exactly `lag` above them carrying an
- *                      equal value.
- * @note This is the measure itself, and the reason every arm below exists. The portable form walks
- *       the run with a binary search per position. A vectorized form compares many limbs at once
- *       and a GPU form compares many positions at once, and all three return the same count or one
- *       of them has a defect.
+ * @return              How many distinct positions have a position exactly `lag` above them
+ *                      carrying an equal value.
+ * @note This is the measure itself, and the reason every arm below exists. The portable form keys
+ *       a table on the hash. A vectorized form compares many limbs at once and a GPU form compares
+ *       many positions at once, and all three return the same count or one of them has a defect.
+ * @note A position listed more than once keeps the value of its last entry and is counted once.
+ *       representation.exact.placed builds its lookup the same way, and the two arms return one
+ *       count on the same list.
  */
 size_t anchor_exact_agreement(const AnchorExactInteger *positions, const uint64_t *values,
                               size_t count, const AnchorExactInteger *lag);
@@ -245,15 +304,17 @@ size_t anchor_exact_agreement(const AnchorExactInteger *positions, const uint64_
  * @brief The same count, with the equality test supplied by the caller.
  *
  * @param[in] equal     Whether two integers hold the same value [BORROWS].
- * @param[in] positions Positions carrying values [BORROWS].
+ * @param[in] positions Positions carrying values, in any order [BORROWS].
  * @param[in] values    The value standing at each position [BORROWS].
  * @param[in] count     How many positions.
  * @param[in] lag       The offset to test [BORROWS].
- * @return              How many positions agree with the place one lag above them.
+ * @return              How many distinct positions agree with the place one lag above them.
  * @note Every arm runs this one function and supplies only its own equality test. An arm that
  *       carried its own search would be a different algorithm, and timing it against the portable
  *       arm would measure the algorithm instead of the instruction set. The AVX2 arm did carry its
  *       own, and its advantage read 3.44x against an ordered search and 1.75x against this one.
+ * @note A repeated position is handled as anchor_exact_agreement documents. Where the table cannot
+ *       be allocated, a quadratic scan answers with the same count and needs no ordering.
  */
 size_t anchor_exact_agreement_using(int (*equal)(const AnchorExactInteger *left,
                                                  const AnchorExactInteger *right),

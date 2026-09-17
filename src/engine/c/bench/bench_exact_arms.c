@@ -19,6 +19,9 @@
  * @note The run is planted. Positions step by a known amount and values cycle on a known period, so
  *       what the agreement should be is arithmetic and not a measurement. An arm that agrees with
  *       portable while both are wrong is still caught.
+ * @note Every arm is asked a second time over the same run with a repeated position at every eighth
+ *       entry. The portable count on repeated positions is checked against python by
+ *       maint/engine/check_exact_limbs.py, and this grades every other arm against portable there.
  */
 
 #include "arm.h"
@@ -105,6 +108,63 @@ static double sweep(const AnchorExactArm *arm, const AnchorExactInteger *positio
     return (double)(clock() - started) / (double)CLOCKS_PER_SEC;
 }
 
+/**
+ * @brief Asks every arm the same lags as portable and prints one verdict row per arm.
+ *
+ * @param[in]  arms             The arms beyond portable [BORROWS].
+ * @param[in]  count            How many arms.
+ * @param[in]  positions        Positions, ascending [BORROWS].
+ * @param[in]  values           The value standing at each position [BORROWS].
+ * @param[in]  lags             The lags to ask [BORROWS].
+ * @param[in]  reference        What portable answered at each lag [BORROWS].
+ * @param[out] held             Scratch for each arm's answers [BORROWS].
+ * @param[in]  places           How many positions.
+ * @param[in]  portable_seconds Seconds the portable sweep took, for the ratio.
+ * @param[in]  portable_name    Name to print in the against column [BORROWS].
+ * @return                      1 where any arm disagreed with portable at any lag, 0 otherwise.
+ */
+static int grade_arms(const AnchorExactArm *const *arms, unsigned int count,
+                      const AnchorExactInteger *positions, const uint64_t *values,
+                      const AnchorExactInteger *lags, const size_t *reference, size_t *held,
+                      unsigned int places, double portable_seconds, const char *portable_name)
+{
+    int wrong = 0;
+    for (unsigned int which = 0u; which < count; which++)
+    {
+        const AnchorExactArm *arm = arms[which];
+        const double seconds = sweep(arm, positions, values, lags, held, places);
+
+        unsigned int differs = 0u;
+        for (unsigned int at = 0u; at < LAGS; at++)
+        {
+            if (held[at] != reference[at])
+            {
+                differs++;
+            }
+        }
+        if (differs != 0u)
+        {
+            wrong = 1;
+        }
+
+        char verdict[96];
+        if (differs != 0u)
+        {
+            (void)snprintf(verdict, sizeof(verdict), "DISAGREES on %u of %u lags", differs, LAGS);
+        }
+        else if (seconds > 0.0)
+        {
+            (void)snprintf(verdict, sizeof(verdict), "agrees, %.2fx", portable_seconds / seconds);
+        }
+        else
+        {
+            (void)snprintf(verdict, sizeof(verdict), "agrees, too fast to time");
+        }
+        printf("  %-14s %-10.3f %-12s %s\n", arm->name, seconds, portable_name, verdict);
+    }
+    return wrong;
+}
+
 int main(int argc, char **argv)
 {
     static AnchorExactInteger positions[RUN_PLACES];
@@ -173,40 +233,8 @@ int main(int argc, char **argv)
     if (arms[count] != NULL) { count++; }
 #endif
 
-    int wrong = 0;
-    for (unsigned int which = 0u; which < count; which++)
-    {
-        const AnchorExactArm *arm = arms[which];
-        const double seconds = sweep(arm, positions, values, lags, held, places);
-
-        unsigned int differs = 0u;
-        for (unsigned int at = 0u; at < LAGS; at++)
-        {
-            if (held[at] != reference[at])
-            {
-                differs++;
-            }
-        }
-        if (differs != 0u)
-        {
-            wrong = 1;
-        }
-
-        char verdict[96];
-        if (differs != 0u)
-        {
-            (void)snprintf(verdict, sizeof(verdict), "DISAGREES on %u of %u lags", differs, LAGS);
-        }
-        else if (seconds > 0.0)
-        {
-            (void)snprintf(verdict, sizeof(verdict), "agrees, %.2fx", portable_seconds / seconds);
-        }
-        else
-        {
-            (void)snprintf(verdict, sizeof(verdict), "agrees, too fast to time");
-        }
-        printf("  %-14s %-10.3f %-12s %s\n", arm->name, seconds, portable->name, verdict);
-    }
+    int wrong = grade_arms(arms, count, positions, values, lags, reference, held, places,
+                           portable_seconds, portable->name);
 
     if (count == 0u)
     {
@@ -222,6 +250,22 @@ int main(int argc, char **argv)
            (unsigned long long)reference[3], (unsigned long long)expected_at_period,
            (reference[3] == expected_at_period) ? "agree" : "DISAGREE");
     if (reference[3] != expected_at_period)
+    {
+        wrong = 1;
+    }
+
+    // Every eighth entry takes the position before it, so that position is listed twice with two
+    // values from the cycle. The run stays ascending, which the CUDA arm's binary search needs.
+    for (unsigned int at = 7u; at < places; at += 8u)
+    {
+        positions[at] = positions[at - 1u];
+    }
+    printf("\n  the same run with the position before every eighth entry repeated\n\n");
+    const double repeated_seconds = sweep(portable, positions, values, lags, reference, places);
+    printf("  %-14s %-10.3f %-12s %s\n", portable->name, repeated_seconds, "itself",
+           "the reference");
+    if (grade_arms(arms, count, positions, values, lags, reference, held, places, repeated_seconds,
+                   portable->name) != 0)
     {
         wrong = 1;
     }

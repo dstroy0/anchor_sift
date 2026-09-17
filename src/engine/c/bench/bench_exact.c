@@ -19,6 +19,8 @@
  * @note Rows are printed as a sign and the limbs in hex, least significant first. Rendering a
  *       decimal here would need division, which this representation does not implement, and would
  *       put a second thing to be wrong between the arithmetic and the check.
+ * @note Subject text is printed as the hex of its bytes. Several subjects carry spaces, tabs and
+ *       line feeds, and a row split on whitespace would cut them apart.
  */
 
 #include "exact_integer.h"
@@ -29,37 +31,86 @@
 /**
  * @brief Values every operation below is run over. Deposited crystal numbers and awkward cases.
  *
- * @note The last group are contract cases, not arithmetic ones. A cross check against a second
+ * @note The second group are contract cases, not arithmetic ones. A cross check against a second
  *       implementation found this arm refusing 1.2300 at a scale that accepted 1.23, which is a
  *       refusal to hold a value that needed no rounding. They are here so the same divergence
  *       cannot return without a row moving.
+ * @note The third group are grammar cases found on 2026-09-16. This arm read "1.2(3)4" as 1.2 where
+ *       representation.exact read 1.24, accepted trailing text after a space or a bracket that the
+ *       python side refused, and both arms refused ".000", a zero.
+ * @note The fourth group are uncertainty cases for anchor_exact_from_measured, which counts the
+ *       bracketed digits in units of the last place printed.
  */
 static const char *const SUBJECTS[] = {
     "4.76050", "0.35216", "10.1000", "8.6633", "14.0574", "0", "1", "-1", "0.000001",
     "999999999.999999999", "3.1049", "-11.4085", "0.5", "2", "4.76050(5)", "1000000000000",
+
     "1.2300", "1.0000000000000000000000000", "4.7605000000000000000000000", "1.", ".5", "-0",
     "0.000000000000000000000000000", "1.0000000000000000000000001", ".", "1.2.3", "1e6",
+
+    ".000", ".000(1)", "-.000(1)", "1.2(3)4", "1.23 xyz", "1.23(", "1.23(4)junk", " 1.5 ",
+    "\n1.5\r\n", "1.23()", "(3)", "5.(3)", "- 5", "+.5", "++1", "1.5\v", "\xef\xbc\x91",
+    "\xd9\xa3", "\t-4.76050(5) ", ".(3)", "1.23)", "1(",
+
+    "1.2300(5)", "1.230(10)", "137(2)", "7.2973525643(11)", "0.000000000000000000000001(1)",
+    "1.00000000000000000000000000(1)", "1(0)",
 };
 
 /** @brief How many subjects, for a driver that has to pair every one with every other. */
 #define SUBJECT_COUNT (sizeof(SUBJECTS) / sizeof(SUBJECTS[0]))
 
-/** @brief Decimal places every subject is carried at. Matches representation.exact by default. */
+/**
+ * @brief Decimal places every subject is carried at.
+ *
+ * @note Smaller than the 1024 places representation.exact ingests at. A product of two subjects at
+ *       24 places sits at 48 places and fits the width, which lets the multiply rows check products
+ *       and not only refusals.
+ */
 #define PLACES 24u
+
+/** @brief Digits in the one subject built at run time to overrun the width. */
+#define WIDE_DIGITS 1100u
+
+/**
+ * @brief Prints the bytes of a text as lowercase hex, with no separator.
+ *
+ * @param[in] text Text to print [BORROWS].
+ */
+static void emit_text(const char *text)
+{
+    const size_t length = strlen(text);
+    for (size_t at = 0u; at < length; at++)
+    {
+        // The byte is printed as its unsigned value. A char above 0x7F is negative where char is
+        // signed, and printing it through int would print a sign-extended value.
+        printf("%02x", (unsigned int)(unsigned char)text[at]);
+    }
+}
 
 /**
  * @brief Prints one integer as a sign and its limbs in hex.
+ *
+ * @param[in] value The integer [BORROWS].
+ */
+static void emit_limbs(const AnchorExactInteger *value)
+{
+    printf(" %d", (int)value->sign);
+    for (size_t at = 0u; at < (size_t)ANCHOR_EXACT_LIMBS; at++)
+    {
+        printf(" %08x", value->limb[at]);
+    }
+}
+
+/**
+ * @brief Prints one integer as a labeled row.
  *
  * @param[in] label What the row is [BORROWS].
  * @param[in] value The integer [BORROWS].
  */
 static void emit(const char *label, const AnchorExactInteger *value)
 {
-    printf("%s %d", label, (int)value->sign);
-    for (size_t at = 0u; at < (size_t)ANCHOR_EXACT_LIMBS; at++)
-    {
-        printf(" %08x", value->limb[at]);
-    }
+    printf("%s", label);
+    emit_limbs(value);
     printf("\n");
 }
 
@@ -75,32 +126,100 @@ static void emit_status(const char *label, AnchorExactStatus status)
 }
 
 /**
+ * @brief Sets an integer to a recognizable nonzero value, for checking that a refusal left it.
+ *
+ * @param[out] value Integer to set [BORROWS].
+ */
+static void set_sentinel(AnchorExactInteger *value)
+{
+    anchor_exact_zero(value);
+    for (size_t at = 0u; at < (size_t)ANCHOR_EXACT_LIMBS; at++)
+    {
+        // A limb index is below ANCHOR_EXACT_LIMBS, so it fits the uint32_t it is folded into.
+        value->limb[at] = 0x5A5A5A5Au ^ (uint32_t)at;
+    }
+    value->sign = -1;
+}
+
+/**
+ * @brief Reads one subject both ways and prints its read, measured and keep rows.
+ *
+ * @param[in]  index Subject index, printed on every row.
+ * @param[in]  text  Subject text [BORROWS].
+ * @param[out] held  Where the read value is kept for the arithmetic, zero where refused [BORROWS].
+ */
+static void read_subject(size_t index, const char *text, AnchorExactInteger *held)
+{
+    const size_t length = strlen(text);
+
+    AnchorExactInteger value;
+    set_sentinel(&value);
+    const AnchorExactInteger sentinel = value;
+    const AnchorExactStatus status = anchor_exact_from_decimal(text, length, PLACES, &value);
+    printf("read %u ", (unsigned)index);
+    emit_text(text);
+    if (status != ANCHOR_EXACT_OK)
+    {
+        printf(" refused %d\n", (int)status);
+        printf("keep read %u %d\n", (unsigned)index,
+               (memcmp(&value, &sentinel, sizeof(value)) == 0) ? 1 : 0);
+        anchor_exact_zero(held);
+    }
+    else
+    {
+        emit_limbs(&value);
+        printf("\n");
+        *held = value;
+    }
+
+    AnchorExactInteger measured;
+    AnchorExactInteger uncertainty;
+    int carried = 7;
+    set_sentinel(&measured);
+    set_sentinel(&uncertainty);
+    const AnchorExactStatus measured_status =
+        anchor_exact_from_measured(text, length, PLACES, &measured, &uncertainty, &carried);
+    printf("meas %u ", (unsigned)index);
+    emit_text(text);
+    if (measured_status != ANCHOR_EXACT_OK)
+    {
+        printf(" refused %d\n", (int)measured_status);
+        const int unchanged = (memcmp(&measured, &sentinel, sizeof(measured)) == 0)
+                              && (memcmp(&uncertainty, &sentinel, sizeof(uncertainty)) == 0)
+                              && (carried == 7);
+        printf("keep meas %u %d\n", (unsigned)index, unchanged ? 1 : 0);
+    }
+    else
+    {
+        printf(" %d", carried);
+        emit_limbs(&measured);
+        emit_limbs(&uncertainty);
+        printf("\n");
+    }
+}
+
+/**
  * @brief Runs every unary and binary operation over the subjects and prints each result.
  */
 static void run_arithmetic(void)
 {
-    AnchorExactInteger held[SUBJECT_COUNT];
+    static char wide[WIDE_DIGITS + 1u];
+    memset(wide, '9', WIDE_DIGITS);
+    wide[WIDE_DIGITS] = '\0';
+
+    const size_t total = SUBJECT_COUNT + 1u;
+    AnchorExactInteger held[SUBJECT_COUNT + 1u];
     char label[128];
 
     for (size_t at = 0u; at < SUBJECT_COUNT; at++)
     {
-        const AnchorExactStatus status =
-            anchor_exact_from_decimal(SUBJECTS[at], strlen(SUBJECTS[at]), PLACES, &held[at]);
-        // The subject text rides along on the row, which keeps the checker from carrying a second
-        // copy of this list to drift against.
-        (void)snprintf(label, sizeof(label), "read %u %s", (unsigned)at, SUBJECTS[at]);
-        if (status != ANCHOR_EXACT_OK)
-        {
-            emit_status(label, status);
-            anchor_exact_zero(&held[at]);
-            continue;
-        }
-        emit(label, &held[at]);
+        read_subject(at, SUBJECTS[at], &held[at]);
     }
+    read_subject(SUBJECT_COUNT, wide, &held[SUBJECT_COUNT]);
 
-    for (size_t low = 0u; low < SUBJECT_COUNT; low++)
+    for (size_t low = 0u; low < total; low++)
     {
-        for (size_t high = 0u; high < SUBJECT_COUNT; high++)
+        for (size_t high = 0u; high < total; high++)
         {
             AnchorExactInteger result;
 
@@ -124,6 +243,41 @@ static void run_arithmetic(void)
                    anchor_exact_equal(&held[low], &held[high]));
         }
     }
+}
+
+/**
+ * @brief Checks that a refused scale, add and multiply leave their output as it was.
+ *
+ * @note Each prints a keep row the checker requires to read 1. anchor_exact_scale_by_ten once wrote
+ *       the low limbs of an overrun product into its value before refusing.
+ */
+static void run_refusals(void)
+{
+    AnchorExactInteger seven;
+    (void)anchor_exact_from_decimal("7", 1u, 0u, &seven);
+    AnchorExactInteger scaled = seven;
+    const AnchorExactStatus scale_status = anchor_exact_scale_by_ten(&scaled, 2000u);
+    printf("keep scale %d %d\n", (int)scale_status,
+           ((scale_status != ANCHOR_EXACT_OK) && (memcmp(&scaled, &seven, sizeof(scaled)) == 0))
+               ? 1 : 0);
+
+    AnchorExactInteger largest;
+    memset(largest.limb, 0xFF, sizeof(largest.limb));
+    largest.sign = 1;
+
+    AnchorExactInteger result;
+    set_sentinel(&result);
+    const AnchorExactInteger sentinel = result;
+    const AnchorExactStatus add_status = anchor_exact_add(&largest, &largest, &result);
+    printf("keep add %d %d\n", (int)add_status,
+           ((add_status != ANCHOR_EXACT_OK) && (memcmp(&result, &sentinel, sizeof(result)) == 0))
+               ? 1 : 0);
+
+    set_sentinel(&result);
+    const AnchorExactStatus multiply_status = anchor_exact_multiply(&largest, &largest, &result);
+    printf("keep mul %d %d\n", (int)multiply_status,
+           ((multiply_status != ANCHOR_EXACT_OK)
+            && (memcmp(&result, &sentinel, sizeof(result)) == 0)) ? 1 : 0);
 }
 
 /**
@@ -173,10 +327,61 @@ static void run_agreement(void)
     }
 }
 
+/**
+ * @brief The positions of the run with repeats, in the order they are listed.
+ *
+ * @note Unsorted, with 0.25, 0.50, 1.00 and 2.00 each listed twice carrying two different values.
+ *       check_exact_limbs.py holds its own copy of this plan and of REPEATED_VALUES, and builds the
+ *       count from a dict, which keeps the last value at a repeated position.
+ */
+static const char *const REPEATED_POSITIONS[] = {
+    "2.00", "0.25", "1.00", "0.25", "0.50", "2.00", "1.25", "0.75", "1.00", "0.00", "1.50", "0.50",
+};
+
+/** @brief The value standing at each entry of REPEATED_POSITIONS. */
+static const uint64_t REPEATED_VALUES[] = {1u, 2u, 3u, 4u, 1u, 2u, 3u, 4u, 1u, 2u, 3u, 4u};
+
+/**
+ * @brief Prints the agreement count over the run with repeats at lags 0 through 2 in quarters.
+ *
+ * @note At lag 0 every distinct position agrees with itself. The count is then the number of
+ *       distinct positions, and an arm counting every entry reads more.
+ */
+static void run_repeated_agreement(void)
+{
+    enum { ENTRIES = sizeof(REPEATED_POSITIONS) / sizeof(REPEATED_POSITIONS[0]) };
+    AnchorExactInteger positions[ENTRIES];
+    for (size_t at = 0u; at < (size_t)ENTRIES; at++)
+    {
+        if (anchor_exact_from_decimal(REPEATED_POSITIONS[at], strlen(REPEATED_POSITIONS[at]),
+                                      PLACES, &positions[at]) != ANCHOR_EXACT_OK)
+        {
+            printf("repeated run refused at %u\n", (unsigned)at);
+            return;
+        }
+    }
+
+    for (unsigned step = 0u; step <= 8u; step++)
+    {
+        char text[64];
+        AnchorExactInteger lag;
+        (void)snprintf(text, sizeof(text), "%u.%02u", step / 4u, (step % 4u) * 25u);
+        if (anchor_exact_from_decimal(text, strlen(text), PLACES, &lag) != ANCHOR_EXACT_OK)
+        {
+            continue;
+        }
+        const size_t agreed =
+            anchor_exact_agreement(positions, REPEATED_VALUES, (size_t)ENTRIES, &lag);
+        printf("agreerep %s %u\n", text, (unsigned)agreed);
+    }
+}
+
 int main(void)
 {
     printf("limbs %u places %u\n", (unsigned)ANCHOR_EXACT_LIMBS, (unsigned)PLACES);
     run_arithmetic();
+    run_refusals();
     run_agreement();
+    run_repeated_agreement();
     return 0;
 }
