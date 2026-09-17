@@ -69,6 +69,24 @@ Reproduced by `examples/game_theory/6_oracle/first_move_advantage.py`:
 - **King and rook vs king** (depth 4 plies): W(P1) = 59/1083, W(P2) = 0. Only 3 of 19 moves keep a
   branch-to-win; the other 16 prune every one. The move forcing the win, mass 1, is `a1a8`.
 
+## The value of the move, proved exactly for K+P vs K
+
+Reproduced by `examples/game_theory/6_oracle/kpk_value_of_move.py`, which solves all 331352 legal
+K+P vs K positions by the win/draw/loss retrograde fixed point (about two to three minutes) and
+checks five positions against published endgame theory. All five match, and together they settle the
+theorem for this class:
+
+- **Opposition, pawn on the fifth (Ke5/Pe4/Ke7).** White's result is a win if the opponent must move
+  and only a draw if White must move, so the value of the move is NEGATIVE: moving first throws away
+  the win. That is the exact proof that first-move advantage can be a disadvantage.
+- **King on the sixth in front of the pawn, and defender far.** A win whoever moves; the value of the
+  move is zero.
+- **Defender in front with the attacker behind, and the rook pawn in the corner.** A draw whoever
+  moves; the value of the move is zero.
+
+The value of the move is positive, zero, or negative by position, and its sign is a table lookup, not
+a constant. The retrograde solve and the agreement with published theory are the two routes.
+
 ## Fleet cross-checks
 
 Every domain asked reported the same discipline for taming an unbounded set, and each added a caution
@@ -146,17 +164,10 @@ Every open question becomes an exact lookup or filter, no search and no bound.
 
 ## Open problems
 
-- **Build the table for K+P vs K, then K+R vs K.** These are the smallest classes where the value of
-  the move is not identically zero. K+P vs K holds the opposition, where the side without the move is
-  often better, so its value of the move is expected to be negative in the opposition positions and
-  positive where a tempo queens the pawn. Solving it exactly and reading question 1 across it is the
-  next build. It is done by the standard win/draw/loss retrograde fixed point (win if a move reaches
-  an opponent loss, loss if every move reaches an opponent win, draw otherwise), which is sound for
-  this class because its draws are genuine non-progress, not fifty-move edge cases.
-- **K+P vs K depends on the queen ending beneath it.** A pawn reaching the last rank promotes, and a
-  promotion edge leaves K+P vs K for the K+Q vs K table (or a chosen underpromotion). The table is therefore
-  solved bottom-up: K+Q vs K and K+R vs K first, then K+P vs K reading their values across the
-  promotion edge, with the stalemate-on-promotion positions kept as draws, not assumed wins.
+- **K+R vs K and K+P vs K+P.** K+P vs K is done, solved and checked above. K+R vs K is the next class
+  by the same retrograde. K+P vs K+P is where a two-sided mutual zugzwang lives, and it is solved the
+  same way once the promotion tables beneath it (K+Q vs K, K+R vs K) are in hand. The promotion edge
+  is why the classes are solved bottom-up, with a stalemate-on-promotion kept a draw, not a win.
 - **Find a trebuchet by filter, not by hand.** Once the K+P vs K+P table exists, question 3 finds the
   mutual zugzwang without hand-construction, the robust way to exhibit the negative case.
 - **The README routing line.** `examples/game_theory/README.md` says the game-theory book is authored
