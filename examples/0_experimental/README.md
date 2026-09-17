@@ -1,6 +1,6 @@
 # Experimental
 
-**Purpose:** Hold work that has no walk through a corpus yet, so it is visible without being mistaken for a stage.
+**Purpose:** Hold work that has no walk through a corpus yet, keeping it visible without being mistaken for a stage.
 **Scope:** `examples/0_experimental/`
 
 Nineteen readings. Six take a filter from another field and run it on this engine's terms. Thirteen carry
@@ -11,7 +11,7 @@ the one below it misses, the last digit of pi at any floor, the transform's wave
 boundary, the zeta values at the even integers, the symmetry group of the zeta zeros, the
 Navier-Stokes equations on the unit torus with their sets run against the boundary function, the
 Navier-Stokes energy cascade and coefficient growth of one datum, the congruent number problem on
-Birch and Swinnerton-Dyer, and a descent bounding the rank of those curves. None reads a corpus, so none
+Birch and Swinnerton-Dyer, and a descent bounding the rank of those curves. None reads a corpus, and none
 sits at a subject stage.
 
 | file | field | what it shows |
@@ -20,14 +20,14 @@ sits at a subject stage.
 | `hamming_corrects_by_selecting.py` | coding theory | a parity syndrome corrects by selecting the codeword its necessary conditions leave standing |
 | `collaborative_filter.py` | recommender systems | a missing entry predicted from the neighborhood that shares its known values |
 | `morphology_opening_and_closing.py` | image morphology | erosion and dilation rejecting a speckle by rank, with no threshold |
-| `invariant_consensus_rejects_outliers.py` | robust estimation | the inliers are mutually compatible, so they are a clique, and rejecting outliers is finding it |
+| `invariant_consensus_rejects_outliers.py` | robust estimation | the inliers are mutually compatible and form a clique, and rejecting outliers is finding it |
 | `theil_sen_robust_trend.py` | robust statistics | a median over pairwise slopes recovers the trend exactly where least squares is dragged off it |
 | `ntt_twiddle_certificate.py` | computer arithmetic | the transform's precision constants re-derived from the factorization of p-1, and a composite, a false root and a root of half the order each refused |
 | `exact_translation_by_ntt.py` | image registration | a translation recovered exactly by an integer transform, its correlation agreeing to the digit with the direct O(N^2) count, the single-prime floor drawn on weighted views |
 | `exact_identities_spread_precision.py` | computer arithmetic | exact identities carry precision from a few seed constants to over a million derived ones at the same scale, each checked by a second route, with a false identity refused and the per-identity floor measured |
 | `exact_residue_code_detects_uncertainty.py` | coding theory | a redundant residue number system on exact integers corrects one error and detects two, raises no false alarm on clean codewords, and widens the exact range past a googol as moduli are added |
 | `exact_check_ladder.py` | coding theory | four checks stacked, casting out nines, mod eleven, a cyclic redundancy check and Hamming (7,4), each catching a fault the one below misses, every detection exact and never a rounding |
-| `pi_has_no_last_digit.py` | number theory | pi's digit at any floor, computed by two agreeing routes and matched to the published expansion, shown to have no last digit because the scale has no floor |
+| `pi_has_no_last_digit.py` | number theory | pi's digit at any floor, computed to any depth by the natural constants module where Machin and Euler agree, shown to have no last digit because the scale has no floor |
 | `ntt_double_transform_inverts.py` | signal processing | the transform applied twice reflects the sequence exactly, a wave inversion (the DFT's order-four structure over a finite field), and its cyclic length is the format boundary |
 | `exact_zeta_values.py` | analytic number theory | the Riemann zeta function at the even integers, exact from the Bernoulli numbers, cross-checked by Euler's pi-free convolution identity, touching the values and never the zeros |
 | `zeta_zero_symmetry.py` | analytic number theory | the Klein four-group symmetry of the zeta zeros verified exactly on Gaussian rationals, with the critical line as its fixed set; records structure, computes no zero, claims nothing about the hypothesis |
