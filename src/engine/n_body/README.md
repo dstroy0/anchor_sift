@@ -3,7 +3,7 @@
 **Purpose:** Track many bodies through time as a configuration of the core engine, not as a second engine beside it.
 **Scope:** `src/engine/n_body/`, and the core parts it calls: the shift-agreement detector and its number-theoretic transform, the partition and reference, the measure, and the sift.
 
-n-body tracking is the natural fork of this engine. A frame is a field of points carrying values, the same representation every domain uses, and tracking asks which point in the next frame is the same body as one in this frame. The reference implementation is an exact-integer tracker for the Biohub light-sheet volumes: no floating point value is formed, the volume is handed to the engine as raw bytes, and everything after is integers. On the first 25 training samples over 40 frames it links 96.7 percent of the answer key's 2511 edges correctly with none of the labelled endpoints missed. That tracker carries its own copy of the engine. This directory is the fork that calls the core engine instead, so one engine reads both a corpus and a volume.
+n-body tracking is the natural fork of this engine. A frame is a field of points carrying values, the same representation every domain uses, and tracking asks which point in the next frame is the same body as one in this frame. The reference implementation is an exact-integer tracker over a series of 3D microscopy volumes: no floating point value is formed, the volume is handed to the engine as raw bytes, and everything after is integers. On a labelled 25-sample benchmark over 40 frames it links 96.7 percent of the answer key's 2511 edges correctly with none of the labelled endpoints missed. That tracker carries its own copy of the engine. This directory is the fork that calls the core engine instead, so one engine reads both a corpus and a volume.
 
 ## What is shared and what is promoted
 
@@ -21,7 +21,7 @@ The core's own shift-agreement reader is a different construction. It reads a si
 
 ## What stays out
 
-The competition volumes are fetched, never committed, the same rule the Salishan corpus follows. `fetch_competition.py` in the reference tracker lists and downloads them; nothing here redistributes them.
+The volumes are fetched, never committed, the same rule the Salishan corpus follows. The reference tracker fetches and lists them; nothing here redistributes them.
 
 ## Status
 
