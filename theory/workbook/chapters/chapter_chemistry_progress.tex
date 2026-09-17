@@ -47,9 +47,9 @@ joined.
 \texttt{examples/chemistry/4\_measure/a\_histogram\_cannot\_see\_structure.py} reads collision entropy,
 which is computed from the atom counts alone and so is permutation invariant. A molecule and every
 rearrangement of its atoms carry the identical value to machine precision, worst departure
-$0.0\mathrm{e}{+}00$, and the two isomers read the same number. A histogram reads the formula and no
-more, which is why arrangement is left to the sift and the choice among isomers to a geometry the
-bond-length oracle carries.
+$0.0\mathrm{e}{+}00$, and the two isomers read the same number. A histogram reads the formula and stops
+there, so arrangement is left to the sift and the choice among isomers to a geometry the bond-length
+oracle carries.
 
 \texttt{examples/chemistry/5\_sift/valence\_is\_a\_necessary\_condition.py} reads the octet as the sift
 proposition on chemistry: every atom of a real molecule closes, so the octet refuses no molecule and
