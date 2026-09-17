@@ -38,6 +38,7 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 from measure.periodic_energy import between_classes, dispersion_ratio  # noqa: E402
 from reference.periodic import mean_background  # noqa: E402
 from reference.shuffles import permuted  # noqa: E402
+from reference.exact_ratio import to_float  # noqa: E402
 
 # Declared inputs, printed with every reading.
 PERIOD = 6
@@ -81,7 +82,8 @@ def main():
     background = mean_background(signal, PERIOD)
     recovered = [background[phase] for phase in range(PERIOD)]
     out.write("  the phase-mean background at the true period, one cycle:\n")
-    out.write("    recovered %s\n" % [str(value) for value in recovered])
+    out.write("    recovered %s\n"
+              % [("%d" % value[0]) if value[1] == 1 else ("%d/%d" % value) for value in recovered])
     out.write("    injected  %s\n" % [str(value) for value in TONE])
     out.write("    the background is the tone plus the target's phase mean, which is zero by design\n\n")
 
@@ -94,9 +96,9 @@ def main():
         ratio_live = dispersion_ratio(byte_view, period)
         ratio_dead = dispersion_ratio(shuffled, period)
         out.write("  %-9d %-16.3f %-16.3f %s / %s\n"
-                  % (period, float(live), float(dead),
-                     ("%.3f" % float(ratio_live)) if ratio_live is not None else "none",
-                     ("%.3f" % float(ratio_dead)) if ratio_dead is not None else "none"))
+                  % (period, to_float(live), to_float(dead),
+                     ("%.3f" % to_float(ratio_live)) if ratio_live is not None else "none",
+                     ("%.3f" % to_float(ratio_dead)) if ratio_dead is not None else "none"))
 
     out.write("\n  the true period stands far above its shuffle; the others sit near it. the reference\n")
     out.write("  invents nothing a shuffle does not also reach, so the part that clears the null is\n")

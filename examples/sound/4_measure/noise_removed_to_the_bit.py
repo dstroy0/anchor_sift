@@ -42,7 +42,6 @@ import io
 import os
 import random
 import sys
-from fractions import Fraction
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
@@ -61,20 +60,37 @@ from measure.local_outlier import outliers  # noqa: E402
 from measure.periodic_energy import recover_period, null_band  # noqa: E402
 from measure.shift_agreement import recover_exact_period  # noqa: E402
 from representation.exact import placed  # noqa: E402
+from reference.exact_ratio import whole, add, sub, mul, over, to_float, reduced  # noqa: E402
 
 SEED = 0x50D1
 DRAWS = 8
 PEDESTAL = 128
 
 
+def _as_ratio(value):
+    """Coerce an int, an exact_ratio pair, or a Fraction to an exact_ratio pair.
+
+    The cleaned values reach here as pairs from the migrated primitives, as ints from the consensus and
+    window routes, and as Fractions from self_similar, which is not on the pair representation yet.
+    """
+    if isinstance(value, tuple):
+        return value
+    if isinstance(value, int):
+        return whole(value)
+    return reduced(value.numerator, value.denominator)
+
+
 def reduction(noisy, cleaned, clean, positions=None):
-    """Share of injected noise energy removed, exact, over `positions` (all of them by default)."""
+    """Share of injected noise energy removed, as an exact integer ratio pair, over `positions`."""
     points = range(len(clean)) if positions is None else positions
-    injected = sum((Fraction(noisy[i]) - clean[i]) ** 2 for i in points)
-    left = sum((Fraction(cleaned[i]) - clean[i]) ** 2 for i in points)
+    injected = sum((noisy[i] - clean[i]) ** 2 for i in points)
     if injected == 0:
-        return Fraction(1)
-    return Fraction(1) - left / injected
+        return whole(1)
+    left = whole(0)
+    for i in points:
+        difference = sub(_as_ratio(cleaned[i]), whole(clean[i]))
+        left = add(left, mul(difference, difference))
+    return sub(whole(1), over(left, whole(injected)))
 
 
 def zero_sum(period, cycles, swing, seed):
@@ -95,11 +111,11 @@ def zero_sum(period, cycles, swing, seed):
 def window_mean(values, index, radius):
     low, high = max(0, index - radius), min(len(values), index + radius + 1)
     chunk = values[low:high]
-    return Fraction(sum(chunk), len(chunk))
+    return reduced(sum(chunk), len(chunk))
 
 
-def pct(fraction):
-    return "%.2f%%" % (float(fraction) * 100.0)
+def pct(ratio):
+    return "%.2f%%" % (to_float(ratio) * 100.0)
 
 
 # ---------------------------------------------------------------- coherent hum
@@ -116,7 +132,7 @@ def build_coherent():
         for index, value in enumerate(values):
             sums[index % per] += value
             counts[index % per] += 1
-        means = [Fraction(sums[p], counts[p] + 1) for p in range(per)]
+        means = [reduced(sums[p], counts[p] + 1) for p in range(per)]
         return [means[i % per] for i in range(len(values))]
 
     route_a = mean_background(signal, period)
@@ -135,7 +151,7 @@ def build_coherent():
         dirty = [shaped[n] + hum[n % period] for n in range(len(shaped))]
         floor.append((depth, reduction(dirty, mean_residual(dirty, period), shaped)))
 
-    untouched = all(mean_residual(target, period)[i] == target[i] for i in range(len(target)))
+    untouched = all(mean_residual(target, period)[i] == whole(target[i]) for i in range(len(target)))
     wrong = reduction(signal, [window_median(signal, i, 3) for i in range(len(signal))], target)
     return {
         "name": "coherent hum", "reference": "phase mean (period 4)",
@@ -143,7 +159,7 @@ def build_coherent():
         "routes": ("mean_background", "mean_background_incremental",
                    route_a == route_b, route_a != broken_route and route_b != broken_route),
         "null": "period %s at ratio %.1f vs null band %.2f..%.2f over %d shuffles"
-                % (found, float(live), float(band[0]), float(band[-1]), DRAWS),
+                % (found, to_float(live), to_float(band[0]), to_float(band[-1]), DRAWS),
         "floors": [("target energy at the hum's period (depth)", floor)],
         "floor_rep": floor[2][1],
         "wrong_ref": "window median", "wrong": wrong,
@@ -193,7 +209,7 @@ def build_impulse():
 
     untouched = consensus_majority(clean, period) == clean
     mean_bg = mean_background(signal, period)
-    wrong = reduction(signal, [Fraction(signal[i]) - mean_bg[i] for i in range(len(signal))], clean)
+    wrong = reduction(signal, [sub(whole(signal[i]), mean_bg[i]) for i in range(len(signal))], clean)
     return {
         "name": "incoherent impulse", "reference": "phase consensus (period 5)",
         "nrr": reduction(signal, route_a, clean), "untouched": untouched,
@@ -313,7 +329,7 @@ def build_outlier():
         "name": "sparse outlier", "reference": "window median (radius 3)",
         "nrr": reduction(signal, matched, clean), "untouched": untouched,
         "routes": ("window_median", "window_median_counted",
-                   route_a == route_b, route_a != broken_route),
+                   route_a == route_b, [whole(v) for v in route_a] != broken_route),
         "null": "flagged %d = the impulses; a clean signal draws %d flags (band drawn from neighbours)"
                 % (len(outliers(signal, radius)), clean_flags),
         "floors": [("impulses allowed to crowd, two per window mask one (count)", crowd_floor),
@@ -344,7 +360,7 @@ def main():
     ok = True
     for row in rows:
         a, b, agree, splits = row["routes"]
-        ok = ok and (row["nrr"] == 1) and agree and splits and row["untouched"]
+        ok = ok and (row["nrr"] == whole(1)) and agree and splits and row["untouched"]
         out.write("\n  %s -- reference %s\n" % (row["name"], row["reference"]))
         out.write("    two routes: %s vs %s agree bit-exact: %s; a broken route splits: %s\n"
                   % (a, b, agree, splits))
