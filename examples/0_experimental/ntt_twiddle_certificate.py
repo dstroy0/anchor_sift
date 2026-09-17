@@ -21,7 +21,7 @@
 # primitive-root claim are refused by the same checks that pass the real ones, so the checks can fail
 # and passing means something. Third, the floor: a root of HALF the required order passes every
 # invariant computable from the table in O(n), and only the order test, two exponentiations, separates
-# it. That is the paper's central result reproduced here (twiddle_constants_article.tex lines 163-179).
+# it. That is the paper's central result reproduced here (theory_bucket/twiddle_constants_article.tex, its section on a root of half the order and the only test that catches it).
 #
 # No bounding: no threshold is set here. Every verdict is an exact integer equality or inequality on
 # unbounded Python integers, and the wrong cases are drawn, not described.
@@ -30,8 +30,9 @@ import io
 import sys
 
 # Declared inputs. The pinned moduli, each with the shape it is quoted in and the constants claimed for
-# it. Device primes and witnesses are theory_bucket/twiddle_constants_article.tex lines 198-200; the
-# goldilocks prime is line 126; the translation prime is the image_transforms exact-arithmetic chapter.
+# it. Device primes and witnesses are in theory_bucket/twiddle_constants_article.tex, its section on the
+# two silent wrong answers the certificate caught; the goldilocks prime is in its section on what the
+# size costs; the translation prime is the image_transforms exact-arithmetic chapter.
 # generator is the primitive root that builds the twiddle table; witness is the Proth primality witness,
 # a different role and, for the first device prime, a different number.
 PINNED = [
