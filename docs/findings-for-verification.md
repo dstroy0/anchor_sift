@@ -70,9 +70,9 @@ A probe rejects a definite set of alignments; a probe set rejects their union; `
 
 `AnchorVolumeConfig` renders a block: four layouts by the raster's five channels, two reduce rules and gain, named by reference to the same enums. Every layout is a bijection on the cell index computed in integers. `bench_raster` maps every alignment through every layout at every channel and counts collisions.
 
-**Check:** `bench_raster` prints 20 volume rows, every one zero collisions, alongside 20 sheet rows graded host against device byte for byte.
+**Check:** `bench_raster` prints 20 volume rows, every one zero collisions and, where a device is present, graded host against device voxel for voxel, alongside 20 sheet rows graded host against device byte for byte.
 
-**Honest gap:** there is no device volume kernel. `anchor_volume_device_available` returns 0 on every build and the entry is named `_host`. It does not fall back silently.
+**Gap closed, 2026-09-17:** this earlier read that there was no device volume kernel and that `anchor_volume_device_available` returned 0 on every build. That is no longer true. `src/engine/c/render/raster_cuda.cu` carries a device volume renderer (`render_volume`, `device_volume_cell`, and the `anchor_volume_device` entry), `anchor_volume_device_available` returns 1 where a device is present and the build carries the kernel and 0 otherwise, and `bench_raster` grades the volume host against device voxel for voxel. `anchor_volume_render_host` stays host only and named so, and nothing falls back silently.
 
 ### F10. Two build defects that made measurements impossible
 
