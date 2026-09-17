@@ -28,6 +28,8 @@ ART-4-002	live	examples/art/4_measure/picture_width_agreement.py
 ART-4-003	live	examples/art/4_measure/regeneration_limit.py
 ART-4-004	live	examples/art/4_measure/scale_ladder.py
 ART-4-005	live	examples/art/4_measure/fixed_pattern_removed_to_the_bit.py
+ART-4-006	live	examples/art/4_measure/noise_across_formats_and_qualities.py
+ART-4-007	live	examples/art/4_measure/classify_reject_recover.py
 CEL-1-001	live	examples/cell_tracking/1_represent/how_far_a_cell_moves.py
 CEL-2-001	live	examples/cell_tracking/2_partition/what_a_pixel_costs.py
 CEL-2-002	live	examples/cell_tracking/2_partition/where_the_floor_comes_from.py
@@ -70,6 +72,7 @@ GAM-4-001	live	examples/game_theory/4_measure/entropy_of_the_outcome_given_the_m
 GAM-5-001	live	examples/game_theory/5_sift/survivorship_changes_the_question.py
 GAM-6-001	live	examples/game_theory/6_oracle/against_published_values.py
 GAM-6-002	live	examples/game_theory/6_oracle/first_move_advantage.py
+GAM-6-003	live	examples/game_theory/6_oracle/kpk_value_of_move.py
 LNG-1-001	live	examples/language/1_represent/akshara_web.py
 LNG-1-002	live	examples/language/1_represent/binary_web.py
 LNG-1-003	live	examples/language/1_represent/case_channel.py
