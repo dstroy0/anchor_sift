@@ -247,16 +247,44 @@ int main(int argc, char **argv)
     {
         if (strcmp(argv[at], "--shape") == 0)
         {
-            if (strcmp(argv[at + 1], "sphere") == 0) { shape = SPHERE; }
-            else if (strcmp(argv[at + 1], "cube") == 0) { shape = CUBE; }
-            else if (strcmp(argv[at + 1], "orthoplex") == 0) { shape = ORTHOPLEX; }
-            else { fprintf(stderr, "shape takes sphere, cube or orthoplex\n"); return 2; }
+            if (strcmp(argv[at + 1], "sphere") == 0)
+            {
+                shape = SPHERE;
+            }
+            else if (strcmp(argv[at + 1], "cube") == 0)
+            {
+                shape = CUBE;
+            }
+            else if (strcmp(argv[at + 1], "orthoplex") == 0)
+            {
+                shape = ORTHOPLEX;
+            }
+            else
+            {
+                fprintf(stderr, "shape takes sphere, cube or orthoplex\n");
+                return 2;
+            }
         }
-        else if (strcmp(argv[at], "--dims") == 0) { dims = atoi(argv[at + 1]); }
-        else if (strcmp(argv[at], "--fraction") == 0) { fraction = (float)atof(argv[at + 1]); }
-        else if (strcmp(argv[at], "--candidates") == 0) { candidates = atoi(argv[at + 1]); }
-        else if (strcmp(argv[at], "--seed") == 0) { seed = strtoull(argv[at + 1], NULL, 10); }
-        else if (strcmp(argv[at], "--wide") == 0) { wide_math = atoi(argv[at + 1]); }
+        else if (strcmp(argv[at], "--dims") == 0)
+        {
+            dims = atoi(argv[at + 1]);
+        }
+        else if (strcmp(argv[at], "--fraction") == 0)
+        {
+            fraction = (float)atof(argv[at + 1]);
+        }
+        else if (strcmp(argv[at], "--candidates") == 0)
+        {
+            candidates = atoi(argv[at + 1]);
+        }
+        else if (strcmp(argv[at], "--seed") == 0)
+        {
+            seed = strtoull(argv[at + 1], NULL, 10);
+        }
+        else if (strcmp(argv[at], "--wide") == 0)
+        {
+            wide_math = atoi(argv[at + 1]);
+        }
     }
 
     if (dims < 2 || dims > MAX_DIMS)
@@ -269,8 +297,7 @@ int main(int argc, char **argv)
      * big enough to saturate a surface in nineteen dimensions is large and almost all of it is
      * refused. Holding it costs memory to store points that were only ever going to be rejected.
      * Drawing fresh ones against a kept set that is already growing does the same work, keeps the
-     * footprint at one batch, and lets the run stop when it stops finding anything rather than when
-     * a number chosen in advance runs out. */
+     * footprint at one batch, and lets the run stop when it stops finding anything. */
     int block = 256;
     int batch = 4096;
     float *scratch = NULL;
@@ -301,7 +328,10 @@ int main(int argc, char **argv)
     {
         int one = (pair * 7919) % batch;
         int two = (pair * 104729 + 13) % batch;
-        if (one == two) { continue; }
+        if (one == two)
+        {
+            continue;
+        }
         gaps.push_back(sqrtf(apart(&some[(size_t)one * dims], &some[(size_t)two * dims], dims)));
     }
     std::sort(gaps.begin(), gaps.end());
@@ -354,16 +384,28 @@ int main(int argc, char **argv)
         int was = count;
         for (int index = 0; index < wide; index++)
         {
-            if (!clear[index]) { continue; }
+            if (!clear[index])
+            {
+                continue;
+            }
             const float *candidate = &here[(size_t)index * dims];
             bool good = true;
             for (int other = 0; other < added && good; other++)
             {
                 const float *earlier = &mine[(size_t)(was + other) * dims];
-                if (apart(candidate, earlier, dims) < limit) { good = false; }
+                if (apart(candidate, earlier, dims) < limit)
+                {
+                    good = false;
+                }
             }
-            if (!good) { continue; }
-            if (count >= room) { break; }
+            if (!good)
+            {
+                continue;
+            }
+            if (count >= room)
+            {
+                break;
+            }
             mine.insert(mine.end(), candidate, candidate + dims);
             count++;
             added++;
@@ -374,13 +416,19 @@ int main(int argc, char **argv)
             cudaMemcpy(kept + (size_t)was * dims, &mine[(size_t)was * dims],
                        (size_t)added * dims * sizeof(float), cudaMemcpyHostToDevice);
         }
-        if (count >= room) { break; }
+        if (count >= room)
+        {
+            break;
+        }
 
         /* Saturated when a whole batch of fresh candidates finds nowhere to sit, several batches
          * running. Stopping at the first empty batch would stop early, since a nearly full surface
          * still has room that a few thousand draws can miss by chance. */
         quiet = (added == 0) ? quiet + 1 : 0;
-        if (quiet >= 12) { break; }
+        if (quiet >= 12)
+        {
+            break;
+        }
     }
 
     const char *name = shape == SPHERE ? "sphere" : (shape == CUBE ? "cube" : "orthoplex");

@@ -108,7 +108,7 @@ two apart afterwards.
 
 This does not do that. Unresolved mass is carried as its own outcome and never redistributed over
 win, loss and draw. That is why the checkers table above reads 0.96 unresolved under an adversary
-rather than a confident-looking draw, and why the chess opening at four plies resolves almost
+and why the chess opening at four plies resolves almost
 nothing and says so. The standing discipline in this tree is that bounding is not allowed -- no
 judgment-picked tolerances or parameters -- and a search depth is a bound. It is allowed here only
 because it is a declared input, reported beside every result and visible in the distribution it
@@ -164,8 +164,7 @@ and the node count is exponential. Passing a larger ply count costs what the gam
 ## What is not here
 
 The game theory book is not in this repository. Theory for every public and private repo is authored
-in `repos/owned/public/theory_bucket`, and reaches `anchor_sift` through the dependency rather than
-being written here. This directory is the implementation and the measurements; the write-up of what
+in `repos/owned/public/theory_bucket`, and reaches `anchor_sift` through the dependency. This directory is the implementation and the measurements; the write-up of what
 they mean belongs upstream.
 
 Betting is not modeled in poker and doubling, splitting, insurance and surrender are not modeled in

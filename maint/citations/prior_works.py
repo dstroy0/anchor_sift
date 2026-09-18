@@ -52,10 +52,12 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -67,17 +69,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -86,8 +98,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -109,21 +122,34 @@ WINDOW = 2
 # and not on a description of somebody else's result: "is new" and never "renew", "first to" and
 # never "first, the".
 CLAIMS = (
-    (r"\b(is|are|was|were) (entirely |completely |genuinely |apparently )?new\b", "asserts newness"),
+    (
+        r"\b(is|are|was|were) (entirely |completely |genuinely |apparently )?new\b",
+        "asserts newness",
+    ),
     (r"\b(the )?first (to|known|published|reported|such)\b", "asserts precedence"),
-    (r"\bno (prior|previous|earlier|existing) (work|result|method|paper|formula|treatment)\b",
-     "asserts nothing prior exists"),
-    (r"\bnot (found|present|reported|described|documented) in the literature\b",
-     "asserts absence from the literature"),
+    (
+        r"\bno (prior|previous|earlier|existing) (work|result|method|paper|formula|treatment)\b",
+        "asserts nothing prior exists",
+    ),
+    (
+        r"\bnot (found|present|reported|described|documented) in the literature\b",
+        "asserts absence from the literature",
+    ),
     (r"\b(unprecedented|novel|hitherto|heretofore)\b", "asserts novelty"),
-    (r"\bnobody (has|had) (ever )?(done|tried|measured|published|reported)\b",
-     "asserts nobody has done it"),
+    (
+        r"\bnobody (has|had) (ever )?(done|tried|measured|published|reported)\b",
+        "asserts nobody has done it",
+    ),
     (r"\bfor the first time\b", "asserts a first"),
     (r"\bno (one|body) else\b", "asserts exclusivity"),
-    (r"\bhas never been (done|tried|measured|published|reported|attempted)\b",
-     "asserts it has never been done"),
-    (r"\bno such (formula|method|result|proof|bound|construction) (exists|is known|was found)\b",
-     "asserts no such thing exists"),
+    (
+        r"\bhas never been (done|tried|measured|published|reported|attempted)\b",
+        "asserts it has never been done",
+    ),
+    (
+        r"\bno such (formula|method|result|proof|bound|construction) (exists|is known|was found)\b",
+        "asserts no such thing exists",
+    ),
 )
 
 # What makes a priority claim honest without a reference: saying the reading has not been done.
@@ -171,8 +197,11 @@ def texts(roots):
             continue
         for where, dirs, names in os.walk(full):
             dirs[:] = [one for one in dirs if one not in SKIP_DIRS]
-            held.extend(os.path.join(where, name) for name in sorted(names)
-                        if name.endswith(CHECKED))
+            held.extend(
+                os.path.join(where, name)
+                for name in sorted(names)
+                if name.endswith(CHECKED)
+            )
     return sorted(held)
 
 
@@ -198,8 +227,13 @@ def priority_claims(path, lines):
                 continue
             if near(lines, at, REFERENCES):
                 continue
-            found.append((at + 1, "%s, with no reference and no disclaimer: %r"
-                          % (what, hit.group(0))))
+            found.append(
+                (
+                    at + 1,
+                    "%s, with no reference and no disclaimer: %r"
+                    % (what, hit.group(0)),
+                )
+            )
     return found
 
 
@@ -216,12 +250,16 @@ def quotations(path, lines):
             if near(lines, at, REFERENCES):
                 continue
             opening = " ".join(body.split())[:56]
-            found.append((at + 1, "quoted passage with no attribution nearby: %s..." % opening))
+            found.append(
+                (at + 1, "quoted passage with no attribution nearby: %s..." % opening)
+            )
     return found
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     wanted = [one for one in sys.argv[1:] if not one.startswith("-")]
     claims_only = "--claims" in sys.argv
     quotes_only = "--quotations" in sys.argv
@@ -251,9 +289,13 @@ def main():
                 out.write("  QUOTE %s:%d: %s\n" % (shown, at, what))
                 quoted += 1
 
-    out.write("  %d file(s) read, %d priority claim(s) unsupported, %d quotation(s) unattributed\n"
-              % (len(held), claims, quoted))
-    out.write("  A person reads these. Neither count is a verdict, and a claim about somebody\n")
+    out.write(
+        "  %d file(s) read, %d priority claim(s) unsupported, %d quotation(s) unattributed\n"
+        % (len(held), claims, quoted)
+    )
+    out.write(
+        "  A person reads these. Neither count is a verdict, and a claim about somebody\n"
+    )
     out.write("  else's priority is a citation and not a finding.\n")
     out.flush()
     return claims + quoted

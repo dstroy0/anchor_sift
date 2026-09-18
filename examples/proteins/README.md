@@ -119,8 +119,7 @@ own count does not, almost never the reverse.
 The angle is not in dispute, since the decimal `atan2` agrees with a double to fourteen places.
 What differs is which residues each side scores at all. Chain ends, alternate locations and
 residues at a break are counting conventions, and the last residue of disagreement lives there. The
-geometry is exact; the residue bookkeeping is the tolerance, and it is small and named rather than
-tuned away.
+geometry is exact; the residue bookkeeping is the tolerance, and it is small and named.
 
 ## The engine boundary this subject was careful about
 

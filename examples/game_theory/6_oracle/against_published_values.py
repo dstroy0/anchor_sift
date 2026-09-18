@@ -72,7 +72,13 @@ def check(label, got, expected, detail=""):
     results.append(passed)
     print(
         "  %-46s %-12s %-12s %s%s"
-        % (label, str(got), str(expected), "OK" if passed else "FAIL", "  " + detail if detail else "")
+        % (
+            label,
+            str(got),
+            str(expected),
+            "OK" if passed else "FAIL",
+            "  " + detail if detail else "",
+        )
     )
     return passed
 
@@ -80,8 +86,7 @@ def check(label, got, expected, detail=""):
 def near(label, got, expected, window, detail=""):
     """For a published figure quoted at a different deck composition than the one measured here.
 
-    The window is stated in the call and printed. It is a declared input of the check rather than
-    a tolerance chosen until the result passed.
+    The window is stated in the call and printed. It is a declared input of the check.
     """
     passed = abs(got - expected) <= window
     results.append(passed)
@@ -101,7 +106,9 @@ def near(label, got, expected, window, detail=""):
 def perft(game, state, depth):
     if depth == 0:
         return 1
-    return sum(perft(game, game.apply(state, move), depth - 1) for move in game.moves(state))
+    return sum(
+        perft(game, game.apply(state, move), depth - 1) for move in game.moves(state)
+    )
 
 
 def main():
@@ -113,7 +120,11 @@ def main():
     game = chess.Chess()
     opening = game.initial()
     for depth in sorted(PERFT_OPENING):
-        check("chess perft(%d) from the opening" % depth, perft(game, opening, depth), PERFT_OPENING[depth])
+        check(
+            "chess perft(%d) from the opening" % depth,
+            perft(game, opening, depth),
+            PERFT_OPENING[depth],
+        )
 
     kiwi = chess.from_layout(KIWIPETE)
     for depth in sorted(PERFT_KIWIPETE):
@@ -166,24 +177,120 @@ def main():
     )
 
     ladder = [
-        (poker.HIGH_CARD, [poker.card(12, 0), poker.card(10, 1), poker.card(8, 2), poker.card(6, 3), poker.card(3, 0)]),
-        (poker.PAIR, [poker.card(12, 0), poker.card(12, 1), poker.card(8, 2), poker.card(6, 3), poker.card(3, 0)]),
-        (poker.TWO_PAIR, [poker.card(12, 0), poker.card(12, 1), poker.card(8, 2), poker.card(8, 3), poker.card(3, 0)]),
-        (poker.TRIPS, [poker.card(12, 0), poker.card(12, 1), poker.card(12, 2), poker.card(8, 3), poker.card(3, 0)]),
-        (poker.STRAIGHT, [poker.card(4, 0), poker.card(5, 1), poker.card(6, 2), poker.card(7, 3), poker.card(8, 0)]),
-        (poker.FLUSH, [poker.card(12, 0), poker.card(10, 0), poker.card(8, 0), poker.card(6, 0), poker.card(3, 0)]),
-        (poker.FULL_HOUSE, [poker.card(12, 0), poker.card(12, 1), poker.card(12, 2), poker.card(8, 3), poker.card(8, 0)]),
-        (poker.QUADS, [poker.card(12, 0), poker.card(12, 1), poker.card(12, 2), poker.card(12, 3), poker.card(8, 0)]),
-        (poker.STRAIGHT_FLUSH, [poker.card(4, 0), poker.card(5, 0), poker.card(6, 0), poker.card(7, 0), poker.card(8, 0)]),
+        (
+            poker.HIGH_CARD,
+            [
+                poker.card(12, 0),
+                poker.card(10, 1),
+                poker.card(8, 2),
+                poker.card(6, 3),
+                poker.card(3, 0),
+            ],
+        ),
+        (
+            poker.PAIR,
+            [
+                poker.card(12, 0),
+                poker.card(12, 1),
+                poker.card(8, 2),
+                poker.card(6, 3),
+                poker.card(3, 0),
+            ],
+        ),
+        (
+            poker.TWO_PAIR,
+            [
+                poker.card(12, 0),
+                poker.card(12, 1),
+                poker.card(8, 2),
+                poker.card(8, 3),
+                poker.card(3, 0),
+            ],
+        ),
+        (
+            poker.TRIPS,
+            [
+                poker.card(12, 0),
+                poker.card(12, 1),
+                poker.card(12, 2),
+                poker.card(8, 3),
+                poker.card(3, 0),
+            ],
+        ),
+        (
+            poker.STRAIGHT,
+            [
+                poker.card(4, 0),
+                poker.card(5, 1),
+                poker.card(6, 2),
+                poker.card(7, 3),
+                poker.card(8, 0),
+            ],
+        ),
+        (
+            poker.FLUSH,
+            [
+                poker.card(12, 0),
+                poker.card(10, 0),
+                poker.card(8, 0),
+                poker.card(6, 0),
+                poker.card(3, 0),
+            ],
+        ),
+        (
+            poker.FULL_HOUSE,
+            [
+                poker.card(12, 0),
+                poker.card(12, 1),
+                poker.card(12, 2),
+                poker.card(8, 3),
+                poker.card(8, 0),
+            ],
+        ),
+        (
+            poker.QUADS,
+            [
+                poker.card(12, 0),
+                poker.card(12, 1),
+                poker.card(12, 2),
+                poker.card(12, 3),
+                poker.card(8, 0),
+            ],
+        ),
+        (
+            poker.STRAIGHT_FLUSH,
+            [
+                poker.card(4, 0),
+                poker.card(5, 0),
+                poker.card(6, 0),
+                poker.card(7, 0),
+                poker.card(8, 0),
+            ],
+        ),
     ]
     ordered = all(
         poker.evaluate(ladder[index][1]) < poker.evaluate(ladder[index + 1][1])
         for index in range(len(ladder) - 1)
     )
-    check("poker: the published hand ranking, all nine in order", ordered, True, " < ".join(RANKING[:3]) + " ...")
+    check(
+        "poker: the published hand ranking, all nine in order",
+        ordered,
+        True,
+        " < ".join(RANKING[:3]) + " ...",
+    )
 
-    wheel = [poker.card(12, 0), poker.card(0, 1), poker.card(1, 2), poker.card(2, 3), poker.card(3, 0)]
-    check("poker: ace low straight is a straight", poker.evaluate(wheel)[0], poker.STRAIGHT)
+    wheel = [
+        poker.card(12, 0),
+        poker.card(0, 1),
+        poker.card(1, 2),
+        poker.card(2, 3),
+        poker.card(3, 0),
+    ]
+    check(
+        "poker: ace low straight is a straight",
+        poker.evaluate(wheel)[0],
+        poker.STRAIGHT,
+    )
 
     print("")
     print("  negative control -- the same checks must REJECT a broken generator")
@@ -203,7 +310,10 @@ def main():
     )
 
     print("")
-    print("  %d checks, %d passed, %d failed" % (len(results), sum(results), len(results) - sum(results)))
+    print(
+        "  %d checks, %d passed, %d failed"
+        % (len(results), sum(results), len(results) - sum(results))
+    )
     return 0 if all(results) else 1
 
 

@@ -33,51 +33,41 @@ $root = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $src = Join-Path $root "src\engine\c"
 $build = Join-Path $root "build\engine_c"
 
-if (-not (Get-Command cmake -ErrorAction SilentlyContinue))
-{
+if (-not (Get-Command cmake -ErrorAction SilentlyContinue)) {
     Write-Error "cmake is not on PATH."
     exit 1
 }
 
 $vcvars = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
-if (Test-Path $vcvars)
-{
+if (Test-Path $vcvars) {
     Write-Host "[*] importing MSVC environment"
     $envDump = cmd /c "`"$vcvars`" >nul 2>&1 && set"
-    foreach ($line in $envDump)
-    {
-        if ($line -match '^([^=]+)=(.*)$')
-        {
+    foreach ($line in $envDump) {
+        if ($line -match '^([^=]+)=(.*)$') {
             Set-Item -Path ("Env:" + $matches[1]) -Value $matches[2] -ErrorAction SilentlyContinue
         }
     }
 }
-else
-{
+else {
     Write-Host "[!] vcvars64.bat not found. Without it nvcc has no host compiler and CUDA is skipped."
 }
 
-if (-not (Get-Command nvcc -ErrorAction SilentlyContinue))
-{
+if (-not (Get-Command nvcc -ErrorAction SilentlyContinue)) {
     $toolkits = Get-ChildItem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v*\bin\nvcc.exe" -ErrorAction SilentlyContinue |
-                Sort-Object FullName -Descending
-    if ($toolkits)
-    {
+    Sort-Object FullName -Descending
+    if ($toolkits) {
         $env:PATH = (Split-Path $toolkits[0].FullName) + ";" + $env:PATH
         Write-Host "[*] nvcc found off PATH at $($toolkits[0].FullName)"
     }
 }
 
 $generator = @()
-if (Get-Command ninja -ErrorAction SilentlyContinue)
-{
+if (Get-Command ninja -ErrorAction SilentlyContinue) {
     $generator = @("-G", "Ninja")
 }
-else
-{
+else {
     $bundled = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\Ninja"
-    if (Test-Path (Join-Path $bundled "ninja.exe"))
-    {
+    if (Test-Path (Join-Path $bundled "ninja.exe")) {
         $env:PATH = $bundled + ";" + $env:PATH
         $generator = @("-G", "Ninja")
         Write-Host "[*] using the ninja bundled with the build tools"
@@ -85,13 +75,11 @@ else
 }
 
 $haveCuda = [bool](Get-Command nvcc -ErrorAction SilentlyContinue) -and
-            [bool](Get-Command cl.exe -ErrorAction SilentlyContinue)
-if ($haveCuda)
-{
+[bool](Get-Command cl.exe -ErrorAction SilentlyContinue)
+if ($haveCuda) {
     Write-Host "[*] nvcc and cl.exe both present, the device arm will be compiled in" -ForegroundColor Cyan
 }
-else
-{
+else {
     Write-Host "[!] device arm skipped, host arms only" -ForegroundColor Yellow
 }
 
@@ -106,11 +94,9 @@ else
 # passed explicitly on every configure now, and a cache naming a different C compiler is removed
 #.
 $cache = Join-Path $build "CMakeCache.txt"
-if (Test-Path $cache)
-{
+if (Test-Path $cache) {
     $cachedCompiler = Select-String -Path $cache -Pattern "^CMAKE_C_COMPILER:" -ErrorAction SilentlyContinue
-    if ($cachedCompiler -and ($cachedCompiler.Line -notmatch "cl\.exe"))
-    {
+    if ($cachedCompiler -and ($cachedCompiler.Line -notmatch "cl\.exe")) {
         Write-Host "[*] cached toolchain is not MSVC, reconfiguring from scratch" -ForegroundColor Yellow
         Remove-Item -Force $cache
         Remove-Item -Recurse -Force (Join-Path $build "CMakeFiles") -ErrorAction SilentlyContinue
@@ -119,30 +105,24 @@ if (Test-Path $cache)
 
 Write-Host "[*] configuring"
 $configure = @("-S", $src, "-B", $build) + $generator + @("-DCMAKE_BUILD_TYPE=Release")
-if ($haveCuda)
-{
+if ($haveCuda) {
     $configure += "-DANCHOR_SKIP_CUDA=OFF"
 }
-else
-{
+else {
     $configure += "-DANCHOR_SKIP_CUDA=ON"
 }
 & cmake @configure | Out-Null
-if ($LASTEXITCODE -ne 0)
-{
+if ($LASTEXITCODE -ne 0) {
     Write-Error "configure failed"
     exit 1
 }
 
 # THE ANNOUNCEMENT IS CHECKED AGAINST THE CACHE. The defect above was a script stating an intent
 # while the build did something else, and nothing compared the two. Where the device arm was
-# announced and the configure carries no CUDA compiler, that is a failure here rather than a
-# discovery twenty minutes later in a raster row reading "host only".
-if ($haveCuda)
-{
+# announced and the configure carries no CUDA compiler, that is a failure here.
+if ($haveCuda) {
     $cudaLine = Select-String -Path $cache -Pattern "^CMAKE_CUDA_COMPILER:" -ErrorAction SilentlyContinue
-    if ((-not $cudaLine) -or ($cudaLine.Line -match "NOTFOUND"))
-    {
+    if ((-not $cudaLine) -or ($cudaLine.Line -match "NOTFOUND")) {
         Write-Error "the device arm was announced but the configure carries no CUDA compiler"
         exit 1
     }
@@ -161,33 +141,28 @@ if ($haveCuda)
 # anchor_steer and anchor_steer_arms used to be on this list and no longer exist. Both folded into
 # anchor_sift_kernel, which is the whole engine in one translation unit.
 $targets = @("anchor_sift_kernel", "anchor_sift_kernel_counted", "anchor_raster", "anchor_render",
-             "anchor_exact_portable", "test_steer", "test_adversarial", "test_arm_agreement",
-             "test_o2_spawn",
-             "bench_steer_arms", "bench_raster", "bench_exact_arms", "bench_exact",
-             "bench_dispatch", "bench_coherence", "bench_scaling_reads", "bench_scaling_cycles")
+    "anchor_exact_portable", "test_steer", "test_adversarial", "test_arm_agreement",
+    "test_o2_spawn",
+    "bench_steer_arms", "bench_raster", "bench_exact_arms", "bench_exact",
+    "bench_dispatch", "bench_coherence", "bench_scaling_reads", "bench_scaling_cycles")
 Write-Host "[*] building"
-foreach ($target in $targets)
-{
+foreach ($target in $targets) {
     & cmake --build $build --target $target | Out-Null
-    if ($LASTEXITCODE -ne 0)
-    {
+    if ($LASTEXITCODE -ne 0) {
         Write-Error "target $target did not build"
         exit 1
     }
 }
 Write-Host "[+] built into $build" -ForegroundColor Green
 
-if ($BuildOnly)
-{
+if ($BuildOnly) {
     exit 0
 }
 
 $failed = 0
-foreach ($grader in @("test_steer", "test_adversarial", "test_arm_agreement", "test_o2_spawn", "bench_steer_arms", "bench_raster", "bench_exact_arms"))
-{
+foreach ($grader in @("test_steer", "test_adversarial", "test_arm_agreement", "test_o2_spawn", "bench_steer_arms", "bench_raster", "bench_exact_arms")) {
     $exe = Join-Path $build "$grader.exe"
-    if (-not (Test-Path $exe))
-    {
+    if (-not (Test-Path $exe)) {
         Write-Host "[!] $grader was not built" -ForegroundColor Red
         $failed += 1
         continue
@@ -196,24 +171,20 @@ foreach ($grader in @("test_steer", "test_adversarial", "test_arm_agreement", "t
     Write-Host ""
     Write-Host "[*] $grader" -ForegroundColor Cyan
     Push-Location $build
-    try
-    {
+    try {
         & $exe
-        if ($LASTEXITCODE -ne 0)
-        {
+        if ($LASTEXITCODE -ne 0) {
             Write-Host "[!] $grader reported a failure" -ForegroundColor Red
             $failed += 1
         }
     }
-    finally
-    {
+    finally {
         Pop-Location
     }
 }
 
 Write-Host ""
-if ($failed -ne 0)
-{
+if ($failed -ne 0) {
     Write-Error "$failed grader(s) failed"
     exit 1
 }

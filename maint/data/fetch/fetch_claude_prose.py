@@ -77,10 +77,11 @@ import sys
 import urllib.parse
 import urllib.request
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -92,17 +93,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -111,8 +122,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -147,12 +159,17 @@ BLOB = "https://huggingface.co/datasets/%s/resolve/main/%s"
 # The no_reasoning variants are taken where a dataset offers both. A reasoning trace is a different
 # register from an answer, and mixing them would build a pole out of two things.
 SOURCES = (
-    ("beyoru/Claude-opus-5-xhigh-workload-agent-preview",
-     "full_train_no_reasoning.jsonl", "sharegpt-lines"),
-    ("beyoru/Claude-Opus-5-safety",
-     "full_train_no_reasoning.jsonl", "sharegpt-lines"),
-    ("Ironwood-LLM-Team/Claude-Opus-5-Coding",
-     "Claude Opus Training.jsonl", "sharegpt-lines"),
+    (
+        "beyoru/Claude-opus-5-xhigh-workload-agent-preview",
+        "full_train_no_reasoning.jsonl",
+        "sharegpt-lines",
+    ),
+    ("beyoru/Claude-Opus-5-safety", "full_train_no_reasoning.jsonl", "sharegpt-lines"),
+    (
+        "Ironwood-LLM-Team/Claude-Opus-5-Coding",
+        "Claude Opus Training.jsonl",
+        "sharegpt-lines",
+    ),
 )
 
 # Which speaker in a ShareGPT record is the assistant. The human turns are somebody else's prose.
@@ -224,7 +241,9 @@ def records_of(text, shape):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     want = WANT
     if "--words" in sys.argv:
         want = int(sys.argv[sys.argv.index("--words") + 1])
@@ -281,8 +300,9 @@ def main():
             handle.write("\n")
 
     out.write("\n  %s\n" % os.path.relpath(TARGET, ROOT).replace("\\", "/"))
-    out.write("    %d words over %d turns, from %d files\n"
-              % (counted, len(held), len(used)))
+    out.write(
+        "    %d words over %d turns, from %d files\n" % (counted, len(held), len(used))
+    )
     for dataset, name, turns, words in used:
         out.write("    %-56s %6d turns %8d words\n" % (dataset[:56], turns, words))
     out.write("\n  Published as Claude Opus 5. The label is a claim, not evidence.\n")

@@ -91,8 +91,7 @@ size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments,
         const svbool_t agrees = svcmpeq_n_u8(live, window, wanted);
 
         /* An alive flag is zero or non-zero. The standing lanes are the ones not equal to zero.
-         * Testing this way rather than against one keeps it correct if a caller ever stores a flag
-         * other than one. */
+         * Testing this way. */
         const svbool_t alive_mask = svcmpne_n_u8(live, standing_bytes, 0u);
 
         standing += (uint64_t)svcntp_b8(live, svand_b_z(live, agrees, alive_mask));
@@ -103,7 +102,7 @@ size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments,
 
 const AnchorSteerEngine *anchor_steer_sve_engine(void)
 {
-    static const AnchorSteerEngine engine = { "sve-unrun", anchor_steer_truthy_after_sve };
+    static const AnchorSteerEngine engine = {"sve-unrun", anchor_steer_truthy_after_sve};
 
     if (steer_sve_present() == 0)
     {

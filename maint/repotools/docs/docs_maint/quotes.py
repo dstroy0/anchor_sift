@@ -43,12 +43,10 @@ put in after a correct quotation was reported as an invention:
     because that is what it is. Reading the mask alone gives one block per line and truncates
     every quotation spanning two of them. That was hiding 591 quotations - two fifths of the total
     - and every one of the odd quote-mark counts that made blocks unreadable.
-  - A block often cites a bare "sec 5.4.2" against the document the FILE is about rather than the
-    last RFC it happened to name. dad.h quotes six RFC 4862 sections that way. The RFCs in the
+  - A block often cites a bare "sec 5.4.2" against the document the FILE is about. The RFCs in the
     file's own @file comment are tried as well, or those six read as inventions.
 
-  A comment block whose quote marks still do not pair after all that is skipped rather than guessed
-  at, and the report says which. With an odd count every candidate after the stray mark is the gap
+  A comment block whose quote marks still do not pair after all that is skipped. With an odd count every candidate after the stray mark is the gap
   BETWEEN two quotations, and each would be reported as an invented sentence.
 
 WHAT THIS DOES NOT SETTLE. An RFC figure, state table or pseudo-code block is laid out in columns
@@ -62,6 +60,7 @@ Not a pass/fail gate by default, for the same reason harness.py deps and unwired
 paraphrase in quotation marks is a real defect but it is a documentation defect, and failing a
 build on one would put pressure on the wrong thing. --check is there for when you want it held.
 """
+
 import argparse
 import collections
 import io
@@ -90,8 +89,14 @@ _corpus = {}
 
 def norm(s):
     """Whitespace, and the punctuation an encoding changes. Nothing that alters a word."""
-    for a, b in (("’", "'"), ("‘", "'"), ("“", '"'), ("”", '"'),
-                 ("–", "-"), ("—", "-")):
+    for a, b in (
+        ("’", "'"),
+        ("‘", "'"),
+        ("“", '"'),
+        ("”", '"'),
+        ("–", "-"),
+        ("—", "-"),
+    ):
         s = s.replace(a, b)
     return re.sub(r"\s+", " ", s).strip()
 
@@ -112,7 +117,8 @@ def corpus(num):
         return None
     raw = io.open(path, encoding="utf-8", errors="replace").read()
     body = "\n".join(
-        line for line in raw.split("\n")
+        line
+        for line in raw.split("\n")
         if "\f" not in line and not FOOTER.search(line) and not HEADER.match(line)
     )
     kept = norm(WRAP.sub("-", body))
@@ -154,8 +160,12 @@ def comment_blocks(text):
 
     out = []
     for start, end, chunk in raw:
-        if (out and chunk.lstrip().startswith("//") and out[-1][2].lstrip().startswith("//")
-                and start == out[-1][1] + 1):
+        if (
+            out
+            and chunk.lstrip().startswith("//")
+            and out[-1][2].lstrip().startswith("//")
+            and start == out[-1][1] + 1
+        ):
             out[-1][1] = end
             out[-1][2] += "\n" + chunk
         else:
@@ -240,8 +250,12 @@ def scan():
                 continue
             for a, b in zip(marks[0::2], marks[1::2]):
                 quote = prose[a + 1 : b].strip()
-                if (len(quote) < 12 or " " not in quote
-                        or NOT_PROSE.search(quote) or LEADS_WITH_PUNCT.match(quote)):
+                if (
+                    len(quote) < 12
+                    or " " not in quote
+                    or NOT_PROSE.search(quote)
+                    or LEADS_WITH_PUNCT.match(quote)
+                ):
                     skipped += 1
                     continue
                 frags = fragments(quote)
@@ -260,17 +274,31 @@ def scan():
                 for rank in ("verbatim", "retyped"):
                     hit = next((num for num, v in results if v == rank), None)
                     if hit:
-                        found.append((rel, quote_line(block, lineno, quote), hit, quote, rank))
+                        found.append(
+                            (rel, quote_line(block, lineno, quote), hit, quote, rank)
+                        )
                         break
                 else:
-                    found.append((rel, quote_line(block, lineno, quote), order[0], quote, "differs"))
+                    found.append(
+                        (
+                            rel,
+                            quote_line(block, lineno, quote),
+                            order[0],
+                            quote,
+                            "differs",
+                        )
+                    )
     return found, unpaired, skipped, unvendored
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--check", action="store_true", help="exit nonzero when any quotation differs")
-    ap.add_argument("--list", action="store_true", help="print the matches too, not just the misses")
+    ap.add_argument(
+        "--check", action="store_true", help="exit nonzero when any quotation differs"
+    )
+    ap.add_argument(
+        "--list", action="store_true", help="print the matches too, not just the misses"
+    )
     args = ap.parse_args()
 
     found, unpaired, skipped, unvendored = scan()
@@ -288,7 +316,11 @@ def main():
         print("\n--- matched ---")
         for rel, lineno, num, quote, rank in found:
             if rank != "differs":
-                print("{:<9} {}:{}  RFC {}\n    {}".format(rank, rel, lineno, num, quote[:150]))
+                print(
+                    "{:<9} {}:{}  RFC {}\n    {}".format(
+                        rank, rel, lineno, num, quote[:150]
+                    )
+                )
 
     differs = [f for f in found if f[4] == "differs"]
     if differs:
@@ -301,7 +333,9 @@ def main():
 
     if unpaired:
         print("\n" + "=" * 94)
-        print("NOT CHECKED - the quote marks in these blocks do not pair. Read them by hand")
+        print(
+            "NOT CHECKED - the quote marks in these blocks do not pair. Read them by hand"
+        )
         print("=" * 94)
         for rel, lineno in unpaired:
             print("  {}:{}".format(rel, lineno))

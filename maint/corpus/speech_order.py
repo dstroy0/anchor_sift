@@ -63,10 +63,12 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -78,17 +80,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -97,8 +109,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -127,8 +140,10 @@ def private_root():
     named = os.environ.get("ANCHOR_SIFT_PRIVATE")
     if named:
         return os.path.abspath(named)
-    for candidate in (os.path.join(ROOT, "deps", "salishan_corpus"),
-                      os.path.join(os.path.dirname(ROOT), "private_repos", "salishan_corpus")):
+    for candidate in (
+        os.path.join(ROOT, "deps", "salishan_corpus"),
+        os.path.join(os.path.dirname(ROOT), "private_repos", "salishan_corpus"),
+    ):
         if os.path.isdir(candidate):
             return candidate
     return os.path.join(ROOT, "deps", "salishan_corpus")
@@ -158,7 +173,7 @@ def seed_in(notes):
     """The seed already drawn, or None where the register has never been ordered."""
     for line in notes:
         if line.startswith(SEED_MARK):
-            found = line[len(SEED_MARK):].strip()
+            found = line[len(SEED_MARK) :].strip()
             if found:
                 return found
     return None
@@ -170,8 +185,9 @@ def key_of(seed, language):
     Hex. It sorts as text the same way it sorts as a number, and a reader with the seed and a
     hashing tool can check any one language without running this.
     """
-    return hashlib.sha256(("%s\x1f%s" % (seed, language.strip()))
-                          .encode("utf-8")).hexdigest()[:16]
+    return hashlib.sha256(
+        ("%s\x1f%s" % (seed, language.strip())).encode("utf-8")
+    ).hexdigest()[:16]
 
 
 def dated(row):
@@ -204,8 +220,11 @@ def ordered(seed, rows):
         # The tail is the row's own hash. Two undated sources of one language are separated by
         # the same noise that placed the language and never by their order in the file.
         tail = hashlib.sha256(
-            ("%s\x1f%s\x1f%s" % (seed, row.get("body") or "",
-                                 row.get("program") or "")).encode("utf-8")).hexdigest()[:8]
+            (
+                "%s\x1f%s\x1f%s"
+                % (seed, row.get("body") or "", row.get("program") or "")
+            ).encode("utf-8")
+        ).hexdigest()[:8]
         held.append((key_of(seed, language), dated(row), tail, row))
     held.sort(key=lambda one: (one[0], one[1], one[2]))
     return held
@@ -239,12 +258,20 @@ def write_register(path, notes, header, drawn, seed, out):
         handle.write("#\n")
         handle.write("# THE ORDER BELOW WAS DRAWN, NOT CHOSEN\n")
         handle.write("#\n")
-        handle.write("# order_key is sha256(seed + language), first 16 hex digits. The languages\n")
-        handle.write("# are sorted by it and every source of one language sits under it, oldest\n")
+        handle.write(
+            "# order_key is sha256(seed + language), first 16 hex digits. The languages\n"
+        )
+        handle.write(
+            "# are sorted by it and every source of one language sits under it, oldest\n"
+        )
         handle.write("# date first. Recompute any key from the seed and check it.\n")
-        handle.write("# maint/corpus/speech_order.py in anchor_sift does all of them.\n")
+        handle.write(
+            "# maint/corpus/speech_order.py in anchor_sift does all of them.\n"
+        )
         handle.write("#\n")
-        handle.write("# date is the year that source's holdings begin. An empty one sorts last\n")
+        handle.write(
+            "# date is the year that source's holdings begin. An empty one sorts last\n"
+        )
         handle.write("# inside its language and is a thing still to find out.\n")
         handle.write("#\n")
         handle.write("%s%s\n" % (SEED_MARK, seed))
@@ -256,8 +283,10 @@ def write_register(path, notes, header, drawn, seed, out):
             handle.write("\n")
     out.write("  %s\n" % path.replace("\\", "/"))
     out.write("    seed %s\n" % seed)
-    out.write("    %d row(s) under %d language(s)\n"
-              % (len(drawn), len({one[0] for one in drawn})))
+    out.write(
+        "    %d row(s) under %d language(s)\n"
+        % (len(drawn), len({one[0] for one in drawn}))
+    )
 
 
 def show(out, drawn):
@@ -269,12 +298,18 @@ def show(out, drawn):
         if key != seen:
             seen = key
             place += 1
-            out.write("\n    %2d  %-12s  %s\n" % (place, key[:12], language or "no language"))
-        out.write("          %-9s %-30s %-14s %s\n"
-                  % ((row.get(DATED_BY) or "no date")[:9],
-                     (row.get("body") or "")[:30],
-                     (row.get("body_kind") or "")[:14],
-                     (row.get("program") or "")[:40]))
+            out.write(
+                "\n    %2d  %-12s  %s\n" % (place, key[:12], language or "no language")
+            )
+        out.write(
+            "          %-9s %-30s %-14s %s\n"
+            % (
+                (row.get(DATED_BY) or "no date")[:9],
+                (row.get("body") or "")[:30],
+                (row.get("body_kind") or "")[:14],
+                (row.get("program") or "")[:40],
+            )
+        )
 
 
 def main():
@@ -299,29 +334,48 @@ def main():
     # The keys are still in the file and the old seed is in that run's output.
     if not seed and any((row.get("order_key") or "").strip() for row in rows):
         out.write("  rows carry an order_key and the file has no seed line.\n")
-        out.write("  a draw was made here and its seed was dropped. Drawing again would\n")
+        out.write(
+            "  a draw was made here and its seed was dropped. Drawing again would\n"
+        )
         out.write("  replace it and not reproduce it. Put the seed back:\n")
         out.write("      %s<the seed that run printed>\n" % SEED_MARK)
-        out.write("  or --redraw --yes to accept a new draw and lose the old order.\n\n")
+        out.write(
+            "  or --redraw --yes to accept a new draw and lose the old order.\n\n"
+        )
         if not redrawing:
             out.flush()
             return 1
 
     if redrawing or not seed:
-        approached = [row for row in rows
-                      if (row.get("permission") or "").strip().lower() not in ("", "not asked")]
+        approached = [
+            row
+            for row in rows
+            if (row.get("permission") or "").strip().lower() not in ("", "not asked")
+        ]
         if approached and redrawing:
-            out.write("\n  %d nation(s) have already been approached in the current order:\n"
-                      % len(approached))
+            out.write(
+                "\n  %d nation(s) have already been approached in the current order:\n"
+                % len(approached)
+            )
             for row in approached:
-                out.write("    %s  %s\n" % (row.get("language", ""), row.get("permission", "")))
-            out.write("\n  a redraw moves everybody and throws away the record of why those came\n")
-            out.write("  first. Say so again with --redraw --yes if that is what you mean.\n\n")
+                out.write(
+                    "    %s  %s\n"
+                    % (row.get("language", ""), row.get("permission", ""))
+                )
+            out.write(
+                "\n  a redraw moves everybody and throws away the record of why those came\n"
+            )
+            out.write(
+                "  first. Say so again with --redraw --yes if that is what you mean.\n\n"
+            )
             if "--yes" not in sys.argv:
                 out.flush()
                 return 1
         elif approached:
-            out.write("  no seed, and %d row(s) have already been approached.\n" % len(approached))
+            out.write(
+                "  no seed, and %d row(s) have already been approached.\n"
+                % len(approached)
+            )
             out.flush()
             return 1
         # 32 bytes out of the operating system's entropy. Not a word, not a date, and not anything
@@ -337,11 +391,15 @@ def main():
         write_register(path, notes, header, drawn, seed, out)
         show(out, drawn)
         if undated:
-            out.write("\n  %d row(s) have no date and wait at the end of their language.\n"
-                      % undated)
+            out.write(
+                "\n  %d row(s) have no date and wait at the end of their language.\n"
+                % undated
+            )
         out.write("\n  reconcile and sign the corpus after:\n")
-        out.write("      python maint/corpus/corpus_manifest.py --write --root %s\n"
-                  % root.replace("\\", "/"))
+        out.write(
+            "      python maint/corpus/corpus_manifest.py --write --root %s\n"
+            % root.replace("\\", "/")
+        )
         out.write("      gpg --armor --detach-sign --yes MANIFEST.tsv\n\n")
         out.flush()
         return 0
@@ -353,12 +411,18 @@ def main():
             adrift.append((at + 1, row.get(GROUPED_BY, ""), key))
     # A row out of the draw carries the all f key by design. Checking it against key_of would
     # report the portal as drifted on every run.
-    stale = [row for row in rows if in_draw(row)
-             and (row.get("order_key") or "") != key_of(seed, (row.get(GROUPED_BY) or ""))]
+    stale = [
+        row
+        for row in rows
+        if in_draw(row)
+        and (row.get("order_key") or "") != key_of(seed, (row.get(GROUPED_BY) or ""))
+    ]
 
     out.write("    seed %s\n" % seed)
-    out.write("    %d row(s) under %d language(s), %d with no date\n"
-              % (len(rows), len({one[0] for one in drawn}), undated))
+    out.write(
+        "    %d row(s) under %d language(s), %d with no date\n"
+        % (len(rows), len({one[0] for one in drawn}), undated)
+    )
     if adrift:
         out.write("\n  ROWS NOT WHERE THE DRAW PUT THEM (%d)\n" % len(adrift))
         for at, language, key in adrift[:12]:
@@ -366,10 +430,14 @@ def main():
     if stale:
         out.write("\n  order_key DOES NOT MATCH THE SEED (%d)\n" % len(stale))
         for row in stale[:12]:
-            out.write("    %-30s recorded %s, computed %s\n"
-                      % ((row.get(GROUPED_BY) or "")[:30],
-                         (row.get("order_key") or "none")[:12],
-                         key_of(seed, row.get(GROUPED_BY) or "")[:12]))
+            out.write(
+                "    %-30s recorded %s, computed %s\n"
+                % (
+                    (row.get(GROUPED_BY) or "")[:30],
+                    (row.get("order_key") or "none")[:12],
+                    key_of(seed, row.get(GROUPED_BY) or "")[:12],
+                )
+            )
     if adrift or stale:
         out.write("\n  run --write\n\n")
         out.flush()

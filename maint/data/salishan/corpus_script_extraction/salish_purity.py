@@ -32,10 +32,11 @@ import subprocess
 import sys
 import unicodedata
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -47,17 +48,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -66,8 +77,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -113,7 +125,9 @@ def measure(text):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     rows = []
     for name in sorted(os.listdir(PAPERS)):
@@ -128,22 +142,40 @@ def main():
         if taken is None:
             continue
         held, combining, gaps, letters, present = taken
-        rows.append((name[:-4], letters, present, combining, gaps,
-                     1000.0 * combining / letters, 1000.0 * gaps / letters, held))
+        rows.append(
+            (
+                name[:-4],
+                letters,
+                present,
+                combining,
+                gaps,
+                1000.0 * combining / letters,
+                1000.0 * gaps / letters,
+                held,
+            )
+        )
 
     # The worst are the ones with the inventory missing and the gaps heavy
     rows.sort(key=lambda row: (row[2], -row[6]))
 
-    out.write("  %-42s %-9s %-6s %-8s %-8s %s\n"
-              % ("paper", "letters", "sets", "marks", "gaps", "gaps per 1000 letters"))
+    out.write(
+        "  %-42s %-9s %-6s %-8s %-8s %s\n"
+        % ("paper", "letters", "sets", "marks", "gaps", "gaps per 1000 letters")
+    )
     for stem, letters, present, combining, gaps, mark_rate, gap_rate, held in rows:
-        out.write("  %-42s %-9d %-6d %-8d %-8d %.2f\n"
-                  % (stem[:42], letters, present, combining, gaps, gap_rate))
+        out.write(
+            "  %-42s %-9d %-6d %-8d %-8d %.2f\n"
+            % (stem[:42], letters, present, combining, gaps, gap_rate)
+        )
 
-    out.write("\n  sets is how many of the %d named parts of the inventory appear at all\n"
-              % len(INVENTORY))
+    out.write(
+        "\n  sets is how many of the %d named parts of the inventory appear at all\n"
+        % len(INVENTORY)
+    )
     out.write("  marks is combining glottalization and wedges, which drop first\n")
-    out.write("  gaps is letters with blanks wedged between them, the shape a lost glyph leaves\n")
+    out.write(
+        "  gaps is letters with blanks wedged between them, the shape a lost glyph leaves\n"
+    )
 
     out.write("\n  which of the inventory each paper is missing\n")
     for stem, letters, present, combining, gaps, mark_rate, gap_rate, held in rows:
@@ -153,13 +185,19 @@ def main():
         out.write("  %-42s no %s\n" % (stem[:42], ", ".join(absent)))
 
     clean = [row for row in rows if (row[2] >= 5) and (row[6] < 2.0)]
-    out.write("\n  %d of %d papers hold at least five of the sets with few gaps\n"
-              % (len(clean), len(rows)))
+    out.write(
+        "\n  %d of %d papers hold at least five of the sets with few gaps\n"
+        % (len(clean), len(rows))
+    )
     for stem, letters, present, combining, gaps, mark_rate, gap_rate, held in clean:
         out.write("  %s\n" % stem)
 
-    out.write("\n  a paper absent from that list is not proof of damage and a paper on it\n")
-    out.write("  is not proof of soundness. It says where to look first and where a page\n")
+    out.write(
+        "\n  a paper absent from that list is not proof of damage and a paper on it\n"
+    )
+    out.write(
+        "  is not proof of soundness. It says where to look first and where a page\n"
+    )
     out.write("  has to be read off the image instead of out of the file\n")
 
     out.flush()

@@ -41,11 +41,20 @@ sys.path.insert(0, os.path.join(os.path.dirname(HERE), "3_reference"))
 ROOT = HERE
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
-from what_a_pixel_costs import SEED, SIDE, TRUTHS, recover, shifted, to_levels  # noqa: E402
+from what_a_pixel_costs import (
+    SEED,
+    SIDE,
+    TRUTHS,
+    recover,
+    shifted,
+    to_levels,
+)  # noqa: E402
 from where_the_floor_comes_from import field  # noqa: E402
 
 # Swept, not chosen. The far end puts eight pixels in a tile, which is two feature widths, and the
@@ -68,33 +77,43 @@ def arms(canvas, count, reach, axis, truth):
     out = []
     for row in range(count):
         for column in range(count):
-            piece = (slice(row * step, (row + 1) * step),
-                     slice(column * step, (column + 1) * step))
+            piece = (
+                slice(row * step, (row + 1) * step),
+                slice(column * step, (column + 1) * step),
+            )
             lag, fraction, _ = recover(first[piece], second[piece], axis, reach=reach)
             out.append(lag + fraction)
     return out
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     canvas, blobs = field(numpy.random.default_rng(SEED), WIDTH)
 
     out.write("  Co-arm count and lag reach swept.\n")
-    out.write("  %dx%d field, %d blobs %.1f px wide, true displacement %.3f px.\n\n"
-              % (SIDE, SIDE, blobs, WIDTH, TRUTH))
-    out.write("  %-8s %-8s %-8s %-11s %-11s %s\n"
-              % ("arms", "tile px", "reach", "mean", "error", "spread"))
+    out.write(
+        "  %dx%d field, %d blobs %.1f px wide, true displacement %.3f px.\n\n"
+        % (SIDE, SIDE, blobs, WIDTH, TRUTH)
+    )
+    out.write(
+        "  %-8s %-8s %-8s %-11s %-11s %s\n"
+        % ("arms", "tile px", "reach", "mean", "error", "spread")
+    )
 
     best = None
     for count in COUNTS:
         tile = SIDE // count
         for reach in REACHES:
             # A reach shorter than the displacement cannot return it, and a reach longer than the
-            # tile has no positions left to score. Both are stated rather than silently skipped,
+            # tile has no positions left to score. Both are stated
             # because a row missing without a reason reads as a row that was not run.
             if reach >= tile:
-                out.write("  %-8d %-8d %-8d %s\n"
-                          % (count * count, tile, reach, "reach exceeds tile, not run"))
+                out.write(
+                    "  %-8d %-8d %-8d %s\n"
+                    % (count * count, tile, reach, "reach exceeds tile, not run")
+                )
                 continue
             # Averaged over every truth in the sweep, not read at one. CEL-3-001 compared its
             # sixteen-arm figure at a single displacement of 3.4 against CEL-2-002's mean over
@@ -110,14 +129,20 @@ def main():
             mean = float(numpy.mean([e for e in errors]))
             spread = float(numpy.mean(spreads))
             error = mean
-            out.write("  %-8d %-8d %-8d %-11.4f %-11.4f %.4f\n"
-                      % (count * count, tile, reach, mean, error, spread))
+            out.write(
+                "  %-8d %-8d %-8d %-11.4f %-11.4f %.4f\n"
+                % (count * count, tile, reach, mean, error, spread)
+            )
             if (best is None) or (error < best[0]):
                 best = (error, count, reach, spread)
 
-    out.write("\n  best: %d co-arms at reach %d, error %.4f px, spread %.4f px.\n"
-              % (best[1] * best[1], best[2], best[0], best[3]))
-    out.write("\n  The whole-field row is the 1 arm row and is what CEL-2-002 quoted at this\n")
+    out.write(
+        "\n  best: %d co-arms at reach %d, error %.4f px, spread %.4f px.\n"
+        % (best[1] * best[1], best[2], best[0], best[3])
+    )
+    out.write(
+        "\n  The whole-field row is the 1 arm row and is what CEL-2-002 quoted at this\n"
+    )
     out.write("  width. Every row below it that improves on it was available then.\n")
     out.flush()
     return 0

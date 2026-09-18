@@ -24,8 +24,7 @@
  *       skip is the corpus length over the occurrence count, and it decides whether a sieve
  *       can visit a space it could never enumerate.
  * @warning The cost table is a link time singleton. A build links exactly one of the five profiles
- *          and this binary can only report on that one. It does not even record its own name, so
- *          every row below is stamped with a fingerprint of the 256 costs instead. Comparing
+ *          and this binary can only report on that one. It does not even record its own name. Comparing
  *          profiles takes five builds, and the current design charges that.
  */
 #include "impensa_ancorae_acus/impensa_ancorae_acus.h"
@@ -405,21 +404,21 @@ static unsigned anchor_cost(uint8_t byte, AnchorPolicy policy)
 {
     switch (policy)
     {
-        case ANCHOR_BY_RANDOM:
-        {
-            return s_random_cost[byte];
-        }
-        case ANCHOR_BY_MAXIMUM_ENTROPY:
-        {
-            // One cost for every byte. Ties go leftmost. The anchors come out at 0, 1, 2 and sit
-            // adjacent. That is the hardest case there is for two rates to multiply
-            return 0u;
-        }
-        case ANCHOR_BY_TABLE:
-        default:
-        {
-            return (unsigned)EMBED_CALL(ancorae.impensa, AncoraeCfg, .byte = byte);
-        }
+    case ANCHOR_BY_RANDOM:
+    {
+        return s_random_cost[byte];
+    }
+    case ANCHOR_BY_MAXIMUM_ENTROPY:
+    {
+        // One cost for every byte. Ties go leftmost. The anchors come out at 0, 1, 2 and sit
+        // adjacent. That is the hardest case there is for two rates to multiply
+        return 0u;
+    }
+    case ANCHOR_BY_TABLE:
+    default:
+    {
+        return (unsigned)EMBED_CALL(ancorae.impensa, AncoraeCfg, .byte = byte);
+    }
     }
 }
 
@@ -433,19 +432,19 @@ static const char *policy_name(AnchorPolicy policy)
 {
     switch (policy)
     {
-        case ANCHOR_BY_RANDOM:
-        {
-            return "random";
-        }
-        case ANCHOR_BY_MAXIMUM_ENTROPY:
-        {
-            return "maxent";
-        }
-        case ANCHOR_BY_TABLE:
-        default:
-        {
-            return "table";
-        }
+    case ANCHOR_BY_RANDOM:
+    {
+        return "random";
+    }
+    case ANCHOR_BY_MAXIMUM_ENTROPY:
+    {
+        return "maxent";
+    }
+    case ANCHOR_BY_TABLE:
+    default:
+    {
+        return "table";
+    }
     }
 }
 
@@ -958,8 +957,7 @@ static void report_domain(const char *name, const uint8_t *corpus, size_t corpus
     const double positions = (double)((corpus_len - needle_len) + 1u);
 
     // The rate a perfectly matched table would reach, the ceiling on what any measure can be
-    // worth. The anchor is the rarest of needle_len symbols and a needle is drawn from the corpus, so
-    // each symbol arrives with probability equal to its own frequency. For draws weighted that way,
+    // worth. The anchor is the rarest of needle_len symbols and a needle is drawn from the corpus. For draws weighted that way,
     // the expected minimum is the integral of the survival function raised to the draw count, and a
     // sorted frequency list turns that integral into a sum over its steps
     double shares[256];
@@ -1017,8 +1015,7 @@ static void report_domain(const char *name, const uint8_t *corpus, size_t corpus
  *       alignment starting at s+d puts pattern offset a-d on that same cell. Every d whose pattern
  *       byte differs from what was read is refused by the one read. A byte absent from the needle
  *       entirely refutes every alignment touching the cell.
- * @note The count is the needle length less how many times the observed byte occurs in the needle, so
- *       its expectation over a corpus is needle_len times one minus the collision probability. That
+ * @note The count is the needle length less how many times the observed byte occurs in the needle. That
  *       is the same collision probability the candidate count measures, appearing here as a distance
  *       instead of a rate.
  */

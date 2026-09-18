@@ -42,14 +42,15 @@ import numpy
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 
 DEFAULT = os.path.join("D:", os.sep, "tmp_ctc", "Fluo-N2DH-SIM+")
 
 # Levels the intensities inside a mask are read at. CEL-4-002 sweeps this on synthetic fields and
-# finds the optimum at 256, which is the depth the substrate carries. Held here rather than swept
-# because the sweep belongs to a later file and this one is asking a different question.
+# finds the optimum at 256, which is the depth the substrate carries. Held here.
 LEVELS = 256
 
 
@@ -66,13 +67,15 @@ def collision_entropy(values, levels=LEVELS):
     high = float(values.max())
     if high <= low:
         return 0.0
-    scaled = numpy.clip(((values - low) / (high - low) * levels).astype(numpy.int64), 0, levels - 1)
+    scaled = numpy.clip(
+        ((values - low) / (high - low) * levels).astype(numpy.int64), 0, levels - 1
+    )
     counts = numpy.bincount(scaled, minlength=levels).astype(numpy.float64)
     total = counts.sum()
     if total <= 0:
         return float("nan")
     shares = counts / total
-    return float(-numpy.log2((shares ** 2).sum()))
+    return float(-numpy.log2((shares**2).sum()))
 
 
 def read_tif(path):
@@ -84,6 +87,7 @@ def read_tif(path):
     displacement support need not be ordered and nothing here asks how many axes it has.
     """
     from PIL import Image
+
     handle = Image.open(path)
     pages = []
     try:
@@ -97,7 +101,9 @@ def read_tif(path):
 
 def frame_number(name):
     """The digits at the end of a CTC filename, which is the only thing that orders a sequence."""
-    digits = "".join(character for character in os.path.splitext(name)[0] if character.isdigit())
+    digits = "".join(
+        character for character in os.path.splitext(name)[0] if character.isdigit()
+    )
     return int(digits) if digits else -1
 
 
@@ -112,14 +118,22 @@ def load(where, sequence="01"):
     """
     raw_dir = os.path.join(where, sequence)
     track_dir = os.path.join(where, "%s_GT" % sequence, "TRA")
-    raws = {frame_number(name): name
-            for name in os.listdir(raw_dir) if name.endswith(".tif")}
-    masks = {frame_number(name): name
-             for name in os.listdir(track_dir) if name.endswith(".tif")}
+    raws = {
+        frame_number(name): name
+        for name in os.listdir(raw_dir)
+        if name.endswith(".tif")
+    }
+    masks = {
+        frame_number(name): name
+        for name in os.listdir(track_dir)
+        if name.endswith(".tif")
+    }
     for index in sorted(set(raws) & set(masks)):
-        yield (index,
-               read_tif(os.path.join(raw_dir, raws[index])),
-               read_tif(os.path.join(track_dir, masks[index])))
+        yield (
+            index,
+            read_tif(os.path.join(raw_dir, raws[index])),
+            read_tif(os.path.join(track_dir, masks[index])),
+        )
 
 
 def divisions(where):
@@ -148,7 +162,9 @@ def divisions(where):
 
 def main():
     where = sys.argv[1] if len(sys.argv) > 1 else DEFAULT
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     if not os.path.isdir(where):
         out.write("  not found: %s\n" % where)
         out.flush()
@@ -208,26 +224,55 @@ def main():
     pair_gap = numpy.array(pair_gap)
     ordinary = numpy.array(ordinary)
 
-    out.write("  Fluo-N2DH-SIM+ sequence 01. Collision entropy inside each cell's own mask.\n")
-    out.write("  %d divisions in the answer key, %d usable, %d daughter readings.\n"
-              % (len(events), len(pair_gap), len(about_to)))
-    out.write("  %d ordinary frame-to-frame changes as the background.\n\n" % len(ordinary))
+    out.write(
+        "  Fluo-N2DH-SIM+ sequence 01. Collision entropy inside each cell's own mask.\n"
+    )
+    out.write(
+        "  %d divisions in the answer key, %d usable, %d daughter readings.\n"
+        % (len(events), len(pair_gap), len(about_to))
+    )
+    out.write(
+        "  %d ordinary frame-to-frame changes as the background.\n\n" % len(ordinary)
+    )
 
     if about_to.size == 0:
-        out.write("  No division has both daughters present in the next frame. Nothing to read.\n")
+        out.write(
+            "  No division has both daughters present in the next frame. Nothing to read.\n"
+        )
         out.flush()
         return 0
 
-    out.write("  %-26s %-10s %-10s %-10s\n" % ("|change in H2|, bits", "median", "mean", "p90"))
-    out.write("  %-26s %-10.4f %-10.4f %-10.4f\n"
-              % ("parent to one daughter", float(numpy.median(about_to)),
-                 float(about_to.mean()), float(numpy.percentile(about_to, 90))))
-    out.write("  %-26s %-10.4f %-10.4f %-10.4f\n"
-              % ("parent to both together", float(numpy.median(pair_gap)),
-                 float(pair_gap.mean()), float(numpy.percentile(pair_gap, 90))))
-    out.write("  %-26s %-10.4f %-10.4f %-10.4f\n"
-              % ("background, cell to self", float(numpy.median(ordinary)),
-                 float(ordinary.mean()), float(numpy.percentile(ordinary, 90))))
+    out.write(
+        "  %-26s %-10s %-10s %-10s\n"
+        % ("|change in H2|, bits", "median", "mean", "p90")
+    )
+    out.write(
+        "  %-26s %-10.4f %-10.4f %-10.4f\n"
+        % (
+            "parent to one daughter",
+            float(numpy.median(about_to)),
+            float(about_to.mean()),
+            float(numpy.percentile(about_to, 90)),
+        )
+    )
+    out.write(
+        "  %-26s %-10.4f %-10.4f %-10.4f\n"
+        % (
+            "parent to both together",
+            float(numpy.median(pair_gap)),
+            float(pair_gap.mean()),
+            float(numpy.percentile(pair_gap, 90)),
+        )
+    )
+    out.write(
+        "  %-26s %-10.4f %-10.4f %-10.4f\n"
+        % (
+            "background, cell to self",
+            float(numpy.median(ordinary)),
+            float(ordinary.mean()),
+            float(numpy.percentile(ordinary, 90)),
+        )
+    )
 
     # A standard deviation on this background is not a valid floor and a first version of this file
     # used one. The background is heavy tailed, mean %.4f against median %.4f, and
@@ -236,15 +281,16 @@ def main():
     # with a Jarque-Bera of 800 against a one percent point of 9.21. The rank statistic it uses
     # instead is what this now reports.
     skew_note = (float(ordinary.mean()), float(numpy.median(ordinary)))
-    out.write("\n  Background is heavy tailed, mean %.4f against median %.4f. A deviation on\n"
-              % skew_note)
+    out.write(
+        "\n  Background is heavy tailed, mean %.4f against median %.4f. A deviation on\n"
+        % skew_note
+    )
     out.write("  it is not a floor. Read by rank instead.\n\n")
 
     # Where a division's reading falls in the background's own distribution. A detector's real
     # operating point: how much of the background it would have to admit to catch this division.
     def rank_of(values):
-        return float(numpy.mean([
-            (ordinary < value).mean() for value in values]))
+        return float(numpy.mean([(ordinary < value).mean() for value in values]))
 
     one_rank = rank_of(about_to)
     pair_rank = rank_of(pair_gap)
@@ -254,7 +300,9 @@ def main():
 
     out.write("  %-26s %-14s %s\n" % ("", "mean rank", "share past background p90"))
     out.write("  %-26s %-14.4f %.4f\n" % ("parent to one daughter", one_rank, caught))
-    out.write("  %-26s %-14.4f %.4f\n" % ("parent to both together", pair_rank, pair_caught))
+    out.write(
+        "  %-26s %-14.4f %.4f\n" % ("parent to both together", pair_rank, pair_caught)
+    )
 
     # The signed claim, which is the sharp one: the pair reads slightly BELOW the parent, and does
     # so consistently, against a background whose signed changes have no direction.
@@ -266,16 +314,33 @@ def main():
     # a direction has to clear to be a direction and not a draw.
     floor = float(noise.std() / numpy.sqrt(len(noise)))
     out.write("\n  SIGNED, which is the claim: pair minus parent, in bits.\n")
-    out.write("  %-26s %-11s %-11s %-11s %s\n"
-              % ("", "median", "mean", "share < 0", "floors"))
-    out.write("  %-26s %-11.4f %-11.4f %-11.4f %.1f\n"
-              % ("pair minus parent", float(numpy.median(signed)), float(signed.mean()),
-                 below, abs(float(signed.mean())) / floor if floor > 0 else float("inf")))
-    out.write("  %-26s %-11.4f %-11.4f %-11.4f %s\n"
-              % ("background, cell to self", float(numpy.median(noise)), float(noise.mean()),
-                 noise_below, "-"))
-    out.write("  noise floor %.5f bits, the background mean's own standard error over %d changes.\n"
-              % (floor, len(noise)))
+    out.write(
+        "  %-26s %-11s %-11s %-11s %s\n" % ("", "median", "mean", "share < 0", "floors")
+    )
+    out.write(
+        "  %-26s %-11.4f %-11.4f %-11.4f %.1f\n"
+        % (
+            "pair minus parent",
+            float(numpy.median(signed)),
+            float(signed.mean()),
+            below,
+            abs(float(signed.mean())) / floor if floor > 0 else float("inf"),
+        )
+    )
+    out.write(
+        "  %-26s %-11.4f %-11.4f %-11.4f %s\n"
+        % (
+            "background, cell to self",
+            float(numpy.median(noise)),
+            float(noise.mean()),
+            noise_below,
+            "-",
+        )
+    )
+    out.write(
+        "  noise floor %.5f bits, the background mean's own standard error over %d changes.\n"
+        % (floor, len(noise))
+    )
 
     # Above this share of the background, a cut that catches most divisions is admitting too much
     # to be a detector on its own.
@@ -283,22 +348,44 @@ def main():
     pair_floors = pair_rank
 
     if (caught >= 0.5) and (pair_gap.mean() < about_to.mean()):
-        out.write("\n  A daughter differs from its parent by more than an ordinary cell differs\n")
-        out.write("  from itself, and the two daughters read together differ by LESS than one of\n")
-        out.write("  them does. What the parent held is still present once it is in two pieces,\n")
-        out.write("  and splitting it is what moved the reading. That is the inheritance stated\n")
+        out.write(
+            "\n  A daughter differs from its parent by more than an ordinary cell differs\n"
+        )
+        out.write(
+            "  from itself, and the two daughters read together differ by LESS than one of\n"
+        )
+        out.write(
+            "  them does. What the parent held is still present once it is in two pieces,\n"
+        )
+        out.write(
+            "  and splitting it is what moved the reading. That is the inheritance stated\n"
+        )
         out.write("  as a measurement.\n")
-        out.write("\n  It is not a detector on its own. Catching that share of divisions costs\n")
-        out.write("  admitting a tenth of every ordinary frame-to-frame change, and there are\n")
-        out.write("  %d of those against %d divisions. A cut at p90 fires far more often on\n"
-                  % (len(ordinary), len(pair_gap)))
-        out.write("  an ordinary cell than on a dividing one. It is a term and not a test.\n")
+        out.write(
+            "\n  It is not a detector on its own. Catching that share of divisions costs\n"
+        )
+        out.write(
+            "  admitting a tenth of every ordinary frame-to-frame change, and there are\n"
+        )
+        out.write(
+            "  %d of those against %d divisions. A cut at p90 fires far more often on\n"
+            % (len(ordinary), len(pair_gap))
+        )
+        out.write(
+            "  an ordinary cell than on a dividing one. It is a term and not a test.\n"
+        )
     elif caught >= 0.5:
-        out.write("\n  A daughter departs from its parent, and reading the pair as one object does\n")
+        out.write(
+            "\n  A daughter departs from its parent, and reading the pair as one object does\n"
+        )
         out.write("  not recover it. The change is not conserved across the split.\n")
     else:
-        out.write("\n  It does not clear the background. Collision entropy inside a mask does not\n")
-        out.write("  separate a division from ordinary frame-to-frame change here, and a detector\n")
+        out.write(
+            "\n  It does not clear the background. Collision entropy inside a mask does not\n"
+        )
+        out.write(
+            "  separate a division from ordinary frame-to-frame change here, and a detector\n"
+        )
         out.write("  built on it would fire on both.\n")
     out.flush()
     return 0

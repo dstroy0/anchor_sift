@@ -43,7 +43,7 @@
 #define BENCH_MIN_MILLISECONDS 60.0
 #define BENCH_MAX_RUNS 2000u
 
-static const size_t candidate_offsets[BENCH_CANDIDATES] = { 0u, 4u, 8u, 12u };
+static const size_t candidate_offsets[BENCH_CANDIDATES] = {0u, 4u, 8u, 12u};
 
 /** @brief What the oracle reads. Two index spaces, because a descent compares corpus to needle. */
 typedef struct
@@ -119,9 +119,7 @@ static int bench_table_once(const uint32_t *corpus, size_t corpus_len, const uin
             {
                 continue;
             }
-            if ((rarest == BENCH_CANDIDATES)
-             || (counts[needle[candidate_offsets[candidate]]]
-                 < counts[needle[candidate_offsets[rarest]]]))
+            if ((rarest == BENCH_CANDIDATES) || (counts[needle[candidate_offsets[candidate]]] < counts[needle[candidate_offsets[rarest]]]))
             {
                 rarest = candidate;
             }
@@ -156,25 +154,22 @@ static size_t bench_oracle_once(const uint32_t *corpus, size_t corpus_len, const
         order_out[candidate] = candidate_offsets[candidate];
     }
 
-    const BenchSymbolField pair = { corpus, needle };
+    const BenchSymbolField pair = {corpus, needle};
     const AnchorField any = {
         .same = bench_same_symbol,
         .field = &pair,
         .alignments = alignments,
-        .needle_len = BENCH_NEEDLE_LEN
-    };
+        .needle_len = BENCH_NEEDLE_LEN};
 
     // NAMED AND NOT POSITIONAL. AnchorSteerDescent gained two members the day this was written, and
-    // a positional initializer misassigns silently the next time one is added rather than failing to
-    // compile. The byte members go unnamed on purpose: an omitted member is zero, which is what
+    // a positional initializer misassigns silently the next time one is added. The byte members go unnamed on purpose: an omitted member is zero, which is what
     // takes the oracle path, and naming them NULL would read as a choice.
     const AnchorSteerDescent args = {
         .offsets = order_out,
         .count = BENCH_CANDIDATES,
         .survivors = survivors,
         .survivors_length = alignments,
-        .any = &any
-    };
+        .any = &any};
 
     return anchor_steer_plan_recursive(&args);
 }
@@ -256,7 +251,7 @@ int main(void)
     printf("  %-10s %-12s %-14s %-12s %-14s %s\n",
            "sigma", "table ms", "table bytes", "oracle ms", "oracle bytes", "placed");
 
-    static const unsigned int shifts[] = { 8u, 12u, 16u, 20u, 22u, 24u };
+    static const unsigned int shifts[] = {8u, 12u, 16u, 20u, 22u, 24u};
 
     for (size_t which = 0u; which < sizeof shifts / sizeof shifts[0]; which += 1u)
     {
@@ -283,7 +278,7 @@ int main(void)
     printf("  %-10s %-12s %-14s %-12s %-14s %s\n",
            "corpus", "table ms", "table bytes", "oracle ms", "oracle bytes", "placed");
 
-    static const size_t lengths[] = { 4096u, 16384u, 65536u, 131072u };
+    static const size_t lengths[] = {4096u, 16384u, 65536u, 131072u};
     const size_t sigma_fixed = 1u << 16;
 
     for (size_t which = 0u; which < sizeof lengths / sizeof lengths[0]; which += 1u)

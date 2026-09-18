@@ -2,8 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Whether a sample is an outlier, decided by the spread its own neighbours show rather than a picked
-# threshold.
+# Whether a sample is an outlier, decided by the spread its own neighbours show.
 #
 #   Usage:  from measure.local_outlier import band_top, is_outlier, outliers
 #
@@ -20,8 +19,7 @@
 # with the point itself left out so it cannot widen its own band. No constant is chosen; the band is
 # whatever the neighbourhood shows.
 #
-# This inherits the Hampel breakdown honestly rather than hiding it: two impulses in one window let one
-# widen the band that should have caught the other. The second is masked. That is the floor, the
+# This inherits the Hampel breakdown honestly. That is the floor, the
 # same floor a MAD test has, and it is a property of a window holding more than one outlier and not of
 # the boundary being drawn. Where a window holds at most one, the test is exact and needs no number.
 #

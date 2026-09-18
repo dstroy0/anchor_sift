@@ -96,8 +96,20 @@ BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 # does not list. The gate then reads an entire second corpus as unrecorded and refuses every commit,
 # including the commit that would have recorded anything. It is not corpus content: it is a working
 # copy of content already inventoried at its real path.
-IGNORED = (NAME, NAME + ".asc", AUDIO, AUDIO + ".asc", ".git", ".gitignore", "hooks",
-           "README.md", "__pycache__", "build", "pages", ".claude")
+IGNORED = (
+    NAME,
+    NAME + ".asc",
+    AUDIO,
+    AUDIO + ".asc",
+    ".git",
+    ".gitignore",
+    "hooks",
+    "README.md",
+    "__pycache__",
+    "build",
+    "pages",
+    ".claude",
+)
 
 
 def rows_in(path):
@@ -197,22 +209,37 @@ def write_manifest(root, rows, out, name=NAME):
         # Two closed repositories take this tool. The line names the one it was pointed at.
         # A citations inventory headed "the private Salishan corpus" is a false statement about
         # what was signed, and the signature is the whole reason the header is read.
-        handle.write("# %s of %s.\n"
-                     % ("Recordings" if name == AUDIO else "Master inventory",
-                        os.path.basename(root.rstrip("/\\"))))
-        handle.write("# Rewritten by maint/corpus/corpus_manifest.py --write in anchor_sift.\n")
-        handle.write("# Reconciled before every commit. Sign this file, not the corpus.\n")
+        handle.write(
+            "# %s of %s.\n"
+            % (
+                "Recordings" if name == AUDIO else "Master inventory",
+                os.path.basename(root.rstrip("/\\")),
+            )
+        )
+        handle.write(
+            "# Rewritten by maint/corpus/corpus_manifest.py --write in anchor_sift.\n"
+        )
+        handle.write(
+            "# Reconciled before every commit. Sign this file, not the corpus.\n"
+        )
         if name == AUDIO:
             handle.write("#\n")
-            handle.write("# Recordings are inventoried apart from the rest. A withdrawal takes\n")
-            handle.write("# recordings out and touches no paper. It rewrites and re-signs this\n")
+            handle.write(
+                "# Recordings are inventoried apart from the rest. A withdrawal takes\n"
+            )
+            handle.write(
+                "# recordings out and touches no paper. It rewrites and re-signs this\n"
+            )
             handle.write("# file alone and the other signature still verifies.\n")
-            handle.write("# Permission for each source is in SPEECH.tsv. Being listed here is a\n")
+            handle.write(
+                "# Permission for each source is in SPEECH.tsv. Being listed here is a\n"
+            )
             handle.write("# record of what is held and is not a permission.\n")
         handle.write("#\n")
-        handle.write("# %d files, %d bytes, %d tables holding %d rows.\n"
-                     % (len(rows), total, len(tables),
-                        sum(int(one["rows"]) for one in tables)))
+        handle.write(
+            "# %d files, %d bytes, %d tables holding %d rows.\n"
+            % (len(rows), total, len(tables), sum(int(one["rows"]) for one in tables))
+        )
         handle.write("\t".join(FIELDS))
         handle.write("\n")
         for one in sorted(rows):
@@ -221,8 +248,10 @@ def write_manifest(root, rows, out, name=NAME):
     out.write("  %s\n" % os.path.join(root, name).replace("\\", "/"))
     out.write("    %d files, %d bytes\n" % (len(rows), total))
     if tables:
-        out.write("    %d tables, %d rows\n"
-                  % (len(tables), sum(int(one["rows"]) for one in tables)))
+        out.write(
+            "    %d tables, %d rows\n"
+            % (len(tables), sum(int(one["rows"]) for one in tables))
+        )
 
 
 def _main_checkout():
@@ -238,12 +267,22 @@ def _main_checkout():
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--git-common-dir"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--git-common-dir"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -259,8 +298,7 @@ def _main_checkout():
 def _corpus_candidates():
     """Every place the closed corpus is looked for, in the order it is looked for.
 
-    Returned rather than searched inline so the caller can say what it looked for when it finds
-    nothing. The first entry is the repair: this defaulted to ../private_repos/salishan_corpus,
+    Returned./private_repos/salishan_corpus,
     which after the move into repos/owned/{public,private} resolves to
     repos/owned/public/private_repos and does not exist. The default was never once correct.
     """
@@ -290,7 +328,9 @@ def main():
             out.write("  bypassed.\n\n")
             out.flush()
             return 0
-        out.write("  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV)
+        out.write(
+            "  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV
+        )
         out.flush()
         return 2
 
@@ -318,24 +358,34 @@ def main():
             continue
         counted += 1
         if not recorded:
-            out.write("    %s covers %d file(s) and does not exist yet\n" % (name, len(on_disk)))
+            out.write(
+                "    %s covers %d file(s) and does not exist yet\n"
+                % (name, len(on_disk))
+            )
             unrecorded.extend(on_disk)
             continue
         shared = [one for one in on_disk if one in recorded]
         fresh = measured(root, shared)
         missing.extend(one for one in recorded if one not in set(on_disk))
         unrecorded.extend(one for one in on_disk if one not in recorded)
-        changed.extend(one for one in shared
-                       if fresh[one]["sha256"] != recorded[one].get("sha256"))
-        out.write("    %-20s %3d file(s) on disk, %3d in the inventory\n"
-                  % (name, len(on_disk), len(recorded)))
+        changed.extend(
+            one for one in shared if fresh[one]["sha256"] != recorded[one].get("sha256")
+        )
+        out.write(
+            "    %-20s %3d file(s) on disk, %3d in the inventory\n"
+            % (name, len(on_disk), len(recorded))
+        )
 
     if not counted:
         out.write("  no inventory yet. Run with --write.\n\n")
         out.flush()
         return 2
 
-    for label, held in (("missing", missing), ("unrecorded", unrecorded), ("changed", changed)):
+    for label, held in (
+        ("missing", missing),
+        ("unrecorded", unrecorded),
+        ("changed", changed),
+    ):
         if not held:
             continue
         out.write("\n  %s (%d)\n" % (label.upper(), len(held)))
@@ -346,11 +396,17 @@ def main():
 
     if missing or unrecorded or changed:
         if bypassing:
-            out.write("\n  the tree and the inventory disagree. Bypassed, and nothing is signed.\n\n")
+            out.write(
+                "\n  the tree and the inventory disagree. Bypassed, and nothing is signed.\n\n"
+            )
             out.flush()
             return 0
-        out.write("\n  the tree and the inventory disagree. Nothing is signed until they do not.\n")
-        out.write("  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV)
+        out.write(
+            "\n  the tree and the inventory disagree. Nothing is signed until they do not.\n"
+        )
+        out.write(
+            "  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV
+        )
         out.flush()
         return 1
 

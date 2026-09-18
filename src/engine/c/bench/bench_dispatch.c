@@ -88,8 +88,7 @@ static const size_t CEILINGS[] = {0u, 4u, 8u, 16u, 32u, 64u, 128u, 256u, SIZE_MA
 #define SHIPPED_FLAT_SHARE 0.85
 
 /** @brief Rows measured: every corpus kind, every needle length, present and absent. */
-#define ROW_COUNT ((sizeof KINDS / sizeof KINDS[0]) \
-                   * (sizeof NEEDLE_LENGTHS / sizeof NEEDLE_LENGTHS[0]) * 2u)
+#define ROW_COUNT ((sizeof KINDS / sizeof KINDS[0]) * (sizeof NEEDLE_LENGTHS / sizeof NEEDLE_LENGTHS[0]) * 2u)
 
 /**
  * @brief Reads the cycle counter, or a monotonic substitute where the part has none.
@@ -150,7 +149,7 @@ typedef struct
     CorpusKind kind;
     double entropy;
     size_t distinct;
-    /* The dispatch rule reads the field's census now rather than an entropy in double, and this
+    /* The dispatch rule reads the field's census now  and this
      * bench scores the rule against the clock. A row has to carry what the rule consumes. The
      * entropy and the distinct count above stay because this bench PRINTS them; they are its report
      * and no longer the engine's input. */
@@ -270,8 +269,8 @@ static uint64_t time_arm(AnchorSiftEngine arm, const uint8_t *corpus, size_t cor
         for (size_t draw = 0u; draw < NEEDLES_PER_ROW; draw += 1u)
         {
             const uint8_t *const needle = (present != 0u)
-                ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
-                : (needles + (draw * needle_len));
+                                              ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
+                                              : (needles + (draw * needle_len));
 
             seen += arm(corpus, corpus_len, needle, needle_len);
         }

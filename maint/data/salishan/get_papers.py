@@ -40,10 +40,11 @@ import subprocess
 import sys
 import time
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -55,17 +56,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -74,8 +85,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -83,8 +95,12 @@ def _repository_root():
 ROOT = _repository_root()
 PAPERS = os.path.join(ROOT, "build", "papers")
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                "corpus_script_extraction"))
+sys.path.insert(
+    0,
+    os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "corpus_script_extraction"
+    ),
+)
 
 INDEX = "https://lingpapers.sites.olt.ubc.ca/icsnl-volumes/"
 
@@ -102,8 +118,10 @@ INDEX = "https://lingpapers.sites.olt.ubc.ca/icsnl-volumes/"
 # So this string is still correct and still worth sending, and it no longer gets past anything. A
 # check meant to be passed by a person is that person's to pass. The way to fetch in bulk from here
 # is to ask the archive, at the address above, and the address is in this string for that reason.
-AGENT = ("Salishan-corpus-tools/1.0 (+https://github.com/dstroy0/anchor_sift; "
-         "academic corpus extraction; dquigg123@gmail.com)")
+AGENT = (
+    "Salishan-corpus-tools/1.0 (+https://github.com/dstroy0/anchor_sift; "
+    "academic corpus extraction; dquigg123@gmail.com)"
+)
 
 # Seconds between requests. 993 files is a lot to ask of a university web server at once.
 PAUSE = 1.0
@@ -114,6 +132,7 @@ LINK = re.compile(r'href="(https?://[^"]+\.pdf)"', re.IGNORECASE)
 def wanted_stems():
     """The papers the readers need, taken from the coverage check so there is only one list."""
     from coverage_check import PAIRS
+
     return [one[0] for one in PAIRS]
 
 
@@ -165,6 +184,7 @@ def unmapped_fonts(source):
     what the codes are and every extractor knows that table.
     """
     import pypdf
+
     reader = pypdf.PdfReader(source)
     held = set()
     for page in reader.pages:
@@ -197,6 +217,7 @@ def converted(source, target):
     that paper needs, and pdf2png.py does it.
     """
     import pypdf
+
     reader = pypdf.PdfReader(source)
     # The blank line the held texts open with. Every reader counts lines from it, and a text that
     # starts one line higher moves every position the coverage check reports.
@@ -211,10 +232,14 @@ def converted(source, target):
     notice = target[:-4] + ".unfaithful"
     if unmapped:
         with open(notice, "w", encoding="utf-8", newline="\n") as handle:
-            handle.write("The text beside this file is the font's encoding, not the page.\n")
+            handle.write(
+                "The text beside this file is the font's encoding, not the page.\n"
+            )
             handle.write("Read the page instead:\n")
-            handle.write("  python maint/data/salishan/pdf2png.py %s 1 <last>\n\n"
-                         % os.path.splitext(os.path.basename(source))[0])
+            handle.write(
+                "  python maint/data/salishan/pdf2png.py %s 1 <last>\n\n"
+                % os.path.splitext(os.path.basename(source))[0]
+            )
             handle.write("Fonts declaring no ToUnicode map:\n")
             for one in unmapped:
                 handle.write("  %s\n" % one)
@@ -227,25 +252,42 @@ def report_unfaithful(out, stems):
     """What to say about the papers whose text is the font's encoding, or nothing when there are none."""
     if not stems:
         return
-    out.write("\n  %d of these are not the page. Their fonts declare no ToUnicode map. What\n"
-              % len(stems))
-    out.write("  came out is the encoding: cítxws@lx where the page prints cítxʷsəlx. Read the\n")
+    out.write(
+        "\n  %d of these are not the page. Their fonts declare no ToUnicode map. What\n"
+        % len(stems)
+    )
+    out.write(
+        "  came out is the encoding: cítxws@lx where the page prints cítxʷsəlx. Read the\n"
+    )
     out.write("  page instead, and do not build an extraction on the text.\n")
     for stem in stems:
         out.write("    python maint/data/salishan/pdf2png.py %s 1 <last>\n" % stem)
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--all", action="store_true",
-                        help="every paper in the archive, not only the ones with readers")
-    parser.add_argument("--convert", action="store_true",
-                        help="convert the PDFs already in build/papers and fetch nothing")
-    parser.add_argument("--list", action="store_true",
-                        help="print what would be fetched and stop")
-    parser.add_argument("--stem", action="append", default=[],
-                        help="one paper by its filename without the extension, repeatable")
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="every paper in the archive, not only the ones with readers",
+    )
+    parser.add_argument(
+        "--convert",
+        action="store_true",
+        help="convert the PDFs already in build/papers and fetch nothing",
+    )
+    parser.add_argument(
+        "--list", action="store_true", help="print what would be fetched and stop"
+    )
+    parser.add_argument(
+        "--stem",
+        action="append",
+        default=[],
+        help="one paper by its filename without the extension, repeatable",
+    )
     given = parser.parse_args()
 
     os.makedirs(PAPERS, exist_ok=True)
@@ -253,7 +295,9 @@ def main():
     try:
         import pypdf  # noqa: F401
     except ImportError:
-        out.write("  pypdf is not installed, and it is what turns a PDF into the text the\n")
+        out.write(
+            "  pypdf is not installed, and it is what turns a PDF into the text the\n"
+        )
         out.write("  readers read. Install it with:  python -m pip install pypdf\n")
         out.flush()
         return 1
@@ -272,11 +316,18 @@ def main():
             done += 1
             if unmapped:
                 unfaithful.append(name[:-4])
-            out.write("  %-46s %d pages%s\n"
-                      % (name[:46], pages, "  NOT THE PAGE" if unmapped else ""))
-        out.write("\n  %d converted, %d already had text beside them\n"
-                  % (done, len([one for one in os.listdir(PAPERS)
-                                if one.lower().endswith(".pdf")]) - done))
+            out.write(
+                "  %-46s %d pages%s\n"
+                % (name[:46], pages, "  NOT THE PAGE" if unmapped else "")
+            )
+        out.write(
+            "\n  %d converted, %d already had text beside them\n"
+            % (
+                done,
+                len([one for one in os.listdir(PAPERS) if one.lower().endswith(".pdf")])
+                - done,
+            )
+        )
         report_unfaithful(out, unfaithful)
         out.flush()
         return 0
@@ -284,7 +335,9 @@ def main():
     try:
         import requests
     except ImportError:
-        out.write("  requests is not installed, and it is what fetches the papers. Install it\n")
+        out.write(
+            "  requests is not installed, and it is what fetches the papers. Install it\n"
+        )
         out.write("  with:  python -m pip install requests\n")
         out.flush()
         return 1
@@ -302,12 +355,20 @@ def main():
     # whole list reporting each paper as not in the index, which reads as an archive that lost its
     # contents. --all would have printed 846 of those.
     if not every:
-        out.write("  the index page listed no papers at all, which is not what an archive with\n")
-        out.write("  993 of them looks like. The page is there and answers 200. The address is\n")
+        out.write(
+            "  the index page listed no papers at all, which is not what an archive with\n"
+        )
+        out.write(
+            "  993 of them looks like. The page is there and answers 200. The address is\n"
+        )
         out.write("  right and something else is being served.\n\n")
         out.write("  Open %s in a browser and see what it says.\n" % INDEX)
-        out.write("  Where a check has to be passed by a person, it is yours to pass, not this\n")
-        out.write("  tool's to work around. Put the PDFs in build/papers and run --convert.\n\n")
+        out.write(
+            "  Where a check has to be passed by a person, it is yours to pass, not this\n"
+        )
+        out.write(
+            "  tool's to work around. Put the PDFs in build/papers and run --convert.\n\n"
+        )
         out.flush()
         return 2
 
@@ -350,8 +411,10 @@ def main():
         fetched += 1
         if unmapped:
             unfaithful.append(stem)
-        out.write("  %-46s %d pages of text%s\n"
-                  % ("", pages, "  NOT THE PAGE" if unmapped else ""))
+        out.write(
+            "  %-46s %d pages of text%s\n"
+            % ("", pages, "  NOT THE PAGE" if unmapped else "")
+        )
 
     out.write("\n  %d papers now have text, %d already did\n" % (fetched, already))
     report_unfaithful(out, unfaithful)
@@ -359,8 +422,10 @@ def main():
         out.write("  %d not found in the index by that name:\n" % len(unlisted))
         for stem in unlisted:
             out.write("    %s\n" % stem)
-    out.write("\n  build/papers/ holds %d texts\n"
-              % len([one for one in os.listdir(PAPERS) if one.lower().endswith(".txt")]))
+    out.write(
+        "\n  build/papers/ holds %d texts\n"
+        % len([one for one in os.listdir(PAPERS) if one.lower().endswith(".txt")])
+    )
     out.flush()
     return 0
 

@@ -870,8 +870,7 @@
 
     // The tile opens on hover, which is CSS. Nothing to wire.
 
-    // Each shape is an embedding of the same measured grid, and the choice is a test rather than a
-    // decoration. Residue is genuinely periodic mod 32. The cylinder is the honest map for it;
+    // Each shape is an embedding of the same measured grid, and the choice is a test. The cylinder is the honest map for it;
     // the torus imposes a periodicity on the round axis that does not exist. Structure that shows
     // under one embedding and not another belongs to the map, not to the field. Agreement across
     // shapes is the invariant content - the same null-by-subtraction every other reading here uses.
@@ -1403,8 +1402,7 @@
       },
     ];
 
-    // A transform is applied to the surface after the embedding and before the value is raised, so
-    // it changes where a cell sits without changing what the cell says. Same discipline as the
+    // A transform is applied to the surface after the embedding and before the value is raised. Same discipline as the
     // shapes: anything that survives a transform is in the data, anything that appears under one is
     // in the map.
     function unit(n) {
@@ -1686,8 +1684,7 @@
       GRID.span = span;
       GRID.depth = depth;
 
-      // The overlay is read on the same grid. A field of a different size is refused rather than
-      // stretched: comparing two fields cell by cell only means something when the cells correspond.
+      // The overlay is read on the same grid. A field of a different size is refused.
       var tint = null;
       if (overlay && overlay !== view && overlay.rows.length === span) {
         tint = overlay.rows;
@@ -1927,7 +1924,7 @@
 
     // -- the floating panel -----------------------------------------------------------------------
     //
-    // Every control is a dropdown or a slider rather than a list of buttons, and the whole thing
+    // Every control is a dropdown or a slider  and the whole thing
     // moves, because it sits on top of the picture it controls and will otherwise cover the part
     // being looked at.
 
@@ -2369,7 +2366,7 @@
       brushing = false;
       var box = histCanvas.getBoundingClientRect();
       var now = event.clientX - box.left;
-      // A click rather than a drag: take the single bin under the pointer, which is one value of the
+      // A click  which is one value of the
       // data.
       if (Math.abs(now - brushStart) < 3) {
         var wide = histCanvas.clientWidth || 232;
@@ -2580,8 +2577,7 @@
     // -- moving the boxes --------------------------------------------------------------------------
     //
     // Three things float over the stage and all three get in the way of the object sooner or later,
-    // so all three move. One routine rather than three copies: the box to move and the part of it
-    // that is the handle, which for the readouts is the whole box because it has no frame to grab.
+    // so all three move. One routine.
 
     function movable(box, handle) {
       var held = false;
@@ -2794,8 +2790,7 @@
 
     // -- opening state, as parameters ---------------------------------------------------------------
     //
-    // A caller that wants a particular view asks for it here rather than publishing a page and
-    // telling the reader which controls to move. Everything is optional; anything not named keeps the
+    // A caller that wants a particular view asks for it here. Everything is optional; anything not named keeps the
     // default the page already had.
 
     var SET = DATA.settings || {};

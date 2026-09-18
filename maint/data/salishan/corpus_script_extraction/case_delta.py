@@ -23,10 +23,11 @@ import os
 import subprocess
 import sys
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -38,17 +39,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -57,8 +68,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -87,13 +99,17 @@ def pure_vocabulary():
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     exact, folded = pure_vocabulary()
     if not exact:
         out.write("  no pure corpus to match against, run the nine readers first\n")
         out.flush()
         return 1
-    out.write("  oracle: %d forms, %d once case is folded\n" % (len(exact), len(folded)))
+    out.write(
+        "  oracle: %d forms, %d once case is folded\n" % (len(exact), len(folded))
+    )
 
     rows = []
     shown = []
@@ -118,8 +134,9 @@ def main():
                     if others:
                         wrong += 1
                         if len(shown) < 16:
-                            shown.append((plain, sorted(others)[0],
-                                          os.path.basename(path)[:-11]))
+                            shown.append(
+                                (plain, sorted(others)[0], os.path.basename(path)[:-11])
+                            )
         if right or wrong:
             rows.append((wrong, right, os.path.basename(path)[:-11]))
 
@@ -128,9 +145,11 @@ def main():
     for wrong, right, stem in rows[:16]:
         out.write("  %-44s %-10d %d\n" % (stem[:44], right, wrong))
 
-    out.write("\n  %d papers share a form with the oracle, %d forms match as written, "
-              "%d only once case is folded\n"
-              % (len(rows), sum(one[1] for one in rows), sum(one[0] for one in rows)))
+    out.write(
+        "\n  %d papers share a form with the oracle, %d forms match as written, "
+        "%d only once case is folded\n"
+        % (len(rows), sum(one[1] for one in rows), sum(one[0] for one in rows))
+    )
     if shown:
         out.write("\n  what the case match caught\n")
         for got, want, stem in shown:

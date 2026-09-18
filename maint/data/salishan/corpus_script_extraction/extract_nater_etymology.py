@@ -45,13 +45,21 @@ import subprocess
 import sys
 
 from inserted_space import closed_spaces
-from salish_marking import DERIVED, SPOKEN, UNCLASSIFIED, rendered, switches, tagged_spans
+from salish_marking import (
+    DERIVED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -63,17 +71,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -82,8 +100,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -96,8 +115,8 @@ SOURCE = os.path.join(PAPERS, "2013_Nater.txt")
 
 # <spoken by>_<original paper>_<who wrote it down>_Salish_<language>_<year>_<mixed>
 TARGET = os.path.join(
-    CORPORA,
-    "unstated_HowSalishIsBellaCoola_Nater_Salish_nuxalk_2013_mixed.txt")
+    CORPORA, "unstated_HowSalishIsBellaCoola_Nater_Salish_nuxalk_2013_mixed.txt"
+)
 
 # Kept in step with NATER_ETYM in hand_extraction/papers.py. ǝ is U+01DD and ə is U+0259, which NFC
 # does not unify, and this paper prints both. The apostrophe is deliberately absent for the same
@@ -131,11 +150,42 @@ LAST_ENTRY = 1407
 # The abbreviations section 1.1 defines, plus the languages the body spells out. A token from this
 # set opens the cognate column, and everything from there to the end of the line is somebody else's
 # language. Kw is the paper's Kwakiutl, which is Kwak̓wala.
-TAGS = frozenset((
-    "BC", "CS", "Ha", "He", "IS", "Kw", "Li", "No", "NS", "NW", "Oo", "PA", "PS", "Se", "Sh", "Sq",
-    "Oo/Kw", "Oo/Ha", "He/Oo", "PA-Eyak", "Halkomelem", "Tahltan", "Carrier", "Yurok", "Quileute",
-    "Chinook", "Eyak", "Nootka", "Tsimshian", "Gitksan", "Athabascan", "early",
-))
+TAGS = frozenset(
+    (
+        "BC",
+        "CS",
+        "Ha",
+        "He",
+        "IS",
+        "Kw",
+        "Li",
+        "No",
+        "NS",
+        "NW",
+        "Oo",
+        "PA",
+        "PS",
+        "Se",
+        "Sh",
+        "Sq",
+        "Oo/Kw",
+        "Oo/Ha",
+        "He/Oo",
+        "PA-Eyak",
+        "Halkomelem",
+        "Tahltan",
+        "Carrier",
+        "Yurok",
+        "Quileute",
+        "Chinook",
+        "Eyak",
+        "Nootka",
+        "Tsimshian",
+        "Gitksan",
+        "Athabascan",
+        "early",
+    )
+)
 
 # What the paper marks a comparison with. Everything after it is a form the entry points at, not the
 # entry's own headword, and a reader taking the last form on the line would take that one instead.
@@ -147,11 +197,27 @@ WRAPPED = ("(", "„", "*", "√", "-", "+")
 
 # Which languages a two-letter tag names, for the who column of the cognate side.
 NAMED = {
-    "Ha": "Haisla", "He": "Heiltsuk", "Kw": "Kwak̓wala", "Li": "Lillooet", "No": "Nootka",
-    "Oo": "Oowekyala", "Se": "Sechelt", "Sh": "Secwepemctsin", "Sq": "Squamish",
-    "Oo/Kw": "Oowekyala", "Oo/Ha": "Oowekyala", "He/Oo": "Heiltsuk", "PA-Eyak": "Proto-Athabascan",
-    "PA": "Proto-Athabascan", "PS": "PS", "CS": "CS", "IS": "IS", "NS": "NS", "NW": "NW",
-    "BC": TARGET_LANGUAGE, "early": "Athabascan",
+    "Ha": "Haisla",
+    "He": "Heiltsuk",
+    "Kw": "Kwak̓wala",
+    "Li": "Lillooet",
+    "No": "Nootka",
+    "Oo": "Oowekyala",
+    "Se": "Sechelt",
+    "Sh": "Secwepemctsin",
+    "Sq": "Squamish",
+    "Oo/Kw": "Oowekyala",
+    "Oo/Ha": "Oowekyala",
+    "He/Oo": "Heiltsuk",
+    "PA-Eyak": "Proto-Athabascan",
+    "PA": "Proto-Athabascan",
+    "PS": "PS",
+    "CS": "CS",
+    "IS": "IS",
+    "NS": "NS",
+    "NW": "NW",
+    "BC": TARGET_LANGUAGE,
+    "early": "Athabascan",
 }
 
 # What a column head names, where the name it prints is a whole language. Areal and Non-NW head
@@ -213,7 +279,9 @@ def leading_lemma(tokens):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -244,7 +312,11 @@ def main():
             continue
 
         found = NUMBERED.match(trimmed)
-        if found and (int(found.group(1)) > highest) and (int(found.group(1)) <= LAST_ENTRY):
+        if (
+            found
+            and (int(found.group(1)) > highest)
+            and (int(found.group(1)) <= LAST_ENTRY)
+        ):
             highest = int(found.group(1))
             seen.add(highest)
             where = "(%d)" % highest
@@ -260,7 +332,7 @@ def main():
 
         if in_appendix:
             lemma = leading_lemma(tokens)
-            phonemic = trailing_form(tokens[len(lemma):])
+            phonemic = trailing_form(tokens[len(lemma) :])
             for one in lemma:
                 rows.append((where, TARGET_LANGUAGE, "practical orthography", one, ""))
             for one in phonemic:
@@ -284,21 +356,43 @@ def main():
         rows.append(("not reached page %d" % page, "", UNCLASSIFIED, text, ""))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# How Salish is Bella Coola? Hank Nater, 2013. The paper carries no volume\n")
-        handle.write("# number on its pages; the archive index files it with the other 2013 papers.\n")
+        handle.write(
+            "# How Salish is Bella Coola? Hank Nater, 2013. The paper carries no volume\n"
+        )
+        handle.write(
+            "# number on its pages; the archive index files it with the other 2013 papers.\n"
+        )
         handle.write("#\n")
-        handle.write("# 1407 numbered entries: every Bella Coola morpheme the author knows, with\n")
-        handle.write("# where it came from. 661 of them he cannot place, and those are section 4.\n")
+        handle.write(
+            "# 1407 numbered entries: every Bella Coola morpheme the author knows, with\n"
+        )
+        handle.write(
+            "# where it came from. 661 of them he cannot place, and those are section 4.\n"
+        )
         handle.write("#\n")
-        handle.write("# The cognate column is not this language. Haisla, Heiltsuk, Oowekyala and\n")
-        handle.write("# Kwak̓wala are North Wakashan; Proto-Athabascan, Eyak, Carrier, Tahltan,\n")
-        handle.write("# Nootka, Quileute, Chinook and Yurok are further off again; Squamish,\n")
-        handle.write("# Sechelt, Shuswap, Lillooet and Halkomelem are Salish and still not this\n")
+        handle.write(
+            "# The cognate column is not this language. Haisla, Heiltsuk, Oowekyala and\n"
+        )
+        handle.write(
+            "# Kwak̓wala are North Wakashan; Proto-Athabascan, Eyak, Carrier, Tahltan,\n"
+        )
+        handle.write(
+            "# Nootka, Quileute, Chinook and Yurok are further off again; Squamish,\n"
+        )
+        handle.write(
+            "# Sechelt, Shuswap, Lillooet and Halkomelem are Salish and still not this\n"
+        )
         handle.write("# language. The who column says which.\n")
         handle.write("#\n")
-        handle.write("# Section 4 prints each entry twice, once in the Na90 practical orthography\n")
-        handle.write("# and once phonemically. Both are Bella Coola. Only the phonemic column is\n")
-        handle.write("# written to the pure file, because two orthographies in one stream would\n")
+        handle.write(
+            "# Section 4 prints each entry twice, once in the Na90 practical orthography\n"
+        )
+        handle.write(
+            "# and once phonemically. Both are Bella Coola. Only the phonemic column is\n"
+        )
+        handle.write(
+            "# written to the pure file, because two orthographies in one stream would\n"
+        )
         handle.write("# measure a transliteration alongside the language.\n")
         handle.write("line\twho\tkind\tswitches\tcontent\n")
         for at, (spot, who, kind, text, gloss) in enumerate(rows, 1):
@@ -310,8 +404,10 @@ def main():
             else:
                 content = rendered(text, layer, kind, MARKS)
                 crossings = switches(text, MARKS)
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (at, who or spot, kind, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (at, who or spot, kind, crossings, content)
+            )
 
     # The Bella Coola words alone. The practical orthography is held out by its kind and every other
     # language by the who column. Both columns are there for that.
@@ -333,26 +429,38 @@ def main():
                 kept += 1
 
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, spot, UNKNOWN_KIND, "", text) for spot, who, kind, text, gloss in rows
-               if (kind == UNCLASSIFIED) and not spot.startswith("not reached")]
+    flagged = [
+        (0, spot, UNKNOWN_KIND, "", text)
+        for spot, who, kind, text, gloss in rows
+        if (kind == UNCLASSIFIED) and not spot.startswith("not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "How Salish is Bella Coola", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d Bella Coola words written to\n  %s\n" % (kept, os.path.basename(pure)))
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d Bella Coola words written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     languages = {}
     for spot, who, kind, text, gloss in rows:
         if kind == "cited form":
             languages[who] = languages.get(who, 0) + 1
-    out.write("\n  by language: %s\n"
-              % ", ".join("%s %d" % (one, languages[one]) for one in sorted(languages)))
+    out.write(
+        "\n  by language: %s\n"
+        % ", ".join("%s %d" % (one, languages[one]) for one in sorted(languages))
+    )
 
     if seen:
         gaps = [one for one in range(1, max(seen) + 1) if one not in seen]
-        out.write("  entries 1..%d, %d with numbering the paper erased\n" % (max(seen), len(gaps)))
+        out.write(
+            "  entries 1..%d, %d with numbering the paper erased\n"
+            % (max(seen), len(gaps))
+        )
     out.flush()
     return 0
 

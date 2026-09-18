@@ -27,18 +27,27 @@ import subprocess
 import sys
 
 # Every Salishan category on the import path. This can use a sibling from another one.
-for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
+for _category in os.scandir(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
 
-from english_sift import (PAGE, PAPERS, english_reference, language_reference, sorted_into,
-                          surprise)
+from english_sift import (
+    PAGE,
+    PAPERS,
+    english_reference,
+    language_reference,
+    sorted_into,
+    surprise,
+)
 from paper_language import attribution, named_in
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -50,17 +59,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -69,8 +88,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -79,10 +99,17 @@ ROOT = _repository_root()
 SIFTED = os.path.join(ROOT, "build", "corpora", "sifted")
 
 # The nine that already have a reader. Their output is named and verified and does not belong here.
-READ = {"ICSNL59_Garcia_Hannon_Stacey_final", "HallPhillipsICSNL60",
-        "ICSNL59_LaFontaine_Janzen_final", "Matthewson_Redan_ICSNL61",
-        "AlexanderDavis_ICSNL61", "ICSNL56_DavisJ_2_final-1",
-        "22-Nater-Bella-Coola-tale-10", "19-Lyon_ICSNL50_final-78", "2013_Lindley_Lyon"}
+READ = {
+    "ICSNL59_Garcia_Hannon_Stacey_final",
+    "HallPhillipsICSNL60",
+    "ICSNL59_LaFontaine_Janzen_final",
+    "Matthewson_Redan_ICSNL61",
+    "AlexanderDavis_ICSNL61",
+    "ICSNL56_DavisJ_2_final-1",
+    "22-Nater-Bella-Coola-tale-10",
+    "19-Lyon_ICSNL50_final-78",
+    "2013_Lindley_Lyon",
+}
 
 
 def found_in(path, english, language):
@@ -100,13 +127,22 @@ def found_in(path, english, language):
             where = sorted_into(trimmed, english, language)
             if where == "english":
                 continue
-            held.append((page, where, surprise(trimmed, english[0], english[1]),
-                         surprise(trimmed, language[0], language[1]), trimmed))
+            held.append(
+                (
+                    page,
+                    where,
+                    surprise(trimmed, english[0], english[1]),
+                    surprise(trimmed, language[0], language[1]),
+                    trimmed,
+                )
+            )
     return held
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(SIFTED, exist_ok=True)
     english = english_reference()
     language = language_reference()
@@ -115,7 +151,9 @@ def main():
         out.flush()
         return 1
     out.write("  english anchor: %d lines, %d byte pairs\n" % (english[2], english[1]))
-    out.write("  language anchor: %d pure lines, %d byte pairs\n" % (language[2], language[1]))
+    out.write(
+        "  language anchor: %d pure lines, %d byte pairs\n" % (language[2], language[1])
+    )
 
     papers = 0
     kept = 0
@@ -141,67 +179,121 @@ def main():
             named += 1
         target = os.path.join(SIFTED, "%s.sifted.tsv" % stem)
         with open(target, "w", encoding="utf-8", newline="") as handle:
-            handle.write("# Lines of %s sorted against two anchors: English, and the corpus\n"
-                         % stem)
-            handle.write("# nine hand-read papers produced, which is known to be pure.\n")
-            handle.write("# Written by maint/data/salishan/anchor_sift_algorithmic_extraction/sift_extract.py. No reader has been written\n")
-            handle.write("# for this paper. Nothing here is verified against its layout.\n")
+            handle.write(
+                "# Lines of %s sorted against two anchors: English, and the corpus\n"
+                % stem
+            )
+            handle.write(
+                "# nine hand-read papers produced, which is known to be pure.\n"
+            )
+            handle.write(
+                "# Written by maint/data/salishan/anchor_sift_algorithmic_extraction/sift_extract.py. No reader has been written\n"
+            )
+            handle.write(
+                "# for this paper. Nothing here is verified against its layout.\n"
+            )
             handle.write("#\n")
-            handle.write("# language: %s\n"
-                         % (says if says else "not named by this paper's front matter"))
-            handle.write("# Read out of the paper's own title and abstract by paper_language.py,\n")
-            handle.write("# not taken from the filename. Where the front matter names more than\n")
+            handle.write(
+                "# language: %s\n"
+                % (says if says else "not named by this paper's front matter")
+            )
+            handle.write(
+                "# Read out of the paper's own title and abstract by paper_language.py,\n"
+            )
+            handle.write(
+                "# not taken from the filename. Where the front matter names more than\n"
+            )
             handle.write("# one language, none is recorded.\n")
             handle.write("#\n")
-            handle.write("# The speaker is not named. Papers name their speakers in acknowledgment\n")
-            handle.write("# footnotes that nothing here reads, and a speaker is not a thing to\n")
+            handle.write(
+                "# The speaker is not named. Papers name their speakers in acknowledgment\n"
+            )
+            handle.write(
+                "# footnotes that nothing here reads, and a speaker is not a thing to\n"
+            )
             handle.write("# guess at.\n")
             handle.write("#\n")
             handle.write("# where: language, nearer the pure corpus than English.\n")
-            handle.write("#        residue, nearer neither. Glosses, formatting and font damage\n")
-            handle.write("#        land here, and it is the small set worth a person's time.\n")
+            handle.write(
+                "#        residue, nearer neither. Glosses, formatting and font damage\n"
+            )
+            handle.write(
+                "#        land here, and it is the small set worth a person's time.\n"
+            )
             handle.write("# Lines nearer English are not written out.\n")
-            handle.write("# to_english and to_language are bits of surprise per byte pair.\n")
+            handle.write(
+                "# to_english and to_language are bits of surprise per byte pair.\n"
+            )
             handle.write("#\n")
             handle.write("# A line here has been found, not read.\n")
             handle.write("page\twhere\tto_english\tto_language\ttext\n")
-            for page, where, to_en, to_lang, text in sorted(held,
-                                                            key=lambda one: one[3] - one[2]):
-                handle.write("%d\t%s\t%.2f\t%.2f\t%s\n" % (page, where, to_en, to_lang, text))
-        index.append((says or "", sum(1 for one in held if one[1] == "language"),
-                      len(held), stem))
+            for page, where, to_en, to_lang, text in sorted(
+                held, key=lambda one: one[3] - one[2]
+            ):
+                handle.write(
+                    "%d\t%s\t%.2f\t%.2f\t%s\n" % (page, where, to_en, to_lang, text)
+                )
+        index.append(
+            (
+                says or "",
+                sum(1 for one in held if one[1] == "language"),
+                len(held),
+                stem,
+            )
+        )
         if says:
             for page, where, to_en, to_lang, text in held:
                 if where == "language":
                     candidates[says].append((text, stem, page))
 
     # One index over the lot. The set can be read by language without opening every file.
-    with open(os.path.join(SIFTED, "index.tsv"), "w", encoding="utf-8", newline="") as handle:
-        handle.write("# Every paper with no reader, the language its own front matter names,\n")
+    with open(
+        os.path.join(SIFTED, "index.tsv"), "w", encoding="utf-8", newline=""
+    ) as handle:
+        handle.write(
+            "# Every paper with no reader, the language its own front matter names,\n"
+        )
         handle.write("# and how many of its lines the sift put on each side.\n")
-        handle.write("# An empty language means the paper's front matter named more than one.\n")
+        handle.write(
+            "# An empty language means the paper's front matter named more than one.\n"
+        )
         handle.write("language\tlanguage_lines\tall_lines\tpaper\n")
         for says, lines, whole, stem in sorted(index):
             handle.write("%s\t%d\t%d\t%s\n" % (says, lines, whole, stem))
 
     out.write("\n  %d papers written to %s\n" % (papers, os.path.relpath(SIFTED, ROOT)))
-    out.write("  %d lines nearer the language, %d residue for a person to look at\n"
-              % (kept, residue))
-    out.write("  %d of the %d carry the language their own front matter names\n" % (named, papers))
+    out.write(
+        "  %d lines nearer the language, %d residue for a person to look at\n"
+        % (kept, residue)
+    )
+    out.write(
+        "  %d of the %d carry the language their own front matter names\n"
+        % (named, papers)
+    )
 
     # One file per language, the record these candidates belong in. Not the same tier as
     # the nine: nothing here was read against a layout, and the speaker of any given line is not
     # known. What is known is which paper and page it came from, and that is carried with it.
     for language in sorted(candidates):
         held = candidates[language]
-        target = os.path.join(SIFTED, "%s.candidates.pure.txt" % language.replace(" ", ""))
+        target = os.path.join(
+            SIFTED, "%s.candidates.pure.txt" % language.replace(" ", "")
+        )
         already = set()
         with open(target, "w", encoding="utf-8", newline="") as handle:
-            handle.write("# Candidate %s, sifted from %d papers with no reader.\n"
-                         % (language, len({one[1] for one in held})))
-            handle.write("# The language is the one each paper names in its own front matter.\n")
-            handle.write("# No speaker is named and no line was read against a layout. This is\n")
-            handle.write("# not the same tier as the nine hand-read corpora and is kept apart.\n")
+            handle.write(
+                "# Candidate %s, sifted from %d papers with no reader.\n"
+                % (language, len({one[1] for one in held}))
+            )
+            handle.write(
+                "# The language is the one each paper names in its own front matter.\n"
+            )
+            handle.write(
+                "# No speaker is named and no line was read against a layout. This is\n"
+            )
+            handle.write(
+                "# not the same tier as the nine hand-read corpora and is kept apart.\n"
+            )
             handle.write("# Each line carries the paper and page it came from.\n")
             for text, stem, page in held:
                 key = " ".join(text.split())

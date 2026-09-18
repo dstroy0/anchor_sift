@@ -26,10 +26,11 @@ import os
 import subprocess
 import sys
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -41,17 +42,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -60,8 +71,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -84,8 +96,13 @@ from paper_config import PAPERS  # noqa: E402
 # chapter is written there. What this produces is carried upstream like any other change to those
 # books: a pull overwrites theory_bucket/ here, and a generated chapter left only in this tree goes
 # the same way a hand edit does.
-INDEX = os.path.join(ROOT, "theory_bucket", "Salishan", "chapters",
-                     "chapter_Salishan_pure_corpus_README.tex")
+INDEX = os.path.join(
+    ROOT,
+    "theory_bucket",
+    "Salishan",
+    "chapters",
+    "chapter_Salishan_pure_corpus_README.tex",
+)
 
 
 def counted(path):
@@ -103,7 +120,9 @@ def counted(path):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     found = []
     for paper in PAPERS:
         path = os.path.join(ORACLES, paper.oracle)
@@ -113,25 +132,37 @@ def main():
     # they describe and the book still gets TeX.
     with io.StringIO() as handle:
         handle.write("# Whose words these are\n\n")
-        handle.write("**Purpose:** Find whose language is in this corpus, and which table holds "
-                     "it.\n")
-        handle.write("**Scope:** every `.oracle.tsv` in the closed corpus, which reaches this "
-                     "tree under `build/oracles` through "
-                     "`maint/corpus/verify_private_sync.py`\n\n")
-        handle.write("These languages belong to the people who speak them. None of this work "
-                     "exists without them. Everything else in this research is measured against "
-                     "the tables below, and the tables are their words, written down.\n\n")
-        handle.write("Each entry opens with who spoke, because that is whose language it is. A "
-                     "linguist wrote the paper and a person read the paper into a table, and "
-                     "neither of those is whose language it is. Where a paper cites a published "
-                     "dictionary and never says who spoke, the entry says so, and the linguist "
-                     "does not go in the who column.\n\n")
-        handle.write("Conditions the speakers set are recorded with them below and hold "
-                     "wherever this corpus is used.\n\n")
-        handle.write("Written by `maint/data/salishan/hand_extraction/pure_corpus_index.py` "
-                     "from `maint/data/salishan/corpus_script_extraction/paper_config.py`, "
-                     "the only place a speaker's name is typed. Nothing in this chapter is typed "
-                     "by hand, and an edit made here is lost the next time that script runs.\n\n")
+        handle.write(
+            "**Purpose:** Find whose language is in this corpus, and which table holds "
+            "it.\n"
+        )
+        handle.write(
+            "**Scope:** every `.oracle.tsv` in the closed corpus, which reaches this "
+            "tree under `build/oracles` through "
+            "`maint/corpus/verify_private_sync.py`\n\n"
+        )
+        handle.write(
+            "These languages belong to the people who speak them. None of this work "
+            "exists without them. Everything else in this research is measured against "
+            "the tables below, and the tables are their words, written down.\n\n"
+        )
+        handle.write(
+            "Each entry opens with who spoke, because that is whose language it is. A "
+            "linguist wrote the paper and a person read the paper into a table, and "
+            "neither of those is whose language it is. Where a paper cites a published "
+            "dictionary and never says who spoke, the entry says so, and the linguist "
+            "does not go in the who column.\n\n"
+        )
+        handle.write(
+            "Conditions the speakers set are recorded with them below and hold "
+            "wherever this corpus is used.\n\n"
+        )
+        handle.write(
+            "Written by `maint/data/salishan/hand_extraction/pure_corpus_index.py` "
+            "from `maint/data/salishan/corpus_script_extraction/paper_config.py`, "
+            "the only place a speaker's name is typed. Nothing in this chapter is typed "
+            "by hand, and an edit made here is lost the next time that script runs.\n\n"
+        )
 
         for paper, rows in found:
             handle.write("## %s\n\n" % paper.language)
@@ -139,14 +170,18 @@ def main():
                 for one in paper.speakers:
                     handle.write("* **%s**\n" % one)
             else:
-                handle.write("* The paper names no speaker. Its forms are cited from a "
-                             "published source.\n")
+                handle.write(
+                    "* The paper names no speaker. Its forms are cited from a "
+                    "published source.\n"
+                )
             handle.write("\n%s, %d rows, `%s`\n\n" % (paper.stem, rows, paper.oracle))
             if paper.note:
                 handle.write("%s\n\n" % paper.note)
 
-        handle.write("---\n\n%d tables, %d rows read by hand.\n"
-                     % (len(found), sum(one[1] for one in found)))
+        handle.write(
+            "---\n\n%d tables, %d rows read by hand.\n"
+            % (len(found), sum(one[1] for one in found))
+        )
         written = handle.getvalue()
 
     body = markdown_to_latex.convert(written, "Whose words these are")
@@ -156,10 +191,14 @@ def main():
     with open(INDEX, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(body)
 
-    out.write("  %d tables indexed, %d rows\n" % (len(found), sum(one[1] for one in found)))
+    out.write(
+        "  %d tables indexed, %d rows\n" % (len(found), sum(one[1] for one in found))
+    )
     named = sum(1 for paper, rows in found if paper.speakers)
-    out.write("  %d name their speakers, %d cite a published source\n"
-              % (named, len(found) - named))
+    out.write(
+        "  %d name their speakers, %d cite a published source\n"
+        % (named, len(found) - named)
+    )
     out.write("  written to %s\n" % os.path.relpath(INDEX, ROOT))
     out.flush()
     return 0

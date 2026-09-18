@@ -25,25 +25,45 @@ import subprocess
 import sys
 
 # Every Salishan category on the import path. This can use a sibling from another one.
-for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
+for _category in os.scandir(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
 # The engine's instrument directory, found by walking up to the repository. anchor_sift lives in the
 # engine and not beside this file, and nothing on the path above reaches it.
 _at = os.path.dirname(os.path.abspath(__file__))
-while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+while (_at != os.path.dirname(_at)) and not os.path.isdir(
+    os.path.join(_at, "src", "engine")
+):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
 
-from anchor_sift import blocked, distance, entropy, reading, self_distance, squash, support
-from english_sift import (MARKED_SPAN, PAGE, PAPERS, calibrated_cut, english_reference,
-                          looks_like_writing, surprise)
+from anchor_sift import (
+    blocked,
+    distance,
+    entropy,
+    reading,
+    self_distance,
+    squash,
+    support,
+)
+from english_sift import (
+    MARKED_SPAN,
+    PAGE,
+    PAPERS,
+    calibrated_cut,
+    english_reference,
+    looks_like_writing,
+    surprise,
+)
 from paper_language import attribution, named_in
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -55,17 +75,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -74,8 +104,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -119,8 +150,10 @@ def language_texts():
 def english_texts():
     """The translation spans the nine readers marked, English out of the same PDFs."""
     held = []
-    for path in sorted(glob.glob(os.path.join(CORPORA, "*_mixed.txt"))
-                       + glob.glob(os.path.join(CORPORA, "*_nomixed.txt"))):
+    for path in sorted(
+        glob.glob(os.path.join(CORPORA, "*_mixed.txt"))
+        + glob.glob(os.path.join(CORPORA, "*_nomixed.txt"))
+    ):
         with open(path, encoding="utf-8", errors="replace") as handle:
             for line in handle:
                 if line.startswith("#"):
@@ -155,7 +188,9 @@ def paper_lines(path, english, total, cut):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     texts = language_texts()
     texts["English"] = english_texts()
     if len(texts) < 3:
@@ -165,22 +200,28 @@ def main():
 
     anchors = {}
     resolution = 0.0
-    out.write("  %-16s %-8s %-9s %-8s %s\n" % ("anchor", "lines", "D_self", "support", "H"))
+    out.write(
+        "  %-16s %-8s %-9s %-8s %s\n" % ("anchor", "lines", "D_self", "support", "H")
+    )
     for name in sorted(texts):
         lines = texts[name]
         profile, total = squash(lines)
         own = self_distance(lines)
         resolution = max(resolution, own)
         anchors[name] = profile
-        out.write("  %-16s %-8d %-9.4f %-8d %.2f\n"
-                  % (name, len(lines), own, support(profile), entropy(profile)))
+        out.write(
+            "  %-16s %-8d %-9.4f %-8d %.2f\n"
+            % (name, len(lines), own, support(profile), entropy(profile))
+        )
     out.write("\n  resolution taken as the worst anchor D_self, %.4f\n" % resolution)
 
     # The screen. One anchor, English, and a threshold set by the corpus already known to be pure.
     screen_counts, screen_total, screen_lines = english_reference()
     cut = calibrated_cut(screen_counts, screen_total)
-    out.write("  screen: English over %d lines, cut %.2f from the pure corpus\n"
-              % (screen_lines, cut))
+    out.write(
+        "  screen: English over %d lines, cut %.2f from the pure corpus\n"
+        % (screen_lines, cut)
+    )
 
     agreed = 0
     judged = 0
@@ -201,8 +242,14 @@ def main():
         # and a gap inside it is the estimator, which is just section 3.
         floor = self_distance(noise)
         picked, near, gap, readable = reading(
-            [(distance(profile, one), name) for name, one in anchors.items() if name != "English"],
-            floor, margin=1.0)
+            [
+                (distance(profile, one), name)
+                for name, one in anchors.items()
+                if name != "English"
+            ],
+            floor,
+            margin=1.0,
+        )
         if not readable:
             unreadable += 1
             continue
@@ -210,17 +257,25 @@ def main():
         if picked == says:
             agreed += 1
         else:
-            disagreed.append((says, picked, near, gap, floor, os.path.basename(path)[:-4]))
+            disagreed.append(
+                (says, picked, near, gap, floor, os.path.basename(path)[:-4])
+            )
 
-    out.write("\n  %d papers named a language the anchors know\n" % (judged + unreadable))
+    out.write(
+        "\n  %d papers named a language the anchors know\n" % (judged + unreadable)
+    )
     out.write("  %d had no block that cleared the resolution\n" % unreadable)
     if judged:
-        out.write("  %d were readable, and the distributions agreed with the prose on %d, %.0f%%\n"
-                  % (judged, agreed, 100.0 * agreed / judged))
+        out.write(
+            "  %d were readable, and the distributions agreed with the prose on %d, %.0f%%\n"
+            % (judged, agreed, 100.0 * agreed / judged)
+        )
     out.write("\n  where they disagree\n")
     for says, picked, near, gap, floor, stem in disagreed[:10]:
-        out.write("    %-36s says %-13s bytes %-13s D %.3f, gap %.3f, floor %.3f\n"
-                  % (stem[:36], says, picked, near, gap, floor))
+        out.write(
+            "    %-36s says %-13s bytes %-13s D %.3f, gap %.3f, floor %.3f\n"
+            % (stem[:36], says, picked, near, gap, floor)
+        )
     if not disagreed:
         out.write("    nowhere\n")
     out.flush()

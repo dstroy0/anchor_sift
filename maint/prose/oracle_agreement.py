@@ -44,10 +44,12 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -59,17 +61,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -78,8 +90,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -88,8 +101,14 @@ ROOT = _repository_root()
 
 sys.path.insert(0, HERE)
 
-from claudese_distance import (distance, halves, profile,  # noqa: E402
-                               restricted, top_words, words_of)
+from claudese_distance import (
+    distance,
+    halves,
+    profile,  # noqa: E402
+    restricted,
+    top_words,
+    words_of,
+)
 
 APART = os.path.join(ROOT, "build", "corpora", "claude_prose_by_source")
 HUMAN = os.path.join(ROOT, "build", "papers")
@@ -125,7 +144,9 @@ def main():
 
     out.write("\n  %s\n" % APART.replace("\\", "/"))
     if not os.path.isdir(APART):
-        out.write("  no per source corpora. Run maint/data/fetch/fetch_claude_prose.py first.\n\n")
+        out.write(
+            "  no per source corpora. Run maint/data/fetch/fetch_claude_prose.py first.\n\n"
+        )
         out.flush()
         return 2
 
@@ -134,7 +155,9 @@ def main():
     for name in names:
         words = words_of(read(os.path.join(APART, name)))
         if len(words) < LEAST:
-            out.write("    %-46s %d words, too few to place\n" % (name[:46], len(words)))
+            out.write(
+                "    %-46s %d words, too few to place\n" % (name[:46], len(words))
+            )
             continue
         corpora[name[:-4]] = words
 
@@ -145,7 +168,9 @@ def main():
 
     control = words_of(human_text())
     if len(control) < LEAST:
-        out.write("  no human pole under build/papers. The control is what makes a distance\n")
+        out.write(
+            "  no human pole under build/papers. The control is what makes a distance\n"
+        )
         out.write("  mean anything. This stops instead of reporting a bare number.\n\n")
         out.flush()
         return 2
@@ -155,8 +180,10 @@ def main():
     axis = top_words(list(everything.values()))
     on_axis = {one: restricted(value, axis) for one, value in everything.items()}
 
-    out.write("\n  %d corpus(es) claiming one label, against %d control words\n"
-              % (len(corpora), len(control)))
+    out.write(
+        "\n  %d corpus(es) claiming one label, against %d control words\n"
+        % (len(corpora), len(control))
+    )
     for one, words in sorted(corpora.items()):
         out.write("    %-52s %7d words\n" % (one[:52], len(words)))
 
@@ -177,7 +204,7 @@ def main():
     within = []
     out.write("\n  to each other, and to the control\n")
     for at, one in enumerate(keys):
-        for other in keys[at + 1:]:
+        for other in keys[at + 1 :]:
             value = distance(on_axis[one], on_axis[other])
             within.append((value, one, other))
             out.write("    %-30s %-30s %.4f\n" % (one[:30], other[:30], value))
@@ -196,22 +223,34 @@ def main():
     out.write("  largest own halves floor           %.4f\n" % floor)
 
     if worst_within <= floor:
-        out.write("\n  every pair sharing the label sits inside its own sampling floor.\n")
-        out.write("  Nothing is resolved at this size. Fetch more before trusting the label.\n\n")
+        out.write(
+            "\n  every pair sharing the label sits inside its own sampling floor.\n"
+        )
+        out.write(
+            "  Nothing is resolved at this size. Fetch more before trusting the label.\n\n"
+        )
         out.flush()
         return 2
 
     if worst_within < best_across:
-        out.write("\n  AGREES. Corpora sharing the label are closer to each other than any is to\n")
+        out.write(
+            "\n  AGREES. Corpora sharing the label are closer to each other than any is to\n"
+        )
         out.write("  the control. The label carries information about the text.\n\n")
         out.flush()
         return 0
 
-    out.write("\n  DISAGREES. At least one corpus sits further from its own siblings than it does\n")
-    out.write("  from the control. The label does not separate this text from other writing.\n")
+    out.write(
+        "\n  DISAGREES. At least one corpus sits further from its own siblings than it does\n"
+    )
+    out.write(
+        "  from the control. The label does not separate this text from other writing.\n"
+    )
     for value, one, other in sorted(within, reverse=True)[:3]:
         out.write("    %.4f  %s  and  %s\n" % (value, one[:34], other[:34]))
-    out.write("  A pole built from all of them would be built out of more than one thing.\n\n")
+    out.write(
+        "  A pole built from all of them would be built out of more than one thing.\n\n"
+    )
     out.flush()
     return 1
 

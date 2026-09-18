@@ -61,23 +61,30 @@ def from_text(text):
     if not rows:
         raise SystemExit("dotmap_svg: the file holds no rows")
     width = max(len(one) for one in rows)
-    return [[(at < len(row)) and (row[at] in SET_MARKS) for at in range(width)] for row in rows]
+    return [
+        [(at < len(row)) and (row[at] in SET_MARKS) for at in range(width)]
+        for row in rows
+    ]
 
 
 def from_hex(text, side):
     """A grid of `side` by `side`, read from hex digits, most significant bit first.
 
-    4096 bits is 1024 hex digits and a side of 64. The count is checked rather than assumed: a
-    dotmap one digit short would otherwise silently lose its last four cells.
+    4096 bits is 1024 hex digits and a side of 64. The count is checked.
     """
     digits = "".join(one for one in text.split() if one)
     digits = digits[2:] if digits[:2].lower() == "0x" else digits
     wanted = (side * side) // 4
     if len(digits) != wanted:
-        raise SystemExit("dotmap_svg: %d hex digits for a side of %d, wanted %d"
-                         % (len(digits), side, wanted))
+        raise SystemExit(
+            "dotmap_svg: %d hex digits for a side of %d, wanted %d"
+            % (len(digits), side, wanted)
+        )
     bits = bin(int(digits, 16))[2:].zfill(side * side)
-    return [[bits[(row * side) + column] == "1" for column in range(side)] for row in range(side)]
+    return [
+        [bits[(row * side) + column] == "1" for column in range(side)]
+        for row in range(side)
+    ]
 
 
 def boundary_edges(grid):
@@ -154,8 +161,9 @@ def straightened(ring):
         before = ring[(at - 1) % count]
         here = ring[at]
         after = ring[(at + 1) % count]
-        turning = ((here[0] - before[0]) * (after[1] - here[1])) != \
-                  ((here[1] - before[1]) * (after[0] - here[0]))
+        turning = ((here[0] - before[0]) * (after[1] - here[1])) != (
+            (here[1] - before[1]) * (after[0] - here[0])
+        )
         if turning:
             kept.append(here)
     return kept or ring
@@ -176,10 +184,18 @@ def chaikin(ring, passes):
         for at in range(count):
             here = ring[at]
             after = ring[(at + 1) % count]
-            cut.append((here[0] + 0.25 * (after[0] - here[0]),
-                        here[1] + 0.25 * (after[1] - here[1])))
-            cut.append((here[0] + 0.75 * (after[0] - here[0]),
-                        here[1] + 0.75 * (after[1] - here[1])))
+            cut.append(
+                (
+                    here[0] + 0.25 * (after[0] - here[0]),
+                    here[1] + 0.25 * (after[1] - here[1]),
+                )
+            )
+            cut.append(
+                (
+                    here[0] + 0.75 * (after[0] - here[0]),
+                    here[1] + 0.75 * (after[1] - here[1]),
+                )
+            )
         ring = cut
     return ring
 
@@ -208,12 +224,16 @@ def svg_of(grid, passes, label):
     """The whole document, sized to the grid so a consumer scales it by width and height."""
     height = len(grid)
     width = max(len(row) for row in grid)
-    rings = [chaikin(straightened(one), passes) for one in loops_from(boundary_edges(grid))]
+    rings = [
+        chaikin(straightened(one), passes) for one in loops_from(boundary_edges(grid))
+    ]
 
     held = []
-    held.append('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" '
-                'width="%d" height="%d" role="img">' % (width * CELL, height * CELL,
-                                                        width * CELL, height * CELL))
+    held.append(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" '
+        'width="%d" height="%d" role="img">'
+        % (width * CELL, height * CELL, width * CELL, height * CELL)
+    )
     if label:
         # Named so a reader using a screen reader gets the character. An outline
         # carries no text and this is the only place the codepoint survives.
@@ -234,12 +254,16 @@ def flag(argv, name, fallback):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     argv = sys.argv[1:]
     if not argv:
         out.write(__doc__ or "")
-        out.write("  usage: python maint/texbuild/dotmap_svg.py <dotmap> [--side N] "
-                  "[--smooth N] [--label C] [--out FILE]\n")
+        out.write(
+            "  usage: python maint/texbuild/dotmap_svg.py <dotmap> [--side N] "
+            "[--smooth N] [--label C] [--out FILE]\n"
+        )
         out.flush()
         return 2
 
@@ -247,8 +271,16 @@ def main():
     passes = int(flag(argv, "--smooth", 0))
     label = flag(argv, "--label", "")
     target = flag(argv, "--out", "")
-    taken = {"--side", "--smooth", "--label", "--out",
-             str(side), str(passes), label, target}
+    taken = {
+        "--side",
+        "--smooth",
+        "--label",
+        "--out",
+        str(side),
+        str(passes),
+        label,
+        target,
+    }
     sources = [one for one in argv if (one not in taken) and not one.startswith("-")]
     if not sources:
         raise SystemExit("dotmap_svg: name a dotmap file")

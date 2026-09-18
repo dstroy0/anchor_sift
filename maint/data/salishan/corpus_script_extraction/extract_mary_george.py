@@ -33,14 +33,22 @@ import re
 import subprocess
 import sys
 
-from salish_marking import (DERIVED, MARKED, SPOKEN, UNCLASSIFIED, rendered, switches,
-                            tagged_spans)
+from salish_marking import (
+    DERIVED,
+    MARKED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -52,17 +60,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -71,8 +89,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -90,7 +109,8 @@ SOURCE = os.path.join(PAPERS, "ICSNL56_DavisJ_2_final-1.txt")
 TARGET = os.path.join(
     CORPORA,
     "MaryGeorge_MaryGeorgePersonalNarratives_JohnHamiltonDavis"
-    "_Salish_ayajuthem_2021_mixed.txt")
+    "_Salish_ayajuthem_2021_mixed.txt",
+)
 
 MARKS = MARKED + "̓̔̕"
 
@@ -141,7 +161,9 @@ def looks_heading(trimmed):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -229,18 +251,36 @@ def main():
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
         handle.write("# Mary George Personal Narratives.\n")
-        handle.write("# Mainland Comox, told by Mary George at Sliammon between 1969 and 1980,\n")
-        handle.write("# recorded by John Hamilton Davis. The Mink story is Noel George Harry's,\n")
-        handle.write("# the basket ogre is Tommy Paul's, and the last narrative is Davis's own.\n")
-        handle.write("# Papers for the International Conference on Salish and Neighboring\n")
+        handle.write(
+            "# Mainland Comox, told by Mary George at Sliammon between 1969 and 1980,\n"
+        )
+        handle.write(
+            "# recorded by John Hamilton Davis. The Mink story is Noel George Harry's,\n"
+        )
+        handle.write(
+            "# the basket ogre is Tommy Paul's, and the last narrative is Davis's own.\n"
+        )
+        handle.write(
+            "# Papers for the International Conference on Salish and Neighboring\n"
+        )
         handle.write("# Languages 56, UBCWPL, 2021.\n")
-        handle.write("# Mary George approached Davis at a film showing in the community hall at\n")
+        handle.write(
+            "# Mary George approached Davis at a film showing in the community hall at\n"
+        )
         handle.write("# Sliammon in 1969 and offered to teach him her language.\n")
         handle.write("#\n")
-        handle.write("# Mark is language.layer.kind. T is Mainland Comox, N is anything else.\n")
-        handle.write("# Each utterance appears twice: the community orthography, then a phonetic\n")
-        handle.write("# transcription in square brackets. Both are records of what was said.\n")
-        handle.write("# The speaker column is set per section and is not the same throughout.\n")
+        handle.write(
+            "# Mark is language.layer.kind. T is Mainland Comox, N is anything else.\n"
+        )
+        handle.write(
+            "# Each utterance appears twice: the community orthography, then a phonetic\n"
+        )
+        handle.write(
+            "# transcription in square brackets. Both are records of what was said.\n"
+        )
+        handle.write(
+            "# The speaker column is set per section and is not the same throughout.\n"
+        )
         handle.write("line\tsection\ttitle\tkind\tspeaker\tswitches\tcontent\n")
         for mark, count, sect, name, kind, who, text in rows:
             layer = LAYER[kind]
@@ -250,8 +290,10 @@ def main():
             else:
                 content = "N.%s.%s:{%s}" % (layer, kind, text)
                 crossings = 0
-            handle.write("line#${%d}\t%s\t%s\t%s\t%s\t%d\t%s\n"
-                         % (count, sect, (name or "")[:46], kind, who, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%s\t%s\t%d\t%s\n"
+                % (count, sect, (name or "")[:46], kind, who, crossings, content)
+            )
 
     pure = TARGET[:-4] + ".pure.txt"
     kept = 0
@@ -277,17 +319,23 @@ def main():
     # form = gloss. Both fall past the tests above and are flagged. The second kind is a line no
     # section reached, which here is the front matter and the paper's own introduction.
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, "%s block %d" % (sect, count), UNKNOWN_KIND, "", text)
-               for mark, count, sect, name, kind, who, text in rows
-               if (kind == UNCLASSIFIED) and (sect != "not reached")]
+    flagged = [
+        (0, "%s block %d" % (sect, count), UNKNOWN_KIND, "", text)
+        for mark, count, sect, name, kind, who, text in rows
+        if (kind == UNCLASSIFIED) and (sect != "not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "the Mary George narratives", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure)))
+    out.write(
+        "  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
     out.write("  %d spans skipped as already written\n" % repeated)
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     out.write("\n  %-4s %-46s %-16s %s\n" % ("sec", "title", "speaker", "lines"))
     counted = {}
@@ -295,15 +343,23 @@ def main():
         counted[(sect, name, who)] = counted.get((sect, name, who), 0) + 1
     # Sorted numerically where the section is a number. The lines no section reached carry a name
     # instead of a number and sort after them.
-    for key in sorted(counted, key=lambda one: (0, int(one[0])) if one[0].isdigit() else (1, 0)):
-        out.write("  %-4s %-46s %-16s %d\n" % (key[0], (key[1] or "")[:46], key[2], counted[key]))
+    for key in sorted(
+        counted, key=lambda one: (0, int(one[0])) if one[0].isdigit() else (1, 0)
+    ):
+        out.write(
+            "  %-4s %-46s %-16s %d\n"
+            % (key[0], (key[1] or "")[:46], key[2], counted[key])
+        )
 
     marks = {}
     kinds = {}
     for mark, count, sect, name, kind, who, text in rows:
         marks[mark] = marks.get(mark, 0) + 1
         kinds[kind] = kinds.get(kind, 0) + 1
-    out.write("\n  by kind: %s\n" % ", ".join("%s %d" % (one, kinds[one]) for one in sorted(kinds)))
+    out.write(
+        "\n  by kind: %s\n"
+        % ", ".join("%s %d" % (one, kinds[one]) for one in sorted(kinds))
+    )
     out.write("  T lines %d, N lines %d\n" % (marks.get("T", 0), marks.get("N", 0)))
 
     out.flush()

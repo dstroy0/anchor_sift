@@ -55,10 +55,11 @@ from mellesmoen_kye_repair import repaired
 from salish_marking import DERIVED, SPOKEN, UNCLASSIFIED, tagged_spans
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -70,17 +71,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -89,8 +100,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -105,7 +117,8 @@ SOURCE = os.path.join(PAPERS, "Mellesmoen_Kye_ICSNL61.txt")
 TARGET = os.path.join(
     CORPORA,
     "MarthaLamont-AnnieJack_AComparativeAnalysisOfStressInNorthernAndSouthernLushootseed"
-    "_MellesmoenKye_Salish_lushootseed_2026_mixed.txt")
+    "_MellesmoenKye_Salish_lushootseed_2026_mixed.txt",
+)
 
 PAGE = re.compile(r"^===== page \d+ =====$")
 
@@ -296,7 +309,9 @@ def without_note(text):
     found = REALIZED.search(text)
     if not found:
         return text, ""
-    return (text[:found.start()] + " " + text[found.end():]).strip(), (found.group(1) or "")
+    return (text[: found.start()] + " " + text[found.end() :]).strip(), (
+        found.group(1) or ""
+    )
 
 
 def table_rows(lines, at, columns, ending):
@@ -322,7 +337,9 @@ def table_rows(lines, at, columns, ending):
         if ending == BY_PARENS:
             done = stripped.count("(") == stripped.count(")")
         elif ending == BY_FORMS:
-            done = len([one for one in stripped.split() if language_token(one)]) >= len(columns)
+            done = len([one for one in stripped.split() if language_token(one)]) >= len(
+                columns
+            )
         else:
             done = bool([one for one in stripped.split() if language_token(one)])
         if done:
@@ -348,14 +365,14 @@ def from_table(number, rows):
         if number == 5:
             found = COMPARE.search(stripped)
             if found and carries_language(found.group(1)):
-                stripped = stripped[:found.start()].strip()
+                stripped = stripped[: found.start()].strip()
                 held.append((where, columns[0], "citation", found.group(1).strip(), ""))
         tokens = stripped.split()
         if len(tokens) < len(columns):
             held.append((where, "", UNCLASSIFIED, stripped, ""))
             continue
-        forms = tokens[-len(columns):]
-        gloss = " ".join(tokens[:-len(columns)])
+        forms = tokens[-len(columns) :]
+        gloss = " ".join(tokens[: -len(columns)])
         for dialect, form in zip(columns, forms):
             # Table A2 prints two Northern alternants for ‘year’ in one cell, dᶻəlč̓/ǰəlč̓.
             for one in (form.split("/") if ("/" in form) else [form]):
@@ -390,7 +407,7 @@ def from_comparison(lines):
             continue
         letter = trimmed.split(".")[0].strip()
         where = "(18%s)" % letter if (len(letter) == 1) else "(18)"
-        tokens = trimmed[:found.start(2) - 1].split()
+        tokens = trimmed[: found.start(2) - 1].split()
         forms = [one for one in tokens if language_token(one)]
         for dialect, form in zip((SOUTHERN, NORTHERN), forms[-2:]):
             held.append((where, dialect, "citation", form, found.group(2)))
@@ -415,10 +432,14 @@ def from_tableau(number, dialect, title, lines):
         if seen:
             held.append((where, dialect, "underlying", seen.group(1), ""))
             continue
-        seen = CANDIDATE.match(" ".join(trimmed.split()) if trimmed.startswith(" ") else trimmed)
+        seen = CANDIDATE.match(
+            " ".join(trimmed.split()) if trimmed.startswith(" ") else trimmed
+        )
         if seen:
             kind = "winner" if seen.group(2) else "candidate"
-            held.append(("(%d%s)" % (number, seen.group(1)), dialect, kind, seen.group(3), ""))
+            held.append(
+                ("(%d%s)" % (number, seen.group(1)), dialect, kind, seen.group(3), "")
+            )
     return held
 
 
@@ -502,8 +523,10 @@ def is_form(token):
     The bound morphemes do not: -ac ‘tree’, -yalus ‘edge’, -il, -d ‘TR’ and dxʷ- are written in
     plain letters, and only the boundary mark on them says they are morphemes and not English.
     """
-    return bool(token) and (carries_language(token)
-                            or (token.strip("-=") and (token[0] in "-=" or token[-1] in "-=")))
+    return bool(token) and (
+        carries_language(token)
+        or (token.strip("-=") and (token[0] in "-=" or token[-1] in "-="))
+    )
 
 
 def from_prose(where, text, other="", fallback=""):
@@ -529,8 +552,15 @@ def from_prose(where, text, other="", fallback=""):
         if (not is_form(plain)) or plain.startswith("*") or plain.startswith("/"):
             continue
         claimed.add(plain)
-        held.append((where, LANGUAGES.get(named_after(text, found.end()), dialect),
-                     "citation", plain, found.group(2)))
+        held.append(
+            (
+                where,
+                LANGUAGES.get(named_after(text, found.end()), dialect),
+                "citation",
+                plain,
+                found.group(2),
+            )
+        )
 
     for found in FORM_IN.finditer(text):
         plain = found.group(1).strip("()[],;:")
@@ -551,7 +581,7 @@ def from_prose(where, text, other="", fallback=""):
         # Northern Lushootseed (dxʷləšucid), Southern Lushootseed (xʷəlšucid or txʷəlšucid). The
         # sentence names both dialects and decides nothing, and the words in front of the bracket
         # decide it exactly.
-        ahead = one_dialect(" ".join(text[:found.start()].split()[-3:])) or dialect
+        ahead = one_dialect(" ".join(text[: found.start()].split()[-3:])) or dialect
         for token in inside.split():
             for plain in token.strip("()[],;:").split("/"):
                 if (not plain) or (plain in claimed) or plain.startswith("*"):
@@ -587,8 +617,15 @@ def from_prose(where, text, other="", fallback=""):
             if other and not any(one in plain for one in SALISH):
                 continue
             claimed.add(plain)
-            held.append((where, other or dialect,
-                         "mention" if not other else "reference", plain, ""))
+            held.append(
+                (
+                    where,
+                    other or dialect,
+                    "mention" if not other else "reference",
+                    plain,
+                    "",
+                )
+            )
     return held
 
 
@@ -622,9 +659,14 @@ def read_paper(lines):
         """
         if paragraph:
             where, text = joined(paragraph)
-            items.extend(from_prose(where, text,
-                                    "reference" if where == "References" else "",
-                                    heading_dialect[0]))
+            items.extend(
+                from_prose(
+                    where,
+                    text,
+                    "reference" if where == "References" else "",
+                    heading_dialect[0],
+                )
+            )
             del paragraph[:]
 
     while at < len(lines):
@@ -649,28 +691,39 @@ def read_paper(lines):
                 heading_dialect[0] = ""
 
         found = TABLE_CAPTION.match(trimmed)
-        if found and (found.group(1) in TABLES or found.group(1) == "10"
-                      or found.group(1).lstrip("A").isdigit()):
+        if found and (
+            found.group(1) in TABLES
+            or found.group(1) == "10"
+            or found.group(1).lstrip("A").isdigit()
+        ):
             number = found.group(1)
             number = number if number.startswith("A") else int(number)
             flush()
             taken.add(at)
             essay.append((at, "Table %s" % number, "essay", trimmed))
-            rows, moved = table_rows(lines, at + 1, TABLES.get(number, (SOUTHERN,)),
-                                     ENDS.get(number, ""))
+            rows, moved = table_rows(
+                lines, at + 1, TABLES.get(number, (SOUTHERN,)), ENDS.get(number, "")
+            )
             for one in range(at + 1, moved):
                 taken.add(one)
                 # The row's own line is kept beside the forms taken out of it. Table A2 prints two
                 # Northern alternants for ‘year’ in one cell, dᶻəlč̓/ǰəlč̓, and the forms come out
                 # separately. Without the line as printed the cell reads as never extracted.
                 if " ".join(lines[one].split()):
-                    essay.append((one, "Table %s" % number, "essay",
-                                  " ".join(lines[one].split())))
+                    essay.append(
+                        (
+                            one,
+                            "Table %s" % number,
+                            "essay",
+                            " ".join(lines[one].split()),
+                        )
+                    )
             if number in TABLES:
                 items.extend(from_table(number, rows))
             elif number == 10:
-                items.extend(from_paired_cells("Table 10", SOUTHERN,
-                                               [one[0] for one in rows]))
+                items.extend(
+                    from_paired_cells("Table 10", SOUTHERN, [one[0] for one in rows])
+                )
             else:
                 for whole, stripped, surface in rows:
                     items.append(("Table %s" % number, "", UNCLASSIFIED, stripped, ""))
@@ -722,8 +775,16 @@ def read_paper(lines):
         if trimmed.startswith("•"):
             flush()
             taken.add(at)
-            items.extend(from_bullet(section.split()[0] + " " + section.split()[1]
-                                     if len(section.split()) > 1 else section, trimmed))
+            items.extend(
+                from_bullet(
+                    (
+                        section.split()[0] + " " + section.split()[1]
+                        if len(section.split()) > 1
+                        else section
+                    ),
+                    trimmed,
+                )
+            )
             essay.append((at, section, "essay", trimmed))
             at += 1
             continue
@@ -804,7 +865,9 @@ def switches_in(text):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -827,32 +890,66 @@ def main():
         rows.append((0, "page %d" % page, "", UNCLASSIFIED, text, ""))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# A Comparative Analysis of Stress in Northern and Southern Lushootseed.\n")
-        handle.write("# Gloria Mellesmoen, University of British Columbia, and Ted Kye,\n")
+        handle.write(
+            "# A Comparative Analysis of Stress in Northern and Southern Lushootseed.\n"
+        )
+        handle.write(
+            "# Gloria Mellesmoen, University of British Columbia, and Ted Kye,\n"
+        )
         handle.write("# University of Washington. ICSNL 61.\n")
-        handle.write("# Recordings of Martha Lamont, Northern, and Annie Jack, Southern, made by\n")
-        handle.write("# Leon Metcalf in the 1950s and held by the Burke Museum, with forms also\n")
-        handle.write("# from Bates, Hess and Hilbert 1994, Hess 1977 and Bianco 1995.\n")
+        handle.write(
+            "# Recordings of Martha Lamont, Northern, and Annie Jack, Southern, made by\n"
+        )
+        handle.write(
+            "# Leon Metcalf in the 1950s and held by the Burke Museum, with forms also\n"
+        )
+        handle.write(
+            "# from Bates, Hess and Hilbert 1994, Hess 1977 and Bianco 1995.\n"
+        )
         handle.write("#\n")
-        handle.write("# Mark is language.layer.kind. T is Lushootseed, N is anything else, and a\n")
-        handle.write("# cognate cited from Squamish, Twana, Sechelt or ʔayʔaǰuθəm is N.\n")
+        handle.write(
+            "# Mark is language.layer.kind. T is Lushootseed, N is anything else, and a\n"
+        )
+        handle.write(
+            "# cognate cited from Squamish, Twana, Sechelt or ʔayʔaǰuθəm is N.\n"
+        )
         handle.write("#\n")
-        handle.write("# Only citation, surface and utterance are words of the language. A losing\n")
-        handle.write("# tableau candidate is a form the paper's own analysis rejects, an\n")
-        handle.write("# underlying form in slashes is an abstraction, and a starred form in\n")
-        handle.write("# Appendix B is there to say the language does not have it. All three carry\n")
-        handle.write("# the same characters as a real word and none of them reaches the pure\n")
+        handle.write(
+            "# Only citation, surface and utterance are words of the language. A losing\n"
+        )
+        handle.write(
+            "# tableau candidate is a form the paper's own analysis rejects, an\n"
+        )
+        handle.write(
+            "# underlying form in slashes is an abstraction, and a starred form in\n"
+        )
+        handle.write(
+            "# Appendix B is there to say the language does not have it. All three carry\n"
+        )
+        handle.write(
+            "# the same characters as a real word and none of them reaches the pure\n"
+        )
         handle.write("# stream.\n")
         handle.write("#\n")
-        handle.write("# The where column carries the paper's own locator, which this paper needs\n")
-        handle.write("# and the narrative papers do not: its material is in fifteen tables and\n")
-        handle.write("# sixteen tableaux, not in one running story, and Table 8 and Table 9\n")
-        handle.write("# print the same gloss twice with a different form under each dialect.\n")
+        handle.write(
+            "# The where column carries the paper's own locator, which this paper needs\n"
+        )
+        handle.write(
+            "# and the narrative papers do not: its material is in fifteen tables and\n"
+        )
+        handle.write(
+            "# sixteen tableaux, not in one running story, and Table 8 and Table 9\n"
+        )
+        handle.write(
+            "# print the same gloss twice with a different form under each dialect.\n"
+        )
         handle.write("line\twhere\tdialect\tkind\tswitches\tcontent\n")
         for number, where, dialect, kind, text, gloss in rows:
             content = marked(kind, dialect, text)
-            handle.write("line#${%d}\t%s\t%s\t%s\t%d\t%s\n"
-                         % (number, where, dialect, kind, switches_in(text), content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%s\t%d\t%s\n"
+                % (number, where, dialect, kind, switches_in(text), content)
+            )
 
     pure = TARGET[:-4] + ".pure.txt"
     by_dialect = {SOUTHERN: [], NORTHERN: []}
@@ -876,34 +973,50 @@ def main():
             kept += 1
 
     for dialect, held in by_dialect.items():
-        with open("%s.pure.%s.txt" % (TARGET[:-4], dialect), "w",
-                  encoding="utf-8", newline="") as handle:
+        with open(
+            "%s.pure.%s.txt" % (TARGET[:-4], dialect), "w", encoding="utf-8", newline=""
+        ) as handle:
             for one in held:
                 handle.write("%s\n" % one)
 
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, one[1], UNKNOWN_KIND, "", one[4])
-               for one in rows if one[3] == UNCLASSIFIED]
+    flagged = [
+        (0, one[1], UNKNOWN_KIND, "", one[4]) for one in rows if one[3] == UNCLASSIFIED
+    ]
     flagged.extend(missed)
     # The one join the space repair is known to get wrong, named here so nobody has to find it.
-    flagged.append((34, "App A", UNKNOWN_KIND, "ǰč",
-                    "the palatal series is cited in prose as /ǰ č č̓ š/ and the repair joined the "
-                    "first two, because ǰ ends in a caron with one space after it exactly as a "
-                    "broken word does"))
+    flagged.append(
+        (
+            34,
+            "App A",
+            UNKNOWN_KIND,
+            "ǰč",
+            "the palatal series is cited in prose as /ǰ č č̓ š/ and the repair joined the "
+            "first two, because ǰ ends in a caron with one space after it exactly as a "
+            "broken word does",
+        )
+    )
     stuck_count = write_unsorted(stuck, "Mellesmoen and Kye, ICSNL 61", flagged)
 
     counted = {}
     for number, where, dialect, kind, text, gloss in rows:
         counted[kind] = counted.get(kind, 0) + 1
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d target-language forms written to\n  %s\n"
-              % (kept, os.path.basename(pure)))
-    out.write("    %d Southern, %d Northern\n"
-              % (len(by_dialect[SOUTHERN]), len(by_dialect[NORTHERN])))
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
-    out.write("\n  by kind: %s\n"
-              % ", ".join("%s %d" % (one, counted[one]) for one in sorted(counted)))
+    out.write(
+        "  %d target-language forms written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
+    out.write(
+        "    %d Southern, %d Northern\n"
+        % (len(by_dialect[SOUTHERN]), len(by_dialect[NORTHERN]))
+    )
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
+    out.write(
+        "\n  by kind: %s\n"
+        % ", ".join("%s %d" % (one, counted[one]) for one in sorted(counted))
+    )
     out.flush()
     return 0
 

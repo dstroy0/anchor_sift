@@ -41,10 +41,12 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -56,17 +58,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -75,8 +87,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -91,7 +104,8 @@ USAGE = re.compile(r"^#\s+(?:Usage:\s+)?python\s+(\S+\.py)", re.MULTILINE)
 SECTION = re.compile(r"[Ss]ection\s+([0-9]+\.[0-9]+(?:\.[0-9]+)?)")
 # A chapter heading carries its own number first: \paragraph{4.13.09 Frequency-Stratified Structure}
 HEADING_NUMBER = re.compile(
-    r"\\(?:section|subsection|subsubsection|paragraph)\*?\{([0-9]+\.[0-9]+(?:\.[0-9]+)?)\s")
+    r"\\(?:section|subsection|subsubsection|paragraph)\*?\{([0-9]+\.[0-9]+(?:\.[0-9]+)?)\s"
+)
 
 # The pipeline stage a directory name carries, against the engine package it should be reaching for.
 STAGE_PACKAGE = {
@@ -103,7 +117,9 @@ STAGE_PACKAGE = {
     "6": "oracle",
 }
 
-WRITES = re.compile(r"\bopen\([^)]*[\"'][wax]|\.write_text\(|\.write_bytes\(|makedirs\(")
+WRITES = re.compile(
+    r"\bopen\([^)]*[\"'][wax]|\.write_text\(|\.write_bytes\(|makedirs\("
+)
 FETCHES = re.compile(r"urllib|requests\.|urlopen|\bhttps?://")
 PRINTS = re.compile(r"\bprint\(|out\.write\(|sys\.stdout")
 
@@ -115,8 +131,12 @@ PRINTS = re.compile(r"\bprint\(|out\.write\(|sys\.stdout")
 SAYS_WRITE = re.compile(
     r"\b(writes?|written|emits?|saves?)\b[^.]{0,60}?"
     r"(build/|\.tsv|\.csv|\.txt|\.json|\.png|\.md"
-    r"|\b(?:in)?to (?:a |the |its )?(?:file|corpus|table|document|record|disk|directory))", re.I)
-SAYS_FETCH = re.compile(r"\b(fetch|fetches|download|downloads|pull|pulls|reach|reaches)\b", re.I)
+    r"|\b(?:in)?to (?:a |the |its )?(?:file|corpus|table|document|record|disk|directory))",
+    re.I,
+)
+SAYS_FETCH = re.compile(
+    r"\b(fetch|fetches|download|downloads|pull|pulls|reach|reaches)\b", re.I
+)
 
 
 def header_of(text):
@@ -141,12 +161,16 @@ def theory_sections():
     # other seven are pulled in under theory_bucket/ as a subtree. Walking only the first reports
     # every section those seven carry as missing.
     roots = (os.path.join(ROOT, "theory"), os.path.join(ROOT, "theory_bucket"))
-    for base, dirs, names in itertools.chain.from_iterable(os.walk(one) for one in roots):
+    for base, dirs, names in itertools.chain.from_iterable(
+        os.walk(one) for one in roots
+    ):
         dirs[:] = [one for one in dirs if one != "__pycache__"]
         for name in names:
             if not name.endswith(".tex"):
                 continue
-            with io.open(os.path.join(base, name), encoding="utf-8", errors="replace") as handle:
+            with io.open(
+                os.path.join(base, name), encoding="utf-8", errors="replace"
+            ) as handle:
                 body = handle.read()
             # Two shapes. A cross reference writes "Section 4.13", and a heading writes the number
             # first: \paragraph{4.13.09 Frequency-Stratified Structure}. Reading only the first
@@ -201,18 +225,24 @@ def main():
                 continue
             path = os.path.join(base, name)
             shown = os.path.relpath(path, ROOT).replace("\\", "/")
-            with io.open(path, encoding="utf-8", errors="replace", newline="") as handle:
+            with io.open(
+                path, encoding="utf-8", errors="replace", newline=""
+            ) as handle:
                 text = handle.read()
             head = header_of(text)
-            body = text[len(head):]
+            body = text[len(head) :]
             scanned += 1
             said = []
 
             found = CATALOG.search(text)
             number = found.group(1) if found else None
             if known.get(shown) and number != known.get(shown):
-                said.append(("catalog", "header %s, registry %s"
-                             % (number or "none", known[shown])))
+                said.append(
+                    (
+                        "catalog",
+                        "header %s, registry %s" % (number or "none", known[shown]),
+                    )
+                )
 
             for cited in USAGE.findall(head):
                 if cited != shown and not os.path.isfile(os.path.join(ROOT, cited)):
@@ -222,11 +252,19 @@ def main():
             stage = parts[1][0] if (len(parts) > 2 and parts[1][:1].isdigit()) else None
             wanted = STAGE_PACKAGE.get(stage)
             if wanted and ("import" in body):
-                reaches = re.findall(r"(?:from|import)\s+(representation|partition|reference"
-                                     r"|measure|sift|oracle)\b", body)
+                reaches = re.findall(
+                    r"(?:from|import)\s+(representation|partition|reference"
+                    r"|measure|sift|oracle)\b",
+                    body,
+                )
                 if reaches and (wanted not in reaches):
-                    said.append(("stage", "in %s, imports %s"
-                                 % (parts[1], ", ".join(sorted(set(reaches))))))
+                    said.append(
+                        (
+                            "stage",
+                            "in %s, imports %s"
+                            % (parts[1], ", ".join(sorted(set(reaches)))),
+                        )
+                    )
 
             for cited in set(SECTION.findall(head)):
                 if sections and (cited not in sections):

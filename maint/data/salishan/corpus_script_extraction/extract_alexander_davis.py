@@ -36,14 +36,24 @@ import re
 import subprocess
 import sys
 
-from salish_marking import (DERIVED, MARKED, PRACTICAL, SPOKEN, UNCLASSIFIED, is_mixed,
-                            rendered, switches, tagged_spans)
+from salish_marking import (
+    DERIVED,
+    MARKED,
+    PRACTICAL,
+    SPOKEN,
+    UNCLASSIFIED,
+    is_mixed,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -55,17 +65,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -74,8 +94,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -90,7 +111,8 @@ SOURCE = os.path.join(PAPERS, "AlexanderDavis_ICSNL61.txt")
 TARGET = os.path.join(
     CORPORA,
     "Qwa7yanak-CarlAlexander_ITsicwasSQwa7yanakAku7GraveyardValley_AlexanderDavis"
-    "_Salish_statimcets_2026_mixed.txt")
+    "_Salish_statimcets_2026_mixed.txt",
+)
 
 MARKS = MARKED + PRACTICAL + "̓̔̕"
 
@@ -114,7 +136,8 @@ SEGMENTED = re.compile(r"[-=]")
 CATEGORIES = re.compile(
     r"\b(?:ABSN|ACT|ADHORT|AUT|CAUS|CIRC|COMP|COP|COS|DEM|DET|DIM|DIR|DIST|D/C|ERG|EXCL|"
     r"EXIS|IND|INS|INVIS|IPFV|MID|NEG|NMLZ|OBJ|PL|PLU|POSS|REM|RLT|SBJ|SBJV|SG|STAT|VIS|"
-    r"1SG|2SG|3SG|1PL|2PL|3PL|PL\.DET|ABS\.DET|Ø)\b")
+    r"1SG|2SG|3SG|1PL|2PL|3PL|PL\.DET|ABS\.DET|Ø)\b"
+)
 
 LAYER = {
     "running speech": SPOKEN,
@@ -174,7 +197,9 @@ def sectioned(lines):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -194,8 +219,14 @@ def main():
     def under(top):
         """Every line in a section and in its subsections, in the order the paper prints them."""
         gathered = []
-        for key in sorted(held, key=lambda one: [int(part) for part in one.split(".")]
-                          if re.match(r"^\d+(\.\d+)?$", one) else [999]):
+        for key in sorted(
+            held,
+            key=lambda one: (
+                [int(part) for part in one.split(".")]
+                if re.match(r"^\d+(\.\d+)?$", one)
+                else [999]
+            ),
+        ):
             if (key == top) or key.startswith(top + "."):
                 gathered.extend(held[key])
         return gathered
@@ -233,8 +264,9 @@ def main():
         elif SEGMENTED.search(one) and not is_mixed(one, MARKS):
             rows.append(("T", number, "4", "segmentation", one))
         else:
-            rows.append(("T" if carries_language(one) else "N",
-                         number, "4", UNCLASSIFIED, one))
+            rows.append(
+                ("T" if carries_language(one) else "N", number, "4", UNCLASSIFIED, one)
+            )
 
     for one in held.get("appendix I", []):
         if carries_language(one):
@@ -254,21 +286,45 @@ def main():
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
         handle.write("# I Tsícwas sQwa7yán'ak Áku7 Graveyard Valley\n")
-        handle.write("# (When Qwa7yán'ak went to Graveyard Valley). A St'át'imcets narrative.\n")
-        handle.write("# Told by Qwa7yán'ak (Carl Alexander), Nxwísten (Bridge River), recorded by\n")
-        handle.write("# Henry Davis at his home on 7 July 2025. Just over half an hour of audio,\n")
+        handle.write(
+            "# (When Qwa7yán'ak went to Graveyard Valley). A St'át'imcets narrative.\n"
+        )
+        handle.write(
+            "# Told by Qwa7yán'ak (Carl Alexander), Nxwísten (Bridge River), recorded by\n"
+        )
+        handle.write(
+            "# Henry Davis at his home on 7 July 2025. Just over half an hour of audio,\n"
+        )
         handle.write("# published with the paper. Proceedings of ICSNL 61, UBCWPL.\n")
-        handle.write("# Davis transcribed, translated and analyzed it and wrote the introduction.\n")
-        handle.write("# It tells of the Bury the Hatchet ceremony held at Graveyard Valley in the\n")
-        handle.write("# South Chilcotin Mountains on 19 July 2003 between the St'át'imc and the\n")
-        handle.write("# Tŝilhqot'in, and of earlier meetings at the rodeo at T'ít'q'et.\n")
+        handle.write(
+            "# Davis transcribed, translated and analyzed it and wrote the introduction.\n"
+        )
+        handle.write(
+            "# It tells of the Bury the Hatchet ceremony held at Graveyard Valley in the\n"
+        )
+        handle.write(
+            "# South Chilcotin Mountains on 19 July 2003 between the St'át'imc and the\n"
+        )
+        handle.write(
+            "# Tŝilhqot'in, and of earlier meetings at the rodeo at T'ít'q'et.\n"
+        )
         handle.write("#\n")
-        handle.write("# Mark is language.layer.kind. T is St'át'imcets, N is anything else.\n")
+        handle.write(
+            "# Mark is language.layer.kind. T is St'át'imcets, N is anything else.\n"
+        )
         handle.write("# The glottal stop is written 7 in this orthography.\n")
-        handle.write("# Square brackets hold material Davis inserted and are derived. Round\n")
-        handle.write("# brackets hold false starts and repetitions, which are Qwa7yán'ak speaking\n")
-        handle.write("# and are kept. Curly brackets mark what a phonological rule removed.\n")
-        handle.write("# Gloss categories are the paper's own, from its appendix II, unchanged.\n")
+        handle.write(
+            "# Square brackets hold material Davis inserted and are derived. Round\n"
+        )
+        handle.write(
+            "# brackets hold false starts and repetitions, which are Qwa7yán'ak speaking\n"
+        )
+        handle.write(
+            "# and are kept. Curly brackets mark what a phonological rule removed.\n"
+        )
+        handle.write(
+            "# Gloss categories are the paper's own, from its appendix II, unchanged.\n"
+        )
         handle.write("line\tsection\tkind\tswitches\tcontent\n")
         for mark, number, section, kind, text in rows:
             layer = LAYER[kind]
@@ -278,8 +334,10 @@ def main():
             else:
                 content = "N.%s.%s:{%s}" % (layer, kind, text)
                 crossings = 0
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (number, section, kind, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (number, section, kind, crossings, content)
+            )
 
     # The ingestion stream. Material Davis supplied inside square brackets is taken back out,
     # since he wrote it and Qwa7yán'ak did not say it.
@@ -306,17 +364,25 @@ def main():
     # A file of its own for what the tool could not sort: a section 4 line none of the tests typed,
     # and a line no section reached, which here is the front matter and section 1.
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, "%s block %d" % (section, number), UNKNOWN_KIND, "", text)
-               for mark, number, section, kind, text in rows
-               if (kind == UNCLASSIFIED) and not section.startswith("not reached")]
+    flagged = [
+        (0, "%s block %d" % (section, number), UNKNOWN_KIND, "", text)
+        for mark, number, section, kind, text in rows
+        if (kind == UNCLASSIFIED) and not section.startswith("not reached")
+    ]
     flagged.extend(missed)
-    stuck_count = write_unsorted(stuck, "I Tsícwas sQwa7yán'ak Áku7 Graveyard Valley", flagged)
+    stuck_count = write_unsorted(
+        stuck, "I Tsícwas sQwa7yán'ak Áku7 Graveyard Valley", flagged
+    )
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure)))
+    out.write(
+        "  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
     out.write("  %d spans skipped as already written\n" % repeated)
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     out.write("\n  %-12s %-20s %s\n" % ("section", "kind", "lines"))
     counted = {}

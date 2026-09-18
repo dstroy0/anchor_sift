@@ -128,33 +128,33 @@ size_t anchor_raster_cell(const AnchorRasterConfig *config, size_t at, size_t al
 
     switch (config->layout)
     {
-        case ANCHOR_LAYOUT_SERPENTINE:
-        {
-            const size_t flipped = ((row % 2u) == 0u) ? column : (config->width - 1u - column);
-            return (row * config->width) + flipped;
-        }
-        case ANCHOR_LAYOUT_COLUMNS:
-        {
-            /* Transposed through the shorter side so the index stays inside the raster on a
-             * rectangle. Reading down a column puts corpus neighbors a row apart. */
-            const size_t turned_row = linear % config->height;
-            const size_t turned_column = linear / config->height;
-            if (turned_column >= config->width)
-            {
-                return linear;
-            }
-            return (turned_row * config->width) + turned_column;
-        }
-        case ANCHOR_LAYOUT_DIAGONAL:
-        {
-            const size_t shifted = (column + row) % config->width;
-            return (row * config->width) + shifted;
-        }
-        case ANCHOR_LAYOUT_ROWS:
-        default:
+    case ANCHOR_LAYOUT_SERPENTINE:
+    {
+        const size_t flipped = ((row % 2u) == 0u) ? column : (config->width - 1u - column);
+        return (row * config->width) + flipped;
+    }
+    case ANCHOR_LAYOUT_COLUMNS:
+    {
+        /* Transposed through the shorter side so the index stays inside the raster on a
+         * rectangle. Reading down a column puts corpus neighbors a row apart. */
+        const size_t turned_row = linear % config->height;
+        const size_t turned_column = linear / config->height;
+        if (turned_column >= config->width)
         {
             return linear;
         }
+        return (turned_row * config->width) + turned_column;
+    }
+    case ANCHOR_LAYOUT_DIAGONAL:
+    {
+        const size_t shifted = (column + row) % config->width;
+        return (row * config->width) + shifted;
+    }
+    case ANCHOR_LAYOUT_ROWS:
+    default:
+    {
+        return linear;
+    }
     }
 }
 
@@ -167,50 +167,50 @@ uint8_t anchor_raster_sample(const AnchorRasterConfig *config, const uint8_t *co
 
     switch (config->channel)
     {
-        case ANCHOR_CHANNEL_BYTE:
+    case ANCHOR_CHANNEL_BYTE:
+    {
+        return corpus[at];
+    }
+    case ANCHOR_CHANNEL_RARITY:
+    {
+        /* Rarity as the steering term defines it, scaled into eight bits by exact integer
+         * division. A symbol the field never produces reaches the top of the ramp. */
+        if (total == 0u)
         {
-            return corpus[at];
+            return 1u;
         }
-        case ANCHOR_CHANNEL_RARITY:
-        {
-            /* Rarity as the steering term defines it, scaled into eight bits by exact integer
-             * division. A symbol the field never produces reaches the top of the ramp. */
-            if (total == 0u)
-            {
-                return 1u;
-            }
-            const uint64_t missing = total - occurrences[corpus[at]];
-            const uint64_t scaled = (missing * 254u) / total;
-            return (uint8_t)(1u + scaled);
-        }
-        case ANCHOR_CHANNEL_PROVEN:
-        {
-            /* A refuted alignment is proven to hold no occurrence. A survivor is undetermined: the
-             * probes could not refute it and only the full compare decides. Proven takes the higher
-             * value so a minimum reduction behaves as the conjunction this channel needs, a cell
-             * staying proven only while every alignment under it was refuted. */
-            int matched = 0;
-            const size_t level = raster_death_level(corpus, needle, needle_len, probes,
-                                                    probe_count, at, &matched);
-            return (level < probe_count)
-                 ? (uint8_t)ANCHOR_RASTER_PROVEN
-                 : (uint8_t)ANCHOR_RASTER_UNDETERMINED;
-        }
-        case ANCHOR_CHANNEL_SURVIVED:
-        {
-            int matched = 0;
-            const size_t level = raster_death_level(corpus, needle, needle_len, probes,
-                                                    probe_count, at, &matched);
-            return (level >= probe_count) ? (uint8_t)ANCHOR_RASTER_MATCH : 1u;
-        }
-        case ANCHOR_CHANNEL_DEATH_LEVEL:
-        default:
-        {
-            int matched = 0;
-            const size_t level = raster_death_level(corpus, needle, needle_len, probes,
-                                                    probe_count, at, &matched);
-            return raster_value(level * (size_t)gain, probe_count, matched);
-        }
+        const uint64_t missing = total - occurrences[corpus[at]];
+        const uint64_t scaled = (missing * 254u) / total;
+        return (uint8_t)(1u + scaled);
+    }
+    case ANCHOR_CHANNEL_PROVEN:
+    {
+        /* A refuted alignment is proven to hold no occurrence. A survivor is undetermined: the
+         * probes could not refute it and only the full compare decides. Proven takes the higher
+         * value so a minimum reduction behaves as the conjunction this channel needs, a cell
+         * staying proven only while every alignment under it was refuted. */
+        int matched = 0;
+        const size_t level = raster_death_level(corpus, needle, needle_len, probes,
+                                                probe_count, at, &matched);
+        return (level < probe_count)
+                   ? (uint8_t)ANCHOR_RASTER_PROVEN
+                   : (uint8_t)ANCHOR_RASTER_UNDETERMINED;
+    }
+    case ANCHOR_CHANNEL_SURVIVED:
+    {
+        int matched = 0;
+        const size_t level = raster_death_level(corpus, needle, needle_len, probes,
+                                                probe_count, at, &matched);
+        return (level >= probe_count) ? (uint8_t)ANCHOR_RASTER_MATCH : 1u;
+    }
+    case ANCHOR_CHANNEL_DEATH_LEVEL:
+    default:
+    {
+        int matched = 0;
+        const size_t level = raster_death_level(corpus, needle, needle_len, probes,
+                                                probe_count, at, &matched);
+        return raster_value(level * (size_t)gain, probe_count, matched);
+    }
     }
 }
 
@@ -218,9 +218,7 @@ int anchor_raster_host(uint8_t *pixels, const AnchorRasterConfig *config, const 
                        size_t corpus_len, const uint8_t *needle, size_t needle_len,
                        const AnchorRasterProbe *probes, size_t probe_count)
 {
-    if ((pixels == NULL) || (config == NULL) || (corpus == NULL) || (needle == NULL)
-     || (config->width == 0u) || (config->height == 0u) || (needle_len == 0u)
-     || (needle_len > corpus_len))
+    if ((pixels == NULL) || (config == NULL) || (corpus == NULL) || (needle == NULL) || (config->width == 0u) || (config->height == 0u) || (needle_len == 0u) || (needle_len > corpus_len))
     {
         return 0;
     }
@@ -272,11 +270,26 @@ const char *anchor_raster_layout_name(AnchorRasterLayout layout)
 {
     switch (layout)
     {
-        case ANCHOR_LAYOUT_ROWS:       { return "rows"; }
-        case ANCHOR_LAYOUT_SERPENTINE: { return "serpentine"; }
-        case ANCHOR_LAYOUT_COLUMNS:    { return "columns"; }
-        case ANCHOR_LAYOUT_DIAGONAL:   { return "diagonal"; }
-        default:                       { return "unknown"; }
+    case ANCHOR_LAYOUT_ROWS:
+    {
+        return "rows";
+    }
+    case ANCHOR_LAYOUT_SERPENTINE:
+    {
+        return "serpentine";
+    }
+    case ANCHOR_LAYOUT_COLUMNS:
+    {
+        return "columns";
+    }
+    case ANCHOR_LAYOUT_DIAGONAL:
+    {
+        return "diagonal";
+    }
+    default:
+    {
+        return "unknown";
+    }
     }
 }
 
@@ -284,12 +297,30 @@ const char *anchor_raster_channel_name(AnchorRasterChannel channel)
 {
     switch (channel)
     {
-        case ANCHOR_CHANNEL_PROVEN:      { return "proven"; }
-        case ANCHOR_CHANNEL_DEATH_LEVEL: { return "death-level"; }
-        case ANCHOR_CHANNEL_SURVIVED:    { return "survived"; }
-        case ANCHOR_CHANNEL_RARITY:      { return "rarity"; }
-        case ANCHOR_CHANNEL_BYTE:        { return "byte"; }
-        default:                         { return "unknown"; }
+    case ANCHOR_CHANNEL_PROVEN:
+    {
+        return "proven";
+    }
+    case ANCHOR_CHANNEL_DEATH_LEVEL:
+    {
+        return "death-level";
+    }
+    case ANCHOR_CHANNEL_SURVIVED:
+    {
+        return "survived";
+    }
+    case ANCHOR_CHANNEL_RARITY:
+    {
+        return "rarity";
+    }
+    case ANCHOR_CHANNEL_BYTE:
+    {
+        return "byte";
+    }
+    default:
+    {
+        return "unknown";
+    }
     }
 }
 
@@ -394,70 +425,69 @@ size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment
 
     switch (config->layout)
     {
-        case ANCHOR_VOLUME_SLABS:
-        {
-            return at;
-        }
-        case ANCHOR_VOLUME_BOUSTRO:
-        {
-            const size_t slab = at / sheet;
-            const size_t within = at % sheet;
-            size_t row = within / width;
-            size_t column = within % width;
+    case ANCHOR_VOLUME_SLABS:
+    {
+        return at;
+    }
+    case ANCHOR_VOLUME_BOUSTRO:
+    {
+        const size_t slab = at / sheet;
+        const size_t within = at % sheet;
+        size_t row = within / width;
+        size_t column = within % width;
 
-            // Reverse every other row, then reverse the row order of every other slab. Consecutive
-            // alignments stay adjacent across a row boundary and across a slab boundary both.
-            if ((row % 2u) == 1u)
-            {
-                column = (width - 1u) - column;
-            }
-            if ((slab % 2u) == 1u)
-            {
-                row = (height - 1u) - row;
-            }
-            return (slab * sheet) + (row * width) + column;
-        }
-        case ANCHOR_VOLUME_MORTON:
+        // Reverse every other row, then reverse the row order of every other slab. Consecutive
+        // alignments stay adjacent across a row boundary and across a slab boundary both.
+        if ((row % 2u) == 1u)
         {
-            // Refused rather than remapped where the extents are not powers of two, because the
-            // interleave is a bijection only then and a silent fallback would make two
-            // configurations render identically while reporting different layouts.
-            if ((volume_is_power_of_two(width) == 0) || (volume_is_power_of_two(height) == 0)
-             || (volume_is_power_of_two(depth) == 0))
-            {
-                return cells;
-            }
-
-            size_t x = 0u;
-            size_t y = 0u;
-            size_t z = 0u;
-            for (size_t bit = 0u; bit < (sizeof(size_t) * 8u) / 3u; bit += 1u)
-            {
-                x |= ((at >> ((3u * bit) + 0u)) & 1u) << bit;
-                y |= ((at >> ((3u * bit) + 1u)) & 1u) << bit;
-                z |= ((at >> ((3u * bit) + 2u)) & 1u) << bit;
-            }
-            x %= width;
-            y %= height;
-            z %= depth;
-            return (z * sheet) + (y * width) + x;
+            column = (width - 1u) - column;
         }
-        case ANCHOR_VOLUME_HELIX:
+        if ((slab % 2u) == 1u)
         {
-            const size_t slab = at / sheet;
-            const size_t within = at % sheet;
-            const size_t row = within / width;
-            const size_t column = (within + slab) % width;
-
-            // A shear by the depth index. Adding the slab to the column is a bijection on each row
-            // because it is addition modulo the width, and a feature at a fixed corpus offset
-            // therefore advances one column per slab and winds through the block.
-            return (slab * sheet) + (row * width) + column;
+            row = (height - 1u) - row;
         }
-        default:
+        return (slab * sheet) + (row * width) + column;
+    }
+    case ANCHOR_VOLUME_MORTON:
+    {
+        // Refused  because the
+        // interleave is a bijection only then and a silent fallback would make two
+        // configurations render identically while reporting different layouts.
+        if ((volume_is_power_of_two(width) == 0) || (volume_is_power_of_two(height) == 0) || (volume_is_power_of_two(depth) == 0))
         {
             return cells;
         }
+
+        size_t x = 0u;
+        size_t y = 0u;
+        size_t z = 0u;
+        for (size_t bit = 0u; bit < (sizeof(size_t) * 8u) / 3u; bit += 1u)
+        {
+            x |= ((at >> ((3u * bit) + 0u)) & 1u) << bit;
+            y |= ((at >> ((3u * bit) + 1u)) & 1u) << bit;
+            z |= ((at >> ((3u * bit) + 2u)) & 1u) << bit;
+        }
+        x %= width;
+        y %= height;
+        z %= depth;
+        return (z * sheet) + (y * width) + x;
+    }
+    case ANCHOR_VOLUME_HELIX:
+    {
+        const size_t slab = at / sheet;
+        const size_t within = at % sheet;
+        const size_t row = within / width;
+        const size_t column = (within + slab) % width;
+
+        // A shear by the depth index. Adding the slab to the column is a bijection on each row
+        // because it is addition modulo the width, and a feature at a fixed corpus offset
+        // therefore advances one column per slab and winds through the block.
+        return (slab * sheet) + (row * width) + column;
+    }
+    default:
+    {
+        return cells;
+    }
     }
 }
 
@@ -468,13 +498,11 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
 {
     // RESERVED, NOT READ, AND NOT DELETED. The census below is built from `corpus`. A caller
     // supplied one is discarded here. The parameter stays because a tunable with no reader is an
-    // integration point rather than dead weight, and the header says so at the declaration instead
+    // integration point  and the header says so at the declaration instead
     // of calling it the rarity source, which is what it said until it was measured.
     (void)census_in;
 
-    if ((voxels == NULL) || (config == NULL) || (corpus == NULL) || (needle == NULL)
-     || (config->width == 0u) || (config->height == 0u) || (config->depth == 0u)
-     || (needle_len == 0u) || (needle_len > corpus_len))
+    if ((voxels == NULL) || (config == NULL) || (corpus == NULL) || (needle == NULL) || (config->width == 0u) || (config->height == 0u) || (config->depth == 0u) || (needle_len == 0u) || (needle_len > corpus_len))
     {
         return 0;
     }
@@ -495,8 +523,7 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
     // channel was added to one of them.
     const AnchorRasterConfig flat = {
         config->width, config->height, ANCHOR_LAYOUT_ROWS, config->channel, config->reduce,
-        config->gain
-    };
+        config->gain};
 
     AnchorRasterCensus census;
     raster_census(&census, corpus, corpus_len);
@@ -557,8 +584,7 @@ int anchor_volume_render(uint8_t *voxels, const AnchorVolumeConfig *config, cons
 int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
                             const AnchorVolumeConfig *config)
 {
-    if ((path == NULL) || (voxels == NULL) || (config == NULL)
-     || (config->width == 0u) || (config->height == 0u) || (config->depth == 0u))
+    if ((path == NULL) || (voxels == NULL) || (config == NULL) || (config->width == 0u) || (config->height == 0u) || (config->depth == 0u))
     {
         return 0;
     }

@@ -8701,7 +8701,7 @@
 
     // -- the floating panel -----------------------------------------------------------------------
     //
-    // Every control is a dropdown or a slider rather than a list of buttons, and the whole thing
+    // Every control is a dropdown or a slider  and the whole thing
     // moves, because it sits on top of the picture it controls and will otherwise cover the part
     // being looked at.
 
@@ -9143,7 +9143,7 @@
       brushing = false;
       var box = histCanvas.getBoundingClientRect();
       var now = event.clientX - box.left;
-      // A click rather than a drag: take the single bin under the pointer, which is one value of the
+      // A click  which is one value of the
       // data.
       if (Math.abs(now - brushStart) < 3) {
         var wide = histCanvas.clientWidth || 232;

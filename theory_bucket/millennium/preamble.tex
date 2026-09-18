@@ -24,9 +24,9 @@
 % corpus stacks them on. DejaVu stands behind it for the arrows, box drawing and math operators the
 % workbook tables use, which Charis does not carry.
 \directlua{
-  luaotfload.add_fallback("theoryfallback", {
-    "DejaVuSerif:mode=harf;",
-    "DejaVuSans:mode=harf;",
+  luaotfload.add_fallback(``theoryfallback'', {
+    ``DejaVuSerif:mode=harf;'',
+    ``DejaVuSans:mode=harf;'',
   })
 }
 
@@ -35,9 +35,9 @@
 % six times and still built, which is the failure this whole engine change exists to stop. Charis
 % carries it. It stands behind the mono face.
 \directlua{
-  luaotfload.add_fallback("theorymonofallback", {
-    "CharisSIL:mode=harf;",
-    "DejaVuSans:mode=harf;",
+  luaotfload.add_fallback(``theorymonofallback'', {
+    ``CharisSIL:mode=harf;'',
+    ``DejaVuSans:mode=harf;'',
   })
 }
 
@@ -63,8 +63,7 @@ pdfspacing]{classicthesis}
 
 % The text block, set after classicthesis so this wins.
 %
-% classicthesis calls \areaset[current]{356pt}{700pt} on A4 at 11pt. An A4 page is 597pt wide, so
-% that leaves 241pt of margin, and a 7em marginpar gutter is carved out of one side of it. Forty
+% classicthesis calls \areaset[current]{356pt}{700pt} on A4 at 11pt. An A4 page is 597pt wide. Forty
 % percent of every page is blank, which is a page design for a printed thesis read at a desk with a
 % pencil. These books are read on a screen and posted to an archive.
 %

@@ -57,11 +57,10 @@
 # read with its rows reversed the same site is Cu2+.
 #
 # That is a latent hazard and not a live defect, and the distinction is worth stating precisely
-#. Two things keep it from biting today. `placed`
+# . Two things keep it from biting today. `placed`
 # has no callers anywhere in this tree. And `along`, which every period measure here goes through,
 # does not overwrite at all: it gathers every value sitting at a coordinate into a sorted tuple, so
-# it returns the same arrangement whatever order the rows arrive in. That was checked rather than
-# assumed, on the same entry.
+# it returns the same arrangement whatever order the rows arrive in. That was checked.
 #
 # So no published result in this subject is affected. What is true is that the first reading to
 # reach for `placed` on a structure carrying shared positions inherits a silent dependence on file
@@ -128,13 +127,20 @@ def doped_sites(text):
         return None, skipped
     # The occupancy is dropped here and read at stage six. Which field this projects is the whole
     # difference between this reading and the oracle's; the reading itself is one function.
-    return exact.contested([(position, element) for position, element, _ in sites]), skipped
+    return (
+        exact.contested([(position, element) for position, element, _ in sites]),
+        skipped,
+    )
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     if not os.path.isdir(CACHE):
-        out.write("\n  nothing cached under build/cod. Run the oracle or a fetcher to fill it.\n\n")
+        out.write(
+            "\n  nothing cached under build/cod. Run the oracle or a fetcher to fill it.\n\n"
+        )
         out.flush()
         return 1
 
@@ -143,8 +149,13 @@ def main():
     if limit:
         names = names[:limit]
 
-    out.write("\n  Substitutional doping read off incidence, with no occupancy column consulted.\n\n")
-    out.write("  %-12s %-7s %-9s %s\n" % ("entry", "sites", "shared", "elements sharing a site"))
+    out.write(
+        "\n  Substitutional doping read off incidence, with no occupancy column consulted.\n\n"
+    )
+    out.write(
+        "  %-12s %-7s %-9s %s\n"
+        % ("entry", "sites", "shared", "elements sharing a site")
+    )
 
     read = 0
     unreadable = 0
@@ -159,7 +170,9 @@ def main():
     started = time.time()
 
     for name in names:
-        with io.open(os.path.join(CACHE, name), encoding="utf-8", errors="replace") as handle:
+        with io.open(
+            os.path.join(CACHE, name), encoding="utf-8", errors="replace"
+        ) as handle:
             text = handle.read()
         found, skipped = doped_sites(text)
         skipped_sites += skipped
@@ -188,23 +201,37 @@ def main():
             listed += 1
             sites = len(crystal.site_table(text))
             shown = sorted({elements for elements in found.values()})
-            out.write("  %-12s %-7d %-9d %s\n"
-                      % (name[:-4], sites, len(found),
-                         "  ".join("/".join(one) for one in shown[:4])))
+            out.write(
+                "  %-12s %-7d %-9d %s\n"
+                % (
+                    name[:-4],
+                    sites,
+                    len(found),
+                    "  ".join("/".join(one) for one in shown[:4]),
+                )
+            )
             out.flush()
 
-    out.write("\n  %d entries read, %d with no atom site loop, %.1fs\n"
-              % (read, unreadable, time.time() - started))
+    out.write(
+        "\n  %d entries read, %d with no atom site loop, %.1fs\n"
+        % (read, unreadable, time.time() - started)
+    )
     if skipped_sites:
-        out.write("  %d sites skipped for a coordinate that is not plain decimal text\n"
-                  % skipped_sites)
+        out.write(
+            "  %d sites skipped for a coordinate that is not plain decimal text\n"
+            % skipped_sites
+        )
     out.write("  %d entries carry at least one shared site\n" % doped)
     out.write("  %d shared sites in total\n" % shared_total)
     if read:
-        out.write("  %.1f%% of readable entries are doped by this measure\n"
-                  % (100.0 * doped / read))
+        out.write(
+            "  %.1f%% of readable entries are doped by this measure\n"
+            % (100.0 * doped / read)
+        )
 
-    out.write("\n  the substitutions found, as the deposits wrote them, most common first\n")
+    out.write(
+        "\n  the substitutions found, as the deposits wrote them, most common first\n"
+    )
     for elements, count in sorted(pairs.items(), key=lambda pair: -pair[1])[:15]:
         out.write("     %-28s %d\n" % ("/".join(elements), count))
 
@@ -222,7 +249,9 @@ def main():
         key = tuple(sorted({symbol(one) for one in elements}))
         if len(key) > 1:
             folded[key] = folded.get(key, 0) + count
-    out.write("\n  the same substitutions with charge and case folded together, which is a\n")
+    out.write(
+        "\n  the same substitutions with charge and case folded together, which is a\n"
+    )
     out.write("  reading convenience and not the measurement\n")
     for elements, count in sorted(folded.items(), key=lambda pair: -pair[1])[:15]:
         out.write("     %-28s %d\n" % ("/".join(elements), count))
@@ -230,8 +259,12 @@ def main():
     out.write("\n  how many elements share one position\n")
     for how_many, count in sorted(order.items()):
         out.write("     %-3d elements   %d positions\n" % (how_many, count))
-    out.write("     two is the ordinary case. The tail is not noise: a rare earth site takes\n")
-    out.write("     whichever lanthanides were available when the crystal grew, and a spinel\n")
+    out.write(
+        "     two is the ordinary case. The tail is not noise: a rare earth site takes\n"
+    )
+    out.write(
+        "     whichever lanthanides were available when the crystal grew, and a spinel\n"
+    )
     out.write("     will hold most of the first transition row at once.\n")
 
     if widest:
@@ -242,11 +275,19 @@ def main():
     out.write("\n  distinct substitution types in one deposit\n")
     for how_many, count in sorted(coupled.items()):
         out.write("     %-3d distinct   %d entries\n" % (how_many, count))
-    out.write("     two at once is a coupled substitution. A lattice swapping ions of unequal\n")
-    out.write("     charge has to balance it somewhere else, and the plagioclase series is the\n")
-    out.write("     standard case: Al for Si on one site against Ca for Na on another.\n")
+    out.write(
+        "     two at once is a coupled substitution. A lattice swapping ions of unequal\n"
+    )
+    out.write(
+        "     charge has to balance it somewhere else, and the plagioclase series is the\n"
+    )
+    out.write(
+        "     standard case: Al for Si on one site against Ca for Na on another.\n"
+    )
 
-    out.write("\n  no occupancy was read. Stage six checks these against the published column.\n\n")
+    out.write(
+        "\n  no occupancy was read. Stage six checks these against the published column.\n\n"
+    )
     out.flush()
     return 0
 

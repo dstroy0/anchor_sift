@@ -53,10 +53,12 @@ import sys
 sys.set_int_max_str_digits(0)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -68,17 +70,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -87,8 +99,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -108,8 +121,20 @@ RUN_STEP = 4
 # The run with repeated positions, as bench_exact.c lists it: unsorted, with four positions listed
 # twice carrying two values. Built here from the plan, and counted with a dict, which keeps the last
 # value at a repeated position.
-REPEATED_POSITIONS = ("2.00", "0.25", "1.00", "0.25", "0.50", "2.00", "1.25", "0.75", "1.00",
-                      "0.00", "1.50", "0.50")
+REPEATED_POSITIONS = (
+    "2.00",
+    "0.25",
+    "1.00",
+    "0.25",
+    "0.50",
+    "2.00",
+    "1.25",
+    "0.75",
+    "1.00",
+    "0.00",
+    "1.50",
+    "0.50",
+)
 REPEATED_VALUES = (1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4)
 
 # The C statuses a refusal row prints.
@@ -120,7 +145,9 @@ NOT_DECIMAL = 2
 # representation.exact each walk the text byte by byte. A regex shares no step with either. The
 # classes are ASCII by construction: [0-9] and the four padding bytes, with no \d or \s, which also
 # match Unicode digits and whitespace.
-GRAMMAR = re.compile(r"[ \t\r\n]*([+-]?)([0-9]*)(?:\.([0-9]*))?(?:\(([0-9]+)\))?[ \t\r\n]*")
+GRAMMAR = re.compile(
+    r"[ \t\r\n]*([+-]?)([0-9]*)(?:\.([0-9]*))?(?:\(([0-9]+)\))?[ \t\r\n]*"
+)
 
 
 def constant(path, pattern):
@@ -130,7 +157,9 @@ def constant(path, pattern):
     implementation it is supposed to be checking, and compiling the header would need a compiler
     where a regular expression will do.
     """
-    with io.open(os.path.join(ROOT, path), encoding="utf-8", errors="replace") as handle:
+    with io.open(
+        os.path.join(ROOT, path), encoding="utf-8", errors="replace"
+    ) as handle:
         # MULTILINE, since a constant sits at the start of its own line and not the start of a file.
         found = re.search(pattern, handle.read(), re.MULTILINE)
     return int(found.group(1)) if found else None
@@ -146,12 +175,17 @@ def version_lock(out):
 
     Returns 1 where they agree, 0 where they do not.
     """
-    limbs = constant("src/engine/c/no_rounding/exact_integer.h",
-                     r"#define\s+ANCHOR_EXACT_LIMBS\s+(\d+)")
-    floor = constant("src/engine/c/no_rounding/exact_integer.h",
-                     r"#define\s+ANCHOR_EXACT_DIGITS\s+(\d+)")
-    scale = constant("src/engine/python/representation/exact.py",
-                     r"^SCALE_DIGITS\s*=\s*(\d+)")
+    limbs = constant(
+        "src/engine/c/no_rounding/exact_integer.h",
+        r"#define\s+ANCHOR_EXACT_LIMBS\s+(\d+)",
+    )
+    floor = constant(
+        "src/engine/c/no_rounding/exact_integer.h",
+        r"#define\s+ANCHOR_EXACT_DIGITS\s+(\d+)",
+    )
+    scale = constant(
+        "src/engine/python/representation/exact.py", r"^SCALE_DIGITS\s*=\s*(\d+)"
+    )
 
     if (limbs is None) or (floor is None) or (scale is None):
         out.write("  could not read the contract constants from both sides\n")
@@ -160,18 +194,24 @@ def version_lock(out):
     # The width has to hold the floor, and the python scale has to be the same floor. A python scale
     # above the C floor would ingest values the C refuses; below it, the two would disagree about
     # what fits.
-    held = (32 * limbs)
+    held = 32 * limbs
     room = ((floor * 3322) // 1000) + 1
     if room > held:
-        out.write("  CONTRACT: %d digits declared, %d limbs hold %d bits, needs %d\n"
-                  % (floor, limbs, held, room))
+        out.write(
+            "  CONTRACT: %d digits declared, %d limbs hold %d bits, needs %d\n"
+            % (floor, limbs, held, room)
+        )
         return 0
     if scale != floor:
-        out.write("  CONTRACT: python ingests at %d digits, C declares %d\n" % (scale, floor))
+        out.write(
+            "  CONTRACT: python ingests at %d digits, C declares %d\n" % (scale, floor)
+        )
         return 0
 
-    out.write("  contract: %d limbs, %d bits, %d digits declared on both sides\n"
-              % (limbs, held, floor))
+    out.write(
+        "  contract: %d limbs, %d bits, %d digits declared on both sides\n"
+        % (limbs, held, floor)
+    )
     return 1
 
 
@@ -195,7 +235,7 @@ def integer_at(field, at, width_limbs):
         return None, at
     sign = int(field[at])
     count = int(field[at + 1])
-    limbs = [int(one, 16) for one in field[at + 2:at + 2 + count]]
+    limbs = [int(one, 16) for one in field[at + 2 : at + 2 + count]]
     if (count > width_limbs) or (len(limbs) != count) or (count and limbs[-1] == 0):
         return None, at
     return value_of(sign, limbs), at + 2 + count
@@ -272,7 +312,9 @@ def agreement(positions, values, lag):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     if len(sys.argv) > 1:
         with io.open(sys.argv[1], encoding="utf-8") as handle:
@@ -280,12 +322,15 @@ def main():
     else:
         if not os.path.isfile(DRIVER):
             out.write("\n  no bench_exact at %s\n" % DRIVER)
-            out.write("  cmake -S src/engine/c -B build/engine_c -G Ninja"
-                      " -DCMAKE_BUILD_TYPE=Release && cmake --build build/engine_c\n\n")
+            out.write(
+                "  cmake -S src/engine/c -B build/engine_c -G Ninja"
+                " -DCMAKE_BUILD_TYPE=Release && cmake --build build/engine_c\n\n"
+            )
             out.flush()
             return 1
-        rows = subprocess.run([DRIVER], capture_output=True, text=True,
-                              check=True).stdout.splitlines()
+        rows = subprocess.run(
+            [DRIVER], capture_output=True, text=True, check=True
+        ).stdout.splitlines()
 
     if (not rows) or (not rows[0].startswith("limbs ")):
         out.write("\n  the driver printed nothing recognizable\n\n")
@@ -314,19 +359,25 @@ def main():
                 # A refusal has to be the one the python side says is required, of the same kind, or
                 # the C is refusing values it should have read.
                 if int(field[4]) != status:
-                    wrong.append("read %d %r: refused with %s, python says %d"
-                                 % (index, text, field[4], status))
+                    wrong.append(
+                        "read %d %r: refused with %s, python says %d"
+                        % (index, text, field[4], status)
+                    )
                 subjects[index] = None
             else:
                 got, _next = integer_at(field, 3, limbs)
                 if got is None:
                     wrong.append("read %d %r: malformed limbs" % (index, text))
                 elif status != 0:
-                    wrong.append("read %d %r: read, which python refuses with %d"
-                                 % (index, text, status))
+                    wrong.append(
+                        "read %d %r: read, which python refuses with %d"
+                        % (index, text, status)
+                    )
                 elif got != wanted:
-                    wrong.append("read %d %r: read as %d, python says %d"
-                                 % (index, text, got, wanted))
+                    wrong.append(
+                        "read %d %r: read as %d, python says %d"
+                        % (index, text, got, wanted)
+                    )
                 subjects[index] = wanted if status == 0 else None
             checked += 1
             continue
@@ -337,8 +388,10 @@ def main():
             status, wanted, spread = measured_of(text, places, width)
             if field[3] == "refused":
                 if int(field[4]) != status:
-                    wrong.append("meas %d %r: refused with %s, python says %d"
-                                 % (index, text, field[4], status))
+                    wrong.append(
+                        "meas %d %r: refused with %s, python says %d"
+                        % (index, text, field[4], status)
+                    )
             else:
                 carried = int(field[3])
                 got, after = integer_at(field, 4, limbs)
@@ -346,17 +399,25 @@ def main():
                 if (got is None) or (got_spread is None):
                     wrong.append("meas %d %r: malformed limbs" % (index, text))
                 elif status != 0:
-                    wrong.append("meas %d %r: read, which python refuses with %d"
-                                 % (index, text, status))
+                    wrong.append(
+                        "meas %d %r: read, which python refuses with %d"
+                        % (index, text, status)
+                    )
                 elif got != wanted:
-                    wrong.append("meas %d %r: value %d, python says %d"
-                                 % (index, text, got, wanted))
+                    wrong.append(
+                        "meas %d %r: value %d, python says %d"
+                        % (index, text, got, wanted)
+                    )
                 elif carried != (0 if spread is None else 1):
-                    wrong.append("meas %d %r: carried %d, python says %s"
-                                 % (index, text, carried, spread))
+                    wrong.append(
+                        "meas %d %r: carried %d, python says %s"
+                        % (index, text, carried, spread)
+                    )
                 elif got_spread != (0 if spread is None else spread):
-                    wrong.append("meas %d %r: uncertainty %d, python says %s"
-                                 % (index, text, got_spread, spread))
+                    wrong.append(
+                        "meas %d %r: uncertainty %d, python says %s"
+                        % (index, text, got_spread, spread)
+                    )
             checked += 1
             continue
 
@@ -381,19 +442,26 @@ def main():
             high = subjects.get(int(field[2]))
             if (low is None) or (high is None):
                 continue
-            wanted = (low + high) if kind == "add" else \
-                     (low - high) if kind == "sub" else (low * high)
+            wanted = (
+                (low + high)
+                if kind == "add"
+                else (low - high) if kind == "sub" else (low * high)
+            )
             fits = abs(wanted) < (1 << width)
             if field[3] == "refused":
                 if fits:
-                    wrong.append("%s: refused, but %d fits %d bits" % (row, wanted, width))
+                    wrong.append(
+                        "%s: refused, but %d fits %d bits" % (row, wanted, width)
+                    )
             else:
                 got, _next = integer_at(field, 3, limbs)
                 if got is None:
                     wrong.append("%s: malformed limbs" % row)
                 elif not fits:
-                    wrong.append("%s: produced a value where %d needs more than %d bits"
-                                 % (row, wanted, width))
+                    wrong.append(
+                        "%s: produced a value where %d needs more than %d bits"
+                        % (row, wanted, width)
+                    )
                 elif got != wanted:
                     wrong.append("%s: got %d, python says %d" % (row, got, wanted))
             checked += 1
@@ -407,8 +475,10 @@ def main():
             order = (low > high) - (low < high)
             same = 1 if low == high else 0
             if (int(field[3]) != order) or (int(field[4]) != same):
-                wrong.append("%s: got %s %s, python says %d %d"
-                             % (row, field[3], field[4], order, same))
+                wrong.append(
+                    "%s: got %s %s, python says %d %d"
+                    % (row, field[3], field[4], order, same)
+                )
             checked += 1
             continue
 
@@ -421,8 +491,10 @@ def main():
             checked += 1
             continue
 
-    out.write("\n  %d rows checked at %d limbs, %d decimal places, %d bits wide\n"
-              % (checked, limbs, places, width))
+    out.write(
+        "\n  %d rows checked at %d limbs, %d decimal places, %d bits wide\n"
+        % (checked, limbs, places, width)
+    )
 
     # Checked after the rows. A contract drift is then reported beside the disagreement it caused
     # instead of in place of it. Both are failures and neither substitutes for the other.
@@ -434,7 +506,9 @@ def main():
             out.write("    %s\n" % one)
         if len(wrong) > 40:
             out.write("    and %d more\n" % (len(wrong) - 40))
-        out.write("\n  the C and python integers do not agree. One of them has a defect.\n\n")
+        out.write(
+            "\n  the C and python integers do not agree. One of them has a defect.\n\n"
+        )
         out.flush()
         return 1
 

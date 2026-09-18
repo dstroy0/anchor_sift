@@ -41,10 +41,12 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -56,17 +58,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -75,8 +87,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -84,9 +97,11 @@ def _repository_root():
 ROOT = _repository_root()
 
 # The corpus directory, and where build/ reaches it. The corpus keeps its own names.
-WANTED = (("oracles", os.path.join(ROOT, "build", "oracles")),
-          ("papers", os.path.join(ROOT, "build", "papers")),
-          ("speech", os.path.join(ROOT, "build", "audio")))
+WANTED = (
+    ("oracles", os.path.join(ROOT, "build", "oracles")),
+    ("papers", os.path.join(ROOT, "build", "papers")),
+    ("speech", os.path.join(ROOT, "build", "audio")),
+)
 
 # Two signed inventories cover the corpus between them. The recordings sit in their own, which
 # lets a withdrawal rewrite and re-sign that one alone. Reading only the first reported every
@@ -106,8 +121,10 @@ def private_root():
     named = os.environ.get("ANCHOR_SIFT_PRIVATE")
     if named:
         return os.path.abspath(named)
-    for candidate in (os.path.join(ROOT, "deps", "salishan_corpus"),
-                      os.path.join(os.path.dirname(ROOT), "private_repos", "salishan_corpus")):
+    for candidate in (
+        os.path.join(ROOT, "deps", "salishan_corpus"),
+        os.path.join(os.path.dirname(ROOT), "private_repos", "salishan_corpus"),
+    ):
         if os.path.isdir(candidate):
             return candidate
     return os.path.join(ROOT, "deps", "salishan_corpus")
@@ -166,20 +183,27 @@ def main():
     out.write("\n  %s\n" % source.replace("\\", "/"))
     if not os.path.isdir(source):
         out.write("  not there. Clone the closed corpus, or set ANCHOR_SIFT_PRIVATE.\n")
-        out.write("  Everything here that does not read a paper or a table still runs.\n\n")
+        out.write(
+            "  Everything here that does not read a paper or a table still runs.\n\n"
+        )
         out.flush()
         return 0 if bypassing else 2
 
     hashes = recorded(source)
     if not hashes:
-        out.write("  no %s. Run maint/corpus/corpus_manifest.py --write first.\n\n"
-                  % " or ".join(MANIFESTS))
+        out.write(
+            "  no %s. Run maint/corpus/corpus_manifest.py --write first.\n\n"
+            % " or ".join(MANIFESTS)
+        )
         out.flush()
         return 0 if bypassing else 2
 
-    unsigned = [one for one in MANIFESTS
-                if os.path.isfile(os.path.join(source, one))
-                and not os.path.isfile(os.path.join(source, one + ".asc"))]
+    unsigned = [
+        one
+        for one in MANIFESTS
+        if os.path.isfile(os.path.join(source, one))
+        and not os.path.isfile(os.path.join(source, one + ".asc"))
+    ]
 
     matched = 0
     missing = []
@@ -191,7 +215,9 @@ def main():
         if os.path.isdir(target) and not os.path.islink(target):
             unlinked.append(os.path.relpath(target, ROOT).replace("\\", "/"))
         found = reachable(target)
-        under = {one[len(name) + 1:]: one for one in hashes if one.startswith(name + "/")}
+        under = {
+            one[len(name) + 1 :]: one for one in hashes if one.startswith(name + "/")
+        }
         for rest, key in sorted(under.items()):
             full = found.pop(rest, None)
             if full is None:
@@ -208,8 +234,12 @@ def main():
     for one in unsigned:
         out.write("    %s is not signed\n" % one)
 
-    for label, held in (("missing", missing), ("changed", changed),
-                        ("unrecorded", unrecorded), ("unlinked", unlinked)):
+    for label, held in (
+        ("missing", missing),
+        ("changed", changed),
+        ("unrecorded", unrecorded),
+        ("unlinked", unlinked),
+    ):
         if not held:
             continue
         out.write("\n  %s (%d)\n" % (label.upper(), len(held)))
@@ -225,7 +255,9 @@ def main():
             out.flush()
             return 0
         out.write("\n  build/ does not reach what the signature covers.\n")
-        out.write("  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV)
+        out.write(
+            "  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV
+        )
         out.flush()
         return 1
 

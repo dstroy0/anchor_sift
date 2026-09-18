@@ -124,8 +124,7 @@ size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
         const __m256i agrees = _mm256_cmpeq_epi8(window, broadcast);
 
         /* An alive flag is zero or non-zero. The mask of alignments still standing is the
-         * complement of "equals zero". Testing against zero and complementing rather than testing
-         * against one keeps this correct if a caller ever stores a flag other than one. */
+         * complement of "equals zero". Testing against zero and complementing. */
         const __m256i refuted = _mm256_cmpeq_epi8(standing_bytes, zero);
         const __m256i alive_mask = _mm256_andnot_si256(refuted, _mm256_set1_epi8((char)0xFF));
 
@@ -150,7 +149,7 @@ size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
 
 const AnchorSteerEngine *anchor_steer_avx2_engine(void)
 {
-    static const AnchorSteerEngine engine = { "avx2", anchor_steer_truthy_after_avx2 };
+    static const AnchorSteerEngine engine = {"avx2", anchor_steer_truthy_after_avx2};
 
     if (steer_avx2_present() == 0)
     {

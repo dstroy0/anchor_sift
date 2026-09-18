@@ -24,10 +24,11 @@ import os
 import subprocess
 import sys
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -39,17 +40,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -58,8 +69,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -86,7 +98,9 @@ def split_out(path):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     done = 0
     for name in sorted(os.listdir(ORACLES)):
         if not name.endswith(".oracle.tsv"):
@@ -105,7 +119,7 @@ def main():
             if len(fields) > width:
                 # A tab inside a field would land here. Nothing merges silently: the extra fields
                 # are joined back into the last column, which is where the text always sits.
-                fields = fields[:width - 1] + [" ".join(fields[width - 1:])]
+                fields = fields[: width - 1] + [" ".join(fields[width - 1 :])]
             fields += [""] * (width - len(fields))
             rows.append(fields)
 
@@ -123,8 +137,10 @@ def main():
                 for line in prose:
                     handle.write("%s\n" % line)
         done += 1
-        out.write("  %-44s %d rows, %d columns, %d lines of prose moved to %s\n"
-                  % (name[:44], len(rows), width, len(prose), os.path.basename(beside)))
+        out.write(
+            "  %-44s %d rows, %d columns, %d lines of prose moved to %s\n"
+            % (name[:44], len(rows), width, len(prose), os.path.basename(beside))
+        )
 
     out.write("\n  %d hand extractions tidied\n" % done)
     out.flush()

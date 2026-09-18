@@ -98,8 +98,8 @@ static void order_worst_first(size_t *offsets, size_t count, const AnchorFieldCe
         {
             const size_t settled_offset = offsets[slot - 1u];
             const uint64_t settled = (settled_offset < needle_len)
-                                   ? anchor_steer_magnitude(census, needle[settled_offset])
-                                   : 0u;
+                                         ? anchor_steer_magnitude(census, needle[settled_offset])
+                                         : 0u;
             if (settled <= moving)
             {
                 break;
@@ -114,7 +114,7 @@ static void order_worst_first(size_t *offsets, size_t count, const AnchorFieldCe
 static int check_counts_agree(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle)
 {
     int failed = 0;
-    const size_t lengths[] = { 0u, 1u, 2u, 3u, 4u, 16u, 64u };
+    const size_t lengths[] = {0u, 1u, 2u, 3u, 4u, 16u, 64u};
 
     printf("\n  THE ORDERING COSTS NO CORRECTNESS, steered against the reference arm.\n\n");
     printf("  %12s %14s %14s %14s %10s\n", "needle_len", "reference", "unsteered", "steered",
@@ -161,8 +161,8 @@ static int check_ordering_pays(const uint8_t *corpus, size_t corpus_len, const u
     /* The ratio is carried in hundredths as an exact integer division, not as a double. Both the
      * numerator and the denominator are printed beside it. The reader can check the division. */
     const uint64_t hundredths = (steered_probes > 0u)
-                              ? ((plain_probes * 100u) / steered_probes)
-                              : 0u;
+                                    ? ((plain_probes * 100u) / steered_probes)
+                                    : 0u;
 
     printf("  %22s %16s %16s\n", "order", "probe reads", "plain/steered");
     printf("  %22s %16llu %16s\n", "spatial, unsteered", (unsigned long long)plain_probes, "-");
@@ -184,7 +184,7 @@ static int check_ordering_pays(const uint8_t *corpus, size_t corpus_len, const u
     /* THE MEASUREMENT HAS TO BE ABLE TO FAIL. Ordering commonest first must cost more than the
      * spatial order it replaces. If it does not, the probe counter is not seeing the ordering and
      * the reduction reported above means nothing. */
-    size_t offsets[4] = { 0u, 0u, 0u, 0u };
+    size_t offsets[4] = {0u, 0u, 0u, 0u};
     const size_t cell = needle_len / 4u;
     for (size_t slot = 0u; slot < 4u; slot += 1u)
     {
@@ -266,8 +266,7 @@ static int check_dispatch_exact(void)
     printf("  %26s %10d %10d %10s\n", "two symbols, 99 to 1", 1, got, (got == 1) ? "ok" : "FAILS");
     failed += (got == 1) ? 0 : 1;
 
-    /* An empty field has no structure and takes the short circuiting arm. Stated rather than
-     * discovered, because a census of nothing is what a caller with no corpus hands over. */
+    /* An empty field has no structure and takes the short circuiting arm. Stated. */
     memset(&census, 0, sizeof(census));
     got = anchor_steer_prefers_free(&census);
     printf("  %26s %10d %10d %10s\n", "empty field", 0, got, (got == 0) ? "ok" : "FAILS");
@@ -646,8 +645,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     printf("\n");
 
     /* THE DEPTH IS A COMPILE TIME FACT AND THIS ASSERTS IT. */
-    if ((depth > ANCHOR_STEER_ANCHORS) || (coarms > ANCHOR_STEER_ANCHORS)
-     || (eyes > ANCHOR_STEER_ANCHORS))
+    if ((depth > ANCHOR_STEER_ANCHORS) || (coarms > ANCHOR_STEER_ANCHORS) || (eyes > ANCHOR_STEER_ANCHORS))
     {
         printf("    a descent exceeded its compile time bound: FAILS\n");
         failed += 1;
@@ -693,8 +691,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
         recursive_reads + recursive_verifications,
         coarm_reads + coarm_verifications,
         eye_reads + eye_verifications,
-        bare_reads + bare_verifications
-    };
+        bare_reads + bare_verifications};
     for (size_t route = 0u; route < 5u; route += 1u)
     {
         if (floor_total[route] < (uint64_t)alignments)
@@ -723,8 +720,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
  *
  * The claim asserted here is about the WIRING. Run the planner, then require that the widest arm
  * reporting itself present is the one the scan counter says ran. A machine with no wide arm passes
- * on the portable count alone, which is correct rather than a waiver: there is nothing to have
- * failed to wire.
+ * on the portable count alone, which is correct.
  */
 static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
                               size_t needle_len)
@@ -766,11 +762,10 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
      * the only stride an arm serves. Every scan in it should reach the wide arm and the share
      * should be the full hundred. */
     const uint64_t share = (anchor_steer_scan_calls > 0u)
-                         ? ((anchor_steer_wide_calls * 100u) / anchor_steer_scan_calls)
-                         : 0u;
+                               ? ((anchor_steer_wide_calls * 100u) / anchor_steer_scan_calls)
+                               : 0u;
 
-    const int ok = (anchor_steer_scan_calls > 0u)
-                && ((wide_present == 0) || (share == 100u));
+    const int ok = (anchor_steer_scan_calls > 0u) && ((wide_present == 0) || (share == 100u));
     printf("  %18s %14llu %14llu %9llu%% %10s\n", best->name,
            (unsigned long long)anchor_steer_scan_calls,
            (unsigned long long)anchor_steer_wide_calls, (unsigned long long)share,
@@ -872,14 +867,13 @@ static int near_same_in_field(const void *field, size_t left, size_t right)
  *
  * @return Count of failures.
  *
- * THE CASE THAT WAS SILENTLY WRONG. Classes are the transitive closure of the predicate, so
- * agreement must imply a shared rank even where the predicate chains. The check builds a chain,
+ * THE CASE THAT WAS SILENTLY WRONG. Classes are the transitive closure of the predicate. The check builds a chain,
  * 0 1 2 3 4, where each value agrees with its neighbours at a tolerance of 2 and the ends do not
  * agree with each other at all. The closure is one component. Every position must carry one rank.
  *
  * A grouping that stopped at the first matching representative would have produced more than one
  * class here, and a rank probe built on it would have refuted an alignment holding a true
- * occurrence. This asserts the closure rather than the first match, which is the difference between
+ * occurrence. This asserts the closure  which is the difference between
  * useless and wrong.
  */
 static int check_projection_closes(void)
@@ -888,7 +882,7 @@ static int check_projection_closes(void)
 
     int failed = 0;
     const size_t length = 5u;
-    const uint32_t chain[5] = { 0u, 1u, 2u, 3u, 4u };
+    const uint32_t chain[5] = {0u, 1u, 2u, 3u, 4u};
     uint8_t ranks[5];
     uint32_t class_of[5];
     uint32_t members[5];
@@ -896,8 +890,7 @@ static int check_projection_closes(void)
     size_t classes = 0u;
 
     const AnchorFieldProjection loose = {
-        near_same_in_field, chain, length, ranks, class_of, members, place, length, &classes
-    };
+        near_same_in_field, chain, length, ranks, class_of, members, place, length, &classes};
 
     if (anchor_field_project(&loose) == 0)
     {
@@ -942,8 +935,7 @@ static int check_projection_closes(void)
     uint32_t *const wide_members = (uint32_t *)malloc(wide_len * sizeof(uint32_t));
     uint32_t *const wide_place = (uint32_t *)malloc(wide_len * sizeof(uint32_t));
 
-    if ((wide == NULL) || (wide_ranks == NULL) || (wide_class_of == NULL)
-     || (wide_members == NULL) || (wide_place == NULL))
+    if ((wide == NULL) || (wide_ranks == NULL) || (wide_class_of == NULL) || (wide_members == NULL) || (wide_place == NULL))
     {
         printf("  allocation failed\n");
         failed += 1;
@@ -958,8 +950,7 @@ static int check_projection_closes(void)
         size_t wide_classes = 0u;
         const AnchorFieldProjection wide_args = {
             sample_same_in_field, wide, wide_len, wide_ranks, wide_class_of, wide_members,
-            wide_place, wide_len, &wide_classes
-        };
+            wide_place, wide_len, &wide_classes};
         const int took = anchor_field_project(&wide_args);
 
         printf("  %38s %8zu %8s %10s\n", "400 classes, counted not capped", wide_classes, "400",
@@ -1005,8 +996,7 @@ static int check_projection_closes(void)
         const size_t sentinel_count = 43981u;
         size_t planted = sentinel_count;
         const AnchorFieldProjection undersize = {
-            near_same_in_field, chain, length, ranks, class_of, members, place, length - 1u, &planted
-        };
+            near_same_in_field, chain, length, ranks, class_of, members, place, length - 1u, &planted};
 
         const int refused = anchor_field_project(&undersize);
 
@@ -1023,8 +1013,7 @@ static int check_projection_closes(void)
     // the wrong reason: a projection that always returned one class would satisfy it.
     size_t exact_classes = 0u;
     const AnchorFieldProjection strict = {
-        sample_same_in_field, chain, length, ranks, class_of, members, place, length, &exact_classes
-    };
+        sample_same_in_field, chain, length, ranks, class_of, members, place, length, &exact_classes};
 
     if (anchor_field_project(&strict) == 0)
     {
@@ -1100,8 +1089,8 @@ static int check_any_type_agrees(void)
                                                   .survivors_length = alignments,
                                                   .sample_stride = 1u);
 
-    const ByteField held = { corpus, needle };
-    const AnchorField as_any = { byte_same_at, &held, alignments, sizeof(needle) };
+    const ByteField held = {corpus, needle};
+    const AnchorField as_any = {byte_same_at, &held, alignments, sizeof(needle)};
 
     size_t by_oracle[ANCHOR_STEER_ANCHORS];
     const size_t placed_oracle = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
@@ -1152,12 +1141,30 @@ static int check_any_type_agrees(void)
         // Six distinct values at wildly different rates, each far outside a byte. The rarity
         // ordering has something to order and no byte engine could have read them.
         const uint32_t roll = (uint32_t)(state >> 33) % 1000u;
-        if (roll < 500u)      { samples[at] = 0xDEADBEEFu; }
-        else if (roll < 800u) { samples[at] = 0xFEEDFACEu; }
-        else if (roll < 950u) { samples[at] = 0x0BADC0DEu; }
-        else if (roll < 990u) { samples[at] = 0xCAFEBABEu; }
-        else if (roll < 999u) { samples[at] = 0x8BADF00Du; }
-        else                  { samples[at] = 0xABADCAFEu; }
+        if (roll < 500u)
+        {
+            samples[at] = 0xDEADBEEFu;
+        }
+        else if (roll < 800u)
+        {
+            samples[at] = 0xFEEDFACEu;
+        }
+        else if (roll < 950u)
+        {
+            samples[at] = 0x0BADC0DEu;
+        }
+        else if (roll < 990u)
+        {
+            samples[at] = 0xCAFEBABEu;
+        }
+        else if (roll < 999u)
+        {
+            samples[at] = 0x8BADF00Du;
+        }
+        else
+        {
+            samples[at] = 0xABADCAFEu;
+        }
     }
 
     uint32_t sample_needle[8];
@@ -1166,9 +1173,9 @@ static int check_any_type_agrees(void)
     const size_t sample_needle_len = sizeof(sample_needle) / sizeof(sample_needle[0]);
     const size_t sample_alignments = (sample_len - sample_needle_len) + 1u;
 
-    const SampleField sample_held = { samples, sample_needle };
-    const AnchorField sample_any = { sample_same_at, &sample_held, sample_alignments,
-                                     sample_needle_len };
+    const SampleField sample_held = {samples, sample_needle};
+    const AnchorField sample_any = {sample_same_at, &sample_held, sample_alignments,
+                                    sample_needle_len};
 
     // The true count, taken through the oracle alone with no projection and no probes. This is what
     // the projected engine is graded against.
@@ -1198,15 +1205,19 @@ static int check_any_type_agrees(void)
     if ((ranks == NULL) || (class_of == NULL) || (members == NULL) || (place == NULL))
     {
         printf("  allocation failed\n");
-        free(ranks); free(class_of); free(members); free(place);
-        free(samples); free(survivors); free(corpus);
+        free(ranks);
+        free(class_of);
+        free(members);
+        free(place);
+        free(samples);
+        free(survivors);
+        free(corpus);
         return 1;
     }
 
     const AnchorFieldProjection sample_projection = {
         sample_same_in_field, samples, sample_len, ranks, class_of, members, place, sample_len,
-        &classes
-    };
+        &classes};
 
     if (anchor_field_project(&sample_projection) == 0)
     {

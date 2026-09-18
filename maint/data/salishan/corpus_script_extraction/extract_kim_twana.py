@@ -31,14 +31,27 @@ import subprocess
 import sys
 
 from inserted_space import closed_spaces
-from salish_marking import DERIVED, SPOKEN, UNCLASSIFIED, rendered, switches, tagged_spans
-from salish_unsorted import UNKNOWN_KIND, covered_tokens, is_language_token, unreached, \
-    write_unsorted
+from salish_marking import (
+    DERIVED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
+from salish_unsorted import (
+    UNKNOWN_KIND,
+    covered_tokens,
+    is_language_token,
+    unreached,
+    write_unsorted,
+)
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -50,17 +63,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -69,8 +92,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -82,8 +106,8 @@ CORPORA = os.path.join(ROOT, "build", "corpora")
 SOURCE = os.path.join(PAPERS, "Kim_TwanaReduplication_final.txt")
 
 TARGET = os.path.join(
-    CORPORA,
-    "unstated_TheTruncatedReduplicationInTwana_Kim_Salish_twana_2017_mixed.txt")
+    CORPORA, "unstated_TheTruncatedReduplicationInTwana_Kim_Salish_twana_2017_mixed.txt"
+)
 
 # Kept in step with KIM in hand_extraction/papers.py. ɫ is this paper's lateral fricative, a third
 # character for it after ɬ and ł, and ˀ is its rule-derived glottal stop against phonemic ʔ.
@@ -118,7 +142,9 @@ def kind_of(token):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -164,17 +190,31 @@ def main():
         rows.append(("not reached page %d" % page, "", UNCLASSIFIED, text))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# The truncated reduplication in Twana: Another case of synergistic\n")
-        handle.write("# weakening. Hyung-Soo Kim, Hankuk University of Foreign Studies, Korea.\n")
-        handle.write("# Papers for the International Conference on Salish and Neighbouring\n")
+        handle.write(
+            "# The truncated reduplication in Twana: Another case of synergistic\n"
+        )
+        handle.write(
+            "# weakening. Hyung-Soo Kim, Hankuk University of Foreign Studies, Korea.\n"
+        )
+        handle.write(
+            "# Papers for the International Conference on Salish and Neighbouring\n"
+        )
         handle.write("# Languages 52, UBCWPL 45, 2017.\n")
         handle.write("#\n")
-        handle.write("# Every Twana form is Drachman (1969), which the paper calls the only\n")
+        handle.write(
+            "# Every Twana form is Drachman (1969), which the paper calls the only\n"
+        )
         handle.write("# reliable reference in existence for Twana CVC reduplication.\n")
         handle.write("#\n")
-        handle.write("# Example (1) is Tillamook, (19) and (20) are Thompson and Lillooet, and\n")
-        handle.write("# footnote 9 mixes Puget Sound Salish, Moses-Columbian and English. The who\n")
-        handle.write("# column says which, and the footnote is left unclassified for a person.\n")
+        handle.write(
+            "# Example (1) is Tillamook, (19) and (20) are Thompson and Lillooet, and\n"
+        )
+        handle.write(
+            "# footnote 9 mixes Puget Sound Salish, Moses-Columbian and English. The who\n"
+        )
+        handle.write(
+            "# column says which, and the footnote is left unclassified for a person.\n"
+        )
         handle.write("line\twho\tkind\tswitches\tcontent\n")
         for at, (spot, who, kind, text) in enumerate(rows, 1):
             spoken = (kind == "cited form") and (who == TARGET_LANGUAGE)
@@ -185,8 +225,10 @@ def main():
             else:
                 content = rendered(text, layer, kind, MARKS)
                 crossings = switches(text, MARKS)
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (at, who or spot, kind, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (at, who or spot, kind, crossings, content)
+            )
 
     pure = TARGET[:-4] + ".pure.txt"
     kept = 0
@@ -206,22 +248,29 @@ def main():
                 kept += 1
 
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, spot, UNKNOWN_KIND, "", text) for spot, who, kind, text in rows
-               if (kind == UNCLASSIFIED) and not spot.startswith("not reached")]
+    flagged = [
+        (0, spot, UNKNOWN_KIND, "", text)
+        for spot, who, kind, text in rows
+        if (kind == UNCLASSIFIED) and not spot.startswith("not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "The truncated reduplication in Twana", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
     out.write("  %d Twana forms written to\n  %s\n" % (kept, os.path.basename(pure)))
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     languages = {}
     for spot, who, kind, text in rows:
         if kind == "cited form":
             languages[who] = languages.get(who, 0) + 1
-    out.write("\n  by language: %s\n"
-              % ", ".join("%s %d" % (one, languages[one]) for one in sorted(languages)))
+    out.write(
+        "\n  by language: %s\n"
+        % ", ".join("%s %d" % (one, languages[one]) for one in sorted(languages))
+    )
     out.flush()
     return 0
 

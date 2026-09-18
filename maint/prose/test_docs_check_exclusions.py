@@ -35,17 +35,18 @@ def sibling_repository(name):
     """A repository beside this one, or None.
 
     Resolved through docs_check.main_checkout() and not through __file__. This suite inherits
-    the worktree repair rather than reintroducing the bug it fixed: from a linked worktree a sibling
-    computed from this file's path lands inside .claude/worktrees/.
+    the worktree repair.
     """
     named = os.environ.get("%s_TREE" % name.upper())
     if named:
         return named if os.path.isdir(named) else None
     base = dc.main_checkout()
     owned = os.path.dirname(os.path.dirname(base))
-    for where in (os.path.join(owned, "public", name),
-                  os.path.join(owned, "private", name),
-                  os.path.join(os.path.dirname(base), name)):
+    for where in (
+        os.path.join(owned, "public", name),
+        os.path.join(owned, "private", name),
+        os.path.join(os.path.dirname(base), name),
+    ):
         if os.path.isdir(where):
             return where
     return None
@@ -73,15 +74,19 @@ def findings_in(path, regions=None):
     with open(path, encoding="utf-8", errors="replace") as handle:
         lines = handle.read().splitlines()
     said = dc.prose_only(path, lines)
-    return dc.banned_tokens(said,
-                            quotations=path.endswith(".md"),
-                            comments=not path.endswith((".md", ".tex")),
-                            path=path, regions=regions)
+    return dc.banned_tokens(
+        said,
+        quotations=path.endswith(".md"),
+        comments=not path.endswith((".md", ".tex")),
+        path=path,
+        regions=regions,
+    )
 
 
 # ============================================================================
 # 1. THE SHAPE EVERY EXCLUSION SHARES
 # ============================================================================
+
 
 class EveryExclusionRefusesAndSaysSo(unittest.TestCase):
     """A skip that says nothing is the failure this whole section exists against.
@@ -141,6 +146,7 @@ class EveryExclusionRefusesAndSaysSo(unittest.TestCase):
 # 2. VERBATIM THIRD-PARTY TEXT, AS A CONCEPT AND NOT A PATH LIST
 # ============================================================================
 
+
 class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
     """Somebody else's words, reproduced byte for byte.
 
@@ -151,20 +157,26 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
 
     def test_a_directory_declares_itself_with_a_marker_and_no_list_is_touched(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as where:
             vendored = os.path.join(where, "a_corpus_this_tool_has_never_heard_of")
             os.makedirs(vendored)
             inside = os.path.join(vendored, "someone_elses.md")
             with open(inside, "w", encoding="utf-8") as handle:
                 handle.write("# a document\n")
-            self.assertIsNone(dc.verbatim_root(inside),
-                              "not verbatim before the directory says so")
+            self.assertIsNone(
+                dc.verbatim_root(inside), "not verbatim before the directory says so"
+            )
             dc._VERBATIM_CACHE.clear()
-            with open(os.path.join(vendored, dc.VERBATIM_MARKER), "w", encoding="utf-8") as handle:
+            with open(
+                os.path.join(vendored, dc.VERBATIM_MARKER), "w", encoding="utf-8"
+            ) as handle:
                 handle.write("the IETF's, not ours\n")
             held = dc.verbatim_root(inside)
             dc._VERBATIM_CACHE.clear()
-            self.assertIsNotNone(held, "the marker is the second answer to the question")
+            self.assertIsNotNone(
+                held, "the marker is the second answer to the question"
+            )
             self.assertIn(dc.VERBATIM_MARKER, held[1])
 
     def test_every_default_root_is_matched_on_the_path(self):
@@ -180,13 +192,19 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
         build/papers that is a different thing from the corpus papers/.
         """
         for one, _ in dc.VERBATIM_ROOTS:
-            self.assertIn("/", one.strip("/"),
-                          "%r is one component and would match too much" % one)
+            self.assertIn(
+                "/",
+                one.strip("/"),
+                "%r is one component and would match too much" % one,
+            )
 
     def test_every_default_root_states_a_reason_and_not_only_a_rule(self):
         for one, why in dc.VERBATIM_ROOTS:
-            self.assertGreater(len(why.split()), 4,
-                               "%s has a rule and no reason, which is what gets deleted" % one)
+            self.assertGreater(
+                len(why.split()),
+                4,
+                "%s has a rule and no reason, which is what gets deleted" % one,
+            )
 
     def test_a_path_outside_every_root_is_read(self):
         self.assertIsNone(dc.verbatim_root(os.path.join(HERE, "docs_check.py")))
@@ -198,8 +216,10 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
         if not os.path.isdir(corpus):
             self.skipTest("the RFC corpus is not in this checkout")
         held = os.listdir(corpus)
-        print("\n  idemIP docs/learn/RFC at %s: %d file(s), all declined"
-              % (ref_of(IDEMIP), len(held)))
+        print(
+            "\n  idemIP docs/learn/RFC at %s: %d file(s), all declined"
+            % (ref_of(IDEMIP), len(held))
+        )
         self.assertEqual(dc.walk_markdown([corpus]), [])
 
     def test_the_transcribed_tables_are_declined(self):
@@ -209,8 +229,10 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
         if not os.path.isdir(oracles):
             self.skipTest("oracles/ is not in this checkout")
         readable = [one for one in os.listdir(oracles) if dc.checked_file(one)]
-        print("  salishan_corpus/oracles: %d file(s) this tool could otherwise open, all declined"
-              % len(readable))
+        print(
+            "  salishan_corpus/oracles: %d file(s) this tool could otherwise open, all declined"
+            % len(readable)
+        )
         self.assertGreater(len(readable), 0, "and there is something to decline")
         self.assertEqual(dc.walk_markdown([oracles]), [])
 
@@ -225,19 +247,23 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
         if IDEMIP:
             ours.append(os.path.join(IDEMIP, "docs", "learn", "RFC", "README.md"))
         if PROTOCORE:
-            ours.append(os.path.join(PROTOCORE, "docs", "learn", "datasheets", "README.md"))
+            ours.append(
+                os.path.join(PROTOCORE, "docs", "learn", "datasheets", "README.md")
+            )
         held = [one for one in ours if os.path.isfile(one)]
         if not held:
             self.skipTest("neither index page is in this checkout")
         for one in held:
-            self.assertIsNotNone(dc.verbatim_root(one),
-                                 "%s goes quiet with the corpus it indexes" % one)
+            self.assertIsNotNone(
+                dc.verbatim_root(one), "%s goes quiet with the corpus it indexes" % one
+            )
         print("  cost of the verbatim rule: %d index page(s) of our own" % len(held))
 
 
 # ============================================================================
 # 3. SIGNED MANIFESTS
 # ============================================================================
+
 
 class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
     """The most dangerous exclusion here, and the only one whose cost is not a question of taste.
@@ -254,22 +280,33 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
         if not os.path.isfile(self.manifest):
             self.skipTest("MANIFEST.tsv is not in this checkout")
 
-    def test_the_manifests_are_found_and_the_row_count_is_derived_not_written_down(self):
+    def test_the_manifests_are_found_and_the_row_count_is_derived_not_written_down(
+        self,
+    ):
         home = dc.manifest_home(os.path.join(CORPUS, "oracles"))
         self.assertEqual(os.path.abspath(home), os.path.abspath(CORPUS))
         index = dc.manifest_index(home)
         by_manifest = {}
         for held in index.values():
-            by_manifest[os.path.basename(held[0])] = by_manifest.get(
-                os.path.basename(held[0]), 0) + 1
+            by_manifest[os.path.basename(held[0])] = (
+                by_manifest.get(os.path.basename(held[0]), 0) + 1
+            )
         print("\n  salishan_corpus at %s attests: %s" % (ref_of(CORPUS), by_manifest))
-        self.assertGreater(len(index), 100, "a manifest this small means it did not parse")
+        self.assertGreater(
+            len(index), 100, "a manifest this small means it did not parse"
+        )
         # Counted against the file, independently of the parser being tested.
         with open(self.manifest, encoding="utf-8", errors="replace") as handle:
-            rows = [one for one in handle
-                    if one.strip() and not one.startswith("#") and "\t" in one]
-        self.assertEqual(by_manifest["MANIFEST.tsv"], len(rows) - 1,
-                         "every row but the column header names an attested path")
+            rows = [
+                one
+                for one in handle
+                if one.strip() and not one.startswith("#") and "\t" in one
+            ]
+        self.assertEqual(
+            by_manifest["MANIFEST.tsv"],
+            len(rows) - 1,
+            "every row but the column header names an attested path",
+        )
 
     def test_both_manifests_carry_a_detached_signature(self):
         signed = []
@@ -278,8 +315,10 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
             if not os.path.isfile(where):
                 continue
             signature = where + dc.SIGNATURE_SUFFIX
-            self.assertTrue(os.path.isfile(signature),
-                            "%s is attested by nothing. The refusal has no force" % name)
+            self.assertTrue(
+                os.path.isfile(signature),
+                "%s is attested by nothing. The refusal has no force" % name,
+            )
             signed.append(name)
         print("  signed manifests present: %s" % ", ".join(signed))
         self.assertGreater(len(signed), 1)
@@ -302,7 +341,9 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
         self.assertIn(".py", said, "it names the tool that reconciles the tree")
         with open(self.manifest, encoding="utf-8", errors="replace") as handle:
             header = "".join(one for one in handle if one.startswith("#"))
-        self.assertIn(said, header, "and it is quoted from the file and not written out here")
+        self.assertIn(
+            said, header, "and it is quoted from the file and not written out here"
+        )
 
     def test_reading_is_not_writing(self):
         """A listed file is read and reported like any other. Only the rewrite is refused.
@@ -312,8 +353,10 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
         """
         home = dc.manifest_home(os.path.join(CORPUS, "README.md"))
         self.assertIsNotNone(home)
-        self.assertIsNone(dc.manifest_listed(os.path.join(CORPUS, "README.md")),
-                          "the README is not attested. This test is about the others")
+        self.assertIsNone(
+            dc.manifest_listed(os.path.join(CORPUS, "README.md")),
+            "the README is not attested. This test is about the others",
+        )
         listed = [one for one in dc.manifest_index(home) if dc.checked_file(one)]
         if not listed:
             self.skipTest("nothing attested carries an extension this tool reads")
@@ -334,13 +377,16 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
 
     def test_the_manifest_walk_stops_at_a_repository_boundary(self):
         """A manifest attests one repository. A parent holding several is not that repository."""
-        self.assertIsNone(dc.manifest_home(HERE),
-                          "this tree carries no manifest and must not inherit the corpus one")
+        self.assertIsNone(
+            dc.manifest_home(HERE),
+            "this tree carries no manifest and must not inherit the corpus one",
+        )
 
 
 # ============================================================================
 # 4. LEGAL BLOCKS
 # ============================================================================
+
 
 class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
     """A GPL grant is fifteen lines and two of them hold anything a regex can find.
@@ -363,8 +409,10 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
         if not os.path.isfile(where):
             self.skipTest("strip_comments.py is not in this checkout")
         at = sorted(one for one, what in findings_in(where) if "licence" in what)
-        print("\n  idemIP strip_comments.py at %s: licence reported at %s"
-              % (ref_of(IDEMIP), at))
+        print(
+            "\n  idemIP strip_comments.py at %s: licence reported at %s"
+            % (ref_of(IDEMIP), at)
+        )
         self.assertEqual(at, [4, 12])
 
     def test_the_second_half_of_the_fixture_keeps_both_of_its_sites(self):
@@ -464,13 +512,17 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
             for at, _, _ in dc.banned_hits(raw, quotations, comments):
                 if at in blanked:
                     silenced += 1
-        print("  legal blanking over %d file(s): %d finding(s) silenced" % (read, silenced))
+        print(
+            "  legal blanking over %d file(s): %d finding(s) silenced"
+            % (read, silenced)
+        )
         self.assertEqual(silenced, 0)
 
 
 # ============================================================================
 # 5. GENERATED REGIONS
 # ============================================================================
+
 
 class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
     """The one decision here a reader is likely to want to reverse. It is tested hardest.
@@ -502,7 +554,12 @@ class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
         self.assertNotIn(9, inside)
 
     def test_an_unclosed_marker_is_reported_and_not_allowed_to_swallow_the_file(self):
-        lines = ["before", "<!-- BEGIN GENERATED THING (gen.py) -->", "inside", "still inside"]
+        lines = [
+            "before",
+            "<!-- BEGIN GENERATED THING (gen.py) -->",
+            "inside",
+            "still inside",
+        ]
         inside, complaints = dc.generated_regions(lines)
         self.assertEqual(len(complaints), 1)
         self.assertEqual(complaints[0][0], 2)
@@ -510,15 +567,21 @@ class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
         self.assertIn(3, inside)
 
     def test_a_finding_inside_a_region_keeps_its_place_and_names_the_generator(self):
-        note = dc.attributed("table header with no rows under it", 4, {4: "gen_sections.py"})
+        note = dc.attributed(
+            "table header with no rows under it", 4, {4: "gen_sections.py"}
+        )
         self.assertIn("table header with no rows under it", note)
         self.assertIn("gen_sections.py", note)
         self.assertIn("fix the generator", note)
 
     def test_a_finding_outside_a_region_carries_no_attribution(self):
-        self.assertEqual(dc.attributed("a finding", 9, {4: "gen_sections.py"}), "a finding")
+        self.assertEqual(
+            dc.attributed("a finding", 9, {4: "gen_sections.py"}), "a finding"
+        )
 
-    def test_the_protocore_empty_table_is_still_reported_and_is_still_inside_a_region(self):
+    def test_the_protocore_empty_table_is_still_reported_and_is_still_inside_a_region(
+        self,
+    ):
         """Asserted BY SITE and not by count.
 
         A count falling to the right number for the wrong reason reads exactly like a repair. This
@@ -534,18 +597,26 @@ class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
         inside, complaints = dc.generated_regions(lines)
         self.assertEqual(complaints, [], "every marker in this file is closed")
         empty = dc.empty_tables(lines)
-        print("\n  ProtoCore docs/README.md at %s: %d header-only table(s), %d line(s) generated"
-              % (ref_of(PROTOCORE), len(empty), len(inside)))
-        self.assertGreater(len(empty), 0,
-                           "the genuine structural finding this rule must not delete is gone. If "
-                           "it was fixed in ProtoCore, say so and retire this assertion; do not "
-                           "make a suppressing rule pass by deleting the finding it suppressed.")
+        print(
+            "\n  ProtoCore docs/README.md at %s: %d header-only table(s), %d line(s) generated"
+            % (ref_of(PROTOCORE), len(empty), len(inside))
+        )
+        self.assertGreater(
+            len(empty),
+            0,
+            "the genuine structural finding this rule must not delete is gone. If "
+            "it was fixed in ProtoCore, say so and retire this assertion; do not "
+            "make a suppressing rule pass by deleting the finding it suppressed.",
+        )
         for at, what in empty:
-            self.assertIn(at, inside,
-                          "docs/README.md:%d is the finding this objective asks to be asserted "
-                          "and it sits inside a generated region. A rule that SKIPS a marked "
-                          "region deletes it and reports this tree clean. Report it and name the "
-                          "generator from the marker." % at)
+            self.assertIn(
+                at,
+                inside,
+                "docs/README.md:%d is the finding this objective asks to be asserted "
+                "and it sits inside a generated region. A rule that SKIPS a marked "
+                "region deletes it and reports this tree clean. Report it and name the "
+                "generator from the marker." % at,
+            )
             note = dc.attributed(what, at, inside)
             self.assertIn("gen_readme_sections.py", note)
 
@@ -558,26 +629,43 @@ class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
             self.skipTest("ProtoCore docs/ is not in this checkout")
         answer = subprocess.run(
             [sys.executable, os.path.join(HERE, "docs_check.py"), docs],
-            capture_output=True, text=True, env=dc.git_env())
-        breaking = [one for one in answer.stdout.splitlines() if one.strip().startswith("BREAK")]
-        print("  ProtoCore/docs at %s: %d breaking finding(s)" % (ref_of(PROTOCORE), len(breaking)))
-        self.assertGreater(len(breaking), 0,
-                           "a generated-region rule that takes the breaking count to zero has "
-                           "suppressed the finding it was supposed to attribute")
+            capture_output=True,
+            text=True,
+            env=dc.git_env(),
+        )
+        breaking = [
+            one for one in answer.stdout.splitlines() if one.strip().startswith("BREAK")
+        ]
+        print(
+            "  ProtoCore/docs at %s: %d breaking finding(s)"
+            % (ref_of(PROTOCORE), len(breaking))
+        )
+        self.assertGreater(
+            len(breaking),
+            0,
+            "a generated-region rule that takes the breaking count to zero has "
+            "suppressed the finding it was supposed to attribute",
+        )
         named = [one for one in breaking if "generated by" in one]
-        self.assertGreater(len(named), 0, "and at least one of them names its generator")
+        self.assertGreater(
+            len(named), 0, "and at least one of them names its generator"
+        )
 
     def test_a_site_inside_a_region_is_refused_for_rewriting(self):
         why = dc.fix_refusal("a/page.md", "alphabet", 4, {4: "gen_sections.py"})
         self.assertIsNotNone(why)
         self.assertIn("gen_sections.py", why)
-        self.assertIn("regeneration", why,
-                      "a source fix not paired with regeneration reds the pull request")
+        self.assertIn(
+            "regeneration",
+            why,
+            "a source fix not paired with regeneration reds the pull request",
+        )
 
 
 # ============================================================================
 # 6. OBJECTIVE 13's CLAUSE: UNLESS THE SUBJECT IS BRITISH
 # ============================================================================
+
 
 class TheSubjectIsTheConvention(unittest.TestCase):
     """A passage about a writing convention has to be able to write the word it is about.
@@ -586,24 +674,35 @@ class TheSubjectIsTheConvention(unittest.TestCase):
     """
 
     def test_a_passage_about_the_convention_may_write_the_word(self):
-        said = ["# British English writes colour and behaviour where American writes color."]
+        said = [
+            "# British English writes colour and behaviour where American writes color."
+        ]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
-        self.assertEqual([one for one in found if one.startswith("spelling")], [],
-                         "the subject of the sentence is the convention itself")
+        self.assertEqual(
+            [one for one in found if one.startswith("spelling")],
+            [],
+            "the subject of the sentence is the convention itself",
+        )
 
     def test_the_same_passage_still_reports_a_construction(self):
         """The bound is the test. A paragraph about convention does not get a register pass."""
-        said = ["# British spelling is what makes the difference. A reader has to know."]
+        said = [
+            "# British spelling is what makes the difference. A reader has to know."
+        ]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
-        self.assertTrue(any(one.startswith("tier A") for one in found),
-                        "only the alphabet tier goes quiet, never a construction")
+        self.assertTrue(
+            any(one.startswith("tier A") for one in found),
+            "only the alphabet tier goes quiet, never a construction",
+        )
 
     def test_the_subject_is_the_convention_and_not_the_country(self):
         """A bare country name would exempt a company, and the company's prose is a live finding."""
         said = ["# British Telecom asked for an optimisation of the initialised path."]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
-        self.assertTrue(any(one.startswith("spelling") for one in found),
-                        "the subject here is a company. The convention is still reported")
+        self.assertTrue(
+            any(one.startswith("spelling") for one in found),
+            "the subject here is a company. The convention is still reported",
+        )
 
     def test_the_exemption_is_bounded_to_the_run_that_carries_the_subject(self):
         said = [
@@ -611,13 +710,19 @@ class TheSubjectIsTheConvention(unittest.TestCase):
             "",
             "# The optimisation runs once.",
         ]
-        at = [one for one, what in dc.banned_tokens(said, comments=True)
-              if what.startswith("spelling")]
-        self.assertEqual(at, [3], "the next paragraph is a different run and is reported")
+        at = [
+            one
+            for one, what in dc.banned_tokens(said, comments=True)
+            if what.startswith("spelling")
+        ]
+        self.assertEqual(
+            at, [3], "the next paragraph is a different run and is reported"
+        )
 
     def test_context_exempt_answers_with_a_tier_set_and_not_a_boolean(self):
-        self.assertEqual(dc.context_exempt("British English writes colour"),
-                         frozenset(("alphabet",)))
+        self.assertEqual(
+            dc.context_exempt("British English writes colour"), frozenset(("alphabet",))
+        )
         self.assertEqual(dc.context_exempt("an ordinary sentence"), frozenset())
 
     def test_the_clause_silences_nothing_in_the_trees_on_disk(self):
@@ -645,7 +750,10 @@ class TheSubjectIsTheConvention(unittest.TestCase):
                 for _, pattern, _ in dc.banned_hits([text], quotations, comments):
                     if dc.tier_of(pattern) == "alphabet":
                         silenced += 1
-        print("\n  the convention clause over %d file(s): %d finding(s) silenced" % (read, silenced))
+        print(
+            "\n  the convention clause over %d file(s): %d finding(s) silenced"
+            % (read, silenced)
+        )
         self.assertEqual(silenced, 0)
 
     def test_the_standards_rule_is_a_rewrite_refusal_and_not_a_scan_exemption(self):
@@ -656,10 +764,14 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         happened to cite an RFC. It bought nothing: the site it was written for, "Robustness
         Variable" in an RFC 2236 brief, matches no pattern in LOCALE and produced no finding.
         """
-        said = ["# RFC 2236 section 8.1 describes the behaviour of the initialised timer."]
+        said = [
+            "# RFC 2236 section 8.1 describes the behaviour of the initialised timer."
+        ]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
-        self.assertTrue(any(one.startswith("spelling") for one in found),
-                        "naming a standard does not turn the convention stage off")
+        self.assertTrue(
+            any(one.startswith("spelling") for one in found),
+            "naming a standard does not turn the convention stage off",
+        )
         why = dc.fix_refusal("a/file.c", "alphabet", line=said[0])
         self.assertIsNotNone(why, "but the line is never rewritten")
         self.assertIn("standard", why)
@@ -668,6 +780,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
 # ============================================================================
 # 7. A BANNED HINGE IS DISSOLVED AND NEVER REPLACED
 # ============================================================================
+
 
 class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
     """Detection is mechanical. Substitution is where the judgement lives.
@@ -678,8 +791,11 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
     """
 
     def test_the_alphabet_tier_is_the_only_tier_a_rewrite_may_reach(self):
-        self.assertEqual(dc.FIX_TIERS, frozenset(("alphabet",)),
-                         "read code-documentation:110 and :146 before widening this")
+        self.assertEqual(
+            dc.FIX_TIERS,
+            frozenset(("alphabet",)),
+            "read code-documentation:110 and :146 before widening this",
+        )
 
     def test_every_construction_tier_is_refused_with_the_sections_that_say_so(self):
         for tier in ("A", "B"):
@@ -690,7 +806,9 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
             self.assertIn("permanently", why)
 
     def test_a_plain_convention_finding_is_allowed(self):
-        self.assertIsNone(dc.fix_refusal(os.path.join(HERE, "nothing_special.md"), "alphabet"))
+        self.assertIsNone(
+            dc.fix_refusal(os.path.join(HERE, "nothing_special.md"), "alphabet")
+        )
 
     def test_the_two_tier_line_splits(self):
         """idemIP strip_comments.py:12 carries a `licence` and a `rather` on one line.
@@ -713,25 +831,38 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
                 continue
             tier = dc.tier_of(pattern)
             verdicts[token.lower()] = dc.fix_refusal(where, tier, at, {}, lines[at - 1])
-        print("\n  idemIP strip_comments.py:12 at %s: %s"
-              % (ref_of(IDEMIP), sorted(verdicts)))
+        print(
+            "\n  idemIP strip_comments.py:12 at %s: %s"
+            % (ref_of(IDEMIP), sorted(verdicts))
+        )
         self.assertIn("licence", verdicts)
         self.assertIn("rather", verdicts)
-        self.assertIsNone(verdicts["licence"], "token for token, and the shape cannot change")
-        self.assertIsNotNone(verdicts["rather"], "a hinge is dissolved and never replaced")
+        self.assertIsNone(
+            verdicts["licence"], "token for token, and the shape cannot change"
+        )
+        self.assertIsNotNone(
+            verdicts["rather"], "a hinge is dissolved and never replaced"
+        )
 
     def test_a_line_carrying_a_normative_keyword_is_never_rewritten(self):
-        why = dc.fix_refusal("a/file.c", "alphabet",
-                             line="// The sender MUST NOT retransmit the initialised segment.")
+        why = dc.fix_refusal(
+            "a/file.c",
+            "alphabet",
+            line="// The sender MUST NOT retransmit the initialised segment.",
+        )
         self.assertIsNotNone(why)
         self.assertIn("2119", why)
 
     def test_the_normative_keyword_test_is_case_sensitive(self):
-        """"this may be null" is prose. "the sender MAY retransmit" is a requirement."""
-        self.assertIsNone(dc.fix_refusal(os.path.join(HERE, "plain.md"), "alphabet",
-                                         line="the value may be null"))
-        self.assertIsNotNone(dc.fix_refusal("a/file.c", "alphabet",
-                                            line="the sender MAY retransmit"))
+        """ "this may be null" is prose. "the sender MAY retransmit" is a requirement."""
+        self.assertIsNone(
+            dc.fix_refusal(
+                os.path.join(HERE, "plain.md"), "alphabet", line="the value may be null"
+            )
+        )
+        self.assertIsNotNone(
+            dc.fix_refusal("a/file.c", "alphabet", line="the sender MAY retransmit")
+        )
 
     def test_the_source_states_the_limit_where_a_maintainer_will_look_for_it(self):
         """A rule with no reason beside it is the kind a later maintainer finishes.
@@ -741,8 +872,8 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
         """
         with open(os.path.join(HERE, "docs_check.py"), encoding="utf-8") as handle:
             body = handle.read()
-        head = body[:body.index("FIX_TIERS = ")]
-        note = head[head.index("WHAT A REWRITE MAY TOUCH"):]
+        head = body[: body.index("FIX_TIERS = ")]
+        note = head[head.index("WHAT A REWRITE MAY TOUCH") :]
         for wanted in ("code-documentation:110", ":146", "permanently", "X-not-Y"):
             self.assertIn(wanted, note, "the note above FIX_TIERS drops %r" % wanted)
 
@@ -750,6 +881,7 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
 # ============================================================================
 # 8. THE REPORT SAYS WHAT IT MEASURED
 # ============================================================================
+
 
 class TheReportSaysWhatItMeasured(unittest.TestCase):
     """Three lines, and each one prevented a real confusion.
@@ -761,41 +893,54 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
     def run_on(self, *args):
         answer = subprocess.run(
             [sys.executable, os.path.join(HERE, "docs_check.py")] + list(args),
-            capture_output=True, text=True, env=dc.git_env())
+            capture_output=True,
+            text=True,
+            env=dc.git_env(),
+        )
         return answer.stdout
 
     def test_the_roots_are_printed_before_any_finding(self):
         said = self.run_on(os.path.join(HERE, "docs_check.py"))
         lines = [one.strip() for one in said.splitlines() if one.strip()]
-        self.assertTrue(lines[0].startswith("roots configured:"),
-                        "a reader meets the scope before the count, and got %r" % lines[0])
+        self.assertTrue(
+            lines[0].startswith("roots configured:"),
+            "a reader meets the scope before the count, and got %r" % lines[0],
+        )
 
     def test_a_root_that_is_not_there_is_printed_as_not_found(self):
         said = self.run_on(os.path.join(HERE, "no_such_directory_anywhere"))
-        self.assertIn("NOT FOUND", said,
-                      "a missing root reads as zero findings and must never read as clean")
+        self.assertIn(
+            "NOT FOUND",
+            said,
+            "a missing root reads as zero findings and must never read as clean",
+        )
 
     def test_the_revision_is_printed_with_its_reachability(self):
         said = self.run_on(os.path.join(HERE, "docs_check.py"))
         measured = [one for one in said.splitlines() if "measured at" in one]
         print("\n  %s" % "\n  ".join(one.strip() for one in measured))
         self.assertEqual(len(measured), 1)
-        self.assertTrue(("reachable from" in measured[0]) or ("NOT PUSHED" in measured[0]),
-                        "a revision no remote contains is a tree of one and has to say so")
+        self.assertTrue(
+            ("reachable from" in measured[0]) or ("NOT PUSHED" in measured[0]),
+            "a revision no remote contains is a tree of one and has to say so",
+        )
 
     def test_the_private_footer_from_the_worktree_repair_still_prints(self):
         """Carried forward from the commit that landed it, and guarded here because a rebuild of
         the report is exactly what drops it. Its own docstring records the third occurrence of the
         failure it prevents."""
         said = self.run_on("--strict", os.path.join(HERE, "docs_check.py"))
-        self.assertNotIn("private roots scanned", said,
-                         "a named root is a scoped run and does not survey the closed repositories")
+        self.assertNotIn(
+            "private roots scanned",
+            said,
+            "a named root is a scoped run and does not survey the closed repositories",
+        )
         held, absent = dc.private_survey()
         print("  private roots: %d held, %d absent" % (len(held), len(absent)))
         self.assertEqual(len(held) + len(absent), len(dc.PRIVATE_NAMES))
 
     def test_the_excluded_count_prints_even_when_it_is_zero(self):
-        """"excluded: 0" and a silence are the same two states private_survey exists to separate."""
+        """ "excluded: 0" and a silence are the same two states private_survey exists to separate."""
         said = self.run_on(os.path.join(HERE, "docs_check.py"))
         self.assertIn("excluded:", said)
 
@@ -817,7 +962,9 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         self.assertIn("REFUSED", said)
         self.assertIn("would rewrite", said)
 
-    def test_the_fix_plan_prints_the_reconcile_command_in_a_tree_carrying_a_manifest(self):
+    def test_the_fix_plan_prints_the_reconcile_command_in_a_tree_carrying_a_manifest(
+        self,
+    ):
         if not CORPUS:
             self.skipTest("the closed corpus is not in this checkout")
         where = os.path.join(CORPUS, "README.md")
@@ -825,7 +972,9 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
             self.skipTest("the corpus README is not in this checkout")
         said = self.run_on("--fix", where)
         self.assertIn("signed manifest", said)
-        self.assertIn(".py", said, "and the instruction names the tool that reconciles the tree")
+        self.assertIn(
+            ".py", said, "and the instruction names the tool that reconciles the tree"
+        )
 
     def test_prose_still_never_fails_a_build(self):
         """Verbatim in both standards, in the sentence that names this tool, and unchanged here.
@@ -833,21 +982,36 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         An exclusion layer is a place where an exit rule gets rewritten by accident.
         """
         answer = subprocess.run(
-            [sys.executable, os.path.join(HERE, "docs_check.py"),
-             os.path.join(HERE, "test_docs_check_exclusions.py")],
-            capture_output=True, text=True, env=dc.git_env())
-        breaking = [one for one in answer.stdout.splitlines() if one.strip().startswith("BREAK")]
-        prose = [one for one in answer.stdout.splitlines() if one.strip().startswith("prose")]
+            [
+                sys.executable,
+                os.path.join(HERE, "docs_check.py"),
+                os.path.join(HERE, "test_docs_check_exclusions.py"),
+            ],
+            capture_output=True,
+            text=True,
+            env=dc.git_env(),
+        )
+        breaking = [
+            one for one in answer.stdout.splitlines() if one.strip().startswith("BREAK")
+        ]
+        prose = [
+            one for one in answer.stdout.splitlines() if one.strip().startswith("prose")
+        ]
         if breaking:
-            self.skipTest("this file carries a structural finding. The exit code is about that")
-        print("  this suite reports %d prose finding(s) and exits %d"
-              % (len(prose), answer.returncode))
+            self.skipTest(
+                "this file carries a structural finding. The exit code is about that"
+            )
+        print(
+            "  this suite reports %d prose finding(s) and exits %d"
+            % (len(prose), answer.returncode)
+        )
         self.assertEqual(answer.returncode, 0)
 
 
 # ============================================================================
 # 9. THE WORK BESIDE THIS ONE IS UNTOUCHED
 # ============================================================================
+
 
 class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
     """Four passes have landed in this file. Each one guards the three before it."""
@@ -860,14 +1024,19 @@ class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
     def test_private_survey_still_returns_both_halves(self):
         held, absent = dc.private_survey()
         self.assertEqual(len(held) + len(absent), len(dc.PRIVATE_NAMES))
-        self.assertIn("scanned none", dc.private_survey.__doc__,
-                      "the docstring records the regression and is the record of it")
+        self.assertIn(
+            "scanned none",
+            dc.private_survey.__doc__,
+            "the docstring records the regression and is the record of it",
+        )
 
     def test_the_tiers_still_name_their_sections(self):
         self.assertEqual(dc.tier_of(r"\brather\b"), "A")
         self.assertIn(r"\brather\b", dc.AUTHORITY)
 
-    def test_the_convention_stage_is_still_spliced_into_the_table_that_enforces_it(self):
+    def test_the_convention_stage_is_still_spliced_into_the_table_that_enforces_it(
+        self,
+    ):
         for one in dc.LOCALE:
             self.assertIn(one, dc.BANNED)
 

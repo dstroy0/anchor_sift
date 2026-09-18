@@ -35,7 +35,7 @@ every one of these has to land in it:
   exception is deleted.
 - `repotools.toml:43-44` (`[prose] roots`) and `repotools.toml:62-63`
   (`[hooks.docs_check] roots`) both name `"maint"`. Both must change in the same commit. If one is
-  missed, the prose walk reads a root that **emptied** rather than one that vanished, and
+  missed, the prose walk reads a root that **emptied** and
   `docs_check.py`'s own guard catches the second case and not the first. Compare the file count at
   the foot of the run before and after — that count is the only thing distinguishing the two.
 - `repotools.toml:61` (`[hooks.docs_check] tool`) is `"maint/prose/docs_check.py"` and becomes
@@ -151,8 +151,7 @@ cmake --build build/engine_c
 ./build/engine_c/bench_lattice
 ```
 
-That block is real — `bench_lattice` has `RUNTIME_OUTPUT_DIRECTORY` set to `CMAKE_BINARY_DIR`, so
-the path resolves. But it covers **one of five** directories under `src/engine/`: `c`, `gpu`,
+That block is real — `bench_lattice` has `RUNTIME_OUTPUT_DIRECTORY` set to `CMAKE_BINARY_DIR`. But it covers **one of five** directories under `src/engine/`: `c`, `gpu`,
 `matlab`, `python`, `r`. The README implies the C bench is the build; it is one fifth of it.
 
 The gaps:

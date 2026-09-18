@@ -43,7 +43,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(HERE), "2_partition"))
 ROOT = HERE
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
@@ -51,8 +53,7 @@ from what_a_pixel_costs import SEED, TRUTHS, recover, shifted  # noqa: E402
 from where_the_floor_comes_from import field  # noqa: E402
 
 # Swept over eleven doublings. The top is past any microscope's bit depth and is included so the
-# sweep runs off the end of what a real image could carry, rather than stopping where this author
-# guessed it would stop mattering.
+# sweep runs off the end of what a real image could carry,.
 LEVELS = (4, 8, 16, 32, 64, 128, 256, 1024, 4096, 16384, 65536)
 
 WIDTH = 4.0
@@ -69,13 +70,22 @@ def to_levels(canvas, levels):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     canvas, blobs = field(numpy.random.default_rng(SEED), WIDTH)
 
-    out.write("  The level count swept. It is this reader's voxel and nothing else set it.\n")
-    out.write("  %d blobs %.1f px wide, mean over %d displacements.\n\n"
-              % (blobs, WIDTH, len(TRUTHS)))
-    out.write("  %-10s %-12s %-12s %s\n" % ("levels", "mean error", "worst error", "lit share"))
+    out.write(
+        "  The level count swept. It is this reader's voxel and nothing else set it.\n"
+    )
+    out.write(
+        "  %d blobs %.1f px wide, mean over %d displacements.\n\n"
+        % (blobs, WIDTH, len(TRUTHS))
+    )
+    out.write(
+        "  %-10s %-12s %-12s %s\n"
+        % ("levels", "mean error", "worst error", "lit share")
+    )
 
     rows = []
     for levels in LEVELS:
@@ -97,20 +107,34 @@ def main():
     first_error = rows[0][1]
     last_error = rows[-1][1]
     out.write("\n  best at %d levels, %.4f px.\n" % (best[0], best[1]))
-    out.write("  coarsest %d levels: %.4f px. finest %d levels: %.4f px.\n"
-              % (rows[0][0], first_error, rows[-1][0], last_error))
+    out.write(
+        "  coarsest %d levels: %.4f px. finest %d levels: %.4f px.\n"
+        % (rows[0][0], first_error, rows[-1][0], last_error)
+    )
 
     if best[0] == rows[-1][0]:
-        out.write("\n  The error is still falling at the top of the sweep. The total belongs to\n")
-        out.write("  the ceiling and not to the method. The level count comes off, the way the\n")
+        out.write(
+            "\n  The error is still falling at the top of the sweep. The total belongs to\n"
+        )
+        out.write(
+            "  the ceiling and not to the method. The level count comes off, the way the\n"
+        )
         out.write("  voxel came off the crystal reading.\n")
     elif best[0] == rows[0][0]:
-        out.write("\n  The coarsest slice wins outright, which nothing here predicted and nothing\n")
+        out.write(
+            "\n  The coarsest slice wins outright, which nothing here predicted and nothing\n"
+        )
         out.write("  here explains. Reported and not accounted for.\n")
     else:
-        out.write("\n  There is an optimum inside the sweep and both ends are worse than it. The\n")
-        out.write("  grid buys error below it and exact matching runs out of matches above it,\n")
-        out.write("  which is the protein failure and the crystal voxel meeting in one curve.\n")
+        out.write(
+            "\n  There is an optimum inside the sweep and both ends are worse than it. The\n"
+        )
+        out.write(
+            "  grid buys error below it and exact matching runs out of matches above it,\n"
+        )
+        out.write(
+            "  which is the protein failure and the crystal voxel meeting in one curve.\n"
+        )
     out.flush()
     return 0
 

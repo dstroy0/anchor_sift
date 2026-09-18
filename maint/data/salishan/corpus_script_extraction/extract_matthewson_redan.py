@@ -35,14 +35,23 @@ import subprocess
 import sys
 
 from inserted_space import closed_spaces
-from salish_marking import (DERIVED, MARKED, PRACTICAL, SPOKEN, UNCLASSIFIED, rendered,
-                            switches, tagged_spans)
+from salish_marking import (
+    DERIVED,
+    MARKED,
+    PRACTICAL,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -54,17 +63,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -73,8 +92,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -89,7 +109,8 @@ SOURCE = os.path.join(PAPERS, "Matthewson_Redan_ICSNL61.txt")
 TARGET = os.path.join(
     CORPORA,
     "Kweswapaw-LindaRedan_Cw7aozKati7Lati7KuNaxwit_MatthewsonRedan"
-    "_Salish_statimcets_2026_mixed.txt")
+    "_Salish_statimcets_2026_mixed.txt",
+)
 
 # This paper's orthography, plus the combining marks it writes glottalization with
 MARKS = MARKED + PRACTICAL + "̓̔̕"
@@ -124,7 +145,8 @@ SEGMENTED = re.compile(r"[-=]")
 CATEGORIES = re.compile(
     r"\b(?:ABS|ACT|ADHORT|AUT|CAUS|CIRC|COMP|COP|D/C|DET|DIM|DIR|ERG|EXCL|EXIS|IND|INS|"
     r"INVIS|IPFV|MID|NEG|NMLZ|OBJ|PL|PLU|POSS|REM|RLT|SBJ|SBJV|SG|STAT|VIS|"
-    r"1SG|2SG|3SG|1PL|2PL|3PL|PL\.DET|ABS\.DET)\b")
+    r"1SG|2SG|3SG|1PL|2PL|3PL|PL\.DET|ABS\.DET)\b"
+)
 
 LAYER = {
     "running speech": SPOKEN,
@@ -171,7 +193,7 @@ def split_brackets(text):
     pieces = []
     at = 0
     for found in BRACKETED.finditer(text):
-        before = text[at:found.start()].strip()
+        before = text[at : found.start()].strip()
         if before:
             pieces.append(("said", " ".join(before.split())))
         inside = found.group(1).strip()
@@ -185,7 +207,9 @@ def split_brackets(text):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -219,8 +243,9 @@ def main():
             said = said.strip()
             if said:
                 count += 1
-                rows.append(("T", count, "2", "running speech",
-                             "K̓weswapáw̓ Linda Redan", said))
+                rows.append(
+                    ("T", count, "2", "running speech", "K̓weswapáw̓ Linda Redan", said)
+                )
 
     # Section 3, the English translation, checked with Linda
     for one in held.get("3", []):
@@ -228,7 +253,16 @@ def main():
         if not trimmed:
             continue
         count += 1
-        rows.append(("N", count, "3", "translation", "Lisa Matthewson, checked with Linda", trimmed))
+        rows.append(
+            (
+                "N",
+                count,
+                "3",
+                "translation",
+                "Lisa Matthewson, checked with Linda",
+                trimmed,
+            )
+        )
 
     # Section 4, the glossed story
     number = None
@@ -241,14 +275,23 @@ def main():
             number = int(found.group(1))
             rest = found.group(2).strip()
             if rest:
-                rows.append(("T", number, "4", "transcription",
-                             "K̓weswapáw̓ Linda Redan", rest))
+                rows.append(
+                    ("T", number, "4", "transcription", "K̓weswapáw̓ Linda Redan", rest)
+                )
             continue
         if number is None:
             continue
         if QUOTED.match(trimmed):
-            rows.append(("N", number, "4", "translation",
-                         "Lisa Matthewson, checked with Linda", trimmed))
+            rows.append(
+                (
+                    "N",
+                    number,
+                    "4",
+                    "translation",
+                    "Lisa Matthewson, checked with Linda",
+                    trimmed,
+                )
+            )
         elif CATEGORIES.search(trimmed):
             rows.append(("N", number, "4", "gloss", "Lisa Matthewson", trimmed))
         elif carries_language(trimmed) and SEGMENTED.search(trimmed):
@@ -256,8 +299,16 @@ def main():
         else:
             # Nothing fired. The line is flagged and its speaker is left unset. Filling that
             # column would put a name on a line nobody has read.
-            rows.append(("T" if carries_language(trimmed) else "N",
-                         number, "4", UNCLASSIFIED, "", trimmed))
+            rows.append(
+                (
+                    "T" if carries_language(trimmed) else "N",
+                    number,
+                    "4",
+                    UNCLASSIFIED,
+                    "",
+                    trimmed,
+                )
+            )
 
     # Section 5 repeats lines from the story and cites one that is not hers
     number = None
@@ -270,14 +321,24 @@ def main():
             number = int(found.group(1))
             rest = found.group(2).strip()
             if rest and carries_language(rest):
-                who = ("Sam Mitchell, in Van Eijk and Williams 1981" if number == 35
-                       else "K̓weswapáw̓ Linda Redan")
+                who = (
+                    "Sam Mitchell, in Van Eijk and Williams 1981"
+                    if number == 35
+                    else "K̓weswapáw̓ Linda Redan"
+                )
                 rows.append(("T", number, "5", "cited example", who, rest))
             continue
-        if (number is not None) and carries_language(trimmed) \
-                and not CATEGORIES.search(trimmed) and not QUOTED.match(trimmed):
-            who = ("Sam Mitchell, in Van Eijk and Williams 1981" if number == 35
-                   else "K̓weswapáw̓ Linda Redan")
+        if (
+            (number is not None)
+            and carries_language(trimmed)
+            and not CATEGORIES.search(trimmed)
+            and not QUOTED.match(trimmed)
+        ):
+            who = (
+                "Sam Mitchell, in Van Eijk and Williams 1981"
+                if number == 35
+                else "K̓weswapáw̓ Linda Redan"
+            )
             rows.append(("T", number, "5", "cited example", who, trimmed))
 
     # Every line of the paper no section reached, added to the record as unclassified. The
@@ -290,20 +351,44 @@ def main():
         rows.append(("T", 0, "not reached page %d" % page, UNCLASSIFIED, "", text))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# Cw7aoz káti7 láti7 ku naxwít, There was definitely no snake there.\n")
-        handle.write("# A story in St'át'imcets by K̓weswapáw̓ / Linda Redan, Qayqáyten, born at\n")
-        handle.write("# K̓maqs (Six Mile) and raised at Cácl̓ep (Fountain). With Lisa Matthewson,\n")
-        handle.write("# University of British Columbia. Proceedings of ICSNL 61, UBCWPL.\n")
-        handle.write("# Told over Zoom on 31 October 2025, three minutes twenty-eight seconds.\n")
-        handle.write("# Lisa transcribed, translated and glossed it; the transcription and the\n")
-        handle.write("# translation were checked with Linda. Audio and video are held by her.\n")
+        handle.write(
+            "# Cw7aoz káti7 láti7 ku naxwít, There was definitely no snake there.\n"
+        )
+        handle.write(
+            "# A story in St'át'imcets by K̓weswapáw̓ / Linda Redan, Qayqáyten, born at\n"
+        )
+        handle.write(
+            "# K̓maqs (Six Mile) and raised at Cácl̓ep (Fountain). With Lisa Matthewson,\n"
+        )
+        handle.write(
+            "# University of British Columbia. Proceedings of ICSNL 61, UBCWPL.\n"
+        )
+        handle.write(
+            "# Told over Zoom on 31 October 2025, three minutes twenty-eight seconds.\n"
+        )
+        handle.write(
+            "# Lisa transcribed, translated and glossed it; the transcription and the\n"
+        )
+        handle.write(
+            "# translation were checked with Linda. Audio and video are held by her.\n"
+        )
         handle.write("#\n")
-        handle.write("# Mark is language.layer.kind. T is St'át'imcets, N is anything else.\n")
+        handle.write(
+            "# Mark is language.layer.kind. T is St'át'imcets, N is anything else.\n"
+        )
         handle.write("# The glottal stop is written 7 in this orthography.\n")
-        handle.write("# Bracketed notes on laughter and gesture are Lisa's and are marked derived,\n")
-        handle.write("# in section 2 written in St'át'imcets and in section 3 in English.\n")
-        handle.write("# Example 35 is Sam Mitchell's, not Linda's, and carries his name.\n")
-        handle.write("# Gloss categories are the paper's own, from its footnote 1, unchanged.\n")
+        handle.write(
+            "# Bracketed notes on laughter and gesture are Lisa's and are marked derived,\n"
+        )
+        handle.write(
+            "# in section 2 written in St'át'imcets and in section 3 in English.\n"
+        )
+        handle.write(
+            "# Example 35 is Sam Mitchell's, not Linda's, and carries his name.\n"
+        )
+        handle.write(
+            "# Gloss categories are the paper's own, from its footnote 1, unchanged.\n"
+        )
         handle.write("line\tsection\tkind\tspeaker\tswitches\tcontent\n")
         for mark, number, section, kind, who, text in rows:
             layer = LAYER[kind]
@@ -313,8 +398,10 @@ def main():
             else:
                 content = "N.%s.%s:{%s}" % (layer, kind, text)
                 crossings = 0
-            handle.write("line#${%d}\t%s\t%s\t%s\t%d\t%s\n"
-                         % (number, section, kind, who, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%s\t%d\t%s\n"
+                % (number, section, kind, who, crossings, content)
+            )
 
     pure = TARGET[:-4] + ".pure.txt"
     kept = 0
@@ -340,33 +427,47 @@ def main():
     # A file of its own for what the tool could not sort: a section 4 line none of the tests typed,
     # and a line no section reached, which here is the front matter, section 1 and the references.
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, "%s block %d" % (section, number), UNKNOWN_KIND, "", text)
-               for mark, number, section, kind, who, text in rows
-               if (kind == UNCLASSIFIED) and not section.startswith("not reached")]
+    flagged = [
+        (0, "%s block %d" % (section, number), UNKNOWN_KIND, "", text)
+        for mark, number, section, kind, who, text in rows
+        if (kind == UNCLASSIFIED) and not section.startswith("not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "Cw7aoz káti7 láti7 ku naxwít", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure)))
+    out.write(
+        "  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
     out.write("  %d spans skipped as already written\n" % repeated)
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     out.write("\n  %-8s %-16s %-38s %s\n" % ("section", "kind", "speaker", "lines"))
     counted = {}
     for mark, number, section, kind, who, text in rows:
         counted[(section, kind, who)] = counted.get((section, kind, who), 0) + 1
     for key in sorted(counted):
-        out.write("  %-8s %-16s %-38s %d\n" % (key[0], key[1], key[2][:38], counted[key]))
+        out.write(
+            "  %-8s %-16s %-38s %d\n" % (key[0], key[1], key[2][:38], counted[key])
+        )
 
     marks = {}
     for mark, number, section, kind, who, text in rows:
         marks[mark] = marks.get(mark, 0) + 1
-    mixed = sum(1 for row in rows
-                if (row[0] == "T") and (LAYER[row[3]] == SPOKEN)
-                and any(one == "N" for one, run in tagged_spans(row[5], MARKS)))
-    out.write("\n  T lines %d, N lines %d, spoken lines she mixed %d\n"
-              % (marks.get("T", 0), marks.get("N", 0), mixed))
+    mixed = sum(
+        1
+        for row in rows
+        if (row[0] == "T")
+        and (LAYER[row[3]] == SPOKEN)
+        and any(one == "N" for one, run in tagged_spans(row[5], MARKS))
+    )
+    out.write(
+        "\n  T lines %d, N lines %d, spoken lines she mixed %d\n"
+        % (marks.get("T", 0), marks.get("N", 0), mixed)
+    )
 
     out.flush()
     return 0

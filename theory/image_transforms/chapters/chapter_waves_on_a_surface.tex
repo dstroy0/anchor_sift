@@ -4,26 +4,26 @@
 
 Many tracked objects do not move freely through a volume. They travel on a surface: tracers on a
 fluid interface, weather systems on a planet, features on a deforming membrane, layers of cells on a
-developing organism. When that surface is close to a sphere it is modelled as an evolving sphere-like
-surface, a closed surface $\mathcal{M}_t$ reached from the unit sphere by a radial map,
+developing organism. When that surface is close to a sphere it is modeled as an evolving sphere-like
+surface, a closed surface \(\mathcal{M}_t\) reached from the unit sphere by a radial map,
 \[
 x \;\mapsto\; \tilde\rho(t, x)\, x, \qquad x \in \mathcal{S}^2,
 \]
-so motion estimation on the surface is posed on the round sphere once the radius $\tilde\rho$ is
+so motion estimation on the surface is posed on the round sphere once the radius \(\tilde\rho\) is
 known. Lang and Scherzer set this up for optical flow and give the full construction; this chapter
 follows theirs.
 
 \section{Fitting the surface}
 
-The radius is fitted to sample points on the surface, the approximate centres of the tracked
-objects, after centring them on a fitted sphere. The fit minimises a data term plus a Sobolev
+The radius is fitted to sample points on the surface, the approximate centers of the tracked
+objects, after centring them on a fitted sphere. The fit minimizes a data term plus a Sobolev
 seminorm penalty,
 \[
 \mathcal{F}_\beta(\tilde\rho) \;=\; \|\tilde\rho - \tilde\rho^{\delta}\|^2_{L^2(\mathcal{S}^2)}
 + \beta\, |\tilde\rho|^2_{H^s(\mathcal{S}^2)},
 \]
 with the radius expanded in scalar spherical harmonics. The seminorm is diagonal in the harmonic
-basis, weighting degree $n$ by $(n(n+1))^s$. Smoothness is a statement about how fast coefficients
+basis, weighting degree \(n\) by \((n(n+1))^s\). Smoothness is a statement about how fast coefficients
 decay with degree. Image values on the surface are read as the maximum intensity along a narrow
 radial band about it.
 
@@ -35,16 +35,16 @@ harmonics of two types,
 \tilde{\mathbf{y}}^{(2)}_{nj} = \lambda_n^{-1/2}\, \nabla_{\mathcal{S}^2} \tilde Y_{nj}, \qquad
 \tilde{\mathbf{y}}^{(3)}_{nj} = \lambda_n^{-1/2}\, \nabla_{\mathcal{S}^2} \tilde Y_{nj} \times \tilde{\mathbf{N}},
 \]
-with $\lambda_n = n(n+1)$. The first type is a gradient field and carries the part of a flow that
+with \(\lambda_n = n(n+1)\). The first type is a gradient field and carries the part of a flow that
 converges or diverges; the second is a rotated gradient and carries the part that circulates. The
 expansion is therefore a Helmholtz-Hodge decomposition already, which is why vector spherical
 harmonics are called the natural basis for it: a flow on a sphere splits uniquely into an
 irrotational part, a solenoidal part, and a harmonic part. There is no tangential harmonic of degree
 zero, since by the hairy ball theorem no non-vanishing tangent field is constant over the sphere.
 
-The optical flow on the surface minimises a data term, the squared residual of the generalised
-optical flow equation, plus $\alpha$ times the squared $H^1$ norm of the field. Expanded in vector
-harmonics up to a chosen degree, it becomes a linear system $(A + \alpha D)v = b$ solved iteratively
+The optical flow on the surface minimizes a data term, the squared residual of the generalised
+optical flow equation, plus \(\alpha\) times the squared \(H^1\) norm of the field. Expanded in vector
+harmonics up to a chosen degree, it becomes a linear system \((A + \alpha D)v = b\) solved iteratively
 to a tolerance. The integrals are evaluated on a refined icosahedron with piecewise quadratic
 interpolation and a quadrature rule per triangle, and in the published implementation those
 integrals, not the linear solve, dominate the run time.

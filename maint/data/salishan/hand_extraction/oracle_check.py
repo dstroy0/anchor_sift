@@ -27,10 +27,11 @@ import subprocess
 import sys
 import unicodedata
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -42,17 +43,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -61,8 +72,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -86,7 +98,7 @@ from salish_unsorted import is_language_token  # noqa: E402
 
 from papers import EVERY, NOT_FAITHFUL, ORTHOGRAPHY_ABSENT, PAGE_TEXT  # noqa: E402
 
-EDGES = ".,!?;:“”\"()[]…«»{}/*•→≤≥"
+EDGES = '.,!?;:“”"()[]…«»{}/*•→≤≥'
 
 # Hall and Phillips write the null third person clitic with a symbol font, and the extraction
 # carries that glyph through as a private use character. It stands where a morpheme is not
@@ -126,6 +138,7 @@ def surface_parse_join(token):
         return -1
     return at
 
+
 # The Latin ligatures a PDF sets f-words with. None of these orthographies uses one. Every
 # occurrence is the typesetter's and the letters underneath are what the paper says. Lyon's
 # translations carry ﬁnish, ﬁll and ﬁrst, and a table typed at a keyboard holds none of them.
@@ -157,11 +170,17 @@ def trailing_marker(plain):
         # A footnote marker set against a word that ends in a stacked mark, as Hall and Phillips'
         # nhén̓4 is. 7 is the glottal stop in the van Eijk orthography. A run that is only 7 is
         # the word's own last letter and stays.
-        if ((at < len(plain)) and (at > 0) and (plain[at] != "7")
-                and unicodedata.combining(plain[at - 1])):
+        if (
+            (at < len(plain))
+            and (at > 0)
+            and (plain[at] != "7")
+            and unicodedata.combining(plain[at - 1])
+        ):
             return plain[:at].strip(EDGES)
         # Nothing numeric came off. Look for the quote forms instead.
-        if (at == len(plain)) and ((plain[-1] == "’") or unicodedata.combining(plain[-1])):
+        if (at == len(plain)) and (
+            (plain[-1] == "’") or unicodedata.combining(plain[-1])
+        ):
             at -= 1
         # A footnote marker set past a closing quote, as walk.’17 is. The ’ counts as a quote only
         # where the sentence's own punctuation stands in front of it, which keeps ˽c’ whole.
@@ -255,6 +274,7 @@ def bare(token, marks=None):
         plain = plain.replace(typographic, plain_quote)
     return plain
 
+
 # What a form may be built out of besides its letters. A morpheme boundary, a clitic boundary, a
 # reduplication tilde and the parentheses around a deleted segment are all part of how the paper
 # writes a form, and splitting on them would compare pieces the paper never printed apart.
@@ -292,8 +312,15 @@ def oracle_rows(path):
             fields = line.rstrip("\n").split("\t")
             if (len(fields) < 4) or (fields[0] == "where"):
                 continue
-            held.append((fields[0], fields[1], fields[2], fields[3],
-                         fields[4] if len(fields) > 4 else ""))
+            held.append(
+                (
+                    fields[0],
+                    fields[1],
+                    fields[2],
+                    fields[3],
+                    fields[4] if len(fields) > 4 else "",
+                )
+            )
     return held
 
 
@@ -372,96 +399,101 @@ def source_forms(path, repair=None, pieces=2, line_joins=False):
     lines = joined_lines(raw)[0] if line_joins else [one.rstrip() for one in raw]
 
     for number, line in enumerate(lines, 1):
-            if line.startswith("====="):
-                continue
-            # NFC on both sides, always. Two strings are the same string only after it, and skipping
-            # it reports ǰ typed at a keyboard as absent from a paper that prints ǰ on ten lines.
-            # It runs after the repair. Composing a with a combining acute into á first takes that
-            # acute out of the set of marks whose following space gets closed, and the repair then
-            # misses every word the PDF split at an accent. The repair ends in NFC for the same
-            # reason; without that, 164 of one paper's forms came back as destroyed by the repair.
-            line = repair(line.rstrip()) if repair else line.rstrip()
-            line = unicodedata.normalize("NFC", line)
-            reach = [line]
-            if previous.endswith("-"):
-                # Both readings of the hyphen at a line end. sčəbíd- ac is one Salish form whose
-                # hyphen is a morpheme boundary and stays; Lyon's English translations are typeset,
-                # and hold- ing is one word whose hyphen the typesetter put there.
-                tail = previous.split()[-1]
-                reach.append("%s%s" % (tail, line.lstrip()))
-                reach.append("%s%s" % (tail[:-1], line.lstrip()))
-            previous = line
-            for at, one in enumerate(reach):
-                tokens = one.split()
-                for where, token in enumerate(tokens):
-                    # The half of a wrapped form left at a line end is not a form to ask about; the
-                    # join built from it above is. p̓il- ‘flat’ ends in a hyphen too and is a real
-                    # prefix, and only the last token on a line is dropped for that reason.
-                    #
-                    # It stays in the lookup all the same, because the page does print those
-                    # characters at that place. Lyon's interlinear arrives one token per line, so
-                    # every token in it is the last on its line, and dropping them outright lost
-                    # an-, a-ks- and ʔakɬ-, which are forms the paper prints on their own.
-                    wrapped = ((at == 0) and (where == (len(tokens) - 1)) and token.endswith("-"))
-                    # The token itself, its slash-separated halves, and it joined to the tokens
-                    # after it. The last of those is for the PDFs that break a word before a
-                    # marked letter: cácl̓ep arrives as các l̓ep, and the hand extraction records
-                    # the word. A join offered here only widens what a lookup finds.
-                    plain = bare(token)
+        if line.startswith("====="):
+            continue
+        # NFC on both sides, always. Two strings are the same string only after it, and skipping
+        # it reports ǰ typed at a keyboard as absent from a paper that prints ǰ on ten lines.
+        # It runs after the repair. Composing a with a combining acute into á first takes that
+        # acute out of the set of marks whose following space gets closed, and the repair then
+        # misses every word the PDF split at an accent. The repair ends in NFC for the same
+        # reason; without that, 164 of one paper's forms came back as destroyed by the repair.
+        line = repair(line.rstrip()) if repair else line.rstrip()
+        line = unicodedata.normalize("NFC", line)
+        reach = [line]
+        if previous.endswith("-"):
+            # Both readings of the hyphen at a line end. sčəbíd- ac is one Salish form whose
+            # hyphen is a morpheme boundary and stays; Lyon's English translations are typeset,
+            # and hold- ing is one word whose hyphen the typesetter put there.
+            tail = previous.split()[-1]
+            reach.append("%s%s" % (tail, line.lstrip()))
+            reach.append("%s%s" % (tail[:-1], line.lstrip()))
+        previous = line
+        for at, one in enumerate(reach):
+            tokens = one.split()
+            for where, token in enumerate(tokens):
+                # The half of a wrapped form left at a line end is not a form to ask about; the
+                # join built from it above is. p̓il- ‘flat’ ends in a hyphen too and is a real
+                # prefix, and only the last token on a line is dropped for that reason.
+                #
+                # It stays in the lookup all the same, because the page does print those
+                # characters at that place. Lyon's interlinear arrives one token per line, so
+                # every token in it is the last on its line, and dropping them outright lost
+                # an-, a-ks- and ʔakɬ-, which are forms the paper prints on their own.
+                wrapped = (
+                    (at == 0) and (where == (len(tokens) - 1)) and token.endswith("-")
+                )
+                # The token itself, its slash-separated halves, and it joined to the tokens
+                # after it. The last of those is for the PDFs that break a word before a
+                # marked letter: cácl̓ep arrives as các l̓ep, and the hand extraction records
+                # the word. A join offered here only widens what a lookup finds.
+                plain = bare(token)
+                if plain:
+                    held.setdefault(plain, number)
+                    # Only the line as printed adds to printed. The hyphen-join built above is
+                    # a lookup candidate, and counting its tokens made ł-AUX, the tail of one
+                    # line welded to the head of the next, a word the paper holds.
+                    if (at == 0) and not wrapped:
+                        printed.add(plain)
+                reach = list(token.split("/"))
+                # The same token without a footnote marker welded to its last letter.
+                if plain:
+                    reach.append(without_marker(plain))
+                # Lyon's five-line interlinear puts a form on one line and its parse on the
+                # next, and the extraction runs the two together wherever the parse opens with
+                # the root mark: cáwt@t,√cáwt-tt is the word and its analysis in one token. A √
+                # anywhere but the front is that join, and both sides are offered.
+                at_root = surface_parse_join(token)
+                if at_root > 0:
+                    reach.append(token[:at_root])
+                    reach.append(token[at_root:])
+                for span in range(2, pieces + 1):
+                    if (where + span) > len(tokens):
+                        break
+                    run = tokens[where : where + span]
+                    # The join is offered with and without a footnote marker on the end of it.
+                    # n-t̓ə k̓[ʷ]-t̓í k̓[ʷ]-ləx2 is one word carrying a 2 and the row holds the
+                    # word, while (s)K ékets’a7 ends in the letter van Eijk writes the glottal
+                    # stop with and the row holds the 7. Offering only the stripped form lost
+                    # the second one.
+                    joined = bare("".join(run))
+                    if not joined:
+                        continue
+                    reach.append("".join(run))
+                    # A run can be a surface form and its own parse, broken in the middle as
+                    # well: k̓ʷ l̓ncútn√k̓ʷ l̓-ncút+tn is k̓ʷl̓ncútn and √k̓ʷl̓-ncút+tn, and the
+                    # table holds those two apart because the paper prints them on two lines.
+                    halves = [joined, without_marker(joined)]
+                    at_join = surface_parse_join(joined)
+                    if at_join > 0:
+                        halves = [bare(joined[:at_join]), bare(joined[at_join:])]
+                        reach.extend(halves)
+                    for piece in run:
+                        broken = bare(piece)
+                        if broken:
+                            welds.setdefault(broken, set()).update(
+                                one for one in halves if one
+                            )
+                for part in reach:
+                    plain = bare(part)
                     if plain:
                         held.setdefault(plain, number)
-                        # Only the line as printed adds to printed. The hyphen-join built above is
-                        # a lookup candidate, and counting its tokens made ł-AUX, the tail of one
-                        # line welded to the head of the next, a word the paper holds.
-                        if (at == 0) and not wrapped:
-                            printed.add(plain)
-                    reach = list(token.split("/"))
-                    # The same token without a footnote marker welded to its last letter.
-                    if plain:
-                        reach.append(without_marker(plain))
-                    # Lyon's five-line interlinear puts a form on one line and its parse on the
-                    # next, and the extraction runs the two together wherever the parse opens with
-                    # the root mark: cáwt@t,√cáwt-tt is the word and its analysis in one token. A √
-                    # anywhere but the front is that join, and both sides are offered.
-                    at_root = surface_parse_join(token)
-                    if at_root > 0:
-                        reach.append(token[:at_root])
-                        reach.append(token[at_root:])
-                    for span in range(2, pieces + 1):
-                        if (where + span) > len(tokens):
-                            break
-                        run = tokens[where:where + span]
-                        # The join is offered with and without a footnote marker on the end of it.
-                        # n-t̓ə k̓[ʷ]-t̓í k̓[ʷ]-ləx2 is one word carrying a 2 and the row holds the
-                        # word, while (s)K ékets’a7 ends in the letter van Eijk writes the glottal
-                        # stop with and the row holds the 7. Offering only the stripped form lost
-                        # the second one.
-                        joined = bare("".join(run))
-                        if not joined:
-                            continue
-                        reach.append("".join(run))
-                        # A run can be a surface form and its own parse, broken in the middle as
-                        # well: k̓ʷ l̓ncútn√k̓ʷ l̓-ncút+tn is k̓ʷl̓ncútn and √k̓ʷl̓-ncút+tn, and the
-                        # table holds those two apart because the paper prints them on two lines.
-                        halves = [joined, without_marker(joined)]
-                        at_join = surface_parse_join(joined)
-                        if at_join > 0:
-                            halves = [bare(joined[:at_join]), bare(joined[at_join:])]
-                            reach.extend(halves)
-                        for piece in run:
-                            broken = bare(piece)
-                            if broken:
-                                welds.setdefault(broken, set()).update(one for one in halves
-                                                                       if one)
-                    for part in reach:
-                        plain = bare(part)
-                        if plain:
-                            held.setdefault(plain, number)
     return held, printed, welds
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     failed = 0
     waiting = []
     for name, stem, record, repair, marks, line_joins in EVERY:
@@ -469,7 +501,9 @@ def main():
         # A paper whose extraction is the font's encoding is checked against the drafted page text
         # instead, because the extraction is not what the paper says and comparing against it only
         # asks whether the table copied the damage correctly.
-        source = os.path.join(PAPERS, (PAGE_TEXT if stem in NOT_FAITHFUL else "%s.txt") % stem)
+        source = os.path.join(
+            PAPERS, (PAGE_TEXT if stem in NOT_FAITHFUL else "%s.txt") % stem
+        )
         if not os.path.isfile(table):
             waiting.append(stem)
             continue
@@ -495,16 +529,22 @@ def main():
         if wide:
             out.write("    %d row(s) of the wrong width\n" % len(wide))
             for number, count in wide:
-                out.write("      line %-6d %d fields, expected 4 or 5\n" % (number, count))
+                out.write(
+                    "      line %-6d %d fields, expected 4 or 5\n" % (number, count)
+                )
             failed += len(wide)
 
         broken = PIECES if stem in NOT_FAITHFUL else 2
         held, printed, welds = source_forms(source, repair, broken, line_joins)
         raw = source_forms(source, None, broken, line_joins)[0]
-        out.write("  %s%s\n" % (name, "   (against a drafted page text)"
-                                if stem in NOT_FAITHFUL else ""))
-        out.write("    %d rows read by hand, %d distinct tokens in the paper\n"
-                  % (len(rows), len(held)))
+        out.write(
+            "  %s%s\n"
+            % (name, "   (against a drafted page text)" if stem in NOT_FAITHFUL else "")
+        )
+        out.write(
+            "    %d rows read by hand, %d distinct tokens in the paper\n"
+            % (len(rows), len(held))
+        )
 
         # Direction one. A form written down that the paper does not hold is a typing slip or an
         # invented row, and it would put a word nobody printed into the corpus.
@@ -557,18 +597,25 @@ def main():
             # A form run together with its own parse, as Lyon's extraction leaves cáwt@t,√cáwt-tt.
             # The table holds the word and the analysis apart, as the paper sets them.
             at_root = surface_parse_join(token)
-            if (at_root > 0) and all((one in written) for one in
-                                     (bare(token[:at_root]), bare(token[at_root:]))
-                                     if is_language_token(one, marks)):
+            if (at_root > 0) and all(
+                (one in written)
+                for one in (bare(token[:at_root]), bare(token[at_root:]))
+                if is_language_token(one, marks)
+            ):
                 continue
             # A slashed token is two forms printed in one cell, dᶻəlč̓/ǰəlč̓, and the hand
             # extraction gives each of them its own row. Asking for the whole string back would
             # make a row per printing accident.
-            if all((one in written) for one in token.split("/")
-                   if is_language_token(one, marks)):
+            if all(
+                (one in written)
+                for one in token.split("/")
+                if is_language_token(one, marks)
+            ):
                 continue
             missed.append((number, token))
-        out.write("    %d language tokens in the paper that no row holds\n" % len(missed))
+        out.write(
+            "    %d language tokens in the paper that no row holds\n" % len(missed)
+        )
         for number, token in missed:
             out.write("      line %-6d %s\n" % (number, token))
 
@@ -577,21 +624,31 @@ def main():
         # but they are not disagreements: the reading is right and the file it is being compared
         # with is not the paper.
         if stem in ORTHOGRAPHY_ABSENT:
-            out.write("    not counted. This paper's text holds none of its orthography and it has "
-                      "no page text,\n    so the two sides above are not comparable. See "
-                      "ORTHOGRAPHY_ABSENT in papers.py.\n")
+            out.write(
+                "    not counted. This paper's text holds none of its orthography and it has "
+                "no page text,\n    so the two sides above are not comparable. See "
+                "ORTHOGRAPHY_ABSENT in papers.py.\n"
+            )
             continue
 
         failed += len(unfound) + len(missed)
 
-    out.write("\n  %d of %d papers have a hand extraction\n"
-              % (len(EVERY) - len(waiting), len(EVERY)))
+    out.write(
+        "\n  %d of %d papers have a hand extraction\n"
+        % (len(EVERY) - len(waiting), len(EVERY))
+    )
     if waiting:
         out.write("  still to be read by hand:\n")
         for stem in waiting:
             out.write("    %s\n" % stem)
-    out.write("\n  %s\n" % ("every hand extraction agrees with its paper" if not failed
-                            else "%d disagreements to work through" % failed))
+    out.write(
+        "\n  %s\n"
+        % (
+            "every hand extraction agrees with its paper"
+            if not failed
+            else "%d disagreements to work through" % failed
+        )
+    )
     out.flush()
     return 1 if failed else 0
 

@@ -47,10 +47,11 @@ import subprocess
 import sys
 import time
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -62,17 +63,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -81,8 +92,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -161,9 +173,13 @@ def write_plan(rows, out):
     os.makedirs(os.path.dirname(PLAN), exist_ok=True)
     with io.open(PLAN, "w", encoding="utf-8", newline="\n") as handle:
         handle.write("# Every ICSNL paper, its address, and how far it has got.\n")
-        handle.write("# Written by maint/data/salishan/paper_supervisor.py. Safe to delete and rebuild.\n")
+        handle.write(
+            "# Written by maint/data/salishan/paper_supervisor.py. Safe to delete and rebuild.\n"
+        )
         handle.write("#\n")
-        handle.write("# %s\n" % ", ".join("%d %s" % (tally[one], one) for one in sorted(tally)))
+        handle.write(
+            "# %s\n" % ", ".join("%d %s" % (tally[one], one) for one in sorted(tally))
+        )
         handle.write("\t".join(FIELDS))
         handle.write("\n")
         for stem in sorted(rows):
@@ -199,6 +215,7 @@ def looks_verified(path):
 def convert_one(out, stem):
     """One PDF to the text the readers read, through get_papers so there is one converter."""
     from get_papers import converted
+
     source = os.path.join(PAPERS, "%s.pdf" % stem)
     target = os.path.join(PAPERS, "%s.txt" % stem)
     if os.path.isfile(target) or not os.path.isfile(source):
@@ -241,7 +258,9 @@ def run_adopt(out, rows, where):
         taken += 1
     out.write("\n  %d adopted, %d refused\n" % (taken, refused))
     if unknown:
-        out.write("  %d not in the archive index by that name, kept anyway:\n" % len(unknown))
+        out.write(
+            "  %d not in the archive index by that name, kept anyway:\n" % len(unknown)
+        )
         for stem in unknown[:12]:
             out.write("    %s\n" % stem)
     return 0
@@ -281,10 +300,16 @@ def run_fetch(out, rows, pause):
             if any(one.encode("ascii") in body for one in VERIFICATION):
                 rows[stem]["state"] = "refused"
                 rows[stem]["said"] = "browser verification page"
-                out.write("\n  the archive answered with its browser verification page.\n")
-                out.write("  That check is meant to be passed by a person and this stops here.\n")
+                out.write(
+                    "\n  the archive answered with its browser verification page.\n"
+                )
+                out.write(
+                    "  That check is meant to be passed by a person and this stops here.\n"
+                )
                 out.write("  Two ways on, both of them real:\n")
-                out.write("    ask the archive for bulk access, the client string names a contact\n")
+                out.write(
+                    "    ask the archive for bulk access, the client string names a contact\n"
+                )
                 out.write("    download in a browser, then --adopt that directory\n")
                 out.write("  %d fetched before it stopped.\n" % got)
                 return 2
@@ -310,13 +335,25 @@ def run_fetch(out, rows, pause):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     parser = argparse.ArgumentParser()
-    parser.add_argument("--plan", action="store_true", help="rebuild the work list from the index")
-    parser.add_argument("--adopt", metavar="DIR", help="take PDFs from a download directory")
-    parser.add_argument("--fetch", action="store_true", help="ask the archive for what is missing")
-    parser.add_argument("--remaining", action="store_true", help="print the addresses still needed")
-    parser.add_argument("--pause", type=float, default=1.0, help="seconds between requests")
+    parser.add_argument(
+        "--plan", action="store_true", help="rebuild the work list from the index"
+    )
+    parser.add_argument(
+        "--adopt", metavar="DIR", help="take PDFs from a download directory"
+    )
+    parser.add_argument(
+        "--fetch", action="store_true", help="ask the archive for what is missing"
+    )
+    parser.add_argument(
+        "--remaining", action="store_true", help="print the addresses still needed"
+    )
+    parser.add_argument(
+        "--pause", type=float, default=1.0, help="seconds between requests"
+    )
     given = parser.parse_args()
 
     listed = index_rows()
@@ -324,10 +361,16 @@ def main():
 
     if given.plan or not rows:
         if not listed:
-            out.write("\n  no archive index at %s\n"
-                      % os.path.relpath(INDEX_TABLE, ROOT).replace("\\", "/"))
-            out.write("  it is written by get_papers.py when it reads the archive page, and it is\n")
-            out.write("  carried in the closed corpus. Run private_sync.py, or fetch the index.\n\n")
+            out.write(
+                "\n  no archive index at %s\n"
+                % os.path.relpath(INDEX_TABLE, ROOT).replace("\\", "/")
+            )
+            out.write(
+                "  it is written by get_papers.py when it reads the archive page, and it is\n"
+            )
+            out.write(
+                "  carried in the closed corpus. Run private_sync.py, or fetch the index.\n\n"
+            )
             out.flush()
             return 2
         for stem, address in listed.items():
@@ -344,8 +387,13 @@ def main():
                     continue
                 stem = name[:-4]
                 if stem not in rows:
-                    rows[stem] = {"stem": stem, "state": "", "bytes": "",
-                                  "address": "", "said": "not in the index"}
+                    rows[stem] = {
+                        "stem": stem,
+                        "state": "",
+                        "bytes": "",
+                        "address": "",
+                        "said": "not in the index",
+                    }
 
     refresh(rows)
 
@@ -371,9 +419,10 @@ def main():
     out.write("\n")
     write_plan(rows, out)
     held = sum(1 for row in rows.values() if row["state"] in ("held", "text"))
-    out.write("\n  %d of %d papers are on disk, %d have text\n"
-              % (held, len(rows),
-                 sum(1 for row in rows.values() if row["state"] == "text")))
+    out.write(
+        "\n  %d of %d papers are on disk, %d have text\n"
+        % (held, len(rows), sum(1 for row in rows.values() if row["state"] == "text"))
+    )
     out.write("  --remaining prints the addresses still needed, one per line\n\n")
     out.flush()
     return code

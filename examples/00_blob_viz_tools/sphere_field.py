@@ -72,7 +72,10 @@ def gauss_legendre(count):
         for _ in range(64):
             previous, here = 1.0, x
             for degree in range(2, count + 1):
-                previous, here = here, ((2 * degree - 1) * x * here - (degree - 1) * previous) / degree
+                previous, here = (
+                    here,
+                    ((2 * degree - 1) * x * here - (degree - 1) * previous) / degree,
+                )
             slope = count * (x * here - previous) / (x * x - 1.0)
             step = here / slope
             x -= step
@@ -101,9 +104,12 @@ def legendre_column(top, order, x):
     if order + 1 <= top:
         out[order + 1] = math.sqrt(2.0 * order + 3.0) * x * value
     for degree in range(order + 2, top + 1):
-        lead = math.sqrt((4.0 * degree * degree - 1.0) / (degree * degree - order * order))
-        trail = math.sqrt(((degree - 1.0) ** 2 - order * order) /
-                          (4.0 * (degree - 1.0) ** 2 - 1.0))
+        lead = math.sqrt(
+            (4.0 * degree * degree - 1.0) / (degree * degree - order * order)
+        )
+        trail = math.sqrt(
+            ((degree - 1.0) ** 2 - order * order) / (4.0 * (degree - 1.0) ** 2 - 1.0)
+        )
         out[degree] = lead * (x * out[degree - 1] - trail * out[degree - 2])
     return out
 
@@ -208,7 +214,9 @@ def synthesize(total, top, latitudes, longitudes):
             value = by_cos[0]
             for order in range(1, top + 1):
                 angle = order * longitude
-                value += by_cos[order] * math.cos(angle) + by_sin[order] * math.sin(angle)
+                value += by_cos[order] * math.cos(angle) + by_sin[order] * math.sin(
+                    angle
+                )
             line.append(value)
         grid.append(line)
     return grid
@@ -321,7 +329,10 @@ def zonal_profile(radius_fraction, tau, top, samples=721):
             total += gains[1] * 3.0 * x / FOUR_PI
         previous, here = 1.0, x
         for degree in range(2, top + 1):
-            previous, here = here, ((2 * degree - 1) * x * here - (degree - 1) * previous) / degree
+            previous, here = (
+                here,
+                ((2 * degree - 1) * x * here - (degree - 1) * previous) / degree,
+            )
             total += gains[degree] * (2.0 * degree + 1.0) * here / FOUR_PI
         out.append(total)
     return out
@@ -355,9 +366,9 @@ def between(first, second):
     """
     one_colatitude, one_longitude = first
     two_colatitude, two_longitude = second
-    dot = (math.sin(one_colatitude) * math.sin(two_colatitude) *
-           math.cos(one_longitude - two_longitude) +
-           math.cos(one_colatitude) * math.cos(two_colatitude))
+    dot = math.sin(one_colatitude) * math.sin(two_colatitude) * math.cos(
+        one_longitude - two_longitude
+    ) + math.cos(one_colatitude) * math.cos(two_colatitude)
     return math.acos(max(-1.0, min(1.0, dot)))
 
 
@@ -383,8 +394,10 @@ def overlaps(sources, top, tau, level, samples=721):
         for second in range(first + 1, len(sources)):
             if radii[first] <= 0.0 or radii[second] <= 0.0:
                 continue
-            apart = between((sources[first][2], sources[first][3]),
-                            (sources[second][2], sources[second][3]))
+            apart = between(
+                (sources[first][2], sources[first][3]),
+                (sources[second][2], sources[second][3]),
+            )
             room = radii[first] + radii[second] - apart
             if room > 0.0:
                 found.append((first, second, apart, room))
@@ -394,7 +407,7 @@ def overlaps(sources, top, tau, level, samples=721):
 def distinguishable(radii):
     """How many circles of this size the sphere holds without them lying on top of one another.
 
-    The surface is continuous and two circle centres can be any distance apart. The sphere
+    The surface is continuous and two circle centers can be any distance apart. The sphere
     discriminates without limit until the circles are asked to be told apart. Once they are, the
     count is the sphere's area over one circle's area, and it is finite the moment the circles have
     any size at all. This is the same area law the mode count reports, arrived at by measuring the
@@ -461,7 +474,9 @@ def _check():
         bad += 1
 
     # No direction chosen leaves degree zero standing and nothing above it.
-    total = coefficients([(1.0, 0.9, 0.5, 1.0), (2.0, 0.4, 2.0, 3.0)], top, 0.0, spread=True)
+    total = coefficients(
+        [(1.0, 0.9, 0.5, 1.0), (2.0, 0.4, 2.0, 3.0)], top, 0.0, spread=True
+    )
     above = max(power(total)[1:])
     print("  with no direction chosen, power above degree zero is %.2e" % above)
     if above != 0.0:

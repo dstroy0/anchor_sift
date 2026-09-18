@@ -46,10 +46,12 @@ import sys
 import textwrap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -61,17 +63,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -80,8 +92,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -111,8 +124,10 @@ def private_root():
     named = os.environ.get("ANCHOR_SIFT_PRIVATE")
     if named:
         return os.path.abspath(named)
-    for candidate in (os.path.join(ROOT, "deps", "salishan_corpus"),
-                      os.path.join(os.path.dirname(ROOT), "private_repos", "salishan_corpus")):
+    for candidate in (
+        os.path.join(ROOT, "deps", "salishan_corpus"),
+        os.path.join(os.path.dirname(ROOT), "private_repos", "salishan_corpus"),
+    ):
         if os.path.isdir(candidate):
             return candidate
     return os.path.join(ROOT, "deps", "salishan_corpus")
@@ -186,7 +201,9 @@ def main():
 
     rows = read_register(root)
     if not rows:
-        out.write("  no %s. Nothing may be held under speech/ until there is one.\n\n" % NAME)
+        out.write(
+            "  no %s. Nothing may be held under speech/ until there is one.\n\n" % NAME
+        )
         out.flush()
         return 0 if not held_under(root) else 1
 
@@ -195,15 +212,30 @@ def main():
         if (row.get("permission") or "").strip().lower() in HOLDABLE:
             granted[key_of(row)] = row
 
-    asked = sum(1 for row in rows
-                if (row.get("permission") or "").strip().lower() not in ("", "not asked"))
-    out.write("    %d source(s) in the register, %d asked, %d holdable "
-              "(%d granted, %d published)\n"
-              % (len(rows), asked, len(granted),
-                 sum(1 for one in granted.values()
-                     if (one.get("permission") or "").strip().lower() == GRANTED),
-                 sum(1 for one in granted.values()
-                     if (one.get("permission") or "").strip().lower() == PUBLISHED)))
+    asked = sum(
+        1
+        for row in rows
+        if (row.get("permission") or "").strip().lower() not in ("", "not asked")
+    )
+    out.write(
+        "    %d source(s) in the register, %d asked, %d holdable "
+        "(%d granted, %d published)\n"
+        % (
+            len(rows),
+            asked,
+            len(granted),
+            sum(
+                1
+                for one in granted.values()
+                if (one.get("permission") or "").strip().lower() == GRANTED
+            ),
+            sum(
+                1
+                for one in granted.values()
+                if (one.get("permission") or "").strip().lower() == PUBLISHED
+            ),
+        )
+    )
 
     held = held_under(root)
     total = sum(len(one) for one in held.values())
@@ -218,8 +250,13 @@ def main():
         basis = (row.get("permission") or "").strip().lower()
         out.write("\n  %-9s %s\n" % (basis.upper(), key or "no key"))
         if basis == GRANTED:
-            out.write("      by %s on %s\n" % (row.get("granted_by") or "nobody named",
-                                               row.get("granted_on") or "no date"))
+            out.write(
+                "      by %s on %s\n"
+                % (
+                    row.get("granted_by") or "nobody named",
+                    row.get("granted_on") or "no date",
+                )
+            )
         else:
             out.write("      no community was asked. The publication is the basis.\n")
         if row.get("terms"):
@@ -228,8 +265,10 @@ def main():
         out.write("      %d file(s) held\n" % len(held.get(key, [])))
 
     if ungranted:
-        out.write("\n  HELD UNDER NO GRANTED SOURCE (%d)\n" % sum(len(one)
-                                                                  for one in ungranted.values()))
+        out.write(
+            "\n  HELD UNDER NO GRANTED SOURCE (%d)\n"
+            % sum(len(one) for one in ungranted.values())
+        )
         for key in sorted(ungranted):
             out.write("    %s\n" % (key or "speech/ with no source directory"))
             for one in ungranted[key][:6]:
@@ -242,14 +281,24 @@ def main():
             out.write("\n  held with no granted source. Bypassed.\n\n")
             out.flush()
             return 0
-        out.write("\n  this material is somebody's speech and nobody has said we may hold it.\n")
-        out.write("  ask them, write what they said into %s, and commit again.\n" % NAME)
-        out.write("  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV)
+        out.write(
+            "\n  this material is somebody's speech and nobody has said we may hold it.\n"
+        )
+        out.write(
+            "  ask them, write what they said into %s, and commit again.\n" % NAME
+        )
+        out.write(
+            "  to commit without answering it:  %s=1 git commit ...\n\n" % BYPASS_ENV
+        )
         out.flush()
         return 1
 
-    out.write("\n  a row is a place to ask. Held means granted by a community, or published with\n")
-    out.write("  its paper and kept here to calculate over. Neither is a licence to pass it on.\n\n")
+    out.write(
+        "\n  a row is a place to ask. Held means granted by a community, or published with\n"
+    )
+    out.write(
+        "  its paper and kept here to calculate over. Neither is a licence to pass it on.\n\n"
+    )
     out.flush()
     return 0
 

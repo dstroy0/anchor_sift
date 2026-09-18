@@ -24,10 +24,11 @@ import re
 import subprocess
 import sys
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -39,17 +40,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -58,8 +69,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -73,23 +85,87 @@ FRONT = 60
 
 # Each language with every name papers use for it. First entry is the name used in output.
 NAMES = (
-    ("Lushootseed", ("lushootseed", "puget salish", "puget sound salish", "skagit",
-                     "snohomish", "dxʷləšucid", "twulshootseed")),
-    ("Nsyilxcən", ("nsyilxcən", "nsyilxcen", "nsilxcin", "okanagan", "colville",
-                   "nqilxwcen", "nqílxwcən", "colville-okanagan")),
-    ("St'át'imcets", ("st'át'imcets", "statimcets", "st’át’imcets", "lillooet", "stl'atl'imx")),
-    ("nɬeʔkepmxcín", ("nɬeʔkepmxcín", "nlekepmxcin", "nłeʔkepmxcín", "thompson river salish",
-                      "thompson salish", "nlaka'pamux", "nlakapamux")),
+    (
+        "Lushootseed",
+        (
+            "lushootseed",
+            "puget salish",
+            "puget sound salish",
+            "skagit",
+            "snohomish",
+            "dxʷləšucid",
+            "twulshootseed",
+        ),
+    ),
+    (
+        "Nsyilxcən",
+        (
+            "nsyilxcən",
+            "nsyilxcen",
+            "nsilxcin",
+            "okanagan",
+            "colville",
+            "nqilxwcen",
+            "nqílxwcən",
+            "colville-okanagan",
+        ),
+    ),
+    (
+        "St'át'imcets",
+        ("st'át'imcets", "statimcets", "st’át’imcets", "lillooet", "stl'atl'imx"),
+    ),
+    (
+        "nɬeʔkepmxcín",
+        (
+            "nɬeʔkepmxcín",
+            "nlekepmxcin",
+            "nłeʔkepmxcín",
+            "thompson river salish",
+            "thompson salish",
+            "nlaka'pamux",
+            "nlakapamux",
+        ),
+    ),
     ("Nuxalk", ("nuxalk", "bella coola")),
-    ("Halkomelem", ("halkomelem", "halq'eméylem", "halqemeylem", "hul'q'umi'num",
-                    "hulquminum", "musqueam", "cowichan", "chilliwack")),
+    (
+        "Halkomelem",
+        (
+            "halkomelem",
+            "halq'eméylem",
+            "halqemeylem",
+            "hul'q'umi'num",
+            "hulquminum",
+            "musqueam",
+            "cowichan",
+            "chilliwack",
+        ),
+    ),
     ("Squamish", ("squamish", "skwxwú7mesh", "skwxwu7mesh")),
     ("Sechelt", ("sechelt", "shashishalhem", "she shashishalhem")),
-    ("Comox", ("mainland comox", "ayajuthem", "ʔayʔaǰuθəm", "sliammon", "island comox",
-               "comox")),
+    (
+        "Comox",
+        (
+            "mainland comox",
+            "ayajuthem",
+            "ʔayʔaǰuθəm",
+            "sliammon",
+            "island comox",
+            "comox",
+        ),
+    ),
     ("Twana", ("twana", "skokomish")),
-    ("Straits", ("straits salish", "northern straits", "saanich", "lummi", "songish",
-                 "samish", "sooke")),
+    (
+        "Straits",
+        (
+            "straits salish",
+            "northern straits",
+            "saanich",
+            "lummi",
+            "songish",
+            "samish",
+            "sooke",
+        ),
+    ),
     ("Klallam", ("klallam", "clallam", "nəxʷsƛ̕ayʔəmúcən")),
     ("Secwepemctsín", ("secwepemctsín", "secwepemctsin", "shuswap")),
     ("Coeur d'Alene", ("coeur d'alene", "coeur d’alene", "snchitsu'umshtsn")),
@@ -137,7 +213,9 @@ def attribution(found):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     counted = collections.Counter()
     unattributed = 0
     rows = []
@@ -150,20 +228,26 @@ def main():
             unattributed += 1
         rows.append((os.path.basename(path)[:-4], one, found[:3]))
 
-    out.write("  %d papers, %d attributed to one language, %d not\n"
-              % (len(rows), len(rows) - unattributed, unattributed))
+    out.write(
+        "  %d papers, %d attributed to one language, %d not\n"
+        % (len(rows), len(rows) - unattributed, unattributed)
+    )
     out.write("\n  %-22s %s\n" % ("language", "papers"))
     for name, times in counted.most_common():
         out.write("  %-22s %d\n" % (name, times))
 
-    out.write("\n  a sample of what was not attributed, with what its front matter names\n")
+    out.write(
+        "\n  a sample of what was not attributed, with what its front matter names\n"
+    )
     shown = 0
     for stem, one, found in rows:
         if one or shown >= 8:
             continue
         shown += 1
-        out.write("    %-40s %s\n"
-                  % (stem[:40], ", ".join("%s %d" % (a, b) for a, b in found) or "nothing"))
+        out.write(
+            "    %-40s %s\n"
+            % (stem[:40], ", ".join("%s %d" % (a, b) for a, b in found) or "nothing")
+        )
     out.flush()
     return 0
 

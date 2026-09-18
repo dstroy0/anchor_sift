@@ -44,17 +44,20 @@ for _category in os.scandir(HERE):
 # counting parents. Counting put this at maint/data/instrument, which has never existed, and
 # the import failed with a missing module instead of a wrong path.
 _at = os.path.dirname(os.path.abspath(__file__))
-while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+while (_at != os.path.dirname(_at)) and not os.path.isdir(
+    os.path.join(_at, "src", "engine")
+):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
 
 from papers import EVERY  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -66,17 +69,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -85,8 +98,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -103,13 +117,70 @@ SHAPE_RUN = 4
 # English function words carry no concept. A gloss sharing one of these with another gloss is not
 # two forms meaning the same thing. This is the entire list and it is English, not Salish:
 # nothing here is a claim about any of the languages being extracted.
-EMPTY = frozenset((
-    "a", "an", "the", "of", "to", "in", "on", "at", "by", "for", "with", "from", "and", "or",
-    "but", "is", "are", "was", "were", "be", "been", "being", "it", "its", "he", "she", "they",
-    "them", "his", "her", "their", "this", "that", "these", "those", "there", "here", "as", "so",
-    "not", "no", "then", "than", "when", "who", "whom", "which", "what", "you", "your", "i", "me",
-    "my", "we", "us", "our", "him", "one", "s", "t",
-))
+EMPTY = frozenset(
+    (
+        "a",
+        "an",
+        "the",
+        "of",
+        "to",
+        "in",
+        "on",
+        "at",
+        "by",
+        "for",
+        "with",
+        "from",
+        "and",
+        "or",
+        "but",
+        "is",
+        "are",
+        "was",
+        "were",
+        "be",
+        "been",
+        "being",
+        "it",
+        "its",
+        "he",
+        "she",
+        "they",
+        "them",
+        "his",
+        "her",
+        "their",
+        "this",
+        "that",
+        "these",
+        "those",
+        "there",
+        "here",
+        "as",
+        "so",
+        "not",
+        "no",
+        "then",
+        "than",
+        "when",
+        "who",
+        "whom",
+        "which",
+        "what",
+        "you",
+        "your",
+        "i",
+        "me",
+        "my",
+        "we",
+        "us",
+        "our",
+        "him",
+        "one",
+        "s",
+        "t",
+    )
+)
 
 
 def tables():
@@ -146,7 +217,9 @@ def tables():
 def concepts(gloss):
     """The content words of a gloss, which two forms have to share to be one concept."""
     held = set()
-    for one in gloss.lower().replace("/", " ").replace(",", " ").replace(";", " ").split():
+    for one in (
+        gloss.lower().replace("/", " ").replace(",", " ").replace(";", " ").split()
+    ):
         word = "".join(letter for letter in one if letter.isalpha())
         if word and (word not in EMPTY) and (len(word) > 2):
             held.add(word)
@@ -191,7 +264,11 @@ def web(rows, marks, language):
         by_context[(where, who)].add(whole)
 
     edges = collections.Counter()
-    for kind, table in (("concept", by_concept), ("shape", by_shape), ("context", by_context)):
+    for kind, table in (
+        ("concept", by_concept),
+        ("shape", by_shape),
+        ("context", by_context),
+    ):
         for key, members in table.items():
             held = sorted(members)
             # A group of n forms is n*(n-1)/2 edges, and one section of a story can hold a hundred
@@ -245,13 +322,17 @@ def by_language():
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     if not os.path.isdir(CORPORA):
         os.makedirs(CORPORA)
 
     grouped, marks = by_language()
-    out.write("  %-34s %-8s %-9s %-9s %-9s %s\n"
-              % ("group", "rows", "forms", "concept", "shape", "context"))
+    out.write(
+        "  %-34s %-8s %-9s %-9s %-9s %s\n"
+        % ("group", "rows", "forms", "concept", "shape", "context")
+    )
     total_forms = 0
     total_edges = 0
     for name in sorted(grouped):
@@ -260,20 +341,32 @@ def main():
         if not forms:
             continue
         counted = collections.Counter(kind for (_, _, kind) in edges.elements())
-        out.write("  %-34s %-8d %-9d %-9d %-9d %d\n"
-                  % (name[:34], len(rows), len(forms), counted["concept"], counted["shape"],
-                     counted["context"]))
+        out.write(
+            "  %-34s %-8d %-9d %-9d %-9d %d\n"
+            % (
+                name[:34],
+                len(rows),
+                len(forms),
+                counted["concept"],
+                counted["shape"],
+                counted["context"],
+            )
+        )
         total_forms += len(forms)
         total_edges += sum(counted.values())
 
-        path = os.path.join(CORPORA, "%s.web.tsv" % name.replace(" ", "_").replace("/", "_"))
+        path = os.path.join(
+            CORPORA, "%s.web.tsv" % name.replace(" ", "_").replace("/", "_")
+        )
         with open(path, "w", encoding="utf-8", newline="\n") as handle:
             handle.write("first\tsecond\tkind\tseen\n")
             for (first, second, kind), seen in sorted(edges.items()):
                 handle.write("%s\t%s\t%s\t%d\n" % (first, second, kind, seen))
 
-    out.write("\n  %d forms, %d edges, written to %s\n"
-              % (total_forms, total_edges, os.path.relpath(CORPORA, ROOT)))
+    out.write(
+        "\n  %d forms, %d edges, written to %s\n"
+        % (total_forms, total_edges, os.path.relpath(CORPORA, ROOT))
+    )
     out.write("  a concept edge crosses an orthography, because the gloss is the\n")
     out.write("  only part of a form two papers wrote the same way\n")
     out.flush()

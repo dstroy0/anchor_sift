@@ -43,13 +43,21 @@ import re
 import subprocess
 import sys
 
-from salish_marking import DERIVED, SPOKEN, UNCLASSIFIED, rendered, switches, tagged_spans
+from salish_marking import (
+    DERIVED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -61,17 +69,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -80,8 +98,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -96,7 +115,8 @@ SOURCE = os.path.join(PAPERS, "Hall-et-al_-ICSNL_61-1.txt")
 TARGET = os.path.join(
     CORPORA,
     "unstated_CtrlAltDeleteTheControlDirectiveAndAssociatedTDeletionInNlekepmxcin"
-    "_HallLuntzlaraMellesmoenReid_Salish_nlekepmxcin_2026_mixed.txt")
+    "_HallLuntzlaraMellesmoenReid_Salish_nlekepmxcin_2026_mixed.txt",
+)
 
 # Kept in step with HALL_CTR in hand_extraction/papers.py. The dot below is this paper's rounded
 # uvular, in x̣íɬ and sóx̣ʷest. The length mark is deliberately absent: all five in the paper are a
@@ -166,7 +186,9 @@ def leftover(text, taken):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -202,12 +224,16 @@ def main():
         # where the entry is the word. The hand extraction records them the same way.
         for found in SURFACE.finditer(trimmed):
             inner = found.group(1)
-            rows.append((where, ELSEWHERE.get(inner, who), kind_of(inner), found.group(0)))
+            rows.append(
+                (where, ELSEWHERE.get(inner, who), kind_of(inner), found.group(0))
+            )
             taken.append(found.span(0))
 
         for found in UNDERLYING.finditer(trimmed):
             inner = found.group(1)
-            rows.append((where, ELSEWHERE.get(inner, who), "underlying", found.group(0)))
+            rows.append(
+                (where, ELSEWHERE.get(inner, who), "underlying", found.group(0))
+            )
             taken.append(found.span(0))
 
         # Whatever the two patterns did not reach. On this paper that is the prose, the glosses, the
@@ -225,23 +251,41 @@ def main():
         rows.append(("not reached page %d" % at, "", UNCLASSIFIED, text))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# Ctrl-Alt-Delete: The Control Directive and Associated /t/ Deletion in\n")
-        handle.write("# nɬeʔkepmxcín. Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica\n")
-        handle.write("# Reid. Papers for the International Conference on Salish and Neighbouring\n")
+        handle.write(
+            "# Ctrl-Alt-Delete: The Control Directive and Associated /t/ Deletion in\n"
+        )
+        handle.write(
+            "# nɬeʔkepmxcín. Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica\n"
+        )
+        handle.write(
+            "# Reid. Papers for the International Conference on Salish and Neighbouring\n"
+        )
         handle.write("# Languages 61, Vancouver, BC: UBCWPL, 2026.\n")
         handle.write("#\n")
-        handle.write("# Every example is printed twice: a surface form in square brackets and the\n")
-        handle.write("# underlying form the authors propose for it in slashes. Only the bracketed\n")
+        handle.write(
+            "# Every example is printed twice: a surface form in square brackets and the\n"
+        )
+        handle.write(
+            "# underlying form the authors propose for it in slashes. Only the bracketed\n"
+        )
         handle.write("# form was said, and only it reaches the pure file.\n")
         handle.write("#\n")
-        handle.write("# The forms are Thompson and Thompson's, out of their 1992 grammar and 1996\n")
-        handle.write("# dictionary, except two from Hall and Phillips 2025, which is Bev Phillips\n")
-        handle.write("# reading her own story, and the sentence kʷaɬtèzetkʷ introduces herself with\n")
+        handle.write(
+            "# The forms are Thompson and Thompson's, out of their 1992 grammar and 1996\n"
+        )
+        handle.write(
+            "# dictionary, except two from Hall and Phillips 2025, which is Bev Phillips\n"
+        )
+        handle.write(
+            "# reading her own story, and the sentence kʷaɬtèzetkʷ introduces herself with\n"
+        )
         handle.write("# in the acknowledgement footnote.\n")
         handle.write("line\twho\tkind\tswitches\tcontent\n")
         for at, (spot, who, kind, text) in enumerate(rows, 1):
             spoken = (kind in ("cited form", "running speech")) and (who != "")
-            spoken = spoken and (ELSEWHERE.get(text, TARGET_LANGUAGE) == TARGET_LANGUAGE)
+            spoken = spoken and (
+                ELSEWHERE.get(text, TARGET_LANGUAGE) == TARGET_LANGUAGE
+            )
             layer = SPOKEN if spoken else DERIVED
             if kind == UNCLASSIFIED:
                 content = "N.%s.%s:{%s}" % (layer, kind, text)
@@ -249,8 +293,10 @@ def main():
             else:
                 content = rendered(text, layer, kind, MARKS)
                 crossings = switches(text, MARKS)
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (at, who or spot, kind, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (at, who or spot, kind, crossings, content)
+            )
 
     # The words alone. The underlying forms are held out by their kind, the starred ones by theirs,
     # and ʔayʔaǰuθəm and its suffix by the who column.
@@ -274,20 +320,30 @@ def main():
                 kept += 1
 
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, spot, UNKNOWN_KIND, "", text) for spot, who, kind, text in rows
-               if (kind == UNCLASSIFIED) and not spot.startswith("not reached")]
+    flagged = [
+        (0, spot, UNKNOWN_KIND, "", text)
+        for spot, who, kind, text in rows
+        if (kind == UNCLASSIFIED) and not spot.startswith("not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "Ctrl-Alt-Delete", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d nɬeʔkepmxcín words written to\n  %s\n" % (kept, os.path.basename(pure)))
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d nɬeʔkepmxcín words written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     kinds = {}
     for spot, who, kind, text in rows:
         kinds[kind] = kinds.get(kind, 0) + 1
-    out.write("\n  by kind: %s\n" % ", ".join("%s %d" % (one, kinds[one]) for one in sorted(kinds)))
+    out.write(
+        "\n  by kind: %s\n"
+        % ", ".join("%s %d" % (one, kinds[one]) for one in sorted(kinds))
+    )
     out.flush()
     return 0
 

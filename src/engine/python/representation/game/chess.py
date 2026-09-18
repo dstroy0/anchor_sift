@@ -14,8 +14,7 @@
 # estimator that is wrong on blackjack is caught immediately; an estimator that is wrong on chess is
 # not caught by anything local. The only thing standing behind a chess number is whether the same
 # estimator reproduced the solved games. This backend is where the measurement stops being checkable
-# and starts having to be trusted, and the subject exists to make that boundary visible rather than
-# to hide it.
+# and starts having to be trusted, and the subject exists to make that boundary visible.
 #
 # The rules are complete: castling with its four conditions, en passant, promotion to all four
 # pieces, check, checkmate and stalemate. They are complete because an incomplete move generator
@@ -55,8 +54,7 @@ ONE_LONG = 1
 TWO_SHORT = 2
 TWO_LONG = 3
 
-# The opening array, rank 1 at the bottom for PLAYER_ONE. Written out rather than generated so it can
-# be read and checked by eye.
+# The opening array, rank 1 at the bottom for PLAYER_ONE. Written out.
 OPENING = (
     "rnbqkbnr",
     "pppppppp",
@@ -83,7 +81,9 @@ def on_board(row, column):
     return 0 <= row < SIZE and 0 <= column < SIZE
 
 
-def from_layout(rows, side=rules.PLAYER_ONE, rights=(True, True, True, True), passing=-1):
+def from_layout(
+    rows, side=rules.PLAYER_ONE, rights=(True, True, True, True), passing=-1
+):
     """A position from eight text rows, rank 8 first. Uppercase is PLAYER_ONE, lowercase PLAYER_TWO.
 
     The rows read top down the way a board is drawn. A position written here looks like the
@@ -191,9 +191,11 @@ class Chess(object):
             lines.append(text)
         lines.append(
             "to move: %s  rights: %s  ep: %d"
-            % ("one" if side == rules.PLAYER_ONE else "two", "".join(
-                letter for letter, held in zip("KQkq", rights) if held
-            ) or "-", passing)
+            % (
+                "one" if side == rules.PLAYER_ONE else "two",
+                "".join(letter for letter, held in zip("KQkq", rights) if held) or "-",
+                passing,
+            )
         )
         return "\n".join(lines)
 
@@ -267,7 +269,10 @@ def _pseudo_legal(state):
             for drow, dcolumn in rays:
                 distance = 1
                 while True:
-                    new_row, new_column = row + drow * distance, column + dcolumn * distance
+                    new_row, new_column = (
+                        row + drow * distance,
+                        column + dcolumn * distance,
+                    )
                     if not on_board(new_row, new_column):
                         break
                     target = new_row * SIZE + new_column
@@ -319,14 +324,18 @@ def _add_castles(found, board, side, rights, square):
     row = 0 if side == rules.PLAYER_ONE else 7
     if square != row * SIZE + 4:
         return
-    short, long_side = (ONE_SHORT, ONE_LONG) if side == rules.PLAYER_ONE else (TWO_SHORT, TWO_LONG)
+    short, long_side = (
+        (ONE_SHORT, ONE_LONG) if side == rules.PLAYER_ONE else (TWO_SHORT, TWO_LONG)
+    )
     if _in_check(board, side):
         return
 
     if rights[short] and all(board[row * SIZE + column] == EMPTY for column in (5, 6)):
         if not _attacked(board, row * SIZE + 5, _other(side)):
             found.append((square, row * SIZE + 6, 0))
-    if rights[long_side] and all(board[row * SIZE + column] == EMPTY for column in (1, 2, 3)):
+    if rights[long_side] and all(
+        board[row * SIZE + column] == EMPTY for column in (1, 2, 3)
+    ):
         if not _attacked(board, row * SIZE + 3, _other(side)):
             found.append((square, row * SIZE + 2, 0))
 

@@ -167,19 +167,19 @@ static const char *rule_name(LatticeRule rule)
 {
     switch (rule)
     {
-        case ANCHOR_SPREAD:
-        {
-            return "spread";
-        }
-        case ANCHOR_SHUFFLED:
-        {
-            return "shuffled";
-        }
-        case ANCHOR_LEADING:
-        default:
-        {
-            return "leading";
-        }
+    case ANCHOR_SPREAD:
+    {
+        return "spread";
+    }
+    case ANCHOR_SHUFFLED:
+    {
+        return "shuffled";
+    }
+    case ANCHOR_LEADING:
+    default:
+    {
+        return "leading";
+    }
     }
 }
 
@@ -358,48 +358,48 @@ static unsigned pick_lattice_anchors(LatticeRule rule, unsigned point_count, uns
 
     switch (rule)
     {
-        case ANCHOR_SPREAD:
+    case ANCHOR_SPREAD:
+    {
+        for (unsigned index = 0u; index < want; index++)
         {
-            for (unsigned index = 0u; index < want; index++)
-            {
-                anchors[index] = (index * point_count) / want;
-            }
-            break;
+            anchors[index] = (index * point_count) / want;
         }
-        case ANCHOR_SHUFFLED:
+        break;
+    }
+    case ANCHOR_SHUFFLED:
+    {
+        unsigned order[PATTERN_POINTS_MAX];
+        uint8_t noise[PATTERN_POINTS_MAX];
+
+        draw_bytes(noise, sizeof noise, salt);
+
+        for (unsigned index = 0u; index < point_count; index++)
         {
-            unsigned order[PATTERN_POINTS_MAX];
-            uint8_t noise[PATTERN_POINTS_MAX];
-
-            draw_bytes(noise, sizeof noise, salt);
-
-            for (unsigned index = 0u; index < point_count; index++)
-            {
-                order[index] = index;
-            }
-            for (unsigned slot = point_count - 1u; slot > 0u; slot--)
-            {
-                const unsigned pick = (unsigned)noise[slot] % (slot + 1u);
-                const unsigned held = order[slot];
-
-                order[slot] = order[pick];
-                order[pick] = held;
-            }
-            for (unsigned index = 0u; index < want; index++)
-            {
-                anchors[index] = order[index];
-            }
-            break;
+            order[index] = index;
         }
-        case ANCHOR_LEADING:
-        default:
+        for (unsigned slot = point_count - 1u; slot > 0u; slot--)
         {
-            for (unsigned index = 0u; index < want; index++)
-            {
-                anchors[index] = index;
-            }
-            break;
+            const unsigned pick = (unsigned)noise[slot] % (slot + 1u);
+            const unsigned held = order[slot];
+
+            order[slot] = order[pick];
+            order[pick] = held;
         }
+        for (unsigned index = 0u; index < want; index++)
+        {
+            anchors[index] = order[index];
+        }
+        break;
+    }
+    case ANCHOR_LEADING:
+    default:
+    {
+        for (unsigned index = 0u; index < want; index++)
+        {
+            anchors[index] = index;
+        }
+        break;
+    }
     }
     return want;
 }
@@ -535,8 +535,7 @@ static ptrdiff_t s_cube_box[PATTERN_POINTS];
  * @note Why this exists. A pattern of p points over an alphabet of L symbols occurs by chance about
  *       base_count / L^p times, which is already under one at eight points over sixteen symbols. The
  *       invariant sweep then reports that it had nothing to check, and a row that checked nothing is
- *       not evidence that anything held. A planted copy is a true occurrence by construction, so
- *       refusing one is the failure the proposition forbids.
+ *       not evidence that anything held. A planted copy is a true occurrence by construction.
  * @note Copies are spread across the base list instead of placed adjacently, since overlapping
  *       plants would overwrite each other and the last one written would be the only whole copy.
  *       Two plants can still overlap where the pattern is long, and that costs nothing: the check
@@ -739,8 +738,7 @@ static size_t build_grid(void)
 {
     // Eight points inside a 5 by 5 window, listed as row then column. No row and no column holds more
     // than two of them. Nothing about the set can be read as a run
-    static const unsigned scatter[PATTERN_POINTS][2] = {{0u, 0u}, {0u, 3u}, {1u, 1u}, {2u, 4u},
-                                                        {3u, 0u}, {3u, 2u}, {4u, 1u}, {4u, 4u}};
+    static const unsigned scatter[PATTERN_POINTS][2] = {{0u, 0u}, {0u, 3u}, {1u, 1u}, {2u, 4u}, {3u, 0u}, {3u, 2u}, {4u, 1u}, {4u, 4u}};
     size_t count = 0u;
 
     for (unsigned point = 0u; point < PATTERN_POINTS; point++)
@@ -1026,8 +1024,8 @@ int main(void)
         fill_levels(s_hypercube, cells, 0x400u + dimension, SYMBOL_LEVELS);
         snprintf(label, sizeof label, "cube%ud", dimension);
 
-        const LatticeCase shape = {label,           s_hypercube,         same_byte, s_hypercube_bases,
-                                   bases,           s_hypercube_points,  PATTERN_POINTS};
+        const LatticeCase shape = {label, s_hypercube, same_byte, s_hypercube_bases,
+                                   bases, s_hypercube_points, PATTERN_POINTS};
 
         report_lattice(&shape);
     }
@@ -1055,7 +1053,7 @@ int main(void)
             const size_t seat = s_line_bases[0];
             const unsigned planted = plant(s_line, s_line_bases, swept_bases, seat, s_line_points,
                                            points, PLANTED_COPIES);
-            const LatticeCase line = {"line1d", s_line,          same_byte, s_line_bases,
+            const LatticeCase line = {"line1d", s_line, same_byte, s_line_bases,
                                       swept_bases, s_line_points, points};
 
             report_swept(&line, levels, planted, seat);
@@ -1075,7 +1073,7 @@ int main(void)
             const unsigned cube_planted =
                 plant(s_hypercube, s_hypercube_bases, cube_swept, cube_seat, s_hypercube_points,
                       points, PLANTED_COPIES);
-            const LatticeCase cube = {"cube3d",   s_hypercube,        same_byte, s_hypercube_bases,
+            const LatticeCase cube = {"cube3d", s_hypercube, same_byte, s_hypercube_bases,
                                       cube_swept, s_hypercube_points, points};
 
             report_swept(&cube, levels, cube_planted, cube_seat);

@@ -34,14 +34,22 @@ import subprocess
 import sys
 
 from inserted_space import closed_spaces
-from salish_marking import (DERIVED, MARKED, SPOKEN, UNCLASSIFIED, rendered, switches,
-                            tagged_spans)
+from salish_marking import (
+    DERIVED,
+    MARKED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -53,17 +61,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -72,8 +90,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -88,7 +107,8 @@ SOURCE = os.path.join(PAPERS, "ICSNL59_LaFontaine_Janzen_final.txt")
 TARGET = os.path.join(
     CORPORA,
     "wlwlmelst-MauriceMichell_FourStoriesByWlwlmelst_LaFontaineJanzen"
-    "_Salish_nlekepmxcin_2024_mixed.txt")
+    "_Salish_nlekepmxcin_2024_mixed.txt",
+)
 
 PAGE = re.compile(r"^===== page \d+ =====$")
 HEADING = re.compile(r"^(\d+(?:\.\d+)?)\s+(\S.*)$")
@@ -107,7 +127,8 @@ CATEGORIES = re.compile(
     r"\b(?:ACCM|ACHV|AFF|AGENT|AT|AUG|AUT|AUX|CAUSE|CHR|CTST|DIM|DIR|DRV|DSCR|EMPH|EP|"
     r"EST\.CTX|FMV|FUT|IDF|IM|IMP|INC|INS|INT|LCL|LIG|MDL|NEG|NOM|OBL|PART\.CTX|PER|PTZG|"
     r"QLT|RFL|RFM|RPRT|RSL|SPZG|ST|TR|UNR|1SG|2SG|3SG|1PL|2PL|3PL|1\.SBJ|2\.SBJ|3\.SBJ|"
-    r"1\.POSS|3\.POSS|3\.INTR|1PL\.OBJ|1PL\.SBJ|1PL\.POSS|1PL\.INTR|2\.CJV|EMPH\.INT)\b")
+    r"1\.POSS|3\.POSS|3\.INTR|1PL\.OBJ|1PL\.SBJ|1PL\.POSS|1PL\.INTR|2\.CJV|EMPH\.INT)\b"
+)
 
 STORIES = {
     "3.1": "sptekwlcms l nskixzeʔ, A Story My Mother Told Me",
@@ -233,13 +254,17 @@ def three_line_parts(block):
             close()
             slot = 0
     close()
-    slipped = any(CATEGORIES.search(one[0] or "") or CATEGORIES.search(one[1] or "")
-                  for one in parts)
+    slipped = any(
+        CATEGORIES.search(one[0] or "") or CATEGORIES.search(one[1] or "")
+        for one in parts
+    )
     return parts, translation, leftover, slipped
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -269,8 +294,16 @@ def main():
                 # The count slipped. Every line after that point is in the wrong column and
                 # none of them can be named. The block is flagged whole.
                 for one in block:
-                    rows.append(("T" if carries_language(one) else "N",
-                                 count, story, number, UNCLASSIFIED, one))
+                    rows.append(
+                        (
+                            "T" if carries_language(one) else "N",
+                            count,
+                            story,
+                            number,
+                            UNCLASSIFIED,
+                            one,
+                        )
+                    )
                 continue
             # Each column joined across the parts, which puts a wrapped sentence together.
             said = " ".join(one[0] for one in parts if one[0])
@@ -285,8 +318,16 @@ def main():
             if translation:
                 rows.append(("N", count, story, number, "translation", translation))
             for one in leftover:
-                rows.append(("T" if carries_language(one) else "N",
-                             count, story, number, UNCLASSIFIED, one))
+                rows.append(
+                    (
+                        "T" if carries_language(one) else "N",
+                        count,
+                        story,
+                        number,
+                        UNCLASSIFIED,
+                        one,
+                    )
+                )
 
     # Section 2 cites forms while discussing dialect. They are this language and belong in the file.
     for one in held.get("2", []):
@@ -299,8 +340,12 @@ def main():
         trimmed = " ".join(one.split())
         if not trimmed:
             continue
-        if carries_language(trimmed) or re.match(r"^-?[A-Za-zʔə]{1,8}-?\s+[A-Z]", trimmed):
-            rows.append(("T", 0, "glossing terms", "appendix", "morpheme entry", trimmed))
+        if carries_language(trimmed) or re.match(
+            r"^-?[A-Za-zʔə]{1,8}-?\s+[A-Z]", trimmed
+        ):
+            rows.append(
+                ("T", 0, "glossing terms", "appendix", "morpheme entry", trimmed)
+            )
 
     # Every line of the paper no section reached, added to the record as unclassified. The
     # marked file holds every token of the language the paper printed. They stay out of the pure
@@ -311,19 +356,39 @@ def main():
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
         handle.write("# Four Stories by wlwlmelst.\n")
-        handle.write("# Written, transcribed and translated by wlwlmelst (Maurice Michell), a\n")
-        handle.write("# speaker of the Southern yutémkt dialect of nłeʔkepmxcín. With Jade\n")
-        handle.write("# LaFontaine and Jonathan Janzen. Papers for the International Conference\n")
+        handle.write(
+            "# Written, transcribed and translated by wlwlmelst (Maurice Michell), a\n"
+        )
+        handle.write(
+            "# speaker of the Southern yutémkt dialect of nłeʔkepmxcín. With Jade\n"
+        )
+        handle.write(
+            "# LaFontaine and Jonathan Janzen. Papers for the International Conference\n"
+        )
         handle.write("# on Salish and Neighbouring Languages 59, UBCWPL, 2024.\n")
-        handle.write("# These stories were passed to wlwlmelst by his mother nxwelinek and his\n")
-        handle.write("# grandmother ʔústko, and he shares them freely for those connecting with\n")
+        handle.write(
+            "# These stories were passed to wlwlmelst by his mother nxwelinek and his\n"
+        )
+        handle.write(
+            "# grandmother ʔústko, and he shares them freely for those connecting with\n"
+        )
         handle.write("# the language.\n")
         handle.write("#\n")
-        handle.write("# Mark is language.layer.kind. T is the target language, N is anything else.\n")
-        handle.write("# spoken is what was said or written by him, including his own translations.\n")
-        handle.write("# derived is worked out from it: segmentation normalizes to underlying forms\n")
-        handle.write("# and the gloss is category labels. Neither records anything uttered.\n")
-        handle.write("# Gloss categories are the paper's own, from its appendix, unchanged.\n")
+        handle.write(
+            "# Mark is language.layer.kind. T is the target language, N is anything else.\n"
+        )
+        handle.write(
+            "# spoken is what was said or written by him, including his own translations.\n"
+        )
+        handle.write(
+            "# derived is worked out from it: segmentation normalizes to underlying forms\n"
+        )
+        handle.write(
+            "# and the gloss is category labels. Neither records anything uttered.\n"
+        )
+        handle.write(
+            "# Gloss categories are the paper's own, from its appendix, unchanged.\n"
+        )
         handle.write("line\tstory\tsection\tswitches\tcontent\n")
         for mark, count, story, number, kind, text in rows:
             layer = LAYER[kind]
@@ -333,8 +398,10 @@ def main():
             else:
                 content = "N.%s.%s:{%s}" % (layer, kind, text)
                 crossings = 0
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (count, story, number, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (count, story, number, crossings, content)
+            )
 
     pure = TARGET[:-4] + ".pure.txt"
     kept = 0
@@ -358,36 +425,52 @@ def main():
     # A file of its own for what the tool could not sort: a block line none of the tests typed,
     # and a line no section reached, which here is the front matter and sections 1 and 4.
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, "%s block %d" % (number, count), UNKNOWN_KIND, "", text)
-               for mark, count, story, number, kind, text in rows
-               if (kind == UNCLASSIFIED) and (story != "not reached")]
+    flagged = [
+        (0, "%s block %d" % (number, count), UNKNOWN_KIND, "", text)
+        for mark, count, story, number, kind, text in rows
+        if (kind == UNCLASSIFIED) and (story != "not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "Four Stories by wlwlmelst", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure)))
+    out.write(
+        "  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
     out.write("  %d spans skipped as already written\n" % repeated)
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     out.write("\n  %-38s %-10s %-16s %s\n" % ("story", "section", "kind", "lines"))
     counted = {}
     for mark, count, story, number, kind, text in rows:
         counted[(story, number, kind)] = counted.get((story, number, kind), 0) + 1
     for key in sorted(counted):
-        out.write("  %-38s %-10s %-16s %d\n" % (key[0][:38], key[1], key[2], counted[key]))
+        out.write(
+            "  %-38s %-10s %-16s %d\n" % (key[0][:38], key[1], key[2], counted[key])
+        )
 
     marks = {}
     for mark, count, story, number, kind, text in rows:
         marks[mark] = marks.get(mark, 0) + 1
-    mixed = sum(1 for row in rows
-                if (row[0] == "T") and (LAYER[row[4]] == SPOKEN)
-                and any(one == "N" for one, run in tagged_spans(row[5])))
-    out.write("\n  T lines %d, N lines %d, spoken lines he mixed %d\n"
-              % (marks.get("T", 0), marks.get("N", 0), mixed))
+    mixed = sum(
+        1
+        for row in rows
+        if (row[0] == "T")
+        and (LAYER[row[4]] == SPOKEN)
+        and any(one == "N" for one, run in tagged_spans(row[5]))
+    )
+    out.write(
+        "\n  T lines %d, N lines %d, spoken lines he mixed %d\n"
+        % (marks.get("T", 0), marks.get("N", 0), mixed)
+    )
     missing = [one for one in sorted(STORIES) if not held.get(one)]
-    out.write("  stories the paper has that came back empty: %s\n"
-              % (", ".join(missing) if missing else "none"))
+    out.write(
+        "  stories the paper has that came back empty: %s\n"
+        % (", ".join(missing) if missing else "none")
+    )
 
     out.flush()
     return 0

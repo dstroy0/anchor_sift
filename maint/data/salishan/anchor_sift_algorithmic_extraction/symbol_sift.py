@@ -50,17 +50,20 @@ for _category in os.scandir(HERE):
 # counting parents. Counting put this at maint/data/instrument, which has never existed, and
 # the import failed with a missing module instead of a wrong path.
 _at = os.path.dirname(os.path.abspath(__file__))
-while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+while (_at != os.path.dirname(_at)) and not os.path.isdir(
+    os.path.join(_at, "src", "engine")
+):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
 
 from paper_config import by_stem  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -72,17 +75,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -91,8 +104,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -129,7 +143,7 @@ def clean_runs(tokens, width):
     counts = collections.Counter()
     for one in tokens:
         for at in range(len(one) - width + 1):
-            counts[one[at:at + width]] += 1
+            counts[one[at : at + width]] += 1
     return counts
 
 
@@ -159,7 +173,7 @@ def scored(candidate, counts, total, flat):
     held = 0.0
     for width in WIDTHS:
         for at in range(len(candidate) - width + 1):
-            run = candidate[at:at + width]
+            run = candidate[at : at + width]
             seen = counts.get(run, 0)
             expected = flat * total
             spread = math.sqrt(expected * (1.0 - flat)) or 1.0
@@ -233,7 +247,9 @@ def break_sites(lines, marks, vocabulary, inventory):
             for one, joined in candidates_for(first, second, inventory):
                 if joined in vocabulary:
                     attested.append((one, joined))
-                elif (len(joined) >= INSIDE_FLOOR) and any(joined in word for word in vocabulary):
+                elif (len(joined) >= INSIDE_FLOOR) and any(
+                    joined in word for word in vocabulary
+                ):
                     attested.append((one, joined))
             attested = [one for one in attested if is_language_token(one[1], marks)]
             if not attested:
@@ -252,7 +268,9 @@ def inventory(text, marks):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     if len(sys.argv) < 2:
         out.write("  usage: symbol_sift.py <stem>\n")
         out.flush()
@@ -288,14 +306,24 @@ def main():
     for number, first, second, attested in sites:
         broken.add(first)
         broken.add(second)
-    clean = [one for line in lines for one in line.split()
-             if is_language_token(one, marks) and (one not in broken)]
+    clean = [
+        one
+        for line in lines
+        for one in line.split()
+        if is_language_token(one, marks) and (one not in broken)
+    ]
 
     out.write("  %s\n" % stem)
-    out.write("    %d sites where a join is a form this paper writes elsewhere\n" % len(sites))
-    out.write("    %d clean tokens for the reference, %d marks in the inventory\n"
-              % (len(clean), len(candidates_marks)))
-    out.write("    marks: %s\n" % " ".join("U+%04X" % ord(one) for one in candidates_marks))
+    out.write(
+        "    %d sites where a join is a form this paper writes elsewhere\n" % len(sites)
+    )
+    out.write(
+        "    %d clean tokens for the reference, %d marks in the inventory\n"
+        % (len(clean), len(candidates_marks))
+    )
+    out.write(
+        "    marks: %s\n" % " ".join("U+%04X" % ord(one) for one in candidates_marks)
+    )
 
     counts = {}
     for width in WIDTHS:
@@ -318,16 +346,25 @@ def main():
             joined = first + drawn.choice(pool) + second
             if joined in vocabulary:
                 chance += 1
-            elif (len(joined) >= INSIDE_FLOOR) and any(joined in word for word in vocabulary):
+            elif (len(joined) >= INSIDE_FLOOR) and any(
+                joined in word for word in vocabulary
+            ):
                 chance += 1
     rate = (chance / float(trials)) if trials else 0.0
 
-    out.write("\n    a random mark from the inventory lands on a form this paper writes %.3f of\n"
-              % rate)
-    out.write("    the time, over %d draws, which is the rate a reading here has to beat\n" % trials)
+    out.write(
+        "\n    a random mark from the inventory lands on a form this paper writes %.3f of\n"
+        % rate
+    )
+    out.write(
+        "    the time, over %d draws, which is the rate a reading here has to beat\n"
+        % trials
+    )
 
-    out.write("\n    %-30s %-30s %-8s %s\n"
-              % ("as extracted", "the paper's own spelling", "score", "other readings"))
+    out.write(
+        "\n    %-30s %-30s %-8s %s\n"
+        % ("as extracted", "the paper's own spelling", "score", "other readings")
+    )
     read = 0
     ambiguous = 0
     declined = 0
@@ -341,13 +378,19 @@ def main():
             declined += 1
             continue
         read += 1
-        out.write("    %-30s %-30s %-8.1f %s\n"
-                  % (("%s %s" % (first, second))[:30], joined[:30], mark, "none"))
+        out.write(
+            "    %-30s %-30s %-8.1f %s\n"
+            % (("%s %s" % (first, second))[:30], joined[:30], mark, "none")
+        )
 
-    out.write("\n    %d sites read, %d declined on score, %d left for a person because the\n"
-              % (read, declined, ambiguous))
+    out.write(
+        "\n    %d sites read, %d declined on score, %d left for a person because the\n"
+        % (read, declined, ambiguous)
+    )
     out.write("    paper attests more than one restoration\n")
-    out.write("    a word this paper prints once and breaks once cannot be read this way, and is\n")
+    out.write(
+        "    a word this paper prints once and breaks once cannot be read this way, and is\n"
+    )
     out.write("    not counted above\n")
     out.flush()
     return 0

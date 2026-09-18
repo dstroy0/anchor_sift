@@ -107,9 +107,9 @@ __global__ static void correlate_kernel(const float *source, const double *kerne
         stride = pass.width;
     }
     const unsigned int line_start = voxel - (along * stride);
-    const double *const centre = &kernel[pass.radius];
+    const double *const center = &kernel[pass.radius];
 
-    double total = (double)source[voxel] * centre[0];
+    double total = (double)source[voxel] * center[0];
     for (unsigned int reach = pass.radius; reach > 0u; reach -= 1u)
     {
 
@@ -122,7 +122,7 @@ __global__ static void correlate_kernel(const float *source, const double *kerne
 
         // The two samples one reach apart share the left weight, as scipy's symmetric path sums
         // them.
-        total += (left_value + right_value) * centre[-(long long)reach];
+        total += (left_value + right_value) * center[-(long long)reach];
     }
 
     // Narrowed to float32 after every pass, as scipy narrows its output array.
@@ -201,8 +201,7 @@ static int residual_smooth(const float *source, float *const *scratch,
 
 extern "C" long residual_field_run(const ResidualFieldRequest *args)
 {
-    if ((args == NULL) || (args->volume == NULL) || (args->residual == NULL) || (args->depth == 0u)
-     || (args->height == 0u) || (args->width == 0u))
+    if ((args == NULL) || (args->volume == NULL) || (args->residual == NULL) || (args->depth == 0u) || (args->height == 0u) || (args->width == 0u))
     {
         return RESIDUAL_FIELD_REFUSED;
     }
@@ -214,8 +213,7 @@ extern "C" long residual_field_run(const ResidualFieldRequest *args)
         }
     }
 
-    const unsigned long long plane = (unsigned long long)args->height
-                                   * (unsigned long long)args->width;
+    const unsigned long long plane = (unsigned long long)args->height * (unsigned long long)args->width;
     if (plane > 0xFFFFFFFFull)
     {
         return RESIDUAL_FIELD_REFUSED;
@@ -224,8 +222,7 @@ extern "C" long residual_field_run(const ResidualFieldRequest *args)
     int devices = 0;
 
     // A volume within a block of 2^32 voxels would wrap the block count's rounding up.
-    if ((voxels > (0xFFFFFFFFull - (unsigned long long)RESIDUAL_FIELD_BLOCK))
-     || (cudaGetDeviceCount(&devices) != cudaSuccess) || (devices < 1))
+    if ((voxels > (0xFFFFFFFFull - (unsigned long long)RESIDUAL_FIELD_BLOCK)) || (cudaGetDeviceCount(&devices) != cudaSuccess) || (devices < 1))
     {
         return RESIDUAL_FIELD_REFUSED;
     }

@@ -78,7 +78,7 @@ def average_spectrum(values, size, pad_to, kind, count):
         starts = [0]
     total = None
     for start in starts:
-        chunk = values[start:start + size]
+        chunk = values[start : start + size]
         if len(chunk) < size:
             chunk = chunk + [0.0] * (size - len(chunk))
         one = dsp.spectrum(chunk, win, pad_to)
@@ -164,8 +164,19 @@ def main():
     level = []
     linear = []
     for row in rows:
-        level.append([round(max(-120.0, 20.0 * math.log10(one / loudest)) if one > 0 else -120.0, 3)
-                      for one in row])
+        level.append(
+            [
+                round(
+                    (
+                        max(-120.0, 20.0 * math.log10(one / loudest))
+                        if one > 0
+                        else -120.0
+                    ),
+                    3,
+                )
+                for one in row
+            ]
+        )
         linear.append([round(one / loudest, 6) for one in row])
 
     # The consensus at each frequency, and how far each setting departs from it. This is the field
@@ -175,14 +186,24 @@ def main():
     for at in range(grid_n):
         column = sorted(row[at] for row in level)
         middle = len(column) // 2
-        consensus.append(column[middle] if len(column) % 2
-                         else (column[middle - 1] + column[middle]) / 2.0)
-    departure = [[round(row[at] - consensus[at], 3) for at in range(grid_n)] for row in level]
+        consensus.append(
+            column[middle]
+            if len(column) % 2
+            else (column[middle - 1] + column[middle]) / 2.0
+        )
+    departure = [
+        [round(row[at] - consensus[at], 3) for at in range(grid_n)] for row in level
+    ]
 
     fields = [
         {"key": "level", "label": "Level dB", "axis": which, "rows": level},
         {"key": "linear", "label": "Linear", "axis": which, "rows": linear},
-        {"key": "departure", "label": "From consensus", "axis": which, "rows": departure},
+        {
+            "key": "departure",
+            "label": "From consensus",
+            "axis": which,
+            "rows": departure,
+        },
     ]
 
     exact_note = ""
@@ -190,6 +211,7 @@ def main():
         # Extended precision on the smallest setting only. The point is not to sweep at this cost
         # but to establish that the floor being looked at is the signal's and not the arithmetic's.
         import exact as extended
+
         prec = extended.digits_for(exact_bits)
         size = min(256, min(swept) if which == "fft" else fft_size)
         size = dsp.next_power(size)
@@ -208,14 +230,20 @@ def main():
         re, im = extended.transform(tone, prec)
         mags = extended.magnitudes(re, im, prec)
         top = max(mags)
-        others = [one for where, one in enumerate(mags) if where not in (at_bin, size - at_bin)]
+        others = [
+            one
+            for where, one in enumerate(mags)
+            if where not in (at_bin, size - at_bin)
+        ]
         worst = max(others)
         floor = float(20 * (worst / top).log10()) if worst > 0 else float("-inf")
-        exact_note = (" Measured rather than claimed: a %d-point transform of a tone on a bin, at "
-                      "%d bits, puts every other bin %.0f dB down, which is %.0f effective bits "
-                      "against 51 for float64. Anything above that floor in the other fields is the "
-                      "signal or the window and not the arithmetic. That measurement took %.1f s."
-                      % (size, exact_bits, floor, -floor / 6.02, time.time() - began_exact))
+        exact_note = (
+            " Measured  at "
+            "%d bits, puts every other bin %.0f dB down, which is %.0f effective bits "
+            "against 51 for float64. Anything above that floor in the other fields is the "
+            "signal or the window and not the arithmetic. That measurement took %.1f s."
+            % (size, exact_bits, floor, -floor / 6.02, time.time() - began_exact)
+        )
 
     took = time.time() - began
     payload = {
@@ -224,16 +252,20 @@ def main():
         "valueLabel": "level",
         "eyebrow": "Analysis sweep - rendered as a solid",
         "title": "%s swept by %s" % (name, which),
-        "blurb": ("%s analyzed at %d settings of %s, every one resampled onto the same %d point "
-                  "frequency axis from 0 to %d Hz. Depth runs left to right as frequency; the other "
-                  "horizontal axis is the setting. Settings do not share a bin spacing. They are "
-                  "put on a common axis in Hz before anything is compared."
-                  % (name, len(swept), which, grid_n, top_hz)),
+        "blurb": (
+            "%s analyzed at %d settings of %s, every one resampled onto the same %d point "
+            "frequency axis from 0 to %d Hz. Depth runs left to right as frequency; the other "
+            "horizontal axis is the setting. Settings do not share a bin spacing. They are "
+            "put on a common axis in Hz before anything is compared."
+            % (name, len(swept), which, grid_n, top_hz)
+        ),
         "noteTitle": "What moves with the setting is the setting",
-        "note": ("A feature standing in the same place at every setting is in the signal. One that "
-                 "moves, or appears at one setting and not the next, is the analysis describing "
-                 "itself. The third field is each setting minus the median of all of them. It is "
-                 "zero where they agree and shows only the disagreement." + exact_note),
+        "note": (
+            "A feature standing in the same place at every setting is in the signal. One that "
+            "moves, or appears at one setting and not the next, is the analysis describing "
+            "itself. The third field is each setting minus the median of all of them. It is "
+            "zero where they agree and shows only the disagreement." + exact_note
+        ),
         "settings": settings.collect(sys.argv[1:]),
         "fields": fields,
         "swept": [label_of(one) for one in swept],
@@ -243,7 +275,9 @@ def main():
         page = handle.read()
     if "</script>" not in page:
         raise SystemExit("template is truncated: the script tag is never closed")
-    page = page.replace("/*VOXEL_DATA*/null", json.dumps(payload, separators=(",", ":")))
+    page = page.replace(
+        "/*VOXEL_DATA*/null", json.dumps(payload, separators=(",", ":"))
+    )
 
     target = text("--out") or os.path.join(HERE, "sweep_view.html")
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
@@ -251,7 +285,10 @@ def main():
 
     print("wrote %s (%.1f KB)" % (target, os.path.getsize(target) / 1024.0))
     print("  swept %s over %s" % (which, ", ".join(label_of(one) for one in swept)))
-    print("  %d point axis to %d Hz, %d frames averaged per setting" % (grid_n, top_hz, average))
+    print(
+        "  %d point axis to %d Hz, %d frames averaged per setting"
+        % (grid_n, top_hz, average)
+    )
     print("  %.1f s" % took)
     if exact_note:
         print(" %s" % exact_note.strip())

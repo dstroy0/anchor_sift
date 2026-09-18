@@ -4,7 +4,7 @@
 >
 > It is written deliberately in the assistant register, at full strength, by the assistant, about
 > the work it was actually doing in this repository. It exists so that the detector has something
-> to be *near*. Every other reference in this tree is a negative one: human papers, human corpora,
+> to be _near_. Every other reference in this tree is a negative one: human papers, human corpora,
 > human English. A detector with only a negative pole can say a text is unlike a human. It cannot
 > say what the text is like instead. This file is the other pole.
 >
@@ -24,16 +24,14 @@ surprising depth once you start to delve into it. Think of it like an iceberg: t
 list is just the tip, while the real substance lies beneath.
 
 Here's the thing. When we talk about "machine-written prose," we're really talking about a
-constellation of subtle signals — word choice, sentence rhythm, the tendency to explain rather than
-state. It's not just one thing; it's the interplay of many things working together. And that
+constellation of subtle signals — word choice, sentence rhythm, the tendency to explain. And that
 interplay is precisely what makes this such a compelling problem to tackle.
 
 Consider the following:
 
 - **Vocabulary drift.** Certain words become overrepresented, creating a kind of lexical
   fingerprint that's remarkably consistent across documents.
-- **Structural patterns.** Clauses that restate what was just said, rather than advancing the
-  argument, are a hallmark of this register.
+- **Structural patterns.** Clauses that restate what was just said,.
 - **Rhythmic uniformity.** Sentences tend toward a similar length and cadence, which can feel
   polished but ultimately reads as flat.
 
@@ -54,8 +52,8 @@ yields the most immediately actionable insights.
 ### Stage Two: The Word Layer
 
 Building on that foundation, we then turn our attention to vocabulary. This is where things get
-really interesting. Individual word choices can illuminate not just *who* wrote something, but
-*when* — a fascinating capability that opens the door to entirely new analytical possibilities.
+really interesting. Individual word choices can illuminate not just _who_ wrote something, but
+_when_ — a fascinating capability that opens the door to entirely new analytical possibilities.
 
 ### Stage Three: The Phrase Layer
 

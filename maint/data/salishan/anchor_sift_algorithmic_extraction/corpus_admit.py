@@ -28,23 +28,28 @@ import subprocess
 import sys
 
 # Every Salishan category on the import path. This can use a sibling from another one.
-for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
+for _category in os.scandir(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
 # The engine's instrument directory, found by walking up to the repository. anchor_sift lives in the
 # engine and not beside this file, and nothing on the path above reaches it.
 _at = os.path.dirname(os.path.abspath(__file__))
-while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+while (_at != os.path.dirname(_at)) and not os.path.isdir(
+    os.path.join(_at, "src", "engine")
+):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
 
 from anchor_sift import distance, self_distance, squash, support
 from corpus_growth import candidates_by_language, pure_by_language
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -56,17 +61,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -75,8 +90,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -101,7 +117,7 @@ def admit(pure, found):
     taken = []
     refused = []
     for at in range(0, len(ranked), BATCH):
-        batch = ranked[at:at + BATCH]
+        batch = ranked[at : at + BATCH]
         trial = held + batch
         if self_distance(trial) <= (SLACK * floor):
             held = trial
@@ -113,43 +129,73 @@ def admit(pure, found):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     pure = pure_by_language()
     found = candidates_by_language()
 
-    out.write("  %-16s %-8s %-11s %-9s %-9s %-8s %s\n"
-              % ("language", "pure", "candidates", "admitted", "D_self", "after", "support"))
+    out.write(
+        "  %-16s %-8s %-11s %-9s %-9s %-8s %s\n"
+        % ("language", "pure", "candidates", "admitted", "D_self", "after", "support")
+    )
     for name in sorted(pure):
         if not found.get(name):
             continue
         taken, refused, floor, after = admit(pure[name], found[name])
         profile, _ = squash(pure[name] + taken)
-        out.write("  %-16s %-8d %-11d %-9d %-9.4f %-8.4f %d\n"
-                  % (name[:16], len(pure[name]), len(found[name]), len(taken),
-                     floor, after, support(profile)))
+        out.write(
+            "  %-16s %-8d %-11d %-9d %-9.4f %-8.4f %d\n"
+            % (
+                name[:16],
+                len(pure[name]),
+                len(found[name]),
+                len(taken),
+                floor,
+                after,
+                support(profile),
+            )
+        )
 
         target = os.path.join(SIFTED, "%s.admitted.pure.txt" % name.replace(" ", ""))
         with open(target, "w", encoding="utf-8", newline="") as handle:
-            handle.write("# %s admitted into the pure corpus from the sifted candidates.\n" % name)
-            handle.write("# Admitted in batches of %d while the corpus split-half distance stayed\n"
-                         % BATCH)
-            handle.write("# within %.2f of what it was before any were added: %.4f, ending %.4f.\n"
-                         % (SLACK, floor, after))
-            handle.write("# %d of %d candidates admitted. The rest are in the .refused file, and\n"
-                         % (len(taken), len(found[name])))
-            handle.write("# refused means the corpus left its own curve, not that the line is wrong.\n")
+            handle.write(
+                "# %s admitted into the pure corpus from the sifted candidates.\n"
+                % name
+            )
+            handle.write(
+                "# Admitted in batches of %d while the corpus split-half distance stayed\n"
+                % BATCH
+            )
+            handle.write(
+                "# within %.2f of what it was before any were added: %.4f, ending %.4f.\n"
+                % (SLACK, floor, after)
+            )
+            handle.write(
+                "# %d of %d candidates admitted. The rest are in the .refused file, and\n"
+                % (len(taken), len(found[name]))
+            )
+            handle.write(
+                "# refused means the corpus left its own curve, not that the line is wrong.\n"
+            )
             for one in taken:
                 handle.write("%s\n" % one)
 
         target = os.path.join(SIFTED, "%s.refused.txt" % name.replace(" ", ""))
         with open(target, "w", encoding="utf-8", newline="") as handle:
             handle.write("# %s candidates the corpus curve refused.\n" % name)
-            handle.write("# Sorted by distance to the corpus, nearest first. The boundary is\n")
-            handle.write("# at the top of this file and the least like anything is at the bottom.\n")
+            handle.write(
+                "# Sorted by distance to the corpus, nearest first. The boundary is\n"
+            )
+            handle.write(
+                "# at the top of this file and the least like anything is at the bottom.\n"
+            )
             for one in refused:
                 handle.write("%s\n" % one)
 
-    out.write("\n  languages with candidates and no pure corpus to grow, left as candidates\n")
+    out.write(
+        "\n  languages with candidates and no pure corpus to grow, left as candidates\n"
+    )
     for name in sorted(found):
         if name not in pure:
             out.write("    %-18s %d\n" % (name, len(found[name])))

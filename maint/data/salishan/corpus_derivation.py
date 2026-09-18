@@ -43,7 +43,9 @@ for _category in os.scandir(HERE):
 # counting parents. Counting put this at maint/data/instrument, which has never existed, and
 # the import failed with a missing module instead of a wrong path.
 _at = os.path.dirname(os.path.abspath(__file__))
-while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+while (_at != os.path.dirname(_at)) and not os.path.isdir(
+    os.path.join(_at, "src", "engine")
+):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
 # Built from the repository and not by counting parents. Counting put this at maint/data/texbuild,
@@ -60,10 +62,11 @@ from language_check import BY_CORPUS  # noqa: E402
 from papers import EVERY, NOT_FAITHFUL, ORTHOGRAPHY_ABSENT, PAGE_TEXT  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -75,17 +78,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -94,8 +107,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -217,8 +231,11 @@ def pure_corpora(applied):
                 if not line:
                     continue
                 if applied:
-                    line = " ".join(one for one in line.split()
-                                    if is_language_token(one, marks.get(language, "")))
+                    line = " ".join(
+                        one
+                        for one in line.split()
+                        if is_language_token(one, marks.get(language, ""))
+                    )
                 if line:
                     held[language].append(line)
     return held
@@ -272,7 +289,10 @@ def anchor_resolution(pure):
             shuffled = list(others)
             random.Random(seed).shuffle(shuffled)
             mixed.append(self_distance(shuffled))
-        separations[name] = (distance(profiles[name], reference_profile), statistics.median(mixed))
+        separations[name] = (
+            distance(profiles[name], reference_profile),
+            statistics.median(mixed),
+        )
     return held, separations
 
 
@@ -334,38 +354,60 @@ def figure_of(papers, readers, path):
     where the two ways of reading a paper are going as the pure corpus grows.
     """
     import matplotlib
+
     matplotlib.use("Agg")
     import matplotlib.pyplot as plot
 
     figure, (left, right) = plot.subplots(1, 2, figsize=(13.5, 5.6))
 
-    for sound, mark, color, label in ((True, "o", "#1f5f8b", "hand extraction, sound source"),
-                                       (False, "X", "#b4451f", "hand extraction, damaged source")):
+    for sound, mark, color, label in (
+        (True, "o", "#1f5f8b", "hand extraction, sound source"),
+        (False, "X", "#b4451f", "hand extraction, damaged source"),
+    ):
         chosen = [one for one in papers if one["sound"] is sound]
         if not chosen:
             continue
-        left.scatter([one["forms"] + one["tokens"] for one in chosen],
-                     [one["unfound"] + one["missed"] for one in chosen],
-                     marker=mark, s=90, c=color, label=label, zorder=3,
-                     edgecolors="white", linewidths=0.6)
+        left.scatter(
+            [one["forms"] + one["tokens"] for one in chosen],
+            [one["unfound"] + one["missed"] for one in chosen],
+            marker=mark,
+            s=90,
+            c=color,
+            label=label,
+            zorder=3,
+            edgecolors="white",
+            linewidths=0.6,
+        )
     # The readers get their own color because they are a different measurement, not another sample
     # of the one beside them. A reader is written for one paper and its errors belong to that paper.
     if readers:
-        left.scatter([one["wanted"] for one in readers],
-                     [one["invented"] + one["wrong"] for one in readers],
-                     marker="s", s=70, c="#2e7d4f", label="reader against its table", zorder=4,
-                     edgecolors="white", linewidths=0.6)
+        left.scatter(
+            [one["wanted"] for one in readers],
+            [one["invented"] + one["wrong"] for one in readers],
+            marker="s",
+            s=70,
+            c="#2e7d4f",
+            label="reader against its table",
+            zorder=4,
+            edgecolors="white",
+            linewidths=0.6,
+        )
     # Only the papers that failed something get named. The ones on the zero line are the result and
     # there are nine of them sitting on one row. Section 2's table names every paper.
     # The offsets alternate above and below because the two Lyon papers land almost on top of each
     # other, and one label would otherwise be written across the other.
     failed = [one for one in papers if (one["unfound"] + one["missed"]) > 0]
-    for at, one in enumerate(sorted(failed, key=lambda paper: paper["forms"] + paper["tokens"])):
-        left.annotate(one["stem"][:20],
-                      (one["forms"] + one["tokens"], one["unfound"] + one["missed"]),
-                      textcoords="offset points", xytext=(-96 if (at % 2) else 8, 6 if (at % 2)
-                                                          else -12),
-                      fontsize=7, color="#333333")
+    for at, one in enumerate(
+        sorted(failed, key=lambda paper: paper["forms"] + paper["tokens"])
+    ):
+        left.annotate(
+            one["stem"][:20],
+            (one["forms"] + one["tokens"], one["unfound"] + one["missed"]),
+            textcoords="offset points",
+            xytext=(-96 if (at % 2) else 8, 6 if (at % 2) else -12),
+            fontsize=7,
+            color="#333333",
+        )
 
     left.set_xscale("log")
     left.set_yscale("symlog", linthresh=1)
@@ -388,35 +430,76 @@ def figure_of(papers, readers, path):
     # A person's accuracy on a page does not improve because some other paper was read. The
     # reader arm does not climb with corpus size. Its scatter is the point: a reader is written for
     # one paper and what it gets right is a fact about that paper.
-    rates = [one["reproduced"] / float(one["wanted"]) for one in readers if one["wanted"]]
+    rates = [
+        one["reproduced"] / float(one["wanted"]) for one in readers if one["wanted"]
+    ]
     reader = statistics.median(rates) if rates else 0.0
 
     crossing = None
     for curve, color, style, label in (
-            (bare, "#6a3d9a", "-", "algorithm, byte pairs alone"),
-            (applied, "#c77f00", "-", "algorithm, dialect alphabet applied")):
+        (bare, "#6a3d9a", "-", "algorithm, byte pairs alone"),
+        (applied, "#c77f00", "-", "algorithm, dialect alphabet applied"),
+    ):
         drawn = [placeable(curve[0], curve[1], one) for one in growths]
-        right.plot(sizes, drawn, linewidth=2.2, color=color, linestyle=style, zorder=3,
-                   label=label)
+        right.plot(
+            sizes,
+            drawn,
+            linewidth=2.2,
+            color=color,
+            linestyle=style,
+            zorder=3,
+            label=label,
+        )
         for at in range(1, len(sizes)):
-            if (drawn[at - 1] < reader) and (drawn[at] >= reader) and (crossing is None):
+            if (
+                (drawn[at - 1] < reader)
+                and (drawn[at] >= reader)
+                and (crossing is None)
+            ):
                 crossing = sizes[at]
                 break
 
-    right.axhline(reader, linewidth=1.6, color="#2e7d4f", linestyle="--", zorder=3,
-                  label="reader, median of the per-paper rates")
+    right.axhline(
+        reader,
+        linewidth=1.6,
+        color="#2e7d4f",
+        linestyle="--",
+        zorder=3,
+        label="reader, median of the per-paper rates",
+    )
     if rates:
-        right.scatter(corpus_at(readers), rates, marker="s", s=70, c="#2e7d4f", zorder=4,
-                      edgecolors="white", linewidths=0.6, label="reader, one point per paper")
+        right.scatter(
+            corpus_at(readers),
+            rates,
+            marker="s",
+            s=70,
+            c="#2e7d4f",
+            zorder=4,
+            edgecolors="white",
+            linewidths=0.6,
+            label="reader, one point per paper",
+        )
 
     if crossing:
         right.axvline(crossing, linewidth=1.0, color="#333333", alpha=0.6, zorder=2)
-        right.annotate("crosses at %.2g pairs" % crossing, (crossing, 0.16),
-                       textcoords="offset points", xytext=(9, 0), fontsize=8, color="#333333")
+        right.annotate(
+            "crosses at %.2g pairs" % crossing,
+            (crossing, 0.16),
+            textcoords="offset points",
+            xytext=(9, 0),
+            fontsize=8,
+            color="#333333",
+        )
 
     right.axvspan(min(sizes), standing, color="#1f5f8b", alpha=0.07, zorder=0)
-    right.annotate("corpus on disk", (standing, 0.94), textcoords="offset points", xytext=(-76, 0),
-                   fontsize=8, color="#1f5f8b")
+    right.annotate(
+        "corpus on disk",
+        (standing, 0.94),
+        textcoords="offset points",
+        xytext=(-76, 0),
+        fontsize=8,
+        color="#1f5f8b",
+    )
 
     right.set_xscale("log")
     right.set_ylim(-0.03, 1.03)
@@ -440,6 +523,7 @@ def reported(module):
     count of 16912 versus its 2134, because a second copy of a rule drifts from the first. What
     the derivation reports now is what the check reports, by construction.
     """
+
     # Every check writes through sys.stdout.buffer so it can put these orthographies on a console
     # that would otherwise refuse them. The capture has to offer a buffer of its own.
     # This one declines to close because the wrapper the check builds around that buffer closes it
@@ -523,8 +607,9 @@ def measured():
         if counts is None:
             continue
         table = os.path.join(oracle.ORACLES, name)
-        source = os.path.join(oracle.PAPERS,
-                              (PAGE_TEXT if stem in NOT_FAITHFUL else "%s.txt") % stem)
+        source = os.path.join(
+            oracle.PAPERS, (PAGE_TEXT if stem in NOT_FAITHFUL else "%s.txt") % stem
+        )
         if not (os.path.isfile(table) and os.path.isfile(source)):
             continue
         # The denominators the check does not print. Direction one asks once per distinct written
@@ -536,15 +621,17 @@ def measured():
         for where, dialect, kind, form, gloss in rows:
             written |= oracle.pieces(form)
         tokens = sum(1 for one in printed if is_language_token(one, marks))
-        held.append({
-            "stem": stem,
-            "sound": stem not in UNSOUND,
-            "rows": counts.get("rows", len(rows)),
-            "forms": len(written),
-            "unfound": counts.get("unfound", 0),
-            "tokens": tokens,
-            "missed": counts.get("missed", 0),
-        })
+        held.append(
+            {
+                "stem": stem,
+                "sound": stem not in UNSOUND,
+                "rows": counts.get("rows", len(rows)),
+                "forms": len(written),
+                "unfound": counts.get("unfound", 0),
+                "tokens": tokens,
+                "missed": counts.get("missed", 0),
+            }
+        )
     return held
 
 
@@ -562,11 +649,13 @@ def covered():
     for line in reported(coverage).splitlines():
         found = COVERAGE.match(line)
         if found:
-            held.append({
-                "stem": found.group(1),
-                "tokens": int(found.group(2)),
-                "missing": int(found.group(4)),
-            })
+            held.append(
+                {
+                    "stem": found.group(1),
+                    "tokens": int(found.group(2)),
+                    "missing": int(found.group(4)),
+                }
+            )
     return held
 
 
@@ -594,7 +683,9 @@ def settled(papers, carried):
         # would flatten the curve and report a settling that did not happen.
         held = sum(one["tokens"] for one in carried)
         lost = sum(one["missing"] for one in carried)
-        running.append(bound(unfound, forms) * bound(missed, tokens) * bound(lost, held))
+        running.append(
+            bound(unfound, forms) * bound(missed, tokens) * bound(lost, held)
+        )
 
     if len(running) < STEADY:
         return running, 0
@@ -643,15 +734,31 @@ def border_result():
         for seed in range(border.PERMUTATIONS):
             shuffled = list(pooled)
             random.Random(seed).shuffle(shuffled)
-            drawn, _ = border.radix(shuffled[:len(north)], shuffled[len(north):], width)
-            if len([one for one in drawn
-                    if abs(one[0]) >= border.RADIX_DEVIATE]) >= len(found):
+            drawn, _ = border.radix(
+                shuffled[: len(north)], shuffled[len(north) :], width
+            )
+            if len(
+                [one for one in drawn if abs(one[0]) >= border.RADIX_DEVIATE]
+            ) >= len(found):
                 beaten += 1
-        held.append({"width": width, "runs": len(forward), "found": len(found),
-                     "chance": chance, "top": found[:3],
-                     "beaten": beaten, "trials": border.PERMUTATIONS})
-    return {"north": len(north), "south": len(south), "concepts": standing,
-            "widths": held, "inverse": exact}
+        held.append(
+            {
+                "width": width,
+                "runs": len(forward),
+                "found": len(found),
+                "chance": chance,
+                "top": found[:3],
+                "beaten": beaten,
+                "trials": border.PERMUTATIONS,
+            }
+        )
+    return {
+        "north": len(north),
+        "south": len(south),
+        "concepts": standing,
+        "widths": held,
+        "inverse": exact,
+    }
 
 
 def graded():
@@ -662,20 +769,24 @@ def graded():
         counts = seen.get(stem)
         if not counts or ("wanted" not in counts):
             continue
-        held.append({
-            "stem": stem,
-            "wanted": counts["wanted"],
-            "items": counts.get("items", 0),
-            "reproduced": counts["wanted"] - counts.get("notfound", 0),
-            "invented": counts.get("invented", 0),
-            "wrong": counts.get("wrong", 0),
-            "typed": counts.get("typed", 0),
-        })
+        held.append(
+            {
+                "stem": stem,
+                "wanted": counts["wanted"],
+                "items": counts.get("items", 0),
+                "reproduced": counts["wanted"] - counts.get("notfound", 0),
+                "invented": counts.get("invented", 0),
+                "wrong": counts.get("wrong", 0),
+                "typed": counts.get("typed", 0),
+            }
+        )
     return held
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     papers = measured()
     readers = graded()
     if not papers:
@@ -718,254 +829,383 @@ def main():
     # once at the end is cheaper than restating all of them in LaTeX.
     with io.StringIO() as handle:
         handle.write("# Corpus derivation\n\n")
-        handle.write("**Purpose:** Say how wrong the pure corpus could be, from what the checks "
-                     "have actually seen, and say what the number rests on.\n")
-        handle.write("**Scope:** `maint/data/salishan/corpus_derivation.py`, which writes this "
-                     "file, and the three checks it reads.\n\n")
-        handle.write("Rewritten by `python maint/data/salishan/corpus_derivation.py` after "
-                     "every change to a hand extraction. Nothing in it is typed by hand.\n\n")
+        handle.write(
+            "**Purpose:** Say how wrong the pure corpus could be, from what the checks "
+            "have actually seen, and say what the number rests on.\n"
+        )
+        handle.write(
+            "**Scope:** `maint/data/salishan/corpus_derivation.py`, which writes this "
+            "file, and the three checks it reads.\n\n"
+        )
+        handle.write(
+            "Rewritten by `python maint/data/salishan/corpus_derivation.py` after "
+            "every change to a hand extraction. Nothing in it is typed by hand.\n\n"
+        )
 
         handle.write("## 1. What is being estimated\n\n")
-        handle.write("For one line of the pure corpus, the probability that it is not what it "
-                     "claims to be: not the target language, or not what the paper printed. Every "
-                     "number below is an upper bound on that, never a measurement of it, because "
-                     "the checks that matter report zero and zero failures in a sample is not "
-                     "a rate of zero.\n\n")
-        handle.write("With no failures in N independent trials the true rate is under 3/N with 95 "
-                     "percent confidence. That bound is the rule of three, and it turns a clean "
-                     "check into a number. Where a check did see a failure, the observed rate is "
-                     "reported instead, because it is larger than any bound would be.\n\n")
+        handle.write(
+            "For one line of the pure corpus, the probability that it is not what it "
+            "claims to be: not the target language, or not what the paper printed. Every "
+            "number below is an upper bound on that, never a measurement of it, because "
+            "the checks that matter report zero and zero failures in a sample is not "
+            "a rate of zero.\n\n"
+        )
+        handle.write(
+            "With no failures in N independent trials the true rate is under 3/N with 95 "
+            "percent confidence. That bound is the rule of three, and it turns a clean "
+            "check into a number. Where a check did see a failure, the observed rate is "
+            "reported instead, because it is larger than any bound would be.\n\n"
+        )
 
         handle.write("## 2. What the checks have seen\n\n")
-        handle.write("A paper contributes trials only where its extracted text is what the page "
-                     "prints. The others are checked against a damaged source. Their "
-                     "disagreements measure the source and not the table. The references chapter "
-                     "names each of them.\n\n")
+        handle.write(
+            "A paper contributes trials only where its extracted text is what the page "
+            "prints. The others are checked against a damaged source. Their "
+            "disagreements measure the source and not the table. The references chapter "
+            "names each of them.\n\n"
+        )
         handle.write("![Hand extraction against its paper](corpus-derivation.pdf)\n\n")
-        handle.write("**Why the left panel is here.** The bound in Section 3 is a single number "
-                     "and a single number cannot show whether it came from one clean paper or from "
-                     "%d. The panel puts every paper on the picture so the shape of the evidence "
-                     "is visible: how much each one contributed, and which ones failed anything. "
-                     "A reader should come away able to say which papers the number rests on.\n\n"
-                     % len(sound))
-        handle.write("**What to read off it.** Every paper is one point, trials against failures. "
-                     "The %d on the zero line are the evidence. The %d above it "
-                     "are checked against a text that is not what their page prints. "
-                     "The reader squares are a separate measurement in their own color, and they "
-                     "sit high: a reader is a script and it gets a great deal wrong. Section 5 "
-                     "gives those per paper, the only form they mean anything in.\n\n"
-                     % (on_zero, len(papers) - on_zero))
-        handle.write("**Why the right panel is here.** The extraction has a lifetime and the "
-                     "question is what carries it. A person reads a paper at a fixed accuracy "
-                     "however large the corpus gets. That arm is flat. The algorithm's accuracy "
-                     "is a function of corpus size. That arm climbs. Whether and where they "
-                     "cross decides whether the corpus is worth growing for its own sake, and the "
-                     "panel is what answers it.\n\n")
-        handle.write("**What to read off it.** The algorithm arm is the fraction of dialects whose "
-                     "distance from the other corpora pooled into one reference corpus clears "
-                     "twice their resolution. The arm starts at zero, because a small corpus "
-                     "resolves nothing, and it crosses the reader arm at %.3g byte pairs, which is "
-                     "behind the corpus already on disk. Both arms are drawn: byte pairs alone, "
-                     "and byte pairs with the dialect's own alphabet applied first. Setting an "
-                     "algorithm given nothing beside a person given a page is not a fair "
-                     "comparison, and the alphabet is the first part of what the extraction "
-                     "already knows that it can be handed.\n\n" % (crossing or 0.0))
-        handle.write("| Paper | Rows | Forms checked | Not in paper | Tokens checked | "
-                     "No row holds | Counts |\n|---|---|---|---|---|---|---|\n")
+        handle.write(
+            "**Why the left panel is here.** The bound in Section 3 is a single number "
+            "and a single number cannot show whether it came from one clean paper or from "
+            "%d. The panel puts every paper on the picture so the shape of the evidence "
+            "is visible: how much each one contributed, and which ones failed anything. "
+            "A reader should come away able to say which papers the number rests on.\n\n"
+            % len(sound)
+        )
+        handle.write(
+            "**What to read off it.** Every paper is one point, trials against failures. "
+            "The %d on the zero line are the evidence. The %d above it "
+            "are checked against a text that is not what their page prints. "
+            "The reader squares are a separate measurement in their own color, and they "
+            "sit high: a reader is a script and it gets a great deal wrong. Section 5 "
+            "gives those per paper, the only form they mean anything in.\n\n"
+            % (on_zero, len(papers) - on_zero)
+        )
+        handle.write(
+            "**Why the right panel is here.** The extraction has a lifetime and the "
+            "question is what carries it. A person reads a paper at a fixed accuracy "
+            "however large the corpus gets. That arm is flat. The algorithm's accuracy "
+            "is a function of corpus size. That arm climbs. Whether and where they "
+            "cross decides whether the corpus is worth growing for its own sake, and the "
+            "panel is what answers it.\n\n"
+        )
+        handle.write(
+            "**What to read off it.** The algorithm arm is the fraction of dialects whose "
+            "distance from the other corpora pooled into one reference corpus clears "
+            "twice their resolution. The arm starts at zero, because a small corpus "
+            "resolves nothing, and it crosses the reader arm at %.3g byte pairs, which is "
+            "behind the corpus already on disk. Both arms are drawn: byte pairs alone, "
+            "and byte pairs with the dialect's own alphabet applied first. Setting an "
+            "algorithm given nothing beside a person given a page is not a fair "
+            "comparison, and the alphabet is the first part of what the extraction "
+            "already knows that it can be handed.\n\n" % (crossing or 0.0)
+        )
+        handle.write(
+            "| Paper | Rows | Forms checked | Not in paper | Tokens checked | "
+            "No row holds | Counts |\n|---|---|---|---|---|---|---|\n"
+        )
         for one in papers:
-            handle.write("| `%s` | %d | %d | %d | %d | %d | %s |\n"
-                         % (one["stem"], one["rows"], one["forms"], one["unfound"],
-                            one["tokens"], one["missed"], "yes" if one["sound"] else "no"))
-        handle.write("\n%d of the %d hand extractions are checked against a sound source. "
-                     "Together they put %d distinct written forms and %d language tokens through "
-                     "the two directions.\n\n" % (len(sound), len(papers), forms, tokens))
+            handle.write(
+                "| `%s` | %d | %d | %d | %d | %d | %s |\n"
+                % (
+                    one["stem"],
+                    one["rows"],
+                    one["forms"],
+                    one["unfound"],
+                    one["tokens"],
+                    one["missed"],
+                    "yes" if one["sound"] else "no",
+                )
+            )
+        handle.write(
+            "\n%d of the %d hand extractions are checked against a sound source. "
+            "Together they put %d distinct written forms and %d language tokens through "
+            "the two directions.\n\n" % (len(sound), len(papers), forms, tokens)
+        )
 
         handle.write("## 3. The channels\n\n")
-        handle.write("A wrong line arrives through one of three channels. They are separate "
-                     "because they fail for different reasons. The first is a person writing a "
-                     "form the paper does not hold, the second is a person walking past a form the "
-                     "paper does hold, and the third is the corpus losing a token on its way out "
-                     "of a reader.\n\n")
-        handle.write("The reader counts are not a channel here. A reader is written for one paper, "
-                     "and what it gets wrong is a fact about that paper and not a draw from a rate "
-                     "the next paper shares. Pooling %d of them into one denominator would "
-                     "report a rate that nothing is sampling. They are in Section 5 per paper.\n\n"
-                     % len(readers))
+        handle.write(
+            "A wrong line arrives through one of three channels. They are separate "
+            "because they fail for different reasons. The first is a person writing a "
+            "form the paper does not hold, the second is a person walking past a form the "
+            "paper does hold, and the third is the corpus losing a token on its way out "
+            "of a reader.\n\n"
+        )
+        handle.write(
+            "The reader counts are not a channel here. A reader is written for one paper, "
+            "and what it gets wrong is a fact about that paper and not a draw from a rate "
+            "the next paper shares. Pooling %d of them into one denominator would "
+            "report a rate that nothing is sampling. They are in Section 5 per paper.\n\n"
+            % len(readers)
+        )
         handle.write("| Channel | Failures | Trials | Bound |\n|---|---|---|---|\n")
         for label, failures, trials in channels:
-            handle.write("| %s | %d | %d | %.3g |\n" % (label, failures, trials,
-                                                        bound(failures, trials)))
-        handle.write("\nA line has to pass all three. Taking them as independent, the joint bound "
-                     "is the product:\n\n")
+            handle.write(
+                "| %s | %d | %d | %.3g |\n"
+                % (label, failures, trials, bound(failures, trials))
+            )
+        handle.write(
+            "\nA line has to pass all three. Taking them as independent, the joint bound "
+            "is the product:\n\n"
+        )
         handle.write("> **%.3g** per line\n\n" % joint)
         handle.write("### How much of that number has settled\n\n")
-        handle.write("Three significant figures is a format, not a finding. The digit worth "
-                     "reporting has stopped moving, and the way to find it is to "
-                     "watch the bound as each paper joined the corpus.\n\n")
+        handle.write(
+            "Three significant figures is a format, not a finding. The digit worth "
+            "reporting has stopped moving, and the way to find it is to "
+            "watch the bound as each paper joined the corpus.\n\n"
+        )
         handle.write("| Papers counted | Joint bound |\n|---|---|\n")
         for at, one in enumerate(running):
             handle.write("| %d | %.4g |\n" % (at + 1, one))
         if stable:
-            handle.write("\nThe last %d papers agree to %d significant %s.\n\n"
-                         % (STEADY, stable, "figure" if stable == 1 else "figures"))
+            handle.write(
+                "\nThe last %d papers agree to %d significant %s.\n\n"
+                % (STEADY, stable, "figure" if stable == 1 else "figures")
+            )
         else:
-            handle.write("\nNo digit has settled. The bound falls with every paper because every "
-                         "paper adds trials and none has yet added a failure. Quoting %.3g as "
-                         "though the 85 meant something would be reporting the format. The table "
-                         "shows the extraction still buying accuracy at the rate "
-                         "of about one order of magnitude every %.1f papers, and the digit to "
-                         "report will settle when that stops.\n\n"
-                         % (joint, len(running) / max(1e-9, math.log10(running[0] / running[-1]))
-                            if (len(running) > 1) and (running[-1] > 0) else 0.0))
+            handle.write(
+                "\nNo digit has settled. The bound falls with every paper because every "
+                "paper adds trials and none has yet added a failure. Quoting %.3g as "
+                "though the 85 meant something would be reporting the format. The table "
+                "shows the extraction still buying accuracy at the rate "
+                "of about one order of magnitude every %.1f papers, and the digit to "
+                "report will settle when that stops.\n\n"
+                % (
+                    joint,
+                    (
+                        len(running) / max(1e-9, math.log10(running[0] / running[-1]))
+                        if (len(running) > 1) and (running[-1] > 0)
+                        else 0.0
+                    ),
+                )
+            )
 
         handle.write("### Where 1e-26 lands\n\n")
-        handle.write("The target this file was asked for is 1e-26 per line over the whole "
-                     "extraction. It is not reached and it is not close, and the honest form of "
-                     "the answer is the distance.\n\n")
+        handle.write(
+            "The target this file was asked for is 1e-26 per line over the whole "
+            "extraction. It is not reached and it is not close, and the honest form of "
+            "the answer is the distance.\n\n"
+        )
         # The archive is 993 papers and only the sound ones are counted. The lifetime is what
         # those scale to. The bound is 3/N in each channel and N grows with the papers read.
         lifetime = ARCHIVE_PAPERS / float(len(sound))
         ahead = 1.0
-        handle.write("| Channel | Trials now | Trials at %d papers | Bound then |\n|---|---|---|---|\n"
-                     % ARCHIVE_PAPERS)
+        handle.write(
+            "| Channel | Trials now | Trials at %d papers | Bound then |\n|---|---|---|---|\n"
+            % ARCHIVE_PAPERS
+        )
         for label, failures, trials in channels:
             grown = int(trials * lifetime)
             ahead *= bound(0, grown) if grown else 1.0
-            handle.write("| %s | %d | %d | %.3g |\n" % (label, trials, grown, bound(0, grown)))
-        handle.write("\nReading all %d papers of the archive, and finding nothing wrong in any of "
-                     "them, takes the joint bound from %.3g to about %.3g. That is %.0f orders of "
-                     "magnitude short of 1e-26.\n\n"
-                     % (ARCHIVE_PAPERS, joint, ahead, math.log10(ahead) + 26.0))
-        handle.write("Closing the rest by counting is not available. Each channel would have to "
-                     "reach about %.0g trials, which is roughly %.0g times the whole archive. "
-                     "There is no reading schedule that gets there, and a file claiming 1e-26 from "
-                     "these three channels would be reporting a number nothing measured.\n\n"
-                     % (CONFIDENCE / (1e-26 ** (1.0 / len(channels))),
-                        (CONFIDENCE / (1e-26 ** (1.0 / len(channels)))) / (forms * lifetime)))
-        handle.write("What a number that small would actually need is more channels that fail "
-                     "independently, not more trials in these three. Section 7 is one: a term "
-                     "recovered from the forms and scored against a border a linguist published, "
-                     "which fails for a reason none of the three share. Independent channels "
-                     "multiply, and that is how an exponent like this one is reached. Section 4 "
-                     "is where the independence is doubted, and it should be read before this "
-                     "number is quoted anywhere.\n\n")
+            handle.write(
+                "| %s | %d | %d | %.3g |\n" % (label, trials, grown, bound(0, grown))
+            )
+        handle.write(
+            "\nReading all %d papers of the archive, and finding nothing wrong in any of "
+            "them, takes the joint bound from %.3g to about %.3g. That is %.0f orders of "
+            "magnitude short of 1e-26.\n\n"
+            % (ARCHIVE_PAPERS, joint, ahead, math.log10(ahead) + 26.0)
+        )
+        handle.write(
+            "Closing the rest by counting is not available. Each channel would have to "
+            "reach about %.0g trials, which is roughly %.0g times the whole archive. "
+            "There is no reading schedule that gets there, and a file claiming 1e-26 from "
+            "these three channels would be reporting a number nothing measured.\n\n"
+            % (
+                CONFIDENCE / (1e-26 ** (1.0 / len(channels))),
+                (CONFIDENCE / (1e-26 ** (1.0 / len(channels)))) / (forms * lifetime),
+            )
+        )
+        handle.write(
+            "What a number that small would actually need is more channels that fail "
+            "independently, not more trials in these three. Section 7 is one: a term "
+            "recovered from the forms and scored against a border a linguist published, "
+            "which fails for a reason none of the three share. Independent channels "
+            "multiply, and that is how an exponent like this one is reached. Section 4 "
+            "is where the independence is doubted, and it should be read before this "
+            "number is quoted anywhere.\n\n"
+        )
 
         handle.write("## 4. What the number rests on\n\n")
-        handle.write("The independence is the weak part and it is weak in three named places.\n\n")
-        handle.write("* **One person read every table.** The three channels catch different kinds "
-                     "of mistake but they do not catch a systematic misreading of one "
-                     "orthography, because the same reading produced the row and the expectation. "
-                     "This is the largest unmodelled term and no amount of trials touches it.\n")
-        handle.write("* **Direction one and direction two share a source.** Both ask questions of "
-                     "the same extracted text. A paper whose text is wrong in a way nobody has "
-                     "noticed fails both at once, and for that reason the papers with a known-damaged "
-                     "source are excluded from the count instead of given a worse bound.\n")
-        handle.write("* **Every channel runs through one codebase.** `salish_marking.py` and "
-                     "`salish_unsorted.py` decide what counts as a language token, and all three "
-                     "channels ask them. A defect in either is common to all three at once, and "
-                     "two such defects have already been found this way. Both are in the "
-                     "references chapter.\n\n")
-        handle.write("What would move the number honestly is a second person reading a table that "
-                     "has already been read. That is the addition that fails for a reason none "
-                     "of the three share, and until it exists the first bullet stands above every "
-                     "number in this file.\n\n")
+        handle.write(
+            "The independence is the weak part and it is weak in three named places.\n\n"
+        )
+        handle.write(
+            "* **One person read every table.** The three channels catch different kinds "
+            "of mistake but they do not catch a systematic misreading of one "
+            "orthography, because the same reading produced the row and the expectation. "
+            "This is the largest unmodelled term and no amount of trials touches it.\n"
+        )
+        handle.write(
+            "* **Direction one and direction two share a source.** Both ask questions of "
+            "the same extracted text. A paper whose text is wrong in a way nobody has "
+            "noticed fails both at once, and for that reason the papers with a known-damaged "
+            "source are excluded from the count instead of given a worse bound.\n"
+        )
+        handle.write(
+            "* **Every channel runs through one codebase.** `salish_marking.py` and "
+            "`salish_unsorted.py` decide what counts as a language token, and all three "
+            "channels ask them. A defect in either is common to all three at once, and "
+            "two such defects have already been found this way. Both are in the "
+            "references chapter.\n\n"
+        )
+        handle.write(
+            "What would move the number honestly is a second person reading a table that "
+            "has already been read. That is the addition that fails for a reason none "
+            "of the three share, and until it exists the first bullet stands above every "
+            "number in this file.\n\n"
+        )
 
         handle.write("## 5. Readers against their tables\n\n")
-        handle.write("| Paper | Rows asked for | Reproduced | Items written | Invented | "
-                     "Wrong language |\n|---|---|---|---|---|---|\n")
+        handle.write(
+            "| Paper | Rows asked for | Reproduced | Items written | Invented | "
+            "Wrong language |\n|---|---|---|---|---|---|\n"
+        )
         for one in readers:
-            handle.write("| `%s` | %d | %d | %d | %d | %d |\n"
-                         % (one["stem"], one["wanted"], one["reproduced"], one["items"],
-                            one["invented"], one["wrong"]))
-        handle.write("\nThe readers get a great deal wrong. The median reproduces %.3f of what its "
-                     "table asks for, and the spread runs from one paper to the next with no "
-                     "common rate behind it, because each reader was written to one paper's "
-                     "layout. These are a table in Section 3 instead of a term for that reason.\n\n"
-                     % rate)
-        handle.write("A reader that does not reproduce a row is not by itself an impurity. The row "
-                     "is in the hand extraction either way, and the extraction is the oracle. What "
-                     "the last two columns count is what the reader added, the part that "
-                     "can reach the pure stream without a person having written it.\n\n")
+            handle.write(
+                "| `%s` | %d | %d | %d | %d | %d |\n"
+                % (
+                    one["stem"],
+                    one["wanted"],
+                    one["reproduced"],
+                    one["items"],
+                    one["invented"],
+                    one["wrong"],
+                )
+            )
+        handle.write(
+            "\nThe readers get a great deal wrong. The median reproduces %.3f of what its "
+            "table asks for, and the spread runs from one paper to the next with no "
+            "common rate behind it, because each reader was written to one paper's "
+            "layout. These are a table in Section 3 instead of a term for that reason.\n\n"
+            % rate
+        )
+        handle.write(
+            "A reader that does not reproduce a row is not by itself an impurity. The row "
+            "is in the hand extraction either way, and the extraction is the oracle. What "
+            "the last two columns count is what the reader added, the part that "
+            "can reach the pure stream without a person having written it.\n\n"
+        )
 
         handle.write("## 6. The word web\n\n")
-        handle.write("`maint/data/salishan/word_web/word_web.py` joins every form in the hand "
-                     "extractions to the forms it is related to, and writes one file per group "
-                     "under `build/corpora`. The web has three kinds of edge, each measured off "
-                     "the extraction and none of them listed by hand.\n\n")
-        handle.write("* **concept**, two forms whose glosses share a content word. This is the "
-                     "edge that crosses an orthography, because the gloss is the only part of a "
-                     "form that two papers wrote the same way.\n")
-        handle.write("* **shape**, two forms of one group sharing a leading or trailing run of "
-                     "four characters. Salish morphology is heavily affixed and reduplicating. A "
-                     "shared run is usually a shared root or affix, and the shape edge measures "
-                     "that run without parsing it.\n")
-        handle.write("* **context**, two forms written in the same section of the same paper by "
-                     "the same speaker.\n\n")
-        handle.write("The web makes an anchor a concept expressed as a distribution "
-                     "instead of a bag of characters. The byte pair distribution cannot see that "
-                     "two orthographies wrote one word, and the concept edge is where that is "
-                     "recorded.\n\n")
+        handle.write(
+            "`maint/data/salishan/word_web/word_web.py` joins every form in the hand "
+            "extractions to the forms it is related to, and writes one file per group "
+            "under `build/corpora`. The web has three kinds of edge, each measured off "
+            "the extraction and none of them listed by hand.\n\n"
+        )
+        handle.write(
+            "* **concept**, two forms whose glosses share a content word. This is the "
+            "edge that crosses an orthography, because the gloss is the only part of a "
+            "form that two papers wrote the same way.\n"
+        )
+        handle.write(
+            "* **shape**, two forms of one group sharing a leading or trailing run of "
+            "four characters. Salish morphology is heavily affixed and reduplicating. A "
+            "shared run is usually a shared root or affix, and the shape edge measures "
+            "that run without parsing it.\n"
+        )
+        handle.write(
+            "* **context**, two forms written in the same section of the same paper by "
+            "the same speaker.\n\n"
+        )
+        handle.write(
+            "The web makes an anchor a concept expressed as a distribution "
+            "instead of a bag of characters. The byte pair distribution cannot see that "
+            "two orthographies wrote one word, and the concept edge is where that is "
+            "recorded.\n\n"
+        )
 
         handle.write("## 7. The dialect border\n\n")
-        handle.write("Lushootseed is not one dialect. The northern and southern varieties have "
-                     "known land and family borders, and Mellesmoen and Kye's stress paper labels "
-                     "every form it cites with which one it came from. The hand extraction copied "
-                     "that into the `who` column. The border sits on disk as a fact published "
-                     "by a linguist.\n\n")
-        handle.write("That makes it something a test of this algorithm almost never has: an "
-                     "answer that did not come from the algorithm. "
-                     "`maint/data/salishan/anchor_sift_algorithmic_extraction/boundary_check.py` "
-                     "loads the labels, sets them aside, and only compares at the end.\n\n")
-        handle.write("Comparing whole distributions does not work at this size. The method "
-                     "resolves at 6707 bytes and the two varieties hold 1469 and 2768. Neither "
-                     "the byte pair distribution nor the word web separates them, and a blind "
-                     "partition scores no better than the majority class. The check prints what "
-                     "that route would need: about 2.9 times the labeled Lushootseed now on "
-                     "disk.\n\n")
+        handle.write(
+            "Lushootseed is not one dialect. The northern and southern varieties have "
+            "known land and family borders, and Mellesmoen and Kye's stress paper labels "
+            "every form it cites with which one it came from. The hand extraction copied "
+            "that into the `who` column. The border sits on disk as a fact published "
+            "by a linguist.\n\n"
+        )
+        handle.write(
+            "That makes it something a test of this algorithm almost never has: an "
+            "answer that did not come from the algorithm. "
+            "`maint/data/salishan/anchor_sift_algorithmic_extraction/boundary_check.py` "
+            "loads the labels, sets them aside, and only compares at the end.\n\n"
+        )
+        handle.write(
+            "Comparing whole distributions does not work at this size. The method "
+            "resolves at 6707 bytes and the two varieties hold 1469 and 2768. Neither "
+            "the byte pair distribution nor the word web separates them, and a blind "
+            "partition scores no better than the majority class. The check prints what "
+            "that route would need: about 2.9 times the labeled Lushootseed now on "
+            "disk.\n\n"
+        )
         if standing:
-            handle.write("Asking for one term at a time does work, and it is the same move the "
-                         "sound work uses. Because both varieties are one language, nearly all of "
-                         "what a distribution over their runs measures is what they have in "
-                         "common, and at this size that shared mass swamps the difference. "
-                         "Flattening the pooled counts to maximum entropy takes it out: a run is "
-                         "weighed against where the pooled total alone would put it. A run "
-                         "carrying no border information then contributes nothing however common "
-                         "it is. Each run is its own test, and what a run needs is enough of "
-                         "itself, not enough of the language.\n\n")
-            handle.write("The concept is held fixed while this is asked, over the %d concepts both "
-                         "varieties name, using the word web's gloss edge. Without that control a "
-                         "run can separate the two sets because the varieties differ or because "
-                         "different words were cited, and those are not the same finding.\n\n"
-                         % standing["concepts"])
-            handle.write("| Run width | Runs tested | Terms found | Expected by chance | "
-                         "Random borders that matched it |\n|---|---|---|---|---|\n")
+            handle.write(
+                "Asking for one term at a time does work, and it is the same move the "
+                "sound work uses. Because both varieties are one language, nearly all of "
+                "what a distribution over their runs measures is what they have in "
+                "common, and at this size that shared mass swamps the difference. "
+                "Flattening the pooled counts to maximum entropy takes it out: a run is "
+                "weighed against where the pooled total alone would put it. A run "
+                "carrying no border information then contributes nothing however common "
+                "it is. Each run is its own test, and what a run needs is enough of "
+                "itself, not enough of the language.\n\n"
+            )
+            handle.write(
+                "The concept is held fixed while this is asked, over the %d concepts both "
+                "varieties name, using the word web's gloss edge. Without that control a "
+                "run can separate the two sets because the varieties differ or because "
+                "different words were cited, and those are not the same finding.\n\n"
+                % standing["concepts"]
+            )
+            handle.write(
+                "| Run width | Runs tested | Terms found | Expected by chance | "
+                "Random borders that matched it |\n|---|---|---|---|---|\n"
+            )
             for one in standing["widths"]:
-                handle.write("| %d | %d | %d | %.2f | %d of %d |\n"
-                             % (one["width"], one["runs"], one["found"], one["chance"],
-                                one["beaten"], one["trials"]))
+                handle.write(
+                    "| %d | %d | %d | %.2f | %d of %d |\n"
+                    % (
+                        one["width"],
+                        one["runs"],
+                        one["found"],
+                        one["chance"],
+                        one["beaten"],
+                        one["trials"],
+                    )
+                )
             best = [one for one in standing["widths"] if one["found"]]
             if best:
                 handle.write("\n")
-                handle.write("| Term | Deviate | Northern | Southern |\n|---|---|---|---|\n")
+                handle.write(
+                    "| Term | Deviate | Northern | Southern |\n|---|---|---|---|\n"
+                )
                 for one in best:
                     for deviate, run, first, second in one["top"]:
-                        handle.write("| `%s` | %.2f | %d | %d |\n"
-                                     % (run, deviate, first, second))
+                        handle.write(
+                            "| `%s` | %.2f | %d | %d |\n"
+                            % (run, deviate, first, second)
+                        )
                 leading = best[0]
-                handle.write("\nThe last column of the first table is the test that is allowed to "
-                             "fail. The border is put back on the same forms at random %d times "
-                             "and the radix run again on each, and at width %d only %d of those "
-                             "random borders found as much as the published one. Swapping the two "
-                             "sides also negates every deviate exactly, but this estimator does "
-                             "that on any two sets whatever and it is evidence of "
-                             "nothing.\n\n"
-                             % (leading["trials"], leading["width"], leading["beaten"]))
-                handle.write("The term carrying the border is the stressed schwa, and it is "
-                             "southern: 45 of them to 6 in the north over the same concepts. "
-                             "The paper those labels came from is Mellesmoen and Kye's comparative "
-                             "analysis of stress in northern and southern Lushootseed. The "
-                             "algorithm was shown the forms and never the labels, and what it "
-                             "returned is what the paper is about.\n\n")
+                handle.write(
+                    "\nThe last column of the first table is the test that is allowed to "
+                    "fail. The border is put back on the same forms at random %d times "
+                    "and the radix run again on each, and at width %d only %d of those "
+                    "random borders found as much as the published one. Swapping the two "
+                    "sides also negates every deviate exactly, but this estimator does "
+                    "that on any two sets whatever and it is evidence of "
+                    "nothing.\n\n"
+                    % (leading["trials"], leading["width"], leading["beaten"])
+                )
+                handle.write(
+                    "The term carrying the border is the stressed schwa, and it is "
+                    "southern: 45 of them to 6 in the north over the same concepts. "
+                    "The paper those labels came from is Mellesmoen and Kye's comparative "
+                    "analysis of stress in northern and southern Lushootseed. The "
+                    "algorithm was shown the forms and never the labels, and what it "
+                    "returned is what the paper is about.\n\n"
+                )
 
         handle.write("**Compiled By:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>\n")
         handle.write("**Generated by:** `maint/data/salishan/corpus_derivation.py`\n")
@@ -980,11 +1220,15 @@ def main():
     with open(TARGET, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(body)
 
-    out.write("  %d hand extractions, %d of them against a sound source\n" % (len(papers),
-                                                                              len(sound)))
+    out.write(
+        "  %d hand extractions, %d of them against a sound source\n"
+        % (len(papers), len(sound))
+    )
     for label, failures, trials in channels:
-        out.write("    %-46s %d in %-7d bound %.3g\n"
-                  % (label, failures, trials, bound(failures, trials)))
+        out.write(
+            "    %-46s %d in %-7d bound %.3g\n"
+            % (label, failures, trials, bound(failures, trials))
+        )
     out.write("  joint bound %.3g per line\n" % joint)
     out.write("  written to %s\n" % os.path.relpath(TARGET, ROOT))
     out.flush()

@@ -175,8 +175,7 @@ static int o2_case_found_past_cap(void)
     uint64_t state = 0x0123456789ABCDEFULL;
     o2_fill(corpus, 2u, &state);
 
-    // The target is the first alignment whose needle occurs exactly once, searched for rather than
-    // assumed. The premise the depth bound rests on is a fact of this field and not a hope.
+    // The target is the first alignment whose needle occurs exactly once, searched for.
     size_t origin = alignments;
     for (size_t candidate = 0u; candidate < alignments; candidate += 1u)
     {
@@ -224,8 +223,7 @@ static int o2_case_found_past_cap(void)
             break;
         }
     }
-    if ((survivor == alignments)
-        || (memcmp(corpus + survivor, needle, O2_NEEDLE) != 0))
+    if ((survivor == alignments) || (memcmp(corpus + survivor, needle, O2_NEEDLE) != 0))
     {
         printf("    FAIL the sole survivor did not verify against the needle\n");
         failed = 1;

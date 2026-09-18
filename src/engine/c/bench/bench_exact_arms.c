@@ -16,8 +16,7 @@
  *       questions on the same data in the same order, and the answers are compared item by item
  *       one at a time and never in aggregate, because two different sets of mistakes can sum to
  *       one total.
- * @note The run is planted. Positions step by a known amount and values cycle on a known period, so
- *       what the agreement should be is arithmetic and not a measurement. An arm that agrees with
+ * @note The run is planted. Positions step by a known amount and values cycle on a known period. An arm that agrees with
  *       portable while both are wrong is still caught.
  * @note Every arm is asked a second time over the same run with a repeated position at every eighth
  *       entry. The portable count on repeated positions is checked against python by
@@ -103,8 +102,7 @@ static int plant(AnchorExactInteger *positions, uint64_t *values, unsigned int p
     {
         char text[64];
         (void)snprintf(text, sizeof(text), "%u.%02u", at / 4u, (at % 4u) * 25u);
-        if (anchor_exact_from_decimal(text, strlen(text), PLACES, &positions[at])
-            != ANCHOR_EXACT_OK)
+        if (anchor_exact_from_decimal(text, strlen(text), PLACES, &positions[at]) != ANCHOR_EXACT_OK)
         {
             return 0;
         }
@@ -254,23 +252,38 @@ int main(int argc, char **argv)
     unsigned int count = 0u;
 #if defined(ANCHOR_EXACT_HAVE_AVX2) && ANCHOR_EXACT_HAVE_AVX2
     arms[count] = anchor_exact_avx2_arm();
-    if (arms[count] != NULL) { count++; }
+    if (arms[count] != NULL)
+    {
+        count++;
+    }
 #endif
 #if defined(ANCHOR_EXACT_HAVE_AVX512) && ANCHOR_EXACT_HAVE_AVX512
     arms[count] = anchor_exact_avx512_arm();
-    if (arms[count] != NULL) { count++; }
+    if (arms[count] != NULL)
+    {
+        count++;
+    }
 #endif
 #if defined(ANCHOR_EXACT_HAVE_SVE) && ANCHOR_EXACT_HAVE_SVE
     arms[count] = anchor_exact_sve_arm();
-    if (arms[count] != NULL) { count++; }
+    if (arms[count] != NULL)
+    {
+        count++;
+    }
 #endif
 #if defined(ANCHOR_EXACT_HAVE_NEON) && ANCHOR_EXACT_HAVE_NEON
     arms[count] = anchor_exact_neon_arm();
-    if (arms[count] != NULL) { count++; }
+    if (arms[count] != NULL)
+    {
+        count++;
+    }
 #endif
 #if defined(ANCHOR_EXACT_HAVE_CUDA) && ANCHOR_EXACT_HAVE_CUDA
     arms[count] = anchor_exact_cuda_arm();
-    if (arms[count] != NULL) { count++; }
+    if (arms[count] != NULL)
+    {
+        count++;
+    }
 #endif
 
     int wrong = grade_arms(arms, count, positions, values, lags, reference, held, places,

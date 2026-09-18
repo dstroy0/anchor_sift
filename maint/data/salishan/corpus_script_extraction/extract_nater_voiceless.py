@@ -36,13 +36,21 @@ import subprocess
 import sys
 
 from inserted_space import closed_spaces
-from salish_marking import DERIVED, SPOKEN, UNCLASSIFIED, rendered, switches, tagged_spans
+from salish_marking import (
+    DERIVED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -54,17 +62,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -73,8 +91,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -88,7 +107,8 @@ SOURCE = os.path.join(PAPERS, "ICSNL59_Nater_2_final.txt")
 # <spoken by>_<original paper>_<who wrote it down>_Salish_<language>_<year>_<mixed>
 TARGET = os.path.join(
     CORPORA,
-    "unstated_VoicelessWordsInBellaCoolaFactVsFiction_Nater_Salish_nuxalk_2024_mixed.txt")
+    "unstated_VoicelessWordsInBellaCoolaFactVsFiction_Nater_Salish_nuxalk_2024_mixed.txt",
+)
 
 # Kept in step with NATER in hand_extraction/papers.py. The apostrophe is deliberately absent: it is
 # Nater's ejective mark, and putting it in the set also makes every English gloss a word of the
@@ -108,7 +128,9 @@ PAGE = re.compile(r"^===== page \d+ =====$")
 # the gloss of (54) stops inside ‘pass one’s hand through sth.’
 # The form also may not run across the next entry number. (108) is xp = px and carries no gloss at
 # all. A form that could span one swallowed (109) and its gloss along with it.
-ENTRY = re.compile(r"\((\d{1,3})([abc])?\)\s*((?:(?!\(\d)[^‘])*?)\s*‘(.*?)’(?=\s*(?:\(\d|$))")
+ENTRY = re.compile(
+    r"\((\d{1,3})([abc])?\)\s*((?:(?!\(\d)[^‘])*?)\s*‘(.*?)’(?=\s*(?:\(\d|$))"
+)
 
 # A row of the two etymology tables: a list number, the Bella Coola form with its gloss, and then the
 # comparandum with its own. Only the first form is Bella Coola. The same quote problem applies.
@@ -132,7 +154,9 @@ def form_of(text):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -170,11 +194,20 @@ def main():
         if found and (int(found.group(1)) <= BELLA_COOLA_LAST):
             form = form_of(found.group(2))
             if form:
-                rows.append(("compared %s" % found.group(1), "Nuxalk", "cited form",
-                             form, found.group(3)))
+                rows.append(
+                    (
+                        "compared %s" % found.group(1),
+                        "Nuxalk",
+                        "cited form",
+                        form,
+                        found.group(3),
+                    )
+                )
             rest = found.group(4).strip()
             if rest:
-                rows.append(("compared %s" % found.group(1), "", UNCLASSIFIED, rest, ""))
+                rows.append(
+                    ("compared %s" % found.group(1), "", UNCLASSIFIED, rest, "")
+                )
             continue
 
         rows.append((where, "", UNCLASSIFIED, trimmed, ""))
@@ -186,14 +219,24 @@ def main():
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
         handle.write("# Voiceless Words in Bella Coola: Fact vs. Fiction.\n")
-        handle.write("# Hank Nater, Independent Linguist. Papers for the International Conference\n")
-        handle.write("# on Salish and Neighbouring Languages 59, Vancouver, BC: UBCWPL, 2024.\n")
+        handle.write(
+            "# Hank Nater, Independent Linguist. Papers for the International Conference\n"
+        )
+        handle.write(
+            "# on Salish and Neighbouring Languages 59, Vancouver, BC: UBCWPL, 2024.\n"
+        )
         handle.write("#\n")
-        handle.write("# 127 numbered entries of Bella Coola (Nuxalk), then six of Heiltsuk. The who\n")
-        handle.write("# column says which, because Heiltsuk, Oowekyala, Kwak̓wala and Haisla are\n")
+        handle.write(
+            "# 127 numbered entries of Bella Coola (Nuxalk), then six of Heiltsuk. The who\n"
+        )
+        handle.write(
+            "# column says which, because Heiltsuk, Oowekyala, Kwak̓wala and Haisla are\n"
+        )
         handle.write("# North Wakashan and not Salish at all.\n")
         handle.write("#\n")
-        handle.write("# The cluster charts of Tables 2 to 5 are phonotactics and not words. They\n")
+        handle.write(
+            "# The cluster charts of Tables 2 to 5 are phonotactics and not words. They\n"
+        )
         handle.write("# are not read here. The hand extraction records them.\n")
         handle.write("line\twho\tkind\tswitches\tcontent\n")
         for at, (spot, who, kind, text, gloss) in enumerate(rows, 1):
@@ -204,8 +247,10 @@ def main():
             else:
                 content = rendered(text, layer, kind, MARKS)
                 crossings = switches(text, MARKS)
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (at, who or spot, kind, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (at, who or spot, kind, crossings, content)
+            )
 
     # The Bella Coola words alone, one per line. Heiltsuk is held out by the who column, which the
     # column exists for.
@@ -227,21 +272,30 @@ def main():
                 kept += 1
 
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, spot, UNKNOWN_KIND, "", text) for spot, who, kind, text, gloss in rows
-               if (kind == UNCLASSIFIED) and not spot.startswith("not reached")]
+    flagged = [
+        (0, spot, UNKNOWN_KIND, "", text)
+        for spot, who, kind, text, gloss in rows
+        if (kind == UNCLASSIFIED) and not spot.startswith("not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "Voiceless Words in Bella Coola", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d Bella Coola words written to\n  %s\n" % (kept, os.path.basename(pure)))
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d Bella Coola words written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     numbered = sorted(seen)
     if numbered:
         gaps = [one for one in range(1, max(numbered) + 1) if one not in seen]
-        out.write("\n  entries 1..%d, missing %s\n"
-                  % (max(numbered), ", ".join(str(one) for one in gaps) if gaps else "none"))
+        out.write(
+            "\n  entries 1..%d, missing %s\n"
+            % (max(numbered), ", ".join(str(one) for one in gaps) if gaps else "none")
+        )
     out.flush()
     return 0
 

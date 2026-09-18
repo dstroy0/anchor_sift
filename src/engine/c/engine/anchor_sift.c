@@ -233,8 +233,7 @@ size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t 
  * like a rule that is still enforced.
  *
  * What it meant is unchanged. It is how close the effective alphabet has to sit to the symbols
- * actually used before a corpus counts as memoryless, and it was swept by bench_dispatch rather than
- * chosen. Every threshold from 0.34 to 0.96 scores identically on the corpora measured, since the
+ * actually used before a corpus counts as memoryless, and it was swept by bench_dispatch.96 scores identically on the corpora measured, since the
  * three of them read 0.96, 0.33 and 1.00 and nothing sits between. Clearing the denominators did not
  * re-open that sweep; 85/100 is the same value carried exactly instead of rounded. */
 
@@ -326,8 +325,6 @@ const char *anchor_sift_engine_name(AnchorSiftEngine engine)
 
 /* ---- the steering, folded in ---- */
 
-
-
 void anchor_field_census(const uint8_t *corpus, size_t corpus_len, AnchorFieldCensus *census)
 {
     if (census == NULL)
@@ -368,8 +365,7 @@ uint64_t anchor_steer_magnitude(const AnchorFieldCensus *census, uint8_t symbol)
 void anchor_steer_probe_order(size_t *offsets, size_t count, const AnchorFieldCensus *census,
                               const uint8_t *needle, size_t needle_len)
 {
-    if ((offsets == NULL) || (census == NULL) || (needle == NULL) || (count == 0u)
-     || (needle_len == 0u) || (census->total == 0u))
+    if ((offsets == NULL) || (census == NULL) || (needle == NULL) || (count == 0u) || (needle_len == 0u) || (census->total == 0u))
     {
         return;
     }
@@ -391,8 +387,8 @@ void anchor_steer_probe_order(size_t *offsets, size_t count, const AnchorFieldCe
         {
             const size_t settled_offset = offsets[slot - 1u];
             const uint64_t settled = (settled_offset < needle_len)
-                                   ? anchor_steer_magnitude(census, needle[settled_offset])
-                                   : 0u;
+                                         ? anchor_steer_magnitude(census, needle[settled_offset])
+                                         : 0u;
             if (settled > moving)
             {
                 break;
@@ -508,8 +504,7 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
  * moves that CANNOT change the answer, which is what this tree calls a null. Steering is choosing
  * which element of that group to apply.
  *
- * That is the whole safety argument for everything below, and it is structural rather than
- * defensive. A planner that samples badly, ranks wrongly, or is outright broken still lands on some
+ * That is the whole safety argument for everything below, and it is structural. A planner that samples badly, ranks wrongly, or is outright broken still lands on some
  * element of the null group, and every element yields the same count. The planner moves inside the
  * null and the null has one value. Correctness is therefore not something the planner can spend,
  * and speed is the only currency it holds.
@@ -519,8 +514,7 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
  * @brief How many currently truthy alignments stay truthy when `offset` is tested.
  *
  * @param[in] alive  One flag per alignment, non-zero for truthy [BORROWS].
- * @param[in] stride Sample every Nth alignment. The ranking is a comparison between candidates, so
- *                   a consistent sample ranks them consistently without reading them all.
+ * @param[in] stride Sample every Nth alignment. The ranking is a comparison between candidates.
  * @return           Count of survivors, in the sampled population.
  */
 static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
@@ -707,8 +701,14 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
             size_t mine = at;
             size_t theirs = before;
 
-            while (class_of_position[mine] != mine) { mine = class_of_position[mine]; }
-            while (class_of_position[theirs] != theirs) { theirs = class_of_position[theirs]; }
+            while (class_of_position[mine] != mine)
+            {
+                mine = class_of_position[mine];
+            }
+            while (class_of_position[theirs] != theirs)
+            {
+                theirs = class_of_position[theirs];
+            }
 
             // Already one class. The predicate can say nothing new about this pair. The only
             // saving available, and a real one on a chained field.
@@ -729,7 +729,10 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
     {
         size_t root = at;
 
-        while (class_of_position[root] != root) { root = class_of_position[root]; }
+        while (class_of_position[root] != root)
+        {
+            root = class_of_position[root];
+        }
         class_of_position[at] = (uint32_t)root;
         members_in_class[root] += 1u;
     }
@@ -811,9 +814,7 @@ int anchor_field_project(const AnchorFieldProjection *args)
     {
         return 0;
     }
-    if ((args->same_in_field == NULL) || (args->ranks == NULL) || (args->length == 0u)
-     || (args->class_of_position == NULL) || (args->members_in_class == NULL)
-     || (args->rarity_place_of_class == NULL))
+    if ((args->same_in_field == NULL) || (args->ranks == NULL) || (args->length == 0u) || (args->class_of_position == NULL) || (args->members_in_class == NULL) || (args->rarity_place_of_class == NULL))
     {
         return 0;
     }
@@ -867,11 +868,7 @@ int anchor_field_pair_project(const AnchorFieldPairProjection *args)
     {
         return 0;
     }
-    if ((args->same_in_field == NULL) || (args->corpus_ranks == NULL)
-     || (args->needle_ranks == NULL) || (args->class_of_position == NULL)
-     || (args->members_in_class == NULL) || (args->rarity_place_of_class == NULL)
-     || (args->corpus_length == 0u) || (args->needle_length == 0u)
-     || (args->needle_length > args->corpus_length))
+    if ((args->same_in_field == NULL) || (args->corpus_ranks == NULL) || (args->needle_ranks == NULL) || (args->class_of_position == NULL) || (args->members_in_class == NULL) || (args->rarity_place_of_class == NULL) || (args->corpus_length == 0u) || (args->needle_length == 0u) || (args->needle_length > args->corpus_length))
     {
         return 0;
     }
@@ -933,20 +930,17 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
                             int resume)
 {
     // A field of any symbol type supplies its own extents and its own validity, and the byte
-    // pointers go unread. Checked separately rather than by casting the field into the byte
-    // pointers to satisfy a null test, which would pass the guard while meaning nothing.
+    // pointers go unread. Checked separately.
     if (any != NULL)
     {
-        if ((offsets == NULL) || (survivors == NULL) || (count == 0u) || (any->same == NULL)
-         || (any->alignments == 0u) || (any->needle_len == 0u))
+        if ((offsets == NULL) || (survivors == NULL) || (count == 0u) || (any->same == NULL) || (any->alignments == 0u) || (any->needle_len == 0u))
         {
             return 0u;
         }
         needle_len = any->needle_len;
         corpus_len = (any->alignments + any->needle_len) - 1u;
     }
-    else if ((offsets == NULL) || (corpus == NULL) || (needle == NULL) || (survivors == NULL)
-     || (count == 0u) || (needle_len == 0u) || (needle_len > corpus_len))
+    else if ((offsets == NULL) || (corpus == NULL) || (needle == NULL) || (survivors == NULL) || (count == 0u) || (needle_len == 0u) || (needle_len > corpus_len))
     {
         return 0u;
     }
@@ -1048,8 +1042,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
         // tests the same congruence and the ones after the first are pure cost. Here the judgment
         // is MEASURED per level against the field instead of inferred from a period, which also
         // catches fields whose redundancy no period search would name.
-        if ((force_full_depth == 0)
-         && (best_standing >= steer_truthy_total(survivors, alignments, stride)))
+        if ((force_full_depth == 0) && (best_standing >= steer_truthy_total(survivors, alignments, stride)))
         {
             break;
         }
@@ -1204,9 +1197,7 @@ static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8
                                  size_t max_length, uint8_t *survivors, size_t survivors_length,
                                  size_t sample_stride)
 {
-    if ((probes == NULL) || (corpus == NULL) || (needle == NULL) || (survivors == NULL)
-     || (wanted == 0u) || (wanted > ANCHOR_STEER_ANCHORS) || (needle_len == 0u)
-     || (needle_len > corpus_len) || (max_length == 0u))
+    if ((probes == NULL) || (corpus == NULL) || (needle == NULL) || (survivors == NULL) || (wanted == 0u) || (wanted > ANCHOR_STEER_ANCHORS) || (needle_len == 0u) || (needle_len > corpus_len) || (max_length == 0u))
     {
         return 0u;
     }
@@ -1231,7 +1222,7 @@ static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8
     // this search is fixed before the first byte is examined.
     while (placed < wanted)
     {
-        AnchorProbe best = { 0u, 1u, 1u };
+        AnchorProbe best = {0u, 1u, 1u};
         size_t best_standing = 0u;
         int found = 0;
 
@@ -1242,7 +1233,7 @@ static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8
                 const size_t step_limit = (length == 1u) ? 2u : (needle_len + 1u);
                 for (size_t step = 1u; step < step_limit; step += 1u)
                 {
-                    const AnchorProbe candidate = { origin, step, length };
+                    const AnchorProbe candidate = {origin, step, length};
                     if (anchor_steer_probe_fits(&candidate, needle_len) == 0)
                     {
                         continue;
@@ -1310,7 +1301,7 @@ void anchor_steer_probes_reset(void)
  * @note The same placement rule the search above uses, carried here so the steered route chooses where
  *       to probe the same way the engines it is compared against do. Only the ORDER of evaluation is
  *       this file's contribution, and placing differently would confound the two.
- * @note Returns every offset zero at `needle_len` zero rather than computing `needle_len - 1u`,
+ * @note Returns every offset zero at `needle_len` zero
  *       which on size_t wraps to SIZE_MAX. The caller does not probe at that length in any case.
  */
 static void steer_choose_offsets(size_t *offsets, size_t wanted, size_t needle_len)

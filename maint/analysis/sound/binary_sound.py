@@ -57,10 +57,12 @@ import numpy
 import soundfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -72,17 +74,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -91,8 +103,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -103,12 +116,19 @@ ROOT = _repository_root()
 AUDIO = os.path.join(ROOT, "build", "audio")
 SOUND = os.path.join(ROOT, "build", "sound")
 
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "representation", "sound"))
+sys.path.insert(
+    0, os.path.join(ROOT, "src", "engine", "python", "representation", "sound")
+)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
 
 from anchor_sift import entropy, support  # noqa: E402
 
-from perceived_sound import PROSODY_BITS, SEGMENT_BITS, code_profile, represented  # noqa: E402
+from perceived_sound import (
+    PROSODY_BITS,
+    SEGMENT_BITS,
+    code_profile,
+    represented,
+)  # noqa: E402
 
 # The prefixes of the segment field the delta is also reported at. 6 bits is 64 states, which a
 # four minute recording covers hundreds of times over, and 14 is where the state count passes the
@@ -156,7 +176,9 @@ def from_uniform(profile, width):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     wanted = sys.argv[1:]
     if not os.path.isdir(AUDIO):
         out.write("  no build/audio. There is nothing to read.\n")
@@ -178,34 +200,62 @@ def main():
         with open(path, "w", encoding="utf-8", newline="\n") as handle:
             handle.write("seconds\tsegment\tprosody\n")
             for row in range(len(at)):
-                handle.write("%.3f\t%s\t%s\n"
-                             % (at[row],
-                                "".join(str(one) for one in segment[row]),
-                                "".join(str(one) for one in prosody[row])))
+                handle.write(
+                    "%.3f\t%s\t%s\n"
+                    % (
+                        at[row],
+                        "".join(str(one) for one in segment[row]),
+                        "".join(str(one) for one in prosody[row]),
+                    )
+                )
         out.write("  %s\n" % stem)
-        out.write("    %d Hz, %.1f s, %d frames\n" % (rate, len(samples) / float(rate), len(at)))
-        for label, field, width in (("segment", segment, SEGMENT_BITS),
-                                    ("prosody", prosody, PROSODY_BITS)):
+        out.write(
+            "    %d Hz, %.1f s, %d frames\n"
+            % (rate, len(samples) / float(rate), len(at))
+        )
+        for label, field, width in (
+            ("segment", segment, SEGMENT_BITS),
+            ("prosody", prosody, PROSODY_BITS),
+        ):
             profile, total = code_profile(field)
             if not total:
                 continue
-            out.write("    %-8s %d bit field, %d of %d states used, H %.2f of %d, "
-                      "%.4f from flat\n"
-                      % (label, width, support(profile), 1 << width, entropy(profile), width,
-                         from_uniform(profile, width)))
+            out.write(
+                "    %-8s %d bit field, %d of %d states used, H %.2f of %d, "
+                "%.4f from flat\n"
+                % (
+                    label,
+                    width,
+                    support(profile),
+                    1 << width,
+                    entropy(profile),
+                    width,
+                    from_uniform(profile, width),
+                )
+            )
         # How evenly each bit on its own splits the frames. The thresholds are medians. A column
         # that is not close to half is a column whose values are tied at the median.
         even = segment.mean(axis=0)
-        out.write("    each segment bit is set on %.3f to %.3f of frames\n"
-                  % (even.min(), even.max()))
+        out.write(
+            "    each segment bit is set on %.3f to %.3f of frames\n"
+            % (even.min(), even.max())
+        )
         for width in WIDTHS:
             profile, total = code_profile(segment[:, :width])
             if not total:
                 continue
-            out.write("      segment at %2d bits, %5d of %6d states, %5.1f frames a state, "
-                      "H %5.2f, %.4f from flat\n"
-                      % (width, support(profile), 1 << width, total / float(1 << width),
-                         entropy(profile), from_uniform(profile, width)))
+            out.write(
+                "      segment at %2d bits, %5d of %6d states, %5.1f frames a state, "
+                "H %5.2f, %.4f from flat\n"
+                % (
+                    width,
+                    support(profile),
+                    1 << width,
+                    total / float(1 << width),
+                    entropy(profile),
+                    from_uniform(profile, width),
+                )
+            )
         done += 1
     out.write("\n  %d recordings written to %s\n" % (done, SOUND.replace("\\", "/")))
     out.flush()

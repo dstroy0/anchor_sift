@@ -1040,7 +1040,6 @@ static AbResult ab_free_order(const uint8_t *corpus, size_t corpus_len, const ui
                 alive[start] = 0u;
             }
         }
-
     }
 
     // The mirror. A refutation runs from an observed symbol to the alignments it rules out, and the
@@ -2210,8 +2209,7 @@ static int ab_by_place(const void *left, const void *right)
  *       so they say nothing about what a text is about.
  * @note What separates them is where they fall. A unit doing grammatical work is spread evenly through
  *       a text, which leaves the gaps between its occurrences close to geometric and their dispersion
- *       near one. A unit belonging to a subject appears in bursts where that subject is discussed, so
- *       its gaps are far more varied and its dispersion is well above one. That is the statistic of
+ *       near one. A unit belonging to a subject appears in bursts where that subject is discussed. That is the statistic of
  *       Section 4.12 read at the other end: low dispersion marks a boundary and high dispersion marks
  *       a subject.
  */
@@ -2667,9 +2665,7 @@ static void ab_report(const char *name, const uint8_t *corpus, size_t corpus_len
     printf("ancorae_calib,%s,%u,%u,%u,%u,%.1f,%.1f,%u,%u,%.2f\n", name, (unsigned)needle_len,
            (unsigned)corpus_len, (unsigned)calibrated_stride, (unsigned)unique_stride,
            calibration_reads, calibrated_reads / (double)calibrated_tried, calibrated_wrong,
-           calibrated_tried, (calibrated_reads > 0.0)
-                                 ? (totals[2] / count / (calibrated_reads / (double)calibrated_tried))
-                                 : 0.0);
+           calibrated_tried, (calibrated_reads > 0.0) ? (totals[2] / count / (calibrated_reads / (double)calibrated_tried)) : 0.0);
 
     printf("ancorae_ab,%s,%u,%u,%u,"
            "%.1f,%.1f,%.1f,%.1f,%.1f,%.1f,%.1f,%.1f,%.1f,%.1f,%.1f,%.1f,"

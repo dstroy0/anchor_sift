@@ -15,7 +15,7 @@
 # a mean cannot, and it needs no threshold: the element width is a declared input and min and max are
 # positions in a sorted window, not tolerances.
 #
-# It is application logic rather than an engine primitive, and for the reason the collaborative filter
+# It is application logic  and for the reason the collaborative filter
 # is: opening TRANSFORMS the reading into a different reading of itself. It is not a null a departure is
 # measured against. It is not a reference-stage object; it is an operator, and operators live in the
 # example until the ladder has a place for them.
@@ -31,7 +31,7 @@ import sys
 
 
 def window(values, index, radius):
-    return values[max(0, index - radius):min(len(values), index + radius + 1)]
+    return values[max(0, index - radius) : min(len(values), index + radius + 1)]
 
 
 def erode_sorted(values, radius):
@@ -78,10 +78,17 @@ def plateaus(widths, levels):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    radius = 2                                                  # element width 2*radius+1 = 5
-    out.write("  morphology: opening removes bright speckle, closing fills dark speckle\n")
-    out.write("  declared inputs: structuring element radius=%d (width %d)\n\n" % (radius, 2 * radius + 1))
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    radius = 2  # element width 2*radius+1 = 5
+    out.write(
+        "  morphology: opening removes bright speckle, closing fills dark speckle\n"
+    )
+    out.write(
+        "  declared inputs: structuring element radius=%d (width %d)\n\n"
+        % (radius, 2 * radius + 1)
+    )
 
     clean = plateaus([15, 15, 15, 15], [50, 200, 50, 200])
 
@@ -94,9 +101,13 @@ def main():
         dark[pos] = 0
 
     # two routes for the min/max must agree
-    routes_agree = (erode_sorted(bright, radius) == erode_running(bright, radius)
-                    and dilate_sorted(bright, radius) == dilate_running(bright, radius))
-    out.write("  reject: sort and running routes agree on erosion and dilation: %s\n" % routes_agree)
+    routes_agree = erode_sorted(bright, radius) == erode_running(
+        bright, radius
+    ) and dilate_sorted(bright, radius) == dilate_running(bright, radius)
+    out.write(
+        "  reject: sort and running routes agree on erosion and dilation: %s\n"
+        % routes_agree
+    )
 
     opened = opening(bright, radius)
     closed = closing(dark, radius)
@@ -107,19 +118,34 @@ def main():
 
     # negative control: a clean signal with no speckle is left as it is by the interior
     interior_ok = opening(clean, radius)[radius:-radius] == clean[radius:-radius]
-    out.write("\n  negative control: opening a clean signal leaves its interior untouched: %s\n" % interior_ok)
+    out.write(
+        "\n  negative control: opening a clean signal leaves its interior untouched: %s\n"
+        % interior_ok
+    )
 
     # floor: a real feature narrower than the element is removed with the speckle
-    narrow = plateaus([15, 3, 15], [50, 200, 50])              # the middle plateau is width 3 < 5
+    narrow = plateaus([15, 3, 15], [50, 200, 50])  # the middle plateau is width 3 < 5
     opened_narrow = opening(narrow, radius)
     lost = opened_narrow != narrow
-    out.write("  floor: a real feature narrower than the element (width 3 < %d) is removed too: %s\n"
-              % (2 * radius + 1, lost))
-    out.write("\n  opening and closing reject a speckle by rank, with no threshold: the element width is\n")
-    out.write("  the one declared input. the floor is honest -- a spike narrower than the element is\n")
-    out.write("  removed whether it was noise or signal, because rank alone cannot tell them apart.\n")
+    out.write(
+        "  floor: a real feature narrower than the element (width 3 < %d) is removed too: %s\n"
+        % (2 * radius + 1, lost)
+    )
+    out.write(
+        "\n  opening and closing reject a speckle by rank, with no threshold: the element width is\n"
+    )
+    out.write(
+        "  the one declared input. the floor is honest -- a spike narrower than the element is\n"
+    )
+    out.write(
+        "  removed whether it was noise or signal, because rank alone cannot tell them apart.\n"
+    )
     out.flush()
-    return 0 if (routes_agree and open_exact and close_exact and interior_ok and lost) else 1
+    return (
+        0
+        if (routes_agree and open_exact and close_exact and interior_ok and lost)
+        else 1
+    )
 
 
 if __name__ == "__main__":

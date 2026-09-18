@@ -31,14 +31,23 @@ import re
 import subprocess
 import sys
 
-from salish_marking import (CAPS_RUN, DERIVED, SPOKEN, UNCLASSIFIED, is_mixed, rendered,
-                            switches, tagged_spans)
+from salish_marking import (
+    CAPS_RUN,
+    DERIVED,
+    SPOKEN,
+    UNCLASSIFIED,
+    is_mixed,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -50,17 +59,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -69,8 +88,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -85,7 +105,8 @@ SOURCE = os.path.join(PAPERS, "HallPhillipsICSNL60.txt")
 TARGET = os.path.join(
     CORPORA,
     "BevPhillips_WhenOldOneCreatedTheEarth_HallPhillips"
-    "_Salish_nlekepmxcin_2025_nomixed.txt")
+    "_Salish_nlekepmxcin_2025_nomixed.txt",
+)
 
 PAGE = re.compile(r"^===== page \d+ =====$")
 CLOCK = re.compile(r"^\s*\[\s*(\d{1,2}):(\d{2})\s*\]\s*$")
@@ -102,7 +123,8 @@ SEGMENTED = re.compile(r"[-=]")
 CATEGORIES = re.compile(
     r"\b(?:ADD|AUG|AUT|CAUS|COS|COMP|CONN|CTR|COP|DEM|DET|D/C|DVL|DIM|EMPH|ERG|EXCL|IMM|IMP|"
     r"IPFV|INCH|INDEP|INDR|INFER|IRED|INS|LC|LOC|MID|NEG|NMLZ|OBJ|OBL|PASS|PL|PRP|PROSP|POSS|"
-    r"QLT|RFM|RECP|REFL|RLT|REM|SG|STAT|SBJ|SBJV|TR|WH|1SG|2SG|3SG|1PL|2PL|3PL|1|2|3)\b")
+    r"QLT|RFM|RECP|REFL|RLT|REM|SG|STAT|SBJ|SBJV|TR|WH|1SG|2SG|3SG|1PL|2PL|3PL|1|2|3)\b"
+)
 
 # The marks the extraction inserted after a consonant's own diacritic. Deleting the space after one
 # of these repairs the word. Stress accents are deliberately absent: a word can end in a stressed
@@ -248,13 +270,16 @@ def three_line_parts(block):
             close()
             slot = 0
     close()
-    slipped = any(CAPS_RUN.search(one[0] or "") or CAPS_RUN.search(one[1] or "")
-                  for one in parts)
+    slipped = any(
+        CAPS_RUN.search(one[0] or "") or CAPS_RUN.search(one[1] or "") for one in parts
+    )
     return parts, translation, leftover, slipped
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -308,28 +333,50 @@ def main():
         rows.append(("T", 0, "page %d" % page, "not reached", UNCLASSIFIED, text))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# ɬ cutés us ɬ qəɬmín ɬ tmíxʷ (When Old One Created the Earth).\n")
-        handle.write("# Written and told in nɬeʔkepmxcín by Bev Phillips, Lytton First Nation\n")
-        handle.write("# (ƛ̓q̓əmcín). With Brent Hall, University of British Columbia.\n")
-        handle.write("# Papers for the International Conference on Salish and Neighbouring\n")
-        handle.write("# Languages 60, UBCWPL, 2025. Audio published alongside the paper.\n")
-        handle.write("# The authors note the recording and the transcription differ slightly,\n")
-        handle.write("# because a draft was used for the recording and the text was edited after.\n")
+        handle.write(
+            "# ɬ cutés us ɬ qəɬmín ɬ tmíxʷ (When Old One Created the Earth).\n"
+        )
+        handle.write(
+            "# Written and told in nɬeʔkepmxcín by Bev Phillips, Lytton First Nation\n"
+        )
+        handle.write(
+            "# (ƛ̓q̓əmcín). With Brent Hall, University of British Columbia.\n"
+        )
+        handle.write(
+            "# Papers for the International Conference on Salish and Neighbouring\n"
+        )
+        handle.write(
+            "# Languages 60, UBCWPL, 2025. Audio published alongside the paper.\n"
+        )
+        handle.write(
+            "# The authors note the recording and the transcription differ slightly,\n"
+        )
+        handle.write(
+            "# because a draft was used for the recording and the text was edited after.\n"
+        )
         handle.write("#\n")
         handle.write("# T = target language, nɬeʔkepmxcín.  N = non-target, English.\n")
-        handle.write("# One line per line she spoke. The switches stay grouped and sortable.\n")
-        handle.write("# Gloss categories are the paper's own, from its footnote 3, unchanged.\n")
+        handle.write(
+            "# One line per line she spoke. The switches stay grouped and sortable.\n"
+        )
+        handle.write(
+            "# Gloss categories are the paper's own, from its footnote 3, unchanged.\n"
+        )
         handle.write("line\ttime\tsection\tswitches\tcontent\n")
         for tag, number, when, section, kind, text in rows:
-            layer = DERIVED if kind in ("segmentation", "gloss", UNCLASSIFIED) else SPOKEN
+            layer = (
+                DERIVED if kind in ("segmentation", "gloss", UNCLASSIFIED) else SPOKEN
+            )
             if tag == "T":
                 content = rendered(text, layer, kind)
                 crossings = switches(text)
             else:
                 content = "N.%s.%s:{%s}" % (layer, kind, text)
                 crossings = 0
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (number, when, section, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (number, when, section, crossings, content)
+            )
 
     # The ingestion stream: only what she said, only in the target language, nothing around it.
     # A mixed line contributes its target spans and not its English ones, and no gloss, no
@@ -360,18 +407,26 @@ def main():
     # none of the tests above typed, and a line no section reached, which for this paper is
     # section 1 and the front matter, since sections() is told to hold only 2, 3 and 4.
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, "%s block %d" % (section, number), UNKNOWN_KIND, "", text)
-               for tag, number, when, section, kind, text in rows
-               if (kind == UNCLASSIFIED) and (section != "not reached")]
+    flagged = [
+        (0, "%s block %d" % (section, number), UNKNOWN_KIND, "", text)
+        for tag, number, when, section, kind, text in rows
+        if (kind == UNCLASSIFIED) and (section != "not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "When Old One Created the Earth", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure)))
-    out.write("  %d spans skipped as already written, sections 2 and 4 print the same story\n"
-              % repeated)
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
+    out.write(
+        "  %d spans skipped as already written, sections 2 and 4 print the same story\n"
+        % repeated
+    )
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
     out.write("\n  %-10s %-18s %s\n" % ("section", "kind", "lines"))
     counted = {}
     for tag, number, when, section, kind, text in rows:
@@ -385,15 +440,22 @@ def main():
     # Counted over spoken lines only. A segmentation line is target-language material full of
     # plain-letter underlying forms. The span test fires on it and calling that a switch would
     # report code-switching that was not done.
-    mixed = sum(1 for row in rows
-                if (row[0] == "T") and (row[4] == "transcription") and is_mixed(row[5]))
-    out.write("\n  T lines %d, N lines %d, lines she mixed %d\n"
-              % (marks.get("T", 0), marks.get("N", 0), mixed))
+    mixed = sum(
+        1
+        for row in rows
+        if (row[0] == "T") and (row[4] == "transcription") and is_mixed(row[5])
+    )
+    out.write(
+        "\n  T lines %d, N lines %d, lines she mixed %d\n"
+        % (marks.get("T", 0), marks.get("N", 0), mixed)
+    )
 
     two = len([one for one in rows if (one[3] == "2") and (one[4] == "transcription")])
     four = len([one for one in rows if (one[3] == "4") and (one[4] == "transcription")])
     out.write("  section 2 sentences %d, section 4 transcriptions %d\n" % (two, four))
-    out.write("  the two sections are two printings of one story. A difference between\n")
+    out.write(
+        "  the two sections are two printings of one story. A difference between\n"
+    )
     out.write("  these counts is a discrepancy in the paper or in this reading of it\n")
 
     out.flush()

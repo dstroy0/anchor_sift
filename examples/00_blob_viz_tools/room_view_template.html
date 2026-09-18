@@ -603,7 +603,7 @@
         trailSize[k2 * TRAIL + j] = spread[k2] * (0.35 + 0.4 * lit);
 
         // What lands on the shell is brighter and broader than what made it, since the boundary is
-        // being read rather than the thing itself, and a smear is what a spot becomes once it has had
+        // being read  and a smear is what a spot becomes once it has had
         // time to move.
         smearTint[to] = tint[k2 * 3] * lit * 0.95;
         smearTint[to + 1] = tint[k2 * 3 + 1] * lit * 0.95;

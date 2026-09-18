@@ -11,11 +11,10 @@
 # outcome distribution under a move is not estimated here, it is computed. That makes it the control:
 # an estimator that cannot reproduce blackjack exactly has nothing to say about chess.
 #
-# WHAT IS MODELLED AND WHAT IS NOT
+# WHAT IS MODELED AND WHAT IS NOT
 #
 # The dealer has a fixed rule and therefore never chooses; it is given PLAYER_TWO with exactly one
-# legal move at every turn, which states the absence of choice in the protocol rather than in a
-# comment. The dealer draws its second card during its own play instead of holding a hole card. For
+# legal move at every turn, which states the absence of choice in the protocol. For
 # the distribution over win, loss and draw that is the same game -- the hole card is unknown to the
 # player either way and is drawn from the same deck -- and it keeps hidden information out of a
 # backend that is not about hidden information. Poker is the backend that is.
@@ -82,7 +81,13 @@ class Blackjack(object):
 
     def to_move(self, state):
         phase = state[0]
-        if phase in (DEAL_PLAYER_ONE, DEAL_PLAYER_TWO, DEAL_DEALER, PLAYER_DRAW, DEALER_DRAW):
+        if phase in (
+            DEAL_PLAYER_ONE,
+            DEAL_PLAYER_TWO,
+            DEAL_DEALER,
+            PLAYER_DRAW,
+            DEALER_DRAW,
+        ):
             return rules.CHANCE
         if phase == PLAYER_CHOICE:
             return rules.PLAYER_ONE
@@ -107,12 +112,33 @@ class Blackjack(object):
 
         if phase == PLAYER_CHOICE:
             if move == HIT:
-                return (PLAYER_DRAW, player_pips, player_aces, dealer_pips, dealer_aces, shoe)
-            return (DEALER_TURN, player_pips, player_aces, dealer_pips, dealer_aces, shoe)
+                return (
+                    PLAYER_DRAW,
+                    player_pips,
+                    player_aces,
+                    dealer_pips,
+                    dealer_aces,
+                    shoe,
+                )
+            return (
+                DEALER_TURN,
+                player_pips,
+                player_aces,
+                dealer_pips,
+                dealer_aces,
+                shoe,
+            )
 
         if phase == DEALER_TURN:
             if best_total(dealer_pips, dealer_aces) < DEALER_STANDS_ON:
-                return (DEALER_DRAW, player_pips, player_aces, dealer_pips, dealer_aces, shoe)
+                return (
+                    DEALER_DRAW,
+                    player_pips,
+                    player_aces,
+                    dealer_pips,
+                    dealer_aces,
+                    shoe,
+                )
             return (SETTLED, player_pips, player_aces, dealer_pips, dealer_aces, shoe)
 
         drawn = move
@@ -122,16 +148,37 @@ class Blackjack(object):
             player_pips += drawn
             player_aces += 1 if drawn == 1 else 0
             if phase == DEAL_PLAYER_ONE:
-                return (DEAL_PLAYER_TWO, player_pips, player_aces, dealer_pips, dealer_aces, shoe)
+                return (
+                    DEAL_PLAYER_TWO,
+                    player_pips,
+                    player_aces,
+                    dealer_pips,
+                    dealer_aces,
+                    shoe,
+                )
             if phase == DEAL_PLAYER_TWO:
-                return (DEAL_DEALER, player_pips, player_aces, dealer_pips, dealer_aces, shoe)
+                return (
+                    DEAL_DEALER,
+                    player_pips,
+                    player_aces,
+                    dealer_pips,
+                    dealer_aces,
+                    shoe,
+                )
             nxt = SETTLED if player_pips > 21 else PLAYER_CHOICE
             return (nxt, player_pips, player_aces, dealer_pips, dealer_aces, shoe)
 
         dealer_pips += drawn
         dealer_aces += 1 if drawn == 1 else 0
         if phase == DEAL_DEALER:
-            return (PLAYER_CHOICE, player_pips, player_aces, dealer_pips, dealer_aces, shoe)
+            return (
+                PLAYER_CHOICE,
+                player_pips,
+                player_aces,
+                dealer_pips,
+                dealer_aces,
+                shoe,
+            )
 
         nxt = SETTLED if dealer_pips > 21 else DEALER_TURN
         return (nxt, player_pips, player_aces, dealer_pips, dealer_aces, shoe)

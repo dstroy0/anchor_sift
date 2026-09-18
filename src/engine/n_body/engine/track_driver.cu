@@ -102,10 +102,7 @@ static int schedule_program(const char *directory, char *const *names, unsigned 
         }
         const unsigned long long frames = head[0];
         const unsigned long long voxels = (unsigned long long)head[1] * head[2] * head[3];
-        const unsigned long long each = (voxels * 2ull)
-                                      + (voxels * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int))
-                                      + (voxels * sizeof(unsigned int))
-                                      + ((voxels + 63ull) / 64ull * sizeof(unsigned long long));
+        const unsigned long long each = (voxels * 2ull) + (voxels * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int)) + (voxels * sizeof(unsigned int)) + ((voxels + 63ull) / 64ull * sizeof(unsigned long long));
         unsigned long long hold = (each != 0ull) ? (cap / each) : 0ull;
         hold = (hold < 2ull) ? 2ull : hold;
         hold = (hold > frames) ? frames : hold;
@@ -498,13 +495,11 @@ static int read_answer_key(const char *path, AnswerKey *key)
     }
     for (unsigned int node = 0u; (good != 0) && (node < key->node_count); node += 1u)
     {
-        good = (fread(&key->node_identity[node], sizeof(long long), 1u, handle) == 1u)
-            && (fread(&key->node_coordinates[(size_t)node * 4u], sizeof(int), 4u, handle) == 4u);
+        good = (fread(&key->node_identity[node], sizeof(long long), 1u, handle) == 1u) && (fread(&key->node_coordinates[(size_t)node * 4u], sizeof(int), 4u, handle) == 4u);
     }
     if ((good != 0) && (key->edge_count > 0u))
     {
-        good = (fread(key->edge_ends, sizeof(long long), (size_t)key->edge_count * 2u, handle)
-                == (size_t)key->edge_count * 2u);
+        good = (fread(key->edge_ends, sizeof(long long), (size_t)key->edge_count * 2u, handle) == (size_t)key->edge_count * 2u);
     }
     fclose(handle);
     return good;
@@ -574,9 +569,8 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
         const size_t all_voxels = (size_t)buffers->depth * buffers->height * buffers->width;
         const unsigned int grading = (unsigned int)((s_tree != 0u) && (s_tree_frames == 0ull));
         unsigned int *const residual_room = ((s_survey | grading) != 0u)
-                                          ? (unsigned int *)malloc(all_voxels * BINOMIAL_BASINS_LIMBS
-                                                                    * sizeof(unsigned int))
-                                          : NULL;
+                                                ? (unsigned int *)malloc(all_voxels * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int))
+                                                : NULL;
         request.residual_limbs = residual_room;
         request.positive_words = buffers->positive[slot];
         request.joined_room = buffers->pair_room;
@@ -595,8 +589,7 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
                 const unsigned int crop_height = (buffers->height < 64u) ? buffers->height : 64u;
                 const unsigned int crop_width = (buffers->width < 64u) ? buffers->width : 64u;
                 const size_t crop = (size_t)crop_depth * crop_height * crop_width;
-                unsigned int *const cropped = (unsigned int *)malloc(crop * BINOMIAL_BASINS_LIMBS
-                                                                     * sizeof(unsigned int));
+                unsigned int *const cropped = (unsigned int *)malloc(crop * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int));
                 unsigned char *const asked_host = (unsigned char *)malloc(crop * 3u);
                 unsigned char *const asked_device = (unsigned char *)malloc(crop * 3u);
                 unsigned char *const bound = (unsigned char *)malloc(all_voxels * 3u);
@@ -615,8 +608,7 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
                         {
                             for (unsigned int x = 0u; x < crop_width; x += 1u)
                             {
-                                const size_t there = ((size_t)(from_z + z) * buffers->height
-                                                      + (from_y + y)) * buffers->width + (from_x + x);
+                                const size_t there = ((size_t)(from_z + z) * buffers->height + (from_y + y)) * buffers->width + (from_x + x);
                                 const size_t here = ((size_t)z * crop_height + y) * crop_width + x;
                                 memcpy(&cropped[here * BINOMIAL_BASINS_LIMBS],
                                        &residual_room[there * BINOMIAL_BASINS_LIMBS],
@@ -651,7 +643,8 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
                     const long crop_chosen = max_tree_bind(&on_crop);
                     const int same_faces = (crop_chosen >= 0L) && (memcmp(asked_host, asked_device, crop * 3u) == 0);
                     printf("    asked: %u contractions in %llu ms, tree across its faces %s; device %ld faces in "
-                           "%u ticks, %s\n", contractions, answered / 1000ull,
+                           "%u ticks, %s\n",
+                           contractions, answered / 1000ull,
                            (asked != 0) ? "IS the reference" : "DIFFERS from the reference", crop_chosen,
                            crop_ticks, (same_faces != 0) ? "the SAME faces" : "DIFFERENT faces");
                     fflush(stdout);
@@ -695,7 +688,8 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
                     whole.proved_microseconds = &proved;
                     const long chosen = max_tree_bind(&whole);
                     printf("    bound: %ux%ux%u, %ld faces in %u ticks, %llu ms; proved on the device at %u of %u "
-                           "levels in %llu ms\n", buffers->depth, buffers->height, buffers->width, chosen, ticks,
+                           "levels in %llu ms\n",
+                           buffers->depth, buffers->height, buffers->width, chosen, ticks,
                            spent / 1000ull, held, level_count, proved / 1000ull);
                     fflush(stdout);
                 }
@@ -766,8 +760,7 @@ static int land_peak(const EngineBuffers *buffers, unsigned int peak, const int 
     const long z = (long)(peak / plane) + (long)lag[0];
     const long y = (long)(rest / buffers->width) + (long)lag[1];
     const long x = (long)(rest % buffers->width) + (long)lag[2];
-    if ((z < 0L) || (z >= (long)buffers->depth) || (y < 0L) || (y >= (long)buffers->height) || (x < 0L)
-     || (x >= (long)buffers->width))
+    if ((z < 0L) || (z >= (long)buffers->depth) || (y < 0L) || (y >= (long)buffers->height) || (x < 0L) || (x >= (long)buffers->width))
     {
         return -1;
     }
@@ -843,8 +836,7 @@ static long long basin_coherence(const EngineBuffers *buffers, const unsigned in
         const long z = (long)(voxel / plane) + (long)lag[0];
         const long y = (long)(rest / buffers->width) + (long)lag[1];
         const long x = (long)(rest % buffers->width) + (long)lag[2];
-        if ((z < 0L) || (z >= (long)buffers->depth) || (y < 0L) || (y >= (long)buffers->height) || (x < 0L)
-         || (x >= (long)buffers->width))
+        if ((z < 0L) || (z >= (long)buffers->depth) || (y < 0L) || (y >= (long)buffers->height) || (x < 0L) || (x >= (long)buffers->width))
         {
             continue;
         }
@@ -894,10 +886,7 @@ static void climb_lag(const EngineBuffers *buffers, unsigned int slot, unsigned 
                     }
                     const int candidate[3] = {here[0] + step_z, here[1] + step_y, here[2] + step_x};
                     const long long score = patch_coherence(candidate);
-                    const unsigned long long length = (unsigned long long)AXIS_WEIGHTS[0]
-                                                        * (unsigned long long)(candidate[0] * candidate[0])
-                                                    + (unsigned long long)(candidate[1] * candidate[1])
-                                                    + (unsigned long long)(candidate[2] * candidate[2]);
+                    const unsigned long long length = (unsigned long long)AXIS_WEIGHTS[0] * (unsigned long long)(candidate[0] * candidate[0]) + (unsigned long long)(candidate[1] * candidate[1]) + (unsigned long long)(candidate[2] * candidate[2]);
                     if ((score > best_score) || ((moved != 0) && (score == best_score) && (length < best_length)))
                     {
                         best[0] = candidate[0];
@@ -999,14 +988,11 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
             motion.counts = (unsigned int *)malloc(padded_total * sizeof(unsigned int));
             again.counts = (unsigned int *)malloc(padded_total * sizeof(unsigned int));
         }
-        int moved_ok = ((rules->motion_check == 0) || ((motion.counts != NULL) && (again.counts != NULL)))
-                    && (shift_agreement_run(&motion) == 0L);
+        int moved_ok = ((rules->motion_check == 0) || ((motion.counts != NULL) && (again.counts != NULL))) && (shift_agreement_run(&motion) == 0L);
         if ((moved_ok != 0) && (rules->motion_check != 0))
         {
             moved_ok = (shift_agreement_run(&again) == 0L);
-            if ((moved_ok != 0) && ((memcmp(motion.counts, again.counts, padded_total * sizeof(unsigned int)) != 0)
-                                    || (memcmp(motion.lag, again.lag, sizeof(motion.lag)) != 0)
-                                    || (motion.agreement != again.agreement)))
+            if ((moved_ok != 0) && ((memcmp(motion.counts, again.counts, padded_total * sizeof(unsigned int)) != 0) || (memcmp(motion.lag, again.lag, sizeof(motion.lag)) != 0) || (motion.agreement != again.agreement)))
             {
                 fprintf(stderr, "    motion disagrees: frame %u\n", earlier->time);
             }
@@ -1087,8 +1073,7 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
             unsigned int *contact_start[2] = {NULL, NULL};
             unsigned int *contacts[2] = {NULL, NULL};
             climbed = (forward_lags != NULL) && (backward_lags != NULL);
-            climbed = climbed && ((rules->sticky == 0) || ((frame_contacts(earlier, &contact_start[0], &contacts[0]) != 0)
-                                                           && (frame_contacts(later, &contact_start[1], &contacts[1]) != 0)));
+            climbed = climbed && ((rules->sticky == 0) || ((frame_contacts(earlier, &contact_start[0], &contacts[0]) != 0) && (frame_contacts(later, &contact_start[1], &contacts[1]) != 0)));
             for (unsigned int leaf = 0u; (climbed != 0) && (leaf < earlier->leaf_count); leaf += 1u)
             {
                 climb_lag(buffers, 0u, leaf, contact_start[0], contacts[0], buffers->positive[0], buffers->positive[1], lag,
@@ -1257,8 +1242,7 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             {
                 if ((rules->merge_split != 0) && (previous != NULL))
                 {
-                    same_origin = (previous->object_of[(unsigned int)left_from]
-                                   == previous->object_of[(unsigned int)right_from]);
+                    same_origin = (previous->object_of[(unsigned int)left_from] == previous->object_of[(unsigned int)right_from]);
                 }
                 else
                 {
@@ -1274,9 +1258,8 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             const int left_to = frame->forward[left];
             const int right_to = frame->forward[right];
             const int apart = ((next != NULL) && (next->object_of != NULL))
-                            ? (next->object_of[(unsigned int)((left_to >= 0) ? left_to : 0)]
-                               != next->object_of[(unsigned int)((right_to >= 0) ? right_to : 0)])
-                            : (left_to != right_to);
+                                  ? (next->object_of[(unsigned int)((left_to >= 0) ? left_to : 0)] != next->object_of[(unsigned int)((right_to >= 0) ? right_to : 0)])
+                                  : (left_to != right_to);
             destinations_differ = (left_to >= 0) && (right_to >= 0) && (apart != 0);
         }
         const int origin_holds = (same_origin != 0) && ((rules->agree == 0) || (destinations_differ == 0));
@@ -1292,9 +1275,8 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
     }
     if (rules->dish != 0)
     {
-        const unsigned int measured = (unsigned int)((frame->null_held != NULL) && (frame->null_count != 0u)
-                                                     && (frame->forward_held != NULL));
-        unsigned int centre = 0u;
+        const unsigned int measured = (unsigned int)((frame->null_held != NULL) && (frame->null_count != 0u) && (frame->forward_held != NULL));
+        unsigned int center = 0u;
         unsigned long long substance = 0ull;
         for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
         {
@@ -1312,7 +1294,7 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             running += per_band[band];
             if ((running * 2ull) >= substance)
             {
-                centre = (unsigned int)band_floor(band);
+                center = (unsigned int)band_floor(band);
                 break;
             }
         }
@@ -1334,7 +1316,7 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
                 reached += (unsigned int)(drawn >= frame->forward_held[leaf]);
             }
             stands[leaf] = (unsigned char)((measured != 0u) ? (reached == 0u)
-                                                            : (frame->sizes[leaf] >= centre));
+                                                            : (frame->sizes[leaf] >= center));
             leans_on[leaf] = leaf;
         }
         for (unsigned int pass = 0u; pass < 2u; pass += 1u)
@@ -1347,29 +1329,24 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
                 const unsigned int right_eligible = (unsigned int)((pass != 0u) || (stands[right] != 0u));
                 const unsigned int left_settled = (unsigned int)((pass != 0u) && (leans_on[right] != right));
                 const unsigned int right_settled = (unsigned int)((pass != 0u) && (leans_on[left] != left));
-                const int left_bigger = (left_eligible != 0u) && (left_settled == 0u)
-                                     && (frame->sizes[left] > frame->sizes[leans_on[right]]);
-                const int right_bigger = (right_eligible != 0u) && (right_settled == 0u)
-                                      && (frame->sizes[right] > frame->sizes[leans_on[left]]);
+                const int left_bigger = (left_eligible != 0u) && (left_settled == 0u) && (frame->sizes[left] > frame->sizes[leans_on[right]]);
+                const int right_bigger = (right_eligible != 0u) && (right_settled == 0u) && (frame->sizes[right] > frame->sizes[leans_on[left]]);
                 leans_on[right] = (left_bigger != 0) ? left : leans_on[right];
                 leans_on[left] = (right_bigger != 0) ? right : leans_on[left];
             }
         }
         for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
         {
-            const unsigned int leans = (unsigned int)((stands[leaf] == 0u) && (leans_on[leaf] != leaf)
-                                                      && (frame->sizes[leans_on[leaf]] > frame->sizes[leaf]));
+            const unsigned int leans = (unsigned int)((stands[leaf] == 0u) && (leans_on[leaf] != leaf) && (frame->sizes[leans_on[leaf]] > frame->sizes[leaf]));
             parent[leaf] = (leans != 0u) ? leans_on[leaf] : leaf;
         }
         free(stands);
         free(leans_on);
     }
-    if (((rules->cohere != 0) || (rules->accrue != 0)) && (frame->forward_lag != NULL)
-     && (frame->joined_count != 0u))
+    if (((rules->cohere != 0) || (rules->accrue != 0)) && (frame->forward_lag != NULL) && (frame->joined_count != 0u))
     {
         const unsigned int gathered = (unsigned int)((rules->accrue != 0) && (frame->backward_lag != NULL));
-        unsigned long long *const apart = (unsigned long long *)malloc(((size_t)frame->joined_count + 1u)
-                                                                        * sizeof(unsigned long long));
+        unsigned long long *const apart = (unsigned long long *)malloc(((size_t)frame->joined_count + 1u) * sizeof(unsigned long long));
         if (apart == NULL)
         {
             free(parent);
@@ -1392,31 +1369,25 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             const unsigned long long there_left = (unsigned long long)next->peaks[(unsigned int)went_left];
             const unsigned long long there_right = (unsigned long long)next->peaks[(unsigned int)went_right];
             const long long step[3] = {
-                ((long long)(there_left / plane) - (long long)(here_left / plane))
-                - ((long long)(there_right / plane) - (long long)(here_right / plane)),
-                ((long long)((there_left % plane) / width) - (long long)((here_left % plane) / width))
-                - ((long long)((there_right % plane) / width) - (long long)((here_right % plane) / width)),
-                ((long long)((there_left % plane) % width) - (long long)((here_left % plane) % width))
-                - ((long long)((there_right % plane) % width) - (long long)((here_right % plane) % width)),
+                ((long long)(there_left / plane) - (long long)(here_left / plane)) - ((long long)(there_right / plane) - (long long)(here_right / plane)),
+                ((long long)((there_left % plane) / width) - (long long)((here_left % plane) / width)) - ((long long)((there_right % plane) / width) - (long long)((here_right % plane) / width)),
+                ((long long)((there_left % plane) % width) - (long long)((here_left % plane) % width)) - ((long long)((there_right % plane) % width) - (long long)((here_right % plane) % width)),
             };
             unsigned long long between = 0ull;
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
             {
-                between += (unsigned long long)(step[axis] * step[axis])
-                         * (unsigned long long)AXIS_WEIGHTS[axis];
+                between += (unsigned long long)(step[axis] * step[axis]) * (unsigned long long)AXIS_WEIGHTS[axis];
             }
             for (unsigned int axis = 0u; (gathered != 0u) && (axis < 3u); axis += 1u)
             {
-                const long long back = (long long)frame->backward_lag[(3u * left) + axis]
-                                     - (long long)frame->backward_lag[(3u * right) + axis];
+                const long long back = (long long)frame->backward_lag[(3u * left) + axis] - (long long)frame->backward_lag[(3u * right) + axis];
                 between += (unsigned long long)(back * back) * (unsigned long long)AXIS_WEIGHTS[axis];
             }
             apart[pair] = between;
         }
-        unsigned long long *const order = (unsigned long long *)malloc(((size_t)frame->joined_count + 1u)
-                                                                        * sizeof(unsigned long long));
+        unsigned long long *const order = (unsigned long long *)malloc(((size_t)frame->joined_count + 1u) * sizeof(unsigned long long));
         unsigned long long *const absorbed = (unsigned long long *)calloc((size_t)count + 1u,
-                                                                           sizeof(unsigned long long));
+                                                                          sizeof(unsigned long long));
         if ((order == NULL) || (absorbed == NULL))
         {
             free(apart);
@@ -1433,7 +1404,7 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
         radix_sort_keys(order, frame->joined_count);
         long long *const motion = (long long *)calloc(((size_t)count + 1u) * 3u, sizeof(long long));
         unsigned long long *const mass = (unsigned long long *)calloc((size_t)count + 1u,
-                                                                       sizeof(unsigned long long));
+                                                                      sizeof(unsigned long long));
         if ((motion == NULL) || (mass == NULL))
         {
             free(apart);
@@ -1449,8 +1420,7 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             mass[leaf] = (unsigned long long)frame->sizes[leaf];
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
             {
-                motion[(3u * leaf) + axis] = (long long)frame->forward_lag[(3u * leaf) + axis]
-                                           * (long long)frame->sizes[leaf];
+                motion[(3u * leaf) + axis] = (long long)frame->forward_lag[(3u * leaf) + axis] * (long long)frame->sizes[leaf];
             }
         }
         for (unsigned int at = 0u; at < frame->joined_count; at += 1u)
@@ -1465,19 +1435,18 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             unsigned long long between = 0ull;
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
             {
-                const long long step = (motion[(3u * first) + axis] * (long long)mass[second])
-                                     - (motion[(3u * second) + axis] * (long long)mass[first]);
+                const long long step = (motion[(3u * first) + axis] * (long long)mass[second]) - (motion[(3u * second) + axis] * (long long)mass[first]);
                 const unsigned long long scale = mass[first] * mass[second];
                 const long long mean = (scale != 0ull) ? (step / (long long)scale) : 0ll;
                 between += (unsigned long long)(mean * mean) * (unsigned long long)AXIS_WEIGHTS[axis];
             }
             const unsigned long long history = (absorbed[first] > absorbed[second]) ? absorbed[first]
-                                                                                     : absorbed[second];
+                                                                                    : absorbed[second];
             const unsigned int fresh = (unsigned int)(history == 0ull);
             const unsigned int near = (unsigned int)(band_of(between) <= (band_of(history) + 1u));
             const unsigned int joins = (unsigned int)((fresh != 0u) || (near != 0u));
             absorbed[first] = ((joins != 0u) && (fresh != 0u)) ? ((between != 0ull) ? between : 1ull)
-                                                              : absorbed[first];
+                                                               : absorbed[first];
             for (unsigned int axis = 0u; (joins != 0u) && (axis < 3u); axis += 1u)
             {
                 motion[(3u * first) + axis] += motion[(3u * second) + axis];
@@ -1580,8 +1549,7 @@ static unsigned long long leaf_disagreement(const TreeFrame *earlier, unsigned i
         {
             step += (unsigned int)((1ull << step) < widest);
         }
-        const unsigned long long swept = ((unsigned long long)step << LINK_MAGNITUDE_BITS)
-                                       | (magnitude & LINK_MAGNITUDE_MASK);
+        const unsigned long long swept = ((unsigned long long)step << LINK_MAGNITUDE_BITS) | (magnitude & LINK_MAGNITUDE_MASK);
         shortest = (swept < shortest) ? swept : shortest;
     }
     return shortest;
@@ -1603,9 +1571,7 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
     unsigned int *const starts = (unsigned int *)calloc((size_t)earlier->leaf_count + 2u, sizeof(unsigned int));
     unsigned int *after = (unsigned int *)malloc(room * sizeof(unsigned int));
     unsigned int *shared = (unsigned int *)malloc(room * sizeof(unsigned int));
-    int ok = (counts != NULL) && (held != NULL) && (stamp != NULL) && (touched != NULL) && (starts != NULL)
-          && (after != NULL)
-          && (shared != NULL);
+    int ok = (counts != NULL) && (held != NULL) && (stamp != NULL) && (touched != NULL) && (starts != NULL) && (after != NULL) && (shared != NULL);
     for (unsigned int leaf = 0u; (ok != 0) && (leaf < later->leaf_count); leaf += 1u)
     {
         leaf_at_peak[later->peaks[leaf]] = (int)leaf;
@@ -1677,7 +1643,7 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
         {
             after[kept] = touched[step];
             shared[kept] = (counts[touched[step]] > held[touched[step]]) ? counts[touched[step]]
-                                                                        : held[touched[step]];
+                                                                         : held[touched[step]];
             counts[touched[step]] = 0u;
             held[touched[step]] = 0u;
             kept += 1u;
@@ -1713,7 +1679,7 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
     return 1;
 }
 
-static void object_centre(const TreeFrame *frame, unsigned int object, long long *centre)
+static void object_centre(const TreeFrame *frame, unsigned int object, long long *center)
 {
     unsigned long long voxels = 0ull;
     unsigned long long sums[3] = {0ull, 0ull, 0ull};
@@ -1728,7 +1694,7 @@ static void object_centre(const TreeFrame *frame, unsigned int object, long long
     }
     for (unsigned int axis = 0u; axis < 3u; axis += 1u)
     {
-        centre[axis] = (long long)(((sums[axis] * 2ull) + voxels) / (voxels * 2ull));
+        center[axis] = (long long)(((sums[axis] * 2ull) + voxels) / (voxels * 2ull));
     }
 }
 
@@ -1742,8 +1708,7 @@ static unsigned long long track_bend(const TreeFrame *before, const TreeFrame *e
     unsigned long long bend = 0ull;
     unsigned int came_from = 0xFFFFFFFFu;
     unsigned int widest = 0u;
-    for (unsigned int member = earlier->member_start[object]; (before != NULL) && (earlier->backward != NULL)
-         && (member < earlier->member_start[object + 1u]); member += 1u)
+    for (unsigned int member = earlier->member_start[object]; (before != NULL) && (earlier->backward != NULL) && (member < earlier->member_start[object + 1u]); member += 1u)
     {
         const unsigned int leaf = earlier->members[member];
         const int back = earlier->backward[leaf];
@@ -1763,8 +1728,7 @@ static unsigned long long track_bend(const TreeFrame *before, const TreeFrame *e
     }
     unsigned int goes_to = 0xFFFFFFFFu;
     widest = 0u;
-    for (unsigned int member = later->member_start[candidate]; (after != NULL) && (later->forward != NULL)
-         && (member < later->member_start[candidate + 1u]); member += 1u)
+    for (unsigned int member = later->member_start[candidate]; (after != NULL) && (later->forward != NULL) && (member < later->member_start[candidate + 1u]); member += 1u)
     {
         const unsigned int leaf = later->members[member];
         const int onward = later->forward[leaf];
@@ -1826,8 +1790,7 @@ static int still_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeF
                 const long long z = (long long)(voxel / plane) + step[0];
                 const long long y = (long long)(rest / buffers->width) + step[1];
                 const long long x = (long long)(rest % buffers->width) + step[2];
-                const int inside = (z >= 0ll) && (z < depth) && (y >= 0ll) && (y < height) && (x >= 0ll)
-                                && (x < width);
+                const int inside = (z >= 0ll) && (z < depth) && (y >= 0ll) && (y < height) && (x >= 0ll) && (x < width);
                 const unsigned int moved = (unsigned int)(((z * height) + y) * width + x);
                 const int met = (inside != 0) ? leaf_at_peak[labels[moved]] : -1;
                 still += (unsigned int)(met == (int)other);
@@ -1905,13 +1868,33 @@ static void rules_line(const TreeRules *rules, char *line, size_t room)
         const char *name;
         int on;
     } every[] = {
-        {"pick", rules->pick}, {"share", rules->share}, {"agree", rules->agree}, {"unbound", rules->unbound},
-        {"cast", rules->cast}, {"parallax", rules->parallax}, {"arc", rules->arc}, {"settle", rules->settle},
-        {"focus", rules->focus}, {"web", rules->web}, {"damp", rules->damp}, {"dish", rules->dish}, {"vote", rules->vote}, {"mutual", rules->mutual}, {"tower", rules->tower}, {"mass", rules->mass}, {"forest", rules->forest}, {"cohere", rules->cohere}, {"accrue", rules->accrue},
+        {"pick", rules->pick},
+        {"share", rules->share},
+        {"agree", rules->agree},
+        {"unbound", rules->unbound},
+        {"cast", rules->cast},
+        {"parallax", rules->parallax},
+        {"arc", rules->arc},
+        {"settle", rules->settle},
+        {"focus", rules->focus},
+        {"web", rules->web},
+        {"damp", rules->damp},
+        {"dish", rules->dish},
+        {"vote", rules->vote},
+        {"mutual", rules->mutual},
+        {"tower", rules->tower},
+        {"mass", rules->mass},
+        {"forest", rules->forest},
+        {"cohere", rules->cohere},
+        {"accrue", rules->accrue},
         {"merge-split", rules->merge_split},
-        {"merge-target", rules->merge_target}, {"forward-only", rules->forward_only},
-        {"keep-view", rules->keep_view}, {"resolve", rules->resolve}, {"sticky", rules->sticky},
-        {"motion-check", rules->motion_check}, {"climb", rules->climb},
+        {"merge-target", rules->merge_target},
+        {"forward-only", rules->forward_only},
+        {"keep-view", rules->keep_view},
+        {"resolve", rules->resolve},
+        {"sticky", rules->sticky},
+        {"motion-check", rules->motion_check},
+        {"climb", rules->climb},
     };
     line[0] = '\0';
     for (unsigned int slot = 0u; slot < (unsigned int)(sizeof(every) / sizeof(every[0])); slot += 1u)
@@ -2027,8 +2010,7 @@ static unsigned int focus_links(TreeFrame *frames, unsigned int frame_count)
                     const unsigned int candidate = tree->pool_target[slot];
                     const unsigned int agrees = (unsigned int)(onward_of(later, candidate) == reached);
                     const unsigned int level = (unsigned int)((tree->pool_weight[slot] * 2u) >= held);
-                    const int ahead = (agrees != 0u) && (level != 0u)
-                                   && ((tree->pool_weight[slot] > most) || (found == 0xFFFFFFFFu));
+                    const int ahead = (agrees != 0u) && (level != 0u) && ((tree->pool_weight[slot] > most) || (found == 0xFFFFFFFFu));
                     most = (ahead != 0) ? tree->pool_weight[slot] : most;
                     found = (ahead != 0) ? candidate : found;
                 }
@@ -2059,8 +2041,7 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
     unsigned int *const held = (unsigned int *)malloc(((size_t)objects + 1u) * sizeof(unsigned int));
     unsigned char *const turned = (unsigned char *)calloc((size_t)earlier->pool_start[objects] + 1u, 1u);
     unsigned int *const survivor = (unsigned int *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned int));
-    unsigned long long *const standing = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
-                                                                      * sizeof(unsigned long long));
+    unsigned long long *const standing = (unsigned long long *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned long long));
     if ((held == NULL) || (turned == NULL) || (survivor == NULL) || (standing == NULL))
     {
         free(held);
@@ -2072,7 +2053,8 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
     for (unsigned int object = 0u; object < objects; object += 1u)
     {
         const unsigned int linked = (earlier->link_start[object + 1u] > earlier->link_start[object])
-                                  ? earlier->link_target[earlier->link_start[object]] : 0xFFFFFFFFu;
+                                        ? earlier->link_target[earlier->link_start[object]]
+                                        : 0xFFFFFFFFu;
         held[object] = 0xFFFFFFFFu;
         for (unsigned int slot = earlier->pool_start[object]; slot < earlier->pool_start[object + 1u]; slot += 1u)
         {
@@ -2100,13 +2082,13 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
             {
                 const int open = (turned[other] == 0u) && (other != slot);
                 second = ((open != 0) && ((unsigned long long)earlier->pool_weight[other] > second))
-                       ? (unsigned long long)earlier->pool_weight[other] : second;
+                             ? (unsigned long long)earlier->pool_weight[other]
+                             : second;
             }
             const unsigned long long mine = (unsigned long long)earlier->pool_weight[slot];
             const unsigned long long delta = (mine > second) ? (mine - second) : 0ull;
             const unsigned int target = earlier->pool_target[slot];
-            const int ahead = (delta > standing[target])
-                           || ((delta == standing[target]) && (survivor[target] == 0xFFFFFFFFu));
+            const int ahead = (delta > standing[target]) || ((delta == standing[target]) && (survivor[target] == 0xFFFFFFFFu));
             standing[target] = (ahead != 0) ? delta : standing[target];
             survivor[target] = (ahead != 0) ? object : survivor[target];
         }
@@ -2130,8 +2112,7 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
                  other += 1u)
             {
                 const int open = (turned[other] == 0u);
-                const int better = (open != 0) && (((unsigned long long)earlier->pool_weight[other] > most)
-                                                   || (next == 0xFFFFFFFFu));
+                const int better = (open != 0) && (((unsigned long long)earlier->pool_weight[other] > most) || (next == 0xFFFFFFFFu));
                 most = (better != 0) ? (unsigned long long)earlier->pool_weight[other] : most;
                 next = (better != 0) ? other : next;
             }
@@ -2161,18 +2142,14 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
     const unsigned int objects = earlier->object_count;
     const size_t room = (size_t)earlier->triple_count + (size_t)earlier->leaf_count + 1u;
     unsigned int *const pool = (unsigned int *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned int));
-    unsigned long long *const cost = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
-                                                                  * sizeof(unsigned long long));
-    unsigned long long *const weight = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
-                                                                    * sizeof(unsigned long long));
-    unsigned long long *const under = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
-                                                                   * sizeof(unsigned long long));
+    unsigned long long *const cost = (unsigned long long *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned long long));
+    unsigned long long *const weight = (unsigned long long *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned long long));
+    unsigned long long *const under = (unsigned long long *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned long long));
     unsigned int *const stamp = (unsigned int *)calloc((size_t)later->object_count + 1u, sizeof(unsigned int));
     unsigned int *const place = (unsigned int *)calloc((size_t)later->object_count + 1u, sizeof(unsigned int));
     unsigned long long *const votes = (rules->vote != 0)
-                                    ? (unsigned long long *)malloc(((size_t)later->object_count + 1u)
-                                                                   * sizeof(unsigned long long))
-                                    : NULL;
+                                          ? (unsigned long long *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned long long))
+                                          : NULL;
     unsigned long long *const target_voxels = (unsigned long long *)calloc((size_t)later->object_count + 1u,
                                                                            sizeof(unsigned long long));
     for (unsigned int leaf = 0u; (target_voxels != NULL) && (leaf < later->leaf_count); leaf += 1u)
@@ -2187,8 +2164,7 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
     unsigned int mark = 0u;
     if (rules->web != 0)
     {
-        const int joined = (frame_contacts(earlier, &near_start, &nearby) != 0)
-                        && (frame_contacts(later, &later_near_start, &later_nearby) != 0);
+        const int joined = (frame_contacts(earlier, &near_start, &nearby) != 0) && (frame_contacts(later, &later_near_start, &later_nearby) != 0);
         seen = (unsigned int *)calloc((size_t)earlier->leaf_count + 2u, sizeof(unsigned int));
         if ((joined == 0) || (seen == NULL))
         {
@@ -2206,9 +2182,7 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
     }
     earlier->link_start = (unsigned int *)calloc((size_t)objects + 2u, sizeof(unsigned int));
     earlier->link_target = (unsigned int *)malloc(room * sizeof(unsigned int));
-    if ((pool == NULL) || (cost == NULL) || (weight == NULL) || (under == NULL) || (stamp == NULL)
-     || (place == NULL) || (target_voxels == NULL) || (earlier->link_start == NULL)
-     || (earlier->link_target == NULL))
+    if ((pool == NULL) || (cost == NULL) || (weight == NULL) || (under == NULL) || (stamp == NULL) || (place == NULL) || (target_voxels == NULL) || (earlier->link_start == NULL) || (earlier->link_target == NULL))
     {
         free(pool);
         free(cost);
@@ -2229,8 +2203,7 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
     earlier->pool_target = (unsigned int *)malloc(room * sizeof(unsigned int));
     earlier->pool_weight = (unsigned int *)malloc(room * sizeof(unsigned int));
     earlier->pool_cost = (unsigned long long *)malloc(room * sizeof(unsigned long long));
-    if ((earlier->pool_start == NULL) || (earlier->pool_target == NULL) || (earlier->pool_weight == NULL)
-     || (earlier->pool_cost == NULL))
+    if ((earlier->pool_start == NULL) || (earlier->pool_target == NULL) || (earlier->pool_weight == NULL) || (earlier->pool_cost == NULL))
     {
         free(earlier->pool_start);
         free(earlier->pool_target);
@@ -2247,12 +2220,12 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
         level = (unsigned int *)calloc((size_t)earlier->leaf_count + 2u, sizeof(unsigned int));
     }
     unsigned int *spectrum = (level != NULL)
-                           ? (unsigned int *)calloc((size_t)DAMP_DIMENSIONS * DAMP_BANDS, sizeof(unsigned int))
-                           : NULL;
+                                 ? (unsigned int *)calloc((size_t)DAMP_DIMENSIONS * DAMP_BANDS, sizeof(unsigned int))
+                                 : NULL;
     unsigned int *gain = (spectrum != NULL)
-                       ? (unsigned int *)calloc(((size_t)earlier->leaf_count + 2u) * DAMP_DIMENSIONS,
-                                                sizeof(unsigned int))
-                       : NULL;
+                             ? (unsigned int *)calloc(((size_t)earlier->leaf_count + 2u) * DAMP_DIMENSIONS,
+                                                      sizeof(unsigned int))
+                             : NULL;
     if (gain != NULL)
     {
         unsigned long long spread[DAMP_DIMENSIONS] = {0ull, 0ull, 0ull};
@@ -2300,9 +2273,7 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
             {
                 const unsigned int quieter = (level != NULL) ? level[leaf] : 0u;
                 const int landing = ((earlier->forward != NULL) && (quieter == 0u)) ? earlier->forward[leaf] : -1;
-                s_damp_landings += (unsigned long long)((pair == past) && (quieter != 0u)
-                                                        && (earlier->forward != NULL)
-                                                        && (earlier->forward[leaf] >= 0));
+                s_damp_landings += (unsigned long long)((pair == past) && (quieter != 0u) && (earlier->forward != NULL) && (earlier->forward[leaf] >= 0));
                 const int met = (pair < past) ? (int)earlier->triple_after[pair] : landing;
                 if (met < 0)
                 {
@@ -2322,7 +2293,8 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
                 weight[place[target]] += (pair < past) ? ((unsigned long long)meeting[pair] >> quieter) : 0ull;
                 const unsigned long long apart = leaf_disagreement(earlier, leaf, later, other,
                                                                    (gain != NULL)
-                                                                   ? &gain[(size_t)leaf * DAMP_DIMENSIONS] : NULL);
+                                                                       ? &gain[(size_t)leaf * DAMP_DIMENSIONS]
+                                                                       : NULL);
                 cost[place[target]] = (apart < cost[place[target]]) ? apart : cost[place[target]];
             }
         }
@@ -2353,12 +2325,11 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
         for (unsigned int slot = 1u; slot < filled; slot += 1u)
         {
             const int carried = (rules->share != 0)
-                              ? ((weight[slot] * under[leader]) > (weight[leader] * under[slot]))
-                              : (weight[slot] > weight[leader]);
+                                    ? ((weight[slot] * under[leader]) > (weight[leader] * under[slot]))
+                                    : (weight[slot] > weight[leader]);
             const int ahead = (votes != NULL)
-                            ? ((votes[slot] > votes[leader])
-                               || ((votes[slot] == votes[leader]) && (carried != 0)))
-                            : carried;
+                                  ? ((votes[slot] > votes[leader]) || ((votes[slot] == votes[leader]) && (carried != 0)))
+                                  : carried;
             leader = (ahead != 0) ? slot : leader;
         }
         unsigned int company = 0u;
@@ -2417,42 +2388,42 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
             champion = (ahead != 0) ? slot : champion;
             inside += (unsigned int)((same != 0) && (held != 0));
             cost[slot] = ((same != 0) && (held != 0))
-                       ? ((cost[slot] & ~LINK_MAGNITUDE_MASK) | (bend & LINK_MAGNITUDE_MASK)) : cost[slot];
+                             ? ((cost[slot] & ~LINK_MAGNITUDE_MASK) | (bend & LINK_MAGNITUDE_MASK))
+                             : cost[slot];
         }
         const unsigned long long leader_bend = (contested != 0u)
-                                             ? track_bend(before, earlier, object, later, pool[leader], after) : 0ull;
-        const int leader_held = (leader_bend <= 0xFFFFull)
-                             && ((leader_bend * leader_bend * leader_bend)
-                                 <= (source_voxels * source_voxels * 64ull));
+                                                   ? track_bend(before, earlier, object, later, pool[leader], after)
+                                                   : 0ull;
+        const int leader_held = (leader_bend <= 0xFFFFull) && ((leader_bend * leader_bend * leader_bend) <= (source_voxels * source_voxels * 64ull));
         const unsigned int winner = ((contested != 0u) && (leader_held == 0) && (inside != 0u)) ? champion : leader;
         unsigned long long best = 0xFFFFFFFFFFFFFFFFull;
         for (unsigned int slot = 0u; slot < filled; slot += 1u)
         {
             const int level = (contested != 0u)
-                            ? ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[winner] >> LINK_MAGNITUDE_BITS))
-                            : ((rules->share != 0)
-                               ? ((weight[slot] * under[winner]) == (weight[winner] * under[slot]))
-                               : (weight[slot] == weight[winner]));
+                                  ? ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[winner] >> LINK_MAGNITUDE_BITS))
+                                  : ((rules->share != 0)
+                                         ? ((weight[slot] * under[winner]) == (weight[winner] * under[slot]))
+                                         : (weight[slot] == weight[winner]));
             best = ((level != 0) && (cost[slot] < best)) ? cost[slot] : best;
         }
         unsigned long long crowned = 0ull;
         for (unsigned int slot = 0u; slot < filled; slot += 1u)
         {
             const int level = (contested != 0u)
-                            ? ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[winner] >> LINK_MAGNITUDE_BITS))
-                            : ((rules->share != 0)
-                               ? ((weight[slot] * under[winner]) == (weight[winner] * under[slot]))
-                               : (weight[slot] == weight[winner]));
+                                  ? ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[winner] >> LINK_MAGNITUDE_BITS))
+                                  : ((rules->share != 0)
+                                         ? ((weight[slot] * under[winner]) == (weight[winner] * under[slot]))
+                                         : (weight[slot] == weight[winner]));
             crowned = ((level != 0) && (cost[slot] == best) && (weight[slot] > crowned)) ? weight[slot] : crowned;
         }
         unsigned int kept = 0u;
         for (unsigned int slot = 0u; slot < filled; slot += 1u)
         {
             const int level = (contested != 0u)
-                            ? ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[winner] >> LINK_MAGNITUDE_BITS))
-                            : ((rules->share != 0)
-                               ? ((weight[slot] * under[winner]) == (weight[winner] * under[slot]))
-                               : (weight[slot] == weight[winner]));
+                                  ? ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[winner] >> LINK_MAGNITUDE_BITS))
+                                  : ((rules->share != 0)
+                                         ? ((weight[slot] * under[winner]) == (weight[winner] * under[slot]))
+                                         : (weight[slot] == weight[winner]));
             earlier->link_target[written + kept] = pool[slot];
             kept += (unsigned int)((level != 0) && (cost[slot] == best) && (weight[slot] == crowned));
         }
@@ -2471,11 +2442,9 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
     {
         earlier->link_start[object + 1u] += earlier->link_start[object];
     }
-    if ((rules->mutual != 0) && (earlier->pool_start != NULL) && (later->backward != NULL)
-     && (later->member_start != NULL))
+    if ((rules->mutual != 0) && (earlier->pool_start != NULL) && (later->backward != NULL) && (later->member_start != NULL))
     {
-        unsigned int *const chooses = (unsigned int *)malloc(((size_t)later->object_count + 1u)
-                                                             * sizeof(unsigned int));
+        unsigned int *const chooses = (unsigned int *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned int));
         unsigned long long *const reached = (unsigned long long *)calloc((size_t)objects + 2u,
                                                                          sizeof(unsigned long long));
         unsigned char *const claimed = (unsigned char *)calloc((size_t)later->object_count + 2u, 1u);
@@ -2533,8 +2502,7 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
                          (links == 1u) && (slot < earlier->pool_start[own + 1u]); slot += 1u)
                     {
                         const unsigned int candidate = earlier->pool_target[slot];
-                        const unsigned int lives = (unsigned int)((chooses[candidate] == own)
-                                                                  && (claimed[candidate] == 0u));
+                        const unsigned int lives = (unsigned int)((chooses[candidate] == own) && (claimed[candidate] == 0u));
                         survivors += lives;
                         only = (lives != 0u) ? candidate : only;
                     }
@@ -2558,8 +2526,7 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
     if ((rules->forest != 0) && (earlier->pool_start != NULL) && (earlier->link_start != NULL))
     {
         const unsigned int room = earlier->pool_start[objects];
-        unsigned long long *const order = (unsigned long long *)malloc(((size_t)room + 1u)
-                                                                       * sizeof(unsigned long long));
+        unsigned long long *const order = (unsigned long long *)malloc(((size_t)room + 1u) * sizeof(unsigned long long));
         unsigned char *const taken = (unsigned char *)calloc((size_t)later->object_count + 2u, 1u);
         unsigned char *const settled = (unsigned char *)calloc((size_t)objects + 2u, 1u);
         if ((order != NULL) && (taken != NULL) && (settled != NULL))
@@ -2591,8 +2558,7 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
                 }
                 own = low;
                 const unsigned int links = earlier->link_start[own + 1u] - earlier->link_start[own];
-                const unsigned int free_pair = (unsigned int)((links == 1u) && (settled[own] == 0u)
-                                                              && (taken[candidate] == 0u));
+                const unsigned int free_pair = (unsigned int)((links == 1u) && (settled[own] == 0u) && (taken[candidate] == 0u));
                 earlier->link_target[(links == 1u) ? earlier->link_start[own] : 0u] =
                     (free_pair != 0u) ? candidate
                                       : earlier->link_target[(links == 1u) ? earlier->link_start[own] : 0u];
@@ -2632,20 +2598,15 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
 
 static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRules *rules)
 {
-    unsigned long long *const candidate = (unsigned long long *)malloc(((size_t)earlier->leaf_count + 1u)
-                                                                       * sizeof(unsigned long long));
-    unsigned long long *const confirmed = (unsigned long long *)malloc(((size_t)later->leaf_count + 1u)
-                                                                       * sizeof(unsigned long long));
+    unsigned long long *const candidate = (unsigned long long *)malloc(((size_t)earlier->leaf_count + 1u) * sizeof(unsigned long long));
+    unsigned long long *const confirmed = (unsigned long long *)malloc(((size_t)later->leaf_count + 1u) * sizeof(unsigned long long));
     unsigned int *const incoming = (unsigned int *)calloc((size_t)later->object_count + 1u, sizeof(unsigned int));
     earlier->link_start = (unsigned int *)calloc((size_t)earlier->object_count + 2u, sizeof(unsigned int));
     earlier->link_target = (unsigned int *)malloc(((size_t)earlier->leaf_count + 1u) * sizeof(unsigned int));
     unsigned int *const mutual = (unsigned int *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned int));
-    unsigned long long *const weight = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
-                                                                    * sizeof(unsigned long long));
-    unsigned long long *const under = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
-                                                                   * sizeof(unsigned long long));
-    if ((candidate == NULL) || (confirmed == NULL) || (incoming == NULL) || (earlier->link_start == NULL)
-     || (earlier->link_target == NULL) || (mutual == NULL) || (weight == NULL) || (under == NULL))
+    unsigned long long *const weight = (unsigned long long *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned long long));
+    unsigned long long *const under = (unsigned long long *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned long long));
+    if ((candidate == NULL) || (confirmed == NULL) || (incoming == NULL) || (earlier->link_start == NULL) || (earlier->link_target == NULL) || (mutual == NULL) || (weight == NULL) || (under == NULL))
     {
         free(candidate);
         free(confirmed);
@@ -2660,8 +2621,7 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
     {
         if (earlier->forward[leaf] >= 0)
         {
-            candidate[candidates] = ((unsigned long long)earlier->object_of[leaf] << 32u)
-                                  | later->object_of[(unsigned int)earlier->forward[leaf]];
+            candidate[candidates] = ((unsigned long long)earlier->object_of[leaf] << 32u) | later->object_of[(unsigned int)earlier->forward[leaf]];
             candidates += 1u;
         }
     }
@@ -2671,8 +2631,7 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
     {
         if (later->backward[leaf] >= 0)
         {
-            confirmed[confirmations] = ((unsigned long long)later->object_of[leaf] << 32u)
-                                     | earlier->object_of[(unsigned int)later->backward[leaf]];
+            confirmed[confirmations] = ((unsigned long long)later->object_of[leaf] << 32u) | earlier->object_of[(unsigned int)later->backward[leaf]];
             confirmations += 1u;
         }
     }
@@ -2758,8 +2717,8 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
             for (unsigned int slot = 1u; slot < mutual_count; slot += 1u)
             {
                 const int ahead = (rules->share != 0)
-                                ? ((weight[slot] * under[leader]) > (weight[leader] * under[slot]))
-                                : (weight[slot] > weight[leader]);
+                                      ? ((weight[slot] * under[leader]) > (weight[leader] * under[slot]))
+                                      : (weight[slot] > weight[leader]);
                 leader = (ahead != 0) ? slot : leader;
             }
             if (weight[leader] > 0ULL)
@@ -2768,8 +2727,8 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
                 for (unsigned int slot = 0u; slot < mutual_count; slot += 1u)
                 {
                     const int level = (rules->share != 0)
-                                    ? ((weight[slot] * under[leader]) == (weight[leader] * under[slot]))
-                                    : (weight[slot] == weight[leader]);
+                                          ? ((weight[slot] * under[leader]) == (weight[leader] * under[slot]))
+                                          : (weight[slot] == weight[leader]);
                     mutual[narrowed] = mutual[slot];
                     narrowed += (unsigned int)(level != 0);
                 }
@@ -2993,8 +2952,7 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
                 const int frame = inputs->tree_index_of_time[place[0]];
                 if (frame >= 0)
                 {
-                    const unsigned int id = inputs->unified_of[inputs->node_offset[(unsigned int)frame]
-                                                               + inputs->frames[frame].object_of[(unsigned int)inputs->node_leaf[node]]];
+                    const unsigned int id = inputs->unified_of[inputs->node_offset[(unsigned int)frame] + inputs->frames[frame].object_of[(unsigned int)inputs->node_leaf[node]]];
                     record[6] = (int)(id - inputs->unified_first[frame]);
                 }
             }
@@ -3042,8 +3000,7 @@ static unsigned int object_cell_of_node(const CoherenceInputs *inputs, long node
     const bool timed = (time >= 0) && ((unsigned int)time < inputs->stack_frames);
     const int frame = timed ? inputs->tree_index_of_time[time] : -1;
     const bool placed = (frame >= 0) && (inputs->node_leaf[node] >= 0);
-    return placed ? inputs->unified_of[inputs->node_offset[(unsigned int)frame]
-                                       + inputs->frames[frame].object_of[(unsigned int)inputs->node_leaf[node]]]
+    return placed ? inputs->unified_of[inputs->node_offset[(unsigned int)frame] + inputs->frames[frame].object_of[(unsigned int)inputs->node_leaf[node]]]
                   : 0xFFFFFFFFu;
 }
 
@@ -3147,15 +3104,7 @@ static int export_object(const EngineBuffers *buffers, const CoherenceInputs *in
         const unsigned int header[16] = {0x314A424Fu, 1u, frame_count, buffers->depth, buffers->height, buffers->width,
                                          leaf_count, run_count, cell_count, link_count, edge_count, aberrant_leaves,
                                          aberrant_voxels, wide_sums, cfg_bytes, 0u};
-        good = (fwrite(header, sizeof(unsigned int), 16u, out) == 16u)
-            && (fwrite(frame_table, sizeof(unsigned int), (size_t)frame_count * 10u, out) == (size_t)frame_count * 10u)
-            && (fwrite(leaves, sizeof(unsigned int), (size_t)leaf_count * 4u, out) == (size_t)leaf_count * 4u)
-            && (fwrite(cells, sizeof(unsigned int), (size_t)cell_count * 4u, out) == (size_t)cell_count * 4u)
-            && (fwrite(runs, sizeof(unsigned int), run_count, out) == run_count)
-            && (fwrite(links, sizeof(unsigned int), (size_t)link_count * 2u, out) == (size_t)link_count * 2u)
-            && (fwrite(edges, sizeof(unsigned int), (size_t)edge_count * 3u, out) == (size_t)edge_count * 3u)
-            && (fwrite(rules->cfg_text, 1u, cfg_bytes, out) == cfg_bytes)
-            && (fwrite(padding, 1u, (4u - (cfg_bytes & 3u)) & 3u, out) == ((4u - (cfg_bytes & 3u)) & 3u));
+        good = (fwrite(header, sizeof(unsigned int), 16u, out) == 16u) && (fwrite(frame_table, sizeof(unsigned int), (size_t)frame_count * 10u, out) == (size_t)frame_count * 10u) && (fwrite(leaves, sizeof(unsigned int), (size_t)leaf_count * 4u, out) == (size_t)leaf_count * 4u) && (fwrite(cells, sizeof(unsigned int), (size_t)cell_count * 4u, out) == (size_t)cell_count * 4u) && (fwrite(runs, sizeof(unsigned int), run_count, out) == run_count) && (fwrite(links, sizeof(unsigned int), (size_t)link_count * 2u, out) == (size_t)link_count * 2u) && (fwrite(edges, sizeof(unsigned int), (size_t)edge_count * 3u, out) == (size_t)edge_count * 3u) && (fwrite(rules->cfg_text, 1u, cfg_bytes, out) == cfg_bytes) && (fwrite(padding, 1u, (4u - (cfg_bytes & 3u)) & 3u, out) == ((4u - (cfg_bytes & 3u)) & 3u));
         good = (fclose(out) == 0) && good;
     }
     free(frame_table);
@@ -3317,8 +3266,7 @@ static void paint_voxel(unsigned char *rgb, unsigned int width, unsigned int lef
     {
         for (unsigned int across = inset; across < VIS_SCALE - inset; across += 1u)
         {
-            const size_t pixel = ((size_t)((unsigned int)row * VIS_SCALE + down) * width
-                                  + left + (unsigned int)column * VIS_SCALE + across) * 3u;
+            const size_t pixel = ((size_t)((unsigned int)row * VIS_SCALE + down) * width + left + (unsigned int)column * VIS_SCALE + across) * 3u;
             rgb[pixel] = colour[0];
             rgb[pixel + 1u] = colour[1];
             rgb[pixel + 2u] = colour[2];
@@ -3351,11 +3299,11 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
     int good = (rgb != NULL) && (raw[0] != NULL) && (raw[1] != NULL) && (object[0] != NULL) && (object[1] != NULL);
 
     const int top = (view->from[2] - (int)(VIS_CROP / 2u) < 0) ? 0
-                  : ((view->from[2] + (int)(VIS_CROP / 2u) > (int)buffers->height) ? (int)buffers->height - (int)VIS_CROP
-                                                                                  : view->from[2] - (int)(VIS_CROP / 2u));
+                                                               : ((view->from[2] + (int)(VIS_CROP / 2u) > (int)buffers->height) ? (int)buffers->height - (int)VIS_CROP
+                                                                                                                                : view->from[2] - (int)(VIS_CROP / 2u));
     const int left_column = (view->from[3] - (int)(VIS_CROP / 2u) < 0) ? 0
-                          : ((view->from[3] + (int)(VIS_CROP / 2u) > (int)buffers->width) ? (int)buffers->width - (int)VIS_CROP
-                                                                                          : view->from[3] - (int)(VIS_CROP / 2u));
+                                                                       : ((view->from[3] + (int)(VIS_CROP / 2u) > (int)buffers->width) ? (int)buffers->width - (int)VIS_CROP
+                                                                                                                                       : view->from[3] - (int)(VIS_CROP / 2u));
     const int slice[2] = {view->from[1], view->to[1]};
     const unsigned int times[2] = {view->earlier->time, view->later->time};
     const unsigned int offsets[2] = {view->offset_before, view->offset_after};
@@ -3413,10 +3361,9 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
                     {
                         const int near_row = (int)down + neighbours[which][0];
                         const int near_column = (int)across + neighbours[which][1];
-                        const unsigned int near = ((near_row < 0) || (near_column < 0) || (near_row >= (int)VIS_CROP)
-                                                   || (near_column >= (int)VIS_CROP))
-                                                ? id
-                                                : object[side][(unsigned int)near_row * VIS_CROP + (unsigned int)near_column];
+                        const unsigned int near = ((near_row < 0) || (near_column < 0) || (near_row >= (int)VIS_CROP) || (near_column >= (int)VIS_CROP))
+                                                      ? id
+                                                      : object[side][(unsigned int)near_row * VIS_CROP + (unsigned int)near_column];
                         boundary = boundary || (near != id);
                     }
                     for (unsigned int channel = 0u; channel < 3u; channel += 1u)
@@ -3473,7 +3420,7 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
         paint_marker(rgb, width, 0u, peak_place[1] - top, peak_place[2] - left_column, white);
         paint_marker(rgb, width, panel + VIS_GAP, view->to[2] - top, view->to[3] - left_column, green);
         const int *const lag = (view->earlier->forward_lag != NULL) ? &view->earlier->forward_lag[3u * view->source_leaf]
-                                                                     : view->earlier->lag_to_next;
+                                                                    : view->earlier->lag_to_next;
         paint_marker(rgb, width, panel + VIS_GAP, peak_place[1] + lag[1] - top, peak_place[2] + lag[2] - left_column,
                      magenta);
 
@@ -3530,9 +3477,7 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
     size_t cell_room = 1u << 16u;
     unsigned int *cell_voxels = (unsigned int *)malloc(cell_room * sizeof(unsigned int));
     FILE *const stack = fopen(inputs->stack_path, "rb");
-    int good = (failing_time != NULL) && (leaf_at_peak[0] != NULL) && (leaf_at_peak[1] != NULL) && (mask != NULL)
-            && (leaf_in_cell != NULL) && (unified_size != NULL) && (landing != NULL) && (touched != NULL)
-            && (cell_voxels != NULL) && (stack != NULL);
+    int good = (failing_time != NULL) && (leaf_at_peak[0] != NULL) && (leaf_at_peak[1] != NULL) && (mask != NULL) && (leaf_in_cell != NULL) && (unified_size != NULL) && (landing != NULL) && (touched != NULL) && (cell_voxels != NULL) && (stack != NULL);
     for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
     {
         leaf_at_peak[0][voxel] = -1;
@@ -3559,9 +3504,7 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
         for (unsigned int slot = 0u; (good != 0) && (slot < 2u); slot += 1u)
         {
             const long long offset = 20LL + (long long)((size_t)(earlier->time + slot) * voxels * 2u);
-            good = (STACK_SEEK(stack, offset, SEEK_SET) == 0)
-                && (fread(buffers->volume, sizeof(unsigned short), voxels, stack) == voxels)
-                && (grow_leaves(buffers, slot, &held[slot]) != 0);
+            good = (STACK_SEEK(stack, offset, SEEK_SET) == 0) && (fread(buffers->volume, sizeof(unsigned short), voxels, stack) == voxels) && (grow_leaves(buffers, slot, &held[slot]) != 0);
             for (unsigned int leaf = 0u; (good != 0) && (leaf < held[slot].leaf_count); leaf += 1u)
             {
                 leaf_at_peak[slot][held[slot].peaks[leaf]] = (int)leaf;
@@ -3603,10 +3546,8 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
             {
                 continue;
             }
-            const unsigned int cell = inputs->unified_of[offset_before
-                                                          + earlier->object_of[(unsigned int)inputs->node_leaf[source]]];
-            const unsigned int true_target = inputs->unified_of[offset_after
-                                                                 + later->object_of[(unsigned int)inputs->node_leaf[target]]];
+            const unsigned int cell = inputs->unified_of[offset_before + earlier->object_of[(unsigned int)inputs->node_leaf[source]]];
+            const unsigned int true_target = inputs->unified_of[offset_after + later->object_of[(unsigned int)inputs->node_leaf[target]]];
 
             memset(leaf_in_cell, 0, voxels / 8u + 1u);
             unsigned int leaves = 0u;
@@ -3678,8 +3619,7 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
                     const long z = (long)(voxel / plane) + (long)lags[which][0];
                     const long y = (long)(rest / buffers->width) + (long)lags[which][1];
                     const long x = (long)(rest % buffers->width) + (long)lags[which][2];
-                    if ((z < 0L) || (z >= (long)buffers->depth) || (y < 0L) || (y >= (long)buffers->height)
-                     || (x < 0L) || (x >= (long)buffers->width))
+                    if ((z < 0L) || (z >= (long)buffers->depth) || (y < 0L) || (y >= (long)buffers->height) || (x < 0L) || (x >= (long)buffers->width))
                     {
                         continue;
                     }
@@ -3861,8 +3801,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     buffers.peak_indices = (unsigned int *)malloc((size_t)buffers.peak_room * sizeof(unsigned int));
     buffers.sizes = (unsigned int *)malloc((size_t)buffers.peak_room * sizeof(unsigned int));
     buffers.sums = (unsigned long long *)malloc((size_t)buffers.peak_room * 3u * sizeof(unsigned long long));
-    buffers.peak_limbs = (unsigned int *)malloc((size_t)buffers.peak_room * BINOMIAL_BASINS_LIMBS
-                                                * sizeof(unsigned int));
+    buffers.peak_limbs = (unsigned int *)malloc((size_t)buffers.peak_room * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int));
     buffers.adjacency = (unsigned int *)malloc((size_t)buffers.pair_room * 2u * sizeof(unsigned int));
     buffers.joined = (unsigned int *)malloc((size_t)buffers.pair_room * 2u * sizeof(unsigned int));
     buffers.overlap_before = (unsigned int *)malloc((size_t)buffers.overlap_room * sizeof(unsigned int));
@@ -3893,14 +3832,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         }
     }
 
-    int good = (frames != NULL) && (node_leaf != NULL) && (buffers.volume != NULL) && (buffers.peak_indices != NULL)
-            && (buffers.sizes != NULL) && (buffers.sums != NULL) && (buffers.peak_limbs != NULL)
-            && (buffers.adjacency != NULL) && (buffers.joined != NULL) && (buffers.overlap_before != NULL)
-            && (buffers.overlap_after != NULL) && (buffers.overlap_shared != NULL) && (buffers.labels[0] != NULL)
-            && (buffers.labels[1] != NULL) && (buffers.positive[0] != NULL) && (buffers.positive[1] != NULL)
-            && ((rules->climb == 0) || ((buffers.leaf_at_peak[0] != NULL) && (buffers.leaf_at_peak[1] != NULL)
-                                        && (buffers.basin_start[0] != NULL) && (buffers.basin_start[1] != NULL)
-                                        && (buffers.basin_voxels[0] != NULL) && (buffers.basin_voxels[1] != NULL)));
+    int good = (frames != NULL) && (node_leaf != NULL) && (buffers.volume != NULL) && (buffers.peak_indices != NULL) && (buffers.sizes != NULL) && (buffers.sums != NULL) && (buffers.peak_limbs != NULL) && (buffers.adjacency != NULL) && (buffers.joined != NULL) && (buffers.overlap_before != NULL) && (buffers.overlap_after != NULL) && (buffers.overlap_shared != NULL) && (buffers.labels[0] != NULL) && (buffers.labels[1] != NULL) && (buffers.positive[0] != NULL) && (buffers.positive[1] != NULL) && ((rules->climb == 0) || ((buffers.leaf_at_peak[0] != NULL) && (buffers.leaf_at_peak[1] != NULL) && (buffers.basin_start[0] != NULL) && (buffers.basin_start[1] != NULL) && (buffers.basin_voxels[0] != NULL) && (buffers.basin_voxels[1] != NULL)));
     const int machine_wanted = (rules->pick != 0) || (rules->climb == 1) || (rules->climb == 3);
     const unsigned long long started = clock_milliseconds();
     StageClock clocks;
@@ -3921,8 +3853,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     {
         unsigned long long mark = clock_microseconds();
         const long long offset = 20LL + (long long)((size_t)frames[frame].time * voxels * 2u);
-        good = (STACK_SEEK(stack, offset, SEEK_SET) == 0)
-            && (fread(buffers.volume, sizeof(unsigned short), voxels, stack) == voxels);
+        good = (STACK_SEEK(stack, offset, SEEK_SET) == 0) && (fread(buffers.volume, sizeof(unsigned short), voxels, stack) == voxels);
         clocks.read += clock_microseconds() - mark;
         mark = clock_microseconds();
         good = (good != 0) && (grow_leaves(&buffers, 1u, &frames[frame]) != 0);
@@ -3995,9 +3926,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             {
                 positives += word_population(positive[word]);
             }
-            good = good && object_room_fit(&object_cut, &object_cut_room, positives + 2u, 2u)
-                && object_room_fit(&object_runs, &object_run_room, object_run_count + positives, 1u)
-                && object_room_fit(&object_leaf_runs, &object_leaf_room, object_leaf_count + frames[frame].leaf_count, 2u);
+            good = good && object_room_fit(&object_cut, &object_cut_room, positives + 2u, 2u) && object_room_fit(&object_runs, &object_run_room, object_run_count + positives, 1u) && object_room_fit(&object_leaf_runs, &object_leaf_room, object_leaf_count + frames[frame].leaf_count, 2u);
         }
         if (object && good)
         {
@@ -4097,8 +4026,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                     const long near_z = (long)z + neighbours[face][0];
                     const long near_y = (long)y + neighbours[face][1];
                     const long near_x = (long)x + neighbours[face][2];
-                    if ((near_z < 0L) || (near_z >= (long)buffers.depth) || (near_y < 0L) || (near_y >= (long)buffers.height)
-                     || (near_x < 0L) || (near_x >= (long)buffers.width))
+                    if ((near_z < 0L) || (near_z >= (long)buffers.depth) || (near_y < 0L) || (near_y >= (long)buffers.height) || (near_x < 0L) || (near_x >= (long)buffers.width))
                     {
                         tree->exposed[(unsigned int)leaf] += 1u;
                         continue;
@@ -4121,8 +4049,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                     while (low < high)
                     {
                         const unsigned int middle = low + (high - low) / 2u;
-                        const unsigned long long key = ((unsigned long long)tree->joined[2u * middle] << 32u)
-                                                     | tree->joined[2u * middle + 1u];
+                        const unsigned long long key = ((unsigned long long)tree->joined[2u * middle] << 32u) | tree->joined[2u * middle + 1u];
                         if (key < sought)
                         {
                             low = middle + 1u;
@@ -4132,8 +4059,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                             high = middle;
                         }
                     }
-                    if ((low < tree->joined_count) && (tree->joined[2u * low] == (unsigned int)leaf)
-                     && (tree->joined[2u * low + 1u] == (unsigned int)other))
+                    if ((low < tree->joined_count) && (tree->joined[2u * low] == (unsigned int)leaf) && (tree->joined[2u * low + 1u] == (unsigned int)other))
                     {
                         tree->contact_faces[low] += 1u;
                     }
@@ -4147,8 +4073,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             {
                 continue;
             }
-            const size_t voxel = ((size_t)place[1] * buffers.height + (size_t)place[2]) * buffers.width
-                               + (size_t)place[3];
+            const size_t voxel = ((size_t)place[1] * buffers.height + (size_t)place[2]) * buffers.width + (size_t)place[3];
             node_leaf[node] = leaf_of_peak(frames[frame].peaks, frames[frame].leaf_count, buffers.labels[1][voxel]);
         }
         clocks.ties += clock_microseconds() - mark;
@@ -4218,20 +4143,17 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             null_scratch[null_scratch_count + 2u] = pair.backward_lags;
             null_scratch[null_scratch_count + 3u] = pair.backward;
             null_scratch_count += 4u;
-            good = (pair.forward_lags != NULL) && (pair.forward != NULL) && (pair.backward_lags != NULL) && (pair.backward != NULL)
-                && (climb_machine_pend(buffers.machine, &pair) != 0);
+            good = (pair.forward_lags != NULL) && (pair.forward != NULL) && (pair.backward_lags != NULL) && (pair.backward != NULL) && (climb_machine_pend(buffers.machine, &pair) != 0);
             tree->null_count += (good != 0) ? 1u : 0u;
         }
     }
     int **arm_scratch = NULL;
     unsigned int arm_scratch_count = 0u;
-    for (unsigned int frame = 0u; (good != 0) && (rules->arms != 0u) && (buffers.machine != NULL)
-         && (frame < frame_count); frame += 1u)
+    for (unsigned int frame = 0u; (good != 0) && (rules->arms != 0u) && (buffers.machine != NULL) && (frame < frame_count); frame += 1u)
     {
         TreeFrame *const tree = &frames[frame];
         tree->arm_forward = (int *)malloc(((size_t)tree->leaf_count + 1u) * rules->arms * sizeof(int));
-        int **const grown = (int **)realloc(arm_scratch, ((size_t)arm_scratch_count + (3u * rules->arms))
-                                            * sizeof(int *));
+        int **const grown = (int **)realloc(arm_scratch, ((size_t)arm_scratch_count + (3u * rules->arms)) * sizeof(int *));
         good = (tree->arm_forward != NULL) && (grown != NULL);
         arm_scratch = (grown != NULL) ? grown : arm_scratch;
         for (size_t slot = 0u; (good != 0) && (slot < ((size_t)tree->leaf_count + 1u) * rules->arms); slot += 1u)
@@ -4266,8 +4188,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             arm_scratch[arm_scratch_count + 1u] = pair.backward_lags;
             arm_scratch[arm_scratch_count + 2u] = pair.backward;
             arm_scratch_count += 3u;
-            good = (pair.forward_lags != NULL) && (pair.backward_lags != NULL) && (pair.backward != NULL)
-                && (climb_machine_pend(buffers.machine, &pair) != 0);
+            good = (pair.forward_lags != NULL) && (pair.backward_lags != NULL) && (pair.backward != NULL) && (climb_machine_pend(buffers.machine, &pair) != 0);
             tree->arm_count += (good != 0) ? 1u : 0u;
         }
     }
@@ -4306,14 +4227,12 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
 
     for (unsigned int frame = 0u; (good != 0) && (rules->tower != 0) && (frame < frame_count); frame += 1u)
     {
-        frames[frame].held_target = (unsigned int *)malloc(((size_t)frames[frame].leaf_count + 1u)
-                                                            * sizeof(unsigned int));
+        frames[frame].held_target = (unsigned int *)malloc(((size_t)frames[frame].leaf_count + 1u) * sizeof(unsigned int));
         frames[frame].held_count = (unsigned int *)calloc((size_t)frames[frame].leaf_count + 1u,
-                                                           sizeof(unsigned int));
+                                                          sizeof(unsigned int));
         frames[frame].held_rounds = (unsigned int *)calloc((size_t)frames[frame].leaf_count + 1u,
-                                                            sizeof(unsigned int));
-        good = (frames[frame].held_target != NULL) && (frames[frame].held_count != NULL)
-            && (frames[frame].held_rounds != NULL);
+                                                           sizeof(unsigned int));
+        good = (frames[frame].held_target != NULL) && (frames[frame].held_count != NULL) && (frames[frame].held_rounds != NULL);
         for (unsigned int leaf = 0u; (good != 0) && (leaf < frames[frame].leaf_count); leaf += 1u)
         {
             frames[frame].held_target[leaf] = 0xFFFFFFFFu;
@@ -4322,7 +4241,8 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     unsigned int **const was_target = (unsigned int **)calloc((size_t)frame_count + 1u, sizeof(unsigned int *));
     unsigned int *const was_count = (unsigned int *)calloc((size_t)frame_count + 1u, sizeof(unsigned int));
     const unsigned int rounds = ((rules->tower != 0) && (was_target != NULL) && (was_count != NULL))
-                              ? TOWER_ROUNDS : 1u;
+                                    ? TOWER_ROUNDS
+                                    : 1u;
     unsigned int turned = 0u;
     unsigned int moving = 1u;
     for (unsigned int round = 0u; (good != 0) && (round < rounds) && (moving != 0u); round += 1u)
@@ -4350,7 +4270,8 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             {
                 const TreeFrame *const previous = (frames[frame].backward != NULL) ? &frames[frame - 1u] : NULL;
                 const TreeFrame *const next = ((pass != 0u) && ((frame + 1u) < frame_count))
-                                            ? &frames[frame + 1u] : NULL;
+                                                  ? &frames[frame + 1u]
+                                                  : NULL;
                 good = group_objects(&frames[frame], previous, next, buffers.height, buffers.width, rules);
             }
         }
@@ -4386,8 +4307,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                          member < ahead->member_start[went + 1u]; member += 1u)
                     {
                         const unsigned int other = ahead->members[member];
-                        const unsigned int bigger = (unsigned int)((target == 0xFFFFFFFFu)
-                                                                   || (ahead->sizes[other] > widest));
+                        const unsigned int bigger = (unsigned int)((target == 0xFFFFFFFFu) || (ahead->sizes[other] > widest));
                         widest = (bigger != 0u) ? ahead->sizes[other] : widest;
                         target = (bigger != 0u) ? other : target;
                     }
@@ -4396,7 +4316,8 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                 const unsigned int agrees = (unsigned int)(target == tree->held_target[leaf]);
                 tree->held_target[leaf] = (empty != 0u) ? target : tree->held_target[leaf];
                 tree->held_count[leaf] = ((empty != 0u) || (agrees != 0u))
-                                       ? (tree->held_count[leaf] + 1u) : (tree->held_count[leaf] - 1u);
+                                             ? (tree->held_count[leaf] + 1u)
+                                             : (tree->held_count[leaf] - 1u);
                 tree->held_rounds[leaf] += (unsigned int)(agrees != 0u);
             }
         }
@@ -4404,14 +4325,13 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         for (unsigned int frame = 0u; (good != 0) && (rounds > 1u) && (frame < frame_count); frame += 1u)
         {
             const unsigned int links = (frames[frame].link_start != NULL)
-                                     ? frames[frame].link_start[frames[frame].object_count] : 0u;
-            const unsigned int same = (unsigned int)((links == was_count[frame]) && (was_target[frame] != NULL)
-                                                     && ((links == 0u)
-                                                         || (memcmp(was_target[frame], frames[frame].link_target,
-                                                                    (size_t)links * sizeof(unsigned int)) == 0)));
+                                           ? frames[frame].link_start[frames[frame].object_count]
+                                           : 0u;
+            const unsigned int same = (unsigned int)((links == was_count[frame]) && (was_target[frame] != NULL) && ((links == 0u) || (memcmp(was_target[frame], frames[frame].link_target, (size_t)links * sizeof(unsigned int)) == 0)));
             moving += (unsigned int)(same == 0u);
             unsigned int *const kept = (links != 0u)
-                                     ? (unsigned int *)malloc((size_t)links * sizeof(unsigned int)) : NULL;
+                                           ? (unsigned int *)malloc((size_t)links * sizeof(unsigned int))
+                                           : NULL;
             if (kept != NULL)
             {
                 memcpy(kept, frames[frame].link_target, (size_t)links * sizeof(unsigned int));
@@ -4513,8 +4433,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                         if (steps == visited_room)
                         {
                             visited_room *= 2u;
-                            unsigned int *const grown = (unsigned int *)realloc(visited, (size_t)visited_room * 2u
-                                                                                * sizeof(unsigned int));
+                            unsigned int *const grown = (unsigned int *)realloc(visited, (size_t)visited_room * 2u * sizeof(unsigned int));
                             if (grown == NULL)
                             {
                                 good = 0;
@@ -4579,8 +4498,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             link_total += frames[frame].link_start[frames[frame].object_count];
         }
     }
-    unsigned long long *const unified_link = (unsigned long long *)malloc(((size_t)link_total + 1u)
-                                                                         * sizeof(unsigned long long));
+    unsigned long long *const unified_link = (unsigned long long *)malloc(((size_t)link_total + 1u) * sizeof(unsigned long long));
     good = (good != 0) && (unified_link != NULL);
     unsigned int unified_links = 0u;
     for (unsigned int frame = 0u; (good != 0) && (frame < frame_count); frame += 1u)
@@ -4638,8 +4556,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         }
         const int source_time = key.node_coordinates[(size_t)source * 4u];
         const int target_time = key.node_coordinates[(size_t)target * 4u];
-        if ((source_time < 0) || (target_time < 0) || ((unsigned int)source_time >= stack_frames)
-         || ((unsigned int)target_time >= stack_frames))
+        if ((source_time < 0) || (target_time < 0) || ((unsigned int)source_time >= stack_frames) || ((unsigned int)target_time >= stack_frames))
         {
             continue;
         }
@@ -4653,10 +4570,8 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             edge_status[edge] = 4;
             continue;
         }
-        const unsigned int source_unified
-            = unified_of[index.node_offset[source_frame] + frames[source_frame].object_of[source_leaf]];
-        const unsigned int target_unified
-            = unified_of[index.node_offset[target_frame] + frames[target_frame].object_of[target_leaf]];
+        const unsigned int source_unified = unified_of[index.node_offset[source_frame] + frames[source_frame].object_of[source_leaf]];
+        const unsigned int target_unified = unified_of[index.node_offset[target_frame] + frames[target_frame].object_of[target_leaf]];
         const unsigned int made = unified_start[source_unified + 1u] - unified_start[source_unified];
         if (made == 0u)
         {
@@ -4732,8 +4647,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             edge_later_near_start = NULL;
             edge_later_nearby = NULL;
             edge_seen = NULL;
-            const int joined = (frame_contacts(tree, &edge_near_start, &edge_nearby) != 0)
-                            && (frame_contacts(next_tree, &edge_later_near_start, &edge_later_nearby) != 0);
+            const int joined = (frame_contacts(tree, &edge_near_start, &edge_nearby) != 0) && (frame_contacts(next_tree, &edge_later_near_start, &edge_later_nearby) != 0);
             edge_seen = (unsigned int *)calloc((size_t)tree->leaf_count + 2u, sizeof(unsigned int));
             if ((joined == 0) || (edge_seen == NULL))
             {
@@ -4770,22 +4684,21 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             best_shared = (shared > best_shared) ? shared : best_shared;
         }
         const int truth_back = ((truth_leaf >= 0) && (next_tree->backward != NULL)) ? next_tree->backward[truth_leaf] : -1;
-        const unsigned int truth_mutual = (unsigned int)((truth_back >= 0)
-                                                         && (tree->object_of[truth_back] == tree->object_of[leaf]));
-        const unsigned int one_object = (unsigned int)((truth_leaf >= 0) && (chosen_leaf >= 0)
-                                                       && (next_tree->object_of[truth_leaf]
-                                                           == next_tree->object_of[chosen_leaf]));
+        const unsigned int truth_mutual = (unsigned int)((truth_back >= 0) && (tree->object_of[truth_back] == tree->object_of[leaf]));
+        const unsigned int one_object = (unsigned int)((truth_leaf >= 0) && (chosen_leaf >= 0) && (next_tree->object_of[truth_leaf] == next_tree->object_of[chosen_leaf]));
         const unsigned int own_object = tree->object_of[leaf];
         const unsigned int truth_object = (truth_leaf >= 0) ? next_tree->object_of[truth_leaf] : 0xFFFFFFFFu;
         const unsigned int object_links = (tree->link_start != NULL)
-                                        ? (tree->link_start[own_object + 1u] - tree->link_start[own_object]) : 0u;
+                                              ? (tree->link_start[own_object + 1u] - tree->link_start[own_object])
+                                              : 0u;
         unsigned int object_links_truth = 0u;
         for (unsigned int link = 0u; (tree->link_start != NULL) && (link < object_links); link += 1u)
         {
             object_links_truth += (unsigned int)(tree->link_target[tree->link_start[own_object] + link] == truth_object);
         }
         const unsigned int linked_object = ((tree->link_start != NULL) && (object_links != 0u))
-                                         ? tree->link_target[tree->link_start[own_object]] : 0xFFFFFFFFu;
+                                               ? tree->link_target[tree->link_start[own_object]]
+                                               : 0xFFFFFFFFu;
         unsigned long long truth_weight = 0ULL;
         unsigned long long linked_weight = 0ULL;
         const unsigned int members = tree->member_start[own_object + 1u] - tree->member_start[own_object];
@@ -4808,17 +4721,19 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         {
             edge_mark += 1u;
             truth_web = (truth_object != 0xFFFFFFFFu)
-                      ? web_count(tree, own_object, next_tree, truth_object, edge_near_start, edge_nearby,
-                                  edge_later_near_start, edge_later_nearby, edge_seen, edge_mark) : 0ULL;
+                            ? web_count(tree, own_object, next_tree, truth_object, edge_near_start, edge_nearby,
+                                        edge_later_near_start, edge_later_nearby, edge_seen, edge_mark)
+                            : 0ULL;
             edge_mark += 1u;
             linked_web = (linked_object != 0xFFFFFFFFu)
-                       ? web_count(tree, own_object, next_tree, linked_object, edge_near_start, edge_nearby,
-                                   edge_later_near_start, edge_later_nearby, edge_seen, edge_mark) : 0ULL;
+                             ? web_count(tree, own_object, next_tree, linked_object, edge_near_start, edge_nearby,
+                                         edge_later_near_start, edge_later_nearby, edge_seen, edge_mark)
+                             : 0ULL;
         }
         const unsigned int own_unified = unified_of[index.node_offset[tree_index_of_time[from[0]]] + own_object];
         const unsigned int truth_unified = (truth_leaf >= 0)
-                                         ? unified_of[index.node_offset[tree_index_of_time[to[0]]] + truth_object]
-                                         : 0xFFFFFFFFu;
+                                               ? unified_of[index.node_offset[tree_index_of_time[to[0]]] + truth_object]
+                                               : 0xFFFFFFFFu;
         const unsigned int unified_links = unified_start[own_unified + 1u] - unified_start[own_unified];
         unsigned int unified_holds_truth = 0u;
         for (unsigned int link = unified_start[own_unified]; link < unified_start[own_unified + 1u]; link += 1u)
@@ -4860,21 +4775,21 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                     (unsigned long long)tree->sizes[leaf], members);
         }
         const TreeFrame *const beyond = ((tree_index_of_time[from[0]] + 2u) < frame_count)
-                                      ? &frames[tree_index_of_time[from[0]] + 2u] : NULL;
+                                            ? &frames[tree_index_of_time[from[0]] + 2u]
+                                            : NULL;
         const int arm_leaf = ((tree->arm_forward != NULL) && (tree->arm_count != 0u))
-                           ? tree->arm_forward[leaf] : CLIMB_MACHINE_NO_LEAF;
+                                 ? tree->arm_forward[leaf]
+                                 : CLIMB_MACHINE_NO_LEAF;
         const unsigned int arm_object = ((arm_leaf >= 0) && (beyond != NULL))
-                                      ? beyond->object_of[(unsigned int)arm_leaf] : 0xFFFFFFFFu;
+                                            ? beyond->object_of[(unsigned int)arm_leaf]
+                                            : 0xFFFFFFFFu;
         unsigned int truth_onward = 0xFFFFFFFFu;
-        for (unsigned int link = 0u; (truth_leaf >= 0) && (next_tree->link_start != NULL) && (beyond != NULL)
-             && (link < (next_tree->link_start[truth_object + 1u] - next_tree->link_start[truth_object])); link += 1u)
+        for (unsigned int link = 0u; (truth_leaf >= 0) && (next_tree->link_start != NULL) && (beyond != NULL) && (link < (next_tree->link_start[truth_object + 1u] - next_tree->link_start[truth_object])); link += 1u)
         {
             truth_onward = next_tree->link_target[next_tree->link_start[truth_object] + link];
         }
         unsigned int linked_onward = 0xFFFFFFFFu;
-        for (unsigned int link = 0u; (linked_object != 0xFFFFFFFFu) && (next_tree->link_start != NULL)
-             && (beyond != NULL)
-             && (link < (next_tree->link_start[linked_object + 1u] - next_tree->link_start[linked_object]));
+        for (unsigned int link = 0u; (linked_object != 0xFFFFFFFFu) && (next_tree->link_start != NULL) && (beyond != NULL) && (link < (next_tree->link_start[linked_object + 1u] - next_tree->link_start[linked_object]));
              link += 1u)
         {
             linked_onward = next_tree->link_target[next_tree->link_start[linked_object] + link];
@@ -4895,22 +4810,22 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             unsigned long long departure = 0ull;
             for (unsigned int axis = 0u; (tree->forward_lag != NULL) && (axis < 3u); axis += 1u)
             {
-                const long long apart = (long long)tree->forward_lag[(3u * leaf) + axis]
-                                      - (long long)tree->lag_to_next[axis];
+                const long long apart = (long long)tree->forward_lag[(3u * leaf) + axis] - (long long)tree->lag_to_next[axis];
                 departure += (unsigned long long)(apart * apart) * (unsigned long long)AXIS_WEIGHTS[axis];
             }
             const unsigned int object = tree->object_of[leaf];
             const unsigned int object_links = (tree->link_start != NULL)
-                                            ? (tree->link_start[object + 1u] - tree->link_start[object]) : 0u;
+                                                  ? (tree->link_start[object + 1u] - tree->link_start[object])
+                                                  : 0u;
             const int object_link = ((tree->link_start != NULL) && (object_links != 0u))
-                                  ? (int)tree->link_target[tree->link_start[object]] : -1;
+                                        ? (int)tree->link_target[tree->link_start[object]]
+                                        : -1;
             const unsigned int held_here = (tree->forward_held != NULL) ? tree->forward_held[leaf] : 0u;
             unsigned int null_at_least = 0u;
             unsigned int null_best = 0u;
             for (unsigned int draw = 0u; (tree->null_held != NULL) && (draw < tree->null_count); draw += 1u)
             {
-                const unsigned int drawn = tree->null_held[((size_t)draw * ((size_t)tree->leaf_count + 1u))
-                                                           + leaf];
+                const unsigned int drawn = tree->null_held[((size_t)draw * ((size_t)tree->leaf_count + 1u)) + leaf];
                 null_at_least += (unsigned int)(drawn >= held_here);
                 null_best = (drawn > null_best) ? drawn : null_best;
             }
@@ -4919,7 +4834,8 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                     (unsigned int)(peak / plane), (unsigned int)((peak % plane) / buffers.width),
                     (unsigned int)((peak % plane) % buffers.width), tree->sizes[leaf], object,
                     (tree->member_start != NULL)
-                    ? (tree->member_start[object + 1u] - tree->member_start[object]) : 0u,
+                        ? (tree->member_start[object + 1u] - tree->member_start[object])
+                        : 0u,
                     (tree->forward != NULL) ? tree->forward[leaf] : -1,
                     departure, (tree->forward_held != NULL) ? tree->forward_held[leaf] : 0u,
                     object_link, object_links, tree->null_count, null_at_least, null_best,
@@ -4985,8 +4901,7 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     }
     if (good != 0)
     {
-        const unsigned long long scored = tally->correct + tally->branched + tally->wrong + tally->unlinked
-                                        + tally->missed;
+        const unsigned long long scored = tally->correct + tally->branched + tally->wrong + tally->unlinked + tally->missed;
         printf("  %-24.24s %-6llu %llu/%llu/%llu/%llu/%llu   %u frames, %u objects of %u leaves, largest %u,"
                " rejoined %u, engines %llu ms"
                " (read %llu, basins %llu, store %llu, ties %llu, motion %llu, landing %llu, overlap %llu,"
@@ -5323,13 +5238,11 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
         const CfgJsonToken *const token = &tokens[value];
         if (cfg_json_names(text, &tokens[key], "scheme"))
         {
-            good = (cfg_json_string(text, token, word, sizeof(word)) && (strcmp(word, CFG_SCHEME) == 0))
-                || cfg_refuse(path, text, token->start, "scheme is not cell_tracking.cfg");
+            good = (cfg_json_string(text, token, word, sizeof(word)) && (strcmp(word, CFG_SCHEME) == 0)) || cfg_refuse(path, text, token->start, "scheme is not cell_tracking.cfg");
         }
         else if (cfg_json_names(text, &tokens[key], "version"))
         {
-            good = (cfg_json_unsigned(text, token, &number) && (number == CFG_VERSION))
-                || cfg_refuse(path, text, token->start, "this tracker reads .cfg version 1");
+            good = (cfg_json_unsigned(text, token, &number) && (number == CFG_VERSION)) || cfg_refuse(path, text, token->start, "this tracker reads .cfg version 1");
         }
         else if (cfg_json_names(text, &tokens[key], "track") && (token->kind == CFG_JSON_OBJECT))
         {
@@ -5361,15 +5274,13 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
                 }
                 if (cfg_json_names(text, &tokens[rule], "null_draws"))
                 {
-                    good = (cfg_json_unsigned(text, setting, &number) && (number < 4096ULL))
-                        || cfg_refuse(path, text, setting->start, "null_draws is a count below 4096");
+                    good = (cfg_json_unsigned(text, setting, &number) && (number < 4096ULL)) || cfg_refuse(path, text, setting->start, "null_draws is a count below 4096");
                     rules->null_draws = good ? (unsigned int)number : rules->null_draws;
                     known = true;
                 }
                 if (cfg_json_names(text, &tokens[rule], "arms"))
                 {
-                    good = (cfg_json_unsigned(text, setting, &number) && (number < 64ULL))
-                        || cfg_refuse(path, text, setting->start, "arms is a count below 64");
+                    good = (cfg_json_unsigned(text, setting, &number) && (number < 64ULL)) || cfg_refuse(path, text, setting->start, "arms is a count below 64");
                     rules->arms = good ? (unsigned int)number : rules->arms;
                     known = true;
                 }
@@ -5385,36 +5296,29 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
             const unsigned int species = cfg_json_member(text, tokens, value, "species");
             const unsigned int voxel = cfg_json_member(text, tokens, value, "voxel_pm");
             const unsigned int membrane = cfg_json_member(text, tokens, value, "membrane_pm");
-            const unsigned int named = (unsigned int)!!stacks + (unsigned int)!!samples + (unsigned int)!!first
-                                     + (unsigned int)!!species + (unsigned int)!!voxel + (unsigned int)!!membrane;
-            good = (named == token->count)
-                || cfg_refuse(path, text, token->start, "input takes stacks, samples, first, species, voxel_pm and membrane_pm");
+            const unsigned int named = (unsigned int)!!stacks + (unsigned int)!!samples + (unsigned int)!!first + (unsigned int)!!species + (unsigned int)!!voxel + (unsigned int)!!membrane;
+            good = (named == token->count) || cfg_refuse(path, text, token->start, "input takes stacks, samples, first, species, voxel_pm and membrane_pm");
             if (good && species)
             {
-                good = cfg_json_string(text, &tokens[species], word, sizeof(word))
-                    || cfg_refuse(path, text, tokens[species].start, "species is a name");
+                good = cfg_json_string(text, &tokens[species], word, sizeof(word)) || cfg_refuse(path, text, tokens[species].start, "species is a name");
                 free(inputs->species);
                 inputs->species = good ? cfg_copy(word) : NULL;
             }
             if (good && voxel)
             {
-                good = ((tokens[voxel].kind == CFG_JSON_ARRAY) && (tokens[voxel].count == 3u))
-                    || cfg_refuse(path, text, tokens[voxel].start, "voxel_pm is three integers, z y x, in picometers");
+                good = ((tokens[voxel].kind == CFG_JSON_ARRAY) && (tokens[voxel].count == 3u)) || cfg_refuse(path, text, tokens[voxel].start, "voxel_pm is three integers, z y x, in picometers");
                 for (unsigned int axis = 0u; good && (axis < 3u); axis += 1u)
                 {
-                    good = cfg_json_unsigned(text, &tokens[voxel + 1u + axis], &inputs->voxel_pm[axis])
-                        || cfg_refuse(path, text, tokens[voxel + 1u + axis].start, "a voxel size is a whole number of picometers");
+                    good = cfg_json_unsigned(text, &tokens[voxel + 1u + axis], &inputs->voxel_pm[axis]) || cfg_refuse(path, text, tokens[voxel + 1u + axis].start, "a voxel size is a whole number of picometers");
                 }
             }
             if (good && membrane)
             {
-                good = cfg_json_unsigned(text, &tokens[membrane], &inputs->membrane_pm)
-                    || cfg_refuse(path, text, tokens[membrane].start, "membrane_pm is a whole number of picometers");
+                good = cfg_json_unsigned(text, &tokens[membrane], &inputs->membrane_pm) || cfg_refuse(path, text, tokens[membrane].start, "membrane_pm is a whole number of picometers");
             }
             if (good && stacks)
             {
-                good = cfg_json_string(text, &tokens[stacks], word, sizeof(word))
-                    || cfg_refuse(path, text, tokens[stacks].start, "stacks is a path");
+                good = cfg_json_string(text, &tokens[stacks], word, sizeof(word)) || cfg_refuse(path, text, tokens[stacks].start, "stacks is a path");
                 free(inputs->stacks);
                 inputs->stacks = good ? cfg_copy(word) : NULL;
             }
@@ -5431,16 +5335,14 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
                 for (unsigned int slot = 0u; good && (slot < tokens[samples].count); slot += 1u)
                 {
                     const unsigned int element = samples + 1u + slot;
-                    good = cfg_json_string(text, &tokens[element], word, sizeof(word))
-                        || cfg_refuse(path, text, tokens[element].start, "a sample is a name");
+                    good = cfg_json_string(text, &tokens[element], word, sizeof(word)) || cfg_refuse(path, text, tokens[element].start, "a sample is a name");
                     inputs->samples[slot] = good ? cfg_copy(word) : NULL;
                     inputs->count += (unsigned int)good;
                 }
             }
             if (good && first)
             {
-                good = (cfg_json_unsigned(text, &tokens[first], &number) && (number < (1ULL << 20u)))
-                    || cfg_refuse(path, text, tokens[first].start, "first is a count");
+                good = (cfg_json_unsigned(text, &tokens[first], &number) && (number < (1ULL << 20u))) || cfg_refuse(path, text, tokens[first].start, "first is a count");
                 inputs->first = (unsigned int)number;
             }
         }
@@ -5456,10 +5358,7 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
                     slot = cfg_json_names(text, &tokens[output], OUTPUT_NAMES[name]) ? name : slot;
                 }
                 const bool none = (setting->kind == CFG_JSON_NULL);
-                good = ((slot >= 0) || cfg_refuse(path, text, tokens[output].start, "output has no such output"))
-                    && (none || cfg_json_string(text, setting, word, sizeof(word))
-                        || cfg_refuse(path, text, setting->start, "an output is a path or null"))
-                    && open_output(rules, inputs, (unsigned int)slot, none ? NULL : word);
+                good = ((slot >= 0) || cfg_refuse(path, text, tokens[output].start, "output has no such output")) && (none || cfg_json_string(text, setting, word, sizeof(word)) || cfg_refuse(path, text, setting->start, "an output is a path or null")) && open_output(rules, inputs, (unsigned int)slot, none ? NULL : word);
                 output = tokens[output + 1u].past;
             }
         }

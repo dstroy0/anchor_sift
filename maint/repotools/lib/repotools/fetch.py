@@ -50,7 +50,7 @@ STAMP = "repotools-stamp:"
 # so it travels with every fetch whether or not a repository named it.
 SPINE = "lib/repotools"
 
-# A set that cannot work without another one. Held here rather than in the CLI, because a fetch can
+# A set that cannot work without another one. Held here  because a fetch can
 # be driven from a script and the dependency has to travel with the mechanism instead of with one
 # caller of it.
 SET_NEEDS = {
@@ -202,7 +202,7 @@ def _set_files(toolkit, one_set):
     also imports `codemask` and `nsconv` as siblings from its own tools directory. Both were left
     carrying five files they would rather have fetched, to decline three.
 
-    Naming a file rather than splitting the set into ever smaller sets, because the collisions are
+    Naming a file  because the collisions are
     per file and a set that is subdivided until nothing collides has stopped being a grouping.
     """
     base = os.path.join(toolkit, one_set.replace("/", os.sep))
@@ -213,7 +213,8 @@ def _set_files(toolkit, one_set):
     if not os.path.isdir(base):
         raise SystemExit(
             "repotools: no tool set or file named %s in the toolkit at %s. `repotools sets` lists "
-            "the sets, and `repotools list` names every file in them." % (one_set, toolkit)
+            "the sets, and `repotools list` names every file in them."
+            % (one_set, toolkit)
         )
     out = []
     for here, dirs, names in os.walk(base):
@@ -265,7 +266,9 @@ def fetch(cfg, sets=None, dry=False):
             % os.path.join(cfg.where, "repotools.toml")
         )
 
-    into = os.path.join(cfg.tools_root(), cfg.data.get("fetch", {}).get("into", "repotools"))
+    into = os.path.join(
+        cfg.tools_root(), cfg.data.get("fetch", {}).get("into", "repotools")
+    )
     entries = read_lock(cfg)
     done = []
 
@@ -334,7 +337,11 @@ def check(cfg, report):
         report.saw()
 
         if not os.path.isfile(installed):
-            report.breaking(installed_rel, 1, "locked as fetched from %s and is not on disk" % source_rel)
+            report.breaking(
+                installed_rel,
+                1,
+                "locked as fetched from %s and is not on disk" % source_rel,
+            )
             continue
 
         with open(installed, encoding="utf-8", errors="replace") as handle:
@@ -356,12 +363,18 @@ def check(cfg, report):
 
         upstream = os.path.join(toolkit, source_rel.replace("/", os.sep))
         if not os.path.isfile(upstream):
-            report.note(installed_rel, 1, "no longer exists in the toolkit at %s" % source_rel)
+            report.note(
+                installed_rel, 1, "no longer exists in the toolkit at %s" % source_rel
+            )
             continue
         with open(upstream, encoding="utf-8", errors="replace") as handle:
             upstream_dig = digest(strip_stamp(handle.read()))
         if upstream_dig != dig:
-            report.note(installed_rel, 1, "the toolkit has a newer %s. Run `repotools fetch`." % source_rel)
+            report.note(
+                installed_rel,
+                1,
+                "the toolkit has a newer %s. Run `repotools fetch`." % source_rel,
+            )
 
     return report
 
@@ -423,8 +436,14 @@ def retitle(text, marker):
 # A promoted file carrying any of these is still a copy of one repository's tool. Each is a question
 # the file has to ask a Config instead of answering for itself.
 TRACES = (
-    ("hard coded repository root", ("os.getcwd()", 'sys.path.insert(0, os.path.join(ROOT,')),
-    ("counted parent directories", ("os.path.dirname(os.path.dirname(os.path.dirname(",)),
+    (
+        "hard coded repository root",
+        ("os.getcwd()", "sys.path.insert(0, os.path.join(ROOT,"),
+    ),
+    (
+        "counted parent directories",
+        ("os.path.dirname(os.path.dirname(os.path.dirname(",),
+    ),
     ("a project name in the body", ("MMGR_", "PROTOCORE_", "IDEMIP_", "ANCHOR_SIFT")),
     ("a fixed source root", ('"src"', "'src'", '"tools/dev_env"')),
     ("a fixed license expression", ("SPDX-License-Identifier:",)),
@@ -432,10 +451,16 @@ TRACES = (
     # directory on sys.path then and not when it is loaded by path. A fetched tool is invoked from
     # a repository root. The bare form fails in exactly the case this toolkit exists for. It
     # passed nsconv.py clean while that file carried one.
-    ("a bare sibling import", ("from codemask import", "from strip_comments import", "from dedup import")),
+    (
+        "a bare sibling import",
+        ("from codemask import", "from strip_comments import", "from dedup import"),
+    ),
     # Lowercase project names, which the upper-case needles above walk straight past. nsconv.py
     # carried a hard-coded DBENCH macro list and a lowercase mmgr_ name and was reported clean.
-    ("a project name in the body", ("mmgr_", "protocore_", "idemip_", "anchor_sift", "DBENCH_")),
+    (
+        "a project name in the body",
+        ("mmgr_", "protocore_", "idemip_", "anchor_sift", "DBENCH_"),
+    ),
     # A tool that opens its own socket bypasses every courtesy rule in lib/retrieval: the identifying
     # User-Agent, robots.txt, the machine-wide rate floor, the cache. Retrieval goes through
     # retrieval.polite.Fetcher, and a promoted file reaching the network directly is unfinished.
@@ -447,7 +472,18 @@ TRACES = (
     # case for a spawned process is in the argv. `curl` and `wget` are named and the module is not.
     (
         "reaches the network without going through retrieval.polite",
-        ("urllib.request", "import requests", "import httpx", "import socket", "http.client", "ftplib", '"curl"', "'curl'", '"wget"', "'wget'"),
+        (
+            "urllib.request",
+            "import requests",
+            "import httpx",
+            "import socket",
+            "http.client",
+            "ftplib",
+            '"curl"',
+            "'curl'",
+            '"wget"',
+            "'wget'",
+        ),
     ),
 )
 

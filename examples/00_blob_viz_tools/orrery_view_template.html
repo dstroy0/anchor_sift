@@ -429,7 +429,7 @@
     for (i = 0; i < bodies.length; i++) {
       body = bodies[i];
       spot = bodyAt(body, moment).multiplyScalar(body.radius);
-      // Distance from the body's centre to the beam line through this boundary point.
+      // Distance from the body's center to the beam line through this boundary point.
       var toPoint = point.clone().multiplyScalar(1).sub(spot);
       var alongBeam = toPoint.dot(beam);
       var perp = toPoint.clone().addScaledVector(beam, -alongBeam).length();
@@ -443,7 +443,7 @@
 
   // Seeded from the first frame that is drawn and never from a guess. These were started at zero and
   // one, and the field they have to track sits around four hundredths. The range they reported was
-  // twenty times too wide, every reading normalised to nearly nothing, and the ball rendered flat
+  // twenty times too wide, every reading normalized to nearly nothing, and the ball rendered flat
   // black. A scale carried between frames has to be started from the data it is carrying.
   var lowSeen = 0,
     highSeen = 1,
@@ -499,8 +499,7 @@
     // Contrast is a curve on the value and never a scale on it. Raising the reading to a power pulls
     // the middle down and leaves both ends where they are. The ball goes dark while exactly as
     // much light still arrives at the brightest place on it. Multiplying instead would dim the peak
-    // along with everything else, which is a darker picture of nothing rather than the same picture
-    // with the floor taken out from under it.
+    // along with everything else, which is a darker picture of nothing.
     // Black is the floor, because the surface is added to the view and never painted over it. A dark
     // grey floor would add a grey wash everywhere and put an opaque ball back on the screen by a
     // slower route. Nothing arriving has to contribute nothing.

@@ -83,7 +83,7 @@ static void grade(const char *what, size_t measured, size_t expected)
     // here because MinGW's headers assume msvcrt semantics; the runtime actually linked is the
     // UCRT, which has handled %zu since Visual Studio 2015, and the warning is noise.
     //
-    // Measured rather than assumed, because an earlier revision of this file got it wrong in the
+    // Measured  because an earlier revision of this file got it wrong in the
     // other direction: it widened every count to unsigned long long and recorded in a comment that
     // the runtime rejects %zu and prints the letter. That was inferred from the warning and never
     // observed. A probe printing two %zu followed by a %s prints all three correctly. Argument

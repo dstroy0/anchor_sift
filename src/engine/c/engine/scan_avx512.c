@@ -124,8 +124,7 @@ size_t anchor_steer_truthy_after_avx512(const uint8_t *corpus, size_t alignments
 
         /* An alive flag is zero or non-zero. The mask of alignments still standing is the lanes
          * whose byte ANDs with itself to a non-zero, which is every lane that is not zero. Testing
-         * this way rather than against one keeps it correct if a caller stores a flag other than
-         * one. */
+         * this way. */
         const __mmask64 alive_mask = _mm512_test_epi8_mask(standing_bytes, standing_bytes);
 
         standing += steer_popcount64((uint64_t)(agrees & alive_mask));
@@ -147,7 +146,7 @@ size_t anchor_steer_truthy_after_avx512(const uint8_t *corpus, size_t alignments
 
 const AnchorSteerEngine *anchor_steer_avx512_engine(void)
 {
-    static const AnchorSteerEngine engine = { "avx512-unrun", anchor_steer_truthy_after_avx512 };
+    static const AnchorSteerEngine engine = {"avx512-unrun", anchor_steer_truthy_after_avx512};
 
     if (steer_avx512_present() == 0)
     {

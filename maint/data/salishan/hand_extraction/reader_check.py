@@ -26,10 +26,11 @@ import subprocess
 import sys
 import unicodedata
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -41,17 +42,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -60,8 +71,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -82,11 +94,19 @@ from papers import EVERY  # noqa: E402
 # own, a constraint name, a template and a bibliography entry are all things a person names while
 # reading a paper so that nothing is left unaccounted for. None of them is a form to extract, and
 # the record holds their lines as prose.
-NOT_ASKED = ("segment", "notation", "mention", "reference", "damage", "cluster",
-             # An English word a paper's damaged mark set reads as a form, and a line of the next
-             # paper bound into the same PDF. Both are written down so the count of what a paper
-             # holds is honest, and neither is something to extract.
-             "english", "foreign")
+NOT_ASKED = (
+    "segment",
+    "notation",
+    "mention",
+    "reference",
+    "damage",
+    "cluster",
+    # An English word a paper's damaged mark set reads as a form, and a line of the next
+    # paper bound into the same PDF. Both are written down so the count of what a paper
+    # holds is honest, and neither is something to extract.
+    "english",
+    "foreign",
+)
 
 SOUTHERN = "southern"
 NORTHERN = "northern"
@@ -138,7 +158,9 @@ def spans_of(content):
                 depth -= 1
             at += 1
         parts = [one for one in found.group(2).split(".") if one]
-        held.append((found.group(1), parts[-1] if parts else "", content[found.end():at - 1]))
+        held.append(
+            (found.group(1), parts[-1] if parts else "", content[found.end() : at - 1])
+        )
     return held
 
 
@@ -174,7 +196,9 @@ def record_rows(path):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     failed = 0
     waiting = []
     # A paper with a hand extraction and no reader yet. It is not graded either, and counting it as
@@ -206,7 +230,10 @@ def main():
             dialects.setdefault((kind, form), set()).add(dialect)
 
         out.write("  %s\n" % name)
-        out.write("    %d forms asked for, %d items the reader wrote\n" % (len(wanted), len(got)))
+        out.write(
+            "    %d forms asked for, %d items the reader wrote\n"
+            % (len(wanted), len(got))
+        )
 
         by_form = {}
         for where, dialect, kind, form in got:
@@ -243,10 +270,13 @@ def main():
                 continue
             wanted_kind = SAME.get(kind, kind)
             if not any(SAME.get(one[2], one[2]) == wanted_kind for one in found):
-                wrong_kind.append((where, kind, form, sorted({one[2] for one in found})))
+                wrong_kind.append(
+                    (where, kind, form, sorted({one[2] for one in found}))
+                )
                 continue
-            said = sorted({one[1] for one in found
-                           if SAME.get(one[2], one[2]) == wanted_kind})
+            said = sorted(
+                {one[1] for one in found if SAME.get(one[2], one[2]) == wanted_kind}
+            )
             # A record with no speaker or dialect column was never asked who was talking, and
             # grading it on an answer its paper's reader does not give is asking a question of the
             # wrong file. The hand extraction still records it.
@@ -274,40 +304,68 @@ def main():
 
         # Prose the reader kept whole is not a form it claims to have extracted, and neither is a
         # line of somebody else's paper bound into the same PDF.
-        ignored = NOT_ASKED + ("essay", "gloss", "note", "commentary", "free translation")
+        ignored = NOT_ASKED + (
+            "essay",
+            "gloss",
+            "note",
+            "commentary",
+            "free translation",
+        )
         # A reader item that opens with a wanted form and runs past it is that form, taken too far.
         # It is reported once, where it was flagged or missed, and counting it again here as
         # something the reader made up would turn one defect into two.
         overrun = sorted(asked, key=len, reverse=True)
-        extra = sorted({(kind, form) for where, dialect, kind, form in got
-                        if (form not in asked) and (kind not in ignored)
-                        and not any(form.startswith(one) for one in overrun if len(one) > 12)})
+        extra = sorted(
+            {
+                (kind, form)
+                for where, dialect, kind, form in got
+                if (form not in asked)
+                and (kind not in ignored)
+                and not any(form.startswith(one) for one in overrun if len(one) > 12)
+            }
+        )
 
         out.write("    %d forms the reader did not find\n" % len(missing))
         for where, kind, form in missing:
             out.write("      %-12s %-11s %s\n" % (where, kind, form))
-        out.write("    %d forms the reader could not bound and flagged as such\n" % len(said_so))
+        out.write(
+            "    %d forms the reader could not bound and flagged as such\n"
+            % len(said_so)
+        )
         for where, kind, form in said_so:
             out.write("      %-12s %-11s %s\n" % (where, kind, form[:70]))
         out.write("    %d forms the reader typed differently\n" % len(wrong_kind))
         for where, kind, form, said in wrong_kind:
-            out.write("      %-12s %-11s %-26s reader said %s\n"
-                      % (where, kind, form, ", ".join(said)))
-        out.write("    %d forms the reader put in the wrong dialect\n" % len(wrong_dialect))
+            out.write(
+                "      %-12s %-11s %-26s reader said %s\n"
+                % (where, kind, form, ", ".join(said))
+            )
+        out.write(
+            "    %d forms the reader put in the wrong dialect\n" % len(wrong_dialect)
+        )
         for where, kind, form, dialect, said in wrong_dialect:
-            out.write("      %-12s %-11s %-26s %s, reader said %s\n"
-                      % (where, kind, form, dialect, ", ".join(one or "none" for one in said)))
+            out.write(
+                "      %-12s %-11s %-26s %s, reader said %s\n"
+                % (where, kind, form, dialect, ", ".join(one or "none" for one in said))
+            )
         out.write("    %d forms the reader invented\n" % len(extra))
         for kind, form in extra:
             out.write("      %-11s %s\n" % (kind, form))
-        out.write("    %d forms whose dialect the reader would not claim\n" % len(undecided))
+        out.write(
+            "    %d forms whose dialect the reader would not claim\n" % len(undecided)
+        )
         for where, kind, form, dialect in undecided:
-            out.write("      %-12s %-11s %-26s the paper's is %s\n" % (where, kind, form, dialect))
+            out.write(
+                "      %-12s %-11s %-26s the paper's is %s\n"
+                % (where, kind, form, dialect)
+            )
 
         failed += len(missing) + len(wrong_kind) + len(wrong_dialect) + len(extra)
 
-    out.write("\n  %d of %d readers are graded against a hand extraction\n"
-              % (len(EVERY) - len(waiting) - len(unwritten), len(EVERY)))
+    out.write(
+        "\n  %d of %d readers are graded against a hand extraction\n"
+        % (len(EVERY) - len(waiting) - len(unwritten), len(EVERY))
+    )
     if waiting:
         out.write("  ungraded until their paper is read by hand:\n")
         for stem in waiting:
@@ -316,8 +374,14 @@ def main():
         out.write("  read by hand and ungraded until a reader is written:\n")
         for stem in unwritten:
             out.write("    %s\n" % stem)
-    out.write("\n  %s\n" % ("every reader reproduces its hand extraction" if not failed
-                            else "%d disagreements to work through" % failed))
+    out.write(
+        "\n  %s\n"
+        % (
+            "every reader reproduces its hand extraction"
+            if not failed
+            else "%d disagreements to work through" % failed
+        )
+    )
     out.flush()
     return 1 if failed else 0
 

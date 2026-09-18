@@ -40,6 +40,7 @@ from glyph_names import decoded
 from inserted_space import closed_spaces
 from line_breaks import joined
 from mellesmoen_kye_repair import repaired as mellesmoen_repaired
+
 # Aliased because this file already calls the directory of paper texts PAPERS, and importing the
 # config under the same name shadowed it with a string that iterated as characters.
 from paper_config import PAPERS as EVERY_PAPER
@@ -47,10 +48,11 @@ from salish_marking import MARKED, PRACTICAL, unligatured
 from salish_unsorted import is_language_token
 from space_repair import joined_words
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -62,17 +64,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -81,8 +93,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -136,6 +149,7 @@ COLUMN = re.compile(r"^([^-=•+√]+)(√.*)$")
 # Two of the repair lists still differ from the ones the oracle check applies, and neither difference
 # was deliberate. paper_config.Paper says which and why.
 PAIRS = tuple((one.stem, one.record, one.coverage, one.marks) for one in EVERY_PAPER)
+
 
 def close_spaces(line):
     """Take out the space the extraction inserted between a consonant's mark and the rest of it."""
@@ -244,7 +258,9 @@ def source_tokens(path, repairs, vocabulary=None, marks=MARKS):
         if found:
             page = int(found.group(1))
             continue
-        for token, times in marked_tokens(prepared(line, repairs, vocabulary), marks).items():
+        for token, times in marked_tokens(
+            prepared(line, repairs, vocabulary), marks
+        ).items():
             held[token] = held.get(token, 0) + times
             where.setdefault(token, page)
     return held, where
@@ -274,15 +290,21 @@ def extracted_tokens(path, marks=MARKS):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  %-36s %-9s %-9s %-9s %s\n"
-              % ("paper", "in paper", "extracted", "missing", "covered"))
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  %-36s %-9s %-9s %-9s %s\n"
+        % ("paper", "in paper", "extracted", "missing", "covered")
+    )
 
     worst = []
     for entry in PAIRS:
         stem, name, repairs = entry[:3]
         marks = entry[3] if len(entry) > 3 else MARKS
-        source = os.path.join(PAPERS, ("%s.page.txt" if "page" in repairs else "%s.txt") % stem)
+        source = os.path.join(
+            PAPERS, ("%s.page.txt" if "page" in repairs else "%s.txt") % stem
+        )
         target = os.path.join(CORPORA, name)
         if not os.path.isfile(source) or not os.path.isfile(target):
             out.write("  %-36s missing a file\n" % stem[:36])
@@ -292,8 +314,10 @@ def main():
         got = extracted_tokens(target, marks)
         missing = {token: count for token, count in held.items() if token not in got}
         covered = (100.0 * (len(held) - len(missing)) / len(held)) if held else 0.0
-        out.write("  %-36s %-9d %-9d %-9d %.1f%%\n"
-                  % (stem[:36], len(held), len(got), len(missing), covered))
+        out.write(
+            "  %-36s %-9d %-9d %-9d %.1f%%\n"
+            % (stem[:36], len(held), len(got), len(missing), covered)
+        )
         worst.append((len(missing), stem, missing, where))
 
     out.write("\n  where the missing tokens sit, for the papers that have any\n")
@@ -306,15 +330,21 @@ def main():
         out.write("\n  %s, %d missing on %d page(s)\n" % (stem, count, len(by_page)))
         for page in sorted(by_page)[:6]:
             shown = by_page[page][:5]
-            out.write("    page %-4d %-3d  %s\n"
-                      % (page, len(by_page[page]), "  ".join(shown)))
+            out.write(
+                "    page %-4d %-3d  %s\n"
+                % (page, len(by_page[page]), "  ".join(shown))
+            )
         if len(by_page) > 6:
             out.write("    and %d more page(s)\n" % (len(by_page) - 6))
 
     clean = [one for one in worst if not one[0]]
-    out.write("\n  %d of %d papers have every token of the language accounted for\n"
-              % (len(clean), len(worst)))
-    out.write("  both sides are put through the same repair first, and a correctly repaired\n")
+    out.write(
+        "\n  %d of %d papers have every token of the language accounted for\n"
+        % (len(clean), len(worst))
+    )
+    out.write(
+        "  both sides are put through the same repair first, and a correctly repaired\n"
+    )
     out.write("  word is not reported as a hole\n")
 
     out.flush()

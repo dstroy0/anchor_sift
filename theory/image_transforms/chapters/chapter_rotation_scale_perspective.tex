@@ -14,26 +14,26 @@ four-fold, and arbitrary rotations as a preprocessing step.
 
 \section{Rotation in three dimensions}
 
-A turning specimen in a volume is a rotation in the group $SO(3)$, and the log-polar trick does not
-carry over because $SO(3)$ is not a product of circles. Two published routes do.
+A turning specimen in a volume is a rotation in the group \(SO(3)\), and the log-polar trick does not
+carry over because \(SO(3)\) is not a product of circles. Two published routes do.
 
 \textbf{Through projections.} The projection-slice theorem states that the Fourier transform of a
 projection of a volume is a central slice of the volume's Fourier transform. Combined with phase
 correlation it estimates rotation parameters from projections, including perspective projections
 and in the presence of translational offsets, and it widens the capture range of iterative
-registration substantially: in one clinical evaluation initialised registration succeeded in 68.6
-percent of cases against 28.8 percent uninitialised.
+registration substantially: in one clinical evaluation initialized registration succeeded in 68.6
+percent of cases against 28.8 percent uninitialized.
 
 \textbf{Through spherical harmonics.} Makadia and Daniilidis estimate rotation directly from
 functions on the sphere, without correspondences. Spherical harmonic coefficients undergo a unitary
 map when the function is rotated. The correlation of two spherical functions is a function on
-$SO(3)$, and its $SO(3)$ Fourier transform is the pointwise product of the two functions' spherical
+\(SO(3)\), and its \(SO(3)\) Fourier transform is the pointwise product of the two functions' spherical
 harmonic coefficients. The rotation is the peak of that correlation, found by a direct search over a
-grid on $SO(3)$ whose resolution is set by the harmonic bandwidth. The same construction registers
+grid on \(SO(3)\) whose resolution is set by the harmonic bandwidth. The same construction registers
 three dimensional point clouds.
 
-A space of spherical harmonics of degree $n$ has dimension $2n+1$, and its members are
-eigenfunctions of the Laplace-Beltrami operator with eigenvalue $n(n+1)$. Degree 1 is where a rigid
+A space of spherical harmonics of degree \(n\) has dimension \(2n+1\), and its members are
+eigenfunctions of the Laplace-Beltrami operator with eigenvalue \(n(n+1)\). Degree 1 is where a rigid
 turn of the whole sphere lives, which is why rotation is read off the lowest degrees and finer
 motion off higher ones.
 
@@ -47,7 +47,7 @@ consensus makes the estimate robust to wrong correspondences.
 
 Without correspondences the warp is estimated directly from intensities. Lucas and Kanade's
 alignment, reviewed in a unifying framework by Baker and Matthews, treats translation, affine and
-homography warps alike: it linearises the image around the current warp and updates the parameters
+homography warps alike: it linearizes the image around the current warp and updates the parameters
 by gradient descent. The inverse compositional form precomputes the expensive terms once, on the
 template, and is the efficient variant most extensions can use without losing that efficiency.
 

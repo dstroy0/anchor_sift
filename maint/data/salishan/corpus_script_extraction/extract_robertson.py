@@ -45,13 +45,21 @@ import sys
 
 from glyph_names import decoded
 from line_breaks import joined
-from salish_marking import DERIVED, SPOKEN, UNCLASSIFIED, rendered, switches, tagged_spans
+from salish_marking import (
+    DERIVED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -63,17 +71,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -82,8 +100,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -98,7 +117,8 @@ SOURCE = os.path.join(PAPERS, "2012_Robertson.txt")
 TARGET = os.path.join(
     CORPORA,
     "CharleyAlexisMayoos-WilliamCelestin_BCIndigenousPeoplesChinukPipaScript_Robertson"
-    "_Salish_nlekepmxcin-secwepemctsin_2012_mixed.txt")
+    "_Salish_nlekepmxcin-secwepemctsin_2012_mixed.txt",
+)
 
 # What this paper writes the two Salish languages with, on the morphemic line. Robertson names his
 # Americanist symbols on page 30: č, š and a dot under an x. The dot is a combining mark. A token
@@ -154,7 +174,9 @@ def carries_language(text):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -190,13 +212,17 @@ def main():
             pieces = pending.get(kind)
             if pieces:
                 mark = "T" if (text in SALISH_TEXTS) else "N"
-                rows.append((mark, number or 0, "Text %d" % text, kind, " ".join(pieces)))
+                rows.append(
+                    (mark, number or 0, "Text %d" % text, kind, " ".join(pieces))
+                )
         for body in plain:
             rows.append(("N", number or 0, "Text %d" % text, "gloss", body))
         for kind in ("cj translation", "translation"):
             pieces = pending.get(kind)
             if pieces:
-                rows.append(("N", number or 0, "Text %d" % text, kind, " ".join(pieces)))
+                rows.append(
+                    ("N", number or 0, "Text %d" % text, kind, " ".join(pieces))
+                )
         pending.clear()
         del plain[:]
 
@@ -303,19 +329,37 @@ def main():
         rows.append(("N", 0, "not reached page %d" % page, UNCLASSIFIED, body))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# BC Indigenous people's Chinuk pipa script: History, analysis, and texts.\n")
-        handle.write("# David D. Robertson, University of Victoria. ICSNL 47, UBCWPL 32, 2012.\n")
-        handle.write("# Text 1 is Nɬeʔkepmxcin, written by Charley Alexis Mayoos and published in\n")
-        handle.write("# Kamloops Wawa #82, 11 June 1893. Text 2 is Secwepemctsin, written by\n")
+        handle.write(
+            "# BC Indigenous people's Chinuk pipa script: History, analysis, and texts.\n"
+        )
+        handle.write(
+            "# David D. Robertson, University of Victoria. ICSNL 47, UBCWPL 32, 2012.\n"
+        )
+        handle.write(
+            "# Text 1 is Nɬeʔkepmxcin, written by Charley Alexis Mayoos and published in\n"
+        )
+        handle.write(
+            "# Kamloops Wawa #82, 11 June 1893. Text 2 is Secwepemctsin, written by\n"
+        )
         handle.write("# William Celestin of the Salmon Arm area.\n")
         handle.write("#\n")
-        handle.write("# Mark is language.layer.kind. T is Salish, N is anything else. Texts 3 to 6\n")
-        handle.write("# are Chinook Jargon, which is a pidgin and a language of its own, and they\n")
+        handle.write(
+            "# Mark is language.layer.kind. T is Salish, N is anything else. Texts 3 to 6\n"
+        )
+        handle.write(
+            "# are Chinook Jargon, which is a pidgin and a language of its own, and they\n"
+        )
         handle.write("# are recorded here and held out of the pure stream.\n")
-        handle.write("# The pipa row is Mayoos' own shorthand transliterated letter for letter. It\n")
-        handle.write("# is plain ASCII and carries no mark of the modern orthography. It is\n")
+        handle.write(
+            "# The pipa row is Mayoos' own shorthand transliterated letter for letter. It\n"
+        )
+        handle.write(
+            "# is plain ASCII and carries no mark of the modern orthography. It is\n"
+        )
         handle.write("# marked by where it sits and not by its letters.\n")
-        handle.write("# The morphemic row is Robertson's analysis and holds forms nobody wrote, so\n")
+        handle.write(
+            "# The morphemic row is Robertson's analysis and holds forms nobody wrote, so\n"
+        )
         handle.write("# it is in the record and out of the pure stream.\n")
         handle.write("line\tsection\tkind\tswitches\tcontent\n")
         for mark, count, section, kind, body in rows:
@@ -330,7 +374,10 @@ def main():
             else:
                 content = "N.%s.%s:{%s}" % (layer, kind, body)
                 crossings = 0
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n" % (count, section, kind, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (count, section, kind, crossings, content)
+            )
 
     pure = TARGET[:-4] + ".pure.txt"
     kept = 0
@@ -349,34 +396,60 @@ def main():
             kept += 1
 
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, "%s block %d" % (section, count), UNKNOWN_KIND, "", body)
-               for mark, count, section, kind, body in rows
-               if (kind == UNCLASSIFIED) and not section.startswith("not reached")]
+    flagged = [
+        (0, "%s block %d" % (section, count), UNKNOWN_KIND, "", body)
+        for mark, count, section, kind, body in rows
+        if (kind == UNCLASSIFIED) and not section.startswith("not reached")
+    ]
     flagged.extend(missed)
     # Every join is reported, because a join this reader took is a decision a person has to be able
     # to check. The alphabet tables are the place it would be wrong.
-    flagged.extend((0, "line %d" % at, "word joined across a line break", fragment_half, "%s%s"
-                    % (fragment_half, rest)) for at, fragment_half, rest in welds)
-    stuck_count = write_unsorted(stuck, "BC Indigenous people's Chinuk pipa script", flagged)
+    flagged.extend(
+        (
+            0,
+            "line %d" % at,
+            "word joined across a line break",
+            fragment_half,
+            "%s%s" % (fragment_half, rest),
+        )
+        for at, fragment_half, rest in welds
+    )
+    stuck_count = write_unsorted(
+        stuck, "BC Indigenous people's Chinuk pipa script", flagged
+    )
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d target-language lines written to\n  %s\n" % (kept, os.path.basename(pure)))
+    out.write(
+        "  %d target-language lines written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
     out.write("  %d lines skipped as already written\n" % repeated)
     out.write("  %d words put back together across a line break\n" % len(welds))
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     kinds = {}
     for mark, count, section, kind, body in rows:
         kinds[kind] = kinds.get(kind, 0) + 1
-    out.write("\n  by kind: %s\n" % ", ".join("%s %d" % (one, kinds[one]) for one in sorted(kinds)))
+    out.write(
+        "\n  by kind: %s\n"
+        % ", ".join("%s %d" % (one, kinds[one]) for one in sorted(kinds))
+    )
     for which in (1, 2, 3, 4, 5, 6):
-        numbers = sorted({row[1] for row in rows if row[2] == ("Text %d" % which) and row[1]})
+        numbers = sorted(
+            {row[1] for row in rows if row[2] == ("Text %d" % which) and row[1]}
+        )
         if numbers:
             gaps = [one for one in range(1, max(numbers) + 1) if one not in numbers]
-            out.write("  Text %d blocks 1..%d, missing %s\n"
-                      % (which, max(numbers), ", ".join(str(one) for one in gaps) if gaps
-                         else "none"))
+            out.write(
+                "  Text %d blocks 1..%d, missing %s\n"
+                % (
+                    which,
+                    max(numbers),
+                    ", ".join(str(one) for one in gaps) if gaps else "none",
+                )
+            )
     out.flush()
     return 0
 

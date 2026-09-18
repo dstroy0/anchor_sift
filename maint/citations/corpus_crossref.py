@@ -72,10 +72,12 @@ import sys
 import textwrap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -87,17 +89,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -106,8 +118,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -120,8 +133,17 @@ PAPERS = os.path.join(ROOT, "build", "papers")
 sys.path.insert(0, os.path.join(ROOT, "data", "salishan", "corpus_script_extraction"))
 
 # Where this tree's own writing lives. build/ is the corpus itself and deps/ is somebody else's.
-SEARCHED = ("docs", "theory", "theory_bucket", "src", "examples", "tools", "README.md",
-            "SECURITY.md", "CONTRIBUTING.md")
+SEARCHED = (
+    "docs",
+    "theory",
+    "theory_bucket",
+    "src",
+    "examples",
+    "tools",
+    "README.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+)
 SKIP = ("__pycache__", ".git", "build", "deps", "site")
 TEXT = (".md", ".tex", ".py", ".c", ".h", ".R", ".m", ".sh")
 
@@ -151,13 +173,16 @@ def papers():
             for word in re.findall(r"[A-Z][a-z]{3,}", piece) or [piece]:
                 if len(word) >= 4 and not word.isdigit():
                     names.add(word)
-        for who in (getattr(paper, "speakers", None) or ()):
+        for who in getattr(paper, "speakers", None) or ():
             for word in re.findall(r"[^\W\d_]{4,}", who, re.UNICODE):
                 names.add(word)
-        held[paper.stem] = {"names": names, "oracle": paper.oracle,
-                            "language": getattr(paper, "language", ""),
-                            "speakers": tuple(getattr(paper, "speakers", None) or ()),
-                            "note": getattr(paper, "note", "") or ""}
+        held[paper.stem] = {
+            "names": names,
+            "oracle": paper.oracle,
+            "language": getattr(paper, "language", ""),
+            "speakers": tuple(getattr(paper, "speakers", None) or ()),
+            "note": getattr(paper, "note", "") or "",
+        }
     return held
 
 
@@ -177,7 +202,12 @@ def language_names(known):
         if not name:
             continue
         # The same name is written with and without its leading n, and with ł for ɬ.
-        for spelling in (name, name.lstrip("n"), name.replace("ɬ", "ł"), name.replace("ł", "ɬ")):
+        for spelling in (
+            name,
+            name.lstrip("n"),
+            name.replace("ɬ", "ł"),
+            name.replace("ł", "ɬ"),
+        ):
             if spelling:
                 held.setdefault(spelling, set()).update(row.get("speakers") or ())
     return held
@@ -196,7 +226,9 @@ def forms_by_paper(known):
         if not name.endswith(".tsv"):
             continue
         stem = oracle_to_stem.get(name, name[:-11])
-        with io.open(os.path.join(ORACLES, name), encoding="utf-8", errors="replace") as handle:
+        with io.open(
+            os.path.join(ORACLES, name), encoding="utf-8", errors="replace"
+        ) as handle:
             header = None
             for line in handle:
                 parts = line.rstrip("\n").split("\t")
@@ -223,7 +255,7 @@ def forms_by_paper(known):
     for at, longer in enumerate(ordered):
         if longer not in held:
             continue
-        for shorter in ordered[at + 1:]:
+        for shorter in ordered[at + 1 :]:
             if shorter in longer and shorter in held and held[shorter] <= held[longer]:
                 del held[shorter]
     return held
@@ -295,8 +327,12 @@ def run_speakers(out, context):
     tree = []
     for path in tree_files():
         with io.open(path, encoding="utf-8", errors="replace", newline="") as handle:
-            tree.append((os.path.relpath(path, ROOT).replace("\\", "/"),
-                         handle.read().split("\n")))
+            tree.append(
+                (
+                    os.path.relpath(path, ROOT).replace("\\", "/"),
+                    handle.read().split("\n"),
+                )
+            )
 
     findings = 0
 
@@ -307,18 +343,28 @@ def run_speakers(out, context):
             continue
         for who in row["speakers"]:
             spellings = person_of(who)
-            carried = sum(1 for _, lines in tree
-                          if any(any(one in line for one in spellings) for line in lines))
-            out.write("    %-22s %-46s %s\n"
-                      % (row["language"][:22], who[:46],
-                         "%d file(s)" % carried if carried else "NAMED NOWHERE HERE"))
+            carried = sum(
+                1
+                for _, lines in tree
+                if any(any(one in line for one in spellings) for line in lines)
+            )
+            out.write(
+                "    %-22s %-46s %s\n"
+                % (
+                    row["language"][:22],
+                    who[:46],
+                    "%d file(s)" % carried if carried else "NAMED NOWHERE HERE",
+                )
+            )
             if not carried:
                 findings += 1
 
     silent = [stem for stem in sorted(known) if not known[stem]["speakers"]]
     if silent:
-        out.write("\n  UNRECORDED, the paper is used here and names nobody (%d of %d)\n"
-                  % (len(silent), len(known)))
+        out.write(
+            "\n  UNRECORDED, the paper is used here and names nobody (%d of %d)\n"
+            % (len(silent), len(known))
+        )
         # The note is printed with the paper because it says where the record stops. Every one of
         # these traces to a dictionary or a dissertation, and the person is named in that or in
         # nothing. Printing the blank alone would read as an accusation against the paper, and
@@ -327,10 +373,16 @@ def run_speakers(out, context):
             out.write("    %-38s %s\n" % (stem[:38], known[stem]["language"]))
             for line in textwrap.wrap(known[stem]["note"], 92):
                 out.write("        %s\n" % line)
-        out.write("\n    Each of these stops at a published source. Registering that source in\n")
-        out.write("    citations.py and reading it for who spoke is how a name gets back on.\n")
+        out.write(
+            "\n    Each of these stops at a published source. Registering that source in\n"
+        )
+        out.write(
+            "    citations.py and reading it for who spoke is how a name gets back on.\n"
+        )
 
-    out.write("\n  NEARBY, a language named with no speaker of it within %d lines\n" % context)
+    out.write(
+        "\n  NEARBY, a language named with no speaker of it within %d lines\n" % context
+    )
     for shown, lines in tree:
         seen = set()
         for at, line in enumerate(lines):
@@ -347,12 +399,23 @@ def run_speakers(out, context):
                     continue
                 seen.add(name)
                 findings += 1
-                out.write("    %s:%d  %s   %s\n"
-                          % (shown, at + 1, name,
-                             ("speakers: " + "; ".join(sorted(speakers)))[:88] if speakers
-                             else "NO SPEAKER OF IT IS RECORDED ANYWHERE"))
-    out.write("\n  %d finding(s), over %d speaker(s) and %d paper(s) that name none\n"
-              % (findings, sum(len(known[stem]["speakers"]) for stem in known), len(silent)))
+                out.write(
+                    "    %s:%d  %s   %s\n"
+                    % (
+                        shown,
+                        at + 1,
+                        name,
+                        (
+                            ("speakers: " + "; ".join(sorted(speakers)))[:88]
+                            if speakers
+                            else "NO SPEAKER OF IT IS RECORDED ANYWHERE"
+                        ),
+                    )
+                )
+    out.write(
+        "\n  %d finding(s), over %d speaker(s) and %d paper(s) that name none\n"
+        % (findings, sum(len(known[stem]["speakers"]) for stem in known), len(silent))
+    )
     return findings
 
 
@@ -387,8 +450,10 @@ def run_forms(out, context):
                     continue
                 seen.add(form)
                 findings += 1
-                out.write("    %s:%d  %s   from %s\n"
-                          % (shown, at + 1, form, ", ".join(sorted(stems))))
+                out.write(
+                    "    %s:%d  %s   from %s\n"
+                    % (shown, at + 1, form, ", ".join(sorted(stems)))
+                )
     out.write("\n  %d uncited form use(s)\n" % findings)
     return findings
 
@@ -432,10 +497,12 @@ def run_prose(out, context):
             continue
         count += 1
         stem = name[:-4]
-        with io.open(os.path.join(PAPERS, name), encoding="utf-8", errors="replace") as handle:
+        with io.open(
+            os.path.join(PAPERS, name), encoding="utf-8", errors="replace"
+        ) as handle:
             words = [one.lower() for one in WORD.findall(handle.read())]
         for at in range(len(words) - RUN + 1):
-            index.setdefault(" ".join(words[at:at + RUN]), set()).add(stem)
+            index.setdefault(" ".join(words[at : at + RUN]), set()).add(stem)
 
     out.write("\n  %d papers, %d distinct %d-word runs\n" % (count, len(index), RUN))
     # What this pass did not read is the more useful number. The archive index lists every ICSNL
@@ -444,10 +511,14 @@ def run_prose(out, context):
     # would read as a complete answer.
     whole = archive_size()
     if whole:
-        out.write("    the archive lists %d papers. This read %d%% of it\n"
-                  % (whole, round(100.0 * count / whole)))
-        out.write("    a clean result covers those and proves nothing about the other %d\n"
-                  % (whole - count))
+        out.write(
+            "    the archive lists %d papers. This read %d%% of it\n"
+            % (whole, round(100.0 * count / whole))
+        )
+        out.write(
+            "    a clean result covers those and proves nothing about the other %d\n"
+            % (whole - count)
+        )
         out.write("    python maint/data/salishan/get_papers.py --all fetches them\n")
 
     findings = 0
@@ -460,7 +531,7 @@ def run_prose(out, context):
             if len(words) < RUN:
                 continue
             for start in range(len(words) - RUN + 1):
-                run = words[start:start + RUN]
+                run = words[start : start + RUN]
                 # An alphabet is not a quotation. salish_purity.py lists its letters one per token
                 # and matched a paper's own letter list, which is two people writing down the same
                 # alphabet. A real sentence carries several words somebody chose.
@@ -470,12 +541,14 @@ def run_prose(out, context):
                 stems = index.get(key)
                 if not stems:
                     continue
-                window = "\n".join(lines[max(0, at - context):at + context + 1])
+                window = "\n".join(lines[max(0, at - context) : at + context + 1])
                 if any(stem in window for stem in stems):
                     continue
                 findings += 1
-                out.write("    %s:%d  \"%s\"\n       from %s\n"
-                          % (shown, at + 1, key, ", ".join(sorted(stems))))
+                out.write(
+                    '    %s:%d  "%s"\n       from %s\n'
+                    % (shown, at + 1, key, ", ".join(sorted(stems)))
+                )
                 break
     out.write("\n  %d uncited prose run(s)\n" % findings)
     return findings
@@ -501,7 +574,9 @@ def main():
         total += run_prose(out, context)
 
     out.write("\n  attribution is looked for within %d lines of a use\n" % context)
-    out.write("  a finding is a place to name the paper, not a verdict about intent\n\n")
+    out.write(
+        "  a finding is a place to name the paper, not a verdict about intent\n\n"
+    )
     out.flush()
     return 1 if total else 0
 

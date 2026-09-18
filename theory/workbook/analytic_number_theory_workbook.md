@@ -166,8 +166,7 @@ hypothesis up to that height, and it was possible only by leaving floating point
 
 Where exact arithmetic sits in that tradition is worth stating exactly, because it is easy to overstate.
 Exact arithmetic is the limit of the interval: a zero-width interval, the value carried with no rounding
-at all, when the value is exactly nameable. The zeta VALUES at the integers are exactly nameable, so
-exact arithmetic gives them with no interval. A non-trivial ZERO is not: it is a transcendental point in
+at all, when the value is exactly nameable. The zeta VALUES at the integers are exactly nameable. A non-trivial ZERO is not: it is a transcendental point in
 the critical strip, one of the uncountable reals with no finite description from entry 2. No
 arithmetic, exact included, names it. The most any computation does with a zero is bracket it, and
 Platt's `2^-102` interval is that bracket done rigorously. Exact arithmetic does not supersede that

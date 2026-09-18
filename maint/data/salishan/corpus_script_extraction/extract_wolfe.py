@@ -43,14 +43,27 @@ import subprocess
 import sys
 
 from inserted_space import closed_spaces
-from salish_marking import DERIVED, SPOKEN, UNCLASSIFIED, rendered, switches, tagged_spans
-from salish_unsorted import UNKNOWN_KIND, covered_tokens, is_language_token, unreached, \
-    write_unsorted
+from salish_marking import (
+    DERIVED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
+from salish_unsorted import (
+    UNKNOWN_KIND,
+    covered_tokens,
+    is_language_token,
+    unreached,
+    write_unsorted,
+)
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -62,17 +75,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -81,8 +104,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -98,7 +122,8 @@ SOURCE = os.path.join(PAPERS, "WolfeICSNL60.txt")
 TARGET = os.path.join(
     CORPORA,
     "unstated_LexicalSuffixesAndConnectivesInProtoCentralSalishAndBeyond_Wolfe"
-    "_Salish_centralsalish_2025_mixed.txt")
+    "_Salish_centralsalish_2025_mixed.txt",
+)
 
 # This paper's inventory. Kept in step with WOLFE in hand_extraction/papers.py: the two files ask
 # the same question of the same paper and a difference between them is a hole one of them cannot see.
@@ -110,10 +135,22 @@ PAGE = re.compile(r"^===== page \d+ =====$")
 # Two letters at the head of a line is the entire layout: everything after it belongs to that
 # language until the next one arrives.
 LANGUAGES = {
-    "Sl": "Sliammon", "Se": "Sechelt", "Sq": "Squamish", "Cw": "Cowichan",
-    "Ms": "Musqueam", "Ck": "Chilliwack", "Sn": "Saanich", "Sm": "Samish",
-    "Sg": "Songish", "Kl": "Klallam", "Ld": "Lushootseed", "Tw": "Twana",
-    "Ti": "Tillamook", "Qu": "Quinault", "Ch": "Upper Chehalis", "Cz": "Cowlitz",
+    "Sl": "Sliammon",
+    "Se": "Sechelt",
+    "Sq": "Squamish",
+    "Cw": "Cowichan",
+    "Ms": "Musqueam",
+    "Ck": "Chilliwack",
+    "Sn": "Saanich",
+    "Sm": "Samish",
+    "Sg": "Songish",
+    "Kl": "Klallam",
+    "Ld": "Lushootseed",
+    "Tw": "Twana",
+    "Ti": "Tillamook",
+    "Qu": "Quinault",
+    "Ch": "Upper Chehalis",
+    "Cz": "Cowlitz",
 }
 
 # The two reconstructed stages. Their forms are worked out, not attested, and are held out of the
@@ -125,8 +162,10 @@ RECONSTRUCTED = ("PCS", "PS")
 SPEAKERS = frozenset(LANGUAGES.values())
 
 # A data line: an optional example number, then the language, then the rest of the row.
-OPENS = re.compile(r"^(?:\((\d{1,2})\)\s+)?(%s|PCS|PS)\s+(\S.*)$"
-                   % "|".join(sorted(LANGUAGES, key=len, reverse=True)))
+OPENS = re.compile(
+    r"^(?:\((\d{1,2})\)\s+)?(%s|PCS|PS)\s+(\S.*)$"
+    % "|".join(sorted(LANGUAGES, key=len, reverse=True))
+)
 
 # An example or table the row sits under.
 EXAMPLE = re.compile(r"^\((\d{1,2})\)\s")
@@ -156,14 +195,16 @@ def forms_in(text):
     # would be read as a form, and 'fragrance, smell, odour' is three tokens of prose.
     plain = re.sub(r"[‘'][^’']*[’']", " ", text)
     for token in plain.split():
-        bare = token.strip(".,;:()[]“”\"")
+        bare = token.strip('.,;:()[]“”"')
         if is_language_token(bare, MARKS):
             held.append(bare)
     return held
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -230,31 +271,53 @@ def main():
         rows.append(("not reached page %d" % page, "", UNCLASSIFIED, text))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# Lexical Suffixes and Connectives in Proto-Central Salish and Beyond.\n")
-        handle.write("# Julie Wolfe, University of Victoria. Papers for the International\n")
-        handle.write("# Conference on Salish and Neighbouring Languages 60, UBCWPL, 2025.\n")
+        handle.write(
+            "# Lexical Suffixes and Connectives in Proto-Central Salish and Beyond.\n"
+        )
+        handle.write(
+            "# Julie Wolfe, University of Victoria. Papers for the International\n"
+        )
+        handle.write(
+            "# Conference on Salish and Neighbouring Languages 60, UBCWPL, 2025.\n"
+        )
         handle.write("#\n")
-        handle.write("# A comparative reconstruction, not a narrative. Every form is a lexical\n")
-        handle.write("# suffix cited from a published dictionary of one of eighteen languages, and\n")
-        handle.write("# the who column of each row says which. There is no single target language\n")
-        handle.write("# here and no flat pure stream: see the .pure.tsv beside this file.\n")
+        handle.write(
+            "# A comparative reconstruction, not a narrative. Every form is a lexical\n"
+        )
+        handle.write(
+            "# suffix cited from a published dictionary of one of eighteen languages, and\n"
+        )
+        handle.write(
+            "# the who column of each row says which. There is no single target language\n"
+        )
+        handle.write(
+            "# here and no flat pure stream: see the .pure.tsv beside this file.\n"
+        )
         handle.write("#\n")
-        handle.write("# Mark is language.layer.kind. A reconstruction is derived because nobody\n")
-        handle.write("# ever said one, and the predicted reflexes of Tables 6 and 8 are held out\n")
+        handle.write(
+            "# Mark is language.layer.kind. A reconstruction is derived because nobody\n"
+        )
+        handle.write(
+            "# ever said one, and the predicted reflexes of Tables 6 and 8 are held out\n"
+        )
         handle.write("# for the same reason.\n")
         handle.write("line\twho\tkind\tswitches\tcontent\n")
         for at, (spot, named, kind, text) in enumerate(rows, 1):
             # Spoken only where a real language wrote it down. A PCS or PS row is worked out, and a
             # predicted reflex is worked out twice over.
-            layer = SPOKEN if ((kind == "cited affix") and (named in SPEAKERS)) else DERIVED
+            layer = (
+                SPOKEN if ((kind == "cited affix") and (named in SPEAKERS)) else DERIVED
+            )
             if kind == UNCLASSIFIED:
                 content = "N.%s.%s:{%s}" % (layer, kind, text)
                 crossings = 0
             else:
                 content = rendered(text, layer, kind, MARKS)
                 crossings = switches(text, MARKS)
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (at, named or spot, kind, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (at, named or spot, kind, crossings, content)
+            )
 
     # The per-language data, which a flat pure file cannot carry for this paper.
     pure = TARGET[:-4] + ".pure.tsv"
@@ -276,22 +339,33 @@ def main():
                 kept += 1
 
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, spot, UNKNOWN_KIND, "", text) for spot, named, kind, text in rows
-               if (kind == UNCLASSIFIED) and not spot.startswith("not reached")]
+    flagged = [
+        (0, spot, UNKNOWN_KIND, "", text)
+        for spot, named, kind, text in rows
+        if (kind == UNCLASSIFIED) and not spot.startswith("not reached")
+    ]
     flagged.extend(missed)
-    stuck_count = write_unsorted(stuck, "Lexical Suffixes and Connectives in PCS", flagged)
+    stuck_count = write_unsorted(
+        stuck, "Lexical Suffixes and Connectives in PCS", flagged
+    )
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d per-language forms written to\n  %s\n" % (kept, os.path.basename(pure)))
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d per-language forms written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     counted = {}
     for spot, named, kind, text in rows:
         if kind == "cited affix":
             counted[named] = counted.get(named, 0) + 1
-    out.write("\n  by language: %s\n"
-              % ", ".join("%s %d" % (one, counted[one]) for one in sorted(counted)))
+    out.write(
+        "\n  by language: %s\n"
+        % ", ".join("%s %d" % (one, counted[one]) for one in sorted(counted))
+    )
     out.flush()
     return 0
 

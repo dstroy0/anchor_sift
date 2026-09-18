@@ -33,14 +33,27 @@ import subprocess
 import sys
 
 from inserted_space import closed_spaces
-from salish_marking import DERIVED, SPOKEN, UNCLASSIFIED, rendered, switches, tagged_spans
-from salish_unsorted import UNKNOWN_KIND, covered_tokens, is_language_token, unreached, \
-    write_unsorted
+from salish_marking import (
+    DERIVED,
+    SPOKEN,
+    UNCLASSIFIED,
+    rendered,
+    switches,
+    tagged_spans,
+)
+from salish_unsorted import (
+    UNKNOWN_KIND,
+    covered_tokens,
+    is_language_token,
+    unreached,
+    write_unsorted,
+)
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -52,17 +65,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -71,8 +94,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -87,7 +111,8 @@ SOURCE = os.path.join(PAPERS, "LyonICSNL60_Inch-2.txt")
 TARGET = os.path.join(
     CORPORA,
     "DelphineDerricksonArmstrong-DaveMichele_NsyilxcnInchoativesAndTheirDistributions"
-    "AcrossRootTypes_Lyon_Salish_nsyilxcen_2025_mixed.txt")
+    "AcrossRootTypes_Lyon_Salish_nsyilxcen_2025_mixed.txt",
+)
 
 # Kept in step with LYON_INCH in hand_extraction/papers.py. The square root sign is in the set
 # because it is the only thing that makes √piq, √nir, √mir, √yus and √tar visible at all: those carry no other
@@ -98,8 +123,12 @@ PAGE = re.compile(r"^===== page \d+ =====$")
 
 # The tag the paper puts in front of a cognate, expanded to the language it names.
 COGNATES = {
-    "Sp": "Spokane", "Sh": "Secwepemctsin", "Li": "Lillooet",
-    "Cm": "nxaʔamxčín", "Th": "nɬeʔkepmxcín", "Cr": "Coeur d'Alene",
+    "Sp": "Spokane",
+    "Sh": "Secwepemctsin",
+    "Li": "Lillooet",
+    "Cm": "nxaʔamxčín",
+    "Th": "nɬeʔkepmxcín",
+    "Cr": "Coeur d'Alene",
 }
 
 TARGET_LANGUAGE = "Nsyilxcən"
@@ -137,7 +166,9 @@ def language_of(tokens, at):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -177,17 +208,31 @@ def main():
         rows.append(("not reached page %d" % page, "", UNCLASSIFIED, text))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# Nsyilxcn Inchoatives and their Distributions Across Root Types.\n")
-        handle.write("# John Lyon, University of British Columbia - Okanagan. Proceedings of the\n")
-        handle.write("# International Conference on Salish and Neighbouring Languages 60,\n")
+        handle.write(
+            "# Nsyilxcn Inchoatives and their Distributions Across Root Types.\n"
+        )
+        handle.write(
+            "# John Lyon, University of British Columbia - Okanagan. Proceedings of the\n"
+        )
+        handle.write(
+            "# International Conference on Salish and Neighbouring Languages 60,\n"
+        )
         handle.write("# Vancouver, BC: UBCWPL, 2025.\n")
         handle.write("#\n")
-        handle.write("# Elicited from ɬk̓mxnalqs Delphine Derrickson-Armstrong and c̓əskʕáknaʔ Dave\n")
+        handle.write(
+            "# Elicited from ɬk̓mxnalqs Delphine Derrickson-Armstrong and c̓əskʕáknaʔ Dave\n"
+        )
         handle.write("# Michele of stq̓aʔtkʷɬniw̓t, the Westbank Reserve.\n")
         handle.write("#\n")
-        handle.write("# A starred form was built by the linguist and rejected by the speakers, and\n")
-        handle.write("# a form marked with a question mark was judged marginal. Neither is a word\n")
-        handle.write("# anybody said. Both are derived and neither reaches the pure stream.\n")
+        handle.write(
+            "# A starred form was built by the linguist and rejected by the speakers, and\n"
+        )
+        handle.write(
+            "# a form marked with a question mark was judged marginal. Neither is a word\n"
+        )
+        handle.write(
+            "# anybody said. Both are derived and neither reaches the pure stream.\n"
+        )
         handle.write("line\twho\tkind\tswitches\tcontent\n")
         for at, (spot, named, kind, text) in enumerate(rows, 1):
             spoken = (kind == "cited form") and (named == TARGET_LANGUAGE)
@@ -198,8 +243,10 @@ def main():
             else:
                 content = rendered(text, layer, kind, MARKS)
                 crossings = switches(text, MARKS)
-            handle.write("line#${%d}\t%s\t%s\t%d\t%s\n"
-                         % (at, named or spot, kind, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%d\t%s\n"
+                % (at, named or spot, kind, crossings, content)
+            )
 
     pure = TARGET[:-4] + ".pure.txt"
     kept_count = 0
@@ -219,27 +266,38 @@ def main():
                 kept_count += 1
 
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, spot, UNKNOWN_KIND, "", text) for spot, named, kind, text in rows
-               if (kind == UNCLASSIFIED) and not spot.startswith("not reached")]
+    flagged = [
+        (0, spot, UNKNOWN_KIND, "", text)
+        for spot, named, kind, text in rows
+        if (kind == UNCLASSIFIED) and not spot.startswith("not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "Nsyilxcn Inchoatives", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d Nsyilxcn forms written to\n  %s\n" % (kept_count, os.path.basename(pure)))
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
+    out.write(
+        "  %d Nsyilxcn forms written to\n  %s\n" % (kept_count, os.path.basename(pure))
+    )
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
 
     counted = {}
     for spot, named, kind, text in rows:
         counted[kind] = counted.get(kind, 0) + 1
-    out.write("\n  by kind: %s\n"
-              % ", ".join("%s %d" % (one, counted[one]) for one in sorted(counted)))
+    out.write(
+        "\n  by kind: %s\n"
+        % ", ".join("%s %d" % (one, counted[one]) for one in sorted(counted))
+    )
     languages = {}
     for spot, named, kind, text in rows:
         if kind == "cited form":
             languages[named] = languages.get(named, 0) + 1
-    out.write("  by language: %s\n"
-              % ", ".join("%s %d" % (one, languages[one]) for one in sorted(languages)))
+    out.write(
+        "  by language: %s\n"
+        % ", ".join("%s %d" % (one, languages[one]) for one in sorted(languages))
+    )
     out.flush()
     return 0
 

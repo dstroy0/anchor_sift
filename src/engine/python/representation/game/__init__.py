@@ -11,7 +11,7 @@ a ranking nobody here invented.
 That last property is why this subject is here. A game carries its own answer key. A terminal
 position is win, loss or draw by the rules of the game and not by anything measured. The outcome
 distribution under a move is a quantity with a right value. For a game small enough to enumerate,
-that right value can be computed outright rather than estimated, and an estimator that disagrees
+that right value can be computed outright  and an estimator that disagrees
 with it is wrong in a way no amount of sampling can argue with.
 
 Four backends live here and they are deliberately different in kind:

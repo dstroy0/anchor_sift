@@ -110,8 +110,7 @@ static void fill_uniform(uint8_t *corpus, size_t length, uint32_t seed)
  *
  * @param[in,out] corpus Bytes to remap in place [BORROWS].
  * @param[in]     length How many.
- * @note A geometric weighting over 27 symbols. It is a distribution and carries no arrangement, so
- *       an arm reading only the histogram cannot tell it from English.
+ * @note A geometric weighting over 27 symbols. It is a distribution and carries no arrangement.
  */
 static void fill_skewed(uint8_t *corpus, size_t length)
 {

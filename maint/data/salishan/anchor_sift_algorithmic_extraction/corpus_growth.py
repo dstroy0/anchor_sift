@@ -26,23 +26,28 @@ import subprocess
 import sys
 
 # Every Salishan category on the import path. This can use a sibling from another one.
-for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
+for _category in os.scandir(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
 # The engine's instrument directory, found by walking up to the repository. anchor_sift lives in the
 # engine and not beside this file, and nothing on the path above reaches it.
 _at = os.path.dirname(os.path.abspath(__file__))
-while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+while (_at != os.path.dirname(_at)) and not os.path.isdir(
+    os.path.join(_at, "src", "engine")
+):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
 
 from anchor_sift import convergence
 from language_check import BY_CORPUS, english_texts
 
+
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -54,17 +59,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -73,8 +88,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -138,14 +154,19 @@ def show(out, name, lines):
         out.write("  %-16s too few members to measure\n" % name[:16])
         return
     out.write("\n  %s, %d members\n" % (name, len(lines)))
-    out.write("    %-9s %-10s %-9s %-9s %s\n"
-              % ("members", "pairs", "D_self", "support", "H"))
+    out.write(
+        "    %-9s %-10s %-9s %-9s %s\n" % ("members", "pairs", "D_self", "support", "H")
+    )
     for members, pairs, own, supp, bits in curve:
-        out.write("    %-9d %-10d %-9.4f %-9d %.2f\n" % (members, pairs, own, supp, bits))
+        out.write(
+            "    %-9d %-10d %-9.4f %-9d %.2f\n" % (members, pairs, own, supp, bits)
+        )
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     pure = pure_by_language()
     found = candidates_by_language()
 
@@ -156,16 +177,25 @@ def main():
     out.write("\n\n  the same languages with the sifted candidates added\n")
     for name in sorted(pure):
         if found.get(name):
-            show(out, "%s + %d candidates" % (name, len(found[name])),
-                 pure[name] + found[name])
+            show(
+                out,
+                "%s + %d candidates" % (name, len(found[name])),
+                pure[name] + found[name],
+            )
 
-    out.write("\n\n  languages held only as candidates, with no hand-read corpus at all\n")
+    out.write(
+        "\n\n  languages held only as candidates, with no hand-read corpus at all\n"
+    )
     for name in sorted(found):
         if name not in pure:
             show(out, name, found[name])
 
-    out.write("\n  a curve still climbing in support is a corpus that has not seen its own\n")
-    out.write("  alphabet yet, and a candidate unlike every member of it is not thereby wrong\n")
+    out.write(
+        "\n  a curve still climbing in support is a corpus that has not seen its own\n"
+    )
+    out.write(
+        "  alphabet yet, and a candidate unlike every member of it is not thereby wrong\n"
+    )
     out.flush()
     return 0
 

@@ -26,8 +26,7 @@
  *       the same data, which is what catches a drift.
  * @note THE WHOLE OBJECT CROSSES THE BUS PER CALL. The corpus and the survivor vector are copied to
  *       the device. This arm pays a transfer a host arm does not. It wins only where the object is
- *       large enough to amortize that, which is why it is graded and timed rather than placed in
- *       anchor_steer_best_engine.
+ *       large enough to amortize that, which is why it is graded and timed.
  * @note A device refusal falls back to a host count instead of returning a sentinel into a table of
  *       counts, matching arm_cuda.cu. A driver comparing arms would otherwise read the sentinel as a
  *       disagreement and blame the scan for what was an allocation failure.
@@ -145,23 +144,18 @@ extern "C" size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t a
     unsigned int *device_standing = NULL;
     size_t answer = (size_t)-1;
 
-    if ((cudaMalloc((void **)&device_corpus, corpus_bytes) != cudaSuccess)
-        || (cudaMalloc((void **)&device_alive, alignments) != cudaSuccess)
-        || (cudaMalloc((void **)&device_standing, sizeof(unsigned int)) != cudaSuccess))
+    if ((cudaMalloc((void **)&device_corpus, corpus_bytes) != cudaSuccess) || (cudaMalloc((void **)&device_alive, alignments) != cudaSuccess) || (cudaMalloc((void **)&device_standing, sizeof(unsigned int)) != cudaSuccess))
     {
         goto done;
     }
 
-    if ((cudaMemcpy(device_corpus, host_corpus, corpus_bytes, cudaMemcpyHostToDevice) != cudaSuccess)
-        || (cudaMemcpy(device_alive, host_alive, alignments, cudaMemcpyHostToDevice) != cudaSuccess)
-        || (cudaMemset(device_standing, 0, sizeof(unsigned int)) != cudaSuccess))
+    if ((cudaMemcpy(device_corpus, host_corpus, corpus_bytes, cudaMemcpyHostToDevice) != cudaSuccess) || (cudaMemcpy(device_alive, host_alive, alignments, cudaMemcpyHostToDevice) != cudaSuccess) || (cudaMemset(device_standing, 0, sizeof(unsigned int)) != cudaSuccess))
     {
         goto done;
     }
 
     {
-        const unsigned int blocks = (unsigned int)((alignments + (size_t)ANCHOR_STEER_GPU_BLOCK - 1u)
-                                                   / (size_t)ANCHOR_STEER_GPU_BLOCK);
+        const unsigned int blocks = (unsigned int)((alignments + (size_t)ANCHOR_STEER_GPU_BLOCK - 1u) / (size_t)ANCHOR_STEER_GPU_BLOCK);
         scan_kernel<<<blocks, ANCHOR_STEER_GPU_BLOCK>>>(device_corpus, alignments, device_alive,
                                                         (unsigned char)wanted, offset,
                                                         device_standing);
@@ -173,8 +167,7 @@ extern "C" size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t a
 
     {
         unsigned int held = 0u;
-        if (cudaMemcpy(&held, device_standing, sizeof(unsigned int), cudaMemcpyDeviceToHost)
-            != cudaSuccess)
+        if (cudaMemcpy(&held, device_standing, sizeof(unsigned int), cudaMemcpyDeviceToHost) != cudaSuccess)
         {
             goto done;
         }
@@ -195,7 +188,7 @@ done:
 
 extern "C" const AnchorSteerEngine *anchor_steer_cuda_engine(void)
 {
-    static const AnchorSteerEngine engine = { "cuda", anchor_steer_truthy_after_cuda };
+    static const AnchorSteerEngine engine = {"cuda", anchor_steer_truthy_after_cuda};
 
     return anchor_steer_cuda_available() ? &engine : NULL;
 }

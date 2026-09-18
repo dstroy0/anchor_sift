@@ -73,14 +73,18 @@ def measure(title, game, state, plies, namer=str, conditioning=rules.ADVERSARY, 
     print("  moves       : %d" % len(table))
 
     # Both category sets, because on a shallow budget they answer different questions and the
-    # resolved-only reading can collapse to zero for a reason that is about the budget rather than
-    # about the position. A move whose branch resolved nothing contributes no term to the
+    # resolved-only reading can collapse to zero for a reason that is about the budget. A move whose branch resolved nothing contributes no term to the
     # resolved-only entropy. A position where one move mates and nineteen run out of depth has
     # every informative term dropped and reports a gain of zero. Over all four categories the same
     # position reports what it should, because "the search did not finish" is itself one of the
     # things knowing the move tells you.
-    for label, over in (("resolved only", rules.RESOLVED), ("all four", rules.OUTCOMES)):
-        gain, marginal_bits, conditional_bits = outcome_entropy.information_gain(table, over=over)
+    for label, over in (
+        ("resolved only", rules.RESOLVED),
+        ("all four", rules.OUTCOMES),
+    ):
+        gain, marginal_bits, conditional_bits = outcome_entropy.information_gain(
+            table, over=over
+        )
         _, covered = outcome_entropy.conditional_entropy(table, over=over)
         print(
             "  %-14s H(Y)=%s  H(Y|X)=%s  I(X;Y)=%s   over %s of the move set"
@@ -151,7 +155,9 @@ def main():
     measure(
         "POKER -- a pair of sevens on a twelve card deck",
         game,
-        game.deal((card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))),
+        game.deal(
+            (card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))
+        ),
         10,
         lambda move: poker.show(move) if move else "(keep all)",
     )

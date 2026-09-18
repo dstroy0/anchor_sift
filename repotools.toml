@@ -72,8 +72,7 @@ roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "theory_bucket", "src
 #   repo/repo_maint          gates.py, corpus_manifest.py, write_survey.py, inventory.py
 #
 # code/code_maint is NOT fetched. It holds a readclean.py that is a different tool sharing a name
-# with the one in maint/source, and dedup.py and strip_comments.py were adopted out of this tree, so
-# fetching the set back would land three files over three this repository already has. Named files
+# with the one in maint/source, and dedup.py and strip_comments.py were adopted out of this tree. Named files
 # from it can be fetched later one at a time.
 sets = [
     "lib/repotools",

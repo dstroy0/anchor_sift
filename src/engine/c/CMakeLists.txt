@@ -445,7 +445,7 @@ target_compile_options(test_o2_spawn PRIVATE ${SIFT_WARNINGS})
 # callback answering whether two positions carry the same symbol. It has no dimension parameter
 # and no symbol type, and it sweeps one to eight dimensions, a complex irrational alphabet compared
 # over its storage, a rotated point set and a scatter no rectangle covers. It holds its own core
-# rather than calling the kernel, because the kernel is the one dimensional byte specialization and
+#  because the kernel is the one dimensional byte specialization and
 # what is under test here is the construction.
 add_executable(bench_lattice bench/bench_lattice.c)
 target_compile_options(bench_lattice PRIVATE ${SIFT_WARNINGS})

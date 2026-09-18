@@ -32,17 +32,34 @@ import re
 import subprocess
 import sys
 
-from page_text import (carries_orthography, language_line, repaired, repaired_english,
-                       repaired_line, repaired_prose)
-from salish_marking import (CAPS_RUN, DERIVED, MARKED, SPOKEN, UNCLASSIFIED, is_mixed,
-                            rendered, switches, tagged_spans, unligatured)
+from page_text import (
+    carries_orthography,
+    language_line,
+    repaired,
+    repaired_english,
+    repaired_line,
+    repaired_prose,
+)
+from salish_marking import (
+    CAPS_RUN,
+    DERIVED,
+    MARKED,
+    SPOKEN,
+    UNCLASSIFIED,
+    is_mixed,
+    rendered,
+    switches,
+    tagged_spans,
+    unligatured,
+)
 from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsorted
 from space_repair import joined_words, vocabulary_of, welded
+
 
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -54,17 +71,27 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         said = b""
 
@@ -73,8 +100,9 @@ def _repository_root():
         return os.path.abspath(top)
 
     climbed = start
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -92,7 +120,8 @@ SOURCE = os.path.join(PAPERS, "19-Lyon_ICSNL50_final-78.page.txt")
 TARGET = os.path.join(
     CORPORA,
     "GeorgeLezard-NellieGuitterez-AndrewMcGinnis_ThreeOkanaganStoriesAboutPriests_Lyon"
-    "_Salish_nsyilxcen_2015_nomixed.txt")
+    "_Salish_nsyilxcen_2015_nomixed.txt",
+)
 
 MARKS = MARKED + "ʷ̓’ʼ"
 
@@ -126,7 +155,8 @@ PAGE_NUMBER = re.compile(r"^\d{1,4}$")
 CATEGORIES = re.compile(
     r"\b(?:ABS|APPL|AUT|C1C2|C1|C2|CAUS|CHAR|CISL|CONJ|CUST|DEON|DEV|DIM|DIR|DRV|DUB|EMPH|"
     r"EPIS|EVID|INCEPT|INCH|INDEP|INTERJ|INT|LC|LOC|MID|OCC|RED|STAT|UPOSS|"
-    r"DET|DEM|ERG|OBJ|POSS|PL|SG|SBJ|NOM|OBL|IPFV|NEG|TR|1SG|2SG|3SG|1PL|2PL|3PL)\b")
+    r"DET|DEM|ERG|OBJ|POSS|PL|SG|SBJ|NOM|OBL|IPFV|NEG|TR|1SG|2SG|3SG|1PL|2PL|3PL)\b"
+)
 
 # Taken from each story's own introduction, which names its teller and the recording
 SPEAKER = {
@@ -259,8 +289,9 @@ def four_line_words(block):
     # Tested on a run of capitals, not on the label list. The list matches on word boundaries and
     # there is none inside 3POSS. A block whose gloss line read father-3POSS passed the check and
     # put that into the ingestion stream as something somebody said.
-    slipped = any(CAPS_RUN.search(one[0] or "") or CAPS_RUN.search(one[1] or "")
-                  for one in words)
+    slipped = any(
+        CAPS_RUN.search(one[0] or "") or CAPS_RUN.search(one[1] or "") for one in words
+    )
     return words, translation, leftover, slipped
 
 
@@ -277,7 +308,9 @@ def looks_heading(trimmed):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(SOURCE):
         out.write("  no %s\n" % SOURCE)
@@ -335,7 +368,9 @@ def main():
             # test runs on the line as it arrived. A line of these stories always holds a word with
             # an accented vowel or a glottalization mark in it and English prose does not.
             if not language_line(trimmed):
-                rows.append(("N", 0, section, UNCLASSIFIED, who, repaired_english(trimmed)))
+                rows.append(
+                    ("N", 0, section, UNCLASSIFIED, who, repaired_english(trimmed))
+                )
                 continue
             # The running text of a story is the language from end to end. Every substitution
             # applies to it and no token in it needs guarding. Where the extraction broke a word in
@@ -376,7 +411,11 @@ def main():
         parsed.append((section, number, who, block, read))
         if not read[3]:
             vocabulary |= vocabulary_of(
-                repaired(welded(one[slot])) for one in read[0] for slot in (0, 1) if one[slot])
+                repaired(welded(one[slot]))
+                for one in read[0]
+                for slot in (0, 1)
+                if one[slot]
+            )
 
     for section, number, who, block, read in parsed:
         words, translation, leftover, slipped = read
@@ -391,20 +430,44 @@ def main():
                 # from what the line itself turns out to be.
                 fixed = repaired_line(split_merged(one))
                 kind = kind_by_notation(fixed)
-                rows.append(("N" if kind == "gloss" else "T", number, section, kind, who, fixed))
+                rows.append(
+                    ("N" if kind == "gloss" else "T", number, section, kind, who, fixed)
+                )
             continue
         said = " ".join(repaired(welded(one[0])) for one in words if one[0])
         if said:
             rows.append(("T", number, section, "transcription", who, said))
         for one in words:
             if one[1]:
-                rows.append(("T", number, section, "segmentation", who, repaired(welded(one[1]))))
+                rows.append(
+                    (
+                        "T",
+                        number,
+                        section,
+                        "segmentation",
+                        who,
+                        repaired(welded(one[1])),
+                    )
+                )
             if one[2]:
-                rows.append(("N", number, section, "gloss", who, repaired_english(one[2])))
+                rows.append(
+                    ("N", number, section, "gloss", who, repaired_english(one[2]))
+                )
             if one[3]:
-                rows.append(("N", number, section, "word gloss", who, repaired_english(one[3])))
+                rows.append(
+                    ("N", number, section, "word gloss", who, repaired_english(one[3]))
+                )
         if translation:
-            rows.append(("N", number, section, "translation", who, repaired_english(translation)))
+            rows.append(
+                (
+                    "N",
+                    number,
+                    section,
+                    "translation",
+                    who,
+                    repaired_english(translation),
+                )
+            )
         for one in leftover:
             # What sits after the free translation is a footnote, a page artifact, or Lyon's prose
             # discussing a form. The English test the other branches use is deliberately not
@@ -426,8 +489,12 @@ def main():
     # a different one that joined words wrongly. It reads this instead.
     words_at = TARGET[:-4] + ".words.txt"
     with open(words_at, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# The word forms this paper's interlinear gives, one to a line, with the\n")
-        handle.write("# spaces the extraction put inside them taken out. Every entry comes from a\n")
+        handle.write(
+            "# The word forms this paper's interlinear gives, one to a line, with the\n"
+        )
+        handle.write(
+            "# spaces the extraction put inside them taken out. Every entry comes from a\n"
+        )
         handle.write("# block whose four-line cycle read cleanly.\n")
         for one in sorted(vocabulary):
             handle.write("%s\n" % one)
@@ -451,29 +518,63 @@ def main():
         rows.append(("T", 0, "not reached page %d" % page, UNCLASSIFIED, "", text))
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
-        handle.write("# Three Okanagan stories about priests. John Lyon, Simon Fraser University.\n")
-        handle.write("# Okanagan, also called Nsyílxcən, Colville-Okanagan and Nqílxwcən, a\n")
-        handle.write("# southern Interior Salish language. Three different fluent speakers.\n")
-        handle.write("# Papers for the International Conference on Salish and Neighbouring\n")
+        handle.write(
+            "# Three Okanagan stories about priests. John Lyon, Simon Fraser University.\n"
+        )
+        handle.write(
+            "# Okanagan, also called Nsyílxcən, Colville-Okanagan and Nqílxwcən, a\n"
+        )
+        handle.write(
+            "# southern Interior Salish language. Three different fluent speakers.\n"
+        )
+        handle.write(
+            "# Papers for the International Conference on Salish and Neighbouring\n"
+        )
         handle.write("# Languages 50, UBCWPL 40, 2015.\n")
-        handle.write("# Conversation with the priest: George Lezard, Penticton Indian Reserve,\n")
-        handle.write("# told 1966 at eighty-five, recorded by Randy Bouchard, transcribed by Larry\n")
-        handle.write("# Pierre 1970, updated by permission of Arnie Baptiste, his son.\n")
-        handle.write("# Smokey and the priest: Nellie, reprinted by permission of her\n")
-        handle.write("# great-granddaughter Lynne Jorgesen, Upper Nicola Indian Band.\n")
+        handle.write(
+            "# Conversation with the priest: George Lezard, Penticton Indian Reserve,\n"
+        )
+        handle.write(
+            "# told 1966 at eighty-five, recorded by Randy Bouchard, transcribed by Larry\n"
+        )
+        handle.write(
+            "# Pierre 1970, updated by permission of Arnie Baptiste, his son.\n"
+        )
+        handle.write(
+            "# Smokey and the priest: Nellie, reprinted by permission of her\n"
+        )
+        handle.write(
+            "# great-granddaughter Lynne Jorgesen, Upper Nicola Indian Band.\n"
+        )
         handle.write("#\n")
-        handle.write("# READ FROM THE PAGE. This paper's PDF hands back the font's own alphabet\n")
-        handle.write("# and not what the page prints. This reader takes build/papers/\n")
-        handle.write("# 19-Lyon_ICSNL50_final-78.page.txt, which draft_page_text.py writes in the\n")
+        handle.write(
+            "# READ FROM THE PAGE. This paper's PDF hands back the font's own alphabet\n"
+        )
+        handle.write(
+            "# and not what the page prints. This reader takes build/papers/\n"
+        )
+        handle.write(
+            "# 19-Lyon_ICSNL50_final-78.page.txt, which draft_page_text.py writes in the\n"
+        )
         handle.write("# orthography, and applies no substitution of its own.\n")
         handle.write("#\n")
-        handle.write("# That text is a draft. Two things in it are settled only by the rendered\n")
-        handle.write("# page and are still open here: which w is a labialized consonant, and which\n")
-        handle.write("# inserted space is a word boundary. The hand extraction beside this paper\n")
+        handle.write(
+            "# That text is a draft. Two things in it are settled only by the rendered\n"
+        )
+        handle.write(
+            "# page and are still open here: which w is a labialized consonant, and which\n"
+        )
+        handle.write(
+            "# inserted space is a word boundary. The hand extraction beside this paper\n"
+        )
         handle.write("# was read off the pages and settles both.\n")
         handle.write("#\n")
-        handle.write("# Mark is language.layer.kind. T is Okanagan, N is anything else.\n")
-        handle.write("# Gloss categories are the paper's own, from its first footnote, unchanged.\n")
+        handle.write(
+            "# Mark is language.layer.kind. T is Okanagan, N is anything else.\n"
+        )
+        handle.write(
+            "# Gloss categories are the paper's own, from its first footnote, unchanged.\n"
+        )
         handle.write("line\tsection\tkind\tspeaker\tswitches\tcontent\n")
         for mark, count, sect, kind, who, text in rows:
             layer = LAYER[kind]
@@ -483,8 +584,10 @@ def main():
             else:
                 content = "N.%s.%s:{%s}" % (layer, kind, text)
                 crossings = 0
-            handle.write("line#${%d}\t%s\t%s\t%s\t%d\t%s\n"
-                         % (count, sect, kind, who, crossings, content))
+            handle.write(
+                "line#${%d}\t%s\t%s\t%s\t%d\t%s\n"
+                % (count, sect, kind, who, crossings, content)
+            )
 
     pure = TARGET[:-4] + ".pure.txt"
     kept = 0
@@ -511,20 +614,28 @@ def main():
     # that a correctly repaired word is not reported. What that repair does to English is reported:
     # it turns Pierre into ʔierre and Quilchena into ʕuilchena, and those arrive here as unreached.
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
-    flagged = [(0, "%s block %d" % (sect, count), UNKNOWN_KIND, "", text)
-               for mark, count, sect, kind, who, text in rows
-               if (kind == UNCLASSIFIED) and not sect.startswith("not reached")]
+    flagged = [
+        (0, "%s block %d" % (sect, count), UNKNOWN_KIND, "", text)
+        for mark, count, sect, kind, who, text in rows
+        if (kind == UNCLASSIFIED) and not sect.startswith("not reached")
+    ]
     flagged.extend(missed)
     stuck_count = write_unsorted(stuck, "Three Okanagan stories about priests", flagged)
 
     out.write("  %d lines written to\n  %s\n" % (len(rows), os.path.basename(TARGET)))
-    out.write("  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure)))
+    out.write(
+        "  %d target-language spans written to\n  %s\n" % (kept, os.path.basename(pure))
+    )
     out.write("  %d spans skipped as already written\n" % repeated)
-    out.write("  %d lines the tool could not sort written to\n  %s\n"
-              % (stuck_count, os.path.basename(stuck)))
-    out.write("  %d of %d interlinear blocks read cleanly, %d had a word given no English\n"
-              "  gloss and were flagged whole\n"
-              % (len(blocks) - slipped_blocks, len(blocks), slipped_blocks))
+    out.write(
+        "  %d lines the tool could not sort written to\n  %s\n"
+        % (stuck_count, os.path.basename(stuck))
+    )
+    out.write(
+        "  %d of %d interlinear blocks read cleanly, %d had a word given no English\n"
+        "  gloss and were flagged whole\n"
+        % (len(blocks) - slipped_blocks, len(blocks), slipped_blocks)
+    )
 
     counted = {}
     for mark, count, sect, kind, who, text in rows:
@@ -533,7 +644,9 @@ def main():
     for key in sorted(counted):
         out.write("  %-8s %-18s %d\n" % (key[0], key[1], counted[key]))
 
-    out.write("\n  the opening prose of each story, which is where the teller is named\n")
+    out.write(
+        "\n  the opening prose of each story, which is where the teller is named\n"
+    )
     for section in sorted(intros):
         text = repaired_english(" ".join(intros[section]))
         out.write("    section %s: %s\n" % (section, text[:190]))
