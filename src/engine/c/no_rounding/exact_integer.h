@@ -42,26 +42,32 @@ extern "C" {
 #endif
 
 /**
- * @brief Limbs per exact integer, at 32 bits each.
+ * @brief Limbs per exact integer, at 32 bits each, a power of two for a power-of-two width.
  *
- * @note 108 limbs is 3456 bits, which holds 1024 decimal digits with room over. That is the scale
+ * @note 128 limbs is 4096 bits, which holds 1024 decimal digits with room over. That is the scale
  *       representation/exact.py ingests at, and the two forms have to agree on the same values or
  *       a cross check between them means nothing.
+ * @note The value a limb array carries is the expansion sum(limb[i] * (2^32)^i), whose top
+ *       coefficient is the width 2^ANCHOR_EXACT_BITS. A power of two limb count makes that width a
+ *       power of two. The top magnitude bit then lands at a fixed position, and the width scales by
+ *       doubling, 4096 to 8192 to 16384 bits, with the position fixed at each. The guard below
+ *       refuses a width that is not a power of two.
  * @note Defined on both arms so #if always has a value and an unset build is never a silent false.
  */
 #ifndef ANCHOR_EXACT_LIMBS
-#define ANCHOR_EXACT_LIMBS 108u
+#define ANCHOR_EXACT_LIMBS 128u
 #endif
 
 /**
  * @brief Decimal digits the fixed width is guaranteed to hold, matching representation.exact.
  *
- * @note A declared floor and never the capacity. 108 limbs is 3456 bits, which actually holds 1040
- *       decimal digits, so 16 of them are headroom this constant does not promise.
+ * @note A declared floor and never the capacity. 128 limbs is 4096 bits, which actually holds 1232
+ *       decimal digits, so 208 of them are headroom this constant does not promise.
  * @note The floor counts every digit of the stored integer, the integer part of the value included.
  *       A value carried at d decimal places is stored as value times 10^d. At d = 1024 the width
- *       holds a magnitude below 2^3456 / 10^1024, about 2.289e16, and refuses anything larger. The
- *       CODATA 2022 kilogram-hertz relationship, 1.35639248965e50, needs 3569 bits at 1024 places.
+ *       holds a magnitude below 2^4096 / 10^1024, about 1e209, and refuses anything larger. The
+ *       CODATA 2022 kilogram-hertz relationship, 1.35639248965e50, needs 3569 bits at 1024 places,
+ *       which this width holds and the earlier 3456-bit width refused.
  * @warning Never size a buffer from this. A width computed from digits is short the moment anybody
  *          raises the floor toward the real capacity, and a device allocation sized that way would
  *          be short by exactly the amount nobody was watching. Size from ANCHOR_EXACT_LIMBS or from
@@ -99,6 +105,23 @@ _Static_assert((((ANCHOR_EXACT_DIGITS * 3322u) / 1000u) + 1u) <= ANCHOR_EXACT_BI
 #else
 typedef char anchor_exact_digits_fit_the_width[
     ((((ANCHOR_EXACT_DIGITS * 3322u) / 1000u) + 1u) <= ANCHOR_EXACT_BITS) ? 1 : -1];
+#endif
+
+/* The width is a power of two. The expansion's top coefficient 2^ANCHOR_EXACT_BITS is then a power
+ * of two and the top magnitude bit sits at a fixed position at every size the build selects. Scaling is
+ * by doubling the limb count, 128 to 256 to 512, holding 4096, 8192, 16384 bits. A width that is not
+ * a power of two, an override such as the earlier 108 limbs, fails compilation here. Both arms
+ * defined, for the same reason as the floor above: nvcc compiles a .cu as C++, where _Static_assert
+ * does not exist. */
+#if defined(__cplusplus)
+static_assert((ANCHOR_EXACT_BITS & (ANCHOR_EXACT_BITS - 1u)) == 0u,
+              "ANCHOR_EXACT_BITS must be a power of two so the expansion width scales by doubling");
+#elif defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 201112L)
+_Static_assert((ANCHOR_EXACT_BITS & (ANCHOR_EXACT_BITS - 1u)) == 0u,
+               "ANCHOR_EXACT_BITS must be a power of two so the expansion width scales by doubling");
+#else
+typedef char anchor_exact_bits_are_a_power_of_two[
+    ((ANCHOR_EXACT_BITS & (ANCHOR_EXACT_BITS - 1u)) == 0u) ? 1 : -1];
 #endif
 
 /**

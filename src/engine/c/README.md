@@ -17,7 +17,7 @@ No ESP-IDF, no device toolchain, no Python, and nothing from the vendored librar
 
 `no_rounding/exact_integer.{c,h}` holds an exact integer as a fixed width array of 32 bit limbs. The directory name states what the arithmetic is for. It removes rounding, and a comparison is then exact. It is the same value `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
 
-Fixed width is the only bound the representation has, and it is declared instead of discovered. 108 limbs is 3456 bits, holding the 1024 decimal digits the Python side ingests at. A value that will not fit raises `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
+Fixed width is the only bound the representation has, and it is declared instead of discovered. 128 limbs is 4096 bits, a power of two, holding the 1024 decimal digits the Python side ingests at. The count is a power of two so the width scales by doubling and the sign bit stays at a fixed position. A value that will not fit raises `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
 
 An **arm** is one implementation of the operations the measure asks for. Every arm answers the same counts, and the portable C11 one is the reference. Where two disagree, one of them has a defect and nothing about the difference is a tradeoff.
 

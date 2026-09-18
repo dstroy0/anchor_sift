@@ -21,9 +21,11 @@
  * @note AVX-512 comparison does not produce a vector of all-ones lanes the way AVX2 does. It writes
  *       a mask register, one bit per lane, and the comparison is against 0xFFFF for sixteen lanes.
  *       That is a different instruction shape and not a widening of the AVX2 one.
- * @note 108 limbs is six full sixteen-lane blocks and a remainder of twelve. The remainder is handled
- *       with a masked load instead of a scalar tail, since a mask is free on this instruction set and
- *       the tail would otherwise be an eighth of the work.
+ * @note 128 limbs is eight full sixteen-lane blocks with no remainder. The masked tail below is not
+ *       taken at the default width. It runs for a power-of-two width below 512 bits, whose limb
+ *       count is not a multiple of sixteen, handled with a masked load instead of a scalar tail,
+ *       since a mask is free on this instruction set and the tail would otherwise be a fraction of
+ *       the work.
  */
 
 #include "arm.h"
