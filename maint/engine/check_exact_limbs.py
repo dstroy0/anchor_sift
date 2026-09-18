@@ -31,16 +31,26 @@
 #
 # WHAT IS BEING COMPARED
 #
-# The C prints a sign and its limbs in hex, least significant first. This reassembles that into an
-# integer and compares against the same operation done directly. It also checks the refusals: a
-# value too wide for the fixed width has to come back refused, since a fixed width is the only bound
-# this representation carries and a silent wrap is the worst failure available to it.
+# The C prints a sign, how many limbs the value uses, and those limbs in hex, least significant
+# first. This reassembles that into an integer and compares against the same operation done
+# directly. It also checks the refusals: a value too wide for the fixed width has to come back
+# refused, since a fixed width is the only bound this representation carries and a silent wrap is
+# the worst failure available to it.
+#
+# The same rows are read at every width a build selects, 1 limb to 32768. The width comes from the
+# first row the driver prints and never from the header text, since the build that produced the
+# rows may have set it.
 
 import io
 import os
 import re
 import subprocess
 import sys
+
+# The subject built to overrun the width carries 315654 digits at 32768 limbs, and python refuses to
+# convert a decimal string longer than 4300 digits unless told otherwise. The limit guards a server
+# parsing untrusted text in quadratic time. The text here is the driver's own.
+sys.set_int_max_str_digits(0)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 def _repository_root():
@@ -173,6 +183,24 @@ def value_of(sign, limbs):
     return sign * held
 
 
+def integer_at(field, at, width_limbs):
+    """One printed integer out of a row, starting at field `at`: a sign, a limb count, those limbs.
+
+    Returns (value, where the next field starts), or (None, at) where the row is malformed. A count
+    past the width, a row cut short or a top limb of zero is malformed. The driver prints exactly
+    the limbs up to the highest nonzero one. Any of those three means the printing and the
+    arithmetic no longer describe one value.
+    """
+    if len(field) < at + 2:
+        return None, at
+    sign = int(field[at])
+    count = int(field[at + 1])
+    limbs = [int(one, 16) for one in field[at + 2:at + 2 + count]]
+    if (count > width_limbs) or (len(limbs) != count) or (count and limbs[-1] == 0):
+        return None, at
+    return value_of(sign, limbs), at + 2 + count
+
+
 def measured_of(text, places, width):
     """Decimal text as (status, value, uncertainty), done with python integers alone.
 
@@ -290,8 +318,10 @@ def main():
                                  % (index, text, field[4], status))
                 subjects[index] = None
             else:
-                got = value_of(int(field[3]), [int(one, 16) for one in field[4:]])
-                if status != 0:
+                got, _next = integer_at(field, 3, limbs)
+                if got is None:
+                    wrong.append("read %d %r: malformed limbs" % (index, text))
+                elif status != 0:
                     wrong.append("read %d %r: read, which python refuses with %d"
                                  % (index, text, status))
                 elif got != wanted:
@@ -311,10 +341,11 @@ def main():
                                  % (index, text, field[4], status))
             else:
                 carried = int(field[3])
-                got = value_of(int(field[4]), [int(one, 16) for one in field[5:5 + limbs]])
-                rest = field[5 + limbs:]
-                got_spread = value_of(int(rest[0]), [int(one, 16) for one in rest[1:1 + limbs]])
-                if status != 0:
+                got, after = integer_at(field, 4, limbs)
+                got_spread, _next = integer_at(field, after, limbs)
+                if (got is None) or (got_spread is None):
+                    wrong.append("meas %d %r: malformed limbs" % (index, text))
+                elif status != 0:
                     wrong.append("meas %d %r: read, which python refuses with %d"
                                  % (index, text, status))
                 elif got != wanted:
@@ -357,8 +388,10 @@ def main():
                 if fits:
                     wrong.append("%s: refused, but %d fits %d bits" % (row, wanted, width))
             else:
-                got = value_of(int(field[3]), [int(one, 16) for one in field[4:]])
-                if not fits:
+                got, _next = integer_at(field, 3, limbs)
+                if got is None:
+                    wrong.append("%s: malformed limbs" % row)
+                elif not fits:
                     wrong.append("%s: produced a value where %d needs more than %d bits"
                                  % (row, wanted, width))
                 elif got != wanted:

@@ -4,7 +4,13 @@
 #
 # Build the CUDA arm and grade it against the portable one.
 #
-#   bash maint/engine/build_gpu_arm.sh [sm_XX ...]
+#   bash maint/engine/build_gpu_arm.sh [--limbs N] [--digits N] [--positions N] [sm_XX ...]
+#
+#   --limbs N       exact width in 32 bit limbs, a power of two from 1 to 32768 (default: the
+#                   header's 128). exact_integer.h refuses any other value at compile time.
+#   --digits N      decimal digit floor, needed where the width is below 4096 bits
+#   --positions N   positions in the planted run (default: the bench's 4096). At 32768 limbs one
+#                   position is 128 KiB on the host and twice that on the device.
 #
 # nvcc needs a host compiler and on Windows that host compiler is MSVC, never MinGW. The rest of
 # this tree builds with MinGW, and MinGW objects do not link against MSVC objects, so the GPU arm
@@ -30,7 +36,33 @@ if [ -z "$MSVC_BIN" ]; then
 fi
 echo "  host compiler: $MSVC_BIN"
 
-ARCHES="${*:-}"
+WIDTH_DEFINES=""
+POSITIONS=""
+ARCHES=""
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        --limbs)
+            [ "$#" -ge 2 ] || { echo "  --limbs needs a value"; exit 1; }
+            WIDTH_DEFINES="$WIDTH_DEFINES -DANCHOR_EXACT_LIMBS=${2}u"
+            shift 2
+            ;;
+        --digits)
+            [ "$#" -ge 2 ] || { echo "  --digits needs a value"; exit 1; }
+            WIDTH_DEFINES="$WIDTH_DEFINES -DANCHOR_EXACT_DIGITS=${2}u"
+            shift 2
+            ;;
+        --positions)
+            [ "$#" -ge 2 ] || { echo "  --positions needs a value"; exit 1; }
+            POSITIONS="$2"
+            shift 2
+            ;;
+        *)
+            ARCHES="$ARCHES $1"
+            shift
+            ;;
+    esac
+done
+
 if [ -z "$ARCHES" ]; then
     CAP="$(nvidia-smi --query-gpu=compute_cap --format=csv,noheader 2>/dev/null | head -1 | tr -d ' .')"
     ARCHES="sm_${CAP:-86}"
@@ -53,9 +85,12 @@ rm -f "$OUT/bench_exact_gpu.exe"
 
 # PIPESTATUS and not $?, because the pipe into grep would otherwise report grep's status and grep
 # succeeds whatever nvcc did. A filter on the output must never decide whether the build passed.
+# Unquoted. An empty WIDTH_DEFINES has to expand to no argument at all, and quoted it would pass an
+# empty one to nvcc.
+# shellcheck disable=SC2086
 nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
     -I "$ROOT/src/engine/c/no_rounding" \
-    -DANCHOR_EXACT_HAVE_CUDA=1 \
+    -DANCHOR_EXACT_HAVE_CUDA=1 $WIDTH_DEFINES \
     -o "$OUT/bench_exact_gpu.exe" \
     "$ROOT/src/engine/c/no_rounding/arm_cuda.cu" \
     "$ROOT/src/engine/c/no_rounding/exact_integer.c" \
@@ -73,4 +108,5 @@ if [ "$NVCC_STATUS" -ne 0 ] || [ ! -f "$OUT/bench_exact_gpu.exe" ]; then
 fi
 
 echo "  built $OUT/bench_exact_gpu.exe"
-"$OUT/bench_exact_gpu.exe"
+# shellcheck disable=SC2086
+"$OUT/bench_exact_gpu.exe" $POSITIONS

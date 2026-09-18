@@ -58,6 +58,25 @@ add_library(anchor_exact_portable STATIC no_rounding/exact_integer.c no_rounding
 target_include_directories(anchor_exact_portable PUBLIC no_rounding)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
+# The exact width, in 32 bit limbs, a power of two from 1 to 32768. Empty takes the header's 128.
+#
+#     cmake ... -DANCHOR_EXACT_LIMBS=4 -DANCHOR_EXACT_DIGITS=38      128 bits
+#     cmake ... -DANCHOR_EXACT_LIMBS=32768                           1048576 bits
+#
+# PUBLIC. Every target linking the exact integer then compiles it at one width. Two translation
+# units at two widths disagree on sizeof(AnchorExactInteger), and a pointer handed between them walks
+# off the end of a shorter array with nothing to report it. The asserts in exact_integer.h decide
+# whether a width is legal, and nothing here repeats that test. A width below 4096 bits cannot hold
+# the 1024 digit floor and has to name ANCHOR_EXACT_DIGITS too.
+set(ANCHOR_EXACT_LIMBS "" CACHE STRING "Limbs per exact integer, a power of two from 1 to 32768")
+set(ANCHOR_EXACT_DIGITS "" CACHE STRING "Decimal digit floor the exact width must hold")
+if(ANCHOR_EXACT_LIMBS)
+    target_compile_definitions(anchor_exact_portable PUBLIC ANCHOR_EXACT_LIMBS=${ANCHOR_EXACT_LIMBS}u)
+endif()
+if(ANCHOR_EXACT_DIGITS)
+    target_compile_definitions(anchor_exact_portable PUBLIC ANCHOR_EXACT_DIGITS=${ANCHOR_EXACT_DIGITS}u)
+endif()
+
 # THE ENGINE. anchor_sift.c holds the search, the steering, the shared scan counters and the arm
 # dispatch. They spell one primitive: byte equality at a shift, counted over positions. The search
 # counts matches, the steering counts survivors, a scan arm counts those survivors at one offset.

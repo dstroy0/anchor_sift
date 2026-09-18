@@ -17,7 +17,18 @@ No ESP-IDF, no device toolchain, no Python, and nothing from the vendored librar
 
 `no_rounding/exact_integer.{c,h}` holds an exact integer as a fixed width array of 32 bit limbs. The directory name states what the arithmetic is for. It removes rounding, and a comparison is then exact. It is the same value `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
 
-Fixed width is the only bound the representation has, and it is declared instead of discovered. 128 limbs is 4096 bits, a power of two, holding the 1024 decimal digits the Python side ingests at. The count is a power of two so the width scales by doubling and the sign bit stays at a fixed position. A value that will not fit raises `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
+Fixed width is the only bound the representation has, and it is declared instead of discovered. The default is 128 limbs, 4096 bits, holding the 1024 decimal digits the Python side ingests at (`no_rounding/exact_integer.h:67`). A build selects any power of two from 1 limb to 32768, which is 32 bits to 1048576 bits, and the header refuses any other count at compile time (`no_rounding/exact_integer.h:119-155`). A power of two keeps the top magnitude bit at one fixed position as the width doubles. The sign is held apart from the limbs. A value that will not fit returns `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
+
+```
+cmake -S src/engine/c -B build/engine_c -G Ninja -DANCHOR_EXACT_LIMBS=32768
+cmake -S src/engine/c -B build/engine_c -G Ninja -DANCHOR_EXACT_LIMBS=4 -DANCHOR_EXACT_DIGITS=38
+bash maint/engine/check_exact_widths.sh
+bash maint/engine/check_exact_widths.sh --gpu
+```
+
+A width below 4096 bits cannot hold the 1024 digit floor. A narrower build names the floor it does hold, 38 digits at 128 bits. The engine needs 8 limbs. Its dispatch rule reaches 143 bits on a 64 bit census, and `engine/anchor_sift.c:23-39` refuses a narrower width by name. The exact integer and every arm build and grade down to 1 limb. `check_exact_widths.sh` builds each width in its own tree under `build/exact_widths/` and grades it three ways: the rows of `bench_exact` against Python integers, every host arm against portable, and `test_steer` from 8 limbs up. `--gpu` adds the CUDA arm through `build_gpu_arm.sh`, which prints whether the device itself answered as well as whether the arm agreed.
+
+The run shrinks as the width grows, from 4096 positions at 128 limbs and below to 64 from 8192 limbs up. At the widest width one position is 128 KiB on the host and twice that on the device.
 
 An **arm** is one implementation of the operations the measure asks for. Every arm answers the same counts, and the portable C11 one is the reference. Where two disagree, one of them has a defect and nothing about the difference is a tradeoff.
 

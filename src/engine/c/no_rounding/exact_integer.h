@@ -28,6 +28,10 @@
  *       division to return to 10^d, and its intermediate needs twice the width. A constant derived
  *       by division, such as h over 2 pi, is computed in arbitrary precision outside this type and
  *       read in as finished decimal text. The multiply refuses a product that overruns the width.
+ * @note No call holds more than two width-sized integers on the stack, which is 256 KiB at 32768
+ *       limbs. A caller holding many integers at a wide width keeps them in static or allocated
+ *       storage. A main thread stack defaults to 1 MiB under the MSVC linker and 8 MiB under a
+ *       stock Linux, and eight integers at 32768 limbs fill the first.
  */
 #ifndef ANCHOR_EXACT_LIMBS_H
 #define ANCHOR_EXACT_LIMBS_H
@@ -52,6 +56,11 @@ extern "C" {
  *       power of two. The top magnitude bit then lands at a fixed position, and the width scales by
  *       doubling, 4096 to 8192 to 16384 bits, with the position fixed at each. The guard below
  *       refuses a width that is not a power of two.
+ * @note A build selects any power of two from 1 limb to 32768, which is 32 bits to 1048576 bits,
+ *       and the guard below refuses anything outside that range. Every arm is graded at every one
+ *       of those widths by maint/engine/check_exact_widths.sh.
+ * @note A width below 4096 bits cannot hold the 1024 digit floor. A build selecting one declares
+ *       its own ANCHOR_EXACT_DIGITS, and the floor assert below refuses it by name where it does not.
  * @note Defined on both arms so #if always has a value and an unset build is never a silent false.
  */
 #ifndef ANCHOR_EXACT_LIMBS
@@ -122,6 +131,27 @@ _Static_assert((ANCHOR_EXACT_BITS & (ANCHOR_EXACT_BITS - 1u)) == 0u,
 #else
 typedef char anchor_exact_bits_are_a_power_of_two[
     ((ANCHOR_EXACT_BITS & (ANCHOR_EXACT_BITS - 1u)) == 0u) ? 1 : -1];
+#endif
+
+/**
+ * @brief The widest width a build may select, 32768 limbs.
+ *
+ * @note The ceiling is the widest width check_exact_widths.sh grades. No arm has run a width past
+ *       it. The assert below refuses one at compile time.
+ */
+#define ANCHOR_EXACT_WIDEST_BITS 1048576u
+
+/* One limb at the bottom and ANCHOR_EXACT_WIDEST_BITS at the top. The power of two test above passes
+ * a width of zero, because 0 & (0 - 1) is 0. The bottom of the range is its own test here. */
+#if defined(__cplusplus)
+static_assert((ANCHOR_EXACT_LIMBS >= 1u) && (ANCHOR_EXACT_BITS <= ANCHOR_EXACT_WIDEST_BITS),
+              "ANCHOR_EXACT_LIMBS must be from 1 to 32768, 32 bits to 1048576 bits");
+#elif defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 201112L)
+_Static_assert((ANCHOR_EXACT_LIMBS >= 1u) && (ANCHOR_EXACT_BITS <= ANCHOR_EXACT_WIDEST_BITS),
+               "ANCHOR_EXACT_LIMBS must be from 1 to 32768, 32 bits to 1048576 bits");
+#else
+typedef char anchor_exact_limbs_are_in_range[
+    ((ANCHOR_EXACT_LIMBS >= 1u) && (ANCHOR_EXACT_BITS <= ANCHOR_EXACT_WIDEST_BITS)) ? 1 : -1];
 #endif
 
 /**
@@ -209,8 +239,12 @@ AnchorExactStatus anchor_exact_subtract(const AnchorExactInteger *left,
  * @param[out] result Product [BORROWS]. May alias either input.
  * @return            ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT where the product needs more
  *                    limbs than the width holds.
- * @note Schoolbook, the right choice at this width. Karatsuba crosses over in the
- *       thousands of limbs and this is a hundred, so the recursion would cost more than it saves.
+ * @note Schoolbook over the limbs each factor uses. Its cost grows with the two used lengths
+ *       multiplied together, and the width sets only the ceiling. A value of a few limbs multiplies
+ *       in the same time at 32768 limbs as at 128.
+ * @note Factors whose used lengths sum past the width by more than one limb are refused before any
+ *       arithmetic. Their product is at least 2^(32 * (sum - 2)), which already overruns.
+ * @note Holds one accumulator of ANCHOR_EXACT_LIMBS + 1 limbs on the stack, 128 KiB at 32768 limbs.
  * @note On a refusal `result` is left unchanged.
  * @warning A product overruns the fixed width far sooner than a sum does. Ingesting a coordinate
  *          multiplies a fraction by a cell edge exactly once for that reason.

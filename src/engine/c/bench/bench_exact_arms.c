@@ -22,9 +22,14 @@
  * @note Every arm is asked a second time over the same run with a repeated position at every eighth
  *       entry. The portable count on repeated positions is checked against python by
  *       maint/engine/check_exact_limbs.py, and this grades every other arm against portable there.
+ * @note The run is allocated at the size asked for. A static array of RUN_PLACES integers is 33 MiB
+ *       at 128 limbs and 8.6 GB at 32768, and a build at the widest width could not load it.
  */
 
 #include "arm.h"
+#if defined(ANCHOR_EXACT_HAVE_CUDA) && ANCHOR_EXACT_HAVE_CUDA
+#include "arm_cuda.h"
+#endif
 
 #include <stdio.h>
 #include <string.h>
@@ -48,8 +53,33 @@
 /** @brief How many distinct values cycle through the run. */
 #define RUN_CYCLE 4u
 
-/** @brief Decimal places every value is carried at. */
-#define PLACES 24u
+/**
+ * @brief Decimal places the width holds for the largest value the run reaches.
+ *
+ * @note Positions run to RUN_PLACES / 4 and the lags to 6.25, below 2^15. A value at p places
+ *       needs 15 bits plus p * log2(10). log10(2) is carried as 30102 parts in 100000, rounded down,
+ *       and this never names more places than the width holds.
+ */
+#define PLACES_HELD ((((unsigned long long)ANCHOR_EXACT_BITS - 15ull) * 30102ull) / 100000ull)
+
+/**
+ * @brief Decimal places every value is carried at: 24, or what a narrower width holds.
+ *
+ * @note The narrowing to uint32_t is taken only where PLACES_HELD is below 24.
+ */
+#define PLACES ((PLACES_HELD < 24ull) ? (uint32_t)PLACES_HELD : 24u)
+
+/* The run steps by a quarter, which takes two places. The narrowest width, 32 bits, holds five.
+ * Written in the three forms exact_integer.h uses: static_assert for C++, _Static_assert for C11,
+ * and a negative array size before C11. nvcc also compiles this file, and its MSVC host compiler
+ * may take it in a C mode that has no _Static_assert. */
+#if defined(__cplusplus)
+static_assert(PLACES_HELD >= 2ull, "the narrowest width must hold the two places a quarter step takes");
+#elif defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 201112L)
+_Static_assert(PLACES_HELD >= 2ull, "the narrowest width must hold the two places a quarter step takes");
+#else
+typedef char bench_exact_arms_places_hold_a_quarter[(PLACES_HELD >= 2ull) ? 1 : -1];
+#endif
 
 /** @brief Lags asked of every arm. */
 #define LAGS 24u
@@ -167,7 +197,6 @@ static int grade_arms(const AnchorExactArm *const *arms, unsigned int count,
 
 int main(int argc, char **argv)
 {
-    static AnchorExactInteger positions[RUN_PLACES];
     static uint64_t values[RUN_PLACES];
     static AnchorExactInteger lags[LAGS];
     static size_t reference[LAGS];
@@ -185,9 +214,19 @@ int main(int argc, char **argv)
         places = (unsigned int)asked;
     }
 
+    AnchorExactInteger *const positions =
+        (AnchorExactInteger *)malloc((size_t)places * sizeof(AnchorExactInteger));
+    if (positions == NULL)
+    {
+        printf("  %u positions of %u limbs could not be allocated\n", places,
+               (unsigned int)ANCHOR_EXACT_LIMBS);
+        return 1;
+    }
+
     if (plant(positions, values, places) == 0)
     {
         printf("  the run would not fit the scale\n");
+        free(positions);
         return 1;
     }
     for (unsigned int at = 0u; at < LAGS; at++)
@@ -197,12 +236,13 @@ int main(int argc, char **argv)
         if (anchor_exact_from_decimal(text, strlen(text), PLACES, &lags[at]) != ANCHOR_EXACT_OK)
         {
             printf("  lag %u would not fit the scale\n", at);
+            free(positions);
             return 1;
         }
     }
 
     printf("\n  %u positions, %u lags, %u limbs of 32 bits, %u decimal places\n\n", places,
-           LAGS, (unsigned int)ANCHOR_EXACT_LIMBS, PLACES);
+           LAGS, (unsigned int)ANCHOR_EXACT_LIMBS, (unsigned int)PLACES);
 
     const AnchorExactArm *portable = anchor_exact_portable_arm();
     const double portable_seconds = sweep(portable, positions, values, lags, reference, places);
@@ -270,6 +310,35 @@ int main(int argc, char **argv)
         wrong = 1;
     }
 
+#if defined(ANCHOR_EXACT_HAVE_CUDA) && ANCHOR_EXACT_HAVE_CUDA
+    // The cuda arm answers from the portable one where the device refuses the work. Its row above
+    // agrees whether or not the device ran. Asked once more here without that fallback, a refusal
+    // is visible and counts as a failure. An agreement the device never computed grades nothing
+    // about the device.
+    if (anchor_exact_cuda_available() != 0)
+    {
+        const size_t device_answer =
+            anchor_exact_agreement_cuda(positions, values, (size_t)places, &lags[3]);
+        if (device_answer == (size_t)-1)
+        {
+            printf("\n  the device refused the run at %u limbs, so the cuda row is the portable arm\n",
+                   (unsigned int)ANCHOR_EXACT_LIMBS);
+            wrong = 1;
+        }
+        else
+        {
+            printf("\n  the device itself answered lag 4: %llu, portable says %llu: %s\n",
+                   (unsigned long long)device_answer, (unsigned long long)reference[3],
+                   (device_answer == reference[3]) ? "agree" : "DISAGREE");
+            if (device_answer != reference[3])
+            {
+                wrong = 1;
+            }
+        }
+    }
+#endif
+
     printf("\n");
+    free(positions);
     return wrong;
 }

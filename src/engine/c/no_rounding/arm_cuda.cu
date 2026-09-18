@@ -20,7 +20,8 @@
  *       bench_exact_gpu.exe to catch it: every count the device returns is compared against the
  *       count the portable host arm returns on the same data.
  * @note Positions arrive already sorted, and each thread runs a binary search with no coordination.
- *       Threads share nothing and write one atomic increment each at most.
+ *       Threads share nothing. Each writes its own displaced position and one atomic increment at
+ *       most.
  * @note A repeated position sits in adjacent entries once sorted. A thread counts its position only
  *       where it holds the last of those entries. The search returns the last entry equal to the
  *       displaced position. The count matches the portable arm, which keeps the last value at a
@@ -207,15 +208,22 @@ __device__ static int device_add(const AnchorExactInteger *left, const AnchorExa
  * @param[in]     values    The value standing at each position [BORROWS].
  * @param[in]     count     How many positions.
  * @param[in]     lag       The offset to test [BORROWS].
+ * @param[out]    displaced One integer per position, where each thread writes its displaced
+ *                          position [BORROWS].
  * @param[in,out] agreed    Where the count is accumulated [BORROWS].
  * @note A thread whose displaced position overruns the fixed width contributes nothing, matching
  *       the host, which skips that position and reports no wrapped one.
  * @note A thread whose position repeats in the next entry contributes nothing. The next entry with
  *       the same position counts it once, carrying the last value at that position.
+ * @note The displaced position lives in device memory the host allocated, one per thread. A local
+ *       integer is sized by the width, 128 KiB per thread at 32768 limbs, and local memory is
+ *       reserved for every thread the device can hold resident. On the RTX 3070 here that is 1536
+ *       threads on each of 46 SMs, 8.6 GiB, past the card's 8 GiB.
  */
 __global__ static void agreement_kernel(const AnchorExactInteger *positions,
                                         const unsigned long long *values, size_t count,
-                                        const AnchorExactInteger *lag, unsigned int *agreed)
+                                        const AnchorExactInteger *lag,
+                                        AnchorExactInteger *displaced, unsigned int *agreed)
 {
     const size_t at = (size_t)blockIdx.x * (size_t)blockDim.x + (size_t)threadIdx.x;
     if (at >= count)
@@ -227,8 +235,8 @@ __global__ static void agreement_kernel(const AnchorExactInteger *positions,
         return;
     }
 
-    AnchorExactInteger moved;
-    if (device_add(&positions[at], lag, &moved) == 0)
+    AnchorExactInteger *const moved = &displaced[at];
+    if (device_add(&positions[at], lag, moved) == 0)
     {
         return;
     }
@@ -240,7 +248,7 @@ __global__ static void agreement_kernel(const AnchorExactInteger *positions,
     while (low < high)
     {
         const size_t middle = low + ((high - low) / 2u);
-        if (device_compare(&positions[middle], &moved) <= 0)
+        if (device_compare(&positions[middle], moved) <= 0)
         {
             low = middle + 1u;
         }
@@ -250,7 +258,7 @@ __global__ static void agreement_kernel(const AnchorExactInteger *positions,
         }
     }
     size_t found = count;
-    if ((low > 0u) && (device_compare(&positions[low - 1u], &moved) == 0))
+    if ((low > 0u) && (device_compare(&positions[low - 1u], moved) == 0))
     {
         found = low - 1u;
     }
@@ -300,15 +308,19 @@ extern "C" size_t anchor_exact_agreement_cuda(const AnchorExactInteger *position
     AnchorExactInteger *device_positions = NULL;
     unsigned long long *device_values = NULL;
     AnchorExactInteger *device_lag = NULL;
+    AnchorExactInteger *device_displaced = NULL;
     unsigned int *device_agreed = NULL;
     size_t answer = (size_t)-1;
 
     const size_t position_bytes = count * sizeof(AnchorExactInteger);
     const size_t value_bytes = count * sizeof(unsigned long long);
 
+    // The displaced positions take as much device memory as the positions do. The kernel writes
+    // them and nothing reads them back, so they are never copied in either direction.
     if ((cudaMalloc((void **)&device_positions, position_bytes) != cudaSuccess)
         || (cudaMalloc((void **)&device_values, value_bytes) != cudaSuccess)
         || (cudaMalloc((void **)&device_lag, sizeof(AnchorExactInteger)) != cudaSuccess)
+        || (cudaMalloc((void **)&device_displaced, position_bytes) != cudaSuccess)
         || (cudaMalloc((void **)&device_agreed, sizeof(unsigned int)) != cudaSuccess))
     {
         goto done;
@@ -328,7 +340,8 @@ extern "C" size_t anchor_exact_agreement_cuda(const AnchorExactInteger *position
         const unsigned int blocks =
             (unsigned int)((count + (size_t)ANCHOR_GPU_BLOCK - 1u) / (size_t)ANCHOR_GPU_BLOCK);
         agreement_kernel<<<blocks, ANCHOR_GPU_BLOCK>>>(device_positions, device_values, count,
-                                                       device_lag, device_agreed);
+                                                       device_lag, device_displaced,
+                                                       device_agreed);
         if ((cudaGetLastError() != cudaSuccess) || (cudaDeviceSynchronize() != cudaSuccess))
         {
             goto done;
@@ -349,6 +362,7 @@ done:
     cudaFree(device_positions);
     cudaFree(device_values);
     cudaFree(device_lag);
+    cudaFree(device_displaced);
     cudaFree(device_agreed);
     return answer;
 }

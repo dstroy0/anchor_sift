@@ -29,6 +29,14 @@
 /** @brief Everything below the limb boundary, for taking the low half of a 64 bit accumulator. */
 #define LIMB_MASK ((uint64_t)0xFFFFFFFFu)
 
+/** @brief Most decimal digits one limb takes in a single multiply, since 10^9 is below 2^32. */
+#define LIMB_DECIMAL_DIGITS 9u
+
+/** @brief Ten raised to each power a single limb multiply can apply, 10^0 to 10^9. */
+static const uint32_t TEN_TO[LIMB_DECIMAL_DIGITS + 1u] = {
+    1u, 10u, 100u, 1000u, 10000u, 100000u, 1000000u, 10000000u, 100000000u, 1000000000u,
+};
+
 void anchor_exact_zero(AnchorExactInteger *value)
 {
     memset(value->limb, 0, sizeof(value->limb));
@@ -77,14 +85,57 @@ static int magnitude_is_zero(const uint32_t *value)
 }
 
 /**
- * @brief Adds two magnitudes.
+ * @brief How many limbs a magnitude uses.
+ *
+ * @param[in] value Magnitude [BORROWS].
+ * @return          One past the index of the highest nonzero limb, and 0 for zero.
+ */
+static size_t magnitude_used(const uint32_t *value)
+{
+    size_t used = (size_t)ANCHOR_EXACT_LIMBS;
+    while ((used > 0u) && (value[used - 1u] == 0u))
+    {
+        used--;
+    }
+    return used;
+}
+
+/**
+ * @brief Whether the sum of two magnitudes carries off the top limb, found before any limb is
+ *        written.
+ *
+ * @param[in] left  First magnitude [BORROWS].
+ * @param[in] right Second magnitude [BORROWS].
+ * @return          1 where the sum needs more limbs than the width holds, 0 otherwise.
+ * @note left + right reaches 2^ANCHOR_EXACT_BITS exactly where left exceeds 2^ANCHOR_EXACT_BITS - 1
+ *       - right, and that bound is ~right limb by limb. The test is then a comparison from the top
+ *       limb down, which settles at the first limb that differs. For two values well inside the
+ *       width that is the top limb.
+ */
+static int magnitude_add_overflows(const uint32_t *left, const uint32_t *right)
+{
+    size_t at = (size_t)ANCHOR_EXACT_LIMBS;
+    while (at > 0u)
+    {
+        at--;
+        const uint32_t room = ~right[at];
+        if (left[at] != room)
+        {
+            return (left[at] > room) ? 1 : 0;
+        }
+    }
+    return 0;
+}
+
+/**
+ * @brief Adds two magnitudes whose sum the caller has already found fits the width.
  *
  * @param[in]  left   First magnitude [BORROWS].
  * @param[in]  right  Second magnitude [BORROWS].
- * @param[out] result Sum [BORROWS].
- * @return            1 where a carry ran off the top limb, 0 otherwise.
+ * @param[out] result Sum [BORROWS]. May alias either input, since each limb is read before the
+ *                    limb at the same index is written.
  */
-static int magnitude_add(const uint32_t *left, const uint32_t *right, uint32_t *result)
+static void magnitude_add(const uint32_t *left, const uint32_t *right, uint32_t *result)
 {
     uint64_t carry = 0u;
     for (size_t at = 0u; at < (size_t)ANCHOR_EXACT_LIMBS; at++)
@@ -94,7 +145,6 @@ static int magnitude_add(const uint32_t *left, const uint32_t *right, uint32_t *
         result[at] = (uint32_t)(total & LIMB_MASK);
         carry = total >> LIMB_BITS;
     }
-    return (carry != 0u) ? 1 : 0;
 }
 
 /**
@@ -102,7 +152,8 @@ static int magnitude_add(const uint32_t *left, const uint32_t *right, uint32_t *
  *
  * @param[in]  left   Magnitude to subtract from, no smaller than right [BORROWS].
  * @param[in]  right  Magnitude to subtract [BORROWS].
- * @param[out] result Difference [BORROWS].
+ * @param[out] result Difference [BORROWS]. May alias either input, since each limb is read before
+ *                    the limb at the same index is written.
  */
 static void magnitude_subtract(const uint32_t *left, const uint32_t *right, uint32_t *result)
 {
@@ -154,29 +205,47 @@ static void settle_sign(AnchorExactInteger *result, int32_t sign)
     result->sign = magnitude_is_zero(result->limb) ? 0 : sign;
 }
 
-AnchorExactStatus anchor_exact_add(const AnchorExactInteger *left, const AnchorExactInteger *right,
-                                   AnchorExactInteger *result)
+/**
+ * @brief Adds two integers, with the sign of the second supplied apart from it.
+ *
+ * @param[in]  left       First addend [BORROWS].
+ * @param[in]  right      Second addend, whose magnitude is read and whose sign is not [BORROWS].
+ * @param[in]  right_sign Sign the second addend is taken to carry.
+ * @param[out] result     Sum [BORROWS]. May alias either input.
+ * @return                ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT where the sum needs more
+ *                        limbs.
+ * @note The two signs are the flag for which operation is legal on this pair. Equal signs add the
+ *       magnitudes, which alone can overrun and is tested before a limb is written. Opposite signs
+ *       subtract the smaller magnitude from the larger and take the larger one's sign. Equal
+ *       magnitudes of opposite sign are zero.
+ * @note Subtraction is this call with the sign turned over. An earlier form copied the whole
+ *       integer to negate it, which at 32768 limbs put 128 KiB on the stack to change four bytes.
+ */
+static AnchorExactStatus exact_add_signed(const AnchorExactInteger *left,
+                                          const AnchorExactInteger *right, int32_t right_sign,
+                                          AnchorExactInteger *result)
 {
     if (left->sign == 0)
     {
         *result = *right;
+        result->sign = right_sign;
         return ANCHOR_EXACT_OK;
     }
-    if (right->sign == 0)
+    if (right_sign == 0)
     {
         *result = *left;
         return ANCHOR_EXACT_OK;
     }
 
-    if (left->sign == right->sign)
+    if (left->sign == right_sign)
     {
-        uint32_t sum[ANCHOR_EXACT_LIMBS];
-        if (magnitude_add(left->limb, right->limb, sum) != 0)
+        if (magnitude_add_overflows(left->limb, right->limb) != 0)
         {
             return ANCHOR_EXACT_WILL_NOT_FIT;
         }
-        memcpy(result->limb, sum, sizeof(sum));
-        settle_sign(result, left->sign);
+        const int32_t sign = left->sign;
+        magnitude_add(left->limb, right->limb, result->limb);
+        settle_sign(result, sign);
         return ANCHOR_EXACT_OK;
     }
 
@@ -187,29 +256,32 @@ AnchorExactStatus anchor_exact_add(const AnchorExactInteger *left, const AnchorE
         return ANCHOR_EXACT_OK;
     }
 
-    uint32_t difference[ANCHOR_EXACT_LIMBS];
+    // The sign is taken before the limbs are written, since `result` may be either input.
     if (order > 0)
     {
-        magnitude_subtract(left->limb, right->limb, difference);
-        memcpy(result->limb, difference, sizeof(difference));
-        settle_sign(result, left->sign);
+        const int32_t sign = left->sign;
+        magnitude_subtract(left->limb, right->limb, result->limb);
+        settle_sign(result, sign);
     }
     else
     {
-        magnitude_subtract(right->limb, left->limb, difference);
-        memcpy(result->limb, difference, sizeof(difference));
-        settle_sign(result, right->sign);
+        magnitude_subtract(right->limb, left->limb, result->limb);
+        settle_sign(result, right_sign);
     }
     return ANCHOR_EXACT_OK;
+}
+
+AnchorExactStatus anchor_exact_add(const AnchorExactInteger *left, const AnchorExactInteger *right,
+                                   AnchorExactInteger *result)
+{
+    return exact_add_signed(left, right, right->sign, result);
 }
 
 AnchorExactStatus anchor_exact_subtract(const AnchorExactInteger *left,
                                         const AnchorExactInteger *right,
                                         AnchorExactInteger *result)
 {
-    AnchorExactInteger negated = *right;
-    negated.sign = -negated.sign;
-    return anchor_exact_add(left, &negated, result);
+    return exact_add_signed(left, right, -right->sign, result);
 }
 
 AnchorExactStatus anchor_exact_multiply(const AnchorExactInteger *left,
@@ -222,109 +294,144 @@ AnchorExactStatus anchor_exact_multiply(const AnchorExactInteger *left,
         return ANCHOR_EXACT_OK;
     }
 
-    // Twice the width, so an overrun is detected in the top half instead of being wrapped away.
-    uint32_t wide[2u * ANCHOR_EXACT_LIMBS];
-    memset(wide, 0, sizeof(wide));
+    // A factor using n limbs is at least 2^(32 * (n - 1)). The product of factors using n and m limbs
+    // is at least 2^(32 * (n + m - 2)). Where n + m passes the width by more than one limb, that
+    // product already overruns and nothing is multiplied.
+    const size_t left_used = magnitude_used(left->limb);
+    const size_t right_used = magnitude_used(right->limb);
+    const size_t reach = left_used + right_used;
+    if (reach > ((size_t)ANCHOR_EXACT_LIMBS + 1u))
+    {
+        return ANCHOR_EXACT_WILL_NOT_FIT;
+    }
 
-    for (size_t low = 0u; low < (size_t)ANCHOR_EXACT_LIMBS; low++)
+    // The product is below 2^(32 * reach) and occupies at most `reach` limbs, at most one past the
+    // width. An overrun shows in that extra limb, and the accumulator keeps it instead of wrapping
+    // it away.
+    uint32_t wide[ANCHOR_EXACT_LIMBS + 1u];
+    memset(wide, 0, reach * sizeof(wide[0]));
+
+    for (size_t low = 0u; low < left_used; low++)
     {
         if (left->limb[low] == 0u)
         {
             continue;
         }
         uint64_t carry = 0u;
-        for (size_t high = 0u; high < (size_t)ANCHOR_EXACT_LIMBS; high++)
+        for (size_t high = 0u; high < right_used; high++)
         {
             const uint64_t total = ((uint64_t)left->limb[low] * (uint64_t)right->limb[high])
                                    + (uint64_t)wide[low + high] + carry;
             wide[low + high] = (uint32_t)(total & LIMB_MASK);
             carry = total >> LIMB_BITS;
         }
-        // The carry out of the inner loop lands above both factors and cannot itself carry further,
-        // because the widest product of two n limb values occupies 2n limbs.
-        size_t spill = low + (size_t)ANCHOR_EXACT_LIMBS;
-        while ((carry != 0u) && (spill < (2u * (size_t)ANCHOR_EXACT_LIMBS)))
-        {
-            const uint64_t total = (uint64_t)wide[spill] + carry;
-            wide[spill] = (uint32_t)(total & LIMB_MASK);
-            carry = total >> LIMB_BITS;
-            spill++;
-        }
+        // The row's carry lands on the limb just above it, which no earlier row reached: row
+        // low - 1 wrote up to index low - 1 + right_used and no further. The largest total above is
+        // (2^32 - 1)^2 + 2 * (2^32 - 1), exactly 2^64 - 1, and its high half fits one limb.
+        wide[low + right_used] = (uint32_t)carry;
     }
 
-    for (size_t at = (size_t)ANCHOR_EXACT_LIMBS; at < (2u * (size_t)ANCHOR_EXACT_LIMBS); at++)
+    if ((reach > (size_t)ANCHOR_EXACT_LIMBS) && (wide[ANCHOR_EXACT_LIMBS] != 0u))
     {
-        if (wide[at] != 0u)
-        {
-            return ANCHOR_EXACT_WILL_NOT_FIT;
-        }
+        return ANCHOR_EXACT_WILL_NOT_FIT;
     }
 
-    memcpy(result->limb, wide, sizeof(result->limb));
-    settle_sign(result, (left->sign == right->sign) ? 1 : -1);
+    // Written only now, and the sign taken first, since `result` may be either factor.
+    const int32_t sign = (left->sign == right->sign) ? 1 : -1;
+    const size_t kept = (reach < (size_t)ANCHOR_EXACT_LIMBS) ? reach : (size_t)ANCHOR_EXACT_LIMBS;
+    memcpy(result->limb, wide, kept * sizeof(wide[0]));
+    memset(&result->limb[kept], 0, ((size_t)ANCHOR_EXACT_LIMBS - kept) * sizeof(wide[0]));
+    settle_sign(result, sign);
     return ANCHOR_EXACT_OK;
 }
 
 /**
- * @brief Multiplies a magnitude by a single limb sized value in place.
+ * @brief Multiplies a magnitude by a single limb sized value in place, over the limbs it uses.
  *
  * @param[in,out] value  Magnitude [BORROWS].
+ * @param[in,out] used   A count of limbs at or above which every limb of `value` is zero, raised
+ *                       where the product reaches further [BORROWS].
  * @param[in]     factor What to multiply by.
- * @return               1 where a carry ran off the top limb, 0 otherwise.
- * @warning On a carry out of the top limb `value` holds the low limbs of the product. Callers run
- *          this on a copy they discard on refusal.
+ * @return               1 where the product needs a limb past the width, 0 otherwise.
+ * @note Walks `used` limbs and never the width. An earlier form walked the whole width once per
+ *       decimal digit read, which made reading 315000 digits at 32768 limbs cost ten billion limb
+ *       steps.
+ * @warning On a return of 1 `value` holds the low limbs of the product. Callers run this on a copy
+ *          they discard on refusal.
  */
-static int magnitude_multiply_small(uint32_t *value, uint32_t factor)
+static int magnitude_multiply_small(uint32_t *value, size_t *used, uint32_t factor)
 {
     uint64_t carry = 0u;
-    for (size_t at = 0u; at < (size_t)ANCHOR_EXACT_LIMBS; at++)
+    for (size_t at = 0u; at < *used; at++)
     {
         const uint64_t total = ((uint64_t)value[at] * (uint64_t)factor) + carry;
         value[at] = (uint32_t)(total & LIMB_MASK);
         carry = total >> LIMB_BITS;
     }
-    return (carry != 0u) ? 1 : 0;
+    if (carry == 0u)
+    {
+        return 0;
+    }
+    if (*used == (size_t)ANCHOR_EXACT_LIMBS)
+    {
+        return 1;
+    }
+    // The carry is the high half of a 64 bit total and fits one limb.
+    value[*used] = (uint32_t)carry;
+    *used += 1u;
+    return 0;
 }
 
 /**
  * @brief Adds a single limb sized value to a magnitude in place.
  *
  * @param[in,out] value What to add to [BORROWS].
+ * @param[in,out] used  A count of limbs at or above which every limb of `value` is zero, raised
+ *                      where the sum reaches further [BORROWS].
  * @param[in]     added What to add.
  * @return              1 where a carry ran off the top limb, 0 otherwise.
  * @warning On a carry out of the top limb `value` holds the wrapped sum. Callers run this on a copy
  *          they discard on refusal.
  */
-static int magnitude_add_small(uint32_t *value, uint32_t added)
+static int magnitude_add_small(uint32_t *value, size_t *used, uint32_t added)
 {
     uint64_t carry = (uint64_t)added;
-    for (size_t at = 0u; (at < (size_t)ANCHOR_EXACT_LIMBS) && (carry != 0u); at++)
+    size_t at = 0u;
+    while ((at < (size_t)ANCHOR_EXACT_LIMBS) && (carry != 0u))
     {
         const uint64_t total = (uint64_t)value[at] + carry;
         value[at] = (uint32_t)(total & LIMB_MASK);
         carry = total >> LIMB_BITS;
+        at++;
     }
-    return (carry != 0u) ? 1 : 0;
+    if (carry != 0u)
+    {
+        return 1;
+    }
+    if (at > *used)
+    {
+        *used = at;
+    }
+    return 0;
 }
 
 /**
  * @brief Multiplies a magnitude by ten raised to a power, in place.
  *
  * @param[in,out] value Magnitude [BORROWS].
+ * @param[in,out] used  A count of limbs at or above which every limb of `value` is zero [BORROWS].
  * @param[in]     power How many powers of ten to apply.
  * @return              1 where the product ran off the top limb, 0 otherwise.
  * @warning On a return of 1 `value` holds a wrapped product. Callers run this on a copy they
  *          discard on refusal.
  */
-static int magnitude_scale_by_ten(uint32_t *value, uint32_t power)
+static int magnitude_scale_by_ten(uint32_t *value, size_t *used, uint32_t power)
 {
     // Nine powers of ten at a time, the most that fits a limb without overflowing it.
-    static const uint32_t TEN_TO[10] = {1u, 10u, 100u, 1000u, 10000u,
-                                        100000u, 1000000u, 10000000u, 100000000u, 1000000000u};
     while (power > 0u)
     {
-        const uint32_t step = (power > 9u) ? 9u : power;
-        if (magnitude_multiply_small(value, TEN_TO[step]) != 0)
+        const uint32_t step = (power > LIMB_DECIMAL_DIGITS) ? LIMB_DECIMAL_DIGITS : power;
+        if (magnitude_multiply_small(value, used, TEN_TO[step]) != 0)
         {
             return 1;
         }
@@ -338,7 +445,8 @@ AnchorExactStatus anchor_exact_scale_by_ten(AnchorExactInteger *value, uint32_t 
     // Scaled on a copy. A refusal leaves the caller's value as it was.
     uint32_t scaled[ANCHOR_EXACT_LIMBS];
     memcpy(scaled, value->limb, sizeof(scaled));
-    if (magnitude_scale_by_ten(scaled, power) != 0)
+    size_t used = magnitude_used(scaled);
+    if (magnitude_scale_by_ten(scaled, &used, power) != 0)
     {
         return ANCHOR_EXACT_WILL_NOT_FIT;
     }
@@ -472,43 +580,63 @@ static AnchorExactStatus decimal_layout(const char *text, size_t length, Decimal
  * @brief Accumulates a run of ASCII digits onto a magnitude, most significant first.
  *
  * @param[in,out] value Magnitude to accumulate onto [BORROWS].
+ * @param[in,out] used  A count of limbs at or above which every limb of `value` is zero [BORROWS].
  * @param[in]     text  Decimal text [BORROWS].
  * @param[in]     from  First digit.
  * @param[in]     to    One past the last digit.
  * @return              1 where the magnitude ran off the top limb, 0 otherwise.
+ * @note Takes nine digits a step. The magnitude is multiplied by 10^9 and the nine digits are added
+ *       as one limb. A text overruns the width in nine digit steps exactly where it overruns one
+ *       digit at a time, because every partial value is at most the finished one.
  * @warning On a return of 1 `value` holds a wrapped magnitude. Callers run this on a copy they
  *          discard on refusal.
  */
-static int magnitude_accumulate_digits(uint32_t *value, const char *text, size_t from, size_t to)
+static int magnitude_accumulate_digits(uint32_t *value, size_t *used, const char *text,
+                                       size_t from, size_t to)
 {
-    for (size_t at = from; at < to; at++)
+    size_t at = from;
+    while (at < to)
     {
-        if (magnitude_multiply_small(value, 10u) != 0)
+        const size_t remaining = to - at;
+        const size_t step = (remaining > (size_t)LIMB_DECIMAL_DIGITS)
+                            ? (size_t)LIMB_DECIMAL_DIGITS : remaining;
+        uint32_t digits = 0u;
+        for (size_t within = 0u; within < step; within++)
+        {
+            // decimal_layout checked that the byte is an ASCII digit, and the difference is 0 to 9.
+            // Nine of them fold to at most 999999999, below 2^32.
+            digits = (digits * 10u) + (uint32_t)(text[at + within] - '0');
+        }
+        if (magnitude_multiply_small(value, used, TEN_TO[step]) != 0)
         {
             return 1;
         }
-        // The byte is an ASCII digit, checked by decimal_layout, so the difference is 0 to 9.
-        if (magnitude_add_small(value, (uint32_t)(text[at] - '0')) != 0)
+        if (magnitude_add_small(value, used, digits) != 0)
         {
             return 1;
         }
+        at += step;
     }
     return 0;
 }
 
 /**
- * @brief Reads decimal text into a value and an uncertainty at `digits` places, writing only on
- *        success.
+ * @brief Reads decimal text into a value and an uncertainty at `digits` places, in staging integers
+ *        the caller discards on a refusal.
  *
  * @param[in]  text        Decimal text [BORROWS].
  * @param[in]  length      How many bytes of text.
  * @param[in]  digits      Decimal places to carry both results at.
- * @param[out] value       Where the value is written [BORROWS].
- * @param[out] uncertainty Where the uncertainty is written [BORROWS].
+ * @param[out] value       Staging integer the value is read into [BORROWS].
+ * @param[out] uncertainty Staging integer the uncertainty is read into [BORROWS].
  * @param[out] carried     Where 1 or 0 is written for a bracketed uncertainty [BORROWS].
  * @return                 ANCHOR_EXACT_OK, ANCHOR_EXACT_NOT_DECIMAL or ANCHOR_EXACT_WILL_NOT_FIT.
  * @note The shared body of anchor_exact_from_decimal and anchor_exact_from_measured. One reading of
  *       the grammar serves both, and the two entries cannot accept different text.
+ * @warning On a refusal `value` and `uncertainty` hold partial limbs. Both entries pass integers of
+ *          their own and copy out only on ANCHOR_EXACT_OK. A refusal leaves a caller's untouched.
+ *          An earlier form read into two limb arrays of its own and then copied, which put a third
+ *          and fourth width-sized array on the stack beside the entry's two.
  */
 static AnchorExactStatus decimal_read(const char *text, size_t length, uint32_t digits,
                                       AnchorExactInteger *value, AnchorExactInteger *uncertainty,
@@ -535,21 +663,22 @@ static AnchorExactStatus decimal_read(const char *text, size_t length, uint32_t 
         return ANCHOR_EXACT_WILL_NOT_FIT;
     }
 
-    uint32_t magnitude[ANCHOR_EXACT_LIMBS];
-    memset(magnitude, 0, sizeof(magnitude));
-    if ((magnitude_accumulate_digits(magnitude, text, layout.whole_from, layout.whole_to) != 0)
-        || (magnitude_accumulate_digits(magnitude, text, layout.fraction_from, trimmed_to) != 0))
+    anchor_exact_zero(value);
+    size_t value_used = 0u;
+    if ((magnitude_accumulate_digits(value->limb, &value_used, text, layout.whole_from,
+                                     layout.whole_to) != 0)
+        || (magnitude_accumulate_digits(value->limb, &value_used, text, layout.fraction_from,
+                                        trimmed_to) != 0))
     {
         return ANCHOR_EXACT_WILL_NOT_FIT;
     }
     // places is at most digits, checked above, so the difference fits the uint32_t it is passed as.
-    if (magnitude_scale_by_ten(magnitude, digits - (uint32_t)places) != 0)
+    if (magnitude_scale_by_ten(value->limb, &value_used, digits - (uint32_t)places) != 0)
     {
         return ANCHOR_EXACT_WILL_NOT_FIT;
     }
 
-    uint32_t spread[ANCHOR_EXACT_LIMBS];
-    memset(spread, 0, sizeof(spread));
+    anchor_exact_zero(uncertainty);
     if (layout.carried != 0)
     {
         // The bracketed digits count units of the last place printed, trailing zeros included.
@@ -558,21 +687,21 @@ static AnchorExactStatus decimal_read(const char *text, size_t length, uint32_t 
         {
             return ANCHOR_EXACT_WILL_NOT_FIT;
         }
-        if (magnitude_accumulate_digits(spread, text, layout.uncertainty_from,
-                                        layout.uncertainty_to) != 0)
+        size_t spread_used = 0u;
+        if (magnitude_accumulate_digits(uncertainty->limb, &spread_used, text,
+                                        layout.uncertainty_from, layout.uncertainty_to) != 0)
         {
             return ANCHOR_EXACT_WILL_NOT_FIT;
         }
         // printed is at most digits, checked above, so the difference fits the uint32_t.
-        if (magnitude_scale_by_ten(spread, digits - (uint32_t)printed) != 0)
+        if (magnitude_scale_by_ten(uncertainty->limb, &spread_used, digits - (uint32_t)printed)
+            != 0)
         {
             return ANCHOR_EXACT_WILL_NOT_FIT;
         }
     }
 
-    memcpy(value->limb, magnitude, sizeof(magnitude));
     settle_sign(value, layout.sign);
-    memcpy(uncertainty->limb, spread, sizeof(spread));
     settle_sign(uncertainty, 1);
     *carried = layout.carried;
     return ANCHOR_EXACT_OK;

@@ -16,11 +16,14 @@
  * @note A library cannot be its own oracle. Checking these operations against a second routine in
  *       this same file would pass forever, because both would carry any error the author made about
  *       what the answer is.
- * @note Rows are printed as a sign and the limbs in hex, least significant first. Rendering a
- *       decimal here would need division, which this representation does not implement, and would
- *       put a second thing to be wrong between the arithmetic and the check.
+ * @note Rows are printed as a sign, how many limbs the value uses, and those limbs in hex, least
+ *       significant first. Rendering a decimal here would need division, which this representation
+ *       does not implement, and would put a second thing to be wrong between the arithmetic and the
+ *       check.
  * @note Subject text is printed as the hex of its bytes. Several subjects carry spaces, tabs and
  *       line feeds, and a row split on whitespace would cut them apart.
+ * @note Every integer here has static storage. One integer is 128 KiB at 32768 limbs and this
+ *       driver holds more than a hundred, which no default stack holds.
  */
 
 #include "exact_integer.h"
@@ -60,16 +63,56 @@ static const char *const SUBJECTS[] = {
 #define SUBJECT_COUNT (sizeof(SUBJECTS) / sizeof(SUBJECTS[0]))
 
 /**
+ * @brief Decimal places the width holds for the largest value the planted runs reach.
+ *
+ * @note The runs and their lags stay below 2^5. A value there at p places needs 5 bits plus
+ *       p * log2(10). log10(2) is carried as 30102 parts in 100000, rounded down, and this never
+ *       names more places than the width holds.
+ */
+#define PLACES_HELD ((((unsigned long long)ANCHOR_EXACT_BITS - 5ull) * 30102ull) / 100000ull)
+
+/**
  * @brief Decimal places every subject is carried at.
  *
  * @note Smaller than the 1024 places representation.exact ingests at. A product of two subjects at
  *       24 places sits at 48 places and fits the width, which lets the multiply rows check products
  *       and not only refusals.
+ * @note 24 at 128 bits and every width above. A narrower width carries the places it holds. The
+ *       agreement runs are then read and counted at every width instead of refused at the first
+ *       position.
+ *       The narrowing to uint32_t is taken only where PLACES_HELD is below 24.
  */
-#define PLACES 24u
+#define PLACES ((PLACES_HELD < 24ull) ? (uint32_t)PLACES_HELD : 24u)
 
-/** @brief Digits in the one subject built at run time to overrun the width. */
-#define WIDE_DIGITS 1100u
+/* The runs step by a quarter, which takes two places. The narrowest width, 32 bits, holds eight.
+ * Written in the three forms exact_integer.h uses: static_assert for C++, _Static_assert for C11,
+ * and a negative array size for a compiler taking this in a mode older than C11. */
+#if defined(__cplusplus)
+static_assert(PLACES_HELD >= 2ull, "the narrowest width must hold the two places a quarter step takes");
+#elif defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 201112L)
+_Static_assert(PLACES_HELD >= 2ull, "the narrowest width must hold the two places a quarter step takes");
+#else
+typedef char bench_exact_places_hold_a_quarter[(PLACES_HELD >= 2ull) ? 1 : -1];
+#endif
+
+/**
+ * @brief Digits in the one subject built at run time to overrun the width.
+ *
+ * @note 10^digits reaches 2^ANCHOR_EXACT_BITS at ANCHOR_EXACT_BITS * log10(2) digits. log10(2) is
+ *       carried as 30103 parts in 100000, rounded up, and two digits are added. The subject overruns
+ *       at every width. A fixed 1100 digits overran 3456 bits and fit inside 4096, and the refusal
+ *       it was there to check went unchecked.
+ */
+#define WIDE_DIGITS ((((unsigned long long)ANCHOR_EXACT_BITS * 30103ull) / 100000ull) + 2ull)
+
+/**
+ * @brief Powers of ten the refusal row scales 7 by, enough to overrun the width.
+ *
+ * @note 10^WIDE_DIGITS already passes 2^ANCHOR_EXACT_BITS, and 7 times it does too. A fixed 2000
+ *       needs 6647 bits and fits every width from 8192 up, where the row would have read a refusal
+ *       that never happened. The narrowing is safe because WIDE_DIGITS is at most 315654.
+ */
+#define SCALE_PAST_WIDTH ((uint32_t)WIDE_DIGITS)
 
 /**
  * @brief Prints the bytes of a text as lowercase hex, with no separator.
@@ -88,14 +131,22 @@ static void emit_text(const char *text)
 }
 
 /**
- * @brief Prints one integer as a sign and its limbs in hex.
+ * @brief Prints one integer as a sign, how many limbs it uses, and those limbs in hex.
  *
  * @param[in] value The integer [BORROWS].
+ * @note Only the limbs up to the highest nonzero one, since every limb above it is zero. Printing
+ *       the whole width put 295 KB on every row at 32768 limbs.
  */
 static void emit_limbs(const AnchorExactInteger *value)
 {
-    printf(" %d", (int)value->sign);
-    for (size_t at = 0u; at < (size_t)ANCHOR_EXACT_LIMBS; at++)
+    size_t used = (size_t)ANCHOR_EXACT_LIMBS;
+    while ((used > 0u) && (value->limb[used - 1u] == 0u))
+    {
+        used--;
+    }
+    // used is at most 32768, which the unsigned it is printed as holds on every target.
+    printf(" %d %u", (int)value->sign, (unsigned)used);
+    for (size_t at = 0u; at < used; at++)
     {
         printf(" %08x", value->limb[at]);
     }
@@ -152,9 +203,11 @@ static void read_subject(size_t index, const char *text, AnchorExactInteger *hel
 {
     const size_t length = strlen(text);
 
-    AnchorExactInteger value;
+    // The sentinel is built by the same call as the value. The two start identical.
+    static AnchorExactInteger sentinel;
+    set_sentinel(&sentinel);
+    static AnchorExactInteger value;
     set_sentinel(&value);
-    const AnchorExactInteger sentinel = value;
     const AnchorExactStatus status = anchor_exact_from_decimal(text, length, PLACES, &value);
     printf("read %u ", (unsigned)index);
     emit_text(text);
@@ -172,8 +225,8 @@ static void read_subject(size_t index, const char *text, AnchorExactInteger *hel
         *held = value;
     }
 
-    AnchorExactInteger measured;
-    AnchorExactInteger uncertainty;
+    static AnchorExactInteger measured;
+    static AnchorExactInteger uncertainty;
     int carried = 7;
     set_sentinel(&measured);
     set_sentinel(&uncertainty);
@@ -203,12 +256,13 @@ static void read_subject(size_t index, const char *text, AnchorExactInteger *hel
  */
 static void run_arithmetic(void)
 {
-    static char wide[WIDE_DIGITS + 1u];
-    memset(wide, '9', WIDE_DIGITS);
+    static char wide[WIDE_DIGITS + 1ull];
+    // WIDE_DIGITS is at most 315654 at the widest width, which size_t holds on every target.
+    memset(wide, '9', (size_t)WIDE_DIGITS);
     wide[WIDE_DIGITS] = '\0';
 
     const size_t total = SUBJECT_COUNT + 1u;
-    AnchorExactInteger held[SUBJECT_COUNT + 1u];
+    static AnchorExactInteger held[SUBJECT_COUNT + 1u];
     char label[128];
 
     for (size_t at = 0u; at < SUBJECT_COUNT; at++)
@@ -221,7 +275,7 @@ static void run_arithmetic(void)
     {
         for (size_t high = 0u; high < total; high++)
         {
-            AnchorExactInteger result;
+            static AnchorExactInteger result;
 
             (void)snprintf(label, sizeof(label), "add %u %u", (unsigned)low, (unsigned)high);
             AnchorExactStatus status = anchor_exact_add(&held[low], &held[high], &result);
@@ -253,21 +307,24 @@ static void run_arithmetic(void)
  */
 static void run_refusals(void)
 {
-    AnchorExactInteger seven;
+    static AnchorExactInteger seven;
     (void)anchor_exact_from_decimal("7", 1u, 0u, &seven);
-    AnchorExactInteger scaled = seven;
-    const AnchorExactStatus scale_status = anchor_exact_scale_by_ten(&scaled, 2000u);
+    static AnchorExactInteger scaled;
+    scaled = seven;
+    const AnchorExactStatus scale_status = anchor_exact_scale_by_ten(&scaled, SCALE_PAST_WIDTH);
     printf("keep scale %d %d\n", (int)scale_status,
            ((scale_status != ANCHOR_EXACT_OK) && (memcmp(&scaled, &seven, sizeof(scaled)) == 0))
                ? 1 : 0);
 
-    AnchorExactInteger largest;
+    static AnchorExactInteger largest;
     memset(largest.limb, 0xFF, sizeof(largest.limb));
     largest.sign = 1;
 
-    AnchorExactInteger result;
+    // The sentinel is built by the same call as the result. The two start identical.
+    static AnchorExactInteger sentinel;
+    set_sentinel(&sentinel);
+    static AnchorExactInteger result;
     set_sentinel(&result);
-    const AnchorExactInteger sentinel = result;
     const AnchorExactStatus add_status = anchor_exact_add(&largest, &largest, &result);
     printf("keep add %d %d\n", (int)add_status,
            ((add_status != ANCHOR_EXACT_OK) && (memcmp(&result, &sentinel, sizeof(result)) == 0))
@@ -290,7 +347,7 @@ static void run_refusals(void)
 static void run_agreement(void)
 {
     enum { PLACES_IN_RUN = 64 };
-    AnchorExactInteger positions[PLACES_IN_RUN];
+    static AnchorExactInteger positions[PLACES_IN_RUN];
     uint64_t values[PLACES_IN_RUN];
     char label[128];
 
@@ -314,7 +371,7 @@ static void run_agreement(void)
     for (unsigned step = 1u; step <= 12u; step++)
     {
         char text[64];
-        AnchorExactInteger lag;
+        static AnchorExactInteger lag;
         (void)snprintf(text, sizeof(text), "%u.%02u", step / 4u, (step % 4u) * 25u);
         if (anchor_exact_from_decimal(text, strlen(text), PLACES, &lag) != ANCHOR_EXACT_OK)
         {
@@ -350,7 +407,7 @@ static const uint64_t REPEATED_VALUES[] = {1u, 2u, 3u, 4u, 1u, 2u, 3u, 4u, 1u, 2
 static void run_repeated_agreement(void)
 {
     enum { ENTRIES = sizeof(REPEATED_POSITIONS) / sizeof(REPEATED_POSITIONS[0]) };
-    AnchorExactInteger positions[ENTRIES];
+    static AnchorExactInteger positions[ENTRIES];
     for (size_t at = 0u; at < (size_t)ENTRIES; at++)
     {
         if (anchor_exact_from_decimal(REPEATED_POSITIONS[at], strlen(REPEATED_POSITIONS[at]),
@@ -364,7 +421,7 @@ static void run_repeated_agreement(void)
     for (unsigned step = 0u; step <= 8u; step++)
     {
         char text[64];
-        AnchorExactInteger lag;
+        static AnchorExactInteger lag;
         (void)snprintf(text, sizeof(text), "%u.%02u", step / 4u, (step % 4u) * 25u);
         if (anchor_exact_from_decimal(text, strlen(text), PLACES, &lag) != ANCHOR_EXACT_OK)
         {

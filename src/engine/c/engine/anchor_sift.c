@@ -20,6 +20,24 @@
 
 #include <string.h>
 
+/* The dispatch rule in anchor_steer_prefers_free compares 100 * total^2 against
+ * 85 * distinct * sum(count^2) for a census whose total is a 64 bit count. The right side is below
+ * 2^7 * 2^8 * 2^128 = 2^143: 85 is below 2^7, at most 256 symbols are distinct, and a sum of squared
+ * counts is at most total^2. The narrowest power of two width holding 143 bits is 256, which is
+ * 8 limbs. Narrower, the rule refuses on a large enough corpus, and which engine a corpus is given
+ * would change with the width. The engine refuses the width here instead. The exact integer on its
+ * own builds and grades down to 1 limb. Written in the three forms exact_integer.h uses for its
+ * asserts: static_assert for C++, _Static_assert for C11, and a negative array size before C11. */
+#if defined(__cplusplus)
+static_assert(ANCHOR_EXACT_BITS >= 256u,
+              "the steering rule needs 143 bits; build the engine at 8 exact limbs or more");
+#elif defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 201112L)
+_Static_assert(ANCHOR_EXACT_BITS >= 256u,
+               "the steering rule needs 143 bits; build the engine at 8 exact limbs or more");
+#else
+typedef char anchor_sift_steering_rule_fits_the_width[(ANCHOR_EXACT_BITS >= 256u) ? 1 : -1];
+#endif
+
 #if ANCHOR_SIFT_COUNT_READS
 
 uint64_t anchor_sift_probes = 0u;
@@ -399,6 +417,8 @@ void anchor_steer_probe_order(size_t *offsets, size_t count, const AnchorFieldCe
  *       be. Writing the two limbs directly is reading that declaration, not reaching around it;
  *       there is no decimal text here to route through anchor_exact_from_decimal and converting a
  *       counter to text to parse it back would be slower and no more exact.
+ * @note limb[1] exists because the assert at the top of this file holds the engine to 8 limbs or
+ *       more.
  */
 static void steer_exact_from_u64(AnchorExactInteger *value, uint64_t from)
 {
@@ -422,30 +442,29 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
         return 0;
     }
 
-    AnchorExactInteger total;
+    // Three integers, each built in place, since every exact operation accepts its result aliasing
+    // an input. The six this held before came to 768 KiB at 32768 limbs, and with the multiply's
+    // accumulator that passes the 1 MiB stack the MSVC linker gives a main thread.
     AnchorExactInteger left;
     AnchorExactInteger right;
-    AnchorExactInteger sum_of_squares;
     AnchorExactInteger term;
-    AnchorExactInteger factor;
-
-    steer_exact_from_u64(&total, census->total);
 
     // left = 100 * total^2
-    if (anchor_exact_multiply(&total, &total, &left) != ANCHOR_EXACT_OK)
+    steer_exact_from_u64(&left, census->total);
+    if (anchor_exact_multiply(&left, &left, &left) != ANCHOR_EXACT_OK)
     {
         return 0;
     }
-    steer_exact_from_u64(&factor, 100u);
-    if (anchor_exact_multiply(&left, &factor, &left) != ANCHOR_EXACT_OK)
+    steer_exact_from_u64(&term, 100u);
+    if (anchor_exact_multiply(&left, &term, &left) != ANCHOR_EXACT_OK)
     {
         return 0;
     }
 
-    // sum_of_squares = sum over symbols of count^2, accumulated in the limb form and not in a
-    // 64 bit counter. A single count squares to at most total^2, which already passes 2^64 on a
-    // four gigabyte corpus, and 256 of them are summed on top of that.
-    anchor_exact_zero(&sum_of_squares);
+    // right = sum over symbols of count^2, accumulated in the limb form and not in a 64 bit
+    // counter. A single count squares to at most total^2, which already passes 2^64 on a four
+    // gigabyte corpus, and 256 of them are summed on top of that.
+    anchor_exact_zero(&right);
     for (unsigned int symbol = 0u; symbol < ANCHOR_STEER_SYMBOLS; symbol += 1u)
     {
         if (census->occurrences[symbol] == 0u)
@@ -457,20 +476,20 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
         {
             return 0;
         }
-        if (anchor_exact_add(&sum_of_squares, &term, &sum_of_squares) != ANCHOR_EXACT_OK)
+        if (anchor_exact_add(&right, &term, &right) != ANCHOR_EXACT_OK)
         {
             return 0;
         }
     }
 
-    // right = 85 * distinct * sum_of_squares
-    steer_exact_from_u64(&factor, 85u);
-    if (anchor_exact_multiply(&sum_of_squares, &factor, &right) != ANCHOR_EXACT_OK)
+    // right = 85 * distinct * right
+    steer_exact_from_u64(&term, 85u);
+    if (anchor_exact_multiply(&right, &term, &right) != ANCHOR_EXACT_OK)
     {
         return 0;
     }
-    steer_exact_from_u64(&factor, (uint64_t)census->distinct);
-    if (anchor_exact_multiply(&right, &factor, &right) != ANCHOR_EXACT_OK)
+    steer_exact_from_u64(&term, (uint64_t)census->distinct);
+    if (anchor_exact_multiply(&right, &term, &right) != ANCHOR_EXACT_OK)
     {
         return 0;
     }
