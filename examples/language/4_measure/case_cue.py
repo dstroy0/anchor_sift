@@ -34,7 +34,7 @@
 # the first place cannot have. The ratio of the first place to the profile average is printed both ways.
 #
 # What this cannot see: a treebank records the reading a word had where it appeared, not every reading it
-# could have, so corpora of unlike size are not safely compared against each other. Each language is
+# could have. Corpora of unlike size are not safely compared against each other. Each language is
 # compared only against itself here, which that limit does not reach.
 
 import io

@@ -97,7 +97,7 @@ PAGE = re.compile(r"^===== page (\d+) =====$")
 MARKER = re.compile(r"\b[TN](?:\.[^:\s{}]*)*:")
 
 # A brace is punctuation on both sides of the comparison. The record delimits a span with them and
-# one paper cites a reduplication template written in them, so neither side may keep them.
+# one paper cites a reduplication template written in them. Neither side may keep them.
 EDGES = ".,!?;:“”‘’\"'()[]…«»{}"
 
 # A token carrying any of these is the language. The union of every orthography in the set, since a
@@ -106,7 +106,7 @@ MARKS = MARKED + PRACTICAL + "̓̔̕ʷ˽"
 
 """The font substitution two of these papers needed lives in font_repair.py, and the guarded form
 of it is what belongs here. The readers apply every substitution inside a language column and the
-guarded one everywhere else, and the check has no columns to work from, so it takes the guarded
+guarded one everywhere else, and the check has no columns to work from. It takes the guarded
 form for the whole source. That leaves an all-caps gloss label and an address alone, and that stops
 INCEPT and jmlyon@sfu.ca being counted as words of the language and then reported as holes.
 
@@ -119,7 +119,7 @@ JOINING = "̴̡̢̧̨̰̱̮̓̕"
 
 # The Lyon extraction ran a word's first two columns together wherever the segmentation opens at
 # the root, giving ’qwQaylqs√ ’qwQay=lqs where the paper prints a word above its own analysis. Both
-# readers split that, so the source is split the same way here. Without it the source carries one
+# readers split that. The source is split the same way here. Without it the source carries one
 # token the extraction has no reason to hold and 46 words of one paper were reported as holes while
 # sitting in the file under their own two names. The test is the reader's: a root marker with a
 # bare word before it is two columns, one with morpheme separators before it is a segmentation.
@@ -256,7 +256,7 @@ def extracted_tokens(path, marks=MARKS):
     Read from the whole content column instead of from the braces inside it. The record writes a
     span as kind:{text}, and one of these papers cites a reduplication template that is itself
     written in braces, {C1aC2-ɬəχ.t.ana(n).θot}, which ends a span early and lost the token. The
-    span markers hold no character of any of these languages, so taking the column entire costs
+    span markers hold no character of any of these languages. Taking the column entire costs
     nothing, and the column is the last field of every paper's format.
     """
     held = {}
@@ -266,7 +266,7 @@ def extracted_tokens(path, marks=MARKS):
                 continue
             content = line.rstrip("\n").split("\t")[-1]
             # The marker runs into the first word of its span, giving T.spoken.transcription:{iʔ
-            # as one token, so it comes out before the column is split into words.
+            # as one token. It comes out before the column is split into words.
             content = MARKER.sub(" ", content).replace("{", " ").replace("}", " ")
             for token, times in marked_tokens(content, marks).items():
                 held[token] = held.get(token, 0) + times

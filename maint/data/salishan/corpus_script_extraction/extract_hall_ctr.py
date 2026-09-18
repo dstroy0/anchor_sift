@@ -18,7 +18,7 @@
 # same rule that holds Kim's underlying forms and Wolfe's reconstructions out of theirs.
 #
 # A star marks a form the analysis predicts and the language does not have. The paper writes it two
-# ways, *[kícetxʷ] and [*kícexʷ], so both are tested for.
+# ways, *[kícetxʷ] and [*kícexʷ]. Both are tested for.
 #
 # WHAT THE DERIVATION TABLES HOLD
 #
@@ -35,7 +35,7 @@
 #
 # Section 3.1.1 argues from two other languages. ʔayʔaǰuθəm has -θi and St'át'imcets has -ci, and the
 # paper's point is that neither can hold an underlying /s/. Newman's proto-Salish *c and *ci are in
-# there too. The who column carries all of them, so none reaches a nɬeʔkepmxcín corpus.
+# there too. The who column carries all of them. None reaches a nɬeʔkepmxcín corpus.
 
 import io
 import os
@@ -116,7 +116,7 @@ SURFACE = re.compile(r"\[([^\[\]\s]+)\]")
 UNDERLYING = re.compile(r"/([^/\s]+)/")
 
 # A form the analysis predicts and the language does not have. The paper stars outside the brackets
-# in *[kícetxʷ] and inside them in [*kícexʷ], so the test is for a star in either place.
+# in *[kícetxʷ] and inside them in [*kícexʷ]. The test is for a star in either place.
 STAR = "*"
 
 # The one sentence in the paper somebody said. Everything else in it is cited from a dictionary.
@@ -138,7 +138,7 @@ ELSEWHERE = {
 }
 
 # The syllable boundary, which is notation and not a letter. The paper prints [kícne] in one place
-# and [kíc.ne] in another for the same word, so leaving the dots in would put two spellings of it in
+# and [kíc.ne] in another for the same word. Leaving the dots in would put two spellings of it in
 # the corpus. They come out on the way to the pure file and stay in the record.
 SYLLABLE = "."
 

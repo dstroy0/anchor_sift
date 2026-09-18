@@ -17,7 +17,7 @@
 # Nothing here divides, holds a ratio, or compares an energy. A band is exactly full or it is not, a
 # boolean. The reading is presence and a popcount, a cardinality of quanta. The null is drawn as the
 # union of many shuffles of the object's own magnitudes: scattered something fills a whole outer shell
-# only by an accident the null rarely reaches, so a full shell that survives the null is a genuine band.
+# only by an accident the null rarely reaches. A full shell that survives the null is a genuine band.
 #
 # Positive control: an atom with a full core and one full outer shell reads that shell as its valence,
 # and the shell survives the null. Negative control: the same amount of something scattered at random

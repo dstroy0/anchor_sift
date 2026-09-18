@@ -144,7 +144,7 @@ def destination(where):
     text = where.replace("\\", "/")
     for name, stands in ANCHOR.items():
         text = text.replace("$" + name, stands)
-    # Most tools find the root by walking up from __file__ into a local name, so the target reads as
+    # Most tools find the root by walking up from __file__ into a local name. The target reads as
     # $something/build/corpora. Anything behind a name and in front of a real top directory is that
     # walk. Dropping it leaves a destination a reader can place.
     text = ROOTED.sub("", text)
@@ -160,7 +160,7 @@ def destination(where):
 
 
 def module_names(tree):
-    """Module level names bound to a path, so `open(TARGET, "w")` resolves to what TARGET is.
+    """Module level names bound to a path. `open(TARGET, "w")` resolves to what TARGET is.
 
     Almost every tool here names its destination once at the top and writes to that name later, so
     without this pass the common case is the unresolved case. Two rounds, because a destination is

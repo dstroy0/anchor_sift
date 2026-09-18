@@ -21,7 +21,7 @@
 # being formal, recipes sit between source code and narrative prose. If register is only formality, they
 # sit with the prose they are written in.
 #
-# Books are taken across as many centuries as the catalog holds, so anything constant across them is not a
+# Books are taken across as many centuries as the catalog holds. Anything constant across them is not a
 # property of one era's writing.
 
 import io

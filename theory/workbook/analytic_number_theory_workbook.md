@@ -30,7 +30,7 @@ numbers, and checks the values a second way that never touches `pi`.
   `1/6, 1/90, 1/945, 1/9450, 1/93555, 691/638512875, 2/18243225, 3617/325641566250`. `pi` is computed
   to 80 places by Machin's formula and by Euler's, and they agree.
 - The second route: Euler's convolution identity, `sum_{j=1}^{k-1} zeta(2j) zeta(2k-2j) =
-  (k + 1/2) zeta(2k)`. Every term carries `pi^(2k)`, so the factor cancels and the identity is an exact
+(k + 1/2) zeta(2k)`. Every term carries `pi^(2k)`. The factor cancels and the identity is an exact
   rational statement about the `c_k`, derived a different way than the Bernoulli formula. It holds on
   the computed coefficients. A wrong coefficient, `zeta(4) = pi^4/80` in place of `/90`, breaks it, the
   drawn null.
@@ -60,11 +60,11 @@ facts and connects them to the measurement floor.
 - Prior art: Cantor 1891 for the diagonal, Turing 1936 for the computable reals being a countable
   subset, and the standard result that the computable reals have measure zero. Reported from a web
   search, not from the primary papers, which are unread here; the constructions are reproduced and
-  verified in the file, so the file stands on the reproduction, not the citation.
+  verified in the file. The file stands on the reproduction, not the citation.
 
 **The connection, stated carefully.** A zeta value at an even integer is `c_k * pi^(2k)`, an exactly
 nameable number, one point in the countable set. A measured quantity is a real the engine can only
-bracket to its deposit, and almost every real has no finite description, so it lies in the uncountable
+bracket to its deposit, and almost every real has no finite description. It lies in the uncountable
 complement. The measurement floor of the precision document is that boundary. This is an observation
 about where exact and measured quantities sit, and it makes no claim about any open problem.
 
@@ -131,7 +131,7 @@ the no-alias convolution, CRT bijectivity, the Fermat inverse, exact accumulatio
 
 A quantity built only from proven constructors inherits their proof. `zeta(2k) = c_k pi^{2k}` is a
 rational from the Bernoulli recurrence times a power of `pi` from a proven series, combined by proven
-exact multiplication, so its exactness is not a new thing to prove; it is the constructors' exactness
+exact multiplication. Its exactness is not a new thing to prove; it is the constructors' exactness
 carried through. The convolution identity is then a check that the carried value is the intended one, a
 second route in the sense Blum, Luby and Rubinfeld gave result checking: a simpler independent
 computation that catches a faulty one without trusting it. What is never inherited is a statement about
@@ -157,7 +157,7 @@ the zeros, because no constructor produces one.
 
 A whole line of work reached for verified arithmetic because floating point could not carry a proof.
 The statement is standard: floating point is subject to rounding and is not suitable for a numerically
-verified proof, so verified computing uses interval arithmetic, carrying each quantity as an interval
+verified proof. Verified computing uses interval arithmetic, carrying each quantity as an interval
 guaranteed to contain the true value, with directed rounding at each step. On zeta, David Platt isolated
 every non-trivial zero with imaginary part below about `3 * 10^10` to an absolute precision of `2^-102`,
 and verified the list complete with a rigorous version of Turing's method, at a cost in multi-precision
@@ -168,7 +168,7 @@ Where exact arithmetic sits in that tradition is worth stating exactly, because 
 Exact arithmetic is the limit of the interval: a zero-width interval, the value carried with no rounding
 at all, when the value is exactly nameable. The zeta VALUES at the integers are exactly nameable, so
 exact arithmetic gives them with no interval. A non-trivial ZERO is not: it is a transcendental point in
-the critical strip, one of the uncountable reals with no finite description from entry 2, so no
+the critical strip, one of the uncountable reals with no finite description from entry 2. No
 arithmetic, exact included, names it. The most any computation does with a zero is bracket it, and
 Platt's `2^-102` interval is that bracket done rigorously. Exact arithmetic does not supersede that
 work; it sharpens the value side to zero width and leaves the zero side to the same verified enclosure

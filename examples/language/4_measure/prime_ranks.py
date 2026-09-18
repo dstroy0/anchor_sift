@@ -13,7 +13,7 @@
 # Goddard proposes 65 primes, words claimed to be undefinable and to have an exponent in every language.
 # The two look similar and the resemblance may be an accident of which primes were noticed.
 #
-# NSM defines a prime by semantic indefinability, which says nothing about how often it is used, so there
+# NSM defines a prime by semantic indefinability, which says nothing about how often it is used. There
 # is no reason for a prime to be frequent. This checks it: if the primes cluster at the top of a ranking
 # they are the same object as the head, and if they scatter across it they are not.
 #

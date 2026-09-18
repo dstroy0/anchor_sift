@@ -16,14 +16,14 @@
 # each word into morphemes in underlying form, the third glosses each morpheme, and the fourth translates.
 # So the first line of a block is what she said and the lines under it are analysis of it.
 #
-# Sentences in section 2 wrap across lines of the PDF between timestamps, so the lines between one
+# Sentences in section 2 wrap across lines of the PDF between timestamps. The lines between one
 # timestamp and the next are one sentence and are joined. Treating each line as its own sentence made the
 # later line overwrite the earlier one and dropped the front of every long sentence.
 #
 # Bev Phillips wrote this story herself, deliberately in the style of the old sptékʷɬ, and says so in her
 # own introduction. The audio was published with the paper. The authors note in a footnote that the
 # recording and the transcription differ slightly, because a draft was used for the recording and they
-# chose to edit the text and leave the recording unaltered, so the two are not the same object.
+# chose to edit the text and leave the recording unaltered. The two are not the same object.
 
 import io
 import os
@@ -211,7 +211,7 @@ def three_line_parts(block):
     A sentence too long for the page is printed in parts, and each part gets the same three lines:
     the sentence as spoken, its segmentation, then its gloss. The parts repeat until the free
     translation closes the block. Block 10 is two of them, and reading its lines one at a time
-    recorded the first part as the sentence and left ʔé scwúws néʔe e spéym flagged, so half of what
+    recorded the first part as the sentence and left ʔé scwúws néʔe e spéym flagged. Half of what
     Bev Phillips said sat outside the record while the other half looked complete.
 
     Position in the cycle decides which line is which. Content cannot: a segmentation and a
@@ -278,7 +278,7 @@ def main():
     for when, number, block in gloss_blocks(held["4"]):
         parts, translation, leftover, slipped = three_line_parts(block)
         if slipped:
-            # The count slipped, so every line after that point is in the wrong column and none of
+            # The count slipped. Every line after that point is in the wrong column and none of
             # them can be named. The block is flagged whole.
             slipped_blocks += 1
             for one in block:
@@ -302,7 +302,7 @@ def main():
     # Every line of the paper no section reached, added to the record as unclassified. The marked
     # file then holds every token of the language the paper printed, which for this one is
     # section 1 and the front matter. They stay out of the pure stream and are listed in the flag
-    # file, so the record is complete without anything being called classified that is not.
+    # file. The record is complete without anything being called classified that is not.
     missed = unreached(lines, covered_tokens(one[5] for one in rows), repair=tidy)
     for page, where, reason, missing, text in missed:
         rows.append(("T", 0, "page %d" % page, "not reached", UNCLASSIFIED, text))
@@ -317,7 +317,7 @@ def main():
         handle.write("# because a draft was used for the recording and the text was edited after.\n")
         handle.write("#\n")
         handle.write("# T = target language, nɬeʔkepmxcín.  N = non-target, English.\n")
-        handle.write("# One line per line she spoke, so the switches stay grouped and sortable.\n")
+        handle.write("# One line per line she spoke. The switches stay grouped and sortable.\n")
         handle.write("# Gloss categories are the paper's own, from its footnote 3, unchanged.\n")
         handle.write("line\ttime\tsection\tswitches\tcontent\n")
         for tag, number, when, section, kind, text in rows:
@@ -334,7 +334,7 @@ def main():
     # The ingestion stream: only what she said, only in the target language, nothing around it.
     # A mixed line contributes its target spans and not its English ones, and no gloss, no
     # segmentation, no translation and no metadata reach this file at all.
-    # Sections 2 and 4 are two printings of the same story, so writing both puts every sentence
+    # Sections 2 and 4 are two printings of the same story. Writing both puts every sentence
     # into the stream twice. A span already written is not written again and the count skipped is
     # reported, since a large skip means the two printings agree and a small one means they differ.
     pure = TARGET[:-4] + ".pure.txt"
@@ -383,7 +383,7 @@ def main():
     for tag, number, when, section, kind, text in rows:
         marks[tag] = marks.get(tag, 0) + 1
     # Counted over spoken lines only. A segmentation line is target-language material full of
-    # plain-letter underlying forms, so the span test fires on it and calling that a switch would
+    # plain-letter underlying forms. The span test fires on it and calling that a switch would
     # report code-switching that was not done.
     mixed = sum(1 for row in rows
                 if (row[0] == "T") and (row[4] == "transcription") and is_mixed(row[5]))

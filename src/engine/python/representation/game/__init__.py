@@ -9,7 +9,7 @@ then moves backward, that a dealt card is gone from the deck, and that a hand of
 a ranking nobody here invented.
 
 That last property is why this subject is here. A game carries its own answer key. A terminal
-position is win, loss or draw by the rules of the game and not by anything measured, so the outcome
+position is win, loss or draw by the rules of the game and not by anything measured. The outcome
 distribution under a move is a quantity with a right value. For a game small enough to enumerate,
 that right value can be computed outright rather than estimated, and an estimator that disagrees
 with it is wrong in a way no amount of sampling can argue with.
@@ -22,9 +22,9 @@ Four backends live here and they are deliberately different in kind:
     chess       perfect information, no chance, and far too large to solve
 
 The first three give a solved arm. Chess does not, and that is the point of including it: it is the
-only one of the four where the number has to be estimated, so it is the only one where the estimator
+only one of the four where the number has to be estimated. It is the only one where the estimator
 can be wrong without the disagreement showing up locally.
 
-Every backend exposes the same six calls and nothing else, so the measurement code never learns
+Every backend exposes the same six calls and nothing else. The measurement code never learns
 which game it is reading. See `rules.py` for the protocol those calls satisfy.
 """

@@ -131,7 +131,7 @@ def index_of(session):
 def fetch(session, address, path):
     """One PDF onto disk, whole, or nothing.
 
-    Written to a part file and moved into place, so an interrupted run leaves no half a paper for
+    Written to a part file and moved into place. An interrupted run leaves no half a paper for
     the next run to read as complete.
     """
     answer = session.get(address, timeout=120, stream=True)
@@ -227,7 +227,7 @@ def report_unfaithful(out, stems):
     """What to say about the papers whose text is the font's encoding, or nothing when there are none."""
     if not stems:
         return
-    out.write("\n  %d of these are not the page. Their fonts declare no ToUnicode map, so what\n"
+    out.write("\n  %d of these are not the page. Their fonts declare no ToUnicode map. What\n"
               % len(stems))
     out.write("  came out is the encoding: cítxws@lx where the page prints cítxʷsəlx. Read the\n")
     out.write("  page instead, and do not build an extraction on the text.\n")
@@ -303,7 +303,7 @@ def main():
     # contents. --all would have printed 846 of those.
     if not every:
         out.write("  the index page listed no papers at all, which is not what an archive with\n")
-        out.write("  993 of them looks like. The page is there and answers 200, so the address is\n")
+        out.write("  993 of them looks like. The page is there and answers 200. The address is\n")
         out.write("  right and something else is being served.\n\n")
         out.write("  Open %s in a browser and see what it says.\n" % INDEX)
         out.write("  Where a check has to be passed by a person, it is yours to pass, not this\n")

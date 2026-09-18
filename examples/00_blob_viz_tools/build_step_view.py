@@ -52,7 +52,7 @@ K = [
 START = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
          0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]
 
-# A real 512-bit message tail, so the trace is of something that occurs and not of zeros.
+# A real 512-bit message tail. The trace is of something that occurs and not of zeros.
 # Word 3 is what --bit 96 through 127 varies.
 TAIL = [0x9d10aa52, 0x4dcc1dd0, 0x1b04864c, 0x9895d4b1]
 
@@ -135,7 +135,7 @@ def main():
     # A template whose script tag is never closed still runs when the file is opened directly,
     # because nothing follows the script to get swallowed. Published, the wrapper's closing tags
     # land inside the unterminated script, where they are a JavaScript syntax error, and the whole
-    # page is dead. That failure is invisible from here, so refuse to write it.
+    # page is dead. That failure is invisible from here. Refuse to write it.
     if "</script>" not in page:
         raise SystemExit("template is truncated: the script tag is never closed")
 

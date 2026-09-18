@@ -160,7 +160,7 @@ static void magnitude_subtract(const uint32_t *left, const uint32_t *right, uint
     uint64_t borrow = 0u;
     for (size_t at = 0u; at < (size_t)ANCHOR_EXACT_LIMBS; at++)
     {
-        // LIMB_BASE keeps the arithmetic non negative before the narrowing below, so no unsigned
+        // LIMB_BASE keeps the arithmetic non negative before the narrowing below. No unsigned
         // wrap has to be reasoned about at the point the limb is stored.
         const uint64_t total = LIMB_BASE + (uint64_t)left[at] - (uint64_t)right[at] - borrow;
         result[at] = (uint32_t)(total & LIMB_MASK);
@@ -186,7 +186,7 @@ int anchor_exact_compare(const AnchorExactInteger *left, const AnchorExactIntege
     const int order = magnitude_compare(left->limb, right->limb);
     if (left->sign < 0)
     {
-        // Both negative, so the larger magnitude is the smaller value.
+        // Both negative. The larger magnitude is the smaller value.
         return -order;
     }
     return order;
@@ -672,7 +672,7 @@ static AnchorExactStatus decimal_read(const char *text, size_t length, uint32_t 
     {
         return ANCHOR_EXACT_WILL_NOT_FIT;
     }
-    // places is at most digits, checked above, so the difference fits the uint32_t it is passed as.
+    // places is at most digits, checked above. The difference fits the uint32_t it is passed as.
     if (magnitude_scale_by_ten(value->limb, &value_used, digits - (uint32_t)places) != 0)
     {
         return ANCHOR_EXACT_WILL_NOT_FIT;
@@ -693,7 +693,7 @@ static AnchorExactStatus decimal_read(const char *text, size_t length, uint32_t 
         {
             return ANCHOR_EXACT_WILL_NOT_FIT;
         }
-        // printed is at most digits, checked above, so the difference fits the uint32_t.
+        // printed is at most digits, checked above. The difference fits the uint32_t.
         if (magnitude_scale_by_ten(uncertainty->limb, &spread_used, digits - (uint32_t)printed)
             != 0)
         {
@@ -858,7 +858,7 @@ size_t anchor_exact_agreement_using(int (*equal)(const AnchorExactInteger *left,
     size_t *table = (size_t *)malloc(slots * sizeof(size_t));
     if (table == NULL)
     {
-        // No table, so the scan answers instead. Slower and correct beats absent.
+        // No table. The scan answers instead. Slower and correct beats absent.
         return agreement_without_table(equal, positions, values, count, lag);
     }
 
@@ -875,7 +875,7 @@ size_t anchor_exact_agreement_using(int (*equal)(const AnchorExactInteger *left,
         {
             slot = (slot + 1u) & mask;
         }
-        // An empty slot takes the entry. A slot already holding this position takes it too, so the
+        // An empty slot takes the entry. A slot already holding this position takes it too. The
         // table ends up holding the last entry for every position.
         table[slot] = at;
     }

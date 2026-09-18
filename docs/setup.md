@@ -15,14 +15,14 @@ python -m pip install numpy
 
 The measure, the reference and every example that reads a corpus you already have need nothing beyond that. The rest are per-tool and each one says so when it is missing:
 
-| package | what needs it |
-|---|---|
-| `numpy` | the engine, and 75 call sites across the tree |
-| `pypdf` | reading papers, `maint/data/salishan/get_papers.py --convert` |
-| `requests` | the corpus fetchers under `maint/data/fetch/` and `get_papers.py` |
-| `matplotlib` | the corpus derivation figure |
-| `soundfile` | the sound representation, which reads recordings |
-| `Pillow` | reading an image as a byte sequence |
+| package      | what needs it                                                     |
+| ------------ | ----------------------------------------------------------------- |
+| `numpy`      | the engine, and 75 call sites across the tree                     |
+| `pypdf`      | reading papers, `maint/data/salishan/get_papers.py --convert`     |
+| `requests`   | the corpus fetchers under `maint/data/fetch/` and `get_papers.py` |
+| `matplotlib` | the corpus derivation figure                                      |
+| `soundfile`  | the sound representation, which reads recordings                  |
+| `Pillow`     | reading an image as a byte sequence                               |
 
 Install what a tool asks for when it asks. A missing package is reported by name with the install line, and the rest of the tree keeps working.
 
@@ -66,7 +66,7 @@ The build fails if a book drops a glyph. That is deliberate: these books set Sal
 
 ## Corpora
 
-None are in git. `examples/` takes a corpus path as an argument, so anything you already have works.
+None are in git. `examples/` takes a corpus path as an argument. Anything you already have works.
 
 To build the language corpora this work measured, the fetchers under `maint/data/fetch/` pull from public archives:
 

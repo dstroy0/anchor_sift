@@ -107,7 +107,7 @@ def one_width(width):
 def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     out.write("  Does the sub-pixel floor fall with the feature width, or hold?\n")
-    out.write("  Lit area held near constant, so only the width moves.\n\n")
+    out.write("  Lit area held near constant. Only the width moves.\n\n")
     out.write("  %-8s %-8s %-10s %-10s %-10s %-10s %s\n"
               % ("width", "blobs", "mean err", "worst err", "whole lag", "cross axis", "valid"))
 
@@ -137,7 +137,7 @@ def main():
         out.write("  That is flat. The floor is the mechanism and not the feature width, and the\n")
         out.write("  reading offered in CEL-2-001 is refuted by its own sweep.\n")
     elif moved > 0.0:
-        out.write("  The error falls as the blobs narrow, so the floor is the feature width and\n")
+        out.write("  The error falls as the blobs narrow. The floor is the feature width and\n")
         out.write("  a figure quoted for microscopy has to be quoted at a nucleus's real width.\n")
     else:
         out.write("  The error RISES as the blobs narrow, which neither outcome predicted and\n")

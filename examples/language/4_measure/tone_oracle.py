@@ -9,8 +9,8 @@
 #   Usage:  python examples/language/4_measure/tone_oracle.py
 #
 # Three languages here carry tone and none of them lets it be taken out. Chinese fuses it into the
-# character, so removing it means removing the word. Thai spreads it across marks and the class of the
-# initial consonant together, so no set of codepoints is the tone. Japanese never writes its pitch accent
+# character. Removing it means removing the word. Thai spreads it across marks and the class of the
+# initial consonant together. No set of codepoints is the tone. Japanese never writes its pitch accent
 # at all.
 #
 # Vietnamese writes six tones as marks on a Latin base, and those marks are separate from the ones that
@@ -18,7 +18,7 @@
 # horn are the vowel and must survive. So the tone alone can be deleted, which no other
 # language here allows, and what the reading loses is what tone was worth to it.
 #
-# That matters because a syllable in Vietnamese carries six meanings under six tones, so removing the
+# That matters because a syllable in Vietnamese carries six meanings under six tones. Removing the
 # marks collapses six words into one and destroys a great deal of the language while leaving every letter
 # in place. If the reading barely moves, it was never reading anything that tone carries.
 #

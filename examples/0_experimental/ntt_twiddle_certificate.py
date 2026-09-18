@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/0_experimental/ntt_twiddle_certificate.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. A number theoretic transform is exact only if its modulus is prime, its stated generator is
 # a primitive root, and the root it builds twiddles from has order exactly the transform length. Each
 # of those is a constant, and a constant taken on trust is a silent wrong answer waiting: the twiddle
@@ -18,7 +18,7 @@
 # Three things are shown. First, the certificate: every modulus used here, the three device primes and
 # the goldilocks prime from that paper plus the prime the image_transforms translation transform uses,
 # re-derived from scratch. Second, the rejection: a composite of the same Proth shape and a false
-# primitive-root claim are refused by the same checks that pass the real ones, so the checks can fail
+# primitive-root claim are refused by the same checks that pass the real ones. The checks can fail
 # and passing means something. Third, the floor: a root of HALF the required order passes every
 # invariant computable from the table in O(n), and only the order test, two exponentiations, separates
 # it. That is the paper's central result reproduced here (theory_bucket/twiddle_constants_article.tex, its section on a root of half the order and the only test that catches it).
@@ -48,7 +48,7 @@ PINNED = [
 def distinct_prime_factors(number):
     """The distinct primes dividing `number`, by trial division. Exact and unbounded.
 
-    The moduli here are at most 64 bits, so p-1 factors in well under a second by trial division and
+    The moduli here are at most 64 bits. P-1 factors in well under a second by trial division and
     needs nothing heavier. The primitive-root test below needs only the distinct primes, not their
     multiplicities.
     """
@@ -103,7 +103,7 @@ def order_dividing(element, prime, bound):
     """The multiplicative order of `element` modulo `prime`, given it divides `bound`.
 
     Walks the divisors of `bound` upward and returns the first that annihilates the element. Used only
-    where the order is known to divide a small power of two, so the walk is short.
+    where the order is known to divide a small power of two. The walk is short.
     """
     for candidate_order in range(1, bound + 1):
         if bound % candidate_order == 0 and pow(element, candidate_order, prime) == 1:
@@ -147,7 +147,7 @@ def report_rejection(out):
               % (composite, sorted(factors), composite - 1, "rejected" if not certified else "PASSED(!)"))
 
     # A false primitive-root claim: 9 = 3^2 is a perfect square, hence a quadratic residue, hence never
-    # a primitive root. Its order divides (p-1)/2, so the q=2 check catches it.
+    # a primitive root. Its order divides (p-1)/2. The q=2 check catches it.
     prime = 998244353
     prime_factors = distinct_prime_factors(prime - 1)
     false_claim = 9
@@ -155,7 +155,7 @@ def report_rejection(out):
     residue = pow(false_claim, (prime - 1) // 2, prime)
     out.write("  generator %d claimed for %d: %d^((p-1)/2) = %d (not 1 would be needed) -> %s\n"
               % (false_claim, prime, false_claim, residue, "rejected" if not primitive else "PASSED(!)"))
-    out.write("\n  a check that cannot fail is not a check. these two fail, so the passes above hold.\n\n")
+    out.write("\n  a check that cannot fail is not a check. these two fail. The passes above hold.\n\n")
     return (not certified) and (not primitive)
 
 

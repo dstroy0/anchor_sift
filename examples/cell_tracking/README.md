@@ -25,15 +25,15 @@ python examples/cell_tracking/3_reference/what_a_shuffle_returns.py
 python examples/cell_tracking/4_measure/where_the_coarms_stop_paying.py
 ```
 
-| file | catalog | what it asks | what it reports |
-|---|---|---|---|
-| `1_represent/how_far_a_cell_moves.py` | CEL-1-001 | how big is a cell and how far does it move | 49 px across, 3.5 px a frame, 59 of 95 tracks born of division |
-| `2_partition/what_a_pixel_costs.py` | CEL-2-001 | does a sub-pixel displacement survive the grid | 0.1479 px against 0.2222 px for rounding, at 6 px features |
-| `2_partition/where_the_floor_comes_from.py` | CEL-2-002 | is the floor the feature width or the mechanism | error is about width/40, so the width |
-| `3_reference/what_a_shuffle_returns.py` | CEL-3-001 | does the reading depart from a permutation null | moved axis concentrates 57x more than a still one |
-| `4_measure/where_the_coarms_stop_paying.py` | CEL-4-001 | how many co-arms, and how far to sweep lags | 1.28x from co-arms, flat from 4 to 16, collapses at 64 |
-| `4_measure/what_the_levels_buy.py` | CEL-4-002 | how many levels to read intensities at | optimum at 256, which is eight bits; 32 cost a factor of 2.2 |
-| `6_oracle/entropy_before_a_division.py` | CEL-6-001 | does a division move a cell's own entropy | yes, and signed: the daughters together read 0.29 bits BELOW the parent, 89% of the time, 73.7 floors out |
+| file                                        | catalog   | what it asks                                    | what it reports                                                                                           |
+| ------------------------------------------- | --------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `1_represent/how_far_a_cell_moves.py`       | CEL-1-001 | how big is a cell and how far does it move      | 49 px across, 3.5 px a frame, 59 of 95 tracks born of division                                            |
+| `2_partition/what_a_pixel_costs.py`         | CEL-2-001 | does a sub-pixel displacement survive the grid  | 0.1479 px against 0.2222 px for rounding, at 6 px features                                                |
+| `2_partition/where_the_floor_comes_from.py` | CEL-2-002 | is the floor the feature width or the mechanism | error is about width/40. The width                                                                        |
+| `3_reference/what_a_shuffle_returns.py`     | CEL-3-001 | does the reading depart from a permutation null | moved axis concentrates 57x more than a still one                                                         |
+| `4_measure/where_the_coarms_stop_paying.py` | CEL-4-001 | how many co-arms, and how far to sweep lags     | 1.28x from co-arms, flat from 4 to 16, collapses at 64                                                    |
+| `4_measure/what_the_levels_buy.py`          | CEL-4-002 | how many levels to read intensities at          | optimum at 256, which is eight bits; 32 cost a factor of 2.2                                              |
+| `6_oracle/entropy_before_a_division.py`     | CEL-6-001 | does a division move a cell's own entropy       | yes, and signed: the daughters together read 0.29 bits BELOW the parent, 89% of the time, 73.7 floors out |
 
 `1_represent` and `6_oracle` need the dataset. The rest are synthetic and need nothing.
 
@@ -52,7 +52,7 @@ fetcher refuses a selection larger than the free space, and stops before any sin
 leave under 20 GB of headroom.
 
 Files land in `repos/external/datasets/` with flat names, outside every repository. That directory
-is not a git repository, so nothing there can be committed by accident.
+is not a git repository. Nothing there can be committed by accident.
 
 **No measurement in this directory has been run against those datasets yet.** Everything above is
 synthetic.
@@ -73,7 +73,7 @@ necessary condition for the method to work on microscopy and nowhere near a suff
 
 1. That the sub-pixel fraction transfers from `examples/crystallography` at full strength. It does
    not. The crystal mechanism accumulates a fraction over a tile series and two frames supply one
-   displacement and no series, so the figure is 1.5x over rounding and not four hundred.
+   displacement and no series. The figure is 1.5x over rounding and not four hundred.
 2. That the cross-axis reading of 0.47 px is a floor the method carries. It is what this measure
    returns when handed no arrangement, and the control was passing.
 3. That co-arms buy 3.5x. They buy 1.28x. The 3.5x compared a single displacement of 3.4, which
@@ -87,7 +87,7 @@ files with no reason given for either, returns identical figures at 5, 8, 16 and
 
 Every number in the table above is printed by the file beside it, with no arguments and no
 configuration. `SEED` is fixed at `0x51F7` in `2_partition/what_a_pixel_costs.py` and every other
-file imports it, so two runs on two machines return the same digits.
+file imports it. Two runs on two machines return the same digits.
 
 To change what is swept rather than what is measured, edit the module-level tuples: `TRUTHS` and
 `LEVELS` in `what_a_pixel_costs.py`, `WIDTHS` in `where_the_floor_comes_from.py`, `COUNTS` and

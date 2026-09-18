@@ -24,7 +24,7 @@ WHY THE DEVICE ANSWER IS CHECKED AGAINST THE HOST
 
 A packing count on a card is a number nobody can eyeball. So the same protocol runs on the host at
 low dimensions where it can still reach, and the two have to land on the same constant. They draw
-their candidates from different generators, so the counts differ by the sampling noise of a few
+their candidates from different generators. The counts differ by the sampling noise of a few
 hundred points and the constants have to agree inside it.
 """
 
@@ -159,7 +159,7 @@ def constant(shape, dims, gap, kept):
 # The typical distance was the first criterion and it is worthless in high dimensions, where the
 # separation between two points drawn on a sphere concentrates near root two whatever the dimension
 # is. A gap held at half of that is half the radius of curvature, and a cap that wide is nothing
-# like the flat disc the count assumes. The cube's facets are flat and suffer no such thing, so the
+# like the flat disc the count assumes. The cube's facets are flat and suffer no such thing. The
 # two shapes part company and the answer reads as shape-dependence. At twelve dimensions that
 # criterion passed a run whose constants spread by 2.1 times.
 #
@@ -211,7 +211,7 @@ def _check():
             print("")
             continue
         if loose:
-            print("  %-10s %5d did not saturate, so the count is a floor: %s" %
+            print("  %-10s %5d did not saturate. The count is a floor: %s" %
                   ("", dims, ", ".join(one[0] for one in loose)))
             print("  %-10s %5d not decided here" % ("", dims))
             print("")

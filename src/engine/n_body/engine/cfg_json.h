@@ -12,7 +12,7 @@
  *
  * @note A .cfg is JSON with one restriction. A number is an integer, and a fraction or exponent is
  *       refused by name at parse time. Every measured quantity the configuration carries is an
- *       integer in a named unit, voxel sizes in picometers among them, so no value arrives rounded.
+ *       integer in a named unit, voxel sizes in picometers among them. No value arrives rounded.
  * @note The reader allocates nothing. The caller hands it a token array, and each token records a
  *       byte range of the text. A string is read out of the text only when a caller asks for it.
  */
@@ -44,7 +44,7 @@ typedef enum
  * @brief One value, or one member name, as a byte range of the text.
  *
  * @note Tokens are laid out in text order with every child after its parent. The children of a
- *       token are the tokens from its index plus one up to `past`, so a caller skips a whole value
+ *       token are the tokens from its index plus one up to `past`. A caller skips a whole value
  *       by jumping to `past`.
  */
 typedef struct
@@ -88,7 +88,7 @@ int cfg_json_parse(const char *text, size_t length, CfgJsonToken *tokens, unsign
  * @param[in] token The token [BORROWS].
  * @param[in] name  The name, NUL terminated [BORROWS].
  * @return          1 where the token is a string equal to `name` byte for byte, 0 otherwise.
- * @note Compares the raw bytes of the text, so an escaped character in the text never equals the
+ * @note Compares the raw bytes of the text. An escaped character in the text never equals the
  *       character it stands for.
  */
 int cfg_json_names(const char *text, const CfgJsonToken *token, const char *name);

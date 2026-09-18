@@ -32,16 +32,16 @@ The run shrinks as the width grows, from 4096 positions at 128 limbs and below t
 
 An **arm** is one implementation of the operations the measure asks for. Every arm answers the same counts, and the portable C11 one is the reference. Where two disagree, one of them has a defect and nothing about the difference is a tradeoff.
 
-Every arm is one file in `no_rounding/`, named for its instruction set, so the set of arms is a directory listing.
+Every arm is one file in `no_rounding/`, named for its instruction set. The set of arms is a directory listing.
 
-| file | arm | instruction |
-|---|---|---|
-| `no_rounding/arm_portable.c` | `portable` | none, C11 alone |
-| `no_rounding/arm_avx2.c` | `avx2-win` or `avx2-linux` | `vpcmpeqd` on `ymm`, eight limbs at once |
-| `no_rounding/arm_avx512.c` | `avx512-unrun` | `vpcmpeqd` on `zmm` against a mask, sixteen at once |
-| `no_rounding/arm_neon.c` | `neon` | `cmeq` and `uminv`, four limbs at once |
-| `no_rounding/arm_sve.c` | `sve-unrun` | `whilelo`, `cmpne`, whatever length the part has |
-| `no_rounding/arm_cuda.cu` | `cuda` | one position per thread, not one limb per lane |
+| file                         | arm                        | instruction                                         |
+| ---------------------------- | -------------------------- | --------------------------------------------------- |
+| `no_rounding/arm_portable.c` | `portable`                 | none, C11 alone                                     |
+| `no_rounding/arm_avx2.c`     | `avx2-win` or `avx2-linux` | `vpcmpeqd` on `ymm`, eight limbs at once            |
+| `no_rounding/arm_avx512.c`   | `avx512-unrun`             | `vpcmpeqd` on `zmm` against a mask, sixteen at once |
+| `no_rounding/arm_neon.c`     | `neon`                     | `cmeq` and `uminv`, four limbs at once              |
+| `no_rounding/arm_sve.c`      | `sve-unrun`                | `whilelo`, `cmpne`, whatever length the part has    |
+| `no_rounding/arm_cuda.cu`    | `cuda`                     | one position per thread, not one limb per lane      |
 
 The AVX2 arm is one file for every x86 build. It carries both detection paths, MSVC's `cpuid` and the builtin GCC and Clang share, and reports the operating system in its own name so two builds running the same instructions are still told apart in a row. Every arm asks the processor at run time before it is used, because the build machine and the running machine are not the same machine.
 
@@ -71,21 +71,21 @@ A vector arm timed against a reference doing work the problem never asked for is
 
 Run against portable, agreeing on every lag at every size:
 
-| arm | machine | 1,024 | 8,192 | 65,536 |
-|---|---|---|---|---|
-| `avx2-win` | MinGW gcc 13.2, this host | 1.38x | 1.20x | 1.19x |
-| `avx2-linux` | WSL gcc 14.2 | 1.24x | 1.26x | 1.41x |
-| `avx2-linux` | WSL clang 20.1 | 1.15x | 1.11x | 1.11x |
-| `neon` | Pi 5, Cortex-A76, gcc 14.2 | 1.16x | 1.12x | 1.10x |
-| `cuda` | RTX 3070, compute 8.6 | **0.34x** | 1.29x at 4,096 | 8.63x |
+| arm          | machine                    | 1,024     | 8,192          | 65,536 |
+| ------------ | -------------------------- | --------- | -------------- | ------ |
+| `avx2-win`   | MinGW gcc 13.2, this host  | 1.38x     | 1.20x          | 1.19x  |
+| `avx2-linux` | WSL gcc 14.2               | 1.24x     | 1.26x          | 1.41x  |
+| `avx2-linux` | WSL clang 20.1             | 1.15x     | 1.11x          | 1.11x  |
+| `neon`       | Pi 5, Cortex-A76, gcc 14.2 | 1.16x     | 1.12x          | 1.10x  |
+| `cuda`       | RTX 3070, compute 8.6      | **0.34x** | 1.29x at 4,096 | 8.63x  |
 
 Widening the comparison is worth ten to forty percent. It cannot reach three times, because the comparison is no longer most of the work: the hash probe and the memory it touches are.
 
-**These are host clock timings and the host is not quiet.** `clock()` on this platform measures wall time, so anything else running on the machine moves the numbers. Another session was running processor work in bursts through the afternoon and reported it, and that report is the only reason it is known. Every CUDA figure above is a median of five runs taken on an idle card; the spread across those five is 0.29 to 0.45 at a thousand positions and 7.82 to 9.13 at sixty five thousand. A lone run is worth about ten percent either way. The gcc-14 row is a median of five for the same reason, taken after one run read 0.89x, an outright loss.
+**These are host clock timings and the host is not quiet.** `clock()` on this platform measures wall time. Anything else running on the machine moves the numbers. Another session was running processor work in bursts through the afternoon and reported it, and that report is the only reason it is known. Every CUDA figure above is a median of five runs taken on an idle card; the spread across those five is 0.29 to 0.45 at a thousand positions and 7.82 to 9.13 at sixty five thousand. A lone run is worth about ten percent either way. The gcc-14 row is a median of five for the same reason, taken after one run read 0.89x, an outright loss.
 
-Device side timing through CUDA events would be immune to this and the host arms would still not be. Both arms of a ratio run back to back in one process, so load moves them together and mostly cancels. The medians landed within ten percent of the single runs they replaced for that reason.
+Device side timing through CUDA events would be immune to this and the host arms would still not be. Both arms of a ratio run back to back in one process. Load moves them together and mostly cancels. The medians landed within ten percent of the single runs they replaced for that reason.
 
-**Read the CUDA row from the left.** It **runs slower at a thousand positions**, breaks even near four thousand, and runs eight times faster at sixty five thousand. The bus sets the crossover. This arm copies the whole run to the device before it computes anything, so the loss at small sizes is a property of the transfer and travels with the arm wherever it goes. Sizing a workload from the 8.63x alone would put it where the arm is three times slower than doing nothing special.
+**Read the CUDA row from the left.** It **runs slower at a thousand positions**, breaks even near four thousand, and runs eight times faster at sixty five thousand. The bus sets the crossover. This arm copies the whole run to the device before it computes anything. The loss at small sizes is a property of the transfer and travels with the arm wherever it goes. Sizing a workload from the 8.63x alone would put it where the arm is three times slower than doing nothing special.
 
 A ratio holds only against the portable arm in **that same build**. The CUDA driver is compiled by MSVC and the CMake one by MinGW, and their portable arms are not the same object. A number in one row therefore does not compare to a number in another.
 
@@ -93,20 +93,20 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 
 ## What is here
 
-| file | what it is |
-|---|---|
-| `engine/anchor_sift.{c,h}` | the search, the steering and the portable scan, with no clock and no output |
-| `engine/scan_<set>.c` | one wide scan arm per instruction set, `scan_avx2.c` today |
-| `no_rounding/` | the exact integer and every arm that reads it, one file per instruction set |
-| `render/anchor_raster.{c,h}`, `render/raster_cuda.cu` | the direct renderer, host and device |
-| `bench/bench_corpora.{c,h}` | the generated corpora and the two statistics a dispatch decision reads |
-| `bench/bench_lattice.c` | soundness, where the claim actually lives |
-| `bench/bench_scaling.c` | what the sift costs per alignment as the corpus grows |
-| `bench/bench_dispatch.c` | which arm to run, and what the two thresholds should be |
-| `bench/bench_coherence.c` | at what scale the corpus agrees with itself, read before the search |
-| `bench/bench_raster.c` | renders every sheet and volume configuration and grades host against device |
-| `bench/bench_sift.c` | candidates, skip distance and anchor independence over byte strings. Not wired up |
-| `bench/bench_entropy.c`, `bench/bench_ab.c`, `bench/bench_cycles.c` | not wired up |
+| file                                                                | what it is                                                                        |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `engine/anchor_sift.{c,h}`                                          | the search, the steering and the portable scan, with no clock and no output       |
+| `engine/scan_<set>.c`                                               | one wide scan arm per instruction set, `scan_avx2.c` today                        |
+| `no_rounding/`                                                      | the exact integer and every arm that reads it, one file per instruction set       |
+| `render/anchor_raster.{c,h}`, `render/raster_cuda.cu`               | the direct renderer, host and device                                              |
+| `bench/bench_corpora.{c,h}`                                         | the generated corpora and the two statistics a dispatch decision reads            |
+| `bench/bench_lattice.c`                                             | soundness, where the claim actually lives                                         |
+| `bench/bench_scaling.c`                                             | what the sift costs per alignment as the corpus grows                             |
+| `bench/bench_dispatch.c`                                            | which arm to run, and what the two thresholds should be                           |
+| `bench/bench_coherence.c`                                           | at what scale the corpus agrees with itself, read before the search               |
+| `bench/bench_raster.c`                                              | renders every sheet and volume configuration and grades host against device       |
+| `bench/bench_sift.c`                                                | candidates, skip distance and anchor independence over byte strings. Not wired up |
+| `bench/bench_entropy.c`, `bench/bench_ab.c`, `bench/bench_cycles.c` | not wired up                                                                      |
 
 Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` is MMgr's test support, at `deps/mmgr/test/support/`. Run `python maint/deps/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it, since `bench_corpora` fills every corpus with splitmix64.
 
@@ -126,17 +126,17 @@ Occurrences are planted, and they have to be. A pattern of `p` points over `L` s
 
 ## bench_scaling, and what it settles
 
-Reads and cycles come from two builds of one source, because counting perturbs the timing it would sit beside. `ANCHOR_SIFT_COUNT_READS` is inert at its default, so the timed build is the object it was without the counters.
+Reads and cycles come from two builds of one source, because counting perturbs the timing it would sit beside. `ANCHOR_SIFT_COUNT_READS` is inert at its default. The timed build is the object it was without the counters.
 
 ### The asymptotic question, and what the sweep answers
 
 **Does the cost per alignment depend on N?** No. Across 1024 times in corpus length, the three corpora give the same answer.
 
-| corpus | probes per alignment, 4 KB to 4 MB | verifications per alignment |
-|---|---|---|
-| uniform | 1.003611 → 1.003923 | 0.000000 throughout |
-| skewed | 1.380587 → 1.376459 | 0.013459 → 0.013260 |
-| periodic16 | 1.188197 → 1.187501 | 0.062732 → 0.062500 |
+| corpus     | probes per alignment, 4 KB to 4 MB | verifications per alignment |
+| ---------- | ---------------------------------- | --------------------------- |
+| uniform    | 1.003611 → 1.003923                | 0.000000 throughout         |
+| skewed     | 1.380587 → 1.376459                | 0.013459 → 0.013260         |
+| periodic16 | 1.188197 → 1.187501                | 0.062732 → 0.062500         |
 
 Nothing drifts. The sift is linear in N with a constant that belongs to the distribution. The total work is `O(N)` per needle and the coefficient is fixed by `H2` before the search starts. The small rise in the uniform column is the entropy estimate filling out, from `H2 = 7.9189` at 4 KB to `7.9999` at 4 MB, and the probe rate tracks it to the fourth place.
 
@@ -162,17 +162,17 @@ The miss above does not have to be met. It can be computed before the search, fr
 
 Where `k` anchors collapse onto one independent probe, the histogram overstates the filter by exactly `2^((k-1) * H2)`. For four anchors on a corpus of period sixteen at `H2 = 4.0`, that is `2^12 = 4096`.
 
-| corpus | H2 | period found | agrees | at chance | margin |
-|---|---|---|---|---|---|
-| uniform | 7.999 | none | | 0.0039 | 0.0001 |
-| skewed | 1.598 | none | | 0.3336 | 0.0007 |
-| periodic16 | 4.000 | **16** | 1.0000 | 0.0625 | 1.0000 |
+| corpus     | H2    | period found | agrees | at chance | margin |
+| ---------- | ----- | ------------ | ------ | --------- | ------ |
+| uniform    | 7.999 | none         |        | 0.0039    | 0.0001 |
+| skewed     | 1.598 | none         |        | 0.3336    | 0.0007 |
+| periodic16 | 4.000 | **16**       | 1.0000 | 0.0625    | 1.0000 |
 
-| corpus | independent anchors | histogram says | coherence says | measured | off histogram | off coherence |
-|---|---|---|---|---|---|---|
-| uniform | 4 | 0.000000000 | 0.000000000 | 0.000000000 | nothing survived | nothing survived |
-| skewed | 4 | 0.011789708 | 0.011789708 | 0.013251748 | 1.1 | 1.12 |
-| periodic16 | 1 | 0.000015259 | 0.062500000 | 0.062503577 | **4096.2** | **1.00** |
+| corpus     | independent anchors | histogram says | coherence says | measured    | off histogram    | off coherence    |
+| ---------- | ------------------- | -------------- | -------------- | ----------- | ---------------- | ---------------- |
+| uniform    | 4                   | 0.000000000    | 0.000000000    | 0.000000000 | nothing survived | nothing survived |
+| skewed     | 4                   | 0.011789708    | 0.011789708    | 0.013251748 | 1.1              | 1.12             |
+| periodic16 | 1                   | 0.000015259    | 0.062500000    | 0.062503577 | **4096.2**       | **1.00**         |
 
 The period is recovered with nothing supplied. Each candidate is scored against its own multiples, not by taking the tallest lag: a period of sixteen agrees with itself at 32, 48 and 64 alike, and which of those stands tallest is settled by noise. Scoring against multiples is the same reading `measure.periodicity.sequence_period` performs in the Python engine, where it was caught against a period chemistry fixes at three. The two share no code.
 
@@ -180,13 +180,13 @@ The period is recovered with nothing supplied. Each candidate is scored against 
 
 ### Setting the anchor count from the recovered size
 
-`anchor_sift_run` takes the plan and places the anchors the coherence reading calls for. Where a period is found the anchors after the first refute nothing the first did not already refute, so the count drops to one.
+`anchor_sift_run` takes the plan and places the anchors the coherence reading calls for. Where a period is found the anchors after the first refute nothing the first did not already refute. The count drops to one.
 
-| corpus | anchors placed | probes per alignment at 4 | at the chosen count | saved | survivors |
-|---|---|---|---|---|---|
-| uniform | 4 | 1.003932 | 1.003932 | 0.0% | unmoved |
-| skewed | 4 | 4.000000 | 4.000000 | 0.0% | unmoved |
-| periodic16 | 1 | 1.187511 | 1.000000 | **15.8%** | unmoved |
+| corpus     | anchors placed | probes per alignment at 4 | at the chosen count | saved     | survivors |
+| ---------- | -------------- | ------------------------- | ------------------- | --------- | --------- |
+| uniform    | 4              | 1.003932                  | 1.003932            | 0.0%      | unmoved   |
+| skewed     | 4              | 4.000000                  | 4.000000            | 0.0%      | unmoved   |
+| periodic16 | 1              | 1.187511                  | 1.000000            | **15.8%** | unmoved   |
 
 Survivors have to stay put and do. The anchors dropped were refuting nothing. The bench checks it on every row instead of assuming it.
 
@@ -196,7 +196,7 @@ Survivors have to stay put and do. The anchors dropped were refuting nothing. Th
 
 That is permutation invariance in the open. The histogram sees sixteen symbols at H2 exactly 4.0 and cannot see that the positions are one orbit, and no statistic of that order can.
 
-**The verification floor was an artifact of a small corpus.** At 2789 bytes, one guaranteed occurrence per needle is a large share of the alignments, so the arms converged. At 4 MB the 32 guaranteed occurrences sit in 134 million alignment tests and the floor is gone.
+**The verification floor was an artifact of a small corpus.** At 2789 bytes, one guaranteed occurrence per needle is a large share of the alignments. The arms converged. At 4 MB the 32 guaranteed occurrences sit in 134 million alignment tests and the floor is gone.
 
 ## bench_dispatch, which chose the rule the kernel now ships
 
@@ -204,13 +204,13 @@ The dispatcher used to branch on needle length alone. It never read `plan->colli
 
 The repair was not to switch to the documented rule, because the documented rule is also wrong. `bench_dispatch` sweeps both thresholds over every combination instead of scoring the two that were written by hand, and it reports what it finds per corpus as well as overall.
 
-| rule | picked fastest | cycles given up |
-|---|---|---|
-| always inorder | 25 of 42 | 258,444,233 |
-| always free | 17 of 42 | 54,159,531 |
-| needle length alone, as shipped | 21 of 42 | 178,923,873 |
-| flatness then length, as documented | 33 of 42 | 153,483,501 |
-| flatness alone | 41 of 42 | 1,975,242 |
+| rule                                | picked fastest | cycles given up |
+| ----------------------------------- | -------------- | --------------- |
+| always inorder                      | 25 of 42       | 258,444,233     |
+| always free                         | 17 of 42       | 54,159,531      |
+| needle length alone, as shipped     | 21 of 42       | 178,923,873     |
+| flatness then length, as documented | 33 of 42       | 153,483,501     |
+| flatness alone                      | 41 of 42       | 1,975,242       |
 
 **The flatness threshold survives the sweep and the needle length ceiling does not.** Every threshold from 0.34 to 0.96 scores identically, because the three corpora read 0.96, 0.33 and 1.00 and nothing lies between them. The 0.85 the kernel carried sits inside that interval and stays. The ceiling of 16 is beaten by having no ceiling: the free order arm is faster on a skewed corpus at every needle length from 4 to 256, by 2.95 times on average and 3.42 times at its widest.
 
@@ -218,11 +218,11 @@ Counting rows is the weaker of the two scores and both are printed. A rule that 
 
 Per corpus, for a caller who holds one:
 
-| corpus | flatness | run this | free arm at |
-|---|---|---|---|
-| uniform | 0.9639 | `anchor_inorder` | no length |
-| skewed | 0.3320 | `anchor_free` | every length |
-| periodic16 | 1.0000 | `anchor_inorder` | no length |
+| corpus     | flatness | run this         | free arm at  |
+| ---------- | -------- | ---------------- | ------------ |
+| uniform    | 0.9639   | `anchor_inorder` | no length    |
+| skewed     | 0.3320   | `anchor_free`    | every length |
+| periodic16 | 1.0000   | `anchor_inorder` | no length    |
 
 ## One defect left, unfixed because it is a decision
 

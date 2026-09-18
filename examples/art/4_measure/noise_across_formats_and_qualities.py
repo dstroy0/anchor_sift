@@ -16,9 +16,9 @@
 #
 # THE FORMAT AXIS. The detector reads points carrying values and cannot see a file format. The only way
 # a format can matter is whether it preserves the values. A lossless format (PNG at any depth, a
-# baseline TIFF, the CTC 16-bit TIFF) round-trips the stack bit for bit, so the reading is identical to
+# baseline TIFF, the CTC 16-bit TIFF) round-trips the stack bit for bit. The reading is identical to
 # the one taken before it was written. A lossy format (JPEG) is itself a noise source: its block
-# quantization depends on the local content, so the same fixed pattern added to different frames decodes
+# quantization depends on the local content. The same fixed pattern added to different frames decodes
 # to a DIFFERENT pattern per frame, the per-pixel mean is no longer the pattern, and the removal can no
 # longer reach the bit. The lossy row is not a failure of the instrument; it is the format injecting
 # incoherent noise the instrument then correctly cannot scrub to zero.
@@ -38,7 +38,7 @@
 # Two readings. The real tile as it is: the detector is asked whether a coherent fixed pattern is
 # present, and on this footage it declines -- a real-world negative control, the 100% is not handed out
 # for free. The real tile with a known fixed pattern added: the detector fires and removes it, but real
-# content does NOT sum to zero per pixel, so the per-pixel mean carries the scene's static background
+# content does NOT sum to zero per pixel. The per-pixel mean carries the scene's static background
 # with the pattern and the residual is not the scene. The NRR is below 100% and the shortfall is the
 # floor ART-4-005 named, shown here on real data instead of a constructed static feature.
 #
@@ -104,9 +104,9 @@ CTC_PATTERN = 900    # the fixed pattern added to the real tile, in 16-bit count
 def moving_scene(frame, frames, swing, seed):
     """A scene that sums to zero at every pixel across the frames, built from bounded pairs.
 
-    Each pixel's values over the frames are a value and its negative, so the pixel's mean across the
+    Each pixel's values over the frames are a value and its negative. The pixel's mean across the
     stack is zero as an integer and every sample stays inside [-swing, swing]. A scene like this moves
-    everywhere and sits still nowhere, so it contributes nothing to the per-pixel mean and survives the
+    everywhere and sits still nowhere. It contributes nothing to the per-pixel mean and survives the
     rejection untouched.
     """
     rng = random.Random(seed)
@@ -140,7 +140,7 @@ def stacked(scene, pattern, frame):
 def per_frame_gaussian(scene, sigma, seed):
     """Independent additive noise at every position: the wrong quality of additive noise.
 
-    Unlike a fixed pattern this does not repeat at the frame period, so it carries no phase there and
+    Unlike a fixed pattern this does not repeat at the frame period. It carries no phase there and
     its per-pixel mean across the frames tends to zero. The detector should decline it and the mean
     route should leave it almost entirely intact.
     """
@@ -151,7 +151,7 @@ def per_frame_gaussian(scene, sigma, seed):
 def with_impulses(stack, count, swing, seed):
     """`count` positions replaced by a value from nowhere: replacement noise, the wrong kind entirely.
 
-    Impulses are incoherent, so the frame-period detector should decline them, not scrub them.
+    Impulses are incoherent. The frame-period detector should decline them, not scrub them.
     """
     rng = random.Random(seed)
     out = list(stack)
@@ -163,7 +163,7 @@ def with_impulses(stack, count, swing, seed):
 def poisson_shot(scene, pedestal, seed):
     """Signal-dependent shot noise: each intensity replaced by a Poisson draw about it.
 
-    Incoherent and content-dependent, so it carries no fixed phase and is declined. Built on the
+    Incoherent and content-dependent. It carries no fixed phase and is declined. Built on the
     intensity domain by lifting the signed scene onto a pedestal, drawing, then lowering it back.
     """
     rng = random.Random(seed)
@@ -215,10 +215,10 @@ def reduction(noisy, cleaned, target):
 def byte_view(values):
     """The values mapped linearly onto 0..255 for the detector and its shuffle-drawn null.
 
-    reference.shuffles.permuted builds a bytearray, so the null is drawn in the byte range whatever the
+    reference.shuffles.permuted builds a bytearray. The null is drawn in the byte range whatever the
     depth of the data. The map preserves phase order, which is all the energy detector reads, and a
     coherent addend stays coherent under it. The removal never sees this view; it works on the true
-    integers, so the depth costs the measurement nothing.
+    integers. The depth costs the measurement nothing.
     """
     low = min(values)
     high = max(values)
@@ -416,7 +416,7 @@ def main():
                   % (CTC_PATTERN, planted["present"], planted["routes_agree"],
                      to_float(planted["removed"]) * 100.0))
         out.write("  the shortfall from 100 is the floor: real static background is a per-pixel offset\n")
-        out.write("  across the stack, the exact shape of the pattern, so it is removed with it.\n\n")
+        out.write("  across the stack, the exact shape of the pattern. It is removed with it.\n\n")
 
     out.write("  every removal above is exact rational, the per-pixel mean by two routes checked\n")
     out.write("  bit-exact, the decision drawn against a shuffle null. no float, no threshold.\n")

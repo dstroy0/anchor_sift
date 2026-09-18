@@ -11,7 +11,7 @@
 
 Four repositories on this machine each carried their own `pre-commit`, and between them they ran
 three distinct checks and resolved the same tools four different ways. What differed was never the
-logic. It was which tool, at which path, over which roots. All three of those are settings, so they
+logic. It was which tool, at which path, over which roots. All three of those are settings. They
 moved into `repotools.toml` and the logic became this file.
 
     [hooks]
@@ -62,13 +62,13 @@ def _resolve(cfg, name, settings, default_names):
     """Where a gate's tool is, searched in a stated order, raising when it is nowhere.
 
     The order is: the path the repository named, then the environment variable, then this file's
-    own installation, then the toolkit checkout. Each is printed on failure, so the message says
+    own installation, then the toolkit checkout. Each is printed on failure. The message says
     what was tried instead of only that something was absent.
 
     The installation is looked at before the toolkit because in a repository that fetched this
     file the two are different directories, and the fetched one is the copy the lock names. It
     used to be absent from the order entirely, and the toolkit candidate reached for a root that
-    a fetch never installs: repo/repo_template and code/ are not in any fetch, so the walk ran to
+    a fetch never installs: repo/repo_template and code/ are not in any fetch. The walk ran to
     the filesystem root and raised out of the whole gate run. The first repository to fetch
     gates.py could not run it, and what it printed named a boot marker instead of a missing tool.
     """
@@ -128,7 +128,7 @@ def gate_docs_check(cfg, settings, strict):
     """The prose checker, over this repository's prose roots.
 
     The checker itself is not fetched. It lives under the toolkit's `no_replicate_` tree and stays
-    there, so a repository reaches it by path or by a sibling checkout. That is deliberate and it is
+    there. A repository reaches it by path or by a sibling checkout. That is deliberate and it is
     still a refusal when it cannot be reached: an unreachable checker is an unchecked commit.
     """
     tool = _resolve(
@@ -145,14 +145,14 @@ def gate_docs_check(cfg, settings, strict):
 def gate_fetch_check(cfg, _settings, strict):
     """Every tool fetched from the toolkit, checked against the lock.
 
-    A fetched file edited in this repository refuses. The toolkit is upstream, so an edit here
+    A fetched file edited in this repository refuses. The toolkit is upstream. An edit here
     exists in one tree and is lost by the next fetch. Where the edit is worth keeping it is promoted
     with `repotools adopt` and flows back out to every repository.
     """
     if not fetch.read_lock(cfg):
         print("  %s fetches nothing from the toolkit." % cfg.project_name())
         return findings.EXIT_OK
-    # `strict` was dropped here, so --strict promoted notes in one gate and silently did nothing in
+    # `strict` was dropped here. --strict promoted notes in one gate and silently did nothing in
     # this one. A flag that works for part of what it documents is worse than one that works for none.
     report = findings.Report("fetched tools", strict=strict)
     fetch.check(cfg, report)
@@ -196,7 +196,7 @@ def gate_command(cfg, settings, _strict):
     """
     argv = settings.get("argv")
     if not argv:
-        raise GateMissing("gate command: [hooks.command] names no argv, so it would check nothing.")
+        raise GateMissing("gate command: [hooks.command] names no argv. It would check nothing.")
     return subprocess.call(list(argv), cwd=cfg.where)
 
 
@@ -211,7 +211,7 @@ GATES = {
 def run(cfg, names, strict):
     """Run the named gates in order and return the first refusal.
 
-    Every gate runs even after one refuses, so a commit that has to be fixed is fixed once instead
+    Every gate runs even after one refuses. A commit that has to be fixed is fixed once instead
     of once per gate. The exit code is the first refusal seen.
     """
     worst = findings.EXIT_OK
@@ -234,7 +234,7 @@ def main(argv):
     chosen = [one for one in argv if not one.startswith("-")] or list(cfg.gates())
 
     if not chosen:
-        print("  %s names no gates under [hooks] gates, so nothing was checked." % cfg.project_name())
+        print("  %s names no gates under [hooks] gates. Nothing was checked." % cfg.project_name())
         print("  A repository opts in to each gate by naming it. Known gates: %s." % ", ".join(sorted(GATES)))
         return findings.EXIT_OK
 

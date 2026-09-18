@@ -12,7 +12,7 @@
 #
 # The glyphs are still in those files. What is missing is the map from the font's own character codes back
 # to Unicode, the ToUnicode entry a PDF may or may not carry. Where it is absent the extractor
-# gets a code and has nothing to turn it into, so it emits whatever the code happens to mean in a default
+# gets a code and has nothing to turn it into. It emits whatever the code happens to mean in a default
 # encoding and the marked consonants come out as blanks.
 #
 # This reports, for each font in a file, whether that map is present. A font with a map that still

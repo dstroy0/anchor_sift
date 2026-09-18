@@ -20,7 +20,7 @@
 # reported as such instead of being silently re-sliced into nonsense.
 #
 # Pass keep-layout for a corpus whose line structure was written instead of wrapped. A programming
-# language ignores its own whitespace, so every break in one exists because a person put it there,
+# language ignores its own whitespace. Every break in one exists because a person put it there,
 # and folding it discards the authored layer and moves H2 by 0.187 bits.
 
 import io

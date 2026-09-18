@@ -11,7 +11,7 @@
 #
 # WHY AN OUTSIDE DETECTOR AT ALL
 #
-# docs_check.py was written in this repository, so it finds what somebody here already knew to ban.
+# docs_check.py was written in this repository. It finds what somebody here already knew to ban.
 # Its 303 patterns came from reading findings and adding the phrase that produced them, and that
 # loop cannot reach a habit nobody has noticed yet. A detector trained somewhere else reads this
 # prose without anybody here having tuned it.
@@ -117,7 +117,7 @@ def closed(path):
 def body(path):
     """One file's prose as (text, offsets), offsets[i] holding the source line of character i.
 
-    The extraction is docs_check's, so both instruments read the same words. A .tex arrives with its
+    The extraction is docs_check's. Both instruments read the same words. A .tex arrives with its
     markup blanked, a source file with its code blanked, and a page as itself. Runs are joined the
     way docs_check joins them, since a sentence wrapped across two lines is one sentence.
     """
@@ -306,7 +306,7 @@ def main():
     print("\n  %d file(s) scored, %d at or over %.2f, %d characters sent" % (scored, over, bar,
                                                                              sent))
     if scored == 0:
-        print("  Nothing was scored, so nothing passed.")
+        print("  Nothing was scored. Nothing passed.")
         return 2
     return 1 if over else 0
 

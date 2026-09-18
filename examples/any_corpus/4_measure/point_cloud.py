@@ -20,11 +20,11 @@
 # The reduction is a sum over vectors. Each point takes the displacement to the nearest point holding the
 # same value, and those displacements are summed in two ways, because one of them cancels and the other
 # does not. Their lengths give a spread. Their directions cancel when summed straight, since if one point
-# reaches its neighbor then that neighbor usually reaches back and the two vectors are opposite, so the
+# reaches its neighbor then that neighbor usually reaches back and the two vectors are opposite. The
 # directions are summed as outer products instead, which are unchanged when a vector flips sign. That sum
 # is the orientation tensor and its eigenvalues report whether the displacements share a direction.
 #
-# On a line there is only one direction and the tensor is the constant one, so the orientation channel is
+# On a line there is only one direction and the tensor is the constant one. The orientation channel is
 # undefined below two dimensions and is reported as absent instead of as zero. The length channel is
 # defined everywhere. The null is the same one used throughout: the values are permuted over the points and
 # every coordinate stays.

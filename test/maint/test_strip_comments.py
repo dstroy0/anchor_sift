@@ -6,7 +6,7 @@
 #
 #   python test/maint/test_strip_comments.py
 #
-# Every expected output below was written by reading the input, not by running the tool, so a
+# Every expected output below was written by reading the input, not by running the tool. A
 # defect in the tool cannot also be a defect in its expectation. The negative controls are inputs
 # the tool must refuse. A check that has never refused anything cannot be told apart from one that
 # refuses nothing, and these are what show the refusals fire.

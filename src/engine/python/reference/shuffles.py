@@ -14,7 +14,7 @@
 # not enter.
 #
 # Drawing uniformly from the arrangements of a fixed multiset is the least committal distribution
-# consistent with the observed histogram, so it asserts nothing beyond the quantity already
+# consistent with the observed histogram. It asserts nothing beyond the quantity already
 # measured. That is Jaynes's principle reached from the permutation side, and it is why this one
 # background cannot be wrong while every model can.
 #
@@ -62,7 +62,7 @@ def block_shuffled(seats, span, seed=SEED):
 
 
 def scrambled_within(seats, span, seed=SEED):
-    """Symbols reordered inside each block, so every block keeps exactly the symbols it held.
+    """Symbols reordered inside each block. Every block keeps exactly the symbols it held.
 
     How the corpus drifts from block to block survives untouched and nothing inside a block follows
     anything for a reason. This is the null that answers whether a long match is a real

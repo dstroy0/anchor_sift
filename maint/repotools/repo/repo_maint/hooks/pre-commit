@@ -23,7 +23,7 @@
 #
 # WHY THERE IS NO `if [ -f ... ]` HERE
 #
-# The four hooks this replaces each guarded their checker with one, so a checker that moved read as
+# The four hooks this replaces each guarded their checker with one. A checker that moved read as
 # "not applicable" and the gate turned itself off. Every commit for the rest of that day passed
 # without it and nothing said so. A gate that cannot be run is a refusal, and gates.py raises with
 # the paths it tried. The only test below is for the driver itself, and it stops the commit.

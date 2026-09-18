@@ -20,7 +20,7 @@
 #
 # Two routes take the median and share no code: one sorts the window and reads the middle, the other
 # counts the values and walks the counts to the middle rank. A sort and a counting select reach the
-# same integer by different work, so the two agreeing is a check. A native-C route is the natural
+# same integer by different work. The two agreeing is a check. A native-C route is the natural
 # hardening and is not claimed here.
 
 
@@ -45,7 +45,7 @@ def window_median(values, index, radius, include_center=True):
 def window_median_counted(values, index, radius, include_center=True):
     """The same median, by counting the values and walking to the middle rank. The second route.
 
-    It builds a tally and advances through the values in order until it passes the middle, so it shares
+    It builds a tally and advances through the values in order until it passes the middle. It shares
     no sort with window_median. The two must return the same integer on every window.
     """
     window = _window(values, index, radius, include_center)

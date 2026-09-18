@@ -21,7 +21,7 @@
 # either the SUBJECT, when the subject is the same in every frame, or the NOISE, when the subject varies
 # and a pattern is fixed. BOTH produce the same strong per-pixel mean, and no measurement on the stack
 # separates them, because the split is which one you call signal. That is the caller's declaration, not
-# the detector's finding, so this filter takes a mode:
+# the detector's finding. This filter takes a mode:
 #   --mode fixed-pattern : the subject VARIES frame to frame; the shared per-pixel component is NOISE.
 #                          Reject it by subtracting the per-pixel mean; each frame's residual is its own
 #                          subject. Exact to the bit where the subject sums to zero at each pixel across
@@ -69,9 +69,9 @@ SEED = 0xF17A
 def byte_view(values):
     """The values mapped linearly onto 0..255 for the detector and its shuffle-drawn null.
 
-    reference.shuffles.permuted builds a bytearray, so the null is drawn in the byte range whatever the
+    reference.shuffles.permuted builds a bytearray. The null is drawn in the byte range whatever the
     depth of the data. The map preserves phase order, which is all the energy detector reads. The reject
-    never sees this view; it works on the true integers, so the depth costs the recovery nothing.
+    never sees this view; it works on the true integers. The depth costs the recovery nothing.
     """
     low = min(values)
     high = max(values)
@@ -252,7 +252,7 @@ def load_stack(in_dir):
         sizes.add(image.shape)
         frames.append([int(value) for value in image.reshape(-1).tolist()])
     if len(sizes) != 1:
-        return None, 0, 0, None, "images are not one size, so the stack is not registered: %s" % sorted(sizes)
+        return None, 0, 0, None, "images are not one size. The stack is not registered: %s" % sorted(sizes)
     height, width = sizes.pop()
     stack = []
     for frame in frames:
@@ -318,7 +318,7 @@ def main():
     if in_dir and out_dir:
         if mode not in ("fixed-pattern", "repeat"):
             out.write("  --mode must be fixed-pattern or repeat: the data cannot tell which the shared\n")
-            out.write("  component is, so you declare it. See the header.\n")
+            out.write("  component is. You declare it. See the header.\n")
             out.flush()
             return 2
         code = run_real(out, mode, in_dir, out_dir)

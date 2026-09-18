@@ -1,7 +1,7 @@
 \chapter{From the page to a distribution over sounds}
 
 \textbf{Purpose:} Follow one Salishan word from the mark on the page to a symbol a distribution can
-be taken over, and say which stage each tool in this tree belongs to, so that a reader measuring
+be taken over, and say which stage each tool in this tree belongs to. That a reader measuring
 anything on this corpus knows what their symbols stand for.
 \textbf{Scope:}
 \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}marking.\allowbreak{}py},
@@ -144,7 +144,7 @@ passes through as that same symbol. The mapped uvular and the unmapped velar the
 A pass-through is not free of the namespace it passes into.
 
 Every sound now takes a codepoint of its own from the private use area, assigned by the table and
-never typed, so no sound can collide with a letter the corpus writes. Both errors are recorded
+never typed. No sound can collide with a letter the corpus writes. Both errors are recorded
 instead of quietly fixed, because a table like this is exactly where a wrong assertion is invisible:
 nothing downstream can tell a real merger from a typo.
 
@@ -189,7 +189,7 @@ one experiment.
 
 \textbf{The word web is still built on written forms.} The refs chapter states this and it is
 unchanged: nothing takes a character out of \texttt{TEXT\_\allowbreak{}SPACE} and hands back what it
-stands for at the point the web is built, so two dialects writing one word two ways are still two
+stands for at the point the web is built. Two dialects writing one word two ways are still two
 nodes. Stage three is what would close it.
 
 \textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

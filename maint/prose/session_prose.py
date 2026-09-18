@@ -30,7 +30,7 @@
 # register and not an estimate of it. The same fault, in the same direction, as measuring this
 # repository after a day of scrubbing it.
 #
-# One session, one task, one reader. Register is technical and agentic throughout, so nothing here
+# One session, one task, one reader. Register is technical and agentic throughout. Nothing here
 # speaks for how the model writes about anything else.
 
 import io

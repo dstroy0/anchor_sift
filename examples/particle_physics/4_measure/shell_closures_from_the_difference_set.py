@@ -9,7 +9,7 @@
 #
 # The group signatures in atomic number order are a sequence, and the match rate at a lag is how often
 # a signature equals the one that many elements ahead. A single period would stand up at one lag and
-# its multiples. The periodic table does not: its rows run 2, 8, 8, 18, 18, 32, 32, so no one lag
+# its multiples. The periodic table does not: its rows run 2, 8, 8, 18, 18, 32, 32. No one lag
 # carries the recurrence, and a reader that reported one period would be wrong for most of the table.
 # periodicity.py's header records the same trap from the other side, a period scored against its own
 # harmonics; here the harmonics are genuinely different lengths.
@@ -18,7 +18,7 @@
 # (p,6), with helium closing the first row on (s,2). Those closures sit at the noble gases, and the
 # differences between them are the row lengths, read off the accumulation with no row told to it. That
 # is the crystallography difference-set reading moved to one dimension: a period is a difference
-# between two things that agree, so the complete candidate set is the differences themselves.
+# between two things that agree. The complete candidate set is the differences themselves.
 #
 # The match rate is read against coincidence_floor, the rate a shuffle of the same signatures reaches
 # at any lag. A lag above the floor repeats for a reason the counts do not force; a lag at the floor

@@ -14,7 +14,7 @@
 # without bound; crystal edges and physical constants do not, being measured. That is a survey, and a
 # rule read off the survey is a hypothesis.
 #
-# Proving it needs cases where the answer is fixed by construction instead of reported, so four are
+# Proving it needs cases where the answer is fixed by construction instead of reported. Four are
 # built here from one stand-in constant, pi. A value is either DEFINED (computed to the full scale) or
 # MEASURED (the same value truncated to a floor of F places, the rest unknown), and an identity is
 # either TRUE or FALSE. The four cases and the outcome each forces:
@@ -108,7 +108,7 @@ def report_cases(out):
                                            "carried" if carried else "FAILED"))
 
     # 2. measured input, true identity: the deposit doubled against the true value. The floor moves by
-    # log10(2) under the doubling, so the depth lands near F, never at the report scale.
+    # log10(2) under the doubling. The depth lands near F, never at the report scale.
     measured_double = 2 * measured
     depth_measured = matching_places(measured_double, 2 * truth)
     floored = (FLOOR_PLACES - 3) <= depth_measured < REPORT_DIGITS
@@ -116,7 +116,7 @@ def report_cases(out):
                                            "floored near F" if floored else "FAILED"))
 
     # 3. measured input, canceling ratio: (2*pi)/(3*pi) from the deposit against the exact 2/3. The
-    # deposit cancels between the parts, so the floor is gone and the ratio is exact.
+    # deposit cancels between the parts. The floor is gone and the ratio is exact.
     upper = multiply_rational(measured, 2, 1)
     lower = multiply_rational(measured, 3, 1)
     canceled = ratio(upper, lower)
@@ -167,7 +167,7 @@ def report_multiplier(out):
                   % (seed_count, 15, generated, generated / seed_count))
         unbounded = unbounded and (generated > previous)
         previous = generated
-    out.write("  the count rises with every seed added and with the bound, so it has no ceiling; a\n")
+    out.write("  the count rises with every seed added and with the bound. It has no ceiling; a\n")
     out.write("  measured seed generates the same shapes but every one is floored at F, carrying no\n")
     out.write("  new precision past the deposit.\n\n")
     return unbounded

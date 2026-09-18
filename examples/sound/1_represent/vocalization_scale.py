@@ -25,7 +25,7 @@
 # measuring the arrangement of units needs recordings of tens of minutes.
 #
 # A mechanism unrelated to communication also fits and is not excluded here. A bird call is discrete
-# and separated by silence while a person reading aloud emits a continuous signal, so clustered rare
+# and separated by silence while a person reading aloud emits a continuous signal. Clustered rare
 # amplitudes follow from the shape of the emission and not from what it carries. Separating those
 # needs the measure applied to segmented calls, which is not built.
 
@@ -78,7 +78,7 @@ def main():
                      "%.4f" % at_samples if at_samples is not None else "none",
                      "  ".join("%-11s" % one for one in row)))
 
-    out.write("\n  the envelope leaves few distinct levels, so the rare half out there is a\n")
+    out.write("\n  the envelope leaves few distinct levels. The rare half out there is a\n")
     out.write("  handful of symbols and those figures are thin. The agreement of separate\n")
     out.write("  populations is the strongest thing about the result and the symbol count\n")
     out.write("  is the weakest\n")

@@ -9,7 +9,7 @@ The answer exists before the measurement and is not supplied by it. Most reading
 lacked that condition.
 
 Supervision is also the only one of the three ways a partition is fixed that adds information the
-sample did not hold, so this part is where new information enters the engine and nowhere else.
+sample did not hold. This part is where new information enters the engine and nowhere else.
 
 What belongs here: two direction checks against a source, corpus gates, and positive controls with
 published ground truth. What does not: a null permutation, which is a reference built from the

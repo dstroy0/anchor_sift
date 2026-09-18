@@ -112,7 +112,7 @@ long basin_overlap_host(const BasinOverlapRequest *args)
             continue;
         }
 
-        // voxel is below args->voxels, an unsigned int, so the narrowing loses nothing.
+        // voxel is below args->voxels, an unsigned int. The narrowing loses nothing.
         const long long moved = overlap_moved(args, (unsigned int)voxel);
         if (moved < 0ll)
         {

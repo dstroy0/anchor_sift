@@ -21,7 +21,7 @@
 #
 # THE CONTROL IS BLACKJACK AND IT IS WHY THE OTHER NUMBERS MEAN ANYTHING
 #
-# Blackjack's dealer has exactly one legal move at every turn. It never chooses, so there is nothing
+# Blackjack's dealer has exactly one legal move at every turn. It never chooses. There is nothing
 # to prune, and the pruned and unpruned readings must come out identical. They do. That identity is
 # what proves the gap seen in checkers and poker is the pruning and not an artifact of the
 # estimator -- without it, three different numbers from three conditionings could just be three
@@ -93,7 +93,7 @@ def main():
         blackjack.position(1, (10, 6), 10),
         24,
         str,
-        "the dealer has exactly one legal move at every turn, so there is nothing to prune",
+        "the dealer has exactly one legal move at every turn. There is nothing to prune",
     )
 
     game = checkers.Checkers()
@@ -125,7 +125,7 @@ def main():
         chess.from_layout(FORCED_MATE, rights=(False, False, False, False)),
         2,
         chess.move_name,
-        "a forced mate survives any opponent, so the pruned and unpruned readings must agree here",
+        "a forced mate survives any opponent. The pruned and unpruned readings must agree here",
     )
 
     print("")
@@ -140,7 +140,7 @@ def main():
         "is wrong gets acted on.\n"
         "\n"
         "The forced mate is the case where all three agree, and it agrees for a reason worth stating:\n"
-        "a mate survives any opponent, so pruning removes nothing that mattered. That is a property\n"
+        "a mate survives any opponent. Pruning removes nothing that mattered. That is a property\n"
         "of that position and not a reassurance about pruning in general."
     )
 

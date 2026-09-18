@@ -11,7 +11,7 @@
 # went into it with its share. The manifest is the point: a detector returns one number over the
 # whole paste, and without a manifest nobody can say afterward what that number was measured on.
 #
-# The extraction is docs_check's, so this and the banned list read the same words. A .tex arrives
+# The extraction is docs_check's. This and the banned list read the same words. A .tex arrives
 # with its markup blanked and a source file with its code blanked, and neither a path nor a label
 # reaches the detector as though it were a sentence.
 #

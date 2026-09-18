@@ -10,7 +10,7 @@
 # THE CLAIM UNDER TEST, IN ONE LINE. A dividing cell's local entropy changes greatly.
 #
 # WHY THIS IS THE MEASUREMENT THIS SUBTREE WAS FOR. CEL-1-001 reads the answer key and finds that a
-# cell is 49 px across and moves 3.5 px a frame, so consecutive masks overlap by over ninety
+# cell is 49 px across and moves 3.5 px a frame. Consecutive masks overlap by over ninety
 # percent and the correspondence is nearly free, while 59 of 95 tracks begin with a division. The
 # difficulty in this data is division and not displacement, and everything measured in 2_partition
 # and 4_measure refines a quantity that was never the obstacle.
@@ -23,11 +23,11 @@
 # quantity anchor_sift's entire cost model runs on: every figure there is a function of 2^-H2.
 #
 # HOW A DIVISION IS LOCATED. A track with a non-zero parent was born from one. If child C begins at
-# frame B with parent P, then P divided between frame B-1 and frame B, so P at frame B-1 is a cell
+# frame B with parent P, then P divided between frame B-1 and frame B. P at frame B-1 is a cell
 # about to divide. Every other cell present at a frame it survives is not.
 #
 # THE BACKGROUND, AND IT IS BUILT BEFORE THE NUMBER IS QUOTED. A change in entropy says nothing on
-# its own. Cells are moving, deforming and changing brightness all the time, so the quantity has a
+# its own. Cells are moving, deforming and changing brightness all the time. The quantity has a
 # distribution under ordinary behaviour and the question is whether division departs from it. The
 # background here is every frame-to-frame entropy change of every cell that did NOT divide, drawn
 # from the same sequence, the same annotation and the same intensity scale. An earlier file in this
@@ -57,7 +57,7 @@ def collision_entropy(values, levels=LEVELS):
     """H2 of one cell's own intensities, in bits.
 
     -log2 of the sum of squared probabilities, which is the quantity every cost in anchor_sift is
-    a function of. Computed over the pixels inside one label and nothing else, so it is local by
+    a function of. Computed over the pixels inside one label and nothing else. It is local by
     construction rather than by a window somebody sized.
     """
     if values.size == 0:
@@ -130,7 +130,7 @@ def divisions(where):
     existing and two children appear. Nothing survives to difference against itself. The question
     was malformed and the data said so on the first run.
 
-    What the parent hands over is handed to the children, so the comparison is the parent against
+    What the parent hands over is handed to the children. The comparison is the parent against
     the pair that replaced it.
     """
     children = {}
@@ -236,7 +236,7 @@ def main():
     # with a Jarque-Bera of 800 against a one percent point of 9.21. The rank statistic it uses
     # instead is what this now reports.
     skew_note = (float(ordinary.mean()), float(numpy.median(ordinary)))
-    out.write("\n  Background is heavy tailed, mean %.4f against median %.4f, so a deviation on\n"
+    out.write("\n  Background is heavy tailed, mean %.4f against median %.4f. A deviation on\n"
               % skew_note)
     out.write("  it is not a floor. Read by rank instead.\n\n")
 
@@ -290,7 +290,7 @@ def main():
         out.write("  as a measurement rather than an image.\n")
         out.write("\n  It is not a detector on its own. Catching that share of divisions costs\n")
         out.write("  admitting a tenth of every ordinary frame-to-frame change, and there are\n")
-        out.write("  %d of those against %d divisions, so a cut at p90 fires far more often on\n"
+        out.write("  %d of those against %d divisions. A cut at p90 fires far more often on\n"
                   % (len(ordinary), len(pair_gap)))
         out.write("  an ordinary cell than on a dividing one. It is a term and not a test.\n")
     elif caught >= 0.5:

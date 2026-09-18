@@ -141,7 +141,7 @@ def version_lock(out):
 
     The C carries a limb count and a declared digit floor; the python side carries the scale it
     ingests at. They are separate declarations of one number, and nothing in either file refers to
-    the other, so they can drift apart silently. A drift makes the two arms disagree about values
+    the other. They can drift apart silently. A drift makes the two arms disagree about values
     neither of them is wrong about individually. That is the hardest kind of disagreement to read.
 
     Returns 1 where they agree, 0 where they do not.
@@ -217,7 +217,7 @@ def measured_of(text, places, width):
     part = found.group(3) or ""
 
     # Trailing zeros in the fraction are not places. 1.2300 and 1.23 are one number and a scale of
-    # two places holds both exactly, so counting the zeros refuses a value that needs no rounding.
+    # two places holds both exactly. Counting the zeros refuses a value that needs no rounding.
     # ".000" is zero, and trimming it to no digit at all must not make it text that is not decimal.
     trimmed = part.rstrip("0")
     if len(trimmed) > places:

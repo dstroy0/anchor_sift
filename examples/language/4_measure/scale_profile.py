@@ -8,14 +8,14 @@
 #
 #   Usage:  python examples/language/4_measure/scale_profile.py
 #
-# Matching against a growing window shows every text still gaining at 262144 characters, so no single
+# Matching against a growing window shows every text still gaining at 262144 characters. No single
 # window holds a text and the rate at any one of them is a reading of that choice. What the sweep produces
 # is not one number but a curve: how much a text knows at each distance, and how much each further
 # distance adds.
 #
 # That curve is worth testing as a description of a language in its own right. The reading used until now
 # is which character follows which, and one language read from two unrelated places sits 0.0867 apart
-# while two languages read from one place sit 0.0936 apart, so where a text came from carries nearly as
+# while two languages read from one place sit 0.0936 apart. Where a text came from carries nearly as
 # much as what language it is in. If what a language gains at each distance belongs to the language, that
 # margin widens. If it belongs to the subject or the translator, it does not.
 #
@@ -59,7 +59,7 @@ def gaps(text):
     for window in WINDOWS:
         if len(text) < (window * 3):
             return None
-        # Each arm drawn from its own copy of the seed, so the two sample the same positions
+        # Each arm drawn from its own copy of the seed. The two sample the same positions
         live = match_rate(text, window, numpy.random.default_rng(SEED), SAMPLES, LONGEST)
         dead = match_rate(scattered, window, numpy.random.default_rng(SEED), SAMPLES, LONGEST)
         if (live is None) or (dead is None):

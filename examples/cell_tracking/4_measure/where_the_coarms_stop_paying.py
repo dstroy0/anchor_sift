@@ -24,7 +24,7 @@
 # and not to the method, which is how the bit-volume divergence in theory/workbook was found at all.
 # Or it may fall and then rise, which locates a real optimum and says what sets it.
 #
-# WHAT SETS THE FAR END. Co-arms are cut from one field, so more of them means smaller ones, and a
+# WHAT SETS THE FAR END. Co-arms are cut from one field. More of them means smaller ones, and a
 # tile eventually holds too few features to carry a reading. That turnover is a property of the
 # field and the feature width together and is not imposed here. It is what the sweep is for.
 
@@ -100,7 +100,7 @@ def main():
             # sixteen-arm figure at a single displacement of 3.4 against CEL-2-002's mean over
             # nine displacements from 3.0 to 4.0, called the difference a gain from co-arming,
             # and the difference was the comparison. 3.4 sits near the half, where the fraction
-            # is most accurate, so a single reading there flatters whatever took it.
+            # is most accurate. A single reading there flatters whatever took it.
             errors = []
             spreads = []
             for truth in TRUTHS:

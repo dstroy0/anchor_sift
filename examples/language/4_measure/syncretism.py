@@ -11,7 +11,7 @@
 # Polish humour turns on using a word correctly to use it incorrectly, and the reason is that
 # Polish forms are shared between grammatical slots. That is countable where the grammar of every word is
 # written beside it, and these treebanks write it: each token carries its lemma and the case, number,
-# gender and person it stands in, so the readings sharing one surface form can be counted instead of
+# gender and person it stands in. The readings sharing one surface form can be counted instead of
 # guessed at.
 #
 # It also answers a question left open by the earlier work here, where a reading over a growing window
@@ -103,7 +103,7 @@ def main():
     out.write("  over ten is those readings multiplied across ten words of running text\n")
 
     if len(rows) >= 4:
-        out.write("\n  every language here carries more than one reading per word, so the\n")
+        out.write("\n  every language here carries more than one reading per word. The\n")
         out.write("  possibilities grow with every word taken and none of them collapse\n")
         least = min(rows, key=lambda row: row[2])
         most = max(rows, key=lambda row: row[2])

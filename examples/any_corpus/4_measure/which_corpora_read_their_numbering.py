@@ -12,10 +12,10 @@
 # volume. Renumbering the symbols settles which is which, and the answer can be argued before it is
 # measured.
 #
-# The gap measure reads only where each symbol falls, so renaming the symbols cannot move it at all.
+# The gap measure reads only where each symbol falls. Renaming the symbols cannot move it at all.
 # It is invariant to renumbering by construction, and any movement in its column is a defect in this
 # script. The bit volume reads the correlation of bit positions, which is a statement about the
-# numbers themselves, so renumbering can move it and on a picture it does. Two instruments where one
+# numbers themselves. Renumbering can move it and on a picture it does. Two instruments where one
 # is invariant to a change the other is not cannot be measuring one quantity, and the attempt to
 # have the volume subsume the gap measure was the wrong shape from the start.
 #

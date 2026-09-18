@@ -14,7 +14,7 @@
 # of the same symbols.
 #
 # Chemistry is where that boundary is easiest to see. A molecule read as its multiset of atoms is a
-# histogram, so its collision entropy is exactly equal to the collision entropy of any rearrangement
+# histogram. Its collision entropy is exactly equal to the collision entropy of any rearrangement
 # of the same atoms, and two isomers, being the same formula, carry the identical value. The measure
 # reads the formula and stops there.
 #
@@ -56,14 +56,14 @@ DRAWS = 8
 
 
 def as_bytes(atoms):
-    """Atoms encoded one element to one byte, so the engine's shuffle and entropy both read them."""
+    """Atoms encoded one element to one byte. The engine's shuffle and entropy both read them."""
     codes = {element: index for index, element in enumerate(sorted(set(atoms)))}
     return bytes(codes[element] for element in atoms)
 
 
 def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  Collision entropy reads the atom counts alone, so it is permutation invariant: a\n")
+    out.write("  Collision entropy reads the atom counts alone. It is permutation invariant: a\n")
     out.write("  molecule and any rearrangement of its atoms carry the same value, exactly.\n\n")
     out.write("  %-16s %-8s %-14s %s\n" % ("molecule", "H2 bits", "eff. alphabet", "real minus shuffle, worst of 8"))
 

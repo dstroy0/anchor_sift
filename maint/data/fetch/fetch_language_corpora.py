@@ -15,7 +15,7 @@
 #
 # Project Gutenberg wraps each text in an English license header and footer. Left in place they would
 # put English words into every corpus and the non-English rows would be measuring this file's own
-# boilerplate, so the marked region is cut out and only the body is kept.
+# boilerplate. The marked region is cut out and only the body is kept.
 
 import os
 import sys
@@ -40,7 +40,7 @@ WANTED = [
     # measures the smallest vocabulary of any prose text in the KJV, which either belongs to 1611
     # English or to the translation. This is the control that separates them.
     (100, "english_1623_shakespeare.txt", "English, Indo-European Germanic, 1623"),
-    # Not a Latin script, so the byte is the wrong symbol width for it. Section 4.13.05 measures it
+    # Not a Latin script. The byte is the wrong symbol width for it. Section 4.13.05 measures it
     # after src/engine/python/representation/text/symbols.py re-slices it, which is where the
     # re-seating this used to name separately ended up.
     (36248, "greek_iliad.txt", "Greek, Indo-European Hellenic, Greek script"),
@@ -51,7 +51,7 @@ WANTED = [
     (26, "english_1667_milton_epic.txt", "English epic verse, single work, 1667"),
     (6130, "english_1720_pope_iliad_epic.txt", "English epic verse, single work, 1720"),
     # Section 4.13.08 cannot separate a drift rate from a change of genre. These three translate one
-    # book, so the subject is held fixed instead of merely matched. The first two are two years apart
+    # book. The subject is held fixed instead of merely matched. The first two are two years apart
     # by rival translators, which measures what translator choice alone costs, and the third is 389
     # years after the second.
     (8300, "english_1609_douay_bible.txt", "English, same subject, 1609"),

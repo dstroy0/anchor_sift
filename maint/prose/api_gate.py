@@ -89,7 +89,7 @@ ASK = (
     '{\"score\": <0.0 to 1.0>, \"phrases\": [{\"text\": \"<exact quote from the passage>\", '
     '\"why\": \"<six words or fewer>\"}]}\n\n'
     "score is the probability the passage was machine written. Quote at most six phrases and "
-    "quote them exactly as they appear, so they can be found in the file. Return an empty list "
+    "quote them exactly as they appear. They can be found in the file. Return an empty list "
     "where the passage reads as human.\n\n"
     "PASSAGE:\n"
 )
@@ -123,7 +123,7 @@ def closed(path):
 def body(path):
     """One file's prose as (text, offsets), offsets[i] holding the source line of character i.
 
-    The extraction is docs_check's, so both gates read the same words. A .tex arrives with its
+    The extraction is docs_check's. Both gates read the same words. A .tex arrives with its
     markup blanked, a source file with its code blanked, and a page as itself.
     """
     with open(path, encoding="utf-8", errors="replace") as handle:
@@ -271,7 +271,7 @@ def main():
 
     print("\n  %d file(s) scored, %d at or over %.2f" % (scored, over, bar))
     if scored == 0:
-        print("  Nothing was scored, so nothing passed.")
+        print("  Nothing was scored. Nothing passed.")
         return 2
     return 1 if over else 0
 

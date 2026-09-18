@@ -20,7 +20,7 @@
  *       Every entry point refuses a value that will not fit instead of truncating it.
  * @note Base 2^32 with a 64 bit accumulator. Wider limbs would need 128 bit products, which are a
  *       compiler extension on some targets and absent on others. 32 bit limbs also map onto both
- *       SIMD widths this tree builds for and onto a CUDA lane, so one representation serves every
+ *       SIMD widths this tree builds for and onto a CUDA lane. One representation serves every
  *       arm.
  * @note The reference implementation is portable C11. Every vectorized arm is checked against it
  *       and is wrong where it disagrees, whatever it measures.
@@ -71,7 +71,7 @@ extern "C" {
  * @brief Decimal digits the fixed width is guaranteed to hold, matching representation.exact.
  *
  * @note A declared floor and never the capacity. 128 limbs is 4096 bits, which actually holds 1232
- *       decimal digits, so 208 of them are headroom this constant does not promise.
+ *       decimal digits. 208 of them are headroom this constant does not promise.
  * @note The floor counts every digit of the stored integer, the integer part of the value included.
  *       A value carried at d decimal places is stored as value times 10^d. At d = 1024 the width
  *       holds a magnitude below 2^4096 / 10^1024, about 1e209, and refuses anything larger. The
@@ -191,7 +191,7 @@ void anchor_exact_zero(AnchorExactInteger *value);
  * @param[in] right Second integer [BORROWS].
  * @return          1 where the values are equal, 0 otherwise.
  * @note The hot operation. A shift measure asks nothing else of a coordinate, and it asks it once
- *       per point per lag, so this is the call every vectorized arm exists to widen.
+ *       per point per lag. This is the call every vectorized arm exists to widen.
  */
 int anchor_exact_equal(const AnchorExactInteger *left, const AnchorExactInteger *right);
 
@@ -317,7 +317,7 @@ AnchorExactStatus anchor_exact_from_decimal(const char *text, size_t length, uin
  * @note The bracketed digits count units of the last place PRINTED in the value, trailing zeros
  *       included. "1.2300(5)" is 1.23 with an uncertainty of 0.0005, and "137(2)" is 137 with an
  *       uncertainty of 2. That place count can exceed the value's own after its trailing zeros are
- *       dropped, so the uncertainty can refuse at a scale the value fits.
+ *       dropped. The uncertainty can refuse at a scale the value fits.
  * @note A text with no bracket returns a zero uncertainty with `carried` at 0. A text of "(0)"
  *       returns a zero uncertainty with `carried` at 1, a value stated as exact by its source.
  * @note On a refusal `value`, `uncertainty` and `carried` are left unchanged.

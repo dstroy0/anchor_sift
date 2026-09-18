@@ -14,7 +14,7 @@
  * @note For every lag L, the count is how many voxels p are set in the before volume with p + L set
  *       in the after volume. Every count is computed at once as a correlation, carried out as a
  *       number theoretic transform modulo SHIFT_AGREEMENT_PRIME. A count never exceeds the voxel
- *       count, which is refused at or above the prime, so every count comes back exact and never
+ *       count, which is refused at or above the prime. Every count comes back exact and never
  *       reduced.
  * @note The chosen lag has the highest count. Among lags tied on count it has the smallest weighted
  *       squared length, sum over axes of weight times lag squared, and among those the lowest index.

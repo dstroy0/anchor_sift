@@ -1,6 +1,6 @@
 # Precision spread: exact identities over a set of quantities
 
-**Purpose:** State when an exact identity carries precision from one quantity to another, so that a few
+**Purpose:** State when an exact identity carries precision from one quantity to another. That a few
 computed constants raise the precision held over many, and mark the three regimes where that does and
 does not multiply accuracy. **Scope:** the set of exact quantities the engine and its domains carry,
 the identities among them, and `examples/0_experimental/exact_identities_spread_precision.py`, which
@@ -188,7 +188,7 @@ redundant residue code drives the exact range past any fixed width, a googol and
 by adding moduli. A build may fix a width, the C arm's 108 limbs among them, but that is one arm's
 compile-time choice, and the residue code passes straight through it; it is not a ceiling on the
 quantity. Nothing rounds silently either: where a value will not fit a declared scale the arithmetic
-refuses loudly (`exact.WillNotFit`) in place of rounding, so the floor of zero on this end is checked
+refuses loudly (`exact.WillNotFit`) in place of rounding. The floor of zero on this end is checked
 and not merely asserted. The absolute floor is entirely external, with exactly two sources, neither of
 them arithmetic.
 One is MEASUREMENT: the physical deposit, and beneath it the limits of the experiment. The other is
@@ -231,16 +231,16 @@ hypergraph, the generation operator, and the derivation topology `tau_Q`. The st
 the rest of this engine is. What differs across domains is only which regime a quantity's identities sit
 in. The map, as each session reported it:
 
-| domain | representation | the identity that carries | regime | floor |
-|---|---|---|---|---|
-| natural constants | scaled integers at `10^-N` | `sqrt`, `zeta(2k)=c*pi^{2k}`, `ln` sums | A | none (defined) |
-| particle physics | exact integer tuples; rationals | `E,r` from `R_inf`; line ratios cancel it | A on ratios, C on absolutes | CODATA constants, model |
-| game theory | exact `Fraction` | `prod p^p = 2^{-H}` cleared to integers | A on the decision | unsolved tree (completeness) |
-| image transforms | residues mod `p=119*2^23+1`; `Fraction` | binomial `2^n` scale; NTT with CRT widening | A | prime bound, lifted by CRT |
-| chemistry | small integers | stoichiometry, valence handshake; Avogadro defined | B, plus one defined constant | measured masses and lengths |
-| crystallography | scaled integers at `10^-1024` angstrom, refusing on overflow | period equals edge; lag harmonics `a -> n*a` | C | the deposit, plus a right-angle gate refusing ~half of COD (completeness) |
-| protein | truncated integers at `10^-3` angstrom | reflection: `S,C` invariant, `Y` negates | C | the deposition |
-| anchor sift engine | `size_t` counts; 108-limb exact integer | union of rejections; equality classes | B | none below the integer width |
+| domain             | representation                                               | the identity that carries                          | regime                       | floor                                                                     |
+| ------------------ | ------------------------------------------------------------ | -------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------- |
+| natural constants  | scaled integers at `10^-N`                                   | `sqrt`, `zeta(2k)=c*pi^{2k}`, `ln` sums            | A                            | none (defined)                                                            |
+| particle physics   | exact integer tuples; rationals                              | `E,r` from `R_inf`; line ratios cancel it          | A on ratios, C on absolutes  | CODATA constants, model                                                   |
+| game theory        | exact `Fraction`                                             | `prod p^p = 2^{-H}` cleared to integers            | A on the decision            | unsolved tree (completeness)                                              |
+| image transforms   | residues mod `p=119*2^23+1`; `Fraction`                      | binomial `2^n` scale; NTT with CRT widening        | A                            | prime bound, lifted by CRT                                                |
+| chemistry          | small integers                                               | stoichiometry, valence handshake; Avogadro defined | B, plus one defined constant | measured masses and lengths                                               |
+| crystallography    | scaled integers at `10^-1024` angstrom, refusing on overflow | period equals edge; lag harmonics `a -> n*a`       | C                            | the deposit, plus a right-angle gate refusing ~half of COD (completeness) |
+| protein            | truncated integers at `10^-3` angstrom                       | reflection: `S,C` invariant, `Y` negates           | C                            | the deposition                                                            |
+| anchor sift engine | `size_t` counts; 108-limb exact integer                      | union of rejections; equality classes              | B                            | none below the integer width                                              |
 
 Reading the table: the spread multiplies precision in Regime A, is exact but flat in Regime B, and in
 Regime C reaches only the floor-free ratios. The natural constants and the particle-physics line ratios
@@ -281,23 +281,23 @@ is one of three kinds. Naming the kind is the boundary function.
 
 The three boundaries, per domain:
 
-| domain | boundary function | kind |
-|---|---|---|
-| image transforms / NTT | length `n` divides `p - 1`, cap `2^23` on this prime | format, raised by prime or CRT |
-| precision / constants | C width 3456 bits; Python scale unbounded; residue range is the product of moduli | format, raisable |
-| crystallography | deposit to about 5 places; right-angle gate `abs(angle - 90) <= 0.01` | measurement, and completeness at the gate |
-| protein | coordinate at `10^-3` angstrom; exact equality is same coordinates or an exact transform | measurement |
-| chemistry | measured masses and lengths; the counting layer has none | measurement on the real-valued part |
-| particle physics | CODATA constants, `R_inf` to about `10^-12`; the model omits QED | measurement, and completeness in the model |
-| game theory | the unsolved tree, scored at a horizon | completeness |
-| anchor sift engine | pair-rank projection refused past `UINT32_MAX`; counts none below the width | format |
+| domain                 | boundary function                                                                        | kind                                       |
+| ---------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------ |
+| image transforms / NTT | length `n` divides `p - 1`, cap `2^23` on this prime                                     | format, raised by prime or CRT             |
+| precision / constants  | C width 3456 bits; Python scale unbounded; residue range is the product of moduli        | format, raisable                           |
+| crystallography        | deposit to about 5 places; right-angle gate `abs(angle - 90) <= 0.01`                    | measurement, and completeness at the gate  |
+| protein                | coordinate at `10^-3` angstrom; exact equality is same coordinates or an exact transform | measurement                                |
+| chemistry              | measured masses and lengths; the counting layer has none                                 | measurement on the real-valued part        |
+| particle physics       | CODATA constants, `R_inf` to about `10^-12`; the model omits QED                         | measurement, and completeness in the model |
+| game theory            | the unsolved tree, scored at a horizon                                                   | completeness                               |
+| anchor sift engine     | pair-rank projection refused past `UINT32_MAX`; counts none below the width              | format                                     |
 
 The topology reads the boundary. A format boundary is where the representation folds: the transform is
 cyclic on `Z/nZ`, a circle, and its double is the involution `m -> -m`, its own inverse, with fixed
 points at `0` and `n/2` where the fold turns around. That is the wave inversion of section 7 stated as a
 group law, `-(-m) = m`, proven in one line and verified exact in `ntt_double_transform_inverts.py`. The
 measurement and completeness boundaries are not folds in the representation. They sit outside it, in the
-world and in the computation not yet done, so no fold of the arithmetic reaches them.
+world and in the computation not yet done. No fold of the arithmetic reaches them.
 
 Prior art. The transform's order-four structure, with its square the reflection operator `P` where
 `(P x)[m] = x[-m]`, is classical (McClellan and Parks, "Eigenvalue and eigenvector decomposition of the
@@ -307,7 +307,7 @@ transform in a finite field", Math. Comp. 1971 (survey arXiv:2211.13546). The re
 system's error correction, matching a Reed-Solomon code, is standard coding theory. The precision
 constants rest on the twiddle proof already in this tree, `theory_bucket/twiddle_constants_article.tex`,
 which carries its own citations. Each result above is reproduced in exact integers by the example named
-beside it, so the citations record what is known, and the examples are the proof.
+beside it. The citations record what is known, and the examples are the proof.
 
 See [[ntt-precision-constants]] for the constants the image transforms transform rests on, and the
 coordination log beside this file for how the survey was gathered.

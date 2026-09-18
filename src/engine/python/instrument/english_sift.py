@@ -47,7 +47,7 @@ MARKED_SPAN = re.compile(r"([TN])\.([^:{}\s]*):\{([^}]*)\}")
 PAGE = re.compile(r"^===== page \d+ =====$")
 
 # The kinds that are English sentences. A gloss is not one: COP=3SBJ D/C=NMLZ=STAT-mix=3POSS is
-# written in labels and separators and is about as far from English as the language is, so letting
+# written in labels and separators and is about as far from English as the language is. Letting
 # it into the reference taught this that English looks like that.
 ENGLISH_KINDS = ("translation", "commentary", "word gloss")
 
@@ -127,7 +127,7 @@ def distribution(counts, total):
 def total_variation(first, second):
     """D(P,Q) = half the sum of |P(k) - Q(k)|, method section 2.
 
-    Between normalized distributions, so it does not care how much text built either one. It is
+    Between normalized distributions. It does not care how much text built either one. It is
     used here for that reason: two anchors of different sizes ask the same question, which no
     per-line likelihood managed. Scoring lines against differently sized references made the
     smallest anchor win under one estimator and the largest under the next.
@@ -193,7 +193,7 @@ def surprise(text, counts, total):
         p(k) = (times + 1) / (total + 65536)
 
     That correction is what §4 of the method calls for and it is not optional. Charging an unseen
-    pair log2(total) instead made the penalty depend on how much reference there was, so the
+    pair log2(total) instead made the penalty depend on how much reference there was. The
     smallest corpus punished the unknown least and won every comparison it entered. Five language
     anchors of different sizes agreed with the papers' own statements 63 percent of the time under
     that scoring, and every single disagreement named the smallest anchor.
@@ -290,7 +290,7 @@ def calibrated_cut(counts, total, keep=0.99):
     """The cut that keeps the given share of the known-pure corpus.
 
     Measured, not chosen. Nine papers were read by hand against their own layouts and their
-    .pure.txt files are target-language speech alone, so the score below which the
+    .pure.txt files are target-language speech alone. The score below which the
     language does not fall is a fact about this corpus, and not a threshold somebody picked.
     """
     pure = []

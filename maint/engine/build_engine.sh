@@ -5,7 +5,7 @@
 #     maint/engine/build_engine.sh --build-only configure and build, run nothing
 #
 # Needs cmake and a C11 compiler on PATH and nothing else. No network, no submodule, no generator
-# run first. The engine links no library outside the C standard headers, so there is nothing to
+# run first. The engine links no library outside the C standard headers. There is nothing to
 # install before this works.
 #
 # Output lands in build/engine_c/ and is never read back by anything; delete it freely.
@@ -32,9 +32,9 @@ fi
 #
 # The Visual Studio generator compiles .cu only where the CUDA toolkit installed its MSBuild
 # integration, which a normal toolkit install often skips, and CMake then stops with "No CUDA toolset
-# found". Ninja needs no integration, so it is used wherever it is available.
+# found". Ninja needs no integration. It is used wherever it is available.
 #
-# And nvcc is frequently not on PATH even where the toolkit is installed, so the standard locations
+# And nvcc is frequently not on PATH even where the toolkit is installed. The standard locations
 # are searched and the newest is put on PATH for the configure. Without this the device arm is
 # silently left out and the renderer falls back to the host on a machine that has a card.
 if [ -z "${CUDA_PATH:-}" ] && ! command -v nvcc >/dev/null 2>&1; then
@@ -53,7 +53,7 @@ if command -v ninja >/dev/null 2>&1; then
 fi
 
 # MSVC NEEDS ITS ENVIRONMENT AND NINJA DOES NOT SUPPLY ONE. CMake finds cl.exe through vswhere even
-# where it is absent from PATH, so a configure here succeeds and every compile then fails on
+# where it is absent from PATH. A configure here succeeds and every compile then fails on
 # "Cannot open include file: 'stddef.h'", because INCLUDE and LIB are set by vcvars and this shell
 # has not run it. The Visual Studio generator imports them itself; Ninja does not.
 #
@@ -61,7 +61,7 @@ fi
 # standard header, which reads as a broken toolchain rather than a missing environment.
 #
 # Naming the compiler is what fixes it, and testing for one is not enough. CMake prefers cl.exe on
-# Windows even where gcc sits on PATH, so a check that merely finds gcc passes and the build still
+# Windows even where gcc sits on PATH. A check that merely finds gcc passes and the build still
 # goes to an MSVC that cannot see its own headers.
 compiler=""
 case "$(uname -s 2>/dev/null)" in
@@ -70,7 +70,7 @@ case "$(uname -s 2>/dev/null)" in
             for candidate in gcc clang cc; do
                 if command -v "$candidate" >/dev/null 2>&1; then
                     compiler="-DCMAKE_C_COMPILER=$candidate"
-                    echo "[*] no MSVC environment here, so the build is pinned to $candidate."
+                    echo "[*] no MSVC environment here. The build is pinned to $candidate."
                     echo "    For an MSVC build run maint/engine/build_engine.ps1 from PowerShell,"
                     echo "    which imports vcvars, or run this from a Developer Command Prompt."
                     break
@@ -78,7 +78,7 @@ case "$(uname -s 2>/dev/null)" in
             done
             if [ -z "$compiler" ]; then
                 echo "No C compiler this shell can drive." >&2
-                echo "  MSVC is installed but its environment is not imported here, so cl.exe" >&2
+                echo "  MSVC is installed but its environment is not imported here. Cl.exe" >&2
                 echo "  fails to find stddef.h, and no gcc or clang is on PATH either." >&2
                 echo "  Run maint/engine/build_engine.ps1 from PowerShell, or run this from a" >&2
                 echo "  Developer Command Prompt, or install gcc." >&2
@@ -100,7 +100,7 @@ if [ -n "$compiler" ] && [ -f "$build/CMakeCache.txt" ]; then
 fi
 
 # nvcc drives a host compiler and cannot run without one. On Windows that host compiler is MSVC and
-# it reaches PATH through vcvars, which this shell does not run, so nvcc is present and unusable
+# it reaches PATH through vcvars, which this shell does not run. Nvcc is present and unusable
 # here. Detecting that now and skipping CUDA is better than letting the configure fail: a failed
 # configure builds nothing, where skipping builds the host arms and says what was skipped.
 # The host compiler nvcc needs is platform specific and the wrong test passes on Windows. Git Bash
@@ -126,7 +126,7 @@ echo "[*] configuring $src"
 if [ "$want_cuda" -eq 1 ]; then
     echo "[*] nvcc and a host compiler found, the device arm will be compiled in"
 elif command -v nvcc >/dev/null 2>&1; then
-    echo "[*] nvcc found but no host compiler on PATH, so CUDA is skipped here."
+    echo "[*] nvcc found but no host compiler on PATH. CUDA is skipped here."
     echo "    On Windows run maint/engine/build_engine.ps1 instead; it imports the MSVC"
     echo "    environment nvcc needs and compiles the device arm."
 else
@@ -186,7 +186,7 @@ if [ "$run_graders" -eq 0 ]; then
     exit 0
 fi
 
-# Every grader returns non-zero on a failed check, so the loop below reports the first one that
+# Every grader returns non-zero on a failed check. The loop below reports the first one that
 # fails and stops rather than printing a wall of output and exiting zero.
 failed=0
 for grader in test_steer test_adversarial test_arm_agreement bench_steer_arms bench_raster bench_exact_arms; do

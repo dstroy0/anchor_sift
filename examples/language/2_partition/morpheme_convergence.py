@@ -9,7 +9,7 @@
 #
 # Taken as a share of the positions its alphabet occupies, the tightest spread runs 0.0610 to 0.0736 over
 # eleven languages written in an alphabet, and Chinese sits at 0.0855, which is 5.6 deviations outside
-# them. Quoting it in levels instead put Chinese 565.9 deviations out, so the normalizing was most of the
+# them. Quoting it in levels instead put Chinese 565.9 deviations out. The normalizing was most of the
 # distance and something smaller is left.
 #
 # What is left is that the comparison is between unlike units. A Chinese character stands for a morpheme.

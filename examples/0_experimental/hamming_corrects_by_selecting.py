@@ -7,13 +7,13 @@
 #
 #   Usage:  python examples/0_experimental/hamming_corrects_by_selecting.py
 #
-# This reads no corpus, so it sits in 0_experimental: an algorithm shown working, a coding-theory filter
+# This reads no corpus. It sits in 0_experimental: an algorithm shown working, a coding-theory filter
 # beside the signal ones. The channel flips bits; the code rejects the flip by choosing, of the sixteen
 # codewords, the one within a single flip of what arrived. It corrects by selecting the candidate the
 # necessary conditions leave standing, which is the sift's move carried into coding theory.
 #
 # Two decoders are run: the syndrome, which reads the failed parity checks as the flipped position, and
-# the nearest codeword, which reads no parity at all. Hamming(7,4) is a perfect code, so the two are the
+# the nearest codeword, which reads no parity at all. Hamming(7,4) is a perfect code. The two are the
 # same decoder by a theorem and agree on every word; a deliberately broken syndrome table is run beside
 # them to show the agreement has teeth. The floor is the Hamming bound, stated not tuned: within one
 # flip the exact word is recovered, and two flips are corrected confidently to the WRONG word, because a
@@ -103,7 +103,7 @@ def main():
     out.write("    corrected to the WRONG word:       %d / %d\n" % (miscorrected, TRIALS))
     out.write("    and the two routes still agreed:   %d / %d\n" % (still_agree, TRIALS))
     out.write("\n  within one flip the recovery is exact and both routes agree by the perfect-code\n")
-    out.write("  theorem; the broken probe shows that agreement can fail, so it means something. two\n")
+    out.write("  theorem; the broken probe shows that agreement can fail. It means something. two\n")
     out.write("  flips are the floor: corrected confidently to a wrong codeword the two routes still\n")
     out.write("  agree on, which is the Hamming bound and not a defect.\n")
     out.flush()

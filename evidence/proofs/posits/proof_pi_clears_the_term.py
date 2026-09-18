@@ -14,13 +14,13 @@
 # so no finite computation ever holds pi. This is the exact boundary read without touching exactly. The
 # term is the number of terms, the height the enclosure is pushed to; pi clears every finite height.
 #
-# The wave inverts. Each term flips the running sum from one side of pi to the other, so the sum scrapes
+# The wave inverts. Each term flips the running sum from one side of pi to the other. The sum scrapes
 # the boundary once per term, n scrapes for n terms. That is the same event as the transform inverting at
 # its boundary, and this proof pairs with examples/0_experimental/ntt_double_transform_inverts.py the way
 # proof_group_law pairs with exact_congruent_number: the demonstration shows the inversion working, this
 # proof shows the boundary scraped exactly n times without the continuum being touched.
 #
-# Exact integers throughout. A rational is an integer pair and rationals compare by cross-multiply, so no
+# Exact integers throughout. A rational is an integer pair and rationals compare by cross-multiply. No
 # float enters the arithmetic. A float appears once, at the end, only to print the enclosing decimals.
 # The two routes are the two fences: the sums that fall to pi from above and the sums that rise to it from
 # below. A fence crossing, or a bracket of zero width, refutes the posit.
@@ -41,7 +41,7 @@ def compare(left, right):
 def nilakantha_partials(terms):
     """Partial sums of the Nilakantha series for pi, as exact integer pairs. Consecutive sums bracket pi.
 
-    pi = 3 + 4/(2.3.4) - 4/(4.5.6) + 4/(6.7.8) - ... . Each term flips the sum across pi, so odd-indexed
+    pi = 3 + 4/(2.3.4) - 4/(4.5.6) + 4/(6.7.8) - ... . Each term flips the sum across pi. Odd-indexed
     sums fall to pi from above and even-indexed sums rise to it from below.
     """
     total = (3, 1)

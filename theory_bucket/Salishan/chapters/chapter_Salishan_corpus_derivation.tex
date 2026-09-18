@@ -12,7 +12,7 @@ With no failures in N independent trials the true rate is under 3/N with 95 perc
 
 \subsection{2. What the checks have seen}
 
-A paper contributes trials only where its extracted text is what the page prints. The others are checked against a damaged source, so their disagreements measure the source and not the table. The references chapter names each of them.
+A paper contributes trials only where its extracted text is what the page prints. The others are checked against a damaged source. Their disagreements measure the source and not the table. The references chapter names each of them.
 
 \begin{figure}[htbp]
 \centering
@@ -24,7 +24,7 @@ A paper contributes trials only where its extracted text is what the page prints
 
 \textbf{What to read off it.} Every paper is one point, trials against failures. The 16 on the zero line are the evidence. The 9 above it are checked against a text that is not what their page prints. The reader squares are a separate measurement in their own color, and they sit high: a reader is a script and it gets a great deal wrong. Section 5 gives those per paper, the only form they mean anything in.
 
-\textbf{Why the right panel is here.} The extraction has a lifetime and the question is what carries it. A person reads a paper at a fixed accuracy however large the corpus gets, so that arm is flat. The algorithm's accuracy is a function of corpus size, so that arm climbs. Whether and where they cross decides whether the corpus is worth growing for its own sake, and the panel is what answers it.
+\textbf{Why the right panel is here.} The extraction has a lifetime and the question is what carries it. A person reads a paper at a fixed accuracy however large the corpus gets. That arm is flat. The algorithm's accuracy is a function of corpus size. That arm climbs. Whether and where they cross decides whether the corpus is worth growing for its own sake, and the panel is what answers it.
 
 \textbf{What to read off it.} The algorithm arm is the fraction of dialects whose distance from the other corpora pooled into one reference corpus clears twice their resolution. The arm starts at zero, because a small corpus resolves nothing, and it crosses the reader arm at 1.73e+04 byte pairs, which is behind the corpus already on disk. Both arms are drawn: byte pairs alone, and byte pairs with the dialect's own alphabet applied first. Setting an algorithm given nothing beside a person given a page is not a fair comparison, and the alphabet is the first part of what the extraction already knows that it can be handed.
 
@@ -204,7 +204,7 @@ The web makes an anchor a concept expressed as a distribution instead of a bag o
 
 \subsection{7. The dialect border}
 
-Lushootseed is not one dialect. The northern and southern varieties have known land and family borders, and Mellesmoen and Kye's stress paper labels every form it cites with which one it came from. The hand extraction copied that into the \texttt{who} column, so the border sits on disk as a fact published by a linguist.
+Lushootseed is not one dialect. The northern and southern varieties have known land and family borders, and Mellesmoen and Kye's stress paper labels every form it cites with which one it came from. The hand extraction copied that into the \texttt{who} column. The border sits on disk as a fact published by a linguist.
 
 That makes it something a test of this algorithm almost never has: an answer that did not come from the algorithm. \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}boundary\_\allowbreak{}check.\allowbreak{}py} loads the labels, sets them aside, and only compares at the end.
 

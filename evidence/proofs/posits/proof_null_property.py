@@ -12,7 +12,7 @@
 # among fixed points and 2.512 against one that scattered the points and kept the values, on the same
 # live arm. That is one case, and a rule inferred from the case that suggested it is a hypothesis.
 #
-# Proving it needs domains where the answer is known by construction instead of inferred, so four are
+# Proving it needs domains where the answer is known by construction instead of inferred. Four are
 # built here. A sparse cloud carries two independent properties, where its points sit and what each
 # holds, and either can be ordered or not:
 #

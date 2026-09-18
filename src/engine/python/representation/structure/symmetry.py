@@ -22,13 +22,13 @@
 #
 # This is the whole reason this module carries its own scale instead of using representation.exact
 # directly. A translation of 1/2 is 0.5 exactly. A translation of 1/3 is not a decimal at all:
-# 10**D factors into 2**D and 5**D and three divides neither, so no number of decimal places holds
+# 10**D factors into 2**D and 5**D and three divides neither. No number of decimal places holds
 # a third. The scale in exact.py is enormous and it does not help, because the problem is not size.
 #
 # A trigonal or hexagonal space group is full of thirds. '-y,x-y,z' with 'x+2/3,y+1/3,z+1/3' is an
 # ordinary R centred operation, and the corpus is full of R-3 and R-3c. Carrying those through a
 # decimal scale would round them, and a rounded symmetry copy lands next to the atom it should have
-# landed on rather than on it, so two sites that are one place stop comparing equal and the doping
+# landed on rather than on it. Two sites that are one place stop comparing equal and the doping
 # at that place disappears. The failure would be silent and would look like an absence of doping.
 #
 # So coordinates here are integers in units of 1/(UNITS * 10**SCALE_DIGITS). The deposit's decimals
@@ -39,7 +39,7 @@
 #
 # Space group translations are built from halves, thirds, quarters, sixths and eighths. The eighths
 # are real and easy to forget: Fd-3m in its second origin choice carries 1/8. The least common
-# multiple of 1, 2, 3, 4, 6 and 8 is 24, so 24 holds every translation the 230 space groups use in
+# multiple of 1, 2, 3, 4, 6 and 8 is 24. 24 holds every translation the 230 space groups use in
 # their standard settings.
 #
 # A denominator that does not divide 24 raises rather than rounding. That is the same rule
@@ -125,7 +125,7 @@ def operations(text):
 
     Returns a list of operations, each a tuple of three (cx, cy, cz, translation) rows, one per
     output axis. An entry publishing no operations gets the identity alone, which is the honest
-    reading: the deposit said nothing, so the only copy known is the one written down.
+    reading: the deposit said nothing. The only copy known is the one written down.
 
     Duplicate operations are dropped. A deposit repeating 'x,y,z' does not have two identities.
     """

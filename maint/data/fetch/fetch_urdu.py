@@ -8,14 +8,14 @@
 #
 # Urdu is not in the book catalog and not among the 102 languages of the parallel text that brought in
 # Vietnamese, and the encyclopedia refused every request for it. It is worth the trouble because it is a
-# second abjad beside Hebrew, so that script stops resting on one language, and because it is Indo-Aryan
+# second abjad beside Hebrew. That script stops resting on one language, and because it is Indo-Aryan
 # written in a Perso-Arabic script while Hindi is the same language family written in Devanagari. Those
 # two together separate a script from a family more cleanly than anything else available.
 #
 # The same archive holds many parallel texts and not only the one already used. This asks which of them
 # carry Urdu, prefers whichever is closest in kind to what the other languages were read from, and takes
 # the largest that qualifies. A translation of one work into many languages keeps the content fixed the
-# way the earlier fetch did, so Urdu arrives comparable to the rest instead of as an encyclopedia sample
+# way the earlier fetch did. Urdu arrives comparable to the rest instead of as an encyclopedia sample
 # sitting beside a shelf of scripture.
 
 import io

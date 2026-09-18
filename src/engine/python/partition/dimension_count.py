@@ -27,7 +27,7 @@
 # readings into many groups raises that score on its own. Scoring each candidate against shuffles of
 # the same readings holds the group count fixed and cancels it.
 #
-# Under both sat a worse error. The fields were built isotropic, so every axis had identical
+# Under both sat a worse error. The fields were built isotropic. Every axis had identical
 # statistics and there was one magnitude repeated n times instead of n magnitudes. No line can count
 # what was never made different, and the first two attempts were asked to do exactly that. Rebuilt
 # with a different correlation length along each axis, eleven of twelve readings return the count.

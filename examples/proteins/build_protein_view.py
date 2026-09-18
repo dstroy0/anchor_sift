@@ -13,7 +13,7 @@
 #
 # The engine reads the deposit and walks the rebuild; this writes the numbers into a template as one
 # JSON literal and emits a single self-contained page, the same way the blob viewers do. It uses the
-# engine, so it is an example of the pattern and not a standard-library toolkit viewer.
+# engine. It is an example of the pattern and not a standard-library toolkit viewer.
 #
 # What the page shows, per unbroken chain run, no run left out and no length window:
 #   - the deposited backbone, drawn as muted reference ink,
@@ -43,7 +43,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "protein_view_template.html")
 CORPORA = os.path.join(ROOT, "build", "corpora")
 
-# The three backbone atoms in walk order, so an atom's place in the cycle names which bond it is.
+# The three backbone atoms in walk order. An atom's place in the cycle names which bond it is.
 CONSTITUENT = ("N", "CA", "C")
 
 
@@ -80,7 +80,7 @@ def compressed_rebuild(run):
 
     Bond lengths, bond angles and the peptide torsion are kept from the deposit; phi and psi, the two
     torsions the fold lives in, are quantized to the reference grid. In walk order the dihedral that
-    places atom i is psi at i%3==0, omega at i%3==1 and phi at i%3==2, so only the omega positions
+    places atom i is psi at i%3==0, omega at i%3==1 and phi at i%3==2. Only the omega positions
     keep their measured direction and every other torsion is told to the walk as a grid cell.
     """
     bond, angle, dih = internal_coords(run)

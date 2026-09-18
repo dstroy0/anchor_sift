@@ -24,7 +24,7 @@
  *       to be told apart in a row of results, because what a row compares includes the compiler and
  *       the operating system that built it. Folding the files did not change what a row prints.
  * @note Both comparisons walk from the top limb down. At a scale of 1024 decimal digits a deposited
- *       value has hundreds of trailing zero digits, so the low limbs are zero on both sides and carry
+ *       value has hundreds of trailing zero digits. The low limbs are zero on both sides and carry
  *       no information. The first difference is near the top and the scan finds it at once.
  */
 
@@ -57,7 +57,7 @@
  *
  * @return 1 where AVX2 is present, 0 where it is absent or cannot be determined.
  * @note Leaf 7 subleaf 0, bit 5 of EBX is the AVX2 flag. The leaf itself only exists where the
- *       maximum leaf reported by leaf 0 reaches 7, so that is checked before it is read.
+ *       maximum leaf reported by leaf 0 reaches 7. That is checked before it is read.
  */
 static int avx2_present(void)
 {
@@ -187,7 +187,7 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
     const int order = avx2_magnitude_compare(left->limb, right->limb);
     if (left->sign < 0)
     {
-        // Both negative, so the larger magnitude is the smaller value.
+        // Both negative. The larger magnitude is the smaller value.
         return -order;
     }
     return order;
@@ -212,7 +212,7 @@ static size_t arm_agreement(const AnchorExactInteger *positions, const uint64_t 
     return anchor_exact_agreement_using(arm_equal, positions, values, count, lag);
 }
 
-/** @brief The arm as a driver sees it. Static storage, so returning its address is safe. */
+/** @brief The arm as a driver sees it. Static storage. Returning its address is safe. */
 static const AnchorExactArm AVX2_ARM = {
     ANCHOR_AVX2_ARM_NAME,
     arm_equal,

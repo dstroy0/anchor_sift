@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: ANY-4-003
 #
-# Run only the halving ladder from examples/any_corpus/4_measure/noise_detection.py, over many corpora, so the loss
+# Run only the halving ladder from examples/any_corpus/4_measure/noise_detection.py, over many corpora. The loss
 # ratio can be plotted against collision entropy.
 #
 #   Usage:  python examples/any_corpus/4_measure/ladder_sweep.py corpus.sym [more.sym ...]
@@ -11,7 +11,7 @@
 # One corpus gave a loss ratio of 1.600 with a standard error of 0.107, an interval containing several
 # named constants and identifying none. Three more gave 1.049, 1.388 and 2.352, which rules out a
 # constant and leaves an ordering with the alphabet weight over four points. This runs the ladder alone,
-# without the corruption rate sweep and the null permutations, so every corpus already fetched can be
+# without the corruption rate sweep and the null permutations. Every corpus already fetched can be
 # measured and the ordering either survives twelve points or does not.
 
 import io
@@ -133,7 +133,7 @@ def main():
 
     # A slope, a standard error and a t are only meaningful if the residuals are normal, and the
     # quantity here was already described as heavy tailed. Skewness and excess kurtosis give the
-    # Jarque-Bera statistic, which is chi square on two degrees of freedom, so 5.99 is the five percent
+    # Jarque-Bera statistic, which is chi square on two degrees of freedom. 5.99 is the five percent
     # point and 9.21 the one percent point
     def normality(values):
         count = len(values)
@@ -172,7 +172,7 @@ def main():
                   % (label, slope, slope_err, tstat, rsq))
 
     # A line from the origin through one point has slope ratio/H2. Points sharing a line share that
-    # slope, so if the corpora fall into families each with its own proportionality the slopes cluster
+    # slope. If the corpora fall into families each with its own proportionality the slopes cluster
     # by family and scatter within it
     def family(name):
         if name.startswith("monkey"):

@@ -19,8 +19,8 @@
  * value is an integer count of alignments and the two arms agree exactly or one is wrong. That is
  * the contract AnchorSteerEngine carries, the same one the exact arms carry in no_rounding.
  *
- * @note Written for the Raspberry Pi 5, a Cortex-A76 at aarch64, so this arm runs and its name has
- *       no unrun tag. NEON is mandatory in the base aarch64 architecture, so a build that reached
+ * @note Written for the Raspberry Pi 5, a Cortex-A76 at aarch64. This arm runs and its name has
+ *       no unrun tag. NEON is mandatory in the base aarch64 architecture. A build that reached
  *       here can always run it and there is nothing to detect.
  * @note There is no movemask on NEON. A byte compare sets a lane to all ones where it agrees, the
  *       alive lanes enter the same way, and the count is taken by shifting each surviving lane down
@@ -39,7 +39,7 @@
 size_t anchor_steer_truthy_after_neon(const uint8_t *corpus, size_t alignments,
                                       const uint8_t *alive, uint8_t wanted, size_t offset)
 {
-    /* Counted before the argument check, so a caller passing nothing still records that this arm
+    /* Counted before the argument check. A caller passing nothing still records that this arm
      * was the one asked. The claim the counters carry is which arm RAN and not what it returned. */
     anchor_steer_scan_calls += 1u;
     anchor_steer_wide_calls += 1u;

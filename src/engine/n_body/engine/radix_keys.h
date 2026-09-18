@@ -107,7 +107,7 @@ static inline int radix_sort_keys(unsigned long long *keys, size_t count)
  * @return               1 where the keys are sorted, 0 where either scratch array could not be
  *                       allocated.
  * @note The same passes as radix_sort_keys. The value rides in the scatter step and plays no part
- *       in the order, so two equal keys keep their values in input order.
+ *       in the order. Two equal keys keep their values in input order.
  * @warning On a return of 0 the keys and values are left in their input order.
  */
 static inline int radix_sort_keyed(unsigned long long *keys, unsigned int *values, size_t count)

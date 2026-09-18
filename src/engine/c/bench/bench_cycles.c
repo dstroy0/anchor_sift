@@ -14,7 +14,7 @@
  *       happens in this file. A change here cannot move a measurement.
  * @note The meta algorithm rests on the second table. Choosing an arm is worth doing only where the
  *       choice agrees with what the clock says, and that agreement is measured here.
- * @note Corpora are SHA-256 in counter mode, mapped where a skewed distribution is wanted, so every
+ * @note Corpora are SHA-256 in counter mode, mapped where a skewed distribution is wanted. Every
  *       byte is reproducible from the seed and no corpus file is needed.
  * @warning Cycle counts belong to the machine that produced them. The ratio between two arms travels
  *          and the absolute count does not.
@@ -43,7 +43,7 @@
 /** @brief Needle lengths swept, powers of two around the effective alphabet. */
 static const size_t NEEDLE_LENGTHS[] = {4u, 8u, 16u, 32u, 64u, 128u, 256u};
 
-/** @brief Needles drawn per row. Each comes from the corpus, so each has a genuine occurrence. */
+/** @brief Needles drawn per row. Each comes from the corpus. Each has a genuine occurrence. */
 #define NEEDLES_PER_ROW 64u
 
 /** @brief Times one row this many times and reports the smallest, which rejects scheduler noise. */
@@ -257,7 +257,7 @@ int main(void)
             size_t starts[NEEDLES_PER_ROW];
             size_t reference = 0u;
 
-            /* Every needle is drawn from the corpus, so every search confirms a genuine occurrence
+            /* Every needle is drawn from the corpus. Every search confirms a genuine occurrence
              * and pays the needle_len read verification floor. That floor is why the arms converge
              * as the needle grows. */
             for (size_t pick = 0u; pick < NEEDLES_PER_ROW; pick += 1u)
@@ -305,7 +305,7 @@ int main(void)
             /* What the dispatcher picks, against what the clock says was quickest. The cost of a
              * wrong pick is the ratio between them, and a dispatcher that rarely picks the fastest
              * is not worth having however cheap its inputs are. */
-            /* The census replaced the entropy and the distinct count in the plan, so the rule reads
+            /* The census replaced the entropy and the distinct count in the plan. The rule reads
              * integer counts. `entropy` and `distinct` above are still computed and still printed;
              * they are this bench's report and no longer the engine's input. */
             AnchorFieldCensus census;

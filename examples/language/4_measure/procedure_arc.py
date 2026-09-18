@@ -23,12 +23,12 @@
 # a text loses it by being shuffled. A text whose blocks can be moved without changing much was not
 # arranged the way a modern one is.
 #
-# The second is uniformity. Recording a procedure was standardized late, so before that every author
+# The second is uniformity. Recording a procedure was standardized late. Before that every author
 # arranged their own way and the books should disagree with each other more. That is a spread between
 # books of one period and it needs no reference to any standard.
 #
 # What confounds this and cannot be removed: the Roman book is a modern English translation and the
-# medieval one comes through a later edition, so the date a text was composed and the date its language
+# medieval one comes through a later edition. The date a text was composed and the date its language
 # belongs to are different variables here. Where they separate is stated per book and not averaged over.
 
 import io
@@ -91,7 +91,7 @@ def clustering(text):
     """How tightly each word keeps to one part of the book, against the same words scattered.
 
     Arrangement is a property of the whole book and the character web is a property of neighboring
-    letters, so shuffling blocks left that web almost unmoved: every value came back under 0.03 and the
+    letters. Shuffling blocks left that web almost unmoved: every value came back under 0.03 and the
     reading said nothing. What arrangement does show in is where a word sits. A book laid out as separate
     recipes keeps the word for an ingredient inside the recipe that calls for it, and a book that wanders
     spreads the same word through the whole of itself.

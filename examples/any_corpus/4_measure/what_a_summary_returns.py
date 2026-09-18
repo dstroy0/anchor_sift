@@ -17,12 +17,12 @@
 # everything, and nothing was found in between.
 #
 # That is this work's own first proposition turning up as a measurement. A cheap invariant is a
-# necessary condition, so it can reject quickly and can never reconstruct, and a summary that could
+# necessary condition. It can reject quickly and can never reconstruct, and a summary that could
 # do both would refute the propositions the rest of this rests on.
 #
 # Text fails differently and the difference decides how the number is read. A picture rebuilt to a
 # correlation of 0.97 is the picture, since a sample landing a level or two off is invisible. A
-# letter landing one code point off is a different letter, so the share of symbols returned exactly
+# letter landing one code point off is a different letter. The share of symbols returned exactly
 # is the only measure that means anything for text, and it is far behind the correlation.
 #
 # The seating is swept too, because a share returned that moves when the alphabet is renumbered is

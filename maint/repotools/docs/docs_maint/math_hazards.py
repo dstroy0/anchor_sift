@@ -7,7 +7,7 @@
 #
 #   Usage:  python docs/docs_maint/math_hazards.py <document.md> [more.md]
 #
-# Markdown gets the first pass at the text and the math renderer gets the second, so anything that means
+# Markdown gets the first pass at the text and the math renderer gets the second. Anything that means
 # something to markdown or to HTML is consumed before the formula is ever parsed. Three of these turned up
 # in one paper and none of them reported the cause.
 #
@@ -66,7 +66,7 @@ def odd_inline_dollars(line):
     """Whether a line leaves an inline formula unclosed.
 
     The display delimiters are removed first. A display block legitimately opens on one line and
-    closes on another, so counting every dollar sign reports each of those as unclosed.
+    closes on another. Counting every dollar sign reports each of those as unclosed.
     """
     without_display = line.replace("$$", "")
     return (len(re.findall(r"(?<!\\)\$", without_display)) % 2) == 1

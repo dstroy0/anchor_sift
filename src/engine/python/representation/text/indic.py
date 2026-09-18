@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Every Indic script read at one set of distinctions, so an inventory stops deciding the answer.
+# Every Indic script read at one set of distinctions. An inventory stops deciding the answer.
 #
 #   Usage:  from representation.text.indic import collapsed
 #
@@ -57,7 +57,7 @@ def collapsed(text, keep_aspiration=False):
             continue
         if (not keep_aspiration) and (FIRST_CONSONANT <= offset < LAST_CONSONANT):
             place = offset - FIRST_CONSONANT
-            # The fifth of each row is the nasal and is its own sound, so only the four stops fold
+            # The fifth of each row is the nasal and is its own sound. Only the four stops fold
             if (place % ROWS) != 4:
                 offset = FIRST_CONSONANT + ((place // ROWS) * ROWS)
         out.append(chr(FIRST_SEAT + offset))

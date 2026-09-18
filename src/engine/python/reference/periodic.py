@@ -29,9 +29,9 @@
 # NOTHING IS BOUNDED HERE
 #
 # The period is an input, not a constant chosen here; it comes from measure/ and is reported beside
-# every number. The mean is exact rational and the consensus is an exact count, so no tolerance, no
+# every number. The mean is exact rational and the consensus is an exact count. No tolerance, no
 # threshold and no learned parameter sits between the data and the background. The two routes for each
-# background share no code and no arithmetic, so where they disagree the disagreement is a defect in
+# background share no code and no arithmetic. Where they disagree the disagreement is a defect in
 # one of them and not a rounding either was allowed.
 #
 # Two routes for the mean: a batch sum divided once, and an incremental Welford mean that divides once
@@ -130,7 +130,7 @@ def consensus_median(values, period):
     """Each phase class's median, tiled back over every position. Route two.
 
     The lower of the two middle values on an even class, a declared rule. Where a phase class carries
-    a strict majority of one value the median is that value, so this agrees with the count route to
+    a strict majority of one value the median is that value. This agrees with the count route to
     the integer on every class a majority reaches. It sorts and selects where the other counts, so
     the two share no code, and a class they disagree on is a class with no majority: the floor.
     """
@@ -146,7 +146,7 @@ def restore(values, period, route=consensus_majority):
     """The signal a period allows, with each position replaced by its phase consensus.
 
     The reconstruction for replacement noise: every position becomes the value its phase class agrees
-    on, so the few members that were overwritten are restored from the many that were not. `route`
+    on. The few members that were overwritten are restored from the many that were not. `route`
     selects which consensus, and the two routes are checked against each other by the caller.
     """
     return route(values, period)

@@ -21,11 +21,11 @@
  * the contract AnchorSteerEngine carries, the same one the exact arms carry in no_rounding.
  *
  * @note NOT SHARED SOURCE WITH THE HOST ARMS. A device function carries __global__ or __device__ on
- *       every declaration, so the kernel cannot be the portable loop compiled twice, and the two can
+ *       every declaration. The kernel cannot be the portable loop compiled twice, and the two can
  *       drift. The GPU build grades every count this arm returns against the portable host arm on
  *       the same data, which is what catches a drift.
  * @note THE WHOLE OBJECT CROSSES THE BUS PER CALL. The corpus and the survivor vector are copied to
- *       the device, so this arm pays a transfer a host arm does not. It wins only where the object is
+ *       the device. This arm pays a transfer a host arm does not. It wins only where the object is
  *       large enough to amortize that, which is why it is graded and timed rather than placed in
  *       anchor_steer_best_engine.
  * @note A device refusal falls back to a host count instead of returning a sentinel into a table of
@@ -101,7 +101,7 @@ extern "C" int anchor_steer_cuda_describe(char *text, size_t room)
 /**
  * @brief Counts on the host, without touching the scan counters, for the device fallback.
  *
- * @note anchor_steer_truthy_after_cuda has already counted the call, so the fallback must not reach
+ * @note anchor_steer_truthy_after_cuda has already counted the call. The fallback must not reach
  *       anchor_steer_truthy_after_portable, which would count it a second time. The loop is the same
  *       one the portable arm runs.
  */
@@ -126,7 +126,7 @@ static size_t scan_host_fallback(const unsigned char *corpus, size_t alignments,
 extern "C" size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t alignments,
                                                  const uint8_t *alive, uint8_t wanted, size_t offset)
 {
-    /* Counted before the argument check, so a caller passing nothing still records that this arm was
+    /* Counted before the argument check. A caller passing nothing still records that this arm was
      * the one asked. The claim the counters carry is which arm RAN and not what it returned. */
     anchor_steer_scan_calls += 1u;
     anchor_steer_wide_calls += 1u;

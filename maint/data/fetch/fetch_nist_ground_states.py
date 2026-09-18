@@ -11,13 +11,13 @@
 # real atom fills against the order, chromium and the rest, the two disagree, and that disagreement is
 # the aufbau exception the oracle reports.
 #
-# One request for the whole range covers it, so the archive is asked once. The NIST database is a
-# public service run by people; a second run costs it nothing, and this caches, so no second run is
+# One request for the whole range covers it. The archive is asked once. The NIST database is a
+# public service run by people; a second run costs it nothing, and this caches. No second run is
 # needed. The tool refuses on an empty or truncated response instead of writing a short file that a
 # later reader would take for the whole table.
 #
 # The database carries measured spectra to element 110. Elements 111 to 118 have no measured
-# configuration, only predictions, so they are absent here, and the oracle reports them as
+# configuration, only predictions. They are absent here, and the oracle reports them as
 # unmeasured and does not invent a row for them.
 #
 # Source: NIST Atomic Spectra Database, Ground States and Ionization Energies, physics.nist.gov.

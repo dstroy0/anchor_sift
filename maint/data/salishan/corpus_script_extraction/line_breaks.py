@@ -11,8 +11,8 @@
 # above man.being. Left alone they put half-words in the corpus and lose the other half.
 #
 # Two shapes have to be told apart, and the leading whitespace of the line under the fragment
-# separates them. A word the extraction cut in half continues at column 0, so it closes up: ma above
-# ximal is maximal. A column that wrapped is indented to its own column, so it keeps the space that
+# separates them. A word the extraction cut in half continues at column 0. It closes up: ma above
+# ximal is maximal. A column that wrapped is indented to its own column. It keeps the space that
 # was between the two words: oh above four spaces and then EP is oh EP.
 #
 # The alphabet tables are where a join would be wrong. Chinuk pipa's letter names wa, wi and waw sit

@@ -18,7 +18,7 @@
 # claim holds outside the fields written to demonstrate it.
 #
 # The atoms are laid into a grid and smoothed, which is not a convenience. A structure is observed as a
-# density and deposited atoms with no smoothing give a grid that is almost entirely empty, so the readings
+# density and deposited atoms with no smoothing give a grid that is almost entirely empty. The readings
 # would describe the emptiness. Smoothing to a few voxels is what the measurement that produced these
 # coordinates actually resolves.
 #

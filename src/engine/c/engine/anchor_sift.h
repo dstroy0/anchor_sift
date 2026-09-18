@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-/* The dispatch rule reads the field's census directly, so the plan carries one. This is what makes
+/* The dispatch rule reads the field's census directly. The plan carries one. This is what makes
  * the rule exact: the census holds integer counts and the comparison clears its denominators into
  * integers, where the old form took a logarithm and approximated a power of two in double. */
 
@@ -41,7 +41,7 @@ extern "C" {
 /**
  * @brief Set to 1 to build the engines with probe and verification counters.
  *
- * @note Both arms of the gate defined, so #if always has a value and an unset build is never a
+ * @note Both arms of the gate defined. #if always has a value and an unset build is never a
  *       silent false.
  * @note At 0 the counting macros expand to nothing and the object is what it was, letting one
  *       source serve both the timed build and the counted one. A cycle count and a read count
@@ -77,7 +77,7 @@ void anchor_sift_counters_reset(void);
  *        drift.
  *
  * @note THIS CONSTANT IS THE TERMINATION ARGUMENT. Every descent below places one probe per level
- *       and never revisits one, so the depth is bounded by this value at compile time. It is
+ *       and never revisits one. The depth is bounded by this value at compile time. It is
  *       declared here rather than in the implementation because it is part of the contract: a
  *       caller sizing an array of probes needs it, and a reader asking whether a recursion
  *       terminates should find its bound in the header rather than having to open the source.
@@ -95,7 +95,7 @@ void anchor_sift_counters_reset(void);
  * @note This is the whole of what steers the engine. It is read off the corpus and nothing else
  *       contributes to it, which is what makes the steering the field's own and not a parameter.
  * @note `total` is the byte count and not the alignment count. A census describes the field, not
- *       the search about to be run over it, so it does not know the needle length.
+ *       the search about to be run over it. It does not know the needle length.
  */
 typedef struct
 {
@@ -175,8 +175,8 @@ size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t 
  *       is untidy; a field that can contradict the truth beside it is a defect waiting for someone
  *       to fill in both.
  * @note `needle_len` is carried and not read, and that is a different case. A ceiling on it was
- *       swept over every value the bench measures and no ceiling beat having none, so the rule does
- *       not consult it. It duplicates nothing, so it stays.
+ *       swept over every value the bench measures and no ceiling beat having none. The rule does
+ *       not consult it. It duplicates nothing. It stays.
  * @warning `census` is BORROWED for the duration of every call taking this plan. It is a pointer
  *          rather than an embedded structure because AnchorFieldCensus is about two kilobytes and a
  *          plan is passed by pointer on a hot path.
@@ -228,7 +228,7 @@ size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t
  *
  * @param[in] plan Corpus statistics and the needle length [BORROWS].
  * @return         The engine to call. Never NULL.
- * @note Every engine is sound, so the choice costs speed and never correctness. A wrong dispatch is
+ * @note Every engine is sound. The choice costs speed and never correctness. A wrong dispatch is
  *       therefore a performance defect instead of a wrong answer.
  * @note One term, decided by anchor_steer_prefers_free in exact integer arithmetic. A corpus whose
  *       effective alphabet 2^H2 reaches 85 percent of the symbols it uses takes the free order
@@ -237,7 +237,7 @@ size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t
  *       100*total^2 >= 85*distinct*sum(count^2) and holds no floating point value anywhere.
  *       Scored against the clock over 42 rows by bench_dispatch: 39 of 42 giving up 9131790 cycles
  *       at a share of 0.035 on x64 MSVC 19.44 Release, and 41 of 42 giving up 86511 at 0.000 under
- *       gcc. A hundredfold gap in cycles between two real runs, so the figure belongs to the
+ *       gcc. A hundredfold gap in cycles between two real runs. The figure belongs to the
  *       toolchain that produced it. Re-run the bench before quoting either. An earlier form of this
  *       note said "around one percent", which no recorded run produced.
  * @note THE NEEDLE LENGTH TERM CHANGES NO ANSWER ON THIS DATA. Scoring flatness alone ties this rule
@@ -246,7 +246,7 @@ size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t
  *       from the code that it is carrying weight. Find a row where it pays or leave it inert.
  * @note The rule is read off the cycle measurements and belongs to the machine that produced them.
  *       Re-run bench_dispatch before trusting it on another part. It sweeps both thresholds instead
- *       of assuming them, so what it prints is a recommendation to act on, not a confirmation.
+ *       of assuming them. What it prints is a recommendation to act on, not a confirmation.
  */
 AnchorSiftEngine anchor_sift_choose(const AnchorSiftPlan *plan);
 
@@ -282,7 +282,7 @@ void anchor_field_census(const uint8_t *corpus, size_t corpus_len, AnchorFieldCe
  * @return           `census->total` minus the symbol's own count.
  *
  * @note THIS IS THE INFORMATION WEIGHT WITHOUT THE LOGARITHM. Rarity ordering is by P ascending,
- *       and P is count over a shared total, so `total - count` orders identically to -log P while
+ *       and P is count over a shared total. `total - count` orders identically to -log P while
  *       staying an exact integer. It is a magnitude for ordering and comparison and it is not an
  *       entropy in bits; anything wanting bits has to take the logarithm itself and would be
  *       introducing a double this engine does not carry.
@@ -301,10 +301,10 @@ uint64_t anchor_steer_magnitude(const AnchorFieldCensus *census, uint8_t symbol)
  * @param[in]     needle_len How many.
  *
  * @note Insertion sort by descending magnitude. The count is at most ANCHOR_SIFT_ANCHORS, which is
- *       four, so an insertion sort is fewer instructions than setting up anything cleverer and is
+ *       four. An insertion sort is fewer instructions than setting up anything cleverer and is
  *       the right choice rather than a concession.
  * @note STABLE, and that is load bearing rather than incidental. Two anchors testing equally rare
- *       symbols keep the order choose_offsets placed them in, so the spatial spread that rule exists
+ *       symbols keep the order choose_offsets placed them in. The spatial spread that rule exists
  *       to produce survives wherever rarity does not distinguish. An unstable sort would quietly
  *       discard the spread on a flat corpus, which is the corpus where the spread is all there is.
  * @note Does nothing where any argument is null, where `count` is zero, or where the census is
@@ -322,7 +322,7 @@ void anchor_steer_probe_order(size_t *offsets, size_t count, const AnchorFieldCe
  * @note THE SAME RULE THE ENGINE ALREADY SHIPPED, WITH THE FLOATING POINT REMOVED. The rule asks
  *       whether the effective alphabet 2^H2 sits within 85 percent of the symbols actually used.
  *       Writing H2 as the collision entropy, 2^H2 is exactly total^2 over the sum of the squared
- *       counts, so the test
+ *       counts. The test
  *
  *           total^2 / sum(count^2)  >=  (85/100) * distinct
  *
@@ -357,12 +357,12 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census);
  *       condition, and the proof reads no order, no dimension and no alphabet.
  * @note A symbol may therefore be a byte, a 32 bit sample, an exact rational, a point in eight
  *       dimensions, a pointer compared by identity, or a value only its owner can compare. The
- *       engine never learns which, so an alphabet that cannot be enumerated or hashed costs it
+ *       engine never learns which. An alphabet that cannot be enumerated or hashed costs it
  *       nothing.
  * @note THIS ENGINE WAS THE NARROW ONE AND THE REST OF THE TREE WAS NOT. bench_lattice has taken a
  *       callback since it was written, and the python cascade has never needed bytes either: its
  *       `survivors` indexes a dict by symbol and `positions_by_symbol` builds that dict from any
- *       iterable of values, so it requires equality and hashability and nothing else. A
+ *       iterable of values. It requires equality and hashability and nothing else. A
  *       crystallography example feeds it element strings and has done so for longer than this note
  *       has existed. The C entries demanded a `uint8_t *` and were therefore narrower both than the
  *       proof they implement and than the python engine they are checked against.
@@ -380,7 +380,7 @@ typedef int (*AnchorSameAt)(const void *field, size_t corpus_at, size_t needle_a
  * @brief A field of any symbol type, reached only through equality.
  *
  * @note Carries no element size and no element pointer. The engine indexes positions and asks the
- *       oracle about them, so where the symbols live and how wide they are belong to the caller.
+ *       oracle about them. Where the symbols live and how wide they are belong to the caller.
  * @warning `alignments` is the number of positions that can host a pattern, which for a linear field
  *          of `n` symbols is `n - needle_len + 1`. The engine cannot compute it, because it does not
  *          know the field's shape, and a caller that supplies it wrongly gets a wrong sweep rather
@@ -392,7 +392,7 @@ typedef struct
     const void *field;  /**< Passed to the oracle untouched, never dereferenced here [BORROWS]. May
                          *   be null ONLY where the ORACLE does not dereference it either, which
                          *   means an oracle reaching its data some other way. The engine never uses
-                         *   it, so "if unused" read as a condition always satisfied; the condition
+                         *   it. "if unused" read as a condition always satisfied; the condition
                          *   is on the oracle. Passing null to an oracle that reads it faults inside
                          *   the oracle, where the engine cannot see it coming. */
     size_t alignments;  /**< Positions that can host the pattern. Non-zero. */
@@ -408,8 +408,8 @@ typedef struct
  * @warning RANKS FROM TWO CALLS ARE NOT COMPARABLE, AND COMPARING THEM LOSES TRUE OCCURRENCES.
  *          A rank is not a property of a symbol. It is a property of a symbol WITHIN THE POPULATION
  *          THIS CALL SAW, and the population is part of the answer. The class a position falls in
- *          comes from the oracle, which the CALLER supplies, so it is the same relation whatever
- *          field it is applied to. The rarity place comes from counting THIS field, so it is not.
+ *          comes from the oracle, which the CALLER supplies. It is the same relation whatever
+ *          field it is applied to. The rarity place comes from counting THIS field. It is not.
  *          The rank fuses the two and only the first half survives the trip to another field.
  *
  *          It is a hash and a nonce. The class is the digest and the population is the nonce, and a
@@ -435,7 +435,7 @@ typedef struct
  *
  * @note THE COMPONENT COUNT IS UNBOUNDED AND ONLY THE OUTPUT IS CLAMPED. Classes are discovered
  *       with no ceiling, ordered by rarity across every one of them, and the byte rank is clamped
- *       at relabel time, so a field with a thousand classes keeps its 255 rarest apart and merges
+ *       at relabel time. A field with a thousand classes keeps its 255 rarest apart and merges
  *       the commonest into rank 255. That is the direction the steering needs, because a probe's
  *       survivor count is its class frequency and the rarest class is the best probe available.
  *       The class buffers exist to carry those components; the kernel allocates nothing.
@@ -448,7 +448,7 @@ typedef struct
  *       equality is the wrong test on a continuous domain.
  *
  *       Soundness needs agreement to imply a shared rank. It does NOT need a shared rank to imply
- *       agreement, so the labelling has to be a superset of the relation, and the smallest superset
+ *       agreement. The labelling has to be a superset of the relation, and the smallest superset
  *       that is an equivalence is the transitive closure. Classes are therefore connected
  *       components: a position joins every class it matches and merges them.
  *
@@ -471,7 +471,7 @@ typedef struct
  *          changed to prevent after it segfaulted the suite.
  *
  * WHY PROJECT AT ALL. A probe only has to be a necessary condition of an occurrence. Within one
- * projection, two positions in one class carry one rank, so rank disagreement proves symbol
+ * projection, two positions in one class carry one rank. Rank disagreement proves symbol
  * disagreement and a rank probe refutes a subset of what a symbol probe refutes. Rank agreement does
  * not prove symbol agreement, and a filter does not need it to. The engine's construction is that a
  * necessary condition may be weaker than the thing it screens for.
@@ -486,7 +486,7 @@ typedef struct
  *       The rank is therefore not an arbitrary label: rank zero is the class that refutes most
  *       alignments, and a planner reading the projected field gets the entropy ordering for free.
  * @note A SEARCH OVER RANK FIELDS COUNTS RANK MATCHES, AND THAT EQUALS THE SYMBOL COUNT ONLY AT 256
- *       CLASSES OR FEWER. Places then run from 0 to 255 and none is clamped, so one rank names one
+ *       CLASSES OR FEWER. Places then run from 0 to 255 and none is clamped. One rank names one
  *       class and the two counts are the same integer. Past 256 classes every class at place 255 or
  *       later takes rank 255, alignments whose symbols differ can agree on every rank, and the byte
  *       engine's full compare cannot remove them, because on rank fields it compares ranks. The
@@ -496,7 +496,7 @@ typedef struct
  *       oracle, or give the oracle to a descent directly.
  * @warning COSTS UP TO `length` SQUARED ORACLE CALLS AND THAT IS NOT A LOOSE BOUND. Computing the
  *          transitive closure of a graph reachable only through a pairwise probe needs the pairs,
- *          and the predicate may be one the caller chose for being approximate, so there is no
+ *          and the predicate may be one the caller chose for being approximate. There is no
  *          correct shortcut. The only saving taken is skipping a pair already in one component,
  *          which is real on a chained field and nothing on a field of singletons.
  *
@@ -534,7 +534,7 @@ typedef struct
 int anchor_field_project(const AnchorFieldProjection *args);
 
 /**
- * @brief Numbers a corpus and a needle in ONE population, so their ranks can be compared.
+ * @brief Numbers a corpus and a needle in ONE population. Their ranks can be compared.
  *
  * @note WHY THIS EXISTS AT ALL. anchor_field_project projects one field and its ranks mean something
  *       only inside it. Two separate calls produce two rarity orders over two populations, and a
@@ -553,7 +553,7 @@ int anchor_field_project(const AnchorFieldProjection *args);
  * @note THE ORACLE HERE IS FIELD AGAINST FIELD, NOT CORPUS AGAINST NEEDLE. It takes two joint
  *       positions drawn from one space. `AnchorField.same` in a descent takes a CORPUS position and
  *       a NEEDLE position, which are two spaces. The two have the same C type and different
- *       meanings, so the compiler cannot catch the swap and passing one where the other belongs
+ *       meanings. The compiler cannot catch the swap and passing one where the other belongs
  *       reads off the end of something.
  */
 typedef struct
@@ -589,19 +589,19 @@ typedef struct
  * @return         1 where both rank arrays were written, 0 where the call was refused.
  *
  * @note WHAT THE CALLER DOES WITH THE RESULT. `corpus_ranks` and `needle_ranks` are byte fields
- *       numbered by one rule, so they can go to anchor_steer_count or to any entry here that takes
+ *       numbered by one rule. They can go to anchor_steer_count or to any entry here that takes
  *       bytes. What the count means depends on how many classes the joint field holds, and
  *       `distinct` tells the caller which case applies.
  *
  * @note AT 256 CLASSES OR FEWER THE RANK COUNT IS THE EXACT COUNT. Places run from 0 to 255 and
- *       none is clamped, so one rank names one class, rank agreement is class agreement, and a
+ *       none is clamped. One rank names one class, rank agreement is class agreement, and a
  *       search over the rank fields returns the integer a search over the symbols would.
  *
  * @note PAST 256 CLASSES THE RANK COUNT IS AN UPPER BOUND. Every class at
- *       place 255 or later takes rank 255, so two different classes can agree on rank. A search
+ *       place 255 or later takes rank 255. Two different classes can agree on rank. A search
  *       over the rank fields counts those alignments too, and its full compare cannot remove them,
  *       because on rank fields the full compare compares ranks. The direction the filter needs
- *       still holds: one class takes one rank across the whole joint field, so symbol agreement
+ *       still holds: one class takes one rank across the whole joint field. Symbol agreement
  *       implies rank agreement and no true occurrence is lost. For an exact count past 256 classes,
  *       check the rank survivors against the symbols through the oracle, or run the descent on the
  *       oracle directly.
@@ -614,7 +614,7 @@ typedef struct
  *       return value is the whole report, as it is for anchor_field_project.
  *
  * @warning COSTS THE SAME CLOSURE THE SINGLE FIELD ENTRY DOES, over a longer field. The pairwise
- *          closure is quadratic in `corpus_length + needle_length`, so this is for fields small
+ *          closure is quadratic in `corpus_length + needle_length`. This is for fields small
  *          enough to project at all. A descent takes the oracle directly, needs no closure, and
  *          costs nothing extra.
  */
@@ -637,7 +637,7 @@ int anchor_field_pair_project(const AnchorFieldPairProjection *args);
  * ANY SYMBOL TYPE, THROUGH `any`. Set it and the engine reads the field only through an equality
  * oracle, never touching `corpus` or `needle`. That is not a convenience wrapper over the byte path;
  * it is the path the theory describes, and the byte members are the specialization. Soundness uses
- * equality alone and reads no order, no dimension and no alphabet, so an engine that demands a
+ * equality alone and reads no order, no dimension and no alphabet. An engine that demands a
  * `uint8_t *` is narrower than its own proof. The byte path stays because it is faster and because
  * every existing caller passes bytes.
  *
@@ -676,7 +676,7 @@ typedef struct
     int resume;            /**< Non-zero starts the descent from the survivors already in the buffer
                             *   instead of resetting them to all standing, which is how a caller
                             *   composes a recursive spawn: descend, then descend again over the
-                            *   survivors the last descent left, so each child reads only what its
+                            *   survivors the last descent left. Each child reads only what its
                             *   parent kept standing. Zero, the default, resets the buffer and is what
                             *   every existing caller gets. The engine does not check the incoming set
                             *   is a valid superset; that is the caller's, and a lone survivor is
@@ -690,7 +690,7 @@ typedef struct
  * @param type_  Its argument structure.
  * @note The literal has automatic storage and lives for the whole call. Every member the caller does
  *       not name is zero, which is the contract each structure above states. `__VA_ARGS__` is
- *       mentioned once, so an argument carrying a side effect is evaluated once.
+ *       mentioned once. An argument carrying a side effect is evaluated once.
  */
 #define ANCHOR_STEER_CALL(entry_, type_, ...) entry_(&(type_){__VA_ARGS__})
 
@@ -698,11 +698,11 @@ typedef struct
  * @brief Orders the anchors by conditional pruning, one level per anchor, and reports the depth.
  *
  * @warning THIS REORDERS OFFSETS THE CALLER HAS ALREADY PLACED. IT DOES NOT CHOOSE THEM. `offsets`
- *          is read on the way in, so a caller who leaves the array uninitialized expecting the
+ *          is read on the way in. A caller who leaves the array uninitialized expecting the
  *          descent to fill it gets whatever was in that memory ranked, and gets it silently.
  *          anchor_steer_spawn_coarms is the entry that chooses the positions itself.
  * @warning `count` ABOVE ANCHOR_STEER_ANCHORS RETURNS ZERO AND SAYS NOTHING. That is the whole
- *          report: zero is also what a null pointer and a zero needle length return, so a caller
+ *          report: zero is also what a null pointer and a zero needle length return. A caller
  *          reading the return value alone cannot tell which guard refused. Check the bound before
  *          the call, because the call will not tell you.
  *
@@ -728,7 +728,7 @@ typedef struct
  *
  * This ranks each level against the alignments that actually survived the levels above it, which is
  * the CONDITIONAL distribution rather than the marginal one. It also measures survivors directly
- * instead of inferring them from symbol frequency, so correlation between positions is accounted
+ * instead of inferring them from symbol frequency. Correlation between positions is accounted
  * for rather than assumed away.
  *
  * IT CANNOT FAIL TO TERMINATE, AND NOT BECAUSE ANYBODY CHECKED. The halting problem is about
@@ -747,7 +747,7 @@ typedef struct
  * THE DEPTH IS NOT FIXED, THOUGH, AND AN EARLIER FORM OF THIS LIST SAID IT WAS. It read "no branch
  * anywhere in the descent depends on corpus content for its DEPTH, only for its choice at a level",
  * which is false unless `force_full_depth` is set. The destroy test reads a survivor count off the
- * corpus and breaks, so the field routinely ends the descent early, and an omitted member is zero so
+ * corpus and breaks. The field routinely ends the descent early, and an omitted member is zero so
  * that is the default path. Depth is a truthy and falsy steer bounded above by a constant, and the
  * return value exists so a caller can read the depth actually reached rather than assume `count`.
  *
@@ -795,11 +795,11 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
  * nothing when rejected again. Choosing the candidate that leaves fewest survivors is choosing the
  * largest marginal gain on that union. By Nemhauser, Wolsey and Fisher 1978, greedy maximization of
  * a monotone submodular function under a cardinality constraint reaches at least 1 - 1/e of the best
- * set of the same size, so the probes placed here reject at least about 63 percent of what the
+ * set of the same size. The probes placed here reject at least about 63 percent of what the
  * optimal `wanted` probes would reject.
  *
  * @warning THE GUARANTEE IS ON ALIGNMENTS REJECTED AND NOT ON READS. Rejecting an alignment early
- *          saves the reads a later probe would spend on it, so two probe sets covering the same
+ *          saves the reads a later probe would spend on it. Two probe sets covering the same
  *          alignments can cost different numbers of reads. It also assumes marginal gains are
  *          scored exactly, which holds only at `sample_stride` of one. Above one the scoring is
  *          taken on a sample, the oracle is approximate, and the ratio no longer holds as stated.
@@ -812,7 +812,7 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
  * IT CAN RUN SHORTER, AND CORPUS CONTENT IS WHAT DECIDES. The destroy test compares the best
  * candidate's surviving population against the current one, and that count is read off the corpus.
  * Where nothing prunes, the descent breaks early. `force_full_depth` exists precisely to override
- * that, and an omitted member is zero, so the DEFAULT path is the one where the field ends the
+ * that, and an omitted member is zero. The DEFAULT path is the one where the field ends the
  * descent. bench_sigma measures it: with `wanted` fixed at 4 on every row, `placed` comes back 2 at
  * an alphabet of 2^8 and 1 from 2^16 up, because a larger alphabet lets the first probe cut far
  * enough that a second buys nothing.
@@ -826,7 +826,7 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
  * `wanted`, which matters more now that the two can differ.
  *
  * @note FAILS CLOSED ON THE SURVIVOR BUFFER. Returns 0 without writing `offsets` where
- *       `survivors_length` does not reach the alignment count. The kernel allocates nothing, so the
+ *       `survivors_length` does not reach the alignment count. The kernel allocates nothing. The
  *       buffer is the caller's and a buffer too small is refused rather than worked around. Size it
  *       at `corpus_len - needle_len + 1`.
  * @note A planner is free to be wrong here for the same reason it is free to be wrong anywhere else
@@ -895,7 +895,7 @@ typedef struct
  * @param[in] probe      Probe to test [BORROWS].
  * @param[in] needle_len Length it must fit inside.
  * @return               1 where it fits, 0 otherwise.
- * @note Computed without forming the last position as a sum, so a step and length that would
+ * @note Computed without forming the last position as a sum. A step and length that would
  *       overflow size_t are refused rather than wrapping into a position that looks valid.
  */
 int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
@@ -922,8 +922,8 @@ int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
  * shape is assumed; a point probe wins where a point probe is best, and a line wins where a line is.
  *
  * AN EYE IS NOT FREE AND THE SWEEP KNOWS IT. A probe of length L reads up to L bytes per alignment
- * where an arm reads one, so an eye has to prune more than L times as hard to be worth spawning.
- * The score here is survivors, which does not carry that cost, so the caller comparing an eye
+ * where an arm reads one. An eye has to prune more than L times as hard to be worth spawning.
+ * The score here is survivors, which does not carry that cost. The caller comparing an eye
  * against an arm has to compare READS and not survivors. test_steer does exactly that and reports
  * both, which is why the guide recommends measuring rather than reaching for the longest eye.
  *
@@ -931,7 +931,7 @@ int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
  * ANCHOR_STEER_ANCHORS at compile time. The sweep inside a level is three nested bounded loops over
  * needle_len, needle_len and max_length. Nothing in it is data dependent in its EXTENT.
  *
- * @note Every shape the sweep can spawn leaves the count unchanged, so the whole sweep moves inside
+ * @note Every shape the sweep can spawn leaves the count unchanged. The whole sweep moves inside
  *       the null group and can be as wrong as it likes without costing an answer.
  * @note Fails closed on the survivor buffer exactly as anchor_steer_spawn_coarms does.
  * @warning The sweep is `wanted * needle_len^2 * max_length^2 * alignments / sample_stride` byte
@@ -939,7 +939,7 @@ int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
  *          comes from scoring: a candidate of length L costs up to L comparisons, and summing L
  *          from 1 to max_length averages about max_length/2. An earlier form of this note charged
  *          one comparison per candidate and understated the bound in the unsafe direction.
- *          anchor_steer_probe_fits rejects shapes that do not fit, so the real count sits below
+ *          anchor_steer_probe_fits rejects shapes that do not fit. The real count sits below
  *          this figure. It is still far more than the scan it plans on any but a tiny needle, and
  *          it is a planner for a search run many times against one needle rather than for a single
  *          shot. `sample_stride` is what makes it affordable.
@@ -962,7 +962,7 @@ void anchor_steer_probes_reset(void);
  * @param[in] steered    1 to order the probes by rarity, 0 to leave the spatial order.
  * @return               How many alignments match exactly.
  *
- * @note ONE KERNEL AND ONE FLAG, so that the missing term is the only thing that differs between
+ * @note ONE KERNEL AND ONE FLAG. That the missing term is the only thing that differs between
  *       the two routes. Same offsets, same probe loop, same verification; `steered` decides only
  *       the ORDER the probes are evaluated in. A comparison between two separate implementations
  *       would measure the implementations. This measures the ordering.
@@ -993,7 +993,7 @@ size_t anchor_steer_count(const uint8_t *corpus, size_t corpus_len, const uint8_
  *
  * @note THE ENTRY A TEST NEEDS AND A CALLER RARELY DOES. Everything else here chooses its own
  *       probes, which is the point of a steering engine and is also what makes the guarantee hard
- *       to attack from outside. This takes the probe set as an argument, so a caller can hand over
+ *       to attack from outside. This takes the probe set as an argument. A caller can hand over
  *       a permutation of one set and check the count is unchanged, hand over a probe built from the
  *       census instead of the needle and watch the count break, or hand over none at all.
  * @note The empty probe set is the identity. Every alignment reaches the full compare, the answer
@@ -1029,7 +1029,7 @@ typedef struct
  * @brief Scans served by any engine since the last reset.
  *
  * A CORRECTNESS SUITE CANNOT DETECT AN UNUSED IMPLEMENTATION. An engine that is compiled, graded
- * and never called produces no wrong answer, so every count stays identical and every test keeps
+ * and never called produces no wrong answer. Every count stays identical and every test keeps
  * passing. That is not a hypothetical: the AVX2 engine here was built, graded against portable and
  * benched at 33 times its rate while the planner went on running its own scalar loop, and nothing in
  * the suite said so.
@@ -1098,7 +1098,7 @@ size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
  * @brief The AVX-512 engine, answering sixty-four alignments per compare.
  *
  * @return A pointer to the engine, or NULL where this processor does not carry AVX-512.
- * @note Asks the processor instead of trusting the build. No machine here runs it, so the name it
+ * @note Asks the processor instead of trusting the build. No machine here runs it. The name it
  *       carries reads avx512-unrun.
  */
 const AnchorSteerEngine *anchor_steer_avx512_engine(void);
@@ -1131,7 +1131,7 @@ size_t anchor_steer_truthy_after_neon(const uint8_t *corpus, size_t alignments,
  * @brief The SVE engine, answering a vector's worth of alignments per compare.
  *
  * @return A pointer to the engine, or NULL where the kernel does not report SVE. No machine here
- *         runs it, so the name it carries reads sve-unrun.
+ *         runs it. The name it carries reads sve-unrun.
  * @note Detection reads the kernel capability word, since ARM has no cpuid.
  */
 const AnchorSteerEngine *anchor_steer_sve_engine(void);
@@ -1167,7 +1167,7 @@ int anchor_steer_cuda_describe(char *text, size_t room);
  *
  * @return A pointer to the engine, or NULL where no device answered.
  * @note Not in anchor_steer_best_engine. The scan is called once per candidate in a descent and the
- *       survivor vector changes each level, so a per-call host to device copy would cost more than
+ *       survivor vector changes each level. A per-call host to device copy would cost more than
  *       the scan saves on all but the largest objects. The arm is graded against portable and timed
  *       by the GPU build, and a caller that has already put the object on the device calls it
  *       directly.
@@ -1177,7 +1177,7 @@ const AnchorSteerEngine *anchor_steer_cuda_engine(void);
 /**
  * @brief The scan on a CUDA device. Same contract as the portable one, same count.
  *
- * @note Falls back to a host count where the device refuses the work, so a driver comparing arms
+ * @note Falls back to a host count where the device refuses the work. A driver comparing arms
  *       reads a count and never a sentinel it would misread as a disagreement.
  */
 size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t alignments,

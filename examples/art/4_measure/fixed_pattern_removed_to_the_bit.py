@@ -9,7 +9,7 @@
 #
 # Fixed-pattern noise is the coherent noise of a camera: a per-pixel offset the sensor adds to every
 # frame, the same offset in the same place each time. Read a frame stack frame after frame and that
-# offset repeats with a period of exactly one frame, so it is the coherent-addend case the sound
+# offset repeats with a period of exactly one frame. It is the coherent-addend case the sound
 # denoiser handles, on a signal that happens to be pictures. Nothing here is ported from that file and
 # nothing needs to be: reference.periodic and measure.periodic_energy read points carrying values and
 # cannot tell a frame stack from a waveform. This is the README's one instrument, shown reading the
@@ -72,9 +72,9 @@ SEED = 0xF17A
 def moving_scene(frame, frames, swing, seed):
     """A scene that sums to zero at every pixel across the frames, built from bounded pairs.
 
-    Each pixel's values over the frames are a value and its negative, so the pixel's mean across the
+    Each pixel's values over the frames are a value and its negative. The pixel's mean across the
     stack is zero as an integer and every sample stays inside [-swing, swing]. A scene like this moves
-    everywhere and sits still nowhere, so it contributes nothing to the per-pixel mean and survives
+    everywhere and sits still nowhere. It contributes nothing to the per-pixel mean and survives
     the rejection untouched.
     """
     rng = random.Random(seed)
@@ -101,10 +101,10 @@ def fixed_pattern(frame, amplitude, seed):
 
 
 def with_static_feature(scene, frame, depth):
-    """The scene with a pixel held bright in every frame, so it no longer sums to zero there.
+    """The scene with a pixel held bright in every frame. It no longer sums to zero there.
 
     The floor case: a static feature is a constant per-pixel offset across the stack, which is exactly
-    the shape of fixed-pattern noise, so it cannot be told apart and is removed with it.
+    the shape of fixed-pattern noise. It cannot be told apart and is removed with it.
     """
     shaped = list(scene)
     for step in range(len(shaped) // frame):
@@ -115,7 +115,7 @@ def with_static_feature(scene, frame, depth):
 def with_impulses(stack, count, swing, seed):
     """The stack with `count` pixels replaced by a value from nowhere: the wrong KIND of noise.
 
-    Impulses are incoherent, so the frame-period detector should decline them rather than scrub them.
+    Impulses are incoherent. The frame-period detector should decline them rather than scrub them.
     """
     rng = random.Random(seed)
     out = list(stack)

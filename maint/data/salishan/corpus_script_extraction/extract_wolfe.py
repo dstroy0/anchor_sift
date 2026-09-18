@@ -32,7 +32,7 @@
 #
 # Predicted reflexes. Tables 6 and 8 give, for each language, the form expected if the reconstruction
 # was stressed, the form expected if it was not, and the form actually attested. The extraction does
-# not keep the columns apart reliably, so every cell of those two tables is held out. Nothing is lost:
+# not keep the columns apart reliably. Every cell of those two tables is held out. Nothing is lost:
 # the attested forms of both tables are also printed in examples (1) and (6), where the columns are
 # unambiguous.
 
@@ -121,7 +121,7 @@ LANGUAGES = {
 RECONSTRUCTED = ("PCS", "PS")
 
 # The languages a form can be attested in. Anything else in the who column is a reconstructed stage
-# and nobody speaks it, so it is derived and never reaches the per-language data.
+# and nobody speaks it. It is derived and never reaches the per-language data.
 SPEAKERS = frozenset(LANGUAGES.values())
 
 # A data line: an optional example number, then the language, then the rest of the row.
@@ -148,7 +148,7 @@ def forms_in(text):
     """Every token of a row that is a form of the language, with the glosses left behind.
 
     A row is a form, a gloss in single quotes, and often a second pair of both. The gloss is English
-    and is not the language, so the marks decide: a token carrying one is a form. That is the same
+    and is not the language. The marks decide: a token carrying one is a form. That is the same
     test the coverage check applies, and they agree about what is left over.
     """
     held = []
@@ -223,7 +223,7 @@ def main():
         for one in pieces:
             rows.append((where, named, kind, one))
 
-    # Every line of the paper no branch above reached, so the marked record holds every token of the
+    # Every line of the paper no branch above reached. The marked record holds every token of the
     # language the paper printed and the coverage check has something to find.
     missed = unreached(lines, covered_tokens(one[3] for one in rows), marks=MARKS)
     for page, spot, reason, missing, text in missed:

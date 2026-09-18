@@ -10,7 +10,7 @@
 #
 # Hungarian is detected here, and the field's own settings say Hungarian wants shorter character runs than
 # anything else measured, the opposite of what its morphology should need. Both cannot be about
-# the same thing, so the question is what the detection is using.
+# the same thing. The question is what the detection is using.
 #
 # The obvious candidate is the inventory. Hungarian writes with characters almost nothing else uses, and a
 # reading that names a language by the characters in it would name Hungarian perfectly while knowing
@@ -21,7 +21,7 @@
 # far more than everything else does. Then those characters are removed and the naming is run again. A
 # naming that holds was structure. A naming that breaks was inventory.
 #
-# The test is run on every language held from one collection, so the content is fixed and only the
+# The test is run on every language held from one collection. The content is fixed and only the
 # languages vary.
 
 import io
@@ -122,7 +122,7 @@ def main():
                   % (language, " ".join(symbols),
                      " ".join("%.0fx" % ratio for ratio, _, _ in marks[:4])))
 
-    # Every language loses its own distinctive characters, so none is handicapped against the others
+    # Every language loses its own distinctive characters. None is handicapped against the others
     plain = {}
     stripped = {}
     for language, text in texts.items():

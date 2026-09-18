@@ -29,7 +29,7 @@
 #
 # THE DISTRIBUTION. Beyond the five oracle positions, the value of the move is tallied over the whole
 # class: the boards where having the move helps White, changes nothing, or hurts White (the zugzwang
-# and opposition band). It takes every sign, so the claim is exact -- first-move advantage is a
+# and opposition band). It takes every sign. The claim is exact -- first-move advantage is a
 # per-position quantity, not a constant.
 
 import os
@@ -57,7 +57,7 @@ def adjacent(square_one, square_two):
 
 
 def normalize(state):
-    """K+P vs K has no en passant target that can matter (the weak side has no pawn), so the passing
+    """K+P vs K has no en passant target that can matter (the weak side has no pawn). The passing
     square is pinned to -1 to give one canonical key per position."""
     board, side, rights, _ = state
     return (board, side, rights, -1)
@@ -86,7 +86,7 @@ def is_insufficient(board):
 def promoted_value_to_mover(state):
     """Value to the side to move (Black) of a position White just promoted a queen or rook into.
     Stalemate is a draw; a capture into bare kings is a draw; otherwise K+Q vs K and K+R vs K are
-    proven wins, so Black is lost."""
+    proven wins. Black is lost."""
     verdict = GAME.verdict(state)
     if verdict is not None:
         return DRAW if verdict == rules.DRAW else LOSS
@@ -258,10 +258,10 @@ def main():
     print("    the move helps White (positive): %d" % positive)
     print("    the move is neutral (zero):      %d" % zero)
     print("    the move hurts White (negative): %d" % negative)
-    print("  The move takes every sign across the class, so first-move advantage is not a constant.")
+    print("  The move takes every sign across the class. First-move advantage is not a constant.")
     print("")
     print("  The opposition row is the theorem: White's result is a win if the opponent must move and")
-    print("  only a draw if White must move, so the value of the move is negative -- moving first")
+    print("  only a draw if White must move. The value of the move is negative -- moving first")
     print("  throws away the win. First-move advantage is a per-position quantity, not a constant.")
 
 

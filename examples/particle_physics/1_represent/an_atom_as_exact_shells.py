@@ -24,7 +24,7 @@
 # its subshell, and a check that compares values sees nothing: exact.contested returns empty on the
 # collapsed reading because the six electrons of a 2p all say "2p" and none disagrees. The loss is in
 # the cardinality alone, and exact.placed, a dict, is where the six become one without a word. The
-# count is the only place it shows, so this reading counts the states and does not lean on the labels
+# count is the only place it shows. This reading counts the states and does not lean on the labels
 # to disagree. Two electrons at one state is a Pauli violation, and it shows only in the count.
 #
 # The filling read here is the ideal, Madelung order and Hund's rule, as element.electrons builds it.
@@ -54,7 +54,7 @@ SHOWN = 10
 
 
 def signature_text(signature):
-    """A group signature as text, so it prints and sorts the same way twice."""
+    """A group signature as text. It prints and sorts the same way twice."""
     azimuthal, population = signature
     return "(%s,%d)" % (element.SUBSHELL[azimuthal], population)
 
@@ -116,8 +116,8 @@ def summarize(out):
               % collapsed_total)
     out.write("  and a value-comparing check flagged %d of them\n" % contested_total)
 
-    # Rarity is what the sift stage probes on: magnitude = total - count, larger meaning rarer, so the
-    # rarest signature goes first. Sorted by magnitude then by text, so two runs print one order.
+    # Rarity is what the sift stage probes on: magnitude = total - count, larger meaning rarer. The
+    # rarest signature goes first. Sorted by magnitude then by text. Two runs print one order.
     out.write("\n  group signatures, rarest first (magnitude = %d - count):\n" % total)
     ranked = sorted(census.items(), key=lambda pair: (-(total - pair[1]), pair[0]))
     for signature, count in ranked:

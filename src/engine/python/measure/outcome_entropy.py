@@ -14,13 +14,13 @@
 # WHERE THE FLOAT ENTERS, WHICH IS THE ONE LOSSY STEP IN THE WHOLE SUBJECT
 #
 # Everything upstream is exact. The outcome distributions arrive as fractions.Fraction, built from
-# exact integer weights over deck counts and uniform move priors, so two distributions computed by
+# exact integer weights over deck counts and uniform move priors. Two distributions computed by
 # different routes can be compared with `==` and not with a tolerance. The logarithm is where that
-# ends. log2 of a rational is irrational except at powers of two, so the entropy is a float and
+# ends. log2 of a rational is irrational except at powers of two. The entropy is a float and
 # carries a float's sixteen digits and no more.
 #
 # That boundary is drawn on purpose and it is drawn as late as possible. Every probability reported
-# beside an entropy here is the exact rational, not a rounded copy of it, so a reader who distrusts
+# beside an entropy here is the exact rational, not a rounded copy of it. A reader who distrusts
 # the entropy can recompute it. The quantity that gets compared between conditionings is the
 # distribution; the entropy is a summary of it.
 #
@@ -87,7 +87,7 @@ def move_prior(table, prior=None):
     """The probability of each move, as exact Fractions summing to one.
 
     Uniform over the legal moves unless a prior is supplied. Uniform is the honest default here: it
-    reads nothing about the position, so H(Y|X) computed against it measures what the move set makes
+    reads nothing about the position. H(Y|X) computed against it measures what the move set makes
     available rather than what a particular player would do with it. A prior that already prefers the
     good moves lowers the entropy and reports that preference as a property of the position.
     """
@@ -103,12 +103,12 @@ def conditional_entropy(table, prior=None, over=rules.RESOLVED):
     """H(Y|X) in bits, X the move and Y the outcome.
 
     `table` is a list of (move, distribution) as `rules.best_moves` returns. The default category set
-    is the resolved outcomes, so this is the uncertainty about how the game ends given the move,
+    is the resolved outcomes. This is the uncertainty about how the game ends given the move,
     conditional on it ending inside the budget. Pass rules.OUTCOMES to include the search's own
     ignorance as a fourth category.
 
     Moves whose branch resolved nothing contribute no term. They are counted in `covered`, returned
-    beside the entropy, so a reading taken over a third of the move set cannot be mistaken for one
+    beside the entropy. A reading taken over a third of the move set cannot be mistaken for one
     taken over all of it.
     """
     weights = move_prior(table, prior)

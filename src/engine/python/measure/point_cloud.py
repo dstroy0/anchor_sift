@@ -20,7 +20,7 @@
 # the same value, and those displacements are summed in two ways, because one of them cancels and the
 # other does not. Their lengths give a spread. Their directions cancel when summed straight, since if
 # one point reaches its neighbor then that neighbor usually reaches back and the two vectors are
-# opposite, so the directions are summed as outer products instead, which are unchanged when a vector
+# opposite. The directions are summed as outer products instead, which are unchanged when a vector
 # flips sign. That sum is the orientation tensor and its eigenvalues report whether the displacements
 # share a direction.
 #

@@ -18,7 +18,7 @@
 # not. Every question is truthy or falsy, and the census ranks by magnitude, total minus a count, the
 # rarest first, the same way the sift kernel probes a field.
 #
-# Three things emerge. The three generations recur with identical quantum numbers, so the up, charm and
+# Three things emerge. The three generations recur with identical quantum numbers. The up, charm and
 # top quarks are one signature seen three times, as the periodic table's groups were one signature seen
 # down a column. The electric charge of a generation, each quark counted in its three colors, sums to
 # exactly zero, the anomaly-free condition and the reason an atom is neutral: the proton's quarks and
@@ -108,7 +108,7 @@ def spin_census(out):
         out.write("    spin %-3s count %-2d  magnitude %d\n"
                   % (("%d/2" % doubled_spin if doubled_spin % 2 else "%d" % (doubled_spin // 2)),
                      count, total - count))
-    out.write("\n    the scalar is rarest, so a sift over the particles probes the Higgs first, the one\n")
+    out.write("\n    the scalar is rarest. A sift over the particles probes the Higgs first, the one\n")
     out.write("    the collider found last.\n")
 
 

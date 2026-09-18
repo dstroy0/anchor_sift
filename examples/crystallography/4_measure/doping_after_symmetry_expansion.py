@@ -20,11 +20,11 @@
 # more than the ratio is.
 #
 #   1001125   Ta5+ at (1/2, 1/2, 0.238) and W6+ at (1/2, 1/2, -0.238). An operation taking z to -z
-#             carries one onto the other. Tantalum and tungsten substitute readily, so this is an
+#             carries one onto the other. Tantalum and tungsten substitute readily. This is an
 #             ordinary solid solution that the asymmetric unit simply does not show.
 #
 #   1509166   O at (0, 1/2, 0) at full occupancy and Ag at (1/2, 0, 1/2) at half, in I 4/m m m. The
-#             I centring carries the first exactly onto the second, so the deposit has put an anion
+#             I centring carries the first exactly onto the second. The deposit has put an anion
 #             and a cation in one orbit summing to one and a half atoms on a site that holds one.
 #             That is not chemistry, it is a defect in a published deposit, and nothing short of
 #             expansion surfaces it.
@@ -55,7 +55,7 @@
 # A THIRD HAS NO DECIMAL, WHICH IS WHY THIS NEEDED A NEW SCALE
 #
 # See representation/structure/symmetry.py. A translation of 1/3 is not a decimal at any number of
-# places, so carrying an R centred operation through the decimal scale would displace every copy it
+# places. Carrying an R centred operation through the decimal scale would displace every copy it
 # generates. Coordinates here are integers in units of 1/(24 * 10**SCALE_DIGITS), and an operation
 # whose denominator does not divide 24 raises rather than rounding. Over this corpus nothing raised:
 # 24 held every operation the deposits published.

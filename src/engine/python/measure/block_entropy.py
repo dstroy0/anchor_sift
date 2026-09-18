@@ -16,7 +16,7 @@
 # is an analogy.
 #
 # What fakes the result is the counting. A block of six symbols has more possible values than a text
-# has positions, so most are seen once or never and an entropy estimated from counts like that is
+# has positions. Most are seen once or never and an entropy estimated from counts like that is
 # biased upward in a way that looks exactly like structure at every order.
 #
 # The correction that works is arithmetic and not another estimate. A shuffled text's symbols are

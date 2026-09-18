@@ -155,7 +155,7 @@ def main():
     for language, used in sorted(short):
         out.write("  %s holds only %d and is under-sampled against the rest\n" % (language, used))
 
-    out.write("\n  the null moves by almost nothing across draws, so a count of its scatter\n")
+    out.write("\n  the null moves by almost nothing across draws. A count of its scatter\n")
     out.write("  measures how steady the null is and is not the size of the effect. What\n")
     out.write("  the branch is worth is the survival, against the keys it costs to take it\n")
     out.write("\n  %-12s %-26s %s\n" % ("language", "what it capitalizes", "what the branch is worth"))

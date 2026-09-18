@@ -71,7 +71,7 @@ const AnchorExactArm *anchor_exact_avx2_arm(void);
  * @brief The AVX-512 arm, comparing sixteen limbs per instruction.
  *
  * @return A pointer to the arm, or NULL where this processor lacks AVX-512F and AVX-512BW.
- * @note Never run. No machine in this project carries AVX-512, so this arm is graded on the
+ * @note Never run. No machine in this project carries AVX-512. This arm is graded on the
  *       instructions it emits and not on any answer it produced. It calls itself avx512-unrun, which
  *       keeps a row of results from showing it beside a run arm with the difference invisible.
  */
@@ -96,7 +96,7 @@ const AnchorExactArm *anchor_exact_neon_arm(void);
  * @brief The SVE arm, comparing whatever vector length the part turns out to carry.
  *
  * @return A pointer to the arm, or NULL where the kernel does not report SVE.
- * @note Never run. The Raspberry Pi 5 is a Cortex-A76 and is NEON only, so this arm is graded on
+ * @note Never run. The Raspberry Pi 5 is a Cortex-A76 and is NEON only. This arm is graded on
  *       the instructions it emits and calls itself sve-unrun for the same reason the AVX-512 one
  *       does.
  */

@@ -17,7 +17,7 @@
 # Two things have to be handled or the answer is worthless.
 #
 # Languages are not independent of each other. Neighbors share features because they are neighbors and
-# relatives share features because they are relatives, so counting languages counts history twice. This is
+# relatives share features because they are relatives. Counting languages counts history twice. This is
 # Galton's problem and it is old. The fix used here is to draw one language per family, many times, and
 # report what the draws do. A pattern that survives one language per family is not simply a large family
 # being counted many times.

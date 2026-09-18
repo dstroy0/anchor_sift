@@ -86,7 +86,7 @@ def on_sphere(dims, radius, draw):
 
 
 def on_cube(dims, half, draw):
-    """Uniform over the surface: a facet first, then a place on it. Facets are equal, so the facet
+    """Uniform over the surface: a facet first, then a place on it. Facets are equal. The facet
     is drawn flat. Drawing a point in the solid and pushing it out instead would crowd the corners,
     the mistake that makes a cube look like it holds more than it does."""
     axis = draw.randrange(dims)
@@ -116,7 +116,7 @@ def pack(points, apart):
     """How many of these can be kept with none closer than `apart` to another kept one.
 
     Greedy, in the order they arrive. Greedy packing is not the densest packing and does not need
-    to be: it is the same procedure on every shape, so whatever it loses it loses equally, and what
+    to be: it is the same procedure on every shape. Whatever it loses it loses equally, and what
     is being compared is one shape against another and never against a theoretical best.
     """
     kept = []
@@ -142,11 +142,11 @@ def run(name, dims, measure, maker, tries, seed, target=52):
     """Packs at whatever resolution puts the count near `target`, then reports the constant.
 
     The resolution is found and never chosen. A gap fixed by hand packs thousands of points at two
-    dimensions and nothing at nineteen, so the counts stop being comparable long before the shapes
+    dimensions and nothing at nineteen. The counts stop being comparable long before the shapes
     do, and the test ends up measuring which dimension the gap happened to suit. Searching for the
     gap that lands on one count holds the statistics still and leaves the shape as the only thing
     varying. It costs nothing in fairness either: if the law holds, the constant does not depend on
-    the resolution, so finding the resolution cannot flatter it.
+    the resolution. Finding the resolution cannot flatter it.
     """
     draw = random.Random(seed)
     points = [maker(draw) for _ in range(tries)]
@@ -176,7 +176,7 @@ def typical(maker, seed, pairs=900):
     be unusually far apart, which is a fact about the sample and not about the surface.
 
     In high dimensions every pair of points on a sphere sits at very nearly the same distance from
-    every other, so the room between the smallest useful gap and the largest possible one closes.
+    every other. The room between the smallest useful gap and the largest possible one closes.
     Past that this method has nothing left to measure, and the honest output is to say so instead of
     printing whatever the arithmetic returned.
     """
@@ -267,7 +267,7 @@ def _check():
     # A packing count is only about the surface while there are candidates to spare. Past that the
     # count stops being what the geometry allows and becomes what the pool held, and in high
     # dimensions the pool gives out early: points drawn on a sphere in nineteen dimensions are
-    # very nearly all at the same distance from one another, so nothing is learned about packing
+    # very nearly all at the same distance from one another. Nothing is learned about packing
     # from a few thousand of them however carefully they are counted.
     #
     # So every row is run twice, at one pool and at double it. A row whose constant moves when it
@@ -296,7 +296,7 @@ def _check():
     print("  dimensions that resolved: %s" % ", ".join(str(one[1]) for one in across))
     print("  steepest climb among those: %.3f times" % worst)
     if not across:
-        print("  FAIL nothing resolved, so nothing was tested")
+        print("  FAIL nothing resolved. Nothing was tested")
         bad += 1
     elif worst > 1.6:
         print("  FAIL the count is tracking something that grows with the dimension")

@@ -36,7 +36,7 @@
 # A register. This surface carries the measurement. maint/prose/docs_check.py holds 285 patterns and,
 # for 121 of them, the rate a human research writer uses them at, counted over 759,815 words of
 # the papers under build/papers. Those rates are imported from that file and never restated here.
-# Their sum is the rate a human carries for the whole list, so the baseline this compares against
+# Their sum is the rate a human carries for the whole list. The baseline this compares against
 # is derived from the same table the findings come from and cannot drift away from it.
 #
 # WHAT THE RATES ARE COUNTED OVER, WHICH DECIDES WHETHER THEY MEAN ANYTHING
@@ -69,12 +69,12 @@ from docs_check import (BANNED, CHECKED, HUMAN_RATE, SKIP_DIRS,  # noqa: E402
                         banned_hits, prose_only, quieted, stage_of)
 
 # The rate a human research writer carries for the whole banned list, per hundred thousand words.
-# Summed from the table instead of written down, so the two cannot disagree. It comes to 387.9.
+# Summed from the table instead of written down. The two cannot disagree. It comes to 387.9.
 HUMAN_WHOLE = sum(HUMAN_RATE.values())
 
 # What a submission arrives as. docs_check reads the five this repository writes in. A contribution
 # also turns up as a plain page or a transcribed paper, and neither has a comment marker to find
-# prose behind, so both are read as prose all the way down.
+# prose behind. Both are read as prose all the way down.
 PLAIN = (".txt", ".rst", ".markdown", ".text", ".org")
 SUBMITTED = CHECKED + PLAIN
 
@@ -139,7 +139,7 @@ BINARY = (
 )
 
 # Bytes above which a file is reported as skipped instead of read. A silent skip reads as a clean
-# result, so every skipped file is named at the foot of the report.
+# result. Every skipped file is named at the foot of the report.
 LARGE = 4 * 1024 * 1024
 
 MATCHERS = tuple([(one, re.compile(re.escape(one))) for one in NAMES]
@@ -222,7 +222,7 @@ def prose_of(path, lines):
     """The prose of one submitted file, with code, math and markup taken out.
 
     docs_check knows the five extensions this repository writes in. A plain page or a transcribed
-    paper has no comment marker to find prose behind, so it is read whole and only its quiet blocks
+    paper has no comment marker to find prose behind. It is read whole and only its quiet blocks
     are honored.
     """
     if path.endswith(CHECKED):
@@ -251,7 +251,7 @@ def git(root, *arguments):
     With it on, which is git's default, a path holding any character outside ASCII comes back
     quoted and octal-escaped: papers/...Kwak’wala.pdf is returned as
     "papers/...Kwak\\342\\200\\231wala.pdf". tracked() then joins that to the root and produces a
-    path that does not exist, so the file is dropped from the listing with no error. A screen that
+    path that does not exist. The file is dropped from the listing with no error. A screen that
     cannot see a file reports it clean.
 
     This is not hypothetical in this tree. The Salishan corpus tracks two papers whose names carry
@@ -322,7 +322,7 @@ def counted(paths, base, show_people, out, clones=None):
         found, person = names_in(shortened)
         if found and not person:
             # Where the tree is a repository, whether a fresh clone already receives this path.
-            # A submission is tracked nowhere, so the column is left off entirely.
+            # A submission is tracked nowhere. The column is left off entirely.
             standing = None if clones is None else \
                 ("in every clone" if shortened in clones else "local only")
             named.append((shortened, found, standing))
@@ -377,7 +377,7 @@ def counted(paths, base, show_people, out, clones=None):
 def register(out, tally, words):
     """The banned list as rates per hundred thousand words, against what a human writer carries."""
     if not words:
-        out.write("\n  REGISTER\n    no prose was read, so there is no rate to report\n")
+        out.write("\n  REGISTER\n    no prose was read. There is no rate to report\n")
         return
     scale = 100000.0 / words
 
@@ -461,7 +461,7 @@ def main():
             return 2
         branch, clones = served(root)
         out.write("  TRACKED IN %s\n" % base)
-        out.write("  upstream %s\n" % (branch or "none, so nothing is marked as served"))
+        out.write("  upstream %s\n" % (branch or "none. Nothing is marked as served"))
     else:
         paths = walk([os.path.abspath(one) for one in given])
         out.write("  SUBMISSION %s\n" % ", ".join(given))
@@ -485,7 +485,7 @@ def main():
     # nobody sees, and it is how a wrong path goes unnoticed for as long as it takes somebody to
     # wonder why the count never moves.
     if read == 0:
-        out.write("  no file was read. Nothing was screened, so nothing came back clean\n")
+        out.write("  no file was read. Nothing was screened. Nothing came back clean\n")
         out.flush()
         return 2
     if named or lined or tally:

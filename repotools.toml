@@ -36,7 +36,7 @@ skip_files = []
 [prose]
 # The theory trees are where the research lives and they are the longest continuous prose here.
 # docs/ is four pointer pages. maint/ carries file headers that make the same kind of claim a page
-# does, and docs_check reads .tex as well, so the books are in scope.
+# does, and docs_check reads .tex as well. The books are in scope.
 #
 # Both trees are named. Leaving theory_bucket out reads as zero findings over eighty files and exits
 # 0, and theory/ still existing for the workbook means nothing reports the gap.
@@ -46,7 +46,7 @@ roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "theory_bucket", "src
 # whatever tree was under check, and a public AGPL library that adopted the toolkit then emitted
 # Salishan researcher surnames and paper identifiers into output whose whole purpose is to be pasted
 # into a commit message. It is opt in now. anchor_sift is the public repository and the corpus is
-# checked from inside the corpus, so this stays empty.
+# checked from inside the corpus. This stays empty.
 extra_roots = []
 
 [hooks]
@@ -81,5 +81,5 @@ sets = [
     "docs/docs_maint",
     "repo/repo_maint",
 ]
-# Relative to [layout] tools, so this resolves to maint/repotools and not maint/maint/repotools.
+# Relative to [layout] tools. This resolves to maint/repotools and not maint/maint/repotools.
 into = "repotools"

@@ -77,7 +77,7 @@ __device__ static int device_compare(const AnchorExactInteger *left,
     const int order = device_magnitude_compare(left->limb, right->limb);
     if (left->sign < 0)
     {
-        // Both negative, so the larger magnitude is the smaller value.
+        // Both negative. The larger magnitude is the smaller value.
         return -order;
     }
     return order;
@@ -137,7 +137,7 @@ __device__ static void device_magnitude_subtract(const unsigned int *left,
     unsigned long long borrow = 0ull;
     for (unsigned int at = 0u; at < ANCHOR_EXACT_LIMBS; at++)
     {
-        // The base keeps the arithmetic non negative before the narrowing, so no unsigned wrap has
+        // The base keeps the arithmetic non negative before the narrowing. No unsigned wrap has
         // to be reasoned about at the point the limb is stored.
         const unsigned long long total = (1ull << 32) + (unsigned long long)left[at]
                                          - (unsigned long long)right[at] - borrow;
@@ -316,7 +316,7 @@ extern "C" size_t anchor_exact_agreement_cuda(const AnchorExactInteger *position
     const size_t value_bytes = count * sizeof(unsigned long long);
 
     // The displaced positions take as much device memory as the positions do. The kernel writes
-    // them and nothing reads them back, so they are never copied in either direction.
+    // them and nothing reads them back. They are never copied in either direction.
     if ((cudaMalloc((void **)&device_positions, position_bytes) != cudaSuccess)
         || (cudaMalloc((void **)&device_values, value_bytes) != cudaSuccess)
         || (cudaMalloc((void **)&device_lag, sizeof(AnchorExactInteger)) != cudaSuccess)
@@ -391,7 +391,7 @@ static size_t arm_agreement(const AnchorExactInteger *positions, const uint64_t 
 }
 
 /**
- * @brief The arm as a driver sees it. Static storage, so returning its address is safe.
+ * @brief The arm as a driver sees it. Static storage. Returning its address is safe.
  *
  * @note equal and compare are the portable ones on purpose. One comparison is far too small to be
  *       worth a bus crossing, and only the whole sweep is handed to the device.

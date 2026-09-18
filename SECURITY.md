@@ -11,7 +11,7 @@ A search kernel in C11, a driver that times it, Python tools that fetch and read
 
 `src/engine/c/sift/anchor_sift.c` holds four search arms and a dispatcher.
 
-**Every arm is sound and none is defensive.** A subset of a pattern's points is a necessary condition, so no arm can lose a true occurrence. That is a proof, and nothing in the code tests for it. What no arm does is validate its arguments: `corpus`, `needle` and their lengths are used as given, with no null test and no overflow test on `corpus_len` or `needle_len`. It is bench code called from a driver that builds its own inputs.
+**Every arm is sound and none is defensive.** A subset of a pattern's points is a necessary condition. No arm can lose a true occurrence. That is a proof, and nothing in the code tests for it. What no arm does is validate its arguments: `corpus`, `needle` and their lengths are used as given, with no null test and no overflow test on `corpus_len` or `needle_len`. It is bench code called from a driver that builds its own inputs.
 
 **Do not put it behind untrusted input without bounding the call first.** A `needle_len` larger than `corpus_len` is handled, a `needle_len` of zero is not, and neither pointer is checked. If you reach for this from somewhere that takes input from outside, the bounds check is yours to add and belongs at your boundary.
 
@@ -23,7 +23,7 @@ A search kernel in C11, a driver that times it, Python tools that fetch and read
 
 **They parse PDFs.** The readers run `pypdf` and `pypdfium2` over files downloaded from the web, which is a real parser surface and it is not this work's parser. Keep those dependencies current, and treat a PDF from anywhere else the way you would treat any untrusted document.
 
-**They write only under `build/`.** Three exceptions, all of them fixed paths: the two generators that emit documentation write chapters under `theory/Salishan/chapters/`, `maint/deps/vendor_test_vectors.py` writes `test/vectors/`, and `maint/deps/get_deps.py` clones into `deps/`. `python maint/tree/write_survey.py` reads every script for the files it opens and reports where each one lands, so that list is checked instead of remembered.
+**They write only under `build/`.** Three exceptions, all of them fixed paths: the two generators that emit documentation write chapters under `theory/Salishan/chapters/`, `maint/deps/vendor_test_vectors.py` writes `test/vectors/`, and `maint/deps/get_deps.py` clones into `deps/`. `python maint/tree/write_survey.py` reads every script for the files it opens and reports where each one lands. That list is checked instead of remembered.
 
 ## The vendored library
 

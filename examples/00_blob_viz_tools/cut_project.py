@@ -12,7 +12,7 @@ WHAT THIS DEMONSTRATES
 A periodic structure in n dimensions, sliced at an irrational angle and projected into fewer, comes
 out quasiperiodic: never one period, but several with irrational ratios between them. Penrose
 tilings are a five dimensional lattice seen in two. Icosahedral quasicrystals are six seen in three.
-The correspondence runs both ways, so any quasiperiodic pattern lifts to a periodic lattice in high
+The correspondence runs both ways. Any quasiperiodic pattern lifts to a periodic lattice in high
 enough dimension.
 
 That gives a measurement and not a picture:
@@ -91,7 +91,7 @@ def shortest_period(word):
     """The shortest period that reproduces this word, or zero where none does.
 
     A quasiperiodic sequence has none at any length. Checking only short periods would find none on
-    a periodic sequence with a long period too, so every length up to half the word is tried.
+    a periodic sequence with a long period too. Every length up to half the word is tried.
     """
     span = len(word)
     for period in range(1, span // 2 + 1):
@@ -159,7 +159,7 @@ def _check():
     long_gap, long_count = gaps[1]
     size_ratio = long_gap / short_gap
     # Long over short, and never the other way. The Fibonacci chain holds more long gaps than
-    # short ones, so the ratio that approaches the golden mean is that way up. Inverted it
+    # short ones. The ratio that approaches the golden mean is that way up. Inverted it
     # returns 0.625, which is one over 1.6, and reads as a chain that is not one.
     count_ratio = long_count / float(short_count)
 
@@ -181,7 +181,7 @@ def _check():
     print("  shortest period reproducing the sequence: %s" %
           ("none at any length up to half of it" if period == 0 else str(period)))
     if period != 0:
-        print("  FAIL the sequence is periodic, so nothing was hidden by the cut")
+        print("  FAIL the sequence is periodic. Nothing was hidden by the cut")
         bad += 1
 
     # The two generators the cut implies: one from the average spacing, one from that over the
@@ -233,11 +233,11 @@ def _check():
     print("  against one generator alone, the worst peak misses by %.3f of it" % lonely)
     print("  against two, the worst misses by %.2e of it" % worst)
     if lonely < 0.05:
-        print("  FAIL one generator explains the peaks, so the reading is periodic")
+        print("  FAIL one generator explains the peaks. The reading is periodic")
         bad += 1
 
     print("")
-    print("  rank of the period module: 2, so the lattice cut was two dimensional")
+    print("  rank of the period module: 2. The lattice cut was two dimensional")
     print("")
     print("%d check(s) failed" % bad)
     return 1 if bad else 0

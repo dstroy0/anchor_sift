@@ -26,7 +26,7 @@ import os
 import subprocess
 import sys
 
-# Every Salishan category on the import path, so this can use a sibling from another one.
+# Every Salishan category on the import path. This can use a sibling from another one.
 for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
@@ -145,7 +145,7 @@ def main():
                          % stem)
             handle.write("# nine hand-read papers produced, which is known to be pure.\n")
             handle.write("# Written by maint/data/salishan/anchor_sift_algorithmic_extraction/sift_extract.py. No reader has been written\n")
-            handle.write("# for this paper, so nothing here is verified against its layout.\n")
+            handle.write("# for this paper. Nothing here is verified against its layout.\n")
             handle.write("#\n")
             handle.write("# language: %s\n"
                          % (says if says else "not named by this paper's front matter"))
@@ -175,7 +175,7 @@ def main():
                 if where == "language":
                     candidates[says].append((text, stem, page))
 
-    # One index over the lot, so the set can be read by language without opening every file.
+    # One index over the lot. The set can be read by language without opening every file.
     with open(os.path.join(SIFTED, "index.tsv"), "w", encoding="utf-8", newline="") as handle:
         handle.write("# Every paper with no reader, the language its own front matter names,\n")
         handle.write("# and how many of its lines the sift put on each side.\n")
@@ -200,7 +200,7 @@ def main():
             handle.write("# Candidate %s, sifted from %d papers with no reader.\n"
                          % (language, len({one[1] for one in held})))
             handle.write("# The language is the one each paper names in its own front matter.\n")
-            handle.write("# No speaker is named and no line was read against a layout, so this is\n")
+            handle.write("# No speaker is named and no line was read against a layout. This is\n")
             handle.write("# not the same tier as the nine hand-read corpora and is kept apart.\n")
             handle.write("# Each line carries the paper and page it came from.\n")
             for text, stem, page in held:

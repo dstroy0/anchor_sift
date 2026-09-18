@@ -27,17 +27,17 @@
 # centers share a group only when their contexts are equal as integers. That keeps the rule free of a
 # tolerance, and it moves the whole cost into the floor. A context that never recurs exactly is a group
 # of one and is left untouched, and a context corrupted by noise is a different context and does not
-# match, so the noise must sit on the CENTER and not on the context it is read against. Where the
+# match. The noise must sit on the CENTER and not on the context it is read against. Where the
 # context is clean and recurs, the rejection is exact; where it does not, nothing is claimed. That is
 # the honest shape of the trade, stated rather than tuned away.
 #
-# The context excludes the center, so a value is never used to estimate itself. Positions without a
+# The context excludes the center. A value is never used to estimate itself. Positions without a
 # full context on both sides are edges and are left as they are, a declared choice reported by the
 # caller rather than a padding invented here.
 #
 # Two routes build the group mean and share no code: one keys a dictionary by the context and averages
 # each bucket; the other, for each center, scans every center and averages those whose context equals
-# it. They reach the same rational by different work, so their agreeing is a check and not a
+# it. They reach the same rational by different work. Their agreeing is a check and not a
 # restatement. A native-C route is the natural hardening and is not claimed here.
 
 from fractions import Fraction
@@ -94,7 +94,7 @@ def similar_background_scanned(values, radius):
     """The same group means, found by scanning for equal contexts instead of keying them. Route two.
 
     For each interior center it walks every interior center and averages those whose context equals its
-    own. It shares no dictionary, no bucket and no traversal with the keyed route, so the two landing on
+    own. It shares no dictionary, no bucket and no traversal with the keyed route. The two landing on
     the same rationals is evidence the code is right and not one identity typed twice. It costs a square
     in the length and is here to check the fast route, not to replace it.
     """

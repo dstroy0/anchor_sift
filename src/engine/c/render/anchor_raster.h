@@ -22,15 +22,15 @@
  * WHAT A PIXEL CARRIES. The level at which an alignment died. Zero means the first probe rejected
  * it, one means the second did, and so on. An alignment that passed every probe carries the probe
  * count, and one that also matched under the full compare carries ANCHOR_RASTER_MATCH. Brighter is
- * later, so a bright pixel is an alignment the probe set could not cheaply refute.
+ * later. A bright pixel is an alignment the probe set could not cheaply refute.
  *
  * HOST AND DEVICE PRODUCE THE SAME BYTES. That is the contract, and it is gradeable rather than
- * aspirational: the raster is integer valued throughout, so agreement is exact and a difference of
+ * aspirational: the raster is integer valued throughout. Agreement is exact and a difference of
  * one in one pixel is a defect. This is the same contract exact_arm.h states for the arms, kept for
  * the same reason.
  *
  * @note Downsampling takes the MINIMUM death level over the alignments mapping to a pixel. Minimum
- *       is associative and commutative, so a sequential host reduction and a parallel device one
+ *       is associative and commutative. A sequential host reduction and a parallel device one
  *       reach the same value without ordering agreeing between them. A rule like "first alignment
  *       wins" would make the device answer depend on scheduling.
  * @note No float anywhere. Positions map through integer division and values are counts.
@@ -66,7 +66,7 @@ extern "C" {
 typedef enum
 {
     ANCHOR_LAYOUT_ROWS = 0,       /**< Row major. Corpus order runs left to right, top to bottom. */
-    ANCHOR_LAYOUT_SERPENTINE = 1, /**< Row major with odd rows reversed, so neighbors stay adjacent
+    ANCHOR_LAYOUT_SERPENTINE = 1, /**< Row major with odd rows reversed. Neighbors stay adjacent
                                    *   across a row boundary. */
     ANCHOR_LAYOUT_COLUMNS = 2,    /**< Column major. A period near the width stands up as a stripe. */
     ANCHOR_LAYOUT_DIAGONAL = 3    /**< Diagonal striping, which breaks up both axis alignments. */
@@ -76,7 +76,7 @@ typedef enum
  * @brief What quantity a pixel carries.
  *
  * @note Every channel is an integer read off engine state. None is computed in floating point and
- *       none is normalized against the image, so a pixel means the same thing in two rasters taken
+ *       none is normalized against the image. A pixel means the same thing in two rasters taken
  *       at different sizes.
  */
 typedef enum
@@ -124,7 +124,7 @@ typedef struct
     AnchorRasterChannel channel;  /**< What quantity a pixel carries. */
     AnchorRasterReduce reduce;    /**< How collisions resolve. */
     uint8_t gain;                 /**< Multiplier on a death level before it reaches the ramp. Zero
-                                   *   is treated as one, so a zeroed configuration still renders. */
+                                   *   is treated as one. A zeroed configuration still renders. */
 } AnchorRasterConfig;
 
 /** @brief Number of layouts, for a caller sweeping every one. */
@@ -140,8 +140,8 @@ typedef struct
  *
  * Three properties follow and each one is load bearing. It reduces as a conjunction, a cell being
  * proven only when every alignment under it was refuted, and conjunction is associative and
- * commutative, so it rides ANCHOR_REDUCE_MIN and needs no new reduction rule. It is monotone under
- * refinement, since adding a probe only removes survivors, so a render never retracts a claim it
+ * commutative. It rides ANCHOR_REDUCE_MIN and needs no new reduction rule. It is monotone under
+ * refinement, since adding a probe only removes survivors. A render never retracts a claim it
  * made earlier. And it inherits the anytime property of the planner: stop the descent anywhere,
  * render, and every proven pixel is still proven.
  *
@@ -180,11 +180,11 @@ typedef struct
  * raster uses as its bound, and would hand those callers layouts needing a depth they do not carry.
  *
  * @note The channel, the reduce rule and the gain are unchanged and are not duplicated here. Each
- *       reads one alignment and returns one value, so none of them knows how many dimensions the
+ *       reads one alignment and returns one value. None of them knows how many dimensions the
  *       destination has. Only the index to position map changes between a sheet and a block, which
  *       is the same statement the engine makes about its own index set needing no order and no
  *       dimension.
- * @note Every transform here is a bijection computed in integer arithmetic, so a device
+ * @note Every transform here is a bijection computed in integer arithmetic. A device
  *       implementation reproduces it exactly and no transform can drop or duplicate an alignment.
  */
 typedef enum
@@ -287,8 +287,8 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
  * @return                1 on success, 0 where both arms refused.
  *
  * THE ENTRY A CALLER SHOULD USE, matching anchor_raster_render for the sheet. Both arms produce the
- * same bytes, so choosing between them is a performance decision and never a correctness one. This
- * asks the device first and falls back to the host, so a render happens if either arm can do it.
+ * same bytes. Choosing between them is a performance decision and never a correctness one. This
+ * asks the device first and falls back to the host. A render happens if either arm can do it.
  */
 int anchor_volume_render(uint8_t *voxels, const AnchorVolumeConfig *config, const uint8_t *corpus,
                          size_t corpus_len, const uint8_t *needle, size_t needle_len,
@@ -301,7 +301,7 @@ int anchor_volume_render(uint8_t *voxels, const AnchorVolumeConfig *config, cons
  *         configuration, no device answered, or the device work failed. Produces the same bytes
  *         anchor_volume_render_host produces for the same arguments, which bench_raster grades voxel
  *         for voxel. A difference is a defect in one of the two and never a tradeoff.
- * @note Always returns 0 in a build compiled without the device renderer, so a caller written
+ * @note Always returns 0 in a build compiled without the device renderer. A caller written
  *       against both arms links and runs either way.
  */
 int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *config, const uint8_t *corpus,
@@ -312,7 +312,7 @@ int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *config, cons
  * @brief Whether a usable CUDA device is present for the device volume renderer.
  *
  * @return 1 where a device is present and this build carries the device volume renderer, 0
- *         otherwise. Always 0 in a build compiled without it, so a caller written against both arms
+ *         otherwise. Always 0 in a build compiled without it. A caller written against both arms
  *         links and runs either way, and asks this before calling anchor_volume_device.
  */
 int anchor_volume_device_available(void);
@@ -325,7 +325,7 @@ int anchor_volume_device_available(void);
  * @param[in] config Render configuration, read for the extents [BORROWS].
  * @return           1 on success, 0 where the file could not be written.
  *
- * @note Netpbm has no volume format, so this writes the block raw and states its shape in a sidecar
+ * @note Netpbm has no volume format. This writes the block raw and states its shape in a sidecar
  *       rather than inventing a container. A generated file says it is generated and names its
  *       generator, which the sidecar does.
  */
@@ -350,7 +350,7 @@ const char *anchor_volume_layout_name(AnchorVolumeLayout layout);
  * @return                1 on success, 0 where an argument is rejected.
  *
  * @note Every alignment is examined. The raster is a rendering of the search and not a sample of
- *       it, so a pixel is never guessed from its neighbors.
+ *       it. A pixel is never guessed from its neighbors.
  * @note Rejects and writes nothing where a pointer is null, where `width` or `height` is zero,
  *       where `needle_len` is zero, or where `needle_len` exceeds `corpus_len`.
  */
@@ -398,7 +398,7 @@ const char *anchor_raster_channel_name(AnchorRasterChannel channel);
  * @param[in] height Pixel rows.
  * @return           1 on success, 0 where the file could not be written.
  *
- * @note P5 because the format is a short text header and then the bytes. Nothing is encoded, so a
+ * @note P5 because the format is a short text header and then the bytes. Nothing is encoded. A
  *       reader comparing two rasters is comparing the same bytes the rasterizer produced.
  */
 int anchor_raster_write_pgm(const char *path, const uint8_t *pixels, size_t width, size_t height);
@@ -417,10 +417,10 @@ int anchor_raster_write_pgm(const char *path, const uint8_t *pixels, size_t widt
  * @return                1 on success, 0 where both arms refused.
  *
  * THE ENTRY A CALLER SHOULD USE. A machine carrying a device should render on it without the caller
- * asking, and the two arms produce the same bytes, so choosing between them is a performance
+ * asking, and the two arms produce the same bytes. Choosing between them is a performance
  * decision and never a correctness one. This asks the device first and falls back to the host.
  *
- * @note Falls back rather than failing where the device refuses, so a render always happens if
+ * @note Falls back rather than failing where the device refuses. A render always happens if
  *       either arm can do it.
  * @note anchor_raster_host and anchor_raster_device stay public because a grader has to be able to
  *       call one specific arm and compare. A caller that does not care should not have to.
@@ -433,7 +433,7 @@ int anchor_raster_render(uint8_t *pixels, const AnchorRasterConfig *config, cons
  * @brief Whether a usable CUDA device is present for the device rasterizer.
  *
  * @return 1 where a device is present, 0 otherwise.
- * @note Always returns 0 in a build compiled without the device rasterizer, so a caller written
+ * @note Always returns 0 in a build compiled without the device rasterizer. A caller written
  *       against both arms links and runs either way.
  */
 int anchor_raster_device_available(void);

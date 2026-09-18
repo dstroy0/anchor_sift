@@ -6,7 +6,7 @@
 #
 #   Usage:  from representation.particle.standard_model import PARTICLES, fermions, by_generation, signature
 #
-# CHARGE IN THIRDS, SPIN DOUBLED, SO EVERY QUANTUM NUMBER IS AN INTEGER
+# CHARGE IN THIRDS, SPIN DOUBLED. EVERY QUANTUM NUMBER IS AN INTEGER
 #
 # Electric charge is quantized in thirds of the electron charge: an up quark is +2, a down quark is -1,
 # a charged lepton is -3, a neutrino is 0, a W is plus or minus 3. Carrying charge in thirds makes it an

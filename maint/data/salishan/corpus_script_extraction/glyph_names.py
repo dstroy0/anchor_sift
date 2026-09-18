@@ -8,7 +8,7 @@
 #
 # This paper is on the list in theory/Salishan of PDFs whose fonts renumber their
 # codes and declare no /ToUnicode map, and it is the only one on that list where nothing was lost. The
-# extractor could not resolve a glyph, so it printed the glyph's name with a leading slash and
+# extractor could not resolve a glyph. It printed the glyph's name with a leading slash and
 # carried on. Page 30 sets the morphemic line
 #
 #   ʔoo  ɬ  /xéʔ  -ɬ-  /kʷú[·kʷ]piʔ
@@ -17,18 +17,18 @@
 #
 #   /uni0294oo  /uni026C  /xé/uni0294  -/uni026C-  /kwú[·kw]pi/uni0294
 #
-# A uniXXXX name carries the code point it stands for, so that half of the recovery is arithmetic
+# A uniXXXX name carries the code point it stands for. That half of the recovery is arithmetic
 # and exact. The named marks are a short table, below, and it is short because 8 uniXXXX names and
 # 2 mark names cover all 75 unresolved glyphs in the paper.
 #
 # WHAT THIS DOES NOT RECOVER
 #
 # Labialization, for the same reason it is lost in the two Lyon papers. The page writes a raised w
-# and the text gives a plain one, so page kʷú and page nšawa both hold a w and nothing in the file
+# and the text gives a plain one. Page kʷú and page nšawa both hold a w and nothing in the file
 # separates them. The prose loses it with a space instead: page (č, š, xʷ) arrives as ( č, š, x w).
 #
 # A slash the table does not claim is the paper's own. Robertson writes phonemic forms between
-# slashes throughout, so /xéʔ opens with one and /k’/ and /q’/ are a pair of them. Only the names
+# slashes throughout. /xéʔ opens with one and /k’/ and /q’/ are a pair of them. Only the names
 # below and the uniXXXX pattern are consumed, and every other slash is left where it stands.
 
 import re

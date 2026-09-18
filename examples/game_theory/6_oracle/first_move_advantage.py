@@ -10,7 +10,7 @@
 #
 # THE QUESTION. Does the side that moves first have an advantage? The move-sequence tree is the
 # wrong place to look: it is unbounded, and a bounded search folds a horizon into the number. This
-# subject refuses exactly that, so the question is put as a magnitude instead.
+# subject refuses exactly that. The question is put as a magnitude instead.
 #
 # THE WINDICATOR. Each player carries one number, its winning-path mass: the probability that play
 # from this position reaches THAT player's win, an exact rational in native integers, in [0, 1]. It closes to 1 as a win
@@ -108,7 +108,7 @@ def rdecimal(rational, places=6):
 
 
 def _random_stream(seed):
-    """A seeded stream of native integers (a linear congruential generator, MMIX constants), so the
+    """A seeded stream of native integers (a linear congruential generator, MMIX constants). The
     sampled route needs no library. The high bits are taken to avoid a bare LCG's low-bit bias."""
     state = seed & ((1 << 64) - 1)
     while True:
@@ -188,7 +188,7 @@ def sampled_windicator(state, target, depth, trials, seed):
 
     This is the sampled arm. It answers the same question as `windicator` and converges to it; the
     gap is sampling error and shrinks with the trial count. The seed is an input of the measurement
-    and is reported with the result, so the number is reproducible.
+    and is reported with the result. The number is reproducible.
     """
     stream = _random_stream(seed)
     wins = 0
@@ -289,7 +289,7 @@ def show_bare_kings():
     print("Bare kings: exact draw by insufficient material -- a game with NO first-move advantage")
     state = chess.from_layout(BARE_KINGS, rights=NO_RIGHTS)
     verdict = tournament_verdict(state, 0, {})
-    print("  tournament verdict = %s, so both windicators are 0 and the signed difference is 0"
+    print("  tournament verdict = %s. Both windicators are 0 and the signed difference is 0"
           % verdict)
 
 

@@ -7,7 +7,7 @@
 #   python test/engine/test_render_python.py
 #
 # The Python host arm in render.host and the C host arm share no code. Both walk the same alignments
-# and write the same channel into the same cell, so a byte that differs is a defect in one of them.
+# and write the same channel into the same cell. A byte that differs is a defect in one of them.
 # This renders every layout and channel, as a sheet and as a volume, through both arms and compares
 # the bytes. It also renders through render.render_raster and render.render_volume, the dispatch that
 # prefers the device, and checks that output against the C host: where a device is present that grades
@@ -19,7 +19,7 @@
 #
 # It has been seen to fail. Setting render.host.STEP to 41 breaks the death-level gray ramp, and the
 # eight death-level rows report FAILS at exit 1 while the other channels, which do not read the ramp,
-# stay ok. A suite nobody has watched fail is indistinguishable from an empty loop, so that is
+# stay ok. A suite nobody has watched fail is indistinguishable from an empty loop. That is
 # recorded here rather than assumed.
 
 import os
@@ -33,7 +33,7 @@ from render import host, native
 
 
 def build_corpus(length):
-    """A deterministic corpus whose symbols vary in rarity, so the rarity channel has something to show."""
+    """A deterministic corpus whose symbols vary in rarity. The rarity channel has something to show."""
     corpus = bytearray(length)
     state = 2463534242
     for at in range(length):

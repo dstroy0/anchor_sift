@@ -30,7 +30,7 @@
 #
 # WHAT IS AUTOMATIC AND WHAT IS NOT
 #
-# uses and first_use are facts about this tree, so they are recomputed every run. Everything else
+# uses and first_use are facts about this tree. They are recomputed every run. Everything else
 # is the owner's and is never overwritten. A row entered by --seed carries its key, no author, no
 # year and no title. That is the honest state of a source nobody has looked up, and it holds until
 # somebody looks it up.
@@ -66,7 +66,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # What git exports into a hook. They name the repository git is already operating on, and a
 # rev-parse that inherits them answers about THAT instead of about the directory it was asked from.
 # The specific way it goes wrong is quiet: with GIT_DIR set and no work tree named, --show-toplevel
-# comes back as the current directory, so this file's own directory became the repository root and
+# comes back as the current directory. This file's own directory became the repository root and
 # every scanned path hung off maint/citations/. It was caught only because the layout guard below
 # refuses a root with no repotools.toml in it; with the old silent fallback it would have scanned
 # almost nothing and exited 0.
@@ -76,7 +76,7 @@ GIT_ENV = ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMM
 def git_answer(arguments):
     """One git query about the tree this file sits in, or None where git will not say.
 
-    Asked with the hook's own git variables cleared, so the answer is about the directory asked
+    Asked with the hook's own git variables cleared. The answer is about the directory asked
     from and not about whatever repository invoked us.
     """
     environment = dict(os.environ)
@@ -98,13 +98,13 @@ def working_tree():
     """The tree this tool is part of, which is not the tree it used to walk up to.
 
     ROOT was found by climbing from this file until a directory holding build/ appeared. build/ is
-    generated and a linked worktree does not have one, so from a worktree the climb went straight
+    generated and a linked worktree does not have one. From a worktree the climb went straight
     past the worktree root and stopped at the MAIN checkout. The gate then scanned main's tree while
     reporting on a commit being made from somewhere else, and it did that silently, because landing
     on a real repository with real files looks exactly like working.
 
     It also has a second failure at the other end: a clone that has never built anything has no
-    build/ anywhere, so the climb runs to the filesystem root and every scanned path is wrong.
+    build/ anywhere. The climb runs to the filesystem root and every scanned path is wrong.
 
     git answers the question directly and answers it the same way for the main worktree and a linked
     one. The climb is kept only as the fallback for an exported tree with no history, and it looks
@@ -251,7 +251,7 @@ def searched_names():
     absent = [one for one in names if not os.path.exists(os.path.join(ROOT, one))]
     if absent:
         raise SystemExit("citations: %s named for scanning and not on disk. os.walk over a "
-                         "directory that is not there yields nothing and raises nothing, so this "
+                         "directory that is not there yields nothing and raises nothing. This "
                          "stops instead." % ", ".join(absent))
 
     return tuple(names)
@@ -271,7 +271,7 @@ STARTING = (
 SAME = {"Rényi": "Renyi"}
 
 # A capitalized name against a year, the form somebody writes a citation in.
-# It finds sources this file has never heard of, and it also finds every date in the tree, so what
+# It finds sources this file has never heard of, and it also finds every date in the tree. What
 # it reports is a list to read and not a list to enter.
 SHAPED = re.compile(r"\b([A-Z][A-Za-zéáíóúüñ]{3,}"
                     r"(?:(?: and | & |, )[A-Z][A-Za-zéáíóúüñ]{3,})*),? \(?((?:19|20)[0-9]{2})\)?")
@@ -287,13 +287,13 @@ NOT_A_NAME = frozenset((
 def main_checkout():
     """The main working tree, which is the one the private repositories sit beside.
 
-    A linked worktree lives at <repo>/.claude/worktrees/<name>, so a sibling path computed from it
+    A linked worktree lives at <repo>/.claude/worktrees/<name>. A sibling path computed from it
     lands inside .claude/ and finds nothing. Git knows the difference: --git-common-dir names the
     shared .git directory for the main tree and for every linked worktree alike, and its parent is
     the main checkout.
 
     Falls back to ROOT where git cannot answer, which covers an exported tree with no history. That
-    fallback is the ordinary case and not a failure, so it is silent; a private root that is looked
+    fallback is the ordinary case and not a failure. It is silent; a private root that is looked
     for and not found is reported by the caller instead.
     """
     common = git_answer(["rev-parse", "--git-common-dir"])
@@ -357,7 +357,7 @@ def is_generated(path):
     the reason a source is used.
 
     It also inflates the use count: every key in a generated bibliography gets at least one hit from
-    it, so such a row can never read as unused and --check cannot tell "cited by the work" from
+    it. Such a row can never read as unused and --check cannot tell "cited by the work" from
     "listed in a bibliography the registry produced".
 
     Keyed on the file's first line rather than a list of paths, because a path list is a second
@@ -573,7 +573,7 @@ def main():
             hits = sorted(set(where[key]))
             out.write("    %-32s %3d uses, first at %s\n" % (key, len(hits), hits[0]))
     if unattributed:
-        out.write("\n  NO AUTHOR AND NO IDENTIFIER, so not yet a reference (%d)\n"
+        out.write("\n  NO AUTHOR AND NO IDENTIFIER. Not yet a reference (%d)\n"
                   % len(unattributed))
         for key in unattributed:
             out.write("    %-32s %s uses\n" % (key, registry[key]["uses"]))

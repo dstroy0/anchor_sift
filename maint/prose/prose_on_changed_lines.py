@@ -92,14 +92,14 @@ def main():
 
     changed = sorted(name for name, lines in added.items() if lines)
     if not changed:
-        print("  no changed lines, so no prose was checked")
+        print("  no changed lines. No prose was checked")
         return 0
 
     run = subprocess.run([sys.executable, CHECKER] + [os.path.join(root, one) for one in changed],
                          cwd=root, capture_output=True, text=True, encoding="utf-8",
                          errors="replace")
     if "file(s) checked" not in run.stdout:
-        print("  docs_check.py did not report a count, so its findings cannot be trusted")
+        print("  docs_check.py did not report a count. Its findings cannot be trusted")
         print(run.stdout[-2000:])
         print(run.stderr[-2000:])
         return 2

@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Keeping fewer distinctions, so how few a result survives on can be measured instead of assumed.
+# Keeping fewer distinctions. How few a result survives on can be measured instead of assumed.
 #
 #   Usage:  from partition.coarsen import coarsen
 #
@@ -16,20 +16,20 @@
 # go before a relationship stops being visible.
 #
 # What is watched at each step is the ordering and never the distance. Distances shrink as symbols
-# are folded for arithmetic reasons alone, so the raw numbers say nothing on their own. A pair known
+# are folded for arithmetic reasons alone. The raw numbers say nothing on their own. A pair known
 # to be close is measured against a pair known not to be, and the level where the close pair stops
 # being the closer of the two is where the relationship stops surviving.
 #
 # Measured, the answer is two. At every level down to two the close pairs stay closer, and at two
 # the only distinction left is whether a character is the commonest one. For most of these languages
-# the commonest character is the space, so the text becomes a record of word lengths alone, and the
+# the commonest character is the space. The text becomes a record of word lengths alone, and the
 # lengths line up with the pairings exactly: Zulu 5.70 against Xhosa 5.88, Spanish 4.41 against
 # French 4.66. Finnish at 6.41 puts it away from Spanish.
 #
 # So at the bottom of the sweep the reading is a single magnitude per language and not a relation
 # between quantities. One comparison is void at that level and it was not noticed until the
 # commonest characters were listed: Shona and Somali have the letter a as their commonest and not
-# the space, so their two symbol reading records where a falls and not where words end.
+# the space. Their two symbol reading records where a falls and not where words end.
 
 # Private use codepoints, keeping a coarsened symbol from colliding with anything the source held.
 FIRST_SEAT = 0xE000

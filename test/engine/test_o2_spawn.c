@@ -13,20 +13,20 @@
  * WHAT THIS PROVES. A single descent places at most ANCHOR_STEER_ANCHORS probes and resets its
  * survivor vector to all standing on entry. That caps one descent at four conditions. The resume
  * member of AnchorSteerDescent lifts the cap by composition: run a descent, then run the next over
- * the survivors the last one left, so each level reads only what its parent kept standing and the
+ * the survivors the last one left. Each level reads only what its parent kept standing and the
  * depth is data-dependent and unbounded. This suite drives that composition and grades it against the
  * controls a recursive search needs.
  *
  *   POSITIVE CONTROL. A field with one planted occurrence over N alignments cannot be isolated in
  *   fewer than log2(N) binary probes, because each probe splits the survivors by one byte value and
- *   carries at most one bit. With N past 2000 that is at least eleven probes, so isolating the target
+ *   carries at most one bit. With N past 2000 that is at least eleven probes. Isolating the target
  *   composes well past one descent's cap of four. The lone survivor is then verified against the
  *   whole needle with a full compare before it is called found, which is this tree's rule that a
  *   survivor is not a match until the exact compare confirms it, carried into the recursive setting.
  *   The premise that the target is unique is checked, not assumed: a repeated target would stall the
  *   descent at its true-occurrence count, and that is a different outcome.
  *
- *   NULL. A flat field matches the needle at every alignment, so no probe prunes anything and the
+ *   NULL. A flat field matches the needle at every alignment. No probe prunes anything and the
  *   destroy rule ends the composition at depth zero with every alignment still standing. A field with
  *   no cheap condition refuses, it does not answer.
  *
@@ -123,7 +123,7 @@ static size_t o2_compose(const uint8_t *const corpus, const uint8_t *const needl
         alive = o2_alive(survivors, alignments);
         if (placed == 0u)
         {
-            // The destroy rule: this level's best candidate pruned nothing, so no condition left
+            // The destroy rule: this level's best candidate pruned nothing. No condition left
             // separates the survivors. The composition stops rather than reading for no gain.
             break;
         }
@@ -176,7 +176,7 @@ static int o2_case_found_past_cap(void)
     o2_fill(corpus, 2u, &state);
 
     // The target is the first alignment whose needle occurs exactly once, searched for rather than
-    // assumed, so the premise the depth bound rests on is a fact of this field and not a hope.
+    // assumed. The premise the depth bound rests on is a fact of this field and not a hope.
     size_t origin = alignments;
     for (size_t candidate = 0u; candidate < alignments; candidate += 1u)
     {
@@ -258,7 +258,7 @@ static int o2_case_flat_refuses(void)
         return 1;
     }
 
-    // One repeated symbol. The needle matches at every alignment, so every probe agrees everywhere
+    // One repeated symbol. The needle matches at every alignment. Every probe agrees everywhere
     // and prunes nothing.
     uint8_t needle[O2_NEEDLE];
     memset(corpus, 'q', O2_CORPUS);
@@ -328,7 +328,7 @@ static int o2_case_anytime_superset(void)
         return 1;
     }
 
-    // Three levels, short of the eleven or more that isolation needs, so the target sits inside a
+    // Three levels, short of the eleven or more that isolation needs. The target sits inside a
     // superset larger than one.
     size_t depth = 0u;
     uint64_t survivor_sum = 0u;
@@ -357,9 +357,9 @@ static int o2_case_anytime_superset(void)
  * @brief Case 4. The read cost, reported for a pruning field against a barely-pruning one.
  *
  * @return 0 always. The cost is reported and not asserted, since the numbers belong to the fields.
- * @note THE HONEST BOUNDARY. A pruning field collapses the survivors fast, so the sum of survivor
+ * @note THE HONEST BOUNDARY. A pruning field collapses the survivors fast. The sum of survivor
  *       counts down the levels stays near twice the universe. A field whose conditions barely prune
- *       runs many levels each reading most of the universe, so the sum approaches the universe times
+ *       runs many levels each reading most of the universe. The sum approaches the universe times
  *       the depth and the recursion saves nothing. Both are printed so the boundary is a number.
  */
 static int o2_case_cost_boundary(void)
@@ -397,7 +397,7 @@ static int o2_case_cost_boundary(void)
                          &prune_depth, &prune_sum);
     }
 
-    // Barely-pruning field: the least symbol dominates and the needle is all of it, so most
+    // Barely-pruning field: the least symbol dominates and the needle is all of it. Most
     // alignments agree at most positions and each probe removes few.
     uint64_t skew_state = 0x0BADC0DE0BADC0DEULL;
     for (size_t at = 0u; at < O2_CORPUS; at += 1u)

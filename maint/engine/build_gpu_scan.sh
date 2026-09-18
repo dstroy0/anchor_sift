@@ -8,7 +8,7 @@
 #
 # The companion of build_gpu_arm.sh, for the scan family instead of the exact one. nvcc needs a host
 # compiler and on Windows that host compiler is MSVC, never MinGW. The rest of this tree builds with
-# MinGW, and MinGW objects do not link against MSVC objects, so the GPU arm gets its own build and
+# MinGW, and MinGW objects do not link against MSVC objects. The GPU arm gets its own build and
 # does not join the CMake one. Everything it needs is compiled here by the same host compiler nvcc is
 # driving, which is what keeps the ABI consistent inside this binary.
 #
@@ -44,7 +44,7 @@ for one in $ARCHES; do
     GENCODE="$GENCODE -gencode arch=compute_${NUM},code=${one}"
 done
 
-# Removed before the build, so a previous binary cannot survive a failed compile and be run as though
+# Removed before the build. A previous binary cannot survive a failed compile and be run as though
 # it were this one. build_gpu_arm.sh carried a week-long bug of exactly that shape: a stale binary
 # passed the existence test and was benched as though it were the new one.
 rm -f "$OUT/bench_steer_gpu.exe"

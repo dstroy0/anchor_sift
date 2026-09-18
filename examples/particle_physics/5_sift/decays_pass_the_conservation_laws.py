@@ -9,7 +9,7 @@
 #
 # A sift is a necessary condition, and conservation is one: a decay can happen only where the electric
 # charge, the baryon number and the lepton number of the products equal the parent's. Each of the
-# three is an exact integer, charge and baryon carried in thirds, so the check is a sum and an equality,
+# three is an exact integer, charge and baryon carried in thirds. The check is a sum and an equality,
 # a decay balances or it does not, with no tolerance and no mass. Whether a balanced decay is fast or
 # slow, or happens at all, is dynamics this does not read; conservation is only the gate every decay
 # has to pass.
@@ -106,7 +106,7 @@ def main(argv):
 
     out.write("\n  %d of %d channels pass every conservation law.\n" % (passed, len(DECAYS)))
     out.write("  The proton to a positron and a photon balances the charge and breaks the baryon\n")
-    out.write("  number and the lepton number, so the gate closes on it. The proton is stable because\n")
+    out.write("  number and the lepton number. The gate closes on it. The proton is stable because\n")
     out.write("  that gate is closed, read here in integers with no tolerance.\n\n")
     out.flush()
     return 0

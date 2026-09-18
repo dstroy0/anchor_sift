@@ -10,11 +10,11 @@
 # Section 4.13 reports a Zipf slope and a brevity correlation for ten natural corpora and reads their
 # agreement as a property of how people produce language. Section 7.4 tests that against a memoryless
 # process, since the literature there holds that such a process reproduces the statistics. Characters
-# are drawn independently, so nothing links one position to the next and nothing is optimizing.
+# are drawn independently. Nothing links one position to the next and nothing is optimizing.
 #
 # The first version of this file had one arm weighted by English letter frequencies and one uniform
 # arm, with the alphabet fixed at 26 and the delimiter rate at 0.18. Three of those four numbers were
-# taken from English, so an English-looking result proved nothing. The sweep below varies the alphabet
+# taken from English. An English-looking result proved nothing. The sweep below varies the alphabet
 # size, the delimiter rate and the shape of the letter distribution, and only one row is allowed to
 # carry a measurement taken from a language. The sweep measures the range of Zipf slopes an arbitrary
 # memoryless process reaches, not the value one tuned instance of it reaches.

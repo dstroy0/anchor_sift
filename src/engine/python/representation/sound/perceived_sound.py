@@ -18,7 +18,7 @@
 # weighting is an argument here, an audiogram, and not a constant. NO_LOSS is the default.
 #
 # Some sounds are the same sound at different frequencies. A phone said by a small speaker and by a
-# large one differs by a scaling of the whole spectrum. The bands below are log spaced, so that
+# large one differs by a scaling of the whole spectrum. The bands below are log spaced. That
 # scaling is a shift along the band axis, and the magnitude of a Fourier transform along that axis
 # is the same before and after the shift. That puts one phone at one code whoever says it.
 #
@@ -47,7 +47,7 @@ HOP_SECONDS = 0.010
 
 # How many frames are windowed at once. The frames are the large array here: twenty minutes at
 # 44100 Hz is 135000 of them, 1411 samples each, and holding all of those windowed at once is over
-# a gigabyte. What comes out per frame is 27 numbers, so only the frames are chunked.
+# a gigabyte. What comes out per frame is 27 numbers. Only the frames are chunked.
 CHUNK = 2048
 
 # Where a person's fundamental lies. Under 60 Hz is the room and over 400 Hz is a child or a shout,
@@ -125,7 +125,7 @@ def frame_chunks(samples, rate, window_seconds=WINDOW_SECONDS, hop_seconds=HOP_S
         return
     count = 1 + ((len(samples) - width) // hop)
     shape = numpy.hanning(width)
-    # A view and not a copy. Indexing it with one chunk's starts is what copies, so the whole
+    # A view and not a copy. Indexing it with one chunk's starts is what copies. The whole
     # recording is never windowed at once.
     every = numpy.lib.stride_tricks.sliding_window_view(samples, width)
     for first in range(0, count, chunk):
@@ -154,7 +154,7 @@ def envelope(loudness, terms=ENVELOPE_TERMS):
 def segment_code(shape, bits=SEGMENT_BITS):
     """Each frame's envelope as numbers a change of speaker size does not move.
 
-    A larger vocal tract scales every resonance by one factor. The bands are log spaced, so that
+    A larger vocal tract scales every resonance by one factor. The bands are log spaced. That
     scaling slides the whole envelope along the band axis without changing its shape, and the
     magnitude of a Fourier transform along that axis is unchanged by the slide. Coefficient 0 is
     the envelope's mean, which is loudness, and it goes to the prosody field instead.
@@ -228,7 +228,7 @@ def decorrelated(measured):
     """One measurement rotated onto axes that do not vary together.
 
     Thresholding the columns as they come gives bits that repeat each other. Two neighboring bands
-    rise and fall together, so their bits agree on nearly every frame and most of the codes never
+    rise and fall together. Their bits agree on nearly every frame and most of the codes never
     occur. Rotating onto the axes the measurement actually varies along, and cutting each of
     those at its median, is what brings the sample to the highest entropy it can carry: every bit
     splits the frames in half and no bit is another one restated. The states are then all reachable,
@@ -248,7 +248,7 @@ def decorrelated(measured):
 def code_profile(field):
     """A bit field as a distribution over the codes it takes, and how many frames that is.
 
-    The shape anchor_sift.distance, support and entropy already read, so the delta against a
+    The shape anchor_sift.distance, support and entropy already read. The delta against a
     maximum entropy reference is measured with the same functions the corpus work uses.
     """
     if not len(field):
@@ -276,7 +276,7 @@ def represented(samples, rate, audiogram=NO_LOSS):
     if not shapes:
         return (numpy.zeros(0), numpy.zeros((0, SEGMENT_BITS), dtype=numpy.uint8),
                 numpy.zeros((0, PROSODY_BITS), dtype=numpy.uint8))
-    # The median every threshold is taken against is the whole recording's, so the fields are cut
+    # The median every threshold is taken against is the whole recording's. The fields are cut
     # only once both are assembled. This is also where the speaker's own pitch range comes from.
     measured = numpy.concatenate(raw)
     at = numpy.arange(len(measured)) * HOP_SECONDS

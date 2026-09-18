@@ -35,7 +35,7 @@
 #
 # Section 4 prints each entry twice. AKW'A and ʔak‟ʷa are one word, and section 2.1 gives the
 # mapping: ʷ is written w, c is ts, ƛ‟ is tl‟, ɬ is lh, x is c, χ is x, and ʔ is 7. Both are Bella
-# Coola, so both are recorded, but only the phonemic column joins the pure stream. Two orthographies
+# Coola. Both are recorded, but only the phonemic column joins the pure stream. Two orthographies
 # in one stream would put the byte pairs of a transliteration into the measurement of a language.
 
 import io
@@ -102,7 +102,7 @@ TARGET = os.path.join(
 # Kept in step with NATER_ETYM in hand_extraction/papers.py. ǝ is U+01DD and ə is U+0259, which NFC
 # does not unify, and this paper prints both. The apostrophe is deliberately absent for the same
 # reason it is absent from the other Nater paper: it is his ejective mark and also the closing quote
-# of all 1275 glosses, so holding it makes every English gloss a word of the language.
+# of all 1275 glosses. Holding it makes every English gloss a word of the language.
 MARKS = "ʔʕɬłƛəχ7̓̔̕ʷ˽" + "ǝ√" + "áíúà" + "ᴗɢʁʒščɣλˑ"
 
 PAGE = re.compile(r"^===== page \d+ =====$")
@@ -200,7 +200,7 @@ def trailing_form(tokens):
 def leading_lemma(tokens):
     """The practical orthography column of an appendix row, which is its leading run of capitals.
 
-    The gloss can hold a capital of its own, as in horn played in KUSYUT dance, so the run is read
+    The gloss can hold a capital of its own, as in horn played in KUSYUT dance. The run is read
     from the head of the row and stops at the first token that is not one.
     """
     kept = []
@@ -278,7 +278,7 @@ def main():
             kind = "cited form" if who else UNCLASSIFIED
             rows.append((where, who, kind, " ".join(tokens[opens:]), ""))
 
-    # Every line no branch above reached, so the record holds every token the paper printed.
+    # Every line no branch above reached. The record holds every token the paper printed.
     missed = unreached(lines, covered_tokens(one[3] for one in rows), marks=MARKS)
     for page, spot, reason, missing, text in missed:
         rows.append(("not reached page %d" % page, "", UNCLASSIFIED, text, ""))

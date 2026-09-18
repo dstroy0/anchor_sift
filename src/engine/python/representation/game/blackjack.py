@@ -7,7 +7,7 @@
 #   Usage:  from representation.game import blackjack
 #           game = blackjack.Blackjack(decks=1)
 #
-# This is the cheapest solved arm in the set. The tree is small enough to enumerate outright, so the
+# This is the cheapest solved arm in the set. The tree is small enough to enumerate outright. The
 # outcome distribution under a move is not estimated here, it is computed. That makes it the control:
 # an estimator that cannot reproduce blackjack exactly has nothing to say about chess.
 #
@@ -99,7 +99,7 @@ class Blackjack(object):
         return [rank for rank, count in zip(RANKS, state[5]) if count > 0]
 
     def weights(self, state):
-        """How many cards of each drawable rank remain. Exact integers, so the mix is exact."""
+        """How many cards of each drawable rank remain. Exact integers. The mix is exact."""
         return [count for count in state[5] if count > 0]
 
     def apply(self, state, move):

@@ -22,7 +22,7 @@
  *      commonest symbol first, and must read MORE than the unsteered order. A negative control that
  *      reads the same says the ordering is a no-op and every number above it is worthless.
  *   4. THE DISPATCH IS EXACT. Three fields whose answers are derived by hand from the rule rather
- *      than read off a run, so the integer form is graded against arithmetic and not against the
+ *      than read off a run. The integer form is graded against arithmetic and not against the
  *      floating point form it replaced.
  *
  * @note No double, no float, no <math.h>, and nothing outside the C11 standard headers below.
@@ -154,12 +154,12 @@ static int check_ordering_pays(const uint8_t *corpus, size_t corpus_len, const u
     const uint64_t steered_probes = anchor_steer_probes;
 
     /* The negative control, run through the same kernel by ordering the offsets the wrong way and
-     * driving the unsteered path, so nothing but the order differs. */
+     * driving the unsteered path. Nothing but the order differs. */
     AnchorFieldCensus census;
     anchor_field_census(corpus, corpus_len, &census);
 
     /* The ratio is carried in hundredths as an exact integer division, not as a double. Both the
-     * numerator and the denominator are printed beside it, so the reader can check the division. */
+     * numerator and the denominator are printed beside it. The reader can check the division. */
     const uint64_t hundredths = (steered_probes > 0u)
                               ? ((plain_probes * 100u) / steered_probes)
                               : 0u;
@@ -211,7 +211,7 @@ static int check_ordering_pays(const uint8_t *corpus, size_t corpus_len, const u
            (worst_probes > steered_probes) ? "correctly worse" : "FAILS");
     if (worst_probes <= steered_probes)
     {
-        printf("  the counter cannot see the ordering, so the reduction above is not evidence\n");
+        printf("  the counter cannot see the ordering. The reduction above is not evidence\n");
         failed += 1;
     }
     return failed;
@@ -221,14 +221,14 @@ static int check_ordering_pays(const uint8_t *corpus, size_t corpus_len, const u
  * @brief Grades the exact dispatch against answers derived from the rule by hand.
  *
  * Each field below has its verdict worked out from 100*total^2 >= 85*distinct*sum(count^2) rather
- * than from running the function, so this grades the integer arithmetic and not its own output.
+ * than from running the function. This grades the integer arithmetic and not its own output.
  *
  *   uniform over 256   count is N/256 each, sum of squares is N^2/256, distinct 256.
- *                      left 100*N^2, right 85*256*N^2/256 = 85*N^2. 100 >= 85, so NOT free.
+ *                      left 100*N^2, right 85*256*N^2/256 = 85*N^2. 100 >= 85. NOT free.
  *   one symbol only    sum of squares is N^2, distinct 1.
- *                      left 100*N^2, right 85*N^2. 100 >= 85, so NOT free.
+ *                      left 100*N^2, right 85*N^2. 100 >= 85. NOT free.
  *   two symbols, 99/1  N 100, counts 99 and 1, sum of squares 9802, distinct 2.
- *                      left 1000000, right 85*2*9802 = 1666340. 1000000 < 1666340, so FREE.
+ *                      left 1000000, right 85*2*9802 = 1666340. 1000000 < 1666340. FREE.
  */
 static int check_dispatch_exact(void)
 {
@@ -282,7 +282,7 @@ static int check_dispatch_exact(void)
  * @return Count of failures.
  *
  * TWO ROUTES TO ONE DECISION. The engine's dispatch used to be a double comparison and is now an
- * integer one. That is only safe if the two agree, so this runs both over a sweep of fields whose
+ * integer one. That is only safe if the two agree. This runs both over a sweep of fields whose
  * skew varies from flat to nearly degenerate and compares the verdicts.
  *
  * @note The double route here is the rule's MATHEMATICAL form, effective = total^2 / sum(count^2)
@@ -376,7 +376,7 @@ static int check_exact_matches_double(void)
      * BOTH verdicts have to appear, which is what this tests. */
     if ((chose_free == 0u) || (chose_inorder == 0u))
     {
-        printf("  the sweep never crossed the threshold, so the agreement is vacuous: FAILS\n");
+        printf("  the sweep never crossed the threshold. The agreement is vacuous: FAILS\n");
         failed += 1;
     }
     return failed;
@@ -528,7 +528,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     const size_t want = anchor_sift_naive(corpus, corpus_len, needle, needle_len);
 
     /* READS PER ALIGNMENT IS THE MEASURE, AND ITS FLOOR IS EXACTLY ONE. Every alignment has to be
-     * looked at at least once to be rejected, so no probe arrangement can read fewer than one byte
+     * looked at at least once to be rejected. No probe arrangement can read fewer than one byte
      * per alignment. Printing the raw reads alone hides how close a route is to that floor; the
      * normalized figure says whether there is anything left to win. Carried in thousandths by exact
      * integer division, with the numerator and denominator both printed beside it. */
@@ -657,13 +657,13 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     //
     // The theorem: an engine that decides each alignment from reads taken AT that alignment performs
     // at least one read per alignment. An alignment decided on zero reads is decided by a function
-    // whose domain is the empty tuple, so its range holds one value and it answers identically at
+    // whose domain is the empty tuple. Its range holds one value and it answers identically at
     // every alignment. An adversary edits the corpus there and flips whether that alignment matches,
     // the engine observes nothing different, and one of the two answers is wrong. So total reads,
     // probe reads plus the compares that follow them, is at least the alignment count, always.
     //
     // The empty probe set is the sharp case and it is graded here as a route rather than described.
-    // It takes zero probe reads and sends every alignment to the compare, so its total is exactly
+    // It takes zero probe reads and sends every alignment to the compare. Its total is exactly
     // the alignment count. The floor is ATTAINED by the configuration that steers least, which is
     // what shows the floor is a property of the problem and not an artifact of the steering.
     uint64_t bare_reads = 0u;
@@ -675,7 +675,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     // REPORTED OUTSIDE THE TABLE, BECAUSE IT IS NOT IN THE TABLE'S UNITS. Every row above counts
     // PROBE reads. The floor is a statement about TOTAL reads, probe reads plus the compares that
     // follow, and mixing the two down one column would invite a reader to compare a bound against a
-    // cost. The empty probe set takes zero probe reads and one compare per alignment, so in floor
+    // cost. The empty probe set takes zero probe reads and one compare per alignment. In floor
     // units it sits exactly on the floor. In real bytes it is the most expensive route there is,
     // since every alignment takes a full compare of up to needle_len bytes.
     printf("    read floor: %zu alignments, empty probe set takes %llu probe reads and %llu"
@@ -763,7 +763,7 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
      * matters because they fail differently: a count above zero is satisfied by a single dispatch,
      * so a change that accidentally routed almost every sweep to the scalar fall-through would keep
      * the count non-zero and be entirely wrong. This whole planner run is at stride one, which is
-     * the only stride an arm serves, so every scan in it should reach the wide arm and the share
+     * the only stride an arm serves. Every scan in it should reach the wide arm and the share
      * should be the full hundred. */
     const uint64_t share = (anchor_steer_scan_calls > 0u)
                          ? ((anchor_steer_wide_calls * 100u) / anchor_steer_scan_calls)
@@ -788,13 +788,13 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
     }
     else if ((wide_present != 0) && (share != 100u))
     {
-        printf("    %s ran on %llu%% of the scans at stride one, so the rest fell through\n",
+        printf("    %s ran on %llu%% of the scans at stride one. The rest fell through\n",
                best->name, (unsigned long long)share);
         failed += 1;
     }
     else if (wide_present == 0)
     {
-        printf("    no wide arm on this machine, so the portable count is the whole claim\n");
+        printf("    no wide arm on this machine. The portable count is the whole claim\n");
     }
 
     free(survivors);
@@ -853,7 +853,7 @@ static int sample_same_in_field(const void *field, size_t left, size_t right)
  * @brief Within a tolerance, which is meaningful and is NOT transitive.
  *
  * @note This is the protein case in miniature. A value within 2 of another and that one within 2 of
- *       a third does not put the first within 2 of the third, so the relation does not partition the
+ *       a third does not put the first within 2 of the third. The relation does not partition the
  *       field and a grouping that stopped at the first matching representative would put agreeing
  *       positions in different classes.
  */
@@ -875,7 +875,7 @@ static int near_same_in_field(const void *field, size_t left, size_t right)
  * THE CASE THAT WAS SILENTLY WRONG. Classes are the transitive closure of the predicate, so
  * agreement must imply a shared rank even where the predicate chains. The check builds a chain,
  * 0 1 2 3 4, where each value agrees with its neighbours at a tolerance of 2 and the ends do not
- * agree with each other at all. The closure is one component, so every position must carry one rank.
+ * agree with each other at all. The closure is one component. Every position must carry one rank.
  *
  * A grouping that stopped at the first matching representative would have produced more than one
  * class here, and a rank probe built on it would have refuted an alignment holding a true
@@ -908,7 +908,7 @@ static int check_projection_closes(void)
     // The ends disagree, which is what makes the predicate non-transitive rather than merely coarse.
     if (near_same_in_field(chain, 0u, 4u) != 0)
     {
-        printf("  the chain ends agree, so this is not the case under test: FAILS\n");
+        printf("  the chain ends agree. This is not the case under test: FAILS\n");
         failed += 1;
     }
 
@@ -931,7 +931,7 @@ static int check_projection_closes(void)
 
     // A FIELD WITH MORE CLASSES THAN A BYTE RANK CAN NAME MUST BE REFUSED AND NOT DEGRADED. The
     // theorist measured the degradation it replaces: the overflow was decided at discovery, before
-    // the rarity sort, so the merged set was chosen by arrival order, and since a rare class arrives
+    // the rarity sort. The merged set was chosen by arrival order, and since a rare class arrives
     // late the overflow ate the rarest classes. Two fields with identical histograms merged sets
     // whose mean occupancies differed by a factor of 8.5. Refusing is checked here because a silent
     // degradation is indistinguishable from a good projection at the call site.
@@ -967,7 +967,7 @@ static int check_projection_closes(void)
         failed += ((took != 0) && (wide_classes == wide_len)) ? 0 : 1;
 
         // THE RAREST 255 KEEP THEIR OWN RANKS AND THE COMMONEST MERGE. Every class here holds one
-        // member, so ties break by class index and the first 255 positions take ranks 0 to 254 while
+        // member. Ties break by class index and the first 255 positions take ranks 0 to 254 while
         // the rest share 255. The form this replaced capped during discovery and merged by ARRIVAL,
         // which on a natural field eats the rarest classes instead of the commonest.
         size_t distinct_ranks = 0u;
@@ -998,7 +998,7 @@ static int check_projection_closes(void)
 
     // A REFUSAL WRITES NOTHING, AND THAT IS CHECKED BY PLANTING A SENTINEL. Fail closed says a
     // request that cannot be met changes no state. The undersize path used to zero `distinct` while
-    // the null and zero-length paths left it alone, so a caller could not tell a refused zero from a
+    // the null and zero-length paths left it alone. A caller could not tell a refused zero from a
     // measured zero. The realistic caller error is sizing the buffers by an expected class count
     // rather than by `length`, which hands over buffers correct for the field they had in mind.
     {
@@ -1048,11 +1048,11 @@ static int check_projection_closes(void)
  * TWO CLAIMS, AND THE SECOND IS THE ONE THAT COULD BE WRONG.
  *
  * First, that reaching a byte field through an equality oracle places the SAME offsets as reading it
- * as bytes. The oracle hides the representation and nothing else, so a different answer would mean
+ * as bytes. The oracle hides the representation and nothing else. A different answer would mean
  * the byte path was using something the proof does not license.
  *
  * Second, that projecting a field of any symbol type onto rarity ranks preserves soundness. Two
- * positions carrying the same symbol necessarily carry the same rank, so rank disagreement proves
+ * positions carrying the same symbol necessarily carry the same rank. Rank disagreement proves
  * symbol disagreement and a rank probe is a necessary condition. Rank agreement proves nothing,
  * which is why survivors still reach an exact compare. The check is therefore NOT that the projected
  * count equals the true count: it is that the projected engine loses no true occurrence, which is
@@ -1149,7 +1149,7 @@ static int check_any_type_agrees(void)
     {
         state = (state * 6364136223846793005ULL) + 1442695040888963407ULL;
 
-        // Six distinct values at wildly different rates, each far outside a byte, so the rarity
+        // Six distinct values at wildly different rates, each far outside a byte. The rarity
         // ordering has something to order and no byte engine could have read them.
         const uint32_t roll = (uint32_t)(state >> 33) % 1000u;
         if (roll < 500u)      { samples[at] = 0xDEADBEEFu; }
@@ -1256,7 +1256,7 @@ int main(void)
     }
     build_skewed_field(corpus, STEER_CORPUS);
 
-    /* The needle is taken FROM the field, so it occurs at least once and the counts are not all
+    /* The needle is taken FROM the field. It occurs at least once and the counts are not all
      * zero. A needle that never occurs grades the rejection path only and never the verification
      * path, and the two are where the arms could disagree. */
     uint8_t needle[64];
@@ -1302,7 +1302,7 @@ int main(void)
      * which share whatever structure the generator happens to have. English prose is a field
      * nobody here designed: its letter frequencies span three decades, it repeats at no fixed
      * period, and its correlations between positions are real rather than planted. The license
-     * text is tracked in this repository, so the grader needs no network and no dataset fetch and
+     * text is tracked in this repository. The grader needs no network and no dataset fetch and
      * runs from a fresh clone. */
     size_t natural_len = 0u;
     uint8_t *natural = read_whole_file(ANCHOR_SIFT_SOURCE_ROOT "/LICENSES/AGPL-3.0-or-later.txt",
@@ -1314,7 +1314,7 @@ int main(void)
     }
     else
     {
-        // A FAILURE AND NOT A SKIP. The path is compiled in, so the file is either there or the
+        // A FAILURE AND NOT A SKIP. The path is compiled in. The file is either there or the
         // repository is not what this binary was built against. Printing a skip and returning zero
         // is how the natural field went ungraded without anybody being told.
         printf("\n  natural field absent at %s, FAILS\n",

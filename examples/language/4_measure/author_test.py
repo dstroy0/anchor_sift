@@ -14,13 +14,13 @@
 # The night's results predict the two units apart. Reading which character follows which turned out to
 # follow a writing system: it pairs Zulu with Xhosa when they share an alphabet, loses Tamil from
 # Malayalam when their scripts diverge, and moves twice as far for a change of characters as for no change
-# at all. These seven writers share an alphabet entirely, so that reading has nothing to work with and
+# at all. These seven writers share an alphabet entirely. That reading has nothing to work with and
 # should come out near chance.
 #
 # Word choice is the other unit, and it is where authorship has been found since the disputed Federalist
 # papers were settled on function word frequencies alone. It is also the unit where composition drifts
 # within a text, which was raised earlier as a fault in the whole approach and shown to be negligible at
-# character level. At word level it is not negligible, so the same drift that could not touch the
+# character level. At word level it is not negligible. The same drift that could not touch the
 # character reading is live here.
 #
 # Both are measured on the same texts, held out one at a time. Guessing gets one in seven.
@@ -77,7 +77,7 @@ def main():
         out.flush()
         return 0
 
-    out.write("  %d works by %d writers, each cut to %d characters, so guessing gets %.1f percent\n\n"
+    out.write("  %d works by %d writers, each cut to %d characters. Guessing gets %.1f percent\n\n"
               % (len(loaded), len(writers), SAME_LENGTH, 100.0 / len(writers)))
     for writer in writers:
         out.write("  %-14s %d works\n" % (writer, sum(1 for row in loaded if row[0] == writer)))

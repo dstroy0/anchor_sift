@@ -14,7 +14,7 @@
 # put Greek inside the group on every universal, while moving English by 0.001.
 #
 # What the width costs, measured: the discrimination per bit read falls with width on every corpus.
-# English gives 0.984 at one bit and 0.856 at eight, so the byte slice forfeits 15 percent and a
+# English gives 0.984 at one bit and 0.856 at eight. The byte slice forfeits 15 percent and a
 # sixteen bit symbol forfeits 40. Soundness is indifferent to it, since the proposition never
 # mentions a width. What the width moves is cost.
 #

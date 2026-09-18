@@ -42,7 +42,7 @@
 # A KEY PER LANGUAGE, NOT ONE SHUFFLE OF A LIST
 #
 # Each language's key is a hash of the seed against its name, and the order is the sort of those
-# keys. Shuffling a list instead would tie every position to the length of the list, so adding one
+# keys. Shuffling a list instead would tie every position to the length of the list. Adding one
 # language later would move all of them and the record of who was approached in what order would
 # stop matching what was done. With a key per language, a language that exists keeps its key
 # forever, a new source joins the language it belongs to, and a new language is placed among them
@@ -115,7 +115,7 @@ GROUPED_BY = "language"
 # Ordered inside a group. A year, or a span written 1950-1958, and the first year is what sorts.
 DATED_BY = "date"
 
-# A platform hosting many nations is a route to them and never a source of one language, so it is
+# A platform hosting many nations is a route to them and never a source of one language. It is
 # not a thing the draw can fairly place. Those rows sort after the draw and carry no key.
 OUT_OF_DRAW = ("portal",)
 
@@ -167,7 +167,7 @@ def seed_in(notes):
 def key_of(seed, language):
     """One language's place in the draw, as a hash of the seed against its name.
 
-    Hex, so it sorts as text the same way it sorts as a number, and a reader with the seed and a
+    Hex. It sorts as text the same way it sorts as a number, and a reader with the seed and a
     hashing tool can check any one language without running this.
     """
     return hashlib.sha256(("%s\x1f%s" % (seed, language.strip()))
@@ -201,7 +201,7 @@ def ordered(seed, rows):
             held.append(("f" * 16, (2, 0), "", row))
             continue
         language = (row.get(GROUPED_BY) or "").strip()
-        # The tail is the row's own hash, so two undated sources of one language are separated by
+        # The tail is the row's own hash. Two undated sources of one language are separated by
         # the same noise that placed the language and never by their order in the file.
         tail = hashlib.sha256(
             ("%s\x1f%s\x1f%s" % (seed, row.get("body") or "",
@@ -223,7 +223,7 @@ def write_register(path, notes, header, drawn, seed, out):
                 dropping = False
             continue
         kept.append(line)
-    # A bare "#" is the separator this write puts back, so leaving the old one gathers a new blank
+    # A bare "#" is the separator this write puts back. Leaving the old one gathers a new blank
     # comment line on every run. Three had piled up before this was noticed.
     while kept and kept[-1].strip() in ("", "#"):
         kept.pop()
@@ -299,7 +299,7 @@ def main():
     # The keys are still in the file and the old seed is in that run's output.
     if not seed and any((row.get("order_key") or "").strip() for row in rows):
         out.write("  rows carry an order_key and the file has no seed line.\n")
-        out.write("  a draw was made here and its seed was dropped, so drawing again would\n")
+        out.write("  a draw was made here and its seed was dropped. Drawing again would\n")
         out.write("  replace it and not reproduce it. Put the seed back:\n")
         out.write("      %s<the seed that run printed>\n" % SEED_MARK)
         out.write("  or --redraw --yes to accept a new draw and lose the old order.\n\n")
@@ -346,12 +346,12 @@ def main():
         out.flush()
         return 0
 
-    # No argument, so this checks the file against the draw instead of writing it.
+    # No argument. This checks the file against the draw instead of writing it.
     adrift = []
     for at, (key, _, _, row) in enumerate(drawn):
         if rows[at] is not row:
             adrift.append((at + 1, row.get(GROUPED_BY, ""), key))
-    # A row out of the draw carries the all f key by design, so checking it against key_of would
+    # A row out of the draw carries the all f key by design. Checking it against key_of would
     # report the portal as drifted on every run.
     stale = [row for row in rows if in_draw(row)
              and (row.get("order_key") or "") != key_of(seed, (row.get(GROUPED_BY) or ""))]

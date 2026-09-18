@@ -12,7 +12,7 @@
 # WHY TRACE AND NOT DRAW A SQUARE PER CELL
 #
 # A rectangle per set cell gives the same picture and is unusable. Adjacent rectangles share an edge
-# and a renderer seams along it, so the glyph shows hairline cracks at some zoom levels and not at
+# and a renderer seams along it. The glyph shows hairline cracks at some zoom levels and not at
 # others. It also makes the file enormous and gives nothing to smooth, since there is no outline to
 # cut a corner from.
 #
@@ -28,7 +28,7 @@
 #
 # WHY THE FACETS ARE THE POINT
 #
-# The outline is exact at cell boundaries, so a 64 grid gives hard facets where a font gives smooth
+# The outline is exact at cell boundaries. A 64 grid gives hard facets where a font gives smooth
 # curves. That reads as a cut or brushed letter rather than a typeset one. --smooth cuts corners by
 # Chaikin's rule, which shortens every segment toward its neighbours and softens the facets without
 # inventing a curve the dotmap did not have. Two passes is usually enough; four looks like a font
@@ -46,11 +46,11 @@ import io
 import os
 import sys
 
-# What counts as a set cell when reading a text grid. Everything else is unset, so a grid may be
+# What counts as a set cell when reading a text grid. Everything else is unset. A grid may be
 # drawn with dots, spaces, zeroes or anything else for the background.
 SET_MARKS = "#*1Xx@"
 
-# The SVG viewBox is the grid itself, so one cell is one unit and a consumer scales the whole thing
+# The SVG viewBox is the grid itself. One cell is one unit and a consumer scales the whole thing
 # by setting width and height. Coordinates stay small integers before any smoothing.
 CELL = 1
 
@@ -118,7 +118,7 @@ def boundary_edges(grid):
 def loops_from(edges):
     """The edges chained into closed rings, each a list of points.
 
-    An edge dictionary maps a start point to an end point, so following it from any unused start
+    An edge dictionary maps a start point to an end point. Following it from any unused start
     walks a ring and returns to where it began. Every edge belongs to exactly one ring because a
     boundary point has one outgoing edge.
     """
@@ -142,7 +142,7 @@ def loops_from(edges):
 def straightened(ring):
     """One ring with every run of collinear points reduced to its two ends.
 
-    A traced ring carries a point per cell along a straight run, so a flat side of forty cells
+    A traced ring carries a point per cell along a straight run. A flat side of forty cells
     arrives as forty points describing one line. Dropping the middles changes no geometry at all and
     is what keeps the path readable and the file small.
     """

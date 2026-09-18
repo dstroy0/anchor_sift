@@ -10,7 +10,7 @@ the analysis invents and not what the signal contains, the transform has to be q
 effect being looked for, and that means leaving hardware floating point behind.
 
 Everything here is decimal.Decimal at a precision you choose. Nothing is imported that is not in
-the standard library, so pi, sine and cosine are computed here and never looked up: the module
+the standard library. Pi, sine and cosine are computed here and never looked up: the module
 math has no more precision to give than the double it returns.
 
     prec = digits_for(1024)          # bits to decimal digits, with guard digits
@@ -40,7 +40,7 @@ def pi_at(prec):
     """Machin's formula, which converges fast enough that the series is not the slow part.
 
     pi = 16 arctan(1/5) - 4 arctan(1/239), each arctan by its Taylor series. Computed at extra
-    precision and returned rounded, so the last digits of the result are not the series' own error.
+    precision and returned rounded. The last digits of the result are not the series' own error.
     """
     with decimal.localcontext() as ctx:
         ctx.prec = prec + 10

@@ -126,7 +126,7 @@ SKIP = ("__pycache__", ".git", "build", "deps", "site")
 TEXT = (".md", ".tex", ".py", ".c", ".h", ".R", ".m", ".sh")
 
 # A form shorter than this matches by accident. Salishan forms carry characters that appear nowhere
-# else here, so the bar is about run length and not about how exotic the characters are.
+# else here. The bar is about run length and not about how exotic the characters are.
 LEAST_FORM = 4
 
 # A run of paper words this long is a quotation. Below it, two people writing about the same
@@ -215,7 +215,7 @@ def forms_by_paper(known):
                 held.setdefault(form, set()).add(stem)
 
     # A form that is a tail of a longer one reports the same quotation twice, since ɬeʔkepmxcín sits
-    # inside nɬeʔkepmxcín. A reader wants the longest match named, so the shorter tail is dropped.
+    # inside nɬeʔkepmxcín. A reader wants the longest match named. The shorter tail is dropped.
     # The outer form can itself have been dropped by an earlier round, since a whole sentence is a
     # form and so is every word in it. Reading held[longer] without checking raised a KeyError on
     # the first Nsyilxcən sentence long enough to contain three shorter forms.
@@ -444,7 +444,7 @@ def run_prose(out, context):
     # would read as a complete answer.
     whole = archive_size()
     if whole:
-        out.write("    the archive lists %d papers, so this read %d%% of it\n"
+        out.write("    the archive lists %d papers. This read %d%% of it\n"
                   % (whole, round(100.0 * count / whole)))
         out.write("    a clean result covers those and proves nothing about the other %d\n"
                   % (whole - count))

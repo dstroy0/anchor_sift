@@ -34,7 +34,7 @@ Best-of-seven with the arms alternating, and the baseline re-measured under the 
 
 Every null above is statistical: a distribution the measurement is held against. One better kind is available and is worth more than any of them, because no sample size rescues a wrong one.
 
-Strip SHA-256 to rotations, exclusive-or and constants and it is \(\mathrm{GF}(2)\)-linear. A one-bit input difference then produces a \emph{deterministic} output difference, the same one for every message, so every cell of the dependency matrix is exactly \(0\) or exactly \(1\) and never one half. The deviation is pinned at \(0.5\) at every round, forever, by algebra and not by measurement.
+Strip SHA-256 to rotations, exclusive-or and constants and it is \(\mathrm{GF}(2)\)-linear. A one-bit input difference then produces a \emph{deterministic} output difference, the same one for every message. Every cell of the dependency matrix is exactly \(0\) or exactly \(1\) and never one half. The deviation is pinned at \(0.5\) at every round, forever, by algebra and not by measurement.
 
 It reads \(0.50000000\) at rounds \(8\), \(23\), \(40\) and \(64\), to eight decimal places.
 

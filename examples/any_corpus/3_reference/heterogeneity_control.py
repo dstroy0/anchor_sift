@@ -10,7 +10,7 @@
 #
 # Section 4.13.09 finds single works scoring between 0.758 and 0.833 and collections between 0.509 and
 # 0.667, and reads the quantity as how many separate subjects a text covers. Every corpus there arrived
-# already being one thing or the other, so the finding is an observation over texts that were labeled
+# already being one thing or the other. The finding is an observation over texts that were labeled
 # by hand and could be tracking anything those labels correlate with.
 #
 # Two manipulations decide it. Joining single works into one corpus should walk the score down as works
@@ -32,7 +32,7 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
 CORPORA = os.path.join(ROOT, "build", "corpora")
 SCORER = os.path.join(ROOT, "examples", "language", "4_measure", "word_burstiness.py")
 
-# English single works, so the walk is not a change of language
+# English single works. The walk is not a change of language
 JOINED = ("english_1813_austen", "english_1667_milton_epic", "english_1720_pope_iliad_epic")
 SPLIT = "english_1611_kjv"
 PIECES = 8
@@ -52,7 +52,7 @@ def write(name, text):
 
 
 def score(path):
-    """The corpus average column from the scorer, so one implementation produces every figure here."""
+    """The corpus average column from the scorer. One implementation produces every figure here."""
     done = subprocess.run([sys.executable, SCORER, path], capture_output=True, text=True)
     for line in done.stdout.splitlines():
         fields = line.split()

@@ -10,12 +10,12 @@
 #
 # Four centuries of change in German spelling, capitalization and typesetting move the reading by five
 # percent, and what swamps it is that two books are two books. That is a residue with a name and no
-# contents, so this opens it.
+# contents. This opens it.
 #
-# The archive names every text for its author and its year, so three comparisons are available on one
+# The archive names every text for its author and its year. Three comparisons are available on one
 # prepared corpus with nothing fetched and nothing guessed. Two works by one author. Two works by two
 # authors of one century. Two works from two centuries. Each is the comparison before it plus one more thing
-# changing, so the differences between them are what that thing is worth.
+# changing. The differences between them are what that thing is worth.
 #
 # What the night predicts: the century should be worth almost nothing, since it was worth five percent
 # already. The author should be worth little, since seven English writers sharing an alphabet were told

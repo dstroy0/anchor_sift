@@ -2,7 +2,7 @@
 # repotools-stamp: lib/repotools/shape.py dffd5839b6ab3b7f
 # repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-"""Reducing a file to its shape, so two copies of one tool match after they have drifted apart.
+"""Reducing a file to its shape. Two copies of one tool match after they have drifted apart.
 
 An exact hash finds nothing across repositories. The eight copies of `codemask.py` on this machine
 differ in the header line, in a project name inside a docstring, in where a formatter broke a line,
@@ -21,7 +21,7 @@ remains after four reductions:
      code around it is everybody's.
   3. Numbers keep their value. A bound is part of the algorithm and two tools that differ in one are
      two tools.
-  4. Identifiers renumber by first appearance, so `loculus` and `slot` reach the same token.
+  4. Identifiers renumber by first appearance. `loculus` and `slot` reach the same token.
 
 WHAT THIS DELIBERATELY DOES NOT DO
 
@@ -33,7 +33,7 @@ SAME SHAPE NEVER MEANS SAME BEHAVIOR. THIS IS THE INSTRUMENT'S LIMIT.
 
 Identifiers renumber by first appearance, which is what lets two copies match after they drift. It
 also means a misspelled identifier is invisible here. Measured on this machine: ProtoCore's
-`move_code.py` reads `args.anchor_before` and MMgr's reads `args.ancorae_before`, so the MMgr copy
+`move_code.py` reads `args.anchor_before` and MMgr's reads `args.ancorae_before`. The MMgr copy
 raises AttributeError on every anchored move. Both hash to cb2b60bdb26d6c01. One works, one is
 broken, and this reports them as one shape held twice.
 
@@ -107,7 +107,7 @@ def _digest(parts):
 def _canon(pairs, keywords):
     """Renumber identifiers by first appearance, keeping keywords and folding literals.
 
-    `pairs` is `(kind, text)`. A name reused later maps to the number it was first given, so a shape
+    `pairs` is `(kind, text)`. A name reused later maps to the number it was first given. A shape
     cannot be reached by accident from a different one.
     """
     seen = {}
@@ -128,7 +128,7 @@ def _canon(pairs, keywords):
 def _c_pairs(text):
     """C family tokens, comments removed by the tokenizer never matching them.
 
-    The regex has no comment alternative, so a `//` line yields its operator tokens. Comments are
+    The regex has no comment alternative. A `//` line yields its operator tokens. Comments are
     blanked before this runs.
     """
     out = []
@@ -143,7 +143,7 @@ def _blank_c_comments(text):
     """Every comment byte becomes a space, with literals and newlines left where they are.
 
     Blanked in place instead of deleted, because a caller counting lines needs the count to hold. A
-    regex over `//.*$` truncates `http://x` inside a literal, so the scan tracks quotes.
+    regex over `//.*$` truncates `http://x` inside a literal. The scan tracks quotes.
     """
     out = []
     at, size = 0, len(text)
@@ -184,7 +184,7 @@ def _blank_c_comments(text):
 def _py_pairs(text):
     """Python tokens with comments, docstrings and layout removed.
 
-    Uses the standard library tokenizer, so an f-string, a nested quote and a line continuation are
+    Uses the standard library tokenizer. An f-string, a nested quote and a line continuation are
     handled by the same code the interpreter uses. A file that fails to tokenize returns None, and
     the caller reports it instead of treating it as empty.
     """
@@ -199,7 +199,7 @@ def _py_pairs(text):
                 continue
             if kind == pytokenize.STRING:
                 # A string alone on a logical line is a docstring. Everything before it on the line
-                # would be an operator or a name, so the previous token settles it.
+                # would be an operator or a name. The previous token settles it.
                 if prev is None or prev in (":", None):
                     prev = value
                     continue
@@ -219,7 +219,7 @@ def _py_pairs(text):
 def _shell_pairs(text):
     """Shell reduced to its non-comment words.
 
-    A shell script has no tokenizer worth writing here, so a comment is a `#` outside quotes and the
+    A shell script has no tokenizer worth writing here. A comment is a `#` outside quotes and the
     rest is split on whitespace. Coarse, and enough to match two copies of one hook.
     """
     out = []

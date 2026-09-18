@@ -25,7 +25,7 @@
 # 0.825.
 #
 # Which channel does the work is separable. The mechanism survives the change at rho -0.996 between
-# the tightest spread and what it returns, while the count of symbols falls to -0.664, so what packs
+# the tightest spread and what it returns, while the count of symbols falls to -0.664. What packs
 # the mass is the frequency distribution and not the size of the alphabet.
 
 import numpy

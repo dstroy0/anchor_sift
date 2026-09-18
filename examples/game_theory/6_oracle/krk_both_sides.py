@@ -11,14 +11,14 @@
 # WHAT THIS SHOWS. The tablebase of the previous example gives a value per position. This one lets
 # that exact predictor MOVE. It solves K+R vs K for win/draw/loss and distance to mate, then plays a
 # game out with the predictor choosing for BOTH sides: the winning side takes the move with the
-# smallest distance to mate, the losing side the largest, so the win is forced and the defense is the
+# smallest distance to mate, the losing side the largest. The win is forced and the defense is the
 # longest legal one. The moveset printed is a real game -- legal moves to a terminal position -- and
 # its length must equal the distance to mate the solve reported. That equality is the check: the
 # static value and the played-out game are two routes to the same number.
 #
 # K+R vs K is the class where this closes cleanly: it is a forced win for the rook's side, there is no
 # pawn and so no promotion, and the whole game stays in the class until mate. The move-sequence source
-# here is the game itself, not an outside record: the repository holds no game corpus, so the real
+# here is the game itself, not an outside record: the repository holds no game corpus. The real
 # movesets are the ones the exact predictor plays, from a real starting position, not pulled from a
 # database of human games. Comparing the predictor against human play would need such a corpus.
 #

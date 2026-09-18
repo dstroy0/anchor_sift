@@ -7,7 +7,7 @@
 #   Usage:  python maint/data/salishan/anchor_sift_algorithmic_extraction/corpus_admit.py
 #
 # A candidate does not have to look like a member. The corpus at this n has not seen its own
-# alphabet: support is still climbing on every one of these languages, so resembling what is
+# alphabet: support is still climbing on every one of these languages. Resembling what is
 # already there is the wrong test and would keep the corpus small forever.
 #
 # What can be asked is whether the corpus stays on its curve. A pure corpus growing on more of the
@@ -27,7 +27,7 @@ import os
 import subprocess
 import sys
 
-# Every Salishan category on the import path, so this can use a sibling from another one.
+# Every Salishan category on the import path. This can use a sibling from another one.
 for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
@@ -144,7 +144,7 @@ def main():
         target = os.path.join(SIFTED, "%s.refused.txt" % name.replace(" ", ""))
         with open(target, "w", encoding="utf-8", newline="") as handle:
             handle.write("# %s candidates the corpus curve refused.\n" % name)
-            handle.write("# Sorted by distance to the corpus, nearest first, so the boundary is\n")
+            handle.write("# Sorted by distance to the corpus, nearest first. The boundary is\n")
             handle.write("# at the top of this file and the least like anything is at the bottom.\n")
             for one in refused:
                 handle.write("%s\n" % one)

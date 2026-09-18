@@ -18,7 +18,7 @@
 #                 per instruction set. A file belongs here when it decides which alignments survive.
 #   no_rounding/  the exact arithmetic and the arms that read it. exact_integer.{c,h}, arm.h, and one
 #                 arm_<set> file per instruction set. The name states what the arithmetic is for: it
-#                 removes rounding, so a comparison is exact. A file belongs here when it is an
+#                 removes rounding. A comparison is exact. A file belongs here when it is an
 #                 implementation of that arithmetic.
 #   render/       the direct renderer. anchor_raster.{c,h} and raster_cuda.cu. A file belongs here
 #                 when it turns engine state into pixels or voxels.
@@ -27,7 +27,7 @@
 # The portable arm is the reference in each family and every other arm is checked against it. An arm
 # that disagrees with portable is wrong, whatever it measures, and the per instruction set files
 # exist to be faster at an answer portable already fixed. An instruction set carried in one family
-# is carried in the other where the operation exists there too, so a listing of engine/ and a
+# is carried in the other where the operation exists there too. A listing of engine/ and a
 # listing of no_rounding/ name the same sets.
 #
 # The kernel is compiled twice from one source. The counted build carries probe and verification
@@ -52,7 +52,7 @@ if(NOT DEFINED ANCHOR_SIFT_ROOT)
 endif()
 
 # The exact integer as a fixed width limb array, which is the same value the python engine ingests
-# and a different transform of it. Portable C11 with no intrinsic and no 128 bit type, so it builds
+# and a different transform of it. Portable C11 with no intrinsic and no 128 bit type. It builds
 # anywhere and is the engine every vectorized one is checked against.
 add_library(anchor_exact_portable STATIC no_rounding/exact_integer.c no_rounding/arm_portable.c)
 target_include_directories(anchor_exact_portable PUBLIC no_rounding)
@@ -83,7 +83,7 @@ endif()
 #
 # Each scan arm is its own file, engine/scan_<set>.c, one per instruction set. scan_portable.c is the
 # C11 reference every other arm is graded against; a wide arm carries a compiler flag no other file
-# may see, so it cannot share a translation unit. engine/ carries scan_portable.c, scan_avx2.c,
+# may see. It cannot share a translation unit. engine/ carries scan_portable.c, scan_avx2.c,
 # scan_avx512.c, scan_neon.c and scan_sve.c, the same host sets no_rounding/ carries. The device arm
 # matching no_rounding/arm_cuda.cu lands next.
 set(ANCHOR_SIFT_SOURCES engine/anchor_sift.c engine/scan_portable.c)
@@ -106,7 +106,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     endif()
 
     # AVX-512 on the GCC and Clang builds that accept the flags. MSVC's AVX-512 handling differs and
-    # no machine here runs the arm, so it is gated to the same compilers the exact avx512 arm gates
+    # no machine here runs the arm. It is gated to the same compilers the exact avx512 arm gates
     # to and confirmed by maint/engine/verify_arm_asm.sh rather than by running.
     if(NOT MSVC)
         check_c_compiler_flag("-mavx512f -mavx512bw" ANCHOR_STEER_CC_TAKES_AVX512)
@@ -126,7 +126,7 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
         set_source_files_properties(engine/scan_neon.c PROPERTIES COMPILE_OPTIONS "-mfpu=neon")
     endif()
 
-    # SVE on the aarch64 compilers that accept it. No part here has SVE, so this is an unrun arm the
+    # SVE on the aarch64 compilers that accept it. No part here has SVE. This is an unrun arm the
     # emission check reads, the same as the exact sve arm.
     if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
         check_c_compiler_flag("-march=armv8.2-a+sve" ANCHOR_STEER_CC_TAKES_SVE)
@@ -139,7 +139,7 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
     endif()
 endif()
 
-# The engine as it ships. Nothing in here reads a clock or prints, so a driver change cannot move a
+# The engine as it ships. Nothing in here reads a clock or prints. A driver change cannot move a
 # measurement.
 add_library(anchor_sift_kernel STATIC ${ANCHOR_SIFT_SOURCES})
 target_include_directories(anchor_sift_kernel PUBLIC engine no_rounding)
@@ -159,10 +159,10 @@ target_compile_options(anchor_sift_kernel_counted PRIVATE ${SIFT_WARNINGS})
 
 # The direct renderer, WITH THE DEVICE ARM COMPILED IN WHERE A CUDA TOOLCHAIN IS PRESENT. A machine
 # carrying a device renders on it by default and the caller does not ask. The two arms produce the
-# same bytes, so this is a performance decision, and bench_raster grades them against each other on
+# same bytes. This is a performance decision, and bench_raster grades them against each other on
 # every configuration.
 #
-# The device arm is a .cu and this project is declared C, so CUDA is enabled only when found. Where
+# The device arm is a .cu and this project is declared C. CUDA is enabled only when found. Where
 # it is absent the stub arms in anchor_raster.c are linked instead, anchor_raster_device_available
 # returns 0, and anchor_raster_render falls back to the host. Both arms of that gate are defined.
 # A caller that knows CUDA cannot work here says so, and the search below is skipped entirely. The
@@ -176,7 +176,7 @@ if(NOT ANCHOR_SKIP_CUDA)
 endif()
 
 # check_language only looks on PATH, and a toolkit installed normally is often not on it. A machine
-# with a device and a toolkit should get the device arm regardless, so the standard install
+# with a device and a toolkit should get the device arm regardless. The standard install
 # locations are searched before giving up. Newest version first, since the directories sort that way.
 if(NOT CMAKE_CUDA_COMPILER AND NOT ANCHOR_SKIP_CUDA)
     file(GLOB ANCHOR_CUDA_CANDIDATES
@@ -217,8 +217,8 @@ target_include_directories(anchor_raster PUBLIC render)
 target_compile_definitions(anchor_raster PUBLIC ${ANCHOR_RASTER_DEFINES})
 target_compile_options(anchor_raster PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
-# The renderer as a shared library, so the Python arm can reach it through ctypes. It carries the
-# same sources as anchor_raster, so on a CUDA build the device arm is present and a Python caller
+# The renderer as a shared library. The Python arm can reach it through ctypes. It carries the
+# same sources as anchor_raster. On a CUDA build the device arm is present and a Python caller
 # renders on the device through anchor_raster_render without owning a device path, which the tree's
 # library ban forbids Python anyway. WINDOWS_EXPORT_ALL_SYMBOLS puts the C entries in the export
 # table so ctypes can find them; every other platform exports them by default.
@@ -238,7 +238,7 @@ set(ANCHOR_ARM_INCLUDES "")
 
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     # One AVX2 arm for every x86 build. It carries both detection paths, MSVC's cpuid and the
-    # builtin GCC and Clang share, so there is no per operating system copy to disagree with it.
+    # builtin GCC and Clang share. There is no per operating system copy to disagree with it.
     list(APPEND ANCHOR_ARM_SOURCES no_rounding/arm_avx2.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_AVX2=1)
     # -mavx2 permits the intrinsics in this translation unit. It does not permit the compiler to
@@ -259,7 +259,7 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
 endif()
 
 # The two arms with no hardware anywhere in this project. They are compiled where the compiler
-# accepts the flags and are gated at run time like every other arm, so a machine without the feature
+# accepts the flags and are gated at run time like every other arm. A machine without the feature
 # reports them absent and never calls in. Their names carry that they have never been run.
 #
 # Compiled as their own targets, because -mavx512f and +sve let the compiler use those instructions
@@ -341,7 +341,7 @@ target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 # this target instead of that one. bench_dispatch was covered by accident and bench_raster and
 # bench_steer_arms were covered by nothing, which is invisible because a target with no warning
 # flags emits no warnings and reads exactly like a clean one. Every add_executable here now sets its
-# own beside its own link line, so the pairing is checkable by reading down rather than by counting.
+# own beside its own link line. The pairing is checkable by reading down rather than by counting.
 
 # Grades the entropy-ordered rejection vector. Three things in one run: the steered arm returns the
 # reference arm's count at a residual of exactly zero, the ordering reduces probe reads on a field
@@ -364,18 +364,18 @@ target_link_libraries(test_steer PRIVATE anchor_sift_kernel bench_corpora)
 # The natural field is opened by absolute path, resolved at configure time. It was opened through a
 # relative chain before, which made the run directory decide whether the field existed, and the test
 # printed a skip and passed. A check whose failure is indistinguishable from its answer is not a
-# check, so the path is compiled in and the file being absent is now a reported failure.
+# check. The path is compiled in and the file being absent is now a reported failure.
 target_compile_definitions(test_steer PRIVATE ANCHOR_SIFT_SOURCE_ROOT="${ANCHOR_SIFT_ROOT}")
 
 # The adversarial suite. Seven cases, every one differential or graded against a count derived by
-# hand, so none of them checks a number somebody wrote down. It attacks the engine from outside its
+# hand. None of them checks a number somebody wrote down. It attacks the engine from outside its
 # public surface: overlapping occurrences, both boundary alignments, a field where every survivor is
 # false, and the probe_fits guard including the widest line that must be ADMITTED, since a guard
 # refusing the family is as wrong as one that does not bound it.
 #
 # Its file block records that it has been seen to reject three deliberately broken engines, with the
 # mutations and their signatures. A suite nobody has watched fail is indistinguishable from an empty
-# loop, so that record is part of the test rather than commentary on it.
+# loop. That record is part of the test rather than commentary on it.
 add_executable(test_adversarial "${ANCHOR_SIFT_ROOT}/test/engine/test_adversarial.c")
 target_link_libraries(test_adversarial PRIVATE anchor_sift_kernel)
 
@@ -412,7 +412,7 @@ target_link_libraries(bench_coherence PRIVATE anchor_sift_kernel_counted bench_c
 target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 
 # Every arm against the naive one at the lengths that bound the input: none, one, two. The kernel's
-# contract is that no arm can lose a true occurrence, so an arm returning anything else is a defect
+# contract is that no arm can lose a true occurrence. An arm returning anything else is a defect
 # whatever it measures, and this is the driver that says so. Links the uncounted kernel because what
 # is under test is what the arms RETURN and not what they read.
 #
@@ -425,7 +425,7 @@ target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 # Douglas's ruling. The name moved with it: a file called bench_ anything, sitting in test/, keeps
 # exactly the confusion the split was made to remove.
 #
-# The source sits outside this directory because the test tree is at the repository root, so the
+# The source sits outside this directory because the test tree is at the repository root. The
 # path is resolved from the root rather than written as a chain of parent directories. Counting
 # directories to a destination is what broke every path in this tree the last time anything moved.
 get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
@@ -435,14 +435,14 @@ target_link_libraries(test_arm_agreement PRIVATE anchor_sift_kernel)
 target_compile_options(test_arm_agreement PRIVATE ${SIFT_WARNINGS})
 
 # The O2 composition: a descent resuming from another descent's survivors, driven past one descent's
-# cap. Answers whether the resume path is correct, so it lives in test/ and carries its controls, a
+# cap. Answers whether the resume path is correct. It lives in test/ and carries its controls, a
 # planted target found past the cap, a flat field that refuses, an anytime superset and a cost report.
 add_executable(test_o2_spawn "${ANCHOR_SIFT_ROOT}/test/engine/test_o2_spawn.c")
 target_link_libraries(test_o2_spawn PRIVATE anchor_sift_kernel)
 target_compile_options(test_o2_spawn PRIVATE ${SIFT_WARNINGS})
 
 # Soundness where the claim actually lives. Its core takes a base list, a displacement list and a
-# callback answering whether two positions carry the same symbol, so it has no dimension parameter
+# callback answering whether two positions carry the same symbol. It has no dimension parameter
 # and no symbol type, and it sweeps one to eight dimensions, a complex irrational alphabet compared
 # over its storage, a rotated point set and a scatter no rectangle covers. It holds its own core
 # rather than calling the kernel, because the kernel is the one dimensional byte specialization and
@@ -459,7 +459,7 @@ foreach(one bench_scaling_reads bench_scaling_cycles bench_lattice)
         INTERPROCEDURAL_OPTIMIZATION FALSE)
 endforeach()
 
-# The four older drivers still hold their arms inline and reach into the vendored library, so none
+# The four older drivers still hold their arms inline and reach into the vendored library. None
 # of them builds against this kernel. They are not wired up here, and wiring them up means reading
 # each one first. bench_ab.c alone is 105 KB.
 #

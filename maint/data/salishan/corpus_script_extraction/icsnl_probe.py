@@ -19,7 +19,7 @@
 # communities that hold it. Description written for publication is the right source and the only one
 # taken here.
 #
-# The volumes run to several megabytes and are born digital, so the text comes out with pypdf and is kept
+# The volumes run to several megabytes and are born digital. The text comes out with pypdf and is kept
 # beside the file. The keyword pass afterward is a locator: it says which pages to open,
 # and nothing is concluded from a matched line until the page around it has been read.
 
@@ -93,7 +93,7 @@ def main():
     out.write("  text at %s\n" % target)
 
     if empty > (len(pages) / 2):
-        out.write("\n  most pages carry no text, so this volume is a scan and the keyword\n")
+        out.write("\n  most pages carry no text. This volume is a scan and the keyword\n")
         out.write("  pass below has nothing to work on\n")
         out.flush()
         return 0

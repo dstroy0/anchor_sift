@@ -55,7 +55,7 @@
 # NFC fixes it, and it is the only repair here that is not a judgment about this paper. Unicode
 # defines canonical equivalence: a with a combining acute and á are the same character under that
 # definition, and NFC is its composed form. Nothing else moves. There is no precomposed schwa with
-# an acute, no x with a caron and no k with a comma above, so ə́, x̌ and k̓ come through untouched.
+# an acute, no x with a caron and no k with a comma above. Ə́, x̌ and k̓ come through untouched.
 
 import unicodedata
 
@@ -96,7 +96,7 @@ def closed_brackets(line):
 
     §3.2.2 cites a cluster as [ k̓ʷd] and a segment as [ ə], and the bracket is how the paper says
     which of the two a string is. Left open, the bracket is one token and the thing it encloses is
-    another, so the cluster comes out as k̓ʷd] and matches nothing.
+    another. The cluster comes out as k̓ʷd] and matches nothing.
     """
     return line.replace("[ ", "[")
 

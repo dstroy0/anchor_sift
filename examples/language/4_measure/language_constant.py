@@ -10,7 +10,7 @@
 #
 # The claim is that every language has an idiom of its own and that the idiom is constant. It predicts
 # that two texts in one language agree more closely with each other than either does with a text in
-# another, so the test is whether the spread within a language is smaller than the spread between them.
+# another. The test is whether the spread within a language is smaller than the spread between them.
 #
 # Everything here works on codepoints and not on bytes. A Chinese novel carries thousands of distinct
 # characters, which no byte seating holds, and character width is also where its symbols are morphemes

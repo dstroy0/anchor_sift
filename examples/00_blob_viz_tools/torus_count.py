@@ -14,7 +14,7 @@ in a count with a closed form. That left the shape half of the claim resting on 
 the surface of a cube has no such formula, and packing runs out of room in high dimensions.
 
 A flat torus has one. Take a square and glue opposite edges: the eigenvalues of the Laplacian on it
-are (2 pi / L)^2 times the squared length of an integer vector, so counting modes below a cutoff is
+are (2 pi / L)^2 times the squared length of an integer vector. Counting modes below a cutoff is
 counting integer points inside a ball. That count is an integer, it has no transcendental in it, and
 it can be taken at any dimension.
 

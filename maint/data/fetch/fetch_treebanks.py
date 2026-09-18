@@ -9,7 +9,7 @@
 #
 # Polish humour turns on using a word correctly to use it incorrectly, and the structural reason
 # is that Polish forms are shared across grammatical slots. Seven cases over three genders collapse into
-# far fewer distinct forms than the paradigm allows, so one written word is often correct under two or
+# far fewer distinct forms than the paradigm allows. One written word is often correct under two or
 # three different parses at once. English cannot do this from its morphology, having almost none left, and
 # has to find two unrelated words that happen to sound alike.
 #
@@ -45,7 +45,7 @@ BASE = "https://raw.githubusercontent.com/UniversalDependencies"
 PAUSE = 0.5
 
 WANTED = (
-    # Germanic. German capitalizes every noun and the rest capitalize only names, so the family
+    # Germanic. German capitalizes every noun and the rest capitalize only names. The family
     # holds both orthographies. Icelandic separates the two from inflection, being
     # Germanic and four-case and still capitalizing nothing but names.
     ("german", "UD_German-GSD", "de_gsd-ud-train.conllu", "Germanic, every noun capitalized"),

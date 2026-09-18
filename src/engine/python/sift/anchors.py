@@ -7,7 +7,7 @@
 #   Usage:  from sift.anchors import rarest, spread, jittered, cell_rarest, survivors
 #
 # The selection rule is free, and that freedom is why a rule exists at all. An anchor is a condition
-# copied out of the pattern, so any position genuinely holding the pattern satisfies every anchor,
+# copied out of the pattern. Any position genuinely holding the pattern satisfies every anchor,
 # whatever chose it. Correctness cannot turn on the rule. The rule moves how many false candidates
 # survive, and that is cost.
 #
@@ -49,7 +49,7 @@ def spread(needle_len, wanted):
     this rule available on a domain whose alphabet has no frequencies to weigh.
 
     Its defect is that an even comb shares a period with whatever the domain carries. On a corpus of
-    period sixteen every anchor lands congruent modulo sixteen, so four probes ask one question four
+    period sixteen every anchor lands congruent modulo sixteen. Four probes ask one question four
     times and the survival rate misses the histogram bound by a factor of 4096.
     """
     if wanted <= 1:

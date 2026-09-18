@@ -17,7 +17,7 @@
 # Separating them needs a set where the language is fixed and the writer changes. This fetches one:
 # several works by each of several writers, all in English, all prose, mostly one century apart
 # at the widest. Whether a writer can be told from another writer at all is a settled question in the
-# literature and the answer is yes, so this is a check on the instrument as much as on the claim: a
+# literature and the answer is yes. This is a check on the instrument as much as on the claim: a
 # reading that cannot separate writers is not reading everything a text holds.
 
 import io
@@ -91,7 +91,7 @@ def main():
         for entry in payload.get("results", []):
             if kept >= PER_AUTHOR:
                 break
-            # The search matches a name anywhere, so an entry about a writer is not one by them
+            # The search matches a name anywhere. An entry about a writer is not one by them
             authors = entry.get("authors", [])
             if not authors or (full.split(",")[0].lower() not in authors[0].get("name", "").lower()):
                 continue

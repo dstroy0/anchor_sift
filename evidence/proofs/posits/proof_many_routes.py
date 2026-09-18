@@ -22,7 +22,7 @@
 #               reconstructions, direct and mixed-radix, agree.
 #
 # Positive control: within each check the routes agree exactly. Drawn null: one route is perturbed and
-# the agreement breaks, so the agreement above is a fact. No bounding: exact integers throughout.
+# the agreement breaks. The agreement above is a fact. No bounding: exact integers throughout.
 
 import io
 import sys
@@ -228,7 +228,7 @@ def report_crt(out):
 
     round_trip = direct == value
     routes_agree = direct == garner
-    null_breaks = value + whole != direct  # value + product aliases, so the raw sum differs
+    null_breaks = value + whole != direct  # value + product aliases. The raw sum differs
 
     out.write("    residues then direct reconstruction return the value: %s\n" % round_trip)
     out.write("    direct and mixed-radix reconstructions agree: %s\n" % routes_agree)

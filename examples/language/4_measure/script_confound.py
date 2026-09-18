@@ -10,10 +10,10 @@
 # Grouping languages by which symbol follows which put Greek nearest Hebrew. Those two share no family, no
 # contact worth the name and no vocabulary, and what they do share is being written in neither Latin nor
 # Cyrillic. That is the script reaching the measure, and it sits inside a result reported as recovering
-# language families, so it has to be measured and not noted.
+# language families. It has to be measured and not noted.
 #
 # Writing the same text in Latin letters is the test. A transliteration keeps every sound and every word
-# and changes only the symbols carrying them, so anything that moves was being carried by the script.
+# and changes only the symbols carrying them. Anything that moves was being carried by the script.
 # Greek should leave Hebrew and go toward the languages it is related to. Russian and Serbian are
 # transliterated too, since Cyrillic is a second script with several languages in it and they should stay
 # together whichever alphabet they are written in.

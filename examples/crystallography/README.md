@@ -3,25 +3,25 @@
 **Purpose:** Run a published cell from deposited text through to a checked answer, and see what each stage decides before the next one reads it.
 **Scope:** `examples/crystallography/`
 
-| stage | script | what it answers |
-|---|---|---|
-| `1_represent` | `a_cell_as_exact_points.py` | what the reader keeps and what it threw away |
-| `2_partition` | `what_a_grid_costs.py` | what the voxel cost and what the scale recovered |
-| `3_reference` | `what_a_grid_invents.py` | how much of a reading a shuffle also reaches |
-| `4_measure` | `period_from_the_difference_set.py` | what the instrument returns, with no answer key |
-| `4_measure` | `doping_from_shared_sites.py` | which sites hold two elements, read by incidence alone |
-| `4_measure` | `doping_after_symmetry_expansion.py` | the same count over the whole cell, by mineral family |
-| `5_sift` | `lattice_breaks_the_product_rule.py` | how far the histogram bound is out on a lattice |
-| `6_oracle` | `proof_positive_control.py` | whether it matches what somebody else published |
-| `6_oracle` | `doping_against_deposited_occupancy.py` | whether the doping found agrees with a column it never read |
+| stage         | script                                  | what it answers                                             |
+| ------------- | --------------------------------------- | ----------------------------------------------------------- |
+| `1_represent` | `a_cell_as_exact_points.py`             | what the reader keeps and what it threw away                |
+| `2_partition` | `what_a_grid_costs.py`                  | what the voxel cost and what the scale recovered            |
+| `3_reference` | `what_a_grid_invents.py`                | how much of a reading a shuffle also reaches                |
+| `4_measure`   | `period_from_the_difference_set.py`     | what the instrument returns, with no answer key             |
+| `4_measure`   | `doping_from_shared_sites.py`           | which sites hold two elements, read by incidence alone      |
+| `4_measure`   | `doping_after_symmetry_expansion.py`    | the same count over the whole cell, by mineral family       |
+| `5_sift`      | `lattice_breaks_the_product_rule.py`    | how far the histogram bound is out on a lattice             |
+| `6_oracle`    | `proof_positive_control.py`             | whether it matches what somebody else published             |
+| `6_oracle`    | `doping_against_deposited_occupancy.py` | whether the doping found agrees with a column it never read |
 
-The subject was called `crystals` and was one stage deep, holding only the oracle. The reason recorded for the other five being absent was that parsing a CIF and tiling a right angled cell is domain knowledge and not a demonstration, so it belonged in the engine.
+The subject was called `crystals` and was one stage deep, holding only the oracle. The reason recorded for the other five being absent was that parsing a CIF and tiling a right angled cell is domain knowledge and not a demonstration. It belonged in the engine.
 
 That was right about where the reader belongs and wrong about there being nothing to show. The reader was deciding the result. It put every site on a grid of 0.25 angstroms on the way in, and every crystal number in the ledger carried that grid instead of the deposit.
 
 ## Why this subject is where that shows
 
-The Crystallography Open Database publishes the cell edge for every entry, so the periodicity is a number somebody else measured, refereed and wrote down before this instrument existed. It is the only positive control in this work with an answer nobody here produced.
+The Crystallography Open Database publishes the cell edge for every entry. The periodicity is a number somebody else measured, refereed and wrote down before this instrument existed. It is the only positive control in this work with an answer nobody here produced.
 
 Every control in the tree until the protein structures was a memoryless process, and one of those can only show that an instrument does not invent structure. It cannot show that an instrument finds structure that is present, and this work reported a protein as unstructured twice before that difference was drawn.
 
@@ -31,7 +31,7 @@ The same property makes a reader's own error visible here and nowhere else. Ever
 
 **453 of 453 axes over 151 structures now equal the published edge exactly.** Not inside a tolerance. Equal, as integers.
 
-The previous reading of the same corpus recovered 453 of 453 axes *inside one voxel* at a mean absolute error of 0.0124 angstroms and a worst of 0.0554. None of that error was in the deposit or in the detector. Stage two isolates it: over 111 axes the grid reading lands inside one voxel every time and lands **on** the published edge zero times.
+The previous reading of the same corpus recovered 453 of 453 axes _inside one voxel_ at a mean absolute error of 0.0124 angstroms and a worst of 0.0554. None of that error was in the deposit or in the detector. Stage two isolates it: over 111 axes the grid reading lands inside one voxel every time and lands **on** the published edge zero times.
 
 Stage two also sweeps the scale the exact reading is carried at. Every scale from 16 digits to 4096 returns the same 111 of 111 axes, because this path multiplies a coordinate by an edge once and the decimal places of the two operands simply add. At 8 digits one entry will not fit and at 4 digits twenty seven will not. Those raise instead of rounding, which keeps the loss from ever being quiet. How many digits a path needs is a property of its arithmetic and not of its source, and one multiplication is the cheapest case there is.
 
@@ -43,12 +43,12 @@ Stage five is the reading the old README said had not been done. The anchor casc
 
 **That figure was measured on twelve structures and it does not survive the whole cache.** Over 3639 structures it is 0.97, and the section below says why the two numbers are both correct and why neither should be quoted alone.
 
-The crystal case is also the only one where the cascade needs no tolerance. A protein is a cloud of real valued coordinates, so two occurrences of one motif never land on identical offsets, and `examples/proteins/5_sift` extends a tolerance of one voxel in each direction to get any match at all. Here a displacement either lands on an occupied place or does not.
+The crystal case is also the only one where the cascade needs no tolerance. A protein is a cloud of real valued coordinates. Two occurrences of one motif never land on identical offsets, and `examples/proteins/5_sift` extends a tolerance of one voxel in each direction to get any match at all. Here a displacement either lands on an occupied place or does not.
 
 ## Doping is in the motif, and the period never sees it
 
 A substitutional dopant is two elements written at one crystallographic position. That is a
-statement about incidence, so the instrument that reads it is the same one that reads everything
+statement about incidence. The instrument that reads it is the same one that reads everything
 else here: `representation.exact.contested` returns the positions carrying more than one value, and
 it is domain blind. In a text that is one index holding two symbols. In a structure it is a doped
 site.
@@ -61,21 +61,21 @@ twice, and that is decided by equality on exact integers.
 
 **Corpus of 6727 to 6730 deposits, measured 2026-09-16 16:07 UTC.** The range is not sloppiness: the
 fetch was still running and three entries arrived during the fourteen seconds the two measures took.
-Every number in this section comes from that one snapshot, so they can be compared with each other.
+Every number in this section comes from that one snapshot. They can be compared with each other.
 None of them is final, and the growth series below says why that matters.
 
-| | |
-|---|---|
-| entries read | 6659 |
-| entries with no atom site loop | 68 |
-| entries carrying at least one shared position | 2019, which is 30.3% |
-| shared positions found by incidence | 6662 |
-| of those, sum to a full site, pure substitution | 5479 |
-| sum to less than a full site, substitution over a partly vacant position | 1117 |
-| sum to **more** than a full site, more atoms than the position holds | **66** |
-| physically consistent | 6596 of 6662, 99.0% |
-| every element published at full occupancy | 9 |
-| single-element positions under full occupancy, declined as vacancies | 10460 |
+|                                                                          |                      |
+| ------------------------------------------------------------------------ | -------------------- |
+| entries read                                                             | 6659                 |
+| entries with no atom site loop                                           | 68                   |
+| entries carrying at least one shared position                            | 2019, which is 30.3% |
+| shared positions found by incidence                                      | 6662                 |
+| of those, sum to a full site, pure substitution                          | 5479                 |
+| sum to less than a full site, substitution over a partly vacant position | 1117                 |
+| sum to **more** than a full site, more atoms than the position holds     | **66**               |
+| physically consistent                                                    | 6596 of 6662, 99.0%  |
+| every element published at full occupancy                                | 9                    |
+| single-element positions under full occupancy, declined as vacancies     | 10460                |
 
 The detector and the oracle report 6655 and 6662 shared positions from the same corpus, and the
 difference is the detector's early return: it treats an entry whose coordinates all fail to parse as
@@ -85,18 +85,18 @@ unreadable, and the oracle does not.
 
 The same measurement over a growing corpus:
 
-| corpus | shared positions | physically consistent |
-|---|---|---|
-| 758 | 126 | 126, all |
-| 999 | 408 | 408, all |
-| 1200 | 712 | 712, all |
-| 3744 | 4352 | 4301, with 51 over a full site |
-| 6730 | 6662 | 6596, with 66 over a full site |
-| 7414 | 7208 | 7136, with 72 over a full site |
-| 8799 | 8152 | 8079, with 73 over a full site |
+| corpus | shared positions | physically consistent          |
+| ------ | ---------------- | ------------------------------ |
+| 758    | 126              | 126, all                       |
+| 999    | 408              | 408, all                       |
+| 1200   | 712              | 712, all                       |
+| 3744   | 4352             | 4301, with 51 over a full site |
+| 6730   | 6662             | 6596, with 66 over a full site |
+| 7414   | 7208             | 7136, with 72 over a full site |
+| 8799   | 8152             | 8079, with 73 over a full site |
 
 The last row is the first one measured against a cache that had stopped growing. Every figure above it
-was taken while the fetch was still running, so each is quoted with the moment attached.
+was taken while the fetch was still running. Each is quoted with the moment attached.
 It is also the row that says what the inconsistent positions are: 1426 more entries produced ONE more
 position over a full site, 72 to 73. The count is not tracking the corpus. These are a fixed set of
 old depositions and not a rate at which deposits are written wrong, and the earlier rows were
@@ -142,7 +142,7 @@ substitution in the crust came out on top of a reading that knows no chemistry a
 cell.
 
 Doping does not disturb the recovered period. The
-cell repeats whatever it contains, dopant included, so the lattice is untouched. An ideal doped
+cell repeats whatever it contains, dopant included. The lattice is untouched. An ideal doped
 crystal is still exactly periodic, and stage four's two measures read two different things out of
 one set of points.
 
@@ -173,7 +173,7 @@ with the corpus past 3744 and has not been inspected.
 24, and none was held back by the placement bound.
 
 `1001125` puts Ta at (1/2, 1/2, 0.238) and W at (1/2, 1/2, -0.238). An operation taking z to -z
-carries one onto the other. Tantalum and tungsten substitute readily, so this is an ordinary solid
+carries one onto the other. Tantalum and tungsten substitute readily. This is an ordinary solid
 solution that the asymmetric unit does not show.
 
 `1509166` puts O at (0, 1/2, 0) at full occupancy and Ag at (1/2, 0, 1/2) at half, in `I 4/m m m`.
@@ -188,12 +188,12 @@ So expansion is a detection. A poor detector by rate, and the right tool for wha
 **3 of 6668 entries, measured 2026-09-16 16:07 UTC, with the corpus still filling.** Not 3 as a
 settled fact. The same measurement has read four values:
 
-| corpus | count | why it was that |
-|---|---|---|
-| 1228 entries | 0 | the real cases were not in the corpus yet |
-| 2801 entries | 5 | three of the five were a parser artifact |
-| 2853 entries | 2 | artifact removed, two real cases remain |
-| 6668 entries | 3 | a third arrived with the corpus, not yet inspected |
+| corpus       | count | why it was that                                    |
+| ------------ | ----- | -------------------------------------------------- |
+| 1228 entries | 0     | the real cases were not in the corpus yet          |
+| 2801 entries | 5     | three of the five were a parser artifact           |
+| 2853 entries | 2     | artifact removed, two real cases remain            |
+| 6668 entries | 3     | a third arrived with the corpus, not yet inspected |
 
 Each was correct for its corpus and its parser. A reader learns more from the sequence than from the
 final value, because the sequence says what the measurement is sensitive to: corpus size found the
@@ -206,10 +206,10 @@ reported Mo and O sharing a site. A cation and an anion cannot occupy one place,
 impossibility is the only thing that announced it: no consistency check and no schema would have.
 `crystal.site_table` drops `dum` rows now.
 
-Dropping them changed what every exact reading in this subject ingests, so both published figures
+Dropping them changed what every exact reading in this subject ingests. Both published figures
 were re-read with `dum` kept and dropped over all six entries that carry one. No recovered period
 moved and no agreement with a published edge flipped: **453 of 453 and 1455 of 1455 both stand.**
-A spurious atom at the origin is tiled into every copy of the cell, so it shifts every plane the same
+A spurious atom at the origin is tiled into every copy of the cell. It shifts every plane the same
 way and leaves the agreeing lags unchanged. A period is a statement about repetition and a defect
 that repeats perfectly does not disturb it. A count, a density or any distance would have moved.
 
@@ -226,7 +226,7 @@ raised: 24 held every operation the deposits published, eighths included.
 
 The first version of the doping measure went through `crystal.exact_points`, and inherited a
 dependency it had no use for. `exact_points` refuses any cell that is not right angled, and the
-minerals that carry doping are overwhelmingly monoclinic and triclinic, so 498 of 697 entries came
+minerals that carry doping are overwhelmingly monoclinic and triclinic. 498 of 697 entries came
 back unreadable. The measure looked like it was failing on three quarters of the corpus. It was
 being handed three quarters less corpus. Reaching for the smallest reading that answers the
 question fixed it, and the same run then read every entry.
@@ -235,7 +235,7 @@ question fixed it, and the same run then read every entry.
 
 Stages four and six read `crystal.exact_sites`, which works in fractional space and consults no cell
 and no angle. Stage five still reads `crystal.exact_points`, at
-`examples/crystallography/5_sift/lattice_breaks_the_product_rule.py:142`, so it still pays the cost
+`examples/crystallography/5_sift/lattice_breaks_the_product_rule.py:142`. It still pays the cost
 the section above describes. A refused entry returns `(None, None)` and the loop does `continue`, and
 the closing line then reports a median over whatever survived with nothing on the page naming the
 denominator.
@@ -243,13 +243,13 @@ denominator.
 `maint/analysis/survey/crystal_gate_census.py` counts what that costs. **Measured over `build/cod`
 2026-09-16 after the fetch finished, 8885 entries:**
 
-| verdict | entries | share |
-|---|---|---|
-| admitted to the exact reading | 4470 | 50.3% |
-| refused, cell not right angled | 4411 | 49.6% |
-| refused, no cell published | 4 | 0.0% |
-| refused, no atom sites | 0 | 0.0% |
-| refused, coordinate not plain decimal | 0 | 0.0% |
+| verdict                               | entries | share |
+| ------------------------------------- | ------- | ----- |
+| admitted to the exact reading         | 4470    | 50.3% |
+| refused, cell not right angled        | 4411    | 49.6% |
+| refused, no cell published            | 4       | 0.0%  |
+| refused, no atom sites                | 0       | 0.0%  |
+| refused, coordinate not plain decimal | 0       | 0.0%  |
 
 The same census at 7459 entries, taken while the fetch was still running, gave 3708 admitted against
 3747 refused, which is 49.7% against 50.2%. The gate's tax is a property of the gate and of what the
@@ -259,18 +259,18 @@ Half is the least interesting number here. The refusal is not spread evenly over
 a right angle is a property of the crystal system and the crystal system is not independent of the
 mineral family the fetch searched under:
 
-| family | entries | admitted | share |
-|---|---|---|---|
-| garnet | 408 | 398 | 97.5% |
-| spinel | 738 | 715 | 96.9% |
-| melilite | 131 | 125 | 95.4% |
-| olivine | 450 | 429 | 95.3% |
-| perovskite | 167 | 152 | 91.0% |
-| carbonate | 403 | 122 | 30.3% |
-| tourmaline | 283 | 13 | 4.6% |
-| amphibole | 363 | 13 | 3.6% |
-| feldspar | 275 | 8 | 2.9% |
-| apatite | 303 | 7 | 2.3% |
+| family     | entries | admitted | share |
+| ---------- | ------- | -------- | ----- |
+| garnet     | 408     | 398      | 97.5% |
+| spinel     | 738     | 715      | 96.9% |
+| melilite   | 131     | 125      | 95.4% |
+| olivine    | 450     | 429      | 95.3% |
+| perovskite | 167     | 152      | 91.0% |
+| carbonate  | 403     | 122      | 30.3% |
+| tourmaline | 283     | 13       | 4.6%  |
+| amphibole  | 363     | 13       | 3.6%  |
+| feldspar   | 275     | 8        | 2.9%  |
+| apatite    | 303     | 7        | 2.3%  |
 
 A stage five figure over this cache is a figure about its cubic and orthorhombic half. Feldspar
 contributes 8 entries out of 275 and amphibole 13 out of 363, and neither absence appears anywhere in
@@ -279,13 +279,13 @@ answer, and zero findings over a root that vanished counts as a defect. The cens
 denominator can be quoted beside the result.
 
 The two censuses together show the refusal is structural. Amphibole grew
-from 307 entries to 363 and its admitted count stayed at 13, so none of the 56 that arrived were
+from 307 entries to 363 and its admitted count stayed at 13. None of the 56 that arrived were
 admitted. Apatite grew from 286 to 303 and stayed at 7. Mica grew from 361 to 365 and stayed at 52.
 A family's crystal system is a fact about the mineral. A bigger sample of it does not arrive any
 more right angled than the sample already held.
 
 Carbonate is the exception, and its admitted share shows what the family column means. Carbonate
-went from 154 entries at 5.2% admitted to 403 at 30.3%, so 114 of the 249 that arrived were
+went from 154 entries at 5.2% admitted to 403 at 30.3%. 114 of the 249 that arrived were
 admitted, against 8 of the original 154. `maint/data/fetch/fetch_cod_doped.py` states in its header
 that the family is provenance and records the search term that returned the entry. The family
 carries no mineral classification. Rhombohedral calcite and orthorhombic aragonite are both
@@ -317,41 +317,41 @@ question of.
 The median did not drift. It is reporting a mixture of two populations that fail the product rule in
 opposite directions, and `maint/analysis/survey/sift_ratio_by_elements.py` separates them:
 
-| population | structures | median of per-structure medians | share above 1 |
-|---|---|---|---|
-| one element | 1959 | 0.32 | **0.0%** |
-| more than one element | 1680 | 5.91 | **95.4%** |
-| every structure | 3639 | 0.98 | 44.0% |
+| population            | structures | median of per-structure medians | share above 1 |
+| --------------------- | ---------- | ------------------------------- | ------------- |
+| one element           | 1959       | 0.32                            | **0.0%**      |
+| more than one element | 1680       | 5.91                            | **95.4%**     |
+| every structure       | 3639       | 0.98                            | 44.0%         |
 
 The separation is total. Not one of the 1959 single-element structures has a median above 1, and
 95.4% of the multi-element ones do. By element count:
 
 | elements | structures | median of medians |
-|---|---|---|
-| 1 | 1959 | 0.32 |
-| 2 | 127 | 3.84 |
-| 3 | 445 | 6.13 |
-| 4 | 505 | 6.08 |
-| 5 | 327 | 7.77 |
-| 6 | 135 | 7.67 |
-| 9 | 24 | 9.25 |
-| 10 | 23 | 9.55 |
+| -------- | ---------- | ----------------- |
+| 1        | 1959       | 0.32              |
+| 2        | 127        | 3.84              |
+| 3        | 445        | 6.13              |
+| 4        | 505        | 6.08              |
+| 5        | 327        | 7.77              |
+| 6        | 135        | 7.67              |
+| 9        | 24         | 9.25              |
+| 10       | 23         | 9.55              |
 
 The mechanism is stated in that tool's header and it is two different faults wearing one number. An
 anchor is `element E at displacement d` and the rule credits it with the rate at which E occurs. In
 a structure holding one element every anchor matches compositionally at every occupied place, each
 rate is 1, and the rule predicts nothing is filtered. What filters an alignment there is whether the
-displacement lands on an occupied place at all, which is geometry the rule does not model, so it
+displacement lands on an occupied place at all, which is geometry the rule does not model. It
 over predicts and the ratio falls under 1. In a structure holding several elements the rates are
 genuinely below 1 and the rule's other assumption fails instead: it takes the anchors to be
-positioned independently, and a lattice is where they are least so, so it under predicts and the
+positioned independently, and a lattice is where they are least so. It under predicts and the
 ratio rises well above 1.
 
 **The 3.85 in the section above is a true measurement of the multi-element population, quoted as
 though it were the corpus.** It is the same fault the doping growth series records one section
 earlier, found a second time in a different stage, and the default limit of 12 is what hid it.
 
-The cache is walked in filename order and a COD identifier sorts as text, so the order is an
+The cache is walked in filename order and a COD identifier sorts as text. The order is an
 accident of how the archive numbers its entries and it is not random with respect to composition.
 1920 of the 1959 single-element structures carry an identifier at or above 9000000, and the first
 single-element structure of the run is its **345th** row. **Any limit under 345 sees none of them**,

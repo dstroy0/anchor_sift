@@ -35,7 +35,7 @@ REFERENCE = "portable"
 def sets_in(directory, prefix):
     """The instruction-set suffixes of prefix_<set>.c and prefix_<set>.cu in one directory.
 
-    Returns a set of names, so portable, avx2, avx512, neon, sve and cuda come back whatever order
+    Returns a set of names. Portable, avx2, avx512, neon, sve and cuda come back whatever order
     the filesystem lists them in. A .cu counts the same as a .c: the device arm is an arm.
     """
     found = set()

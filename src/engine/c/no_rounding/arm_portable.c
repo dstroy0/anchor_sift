@@ -17,7 +17,7 @@
 
 #include "arm.h"
 
-/** @brief The arm as a driver sees it. Static storage, so returning its address is safe. */
+/** @brief The arm as a driver sees it. Static storage. Returning its address is safe. */
 static const AnchorExactArm PORTABLE_ARM = {
     "portable",
     anchor_exact_equal,

@@ -17,7 +17,7 @@
 # maint/prose/fixtures/claudese_reference.md is the other pole. It is a page written deliberately
 # in the assistant register, at full strength, by the assistant, about the work being done in this
 # repository. Matching the subject makes it usable, because it is not a distance to a 1667 epic or
-# to a linguistics paper, so genre, locale and era are all held fixed and the only thing left free
+# to a linguistics paper. Genre, locale and era are all held fixed and the only thing left free
 # to vary is the register.
 #
 # THE SPLIT IS THE ONE boundary_check ALREADY USES
@@ -211,7 +211,7 @@ def prose_of_path(path, where=None):
 def pulls(mine, claudese, human, ranks=24):
     """Which words carry one file toward the assistant pole, and which carry it away.
 
-    A total variation distance is a sum over words, so it comes apart again into the words that
+    A total variation distance is a sum over words. It comes apart again into the words that
     made it. For one word the contribution to the margin is how far the file sits from the human
     rate less how far it sits from the assistant rate. Positive means that word is pulling the file
     toward the assistant pole.
@@ -251,7 +251,7 @@ def halves(text):
 # too strict on a short file and far too lenient on a long one.
 #
 # Measured instead. Half the papers held out as the reference pole, the other half cut into disjoint
-# blocks, each block scored the way a repository file is scored. Every block is human, so the spread
+# blocks, each block scored the way a repository file is scored. Every block is human. The spread
 # is what the instrument does to a text of that length. Reference pole 372,922 words, probe pool
 # 366,833 words, claudese pole 35,303 words, the two poles 0.3356 apart.
 #
@@ -371,7 +371,7 @@ def main():
         out.write("\n  measuring %s\n" % where.replace("\\", "/"))
 
     # The fetched million words are the pole. The hand-written fixture stays as a check on it: it
-    # was written to be the register at full strength, so it should land near the fetched pole, and
+    # was written to be the register at full strength. It should land near the fetched pole, and
     # if it does not then one of the two is not what it claims.
     fixture_text = ""
     if os.path.isfile(FIXTURE):
@@ -518,7 +518,7 @@ def main():
     # One file's margin split into the words that make it, with no remainder.
     #
     # The margin is a difference of two total variation distances and total variation is a sum over
-    # words, so the margin is a sum over words and every term is one word's share of the verdict:
+    # words. The margin is a sum over words and every term is one word's share of the verdict:
     #
     #     margin = sum over w of 0.5 * ( |file(w) - human(w)| - |file(w) - claudese(w)| )
     #
@@ -606,7 +606,7 @@ def main():
         out.write("    %-12s %-16.4f %.4f\n"
                   % (name, distance(bag_real, bag_null), distance(web_real, web_null)))
     out.write("    a bag of words returns exactly zero, because a shuffle does not change one.\n")
-    out.write("    every distance printed above this line was taken on that bag, so every one of\n")
+    out.write("    every distance printed above this line was taken on that bag. Every one of\n")
     out.write("    them reads composition and none of them reads arrangement.\n")
 
     if ("claudese" in webs) and ("human" in webs):
@@ -638,7 +638,7 @@ def main():
         out.write("    a web distance is only worth reading against how far a shuffle already\n")
         out.write("    sits, and that is %.4f here.\n" % own)
         if not nearer:
-            out.write("    both poles sit further than the shuffle, so neither is resolved. At\n")
+            out.write("    both poles sit further than the shuffle. Neither is resolved. At\n")
             out.write("    these sizes a bigram web is carried by which words a corpus happens to\n")
             out.write("    hold, and the tree resembles its own scrambled self more than it\n")
             out.write("    resembles either reference. Nothing was read.\n")

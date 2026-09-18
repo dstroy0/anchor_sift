@@ -10,11 +10,11 @@
 #
 # The posit came from three failures: a Greek text read one byte at a time where its script spends two, a
 # vocalization read at 8 kHz where its units run seconds, and a protein read with exact voxel equality
-# where its coordinates are real. Each was diagnosed after the fact, so the rule is inferred from the
+# where its coordinates are real. Each was diagnosed after the fact. The rule is inferred from the
 # cases that suggested it.
 #
-# Proving it needs a domain whose structure sits at one width and no other, so one is built here instead
-# of found. A vocabulary of fixed width units is emitted with topical clustering, so the arrangement is
+# Proving it needs a domain whose structure sits at one width and no other. One is built here instead
+# of found. A vocabulary of fixed width units is emitted with topical clustering. The arrangement is
 # real, it lives at the unit width, and nothing was placed at any other. slice at the right width
 # should show it and slice at any other should not.
 #
@@ -119,7 +119,7 @@ def main():
         if not marks:
             out.write("  %-8d %-10s %-10s %s\n" % (width, "too few", "", ""))
             continue
-        # Lower is a larger departure, so the worst phase is the highest value
+        # Lower is a larger departure. The worst phase is the highest value
         out.write(
             "  %-8d %-10.3f %-10.3f %d\n" % (width, marks[0], max(marks), counts[0])
         )

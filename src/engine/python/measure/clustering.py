@@ -10,7 +10,7 @@
 # that did not know about each other.
 #
 # The check matters more than the tree. A tree can be built from any distance matrix whatsoever and
-# will look like a result, so what says whether it represents the distances is comparing the height
+# will look like a result. What says whether it represents the distances is comparing the height
 # at which each pair first landed in one group against the distance actually measured between them.
 # A low value means the tree is imposing structure the distances do not carry, and it should then be
 # read as an ordering and not as a grouping.

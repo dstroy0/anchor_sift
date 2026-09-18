@@ -60,7 +60,7 @@ def main():
         if len(text) < SAME_LENGTH:
             out.write("  %s holds only %d characters and is left out\n" % (language, len(text)))
             continue
-        # Cut to one length, so nothing here can be a reading of how much text arrived
+        # Cut to one length. Nothing here can be a reading of how much text arrived
         values = web(text[:SAME_LENGTH], RANKS)
         if values is not None:
             held[language] = values

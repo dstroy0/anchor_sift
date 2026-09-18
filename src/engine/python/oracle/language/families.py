@@ -9,14 +9,14 @@
 # These tables are an answer this work did not produce and cannot influence. Almost every
 # measurement here has lacked one. They belong to the oracle part for that reason and not because
 # they concern language: of the three ways a partition gets fixed, only supervision adds information
-# the sample did not already carry, so anything holding an outside answer lives
+# the sample did not already carry. Anything holding an outside answer lives
 # here and nowhere else.
 #
 # They are written down before the distances are computed, which lets a grouping be scored instead
 # of admired afterward.
 #
 # What agreement with them is worth, set down here so no caller has to restate it. A family tree is a
-# reconstruction argued from cognates and sound correspondences, so agreement is agreement with a
+# reconstruction argued from cognates and sound correspondences. Agreement is agreement with a
 # scholarly consensus and not a check against a fact, and where the two disagree nothing here can
 # say whether the instrument or the reconstruction is wrong. That is a different kind of check from
 # the protein bond lengths, where valence fixes the answer whatever anyone believes. Those are an
@@ -157,7 +157,7 @@ def dravidian_check(reading):
 def scoreable(names, families=None):
     """The subset of `names` that has a relative present. Nothing outside it can be scored.
 
-    A family holding one language in a run cannot have a neighbor inside it, so its nearest is
+    A family holding one language in a run cannot have a neighbor inside it. Its nearest is
     outside its family whatever the instrument measures. Scoring those as errors is what turned an
     honest 15 of 22 into a misleading 15 of 28, and it is why Greek sitting nearest Hebrew was
     called a script artifact when neither language had a relative in the set at all.

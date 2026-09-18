@@ -41,7 +41,7 @@
 # The control is the hand extraction in build/oracles/Mellesmoen_Kye_ICSNL61.oracle.tsv, which was
 # read off the paper by a person and verified against it in both directions. That file is not in
 # this repository. The hand extractions are the papers' own text and live in the closed corpus,
-# reaching a checkout under build/oracles, so nothing under maint/ holds one. This file is graded
+# reaching a checkout under build/oracles. Nothing under maint/ holds one. This file is graded
 # against it by reader_check.py. coverage_check.py separately asks the easier question, which
 # is whether every token got out of the paper at all.
 
@@ -129,7 +129,7 @@ FORM_GLOSS = re.compile(r"(\S+)\s+[‘']([^’']*)[’']")
 
 # The note Tables 8 and 9 put after a Southern form whose /a/ surfaces as schwa. Written out because
 # it holds a second attested form in square brackets and because the closing parenthesis is missing
-# on the t̓ə́q̓ʷab row, so anything counting brackets stops in the wrong place.
+# on the t̓ə́q̓ʷab row. Anything counting brackets stops in the wrong place.
 REALIZED = re.compile(r"\(/a/ → \[ə\](?:,\s*so\s*realized as \[([^\]]+)\])?\)?")
 
 # A form the paper offers for comparison at the end of a Table 5 row: dᶻəx̌əx̌bíd (cf. dᶻə́x̌əx̌).
@@ -148,7 +148,7 @@ CANDIDATE = re.compile(r"^([a-h])\.\s+(☞\s+)?(\S+)")
 HEADING = re.compile(r"^(\d+(?:\.\d+)*\s+[A-Z]|Appendix\s+[AB]\b|References\s*$)")
 
 # Which appendix the walk is in, tracked apart from the section heading. Footnote 6 opens with
-# "6 Additional glossing abbreviations" and matches the heading pattern above, so it took the walk
+# "6 Additional glossing abbreviations" and matches the heading pattern above. It took the walk
 # out of Appendix A part way down the page and the last three of Annie Jack's six sentences were
 # read as prose.
 APPENDIX = re.compile(r"^Appendix\s+([AB])\b")
@@ -164,7 +164,7 @@ SOUTHERN = "southern"
 NORTHERN = "northern"
 
 # A form printed with the language it belongs to, which Appendix A does for every cognate it cites.
-# yəšən in Sechelt and ǰəšən in ʔayʔaǰuθəm are printed with no gloss at all, so the language name is
+# yəšən in Sechelt and ǰəšən in ʔayʔaǰuθəm are printed with no gloss at all. The language name is
 # the only thing marking them as forms and not as more of the sentence.
 FORM_IN = re.compile(r"(\S+)\s+in\s+([A-Zʔ][^\s(,.;:]*)")
 
@@ -217,7 +217,7 @@ PURE = ("citation", "surface", "transcription")
 
 # Each table by its caption, with how many language columns its rows have and which dialect each
 # column is. Read off the table headings in the paper. Table 10 is the odd one: its two columns are
-# both Southern and each cell is a form with its own gloss in quotes, so it is handled apart.
+# both Southern and each cell is a form with its own gloss in quotes. It is handled apart.
 TABLES = {
     1: (NORTHERN,),
     2: (NORTHERN,),
@@ -239,7 +239,7 @@ TABLE_CAPTION = re.compile(r"^Table (A?\d+)[:.]")
 
 # How a table knows one of its rows has ended, which is not the same question in every table.
 #
-# Most rows are one line and hold one form, so counting forms works. Tables 8 and 9 put a note after
+# Most rows are one line and hold one form. Counting forms works. Tables 8 and 9 put a note after
 # the Southern form saying how its /a/ surfaces, and the note wraps across as many as three lines,
 # so those rows end when two forms have been seen outside the note. Table A2 is where counting
 # cannot work at all: its rows carry lab ‘see’, sbadil ‘mountain’, ti and ta, none of which
@@ -338,7 +338,7 @@ def from_table(number, rows):
 
     The forms are the last tokens of the row and the gloss is everything before them, the only
     reading that survives Table A2. Four of its Southern and Northern forms, lab, sbadil, ti and
-    ta, carry no character of the alphabet, so nothing about the tokens themselves says which of
+    ta, carry no character of the alphabet. Nothing about the tokens themselves says which of
     them is a word; their position in the row does.
     """
     held = []
@@ -484,7 +484,7 @@ def is_morpheme(token):
     """Whether a bare token cited in prose is a morpheme this paper is talking about.
 
     A boundary mark alone is not enough. The extraction leaves a space before the hyphen in several
-    English compounds, so post -alveolar, non -moraic and left -aligned all arrive looking like
+    English compounds. Post -alveolar, non -moraic and left -aligned all arrive looking like
     bound morphemes. What separates them is length and case: the morphemes this paper cites bare are
     -il, -ac, -al, -d, -ši and dxʷ-, and an English word broken off a compound is longer than four
     letters or carries a capital.
@@ -662,7 +662,7 @@ def read_paper(lines):
                 taken.add(one)
                 # The row's own line is kept beside the forms taken out of it. Table A2 prints two
                 # Northern alternants for ‘year’ in one cell, dᶻəlč̓/ǰəlč̓, and the forms come out
-                # separately, so without the line as printed the cell reads as never extracted.
+                # separately. Without the line as printed the cell reads as never extracted.
                 if " ".join(lines[one].split()):
                     essay.append((one, "Table %s" % number, "essay",
                                   " ".join(lines[one].split())))
@@ -773,7 +773,7 @@ def read_paper(lines):
 def joined(paragraph):
     """One paragraph's lines as a single string, with the words the line break split put together.
 
-    A line ending in a hyphen was broken inside a word, so it joins with nothing between. Every
+    A line ending in a hyphen was broken inside a word. It joins with nothing between. Every
     other line ends a word and joins with a space.
     """
     where = paragraph[0][0]
@@ -792,7 +792,7 @@ def marked(kind, dialect, text):
     """One item written in the T and N convention, as language.layer.kind:{text}.
 
     T is Lushootseed. A cognate from Squamish, Twana, Sechelt or ʔayʔaǰuθəm is language and is not
-    this language, so it is N, and that keeps čalaš out of a Lushootseed corpus.
+    this language. It is N, and that keeps čalaš out of a Lushootseed corpus.
     """
     mark = "T" if (dialect in (SOUTHERN, NORTHERN)) else "N"
     return "%s.%s.%s:{%s}" % (mark, LAYER.get(kind, DERIVED), kind, text)
@@ -864,7 +864,7 @@ def main():
                 continue
             key = " ".join(text.split())
             # A bound morpheme is a citation and is not a word. -ac ‘tree’, -yalus ‘edge’, -il and
-            # dxʷ- are all real and none of them was ever said on its own, so they stay in the
+            # dxʷ- are all real and none of them was ever said on its own. They stay in the
             # record and out of a corpus of things people said.
             if key and ((key[0] in "-=") or (key[-1] in "-=")):
                 continue

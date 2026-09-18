@@ -10,13 +10,13 @@
 #
 # The explanation of what the file is opened it, thirty-five to forty lines of it behind a hash.
 # There is no comment syntax in a tab-separated file, and a linter reads the first line as the
-# header. That prose is worth keeping, so it moves to a .oracle.md beside the table.
+# header. That prose is worth keeping. It moves to a .oracle.md beside the table.
 #
 # The rows were ragged. A row with no gloss stopped after four fields where the header names five,
 # and a linter counts that as a short row on every one of them. Each row is padded to the header's
 # width with empty fields.
 #
-# A tab or a newline inside a field would do the same damage from the other direction, so both come
+# A tab or a newline inside a field would do the same damage from the other direction. Both come
 # out here as they do in the flag files.
 
 import io

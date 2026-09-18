@@ -19,12 +19,12 @@
 # the necessary condition, the filling the periodic law would follow if nothing competed with it.
 #
 # An electron is a point at an integer state (principal, azimuthal, magnetic, doubled_spin) carrying
-# its subshell as text. The spin is carried as its double, +1 and -1 for the two halves, so the state
+# its subshell as text. The spin is carried as its double, +1 and -1 for the two halves. The state
 # stays an integer, the way representation/structure/symmetry.py carries thirds in units of 1/24. No
 # scale is needed and none is used: representation.exact carries 1024 digits for decimal coordinates,
 # and an electron count is already an integer.
 #
-# Madelung order fills 1s through 7p, and its capacities run to 118 exactly, so the order names every
+# Madelung order fills 1s through 7p, and its capacities run to 118 exactly. The order names every
 # element from hydrogen to oganesson and no further. The symbols and atomic numbers are the IUPAC
 # table, canonical reference that needs no source.
 
@@ -32,7 +32,7 @@
 SUBSHELL = ("s", "p", "d", "f")
 
 # Madelung filling order as (principal, azimuthal). A subshell holds capacity(azimuthal) electrons,
-# and the running total reaches 118 at the final entry, so this order names every element.
+# and the running total reaches 118 at the final entry. This order names every element.
 MADELUNG = (
     (1, 0), (2, 0), (2, 1), (3, 0), (3, 1), (4, 0), (3, 2), (4, 1), (5, 0), (4, 2),
     (5, 1), (6, 0), (4, 3), (5, 2), (6, 1), (7, 0), (5, 3), (6, 2), (7, 1),
@@ -117,7 +117,7 @@ def group_signature(electron_set):
     population), population being how many electrons stand in that same subshell in this element.
     Sodium and lithium both close on a lone s electron and both read (0, 1); carbon and silicon both
     close on a second p electron and both read (1, 2). The principal number is dropped. It is the only
-    difference between sodium and lithium, so without it they read as one signature, and that signature
+    difference between sodium and lithium. Without it they read as one signature, and that signature
     repeats down the table as the periodic law.
     """
     state, _ = electron_set[-1]

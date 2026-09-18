@@ -7,7 +7,7 @@
 #   Usage:  python maint/data/salishan/corpus_script_extraction/extract_lyon_priests.py
 #
 # Written for one paper, and this is the only one so far whose characters had to be repaired before it
-# could be read at all. Its font wrote plain letters in place of the orthography, so the text arrives as
+# could be read at all. Its font wrote plain letters in place of the orthography. The text arrives as
 # iP naPì ʼqwQaylqs where it should read iʔ naʔɬ ʼqwʕaylqs.
 #
 # The mapping was tested, not assumed. font_substitution.py applies a candidate table to the damaged
@@ -17,7 +17,7 @@
 # that, because a wrong substitution produces strings the language does not contain.
 #
 # What the table does not cover is recorded with it. The caron entries are written by this font as a
-# separate character before their letter, so x̌ arrives as ˇx, and the order of replacement matters.
+# separate character before their letter. X̌ arrives as ˇx, and the order of replacement matters.
 #
 # Three speakers, and the permissions are named in the paper. Conversation with the priest was told by
 # George Lezard of the Penticton Indian Reserve in 1966 when he was eighty-five, recorded by Randy
@@ -115,7 +115,7 @@ SEGMENTED = re.compile(r"[-=]")
 # the root, giving ’qwQaylqs√ ’qwQay=lqs on one line. A segmentation of its own can also hold √,
 # as in-ks-√ ’ma ’y-ìt-ím does, and what tells the two apart is what stands before the root: a
 # merged line has a bare word there, a segmentation has morpheme separators. This paper separates
-# with + as well as with a hyphen or an equals sign, as s+√na ’qw and c+n+√ʔuɬxw-s do, so + belongs
+# with + as well as with a hyphen or an equals sign, as s+√na ’qw and c+n+√ʔuɬxw-s do. + belongs
 # in the class with them. Leaving it out reads the front of a segmentation as a word of the story.
 MERGED = re.compile(r"^([^-=•+√]+?)\s*(√.*)$")
 
@@ -285,7 +285,7 @@ def main():
         return 1
 
     with open(SOURCE, encoding="utf-8", errors="replace") as handle:
-        # Ligatures come out here, before the loop below, so that everything reading these lines
+        # Ligatures come out here, before the loop below. That everything reading these lines
         # sees the same text. This paper holds 76 of them and one reached the corpus as ﬁve.
         lines = [unligatured(one.rstrip("\n")) for one in handle]
 
@@ -308,7 +308,7 @@ def main():
             number_of, title = opened
             # The contents list repeats every heading before the body. A top-level heading opens
             # its section on its second appearance. Subsection entries in that list are padded with
-            # dot leaders and are already refused above, so they never register as seen, and
+            # dot leaders and are already refused above. They never register as seen, and
             # skipping their first appearance discarded every one of them.
             if "." not in number_of:
                 if number_of not in seen_heading:
@@ -337,7 +337,7 @@ def main():
             if not language_line(trimmed):
                 rows.append(("N", 0, section, UNCLASSIFIED, who, repaired_english(trimmed)))
                 continue
-            # The running text of a story is the language from end to end, so every substitution
+            # The running text of a story is the language from end to end. Every substitution
             # applies to it and no token in it needs guarding. Where the extraction broke a word in
             # two is not known yet: the interlinear says that and has not been read. So the row is
             # written now to keep the paper's order, its place is remembered, and the words are put
@@ -363,8 +363,8 @@ def main():
 
     # Each block read back as words. The sentence is the first column joined in order, and it is
     # the only part of a block that was spoken: the other three columns are Lyon's analysis of it.
-    # Every block read first, so the list of true word forms exists before any of them is written.
-    # An entry is one word, so the spaces inside it are the extraction's, and welding them shut
+    # Every block read first. The list of true word forms exists before any of them is written.
+    # An entry is one word. The spaces inside it are the extraction's, and welding them shut
     # gives what the word really looks like. Only blocks that read cleanly contribute: an entry
     # taken from a block whose cycle slipped is not a word, and one bad entry in the list joins
     # two real words together everywhere it matches.
@@ -381,13 +381,13 @@ def main():
     for section, number, who, block, read in parsed:
         words, translation, leftover, slipped = read
         if slipped:
-            # The count slipped somewhere in this block, so every column after that point is one
+            # The count slipped somewhere in this block. Every column after that point is one
             # line out and nothing in it can be named. The whole block is flagged. Emitting the
             # sentence anyway would put gloss text such as know+INCH -manage.to-DIR-3ERG into the
             # ingestion stream as though someone had said it.
             slipped_blocks += 1
             for one in block:
-                # Which column each line belongs to is the unknown here, so the repair is chosen
+                # Which column each line belongs to is the unknown here. The repair is chosen
                 # from what the line itself turns out to be.
                 fixed = repaired_line(split_merged(one))
                 kind = kind_by_notation(fixed)
@@ -423,7 +423,7 @@ def main():
 
     # The list is written out beside the record. The coverage check has to put the source through
     # the same joining before comparing, and building its own copy of the list from the paper gave
-    # a different one that joined words wrongly, so it reads this instead.
+    # a different one that joined words wrongly. It reads this instead.
     words_at = TARGET[:-4] + ".words.txt"
     with open(words_at, "w", encoding="utf-8", newline="") as handle:
         handle.write("# The word forms this paper's interlinear gives, one to a line, with the\n")
@@ -441,7 +441,7 @@ def main():
         """
         return joined_words(repaired_line(split_merged(text)), vocabulary)
 
-    # Every line of the paper no section reached, added to the record as unclassified, so the
+    # Every line of the paper no section reached, added to the record as unclassified. The
     # marked file holds every token of the language the paper printed. That is the front matter,
     # the prose introducing each story, and Lyon's discussion. They stay out of the pure stream.
     # The union of every orthography, not this paper's own set. The coverage check counts a token
@@ -463,7 +463,7 @@ def main():
         handle.write("# great-granddaughter Lynne Jorgesen, Upper Nicola Indian Band.\n")
         handle.write("#\n")
         handle.write("# READ FROM THE PAGE. This paper's PDF hands back the font's own alphabet\n")
-        handle.write("# and not what the page prints, so this reader takes build/papers/\n")
+        handle.write("# and not what the page prints. This reader takes build/papers/\n")
         handle.write("# 19-Lyon_ICSNL50_final-78.page.txt, which draft_page_text.py writes in the\n")
         handle.write("# orthography, and applies no substitution of its own.\n")
         handle.write("#\n")

@@ -11,7 +11,7 @@
  * @date 2026-09-09
  *
  * @note Written for the Raspberry Pi 5, which is a Cortex-A76 at aarch64. NEON is mandatory in the
- *       base aarch64 architecture, so on a 64 bit ARM build there is nothing to detect and the arm
+ *       base aarch64 architecture. On a 64 bit ARM build there is nothing to detect and the arm
  *       is always available. A 32 bit ARM build is a different matter and is gated below.
  * @note A NEON register is 128 bits and holds four 32 bit limbs against AVX2's eight. The loop is
  *       otherwise identical. The arithmetic belongs to the representation and not to the
@@ -43,7 +43,7 @@
  * @param[in] right Second magnitude [BORROWS].
  * @return          1 where every limb matches, 0 otherwise.
  * @note Walks from the top limb down. At a scale of 1024 decimal digits a deposited value carries
- *       hundreds of trailing zero digits, so the low limbs are zero on both sides and hold nothing.
+ *       hundreds of trailing zero digits. The low limbs are zero on both sides and hold nothing.
  */
 static int neon_magnitude_equal(const uint32_t *left, const uint32_t *right)
 {
@@ -76,7 +76,7 @@ static int neon_magnitude_equal(const uint32_t *left, const uint32_t *right)
  * @param[in] left  First magnitude [BORROWS].
  * @param[in] right Second magnitude [BORROWS].
  * @return          -1 where left is smaller, 1 where it is larger, 0 where they are equal.
- * @note The vector says a block differs and not which limb differs first, so the block holding the
+ * @note The vector says a block differs and not which limb differs first. The block holding the
  *       highest difference is walked backward one limb at a time. That runs at most four scalar
  *       steps, once per comparison.
  */
@@ -144,7 +144,7 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
     const int order = neon_magnitude_compare(left->limb, right->limb);
     if (left->sign < 0)
     {
-        // Both negative, so the larger magnitude is the smaller value.
+        // Both negative. The larger magnitude is the smaller value.
         return -order;
     }
     return order;
@@ -162,13 +162,13 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
 static size_t arm_agreement(const AnchorExactInteger *positions, const uint64_t *values,
                             size_t count, const AnchorExactInteger *lag)
 {
-    // The shared search, with only the equality test swapped, so what is timed is the instruction
+    // The shared search, with only the equality test swapped. What is timed is the instruction
     // set and not a second algorithm. This arm carried its own ordered search once, which measured
     // the difference between two algorithms and reported it as the difference between two parts.
     return anchor_exact_agreement_using(arm_equal, positions, values, count, lag);
 }
 
-/** @brief The arm as a driver sees it. Static storage, so returning its address is safe. */
+/** @brief The arm as a driver sees it. Static storage. Returning its address is safe. */
 static const AnchorExactArm NEON_ARM = {
     "neon",
     arm_equal,

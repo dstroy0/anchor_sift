@@ -42,7 +42,7 @@
  * @note The run actually used is chosen at run time and defaults to a quarter of this. Size is the
  *       axis that decides whether an arm is worth its overhead: a vectorized arm has no startup
  *       cost and is faster immediately, and the CUDA arm copies the whole run across a bus before it
- *       computes anything, so it loses at every size below where that copy is amortized. Reporting
+ *       computes anything. It loses at every size below where that copy is amortized. Reporting
  *       one size would hide which of those two shapes an arm has.
  */
 #define RUN_PLACES 65536u
@@ -93,7 +93,7 @@ typedef char bench_exact_arms_places_hold_a_quarter[(PLACES_HELD >= 2ull) ? 1 : 
  * @param[out] positions Where the positions are written [BORROWS].
  * @param[out] values    Where the value at each position is written [BORROWS].
  * @return               1 where the run was built, 0 where a value would not fit the scale.
- * @note Positions step by a quarter and values cycle every four places, so the value repeats every
+ * @note Positions step by a quarter and values cycle every four places. The value repeats every
  *       whole unit while the positions repeat four times as often. An arm that ignores the value
  *       reads the wrong period and is caught by the count.
  */
@@ -294,7 +294,7 @@ int main(int argc, char **argv)
         wrong = 1;
     }
 
-    // Every eighth entry takes the position before it, so that position is listed twice with two
+    // Every eighth entry takes the position before it. That position is listed twice with two
     // values from the cycle. The run stays ascending, which the CUDA arm's binary search needs.
     for (unsigned int at = 7u; at < places; at += 8u)
     {
@@ -321,7 +321,7 @@ int main(int argc, char **argv)
             anchor_exact_agreement_cuda(positions, values, (size_t)places, &lags[3]);
         if (device_answer == (size_t)-1)
         {
-            printf("\n  the device refused the run at %u limbs, so the cuda row is the portable arm\n",
+            printf("\n  the device refused the run at %u limbs. The cuda row is the portable arm\n",
                    (unsigned int)ANCHOR_EXACT_LIMBS);
             wrong = 1;
         }

@@ -10,12 +10,12 @@
 #
 # Every earlier reading compared different books. A difference between two languages was also a
 # difference between an epic and a novel. One text translated into 43 languages removes that: the content
-# is the same everywhere, so topic cannot help tell two languages apart and what the web finds is the
+# is the same everywhere. Topic cannot help tell two languages apart and what the web finds is the
 # language.
 #
 # Two things pull against each other here and both are stated because neither can be removed. Holding the
 # content fixed takes away a cue the earlier test had, since different books in different languages could
-# be told apart partly by being different books, so this is the harder test. Against that, one text per
+# be told apart partly by being different books. This is the harder test. Against that, one text per
 # language has to be cut into pieces to have several samples, and pieces of one translation resemble each
 # other more than separate books do, which makes it easier. The two do not cancel and the number below is
 # not directly comparable to the earlier one.
@@ -92,7 +92,7 @@ def main():
         out.flush()
         return 0
 
-    out.write("  %d pieces over %d languages of one text, so guessing gets %.1f percent\n\n"
+    out.write("  %d pieces over %d languages of one text. Guessing gets %.1f percent\n\n"
               % (len(loaded), len(languages), 100.0 / len(languages)))
     out.write("  %-30s %-14s %s\n" % ("reading", "correct", "share"))
 

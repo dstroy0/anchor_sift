@@ -16,7 +16,7 @@
 #   nist_cavp_sha256{short,long}msg.rsp   the normative one shot tables
 #   nist_cavp_sha256monte.rsp             100 checkpoints x 1000 chained rounds, the only published
 #                                         case that catches state carried wrongly between blocks
-#   nist_cavp_bit_sha256{short,long}msg   Len counts BITS, so most of these do not end on a byte and
+#   nist_cavp_bit_sha256{short,long}msg   Len counts BITS. Most of these do not end on a byte and
 #                                         they are the only vectors reaching mmgr_sha256_bits
 #   nist_cavp_hmac_sha256.rsp             the [L=32] section, truncated tag lengths included
 #   wycheproof_hmac_sha256.json           adversarial: modified tags that must NOT reproduce
@@ -49,7 +49,7 @@ BIT_URL = NIST + "/shs/shabittestvectors.zip"
 HMAC_URL = NIST + "/mac/hmactestvectors.zip"
 
 # ProtoCore already curated this subset from a pinned Wycheproof commit. Taken from there instead of
-# refetched, so both trees test identical bytes and the provenance stays one story.
+# refetched. Both trees test identical bytes and the provenance stays one story.
 
 
 def _sibling_base():
@@ -83,7 +83,7 @@ def _sibling_base():
 
 
 # This counted two levels up from the repository root, which after the move into
-# repos/owned/{public,private} names repos/owned and not repos/owned/public, so the file was never
+# repos/owned/{public,private} names repos/owned and not repos/owned/public. The file was never
 # found and every run printed the SKIP below. The skip was correct and loud; the path it reported
 # was wrong, which is why a visible message still went unnoticed.
 WYCHEPROOF_FROM = os.path.join(_sibling_base(), "ProtoCore", "test", "vectors",

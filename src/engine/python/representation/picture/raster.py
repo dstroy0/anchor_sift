@@ -11,7 +11,7 @@
 # the bit volume return heights, and it forced every measurement since to be handed a width it should
 # not have needed.
 #
-# The widths below are what the decoder reported when these files were fetched, so the plane is known
+# The widths below are what the decoder reported when these files were fetched. The plane is known
 # here instead of guessed at. Two readings in this work set out to recover a width from the data and
 # are scored against this table. Without them, a table of answers would not belong in the tree.
 #

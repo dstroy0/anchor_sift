@@ -24,7 +24,7 @@
 
 \textbf{A floor of one means the path is reachable.} Refuted. \(W_0\) floors at one on \(W_{33}\) and was never observed in \(2^{25}\) pairs. The floor wants a carry-free chain and that chance falls with its length.
 
-\textbf{Nonce bit thirty-one carries \(180\) sigma.} Refuted. The sweep covered \(2^{31}\) nonces, so bit thirty-one is zero in every sample against an expectation computed over the full space. The kernel now takes a sixty-four-bit bound and always sweeps the whole \(2^{32}\).
+\textbf{Nonce bit thirty-one carries \(180\) sigma.} Refuted. The sweep covered \(2^{31}\) nonces. Bit thirty-one is zero in every sample against an expectation computed over the full space. The kernel now takes a sixty-four-bit bound and always sweeps the whole \(2^{32}\).
 
 \textbf{The \(5.0\%\) word-round saving is worth \(5.0\%\) of runtime.} Refuted on the CPU. Implemented, exactly correct on two hundred thousand nonces, and measured at \(0.998\), \(0.978\), \(1.079\), \(0.957\), with a median about \(1.00\). Word-rounds bound arithmetic, not runtime. On the device, where the kernel is ALU and power bound, the same change is worth \(4.34\%\).
 
@@ -32,15 +32,15 @@
 
 \textbf{Register pressure limits the device kernel.} Refuted. Thirty-eight registers, zero spill stores, zero spill loads, and occupancy capped by the thread limit and not by registers.
 
-\textbf{Single-bit masks can see linear structure.} Refuted by its own control. A \(\mathrm{GF}(2)\)-linear function's output bit is an exclusive-or of many input bits and is balanced against any single one, so the known-linear arm read the noise floor exactly like every other arm. The linear axis remains untested.
+\textbf{Single-bit masks can see linear structure.} Refuted by its own control. A \(\mathrm{GF}(2)\)-linear function's output bit is an exclusive-or of many input bits and is balanced against any single one. The known-linear arm read the noise floor exactly like every other arm. The linear axis remains untested.
 
 \textbf{The width sweep measures annihilated state functions at several widths.} Refuted. That is the raw-amount object; in the clamped object \(\Sigma_0\) is clean at every width and only width twelve carries a kernel.
 
 \textbf{The octant alphabet saturates.} Refuted by the object, never by the statistic. Every version of that measurement read the finalized digest, where \(0\) of \(378\) carried words match the words they are copied from; on the round's own working state \(378\) of \(378\) match. The finalization adds the initial vector back modulo \(2^{32}\) and destroys the structure being looked for, leaving the reading unable to see the register shift at any sample size. On the state the delta starts at \(1.27\times\) the redraw floor and crosses to \(0.76\times\): a trend, with no saturation in it.
 
-\textbf{The octant delta sits at a level.} Refuted three times, once per level asserted. A ramp, then a stationary value, then a floor. The quantity has a trend and crosses its own null between the ends of the run, so every threshold placed on it was a threshold on the wrong shape.
+\textbf{The octant delta sits at a level.} Refuted three times, once per level asserted. A ramp, then a stationary value, then a floor. The quantity has a trend and crosses its own null between the ends of the run. Every threshold placed on it was a threshold on the wrong shape.
 
-\textbf{Sixty-four distinct signatures out of sixty-four rounds is coherence.} Refuted by a rank. The eight-letter reading is a linear map of rank \(8\) on a \(256\)-dimensional source, leaving seven free numbers at fixed weight and \(248\) directions that move no letter at all. Seven reals separate sixty-four arbitrary states whether or not the seven carry meaning, so distinctness at that sample size is free and was reported as a result.
+\textbf{Sixty-four distinct signatures out of sixty-four rounds is coherence.} Refuted by a rank. The eight-letter reading is a linear map of rank \(8\) on a \(256\)-dimensional source, leaving seven free numbers at fixed weight and \(248\) directions that move no letter at all. Seven reals separate sixty-four arbitrary states whether or not the seven carry meaning. Distinctness at that sample size is free and was reported as a result.
 
 \section{Taken from the published literature}
 
@@ -48,7 +48,7 @@
 
 \textbf{SHA-256 never meets the strict avalanche criterion at any round.} Refuted. The persistent \(0.21\%\) is \(4.2\) sigmas at a million trials, \emph{below} what the maximum of \(131{,}072\) null draws produces without any function at all.
 
-\textbf{Choice and majority dampen each other, ratio \(0.508\).} Reproduced at \(0.5082\) and then explained. Choice alone gives a SAC-mean of \(0.01562361\), majority alone \(0.01560888\), and the two together \(0.01562336\), identical to choice alone to two parts in ten million. The pair does not dampen; majority contributes no diffusion that choice does not already provide, so measured is \(A\) while the independence model predicts about \(2A\) and the ratio is one half by construction.
+\textbf{Choice and majority dampen each other, ratio \(0.508\).} Reproduced at \(0.5082\) and then explained. Choice alone gives a SAC-mean of \(0.01562361\), majority alone \(0.01560888\), and the two together \(0.01562336\), identical to choice alone to two parts in ten million. The pair does not dampen; majority contributes no diffusion that choice does not already provide. Measured is \(A\) while the independence model predicts about \(2A\) and the ratio is one half by construction.
 
 \section{The shape they share}
 

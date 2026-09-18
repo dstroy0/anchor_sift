@@ -23,7 +23,7 @@
 # WHAT IS NOT NSYILXCN
 #
 # Section 4 cites cognates from Spokane, Secwepemctsín, Lillooet, nxaʔamxčín, Thompson and Coeur
-# d'Alene, each behind a two-letter tag. Those are Salish and they are not Nsyilxcn, so the who
+# d'Alene, each behind a two-letter tag. Those are Salish and they are not Nsyilxcn. The who
 # column carries the language and the pure stream takes the Nsyilxcn alone.
 
 import io
@@ -125,7 +125,7 @@ def kind_of(token):
 def language_of(tokens, at):
     """Whose form this is, from the nearest cognate tag standing in front of it on the line.
 
-    Section 4 sets a cognate as Sp √p̓ax̌ or Th xʷ[ʔ]úl, so the tag is the token before. Without this
+    Section 4 sets a cognate as Sp √p̓ax̌ or Th xʷ[ʔ]úl. The tag is the token before. Without this
     the Spokane and Thompson forms arrive in a corpus labeled Nsyilxcn, the mistake this paper's
     layout makes easy.
     """
@@ -187,7 +187,7 @@ def main():
         handle.write("#\n")
         handle.write("# A starred form was built by the linguist and rejected by the speakers, and\n")
         handle.write("# a form marked with a question mark was judged marginal. Neither is a word\n")
-        handle.write("# anybody said, so both are derived and neither reaches the pure stream.\n")
+        handle.write("# anybody said. Both are derived and neither reaches the pure stream.\n")
         handle.write("line\twho\tkind\tswitches\tcontent\n")
         for at, (spot, named, kind, text) in enumerate(rows, 1):
             spoken = (kind == "cited form") and (named == TARGET_LANGUAGE)

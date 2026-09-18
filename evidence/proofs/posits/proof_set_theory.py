@@ -12,17 +12,17 @@
 #
 # This claims nothing about any open problem. It proves standard set theory, Cantor's and Turing's,
 # reproduced here so the precision document can lean on it. The connection to the engine is one line: a
-# quantity the engine carries exactly has a finite description, so the exact quantities are countable,
+# quantity the engine carries exactly has a finite description. The exact quantities are countable,
 # and a measured quantity is a real the engine can only bracket, since almost every real has no finite
 # description at all.
 #
 # Four parts, each with a positive control and a drawn null:
 #   Moore closure    the generation operator is extensive, monotone and idempotent; a single round of
 #                    derivation is extensive and monotone but not idempotent, the null.
-#   countable        finite descriptions over a finite alphabet enumerate, so the nameable quantities
+#   countable        finite descriptions over a finite alphabet enumerate. The nameable quantities
 #                    inject into the naturals; the enumeration is shown injective and total on a sample.
 #   uncountable      Cantor's diagonal: from any finite table of reals a real is built differing from
-#                    every row, so no list catches them all.
+#                    every row. No list catches them all.
 #   measure zero     a countable set is covered by intervals of total length epsilon for any epsilon, so
 #                    its measure is zero; the null is that the whole interval cannot be so covered.
 #
@@ -110,7 +110,7 @@ def description_index(description, alphabet):
 
 
 def prove_countable(out):
-    """Finite descriptions enumerate, so the nameable quantities inject into the naturals."""
+    """Finite descriptions enumerate. The nameable quantities inject into the naturals."""
     out.write("  countable: finite descriptions over a finite alphabet inject into the naturals\n")
     alphabet = "0123456789abcdefghijklmnopqrstuvwxyz+-*/().^ "  # enough to write the engine's constants
     sample = ["3", "22/7", "sqrt(2)", "pi", "pi^2/6", "e", "ln(2)", "sqrt(2)*sqrt(3)"]
@@ -169,7 +169,7 @@ def prove_uncountable(out):
 
 
 def prove_measure_zero(out):
-    """A countable set is covered by intervals of total length epsilon, so its measure is zero."""
+    """A countable set is covered by intervals of total length epsilon. Its measure is zero."""
     out.write("  measure zero: a countable set is covered to any total length, the interval is not\n")
     epsilon = Fraction(1, 1000)
     # cover the n-th point by an interval of length epsilon / 2^(n+1); the total is a geometric sum

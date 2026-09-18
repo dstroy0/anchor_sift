@@ -7,7 +7,7 @@
 #   Usage:  from render import render_raster, render_volume, RasterConfig, VolumeConfig, Probe
 #
 # render_raster and render_volume are the entries a caller uses. They render on the fastest arm
-# available and produce the same bytes whichever runs, so the choice is a performance one. The order
+# available and produce the same bytes whichever runs. The choice is a performance one. The order
 # is: the C dispatch through a loaded shared library, which itself prefers the CUDA device and falls
 # back to the C host; then the pure Python host arm in render.host when no library is reachable. A
 # machine that built the library with the device arm renders on the device from Python for free.
@@ -27,7 +27,7 @@ from render.host import (
 )
 
 # The loaded library, found once. A sentinel distinguishes "not looked yet" from "looked, found
-# none", so a failed search is not repeated on every call.
+# none". A failed search is not repeated on every call.
 _LIB = None
 _LOOKED = False
 

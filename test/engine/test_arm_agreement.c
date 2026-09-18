@@ -10,7 +10,7 @@
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-16
  *
- * @note The kernel's own contract is that every arm is sound, so no arm can lose a true occurrence
+ * @note The kernel's own contract is that every arm is sound. No arm can lose a true occurrence
  *       and every arm must return what the naive one returns. This driver asks that question at the
  *       lengths nobody searches with: none, one, and two. A needle of one byte puts all four anchors
  *       on the same offset, and a needle of no bytes has no offset to put them on at all.
@@ -33,7 +33,7 @@
 /* Long enough that an anchor spread is meaningful and short enough to stay a unit test. */
 #define AGREEMENT_CORPUS_BYTES 4096u
 
-/* Where the needle is lifted from, so every needle tested occurs at least once. */
+/* Where the needle is lifted from. Every needle tested occurs at least once. */
 #define AGREEMENT_NEEDLE_AT 1000u
 
 /* The lengths under test. Zero and one are the bounds this driver exists for; the rest are ordinary
@@ -47,7 +47,7 @@ static unsigned failures = 0u;
  *
  * @param[out] corpus     Bytes to fill [BORROWS].
  * @param[in]  corpus_len How many.
- * @note A small alphabet makes anchor agreement common, so the arms actually reach their verify
+ * @note A small alphabet makes anchor agreement common. The arms actually reach their verify
  *       step rather than refuting on the first probe everywhere.
  */
 static void fill_corpus(uint8_t *corpus, size_t corpus_len)
@@ -59,7 +59,7 @@ static void fill_corpus(uint8_t *corpus, size_t corpus_len)
         state ^= state << 13;
         state ^= state >> 7;
         state ^= state << 17;
-        // Five symbols, so a four anchor cascade survives often enough to be worth verifying.
+        // Five symbols. A four anchor cascade survives often enough to be worth verifying.
         corpus[at] = (uint8_t)('a' + (state % 5u));
     }
 }
@@ -86,7 +86,7 @@ static void grade(const char *what, size_t measured, size_t expected)
     // Measured rather than assumed, because an earlier revision of this file got it wrong in the
     // other direction: it widened every count to unsigned long long and recorded in a comment that
     // the runtime rejects %zu and prints the letter. That was inferred from the warning and never
-    // observed. A probe printing two %zu followed by a %s prints all three correctly, so argument
+    // observed. A probe printing two %zu followed by a %s prints all three correctly. Argument
     // consumption does not slip. The widening was a portability choice stated as a repair, and it
     // put a second printf convention into a tree that already had one.
     printf("  %-34s measured %-12zu expected %-12zu %s\n", what, measured, expected,
@@ -99,7 +99,7 @@ int main(void)
 
     if (corpus == NULL)
     {
-        printf("  no corpus could be allocated, so nothing was graded.\n");
+        printf("  no corpus could be allocated. Nothing was graded.\n");
         return 2;
     }
     fill_corpus(corpus, AGREEMENT_CORPUS_BYTES);
@@ -125,7 +125,7 @@ int main(void)
         grade(label, anchor_sift_free(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len),
               expected);
 
-        // A plan carrying no period and the corpus's own census, so the dispatcher has a real
+        // A plan carrying no period and the corpus's own census. The dispatcher has a real
         // decision to make rather than being steered by a degenerate one. The census replaced the
         // entropy and distinct count the plan used to carry: the rule reads integer counts now and
         // the engine holds no floating point value anywhere.

@@ -75,7 +75,7 @@ def charge_text(charge_thirds):
 def baryons(quarks):
     """Every three-quark combination of the given quarks, as (symbols, charge in thirds).
 
-    The three are drawn with repetition and in order, so each color-neutral content appears once. The
+    The three are drawn with repetition and in order. Each color-neutral content appears once. The
     charge is the sum of the three quark charges, in thirds.
     """
     made = []
@@ -92,7 +92,7 @@ def baryons(quarks):
 def mesons(quarks):
     """Every quark and antiquark combination, as (quark symbol, antiquark symbol, charge in thirds).
 
-    An antiquark carries the negative of its quark's charge, so the meson charge is the difference of
+    An antiquark carries the negative of its quark's charge. The meson charge is the difference of
     the two quark charges, in thirds.
     """
     made = []
@@ -134,7 +134,7 @@ def main(argv):
               % (integer, len(charges)))
     out.write("  A single quark carries a fraction and is never free; a color-neutral combination\n")
     out.write("  carries an integer and is. Confinement in charge alone, by exact arithmetic.\n")
-    out.write("  The proton is uud at +1 and the electron is -1, so a hydrogen atom is neutral, which\n")
+    out.write("  The proton is uud at +1 and the electron is -1. A hydrogen atom is neutral, which\n")
     out.write("  is where the first stage of this subject started.\n\n")
     out.flush()
     return 0 if integer == len(charges) else 1

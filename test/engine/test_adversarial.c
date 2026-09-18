@@ -11,7 +11,7 @@
  * @date 2026-09-16
  *
  * WHY THIS SITS IN test/. A driver in `bench/` builds corpora, counts or times, and prints rows.
- * This file asks whether the engine is right, which is a different question, so Douglas put the two
+ * This file asks whether the engine is right, which is a different question. Douglas put the two
  * questions in two directories. Every case below names the guarantee it attacks and the
  * construction that should break it, and a case that cannot fail when its guarantee is false does
  * not belong here.
@@ -27,7 +27,7 @@
  * A CASE THAT CANNOT FAIL IS NOT A CHECK, and this file learned that about itself. The survivor
  * case was written so that every probe agrees and only the full compare refutes, and it never
  * fired. The steering defeats that construction: the odd byte is the rarest symbol the needle
- * carries, so the ordering tests it FIRST, every alignment refutes at the first read, and the full
+ * carries. The ordering tests it FIRST, every alignment refutes at the first read, and the full
  * compare never runs. The case sat green and reading it would not have shown why. Mutating the
  * engine to drop the full compare, then watching the case stay green, is what exposed it.
  *
@@ -39,7 +39,7 @@
  * preconditions is a different kind of object from one asserting only its conclusion, and every
  * case here that can be given a premise check should get one.
  *
- * FOUR OF THESE ARE DIFFERENTIAL. They compare two routes that must agree, so no expected number is
+ * FOUR OF THESE ARE DIFFERENTIAL. They compare two routes that must agree. No expected number is
  * written down in advance and none can be written down wrongly. Those are the strongest cases here,
  * and they double in value the moment a second implementation exists: a case passing the portable
  * arm and failing a vectorized one has found a vectorization defect, and a case passing both has
@@ -55,7 +55,7 @@
  *      where an off-by-one in the alignment bound hides.
  *   4. A SYMBOL THE FIELD NEVER PRODUCES, graded on the count AND on the read count, because the
  *      cheapness is a separate claim from the answer.
- *   5. EVERY SURVIVOR FALSE, so the count cannot be read off the survivor set.
+ *   5. EVERY SURVIVOR FALSE. The count cannot be read off the survivor set.
  *   6. SHAPES OUTSIDE THE NECESSARY-CONDITION FAMILY, rejected by the guard instead of believed.
  *   7. WHAT SAMPLING COSTS, reported as a ratio instead of stated as a caveat.
  *
@@ -123,7 +123,7 @@ static uint32_t adversarial_next(uint64_t *const state)
  * @note An alphabet of one produces a constant field, the degenerate case every rule here
  *       has to survive.
  * @note NOT A COPY OF CORPUS_SKEWED, checked against bench_corpora.c before this note was written.
- *       This draws uniformly over an alphabet of N, so the knob is the SIZE of the alphabet and the
+ *       This draws uniformly over an alphabet of N. The knob is the SIZE of the alphabet and the
  *       distribution over it is flat. CORPUS_SKEWED draws uniformly over 256 and maps the result
  *       through a table where each successive symbol takes half the space left, giving a fixed
  *       dyadic skew over 27 symbols with no knob at all. Neither can produce the other. Folding this
@@ -206,7 +206,7 @@ static int adversarial_case_differential_net(void)
 
         adversarial_fill_field(corpus, ADVERSARIAL_CORPUS, alphabet, &state);
 
-        // Three rows in four take the needle from the corpus, so occurrences exist to be counted.
+        // Three rows in four take the needle from the corpus. Occurrences exist to be counted.
         if ((seed % 4u) != 0u)
         {
             const size_t origin = (size_t)(adversarial_next(&state)
@@ -239,7 +239,7 @@ static int adversarial_case_differential_net(void)
  *
  * @return 0 where every row matches its derived count, 1 otherwise.
  * @note The expected counts are derived by hand from the definition instead of read off a run.
- *       "aaa" in five a's occupies alignments 0, 1 and 2, so the answer is 3 and an engine
+ *       "aaa" in five a's occupies alignments 0, 1 and 2. The answer is 3 and an engine
  *       advancing past a match would report 1.
  */
 static int adversarial_case_overlapping(void)
@@ -342,14 +342,14 @@ static int adversarial_case_boundaries(void)
  * @note THE SECOND CLAIM IS A RELATIONSHIP, and an earlier version of this case made it a CONSTANT.
  *       It asserted at most one read an alignment, passed at exactly that bound with no margin, and
  *       was therefore one read away from failing. A vectorized arm examines a whole vector whether
- *       the ordering needed it or not, so an arm doing strictly less work can read more bytes and
+ *       the ordering needed it or not. An arm doing strictly less work can read more bytes and
  *       break an assertion that a scalar arm satisfies. A case that fails on a correct
  *       implementation is a case somebody disables during a vectorization pass and never restores.
  *       Comparing the two arms survives whatever read accounting either of them uses, because both
  *       are counted the same way.
  * @note THE FIELD CARRIES THREE SYMBOLS so the needle's other bytes are common in it. The spatial
  *       order then pays for its first probe agreeing about a third of the time, which separates the
- *       arms by a margin instead of by a rounding. The absent byte stays absent, so the count stays
+ *       arms by a margin instead of by a rounding. The absent byte stays absent. The count stays
  *       zero.
  */
 static int adversarial_case_absent_symbol(void)
@@ -391,7 +391,7 @@ static int adversarial_case_absent_symbol(void)
     }
     if (steered_reads >= plain_reads)
     {
-        printf("    FAIL the ordering did not pay: steered %llu reads against unsteered %llu, so "
+        printf("    FAIL the ordering did not pay: steered %llu reads against unsteered %llu. "
                "the absent symbol was not tested first\n",
                (unsigned long long)steered_reads, (unsigned long long)plain_reads);
         failed = 1;
@@ -409,14 +409,14 @@ static int adversarial_case_absent_symbol(void)
 }
 
 /**
- * @brief Case 5. Every survivor false, so the count cannot be read off the survivor set.
+ * @brief Case 5. Every survivor false. The count cannot be read off the survivor set.
  *
  * @return 0 where the count is zero AND every alignment survived every probe, 1 otherwise.
  * @note THIS CASE CHECKS ITS OWN PREMISE, and it does so because an earlier version did not and
  *       silently stopped testing anything. A field of one repeated symbol and a needle carrying one
  *       different byte only reaches the full compare while no probe reads that byte. The STEERED
  *       arm defeats the construction on purpose: the odd byte is the rarest symbol the needle
- *       carries, so the ordering tests it first and refutes every alignment at the first read. The
+ *       carries. The ordering tests it first and refutes every alignment at the first read. The
  *       case therefore runs UNSTEERED, where the offsets are spatial.
  * @note WHY OFFSET FIVE. `choose_offsets` spreads four anchors over a 32 byte needle to positions
  *       0, 15, 22 and 29. A difference at 5 is never probed, every alignment survives all four
@@ -458,7 +458,7 @@ static int adversarial_case_all_survivors_false(void)
     }
     if (reads != every_probe)
     {
-        printf("    FAIL premise: %llu reads against %llu for every probe at every alignment, so "
+        printf("    FAIL premise: %llu reads against %llu for every probe at every alignment. "
                "a probe is refuting and this case proves nothing\n",
                (unsigned long long)reads, (unsigned long long)every_probe);
         failed = 1;
@@ -592,7 +592,7 @@ static int adversarial_case_sampling_cost(void)
  *
  * @return 0 where every order of one probe set returns one count, 1 otherwise.
  * @note DIFFERENTIAL, AND IT TESTS THE COROLLARY DIRECTLY. An alignment survives only where every
- *       probe agrees, a conjunction commutes, so the surviving set and the count are the same under
+ *       probe agrees, a conjunction commutes. The surviving set and the count are the same under
  *       any order. This was argued from the start and could not be checked until an entry took the
  *       probe set as an argument.
  * @note A failure here points at STATE CARRIED BETWEEN PROBES in the implementation and not at the
@@ -645,7 +645,7 @@ static int adversarial_case_permutation_null(void)
  *
  * @return 0 where no probes still returns the exact count at zero probe reads, 1 otherwise.
  * @note THE CHEAPEST TOTAL CHECK OF THE WHOLE GUARANTEE. With no probes every alignment reaches the
- *       full compare, so the answer is exactly right and the cost is maximal. If this fails, the
+ *       full compare. The answer is exactly right and the cost is maximal. If this fails, the
  *       verifier is wrong and every other count in the tree rests on nothing, because every probe
  *       set relies on that same compare to remove its false survivors.
  * @note The read count is graded at zero as a premise check. Probes reading bytes where no probe
@@ -739,9 +739,9 @@ static int adversarial_case_growing_plan(void)
     }
 
     // The empty-needle boundary, which no other case reaches. An empty needle occurs at every
-    // alignment, so the reference is corpus_len + 1. anchor_steer_count_with_probes returned 0 here
+    // alignment. The reference is corpus_len + 1. anchor_steer_count_with_probes returned 0 here
     // until its guard was split, disagreeing with anchor_sift_naive and anchor_steer_count in the
-    // same tree. The probes cannot be evaluated on a needle with no positions, so the empty probe set
+    // same tree. The probes cannot be evaluated on a needle with no positions. The empty probe set
     // is the one to grade it with.
     {
         const size_t empty_reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, 0u);
@@ -756,7 +756,7 @@ static int adversarial_case_growing_plan(void)
     }
 
     // A probe that reads past the needle. Its last position is (needle_len - 2) + 4*2, which is
-    // needle_len + 6, so anchor_steer_probe_fits rejects it and the count is 0. Before the guard,
+    // needle_len + 6. Anchor_steer_probe_fits rejects it and the count is 0. Before the guard,
     // count_with_probes read needle[offset] and corpus[at + offset] off the end of both. The count
     // it returns is not the reference; a refusal is the point, and 0 is the documented one.
     {
@@ -782,7 +782,7 @@ static int adversarial_case_growing_plan(void)
  * @return 0 where both descents agree on the count and on every probe the shallow one placed, 1
  *         otherwise.
  * @note THE DESTROY THEOREM TESTED BY ITS CONSEQUENCE. Under a candidate set that does not grow
- *       with the level, a fired stop condition would fire at every level below, so stopping and
+ *       with the level, a fired stop condition would fire at every level below. Stopping and
  *       continuing place the same probes up to the stop point and return the same count.
  * @note TWO FAILURE MODES, AND THEY MEAN DIFFERENT THINGS. Counts differing means the
  *       necessary-condition guarantee broke, since both probe sets are legal whatever the descent
@@ -1251,7 +1251,7 @@ static int adversarial_count_together(const uint32_t *corpus, size_t corpus_leng
  *
  * @note WHY THE SUITE DID NOT CATCH IT. The one projected search in test_steer builds its rank
  *       needle by copying out of the corpus's own projected ranks (`test/engine/test_steer.c`,
- *       the loop filling `rank_needle`), so its needle and corpus come from one population by
+ *       the loop filling `rank_needle`). Its needle and corpus come from one population by
  *       construction and the two orders could never disagree.
  */
 static int adversarial_case_joint_projection(void)
@@ -1332,7 +1332,7 @@ static int adversarial_case_joint_projection(void)
     }
     if ((reported_apart_ran == 0) || (reported_apart != 0u))
     {
-        printf("    FAIL negative control: the separate route did not lose the occurrence, so this"
+        printf("    FAIL negative control: the separate route did not lose the occurrence. This"
                " case no longer reaches the defect\n");
         failed = 1;
     }
@@ -1360,8 +1360,8 @@ static int adversarial_case_joint_projection(void)
             corpus[at] = 0x00100000u + (adversarial_next(&state) % alphabet);
         }
 
-        // Even seeds cut the needle out of the corpus, so the truth is at least one. Odd seeds draw
-        // it independently, so the needle holds symbols in proportions the corpus does not.
+        // Even seeds cut the needle out of the corpus. The truth is at least one. Odd seeds draw
+        // it independently. The needle holds symbols in proportions the corpus does not.
         if ((seed % 2u) == 0u)
         {
             const size_t origin =
@@ -1404,7 +1404,7 @@ static int adversarial_case_joint_projection(void)
             apart_losses += 1u;
         }
 
-        // At 256 classes or fewer no place is clamped, so the rank count must equal the truth. Past
+        // At 256 classes or fewer no place is clamped. The rank count must equal the truth. Past
         // that the clamp can merge classes and the rank count must not fall below it.
         if (distinct <= 256u)
         {
@@ -1446,7 +1446,7 @@ static int adversarial_case_joint_projection(void)
 
     // PART THREE. Three hundred distinct symbols, and a needle cut from positions 260 and 261. Joint
     // places 0 to 254 stay apart and every class from place 255 on takes rank 255, including both of
-    // the needle's, so every adjacent pair from position 255 on agrees with the needle on rank.
+    // the needle's. Every adjacent pair from position 255 on agrees with the needle on rank.
     const size_t singleton_length = 300u;
 
     for (size_t at = 0u; at < singleton_length; at += 1u)
@@ -1480,7 +1480,7 @@ static int adversarial_case_joint_projection(void)
     }
     if (clamp_together <= clamp_truth)
     {
-        printf("    FAIL premise: the clamp merged nothing the needle uses, so the upper bound is"
+        printf("    FAIL premise: the clamp merged nothing the needle uses. The upper bound is"
                " unmeasured\n");
         failed = 1;
     }

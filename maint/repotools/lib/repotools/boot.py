@@ -23,7 +23,7 @@ The alternative is counting:
 
     sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "lib"))
 
-Counting fixes a script's distance from the root, so the script breaks the day it moves one level.
+Counting fixes a script's distance from the root. The script breaks the day it moves one level.
 Thirty nine scripts in the anchor_sift tree computed their root by counting, and sorting that tree
 into categories moved every one of them and broke all thirty nine at once.
 
@@ -66,7 +66,7 @@ def find_toolkit_root(start=None):
     The non-raising form of toolkit_root, for a caller that reaches for the toolkit as one
     candidate among several and has somewhere else to look when it is absent.
 
-    A fetch installs the sets a repository asked for and never repo/repo_template or code/, so a
+    A fetch installs the sets a repository asked for and never repo/repo_template or code/. A
     tool running out of a fetched tree has no toolkit above it. toolkit_root raising there ended
     the run before the caller reached its remaining candidates and before it could print what it
     had tried, which is the shape gates.py was written against: the failure arrives as something

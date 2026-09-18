@@ -9,7 +9,7 @@
 #
 # A reference is the most a structure reaches once the thing being looked for is removed from it,
 # and made out of the structure alone so it borrows nothing. What stage four reads is the favored
-# fraction, so the question here is how much of that fraction survives when what carries it is taken
+# fraction. The question here is how much of that fraction survives when what carries it is taken
 # away, and the answer names what carries it.
 #
 # Two deletions, each keeping something and destroying something.
@@ -23,7 +23,7 @@
 #
 # Drawing angles uniformly keeps nothing. It is the flat background, the fraction of the whole plane
 # the favored regions cover, and it says how much a reading would get from a structure that had no
-# preference at all. The favored regions are a small part of the plane, so this floor is low.
+# preference at all. The favored regions are a small part of the plane. This floor is low.
 #
 # Predicted before measuring: the live favored fraction is near total, the paired-shuffle fraction
 # is well below it, and the uniform fraction is lower still. The gap from live to shuffle is the
@@ -49,7 +49,7 @@ import ramachandran_rules as rules  # noqa: E402
 CORPORA = os.path.join(ROOT, "build", "corpora")
 CACHE = os.path.join(ROOT, "build", "rama")
 
-# Held, so a rerun reports the same background. The draw belongs to the universe and not to the run.
+# Held. A rerun reports the same background. The draw belongs to the universe and not to the run.
 SEED = 0x51F7
 
 

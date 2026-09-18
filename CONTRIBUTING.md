@@ -21,7 +21,7 @@ This is a research body with code attached. Three kinds of change are useful:
 
 ## What is not in the repository
 
-The 20 hand extraction tables under `theory/Salishan/` are not carried in git. Every row is a form transcribed out of a published paper, so the tables are those papers' text and not this work's to redistribute. `refs.md` gives the address of every source paper, and the tables go to anyone who has the papers and asks.
+The 20 hand extraction tables under `theory/Salishan/` are not carried in git. Every row is a form transcribed out of a published paper. The tables are those papers' text and not this work's to redistribute. `refs.md` gives the address of every source paper, and the tables go to anyone who has the papers and asks.
 
 The derivations built on them are here in full: the ledger, the bound, the checks and the code.
 

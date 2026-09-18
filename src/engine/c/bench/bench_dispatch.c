@@ -151,7 +151,7 @@ typedef struct
     double entropy;
     size_t distinct;
     /* The dispatch rule reads the field's census now rather than an entropy in double, and this
-     * bench scores the rule against the clock, so a row has to carry what the rule consumes. The
+     * bench scores the rule against the clock. A row has to carry what the rule consumes. The
      * entropy and the distinct count above stay because this bench PRINTS them; they are its report
      * and no longer the engine's input. */
     AnchorFieldCensus census;
@@ -545,7 +545,7 @@ typedef struct
  *
  * @param[in] rows  Measured rows [BORROWS].
  * @param[in] count How many.
- * @note A rule that cannot beat one of the two constant baselines is not worth its branch, so the
+ * @note A rule that cannot beat one of the two constant baselines is not worth its branch. The
  *       baselines sit here beside the rules that read a plan.
  */
 static void score_named(const Row *rows, size_t count)
@@ -628,7 +628,7 @@ int main(void)
 
     if ((corpus == NULL) || (absent == NULL) || (rows == NULL))
     {
-        // %zu is absent from the C runtime this builds against on Windows, so every size_t printed
+        // %zu is absent from the C runtime this builds against on Windows. Every size_t printed
         // here is widened and written as %llu.
         (void)fprintf(stderr, "  could not take %llu bytes\n",
                       (unsigned long long)(CORPUS_BYTES + absent_bytes));

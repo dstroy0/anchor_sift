@@ -104,13 +104,13 @@ ROOT = _repository_root()
 CORPORA = os.path.join(ROOT, "build", "corpora")
 
 # The chapter is the output now, not a page under docs. theory/ is the source and docs/research
-# points at it, so writing markdown there would put a second copy where the pointer belongs.
+# points at it. Writing markdown there would put a second copy where the pointer belongs.
 #
 # The figure goes beside the chapter for the same reason. It was landing under docs/ while its
 # chapter was in theory/, which left the book referring to a picture in another directory and put
 # a research artifact inside what is otherwise repository documentation. PDF because matplotlib
 # writes it from the same savefig call and LuaLaTeX includes it without Inkscape.
-# The Salishan book is authored upstream in theory_bucket and reaches this tree as a subtree, so the
+# The Salishan book is authored upstream in theory_bucket and reaches this tree as a subtree. The
 # chapter and its figure are written there, and what this produces is carried upstream like any other
 # change to those books.
 CHAPTERS = os.path.join(ROOT, "theory_bucket", "Salishan", "chapters")
@@ -310,7 +310,7 @@ def placeable(held, separations, growth):
     answers 1.0 at the size the corpora are already at.
 
     Each corpus carries its own resolution because each is a different size. Growth multiplies every
-    corpus, and a resolution measured at n falls as 1/sqrt(n), so growing by g divides it by
+    corpus, and a resolution measured at n falls as 1/sqrt(n). Growing by g divides it by
     sqrt(g). Nothing is tuned per language: the distances are measured between the corpora and the
     resolutions are measured inside them.
     """
@@ -385,7 +385,7 @@ def figure_of(papers, readers, path):
     standing = sum(one[0] for one in bare[0].values())
     sizes = [standing * one for one in growths]
 
-    # A person's accuracy on a page does not improve because some other paper was read, so the
+    # A person's accuracy on a page does not improve because some other paper was read. The
     # reader arm does not climb with corpus size. Its scatter is the point: a reader is written for
     # one paper and what it gets right is a fact about that paper.
     rates = [one["reproduced"] / float(one["wanted"]) for one in readers if one["wanted"]]
@@ -463,13 +463,13 @@ def reported(module):
 
 
 # A paper's block opens with its table's filename and every count in it is a number followed by the
-# check's own words for what it counted. Those phrases are the check's vocabulary, so keying on
+# check's own words for what it counted. Those phrases are the check's vocabulary. Keying on
 # them breaks loudly if one is reworded instead of drifting quietly.
 BLOCK = re.compile(r"^\s+(\S+)\.oracle\.tsv")
 COUNT = re.compile(r"^\s+(\d+)\s+(\S.*?)\s*$")
 
 # reader_check puts two counts on one line, the forms it was asked for and the items the reader
-# actually wrote, so the second one needs asking for by name.
+# actually wrote. The second one needs asking for by name.
 ITEMS = re.compile(r"forms asked for,\s+(\d+)\s+items")
 
 
@@ -738,7 +738,7 @@ def main():
 
         handle.write("## 2. What the checks have seen\n\n")
         handle.write("A paper contributes trials only where its extracted text is what the page "
-                     "prints. The others are checked against a damaged source, so their "
+                     "prints. The others are checked against a damaged source. Their "
                      "disagreements measure the source and not the table. The references chapter "
                      "names each of them.\n\n")
         handle.write("![Hand extraction against its paper](corpus-derivation.pdf)\n\n")
@@ -757,8 +757,8 @@ def main():
                      % (on_zero, len(papers) - on_zero))
         handle.write("**Why the right panel is here.** The extraction has a lifetime and the "
                      "question is what carries it. A person reads a paper at a fixed accuracy "
-                     "however large the corpus gets, so that arm is flat. The algorithm's accuracy "
-                     "is a function of corpus size, so that arm climbs. Whether and where they "
+                     "however large the corpus gets. That arm is flat. The algorithm's accuracy "
+                     "is a function of corpus size. That arm climbs. Whether and where they "
                      "cross decides whether the corpus is worth growing for its own sake, and the "
                      "panel is what answers it.\n\n")
         handle.write("**What to read off it.** The algorithm arm is the fraction of dialects whose "
@@ -822,7 +822,7 @@ def main():
         handle.write("The target this file was asked for is 1e-26 per line over the whole "
                      "extraction. It is not reached and it is not close, and the honest form of "
                      "the answer is the distance.\n\n")
-        # The archive is 993 papers and only the sound ones are counted, so the lifetime is what
+        # The archive is 993 papers and only the sound ones are counted. The lifetime is what
         # those scale to. The bound is 3/N in each channel and N grows with the papers read.
         lifetime = ARCHIVE_PAPERS / float(len(sound))
         ahead = 1.0
@@ -910,7 +910,7 @@ def main():
         handle.write("Lushootseed is not one dialect. The northern and southern varieties have "
                      "known land and family borders, and Mellesmoen and Kye's stress paper labels "
                      "every form it cites with which one it came from. The hand extraction copied "
-                     "that into the `who` column, so the border sits on disk as a fact published "
+                     "that into the `who` column. The border sits on disk as a fact published "
                      "by a linguist.\n\n")
         handle.write("That makes it something a test of this algorithm almost never has: an "
                      "answer that did not come from the algorithm. "
@@ -971,7 +971,7 @@ def main():
         handle.write("**Generated by:** `maint/data/salishan/corpus_derivation.py`\n")
         written = handle.getvalue()
 
-    # The chapter title comes from the manifest in markdown_to_latex, so the book reads the same
+    # The chapter title comes from the manifest in markdown_to_latex. The book reads the same
     # whether a chapter was converted once by hand or is rewritten by this every run.
     body = markdown_to_latex.convert(written, "How wrong it could be")
     # The heading the markdown opens with is now the chapter title, and keeping both would print it

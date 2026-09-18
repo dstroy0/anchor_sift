@@ -21,17 +21,25 @@ data <- read.csv(path, stringsAsFactors = FALSE)
 
 cat(sprintf("%d ratios over %d corpora\n\n", nrow(data), length(unique(data$corpus))))
 
-cat(sprintf("  %-28s %-6s %-9s %-10s %-9s %-10s %s\n",
-            "corpus", "n", "skew", "kurtosis", "W", "p", "log p"))
+cat(sprintf(
+  "  %-28s %-6s %-9s %-10s %-9s %-10s %s\n",
+  "corpus", "n", "skew", "kurtosis", "W", "p", "log p"
+))
 
 skewness <- function(x) {
-  m <- mean(x); s <- sqrt(mean((x - m)^2))
-  if (s <= 0) return(NA)
+  m <- mean(x)
+  s <- sqrt(mean((x - m)^2))
+  if (s <= 0) {
+    return(NA)
+  }
   mean(((x - m) / s)^3)
 }
 kurtosis <- function(x) {
-  m <- mean(x); s <- sqrt(mean((x - m)^2))
-  if (s <= 0) return(NA)
+  m <- mean(x)
+  s <- sqrt(mean((x - m)^2))
+  if (s <= 0) {
+    return(NA)
+  }
   mean(((x - m) / s)^4) - 3
 }
 
@@ -46,9 +54,11 @@ for (name in sort(unique(data$corpus))) {
   logged <- shapiro.test(log(sample_values[sample_values > 0]))
   total <- total + 1
   if (test$p.value < 0.01) failed <- failed + 1
-  cat(sprintf("  %-28s %-6d %+-9.3f %+-10.3f %-9.4f %-10.2e %.2e\n",
-              substr(name, 1, 28), length(values), skewness(values), kurtosis(values),
-              test$statistic, test$p.value, logged$p.value))
+  cat(sprintf(
+    "  %-28s %-6d %+-9.3f %+-10.3f %-9.4f %-10.2e %.2e\n",
+    substr(name, 1, 28), length(values), skewness(values), kurtosis(values),
+    test$statistic, test$p.value, logged$p.value
+  ))
 }
 
 cat(sprintf("\n  normality rejected at 1%% for %d of %d corpora\n", failed, total))

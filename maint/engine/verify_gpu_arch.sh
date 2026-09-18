@@ -9,7 +9,7 @@
 # WHAT THIS GRADE IS AND WHAT IT IS NOT
 #
 # One device is present here, an RTX 3070 at compute 8.6, and the arm is run against the portable
-# arm on it. Every other architecture below has no hardware here, so the check is the one available:
+# arm on it. Every other architecture below has no hardware here. The check is the one available:
 # compile for that target, then disassemble the cubin and confirm real SASS for that architecture
 # came out. An empty section or a PTX-only stub that would be JIT compiled later does not pass.
 #

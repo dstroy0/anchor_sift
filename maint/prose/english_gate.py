@@ -135,7 +135,7 @@ def _default_cut():
 def english_words(text):
     """Every ASCII word in a text that has an English shape, lowercased.
 
-    Punctuation and glyphs never enter: WORD matches ASCII letters only, so the
+    Punctuation and glyphs never enter: WORD matches ASCII letters only. The
     orthography, the IPA, the Greek and the box drawing are gone before this reads a token.
 
     Two more kinds of residue survive that and are dropped here. A gloss label is written in ASCII

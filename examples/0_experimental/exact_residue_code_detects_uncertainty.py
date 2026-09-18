@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/0_experimental/exact_residue_code_detects_uncertainty.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. It takes a code the coding-theory field already uses and points it at this engine's job. A
 # residue number system carries an integer as its remainders against a set of pairwise coprime moduli,
 # and the Chinese remainder theorem reconstructs the integer from them. Adding REDUNDANT moduli past
@@ -20,7 +20,7 @@
 # exact integer the system holds is the product of the moduli, and every modulus added multiplies that
 # range, and a single modulus near 2^40 widens the exact range by more than a trillion, without end.
 # Second, DETECTION that cannot cry wolf: because every residue is an exact integer and nothing rounds,
-# a nonzero syndrome is a real disagreement, so the code detects genuine uncertainty and never its own
+# a nonzero syndrome is a real disagreement. The code detects genuine uncertainty and never its own
 # arithmetic. That is the protein session's enantiomer case stated as a code: two independent exact
 # measurements compared residue by residue agree exactly or name where they differ, and a rounded
 # compare would have merged them.
@@ -190,7 +190,7 @@ def is_prime(number):
     """A deterministic Miller-Rabin primality test for the sizes used here.
 
     The witness set is exact for every number below 3.3e24, well past the moduli near 2^40 stacked
-    below, so the range table rests on genuine pairwise-coprime primes.
+    below. The range table rests on genuine pairwise-coprime primes.
     """
     small = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37)
     if number < 2:
@@ -247,7 +247,7 @@ def report_range(out):
         if running > googol:
             reached = True
         out.write("  %-16d %-16d %-24d%s\n" % (count, digits, factor, crossed))
-    out.write("  each modulus near 2^40 multiplies the range by more than a trillion, so nine of them\n")
+    out.write("  each modulus near 2^40 multiplies the range by more than a trillion. Nine of them\n")
     out.write("  pass a googol of exact range, and the product has no fixed width to stop the climb.\n\n")
     return reached
 

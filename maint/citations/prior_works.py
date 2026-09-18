@@ -34,7 +34,7 @@
 # theory/crystallography/chapters/chapter_whose_result.tex says an autocorrelation of density in a
 # crystal is very unlikely to be new, that the reasonable prior is that it has a name and a
 # literature behind it, and that nobody here has done the reading. That paragraph asserts no
-# priority and states its own gap, so it needs no citation and passes. Every DISCLAIMER pattern
+# priority and states its own gap. It needs no citation and passes. Every DISCLAIMER pattern
 # below was read off it.
 #
 # IT REPORTS. A PERSON DECIDES EACH SITE.
@@ -42,7 +42,7 @@
 # No regex can tell a priority claim from a description of somebody else's priority. "no
 # narrowed-width formula was found in the literature" is a claim this work is making; "Handschuh
 # and Gilbert show" is a claim about theirs, and the second is what a citation looks like. The
-# finding names the line and the reader opens it. Exit status is the count, so a pipeline can fail
+# finding names the line and the reader opens it. Exit status is the count. A pipeline can fail
 # on it without a flag, and nothing here refuses a commit on its own.
 
 import io
@@ -156,7 +156,7 @@ REFERENCES = (
 PASSAGE = re.compile(r"[\"\u201c][^\"\u201c\u201d]{60,600}[\"\u201d]")
 
 # A quotation mark holding a path, an identifier, or a single term rather than a sentence. A
-# passage has to read as prose, so it needs whitespace and a finite verb somewhere in it.
+# passage has to read as prose. It needs whitespace and a finite verb somewhere in it.
 LOOKS_LIKE_PROSE = re.compile(r"\s\w+\s")
 
 
@@ -229,7 +229,7 @@ def main():
     roots = wanted or list(DEFAULT_ROOTS)
     held = texts(roots)
     if not held:
-        out.write("  no files were read. Nothing was checked, so nothing passed.\n")
+        out.write("  no files were read. Nothing was checked. Nothing passed.\n")
         for one in roots:
             out.write("    %s\n" % one)
         out.flush()

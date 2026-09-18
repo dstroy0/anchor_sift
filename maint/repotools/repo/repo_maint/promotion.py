@@ -18,7 +18,7 @@ believing it is ready when it is not is what puts a project's hardcoded root int
 
 WHY PULLING FIRST IS STILL RIGHT
 
-Nobody's tools are deleted when a copy lands here, so a repository loses nothing by the toolkit
+Nobody's tools are deleted when a copy lands here. A repository loses nothing by the toolkit
 holding an unconverted copy, and the duplication is visible instead of scattered. The alternative
 was leaving tools in eight trees until somebody had time to convert them, and the measurement says
 what that costs: 32 shapes written more than once and 7,948 duplicated lines across six repositories,
@@ -27,7 +27,7 @@ overnight while the conversion queue was the thing holding it up.
 
 FILES THAT MATCH THEMSELVES
 
-`fetch.py` holds the needles, so it matches every one of them. `polite.py` is the module the network
+`fetch.py` holds the needles. It matches every one of them. `polite.py` is the module the network
 rule points at. The spine's own modules name projects in the comments that explain the rules. Those
 are listed as self-referential and counted apart, because a report that cries wolf about its own
 detector gets ignored along with everything else in it.
@@ -44,7 +44,7 @@ sys.path.insert(0, os.path.join(_at, "lib"))
 from repotools import boot, fetch, findings  # noqa: E402
 
 # Files whose matches are the detector meeting its own vocabulary. Named individually, never by a
-# pattern, so a genuinely unconverted file cannot hide by being renamed into a category.
+# pattern. A genuinely unconverted file cannot hide by being renamed into a category.
 SELF_REFERENTIAL = (
     "lib/repotools/fetch.py",
     "lib/retrieval/polite.py",
@@ -133,7 +133,7 @@ def main(argv):
     # Reading nothing is never passing. A set list that has drifted from the tree yields no files,
     # and a promotion report over zero files would read as a finished toolkit.
     if total == 0:
-        print("  no files were read, so nothing was assessed.")
+        print("  no files were read. Nothing was assessed.")
         return findings.EXIT_READ_NOTHING
     return findings.EXIT_OK
 

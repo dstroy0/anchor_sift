@@ -7,24 +7,24 @@
 #
 #   Usage:  python examples/crystallography/5_sift/lattice_breaks_the_product_rule.py [entries]
 #
-# An anchor is a condition copied out of the pattern, so any position genuinely holding the pattern
+# An anchor is a condition copied out of the pattern. Any position genuinely holding the pattern
 # satisfies every anchor and correctness cannot turn on which anchors were chosen. What the choice
 # moves is how many false candidates survive, and the usual estimate of that is the product of the
 # anchors' own rates: three anchors on elements occurring at half the sites each should leave an
 # eighth of the positions standing.
 #
 # That estimate assumes the anchors are positioned independently. A lattice is the arrangement where
-# they are least independent of anything in nature, so it is the sharpest available test of how far
+# they are least independent of anything in nature. It is the sharpest available test of how far
 # the estimate can be out. src/engine/c/bench/bench_coherence.c measures the same failure on a
 # synthetic period. This does it on published cells.
 #
 # A crystal is the single case here where the cascade needs no tolerance. A protein is a cloud of real
-# valued coordinates, so two occurrences of one motif never land on identical offsets and
+# valued coordinates. Two occurrences of one motif never land on identical offsets and
 # examples/proteins/5_sift extends a tolerance of one voxel in each direction to get any match at
 # all. Here the points are exact integers and a displacement either lands on an occupied place or
 # does not. Proposition 1 is tested in the form it was stated in, with nothing relaxed.
 #
-# A needle is built from points the arrangement actually contains, near a seed, so the pattern is a
+# A needle is built from points the arrangement actually contains, near a seed. The pattern is a
 # shape the domain holds and not an arbitrary offset into empty space.
 
 import io
@@ -57,7 +57,7 @@ def cascade(points, draw):
     """Survivor counts against the product rule prediction, one ratio per needle drawn.
 
     An alignment survives when every displacement lands on a place holding the element the needle
-    asks for. The comparison is equality between exact integers, so no near miss is admitted.
+    asks for. The comparison is equality between exact integers. No near miss is admitted.
     """
     places = dict(points)
     keys = list(places)
@@ -110,7 +110,7 @@ def cascade(points, draw):
                     break
             else:
                 survivors += 1
-        # The seed itself always survives, so only what stands beyond it is evidence.
+        # The seed itself always survives. Only what stands beyond it is evidence.
         ratios.append(max(survivors - 1, 0) / predicted)
     return ratios
 

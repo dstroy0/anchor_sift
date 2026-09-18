@@ -14,7 +14,7 @@
 # protein case demonstrated the difference by being reported as unstructured twice.
 #
 # A crystal is the cleanest positive control available, because the periodicity is not inferred from
-# the measurement. The Crystallography Open Database publishes the cell edge for every entry, so the
+# the measurement. The Crystallography Open Database publishes the cell edge for every entry. The
 # answer is a number someone else measured and wrote down before this instrument existed.
 #
 # This sweeps instead of sampling. The first run of it took three minerals and returned three exact
@@ -170,7 +170,7 @@ def measure_entry(text):
     """Every axis of one structure, as (axis name, published edge, recovered period, agreement).
 
     The two edges are exact integers at representation.exact.SCALE and are compared with equality.
-    Nothing is swept: the whole difference set of the axis is the candidate set, so no ceiling here
+    Nothing is swept: the whole difference set of the axis is the candidate set. No ceiling here
     decides what can be found.
 
     Returns an empty list where the cell cannot be read exactly or nothing agreed on any axis.
@@ -255,7 +255,7 @@ def main():
     out.write("  every coordinate carried as an integer at 1e-%d angstroms, nothing rounded\n"
               % exact.SCALE_DIGITS)
 
-    # A miss counts for more than a hit here, so every one is named instead of counted.
+    # A miss counts for more than a hit here. Every one is named instead of counted.
     missed = [row for row in rows if not row[5]]
     if missed:
         out.write("\n  not equal to the published edge\n")

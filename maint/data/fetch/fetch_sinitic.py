@@ -59,7 +59,7 @@ VARIETIES = (
 
 def pull(code, offset):
     # Listed and not searched. The search was given the letter a as its query, which is a reasonable term
-    # in a Latin encyclopedia and almost absent from one written in Chinese characters, so every one of
+    # in a Latin encyclopedia and almost absent from one written in Chinese characters. Every one of
     # these varieties came back with nothing and looked like an empty encyclopedia.
     #
     # Opening sections only. A full extract is served one page at a time whatever limit is asked for, so

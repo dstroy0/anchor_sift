@@ -6,7 +6,7 @@
 #     maint/engine/build_gpu_raster.ps1 [-Arch sm_86]
 #
 # nvcc drives a host compiler and on Windows that host compiler is MSVC. The CMake build uses a
-# different one, and objects from the two do not link, so the device arm gets its own build exactly
+# different one, and objects from the two do not link. The device arm gets its own build exactly
 # as the exact arm does in build_gpu_arm.sh. Everything this binary needs is compiled here by the one
 # compiler nvcc is driving, which is what keeps the ABI consistent inside it.
 #
@@ -67,7 +67,7 @@ foreach ($line in $envDump)
 New-Item -ItemType Directory -Force $out | Out-Null
 
 # ANCHOR_RASTER_HAVE_CUDA is what suppresses the stub arms in anchor_raster.c. Defined on this build
-# and undefined on the CMake one, so exactly one definition of each device symbol ever exists.
+# and undefined on the CMake one. Exactly one definition of each device symbol ever exists.
 $defines = "-DANCHOR_RASTER_HAVE_CUDA=1"
 $includes = "-I`"$src\portable`" -I`"$src\no_rounding`" -I`"$render`""
 

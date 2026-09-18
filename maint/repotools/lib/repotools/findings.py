@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 """One report shape for every check in the toolkit, and one rule about exit codes.
 
-A check yields findings and returns a Report. The Report decides the exit code, so a caller never
+A check yields findings and returns a Report. The Report decides the exit code. A caller never
 writes `sys.exit(1 if bad else 0)` and never gets that backwards.
 
     from repotools import findings
@@ -79,7 +79,7 @@ class Report:
             file=stream,
         )
         if self.checked == 0:
-            print("  %s read no files. Nothing was checked, so nothing passed." % self.name, file=stream)
+            print("  %s read no files. Nothing was checked. Nothing passed." % self.name, file=stream)
             return EXIT_READ_NOTHING
         if self.breaking_findings:
             return EXIT_BREAKING

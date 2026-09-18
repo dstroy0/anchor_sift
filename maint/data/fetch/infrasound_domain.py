@@ -14,7 +14,7 @@
 # the band where much animal communication happens.
 #
 # These are recorded for that band instead. They come from the NOAA PMEL Acoustics Program as uncompressed
-# WAV, so no codec has been applied, and each is time compressed by the factor its name carries so that a
+# WAV. No codec has been applied, and each is time compressed by the factor its name carries so that a
 # call near 20 Hz lands somewhere audible. The speedup is undone here, since a measurement of arrangement
 # should be taken against real time and not against a playback convenience.
 
@@ -46,7 +46,7 @@ WINDOW_MS = 100.0
 
 
 def speedup(name):
-    """The playback factor the file name carries, so real time can be recovered."""
+    """The playback factor the file name carries. Real time can be recovered."""
     found = re.search(r"(\d+)x", name)
     return float(found.group(1)) if found else 1.0
 

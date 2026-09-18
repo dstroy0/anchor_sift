@@ -6,21 +6,21 @@
 #
 #   Usage:  from render.native import load, raster_render, volume_render, raster_host
 #
-# Python cannot own a device path here: numpy, cupy and the rest are banned tree wide, so a pure
+# Python cannot own a device path here: numpy, cupy and the rest are banned tree wide. A pure
 # Python renderer runs on the CPU alone. The device preference lives in C, where anchor_raster_render
 # and anchor_volume_render already ask the device first and fall back to the host. This binding lets
-# Python call those, so a machine that built the shared library with the CUDA arm renders on the
+# Python call those. A machine that built the shared library with the CUDA arm renders on the
 # device without the Python caller choosing an arm. Where no library is loaded, render/__init__ falls
 # back to the pure Python host arm in render.host, and the two are graded byte for byte.
 #
 # The library is not found by walking the tree. The engine knows nothing about the checkout it sits
-# in, so load() takes an explicit path, or reads ANCHOR_RENDER_LIB, or asks the platform loader for a
+# in. Load() takes an explicit path, or reads ANCHOR_RENDER_LIB, or asks the platform loader for a
 # library named anchor_render. A caller that knows where the build put it passes the path.
 #
 # The structures below mirror AnchorRasterConfig, AnchorVolumeConfig and AnchorRasterProbe in
 # src/engine/c/render/anchor_raster.h field for field. ctypes lays them out under the same ABI the C
 # library was built with, and the grader compares the bytes this binding returns against the pure
-# Python arm, so a layout that did not match would fail rather than pass quietly.
+# Python arm. A layout that did not match would fail rather than pass quietly.
 
 import ctypes
 import os
@@ -87,7 +87,7 @@ def load(path=None):
     """Loads the render shared library, or returns None where none is reachable.
 
     Tries `path`, then the ANCHOR_RENDER_LIB environment variable, then a platform search for a
-    library named anchor_render. Returns None rather than raising, so a caller can fall back to the
+    library named anchor_render. Returns None rather than raising. A caller can fall back to the
     pure Python arm.
     """
     candidates = []

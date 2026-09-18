@@ -24,7 +24,7 @@
 # drawn well.
 #
 # What the night's results predict: the reading follows the surface of a writing system, and German
-# spelling, capitalization and typesetting all moved a great deal across this span, so the years should
+# spelling, capitalization and typesetting all moved a great deal across this span. The years should
 # come out strongly. If they do not, the reading is weaker than everything so far suggests.
 
 import io

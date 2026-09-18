@@ -19,7 +19,7 @@ page: a function and its derivative, or the same function at rising frequency.
 
   --x LOW HIGH   range of x, taken as the depth axis. Default -pi to pi.
   --y LOW HIGH   range of y, taken as the series axis. Default -pi to pi.
-  --n COUNT      samples on each axis. Default 96, so 9216 cells per expression.
+  --n COUNT      samples on each axis. Default 96. 9216 cells per expression.
   --title TEXT   heading for the page. Default: the first expression.
   --out FILE     where to write. Default: plot_view.html beside this script.
 
@@ -138,7 +138,7 @@ def main():
         "title": title,
         "blurb": ("%s over x in [%g, %g] and y in [%g, %g], sampled %d by %d. Depth runs left to "
                   "right as x, the other horizontal axis is y, and height and color are the value. "
-                  "Each expression is a step, so a list of them can be stepped through in place."
+                  "Each expression is a step. A list of them can be stepped through in place."
                   % (", ".join(sources), x_low, x_high, y_low, y_high, count, count)),
         "noteTitle": "The shape is yours, the embedding is a claim",
         "note": ("A surface you already know is the way to see what an embedding does. Draw it as a "

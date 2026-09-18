@@ -10,7 +10,7 @@
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-16
  *
- * @note No machine in this project has AVX-512, so this arm has never been run. It is compiled for
+ * @note No machine in this project has AVX-512. This arm has never been run. It is compiled for
  *       the target and its emitted instructions are read by maint/engine/verify_arm_asm.sh, which
  *       confirms zmm registers and vpcmpeqd against a mask. That rules out a silent fallback to
  *       scalar code. It says nothing about behavior, and the arm's name carries that.
@@ -84,7 +84,7 @@ static int avx512_present(void)
  * @param[in] right Second magnitude [BORROWS].
  * @return          1 where every limb matches, 0 otherwise.
  * @note Walks from the top limb down. A value scaled to 1024 decimal digits carries hundreds of
- *       trailing zero digits, so the low limbs are zero on both sides and hold no information.
+ *       trailing zero digits. The low limbs are zero on both sides and hold no information.
  */
 static int avx512_magnitude_equal(const uint32_t *left, const uint32_t *right)
 {
@@ -102,7 +102,7 @@ static int avx512_magnitude_equal(const uint32_t *left, const uint32_t *right)
     if (at > 0u)
     {
         // The remainder, as a masked load. Lanes past the remainder read as zero on both sides and
-        // compare equal, so the mask is applied to the comparison and not to the load alone.
+        // compare equal. The mask is applied to the comparison and not to the load alone.
         const __mmask16 wanted = (__mmask16)((1u << at) - 1u);
         const __m512i one = _mm512_maskz_loadu_epi32(wanted, (const void *)left);
         const __m512i two = _mm512_maskz_loadu_epi32(wanted, (const void *)right);
@@ -188,7 +188,7 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
     const int order = avx512_magnitude_compare(left->limb, right->limb);
     if (left->sign < 0)
     {
-        // Both negative, so the larger magnitude is the smaller value.
+        // Both negative. The larger magnitude is the smaller value.
         return -order;
     }
     return order;
@@ -206,12 +206,12 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
 static size_t arm_agreement(const AnchorExactInteger *positions, const uint64_t *values,
                             size_t count, const AnchorExactInteger *lag)
 {
-    // The shared search, with only the equality test swapped, so what is timed is the instruction
+    // The shared search, with only the equality test swapped. What is timed is the instruction
     // set and not a second algorithm.
     return anchor_exact_agreement_using(arm_equal, positions, values, count, lag);
 }
 
-/** @brief The arm as a driver sees it. Static storage, so returning its address is safe. */
+/** @brief The arm as a driver sees it. Static storage. Returning its address is safe. */
 static const AnchorExactArm AVX512_ARM = {
     "avx512-unrun",
     arm_equal,

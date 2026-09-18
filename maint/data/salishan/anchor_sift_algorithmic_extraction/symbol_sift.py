@@ -214,7 +214,7 @@ def break_sites(lines, marks, vocabulary, inventory):
             if not (second[0].isalpha() or second[0] in marks):
                 continue
             # The test is on what the join would be and not on the halves. x w is the page's xʷ and
-            # neither half carries a mark, so asking the halves skipped every labialization in
+            # neither half carries a mark. Asking the halves skipped every labialization in
             # Robertson while the answer sat in the candidate list.
             #
             # It has to be an attested candidate and not any candidate. Inserting a mark makes every

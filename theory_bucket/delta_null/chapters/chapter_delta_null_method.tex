@@ -10,7 +10,7 @@ Text \(T\), whitespace stripped, encoded UTF-8 to bytes \(b_0 \dots b_{m-1}\). E
 
 \(k_i \;=\; 256\,b_i + b_{i+1}, \qquad k_i \in [0,\,65536)\)
 
-This is the squash. A variable-length sequence over a \(256\)-symbol alphabet becomes a fixed flat array of \(2^{16}\) cells, with no character-level decision taken anywhere in it. The map is injective on pairs, so no two distinct pairs collide.
+This is the squash. A variable-length sequence over a \(256\)-symbol alphabet becomes a fixed flat array of \(2^{16}\) cells, with no character-level decision taken anywhere in it. The map is injective on pairs. No two distinct pairs collide.
 
 \(P_T(k) \;=\; \frac{c_T(k)}{\sum_{j} c_T(j)}, \qquad c_T(k) = \bigl|\{\, i : k_i = k \,\}\bigr|\)
 
@@ -50,7 +50,7 @@ Given the character sets \(S = \{s_1 \dots s_q\}\) that carry the distinctive pa
 
 \(\mathrm{sets}(T) = \sum_{s \in S} \mathbf{1}\bigl[\,\exists\, c \in T,\ c \in s\,\bigr], \qquad \mu(T) = \frac{10^3}{|T_\alpha|}\bigl|\{\,c \in T : \mathrm{comb}(c)\,\}\bigr|\)
 
-where \(T_\alpha\) is the alphabetic subsequence and \(\mathrm{comb}\) marks combining characters. Extraction loss drops combining marks first, so \(\mu \to 0\) with \(\mathrm{sets} \ll q\) identifies a corrupted file whose surviving text is still well-formed (\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}purity.\allowbreak{}py:57-\allowbreak{}71}).
+where \(T_\alpha\) is the alphabetic subsequence and \(\mathrm{comb}\) marks combining characters. Extraction loss drops combining marks first. \(\mu \to 0\) with \(\mathrm{sets} \ll q\) identifies a corrupted file whose surviving text is still well-formed (\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}purity.\allowbreak{}py:57-\allowbreak{}71}).
 
 Run on 60 extracted papers with \(q=7\): one file scored \(\mathrm{sets} \ge 5\) with \(\mu > 0\). The rest lost the marks entirely.
 
@@ -64,7 +64,7 @@ To separate a real partition from the arithmetic of splitting a key space, permu
 
 \subsection{7. Cophenetic Validation}
 
-Average-linkage agglomeration over \(D\). A tree can be built from any matrix, so report the correlation between the cophenetic height \(h(i,j)\) at which \(i\) and \(j\) first join and the measured distance:
+Average-linkage agglomeration over \(D\). A tree can be built from any matrix. Report the correlation between the cophenetic height \(h(i,j)\) at which \(i\) and \(j\) first join and the measured distance:
 
 \(\rho_c \;=\; \mathrm{corr}\bigl(\,D(i,j),\; h(i,j)\,\bigr)_{i < j}\)
 

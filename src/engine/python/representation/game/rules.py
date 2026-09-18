@@ -56,7 +56,7 @@ CHANCE = 2
 
 # What a resolved outcome is worth to PLAYER_ONE when a policy has to order two branches. A draw is
 # half a win because that is the convention the games themselves score by, not because it was tuned.
-# UNRESOLVED is worth nothing, so a policy prefers a branch it can see the end of over one it
+# UNRESOLVED is worth nothing. A policy prefers a branch it can see the end of over one it
 # cannot, which is the conservative direction.
 SCORE = {
     WIN: fractions.Fraction(1),
@@ -108,7 +108,7 @@ class Conditioning(object):
     and maximize our own -- and pruning changes what the distribution means. It stops being
     P(outcome | our move) and becomes P(outcome | our move, the opponent plays into our line). Those
     are different quantities. Reporting the second under the name of the first is the most likely
-    way for this work to be quietly wrong, so the name travels with the number.
+    way for this work to be quietly wrong. The name travels with the number.
     """
 
     def __init__(self, name, hero_policy, foe_policy, statement):
@@ -183,7 +183,7 @@ def expected_score(distribution):
 def outcome_distribution(backend, state, budget, conditioning, memo=None):
     """The exact distribution over WIN, DRAW, LOSS and UNRESOLVED from this position.
 
-    Exact in the arithmetic sense: every number returned is a Fraction, so a distribution computed
+    Exact in the arithmetic sense: every number returned is a Fraction. A distribution computed
     two ways can be compared with `==` and not with a tolerance. Exact is not the same as complete --
     where the budget runs out the mass lands on UNRESOLVED, which is the honest statement of what a
     bounded search knows.

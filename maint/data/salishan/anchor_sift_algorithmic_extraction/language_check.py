@@ -13,7 +13,7 @@
 # Anchors are the corpora nine hand-read papers produced, one per language, plus the English those
 # same readers marked. Papers are cut into blocks at the size section 3 was measured at, and each
 # block is asked which anchor it is nearest. A paper's own front matter names its language and that
-# statement owes nothing to bytes, so agreement is evidence and disagreement names a paper to open.
+# statement owes nothing to bytes. Agreement is evidence and disagreement names a paper to open.
 #
 # Every distance is reported beside the resolution that decides whether it may be read at all.
 
@@ -24,7 +24,7 @@ import os
 import subprocess
 import sys
 
-# Every Salishan category on the import path, so this can use a sibling from another one.
+# Every Salishan category on the import path. This can use a sibling from another one.
 for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
     if _category.is_dir():
         sys.path.insert(0, _category.path)
@@ -85,7 +85,7 @@ CORPORA = os.path.join(ROOT, "build", "corpora")
 
 # Which language each hand-read corpus is, from its own paper's front matter. Keyed on the paper
 # title, the second underscore-separated field of a record's filename. A record is named
-# <spoken by>_<paper>_<who wrote it down>_Salish_<language>_<year>_<mixed>, so the first field is
+# <spoken by>_<paper>_<who wrote it down>_Salish_<language>_<year>_<mixed>. The first field is
 # the speaker and looking a title up under it finds nothing.
 BY_CORPUS = {
     "ThreeGlossedNlekepmxcinNarratives": "nɬeʔkepmxcín",

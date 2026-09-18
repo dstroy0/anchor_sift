@@ -19,7 +19,7 @@
 # measure reads back. Nothing here rounds, and a comparison is exact whatever the magnitudes.
 #
 # THE PAIR IS ALWAYS REDUCED. `reduced` divides out the greatest common divisor by a hand-written
-# Euclid and keeps the denominator positive, so one value has one representation and tuple equality is
+# Euclid and keeps the denominator positive. One value has one representation and tuple equality is
 # value equality. That is what lets a caller keep writing `mean[i] == (scene[i], 1)` and get the answer
 # it means. No fractions, no math, no importlib: the greatest common divisor is computed here.
 
@@ -35,7 +35,7 @@ def _gcd(first, second):
 def reduced(numerator, denominator):
     """A ratio in lowest terms with a positive denominator, as an integer pair.
 
-    One value then has one representation, so two ratios are equal exactly when their pairs are. A zero
+    One value then has one representation. Two ratios are equal exactly when their pairs are. A zero
     denominator raises, the same refusal Fraction made, because a ratio over nothing is not a value.
     """
     if denominator == 0:
@@ -50,7 +50,7 @@ def reduced(numerator, denominator):
 
 
 def whole(integer):
-    """An integer as a ratio. Its denominator is one, so it needs no reduction."""
+    """An integer as a ratio. Its denominator is one. It needs no reduction."""
     return (integer, 1)
 
 
@@ -77,7 +77,7 @@ def over(left, right):
 def compare(left, right):
     """-1, 0 or 1 as left is below, equal to or above right, by cross-multiply.
 
-    Both denominators are positive after `reduced`, so the sign of left_num*right_den - right_num*left_den
+    Both denominators are positive after `reduced`. The sign of left_num*right_den - right_num*left_den
     is the sign of the difference, an exact integer comparison with no quotient taken.
     """
     here = left[0] * right[1]

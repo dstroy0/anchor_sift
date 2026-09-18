@@ -15,7 +15,7 @@
  *       transforming back gives their convolution, which for a reflected before volume is the
  *       correlation: at lag L, the count of voxels p with p set before and p + L set after.
  * @note Every value is a residue below SHIFT_AGREEMENT_PRIME, held in 32 bits, and every product is
- *       formed in 64 bits and reduced with %. The prime is below 2^30, so a product of two residues
+ *       formed in 64 bits and reduced with %. The prime is below 2^30. A product of two residues
  *       is below 2^60 and never wraps.
  */
 
@@ -67,7 +67,7 @@ static unsigned int agreement_power_of_two(unsigned long long value)
         power <<= 1u;
     }
 
-    // The entry bounds value by SHIFT_AGREEMENT_LONGEST_AXIS, so the power fits the unsigned int.
+    // The entry bounds value by SHIFT_AGREEMENT_LONGEST_AXIS. The power fits the unsigned int.
     return (unsigned int)power;
 }
 
@@ -138,7 +138,7 @@ static void agreement_transform_axis(unsigned int *values, size_t total, unsigne
                     const unsigned long long upper = (unsigned long long)values[near];
                     const unsigned long long lower = ((unsigned long long)values[far] * factor) % SHIFT_AGREEMENT_PRIME;
 
-                    // The prime is added before subtracting, so the difference is never negative.
+                    // The prime is added before subtracting. The difference is never negative.
                     values[near] = (unsigned int)((upper + lower) % SHIFT_AGREEMENT_PRIME);
                     values[far] = (unsigned int)((upper + SHIFT_AGREEMENT_PRIME - lower) % SHIFT_AGREEMENT_PRIME);
                     factor = (factor * (unsigned long long)root) % SHIFT_AGREEMENT_PRIME;

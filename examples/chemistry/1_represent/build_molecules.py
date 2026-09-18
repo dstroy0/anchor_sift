@@ -17,14 +17,14 @@
 #
 # The element identity, the proton count and the electron set, is authored once by the atomic-structure
 # subject in representation.atom.element and consumed, not transcribed. This example holds only
-# chemistry's own layer, a valence per element, so it runs before that ledger lands on main; wiring the
+# chemistry's own layer, a valence per element. It runs before that ledger lands on main; wiring the
 # import is the routed follow-up. Valence is defined here as the number of covalent bonds a neutral,
 # closed-shell atom forms, which for the main group is min(v, 8 - v) over its valence electrons.
 #
 # The validity gate on the catalog is the octet: every atom of every molecule below must close, or a
 # bond was entered wrong. That is the positive control on a hand-built table. The reading it delivers
 # is the one the next stages rest on: a formula does not fix a molecule. Ethanol and dimethyl ether
-# are both C2H6O and both close every atom, so the formula is a necessary label and not the structure,
+# are both C2H6O and both close every atom. The formula is a necessary label and not the structure,
 # which is why the sift's survivors still need confirming.
 
 import collections
@@ -111,7 +111,7 @@ def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     out.write("  A molecule is atoms carrying an element and bonds carrying an order. The octet is the\n")
     out.write("  gate: every atom closes, or a bond was built wrong.\n")
-    out.write("  Formulas are in Hill order, the database convention, so a carbon-free compound is fully\n")
+    out.write("  Formulas are in Hill order, the database convention. A carbon-free compound is fully\n")
     out.write("  alphabetical and ammonia reads H3N.\n\n")
     out.write("  %-20s %-9s %-7s %-7s %s\n" % ("molecule", "formula", "atoms", "bonds", "octet"))
 
@@ -133,7 +133,7 @@ def main():
               % len(isomers))
     for spelled, names in sorted(isomers.items()):
         out.write("    %-9s %s\n" % (spelled, ", ".join(sorted(names))))
-    out.write("  each of those closes every atom, so the octet admits them all and the choice among\n")
+    out.write("  each of those closes every atom. The octet admits them all and the choice among\n")
     out.write("  them is left to a measure, not to valence.\n")
 
     ok = closed == len(CATALOG)

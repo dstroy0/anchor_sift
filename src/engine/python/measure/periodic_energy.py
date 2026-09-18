@@ -7,38 +7,38 @@
 #   Usage:  from measure.periodic_energy import between_classes, against_a_shuffle, recover_period
 #
 # There are two coherent things a period can name and they need two detectors. shift_agreement reads
-# EXACT self-equality, so it finds a coherent TARGET: a sequence that repeats, whose every match at
+# EXACT self-equality. It finds a coherent TARGET: a sequence that repeats, whose every match at
 # the period is an equality between whole values. An impulse breaks a few of those equalities and the
-# family rule survives it, so that detector carries the replacement-noise case.
+# family rule survives it. That detector carries the replacement-noise case.
 #
 # It cannot find a coherent NOISE component hiding in a target that does not repeat. A hum added to
-# speech makes x[n] equal x[n+P] only where the speech already did, which is nowhere, so exact
+# speech makes x[n] equal x[n+P] only where the speech already did, which is nowhere. Exact
 # agreement reads nothing while the hum is plainly there. What the hum does leave is energy: the
-# positions of one phase all carry the same addend, so grouping by phase concentrates that addend's
+# positions of one phase all carry the same addend. Grouping by phase concentrates that addend's
 # energy into the class means and a wrong period does not. This detector reads that concentration.
 #
 # The quantity is the between-class sum of squares, the energy that sits in the differences between
 # the phase means rather than inside the classes. It rises with the period on its own, because more
-# classes hold more between-class variance whatever the data, so the count alone means nothing. The
+# classes hold more between-class variance whatever the data. The count alone means nothing. The
 # only thing that means anything is the amount above what the same histogram reaches with its
-# positions shuffled: reference.shuffles.permuted holds every value and destroys every phase, so its
+# positions shuffled: reference.shuffles.permuted holds every value and destroys every phase. Its
 # between-class energy at a period is the mechanical part, and the live reading minus it is the part
 # the phase actually carries. This is against_a_shuffle from shift_agreement, in energy.
 #
 # WHY A RATIO AND NOT A RAW ENERGY
 #
 # Between-class energy rises with the period on its own: more classes hold more of it whatever the
-# data, so the raw quantity picks the longest period every time and every multiple of a true period
+# data. The raw quantity picks the longest period every time and every multiple of a true period
 # outscores the period itself. The fix is the one analysis of variance has used for a century. Divide
 # the between-class energy by its degrees of freedom, the period minus one, and divide the within-class
 # energy by its own, the length minus the period, and take the ratio. The ratio does not grow with the
 # period, and a multiple of the true period splits the same energy across more classes for more
-# degrees of freedom, so it scores strictly below the fundamental. A period that explains nothing sits
+# degrees of freedom. It scores strictly below the fundamental. A period that explains nothing sits
 # near one, the value with no structure, and the true period stands far above it.
 #
 # The perfectly periodic case, where a period drives the within-class energy to zero, is not this
 # detector's. A sequence that repeats exactly is a coherent TARGET and shift_agreement reads it by
-# exact equality; here that case is declined rather than reported, so the two detectors never both
+# exact equality; here that case is declined rather than reported. The two detectors never both
 # claim one reading.
 #
 # NOTHING IS BOUNDED HERE
@@ -123,7 +123,7 @@ def dispersion_ratio(values, period):
 def against_a_shuffle(values, period, seed=SEED):
     """The dispersion ratio at a period, and the ratio a shuffle of the same values reaches.
 
-    The shuffle holds the histogram exactly and destroys every phase, so its ratio is what this
+    The shuffle holds the histogram exactly and destroys every phase. Its ratio is what this
     grouping reaches with no phase to find, which is near one. Only the live standing above it means
     anything, exactly as a raw self-agreement count means nothing until a shuffle is drawn beside it.
     """
@@ -175,13 +175,13 @@ def null_band(values, reach, draws=8, seed=SEED):
     present only when it stands above the top of this band, which is drawn from the data and never a
     threshold chosen here. `draws` is a declared input.
 
-    The whole spread is returned, not just its top, so a caller can report how much of a margin is the
+    The whole spread is returned, not just its top. A caller can report how much of a margin is the
     effect and how much is the draw. At a large separation the spread does not matter; at a single-digit
     ratio it is the difference between a finding and a shuffle that got lucky. The boundary a reading
     must clear is the last element; the first and last together are the spread.
 
     Returns the sorted list of ratios the shuffles reached, empty where none reached one. `draws` is a
-    small sample, so widen it for a marginal case rather than trusting one draw.
+    small sample. Widen it for a marginal case rather than trusting one draw.
     """
     values = list(values)
     ratios = []

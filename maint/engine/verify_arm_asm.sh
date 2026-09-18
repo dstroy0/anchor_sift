@@ -9,7 +9,7 @@
 # WHAT THIS GRADE IS AND WHAT IT IS NOT
 #
 # Two of these arms have hardware here and are run against the portable arm on real data. AVX-512
-# and SVE have no hardware here, so the strongest available check is the one below: build for the
+# and SVE have no hardware here. The strongest available check is the one below: build for the
 # target, disassemble, and confirm the instructions the arm was written to use are the instructions
 # that came out.
 #
@@ -115,18 +115,18 @@ echo "  The steering scan arms, engine/. Same grade and the same two words: emit
 echo
 
 ENGINE="$ROOT/src/engine/c/engine"
-# A scan arm includes anchor_sift.h, which includes exact_integer.h, so both directories are on the
+# A scan arm includes anchor_sift.h, which includes exact_integer.h. Both directories are on the
 # include path even though a scan arm reads no exact arithmetic.
 SCAN_INC="-I$ENGINE -I$ARMS"
 
 # AVX2 and NEON have hardware here and are run against portable by bench_steer_arms. Graded for
-# emission too, so the row is comparable with the arms that have no hardware.
+# emission too. The row is comparable with the arms that have no hardware.
 check "scan avx2 x86-64" gcc \
     "-O2 -mavx2 $SCAN_INC -DANCHOR_STEER_HAVE_AVX2=1" \
     "$ENGINE/scan_avx2.c" objdump \
     vpcmpeqb ymm
 
-# AVX-512: emission is the whole of the grade. The byte compare writes a mask register, so the
+# AVX-512: emission is the whole of the grade. The byte compare writes a mask register. The
 # instruction is vpcmpeqb against a zmm operand rather than the vpcmpeqd the exact arm emits.
 check "scan avx512 xeon" gcc \
     "-O2 -mavx512f -mavx512bw $SCAN_INC -DANCHOR_STEER_HAVE_AVX512=1" \

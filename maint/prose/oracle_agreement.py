@@ -146,7 +146,7 @@ def main():
     control = words_of(human_text())
     if len(control) < LEAST:
         out.write("  no human pole under build/papers. The control is what makes a distance\n")
-        out.write("  mean anything, so this stops instead of reporting a bare number.\n\n")
+        out.write("  mean anything. This stops instead of reporting a bare number.\n\n")
         out.flush()
         return 2
 
@@ -203,12 +203,12 @@ def main():
 
     if worst_within < best_across:
         out.write("\n  AGREES. Corpora sharing the label are closer to each other than any is to\n")
-        out.write("  the control, so the label carries information about the text.\n\n")
+        out.write("  the control. The label carries information about the text.\n\n")
         out.flush()
         return 0
 
     out.write("\n  DISAGREES. At least one corpus sits further from its own siblings than it does\n")
-    out.write("  from the control, so the label does not separate this text from other writing.\n")
+    out.write("  from the control. The label does not separate this text from other writing.\n")
     for value, one, other in sorted(within, reverse=True)[:3]:
         out.write("    %.4f  %s  and  %s\n" % (value, one[:34], other[:34]))
     out.write("  A pole built from all of them would be built out of more than one thing.\n\n")

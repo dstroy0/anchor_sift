@@ -186,7 +186,7 @@ static void set_sentinel(AnchorExactInteger *value)
     anchor_exact_zero(value);
     for (size_t at = 0u; at < (size_t)ANCHOR_EXACT_LIMBS; at++)
     {
-        // A limb index is below ANCHOR_EXACT_LIMBS, so it fits the uint32_t it is folded into.
+        // A limb index is below ANCHOR_EXACT_LIMBS. It fits the uint32_t it is folded into.
         value->limb[at] = 0x5A5A5A5Au ^ (uint32_t)at;
     }
     value->sign = -1;
@@ -340,7 +340,7 @@ static void run_refusals(void)
 /**
  * @brief Builds a run with a known period and prints the agreement count at a sweep of lags.
  *
- * @note The period is planted, so what the count should be is arithmetic and not a measurement.
+ * @note The period is planted. What the count should be is arithmetic and not a measurement.
  *       Every lag that divides the run's step agrees at every position that has a neighbor, and no
  *       other lag agrees anywhere. The checker recomputes both from the same plan.
  */

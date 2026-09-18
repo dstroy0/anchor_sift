@@ -19,9 +19,9 @@
 # torsion are kept; the two torsions the fold lives in, phi and psi, are quantized to the Richardson
 # two-degree grid, the reference's own quantum and the same grid ramachandran_rules scores against.
 # So the stored backbone is a magnitude table plus, per residue, which grid cell it fell in. The gap
-# between that rebuild and the deposit is read as a whole and then split by constituent, so it says
+# between that rebuild and the deposit is read as a whole and then split by constituent. It says
 # which backbone atom carries the disagreement, and mapped by resolution where the deposit's own
-# published resolution is cached, so it says where the disagreement lives.
+# published resolution is cached. It says where the disagreement lives.
 #
 # The walk is unbounded: every unbroken run of every chain, at any length, is rebuilt. The only floor
 # is arithmetic, that a dihedral needs four points. The walk carries no length cutoff.
@@ -68,7 +68,7 @@ def steered(run):
     """Rebuild a run keeping magnitudes and the peptide torsion, quantizing phi and psi to the grid.
 
     In walk order the dihedral that places atom i is psi at i%3==0, omega at i%3==1 and phi at
-    i%3==2, so the peptide torsion omega keeps its measured value and the two fold torsions are told
+    i%3==2. The peptide torsion omega keeps its measured value and the two fold torsions are told
     to the walk as a grid cell.
     """
     bond, angle, dih = internal_coords(run)

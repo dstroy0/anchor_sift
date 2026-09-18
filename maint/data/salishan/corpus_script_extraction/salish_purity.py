@@ -11,7 +11,7 @@
 # where every gap held a glottalized consonant that is now gone. Those are phonemes. Two words that differ
 # only in glottalization are one word after that loss, and every count taken on the file is a count on a
 # language with a smaller inventory than Lillooet has. Robertson's paper in the same volume came through
-# with ɬəw̓ál̓məš whole, combining marks and all, so this is a property of the file and not of the family.
+# with ɬəw̓ál̓məš whole, combining marks and all. This is a property of the file and not of the family.
 #
 # The gate in corpus_gate.py cannot catch it. What is left after the loss is still writing, still in the script
 # it claims, and still passes at any floor. The check has to look for what should be there instead of what

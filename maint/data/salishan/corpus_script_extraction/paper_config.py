@@ -71,7 +71,7 @@ class Paper(object):
     coverage is the repair the coverage check applies, named where it differs from the one the
     oracle check applies. Two papers differ today and neither difference was deliberate: they are
     what two hand-kept lists drifting apart looks like. Reconciling them changes what the coverage
-    check reports, so it is a measurement to run and not an edit to make quietly.
+    check reports. It is a measurement to run and not an edit to make quietly.
     """
 
     def __init__(self, stem, oracle, record, language, speakers=(), marks=SHARED, repair=None,
@@ -105,7 +105,7 @@ HILBERT_HESS = "?ə" + "čšɬƛᶻʷ" + "̌̓"
 # Robertson writes his Thompson and Shuswap in Americanist symbols and says so on page 30.
 ROBERTSON = SHARED + "̣čš"
 
-# Wolfe's forms are affixes, not words, so the set has to reach a suffix written in plain letters
+# Wolfe's forms are affixes, not words. The set has to reach a suffix written in plain letters
 # with one accent on it. The accents are given composed and combining both: NFC makes á one
 # character while ə́ has no composed form and keeps its acute standing alone.
 WOLFE = SHARED + "ʸːɛεέŋᶿθǰčšĺ" + "áéíóú" + "̌́"
@@ -127,7 +127,7 @@ KIM = SHARED + "ɫˀščóéɔ" + "̦́ʹ"
 #
 # That doubling is its own kind and Robertson has it too, where page 1's epigraph prints one ɬ and
 # one ʔ and the text holds four of each. It is not decidable from the text, because a language may
-# genuinely stack two marks, so these four were read off the page and are listed one at a time.
+# genuinely stack two marks. These four were read off the page and are listed one at a time.
 KIM_DOUBLED = (
     ("[p ʰtíx̦̦ʷ]", "[pʰtíx̦ʷ]"),
     ("[p ətíx̦̦ʷ]", "[pətíx̦ʷ]"),
@@ -233,7 +233,7 @@ HESS_SNOHOMISH = "?ə" + "čšɬƛŋ" + "ʷ" + "áéíúàìù" + "̣̓́̀"
 ELMENDORF_COMPARATIVE = "?ə" + "čšɬƛθɪᴀ" + "ʷʸ" + "áäéíóú" + "̣̓́" + "·'"
 
 # Hamp on Tillamook. This paper cites no words: what it sets out is four consonant inventories and
-# two feature matrices, so its language content is segments and not forms.
+# two feature matrices. Its language content is segments and not forms.
 #
 # Reichard's chart is the one of the four that carries the plain lateral affricate as well as the
 # glottalized, the other three carrying the glottalized alone. That is a fact about the charts and
@@ -274,7 +274,7 @@ GIVENS_HALL_NLEKEPMXCIN = SHARED + "́" + "̣"
 # This paper's extraction flattens its own labialization in 24 places and gets it right in 94. The
 # raised w is U+02B7 ninety four times and a plain full size w twenty four, for the same segment, in
 # words the text layer also writes correctly elsewhere. The page is consistent and the extraction is
-# not, so the hand extraction differing from it is the extraction's defect and not the reading's.
+# not. The hand extraction differing from it is the extraction's defect and not the reading's.
 #
 # Every site was enumerated and every one read off a page render before it was entered here, which
 # is what corrected() asks of a pair. Seven patterns cover all twenty four:
@@ -388,7 +388,7 @@ PAPERS = (
           "nɬeʔkepmxcín",
           speakers=("Bev Phillips, Lytton First Nation (ƛ̓q̓əmcín)",),
           repair=INSERTED_SPACE, coverage=("spaces",),
-          note="Her own reading of the story is in build/audio, so it is an oracle for the "
+          note="Her own reading of the story is in build/audio. It is an oracle for the "
                "extraction and not only a source. The coverage check applies a cruder space "
                "closer here than the oracle check does, the other drift named above."),
     Paper("19-Lyon_ICSNL50_final-78",
@@ -441,7 +441,7 @@ PAPERS = (
           "_Salish_centralsalish_2025_mixed.txt",
           "eighteen Central Salish languages",
           marks=WOLFE, repair=INSERTED_SPACE, coverage=("inserted spaces",),
-          note="Every form is cited from a published dictionary of one of eighteen languages, so "
+          note="Every form is cited from a published dictionary of one of eighteen languages. "
                "there is nobody this corpus is of. The who column carries the language instead, "
                "and the reader writes a .pure.tsv keyed by it and no flat pure file."),
     Paper("ICSNL59_Nater_2_final",
@@ -517,7 +517,7 @@ PAPERS = (
           "",
           "Tillamook",
           marks=HAMP_TILLAMOOK,
-          note="Eric P. Hamp, Another Look at Tillamook Phonology, ICSNL 2. It cites no words, so "
+          note="Eric P. Hamp, Another Look at Tillamook Phonology, ICSNL 2. It cites no words. "
                "its language content is four consonant inventories set side by side and two "
                "feature matrices. No speaker is named, and the paper works throughout from "
                "Thompson and Thompson, Reichard, Kinkade, Drachman and Edel. What it does record "
@@ -528,7 +528,7 @@ PAPERS = (
                "sentences are in the table. The Twana chart is used, in the page's own words, "
                "without his permission, meaning Drachman's. The dot under the uvular fricatives "
                "prints solid in some cells of these charts and as an open ring in others, and the "
-               "two positions swap between the Tillamook and Twana charts, so it is one mark and "
+               "two positions swap between the Tillamook and Twana charts. It is one mark and "
                "the variation is the typewriter."),
     Paper("ICSNL58_Givens_Hall_final",
           "ICSNL58_Givens_Hall_final.oracle.tsv",
@@ -551,7 +551,7 @@ PAPERS = (
                "the only one of the three whose name carries the transcribers and not the "
                "speaker, and a reader working from that filename alone read it as a second "
                "speaker. Footnote 4 defines (VG), a volunteered gloss, as a translated sentence "
-               "BP offered, so the parenthesis at the right margin is the only thing separating "
+               "BP offered. The parenthesis at the right margin is the only thing separating "
                "her English from the authors', and examples 12, 13 and 14 lack it. Its section 4 "
                "repeats every sentence of section 2 in morpheme-broken form, which gave a second "
                "independent reading of every word and turned up three places where the two tiers "
@@ -580,7 +580,7 @@ PAPERS = (
           "Twana",
           marks=ELMENDORF_COMPARATIVE,
           note="William W. Elmendorf, Word Tabu and Change Rates, ICSNL 2. Thirteen languages are "
-               "cited in it and Twana is its subject, so that is the language named here; "
+               "cited in it and Twana is its subject. That is the language named here; "
                "every row carries its own language in the who column. No speaker is named "
                "anywhere: the forms come from Boas and Haeberlin 1927, Krueger 1967, McIlwraith "
                "1948, Walters 1938 and Ray 1932, from Warren Snyder's Suquamish list and Wayne "
@@ -600,7 +600,7 @@ PAPERS = (
                "Vogt 1940, Coeur d'Alene from Reichard 1938, and three Colville forms from an "
                "unnamed speaker who also knew Columbian. Every row carries its own language in the "
                "who column. No speaker is named anywhere in the paper: it says my Cm informants "
-               "and says no more than that, so the forms in this table were said by people it "
+               "and says no more than that. The forms in this table were said by people it "
                "does not identify. Its typewriter has three raised marks and the table's symbol notes turn "
                "on telling them apart, a comma with a thick head and a curling tail, a V wedge, "
                "and a straight acute. čén̓ on page 10 carries all three in one word and is the "
@@ -609,7 +609,7 @@ PAPERS = (
                "and are all x̌ or the č of čiílx. Whether that split is about the language or about "
                "page order is not decidable here, because the wedge first appears on page 8 and "
                "every Columbian form was typed on pages 1 to 7. 1967_Elmendorf, from the same "
-               "conference, distinguishes a wedge from a short raised stroke in its own table, so "
+               "conference, distinguishes a wedge from a short raised stroke in its own table. "
                "the distinction is one these typescripts can carry."),
 )
 

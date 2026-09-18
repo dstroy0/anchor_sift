@@ -45,7 +45,7 @@ backend memo in `rules.py` already coalesces transpositions.
 
 The sum of the two windicators is invariant under swapping the players; the advantage is odd under
 that swap, because giving the move to the other side flips it. A quantity odd under a symmetry is
-invisible to any quantity even under it, so the advantage lives in the signed difference
+invisible to any quantity even under it. The advantage lives in the signed difference
 V(side to move) minus V(if the other side moved), never in the magnitude. This is the same fact a
 reflection-invariant magnitude has about chirality (protein structure analysis, below): exact for
 what the symmetry preserves, blind to what it flips.
@@ -77,7 +77,7 @@ checks five positions against published endgame theory. All five match, and toge
 theorem for this class:
 
 - **Opposition, pawn on the fifth (Ke5/Pe4/Ke7).** White's result is a win if the opponent must move
-  and only a draw if White must move, so the value of the move is NEGATIVE: moving first throws away
+  and only a draw if White must move. The value of the move is NEGATIVE: moving first throws away
   the win. That is the exact proof that first-move advantage can be a disadvantage.
 - **King on the sixth in front of the pawn, and defender far.** A win whoever moves; the value of the
   move is zero.
@@ -100,7 +100,7 @@ mate.
   in exactly 23 plies to mate. From the bare king's side to move the value is a loss at 28 plies, and
   it plays out in exactly 28. The played length equaling the solved distance is the check: the static
   value and the played game are two routes to one number.
-- The repository holds no corpus of human games, so the real movesets are the predictor's own optimal
+- The repository holds no corpus of human games. The real movesets are the predictor's own optimal
   play from a real starting position, both sides driven by the exact predictor. A win for the rook's
   side is the loss for the bare king, one decisive game read from both ends.
 
@@ -152,7 +152,7 @@ draw rules that make value depend on the path.
   this block, or in an already-solved block across an irreversible edge); a loss if every move
   reaches a win for the opponent; a draw otherwise. That draw case is exactly every cyclic,
   no-progress line: the threefold-repetition and fifty-move draw. The fifty-move rule caps a
-  block at 100 plies, so each block is finite.
+  block at 100 plies. Each block is finite.
 - **Graph-history interaction, named.** A position's value can differ by how it was reached, because
   a repetition draws. The value is well defined only relative to the last irreversible move, and that
   boundary is the state that leaves it path-independent. Solving per block keeps the table
@@ -170,7 +170,7 @@ Every open question becomes an exact lookup or filter, no search and no bound.
    of the move over a whole material class, and report the counts of advantage, neutral, and
    disadvantage. The theorem's answer is that distribution, exact, not a single constant.
 3. **Trebuchet.** The mutual-zugzwang position is V(P, White to move) is a White loss AND
-   V(P, Black to move) is a Black loss. Both movers lose, so the move is a strict disadvantage. It is
+   V(P, Black to move) is a Black loss. Both movers lose. The move is a strict disadvantage. It is
    a direct filter on the table, and it is the exact proof that first-move advantage can be negative.
 4. **Windicator, saturated.** Under perfect play the windicator is the WDL value, loss 0, draw 1/2,
    win 1. Two routes must produce the same table: retrograde induction, and forward negamax with
@@ -189,5 +189,5 @@ Every open question becomes an exact lookup or filter, no search and no bound.
   mutual zugzwang without hand-construction, the robust way to exhibit the negative case.
 - **The README routing line.** `examples/game_theory/README.md` says the game-theory book is authored
   upstream in `theory_bucket`. The anchor sift engine is reconciling that line; `theory/` is plain
-  tracked content today with no gitlink behind it, so authoring this log here is consistent with the
+  tracked content today with no gitlink behind it. Authoring this log here is consistent with the
   current state.

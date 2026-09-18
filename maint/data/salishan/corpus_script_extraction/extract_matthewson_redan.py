@@ -8,7 +8,7 @@
 #   Usage:  python maint/data/salishan/corpus_script_extraction/extract_matthewson_redan.py
 #
 # Written for one paper, and this one is a different language from the three before it and a different
-# orthography again. St'át'imcets writes the glottal stop as the digit 7, so Cw7aoz, skúza7 and ts7ásas
+# orthography again. St'át'imcets writes the glottal stop as the digit 7. Cw7aoz, skúza7 and ts7ásas
 # carry none of the marked characters the other papers use. A test built on those marks alone finds almost
 # nothing here, and the marking set is passed in per paper for that reason.
 #
@@ -193,7 +193,7 @@ def main():
         return 1
 
     # This PDF leaves a space after every glottalization mark, 169 of them, and K̓weswapáw̓ arrives
-    # as two tokens. Closed on the way in, so that everything reading these lines sees one word.
+    # as two tokens. Closed on the way in. That everything reading these lines sees one word.
     # The hand extraction is what caught it: reading the paper by eye gives K̓weswapáw̓, and the
     # record held K̓ and weswapáw̓ while coverage_check reported this paper at 100 percent.
     with open(SOURCE, encoding="utf-8", errors="replace") as handle:
@@ -254,7 +254,7 @@ def main():
         elif carries_language(trimmed) and SEGMENTED.search(trimmed):
             rows.append(("T", number, "4", "segmentation", "Lisa Matthewson", trimmed))
         else:
-            # Nothing fired, so the line is flagged and its speaker is left unset. Filling that
+            # Nothing fired. The line is flagged and its speaker is left unset. Filling that
             # column would put a name on a line nobody has read.
             rows.append(("T" if carries_language(trimmed) else "N",
                          number, "4", UNCLASSIFIED, "", trimmed))
@@ -280,7 +280,7 @@ def main():
                    else "K̓weswapáw̓ Linda Redan")
             rows.append(("T", number, "5", "cited example", who, trimmed))
 
-    # Every line of the paper no section reached, added to the record as unclassified, so the
+    # Every line of the paper no section reached, added to the record as unclassified. The
     # marked file holds every token of the language the paper printed. The speaker column is left
     # unset, which also keeps these out of the pure stream, and they are listed in the flag file.
     # The union of every orthography, not this paper's own set. The coverage check counts a token

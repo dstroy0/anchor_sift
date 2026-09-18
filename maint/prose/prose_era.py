@@ -29,7 +29,7 @@
 #
 # WHAT IT CANNOT DO
 #
-# A decade holds a dozen papers and a handful of authors, so an author and their decade are not
+# A decade holds a dozen papers and a handful of authors. An author and their decade are not
 # separable here. A word can date a text or it can name the person who liked it. The marker list
 # below is printed with the count of distinct papers each word appears in, and a marker sitting in
 # one or two papers is one writer's habit wearing a decade's clothes.

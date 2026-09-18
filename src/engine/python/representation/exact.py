@@ -15,8 +15,8 @@
 # exactly answer it with an error of zero.
 #
 # A source writes decimal text. 4.76050, 0.35216, 12.4. That text is a numerator and a count of
-# decimal places, and both are integers, so the number arrives here with nothing lost and no float
-# or Decimal in the path. Python integers are arbitrary precision, so they stay that way through
+# decimal places, and both are integers. The number arrives here with nothing lost and no float
+# or Decimal in the path. Python integers are arbitrary precision. They stay that way through
 # addition and multiplication however large the scale gets.
 #
 # NO QUANTUM IS IMPOSED FROM THIS END
@@ -40,7 +40,7 @@
 # How many digits a reading needs is a property of the operations between the source and the answer,
 # not of the source. Measured on the crystal corpus, every scale from 8 digits to 16384 returns the
 # same 180 of 180 axes. That is a fact about that path and not about the scale: it multiplies each
-# coordinate by an edge once, so the decimal places of the two operands add and eleven of them is
+# coordinate by an edge once. The decimal places of the two operands add and eleven of them is
 # the whole requirement.
 #
 # Places grow with every operation, and a path with division, accumulation, or composed transforms
@@ -56,7 +56,7 @@
 # truncation is never possible, and the cost of that is measurable and small.
 #
 # A python integer of 1024 decimal digits occupies 480 bytes. A crystal cell tiled four times an
-# axis is about 1280 points, so all three coordinates of the whole arrangement come to 1.76 MB. The
+# axis is about 1280 points. All three coordinates of the whole arrangement come to 1.76 MB. The
 # dense grid that crystal.py used to build for the same cell is 320 cubed at a byte a voxel, which
 # is 31.25 MB, and 0.0039 percent of it is occupied. The exact reading is eighteen times smaller
 # than the grid it replaces and it rounds nothing, while the grid spent that memory holding empty
@@ -102,7 +102,7 @@ def _layout(text):
     anchor_exact_from_decimal: padding, an optional sign, digits with at most one point where either
     side may be empty but not both, an optional (digits), padding, and the end of the text.
 
-    The whole text is checked before any number is built. The C arm checks it the same way, so both
+    The whole text is checked before any number is built. The C arm checks it the same way. Both
     refuse malformed text as not decimal before either refuses a value as too wide.
 
     An earlier version cut the bracket out and joined the text on either side of it, which read
@@ -230,7 +230,7 @@ def product(left, right):
 def shifted(value, whole):
     """A (numerator, places) pair with a whole number added to it, exactly.
 
-    The whole number is raised to the pair's own place count first, so the sum stays one decimal
+    The whole number is raised to the pair's own place count first. The sum stays one decimal
     quantity. Used where a point is repeated at a step, as tiling a cell repeats a site.
     """
     numerator, places = value

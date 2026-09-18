@@ -15,7 +15,7 @@
 # fetcher that fills a disk before anyone reads its output. Run it bare first and read the total.
 #
 # WHERE THIS WRITES. repos/external/datasets at tree level, outside this repository, flat names and
-# no nesting. That directory is not a git repository at all, so nothing here can be committed by
+# no nesting. That directory is not a git repository at all. Nothing here can be committed by
 # accident. The rule this repo's .gitignore already states is the same one: what a tool can fetch is
 # not carried here. What the repository keeps is this manifest.
 #
@@ -51,7 +51,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
 #
 # Counted wrong once, by two levels instead of three, which put a dataset in
 # repos/owned/external/datasets. That directory did not exist and was created silently by the
-# fetch, so nothing failed and the only evidence was the path printed in the header. Resolved
+# fetch. Nothing failed and the only evidence was the path printed in the header. Resolved
 # against a landmark now rather than by counting, the same reason the ROOT walk above exists.
 OUT = ROOT
 while (OUT != os.path.dirname(OUT)) and (os.path.basename(OUT) != "repos"):
@@ -161,7 +161,7 @@ def listing(out):
     out.write("  everything: %.1f GB\n\n" % (everything / 1024.0))
     out.write("  Fluo-N3DL-TRIF alone is %.0f GB of that. Ask before it moves.\n"
               % ((320000 + 467000) / 1024.0))
-    out.write("\n  The two `perfect` rows carry exact masks because they are generated, so a\n")
+    out.write("\n  The two `perfect` rows carry exact masks because they are generated. A\n")
     out.write("  tracking error on them is a linking error and cannot be a segmentation error.\n")
     out.write("  --tier perfect selects them.\n")
 
@@ -177,7 +177,7 @@ def fetch(name, arm, megabytes, out):
     address = url_for(name, arm)
     out.write("  %-28s %6d MB  %s\n" % (flat_name(name, arm), megabytes, address))
     out.flush()
-    # Written beside the target and moved on success, so an interrupted transfer never leaves
+    # Written beside the target and moved on success. An interrupted transfer never leaves
     # something that looks like a complete dataset.
     partial = target + ".part"
     try:

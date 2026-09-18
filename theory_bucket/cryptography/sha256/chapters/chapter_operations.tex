@@ -8,7 +8,7 @@ Cryptography's word for the part a linear model cannot hold is \emph{nonlinear},
 
 \section{All four mixing functions are bijections}
 
-The suspicion was that the schedule pair should be lossy where the state pair is not, since \(\sigma_0\) and \(\sigma_1\) each carry a shift and a shift discards bits where a rotation cannot. All four are \(\mathrm{GF}(2)\)-linear, so this needs no sampling: each is a \(32 \times 32\) matrix and its image is two to its rank.
+The suspicion was that the schedule pair should be lossy where the state pair is not, since \(\sigma_0\) and \(\sigma_1\) each carry a shift and a shift discards bits where a rotation cannot. All four are \(\mathrm{GF}(2)\)-linear. This needs no sampling: each is a \(32 \times 32\) matrix and its image is two to its rank.
 
 \begin{center}
 \begin{tabular}{llrr}
@@ -23,11 +23,11 @@ function & terms & rank & kernel \\
 \end{tabular}
 \end{center}
 
-Every one is a bijection. Exclusive-or against two rotations restores what the shift drops, so the schedule pair collides no earlier than the state pair. Handschuh and Gilbert state this for the \(\Sigma\) pair; the measurement here reproduces it for all four independently.
+Every one is a bijection. Exclusive-or against two rotations restores what the shift drops. The schedule pair collides no earlier than the state pair. Handschuh and Gilbert state this for the \(\Sigma\) pair; the measurement here reproduces it for all four independently.
 
 \section{The narrowed rank deficit in closed form}
 
-Narrowed, they do lose rank, and the deficit is exact. A rotation right by \(a\) on a \(w\)-bit word is multiplication by \(x^{w-a}\) in \(\mathrm{GF}(2)[x]/(x^w + 1)\), so three rotations exclusive-ored is multiplication by a three-term polynomial and the kernel is
+Narrowed, they do lose rank, and the deficit is exact. A rotation right by \(a\) on a \(w\)-bit word is multiplication by \(x^{w-a}\) in \(\mathrm{GF}(2)[x]/(x^w + 1)\). Three rotations exclusive-ored is multiplication by a three-term polynomial and the kernel is
 \[
   \deg \gcd\!\left(p(x),\, x^w + 1\right)
 \]
@@ -79,7 +79,7 @@ majority & no & no & almost none \\
 \end{tabular}
 \end{center}
 
-Removing addition alone still reaches the same diffusion plateau as the full function, so the carry is not what makes diffusion happen; the nonlinearity of choice and majority is, and the carry changes how fast, not whether. That matches the published finding that removing addition costs about two rounds and does not stop diffusion.
+Removing addition alone still reaches the same diffusion plateau as the full function. The carry is not what makes diffusion happen; the nonlinearity of choice and majority is, and the carry changes how fast, not whether. That matches the published finding that removing addition costs about two rounds and does not stop diffusion.
 
 \subsection{Majority is redundant on four measures}
 

@@ -8,7 +8,7 @@
 #
 # The dimension count reads roughness at 1, 2, 4, 8 and 16, because it was built for an interleaved
 # index whose repeat counts bit positions. A period of three sits at lags 3, 6 and 9, and no power of
-# two is a multiple of three, so that reader cannot see a period of three whatever the data does.
+# two is a multiple of three. That reader cannot see a period of three whatever the data does.
 # Both quantities were being called a period of n, and one of them was measured with an instrument
 # blind to it.
 #
@@ -18,7 +18,7 @@
 # there is no argument available afterward about what the sequence really does.
 #
 # Scoring a period against all of its multiples is what the first version lacked. A sequence
-# repeating every three agrees with itself at three, six, nine and twelve alike, so which of those
+# repeating every three agrees with itself at three, six, nine and twelve alike. Which of those
 # stands tallest is settled by noise, and taking the tallest lag reports a harmonic as the period
 # about as often as it reports the period.
 

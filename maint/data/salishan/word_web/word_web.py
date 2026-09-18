@@ -131,7 +131,7 @@ def tables():
                     continue
                 if not line.strip():
                     continue
-                # A row whose gloss is empty is written with no trailing tab, so it arrives as four
+                # A row whose gloss is empty is written with no trailing tab. It arrives as four
                 # fields. That is most of them: 1401 of Lyon's 1417. Requiring five dropped every
                 # one and left the web reading sixteen rows of that paper.
                 parts = line.rstrip("\n").split("\t")
@@ -171,7 +171,7 @@ def web(rows, marks, language):
 
     A row's form is kept only where it is language under this paper's alphabet. The kind column is
     not consulted: a title and a transcription are told apart by whether the marks are in them,
-    the same test the checks use, so the web cannot drift from what the checks call
+    the same test the checks use. The web cannot drift from what the checks call
     language.
     """
     forms = []
@@ -209,7 +209,7 @@ def concept_profile(edges):
     """The web as a distribution, which the sift can be handed in place of byte pairs.
 
     Keyed on the concept and shape edges only. The context edges are a fact about one paper's
-    sections and do not transfer to a page nobody has read, so they are in the web for reading and
+    sections and do not transfer to a page nobody has read. They are in the web for reading and
     out of the profile for matching.
     """
     counts = collections.Counter()
@@ -227,7 +227,7 @@ def by_language():
 
     A paper whose who column says northern and southern is two languages here, because the paper
     says its forms are. The dialect border is not being discovered at this step and is not
-    being guessed at: it is being read off the extraction, so anything measured against it later is
+    being guessed at: it is being read off the extraction. Anything measured against it later is
     measured against a label that came from the paper.
     """
     held = collections.defaultdict(list)

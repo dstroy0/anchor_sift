@@ -19,11 +19,11 @@
  * value is an integer count of alignments and the two arms agree exactly or one is wrong. That is
  * the contract AnchorSteerEngine carries, the same one the exact arms carry in no_rounding.
  *
- * @note No machine in this project has AVX-512, so this arm has never been run. It is compiled for
+ * @note No machine in this project has AVX-512. This arm has never been run. It is compiled for
  *       the target and its emitted instructions are read by maint/engine/verify_arm_asm.sh, which
  *       confirms zmm registers and vpcmpeqb against a mask. That rules out a silent fallback to
  *       scalar code. It says nothing about behavior, and the name reads avx512-unrun for that reason.
- * @note AVX-512 comparison writes a mask register, one bit per lane, so the count is a population
+ * @note AVX-512 comparison writes a mask register, one bit per lane. The count is a population
  *       count over the AND of two masks: where the corpus agrees, and where the alignment stands.
  *       That is a different instruction shape from the AVX2 movemask and not a widening of it.
  * @note Detection asks for AVX-512F and AVX-512BW together. The byte compare and the byte test are
@@ -99,7 +99,7 @@ static int steer_avx512_present(void)
 size_t anchor_steer_truthy_after_avx512(const uint8_t *corpus, size_t alignments,
                                         const uint8_t *alive, uint8_t wanted, size_t offset)
 {
-    /* Counted before the argument check, so a caller passing nothing still records that this arm
+    /* Counted before the argument check. A caller passing nothing still records that this arm
      * was the one asked. The claim the counters carry is which arm RAN and not what it returned. */
     anchor_steer_scan_calls += 1u;
     anchor_steer_wide_calls += 1u;
@@ -122,7 +122,7 @@ size_t anchor_steer_truthy_after_avx512(const uint8_t *corpus, size_t alignments
 
         const __mmask64 agrees = _mm512_cmpeq_epi8_mask(window, broadcast);
 
-        /* An alive flag is zero or non-zero, so the mask of alignments still standing is the lanes
+        /* An alive flag is zero or non-zero. The mask of alignments still standing is the lanes
          * whose byte ANDs with itself to a non-zero, which is every lane that is not zero. Testing
          * this way rather than against one keeps it correct if a caller stores a flag other than
          * one. */

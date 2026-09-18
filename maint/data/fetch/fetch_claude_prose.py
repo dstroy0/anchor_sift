@@ -46,7 +46,7 @@
 # pole. Fenced code blocks come out, because the thing being measured is prose and a file full of
 # Python would otherwise match on its Python.
 #
-# These are published as Claude Opus 5 output. That is the model doing this work, so the pole and
+# These are published as Claude Opus 5 output. That is the model doing this work. The pole and
 # the thing under test are the same version, which the earlier Claude 3 corpus could not offer.
 # The era measurement in prose_era.py showed vocabulary moves enough across time to date a text,
 # and a version gap is the same kind of gap. Matching the version removes it.
@@ -134,7 +134,7 @@ BLOB = "https://huggingface.co/datasets/%s/resolve/main/%s"
 # published in 2024, and that corpus was wrong for the question and has been deleted. What it
 # measured is worth keeping in mind: the eight phrases this repository had confirmed as the
 # assistant signature fired 26.4 times per hundred thousand words here and 1.3 times in that older
-# corpus, so they were never the register, they were this tree's own idiolect.
+# corpus. They were never the register, they were this tree's own idiolect.
 #
 # THE LABEL IS A CLAIM AND NOT EVIDENCE
 #
@@ -195,7 +195,7 @@ def turns_of(record):
 
 
 def prose_of(said):
-    """One assistant turn with its code removed, so what is left is what it wrote in English."""
+    """One assistant turn with its code removed. What is left is what it wrote in English."""
     text = FENCED.sub(" ", said)
     text = INLINE.sub(" ", text)
     return " ".join(text.split())
@@ -259,7 +259,7 @@ def main():
                 turns += 1
             if counted >= want:
                 break
-        # One file per upload, named for the uploader, so the agreement check can ask whether
+        # One file per upload, named for the uploader. The agreement check can ask whether
         # three corpora that all claim one model actually resemble each other.
         alone = os.path.join(APART, "%s.txt" % dataset.replace("/", "__"))
         with open(alone, "w", encoding="utf-8", newline="\n") as handle:

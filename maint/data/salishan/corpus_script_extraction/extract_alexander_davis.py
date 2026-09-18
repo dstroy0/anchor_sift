@@ -110,7 +110,7 @@ INSERTED = re.compile(r"\[([^\]]*)\]")
 SEGMENTED = re.compile(r"[-=]")
 
 # The category labels this paper uses. Its appendix II lists them and section 1.3 adds the ones it
-# changed, so both the inherited set and the new labels are here.
+# changed. Both the inherited set and the new labels are here.
 CATEGORIES = re.compile(
     r"\b(?:ABSN|ACT|ADHORT|AUT|CAUS|CIRC|COMP|COP|COS|DEM|DET|DIM|DIR|DIST|D/C|ERG|EXCL|"
     r"EXIS|IND|INS|INVIS|IPFV|MID|NEG|NMLZ|OBJ|PL|PLU|POSS|REM|RLT|SBJ|SBJV|SG|STAT|VIS|"
@@ -188,7 +188,7 @@ def main():
     rows = []
     count = 0
 
-    # Davis divided the story into three parts and those are numbered subsections, so the whole
+    # Davis divided the story into three parts and those are numbered subsections. The whole
     # story sits under 2.1, 2.2 and 2.3 and nothing under a bare 2. Reading only the bare
     # numbers returned the two appendices and none of the narrative.
     def under(top):
@@ -226,7 +226,7 @@ def main():
         elif CATEGORIES.search(one):
             rows.append(("N", number, "4", "gloss", one))
         # Not gated on carries_language. Van Eijk's orthography writes the glottal stop as 7 and
-        # many St'át'imcets lines hold no marked character at all, so that test read
+        # many St'át'imcets lines hold no marked character at all. That test read
         # i=tsilikútn=a. and l=ta=s=t'ák=ih=a. as not being the language. What separates a
         # segmentation line from a line of Davis's footnote prose, which also carries hyphens, is
         # that the prose has English in it and the segmentation does not.
@@ -243,7 +243,7 @@ def main():
     for one in held.get("appendix II", []):
         rows.append(("N", 0, "appendix II", "glossing term", one))
 
-    # Every line of the paper no section reached, added to the record as unclassified, so the
+    # Every line of the paper no section reached, added to the record as unclassified. The
     # marked file holds every token of the language the paper printed. They stay out of the pure
     # stream and are listed in the flag file for someone to work through.
     # The union of every orthography, not this paper's own set. The coverage check counts a token

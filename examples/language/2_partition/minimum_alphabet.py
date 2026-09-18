@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/language/2_partition/minimum_alphabet.py
 #
-# Removing c, x and q from every language changed the closest pairing measured here by 0.0002, so the
+# Removing c, x and q from every language changed the closest pairing measured here by 0.0002. The
 # reading is not resting on any particular letter. That invites the opposite question: how much of a
 # writing system can be taken away before a relationship stops being visible at all.
 #
@@ -20,7 +20,7 @@
 # What is watched at each step is not the distance but whether it still separates. A pair known to be
 # close is measured against a pair known not to be, and the level where the close pair stops being the
 # closer of the two is where the relationship stops surviving. Distances shrink as symbols are removed for
-# arithmetic reasons alone, so the raw numbers say nothing on their own and the ordering says everything.
+# arithmetic reasons alone. The raw numbers say nothing on their own and the ordering says everything.
 
 import io
 import os
@@ -56,7 +56,7 @@ HELD = (
     ("finnish", "para_finnish.txt"),
 )
 
-# Pairs known to be close, and pairs known not to be, so the question is which stays closer
+# Pairs known to be close, and pairs known not to be. The question is which stays closer
 CLOSE = (("zulu", "xhosa"), ("spanish", "french"))
 FAR = (("zulu", "somali"), ("spanish", "finnish"))
 
@@ -78,7 +78,7 @@ def main():
         out.flush()
         return 0
 
-    out.write("  distances shrink as symbols are folded together, so what matters is whether\n")
+    out.write("  distances shrink as symbols are folded together. What matters is whether\n")
     out.write("  the close pair is still closer than the far pair at each level\n\n")
     out.write("  %-8s %-15s %-15s %-15s %-15s %s\n"
               % ("symbols", "zulu, xhosa", "zulu, somali", "spanish, french",

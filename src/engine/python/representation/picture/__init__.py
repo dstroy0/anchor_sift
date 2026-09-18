@@ -8,5 +8,5 @@ that a pixel and the pixel below it lie one width apart in the file, that a shor
 is a thin strip and not a small picture, and what width each of these paintings was decoded at.
 
 Nobody can measure that width without already having it. Two readings set out to recover a width
-from the data and are scored against this table, so the table is written down and never derived.
+from the data and are scored against this table. The table is written down and never derived.
 """

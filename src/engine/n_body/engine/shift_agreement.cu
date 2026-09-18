@@ -14,7 +14,7 @@
  * @note The forward transform takes natural order input and leaves its output in bit reversed
  *       order, butterflies running from the largest blocks down. The inverse takes bit reversed input
  *       and returns natural order, running from the smallest blocks up. The pointwise product does
- *       not care which order the entries sit in, so no permutation is ever applied.
+ *       not care which order the entries sit in. No permutation is ever applied.
  * @note Every root of unity comes from a table built once per padded length on the host. Every
  *       product is reduced by Barrett reduction on the device. Every value is a residue below
  *       SHIFT_AGREEMENT_PRIME, and every count comes back exact, as in the host arm.
@@ -103,7 +103,7 @@ __global__ static void choice_kernel(unsigned int total, unsigned int *choice)
  * @param[in]     pairs  Pairs in this round.
  * @param[in]     layout The shape, for the tie break.
  * @note Better is the higher count, then the smaller weighted squared lag, then the lower index.
- *       That is the host arm's order, so both arms pick the same lag.
+ *       That is the host arm's order. Both arms pick the same lag.
  */
 __global__ static void tournament_kernel(const unsigned int *counts, unsigned int *choice, unsigned int stride,
                                          unsigned int pairs, AgreementLayout layout)
@@ -273,7 +273,7 @@ __device__ static unsigned int agreement_add(unsigned int left, unsigned int rig
 __device__ static unsigned int agreement_subtract(unsigned int left, unsigned int right)
 {
 
-    // The prime is added first, so the difference is never negative and stays below 2^31.
+    // The prime is added first. The difference is never negative and stays below 2^31.
     const unsigned int difference = left + SHIFT_AGREEMENT_PRIME - right;
     return (difference >= SHIFT_AGREEMENT_PRIME) ? (difference - SHIFT_AGREEMENT_PRIME) : difference;
 }

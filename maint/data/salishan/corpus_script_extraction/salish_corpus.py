@@ -9,10 +9,10 @@
 #
 # Hall and Phillips print Bev Phillips's story in three versions, and two of them are the language. Section
 # 2 gives it monolingual with a timestamp on every sentence. Section 4 gives the same sentences again as
-# the top line of each interlinear block. Neither was derived from the other by us, so they are two
+# the top line of each interlinear block. Neither was derived from the other by us. They are two
 # witnesses to one text and they have to agree.
 #
-# They need one repair first. The extraction puts a space after every combining mark, so q̓ʷúmqns arrives
+# They need one repair first. The extraction puts a space after every combining mark. Q̓ʷúmqns arrives
 # as "q̓ ʷúmqns" and ƛ̓uʔ as "ƛ̓ uʔ". Deleting a space that follows a combining mark fixes it, and that rule
 # is mechanical but not safe on its own: a word genuinely ending in a glottalized consonant would be
 # welded to the word after it and nothing in the character stream would say so.
@@ -45,7 +45,7 @@ UPPER_TAG = re.compile(r"[A-Z][A-Z0-9./]{1,}")
 QUOTED = re.compile(r"[‘'\"“]")
 
 # Words that mark a line as English prose. Deliberately narrow: we, te, e, ne and tu are words of
-# nɬeʔkepmxcín, so anything that could collide with the language is left out of this list.
+# nɬeʔkepmxcín. Anything that could collide with the language is left out of this list.
 ENGLISH = re.compile(r"\b(?:the|to|is|of|for|and|there|this|that|with|are|was|from|which|"
                      r"convention|orthography|standardized)\b", re.IGNORECASE)
 
@@ -56,7 +56,7 @@ SEGMENTED = ("=", "[", "]", "<", ">", "~")
 # The marks the extraction separated from the consonant they belong to: glottalization, ejection,
 # retraction. Stress accents are deliberately absent from this list. A word can end in a stressed
 # vowel, ʔé is a word of its own, and a rule that closed the space after it would weld ʔé sméƛ̓s into
-# one word everywhere. Both witnesses would weld identically, so the cross-check could not see it.
+# one word everywhere. Both witnesses would weld identically. The cross-check could not see it.
 JOINING = "̴̡̢̧̨̰̱̮̹̓̕"
 
 
@@ -110,9 +110,9 @@ def section_two(lines):
             continue
         if (when is not None) and salish_enough(trimmed) and not trimmed.startswith("====="):
             # A footnote runs across the bottom of these pages and carries ɬ in the language's own
-            # name, so it passes the character test. Two English function words rule it out, and two
+            # name. It passes the character test. Two English function words rule it out, and two
             # are wanted because we, te and e are words of the language. Every rejection is counted
-            # and reported, so nothing leaves without being named.
+            # and reported. Nothing leaves without being named.
             if len(set(one.lower() for one in ENGLISH.findall(trimmed))) >= 2:
                 refused.append(trimmed)
                 continue
@@ -162,7 +162,7 @@ def section_four(lines):
         if QUOTED.search(trimmed):
             taking = False
             continue
-        # A long sentence wraps, so its later pieces sit below the segmentation and gloss lines of
+        # A long sentence wraps. Its later pieces sit below the segmentation and gloss lines of
         # the piece before. Those two are stepped over instead of ending the example.
         if any(mark in trimmed for mark in SEGMENTED) or UPPER_TAG.search(trimmed):
             continue

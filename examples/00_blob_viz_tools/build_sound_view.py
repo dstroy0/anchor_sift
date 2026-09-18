@@ -160,7 +160,7 @@ def main():
         "noteTitle": "Padding places a peak, it does not separate two",
         "note": ("Resolution is set by how many samples a frame holds and nothing else: two tones "
                  "closer together than the frame can separate stay unseparated at any pad. Padding "
-                 "interpolates onto a finer grid, so a peak falling between bins is drawn at its "
+                 "interpolates onto a finer grid. A peak falling between bins is drawn at its "
                  "real height and place instead of smeared across two. Raise fft to separate, "
                  "raise pad to place. A feature that appears at one window and not another belongs "
                  "to the window."),

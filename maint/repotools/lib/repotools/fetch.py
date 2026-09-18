@@ -103,7 +103,7 @@ def is_stamp(line):
 
         STAMP = "repotools-stamp:"
 
-    and it contains the token, so fetching lib/repotools stripped this module's own constant out of
+    and it contains the token. Fetching lib/repotools stripped this module's own constant out of
     the installed copy. Every repository that fetched the spine got a fetch.py whose STAMP is
     undefined, and `repotools check` died on NameError the moment it reached this function. It went
     unseen because check raised earlier, in the toolkit walk, and the first crash hid the second.
@@ -176,7 +176,7 @@ def read_lock(cfg):
 
 
 def write_lock(cfg, entries):
-    """Write the lock, sorted, so two fetches over an unchanged toolkit produce an identical file."""
+    """Write the lock, sorted. Two fetches over an unchanged toolkit produce an identical file."""
     lines = [
         "# repotools.lock - written by `repotools fetch`. Do not edit.",
         "#",
@@ -230,13 +230,13 @@ def fetch(cfg, sets=None, dry=False):
     """Copy the repository's tool sets in from the toolkit and write the lock.
 
     Returns the list of `(toolkit_path, installed_path, action)` it performed, where action is one
-    of `new`, `updated` or `same`, so a caller prints what moved instead of claiming everything did.
+    of `new`, `updated` or `same`. A caller prints what moved instead of claiming everything did.
     """
     toolkit = boot.toolkit_root()
     chosen = tuple(sets) if sets else cfg.fetch_sets()
 
     # The spine comes with every fetch, whether or not it was asked for. Every runnable tool opens
-    # by walking up for a directory holding lib/repotools and then imports from it, so a fetch
+    # by walking up for a directory holding lib/repotools and then imports from it. A fetch
     # without it installs tools that cannot import. The documented join sequence in the README named
     # code/code_maint alone and produced exactly that: dedup.py landed, its preamble walked to the
     # filesystem root, and `from repotools import config` raised ModuleNotFoundError.
@@ -244,10 +244,10 @@ def fetch(cfg, sets=None, dry=False):
         chosen = (SPINE,) + tuple(one for one in chosen if one != SPINE)
 
     # A set that cannot work without another one pulls it in. This was declared in cli.SET_NEEDS and
-    # never read here, so the first repository to fetch media_tools without naming lib/numerics
+    # never read here. The first repository to fetch media_tools without naming lib/numerics
     # installed six viewers that died on ModuleNotFoundError at run time. The spine travelled
     # correctly because it is forced above; nothing carried the rest.
-    # Walked over the growing list, not over the list it started with, so a dependency of a
+    # Walked over the growing list, not over the list it started with. A dependency of a
     # dependency travels too. `nsconv_test.py` needs `nsconv.py`, which needs `codemask.py`, and a
     # single pass would have installed a test whose subject imports something absent.
     widened = list(chosen)
@@ -261,7 +261,7 @@ def fetch(cfg, sets=None, dry=False):
 
     if not chosen:
         raise SystemExit(
-            "repotools: %s names no tool sets under [fetch] sets, so a fetch would copy nothing."
+            "repotools: %s names no tool sets under [fetch] sets. A fetch would copy nothing."
             % os.path.join(cfg.where, "repotools.toml")
         )
 
@@ -305,7 +305,7 @@ def fetch(cfg, sets=None, dry=False):
 def check(cfg, report):
     """Report a fetched file edited in place, and one the toolkit has moved past.
 
-    A local edit is breaking. The toolkit is upstream, so an edit here is a change that exists in
+    A local edit is breaking. The toolkit is upstream. An edit here is a change that exists in
     one repository and is lost the next time anything fetches. Where the edit is worth keeping, it
     is promoted with `adopt` and flows back out to every repository.
 
@@ -348,7 +348,7 @@ def check(cfg, report):
             )
             continue
 
-        # No toolkit checkout to compare against, so whether a fetch is due is not answerable here.
+        # No toolkit checkout to compare against. Whether a fetch is due is not answerable here.
         # Saying nothing is right: this half only ever produced notes, and inventing one from an
         # absent comparison would be worse than the silence.
         if not toolkit:
@@ -370,7 +370,7 @@ def adopt(source, into_set, name=None, dry=False):
     """Promote one file from a repository into the toolkit, and report what still names that repo.
 
     The promoted copy keeps its body and takes the toolkit's own header. What it cannot take is a
-    project name, a macro prefix or a hard coded root left in the body, so those are reported by
+    project name, a macro prefix or a hard coded root left in the body. Those are reported by
     line and the promotion is not finished until they read from a Config.
     """
     toolkit = boot.toolkit_root()
@@ -399,7 +399,7 @@ TOOLKIT_HEADER = (
 def retitle(text, marker):
     """Swap the promoted file's header for the toolkit's own, written with `marker`.
 
-    A promoted tool is this toolkit's code running in another tree, so it carries this toolkit's
+    A promoted tool is this toolkit's code running in another tree. It carries this toolkit's
     copyright and license. The header was the largest measured difference between the copies: four
     copies of `codemask.py` differed in the project name and the license expression, and in nothing
     at all besides.
@@ -430,7 +430,7 @@ TRACES = (
     ("a fixed license expression", ("SPDX-License-Identifier:",)),
     # A bare sibling import resolves only when the file is RUN, because Python puts a script's own
     # directory on sys.path then and not when it is loaded by path. A fetched tool is invoked from
-    # a repository root, so the bare form fails in exactly the case this toolkit exists for. It
+    # a repository root. The bare form fails in exactly the case this toolkit exists for. It
     # passed nsconv.py clean while that file carried one.
     ("a bare sibling import", ("from codemask import", "from strip_comments import", "from dedup import")),
     # Lowercase project names, which the upper-case needles above walk straight past. nsconv.py
@@ -444,7 +444,7 @@ TRACES = (
     # a known answer, one file opened a socket and three used subprocess to run a locally built
     # binary, a sibling script and a code generator. Listing subprocess would have flagged three
     # local-execution sites to catch one that this list already catches by its import. The egress
-    # case for a spawned process is in the argv, so `curl` and `wget` are named and the module is not.
+    # case for a spawned process is in the argv. `curl` and `wget` are named and the module is not.
     (
         "reaches the network without going through retrieval.polite",
         ("urllib.request", "import requests", "import httpx", "import socket", "http.client", "ftplib", '"curl"', "'curl'", '"wget"', "'wget'"),

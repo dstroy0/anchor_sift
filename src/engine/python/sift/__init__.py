@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 """The sound filter: a necessary condition that discards candidates and loses none.
 
-Any subset of a pattern's points is a necessary condition, so no selection rule can lose a true
+Any subset of a pattern's points is a necessary condition. No selection rule can lose a true
 occurrence. That proof uses no order, no dimension, no alphabet and no interpretation of a symbol.
 A mineral, a fold, a picture, a cipher and a sentence are therefore one object to it. The converse
 does not hold for any proper subset, leaving the exact compare irreducible and every surviving

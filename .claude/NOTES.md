@@ -13,20 +13,20 @@ Tools live under `maint/`, not `tools/`. `repotools.toml:27` states `tools = "ma
 comment at lines 19-20 calls it "the one line that differs from the template". Thirteen
 directories plus a README:
 
-| directory | what is in it |
-| --- | --- |
-| `maint/analysis/` | `sound/`, `survey/`, its own README |
-| `maint/catalog/` | `catalog.py`, `catalog.tsv`, `catalog_verify.py` |
-| `maint/citations/` | `citations.py`, `corpus_crossref.py`, `prior_works.py` |
-| `maint/corpus/` | `corpus_manifest.py`, `speech_gate.py`, `speech_order.py`, `verify_private_sync.py` |
-| `maint/data/` | `fetch/`, `salishan/`, its own README |
-| `maint/deps/` | `get_deps.py`, `vendor_test_vectors.py` |
-| `maint/engine/` | `build_gpu_arm.sh`, `check_exact_limbs.py`, `digest_exact_emit.py`, `verify_arm_asm.sh`, `verify_gpu_arch.sh` |
-| `maint/prose/` | `ai_detect.py`, `english_gate.py`, `docs_check.py` and ten more, plus `fixtures/` |
-| `maint/repotools/` | the fetched toolkit tree |
-| `maint/source/` | `codemask.py`, `dedup.py`, `readclean.py`, `readclean_mmgr.py`, `src2png.py`, `strip_comments.py` |
-| `maint/texbuild/` | `build_theory.sh`, `dotmap_svg.py`, `ledger_toc.py`, `markdown_to_latex.py`, `math_hazards.py`, `submission_package.py` |
-| `maint/tree/` | `write_survey.py` |
+| directory          | what is in it                                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `maint/analysis/`  | `sound/`, `survey/`, its own README                                                                                     |
+| `maint/catalog/`   | `catalog.py`, `catalog.tsv`, `catalog_verify.py`                                                                        |
+| `maint/citations/` | `citations.py`, `corpus_crossref.py`, `prior_works.py`                                                                  |
+| `maint/corpus/`    | `corpus_manifest.py`, `speech_gate.py`, `speech_order.py`, `verify_private_sync.py`                                     |
+| `maint/data/`      | `fetch/`, `salishan/`, its own README                                                                                   |
+| `maint/deps/`      | `get_deps.py`, `vendor_test_vectors.py`                                                                                 |
+| `maint/engine/`    | `build_gpu_arm.sh`, `check_exact_limbs.py`, `digest_exact_emit.py`, `verify_arm_asm.sh`, `verify_gpu_arch.sh`           |
+| `maint/prose/`     | `ai_detect.py`, `english_gate.py`, `docs_check.py` and ten more, plus `fixtures/`                                       |
+| `maint/repotools/` | the fetched toolkit tree                                                                                                |
+| `maint/source/`    | `codemask.py`, `dedup.py`, `readclean.py`, `readclean_mmgr.py`, `src2png.py`, `strip_comments.py`                       |
+| `maint/texbuild/`  | `build_theory.sh`, `dotmap_svg.py`, `ledger_toc.py`, `markdown_to_latex.py`, `math_hazards.py`, `submission_package.py` |
+| `maint/tree/`      | `write_survey.py`                                                                                                       |
 
 Objective 5 renames `maint/` to `tools/`. That is a multi-file commit, not a directory move, and
 every one of these has to land in it:
@@ -116,7 +116,7 @@ this objectives pass touches it.
 The measured reason the mount wins, in this repository specifically: `boot.toolkit_root()` resolves
 by `TOOLKIT_MARKERS = ("lib/repotools", "repo/repo_template", "code")`. All three are present in
 repo_tools. `maint/repotools` has `lib/` and `repo/`, but `repo/repo_template` and `code/` are
-**absent**, so the fetched copy provably cannot resolve as a toolkit root, and `check()` degrades
+**absent**. The fetched copy provably cannot resolve as a toolkit root, and `check()` degrades
 silently at `fetch.py` (`if not toolkit: continue`). A mount resolves; a copy cannot.
 
 Under the standard the fetch mechanism, the lock and the stamp subsystem retire. The toolkit edge
@@ -134,7 +134,7 @@ category, subject and type only** — for example `docs build bugfix`. No body, 
 trailer, no prose.
 
 anchor_sift is the only repository of the six where `core.hooksPath` is set
-(`.githooks`), so a commit here actually runs its gates. That is the model; do not regress it.
+(`.githooks`). A commit here actually runs its gates. That is the model; do not regress it.
 
 Stage explicitly with `git add <named paths>`. Do not use `git commit -a` or bare `git add .`.
 
@@ -175,13 +175,13 @@ engine, checks the Python imports resolve, and runs one example per subject as a
 
 Five skills are there now: `code-python`, `code-shell`, `code-verify`, `docs-readme`,
 `repotools-workflow`. None is installed anywhere a harness discovers skills, and four of five
-declare a frontmatter `name` differing from their directory name, so cross-references between them
+declare a frontmatter `name` differing from their directory name. Cross-references between them
 cite identifiers nobody can type. Objective 6 rebuckets and rewrites them; an install mechanism
 lands first.
 
-This repository is the largest Python surface of the six, so `code-python` binds most of the work
+This repository is the largest Python surface of the six. `code-python` binds most of the work
 here. Note its measured defect before relying on it: its section 0 rail orders grading "all seven
-sections" over a file that carries eight, so an agent following it literally never reaches section
+sections" over a file that carries eight. An agent following it literally never reaches section
 8, which holds the only testability content in the set — run it from a working directory that is
 not its own, run it over a tree that is not the one it was written against, prove the refusal and
 not only the pass. Those are exactly the rules that catch the defects this tree has hit.
@@ -210,7 +210,7 @@ the six where the gate actually runs.
 Three things follow:
 
 - Objective 12's chunked, replayed AI-word tool and objective 13's British-English checker are
-  written here first and then promoted into repo_tools, so the other five repositories fetch rather
+  written here first and then promoted into repo_tools. The other five repositories fetch rather
   than reimplement them.
 - `fetch_check` goes away with the lock. Remove it from `gates` in the same commit that retires the
   fetch mechanism, not before — a gate named here that cannot be found stops the commit, and
@@ -232,10 +232,10 @@ All theory, from every public and private repository, is authored upstream in th
 
 **anchor_sift violates this in both directions today, and both are named in the decision:**
 
-| today | becomes |
-| --- | --- |
-| `theory/workbook/` — locally authored: `main.tex`, `preamble.tex`, `chapters/`, `frontmatter/`, `dedication.tex` | `workbook/` at the repository root |
-| `theory_bucket/` — 81 committed files, seven upstream books | `theory/`, populated by the submodule, never by a commit |
+| today                                                                                                            | becomes                                                  |
+| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `theory/workbook/` — locally authored: `main.tex`, `preamble.tex`, `chapters/`, `frontmatter/`, `dedication.tex` | `workbook/` at the repository root                       |
+| `theory_bucket/` — 81 committed files, seven upstream books                                                      | `theory/`, populated by the submodule, never by a commit |
 
 The separation is the point: after the move `theory/` has exactly one owner and is safe to
 overwrite on fetch, and nothing this repository authors may ever sit inside it.
@@ -272,7 +272,7 @@ Everything that has to move with it:
   `anchor_sift/theory/Salishan/` and a repo-root-relative path is exactly what a reader types.
 - **Objectives 19 and 20 are affected and have to be read through this.** They ask for
   `theory/cell_tracking` and a `theory/game` here. Under the decided layout nothing is authored in
-  `theory/`, so both books are authored upstream in theory_bucket and arrive through the mount.
+  `theory/`. Both books are authored upstream in theory_bucket and arrive through the mount.
   theory_bucket already carries an untracked `cell_tracking/` with `chapters/`, `frontmatter/` and
   `preamble.tex` but no `main.tex`; that is where objective 19's book goes. The datasets objective
   19 pulls are a separate matter — they land in `repos/external/datasets/`, not in a book and not in

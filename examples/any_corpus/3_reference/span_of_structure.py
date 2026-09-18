@@ -14,7 +14,7 @@
 # shorter than B and destroys every arrangement longer than it. Varying B says where the signal
 # sits. A word boundary recurs every few symbols and should return at a small B. A rare symbol
 # clusters because a passage is about the thing it names, which is an arrangement spanning a
-# passage, so it should need a much larger one.
+# passage. It should need a much larger one.
 
 import io
 import os

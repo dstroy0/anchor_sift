@@ -17,7 +17,7 @@
 #
 # This paper's phonetic transcriptions use the two marks for two different jobs. The acute is stress
 # and sits over a vowel: qʌ́χ, nʌ́mʔ, tʌ́s. The grave is glottalization and sits over a consonant:
-# k̀wʊt, t̀al, q̀atçw, č̀yε, p̀aap̀εm. No vowel in the paper carries a grave, so the shared rule's
+# k̀wʊt, t̀al, q̀atçw, č̀yε, p̀aap̀εm. No vowel in the paper carries a grave. The shared rule's
 # reason for leaving it open does not reach this paper, and the space after every grave is inserted.
 #
 # q̀ waq̀ wθəm in story 5 line 31 is the case that found it. The paper prints it with a space after

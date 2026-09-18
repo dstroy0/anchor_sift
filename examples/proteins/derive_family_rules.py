@@ -14,12 +14,12 @@
 # a null supports. Three things keep this honest and are all in this file:
 #
 #   The resolution is drawn, not chosen. A protein of a few hundred residues cannot fill the 32400
-#   two-degree cells, so at that grid its signature is sampling noise and a random draw of the same
+#   two-degree cells. At that grid its signature is sampling noise and a random draw of the same
 #   count reaches the same distance from the corpus. Coarsening to ten degrees is where a live
 #   signature sits farthest above that residue-count-matched null; the sweep is REPORTED here.
 #
 #   The count is drawn, not chosen. The number of families is the gap statistic (Tibshirani 2001)
-#   against a structure-free reference uniform over the data's own PCA box, so a lower live
+#   against a structure-free reference uniform over the data's own PCA box. A lower live
 #   dispersion than the null is real grouping and not the data merely being tighter than a blob.
 #
 #   The method is controlled. Before any family is written, the same pipeline is run on synthetic
@@ -27,7 +27,7 @@
 #   write a ruleset, because a grouping found by a method that cannot find a known one means nothing.
 #
 # What the corpus actually shows, with the control passing, is a near-continuum: the gap keeps
-# improving as the count rises, with only a weak first peak, so the families are soft partitions of a
+# improving as the count rises, with only a weak first peak. The families are soft partitions of a
 # helix-rich to sheet-rich continuum and are labeled as such. A family's quirk is the set of grid
 # cells where it sits more than the whole corpus does, drawn as an excess over the corpus marginal
 # and carried with its counts.

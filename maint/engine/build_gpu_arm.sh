@@ -13,7 +13,7 @@
 #                   position is 128 KiB on the host and twice that on the device.
 #
 # nvcc needs a host compiler and on Windows that host compiler is MSVC, never MinGW. The rest of
-# this tree builds with MinGW, and MinGW objects do not link against MSVC objects, so the GPU arm
+# this tree builds with MinGW, and MinGW objects do not link against MSVC objects. The GPU arm
 # gets its own build and does not join the CMake one. Everything it needs is compiled here by the
 # same host compiler nvcc is driving, which is what keeps the ABI consistent inside this binary.
 #
@@ -75,7 +75,7 @@ for one in $ARCHES; do
     GENCODE="$GENCODE -gencode arch=compute_${NUM},code=${one}"
 done
 
-# Removed before the build, so a previous binary cannot survive a failed compile and be run as
+# Removed before the build. A previous binary cannot survive a failed compile and be run as
 # though it were this one. This script did exactly that for a week: nvcc failed on a header, a
 # binary from Sep 9 was still sitting here, the file existence test below passed, and the bench ran
 # the stale one and reported a device engine that "agreed" with the portable engine at 1.01x. It

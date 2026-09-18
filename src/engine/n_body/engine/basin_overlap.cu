@@ -11,7 +11,7 @@
  * @date 2026-09-18
  *
  * @note One thread walks one chunk of BASIN_OVERLAP_CHUNK consecutive voxels. Neighboring voxels
- *       of one basin usually land in one basin, so a chunk yields long runs of one label pair, and a
+ *       of one basin usually land in one basin. A chunk yields long runs of one label pair, and a
  *       thread writes a run as a pair and a length instead of one key per voxel.
  * @note Two passes over the same kernel. The first counts each chunk's runs. The host turns the
  *       counts into write offsets, and the second pass writes the runs there. The runs are sorted on
@@ -209,7 +209,7 @@ static HeldOverlap s_held_overlap;
  * @brief Frees every held buffer and zeroes the record.
  *
  * @param[in,out] held The buffers [BORROWS].
- * @note cudaFree and free both accept a null pointer, so a partly allocated record frees cleanly.
+ * @note cudaFree and free both accept a null pointer. A partly allocated record frees cleanly.
  */
 static void release_overlap(HeldOverlap *held)
 {
@@ -266,7 +266,7 @@ static int hold_overlap(size_t voxels, unsigned int chunks, int uploads, size_t 
     if ((ok != 0) && (runs + 1u > held->run_room))
     {
 
-        // One more than asked, so a count of zero still allocates, and half again for growth.
+        // One more than asked. A count of zero still allocates, and half again for growth.
         const size_t room = (runs + 1u) + (runs + 1u) / 2u;
         cudaFree(held->pairs);
         cudaFree(held->lengths);

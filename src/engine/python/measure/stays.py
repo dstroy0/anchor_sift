@@ -57,8 +57,8 @@ def band_for(values, share=BAND_SHARE):
 def noise_level(floats):
     """Standard deviation of the uncorrelated part, from the median of the second differences.
 
-    A second difference cancels any straight run, so what it leaves is noise plus the real edges.
-    The edges are sparse, so the median is set by the noise alone and a surface full of hard
+    A second difference cancels any straight run. What it leaves is noise plus the real edges.
+    The edges are sparse. The median is set by the noise alone and a surface full of hard
     crossings does not inflate the estimate. A second difference of pure noise has six times its
     variance.
 

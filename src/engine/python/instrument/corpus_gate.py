@@ -53,7 +53,7 @@ SCRIPTS = {
     "greek": "GREEK",
     "russian": "CYRILLIC", "ukrainian": "CYRILLIC", "bulgarian": "CYRILLIC",
     "tajik": "CYRILLIC",
-    # Written in either, so either passes
+    # Written in either. Either passes
     "serbian": ("CYRILLIC", "LATIN"), "tatar": ("CYRILLIC", "LATIN"),
     "kazakh": ("CYRILLIC", "LATIN"), "azerbaijani": ("LATIN", "CYRILLIC"),
     "uzbek": ("LATIN", "CYRILLIC"), "punjabi": ("GURMUKHI", "ARABIC"),

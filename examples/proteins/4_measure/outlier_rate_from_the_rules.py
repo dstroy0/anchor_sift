@@ -15,7 +15,7 @@
 # phi-psi plane, and the Richardson laboratory's Top8000 contours say what fraction of a large clean
 # reference sits at that place. Above the favored cutoff the conformation is common, above the
 # allowed cutoff it is rare but seen, and below it the conformation is one the reference practically
-# never took. The cutoffs are MolProbity's own and are printed below, so nothing about what counts
+# never took. The cutoffs are MolProbity's own and are printed below. Nothing about what counts
 # as an outlier is decided in this file.
 #
 # The torsions come back from the engine as exact integer terms, and the one irrational step, the

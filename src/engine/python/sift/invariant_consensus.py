@@ -8,7 +8,7 @@
 #   Usage:  from sift.invariant_consensus import compatibility_graph, max_clique, k_core, consensus
 #
 # anchors.py rejects false candidates by a necessary condition over one pattern: a position holding the
-# pattern satisfies every anchor, so no true occurrence is lost and only false candidates survive. This
+# pattern satisfies every anchor. No true occurrence is lost and only false candidates survive. This
 # is the same theorem over a SET of measurements. Two measurements that both come from the target agree
 # on an invariant the target supplies -- a distance preserved under a rigid motion, a common offset, a
 # shared period -- and two that do not come from it do not, except by accident. So the inliers are all
@@ -16,7 +16,7 @@
 # compatibility. Rejecting outliers is then finding that clique.
 #
 # The guarantee is one-directional, the family's signature. Inliers are mutually compatible by
-# construction, so they are always a clique and are never split apart by the rule; an outlier survives
+# construction. They are always a clique and are never split apart by the rule; an outlier survives
 # only when it is compatible with the whole clique by accident, which is a false candidate, never a lost
 # true one. Correctness cannot turn on which clique-finder runs, only the count of surviving outliers
 # can, exactly as with the anchor cascade and the Bloom filter.
@@ -60,7 +60,7 @@ def compatibility_graph(count, compatible):
 def max_clique(adjacency):
     """The largest set of mutually-compatible measurements, exact, by Bron-Kerbosch with a pivot.
 
-    The inliers are a clique, so the maximum clique contains them whenever no set of outliers is both
+    The inliers are a clique. The maximum clique contains them whenever no set of outliers is both
     larger and mutually compatible. Returns the clique as a set of indices.
     """
     best = set()

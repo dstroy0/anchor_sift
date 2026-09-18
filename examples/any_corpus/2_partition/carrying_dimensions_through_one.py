@@ -9,7 +9,7 @@
 #
 # Every reading behind this until now was of a painting, where the plane is the only authority on
 # what the answer should be and there is nothing independent to catch a wrong one. Shaping white
-# noise in the frequency domain gives a field built to a chosen exponent, so the answer exists before
+# noise in the frequency domain gives a field built to a chosen exponent. The answer exists before
 # the measurement and a wrong reading cannot be argued into agreement afterward.
 #
 # Two curves are compared because they fail differently. Interleaving jumps whenever it crosses a

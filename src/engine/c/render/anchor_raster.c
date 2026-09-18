@@ -35,7 +35,7 @@
  * @param[in] matched     Non-zero where the full compare confirmed an occurrence.
  * @return                The pixel value.
  *
- * @note Exact integer arithmetic, so the host and device ramps cannot drift apart by a rounding.
+ * @note Exact integer arithmetic. The host and device ramps cannot drift apart by a rounding.
  */
 static uint8_t raster_value(size_t level, size_t probe_count, int matched)
 {
@@ -75,7 +75,7 @@ static size_t raster_death_level(const uint8_t *corpus, const uint8_t *needle, s
 
     /* Survived every probe. The full compare is what decides an occurrence, and a survivor that
      * fails it is a false positive the probe set could not refute cheaply. Both outcomes are worth
-     * seeing, so they take different values. */
+     * seeing. They take different values. */
     for (size_t step = 0u; step < needle_len; step += 1u)
     {
         if (corpus[at + step] != needle[step])
@@ -91,7 +91,7 @@ static size_t raster_death_level(const uint8_t *corpus, const uint8_t *needle, s
  * @brief Symbol counts over the object, held apart from anchor_steer so the device links neither.
  *
  * @note The rarity channel needs the same counts anchor_steer builds, and the device rasterizer
- *       cannot link the limb library those live behind. Counting bytes is eight lines, so the
+ *       cannot link the limb library those live behind. Counting bytes is eight lines. The
  *       duplication costs less than the dependency and neither copy can drift into a different
  *       answer: both are a histogram of the same bytes.
  */
@@ -246,7 +246,7 @@ int anchor_raster_host(uint8_t *pixels, const AnchorRasterConfig *config, const 
                                                    census.total);
         const size_t cell = anchor_raster_cell(config, at, alignments);
 
-        /* An empty cell holds zero, which would win every minimum and lose every maximum, so it is
+        /* An empty cell holds zero, which would win every minimum and lose every maximum. It is
          * filled on first arrival rather than compared against. */
         if (pixels[cell] == (uint8_t)ANCHOR_RASTER_EMPTY)
         {
@@ -297,7 +297,7 @@ int anchor_raster_render(uint8_t *pixels, const AnchorRasterConfig *config, cons
                          size_t corpus_len, const uint8_t *needle, size_t needle_len,
                          const AnchorRasterProbe *probes, size_t probe_count)
 {
-    /* DEVICE FIRST WHERE THERE IS ONE. Both arms produce the same bytes, so this is a performance
+    /* DEVICE FIRST WHERE THERE IS ONE. Both arms produce the same bytes. This is a performance
      * choice and never a correctness one, and a machine carrying a device should use it without the
      * caller asking for it. */
     if (anchor_raster_device_available() != 0)
@@ -466,7 +466,7 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
                               size_t needle_len, const AnchorRasterProbe *probes,
                               size_t probe_count, const void *census_in)
 {
-    // RESERVED, NOT READ, AND NOT DELETED. The census below is built from `corpus`, so a caller
+    // RESERVED, NOT READ, AND NOT DELETED. The census below is built from `corpus`. A caller
     // supplied one is discarded here. The parameter stays because a tunable with no reader is an
     // integration point rather than dead weight, and the header says so at the declaration instead
     // of calling it the rarity source, which is what it said until it was measured.
@@ -541,7 +541,7 @@ int anchor_volume_render(uint8_t *voxels, const AnchorVolumeConfig *config, cons
                          const AnchorRasterProbe *probes, size_t probe_count, const void *census)
 {
     // DEVICE FIRST WHERE THERE IS ONE, exactly as anchor_raster_render does for a sheet. Both arms
-    // produce the same bytes, so this is a performance choice and never a correctness one.
+    // produce the same bytes. This is a performance choice and never a correctness one.
     if (anchor_volume_device_available() != 0)
     {
         if (anchor_volume_device(voxels, config, corpus, corpus_len, needle, needle_len, probes,
@@ -607,7 +607,7 @@ int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
 
 #if !defined(ANCHOR_RASTER_HAVE_CUDA) || !ANCHOR_RASTER_HAVE_CUDA
 
-/* BOTH ARMS DEFINED. A build without the device renderer still carries these symbols, so a driver
+/* BOTH ARMS DEFINED. A build without the device renderer still carries these symbols. A driver
  * written against both arms links and runs against either. The available test returning zero is what
  * a caller checks before calling the other, and the other refuses rather than pretending. */
 

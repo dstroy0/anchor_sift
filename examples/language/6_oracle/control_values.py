@@ -23,7 +23,7 @@
 #
 # The abbreviation key lists every one of these tags once, in a footnote, and counting it would put a tally
 # of one against each value and call that a distribution. The earlier harvest made exactly this mistake and
-# reported an abbreviation key as the richest example in a volume, so the key is found and skipped here.
+# reported an abbreviation key as the richest example in a volume. The key is found and skipped here.
 #
 # What this cannot see: one story by one speaker. It says what this text does. It does not say what
 # nɬeʔkepmxcín does, and a second text could come out the other way.
@@ -58,7 +58,7 @@ CLOCK = re.compile(r"\[\s*(\d{1,2}):(\d{2})\s*\]")
 def gloss_lines(text):
     """Every line naming grammatical categories, with the key left out and the clock carried along.
 
-    The story is timestamped sentence by sentence from the recording, so each gloss can be placed
+    The story is timestamped sentence by sentence from the recording. Each gloss can be placed
     at the moment it was spoken. An arc through the narrative is then measurable instead of asserted
     from whichever end happened to be read.
     """

@@ -4,9 +4,9 @@
 """Three reading passes over a source file. Writes nothing, ever.
 
   code   <file> ...    comments stripped: the structure, with nothing to take on trust
-  blind  <file> ...    comments stripped AND every name this project chose replaced, so the code
+  blind  <file> ...    comments stripped AND every name this project chose replaced. The code
                        is read for what it DOES instead of for what it is called
-  claims <file> ...    every comment paired with the code under it, so the prose can be checked
+  claims <file> ...    every comment paired with the code under it. The prose can be checked
                        against what the code does instead of read as if it were true
 
   --keep a,b,c         names to leave alone under blind

@@ -10,7 +10,7 @@
 # different failures under one heading. In most of the older papers the glyphs are simply gone and the
 # words arrive with holes in them. In the two Lyon papers the glyphs were replaced: the text reads
 # kmúsm @s iP sncPiws smiPmáy, where @ looks like a schwa and P like a glottal stop. A substitution is
-# recoverable and a deletion is not, so the two need telling apart.
+# recoverable and a deletion is not. The two need telling apart.
 #
 # Guessing the table is not acceptable. A mapping asserted from what the characters resemble would put
 # words into a corpus that nobody said, and nothing downstream would ever question them.
@@ -79,7 +79,7 @@ EDGES = ".,!?;:“”‘’\"'()[]…«»"
 # here is a hypothesis and none of it is applied to anything until the hit rate says it holds.
 # The caron entries come first: this font writes it as a separate character before its letter, so
 # x̌ arrives as ˇx and č as ˇc. Replacing the bare letters first would consume them and leave the
-# caron stranded, so order matters and a plain dict is relied on to keep insertion order.
+# caron stranded. Order matters and a plain dict is relied on to keep insertion order.
 CANDIDATE = {
     "ˇx": "x̌",
     "ˇc": "č",

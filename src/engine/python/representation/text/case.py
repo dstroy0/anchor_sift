@@ -11,7 +11,7 @@
 # thing it is: an upper snake name is a macro, a leading capital is a type, a lower snake name is a
 # variable. That is legible from the run lengths alone, without reading any identifier.
 #
-# Prose uses a capital at the start of a sentence and inside a name, so its runs are almost all of
+# Prose uses a capital at the start of a sentence and inside a name. Its runs are almost all of
 # length one. A community that names macros in upper case has long runs.
 #
 # What this measures and what it does not. The channel is real and it is not a formal language
@@ -20,9 +20,9 @@
 # prose range, because theorem provers name by mathematical convention and have nothing to shout.
 # What the measure orders is communities that name things in upper case above ones that do not.
 #
-# VHDL is the case worth keeping in view. The language is case insensitive, so ENTITY and entity are
+# VHDL is the case worth keeping in view. The language is case insensitive. ENTITY and entity are
 # one token and no program can distinguish them. Its share of long runs is 0.495, third of eighteen.
-# Nothing in the machine can read that 0.495, so all of it is a community holding a convention for
+# Nothing in the machine can read that 0.495. All of it is a community holding a convention for
 # other people, which makes it the cleanest instance in this work of a substrate being indifferent
 # and the departure above it being entirely intention.
 

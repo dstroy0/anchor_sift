@@ -20,12 +20,12 @@
  * value is an integer count of alignments and the two arms agree exactly or one is wrong. That is
  * the contract AnchorSteerEngine carries, the same one the exact arms carry in no_rounding.
  *
- * @note No part in this project has SVE. The Raspberry Pi 5 is a Cortex-A76, NEON only, so this arm
+ * @note No part in this project has SVE. The Raspberry Pi 5 is a Cortex-A76, NEON only. This arm
  *       has never been run. It is compiled for armv8.2-a+sve and its emitted instructions are read by
  *       maint/engine/verify_arm_asm.sh, which confirms the predicated forms. That rules out a scalar
  *       fallback. It says nothing about behavior, and the name reads sve-unrun for that reason.
  * @note SVE has no fixed vector length. svcntb() answers how many byte lanes this part carries and
- *       the loop is written around a predicate, so no lane count appears here and the tail needs no
+ *       the loop is written around a predicate. No lane count appears here and the tail needs no
  *       separate scalar loop: svwhilelt_b8 covers only the lanes that exist and the count comes from
  *       svcntp_b8 over the surviving predicate.
  * @note Detection reads the hardware capability word Linux exposes, never executing an SVE
@@ -67,7 +67,7 @@ static int steer_sve_present(void)
 size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments,
                                      const uint8_t *alive, uint8_t wanted, size_t offset)
 {
-    /* Counted before the argument check, so a caller passing nothing still records that this arm
+    /* Counted before the argument check. A caller passing nothing still records that this arm
      * was the one asked. The claim the counters carry is which arm RAN and not what it returned. */
     anchor_steer_scan_calls += 1u;
     anchor_steer_wide_calls += 1u;
@@ -82,7 +82,7 @@ size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments,
 
     for (uint64_t at = 0u; at < total; at += svcntb())
     {
-        /* The predicate covers only the lanes that exist, so the tail needs no separate loop and the
+        /* The predicate covers only the lanes that exist. The tail needs no separate loop and the
          * predicated load reads no byte past the alignment count. */
         const svbool_t live = svwhilelt_b8(at, total);
         const svuint8_t window = svld1_u8(live, corpus + at + offset);
@@ -90,7 +90,7 @@ size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments,
 
         const svbool_t agrees = svcmpeq_n_u8(live, window, wanted);
 
-        /* An alive flag is zero or non-zero, so the standing lanes are the ones not equal to zero.
+        /* An alive flag is zero or non-zero. The standing lanes are the ones not equal to zero.
          * Testing this way rather than against one keeps it correct if a caller ever stores a flag
          * other than one. */
         const svbool_t alive_mask = svcmpne_n_u8(live, standing_bytes, 0u);

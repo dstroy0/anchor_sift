@@ -76,7 +76,7 @@ static inline int binomial_transform_residual(const unsigned short *volume, cons
  * @brief Prints the time since the last mark, where BINOMIAL_BASINS_PROFILE is 1.
  *
  * @param[in] stage The stage just finished, or NULL to start timing [BORROWS].
- * @note Synchronizes the device first, so a stage's time includes its kernels. Folds away where
+ * @note Synchronizes the device first. A stage's time includes its kernels. Folds away where
  *       profiling is off.
  */
 static void profile_mark(const char *stage)
@@ -549,7 +549,7 @@ __global__ static void census_kernel(const unsigned char *positive, const unsign
  * @param[out] out_faces      Adjacent pairs, on the writing pass [BORROWS].
  * @param[out] out_joined     Joined pairs, on the writing pass [BORROWS].
  * @note A pair repeated on consecutive voxels along one face direction is written once. That
- *       drops most repeats early. The rest are removed on the host by device_unique_pairs, so the
+ *       drops most repeats early. The rest are removed on the host by device_unique_pairs. The
  *       result matches the host arm's sorted, unique pairs.
  */
 __global__ static void chunk_kernel(const unsigned int *residual, const unsigned char *positive,
@@ -734,7 +734,7 @@ static int device_unique_pairs(unsigned int *pairs, size_t total, size_t *unique
  * @brief Frees every buffer.
  *
  * @param[in,out] buffers The buffers [BORROWS].
- * @note cudaFree and free both accept a null pointer, so a partly allocated set frees cleanly.
+ * @note cudaFree and free both accept a null pointer. A partly allocated set frees cleanly.
  */
 static void device_release(DeviceBuffers *buffers)
 {
@@ -1002,7 +1002,7 @@ static int device_unique_pairs(unsigned int *pairs, size_t total, size_t *unique
  * @return                 1 where every launch was accepted, 0 otherwise.
  * @note Each axis's order splits into full passes of BINOMIAL_BASINS_PASS_ORDER and a remainder.
  *       Remainders on two or more axes that together fit one pass run first as a single fused
- *       pass. Binomial kernels on different axes commute, so the order of the passes does not
+ *       pass. Binomial kernels on different axes commute. The order of the passes does not
  *       change the result.
  */
 static int device_smooth(DeviceBuffers *buffers, const unsigned int *orders, unsigned int *bits,
@@ -1104,7 +1104,7 @@ extern "C" long binomial_basins_run(const BinomialBasinsRequest *args)
     geometry.height = args->height;
     geometry.width = args->width;
 
-    // Bounded below 2^32 / BINOMIAL_BASINS_LIMBS just above, so the count fits the unsigned int.
+    // Bounded below 2^32 / BINOMIAL_BASINS_LIMBS just above. The count fits the unsigned int.
     geometry.voxels = (unsigned int)voxel_count;
     geometry.chunks = (geometry.voxels + BINOMIAL_BASINS_CHUNK - 1u) / BINOMIAL_BASINS_CHUNK;
 

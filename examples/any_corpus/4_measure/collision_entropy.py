@@ -11,7 +11,7 @@
 # N 2^(-k H2), and every anchor should cut by the same factor. That makes 2^H2 a prediction to check
 # against a measured cut and never a quantity to fit.
 #
-# The entropy is computed from the symbol histogram with no probing and no sampling, so it is
+# The entropy is computed from the symbol histogram with no probing and no sampling. It is
 # independent of everything an anchor sweep measures. Checked against a four anchor sweep on English,
 # the histogram gives 3.764 bits and the sweep backs out 3.735, which agree to 0.8 percent, and a
 # single histogram number carries four orders of magnitude of survivors to within 21 percent.

@@ -3,17 +3,17 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: ANY-4-002
 #
-# The null permutation ratio for every symbol, so the head and the tail can be compared directly.
+# The null permutation ratio for every symbol. The head and the tail can be compared directly.
 #
 #   Usage:  python examples/any_corpus/4_measure/head_and_tail.py corpus.sym [more.sym ...]
 #
 # The boundary detector in the bench returns one symbol, the one whose gaps are most regular, and it
 # rejects any candidate occurring less often than once in 64 symbols. That rejection can only ever
-# return a frequent symbol, so every result it has produced describes the head of the distribution.
+# return a frequent symbol. Every result it has produced describes the head of the distribution.
 #
 # Under a Zipf distribution the head carries the token count and the tail carries the information,
 # since the surprisal of a symbol is -log p and the many rare symbols each contribute more of it.
-# This reads every symbol instead of one, so the two halves can be set beside each other.
+# This reads every symbol instead of one. The two halves can be set beside each other.
 
 import io
 import os

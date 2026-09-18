@@ -9,7 +9,7 @@
 #   Usage:  python examples/any_corpus/4_measure/noise_detection.py corpus.sym
 #
 # Two quantities in this work respond to different things and neither is a checksum. Collision entropy is
-# computed from the histogram, so it is permutation invariant and cannot depend on where corruption sits,
+# computed from the histogram. It is permutation invariant and cannot depend on where corruption sits,
 # only on how much of it there is. Dispersion against a null permutation is computed from the positions,
 # so it responds to arrangement and is blind to a change that leaves the counts alone.
 #

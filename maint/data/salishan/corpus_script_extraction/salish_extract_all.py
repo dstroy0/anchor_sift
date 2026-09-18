@@ -18,8 +18,8 @@
 #
 # What the rows are marked as:
 #   text          carries the marked consonants, no gloss tags, no segmentation marks
-#   segmented     carries morpheme or clitic boundaries, so it is an analysis of a form
-#   glossed       carries grammatical category tags, so it is a gloss line
+#   segmented     carries morpheme or clitic boundaries. It is an analysis of a form
+#   glossed       carries grammatical category tags. It is a gloss line
 #   mixed         carries the marked consonants and enough English to be prose about the language
 #
 # Nothing here decides which papers are usable. salish_purity.py already reports which files lost their

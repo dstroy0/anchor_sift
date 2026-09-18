@@ -38,12 +38,12 @@
 # uses, out of anchor_sift.py.
 #
 # The support figure keeps the delta honest. A 24 bit field has 16.8 million states and a
-# twenty minute recording has 135 thousand frames, so most states are unreachable at this sample
+# twenty minute recording has 135 thousand frames. Most states are unreachable at this sample
 # size whatever the recording does. The delta against uniform is therefore near 1 on the wide field
 # by construction, and the entropy against the field width is the reading to take.
 #
 # So the segment field is also reported at the narrow widths where its states are sampled. The bits
-# come out of a rotation ordered by how much the recording varies along each axis, so the leading
+# come out of a rotation ordered by how much the recording varies along each axis. The leading
 # ones carry the most and a prefix of the field is the best code of that width. At 12 bits a
 # recording of this length has 33 frames per state, and a delta measured there is a fact about the
 # recording. At 24 it is a fact about the frame count.
@@ -120,7 +120,7 @@ def mono(path):
     """One recording as a single channel of samples, and its rate.
 
     Averaged across channels. Two of the three held recordings are stereo and neither carries a
-    different take on the two sides, so the average is the recording and not a mixdown of two.
+    different take on the two sides. The average is the recording and not a mixdown of two.
     """
     samples, rate = soundfile.read(path, dtype="float64", always_2d=True)
     return samples.mean(axis=1), rate
@@ -131,7 +131,7 @@ def recordings():
 
     One directory per source. That ties a file to the row in SPEECH.tsv saying
     what it is held under. A recording sitting loose at the top of speech/ is one nothing can
-    place, so it is read and reported by name with no source behind it.
+    place. It is read and reported by name with no source behind it.
     """
     held = []
     for base, dirs, names in os.walk(AUDIO):
@@ -159,7 +159,7 @@ def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     wanted = sys.argv[1:]
     if not os.path.isdir(AUDIO):
-        out.write("  no build/audio, so there is nothing to read.\n")
+        out.write("  no build/audio. There is nothing to read.\n")
         out.write("  Put recordings there. Any format soundfile opens works.\n")
         out.flush()
         return 1

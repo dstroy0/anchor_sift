@@ -77,7 +77,7 @@ def main():
     families = dict(FAMILY)
     families.update(MORE)
 
-    io_out.write("  %d languages appear in both works, so guessing gets %.1f percent\n\n"
+    io_out.write("  %d languages appear in both works. Guessing gets %.1f percent\n\n"
                  % (len(shared), 100.0 / len(shared)))
     io_out.write("  %-30s %-16s %s\n" % ("reading", "matched", "share"))
 

@@ -7,7 +7,7 @@
 #   Usage:  python maint/data/salishan/hand_extraction/pure_corpus_index.py
 #
 # The list of who is in this corpus was kept by hand in refs.md and in the tables both, and two copies
-# of a list drift. The names come from paper_config.py and the row counts from the tables, so neither
+# of a list drift. The names come from paper_config.py and the row counts from the tables. Neither
 # is typed twice and refs.md points here instead of restating it.
 #
 # WHO GETS THE CREDIT
@@ -18,7 +18,7 @@
 # The names are read from the config and not derived from the who column. That column does several
 # jobs across twenty tables, and a first version of this file guessed at it and put linguists in the
 # speaker slot on eleven of them. Whose language a paper holds is a fact a person establishes by
-# reading the paper, the same way its alphabet is, so it is declared and not inferred. Where a paper
+# reading the paper, the same way its alphabet is. It is declared and not inferred. Where a paper
 # cites a published dictionary and never says who spoke, the entry is empty and this prints that.
 
 import io
@@ -80,7 +80,7 @@ from paper_config import PAPERS  # noqa: E402
 
 # The chapter is the output. theory/ is the source and docs/research points at it. A markdown page
 # written beside the tables would be a second copy where the pointer belongs.
-# The Salishan book is authored upstream in theory_bucket and reaches this tree as a subtree, so the
+# The Salishan book is authored upstream in theory_bucket and reaches this tree as a subtree. The
 # chapter is written there. What this produces is carried upstream like any other change to those
 # books: a pull overwrites theory_bucket/ here, and a generated chapter left only in this tree goes
 # the same way a hand edit does.
@@ -109,7 +109,7 @@ def main():
         path = os.path.join(ORACLES, paper.oracle)
         found.append((paper, counted(path) if os.path.isfile(path) else 0))
 
-    # Written as markdown into memory and converted once, so these lines stay readable as the page
+    # Written as markdown into memory and converted once. These lines stay readable as the page
     # they describe and the book still gets TeX.
     with io.StringIO() as handle:
         handle.write("# Whose words these are\n\n")

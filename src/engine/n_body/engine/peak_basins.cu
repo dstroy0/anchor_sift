@@ -66,7 +66,7 @@ __global__ static void ascend_kernel(const float *field, BasinGeometry geometry,
     }
     const unsigned int plane = geometry.height * geometry.width;
 
-    // The entry refuses an extent above 2^31 - 1, so every coordinate fits an int and a step of -1
+    // The entry refuses an extent above 2^31 - 1. Every coordinate fits an int and a step of -1
     // is seen as below zero.
     const int column = (int)(voxel % geometry.width);
     const int row = (int)((voxel / geometry.width) % geometry.height);
@@ -113,7 +113,7 @@ __global__ static void ascend_kernel(const float *field, BasinGeometry geometry,
  * @param[in]  geometry    The shape.
  * @param[out] destination The pointers after this pass [BORROWS].
  * @param[out] changed     Set to 1 where any pointer moved [BORROWS].
- * @note Reads one array and writes another, so every thread sees the whole pass's input and the
+ * @note Reads one array and writes another. Every thread sees the whole pass's input and the
  *       result does not depend on thread order.
  */
 __global__ static void jump_kernel(const unsigned int *source, BasinGeometry geometry,
@@ -278,7 +278,7 @@ static int basins_launched(void)
  * @brief Frees every buffer.
  *
  * @param[in,out] buffers The buffers [BORROWS].
- * @note cudaFree and free both accept a null pointer, so a partly allocated set frees cleanly.
+ * @note cudaFree and free both accept a null pointer. A partly allocated set frees cleanly.
  */
 static void basins_release(BasinBuffers *buffers)
 {
@@ -387,7 +387,7 @@ extern "C" long peak_basins_run(const PeakBasinsRequest *args)
     geometry.height = args->height;
     geometry.width = args->width;
 
-    // Bounded below 2^32 just above, so the count fits the unsigned int.
+    // Bounded below 2^32 just above. The count fits the unsigned int.
     geometry.voxels = (unsigned int)voxel_count;
     geometry.chunks = (geometry.voxels + PEAK_BASINS_CHUNK - 1u) / PEAK_BASINS_CHUNK;
 
@@ -519,7 +519,7 @@ extern "C" long peak_basins_run(const PeakBasinsRequest *args)
         for (size_t slot = 0u; slot < peaks; slot += 1u)
         {
 
-            // A reported peak is positive and counts itself, so every size here is at least 1.
+            // A reported peak is positive and counts itself. Every size here is at least 1.
             const double size = (double)buffers.host_sizes[slot];
             args->centroids[slot * 3u] = (double)buffers.host_slices[slot] / size;
             args->centroids[(slot * 3u) + 1u] = (double)buffers.host_rows[slot] / size;

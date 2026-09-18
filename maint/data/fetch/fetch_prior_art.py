@@ -28,7 +28,7 @@
 # WHAT IT CANNOT GET IS THE OUTPUT THAT MATTERS
 #
 # The unmet list is the point of running this. A row that fails prints what it was, why it failed,
-# and the best URL a person could try by hand, so the failure is a worklist item and not a silence.
+# and the best URL a person could try by hand. The failure is a worklist item and not a silence.
 
 import io
 import os
@@ -46,7 +46,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
 
 INTO = os.path.join(ROOT, "build", "prior_art")
 
-# Named, with a contact address, so an archive operator can see who is asking and reach a person.
+# Named, with a contact address. An archive operator can see who is asking and reach a person.
 AGENT = {"User-Agent": "anchor-sift-research/1.0 "
                        "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"}
 
@@ -213,7 +213,7 @@ def main():
     out.write("\n  %d held, %d not retrieved\n" % (len(got), len(unmet)))
 
     # The unmet list is the deliverable when a fetch fails. Every row carries what it is, why it was
-    # wanted, and where a person should go, so it is a worklist and not a complaint.
+    # wanted, and where a person should go. It is a worklist and not a complaint.
     if unmet:
         out.write("\n  COULD NOT RETRIEVE, to be fetched by hand\n")
         for one in unmet:

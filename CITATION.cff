@@ -4,7 +4,7 @@ title: anchor_sift
 abstract: >-
   A method that measures how far an object sits from the most disordered arrangement
   of its own parts. The reference is built by maximizing entropy under constraints the
-  object itself supplies, so there is no training, no prior and no model of the domain.
+  object itself supplies. There is no training, no prior and no model of the domain.
   One construction, unchanged, has read a published crystal cell edge to 0.0006
   angstroms, an image width, a Vigenere key length, and a published dialect border
   inside Lushootseed that it was never shown. It knows nothing and it generates

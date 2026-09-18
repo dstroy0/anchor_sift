@@ -250,7 +250,7 @@ BenchPeriod bench_recover_period(const uint8_t *corpus, size_t length)
     }
 
     // Scored on a candidate and all of its multiples against every lag outside that family. A
-    // sequence repeating every sixteen agrees with itself at 16, 32, 48 and 64 alike, so the
+    // sequence repeating every sixteen agrees with itself at 16, 32, 48 and 64 alike. The
     // tallest of those is settled by noise and taking it reports a harmonic as the period.
     for (size_t period = 2u; period <= (BENCH_LONGEST_LAG / 2u); period += 1u)
     {
@@ -263,7 +263,7 @@ BenchPeriod bench_recover_period(const uint8_t *corpus, size_t length)
         // shrinks, and the score is a mean over the family. A short wrong candidate can win by
         // holding more members and catching one good lag among them. A period that is not a whole
         // number of lags supplies the good lag: at 16.59 the fundamental sits 0.59 away
-        // from lag 16 while 2P sits 0.18 away from lag 33, so 33 agrees better than 16 does. The
+        // from lag 16 while 2P sits 0.18 away from lag 33. 33 agrees better than 16 does. The
         // Python side read three published cell edges short by a factor near two thirds this way.
         for (size_t lag = 1u; lag <= BENCH_LONGEST_LAG; lag += 1u)
         {

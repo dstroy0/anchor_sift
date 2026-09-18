@@ -9,19 +9,19 @@ Nothing here reads a corpus to answer a research question. That is `examples/`. 
 
 A directory with no membership rule collects whatever nobody had a better place for, and `tools/` was that directory until it held fifty three files. Each category below states a rule, and a stated rule is what a directory needs to stay sorted. A script satisfying none of them means the rule set is incomplete, and the fix is a new category carrying its own stated rule.
 
-| directory | what belongs in it |
-|---|---|
-| `catalog/` | the example registry: issuing numbers, holding them, and finding an example whose description and code disagree |
-| `citations/` | what this work rests on and whether it is named: the mathematics registry and the corpus crossref |
-| `corpus/` | the private corpus's inventory, permission and signature |
-| `source/` | tools that read source text as text, without running it |
-| `engine/` | checks of one engine implementation against another |
-| `deps/` | material brought in from outside this repository |
-| `tree/` | what this repository itself contains and writes |
-| `prose/` | the writing in this tree, measured against human writing |
-| `book/` | building the theory documents |
-| `data/` | fetching, converting, transcribing or repairing somebody else's material |
-| `analysis/` | a corpus read through `src/`, for a survey a book asked for |
+| directory    | what belongs in it                                                                                              |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| `catalog/`   | the example registry: issuing numbers, holding them, and finding an example whose description and code disagree |
+| `citations/` | what this work rests on and whether it is named: the mathematics registry and the corpus crossref               |
+| `corpus/`    | the private corpus's inventory, permission and signature                                                        |
+| `source/`    | tools that read source text as text, without running it                                                         |
+| `engine/`    | checks of one engine implementation against another                                                             |
+| `deps/`      | material brought in from outside this repository                                                                |
+| `tree/`      | what this repository itself contains and writes                                                                 |
+| `prose/`     | the writing in this tree, measured against human writing                                                        |
+| `book/`      | building the theory documents                                                                                   |
+| `data/`      | fetching, converting, transcribing or repairing somebody else's material                                        |
+| `analysis/`  | a corpus read through `src/`, for a survey a book asked for                                                     |
 
 ## What each holds
 
@@ -33,11 +33,11 @@ A directory with no membership rule collects whatever nobody had a better place 
 
 **`source/`.** `codemask.py` says which bytes of a C file are code. `strip_comments.py` and `readclean.py` remove comments so code can be read or rewritten without prose in the way. `dedup.py` finds the same code written twice under different names. `src2png.py` renders source to pages for surveying at image density. `readclean_mmgr.py` is the preserved C only original and `readclean_mmgr_test.py` is its test.
 
-**`engine/`.** `check_exact_limbs.py` checks the C limb arithmetic against python integers, which are arbitrary precision and share no code with it. A library cannot be its own oracle, so every arm of the engine is checked against a different implementation and never against a second routine in its own file. The vectorized and GPU arms are checked here as they land.
+**`engine/`.** `check_exact_limbs.py` checks the C limb arithmetic against python integers, which are arbitrary precision and share no code with it. A library cannot be its own oracle. Every arm of the engine is checked against a different implementation and never against a second routine in its own file. The vectorized and GPU arms are checked here as they land.
 
 **`deps/`.** `get_deps.py` clones what this repository depends on instead of carrying copies. `vendor_test_vectors.py` vendors the published SHA-256 test vectors with a manifest recording where each came from.
 
-**`tree/`.** `write_survey.py` reads every script for the files it opens and reports where each one lands, so the list of what this tree writes is checked instead of remembered.
+**`tree/`.** `write_survey.py` reads every script for the files it opens and reports where each one lands. The list of what this tree writes is checked instead of remembered.
 
 ## Paths are walked to, never counted
 

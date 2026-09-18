@@ -18,7 +18,7 @@
 # printed for that reason, being the quantity a sweep would have had to guess a bound for.
 #
 # The family rule stays, and it is the single correction this measure needed. A set with period P agrees
-# with itself at 2P and 3P, so the tallest lag alone reports a harmonic. Scoring a candidate as the
+# with itself at 2P and 3P. The tallest lag alone reports a harmonic. Scoring a candidate as the
 # mean over itself and its multiples fixes that, and capping the family at two members keeps a short
 # wrong candidate from winning by holding more multiples and catching one good lag among them.
 #
@@ -125,7 +125,7 @@ def main():
     out.write("\n  %d entries, %d axes, %.1fs\n" % (read, axes, time.time() - started))
     out.write("  %d of %d axes beat every candidate that is not a multiple of the answer\n"
               % (clear, axes))
-    out.write("  no lag was swept and no ceiling was set, so the candidate column is the whole\n")
+    out.write("  no lag was swept and no ceiling was set. The candidate column is the whole\n")
     out.write("  set of differences the arrangement contains\n\n")
     out.flush()
     return 0

@@ -173,9 +173,9 @@ python analysis/sound/binary_sound.py
 python analysis/sound/binary_sound.py <stem>
 \end{lstlisting}
 
-Writes \texttt{build/\allowbreak{}sound/\allowbreak{}<stem>.\allowbreak{}bits.\allowbreak{}tsv} in this tree, one row per 10 ms frame: the time, a 24 bit segment field, and a 4 bit prosody field. With no argument it does every recording in the corpus repository's \texttt{speech/\allowbreak{}}; a stem is a filename there without its extension. The output lands here and not in the closed repository, so that repository's bytes hold still between runs. A signature over an inventory that moves on every run says nothing.
+Writes \texttt{build/\allowbreak{}sound/\allowbreak{}<stem>.\allowbreak{}bits.\allowbreak{}tsv} in this tree, one row per 10 ms frame: the time, a 24 bit segment field, and a 4 bit prosody field. With no argument it does every recording in the corpus repository's \texttt{speech/\allowbreak{}}; a stem is a filename there without its extension. The output lands here and not in the closed repository. That repository's bytes hold still between runs. A signature over an inventory that moves on every run says nothing.
 
-What it prints is the delta from a flat distribution over each field, at 6, 8, 10, 12, 14 and 24 bits, with how many states each width reached. Read the narrow widths. A 24 bit field has 16.8 million states and the longest recording has 135 thousand frames, so the wide figure is about the frame count. \texttt{refs.\allowbreak{}md} has the measured numbers and the four facts about hearing the method is built on.
+What it prints is the delta from a flat distribution over each field, at 6, 8, 10, 12, 14 and 24 bits, with how many states each width reached. Read the narrow widths. A 24 bit field has 16.8 million states and the longest recording has 135 thousand frames. The wide figure is about the frame count. \texttt{refs.\allowbreak{}md} has the measured numbers and the four facts about hearing the method is built on.
 
 \subsection{What the modules are for}
 

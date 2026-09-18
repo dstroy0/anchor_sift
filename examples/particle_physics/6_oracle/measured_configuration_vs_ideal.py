@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PP-6-001
 #
-# The ideal Madelung filling held against the published ground states, so the aufbau exceptions are read
+# The ideal Madelung filling held against the published ground states. The aufbau exceptions are read
 # and not asserted.
 #
 #   Usage:  python examples/particle_physics/6_oracle/measured_configuration_vs_ideal.py
@@ -21,7 +21,7 @@
 # and never counted as an exception.
 #
 # NIST measures neutral atoms to element 108, hassium. For 109 to 118 no neutral atom has been measured,
-# only ions or nothing, so those ten carry the predicted relativistic configurations instead, marked
+# only ions or nothing. Those ten carry the predicted relativistic configurations instead, marked
 # predicted and kept apart from the measured ones. A check that covers all 118 has to say which rows are
 # measured and which are predicted, or it reads a prediction as a measurement.
 
@@ -70,7 +70,7 @@ def read_rows():
     """Every ground-shells string for each atomic number, in the order NIST lists them, keyed by Z.
 
     The neutral atom is the row that accounts for all Z electrons, and for the heaviest elements NIST
-    carries only ions, so the caller picks the neutral by the electron count and not by the order.
+    carries only ions. The caller picks the neutral by the electron count and not by the order.
     Returns a dict from Z to a list of shells strings, cores not yet expanded.
     """
     rows = {}
@@ -92,7 +92,7 @@ def occupation(shells, neutral):
 
     Parenthesized term symbols are stripped, and a bracketed core such as `[Rn]` or `[Cd]` is replaced
     by the shells of that element, read from the same table. NIST abbreviates with whichever element
-    closes the core, not only the noble gases. Returns None where a token does not parse, so the caller
+    closes the core, not only the noble gases. Returns None where a token does not parse. The caller
     can refuse it and not compare a half-read configuration.
     """
     counts = {}
@@ -130,7 +130,7 @@ def ideal_occupation(atomic_number):
 
 
 def order_key(subshell):
-    """Sort key for a subshell label, by principal then azimuthal, so two runs print one order."""
+    """Sort key for a subshell label, by principal then azimuthal. Two runs print one order."""
     return int(subshell[0]), element.SUBSHELL.index(subshell[1])
 
 

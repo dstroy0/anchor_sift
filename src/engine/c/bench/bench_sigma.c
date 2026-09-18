@@ -14,7 +14,7 @@
  * in the corpus, rarest first, the order the steering already wants. The table keeps one counter
  * per symbol VALUE, histograms the corpus and reads each candidate's count, which is
  * anchor_field_census generalized from a byte to a four byte symbol. The oracle route calls
- * anchor_steer_plan_recursive with `any` set, so it holds an equality test and nothing indexed by a
+ * anchor_steer_plan_recursive with `any` set. It holds an equality test and nothing indexed by a
  * symbol.
  *
  * TWO AXES, BECAUSE ONE COLUMN IS NOT A RESULT. Growing the alphabet at a fixed corpus is where the
@@ -55,7 +55,7 @@ typedef struct
 /**
  * @brief Equality between a corpus position and a needle position, over four byte symbols.
  *
- * @param[in] field     A BenchSymbolField [BORROWS]. Dereferenced here, so it is never null.
+ * @param[in] field     A BenchSymbolField [BORROWS]. Dereferenced here. It is never null.
  * @param[in] corpus_at Position in the corpus.
  * @param[in] needle_at Position in the needle.
  * @return              1 where the two symbols are equal, 0 otherwise.
@@ -68,7 +68,7 @@ static int bench_same_symbol(const void *field, size_t corpus_at, size_t needle_
 
 static uint64_t bench_rng_state = 88172645463325252ull;
 
-/** @brief xorshift64, so the corpus is reproducible without pulling in a dependency. */
+/** @brief xorshift64. The corpus is reproducible without pulling in a dependency. */
 static uint32_t bench_next_random(void)
 {
     bench_rng_state ^= bench_rng_state << 13;

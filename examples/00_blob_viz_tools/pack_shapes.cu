@@ -1,4 +1,4 @@
-/* Greedy packing on a surface, on the device, so the count can be taken where sampling on a host
+/* Greedy packing on a surface, on the device. The count can be taken where sampling on a host
  * cannot reach.
  *
  * Prints one line: shape dims gap typical kept candidates
@@ -149,7 +149,7 @@ __global__ void make_points(float *points, int count, int dims, int shape, uint6
  * @brief Marks which candidates in this batch sit clear of every point already kept.
  *
  * One thread per candidate, walking the kept set. The kept set is read by every thread in the
- * block in the same order, so it streams out of cache rather than being fetched per thread.
+ * block in the same order. It streams out of cache rather than being fetched per thread.
  */
 __global__ void clear_of_kept(const float *kept, int kept_count, const float *batch, int batch_count,
                               int dims, float limit, int *ok)
@@ -187,7 +187,7 @@ __global__ void clear_of_kept(const float *kept, int kept_count, const float *ba
  *
  * The points are the same points and only the accumulator changes. Nineteen squared differences
  * summed in single precision carry about a part in ten million of error, and the decision being
- * made is whether that total sits under a threshold, so a candidate landing within that of the
+ * made is whether that total sits under a threshold. A candidate landing within that of the
  * threshold could be decided either way. Whether any candidate ever does is a question about this
  * arrangement and not about floating point in general, and it is cheaper to answer than to argue:
  * run both and see whether the count moves.
@@ -267,7 +267,7 @@ int main(int argc, char **argv)
 
     /* Candidates are drawn a batch at a time and thrown away again, never held all at once. A pool
      * big enough to saturate a surface in nineteen dimensions is large and almost all of it is
-     * refused, so holding it costs memory to store points that were only ever going to be rejected.
+     * refused. Holding it costs memory to store points that were only ever going to be rejected.
      * Drawing fresh ones against a kept set that is already growing does the same work, keeps the
      * footprint at one batch, and lets the run stop when it stops finding anything rather than when
      * a number chosen in advance runs out. */

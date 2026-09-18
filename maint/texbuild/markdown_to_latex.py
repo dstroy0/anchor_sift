@@ -54,7 +54,7 @@ def inline(value):
     # (?<!\\) was written for raw text and, run here, it never matched once. A _title_ reached the
     # page as \_title\_ and typeset as two literal underscores around the words.
     #
-    # Word boundaries on both ends keep an identifier out of it, so read_me_first stays whole.
+    # Word boundaries on both ends keep an identifier out of it. Read_me_first stays whole.
     value = re.sub(r"(?<![A-Za-z0-9])\\_(\S(?:(?!\\_).)*?)\\_(?![A-Za-z0-9])",
                    r"\\emph{\1}", value)
     value = re.sub(
@@ -160,7 +160,7 @@ def convert(source, title):
             flush_paragraph()
             index += 1
             continue
-        # A thematic break. Nothing read it, so the dashes joined the paragraph, went through
+        # A thematic break. Nothing read it. The dashes joined the paragraph, went through
         # inline() unescaped and typeset as an em dash, which is the one character the prose check
         # calls breaking. It becomes space: the division is what the author wrote, and a rule drawn
         # across the page is a decoration nobody asked for.
@@ -249,7 +249,7 @@ def convert(source, title):
 # BOOKS, TITLEPAGE, MAIN and chapter_stem were cut from here. They were build_book's inputs: the
 # per book list of chapters, the two document templates, and the source path to chapter name rule.
 # build_book is gone, every source path the list named was deleted when the research moved into
-# theory/, and maint/texbuild/build_theory.sh finds the books by globbing theory for main.tex, so the
+# theory/, and maint/texbuild/build_theory.sh finds the books by globbing theory for main.tex. The
 # list cannot go stale by being wrong about what exists.
 
 

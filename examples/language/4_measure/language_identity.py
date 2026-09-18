@@ -132,7 +132,7 @@ def main():
         return 0
 
     languages = sorted({row[0] for row in rows})
-    out.write("  %d texts over %d languages, so guessing gets %.1f percent\n\n"
+    out.write("  %d texts over %d languages. Guessing gets %.1f percent\n\n"
               % (len(rows), len(languages), 100.0 / len(languages)))
 
     trials = (

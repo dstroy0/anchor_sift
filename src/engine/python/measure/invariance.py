@@ -10,7 +10,7 @@
 # The engine measures departure from a shuffle of an object's own parts. This measure reads that
 # departure as quanta, never as a magnitude. A partition groups the positions into cells. A cell is
 # exactly invariant when every member holds one value, a bit-exact fact, one bit per cell in a bignum.
-# The object's inspection is exact; the object itself stays a probability distribution, so a single
+# The object's inspection is exact; the object itself stays a probability distribution. A single
 # inspection rarely fills every cell. The null is drawn as the union of many shuffles of the same
 # values under the same partition: any cell chance makes invariant is folded into the union. What the
 # object holds that the union never reached is the structure. The reading is presence and a popcount, a
@@ -63,8 +63,8 @@ def invariant_cells_by_consensus(values, cells):
 def null_union(values, cells, draws, seed=SEED):
     """The union over `draws` shuffles of the invariant-cell field: every cell chance can make invariant.
 
-    Each shuffle permutes the object's own values and reads the same partition, so the null is drawn from
-    the object rather than assumed. Drawing more shuffles can only grow the union, so the surviving field
+    Each shuffle permutes the object's own values and reads the same partition. The null is drawn from
+    the object rather than assumed. Drawing more shuffles can only grow the union. The surviving field
     can only shrink, which is the safe direction for a claim of structure.
     """
     union = 0

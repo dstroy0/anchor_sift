@@ -4,7 +4,7 @@
 # Catalog: PP-3-001
 #
 # The periodic recurrence measured against two backgrounds, one keeping the counts and one keeping no
-# exclusion, so what Pauli builds is read as the departure from what it does not.
+# exclusion. What Pauli builds is read as the departure from what it does not.
 #
 #   Usage:  python examples/particle_physics/3_reference/what_exclusion_builds.py
 #
@@ -12,7 +12,7 @@
 # Two are drawn here.
 #
 # The first keeps the census and deletes the order. reference.shuffles.permuted draws a uniform
-# arrangement of the same signatures, so every count is exactly preserved and only the accumulation
+# arrangement of the same signatures. Every count is exactly preserved and only the accumulation
 # order is gone. It is the least committal background consistent with the histogram, and it cannot be
 # wrong about the counts because it is the counts. If the recurrence is in the order it falls to the
 # floor here; if it is in the census it survives.
@@ -100,7 +100,7 @@ def main(argv):
     arm_row("no exclusion", ladder, out)
 
     out.write("\n  The real accumulation stands above its floor at 8, 18 and 32. Keeping the counts and\n")
-    out.write("  deleting the order drops those to the floor, so the recurrence is in the order Pauli\n")
+    out.write("  deleting the order drops those to the floor. The recurrence is in the order Pauli\n")
     out.write("  fills the shells in and not in the counts. Deleting the exclusion leaves a ladder of\n")
     out.write("  distinct counts with a floor of zero and nothing to recur: no shells, no table.\n\n")
     out.flush()

@@ -203,7 +203,7 @@ def pi_scaled(digits):
 def evaluate_part(poly, den, part, digits):
     """floor(10^digits * (sum_p c_p pi^p) / den) for the real (part 0) or imaginary (part 1) integers.
 
-    pi enters as a scaled integer carrying 20 places past `digits`, so the floor is exact unless the true
+    pi enters as a scaled integer carrying 20 places past `digits`. The floor is exact unless the true
     expansion runs twenty nines at that place; the probe compares values, and a value with pi in it moves.
     """
     work = digits + 20
@@ -233,7 +233,7 @@ def within(vector, radius):
 def decimal_reach_for(vector):
     """The coefficients within the horizon, each read as a pair of decimals floored at the scale.
 
-    A floored decimal is returned as a reduced pair, so 1/2 read at one place and at two places is the
+    A floored decimal is returned as a reduced pair. 1/2 read at one place and at two places is the
     same value, and only a value whose expansion goes on is moved by the scale.
     """
     def reach(digits, radius):

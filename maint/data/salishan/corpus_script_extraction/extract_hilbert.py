@@ -131,7 +131,7 @@ PAGE_NUMBER = re.compile(r"^\d{1,4}$")
 # The width of the indented column the examples are set in.
 #
 # The typescript indents every numbered example, its Lushootseed and its English alike, and sets the
-# essay at full width. The extraction dropped the leading spaces, so both arrive flush left and
+# essay at full width. The extraction dropped the leading spaces. Both arrive flush left and
 # nothing in a line says which block it belongs to. What survived is the width: of the 138 lines
 # inside an example block, the longest is 46 characters, and 144 of the essay's 308 lines are longer
 # than that.
@@ -151,7 +151,7 @@ LAYER = {
     "transcription": SPOKEN,
     "citation": SPOKEN,
     # Hilbert's English for what her aunt and Martha LaMont said, made from the recordings years
-    # afterward, so it is hers and is not a record of anything either of them uttered.
+    # afterward. It is hers and is not a record of anything either of them uttered.
     "translation": DERIVED,
     "essay": DERIVED,
     # The page of Thomas E. Hukari's Halkomelem and Configuration the PDF carries after this paper.
@@ -193,7 +193,7 @@ def examples(lines, ends_at):
 
     for at, line in enumerate(lines):
         # Where this paper ends and the next one in the volume begins. Its opening lines are short
-        # enough to pass for the indented column, so example 21's English took its title.
+        # enough to pass for the indented column. Example 21's English took its title.
         if at >= ends_at:
             break
         trimmed = " ".join(line.split())
@@ -257,7 +257,7 @@ def main():
 
     # The PDF carries the first page of the next paper in the volume, Thomas E. Hukari's Halkomelem
     # and Configuration, after this one ends. Its prose is English and holds no Lushootseed, but the
-    # damaged mark set reads Victoria and nonconfigurationality? as forms of the language, so it
+    # damaged mark set reads Victoria and nonconfigurationality? as forms of the language. It
     # would put both into this record as things somebody said.
     #
     # Kept and named, not cut. Cutting it lost those tokens from the record and the coverage check
@@ -282,7 +282,7 @@ def main():
         if english:
             rows.append(("N", number, "translation", english))
 
-    # Her essay. It is English and it is hers, and it is what the examples are set into, so it is
+    # Her essay. It is English and it is hers, and it is what the examples are set into. It is
     # kept and marked derived, not dropped as apparatus. Told from the examples by which lines they
     # took, not by comparing text. A line matched against a bag of words matches nothing, and every
     # continuation line went into the essay a second time.
@@ -324,17 +324,17 @@ def main():
         handle.write("# tested: of 103 damaged tokens, 0 are attested in six modern Lushootseed\n")
         handle.write("# papers before a mapping and 0 after, because her story vocabulary and\n")
         handle.write("# their grammar vocabulary do not meet. An untested table applied to her\n")
-        handle.write("# words would put forms in that nobody said, so none was applied.\n")
+        handle.write("# words would put forms in that nobody said. None was applied.\n")
         handle.write("#\n")
         handle.write("# Mark is language.layer.kind. T is Lushootseed, N is anything else.\n")
         handle.write("# An example is printed twice under one number, the Lushootseed first and\n")
-        handle.write("# her English second, so the number pairs them and the order names them.\n")
+        handle.write("# her English second. The number pairs them and the order names them.\n")
         handle.write("line\tkind\tswitches\tcontent\n")
         for mark, number, kind, text in rows:
-            # Not span-marked. The damage leaves this paper's Lushootseed in plain ASCII, so the
+            # Not span-marked. The damage leaves this paper's Lushootseed in plain ASCII. The
             # span test reads huy, six, tud and Zilid as English and cuts them out of her own
             # sentence. She does not switch languages inside an example: her English is the second
-            # block under the same number, so an example line is one language from end to end.
+            # block under the same number. An example line is one language from end to end.
             content = "%s.%s.%s:{%s}" % (mark, LAYER[kind], kind, text)
             handle.write("line#${%d}\t%s\t0\t%s\n" % (number, kind, content))
 
@@ -369,7 +369,7 @@ def main():
     for number, said, english in ((one[1], one[3], one[4]) for one in held_lines):
         if english > (said + 1):
             flagged.append((0, "(%d)" % number, UNKNOWN_KIND, "",
-                            "the English is %d lines against %d of Lushootseed, so it has run on "
+                            "the English is %d lines against %d of Lushootseed. It has run on "
                             "into the story summary under it; where it ends is not recoverable "
                             "from the extracted text and the hand extraction has the boundary"
                             % (english, said)))

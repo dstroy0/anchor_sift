@@ -11,13 +11,13 @@
 # WHY THIS VERIFIES AND NO LONGER COPIES
 #
 # It used to copy the corpus into build/ and hash each copy on the way. build/oracles, build/papers
-# and build/audio are symbolic links to the corpus now, so there is no copy to make and nothing to
+# and build/audio are symbolic links to the corpus now. There is no copy to make and nothing to
 # drift. What is left is the question the copy was really answering: is the corpus reachable from
 # here the corpus somebody signed.
 #
 # The 186 MB duplicate is gone with it. It existed so an rm -rf build/ could not reach the closed
 # repository, and a symbolic link under POSIX removal answers that: rm takes the link and leaves
-# the target. PowerShell's Remove-Item -Recurse has followed directory links, so clearing build/
+# the target. PowerShell's Remove-Item -Recurse has followed directory links. Clearing build/
 # from PowerShell means deleting the three links first.
 #
 # WHAT DISAGREEING MEANS
@@ -26,7 +26,7 @@
 #                 citing it cannot be reproduced from here.
 #   changed       the bytes under build/ are not the bytes the inventory records. Every number
 #                 taken since is against something else.
-#   unrecorded    reachable and in neither inventory. Nothing signed covers it, so nothing
+#   unrecorded    reachable and in neither inventory. Nothing signed covers it. Nothing
 #                 measured over it can be tied to a signature.
 #   unlinked      build/ has a real directory where a link belongs, the old copy left
 #                 behind. It can be right by accident and it is not what the signature covers.

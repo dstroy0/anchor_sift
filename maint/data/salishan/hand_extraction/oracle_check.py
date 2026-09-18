@@ -71,7 +71,7 @@ ROOT = _repository_root()
 PAPERS = os.path.join(ROOT, "build", "papers")
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# The hand extractions are evidence and not tooling, so they live in the research body beside the
+# The hand extractions are evidence and not tooling. They live in the research body beside the
 # prose that cites them. The language in them belongs to the people who spoke it, and their names
 # open every table and the README beside them.
 ORACLES = os.path.join(ROOT, "build", "oracles")
@@ -90,7 +90,7 @@ EDGES = ".,!?;:“”\"()[]…«»{}/*•→≤≥"
 
 # Hall and Phillips write the null third person clitic with a symbol font, and the extraction
 # carries that glyph through as a private use character. It stands where a morpheme is not
-# pronounced, so it is never part of a form, and it sits inside a token as often as at the end of
+# pronounced. It is never part of a form, and it sits inside a token as often as at the end of
 # one: cw-[n]-t-<glyph>-és=us is one word with one unpronounced morpheme in the middle of it.
 NULL_CLITIC = ""
 
@@ -126,7 +126,7 @@ def surface_parse_join(token):
         return -1
     return at
 
-# The Latin ligatures a PDF sets f-words with. None of these orthographies uses one, so every
+# The Latin ligatures a PDF sets f-words with. None of these orthographies uses one. Every
 # occurrence is the typesetter's and the letters underneath are what the paper says. Lyon's
 # translations carry ﬁnish, ﬁll and ﬁrst, and a table typed at a keyboard holds none of them.
 LIGATURES = (("ﬁ", "fi"), ("ﬂ", "fl"), ("ﬀ", "ff"), ("ﬃ", "ffi"), ("ﬄ", "ffl"))
@@ -138,7 +138,7 @@ LIGATURES = (("ﬁ", "fi"), ("ﬂ", "fl"), ("ﬀ", "ff"), ("ﬃ", "ffi"), ("ﬄ"
 #
 # This folds and never strips. ’ is the glottalization mark in Nuxalk and in Lyon's Okanagan, and
 # taking it off is the fault the PAIRED note below was written about. Folding leaves the mark on
-# the form and only settles which codepoint it is written with, so a glottalized form still has to
+# the form and only settles which codepoint it is written with. A glottalized form still has to
 # meet a glottalized form and can never match a plain one.
 QUOTES = (("’", "'"), ("‘", "'"))
 
@@ -160,7 +160,7 @@ def trailing_marker(plain):
         if ((at < len(plain)) and (at > 0) and (plain[at] != "7")
                 and unicodedata.combining(plain[at - 1])):
             return plain[:at].strip(EDGES)
-        # Nothing numeric came off, so look for the quote forms instead.
+        # Nothing numeric came off. Look for the quote forms instead.
         if (at == len(plain)) and ((plain[-1] == "’") or unicodedata.combining(plain[-1])):
             at -= 1
         # A footnote marker set past a closing quote, as walk.’17 is. The ’ counts as a quote only
@@ -174,8 +174,8 @@ def trailing_marker(plain):
 
 
 # A footnote number set in front of the word it marks, as Mary George's 70gagayat is. The two
-# numbers stack: (28)140chechlhem carries the line number and the footnote number both, so the strip
-# runs until nothing more comes off. 7 is the glottal stop in the van Eijk orthography, so 7amash
+# numbers stack: (28)140chechlhem carries the line number and the footnote number both. The strip
+# runs until nothing more comes off. 7 is the glottal stop in the van Eijk orthography. 7amash
 # and t7u open with a digit and are whole words. A run of one 7 stays; a run holding any other digit
 # is the marker.
 def leading_marker(plain):
@@ -281,7 +281,7 @@ def oracle_rows(path):
 
     Twenty-four of the twenty-five files declare that header. Mellesmoen_Kye_ICSNL61 declares
     `dialect` in the second column and fills it with dialect labels instead of the people who
-    spoke. That is an open question and not a settled second shape, so this reader takes the
+    spoke. That is an open question and not a settled second shape. This reader takes the
     column by position and compares it against nothing, and both files parse.
     """
     held = []
@@ -301,7 +301,7 @@ def wrong_width(path):
     """Every row that is not four or five fields wide, as (line number, field count).
 
     Four is a row with no gloss and five is a full one. Every oracle on disk is one or the
-    other, so any other width is damage and not a shape somebody chose.
+    other. Any other width is damage and not a shape somebody chose.
 
     A short row is dropped by oracle_rows and says nothing. A wide one is worse, because it is
     kept and everything past the fifth field goes unread. One tab written where a space belongs
@@ -478,7 +478,7 @@ def main():
             failed += 1
             continue
 
-        # Set before either side is read, so the hand extraction and the paper are stripped by the
+        # Set before either side is read. The hand extraction and the paper are stripped by the
         # same rule. Stripping them differently is how a form that is in both reads as being in
         # neither.
         # Left empty. edges_for records what turning this on measured: 438 disagreements became
@@ -545,11 +545,11 @@ def main():
             if token.endswith(("’s", "'s")) and (token[:-2] in written):
                 continue
             # A capital opening a sentence. None of these orthographies tell two words apart by
-            # case, so the Yéyeʔ that opens a translation is the yéyeʔ a row already holds.
+            # case. The Yéyeʔ that opens a translation is the yéyeʔ a row already holds.
             if token.lower() in written:
                 continue
             # A footnote marker welded to the word it marks, as Lyon's zuxʷt5 is. The row holds the
-            # word. A paper spelling the glottal stop as 7 keeps the 7 in its rows, so skúza7 is not
+            # word. A paper spelling the glottal stop as 7 keeps the 7 in its rows. Skúza7 is not
             # let through here by a row holding skúza.
             marked = without_marker(token)
             if (marked != token) and (marked in written):

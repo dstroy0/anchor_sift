@@ -11,7 +11,7 @@
 #
 #   Usage:  python examples/0_experimental/exact_navier_stokes_on_torus.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. The sets are Fefferman's, read from the Clay statement: equations (1) momentum, (2)
 # divergence, (3) initial datum; (8) periodic datum and force with the erratum's periodic pressure; (10)
 # periodic solution; (11) smooth pressure and velocity; and (7) bounded energy, which on the torus is
@@ -25,14 +25,14 @@
 # past a power of ten for one reason: the projection onto divergence-free fields divides by |k|^2, and
 # 1/3 has no exact decimal at any scale, and a decimal scale would then have to refuse
 # (exact.WillNotFit) where an integer denominator carries the value exactly. Every field is normalized
-# by the greatest common divisor of its denominator and every integer in it, so two fields are equal
+# by the greatest common divisor of its denominator and every integer in it. Two fields are equal
 # exactly when their integers are equal, and pi is a symbol: pi is transcendental (Lindemann 1882), and
 # a Laurent polynomial in pi with integer coefficients is therefore zero exactly when every coefficient
 # is zero.
 #
 # A derivative multiplies a mode by 2 pi i k_j, a product convolves modes (a linear convolution on Z^3,
 # unaliased), the Laplacian multiplies by -4 pi^2 |k|^2, and the Leray projection removes the gradient
-# part mode by mode. Every element is smooth and periodic, so (8), (10) and (11) hold by construction,
+# part mode by mode. Every element is smooth and periodic. (8), (10) and (11) hold by construction,
 # (2) is an exact identity, the pressure is in the same ring and so is periodic, and the energy is an
 # exact Laurent polynomial in pi over an integer. The solution is carried as Taylor coefficients in t
 # at t = 0, u(t) = sum_m u_m t^m / m!, by the recurrence
@@ -42,7 +42,7 @@
 # which is (1) differentiated m times at t = 0 with (2) enforced by P. Nothing is rounded anywhere.
 #
 # Positive control: the Arnold-Beltrami-Childress field u_0 = (A sin 2 pi z + C cos 2 pi y,
-# B sin 2 pi x + A cos 2 pi z, C sin 2 pi y + B cos 2 pi x) is Beltrami, curl u_0 = 2 pi u_0, so the
+# B sin 2 pi x + A cos 2 pi z, C sin 2 pi y + B cos 2 pi x) is Beltrami, curl u_0 = 2 pi u_0. The
 # nonlinear term is a pure gradient and u = e^{-4 nu pi^2 t} u_0, p = -e^{-8 nu pi^2 t} |u_0|^2 / 2 solves
 # (1), (2), (3) exactly. The recurrence must return u_m = (-4 nu pi^2)^m u_0 and p_m = (-8 nu pi^2)^m p_0
 # to the integer, and it does.
@@ -64,7 +64,7 @@
 # Fefferman's, for the Clay Mathematics Institute, read in full including the errata; the equations are
 # Navier's and Stokes's, and the inviscid case Euler's; the field with curl u proportional to u is
 # Beltrami's, and the three-term example is Arnold's (1965) and Childress's (1970), reported from memory
-# of the literature, unread here, so the file verifies the solution itself and does not rest on the
+# of the literature, unread here. The file verifies the solution itself and does not rest on the
 # citation; the projection onto divergence-free fields and the pressure it defines are Leray's; the
 # recovery of a velocity from its vorticity is the Biot-Savart law, and the vorticity equation is
 # Helmholtz's; the energy sum over modes is Parseval's; the transcendence of pi that makes the zero test
@@ -435,7 +435,7 @@ def leray(vector):
     """The divergence-free part: for each mode k, v_k - k (k . v_k) / |k|^2. The mean mode is kept.
 
     The division is carried by the denominator: every numerator is multiplied by the least common
-    multiple M of the |k|^2 present, so k (k . v_k) M / |k|^2 is an integer, and the field's denominator
+    multiple M of the |k|^2 present. K (k . v_k) M / |k|^2 is an integer, and the field's denominator
     takes the factor M.
     """
     numerators, common = common_numerators(vector)
@@ -613,7 +613,7 @@ def mode_radius(vector):
 
 
 def mode_reach(vector):
-    """The largest |k|_1 over the modes carried: a product of modes adds their vectors, so this is the count of
+    """The largest |k|_1 over the modes carried: a product of modes adds their vectors. This is the count of
     factors the coefficient has multiplied together, and it climbs by one per order."""
     modes = modes_of(vector)
     return max((abs(mode[0]) + abs(mode[1]) + abs(mode[2]) for mode in modes), default=0)
@@ -860,7 +860,7 @@ def report_island(out):
     out.write("    F_b = sum_n 2 b_n n^-n cos(2 pi n x) e_y, truncated at n = %d, two bit patterns\n" % depth)
     out.write("    divergence-free: %s ; real-valued: %s ; distinct fields: %s ; bits read back: %s\n"
               % (divergence_free, real_valued, distinct, injective))
-    out.write("    the full sums are smooth (n^-n beats every power of n) and periodic, so they sit in (8);\n")
+    out.write("    the full sums are smooth (n^-n beats every power of n) and periodic. They sit in (8);\n")
     out.write("    the bit sequences are uncountable (Cantor, proof_set_theory.py) and the ring is countable.\n\n")
     return divergence_free and real_valued and distinct and injective
 

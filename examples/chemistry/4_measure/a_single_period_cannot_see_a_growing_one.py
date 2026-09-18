@@ -16,7 +16,7 @@
 # modulo P, and there is exactly one P.
 #
 # A periodic property along Z is not one period. The shell lengths are 2, 8, 8, 18, 18, 32, a sequence
-# that grows, so no single P puts index-modulo-P on the shell closures, and a reader that must find one
+# that grows. No single P puts index-modulo-P on the shell closures, and a reader that must find one
 # period cannot land on a moving boundary. This example shows that limit on a synthetic sawtooth, a
 # property that ramps inside each segment and resets at every segment start. It reuses the engine's own
 # sequence_period and the engine's own shuffle, and it writes no element data: the segment lengths here
@@ -37,7 +37,7 @@
 # family. Route two is a supervised-partition reader, handed the boundaries and asked whether each
 # segment repeats the first, the reading that needs the ledger. On a constant recurrence both
 # routes depart from the shuffle. On a growing recurrence route one stays inside the shuffle band while
-# route two departs, so neither route is the other twice. The null is drawn, never assumed: the same
+# route two departs. Neither route is the other twice. The null is drawn, never assumed: the same
 # values shuffled by reference.shuffles, and the only quantity reported is the distance to that shuffle.
 
 import io
@@ -58,7 +58,7 @@ DRAWS = 200
 
 
 def sawtooth(segment_lengths):
-    """A property that ramps 1..L inside each segment, so it resets to 1 exactly at every segment start.
+    """A property that ramps 1..L inside each segment. It resets to 1 exactly at every segment start.
 
     The segment lengths are the recurrence. A constant list is a constant period; a growing list is the
     shape of a periodic table, where each shell is longer than the last.
@@ -158,7 +158,7 @@ def main():
     out.write("  %-10s %-8s %8s %10s %-8s %8s %10s %-8s\n"
               % ("sequence", "length", "margin", "null high", "route1", "agree", "null high", "route2"))
 
-    # Positive control: a constant recurrence. The single-period reader is built for this case, so both
+    # Positive control: a constant recurrence. The single-period reader is built for this case. Both
     # routes must depart from the shuffle. Segment length five, repeated enough to read at lag sixteen.
     constant_one, constant_two = read_one("constant", [5] * 16, out)
 
@@ -175,7 +175,7 @@ def main():
     out.write("  period cannot see a boundary that moves; the supplied partition can.\n")
 
     disagree = (growing_one != growing_two)
-    out.write("  two routes, shown able to disagree: on the growing recurrence they %s, so neither route\n"
+    out.write("  two routes, shown able to disagree: on the growing recurrence they %s. Neither route\n"
               % ("disagree" if disagree else "agree"))
     out.write("  is the other twice.\n")
 

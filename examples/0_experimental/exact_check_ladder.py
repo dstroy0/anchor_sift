@@ -8,14 +8,14 @@
 #
 #   Usage:  python examples/0_experimental/exact_check_ladder.py
 #
-# This reads no corpus, so it sits in 0_experimental: arithmetic results shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: arithmetic results shown working, not a stage
 # reading. It takes four checks the coding-theory and arithmetic fields already use and runs them one
 # above the other. Each has a floor, a fault it cannot see, and the next check up the ladder sees that
 # fault. The point of the ladder is the same as the point of the whole engine: a necessary condition
 # loses nothing, and where it is blind, a second condition is added, never a tolerance.
 #
 #   casting out nines   n mod 9, from the digit sum. Catches a changed digit. Floor: a transposition of
-#                       two digits leaves the digit sum, so it is missed.
+#                       two digits leaves the digit sum. It is missed.
 #   mod eleven          the ISBN-10 weighted sum mod 11. Catches the transposition nines misses, and
 #                       every single-digit error. Floor: it detects, it does not locate or correct.
 #   cyclic redundancy   a polynomial remainder over GF(2). Catches a burst of bit errors up to the
@@ -181,7 +181,7 @@ def main():
     eleven = report_mod_eleven(out)
     crc = report_crc(out)
     hamming = report_hamming(out)
-    out.write("  each check is exact, so every detection above is a real fault and never an artifact of\n")
+    out.write("  each check is exact. Every detection above is a real fault and never an artifact of\n")
     out.write("  rounding. each floor is caught by the check above it, and more checks catch more.\n")
     out.flush()
     return 0 if (nines and eleven and crc and hamming) else 1

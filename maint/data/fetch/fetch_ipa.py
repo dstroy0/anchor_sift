@@ -74,7 +74,7 @@ def ask(titles):
 def transcription(wikitext, heading, code):
     """The transcription a page gives for one language, where it gives one.
 
-    A page holds every language that spells a word that way, so the section has to be found first or a
+    A page holds every language that spells a word that way. The section has to be found first or a
     Polish word can come back with its Czech pronunciation.
     """
     if not wikitext:

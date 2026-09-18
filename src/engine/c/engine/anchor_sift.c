@@ -10,7 +10,7 @@
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-04
  *
- * @note Every engine is sound: a subset of a pattern's points is a necessary condition, so none of them
+ * @note Every engine is sound: a subset of a pattern's points is a necessary condition. None of them
  *       can lose a true occurrence. What differs between them is how much they read and how much of
  *       that reading the machine can overlap.
  */
@@ -75,7 +75,7 @@ void anchor_sift_counters_reset(void)
  * @note One draw per cell keeps the spread and gives the anchor set no period of its own. An even
  *       comb shares a period with whatever the domain carries, the failure this avoids.
  * @warning A needle of length zero has no in-range offset to choose. The clamp below computes
- *          needle_len - 1u, and on size_t that wraps to SIZE_MAX instead of saturating, so every
+ *          needle_len - 1u, and on size_t that wraps to SIZE_MAX instead of saturating. Every
  *          offset lands far outside both the corpus and the needle. The engines answer length zero
  *          before reaching here; this bounds it at the declaration as well, because the engines are
  *          exported and the clamp reads exactly like the guard that would have prevented it.
@@ -134,9 +134,9 @@ size_t anchor_sift_naive(const uint8_t *corpus, size_t corpus_len, const uint8_t
  *       runtime count gives that back. A corpus whose count wants reducing is a coherent one, and
  *       a coherent corpus dispatches here anyway.
  * @note A needle of length zero occurs at every alignment, which is exactly what the naive engine
- *       returns, so that case is handed to it rather than answered a second way here. An anchor
+ *       returns. That case is handed to it rather than answered a second way here. An anchor
  *       cannot be placed in a needle with no bytes, and bounding the offsets is not enough on its
- *       own: at length zero the alignment loop runs one further than the corpus, so the last
+ *       own: at length zero the alignment loop runs one further than the corpus. The last
  *       alignment reads one past its end, and the anchor reads element zero of a needle that has
  *       none. Both are reads outside memory the caller owns.
  */
@@ -189,7 +189,7 @@ size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t 
     // Length zero goes to the naive engine, for the reason recorded on sift_inorder_n. This engine
     // carries the test separately because it is exported and a caller reaches it without passing
     // through the dispatcher. It is also the engine where bounding the offsets alone would not have
-    // been enough: the read below happens before the alignment loop, so a zeroed offset still
+    // been enough: the read below happens before the alignment loop. A zeroed offset still
     // takes element zero of a needle that has none.
     if (needle_len == 0u)
     {
@@ -242,7 +242,7 @@ AnchorSiftEngine anchor_sift_choose(const AnchorSiftPlan *plan)
 {
     // No plan is no statistics, and the engine that needs none is the naive one. BOTH POINTERS ARE
     // TESTED HERE and neither test is delegated to the callee. anchor_steer_prefers_free returns 0
-    // on a null census, so delegating would work and would leave this function reading as though it
+    // on a null census. Delegating would work and would leave this function reading as though it
     // dereferences an unchecked pointer. The next person to read it could not tell it is safe
     // without opening another file.
     if ((plan == NULL) || (plan->census == NULL))
@@ -250,7 +250,7 @@ AnchorSiftEngine anchor_sift_choose(const AnchorSiftPlan *plan)
         return anchor_sift_naive;
     }
 
-    // A flat corpus refutes almost every alignment on the first probe, so short circuiting reads one
+    // A flat corpus refutes almost every alignment on the first probe. Short circuiting reads one
     // byte where the free order engine reads four. A structured one refutes on the first probe often
     // enough to make the loop trip count vary, and a varying trip count costs a mispredicted branch
     // per alignment. The branchless engine exists to avoid that.
@@ -279,7 +279,7 @@ size_t anchor_sift_anchors_for(const AnchorSiftPlan *plan)
         return ANCHOR_SIFT_ANCHORS;
     }
 
-    // Every anchor after the first tests the congruence the first one already tested, so the reads
+    // Every anchor after the first tests the congruence the first one already tested. The reads
     // they perform are their only contribution.
     if (plan->period != 0u)
     {
@@ -436,7 +436,7 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
 {
     if ((census == NULL) || (census->total == 0u) || (census->distinct == 0u))
     {
-        // An empty field distinguishes nothing, so it takes the short circuiting engine. That is
+        // An empty field distinguishes nothing. It takes the short circuiting engine. That is
         // what ran before any of this and it is the cheaper of the two on a field with no
         // structure to exploit.
         return 0;
@@ -503,7 +503,7 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
  * Truthy and falsy steering. The signal is the survivor vector, not the symbol histogram.
  *
  * EACH PERMUTATION OF THE ANCHORS IS A NULL, AND EACH NULL IS A STEER. An alignment survives only
- * when every anchor agrees, and a conjunction does not depend on the order of its terms, so every
+ * when every anchor agrees, and a conjunction does not depend on the order of its terms. Every
  * ordering of a given anchor set returns the same count. The orderings therefore form a group of
  * moves that CANNOT change the answer, which is what this tree calls a null. Steering is choosing
  * which element of that group to apply.
@@ -529,7 +529,7 @@ static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const
 {
     // ANY SYMBOL TYPE TAKES THE SCALAR LOOP AND CANNOT TAKE A WIDE ONE. A vectorized scan compares
     // bytes against a broadcast byte, which is a statement about the representation. The oracle is
-    // a statement about equality and the engine never learns what it is comparing, so there is
+    // a statement about equality and the engine never learns what it is comparing. There is
     // nothing to broadcast. This path is slower and it is the one the theory describes; the byte
     // path below is the specialization that can be made wide.
     if (any != NULL)
@@ -598,7 +598,7 @@ static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const
 /**
  * @brief How many alignments are truthy right now, in the sampled population.
  *
- * @note Sampled at the same stride the candidate scores use, so the comparison between "survivors
+ * @note Sampled at the same stride the candidate scores use. The comparison between "survivors
  *       after this probe" and "survivors before it" is between two counts of the same population.
  *       Mixing a full count with a sampled one would make every probe look like it pruned.
  */
@@ -674,7 +674,7 @@ static void steer_make_falsy(const uint8_t *corpus, size_t corpus_len, const uin
  *       same shape steer_descend uses for the same reason. The public entries take one const
  *       argument pointer each and both call this.
  * @note THE POPULATION IS THE ARGUMENT. One call numbers one
- *       population, so every rank it produces is comparable with every other rank it produced and
+ *       population. Every rank it produces is comparable with every other rank it produced and
  *       with none produced elsewhere. anchor_field_pair_project hands it a corpus and a needle
  *       together for exactly that reason.
  */
@@ -691,12 +691,12 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
 
     // CLASSES ARE CONNECTED COMPONENTS AND NOT FIRST MATCHES, WHICH IS WHAT MAKES THIS SOUND FOR A
     // PREDICATE THAT IS NOT TRANSITIVE. Soundness needs agreement to imply a shared rank. It does
-    // NOT need a shared rank to imply agreement, so the labelling must be a superset of the
+    // NOT need a shared rank to imply agreement. The labelling must be a superset of the
     // relation, and the smallest superset that is an equivalence is the transitive closure.
     //
     // EVERY PAIR, NOT EVERY REPRESENTATIVE. Comparing a position against one member of each class is
     // correct only where agreement is transitive. Over 0 1 2 3 4 at a tolerance of two, position 3
-    // agrees with 2 and not with 0, so comparing against class zero's representative opens a second
+    // agrees with 2 and not with 0. Comparing against class zero's representative opens a second
     // class while 2 and 3 agree, and two agreeing positions in different classes breaks the
     // necessary condition outright. The closure of a graph reachable only through a pairwise probe
     // needs the pairs.
@@ -710,7 +710,7 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
             while (class_of_position[mine] != mine) { mine = class_of_position[mine]; }
             while (class_of_position[theirs] != theirs) { theirs = class_of_position[theirs]; }
 
-            // Already one class, so the predicate can say nothing new about this pair. The only
+            // Already one class. The predicate can say nothing new about this pair. The only
             // saving available, and a real one on a chained field.
             if (mine == theirs)
             {
@@ -745,15 +745,15 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
 
     // THE CLASS COUNT IS UNBOUNDED AND ONLY THE OUTPUT RANK IS CLAMPED, which is the whole point of
     // carrying these buffers. Classes are ordered by rarity across every one of them and the clamp
-    // is applied at relabel time, so a field of a thousand classes keeps its 255 rarest apart and
+    // is applied at relabel time. A field of a thousand classes keeps its 255 rarest apart and
     // merges the commonest into rank 255.
     //
-    // The form this replaced capped the class count during DISCOVERY, so the merged set was chosen
+    // The form this replaced capped the class count during DISCOVERY. The merged set was chosen
     // by arrival order rather than by commonness. A class occurring once has one chance to arrive
-    // early and a class occurring nine times has nine, so the rarest arrived last and were merged
+    // early and a class occurring nine times has nine. The rarest arrived last and were merged
     // first. Two fields with identical frequency multisets and opposite arrangements merged sets
     // whose mean occupancies were 1.06 and 9.00, which no histogram can tell apart. The rarest class
-    // is the best probe the steering has, so that form spent exactly what the projection exists to
+    // is the best probe the steering has. That form spent exactly what the projection exists to
     // find, and worst on the most natural arrangement.
     //
     // A class's place is the number of classes strictly rarer than it, with the class index breaking
@@ -796,7 +796,7 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
  * @return          The place, or 255 where it sits past the last rank a byte can hold.
  *
  * @note Merging costs discrimination and never soundness. One class takes one place across the
- *       whole population, so symbol agreement still implies rank agreement after the clamp, and
+ *       whole population. Symbol agreement still implies rank agreement after the clamp, and
  *       that is the direction the filter needs. The alignments a merge admits are rejected by the
  *       full compare.
  */
@@ -819,14 +819,14 @@ int anchor_field_project(const AnchorFieldProjection *args)
     }
 
     // Class labels are stored as uint32_t positions. A field wider than that would alias two
-    // positions onto one label and merge classes the oracle never joined, so it is refused. The cast
+    // positions onto one label and merge classes the oracle never joined. It is refused. The cast
     // widens a 32 bit constant into size_t, which holds it on every target this builds for.
     if (args->length > (size_t)UINT32_MAX)
     {
         return 0;
     }
 
-    // FAILS CLOSED ON A SHORT BUFFER. Every position can be its own class, so the three arrays have
+    // FAILS CLOSED ON A SHORT BUFFER. Every position can be its own class. The three arrays have
     // to reach `length` or a field of singletons writes past their end. The previous form capped
     // the arrays, and what that cost is recorded below.
     if (args->classes_length < args->length)
@@ -834,7 +834,7 @@ int anchor_field_project(const AnchorFieldProjection *args)
         // WRITES NOTHING, LIKE EVERY OTHER REFUSAL HERE. This path used to set `distinct` to zero
         // while the null and zero-length refusals left it alone, which meant a caller could not tell
         // a refused zero from a measured zero. Fail closed says a request that cannot be met changes
-        // no state, so no refusal touches it and the return value is the only thing to read.
+        // no state. No refusal touches it and the return value is the only thing to read.
         return 0;
     }
 
@@ -854,7 +854,7 @@ int anchor_field_project(const AnchorFieldProjection *args)
         // CLASSES AND NOT SLOTS EVER OPENED. A chained field once reported 18 while every position
         // carried one rank, because the count returned was the number of labels discovery had
         // opened rather than the number surviving the merges. A caller reads this to decide whether
-        // a projection is worth running, so a healthy number on a collapsed field sends them onto a
+        // a projection is worth running. A healthy number on a collapsed field sends them onto a
         // projection that refutes nothing.
         *args->distinct = classes;
     }
@@ -876,7 +876,7 @@ int anchor_field_pair_project(const AnchorFieldPairProjection *args)
         return 0;
     }
 
-    // THE JOINT LENGTH IS A SUM, SO IT IS CHECKED BEFORE IT IS FORMED. Past this point the addition
+    // THE JOINT LENGTH IS A SUM. IT IS CHECKED BEFORE IT IS FORMED. Past this point the addition
     // would wrap to a small length, pass the buffer check below, and project a field far shorter than
     // the one the caller described.
     if (args->corpus_length > (SIZE_MAX - args->needle_length))
@@ -886,7 +886,7 @@ int anchor_field_pair_project(const AnchorFieldPairProjection *args)
     const size_t length = args->corpus_length + args->needle_length;
 
     // Class labels are stored as uint32_t positions. A joint field wider than that would alias two
-    // positions onto one label and merge classes the oracle never joined, so it is refused. The cast
+    // positions onto one label and merge classes the oracle never joined. It is refused. The cast
     // widens a 32 bit constant into size_t, which holds it on every target this builds for.
     if (length > (size_t)UINT32_MAX)
     {
@@ -969,7 +969,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
     // what makes the descent safe to stop at any level: the set shrinks and never grows back.
     //
     // ON RESUME THE SURVIVORS ARE THE INPUT, NOT RESET. A caller composes a recursive spawn by
-    // running one descent, then running the next over the survivors the last one left, so the child
+    // running one descent, then running the next over the survivors the last one left. The child
     // reads only what the parent kept standing and its cost is the survivor count and not the whole
     // field. The engine cannot check that an incoming survivor set is a valid superset of the true
     // occurrences; that obligation is the caller's, and it holds when the set came from an earlier
@@ -1040,7 +1040,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
         // DESTROY WHAT DOES NOT PRUNE. A probe that leaves the truthy population exactly as it
         // found it rejects nothing an earlier probe had not already rejected. Placing it would read
         // a byte per alignment and buy none. The descent stops instead, and every level below it is
-        // destroyed with it. `placed` is returned, so the caller learns how many probes survived
+        // destroyed with it. `placed` is returned. The caller learns how many probes survived
         // and is never handed dead ones to evaluate.
         //
         // This is the general form of what anchor_sift_anchors_for does in one special case. That
@@ -1073,7 +1073,7 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args)
         return 0u;
     }
 
-    // Reordering, so `spawning` is 0 and the candidates are the offsets the caller already placed.
+    // Reordering. `spawning` is 0 and the candidates are the offsets the caller already placed.
     // force_full_depth is read from the argument even here: a caller checking that stopping equals
     // continuing has to be able to force the reordering descent too, not only the spawning one.
     return steer_descend(args->offsets, args->count, args->corpus, args->corpus_len, args->needle,
@@ -1089,7 +1089,7 @@ size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args)
         return 0u;
     }
 
-    // Spawning, so `spawning` is 1 and the candidates are every position in the needle.
+    // Spawning. `spawning` is 1 and the candidates are every position in the needle.
     return steer_descend(args->offsets, args->count, args->corpus, args->corpus_len, args->needle,
                          args->needle_len, args->survivors, args->survivors_length,
                          args->sample_stride, 1, args->force_full_depth, args->any,
@@ -1287,7 +1287,7 @@ size_t anchor_steer_sweep_probes(const AnchorSteerSweep *args)
 
     // The entry tests the one thing the backend cannot: whether it was handed arguments at all.
     // Everything else the contract states is checked in steer_sweep_probes, against the values it
-    // is going to use, so no check exists in two places to drift apart.
+    // is going to use. No check exists in two places to drift apart.
     return steer_sweep_probes(args->probes, args->count, args->corpus, args->corpus_len,
                               args->needle, args->needle_len, args->max_length, args->survivors,
                               args->survivors_length, args->sample_stride);
@@ -1345,7 +1345,7 @@ size_t anchor_steer_count_with_probes(const uint8_t *corpus, size_t corpus_len,
         return 0u;
     }
     // An empty needle occurs at every alignment. anchor_sift_naive and anchor_steer_count both report
-    // corpus_len + 1 for it, and the reference fixes that answer, so this returns the same before the
+    // corpus_len + 1 for it, and the reference fixes that answer. This returns the same before the
     // loop rather than reading needle[offset] off a needle with no positions. Returning 0 here
     // disagreed with the reference and with the two counting entries beside it.
     if (needle_len == 0u)
@@ -1471,7 +1471,7 @@ void anchor_steer_scan_counters_reset(void)
 const AnchorSteerEngine *anchor_steer_best_engine(void)
 {
     // Widest first, and each arm asks the processor before it is taken. The x86 arms and the ARM arms
-    // are gated by mutually exclusive build macros, so at most one architecture's ladder is compiled
+    // are gated by mutually exclusive build macros. At most one architecture's ladder is compiled
     // in and the rest fold away. A present arm returning NULL means the build carried it but the
     // running part does not, and the next arm down is tried.
 #if defined(ANCHOR_STEER_HAVE_AVX512) && ANCHOR_STEER_HAVE_AVX512

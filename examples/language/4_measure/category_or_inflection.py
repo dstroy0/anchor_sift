@@ -16,7 +16,7 @@
 #
 # The split is multiplicative and exact. For any written word, the readings it carries divide into how
 # many kinds of word it can be, and how many readings it has left once the kind is fixed. The two
-# multiply back to the whole, so each is reported as the geometric mean of its factor and the product of
+# multiply back to the whole. Each is reported as the geometric mean of its factor and the product of
 # the two columns is the geometric mean of the total.
 #
 # The reason to separate them is Straits Salish, which is argued to have no noun and verb contrast at the
@@ -151,7 +151,7 @@ def main():
     out.write("\n  a language with no noun and verb contrast reads as zero on this scale\n")
     out.write("  and as one on the category factor, because a single category cannot be\n")
     out.write("  ambiguous with anything. It would be called clean here while none of its\n")
-    out.write("  interpretation had been done, so a low category factor is worth nothing\n")
+    out.write("  interpretation had been done. A low category factor is worth nothing\n")
     out.write("  until it is known whether the contrast was resolved or never existed\n")
 
     out.flush()

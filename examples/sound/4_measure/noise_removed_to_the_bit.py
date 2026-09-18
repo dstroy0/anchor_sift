@@ -19,7 +19,7 @@
 #
 # The first section is the sweep: one row per noise type. The WRONG-REFERENCE column is there so the
 # matched 100% cannot be read alone -- the same signal through another noise's reference reads near zero
-# or below, so the method rejected the noise that was present and not the noise it was handed.
+# or below. The method rejected the noise that was present and not the noise it was handed.
 #
 # The second section keeps the evidence in this file rather than in a test, because a floor and a
 # divergence probe are not tests of the code, they are the justification for the number beside them; a
@@ -27,7 +27,7 @@
 # routes and a broken third that must split from them, the drawn null with its spread rather than one
 # figure, and the floor kept as a sweep where it moves with a parameter.
 #
-# THE TWO ROUTES NOW LIVE IN THE PRIMITIVES, so name them here where the example cannot show them:
+# THE TWO ROUTES NOW LIVE IN THE PRIMITIVES. Name them here where the example cannot show them:
 #   coherent hum        periodic.mean_background        vs mean_background_incremental
 #   incoherent impulse  periodic.consensus_majority     vs consensus_median
 #   recurring motif     self_similar.similar_background vs similar_background_scanned
@@ -192,7 +192,7 @@ def build_impulse():
             crowd[step * period] = 255                      # a stuck value filling a phase class
         stuck_floor.append((stuck, reduction(crowd, consensus_majority(crowd, period), clean)))
 
-    # second mechanism: SCATTERED impulses each land on their own value, so plurality stays robust
+    # second mechanism: SCATTERED impulses each land on their own value. Plurality stays robust
     # well past half a class -- a different floor from the stuck-value one above.
     scattered_floor = []
     cycles = len(clean) // period
@@ -249,7 +249,7 @@ def build_motif():
     broken_route = [route_a[i] + (1 if i in centers else 0) for i in range(len(route_a))]
     recurring = sum(1 for members in context_groups(signal, radius).values() if len(members) > 1)
     # drawn null: break the context->center link by shuffling the centers among themselves; the same
-    # grouping then no longer recovers the clean center, so the live 100% is the link, not the grouping.
+    # grouping then no longer recovers the clean center. The live 100% is the link, not the grouping.
     shuffled = list(signal)
     center_values = [signal[c] for c in centers]
     random.Random(SEED ^ 0x2).shuffle(center_values)
@@ -309,7 +309,7 @@ def build_outlier():
             crowd[pos] = value if value != clean[pos] else (value + 1) % 256
         crowd_floor.append((count, reduction(crowd, restore_at(crowd, radius, outliers(crowd, radius)), clean)))
 
-    # second mechanism: on a VARYING signal the window median is not the exact value, so the restore
+    # second mechanism: on a VARYING signal the window median is not the exact value. The restore
     # is a floor about the signal rather than about the noise. A monotone ramp + spaced impulses.
     ramp = [20 + i for i in range(len(clean))]
     rrng = random.Random(SEED ^ 0xA5)
@@ -372,7 +372,7 @@ def main():
                 out.write("      %-6s -> %s\n" % (param, pct(value)))
 
     out.write("\n  every matched NRR is 100% because each control's noise is identifiable as separate\n")
-    out.write("  from its target; the routes agree and a broken one splits, so the agreement is\n")
+    out.write("  from its target; the routes agree and a broken one splits. The agreement is\n")
     out.write("  evidence; the null is drawn, not assumed; and the floor is a sweep because a floor\n")
     out.write("  that moves with a parameter is a different claim from one quoted at a single setting.\n")
     out.flush()

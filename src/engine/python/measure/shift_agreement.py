@@ -17,7 +17,7 @@
 # The cause was dimensional. Family size grew as the candidate shrank. A short wrong candidate held
 # more multiples and only had to catch one good lag among them. A cell edge is not a whole
 # number of voxels, and the remainder supplied the good lag: on a 4.148 angstrom axis the period is
-# 16.59 voxels, so lag 16 sits 0.59 away while lag 33 sits 0.18 from twice it. Lag 33 therefore
+# 16.59 voxels. Lag 16 sits 0.59 away while lag 33 sits 0.18 from twice it. Lag 33 therefore
 # agreed better than the fundamental, and it fell inside the family of 11 and outside the family of
 # 16. Capping every family at two multiples equalized the comparison and the three came back.
 #
@@ -28,7 +28,7 @@
 # the fact, and the pattern recurred three times without being noticed once.
 #
 # What it can and cannot find. It tests one hypothesis, that the sequence agrees with itself at a
-# fixed offset, so periodicity is the only thing it can report. English prose and C source read
+# fixed offset. Periodicity is the only thing it can report. English prose and C source read
 # nothing above their own shuffles, and English peaks below its shuffle. Both have structure.
 # Neither has agreement with itself at a fixed offset.
 #
@@ -48,7 +48,7 @@ def agreement(data, lag, stride=STRIDE):
     """Share of positions equal to the position one lag away.
 
     Sampled every `stride` positions, which keeps a long sequence affordable. The stride is coprime
-    to the periods usually looked for, so it does not line up with the thing being measured.
+    to the periods usually looked for. It does not line up with the thing being measured.
     """
     if lag >= len(data):
         return 0.0
@@ -75,7 +75,7 @@ def recover_period(data, most=1200, stride=STRIDE):
     """The period and the fraction between the two lags straddling it.
 
     Quantization does not lose the true period, it moves it into the ratio between two lags. A cell
-    of 10.1000 angstroms at a voxel of 0.25 is 40.40 voxels, so successive tiles land alternately on
+    of 10.1000 angstroms at a voxel of 0.25 is 40.40 voxels. Successive tiles land alternately on
     40 and 41, and the share of agreement at the upper one carries the fraction. Measured, that
     share gives 0.407 against a true 0.400, which recovers the edge to 0.0018 angstroms against a
     grid of 0.25.
@@ -124,7 +124,7 @@ def exact_agreement(placed, lag):
     """How many exact places carry the same value as the place exactly one lag away.
 
     `placed` maps an integer position to the value sitting there, at whatever scale the caller
-    chose. A lag is an integer at that same scale, so the comparison is equality between integers
+    chose. A lag is an integer at that same scale. The comparison is equality between integers
     and carries no tolerance at all. Nothing is sampled and nothing is bounded.
 
     This is the sparse counterpart of agreement(). That one walks an array and samples every
@@ -133,7 +133,7 @@ def exact_agreement(placed, lag):
     is free here in a way it is not there, and a larger scale runs no slower.
 
     The value has to be compared and not just the position. Ignoring it reads a rocksalt cell at
-    half its published edge, correctly: the two sublattices interleave, so the positions alone do
+    half its published edge, correctly: the two sublattices interleave. The positions alone do
     repeat every a/2 and only the elements distinguish the two halves. lattice_agreement compares
     element codes on the grid for the same reason.
     """
@@ -148,7 +148,7 @@ def recover_exact_period(placed, families=2):
     nothing here narrows what can be found.
 
     The family rule matches recover_lattice_period and it is needed for the same reason. A
-    set with period P agrees with itself at 2P and 3P as well, so the tallest lag alone reports a
+    set with period P agrees with itself at 2P and 3P as well. The tallest lag alone reports a
     harmonic. A candidate is scored as the mean over itself and its multiples, and the family is
     capped at `families` members: a family growing as the candidate shrinks lets a short wrong
     candidate score highest by holding more members, needing only one good lag among them.
@@ -191,14 +191,14 @@ def recover_lattice_period(grid, axis, most=None):
     """The period along one axis of a grid, and the fraction between the two lags straddling it.
 
     Scored on a candidate and all of its multiples, never on the single tallest lag. A lattice of
-    period P agrees with itself just as well at 2P and 3P, so the tallest of those is settled by
+    period P agrees with itself just as well at 2P and 3P. The tallest of those is settled by
     noise and taking it reports a harmonic. Read that way, published cell edges came back at almost
     exactly twice their value on ten of eighteen axes.
 
     A candidate needs two of its multiples inside the range to be scored at all. That excludes the
     first harmonic, because a sweep a little past 2P leaves 2P holding only itself.
 
-    A cell edge is not a whole number of voxels, so successive tiles land alternately on two lags
+    A cell edge is not a whole number of voxels. Successive tiles land alternately on two lags
     and the share of agreement at the upper one carries the fraction between them. Quantization
     moves the true period into that ratio instead of destroying it.
 
@@ -219,7 +219,7 @@ def recover_lattice_period(grid, axis, most=None):
         # score highest by holding more members. It only has to catch one good lag among them.
         #
         # A cell edge is not a whole number of voxels, and that supplies the good lag. On a
-        # 4.148 angstrom axis at 0.25 the period is 16.59 voxels, so lag 16 is off by 0.59 and lag 33
+        # 4.148 angstrom axis at 0.25 the period is 16.59 voxels. Lag 16 is off by 0.59 and lag 33
         # is off by 0.18. Lag 33 therefore agrees better than the fundamental does. A sweep to
         # 2P + 6 puts 33 inside the family of 11 and outside the family of 16, and 11 scores highest
         # on an axis it does not fit. Herzenbergite, molybdite and one more all failed this way, each
@@ -249,7 +249,7 @@ def against_a_shuffle(data, seed=0x51F7, most=1200, stride=STRIDE):
 
     The shuffle holds the histogram and destroys the positions. Only the difference between the two
     counts means anything. On SHA-256 output the live count was twelve and the shuffled count was
-    sixteen, so the raw count carried nothing at all.
+    sixteen. The raw count carried nothing at all.
     """
     live = strongest_lags(data, most, keep=1, stride=stride)
     scattered = numpy.asarray(bytearray(data), dtype=numpy.uint8).copy()

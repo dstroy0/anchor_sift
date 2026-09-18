@@ -3,15 +3,15 @@
 **Purpose:** Hold the answers that came from outside the sample, apart from everything the sample can supply on its own.
 **Scope:** `src/engine/python/oracle/`
 
-| module | subject | what it holds |
-|---|---|---|
+| module                 | subject  | what it holds                                                                                                    |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | `language/families.py` | language | `FAMILY`, `PARALLEL`, `DRAVIDIAN`, `INDO_ARYAN`, `every_family`, `scoreable`, `score_against`, `dravidian_check` |
-| `language/typology.py` | language | `CAPITALIZES`, `MORPHOLOGY`, `SUBFAMILY`, `family_of`. How a word is built, and what takes a capital |
-| `language/glosses.py` | language | `harvest`, `morphemes`, `is_gloss`, `is_translation`. A linguist's own analysis, read off the page |
+| `language/typology.py` | language | `CAPITALIZES`, `MORPHOLOGY`, `SUBFAMILY`, `family_of`. How a word is built, and what takes a capital             |
+| `language/glosses.py`  | language | `harvest`, `morphemes`, `is_gloss`, `is_translation`. A linguist's own analysis, read off the page               |
 
 Everything here is under a subject and the parent stays empty, because an oracle is by definition knowledge of a particular kind of thing. Crystallography's published cell edges and chemistry's bond lengths get their own directories when they arrive, and they should not share a namespace with a family tree: a cell edge is a fact and a family tree is a consensus.
 
-`glosses.py` reads a file where the others hold a table, and it is still an oracle. The interlinear format prints the form, a morpheme by morpheme gloss, and a running translation. The second line is what the word composes and the third is what English keeps, so the difference between them is arrived at by subtraction. Every part of it was written down by the linguist who studied the language.
+`glosses.py` reads a file where the others hold a table, and it is still an oracle. The interlinear format prints the form, a morpheme by morpheme gloss, and a running translation. The second line is what the word composes and the third is what English keeps. The difference between them is arrived at by subtraction. Every part of it was written down by the linguist who studied the language.
 
 `dravidian_check` scores a reading against the family's ordered prediction and returns numbers with no formatting in them. Three examples printed that block from three copies of it, which is three places for a verdict to drift from the prediction it is supposed to be testing.
 
@@ -31,11 +31,11 @@ A dialect border inside Lushootseed, labeled by Mellesmoen and Kye and then held
 
 ## What agreement with a family tree is worth
 
-Less than a cell edge, and the difference matters. A family tree is a reconstruction argued from cognates and sound correspondences, so agreement is agreement with a scholarly consensus and not a check against a fact, and where the two disagree nothing here can say whether the instrument or the reconstruction is wrong. Protein bond lengths are the other kind: valence fixes the answer whatever anyone believes. Those are an oracle. A family tree is a strong prior.
+Less than a cell edge, and the difference matters. A family tree is a reconstruction argued from cognates and sound correspondences. Agreement is agreement with a scholarly consensus and not a check against a fact, and where the two disagree nothing here can say whether the instrument or the reconstruction is wrong. Protein bond lengths are the other kind: valence fixes the answer whatever anyone believes. Those are an oracle. A family tree is a strong prior.
 
 ## One trap the table is written to avoid
 
-A family holding one language in a run cannot have a neighbor inside it, so its nearest is outside its family whatever the instrument measures. Scoring those as errors turned an honest 15 of 22 into a misleading 15 of 28, and it is why Greek sitting nearest Hebrew was recorded as a script artifact when neither language had a relative in the set. `scoreable` returns only the names that can be scored.
+A family holding one language in a run cannot have a neighbor inside it. Its nearest is outside its family whatever the instrument measures. Scoring those as errors turned an honest 15 of 22 into a misleading 15 of 28, and it is why Greek sitting nearest Hebrew was recorded as a script artifact when neither language had a relative in the set. `scoreable` returns only the names that can be scored.
 
 ## An absence is a reading
 

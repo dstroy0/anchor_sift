@@ -21,7 +21,7 @@
 # whatever the neighbourhood shows.
 #
 # This inherits the Hampel breakdown honestly rather than hiding it: two impulses in one window let one
-# widen the band that should have caught the other, so the second is masked. That is the floor, the
+# widen the band that should have caught the other. The second is masked. That is the floor, the
 # same floor a MAD test has, and it is a property of a window holding more than one outlier and not of
 # the boundary being drawn. Where a window holds at most one, the test is exact and needs no number.
 #
@@ -56,7 +56,7 @@ def band_top(values, index, radius):
 def is_outlier(values, index, radius):
     """Whether the sample at `index` sits beyond the band its neighbours draw.
 
-    True when the sample's distance from the neighbours' median is larger than any neighbour's, so the
+    True when the sample's distance from the neighbours' median is larger than any neighbour's. The
     neighbourhood could not have produced it. Interior only: a point without a full window on both
     sides is an edge and is never flagged, a declared choice.
     """

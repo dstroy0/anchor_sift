@@ -2,7 +2,7 @@
 # repotools-stamp: lib/repotools/cli.py 4bf2880dc728b99c
 # repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-"""One entry point for the toolkit, so a tool is findable without knowing where it sits.
+"""One entry point for the toolkit. A tool is findable without knowing where it sits.
 
     repotools sets                 the tool sets this toolkit offers
     repotools list                 every tool, by set, with the line its docstring opens with
@@ -27,7 +27,7 @@ import sys
 from repotools import boot, config, fetch, findings
 
 # Every set the toolkit offers, including the importable ones under lib/. code/code_verify was
-# missing, so the best-graded tool in the tree was invisible to sets, list and fetch. An empty set
+# missing. The best-graded tool in the tree was invisible to sets, list and fetch. An empty set
 # is listed with a zero beside it instead of being hidden, because a set nobody can see is a set
 # somebody rebuilds.
 SETS = (
@@ -46,7 +46,7 @@ SETS = (
 )
 
 # The dependency table lives in fetch.SET_NEEDS, where the mechanism that reads it is. A second copy
-# here was the copy nothing read, so fetching media_tools alone installed viewers that died on
+# here was the copy nothing read. Fetching media_tools alone installed viewers that died on
 # ModuleNotFoundError while the README documented the dependency and nothing enforced it.
 SET_NEEDS = fetch.SET_NEEDS
 
@@ -129,11 +129,11 @@ def cmd_fetch(argv):
 
 def cmd_check(_argv):
     cfg = config.load()
-    # A repository with no lock fetched nothing, so there is nothing here to be wrong about. That is
+    # A repository with no lock fetched nothing. There is nothing here to be wrong about. That is
     # a different state from a lock with entries none of which could be read, and only the second
     # one is a failure. Collapsing them made the toolkit's own gate refuse its own commit.
     if not fetch.read_lock(cfg):
-        print("  %s fetches nothing from the toolkit, so no fetched tool was checked." % cfg.project_name())
+        print("  %s fetches nothing from the toolkit. No fetched tool was checked." % cfg.project_name())
         return findings.EXIT_OK
     report = findings.Report("fetched tools")
     fetch.check(cfg, report)
@@ -201,7 +201,7 @@ def cmd_prose(argv):
     for candidate in tried:
         print("    %s" % candidate)
     print("  Name one under [hooks.docs_check] tool, or set REPOTOOLS_DOCS_CHECK.")
-    print("  An unreachable checker is an unchecked commit, so this is a refusal.")
+    print("  An unreachable checker is an unchecked commit. This is a refusal.")
     return findings.EXIT_BREAKING
 
 
@@ -241,7 +241,7 @@ COMMANDS = {
     "adopt": cmd_adopt,
     "inventory": cmd_inventory,
     # `prose` is the stable invocation the writing standards cite instead of a path. It existed as a
-    # function and as a line of help text and was never registered here, so every skill that had been
+    # function and as a line of help text and was never registered here. Every skill that had been
     # rewritten to name it was broken in exactly the way the rewrite was meant to prevent: a name
     # inside a standard that nobody notices until somebody runs it.
     "prose": cmd_prose,

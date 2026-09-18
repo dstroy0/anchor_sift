@@ -19,7 +19,7 @@ called, what license line its files carry, where its source lives, and which fil
     cfg.code_extensions()                 # (".c", ".h")
     cfg.is_excluded(path)                 # build, site, vendor and whatever else the repo lists
 
-Every setting has a default here, so a repository states what differs from the defaults and stays
+Every setting has a default here. A repository states what differs from the defaults and stays
 short. `defaults.toml` beside this file holds them, and a reader comparing a repository's file
 against it sees the repository's decisions on one screen.
 
@@ -54,7 +54,7 @@ def _merge(base, over, path=()):
     it, and the tool reading it reported zero files and exited 0.
 
     Lists had the same hazard with no guard: a repository adding one entry to `[code] exclude`
-    silently discarded all fourteen defaults, so a walk then descended into `build` and `node_modules`
+    silently discarded all fourteen defaults. A walk then descended into `build` and `node_modules`
     and reported duplication in somebody else's vendored code. The lists in EXTENDED_LISTS are
     unioned with the defaults, order preserved, and every other list replaces as before.
     """
@@ -80,7 +80,7 @@ def _read(path):
 class Config:
     """One repository's settings, already merged over the toolkit defaults.
 
-    `where` is the repository root, so a tool holding a Config needs no second path to work from.
+    `where` is the repository root. A tool holding a Config needs no second path to work from.
     """
 
     def __init__(self, where, data):
@@ -114,7 +114,7 @@ class Config:
     def header(self):
         """The comment lines a file generated into this repository opens with.
 
-        Returns a list of lines without their comment marker, so a caller writing Python prefixes
+        Returns a list of lines without their comment marker. A caller writing Python prefixes
         each with `# ` and a caller writing C wraps them in the block form. The name and version
         travel together because a stamped file with no version reads as current forever.
         """
@@ -171,7 +171,7 @@ class Config:
         found = [one for one in roots if os.path.exists(one)]
         if roots and not found:
             raise SystemExit(
-                "repotools: none of these roots exist, so a run over them would check nothing:\n    %s"
+                "repotools: none of these roots exist. A run over them would check nothing:\n    %s"
                 % "\n    ".join(roots)
             )
         return tuple(found)
@@ -207,7 +207,7 @@ class Config:
     def walk(self, roots, extensions):
         """Every file under `roots` carrying one of `extensions`, sorted, exclusions applied.
 
-        Sorted, so two runs over an unchanged tree print their findings in the same order and a
+        Sorted. Two runs over an unchanged tree print their findings in the same order and a
         difference between two reports is a difference in the tree.
         """
         out = []
@@ -290,7 +290,7 @@ def defaults():
 def load(start=None, required=True):
     """The Config for the repository above `start`, defaults merged under it.
 
-    Returns None where no repository root is above `start` and `required` is false, so a tool can
+    Returns None where no repository root is above `start` and `required` is false. A tool can
     offer a plain message instead of a traceback.
     """
     where = root.find(start, required=required)

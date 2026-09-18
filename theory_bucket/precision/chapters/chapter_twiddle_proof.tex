@@ -10,7 +10,7 @@ The transform of a sequence of length \(n\) over the integers modulo \(q\) is
 \[
 \hat{p}_j = \sum_i p_i \, \omega^{ij}
 \]
-where \(\omega\) is an \(n\)-th root of unity modulo \(q\). The powers of \(\omega\) the butterflies evaluate are the \textbf{twiddle constants}. In the Cooley-Tukey butterfly they enter as \(c = a + bw\) and \(d = a - bw\); in the Gentleman-Sande butterfly as \(c = a + b\) and \(d = (a-b)w\). A transform of length \(2^k\) is \(k\) stages of \(n/2\) butterflies, so the twiddles are touched more often than any other value in the computation and are the only inputs supposed to be constant.
+where \(\omega\) is an \(n\)-th root of unity modulo \(q\). The powers of \(\omega\) the butterflies evaluate are the \textbf{twiddle constants}. In the Cooley-Tukey butterfly they enter as \(c = a + bw\) and \(d = a - bw\); in the Gentleman-Sande butterfly as \(c = a + b\) and \(d = (a-b)w\). A transform of length \(2^k\) is \(k\) stages of \(n/2\) butterflies. The twiddles are touched more often than any other value in the computation and are the only inputs supposed to be constant.
 
 \section{The attack, and why it works}
 
@@ -24,7 +24,7 @@ This work produced that fault condition by carelessness, which is worth recordin
 
 A transform was built on three moduli. The third, \(1610612737\), was taken on faith because it has the right shape, \(3 \cdot 2^{29} + 1\), the form such a modulus must have. Its generator was raised to \((p-1)/L\) to produce a root of unity of order \(L\), exactly as the construction requires, and a check written beside it reported the root was fine.
 
-The check was trial division to one hundred, on a ten digit number. \(1610612737\) is \textbf{composite}, and the proof is one line: \(2^{1610612736} \not\equiv 1 \pmod{1610612737}\), so Fermat refuses it. The certificate is the witness \(2\).
+The check was trial division to one hundred, on a ten digit number. \(1610612737\) is \textbf{composite}, and the proof is one line: \(2^{1610612736} \not\equiv 1 \pmod{1610612737}\). Fermat refuses it. The certificate is the witness \(2\).
 
 Because it is composite, \(g^{(p-1)/L}\) had no particular order, the twiddles were wrong, and the transform returned numbers of the ordinary shape that were not the convolution of anything. The two correct moduli in the same set returned zero wrong coefficients out of thirty-two. The composite one returned thirty-two out of thirty-two, and the only reason anybody noticed is that the three were recombined against each other and disagreed.
 
@@ -38,9 +38,9 @@ Let \(N = k \cdot 2^n + 1\) with \(k\) odd and \(k < 2^n\). Then \(N\) is prime 
 
 Every modulus such a transform can use has this shape, because admitting a root of unity of order \(2^n\) is the same as \(2^n\) dividing \(N-1\). The theorem therefore reaches every candidate that matters.
 
-\textbf{Why a witness is a proof.} Suppose \(a^{(N-1)/2} \equiv -1 \pmod N\), and let \(p\) be any prime factor of \(N\). Then \(a^{(N-1)/2} \equiv -1 \pmod p\) as well, so the order of \(a\) modulo \(p\) divides \(N-1\) and does not divide \((N-1)/2 = k \cdot 2^{n-1}\). Since \(N - 1 = k \cdot 2^n\), the order must carry the full \(2^n\), giving \(2^n \mid p-1\) and so \(p \equiv 1 \pmod{2^n}\). Every prime factor of \(N\) is at least \(2^n + 1\).
+\textbf{Why a witness is a proof.} Suppose \(a^{(N-1)/2} \equiv -1 \pmod N\), and let \(p\) be any prime factor of \(N\). Then \(a^{(N-1)/2} \equiv -1 \pmod p\) as well. The order of \(a\) modulo \(p\) divides \(N-1\) and does not divide \((N-1)/2 = k \cdot 2^{n-1}\). Since \(N - 1 = k \cdot 2^n\), the order must carry the full \(2^n\), giving \(2^n \mid p-1\) and so \(p \equiv 1 \pmod{2^n}\). Every prime factor of \(N\) is at least \(2^n + 1\).
 
-If \(N\) were composite it would have at least two such factors, so \(N \ge (2^n+1)^2 > 2^{2n}\). But \(k < 2^n\) gives \(N = k \cdot 2^n + 1 < 2^{2n} + 1\). The two cannot both hold, so \(N\) is prime. \qedsymbol
+If \(N\) were composite it would have at least two such factors. \(N \ge (2^n+1)^2 > 2^{2n}\). But \(k < 2^n\) gives \(N = k \cdot 2^n + 1 < 2^{2n} + 1\). The two cannot both hold. \(N\) is prime. \qedsymbol
 
 The condition \(k < 2^n\) is what that last step needs, and a modulus outside that range is reported as out of range instead of being tested anyway.
 
@@ -56,11 +56,11 @@ Proving the modulus prime is not enough. The twiddle is \(\omega = g^{(p-1)/L}\)
 For \(L = 2^m\), if \(\omega^L = 1\) and \(\omega^{L/2} \ne 1\), then \(\omega\) has order exactly \(L\).
 \end{proposition}
 
-\textbf{Proof.} The order divides \(L = 2^m\), so it is \(2^j\) for some \(j \le m\). If \(j < m\) then \(2^j\) divides \(2^{m-1} = L/2\), which would give \(\omega^{L/2} = 1\). It does not, so \(j = m\). \qedsymbol
+\textbf{Proof.} The order divides \(L = 2^m\). It is \(2^j\) for some \(j \le m\). If \(j < m\) then \(2^j\) divides \(2^{m-1} = L/2\), which would give \(\omega^{L/2} = 1\). It does not. \(j = m\). \qedsymbol
 
 Two exponentiations settle it completely, with no factoring of anything. This is cheap enough to run on every twiddle before every transform, and it is the step the fault attack removes. It refuses a zeroed twiddle, a root of short order, and a root drawn from a composite modulus, all by the same test.
 
-The generator is proved the same way and just as completely: \(g\) generates the whole group if and only if \(g^{(p-1)/q} \ne 1\) for every prime \(q\) dividing \(p-1\). Here \(p - 1 = k \cdot 2^n\) with \(k\) small, so factoring it is factoring \(k\), and the proof is complete instead of partial.
+The generator is proved the same way and just as completely: \(g\) generates the whole group if and only if \(g^{(p-1)/q} \ne 1\) for every prime \(q\) dividing \(p-1\). Here \(p - 1 = k \cdot 2^n\) with \(k\) small. Factoring it is factoring \(k\), and the proof is complete instead of partial.
 
 \section{What it costs on one desktop}
 
@@ -90,7 +90,7 @@ The cost grows as roughly the square of the bit length, since the exponent has \
 
 The tabled moduli are small because they are sized to a machine word. A lane holds sixty-four bits, a product of two residues has to fit in one, and the modulus therefore stops below \(2^{32}\). That is a property of the lane and not of the mathematics.
 
-The arithmetic here is on unbounded integers, so the proof runs at any width, and moduli far past anything tabled can be produced and proved on demand:
+The arithmetic here is on unbounded integers. The proof runs at any width, and moduli far past anything tabled can be produced and proved on demand:
 
 \begin{center}
 \begin{tabular}{@{}rlr@{}}
@@ -114,13 +114,13 @@ The twiddle table is not a list of numbers that happen to be useful. It is a gro
 Let \(\omega\) have order exactly \(n\) modulo a prime \(p\), and let \(w_j = \omega^j\) for \(0 \le j < n\). Then \(\{w_j\}\) is the cyclic group of order \(n\) generated by \(\omega\), and \(w_j w_k = w_{(j+k) \bmod n}\) for every \(j\) and \(k\).
 \end{proposition}
 
-\textbf{Proof.} \(w_j w_k = \omega^{j+k}\). Write \(j + k = qn + r\) with \(0 \le r < n\). Then \(\omega^{j+k} = (\omega^n)^q \omega^r = \omega^r = w_r\), and \(r\) is \((j+k) \bmod n\). The identity is \(w_0 = 1\) and the inverse of \(w_j\) is \(w_{n-j}\), so the set is closed, has an identity and has inverses, which makes it a group; it is generated by one element, so it is cyclic. \qedsymbol
+\textbf{Proof.} \(w_j w_k = \omega^{j+k}\). Write \(j + k = qn + r\) with \(0 \le r < n\). Then \(\omega^{j+k} = (\omega^n)^q \omega^r = \omega^r = w_r\), and \(r\) is \((j+k) \bmod n\). The identity is \(w_0 = 1\) and the inverse of \(w_j\) is \(w_{n-j}\). The set is closed, has an identity and has inverses, which makes it a group; it is generated by one element. It is cyclic. \qedsymbol
 
 Two consequences are used directly.
 
 \textbf{The table sums to zero.} For \(n > 1\), \(\sum_j w_j = (\omega^n - 1)/(\omega - 1) = 0\), exactly, because \(\omega \ne 1\) makes the denominator invertible. This is an integer zero and not a small residual.
 
-\textbf{The table is generated by repeated multiplication.} \(w_{j+1} = w_j \omega\), so building the whole table costs one modular multiply per entry. In floating point that construction is warned against because error accumulates along the chain. In the exact ring there is no error to accumulate, so the cheap construction and the correct one are the same construction.
+\textbf{The table is generated by repeated multiplication.} \(w_{j+1} = w_j \omega\). Building the whole table costs one modular multiply per entry. In floating point that construction is warned against because error accumulates along the chain. In the exact ring there is no error to accumulate. The cheap construction and the correct one are the same construction.
 
 \subsection{The disproof: the law is necessary and is not sufficient}
 
@@ -172,9 +172,9 @@ modulus & shape & witness & order \\
 \end{tabular}
 \end{center}
 
-The first run of that kernel agreed with the host on the first modulus and differed in \emph{every coefficient} on the other two. The property separating them is not primality, which all three have. It is that \(2013265921\) is below \(2^{31}\) and the other two are above it. In the butterfly, two residues below a modulus above \(2^{31}\) sum past \(2^{32}\) and wrap, silently, in a type that raises nothing. The same is true of the borrow in the difference. Only the smallest modulus never reached the boundary, so one arm agreed and two did not.
+The first run of that kernel agreed with the host on the first modulus and differed in \emph{every coefficient} on the other two. The property separating them is not primality, which all three have. It is that \(2013265921\) is below \(2^{31}\) and the other two are above it. In the butterfly, two residues below a modulus above \(2^{31}\) sum past \(2^{32}\) and wrap, silently, in a type that raises nothing. The same is true of the borrow in the difference. Only the smallest modulus never reached the boundary. One arm agreed and two did not.
 
-\textbf{This is the same fault as the composite modulus, one level down.} In both cases an assumption about the arithmetic went unstated, the transform returned values of the ordinary shape, and nothing in the output said otherwise. The first was a constant nobody proved; the second was a width nobody checked. Neither was found by reading the code. Both were found because the gate ran cases differing in one property, so the failure named its own cause.
+\textbf{This is the same fault as the composite modulus, one level down.} In both cases an assumption about the arithmetic went unstated, the transform returned values of the ordinary shape, and nothing in the output said otherwise. The first was a constant nobody proved; the second was a width nobody checked. Neither was found by reading the code. Both were found because the gate ran cases differing in one property. The failure named its own cause.
 
 Widened to 64 bits, all three moduli agree with the host, and the device multiply agrees with the reference at every size tested.
 

@@ -18,7 +18,7 @@
  *       hold one for that reason alone. The representation is a transform of the value, and the
  *       device carries the same transform, one warp's worth of limbs at a time.
  * @note Only `agreement` is handed over. A single comparison is far too small to be worth a bus
- *       crossing, so the arm's `equal` and `compare` stay on the host and are the portable ones.
+ *       crossing. The arm's `equal` and `compare` stay on the host and are the portable ones.
  */
 #ifndef ANCHOR_EXACT_GPU_H
 #define ANCHOR_EXACT_GPU_H

@@ -20,7 +20,7 @@
 # its header says that route stops being the polite one in the thousands. The archive is a public
 # service run by people. One rsync over the whole tree costs them one connection and a file
 # listing; hundreds of thousands of HTTP requests cost them hundreds of thousands of requests. A
-# second rsync transfers only what changed, so re-running this is close to free for both ends.
+# second rsync transfers only what changed. Re-running this is close to free for both ends.
 #
 # The module is `cif`. `pcod-cif` on the same server holds PREDICTED structures, and `hkl` holds
 # structure factors. Neither is a deposited crystal, and neither is read here.
@@ -45,7 +45,7 @@
 # The mirror keeps the archive's own layout, nested by identifier (cif/1/00/00/1000000.cif). A later
 # rsync compares against it and sends only differences. Every reading in
 # examples/crystallography lists a flat directory of NNNNNNN.cif files. Teaching each reading to
-# walk a tree would change every stage's reader to serve one fetch, so the flatten step copies into
+# walk a tree would change every stage's reader to serve one fetch. The flatten step copies into
 # the flat cache instead and the readers stay as they are. The cost is disk: the files exist twice.
 #
 # WHAT THIS NEVER DOES
@@ -146,7 +146,7 @@ def flatten(mirror, flat, out):
         if name in seen:
             out.write("  REFUSED: two files named %s in the mirror:\n    %s\n    %s\n"
                       % (name, seen[name], path))
-            out.write("  COD identifiers are unique, so the mirror layout is not the expected one.\n"
+            out.write("  COD identifiers are unique. The mirror layout is not the expected one.\n"
                       "  Copying one over the other would destroy a file.\n\n")
             return None
         seen[name] = path

@@ -4,7 +4,7 @@
 % Compile from this directory so the shared inputs resolve:
 %     latexmk -pdf -outdir=../../build/theory/precision main.tex
 %
-% One level under theory/, which is the ordinary depth, so ../preamble.tex reaches the shared
+% One level under theory/, which is the ordinary depth. ../preamble.tex reaches the shared
 % preamble and its own \input{../macros.tex} lands on theory/macros.tex directly. No shim is needed
 % here; theory/cryptography/ and theory/held/ need one only because they sit a level deeper.
 %

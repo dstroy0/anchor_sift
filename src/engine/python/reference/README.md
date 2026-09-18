@@ -1,13 +1,13 @@
 # Reference
 
-**Purpose:** Build the background a departure is measured against, out of the data itself, so no model has to be assumed.
+**Purpose:** Build the background a departure is measured against, out of the data itself. No model has to be assumed.
 **Scope:** `src/engine/python/reference/`
 
-| module | what it holds |
-|---|---|
-| `shuffles.py` | `permuted`, `block_shuffled`, `scrambled_within` |
-| `ciphers.py` | `substitute`, `repeat_key`, `keystream`, `counter`, `coset`, `seat_span` |
-| `unselected.py` | `sqrt_two_digits`, `prime_gaps`, `seated`. Structure nobody produced |
+| module          | what it holds                                                            |
+| --------------- | ------------------------------------------------------------------------ |
+| `shuffles.py`   | `permuted`, `block_shuffled`, `scrambled_within`                         |
+| `ciphers.py`    | `substitute`, `repeat_key`, `keystream`, `counter`, `coset`, `seat_span` |
+| `unselected.py` | `sqrt_two_digits`, `prime_gaps`, `seated`. Structure nobody produced     |
 
 `unselected.py` is the control this work went longest without, and it refuted the strong claim when it arrived. Every corpus departing from the null had been made by a person. The measure detecting arrangement and the measure detecting human production were not separated by anything measured. The gaps between primes return 0.93, outside the band every memoryless arm occupies, and nothing authored the primes.
 

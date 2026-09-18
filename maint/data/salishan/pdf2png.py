@@ -11,7 +11,7 @@
 # arrives before its letter, the schwa as @, the glottal stop as P. Words break mid-token, and the
 # five-line interlinear arrives one token per line with the surface run into its own parse.
 #
-# A hand extraction taken off that text records the extractor. The page is the source, so the page
+# A hand extraction taken off that text records the extractor. The page is the source. The page
 # is what gets read, and the images go under build/pages. That path reaches pages/ in the closed
 # corpus, the way build/papers and build/oracles reach papers/ and oracles/. A paper's PDF, its
 # text and the pictures a reader worked from all sit in one place.

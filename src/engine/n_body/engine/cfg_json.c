@@ -136,7 +136,7 @@ static int cfg_json_quoted(CfgJsonWalk *walk)
  * @param[in,out] walk The reader, at the number's first byte [BORROWS].
  * @return             1 where an integer was read and a token written, 0 otherwise.
  * @note A decimal point or an exponent directly after the digits is refused by name. The driver's
- *       configuration carries every quantity as an integer in a stated unit, so a fraction here is
+ *       configuration carries every quantity as an integer in a stated unit. A fraction here is
  *       a unit error in the file and not a value to round.
  */
 static int cfg_json_number(CfgJsonWalk *walk)
@@ -304,7 +304,7 @@ int cfg_json_unsigned(const char *text, const CfgJsonToken *token, unsigned long
     int fits = (token->kind == CFG_JSON_NUMBER) && (text[token->start] != '-');
     for (size_t at = token->start; fits && (at < token->end); at += 1u)
     {
-        // The byte is an ASCII digit, checked by cfg_json_number, so the difference is 0 to 9.
+        // The byte is an ASCII digit, checked by cfg_json_number. The difference is 0 to 9.
         const unsigned long long digit = (unsigned long long)(text[at] - '0');
         // total * 10 + digit stays within 64 bits exactly where total is at most (max - digit) / 10.
         fits = (total <= ((~0ULL - digit) / 10ULL));

@@ -75,7 +75,7 @@ def measure(title, game, state, plies, namer=str, conditioning=rules.ADVERSARY, 
     # Both category sets, because on a shallow budget they answer different questions and the
     # resolved-only reading can collapse to zero for a reason that is about the budget rather than
     # about the position. A move whose branch resolved nothing contributes no term to the
-    # resolved-only entropy, so a position where one move mates and nineteen run out of depth has
+    # resolved-only entropy. A position where one move mates and nineteen run out of depth has
     # every informative term dropped and reports a gain of zero. Over all four categories the same
     # position reports what it should, because "the search did not finish" is itself one of the
     # things knowing the move tells you.
@@ -164,7 +164,7 @@ def main():
         "The mate in one is the case that shows why two category sets are printed and not one.\n"
         "Read over the resolved outcomes alone it reports I(X;Y) = 0, which is false as a statement\n"
         "about the position and true as a statement about the reading: nineteen of the twenty moves\n"
-        "resolved nothing at two plies, so every term that carried information was dropped and only\n"
+        "resolved nothing at two plies. Every term that carried information was dropped and only\n"
         "the mate was left, and a single certain outcome has no entropy to lose. Read over all four\n"
         "categories the same position reports a positive gain, because knowing the move tells you\n"
         "whether the game ends here, and that is a real thing to know.\n"

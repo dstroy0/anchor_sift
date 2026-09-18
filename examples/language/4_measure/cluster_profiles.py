@@ -26,7 +26,7 @@
 # groups the way Ward's method does.
 #
 # The cophenetic correlation is reported beside each tree. A tree can be built from any distance matrix
-# whatsoever and will look like a result, so the check compares the height at which each pair first landed
+# whatsoever and will look like a result. The check compares the height at which each pair first landed
 # in one group against the distance actually measured between them. A low value means the tree is
 # imposing structure the distances do not carry, and the tree should then be read as an ordering and not
 # as a grouping.

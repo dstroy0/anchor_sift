@@ -11,12 +11,12 @@
 # Read as codepoints, four Dravidian languages come out further from each other than from Indo Aryan, and
 # the pair that separated most recently reads as the widest distance in the matrix. Aligning the scripts
 # changed nothing, and it could not have: the reading ranks characters by how often they occur inside each
-# text, so which codepoints a script uses never entered it.
+# text. Which codepoints a script uses never entered it.
 #
 # The assumption underneath is about the unit. A letter sequence works for an alphabet because that is
 # where an alphabet keeps its context: letters run together into morphemes and the statistics of letter
 # pairs carry that. An abugida keeps its context somewhere else. A consonant carries a vowel already, a
-# dependent sign changes which vowel, and a virama binds one consonant to the next, so the unit that
+# dependent sign changes which vowel, and a virama binds one consonant to the next. The unit that
 # means something is the whole cluster and a codepoint is a piece of one. Counting the pieces counts how a
 # script decomposes, and two close languages decompose differently.
 #

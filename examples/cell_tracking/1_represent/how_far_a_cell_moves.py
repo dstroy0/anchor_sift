@@ -141,7 +141,7 @@ def main():
         out.write("  the sub-pixel work in 2_partition and 4_measure is a refinement on a\n")
         out.write("  quantity that was never the difficulty. Linking across steps this size is.\n")
     elif median < 2.0:
-        out.write("\n  That is a small step. Cells move less than two pixels a frame, so the\n")
+        out.write("\n  That is a small step. Cells move less than two pixels a frame. The\n")
         out.write("  fraction is most of the displacement and the sub-pixel work is load bearing.\n")
     else:
         out.write("\n  That is a middling step, where the whole lag and the fraction both carry\n")

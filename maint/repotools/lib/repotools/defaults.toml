@@ -2,7 +2,7 @@
 # repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# The toolkit defaults. A repository's own repotools.toml is merged over this table by table, so a
+# The toolkit defaults. A repository's own repotools.toml is merged over this table by table. A
 # repository states what differs and stays short enough to read in one screen.
 #
 # A key belongs here when a second repository would answer the question differently. A key only one
@@ -10,7 +10,7 @@
 
 [project]
 # name has no default. A generated header with no project name in it is a header that is wrong in
-# every repository at once, so the loader refuses instead of guessing.
+# every repository at once. The loader refuses instead of guessing.
 version = ""
 spdx = ""
 copyright = "Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>"
@@ -18,7 +18,7 @@ prefix = ""
 
 [layout]
 # Where each kind of file lives, relative to the repository root. A tool asks for the kind and never
-# for the directory name, so a repository that keeps headers under include/ changes one line here
+# for the directory name. A repository that keeps headers under include/ changes one line here
 # and no tool at all.
 source = ["src", "include"]
 docs = ["docs"]
@@ -29,13 +29,13 @@ tests = ["test"]
 # defect, while a fixtures root should never be collected at all.
 #
 # One key carrying both meanings made a guard impossible to write. A directory holding only a .c file
-# and a .toml manifest sat under `tests`, so a run of pytest over that list collected nothing, exited
-# 5, and would have reported success forever: nothing was missing and nothing was malformed, so the
+# and a .toml manifest sat under `tests`. A run of pytest over that list collected nothing, exited
+# 5, and would have reported success forever: nothing was missing and nothing was malformed. The
 # absent-root refusal and the discoverability fix both slid past it. Splitting the key is what makes
 # a zero collection unambiguous.
 fixtures = []
 tools = "tools"
-# The throwaway directory. Anything a tool generates and nobody edits goes under here, so a tool
+# The throwaway directory. Anything a tool generates and nobody edits goes under here. A tool
 # never has to assume what a tree calls it. Two repositories on this machine call it build-cov and
 # build-werror, and a tool writing to a hard coded `build` would have put objects in a tracked tree.
 scratch = "build"

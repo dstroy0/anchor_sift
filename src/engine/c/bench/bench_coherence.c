@@ -142,7 +142,7 @@ int main(void)
 
     if ((corpus == NULL) || (absent == NULL))
     {
-        // %zu is absent from the C runtime this builds against on Windows, so every size_t printed
+        // %zu is absent from the C runtime this builds against on Windows. Every size_t printed
         // here is widened and written as %llu.
         (void)fprintf(stderr, "  could not take %llu bytes\n", (unsigned long long)CORPUS_BYTES);
         free(corpus);
@@ -214,7 +214,7 @@ int main(void)
         }
 
         // Read before the reference runs. The exact compare verifies at every alignment by
-        // definition, so letting it run first adds one verification per alignment to the counter
+        // definition. Letting it run first adds one verification per alignment to the counter
         // and the survivor rates below come out one higher than they are.
         const uint64_t survivors = anchor_sift_verifications;
 
@@ -248,7 +248,7 @@ int main(void)
 
     printf("\n  Where a period is found the histogram overstates the filter by 2^((k-1) * H2),\n");
     printf("  which is what the ratio in the second line comes to. Coherence is one pass over\n");
-    printf("  lags and is available before any search, so the miss is computed and not met.\n");
+    printf("  lags and is available before any search. The miss is computed and not met.\n");
 
     printf("\n  What setting the anchor count from the recovered size is worth\n");
     printf("  %-12s %-9s %-15s %-15s %-9s %s\n", "corpus", "anchors", "probes/align 4",
@@ -259,7 +259,7 @@ int main(void)
         bench_build_bytes(corpus, CORPUS_BYTES, KINDS[which], CORPUS_SEED);
         bench_build_bytes(absent, NEEDLE_BYTES * NEEDLES_PER_ROW, KINDS[which], ABSENT_SEED);
 
-        /* The plan carries the field's census now, so the dispatch rule reads integer counts
+        /* The plan carries the field's census now. The dispatch rule reads integer counts
          * instead of an entropy in double. bench_collision_entropy is still called above where
          * this bench REPORTS an entropy; the engine no longer consumes one. */
         AnchorFieldCensus census;
@@ -293,7 +293,7 @@ int main(void)
                (survivors_four == survivors_chosen) ? "not at all" : "they moved");
     }
 
-    printf("  Survivors have to stay put. The anchors dropped were refuting nothing, so dropping\n");
+    printf("  Survivors have to stay put. The anchors dropped were refuting nothing. Dropping\n");
     printf("  them may not let one alignment through that four anchors held back.\n");
 
     free(corpus);

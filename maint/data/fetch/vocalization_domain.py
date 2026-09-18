@@ -45,7 +45,7 @@ WANTED = (
     # the smoothness every waveform carries is present in both sides of the comparison
     ("voc_human_speech", "Bone Wars spoken Wikipedia article (English).ogg"),
     ("voc_human_speech2", "Angelo Fabroni (Spoken Wikipedia, English).ogg"),
-    # A dawn chorus is many birds at once, so the human side of that comparison has to be many people at
+    # A dawn chorus is many birds at once. The human side of that comparison has to be many people at
     # once as well. One person alone in a studio is the wrong control for it.
     ("voc_human_crowd", "Shopping mall less crowded.ogg"),
     ("voc_human_crowd2", "1 minute at the alexa mall in berlin.ogg"),

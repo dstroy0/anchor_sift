@@ -26,7 +26,7 @@ LEAST = 80000
 
 # A Greek to English lexicon of the New Testament, 21.2 percent Greek letters and 78.8 percent Latin
 # ones. It was one of four Greek texts and stood inside every Greek reading in this work until a
-# first line was read by accident. Excluded by name and not deleted, so what it was and why it is
+# first line was read by accident. Excluded by name and not deleted. What it was and why it is
 # gone stays on the record.
 SKIP = ("lang_greek_40935",)
 

@@ -26,7 +26,7 @@
 # reasons.
 #
 # The Salishan corpus holds forms transcribed out of published papers, and the papers are their
-# authors' copyright, so neither is this work's to redistribute. Under that sits the reason that
+# authors' copyright. Neither is this work's to redistribute. Under that sits the reason that
 # matters more: the forms are the words of the people whose languages they are, held on the
 # conditions those speakers set.
 #
@@ -88,7 +88,7 @@ def main():
         if repository is None:
             # Two closed repositories read their address from two variables, and naming the wrong
             # one sends somebody to set a variable that would not have helped.
-            print("    no %s set, so it is not fetched. Nothing else here needs it."
+            print("    no %s set. It is not fetched. Nothing else here needs it."
                   % (CITATIONS_ENV if name == "anchor_sift_citations" else PRIVATE_ENV))
             if name == "salishan_corpus":
                 print("    to rebuild the papers from the public archive instead:")

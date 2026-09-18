@@ -4,7 +4,7 @@
 # Catalog: PRO-x-001
 # Catalog: PRO-CORPUS
 #
-# Draw a corpus of deposited proteins from the open archive and cache the coordinate files, so the
+# Draw a corpus of deposited proteins from the open archive and cache the coordinate files. The
 # vector-walk stages have a fixed, repeatable set to read.
 #
 #   Usage:  python examples/proteins/build_corpus.py [how many]
@@ -38,7 +38,7 @@ CORPORA = os.path.join(ROOT, "build", "corpora")
 CACHE = os.path.join(ROOT, "build", "rama")
 IDS = os.path.join(CACHE, "all_xray_protein_ids.json")
 
-# The oracle's seed, so this corpus is the same draw extended, not a different one.
+# The oracle's seed. This corpus is the same draw extended, not a different one.
 SEED = 0x51F7
 PAUSE = 0.5
 TRIES = 3

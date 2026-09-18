@@ -2,12 +2,12 @@
 
 Measure how far something sits from the most disordered arrangement of its own parts.
 
-That is the construction. Every domain is that one sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is built from the object's own parts, so there is no prior to estimate, no training set to collect and no model of the domain to write.
+That is the construction. Every domain is that one sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is built from the object's own parts. There is no prior to estimate, no training set to collect and no model of the domain to write.
 
-| | |
-|---|---|
-| [Setup](setup.md) | dependencies, building the engine, building the books |
-| [Using it](usage.md) | run the measure on something of your own |
+|                               |                                                                               |
+| ----------------------------- | ----------------------------------------------------------------------------- |
+| [Setup](setup.md)             | dependencies, building the engine, building the books                         |
+| [Using it](usage.md)          | run the measure on something of your own                                      |
 | [Research](research/index.md) | the eleven books across `theory/` and `theory_bucket/`, and how to build them |
 
 The repository is at [github.com/dstroy0/anchor_sift](https://github.com/dstroy0/anchor_sift). Its README covers the algorithm, the areas of research, and the licensing.
@@ -16,7 +16,7 @@ The repository is at [github.com/dstroy0/anchor_sift](https://github.com/dstroy0
 
 The tools here can regenerate language and can produce predictive speech. **A tool for language that comes out of this work requires a human to review its output.**
 
-Regeneration stays faithful near the subject and escapes it with distance, and nothing marks where that happens. The narrow band where output is still coherent and is already not the language is where a native speaker belongs. The question there is *is this mine*, and that is a question of anthropology, of philosophy, and for many communities of what is sacred. It is not for an algorithm to answer.
+Regeneration stays faithful near the subject and escapes it with distance, and nothing marks where that happens. The narrow band where output is still coherent and is already not the language is where a native speaker belongs. The question there is _is this mine_, and that is a question of anthropology, of philosophy, and for many communities of what is sacred. It is not for an algorithm to answer.
 
 ## The languages here belong to the people who speak them
 
@@ -28,10 +28,10 @@ A linguist wrote the paper. A person read the paper into a table. Neither of tho
 
 The engine carries many readers, one per file under `src/engine/python/measure/` and `src/engine/python/reference/`. Two are mistaken for each other more than any others:
 
-| | reads | external ground truth |
-|---|---|---|
-| shift agreement detector | a period or an offset, by how often a shift agrees with itself | three of three exact, from published crystal cell edges (Crystallography Open Database) |
-| permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none |
+|                          | reads                                                                 | external ground truth                                                                   |
+| ------------------------ | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| shift agreement detector | a period or an offset, by how often a shift agrees with itself        | three of three exact, from published crystal cell edges (Crystallography Open Database) |
+| permutation null measure | a departure from the maximum entropy arrangement of the same multiset | none                                                                                    |
 
 The permutation null measure carries most of the findings and has only been shown not to invent structure on memoryless input. Most of the confusion this work has had to correct came from reporting one of these as the other.
 

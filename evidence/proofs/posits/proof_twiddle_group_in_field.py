@@ -56,7 +56,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 from render.host import raster, RasterConfig, LAYOUT_ROWS, CHANNEL_BYTE, REDUCE_MAX  # noqa: E402
 
-PRIME = 12289          # 3 * 2^12 + 1, a Proth prime, so p - 1 = 2^12 * 3
+PRIME = 12289          # 3 * 2^12 + 1, a Proth prime. P - 1 = 2^12 * 3
 ORDER = 256            # the transform length; omega has multiplicative order exactly this
 
 CLOUD = 45             # a residue that is not a root of unity: the ambient field
@@ -192,7 +192,7 @@ def main():
 
     config = RasterConfig(width=width, height=height, layout=LAYOUT_ROWS,
                           channel=CHANNEL_BYTE, reduce=REDUCE_MAX, gain=1)
-    needle = bytes(corpus[0:1])          # length one, so alignments == cells and every cell fills once
+    needle = bytes(corpus[0:1])          # length one. Alignments == cells and every cell fills once
     sheet = raster(config, corpus, needle, [])
     assert sheet is not None and len(sheet) == cells, "the render was refused or returned the wrong size"
     lit = sum(1 for value in sheet if value == RING)

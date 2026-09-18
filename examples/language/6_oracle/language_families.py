@@ -13,13 +13,13 @@
 # philology already established from shared roots.
 #
 # What that agreement is worth, stated before the numbers. A family tree is a reconstruction argued
-# from cognates and sound correspondences, so this is agreement with a scholarly consensus and not a
+# from cognates and sound correspondences. This is agreement with a scholarly consensus and not a
 # check against a fact, and where the two disagree nothing here can say which is wrong. Published
 # cell edges are the other kind. Those are an oracle. This is a strong prior.
 #
 # The alphabet is removed as a second arm, since a milder version of that test once moved fourteen
 # of twenty languages to a different nearest neighbor and was read as the family signal being
-# spelling. Stripping the alphabet entirely gives the same family rate, so the alphabet is worth
+# spelling. Stripping the alphabet entirely gives the same family rate. The alphabet is worth
 # nothing to the families and the earlier reading was an overclaim.
 
 import io

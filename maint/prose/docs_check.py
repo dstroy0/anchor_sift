@@ -16,7 +16,7 @@
 # turned off. So it fails a pipeline without needing a flag, and only on the tier that stops a commit.
 #
 # THIS LINE READ "the count of findings" UNTIL 2026-09-16 AND THAT WAS NEVER TRUE. A count is the
-# wrong shape for an exit status, as the note beside main() already said: they wrap at 256, so 256
+# wrong shape for an exit status, as the note beside main() already said: they wrap at 256. 256
 # findings would report success. The header and the code had disagreed long enough that a hook was
 # written against the header, tested for exit 2, and would have let every breaking finding through
 # while printing it. It was caught by running this checker on a file holding one em dash rather than
@@ -46,7 +46,7 @@
 #   A THIRD, STRUCTURAL RATHER THAN TEXTUAL. LOCALE was referenced at one site that only chose a
 #   word in the report, and BANNED held a hand-written second copy of the same ten. A rule table
 #   duplicated into the table that enforces it drifts with no signal at all. BANNED splices LOCALE
-#   in now, so there is one copy.
+#   in now. There is one copy.
 #
 # Line numbers throughout are against the SKILL.md files as installed under ~/.claude/skills, read
 # at the time this was written. Cite the sentence, not only the number: a number moves when a
@@ -83,17 +83,17 @@ import sys
 # exactly one site, stage_of(), where it only decided a word in the report. The ten British patterns
 # were enforced because BANNED held a second copy of them, written out by hand. Adding a pattern
 # here changed the label on a finding and never produced one. BANNED now splices this tuple in
-# directly, so the two cannot drift and there is one place to edit.
+# directly. The two cannot drift and there is one place to edit.
 #
 # THE TEN ORIGINALS ARE CARRIED FORWARD CHARACTER FOR CHARACTER, in their original order, ahead of
 # everything new. HUMAN_RATE is keyed by pattern string and holds a measured rate for eight of them,
 # and rewriting one to fold it into a general arm would take that rate out of submission_check.py's
 # table with nothing to say it had gone. The general arms overlap them and banned_hits dedupes on
-# (line, offset, token), so an overlap costs a wasted match and never a doubled finding.
+# (line, offset, token). An overlap costs a wasted match and never a doubled finding.
 #
 # WHAT THE -ise ARM ACTUALLY ENFORCES, and this is worth a sentence because somebody will read it
 # as dialect detection and correct it toward Oxford. `-ise` is not reliably British. Oxford spelling
-# is `-ize` and always was, so a tree written in Oxford English trips none of this and a tree
+# is `-ize` and always was. A tree written in Oxford English trips none of this and a tree
 # written in American English trips none of it either. The arm enforces a HOUSE AMERICAN convention
 # against one common British convention. It is not a claim about where the writer is from.
 #
@@ -111,12 +111,12 @@ import sys
 # WHAT CAME OUT ON THE SAME EVIDENCE. An `-isable` arm matched `controldisable` and every other
 # compound ending in `disable`, and bought three real hits across everything measured. It is gone.
 # A general doubled-l arm is not written and cannot be: `controlled`, `installed`, `enrolled` and
-# `spelled` are American with two l's, so the doubled-l rule stays the named list the standard's own
+# `spelled` are American with two l's. The doubled-l rule stays the named list the standard's own
 # sentence gives it. A general `-re` arm is not written for the same reason: `are`, `here`, `more`,
 # `figure` and `structure` are the majority of English words ending in those two letters.
 #
 # The standard's sentence names four shapes. It does not name the `ae` and `oe` digraphs
-# (`haemoglobin`, `foetus`, `anaesthetic`), so no arm is written for them. Nothing in any tree here
+# (`haemoglobin`, `foetus`, `anaesthetic`). No arm is written for them. Nothing in any tree here
 # fired one in the measurement above, and a rule with no measured hit is a rule nobody can tune.
 
 # The ten this file carried before the arms below, in their original order and spelling.
@@ -143,7 +143,7 @@ _ISE_TAIL = r"(?:e|es|ed|ing|er|ers)"
 
 # English words ending in -ise where American also writes -ise, because the s belongs to the stem
 # instead of to the Greek -ize suffix. Held as stems so one entry covers every inflection, and
-# matched with any letters allowed in front of them, so `madvise`, `imprecise`, `keycompromise` and
+# matched with any letters allowed in front of them. `madvise`, `imprecise`, `keycompromise` and
 # `saxexerciser` are all left alone. Every one of those turned up in the measurement.
 #
 # TWO ENTRIES WERE REMOVED AFTER TESTING AND MUST NOT COME BACK. `anis` exempts `organise`, which
@@ -193,7 +193,7 @@ LOCALE = LOCALE_NAMED + (
     r"|lustre|meagre|manoeuvre|sceptre)s?\b",
     # The doubled l the standard names by name, plus the rest of the same class. A general rule is
     # impossible here: American doubles the l in `controlled`, `installed`, `enrolled`, `spelled`
-    # and `called`, so only a list can separate them.
+    # and `called`. Only a list can separate them.
     r"\b(?:labell|modell|signall|travell|cancell|levell|totall|fuell|diall|marvell"
     r"|counsell|equall|initiall|spirall|tunnell|quarrell|refuell|shovell)"
     r"(?:ed|ing|er|ers|ors|or)\b",
@@ -204,7 +204,7 @@ LOCALE = LOCALE_NAMED + (
     r"|instal|instals|instalment|instalments|skilful|skilfully|wilful|wilfully"
     r"|enthral|enthrals|appal|appals|distil|distils|instil|instils)\b",
     # -ce where American takes -se, for the four nouns that differ. British usage splits `licence`
-    # the noun from `license` the verb and American writes `license` for both, so only the -ce form
+    # the noun from `license` the verb and American writes `license` for both. Only the -ce form
     # is ever wrong here and the verb needs no exemption.
     #
     # A `licence` inside an SPDX or copyright block is a legal artifact and a different question
@@ -237,12 +237,12 @@ BANNED = (
     # where a reader would otherwise land on the wrong one, which no regex can tell apart. This is
     # the instance that was called out, and the list grows one phrase at a time for that reason.
     r"cost and not a defect",
-    # The same shape, caught by its grammar. It reports where the standard permits it too, so it is
+    # The same shape, caught by its grammar. It reports where the standard permits it too. It is
     # a prose finding and never a breaking one: a person decides each site.
     r"\b(is|was|are|were) an? [\w-]+ and not an? [\w-]+",
     # The same shape with no copula and no article, which is how code-documentation section 146
     # writes both of the examples it bans by name: "Declared, not allocated." and "A number, not a
-    # guess." Every X-not-Y pattern in this file wanted (is|was|are|were) and an article, so the two
+    # guess." Every X-not-Y pattern in this file wanted (is|was|are|were) and an article. The two
     # sentences the standard names walked past all three of them. Derived by running the standard's
     # own illustrations through the checker: 4 of 28 named phrases were missed and two were these.
     #
@@ -278,7 +278,7 @@ BANNED = (
     r",\s+so\s+(?!that\b|far\b)",
     # Banned outright by code-comments section 200, which names three tokens and bounds them in the
     # same sentence: "none has a legitimate use in a comment here". so a and rather are banned for
-    # documentation as well by code-documentation section 110, so spelling is the one of the three
+    # documentation as well by code-documentation section 110. Spelling is the one of the three
     # whose ban is scoped, and COMMENT_ONLY below is where that scope is applied. A page explaining
     # a character encoding writes the word legitimately; a Doxygen block does not.
     r"\bspelling\b",
@@ -334,7 +334,7 @@ BANNED = (
     r"\b(what|that) matters (is|here|most)\b",
     #
     # The machine-prose vocabulary. None of these is wrong English and none is a claim about a
-    # measurement, so none of them breaks a build. They are the words a reader has learned
+    # measurement. None of them breaks a build. They are the words a reader has learned
     # to read as unwritten, and a page carrying them gets skimmed instead of read. Nothing in a
     # library about memory, entropy or crystal axes needs any of them.
     #
@@ -493,7 +493,7 @@ BANNED = (
     # made three agents reword correct prose about one.
     r"\b(far.reaching|wide.ranging|all.encompassing|overarching)\b",
     # imperative came off this line. code-comments/SKILL.md:99 requires "@brief Single-sentence
-    # summary using imperative voice", so the grammatical mood is the field's own word here and the
+    # summary using imperative voice". The grammatical mood is the field's own word here and the
     # rule reported the standard for naming it. Section 143's first escape: a term the field owns
     # stays.
     r"\b(indispensable|paramount)\b",
@@ -582,7 +582,7 @@ BANNED = (
     # A clause that announces a conclusion and carries no fact.
     r"\bthat is (what|why|the (difference|point|whole|answer|test|reason|rule|shape|cost))\b",
     # Searched with the measuring word attached as well. "which is how far" returns nothing dated
-    # before 2020 either, so the exemption it looked like it deserved was not there.
+    # before 2020 either. The exemption it looked like it deserved was not there.
     r"\bwhich is (what|why|how|the (difference|point|whole|answer|reason|rule))\b",
     # Bounded to the same noun list its sibling three lines up already carries. The bare `the` arm
     # was drift between two patterns written for one shape, and it fired on
@@ -608,7 +608,7 @@ BANNED = (
     # violation of that rule is the over-reach class this pass exists to remove.
     # Machinery given intent. A run does not say anything and a file does not answer.
     # A run of characters is the field's own term and predates all of this. Only the execution
-    # sense is banned, so the verb has to be one a program does.
+    # sense is banned. The verb has to be one a program does.
     r"\ba run that (finishes|reads|reports|says|passes|fails|completes|knows|decides)\b",
     r"\b(the (file|tool|check|hook|run|number|count|table)) (says|answers|knows|decides)\b",
     # Hedges, and a pointer left behind after the thing it pointed at was cut.
@@ -676,7 +676,7 @@ BANNED = (
     # say, as in "a shuffle holds nothing beyond one symbol" and "a domain that holds nothing".
     # What made the banned version preachy was the verb repeating against itself across a clause,
     # and no pattern separates that from the plain use. This is the third over-broad rule added to
-    # this file and caught by running it, so run it before keeping the next one.
+    # this file and caught by running it. Run it before keeping the next one.
     r"\bwould (prove|buy) nothing\b",
     # A bare abstraction standing in for the subject, usually in a closing clause.
     r"\bthe (reproducible|checkable|measurable|honest|valuable) thing\b",
@@ -715,7 +715,7 @@ BANNED = (
     # The nothing-else tag one preposition away from the form banned above.
     r"\bon nothing else\b",
     # Half of a can-only against cannot pair. Each half is ordinary and the pairing is the tic, which
-    # no single pattern reaches, so this catches the half that carries it.
+    # no single pattern reaches. This catches the half that carries it.
     r"\bcan only show (that|whether)\b",
 
     # ---- Added 2026-09-11, found by a detector probe and not by a frequency table. ----
@@ -912,15 +912,15 @@ BANNED = (
     # construction. It is a method.
     #
     # WITHDRAWN 2026-09-16, bare \bbooks?\b and \bconstruction\b. Both are naming rules about this
-    # tree's own vocabulary and neither is a register claim, so section 143 has no construction to
+    # tree's own vocabulary and neither is a register claim. Section 143 has no construction to
     # bound them to. code-comments/SKILL.md:199 writes "Antithesis, parallelism, and
-    # colon-then-elaboration are essay construction, not comment construction", so the second of the
+    # colon-then-elaboration are essay construction, not comment construction". The second of the
     # two reported the standard twice in one sentence. See WITHDRAWN at the foot of this tuple.
     # A caveat given descendants, and the pair of clauses that always follows it.
     r"\binherits that\b",
     r"\brecorded here inherits\b",
     r"\bevery one of them \w+ and none of them\b",
-    # The verb has to be a verb. \w+s also matches is, was and has, so this fired on
+    # The verb has to be a verb. \w+s also matches is, was and has. This fired on
     # code-documentation/SKILL.md:133, "None of them is wrong English and none carries a
     # measurement", where the clause is a plain statement about a word list.
     r"\bnone of them (?!is\b|was\b|has\b|does\b)\w+s\b",
@@ -1036,7 +1036,7 @@ WITHDRAWN = {
 # that filter at different widths, and the stages behave nothing alike.
 #
 # ALPHABET. Spelling, and it recovers the locale before it says anything about a writer. The
-# papers are Canadian and British convention linguistics, so neighbour fires at 17.3 per hundred
+# papers are Canadian and British convention linguistics. Neighbour fires at 17.3 per hundred
 # thousand words in them and analyse at 8.9, behaviour at 4.8, labelled at 2.9, centre at 2.3.
 # None of that is machine prose. It is where the author is, and the American spellings this tree
 # uses are a house rule and not a defect in anybody's English.
@@ -1261,7 +1261,7 @@ def stage_of(pattern):
 # THE TIER IS DECIDED BY THE SENTENCE IN THE STANDARD, NEVER BY THE REGEX. This is the correction
 # that matters and it runs both ways:
 #
-#   `rather` is one token and matches one word, so stage_of calls it a word. Its ban is stated
+#   `rather` is one token and matches one word. Stage_of calls it a word. Its ban is stated
 #   outright at code-documentation:110 and again at code-comments:200. It is TIER A.
 #   `\bis what (separates|keeps|...)` is a construction by shape and by authority alike, and the
 #   verbs this file added to it beyond the standard's ten are TIER A all the same, because the
@@ -1281,7 +1281,7 @@ def stage_of(pattern):
 # second at scale and reports a fix for every one. The two legal treatments are to give the second
 # half its own plain sentence, or to drop the weaker half, and section 146's test decides which. A
 # machine cannot run that test. Section 143 says the same thing from the other side: bans name
-# CONSTRUCTIONS, so detection AND repair operate on constructions and never on words. TIER A is
+# CONSTRUCTIONS. Detection AND repair operate on constructions and never on words. TIER A is
 # report-only, permanently. A token-for-token spelling swap is the only class an autofix could ever
 # own here, and that is the alphabet stage and not this table.
 AUTHORITY = {
@@ -1360,7 +1360,7 @@ if _ORPHANS:
 # The tokens whose ban the standard scopes to comments in the sentence that states it.
 # code-comments:200 bans three outright and bounds them in the same breath: "none has a legitimate
 # use in a comment here". `so a` and `rather` carry a documentation ban of their own at
-# code-documentation:110, so only `spelling` is left scoped. A page about a character encoding
+# code-documentation:110. Only `spelling` is left scoped. A page about a character encoding
 # writes the word for what it means; a Doxygen block reaching for it is standing in for the thing
 # it will not name, which is what :201 says.
 COMMENT_ONLY = frozenset((r"\bspelling\b",))
@@ -1411,7 +1411,7 @@ QUOTED = (
 # the standards and five in ProtoCore, and three of those five were real TIER A findings inside a
 # heading label: BUGS.md:376 "**What survives from F1/F2:**", :518 "**Why it is deferred rather than
 # fixed:**", :1576 "**What it uncovered:**". Bold marks a heading in this tree far more often than
-# it marks a citation, so the arm was a net loss and is recorded here rather than left in.
+# it marks a citation. The arm was a net loss and is recorded here rather than left in.
 #
 # The italic arm refuses a span holding a table cell separator. ProtoCore TUNING.md:154 is a table
 # row where two unrelated asterisks in different cells paired across the row and swallowed a real
@@ -1439,7 +1439,7 @@ NAMED_IN_MARKDOWN = (
 # Prose lives in pages, in comments, in the books and in the build, and the same voice writes all
 # four.
 #
-# .tex was absent from this tuple until now, so no theory book had ever been register checked. The
+# .tex was absent from this tuple until now. No theory book had ever been register checked. The
 # books are the longest continuous prose in the tree and the only part written to be read straight
 # through, which made them the worst thing to have been leaving out.
 #
@@ -1482,7 +1482,7 @@ CHECKED = (".md", ".py", ".c", ".h", ".tex") + BUILD_SUFFIXES
 def build_file(path):
     """Whether this path is a build file, by extension or by the name it was given.
 
-    Read as one question and not two, so a caller cannot answer half of it. submission_check.py
+    Read as one question and not two. A caller cannot answer half of it. submission_check.py
     imports CHECKED and would otherwise select a .cmake and hand it to the C extractor.
     """
     name = os.path.basename(path)
@@ -1539,7 +1539,7 @@ class Ledger(object):
     is always which ones, and a ledger that cannot answer it sends a reader back to the source.
 
     A caller passing no ledger still gets the exclusion. Recording is what is optional, never the
-    rule, so a caller that has not been taught about the ledger cannot turn an exclusion off by
+    rule. A caller that has not been taught about the ledger cannot turn an exclusion off by
     forgetting to pass one.
     """
 
@@ -1633,7 +1633,7 @@ def verbatim_root(path):
 
     Two answers, either sufficient. A default root matched on the path, or a directory at or above
     the file holding the marker. The marker walk stops at a repository boundary and again at a depth
-    ceiling, so a junction pointing at its own parent cannot make this walk forever.
+    ceiling. A junction pointing at its own parent cannot make this walk forever.
     """
     posix = os.path.abspath(path).replace(os.sep, "/")
     for one, why in VERBATIM_ROOTS:
@@ -1732,7 +1732,7 @@ def manifest_index(home):
     """{relative posix path: (manifest, signature or None)} for every manifest in one directory.
 
     The file is a comment header, one header row naming its columns, then one row per attested file
-    with the path last. Read by taking the last tab-separated field, so a manifest that grows a
+    with the path last. Read by taking the last tab-separated field. A manifest that grows a
     column still parses. A row with no tab is not a row.
     """
     if home in _MANIFEST_INDEX:
@@ -1775,7 +1775,7 @@ def reconcile_command(manifest):
     """The manifest's own instruction for reconciling a tree against it.
 
     Lifted from the manifest header instead of written out here. corpus_manifest.py maintains both
-    the file and the sentence, so quoting the sentence keeps this from drifting away from the tool
+    the file and the sentence. Quoting the sentence keeps this from drifting away from the tool
     that would have to be run.
     """
     try:
@@ -1808,7 +1808,7 @@ def reconcile_command(manifest):
 #
 # WHERE A BLOCK ENDS IS THE WHOLE RULE, and getting it wrong in either direction has a cost that was
 # measured before this landed. A first attempt split blocks on blank source lines. A `#` alone on a
-# line is not blank, so the entire 28-line comment header of a maint script read as one block and
+# line is not blank. The entire 28-line comment header of a maint script read as one block and
 # 164 findings went quiet across this tree alone, among them six hits in a file about orthography
 # and two tier A hits in another. A block is split instead on MARKER-stripped emptiness, the same
 # test runs() already makes, and again wherever the comment form changes or closes.
@@ -1823,7 +1823,7 @@ def reconcile_command(manifest):
 # file four lines apart. idemIP tools/dev_env/strip_comments.py:2-3 is a real copyright and SPDX
 # pair and is not ours to edit. Its :4 and :12 say `licence` in prose ABOUT a license block, which
 # is ordinary British convention a person may fix. :4 is the line directly under the header with no
-# blank line between them, so a block rule reaching one line too far takes it with the header. What
+# blank line between them. A block rule reaching one line too far takes it with the header. What
 # separates them is the change of comment form from `#` to a docstring. readclean.py:12 and :36 are
 # the same shape with a blank line to help, and all four sites survive this rule.
 LEGAL = re.compile(
@@ -1841,7 +1841,7 @@ LEGAL = re.compile(
     re.IGNORECASE,
 )
 
-# The comment forms a block can be written in. Tested in this order, so `/*` is read before `*` and
+# The comment forms a block can be written in. Tested in this order. `/*` is read before `*` and
 # a docstring before a bare quote. `plain` is a continuation line inside a block opened above it.
 COMMENT_FORMS = (
     ("cblock", ("/*", "*")),
@@ -1866,7 +1866,7 @@ def form_closes(form, line, opening):
 
     A C block ends at its `*/` and a docstring at its closing triple quote, and both can be followed
     on the next line by a second block of the same form. The @file block sits directly under the
-    SPDX block in every header the comment standard specifies, so without this test the two read as
+    SPDX block in every header the comment standard specifies. Without this test the two read as
     one and every @file brief in the tree would go unchecked.
     """
     body = line.strip()
@@ -1909,7 +1909,7 @@ def comment_blocks(said):
 def legal_blank(said, path=None, ledger=None):
     """The same prose view with every comment block holding a legal line blanked out.
 
-    Line numbers are preserved, the way every other view in this file preserves them, so a finding
+    Line numbers are preserved, the way every other view in this file preserves them. A finding
     still names a line a reader can open.
     """
     kept = list(said)
@@ -1931,7 +1931,7 @@ def legal_blank(said, path=None, ledger=None):
 # --------------------------------------------------------------------
 #
 # REPORTED AND ATTRIBUTED, NEVER SUPPRESSED, and this is the one decision in this section a reader
-# is likely to want to reverse, so here is the evidence against reversing it.
+# is likely to want to reverse. Here is the evidence against reversing it.
 #
 # ProtoCore's README.md and TOOLS.md carry BEGIN and END GENERATED marker pairs, 20 pairs across 11
 # tracked files, and CI regenerates them on push to main. An edit inside one is reverted by the next
@@ -1942,12 +1942,12 @@ def legal_blank(said, path=None, ledger=None):
 # empty table at docs/README.md:2404, and the region from :2399 to :2408 is generated by
 # tools/ci_tooling/generate/gen_readme_sections.py. A rule that skips marked regions deletes the one
 # finding worth having in that tree and reports it clean. The generator emits a header and a
-# separator with no rows under them, unconditionally, so every CI regeneration republishes an empty
+# separator with no rows under them, unconditionally. Every CI regeneration republishes an empty
 # table on a public README. That is a generator defect, a person has to fix it in the generator, and
 # the finding is how they find out.
 #
 # SO A FINDING INSIDE A MARKED REGION KEEPS ITS PLACE IN THE COUNT and carries the generator's name
-# with it. The marker already holds the generator, so the attribution is read from the document and
+# with it. The marker already holds the generator. The attribution is read from the document and
 # cannot go stale. What the region buys is a refusal: a rewrite never goes inside one, because
 # writing there is writing to a file CI overwrites.
 #
@@ -1955,7 +1955,7 @@ def legal_blank(said, path=None, ledger=None):
 # docs/FEATURES.md by tools/ci_tooling/generate/gen_features_page.py, which writes its OUT at that
 # file's :24, and CI gates on `ci gen --check` per tools/harness.py:1330. Fixing the source without
 # rerunning the generator reds the pull request that carried the fix. Skipping the generated copy is
-# necessary and it is not sufficient, so the refusal below names the generator and says to run it.
+# necessary and it is not sufficient. The refusal below names the generator and says to run it.
 #
 # AN UNCLOSED MARKER IS ITSELF REPORTED. A BEGIN with no END would otherwise annotate the rest of
 # the file as generated, which is the fail-open shape this whole section exists against.
@@ -1995,7 +1995,7 @@ def generated_regions(lines):
             inside[at + 1] = generator
     if opened_at is not None:
         complaints.append((opened_at + 1,
-                           "BEGIN GENERATED with no END GENERATED anywhere under it, so every line "
+                           "BEGIN GENERATED with no END GENERATED anywhere under it. Every line "
                            "to the end of the file reads as generated"))
     return inside, complaints
 
@@ -2043,7 +2043,7 @@ BRITISH_SUBJECT = (
 # THIS IS A REWRITE REFUSAL AND NOT A SCAN EXEMPTION, AND IT WAS WRITTEN AS ONE AND MEASURED OUT.
 # The first draft exempted a run naming a standard, the way the clause above exempts a run about
 # convention. Unbounded it silenced 1,733 findings in idemIP alone, because that tree cites an RFC
-# in nearly every comment it has, so the register gate would have been off in the one repository it
+# in nearly every comment it has. The register gate would have been off in the one repository it
 # was written for. Bounded to the alphabet tier it silenced 20 and bought nothing: every one of the
 # 20 is ordinary prose that happens to sit in a paragraph citing a standard. `behaviour` five times
 # in ProtoCore BUGS.md, `initialised`, `labelled` and `behaviours` together at CHANGELOG.md:702,
@@ -2061,7 +2061,7 @@ NAMED_STANDARD = re.compile(
 # without IGNORECASE on purpose: "this may be null" is prose and "the sender MAY retransmit" is a
 # requirement whose wording is not this tree's to edit.
 #
-# NOT A SCAN EXEMPTION. Nothing in BANNED matches a capitalized normative keyword, so exempting a
+# NOT A SCAN EXEMPTION. Nothing in BANNED matches a capitalized normative keyword. Exempting a
 # run for carrying one would buy nothing and cost whatever else is in the run. It is a rewrite
 # refusal and only that: a line carrying one is never rewritten, because reflowing a requirement is
 # how a requirement stops being the one that was agreed.
@@ -2093,7 +2093,7 @@ def context_exempt(text):
 # judgement lives, and it is exactly where an automatic rewrite does damage.
 #
 # THE REASON IS CHECKABLE IN ONE DOCUMENT AND IT IS WHY THIS IS A PERMANENT LIMIT AND NOT A GAP.
-# A construction ban targets a rhetorical move and not a word, so the nearest synonym preserves the
+# A construction ban targets a rhetorical move and not a word. The nearest synonym preserves the
 # move and lands on another banned item. `rather` is banned at code-documentation:110. Its obvious
 # repair is the X-not-Y shape, which is banned at :146 of the same document, thirty-six lines later:
 # "The X-not-Y shape sounds decisive and carries almost nothing". Anyone repairing the first without
@@ -2117,7 +2117,7 @@ def context_exempt(text):
 #
 # Pair it with :143, which the note above AUTHORITY already quotes: a word that reads as a tic in
 # one construction only is bounded to that construction. Together the two say the whole thing. Bans
-# name constructions, so detection AND repair both operate on constructions and never on words, and
+# name constructions. Detection AND repair both operate on constructions and never on words, and
 # there is no construction a machine can repair.
 #
 # THE REWRITING HALF IS DELIBERATELY NOT IMPLEMENTED. `--fix` runs this policy over the findings and
@@ -2136,7 +2136,7 @@ def fix_refusal(path, tier, at=None, regions=None, line=""):
     if tier not in FIX_TIERS:
         return ("a tier %s finding is a construction and not a token. No replacement can be "
                 "mechanical: code-documentation:110 bans `rather` and :146 bans the X-not-Y shape "
-                "that repairs it, so an automatic repair produces the second ban while removing "
+                "that repairs it. An automatic repair produces the second ban while removing "
                 "the first. Report only, permanently." % tier)
 
     held = verbatim_root(path)
@@ -2154,16 +2154,16 @@ def fix_refusal(path, tier, at=None, regions=None, line=""):
                    reconcile_command(manifest)))
 
     if regions and (at in regions):
-        return ("inside a region generated by %s. CI regenerates it, so an edit here is reverted "
+        return ("inside a region generated by %s. CI regenerates it. An edit here is reverted "
                 "and the finding returns. Fix the generator, then rerun it: a source fix not paired "
                 "with regeneration reds the pull request that carried it." % regions[at])
 
     if RFC_2119.search(line):
-        return ("the line carries an RFC 2119 normative keyword in capitals, so its wording is a "
+        return ("the line carries an RFC 2119 normative keyword in capitals. Its wording is a "
                 "requirement somebody agreed to and not this project's prose")
 
     if NAMED_STANDARD.search(line):
-        return ("the line names a standard by number, so the terms around it are that standard's "
+        return ("the line names a standard by number. The terms around it are that standard's "
                 "own field names. Rewriting one makes the comment cite something that is not in "
                 "the document it names")
 
@@ -2193,7 +2193,7 @@ while (REPOSITORY != os.path.dirname(REPOSITORY)) \
 # into one, and the count at the foot is still the thing to watch after a move.
 #
 # theory_bucket is the third instance. Seven books moved out of theory/ into a subtree at
-# theory_bucket/, theory/ still existed because the workbook stayed in it, so the guard below stayed
+# theory_bucket/, theory/ still existed because the workbook stayed in it. The guard below stayed
 # quiet and eighty files of prose went unread. The guard catches a root that vanished and never a
 # root that emptied, and the count at the foot is the only thing that shows the difference.
 DEFAULT_ROOTS = tuple(os.path.join(REPOSITORY, one)
@@ -2220,11 +2220,11 @@ PRIVATE_OVERRIDES = {
 # The environment a git query runs under, with the caller's own repository handed off.
 #
 # Git EXPORTS GIT_DIR and GIT_WORK_TREE to a hook. A rev-parse that inherits them answers about that
-# repository instead of about the directory it was asked from, so --show-toplevel returns the hook's
+# repository instead of about the directory it was asked from. --show-toplevel returns the hook's
 # own checkout as the root of whatever tree this tool was pointed at. The worktree repair that
 # landed --git-common-dir was written against this and the clearing did not come with it, which is
 # how a correct query kept giving a wrong answer under a hook. Every git query in this file goes
-# through here, so there is one place to add the next variable to.
+# through here. There is one place to add the next variable to.
 GIT_HANDOFF = ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR",
                "GIT_OBJECT_DIRECTORY", "GIT_ALTERNATE_OBJECT_DIRECTORIES", "GIT_NAMESPACE")
 
@@ -2257,7 +2257,7 @@ def git_say(where, args):
 def main_checkout():
     """The main working tree, which is the one the closed repositories sit beside.
 
-    A linked worktree lives at <repo>/.claude/worktrees/<name>, so a sibling path computed from
+    A linked worktree lives at <repo>/.claude/worktrees/<name>. A sibling path computed from
     REPOSITORY lands inside .claude/ and finds nothing. --git-common-dir names the shared .git for
     the main tree and every linked worktree alike, and its parent is the main checkout. Falls back
     to REPOSITORY where git cannot answer, which is an exported tree with no history.
@@ -2281,7 +2281,7 @@ def private_survey():
 
     It used to compute one base, os.path.dirname(REPOSITORY) + "/private_repos". After the move into
     repos/owned/{public,private} that resolves to repos/owned/public/private_repos, which does not
-    exist, so both closed repositories came back absent and the scan quietly covered the public tree
+    exist. Both closed repositories came back absent and the scan quietly covered the public tree
     alone. It had been doing that since the move. Nothing could see it, because a run that scans no
     private roots and a run where there are none to scan printed the same thing: nothing.
 
@@ -2351,7 +2351,7 @@ def private_roots():
 # The first two are per-repository decisions that change what every committer has to satisfy, they
 # belong to each repository's captain, and a tool implying it has settled them is worse than one
 # that says nothing. A gate that is correct, installed nowhere, and scoped to two paths still
-# catches nothing, so the footer says so in one line.
+# catches nothing. The footer says so in one line.
 
 _REF_CACHE = {}
 
@@ -2401,7 +2401,7 @@ def refs_for(roots):
 def manifests_covering(roots):
     """Every signed manifest that attests anything under the roots being scanned.
 
-    Printed after a run that offered to write, so nobody has to already know the corpus is hashed to
+    Printed after a run that offered to write. Nobody has to already know the corpus is hashed to
     find out that it is. A manifest is a repository-level fact and there are one or two of them, so
     this asks once per root and not once per file.
     """
@@ -2437,13 +2437,13 @@ def fix_plan(path, lines, said, regions, refusals, allowed):
         else:
             allowed.append("%s:%d %r, token for token" % (shown, at, said_token))
 
-# Fetched or generated, so nothing in them was written here.
+# Fetched or generated. Nothing in them was written here.
 # fixtures holds the positive control for claudese_distance.py, written deliberately in the
 # assistant register. Repairing it would delete the only sample of the thing being detected.
 # `.claude` is here because a linked worktree lives under `.claude/worktrees/<name>/` and holds a
 # full checkout. Without the skip, a repository with N worktrees reports every finding N+1 times:
 # measured at 50 echo lines of 1039, 34 distinct findings, several repeated three times. The ratio is
-# a property of how many worktrees happened to exist that day, so nobody can correct a total by it.
+# a property of how many worktrees happened to exist that day. Nobody can correct a total by it.
 #
 # It hides the real site as well as inflating the count. Grepping the same tree, the first ten hits
 # were all worktree copies, because `.claude` sorts before every source directory, and a reader
@@ -2467,7 +2467,7 @@ LINK = re.compile(r"\[[^\]]*\]\(([^)#][^)]*)\)")
 DOXYGEN_TARGET = re.compile(r"^[@\\](ref|subpage|page|link|anchor|cite|see|copydoc)\b")
 
 # C declarator syntax that LINK matches by accident. A lambda in a fenced example writes its capture
-# list in square brackets and its parameter list in parentheses, so `[](uint8_t slot, HttpReq *req)`
+# list in square brackets and its parameter list in parentheses. `[](uint8_t slot, HttpReq *req)`
 # is character for character the shape a markdown link has.
 #
 # Three signals, each one sufficient, and each one chosen because a relative path cannot carry it:
@@ -2537,26 +2537,26 @@ def banned_hits(lines, quotations=False, comments=False, path=None, ledger=None)
     is-exactly-what, and repairing the sentence closes both at once.
 
     banned_tokens turns these into the findings a reader sees, and submission_check counts them per
-    pattern against the rate a human writer carries. Both read the same hits, so a count and a
+    pattern against the rate a human writer carries. Both read the same hits. A count and a
     finding cannot disagree about what fired.
 
     quotations exempts a long quoted passage and the markdown citation spans, and is set for .md.
 
     comments turns on the COMMENT_ONLY patterns, which are the ones a standard scopes to a comment
     in the sentence that bans them. main() sets it for the extensions whose prose lives in comments.
-    It defaults off, so a caller that has not been taught the scope gets the documentation reading,
+    It defaults off. A caller that has not been taught the scope gets the documentation reading,
     which is the one both standards share. submission_check.py is that caller.
 
     The run-level context exemption is applied here, beside QUOTED, because it answers the same
     question QUOTED does about a different subject: a run whose subject is a writing convention has
-    to be able to write the word it is about. It is tier-aware and QUOTED is not, so it cannot be a
+    to be able to write the word it is about. It is tier-aware and QUOTED is not. It cannot be a
     span list, and it is the one call site in this file that knows both the run and the tier.
     """
     seen = set()
     for text, offsets in runs(lines):
         exempt = context_exempt(text)
         quoted = [span.span() for name in QUOTED for span in name.finditer(text)]
-        # A backticked token is a name in a comment as much as in a page, so this one is not
+        # A backticked token is a name in a comment as much as in a page. This one is not
         # bounded to markdown the way the emphasis and quote spans are.
         quoted.extend(span.span() for span in NAMED_SPAN.finditer(text))
         if quotations:
@@ -2608,7 +2608,7 @@ def banned_hits(lines, quotations=False, comments=False, path=None, ledger=None)
 # emitted made a claim about 1.1 million human words. The misdescription was not an edge case in the
 # report, it was almost the whole of it.
 #
-# Absence from these papers is weak evidence and the wording now says which papers, so a reader can
+# Absence from these papers is weak evidence and the wording now says which papers. A reader can
 # weigh it. A phrase can be missing because the domain is. Re-cut this against an English corpus, or
 # keep naming the corpus. Never print a rate or an absence without the corpus behind it.
 CORPUS = "the 759,815-word reference papers"
@@ -2617,7 +2617,7 @@ CORPUS = "the 759,815-word reference papers"
 def banned_tokens(lines, quotations=False, comments=False, path=None, ledger=None, regions=None):
     """Findings a reader sees, one per hit, carrying the tier and what stands behind it.
 
-    A TIER A line names the section that bans the construction, so a reader can go and read the
+    A TIER A line names the section that bans the construction. A reader can go and read the
     sentence rather than argue with a regex. A TIER B line carries a frequency where one was
     measured and says which corpus it was measured in where one was not. Neither fails a build.
 
@@ -2654,11 +2654,11 @@ def em_dashes(lines):
     return [(at + 1, "em dash") for at, line in enumerate(lines) if EM_DASH in line]
 
 
-# Markdown that survived the conversion into .tex. Every one of these is valid LaTeX, so the book
+# Markdown that survived the conversion into .tex. Every one of these is valid LaTeX. The book
 # compiles with no error, no warning and no dropped glyph, and carries the artifact to the archive.
 #
 # The em dash rule above could not see any of it. A --- is an em dash after typesetting and the
-# check was looking for the character, so the one spelling a converter actually produces was the one
+# check was looking for the character. The one spelling a converter actually produces was the one
 # spelling it missed.
 #
 # All three were found by reading rendered pages, which is what this exists to stop. In delta_null a
@@ -2667,7 +2667,7 @@ def em_dashes(lines):
 # underscores around Don Quixote, Faust and the Kalevala.
 #
 # Read against the stripped prose, which is what keeps a filename out of the count: tex_prose removes
-# \texttt{} with its braces, so the escaped underscores inside a path are gone before this sees the
+# \texttt{} with its braces. The escaped underscores inside a path are gone before this sees the
 # line.
 MARKDOWN_RULE = re.compile(r"^\s*-{3,}\s*$")
 MARKDOWN_BOLD = re.compile(r"\*\*(?=\S)[^*]*\S\*\*")
@@ -2697,7 +2697,7 @@ def markdown_leftovers(lines):
 def path_candidate(target):
     """Whether a matched link target is a path at all, before asking whether the path is there.
 
-    dead_links is a structural check and a structural finding fails a commit, so a target this
+    dead_links is a structural check and a structural finding fails a commit. A target this
     returns True about has to be something the filesystem can actually answer for. Two shapes wear
     markdown link syntax without being paths. Both were measured against a Doxygen C repository.
 
@@ -2709,7 +2709,7 @@ def path_candidate(target):
 
     Doxygen references, 244 of them. [`HTTP_10`](@ref HTTP_10) resolves against documented symbols.
     HTTP_10, HttpVersion, HttpReq::version, send_chunked, WS_FRAME_SIZE, MAX_HEADERS and
-    PROTOCORE_ENABLE_KEEPALIVE were each confirmed as live symbols in ProtoCore's source, so every
+    PROTOCORE_ENABLE_KEEPALIVE were each confirmed as live symbols in ProtoCore's source. Every
     one of those findings reported a working cross-reference as a broken link.
 
     C declarators, 3 of them, at SECURITY.md:903, SSH.md:91 and SSH.md:94. A lambda in a fenced
@@ -2717,12 +2717,12 @@ def path_candidate(target):
     bracketed one is what LINK looks for.
 
     Which signal earns its place. Across anchor_sift, ProtoCore, idemIP, MMgr and embedded_types,
-    646 targets are skipped here and not one of them names a path that is on disk, so nothing that
+    646 targets are skipped here and not one of them names a path that is on disk. Nothing that
     was a real finding has been silenced. 496 of the 646 are Doxygen commands and the other 150 hold
     a pointer star. Of the three declarator signals only the star fired. The type-keyword head and
     the comma-separated list caught nothing in those five trees and are kept for the parameter list
     that has neither star nor keyword, as in `(uint8_t slot, size_t len)`. The comma rule is the
-    loosest of the three and is bounded to items of two words each, so `docs/a.md, docs/b.md` stays
+    loosest of the three and is bounded to items of two words each. `docs/a.md, docs/b.md` stays
     a pair of paths.
     """
     if (not target) or ("://" in target) or target.startswith("/"):
@@ -2785,7 +2785,7 @@ def walk_markdown(roots, ledger=None):
             dirs[:] = [one for one in dirs if one not in SKIP_DIRS]
             found.extend(os.path.join(here, name) for name in names
                          if checked_file(os.path.join(here, name)))
-    # This file writes down every phrase it bans, so it matches itself on nearly all of them. The
+    # This file writes down every phrase it bans. It matches itself on nearly all of them. The
     # markers below were tried first and did not hold up. Quieting 258 patterns one pair at a time
     # buries the list under its own pragmas, and a reader scrolling past a hundred of them stops
     # reading them.
@@ -2912,7 +2912,7 @@ def tex_prose(lines):
         held = line
 
         # Comment to end of line, on an unescaped percent. A note to a co-author is prose and would
-        # be worth checking, but it is also where a stray brace or a half sentence lives, so it goes
+        # be worth checking, but it is also where a stray brace or a half sentence lives. It goes
         # with the markup and is not reported against.
         held = re.sub(r"(?<!\\)%.*$", "", held)
 
@@ -2945,7 +2945,7 @@ def tex_prose(lines):
     return quieted(kept)
 
 
-# A quoted or apostrophized span, blanked before a `#` is looked for, so a hash inside a string is
+# A quoted or apostrophized span, blanked before a `#` is looked for. A hash inside a string is
 # not read as a comment marker. Carried from ai_words.py, which this pass supersedes.
 STRING_SPAN = re.compile(r"\"(?:[^\"\\]|\\.)*\"|'(?:[^'\\]|\\.)*'")
 
@@ -2957,7 +2957,7 @@ def hash_tail(line):
     `$#` in a shell script and `${#name}` in both shell and CMake read as comment markers, and a run
     of argument arithmetic gets scanned as prose.
 
-    Strings are masked first, so `message("count: #1")` is not read as a comment either.
+    Strings are masked first. `message("count: #1")` is not read as a comment either.
     """
     masked = STRING_SPAN.sub(lambda hit: " " * len(hit.group(0)), line)
     for at, character in enumerate(masked):
@@ -2971,7 +2971,7 @@ def hash_tail(line):
 def comment_prose(lines):
     """The comment text of a build file, with the rest blanked and line numbers preserved.
 
-    Blanked rather than dropped, so a finding still names the line a reader has to open. Handles the
+    Blanked rather than dropped. A finding still names the line a reader has to open. Handles the
     `#` form shell, CMake, YAML and make all share, and PowerShell's `<# ... #>` block.
 
     A shebang is dropped. It is the one line of a shell script that is an instruction to the kernel
@@ -3011,7 +3011,7 @@ def prose_only(path, lines, ledger=None):
 
     THE LEGAL BLANKING HAPPENS HERE AND NOWHERE ELSE, on every branch, which is what keeps the four
     stages from each carrying a skip of their own. em_dashes, markdown_leftovers and banned_tokens
-    all read what this returns, so an em dash inside a copyright grant and a British spelling inside
+    all read what this returns. An em dash inside a copyright grant and a British spelling inside
     one go quiet together and by one rule. empty_tables and dead_links read the raw lines instead,
     because a table and a link are structure and a legal block holds neither.
     """
@@ -3054,7 +3054,7 @@ def prose_only(path, lines, ledger=None):
             kept.append(line)
         elif "//" in line:
             # A trailing // or ///< comment on a code line. The gate read only a line-leading //
-            # before, so every banned phrase in a trailing comment went unflagged, and about sixty of
+            # before. Every banned phrase in a trailing comment went unflagged, and about sixty of
             # them sat unread across idemIP's headers. Keep from the first // to the end and blank the
             # code before it, which preserves the line number a finding points at. A trailing /* */
             # block is already caught by in_block above; this is the slash form it missed. Crude about
@@ -3129,7 +3129,7 @@ def main():
         said = prose_only(path, lines, ledger)
 
         # A generated region is reported and attributed, never skipped. The one genuine structural
-        # finding in the tree this was measured against sits inside one, so a rule that skipped
+        # finding in the tree this was measured against sits inside one. A rule that skipped
         # marked regions would have reported that tree clean. The marker carries the generator, so
         # the attribution is read from the document and cannot go stale.
         regions = {}
@@ -3139,7 +3139,7 @@ def main():
                 print("  BREAK %s:%d: %s" % (path.replace("\\", "/"), at, complaint))
                 breaking += 1
 
-        # A reader sees these as a broken page, so they stop a commit. Tables and links exist only
+        # A reader sees these as a broken page. They stop a commit. Tables and links exist only
         # in markdown; an em dash is wrong in a comment too.
         structural = em_dashes(said)
         if path.endswith(".md"):
@@ -3152,7 +3152,7 @@ def main():
         # already blanked the content the tell is measured on by the time prose_only returns.
         # comments says whether this file's prose sits in comments, which is what code-comments
         # section 200 scopes its three outright tokens to. A .md is a page and a .tex is prose all
-        # the way down, so neither is a comment; everything else here is read for its comments.
+        # the way down. Neither is a comment; everything else here is read for its comments.
         wording = banned_tokens(said,
                                 quotations=path.endswith(".md"),
                                 comments=not path.endswith((".md", ".tex")),
@@ -3176,7 +3176,7 @@ def main():
     # Before this, a run that covered none and a checkout that has none printed the same nothing,
     # and that is exactly how this scan stopped covering the private tree for the whole of the
     # migration without anybody noticing. A count of zero has to be distinguishable from a count
-    # that was never taken, so both halves are printed even when there is nothing to report.
+    # that was never taken. Both halves are printed even when there is nothing to report.
     if not where_given:
         held, absent = private_survey()
         print("  private roots scanned: %d of %d" % (len(held), len(PRIVATE_NAMES)))
@@ -3224,7 +3224,7 @@ def main():
     # a commit hook cannot see, and it is how a wrong path goes unnoticed for as long as it takes
     # somebody to wonder why the count never moves.
     if checked == 0:
-        print("  no files were read. Nothing was checked, so nothing passed.")
+        print("  no files were read. Nothing was checked. Nothing passed.")
         for one in roots:
             print("    %s%s" % (one, "" if os.path.exists(one) else "   does not exist"))
         return 2
@@ -3235,7 +3235,7 @@ def main():
     # over a real pair of em dashes. Pointing this at theory/ for the first time produced exactly
     # that: 43 files, 2 breaking, and an exit code that said the opposite of what happened.
     #
-    # A count is the wrong shape for an exit status besides. They wrap at 256, so 256 findings
+    # A count is the wrong shape for an exit status besides. They wrap at 256. 256 findings
     # would have exited 0.
     if breaking or (strict and prose):
         return 1

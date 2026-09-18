@@ -20,7 +20,7 @@
 #
 # The null is built by deletion, as everywhere else here, and which property it deletes decides the
 # question. Shuffling the values among fixed points deletes composition and keeps geometry, and a
-# protein is ordered geometrically, so that null cancels the structure. Scattering the points and keeping
+# protein is ordered geometrically. That null cancels the structure. Scattering the points and keeping
 # the values deletes geometry instead, and that second null shows it.
 
 import os
@@ -66,7 +66,7 @@ def alpha_carbons(text):
 def near_match(places, key, offset, value):
     """Whether a point holding `value` sits within TOLERANCE voxels of the displaced position.
 
-    Exact equality is the wrong test on a continuous domain. Coordinates are real numbers, so two
+    Exact equality is the wrong test on a continuous domain. Coordinates are real numbers. Two
     occurrences of one structural motif never land on identical voxel offsets and only the seed ever
     matches. Proposition 1 survives the change: a point lying within a distance of every displacement is
     still a necessary condition, and dropping some of those conditions still leaves a necessary one.
@@ -86,7 +86,7 @@ def cascade(cloud, rng, shuffled):
     if shuffled and NULL_MODE == "values":
         # Deletes which residue sits where and leaves every coordinate alone. That is the wrong property
         # to remove here: the rules a protein obeys, backbone angles and secondary structure and bond
-        # lengths, constrain where the points are. This null keeps all of it, so it appears in both arms
+        # lengths, constrain where the points are. This null keeps all of it. It appears in both arms
         # and cancels
         keys = list(places)
         values = [places[key] for key in keys]
@@ -116,7 +116,7 @@ def cascade(cloud, rng, shuffled):
     ratios = []
     for _ in range(TRIALS):
         seed = keys[rng.randrange(len(keys))]
-        # A needle is a set of displacements from one point, taken from points actually nearby, so the
+        # A needle is a set of displacements from one point, taken from points actually nearby. The
         # pattern is a shape the domain contains and not an arbitrary offset into empty space
         near = [key for key in keys
                 if 0 < max(abs(key[0] - seed[0]), abs(key[1] - seed[1]), abs(key[2] - seed[2])) <= NEEDLE]
@@ -139,7 +139,7 @@ def cascade(cloud, rng, shuffled):
                     break
             else:
                 survivors += 1
-        # The seed itself always survives, so only what is beyond it is evidence
+        # The seed itself always survives. Only what is beyond it is evidence
         ratios.append(max(survivors - 1, 0) / predicted)
 
     return ratios

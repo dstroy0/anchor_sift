@@ -7,7 +7,7 @@ can be inferred from each, and say what cannot be seen at all.
 **Line citations are against commit `54f1e25`, where `anchor_sift.h` is 967 lines and
 `anchor_raster.h` is 432. Check them against that commit and not against a later one.** The
 measurements were taken at `9cbcc08` and earlier; `54f1e25` changed documentation only and no
-`.c` file, so no number below moved with it.
+`.c` file. No number below moved with it.
 
 **Since this snapshot, the device volume renderer exists and is graded.** At `54f1e25` there was no device volume kernel and `anchor_volume_device_available` returned 0 on every build. As of 2026-09-17 the kernel is built. `render_volume` is at `src/engine/c/render/raster_cuda.cu:329`, `anchor_volume_device` at `:383`, and the probe at `:373` returns 1 where a device is present and the build carries the kernel; `bench_raster` grades the device volume against the host voxel for voxel. See `docs/rendering.md` and the README.
 
@@ -17,7 +17,7 @@ Every point below was read in the declaration, and the ones marked **run** were 
 ## What the machine is, since that decides what is worth inspecting
 
 A single descent over a fixed corpus and needle is a finite automaton with data dependent control
-flow. The destroy test reads the corpus and can end the descent early, so corpus content decides the
+flow. The destroy test reads the corpus and can end the descent early. Corpus content decides the
 depth downward. `while (placed < count)` bounds it above, and `count` is at most
 `ANCHOR_STEER_ANCHORS`. Depth is therefore a steer, not a constant, and the bound above is a
 constant.
@@ -28,11 +28,11 @@ somebody wanted to know what the data did to a particular run.
 
 ## 1. Did it steer, and how hard
 
-| point | where | what it says |
-| --- | --- | --- |
-| return value of `anchor_steer_plan_recursive` | `anchor_sift.h:638` | offsets actually placed |
-| return value of `anchor_steer_spawn_coarms` | `anchor_sift.h:712` | the same, for the spawning descent |
-| `force_full_depth` | `AnchorSteerDescent` | non-zero descends every level and ignores the destroy rule |
+| point                                         | where                | what it says                                               |
+| --------------------------------------------- | -------------------- | ---------------------------------------------------------- |
+| return value of `anchor_steer_plan_recursive` | `anchor_sift.h:638`  | offsets actually placed                                    |
+| return value of `anchor_steer_spawn_coarms`   | `anchor_sift.h:712`  | the same, for the spawning descent                         |
+| `force_full_depth`                            | `AnchorSteerDescent` | non-zero descends every level and ignores the destroy rule |
 
 **The inference.** `placed` below `count` means the destroy test fired and the descent stopped
 early. `placed` equal to `count` means it ran to the requested depth. The declaration at
@@ -53,11 +53,11 @@ the survivors far enough that a second adds nothing. That column is the steer be
 Counted builds only, behind `ANCHOR_SIFT_COUNT_READS` (`anchor_sift.h:46`). At 0 the macros expand
 to nothing and the object is what it was.
 
-| point | where | what it says |
-| --- | --- | --- |
-| `anchor_sift_probes` | `anchor_sift.h:53` | corpus bytes read by an anchor probe since the last reset |
-| `anchor_sift_verifications` | `anchor_sift.h:56` | exact compares since the last reset, each reading at most `needle_len` bytes |
-| `anchor_sift_counters_reset` | `anchor_sift.h:64` | sets both to zero |
+| point                        | where              | what it says                                                                 |
+| ---------------------------- | ------------------ | ---------------------------------------------------------------------------- |
+| `anchor_sift_probes`         | `anchor_sift.h:53` | corpus bytes read by an anchor probe since the last reset                    |
+| `anchor_sift_verifications`  | `anchor_sift.h:56` | exact compares since the last reset, each reading at most `needle_len` bytes |
+| `anchor_sift_counters_reset` | `anchor_sift.h:64` | sets both to zero                                                            |
 
 **Why they are two numbers and not one.** A probe read is one byte. A verification is up to
 `needle_len` bytes and is exactly one only when the first byte differs. Reporting a single total
@@ -72,17 +72,17 @@ Any table putting cycles and reads in the same row is reporting two runs, and sh
 
 ## 3. Whether the fast path actually ran
 
-| point | where | what it says |
-| --- | --- | --- |
-| `anchor_steer_scan_calls` | `anchor_sift.h:912` | scans performed since the last reset |
-| `anchor_steer_wide_calls` | `anchor_sift.h:915` | scans served by a vectorized engine |
-| `anchor_steer_scan_counters_reset` | `anchor_sift.h:918` | sets both to zero |
+| point                              | where               | what it says                         |
+| ---------------------------------- | ------------------- | ------------------------------------ |
+| `anchor_steer_scan_calls`          | `anchor_sift.h:912` | scans performed since the last reset |
+| `anchor_steer_wide_calls`          | `anchor_sift.h:915` | scans served by a vectorized engine  |
+| `anchor_steer_scan_counters_reset` | `anchor_sift.h:918` | sets both to zero                    |
 
 **The inference, and it is not the one a differential gives.** A differential proves two engines
 agree. These two prove the engine the machine carries actually ran. The header records the case that
 motivated them: an AVX2 engine was built, graded against portable and benched at 33 times its rate
 while the planner went on running its own scalar loop, and nothing in the suite said so. A vectorized
-engine that reports itself present and never gets called produces no wrong answer, so every count
+engine that reports itself present and never gets called produces no wrong answer. Every count
 stays identical and every test keeps passing.
 
 **Run.** The wiring check reports `avx2 | 189 | 189 | 100% | ok`. Wide calls equal total calls, so
@@ -93,14 +93,14 @@ the ratio is 1 and the claim is not vacuous.
 `anchor_field_project`, `anchor_sift.h:513`, writes four observables through the
 `AnchorFieldProjection` args.
 
-| point | what it says |
-| --- | --- |
-| return value | 1 projected, 0 refused. On a refusal it is the ONLY signal, because no refusal path writes `distinct` |
-| `distinct` | surviving component count, after merges |
-| `ranks` | one rarity rank per position, rarest first, so rank 0 is the class that refutes most alignments |
-| `class_of_position` | which class each position fell in |
-| `members_in_class` | how many positions each class holds, the field's frequency distribution |
-| `rarity_place_of_class` | where each class sits in the rarity order |
+| point                   | what it says                                                                                          |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- |
+| return value            | 1 projected, 0 refused. On a refusal it is the ONLY signal, because no refusal path writes `distinct` |
+| `distinct`              | surviving component count, after merges                                                               |
+| `ranks`                 | one rarity rank per position, rarest first. Rank 0 is the class that refutes most alignments          |
+| `class_of_position`     | which class each position fell in                                                                     |
+| `members_in_class`      | how many positions each class holds, the field's frequency distribution                               |
+| `rarity_place_of_class` | where each class sits in the rarity order                                                             |
 
 **The inferences worth naming.** `distinct` of 1 means the closure collapsed the whole field into one
 class, the projection refutes nothing, and the run will cost a full scan. `distinct` equal to
@@ -117,13 +117,13 @@ reports `distinct` 1 and writes exactly 1 rank value across 1200 positions.
 
 `anchor_raster.h:84` names five channels. The volume renderer writes one voxel per alignment.
 
-| channel | what it says |
-| --- | --- |
+| channel                      | what it says                                                   |
+| ---------------------------- | -------------------------------------------------------------- |
 | `ANCHOR_CHANNEL_DEATH_LEVEL` | the probe index that rejected the alignment, brighter is later |
-| `ANCHOR_CHANNEL_SURVIVED` | binary, bright where every probe agreed |
-| `ANCHOR_CHANNEL_RARITY` | rarity rank of the corpus byte at the alignment |
-| `ANCHOR_CHANNEL_BYTE` | the corpus byte itself, which renders the object raw |
-| `ANCHOR_CHANNEL_PROVEN` | two valued: proven to hold no occurrence, or undetermined |
+| `ANCHOR_CHANNEL_SURVIVED`    | binary, bright where every probe agreed                        |
+| `ANCHOR_CHANNEL_RARITY`      | rarity rank of the corpus byte at the alignment                |
+| `ANCHOR_CHANNEL_BYTE`        | the corpus byte itself, which renders the object raw           |
+| `ANCHOR_CHANNEL_PROVEN`      | two valued: proven to hold no occurrence, or undetermined      |
 
 **`DEATH_LEVEL` is the per-alignment execution trace and it is the strongest inspection point here.**
 Every other counter is an aggregate over the run. This one records, for each alignment separately,
@@ -135,7 +135,7 @@ prove an alignment holds no occurrence and can never prove that it does, and the
 rests on that asymmetry. The channel makes the asymmetry visible instead of leaving it in prose.
 
 **Run.** Volume sweep, 4 layouts by 5 channels, 20 rows, every row filled 32768 voxels with 0
-collisions, so each layout is a bijection from alignments onto voxels and nothing is overwritten or
+collisions. Each layout is a bijection from alignments onto voxels and nothing is overwritten or
 skipped.
 
 **One thing this renderer does NOT let you inspect, recorded as R9.** `anchor_volume_render_host`
@@ -144,15 +144,15 @@ census over a reference distribution does not get it used. The declaration now s
 
 ## 6. What it would choose, before it chooses
 
-| point | where | what it says |
-| --- | --- | --- |
-| `anchor_field_census` | `anchor_sift.h:265` | occurrences per symbol and the total, for a byte field |
-| `anchor_steer_probe_order` | `anchor_sift.h:303` | needle offsets in rarity order |
-| `anchor_steer_prefers_free` | `anchor_sift.h:334` | which arm the kernel picks for this census |
-| `anchor_steer_probe_fits` | `anchor_sift.h:771` | whether one probe shape is legal against a needle length |
+| point                       | where               | what it says                                             |
+| --------------------------- | ------------------- | -------------------------------------------------------- |
+| `anchor_field_census`       | `anchor_sift.h:265` | occurrences per symbol and the total, for a byte field   |
+| `anchor_steer_probe_order`  | `anchor_sift.h:303` | needle offsets in rarity order                           |
+| `anchor_steer_prefers_free` | `anchor_sift.h:334` | which arm the kernel picks for this census               |
+| `anchor_steer_probe_fits`   | `anchor_sift.h:771` | whether one probe shape is legal against a needle length |
 
 **The inference.** These are the planner's inputs and its decision, exposed before the run instead
-of after. `probe_fits` is the boundary function, so enumerating it maps the whole legal probe set,
+of after. `probe_fits` is the boundary function. Enumerating it maps the whole legal probe set,
 so the sweep's argmax becomes checkable.
 
 **Run.** `probe_fits` exercised across steps 0, 1, 2, 7, 13, 64 and 100000 at length one, all legal.
@@ -161,10 +161,10 @@ scores disagree, and both are printed for that reason.
 
 ## 7. What the machine says about itself
 
-| point | where | what it says |
-| --- | --- | --- |
+| point                                          | where                                        | what it says                                             |
+| ---------------------------------------------- | -------------------------------------------- | -------------------------------------------------------- |
 | `anchor_steer_avx2_engine` and the arm getters | `anchor_sift.h:957`, `exact_arm.h:60` onward | a pointer, or NULL where the processor does not carry it |
-| `anchor_volume_device_available` | `anchor_raster.h:282` | 0 on every build at 54f1e25 |
+| `anchor_volume_device_available`               | `anchor_raster.h:282`                        | 0 on every build at 54f1e25                              |
 
 **The inference.** These ask the processor instead of trusting the build. A NULL means absent and is
 distinguishable from present and broken, and a capability probe answering 0 honestly keeps a

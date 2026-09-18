@@ -9,7 +9,7 @@
 #
 # Written for one paper. Reading the whole paper first is what this file is an argument for: stories 1 and
 # 2 number their parts X.1 preamble, X.2 nɬeʔkepmxcín, X.3 English, X.4 gloss, and story 3 has no preamble
-# subsection, so it runs 6.1, 6.2, 6.3 instead. A rule that assumed X.4 returned nothing for story 3 and
+# subsection. It runs 6.1, 6.2, 6.3 instead. A rule that assumed X.4 returned nothing for story 3 and
 # reported no error. A third of a paper left that way without anyone noticing.
 #
 # Kʷəɬtəzétkʷu moves between her languages inside her own telling, in the introduction and again inside
@@ -20,7 +20,7 @@
 # The gloss categories are the paper's own, taken from its footnote 1 and used unchanged. Renaming them
 # would make this file disagree with the source it came from.
 #
-# Two files come out. One holds everything found, marked, so nothing is lost and a reader can check it
+# Two files come out. One holds everything found, marked. Nothing is lost and a reader can check it
 # against the paper. The other holds only what she said in the target language, with no gloss, no
 # segmentation, no translation and no marks. That file is what gets ingested.
 #
@@ -121,7 +121,7 @@ CATEGORIES = re.compile(
     r"1SG|2SG|3SG|1PL|2PL|3PL)\b")
 
 # Section number, which story it belongs to, and what it holds. This paper numbers story 3
-# differently from stories 1 and 2, so the mapping is written out instead of computed.
+# differently from stories 1 and 2. The mapping is written out instead of computed.
 SECTIONS = (
     ("3.1", "introduction", "target"),
     ("3.2", "introduction", "english"),
@@ -140,7 +140,7 @@ SECTIONS = (
 
 # Everything she said is spoken, including the translations, which the paper states she made
 # herself. The segmentation normalizes each morpheme to an underlying form and the gloss is written
-# in category labels, so neither is a record of anything uttered.
+# in category labels. Neither is a record of anything uttered.
 # Her self-introduction sits in the acknowledgments footnote on the first page, ahead of every
 # numbered section. A reader that starts at the first heading never reaches it. It is the only
 # place in the paper where she gives her traditional name and says where her home is, in her own
@@ -202,7 +202,7 @@ def gloss_blocks(lines):
     """Each numbered gloss block: the transcription, the analysis lines, and any comment.
 
     The paper states that the transcription line "faithfully presents words as they were uttered,
-    with no such normalization", so that line is what she said and the lines under it are analysis.
+    with no such normalization". That line is what she said and the lines under it are analysis.
     """
     held = []
     number = None
@@ -318,7 +318,7 @@ def main():
 
     # Every line of the paper no section reached, added to the record as unclassified. The marked
     # file then holds every token of the language the paper printed. They are held out of the
-    # pure stream and listed in the flag file, so this
+    # pure stream and listed in the flag file. This
     # makes the record complete without pretending anything has been classified.
     missed = unreached(lines, covered_tokens(one[5] for one in rows))
     for page, where, reason, missing, text in missed:
@@ -336,7 +336,7 @@ def main():
         handle.write("# Mark is language.layer.kind. T is the target language, N is anything else.\n")
         handle.write("# spoken is what was said. derived is worked out from it: the segmentation\n")
         handle.write("# normalizes each morpheme to an underlying form and the gloss is written in\n")
-        handle.write("# category labels, so neither records anything uttered.\n")
+        handle.write("# category labels. Neither records anything uttered.\n")
         handle.write("# Gloss categories are the paper's own, from its footnote 1, unchanged.\n")
         handle.write("line\tstory\tsection\tswitches\tcontent\n")
         for mark, count, story, number, kind, text in rows:
@@ -420,7 +420,7 @@ def main():
     for mark, count, story, number, kind, text in rows:
         marks[mark] = marks.get(mark, 0) + 1
     # Counted over spoken lines only. A segmentation line is target-language material full of
-    # plain-letter underlying forms, so the span test fires on it and calling that a switch would
+    # plain-letter underlying forms. The span test fires on it and calling that a switch would
     # report code-switching she did not do.
     mixed = sum(1 for row in rows
                 if (row[0] == "T") and (LAYER[row[4]] == SPOKEN)

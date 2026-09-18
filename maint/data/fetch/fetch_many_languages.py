@@ -8,7 +8,7 @@
 #
 # Under the tightest numbering four languages landed between 4.76 and 7.84 where they had spanned 15.61 to
 # 31.44 as given, and Greek at 141 symbols sat on the same value as German at 73. Four languages cannot
-# carry that, and all four use the same alphabet, so what looks like convergence could be one writing
+# carry that, and all four use the same alphabet. What looks like convergence could be one writing
 # system measured four times.
 #
 # Widening it has to vary the writing system and the family separately, since they travel together in
@@ -17,7 +17,7 @@
 # Japonic and Sino-Tibetan alongside Romance and Germanic. Chinese is already held and is the case that
 # decides it, carrying thousands of symbols where the rest carry under two hundred.
 #
-# Texts come from a catalog that states its own language, so nothing here guesses at what a file is. They
+# Texts come from a catalog that states its own language. Nothing here guesses at what a file is. They
 # are fetched several at a time because each one waits on a distant server and the waiting is the whole
 # cost.
 
@@ -52,7 +52,7 @@ LANGUAGES = (
     ("ja", "japanese"), ("lt", "lithuanian"), ("sl", "slovenian"), ("af", "afrikaans"),
     # Vietnamese is isolating like Chinese and written in a Latin alphabet, the one pairing
     # that separates what a language does from what it is written in. Urdu is a second abjad beside
-    # Hebrew, so that script family stops resting on one language.
+    # Hebrew. That script family stops resting on one language.
     ("vi", "vietnamese"), ("ur", "urdu"), ("fa", "persian"), ("hi", "hindi"),
     ("bn", "bengali"), ("ta", "tamil"), ("ko", "korean"), ("id", "indonesian"),
     ("uk", "ukrainian"), ("ga", "irish"), ("br", "breton"), ("mi", "maori"),

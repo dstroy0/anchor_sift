@@ -66,6 +66,6 @@ def at(where, *parts):
 def rel(where, path):
     """Root-relative POSIX path, for report lines and lock keys.
 
-    Forward slashes on every platform, so a lock written on Windows reads on Linux.
+    Forward slashes on every platform. A lock written on Windows reads on Linux.
     """
     return os.path.relpath(os.path.abspath(path), where).replace(os.sep, "/")

@@ -1,21 +1,21 @@
 # Build trees and fetched data. Corpora, papers, audio and page renders run to about
-# 1.9 GB and every one of them is reproducible from the tools in this repository, so
-# none of it is carried in git.
+# 1.9 GB and every one of them is reproducible from the tools in this repository.
+# None of it is carried in git.
 build/
 build-*/
 
-# The rendered site. mkdocs build writes it and the GitHub Action rebuilds it on every push, so a
-# copy in git is one that goes stale the moment a page changes.
+# The rendered site. mkdocs build writes it and the GitHub Action rebuilds it on every push.
+# A copy in git is one that goes stale the moment a page changes.
 site/
 
 # Cloned dependencies. MMgr used to sit here as four separate partial copies of itself, each one
-# byte identical to the original and none of them recording which commit it came from, so a stale
+# byte identical to the original and none of them recording which commit it came from. A stale
 # copy and a current one looked the same. `python maint/deps/get_deps.py` clones it instead, and
 # git in the clone answers what is checked out. Same rule as build/ and site/: what a tool can
 # fetch is not carried here.
 #
 # ANCHORED, and the slash is the whole of the repair. Written as `deps/` with no leading slash this
-# matched a directory named deps at ANY depth, so besides the clone directory it was written for it
+# matched a directory named deps at ANY depth, besides the clone directory it was written for it
 # also swallowed maint/deps/, where get_deps.py and vendor_test_vectors.py live. Both tools were
 # therefore in no commit that has ever existed, while sitting on one machine's disk, and five
 # documents instructed a reader to run a file their clone could not contain. Being ignored AND
@@ -26,7 +26,7 @@ site/
 /deps/
 
 # The hand extractions and the papers they were read from. Every row is a form transcribed out of a
-# published paper, so the tables are those papers' text and not this work's to redistribute, and the
+# published paper. The tables are those papers' text and not this work's to redistribute, and the
 # papers are their authors' copyright. Both live in a closed repository, inventoried by
 # tools/maintain/corpus_manifest.py and signed there, and reach this tree under build/oracles and
 # build/papers through tools/maintain/private_sync.py. The derivations built on them are this work's
@@ -41,7 +41,7 @@ __pycache__/
 # What a LaTeX run leaves beside the source when it is not given an output directory.
 #
 # maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this. TeXworks
-# and TeXShop compile IN PLACE, so a book opened in one of those to look at it comes back with a
+# and TeXShop compile IN PLACE. A book opened in one of those to look at it comes back with a
 # .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/anchor_sift picked
 # up twelve such files that way, 705,688 bytes of it one synctex, and the arXiv packager copied
 # every one of them into a submission before it learned to skip them.

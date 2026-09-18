@@ -18,7 +18,7 @@
 # chance allows and below 1 is a word that gathers. Words are compared only against others of similar
 # frequency, since the estimate depends on how many occurrences there are.
 #
-# The comparison set is supplied here and is not derived from the corpus, so it states an expectation
+# The comparison set is supplied here and is not derived from the corpus. It states an expectation
 # instead of discovering one. It reaches nothing about other languages, where the same test would need
 # both a translation and a lemmatizer.
 
@@ -89,7 +89,7 @@ def main():
             continue
         picked = [value for word, (_, value) in scored.items() if word in CONSTANT]
         every = [value for _, value in scored.values()]
-        # The supplied set is English, so it matches nothing in the other corpora. The corpus average
+        # The supplied set is English. It matches nothing in the other corpora. The corpus average
         # is defined for all of them and is the column that carries the comparison
         shown = ("%-10.3f" % statistics.fmean(picked)) if picked else ("%-10s" % "-")
         out.write("  %-28s %s %-10.3f %d of %d\n"

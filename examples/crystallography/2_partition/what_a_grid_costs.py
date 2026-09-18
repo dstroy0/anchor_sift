@@ -57,7 +57,7 @@ def grid_arm(text):
         return None
     tiles = crystal.tiles_for(cell)
     if tiles is None:
-        # The cap refused this cell. A refusal is part of what the partition costs, so it is
+        # The cap refused this cell. A refusal is part of what the partition costs. It is
         # reported and not skipped past.
         return []
     grid, _ = crystal.voxel_grid(cell, sites, crystal.VOXEL, tiles)
@@ -166,7 +166,7 @@ def main():
         out.write("    %8d %7d %7d %9.2f %d\n"
                   % (digits, axes, wrong, time.time() - started, raised))
 
-    out.write("\n  A scale too small raises and is counted under refused. It never rounds, so no\n")
+    out.write("\n  A scale too small raises and is counted under refused. It never rounds. No\n")
     out.write("  row above is a quiet loss. The voxel had no such column: it rounded every site.\n\n")
     out.flush()
     return 0

@@ -24,7 +24,7 @@ rounded into anything else on the way in.
 The ingestion primitive keeps every digit its source wrote, and its header states the discipline it
 holds to: no quantum is imposed from the reading end. A quantum is a decision about the smallest
 difference worth telling apart, and the crystallography reader once made one silently, putting every
-deposited site on a grid of a quarter of an angstrom, so that the recovered cell edge carried the
+deposited site on a grid of a quarter of an angstrom. That the recovered cell edge carried the
 grid and not the deposit. The exact reading of the same cells answers the published edge with an
 error of zero, and the difference between the two readings is the grid.
 
@@ -41,10 +41,10 @@ state, built in
 Two electrons at one state is a Pauli violation, and the same domain-blind primitive that finds two
 elements on one crystallographic site finds it: \texttt{exact.contested} returns the positions
 carrying more than one value. Over all 118 elements the exact reading places $Z$ electrons at $Z$
-distinct states and no state is contested, so exclusion holds for every element the ledger names.
+distinct states and no state is contested. Exclusion holds for every element the ledger names.
 
 The check is proven by breaking its subject. A filling that placed two electrons at one state gives
-\texttt{exact.placed}, a dictionary, one entry where the count expects two, so the distinct-state
+\texttt{exact.placed}, a dictionary, one entry where the count expects two. The distinct-state
 count falls below $Z$ and the run reports it. A correct fill of two electrons keeps two states; a
 doubled state keeps one. The count separates them, and the labels never disagree, because both
 electrons carry the same subshell. The loss under a coarse reading is a count and only a count, and a

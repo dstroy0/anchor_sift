@@ -48,7 +48,7 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
 SEED = 0x51F7
 
-# Field size in pixels. Square, so one axis carries the displacement and the other is a control that
+# Field size in pixels. Square. One axis carries the displacement and the other is a control that
 # should read zero.
 SIDE = 256
 
@@ -58,7 +58,7 @@ BLOBS = 40
 BLOB_WIDTH = 6.0
 
 # Levels the field is quantized to before agreement is measured. Agreement is a share of positions
-# carrying the same value, so a continuous field has to be given values it can carry. 32 is the
+# carrying the same value. A continuous field has to be given values it can carry. 32 is the
 # figure theory/workbook settles on for envelopes, where a finer slice leaves too few occurrences per
 # level to clear the floor.
 LEVELS = 32
@@ -195,7 +195,7 @@ def main():
         # discarded. A value says nothing here and a departure from a background says something,
         # and this is the background. If the two columns agree, the fraction carries nothing.
         plain.append(abs(lag - truth))
-        # The other axis moved by nothing, so anything but zero there is the reading inventing a
+        # The other axis moved by nothing. Anything but zero there is the reading inventing a
         # displacement. Reported on every row rather than once, because a control quoted once is a
         # control that stopped being checked.
         cross_lag, cross_fraction, _ = recover(first, second, axis=1)

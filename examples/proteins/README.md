@@ -4,14 +4,14 @@
 rule somebody else published and applied to the same deposit before this instrument existed.
 **Scope:** `examples/proteins/`
 
-| stage | script | what it answers |
-|---|---|---|
-| `1_represent` | `protein_bonds.py`, `protein_chain.py` | what the reader keeps and what it threw away |
-| `2_partition` | `protein_dimension.py` | what the dimension count reads off a real structure |
-| `3_reference` | `what_a_shuffle_reaches.py` | how much of the favored fraction a shuffle also reaches |
-| `4_measure` | `outlier_rate_from_the_rules.py` | what the rules return, with no answer key |
-| `5_sift` | `protein_domain.py` | how far the anchor cascade survives on a real cloud of points |
-| `6_oracle` | `published_outlier_rate.py` | whether it matches what wwPDB published for the same deposit |
+| stage         | script                                 | what it answers                                               |
+| ------------- | -------------------------------------- | ------------------------------------------------------------- |
+| `1_represent` | `protein_bonds.py`, `protein_chain.py` | what the reader keeps and what it threw away                  |
+| `2_partition` | `protein_dimension.py`                 | what the dimension count reads off a real structure           |
+| `3_reference` | `what_a_shuffle_reaches.py`            | how much of the favored fraction a shuffle also reaches       |
+| `4_measure`   | `outlier_rate_from_the_rules.py`       | what the rules return, with no answer key                     |
+| `5_sift`      | `protein_domain.py`                    | how far the anchor cascade survives on a real cloud of points |
+| `6_oracle`    | `published_outlier_rate.py`            | whether it matches what wwPDB published for the same deposit  |
 
 The subject stood at three of the six stages: represent, partition and sift. It had no reference,
 no measure and no oracle, and the reason that gap mattered is written into the crystallography
@@ -54,7 +54,7 @@ rather than pick one.
 of it is cross and dot products of integer coordinates, and it hands back the two integers whose
 ratio the angle is, without ever taking the `atan2`. The single irrational step is taken once, in
 `ramachandran_rules.angle`, in decimal and to forty digits, which is forty orders of magnitude
-under the two-degree grid the answer is read against, so the precision decides nothing. The grid is
+under the two-degree grid the answer is read against. The precision decides nothing. The grid is
 the only quantum in the reading, and it is the Richardson laboratory's, not this work's. The
 favored and allowed cutoffs are MolProbity's own numbers, named in `ramachandran_rules.CONTOURS`
 and printed by every stage that applies them.
@@ -87,7 +87,7 @@ the same way the Crystallography Open Database is, which is what let crystallogr
 control, and the draw is seeded so it repeats.
 
 The corpus is random on purpose. Sorting by resolution and taking the top was the wrong control:
-the best-resolved structures are almost all zero outliers, so an instrument that only ever answered
+the best-resolved structures are almost all zero outliers. An instrument that only ever answered
 zero would have passed. A random protein spans the whole quality range and carries published rates
 from zero to several percent, and reproducing that spread is the test.
 
@@ -96,14 +96,14 @@ within a single residue: 684 of 1000 agree to within one residue.** That is lowe
 corpus reaches, and it is meant to be. The disagreement tracks resolution, cleanly and in one
 direction:
 
-| resolution | within one residue |
-|---|---|
-| 1.0 A | 42 of 46 (91%) |
-| 1.5 A | 164 of 205 (80%) |
-| 2.0 A | 304 of 410 (74%) |
-| 2.5 A | 113 of 204 (55%) |
-| 3.0 A | 50 of 91 (55%) |
-| 3.5 A and worse | 11 of 44 (25%) |
+| resolution      | within one residue |
+| --------------- | ------------------ |
+| 1.0 A           | 42 of 46 (91%)     |
+| 1.5 A           | 164 of 205 (80%)   |
+| 2.0 A           | 304 of 410 (74%)   |
+| 2.5 A           | 113 of 204 (55%)   |
+| 3.0 A           | 50 of 91 (55%)     |
+| 3.5 A and worse | 11 of 44 (25%)     |
 
 At the resolution where the backbone is placed to a fraction of an angstrom, the reading reproduces
 the published rate almost every time. Where the coordinates are uncertain, the two counts diverge.
@@ -147,12 +147,12 @@ keeps its archive fetch in the example.
 Three controls hold the grouping, and the generator carries all three:
 
 - A null sets the grid resolution. A protein of a few hundred residues cannot fill the 32400 cells
-  of a two-degree grid, so at that grid its signature is sampling noise, and a residue-count-matched
+  of a two-degree grid. At that grid its signature is sampling noise, and a residue-count-matched
   random draw reaches the same distance from the corpus. `resolution_sweep` reports where a live
   signature sits farthest above that null, and the committed grid is ten degrees. The sweep prints
   on every run.
 - A gap statistic sets the number of families. It is the gap statistic of Tibshirani 2001 against a
-  reference uniform over the data's own PCA box, so a count is kept only where the live dispersion
+  reference uniform over the data's own PCA box. A count is kept only where the live dispersion
   falls below what a structure-free reference of the same shape reaches.
 - A positive control gates the write. Before any family is emitted, the same pipeline runs on
   synthetic proteins built from four planted archetypes. If it fails to recover that split,
@@ -160,7 +160,7 @@ Three controls hold the grouping, and the generator carries all three:
   cannot find a known one means nothing.
 
 With the control passing, the corpus shows a near-continuum: the gap keeps improving as the count
-rises, with only a weak first peak, so the families are soft partitions of a helix-rich to
+rises, with only a weak first peak. The families are soft partitions of a helix-rich to
 sheet-rich continuum and are labeled as such. The committed `family_rules.py` records ten families
 over 10280 deposits, 10267 of which carry a usable signature, at the ten-degree grid. Each family's
 `quirks` is the set of grid cells where it sits more than the whole corpus does, carried as (cell,
@@ -188,7 +188,7 @@ python examples/proteins/6_oracle/published_outlier_rate.py 1000
 ```
 
 The oracle takes how many proteins to grade, defaulting to 1000. It draws from a seeded shuffle of
-every X-ray protein entry, so a smaller number is a prefix of the same corpus and a larger one
+every X-ray protein entry. A smaller number is a prefix of the same corpus and a larger one
 extends it; the draw is the same on every machine. The corpus is a target to reach, not a slice off
 the top: an entry with no PDB-format file or no published number is skipped and the next id drawn,
 until the target grades.

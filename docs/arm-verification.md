@@ -3,7 +3,7 @@
 **Purpose:** Know which steering scan arms have run against the portable reference and which have only been checked for the instructions they emit, and under what conditions each grade was taken. A claim about an arm then cites the measurement behind it.
 **Scope:** `src/engine/c/engine/scan_portable.c`, `scan_avx2.c`, `scan_avx512.c`, `scan_neon.c`, `scan_sve.c`, `scan_cuda.cu`; the drivers `src/engine/c/bench/bench_steer_arms.c`, `maint/engine/build_engine.ps1`, `maint/engine/build_gpu_scan.sh`, `maint/engine/verify_arm_asm.sh`.
 
-Every scan arm answers one question: held at one needle offset, how many still-standing alignments carry the wanted byte. The portable arm is the reference. An arm that returns a different count has a defect, whatever it measures, so correctness is graded first and timing second.
+Every scan arm answers one question: held at one needle offset, how many still-standing alignments carry the wanted byte. The portable arm is the reference. An arm that returns a different count has a defect, whatever it measures. Correctness is graded first and timing second.
 
 ## The three grades, kept apart
 
@@ -19,23 +19,23 @@ Graded across `bench_steer_arms`, which compares every present arm against porta
 
 Each rate is alignments per second over the 1048576-alignment sweep at 200 passes. The ratio is the arm rate over the portable rate, and both rates are given beside it. The rates belong to the machine and toolchain named on the row; re-run `bench_steer_arms` to take them on another part.
 
-| arm | machine | toolchain | disagreements | portable | arm | ratio |
-|---|---|---|---|---|---|---|
-| avx2 | Intel Core i7-5960X (AVX2, no AVX-512) | MSVC toolset 14.44, Release | 0 | 4.194e8 | 1.498e10 | 35.71x |
-| avx2 | Intel Core i7-5960X, under WSL Ubuntu | gcc 13.3, Release | 0 | 4.193e8 | 1.705e10 | 40.66x |
-| neon | Raspberry Pi 5, Cortex-A76 (aarch64) | gcc 14.2, Release | 0 | 1.131e9 | 7.387e9 | 6.53x |
-| cuda | NVIDIA GeForce RTX 3070 (compute 8.6, 46 SMs), host i7-5960X | nvcc 13.3 with MSVC 14.44 | 0 | 4.342e8 | 7.571e8 | 1.74x |
+| arm  | machine                                                      | toolchain                   | disagreements | portable | arm      | ratio  |
+| ---- | ------------------------------------------------------------ | --------------------------- | ------------- | -------- | -------- | ------ |
+| avx2 | Intel Core i7-5960X (AVX2, no AVX-512)                       | MSVC toolset 14.44, Release | 0             | 4.194e8  | 1.498e10 | 35.71x |
+| avx2 | Intel Core i7-5960X, under WSL Ubuntu                        | gcc 13.3, Release           | 0             | 4.193e8  | 1.705e10 | 40.66x |
+| neon | Raspberry Pi 5, Cortex-A76 (aarch64)                         | gcc 14.2, Release           | 0             | 1.131e9  | 7.387e9  | 6.53x  |
+| cuda | NVIDIA GeForce RTX 3070 (compute 8.6, 46 SMs), host i7-5960X | nvcc 13.3 with MSVC 14.44   | 0             | 4.342e8  | 7.571e8  | 1.74x  |
 
 The cuda rate is low against the vector arms because the whole object crosses the bus on every call. It wins on the object size measured and grows with it. The arm is graded and timed but not placed in `anchor_steer_best_engine`. The vector arm the planner actually calls is chosen there.
 
 ## Arms with no hardware here, graded on emission
 
-Neither the i7-5960X nor the Cortex-A76 carries AVX-512 or SVE, so these arms have never run. `maint/engine/verify_arm_asm.sh` compiles each for its target and reads the object. Both also report themselves absent through their run-time detection on the machines above. A machine without the feature must get exactly that.
+Neither the i7-5960X nor the Cortex-A76 carries AVX-512 or SVE. These arms have never run. `maint/engine/verify_arm_asm.sh` compiles each for its target and reads the object. Both also report themselves absent through their run-time detection on the machines above. A machine without the feature must get exactly that.
 
-| arm | target | instructions confirmed | detection |
-|---|---|---|---|
-| avx512 | x86-64, gcc `-mavx512f -mavx512bw` | `vpcmpeqb` on a zmm operand | reports absent on the i7-5960X |
-| sve | aarch64, gcc `-march=armv8.2-a+sve` | `whilelo`, `cmpeq`, `cntp`, `ld1b` | reports absent on the Cortex-A76 |
+| arm    | target                              | instructions confirmed             | detection                        |
+| ------ | ----------------------------------- | ---------------------------------- | -------------------------------- |
+| avx512 | x86-64, gcc `-mavx512f -mavx512bw`  | `vpcmpeqb` on a zmm operand        | reports absent on the i7-5960X   |
+| sve    | aarch64, gcc `-march=armv8.2-a+sve` | `whilelo`, `cmpeq`, `cntp`, `ld1b` | reports absent on the Cortex-A76 |
 
 The names carry the grade. These two arms report as `avx512-unrun` and `sve-unrun`. A row of results cannot show one beside a run arm without the difference showing in the row itself.
 

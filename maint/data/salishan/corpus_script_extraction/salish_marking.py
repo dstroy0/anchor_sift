@@ -12,7 +12,7 @@
 # convention cannot drift between files.
 #
 # T is the target language. N is anything else. A line is never cut into separate rows: a speaker who
-# moves between her languages inside one sentence said one sentence, so the spans are marked in place and
+# moves between her languages inside one sentence said one sentence. The spans are marked in place and
 # in order and the line keeps its identity. That also leaves the switches grouped by line and sortable,
 # which is where the boundaries of the morphological system show.
 #
@@ -49,7 +49,7 @@ PUNCTUATION = ".,!?;:“”‘’\"'()[]…"
 
 # Typographic ligatures, which are one codepoint standing for two or three letters concatenated
 # mid-word. 476 of them are in five of these papers. They are not a decision about a glyph the way
-# the font substitutions are: ﬁ is fi, so this is applied without a test.
+# the font substitutions are: ﬁ is fi. This is applied without a test.
 #
 # Left alone they put ﬁve into a corpus and make a word fail to match itself. This was found that
 # way: a case-sensitive match against the pure corpus turned up five against ﬁve.
@@ -70,7 +70,7 @@ def bare_token(token):
 
 
 # Some of these languages are written in a practical orthography that uses plain keyboard
-# characters. St'át'imcets writes the glottal stop as the digit 7, so Cw7aoz, skúza7 and ts7ásas
+# characters. St'át'imcets writes the glottal stop as the digit 7. Cw7aoz, skúza7 and ts7ásas
 # carry none of the marks above and are invisible to a test built only on them. A digit inside a
 # word does not occur in English, which makes it a reliable mark where a paper uses it.
 PRACTICAL = "7"
@@ -98,7 +98,7 @@ TEXT_SPACE = MARKED + PRACTICAL + "̓̔̕ʷ˽"
 def looks_english(token, marks=MARKED):
     """A token with no marked character, long enough and vowelled enough to be an English word.
 
-    Two letters is the length of several clitics written in plain letters, so the floor is three.
+    Two letters is the length of several clitics written in plain letters. The floor is three.
     """
     plain = bare_token(token)
     if (len(plain) < 3) or (not plain.isascii()) or (not plain.isalpha()):
@@ -141,8 +141,8 @@ def tagged_spans(text, marks=MARKED):
 SPOKEN = "spoken"
 DERIVED = "derived"
 
-# Where a line goes when the extractor cannot say what it is. It carries the language, so it is not
-# discardable, and nothing is known about it, so it is not ingestible either. Naming the category
+# Where a line goes when the extractor cannot say what it is. It carries the language. It is not
+# discardable, and nothing is known about it. It is not ingestible either. Naming the category
 # after the tool's own limit keeps that honest: it says a program failed to sort this, not that the
 # line is doubtful. Each extractor writes these to a file of their own beside its output. A person
 # can then work through them, and they are held out of the pure stream until someone has.
@@ -174,7 +174,7 @@ def switches(text, marks=MARKED):
 
     Takes a marking set for the reason tagged_spans does, and had no way to take one until now. The
     1983 typescript writes the glottal stop as ? and the schwa as ~, and Lyon's two papers arrive in
-    the TeX font's own codes. Neither holds a character of the set below, so every line of all three
+    the TeX font's own codes. Neither holds a character of the set below. Every line of all three
     came back as one English span and this returned 0 for the whole of them.
     """
     return max(0, len(tagged_spans(text, marks)) - 1)

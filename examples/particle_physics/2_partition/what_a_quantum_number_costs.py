@@ -60,8 +60,8 @@ def partition_counts(electrons, keep):
     """The accumulated electrons read at a partition keeping `keep` of the four numbers.
 
     Returns (distinct, fullest), distinct the number of cells the electrons fall into and fullest the
-    most electrons any one cell holds. At keep of four every electron is its own cell, so distinct is
-    Z and fullest is one. At keep of zero the atom is one cell, so distinct is one and fullest is Z.
+    most electrons any one cell holds. At keep of four every electron is its own cell. Distinct is
+    Z and fullest is one. At keep of zero the atom is one cell. Distinct is one and fullest is Z.
     """
     cells = {}
     for state, _ in electrons:

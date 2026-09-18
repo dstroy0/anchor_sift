@@ -27,7 +27,7 @@
 # syndrome_decode computes which parity checks failed and reads their pattern as the position of the
 # flipped bit. nearest_decode ignores parity entirely and finds the codeword at least Hamming distance
 # from the received word. For a perfect code -- and Hamming(7,4) is one, every 7-bit word sits within
-# one flip of exactly one codeword -- these are provably the same decoder, so they agree on every input
+# one flip of exactly one codeword -- these are provably the same decoder. They agree on every input
 # by a theorem rather than by luck. That makes their agreement a check on the two implementations, not
 # evidence about the data, and a caller shows the check has teeth by breaking one and watching them
 # split. Nothing here is bounded and nothing is imported: the code is fixed by its parity structure and
@@ -44,7 +44,7 @@ def encode(data):
     """Four data bits as a seven-bit codeword, parity set for even parity over each check.
 
     `data` is four values, each 0 or 1. The data bits take their fixed positions and each parity bit is
-    the exclusive-or of the data bits its check covers, so every check reads even on a clean codeword.
+    the exclusive-or of the data bits its check covers. Every check reads even on a clean codeword.
     """
     word = [0] * 7
     for slot, index in enumerate(DATA_INDICES):
@@ -87,7 +87,7 @@ def syndrome_decode(word):
 def nearest_decode(word):
     """Decode by nearest codeword: the codeword at least Hamming distance from the received word.
 
-    Enumerates all sixteen codewords and keeps the closest. It reads no parity check, so it shares no
+    Enumerates all sixteen codewords and keeps the closest. It reads no parity check. It shares no
     arithmetic with syndrome_decode; for this perfect code the two are the same decoder and must agree.
     Returns the four data bits and the position corrected (0 when the word was already a codeword).
     """

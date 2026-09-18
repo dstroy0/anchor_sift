@@ -21,7 +21,7 @@ Everything below was read from the tree or re-derived here, never taken on repor
 - Bignum, C side: `src/engine/c/no_rounding/exact_integer.h`. `AnchorExactInteger` is 108 `uint32`
   limbs (`ANCHOR_EXACT_LIMBS = 108`, line 49), base `2^32` with a 64-bit accumulator, schoolbook
   multiply. `ANCHOR_EXACT_DIGITS = 1024` (line 66) is a declared floor, not the capacity: 108 limbs
-  is 3456 bits and holds 1040 decimal digits, so 16 are headroom the constant does not promise (lines
+  is 3456 bits and holds 1040 decimal digits. 16 are headroom the constant does not promise (lines
   55 to 60). Schoolbook is correct at this width because Karatsuba crosses over in the thousands of
   limbs and this is a hundred (line 179).
 - Bignum, Python side: `src/engine/python/representation/exact.py`. `SCALE_DIGITS = 1024` (line 74),
@@ -30,7 +30,7 @@ Everything below was read from the tree or re-derived here, never taken on repor
 - NTT precision constants: pinned upstream in the `theory_bucket` subtree, not in `src/`. The proof is
   `theory_bucket/precision/chapters/chapter_twiddle_proof.tex`; the standalone paper, also on the
   Cryptology ePrint Archive, is `theory_bucket/twiddle_constants_article.tex`. No NTT is implemented in
-  `src/` (a grep of the five moduli hits only `theory_bucket`), so no code-level prime table exists to
+  `src/` (a grep of the five moduli hits only `theory_bucket`). No code-level prime table exists to
   cite. A prime table in `src/` that nothing calls would be a knob with no reader.
 
 ### The NTT moduli, re-derived here
@@ -40,13 +40,13 @@ is a primitive root (`g^((p-1)/q) != 1` for every prime `q | p-1`), and confirmi
 (`a^((p-1)/2) == p-1 (mod p)`). Numbers agree with `theory_bucket/twiddle_constants_article.tex` lines
 198 to 200 (device primes), line 126 (goldilocks), and line 205 (the wrap finding).
 
-| modulus | shape | bits | below 2^31 | p-1 | 2-adic | generator | Proth witness |
-|---|---|---|---|---|---|---|---|
-| 998244353 | 119·2^23+1 | 30 | yes | 2^23·7·17 | 2^23 | 3 | (none quoted) |
-| 2013265921 | 15·2^27+1 | 31 | yes | 2^27·3·5 | 2^27 | 31 | 11 |
-| 2281701377 | 17·2^27+1 | 32 | no | 2^27·17 | 2^27 | 3 | 3 |
-| 3892314113 | 29·2^27+1 | 32 | no | 2^27·29 | 2^27 | 3 | 3 |
-| 18446744069414584321 | (2^32-1)·2^32+1 | 64 | no | 2^32·3·5·17·257·65537 | 2^32 | 7 | (none quoted) |
+| modulus              | shape           | bits | below 2^31 | p-1                   | 2-adic | generator | Proth witness |
+| -------------------- | --------------- | ---- | ---------- | --------------------- | ------ | --------- | ------------- |
+| 998244353            | 119·2^23+1      | 30   | yes        | 2^23·7·17             | 2^23   | 3         | (none quoted) |
+| 2013265921           | 15·2^27+1       | 31   | yes        | 2^27·3·5              | 2^27   | 31        | 11            |
+| 2281701377           | 17·2^27+1       | 32   | no         | 2^27·17               | 2^27   | 3         | 3             |
+| 3892314113           | 29·2^27+1       | 32   | no         | 2^27·29               | 2^27   | 3         | 3             |
+| 18446744069414584321 | (2^32-1)·2^32+1 | 64   | no         | 2^32·3·5·17·257·65537 | 2^32   | 7         | (none quoted) |
 
 Two notes carried from that check and from the private repository's lead:
 
@@ -83,14 +83,14 @@ and `3892314113` (above `2^31`).
 The translation NTT keeps `p = 998244353 = 119·2^23+1`, primitive root 3, diverging deliberately from
 the device `2^27` primes:
 
-1. `p` is below `2^31`, so the `uint32` add and subtract-borrow wrap the paper documents cannot occur.
+1. `p` is below `2^31`. The `uint32` add and subtract-borrow wrap the paper documents cannot occur.
    The translation transform is the place a single small prime helps instead of hurting.
 2. The `2^23` axis length is past any image axis.
 3. A single 30-bit prime cannot hold an exact convolution of full 32-bit limbs: one coefficient
    exceeds `p` almost at once. This does not bite the translation NTT because it convolves binary
-   views (0/1), so every coefficient `C(l)` is an agreement count.
+   views (0/1). Every coefficient `C(l)` is an agreement count.
 
-The private repository's lead sharpened point 3. For 0/1 views each coefficient counts agreeing positions, so it is at
+The private repository's lead sharpened point 3. For 0/1 views each coefficient counts agreeing positions. It is at
 most the transform length; the transform length divides `p-1` and is therefore below `p` for any valid
 prime. A binary view is exact with no separate precondition. Weighting the views is what can breach
 `p`: the bound becomes the sum of the weight products, and past `p` a single prime counts modulo
@@ -114,12 +114,12 @@ run, exit 0:
   floor is drawn on weighted views: `p = 998244353` stays exact while the too-small prime 257 misses
   56 of 95 lags.
 
-Both ran against a reference and agreed, so the translation transform earns the grade word `agrees`.
+Both ran against a reference and agreed. The translation transform earns the grade word `agrees`.
 The chapter header moves per transform: the translation is graded, and the integer-field and rotation
 transforms stay design only under a header that no longer claims the whole chapter is unmeasured.
 
 Routing confirmed with the engine (it commits; the specialist touches no git). All three targets sit
-in the shared checkout of this repository, at its root, which is where the engine commits from, so the
+in the shared checkout of this repository, at its root, which is where the engine commits from. The
 untracked-worktree wrinkle does not apply:
 
 - `theory/workbook/precision_coordination_log.md` handed off as `workbook precision note`.
@@ -194,7 +194,7 @@ floor:
   the total, and the coefficient growth, an exact constant rate `4 pi^4/25` for ABC (entire, radius
   infinite) and a rising `pi`-degree `0,4,8,12,16,20` for a generic datum whose limit is a completeness
   boundary. Imports the ring from `exact_navier_stokes_on_torus.py`. Handoff `examples experimental
-  feature`, with the README row added there.
+feature`, with the README row added there.
 - `theory/workbook/navier_stokes_workbook.md`: the statement written down from the Clay PDF, read in
   full including the errata; the sets defined; what they knew, wanted and we know; entries 1 to 3, the
   sets on the torus, the boundary function, and the cascade; the inheritance tables; prior art named with
@@ -275,7 +275,7 @@ Handoff of this entry: `workbook precision note`.
 - The private repository's lead surfaced ways `exact_integer` would ingest CODATA constants wrongly and
   later corrected one: the width counts total digits not places (11 of 62 truncated constants refuse);
   the uncertainty is dropped (crystallography relies on that, now documented, with a new
-  `from_measured`/`measured()` path coming but not yet on main); there is no divide, so derive outside
+  `from_measured`/`measured()` path coming but not yet on main); there is no divide. Derive outside
   the type and ingest finished text. The padding point was WITHDRAWN by that lead: `from_decimal` holds
   exactly the value of the text given, and padding 1000 places to 1024 is exact for that text; the
   fault is only a truncated expansion treated as the constant at a higher scale, a caller issue, not a

@@ -11,14 +11,14 @@
 # Uralic answered this once and answered contact. Finnish went to Swedish, which ruled it for six
 # centuries, Hungarian went to Czech, and not one of the three found a relative. That test had one fault
 # worth repeating better: its languages came from books, encyclopedia articles and translated works mixed
-# together, so the collection a text came from was moving alongside everything else.
+# together. The collection a text came from was moving alongside everything else.
 #
 # Malagasy sets the same question up by geography. It is Austronesian, spoken in Madagascar, and its
 # nearest relatives are in Borneo across the Indian Ocean. Everything it has borrowed from since is
 # African and French. Descent points several thousand kilometres east and contact points at the coast it
 # sits off, and nothing here confounds the two the way everything in Europe does.
 #
-# Every language below comes from one collection, so the content is fixed across all of them and the
+# Every language below comes from one collection. The content is fixed across all of them and the
 # fault in the Uralic run is not repeated.
 #
 # What is missing and cannot be fixed from this collection: Swahili, the African contact language

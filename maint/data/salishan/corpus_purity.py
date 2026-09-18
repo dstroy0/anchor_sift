@@ -7,7 +7,7 @@
 #
 #   Usage:  python maint/data/salishan/corpus_purity.py
 #
-# One of the four Greek texts is a Greek to English lexicon of the New Testament, so most of its
+# One of the four Greek texts is a Greek to English lexicon of the New Testament. Most of its
 # characters are English and it has been standing in every Greek measurement in this work. Greek is also
 # the language with the result nobody could explain, sitting nearest Hebrew across a change of script, and
 # a quarter of its corpus not being Greek is a better explanation than any offered so far.

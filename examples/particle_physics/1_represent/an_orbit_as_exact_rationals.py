@@ -10,7 +10,7 @@
 # A hydrogen-like ion is one electron on a nucleus of charge Z. Bohr quantizes its angular momentum at
 # an integer multiple of hbar, and the orbit that follows has radius n^2/Z in units of the Bohr radius
 # and energy -Z^2/n^2 in units of the Rydberg. Both are exact rationals: an integer over an integer,
-# with nothing to round. The quantum number n is an exact integer, so two orbits n and n+1 differ by
+# with nothing to round. The quantum number n is an exact integer. Two orbits n and n+1 differ by
 # (2n+1)/Z exactly and never merge, however large n gets. That is the trajectory reproduced with the
 # infinite discrimination exact arithmetic gives, and it is why a float, which loses the gap between
 # large orbits, is the wrong tool for it.
@@ -19,7 +19,7 @@
 # stand-in for the fixed-width limb integers in no_rounding on the device arm. No float and no bignum
 # library sits in the path, the same discipline representation/exact.py keeps for decimal coordinates.
 #
-# Everything is carried in the natural units, the Bohr radius and the Rydberg, so no measured constant
+# Everything is carried in the natural units, the Bohr radius and the Rydberg. No measured constant
 # enters and no digit is approximate. The absolute size of an orbit in meters, and any comparison to a
 # measured spectral line, needs the Rydberg constant, which is measured and cited, and that is the
 # oracle stage and not this one. What is exact and physical-constant-free is the shape: the ratios.
@@ -108,7 +108,7 @@ def hydrogen_orbits(out):
         gap = minus(orbit_radius(principal + 1, 1), radius)
         out.write("    %-4d %-10d %-12s %-14s %s\n"
                   % (principal, principal, as_text(radius), as_text(energy), as_text(gap)))
-    out.write("\n    the gap is (2n+1)/Z exactly, so no two orbits ever fall on one radius.\n")
+    out.write("\n    the gap is (2n+1)/Z exactly. No two orbits ever fall on one radius.\n")
 
 
 def hydrogen_like(atomic_number, out):
@@ -127,7 +127,7 @@ def balmer_ratios(out):
     names = ("H-alpha", "H-beta", "H-gamma", "H-delta")
     for name, upper in zip(names, BALMER):
         energy = transition_energy(2, upper, 1)
-        # Wavelength is inverse to energy, so the wavelength ratio is the energy ratio flipped.
+        # Wavelength is inverse to energy. The wavelength ratio is the energy ratio flipped.
         ratio = over(reference, energy)
         out.write("    %-8s %-12d %-10s %.5f\n"
                   % (name, upper, as_text(ratio), ratio[0] / ratio[1]))
@@ -155,7 +155,7 @@ def wanted_numbers(argv):
 def main(argv):
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     out.write("\n  The Bohr orbit is an exact rational: radius n^2/Z, energy -Z^2/n^2. The quantum\n")
-    out.write("  number is an integer, so the trajectory reproduces with no rounding and no drift.\n")
+    out.write("  number is an integer. The trajectory reproduces with no rounding and no drift.\n")
 
     hydrogen_orbits(out)
 

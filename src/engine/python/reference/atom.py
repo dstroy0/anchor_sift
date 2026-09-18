@@ -15,7 +15,7 @@
 #
 # The squared magnitude is the exact quantum the inspection holds. Its root is irrational and is the
 # continuum the quanta sample; the engine never takes the root. The field's configuration space is
-# hyper-exponential, so the packed presence is a bignum and never a fixed width.
+# hyper-exponential. The packed presence is a bignum and never a fixed width.
 
 from reference.bitfield import pack, present
 
@@ -23,7 +23,7 @@ from reference.bitfield import pack, present
 def position_vector(n, row, col):
     """The vector from the core at the center to a cell, in doubled integer coordinates.
 
-    Doubling keeps the center exact for every n, odd or even, so a component is always an integer.
+    Doubling keeps the center exact for every n, odd or even. A component is always an integer.
     """
     return (2 * row - (n - 1), 2 * col - (n - 1))
 
@@ -66,7 +66,7 @@ def occupied_bands(cells, band_list):
 def full_bands(cells, band_list):
     """Bit b set iff every cell in band b holds something. A shell fully occupied, an exact fact.
 
-    Scattered noise fills a whole outer shell only by an accident a drawn null rarely reaches, so a full
+    Scattered noise fills a whole outer shell only by an accident a drawn null rarely reaches. A full
     band that survives a shuffle is genuine shell structure, not coincidence.
     """
     field = 0

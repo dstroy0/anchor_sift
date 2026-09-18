@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: CHM-3-001
 #
-# Two graded nulls for a molecule, each deleting a different property, so the reference fixes the
+# Two graded nulls for a molecule, each deleting a different property. The reference fixes the
 # question the octet is asked.
 #
 #   Usage:  python examples/chemistry/3_reference/two_nulls_two_questions.py
@@ -14,7 +14,7 @@
 #
 # Null one deletes the match between an element and the site it sits on: keep the bond graph and the
 # multiset of elements, permute which element sits where. The octet then closes only when each element
-# lands on a site whose degree is its valence, so the real molecule departs from this null and most
+# lands on a site whose degree is its valence. The real molecule departs from this null and most
 # permutations fail. This is the reading the sift stage rests on.
 #
 # Null two deletes the connectivity: keep each atom's degree exactly equal to its valence, rewire
@@ -139,10 +139,10 @@ def main():
         out.write("  %-12s %-22.3f %-22.3f %.3f\n"
                   % (molecule.name, rate_one, rate_two, self_bond))
 
-    out.write("\n  null one: the real molecule closes and departs from the shuffle in %d of %d, so which\n"
+    out.write("\n  null one: the real molecule closes and departs from the shuffle in %d of %d. Which\n"
               % (departs_one, len(MOLECULES)))
     out.write("  element sits where carries information.\n")
-    out.write("  null two: the octet closes on every degree-preserving rewire in %d of %d, so it carries\n"
+    out.write("  null two: the octet closes on every degree-preserving rewire in %d of %d. It carries\n"
               % (holds_two, len(MOLECULES)))
     out.write("  none about which atoms are joined. The self-bonded column counts rewires that are not\n")
     out.write("  molecules and pass the octet anyway.\n")

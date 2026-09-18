@@ -26,7 +26,7 @@ theme:
     - content.code.copy
     - toc.follow
   palette:
-    # The ledger is long and gets read at length, so both schemes are offered and neither is forced.
+    # The ledger is long and gets read at length. Both schemes are offered and neither is forced.
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:

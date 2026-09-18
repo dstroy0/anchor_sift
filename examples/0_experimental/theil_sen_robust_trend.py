@@ -7,7 +7,7 @@
 #
 #   Usage:  python examples/0_experimental/theil_sen_robust_trend.py
 #
-# This reads no corpus, so it sits in 0_experimental: an algorithm shown working, a robust-regression
+# This reads no corpus. It sits in 0_experimental: an algorithm shown working, a robust-regression
 # filter beside the signal ones. The invariant here is a linear trend, and the consensus is the slope
 # the majority of point PAIRS agree on: the Theil-Sen estimator takes the median of every pairwise
 # slope, and the intercept as the median of the residual offsets. It is application logic and not an
@@ -29,7 +29,7 @@
 # that kept the slope and the square is the wrong reference.
 #
 # NOTHING IS BOUNDED HERE. The slope is a median, a rank, not a residual threshold chosen by anyone. The
-# arithmetic is exact rational, so a clean line is recovered to the last digit. The floor is stated and
+# arithmetic is exact rational. A clean line is recovered to the last digit. The floor is stated and
 # swept: Theil-Sen's slope breaks near a bit under a third of the points being outliers, the published
 # breakdown point, and the sweep shows it move.
 
@@ -125,7 +125,7 @@ def main():
     out.write("  drawn null: with y shuffled against x the trend is gone; Theil-Sen slope %s (near 0)\n\n"
               % ns)
 
-    # two floors. First: scattered outliers cancel, so the median holds well past a third -- a real
+    # two floors. First: scattered outliers cancel. The median holds well past a third -- a real
     # robustness, since a value from nowhere is a different nowhere each time.
     out.write("  floor A, scattered outliers (pull each way, they cancel):\n")
     out.write("  %-16s %-16s %s\n" % ("outlier share", "Theil-Sen slope", "still exact"))
@@ -145,7 +145,7 @@ def main():
         out.write("  %-16s %-16s %s\n"
                   % ("%d/30 = %d%%" % (competitors, competitors * 100 // 30), str(fs), fs == true_slope))
 
-    out.write("\n  the clean pairs all agree on the true slope and scattered outliers cancel, so the\n")
+    out.write("\n  the clean pairs all agree on the true slope and scattered outliers cancel. The\n")
     out.write("  median lands on the truth while least-squares chases the far points -- that is the\n")
     out.write("  phase consensus again, over pairwise slopes instead of a phase class. the breakdown is\n")
     out.write("  floor B: a conspiracy whose pairs outnumber the clean ones makes the median follow the\n")

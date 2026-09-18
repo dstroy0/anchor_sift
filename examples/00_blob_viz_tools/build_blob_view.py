@@ -53,7 +53,7 @@ def window_readings(data, window):
     """Entropy in bits and distinct-value count, for the window ending at each position.
 
     Counts are carried from step to step and never recounted, and the number of live values is
-    tracked as counts cross zero, so both readings cost a constant amount per byte plus one pass
+    tracked as counts cross zero. Both readings cost a constant amount per byte plus one pass
     over the values actually present. Recounting the window at every position instead would make a
     few megabytes take minutes for no better answer.
     """
@@ -81,7 +81,7 @@ def window_readings(data, window):
         total = float(live)
         entropy = 0.0
         start = at - live + 1
-        # At most `window` values are present, so this walks the window once and not all 256.
+        # At most `window` values are present. This walks the window once and not all 256.
         for each in set(data[start:at + 1]):
             share = counts[each] / total
             entropy -= share * math.log(share, 2)
@@ -144,7 +144,7 @@ def main():
         sys.stderr.write("nothing to read at offset %d of a %d byte file\n" % (offset, size))
         return 1
 
-    # A trailing partial row is padded and never dropped, so the last bytes of a file stay
+    # A trailing partial row is padded and never dropped. The last bytes of a file stay
     # visible. The padding is zero, which reads as a run and is not mistaken for data.
     rows = (len(data) + width - 1) // width
     padded = data + b"\x00" * (rows * width - len(data))
@@ -183,7 +183,7 @@ def main():
                   "the real period."
                   % (os.path.basename(source), width, rows, offset, size)),
         "noteTitle": "Width is the only assumption",
-        "note": ("Nothing in a blob says how wide it is, so structure that appears at one width and "
+        "note": ("Nothing in a blob says how wide it is. Structure that appears at one width and "
                  "vanishes at another belongs to the choice of width rather than to the file. "
                  "Change it and keep what survives."),
         "settings": settings.collect(sys.argv[1:]),
@@ -217,7 +217,7 @@ def main():
     print("  %d bytes of %d, from offset %d" % (len(data), size, offset))
     print("  %d rows of %d, %d cells in each of 8 fields" % (rows, width, rows * width))
 
-    # The page draws one box per cell above the floor, so the cell count decides whether it
+    # The page draws one box per cell above the floor. The cell count decides whether it
     # opens or hangs. Said as a warning and not a limit: a large blob is a legitimate thing to
     # look at, and the floor slider is there to make one tractable once it is loaded.
     if rows * width > 200000:

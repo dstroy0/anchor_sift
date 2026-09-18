@@ -6,7 +6,7 @@
 
 A one-bit difference in the chaining state stops being visible to a per-word Hamming statistic at a definite depth. That depth is not a property of the mixing functions. It is the number of words on the shift chain.
 
-The round function generalizes to any even word count: majority and \(\Sigma_0\) read the low half's head, choice and \(\Sigma_1\) read the high half's head, and the two halves join the way the standard joins them. At eight words this is SHA-256 exactly and not a model of it, so that row is the control.
+The round function generalizes to any even word count: majority and \(\Sigma_0\) read the low half's head, choice and \(\Sigma_1\) read the high half's head, and the two halves join the way the standard joins them. At eight words this is SHA-256 exactly and not a model of it. That row is the control.
 
 \begin{center}
 \begin{tabular}{rrr}
@@ -44,7 +44,7 @@ words & indices from the \(e\) join & dies at \\
 \end{tabular}
 \end{center}
 
-The last index is \(\mathrm{count} - 1\), so \(\mathrm{wall} = (\mathrm{count} - 1) + 3 = \mathrm{count} + 2\). The \(3\) is the round function's mixing depth, how long \(T_1\) and \(T_2\) take to saturate a freshly computed word, and it does not depend on the word count. The wall therefore tracks the count one for one. The \(-1\) is that the chain is \(\mathrm{count} - 1\) hops from the join to the tail and not \(\mathrm{count}\).
+The last index is \(\mathrm{count} - 1\). \(\mathrm{wall} = (\mathrm{count} - 1) + 3 = \mathrm{count} + 2\). The \(3\) is the round function's mixing depth, how long \(T_1\) and \(T_2\) take to saturate a freshly computed word, and it does not depend on the word count. The wall therefore tracks the count one for one. The \(-1\) is that the chain is \(\mathrm{count} - 1\) hops from the join to the tail and not \(\mathrm{count}\).
 
 \section{The two halves are different chains}
 
@@ -68,10 +68,10 @@ words & \(a\) half & \(e\) half & apart \\
 
 So the \(e\) half's saturation depth does not depend on the chain length and the \(a\) half's does, growing one round per added word pair.
 
-\textbf{Which half sets the wall.} The \(a\) half's tail is index \(\mathrm{half}-1\) and dies at \((\mathrm{half}-1) + \mathrm{half} + 2 = \mathrm{count} + 1\). The \(e\) half's tail is index \(\mathrm{count}-1\) and dies at \(\mathrm{count} + 2\). The \(e\) half tail is one round deeper, so the wall comes from the \(e\) half even though the \(e\) half saturates faster per index. It wins by extending to the end of the chain and not by being slower.
+\textbf{Which half sets the wall.} The \(a\) half's tail is index \(\mathrm{half}-1\) and dies at \((\mathrm{half}-1) + \mathrm{half} + 2 = \mathrm{count} + 1\). The \(e\) half's tail is index \(\mathrm{count}-1\) and dies at \(\mathrm{count} + 2\). The \(e\) half tail is one round deeper. The wall comes from the \(e\) half even though the \(e\) half saturates faster per index. It wins by extending to the end of the chain and not by being slower.
 
 Unconfirmed: \(a\) takes \(T_1\) plus \(T_2\), both halves fully mixed, while \(e\) takes \(d\), a raw copy of the \(a\) half's tail, plus \(T_1\). Twice the mixing into \(a\) is consistent with it saturating sooner per index, and \(e\) reading a raw copy is consistent with its offset not tracking the chain. Neither is measured; only the laws are.
 
 \section{Six words is degenerate}
 
-Six words does not wall within thirty rounds. At three words per half, choice reads the entire high half and majority the entire low half, so neither function selects among words any more. It is excluded, not explained away.
+Six words does not wall within thirty rounds. At three words per half, choice reads the entire high half and majority the entire low half. Neither function selects among words any more. It is excluded, not explained away.

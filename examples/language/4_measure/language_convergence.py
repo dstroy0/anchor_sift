@@ -20,7 +20,7 @@
 # Chinese is the case that decides this. If the tightest spread is set by how many symbols an alphabet
 # has, it must sit far outside every alphabetic language. If it is set only by how the weight falls across
 # whatever symbols there are, it can sit inside the same band. The prediction is not obvious either way
-# and both outcomes are worth having, so it is measured and not argued.
+# and both outcomes are worth having. It is measured and not argued.
 
 import io
 import math
@@ -46,7 +46,7 @@ BITS = 3
 def seat_tightest(symbols):
     """Number the symbols so their spread is the least any numbering gives.
 
-    The spread weights each position by how often it is used, so the commonest symbol takes the middle
+    The spread weights each position by how often it is used. The commonest symbol takes the middle
     and the rest go outward by frequency. This is the value the coefficient converges to and it is
     reached, not approached.
     """
@@ -72,7 +72,7 @@ def seat_tightest(symbols):
 def returned(series, bits):
     """Share of symbols coming back exactly when every angle is held to a few steps.
 
-    Held in symbol positions and not in bytes, so an alphabet of three thousand is treated the same way
+    Held in symbol positions and not in bytes. An alphabet of three thousand is treated the same way
     as one of seventy.
     """
     floats = series.astype(numpy.float64)

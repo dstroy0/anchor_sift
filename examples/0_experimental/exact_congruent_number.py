@@ -11,7 +11,7 @@
 #
 #   Usage:  python examples/0_experimental/exact_congruent_number.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. The arithmetic is the engine's own: Python integers as the bignum, and an exact rational
 # carried as a reduced (numerator, denominator) pair of native integers, reduced by a hand-written
 # Euclid. No float, no fraction library, no math library; the one square root needed is an integer

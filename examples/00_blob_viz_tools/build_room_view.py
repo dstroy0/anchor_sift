@@ -30,7 +30,7 @@ sweeps is worth more than a shadow that sits: two objects that overlap from one 
 the next, and the rate a shadow moves against the wall gives the depth of the thing casting it.
 
 Objects have a stopping power apiece and the beam has an energy. An object stops the beam where its
-stopping power is above that energy, so turning the energy up switches shadows off one at a time,
+stopping power is above that energy. Turning the energy up switches shadows off one at a time,
 weakest first. That is the only honest way to draw a probe that mostly passes through: a surface is
 opaque to a neutron most of the time and to a neutrino almost never, and the difference between
 those two sentences is a cross-section falling with energy and not a wall becoming a window.
@@ -59,7 +59,7 @@ CORES = ("sphere", "cube", "octahedron", "cone")
 
 
 def draw(seed):
-    """The same small generator the other tools here use, so one seed means one room."""
+    """The same small generator the other tools here use. One seed means one room."""
     state = (seed ^ 0x9E3779B97F4A7C15) & 0xFFFFFFFFFFFFFFFF
     while True:
         state = (state * 6364136223846793005 + 1442695040888963407) & 0xFFFFFFFFFFFFFFFF
@@ -118,7 +118,7 @@ def from_draw(count, seed):
 def from_blob(data, count, seed):
     """Objects taken from a file: the commonest byte values, sized and placed by what they are.
 
-    A byte's share of the file sets how much of the beam it stops, so the values a file is built
+    A byte's share of the file sets how much of the beam it stops. The values a file is built
     out of are the ones that cast shadows and the rare ones let the beam through. Depth is the
     reverse, putting the common values out near the wall where their shadows are small and sharp.
     """
@@ -214,7 +214,7 @@ def main():
         return 1
     page = page.replace("/*ROOM_DATA*/null", json.dumps(payload, separators=(",", ":")))
     if page.count("</script>") < page.count("<script"):
-        sys.stderr.write("the template left a script open, so the page would not run\n")
+        sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
     out = option("--out", os.path.join(HERE, "room_view.html"))

@@ -6,7 +6,7 @@
 """Turns any parametric table into the shape viewer, without knowing what the table is about.
 
 The other generators here each read one measurement this repository produces. This one reads a CSV
-and works out its own axes, so the same seven embeddings - plane, tube, toroid, sphere, cone, helix,
+and works out its own axes. The same seven embeddings - plane, tube, toroid, sphere, cone, helix,
 balloon - can be pointed at anything with the shape
 
     one value, measured over one depth axis, for each of many series

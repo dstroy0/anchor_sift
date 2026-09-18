@@ -46,7 +46,7 @@ extern "C" {
 /**
  * @brief Limbs per residual, 288 bits.
  *
- * @note A 16 bit sample gains one bit per unit of kernel order and one sign bit, so the orders may
+ * @note A 16 bit sample gains one bit per unit of kernel order and one sign bit. The orders may
  *       sum to at most 32 * 9 - 17 = 271. build_driver.sh reads this value to size the exact
  *       integer the tracker's keys use.
  */
@@ -70,7 +70,7 @@ extern "C" {
  *       even, which keeps the kernel centered on the voxel.
  * @note A pair joins two positive peaks whose basins meet across a face. `adjacency` lists every
  *       such pair. `joined` lists those where the two voxels on either side of the face are both
- *       positive, so the basins touch through their positive parts. Both come sorted and unique,
+ *       positive. The basins touch through their positive parts. Both come sorted and unique,
  *       lower peak first.
  */
 typedef struct

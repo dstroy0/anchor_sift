@@ -10,7 +10,7 @@ Almost every measurement in this body of work returns a bound or a null. An inte
 
 Its control is the 1996 BBP formula for \(\pi\). Pointed at base sixteen, power one, stride eight, the pipeline returns an exact relation, and the known formula holds on the same values to \(895\) bits of \(900\), the remainder being the series truncation. The gate runs in both directions: it recovers a planted relation exactly and it rejects unrelated numbers.
 
-The relation found is not unique, and an early version of this control demanded that it be. Bailey's compendium notes that the auxiliary sums satisfy zero relations among themselves, so the exact relations form a lattice and the known formula is one member of it. Demanding a particular member was the wrong control, and it reported a correct answer as a failure.
+The relation found is not unique, and an early version of this control demanded that it be. Bailey's compendium notes that the auxiliary sums satisfy zero relations among themselves. The exact relations form a lattice and the known formula is one member of it. Demanding a particular member was the wrong control, and it reported a correct answer as a failure.
 
 \section{The measurement}
 
@@ -51,7 +51,7 @@ The measurement was built to test whether the lattice reduction is the culprit, 
 
 Gram-Schmidt rebuilds grow \(1.77\times\) then \(1.85\times\) per doubling, which is close to linear in the precision and is the same rate the multiply count grows at over the same two steps. The reduction is not outpacing anything.
 
-The multiply is what carries it. The mean operand width grows \(1.89\), \(1.95\), \(1.99\) per doubling, so it is linear in the precision to within the resolution of four rows. Karatsuba costs \(\mathrm{width}^{1.585}\), and a linear width against a roughly linear count of multiplies predicts an exponent of \(1 + 1.585 = 2.585\). The measurement returned \(2.64\).
+The multiply is what carries it. The mean operand width grows \(1.89\), \(1.95\), \(1.99\) per doubling. It is linear in the precision to within the resolution of four rows. Karatsuba costs \(\mathrm{width}^{1.585}\), and a linear width against a roughly linear count of multiplies predicts an exponent of \(1 + 1.585 = 2.585\). The measurement returned \(2.64\).
 
 Agreement to that tolerance on a four-row fit is not a proof of the mechanism, and it is what the mechanism predicts while the alternative predicts something else. A reduction-bound search would show rebuilds growing faster than the multiply count, and they do not.
 

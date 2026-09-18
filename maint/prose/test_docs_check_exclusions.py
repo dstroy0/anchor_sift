@@ -34,7 +34,7 @@ import docs_check as dc  # noqa: E402
 def sibling_repository(name):
     """A repository beside this one, or None.
 
-    Resolved through docs_check.main_checkout() and not through __file__, so this suite inherits
+    Resolved through docs_check.main_checkout() and not through __file__. This suite inherits
     the worktree repair rather than reintroducing the bug it fixed: from a linked worktree a sibling
     computed from this file's path lands inside .claude/worktrees/.
     """
@@ -279,7 +279,7 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
                 continue
             signature = where + dc.SIGNATURE_SUFFIX
             self.assertTrue(os.path.isfile(signature),
-                            "%s is attested by nothing, so the refusal has no force" % name)
+                            "%s is attested by nothing. The refusal has no force" % name)
             signed.append(name)
         print("  signed manifests present: %s" % ", ".join(signed))
         self.assertGreater(len(signed), 1)
@@ -296,7 +296,7 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
         self.assertIn(".asc", why, "and the signature that would be invalidated")
 
     def test_the_refusal_carries_the_reconcile_command_from_the_manifest_itself(self):
-        """Lifted from the manifest header, so it cannot drift from the tool that maintains it."""
+        """Lifted from the manifest header. It cannot drift from the tool that maintains it."""
         said = dc.reconcile_command(self.manifest)
         print("  reconcile command, as the manifest states it: %s" % said)
         self.assertIn(".py", said, "it names the tool that reconciles the tree")
@@ -307,13 +307,13 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
     def test_reading_is_not_writing(self):
         """A listed file is read and reported like any other. Only the rewrite is refused.
 
-        Reporting changes no bytes, so there is nothing for the hashes to disagree with, and a
+        Reporting changes no bytes. There is nothing for the hashes to disagree with, and a
         corpus that goes unread is a corpus nobody can check.
         """
         home = dc.manifest_home(os.path.join(CORPUS, "README.md"))
         self.assertIsNotNone(home)
         self.assertIsNone(dc.manifest_listed(os.path.join(CORPUS, "README.md")),
-                          "the README is not attested, so this test is about the others")
+                          "the README is not attested. This test is about the others")
         listed = [one for one in dc.manifest_index(home) if dc.checked_file(one)]
         if not listed:
             self.skipTest("nothing attested carries an extension this tool reads")
@@ -473,11 +473,11 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
 # ============================================================================
 
 class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
-    """The one decision here a reader is likely to want to reverse, so it is tested hardest.
+    """The one decision here a reader is likely to want to reverse. It is tested hardest.
 
     The structural pass that landed before this one wrote its instruction into the assertion a
     suppressing rule would break: the single genuine structural finding in the whole of
-    ProtoCore/docs sits inside a generated region, so skipping marked regions deletes the finding
+    ProtoCore/docs sits inside a generated region. Skipping marked regions deletes the finding
     this objective asks to be asserted and reports that tree clean.
     """
 
@@ -593,7 +593,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
 
     def test_the_same_passage_still_reports_a_construction(self):
         """The bound is the test. A paragraph about convention does not get a register pass."""
-        said = ["# British spelling is what makes the difference, so a reader has to know."]
+        said = ["# British spelling is what makes the difference. A reader has to know."]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
         self.assertTrue(any(one.startswith("tier A") for one in found),
                         "only the alphabet tier goes quiet, never a construction")
@@ -603,7 +603,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         said = ["# British Telecom asked for an optimisation of the initialised path."]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
         self.assertTrue(any(one.startswith("spelling") for one in found),
-                        "the subject here is a company, so the convention is still reported")
+                        "the subject here is a company. The convention is still reported")
 
     def test_the_exemption_is_bounded_to_the_run_that_carries_the_subject(self):
         said = [
@@ -672,7 +672,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
 class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
     """Detection is mechanical. Substitution is where the judgement lives.
 
-    A construction ban targets a rhetorical move and not a word, so the nearest synonym preserves
+    A construction ban targets a rhetorical move and not a word. The nearest synonym preserves
     the move and lands on another banned item. `rather` is banned at code-documentation:110 and the
     X-not-Y shape that repairs it is banned at :146 of the same document.
     """
@@ -736,7 +736,7 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
     def test_the_source_states_the_limit_where_a_maintainer_will_look_for_it(self):
         """A rule with no reason beside it is the kind a later maintainer finishes.
 
-        This one reads as an unimplemented feature and is a permanent limit, so the reasoning has to
+        This one reads as an unimplemented feature and is a permanent limit. The reasoning has to
         sit at the constant a person would edit.
         """
         with open(os.path.join(HERE, "docs_check.py"), encoding="utf-8") as handle:
@@ -839,7 +839,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         breaking = [one for one in answer.stdout.splitlines() if one.strip().startswith("BREAK")]
         prose = [one for one in answer.stdout.splitlines() if one.strip().startswith("prose")]
         if breaking:
-            self.skipTest("this file carries a structural finding, so the exit code is about that")
+            self.skipTest("this file carries a structural finding. The exit code is about that")
         print("  this suite reports %d prose finding(s) and exits %d"
               % (len(prose), answer.returncode))
         self.assertEqual(answer.returncode, 0)
@@ -880,7 +880,7 @@ class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
         repository instead of the directory it was asked from.
 
         The worktree repair that landed --git-common-dir was written against this and the clearing
-        did not come with it, so a correct query kept giving a wrong answer under a hook. This pass
+        did not come with it. A correct query kept giving a wrong answer under a hook. This pass
         added it, and the reporting lines depend on it: every one of them asks git a question about
         a directory it was handed.
         """

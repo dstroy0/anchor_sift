@@ -1,7 +1,7 @@
 # Builds the surface packer for the device.
 #
 # nvcc on Windows drives cl.exe as its host compiler and will not find it on a bare PATH. The
-# Visual Studio build tools put it somewhere only their own environment script knows about, so that
+# Visual Studio build tools put it somewhere only their own environment script knows about. That
 # script is imported here and its variables are carried into this session before nvcc is called.
 # Without it nvcc stops with "Cannot find compiler 'cl.exe' in PATH", which reads as a missing CUDA
 # install and is a missing environment.
@@ -29,7 +29,7 @@ $cl = Get-Command cl.exe -ErrorAction SilentlyContinue
 if (-not $cl) { Write-Error "cl.exe still not on PATH after vcvars"; exit 1 }
 
 # sm_86 is the part this was written against. A different card wants its own arch and nvcc says so
-# plainly, so this is left explicit instead of guessed at from the device present.
+# plainly. This is left explicit instead of guessed at from the device present.
 $source = Join-Path $here "pack_shapes.cu"
 $out = Join-Path $here "pack_shapes.exe"
 & nvcc -O3 -arch=sm_86 -o $out $source

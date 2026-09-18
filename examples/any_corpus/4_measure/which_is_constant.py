@@ -15,7 +15,7 @@
 #
 # The distance between boundaries should not care about that. It is set by how long words are, and a rare
 # accented letter appearing a few times per thousand symbols moves it by almost nothing. This measures
-# both quantities on every corpus given and reports the spread of each, so which one is stable is decided
+# both quantities on every corpus given and reports the spread of each. Which one is stable is decided
 # by the numbers instead of argued.
 
 import io

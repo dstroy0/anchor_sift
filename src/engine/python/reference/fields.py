@@ -20,7 +20,7 @@
 # read at that width and a control measured at full precision would be measuring something the real
 # corpora never get.
 #
-# `stretched` exists because of a failure. The first fields were isotropic, so every axis had
+# `stretched` exists because of a failure. The first fields were isotropic. Every axis had
 # identical statistics and there was one magnitude repeated n times instead of n magnitudes. No line
 # can count what was never made different, and two attempts at recovering a dimension count were
 # asked to do exactly that before anyone noticed.
@@ -49,7 +49,7 @@ def build(dims, side, slope, rng):
 def stretched(dims, side, slope, rng, factors=None):
     """The same, with a different correlation length along each axis.
 
-    Each axis then carries a roughness of its own, so there are n magnitudes to count instead of one
+    Each axis then carries a roughness of its own. There are n magnitudes to count instead of one
     repeated n times. Without this a dimension count cannot be recovered from a line at all, and the
     two attempts that failed before anyone noticed were both asked to count what was never made
     different.

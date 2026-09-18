@@ -65,7 +65,7 @@ across eleven rounds.
 
 \section{Taking it apart}
 
-The projection sums over the output axis, so it cannot say which output bits these are. Naming them
+The projection sums over the output axis. It cannot say which output bits these are. Naming them
 accounts for every number.
 
 \begin{center}
@@ -80,7 +80,7 @@ skewed, residue 25 & 56 & \(\Sigma_1\)'s \(\mathrm{ROTR}25\), alone \\
 \end{center}
 
 The aligned half is arithmetic. Flipping bit \(k\) of an addend always flips bit \(k\) of the sum,
-because carries only run upward, so bit \(k\) of a message word drives bit \(k\) of \(T_1\) and
+because carries only run upward. Bit \(k\) of a message word drives bit \(k\) of \(T_1\) and
 thence of \(a\) and of \(e\), two cells per bit, over four words of thirty-two bits:
 \(4 \times 32 \times 2 = 256\).
 
@@ -98,7 +98,7 @@ alike.
 
 The natural mechanism does not survive that. If carries destroy certainty at every position above
 the lowest flipped one, then the lowest of \(\Sigma_1\)'s three images should be the survivor, and
-at source bit twenty that is \(k - 11 = 9\), below \(k - 25 = 27\), so residue eleven should appear.
+at source bit twenty that is \(k - 11 = 9\), below \(k - 25 = 27\). Residue eleven should appear.
 It never does.
 
 \textbf{The aligned half is understood and the skewed half is an exact measurement with a wrong
@@ -107,7 +107,7 @@ next model has to reproduce.
 
 \section{The boundary this shares with the published work}
 
-A soliton of probability-one paths is what a local-collision construction is built out of, so this
+A soliton of probability-one paths is what a local-collision construction is built out of. This
 object has neighbors in the published work. An earlier draft of this section claimed a numerical
 coincidence that does not exist, and the correction is more interesting than the claim was.
 

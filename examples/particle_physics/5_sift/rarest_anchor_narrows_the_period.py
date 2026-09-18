@@ -8,7 +8,7 @@
 #   Usage:  python examples/particle_physics/5_sift/rarest_anchor_narrows_the_period.py
 #
 # A sift is a necessary condition over an index set. A period is a difference between two things that
-# agree, the reading the measure stage rests on, so if the sequence has period d then every signature
+# agree, the reading the measure stage rests on. If the sequence has period d then every signature
 # that appears sits at two places d apart: d is a difference within that signature's positions. The
 # necessary condition for a period is therefore that d belong to the difference set of every signature,
 # and the candidates are the lags common to every one of those difference sets. It is all equality, a
@@ -17,13 +17,13 @@
 # The anchors are applied by census magnitude, the total less a count, the rarest first, the order the
 # sift kernel probes a field in. The rarest signatures are the f-block ones, each at exactly two places,
 # the lanthanide and the actinide of one column, thirty two apart. A signature at two places has a
-# difference set of one lag, so the rarest anchor cuts the candidates to a single lag in one step, where
+# difference set of one lag. The rarest anchor cuts the candidates to a single lag in one step, where
 # a common anchor would leave many. The magnitude ordering buys that, and it is the steering the
 # whole subject holds to: magnitude and equality, and never a bound.
 #
 # The one surviving candidate is 32, the lanthanide-actinide repeat and the longest row. It is not an
 # exact period: the sufficiency check below reads the sequence at that lag and finds hydrogen against
-# gallium at the first place, so the table has no period, the result the measure stage read from the
+# gallium at the first place. The table has no period, the result the measure stage read from the
 # other side. The necessary condition still did its work, and the rare anchor did most of it.
 
 import io
@@ -111,7 +111,7 @@ def main(argv):
         out.write("    lag %d as an actual period: %s\n" % (lag, holds))
     out.write("\n  the rarest anchor cut the candidates to one lag in a single step, an f-block signature\n")
     out.write("  at two places 32 apart. That lag is where every signature recurs, but the sequence does\n")
-    out.write("  not read the same 32 apart, so the table has no exact period, reached with the rare\n")
+    out.write("  not read the same 32 apart. The table has no exact period, reached with the rare\n")
     out.write("  anchor doing the work and no tolerance anywhere.\n\n")
     out.flush()
     return 0

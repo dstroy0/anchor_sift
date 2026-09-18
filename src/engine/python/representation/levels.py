@@ -15,7 +15,7 @@
 # part was written after one such copy went wrong: one of its four copies was missing an exclusion
 # the other three had, and a Greek to English lexicon stood inside a reading of Greek because of it.
 #
-# Three standard deviations fills the byte range. At three the value lands on 2 or 254, so the levels
+# Three standard deviations fills the byte range. At three the value lands on 2 or 254. The levels
 # use almost all of what a byte holds and clipping reaches only the tail beyond three. All five
 # copies had already made that trade.
 

@@ -12,7 +12,7 @@
 # Lushootseed corpus, or read Table 8's two columns as one dialect. Every token would still be
 # accounted for.
 #
-# This asks the harder question. The hand extraction says what each form is, so the reader is graded
+# This asks the harder question. The hand extraction says what each form is. The reader is graded
 # against it form by form, on three things: whether it found the form at all, whether it says the
 # same kind, and whether it says the same dialect.
 #
@@ -254,7 +254,7 @@ def main():
                 continue
             if dialect in ("", "unstated", "none"):
                 continue
-            # čalaš ‘hand’ is printed as Twana and as Squamish in one sentence, so either answer is
+            # čalaš ‘hand’ is printed as Twana and as Squamish in one sentence. Either answer is
             # the paper's answer and asking for one of them would be asking for a coin toss.
             if dialects.get((kind, form), set()) & set(said):
                 continue

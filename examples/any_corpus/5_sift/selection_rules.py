@@ -86,7 +86,7 @@ def report(out, path):
                 for offset in offsets:
                     predicted *= counts[needle[offset]] / float(total)
 
-                # The needle's own occurrence is not a false positive, so the excess is what counts
+                # The needle's own occurrence is not a false positive. The excess is what counts
                 excess = max(len(kept) - (1 if start is not None else 0), 0)
                 passed.append(excess)
                 if predicted > 0.0:

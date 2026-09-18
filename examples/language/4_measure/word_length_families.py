@@ -23,7 +23,7 @@
 # mean and a spread, which is two numbers. How the lengths are distributed, which is twenty. And which
 # character follows which, which is four thousand ninety six.
 #
-# Word length needs a writing that marks where words end, so Chinese, Japanese and Thai cannot take part
+# Word length needs a writing that marks where words end. Chinese, Japanese and Thai cannot take part
 # at all. That is not a gap in the corpus, it is the measure failing to exist for those writing systems,
 # and it is the plainest case of this reading not being one reading across all of them.
 

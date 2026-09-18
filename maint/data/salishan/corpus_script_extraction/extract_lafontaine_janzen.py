@@ -9,7 +9,7 @@
 #
 # Written for one paper, and it is laid out unlike either of the other two. Each of the four stories is a
 # running paragraph with no sentence numbering at all, followed by numbered interlinear blocks. The blocks
-# are three lines deep and wrap, so one example carries several transcription, segmentation and gloss
+# are three lines deep and wrap. One example carries several transcription, segmentation and gloss
 # lines before its translation arrives.
 #
 # This paper writes ł where the others write ɬ. Carrying only one of those makes every token here
@@ -20,9 +20,9 @@
 # entry. Both are kept and marked for what they are, because a token of this language that appears in the
 # paper and not in the extraction is a hole, and the coverage check counts every one of them.
 #
-# wlwlmelst transcribed and translated these stories himself, so the translations are his and are marked
+# wlwlmelst transcribed and translated these stories himself. The translations are his and are marked
 # spoken. The segmentation normalizes morphemes to underlying forms and the gloss is written in category
-# labels, so neither records anything uttered.
+# labels. Neither records anything uttered.
 #
 # These are words of wisdom passed to wlwlmelst by his mother nxwelinek and his grandmother ʔústko, and he
 # shares them freely for people connecting with the language. That is recorded in the output.
@@ -196,12 +196,12 @@ def three_line_parts(block):
     A sentence too long for the page is printed in parts, and each part gets the same three lines:
     the sentence as spoken, its segmentation, then its gloss. Block 12 is three of them. Reading
     the lines one at a time recorded only the first part as the sentence and left the rest of what
-    wlwlmelst wrote flagged, so two thirds of that sentence sat outside the record.
+    wlwlmelst wrote flagged. Two thirds of that sentence sat outside the record.
 
     Position in the cycle says which line is which. Content cannot: a transcription and its
     segmentation carry the same words and differ only by the boundaries written into one of them.
 
-    The free translation closes the block and wraps onto a second line when it is long, so lines
+    The free translation closes the block and wraps onto a second line when it is long. Lines
     after it are joined to it, and none is left over.
 
     Hall and Phillips prints its interlinear the same way. The two are read by their own files
@@ -246,7 +246,7 @@ def main():
         out.flush()
         return 1
 
-    # This PDF leaves a space after 358 of its glottalization marks and carons, so ƛ̓uʔ arrives as
+    # This PDF leaves a space after 358 of its glottalization marks and carons. Ƛ̓uʔ arrives as
     # two tokens and c̓y̓es as three. Closed on the way in. The stress accents are left alone: neʔé
     # ends one word and e begins the next, and closing there gives neʔée.
     with open(SOURCE, encoding="utf-8", errors="replace") as handle:
@@ -266,7 +266,7 @@ def main():
         for count, block in blocks:
             parts, translation, leftover, slipped = three_line_parts(block)
             if slipped:
-                # The count slipped, so every line after that point is in the wrong column and
+                # The count slipped. Every line after that point is in the wrong column and
                 # none of them can be named. The block is flagged whole.
                 for one in block:
                     rows.append(("T" if carries_language(one) else "N",
@@ -302,7 +302,7 @@ def main():
         if carries_language(trimmed) or re.match(r"^-?[A-Za-zʔə]{1,8}-?\s+[A-Z]", trimmed):
             rows.append(("T", 0, "glossing terms", "appendix", "morpheme entry", trimmed))
 
-    # Every line of the paper no section reached, added to the record as unclassified, so the
+    # Every line of the paper no section reached, added to the record as unclassified. The
     # marked file holds every token of the language the paper printed. They stay out of the pure
     # stream and are listed in the flag file for someone to work through.
     missed = unreached(lines, covered_tokens(one[5] for one in rows))
@@ -322,7 +322,7 @@ def main():
         handle.write("# Mark is language.layer.kind. T is the target language, N is anything else.\n")
         handle.write("# spoken is what was said or written by him, including his own translations.\n")
         handle.write("# derived is worked out from it: segmentation normalizes to underlying forms\n")
-        handle.write("# and the gloss is category labels, so neither records anything uttered.\n")
+        handle.write("# and the gloss is category labels. Neither records anything uttered.\n")
         handle.write("# Gloss categories are the paper's own, from its appendix, unchanged.\n")
         handle.write("line\tstory\tsection\tswitches\tcontent\n")
         for mark, count, story, number, kind, text in rows:

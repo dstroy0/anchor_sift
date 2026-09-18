@@ -10,12 +10,12 @@
 #
 # The corpus was held up on a question that turned out not to matter. Repairing the spaces the PDF put
 # after each combining mark welds hén̓ us into hén̓us wherever a glottalized resonant ends a word, and both
-# renderings of the story weld it identically, so no comparison between them can see it. That is a word
+# renderings of the story weld it identically. No comparison between them can see it. That is a word
 # boundary error. A signature reads sequence and does not read word boundaries, and the inventory was
-# already checked, so the measurement can run on text whose word divisions are still uncertain.
+# already checked. The measurement can run on text whose word divisions are still uncertain.
 #
 # Bytes instead of characters for two reasons. Nothing has to be classified: whether a mark belongs to the
-# consonant before it is a decision at the character level and is simply a byte pair at this one, so the
+# consonant before it is a decision at the character level and is simply a byte pair at this one. The
 # error that stalled the corpus cannot be made here. And the encoding carries structure for free, since
 # these consonants live in blocks that share a leading byte, which sorts them into rough classes without
 # anyone choosing the classes.
@@ -24,7 +24,7 @@
 # as the Salish one, because a longer text gives a steadier estimate and would otherwise decide the answer.
 #
 # The control matters more than the result. The Salish text is split in two and each half measured against
-# the other, so the question is not whether Salish is far from Polish but whether it is nearer to itself
+# the other. The question is not whether Salish is far from Polish but whether it is nearer to itself
 # than languages are to each other. If the two halves of one story by one speaker land as far apart as two
 # unrelated languages, there is no signature at this size and the honest answer is that the corpus is too
 # small.
@@ -77,7 +77,7 @@ def treebank_text(path, want):
 def bare(text):
     """The text with every space taken out, leaving the corpora comparable.
 
-    The extraction put a space after each combining mark, and no treebank has those, so comparing
+    The extraction put a space after each combining mark, and no treebank has those. Comparing
     the texts as they stand would measure the renderer. Taking every space out of every corpus
     removes that and removes the word divisions, which were never settled here anyway. It also
     makes the earlier repair a no-op: the repair only ever deleted spaces. A repaired text and
@@ -157,7 +157,7 @@ def main():
     out.write("\n  those distances carry the writing as well as the language. nɬeʔkepmxcín is\n")
     out.write("  written in NAPA and shares almost no bytes with Cyrillic, which is why\n")
     out.write("  Russian sits at 1.0000. Cutting a language in half compares it with itself\n")
-    out.write("  in its own writing, so that number is free of this and is the one to read\n")
+    out.write("  in its own writing. That number is free of this and is the one to read\n")
 
     out.write("\n  every language cut in half, the halves against each other\n")
     out.write("  the support and the entropy are printed beside it because a writing that\n")
@@ -199,7 +199,7 @@ def main():
         out.write("  to the nearest of nineteen others. The signature is present\n")
     else:
         out.write("  a story split in two is further from itself than any other language is\n")
-        out.write("  from itself at this size, so what separates it from the others cannot\n")
+        out.write("  from itself at this size. What separates it from the others cannot\n")
         out.write("  be told apart from having too little of it\n")
 
     out.flush()

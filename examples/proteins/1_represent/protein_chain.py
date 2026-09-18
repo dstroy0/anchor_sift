@@ -14,8 +14,8 @@
 # the reading failed because most of a line through it crosses vacuum, where no axis differs from another.
 #
 # The chain gives its own vectors and they need no grid. Consecutive alpha carbons sit a nearly fixed
-# distance apart, so the magnitude is close to constant along the whole backbone and the structure lives
-# in the directions. A helix turns by a repeating angle and a sheet runs nearly straight, so the direction
+# distance apart. The magnitude is close to constant along the whole backbone and the structure lives
+# in the directions. A helix turns by a repeating angle and a sheet runs nearly straight. The direction
 # series carries the secondary structure directly, in the order the chain was built.
 #
 # Three things are measured on that series. The step length and its spread say whether the chain was read

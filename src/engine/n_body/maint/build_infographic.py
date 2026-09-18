@@ -27,7 +27,7 @@ NEVER = [
                           " competition's data or to any other"),
     ("It reads nothing else", "the only input is the frames of the sample being tracked, and a .cfg of settings."
                               " No atlas, no pretrained network, no second dataset, no internet"),
-    ("It forms no floating point value", "every stage is integer arithmetic, so the same frames give the same"
+    ("It forms no floating point value", "every stage is integer arithmetic. The same frames give the same"
                                          " bytes on any machine that runs it"),
 ]
 

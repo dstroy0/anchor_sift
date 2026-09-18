@@ -19,7 +19,7 @@
 # reader can then see the text passed through a transformation, and check the mapping.
 #
 # The appendix holds a note on transcription and glossing practice and two pronominal paradigm tables.
-# Those are the language and they are not narrative, so they are kept and marked derived.
+# Those are the language and they are not narrative. They are kept and marked derived.
 
 import io
 import os
@@ -224,7 +224,7 @@ def main():
         return 1
 
     with open(SOURCE, encoding="utf-8", errors="replace") as handle:
-        # Ligatures come out here, before the loop below, so that everything reading these lines
+        # Ligatures come out here, before the loop below. That everything reading these lines
         # sees the same text. Taking them out later left the unreached check comparing preﬁxsən-
         # against prefixsən- and reporting a hole that was not one.
         lines = [unligatured(one.rstrip("\n")) for one in handle]
@@ -278,7 +278,7 @@ def main():
             if not language_line(trimmed):
                 rows.append(("N", 0, section, name, UNCLASSIFIED, repaired_english(trimmed)))
                 continue
-            # The Okanagan subsection is the language from end to end, so every substitution
+            # The Okanagan subsection is the language from end to end. Every substitution
             # applies to it and no token in it needs guarding. Where the extraction broke a word in
             # two is not known yet: the interlinear says that and has not been read. So the row is
             # written now to keep the paper's order, its place is remembered, and the words are put
@@ -291,7 +291,7 @@ def main():
 
         if holds in ("free translation", "commentary", "appendix"):
             # A free translation and a commentary are Lyon's own English. The appendix is his
-            # pronominal paradigms, which are the language, so it keeps the repair that a capital
+            # pronominal paradigms, which are the language. It keeps the repair that a capital
             # at the front of a word does not survive.
             fixed = (repaired_line(trimmed) if holds == "appendix"
                      else repaired_english(trimmed))
@@ -315,8 +315,8 @@ def main():
     # Each block read back as words. The sentence is the form column joined in order, and it is
     # marked segmentation because that column carries the morpheme boundaries. The surface of the
     # same story is in the Okanagan subsection above and is what reaches the ingestion stream.
-    # Every block read first, so the list of true word forms exists before any of them is written.
-    # An entry is one word, so the spaces inside it are the extraction's, and welding them shut
+    # Every block read first. The list of true word forms exists before any of them is written.
+    # An entry is one word. The spaces inside it are the extraction's, and welding them shut
     # gives what the word really looks like. Only blocks that read cleanly contribute: one bad
     # entry in the list joins two real words together everywhere it matches.
     slipped_blocks = 0
@@ -331,11 +331,11 @@ def main():
     for section, name, number, block, read in parsed:
         words, translation, leftover, slipped = read
         if slipped:
-            # The count slipped, so every column after that point is one line out and nothing in
+            # The count slipped. Every column after that point is one line out and nothing in
             # the block can be named. Flagged whole. Nothing is written under a guessed name.
             slipped_blocks += 1
             for one in block:
-                # Which column each line belongs to is the unknown here, so the repair is chosen
+                # Which column each line belongs to is the unknown here. The repair is chosen
                 # from what the line itself turns out to be.
                 fixed = repaired_line(one)
                 rows.append(("T" if carries_language(fixed) else "N",
@@ -380,7 +380,7 @@ def main():
         """One line put through everything this reader does before recording it."""
         return joined_words(repaired_line(text), vocabulary)
 
-    # Every line of the paper no subsection reached, added to the record as unclassified, so the
+    # Every line of the paper no subsection reached, added to the record as unclassified. The
     # marked file holds every token of the language the paper printed. They stay out of the pure
     # stream and are listed in the flag file for someone to work through.
     # The union of every orthography, not this paper's own set. The coverage check counts a token
@@ -398,7 +398,7 @@ def main():
         handle.write("# three tellings of another, each with its own commentary.\n")
         handle.write("#\n")
         handle.write("# READ FROM THE PAGE. This paper's PDF hands back the font's own alphabet\n")
-        handle.write("# and not what the page prints, so this reader takes build/papers/\n")
+        handle.write("# and not what the page prints. This reader takes build/papers/\n")
         handle.write("# 2013_Lindley_Lyon.page.txt, which draft_page_text.py writes in the\n")
         handle.write("# orthography, and applies no substitution of its own.\n")
         handle.write("#\n")

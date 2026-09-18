@@ -12,11 +12,11 @@
  *
  * DIFFERENTIAL FIRST, TIMING SECOND, AND THE ORDER IS THE POINT. A faster arm that returns a
  * different count has not been made faster, it has been broken. Every case below runs on both arms
- * and compares the integer they return, so agreement is exact and a difference of one is a defect.
+ * and compares the integer they return. Agreement is exact and a difference of one is a defect.
  * Only the cases that agree are timed.
  *
  * THE CASES ARE CHOSEN TO BREAK A VECTOR ARM, not to exercise the common path. A wide arm handles
- * thirty-two alignments at a time and finishes the remainder scalar, so the interesting inputs are
+ * thirty-two alignments at a time and finishes the remainder scalar. The interesting inputs are
  * the ones near that boundary: fewer alignments than one register holds, exactly one register,
  * one more than a register, and a length whose remainder is every value in between. A survivor mask
  * that is entirely set, entirely clear, or alternating exercises the mask path separately from the
@@ -36,7 +36,7 @@
 /** @brief Arms this driver can hold: the portable one and every wide arm a build can carry. */
 #define ARMS_MAX 5u
 
-/** @brief Fills a field with a skewed distribution, so agreement rates vary across offsets. */
+/** @brief Fills a field with a skewed distribution. Agreement rates vary across offsets. */
 static void build_field(uint8_t *corpus, size_t length)
 {
     uint32_t state = 2463534242u;
@@ -246,7 +246,7 @@ int main(void)
 
     if (arm_count < 2u)
     {
-        printf("\n  only the portable arm is present, so nothing was graded against it\n");
+        printf("\n  only the portable arm is present. Nothing was graded against it\n");
     }
 
     /* TIMING, and only after every arm agreed. A faster arm returning a different count has not

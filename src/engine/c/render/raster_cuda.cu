@@ -10,14 +10,14 @@
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-16
  *
- * ONE THREAD PER ALIGNMENT. Rendering is the search, so the parallel decomposition is the search's:
+ * ONE THREAD PER ALIGNMENT. Rendering is the search. The parallel decomposition is the search's:
  * every alignment is independent until it reduces into a pixel. Nothing is tiled and nothing is
  * staged in shared memory, because each thread reads a handful of bytes and writes one value.
  *
  * WHY THIS AGREES WITH THE HOST BYTE FOR BYTE. Three properties hold it together. The value a thread
- * computes is integer arithmetic on the same inputs, so no rounding can differ. The cell a thread
+ * computes is integer arithmetic on the same inputs. No rounding can differ. The cell a thread
  * targets comes from integer division and a permutation, neither of which depends on which thread
- * runs. And the reduction is a minimum or a maximum, both associative and commutative, so the
+ * runs. And the reduction is a minimum or a maximum, both associative and commutative. The
  * scheduler may interleave the atomics in any order and reach the same result. A reduction selecting
  * by arrival would have made the device answer depend on scheduling and could not have been graded
  * against the host at all.
@@ -254,7 +254,7 @@ __device__ static int device_is_power_of_two(unsigned long long value)
  * @note Returns `cells` where the layout refuses the configuration, which is MORTON on extents that
  *       are not all powers of two and any unknown layout. The host returns the block size in the
  *       same cases and the caller reads it as "not placed". Every supported layout wraps the
- *       alignment with `% cells` first, so it is a bijection on the block and never refuses.
+ *       alignment with `% cells` first. It is a bijection on the block and never refuses.
  */
 __device__ static unsigned long long device_volume_cell(const DeviceVolumeConfig *config,
                                                         unsigned long long alignment,
@@ -386,7 +386,7 @@ extern "C" int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *c
                                     const AnchorRasterProbe *probes, size_t probe_count,
                                     const void *census)
 {
-    // RESERVED, NOT READ. Built from the corpus below exactly as the host arm does, so the two
+    // RESERVED, NOT READ. Built from the corpus below exactly as the host arm does. The two
     // agree on rarity, and a caller supplied census is discarded on both.
     (void)census;
 
@@ -629,7 +629,7 @@ extern "C" int anchor_raster_device(uint8_t *pixels, const AnchorRasterConfig *c
 
     if (ok != 0)
     {
-        /* An empty cell is the identity for whichever reduction runs, so the fill differs by rule.
+        /* An empty cell is the identity for whichever reduction runs. The fill differs by rule.
          * The host marks empty with zero and fills on first arrival; here the staging buffer starts
          * at the identity and the narrowing pass below turns any untouched cell back into zero. */
         const unsigned int identity = (config->reduce == ANCHOR_REDUCE_MAX) ? 0u : 0xFFFFFFFFu;

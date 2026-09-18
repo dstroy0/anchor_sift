@@ -56,7 +56,7 @@ SEED = 0x51F7
 def best_exact(points, axis):
     """The most any lag agrees with, along one axis, over the whole difference set.
 
-    Every difference between two occupied coordinates is a candidate, so nothing here bounds what
+    Every difference between two occupied coordinates is a candidate. Nothing here bounds what
     the background is allowed to reach.
     """
     seen = exact.along(points, axis)

@@ -22,7 +22,7 @@
 #
 # An earlier arrangement split the repository by whether this session had opened a file, and called
 # the untouched half a person's prose. That split is void: the text of this repository is almost all
-# assistant-written, across many sessions, so both halves had the same author. It explains the null
+# assistant-written, across many sessions. Both halves had the same author. It explains the null
 # prose_distance.py returned, where the gap between those halves was the same sign at four symbol
 # widths and cleared no floor at any of them. There was no contrast in it to find.
 #

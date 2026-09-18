@@ -8,7 +8,7 @@
 #   Usage:  python examples/language/4_measure/deeper_web.py
 #
 # One language read from two unrelated places sits 0.0867 apart and two languages read from the same place
-# sit 0.0936 apart, so where a text came from carries nearly as much as what language it is in. That was
+# sit 0.0936 apart. Where a text came from carries nearly as much as what language it is in. That was
 # recorded as a fact about languages and it is a fact about the reading.
 #
 # What the reading holds is which of the commonest 64 characters follows which, and that is 4096 numbers
@@ -117,7 +117,7 @@ def main():
 
     judge(load(lambda text: web(text, RANKS)), out, "pairs of 64, as before")
 
-    # Swept instead of stopped, so where the reading stops improving is measured and not chosen
+    # Swept instead of stopped. Where the reading stops improving is measured and not chosen
     for depth in range(2, len(ORDERS) + 1):
         orders = ORDERS[:depth]
         judge(load(lambda text, orders=orders: deep_web(text, orders)), out,

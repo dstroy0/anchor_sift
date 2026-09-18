@@ -15,7 +15,7 @@
 # that file is the record and not a cache. An entry the file does not know is new and reports as the
 # date this runs.
 #
-# Line numbers shift when the contents are inserted, so the block is built twice: once to learn how
+# Line numbers shift when the contents are inserted. The block is built twice: once to learn how
 # tall it is, and once with every line number moved by that height. A number here has to be exact.
 # A reader who jumps to one and lands somewhere else stops trusting the rest of the file.
 
@@ -81,7 +81,7 @@ def stripped(lines):
 def lead_at(lines, at):
     """The bold lead opening at index `at`, or None where that line opens none.
 
-    A lead runs to its closing ** and the ledger hard wraps near a hundred columns, so many of them
+    A lead runs to its closing ** and the ledger hard wraps near a hundred columns. Many of them
     close on the next line or the one after. Matching inside one line found 156 of the 228 lines that
     open with **, and the seventy odd it missed were entries left out of the contents with nothing
     reporting their absence. Four lines is the longest lead in the file plus room.
@@ -171,9 +171,9 @@ def main():
     today = datetime.date.today().isoformat()
     at = where_to_insert(body)
 
-    # First pass learns the height. Every entry sits below the insertion point, so every line
+    # First pass learns the height. Every entry sits below the insertion point. Every line
     # number moves by the block plus the blank line written after it. The row count does not
-    # depend on the shift, so the second block is the same height as the first.
+    # depend on the shift. The second block is the same height as the first.
     trial = build(found, days, today, 0)
     shift = len(trial) + 1
     block = build(found, days, today, shift)

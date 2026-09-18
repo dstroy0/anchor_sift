@@ -14,15 +14,15 @@
 #
 # THE MAPPING IS NOT IDEMPOTENT
 #
-# Running it a second time destroys the text instead of leaving it alone. P becomes ʔ, so Papers is
-# ʔapers and the gloss label APPL is AʔʔL. Q becomes ʕ, so Quilchena is ʕuilchena. @ becomes ə, so
+# Running it a second time destroys the text instead of leaving it alone. P becomes ʔ. Papers is
+# ʔapers and the gloss label APPL is AʔʔL. Q becomes ʕ. Quilchena is ʕuilchena. @ becomes ə, so
 # john.lyon@alumni.ubc.ca ends with a schwa in the middle of it. Every repair here returns its line.
 #
 # THE LANGUAGE TEST CANNOT PASS THROUGH
 #
 # font_repair's language_line asks whether a line holds a character only the damaged orthography
 # writes: a bare @, an ì, a stranded caron, a capital P or Q inside a word. The page text holds none
-# of those by construction, so that test answers no for every line, and a reader trusting it files a
+# of those by construction. That test answers no for every line, and a reader trusting it files a
 # whole story as unclassifiable. The test below asks what the page text can answer, which is whether
 # the line holds a character of the orthography itself.
 #
@@ -59,7 +59,7 @@ def carries_orthography(token):
     The five-line reader asks this of the fourth line of a word, which is an English word for the
     word above it and which the paper does not always give. An Okanagan word standing in that slot
     means the count has slipped. font_repair's version asks after a capital P or Q inside the token,
-    which the page text never has, so it answered no for tətwít as readily as for priest.
+    which the page text never has. It answered no for tətwít as readily as for priest.
     """
     return any(mark in token for mark in TEXT_SPACE)
 

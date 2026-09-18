@@ -84,7 +84,7 @@ SHA-256 round 64 & 2.06 & white \\
 \end{tabular}
 \end{center}
 
-Sixteen lags per field, eight on each axis, so the largest of them peaks near
+Sixteen lags per field, eight on each axis. The largest of them peaks near
 \(\sqrt{2 \ln 16} = 2.36\) under a white null whatever the data does. All three sit on it. The
 field carries no length scale in either direction, in SHA-256 and in a matrix that is binomial by
 construction alike.
@@ -126,7 +126,7 @@ noise coherent too and the gain would be nothing.
 \subsection{The coordinate the readout lives in}
 
 The scan is run in \(\text{drift} = f v\) and not in velocity. The phase a round advances is
-\(2 \pi (f v) r / 32\), so \(fv\) is the natural coordinate and \(v\) is a degenerate one: every
+\(2 \pi (f v) r / 32\). \(fv\) is the natural coordinate and \(v\) is a degenerate one: every
 frequency's cone passes through \(v = 0\) together, and away from it the same step in \(v\) is a
 step of \(f\) times as much phase.
 
@@ -177,6 +177,6 @@ it is flat, and so is the harness at \(4.07\).
 \textbf{The phase channel is ceiling-limited.} Summing \(R\) unit vectors cannot exceed \(R\), so
 that statistic is bounded above by \(\sqrt{2R}\) whatever the data does, \(9.17\) at forty-two
 rounds. The injected wave reads \(9.15\), which is saturation and not a measurement. Against a
-null peak of \(4.66\) the channel has a factor of two of usable range, so discarding amplitude is a
+null peak of \(4.66\) the channel has a factor of two of usable range. Discarding amplitude is a
 good idea that this baseline cannot afford. It would need many more rounds than SHA-256 has.
 

@@ -15,15 +15,15 @@
 #   Texts 3 to 6  Chinook Jargon, which is a pidgin
 #
 # Only the first two are target-language material. Chinook Jargon is a language of its own and a
-# pidgin besides, so nothing from Texts 3 to 6 or from the phonological analysis reaches the pure
+# pidgin besides. Nothing from Texts 3 to 6 or from the phonological analysis reaches the pure
 # stream. Those lines are kept in the record and flagged, never dropped.
 #
 # TWO THINGS THIS PAPER DOES THAT NO OTHER ONE HERE DOES
 #
 # The transliteration line is written in plain ASCII. Mayoos wrote in shorthand and Robertson
-# transliterates it letter for letter, so the line reads o l ha l kukpi, and carries not one
+# transliterates it letter for letter. The line reads o l ha l kukpi, and carries not one
 # character of the modern orthography. The character test every other reader here leans on calls
-# that line English. It is Nɬeʔkepmxcín, and the only thing that says so is where it sits, so the
+# that line English. It is Nɬeʔkepmxcín, and the only thing that says so is where it sits. The
 # pipa rows are marked T by position and never by their letters.
 #
 # The extraction breaks words across lines with no hyphen, 42 times. Some of the breaks fall inside
@@ -34,7 +34,7 @@
 # WHAT THE SOURCE STILL LOSES
 #
 # Labialization. Page 30 sets /kʷú[·kʷ]piʔ and the text gives /kwú[·kw]pi. The raised w is gone and
-# a plain one stands where it was, so this reader writes what the file holds and the hand extraction
+# a plain one stands where it was. This reader writes what the file holds and the hand extraction
 # carries what the page prints. theory/Salishan has the measurement.
 
 import io
@@ -114,7 +114,7 @@ TEXT_HEADING = re.compile(r"^Text (\d+):\s*(.*)$")
 NUMBERED = re.compile(r"^(\d{1,3})\s+(\S.*)$")
 
 # The two translation rows Robertson labels. Text 1 writes them out as CJ version and English
-# version and Text 2 shortens both, so the colon is what the test hangs on.
+# version and Text 2 shortens both. The colon is what the test hangs on.
 CJ_ROW = re.compile(r"^CJ(?:\s+version)?:\s*(.*)$")
 ENGLISH_ROW = re.compile(r"^English(?:\s+version)?:\s*(.*)$")
 
@@ -124,7 +124,7 @@ ENGLISH_ROW = re.compile(r"^English(?:\s+version)?:\s*(.*)$")
 PARENTHESIZED = re.compile(r"^\(.*\)$")
 
 # A footnote marker inside a transliteration row. The page sets it as a superscript and the
-# extraction puts it on the line, so stanza 5 arrives as skwa(l)inšut, 31 and stanza 9 as
+# extraction puts it on the line. Stanza 5 arrives as skwa(l)inšut, 31 and stanza 9 as
 # hawsšin 33 hawi. The Chinuk pipa transliteration of the two Salish letters is letters and
 # punctuation throughout. A run of digits standing on its own in one is always a marker. Text 3
 # sets a date, Mi 4 1892, where the digits are the text, and this is asked of the Salish texts
@@ -178,7 +178,7 @@ def main():
     # rendering of it from a plain-English gloss of a morphemic line.
     after_cj = False
     # The rows of the block being read. A stanza too wide for the page is printed as two groups of
-    # three rows and it is one sentence, so each row is collected and written once at the end.
+    # three rows and it is one sentence. Each row is collected and written once at the end.
     pending = {}
     # The parenthesized plain-English glosses of the block, which the paper sets on their own line
     # under the morphemic gloss and footnote 30 explains.
@@ -243,7 +243,7 @@ def main():
 
         found = NUMBERED.match(trimmed)
         # A stanza number continues the run. Robertson's footnotes are numbered too and they sit
-        # inside the texts they annotate, so 30 Where a line with parenthesized information opens
+        # inside the texts they annotate. 30 Where a line with parenthesized information opens
         # exactly like a stanza does. Asking for the next number in the run tells them
         # apart: after stanza 2 the reader wants 3, and footnote 30 is not it.
         if found and (int(found.group(1)) == ((number or 0) + 1)):
@@ -313,7 +313,7 @@ def main():
         handle.write("# are Chinook Jargon, which is a pidgin and a language of its own, and they\n")
         handle.write("# are recorded here and held out of the pure stream.\n")
         handle.write("# The pipa row is Mayoos' own shorthand transliterated letter for letter. It\n")
-        handle.write("# is plain ASCII and carries no mark of the modern orthography, so it is\n")
+        handle.write("# is plain ASCII and carries no mark of the modern orthography. It is\n")
         handle.write("# marked by where it sits and not by its letters.\n")
         handle.write("# The morphemic row is Robertson's analysis and holds forms nobody wrote, so\n")
         handle.write("# it is in the record and out of the pure stream.\n")

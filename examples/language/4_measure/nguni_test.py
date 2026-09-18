@@ -14,7 +14,7 @@
 #
 # Zulu and Xhosa remove all of it. Both are Nguni, close enough to be partly mutually intelligible. Both
 # are written in the same Latin alphabet. Both come from the same translated work as the other 43
-# languages here, so the content, the register and the translators' brief are fixed. Shona is Bantu and
+# languages here. The content, the register and the translators' brief are fixed. Shona is Bantu and
 # further off, which gives the family a shape and not just a pair, and Somali, Amharic and Wolof are three
 # other families of the same continent. The pair has to beat those three.
 #

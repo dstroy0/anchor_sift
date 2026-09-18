@@ -13,7 +13,7 @@
 # likely to be published with right angles, because that oracle could not read anything else. It is
 # a list of simple, mostly stoichiometric compounds, and a stoichiometric compound is by definition
 # the case with no doping in it. Measured on the 650 entries that list produced, 54 carried a mixed
-# site, so the sample was thin in the one property a doping detector exists to find.
+# site. The sample was thin in the one property a doping detector exists to find.
 #
 # The names below are solid solution formers: minerals whose published entries routinely put two
 # elements on one crystallographic position. Olivine runs magnesium to iron, plagioclase runs sodium
@@ -25,7 +25,7 @@
 # one solid solution and asking whether forsterite dopes differently from fayalite is asking whether
 # the magnesium end of olivine differs from the iron end, which is a question about one family and
 # not two minerals. Grouping here means every entry carries the family it was fetched under, written
-# to families.tsv beside the cache, so a reading can report by family without guessing from a name.
+# to families.tsv beside the cache. A reading can report by family without guessing from a name.
 #
 # The family is provenance and not chemistry. It records the search term that returned the entry,
 # which is a fact about how the corpus was built. An entry the archive returned for "olivine" that
@@ -41,7 +41,7 @@
 # WHAT THIS COSTS SOMEBODY ELSE
 #
 # The archive is a public service run by people. PAUSE below is the gap between requests that
-# actually reach it and it is not negotiable. A cached entry waits for nothing, so a second run over
+# actually reach it and it is not negotiable. A cached entry waits for nothing. A second run over
 # the same names is free to them and nearly free here.
 #
 # At a target in the thousands this route stops being the polite one. COD publishes an rsync mirror
@@ -89,7 +89,7 @@ TRIES = 3
 # Raising it alone would undo what it was introduced for. Walking the families in order with a high
 # cap lets olivine and feldspar reach the target before the sulfides are asked at all, which is the
 # same one family corpus the cap was added to prevent, arriving by a different route. The names are
-# therefore interleaved across families below, so the cap governs how deep a single name goes and
+# therefore interleaved across families below. The cap governs how deep a single name goes and
 # the interleave governs how evenly the families are sampled. Neither setting is sufficient alone.
 PER_NAME = 120
 
@@ -155,11 +155,11 @@ def fetched(url, out):
         except (urllib.error.URLError, http.client.HTTPException, socket.timeout,
                 OSError) as reason:
             # The archive closes a connection now and then under a sweep this size. A dropped
-            # request is not an absent entry, so it is retried before being given up on.
+            # request is not an absent entry. It is retried before being given up on.
             #
             # http.client.HTTPException is in that list because leaving it out killed a run at 1836
             # entries. A truncated response raises IncompleteRead, which descends from
-            # HTTPException and not from URLError or OSError, so it walked straight through a
+            # HTTPException and not from URLError or OSError. It walked straight through a
             # handler that looked complete. The failure mode is worth naming: every ordinary network
             # error was retried and the one that ends a four hour sweep was the one not caught.
             #
@@ -179,14 +179,14 @@ def fetched(url, out):
 
 
 def held():
-    """Entry numbers already cached, so a rerun costs the archive nothing for them."""
+    """Entry numbers already cached. A rerun costs the archive nothing for them."""
     if not os.path.isdir(CACHE):
         return set()
     return {name[:-4] for name in os.listdir(CACHE) if name.endswith(".cif")}
 
 
 def recorded():
-    """Entry numbers already carrying a family, so a rerun does not write a second row for one."""
+    """Entry numbers already carrying a family. A rerun does not write a second row for one."""
     if not os.path.isfile(FAMILIES_FILE):
         return set()
     seen = set()
@@ -251,7 +251,7 @@ def main():
             continue
 
         # An entry this search returns that is already cached but carries no family gets one
-        # written now. The corpus was built before families were recorded, so without this the
+        # written now. The corpus was built before families were recorded. Without this the
         # first twelve hundred entries would stay unlabelled forever. It costs no extra request:
         # the search response is already in hand and only the CIF fetch is skipped.
         numbers = []

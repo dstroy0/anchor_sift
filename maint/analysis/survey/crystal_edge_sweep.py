@@ -13,7 +13,7 @@
 # archive, keeps at most three entries per name, and checks each axis's recovered period against the
 # published cell edge by integer equality. Its measurement, `measure_entry`, reads one structure at
 # a time. Its selection is the name list. This keeps the measurement and replaces the
-# selection with the cache, so the same question is put to every crystal fetched.
+# selection with the cache. The same question is put to every crystal fetched.
 #
 # `measure_entry` is imported, never copied. A second copy of a reader is one edit away from
 # disagreeing with the first about what a deposit says, and this subject has already found that

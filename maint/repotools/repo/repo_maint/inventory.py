@@ -88,7 +88,7 @@ def walk(where):
     """Every tool file under `where`, sorted, with the skipped and vendored directories pruned.
 
     A directory holding its own `.git` is another repository checked out inside this one: a
-    submodule, or a vendored dependency. Its files are already maintained upstream, so counting them
+    submodule, or a vendored dependency. Its files are already maintained upstream. Counting them
     reports duplication that vendoring has already solved. Leaving them in put four copies of the
     MMgr tool tree into a survey whose whole purpose is finding the copies nobody is maintaining.
 
@@ -118,7 +118,7 @@ def survey(roots):
     groups = {}
     unshaped = []
     # One file reached by two paths is one file. Linking a tool from a second tree is already the end
-    # state a promotion is trying to reach, so counting the link as a copy recommends solving a
+    # state a promotion is trying to reach. Counting the link as a copy recommends solving a
     # problem that the link solved. It also counts the same lines twice in the saving.
     seen_real = set()
     for one in roots:
@@ -150,7 +150,7 @@ def spread(members, roots):
 def report(groups, unshaped, roots, crossing_only, stream=None):
     """Print the groups, largest duplicated line count first.
 
-    Sorted by what a promotion would save, so the first row read is the one worth doing first.
+    Sorted by what a promotion would save. The first row read is the one worth doing first.
     """
     stream = stream or sys.stdout
     rows = []
@@ -229,12 +229,12 @@ def main(argv):
     if mode in ("survey", "candidates"):
         if not rest:
             raise SystemExit("inventory: name at least one directory to survey")
-        # `candidates` drops every shape whose copies sit in one repository, so over a single tree it
+        # `candidates` drops every shape whose copies sit in one repository. Over a single tree it
         # answers zero every time and reads as a clean bill of health. Refusing is the only honest
         # response: the question asked cannot be answered by the command that was used.
         if mode == "candidates" and len(rest) < 2:
             raise SystemExit(
-                "inventory: candidates reports shapes that cross a repository boundary, so over one "
+                "inventory: candidates reports shapes that cross a repository boundary. Over one "
                 "tree it would answer zero whatever that tree holds. Name two or more trees, or use "
                 "`survey %s` to see what this one repeats internally." % rest[0]
             )
@@ -244,7 +244,7 @@ def main(argv):
         # is a broken invocation, and the two look identical without this.
         read = sum(len(value) for value in groups.values()) + len(unshaped)
         if read == 0:
-            print("  no files were read, so nothing was compared.")
+            print("  no files were read. Nothing was compared.")
             return 2
         return 0 if rows is not None else 1
 

@@ -14,7 +14,7 @@
 # prefers the device, and falls back here when no shared library is present.
 #
 # Every value is an integer read off the same inputs the C arm reads. Nothing is a float and nothing
-# is normalized against the image, so a pixel means the same thing at two sizes. The constants and the
+# is normalized against the image. A pixel means the same thing at two sizes. The constants and the
 # arithmetic below are transcribed from src/engine/c/render/anchor_raster.c and are graded against it
 # rather than trusted.
 
@@ -196,7 +196,7 @@ def _volume_cell(config, alignment, cells):
 def _reduce_into(cells_out, cell, value, reduce):
     """Places a value into a cell under the reduction, filling empty on first arrival.
 
-    An empty cell holds EMPTY, which would win every minimum and lose every maximum, so it is filled
+    An empty cell holds EMPTY, which would win every minimum and lose every maximum. It is filled
     on first arrival rather than compared against, matching the C arm.
     """
     if cells_out[cell] == EMPTY:

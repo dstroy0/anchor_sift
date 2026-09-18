@@ -9,7 +9,7 @@
 #
 #   Usage:  python examples/0_experimental/exact_zeta_values.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. It is the first entry of an analytic-number-theory workbook, and it claims nothing about any
 # open problem. The Riemann hypothesis concerns the ZEROS of zeta(s) in the critical strip; this file
 # touches none of them. It computes the VALUES at the even integers, which have a closed form Euler
@@ -18,7 +18,7 @@
 #
 # Two routes. The values come from zeta(2k) = |B_{2k}| (2 pi)^{2k} / (2 (2k)!), the Bernoulli numbers
 # computed as exact rationals. The check is Euler's identity, sum_{j=1}^{k-1} zeta(2j) zeta(2k-2j) =
-# (k + 1/2) zeta(2k): every term carries pi^{2k}, so the factor cancels and the identity becomes an
+# (k + 1/2) zeta(2k): every term carries pi^{2k}. The factor cancels and the identity becomes an
 # exact rational statement about the c_k, derived a different way than the Bernoulli formula. The two
 # agreeing is the positive control. Drawn null: a wrong coefficient, zeta(4) = pi^4/80 in place of /90,
 # fails the identity. No bounding: the coefficients are exact rationals and the high-precision values

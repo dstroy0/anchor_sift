@@ -9,7 +9,7 @@ Tile a published unit cell, carry every site as an exact integer, and score how 
 
 That is an autocorrelation. \texttt{lattice\_\allowbreak{}agreement} takes one lag, compares the grid against a copy of itself shifted by that lag along one axis, and returns the share of \emph{occupied} cells whose neighbor at that distance carries the same value. The caller sweeps the lag.
 
-Empty cells are left out. The measurement depends on that exclusion: a voxel grid built from atom sites is mostly empty, so counting the empty positions would report how empty the grid is, which every structure agrees on. The claim is checkable against \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py:97}.
+Empty cells are left out. The measurement depends on that exclusion: a voxel grid built from atom sites is mostly empty. Counting the empty positions would report how empty the grid is, which every structure agrees on. The claim is checkable against \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py:97}.
 
 \section{Somebody has almost certainly been here first}
 

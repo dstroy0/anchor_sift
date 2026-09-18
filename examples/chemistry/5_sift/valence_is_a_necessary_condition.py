@@ -27,7 +27,7 @@
 # The null is drawn, not assumed. Keep the bond graph and the multiset of elements, and permute which
 # element sits at which atom with reference.shuffles.permuted. That deletes one property, the match
 # between an element and the degree its place carries, and keeps the counts exactly. Most such
-# permutations put an element where its valence does not fit the degree, so the octet refuses them.
+# permutations put an element where its valence does not fit the degree. The octet refuses them.
 # The real assignment is the one the elements were dealt, and it sits above the band the shuffles
 # occupy. No distance here is a value; every one is a departure from that band.
 
@@ -102,7 +102,7 @@ def null_pass_rate(atoms, bonds, draws):
     """Fraction of element-label permutations, drawn by the engine's shuffle, that still close.
 
     The bond graph is held and the multiset of elements is held; what is deleted is which element
-    sits at which atom. permuted preserves every count exactly, so each draw is a genuine
+    sits at which atom. permuted preserves every count exactly. Each draw is a genuine
     rearrangement of the same atoms and never invents or loses one.
     """
     codes = {element: index for index, element in enumerate(sorted(set(atoms)))}
@@ -159,7 +159,7 @@ def main():
     out.write("    %-28s octet %s, handshake %s\n"
               % (name, "closes" if strong else "refused", "holds" if weak else "breaks"))
     disagree = strong != weak
-    out.write("  the routes %s here, so neither is the other twice.\n"
+    out.write("  the routes %s here. Neither is the other twice.\n"
               % ("disagree" if disagree else "agree"))
 
     ok = real_hits == len(MOLECULES) and refused == len(IMPOSSIBLE) and disagree

@@ -11,7 +11,7 @@
 # another and all three were measured independently.
 #
 # It is also the boundary of what this part can see. Collision entropy is computed from the symbol
-# counts alone, so it is permutation invariant: a corpus and its own shuffle carry identical values,
+# counts alone. It is permutation invariant: a corpus and its own shuffle carry identical values,
 # exactly and not approximately. No entropy of this order separates a structured domain from a
 # rearrangement of the same symbols. The C bench measures that failing in the open, where a corpus of
 # period sixteen survives four anchors at one alignment in sixteen while this predicts one in 65536.
@@ -57,7 +57,7 @@ def uninformed_rate(bits, anchors=1):
     """Share of alignments surviving a cascade of anchors that read nothing about the needle.
 
     This is the maximum entropy case and therefore a floor: a filter selecting on symbol rarity reads
-    only the marginals, so an arrangement can add correlated hits and cannot make the marginals more
+    only the marginals. An arrangement can add correlated hits and cannot make the marginals more
     informative than independence already makes them. Structure only makes this filter worse, never
     better.
     """
@@ -67,7 +67,7 @@ def uninformed_rate(bits, anchors=1):
 def cascade_depth(corpus_len, bits):
     """How many anchors bring the expected survivors down to the one true occurrence.
 
-    Each anchor cuts by 2^-H2, so k of them leave N 2^(-k H2) and the excess reaches zero at
+    Each anchor cuts by 2^-H2. K of them leave N 2^(-k H2) and the excess reaches zero at
     log2(N) / H2. On English at N = 728751 that predicts 4.9, and the measured sweep reaches 0.5
     survivors at six anchors and 0.0 at seven.
     """

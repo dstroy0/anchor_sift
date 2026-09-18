@@ -99,7 +99,7 @@ def main():
             continue
 
         words = []
-        # A dictionary files these under more than one name, so both are asked for
+        # A dictionary files these under more than one name. Both are asked for
         for shape in ("%s onomatopoeias", "%s onomatopoeic terms"):
             try:
                 words.extend(members(shape % language.capitalize()))

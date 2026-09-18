@@ -13,7 +13,7 @@
 # across both, and one that belongs to a book does not.
 #
 # This one is worth more than a second sample. The languages in it are translations of a work whose
-# original is classical Arabic, and that original is here too, so the poetic source sits beside forty
+# original is classical Arabic, and that original is here too. The poetic source sits beside forty
 # renderings of itself. Earlier work here found that translation compresses a vocabulary, and this is the
 # case where that can be measured with the content held exactly fixed and only the act of translating
 # varying.

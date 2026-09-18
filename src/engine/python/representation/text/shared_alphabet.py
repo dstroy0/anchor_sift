@@ -14,7 +14,7 @@
 #
 # The first attempt returned 12.4 percent and put 2 of 22 languages nearest a relative, against 52.8
 # and 15 for reading the characters directly. The fault was not the idea. It slid windows of three to
-# six bits along a stream carrying ten bits per character, so every window mixed the end of one
+# six bits along a stream carrying ten bits per character. Every window mixed the end of one
 # character's code with the start of the next and measured neither. One code to one character
 # returns 40.0 percent at 32 codes and 13 of 22.
 #
@@ -29,7 +29,7 @@
 
 import numpy
 
-# Bits given to each character, so the shared alphabet holds two to this many codes.
+# Bits given to each character. The shared alphabet holds two to this many codes.
 WIDTHS = (3, 4, 5, 6, 7)
 
 

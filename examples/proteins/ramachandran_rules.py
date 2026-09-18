@@ -26,7 +26,7 @@
 #
 # Crystallography needs no tolerance: a lattice displacement lands on an occupied place or does not.
 # A protein cannot be read that way, and the crystallography README says why. A backbone is a cloud
-# of real valued coordinates, so a torsion is an irrational the deposit never wrote, and the rules
+# of real valued coordinates. A torsion is an irrational the deposit never wrote, and the rules
 # are published on a grid of two degrees, not as a formula. So there is a quantum here, and the
 # honest thing is to declare where it comes from rather than pick one.
 #
@@ -41,7 +41,7 @@ import urllib.request
 from decimal import Decimal, getcontext
 
 # Digits carried through the atan2. The reference grid is two degrees, and forty digits places the
-# angle roughly forty orders of magnitude under that, so the precision cannot decide a bin. Raising
+# angle roughly forty orders of magnitude under that. The precision cannot decide a bin. Raising
 # it changes no classification; this is headroom, not a knob.
 getcontext().prec = 40
 
@@ -53,7 +53,7 @@ GRID_BASE = ("https://raw.githubusercontent.com/rlabduke/reference_data/master/"
 
 # One contour per residue class, with the favored and allowed cutoffs MolProbity reads it at. A
 # value at or above the allowed cutoff is inside the rules; below it is an outlier. These cutoffs
-# are the published MolProbity numbers and are reported by every stage that applies them, so the
+# are the published MolProbity numbers and are reported by every stage that applies them. The
 # reading can be repeated against the same rules and no cutoff hides in the code.
 CONTOURS = {
     #  class      file                              favored          allowed

@@ -88,7 +88,7 @@ def mask_comments(text):
     readclean's `rewrite` deletes comment lines outright, which is right for reading and wrong for
     reporting: a hit at token line 137 of the stripped text is not line 137 of the file, and the two
     drift further apart the more prose a file carries. Blanking in place keeps every offset, and a
-    line number is the line number. Literals survive, so "http://x" is still one token and not a
+    line number is the line number. Literals survive. "http://x" is still one token and not a
     comment, and readclean skips a regex for the same reason.
     """
     out = []
@@ -135,7 +135,7 @@ def split_pp(text):
     it as that macro's body. So the directive lines are lifted out first, and what is left is code
     with the directives blanked to spaces - the offsets do not move, and neither does any line.
 
-    A directive continues while its line ends in a backslash (C11 sec 5.1.1.2), so the continuation
+    A directive continues while its line ends in a backslash (C11 sec 5.1.1.2). The continuation
     lines belong to it too.
     """
     lines = text.split("\n")
@@ -160,7 +160,7 @@ def canon(tokens, rename, fold_nums):
     """Rewrite the token list so that only its shape survives.
 
     An identifier becomes I<k>, where k is how many distinct renameable identifiers were seen before
-    it. First appearance is what fixes k, so the same shape reaches the same string no matter what
+    it. First appearance is what fixes k. The same shape reaches the same string no matter what
     the names were, and two different shapes cannot reach it by accident: a name reused later in the
     block still maps to the k it was given.
     """
@@ -236,7 +236,7 @@ def functions(tokens):
 
     A definition is an identifier followed by a parenthesis that closes, and then a `{`, all at brace
     depth 0. A declaration reaches the `;` instead and is walked past. A `struct ... { }` initializer
-    does not open at depth 0 behind a closing parenthesis, so it is not mistaken for one.
+    does not open at depth 0 behind a closing parenthesis. It is not mistaken for one.
     """
     out = []
     i, n, depth = 0, len(tokens), 0

@@ -10,21 +10,21 @@ The general ones take their input as an argument and open nothing else. They are
 candidates. The rest hardcode a path into this repository and are examples of the pattern,
 not tools:
 
-| general | reads |
-|---|---|
-| `build_blob_view.py` | any file you name |
-| `build_field_view.py` | any long-format table you name |
-| `build_chart_view.py` | any table you name |
-| `build_plot_view.py` | an expression you type |
-| `build_sound_view.py` | a wav you name, or its own generated signal |
-| `build_sweep_view.py` | the same, swept across analysis settings |
-| `dsp.py` `exact.py` `settings.py` | shared, no inputs of their own |
+| general                           | reads                                       |
+| --------------------------------- | ------------------------------------------- |
+| `build_blob_view.py`              | any file you name                           |
+| `build_field_view.py`             | any long-format table you name              |
+| `build_chart_view.py`             | any table you name                          |
+| `build_plot_view.py`              | an expression you type                      |
+| `build_sound_view.py`             | a wav you name, or its own generated signal |
+| `build_sweep_view.py`             | the same, swept across analysis settings    |
+| `dsp.py` `exact.py` `settings.py` | shared, no inputs of their own              |
 
-| stays here | why |
-|---|---|
-| `build_voxel_view.py` `build_shadow_view.py` `build_sources_view.py` | open `src/bench/*.csv` |
-| `make_shadow_figure.py` | opens `src/bench/shadows.csv` |
-| `build_step_view.py` | traces SHA-256, which is this tree's subject |
+| stays here                                                           | why                                          |
+| -------------------------------------------------------------------- | -------------------------------------------- |
+| `build_voxel_view.py` `build_shadow_view.py` `build_sources_view.py` | open `src/bench/*.csv`                       |
+| `make_shadow_figure.py`                                              | opens `src/bench/shadows.csv`                |
+| `build_step_view.py`                                                 | traces SHA-256, which is this tree's subject |
 
 Checked by opening each one and never by pattern: `make_shadow_figure.py` reads as general to a
 grep for `src/bench` because it builds the path with two nested `dirname` calls, and it is not.
@@ -94,7 +94,7 @@ python boundary_count.py --check        the area law on a sphere, exactly, to 40
 python torus_count.py --check           the same law on a flat torus, by counting lattice points
 ```
 
-A source at radius r inside a ball reaches harmonic degree l as (r/R)^l, so depth sets bandwidth and
+A source at radius r inside a ball reaches harmonic degree l as (r/R)^l. Depth sets bandwidth and
 a source prints a patch of angular size about d/R however small it is. A spot on a boundary is
 always wider than the thing that made it. Counting the modes that survive gives an area law: the
 count goes as the surface measure over the resolution, raised to the dimension of the surface, and
@@ -108,7 +108,7 @@ python build_room_view.py               a dark room, a carried beam, and a shell
 
 `build_sphere_view.py` ships the placement you asked for alongside the same sources placed at
 random, on the same axes. A symbol has a rareness without anyone choosing anything; it does not have
-a direction, so whatever supplies one is a choice, and a degree where the chosen map beats the null
+a direction. Whatever supplies one is a choice, and a degree where the chosen map beats the null
 is the only place worth reading.
 
 `build_orrery_view.py` writes the interior down first and then shows only the surface, and a viewer
@@ -128,7 +128,7 @@ powershell build_pack.ps1               builds the packer, importing vcvars for 
 python gpu_pack.py --check              shape against shape, packed on the device
 ```
 
-Spherical harmonics settle the dimension half of the area law and live only on spheres, so shape has
+Spherical harmonics settle the dimension half of the area law and live only on spheres. Shape has
 to be packed. The device counts and does nothing else: every measure, constant and verdict is
 computed on the host from closed forms that never read a count.
 

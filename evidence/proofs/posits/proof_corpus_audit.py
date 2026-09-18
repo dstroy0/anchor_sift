@@ -14,7 +14,7 @@
 # something other than its label, German under Hungarian, English under Latin and Ethereum contracts
 # under a fabrication format.
 #
-# The posit is a process rule, so the testable form is whether a check written once would have caught
+# The posit is a process rule. The testable form is whether a check written once would have caught
 # them. This is that check, run over every corpus on disk. It earns the posit if it flags the known
 # problems, and it earns it twice if it flags something not yet noticed.
 

@@ -68,7 +68,7 @@ def main():
     trials = int(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_TRIALS
 
     print("The null is both sides uniform over their legal moves. It reads nothing about the")
-    print("position, so it is the floor every later number is measured against.")
+    print("position. It is the floor every later number is measured against.")
 
     game = blackjack.Blackjack(decks=1)
     compare(

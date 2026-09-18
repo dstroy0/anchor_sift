@@ -236,7 +236,7 @@ extern "C" long residual_field_run(const ResidualFieldRequest *args)
     shape.height = args->height;
     shape.width = args->width;
 
-    // Bounded below 2^32 just above, so the count fits the unsigned int.
+    // Bounded below 2^32 just above. The count fits the unsigned int.
     shape.voxels = (unsigned int)voxels;
     const size_t bytes = (size_t)voxels * sizeof(float);
 

@@ -216,7 +216,7 @@ static long matching_component(const HeaviestMatchingRequest *args, const unsign
 {
 
     // Number the component's before objects from 1, then its after objects after them. local holds
-    // before objects at their own index and after objects past before_count, so one scratch array
+    // before objects at their own index and after objects past before_count. One scratch array
     // serves both sides.
     int befores = 0;
     int afters = 0;
@@ -285,7 +285,7 @@ static long matching_component(const HeaviestMatchingRequest *args, const unsign
             const int from = local[args->before[pair]];
             const int to = local[args->before_count + args->after[pair]];
 
-            // A heavier pair is a cheaper edge, so the cheapest path adds the most weight.
+            // A heavier pair is a cheaper edge. The cheapest path adds the most weight.
             const long long weight = -(long long)args->counts[pair];
             matching_edge(&graph, from, to, weight);
             if (weight < potential[to])
@@ -422,7 +422,7 @@ long heaviest_matching_run(const HeaviestMatchingRequest *args)
     unsigned int *const starts = (unsigned int *)calloc(objects + 2u, sizeof(unsigned int));
     unsigned int *const members = (unsigned int *)malloc(((size_t)args->pairs + 1u) * sizeof(unsigned int));
     int *const local = (int *)malloc((objects + 1u) * sizeof(int));
-    // The choice is built here and copied out whole, so a refusal part way leaves `chosen` as it was.
+    // The choice is built here and copied out whole. A refusal part way leaves `chosen` as it was.
     unsigned char *const staged = (unsigned char *)calloc((size_t)args->pairs + 1u, 1u);
     long answer = HEAVIEST_MATCHING_REFUSED;
     if ((parent != NULL) && (component_of != NULL) && (starts != NULL) && (members != NULL) && (local != NULL)
@@ -431,7 +431,7 @@ long heaviest_matching_run(const HeaviestMatchingRequest *args)
         for (size_t object = 0u; object < objects; object += 1u)
         {
 
-            // objects is at most 2 * 0x3FFFFFFF, below 2^31, so the index fits the unsigned int.
+            // objects is at most 2 * 0x3FFFFFFF, below 2^31. The index fits the unsigned int.
             parent[object] = (unsigned int)object;
             local[object] = -1;
         }

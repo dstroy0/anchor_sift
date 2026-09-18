@@ -7,7 +7,7 @@
 #   Usage:  python maint/prose/test_docs_check_structural.py
 #
 # The stage is not tiered and --strict does not reach it. A false positive here is a commit that
-# cannot be made, so these are the hardest assertions in the suite and the counts below are derived
+# cannot be made. These are the hardest assertions in the suite and the counts below are derived
 # from the tree at run time.
 #
 # Every count this file asserts on is measured when the test runs. A constant would have been
@@ -63,7 +63,7 @@ def describe_ref(tree):
 
 
 # An independent reading of the two structural rules that survive on ProtoCore/docs. These are
-# written out here instead of imported, so the assertion below measures the tree. Both count per
+# written out here instead of imported. The assertion below measures the tree. Both count per
 # line. A finding is reported at that granularity and a reader opens one line.
 #
 # The character is built from its code point. Writing it out would put an em dash in a tree that
@@ -181,7 +181,7 @@ class StandardsPassTheirOwnStructuralStage(unittest.TestCase):
 
     A gate that flags the standard it enforces is wrong by construction. This is the slice of that
     test belonging to dead_links. The em dash findings in both documents come from a different
-    stage and are a decision for the author of those documents, so they are reported and not
+    stage and are a decision for the author of those documents. They are reported and not
     asserted on. There are 43 of them at the time of writing, 24 in code-documentation/SKILL.md and
     19 in code-comments/SKILL.md, and code-documentation section 109 bans the em dash by name.
     """
@@ -205,7 +205,7 @@ class StandardsPassTheirOwnStructuralStage(unittest.TestCase):
 class ProtoCoreStructuralStage(unittest.TestCase):
     """The whole stage against a Doxygen C repository, which is where it was measured to be wrong.
 
-    anchor_sift is Python and markdown and uses no Doxygen, so the rule is correct here and was
+    anchor_sift is Python and markdown and uses no Doxygen. The rule is correct here and was
     never tested anywhere else. ProtoCore carries @ref throughout. Had this gate reached its
     pre-commit hook, ProtoCore could not have committed at all, and per-repo prose tiering would not
     have helped because the break is in the structural stage.
@@ -249,7 +249,7 @@ class ProtoCoreStructuralStage(unittest.TestCase):
 
     def test_breaking_total_equals_what_the_tree_holds(self):
         # Derived when the test runs, never a constant. TOOLKIT.md's three em dashes are queued for
-        # repair and README.md's empty table is a generator defect, so every term of this sum is
+        # repair and README.md's empty table is a generator defect. Every term of this sum is
         # expected to move and the assertion has to move with it.
         #
         # A NOTE FOR WHOEVER ADDS THE GENERATED-REGION RULE. ProtoCore docs/README.md:2404, the one
@@ -270,7 +270,7 @@ class ProtoCoreStructuralStage(unittest.TestCase):
 
     def test_the_exit_status_still_refuses_a_real_structural_finding(self):
         # Prose never fails a build. Structure does, and it has to keep doing so. ProtoCore/docs
-        # holds genuine structural findings today, so this run exits 1 for the right reason.
+        # holds genuine structural findings today. This run exits 1 for the right reason.
         dashes, tables = derived_structural(self.docs)
         self.assertEqual(self.status, 1 if (dashes + tables) else 0)
 

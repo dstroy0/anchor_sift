@@ -6,7 +6,7 @@
 #
 #   Usage:  from reference.unselected import sqrt_two_digits, prime_gaps
 #
-# Every corpus in this work that departs from a null permutation was made by a person, so the
+# Every corpus in this work that departs from a null permutation was made by a person. The
 # measure detecting arrangement and the measure detecting human production were never separated by
 # anything measured. The control has to be a domain with structure and no author.
 #
@@ -38,7 +38,7 @@ SIEVE = 12000000
 def sqrt_two_digits(count=DIGITS):
     """Digits of the square root of two, from one integer square root.
 
-    Fully determined and conjectured normal, so it should carry no arrangement to find. It returns
+    Fully determined and conjectured normal. It should carry no arrangement to find. It returns
     1.00, the reading working correctly on a domain that holds nothing.
 
     Writing the root out passes an interpreter guard that refuses to render an integer wider than
@@ -58,7 +58,7 @@ def prime_gaps(limit=SIEVE):
     """Gaps between successive primes below `limit`, as one byte each.
 
     Equally determined and not structureless: these carry real arithmetic regularity and nothing
-    chose them. Gaps are even above 2 and grow slowly, so half the gap fits a byte for this range,
+    chose them. Gaps are even above 2 and grow slowly. Half the gap fits a byte for this range,
     and that encoding is stated because part of the departure may belong to it.
     """
     flags = bytearray([1]) * limit

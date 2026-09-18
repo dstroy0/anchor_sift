@@ -14,7 +14,7 @@
 # name is a variable. So case is a second channel carried on the same symbols, and it is legible from
 # the run lengths alone without knowing any identifier.
 #
-# Prose uses a capital at the start of a sentence and inside a name, so its runs are almost all of
+# Prose uses a capital at the start of a sentence and inside a name. Its runs are almost all of
 # length one. A language that names macros in upper case has long runs, and the distribution separates
 # the two without reading a word.
 

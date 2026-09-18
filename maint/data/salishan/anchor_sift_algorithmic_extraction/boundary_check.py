@@ -8,7 +8,7 @@
 #
 # Lushootseed is not one dialect. The northern and southern varieties have known land and family
 # borders, and Mellesmoen and Kye's stress paper labels every form it cites with which one it came
-# from. The hand extraction copied that label into the who column, so the border is on disk as a
+# from. The hand extraction copied that label into the who column. The border is on disk as a
 # fact from the paper.
 #
 # That makes it the only thing a test of this algorithm needs and almost never has: an answer that
@@ -22,7 +22,7 @@
 # WHY THE WORD WEB IS IN HERE
 #
 # Section 3 of the method resolves at 6707 bytes. The northern forms are about a thousand bytes all
-# together, three orders below that, so the byte pair distribution cannot be asked this question at
+# together, three orders below that. The byte pair distribution cannot be asked this question at
 # all and says so. The web is what can: a shape edge is a shared leading or trailing run of four
 # characters, and stress and vowel differences between the two varieties land in exactly those runs.
 # Both are measured here and the gap between them is the point.
@@ -104,7 +104,7 @@ def runs(forms, width):
 def radix(north, south, width):
     """The runs that sit either side of the border once the shared structure is flattened out.
 
-    Both varieties are the same language, so most of what a distribution over their runs measures is
+    Both varieties are the same language. Most of what a distribution over their runs measures is
     what they have in common, and at this corpus size that shared mass swamps the difference. Raising
     the pooled counts to maximum entropy is what takes it out: every run is weighed against where the
     pooled total alone would have put it, and a run carrying no border information contributes
@@ -131,7 +131,7 @@ def radix(north, south, width):
         seen_first = first.get(run, 0)
         seen_second = second.get(run, 0)
         pooled = seen_first + seen_second
-        # A run seen once cannot separate anything and there are a great many of them, so letting
+        # A run seen once cannot separate anything and there are a great many of them. Letting
         # them in would spend the whole chance budget on runs that carry nothing.
         if pooled < 4:
             continue
@@ -180,7 +180,7 @@ def halves(items):
     """A group split in two by alternating, which samples it instead of cutting it in place.
 
     self_distance cuts a corpus at its midpoint, and a corpus written in paper order puts one paper
-    on each side of that cut. Alternating puts a mixture on both sides, so what comes back is the
+    on each side of that cut. Alternating puts a mixture on both sides. What comes back is the
     estimator's resolution and not the distance between whatever the midpoint separated.
     """
     return items[0::2], items[1::2]
@@ -224,7 +224,7 @@ def bisect(forms, profile):
 def recovered(found, known):
     """How much of the published border a blind partition recovered.
 
-    The partition's two groups arrive unnamed, so both ways of matching them to the two labels are
+    The partition's two groups arrive unnamed. Both ways of matching them to the two labels are
     scored and the better one is reported. Chance is the rate a coin flip would reach on these group
     sizes, and it is printed beside the result because a two way split of a lopsided set scores well
     by doing nothing.
@@ -280,7 +280,7 @@ def main():
                            ("word web shape", shape_profile)):
         apart = distance(profile(north)[0], profile(south)[0])
         floor = max(resolution(north, profile), resolution(south, profile))
-        # A resolution measured at n falls as 1/sqrt(n), so the growth that brings the floor under
+        # A resolution measured at n falls as 1/sqrt(n). The growth that brings the floor under
         # half the distance is the square of the ratio between them. Under a distance the two
         # varieties do not have, no amount of growth reaches it and the answer is not a number.
         if apart <= 0.0:
@@ -344,12 +344,12 @@ def main():
             out.write("    %-8d %-10s %-10.2f %-9d %d\n"
                       % (width, run, deviate, seen_first, seen_second))
     else:
-        out.write("\n    nothing clears the threshold once the concept is held fixed, so what the\n")
+        out.write("\n    nothing clears the threshold once the concept is held fixed. What the\n")
         out.write("    uncontrolled radix above found is which words were cited and not how a\n")
         out.write("    variety says them\n")
 
     out.write("\n  the inverse, as arithmetic only\n")
-    out.write("  Swapping the two sides negates the numerator and leaves the spread alone, so an\n")
+    out.write("  Swapping the two sides negates the numerator and leaves the spread alone. An\n")
     out.write("  exact negation is what this estimator does on any two sets whatever, including\n")
     out.write("  two halves of noise. It is worth running because a nonzero gap would mean a\n")
     out.write("  defect, and it is worth saying plainly that passing it is evidence of nothing\n")
@@ -365,7 +365,7 @@ def main():
         if set(ahead) != set(behind):
             out.write("    %-8d %-12s %s\n" % (width, "run sets differ", "FAILED"))
             continue
-        # The two readings have to negate each other exactly, so the largest disagreement across
+        # The two readings have to negate each other exactly. The largest disagreement across
         # every run is the number that decides it. Anything but zero is an asymmetry in the method.
         gap = max([abs(ahead[run] + behind[run]) for run in ahead] or [0.0])
         out.write("    %-8d %-12d %-12d %-10.2e %s\n"

@@ -20,7 +20,7 @@ r = R - d and expanding, the spot's angular radius is about d/R: a source one te
 from the shell prints a spot a tenth of a radian across, no matter how small the source is.
 
 Counting the modes that survive gives an area law. Degrees up to l carry (l + 1)^2 modes, the
-usable l is about R/d, so the boundary holds about (R/d)^2 numbers. That is a surface area over a
+usable l is about R/d. The boundary holds about (R/d)^2 numbers. That is a surface area over a
 squared length and it does not grow with the volume, a statement worth measuring instead
 of asserting: put sources through a ball uniformly by volume and count how many boundary modes
 carry anything, and the count stops climbing.
@@ -30,8 +30,8 @@ TWO KERNELS, ONE MULTIPLICATION EACH
     depth       (r/R)^l              where the source sits
     conduction  exp(-l (l+1) tau)    how long the boundary has been left to smooth
 
-Both are diagonal in degree, so both are one multiply per coefficient. Conduction is the heat
-kernel on the sphere, whose eigenfunctions are these same harmonics, so leaving the boundary to sit
+Both are diagonal in degree. Both are one multiply per coefficient. Conduction is the heat
+kernel on the sphere, whose eigenfunctions are these same harmonics. Leaving the boundary to sit
 for time tau is a low-pass at degree about 1/sqrt(tau) and no further computation is needed.
 
 HEAT IS SURPRISAL
@@ -133,7 +133,7 @@ def harmonics_at(top, colatitude, longitude):
 def kernel(top, radius_fraction, tau):
     """The per-degree gain of depth and conduction together.
 
-    Depth is (r/R)^l and conduction is exp(-l(l+1) tau). Both are diagonal, so the pair is one
+    Depth is (r/R)^l and conduction is exp(-l(l+1) tau). Both are diagonal. The pair is one
     number per degree and all of the physics between a source and the boundary is this list.
     """
     out = []
@@ -235,7 +235,7 @@ def surprisal(data):
 def read_depth(spectrum, tau, first=1, last=None):
     """Recovers r/R from the slope of the spectrum, undoing conduction first.
 
-    For one source the spectrum is q^2 (r/R)^(2l) exp(-2 l (l+1) tau) (2l+1) / 4 pi, so dividing
+    For one source the spectrum is q^2 (r/R)^(2l) exp(-2 l (l+1) tau) (2l+1) / 4 pi. Dividing
     out everything except the depth term leaves a straight line in degree whose slope is 2 log(r/R).
     Several sources at different depths give a mixture and this reports the effective depth of it,
     summarizing them without separating them.
@@ -292,7 +292,7 @@ def live_modes(spectrum, floor):
 def spot_radians(radius_fraction):
     """Angular radius of the spot one source prints, from its depth.
 
-    The spectrum falls as (r/R)^l, so the degree where it has dropped by e is 1 / ln(R/r) and the
+    The spectrum falls as (r/R)^l. The degree where it has dropped by e is 1 / ln(R/r) and the
     angular scale is its reciprocal. A source at the center returns pi, since its spot is the whole
     sphere, and there the claim that a spot is larger than its source becomes a number.
     """
@@ -365,7 +365,7 @@ def overlaps(sources, top, tau, level, samples=721):
     """Which circles meet at this level, with how much angle to spare.
 
     A source's circle has a radius set by its depth and the level the edge is read at. Two circles
-    meet when the angle between their directions is less than the sum of their radii, so the test
+    meet when the angle between their directions is less than the sum of their radii. The test
     needs the two radii and the angle between the pair and no orientation at all.
 
     The level is a reading, never a measurement. Raising it shrinks every circle and breaks the
@@ -394,7 +394,7 @@ def overlaps(sources, top, tau, level, samples=721):
 def distinguishable(radii):
     """How many circles of this size the sphere holds without them lying on top of one another.
 
-    The surface is continuous and two circle centres can be any distance apart, so the sphere
+    The surface is continuous and two circle centres can be any distance apart. The sphere
     discriminates without limit until the circles are asked to be told apart. Once they are, the
     count is the sphere's area over one circle's area, and it is finite the moment the circles have
     any size at all. This is the same area law the mode count reports, arrived at by measuring the

@@ -30,7 +30,7 @@ Register the images by the homography of one dominant plane. That single project
 removes every effect of camera rotation, zoom and calibration without computing any of them
 explicitly. What remains has two sources only: parallax, which the camera's translation produces
 at points off the plane, and objects that moved on their own. The residual parallax field is
-epipolar, radial about the epipole, so a residual that is not radial about that point is independent
+epipolar, radial about the epipole. A residual that is not radial about that point is independent
 motion.
 
 Irani and Anandan used this to stratify moving object detection from two dimensional scenes up to
@@ -48,4 +48,4 @@ stage that is skipped leaves its motion inside every object's apparent step.
 Two consequences follow before any method is chosen. First, the view's motion is estimated from
 everything in the image, not from the objects being tracked, because everything in the image shares
 it. Second, a view that orbits its subject while the subject moves changes perspective as well as
-position, so a translation alone cannot be the whole first stage.
+position. A translation alone cannot be the whole first stage.

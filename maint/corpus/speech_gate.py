@@ -15,7 +15,7 @@
 # what is public, and that setting is the condition this corpus records per table.
 #
 # Reachable and holdable are two different states. They come apart when a directory is fetched
-# because it answered, so the permission is checked at commit time instead of remembered.
+# because it answered. The permission is checked at commit time instead of remembered.
 #
 # HOW A FILE IS TIED TO A PERMISSION
 #
@@ -128,7 +128,7 @@ def key_of(row):
     if address:
         rest = address.split("://", 1)[-1]
         return rest.split("/", 1)[0].lower()
-    # A body with no address becomes a directory name, so it is lowercased and its spaces closed.
+    # A body with no address becomes a directory name. It is lowercased and its spaces closed.
     # "ICSNL proceedings" as a literal directory is a path with a space in it on every tool that
     # touches it.
     return "_".join((row.get("body") or "").strip().lower().split())
@@ -180,7 +180,7 @@ def main():
     root = private_root()
     out.write("\n  %s\n" % root.replace("\\", "/"))
     if not os.path.isdir(root):
-        out.write("  no closed corpus there, so there is nothing to gate.\n\n")
+        out.write("  no closed corpus there. There is nothing to gate.\n\n")
         out.flush()
         return 0
 

@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: VIZ-x-014
 #
-"""Sweeps the analysis and draws every setting at once, so an artifact of the analysis is visible.
+"""Sweeps the analysis and draws every setting at once. An artifact of the analysis is visible.
 
 A spectrogram is a picture of a signal and a picture of the window that made it, and nothing in the
 picture says which is which. This runs the same signal through a whole range of settings, puts each
@@ -24,7 +24,7 @@ that moves, or appears at one setting and not the next, is the analysis talking 
   --top HZ       highest frequency drawn. Default 8000.
   --average M    frames averaged per setting. Default 16, which steadies the noise floor.
   --exact BITS   run the sweep in extended precision as well, at frame sizes small enough to
-                 afford it, so the arithmetic's own floor is below anything being looked for.
+                 afford it. The arithmetic's own floor is below anything being looked for.
   --synth        use a generated signal: two tones beating at 3 Hz, a sweep from 1 kHz to 3 kHz, a
                  quiet 7 kHz tone and white noise.
   --out FILE     where to write.
@@ -226,13 +226,13 @@ def main():
         "title": "%s swept by %s" % (name, which),
         "blurb": ("%s analyzed at %d settings of %s, every one resampled onto the same %d point "
                   "frequency axis from 0 to %d Hz. Depth runs left to right as frequency; the other "
-                  "horizontal axis is the setting. Settings do not share a bin spacing, so they are "
+                  "horizontal axis is the setting. Settings do not share a bin spacing. They are "
                   "put on a common axis in Hz before anything is compared."
                   % (name, len(swept), which, grid_n, top_hz)),
         "noteTitle": "What moves with the setting is the setting",
         "note": ("A feature standing in the same place at every setting is in the signal. One that "
                  "moves, or appears at one setting and not the next, is the analysis describing "
-                 "itself. The third field is each setting minus the median of all of them, so it is "
+                 "itself. The third field is each setting minus the median of all of them. It is "
                  "zero where they agree and shows only the disagreement." + exact_note),
         "settings": settings.collect(sys.argv[1:]),
         "fields": fields,

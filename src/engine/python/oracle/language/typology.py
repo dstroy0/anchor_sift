@@ -6,7 +6,7 @@
 #
 #   Usage:  from oracle.language.typology import CAPITALIZES, MORPHOLOGY, SUBFAMILY
 #
-# These are outside answers, so they sit in the oracle part beside the family tables. Nothing here is
+# These are outside answers. They sit in the oracle part beside the family tables. Nothing here is
 # derived from any corpus in this work, and none of it moves when a measurement does.
 #
 # CAPITALIZES decides whether a result can be read at all. German marks every noun with a capital

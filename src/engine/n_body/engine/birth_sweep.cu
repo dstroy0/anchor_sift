@@ -58,7 +58,7 @@ struct SweepGeometry
  * @param[in] voxel  An admitted voxel.
  * @return           The root of its component.
  * @note Reads concurrently with other threads' atomicMin writes. A parent only ever falls to a
- *       lower index, so the walk ends at a root, if not always the final one.
+ *       lower index. The walk ends at a root, if not always the final one.
  */
 __device__ static unsigned int device_root(const unsigned int *parent, unsigned int voxel)
 {
@@ -182,7 +182,7 @@ __global__ static void compress_kernel(unsigned int *parent, SweepGeometry geome
 /**
  * @brief One thread per voxel: zero the census slots of every admitted voxel.
  *
- * @note Every root is an admitted voxel, so this zeroes every slot the census will add to.
+ * @note Every root is an admitted voxel. This zeroes every slot the census will add to.
  */
 __global__ static void clear_kernel(const unsigned int *parent, SweepGeometry geometry,
                                     unsigned int *sizes, unsigned long long *slice_sums,
@@ -404,7 +404,7 @@ static unsigned int sweep_blocks(unsigned int items)
  * @param[in,out] context The sweep, with its geometry and request set [BORROWS].
  * @return                1 where every step succeeded, 0 otherwise. sweep_release frees whatever
  *                        was allocated either way.
- * @note The emit buffers take `room` + 1 entries, so a room of 0 still allocates. One cut's births
+ * @note The emit buffers take `room` + 1 entries. A room of 0 still allocates. One cut's births
  *       never exceed `room`, since a cut that would pass it refuses before emitting.
  */
 static int sweep_allocate(SweepContext *context)
@@ -464,7 +464,7 @@ static int sweep_allocate(SweepContext *context)
  * @brief Frees every buffer of a sweep.
  *
  * @param[in,out] context The sweep [BORROWS].
- * @note cudaFree and free both accept a null pointer, so a partly allocated sweep frees cleanly.
+ * @note cudaFree and free both accept a null pointer. A partly allocated sweep frees cleanly.
  */
 static void sweep_release(SweepContext *context)
 {
@@ -691,7 +691,7 @@ extern "C" long birth_sweep_run(const BirthSweepRequest *args)
     context.geometry.height = args->height;
     context.geometry.width = args->width;
 
-    // Bounded below 2^32 just above, so the count fits the unsigned int.
+    // Bounded below 2^32 just above. The count fits the unsigned int.
     context.geometry.voxels = (unsigned int)voxels;
     context.geometry.chunks = (context.geometry.voxels + BIRTH_SWEEP_CHUNK - 1u) / BIRTH_SWEEP_CHUNK;
 

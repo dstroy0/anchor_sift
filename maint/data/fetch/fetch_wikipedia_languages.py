@@ -8,7 +8,7 @@
 #
 # Vietnamese and Urdu have no plain text holdings in the book catalog, and neither do Hindi, Bengali,
 # Tamil, Korean or Indonesian. Vietnamese is worth the most here: it is isolating the way
-# Chinese is and it is written in a Latin alphabet, so it is the only case on hand that separates what a
+# Chinese is and it is written in a Latin alphabet. It is the only case on hand that separates what a
 # language does from what it is written in. Every other pairing available has those two travelling
 # together.
 #
@@ -48,7 +48,7 @@ PAUSE = 1.1
 RETRIES = 2
 
 MISSING = ("vi", "ur", "hi", "bn", "ta", "ko", "id", "uk", "ar", "fa", "th", "sw", "tr", "ms")
-# Held from the book catalog as well, so the difference between an encyclopedia and a novel is a number
+# Held from the book catalog as well. The difference between an encyclopedia and a novel is a number
 CONTROLS = ("de", "es", "zh", "ja", "fi", "el")
 
 NAMES = {
@@ -64,7 +64,7 @@ def pull(code, seen, offset):
     """A batch of article texts from one language's encyclopedia, longest first.
 
     Random articles are almost all stubs in a smaller encyclopedia: eight of them returned 178 characters
-    in Vietnamese, so reaching a usable length that way would take thousands of requests. Searching
+    in Vietnamese. Reaching a usable length that way would take thousands of requests. Searching
     instead for articles and taking them by size gets real prose in a few.
     """
     query = {

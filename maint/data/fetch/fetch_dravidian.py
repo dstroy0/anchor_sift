@@ -9,7 +9,7 @@
 #
 # The family result here was scored against a tree that is argued from cognates and sound
 # correspondences, which was recorded as a weakness: where the reading and the tree disagree nothing says
-# which is wrong. Dravidian is a better case. Its branchings are old and its separations are long, so the
+# which is wrong. Dravidian is a better case. Its branchings are old and its separations are long. The
 # order of them is not much in dispute, and it gives a graded prediction instead of a yes or no.
 #
 # What is expected before anything is measured: Tamil and Malayalam nearest each other, having separated
@@ -19,7 +19,7 @@
 #
 # All four come from one parallel text so the content is fixed and cannot carry the result, which the
 # earlier reading of these languages could not claim. Sanskrit comes with them: it is Indo-European and
-# not Dravidian at all, so it is the outside case that must sit apart from every one of them, and if it
+# not Dravidian at all. It is the outside case that must sit apart from every one of them, and if it
 # does not then the reading is measuring the writing systems of the subcontinent and not its languages.
 
 import io

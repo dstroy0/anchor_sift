@@ -6,7 +6,7 @@
 #
 #   Usage:  from font_repair import REPAIR, repaired, repaired_prose
 #
-# Both papers' PDFs wrote plain letters in place of the orthography, so the text arrives as
+# Both papers' PDFs wrote plain letters in place of the orthography. The text arrives as
 # iP naPì ʼqwQaylqs where it should read iʔ naʔɬ ʼqwʕaylqs. The mapping was tested and not
 # assumed: font_substitution.py applies it to the damaged tokens and counts how many become forms
 # attested in Lyon's later papers on the same language. Before the mapping, 1 token of 3599 was
@@ -14,7 +14,7 @@
 # because a wrong substitution produces strings the language does not contain.
 #
 # Applying it to every character of both papers was the mistake. P and Q are ordinary capitals in
-# Lyon's English, so the repair turned Pierre into ʔierre, Quilchena into ʕuilchena, INCEPT into
+# Lyon's English. The repair turned Pierre into ʔierre, Quilchena into ʕuilchena, INCEPT into
 # INCEʔT and jmlyon@sfu.ca into jmlyonəsfu.ca. Those went into the record as words and were then
 # reported as holes by the coverage check, which is a defect that manufactured its own evidence.
 #
@@ -32,7 +32,7 @@
 from salish_marking import CAPS_RUN, bare_token, tagged_spans
 
 # The mapping, in order. The caron entries go first because this font writes the caron as its own
-# character ahead of the letter it belongs to, so x̌ arrives as ˇx. Replacing the bare letters first
+# character ahead of the letter it belongs to. X̌ arrives as ˇx. Replacing the bare letters first
 # would consume them and strand the caron.
 REPAIR = (("ˇx", "x̌"), ("ˇc", "č"), ("ˇs", "š"),
           ("@", "ə"), ("P", "ʔ"), ("ì", "ɬ"), ("Q", "ʕ"))
@@ -50,7 +50,7 @@ def repaired(text):
     """One line of the language, with every substitution applied.
 
     For a line known to be the language: a transcription or segmentation column, or the running
-    text of a story. Nothing is held back, so Paks becomes ʔaks and Qip becomes ʕip.
+    text of a story. Nothing is held back. Paks becomes ʔaks and Qip becomes ʕip.
     """
     for was, becomes in REPAIR:
         text = text.replace(was, becomes)
@@ -80,7 +80,7 @@ def guarded(token):
 # stranded caron, and the accented vowels these papers mark stress with.
 #
 # The typographic apostrophe is deliberately absent. This font writes the ejective with it and
-# English writes a possessive with it, so Society’s and ’qwQaylqs are alike to any test built on
+# English writes a possessive with it. Society’s and ’qwQaylqs are alike to any test built on
 # one, and an acknowledgment about the American Philosophical Society reached a corpus that way.
 ORTHOGRAPHY = "@ìˇáéíóúàèòù"
 
@@ -123,7 +123,7 @@ def repaired_line(text):
     opens an English span, which keeps a lone Paks among target words on the target side of the cut.
 
     A line carrying none of the language is not cut at all. The span rule counts a word of under
-    three letters as not English, so at, an, in and BC break an English sentence into single words
+    three letters as not English. At, an, in and BC break an English sentence into single words
     and leave Quilchena as a lone token joining a target span that is not there. Asking first
     whether the line is the language at all settles that, and twenty-eight occurrences with it.
     """

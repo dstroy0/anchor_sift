@@ -3,7 +3,7 @@
 \textbf{One transform here is demonstrated; the other two are design only, and the predictions are
 unmeasured.} The translation by number theoretic transform is built and run in
 \texttt{examples/\allowbreak{}0\_experimental/\allowbreak{}exact\_translation\_by\_ntt.py}: its
-correlation agrees to the digit with the direct $O(N^2)$ count and recovers the planted shift, so its
+correlation agrees to the digit with the direct $O(N^2)$ count and recovers the planted shift. Its
 grade is \emph{agrees}, a run against a reference and not a prediction. The precision constants it rests
 on are re-derived and a wrong one refused in
 \texttt{examples/\allowbreak{}0\_experimental/\allowbreak{}ntt\_twiddle\_certificate.py}. The
@@ -31,14 +31,14 @@ useful is accumulation: exact counts added over time, which lose nothing however
 
 A smoothing kernel with integer weights keeps a field in the integers. The binomial kernel of even
 order $n$, the $n$th row of Pascal's triangle, sums to exactly $2^n$ and has variance $n/4$ in units of
-the grid spacing, so it is the integer counterpart of a Gaussian of that variance. Separable along each
+the grid spacing. It is the integer counterpart of a Gaussian of that variance. Separable along each
 axis, a volume smoothed by orders $(n_1, \dots, n_d)$ is scaled by exactly $2^{n_1 + \dots + n_d}$, and
 the difference of two smoothings,
 \[
 r \;=\; s \cdot 2^{\,\sum_i m_i} \;-\; b,
 \]
 with $s$ smoothed by orders $n_i$ and $b$ smoothed further by orders $m_i$, compares them at one common
-scale with nothing divided. Its width is fixed by the orders and the input depth, so it is carried in a
+scale with nothing divided. Its width is fixed by the orders and the input depth. It is carried in a
 fixed number of limbs, and its sign says exactly whether a point stands above its local background.
 
 \section{Translation by number theoretic transforms}
@@ -46,7 +46,7 @@ fixed number of limbs, and its sign says exactly whether a point stands above it
 The agreement at every lag, $C(\ell) = \sum_v a(v)\, b(v + \ell)$, is a convolution of the reflected
 first view with the second. A number theoretic transform computes a convolution exactly in the
 integers modulo a prime $p$ that carries roots of unity of the transform length. The prime is
-$p = 119 \cdot 2^{23} + 1 = 998244353$, with $p - 1 = 2^{23} \cdot 7 \cdot 17$, so 3 is a primitive
+$p = 119 \cdot 2^{23} + 1 = 998244353$, with $p - 1 = 2^{23} \cdot 7 \cdot 17$. 3 is a primitive
 root and the longest power-of-two transform the modulus admits has length $2^{23}$, past any image
 axis. The certificate is re-derived in
 \texttt{examples/\allowbreak{}0\_experimental/\allowbreak{}ntt\_twiddle\_certificate.py}, and the prime,
@@ -56,7 +56,7 @@ which the same proof shows is the property that keeps a butterfly's sum and its 
 wrapping in a 32-bit word; a modulus above $2^{31}$ carried a silent wrong answer there. A single
 small prime keeps this transform clear of that boundary.
 
-Exactness has a stated bound. Each coefficient is a sum of products $a(v)\, b(v + \ell)$, so for binary
+Exactness has a stated bound. Each coefficient is a sum of products $a(v)\, b(v + \ell)$. For binary
 views it counts agreeing positions and is at most the transform length. The transform length divides
 $p - 1$ and so is below $p$ for any valid prime, which makes a binary view exact with no separate
 precondition: no residue is ever reduced. Weighting the views is what can breach $p$. The bound becomes
@@ -64,7 +64,7 @@ the sum of the weight products, and past $p$ a single prime counts modulo itself
 fault one level up from a wrong constant. The remedy is a prime above the largest coefficient, or the
 Chinese remainder theorem over several, the device path of that proof reassembling a 94-bit product. A
 view is embedded on each axis in a period of at least twice its extent less one so that no two lags
-alias, and the transform is separable, one axis at a time, so the construction holds in any number of
+alias, and the transform is separable, one axis at a time. The construction holds in any number of
 dimensions.
 
 The peak is then an integer, and ties among lags are broken by a rule, not by rounding: the shortest
@@ -95,5 +95,5 @@ an axis. The residual of the translation stage is the measurement that says the 
 needed.
 
 \textbf{Third.} Each transform recovered exactly and removed will leave the next stage a residual with
-no rounding in it, so the improvement from adding a stage will not shrink the way it does in a floating
+no rounding in it. The improvement from adding a stage will not shrink the way it does in a floating
 point pipeline, where each stage inherits the error of the last.

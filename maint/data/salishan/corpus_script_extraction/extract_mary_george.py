@@ -10,7 +10,7 @@
 # Written for one paper. This one holds fourteen separate narratives, each its own numbered section with a
 # title and a date, and it is not all one speaker. Mary George told most of them between 1969 and 1980.
 # The Mink story is Noel George Harry's, the basket ogre is Tommy Paul's, and the last is John Hamilton
-# Davis's own. Attributing all of it to Mary George would be wrong about three of them, so the speaker is
+# Davis's own. Attributing all of it to Mary George would be wrong about three of them. The speaker is
 # a column and is set per section.
 #
 # Every utterance appears twice: once in the community orthography and once as a phonetic transcription in
@@ -213,12 +213,12 @@ def main():
             continue
         # Anything else carrying the language is kept and marked unsorted. None of it is dropped.
         # A phonetic line that wrapped does not open with its bracket, and the notes cite forms
-        # inline as form = gloss, so both fall past the tests above. Eighty-six tokens of this
+        # inline as form = gloss. Both fall past the tests above. Eighty-six tokens of this
         # paper went missing that way, the largest hole the coverage check found.
         if carries_language(trimmed):
             rows.append(("T", number, section, title, UNCLASSIFIED, who, trimmed))
 
-    # Every line of the paper no section reached, added to the record as unclassified, so the
+    # Every line of the paper no section reached, added to the record as unclassified. The
     # marked file holds every token of the language the paper printed. The speaker is left unset
     # because nobody has said whose line it is. They stay out of the pure stream.
     # The union of every orthography, not this paper's own set. The coverage check counts a token
@@ -274,7 +274,7 @@ def main():
 
     # A file of its own for what the tool could not sort, in the columns every paper's file uses.
     # A wrapped phonetic line does not open with its bracket and the notes cite forms inline as
-    # form = gloss, so both fall past the tests above and are flagged. The second kind is a line no
+    # form = gloss. Both fall past the tests above and are flagged. The second kind is a line no
     # section reached, which here is the front matter and the paper's own introduction.
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
     flagged = [(0, "%s block %d" % (sect, count), UNKNOWN_KIND, "", text)

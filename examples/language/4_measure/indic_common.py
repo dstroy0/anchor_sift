@@ -13,7 +13,7 @@
 # Dravidian languages sit further from each other than from Indo Aryan, and Telugu's nearest neighbor is
 # Bengali. That is not a family failing to appear, it is the opposite of the family appearing.
 #
-# Every one of those languages is written in its own script, so two close languages arrive with entirely
+# Every one of those languages is written in its own script. Two close languages arrive with entirely
 # different character inventories. Tamil writes with a small set that does not separate voiced from
 # unvoiced or mark aspiration; Malayalam writes with a large one that does both. Nothing about the reading
 # can see past that, because the characters are all it has.

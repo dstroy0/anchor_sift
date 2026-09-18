@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Brings the theory books down after a pull, so the release always carries the current ones.
+# Brings the theory books down after a pull. The release always carries the current ones.
 #
 # It lives in the repository instead of .git/hooks so it is version controlled and everyone gets the
 # same one. Turn it on once per clone:
@@ -45,7 +45,7 @@ UPSTREAM=https://github.com/dstroy0/theory_bucket.git
 # theory_bucket's remote is private and Douglas ruled on 2026-09-16 that it holds unpublished
 # research: the held advantage work, engine material nobody has reviewed for a public tree. This
 # repository is public. `git subtree pull` from theory_bucket copies ALL of it under
-# theory_bucket/ here, so the pull the design below performs, and the manual command an earlier hold
+# theory_bucket/ here. The pull the design below performs, and the manual command an earlier hold
 # printed, are both one push from publishing held research. The command is not printed here for that
 # reason: a line a person can copy is the hazard, not only the automatic run.
 #
@@ -113,7 +113,7 @@ fi
 # mean identical content and there is nothing to pull.
 #
 # The first version of this compared with git diff --quiet FETCH_HEAD:. HEAD:theory_bucket. That
-# path spelling is not valid, git exits 128 on it, and 128 is not zero, so the test read every
+# path spelling is not valid, git exits 128 on it, and 128 is not zero. The test read every
 # already-current subtree as changed and ran a pull on every merge. A check that cannot fail closed
 # has to be one whose failure is distinguishable from its answer.
 theirs=$(git rev-parse --verify --quiet "FETCH_HEAD^{tree}" 2>/dev/null)

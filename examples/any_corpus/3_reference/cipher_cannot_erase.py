@@ -9,7 +9,7 @@
 #
 # Four operations, graded by how much they remove. A substitution renames the symbols and moves
 # nothing. A reading of where symbols fall has to come back identical. A repeating key of length
-# k sends one plaintext symbol to k ciphertext symbols by position, so the gaps are split k ways and
+# k sends one plaintext symbol to k ciphertext symbols by position. The gaps are split k ways and
 # the whole ciphertext can look memoryless. Taking every k-th symbol undoes the splitting without
 # knowing the key, since each coset was enciphered by a single substitution, and averaging all k
 # cosets loses no length at all because every symbol lands in exactly one of them.
@@ -17,7 +17,7 @@
 # A pseudorandom addend as long as the message is the only operation here that erases anything.
 #
 # The counter is not a cipher and is the case that matters for the limit. It is perfectly regular
-# and nobody produced it, so it is what a claim about human production has to answer for.
+# and nobody produced it. It is what a claim about human production has to answer for.
 
 import io
 import os
@@ -84,7 +84,7 @@ def main():
     show(out, "one time pad", rare_half(keystream(seats)),
          "the only one that erases anything")
     show(out, "counter", rare_half(counter(seats)),
-         "no dispersion at all, so the measure declines to divide by it")
+         "no dispersion at all. The measure declines to divide by it")
 
     out.flush()
     return 0

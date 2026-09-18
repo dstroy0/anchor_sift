@@ -11,7 +11,7 @@
 # dictionary. A difference between two languages measured this way is a difference between two books that
 # happen to be in different languages, and nothing separates the two.
 #
-# One text translated into many languages removes that completely. The content is fixed, so what is left
+# One text translated into many languages removes that completely. The content is fixed. What is left
 # between two versions is the language alone. That is the comparison that was wanted all
 # along. It also reaches languages a book catalog does not carry, including the two asked for here.
 #

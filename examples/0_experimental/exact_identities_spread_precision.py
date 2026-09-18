@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/0_experimental/exact_identities_spread_precision.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. It is the mechanism behind a goal to raise the accuracy the engine holds by a large factor.
 # A constant computed once to N places by its own series is expensive. An exact identity that ties it
 # to another constant hands that other constant the same N places for the cost of one multiply. A small
@@ -25,7 +25,7 @@
 # derived value that fails its second route is not carried. Two routes or it does not ship.
 #
 # The null is drawn: a FALSE identity (sqrt(6) = sqrt(2) + sqrt(3), or phi^2 = phi + 2) is run through
-# the same second-route check and refused, so agreement under a true identity is a tested result.
+# the same second-route check and refused. Agreement under a true identity is a tested result.
 #
 # The floor is stated and measured: each scaled operation floors and loses less than one unit in the
 # last working place, and a derivation chain of depth d loses under d units, which a guard of a few
@@ -93,7 +93,7 @@ def pi_euler():
 def sqrt_scaled(number):
     """The square root of `number` at WORK_DIGITS places, by an integer square root. Self-verifying.
 
-    isqrt gives the largest r with r*r <= number * SCALE^2, so r*r <= number*SCALE^2 < (r+1)^2 holds by
+    isqrt gives the largest r with r*r <= number * SCALE^2. R*r <= number*SCALE^2 < (r+1)^2 holds by
     construction. This is the direct route the derived product route is checked against.
     """
     return isqrt(number * SCALE * SCALE)
@@ -103,7 +103,7 @@ def ln_rational(numerator, denominator):
     """ln(numerator / denominator) at WORK_DIGITS places, by 2 artanh((a-b)/(a+b)).
 
     ln((1+y)/(1-y)) = 2 artanh(y), and (1+y)/(1-y) = numerator/denominator gives y as a ratio of
-    integers, so every term is an exact scaled integer.
+    integers. Every term is an exact scaled integer.
     """
     upper = numerator - denominator
     lower = numerator + denominator
@@ -235,12 +235,12 @@ def report_zeta_spread(out, pi_value):
     pi_fourth = mul(pi_squared, pi_squared)
     zeta_two = pi_squared // 6
     zeta_four = pi_fourth // 90
-    # exact ratio independent of pi: zeta(4)/zeta(2)^2 = (1/90)/(1/36) = 2/5, so 5 zeta4 == 2 zeta2^2
+    # exact ratio independent of pi: zeta(4)/zeta(2)^2 = (1/90)/(1/36) = 2/5. 5 zeta4 == 2 zeta2^2
     left = 5 * zeta_four
     right = 2 * mul(zeta_two, zeta_two)
     out.write("    zeta(2)=pi^2/6 and zeta(4)=pi^4/90 derived; 5*zeta(4) == 2*zeta(2)^2: %s\n"
               % agrees(left, right))
-    out.write("    (the ratio 2/5 is exact and free of pi, so it checks the two derivations against\n")
+    out.write("    (the ratio 2/5 is exact and free of pi. It checks the two derivations against\n")
     out.write("     each other without a slow direct zeta series, which is infeasible at this scale)\n\n")
     return agrees(left, right)
 
@@ -284,7 +284,7 @@ def report_multiplier(out):
     generated, capped = count_smooth(primes, bound, budget)
     out.write("\n  two seeds sqrt(2), sqrt(3), bound 10^800: generated %d, per seed %.0f%s\n"
               % (generated, generated / len(primes), " (budget reached, lower bound)" if capped else ""))
-    out.write("  the count grows without limit in the bound and in the number of seeds, so the\n")
+    out.write("  the count grows without limit in the bound and in the number of seeds. The\n")
     out.write("  multiplier passes any factor, one million included, at a finite bound the count reaches.\n")
     return generated / len(primes)
 

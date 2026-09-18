@@ -12,7 +12,7 @@
 #
 # So the question is not whether a candidate resembles a member. It is whether the corpus with the
 # candidate in it is still on the curve the corpus was already on. This prints that curve, per
-# language, so the shape is visible before anything is decided by it.
+# language. The shape is visible before anything is decided by it.
 #
 # D_self is the estimator's resolution at each n, section 3. supp and H are section 4, reported
 # beside it because D_self falls as the distribution concentrates and would otherwise be read as a
@@ -25,7 +25,7 @@ import os
 import subprocess
 import sys
 
-# Every Salishan category on the import path, so this can use a sibling from another one.
+# Every Salishan category on the import path. This can use a sibling from another one.
 for _category in os.scandir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
     if _category.is_dir():
         sys.path.insert(0, _category.path)

@@ -134,7 +134,7 @@ def convergence(texts, steps=8):
 def blocked(texts, floor=6707):
     """A body of text cut into blocks each carrying at least floor bytes.
 
-    The unit the method resolves at. Section 3 was measured on corpora cut to 6707 bytes, so that
+    The unit the method resolves at. Section 3 was measured on corpora cut to 6707 bytes. That
     is the default here: a line is three orders of magnitude below it and cannot be asked anything.
     """
     held = []

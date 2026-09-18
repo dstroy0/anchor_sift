@@ -11,7 +11,7 @@
 #
 #   Usage:  python examples/0_experimental/exact_descent_rank.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. The arithmetic is the engine's own: Python integers as the bignum and exact residues mod
 # p^k, no float, no fraction library, no math library. The elliptic-curve group law used for the lower
 # bound is imported from exact_congruent_number.py so one representation carries both files.

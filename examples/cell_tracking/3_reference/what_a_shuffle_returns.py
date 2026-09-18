@@ -26,7 +26,7 @@
 #
 # THE NULL, AND WHICH PROPERTY IT DELETES. Positions are permuted within the second frame, holding
 # every level count exactly and destroying where each level sits. That deletes the correspondence
-# between the two frames and nothing else: both frames keep their histograms, so the agreement
+# between the two frames and nothing else: both frames keep their histograms. The agreement
 # measure is handed the same symbol inventory it had. theory/workbook records the protein posit
 # failing because two nulls deleted properties that were not separable, and records what survives
 # of it, that a result read as evidence about one property is unsupported until a null exists that
@@ -111,7 +111,7 @@ def condition(canvas, axis, truth, rng, out):
     # The statistic is how tightly the co-arms agree, not what they agree on. A first version of
     # this file compared the live mean against the null mean and is kept in the docstring because
     # it is wrong in an instructive way: a shuffled arm returns an argmax over lags plus a ratio,
-    # which lands near the middle of the swept range whatever it is handed, so its VALUE carries
+    # which lands near the middle of the swept range whatever it is handed. Its VALUE carries
     # nothing and a live reading sitting near it is a coincidence. Sixteen independent regions of
     # one field agreeing on a displacement is the thing a shuffle cannot produce.
     null_spreads = []
@@ -142,7 +142,7 @@ def main():
     out.write("  %-12s %-8s %-10s %-10s %-10s %-8s %s\n"
               % ("condition", "true", "live mean", "live sd", "null sd", "tighter", "floors out"))
 
-    # Axis 0 carries the displacement. Axis 1 carries none and is read from the same pair, so the
+    # Axis 0 carries the displacement. Axis 1 carries none and is read from the same pair. The
     # two conditions differ in exactly one thing.
     moved_tight, moved_floors, moved_mean, moved_sd = condition(canvas, 0, TRUTH, rng, out)
     still_tight, still_floors, _, still_sd = condition(canvas, 1, TRUTH, rng, out)
@@ -156,7 +156,7 @@ def main():
 
     # Both conditions clear a fixed floor, and a fixed floor is therefore the wrong comparison:
     # even with no displacement the field's own structure constrains an argmax more than a full
-    # shuffle does, so the still axis concentrates a little and clears three floors on that alone.
+    # shuffle does. The still axis concentrates a little and clears three floors on that alone.
     # What separates them is how much, 179x against 3.2x, and the test is the ratio of the two.
     separation = (moved_tight / still_tight) if still_tight > 0.0 else float("inf")
     out.write("  The moved axis concentrates %.0f times more than the still one.\n\n" % separation)
@@ -171,10 +171,10 @@ def main():
         out.write("  same field read %.4f px. The co-arms were always available and were not taken.\n"
                   % abs(moved_mean - TRUTH))
     elif moved_floors < 3.0:
-        out.write("  The moved axis does not concentrate past its own null, so the reading carries\n")
+        out.write("  The moved axis does not concentrate past its own null. The reading carries\n")
         out.write("  nothing at this width whatever its mean happens to equal.\n")
     else:
-        out.write("  The two conditions do not separate by an order of magnitude, so nothing here\n")
+        out.write("  The two conditions do not separate by an order of magnitude. Nothing here\n")
         out.write("  distinguishes an axis that moved from one that did not.\n")
     out.flush()
     return 0

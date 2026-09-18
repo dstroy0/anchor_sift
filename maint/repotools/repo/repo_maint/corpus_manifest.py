@@ -12,7 +12,7 @@
 #
 # WHY THE INVENTORY EXISTS
 #
-# The hand extractions are transcribed out of published papers, so the tables are those papers' text
+# The hand extractions are transcribed out of published papers. The tables are those papers' text
 # and not this work's to redistribute, and the papers themselves are somebody else's copyright. They
 # live in a closed repository for that reason. What this repository can carry is a record of what
 # was there and what it hashed to, which is enough to tie a number in the ledger to exact bytes
@@ -39,7 +39,7 @@
 #   unrecorded   the tree has it and the inventory does not. A file arrived without being entered,
 #                and an untracked table ends up inside a published result that way.
 #   changed      both have it and the bytes differ. A repair was applied and the inventory was not
-#                rewritten, so every hash quoted since is wrong.
+#                rewritten. Every hash quoted since is wrong.
 #
 # Any of the three exits non-zero, leaving it usable as a commit gate. Run it with no
 # argument to check, and with --write only when the disagreement is one you meant.
@@ -76,13 +76,13 @@ INVENTORIES = ((NAME, False), (AUDIO, True))
 # the flag reaches a commit hook, where nobody is typing arguments.
 BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 
-# Written by the tool and never entered as content, so they are not themselves inventoried.
+# Written by the tool and never entered as content. They are not themselves inventoried.
 # __pycache__ joined this list once the corpus started carrying code. A .pyc is generated, it
 # changes with the interpreter version, and inventorying one puts a file in the record that moves
 # without anybody touching the corpus.
 #
 # build/ is here for a different reason. A sound representation is a derivation of a recording and
-# it is faithful enough to put the recording back, so it stays inside the closed repository and is
+# it is faithful enough to put the recording back. It stays inside the closed repository and is
 # never written into a public tree. It is not inventoried and not committed: what the record has
 # to pin is the recording and the code, and the derivation follows from those two.
 IGNORED = (NAME, NAME + ".asc", AUDIO, AUDIO + ".asc", ".git", ".gitignore", "hooks",
@@ -183,7 +183,7 @@ def write_manifest(root, rows, out, name=NAME):
     total = sum(int(one["bytes"]) for one in rows.values())
     tables = [one for one in rows.values() if one["rows"]]
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
-        # Two closed repositories take this tool, so the line names the one it was pointed at.
+        # Two closed repositories take this tool. The line names the one it was pointed at.
         # A citations inventory headed "the private Salishan corpus" is a false statement about
         # what was signed, and the signature is the whole reason the header is read.
         handle.write("# %s of %s.\n"
@@ -194,7 +194,7 @@ def write_manifest(root, rows, out, name=NAME):
         if name == AUDIO:
             handle.write("#\n")
             handle.write("# Recordings are inventoried apart from the rest. A withdrawal takes\n")
-            handle.write("# recordings out and touches no paper, so it rewrites and re-signs this\n")
+            handle.write("# recordings out and touches no paper. It rewrites and re-signs this\n")
             handle.write("# file alone and the other signature still verifies.\n")
             handle.write("# Permission for each source is in SPEECH.tsv. Being listed here is a\n")
             handle.write("# record of what is held and is not a permission.\n")

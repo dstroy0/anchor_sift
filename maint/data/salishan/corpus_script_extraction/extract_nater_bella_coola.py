@@ -9,7 +9,7 @@
 #
 # Written for one paper. This is the simplest layout of the set: an introduction, a section defining the
 # symbols, the text itself as numbered blocks, and references. Each block gives the Nuxalk with its
-# morpheme markers, a gloss under it, and an English translation. A long sentence wraps, so one block can
+# morpheme markers, a gloss under it, and an English translation. A long sentence wraps. One block can
 # carry several transcription and gloss pairs before the translation arrives.
 #
 # Nater defines his own symbols in section 2 and they are used unchanged here. The character ˽, which he
@@ -19,7 +19,7 @@
 #
 # The story is The Frog Children, told by the late Dr. Margaret Siwallace and recorded over forty years
 # before the paper was published in 2015. Nater notes that the narrator first calls it a sʔalac'i, a
-# family-owned account, and then uses smsmayamk, to tell as a parable, so it sits between the two genres
+# family-owned account, and then uses smsmayamk, to tell as a parable. It sits between the two genres
 # the language names.
 
 import io
@@ -203,7 +203,7 @@ def main():
             # quoted, nor glossed, nor holding one of Nater's symbols left without a word.
             rows.append(("N", number, "3", UNCLASSIFIED, trimmed))
 
-    # Every line of the paper no section reached, added to the record as unclassified, so the
+    # Every line of the paper no section reached, added to the record as unclassified. The
     # marked file holds every token of the language the paper printed. For this one that is the
     # introduction and the references. They stay out of the pure stream.
     # The union of every orthography, not this paper's own set. The coverage check counts a token
@@ -219,7 +219,7 @@ def main():
         handle.write("# Papers for the International Conference on Salish and Neighbouring\n")
         handle.write("# Languages 50, UBCWPL 40, 2015.\n")
         handle.write("# The narrator first names it a sʔalac'i, a family-owned account, then uses\n")
-        handle.write("# smsmayamk, to tell as a parable, so it sits between the two genres.\n")
+        handle.write("# smsmayamk, to tell as a parable. It sits between the two genres.\n")
         handle.write("#\n")
         handle.write("# Mark is language.layer.kind. T is Nuxalk, N is anything else.\n")
         handle.write("# Nater's symbols are kept: ˽ follows a proclitic and precedes an enclitic,\n")

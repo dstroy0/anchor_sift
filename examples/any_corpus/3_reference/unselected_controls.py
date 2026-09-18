@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/any_corpus/3_reference/unselected_controls.py
 #
-# Every corpus in this work that departs from a null permutation was made by a person, so the measure
+# Every corpus in this work that departs from a null permutation was made by a person. The measure
 # detecting human production and the measure detecting arrangement are not separated by anything
 # measured. The control has to be a domain with structure and no author.
 #
@@ -59,7 +59,7 @@ def prime_gaps(limit):
             continue
         if previous is not None:
             gap = value - previous
-            # Gaps are even above 2 and grow slowly, so half the gap fits a byte for this range
+            # Gaps are even above 2 and grow slowly. Half the gap fits a byte for this range
             out.append(min(255, gap // 2))
         previous = value
     return out

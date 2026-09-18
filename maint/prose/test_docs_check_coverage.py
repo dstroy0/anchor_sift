@@ -227,7 +227,7 @@ class BuildFilesAreReadAtAll(unittest.TestCase):
             self.assertTrue(docs_check.checked_file("build" + suffix), suffix)
 
     def test_the_default_run_now_reads_build_files(self):
-        # Asserted against the roots this repository actually scans, so the selection rule is
+        # Asserted against the roots this repository actually scans. The selection rule is
         # measured where it has to work and not only against a made-up path.
         roots = list(docs_check.DEFAULT_ROOTS) + list(docs_check.private_roots())
         got = [one for one in docs_check.walk_markdown(roots) if docs_check.build_file(one)]
@@ -379,7 +379,7 @@ class TheAlphabetStageIsAPatternAndNotAList(unittest.TestCase):
 
     def test_each_shape_the_standard_names_has_an_arm(self):
         # The four shapes in that one sentence, each checked through a word the sentence does not
-        # itself contain, so the arm is tested and not the literal.
+        # itself contain. The arm is tested and not the literal.
         for word in ("categorising", "tokenisation", "harbour", "kilometres", "tunnelled"):
             self.assertTrue(stage_reaches(word), "no arm reaches %r" % word)
 
@@ -410,7 +410,7 @@ class PrecisionOverRecall(unittest.TestCase):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
 
     def test_the_shapes_the_arm_refuses_without_naming_them(self):
-        # The consonant class and the two-character floor carry these, so none of them has to be
+        # The consonant class and the two-character floor carry these. None of them has to be
         # written into a list that a later reader has to maintain.
         for word in ("noise", "raise", "praise", "braise", "chaise", "guise", "disguise", "cruise",
                      "bruise", "poise", "tortoise", "porpoise", "malaise", "appraise", "rise",
@@ -474,7 +474,7 @@ class PrecisionOverRecall(unittest.TestCase):
         # where an autofix may and may not go. One line carries a `licence` and a `rather`. The
         # first is token for token: `licence` becomes `license` and the sentence is unchanged. The
         # second is a construction, and code-documentation:110 bans it while :146 bans its obvious
-        # repair forty lines later, so no machine can make that edit. The alphabet stage is the only
+        # repair forty lines later. No machine can make that edit. The alphabet stage is the only
         # class an autofix could ever own, and this test marks where its edge falls.
         tree = sibling_repository("idemIP")
         if not tree:
@@ -551,7 +551,7 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
 
     def test_the_stage_reaches_every_british_form_in_the_tree(self):
         # N OF N, DERIVED. The denominator is the ground-truth list intersected with the tree at
-        # run time, so it moves when the tree moves and no constant can rot here.
+        # run time. It moves when the tree moves and no constant can rot here.
         tree = self.at[AFTER_REF]
         present = forms_present(tree)
         missed = sorted(one for one in present if not stage_reaches(one))
@@ -567,10 +567,10 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
         print("    the pattern arms reach   %d of %d" % (len(present) - len(missed), len(present)))
         print("    forms: %s" % ", ".join("%s(%d)" % (one, present[one])
                                           for one in sorted(present)))
-        self.assertGreater(len(present), 0, "the ground truth found nothing, so it proves nothing")
+        self.assertGreater(len(present), 0, "the ground truth found nothing. It proves nothing")
         self.assertEqual(missed, [], "the stage misses: %s" % missed)
         self.assertLess(len(before), len(present),
-                        "the ten literals already reached everything, so this pass bought nothing")
+                        "the ten literals already reached everything. This pass bought nothing")
 
     def test_the_correction_between_the_two_refs_is_derived_as_a_difference(self):
         # A difference and never a total. Two sessions read 58 and 15 for this repository and both
@@ -586,7 +586,7 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
         print("\n  idemIP spelling findings: %s at %s, %s at %s, corrected by hand: %d"
               % (counted[BEFORE_REF], BEFORE_REF, counted[AFTER_REF], AFTER_REF, moved))
         self.assertGreater(moved, 0,
-                           "the later ref is not cleaner, so this is not the fixture it was")
+                           "the later ref is not cleaner. This is not the fixture it was")
         self.assertEqual(counted[AFTER_REF] + moved, counted[BEFORE_REF])
 
     def test_the_build_file_sites_are_the_same_at_both_refs(self):
@@ -605,9 +605,9 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
         print("\n  build-file spelling sites: %d at %s, %d at %s"
               % (len(at_both[BEFORE_REF]), BEFORE_REF, len(at_both[AFTER_REF]), AFTER_REF))
         self.assertGreater(len(at_both[AFTER_REF]), 0,
-                           "no build-file site at either ref, so this proves nothing")
+                           "no build-file site at either ref. This proves nothing")
         self.assertEqual(at_both[BEFORE_REF], at_both[AFTER_REF],
-                         "a build-file site moved between the refs, so the fixture has changed "
+                         "a build-file site moved between the refs. The fixture has changed "
                          "and the claim above it needs re-deriving")
 
 

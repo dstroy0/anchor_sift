@@ -14,7 +14,7 @@
 # at one sampling that reads as a fact about the paintings, and it is a fact about the cameras.
 #
 # It reads that way because one sampling is all that was measured. A painted surface has gradients all the
-# way down and a photograph of it has a finite number of samples, so every number here is taken at the
+# way down and a photograph of it has a finite number of samples. Every number here is taken at the
 # resolution the file happens to carry, and the finest scale in that file is exactly where the grain
 # lives.
 #

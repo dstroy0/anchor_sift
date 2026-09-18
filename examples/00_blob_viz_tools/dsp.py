@@ -144,7 +144,7 @@ def synth(count, rate, seed=7):
         value += 0.22 * math.sin(TAU * (1000.0 + (2000.0 * t / max(1e-9, count / float(rate)))) * t)
         # A quiet high tone, near the level where windowing decides whether it is visible.
         value += 0.02 * math.sin(TAU * 7000.0 * t)
-        # White noise from a small linear congruential generator, so the file needs no imports and
+        # White noise from a small linear congruential generator. The file needs no imports and
         # the same seed gives the same noise.
         state = (1103515245 * state + 12345) & 0x7FFFFFFF
         value += 0.03 * (((state / 1073741824.0) - 1.0))

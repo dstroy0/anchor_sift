@@ -128,7 +128,7 @@ static const char s_ab_prose[] =
     "wanted to admit to the other that they were frightened of falling. afterwards they sat on the "
     "far bank and dried their feet in the sun and agreed that it had not been so bad after all. "
     "later that evening the weather turned and a thin rain began to fall, first in single drops "
-    "that marked the dust and then steadily, so that within a quarter of an hour the whole valley "
+    "that marked the dust and then steadily. That within a quarter of an hour the whole valley "
     "was grey and the far side of it invisible. they sheltered under an overhanging rock and "
     "watched the water gather in the hollows and run away downhill in a hundred small channels, "
     "each one finding its own way among the stones without any apparent difficulty. it occurred to "
@@ -734,7 +734,7 @@ static AbResult ab_interrogative(const uint8_t *corpus, size_t corpus_len, const
  *       most a + 1, since beyond that the pattern has left the cell behind and the read says nothing
  *       about where it lands. That bound is a fact about the geometry and not a guess about the data.
  *       Every offset starts at its own ceiling and can only be revised downward. The largest
- *       ceiling is the last offset, so the search opens as Horspool and gives up ground only where an
+ *       ceiling is the last offset. The search opens as Horspool and gives up ground only where an
  *       answer has shown the ceiling to be out of reach.
  * @note The running value forgets. An offset that stops delivering loses its lead and the search
  *       reconsiders. A corpus that changes character partway through is the case that needs it.
@@ -760,7 +760,7 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
     double background = (double)needle_len / 2.0;
 
     // The accumulated and trend terms are short lived state about the region the search is standing
-    // in, so they start empty on every search even when the field itself is carried
+    // in. They start empty on every search even when the field itself is carried
     double history[AB_MAX_NEEDLE];
     double last_error[AB_MAX_NEEDLE];
 
@@ -995,12 +995,12 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
  *       set of alignments a group of reads rules out is the union of what each rules out separately,
  *       and a union does not care what order it was built in. Every other arm here computes its next
  *       position from the symbol it just read, which makes the reads a chain. The positions here are
- *       fixed before the first one happens, so no read waits on another and the chain has length one.
+ *       fixed before the first one happens. No read waits on another and the chain has length one.
  * @note What that costs. A greedy shift always jumps to the next position not yet ruled out, the
  *       most any single read can remove. A fixed stride reads some cells that a greedy walk would
  *       have skipped. The count below is what that waste amounts to, and the depth next to it is what
  *       the waste returned.
- * @note The verify phase depends on the probe phase, so the reported depth is two: every probe read is
+ * @note The verify phase depends on the probe phase. The reported depth is two: every probe read is
  *       independent of every other, and every verify read waits only on the probes.
  */
 static AbResult ab_free_order(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle, size_t needle_len,
@@ -1139,7 +1139,7 @@ static AbResult ab_free_order(const uint8_t *corpus, size_t corpus_len, const ui
  *       looks at which alignments are still alive and asks where the next read would do the most.
  * @note Why coverage is the criterion. The symbol about to be read is unknown. Every candidate
  *       position kills the same expected fraction of the alignments it touches. What differs between
- *       positions is how many live alignments they touch at all, so the most informative next read
+ *       positions is how many live alignments they touch at all. The most informative next read
  *       falls where the surviving candidates overlap. That quantity is a property of the answers so far
  *       and of nothing else.
  * @note The search stops when a read kills nothing, which means the position separated no survivors,
@@ -1290,7 +1290,7 @@ static AbResult ab_adaptive(const uint8_t *corpus, size_t corpus_len, const uint
 /**
  * @brief How many cells the discovery pass reads.
  *
- * @note Every pair of them tests one shift, so k reads carry k(k-1)/2 tests. The read count is what
+ * @note Every pair of them tests one shift. K reads carry k(k-1)/2 tests. The read count is what
  *       the corpus is charged and the pair count is what the corpus is asked.
  */
 #define AB_DISCOVER_READS 512u
@@ -1403,7 +1403,7 @@ static double ab_shift_survey(const uint8_t *corpus, size_t corpus_len, unsigned
 
     // A shift is reported when its agreement rate stands far enough above the collision probability
     // that a run of luck does not reach it. The threshold is not trusted on its own: the tests for one
-    // shift share read positions, so they are not independent and a standard error computed as though
+    // shift share read positions. They are not independent and a standard error computed as though
     // they were is too small. What the threshold means is fixed below by running the same count over a
     // shuffle of the same bytes
     unsigned reported = 0u;
@@ -1502,7 +1502,7 @@ static void ab_discover(const char *name, const uint8_t *corpus, size_t corpus_l
  *       measures.
  * @note The statistic. If a symbol's positions carry no structure, the gaps between them are geometric
  *       and the variance equals the squared mean times one minus the rate. The ratio of variance to
- *       squared mean sits at one. A separator has bounded unit length, so its gaps are far tighter
+ *       squared mean sits at one. A separator has bounded unit length. Its gaps are far tighter
  *       than geometric and the ratio falls well below one. The ratio has no units and no scale. The
  *       same threshold reads the same on any alphabet and any corpus length.
  */
@@ -1692,7 +1692,7 @@ static void ab_boundary_filter(const char *name, const uint8_t *corpus, size_t c
         }
 
         // Every alignment whose boundaries fall at the same offsets. The first boundary anchors the
-        // run and the rest are checked against it, so what is compared is the spacing and not the
+        // run and the rest are checked against it. What is compared is the spacing and not the
         // absolute position
         size_t kept = 0u;
 
@@ -1882,7 +1882,7 @@ static void ab_universals(const char *name, const uint8_t *corpus, size_t corpus
     const double slope = (denominator != 0.0) ? (((ranks * sum_xy) - (sum_x * sum_y)) / denominator) : 0.0;
 
     // Brevity, as the correlation between how long a unit is and how often it occurs. A language is
-    // said to make its common units short, so this is expected to be negative
+    // said to make its common units short. This is expected to be negative
     double mean_span = 0.0;
     double mean_freq = 0.0;
 
@@ -1911,7 +1911,7 @@ static void ab_universals(const char *name, const uint8_t *corpus, size_t corpus
     const double spread = sqrt(span_spread * freq_spread);
     const double brevity = (spread > 0.0) ? (covariance / spread) : 0.0;
 
-    // How much one unit carries. Vocabulary grows with how much text has been read, so counting types
+    // How much one unit carries. Vocabulary grows with how much text has been read. Counting types
     // over a whole corpus compares corpus sizes as much as languages and the count is taken at a fixed
     // budget instead. The entropy beside it is what a unit is worth in bits, and a language packing
     // more description into each word would raise it.
@@ -2533,7 +2533,7 @@ static void ab_report(const char *name, const uint8_t *corpus, size_t corpus_len
             ab_free_order(corpus, corpus_len, needle, needle_len, free_stride, &free_depth, 1u, &mirror_error),
         };
 
-        // Probed to uniqueness and never confirmed. Its answer is the survivor set itself, so the
+        // Probed to uniqueness and never confirmed. Its answer is the survivor set itself. The
         // check is whether that set is the occurrence set and not whether it verified
         size_t unique_depth = 0u;
         const AbResult unique =

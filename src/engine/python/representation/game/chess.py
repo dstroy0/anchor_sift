@@ -12,7 +12,7 @@
 # chess position after four plies has more continuations than the other three games have positions,
 # so here the outcome distribution has to be estimated. That is the point of including it. An
 # estimator that is wrong on blackjack is caught immediately; an estimator that is wrong on chess is
-# not caught by anything local, so the only thing standing behind a chess number is whether the same
+# not caught by anything local. The only thing standing behind a chess number is whether the same
 # estimator reproduced the solved games. This backend is where the measurement stops being checkable
 # and starts having to be trusted, and the subject exists to make that boundary visible rather than
 # to hide it.
@@ -86,7 +86,7 @@ def on_board(row, column):
 def from_layout(rows, side=rules.PLAYER_ONE, rights=(True, True, True, True), passing=-1):
     """A position from eight text rows, rank 8 first. Uppercase is PLAYER_ONE, lowercase PLAYER_TWO.
 
-    The rows read top down the way a board is drawn, so a position written here looks like the
+    The rows read top down the way a board is drawn. A position written here looks like the
     position it is. Rights and the en passant square default to a full-rights opening; a fragment
     position should pass rights explicitly rather than inherit castling it never had.
     """
@@ -338,7 +338,7 @@ def _in_check(board, side):
         if board[square] == king:
             return _attacked(board, square, _other(side))
 
-    # A board with no king is not a chess position. Report not in check rather than raising, so a
+    # A board with no king is not a chess position. Report not in check rather than raising. A
     # fragment position used in an example does not have to invent a king it does not need.
     return False
 
@@ -348,7 +348,7 @@ def _attacked(board, square, by_side):
     row, column = divmod(square, SIZE)
     forward = 1 if by_side == rules.PLAYER_ONE else -1
 
-    # A pawn attacks diagonally forward, so from the square's view it sits diagonally backward.
+    # A pawn attacks diagonally forward. From the square's view it sits diagonally backward.
     for side_step in (-1, 1):
         new_row, new_column = row - forward, column + side_step
         if on_board(new_row, new_column):
@@ -388,7 +388,7 @@ def _attacked(board, square, by_side):
 
 
 def square_name(square):
-    """Algebraic name of a square, so a printed move is one a reader can find on a board."""
+    """Algebraic name of a square. A printed move is one a reader can find on a board."""
     return "abcdefgh"[square % SIZE] + str(square // SIZE + 1)
 
 

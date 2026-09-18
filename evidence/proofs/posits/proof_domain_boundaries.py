@@ -10,16 +10,16 @@
 #
 #   Usage:  python evidence/proofs/posits/proof_domain_boundaries.py
 #
-# The three kinds are named from a survey of six domains. A survey is not a proof, so three cases are
+# The three kinds are named from a survey of six domains. A survey is not a proof. Three cases are
 # built here where the boundary is known by construction.
 #
 #   FORMAT       the number theoretic transform's length. A length-n root of unity exists modulo a prime
-#                p exactly when n divides p - 1, so the boundary is the 2-adic order of p. It is proven
+#                p exactly when n divides p - 1. The boundary is the 2-adic order of p. It is proven
 #                by building the root at the cap and failing to build it one power of two past the cap,
 #                then moving the boundary with a larger prime. The transform is cyclic on Z/nZ, and its
 #                double is the involution m -> -m, its own inverse: a format boundary is a fold.
 #   MEASUREMENT  a value known only to F places. An identity applied to it lands near F, never at the
-#                full scale, so precision on this end does not lower the deposit's floor.
+#                full scale. Precision on this end does not lower the deposit's floor.
 #   COMPLETENESS a bounded enumeration read at a horizon. Carrying the count at more decimal places does
 #                not change it; only raising the horizon does. Precision does not buy completeness.
 #

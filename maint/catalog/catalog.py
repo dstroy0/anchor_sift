@@ -7,7 +7,7 @@
 #   python maint/catalog/catalog.py            what is registered and what is not
 #   python maint/catalog/catalog.py --assign   number the new ones and write it into their headers
 #   python maint/catalog/catalog.py --check    fail where a header and the registry disagree
-#   python maint/catalog/catalog.py --header   give a file with no license header one, so --assign
+#   python maint/catalog/catalog.py --header   give a file with no license header one. --assign
 #                                              has a line to write its number under
 #
 # WHY A NUMBER AND NOT A PATH
@@ -36,7 +36,7 @@
 # A MOVE KEEPS THE NUMBER AND CHANGES THE PREFIX
 #
 # Those disagree, and the registry keeps the number it issued. An example that moves from one domain
-# to another is the same example, so --assign updates the path against the existing number and
+# to another is the same example. --assign updates the path against the existing number and
 # leaves the number alone, prefix included. The prefix says where it was first filed; the path in
 # the registry says where it is.
 
@@ -119,7 +119,7 @@ DOMAIN = {
 # failed on main naming them.
 #
 # EXP is the VIZ case again rather than a ninth subject. 0_experimental holds work that reads no
-# corpus yet, so it names no domain in the sense the others do, and its files take stage x like
+# corpus yet. It names no domain in the sense the others do, and its files take stage x like
 # anything outside a numbered pipeline directory. They are numbered because a number survives a
 # move: an example that later earns a subject stage keeps the number it was issued here, and every
 # citation written against it still resolves.
@@ -244,7 +244,7 @@ def stamp(text, number):
     SPDX line to put it under.
 
     Returning None rather than the text unchanged is the whole point. Unchanged text is what a file
-    already carrying the right number returns, so the caller could not tell a file it had nothing to
+    already carrying the right number returns. The caller could not tell a file it had nothing to
     do to from a file it could not write to, and reported both as stamped. The registry then held a
     number for a file whose header would never carry it, --check reported it adrift forever, and the
     remedy --check named was the run that had just silently skipped it.
@@ -351,7 +351,7 @@ def main():
         if row["state"] == "retired" and was != "retired":
             retired.append((number, row["path"]))
 
-    # The header and the registry are two copies of one fact, so they are compared every run.
+    # The header and the registry are two copies of one fact. They are compared every run.
     adrift = []
     for path in found:
         number = by_path.get(path)
@@ -448,7 +448,7 @@ def main():
                 out.write("    %s  needs %s\n" % (path, number))
             out.write("\n  Each holds a number in the registry and has no header to write it into.\n")
             out.write("  --check reports these as adrift, --check says to run --assign, and --assign\n")
-            out.write("  cannot reach them, so the two instructions point at each other until one of\n")
+            out.write("  cannot reach them. The two instructions point at each other until one of\n")
             out.write("  these files gets the standard header. Giving them a header is the exit.\n\n")
             out.flush()
             return 1

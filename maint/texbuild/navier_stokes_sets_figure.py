@@ -10,7 +10,7 @@
 #   Usage:  python maint/texbuild/navier_stokes_sets_figure.py [--out FILE]
 #
 # The PDF is written by hand: a page, one content stream of line, rectangle, curve and text operators,
-# and two base-14 fonts that every reader carries, so nothing is embedded and no drawing library is
+# and two base-14 fonts that every reader carries. Nothing is embedded and no drawing library is
 # imported. The tree's arithmetic rule holds here as well as in the example: integers, and the
 # coordinates a page needs. The output lands under build/theory/figures/, never beside a source, and the
 # millennium book's chapter on their sets includes it behind a guard that typesets a sentence when the

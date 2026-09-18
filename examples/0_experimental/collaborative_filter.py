@@ -7,7 +7,7 @@
 #
 #   Usage:  python examples/0_experimental/collaborative_filter.py
 #
-# This reads no corpus, so it sits in 0_experimental: an algorithm shown working, a recommender-systems
+# This reads no corpus. It sits in 0_experimental: an algorithm shown working, a recommender-systems
 # filter beside the signal ones. It is the group-mean estimate the denoisers use, over a table with
 # holes: to fill a missing entry, find the rows that agree with its row wherever both have values, and
 # average what those neighbours put in the missing column.
@@ -15,7 +15,7 @@
 # It is application logic, not an engine primitive, and it lives here rather than in reference/ for a
 # reason worth stating: reference/ is the null a reading stands AGAINST -- memoryless, solved for. A
 # group-mean is the signal estimate a reading is measured INTO. A denoiser OUTPUTS it; nothing outputs
-# a null. Same mathematical form, opposite role, so the estimate is application and only the null is a
+# a null. Same mathematical form, opposite role. The estimate is application and only the null is a
 # reference-stage object.
 #
 # TWO ROUTES THAT CAN GENUINELY DISAGREE: the field's own two methods. User-based filtering averages
@@ -23,7 +23,7 @@
 # that agree, which is the same rule on the transpose. They read the table along different axes and
 # share no traversal. On a table that is a row effect plus a column effect they return the same value
 # to the last digit; on a table with no such structure they disagree, and the disagreement is the
-# finding rather than a bug. Nothing is bounded: agreement is exact equality on the overlap, so there is
+# finding rather than a bug. Nothing is bounded: agreement is exact equality on the overlap. There is
 # no similarity cutoff; a row whose effect is unique has no neighbours and its holes are left unfilled.
 
 import io
@@ -122,7 +122,7 @@ def main():
     out.write("\n  divergence probe: a broken route (whole-column mean) splits from the honest one: %s\n"
               % splits)
 
-    # null: a table with no row+column structure -- no exact neighbour exists, so both routes DECLINE
+    # null: a table with no row+column structure -- no exact neighbour exists. Both routes DECLINE
     rng_state = 0x51F7
     noise = [[0] * 8 for _ in range(8)]
     for r in range(8):
@@ -134,7 +134,7 @@ def main():
     pu = predict_user(holed_noise, 0, 0)
     pi = predict_item(holed_noise, 0, 0)
     out.write("  null: a table with no row+column structure -> user says %s, item says %s\n" % (pu, pi))
-    out.write("  neither finds an exact neighbour, so both decline rather than guess -- the exact-match\n")
+    out.write("  neither finds an exact neighbour. Both decline rather than guess -- the exact-match\n")
     out.write("  rule refuses to fabricate a value the data does not support.\n")
     out.write("\n  on the structured table both routes land on the same rational and it is the clean\n")
     out.write("  value; they are different computations, rows against columns, that coincide only\n")

@@ -22,7 +22,7 @@ import numpy
 # and a line fitted through them is fitted through how much of the file was opened.
 LOW = 4
 
-# Bands spaced evenly in the logs, so the many high frequencies do not outvote the few low ones and
+# Bands spaced evenly in the logs. The many high frequencies do not outvote the few low ones and
 # the fit describes the whole range instead of its top end.
 BANDS = 48
 

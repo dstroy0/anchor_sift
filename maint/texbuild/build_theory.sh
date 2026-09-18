@@ -45,7 +45,7 @@ fi
 STATUS=0
 
 for book in $BOOKS; do
-    # Resolved against both trees, so a book moving between them does not change how it is named
+    # Resolved against both trees. A book moving between them does not change how it is named
     # here or on the command line. Output stays under build/theory/ either way.
     if [ -f "$ROOT/theory/$book/main.tex" ]; then
         src="$ROOT/theory/$book"
@@ -75,7 +75,7 @@ for book in $BOOKS; do
         continue
     fi
 
-    # grep -c exits 1 when it counts nothing, so the count is taken with the exit ignored. Piping
+    # grep -c exits 1 when it counts nothing. The count is taken with the exit ignored. Piping
     # through wc keeps a single number even when the log is absent.
     dropped=$(grep -c "^Missing character" "$out/main.log" 2>/dev/null | head -n 1)
     dropped=${dropped:-0}

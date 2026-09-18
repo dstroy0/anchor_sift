@@ -101,7 +101,7 @@ static unsigned int host_limbs(unsigned int bits)
  * @param[in]  limbs_in    Limbs the source values occupy. The limbs above are zero.
  * @param[in]  geometry    The shape.
  * @note Each limb of the result is summed on its own in 64 bits and the carries run once at the
- *       end. The weights sum to at most 2^32 and a limb is below 2^32, so no 64 bit sum wraps.
+ *       end. The weights sum to at most 2^32 and a limb is below 2^32. No 64 bit sum wraps.
  */
 static void host_pass(const unsigned int *source, unsigned int *destination, const unsigned int *weights,
                       unsigned int order, unsigned int axis, unsigned int limbs_in, HostGeometry geometry)
@@ -362,7 +362,7 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
     geometry.height = args->height;
     geometry.width = args->width;
 
-    // Bounded below 2^32 just above, so the count fits the unsigned int.
+    // Bounded below 2^32 just above. The count fits the unsigned int.
     geometry.voxels = (unsigned int)voxel_count;
     const size_t voxels = (size_t)geometry.voxels;
     const size_t limb_bytes = voxels * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int);
@@ -425,7 +425,7 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
                 }
             }
 
-            // 2^32 is added before subtracting, so the difference is never negative, and a result
+            // 2^32 is added before subtracting. The difference is never negative, and a result
             // below 2^32 means a borrow was taken.
             const unsigned long long difference = (1ull << 32u) + (unsigned long long)shifted
                                                 - (unsigned long long)background[limb] - borrow;
@@ -493,7 +493,7 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
         }
     }
 
-    // A positive voxel's peak is at least as high, so it is positive too and counted as a peak.
+    // A positive voxel's peak is at least as high. It is positive too and counted as a peak.
     unsigned long long peak_count = 0ull;
     for (unsigned int voxel = 0u; voxel < geometry.voxels; voxel += 1u)
     {

@@ -9,10 +9,10 @@
 #
 #   Usage:  python examples/0_experimental/ntt_double_transform_inverts.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. The transform is a sum over roots of unity, which are waves on the circle: X[k] = sum_j x[j]
 # w^{jk} with w an n-th root of unity. Apply it a second time and every term collects into a delta,
-# because sum_k w^{k(j+m)} is n when j+m is 0 modulo n and 0 otherwise, so the second transform returns
+# because sum_k w^{k(j+m)} is n when j+m is 0 modulo n and 0 otherwise. The second transform returns
 # n times the original read backward from index 0. The forward transform is its own inverse up to that
 # reversal and the scale n, and that is the exact reason the inverse transform runs the same butterfly
 # with the reciprocal root.
@@ -89,7 +89,7 @@ def main():
     out.write("  the transform applied twice turns the sequence around: a wave inversion, exact mod p\n\n")
 
     root_of_length = pow(GENERATOR, (PRIME - 1) // LENGTH, PRIME)  # a primitive LENGTH-th root of unity
-    original = [3, 1, 4, 1, 5, 9, 2, 6]  # not a palindrome, so the reversal is visible
+    original = [3, 1, 4, 1, 5, 9, 2, 6]  # not a palindrome. The reversal is visible
 
     once = ntt_forward(original, PRIME, root_of_length)
     twice = ntt_forward(once, PRIME, root_of_length)

@@ -12,7 +12,7 @@
  * @date 2026-09-01
  *
  * @note What this exists to settle. The soundness argument for an anchor uses only that a position is
- *       a position: an anchor is a condition copied out of the pattern, so anything holding the whole
+ *       a position: an anchor is a condition copied out of the pattern. Anything holding the whole
  *       pattern holds that condition. Nothing in it names a dimension, an order on positions, or a
  *       symbol. The sift bench measures byte strings and cannot tell whether that generality is real
  *       or whether the argument quietly leans on the line it was written over.
@@ -22,7 +22,7 @@
  *       the caller built. It never learns what a symbol is, because it only ever asks whether two of
  *       them agree. A core that cannot see either one cannot depend on either one.
  * @note Counts, not cycles. Every number here is a property of the data and the geometry, identical on
- *       every part, so nothing needs a board.
+ *       every part. Nothing needs a board.
  */
 #include <complex.h>
 #include <math.h>
@@ -54,7 +54,7 @@ typedef bool embed_bool;
  *
  * @note The hand built geometries below stay at PATTERN_POINTS because their shapes are written out
  *       by hand: a 2 by 4 box, eight scattered cells inside a 5 by 5 window, and that scatter turned
- *       a quarter. There is no generalization of a named shape to an arbitrary point count, so the
+ *       a quarter. There is no generalization of a named shape to an arbitrary point count. The
  *       sweep runs over the geometries that do generalize, which are the line and the hypercube.
  */
 #define PATTERN_POINTS_MAX 32u
@@ -147,7 +147,7 @@ typedef struct
  *
  * @note All three are uninformed. There is no cost table in this file and there cannot be one, since
  *       a domain whose alphabet cannot be enumerated has no frequencies to weigh. That is the setting
- *       the claim has to survive, so the rules here differ from each other and none of them looks at
+ *       the claim has to survive. The rules here differ from each other and none of them looks at
  *       the data.
  */
 typedef enum
@@ -293,7 +293,7 @@ static uint32_t candidates_lattice(SameSymbol same, const void *domain, const si
  * @return                   How many of those an anchor rejected.
  * @note The same obligation the sift bench checks over byte strings, asked here where the positions
  *       are not on a line and the symbols may not be readable. An anchor is one of the pattern's own
- *       points, so anything matching every point matches that one. A nonzero return is a defect in
+ *       points. Anything matching every point matches that one. A nonzero return is a defect in
  *       this file and never a property of a geometry.
  */
 static uint32_t refused_lattice(SameSymbol same, const void *domain, const size_t *bases, size_t base_count,
@@ -504,9 +504,9 @@ static size_t s_line_bases[LINE_LENGTH];
 /**
  * @brief The same base positions in an order nothing chose.
  *
- * @note The core never sorts its bases and never compares two of them, so it cannot depend on their
+ * @note The core never sorts its bases and never compares two of them. It cannot depend on their
  *       order. That is an argument about the code, and the point of this array is to put it in the
- *       rows instead. It holds exactly the positions the line holds, permuted, so it has to return
+ *       rows instead. It holds exactly the positions the line holds, permuted. It has to return
  *       the identical occurrence count and the identical verdict. A difference between the two rows
  *       would be an order dependence nobody intended.
  */
@@ -617,7 +617,7 @@ static void fill_levels(uint8_t *into, size_t length, uint64_t salt, unsigned le
 {
     draw_bytes(into, length, salt);
 
-    // A byte carries 256 values, so an alphabet of 256 is the identity here and anything smaller is
+    // A byte carries 256 values. An alphabet of 256 is the identity here and anything smaller is
     // a fold. The modulus is not quite uniform for a level count that does not divide 256, which
     // costs nothing: the claim under test is that no true occurrence is refused, and a true
     // occurrence is true whatever weight its symbols carry.
@@ -635,7 +635,7 @@ static void fill_levels(uint8_t *into, size_t length, uint64_t salt, unsigned le
  *
  * @note The values are built from square roots of primes so no member of the set has an exact
  *       representation. Which one a position holds is drawn from the same generator everything else
- *       here uses, so the domain has the same statistics as the byte domains and differs only in what
+ *       here uses. The domain has the same statistics as the byte domains and differs only in what
  *       a symbol is made of.
  */
 static void fill_field(void)
@@ -684,7 +684,7 @@ static size_t build_line(unsigned points)
  * @brief Copies the line's bases and permutes them, leaving the set identical and the order not.
  *
  * @param[in] count How many bases the line wrote.
- * @note A Fisher-Yates shuffle, so every base the line holds is still present exactly once. The row
+ * @note A Fisher-Yates shuffle. Every base the line holds is still present exactly once. The row
  *       this produces has to match the line's row on occurrences and on verdict. Anything else is an
  *       order dependence in a core written to have none.
  */
@@ -731,14 +731,14 @@ static size_t build_field(void)
  * @return How many bases were written, shared by all three.
  * @note The box is a 2 by 4 rectangle. The scatter is eight points placed inside a 5 by 5 window with
  *       no row or column filled, a case a rectangle cannot stand in for. The turned set is the
- *       scatter under (row, column) going to (column, 4 - row), so it is the same eight points
+ *       scatter under (row, column) going to (column, 4 - row). It is the same eight points
  *       rotated a quarter turn. A rotation permutes displacements and changes nothing more, and the
  *       three share one base list so the rows show it.
  */
 static size_t build_grid(void)
 {
     // Eight points inside a 5 by 5 window, listed as row then column. No row and no column holds more
-    // than two of them, so nothing about the set can be read as a run
+    // than two of them. Nothing about the set can be read as a run
     static const unsigned scatter[PATTERN_POINTS][2] = {{0u, 0u}, {0u, 3u}, {1u, 1u}, {2u, 4u},
                                                         {3u, 0u}, {3u, 2u}, {4u, 1u}, {4u, 4u}};
     size_t count = 0u;
@@ -825,7 +825,7 @@ static ptrdiff_t s_hypercube_points[PATTERN_POINTS_MAX];
  *       point it has. Filling a corner of a hypercube instead would have placed all eight points
  *       inside three axes at every dimension above three, which would have measured a three
  *       dimensional pattern in a larger space and reported it as a higher dimensional result.
- * @note Seven points off the origin can touch at most seven axes, so at dimension eight the pattern
+ * @note Seven points off the origin can touch at most seven axes. At dimension eight the pattern
  *       spans seven of them. Every dimension up to seven is spanned completely.
  * @note Bases are every position where the whole pattern stays in bounds, the geometry the core
  *       reads. Nothing about the dimension reaches the core by any other route.
@@ -1035,7 +1035,7 @@ int main(void)
     // The alphabet and the point count come off here. Both were fixed at one value and neither is
     // part of the claim: the proposition names no alphabet and no pattern size. What breaks as they
     // grow is the check and not the claim, since a pattern of p points over L symbols occurs by
-    // chance about base_count / L^p times, so the occurrences are planted.
+    // chance about base_count / L^p times. The occurrences are planted.
     printf("bench,geometry,rule,levels,points,anchors,positions,occurrences,planted,candidates,"
            "verdict\n");
 

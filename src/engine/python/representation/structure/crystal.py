@@ -23,7 +23,7 @@
 # has to stay readable. Nothing new should read a crystal that way.
 #
 # No other positive control in this work carries an answer nobody here produced. The
-# Crystallography Open Database publishes the cell edge for every entry, so the
+# Crystallography Open Database publishes the cell edge for every entry. The
 # periodicity is not inferred from the measurement: it is a number someone else measured, refereed
 # and wrote down. Tiling a published cell reproduces the real arrangement, and the instrument is
 # then handed the voxels and asked to return the edge with nothing told to it.
@@ -48,7 +48,7 @@ import numpy
 from representation import exact
 
 # The column names a CIF gives fractional coordinates. A CIF names its columns in the loop header
-# and their order is not fixed, so both readings below find them by name. Reading by position
+# and their order is not fixed. Both readings below find them by name. Reading by position
 # returns the occupancy where the z fraction should be on any entry carrying a Wyckoff letter.
 FRACTIONS = ("_atom_site_fract_x", "_atom_site_fract_y", "_atom_site_fract_z")
 
@@ -62,7 +62,7 @@ OCCUPANCY = "_atom_site_occupancy"
 # as `O1 O2- 16 f -1. -1. -1. 1. 0 dum`, because the oxygen positions were not solved.
 #
 # Those coordinates are a sentinel and they behave like data. -1 reduces into the cell at the
-# origin, so a dummy oxygen lands on top of whatever real atom sits there and a reading that counts
+# origin. A dummy oxygen lands on top of whatever real atom sits there and a reading that counts
 # two elements at one position reports Mo and O sharing a site. That is chemically impossible, a
 # cation and an anion do not occupy one place, and it is how the sentinel announces itself.
 #
@@ -79,7 +79,7 @@ OCCUPANCY = "_atom_site_occupancy"
 #
 # The mechanism matters more than the zero, because it says which readings were never at risk and
 # which would have been. A dum site sits at -1 and reduces into the cell at the origin. exact_points
-# tiles the cell, so the spurious atom appears at the same place in every tile. along() gathers the
+# tiles the cell. The spurious atom appears at the same place in every tile. along() gathers the
 # arrangement at each coordinate, and an atom replicated identically in every copy shifts every
 # plane the same way, leaving the set of agreeing lags unchanged. A period is a statement about
 # repetition and a defect that repeats perfectly does not disturb it.
@@ -92,7 +92,7 @@ CALC_FLAG = "_atom_site_calc_flag"
 DUMMY = "dum"
 
 # Tiles per axis for the exact reading. One cell holds one period, and one period cannot be told
-# from noise. There is no cap on this one: the points are sparse, so the cost is linear in the tile
+# from noise. There is no cap on this one: the points are sparse. The cost is linear in the tile
 # count and not the cube of a grid side.
 EXACT_TILES = 4
 
@@ -138,7 +138,7 @@ def site_text(text):
 
     The occupancy a deposit published is dropped here, which is correct for every reading that only
     asks where the atoms are. A reading that asks whether a site is shared wants `site_table` below
-    instead. Both walk the same loop, so there is one reader and not two.
+    instead. Both walk the same loop. There is one reader and not two.
     """
     return [row[:4] for row in site_table(text)]
 
@@ -201,7 +201,7 @@ def exact_sites(text):
     Returns (sites, skipped) where each site is ((a, b, c), element, occupancy) with the
     coordinates exact integers at representation.exact.SCALE_DIGITS, and `skipped` counts the sites
     whose coordinates were not plain decimal text. A deposit writing `?` for a coordinate is
-    declining to give one, and a site with no position cannot be compared with anything, so it is
+    declining to give one, and a site with no position cannot be compared with anything. It is
     counted rather than guessed at.
 
     No cell, no edges, no angles and no tiling. This is fractional space, which is all a reading
@@ -361,7 +361,7 @@ def voxel_grid(cell, sites, voxel=VOXEL, tiles=None):
     codes = {}
     for _, _, _, element in sites:
         if element not in codes:
-            # Zero stands for an empty voxel, so the first element takes one.
+            # Zero stands for an empty voxel. The first element takes one.
             codes[element] = (len(codes) % 255) + 1
 
     grid = numpy.zeros(shape, dtype=numpy.uint8)

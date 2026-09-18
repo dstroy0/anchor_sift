@@ -17,7 +17,7 @@ What is removed, by suffix:
 What is preserved:
   - the leading copyright / SPDX block, which states a license instead of describing code
   - a #! line opening a script, which the kernel reads to choose the interpreter
-  - string and character literals, including escapes, so "http://x" is not read as a comment
+  - string and character literals, including escapes. "http://x" is not read as a comment
   - the line count of C block comments, which keeps a compiler error pointing at the right line
 
 Every Python and shell result is checked before it is written. A Python file has to parse to the
@@ -107,7 +107,7 @@ def statement_lists(tree):
 def without_string_statements(tree):
     """The tree with every string statement taken out, and pass left where a body would empty.
 
-    This is what the stripped text has to parse back to, so it is built from the original tree and
+    This is what the stripped text has to parse back to. It is built from the original tree and
     never from the stripped text.
     """
     for held in statement_lists(tree):
@@ -126,7 +126,7 @@ def strip_python(text):
     A body left holding nothing but string statements keeps one pass in the place of the first.
     """
     # One line ending throughout. ast counts \r\n and a lone \r as line breaks, and str.splitlines
-    # also breaks at form feeds and other separators that ast does not count, so neither matches the
+    # also breaks at form feeds and other separators that ast does not count. Neither matches the
     # other without this. A \r that was inside a string literal changes that literal's value, and the
     # tree comparison at the end refuses the file.
     text = text.replace("\r\n", "\n").replace("\r", "\n")
@@ -298,7 +298,7 @@ def check_shell(text):
     """Raise ValueError where bash -n refuses the text. Skipped, and said so, where bash is absent."""
     bash = shutil.which("bash")
     if bash is None:
-        raise ValueError("bash is not on PATH, so the stripped script cannot be checked")
+        raise ValueError("bash is not on PATH. The stripped script cannot be checked")
     run = subprocess.run([bash, "-n"], input=text.encode("utf-8"), capture_output=True)
     if run.returncode != 0:
         raise ValueError("bash -n refuses the stripped script: %s"
@@ -357,7 +357,7 @@ def rewrite(text, keep_header, suffix=".c"):
     if suffix in SHELL_SUFFIXES:
         check_shell(new)
     if suffix in PYTHON_SUFFIXES:
-        # The header and the collapse sit outside strip_python, so the finished text is parsed once
+        # The header and the collapse sit outside strip_python. The finished text is parsed once
         # more against the same tree.
         wanted = ast.dump(without_string_statements(ast.parse(text)))
         if ast.dump(ast.parse(new)) != wanted:

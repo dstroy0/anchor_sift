@@ -21,7 +21,7 @@
 # WHAT A MOVE IS
 #
 # Each player is dealt a hand, PLAYER_ONE discards a subset of it and draws replacements, PLAYER_TWO
-# does the same, and the better hand wins. The move is the discard subset, so the move set is every
+# does the same, and the better hand wins. The move is the discard subset. The move set is every
 # subset of the hand and the decision is a real one with a computable best answer. Betting is not
 # modeled: a bet changes what a pot pays and this subject measures which of win, loss and draw is
 # reached. Hidden information is modeled, because PLAYER_TWO chooses its discard without seeing
@@ -64,7 +64,7 @@ SHOWDOWN = "showdown"
 
 
 def card(rank, suit):
-    """One card as a single integer, so a hand sorts and hashes without a class."""
+    """One card as a single integer. A hand sorts and hashes without a class."""
     return rank * 16 + suit
 
 
@@ -83,7 +83,7 @@ def evaluate(hand):
     read: the rank of the group that made the category first, then the kickers descending. Comparing
     two of these with `<` gives the same answer as the rules of poker.
 
-    Straights and flushes are computed from the ranks and suits actually present, so a short deck
+    Straights and flushes are computed from the ranks and suits actually present. A short deck
     still has them and a two suit deck simply makes flushes common. That is deliberate. The small
     deck is not a toy version of poker with the interesting parts removed, it is the same game on
     fewer cards, and the categories have to keep working for the solved arm to mean anything.
@@ -175,7 +175,7 @@ class Poker(object):
         return list(deck)
 
     def weights(self, state):
-        """Every remaining card is one card. Distinct cards, so the weights are all one."""
+        """Every remaining card is one card. Distinct cards. The weights are all one."""
         return [1] * len(state[3])
 
     def apply(self, state, move):

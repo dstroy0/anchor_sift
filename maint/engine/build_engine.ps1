@@ -10,7 +10,7 @@
 # anyone asking, and three things have to line up for that which a bare configure does not do.
 #
 #   nvcc drives a host compiler. On Windows that is MSVC and it reaches PATH through vcvars, which
-#   Git Bash does not run, so maint/engine/build_engine.sh finds nvcc unusable and skips CUDA. This
+#   Git Bash does not run. Maint/engine/build_engine.sh finds nvcc unusable and skips CUDA. This
 #   script imports that environment first.
 #
 #   The Visual Studio generator compiles .cu only where the toolkit installed its MSBuild
@@ -96,7 +96,7 @@ else
 }
 
 # A CACHE LEFT BY ANOTHER RUN OUTRANKS EVERY MESSAGE PRINTED ABOVE. ANCHOR_SKIP_CUDA is an
-# option() and CMAKE_C_COMPILER is cached, so a build tree configured once by build_engine.sh under
+# option() and CMAKE_C_COMPILER is cached. A build tree configured once by build_engine.sh under
 # gcc with CUDA skipped keeps both settings through every later configure here. This script then
 # announced "importing MSVC environment" and "the device arm will be compiled in" and produced a gcc
 # build with no CUDA in it. All three statements were false and nothing reported a conflict.
@@ -155,7 +155,7 @@ if ($haveCuda)
 # the types without the operators. It predates this script.
 #
 # bench_dispatch used to sit beside it and no longer does. Its cycle counter gate tested __x86_64__
-# alone, a GCC and Clang predefine MSVC never sets, so every MSVC build fell through to a POSIX
+# alone, a GCC and Clang predefine MSVC never sets. Every MSVC build fell through to a POSIX
 # clock_gettime that MSVC does not ship. The gate now carries the MSVC spelling.
 #
 # anchor_steer and anchor_steer_arms used to be on this list and no longer exist. Both folded into

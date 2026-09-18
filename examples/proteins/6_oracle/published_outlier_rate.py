@@ -28,7 +28,7 @@
 #
 # The corpus is drawn at random from every X-ray protein entry in the archive, with a held seed so
 # the draw repeats. Sorting by resolution and taking the top of the list was the wrong control: the
-# best-resolved structures nearly all have an outlier rate of zero, so an instrument that only ever
+# best-resolved structures nearly all have an outlier rate of zero. An instrument that only ever
 # answered zero would have scored full marks against them and taught nothing. A random protein spans
 # the whole quality range, from sub-angstrom to the low-resolution end, and carries a real spread of
 # published rates from zero to several percent. Reproducing that spread is the test; reproducing a
@@ -87,11 +87,11 @@ PAUSE = 0.5
 # denominator quietly.
 TRIES = 3
 
-# Proteins to grade. The archive holds two hundred thousand that match, so this is a target to reach,
+# Proteins to grade. The archive holds two hundred thousand that match. This is a target to reach,
 # not a slice off the top: the sweep draws from the shuffled pool until this many have graded.
 TARGET = 1000
 
-# Held, so the random draw repeats. The corpus belongs to the seed and not to the run.
+# Held. The random draw repeats. The corpus belongs to the seed and not to the run.
 SEED = 0x51F7
 
 # Every X-ray protein entry, spanning the whole resolution range on purpose. The monomer floor drops
@@ -147,7 +147,7 @@ def cached_json(name, url, out, timeout=180):
 def pool(out):
     """Every matching entry id, fetched once and shuffled by the held seed.
 
-    The whole id list is small next to the coordinate files it points at, so it is fetched once and
+    The whole id list is small next to the coordinate files it points at. It is fetched once and
     cached, and the shuffle is deterministic. Drawing from the front of this list is a uniform random
     sample of the archive that repeats exactly on a rerun.
     """

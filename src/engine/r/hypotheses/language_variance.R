@@ -23,12 +23,16 @@ path <- if (length(args) > 0) args[1] else "build/language_constant.csv"
 data <- read.csv(path, stringsAsFactors = FALSE)
 
 alphabetic <- data[data$language != "chinese", ]
-cat(sprintf("%d texts over %d alphabetic languages, plus %d Chinese\n\n",
-            nrow(alphabetic), length(unique(alphabetic$language)),
-            sum(data$language == "chinese")))
+cat(sprintf(
+  "%d texts over %d alphabetic languages, plus %d Chinese\n\n",
+  nrow(alphabetic), length(unique(alphabetic$language)),
+  sum(data$language == "chinese")
+))
 
-cat(sprintf("  %-10s %-10s %-10s %-9s %-10s %s\n",
-            "quantity", "within sd", "between sd", "ratio", "F", "p"))
+cat(sprintf(
+  "  %-10s %-10s %-10s %-9s %-10s %s\n",
+  "quantity", "within sd", "between sd", "ratio", "F", "p"
+))
 
 for (name in c("h2", "gap", "tail")) {
   values <- alphabetic[[name]]
@@ -39,8 +43,10 @@ for (name in c("h2", "gap", "tail")) {
   between <- sd(tapply(values, groups, mean))
 
   fit <- summary(aov(values ~ groups))[[1]]
-  cat(sprintf("  %-10s %-10.4f %-10.4f %-9.2f %-10.2f %.2e\n",
-              name, within, between, between / within, fit[["F value"]][1], fit[["Pr(>F)"]][1]))
+  cat(sprintf(
+    "  %-10s %-10.4f %-10.4f %-9.2f %-10.2f %.2e\n",
+    name, within, between, between / within, fit[["F value"]][1], fit[["Pr(>F)"]][1]
+  ))
 }
 
 cat("\n  Chinese against the alphabetic languages, in within-language standard deviations\n")
@@ -50,6 +56,8 @@ for (name in c("h2", "gap", "tail")) {
   within <- sqrt(mean(tapply(values, groups, function(x) mean((x - mean(x))^2))))
   middle <- mean(values)
   chinese <- mean(data[data$language == "chinese", ][[name]])
-  cat(sprintf("  %-10s alphabetic %.3f, chinese %.3f, distance %.1f\n",
-              name, middle, chinese, abs(chinese - middle) / within))
+  cat(sprintf(
+    "  %-10s alphabetic %.3f, chinese %.3f, distance %.1f\n",
+    name, middle, chinese, abs(chinese - middle) / within
+  ))
 }

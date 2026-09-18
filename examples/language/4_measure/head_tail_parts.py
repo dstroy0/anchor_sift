@@ -12,9 +12,9 @@
 # the rare half, that it carries the actions, needs counting instead of looking, and no part of speech
 # tagger is available here.
 #
-# English inflects its verbs, so the endings -ed and -ing stand in for one. The proxy is weak and its
+# English inflects its verbs. The endings -ed and -ing stand in for one. The proxy is weak and its
 # weakness runs one way: a gerund used as a noun and an adjective formed from a participle both carry
-# these endings without being verbs, so the count is an upper bound. It applies to English only and
+# these endings without being verbs. The count is an upper bound. It applies to English only and
 # says nothing about the other corpora.
 
 import collections

@@ -69,7 +69,7 @@ def main():
                      "%.3f" % (lag + fraction) if lag is not None else "none",
                      " ".join(str(one[1]) for one in marks)))
 
-    out.write("\n  the shuffled column holds the histogram and destroys the positions, so what\n")
+    out.write("\n  the shuffled column holds the histogram and destroys the positions. What\n")
     out.write("  survives the subtraction is the only part that means anything\n")
     out.write("  a real period arrives with its neighbours beside it and its harmonics behind\n")
     out.flush()

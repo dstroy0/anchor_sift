@@ -11,7 +11,7 @@
 #
 #   Usage:  python examples/0_experimental/exact_navier_stokes_cascade.py
 #
-# This reads no corpus, so it sits in 0_experimental: an arithmetic result shown working, not a stage
+# This reads no corpus. It sits in 0_experimental: an arithmetic result shown working, not a stage
 # reading. It imports the ring, the recurrence and Parseval from exact_navier_stokes_on_torus.py so one
 # representation carries both files, and it adds no arithmetic of its own beyond a product of two exact
 # quantities. Python integers are the bignum, representation.exact reads the viscosity, and the rest is
@@ -23,7 +23,7 @@
 # cascade come straight off that:
 #
 #   the mode front   the count of modes k carried at order m, grouped by |k|_1. The product of two modes
-#                    adds their index vectors, so the front advances by exactly one in |k|_1 per order,
+#                    adds their index vectors. The front advances by exactly one in |k|_1 per order,
 #                    and the count is a whole number at every shell. This is energy reaching finer scales
 #                    order by order, read as integers.
 #   the energy shell the energy an order deposits in the shell |k|^2 = r, an exact element of the ring
@@ -35,7 +35,7 @@
 # is one quantity, the growth rate of the coefficients. That rate fixes the radius in t over which the
 # series converges, and the radius is how long the solution stays analytic; a finite radius is a blowup.
 # For the Arnold-Beltrami-Childress datum the rate is a single exact element of the ring, constant in the
-# order, so the series is e^{-4 nu pi^2 t} u_0, entire, and the datum never blows up. For a generic datum
+# order. The series is e^{-4 nu pi^2 t} u_0, entire, and the datum never blows up. For a generic datum
 # only finitely many orders are computed. Each bounds the rate from one side and no finite order reaches
 # the limit. That is the completeness boundary of the precision document, the same shape as the horizon
 # on the zeros of zeta in the analytic-number-theory workbook: a computation names finitely many to a
@@ -136,7 +136,7 @@ def report_front(out):
                      for step in range(DEPTH + 1)]
     front_advances = all(generic_front[step + 1] == generic_front[step] + 1 for step in range(DEPTH))
 
-    # the null: the ABC datum is an eigenfunction, curl u_0 = 2 pi u_0, so every order stays on |k|_1 = 1
+    # the null: the ABC datum is an eigenfunction, curl u_0 = 2 pi u_0. Every order stays on |k|_1 = 1
     abc_front = [max(l1_shell(mode) for mode in torus.modes_of(abc_velocity[step]))
                  for step in range(DEPTH + 1)]
     abc_stays = all(shell == 1 for shell in abc_front)
@@ -220,7 +220,7 @@ def report_growth(out):
     abc_energies = [torus.parseval(abc_velocity[step], abc_velocity[step]) for step in range(DEPTH + 1)]
     law_holds = all(abc_energies[step + 1] == ratio_mul(abc_energies[step], rate_squared)
                     for step in range(DEPTH))
-    rate_constant = law_holds  # the same exact factor at every order, so the rate does not depend on m
+    rate_constant = law_holds  # the same exact factor at every order. The rate does not depend on m
 
     out.write("    ABC energy rate E(u_{m+1})/E(u_m) = 16 nu^2 pi^4 = %s, exact and constant in m: %s\n"
               % (rate_squared, law_holds))

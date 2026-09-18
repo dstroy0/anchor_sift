@@ -56,7 +56,7 @@ GOLDEN = math.pi * (3.0 - math.sqrt(5.0))
 
 
 def draw(seed):
-    """A small deterministic generator, so the null is the same null on every machine."""
+    """A small deterministic generator. The null is the same null on every machine."""
     state = (seed ^ 0x9E3779B97F4A7C15) & 0xFFFFFFFFFFFFFFFF
     while True:
         state = (state * 6364136223846793005 + 1442695040888963407) & 0xFFFFFFFFFFFFFFFF
@@ -84,7 +84,7 @@ def place(kind, values, data):
             out[value] = (math.acos(max(-1.0, min(1.0, height))), (index * GOLDEN) % (2.0 * math.pi))
         return out
 
-    # pair. The predecessor is read from the data, so this map carries something the data decided
+    # pair. The predecessor is read from the data. This map carries something the data decided
     # and the spiral does not. Whether it carries anything real is what the null is there to say.
     before = {}
     for at in range(1, len(data)):
@@ -104,7 +104,7 @@ def build(data, args):
     bits, counts = sphere_field.surprisal(data)
     values = [value for value in range(256) if counts[value]]
     if not values:
-        sys.stderr.write("no bytes were read, so there is nothing to place\n")
+        sys.stderr.write("no bytes were read. There is nothing to place\n")
         return None
 
     hottest = max(bits[value] for value in values) or 1.0
@@ -267,7 +267,7 @@ def main():
         return 1
     page = page.replace("/*SPHERE_DATA*/null", body)
     if page.count("</script>") < page.count("<script"):
-        sys.stderr.write("the template left a script open, so the page would not run\n")
+        sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
     out = option("--out", os.path.splitext(path)[0] + "_sphere.html")

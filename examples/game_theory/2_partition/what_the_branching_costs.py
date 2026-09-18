@@ -14,7 +14,7 @@
 #
 # This stage is also where the budget stops being an implementation detail. Every later number in
 # this subject carries a declared ply count, and the reason is measured here: the node count is
-# exponential in the ply count with a base the game sets, so a bound is not a convenience, it is the
+# exponential in the ply count with a base the game sets. A bound is not a convenience, it is the
 # difference between a number and no number at all. Reporting the bound beside every result is the
 # only thing that keeps two readings of the same position comparable.
 
@@ -94,9 +94,9 @@ def main():
     print("What this decides")
     print("=" * 78)
     print(
-        "The three small games bottom out: the walk reaches terminal positions and stops, so the\n"
+        "The three small games bottom out: the walk reaches terminal positions and stops. The\n"
         "outcome distribution under a move is a sum over a finite set and can be computed exactly.\n"
-        "Chess does not bottom out at any depth this will run, so its distribution has to be\n"
+        "Chess does not bottom out at any depth this will run. Its distribution has to be\n"
         "estimated, and the estimate has nothing local to check it against.\n"
         "\n"
         "That asymmetry is the subject. Stage six checks the estimator where the answer is known.\n"

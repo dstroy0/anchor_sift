@@ -9,7 +9,7 @@
 # A shuffle deletes every arrangement at once. These delete a named part of one, and that gives a
 # graded background instead of a single floor.
 #
-# What each one removes. A substitution renames the symbols and moves nothing, so anything reading
+# What each one removes. A substitution renames the symbols and moves nothing. Anything reading
 # where symbols fall has to return the same value to the last decimal. A repeating key of length k
 # sends one plaintext symbol to k ciphertext symbols by position, and a measure reading gaps then
 # sees them split k ways. A full length pseudorandom addend destroys the positions outright and is
@@ -22,7 +22,7 @@
 # averaging the cosets returns the plaintext value exactly, since each coset was enciphered by one
 # substitution. The one time pad reads 1.004 whole and 1.004 under every coset scan.
 #
-# Every mapping keeps its output inside the seat range the source uses, so the same measurement
+# Every mapping keeps its output inside the seat range the source uses. The same measurement
 # path reads it and nothing is compared across a change of representation.
 
 import random
@@ -39,9 +39,9 @@ def seat_span(seats):
 def substitute(seats, seed=0xC10DE):
     """One fixed permutation of the seats, which is a monoalphabetic cipher.
 
-    Relabeling cannot change how often a word recurs or where it falls, so this is the mapping a
+    Relabeling cannot change how often a word recurs or where it falls. This is the mapping a
     position reading has to be blind to. It is also the check that caught a real defect: the ranking
-    sorts symbols by count, so symbols sharing a count are ordered by their label, and relabeling
+    sorts symbols by count. Symbols sharing a count are ordered by their label, and relabeling
     moves which of them falls in the rare half. Small, and real.
     """
     low, high = seat_span(seats)
@@ -79,7 +79,7 @@ def counter(seats, seed=0xC10DE):
     """A deterministic ramp carrying no text, which is structure nobody produced.
 
     Here for the limit and not for the cipher. The surviving measure reports that a corpus is not
-    memoryless, and this is a corpus that is not memoryless and had no author, so it is the case a
+    memoryless, and this is a corpus that is not memoryless and had no author. It is the case a
     claim about human production has to answer for. The seed is accepted and ignored so every
     mapping in this module shares one signature.
     """
@@ -92,7 +92,7 @@ def counter(seats, seed=0xC10DE):
 def coset(seats, stride, offset=0):
     """Every `stride`-th symbol from `offset`, which is one alphabet of a repeating key.
 
-    The positions sharing a key offset were enciphered by a single substitution, so taking every
+    The positions sharing a key offset were enciphered by a single substitution. Taking every
     stride-th one undoes the splitting without knowing the key. This is the step a cryptanalyst
     takes after recovering the period.
 

@@ -24,9 +24,10 @@
 
 Measure how far something sits from the most disordered arrangement of its own parts. (Shannon's information entropy)
 
-That is the most basic construction. 
+That is the most basic construction.
 
-Every domain below is that sentence with a different answer to what counts as a part: 
+Every domain below is that sentence with a different answer to what counts as a part:
+
 - atoms in a cell
 - symbols in a corpus
 - bytes in a file
@@ -38,16 +39,16 @@ Building a reference by maximizing entropy under the constraints the object supp
 
 The basic construction Identity:Null Permutation runs through all six parts. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference that partition allows, and read the departure from it. The sift and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
 
-| part | what it does |
-|---|---|
+| part             | what it does                                                                                       |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
 | `representation` | any domain written as points carrying values, and the re-seatings that put one symbol in one place |
-| `partition` | the unit(s) and the scale those points are read at |
-| `reference` | the maximum entropy background under the constraints the object supplies |
-| `measure` | the departure from that background |
-| `sift` | the sound filter, a necessary condition over any index set |
-| `oracle` | agreement with ground truth that somebody else published |
+| `partition`      | the unit(s) and the scale those points are read at                                                 |
+| `reference`      | the maximum entropy background under the constraints the object supplies                           |
+| `measure`        | the departure from that background                                                                 |
+| `sift`           | the sound filter, a necessary condition over any index set                                         |
+| `oracle`         | agreement with ground truth that somebody else published                                           |
 
-Everything downstream of `representation` sees points and values and is blind to what an object is, so one instrument reads both. Seven subjects have their own directories: `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text`, all under `representation`, the only part that knows a domain exists.
+Everything downstream of `representation` sees points and values and is blind to what an object is. One instrument reads both. Seven subjects have their own directories: `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text`, all under `representation`, the only part that knows a domain exists.
 
 `src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora.
 
@@ -75,15 +76,15 @@ The workbook holds the rest, including every row that failed and why.
 
 Each directory serves one purpose.
 
-| | what it operates on | |
-|---|---|---|
-| `src/` | points and values, no domain | the engine |
-| `test/` | the engine | the correctness checks |
-| `evidence/` | the claims | the proofs, and the R and MATLAB ports |
-| `examples/` | a corpus, through `src/` | 147 numbered demonstrations, twelve domains |
-| `maint/` | the repository itself | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline |
-| `theory/`, `theory_bucket/` | the argument | eleven books |
-| `docs/` | the reader | setup and usage |
+|                             | what it operates on          |                                                                                           |
+| --------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------- |
+| `src/`                      | points and values, no domain | the engine                                                                                |
+| `test/`                     | the engine                   | the correctness checks                                                                    |
+| `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                    |
+| `examples/`                 | a corpus, through `src/`     | 147 numbered demonstrations, twelve domains                                               |
+| `maint/`                    | the repository itself        | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline |
+| `theory/`, `theory_bucket/` | the argument                 | eleven books                                                                              |
+| `docs/`                     | the reader                   | setup and usage                                                                           |
 
 `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
 
@@ -117,19 +118,19 @@ The full set lives one per file under `src/engine/python/` and in the C renderer
 
 `src/engine/c/engine/anchor_sift.c` builds and runs with a C11 compiler alone. It is the whole engine in one translation unit: the search, the steering that places its probes, and the scan underneath both. The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
 
-**It is a sound filter.** A subset of a pattern's points is a necessary condition, so no arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
+**It is a sound filter.** A subset of a pattern's points is a necessary condition. No arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
 
 **It carries `m` bits of state**, for a pattern of length `m`, independent of alphabet and dimension. Nothing is indexed and no table is built over the alphabet. A real-valued or unenumerable alphabet therefore costs it nothing. That is a capability claim and it is separate from any speed claim.
 
 **It searches with no pattern at all.** Given only bytes it recovered a multiple of a record period from 512 reads, at 92 shifts against 0 on a shuffle of the same bytes.
 
-**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`, so asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs and the number belongs to the toolchain that produced it, which is why the bench exists and why its output is a recommendation to act on rather than a figure to quote. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
+**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`. Asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs and the number belongs to the toolchain that produced it, which is why the bench exists and why its output is a recommendation to act on rather than a figure to quote. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
 
-**The needle length term in the shipped rule does nothing on this data.** Scoring flatness alone ties the kernel exactly, same rows and same cycles, so the length term changes no answer on any of the 42. The rule as documented, flatness then length, scores strictly worse than the flatness it contains, and the rule as originally shipped, length alone, is worse than both. A tunable with no reader is an integration point and is neither removed nor described as unimplemented, so it is named here and kept until a row is found where it pays.
+**The needle length term in the shipped rule does nothing on this data.** Scoring flatness alone ties the kernel exactly, same rows and same cycles. The length term changes no answer on any of the 42. The rule as documented, flatness then length, scores strictly worse than the flatness it contains, and the rule as originally shipped, length alone, is worse than both. A tunable with no reader is an integration point and is neither removed nor described as unimplemented. It is named here and kept until a row is found where it pays.
 
-Cycles given up is the score that matters, and it inverts the row count. Always taking the free order engine is right on 17 rows of 42, the fewest of any rule on the board, and it still gives up fewer cycles than always taking the short circuiting one, which is right on 25. Counting rows treats a row where the engines differ by one percent the same as one where they differ threefold, so a rule can be wrong more often and cost less.
+Cycles given up is the score that matters, and it inverts the row count. Always taking the free order engine is right on 17 rows of 42, the fewest of any rule on the board, and it still gives up fewer cycles than always taking the short circuiting one, which is right on 25. Counting rows treats a row where the engines differ by one percent the same as one where they differ threefold. A rule can be wrong more often and cost less.
 
-The dispatcher is still blind in one direction, and the blindness is a property of the statistic. A period-16 counter uses sixteen symbols evenly, so its collision entropy reads 4.0 and a perfectly structured corpus looks memoryless. Collision entropy is permutation invariant and cannot see an arrangement, and the dispatcher inherits that exactly. Going exact removed the rounding, not the blindness. Reading arrangement needs a different quantity, and `anchor_sift_anchors_for` is where one entered: it takes the period the corpus repeats at and drops to a single anchor, because at a known period every anchor after the first tests the same congruence and refutes nothing new.
+The dispatcher is still blind in one direction, and the blindness is a property of the statistic. A period-16 counter uses sixteen symbols evenly. Its collision entropy reads 4.0 and a perfectly structured corpus looks memoryless. Collision entropy is permutation invariant and cannot see an arrangement, and the dispatcher inherits that exactly. Going exact removed the rounding, not the blindness. Reading arrangement needs a different quantity, and `anchor_sift_anchors_for` is where one entered: it takes the period the corpus repeats at and drops to a single anchor, because at a known period every anchor after the first tests the same congruence and refutes nothing new.
 
 ### Building it, and what each tool answers
 
@@ -140,7 +141,7 @@ maint/engine/build_engine.sh               # configure, build, run the graders
 maint/engine/build_engine.sh --build-only  # configure and build, run nothing
 ```
 
-Windows PowerShell uses `maint/engine/build_engine.ps1`, same two forms, and it is the one to reach for on Windows: it imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment, so it pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back, so delete it freely.
+Windows PowerShell uses `maint/engine/build_engine.ps1`, same two forms, and it is the one to reach for on Windows: it imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment. It pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back. Delete it freely.
 
 Both scripts share that directory, and a CMake cache outranks anything a script prints. Each one now passes the decisive settings on every configure and wipes a cache naming a different toolchain, because the alternative was observed: after a Git Bash run, the PowerShell script announced the MSVC environment and the device arm and then produced a gcc build with no CUDA in it, and every render row read `host only` while the script reported success. The PowerShell script now checks the configure for a CUDA compiler before it builds and fails if the announcement does not hold.
 
@@ -148,19 +149,19 @@ A machine with a card should render on it without being asked, and `bench_raster
 
 Two questions, two directories, and they are not the same question. `test/` answers whether the engine is right. `bench/` answers how fast it is. A failing test is a defect; a slow bench is a cost.
 
-| run this | it answers |
-|---|---|
-| `test_arm_agreement` | every engine against the naive one at the lengths that bound the input: none, one, two. A disagreement is a defect whatever it measures. |
-| `test_adversarial` | thirteen cases built to break the guarantee from outside the public surface: overlapping occurrences, both boundary alignments, a field where every survivor is false, a permutation null, the probe guard including the widest line that must be admitted, and a joint projection. |
-| `test_steer` | the steering, on five fields. Grades the ordering at seven needle lengths, carries a negative control ordering the commonest symbol first that must read MORE, checks the exact dispatch against four fields worked out by hand, and asserts that the widest scan engine the machine carries actually ran. |
-| `bench_dispatch` | which dispatch rule to carry, scored against the clock over 42 rows, sweeping its threshold instead of assuming it. |
-| `bench_steer_arms` | the scan engines graded against the portable one and then timed, at lengths straddling the thirty-two lane boundary where a vectorized tail fails if it is going to. |
-| `bench_scaling_reads` | reads per alignment as the corpus grows. Reads travel between machines and are what an asymptotic claim is made of. |
-| `bench_scaling_cycles` | the same sweep in cycles, which belong to the machine that produced them. |
-| `bench_coherence` | at what scale the corpus agrees with itself, and what that costs the histogram bound. |
-| `bench_raster` | every render configuration. Four sheet layouts by five channels, each written as a PGM and graded host against device byte for byte where a device is present, then four volume layouts by the same five channels into a 32 by 32 by 32 block. |
-| `bench_exact`, `bench_exact_arms` | the fixed width limb arithmetic, and every vectorized limb engine against the portable one. |
-| `bench_lattice` | soundness in one to eight dimensions, over a rotated point set and a scatter no rectangle covers. It holds its own core, because what is under test is the construction and not the byte specialization. |
+| run this                          | it answers                                                                                                                                                                                                                                                                                                 |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `test_arm_agreement`              | every engine against the naive one at the lengths that bound the input: none, one, two. A disagreement is a defect whatever it measures.                                                                                                                                                                   |
+| `test_adversarial`                | thirteen cases built to break the guarantee from outside the public surface: overlapping occurrences, both boundary alignments, a field where every survivor is false, a permutation null, the probe guard including the widest line that must be admitted, and a joint projection.                        |
+| `test_steer`                      | the steering, on five fields. Grades the ordering at seven needle lengths, carries a negative control ordering the commonest symbol first that must read MORE, checks the exact dispatch against four fields worked out by hand, and asserts that the widest scan engine the machine carries actually ran. |
+| `bench_dispatch`                  | which dispatch rule to carry, scored against the clock over 42 rows, sweeping its threshold instead of assuming it.                                                                                                                                                                                        |
+| `bench_steer_arms`                | the scan engines graded against the portable one and then timed, at lengths straddling the thirty-two lane boundary where a vectorized tail fails if it is going to.                                                                                                                                       |
+| `bench_scaling_reads`             | reads per alignment as the corpus grows. Reads travel between machines and are what an asymptotic claim is made of.                                                                                                                                                                                        |
+| `bench_scaling_cycles`            | the same sweep in cycles, which belong to the machine that produced them.                                                                                                                                                                                                                                  |
+| `bench_coherence`                 | at what scale the corpus agrees with itself, and what that costs the histogram bound.                                                                                                                                                                                                                      |
+| `bench_raster`                    | every render configuration. Four sheet layouts by five channels, each written as a PGM and graded host against device byte for byte where a device is present, then four volume layouts by the same five channels into a 32 by 32 by 32 block.                                                             |
+| `bench_exact`, `bench_exact_arms` | the fixed width limb arithmetic, and every vectorized limb engine against the portable one.                                                                                                                                                                                                                |
+| `bench_lattice`                   | soundness in one to eight dimensions, over a rotated point set and a scatter no rectangle covers. It holds its own core, because what is under test is the construction and not the byte specialization.                                                                                                   |
 
 **The counted build and the timed build are different binaries and cannot be mixed.** `bench_scaling_reads` links the kernel compiled with `ANCHOR_SIFT_COUNT_READS=1`; `bench_scaling_cycles` links the kernel compiled without it. Counting perturbs the timing it would otherwise be reported beside. A driver calling `anchor_sift_counters_reset` therefore fails to link against the timed kernel, and that failure is deliberate.
 
@@ -168,31 +169,31 @@ Two questions, two directories, and they are not the same question. `test/` answ
 
 ### Rendering the object, flat and solid
 
-The renderer draws the object under examination straight from engine state, so what it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps rather than the same one at two sizes.
+The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps rather than the same one at two sizes.
 
 `AnchorRasterConfig` renders a sheet: `width` by `height`, one of four layouts, one of five channels, a reduce rule for cells several alignments land on, and a gain. `AnchorVolumeConfig` renders a block: `width` by `height` by `depth`, one of four volume layouts, and the same five channels, the same two reduce rules and the same gain, named by reference to the same enums so a channel means one thing in this tree.
 
-| volume layout | what it is for |
-|---|---|
-| `slabs` | fills a sheet, then the sheet behind it. The three dimensional reading of the row layout. |
-| `boustrophedon` | every other row and every other slab reversed, so consecutive alignments stay adjacent across both boundaries. |
-| `morton` | interleaves the bits of x, y and z, preserving locality on all three axes at once. This is the one that reads as a solid instead of as stacked sheets. Needs power of two extents and refuses others rather than remapping quietly. |
-| `helix` | each slab's rows shifted by its depth index, so a feature at a fixed corpus offset winds through the block. A shear and not a rotation, because a true helix needs trigonometry and this renderer is integer throughout. |
+| volume layout   | what it is for                                                                                                                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `slabs`         | fills a sheet, then the sheet behind it. The three dimensional reading of the row layout.                                                                                                                                           |
+| `boustrophedon` | every other row and every other slab reversed. Consecutive alignments stay adjacent across both boundaries.                                                                                                                         |
+| `morton`        | interleaves the bits of x, y and z, preserving locality on all three axes at once. This is the one that reads as a solid instead of as stacked sheets. Needs power of two extents and refuses others rather than remapping quietly. |
+| `helix`         | each slab's rows shifted by its depth index. A feature at a fixed corpus offset winds through the block. A shear and not a rotation, because a true helix needs trigonometry and this renderer is integer throughout.               |
 
 Every layout is a bijection on the cell index, computed in integers. `bench_raster` checks that rather than stating it: it maps every alignment through every layout at every channel and counts collisions, which must be zero. A layout that quietly folded two alignments together would still draw a plausible picture and nothing else would notice.
 
-Netpbm has no volume container, so `anchor_volume_write_raw` writes the block as raw bytes, x fastest, and puts the extents, the layout, the channel, the reduce rule and the gain in a `.txt` sidecar naming the function that generated it. Any volume viewer that reads raw unsigned 8 bit will open it given those three numbers.
+Netpbm has no volume container. `anchor_volume_write_raw` writes the block as raw bytes, x fastest, and puts the extents, the layout, the channel, the reduce rule and the gain in a `.txt` sidecar naming the function that generated it. Any volume viewer that reads raw unsigned 8 bit will open it given those three numbers.
 
-**The device renders both sheets and volumes, and prefers the device where it is present.** `anchor_raster_render` and the volume renderer both prefer the device. `anchor_volume_device_available` returns 1 where a device is present and the build carries the device volume kernel, and 0 otherwise, so it never reports a stub as present, and `anchor_volume_render_host` stays host only and is named so. `bench_raster` grades the device against the host voxel for voxel and prints `device rasterizer: present` when it has one. Nothing falls back silently, because a stub reporting itself present is the defect this tree spent a day removing.
+**The device renders both sheets and volumes, and prefers the device where it is present.** `anchor_raster_render` and the volume renderer both prefer the device. `anchor_volume_device_available` returns 1 where a device is present and the build carries the device volume kernel, and 0 otherwise. It never reports a stub as present, and `anchor_volume_render_host` stays host only and is named so. `bench_raster` grades the device against the host voxel for voxel and prints `device rasterizer: present` when it has one. Nothing falls back silently, because a stub reporting itself present is the defect this tree spent a day removing.
 
 ## Ports
 
 The permutation null measure on its own is the part a statistician or corpus linguist reaches for.
 
-| language | file | status |
-|---|---|---|
-| Python | `src/engine/python/` | the reference every figure came out of |
-| R | `evidence/sims/r/departure.R` | runs, checked against the reference |
+| language          | file                                           | status                                                                       |
+| ----------------- | ---------------------------------------------- | ---------------------------------------------------------------------------- |
+| Python            | `src/engine/python/`                           | the reference every figure came out of                                       |
+| R                 | `evidence/sims/r/departure.R`                  | runs, checked against the reference                                          |
 | MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` | run on Octave 11.3.0, inside the reference floor; MATLAB proper not run here |
 
 A port is correct when it lands inside the reseeding floor of the Python, since each language draws its null from a different generator and none can agree to the last digit. Checked on 200000 symbols over twelve seeds: a clustered sequence reads 0.4228 in Python and 0.4282 in R against a floor of 0.0092, and a memoryless one reads 0.9953 and 0.9933 against a floor of 0.0044. Both gaps sit at about half a floor.
@@ -205,46 +206,47 @@ It runs on human timescales: seconds on a laptop against a database somebody els
 
 ## Language research: Whose language this is
 
-The largest language corpus, and the one everything else in the languages category is currently measured against is Salishan speech, which was written down by a linguist or their transcriber in almost all cases. 
+The largest language corpus, and the one everything else in the languages category is currently measured against is Salishan speech, which was written down by a linguist or their transcriber in almost all cases.
 
 **This work does not exist without the speakers.**
 
-Every table in the Salishan corpus opens with the person who spoke, before the linguist who published and before anyone who read it into a file. 
-Where a paper cites a published dictionary and never says who spoke, its entry says so. 
+Every table in the Salishan corpus opens with the person who spoke, before the linguist who published and before anyone who read it into a file.
+Where a paper cites a published dictionary and never says who spoke, its entry says so.
 The Salishan theory book carries that index, written speaker first.
 
-The rationale is simple: 
-   1. A linguist wrote the paper.
-   2. A person read the paper into a table.
-   3. Neither of those is whose language it is in almost every case.
-   4. Here, and for any derivative, you must list the person who was teaching us about their language first.
-   5. It's fair.
-   6. It acknowledges their contribution.
-   7. It makes performing meta-analysis about the language itself vs. the linguist or transcriptionist's style far less cumbersome over time.
- **here, respect is identical to research efficiency**
+The rationale is simple:
+
+1.  A linguist wrote the paper.
+2.  A person read the paper into a table.
+3.  Neither of those is whose language it is in almost every case.
+4.  Here, and for any derivative, you must list the person who was teaching us about their language first.
+5.  It's fair.
+6.  It acknowledges their contribution.
+7.  It makes performing meta-analysis about the language itself vs. the linguist or transcriptionist's style far less cumbersome over time.
+    **here, respect is identical to research efficiency**
 
 ## The condition of use
 
-These tools read a language and can put one back. 
-`to_phonemes.py`, `encode_percussive.py` and the sound representation work do what they are named for, and `regeneration_limit.py` measures how much of a source a regeneration recovers. 
+These tools read a language and can put one back.
+`to_phonemes.py`, `encode_percussive.py` and the sound representation work do what they are named for, and `regeneration_limit.py` measures how much of a source a regeneration recovers.
 Saying otherwise would be a false claim about the code, and a safeguard resting on a false claim is not a safeguard.
 
-Regeneration is faithful near the subject and escapes it with distance. 
-Close to the center of mass of the subject the output is a copy. 
-Move outward and it carries more, until at some distance it leaves the source distribution and is no longer that language. 
+Regeneration is faithful near the subject and escapes it with distance.
+Close to the center of mass of the subject the output is a copy.
+Move outward and it carries more, until at some distance it leaves the source distribution and is no longer that language.
 Past that it becomes obvious nonsense and nobody is fooled.
 
-Immediately before that boundary is a narrow band where the output is still coherent and may already not be the language. 
+Immediately before that boundary is a narrow band where the output is still coherent and may already not be the language.
 
 **Nothing here marks which side of it a result fell on.**
 
-That band is where a native speaker belongs. 
-The question there is *is this mine*, which is a question of anthropology, of philosophy, and for many communities of what is sacred. 
+That band is where a native speaker belongs.
+The question there is _is this mine_, which is a question of anthropology, of philosophy, and for many communities of what is sacred.
 No amount of measurement turns it into a question an algorithm can answer.
 
-**Every tool for language that comes out of this work requires a human to review its output.** 
+**Every tool for language that comes out of this work requires a human to review its output.**
 
-That is a condition of use, not a recommendation. 
+That is a condition of use, not a recommendation.
 For a language with few remaining speakers, publishing a form drawn from outside the distribution as though it were the language is not a recoverable harm.
 
 ## Where to start
@@ -255,38 +257,38 @@ The research is eleven books, built with LuaLaTeX. Four are under `theory/`: the
 sh maint/texbuild/build_theory.sh
 ```
 
-| you want | book |
-|---|---|
-| the construction, the method, and what is settled, open or withdrawn | `theory/workbook` |
-| valence read as a necessary condition, and where the oracle enters | `theory/chemistry` |
-| the image transform program, exact, and which of the transforms is built | `theory/image_transforms` |
-| particles as exact charges and shells, and what a quantum number costs | `theory/particle_physics` |
-| whose words the corpus holds, and how wrong it could be | `theory_bucket/Salishan` |
-| the posits whose experiment cannot be built | `theory_bucket/thought_experiments` |
-| a published cell edge read back off a voxel grid, and whose result that is | `theory_bucket/crystallography` |
+| you want                                                                          | book                                |
+| --------------------------------------------------------------------------------- | ----------------------------------- |
+| the construction, the method, and what is settled, open or withdrawn              | `theory/workbook`                   |
+| valence read as a necessary condition, and where the oracle enters                | `theory/chemistry`                  |
+| the image transform program, exact, and which of the transforms is built          | `theory/image_transforms`           |
+| particles as exact charges and shells, and what a quantum number costs            | `theory/particle_physics`           |
+| whose words the corpus holds, and how wrong it could be                           | `theory_bucket/Salishan`            |
+| the posits whose experiment cannot be built                                       | `theory_bucket/thought_experiments` |
+| a published cell edge read back off a voxel grid, and whose result that is        | `theory_bucket/crystallography`     |
 | where the structure in SHA-256 is, where it stops, and how each null was measured | `theory_bucket/cryptography/sha256` |
-| exact arithmetic, the natural constants and the residue codes | `theory_bucket/precision` |
-| the null, its delta, and where the two reconcile | `theory_bucket/delta_null` |
-| the corpus, the state of the field, and what this toolkit reaches | `theory_bucket/millennium` |
+| exact arithmetic, the natural constants and the residue codes                     | `theory_bucket/precision`           |
+| the null, its delta, and where the two reconcile                                  | `theory_bucket/delta_null`          |
+| the corpus, the state of the field, and what this toolkit reaches                 | `theory_bucket/millennium`          |
 
 ## What is not here
 
 The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `maint/data/salishan/get_papers.py` fetches the papers from the public archive and the tools rebuild the rest.
 
-The hand extractions are forms transcribed out of published papers, so the tables are those papers' text and not this work's to redistribute. 
-They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/corpus/verify_private_sync.py`. 
+The hand extractions are forms transcribed out of published papers. The tables are those papers' text and not this work's to redistribute.
+They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/corpus/verify_private_sync.py`.
 Everything that does not read a paper or a table runs without them.
 
 ## Licensing, dual
 
 Licensed AGPL-3.0-or-later, with commercial contracts available. It will always be free to use under the AGPL.
 
-Educators: for an exception to use this in classrooms or research projects, email dstroy0 (Douglas Quigg) <dquigg123@gmail.com> from your `.edu` or `.org` faculty address. 
-Exceptions are granted case by case and govern your use, specifically the accreditation requirement of underlying systems in research or presentation materials. 
-Where an academic exemption leads to a viable market product the license shifts to a royalty ladder, set off the goodwill shown and how well students and other faculty were credited. 
+Educators: for an exception to use this in classrooms or research projects, email dstroy0 (Douglas Quigg) <dquigg123@gmail.com> from your `.edu` or `.org` faculty address.
+Exceptions are granted case by case and govern your use, specifically the accreditation requirement of underlying systems in research or presentation materials.
+Where an academic exemption leads to a viable market product the license shifts to a royalty ladder, set off the goodwill shown and how well students and other faculty were credited.
 A portion goes to your institution at a minimum, and straight to your department where their rules allow.
 
-**Every license already offered for this work under MMgr transfers here on the same terms.** 
+**Every license already offered for this work under MMgr transfers here on the same terms.**
 Nobody holding one needs to do anything and no term changes because the files moved. `LICENSE` and `LICENSES/` are the same files that tree carries.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).

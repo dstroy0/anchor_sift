@@ -15,7 +15,7 @@
  *   EVERY CONFIGURATION IS RENDERED. Four layouts by five channels, every one written out as a PGM
  *   and checked for the properties its transform promises. A renderer with options nobody exercises
  *   has options nobody has tested.
- *   HOST AND DEVICE AGREE BYTE FOR BYTE. The raster is integer valued, so agreement is exact and a
+ *   HOST AND DEVICE AGREE BYTE FOR BYTE. The raster is integer valued. Agreement is exact and a
  *   single differing pixel is a defect. Where no device is present the run reports the device as
  *   absent, labels every row host only, and grades the host alone. Those rows pass, and the exit
  *   status shows device agreement only when the device was reported present.
@@ -44,7 +44,7 @@
 /** @brief Needle length the renders search for. */
 #define RASTER_NEEDLE 24u
 
-/** @brief Builds a field whose symbols vary widely in rarity, so the channels have something to show. */
+/** @brief Builds a field whose symbols vary widely in rarity. The channels have something to show. */
 static void build_field(uint8_t *corpus, size_t length)
 {
     uint32_t state = 2463534242u;
@@ -120,7 +120,7 @@ int main(void)
         return 1;
     }
 
-    /* The probe set the renderer draws with is the one the engine steered to, so the render and the
+    /* The probe set the renderer draws with is the one the engine steered to. The render and the
      * search cost the same thing. An unsteered set is built beside it for the timing comparison. */
     size_t spawned[ANCHOR_STEER_ANCHORS];
     const size_t coarms = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
@@ -186,7 +186,7 @@ int main(void)
 
             const size_t filled = filled_cells(host_pixels, cells);
 
-            /* EVERY LAYOUT IS A PERMUTATION, so the filled count cannot depend on which one ran.
+            /* EVERY LAYOUT IS A PERMUTATION. The filled count cannot depend on which one ran.
              * A layout that dropped or doubled an alignment shows up here and nowhere else. */
             if (reference_taken == 0)
             {
@@ -242,7 +242,7 @@ int main(void)
         }
     }
 
-    /* FRAME RATE. The renderer costs what the search costs, so the steered probe set should render
+    /* FRAME RATE. The renderer costs what the search costs. The steered probe set should render
      * faster than the spatial one on the same object. Both are timed over the same frame count with
      * the same configuration, and the frame count is reported beside the seconds. */
     printf("\n  FRAME RATE, death-level channel, rows layout, %zu frames each\n\n", (size_t)200u);
@@ -355,7 +355,7 @@ int main(void)
                 }
 
                 // The device volume against the host, voxel for voxel. The raster is integer
-                // valued, so agreement is exact and a single differing voxel is a defect. Where no
+                // valued. Agreement is exact and a single differing voxel is a defect. Where no
                 // device is present the row reads host only and passes on its collision count alone.
                 const char *agreement = "host only";
                 int device_failed = 0;
@@ -387,7 +387,7 @@ int main(void)
             }
         }
 
-        // One block written to disk with its sidecar, so the output path is exercised and not only
+        // One block written to disk with its sidecar. The output path is exercised and not only
         // declared. Morton is the layout worth looking at, since it is the one that reads as a solid.
         const AnchorVolumeConfig sample = {
             volume_edge, volume_edge, volume_edge, ANCHOR_VOLUME_MORTON,

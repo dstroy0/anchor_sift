@@ -8,17 +8,17 @@
 #
 #   Usage:  python examples/0_experimental/invariant_consensus_rejects_outliers.py
 #
-# This reads no corpus, so it sits in 0_experimental: an algorithm shown working, a robust-estimation
+# This reads no corpus. It sits in 0_experimental: an algorithm shown working, a robust-estimation
 # filter beside the signal ones. The medium is new -- a graph whose vertices are MEASUREMENTS and whose
 # edges are pairwise compatibility -- and the technique is new to this tree, but the theorem is the one
 # the anchor cascade already proves.
 #
 # The setup is ROBIN's (arXiv:2011.03659): two integer point sets are related by a rigid motion, and
 # correspondences pair a point in one with a point in the other. The inliers are the true pairs; the
-# outliers are wrong pairs. A rigid motion preserves distance, so for two inlier correspondences the
+# outliers are wrong pairs. A rigid motion preserves distance. For two inlier correspondences the
 # distance between the two source points equals the distance between the two target points. That is the
 # invariant, and it is checked pairwise as an exact integer equality of squared distances, without ever
-# solving for the motion. Two inliers always satisfy it, so the inliers are all mutually compatible and
+# solving for the motion. Two inliers always satisfy it. The inliers are all mutually compatible and
 # form a CLIQUE; an outlier satisfies it with an inlier only by accident. Rejecting the outliers is
 # finding the clique.
 #
@@ -28,7 +28,7 @@
 # Bloom filter never reporting a member absent.
 #
 # Two routes bracket the answer: the maximum clique is tight and the k-core is the cheap relaxation that
-# contains it, so both retain every inlier and the k-core admits more outliers, which is the
+# contains it. Both retain every inlier and the k-core admits more outliers, which is the
 # soundness-versus-cost split again. A broken compatibility that links everything is run beside them to
 # show the rule moves cost, not correctness. The null is drawn by shuffling the correspondences, which
 # destroys the rigidity so no large clique remains. The floor is stated: when outliers conspire into a
@@ -66,7 +66,7 @@ def dist2(a, b):
 
 def correspondences(inliers, outliers, seed, conspirators=0):
     """Point-pairs: `inliers` true rigid pairs, `outliers` random pairs, `conspirators` a second rigid
-    set under a DIFFERENT motion (internally consistent, so it forms its own clique)."""
+    set under a DIFFERENT motion (internally consistent. It forms its own clique)."""
     rng = random.Random(seed)
     pairs = []
     truth = []
@@ -144,7 +144,7 @@ def main():
         cq = max_clique(compatibility_graph(m, compat))
         out.write("  %-14d %-14d %-16d %s\n" % (len(inl), con, len(cq), inl <= cq))
 
-    out.write("\n  the inliers are a clique because a rigid motion preserves every distance, so the\n")
+    out.write("\n  the inliers are a clique because a rigid motion preserves every distance. The\n")
     out.write("  necessary condition never splits them out; an outlier is kept only by an accidental\n")
     out.write("  distance match, a false survivor and not a lost inlier. the floor is a large accident:\n")
     out.write("  a conspiracy bigger than the truth is the one thing a necessary condition cannot refuse.\n")

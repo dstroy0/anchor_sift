@@ -42,7 +42,7 @@ NOT_FAITHFUL = ("19-Lyon_ICSNL50_final-78", "2013_Lindley_Lyon")
 PAGE_TEXT = "%s.page.txt"
 
 # Papers whose extraction holds none of the orthography and which have no drafted page text either.
-# These are OCR of typed pages, not a font encoding, so there is no mapping to invert: the scan lost
+# These are OCR of typed pages, not a font encoding. There is no mapping to invert: the scan lost
 # the marks and nothing in the file records what they were.
 #
 # Counted over the nine marks the corpus uses, in every registered paper's text. These five hold

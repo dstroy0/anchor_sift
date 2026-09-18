@@ -13,7 +13,7 @@
 # from one alpha carbon to the next kept the order and discarded the bonds, since an alpha carbon is
 # already a summary of a residue and the step between two of them is not a bond at all.
 #
-# The bonds are the connections and the chain is assembled in one direction, so the representation is the
+# The bonds are the connections and the chain is assembled in one direction. The representation is the
 # backbone walked as it was built: nitrogen to alpha carbon, alpha carbon to carbon, carbon to the
 # nitrogen of the next residue, and around again. Each of those is a real bond with a vector and a
 # magnitude, and the three lengths are fixed by chemistry near 1.46, 1.52 and 1.33 angstroms.
@@ -67,7 +67,7 @@ def main():
             out.write("  %-8s no unbroken backbone run long enough\n" % code)
             continue
 
-        # Gathered by each piece's own place in the cycle, so pieces starting mid residue still land in
+        # Gathered by each piece's own place in the cycle. Pieces starting mid residue still land in
         # the right one of the three
         gathered = [[], [], []]
         for piece, offset in pieces:

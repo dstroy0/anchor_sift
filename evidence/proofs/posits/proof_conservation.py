@@ -12,14 +12,14 @@
 # gave 1.41, 1.25 and 19684 and the discontinuity was a mean over a heavy tail. One case is an anecdote.
 #
 # Proving it means stating what the measure should be invariant to and checking each. Relabelling the
-# symbols cannot change gaps between occurrences, so it has to conserve exactly. Reading the corpus
-# backwards reverses every gap sequence and leaves the gaps themselves, so it has to conserve exactly as
+# symbols cannot change gaps between occurrences. It has to conserve exactly. Reading the corpus
+# backwards reverses every gap sequence and leaves the gaps themselves. It has to conserve exactly as
 # well. Truncation and duplication should conserve approximately if the corpus is homogeneous. Block
 # shuffling and added noise should move it, and a transformation that fails to move it is as much a
 # defect as one that moves what should hold still.
 #
 # Reseeding the null is the important row. The measure is a live quantity divided by one taken from a
-# shuffle, and the shuffle carries its own randomness, so the spread over seeds is the floor below which
+# shuffle, and the shuffle carries its own randomness. The spread over seeds is the floor below which
 # no difference between two corpora means anything. That floor has been used all through this work and
 # never measured.
 

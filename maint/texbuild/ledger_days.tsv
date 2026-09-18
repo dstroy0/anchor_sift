@@ -1,17 +1,17 @@
 first_seen	line	lead
 2026-09-02	39	No completeness.
 2026-09-02	42	Three corollaries.
-2026-09-02	45	Collision entropy is permutation invariant, so it cannot detect an arrangement.
+2026-09-02	45	Collision entropy is permutation invariant. It cannot detect an arrangement.
 2026-09-02	52	What is derivable here and what is not falls exactly on the line between the two propositions.
 2026-09-02	69	The shuffle is the maximum entropy background, which is why it cannot be wrong.
 2026-09-04	74	Exactly one distribution maximizes entropy under a given constraint, and that is where the finality comes from.
 2026-09-04	84	That reference is necessarily memoryless, which is why the memoryless control returns 1.00 and is not a baseline anybody chose.
 2026-09-04	102	The permutation null and the memoryless control are not the same object, and the difference is finite sample.
-2026-09-02	109	The maximum entropy domain is the best case for this filter, so $2^{-H_2}$ per anchor is a floor.
+2026-09-02	109	The maximum entropy domain is the best case for this filter. $2^{-H_2}$ per anchor is a floor.
 2026-09-02	121	It is also the largest difference obtainable.
 2026-09-02	140	Ownership of the three guarantees.
-2026-09-02	177	Collision entropy is close to a constant for a language, so the quantities derived from it are too.
-2026-09-02	194	It does not survive a change of source, so it is not a property of the language.
+2026-09-02	177	Collision entropy is close to a constant for a language. The quantities derived from it are too.
+2026-09-02	194	It does not survive a change of source. It is not a property of the language.
 2026-09-02	207	Corruption is detectable from the histogram, and windowing the histogram locates it.
 2026-09-04	223	The same test runs at every window and does not stop where the estimator breaks.
 2026-09-02	232	An unnamed quantity in the halving ladder.
@@ -87,7 +87,7 @@ first_seen	line	lead
 2026-09-02	1169	Where to branch between the two arrangements is derivable and lands at the effective alphabet.
 2026-09-02	1186	That makes the branch decidable at run time from two cheap numbers.
 2026-09-02	1191	The advantage between the two arrangements has a minimum and a maximum, both measured.
-2026-09-02	1202	The needle is drawn from the corpus, so the benchmark answers an easier question than the one posed.
+2026-09-02	1202	The needle is drawn from the corpus. The benchmark answers an easier question than the one posed.
 2026-09-02	1212	Correctness is measured in thirteen geometries and speed in one, and that one is the dominated case.
 2026-09-02	1224	Why the rare anchor loses on a line.
 2026-09-02	1231	The vectorized cost model, measured and much smaller than derived.
@@ -98,7 +98,7 @@ first_seen	line	lead
 2026-09-02	1260	The Finnish outlier was a genre confound of mine, not agglutination.
 2026-09-02	1267	The symbol width was chosen by habit, and a Greek text is where that showed.
 2026-09-02	1273	Vocabulary compression separates a translation from a composition.
-2026-09-02	1278	Exact matching cannot see an inflected formula, so epic register went undetected.
+2026-09-02	1278	Exact matching cannot see an inflected formula. Epic register went undetected.
 2026-09-02	1283	The most regular thing in a text file is almost never the language.
 2026-09-02	1288	A boundary has to be regular enough to find and irregular enough to locate with.
 2026-09-02	1295	The pattern free detector finds periodicity and nothing else.
@@ -181,7 +181,7 @@ first_seen	line	lead
 2026-09-02	2613	The reader used everywhere else in this work cannot see that period, and the reason is structural.
 2026-09-02	2632	It does not work on proteins, and the prediction that it would was wrong.
 2026-09-02	2653	What the interleaved curve loses is what carries the count, and the two are the same property.
-2026-09-02	2673	The ordering is stable under a sixteenfold coarsening, at rho 0.893, so it is not a reading of the sampling.
+2026-09-02	2673	The ordering is stable under a sixteenfold coarsening, at rho 0.893. It is not a reading of the sampling.
 2026-09-02	2680	Print the content and not only the statistic. Proofed as an audit, upheld, and it demonstrated itself on its own output.
 2026-09-02	2696	The quantities here are heavy tailed by default, and a mean and a deviation need the distribution checked first. Proofed on the core measure, upheld in practice and wrong in its description.
 2026-09-02	2709	The shape of that distribution is itself a second detector.

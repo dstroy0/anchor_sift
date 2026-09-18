@@ -6,7 +6,7 @@
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/extract_nater_voiceless.py
 #
-# Nater's argument is that Bella Coola has words with no vowel in them, so his data is 127 numbered
+# Nater's argument is that Bella Coola has words with no vowel in them. His data is 127 numbered
 # entries that are each a run of two to four consonants with a gloss. That layout is the easiest in
 # the set to read and the hardest to tell from English by character, because an entry like kp 'each,
 # all, every' carries no mark of the orthography at all. What identifies an entry here is its
@@ -26,7 +26,7 @@
 # THE CLUSTER CHARTS ARE NOT WORDS
 #
 # Tables 2 to 5 are every two-member voiceless cluster the language allows, about two hundred cells.
-# They are Bella Coola phonotactics and they are not words anybody said, so they stay out of the pure
+# They are Bella Coola phonotactics and they are not words anybody said. They stay out of the pure
 # stream. The hand extraction records them under the kind "cluster" for the same reason.
 
 import io
@@ -100,10 +100,10 @@ PAGE = re.compile(r"^===== page \d+ =====$")
 # One entry of the numbered lists: the number, the form, and the gloss in single quotes. The columns
 # are read by finding every one of these on a line, because the paper sets two entries per line.
 #
-# The right single quote cannot be used to delimit anything here. It is Nater's ejective mark, so cq’
+# The right single quote cannot be used to delimit anything here. It is Nater's ejective mark. Cq’
 # and c’p carry one inside the form, and a pattern that stopped at it read 73 of the 133 entries as
 # ending before their own last letter and then failed to match them at all. The left single quote
-# never occurs inside a form, so the form is everything up to that, and the gloss ends at the right
+# never occurs inside a form. The form is everything up to that, and the gloss ends at the right
 # quote that is followed by the next entry number or by the end of the line. Without that lookahead
 # the gloss of (54) stops inside ‘pass one’s hand through sth.’
 # The form also may not run across the next entry number. (108) is xp = px and carries no gloss at
@@ -179,7 +179,7 @@ def main():
 
         rows.append((where, "", UNCLASSIFIED, trimmed, ""))
 
-    # Every line no branch above reached, so the record holds every token the paper printed.
+    # Every line no branch above reached. The record holds every token the paper printed.
     missed = unreached(lines, covered_tokens(one[3] for one in rows), marks=MARKS)
     for page, spot, reason, missing, text in missed:
         rows.append(("not reached page %d" % page, "", UNCLASSIFIED, text, ""))
@@ -193,7 +193,7 @@ def main():
         handle.write("# column says which, because Heiltsuk, Oowekyala, Kwak̓wala and Haisla are\n")
         handle.write("# North Wakashan and not Salish at all.\n")
         handle.write("#\n")
-        handle.write("# The cluster charts of Tables 2 to 5 are phonotactics and not words, so they\n")
+        handle.write("# The cluster charts of Tables 2 to 5 are phonotactics and not words. They\n")
         handle.write("# are not read here. The hand extraction records them.\n")
         handle.write("line\twho\tkind\tswitches\tcontent\n")
         for at, (spot, who, kind, text, gloss) in enumerate(rows, 1):

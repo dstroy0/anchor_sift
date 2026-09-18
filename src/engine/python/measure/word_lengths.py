@@ -29,14 +29,14 @@
 # reasons.
 #
 # What this measure cannot do at all is more useful than what it does. Chinese, Japanese and Thai
-# mark no word boundaries, so the descriptor does not exist for them. That is the plainest case of
+# mark no word boundaries. The descriptor does not exist for them. That is the plainest case of
 # this reading not being one reading across writing systems.
 
 import re
 
 import numpy
 
-# Lengths above this are counted at this, so one runaway token cannot move the distribution.
+# Lengths above this are counted at this. One runaway token cannot move the distribution.
 LONGEST = 20
 
 # A text shorter than this many words gives a distribution that is a reading of the sample.

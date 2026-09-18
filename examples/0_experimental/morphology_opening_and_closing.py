@@ -7,17 +7,17 @@
 #
 #   Usage:  python examples/0_experimental/morphology_opening_and_closing.py
 #
-# This reads no corpus, so it sits in 0_experimental: an algorithm shown working, an image-morphology
+# This reads no corpus. It sits in 0_experimental: an algorithm shown working, an image-morphology
 # filter beside the signal ones. Erosion takes the minimum over a structuring element, dilation the
 # maximum; opening is an erosion then a dilation, closing a dilation then an erosion. Opening removes a
 # bright feature narrower than the element and leaves everything wider untouched; closing does the same
-# for a dark feature. It is a rank operator, so like the windowed median it rejects a replacement noise
+# for a dark feature. It is a rank operator. Like the windowed median it rejects a replacement noise
 # a mean cannot, and it needs no threshold: the element width is a declared input and min and max are
 # positions in a sorted window, not tolerances.
 #
 # It is application logic rather than an engine primitive, and for the reason the collaborative filter
 # is: opening TRANSFORMS the reading into a different reading of itself. It is not a null a departure is
-# measured against, so it is not a reference-stage object; it is an operator, and operators live in the
+# measured against. It is not a reference-stage object; it is an operator, and operators live in the
 # example until the ladder has a place for them.
 #
 # Two routes take the min and the max with no shared code: one sorts the window and reads an end, the

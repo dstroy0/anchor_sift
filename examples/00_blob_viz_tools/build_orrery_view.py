@@ -72,7 +72,7 @@ TEMPLATE = os.path.join(HERE, "orrery_view_template.html")
 
 
 def draw(seed):
-    """The same small generator the other tools use, so that a seed means one scene everywhere."""
+    """The same small generator the other tools use. That a seed means one scene everywhere."""
     state = (seed ^ 0x9E3779B97F4A7C15) & 0xFFFFFFFFFFFFFFFF
     while True:
         state = (state * 6364136223846793005 + 1442695040888963407) & 0xFFFFFFFFFFFFFFFF
@@ -99,7 +99,7 @@ def sideways(axis):
 def system(count, seed):
     """Bodies at spread radii on Kepler periods, each on its own orbit plane.
 
-    The period goes as the radius to the three halves, so the outer bodies are slow and the dips
+    The period goes as the radius to the three halves. The outer bodies are slow and the dips
     they print are rare. The run has to be long for that reason: a body at 0.85 of the way out
     crosses about a third as often as one at 0.4, and a run that stops early recovers the inner
     bodies cleanly and reports the outer ones as absent.
@@ -116,7 +116,7 @@ def system(count, seed):
         radius = 0.10 + 0.80 * share
         size = 0.032 + 0.050 * next(stream)
         # Sunlight falls off with the square of the distance and a body catches it over its own
-        # disc, so what it sends onward goes as size squared over radius squared.
+        # disc. What it sends onward goes as size squared over radius squared.
         brightness = (size * size) / (radius * radius)
 
         height = 2.0 * next(stream) - 1.0
@@ -155,7 +155,7 @@ def watch_shadow(bodies, frames, span, patch):
 
     A body blocks when its angular size covers the line from the center to the patch. This is the
     transit curve, and it carries a body only where that body's orbit happens to pass across this
-    particular patch. Most pairings of body and patch never line up at all, so most of these curves
+    particular patch. Most pairings of body and patch never line up at all. Most of these curves
     are flat, and reading one flat curve as an empty system is the mistake the glow curve below and
     the several patches above exist to prevent.
     """
@@ -186,7 +186,7 @@ def watch_glow(bodies, frames, span, patch, profiles):
     signal is smooth instead of a spike.
 
     That difference decides whether the recovery works. A transit is a narrow pulse, and a narrow
-    pulse carries more power in its high harmonics than in its own fundamental, so reading the
+    pulse carries more power in its high harmonics than in its own fundamental. Reading the
     strongest peaks off one gives a tidy row of periods that are all too short. Reading a smooth
     swing gives the fundamental first: the period the body actually has.
     """
@@ -236,7 +236,7 @@ def recover(curve, span, frames, bodies):
     floor = ranked[len(ranked) // 2]
     oversample = max(1, padded // len(centred))
 
-    # A harmonic sum instead of a bare peak list. A body's swing is smooth and not a sine, so it
+    # A harmonic sum instead of a bare peak list. A body's swing is smooth and not a sine. It
     # puts power at twice its frequency and at three times it, and those extra peaks read back as
     # bodies that are not there: 0.786 arrives again as 0.498, 0.558 as 0.351. Filtering them
     # afterwards by comparing candidates in pairs was tried and made the answer worse, since
@@ -255,7 +255,7 @@ def recover(curve, span, frames, bodies):
             total += magnitudes[index * times]
         score[index] = total
 
-    # The trial band comes from geometry and not from the scene. A body is inside the ball, so its
+    # The trial band comes from geometry and not from the scene. A body is inside the ball. Its
     # radius is under one and its period is under one with it; a body too close to the center has
     # no orbit worth the name. Without the band the harmonic sum runs away at the bottom, where
     # every one of its multiples lands in the crowded low bins and collects leakage from all of
@@ -386,8 +386,8 @@ def main():
     # work: on one patch a spurious peak scored 2419 while a real body scored 555. Strength says
     # how loud a bin is, not whether anything is there.
     #
-    # Agreement does work. A body is somewhere, so every patch sees it swing. An artefact is a
-    # feature of one curve, so it lives on one patch and dies on the next. Antipodal patches are
+    # Agreement does work. A body is somewhere. Every patch sees it swing. An artefact is a
+    # feature of one curve. It lives on one patch and dies on the next. Antipodal patches are
     # not independent, since a great circle through a point runs through its opposite as well, so
     # what gets counted is axes and never patches: three of three is a body, one of three is a
     # number that came out of one arithmetic.
@@ -423,7 +423,7 @@ def main():
         shipped[key] = [round(one, 8) for one in profiles[key]]
 
     # What a ballistic reading has to survive. Scattering buries the straight-through part as the
-    # exponential of the path in scattering lengths, so the brightness a shadow needs is that
+    # exponential of the path in scattering lengths. The brightness a shadow needs is that
     # exponential. Printing it keeps the shadow mode honest about being a clear-medium answer.
     depths = [1.0, 4.0, 12.0, 30.0]
     attenuation = [{"lengths": one, "survives": "%.2e" % math.exp(-one)} for one in depths]
@@ -450,7 +450,7 @@ def main():
         return 1
     page = page.replace("/*ORRERY_DATA*/null", json.dumps(payload, separators=(",", ":")))
     if page.count("</script>") < page.count("<script"):
-        sys.stderr.write("the template left a script open, so the page would not run\n")
+        sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
     out = option("--out", os.path.join(HERE, "orrery_view.html"))

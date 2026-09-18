@@ -8,16 +8,16 @@
 #
 # A Bloom filter answers whether an item is in a set using far less room than the set, by keeping only
 # a bit array. Each item sets a few bits chosen by hashing it; a query reports the item present when all
-# of its bits are set. A member sets its own bits on the way in, so a member's bits are always set and
+# of its bits are set. A member sets its own bits on the way in. A member's bits are always set and
 # the filter NEVER says a member is absent. A non-member can find every one of its bits set by
-# accident, so the filter sometimes says a non-member is present. The error is one-directional: false
+# accident. The filter sometimes says a non-member is present. The error is one-directional: false
 # positives happen, false negatives cannot.
 #
 # That is the sift's theorem, in another field and with the same proof. anchors.py keeps a subset of a
 # pattern's points as a necessary condition: a position genuinely holding the pattern satisfies every
-# anchor, so no arrangement of anchors can lose a true occurrence, and the only error is a false
+# anchor. No arrangement of anchors can lose a true occurrence, and the only error is a false
 # candidate that survives. A Bloom filter keeps a hash of an item as a necessary condition: a member
-# sets every one of its bits, so no choice of hashes can lose a member, and the only error is a
+# sets every one of its bits. No choice of hashes can lose a member, and the only error is a
 # non-member that survives. Both are sound necessary conditions with a one-directional error, and in
 # both the SOUNDNESS does not depend on the rule while the COST does. Change the hashes, or change which
 # anchors are chosen, and not one true item is lost; only the count of false survivors moves. The two
@@ -29,7 +29,7 @@
 # not tolerances chosen until the output looked right. The false-positive rate is not a threshold that
 # is set; it is a consequence of those two inputs and the item count, and it is measured and reported
 # beside its own arithmetic prediction. The hashing is exact integer arithmetic, an FNV-1a hash over
-# the item's bytes with two seeds combined, so the filter is deterministic and depends on no library.
+# the item's bytes with two seeds combined. The filter is deterministic and depends on no library.
 
 FNV_OFFSET = 0xCBF29CE484222325
 FNV_PRIME = 0x100000001B3
@@ -45,7 +45,7 @@ def _fnv1a(data, seed):
 
 
 def _as_bytes(item):
-    """An item as bytes, so any hashable of a known encoding can be stored. Strings go through UTF-8."""
+    """An item as bytes. Any hashable of a known encoding can be stored. Strings go through UTF-8."""
     if isinstance(item, (bytes, bytearray)):
         return bytes(item)
     if isinstance(item, str):
@@ -69,7 +69,7 @@ def positions(item, bits, hashes, seed=0):
 def build(items, bits, hashes, seed=0):
     """A filter over `items`, as an integer used as a bit array of `bits` bits.
 
-    A Python integer is the bit array: arbitrary precision, so no length is fixed in advance and the
+    A Python integer is the bit array: arbitrary precision. No length is fixed in advance and the
     whole structure is one exact number. Each item sets its positions, and a member's positions are set
     by construction, which is the whole guarantee.
     """

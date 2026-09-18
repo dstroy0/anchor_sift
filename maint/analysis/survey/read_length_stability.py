@@ -10,7 +10,7 @@
 # Every dependence figure in this work so far is a distance in standard deviations of the renumbered
 # readings, and reading five times as much of one file moved a painting from 20.6 to 122.8. Nothing about
 # the painting changed. The spread of the renumbered readings is the denominator of that distance and it
-# narrows as more data is read, while the reading above it does not, so the distance climbs with the
+# narrows as more data is read, while the reading above it does not. The distance climbs with the
 # length on its own and roughly with its square root.
 #
 # That makes it a statistic for deciding whether an effect is there and a bad one for saying how large it
@@ -108,7 +108,7 @@ def main():
                   % (label, "  ".join("%9s" % ("%.2f" % value if value is not None else "none")
                                       for value in ratios)))
 
-    # Spread across the four lengths divided by the middle of them, so the two are compared on one scale
+    # Spread across the four lengths divided by the middle of them. The two are compared on one scale
     out.write("\n  %-18s %-22s %s\n" % ("corpus", "distance, spread share", "ratio, spread share"))
     for label, distances, ratios in gathered:
         clean_distance = numpy.asarray([value for value in distances if value is not None])

@@ -14,19 +14,19 @@
 # tolerance and no chemistry, and representation.exact.contested returns exactly it.
 #
 # No occupancy is read here. The deposit publishes _atom_site_occupancy and that column is the
-# answer key, so it belongs to stage six and not to this stage. What this measure sees is only
+# answer key. It belongs to stage six and not to this stage. What this measure sees is only
 # where the atoms are and what they are, which is what every other reading in this subject sees.
 #
 # ONE CELL, NOT A TILING
 #
 # Doping is a property of the motif and not of the lattice. A mixed site is written once and
-# repeats in every cell, so tiling multiplies the count without adding an observation: entry
+# repeats in every cell. Tiling multiplies the count without adding an observation: entry
 # 1000091 has four shared positions, and tiled four times an axis it reports 256 of them, being
 # the same four seen sixty four times. Read at one cell the count is the number of shared sites
 # the deposit actually published.
 #
 # That is also the reason doping does not disturb the recovered period. The cell repeats exactly
-# whatever it contains, dopant included, so the lattice is untouched and the edge comes back
+# whatever it contains, dopant included. The lattice is untouched and the edge comes back
 # unchanged. An ideal doped crystal is still perfectly periodic. Stage four's period measure and
 # this one are reading two different things out of the same points.
 #
@@ -41,7 +41,7 @@
 #
 # Two sites share a position when the deposit wrote the same three fractional coordinates twice.
 # That is a fact about the atom site loop alone. It needs no cell edge, no angle, no tiling and no
-# conversion to angstroms, so none of those are read. The coordinates are still carried exactly,
+# conversion to angstroms. None of those are read. The coordinates are still carried exactly,
 # as integers through representation.exact, because a shared position is decided by equality and
 # an equality decided on rounded values is not one.
 #
@@ -51,7 +51,7 @@
 #
 # WHAT THE READER WOULD DO TO THIS, AND WHAT IT ACTUALLY DOES TODAY
 #
-# representation.exact.placed keeps the last value at a repeated position, so a shared site would
+# representation.exact.placed keeps the last value at a repeated position. A shared site would
 # arrive downstream as one element, chosen by the order the deposit happened to list its rows in.
 # Measured on entry 1010929, which puts Cu and Fe on one position: read forward the site is Fe2+,
 # read with its rows reversed the same site is Cu2+.
@@ -210,7 +210,7 @@ def main():
 
     # Derived, and labelled as derived. The line above is the measurement: element strings exactly
     # as deposited. Those strings disagree across deposits for the same chemistry, and the corpus
-    # carries Fe2+, Fe+2, Fe and FE for one element, so the raw tally splits one substitution
+    # carries Fe2+, Fe+2, Fe and FE for one element. The raw tally splits one substitution
     # across four rows and understates every one of them.
     #
     # The grouping below strips the charge and the case to put those back together. It is a reading

@@ -8,13 +8,13 @@
 #
 # Section 4.13 measures six alphabetic texts. All six are written in scripts where one mark is one
 # sound. A regularity found in all of them could belong to that script family instead of to
-# language. Morse carries the same words with the same meaning over two marks and two silences, so it
+# language. Morse carries the same words with the same meaning over two marks and two silences. It
 # separates the two: whatever survives the re-encoding was never a property of the alphabet.
 #
 #   Usage:  python examples/language/1_represent/encode_percussive.py [source] [target]
 #
 # Morse is also the sharpest case for one of the two regularities. Its letter codes were assigned by
-# hand with the shortest given to the most frequent letters, so the brevity law is built into the
+# hand with the shortest given to the most frequent letters. The brevity law is built into the
 # encoding and not merely expected of it.
 
 import os
@@ -38,7 +38,7 @@ CODE = {
 }
 
 # One space between letters and a slash between words, following how Morse is written down. Both are
-# silences in the transmitted form and both are single bytes here, so the detector meets two candidate
+# silences in the transmitted form and both are single bytes here. The detector meets two candidate
 # boundaries and picks whichever is the more regular.
 LETTER_GAP = " "
 WORD_GAP = "/"
@@ -100,7 +100,7 @@ def main():
             out.append(LETTER_GAP.join(pending))
             pending = []
             words += 1
-        # Every run of anything not encodable is one word gap, so punctuation and layout do not each
+        # Every run of anything not encodable is one word gap. Punctuation and layout do not each
         # become a separator and inflate the count
         if out and (not out[-1].endswith(WORD_GAP)):
             out.append(WORD_GAP)

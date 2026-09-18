@@ -18,11 +18,11 @@
 # The second kind is found by comparing, not by parsing. Every token in the source carrying a
 # character the language is written with should appear somewhere in the extraction. A source line
 # holding words that no extracted row holds was not reached. That is the same test coverage_check.py runs,
-# and the number it reports does not change: these lines are flagged, not classified, so they still count
+# and the number it reports does not change: these lines are flagged, not classified. They still count
 # against coverage. What changes is that the gap now has a file naming every line in it.
 #
 # A paper whose extractor repairs its source has to be compared after the same repair. Comparing a repaired
-# extraction against an unrepaired source reports every correctly repaired word as unreached, so the repair
+# extraction against an unrepaired source reports every correctly repaired word as unreached. The repair
 # is passed in and applied to the source line first.
 
 import re
@@ -133,7 +133,7 @@ def write_unsorted(path, paper, rows):
 
     A tab-separated file with a header on its first line and the same number of fields on every
     line. Nothing else. This used to open with seven lines of prose behind a hash, and csvlint has
-    no comment syntax, so every one of these files failed it. The prose that was there is in this
+    no comment syntax. Every one of these files failed it. The prose that was there is in this
     module's own header, where a person reading the code finds it, and the reason column carries
     the two cases into the data.
     """

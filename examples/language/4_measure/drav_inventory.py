@@ -20,7 +20,7 @@
 # at it should have come first and did not.
 #
 # This counts what is there by script and by category, and prints the commonest symbols that Tamil does
-# not use, so the difference is read off the files and not guessed at a fourth time.
+# not use. The difference is read off the files and not guessed at a fourth time.
 
 import io
 import os

@@ -67,7 +67,7 @@ def main():
         return 1
 
     # Read as real comma separated values. Pulling the quoted runs out with a pattern was tried and put
-    # every column in the wrong place, because the file quotes some fields and not others, so the count
+    # every column in the wrong place, because the file quotes some fields and not others. The count
     # of quoted runs on a line is not the count of columns. It reported two authors holding three works
     # in an archive of nineteen thousand.
     import csv
@@ -100,7 +100,7 @@ def main():
         address = row[where_url]
         if not address.endswith(".zip"):
             continue
-        # Keyed on the person and named by the romanized surname, so two writers of one name stay apart
+        # Keyed on the person and named by the romanized surname. Two writers of one name stay apart
         # and a filename holds no characters a filesystem argues about
         person = row[where_person]
         family = (row[where_family] if where_family is not None else "") or person

@@ -101,7 +101,7 @@ class StandardsPassTheCheckerTheyAuthorize(unittest.TestCase):
 
     THE EM DASHES ARE NOT THIS TEST'S TO SETTLE. Both files carry em dashes, 24 and 19, and those
     are STRUCTURAL findings from em_dashes() that do fail a build. code-documentation:109 bans the
-    em dash by name and hard, so the checker is right and the documents violate their own rule 43
+    em dash by name and hard. The checker is right and the documents violate their own rule 43
     times. Fixing them is a change to Douglas's standards and is his call. The count is asserted
     below only so that a silent change to it is visible.
     """
@@ -200,7 +200,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
     own X-not-Y examples falling outside all three X-not-Y patterns because each wanted a copula and
     an article, and the `spelling` token ban demoted to a construction ban.
 
-    A transcription failure is never isolated to the instances somebody noticed, so this is a table
+    A transcription failure is never isolated to the instances somebody noticed. This is a table
     and not three assertions.
     """
 
@@ -232,11 +232,11 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         ("The size is the one that matters.", "the one that matters", "code-documentation:116"),
         ("That is what survives a reset.", "what survives", "code-documentation:120"),
         ("The counts add up to the header length.", "add up", "code-documentation:110"),
-        ("The pool is drained, so a caller sees nothing.", "so a", "code-comments:200"),
+        ("The pool is drained. A caller sees nothing.", "so a", "code-comments:200"),
         # The inflection. Unmatched until 2026-09-16 because the pattern implemented the token and
         # code-documentation:112 describes the clause. It fails against `\bso a\b` and passes
         # against `\bso an?\b`, which is the only reason this row is worth a line.
-        ("The pool is drained, so an entry is dropped.", "so an", "code-comments:200"),
+        ("The pool is drained. An entry is dropped.", "so an", "code-comments:200"),
         ("The bound is read here rather than at the call.", "rather", "code-comments:200"),
         ("The spelling is wrong in three places.", "spelling", "code-comments:200"),
         ("The pool is sized here, which is the bound the caller sees.", "which is the",
@@ -272,7 +272,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
 
     def test_spelling_is_scoped_to_comments_by_its_own_sentence(self):
         # code-comments:200: "none has a legitimate use in a comment here". The scope is in the
-        # sentence, so the code carries it. A page about a character encoding writes the word.
+        # sentence. The code carries it. A page about a character encoding writes the word.
         said = ["The spelling of the identifier is what the linker sees."]
         self.assertTrue(list(docs_check.banned_hits(said, comments=True)))
         self.assertEqual([one for one in docs_check.banned_hits(said, comments=False)
@@ -456,7 +456,7 @@ class ProseNeverFailsABuild(unittest.TestCase):
         for name, path in STANDARDS.items():
             if not os.path.isfile(path):
                 self.skipTest("the standards are not installed")
-        # The standards carry em dashes, which are structural, so they are the wrong fixture for
+        # The standards carry em dashes, which are structural. They are the wrong fixture for
         # this. idemIP/src is the right one: thousands of prose findings and no structural finding.
         tree = sibling_repository("idemIP")
         if not tree or not os.path.isdir(os.path.join(tree, "src")):
@@ -491,7 +491,7 @@ class ProseNeverFailsABuild(unittest.TestCase):
 
 
 class TheStructuralStageIsUntouched(unittest.TestCase):
-    """A guard for the work beside this one, so it cannot be quietly undone here.
+    """A guard for the work beside this one. It cannot be quietly undone here.
 
     The structural repair to dead_links() and everything commit 915b3a9 landed in the private-root
     block are outside this pass's scope, and a rebuild of the token table drops them

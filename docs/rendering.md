@@ -9,8 +9,8 @@ A search produces one outcome per alignment: some probe rejected it, or every pr
 
 There are two arms behind each renderer, a host arm in C and a device arm in CUDA, and they produce the same bytes. The choice between them affects speed alone, and a caller does not make it. Call the dispatch, and it takes the device where one is present and falls back to the host where none is:
 
-* `anchor_raster_render` for a sheet (`src/engine/c/render/anchor_raster.c:296`).
-* `anchor_volume_render` for a volume (`src/engine/c/render/anchor_raster.c:539`).
+- `anchor_raster_render` for a sheet (`src/engine/c/render/anchor_raster.c:296`).
+- `anchor_volume_render` for a volume (`src/engine/c/render/anchor_raster.c:539`).
 
 Both ask `anchor_raster_device_available` or `anchor_volume_device_available` first, call the device arm, and fall back to the host arm if the device refuses. A render then happens whenever either arm can do it. The single-arm entries stay public because a grader has to call one specific arm and compare it against the other. A caller that does not care should use the dispatch.
 
@@ -30,7 +30,7 @@ maint/engine/build_engine.sh
 
 Either one detects the toolchain, compiles the device arm where it can, builds the engine and runs the graders.
 
-Three things have to line up for the device arm, and a bare `cmake` configure does none of them. `nvcc` drives a host compiler, which on Windows is MSVC reaching PATH through vcvars, so the PowerShell script imports that environment and the shell script detects its absence and skips CUDA instead of failing. The Visual Studio generator compiles `.cu` only where the toolkit installed its MSBuild integration, which a normal install often skips and which makes CMake stop with "No CUDA toolset found", so Ninja is used where it is available. And `nvcc` is frequently not on PATH even where the toolkit is installed, so both scripts search the standard locations.
+Three things have to line up for the device arm, and a bare `cmake` configure does none of them. `nvcc` drives a host compiler, which on Windows is MSVC reaching PATH through vcvars. The PowerShell script imports that environment and the shell script detects its absence and skips CUDA instead of failing. The Visual Studio generator compiles `.cu` only where the toolkit installed its MSBuild integration, which a normal install often skips and which makes CMake stop with "No CUDA toolset found". Ninja is used where it is available. And `nvcc` is frequently not on PATH even where the toolkit is installed. Both scripts search the standard locations.
 
 Where any of that is missing the build still succeeds with the host arms and reports what it skipped. The stub arms in `anchor_raster.c` are linked instead, the `device_available` calls return 0, and the dispatch entries fall back. A skipped device is always reported.
 
@@ -74,28 +74,28 @@ anchor_raster_write_pgm("field.pgm", pixels, config.width, config.height);
 
 A layout decides where an alignment lands on the page. It changes what a reader can see and changes nothing measured.
 
-| layout | what it does | what it shows |
-|---|---|---|
-| `ANCHOR_LAYOUT_ROWS` | corpus order, left to right, top to bottom | run length, as horizontal streaks |
-| `ANCHOR_LAYOUT_SERPENTINE` | odd rows reversed | locality across a row boundary, which rows break |
-| `ANCHOR_LAYOUT_COLUMNS` | transposed through the height | a period near the width, as a vertical stripe |
-| `ANCHOR_LAYOUT_DIAGONAL` | each row shifted by its index | structure aligned to either axis, by breaking both |
+| layout                     | what it does                               | what it shows                                      |
+| -------------------------- | ------------------------------------------ | -------------------------------------------------- |
+| `ANCHOR_LAYOUT_ROWS`       | corpus order, left to right, top to bottom | run length, as horizontal streaks                  |
+| `ANCHOR_LAYOUT_SERPENTINE` | odd rows reversed                          | locality across a row boundary, which rows break   |
+| `ANCHOR_LAYOUT_COLUMNS`    | transposed through the height              | a period near the width, as a vertical stripe      |
+| `ANCHOR_LAYOUT_DIAGONAL`   | each row shifted by its index              | structure aligned to either axis, by breaking both |
 
 Every layout is a permutation of the linear cell index computed in integer arithmetic (`src/engine/c/render/anchor_raster.c:118`). A permutation cannot drop or duplicate an alignment, and `bench_raster` checks that by counting filled cells, which come out equal across all four layouts.
 
 ## Channel, the quantity a pixel carries
 
-| channel | value | reading it |
-|---|---|---|
-| `ANCHOR_CHANNEL_DEATH_LEVEL` | probe index that rejected the alignment | dark rejected early, bright survived to the compare |
-| `ANCHOR_CHANNEL_SURVIVED` | binary | bright where every probe agreed |
-| `ANCHOR_CHANNEL_RARITY` | rarity of the corpus byte, from the census the engine steers by | bright where the field is unusual |
-| `ANCHOR_CHANNEL_BYTE` | the corpus byte | the object raw, with no search applied |
-| `ANCHOR_CHANNEL_PROVEN` | two valued | bright where the cell provably holds no occurrence |
+| channel                      | value                                                           | reading it                                          |
+| ---------------------------- | --------------------------------------------------------------- | --------------------------------------------------- |
+| `ANCHOR_CHANNEL_DEATH_LEVEL` | probe index that rejected the alignment                         | dark rejected early, bright survived to the compare |
+| `ANCHOR_CHANNEL_SURVIVED`    | binary                                                          | bright where every probe agreed                     |
+| `ANCHOR_CHANNEL_RARITY`      | rarity of the corpus byte, from the census the engine steers by | bright where the field is unusual                   |
+| `ANCHOR_CHANNEL_BYTE`        | the corpus byte                                                 | the object raw, with no search applied              |
+| `ANCHOR_CHANNEL_PROVEN`      | two valued                                                      | bright where the cell provably holds no occurrence  |
 
-The proof channel differs in kind from the other four. A probe set is a sound filter, so it never loses a true occurrence and it does admit alignments that are not one. The negative direction is therefore certain and the positive is not, and a cell where no alignment survived is proven to hold no occurrence.
+The proof channel differs in kind from the other four. A probe set is a sound filter. It never loses a true occurrence and it does admit alignments that are not one. The negative direction is therefore certain and the positive is not, and a cell where no alignment survived is proven to hold no occurrence.
 
-It reduces as a conjunction, a cell staying proven only while every alignment under it was refuted. Conjunction is associative and commutative, so the channel rides `ANCHOR_REDUCE_MIN` with no new reduction rule. It is monotone under refinement, since adding a probe only removes survivors, and a render never retracts a claim. It also inherits the planner's anytime property. Stop the descent anywhere and render, and every proven pixel is still proven. A death level from a half-built plan describes the plan. A proof from a half-built plan describes the object.
+It reduces as a conjunction, a cell staying proven only while every alignment under it was refuted. Conjunction is associative and commutative. The channel rides `ANCHOR_REDUCE_MIN` with no new reduction rule. It is monotone under refinement, since adding a probe only removes survivors, and a render never retracts a claim. It also inherits the planner's anytime property. Stop the descent anywhere and render, and every proven pixel is still proven. A death level from a half-built plan describes the plan. A proof from a half-built plan describes the object.
 
 Brightness is not presence anywhere in this renderer and least of all here. `ANCHOR_RASTER_PROVEN` is brighter than `ANCHOR_RASTER_UNDETERMINED` and means the opposite of an occurrence. `ANCHOR_RASTER_MATCH` is the only value entitled to assert one.
 
@@ -144,18 +144,18 @@ anchor_volume_write_raw("field.raw", voxels, &config);
 
 The four volume layouts each map an alignment index to a voxel, and each wraps the index into the block first so the map is a bijection on it.
 
-| layout | what it does |
-|---|---|
-| `ANCHOR_VOLUME_SLABS` | corpus order, filling one sheet before the next |
-| `ANCHOR_VOLUME_BOUSTRO` | every other row reversed and every other slab's rows reversed, so consecutive alignments stay adjacent across both boundaries |
-| `ANCHOR_VOLUME_MORTON` | the bits of x, y and z interleaved, so locality holds on all three axes at once and the block reads as a solid. Requires the extents to be powers of two and refuses others |
-| `ANCHOR_VOLUME_HELIX` | slab major with each slab's rows sheared by its depth index, and a feature at a fixed corpus offset winds through the block |
+| layout                  | what it does                                                                                                                                                             |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ANCHOR_VOLUME_SLABS`   | corpus order, filling one sheet before the next                                                                                                                          |
+| `ANCHOR_VOLUME_BOUSTRO` | every other row reversed and every other slab's rows reversed. Consecutive alignments stay adjacent across both boundaries                                               |
+| `ANCHOR_VOLUME_MORTON`  | the bits of x, y and z interleaved. Locality holds on all three axes at once and the block reads as a solid. Requires the extents to be powers of two and refuses others |
+| `ANCHOR_VOLUME_HELIX`   | slab major with each slab's rows sheared by its depth index, and a feature at a fixed corpus offset winds through the block                                              |
 
 `anchor_volume_cell_for` returns the block size where the layout refuses a configuration, which is Morton on extents that are not all powers of two and any unknown layout. The host returns 0 for the whole render in that case, and the device carries the same refusal into its parallel form through a flag a thread sets when its alignment maps out of range.
 
 ## What is graded
 
-`bench_raster` renders every combination of layout and channel for both the sheet and the volume, and compares the host arm against the device arm byte for byte. The raster is integer valued, so agreement is exact and one differing pixel or voxel is a defect. Where no device is present, the run prints the device as absent and grades the host alone. Every row then reads `host only` in its agreement column and `ok` in its verdict, and the run exits 0 (`src/engine/c/bench/bench_raster.c:203-230`, `:359-385`, `:420`). A zero exit shows device agreement only when the run printed the device as present.
+`bench_raster` renders every combination of layout and channel for both the sheet and the volume, and compares the host arm against the device arm byte for byte. The raster is integer valued. Agreement is exact and one differing pixel or voxel is a defect. Where no device is present, the run prints the device as absent and grades the host alone. Every row then reads `host only` in its agreement column and `ok` in its verdict, and the run exits 0 (`src/engine/c/bench/bench_raster.c:203-230`, `:359-385`, `:420`). A zero exit shows device agreement only when the run printed the device as present.
 
 The sheet: twenty combinations, four layouts by five channels, each written as a PGM. Measured on this machine, 65536 bytes of corpus, 65513 alignments, a 256 by 256 raster, needle length 24, against an RTX 3070 at `sm_86`: twenty of twenty host and device identical, every layout filling 65513 cells.
 
@@ -165,14 +165,14 @@ The device arms carry their own copy of the transform and the channel, because t
 
 ## Frame rate, and what the number is
 
-A pixel costs the alignment under it, so the renderer costs what the search costs. A steered probe set rejects most alignments on the first read and renders faster for the same reason it searches faster.
+A pixel costs the alignment under it. The renderer costs what the search costs. A steered probe set rejects most alignments on the first read and renders faster for the same reason it searches faster.
 
 Measured over 200 frames each, death level channel, rows layout, same object, on the `/O2` build:
 
-| probe set | probes | frames | seconds | frames per second |
-|---|---|---|---|---|
-| spatial, unsteered | 4 | 200 | 0.344 | 581.4 |
-| steered coarms | 2 | 200 | 0.268 | 746.3 |
+| probe set          | probes | frames | seconds | frames per second |
+| ------------------ | ------ | ------ | ------- | ----------------- |
+| spatial, unsteered | 4      | 200    | 0.344   | 581.4             |
+| steered coarms     | 2      | 200    | 0.268   | 746.3             |
 
 Both rows are the host renderer. The timing loop calls `anchor_raster_host` (`src/engine/c/bench/bench_raster.c:265-268`). No device frame rate has been measured. Compiler optimization accounts for the difference between these figures and the ones a Debug CMake build reports.
 

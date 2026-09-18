@@ -23,7 +23,7 @@
 #
 # The second split this tree by whether the current session had opened a file, and called the
 # untouched half a person's prose. That split is void: the text of this repository is almost all
-# assistant-written, over many sessions, so both halves had one author. It explains the null the
+# assistant-written, over many sessions. Both halves had one author. It explains the null the
 # distributional form of this script returned, where the gap between those halves carried the same
 # sign at four symbol widths and cleared no floor at any of them. There was no contrast in it to
 # find, and a measurement that cannot fail is not a measurement.
@@ -33,7 +33,7 @@
 #
 # WHAT A NUMBER MEANS
 #
-# Surprise is mean bits per byte pair, so lower sits closer to English. The papers fix the scale. A
+# Surprise is mean bits per byte pair. Lower sits closer to English. The papers fix the scale. A
 # repository file inside the papers' own spread reads the way a human technical page reads, and one
 # above all of them does not. Nothing here is a verdict on a sentence: it ranks files by how far
 # they sit from English, which says where to look, and a person still reads the file.
@@ -88,7 +88,7 @@ def tex_prose(lines):
 def prose_of(path):
     """The comment, docstring and markdown text of one file, with the code removed.
 
-    The same extraction docs_check runs, so the two tools read the same thing. That now includes
+    The same extraction docs_check runs. The two tools read the same thing. That now includes
     .tex, which docs_check read for the first time on 2026-09-09 and had never read before.
     """
     full = path if os.path.isabs(path) else os.path.join(ROOT, path)
@@ -104,7 +104,7 @@ def prose_of(path):
 
 
 # The roots read where the caller names none. `tools` sat in this tuple long after that directory
-# was split into data, analysis and maint, so the walk skipped a directory that no longer existed
+# was split into data, analysis and maint. The walk skipped a directory that no longer existed
 # and read fewer files than it reported, silently.
 DEFAULT_ROOTS = ("docs", "src", "examples", "maint", "theory", "theory_bucket")
 
@@ -159,7 +159,7 @@ def named_roots(argv):
 
     for one in given:
         if not os.path.isdir(one):
-            raise SystemExit("  %s is not a directory. Nothing was measured, so nothing passed."
+            raise SystemExit("  %s is not a directory. Nothing was measured. Nothing passed."
                              % one)
     where = os.path.commonpath([os.path.abspath(one) for one in given]) if len(given) > 1 \
         else os.path.abspath(given[0])

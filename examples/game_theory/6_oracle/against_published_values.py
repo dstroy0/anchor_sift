@@ -21,7 +21,7 @@
 #   the hand ranking      that a flush beats a straight, which nothing here decided
 #
 # A negative control sits at the end. An instrument that passes every positive check and cannot fail
-# is not being checked, so the same machinery is pointed at a deliberately broken generator and has
+# is not being checked. The same machinery is pointed at a deliberately broken generator and has
 # to reject it.
 
 import os
@@ -38,7 +38,7 @@ from representation.game import blackjack, checkers, chess, poker, rules  # noqa
 PERFT_OPENING = {1: 20, 2: 400, 3: 8902, 4: 197281}
 
 # Kiwipete, and its published counts. The position exists because the opening does not exercise
-# castling, en passant or promotion, so a generator can be wrong and still pass perft from the start.
+# castling, en passant or promotion. A generator can be wrong and still pass perft from the start.
 KIWIPETE = (
     "r...k..r",
     "p.ppqpb.",
@@ -80,7 +80,7 @@ def check(label, got, expected, detail=""):
 def near(label, got, expected, window, detail=""):
     """For a published figure quoted at a different deck composition than the one measured here.
 
-    The window is stated in the call and printed, so it is a declared input of the check rather than
+    The window is stated in the call and printed. It is a declared input of the check rather than
     a tolerance chosen until the result passed.
     """
     passed = abs(got - expected) <= window
@@ -131,9 +131,9 @@ def main():
         7,
     )
 
-    # Standing on sixteen wins only where the dealer busts, so the win probability under STAND is the
+    # Standing on sixteen wins only where the dealer busts. The win probability under STAND is the
     # dealer's bust rate for a ten upcard. The published figure is quoted for an infinite deck; this
-    # is one deck with three cards already removed, so the two differ by composition and the window
+    # is one deck with three cards already removed. The two differ by composition and the window
     # says by how much the check will allow.
     black = blackjack.Blackjack(decks=1)
     sixteen = blackjack.position(1, (10, 6), 10)

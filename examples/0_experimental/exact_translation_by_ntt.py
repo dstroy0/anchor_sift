@@ -9,7 +9,7 @@
 #
 #   Usage:  python examples/0_experimental/exact_translation_by_ntt.py
 #
-# This reads no corpus, so it sits in 0_experimental: a transform shown working on two synthetic views,
+# This reads no corpus. It sits in 0_experimental: a transform shown working on two synthetic views,
 # not a stage reading. It is the translation transform proposed in the image_transforms exact-arithmetic
 # chapter, built here atop the same exact-integer discipline as src/engine/c/no_rounding/ but not part
 # of that kernel. The kernel counts exact-value agreements at a lag; this counts overlap of two views
@@ -24,8 +24,8 @@
 # Four things are shown. Positive control: the NTT correlation equals the direct O(N^2) correlation at
 # EVERY lag, exactly, on binary views, and its peak is the true shift. Two routes able to disagree:
 # with weighted views and a deliberately too-small prime the NTT route wraps and parts from the direct
-# route, so their agreement above is an earned result. Drawn null: the true-shift peak is set
-# against the best spurious peak between two INDEPENDENT views, so the separation is measured, not
+# route. Their agreement above is an earned result. Drawn null: the true-shift peak is set
+# against the best spurious peak between two INDEPENDENT views. The separation is measured, not
 # asserted. Stated floor: a single prime is exact only while every coefficient stays below it; for 0/1
 # views the transform length caps the coefficient below p automatically, and weighting is what can
 # breach it, whereupon the remedy is a larger prime or CRT over several, the device path in that paper.
@@ -51,7 +51,7 @@ def spread(count, length, seed):
     """`count` distinct positions in [0, length), from a declared seed. A drawn pattern, not a random one.
 
     A linear congruential step gives a reproducible spread with no seed-dependence anyone chose; the
-    same inputs give the same views on every machine, so the agreement below is a property of the
+    same inputs give the same views on every machine. The agreement below is a property of the
     arithmetic and not of a lucky draw.
     """
     positions = []
@@ -145,7 +145,7 @@ def ntt_transform(values, prime, root_of_length, invert):
 def convolve(left, right, prime, generator):
     """The exact linear convolution of `left` and `right` modulo `prime`, by NTT.
 
-    The result is padded to a power-of-two length at least len(left)+len(right)-1, so the cyclic
+    The result is padded to a power-of-two length at least len(left)+len(right)-1. The cyclic
     transform computes the linear convolution with no wraparound between the ends.
     """
     result_length = len(left) + len(right) - 1

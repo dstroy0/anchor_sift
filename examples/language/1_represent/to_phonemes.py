@@ -9,7 +9,7 @@
 #
 # Words for sounds came out following the border and not the family, and that was measured on spelling.
 # Spelling is the wrong thing for this question: Hungarian writes sz for one consonant and Polish writes
-# sz for another, so two words said alike are counted apart and two written alike are counted together.
+# sz for another. Two words said alike are counted apart and two written alike are counted together.
 #
 # The dictionary was asked for its transcriptions and does not hold any. Hungarian pages carry a template
 # that builds the pronunciation from the spelling when the page is drawn, and several Polish pages carry

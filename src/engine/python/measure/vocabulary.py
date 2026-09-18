@@ -9,7 +9,7 @@
 # The unit where authorship has been found since the disputed Federalist papers were settled on
 # function word frequencies alone, and this work's own numbers say the same thing sharply.
 #
-# Seven writers, thirty one works, all English prose of nearly one period, so the language, the
+# Seven writers, thirty one works, all English prose of nearly one period. The language, the
 # script and the century are fixed and only the writer changes. Which character follows which gets
 # 35.5 percent, only two and a half times chance, with a writer's own works sitting 0.0600
 # apart against 0.0680 for two writers. How often each common word is used gets 77.4 percent, with
@@ -25,7 +25,7 @@
 # One caution that belongs with this measure and not with the character one. The objection that a
 # text is not one distribution was raised against the whole approach and measured as negligible,
 # because letter frequencies barely move within a book. Word frequencies move a great deal between
-# chapters and speakers, and this reading is built on exactly that quantity, so part of its 77.4
+# chapters and speakers, and this reading is built on exactly that quantity. Part of its 77.4
 # percent is carried by a drift the character reading was immune to.
 #
 # The vocabulary is chosen from every text together and never from each one. A writer is therefore

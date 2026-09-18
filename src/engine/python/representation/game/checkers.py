@@ -19,7 +19,7 @@
 #
 # Eight by eight, play on dark squares. Men step diagonally forward one square and capture by jumping
 # an adjacent enemy into the empty square beyond. Capturing is mandatory: where any capture exists,
-# only captures are legal. A capture that can continue must continue, so one move is a whole jump
+# only captures are legal. A capture that can continue must continue. One move is a whole jump
 # chain and not a single hop. A man reaching the far rank becomes a king and the move ends there,
 # which is the standard rule and is the one place a chain stops early. Kings move and capture in all
 # four diagonal directions. A player with no pieces, or with no legal move, has lost.
@@ -116,7 +116,7 @@ class Checkers(object):
             elif not captures:
                 steps.extend(_simple_steps(board, square, piece, side))
 
-        # Mandatory capture. Where a capture exists the quiet moves are not legal, so they are
+        # Mandatory capture. Where a capture exists the quiet moves are not legal. They are
         # discarded rather than ranked below.
         return captures if captures else steps
 
@@ -190,7 +190,7 @@ def _capture_chains(board, square, piece, side):
     """Every complete jump chain available to one piece.
 
     A chain ends where no further jump exists, or where a man has just crowned. Returning whole
-    chains means one move is one turn, so the search never sees a half-finished capture.
+    chains means one move is one turn. The search never sees a half-finished capture.
     """
     chains = []
     _extend(board, square, piece, side, (square,), chains)
@@ -237,7 +237,7 @@ def _extend(board, square, piece, side, path, chains):
 
 
 def endgame(one_pieces, two_pieces):
-    """A position built from named pieces, so an example can measure a solvable ending.
+    """A position built from named pieces. An example can measure a solvable ending.
 
     Each entry is (row, column, MAN or KING). Rows count from PLAYER_ONE's back rank. The position is
     returned with PLAYER_ONE to move.

@@ -16,12 +16,12 @@
 # thousand kilometres east, and contact points the other, at the coast it sits off. Nothing about the two
 # is confounded here in the way that everything in Europe is confounded.
 #
-# Its relatives and its neighbors are taken from one collection, so the content is fixed across all of
+# Its relatives and its neighbors are taken from one collection. The content is fixed across all of
 # them. The Uralic test could not manage that: there the languages came from books, encyclopedia
 # articles and translated works mixed together.
 #
 # Ancient Malagasy is not reachable and is worth naming as absent. What is left of it is Sorabe, written
-# in Arabic script, held in manuscript and not published as text, so what is measured here is the modern
+# in Arabic script, held in manuscript and not published as text. What is measured here is the modern
 # language only.
 
 import gzip

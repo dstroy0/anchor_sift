@@ -16,8 +16,8 @@
 #
 # The drawn null has to exclude two faults, and the proof names both. The first is a false invariant that
 # survives by accident: a band that is invariant in the object only by coincidence, which some shuffle
-# also makes invariant, so the union absorbs it and it does not survive. The size-one core is the clean
-# instance, invariant in every arrangement, so it never survives. The second is the instrument defect of
+# also makes invariant. The union absorbs it and it does not survive. The size-one core is the clean
+# instance, invariant in every arrangement. It never survives. The second is the instrument defect of
 # a real invariant that a null drawn too hard erases: a genuinely uniform multi-cell shell must survive
 # even a large draw, or the null is destroying truth. The proof shows the real shell surviving 128 draws.
 #
@@ -49,7 +49,7 @@ def build_field(band_list):
     """A field of vector magnitudes: a full uniform outer shell, a size-one core, distinct elsewhere.
 
     The uniform shell is a real invariant. The core is invariant only because it holds one cell. Every
-    other cell holds a distinct magnitude, so no other band is uniform.
+    other cell holds a distinct magnitude. No other band is uniform.
     """
     magnitudes = [0] * (SIZE * SIZE)
     fill = 10
@@ -62,7 +62,7 @@ def build_field(band_list):
         else:
             for cell in members:
                 fill += 1
-                magnitudes[cell] = fill         # distinct everywhere else, so these bands are not uniform
+                magnitudes[cell] = fill         # distinct everywhere else. These bands are not uniform
     return magnitudes
 
 

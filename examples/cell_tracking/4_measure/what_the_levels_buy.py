@@ -101,7 +101,7 @@ def main():
               % (rows[0][0], first_error, rows[-1][0], last_error))
 
     if best[0] == rows[-1][0]:
-        out.write("\n  The error is still falling at the top of the sweep, so the total belongs to\n")
+        out.write("\n  The error is still falling at the top of the sweep. The total belongs to\n")
         out.write("  the ceiling and not to the method. The level count comes off, the way the\n")
         out.write("  voxel came off the crystal reading.\n")
     elif best[0] == rows[0][0]:

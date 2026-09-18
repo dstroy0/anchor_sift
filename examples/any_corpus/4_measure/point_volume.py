@@ -18,13 +18,13 @@
 # chosen for it, is bits. So the volume is built in bit space and the same construction runs over text,
 # sound, pictures and structures alike.
 #
-# Each symbol is Gray coded before it is expanded, so two values one apart differ in one bit and distance
+# Each symbol is Gray coded before it is expanded. Two values one apart differ in one bit and distance
 # in the volume means what distance in the alphabet meant. The bits concatenate into one stream, and a
 # window of n bits slid along it is a point in binary n space. The width n is not a property of the
 # corpus and is not guessed at; it is swept, and the result is summed over it.
 #
 # The reduction is a sum over vectors. Summing the window vectors straight gives the per bit marginals and
-# throws away how the bits move together, so they are summed as outer products, giving the correlation
+# throws away how the bits move together. They are summed as outer products, giving the correlation
 # of the n bit positions. The eigenvalues of that sum describe the shape of the occupied volume: spread
 # evenly when the bits are independent, concentrated when they are not. The statistic is how far that
 # spectrum sits from the even one, measured against the null used throughout, which permutes the symbols
@@ -79,7 +79,7 @@ def spectrum_gap(bits, width, rng):
     eigenvalues = numpy.linalg.eigvalsh(correlation)
     eigenvalues = numpy.clip(eigenvalues, 1e-12, None)
     eigenvalues = eigenvalues / eigenvalues.sum()
-    # Even spread is the largest possible entropy over this many bits, so the shortfall is the departure
+    # Even spread is the largest possible entropy over this many bits. The shortfall is the departure
     entropy = -float((eigenvalues * numpy.log2(eigenvalues)).sum())
     return math.log2(len(eigenvalues)) - entropy
 
@@ -164,7 +164,7 @@ def main():
             for width, value in zip(widths, excess):
                 handle.write("%s,%d,%.6f\n" % (label, int(width), value))
 
-    # The excess does not fall off with the width, so the sum over every width has no value and the
+    # The excess does not fall off with the width. The sum over every width has no value and the
     # quantity that does not depend on the ceiling is the exponent the growth follows. The memoryless
     # corpora are the control: an estimate of a correlation matrix grows lopsided with its size on its
     # own, and that would lift every corpus alike. A corpus staying flat while others climb separates

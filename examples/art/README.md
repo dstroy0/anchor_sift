@@ -3,17 +3,17 @@
 **Purpose:** Read a picture as points carrying values, recover the geometry it was stored with, and reject the noise a camera adds.
 **Scope:** `examples/art/`
 
-| stage | script | what it answers |
-|---|---|---|
-| `1_represent` | `picture_true_size.py` | the true dimensions of the stored pictures |
-| `2_partition` | `morton_squash.py` | carrying a plane through one dimension by interleaving its coordinates |
-| `4_measure` | `a_picture_returns_its_width.py` | an image read as a sequence, told nothing, returning its own width |
-| `4_measure` | `picture_width_agreement.py` | whether the two instruments agree on one picture |
-| `4_measure` | `regeneration_limit.py` | how much of a set a summary can put back |
-| `4_measure` | `scale_ladder.py` | separating what was made from how it was recorded, across scales |
-| `4_measure` | `fixed_pattern_removed_to_the_bit.py` | fixed-pattern video noise removed to the bit |
-| `4_measure` | `noise_across_formats_and_qualities.py` | the same removal held across image formats and kinds of noise |
-| `4_measure` | `classify_reject_recover.py` | classify the noise on a stack, reject it, return the clean subject with exact uncertainty |
+| stage         | script                                  | what it answers                                                                           |
+| ------------- | --------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `1_represent` | `picture_true_size.py`                  | the true dimensions of the stored pictures                                                |
+| `2_partition` | `morton_squash.py`                      | carrying a plane through one dimension by interleaving its coordinates                    |
+| `4_measure`   | `a_picture_returns_its_width.py`        | an image read as a sequence, told nothing, returning its own width                        |
+| `4_measure`   | `picture_width_agreement.py`            | whether the two instruments agree on one picture                                          |
+| `4_measure`   | `regeneration_limit.py`                 | how much of a set a summary can put back                                                  |
+| `4_measure`   | `scale_ladder.py`                       | separating what was made from how it was recorded, across scales                          |
+| `4_measure`   | `fixed_pattern_removed_to_the_bit.py`   | fixed-pattern video noise removed to the bit                                              |
+| `4_measure`   | `noise_across_formats_and_qualities.py` | the same removal held across image formats and kinds of noise                             |
+| `4_measure`   | `classify_reject_recover.py`            | classify the noise on a stack, reject it, return the clean subject with exact uncertainty |
 
 Stages three, five and six are not present for this subject.
 
@@ -25,11 +25,11 @@ A picture is a domain whose alphabet is a range of values and whose arrangement 
 
 `fixed_pattern_removed_to_the_bit.py` is the image subject's noise filter, and it is the same instrument the sound denoiser uses, on pictures instead of a waveform. Nothing is ported between them: `reference/periodic` and `measure/periodic_energy` read points carrying values and cannot tell a frame stack from a sound signal, which is the README's one instrument shown reading the second medium.
 
-Fixed-pattern noise is the coherent noise of a camera, a per-pixel offset the sensor adds to every frame. Read a frame stack frame after frame and that offset repeats with a period of exactly one frame, so it is the coherent-addend case: the fixed pattern is the per-pixel mean across the frames and the residual is the moving scene. Where the scene moves everywhere and sits still nowhere the pattern is removed to the last bit.
+Fixed-pattern noise is the coherent noise of a camera, a per-pixel offset the sensor adds to every frame. Read a frame stack frame after frame and that offset repeats with a period of exactly one frame. It is the coherent-addend case: the fixed pattern is the per-pixel mean across the frames and the residual is the moving scene. Where the scene moves everywhere and sits still nowhere the pattern is removed to the last bit.
 
-It runs on a **synthetic positive control** built in the script, because a full rejection is only provable against a known-clean signal. It reports a **drawn null**, **two independent routes** shown able to disagree, and a **stated floor** that is worth naming because it is the reason a real fixed-pattern correction needs a dark frame or motion: a scene feature that never moves is a constant per-pixel offset across the stack, which is the exact shape of the noise, so it cannot be told apart and is removed with it.
+It runs on a **synthetic positive control** built in the script, because a full rejection is only provable against a known-clean signal. It reports a **drawn null**, **two independent routes** shown able to disagree, and a **stated floor** that is worth naming because it is the reason a real fixed-pattern correction needs a dark frame or motion: a scene feature that never moves is a constant per-pixel offset across the stack, which is the exact shape of the noise. It cannot be told apart and is removed with it.
 
-It also carries a **negative control**, because a bit-exact 100% proves only that the pipeline is wired: a stack with no fixed pattern and a stack corrupted by impulses are both required to fall inside the null band and be declined, so the 100% is reached only where a fixed pattern is genuinely present and not wherever something was injected. **The number a reader quotes is the 100%, and the thing that licenses it is the 0%** the wrong noise scores. The decision boundary is drawn, not chosen: the null is the spread of the strongest ratio over several shuffles, the reading counts only above its top, and the script prints that spread so a marginal case shows how much margin is the effect and how much is the draw. The figure is exact on the control; a real stack would report the measured reduction with that floor beside it. A native-C route is the natural hardening and is not claimed here.
+It also carries a **negative control**, because a bit-exact 100% proves only that the pipeline is wired: a stack with no fixed pattern and a stack corrupted by impulses are both required to fall inside the null band and be declined. The 100% is reached only where a fixed pattern is genuinely present and not wherever something was injected. **The number a reader quotes is the 100%, and the thing that licenses it is the 0%** the wrong noise scores. The decision boundary is drawn, not chosen: the null is the spread of the strongest ratio over several shuffles, the reading counts only above its top, and the script prints that spread so a marginal case shows how much margin is the effect and how much is the draw. The figure is exact on the control; a real stack would report the measured reduction with that floor beside it. A native-C route is the natural hardening and is not claimed here.
 
 **The tightest arm, named while it still passes.** The no-pattern arm is the closest call in the whole suite. It sits at about 2.9 inside a band spanning roughly 1.4 to 3.9, three quarters of the way to the ceiling it must stay under, while every other arm is decided by a factor: the matched pattern clears the band by more than a hundred times. So if any arm here ever flips, it is this one, and it will flip because eight shuffles happened to draw a low ceiling rather than because the denoiser changed. Whoever sees it fail should look at the band and the draw count before looking at the filter, and widening the draw is the first thing to try.
 
@@ -57,7 +57,7 @@ The honest core is that a coherent per-pixel component across a stack is either 
 
 The controls, run with no arguments, walk both modes across their boundaries. A fixed pattern over a varying subject recovers the subject to the bit with zero pixels flagged. Incoherent noise over a varying subject is declined, because it does not clear the drawn null band. Impulses over a repeated subject recover it to the bit by consensus. Incoherent noise over a repeat leaves 54 of 64 pixels flagged, the honest statement that averaging is not exact recovery where no per-pixel majority exists.
 
-On how far this goes: the reject runs on unbounded integers, so it has no size or depth limit and introduces no rounding, and that is where the zero uncertainty lives. The constant that bites is registration, the exact translation that aligns a real stack. For binary thresholded pages each correlation coefficient stays below the modulus and the alignment is exact with one prime; grayscale needs CRT over the three word-lane primes. The real limit on a set of scanned pages is not a prime but the registration: pages that drift in size are not pixel-aligned, translation alone cannot absorb a scale drift, and scale and rotation registration are design-only today, so the exact zero is delivered on a registered stack and a measured reduction with its floor on one that is not.
+On how far this goes: the reject runs on unbounded integers. It has no size or depth limit and introduces no rounding, and that is where the zero uncertainty lives. The constant that bites is registration, the exact translation that aligns a real stack. For binary thresholded pages each correlation coefficient stays below the modulus and the alignment is exact with one prime; grayscale needs CRT over the three word-lane primes. The real limit on a set of scanned pages is not a prime but the registration: pages that drift in size are not pixel-aligned, translation alone cannot absorb a scale drift, and scale and rotation registration are design-only today. The exact zero is delivered on a registered stack and a measured reduction with its floor on one that is not.
 
 **Running it.** Needs numpy and Pillow. With `--mode {fixed-pattern,repeat} --in DIR --out DIR` it runs a real same-size stack and writes the clean frames or the consensus image and an uncertainty map; with no arguments it runs the controls.
 

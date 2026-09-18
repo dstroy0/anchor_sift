@@ -8,7 +8,7 @@ is not here.
 ## The flow
 
 This repository is upstream. `anchor_sift` is downstream and carries these books in its tree as a
-git subtree under `theory_bucket/`, so they ship with the release and a clone gets them without a
+git subtree under `theory_bucket/`. They ship with the release and a clone gets them without a
 second fetch.
 
 ```
@@ -25,15 +25,15 @@ change here, open a pull request against `main`, and pull it down after it merge
 
 ## What is here
 
-| book | what it is |
-| --- | --- |
-| `Salishan` | the corpus work, whose tables are speakers' words written down |
-| `cryptography/sha256` | the SHA-256 readings, refutations included |
-| `crystallography` | the lattice work |
-| `delta_null` | the null construction |
-| `millennium` | the Navier-Stokes and Euler reading |
-| `precision` | the relation search and what precision costs |
-| `thought_experiments` | the boundary arguments |
+| book                  | what it is                                                     |
+| --------------------- | -------------------------------------------------------------- |
+| `Salishan`            | the corpus work, whose tables are speakers' words written down |
+| `cryptography/sha256` | the SHA-256 readings, refutations included                     |
+| `crystallography`     | the lattice work                                               |
+| `delta_null`          | the null construction                                          |
+| `millennium`          | the Navier-Stokes and Euler reading                            |
+| `precision`           | the relation search and what precision costs                   |
+| `thought_experiments` | the boundary arguments                                         |
 
 ## What is not here, and why
 
@@ -44,9 +44,9 @@ and its subject in another.
 Two chapters in this tree are generated and say so in their own first lines. Edit the generator, not
 the chapter:
 
-* `Salishan/chapters/chapter_Salishan_pure_corpus_README.tex`, from
+- `Salishan/chapters/chapter_Salishan_pure_corpus_README.tex`, from
   `anchor_sift/maint/data/salishan/hand_extraction/pure_corpus_index.py`.
-* `cryptography/sha256/chapters/chapter_sources.tex`, from `tools/book/build_bibliography.py` in the
+- `cryptography/sha256/chapters/chapter_sources.tex`, from `tools/book/build_bibliography.py` in the
   BTCminer tree, reached through the `btc` remote in anchor_sift's `.git/config`.
 
 ## Building

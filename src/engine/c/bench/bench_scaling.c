@@ -14,12 +14,12 @@
  *       happens in this file. A change here cannot move a measurement.
  * @note The bench this replaces compared the sift with Boyer-Moore-Horspool on a byte line.
  *       Horspool needs an ordered index set and a shift table the size of the alphabet, and the
- *       sift needs neither, so that comparison ran on Horspool's own ground in the one domain where
+ *       sift needs neither. That comparison ran on Horspool's own ground in the one domain where
  *       discarding order gains nothing. It measured a case the construction is positioned to lose and
  *       left the case it exists for unmeasured. The only reference arm here is the exact compare,
  *       and it serves as the soundness oracle. It was not entered as a competitor.
  * @note Two questions are kept apart because their answers behave differently. A needle drawn from
- *       the corpus is present, so every search confirms a genuine occurrence and runs a verification
+ *       the corpus is present. Every search confirms a genuine occurrence and runs a verification
  *       whatever the filter did, and that floor is why arms converge as the needle grows. A needle
  *       drawn from an independent stream is almost never present. That case is the stated problem,
  *       a pattern of arbitrary width that the domain does not hold. With no occurrence there is no
@@ -28,7 +28,7 @@
  *       distribution; a count of cycles belongs to the machine that produced it. Both are here and
  *       they come from separate builds, since counting perturbs the timing it would sit beside.
  * @warning Corpora are generated, not fetched. A generated corpus carries a distribution and no
- *          arrangement, so nothing here bears on a measure that reads arrangement.
+ *          arrangement. Nothing here bears on a measure that reads arrangement.
  */
 
 #include <stdint.h>
@@ -45,7 +45,7 @@
 #define CYCLES_ARE_REAL 1
 #elif defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
 /* The same part reached through the other compiler's spelling. __x86_64__ is a GCC and Clang
- * predefine and MSVC never sets it, so testing it alone sent every MSVC build to the monotonic
+ * predefine and MSVC never sets it. Testing it alone sent every MSVC build to the monotonic
  * substitute, which needs clock_gettime, which MSVC does not ship. The driver then failed to
  * compile on the platform it was most often built on. */
 #include <intrin.h>
@@ -147,7 +147,7 @@ int main(void)
 
     if ((corpus == NULL) || (absent == NULL))
     {
-        // %zu is absent from the C runtime this builds against on Windows, so every size_t printed
+        // %zu is absent from the C runtime this builds against on Windows. Every size_t printed
         // here is widened and written as %llu. The cast is to the type the format names.
         (void)fprintf(stderr, "  could not take %llu bytes for the longest corpus\n",
                       (unsigned long long)longest);

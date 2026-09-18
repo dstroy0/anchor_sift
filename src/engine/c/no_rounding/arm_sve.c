@@ -11,7 +11,7 @@
  * @date 2026-09-16
  *
  * @note Written for server class ARM: Graviton, Ampere Altra, Grace, the Neoverse cores. No part in
- *       this project has SVE. The Raspberry Pi 5 is a Cortex-A76, which is NEON only, so this arm has
+ *       this project has SVE. The Raspberry Pi 5 is a Cortex-A76, which is NEON only. This arm has
  *       never been run. It is compiled for armv8.2-a+sve and its emitted instructions are read by
  *       maint/engine/verify_arm_asm.sh, which confirms the predicated forms. That says the intrinsics
  *       became SVE instructions and not a scalar fallback. It says nothing about behavior, and the
@@ -65,15 +65,15 @@ static int sve_present(void)
  * @param[in] right Second magnitude [BORROWS].
  * @return          1 where every limb matches, 0 otherwise.
  * @note Walks upward here and not downward. svwhilelt_b32 builds the predicate for a forward run
- *       and there is no reversed form of it, so the direction that costs nothing on this instruction
+ *       and there is no reversed form of it. The direction that costs nothing on this instruction
  *       set is the forward one. Equality has no early information in the high limbs the way ordering
- *       does, so nothing is lost by it.
+ *       does. Nothing is lost by it.
  */
 static int sve_magnitude_equal(const uint32_t *left, const uint32_t *right)
 {
     for (uint64_t at = 0u; at < (uint64_t)ANCHOR_EXACT_LIMBS; at += svcntw())
     {
-        // The predicate covers only the lanes that exist, so the tail needs no separate loop.
+        // The predicate covers only the lanes that exist. The tail needs no separate loop.
         const svbool_t live = svwhilelt_b32(at, (uint64_t)ANCHOR_EXACT_LIMBS);
         const svuint32_t one = svld1_u32(live, left + at);
         const svuint32_t two = svld1_u32(live, right + at);
@@ -91,9 +91,9 @@ static int sve_magnitude_equal(const uint32_t *left, const uint32_t *right)
  * @param[in] left  First magnitude [BORROWS].
  * @param[in] right Second magnitude [BORROWS].
  * @return          -1 where left is smaller, 1 where it is larger, 0 where they are equal.
- * @note Ordering is settled by the highest limb that differs, so this walks blocks from the top down
+ * @note Ordering is settled by the highest limb that differs. This walks blocks from the top down
  *       and then walks the differing block backward. The block stride is the vector length, which is
- *       not known until run time, so the top block is found by counting down from the limb count
+ *       not known until run time. The top block is found by counting down from the limb count
  *       instead of by a constant.
  */
 static int sve_magnitude_compare(const uint32_t *left, const uint32_t *right)
@@ -155,7 +155,7 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
     const int order = sve_magnitude_compare(left->limb, right->limb);
     if (left->sign < 0)
     {
-        // Both negative, so the larger magnitude is the smaller value.
+        // Both negative. The larger magnitude is the smaller value.
         return -order;
     }
     return order;
@@ -173,12 +173,12 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
 static size_t arm_agreement(const AnchorExactInteger *positions, const uint64_t *values,
                             size_t count, const AnchorExactInteger *lag)
 {
-    // The shared search, with only the equality test swapped, so what is timed is the instruction
+    // The shared search, with only the equality test swapped. What is timed is the instruction
     // set and not a second algorithm.
     return anchor_exact_agreement_using(arm_equal, positions, values, count, lag);
 }
 
-/** @brief The arm as a driver sees it. Static storage, so returning its address is safe. */
+/** @brief The arm as a driver sees it. Static storage. Returning its address is safe. */
 static const AnchorExactArm SVE_ARM = {
     "sve-unrun",
     arm_equal,

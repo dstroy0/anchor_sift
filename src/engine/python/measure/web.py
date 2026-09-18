@@ -11,7 +11,7 @@
 # the alphabet and discards the context, and the context is which symbol follows which, which is a
 # square over the alphabet and not one number.
 #
-# Positions are frequency ranks and not code points, so the same position means the same thing in
+# Positions are frequency ranks and not code points. The same position means the same thing in
 # every language: whatever a text uses most sits first. That makes a Greek square and a Japanese one
 # comparable without either being translated.
 #
@@ -68,7 +68,7 @@ def squashed(text, as_codes, widths):
     """The web read at every code width at once, instead of at whichever single one was chosen.
 
     A width means different things in different languages. Thirty two codes hold about a hundred
-    Chinese characters each and about two and a half Welsh ones, so two languages compared at one
+    Chinese characters each and about two and a half Welsh ones. Two languages compared at one
     width are compared at two resolutions and only one of them is fine.
 
     Reading every width and laying them end to end takes identification from 40.0 to 45.7 percent

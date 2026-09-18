@@ -24,7 +24,7 @@
 # what it was written with.
 
 # Tokens every language is cut to. Readings per word climb with corpus size, and these corpora run
-# from twenty thousand tokens to 1.2 million, so any column set beside another is cut to this first.
+# from twenty thousand tokens to 1.2 million. Any column set beside another is cut to this first.
 TOKEN_CAP = 60000
 
 

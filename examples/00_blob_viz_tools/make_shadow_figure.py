@@ -5,7 +5,7 @@
 #
 """Renders the residue shadow as a character map for the theory book.
 
-The published viewers are interactive and the book is not, so the same field is drawn here in
+The published viewers are interactive and the book is not. The same field is drawn here in
 characters. Density stands for magnitude and the sign is carried by the character set, because a
 book printed in one color cannot use hue for it.
 
@@ -22,8 +22,8 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
 
-# Two ramps, so sign survives a monochrome page. Negative deepens through one set, positive
-# through the other, and a cell at zero is blank and not a dot, so empty reads as empty.
+# Two ramps. Sign survives a monochrome page. Negative deepens through one set, positive
+# through the other, and a cell at zero is blank and not a dot. Empty reads as empty.
 DOWN = " .:-=+*#%@"
 UP = " ,;iclxdKW"
 
@@ -57,7 +57,7 @@ def main():
         print("\\end{verbatim}")
         print("")
 
-    # As measured: every class carries the same large offset, so all thirty-two rows look alike.
+    # As measured: every class carries the same large offset. All thirty-two rows look alike.
     draw("raw fold", lambda k, r: field[k][r])
 
     # With the class mean removed at each depth, the only reading that means anything.

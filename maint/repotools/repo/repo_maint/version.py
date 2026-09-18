@@ -16,13 +16,13 @@ library.json and library.properties publish it to a package index, and CMakeList
 project(). Those three were apart once already - both manifests said v0.0.0 while CMake and every
 banner in the tree said 0.1.0 - which is the whole reason a version now has one home.
 
-bump2version cannot write the other two forms, so this does:
+bump2version cannot write the other two forms. This does:
 
     the IDEMIP_VERSION_* block in src/idemip_config.h, the only copy a consumer can reach from C.
     Four lines that have to move together, and bump2version 1.0.1 matches a single line at a time.
 
     the banner at the head of every file in the tree, in whichever comment the file's language
-    takes. There are 184 of them and a new file appears whenever a unit does, so they are found by
+    takes. There are 184 of them and a new file appears whenever a unit does. They are found by
     walking rather than by being listed.
 
 Neither is a fixed string bump2version can be pointed at, and both go stale silently: a banner
@@ -34,7 +34,7 @@ reading v0.1.0 in a 0.2.0 tree is wrong in a way no compiler and no test can see
 
 --check is the CI shape, beside guards.py, counters.py and deadstate.py. Note that .bumpversion.cfg
 itself carries no banner and no SPDX line: bump2version rewrites that file through configparser on
-every bump, which drops comments, so anything written there survives exactly until the next bump.
+every bump, which drops comments. Anything written there survives exactly until the next bump.
 This docstring is where that explanation lives instead.
 """
 import argparse
@@ -76,7 +76,7 @@ VERSION_BLOCK = re.compile(
 # Only these are read. A banner in anything else is not one this tree writes.
 SUFFIXES = (".c", ".h", ".py", ".cmake", ".cfg", ".yml", ".yaml", ".properties", ".json", ".txt", ".md")
 
-# Files whose whole name is the extension, so endswith() above never reaches them.
+# Files whose whole name is the extension. Endswith() above never reaches them.
 NAMES = {"CMakeLists.txt", ".clangd"}
 
 # A banner sits on the first line, unless the file opens with a shebang and it sits on the second.
@@ -137,7 +137,7 @@ def banner_line(text):
 
     Only the head of the file is considered: a banner is metadata, and the same string further down
     is prose about a banner, which rewriting would edit as if it were metadata. A shebang takes the
-    first line where there is one, so the banner is on the second - every script in this tree.
+    first line where there is one. The banner is on the second - every script in this tree.
     """
     lines = text.split("\n")
     for index in range(min(BANNER_MAX_LINE, len(lines))):

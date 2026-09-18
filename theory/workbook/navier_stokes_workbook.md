@@ -56,8 +56,9 @@ and does nothing with any alternative.
 
 The errata page carries a second item: an equation it numbers (10) "should read" a weak form with the
 signs `- int u . d theta/dt - sum int u_i u_j d theta_i/dx_j = nu int u . Laplacian theta + int f . theta
-+ int p (div theta)`. In the text as fetched, (10) is the periodicity of `u` and the weak form is (12),
-so the errata refer to an earlier numbering; recorded as read, and the weak form is not used here.
+
+- int p (div theta)`. In the text as fetched, (10) is the periodicity of `u` and the weak form is (12),
+  so the errata refer to an earlier numbering; recorded as read, and the weak form is not used here.
 
 ## Their sets, defined
 
@@ -90,7 +91,7 @@ The four alternatives in those names:
 - (D): there exist `u°` in `D_8` and `f` in `F_89` with `S_1011(u°, f)` empty.
 
 Two readings of those definitions, both from the statement and neither new. (C) is not the negation of
-(A): the negation of (A) is (C) with `f = 0`, and (C) allows any `f` in `F_5`, so (A) and (C) can both be
+(A): the negation of (A) is (C) with `f = 0`, and (C) allows any `f` in `F_5`. (A) and (C) can both be
 true, and likewise (B) and (D). The millennium chapter called that two different removals, and the
 removal instances of entry 1 below are that shape on one field each. Fefferman's own sentence on
 the unforced case is that either (A) and (B) hold, or else there is a smooth divergence-free `u°` for
@@ -110,12 +111,12 @@ Our set, and where it sits in theirs. `R` is the ring of entry 1: finite sums of
 over `Z^3` with Gaussian integer Laurent coefficients in `pi` over one integer denominator, real-valued
 when `c_{-k}` is the conjugate of `c_k`; `R_div` its divergence-free vector fields. Then:
 
-- `R_div` is a subset of `D_8`: every element is a trigonometric polynomial, so smooth and periodic, and
+- `R_div` is a subset of `D_8`: every element is a trigonometric polynomial. Smooth and periodic, and
   the divergence is an exact identity. That is the inclusion the whole of entry 1 rests on.
 - `R_div` meets `D_4` only at zero: a nonzero periodic field does not decay. So the ring reaches (B) and
   (D)'s data and none of (A) and (C)'s, and the table below says `not run` for the whole-space sets.
 - `R_div` is closed under the constructors of the recurrence (products, derivatives, Leray's projection
-  with the denominator widened), so every Taylor coefficient of a solution with datum in `R_div` is in
+  with the denominator widened). Every Taylor coefficient of a solution with datum in `R_div` is in
   `R_div`; shown to order 4 and true by construction at every order.
 - The solution itself, `u(t)` for `t > 0`, is not in `R`: for the ABC datum it is `e^{-4 nu pi^2 t} u_0`,
   whose amplitude is not a Laurent polynomial in `pi` with integer coefficients, and for a generic datum
@@ -141,7 +142,7 @@ Three lists, kept apart. The first two are Fefferman's statement, read; the thir
   smooth divergence-free `u°` has a solution with finite blowup time, and for `nu > 0` the velocity is
   then unbounded near it.
 - For Euler with finite blowup time, the vorticity satisfies the Beale-Kato-Majda divergence quoted
-  above, so it blows up rapidly. Many numerical computations appear to show Euler blowup, and the
+  above. It blows up rapidly. Many numerical computations appear to show Euler blowup, and the
   extreme numerical instability of the equations makes reliable conclusions hard to draw. He points to
   Bertozzi and Majda's book for these results.
 - Leray, 1934: weak solutions of (1), (2), (3) in three dimensions always exist with suitable growth.
@@ -149,7 +150,7 @@ Three lists, kept apart. The first two are Fefferman's statement, read; the thir
   Shnirelman, built weak solutions with compact support in spacetime, a fluid at rest that starts moving
   with no stimulus and returns to rest.
 - Scheffer, then Caffarelli, Kohn and Nirenberg, then F.-H. Lin: partial regularity. The singular set of
-  a suitable weak solution has one-dimensional parabolic Hausdorff measure zero, so it contains no
+  a suitable weak solution has one-dimensional parabolic Hausdorff measure zero. It contains no
   spacetime curve. He calls it the best partial regularity theorem known so far and says it appears very
   hard to go further.
 - His closing sentence: standard methods from PDE appear inadequate, and some deep, new ideas are
@@ -174,7 +175,7 @@ not on the Clay list.
   instance of (B) for one datum, known since Arnold and Childress.
 - For a generic datum in `R_div` the Taylor coefficients to order 4 are exact, divergence-free,
   real-valued, and the vorticity route agrees at every order; their mode support grows by one in
-  `|k|_1` per order, measured, so no fixed horizon holds the solution. What happens past order 4, and
+  `|k|_1` per order, measured. No fixed horizon holds the solution. What happens past order 4, and
   whether the series converges, and for how long, is not known here.
 - At `t = 0`, on both data, the energy identity holds exactly, with the nonlinear term and the pressure
   moving no energy. That is one instant; (7) is every instant.
@@ -183,7 +184,7 @@ not on the Clay list.
 - On one datum each, the solution sets of Euler and of Navier-Stokes do not contain each other's member,
   and the forced and unforced sets do not; the residuals are exact and proportional to `nu` or equal to
   `f`. Two instances, no theorem.
-- `R_div` is countable and `D_8` is not, so the exactly nameable data are a measure-zero island in the
+- `R_div` is countable and `D_8` is not. The exactly nameable data are a measure-zero island in the
   data class; everything the ring does is on that island.
 - The boundary kind of each object above, read by probe: none on the ABC coefficients and on the exact
   ring, completeness on a generic datum's horizon, format on any decimal report of a coefficient with
@@ -206,7 +207,7 @@ Gaussian integer coefficients, and the whole field carrying one positive integer
 `exact.py` carries one count of places. The denominator is widened past a power of ten for one reason:
 Leray's projection divides by `|k|^2`, and `1/3` has no exact decimal at any scale, and a decimal scale
 would then have to refuse where an integer denominator carries the value exactly. Every field is normalized
-by the common divisor of its integers, so equality is equality of integers, and `pi` is a symbol:
+by the common divisor of its integers. Equality is equality of integers, and `pi` is a symbol:
 Lindemann's theorem makes term-by-term zero the exact zero test. Every element is smooth and periodic, so
 (8), (10), (11) hold by construction; (2) is an exact identity; the pressure is in the same ring and so
 periodic, the errata's condition; the energy on the unit cell is Parseval's exact sum. The solution is
@@ -230,17 +231,18 @@ with (2) enforced by Leray's projection. Nothing is rounded.
 - The horizon, on a generic divergence-free datum `g_0 = (sin 2 pi y + sin 2 pi z, sin 2 pi z, sin 2 pi x)`,
   not Beltrami, with a surviving Leray part and a nonzero pressure from order 1:
 
-  | order | 0 | 1 | 2 | 3 | 4 |
-  |---|---|---|---|---|---|
-  | largest `\|k\|_1` | 1 | 2 | 3 | 4 | 5 |
-  | largest `\|k\|_inf` | 1 | 1 | 2 | 3 | 4 |
-  | modes held | 6 | 18 | 42 | 88 | 170 |
-  | outside `\|k\|_inf <= 1` | 0 | 0 | 16 | 62 | 144 |
-  | outside `\|k\|_inf <= 2` | 0 | 0 | 0 | 16 | 66 |
+  | order                    | 0   | 1   | 2   | 3   | 4   |
+  | ------------------------ | --- | --- | --- | --- | --- |
+  | largest `\|k\|_1`        | 1   | 2   | 3   | 4   | 5   |
+  | largest `\|k\|_inf`      | 1   | 1   | 2   | 3   | 4   |
+  | modes held               | 6   | 18  | 42  | 88  | 170 |
+  | outside `\|k\|_inf <= 1` | 0   | 0   | 16  | 62  | 144 |
+  | outside `\|k\|_inf <= 2` | 0   | 0   | 0   | 16  | 66  |
 
   `|k|_1` climbs by exactly one per order, because a product of modes adds their index vectors. A
   truncation at any fixed radius misses some order, and the count it misses is measured, not bounded.
   Every coefficient stays divergence-free and real-valued.
+
 - Symmetries, exact on the coefficients. Time scaling `v(x,t) = mu u(x, mu t)` solves (1)-(3) at viscosity
   `mu nu` with `v_m = mu^(m+1) u_m`, checked at `mu = 3`; the wrong exponent `mu^m` is refused. Space
   scaling `v(x,t) = lam u(lam x, lam^2 t)` at the same `nu` keeps the period and gives
@@ -257,7 +259,7 @@ with (2) enforced by Leray's projection. Nothing is rounded.
   and real-valued at every truncation, distinct sequences give distinct fields, and the bits read back
   from the coefficients. The full sums are smooth, since `n^-n` beats every power of `n`, and periodic,
   so they sit in (8). The bit sequences are uncountable (Cantor, `proof_set_theory.py`) and the ring is
-  countable, so the exactly nameable data are a countable island in the data class.
+  countable. The exactly nameable data are a countable island in the data class.
 
 ## Entry 2, 2026-09-17: the boundary function asked to define itself
 
@@ -276,14 +278,14 @@ against its true value reads `measurement`; `22/7` against itself reads `none`.
 
 Their sets, read by the probes, on `u_2` of the generic datum (its modes reach `|k|_inf = 2`):
 
-| object | gap | scale probe | horizon probe | kind |
-|---|---|---|---|---|
-| `u_2` in decimals, 30 places, modes `\|k\|_inf <= 1` | yes | moves | moves | format and completeness |
-| `u_2` in decimals, 30 places, modes `\|k\|_inf <= 2` | yes | moves | silent | format |
-| `u_2` in the ring, modes `\|k\|_inf <= 1` | yes | silent | moves | completeness |
-| `u_2` in the ring, modes `\|k\|_inf <= 2` | no | silent | silent | none |
-| `u_2` from `A` deposited to 6 places, against true `A` | yes | silent | silent | measurement |
-| `u_1 / u_0 = -4 nu pi^2`, deposit against true `A` | no | silent | silent | none |
+| object                                                 | gap | scale probe | horizon probe | kind                    |
+| ------------------------------------------------------ | --- | ----------- | ------------- | ----------------------- |
+| `u_2` in decimals, 30 places, modes `\|k\|_inf <= 1`   | yes | moves       | moves         | format and completeness |
+| `u_2` in decimals, 30 places, modes `\|k\|_inf <= 2`   | yes | moves       | silent        | format                  |
+| `u_2` in the ring, modes `\|k\|_inf <= 1`              | yes | silent      | moves         | completeness            |
+| `u_2` in the ring, modes `\|k\|_inf <= 2`              | no  | silent      | silent        | none                    |
+| `u_2` from `A` deposited to 6 places, against true `A` | yes | silent      | silent        | measurement             |
+| `u_1 / u_0 = -4 nu pi^2`, deposit against true `A`     | no  | silent      | silent        | none                    |
 
 The format kind is a property of the report, not of the object: the same coefficient reads `format` in
 decimals, because a coefficient carrying `pi` has no last digit, and reads `none` in the ring, which has
@@ -302,7 +304,7 @@ proof that reaches the same knot, and this is that: it shows the knot and does n
   because a product of two modes adds their index vectors. The counts per shell are
   `6; 6, 12; 6, 12, 24; 6, 14, 24, 44; 6, 14, 34, 44, 72; 6, 16, 34, 62, 72, 108`. This is energy
   reaching a finer scale each order, read with no `pi` in it. Null: the ABC datum, an eigenfunction, keeps
-  its whole front on `|k|_1 = 1` at every order, so it does not cascade.
+  its whole front on `|k|_1 = 1` at every order. It does not cascade.
 - The energy shells, exact. Whether a shell `|k|^2 = r` carries energy is the exact test that a ring
   quantity is zero, and it needs no numeric `pi`. The generic datum lights up more shells each order,
   `[1]`, `[1,2]`, `[1,2,3,5]`, up to eighteen shells at order 5. Two routes agree to the integer: the
@@ -328,21 +330,21 @@ only the exact per-order quantities.
 
 ## Their sets against the boundary function
 
-| Fefferman's set | what the ring does with it | kind, by probe |
-|---|---|---|
-| (1) momentum, the equation behind `S_67` and `S_1011` | residual exact on any element of `R_div`; solution as Taylor coefficients | none on the ABC family; completeness on a generic datum (the horizon) |
-| (2) divergence, the condition on every `D` and `S` | exact identity, carried by every coefficient | none |
-| (3) datum, `u°` in `D_8` | any element of `R_div`; a deposited amplitude | none; measurement for the deposit |
-| `D_4`, `F_5`, `S_67` | not represented: `R_div` meets `D_4` at zero | not run |
-| (7) on the unit cell, the energy `S_67` bounds | Parseval's sum, exact; `d/dt E = -2 nu int \|grad u\|^2` at `t = 0`, exact | none at the instant checked |
-| `D_8` with the errata's periodic pressure | by construction: datum, force and pressure all periodic | none |
-| `F_89`, decay of `f` in `t` | not probed: time is carried at `t = 0` only | not run |
-| `S_1011`, smooth periodic pairs | by construction for every coefficient; the solution itself is outside `R` | none on the coefficients; the solution is reached only through them |
-| `nu > 0` | moved exactly by the time scaling | format, in the sense a symmetry moves it |
-| Euler, `nu = 0` | the ABC field is a stationary exact solution | none; nothing about blowup or the Beale-Kato-Majda integral |
-| (A), (B) | the ring reaches one exact family in `D_8` and finitely many orders of a generic datum | completeness; claims nothing |
-| (C), (D) | the 2026 paper's datum and force are not represented here, and the paper is unread here past what the millennium chapter read | not run |
-| the weak solutions and the singular set | not represented | not run |
+| Fefferman's set                                       | what the ring does with it                                                                                                    | kind, by probe                                                        |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| (1) momentum, the equation behind `S_67` and `S_1011` | residual exact on any element of `R_div`; solution as Taylor coefficients                                                     | none on the ABC family; completeness on a generic datum (the horizon) |
+| (2) divergence, the condition on every `D` and `S`    | exact identity, carried by every coefficient                                                                                  | none                                                                  |
+| (3) datum, `u°` in `D_8`                              | any element of `R_div`; a deposited amplitude                                                                                 | none; measurement for the deposit                                     |
+| `D_4`, `F_5`, `S_67`                                  | not represented: `R_div` meets `D_4` at zero                                                                                  | not run                                                               |
+| (7) on the unit cell, the energy `S_67` bounds        | Parseval's sum, exact; `d/dt E = -2 nu int \|grad u\|^2` at `t = 0`, exact                                                    | none at the instant checked                                           |
+| `D_8` with the errata's periodic pressure             | by construction: datum, force and pressure all periodic                                                                       | none                                                                  |
+| `F_89`, decay of `f` in `t`                           | not probed: time is carried at `t = 0` only                                                                                   | not run                                                               |
+| `S_1011`, smooth periodic pairs                       | by construction for every coefficient; the solution itself is outside `R`                                                     | none on the coefficients; the solution is reached only through them   |
+| `nu > 0`                                              | moved exactly by the time scaling                                                                                             | format, in the sense a symmetry moves it                              |
+| Euler, `nu = 0`                                       | the ABC field is a stationary exact solution                                                                                  | none; nothing about blowup or the Beale-Kato-Majda integral           |
+| (A), (B)                                              | the ring reaches one exact family in `D_8` and finitely many orders of a generic datum                                        | completeness; claims nothing                                          |
+| (C), (D)                                              | the 2026 paper's datum and force are not represented here, and the paper is unread here past what the millennium chapter read | not run                                                               |
+| the weak solutions and the singular set               | not represented                                                                                                               | not run                                                               |
 
 ## Constructors, and what inherits their proof
 
@@ -353,13 +355,13 @@ Taylor recurrence. A coefficient built
 only from proven constructors inherits their proof, as the analytic number theory workbook states for the
 zeta values. What each boundary kind does through the chain `datum -> u_1 -> u_2 -> u_3`, measured:
 
-| kind | at the datum | through the chain | inherited? |
-|---|---|---|---|
-| format, in the ring | absent | scale probe silent at every order | no format kind exists to inherit |
-| format, in decimals | absent: the datum's coefficients are rational | moves from order 1 on: the derivative brings `pi` in | introduced by the constructors, then carried |
-| measurement, ABC | the deposit's gap | `gap_m = (-4 nu pi^2)^m gap_0`, exactly | carried exactly, unamplified; canceled by the ratio |
-| measurement, generic | the deposit's gap | nonzero at every order | carried; no order lowers it |
-| completeness | 0 modes outside `\|k\|_inf <= 1` | 0, 0, 16, 62 | carried and growing |
+| kind                 | at the datum                                  | through the chain                                    | inherited?                                          |
+| -------------------- | --------------------------------------------- | ---------------------------------------------------- | --------------------------------------------------- |
+| format, in the ring  | absent                                        | scale probe silent at every order                    | no format kind exists to inherit                    |
+| format, in decimals  | absent: the datum's coefficients are rational | moves from order 1 on: the derivative brings `pi` in | introduced by the constructors, then carried        |
+| measurement, ABC     | the deposit's gap                             | `gap_m = (-4 nu pi^2)^m gap_0`, exactly              | carried exactly, unamplified; canceled by the ratio |
+| measurement, generic | the deposit's gap                             | nonzero at every order                               | carried; no order lowers it                         |
+| completeness         | 0 modes outside `\|k\|_inf <= 1`              | 0, 0, 16, 62                                         | carried and growing                                 |
 
 Two more inheritances, one run and one read:
 
@@ -383,7 +385,7 @@ Every object above is the field's. The problem statement, its numbered condition
 and the errata are Charles Fefferman's for the Clay Mathematics Institute, read in full. The equations
 are Navier's and Stokes's, the inviscid case Euler's. The field with `curl u` proportional to `u` is
 Beltrami's; the three-term example is Arnold's (1965) and Childress's (1970), reported from memory of the
-literature and unread here, so the file verifies the solution itself and does not rest on the citation.
+literature and unread here. The file verifies the solution itself and does not rest on the citation.
 The projection onto divergence-free fields and the pressure it defines are Leray's. The recovery of a
 velocity from its vorticity is the Biot-Savart law; the vorticity equation is Helmholtz's. The energy sum
 over modes is Parseval's. The transcendence of `pi` is Lindemann's (1882). The Taylor recurrence is the
@@ -432,6 +434,6 @@ and neither file wants it to be.
   refusal.
 - **Withdrawn**, for the duration of one run. That two bit patterns produced two distinct fields whose
   bits read back. The first build of the island summed `cos 2 pi x` for every `n` in place of
-  `cos 2 pi n x`, so every bit landed on one mode. The check `bits read back` refused it; the harmonic
+  `cos 2 pi n x`. Every bit landed on one mode. The check `bits read back` refused it; the harmonic
   was corrected and the check passed. Recorded because a wrong construction had produced `distinct:
-  True` by accident, and only the second check caught it.
+True` by accident, and only the second check caught it.

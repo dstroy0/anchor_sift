@@ -13,12 +13,12 @@
 # returned the height every time while the shift detector returned the width correctly.
 #
 # A cloud of points carries no dimension to assign. What every corpus already is, with nothing
-# chosen for it, is bits. Each symbol is Gray coded before it is expanded, so two values one apart
+# chosen for it, is bits. Each symbol is Gray coded before it is expanded. Two values one apart
 # differ in one bit and distance in the volume means what distance in the alphabet meant. A window
 # of n bits slid along the stream is a point in binary n space, and n is swept instead of guessed.
 #
 # The sum over n does not converge, and the divergence is the result: every arranged corpus is still climbing
-# at 64 bits, the widest measured. A ceiling would therefore decide the total, so the quantity that
+# at 64 bits, the widest measured. A ceiling would therefore decide the total. The quantity that
 # does not depend on one is the exponent of the growth. The memoryless corpora are the control,
 # since an estimated correlation matrix grows lopsided with its size on its own, and that bias would
 # lift every corpus alike. It lifts none of them.
@@ -46,7 +46,7 @@ def spectrum_gap(bits, width, rng):
 
     Summing the window vectors straight gives the per bit marginals and throws away how the bits
     move together. Summing them as outer products instead gives the correlation of the n bit
-    positions. Even spread is the largest entropy over that many bits, so the shortfall from it is
+    positions. Even spread is the largest entropy over that many bits. The shortfall from it is
     the departure. Returns None where the window leaves too few live bits to correlate.
     """
     usable = len(bits) - width
@@ -77,7 +77,7 @@ def spectrum_excess(values, width=WIDTH, seed=SEED):
     """The gap a corpus opens over its own permuted null, at one window width.
 
     Three readings carried a private copy of this, which is three places for the width or the seed
-    to drift. The shuffle keeps every symbol frequency and destroys every arrangement, so what is
+    to drift. The shuffle keeps every symbol frequency and destroys every arrangement. What is
     left is the arrangement and cannot be the counts.
 
     Returns None where either arm leaves too few live bits to correlate.

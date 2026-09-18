@@ -44,7 +44,7 @@ sys.path.insert(0, os.path.join(_at, "lib"))
 from repotools import config as _config  # noqa: E402
 
 # The repository under maintenance. The marker was `build`, a directory that is absent on a fresh
-# clone, so this walked past the repository to the filesystem root on exactly the checkout where a
+# clone. This walked past the repository to the filesystem root on exactly the checkout where a
 # survey is most worth running.
 CFG = _config.load()
 ROOT = CFG.where
@@ -124,7 +124,7 @@ def destination(where):
     text = where.replace("\\", "/")
     for name, stands in ANCHOR.items():
         text = text.replace("$" + name, stands)
-    # Most tools find the root by walking up from __file__ into a local name, so the target reads as
+    # Most tools find the root by walking up from __file__ into a local name. The target reads as
     # $something/build/corpora. Anything behind a name and in front of a real top directory is that
     # walk. Dropping it leaves a destination a reader can place.
     text = ROOTED.sub("", text)
@@ -140,7 +140,7 @@ def destination(where):
 
 
 def module_names(tree):
-    """Module level names bound to a path, so `open(TARGET, "w")` resolves to what TARGET is.
+    """Module level names bound to a path. `open(TARGET, "w")` resolves to what TARGET is.
 
     Almost every tool here names its destination once at the top and writes to that name later, so
     without this pass the common case is the unresolved case. Two rounds, because a destination is

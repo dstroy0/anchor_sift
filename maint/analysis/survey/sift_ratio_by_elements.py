@@ -14,7 +14,7 @@
 # stops being twelve multi-element minerals: the 9013xxx block of the archive is elemental phases,
 # one element each, and those come back at ratios near 0.1.
 #
-# Both are the product rule being wrong and they are wrong in OPPOSITE DIRECTIONS, so a single
+# Both are the product rule being wrong and they are wrong in OPPOSITE DIRECTIONS. A single
 # median over the mixture reports a number that describes neither population and moves with whatever
 # the fetch happened to gather. That is not a sharper version of the original claim. It is the
 # reason the original claim needs a denominator attached to it.

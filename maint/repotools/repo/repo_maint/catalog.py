@@ -35,7 +35,7 @@
 # A MOVE KEEPS THE NUMBER AND CHANGES THE PREFIX
 #
 # Those disagree, and the registry keeps the number it issued. An example that moves from one domain
-# to another is the same example, so --assign updates the path against the existing number and
+# to another is the same example. --assign updates the path against the existing number and
 # leaves the number alone, prefix included. The prefix says where it was first filed; the path in
 # the registry says where it is.
 
@@ -217,7 +217,7 @@ def main():
         if row["state"] == "retired" and was != "retired":
             retired.append((number, row["path"]))
 
-    # The header and the registry are two copies of one fact, so they are compared every run.
+    # The header and the registry are two copies of one fact. They are compared every run.
     adrift = []
     for path in found:
         number = by_path.get(path)

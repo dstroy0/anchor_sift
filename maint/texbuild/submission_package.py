@@ -57,7 +57,7 @@
 #
 # arXiv extracts a tarball into one directory and runs LaTeX there, and everything extracted becomes
 # public whether or not the document reads it. That second half is the part that costs somebody
-# later, so the extra steps are mostly deletions:
+# later. The extra steps are mostly deletions:
 #
 #   flattened      Every subdirectory is emptied into the root and the \input and \include lines
 #                  that named it are rewritten. Checked first for two files sharing a basename,
@@ -75,7 +75,7 @@
 #                  the assembled copy.
 #   metadata.txt   The title, the authors and the abstract with the LaTeX taken out and the line
 #                  breaks collapsed, ready to paste into the web form. arXiv shows the whitespace
-#                  that LaTeX ignores, so the collapsing is not cosmetic.
+#                  that LaTeX ignores. The collapsing is not cosmetic.
 #
 # It does not submit anything and holds no credential. The tarball and the metadata are the whole
 # output, and a person uploads them.
@@ -132,7 +132,7 @@ def _repository_root():
 ROOT = _repository_root()
 THEORY = os.path.join(ROOT, "theory")
 # The seven books pulled in from upstream as a subtree. The workbook stays in theory/ because it is
-# the book about this engine. A book is named the same way whichever tree holds it, so nothing
+# the book about this engine. A book is named the same way whichever tree holds it. Nothing
 # outside this file has to know which one it came from.
 THEORY_BUCKET = os.path.join(ROOT, "theory_bucket")
 TREES = (THEORY, THEORY_BUCKET)
@@ -198,7 +198,7 @@ def uncomment(text):
 
     A full line comment is deleted outright. A comment after content keeps its percent sign and
     loses everything after it. That percent sign is doing work: LaTeX drops the newline following
-    it, so removing it joins two words with a space that was not there before. This is the step
+    it. Removing it joins two words with a space that was not there before. This is the step
     that quietly changes a typeset page, and keeping the sign is what stops it.
     """
     held = []
@@ -227,7 +227,7 @@ def uncomment(text):
 def reachable(out):
     """Every .tex under out that main.tex reaches, by name without its extension.
 
-    Walked from main.tex through \\input and \\include, so a file reached only by a file that is
+    Walked from main.tex through \\input and \\include. A file reached only by a file that is
     itself reached still counts. A .tex outside this set is an old draft, and uploading one
     publishes it.
     """
@@ -359,7 +359,7 @@ def metadata(out, book):
 def flat_tar(out):
     """The assembled directory as a tarball with no wrapping directory.
 
-    arXiv extracts into one root it chose, so a wrapping directory puts every file one level below
+    arXiv extracts into one root it chose. A wrapping directory puts every file one level below
     where main.tex says they are. This is `tar -cvvf ax.tar *` run from inside the copy.
     """
     archive = "%s.tar" % out

@@ -14,7 +14,7 @@
  *       with a positive integer count, this chooses the pairs to keep so no object is kept twice and
  *       the kept counts sum as high as any such choice can. Every weight and every path cost is an
  *       integer, and no tolerance enters the choice.
- * @note Ties are broken by node index inside the search, so one input always yields one choice.
+ * @note Ties are broken by node index inside the search. One input always yields one choice.
  */
 #ifndef HEAVIEST_MATCHING_H
 #define HEAVIEST_MATCHING_H

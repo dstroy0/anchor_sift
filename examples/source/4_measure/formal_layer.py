@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/source/4_measure/formal_layer.py corpus.txt [more.txt ...]
 #
-# A formal language states exactly what a machine requires of its text, so whatever else is present was
+# A formal language states exactly what a machine requires of its text. Whatever else is present was
 # put there by a person for another person. Two such channels are measurable without parsing anything.
 #
 #   case      the convention that an upper snake name is a macro and a lower snake name is a variable is
@@ -18,7 +18,7 @@
 #
 # The second channel has a control built into the sample. Some languages make layout part of the syntax:
 # a recipe line in a makefile must begin with a tab, Haskell has a layout rule, and fixed form Fortran
-# assigns meaning to columns. For those the whitespace is machine required and not a human layer, so if
+# assigns meaning to columns. For those the whitespace is machine required and not a human layer. If
 # the reading above is right they should not behave like the languages that ignore it.
 
 import io

@@ -83,7 +83,7 @@ typedef struct
  * @param[in] length How many. Must exceed twice BENCH_LONGEST_LAG.
  * @return           The fundamental and how far above chance it sits.
  * @note Scored on a candidate and all of its multiples, not on the single tallest lag. A sequence
- *       repeating every sixteen agrees with itself at 16, 32, 48 and 64 alike, so the tallest of
+ *       repeating every sixteen agrees with itself at 16, 32, 48 and 64 alike. The tallest of
  *       those is settled by noise and taking it reports a harmonic as the period about as often as
  *       it reports the period.
  * @note This is the same reading `measure.periodicity.sequence_period` performs in the Python

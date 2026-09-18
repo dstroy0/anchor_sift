@@ -54,7 +54,7 @@ def entries_of(lines):
     more capitals is a gloss. A line carrying none of the damaged orthography is a page number or
     the English word gloss. What is left is a word as spoken or its segmentation, one to a line.
 
-    Written to work from the raw lines, not from a reader's parse, so that a reader and the coverage
+    Written to work from the raw lines, not from a reader's parse. That a reader and the coverage
     check build the same list. Two lists drift, and the check then reports as a hole every word one
     of them put back together and the other did not.
     """
@@ -98,7 +98,7 @@ def joined_words(text, vocabulary, longest=LONGEST):
 
     Walks the line and, at a token that is not already a word, takes the longest run of tokens
     whose pieces spell one. Punctuation rides along: the run is looked up without it and written
-    back with it, so sta ʔx̌íl. joins to staʔx̌íl. and keeps the stop.
+    back with it. Sta ʔx̌íl. joins to staʔx̌íl. and keeps the stop.
     """
     tokens = text.split()
     out = []

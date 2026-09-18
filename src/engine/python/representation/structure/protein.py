@@ -96,7 +96,7 @@ def density(points, side, blur):
     span = high - low
     if float(span.min()) <= 0.0:
         return None
-    # Each axis scaled on its own, so the grid holds the shape and not the bounding cube
+    # Each axis scaled on its own. The grid holds the shape and not the bounding cube
     placed = numpy.clip(((points - low) / span * (side - 1)).astype(numpy.int64), 0, side - 1)
     grid = numpy.zeros((side,) * 3, dtype=numpy.float64)
     numpy.add.at(grid, (placed[:, 0], placed[:, 1], placed[:, 2]), 1.0)
@@ -212,7 +212,7 @@ def steps(runs):
 
 # The three coordinate columns of a PDB ATOM record, each written to exactly three decimal places.
 # Read as integers at that scale, a dihedral is a ratio of cross and dot products in which the scale
-# cancels, so the angle is exact in the coordinates the deposit actually wrote.
+# cancels. The angle is exact in the coordinates the deposit actually wrote.
 COORD_PLACES = 3
 
 
@@ -220,7 +220,7 @@ def phi_psi(text):
     """Every residue's backbone torsions phi, psi and omega, as exact integer terms.
 
     A protein's fold does not live in where its atoms are. Rigidly moving the whole molecule leaves
-    the fold untouched, so the coordinates carry an orientation and a position the fold does not
+    the fold untouched. The coordinates carry an orientation and a position the fold does not
     have. What the fold lives in is the backbone torsions, and those are what the Ramachandran rules
     are written over. This reads them and keeps them exact.
 
@@ -229,14 +229,14 @@ def phi_psi(text):
         Y = -(n1 x b2) . n2      X = n1 . n2       n1 = b1 x b2, n2 = b2 x b3
 
     where b1, b2, b3 are the three bond vectors. Every one of Y and X is an integer when the atoms
-    are, so nothing is rounded to form them. The only irrational step is the atan2 itself, and it is
+    are. Nothing is rounded to form them. The only irrational step is the atan2 itself, and it is
     not taken here. The caller is handed Y, and the two integers C and S whose product C * sqrt(S)
     is X, and renders the angle to a stated precision. This mirrors representation.exact: the reader
     stays integer, and the one place an irrational is unavoidable is named and deferred, not buried
     in a float that fixes a precision nobody chose.
 
     X is returned split because its own sqrt is where the irrational sits. atan2(Y, dot . |b2|) and
-    atan2(Y / |b2|, dot) are the same angle, so the |b2| is factored out as sqrt(S) with
+    atan2(Y / |b2|, dot) are the same angle. The |b2| is factored out as sqrt(S) with
     S = b2 . b2 and C = n1 . n2, and the caller multiplies them at whatever precision it declares.
 
     The sign is the IUPAC convention, fixed not by assertion but by measurement: with it, a corpus
@@ -329,7 +329,7 @@ def phi_psi(text):
 # A run of points, the kind `walk` returns, is fixed by where its first three points sit and, from
 # the fourth on, by how each point stands on the three before it: a bond length, the angle it turns
 # through, and the dihedral about the bond it shares with its predecessor. Those three terms hold no
-# position and no orientation, so they are what survives moving or turning the whole run. `phi_psi`
+# position and no orientation. They are what survives moving or turning the whole run. `phi_psi`
 # makes this statement for the two torsions of a residue; the same holds for every point of the
 # backbone. `internal_coords` reads the terms off a run and `rebuild` walks them back; handed the
 # terms read off a run, `rebuild` returns that run.
@@ -343,7 +343,7 @@ def internal_coords(atoms):
     angle it makes at that point with the one before that, and the dihedral about the shared bond.
 
     Returns three float arrays the length of `atoms`, the seed entries left at zero. The dihedral
-    sign is the one `rebuild` reads back, so `rebuild(atoms[:3], *internal_coords(atoms))` reproduces
+    sign is the one `rebuild` reads back. `rebuild(atoms[:3], *internal_coords(atoms))` reproduces
     `atoms`.
     """
     count = len(atoms)
@@ -369,7 +369,7 @@ def internal_coords(atoms):
         n2 = numpy.cross(b2, b3)
         unit_b2 = b2 / numpy.sqrt((b2 ** 2).sum(axis=1))[:, None]
         m = numpy.cross(n1, unit_b2)
-        # Negated to the IUPAC sign, so a torsion read here carries the same sign as phi_psi and the
+        # Negated to the IUPAC sign. A torsion read here carries the same sign as phi_psi and the
         # Ramachandran rules: a right-handed alpha helix sits near phi -63, psi -43, not its mirror.
         dihedral[3:] = -numpy.arctan2((m * n2).sum(axis=1), (n1 * n2).sum(axis=1))
     return bond, angle, dihedral
@@ -381,13 +381,13 @@ def rebuild(seed, bond, angle, dihedral, steer=None):
     `seed` is the first three points, which fix where the run sits and how it is turned. `bond`,
     `angle` and `dihedral` are what `internal_coords` returns. From the fourth point on, each is
     placed by the one step that reproduces its bond length, its turn angle, and its dihedral about
-    the bond it shares with its predecessor. The frame is built from the three prior points, so an
+    the bond it shares with its predecessor. The frame is built from the three prior points. An
     error in one point rides forward into every point after it. The run's shape is read against the
     deposit with that error carried forward, and superposing the two backbones would hide where it
     entered.
 
     This is the Natural Extension Reference Frame placement (Parsons, Holmes, Rojas, Tsai, Strauss,
-    J Comput Chem 2005, doi:10.1002/jcc.20237). The step is sequential, so a small per-point error
+    J Comput Chem 2005, doi:10.1002/jcc.20237). The step is sequential. A small per-point error
     propagates the length of the run; a distance-geometry transform reads all points at once and
     does not carry it.
 
@@ -427,7 +427,7 @@ def rebuild(seed, bond, angle, dihedral, steer=None):
 # table means is not: a caller builds it, from the Ramachandran grid or anything else, and hands the
 # walk a `steer` that consults it. `nearest_truthy` is the one piece of that a walk needs from the
 # engine and cannot get from the table alone, since a table only answers about the place it is asked
-# and not where the nearest allowed place is. It knows true from false and nothing more, so it serves
+# and not where the nearest allowed place is. It knows true from false and nothing more. It serves
 # any table, and the reference data that fills a particular one stays out of the engine.
 
 
@@ -436,7 +436,7 @@ def nearest_truthy(truthy, row, col):
 
     If (row, col) is already true it stands. Otherwise the search grows a square ring, wrapping both
     axes, and returns the first true cell it reaches; ties inside a ring resolve in a fixed scan
-    order, so the same grid and cell always steer the same way. Returns None only when the grid holds
+    order. The same grid and cell always steer the same way. Returns None only when the grid holds
     no true cell at all, which a caller reads as a table that forbids everywhere and refuses.
     """
     rows, cols = truthy.shape

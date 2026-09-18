@@ -12,11 +12,11 @@
  *
  * WHY THIS SHAPE VECTORIZES AT ALL. Every hot loop in the steering engine asks the same question:
  * held at one needle offset, does `corpus[at + offset]` equal `needle[offset]`, for consecutive
- * `at`. The needle byte is fixed across the whole sweep, so it broadcasts once. The corpus side is a
+ * `at`. The needle byte is fixed across the whole sweep. It broadcasts once. The corpus side is a
  * sliding window read at unit stride. That is one wide load against one broadcast register, and it
  * answers thirty-two alignments in the instruction where the portable arm answers one.
  *
- * The survivor mask enters the same way. An alignment already refuted contributes nothing, so the
+ * The survivor mask enters the same way. An alignment already refuted contributes nothing. The
  * count is a population count over the AND of two masks: where the corpus agrees, and where the
  * alignment was still standing.
  *
@@ -99,7 +99,7 @@ static int steer_avx2_present(void)
 size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
                                       const uint8_t *alive, uint8_t wanted, size_t offset)
 {
-    /* Counted before the argument check, so a caller passing nothing still records that this arm
+    /* Counted before the argument check. A caller passing nothing still records that this arm
      * was the one asked. The claim the counters carry is which arm RAN and not what it returned. */
     anchor_steer_scan_calls += 1u;
     anchor_steer_wide_calls += 1u;
@@ -123,7 +123,7 @@ size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
 
         const __m256i agrees = _mm256_cmpeq_epi8(window, broadcast);
 
-        /* An alive flag is zero or non-zero, so the mask of alignments still standing is the
+        /* An alive flag is zero or non-zero. The mask of alignments still standing is the
          * complement of "equals zero". Testing against zero and complementing rather than testing
          * against one keeps this correct if a caller ever stores a flag other than one. */
         const __m256i refuted = _mm256_cmpeq_epi8(standing_bytes, zero);

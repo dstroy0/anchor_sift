@@ -31,7 +31,7 @@ surface, the boundary reading with the number of rounds as the depth axis.
 
 THE NULL
 
-The bit to direction map is a choice, so the same sources are also placed at random and both spectra
+The bit to direction map is a choice. The same sources are also placed at random and both spectra
 are drawn on one set of axes. A degree where the chosen map beats the null is structure in which
 bits lean, and not structure the map invented. At full rounds neither should carry anything above
 degree zero, and the two curves should lie on each other. That is the reading, whatever it says.
@@ -308,7 +308,7 @@ def main():
         return 1
     page = page.replace("/*SPHERE_DATA*/null", json.dumps(payload, separators=(",", ":")))
     if page.count("</script>") < page.count("<script"):
-        sys.stderr.write("the template left a script open, so the page would not run\n")
+        sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
     out = option("--out", os.path.join(HERE, "sha_sphere.html"))

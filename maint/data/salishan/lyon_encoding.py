@@ -7,7 +7,7 @@
 #   Usage:  from lyon_encoding import drafted
 #
 # 19-Lyon_ICSNL50_final-78 and 2013_Lindley_Lyon are set in NimbusRomNo9L and TeX-xipa with a custom
-# encoding and no ToUnicode map, so what pypdf hands back is glyph codes read as ASCII. Page 1 of
+# encoding and no ToUnicode map. What pypdf hands back is glyph codes read as ASCII. Page 1 of
 # Lindley prints q̓sápi ɬaʔ ct̓ʕapənwíxʷ and the text holds ’qsápi ìaP c’tQap@nwíxw.
 #
 # WHAT THIS IS AND IS NOT
@@ -38,7 +38,7 @@ import unicodedata
 # mark each one is. ’ is glottalization and is most of them.
 #
 # ´ turns up only where the font has no precomposed letter to carry the accent. á é í ó ú arrive
-# whole, and the schwa does not, so lasy´@t is the page's lasyə́t and is the only word in this paper
+# whole, and the schwa does not. Lasy´@t is the page's lasyə́t and is the only word in this paper
 # that needs it.
 MOVED = {"’": "̓", "´": "́"}
 
@@ -55,7 +55,7 @@ LETTERS = (
 WEDGE = (("ˇx", "x̌"),)
 
 # One place the inserted space is not a question. √ opens a root on a parse line and the root
-# follows it immediately, so √ never ends a word and a space after it is always the PDF's. The
+# follows it immediately. √ never ends a word and a space after it is always the PDF's. The
 # roots that start with a marked letter get one: √ q̓ʷʕay=lqs is √q̓ʷʕay=lqs on the page.
 AFTER_ROOT = ("√ ", "√")
 
@@ -101,7 +101,7 @@ def moved_marks(token):
 MARKS = "̌ˇ@ìQň·√áéíóú"
 
 # A gloss token is plain ASCII, apart from two things. The ligatures the PDF sets its f-words with:
-# the whole gloss of one morpheme is one token, so go-n-dip.ﬂuid-MID-3SG.POSS is a single string and
+# the whole gloss of one morpheme is one token. Go-n-dip.ﬂuid-MID-3SG.POSS is a single string and
 # the one ﬂ in it kept it out of this class. It was then read as Salish and its POSS came out as
 # ʔOSS. And the reduplication mark, which the gloss line of the five-line format uses as well as the
 # parse line does: C1C2.PL•speak-CAUS came out as C1C2.ʔL•speak-CAUS.
@@ -126,7 +126,7 @@ def a_gloss(token):
 
 
 def salish(token):
-    """Whether a token is set in the language's font, so its P is a glottal stop and its ’ a mark.
+    """Whether a token is set in the language's font. Its P is a glottal stop and its ’ a mark.
 
     P and ’ are the two the encoding cannot decide by itself. P is ʔ throughout the Salish and a
     capital P throughout the English, and both sit on one line: COMP and RECIP head the gloss lines
@@ -144,7 +144,7 @@ def salish(token):
     if a_gloss(token):
         return False
     # Qu opening a token is the English digraph, as Quilchena and Queen are. Q is the pharyngeal
-    # everywhere else, at the front of Qant and QapnáP included, so the test asks for a tail with no
+    # everywhere else, at the front of Qant and QapnáP included. The test asks for a tail with no
     # other mark in it and only the English pair comes out. Asking for a plain ASCII tail instead
     # missed Quilchena.’ at the end of a translation, where the closing quote is not ASCII. A Salish
     # word opening ʕu and carrying no other mark would be read as English here, and neither paper
@@ -175,7 +175,7 @@ def salish(token):
 def lengthened(line):
     """One line with ; read as the length mark where the letter it lengthens follows it.
 
-    Lyon writes length with a raised dot and the font gives it the semicolon's code, so ya;Qt is
+    Lyon writes length with a raised dot and the font gives it the semicolon's code. Ya;Qt is
     ya·ʕt and ’qsá;;;pi is q̓sá···pi. He also ends a clause with a semicolon, and the page prints
     ník ’m@n; iP k ’wúl ’m@ns, where a run mapped without asking makes a word of níkmən·.
 
@@ -247,7 +247,7 @@ def drafted(line):
 
     labialized runs over the whole joined line, and that is a known defect with a measured cost on
     both sides. Running it line-wide reads the w of an English gloss as a labializing one wherever
-    a k or a q or an x stands in front of it, so backwards is drafted backʷards and
+    a k or a q or an x stands in front of it. Backwards is drafted backʷards and
     he.fell.off.backwards is drafted he.fell.off.backʷards, and the check then reports the hand
     extraction as disagreeing with the paper over a word of English.
 
@@ -259,7 +259,7 @@ def drafted(line):
     a_gloss() does not separate them either: it wants a run of two capitals, and backwards has
     none. What actually distinguishes them is the line, not the token, since the five-line
     interlinear puts glosses on a line of their own. Deciding that is a change to what this draft
-    says a page reads, so it waits on the pages and not on a heuristic.
+    says a page reads. It waits on the pages and not on a heuristic.
     """
     for before, after in WEDGE:
         line = line.replace(before, after)

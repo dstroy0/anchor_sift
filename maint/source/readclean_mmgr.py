@@ -4,9 +4,9 @@
 """Three reading passes over a MMgr module. Writes nothing.
 
   code <module.h> ...     comments stripped: the structure, with nothing to take on trust
-  blind <module.h> ...    comments stripped AND every name this project chose replaced, so the code
+  blind <module.h> ...    comments stripped AND every name this project chose replaced. The code
                           is read for what it DOES instead of for what it is called
-  claims <module.h> ...   every comment paired with the code it sits above, so the prose can be
+  claims <module.h> ...   every comment paired with the code it sits above. The prose can be
                           checked against what the code does instead of read as if it were true
 
 WHY BLIND. A name is a claim, and it is the claim that never gets checked: a function called
@@ -54,7 +54,7 @@ sys.path.insert(0, HERE)
 from strip_comments import rewrite
 from codemask import code_mask
 
-# Path arguments are resolved against the working directory FIRST, so the spelling a reader types
+# Path arguments are resolved against the working directory FIRST. The spelling a reader types
 # is the spelling that works, then against the library and the repo. `src/confinium/confinium.h` and
 # `mmgr/src/confinium/confinium.h` both land on the same file from either directory.
 ROOT = os.getcwd()
@@ -193,7 +193,7 @@ STDLIB = {
 }
 # This library's own grammar: the fixed words the shape is written in. `ok` is where an entry states
 # its outcome, the width typedefs are what every signature is spelled in, and the DECLS macros
-# bracket every header. These say nothing about which module is being read, so blinding them costs
+# bracket every header. These say nothing about which module is being read. Blinding them costs
 # the reader the shape and buys no independence.
 SHAPE = {
     "ok",
@@ -244,7 +244,7 @@ ATTRS = {
 }
 # --- this project's prefixes -------------------------------------------------
 # The only place a fork of this tool has to be edited. Every rule below that names a project prefix
-# builds its regex from here instead of spelling the prefix inline, so adding a second spelling is
+# builds its regex from here instead of spelling the prefix inline. Adding a second spelling is
 # one edit instead of four. If one is ever added, order it longest first: a shorter alternative
 # that matches first leaves the tail of the longer spelling behind as the stem.
 PREFIX_UPPER = ("MMGR",)
@@ -383,7 +383,7 @@ class Blinder(object):
                 )
         if out is None and name.isupper() and "_" in name:
             # The cast that reads a region, beside the offset that locates it. `SHA256_CTX(w)` and
-            # `SHA256_OFF_CTX` name the same region, so they take the same letter - `X1_A(w)` at
+            # `SHA256_OFF_CTX` name the same region. They take the same letter - `X1_A(w)` at
             # `X1_OFF_A`. Falling through to the generic macro bucket gave them unrelated numbers
             # and hid the only thing worth checking: that each cast reads the offset it belongs to.
             for cut in range(len(name) - 1, 0, -1):
@@ -401,7 +401,7 @@ class Blinder(object):
             if m:
                 out = m.group(1) + "_" + self._next("fn")
         if out is None and ("obj", name) in self.table:
-            # The bare object: `Sha256` beside `Sha256Ns` and `Sha256V`. It carries no suffix, so it
+            # The bare object: `Sha256` beside `Sha256Ns` and `Sha256V`. It carries no suffix. It
             # reached the generic bucket and came out as T1 while its own role types were X5 - the
             # published table looked unrelated to the namespace it is an instance of.
             out = self.table[("obj", name)]
@@ -430,7 +430,7 @@ class Blinder(object):
 
           - the bytes inside a STRING LITERAL. Every static_assert message came out as
             `"MMGR_X1_BORROW v10 short v11 v12"` - the diagnostic a build would print,
-            rewritten into nonsense. code_mask already marks a literal as non-code, so it is asked.
+            rewritten into nonsense. code_mask already marks a literal as non-code. It is asked.
           - a DIRECTIVE keyword. `#ifndef MMGR_CONFINIUM_H` became `#v1 MMGR_X1_H`, losing
             the guard, the gate and every conditional arm.
           - an #include PATH. It is a location, not a claim about behavior, and blinding it leaves
@@ -460,7 +460,7 @@ class Blinder(object):
 
         # A REGION MACRO is named for its region by its BODY, not by its own spelling: sha256.c
         # writes `SHA256_FS(w)` over `SHA256_OFF_STATE`. Reading the letter off the macro's suffix
-        # filed FS as a region of its own, so the cast and the offset it reads came out as X1_C and
+        # filed FS as a region of its own. The cast and the offset it reads came out as X1_C and
         # X1_OFF_B - and whether each cast reads the offset it belongs to is the question.
         for d in REGION_MACRO.finditer(text):
             nm, body = d.group(1), d.group(2)
