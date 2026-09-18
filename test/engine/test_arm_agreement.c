@@ -16,7 +16,7 @@
  *       on the same offset, and a needle of no bytes has no offset to put them on at all.
  *
  * @note It links the kernel. A grader holding its own copy of the function
- *       it grades keeps passing forever after somebody repairs the original, which is the one way a
+ *       it grades keeps passing forever after somebody repairs the original, the one way a
  *       test can be worse than no test.
  *
  * @warning This is a negative control and it is expected to FAIL before the repair it accompanies.
@@ -79,7 +79,7 @@ static void grade(const char *what, size_t measured, size_t expected)
     {
         failures += 1u;
     }
-    // %zu, which is the spelling the rest of this tree already uses for a size_t. gcc warns on it
+    // %zu, the spelling the rest of this tree already uses for a size_t. gcc warns on it
     // here because MinGW's headers assume msvcrt semantics; the runtime actually linked is the
     // UCRT, which has handled %zu since Visual Studio 2015, and the warning is noise.
     //

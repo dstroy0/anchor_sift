@@ -172,7 +172,7 @@ def chaikin(ring, passes):
     """The ring with its corners cut, `passes` times, by Chaikin's rule.
 
     Each pass replaces every corner with two points a quarter and three quarters along its edges. It invents no curve the dotmap did not
-    imply, which is the reason to prefer it here over fitting splines.
+    imply, the reason to prefer it here over fitting splines.
     """
     for _ in range(max(0, passes)):
         count = len(ring)

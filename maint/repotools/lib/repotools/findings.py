@@ -21,7 +21,7 @@ a link to a file that is gone, a stamp that does not match its file. These refus
 
 `note` is something that reads wrong and works fine. These print and let the commit through. A gate
 that refused a commit over 169 instances of one banned word gets turned off inside a day, and the
-broken tables then go through with it. `--strict` promotes notes to breaking, which is the setting a
+broken tables then go through with it. `--strict` promotes notes to breaking, the setting a
 cleanup pass wants and the setting a hook does not.
 
 READING NOTHING IS A THIRD OUTCOME
@@ -79,7 +79,10 @@ class Report:
             file=stream,
         )
         if self.checked == 0:
-            print("  %s read no files. Nothing was checked. Nothing passed." % self.name, file=stream)
+            print(
+                "  %s read no files. Nothing was checked. Nothing passed." % self.name,
+                file=stream,
+            )
             return EXIT_READ_NOTHING
         if self.breaking_findings:
             return EXIT_BREAKING

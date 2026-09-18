@@ -32,7 +32,7 @@
 
 % The monospace face needs its own chain. The oracle pages mark a space with U+02FD, the modifier
 % letter shelf, and DejaVu Sans Mono does not carry it: the Salishan book dropped that character
-% six times and still built, which is the failure this whole engine change exists to stop. Charis
+% six times and still built, the failure this whole engine change exists to stop. Charis
 % carries it. It stands behind the mono face.
 \directlua{
   luaotfload.add_fallback(``theorymonofallback'', {

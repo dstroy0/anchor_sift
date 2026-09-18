@@ -454,7 +454,7 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
             "# a project - Copyright (C) 2026 Somebody <nobody@example.com>",
             "# SPDX-License-Identifier: AGPL-3.0-or-later",
             "#",
-            "# The header carries a crucial myriad of things, which is the point.",
+            "# The header carries a crucial myriad of things, the point.",
         ]
         kept = dc.legal_blank(said)
         self.assertEqual(kept[:3], ["", "", ""], "the legal block goes")
@@ -728,7 +728,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
     def test_the_clause_silences_nothing_in_the_trees_on_disk(self):
         """Derived at run time. Nothing in any tree here writes about the convention today.
 
-        The rule is the objective's own clause written down before a document needs it, which is the
+        The rule is the objective's own clause written down before a document needs it, the
         opposite of the usual order and is why the number is asserted.
         """
         roots = [os.path.join(dc.REPOSITORY, "maint")]

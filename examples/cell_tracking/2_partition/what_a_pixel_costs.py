@@ -14,7 +14,7 @@
 # against a voxel of 0.25. A cell's displacement between two frames is not a whole number of pixels
 # either, and theory_bucket/cell_tracking predicts the same relation carries the same remainder.
 #
-# WHY THAT PREDICTION IS NOT ENTAILED, WHICH IS THE REASON TO MEASURE IT. The crystal mechanism needs
+# WHY THAT PREDICTION IS NOT ENTAILED. The crystal mechanism needs
 # a repeating tile: the fraction accumulates because tile after tile lands at a shifting phase, and
 # the proportion is read over many of them. Two frames supply one displacement and no tile series at
 # all. What carries the fraction here, if anything does, is the relative agreement of the two
@@ -162,7 +162,7 @@ def recover(first, second, axis, reach=12):
     """The whole lag and the fraction beyond it, from the two lags straddling the true displacement.
 
     Returns (lag, fraction, agreement at the lag). The fraction is the share the taller neighbor
-    holds of the two, which is the quantity examples/crystallography reads off a tiling.
+    holds of the two, the quantity examples/crystallography reads off a tiling.
     """
     scores = {lag: agreement(first, second, lag, axis) for lag in range(0, reach + 1)}
     lag = max(scores, key=lambda step: scores[step])
@@ -235,7 +235,7 @@ def main():
         "  near zero at the half, because the share never reaches zero: a blob six pixels\n"
     )
     out.write(
-        "  wide still agrees substantially at the neighbouring lag when the displacement is\n"
+        "  wide still agrees substantially at the neighboring lag when the displacement is\n"
     )
     out.write(
         "  exact. The fraction is monotone in the true remainder and is not equal to it.\n"
@@ -244,7 +244,7 @@ def main():
         "\n  The cross-axis column is the control and it does not read zero. An axis that\n"
     )
     out.write(
-        "  moved by nothing returns about half a pixel, which is the same floor seen from\n"
+        "  moved by nothing returns about half a pixel, the same floor seen from\n"
     )
     out.write("  underneath. Any per-cell reading built on this inherits that floor.\n")
     out.flush()

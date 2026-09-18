@@ -55,8 +55,9 @@ def inline(value):
     # page as \_title\_ and typeset as two literal underscores around the words.
     #
     # Word boundaries on both ends keep an identifier out of it. Read_me_first stays whole.
-    value = re.sub(r"(?<![A-Za-z0-9])\\_(\S(?:(?!\\_).)*?)\\_(?![A-Za-z0-9])",
-                   r"\\emph{\1}", value)
+    value = re.sub(
+        r"(?<![A-Za-z0-9])\\_(\S(?:(?!\\_).)*?)\\_(?![A-Za-z0-9])", r"\\emph{\1}", value
+    )
     value = re.sub(
         r"\x00(\d+)\x00", lambda match: protected[int(match.group(1))], value
     )
@@ -161,7 +162,7 @@ def convert(source, title):
             index += 1
             continue
         # A thematic break. Nothing read it. The dashes joined the paragraph, went through
-        # inline() unescaped and typeset as an em dash, which is the one character the prose check
+        # inline() unescaped and typeset as an em dash, the one character the prose check
         # calls breaking. It becomes space: the division is what the author wrote, and a rule drawn
         # across the page is a decoration nobody asked for.
         if re.fullmatch(r"\s*(?:-{3,}|\*{3,}|_{3,})\s*", line):
@@ -175,14 +176,20 @@ def convert(source, title):
         picture = re.match(r"^!\[(.*)\]\(([^)]+)\)\s*$", line)
         if picture:
             flush_paragraph()
-            output.extend([
-                r"\begin{figure}[htbp]",
-                r"\centering",
-                r"\includegraphics[width=\textwidth]{%s}" % picture.group(2),
-                r"\caption{%s}" % inline(picture.group(1)) if picture.group(1) else "",
-                r"\end{figure}",
-                "",
-            ])
+            output.extend(
+                [
+                    r"\begin{figure}[htbp]",
+                    r"\centering",
+                    r"\includegraphics[width=\textwidth]{%s}" % picture.group(2),
+                    (
+                        r"\caption{%s}" % inline(picture.group(1))
+                        if picture.group(1)
+                        else ""
+                    ),
+                    r"\end{figure}",
+                    "",
+                ]
+            )
             index += 1
             continue
         heading = re.match(r"^(#{1,6})\s+(.+)$", line)
@@ -267,8 +274,12 @@ def main():
     #
     # convert() stays and is imported by corpus_derivation.py and pure_corpus_index.py, which build
     # their chapters from markdown they generate in memory. Nothing writes a chapter from a file.
-    print("  This module is imported for convert(), which turns markdown into a TeX chapter.")
-    print("  It no longer builds books. theory/ is the source and its chapters are edited by hand.")
+    print(
+        "  This module is imported for convert(), which turns markdown into a TeX chapter."
+    )
+    print(
+        "  It no longer builds books. theory/ is the source and its chapters are edited by hand."
+    )
     print("  Build the PDFs with: sh maint/texbuild/build_theory.sh")
     return 1
 

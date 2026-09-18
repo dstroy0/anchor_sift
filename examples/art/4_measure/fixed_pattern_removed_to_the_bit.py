@@ -15,7 +15,7 @@
 # cannot tell a frame stack from a waveform. This is the README's one instrument, shown reading the
 # second medium.
 #
-# The period is the frame size, which is the file's geometry and a declared input, not a fitted one.
+# The period is the frame size.
 # It is confirmed here anyway: measure.periodic_energy recovers it from the stack against a shuffle,
 # the same way ART-4-001 recovers a still image's width. Once it is confirmed the fixed pattern is the
 # per-pixel mean across frames, which reference.periodic builds, and the residual is the moving scene.

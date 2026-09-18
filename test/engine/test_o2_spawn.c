@@ -36,7 +36,7 @@
  *
  *   COST. The read cost of the composition is the sum of the survivor counts down the levels, not the
  *   universe times the depth, because a resumed level reads only its parent's survivors. Reported for
- *   a pruning field and for a field whose conditions barely prune, which is the honest boundary: where
+ *   a pruning field and for a field whose conditions barely prune, the honest boundary: where
  *   nothing prunes cheaply the sum approaches the universe times the depth and the recursion saves
  *   nothing.
  *
@@ -94,7 +94,7 @@ static size_t o2_alive(const uint8_t *const survivors, const size_t alignments)
  * @param[out] sum_out    Sum of survivor counts down the levels, the read cost [BORROWS].
  * @return                Alignments still standing when the composition stopped.
  * @note The first call resets, every later call resumes. The loop stops when a level prunes nothing,
- *       which is the destroy rule, or when one alignment is left, or at the depth ceiling.
+ *       the destroy rule, or when one alignment is left, or at the depth ceiling.
  */
 static size_t o2_compose(const uint8_t *const corpus, const uint8_t *const needle,
                          uint8_t *const survivors, const size_t alignments, const size_t max_depth,

@@ -66,7 +66,7 @@ mirror image and almost nothing agrees. Stage six is what settled it.
 ## What the stages found
 
 **Stage four** reads the rules with no answer key. A well-refined deposit sits almost entirely in
-the favored regions, which is the prediction, since the rules were drawn from exactly such models.
+the favored regions, the prediction, since the rules were drawn from exactly such models.
 The reading is the favored fraction and the outlier fraction, said plainly and left for stage six
 to check.
 
@@ -75,7 +75,7 @@ psi against phi keeps both marginal angle distributions exactly and destroys onl
 with which phi. On every structure the favored fraction falls by ten to sixteen points, because the
 favored regions are diagonal ridges on the plane and not a rectangle: a phi from a helix put beside
 a psi from a sheet lands between them, where the reference is thin. That gap is the fraction of the
-reading that rests on the pairing, which is the secondary structure. Drawing angles uniformly gives
+reading that rests on the pairing, the secondary structure. Drawing angles uniformly gives
 the flat background, about a sixth of the plane, which is how much a structure with no preference at
 all would reach. Live sits well above the shuffle, and the shuffle well above the flat floor, on
 every entry.

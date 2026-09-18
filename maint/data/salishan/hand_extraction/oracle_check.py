@@ -388,7 +388,7 @@ def source_forms(path, repair=None, pieces=2, line_joins=False):
     # both sides have to go through the same transformation or a join the reader makes and the check
     # does not reports every welded word as a hole. The two checks were reading different text.
     #
-    # Applied only where the paper's own config asks for it, which is the gate coverage_check has:
+    # Applied only where the paper's own config asks for it, the gate coverage_check has:
     # `if "line joins" in repairs`. Running it as a measurement over all twenty papers first took
     # the disagreement count from 441 to 2287. line_breaks.py is written for one paper's defect and
     # welds words in the nineteen that do not have it, inventing forms nobody wrote. The repair is

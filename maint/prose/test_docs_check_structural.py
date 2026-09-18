@@ -33,7 +33,9 @@ def sibling_repository(name):
     main_checkout() answers where the siblings are, because a linked worktree computes them from
     the wrong directory when __file__ is used. Commit 915b3a9 landed that fix.
     """
-    named = os.environ.get("PROTOCORE_TREE" if name == "ProtoCore" else name.upper() + "_TREE")
+    named = os.environ.get(
+        "PROTOCORE_TREE" if name == "ProtoCore" else name.upper() + "_TREE"
+    )
     if named:
         return named if os.path.isdir(named) else None
     beside = os.path.join(os.path.dirname(docs_check.main_checkout()), name)
@@ -51,15 +53,30 @@ def describe_ref(tree):
     worktree dies with the session that made it.
     """
     try:
-        head = subprocess.check_output(
-            ["git", "rev-parse", "--short", "HEAD"], cwd=tree, stderr=subprocess.PIPE
-        ).decode("utf-8", "replace").strip()
-        remote = subprocess.check_output(
-            ["git", "branch", "-r", "--contains", "HEAD"], cwd=tree, stderr=subprocess.PIPE
-        ).decode("utf-8", "replace").strip()
+        head = (
+            subprocess.check_output(
+                ["git", "rev-parse", "--short", "HEAD"],
+                cwd=tree,
+                stderr=subprocess.PIPE,
+            )
+            .decode("utf-8", "replace")
+            .strip()
+        )
+        remote = (
+            subprocess.check_output(
+                ["git", "branch", "-r", "--contains", "HEAD"],
+                cwd=tree,
+                stderr=subprocess.PIPE,
+            )
+            .decode("utf-8", "replace")
+            .strip()
+        )
     except (OSError, subprocess.CalledProcessError):
         return "no git history"
-    return "%s (%s)" % (head, remote.splitlines()[0].strip() if remote else "NOT PUSHED")
+    return "%s (%s)" % (
+        head,
+        remote.splitlines()[0].strip() if remote else "NOT PUSHED",
+    )
 
 
 # An independent reading of the two structural rules that survive on ProtoCore/docs. These are
@@ -85,8 +102,11 @@ def derived_structural(root):
     for path in sorted(docs_check.walk_markdown([root])):
         with open(path, encoding="utf-8", errors="replace") as handle:
             lines = handle.read().splitlines()
-        dashes += sum(1 for line in docs_check.prose_only(path, lines)
-                      if EM_DASH_CHARACTER in line)
+        dashes += sum(
+            1
+            for line in docs_check.prose_only(path, lines)
+            if EM_DASH_CHARACTER in line
+        )
         if not path.endswith(".md"):
             continue
         for at, line in enumerate(lines):
@@ -104,9 +124,16 @@ class LinkTargetsThatAreNotPaths(unittest.TestCase):
     def test_doxygen_reference_is_not_a_path(self):
         # Every one of these was read off ProtoCore's documents and six were confirmed as live
         # symbols in its source. The filesystem has no answer about any of them.
-        for target in ("@ref HTTP_10", "@ref HttpVersion", "@ref HttpReq::version",
-                       "@ref send_chunked", "@ref WS_FRAME_SIZE", "@ref MAX_HEADERS",
-                       "@ref PROTOCORE_ENABLE_KEEPALIVE", "@ref protocore_config.h"):
+        for target in (
+            "@ref HTTP_10",
+            "@ref HttpVersion",
+            "@ref HttpReq::version",
+            "@ref send_chunked",
+            "@ref WS_FRAME_SIZE",
+            "@ref MAX_HEADERS",
+            "@ref PROTOCORE_ENABLE_KEEPALIVE",
+            "@ref protocore_config.h",
+        ):
             self.assertFalse(docs_check.path_candidate(target), target)
 
     def test_both_doxygen_spellings_are_refused(self):
@@ -116,9 +143,11 @@ class LinkTargetsThatAreNotPaths(unittest.TestCase):
 
     def test_declarator_syntax_is_not_a_path(self):
         # The three targets that produced the three non-Doxygen breaking findings, verbatim.
-        for target in ("uint8_t slot, HttpReq *req",
-                       "const char *user, const uint8_t *blob, size_t len",
-                       "const char *user, const char *pass"):
+        for target in (
+            "uint8_t slot, HttpReq *req",
+            "const char *user, const uint8_t *blob, size_t len",
+            "const char *user, const char *pass",
+        ):
             self.assertFalse(docs_check.path_candidate(target), target)
 
     def test_declarator_with_no_pointer_star_is_not_a_path(self):
@@ -148,13 +177,17 @@ class LinksStillChecked(unittest.TestCase):
         self.here = os.path.join(HERE, "sample.md")
 
     def test_a_missing_relative_target_is_reported(self):
-        found = docs_check.dead_links(self.here, ["see [the notes](no_such_file_here.md) for it"])
+        found = docs_check.dead_links(
+            self.here, ["see [the notes](no_such_file_here.md) for it"]
+        )
         self.assertEqual(len(found), 1)
         self.assertIn("no_such_file_here.md", found[0][1])
         self.assertEqual(found[0][0], 1)
 
     def test_a_target_that_is_there_is_not_reported(self):
-        found = docs_check.dead_links(self.here, ["see [the checker](docs_check.py) for it"])
+        found = docs_check.dead_links(
+            self.here, ["see [the checker](docs_check.py) for it"]
+        )
         self.assertEqual(found, [])
 
     def test_external_and_absolute_targets_are_left_alone(self):
@@ -163,16 +196,20 @@ class LinksStillChecked(unittest.TestCase):
 
     def test_a_doxygen_reference_line_reports_nothing(self):
         # ProtoCore docs/README.md:2496, verbatim. Three findings on one line before the repair.
-        line = ("| `version`        | [`HttpVersion`](@ref HttpVersion) | [`HTTP_10`](@ref HTTP_10)"
-                ", [`HTTP_11`](@ref HTTP_11), or [`HTTP_UNKNOWN`](@ref HTTP_UNKNOWN) |")
+        line = (
+            "| `version`        | [`HttpVersion`](@ref HttpVersion) | [`HTTP_10`](@ref HTTP_10)"
+            ", [`HTTP_11`](@ref HTTP_11), or [`HTTP_UNKNOWN`](@ref HTTP_UNKNOWN) |"
+        )
         self.assertEqual(docs_check.dead_links(self.here, [line]), [])
 
     def test_a_lambda_in_an_example_reports_nothing(self):
         # ProtoCore docs/SECURITY.md:903 and docs/SSH.md:91 and :94, verbatim.
-        lines = ['server.on("/diag", HTTP_GET, [](uint8_t slot, HttpReq *req) {',
-                 "protocore_ssh_auth_set_pubkey_cb([](const char *user, const uint8_t *blob, "
-                 "size_t len) {",
-                 'protocore_ssh_auth_set_password_cb([](const char *user, const char *pass) {']
+        lines = [
+            'server.on("/diag", HTTP_GET, [](uint8_t slot, HttpReq *req) {',
+            "protocore_ssh_auth_set_pubkey_cb([](const char *user, const uint8_t *blob, "
+            "size_t len) {",
+            "protocore_ssh_auth_set_password_cb([](const char *user, const char *pass) {",
+        ]
         self.assertEqual(docs_check.dead_links(self.here, lines), [])
 
 
@@ -188,8 +225,10 @@ class StandardsPassTheirOwnStructuralStage(unittest.TestCase):
 
     def skill_files(self):
         base = os.path.join(os.path.expanduser("~"), ".claude", "skills")
-        found = [os.path.join(base, one, "SKILL.md")
-                 for one in ("code-documentation", "code-comments")]
+        found = [
+            os.path.join(base, one, "SKILL.md")
+            for one in ("code-documentation", "code-comments")
+        ]
         return [one for one in found if os.path.isfile(one)]
 
     def test_no_dead_link_findings_in_either_standard(self):
@@ -223,14 +262,20 @@ class ProtoCoreStructuralStage(unittest.TestCase):
         cls.ref = describe_ref(cls.tree)
         answer = subprocess.run(
             [sys.executable, os.path.join(HERE, "docs_check.py"), cls.docs],
-            stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
         )
         cls.output = answer.stdout.decode("utf-8", "replace")
         cls.status = answer.returncode
-        cls.breaking = [one.strip() for one in cls.output.splitlines()
-                        if one.strip().startswith("BREAK ")]
-        sys.stderr.write("\n  ProtoCore/docs measured at %s: %d breaking finding(s)\n"
-                         % (cls.ref, len(cls.breaking)))
+        cls.breaking = [
+            one.strip()
+            for one in cls.output.splitlines()
+            if one.strip().startswith("BREAK ")
+        ]
+        sys.stderr.write(
+            "\n  ProtoCore/docs measured at %s: %d breaking finding(s)\n"
+            % (cls.ref, len(cls.breaking))
+        )
 
     def setUp(self):
         if not self.tree:
@@ -255,12 +300,14 @@ class ProtoCoreStructuralStage(unittest.TestCase):
         # A NOTE FOR WHOEVER ADDS THE GENERATED-REGION RULE. ProtoCore docs/README.md:2404, the one
         # genuine structural finding in that whole tree, sits between the BEGIN and END GENERATED
         # markers at :2399 and :2408 for gen_readme_sections.py. A rule that SKIPS a marked region
-        # deletes it and this test goes red, which is the test doing its job. Report the finding
+        # deletes it and this test goes red, the test doing its job. Report the finding
         # with the generator named from the marker instead of suppressing it, and derived_structural
         # above has to learn the same rule on the same day or the two halves disagree.
         dashes, tables = derived_structural(self.docs)
-        sys.stderr.write("  derived at %s: %d em dash line(s) + %d header-only table(s) = %d\n"
-                         % (self.ref, dashes, tables, dashes + tables))
+        sys.stderr.write(
+            "  derived at %s: %d em dash line(s) + %d header-only table(s) = %d\n"
+            % (self.ref, dashes, tables, dashes + tables)
+        )
         self.assertEqual(len(self.breaking), dashes + tables)
 
     def test_the_stage_is_not_asserted_into_vacancy(self):

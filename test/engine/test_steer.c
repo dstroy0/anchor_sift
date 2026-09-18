@@ -47,7 +47,7 @@
  * @note Rarity has to VARY or the ordering has nothing to order by. A uniform field would make the
  *       steered and unsteered arms read identically and the run would prove nothing while printing
  *       a pass. Three symbols carry almost the whole field and a long tail appears a handful of
- *       times each, which is the shape the missing term was written for.
+ *       times each, the shape the missing term was written for.
  */
 static void build_skewed_field(uint8_t *corpus, size_t length)
 {
@@ -80,7 +80,7 @@ static void build_skewed_field(uint8_t *corpus, size_t length)
     }
 }
 
-/** @brief Orders offsets commonest symbol first, which is the ordering that must lose. */
+/** @brief Orders offsets commonest symbol first, the ordering that must lose. */
 static void order_worst_first(size_t *offsets, size_t count, const AnchorFieldCensus *census,
                               const uint8_t *needle, size_t needle_len)
 {
@@ -873,7 +873,7 @@ static int near_same_in_field(const void *field, size_t left, size_t right)
  *
  * A grouping that stopped at the first matching representative would have produced more than one
  * class here, and a rank probe built on it would have refuted an alignment holding a true
- * occurrence. This asserts the closure  which is the difference between
+ * occurrence. This asserts the closure  the difference between
  * useless and wrong.
  */
 static int check_projection_closes(void)
@@ -1049,7 +1049,7 @@ static int check_projection_closes(void)
  * and the whole construction with it.
  *
  * The 32 bit sample field is here because a byte engine cannot read it at all. If the projection
- * works the sample field searches at full speed on the same loop bytes use, which is the point.
+ * works the sample field searches at full speed on the same loop bytes use, the point.
  */
 static int check_any_type_agrees(void)
 {
@@ -1232,7 +1232,7 @@ static int check_any_type_agrees(void)
             rank_needle[at] = ranks[1024u + at];
         }
 
-        // The projected field run on the ordinary byte engine, which is the whole point: a 32 bit
+        // The projected field run on the ordinary byte engine, the whole point: a 32 bit
         // alphabet reaching the same loop bytes use, AVX2 scan included.
         const size_t projected = anchor_sift_naive(ranks, sample_len, rank_needle,
                                                    sample_needle_len);

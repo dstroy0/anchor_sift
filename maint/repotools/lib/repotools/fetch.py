@@ -34,7 +34,7 @@ THE HEADER STAYS THIS TOOLKIT'S
 
 A fetched file keeps the repo_tools copyright and license header. It is this toolkit's code running
 in another tree. The fetching project's name, version and license reach the tool at runtime through
-its own `repotools.toml`, which is the entire reason the eight copies of `codemask.py` differed.
+its own `repotools.toml`, the entire reason the eight copies of `codemask.py` differed.
 """
 
 import hashlib
@@ -90,7 +90,7 @@ def digest(text):
 
 
 def is_stamp(line):
-    
+
     body = line.strip()
     if not body:
         return False
@@ -306,7 +306,7 @@ def check(cfg, report):
     Run as a gate out of a fetched tree that walk finds nothing: a toolkit checkout is a sibling of
     the repository and never an ancestor of it, and a fetch installs neither of the two markers the
     walk wants. So the whole gate raised, and the check that refuses a locally edited fetched file,
-    which is the reason the gate exists, could not run in any repository that had fetched it. The
+    the reason the gate exists, could not run in any repository that had fetched it. The
     one place it was needed was the one place it did not work.
     """
     toolkit = boot.find_toolkit_root()

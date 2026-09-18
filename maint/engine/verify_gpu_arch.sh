@@ -69,7 +69,7 @@ for row in $ARCHES; do
     fi
 
     # A cubin that compiled but holds no instructions for the kernel would pass a build check and
-    # fail on the part. cuobjdump reads the generated SASS back out, which is the thing being
+    # fail on the part. cuobjdump reads the generated SASS back out, the thing being
     # claimed.
     lines="$(cuobjdump -sass "$cubin" 2>/dev/null | grep -c "agreement_kernel")"
     total="$(cuobjdump -sass "$cubin" 2>/dev/null | grep -cE "^\s+/\*[0-9a-f]+\*/")"

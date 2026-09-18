@@ -159,7 +159,7 @@ fi
 # spelling and the driver builds and runs here.
 #
 # anchor_steer and anchor_steer_arms USED TO BE ON THIS LIST and no longer exist. Both folded into
-# anchor_sift_kernel, which is the whole engine in one translation unit.
+# anchor_sift_kernel, the whole engine in one translation unit.
 echo "[*] building"
 for target in anchor_sift_kernel anchor_sift_kernel_counted anchor_raster anchor_render \
               anchor_exact_portable \

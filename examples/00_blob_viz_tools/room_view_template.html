@@ -992,8 +992,7 @@
   document.getElementById("core").value = DATA.core || "sphere";
   document.getElementById("core").addEventListener("change", function (event) {
     // The shape the lights are held by, swapped under them while they are moving. Nothing about the
-    // cloud is rebuilt: the same population carries on against a different wall, which is the only
-    // way to see that the wall being a different shape changes nothing about what is held.
+    // cloud is rebuilt: the same population carries on against a different wall
     state.core = event.target.value;
     setCore(state.core);
   });
@@ -1139,7 +1138,7 @@
   // Each shape supplies one number that is under one inside and over one outside, and the outward
   // direction where it is over. That is all confinement needs, and writing it that way is the claim
   // being made: a curved wall, a flat-faced one and one with a point on it are the same wall as far
-  // as anything inside is concerned. Every one of them is closed, which is the part that matters.
+  // as anything inside is concerned. Every one of them is closed.
   //
   // The normal is the shape's own and never the direction back to the middle. Those agree on a
   // sphere and on nothing else, and a light bouncing off a cube by its radial direction slides along
@@ -1276,7 +1275,7 @@
   // Callouts. Each label is a flat pane the reader can drag anywhere, and the line finds it: the end
   // of the leader is wherever the segment from the target crosses that pane's own edge. The line
   // touches the box and never runs across it. Nothing about where the label sits changes where the
-  // thing is, which is the only reason the label is allowed to move at all.
+  // thing is.
   // ---------------------------------------------------------------------------------------------
 
   var flatPoint = new THREE.Vector3();
@@ -1389,9 +1388,7 @@
     veilStuff.opacity = state.veil * through;
 
     // Step outside the room and the room's own wall becomes the thing being read. It goes part way to
-    // transparent so what is inside registers on it, which is the same reading one shell out: the
-    // surface of a thing is where what is inside it is legible from. Standing outside is not a
-    // different kind of looking, it is the same looking against a bigger boundary.
+    // transparent so what is inside registers on it.
     var beyond = Math.max(0, Math.min(1, (here - ROOM) / (ROOM * 0.5)));
     wallStuff.opacity = 1 - 0.72 * beyond;
     wallStuff.depthWrite = beyond < 0.02;

@@ -10,7 +10,7 @@
 # This reads no corpus. It sits in 0_experimental: an algorithm shown working, a coding-theory filter
 # beside the signal ones. The channel flips bits; the code rejects the flip by choosing, of the sixteen
 # codewords, the one within a single flip of what arrived. It corrects by selecting the candidate the
-# necessary conditions leave standing, which is the sift's move carried into coding theory.
+# necessary conditions leave standing, the sift's move carried into coding theory.
 #
 # Two decoders are run: the syndrome, which reads the failed parity checks as the flipped position, and
 # the nearest codeword, which reads no parity at all. Hamming(7,4) is a perfect code. The two are the
@@ -105,7 +105,7 @@ def main():
     out.write("\n  within one flip the recovery is exact and both routes agree by the perfect-code\n")
     out.write("  theorem; the broken probe shows that agreement can fail. It means something. two\n")
     out.write("  flips are the floor: corrected confidently to a wrong codeword the two routes still\n")
-    out.write("  agree on, which is the Hamming bound and not a defect.\n")
+    out.write("  agree on, the Hamming bound and not a defect.\n")
     out.flush()
     return 0 if (corrected_syn == TRIALS and corrected_near == TRIALS and agree == TRIALS) else 1
 

@@ -342,13 +342,13 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         ("The pool is drained. A caller sees nothing.", "so a", "code-comments:200"),
         # The inflection. Unmatched until 2026-09-16 because the pattern implemented the token and
         # code-documentation:112 describes the clause. It fails against `\bso a\b` and passes
-        # against `\bso an?\b`, which is the only reason this row is worth a line.
+        # against `\bso an?\b`, the only reason this row is worth a line.
         ("The pool is drained. An entry is dropped.", "so an", "code-comments:200"),
         ("The bound is read here.", "rather", "code-comments:200"),
         ("The spelling is wrong in three places.", "spelling", "code-comments:200"),
         (
-            "The pool is sized here, which is the bound the caller sees.",
-            "which is the",
+            "The pool is sized here, the bound the caller sees.",
+            "the",
             "code-comments:206",
         ),
         (

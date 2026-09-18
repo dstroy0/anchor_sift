@@ -48,7 +48,7 @@ It binds this class only. A skipping search decides ranges from one read and nev
 
 **Check:** `test_steer` asserts total reads at or above the alignment count on every route and every field, and asserts the empty probe set takes exactly zero probe reads and exactly one compare per alignment.
 
-**Known imprecision, corrected:** see R5. The floor is about bytes read at an alignment. The test charges one byte per compare, which is the bound's accounting and not a cost, and the empty probe set attains the floor only in those units.
+**Known imprecision, corrected:** see R5. The floor is about bytes read at an alignment. The test charges one byte per compare, the bound's accounting and not a cost, and the empty probe set attains the floor only in those units.
 
 ### F6. The trichotomy
 
@@ -88,7 +88,7 @@ A probe rejects a definite set of alignments; a probe set rejects their union; `
 
 Recorded as "around one percent of the cycles the worst rule gives up". Measured, with the gate in F10 fixed so the driver runs at all, it is **0.035** on x64 MSVC 19.44 at Release, 39 of 42 rows, 9131790 cycles. The one percent corresponds to no run recoverable from this tree.
 
-**And 0.035 does not reproduce either.** The theorist ran the same bench under gcc and got 41 of 42 at 86511 cycles, share 0.000. A hundredfold gap in cycles, not rounding, and both are real runs. The figure belongs to the toolchain that produced it and must be quoted with one. A rule scored by row count is fragile precisely where two engines sit within noise of each other, which is the argument the bench's own closing note makes for scoring by cycles given up.
+**And 0.035 does not reproduce either.** The theorist ran the same bench under gcc and got 41 of 42 at 86511 cycles, share 0.000. A hundredfold gap in cycles, not rounding, and both are real runs. The figure belongs to the toolchain that produced it and must be quoted with one. A rule scored by row count is fragile precisely where two engines sit within noise of each other.
 
 **The needle length term is dead weight on this data, which R1 never mentioned.** Flatness alone ties the kernel exactly, same rows and same cycles on the theorist's run. The length term changes no answer across 42 rows. "Flatness then length, as documented" scores strictly worse than the flatness it contains, and the shipped rule of length alone is worse than both. So the document is beaten by the kernel it documents and the kernel is behaviorally the simpler rule. The sweep's own text already supports it: a structured corpus takes the free order engine at every length, and the ceiling of 16 it used to carry survives at no value. A tunable with no reader is an integration point, never deleted and never called unimplemented. It is named and kept until a row is found where it pays.
 
@@ -112,7 +112,7 @@ Submodularity bounds the gain of a **fixed** candidate as the placed set grows. 
 
 ### R5. The read floor's attainment, and a row in the wrong units
 
-I wrote that the empty probe set attains the floor at exactly `N`. A full compare is not one read; it reads up to `m` bytes and exactly one only when the first byte differs. The test charges one byte per compare, which is the bound's accounting. So the empty probe set attains the floor **in floor units**, and in real bytes it is the most expensive route there is, since every alignment takes a full compare.
+I wrote that the empty probe set attains the floor at exactly `N`. A full compare is not one read; it reads up to `m` bytes and exactly one only when the first byte differs. The test charges one byte per compare, the empty probe set attains the floor **in floor units**, and in real bytes it is the most expensive route there is, since every alignment takes a full compare.
 
 That row was also briefly printed inside the route table, whose column counts probe reads only. Read down one column it invited the conclusion that not steering matches the best steering. It is reported outside the table now.
 
@@ -182,7 +182,7 @@ Measured by the theorist on the same 400 class field, 2448 positions, 256 ranks,
 
 Across every needle position: 150 needles where the projected survivor count is strictly above the exact one, and **zero** where it falls below. Sample rows show exact 6 against projected 150.
 
-So F7's inequality is the right assertion and my own test could not reach the strict case, because 6 classes against 256 ranks means no merge occurred and projected and exact were identical. An equality assertion would have passed that run unchanged, which is the thing that made the test weak evidence.
+So F7's inequality is the right assertion and my own test could not reach the strict case, because 6 classes against 256 ranks means no merge occurred and projected and exact were identical. An equality assertion would have passed that run unchanged.
 
 Unchanged under the transitive closure, for a stated reason: a different rank means no edge in the closure. The predicate is false on that pair. Agreement still implies a shared rank. The closure only makes same-rank weaker, which widens the gap the inequality allows and cannot invert it.
 
@@ -230,13 +230,13 @@ The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:6
 
 Found by the theorist while writing `docs/inspection-points.md`, and it is sharper now than it would have been this morning.
 
-The engine computes `best_standing` at every level of the descent and compares it against `steer_truthy_total` to decide whether to stop. Then it discards it. `placed` reports the depth reached, and the raster's `DEATH_LEVEL` channel reports which probe killed each alignment, and **nothing between those two reports the survivor count at each level**, which is the number the decision actually turned on.
+The engine computes `best_standing` at every level of the descent and compares it against `steer_truthy_total` to decide whether to stop. Then it discards it. `placed` reports the depth reached, and the raster's `DEATH_LEVEL` channel reports which probe killed each alignment, and **nothing between those two reports the survivor count at each level**
 
 A caller who wants it today runs the descent twice with `force_full_depth` flipped and subtracts. That recovers the fact that the destroy rule fired and what its firing cost. It does not recover the reason.
 
 **Why it matters more after F15.** Four documents were just corrected to say depth is a data dependent steer. The quantity that steer reads is not reported by the engine.
 
-The shape would be a caller supplied array of `count` entries, filled with the survivor count at each level, which is the same contract every other buffer here already has. Nothing is blocked on it and nothing is being built.
+The shape would be a caller supplied array of `count` entries, filled with the survivor count at each level. Nothing is blocked on it and nothing is being built.
 
 ### O2. WANT: the one term that would make the engine a computer
 
@@ -244,9 +244,9 @@ The shape would be a caller supplied array of `count` entries, filled with the s
 
 **The term.** The entries take `const uint8_t *corpus` with a `corpus_len`, which is a window nailed down. The engine cannot ask for more universe. The change is a reader the engine may call for more, in place of a pointer and a length.
 
-**Why that is sufficient and not merely necessary**, which is the part that was missing. Unbounded READ alone does not buy universality: a finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can come back to it. But a reader is a callback the CALLER backs, and a caller can back it with a store that the previous descent's results extend. The write lives in the caller's loop, the engine stays `const`, and the engine still ends up reading what it itself produced. No write primitive enters the engine at all.
+**Why that is sufficient and not merely necessary** Unbounded READ alone does not buy universality: a finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can come back to it. But a reader is a callback the CALLER backs, and a caller can back it with a store that the previous descent's results extend. The write lives in the caller's loop, the engine stays `const`, and the engine still ends up reading what it itself produced. No write primitive enters the engine at all.
 
-**What it composes into, and this is what makes it cheap to keep.** Growth happens only BETWEEN descents, on the refuse branch, which is the "ask another slightly different question" shape. Inside a descent survivors still only shrink. Soundness, the anytime property and termination are all intact at the inner level, since all three follow from that one monotonicity. The result is a Turing complete outer machine whose every inner step is a sound, terminating, interruptible filter. The universality lives in the composition and the inner loop does not change.
+**What it composes into, and this is what makes it cheap to keep.** Growth happens only BETWEEN descents on the refuse branch. Inside a descent survivors still only shrink. Soundness, the anytime property and termination are all intact at the inner level, since all three follow from that one monotonicity. The result is a Turing complete outer machine whose every inner step is a sound, terminating, interruptible filter. The universality lives in the composition and the inner loop does not change.
 
 **The reduction target is named. Nobody owes a universality proof.** Read a window, act on what was read, append, continue is a tag system. Post introduced them in 1943, Minsky proved 2-tag systems universal in 1961, Cocke and Minsky tightened it in 1964. What would be owed is an encoding into that shape, not a proof from scratch.
 
@@ -279,7 +279,7 @@ The oracle column is flat across a 65536 fold increase in sigma, with no trend. 
 
 **The durable claim is the memory and not the time.** Sigma 2^32 is not measured and was not allocated: 16.0 GB of counters at four bytes a slot. The theorist's own caveat against the timing is the reason to prefer the memory claim. The table route in the bench callocs and frees its counters every iteration, and a real caller searching many needles against one fixed corpus builds the census once and amortizes it, which widens the table's time advantage and means the time column overstates the oracle's case. Memory does not amortize. 16 GB is 16 GB whether it is paid once or a thousand times.
 
-**One behavioral note from the same run.** `placed` came back 2 at sigma 2^8 and 2^12 and 1 from 2^16 up, which is the destroy rule firing: at a large alphabet the first probe cuts the survivors far enough that a second adds nothing. That also explains why the oracle's small sigma rows are its slowest. It is doing more work there, not suffering from sigma.
+**One behavioral note from the same run.** `placed` came back 2 at sigma 2^8 and 2^12 and 1 from 2^16 up: at a large alphabet the first probe cuts the survivors far enough that a second adds nothing. That also explains why the oracle's small sigma rows are its slowest. It is doing more work there, not suffering from sigma.
 
 So the claim boundary in O3 is now partly closed. The trend is measured, it is the trend the construction predicts, and the regime where the table is the right choice is named.
 
@@ -307,7 +307,7 @@ Clifford, Jalsenius, Porat and Sach, "Space Lower Bounds for Online Pattern Matc
 
 **The exact byte path falls on the `Omega(log m)` and `O(log^2 m)` side.** Porat and Porat, FOCS 2009, do exact pattern matching in a stream in `O(log m log n)` bits. So the engine carrying `m` bits on the exact path is not meeting a lower bound. It is roughly `m` over a known upper bound.
 
-**The rank projected path is the candidate case and nothing is asserted about it.** Matching on equivalence classes, where a needle position of rank `r` accepts any corpus symbol of rank `r`, is pattern matching with character classes, which the paper names explicitly as an `Omega(m)` case. The reduction has not been written and the theorem is not claimed to transfer. What is established is only that the projected path is where this citation plausibly applies and the exact path is where it plainly does not, which is the opposite of how the entry read.
+**The rank projected path is the candidate case and nothing is asserted about it.** Matching on equivalence classes, where a needle position of rank `r` accepts any corpus symbol of rank `r`, is pattern matching with character classes, which the paper names explicitly as an `Omega(m)` case. The reduction has not been written and the theorem is not claimed to transfer. What is established is only that the projected path is where this citation plausibly applies and the exact path is where it plainly does not.
 
 **Also corrected: the bound is not deterministic only.** Verbatim: "We require that the correct answer is given at each position with constant probability." It binds randomized algorithms too. A summarizer told the theorist deterministic only and the abstract contradicted it. "The lower bound is only for deterministic algorithms" is exactly the plausible sentence that would otherwise have been written here.
 

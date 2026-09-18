@@ -50,12 +50,16 @@ def toolkit_root(start=None):
     """
     at = os.path.dirname(os.path.abspath(start or __file__))
     while True:
-        if all(os.path.exists(os.path.join(at, marker.replace("/", os.sep))) for marker in TOOLKIT_MARKERS):
+        if all(
+            os.path.exists(os.path.join(at, marker.replace("/", os.sep)))
+            for marker in TOOLKIT_MARKERS
+        ):
             return at
         parent = os.path.dirname(at)
         if parent == at:
             raise SystemExit(
-                "repotools: no toolkit root above %s (want %s)" % (start or __file__, " + ".join(TOOLKIT_MARKERS))
+                "repotools: no toolkit root above %s (want %s)"
+                % (start or __file__, " + ".join(TOOLKIT_MARKERS))
             )
         at = parent
 
@@ -69,7 +73,7 @@ def find_toolkit_root(start=None):
     A fetch installs the sets a repository asked for and never repo/repo_template or code/. A
     tool running out of a fetched tree has no toolkit above it. toolkit_root raising there ended
     the run before the caller reached its remaining candidates and before it could print what it
-    had tried, which is the shape gates.py was written against: the failure arrives as something
+    had tried, the shape gates.py was written against: the failure arrives as something
     unrelated instead of as the thing that went wrong.
     """
     try:
@@ -86,7 +90,9 @@ def installed_root(start):
     given a name so a tool needing its own siblings does not repeat it.
     """
     at = os.path.dirname(os.path.abspath(start))
-    while at != os.path.dirname(at) and not os.path.isdir(os.path.join(at, "lib", "repotools")):
+    while at != os.path.dirname(at) and not os.path.isdir(
+        os.path.join(at, "lib", "repotools")
+    ):
         at = os.path.dirname(at)
     return at
 

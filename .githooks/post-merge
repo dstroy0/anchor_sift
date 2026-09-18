@@ -59,7 +59,7 @@ UPSTREAM=https://github.com/dstroy0/theory_bucket.git
 # is settled.
 echo "  theory not refreshed: this hook is held (see .githooks/post-merge)"
 echo "  theory_bucket holds unpublished research and does not feed this public repository"
-echo "  public theory reaches consumers through dstroy0/theory, which is the only route in"
+echo "  public theory reaches consumers through dstroy0/theory, the only route in"
 exit 0
 
 if [ "${ANCHOR_SIFT_NO_SUBTREE:-0}" = "1" ]; then

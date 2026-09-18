@@ -4,7 +4,7 @@
 # Builds the site from docs/ and publishes it to GitHub Pages.
 #
 # One thing has to be done by hand once, in the repository settings: Pages, Source, GitHub Actions.
-# Until that is set the build succeeds and the deploy step fails, which is the failure mode to
+# Until that is set the build succeeds and the deploy step fails, the failure mode to
 # expect on the first run.
 #
 # The site then lands at https://dstroy0.github.io/anchor_sift/

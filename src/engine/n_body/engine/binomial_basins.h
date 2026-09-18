@@ -13,7 +13,7 @@
  *
  * @note Smoothing by a binomial kernel of order n weights the n + 1 taps by the coefficients of
  *       (1 + x)^n, C(n, k), which sum to 2^n. A smoothed value is the integer sum of weight times
- *       sample, which is the weighted mean times 2^n, and it is held exactly in
+ *       sample, the weighted mean times 2^n, and it is held exactly in
  *       BINOMIAL_BASINS_LIMBS 32 bit limbs. Nothing is divided.
  * @note The residual is the smoothed field scaled by 2^g, g the sum of the background orders,
  *       minus the smoothed field smoothed again by the background kernels. The scaling puts both
@@ -30,7 +30,8 @@
 #define BINOMIAL_BASINS_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /** @brief Exported from the engine library on a Windows DLL build, empty on every other build. */
@@ -63,79 +64,79 @@ extern "C" {
 /** @brief The most peaks or pairs an entry reports, the largest count a long holds everywhere. */
 #define BINOMIAL_BASINS_ROOM_LIMIT 0x7FFFFFFFu
 
-/**
- * @brief A volume, the kernel orders, and where the peaks, pairs and optional fields are written.
- *
- * @note Axis 0 is depth, 1 height and 2 width, and the width index runs fastest. Every order is
- *       even, which keeps the kernel centered on the voxel.
- * @note A pair joins two positive peaks whose basins meet across a face. `adjacency` lists every
- *       such pair. `joined` lists those where the two voxels on either side of the face are both
- *       positive. The basins touch through their positive parts. Both come sorted and unique,
- *       lower peak first.
- */
-typedef struct
-{
-    const unsigned short *volume;           /**< depth * height * width samples [BORROWS]. */
-    unsigned int depth;                     /**< Voxels along axis 0. */
-    unsigned int height;                    /**< Voxels along axis 1. */
-    unsigned int width;                     /**< Voxels along axis 2. */
-    unsigned int smooth_orders[3];          /**< Smoothing order per axis, each even. */
-    unsigned int background_orders[3];      /**< Background order per axis, each even. */
-    unsigned int room;                      /**< Peaks the four peak outputs hold. */
-    unsigned int *peak_indices;             /**< Out: voxel index of each peak [BORROWS]. */
-    unsigned int *sizes;                    /**< Out: positive voxels in each basin [BORROWS]. */
-    unsigned long long *sums;               /**< Out: depth, height and width index sums of each
-                                                 basin's positive voxels, three per peak [BORROWS]. */
-    unsigned int *peak_limbs;               /**< Out: each peak's residual, BINOMIAL_BASINS_LIMBS
-                                                 limbs per peak [BORROWS]. */
+    /**
+     * @brief A volume, the kernel orders, and where the peaks, pairs and optional fields are written.
+     *
+     * @note Axis 0 is depth, 1 height and 2 width, and the width index runs fastest. Every order is
+     *       even, which keeps the kernel centered on the voxel.
+     * @note A pair joins two positive peaks whose basins meet across a face. `adjacency` lists every
+     *       such pair. `joined` lists those where the two voxels on either side of the face are both
+     *       positive. The basins touch through their positive parts. Both come sorted and unique,
+     *       lower peak first.
+     */
+    typedef struct
+    {
+        const unsigned short *volume;      /**< depth * height * width samples [BORROWS]. */
+        unsigned int depth;                /**< Voxels along axis 0. */
+        unsigned int height;               /**< Voxels along axis 1. */
+        unsigned int width;                /**< Voxels along axis 2. */
+        unsigned int smooth_orders[3];     /**< Smoothing order per axis, each even. */
+        unsigned int background_orders[3]; /**< Background order per axis, each even. */
+        unsigned int room;                 /**< Peaks the four peak outputs hold. */
+        unsigned int *peak_indices;        /**< Out: voxel index of each peak [BORROWS]. */
+        unsigned int *sizes;               /**< Out: positive voxels in each basin [BORROWS]. */
+        unsigned long long *sums;          /**< Out: depth, height and width index sums of each
+                                                basin's positive voxels, three per peak [BORROWS]. */
+        unsigned int *peak_limbs;          /**< Out: each peak's residual, BINOMIAL_BASINS_LIMBS
+                                                limbs per peak [BORROWS]. */
 
-    unsigned int adjacency_room;            /**< Pairs `adjacency` holds. */
-    unsigned int *adjacency;                /**< Out: pairs of adjacent peaks, two per pair, or
-                                                 NULL where not wanted [BORROWS]. */
+        unsigned int adjacency_room; /**< Pairs `adjacency` holds. */
+        unsigned int *adjacency;     /**< Out: pairs of adjacent peaks, two per pair, or
+                                          NULL where not wanted [BORROWS]. */
 
-    unsigned int *adjacency_count;          /**< Out: adjacent pairs found [BORROWS]. */
-    unsigned int *labels;                   /**< Out: the peak every voxel ascends to, or NULL
-                                                 [BORROWS]. */
-    unsigned int *residual_limbs;           /**< Out: every voxel's residual, or NULL [BORROWS]. */
+        unsigned int *adjacency_count; /**< Out: adjacent pairs found [BORROWS]. */
+        unsigned int *labels;          /**< Out: the peak every voxel ascends to, or NULL
+                                            [BORROWS]. */
+        unsigned int *residual_limbs;  /**< Out: every voxel's residual, or NULL [BORROWS]. */
 
-    unsigned long long *positive_words;     /**< Out: one bit per voxel, set where the residual is
+        unsigned long long *positive_words; /**< Out: one bit per voxel, set where the residual is
                                                  positive, or NULL [BORROWS]. */
 
-    unsigned int joined_room;               /**< Pairs `joined` holds. */
-    unsigned int *joined;                   /**< Out: pairs joined through positive voxels, two per
-                                                 pair [BORROWS]. */
+        unsigned int joined_room; /**< Pairs `joined` holds. */
+        unsigned int *joined;     /**< Out: pairs joined through positive voxels, two per
+                                       pair [BORROWS]. */
 
-    unsigned int *joined_count;             /**< Out: joined pairs found [BORROWS]. */
-} BinomialBasinsRequest;
+        unsigned int *joined_count; /**< Out: joined pairs found [BORROWS]. */
+    } BinomialBasinsRequest;
 
-/**
- * @brief Computes the residual and its basins on the host.
- *
- * @param[in] args The volume, orders and outputs [BORROWS].
- * @return         How many positive peaks there are, or BINOMIAL_BASINS_REFUSED where a pointer is
- *                 null, an extent is 0, an order is odd, the orders sum past 271, the volume
- *                 passes 2^32 / BINOMIAL_BASINS_LIMBS voxels, a room passes
- *                 BINOMIAL_BASINS_ROOM_LIMIT, or an allocation failed.
- * @note The two counts are written whenever the return is not a refusal. Every other output is
- *       written only where all three rooms hold what was found, which lets a caller size its arrays
- *       from one call and fill them with a second.
- * @note The reference arm. The device arm is graded against it.
- */
-BINOMIAL_BASINS_EXPORT long binomial_basins_host(const BinomialBasinsRequest *args);
+    /**
+     * @brief Computes the residual and its basins on the host.
+     *
+     * @param[in] args The volume, orders and outputs [BORROWS].
+     * @return         How many positive peaks there are, or BINOMIAL_BASINS_REFUSED where a pointer is
+     *                 null, an extent is 0, an order is odd, the orders sum past 271, the volume
+     *                 passes 2^32 / BINOMIAL_BASINS_LIMBS voxels, a room passes
+     *                 BINOMIAL_BASINS_ROOM_LIMIT, or an allocation failed.
+     * @note The two counts are written whenever the return is not a refusal. Every other output is
+     *       written only where all three rooms hold what was found, which lets a caller size its arrays
+     *       from one call and fill them with a second.
+     * @note The reference arm. The device arm is graded against it.
+     */
+    BINOMIAL_BASINS_EXPORT long binomial_basins_host(const BinomialBasinsRequest *args);
 
-/**
- * @brief Computes the residual and its basins on the device.
- *
- * @param[in] args The volume, orders and outputs [BORROWS].
- * @return         What binomial_basins_host returns for the same request, or
- *                 BINOMIAL_BASINS_REFUSED where no device answers or a device step failed.
- * @note Where binomial_transform_admits accepts the shape and orders, the residual comes from
- *       binomial_transform_residual instead of the per-axis passes. It is built to be the same
- *       residual exactly. Nothing in this tree compares the two.
- * @note Device buffers are held between calls. The entry is not safe to call from two threads at
- *       once.
- */
-BINOMIAL_BASINS_EXPORT long binomial_basins_run(const BinomialBasinsRequest *args);
+    /**
+     * @brief Computes the residual and its basins on the device.
+     *
+     * @param[in] args The volume, orders and outputs [BORROWS].
+     * @return         What binomial_basins_host returns for the same request, or
+     *                 BINOMIAL_BASINS_REFUSED where no device answers or a device step failed.
+     * @note Where binomial_transform_admits accepts the shape and orders, the residual comes from
+     *       binomial_transform_residual instead of the per-axis passes. It is built to be the same
+     *       residual exactly. Nothing in this tree compares the two.
+     * @note Device buffers are held between calls. The entry is not safe to call from two threads at
+     *       once.
+     */
+    BINOMIAL_BASINS_EXPORT long binomial_basins_run(const BinomialBasinsRequest *args);
 
 #ifdef __cplusplus
 }

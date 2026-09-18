@@ -178,7 +178,7 @@ def main():
         "title": title,
         "blurb": ("%s read as a grid %d bytes wide, %d rows from offset %d of %d bytes. Depth runs "
                   "left to right as position within the row; the other horizontal axis is the row, "
-                  "which is the file in order. Repeating structure whose period divides the width "
+                  ", the file in order. Repeating structure whose period divides the width "
                   "stands up as columns; anything else shears diagonally, and the shear angle is "
                   "the real period."
                   % (os.path.basename(source), width, rows, offset, size)),

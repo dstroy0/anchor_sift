@@ -70,7 +70,7 @@ extern "C"
 
 #endif
 
-/** @brief Distinct values a byte takes, which is the width of every census below. */
+/** @brief Distinct values a byte takes, the width of every census below. */
 #define ANCHOR_STEER_SYMBOLS 256u
 
 /**
@@ -302,7 +302,7 @@ extern "C"
      * @note STABLE, and that is load bearing. Two anchors testing equally rare
      *       symbols keep the order choose_offsets placed them in. The spatial spread that rule exists
      *       to produce survives wherever rarity does not distinguish. An unstable sort would quietly
-     *       discard the spread on a flat corpus, which is the corpus where the spread is all there is.
+     *       discard the spread on a flat corpus, the corpus where the spread is all there is.
      * @note Does nothing where any argument is null, where `count` is zero, or where the census is
      *       empty. An engine with nothing to steer by keeps the order it was given.
      */
@@ -330,7 +330,7 @@ extern "C"
      *       approximated by a series, and the threshold is the exact rational 85/100.
      * @note Both sides outgrow 64 bits on a corpus of any size, since total^2 passes 2^64 at a four
      *       gigabyte corpus and the sum of squares is accumulated over 256 terms. Both are carried in
-     *       AnchorExactInteger for that reason, which is the fixed width limb form the rest of the
+     *       AnchorExactInteger for that reason, the fixed width limb form the rest of the
      *       engine already measures in.
      * @note The threshold was swept  and the sweep is recorded against the constant
      *       in anchor_sift.c. Clearing the denominators does not re-open that: 85/100 is the same value
@@ -477,7 +477,7 @@ extern "C"
      * scan included. A real valued alphabet, a point in eight dimensions and an opaque handle all
      * project to the same shape and all run on the same loop.
      *
-     * @note Ranks are ORDERED BY RARITY, rarest first, which is the order the steering already wants.
+     * @note Ranks are ORDERED BY RARITY, rarest first, the order the steering already wants.
      *       The rank is therefore not an arbitrary label: rank zero is the class that refutes most
      *       alignments, and a planner reading the projected field gets the entropy ordering for free.
      * @note A SEARCH OVER RANK FIELDS COUNTS RANK MATCHES, AND THAT EQUALS THE SYMBOL COUNT ONLY AT 256
@@ -684,7 +684,7 @@ extern "C"
  * @param entry_ The entry to call.
  * @param type_  Its argument structure.
  * @note The literal has automatic storage and lives for the whole call. Every member the caller does
- *       not name is zero, which is the contract each structure above states. `__VA_ARGS__` is
+ *       not name is zero, the contract each structure above states. `__VA_ARGS__` is
  *       mentioned once. An argument carrying a side effect is evaluated once.
  */
 #define ANCHOR_STEER_CALL(entry_, type_, ...) entry_(&(type_){__VA_ARGS__})
@@ -834,7 +834,7 @@ extern "C"
     /**
      * @brief One probe placed on the needle. An arm is a point, an eye is a line.
      *
-     * ONE SHAPE SERVES BOTH, WHICH IS THE SAME STATEMENT arm-records.md MAKES ABOUT READINGS. An arm is
+     * ONE SHAPE SERVES BOTH, the SAME STATEMENT arm-records.md MAKES ABOUT READINGS. An arm is
      * a region integral and an eye is a line integral, and the difference between them lives in the
      * shape of the support, not in the arithmetic applied to it. Here that means an arm is an eye whose
      * length is one, and the same test walks both.
@@ -983,7 +983,7 @@ extern "C"
      * @return               How many alignments match exactly.
      *
      * @note THE ENTRY A TEST NEEDS AND A CALLER RARELY DOES. Everything else here chooses its own
-     *       probes, which is the point of a steering engine and is also what makes the guarantee hard
+     *       probes, the point of a steering engine and is also what makes the guarantee hard
      *       to attack from outside. This takes the probe set as an argument. A caller can hand over
      *       a permutation of one set and check the count is unchanged, hand over a probe built from the
      *       census instead of the needle and watch the count break, or hand over none at all.

@@ -107,7 +107,7 @@ def main():
         out.flush()
         return 0
 
-    out.write("\n  the same under the numbering the corpus converges to, which is the value a\n")
+    out.write("\n  the same under the numbering the corpus converges to, the value a\n")
     out.write("  reading has to be taken at before it belongs to the corpus and not the file\n")
     out.write("  %-24s %-11s %-11s %-11s %s\n"
               % ("corpus", "spread as is", "tightest", "returned as is", "returned tightest"))

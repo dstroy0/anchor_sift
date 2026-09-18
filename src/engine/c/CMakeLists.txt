@@ -51,7 +51,7 @@ if(NOT DEFINED ANCHOR_SIFT_ROOT)
     get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
 endif()
 
-# The exact integer as a fixed width limb array, which is the same value the python engine ingests
+# The exact integer as a fixed width limb array, the same value the python engine ingests
 # and a different transform of it. Portable C11 with no intrinsic and no 128 bit type. It builds
 # anywhere and is the engine every vectorized one is checked against.
 add_library(anchor_exact_portable STATIC no_rounding/exact_integer.c no_rounding/arm_portable.c)

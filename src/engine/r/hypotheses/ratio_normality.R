@@ -11,7 +11,7 @@
 # normal, and the skew and excess kurtosis say in which direction it fails. corpus that fails through
 # a long right tail can be told from one that fails through a single outlier.
 #
-# A logarithm is applied as well. A ratio is bounded below by zero and unbounded above, which is the shape
+# A logarithm is applied as well. A ratio is bounded below by zero and unbounded above, the shape
 # that produces a right tail by construction, and a quantity that is normal in the logarithm has a mean
 # that means something once taken there.
 

@@ -67,7 +67,7 @@ fi
 
 # No argument. The checker uses its own roots: docs, src, examples and maint. Naming only docs
 # here once left twelve READMEs beside the code unchecked, and one of them was carrying a paragraph
-# inside a table. The checker now raises on a root that does not exist, which is the other half of
+# inside a table. The checker now raises on a root that does not exist, the other half of
 # the same fault: it once read 188 files instead of 317 and exited 0.
 python "$CHECK"
 status=$?

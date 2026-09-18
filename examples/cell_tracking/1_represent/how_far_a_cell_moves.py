@@ -104,8 +104,7 @@ def main():
         here = centroids(labels)
         for label in here:
             rows, columns = numpy.nonzero(labels == label)
-            # Equivalent diameter of the label's area, which is the closest thing to the width
-            # the synthetic fields called a blob width.
+            # Equivalent diameter of the label's area
             sizes.append(2.0 * numpy.sqrt(len(rows) / numpy.pi))
         if previous is not None:
             for label, (row, column) in here.items():

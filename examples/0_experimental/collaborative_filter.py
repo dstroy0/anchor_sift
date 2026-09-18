@@ -19,7 +19,7 @@
 #
 # TWO ROUTES THAT CAN GENUINELY DISAGREE: the field's own two methods. User-based filtering averages
 # down the missing column over the ROWS that agree; item-based averages across the row over the COLUMNS
-# that agree, which is the same rule on the transpose. They read the table along different axes and
+# that agree. They read the table along different axes and
 # share no traversal. On a table that is a row effect plus a column effect they return the same value
 # to the last digit; on a table with no such structure they disagree, and the disagreement is the
 # finding. Nothing is bounded: agreement is exact equality on the overlap. There is

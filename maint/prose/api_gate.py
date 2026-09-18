@@ -24,7 +24,7 @@
 # THIS IS NOT AN INDEPENDENT WITNESS
 #
 # Stated here because the number looks like one. A model asked to score prose for machine register
-# is being asked about its own output distribution, which is the library as its own oracle: precept
+# is being asked about its own output distribution, the library as its own oracle: precept
 # one in this project's testing rules. An expectation derived from the thing under test proves
 # nothing and passes forever.
 #
@@ -63,7 +63,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import docs_check
 
 CONFIG = os.environ.get("PROSE_API_CONFIG") or os.path.join(
-    os.path.expanduser("~"), ".config", "prose_api.json")
+    os.path.expanduser("~"), ".config", "prose_api.json"
+)
 
 BAR = 0.50
 
@@ -76,7 +77,12 @@ FLOOR = 400
 
 TIMEOUT = 120
 
-CLOSED = ("/private_repos/", "/salishan_corpus/", "/anchor_sift_citations/", "/no_replicate_/")
+CLOSED = (
+    "/private_repos/",
+    "/salishan_corpus/",
+    "/anchor_sift_citations/",
+    "/no_replicate_/",
+)
 
 ASK = (
     "You are grading a passage of technical prose for one property only: whether it reads as "
@@ -86,8 +92,8 @@ ASK = (
     "by elaboration, hedged summary clauses, inanimate things that speak or signal, tidy triples, "
     "reassuring wrap-up sentences, and phrases that carry rhythm without carrying a fact.\n\n"
     "Return only JSON, no other text:\n"
-    '{\"score\": <0.0 to 1.0>, \"phrases\": [{\"text\": \"<exact quote from the passage>\", '
-    '\"why\": \"<six words or fewer>\"}]}\n\n'
+    '{"score": <0.0 to 1.0>, "phrases": [{"text": "<exact quote from the passage>", '
+    '"why": "<six words or fewer>"}]}\n\n'
     "score is the probability the passage was machine written. Quote at most six phrases and "
     "quote them exactly as they appear. They can be found in the file. Return an empty list "
     "where the passage reads as human.\n\n"
@@ -101,7 +107,8 @@ def config():
         raise SystemExit(
             "  api_gate: no config at %s\n"
             "  Write it with endpoint, model and key_env. Nothing here reads a key out of the\n"
-            "  repository and nothing writes one into it." % CONFIG)
+            "  repository and nothing writes one into it." % CONFIG
+        )
     with open(CONFIG, encoding="utf-8") as handle:
         held = json.load(handle)
     for name in ("endpoint", "model", "key_env"):
@@ -109,8 +116,10 @@ def config():
             raise SystemExit("  api_gate: %s is missing from %s" % (name, CONFIG))
     key = os.environ.get(held["key_env"])
     if not key:
-        raise SystemExit("  api_gate: %s names an environment variable that is not set"
-                         % held["key_env"])
+        raise SystemExit(
+            "  api_gate: %s names an environment variable that is not set"
+            % held["key_env"]
+        )
     return held, key
 
 
@@ -165,9 +174,9 @@ def ask(passage, held, key):
     }
     headers = {"content-type": "application/json", "authorization": "Bearer " + key}
     headers.update(held.get("extra_headers") or {})
-    request = urllib.request.Request(held["endpoint"],
-                                     data=json.dumps(payload).encode("utf-8"),
-                                     headers=headers)
+    request = urllib.request.Request(
+        held["endpoint"], data=json.dumps(payload).encode("utf-8"), headers=headers
+    )
     try:
         with urllib.request.urlopen(request, timeout=TIMEOUT) as handle:
             answer = json.loads(handle.read().decode("utf-8"))
@@ -175,7 +184,9 @@ def ask(passage, held, key):
         detail = failed.read().decode("utf-8", "replace")[:400]
         raise SystemExit("  api_gate: HTTP %d. %s" % (failed.code, detail))
     except urllib.error.URLError as failed:
-        raise SystemExit("  api_gate: the endpoint could not be reached. %s" % failed.reason)
+        raise SystemExit(
+            "  api_gate: the endpoint could not be reached. %s" % failed.reason
+        )
 
     text = ""
     for part in answer.get("content") or []:
@@ -185,8 +196,10 @@ def ask(passage, held, key):
     opens = text.find("{")
     closes = text.rfind("}")
     if opens < 0 or closes < opens:
-        raise SystemExit("  api_gate: the endpoint returned no judgement. %s" % text[:200])
-    return json.loads(text[opens:closes + 1])
+        raise SystemExit(
+            "  api_gate: the endpoint returned no judgement. %s" % text[:200]
+        )
+    return json.loads(text[opens : closes + 1])
 
 
 def main():
@@ -202,11 +215,15 @@ def main():
     skip = {"--dry-run", "--bar", str(bar)}
     named = [one for one in argv if (one not in skip) and not one.startswith("-")]
     if not named:
-        raise SystemExit("  api_gate: name a file or a directory. There is no default root, "
-                         "because the whole tree is more prose than one run should send.")
+        raise SystemExit(
+            "  api_gate: name a file or a directory. There is no default root, "
+            "because the whole tree is more prose than one run should send."
+        )
 
-    roots = [one if os.path.exists(one) else os.path.join(docs_check.REPOSITORY, one)
-             for one in named]
+    roots = [
+        one if os.path.exists(one) else os.path.join(docs_check.REPOSITORY, one)
+        for one in named
+    ]
 
     refused = []
     reading = []
@@ -218,16 +235,25 @@ def main():
         reading.append((path, text, offsets))
 
     for path in refused:
-        print("  NOT SENT  %s" % os.path.relpath(path, docs_check.REPOSITORY).replace("\\", "/"))
+        print(
+            "  NOT SENT  %s"
+            % os.path.relpath(path, docs_check.REPOSITORY).replace("\\", "/")
+        )
     if refused:
-        print("  %d file(s) held back. The closed corpus does not go to an outside service.\n"
-              % len(refused))
+        print(
+            "  %d file(s) held back. The closed corpus does not go to an outside service.\n"
+            % len(refused)
+        )
 
     want = sum(len(text) for _path, text, _offsets in reading if len(text) >= FLOOR)
     short = sum(1 for one in reading if len(one[1]) < FLOOR)
-    requests = sum(len(chunks(text)) for _path, text, _offsets in reading if len(text) >= FLOOR)
-    print("  %d file(s) to score, %d too short, %d characters in %d request(s)"
-          % (len(reading) - short, short, want, requests))
+    requests = sum(
+        len(chunks(text)) for _path, text, _offsets in reading if len(text) >= FLOOR
+    )
+    print(
+        "  %d file(s) to score, %d too short, %d characters in %d request(s)"
+        % (len(reading) - short, short, want, requests)
+    )
 
     if dry:
         print("  --dry-run, nothing was sent")
@@ -240,8 +266,10 @@ def main():
     for path, text, offsets in reading:
         shown = os.path.relpath(path, docs_check.REPOSITORY).replace("\\", "/")
         if len(text) < FLOOR:
-            print("  short %s: %d characters, under the %d floor, not scored"
-                  % (shown, len(text), FLOOR))
+            print(
+                "  short %s: %d characters, under the %d floor, not scored"
+                % (shown, len(text), FLOOR)
+            )
             continue
 
         total = 0.0

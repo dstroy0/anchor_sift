@@ -128,7 +128,7 @@ static uint32_t adversarial_next(uint64_t *const state)
  *       through a table where each successive symbol takes half the space left, giving a fixed
  *       dyadic skew over 27 symbols with no knob at all. Neither can produce the other. Folding this
  *       onto CORPUS_SKEWED would lose the whole sweep, the constant field at alphabet one included,
- *       which is the case the line above exists for.
+ *       the case the line above exists for.
  * @note adversarial_next stays for the same kind of reason. bench_build_bytes takes a seed and fills
  *       a corpus, and this suite draws alphabet sizes, needle lengths and origins from one stream so
  *       a failing case reduces from its printed seed. bench_corpora exports no general generator to
@@ -167,7 +167,7 @@ static int adversarial_grade_against_reference(const uint8_t *const corpus, cons
     if (unsteered != expected)
     {
         printf("    FAIL %s: unsteered %zu against reference %zu\n", label, unsteered,
-                    expected);
+               expected);
         failed = 1;
     }
     if (steered != expected)
@@ -209,8 +209,7 @@ static int adversarial_case_differential_net(void)
         // Three rows in four take the needle from the corpus. Occurrences exist to be counted.
         if ((seed % 4u) != 0u)
         {
-            const size_t origin = (size_t)(adversarial_next(&state)
-                                           % (ADVERSARIAL_CORPUS - needle_len));
+            const size_t origin = (size_t)(adversarial_next(&state) % (ADVERSARIAL_CORPUS - needle_len));
             memcpy(needle, corpus + origin, needle_len);
         }
         else
@@ -223,14 +222,14 @@ static int adversarial_case_differential_net(void)
 
         char label[64];
         snprintf(label, sizeof(label), "seed %u alphabet %u needle %zu", seed, alphabet,
-                      needle_len);
+                 needle_len);
         failed += adversarial_grade_against_reference(corpus, ADVERSARIAL_CORPUS, needle, needle_len,
                                                       label);
     }
 
     free(corpus);
     printf("  %u seeds against the reference, verdict %s\n", ADVERSARIAL_SEEDS,
-                (failed == 0) ? "ok" : "FAILS");
+           (failed == 0) ? "ok" : "FAILS");
     return (failed == 0) ? 0 : 1;
 }
 
@@ -250,11 +249,11 @@ static int adversarial_case_overlapping(void)
         const char *needle;
         size_t expected;
     } rows[] = {
-        { "aaaaa", "aaa", 3u },
-        { "aaaa", "aa", 3u },
-        { "ababab", "abab", 2u },
-        { "aaaa", "aaaa", 1u },
-        { "abcabcabc", "abcabc", 2u },
+        {"aaaaa", "aaa", 3u},
+        {"aaaa", "aa", 3u},
+        {"ababab", "abab", 2u},
+        {"aaaa", "aaaa", 1u},
+        {"abcabcabc", "abcabc", 2u},
     };
     int failed = 0;
 
@@ -270,7 +269,7 @@ static int adversarial_case_overlapping(void)
         if ((reference != rows[row].expected) || (steered != rows[row].expected))
         {
             printf("    FAIL \"%s\" in \"%s\": derived %zu, reference %zu, steered %zu\n",
-                        rows[row].needle, rows[row].corpus, rows[row].expected, reference, steered);
+                   rows[row].needle, rows[row].corpus, rows[row].expected, reference, steered);
             failed = 1;
         }
     }
@@ -288,12 +287,12 @@ static int adversarial_case_overlapping(void)
  */
 static int adversarial_case_boundaries(void)
 {
-    static const uint8_t field[] = { 'x', 'y', 'z', 'q', 'x', 'y' };
+    static const uint8_t field[] = {'x', 'y', 'z', 'q', 'x', 'y'};
     const size_t field_len = sizeof(field);
     int failed = 0;
 
     // A match at alignment zero, and a match at the final alignment, in one field.
-    static const uint8_t leading[] = { 'x', 'y' };
+    static const uint8_t leading[] = {'x', 'y'};
     const size_t first_count = anchor_steer_count(field, field_len, leading, sizeof(leading), 1);
     if (first_count != 2u)
     {
@@ -310,7 +309,7 @@ static int adversarial_case_boundaries(void)
     }
 
     // A needle longer than the corpus has no alignment to sit at.
-    static const uint8_t overlong[] = { 'x', 'y', 'z', 'q', 'x', 'y', 'z' };
+    static const uint8_t overlong[] = {'x', 'y', 'z', 'q', 'x', 'y', 'z'};
     const size_t none = anchor_steer_count(field, field_len, overlong, sizeof(overlong), 1);
     if (none != 0u)
     {
@@ -319,7 +318,7 @@ static int adversarial_case_boundaries(void)
     }
 
     // A single byte needle counts its symbol, the shortest probe the engine can place.
-    static const uint8_t single[] = { 'x' };
+    static const uint8_t single[] = {'x'};
     const size_t singles = anchor_steer_count(field, field_len, single, sizeof(single), 1);
     if (singles != 2u)
     {
@@ -355,7 +354,7 @@ static int adversarial_case_boundaries(void)
 static int adversarial_case_absent_symbol(void)
 {
     uint8_t *const corpus = (uint8_t *)malloc(ADVERSARIAL_CORPUS);
-    static const uint8_t needle[] = { 'a', 'b', 'c', 0xFFu };
+    static const uint8_t needle[] = {'a', 'b', 'c', 0xFFu};
     int failed = 0;
 
     if (corpus == NULL)
@@ -486,7 +485,7 @@ static int adversarial_case_family_guard(void)
     int failed = 0;
 
     // An origin at the needle length reads past the end and must be refused.
-    const AnchorProbe past_end = { needle_len, 1u, 1u };
+    const AnchorProbe past_end = {needle_len, 1u, 1u};
     if (anchor_steer_probe_fits(&past_end, needle_len) != 0)
     {
         printf("    FAIL origin at needle_len admitted\n");
@@ -494,7 +493,7 @@ static int adversarial_case_family_guard(void)
     }
 
     // A line whose last position falls outside the needle must be refused.
-    const AnchorProbe overruns = { needle_len - 2u, 4u, 3u };
+    const AnchorProbe overruns = {needle_len - 2u, 4u, 3u};
     if (anchor_steer_probe_fits(&overruns, needle_len) != 0)
     {
         printf("    FAIL line overrunning the needle admitted\n");
@@ -502,7 +501,7 @@ static int adversarial_case_family_guard(void)
     }
 
     // A zero step above length one reads one position repeatedly and carries no second condition.
-    const AnchorProbe stalled = { 0u, 0u, 4u };
+    const AnchorProbe stalled = {0u, 0u, 4u};
     if (anchor_steer_probe_fits(&stalled, needle_len) != 0)
     {
         printf("    FAIL zero step above length one admitted\n");
@@ -510,7 +509,7 @@ static int adversarial_case_family_guard(void)
     }
 
     // A zero length probe tests nothing and is not a necessary condition of anything.
-    const AnchorProbe empty = { 0u, 1u, 0u };
+    const AnchorProbe empty = {0u, 1u, 0u};
     if (anchor_steer_probe_fits(&empty, needle_len) != 0)
     {
         printf("    FAIL zero length probe admitted\n");
@@ -518,7 +517,7 @@ static int adversarial_case_family_guard(void)
     }
 
     // The widest line that still lands inside must be admitted, or the guard is refusing the family.
-    const AnchorProbe widest = { 0u, needle_len - 1u, 2u };
+    const AnchorProbe widest = {0u, needle_len - 1u, 2u};
     if (anchor_steer_probe_fits(&widest, needle_len) == 0)
     {
         printf("    FAIL widest fitting line refused\n");
@@ -581,7 +580,7 @@ static int adversarial_case_sampling_cost(void)
     }
 
     printf("  sampling on a period-16 field, %llu reads at the planner's own stride\n",
-                (unsigned long long)baseline_reads);
+           (unsigned long long)baseline_reads);
     printf("  sampling cost, verdict %s\n", (failed == 0) ? "ok" : "FAILS");
     free(corpus);
     return failed;
@@ -616,10 +615,10 @@ static int adversarial_case_permutation_null(void)
     memcpy(needle, corpus + 700u, sizeof(needle));
 
     const AnchorProbe orders[4][3] = {
-        { { 0u, 1u, 1u }, { 7u, 1u, 1u }, { 15u, 1u, 1u } },
-        { { 15u, 1u, 1u }, { 0u, 1u, 1u }, { 7u, 1u, 1u } },
-        { { 7u, 1u, 1u }, { 15u, 1u, 1u }, { 0u, 1u, 1u } },
-        { { 15u, 1u, 1u }, { 7u, 1u, 1u }, { 0u, 1u, 1u } },
+        {{0u, 1u, 1u}, {7u, 1u, 1u}, {15u, 1u, 1u}},
+        {{15u, 1u, 1u}, {0u, 1u, 1u}, {7u, 1u, 1u}},
+        {{7u, 1u, 1u}, {15u, 1u, 1u}, {0u, 1u, 1u}},
+        {{15u, 1u, 1u}, {7u, 1u, 1u}, {0u, 1u, 1u}},
     };
     const size_t reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle));
 
@@ -721,7 +720,10 @@ static int adversarial_case_growing_plan(void)
     memcpy(needle, corpus + 1024u, sizeof(needle));
 
     const AnchorProbe probes[4] = {
-        { 0u, 1u, 1u }, { 19u, 1u, 1u }, { 9u, 1u, 1u }, { 4u, 5u, 2u },
+        {0u, 1u, 1u},
+        {19u, 1u, 1u},
+        {9u, 1u, 1u},
+        {4u, 5u, 2u},
     };
     const size_t reference = anchor_sift_naive(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle));
 
@@ -760,7 +762,7 @@ static int adversarial_case_growing_plan(void)
     // count_with_probes read needle[offset] and corpus[at + offset] off the end of both. The count
     // it returns is not the reference; a refusal is the point, and 0 is the documented one.
     {
-        const AnchorProbe overruns = { sizeof(needle) - 2u, 4u, 3u };
+        const AnchorProbe overruns = {sizeof(needle) - 2u, 4u, 3u};
         const size_t refused = anchor_steer_count_with_probes(corpus, ADVERSARIAL_CORPUS, needle,
                                                               sizeof(needle), &overruns, 1u);
         if (refused != 0u)
@@ -818,8 +820,8 @@ static int adversarial_case_stop_equals_continue(void)
         return 1;
     }
 
-    // The two runs differ in one member and nothing else, which is the whole point of the case.
-    // force_full_depth is omitted on the first, and an omitted member is zero, which is the destroy
+    // The two runs differ in one member and nothing else, the whole point of the case.
+    // force_full_depth is omitted on the first, and an omitted member is zero, the destroy
     // rule honored. Naming it on the second forces every level.
     const size_t stopped = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                              .offsets = shallow,
@@ -940,30 +942,17 @@ static int adversarial_case_trichotomy(void)
     size_t offsets[ANCHOR_STEER_ANCHORS];
 
     refusals[0].what = "null offsets";
-    refusals[0].args = (AnchorSteerDescent){ .offsets = NULL, .count = ANCHOR_STEER_ANCHORS,
-        .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
-        .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments };
+    refusals[0].args = (AnchorSteerDescent){.offsets = NULL, .count = ANCHOR_STEER_ANCHORS, .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle, .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments};
     refusals[1].what = "null corpus";
-    refusals[1].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
-        .corpus = NULL, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
-        .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments };
+    refusals[1].args = (AnchorSteerDescent){.offsets = offsets, .count = ANCHOR_STEER_ANCHORS, .corpus = NULL, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle, .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments};
     refusals[2].what = "count over the bound";
-    refusals[2].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS + 1u,
-        .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
-        .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments };
+    refusals[2].args = (AnchorSteerDescent){.offsets = offsets, .count = ANCHOR_STEER_ANCHORS + 1u, .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle, .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments};
     refusals[3].what = "needle length zero";
-    refusals[3].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
-        .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle, .needle_len = 0u,
-        .survivors = survivors, .survivors_length = alignments };
+    refusals[3].args = (AnchorSteerDescent){.offsets = offsets, .count = ANCHOR_STEER_ANCHORS, .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle, .needle_len = 0u, .survivors = survivors, .survivors_length = alignments};
     refusals[4].what = "needle longer than corpus";
-    refusals[4].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
-        .corpus = corpus, .corpus_len = 8u, .needle = needle, .needle_len = sizeof(needle),
-        .survivors = survivors, .survivors_length = alignments };
+    refusals[4].args = (AnchorSteerDescent){.offsets = offsets, .count = ANCHOR_STEER_ANCHORS, .corpus = corpus, .corpus_len = 8u, .needle = needle, .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments};
     refusals[5].what = "survivor buffer short by one";
-    refusals[5].args = (AnchorSteerDescent){ .offsets = offsets, .count = ANCHOR_STEER_ANCHORS,
-        .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle,
-        .needle_len = sizeof(needle), .survivors = survivors,
-        .survivors_length = alignments - 1u };
+    refusals[5].args = (AnchorSteerDescent){.offsets = offsets, .count = ANCHOR_STEER_ANCHORS, .corpus = corpus, .corpus_len = ADVERSARIAL_CORPUS, .needle = needle, .needle_len = sizeof(needle), .survivors = survivors, .survivors_length = alignments - 1u};
 
     for (size_t which = 0u; which < 6u; which += 1u)
     {
@@ -997,7 +986,7 @@ static int adversarial_case_trichotomy(void)
     }
 
     // RECURSES, and NEVER REVISITS. A well formed call places distinct offsets. Forcing full depth
-    // takes the branch that ignores the destroy test, which is the recursing branch by construction.
+    // takes the branch that ignores the destroy test, the recursing branch by construction.
     const size_t forced = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                             .offsets = offsets,
                                             .count = ANCHOR_STEER_ANCHORS,
@@ -1052,7 +1041,8 @@ static int adversarial_case_trichotomy(void)
     }
 
     printf("    refused 7 malformed questions, recursed to %zu distinct offsets, stopped at %zu,"
-           " verdict %s\n", forced, stopped, (failed == 0) ? "ok" : "FAILS");
+           " verdict %s\n",
+           forced, stopped, (failed == 0) ? "ok" : "FAILS");
 
     free(survivors);
     free(corpus);
@@ -1160,8 +1150,7 @@ static int adversarial_count_apart(const uint32_t *corpus, size_t corpus_length,
         .class_of_position = buffers->class_of_position,
         .members_in_class = buffers->members_in_class,
         .rarity_place_of_class = buffers->rarity_place_of_class,
-        .classes_length = buffers->classes_length
-    };
+        .classes_length = buffers->classes_length};
     const AnchorFieldProjection needle_side = {
         .same_in_field = adversarial_same_symbol,
         .field = needle,
@@ -1170,8 +1159,7 @@ static int adversarial_count_apart(const uint32_t *corpus, size_t corpus_length,
         .class_of_position = buffers->class_of_position,
         .members_in_class = buffers->members_in_class,
         .rarity_place_of_class = buffers->rarity_place_of_class,
-        .classes_length = buffers->classes_length
-    };
+        .classes_length = buffers->classes_length};
 
     const int corpus_projected = anchor_field_project(&corpus_side);
     const int needle_projected = anchor_field_project(&needle_side);
@@ -1198,8 +1186,7 @@ static int adversarial_count_together(const uint32_t *corpus, size_t corpus_leng
     const AdversarialJointSymbols joint = {
         .corpus = corpus,
         .corpus_length = corpus_length,
-        .needle = needle
-    };
+        .needle = needle};
     const AnchorFieldPairProjection both = {
         .same_in_field = adversarial_same_joint,
         .field = &joint,
@@ -1211,8 +1198,7 @@ static int adversarial_count_together(const uint32_t *corpus, size_t corpus_leng
         .members_in_class = buffers->members_in_class,
         .rarity_place_of_class = buffers->rarity_place_of_class,
         .classes_length = buffers->classes_length,
-        .distinct = distinct
-    };
+        .distinct = distinct};
 
     const int projected = anchor_field_pair_project(&both);
 
@@ -1263,14 +1249,12 @@ static int adversarial_case_joint_projection(void)
         .class_of_position = (uint32_t *)malloc(buffer_positions * sizeof(uint32_t)),
         .members_in_class = (uint32_t *)malloc(buffer_positions * sizeof(uint32_t)),
         .rarity_place_of_class = (uint32_t *)malloc(buffer_positions * sizeof(uint32_t)),
-        .classes_length = buffer_positions
-    };
+        .classes_length = buffer_positions};
     uint32_t needle[ADVERSARIAL_PROJECTED_NEEDLE];
     uint8_t needle_ranks[ADVERSARIAL_PROJECTED_NEEDLE];
     int failed = 0;
 
-    if ((corpus == NULL) || (corpus_ranks == NULL) || (buffers.class_of_position == NULL)
-     || (buffers.members_in_class == NULL) || (buffers.rarity_place_of_class == NULL))
+    if ((corpus == NULL) || (corpus_ranks == NULL) || (buffers.class_of_position == NULL) || (buffers.members_in_class == NULL) || (buffers.rarity_place_of_class == NULL))
     {
         printf("    allocation failed\n");
         free(corpus);

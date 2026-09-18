@@ -14,7 +14,7 @@
 That writes three files, and they are the three that carry a version as data and nothing else:
 library.json and library.properties publish it to a package index, and CMakeLists.txt hands it to
 project(). Those three were apart once already - both manifests said v0.0.0 while CMake and every
-banner in the tree said 0.1.0 - which is the whole reason a version now has one home.
+banner in the tree said 0.1.0 - the whole reason a version now has one home.
 
 bump2version cannot write the other two forms. This does:
 
@@ -37,6 +37,7 @@ itself carries no banner and no SPDX line: bump2version rewrites that file throu
 every bump, which drops comments. Anything written there survives exactly until the next bump.
 This docstring is where that explanation lives instead.
 """
+
 import argparse
 import configparser
 import os
@@ -62,7 +63,9 @@ SKIP_DIRS = {
 SKIP_PATHS = {os.path.join("docs", "learn")}
 
 # The banner, and the comment each language takes it in. The version is the one group that moves.
-BANNER = re.compile(r"^(?P<lead>\s*(?://|#)\s*)idemIP v(?P<version>\d+\.\d+\.\d+)(?P<rest>\s+-\s+Copyright\b)")
+BANNER = re.compile(
+    r"^(?P<lead>\s*(?://|#)\s*)idemIP v(?P<version>\d+\.\d+\.\d+)(?P<rest>\s+-\s+Copyright\b)"
+)
 
 # The block in idemip_config.h. Kept contiguous in the header so one pattern covers all four.
 # \r?\n.
@@ -74,7 +77,19 @@ VERSION_BLOCK = re.compile(
 )
 
 # Only these are read. A banner in anything else is not one this tree writes.
-SUFFIXES = (".c", ".h", ".py", ".cmake", ".cfg", ".yml", ".yaml", ".properties", ".json", ".txt", ".md")
+SUFFIXES = (
+    ".c",
+    ".h",
+    ".py",
+    ".cmake",
+    ".cfg",
+    ".yml",
+    ".yaml",
+    ".properties",
+    ".json",
+    ".txt",
+    ".md",
+)
 
 # Files whose whole name is the extension. Endswith() above never reaches them.
 NAMES = {"CMakeLists.txt", ".clangd"}
@@ -86,11 +101,13 @@ BANNER_MAX_LINE = 2
 
 
 def current_version():
-    """The version .bumpversion.cfg states, which is the only one this tree has."""
+    """The version .bumpversion.cfg states, the only one this tree has."""
     parser = configparser.ConfigParser()
     path = os.path.join(ROOT, CONFIG)
     if not parser.read(path, encoding="utf-8"):
-        sys.exit("{} is missing: it is where the current version is stated".format(CONFIG))
+        sys.exit(
+            "{} is missing: it is where the current version is stated".format(CONFIG)
+        )
     try:
         return parser.get("bumpversion", "current_version")
     except (configparser.NoSectionError, configparser.NoOptionError):
@@ -156,7 +173,7 @@ def restamp_banner(text, version):
         return text, False
     lines = text.split("\n")
     lines[index] = "{}idemIP v{}{}{}".format(
-        match.group("lead"), version, match.group("rest"), lines[index][match.end():]
+        match.group("lead"), version, match.group("rest"), lines[index][match.end() :]
     )
     return "\n".join(lines), True
 
@@ -186,8 +203,12 @@ def restamp_block(text, version):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     mode = ap.add_mutually_exclusive_group()
-    mode.add_argument("--sync", action="store_true", help="write the version into the tree")
-    mode.add_argument("--check", action="store_true", help="exit nonzero when anything has drifted")
+    mode.add_argument(
+        "--sync", action="store_true", help="write the version into the tree"
+    )
+    mode.add_argument(
+        "--check", action="store_true", help="exit nonzero when anything has drifted"
+    )
     args = ap.parse_args()
 
     version = current_version()

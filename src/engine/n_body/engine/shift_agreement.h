@@ -26,7 +26,8 @@
 #define SHIFT_AGREEMENT_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /** @brief Exported from the engine library on a Windows DLL build, empty on every other build. */
@@ -58,57 +59,57 @@ extern "C" {
  */
 #define SHIFT_AGREEMENT_LONGEST_AXIS (1u << 23u)
 
-/**
- * @brief Two binary volumes, the tie break weights, and where the chosen lag is written.
- *
- * @note Voxels are numbered with the last axis fastest. Voxel v is set where bit v % 64 of word
- *       v / 64 is set.
- */
-typedef struct
-{
-    unsigned int axes;                          /**< Axes in use, 1 to SHIFT_AGREEMENT_AXES. */
-    unsigned int extents[SHIFT_AGREEMENT_AXES]; /**< Voxels along each axis in use. */
-    unsigned int weights[SHIFT_AGREEMENT_AXES]; /**< Weight of each axis in the tie break length. */
-    const unsigned long long *before;           /**< One bit per before voxel [BORROWS]. */
-    const unsigned long long *after;            /**< One bit per after voxel [BORROWS]. */
-    int lag[SHIFT_AGREEMENT_AXES];              /**< Out: the chosen lag, 0 past the axes in use. */
-    unsigned int agreement;                     /**< Out: voxels agreeing at the chosen lag. */
-    unsigned int padded[SHIFT_AGREEMENT_AXES];  /**< Out: each axis's padded length, 0 past. */
-    unsigned int *counts;                       /**< Out: the count at every padded lag, or NULL
-                                                     where the caller does not want them [BORROWS]. */
-} ShiftAgreementRequest;
+    /**
+     * @brief Two binary volumes, the tie break weights, and where the chosen lag is written.
+     *
+     * @note Voxels are numbered with the last axis fastest. Voxel v is set where bit v % 64 of word
+     *       v / 64 is set.
+     */
+    typedef struct
+    {
+        unsigned int axes;                          /**< Axes in use, 1 to SHIFT_AGREEMENT_AXES. */
+        unsigned int extents[SHIFT_AGREEMENT_AXES]; /**< Voxels along each axis in use. */
+        unsigned int weights[SHIFT_AGREEMENT_AXES]; /**< Weight of each axis in the tie break length. */
+        const unsigned long long *before;           /**< One bit per before voxel [BORROWS]. */
+        const unsigned long long *after;            /**< One bit per after voxel [BORROWS]. */
+        int lag[SHIFT_AGREEMENT_AXES];              /**< Out: the chosen lag, 0 past the axes in use. */
+        unsigned int agreement;                     /**< Out: voxels agreeing at the chosen lag. */
+        unsigned int padded[SHIFT_AGREEMENT_AXES];  /**< Out: each axis's padded length, 0 past. */
+        unsigned int *counts;                       /**< Out: the count at every padded lag, or NULL
+                                                         where the caller does not want them [BORROWS]. */
+    } ShiftAgreementRequest;
 
-/**
- * @brief Finds the best agreeing lag on the host.
- *
- * @param[in,out] args The volumes and weights, and where the lag is written [BORROWS].
- * @return             0 where the lag was found, or SHIFT_AGREEMENT_REFUSED where a pointer is
- *                     null, the axes are out of range, an extent is 0 or above half of
- *                     SHIFT_AGREEMENT_LONGEST_AXIS, the voxel count reaches SHIFT_AGREEMENT_PRIME,
- *                     the padded volume passes 2^31 - 1 entries, or an allocation failed.
- * @note `counts` holds the product of the padded lengths entries. A padded coordinate below half
- *       its length is a lag of that coordinate, and one at or above half is the coordinate minus the
- *       length.
- * @note On a refusal nothing in `args` is written.
- * @warning The weighted squared length is summed in 64 bits and nothing checks it. A lag on the
- *          longest axis squares to nearly 2^44, and a weight above 2^20 there passes 2^64 and wraps.
- *          The tie break then compares wrapped lengths.
- */
-SHIFT_AGREEMENT_EXPORT long shift_agreement_host(ShiftAgreementRequest *args);
+    /**
+     * @brief Finds the best agreeing lag on the host.
+     *
+     * @param[in,out] args The volumes and weights, and where the lag is written [BORROWS].
+     * @return             0 where the lag was found, or SHIFT_AGREEMENT_REFUSED where a pointer is
+     *                     null, the axes are out of range, an extent is 0 or above half of
+     *                     SHIFT_AGREEMENT_LONGEST_AXIS, the voxel count reaches SHIFT_AGREEMENT_PRIME,
+     *                     the padded volume passes 2^31 - 1 entries, or an allocation failed.
+     * @note `counts` holds the product of the padded lengths entries. A padded coordinate below half
+     *       its length is a lag of that coordinate, and one at or above half is the coordinate minus the
+     *       length.
+     * @note On a refusal nothing in `args` is written.
+     * @warning The weighted squared length is summed in 64 bits and nothing checks it. A lag on the
+     *          longest axis squares to nearly 2^44, and a weight above 2^20 there passes 2^64 and wraps.
+     *          The tie break then compares wrapped lengths.
+     */
+    SHIFT_AGREEMENT_EXPORT long shift_agreement_host(ShiftAgreementRequest *args);
 
-/**
- * @brief Finds the best agreeing lag on the device.
- *
- * @param[in,out] args The volumes and weights, and where the lag is written [BORROWS].
- * @return             What shift_agreement_host returns for the same request, or
- *                     SHIFT_AGREEMENT_REFUSED where no device answers or a device step failed.
- * @note Keeps the after volume's transform from each call. Where the next call's before volume is
- *       that after volume, which is the case walking a recording frame by frame, the before volume's
- *       transform is read off the kept one instead of computed.
- * @note Device buffers are held between calls. The entry is not safe to call from two threads at
- *       once.
- */
-SHIFT_AGREEMENT_EXPORT long shift_agreement_run(ShiftAgreementRequest *args);
+    /**
+     * @brief Finds the best agreeing lag on the device.
+     *
+     * @param[in,out] args The volumes and weights, and where the lag is written [BORROWS].
+     * @return             What shift_agreement_host returns for the same request, or
+     *                     SHIFT_AGREEMENT_REFUSED where no device answers or a device step failed.
+     * @note Keeps the after volume's transform from each call. Where the next call's before volume is
+     *       that after volume, the case walking a recording frame by frame, the before volume's
+     *       transform is read off the kept one instead of computed.
+     * @note Device buffers are held between calls. The entry is not safe to call from two threads at
+     *       once.
+     */
+    SHIFT_AGREEMENT_EXPORT long shift_agreement_run(ShiftAgreementRequest *args);
 
 #ifdef __cplusplus
 }

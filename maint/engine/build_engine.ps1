@@ -139,7 +139,7 @@ if ($haveCuda) {
 # clock_gettime that MSVC does not ship. The gate now carries the MSVC spelling.
 #
 # anchor_steer and anchor_steer_arms used to be on this list and no longer exist. Both folded into
-# anchor_sift_kernel, which is the whole engine in one translation unit.
+# anchor_sift_kernel, the whole engine in one translation unit.
 $targets = @("anchor_sift_kernel", "anchor_sift_kernel_counted", "anchor_raster", "anchor_render",
     "anchor_exact_portable", "test_steer", "test_adversarial", "test_arm_agreement",
     "test_o2_spawn",

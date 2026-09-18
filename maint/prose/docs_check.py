@@ -12,7 +12,6 @@ import re
 import subprocess
 import sys
 
-
 LOCALE_NAMED = (
     r"\blabelled\b",
     r"\bmodelled\b",
@@ -82,37 +81,25 @@ _OUR_WORDS = (
 _OUR_TAIL = r"(?:s|ed|ing|er|ers|ite|ites|able|ably|ful|fully|less|ly|al|ally)?"
 
 LOCALE = LOCALE_NAMED + (
-
     r"\b(?![A-Za-z]*(?:%s)%s\b)[A-Za-z]{2,}[bcdfghjklmnpqrstvxz]is%s\b"
     % ("|".join(_ISE_STEMS), _ISE_TAIL, _ISE_TAIL),
-
     r"\b[A-Za-z]{3,}isation(?:al|s)?\b",
-
     r"\b(?:analys|paralys|catalys|dialys|electrolys|hydrolys)(?:e|ed|ing|er|ers)\b",
-
     r"\b(?![A-Za-z]*(?:%s)%s\b)[A-Za-z]{3,}our%s\b"
     % ("|".join(_OUR_WORDS), _OUR_TAIL, _OUR_TAIL),
-
     r"\b[A-Za-z]*(?:centre|metre|theatre|fibre|litre|calibre|sabre|sombre|spectre"
     r"|lustre|meagre|manoeuvre|sceptre)s?\b",
-
     r"\b(?:labell|modell|signall|travell|cancell|levell|totall|fuell|diall|marvell"
     r"|counsell|equall|initiall|spirall|tunnell|quarrell|refuell|shovell)"
     r"(?:ed|ing|er|ers|ors|or)\b",
-
     r"\b(?:fulfil|fulfils|fulfilment|fulfilments|enrol|enrols|enrolment|enrolments"
     r"|instal|instals|instalment|instalments|skilful|skilfully|wilful|wilfully"
     r"|enthral|enthrals|appal|appals|distil|distils|instil|instils)\b",
-
     r"\b(?:defence|offence|pretence|licence)s?\b",
-
     r"\b(?:catalogue|analogue)[sd]?\b",
-
     r"\bprogrammes?\b",
-
     r"\b(?:artefact|aluminium|sulphur|storey|tyre|cheque|draught|mould|speciality"
     r"|jewellery|woollen|aeroplane|moustache|pyjamas|kerb|plough|gaol)s?\b",
-
     r"\bgrey(?:scale|s|ish)?\b",
 )
 
@@ -122,27 +109,18 @@ BANNED = (
     (
         r"\brather\b",
         r"\badd up\b",
-
         r"cost and not a defect",
-
         r"\b(is|was|are|were) an? [\w-]+ and not an? [\w-]+",
-
         r"(?m)(?:\A|(?<=[.!?] ))(?:(?:An?|The) )?[\w-]+, not (?:(?:an?|the) )?[\w-]+\.(?:\s|\Z)",
-
         r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
         r"conveys|convey|announces|announce|advertises|advertise|makes clear|make clear)\b",
-
         r"\bso an?\b",
-
         r",\s+so\s+(?!that\b|far\b)",
-  
         r"\bspelling\b",
         r"load-bearing",
-
     )
     + LOCALE
     + (
-
         # Raising a clause to a verdict.
         r"\bthe one that matters\b",
         r"\bis the one\b",
@@ -159,20 +137,15 @@ BANNED = (
         r"\bon purpose\b",
         r"\bwhat survives\b",
         r"\bnever .{1,40}, always\b",
-        
         r"\bis what (separates|keeps|tells|puts|says|makes|supplies|gives|decides|holds|stops|lets"
         r"|carries|costs|reads|buys|pays|spends|earns|wins|prices|slots|books)\b",
-
         r"\b(is|was|are|were) an? [\w-]+ and never an? [\w-]+",
-
         r"\band nothing more\b",
         r"\band no more\b",
-
         r"\bthe one (thing|place|case|word|reason|table|file|grain|repair|mistake|addition|column)\b",
         r"\bthe whole of (the|what|it)\b",
         r"\bis precisely (what|why|the)\b",
         r"\b(what|that) matters (is|here|most)\b",
-
         r"\bdelve",
         r"\btapestry\b",
         r"\brealm\b",
@@ -182,7 +155,6 @@ BANNED = (
         r"\bgame.?chang",
         r"\bcutting.edge\b",
         r"\bstate.of.the.art\b",
-  
         r"\bparadigm shift\b",
         r"\bsynergy\b",
         r"\bholistic\b",
@@ -251,7 +223,6 @@ BANNED = (
         r"\baforementioned\b",
         r"\balbeit\b",
         r"\bpertaining to\b",
-
         r"\b(underscores|highlights|showcases|illustrates|exemplifies) the\b",
         r"\bsheds light on\b",
         r"\bpaves the way\b",
@@ -263,12 +234,10 @@ BANNED = (
         r"\blies at the\b",
         r"\bone of the most\b",
         r"\bsome of the most\b",
-
         r"\bit (is|'s) (important|worth|useful|helpful) (to note|noting|to remember|to mention|mentioning)\b",
         r"\bit should be noted\b",
         r"\b(furthermore|moreover|additionally)\b",
         r"\b(notably|interestingly|importantly|crucially|remarkably)\b",
-
         r"\bin (conclusion|summary|essence)[,.:]",
         r"\bto sum up\b",
         r"\ball in all\b",
@@ -294,7 +263,6 @@ BANNED = (
         r"\ba (wide range|variety) of\b",
         r"\bthere is no denying\b",
         r"\blook no further\b",
-
         r"\blet['’]s\b",
         r"\blet us\b",
         r"\bwe (will|'ll) (explore|look|dive|examine|see)\b",
@@ -309,37 +277,28 @@ BANNED = (
         r"\bgreat question\b",
         r"\b(hope this helps|happy to help|feel free to|let me know if)\b",
         r"\bas an ai\b",
-    
         r"\bnot (just|only) .{1,40}\bbut (also )?\b",
         r"\bmore than just\b",
         r"\bit'?s not (just )?about\b",
-
         r"\b(remarkable|noteworthy|impressive|exceptional|extraordinary|outstanding)\b",
         r"\b(stellar|superb|phenomenal|tremendous|immense|enormous|staggering)\b",
         r"\b(countless|endless|limitless|boundless|unmatched|unrivall?ed)\b",
         r"\b(premier|foremost|quintessential|iconic|legendary|timeless)\b",
-
         r"\b(far.reaching|wide.ranging|all.encompassing|overarching)\b",
- 
         r"\b(indispensable|paramount)\b",
         r"\b(sophisticated|layered|expansive|exhaustive)\b",
         r"\b(stunning|striking|breathtaking|awe.inspiring|mesmeri[sz]ing|dazzling)\b",
         r"\b(intuitive|elegant|sleek|polished|frictionless)\b",
         r"\b(rigorous|painstaking|diligent|thorough)\b",
         r"\b(innovative|disruptive|trailblazing|visionary)\b",
-
         r"\b(scalable|versatile)\b",
-   
         r"\b(uncover|unveil|illuminate|unearth|unravel|demystify)",
-
         r"\b(enhance|augment)\b",
-
         r"\b(redefine|reimagine|reinvent)(s|ed|ing)?\b",
         r"\b(traverse|venture|spotlight|champion|nurture)\b",
         r"\btap into\b",
         r"\bbridge the gap\b",
         r"\b(open the door|set the stage|lay the foundation)\b",
-
         r"\ba double.edged sword\b",
         r"\bthe tip of the iceberg\b",
         r"\ba perfect storm\b",
@@ -366,11 +325,9 @@ BANNED = (
         r"\bin a nutshell\b",
         r"\bthe crux of\b",
         r"\bat its heart\b",
-
         r"\ba (wide array|host|multitude|spectrum|plethora) of\b",
         r"\ban array of\b",
         r"\bthe (intersection|convergence) of\b",
-
         r"\b(having said that|with that said)\b",
         r"\bin light of\b",
         r"\bas such,",
@@ -379,7 +336,6 @@ BANNED = (
         r"\bof note,",
         r"\b(it is here that|this is where)\b",
         r"\benter (the|a) \w+\.",
-
         r"\bkey takeaways\b",
         r"\btl;?dr\b",
         r"\bpros and cons\b",
@@ -388,205 +344,132 @@ BANNED = (
         r"\bby the end of this\b",
         r"\bwithout further ado\b",
         r"\bstay tuned\b",
-
         r"\b(one might argue|some might say|it could be argued|it bears mentioning)\b",
-
         r"\bas a language model\b",
         r"\bi (don'?t|do not) have (the ability|access|personal)\b",
         r"\bmy training data\b",
         r"\b(i apologi[sz]e|my apologies|sorry for the)\b",
-
         r"\bthat is (what|why|the (difference|point|whole|answer|test|reason|rule|shape|cost))\b",
-
         r"\bwhich is (what|why|how|the (difference|point|whole|answer|reason|rule))\b",
-
         r"\band that is (what|why|the (difference|point|whole|answer|test|reason|rule|shape|cost))\b",
-
         r"\b(checking|reading|running|measuring|saying) [a-z]+ is not [a-z]+ing\b",
         r"\bis not an? (accusation|argument|claim|answer|excuse|guess|estimate)\b",
-
         r"\bis not (a pass|passing|failing)\b",
-
         r"\ba run that (finishes|reads|reports|says|passes|fails|completes|knows|decides)\b",
         r"\b(the (file|tool|check|hook|run|number|count|table)) (says|answers|knows|decides)\b",
-
         r"\bthe ordinary (case|answer)\b",
         r"\bnothing else here\b",
-
         r"\bnothing here is (new|magic|special|clever|hidden|secret|surprising)\b",
-
         r"\b(is|are|was|were) (the least|what) (they|we|he|she|you|somebody) (are |is |)?(owed|deserve)",
         r"\b(the least|more) (they|we|you) (deserve|are owed)\b",
         r"\bwe owe (them|him|her|you|it)\b",
         r"\bentitled to (make|take|say|claim)\b",
- 
         r"\bthe more valuable\b",
         r"\bthe (smallest|least) part of what\b",
         r"\bworth more than (the|their|his|her|any) \w+ (itself|themselves)\b",
-
         r"\b(something|anything) [a-z]+ed, never (something|anything)\b",
         r"\bnever something (suffered|taken|lost|given)\b",
-
         r"\bis what makes it (beautiful|worth|matter|special|right)\b",
         r"\bthat is the (beauty|tragedy|point) of\b",
         r"\ba person is not a\b",
-
         r"\b(it bears remembering|let us remember|we must remember|never forget)\b",
         r"\bwith the respect (it|they|that) deserve",
         r"\b(honou?r|honou?ring) (the|their|his|her) (memory|words|wishes|legacy)\b",
-
         r"\bthe right thing to do\b",
         r",\s*as it should be\b",
-
         r"\bis the kind nobody\b",
         r"\bnobody (looks at twice|reads twice|rechecks|checks twice)\b",
         r"\band they could not have\b",
         r"\bwhich is the whole\b",
-
         r"\bwould (prove|buy) nothing\b",
-
         r"\bthe (reproducible|checkable|measurable|honest|valuable) thing\b",
-
         r"\bagainst how (somebody|someone|anybody|people)\b",
         r"\bin nearly every (respect|way|case)\b",
         r"\bdoes not put a (reader|person|user) on the path\b",
         r"\ba (rule|check|gate|test) added here\b",
-
         r"\b(is|was|are|were) the [\w-]+ and not the [\w-]+",
-
         r"\bwhat is \w+ is\b",
-
         r"\bit would be a (worse|better) [\w-]+ to\b",
-
         r"\bbecause of what \w+ (does|did|is|was)\b",
-
         r"\band it is one\b",
-
         r"\band none is (wanted|claimed|needed|asked|offered|sought)\b",
-
         r"\bon nothing else\b",
-
         r"\bcan only show (that|whether)\b",
-
         r"\b(further|additional|more) (research|work|study|studies|investigation|analysis) (is|are) needed\b",
-
         r"\bit is worth (emphasi[sz]ing|stressing|highlighting)\b",
-
         r"\bone-size-fits-all\b",
-
         r"(?m)^\s*Ultimately,",
-
         r"\bthe foundation (up)?on which\b",
-
         r"\bpush(?:ing|es|ed)? the boundaries\b",
-    
         r"\bwill inevitably\b",
- 
         r"\bdeceptively simple\b",
         r"\bstay(?:ing)? ahead of the curve\b",
         r"\bhas never been more important\b",
-
         r"\bis (?:the|an?) authority for\b",
         r"\bit then reads as\b",
         r"\bare settled on page\b",
-  
         r"\b(?:table|document|page|file|row) first had no\b",
-   
         r"\bhas no call and no text:",
-
         r"\bthe slot stays empty\b",
         r"\bwere read off page\b",
         r"\bread by hand with no reader\b",
         r"\bthe record slot is empty\b",
-     
         r"\bis named as having\b",
         r"\bnobody wrote an? \w+ for this one\b",
-  
         r"\b(?:paper|page|file|table|document)'s own text\b",
-
         r"\bthe oracle is checked against\b",
-
         r"\bneither (?:is|settles|decides|says) what\b",
         r"\bis (?:not )?the authority for what\b",
-  
         r"\bonly mark dropped\b",
         r"\bthe only place a \w+ was dropped\b",
-
         r"\bhas no call and no text\b",
-  
         r"\bglottal tick\b",
         r"\bwith a tick added\b",
-   
         r"\bat that magnification\b",
-
         r"\bwho column empty\b",
         r"\bhis name does not go in it\b",
-     
         r"\bmade quietly\b",
         r"\bif it were made quietly\b",
- 
         r"\bnothing in the \w+ pipeline depends\b",
         r"\bnothing downstream depends\b",
-   
         r"\bits SHA-256 sits in\b",
         r"\b(?:hash|digest|checksum) sits in\b",
-
         r"\b(?:sound|text|word) representation reads\b",
         r"\bthe representation reads\b",
-
         r"(?m)^This one does not read\b",
         r"\bno (?:text|other) tool calls it\b",
-
         r"\band no other tool does\b",
         r"\bno other \w+ does\b",
- 
         r"\blives in the closed\b",
         r"\bit lives in\b",
         r"\band is run from there\b",
-
         r"\breads the recordings\b",
-   
         r"(?m)^A \w+ therefore\b",
-
         r"\bfor that shape and reports\b",
-
         r"\ba claim that something here is new\b",
         r"\bnew, first,? or absent\b",
-
         r"\bcannot settle that kind of claim\b",
         r"\bfrom inside itself\b",
- 
         r"\bno reference beside it\b",
-
         r"\bthe reading has not been done\b",
-
         r"\bit reports and never decides\b",
         r"\breports and never\b",
- 
         r"\bare mixed at all\b",
         r"\b(?:is|are|was|were) \w+ at all\b",
-
         r"\bthe slot (?:holds|carries|gives|takes|decides)\b",
-   
         r"\ba copy that transports\b",
         r"\btransports a \w+ without\b",
-    
         r"\band is recorded\b",
         r"\bunder what it cost\b",
-  
         r"\bis unconfirmed and is recorded\b",
         r"\bunconfirmed and written down\b",
         r"\bthe candidate mechanism\b",
         r"\brecorded as a candidate\b",
-     
         r"\binherits that\b",
         r"\brecorded here inherits\b",
         r"\bevery one of them \w+ and none of them\b",
-
         r"\bnone of them (?!is\b|was\b|has\b|does\b)\w+s\b",
- 
         r"\ba measured cost\b",
-  
     )
 )
 
@@ -609,7 +492,7 @@ WITHDRAWN = {
     "pay": "the same metaphor, one verb over. 2 hits.",
     "spend": 'the same again. code-documentation:84 writes "it spends a reader\'s trust". 6 hits.',
     "earn": 'the same again. code-documentation:114 writes "each one earned its place by '
-    'measurement", which is the sentence that justifies half this table. 1 hit.',
+    'measurement", the sentence that justifies half this table. 1 hit.',
     "afford": "the same again, and one of the three that fired nowhere in idemIP/src at all.",
     "win": "an arm does not win. True, and the word has a plain use the ban could not see. 3 hits.",
     "price": "added so a repair pass could not swap cost for it. A ban added to close the exit "
@@ -763,14 +646,11 @@ def stage_of(pattern):
 
 
 AUTHORITY = {
-
     r"\brather\b": "code-documentation:110, code-comments:200",
     r"\bso an?\b": "code-documentation:110, code-comments:200",
-
     r",\s+so\s+(?!that\b|far\b)": "code-documentation:112",
     r"\bspelling\b": "code-comments:200, comments only",
     r"\badd up\b": "code-documentation:110",
-
     r"\bthe one that matters\b": "code-documentation:116",
     r"\bis the one\b": "code-documentation:116",
     r"\bwhich is (why|what|the)\b": "code-documentation:117, code-comments:206",
@@ -779,7 +659,6 @@ AUTHORITY = {
     r"\bis the whole (of|rule|point|thing|question|claim|job|story)\b": "code-documentation:119",
     r"\bthe whole (point|question|claim|rule|job|story) (is|was)\b": "code-documentation:119",
     r"\bwhat survives\b": "code-documentation:120",
-
     r"\bis what makes\b": "code-documentation:126, code-comments:205",
     r"\bis what (separates|keeps|tells|puts|says|makes|supplies|gives|decides|holds|stops|lets"
     r"|carries|costs|reads|buys|pays|spends|earns|wins|prices|slots|books)\b": "code-documentation:126, code-comments:205",
@@ -790,27 +669,22 @@ AUTHORITY = {
     r"\bthe whole of (the|what|it)\b": "code-documentation:130, code-comments:207",
     r"\bis precisely (what|why|the)\b": "code-documentation:131",
     r"\b(what|that) matters (is|here|most)\b": "code-documentation:131",
-
     r"cost and not a defect": "code-documentation:146",
     r"\b(is|was|are|were) an? [\w-]+ and not an? [\w-]+": "code-documentation:146",
     r"\b(is|was|are|were) the [\w-]+ and not the [\w-]+": "code-documentation:146",
     r"(?m)(?:\A|(?<=[.!?] ))(?:(?:An?|The) )?[\w-]+, not (?:(?:an?|the) )?[\w-]+\.(?:\s|\Z)": "code-documentation:146",
     r"\bhas no call and no text:": "code-documentation:146",
-
     r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
     r"conveys|convey|announces|announce|advertises|advertise|makes clear|make clear)\b": "code-documentation:147, code-comments:156",
-
     r"load-bearing": "code-documentation:148",
     r"\blet['’]s\b": "code-documentation:148, code-comments:155",
     r"\bdiv(e|es|ing) (into|in|deeper)\b": "code-documentation:148, code-comments:155",
     r"\b(certainly|absolutely|of course)[!,]": "code-documentation:148, code-comments:155",
     r"\bit (is|'s) (important|worth|useful|helpful) (to note|noting|to remember|to mention|mentioning)\b": "code-documentation:148, code-comments:155",
-
     r"\bas an ai\b": "code-documentation:141",
     r"\bas a language model\b": "code-documentation:141",
     r"\bmy training data\b": "code-documentation:141",
     r"\b(i apologi[sz]e|my apologies|sorry for the)\b": "code-documentation:141",
-
     r"\bwhich is (what|why|how|the (difference|point|whole|answer|reason|rule))\b": "code-comments:206",
 }
 
@@ -841,15 +715,12 @@ EM_DASH = "—"
 
 QUOTED = (
     re.compile(r"neighbouring languages", re.IGNORECASE),
-
     re.compile(r"salish and neighbouring", re.IGNORECASE),
 )
 
 NAMED_SPAN = re.compile(r"`[^`\n]{1,300}`")
 NAMED_IN_MARKDOWN = (
-
     re.compile(r"(?<!\*)\*[^*\n|]{1,300}\*(?!\*)"),
-
     re.compile(r"[\"“][^\"“”\n]{1,600}[\"”]"),
 )
 
@@ -887,10 +758,7 @@ def checked_file(path):
     return path.endswith(CHECKED) or build_file(path)
 
 
-
-
 class Ledger(object):
-
 
     def __init__(self):
         self.order = []
@@ -940,7 +808,7 @@ _VERBATIM_CACHE = {}
 
 
 def verbatim_root(path):
- 
+
     posix = os.path.abspath(path).replace(os.sep, "/")
     for one, why in VERBATIM_ROOTS:
         if ("/%s/" % one.strip("/")) in posix:
@@ -986,7 +854,7 @@ _MANIFEST_INDEX = {}
 
 
 def manifest_home(start):
-   
+
     here = os.path.abspath(start if os.path.isdir(start) else os.path.dirname(start))
     walked = []
     answer = None
@@ -1012,7 +880,7 @@ def manifest_home(start):
 
 
 def manifest_index(home):
-    
+
     if home in _MANIFEST_INDEX:
         return _MANIFEST_INDEX[home]
 
@@ -1050,7 +918,7 @@ def manifest_listed(path):
 
 
 def reconcile_command(manifest):
-    
+
     try:
         with open(manifest, encoding="utf-8", errors="replace") as handle:
             for line in handle:
@@ -1065,6 +933,7 @@ def reconcile_command(manifest):
         "reconcile this tree against %s and re-sign it before committing"
         % os.path.basename(manifest)
     )
+
 
 LEGAL = re.compile(
     r"SPDX-(?:License-Identifier|FileCopyrightText)"
@@ -1100,7 +969,7 @@ def comment_form(line):
 
 
 def form_closes(form, line, opening):
-    
+
     body = line.strip()
     if form == "cblock":
         return "*/" in body
@@ -1158,6 +1027,7 @@ def legal_blank(said, path=None, ledger=None):
         for at in range(start, stop):
             kept[at] = ""
     return kept
+
 
 GENERATED_OPEN = re.compile(r"<!--\s*BEGIN GENERATED\b\s*(?P<label>[^>]*?)\s*-->")
 GENERATED_CLOSE = re.compile(r"<!--\s*END GENERATED\b")
@@ -1341,7 +1211,7 @@ def git_env():
 
 
 def git_say(where, args):
-  
+
     if not os.path.isdir(where):
         return None
     try:
@@ -1476,7 +1346,6 @@ def fix_plan(path, lines, said, regions, refusals, allowed):
             allowed.append("%s:%d %r, token for token" % (shown, at, said_token))
 
 
-
 SKIP_DIRS = (
     ".git",
     "build",
@@ -1519,7 +1388,7 @@ MARKER = re.compile(r"^\s*(#+|//+|\*+/?|/\*+)\s?")
 
 
 def runs(lines):
-   
+
     held = []
     where = []
     for at, line in enumerate(lines):
@@ -1537,6 +1406,7 @@ def runs(lines):
         where.extend([at + 1] * len(text))
     if held:
         yield "".join(held), where
+
 
 PASSAGE = re.compile(r"[\"“][^\"“”]{16,600}[\"”]")
 
@@ -1660,7 +1530,7 @@ def markdown_leftovers(lines):
 
 
 def path_candidate(target):
-    
+
     if (not target) or ("://" in target) or target.startswith("/"):
         return False
     if DOXYGEN_TARGET.match(target):
@@ -1676,7 +1546,7 @@ def path_candidate(target):
 
 
 def dead_links(path, lines):
-    
+
     here = os.path.dirname(path)
     found = []
     for at, line in enumerate(lines):
@@ -1690,7 +1560,7 @@ def dead_links(path, lines):
 
 
 def walk_markdown(roots, ledger=None):
- 
+
     found = []
     for root in roots:
         if os.path.isfile(root):
@@ -1704,14 +1574,14 @@ def walk_markdown(roots, ledger=None):
                 for name in names
                 if checked_file(os.path.join(here, name))
             )
-    
+
     mine = os.path.abspath(__file__)
     my_dir = os.path.dirname(mine)
     kept = []
     for one in found:
         if os.path.abspath(one) == mine:
             continue
-        
+
         one_name = os.path.basename(one)
         if (os.path.dirname(os.path.abspath(one)) == my_dir) and one_name.startswith(
             "test_docs_check"
@@ -1791,7 +1661,7 @@ def marker_edges(lines):
 
 
 def tex_prose(lines):
-   
+
     kept = []
     for line in lines:
         held = line
@@ -1833,7 +1703,7 @@ STRING_SPAN = re.compile(r"\"(?:[^\"\\]|\\.)*\"|'(?:[^'\\]|\\.)*'")
 
 
 def hash_tail(line):
-  
+
     masked = STRING_SPAN.sub(lambda hit: " " * len(hit.group(0)), line)
     for at, character in enumerate(masked):
         if character != "#":
@@ -1844,7 +1714,7 @@ def hash_tail(line):
 
 
 def comment_prose(lines):
-   
+
     kept = []
     in_block = False
     for at, line in enumerate(lines):
@@ -1865,7 +1735,7 @@ def comment_prose(lines):
 
 
 def prose_only(path, lines, ledger=None):
-    
+
     if path.endswith(".md"):
         return legal_blank(quieted(lines), path, ledger)
     if path.endswith(".tex"):
@@ -1879,7 +1749,7 @@ def prose_only(path, lines, ledger=None):
     for line in lines:
         stripped = line.strip()
         if path.endswith(".py"):
-            
+
             marks = stripped.count('"""') + stripped.count("'''")
             if marks:
                 kept.append(line)
@@ -1899,7 +1769,7 @@ def prose_only(path, lines, ledger=None):
         if was or stripped.startswith("//"):
             kept.append(line)
         elif "//" in line:
-           
+
             cut = line.index("//")
             kept.append(line[cut:])
         else:
@@ -1908,12 +1778,12 @@ def prose_only(path, lines, ledger=None):
 
 
 def main():
-   
+
     strict = "--strict" in sys.argv
-   
+
     planning = "--fix" in sys.argv
     where_given = [one for one in sys.argv[1:] if not one.startswith("-")]
-    
+
     roots = []
     for one in where_given or (DEFAULT_ROOTS + private_roots()):
         if os.path.exists(one):
@@ -1922,7 +1792,6 @@ def main():
         beside = os.path.join(REPOSITORY, one)
         roots.append(beside if os.path.exists(beside) else one)
 
-    
     print(
         "  roots configured: %d, %s"
         % (
@@ -1974,10 +1843,10 @@ def main():
         structural = em_dashes(said)
         if path.endswith(".md"):
             structural += empty_tables(lines) + dead_links(path, lines)
-       
+
         if path.endswith(".tex"):
             structural += markdown_leftovers(said)
-       
+
         wording = banned_tokens(
             said,
             quotations=path.endswith(".md"),
@@ -2003,7 +1872,6 @@ def main():
 
     print("  %d file(s) checked, %d breaking, %d prose" % (checked, breaking, prose))
 
-    
     if not where_given:
         held, absent = private_survey()
         print("  private roots scanned: %d of %d" % (len(held), len(PRIVATE_NAMES)))

@@ -25,7 +25,7 @@
  * @note There is no movemask on NEON. A byte compare sets a lane to all ones where it agrees, the
  *       alive lanes enter the same way, and the count is taken by shifting each surviving lane down
  *       to one and adding the sixteen lanes across the register. The across-vector add is an aarch64
- *       form, which is the architecture this arm targets.
+ *       form, the architecture this arm targets.
  * @note The tail below sixteen is finished scalar, the same code the portable arm runs.
  */
 

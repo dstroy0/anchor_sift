@@ -294,7 +294,7 @@ size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t
 
     // Held and dispatched.
     // Reaching the tail on a null plan would have run the in order engine with the full anchor set,
-    // which is the outcome the guard in anchor_sift_choose was added to prevent.
+    // the outcome the guard in anchor_sift_choose was added to prevent.
     if (chosen == anchor_sift_naive)
     {
         return anchor_sift_naive(corpus, corpus_len, needle, needle_len);
@@ -554,7 +554,7 @@ static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const
     //
     // Only at stride one. A sampled scan walks every Nth alignment and the engines count every one,
     // so handing a sampled sweep to one would change what is being counted. Sampling falls through
-    // to the loop below, which is the same code the portable engine runs.
+    // to the loop below, the same code the portable engine runs.
     if (stride == 1u)
     {
         // Resolved through anchor_steer_best_engine, which holds the one dispatch every arm is added
@@ -746,7 +746,7 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
         }
     }
 
-    // THE CLASS COUNT IS UNBOUNDED AND ONLY THE OUTPUT RANK IS CLAMPED, which is the whole point of
+    // THE CLASS COUNT IS UNBOUNDED AND ONLY THE OUTPUT RANK IS CLAMPED, the whole point of
     // carrying these buffers. Classes are ordered by rarity across every one of them and the clamp
     // is applied at relabel time. A field of a thousand classes keeps its 255 rarest apart and
     // merges the commonest into rank 255.
