@@ -1,4 +1,4 @@
-/* cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+/* anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
  *
  * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
@@ -6,31 +6,21 @@
  */
 /**
  * @file shift_agreement.h
- * @brief How many set bits of one n dimensional view land on set bits of another, at every lag at
- *        once, counted exactly: the frame's own motion, read off the field.
+ * @brief The integer shift under which two binary volumes agree at the most voxels, found by exact
+ *        correlation.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
+ * @date 2026-09-18
  *
- * For views before and after of the same extents, the agreement at lag l is
- *
- *     agreement(l) = sum over positions v of before(v) * after(v + l)
- *
- * and the lag with the most agreement is how far the view moved. Every lag is counted, with no
- * search window: before is reflected, both views are embedded in a periodic volume padded on every
- * axis to a power of two at least twice the extent less one, so no two lags alias, and the reflected
- * before is convolved with after by separable number theoretic transforms modulo 998244353. Every
- * agreement is at most the set bits of one view, which is below the prime, so every count is the
- * integer and not a residue of it.
- *
- * TWO ENGINES, ONE ANSWER. shift_agreement_host is portable C11 and single threaded, and it is the
- * reference. shift_agreement_run is the CUDA engine. Both return the same lag, agreement and counts.
- *
- * @note Views are bit packed in raster order with the last axis varying fastest: bit b % 64 of word
- *       b / 64 is position b.
- * @note Where several lags share the most agreement, the one returned has the smallest weighted
- *       squared length, sum of weights[i] * lag[i]^2, and then the lowest padded raster index. The
- *       weights carry the view's anisotropy, so a step along a coarse axis counts as the longer step
- *       it is.
+ * @note For every lag L, the count is how many voxels p are set in the before volume with p + L set
+ *       in the after volume. Every count is computed at once as a correlation, carried out as a
+ *       number theoretic transform modulo SHIFT_AGREEMENT_PRIME. A count never exceeds the voxel
+ *       count, which is refused at or above the prime, so every count comes back exact and never
+ *       reduced.
+ * @note The chosen lag has the highest count. Among lags tied on count it has the smallest weighted
+ *       squared length, sum over axes of weight times lag squared, and among those the lowest index.
+ *       With weights from the voxel's physical size per axis, the choice is the tied shift with the
+ *       least physical motion.
+ * @note The host arm and the device arm return the same lag, count and count volume.
  */
 #ifndef SHIFT_AGREEMENT_H
 #define SHIFT_AGREEMENT_H
@@ -39,58 +29,84 @@
 extern "C" {
 #endif
 
-/* The export spelling for a DLL build, and nothing otherwise. Both arms are defined. */
+/** @brief Exported from the engine library on a Windows DLL build, empty on every other build. */
 #if defined(SHIFT_AGREEMENT_BUILD_DLL) && SHIFT_AGREEMENT_BUILD_DLL && defined(_WIN32)
 #define SHIFT_AGREEMENT_EXPORT __declspec(dllexport)
 #else
 #define SHIFT_AGREEMENT_EXPORT
 #endif
 
-/** @brief Returned where the work was refused. */
+/** @brief What an entry returns for a request it will not run or could not finish. */
 #define SHIFT_AGREEMENT_REFUSED (-1L)
 
-/** @brief Most axes a view may have. The request carries its extents in fixed arrays of this size. */
+/** @brief The most axes a volume may have. */
 #define SHIFT_AGREEMENT_AXES 8u
 
-/** @brief The transform modulus, 119 * 2^23 + 1, with primitive root 3. */
+/**
+ * @brief The transform's modulus, 119 * 2^23 + 1, with 3 as a primitive root.
+ *
+ * @note Its multiplicative group has a subgroup of every power of two up to 2^23. A transform of
+ *       every power of two length up to 2^23 therefore has its roots of unity in this field.
+ */
 #define SHIFT_AGREEMENT_PRIME 998244353u
 
-/** @brief Longest padded axis the modulus has roots of unity for. */
+/**
+ * @brief The longest padded axis, the longest transform the prime supports.
+ *
+ * @note An axis is padded to a power of two at least twice its extent less one, which keeps the
+ *       correlation from wrapping around. An extent above half of this is refused.
+ */
 #define SHIFT_AGREEMENT_LONGEST_AXIS (1u << 23u)
 
 /**
- * @brief Two views and where the answer goes.
+ * @brief Two binary volumes, the tie break weights, and where the chosen lag is written.
  *
- * @note padded[i] is the smallest power of two no less than 2 * extents[i] - 1. `counts`, when given,
- *       holds the agreement at every padded lag in padded raster order; lag coordinate p on axis i
- *       is the signed lag p where p < padded[i] / 2 and p - padded[i] otherwise.
+ * @note Voxels are numbered with the last axis fastest. Voxel v is set where bit v % 64 of word
+ *       v / 64 is set.
  */
 typedef struct
 {
-    unsigned int axes;                                  /**< Axes, 1 to SHIFT_AGREEMENT_AXES. */
-    unsigned int extents[SHIFT_AGREEMENT_AXES];         /**< Extent per axis, the first axes entries. */
-    unsigned int weights[SHIFT_AGREEMENT_AXES];         /**< Squared length weight per axis. */
-    const unsigned long long *before;                   /**< Bit packed view before [BORROWS]. */
-    const unsigned long long *after;                    /**< Bit packed view after [BORROWS]. */
-    int lag[SHIFT_AGREEMENT_AXES];                      /**< Out: the lag with the most agreement. */
-    unsigned int agreement;                             /**< Out: the agreement at that lag. */
-    unsigned int padded[SHIFT_AGREEMENT_AXES];          /**< Out: padded extent per axis. */
-    unsigned int *counts;                               /**< Out, optional: every padded lag [BORROWS]. */
+    unsigned int axes;                          /**< Axes in use, 1 to SHIFT_AGREEMENT_AXES. */
+    unsigned int extents[SHIFT_AGREEMENT_AXES]; /**< Voxels along each axis in use. */
+    unsigned int weights[SHIFT_AGREEMENT_AXES]; /**< Weight of each axis in the tie break length. */
+    const unsigned long long *before;           /**< One bit per before voxel [BORROWS]. */
+    const unsigned long long *after;            /**< One bit per after voxel [BORROWS]. */
+    int lag[SHIFT_AGREEMENT_AXES];              /**< Out: the chosen lag, 0 past the axes in use. */
+    unsigned int agreement;                     /**< Out: voxels agreeing at the chosen lag. */
+    unsigned int padded[SHIFT_AGREEMENT_AXES];  /**< Out: each axis's padded length, 0 past. */
+    unsigned int *counts;                       /**< Out: the count at every padded lag, or NULL
+                                                     where the caller does not want them [BORROWS]. */
 } ShiftAgreementRequest;
 
 /**
- * @brief The reference: portable C11, single threaded.
+ * @brief Finds the best agreeing lag on the host.
  *
- * @param[in,out] args The request; outputs are written into it [BORROWS].
- * @return             0, or SHIFT_AGREEMENT_REFUSED with no output written.
+ * @param[in,out] args The volumes and weights, and where the lag is written [BORROWS].
+ * @return             0 where the lag was found, or SHIFT_AGREEMENT_REFUSED where a pointer is
+ *                     null, the axes are out of range, an extent is 0 or above half of
+ *                     SHIFT_AGREEMENT_LONGEST_AXIS, the voxel count reaches SHIFT_AGREEMENT_PRIME,
+ *                     the padded volume passes 2^31 - 1 entries, or an allocation failed.
+ * @note `counts` holds the product of the padded lengths entries. A padded coordinate below half
+ *       its length is a lag of that coordinate, and one at or above half is the coordinate minus the
+ *       length.
+ * @note On a refusal nothing in `args` is written.
+ * @warning The weighted squared length is summed in 64 bits and nothing checks it. A lag on the
+ *          longest axis squares to nearly 2^44, and a weight above 2^20 there passes 2^64 and wraps.
+ *          The tie break then compares wrapped lengths.
  */
 SHIFT_AGREEMENT_EXPORT long shift_agreement_host(ShiftAgreementRequest *args);
 
 /**
- * @brief The CUDA engine. Same request, same answer as shift_agreement_host.
+ * @brief Finds the best agreeing lag on the device.
  *
- * @param[in,out] args The request; outputs are written into it [BORROWS].
- * @return             0, or SHIFT_AGREEMENT_REFUSED with no output written.
+ * @param[in,out] args The volumes and weights, and where the lag is written [BORROWS].
+ * @return             What shift_agreement_host returns for the same request, or
+ *                     SHIFT_AGREEMENT_REFUSED where no device answers or a device step failed.
+ * @note Keeps the after volume's transform from each call. Where the next call's before volume is
+ *       that after volume, which is the case walking a recording frame by frame, the before volume's
+ *       transform is read off the kept one instead of computed.
+ * @note Device buffers are held between calls. The entry is not safe to call from two threads at
+ *       once.
  */
 SHIFT_AGREEMENT_EXPORT long shift_agreement_run(ShiftAgreementRequest *args);
 

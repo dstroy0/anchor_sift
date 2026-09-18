@@ -1,4 +1,4 @@
-/* cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+/* anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
  *
  * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
@@ -6,9 +6,17 @@
  */
 /**
  * @file shift_agreement.c
- * @brief The portable reference for shift_agreement.h: C11, single threaded, integers only.
+ * @brief The host arm of the shift agreement: an in place radix-2 transform along each axis.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
+ * @date 2026-09-18
+ *
+ * @note The before volume is written reflected, every coordinate negated modulo its padded length,
+ *       and the after volume is written as it is. Transforming both, multiplying entry by entry and
+ *       transforming back gives their convolution, which for a reflected before volume is the
+ *       correlation: at lag L, the count of voxels p with p set before and p + L set after.
+ * @note Every value is a residue below SHIFT_AGREEMENT_PRIME, held in 32 bits, and every product is
+ *       formed in 64 bits and reduced with %. The prime is below 2^30, so a product of two residues
+ *       is below 2^60 and never wraps.
  */
 
 #include "shift_agreement.h"
@@ -20,11 +28,12 @@ _Static_assert(sizeof(unsigned int) == 4u, "shift_agreement: unsigned int must b
 _Static_assert(sizeof(unsigned long long) == 8u, "shift_agreement: unsigned long long must be 64 bits, a product");
 
 /**
- * @brief base^exponent modulo the prime.
+ * @brief Raises a residue to a power modulo the prime, by repeated squaring.
  *
- * @param[in] base     Base, below the prime.
- * @param[in] exponent Exponent.
- * @return             The power.
+ * @param[in] base     The residue.
+ * @param[in] exponent The power.
+ * @return             base^exponent modulo SHIFT_AGREEMENT_PRIME.
+ * @note A power of prime - 2 is the inverse, by Fermat's little theorem.
  */
 static unsigned int agreement_power(unsigned int base, unsigned long long exponent)
 {
@@ -39,14 +48,15 @@ static unsigned int agreement_power(unsigned int base, unsigned long long expone
         square = (square * square) % SHIFT_AGREEMENT_PRIME;
         exponent >>= 1u;
     }
-    // Narrowing is safe: every value is reduced below the prime, which is below 2^30.
+
+    // result is reduced modulo a prime below 2^32 and fits the unsigned int.
     return (unsigned int)result;
 }
 
 /**
- * @brief The smallest power of two no less than a value, for a value of at most 2^31.
+ * @brief The least power of two at or above a value.
  *
- * @param[in] value The value, at least one.
+ * @param[in] value The value, at most SHIFT_AGREEMENT_LONGEST_AXIS - 1 at every call.
  * @return          The power of two.
  */
 static unsigned int agreement_power_of_two(unsigned long long value)
@@ -56,18 +66,24 @@ static unsigned int agreement_power_of_two(unsigned long long value)
     {
         power <<= 1u;
     }
-    // Narrowing is safe: the caller bounds value by SHIFT_AGREEMENT_LONGEST_AXIS.
+
+    // The entry bounds value by SHIFT_AGREEMENT_LONGEST_AXIS, so the power fits the unsigned int.
     return (unsigned int)power;
 }
 
 /**
- * @brief One number theoretic transform along one axis of a padded volume, in place.
+ * @brief Transforms every line of a volume along one axis, in place.
  *
- * @param[in,out] values  The volume [BORROWS].
- * @param[in]     total   Elements in the volume.
- * @param[in]     length  Padded extent of the axis, a power of two.
- * @param[in]     stride  Elements between neighbours along the axis.
- * @param[in]     inverse 1 for the inverse transform, including the division by length.
+ * @param[in,out] values  The volume, padded [BORROWS].
+ * @param[in]     total   Entries in the volume.
+ * @param[in]     length  Padded length of the axis, a power of two.
+ * @param[in]     stride  Entries between neighbors along the axis.
+ * @param[in]     inverse 1 for the inverse transform, which also divides by `length`.
+ * @note Cooley-Tukey, decimation in time: a bit reversal permutation, then butterflies of size 2,
+ *       4 and up to `length`. A butterfly of size s uses the s-th root of unity 3^((p - 1) / s),
+ *       inverted for the inverse transform.
+ * @note A line starts at every entry whose coordinate on this axis is zero, the entries where
+ *       `line % (length * stride)` is below `stride`.
  */
 static void agreement_transform_axis(unsigned int *values, size_t total, unsigned int length, size_t stride,
                                      int inverse)
@@ -84,8 +100,7 @@ static void agreement_transform_axis(unsigned int *values, size_t total, unsigne
     const size_t span = (size_t)length * stride;
     for (size_t line = 0u; line < total; line += 1u)
     {
-        // A line starts where the axis coordinate is zero, which is every element whose position
-        // modulo the axis span lies in the first stride.
+
         if ((line % span) >= stride)
         {
             continue;
@@ -97,6 +112,7 @@ static void agreement_transform_axis(unsigned int *values, size_t total, unsigne
             {
                 reversed |= ((position >> bit) & 1u) << (logarithm - 1u - bit);
             }
+            // Each pair is exchanged once, from the lower index of the two.
             if (position < reversed)
             {
                 const unsigned int held = values[line + ((size_t)position * stride)];
@@ -121,7 +137,8 @@ static void agreement_transform_axis(unsigned int *values, size_t total, unsigne
                     const size_t far = line + ((size_t)(start + offset + half) * stride);
                     const unsigned long long upper = (unsigned long long)values[near];
                     const unsigned long long lower = ((unsigned long long)values[far] * factor) % SHIFT_AGREEMENT_PRIME;
-                    // Narrowing is safe: both sums are reduced below the prime.
+
+                    // The prime is added before subtracting, so the difference is never negative.
                     values[near] = (unsigned int)((upper + lower) % SHIFT_AGREEMENT_PRIME);
                     values[far] = (unsigned int)((upper + SHIFT_AGREEMENT_PRIME - lower) % SHIFT_AGREEMENT_PRIME);
                     factor = (factor * (unsigned long long)root) % SHIFT_AGREEMENT_PRIME;
@@ -134,7 +151,7 @@ static void agreement_transform_axis(unsigned int *values, size_t total, unsigne
             for (unsigned int position = 0u; position < length; position += 1u)
             {
                 const size_t at = line + ((size_t)position * stride);
-                // Narrowing is safe: the product is reduced below the prime.
+
                 values[at] = (unsigned int)(((unsigned long long)values[at] * scale) % SHIFT_AGREEMENT_PRIME);
             }
         }
@@ -158,14 +175,18 @@ long shift_agreement_host(ShiftAgreementRequest *args)
             return SHIFT_AGREEMENT_REFUSED;
         }
         voxels *= (unsigned long long)args->extents[axis];
+        // Every lag from -(extent - 1) to extent - 1 needs its own entry, 2 * extent - 1 of them.
         padded[axis] = agreement_power_of_two((2ull * (unsigned long long)args->extents[axis]) - 1ull);
         padded_total *= (unsigned long long)padded[axis];
+        // A count reaching the prime would come back reduced, and a padded volume past 2^31 - 1
+        // entries outgrows the device arm's 32 bit indexing. The host refuses both too, and the two
+        // arms accept the same requests.
         if ((voxels >= (unsigned long long)SHIFT_AGREEMENT_PRIME) || (padded_total > 0x7FFFFFFFull))
         {
             return SHIFT_AGREEMENT_REFUSED;
         }
     }
-    // Narrowing is safe: both totals were just bounded below 2^31.
+
     const size_t total = (size_t)padded_total;
     const size_t count = (size_t)voxels;
     unsigned int *const reflected = (unsigned int *)calloc(total, sizeof(unsigned int));
@@ -177,8 +198,8 @@ long shift_agreement_host(ShiftAgreementRequest *args)
         return SHIFT_AGREEMENT_REFUSED;
     }
 
-    // Place each set position: at itself in the after volume, and at its negation modulo the period
-    // in the reflected before volume.
+    // Each set voxel becomes a 1 in the padded volume: at its own coordinates for the after volume,
+    // at its negated coordinates for the before volume.
     for (size_t position = 0u; position < count; position += 1u)
     {
         const unsigned long long bit = 1ull << (position % 64u);
@@ -201,6 +222,8 @@ long shift_agreement_host(ShiftAgreementRequest *args)
                 stride *= padded[later];
             }
             direct += coordinate * stride;
+            // -coordinate modulo the padded length, written as padded - coordinate so it stays
+            // unsigned, and reduced so a coordinate of 0 negates to 0.
             negated += ((padded[axis - 1u] - coordinate) % padded[axis - 1u]) * stride;
         }
         if (in_before != 0)
@@ -222,7 +245,8 @@ long shift_agreement_host(ShiftAgreementRequest *args)
     }
     for (size_t at = 0u; at < total; at += 1u)
     {
-        // Narrowing is safe: the product is reduced below the prime.
+
+        // Both residues are below the prime. The product is below 2^60 and the result is a residue.
         reflected[at] = (unsigned int)(((unsigned long long)reflected[at] * (unsigned long long)moved[at])
                                        % SHIFT_AGREEMENT_PRIME);
     }
@@ -233,7 +257,8 @@ long shift_agreement_host(ShiftAgreementRequest *args)
         agreement_transform_axis(reflected, total, padded[axis], stride, 1);
     }
 
-    // The heaviest lag, then the shortest weighted lag, then the lowest padded index.
+    // The highest count wins. A tie goes to the smaller weighted squared lag, and a further tie to
+    // the lower index, since the scan runs upward and replaces only on strictly better.
     size_t best = 0u;
     unsigned long long best_length = 0xFFFFFFFFFFFFFFFFull;
     for (size_t at = 0u; at < total; at += 1u)
@@ -248,6 +273,7 @@ long shift_agreement_host(ShiftAgreementRequest *args)
         {
             const long long coordinate = (long long)(rest % padded[axis - 1u]);
             rest /= padded[axis - 1u];
+            // The upper half of the padded axis holds the negative lags.
             const long long lag = (coordinate < (long long)(padded[axis - 1u] / 2u))
                                 ? coordinate
                                 : (coordinate - (long long)padded[axis - 1u]);
@@ -265,7 +291,8 @@ long shift_agreement_host(ShiftAgreementRequest *args)
     {
         const long long coordinate = (long long)(rest % padded[axis - 1u]);
         rest /= padded[axis - 1u];
-        // Narrowing is safe: a lag lies within half a padded extent, itself below 2^23.
+
+        // A lag is below half a padded axis, at most 2^22, and fits the int.
         args->lag[axis - 1u] = (int)((coordinate < (long long)(padded[axis - 1u] / 2u))
                                      ? coordinate
                                      : (coordinate - (long long)padded[axis - 1u]));

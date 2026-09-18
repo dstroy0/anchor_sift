@@ -1,4 +1,4 @@
-/* cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+/* anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
  *
  * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
@@ -6,20 +6,18 @@
  */
 /**
  * @file basin_overlap.h
- * @brief How many voxels each basin of one frame shares with each basin of the next, counted exactly.
+ * @brief Counts, for every pair of labels, how many positive voxels of one frame land on positive
+ *        voxels of the next after an integer shift.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
+ * @date 2026-09-18
  *
- * A position v of the first frame is compared with position v + lag of the next, where lag is the
- * view's own motion between the two frames (shift_agreement.h measures it) and every axis of the view
- * may carry one. The pair (peak before at v, peak after at v + lag) is counted when both positions
- * are positive: above background before and above background after. The count is the evidence that
- * two objects are one object continuing, with the view's motion removed. Nothing is predicted and
- * nothing is averaged; it is a tally, so it accumulates over a series with no error to compound.
- * Positions whose v + lag falls outside the view are not counted.
- *
- * TWO ENGINES, ONE ANSWER. basin_overlap_host is portable C11 and single threaded, and it is the
- * reference. basin_overlap_run is the CUDA engine. Both return the same pairs in the same order.
+ * @note Each frame arrives as a label per voxel and a bit per voxel marking it positive. A positive
+ *       before voxel is moved by the lag, one integer per axis. Where it lands inside the volume on
+ *       a positive after voxel, the pair of labels at the two ends gains one. The counts are exact
+ *       voxel counts. src/exact_track.py passes them to heaviest_matching_run as link weights, and
+ *       track_driver.cu reads them through basin_overlap_run_on_device.
+ * @note Three entries share one contract: the host arm, the device arm fed from host memory, and
+ *       the device arm fed from device memory. All three return the same pairs and counts.
  */
 #ifndef BASIN_OVERLAP_H
 #define BASIN_OVERLAP_H
@@ -28,68 +26,76 @@
 extern "C" {
 #endif
 
-/* The export spelling for a DLL build, and nothing otherwise. Both arms are defined. */
+/** @brief Exported from the engine library on a Windows DLL build, empty on every other build. */
 #if defined(BASIN_OVERLAP_BUILD_DLL) && BASIN_OVERLAP_BUILD_DLL && defined(_WIN32)
 #define BASIN_OVERLAP_EXPORT __declspec(dllexport)
 #else
 #define BASIN_OVERLAP_EXPORT
 #endif
 
-/** @brief Returned where the work was refused. */
+/** @brief What an entry returns for a request it will not run or could not finish. */
 #define BASIN_OVERLAP_REFUSED (-1L)
 
-/** @brief Largest room a caller may pass, so a count always fits the long returned. */
+/** @brief The most pairs an entry reports, the largest count a long holds on every target. */
 #define BASIN_OVERLAP_ROOM_LIMIT 0x7FFFFFFFu
 
-/** @brief Most axes a view may have. */
+/** @brief The most axes a volume may have. */
 #define BASIN_OVERLAP_AXES 8u
 
 /**
- * @brief Two frames' labels and signs, and where the pairs go.
+ * @brief Two labeled frames, the shift between them, and where the pairs are written.
  *
- * @note Pairs are returned ascending by peak before, then peak after, each pair once with its count.
- *       Where the pairs exceed `room` nothing is written and the pair count is returned, so a caller
- *       can size exactly and call again.
+ * @note Voxels are numbered with the last axis fastest. Voxel v is positive where bit v % 64 of
+ *       word v / 64 is set.
  */
 typedef struct
 {
-    const unsigned int *labels_before;            /**< Each voxel's peak index, first frame [BORROWS]. */
-    const unsigned long long *positive_before;    /**< Sign words, first frame [BORROWS]. */
-    const unsigned int *labels_after;             /**< Each voxel's peak index, next frame [BORROWS]. */
-    const unsigned long long *positive_after;     /**< Sign words, next frame [BORROWS]. */
-    unsigned int axes;                            /**< Axes of the view, 1 to BASIN_OVERLAP_AXES. */
-    unsigned int extents[BASIN_OVERLAP_AXES];     /**< Extent per axis, raster order, last fastest. */
-    int lag[BASIN_OVERLAP_AXES];                  /**< The view's motion from the first frame to the next. */
-    unsigned int voxels;                          /**< Voxels in each frame: the product of the extents. */
-    unsigned int room;                            /**< Pairs the outputs hold. */
-    unsigned int *peaks_before;                   /**< Out: room peak indices, first frame [BORROWS]. */
-    unsigned int *peaks_after;                    /**< Out: room peak indices, next frame [BORROWS]. */
-    unsigned int *counts;                         /**< Out: room shared positive voxel counts [BORROWS]. */
+    const unsigned int *labels_before;          /**< Label of every before voxel [BORROWS]. */
+    const unsigned long long *positive_before;  /**< One bit per before voxel [BORROWS]. */
+    const unsigned int *labels_after;           /**< Label of every after voxel [BORROWS]. */
+    const unsigned long long *positive_after;   /**< One bit per after voxel [BORROWS]. */
+    unsigned int axes;                          /**< Axes in use, 1 to BASIN_OVERLAP_AXES. */
+    unsigned int extents[BASIN_OVERLAP_AXES];   /**< Voxels along each axis in use. */
+    int lag[BASIN_OVERLAP_AXES];                /**< Shift applied to a before voxel, per axis. */
+    unsigned int voxels;                        /**< Voxels per frame, the product of the extents. */
+    unsigned int room;                          /**< Pairs the three output arrays hold. */
+    unsigned int *peaks_before;                 /**< Before label of each pair [BORROWS]. */
+    unsigned int *peaks_after;                  /**< After label of each pair [BORROWS]. */
+    unsigned int *counts;                       /**< Voxels each pair overlaps on [BORROWS]. */
 } BasinOverlapRequest;
 
 /**
- * @brief The reference: portable C11, single threaded.
+ * @brief Counts the overlapping label pairs on the host.
  *
- * @param[in] args The request [BORROWS].
- * @return         Distinct pairs, or BASIN_OVERLAP_REFUSED.
+ * @param[in] args The frames, the lag and the output arrays [BORROWS].
+ * @return         How many distinct pairs overlap, or BASIN_OVERLAP_REFUSED where a pointer is
+ *                 null, the axes are out of range, the extents do not multiply to `voxels`, `room`
+ *                 passes BASIN_OVERLAP_ROOM_LIMIT, or an allocation failed.
+ * @note The pairs are written in ascending order of before label, then after label, and only where
+ *       `room` holds all of them. A return above `room` writes nothing and names the room needed.
+ * @note The reference arm. The device arms are graded against it.
  */
 BASIN_OVERLAP_EXPORT long basin_overlap_host(const BasinOverlapRequest *args);
 
 /**
- * @brief The CUDA engine. Same request, same answer as basin_overlap_host.
+ * @brief Counts the overlapping label pairs on the device, from frames in host memory.
  *
- * @param[in] args The request [BORROWS].
- * @return         Distinct pairs, or BASIN_OVERLAP_REFUSED.
+ * @param[in] args The frames in host memory, the lag and the output arrays [BORROWS].
+ * @return         What basin_overlap_host returns for the same request, or BASIN_OVERLAP_REFUSED
+ *                 where no device answers, `voxels` is within 256 of 2^32, or a device step
+ *                 failed.
+ * @note Device buffers are held between calls and reused while the voxel count stays the same.
+ *       The entry is not safe to call from two threads at once.
  */
 BASIN_OVERLAP_EXPORT long basin_overlap_run(const BasinOverlapRequest *args);
 
 /**
- * @brief The CUDA engine over frames the caller already holds on the device: the two label arrays and the
- *        two sign word arrays of the request are device pointers, and nothing is uploaded. Same answer as
- *        basin_overlap_host; the outputs are host pointers, as there.
+ * @brief Counts the overlapping label pairs on the device, from frames already in device memory.
  *
- * @param[in] args The request [BORROWS].
- * @return         Distinct pairs, or BASIN_OVERLAP_REFUSED.
+ * @param[in] args The frames in device memory, the lag and host output arrays [BORROWS].
+ * @return         What basin_overlap_run returns for the same frames.
+ * @note The four frame pointers are device pointers and are read in place, with no upload. The
+ *       output arrays are host memory.
  */
 BASIN_OVERLAP_EXPORT long basin_overlap_run_on_device(const BasinOverlapRequest *args);
 

@@ -1,18 +1,4 @@
 #!/usr/bin/env bash
-# cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#
-# Build the CUDA device engine as one shared library the Python side loads with ctypes.
-#
-#   bash engine/build_engine.sh [sm_XX ...]
-#
-# Modules: the exact-integer basins (engine/binomial_basins), the multi-lag agreement transform
-# (engine/shift_agreement), the basin overlap (engine/basin_overlap), and the heaviest matching
-# (engine/heaviest_matching). Output: build/cell_tracking_engine.dll on Windows,
-# build/libcell_tracking_engine.so elsewhere. Architectures default to the one this machine carries.
-# Grade after every build, pointing --root at the local volume directory:
-#
-#   python src/exact_track.py grade --root <volumes> --sample <name> --frame 12
 set -u
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -50,19 +36,11 @@ for one in $ARCHES; do
 done
 echo "  architectures: $ARCHES"
 
-# Removed first, so a library from an earlier build can never be loaded as though it were this one.
 rm -f "$LIBRARY"
 
-# -fmad=false: no fused multiply-add on the device. A fused operation rounds once where scipy rounds
-# twice, and the residual would then differ from the host's in the last bit and move voxels across a
-# cut.
-# The portable references are C11 and are compiled as C11 on their own, by the same host compiler
-# nvcc drives, so the objects link into the same library. The CUDA sources are C++ and never see
-# the flag.
-# The transform is held elsewhere and is not part of this tree, so the basins take every view by their
-# smoothing passes and neither include nor link it.
-DEFINES=(-DBINOMIAL_BASINS_BUILD_DLL=1 -DBASIN_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
-         -DSHIFT_AGREEMENT_BUILD_DLL=1 -DBINOMIAL_BASINS_TRANSFORM=0)
+DEFINES=(-DBIRTH_SWEEP_BUILD_DLL=1 -DRESIDUAL_FIELD_BUILD_DLL=1 -DPEAK_BASINS_BUILD_DLL=1
+         -DBINOMIAL_BASINS_BUILD_DLL=1 -DBASIN_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
+         -DSHIFT_AGREEMENT_BUILD_DLL=1)
 PORTABLE_OBJECTS=()
 for portable in binomial_basins basin_overlap heaviest_matching shift_agreement; do
     OBJECT="$OUT/${portable}_portable.o"
@@ -89,14 +67,16 @@ nvcc "${HOST_FLAGS[@]}" -O2 -fmad=false "${GENCODE[@]}" -shared \
     "${DEFINES[@]}" \
     -I "$ROOT/engine" \
     -o "$LIBRARY" \
+    "$ROOT/engine/residual_field.cu" \
+    "$ROOT/engine/birth_sweep.cu" \
+    "$ROOT/engine/peak_basins.cu" \
     "$ROOT/engine/binomial_basins.cu" \
+    "$ROOT/engine/binomial_transform.cu" \
     "$ROOT/engine/basin_overlap.cu" \
     "$ROOT/engine/shift_agreement.cu" \
     "${PORTABLE_OBJECTS[@]}"
 NVCC_STATUS=$?
 
-# Both conditions. A zero status with no file is a linker that wrote nothing, and a file with a
-# nonzero status cannot exist after the removal above unless something else wrote it.
 if [ "$NVCC_STATUS" -ne 0 ] || [ ! -f "$LIBRARY" ]; then
     echo "  build failed: nvcc exited $NVCC_STATUS"
     exit 1

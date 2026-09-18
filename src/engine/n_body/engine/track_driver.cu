@@ -1,32 +1,8 @@
-/* cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
- * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
- *
- * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
- * negotiated commercial licensing contract or an educator's license issued to you personally.
- */
-/**
- * @file track_driver.cu
- * @brief The native tracker: basins, view motion, overlap, the growing tree and its score against the
- *        answer key, in one compiled process with the engines on the device.
- * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-17
- *
- * Usage:
- *     track_driver [--pick] [--merge-split] [--merge-target] [--forward-only] [--keep-view]
- *                  [--no-resolve] <directory> <sample> [<sample> ...]
- *
- * Each sample is read from <directory>/<sample>.stack and <directory>/<sample>.truth, written once by
- * maint/dump_frames.py. The rules are the reference's, src/exact_track.py grow_tree, restated here rule
- * for rule so the two give the same links and the same score; no Python runs between engine stages.
- *
- * NO FLOATING POINT VALUE IS FORMED. Counts are integers, percentages are written by integer division,
- * and times are whole milliseconds.
- */
-
 #include "binomial_basins.h"
 #include "basin_overlap.h"
 #include "cfg_json.h"
 #include "climb_machine.h"
+#include "max_tree.h"
 #include "radix_keys.h"
 #include "shift_agreement.h"
 
@@ -39,181 +15,380 @@
 
 #ifdef _WIN32
 #include <io.h>
-/** @brief A seek past 2 GiB: a stack of forty frames of a 4,194,304-voxel view is 335 MiB, and larger views pass 2 GiB. */
 #define STACK_SEEK _fseeki64
 #else
 #include <dirent.h>
 #define STACK_SEEK fseeko
 #endif
 
-/** @brief First smoothing, binomial orders z y x: src/exact_track.py SMOOTH_ORDERS. */
 static const unsigned int SMOOTH_ORDERS[3] = {2u, 34u, 34u};
 
-/** @brief Background smoothing, binomial orders z y x: src/exact_track.py BACKGROUND_ORDERS. */
 static const unsigned int BACKGROUND_ORDERS[3] = {6u, 96u, 96u};
 
-/** @brief Squared length weight per axis in the y voxel unit: AXIS_UNITS (4, 1, 1) squared. */
 static const unsigned int AXIS_WEIGHTS[3] = {16u, 1u, 1u};
 
-/** @brief Steps of the link's jitter sweep: a box a voxel wide, doubling out past the whole view. */
+#define DAMP_BANDS 92u
+
+#define DAMP_DIMENSIONS 3u
+
+static void golden_ladder(unsigned long long *rung)
+{
+    rung[0] = 0ull;
+    rung[1] = 1ull;
+    for (unsigned int step = 2u; step < DAMP_BANDS; step += 1u)
+    {
+        rung[step] = rung[step - 1u] + rung[step - 2u];
+    }
+}
+
+static unsigned int band_of(unsigned long long value)
+{
+    unsigned long long rung[DAMP_BANDS];
+    golden_ladder(rung);
+    unsigned int band = 0u;
+    for (unsigned int step = 1u; step < DAMP_BANDS; step += 1u)
+    {
+        band += (unsigned int)(rung[step] <= value);
+    }
+    return band;
+}
+
+static unsigned long long band_floor(unsigned int band)
+{
+    unsigned long long rung[DAMP_BANDS];
+    golden_ladder(rung);
+    return rung[(band < DAMP_BANDS) ? band : (DAMP_BANDS - 1u)];
+}
+
+static const char *s_schedule_path = NULL;
+
+static int schedule_program(const char *directory, char *const *names, unsigned int count)
+{
+    size_t free_bytes = 0u;
+    size_t total_bytes = 0u;
+    if (cudaMemGetInfo(&free_bytes, &total_bytes) != cudaSuccess)
+    {
+        fprintf(stderr, "  the tower did not answer how much it holds\n");
+        return 0;
+    }
+    const unsigned long long cap = (unsigned long long)free_bytes / 3ull * 2ull;
+    FILE *const out = fopen(s_schedule_path, "w");
+    if (out == NULL)
+    {
+        fprintf(stderr, "  could not open %s\n", s_schedule_path);
+        return 0;
+    }
+    printf("  tower: %llu MiB free of %llu, scheduling against %llu MiB\n",
+           (unsigned long long)free_bytes >> 20u, (unsigned long long)total_bytes >> 20u, cap >> 20u);
+    fprintf(out, "{\n  \"scheme\": \"cell_tracking.program\",\n  \"version\": 1,\n");
+    fprintf(out, "  \"tower\": {\"free\": %llu, \"total\": %llu, \"cap\": %llu},\n",
+            (unsigned long long)free_bytes, (unsigned long long)total_bytes, cap);
+    fprintf(out, "  \"stages\": [\n");
+    unsigned int written = 0u;
+    for (unsigned int at = 0u; at < count; at += 1u)
+    {
+        char path[1024];
+        snprintf(path, sizeof(path), "%s/%s.stack", directory, names[at]);
+        FILE *const stack = fopen(path, "rb");
+        unsigned int head[5] = {0u, 0u, 0u, 0u, 0u};
+        const int read = (stack != NULL) && (fread(head, sizeof(unsigned int), 5u, stack) == 5u);
+        if (stack != NULL)
+        {
+            fclose(stack);
+        }
+        if (read == 0)
+        {
+            continue;
+        }
+        const unsigned long long frames = head[0];
+        const unsigned long long voxels = (unsigned long long)head[1] * head[2] * head[3];
+        const unsigned long long each = (voxels * 2ull)
+                                      + (voxels * BINOMIAL_BASINS_LIMBS * sizeof(unsigned int))
+                                      + (voxels * sizeof(unsigned int))
+                                      + ((voxels + 63ull) / 64ull * sizeof(unsigned long long));
+        unsigned long long hold = (each != 0ull) ? (cap / each) : 0ull;
+        hold = (hold < 2ull) ? 2ull : hold;
+        hold = (hold > frames) ? frames : hold;
+        const unsigned long long steps = (hold > 1ull) ? (hold - 1ull) : 1ull;
+        const unsigned long long chunks = ((frames > 1ull) ? (frames - 2ull + steps) : 0ull) / steps;
+        printf("    %-24s %llu frames of %llu voxels, %llu MiB each, %llu per chunk, %llu chunks\n",
+               names[at], frames, voxels, each >> 20u, hold, chunks);
+        for (unsigned long long chunk = 0u; chunk < chunks; chunk += 1u)
+        {
+            const unsigned long long first = chunk * steps;
+            unsigned long long past = first + hold;
+            past = (past > frames) ? frames : past;
+            fprintf(out, "%s    {\"sample\": \"%s\", \"first\": %llu, \"past\": %llu, \"bytes\": %llu}",
+                    (written != 0u) ? ",\n" : "", names[at], first, past, (past - first) * each);
+            written += 1u;
+        }
+    }
+    fprintf(out, "\n  ]\n}\n");
+    fclose(out);
+    printf("  %u stages written to %s\n", written, s_schedule_path);
+    return 1;
+}
+
+static unsigned int s_survey = 0u;
+static unsigned int s_tree = 0u;
+static unsigned long long s_tree_frames = 0ull;
+static unsigned long long s_tree_nodes = 0ull;
+static unsigned long long s_tree_held = 0ull;
+static unsigned long long s_survey_frames = 0ull;
+static unsigned long long s_survey_positive = 0ull;
+static unsigned long long s_survey_voxels = 0ull;
+static unsigned int s_survey_reached = 0u;
+static unsigned long long s_survey_distinct_sum = 0ull;
+static unsigned long long s_survey_distinct_least = 0xFFFFFFFFFFFFFFFFull;
+static unsigned long long s_survey_distinct_most = 0ull;
+static unsigned long long s_survey_rungs[DAMP_BANDS];
+
+static void survey_residual(const unsigned int *residual, size_t voxels)
+{
+    unsigned int reached = 0u;
+    size_t positive = 0u;
+    for (size_t voxel = 0u; voxel < voxels; voxel += 1u)
+    {
+        const unsigned int *const limbs = &residual[voxel * BINOMIAL_BASINS_LIMBS];
+        const unsigned int negative = (unsigned int)((limbs[BINOMIAL_BASINS_LIMBS - 1u] >> 31u) != 0u);
+        positive += (size_t)(negative == 0u);
+        for (unsigned int limb = 0u; (negative == 0u) && (limb < BINOMIAL_BASINS_LIMBS); limb += 1u)
+        {
+            reached = ((limbs[limb] != 0u) && ((limb + 1u) > reached)) ? (limb + 1u) : reached;
+        }
+    }
+    s_survey_frames += 1ull;
+    s_survey_voxels += (unsigned long long)voxels;
+    s_survey_positive += (unsigned long long)positive;
+    s_survey_reached = (reached > s_survey_reached) ? reached : s_survey_reached;
+    if ((reached == 0u) || (positive == 0u))
+    {
+        return;
+    }
+    unsigned long long *const keys = (unsigned long long *)malloc(positive * sizeof(unsigned long long));
+    if (keys == NULL)
+    {
+        return;
+    }
+    size_t held = 0u;
+    for (size_t voxel = 0u; voxel < voxels; voxel += 1u)
+    {
+        const unsigned int *const limbs = &residual[voxel * BINOMIAL_BASINS_LIMBS];
+        if ((limbs[BINOMIAL_BASINS_LIMBS - 1u] >> 31u) != 0u)
+        {
+            continue;
+        }
+        const unsigned int high = (reached >= 2u) ? limbs[reached - 1u] : 0u;
+        const unsigned int low = limbs[(reached >= 2u) ? (reached - 2u) : (reached - 1u)];
+        keys[held] = ((unsigned long long)high << 32u) | (unsigned long long)low;
+        held += 1u;
+    }
+    radix_sort_keys(keys, held);
+    unsigned long long distinct = (held != 0u) ? 1ull : 0ull;
+    for (size_t at = 1u; at < held; at += 1u)
+    {
+        distinct += (unsigned long long)(keys[at] != keys[at - 1u]);
+    }
+    s_survey_distinct_sum += distinct;
+    s_survey_distinct_least = (distinct < s_survey_distinct_least) ? distinct : s_survey_distinct_least;
+    s_survey_distinct_most = (distinct > s_survey_distinct_most) ? distinct : s_survey_distinct_most;
+    for (size_t at = 0u; at < held; at += 1u)
+    {
+        s_survey_rungs[band_of(keys[at])] += 1ull;
+    }
+    free(keys);
+}
+
+static void survey_report(void)
+{
+    if (s_survey_frames == 0ull)
+    {
+        return;
+    }
+    printf("\n  RESIDUAL SURVEY over %llu frames, %llu voxels:\n", s_survey_frames, s_survey_voxels);
+    printf("    positive voxels               %llu  (%.1f%% of all)\n", s_survey_positive,
+           100.0 * (double)s_survey_positive / (double)s_survey_voxels);
+    printf("    limbs the residual reaches    %u of %u  (%u bits of 288)\n",
+           s_survey_reached, BINOMIAL_BASINS_LIMBS, s_survey_reached * 32u);
+    printf("    distinct levels a frame holds least %llu, most %llu, mean %llu\n",
+           s_survey_distinct_least, s_survey_distinct_most, s_survey_distinct_sum / s_survey_frames);
+    unsigned int occupied = 0u;
+    for (unsigned int band = 0u; band < DAMP_BANDS; band += 1u)
+    {
+        occupied += (unsigned int)(s_survey_rungs[band] != 0ull);
+    }
+    printf("    golden rungs occupied         %u\n", occupied);
+    printf("    voxels by rung, where a count banded flood would step:\n");
+    for (unsigned int band = 0u; band < DAMP_BANDS; band += 1u)
+    {
+        if (s_survey_rungs[band] == 0ull)
+        {
+            continue;
+        }
+        printf("      rung %-3u from %-12llu %12llu voxels  %5.2f%%\n", band, band_floor(band),
+               s_survey_rungs[band],
+               100.0 * (double)s_survey_rungs[band] / (double)s_survey_positive);
+    }
+}
+
+static unsigned long long s_cohere_joined = 0ull;
+static unsigned long long s_cohere_pairs = 0ull;
+
+static unsigned long long s_forest_placed = 0ull;
+static unsigned long long s_forest_kept = 0ull;
+
+static unsigned long long s_mutual_alone = 0ull;
+static unsigned long long s_mutual_split = 0ull;
+static unsigned long long s_mutual_empty = 0ull;
+static unsigned long long s_mutual_moved = 0ull;
+
+static unsigned long long s_damp_leaves = 0ull;
+static unsigned long long s_damp_landings = 0ull;
+
 #define LINK_SWEEP_STEPS 12u
 
-/** @brief Bits a swept vector's magnitude is given, leaving the step it was met at above them. */
 #define LINK_MAGNITUDE_BITS 40u
 
-/** @brief Every bit a swept vector's magnitude may hold. */
 #define LINK_MAGNITUDE_MASK ((1ull << LINK_MAGNITUDE_BITS) - 1ull)
 
 static_assert(((unsigned long long)LINK_SWEEP_STEPS << LINK_MAGNITUDE_BITS) != 0ull,
               "track_driver: the swept step must stay inside an unsigned long long");
 
-/** @brief The rules the tree is grown by, one flag per rule of the reference. */
 typedef struct
 {
-    int pick;             /**< Keep the branch sharing the most positive voxels; exact ties stay. */
-    int share;            /**< Weigh a branch by the exact fraction it shares of the two cells together. */
-    int agree;            /**< Repair an over-cut cell only where its halves agree about where they are going. */
-    int unbound;          /**< Nothing is kept out of the pool: the nearest centre by vector magnitude is taken. */
-    int cast;             /**< Each cell casts its voxels by its own climbed lag, and the landings are the shares. */
-    int parallax;         /**< The view moves with each candidate: what stays still under that move is the share. */
-    int arc;              /**< Where the pool is contested, the track that arcs most smoothly through it wins. */
-    int settle;           /**< Cells that reach for one target settle it between them, the strongest keeping it. */
-    int merge_split;      /**< Unify joined leaves whose peaks came from one earlier object. */
-    int merge_target;     /**< Link a peak landing in a target reached by two or more sources. */
-    int forward_only;     /**< Link wherever a peak lands, with no back landing. */
-    int resolve;          /**< Read branches at the end of the series. */
-    int keep_view;        /**< Compare voxel v with v: do not remove the view's motion. */
-    int climb;            /**< Each basin climbs its own lag by its truthy falsy coherence, from the view's lag. */
-    int sticky;           /**< The climb scores a basin with every basin it touches: sticky cells move together. */
-    int motion_check;     /**< Every pair's motion is run again without the kept transform and every count compared. */
-    unsigned int null_draws; /**< Null draws per climbed pair: frames far off in time, climbed from the same lag. */
-    unsigned int arms;       /**< Arms fired from every frame: the same climb at every gap up to this many. */
-    FILE *coherence;      /**< Where coherence rows go, or NULL for none [BORROWS]. */
-    FILE *edges;          /**< Where one row per scored edge goes, or NULL for none [BORROWS]. */
-    FILE *pool;           /**< Where every candidate weighed for a scored edge goes, refusals and all [BORROWS]. */
-    const char *export_directory; /**< Where the room view's vectors go, or NULL for none [BORROWS]. */
-    bool object;          /**< Each sample is written as the object the card is fed: runs, leaves, cells, links. */
-    const char *object_directory; /**< Where the objects go, read only where object is true [BORROWS]. */
-    const char *vis_directory; /**< Where the vis arm draws failing edges, or NULL for none [BORROWS]. */
-    FILE *vis_index;      /**< The vis arm's page [BORROWS]. */
-    const char *cfg_text; /**< The .cfg the run is taking, every rule written out, carried into each object [BORROWS]. */
-    size_t cfg_length;    /**< Its bytes. */
+    int pick;
+    int share;
+    int agree;
+    int unbound;
+    int cast;
+    int parallax;
+    int arc;
+    int settle;
+    int focus;
+    int web;
+    int damp;
+    int dish;
+    int vote;
+    int mutual;
+    int tower;
+    int mass;
+    int forest;
+    int cohere;
+    int accrue;
+    int merge_split;
+    int merge_target;
+    int forward_only;
+    int resolve;
+    int keep_view;
+    int climb;
+    int sticky;
+    int motion_check;
+    unsigned int null_draws;
+    unsigned int arms;
+    unsigned int spiral;
+    FILE *coherence;
+    FILE *edges;
+    FILE *pool;
+    FILE *nodes;
+    const char *export_directory;
+    bool object;
+    const char *object_directory;
+    const char *vis_directory;
+    FILE *vis_index;
+    const char *cfg_text;
+    size_t cfg_length;
 } TreeRules;
 
-/** @brief One sample's answer key, nodes ascending by id. */
 typedef struct
 {
-    unsigned int node_count;          /**< Labelled nodes. */
-    unsigned int edge_count;          /**< Labelled edges. */
-    long long *node_identity;         /**< Node ids, ascending [OWNS]. */
-    int *node_coordinates;            /**< t z y x per node [OWNS]. */
-    long long *edge_ends;             /**< Source and target id per edge [OWNS]. */
+    unsigned int node_count;
+    unsigned int edge_count;
+    long long *node_identity;
+    int *node_coordinates;
+    long long *edge_ends;
 } AnswerKey;
 
-/** @brief One frame of the tree, and its links to the next frame where that frame follows at once. */
 typedef struct
 {
-    unsigned int time;                /**< Frame index in the stack. */
-    unsigned int leaf_count;          /**< Positive basins. */
-    unsigned int *peaks;              /**< Peak raster index per leaf, ascending [OWNS]. */
-    unsigned int *sizes;              /**< Positive voxels per leaf [OWNS]. */
-    unsigned long long *sums;         /**< Index sums z y x per leaf [OWNS]. */
-    unsigned long long *moments;      /**< Six per leaf: sums of zz yy xx zy zx yx, where exported, or NULL [OWNS]. */
-    unsigned int *exposed;            /**< Per leaf, faces of its positive voxels meeting no positive voxel, where exported [OWNS]. */
-    unsigned int *contact_faces;      /**< Per joined pair, the faces its two basins share, where exported [OWNS]. */
-    unsigned int joined_count;        /**< Joined pairs. */
-    unsigned int *joined;             /**< Leaf pairs, two per pair, engine order [OWNS]. */
-    int lag_to_next[3];               /**< The view's lag to the next frame, z y x, where it follows. */
-    unsigned int step_back;           /**< Frames from the frame before this one, 0 where none comes before. */
-    unsigned int step_next;           /**< Frames to the frame after this one, 0 where none follows. */
-    int *forward;                     /**< Leaf of the next frame each peak lands in, or -1 [OWNS]. */
-    int *backward;                    /**< Leaf of the previous frame each peak lands in, or -1 [OWNS]. */
-    int *forward_lag;                 /**< Three per leaf: the lag its peak was carried by, or NULL [OWNS]. */
-    int *backward_lag;                /**< Three per leaf: the lag its peak was carried back by, or NULL [OWNS]. */
-    int *check_forward_lag;           /**< Where the climb is checked, the host reference's forward_lag [OWNS]. */
-    int *check_backward_lag;          /**< Where the climb is checked, the host reference's backward_lag [OWNS]. */
-    unsigned int *forward_held;       /**< Per leaf, its coherence at its climbed lag against the next frame, or NULL [OWNS]. */
-    unsigned int null_count;          /**< Null draws taken for this frame's leaves. */
-    // The arms: the same climb fired at every gap at once, so a cell that cannot be told from its neighbour one
-    // frame on has moved clear of it two or three frames on, and what the arms land in has to compose.
-    unsigned int arm_count;           /**< Arms fired from this frame, one per gap beyond the next frame. */
-    int *arm_forward;                 /**< Per arm, per leaf, the leaf of that gap's frame it landed in [OWNS]. */
-    unsigned int *null_held;          /**< null_count per leaf: its coherence climbed against each null frame [OWNS]. */
-    unsigned int triple_count;        /**< Overlap pairs with the next frame. */
-    unsigned int *triple_start;       /**< leaf_count + 1 offsets by leaf before [OWNS]. */
-    unsigned int *triple_after;       /**< Leaf after per pair [OWNS]. */
-    unsigned int *triple_shared;      /**< Shared positive voxels per pair [OWNS]. */
-    unsigned int *triple_still;       /**< Per pair, the voxels that stay still when the view moves with it [OWNS]. */
-    unsigned int object_count;        /**< Objects the leaves group into. */
-    unsigned int *object_of;          /**< Object per leaf [OWNS]. */
-    unsigned int *member_start;       /**< object_count + 1 offsets [OWNS]. */
-    unsigned int *members;            /**< Leaves grouped by object, ascending within each [OWNS]. */
-    unsigned int *link_start;         /**< object_count + 1 offsets into link_target, or NULL [OWNS]. */
-    unsigned int *link_target;        /**< Objects of the next frame each object links to [OWNS]. */
-    // The pool every object weighed, kept whole: what was refused is what a better question is asked of.
-    unsigned int *pool_start;         /**< object_count + 1 offsets into the pool, or NULL [OWNS]. */
-    unsigned int *pool_target;        /**< Per pool entry, the object of the next frame it stands for [OWNS]. */
-    unsigned int *pool_weight;        /**< Per pool entry, the voxels the two meet in [OWNS]. */
-    unsigned long long *pool_cost;    /**< Per pool entry, the swept vector: the step above, the magnitude below [OWNS]. */
+    unsigned int time;
+    unsigned int leaf_count;
+    unsigned int *peaks;
+    unsigned int *sizes;
+    unsigned long long *sums;
+    unsigned long long *moments;
+    unsigned int *exposed;
+    unsigned int *contact_faces;
+    unsigned int joined_count;
+    unsigned int *joined;
+    int lag_to_next[3];
+    unsigned int step_back;
+    unsigned int step_next;
+    int *forward;
+    int *backward;
+    int *forward_lag;
+    int *backward_lag;
+    int *check_forward_lag;
+    int *check_backward_lag;
+    unsigned int *forward_held;
+    unsigned int null_count;
+    unsigned int arm_count;
+    int *arm_forward;
+    unsigned int *null_held;
+    unsigned int triple_count;
+    unsigned int *triple_start;
+    unsigned int *triple_after;
+    unsigned int *triple_shared;
+    unsigned int *triple_still;
+    unsigned int object_count;
+    unsigned int *held_target;
+    unsigned int *held_count;
+    unsigned int *held_rounds;
+    unsigned int *object_of;
+    unsigned int *member_start;
+    unsigned int *members;
+    unsigned int *link_start;
+    unsigned int *link_target;
+    unsigned int *pool_start;
+    unsigned int *pool_target;
+    unsigned int *pool_weight;
+    unsigned long long *pool_cost;
 } TreeFrame;
 
-/** @brief Tallies of scored edges. */
 typedef struct
 {
-    unsigned long long correct;       /**< Links exactly the true target, or a division. */
-    unsigned long long branched;      /**< The true target among other branches. */
-    unsigned long long wrong;         /**< Links that miss the true target. */
-    unsigned long long unlinked;      /**< No link from the source. */
-    unsigned long long missed;        /**< An endpoint in no object. */
+    unsigned long long correct;
+    unsigned long long branched;
+    unsigned long long wrong;
+    unsigned long long unlinked;
+    unsigned long long missed;
 } EdgeTally;
 
-/**
- * @brief Whole milliseconds since an arbitrary epoch.
- *
- * @return The clock in milliseconds.
- */
 static unsigned long long clock_milliseconds(void)
 {
     struct timespec now;
     timespec_get(&now, TIME_UTC);
-    // Widening: seconds and nanoseconds are nonnegative on this clock.
     return (unsigned long long)now.tv_sec * 1000ULL + (unsigned long long)now.tv_nsec / 1000000ULL;
 }
 
-/**
- * @brief Whole microseconds since an arbitrary epoch.
- *
- * @return The clock in microseconds.
- */
 static unsigned long long clock_microseconds(void)
 {
     struct timespec now;
     timespec_get(&now, TIME_UTC);
-    // Widening: seconds and nanoseconds are nonnegative on this clock.
     return (unsigned long long)now.tv_sec * 1000000ULL + (unsigned long long)now.tv_nsec / 1000ULL;
 }
 
-/** @brief Microseconds spent per stage over one sample. */
 typedef struct
 {
-    unsigned long long read;          /**< Reading frames from the stack. */
-    unsigned long long basins;        /**< The basin engine. */
-    unsigned long long ties;          /**< Placing the answer key's nodes. */
-    unsigned long long motion;        /**< The shift agreement engine. */
-    unsigned long long landing;       /**< Landing peaks both ways, or pending them with the machine. */
-    unsigned long long store;         /**< Grouping each frame's basins and storing the frame on the device. */
-    unsigned long long climb;         /**< The machine climbing every pending pair. */
-    unsigned long long overlap;       /**< The overlap engine and its mapping to leaves. */
+    unsigned long long read;
+    unsigned long long basins;
+    unsigned long long ties;
+    unsigned long long motion;
+    unsigned long long landing;
+    unsigned long long store;
+    unsigned long long climb;
+    unsigned long long overlap;
 } StageClock;
 
-/**
- * @brief numerator/denominator to one decimal place, by integer division, half rounding up.
- *
- * @param[in]  numerator   Tally.
- * @param[in]  denominator Total, nonzero.
- * @param[out] whole       The whole part [BORROWS].
- * @param[out] tenth       The tenths digit [BORROWS].
- */
 static void percent_of(unsigned long long numerator, unsigned long long denominator, unsigned long long *whole,
                        unsigned long long *tenth)
 {
@@ -222,13 +397,6 @@ static void percent_of(unsigned long long numerator, unsigned long long denomina
     *tenth = scaled % 10ULL;
 }
 
-/**
- * @brief Ascending order of unsigned 64 bit keys, for qsort and bsearch.
- *
- * @param[in] left  First key [BORROWS].
- * @param[in] right Second key [BORROWS].
- * @return          Negative, zero or positive.
- */
 static int order_keys(const void *left, const void *right)
 {
     const unsigned long long first = *(const unsigned long long *)left;
@@ -236,13 +404,6 @@ static int order_keys(const void *left, const void *right)
     return (first < second) ? -1 : ((first > second) ? 1 : 0);
 }
 
-/**
- * @brief Sorts keys ascending and removes repeats.
- *
- * @param[in,out] keys  The keys [BORROWS].
- * @param[in]     count How many.
- * @return              How many distinct keys remain at the front.
- */
 static unsigned int sort_unique(unsigned long long *keys, unsigned int count)
 {
     if (count == 0u)
@@ -262,48 +423,22 @@ static unsigned int sort_unique(unsigned long long *keys, unsigned int count)
     return kept;
 }
 
-/**
- * @brief The set bits of a word, by the SWAR count: pairs, nibbles, bytes, then one multiply gathers the bytes.
- *
- * @param[in] word The word.
- * @return         Its set bits.
- */
 static inline unsigned int word_population(unsigned long long word)
 {
     const unsigned long long pairs = word - ((word >> 1u) & 0x5555555555555555ULL);
     const unsigned long long nibbles = (pairs & 0x3333333333333333ULL) + ((pairs >> 2u) & 0x3333333333333333ULL);
     const unsigned long long bytes = (nibbles + (nibbles >> 4u)) & 0x0F0F0F0F0F0F0F0FULL;
-    // Narrowing is safe: the count is at most 64.
     return (unsigned int)((bytes * 0x0101010101010101ULL) >> 56u);
 }
 
-/**
- * @brief Fits a growing array of words to what is wanted: where the room falls short it doubles past the want, and
- *        otherwise it is left as it is. The array is resized either way, so the steering is by value, not by branch.
- *
- * @param[in,out] words  The array, kept where the resize fails [OWNS].
- * @param[in,out] room   Its room, in records.
- * @param[in]     wanted Records wanted.
- * @param[in]     width  Words per record; one record past the room is always held.
- * @return               True where the array holds the room.
- */
 static inline bool object_room_fit(unsigned int **words, size_t *room, size_t wanted, size_t width)
 {
-    // Where the room is enough the product is zero, whatever the wrapped difference.
     *room += (size_t)(wanted > *room) * ((2u * wanted) - *room);
     unsigned int *const grown = (unsigned int *)realloc(*words, (*room + 1u) * width * sizeof(unsigned int));
     *words = grown ? grown : *words;
     return !!grown;
 }
 
-/**
- * @brief The leaf holding a peak raster index, by binary search over the ascending peaks.
- *
- * @param[in] peaks The peaks, ascending [BORROWS].
- * @param[in] count How many.
- * @param[in] peak  The raster index sought.
- * @return          The leaf, or -1 where the peak is not a positive basin's.
- */
 static int leaf_of_peak(const unsigned int *peaks, unsigned int count, unsigned int peak)
 {
     unsigned int low = 0u;
@@ -320,17 +455,9 @@ static int leaf_of_peak(const unsigned int *peaks, unsigned int count, unsigned 
             high = middle;
         }
     }
-    // Narrowing is safe: a leaf count is at most the peak room, below 2^31.
     return ((low < count) && (peaks[low] == peak)) ? (int)low : -1;
 }
 
-/**
- * @brief The node slot of an id, by binary search over the ascending ids.
- *
- * @param[in] key      The answer key [BORROWS].
- * @param[in] identity The id sought.
- * @return             The slot, or -1 where no node has the id.
- */
 static long node_slot_of(const AnswerKey *key, long long identity)
 {
     unsigned int low = 0u;
@@ -350,13 +477,6 @@ static long node_slot_of(const AnswerKey *key, long long identity)
     return ((low < key->node_count) && (key->node_identity[low] == identity)) ? (long)low : -1L;
 }
 
-/**
- * @brief Reads an answer key written by maint/dump_frames.py.
- *
- * @param[in]  path The .truth file.
- * @param[out] key  The key [BORROWS].
- * @return          1 on success, 0 otherwise.
- */
 static int read_answer_key(const char *path, AnswerKey *key)
 {
     memset(key, 0, sizeof(*key));
@@ -390,11 +510,6 @@ static int read_answer_key(const char *path, AnswerKey *key)
     return good;
 }
 
-/**
- * @brief Releases an answer key.
- *
- * @param[in,out] key The key [BORROWS].
- */
 static void release_answer_key(AnswerKey *key)
 {
     free(key->node_identity);
@@ -403,41 +518,32 @@ static void release_answer_key(AnswerKey *key)
     memset(key, 0, sizeof(*key));
 }
 
-/** @brief The engine buffers one sample reuses frame after frame. */
 typedef struct
 {
-    unsigned int depth;               /**< Extent along z. */
-    unsigned int height;              /**< Extent along y. */
-    unsigned int width;               /**< Extent along x. */
-    unsigned int peak_room;           /**< Peaks the peak buffers hold. */
-    unsigned short *volume;           /**< One frame's raw voxels [OWNS]. */
-    unsigned int *peak_indices;       /**< Engine output [OWNS]. */
-    unsigned int *sizes;              /**< Engine output [OWNS]. */
-    unsigned long long *sums;         /**< Engine output [OWNS]. */
-    unsigned int *peak_limbs;         /**< Engine output [OWNS]. */
-    unsigned int pair_room;           /**< Pairs the adjacency and joined buffers hold. */
-    unsigned int *adjacency;          /**< Engine output [OWNS]. */
-    unsigned int *joined;             /**< Engine output [OWNS]. */
-    unsigned int *labels[2];          /**< Labels of the previous and current frame [OWNS]. */
-    unsigned long long *positive[2];  /**< Sign words of the previous and current frame [OWNS]. */
-    unsigned int overlap_room;        /**< Pairs the overlap buffers hold. */
-    unsigned int *overlap_before;     /**< Engine output [OWNS]. */
-    unsigned int *overlap_after;      /**< Engine output [OWNS]. */
-    unsigned int *overlap_shared;     /**< Engine output [OWNS]. */
-    int *leaf_at_peak[2];             /**< Leaf per peak voxel of the earlier and later frame, else -1 [OWNS]. */
-    unsigned int *basin_start[2];     /**< Offsets of each leaf's basin voxels, earlier and later [OWNS]. */
-    unsigned int *basin_voxels[2];    /**< Basin voxels grouped by leaf, earlier and later [OWNS]. */
-    ClimbMachine *machine;            /**< Every frame on the device, and the climb that runs itself, or NULL [OWNS]. */
+    unsigned int depth;
+    unsigned int height;
+    unsigned int width;
+    unsigned int peak_room;
+    unsigned short *volume;
+    unsigned int *peak_indices;
+    unsigned int *sizes;
+    unsigned long long *sums;
+    unsigned int *peak_limbs;
+    unsigned int pair_room;
+    unsigned int *adjacency;
+    unsigned int *joined;
+    unsigned int *labels[2];
+    unsigned long long *positive[2];
+    unsigned int overlap_room;
+    unsigned int *overlap_before;
+    unsigned int *overlap_after;
+    unsigned int *overlap_shared;
+    int *leaf_at_peak[2];
+    unsigned int *basin_start[2];
+    unsigned int *basin_voxels[2];
+    ClimbMachine *machine;
 } EngineBuffers;
 
-/**
- * @brief Runs the basin engine on the buffered volume into one label slot and keeps the tree's fields.
- *
- * @param[in,out] buffers The engine buffers [BORROWS].
- * @param[in]     slot    Which label and sign slot to fill, 0 or 1.
- * @param[out]    frame   The tree frame; peaks and joined are filled [BORROWS].
- * @return                1 on success, 0 otherwise.
- */
 static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *frame)
 {
     long count = -1L;
@@ -461,17 +567,154 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
         request.sizes = buffers->sizes;
         request.sums = buffers->sums;
         request.peak_limbs = buffers->peak_limbs;
-        // The tree reads joined pairs only, so adjacency is not asked for.
         request.adjacency_room = 0u;
         request.adjacency = NULL;
         request.adjacency_count = &adjacency_have;
         request.labels = buffers->labels[slot];
-        request.residual_limbs = NULL;
+        const size_t all_voxels = (size_t)buffers->depth * buffers->height * buffers->width;
+        const unsigned int grading = (unsigned int)((s_tree != 0u) && (s_tree_frames == 0ull));
+        unsigned int *const residual_room = ((s_survey | grading) != 0u)
+                                          ? (unsigned int *)malloc(all_voxels * BINOMIAL_BASINS_LIMBS
+                                                                    * sizeof(unsigned int))
+                                          : NULL;
+        request.residual_limbs = residual_room;
         request.positive_words = buffers->positive[slot];
         request.joined_room = buffers->pair_room;
         request.joined = buffers->joined;
         request.joined_count = &joined_have;
         count = binomial_basins_run(&request);
+        if (residual_room != NULL)
+        {
+            if (s_survey != 0u)
+            {
+                survey_residual(residual_room, all_voxels);
+            }
+            if (grading != 0u)
+            {
+                const unsigned int crop_depth = (buffers->depth < 16u) ? buffers->depth : 16u;
+                const unsigned int crop_height = (buffers->height < 64u) ? buffers->height : 64u;
+                const unsigned int crop_width = (buffers->width < 64u) ? buffers->width : 64u;
+                const size_t crop = (size_t)crop_depth * crop_height * crop_width;
+                unsigned int *const cropped = (unsigned int *)malloc(crop * BINOMIAL_BASINS_LIMBS
+                                                                     * sizeof(unsigned int));
+                unsigned char *const asked_host = (unsigned char *)malloc(crop * 3u);
+                unsigned char *const asked_device = (unsigned char *)malloc(crop * 3u);
+                unsigned char *const bound = (unsigned char *)malloc(all_voxels * 3u);
+                MaxTree tree;
+                memset(&tree, 0, sizeof(tree));
+                int holds = 0;
+                int matches = 0;
+                if ((cropped != NULL) && (asked_host != NULL) && (asked_device != NULL) && (bound != NULL))
+                {
+                    const unsigned int from_z = (buffers->depth - crop_depth) / 2u;
+                    const unsigned int from_y = (buffers->height - crop_height) / 2u;
+                    const unsigned int from_x = (buffers->width - crop_width) / 2u;
+                    for (unsigned int z = 0u; z < crop_depth; z += 1u)
+                    {
+                        for (unsigned int y = 0u; y < crop_height; y += 1u)
+                        {
+                            for (unsigned int x = 0u; x < crop_width; x += 1u)
+                            {
+                                const size_t there = ((size_t)(from_z + z) * buffers->height
+                                                      + (from_y + y)) * buffers->width + (from_x + x);
+                                const size_t here = ((size_t)z * crop_height + y) * crop_width + x;
+                                memcpy(&cropped[here * BINOMIAL_BASINS_LIMBS],
+                                       &residual_room[there * BINOMIAL_BASINS_LIMBS],
+                                       BINOMIAL_BASINS_LIMBS * sizeof(unsigned int));
+                            }
+                        }
+                    }
+                    unsigned long long began = clock_microseconds();
+                    const long admitted = max_tree_build(cropped, crop_depth, crop_height, crop_width, &tree);
+                    holds = (admitted >= 0L) ? max_tree_holds(cropped, &tree, 6u) : 0;
+                    matches = (admitted >= 0L) ? max_tree_order_agrees(cropped, crop_depth, crop_height, crop_width)
+                                               : 0;
+                    printf("    tree: %ux%ux%u crop, %ld admitted, flood proof %s, device order %s, %llu ms\n",
+                           crop_depth, crop_height, crop_width, admitted, (holds != 0) ? "HELD" : "FAILED",
+                           (matches != 0) ? "AGREES" : "DISAGREES", (clock_microseconds() - began) / 1000ull);
+                    fflush(stdout);
+
+                    unsigned int contractions = 0u;
+                    began = clock_microseconds();
+                    const int asked = max_tree_poc(cropped, crop_depth, crop_height, crop_width, asked_host,
+                                                   &contractions);
+                    const unsigned long long answered = clock_microseconds() - began;
+                    unsigned int crop_ticks = 0u;
+                    MaxTreeBindRequest on_crop;
+                    memset(&on_crop, 0, sizeof(on_crop));
+                    on_crop.residual = cropped;
+                    on_crop.depth = crop_depth;
+                    on_crop.height = crop_height;
+                    on_crop.width = crop_width;
+                    on_crop.bound = asked_device;
+                    on_crop.rounds = &crop_ticks;
+                    const long crop_chosen = max_tree_bind(&on_crop);
+                    const int same_faces = (crop_chosen >= 0L) && (memcmp(asked_host, asked_device, crop * 3u) == 0);
+                    printf("    asked: %u contractions in %llu ms, tree across its faces %s; device %ld faces in "
+                           "%u ticks, %s\n", contractions, answered / 1000ull,
+                           (asked != 0) ? "IS the reference" : "DIFFERS from the reference", crop_chosen,
+                           crop_ticks, (same_faces != 0) ? "the SAME faces" : "DIFFERENT faces");
+                    fflush(stdout);
+
+                    unsigned int levels[8];
+                    unsigned int level_count = 0u;
+                    for (unsigned int step = 1u; step <= 8u; step += 1u)
+                    {
+                        size_t voxel = (all_voxels * step) / 9u;
+                        unsigned int found = 0u;
+                        while ((voxel < all_voxels) && (found == 0u))
+                        {
+                            const unsigned int *const limbs = &residual_room[voxel * BINOMIAL_BASINS_LIMBS];
+                            unsigned int any = 0u;
+                            for (unsigned int limb = 0u; limb < BINOMIAL_BASINS_LIMBS; limb += 1u)
+                            {
+                                any |= limbs[limb];
+                            }
+                            found = (unsigned int)(((limbs[BINOMIAL_BASINS_LIMBS - 1u] >> 31u) == 0u) && (any != 0u));
+                            voxel += (size_t)(found ^ 1u);
+                        }
+                        levels[level_count] = (unsigned int)voxel;
+                        level_count += found;
+                    }
+                    unsigned int ticks = 0u;
+                    unsigned int held = 0u;
+                    unsigned long long spent = 0ull;
+                    unsigned long long proved = 0ull;
+                    MaxTreeBindRequest whole;
+                    memset(&whole, 0, sizeof(whole));
+                    whole.residual = residual_room;
+                    whole.depth = buffers->depth;
+                    whole.height = buffers->height;
+                    whole.width = buffers->width;
+                    whole.levels = levels;
+                    whole.level_count = level_count;
+                    whole.bound = bound;
+                    whole.rounds = &ticks;
+                    whole.levels_held = &held;
+                    whole.bound_microseconds = &spent;
+                    whole.proved_microseconds = &proved;
+                    const long chosen = max_tree_bind(&whole);
+                    printf("    bound: %ux%ux%u, %ld faces in %u ticks, %llu ms; proved on the device at %u of %u "
+                           "levels in %llu ms\n", buffers->depth, buffers->height, buffers->width, chosen, ticks,
+                           spent / 1000ull, held, level_count, proved / 1000ull);
+                    fflush(stdout);
+                }
+                free(cropped);
+                free(asked_host);
+                free(asked_device);
+                free(bound);
+                s_tree_frames += 1ull;
+                s_tree_nodes += (unsigned long long)tree.admitted;
+                s_tree_held += (unsigned long long)((holds != 0) && (matches != 0));
+                max_tree_release(&tree);
+                if (holds == 0)
+                {
+                    free(residual_room);
+                    return 0;
+                }
+            }
+            free(residual_room);
+        }
         if (count < 0L)
         {
             return 0;
@@ -480,7 +723,6 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
         {
             break;
         }
-        // The pairs did not fit; the count they need is known now, so grow and call again.
         buffers->pair_room = joined_have;
         free(buffers->joined);
         buffers->joined = (unsigned int *)malloc((size_t)buffers->pair_room * 2u * sizeof(unsigned int));
@@ -489,7 +731,6 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
             return 0;
         }
     }
-    // Narrowing is safe: the peak count is at most the peak room, an unsigned int.
     frame->leaf_count = (unsigned int)count;
     frame->peaks = (unsigned int *)malloc(((size_t)frame->leaf_count + 1u) * sizeof(unsigned int));
     frame->joined = (unsigned int *)malloc(((size_t)joined_have + 1u) * 2u * sizeof(unsigned int));
@@ -511,29 +752,17 @@ static int grow_leaves(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
     {
         const int first = leaf_of_peak(frame->peaks, frame->leaf_count, buffers->joined[2u * pair]);
         const int second = leaf_of_peak(frame->peaks, frame->leaf_count, buffers->joined[2u * pair + 1u]);
-        // Narrowing is safe: both joined peaks are positive peaks, so both leaves exist.
         frame->joined[2u * pair] = (unsigned int)first;
         frame->joined[2u * pair + 1u] = (unsigned int)second;
     }
     return 1;
 }
 
-/**
- * @brief The leaf of another frame a peak lands in, carried by a lag.
- *
- * @param[in] buffers The engine buffers, for the extents [BORROWS].
- * @param[in] peak    The peak raster index.
- * @param[in] lag     The lag z y x [BORROWS].
- * @param[in] labels  The other frame's labels [BORROWS].
- * @param[in] other   The other frame, for its peaks [BORROWS].
- * @return            The leaf, or -1 where the landing is outside the view or in no positive basin.
- */
 static int land_peak(const EngineBuffers *buffers, unsigned int peak, const int *lag, const unsigned int *labels,
                      const TreeFrame *other)
 {
     const unsigned int plane = buffers->height * buffers->width;
     const unsigned int rest = peak % plane;
-    // Widening to long keeps a negative landing representable before the bounds test.
     const long z = (long)(peak / plane) + (long)lag[0];
     const long y = (long)(rest / buffers->width) + (long)lag[1];
     const long x = (long)(rest % buffers->width) + (long)lag[2];
@@ -542,19 +771,10 @@ static int land_peak(const EngineBuffers *buffers, unsigned int peak, const int 
     {
         return -1;
     }
-    // Narrowing is safe: the landing lies inside the view, whose voxel count fits an unsigned int.
     const unsigned int voxel = (unsigned int)((z * (long)buffers->height + y) * (long)buffers->width + x);
     return leaf_of_peak(other->peaks, other->leaf_count, labels[voxel]);
 }
 
-/**
- * @brief Groups every voxel of a frame by the leaf whose basin holds it.
- *
- * @param[in,out] buffers The engine buffers [BORROWS].
- * @param[in]     slot    0 for the earlier frame, 1 for the later.
- * @param[in]     labels  That frame's labels [BORROWS].
- * @param[in]     frame   That frame's tree frame [BORROWS].
- */
 static void group_basin_voxels(EngineBuffers *buffers, unsigned int slot, const unsigned int *labels,
                                const TreeFrame *frame)
 {
@@ -563,11 +783,9 @@ static void group_basin_voxels(EngineBuffers *buffers, unsigned int slot, const 
     unsigned int *const start = buffers->basin_start[slot];
     for (unsigned int leaf = 0u; leaf < frame->leaf_count; leaf += 1u)
     {
-        // Narrowing is safe: a leaf count is below 2^31.
         leaf_at_peak[frame->peaks[leaf]] = (int)leaf;
     }
     memset(start, 0, ((size_t)frame->leaf_count + 2u) * sizeof(unsigned int));
-    // A label runs along a row, so the leaf is looked up again only where the label changes.
     unsigned int run_label = labels[0];
     int run_leaf = leaf_at_peak[run_label];
     for (unsigned int voxel = 0u; voxel < voxels; voxel += 1u)
@@ -579,7 +797,6 @@ static void group_basin_voxels(EngineBuffers *buffers, unsigned int slot, const 
         }
         if (run_leaf >= 0)
         {
-            // Narrowing is safe: the leaf was found, so it is nonnegative.
             start[(unsigned int)run_leaf + 1u] += 1u;
         }
     }
@@ -587,7 +804,6 @@ static void group_basin_voxels(EngineBuffers *buffers, unsigned int slot, const 
     {
         start[leaf + 1u] += start[leaf];
     }
-    // The last offset slot is the fill cursor while grouping, then restored.
     run_label = labels[0];
     run_leaf = leaf_at_peak[run_label];
     for (unsigned int voxel = 0u; voxel < voxels; voxel += 1u)
@@ -599,7 +815,6 @@ static void group_basin_voxels(EngineBuffers *buffers, unsigned int slot, const 
         }
         if (run_leaf >= 0)
         {
-            // Narrowing is safe: the leaf was found, so it is nonnegative.
             buffers->basin_voxels[slot][start[(unsigned int)run_leaf]] = voxel;
             start[(unsigned int)run_leaf] += 1u;
         }
@@ -615,20 +830,6 @@ static void group_basin_voxels(EngineBuffers *buffers, unsigned int slot, const 
     }
 }
 
-/**
- * @brief A basin's coherence with another frame at one lag, truthy or falsy per voxel: a voxel is true where
- *        its landing is inside the view and its sign equals the sign it lands on, and false otherwise, a
- *        landing outside the view included. The positive core must land on positive voxels and the margin
- *        on negative ones. There is no third value, so the coherence is the count of true voxels.
- *
- * @param[in] buffers        The engine buffers, for the extents [BORROWS].
- * @param[in] basin          The basin's voxels [BORROWS].
- * @param[in] count          How many.
- * @param[in] own_positive   The basin frame's sign words [BORROWS].
- * @param[in] other_positive The other frame's sign words [BORROWS].
- * @param[in] lag            The lag z y x [BORROWS].
- * @return                   The true voxels.
- */
 static long long basin_coherence(const EngineBuffers *buffers, const unsigned int *basin, unsigned int count,
                                  const unsigned long long *own_positive, const unsigned long long *other_positive,
                                  const int *lag)
@@ -639,17 +840,14 @@ static long long basin_coherence(const EngineBuffers *buffers, const unsigned in
     {
         const unsigned int voxel = basin[member];
         const unsigned int rest = voxel % plane;
-        // Widening to long keeps a negative landing representable before the bounds test.
         const long z = (long)(voxel / plane) + (long)lag[0];
         const long y = (long)(rest / buffers->width) + (long)lag[1];
         const long x = (long)(rest % buffers->width) + (long)lag[2];
         if ((z < 0L) || (z >= (long)buffers->depth) || (y < 0L) || (y >= (long)buffers->height) || (x < 0L)
          || (x >= (long)buffers->width))
         {
-            // Outside the view is false.
             continue;
         }
-        // Narrowing is safe: the landing lies inside the view.
         const unsigned int landed = (unsigned int)((z * (long)buffers->height + y) * (long)buffers->width + x);
         const unsigned long long own = (own_positive[voxel / 64u] >> (voxel % 64u)) & 1ULL;
         const unsigned long long other = (other_positive[landed / 64u] >> (landed % 64u)) & 1ULL;
@@ -658,27 +856,10 @@ static long long basin_coherence(const EngineBuffers *buffers, const unsigned in
     return score;
 }
 
-/**
- * @brief Climbs a basin's lag by steepest ascent of its coherence over the 26 neighbouring lags,
- *        from a starting lag, until no neighbour is strictly more coherent. No window bounds the climb.
- *
- * Among equally coherent neighbours the one with the shorter weighted squared lag is taken, then the
- * first in z y x order, so the climb is one path.
- *
- * @param[in]  buffers        The engine buffers [BORROWS].
- * @param[in]  basin          The basin's voxels [BORROWS].
- * @param[in]  count          How many.
- * @param[in]  own_positive   The basin frame's sign words [BORROWS].
- * @param[in]  other_positive The other frame's sign words [BORROWS].
- * @param[in]  start          The starting lag [BORROWS].
- * @param[out] climbed        The lag reached [BORROWS].
- */
 static void climb_lag(const EngineBuffers *buffers, unsigned int slot, unsigned int leaf, const unsigned int *contact_start,
                       const unsigned int *contacts, const unsigned long long *own_positive,
                       const unsigned long long *other_positive, const int *start, int *climbed)
 {
-    // A basin alone, or, where contacts are given, the basin and every basin it touches: sticky cells move
-    // together, so the patch's coherence is what the lag climbs.
     const auto patch_coherence = [&](const int *lag) -> long long
     {
         const unsigned int *const basin_start = buffers->basin_start[slot];
@@ -713,7 +894,6 @@ static void climb_lag(const EngineBuffers *buffers, unsigned int slot, unsigned 
                     }
                     const int candidate[3] = {here[0] + step_z, here[1] + step_y, here[2] + step_x};
                     const long long score = patch_coherence(candidate);
-                    // Widening: each squared lag component is nonnegative.
                     const unsigned long long length = (unsigned long long)AXIS_WEIGHTS[0]
                                                         * (unsigned long long)(candidate[0] * candidate[0])
                                                     + (unsigned long long)(candidate[1] * candidate[1])
@@ -744,14 +924,6 @@ static void climb_lag(const EngineBuffers *buffers, unsigned int slot, unsigned 
     climbed[2] = here[2];
 }
 
-/**
- * @brief Each leaf's direct contacts, both directions of every joined pair, as offsets and a flat list.
- *
- * @param[in]  tree          The frame [BORROWS].
- * @param[out] contact_start leaf_count + 1 offsets, allocated here [OWNS].
- * @param[out] contacts      The contacts, allocated here [OWNS].
- * @return                   1 on success, 0 on a failure.
- */
 static int frame_contacts(const TreeFrame *tree, unsigned int **contact_start, unsigned int **contacts)
 {
     *contact_start = (unsigned int *)calloc((size_t)tree->leaf_count + 2u, sizeof(unsigned int));
@@ -787,37 +959,10 @@ static int frame_contacts(const TreeFrame *tree, unsigned int **contact_start, u
     return 1;
 }
 
-/**
- * @brief Every leaf casts its voxels by its own lag, as cast_triples does where it is defined.
- *
- * @param[in,out] buffers The buffers [BORROWS].
- * @param[in,out] earlier The earlier frame [BORROWS].
- * @param[in]     later   The later frame [BORROWS].
- * @return                1 on success, 0 on a failure.
- */
 static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFrame *later);
 
-/**
- * @brief The view moves with each candidate and counts what stays still, as still_triples does where it is
- *        defined.
- *
- * @param[in,out] buffers The buffers [BORROWS].
- * @param[in,out] earlier The earlier frame [BORROWS].
- * @param[in]     later   The later frame [BORROWS].
- * @return                1 on success, 0 on a failure.
- */
 static int still_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFrame *later);
 
-/**
- * @brief The view's motion, landings both ways, and the overlap between two consecutive frames.
- *
- * @param[in,out] buffers The engine buffers; slot 0 holds the earlier frame, slot 1 the later [BORROWS].
- * @param[in,out] earlier The earlier frame; forward and the overlap are filled [BORROWS].
- * @param[in,out] later   The later frame; backward is filled [BORROWS].
- * @param[in]     rules   The tree's rules [BORROWS].
- * @param[in,out] clocks  Stage times, added to [BORROWS].
- * @return                1 on success, 0 otherwise.
- */
 static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *later, const TreeRules *rules,
                          StageClock *clocks)
 {
@@ -858,8 +1003,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
                     && (shift_agreement_run(&motion) == 0L);
         if ((moved_ok != 0) && (rules->motion_check != 0))
         {
-            // The first call kept this pair's after, which is not this pair's before, so the second call transforms
-            // both views afresh; every count and the choice must be the same.
             moved_ok = (shift_agreement_run(&again) == 0L);
             if ((moved_ok != 0) && ((memcmp(motion.counts, again.counts, padded_total * sizeof(unsigned int)) != 0)
                                     || (memcmp(motion.lag, again.lag, sizeof(motion.lag)) != 0)
@@ -884,9 +1027,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
     {
         earlier->lag_to_next[axis] = lag[axis];
     }
-    // How far the clock dragged between these two frames. A step is a rate, so a step read over one gap is
-    // carried over another by that ratio: a cell going nowhere stays nowhere however long the clock drags, and
-    // a cell going somewhere departs further the longer it drags.
     earlier->step_next = later->time - earlier->time;
     later->step_back = later->time - earlier->time;
     clocks->motion += clock_microseconds() - mark;
@@ -911,9 +1051,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
     }
     else
     {
-        // Each basin carries its peak by its own lag: the one its whole basin climbs to, from the view's lag,
-        // forward against the later frame and backward against the earlier. The device climb is pended with the
-        // machine, which writes the lags and the landings when it runs; the host reference climbs here.
         earlier->forward_lag = (int *)malloc(((size_t)earlier->leaf_count + 1u) * 3u * sizeof(int));
         later->backward_lag = (int *)malloc(((size_t)later->leaf_count + 1u) * 3u * sizeof(int));
         int climbed = (earlier->forward_lag != NULL) && (later->backward_lag != NULL);
@@ -935,14 +1072,12 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
             pair.forward = earlier->forward;
             pair.backward_lags = later->backward_lag;
             pair.backward = later->backward;
-            // The observed coherence each leaf holds at its fixed point, which its null draws are ranked against.
             earlier->forward_held = (unsigned int *)malloc(((size_t)earlier->leaf_count + 1u) * sizeof(unsigned int));
             pair.forward_held = earlier->forward_held;
             climbed = (earlier->forward_held != NULL) && (climb_machine_pend(buffers->machine, &pair) != 0);
         }
         if ((climbed != 0) && (rules->climb >= 2))
         {
-            // Climb 2 takes the host reference only; climb 3 keeps it beside the machine's, to be compared.
             int *const forward_lags = (rules->climb == 2) ? earlier->forward_lag
                                                           : (int *)malloc(((size_t)earlier->leaf_count + 1u) * 3u * sizeof(int));
             int *const backward_lags = (rules->climb == 2) ? later->backward_lag
@@ -996,7 +1131,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
     {
         BasinOverlapRequest overlap;
         memset(&overlap, 0, sizeof(overlap));
-        // Both frames are already on the device, uploaded when each arrived.
         overlap.labels_before = climb_machine_labels(buffers->machine, earlier->time);
         overlap.positive_before = climb_machine_positive(buffers->machine, earlier->time);
         overlap.labels_after = climb_machine_labels(buffers->machine, later->time);
@@ -1019,13 +1153,10 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
         {
             return 0;
         }
-        // Widening: the room is an unsigned int and the total a nonnegative long.
         if ((unsigned long)total <= (unsigned long)buffers->overlap_room)
         {
             break;
         }
-        // The pairs did not fit; the count they need is known now, so the second call is exact.
-        // Narrowing is safe: the engine never returns more than BASIN_OVERLAP_ROOM_LIMIT.
         buffers->overlap_room = (unsigned int)total;
         free(buffers->overlap_before);
         free(buffers->overlap_after);
@@ -1038,9 +1169,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
             return 0;
         }
     }
-    // Only pairs of objects: a basin whose peak is not positive holds no object. The engine returns the
-    // pairs ascending by peak before, and leaves follow peak order, so they stay grouped by leaf before.
-    // Narrowing is safe: the total fits the room, an unsigned int.
     const unsigned int pairs = (unsigned int)total;
     earlier->triple_start = (unsigned int *)calloc((size_t)earlier->leaf_count + 1u, sizeof(unsigned int));
     earlier->triple_after = (unsigned int *)malloc(((size_t)pairs + 1u) * sizeof(unsigned int));
@@ -1058,7 +1186,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
         {
             continue;
         }
-        // Narrowing is safe: both leaves were found, so both are nonnegative.
         earlier->triple_start[(unsigned int)before + 1u] += 1u;
         earlier->triple_after[kept] = (unsigned int)after;
         earlier->triple_shared[kept] = buffers->overlap_shared[pair];
@@ -1072,8 +1199,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
     clocks->overlap += clock_microseconds() - mark;
     if (rules->cast != 0)
     {
-        // Beside what the whole view's lag met, what each cell's own lag meets, the larger of the two standing
-        // for every pair. A cell moving against the group is met where it went, and nothing else is given up.
         const unsigned long long casting = clock_microseconds();
         const int made = cast_triples(buffers, earlier, later);
         clocks->overlap += clock_microseconds() - casting;
@@ -1081,7 +1206,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
     }
     if (rules->parallax != 0)
     {
-        // The view goes along with each candidate in turn, and what stays still under that move is counted.
         const unsigned long long moving = clock_microseconds();
         const int made = still_triples(buffers, earlier, later);
         clocks->overlap += clock_microseconds() - moving;
@@ -1090,13 +1214,6 @@ static int relate_frames(EngineBuffers *buffers, TreeFrame *earlier, TreeFrame *
     return 1;
 }
 
-/**
- * @brief Path halving root of a union find over leaves or nodes, as the reference walks it.
- *
- * @param[in,out] parent The forest [BORROWS].
- * @param[in]     member The member whose root is sought.
- * @return               The root.
- */
 static unsigned int find_root(unsigned int *parent, unsigned int member)
 {
     while (parent[member] != member)
@@ -1107,19 +1224,11 @@ static unsigned int find_root(unsigned int *parent, unsigned int member)
     return member;
 }
 
-/**
- * @brief Groups one frame's leaves into objects: fragments, and merge-split where it is set.
- *
- * @param[in,out] frame    The frame [BORROWS].
- * @param[in]     previous The frame before when backward exists, otherwise NULL [BORROWS].
- * @param[in]     rules    The tree's rules [BORROWS].
- * @return                 1 on success, 0 otherwise.
- */
-static int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *next, const TreeRules *rules)
+static int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *next,
+                         unsigned int height, unsigned int width, const TreeRules *rules)
 {
     const unsigned int count = frame->leaf_count;
     unsigned int *const parent = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
-    // A second pass groups the frame again from its leaves, so whatever a first pass made is let go here.
     free(frame->object_of);
     free(frame->member_start);
     free(frame->members);
@@ -1148,8 +1257,6 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             {
                 if ((rules->merge_split != 0) && (previous != NULL))
                 {
-                    // Two joined leaves whose peaks came from one earlier object are two halves of one
-                    // over-cut cell. Narrowing is safe: both sources were found.
                     same_origin = (previous->object_of[(unsigned int)left_from]
                                    == previous->object_of[(unsigned int)right_from]);
                 }
@@ -1164,10 +1271,6 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
         if (frame->forward != NULL)
         {
             same_destination = (frame->forward[left] >= 0) && (frame->forward[left] == frame->forward[right]);
-            // Two halves of one cell go to one place. Where both halves land and the landings differ, they are
-            // two cells that touch, whatever they came from, and the repair leaves them apart. The landings are
-            // read as the next frame's objects wherever that frame has been grouped already, since two landings
-            // in one cell's two halves are one place, not two.
             const int left_to = frame->forward[left];
             const int right_to = frame->forward[right];
             const int apart = ((next != NULL) && (next->object_of != NULL))
@@ -1177,7 +1280,7 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             destinations_differ = (left_to >= 0) && (right_to >= 0) && (apart != 0);
         }
         const int origin_holds = (same_origin != 0) && ((rules->agree == 0) || (destinations_differ == 0));
-        if ((origin_holds != 0) || (same_destination != 0))
+        if ((rules->dish == 0) && ((origin_holds != 0) || (same_destination != 0)))
         {
             const unsigned int first = find_root(parent, left);
             const unsigned int second = find_root(parent, right);
@@ -1187,7 +1290,209 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
             }
         }
     }
-    // Objects are numbered by their root, ascending, as the reference sorts its groups.
+    if (rules->dish != 0)
+    {
+        const unsigned int measured = (unsigned int)((frame->null_held != NULL) && (frame->null_count != 0u)
+                                                     && (frame->forward_held != NULL));
+        unsigned int centre = 0u;
+        unsigned long long substance = 0ull;
+        for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
+        {
+            substance += (unsigned long long)frame->sizes[leaf];
+        }
+        unsigned long long per_band[DAMP_BANDS];
+        memset(per_band, 0, sizeof(per_band));
+        for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
+        {
+            per_band[band_of(frame->sizes[leaf])] += (unsigned long long)frame->sizes[leaf];
+        }
+        unsigned long long running = 0ull;
+        for (unsigned int band = 0u; band < DAMP_BANDS; band += 1u)
+        {
+            running += per_band[band];
+            if ((running * 2ull) >= substance)
+            {
+                centre = (unsigned int)band_floor(band);
+                break;
+            }
+        }
+        unsigned char *const stands = (unsigned char *)malloc((size_t)count + 1u);
+        unsigned int *const leans_on = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+        if ((stands == NULL) || (leans_on == NULL))
+        {
+            free(stands);
+            free(leans_on);
+            free(parent);
+            return 0;
+        }
+        for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
+        {
+            unsigned int reached = 0u;
+            for (unsigned int draw = 0u; (measured != 0u) && (draw < frame->null_count); draw += 1u)
+            {
+                const unsigned int drawn = frame->null_held[((size_t)draw * ((size_t)count + 1u)) + leaf];
+                reached += (unsigned int)(drawn >= frame->forward_held[leaf]);
+            }
+            stands[leaf] = (unsigned char)((measured != 0u) ? (reached == 0u)
+                                                            : (frame->sizes[leaf] >= centre));
+            leans_on[leaf] = leaf;
+        }
+        for (unsigned int pass = 0u; pass < 2u; pass += 1u)
+        {
+            for (unsigned int pair = 0u; pair < frame->joined_count; pair += 1u)
+            {
+                const unsigned int left = frame->joined[2u * pair];
+                const unsigned int right = frame->joined[2u * pair + 1u];
+                const unsigned int left_eligible = (unsigned int)((pass != 0u) || (stands[left] != 0u));
+                const unsigned int right_eligible = (unsigned int)((pass != 0u) || (stands[right] != 0u));
+                const unsigned int left_settled = (unsigned int)((pass != 0u) && (leans_on[right] != right));
+                const unsigned int right_settled = (unsigned int)((pass != 0u) && (leans_on[left] != left));
+                const int left_bigger = (left_eligible != 0u) && (left_settled == 0u)
+                                     && (frame->sizes[left] > frame->sizes[leans_on[right]]);
+                const int right_bigger = (right_eligible != 0u) && (right_settled == 0u)
+                                      && (frame->sizes[right] > frame->sizes[leans_on[left]]);
+                leans_on[right] = (left_bigger != 0) ? left : leans_on[right];
+                leans_on[left] = (right_bigger != 0) ? right : leans_on[left];
+            }
+        }
+        for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
+        {
+            const unsigned int leans = (unsigned int)((stands[leaf] == 0u) && (leans_on[leaf] != leaf)
+                                                      && (frame->sizes[leans_on[leaf]] > frame->sizes[leaf]));
+            parent[leaf] = (leans != 0u) ? leans_on[leaf] : leaf;
+        }
+        free(stands);
+        free(leans_on);
+    }
+    if (((rules->cohere != 0) || (rules->accrue != 0)) && (frame->forward_lag != NULL)
+     && (frame->joined_count != 0u))
+    {
+        const unsigned int gathered = (unsigned int)((rules->accrue != 0) && (frame->backward_lag != NULL));
+        unsigned long long *const apart = (unsigned long long *)malloc(((size_t)frame->joined_count + 1u)
+                                                                        * sizeof(unsigned long long));
+        if (apart == NULL)
+        {
+            free(parent);
+            return 0;
+        }
+        const unsigned long long plane = (unsigned long long)height * width;
+        for (unsigned int pair = 0u; pair < frame->joined_count; pair += 1u)
+        {
+            const unsigned int left = frame->joined[2u * pair];
+            const unsigned int right = frame->joined[2u * pair + 1u];
+            const int went_left = (frame->forward != NULL) ? frame->forward[left] : -1;
+            const int went_right = (frame->forward != NULL) ? frame->forward[right] : -1;
+            if ((went_left < 0) || (went_right < 0) || (next == NULL) || (next->peaks == NULL))
+            {
+                apart[pair] = 0xFFFFFFFFull;
+                continue;
+            }
+            const unsigned long long here_left = (unsigned long long)frame->peaks[left];
+            const unsigned long long here_right = (unsigned long long)frame->peaks[right];
+            const unsigned long long there_left = (unsigned long long)next->peaks[(unsigned int)went_left];
+            const unsigned long long there_right = (unsigned long long)next->peaks[(unsigned int)went_right];
+            const long long step[3] = {
+                ((long long)(there_left / plane) - (long long)(here_left / plane))
+                - ((long long)(there_right / plane) - (long long)(here_right / plane)),
+                ((long long)((there_left % plane) / width) - (long long)((here_left % plane) / width))
+                - ((long long)((there_right % plane) / width) - (long long)((here_right % plane) / width)),
+                ((long long)((there_left % plane) % width) - (long long)((here_left % plane) % width))
+                - ((long long)((there_right % plane) % width) - (long long)((here_right % plane) % width)),
+            };
+            unsigned long long between = 0ull;
+            for (unsigned int axis = 0u; axis < 3u; axis += 1u)
+            {
+                between += (unsigned long long)(step[axis] * step[axis])
+                         * (unsigned long long)AXIS_WEIGHTS[axis];
+            }
+            for (unsigned int axis = 0u; (gathered != 0u) && (axis < 3u); axis += 1u)
+            {
+                const long long back = (long long)frame->backward_lag[(3u * left) + axis]
+                                     - (long long)frame->backward_lag[(3u * right) + axis];
+                between += (unsigned long long)(back * back) * (unsigned long long)AXIS_WEIGHTS[axis];
+            }
+            apart[pair] = between;
+        }
+        unsigned long long *const order = (unsigned long long *)malloc(((size_t)frame->joined_count + 1u)
+                                                                        * sizeof(unsigned long long));
+        unsigned long long *const absorbed = (unsigned long long *)calloc((size_t)count + 1u,
+                                                                           sizeof(unsigned long long));
+        if ((order == NULL) || (absorbed == NULL))
+        {
+            free(apart);
+            free(order);
+            free(absorbed);
+            free(parent);
+            return 0;
+        }
+        for (unsigned int pair = 0u; pair < frame->joined_count; pair += 1u)
+        {
+            const unsigned long long held = (apart[pair] > 0xFFFFFFFFull) ? 0xFFFFFFFFull : apart[pair];
+            order[pair] = (held << 32u) | (unsigned long long)pair;
+        }
+        radix_sort_keys(order, frame->joined_count);
+        long long *const motion = (long long *)calloc(((size_t)count + 1u) * 3u, sizeof(long long));
+        unsigned long long *const mass = (unsigned long long *)calloc((size_t)count + 1u,
+                                                                       sizeof(unsigned long long));
+        if ((motion == NULL) || (mass == NULL))
+        {
+            free(apart);
+            free(order);
+            free(absorbed);
+            free(motion);
+            free(mass);
+            free(parent);
+            return 0;
+        }
+        for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
+        {
+            mass[leaf] = (unsigned long long)frame->sizes[leaf];
+            for (unsigned int axis = 0u; axis < 3u; axis += 1u)
+            {
+                motion[(3u * leaf) + axis] = (long long)frame->forward_lag[(3u * leaf) + axis]
+                                           * (long long)frame->sizes[leaf];
+            }
+        }
+        for (unsigned int at = 0u; at < frame->joined_count; at += 1u)
+        {
+            const unsigned int pair = (unsigned int)(order[at] & 0xFFFFFFFFull);
+            const unsigned int first = find_root(parent, frame->joined[2u * pair]);
+            const unsigned int second = find_root(parent, frame->joined[2u * pair + 1u]);
+            if (first == second)
+            {
+                continue;
+            }
+            unsigned long long between = 0ull;
+            for (unsigned int axis = 0u; axis < 3u; axis += 1u)
+            {
+                const long long step = (motion[(3u * first) + axis] * (long long)mass[second])
+                                     - (motion[(3u * second) + axis] * (long long)mass[first]);
+                const unsigned long long scale = mass[first] * mass[second];
+                const long long mean = (scale != 0ull) ? (step / (long long)scale) : 0ll;
+                between += (unsigned long long)(mean * mean) * (unsigned long long)AXIS_WEIGHTS[axis];
+            }
+            const unsigned long long history = (absorbed[first] > absorbed[second]) ? absorbed[first]
+                                                                                     : absorbed[second];
+            const unsigned int fresh = (unsigned int)(history == 0ull);
+            const unsigned int near = (unsigned int)(band_of(between) <= (band_of(history) + 1u));
+            const unsigned int joins = (unsigned int)((fresh != 0u) || (near != 0u));
+            absorbed[first] = ((joins != 0u) && (fresh != 0u)) ? ((between != 0ull) ? between : 1ull)
+                                                              : absorbed[first];
+            for (unsigned int axis = 0u; (joins != 0u) && (axis < 3u); axis += 1u)
+            {
+                motion[(3u * first) + axis] += motion[(3u * second) + axis];
+            }
+            mass[first] += (joins != 0u) ? mass[second] : 0ull;
+            parent[second] = (joins != 0u) ? first : parent[second];
+            s_cohere_joined += (unsigned long long)(joins != 0u);
+        }
+        free(motion);
+        free(mass);
+        s_cohere_pairs += (unsigned long long)frame->joined_count;
+        free(apart);
+        free(order);
+        free(absorbed);
+    }
     unsigned int *const number_of_root = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
     if (number_of_root == NULL)
     {
@@ -1232,30 +1537,9 @@ static int group_objects(TreeFrame *frame, const TreeFrame *previous, const Tree
     return 1;
 }
 
-/**
- * @brief The weighted squared magnitude of the disagreement between the two directions: what a leaf of the
- *        earlier frame says its step is, and what a leaf of the later frame says its step back is. Two views of
- *        one cell mirror each other, so their sum is nothing; two different cells do not, and their sum is the
- *        magnitude of how much they differ. The centres cancel in that difference, so this is motion against
- *        motion and nothing else.
- *
- * Each side is read at its lag, the step it was carried by, and at its lead, the step it was already making
- * carried on, and the pair of them that agrees most stands. The sweep boxes the disagreement a voxel wide at
- * first and doubling out, so the step it is met at says how far the two are from mirroring.
- *
- * @param[in] earlier The earlier frame [BORROWS].
- * @param[in] leaf    The leaf going somewhere.
- * @param[in] later   The later frame [BORROWS].
- * @param[in] other   The leaf it is measured against.
- * @return            The squared magnitude.
- */
 static unsigned long long leaf_disagreement(const TreeFrame *earlier, unsigned int leaf, const TreeFrame *later,
-                                            unsigned int other)
+                                            unsigned int other, const unsigned int *band)
 {
-    // This side's lag is the step it was carried by; its lead is the step it was already making, carried on.
-    // The other side reads the same way in its own direction: its lag is the step it was carried back by, its
-    // lead the step it was already making back. Two views of one cell mirror, so a side's step plus the other's
-    // is nothing.
     const int *const lag = (earlier->forward_lag != NULL) ? &earlier->forward_lag[3u * (size_t)leaf]
                                                           : earlier->lag_to_next;
     const int *const came = (earlier->backward_lag != NULL) ? &earlier->backward_lag[3u * (size_t)leaf] : NULL;
@@ -1263,8 +1547,6 @@ static unsigned long long leaf_disagreement(const TreeFrame *earlier, unsigned i
     const int *const onward = (later->forward_lag != NULL) ? &later->forward_lag[3u * (size_t)other] : NULL;
     const int other_lag[3] = {(back != NULL) ? back[0] : -lag[0], (back != NULL) ? back[1] : -lag[1],
                               (back != NULL) ? back[2] : -lag[2]};
-    // A lead is a step read over the gap before it and carried over the gap ahead, so it is scaled by the one
-    // and divided by the other, rounded half away from zero. A step of nothing scales to nothing.
     const long long ahead = (long long)((later->step_back != 0u) ? later->step_back : 1u);
     const long long behind = (long long)((earlier->step_back != 0u) ? earlier->step_back : 1u);
     const long long onwards = (long long)((later->step_next != 0u) ? later->step_next : 1u);
@@ -1275,15 +1557,12 @@ static unsigned long long leaf_disagreement(const TreeFrame *earlier, unsigned i
         const long long mine = (came != NULL) ? (-(long long)came[axis] * ahead) : ((long long)lag[axis] * behind);
         const long long theirs = (onward != NULL) ? (-(long long)onward[axis] * ahead)
                                                   : ((long long)other_lag[axis] * onwards);
-        // Narrowing is safe: a scaled step of the view is far below 2^31.
         lead[axis] = (int)((mine + ((mine >= 0ll) ? behind : -behind) / 2ll) / behind);
         other_lead[axis] = (int)((theirs + ((theirs >= 0ll) ? onwards : -onwards) / 2ll) / onwards);
     }
     unsigned long long shortest = 0xFFFFFFFFFFFFFFFFull;
     for (unsigned int pairing = 0u; pairing < 4u; pairing += 1u)
     {
-        // Lag against lag, lag against lead, lead against lag, lead against lead: the way the two sides are
-        // read is swept as well, and the reading they agree most in stands.
         const int *const mine = ((pairing & 1u) == 0u) ? lag : lead;
         const int *const theirs = ((pairing & 2u) == 0u) ? other_lag : other_lead;
         unsigned long long magnitude = 0ull;
@@ -1291,18 +1570,16 @@ static unsigned long long leaf_disagreement(const TreeFrame *earlier, unsigned i
         for (unsigned int axis = 0u; axis < 3u; axis += 1u)
         {
             const long long apart = (long long)mine[axis] + (long long)theirs[axis];
-            // Widening to unsigned long long is exact: a squared step of the view is far below 2^63.
             const unsigned long long spread = (unsigned long long)((apart < 0ll) ? -apart : apart);
-            magnitude += (unsigned long long)(apart * apart) * (unsigned long long)AXIS_WEIGHTS[axis];
+            const unsigned int cut = (band != NULL) ? band[axis] : 0u;
+            magnitude += ((unsigned long long)(apart * apart) * (unsigned long long)AXIS_WEIGHTS[axis]) >> cut;
             widest = (spread > widest) ? spread : widest;
         }
-        // The step is the finest box that holds the widest axis, read off once instead of walked.
         unsigned int step = 0u;
         for (unsigned int sweep = 0u; sweep < LINK_SWEEP_STEPS; sweep += 1u)
         {
             step += (unsigned int)((1ull << step) < widest);
         }
-        // The step the disagreement was boxed at leads, and the magnitude orders what one step holds.
         const unsigned long long swept = ((unsigned long long)step << LINK_MAGNITUDE_BITS)
                                        | (magnitude & LINK_MAGNITUDE_MASK);
         shortest = (swept < shortest) ? swept : shortest;
@@ -1310,17 +1587,6 @@ static unsigned long long leaf_disagreement(const TreeFrame *earlier, unsigned i
     return shortest;
 }
 
-/**
- * @brief Every leaf of a frame casts its own voxels onto the next frame, each carried by the lag that leaf
- *        climbed to, and counts where they land: per pair of leaves, the voxels of the earlier that fall in the
- *        later. That is the same count the overlap engine takes, except that each cell is carried by its own
- *        motion instead of the whole view's, so a cell moving against the group is still met where it went.
- *
- * @param[in,out] buffers The buffers, the earlier frame grouped in slot 0 and the later's labels in slot 1 [BORROWS].
- * @param[in,out] earlier The earlier frame, which takes the triples [BORROWS].
- * @param[in]     later   The later frame [BORROWS].
- * @return                1 on success, 0 on a failure.
- */
 static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFrame *later)
 {
     const long long depth = (long long)buffers->depth;
@@ -1333,7 +1599,6 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
     unsigned int *const held = (unsigned int *)calloc((size_t)later->leaf_count + 1u, sizeof(unsigned int));
     unsigned int *const stamp = (unsigned int *)calloc((size_t)later->leaf_count + 1u, sizeof(unsigned int));
     unsigned int *const touched = (unsigned int *)malloc(((size_t)later->leaf_count + 1u) * sizeof(unsigned int));
-    // A leaf casts onto at most as many leaves as it has voxels, and the room grows where that is not enough.
     size_t room = (size_t)earlier->leaf_count * 8u + 16u;
     unsigned int *const starts = (unsigned int *)calloc((size_t)earlier->leaf_count + 2u, sizeof(unsigned int));
     unsigned int *after = (unsigned int *)malloc(room * sizeof(unsigned int));
@@ -1343,7 +1608,6 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
           && (shared != NULL);
     for (unsigned int leaf = 0u; (ok != 0) && (leaf < later->leaf_count); leaf += 1u)
     {
-        // Narrowing is safe: a leaf count is below 2^31.
         leaf_at_peak[later->peaks[leaf]] = (int)leaf;
     }
     unsigned int kept = 0u;
@@ -1352,8 +1616,6 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
         const int *const lag = (earlier->forward_lag != NULL) ? &earlier->forward_lag[3u * (size_t)leaf]
                                                               : earlier->lag_to_next;
         unsigned int met = 0u;
-        // What the whole view's lag already met stands beside what this cell's own lag meets, so a cell that
-        // moved against the group is met where it went without losing what the group's lag saw.
         const unsigned int held_first = (earlier->triple_start != NULL) ? earlier->triple_start[leaf] : 0u;
         const unsigned int held_past = (earlier->triple_start != NULL) ? earlier->triple_start[leaf + 1u] : 0u;
         for (unsigned int pair = held_first; pair < held_past; pair += 1u)
@@ -1371,21 +1633,17 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
         {
             const unsigned int voxel = buffers->basin_voxels[0][at];
             const unsigned int rest = voxel % plane;
-            // Widening to long long keeps a landing outside the view representable before the bounds test.
             const long long z = (long long)(voxel / plane) + (long long)lag[0];
             const long long y = (long long)(rest / buffers->width) + (long long)lag[1];
             const long long x = (long long)(rest % buffers->width) + (long long)lag[2];
             const int inside = (z >= 0ll) && (z < depth) && (y >= 0ll) && (y < height) && (x >= 0ll) && (x < width);
-            // Narrowing is safe: the index is read only where the landing lies inside the view.
             const unsigned int landed = (unsigned int)(((z * height) + y) * width + x);
             const int other = (inside != 0) ? leaf_at_peak[labels[landed]] : -1;
             if (other < 0)
             {
                 continue;
             }
-            // Narrowing is safe: the leaf was found, so it is nonnegative.
             const unsigned int found = (unsigned int)other;
-            // A leaf met for the first time by this one takes a place in the list and starts its count at zero.
             const unsigned int fresh = (unsigned int)(stamp[found] != (leaf + 1u));
             touched[met] = found;
             met += fresh;
@@ -1404,7 +1662,6 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
             ok = (wider_after != NULL) && (wider_shared != NULL);
             room = (ok != 0) ? grown : room;
         }
-        // The leaves met, ascending, so a pair's place never depends on the order the voxels were walked.
         for (unsigned int step = 1u; (ok != 0) && (step < met); step += 1u)
         {
             const unsigned int value = touched[step];
@@ -1419,7 +1676,6 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
         for (unsigned int step = 0u; (ok != 0) && (step < met); step += 1u)
         {
             after[kept] = touched[step];
-            // The larger of the two: what the group's lag met, and what this cell's own lag met.
             shared[kept] = (counts[touched[step]] > held[touched[step]]) ? counts[touched[step]]
                                                                         : held[touched[step]];
             counts[touched[step]] = 0u;
@@ -1457,13 +1713,6 @@ static int cast_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFr
     return 1;
 }
 
-/**
- * @brief An object's centre, as its leaves' index sums divided by their voxels, rounded half away from zero.
- *
- * @param[in]  frame  The frame [BORROWS].
- * @param[in]  object The object.
- * @param[out] centre Three: z y x [BORROWS].
- */
 static void object_centre(const TreeFrame *frame, unsigned int object, long long *centre)
 {
     unsigned long long voxels = 0ull;
@@ -1477,27 +1726,12 @@ static void object_centre(const TreeFrame *frame, unsigned int object, long long
             sums[axis] += frame->sums[(3u * (size_t)leaf) + axis];
         }
     }
-    // An object holds at least one positive voxel, so the divisor is never zero.
     for (unsigned int axis = 0u; axis < 3u; axis += 1u)
     {
         centre[axis] = (long long)(((sums[axis] * 2ull) + voxels) / (voxels * 2ull));
     }
 }
 
-/**
- * @brief How sharply a track bends where it goes through a candidate: the second difference of the places it
- *        passes, weighted as the view weighs them. A cell carries on the way it was going, so a true step arcs
- *        and a step onto a neighbour kinks. Where nothing comes before or after there is no bend to read and
- *        the arc is nothing, which leaves the candidates as they stood.
- *
- * @param[in] before    The frame before the earlier one, or NULL [BORROWS].
- * @param[in] earlier   The earlier frame [BORROWS].
- * @param[in] object    The object of the earlier frame.
- * @param[in] later     The later frame [BORROWS].
- * @param[in] candidate The object of the later frame the track would go through.
- * @param[in] after     The frame after the later one, or NULL [BORROWS].
- * @return              The weighted squared bend, nothing where there is nothing to read.
- */
 static unsigned long long track_bend(const TreeFrame *before, const TreeFrame *earlier, unsigned int object,
                                      const TreeFrame *later, unsigned int candidate, const TreeFrame *after)
 {
@@ -1506,7 +1740,6 @@ static unsigned long long track_bend(const TreeFrame *before, const TreeFrame *e
     object_centre(earlier, object, here);
     object_centre(later, candidate, there);
     unsigned long long bend = 0ull;
-    // Where the cell came from: the object its own leaves land back in, taken from the leaf holding most voxels.
     unsigned int came_from = 0xFFFFFFFFu;
     unsigned int widest = 0u;
     for (unsigned int member = earlier->member_start[object]; (before != NULL) && (earlier->backward != NULL)
@@ -1525,11 +1758,9 @@ static unsigned long long track_bend(const TreeFrame *before, const TreeFrame *e
         for (unsigned int axis = 0u; axis < 3u; axis += 1u)
         {
             const long long turn = (there[axis] - here[axis]) - (here[axis] - was[axis]);
-            // Widening to unsigned long long is exact: a squared step of the view is far below 2^63.
             bend += (unsigned long long)(turn * turn) * (unsigned long long)AXIS_WEIGHTS[axis];
         }
     }
-    // Where the candidate goes on to: the same reading, one frame further along.
     unsigned int goes_to = 0xFFFFFFFFu;
     widest = 0u;
     for (unsigned int member = later->member_start[candidate]; (after != NULL) && (later->forward != NULL)
@@ -1554,20 +1785,6 @@ static unsigned long long track_bend(const TreeFrame *before, const TreeFrame *e
     return bend;
 }
 
-/**
- * @brief For every pair of leaves already met, the voxels that stay still once the view moves with the candidate.
- *
- * A cell and the candidate it might be are set side by side by moving the view by the step between their
- * centres, which is the observer going along with the candidate rather than the cell being carried by a lag it
- * guessed. Under that move the same cell stands still and nearly all of it coincides; a neighbour that merely
- * lies nearby does not, however many voxels it shares at the whole view's lag. The count is what is left
- * standing still, and it is the magnitude the pool is read by.
- *
- * @param[in,out] buffers The buffers, the earlier frame grouped in slot 0 and the later's labels in slot 1 [BORROWS].
- * @param[in,out] earlier The earlier frame, whose triples take the counts [BORROWS].
- * @param[in]     later   The later frame [BORROWS].
- * @return                1 on success, 0 on a failure.
- */
 static int still_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeFrame *later)
 {
     const long long depth = (long long)buffers->depth;
@@ -1581,7 +1798,6 @@ static int still_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeF
     int ok = (earlier->triple_still != NULL) ? 1 : 0;
     for (unsigned int leaf = 0u; (ok != 0) && (leaf < later->leaf_count); leaf += 1u)
     {
-        // Narrowing is safe: a leaf count is below 2^31.
         leaf_at_peak[later->peaks[leaf]] = (int)leaf;
     }
     for (unsigned int leaf = 0u; (ok != 0) && (leaf < earlier->leaf_count); leaf += 1u)
@@ -1596,8 +1812,6 @@ static int still_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeF
             long long step[3];
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
             {
-                // Both centres at once, rounded half away from zero: a basin holds at least one voxel, so
-                // neither divisor is zero, and the step is the move that sets the two side by side.
                 const unsigned long long mine = earlier->sums[(3u * (size_t)leaf) + axis];
                 const unsigned long long theirs = later->sums[(3u * (size_t)other) + axis];
                 const long long from = (long long)(((mine * 2ull) + own_voxels) / (own_voxels * 2ull));
@@ -1609,16 +1823,13 @@ static int still_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeF
             {
                 const unsigned int voxel = buffers->basin_voxels[0][at];
                 const unsigned int rest = voxel % plane;
-                // Widening to long long keeps a move off the view representable before the bounds test.
                 const long long z = (long long)(voxel / plane) + step[0];
                 const long long y = (long long)(rest / buffers->width) + step[1];
                 const long long x = (long long)(rest % buffers->width) + step[2];
                 const int inside = (z >= 0ll) && (z < depth) && (y >= 0ll) && (y < height) && (x >= 0ll)
                                 && (x < width);
-                // Narrowing is safe: the index is read only where the move lands inside the view.
                 const unsigned int moved = (unsigned int)(((z * height) + y) * width + x);
                 const int met = (inside != 0) ? leaf_at_peak[labels[moved]] : -1;
-                // Narrowing is safe: a leaf index is far below 2^31.
                 still += (unsigned int)(met == (int)other);
             }
             earlier->triple_still[pair] = still;
@@ -1631,24 +1842,213 @@ static int still_triples(EngineBuffers *buffers, TreeFrame *earlier, const TreeF
     return ok;
 }
 
-/** @brief Rounds the settling takes before it stands, however much is still moving. */
+#define TOWER_ROUNDS 64u
+
 #define SETTLE_ROUNDS 64u
 
-/**
- * @brief Settles the cells that reach for one target between them: the survivor is the one with the most to
- *        lose, and the rest take the next candidate their pool holds.
- *
- * Every cell picked its target alone, so two cells can reach for the same one and the wrong one can hold it: the
- * cell it truly belongs to may meet it in fewer voxels than a neighbour that has a target of its own to go to.
- * The delta says which is which. A cell's delta is what it meets its best in less what it meets its second in,
- * which is what it gives up by being turned away, and the cell with the largest delta survives the contest
- * while the others fall to their next candidate. Falling changes their deltas, so it runs again until a round
- * turns nobody away, and every choice inside a round is a mask.
- *
- * @param[in,out] earlier The earlier frame, linked and holding its pools [BORROWS].
- * @param[in]     later   The later frame [BORROWS].
- * @return                1 on success, 0 on a failure.
- */
+#define FOCUS_PASSES 8u
+
+#define FOCUS_MEMBERS 4u
+
+#define WEB_MEMBERS 24u
+
+static unsigned long long web_count(const TreeFrame *earlier, unsigned int object, const TreeFrame *later,
+                                    unsigned int candidate, const unsigned int *near_start,
+                                    const unsigned int *nearby, const unsigned int *later_near_start,
+                                    const unsigned int *later_nearby, unsigned int *seen, unsigned int mark)
+{
+    unsigned long long kept = 0ull;
+    for (unsigned int member = earlier->member_start[object]; member < earlier->member_start[object + 1u];
+         member += 1u)
+    {
+        const unsigned int leaf = earlier->members[member];
+        for (unsigned int near = near_start[leaf]; near < near_start[leaf + 1u]; near += 1u)
+        {
+            const unsigned int neighbour = nearby[near];
+            const unsigned int outside = (unsigned int)(earlier->object_of[neighbour] != object);
+            const unsigned int fresh = (unsigned int)(seen[neighbour] != mark);
+            seen[neighbour] = (outside != 0u) ? mark : seen[neighbour];
+            const int landing = ((outside != 0u) && (fresh != 0u)) ? earlier->forward[neighbour] : -1;
+            if (landing < 0)
+            {
+                continue;
+            }
+            const unsigned int landed = (unsigned int)landing;
+            unsigned int beside = 0u;
+            for (unsigned int step = later_near_start[landed]; step <= later_near_start[landed + 1u]; step += 1u)
+            {
+                const unsigned int other = (step < later_near_start[landed + 1u]) ? later_nearby[step] : landed;
+                beside |= (unsigned int)(later->object_of[other] == candidate);
+            }
+            kept += (unsigned long long)(beside != 0u);
+        }
+    }
+    return kept;
+}
+
+#define DAMP_DEVIATIONS 3ull
+
+static unsigned long long s_web_asked = 0ull;
+static unsigned long long s_web_moved = 0ull;
+static unsigned long long s_web_capped = 0ull;
+
+static const char *s_log_path = "track_driver.log";
+
+static unsigned long long s_web_logged[5] = {0ull, 0ull, 0ull, 0ull, 0ull};
+
+static char s_rules_line[256] = {0};
+
+static void rules_line(const TreeRules *rules, char *line, size_t room)
+{
+    const struct
+    {
+        const char *name;
+        int on;
+    } every[] = {
+        {"pick", rules->pick}, {"share", rules->share}, {"agree", rules->agree}, {"unbound", rules->unbound},
+        {"cast", rules->cast}, {"parallax", rules->parallax}, {"arc", rules->arc}, {"settle", rules->settle},
+        {"focus", rules->focus}, {"web", rules->web}, {"damp", rules->damp}, {"dish", rules->dish}, {"vote", rules->vote}, {"mutual", rules->mutual}, {"tower", rules->tower}, {"mass", rules->mass}, {"forest", rules->forest}, {"cohere", rules->cohere}, {"accrue", rules->accrue},
+        {"merge-split", rules->merge_split},
+        {"merge-target", rules->merge_target}, {"forward-only", rules->forward_only},
+        {"keep-view", rules->keep_view}, {"resolve", rules->resolve}, {"sticky", rules->sticky},
+        {"motion-check", rules->motion_check}, {"climb", rules->climb},
+    };
+    line[0] = '\0';
+    for (unsigned int slot = 0u; slot < (unsigned int)(sizeof(every) / sizeof(every[0])); slot += 1u)
+    {
+        const size_t at = strlen(line);
+        const int fits = (every[slot].on != 0) && ((at + strlen(every[slot].name) + 2u) < room);
+        if (fits != 0)
+        {
+            snprintf(&line[at], room - at, " %s", every[slot].name);
+        }
+    }
+}
+
+static FILE *log_open(void)
+{
+    FILE *const log = fopen(s_log_path, "a");
+    const int sought = (log != NULL) ? fseek(log, 0L, SEEK_END) : -1;
+    if ((sought == 0) && (ftell(log) <= 0L))
+    {
+        fprintf(log, "when\tkind\trules\tsample\tframes\tobjects\tleaves\tlargest\trejoined"
+                     "\tedges\tcorrect\tbranched\twrong\tno_link\tmissed"
+                     "\tread_ms\tbasins_ms\tstore_ms\tties_ms\tmotion_ms\tlanding_ms\toverlap_ms\tclimb_ms"
+                     "\tengines_ms\ttree_ms\tweb_asked\tweb_moved\tweb_capped\tweb_members"
+                     "\tdamp_leaves\tdamp_landings\tdamp_deviations\n");
+    }
+    return log;
+}
+
+static void log_when(char *when, size_t room)
+{
+    const time_t now = time(NULL);
+    const struct tm *const broken = localtime(&now);
+    when[0] = '\0';
+    if (broken != NULL)
+    {
+        strftime(when, room, "%Y-%m-%dT%H:%M:%S", broken);
+    }
+}
+
+static const char *log_rules(void)
+{
+    return (s_rules_line[0] != '\0') ? &s_rules_line[1] : "none";
+}
+
+static unsigned int arm_landing(const TreeFrame *tree, unsigned int object, const TreeFrame *beyond)
+{
+    if ((tree->arm_forward == NULL) || (tree->arm_count == 0u) || (beyond == NULL))
+    {
+        return 0xFFFFFFFFu;
+    }
+    unsigned int widest = 0u;
+    unsigned int landed = 0xFFFFFFFFu;
+    for (unsigned int member = tree->member_start[object]; member < tree->member_start[object + 1u]; member += 1u)
+    {
+        const unsigned int leaf = tree->members[member];
+        const int reached = tree->arm_forward[leaf];
+        const unsigned int voxels = tree->sizes[leaf];
+        landed = ((reached >= 0) && (voxels > widest)) ? beyond->object_of[(unsigned int)reached] : landed;
+        widest = ((reached >= 0) && (voxels > widest)) ? voxels : widest;
+    }
+    return landed;
+}
+
+static unsigned int onward_of(const TreeFrame *later, unsigned int target)
+{
+    if ((later->link_start == NULL) || (later->link_start[target + 1u] <= later->link_start[target]))
+    {
+        return 0xFFFFFFFFu;
+    }
+    return later->link_target[later->link_start[target]];
+}
+
+static unsigned int focus_links(TreeFrame *frames, unsigned int frame_count)
+{
+    unsigned int moved = 0u;
+    for (unsigned int pass = 0u; pass < FOCUS_PASSES; pass += 1u)
+    {
+        unsigned int moving = 0u;
+        for (unsigned int step = 0u; (step + 2u) < frame_count; step += 1u)
+        {
+            const unsigned int frame = ((pass & 1u) == 0u) ? step : (frame_count - 3u - step);
+            TreeFrame *const tree = &frames[frame];
+            const TreeFrame *const later = &frames[frame + 1u];
+            const TreeFrame *const beyond = &frames[frame + 2u];
+            if ((tree->pool_start == NULL) || (tree->link_start == NULL) || (tree->arm_forward == NULL))
+            {
+                continue;
+            }
+            for (unsigned int object = 0u; object < tree->object_count; object += 1u)
+            {
+                const unsigned int members = tree->member_start[object + 1u] - tree->member_start[object];
+                if (members > FOCUS_MEMBERS)
+                {
+                    continue;
+                }
+                const unsigned int reached = arm_landing(tree, object, beyond);
+                const unsigned int links = tree->link_start[object + 1u] - tree->link_start[object];
+                const unsigned int taken = (links == 1u) ? tree->link_target[tree->link_start[object]] : 0xFFFFFFFFu;
+                const unsigned int leads = (taken != 0xFFFFFFFFu) ? onward_of(later, taken) : 0xFFFFFFFFu;
+                if ((reached == 0xFFFFFFFFu) || (leads == 0xFFFFFFFFu) || (reached == leads))
+                {
+                    continue;
+                }
+                unsigned int held = 0u;
+                for (unsigned int slot = tree->pool_start[object]; slot < tree->pool_start[object + 1u]; slot += 1u)
+                {
+                    held = (tree->pool_target[slot] == taken) ? tree->pool_weight[slot] : held;
+                }
+                unsigned int found = 0xFFFFFFFFu;
+                unsigned int most = 0u;
+                for (unsigned int slot = tree->pool_start[object]; slot < tree->pool_start[object + 1u]; slot += 1u)
+                {
+                    const unsigned int candidate = tree->pool_target[slot];
+                    const unsigned int agrees = (unsigned int)(onward_of(later, candidate) == reached);
+                    const unsigned int level = (unsigned int)((tree->pool_weight[slot] * 2u) >= held);
+                    const int ahead = (agrees != 0u) && (level != 0u)
+                                   && ((tree->pool_weight[slot] > most) || (found == 0xFFFFFFFFu));
+                    most = (ahead != 0) ? tree->pool_weight[slot] : most;
+                    found = (ahead != 0) ? candidate : found;
+                }
+                if ((found == 0xFFFFFFFFu) || (found == taken))
+                {
+                    continue;
+                }
+                tree->link_target[tree->link_start[object]] = found;
+                moving += 1u;
+            }
+        }
+        moved += moving;
+        if (moving == 0u)
+        {
+            break;
+        }
+    }
+    return moved;
+}
+
 static int settle_links(TreeFrame *earlier, const TreeFrame *later)
 {
     const unsigned int objects = earlier->object_count;
@@ -1656,10 +2056,8 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
     {
         return 1;
     }
-    // Per cell, the pool entry it holds now, and per pool entry, whether the cell was turned away from it.
     unsigned int *const held = (unsigned int *)malloc(((size_t)objects + 1u) * sizeof(unsigned int));
     unsigned char *const turned = (unsigned char *)calloc((size_t)earlier->pool_start[objects] + 1u, 1u);
-    // Per target, the cell surviving the contest for it, and the delta that survivor carried.
     unsigned int *const survivor = (unsigned int *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned int));
     unsigned long long *const standing = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
                                                                       * sizeof(unsigned long long));
@@ -1671,7 +2069,6 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
         free(standing);
         return 0;
     }
-    // What each cell holds to begin with is what it linked to, found in its own pool.
     for (unsigned int object = 0u; object < objects; object += 1u)
     {
         const unsigned int linked = (earlier->link_start[object + 1u] > earlier->link_start[object])
@@ -1690,7 +2087,6 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
             survivor[target] = 0xFFFFFFFFu;
             standing[target] = 0ull;
         }
-        // Each cell's delta: what it meets the one it holds in, less what it meets its best untried other in.
         for (unsigned int object = 0u; object < objects; object += 1u)
         {
             const unsigned int slot = held[object];
@@ -1707,7 +2103,6 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
                        ? (unsigned long long)earlier->pool_weight[other] : second;
             }
             const unsigned long long mine = (unsigned long long)earlier->pool_weight[slot];
-            // A cell meeting its next candidate as well as this one gives up nothing by moving on.
             const unsigned long long delta = (mine > second) ? (mine - second) : 0ull;
             const unsigned int target = earlier->pool_target[slot];
             const int ahead = (delta > standing[target])
@@ -1728,8 +2123,6 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
             {
                 continue;
             }
-            // Turned away: the cell takes the best candidate it has not been turned away from, and where it has
-            // none left it keeps the one it had, since a cell that goes nowhere is worse than a cell that shares.
             turned[slot] = 1u;
             unsigned int next = 0xFFFFFFFFu;
             unsigned long long most = 0ull;
@@ -1747,7 +2140,6 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
             moving += (unsigned int)(next != 0xFFFFFFFFu);
         }
     }
-    // The survivors are the links now, one per cell that holds anything.
     unsigned int written = 0u;
     for (unsigned int object = 0u; object < objects; object += 1u)
     {
@@ -1763,17 +2155,6 @@ static int settle_links(TreeFrame *earlier, const TreeFrame *later)
     return 1;
 }
 
-/**
- * @brief Links one frame's objects to the next frame's with nothing kept out of the pool: every object a source
- *        shares a voxel with, and every object its leaves land in, stands as a candidate. The one kept is the
- *        candidate leaving the shortest vector when a leaf of the source is carried by its own lag onto a leaf
- *        of the candidate, by weighted squared magnitude, with z weighed as the view weighs it. Exact ties all
- *        stay, as the reference keeps them. Every choice is a mask, never a branch.
- *
- * @param[in,out] earlier The earlier frame, with its objects, lags and overlap [BORROWS].
- * @param[in]     later   The later frame, with its objects [BORROWS].
- * @return                1 on success, 0 otherwise.
- */
 static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, const TreeFrame *before,
                                 const TreeFrame *after, const TreeRules *rules)
 {
@@ -1786,17 +2167,42 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
                                                                     * sizeof(unsigned long long));
     unsigned long long *const under = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
                                                                    * sizeof(unsigned long long));
-    // A stamp per later object says which source last put it in the pool, so a candidate is added once, and a
-    // place says where in the pool it went, so what is met again lands on the same candidate.
     unsigned int *const stamp = (unsigned int *)calloc((size_t)later->object_count + 1u, sizeof(unsigned int));
     unsigned int *const place = (unsigned int *)calloc((size_t)later->object_count + 1u, sizeof(unsigned int));
-    // The voxels every object of the next frame holds, taken once, so the share rule can weigh a candidate
-    // against what it and this cell hold together instead of against its size alone.
+    unsigned long long *const votes = (rules->vote != 0)
+                                    ? (unsigned long long *)malloc(((size_t)later->object_count + 1u)
+                                                                   * sizeof(unsigned long long))
+                                    : NULL;
     unsigned long long *const target_voxels = (unsigned long long *)calloc((size_t)later->object_count + 1u,
                                                                            sizeof(unsigned long long));
     for (unsigned int leaf = 0u; (target_voxels != NULL) && (leaf < later->leaf_count); leaf += 1u)
     {
         target_voxels[later->object_of[leaf]] += (unsigned long long)later->sizes[leaf];
+    }
+    unsigned int *near_start = NULL;
+    unsigned int *nearby = NULL;
+    unsigned int *later_near_start = NULL;
+    unsigned int *later_nearby = NULL;
+    unsigned int *seen = NULL;
+    unsigned int mark = 0u;
+    if (rules->web != 0)
+    {
+        const int joined = (frame_contacts(earlier, &near_start, &nearby) != 0)
+                        && (frame_contacts(later, &later_near_start, &later_nearby) != 0);
+        seen = (unsigned int *)calloc((size_t)earlier->leaf_count + 2u, sizeof(unsigned int));
+        if ((joined == 0) || (seen == NULL))
+        {
+            free(near_start);
+            free(nearby);
+            free(later_near_start);
+            free(later_nearby);
+            free(seen);
+            near_start = NULL;
+            nearby = NULL;
+            later_near_start = NULL;
+            later_nearby = NULL;
+            seen = NULL;
+        }
     }
     earlier->link_start = (unsigned int *)calloc((size_t)objects + 2u, sizeof(unsigned int));
     earlier->link_target = (unsigned int *)malloc(room * sizeof(unsigned int));
@@ -1811,9 +2217,14 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
         free(stamp);
         free(place);
         free(target_voxels);
+        free(votes);
+        free(near_start);
+        free(nearby);
+        free(later_near_start);
+        free(later_nearby);
+        free(seen);
         return 0;
     }
-    // The pool is at most what the room holds, since every entry is a leaf met or a leaf landed in.
     earlier->pool_start = (unsigned int *)calloc((size_t)objects + 2u, sizeof(unsigned int));
     earlier->pool_target = (unsigned int *)malloc(room * sizeof(unsigned int));
     earlier->pool_weight = (unsigned int *)malloc(room * sizeof(unsigned int));
@@ -1830,6 +2241,50 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
         earlier->pool_weight = NULL;
         earlier->pool_cost = NULL;
     }
+    unsigned int *level = NULL;
+    if ((rules->damp != 0) && (earlier->forward_lag != NULL) && (earlier->leaf_count != 0u))
+    {
+        level = (unsigned int *)calloc((size_t)earlier->leaf_count + 2u, sizeof(unsigned int));
+    }
+    unsigned int *spectrum = (level != NULL)
+                           ? (unsigned int *)calloc((size_t)DAMP_DIMENSIONS * DAMP_BANDS, sizeof(unsigned int))
+                           : NULL;
+    unsigned int *gain = (spectrum != NULL)
+                       ? (unsigned int *)calloc(((size_t)earlier->leaf_count + 2u) * DAMP_DIMENSIONS,
+                                                sizeof(unsigned int))
+                       : NULL;
+    if (gain != NULL)
+    {
+        unsigned long long spread[DAMP_DIMENSIONS] = {0ull, 0ull, 0ull};
+        const unsigned long long counted = (unsigned long long)earlier->leaf_count;
+        for (unsigned int leaf = 0u; leaf < earlier->leaf_count; leaf += 1u)
+        {
+            const int *const own = &earlier->forward_lag[3u * leaf];
+            for (unsigned int axis = 0u; axis < DAMP_DIMENSIONS; axis += 1u)
+            {
+                const int apart = own[axis] - earlier->lag_to_next[axis];
+                const unsigned long long far = (unsigned long long)((apart < 0) ? -apart : apart);
+                spread[axis] += far;
+                spectrum[(axis * DAMP_BANDS) + band_of(far)] += 1u;
+            }
+        }
+        const unsigned int whole = band_of(counted);
+        for (unsigned int leaf = 0u; leaf < earlier->leaf_count; leaf += 1u)
+        {
+            const int *const own = &earlier->forward_lag[3u * leaf];
+            unsigned int out = 0u;
+            for (unsigned int axis = 0u; axis < DAMP_DIMENSIONS; axis += 1u)
+            {
+                const int apart = own[axis] - earlier->lag_to_next[axis];
+                const unsigned long long far = (unsigned long long)((apart < 0) ? -apart : apart);
+                const unsigned int held = band_of((unsigned long long)spectrum[(axis * DAMP_BANDS) + band_of(far)]);
+                gain[(leaf * DAMP_DIMENSIONS) + axis] = (whole > held) ? (whole - held) : 0u;
+                out += (unsigned int)((far * counted) > (spread[axis] * DAMP_DEVIATIONS));
+            }
+            level[leaf] = (out != 0u) ? 1u : 0u;
+            s_damp_leaves += (unsigned long long)(out != 0u);
+        }
+    }
     unsigned int written = 0u;
     unsigned int gathered = 0u;
     for (unsigned int object = 0u; object < objects; object += 1u)
@@ -1841,17 +2296,18 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
             const unsigned int leaf = earlier->members[member];
             const unsigned int first = (earlier->triple_start != NULL) ? earlier->triple_start[leaf] : 0u;
             const unsigned int past = (earlier->triple_start != NULL) ? earlier->triple_start[leaf + 1u] : 0u;
-            // Every leaf this one meets, and the leaf it landed in, is weighed where it stands: the voxels the
-            // two share are added to the candidate, and the vector between them keeps the shortest it is met by.
             for (unsigned int pair = first; pair <= past; pair += 1u)
             {
-                const int landing = (earlier->forward != NULL) ? earlier->forward[leaf] : -1;
+                const unsigned int quieter = (level != NULL) ? level[leaf] : 0u;
+                const int landing = ((earlier->forward != NULL) && (quieter == 0u)) ? earlier->forward[leaf] : -1;
+                s_damp_landings += (unsigned long long)((pair == past) && (quieter != 0u)
+                                                        && (earlier->forward != NULL)
+                                                        && (earlier->forward[leaf] >= 0));
                 const int met = (pair < past) ? (int)earlier->triple_after[pair] : landing;
                 if (met < 0)
                 {
                     continue;
                 }
-                // Narrowing is safe: a leaf was met, so it is nonnegative.
                 const unsigned int other = (unsigned int)met;
                 const unsigned int target = later->object_of[other];
                 const unsigned int fresh = (unsigned int)(stamp[target] != (object + 1u));
@@ -1861,22 +2317,15 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
                 stamp[target] = object + 1u;
                 weight[place[target]] = (fresh != 0u) ? 0ull : weight[place[target]];
                 cost[place[target]] = (fresh != 0u) ? 0xFFFFFFFFFFFFFFFFull : cost[place[target]];
-                // What stays still when the view moves with the candidate, where that was taken; otherwise the
-                // voxels shared at the whole view's lag.
                 const unsigned int *const meeting = (earlier->triple_still != NULL) ? earlier->triple_still
                                                                                     : earlier->triple_shared;
-                weight[place[target]] += (pair < past) ? (unsigned long long)meeting[pair] : 0ull;
-                const unsigned long long apart = leaf_disagreement(earlier, leaf, later, other);
+                weight[place[target]] += (pair < past) ? ((unsigned long long)meeting[pair] >> quieter) : 0ull;
+                const unsigned long long apart = leaf_disagreement(earlier, leaf, later, other,
+                                                                   (gain != NULL)
+                                                                   ? &gain[(size_t)leaf * DAMP_DIMENSIONS] : NULL);
                 cost[place[target]] = (apart < cost[place[target]]) ? apart : cost[place[target]];
             }
         }
-        // The truthy magnitude leads: how many of this object's voxels land on the candidate. What that leaves
-        // level is broken by the swept vector, which carries the step of the sweep the candidate was met at
-        // above the magnitude itself, so a cell that jumped is ordered by how far it jumped and not lost.
-        // Exact ties past both stay, as the reference keeps them.
-        // The share rule weighs what is shared against the two cells together, so a candidate cannot win on its
-        // size alone; without it the magnitude is the shared voxels themselves. Under is never zero where
-        // anything is shared, and the fractions are compared cross multiplied, never formed.
         unsigned long long source_voxels = 0ull;
         for (unsigned int member = earlier->member_start[object]; member < earlier->member_start[object + 1u];
              member += 1u)
@@ -1887,20 +2336,66 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
         {
             under[slot] = (source_voxels + target_voxels[pool[slot]]) - weight[slot];
         }
+        for (unsigned int slot = 0u; (votes != NULL) && (slot < filled); slot += 1u)
+        {
+            votes[slot] = 0ull;
+        }
+        for (unsigned int member = earlier->member_start[object];
+             (votes != NULL) && (member < earlier->member_start[object + 1u]); member += 1u)
+        {
+            const unsigned int leaf = earlier->members[member];
+            const int landing = (earlier->forward != NULL) ? earlier->forward[leaf] : -1;
+            const unsigned int target = (landing >= 0) ? later->object_of[(unsigned int)landing] : 0u;
+            const unsigned int known = (unsigned int)((landing >= 0) && (stamp[target] == (object + 1u)));
+            votes[place[target]] += (known != 0u) ? 1ull : 0ull;
+        }
         unsigned int leader = 0u;
         for (unsigned int slot = 1u; slot < filled; slot += 1u)
         {
-            const int ahead = (rules->share != 0)
-                            ? ((weight[slot] * under[leader]) > (weight[leader] * under[slot]))
-                            : (weight[slot] > weight[leader]);
+            const int carried = (rules->share != 0)
+                              ? ((weight[slot] * under[leader]) > (weight[leader] * under[slot]))
+                              : (weight[slot] > weight[leader]);
+            const int ahead = (votes != NULL)
+                            ? ((votes[slot] > votes[leader])
+                               || ((votes[slot] == votes[leader]) && (carried != 0)))
+                            : carried;
             leader = (ahead != 0) ? slot : leader;
         }
-        // Contested: another candidate is met in the same box of the sweep as the leader, so the pair alone
-        // cannot separate them. Then the track decides, by how sharply it would bend through each, and the
-        // steering is a mask throughout: nothing branches on whether a contest was found.
-        // A contest is a stalemate, not merely a crowd: the candidate is met in the same box of the sweep and
-        // meets the cell in at least half the voxels the leader does, one doubling, which is one step of the
-        // same sweep read on what they meet in. Anything the meeting separates by more than that is separated.
+        unsigned int company = 0u;
+        for (unsigned int slot = 0u; (near_start != NULL) && (slot < filled); slot += 1u)
+        {
+            const int same = ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[leader] >> LINK_MAGNITUDE_BITS));
+            const int close = ((weight[slot] * 2ull) >= weight[leader]);
+            company += (unsigned int)((same != 0) && (close != 0) && (slot != leader));
+        }
+        const unsigned int members = earlier->member_start[object + 1u] - earlier->member_start[object];
+        const int asks_web = (near_start != NULL) && (company != 0u) && (members <= WEB_MEMBERS);
+        s_web_asked += (unsigned long long)(asks_web != 0);
+        s_web_capped += (unsigned long long)((near_start != NULL) && (company != 0u) && (members > WEB_MEMBERS));
+        unsigned int followed = leader;
+        unsigned long long most = 0ull;
+        if (asks_web != 0)
+        {
+            mark += 1u;
+            most = web_count(earlier, object, later, pool[leader], near_start, nearby, later_near_start,
+                             later_nearby, seen, mark);
+        }
+        for (unsigned int slot = 0u; (asks_web != 0) && (slot < filled); slot += 1u)
+        {
+            const int same = ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[leader] >> LINK_MAGNITUDE_BITS));
+            const int close = ((weight[slot] * 2ull) >= weight[leader]);
+            if ((same == 0) || (close == 0) || (slot == leader))
+            {
+                continue;
+            }
+            mark += 1u;
+            const unsigned long long kept = web_count(earlier, object, later, pool[slot], near_start, nearby,
+                                                      later_near_start, later_nearby, seen, mark);
+            followed = (kept > most) ? slot : followed;
+            most = (kept > most) ? kept : most;
+        }
+        s_web_moved += (unsigned long long)((asks_web != 0) && (followed != leader));
+        leader = (asks_web != 0) ? followed : leader;
         unsigned int contested = 0u;
         for (unsigned int slot = 0u; (rules->arc != 0) && (slot < filled); slot += 1u)
         {
@@ -1908,11 +2403,6 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
             const int level = ((weight[slot] * 2ull) >= weight[leader]);
             contested += (unsigned int)((same != 0) && (level != 0) && (slot != leader));
         }
-        // Where a contest was found the track speaks, but a track is a bent tube and not a line of points: it
-        // is as wide as the cell that walks it, so a bend inside that width is the cell jiggling and says
-        // nothing. A bend is inside the tube where its cube is under the cell's voxels squared, both being a
-        // length to the sixth, which compares them exactly and forms no root. The contest is then read as one
-        // truthy test, in the tube or out of it, and the meeting decides among those that are in.
         unsigned int champion = leader;
         unsigned int inside = 0u;
         for (unsigned int slot = 0u; (contested != 0u) && (slot < filled); slot += 1u)
@@ -1920,21 +2410,15 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
             const int same = ((cost[slot] >> LINK_MAGNITUDE_BITS) == (cost[leader] >> LINK_MAGNITUDE_BITS));
             const unsigned long long bend = (same != 0) ? track_bend(before, earlier, object, later, pool[slot], after)
                                                         : 0xFFFFFFFFFFFFFFFFull;
-            // A bend past this is out of any tube the view holds, and cubing it would not fit a word.
             const unsigned int walled = (unsigned int)(bend > 0xFFFFFull);
-            // Two radii wide, one doubling of the tube, because a cell may wander its own width and still be
-            // the same cell walking the same tube: a squared length doubles twice for a length doubled once.
             const unsigned long long room = source_voxels * source_voxels * 64ull;
             const int held = (walled == 0u) && ((bend * bend * bend) <= room);
             const int ahead = (same != 0) && (held != 0) && (inside == 0u);
             champion = (ahead != 0) ? slot : champion;
             inside += (unsigned int)((same != 0) && (held != 0));
-            // Out of the tube a candidate keeps the vector it had; in it, the bend stands, so the ones inside
-            // are ordered among themselves and the ones outside fall behind them.
             cost[slot] = ((same != 0) && (held != 0))
                        ? ((cost[slot] & ~LINK_MAGNITUDE_MASK) | (bend & LINK_MAGNITUDE_MASK)) : cost[slot];
         }
-        // The leader keeps the contest unless it walked out of the tube while another candidate stayed in it.
         const unsigned long long leader_bend = (contested != 0u)
                                              ? track_bend(before, earlier, object, later, pool[leader], after) : 0ull;
         const int leader_held = (leader_bend <= 0xFFFFull)
@@ -1951,8 +2435,6 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
                                : (weight[slot] == weight[winner]));
             best = ((level != 0) && (cost[slot] < best)) ? cost[slot] : best;
         }
-        // Inside one tube the bend says nothing more, and where no frame comes before or after there is no bend
-        // to read at all, so what the two meet in settles the rest. Only a candidate level in all three stays.
         unsigned long long crowned = 0ull;
         for (unsigned int slot = 0u; slot < filled; slot += 1u)
         {
@@ -1976,11 +2458,9 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
         }
         earlier->link_start[object + 1u] = kept;
         written += kept;
-        // The whole pool is kept, refusals and all, so what was weighed can be asked about afterwards.
         for (unsigned int slot = 0u; (earlier->pool_target != NULL) && (slot < filled); slot += 1u)
         {
             earlier->pool_target[gathered + slot] = pool[slot];
-            // Narrowing is safe: a meeting is at most the voxels of the view, well below 2^32.
             earlier->pool_weight[gathered + slot] = (unsigned int)weight[slot];
             earlier->pool_cost[gathered + slot] = cost[slot];
         }
@@ -1991,6 +2471,145 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
     {
         earlier->link_start[object + 1u] += earlier->link_start[object];
     }
+    if ((rules->mutual != 0) && (earlier->pool_start != NULL) && (later->backward != NULL)
+     && (later->member_start != NULL))
+    {
+        unsigned int *const chooses = (unsigned int *)malloc(((size_t)later->object_count + 1u)
+                                                             * sizeof(unsigned int));
+        unsigned long long *const reached = (unsigned long long *)calloc((size_t)objects + 2u,
+                                                                         sizeof(unsigned long long));
+        unsigned char *const claimed = (unsigned char *)calloc((size_t)later->object_count + 2u, 1u);
+        if ((chooses != NULL) && (reached != NULL) && (claimed != NULL))
+        {
+            for (unsigned int target = 0u; target < later->object_count; target += 1u)
+            {
+                const unsigned int first = later->member_start[target];
+                const unsigned int past = later->member_start[target + 1u];
+                for (unsigned int member = first; member < past; member += 1u)
+                {
+                    const int back = later->backward[later->members[member]];
+                    const unsigned int where = (back >= 0) ? earlier->object_of[(unsigned int)back] : objects;
+                    reached[where] += (unsigned long long)later->sizes[later->members[member]];
+                }
+                unsigned int best = 0xFFFFFFFFu;
+                unsigned long long most = 0ull;
+                for (unsigned int member = first; member < past; member += 1u)
+                {
+                    const int back = later->backward[later->members[member]];
+                    const unsigned int where = (back >= 0) ? earlier->object_of[(unsigned int)back] : objects;
+                    const int ahead = (back >= 0) && (reached[where] > most);
+                    most = (ahead != 0) ? reached[where] : most;
+                    best = (ahead != 0) ? where : best;
+                }
+                for (unsigned int member = first; member < past; member += 1u)
+                {
+                    const int back = later->backward[later->members[member]];
+                    reached[(back >= 0) ? earlier->object_of[(unsigned int)back] : objects] = 0ull;
+                }
+                chooses[target] = best;
+            }
+            for (unsigned int own = 0u; own < objects; own += 1u)
+            {
+                unsigned int survivors = 0u;
+                for (unsigned int slot = earlier->pool_start[own]; slot < earlier->pool_start[own + 1u];
+                     slot += 1u)
+                {
+                    survivors += (unsigned int)(chooses[earlier->pool_target[slot]] == own);
+                }
+                s_mutual_alone += (unsigned long long)(survivors == 1u);
+                s_mutual_split += (unsigned long long)(survivors > 1u);
+                s_mutual_empty += (unsigned long long)(survivors == 0u);
+            }
+            unsigned int moving = 1u;
+            while (moving != 0u)
+            {
+                moving = 0u;
+                for (unsigned int own = 0u; own < objects; own += 1u)
+                {
+                    const unsigned int links = earlier->link_start[own + 1u] - earlier->link_start[own];
+                    unsigned int survivors = 0u;
+                    unsigned int only = 0xFFFFFFFFu;
+                    for (unsigned int slot = earlier->pool_start[own];
+                         (links == 1u) && (slot < earlier->pool_start[own + 1u]); slot += 1u)
+                    {
+                        const unsigned int candidate = earlier->pool_target[slot];
+                        const unsigned int lives = (unsigned int)((chooses[candidate] == own)
+                                                                  && (claimed[candidate] == 0u));
+                        survivors += lives;
+                        only = (lives != 0u) ? candidate : only;
+                    }
+                    const unsigned int at = earlier->link_start[own];
+                    const unsigned int taken = (links == 1u) ? earlier->link_target[at] : 0xFFFFFFFFu;
+                    const unsigned int settles = (unsigned int)((links == 1u) && (survivors == 1u));
+                    const unsigned int changes = (unsigned int)((settles != 0u) && (only != taken));
+                    earlier->link_target[(links == 1u) ? at : 0u] =
+                        (settles != 0u) ? only : ((links == 1u) ? taken : earlier->link_target[0u]);
+                    claimed[(settles != 0u) ? only : later->object_count] =
+                        (settles != 0u) ? 1u : claimed[later->object_count];
+                    s_mutual_moved += (unsigned long long)changes;
+                    moving += changes;
+                }
+            }
+        }
+        free(chooses);
+        free(reached);
+        free(claimed);
+    }
+    if ((rules->forest != 0) && (earlier->pool_start != NULL) && (earlier->link_start != NULL))
+    {
+        const unsigned int room = earlier->pool_start[objects];
+        unsigned long long *const order = (unsigned long long *)malloc(((size_t)room + 1u)
+                                                                       * sizeof(unsigned long long));
+        unsigned char *const taken = (unsigned char *)calloc((size_t)later->object_count + 2u, 1u);
+        unsigned char *const settled = (unsigned char *)calloc((size_t)objects + 2u, 1u);
+        if ((order != NULL) && (taken != NULL) && (settled != NULL))
+        {
+            unsigned int held = 0u;
+            for (unsigned int own = 0u; own < objects; own += 1u)
+            {
+                for (unsigned int slot = earlier->pool_start[own]; slot < earlier->pool_start[own + 1u];
+                     slot += 1u)
+                {
+                    const unsigned long long strength = (unsigned long long)earlier->pool_weight[slot];
+                    order[held] = (strength << 32u) | (unsigned long long)slot;
+                    held += 1u;
+                }
+            }
+            radix_sort_keys(order, held);
+            for (unsigned int at = held; at > 0u; at -= 1u)
+            {
+                const unsigned int slot = (unsigned int)(order[at - 1u] & 0xFFFFFFFFull);
+                const unsigned int candidate = earlier->pool_target[slot];
+                unsigned int own = 0u;
+                unsigned int low = 0u;
+                unsigned int high = objects;
+                while ((high - low) > 1u)
+                {
+                    const unsigned int middle = low + ((high - low) / 2u);
+                    low = (earlier->pool_start[middle] <= slot) ? middle : low;
+                    high = (earlier->pool_start[middle] <= slot) ? high : middle;
+                }
+                own = low;
+                const unsigned int links = earlier->link_start[own + 1u] - earlier->link_start[own];
+                const unsigned int free_pair = (unsigned int)((links == 1u) && (settled[own] == 0u)
+                                                              && (taken[candidate] == 0u));
+                earlier->link_target[(links == 1u) ? earlier->link_start[own] : 0u] =
+                    (free_pair != 0u) ? candidate
+                                      : earlier->link_target[(links == 1u) ? earlier->link_start[own] : 0u];
+                settled[own] = (free_pair != 0u) ? 1u : settled[own];
+                taken[candidate] = (free_pair != 0u) ? 1u : taken[candidate];
+                s_forest_placed += (unsigned long long)(free_pair != 0u);
+            }
+            for (unsigned int own = 0u; own < objects; own += 1u)
+            {
+                const unsigned int links = earlier->link_start[own + 1u] - earlier->link_start[own];
+                s_forest_kept += (unsigned long long)((links == 1u) && (settled[own] == 0u));
+            }
+        }
+        free(order);
+        free(taken);
+        free(settled);
+    }
     const int settled = (rules->settle != 0) ? settle_links(earlier, later) : 1;
     free(pool);
     free(cost);
@@ -1999,18 +2618,18 @@ static int link_objects_unbound(TreeFrame *earlier, const TreeFrame *later, cons
     free(stamp);
     free(place);
     free(target_voxels);
+    free(votes);
+    free(near_start);
+    free(nearby);
+    free(later_near_start);
+    free(later_nearby);
+    free(seen);
+    free(level);
+    free(spectrum);
+    free(gain);
     return settled;
 }
 
-/**
- * @brief Links one frame's objects to the next frame's: landing both ways, merge-target, forward-only
- *        and the pick where set.
- *
- * @param[in,out] earlier The earlier frame, with forward and the overlap [BORROWS].
- * @param[in]     later   The later frame, with backward [BORROWS].
- * @param[in]     rules   The tree's rules [BORROWS].
- * @return                1 on success, 0 otherwise.
- */
 static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRules *rules)
 {
     unsigned long long *const candidate = (unsigned long long *)malloc(((size_t)earlier->leaf_count + 1u)
@@ -2023,7 +2642,6 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
     unsigned int *const mutual = (unsigned int *)malloc(((size_t)later->object_count + 1u) * sizeof(unsigned int));
     unsigned long long *const weight = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
                                                                     * sizeof(unsigned long long));
-    // The two cells together less what they share, which is what the share rule weighs a branch against.
     unsigned long long *const under = (unsigned long long *)malloc(((size_t)later->object_count + 1u)
                                                                    * sizeof(unsigned long long));
     if ((candidate == NULL) || (confirmed == NULL) || (incoming == NULL) || (earlier->link_start == NULL)
@@ -2042,7 +2660,6 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
     {
         if (earlier->forward[leaf] >= 0)
         {
-            // Narrowing is safe: the landing was found, so it is nonnegative.
             candidate[candidates] = ((unsigned long long)earlier->object_of[leaf] << 32u)
                                   | later->object_of[(unsigned int)earlier->forward[leaf]];
             candidates += 1u;
@@ -2054,7 +2671,6 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
     {
         if (later->backward[leaf] >= 0)
         {
-            // Narrowing is safe: the landing was found, so it is nonnegative.
             confirmed[confirmations] = ((unsigned long long)later->object_of[leaf] << 32u)
                                      | earlier->object_of[(unsigned int)later->backward[leaf]];
             confirmations += 1u;
@@ -2128,9 +2744,6 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
                     }
                 }
             }
-            // The share rule weighs each branch by what it shares of the two cells together, so a large
-            // neighbour cannot win on its size alone. Over is what the branch shares; under is the two cells
-            // less what they share, which is never zero where anything is shared at all.
             for (unsigned int slot = 0u; (rules->share != 0) && (slot < mutual_count); slot += 1u)
             {
                 unsigned long long target_voxels = 0ULL;
@@ -2144,7 +2757,6 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
             unsigned int leader = 0u;
             for (unsigned int slot = 1u; slot < mutual_count; slot += 1u)
             {
-                // Cross multiplied, so the two fractions are compared exactly and neither is ever formed.
                 const int ahead = (rules->share != 0)
                                 ? ((weight[slot] * under[leader]) > (weight[leader] * under[slot]))
                                 : (weight[slot] > weight[leader]);
@@ -2185,24 +2797,15 @@ static int link_objects(TreeFrame *earlier, const TreeFrame *later, const TreeRu
     return 1;
 }
 
-/** @brief The whole tree as nodes: one node per object of every frame. */
 typedef struct
 {
-    unsigned int frame_count;         /**< Frames of the tree. */
-    TreeFrame *frames;                /**< The frames [BORROWS]. */
-    unsigned int node_count;          /**< Objects over all frames. */
-    unsigned int *node_offset;        /**< Frame count + 1 offsets [OWNS]. */
-    unsigned int *node_frame;         /**< Frame of every node [OWNS]. */
+    unsigned int frame_count;
+    TreeFrame *frames;
+    unsigned int node_count;
+    unsigned int *node_offset;
+    unsigned int *node_frame;
 } NodeIndex;
 
-/**
- * @brief The links of a node, as a range of next-frame object numbers.
- *
- * @param[in]  index The node index [BORROWS].
- * @param[in]  node  The node.
- * @param[out] first The first link target [BORROWS].
- * @param[out] count How many links [BORROWS].
- */
 static void links_of_node(const NodeIndex *index, unsigned int node, const unsigned int **first, unsigned int *count)
 {
     const unsigned int frame = index->node_frame[node];
@@ -2218,38 +2821,29 @@ static void links_of_node(const NodeIndex *index, unsigned int node, const unsig
     *count = tree->link_start[object + 1u] - tree->link_start[object];
 }
 
-/** @brief The status of each scored edge, in the order the tallies name them. */
 static const char *const EDGE_STATUS_NAMES[5] = {"correct", "branched", "wrong", "nolink", "missed"};
 
-/** @brief What the coherence reading needs from one scored sample. */
 typedef struct
 {
-    const char *sample;                   /**< Sample name. */
-    const char *stack_path;               /**< The stack file. */
-    const AnswerKey *key;                 /**< The answer key [BORROWS]. */
-    const TreeFrame *frames;              /**< The tree's frames [BORROWS]. */
-    unsigned int frame_count;             /**< Frames of the tree. */
-    const unsigned int *node_offset;      /**< Frame count + 1 offsets [BORROWS]. */
-    const unsigned int *unified_of;       /**< Unified object per node [BORROWS]. */
-    unsigned int unified_count;           /**< Unified objects over all frames. */
-    const int *node_leaf;                 /**< Leaf per answer key node, or -1 [BORROWS]. */
-    const int *tree_index_of_time;        /**< Tree frame per stack frame, or -1 [BORROWS]. */
-    unsigned int stack_frames;            /**< Frames in the stack. */
-    const signed char *edge_status;       /**< Per edge an index into EDGE_STATUS_NAMES, or -1 [BORROWS]. */
-    const unsigned int *unified_start;    /**< Unified count + 1 offsets into unified_link [BORROWS]. */
-    const unsigned long long *unified_link; /**< Source and child unified ids packed high and low [BORROWS]. */
-    const char *vis_directory;            /**< Where the vis arm writes pictures, or NULL [BORROWS]. */
-    FILE *vis_index;                      /**< The vis arm's page, appended to, or NULL [BORROWS]. */
-    const unsigned int *unified_first;    /**< Frame count + 1: the first unified id of each frame [BORROWS]. */
+    const char *sample;
+    const char *stack_path;
+    const AnswerKey *key;
+    const TreeFrame *frames;
+    unsigned int frame_count;
+    const unsigned int *node_offset;
+    const unsigned int *unified_of;
+    unsigned int unified_count;
+    const int *node_leaf;
+    const int *tree_index_of_time;
+    unsigned int stack_frames;
+    const signed char *edge_status;
+    const unsigned int *unified_start;
+    const unsigned long long *unified_link;
+    const char *vis_directory;
+    FILE *vis_index;
+    const unsigned int *unified_first;
 } CoherenceInputs;
 
-/**
- * @brief The frame a unified id belongs to, by binary search over each frame's first id.
- *
- * @param[in] inputs  The scored sample [BORROWS].
- * @param[in] unified The unified id.
- * @return            The tree frame.
- */
 static unsigned int frame_of_unified(const CoherenceInputs *inputs, unsigned int unified)
 {
     unsigned int low = 0u;
@@ -2269,30 +2863,6 @@ static unsigned int frame_of_unified(const CoherenceInputs *inputs, unsigned int
     return low;
 }
 
-/**
- * @brief Writes the tree the engine grew for one sample as one vectored file of exact integers, laid out so a
- *        renderer reads each section as a typed array with no parsing: every cell of every frame with its positive
- *        voxel count, index sums, second moments, basins and membrane faces; every link; every contact between
- *        cells with the faces they share; the answer key's nodes placed in their cells; and every scored edge with
- *        its status, the lag its source peak was carried by, and the peak.
- *
- * Layout, little endian, all offsets implied by the counts:
- *     uint32 header[12]   magic 0x31525443 "CTR1", version 1, frames, depth, height, width, cells, links, contacts,
- *                         nodes, edges, 0
- *     uint32 frame[12]    per frame: t, follows (0 or 1), lag z, lag y, lag x (two's complement), first cell, cells,
- *                         first link, links, first contact, contacts, 0
- *     uint64 cell[12]     per cell: n, sum z, sum y, sum x, sum zz, sum yy, sum xx, sum zy, sum zx, sum yx, basins,
- *                         membrane faces
- *     uint32 link[3]      per link: frame, source cell within its frame, child cell within the next
- *     uint32 contact[3]   per contact: cell, cell, shared faces, both within the contact's frame, lower first
- *     int32  node[7]      per node: id low, id high, t, z, y, x, cell within its frame or -1
- *     int32  edge[9]      per scored edge: source node, target node, status, carried lag z y x, peak z y x
- *
- * @param[in] buffers   The engine buffers, for the extents [BORROWS].
- * @param[in] inputs    The scored sample [BORROWS].
- * @param[in] directory Where <sample>.room goes.
- * @return              1 on success, 0 otherwise.
- */
 static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, const char *directory)
 {
     char path[1024];
@@ -2325,8 +2895,6 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
             cell[10] += 1u;
             cell[11] += (tree->exposed != NULL) ? tree->exposed[leaf] : 0u;
         }
-        // Contacts between cells: faces two different cells share, summed over the basin pairs that carry them.
-        // A face between two cells is membrane on both, so it adds to both membranes.
         unsigned long long *const keys = (unsigned long long *)malloc(((size_t)tree->joined_count + 1u) * sizeof(unsigned long long));
         good = (keys != NULL);
         unsigned int key_count = 0u;
@@ -2342,7 +2910,6 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
             cells[(size_t)second * 12u + 11u] += tree->contact_faces[pair];
             const unsigned int low = ((first < second) ? first : second) - inputs->unified_first[frame];
             const unsigned int high = ((first < second) ? second : first) - inputs->unified_first[frame];
-            // Twenty two bits for each cell and twenty for faces fit one key; a view here holds far fewer of each.
             keys[key_count] = ((unsigned long long)low << 42u) | ((unsigned long long)high << 20u) | tree->contact_faces[pair];
             key_count += 1u;
         }
@@ -2351,12 +2918,10 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
         frame_table[(size_t)frame * 12u + 1u] = (tree->forward != NULL) ? 1u : 0u;
         for (unsigned int axis = 0u; axis < 3u; axis += 1u)
         {
-            // The lag's two's complement bits are kept whole in an unsigned slot.
             frame_table[(size_t)frame * 12u + 2u + axis] = (unsigned int)tree->lag_to_next[axis];
         }
         frame_table[(size_t)frame * 12u + 5u] = inputs->unified_first[frame];
         frame_table[(size_t)frame * 12u + 6u] = inputs->unified_first[frame + 1u] - inputs->unified_first[frame];
-        // Narrowing is safe: contact totals are far below 2^32.
         frame_table[(size_t)frame * 12u + 9u] = (unsigned int)contact_total;
         for (unsigned int at = 0u; (good != 0) && (at < key_count);)
         {
@@ -2378,17 +2943,14 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
                 }
                 contacts = grown;
             }
-            // Narrowing is safe: each part was packed from an unsigned int.
             contacts[contact_total * 3u] = (unsigned int)(pair >> 22u);
             contacts[contact_total * 3u + 1u] = (unsigned int)(pair & 0x3FFFFFULL);
             contacts[contact_total * 3u + 2u] = (unsigned int)faces;
             contact_total += 1u;
         }
-        // Narrowing is safe: contact totals are far below 2^32.
         frame_table[(size_t)frame * 12u + 10u] = (unsigned int)contact_total - frame_table[(size_t)frame * 12u + 9u];
         free(keys);
     }
-    // Links, ascending by source cell, so each frame's links are one run.
     for (unsigned int link = 0u; (good != 0) && (link < link_total); link += 1u)
     {
         const unsigned int source = (unsigned int)(inputs->unified_link[link] >> 32u);
@@ -2413,7 +2975,6 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
     good = (out != NULL);
     if (good != 0)
     {
-        // Narrowing is safe: every count is far below 2^32.
         const unsigned int header[12] = {0x31525443u, 1u, inputs->frame_count, buffers->depth, buffers->height,
                                          buffers->width, (unsigned int)unified, link_total, (unsigned int)contact_total,
                                          inputs->key->node_count, edge_total, 0u};
@@ -2427,13 +2988,11 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
             const int *const place = &inputs->key->node_coordinates[(size_t)node * 4u];
             int record[7] = {(int)(inputs->key->node_identity[node] & 0xFFFFFFFFLL), (int)(inputs->key->node_identity[node] >> 32),
                              place[0], place[1], place[2], place[3], -1};
-            // Narrowing is safe: the time was tested nonnegative first.
             if ((place[0] >= 0) && ((unsigned int)place[0] < inputs->stack_frames) && (inputs->node_leaf[node] >= 0))
             {
                 const int frame = inputs->tree_index_of_time[place[0]];
                 if (frame >= 0)
                 {
-                    // Narrowing is safe: the frame and the leaf were both found, and a cell index is below 2^31.
                     const unsigned int id = inputs->unified_of[inputs->node_offset[(unsigned int)frame]
                                                                + inputs->frames[frame].object_of[(unsigned int)inputs->node_leaf[node]]];
                     record[6] = (int)(id - inputs->unified_first[frame]);
@@ -2448,14 +3007,12 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
             {
                 continue;
             }
-            // Narrowing is safe: node slots are below 2^31.
             int record[9] = {(int)node_slot_of(inputs->key, inputs->key->edge_ends[2u * edge]),
                              (int)node_slot_of(inputs->key, inputs->key->edge_ends[2u * edge + 1u]), status, 0, 0, 0, -1, -1, -1};
             if (status != 4)
             {
                 const int time = inputs->key->node_coordinates[(size_t)record[0] * 4u];
                 const int frame = inputs->tree_index_of_time[time];
-                // Narrowing is safe: a scored edge that is not missed has its source frame and leaf.
                 const TreeFrame *const tree = &inputs->frames[frame];
                 const unsigned int leaf = (unsigned int)inputs->node_leaf[record[0]];
                 const int *const carried = (tree->forward_lag != NULL) ? &tree->forward_lag[3u * leaf] : tree->lag_to_next;
@@ -2463,7 +3020,6 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
                 record[3] = carried[0];
                 record[4] = carried[1];
                 record[5] = carried[2];
-                // Narrowing is safe: a peak index of the view fits an int.
                 record[6] = (int)(tree->peaks[leaf] / plane);
                 record[7] = (int)((tree->peaks[leaf] % plane) / buffers->width);
                 record[8] = (int)((tree->peaks[leaf] % plane) % buffers->width);
@@ -2480,56 +3036,17 @@ static int export_room(const EngineBuffers *buffers, const CoherenceInputs *inpu
     return good;
 }
 
-/**
- * @brief The global cell an answer key node lies in, or all ones where it lies in none.
- *
- * @param[in] inputs The scored sample [BORROWS].
- * @param[in] node   The node's slot.
- * @return           The cell.
- */
 static unsigned int object_cell_of_node(const CoherenceInputs *inputs, long node)
 {
     const int time = (node >= 0L) ? inputs->key->node_coordinates[(size_t)node * 4u] : -1;
-    // Narrowing is safe: the time is tested nonnegative before it is compared unsigned.
     const bool timed = (time >= 0) && ((unsigned int)time < inputs->stack_frames);
     const int frame = timed ? inputs->tree_index_of_time[time] : -1;
     const bool placed = (frame >= 0) && (inputs->node_leaf[node] >= 0);
-    // Narrowing is safe: the frame and the leaf were both found.
     return placed ? inputs->unified_of[inputs->node_offset[(unsigned int)frame]
                                        + inputs->frames[frame].object_of[(unsigned int)inputs->node_leaf[node]]]
                   : 0xFFFFFFFFu;
 }
 
-/**
- * @brief Writes one sample as the object the card is fed. The page streams the file into one storage buffer and
- *        draws every section by its offset; the host builds no geometry and the card warps each run out itself.
- *
- * Layout, little endian, all uint32, every section's offset implied by the counts before it:
- *     header[16]  magic 0x314A424F "OBJ1", version 1, frames, depth, height, width, leaves, runs, cells, links,
- *                 edges, then the control: aberrant leaves, aberrant voxels, wide sums; then the .cfg's bytes, 0
- *     frame[10]   per frame: t, first leaf, leaves, first run, runs, first cell, cells, first link, links, 0
- *     leaf[4]     per leaf: its cell, its frame, its first run, its runs
- *     cell[4]     per cell: positive voxels, sum z, sum y, sum x, exact
- *     run[1]      per run: its first voxel's raster index << 8 | (length - 1); a leaf's runs are one range, in raster
- *                 order
- *     link[2]     per link: source cell, child cell, ascending by source
- *     edge[3]     per scored edge: the source node's cell, the target node's cell, the status, a cell being all ones
- *                 where the node lies in none
- *     cfg         the .cfg the run took, UTF-8, padded with zero bytes to a whole word: the object says how it was
- *                 made, and its view section is the state the page opens in
- *
- * The control rides in the header: leaves whose run lengths do not sum to their positive voxels, and by how many voxels
- * in all, which also shows whether two runs were ever cut into one slot; and cell sums past 32 bits. Nothing is refused;
- * the aberrance is there to be seen.
- *
- * @param[in] buffers   The engine buffers, for the extents [BORROWS].
- * @param[in] inputs    The scored sample [BORROWS].
- * @param[in] runs      One per run, every frame's runs in frame order [BORROWS].
- * @param[in] first_run Frame count + 1: the runs before each frame [BORROWS].
- * @param[in] leaf_runs Two per leaf of every frame in frame order: its first run and its runs [BORROWS].
- * @param[in] rules     The rules, for where the object goes and the .cfg it carries [BORROWS].
- * @return              1 on success, 0 otherwise.
- */
 static int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, const unsigned int *runs,
                          const unsigned int *first_run, const unsigned int *leaf_runs, const TreeRules *rules)
 {
@@ -2587,7 +3104,6 @@ static int export_object(const EngineBuffers *buffers, const CoherenceInputs *in
             {
                 length += (runs[run] & 0xFFu) + 1u;
             }
-            // The control: a leaf's run lengths against its positive voxels, the gap accumulated either way round.
             const unsigned int over = (unsigned int)(length > tree->sizes[leaf]);
             aberrant_leaves += (unsigned int)(length != tree->sizes[leaf]);
             aberrant_voxels += (over * (length - tree->sizes[leaf])) + ((1u - over) * (tree->sizes[leaf] - length));
@@ -2598,19 +3114,16 @@ static int export_object(const EngineBuffers *buffers, const CoherenceInputs *in
         }
         leaf_base += tree->leaf_count;
     }
-    // A cell's sums are kept in 32 bits; a sum that does not fit is counted in the control, not refused.
     unsigned int wide_sums = 0u;
     for (size_t slot = 0u; good && (slot < (size_t)cell_count * 4u); slot += 1u)
     {
         wide_sums += (unsigned int)!!(sums[slot] >> 32u);
-        // Narrowing is counted: the high bits of a sum that does not fit are the control's wide sums.
         cells[slot] = (unsigned int)sums[slot];
     }
     fprintf(stderr, "  object %s: %u aberrant leaves, %u aberrant voxels, %u wide sums\n", inputs->sample, aberrant_leaves,
             aberrant_voxels, wide_sums);
     for (unsigned int link = 0u; good && (link < link_count); link += 1u)
     {
-        // Narrowing is safe: each half was packed from an unsigned int.
         links[2u * link] = (unsigned int)(inputs->unified_link[link] >> 32u);
         links[(2u * link) + 1u] = (unsigned int)(inputs->unified_link[link] & 0xFFFFFFFFULL);
     }
@@ -2619,10 +3132,8 @@ static int export_object(const EngineBuffers *buffers, const CoherenceInputs *in
     {
         const long source = node_slot_of(inputs->key, inputs->key->edge_ends[2u * edge]);
         const long target = node_slot_of(inputs->key, inputs->key->edge_ends[(2u * edge) + 1u]);
-        // The record is written to the next free slot every edge and kept only where the edge was scored.
         edges[3u * scored] = object_cell_of_node(inputs, source);
         edges[(3u * scored) + 1u] = object_cell_of_node(inputs, target);
-        // Narrowing is safe: a status is a small index, and one not scored is overwritten by the next edge.
         edges[(3u * scored) + 2u] = (unsigned int)inputs->edge_status[edge];
         scored += (unsigned int)(inputs->edge_status[edge] >= 0);
     }
@@ -2631,7 +3142,6 @@ static int export_object(const EngineBuffers *buffers, const CoherenceInputs *in
     good = good && out;
     if (good)
     {
-        // Narrowing is safe: a .cfg is far below 2^32 bytes.
         const unsigned int cfg_bytes = (unsigned int)rules->cfg_length;
         const unsigned char padding[4] = {0u, 0u, 0u, 0u};
         const unsigned int header[16] = {0x314A424Fu, 1u, frame_count, buffers->depth, buffers->height, buffers->width,
@@ -2657,26 +3167,14 @@ static int export_object(const EngineBuffers *buffers, const CoherenceInputs *in
     return good;
 }
 
-/** @brief Voxels shown across a vis panel, centred on the answer key's source node. */
 #define VIS_CROP 64u
 
-/** @brief Pixels per voxel in a vis panel. */
 #define VIS_SCALE 6u
 
-/** @brief Pixels between the two vis panels. */
 #define VIS_GAP 8u
 
-/** @brief An object id the vis arm reads as no object. */
 #define VIS_NO_OBJECT 0xFFFFFFFFu
 
-/**
- * @brief The PNG CRC-32 of bytes, continuing a running value.
- *
- * @param[in] bytes The bytes [BORROWS].
- * @param[in] count How many.
- * @param[in] crc   The running value, 0xFFFFFFFF to start.
- * @return          The running value after the bytes.
- */
 static unsigned int png_crc(const unsigned char *bytes, size_t count, unsigned int crc)
 {
     for (size_t at = 0u; at < count; at += 1u)
@@ -2690,14 +3188,6 @@ static unsigned int png_crc(const unsigned char *bytes, size_t count, unsigned i
     return crc;
 }
 
-/**
- * @brief Writes one PNG chunk.
- *
- * @param[in] handle The file [BORROWS].
- * @param[in] type   Four chunk type bytes [BORROWS].
- * @param[in] data   The chunk data [BORROWS].
- * @param[in] length Data bytes.
- */
 static void png_chunk(FILE *handle, const char *type, const unsigned char *data, size_t length)
 {
     const unsigned char size[4] = {(unsigned char)(length >> 24u), (unsigned char)(length >> 16u),
@@ -2715,15 +3205,6 @@ static void png_chunk(FILE *handle, const char *type, const unsigned char *data,
     fwrite(tail, 1u, 4u, handle);
 }
 
-/**
- * @brief Writes an RGB picture as a PNG whose deflate stream is stored blocks, needing no compressor.
- *
- * @param[in] path   Output file.
- * @param[in] rgb    Three bytes per pixel, rows top to bottom [BORROWS].
- * @param[in] width  Pixels across.
- * @param[in] height Pixels down.
- * @return           1 on success, 0 otherwise.
- */
 static int write_png_rgb(const char *path, const unsigned char *rgb, unsigned int width, unsigned int height)
 {
     const size_t row = 1u + (size_t)width * 3u;
@@ -2794,36 +3275,29 @@ static int write_png_rgb(const char *path, const unsigned char *rgb, unsigned in
     return good;
 }
 
-/** @brief One failing edge as the vis arm draws it. */
 typedef struct
 {
-    unsigned int edge;                /**< Edge index in the answer key. */
-    int status;                       /**< Index into EDGE_STATUS_NAMES. */
-    const TreeFrame *earlier;         /**< Frame t [BORROWS]. */
-    const TreeFrame *later;           /**< Frame t + 1 [BORROWS]. */
-    unsigned int offset_before;       /**< Node offset of frame t. */
-    unsigned int offset_after;        /**< Node offset of frame t + 1. */
-    const int *leaf_at_peak[2];       /**< Leaf per peak voxel of t and t + 1 [BORROWS]. */
-    const int *from;                  /**< t z y x of the source node [BORROWS]. */
-    const int *to;                    /**< t z y x of the target node [BORROWS]. */
-    unsigned int source_leaf;         /**< The source node's leaf. */
-    unsigned int cell;                /**< The source's unified object. */
-    unsigned int true_target;         /**< The target's unified object. */
-    size_t cell_size;                 /**< Positive voxels of the cell. */
-    unsigned int leaves;              /**< Basins of the cell. */
-    unsigned int target_size;         /**< Positive voxels of the true target. */
-    unsigned long long agree_view;    /**< Cell voxels agreeing at the view's lag. */
-    unsigned long long agree_true;    /**< Cell voxels agreeing at the true step. */
-    unsigned int land_true;           /**< Of those at the view's lag, how many land in the true target. */
-    unsigned int land_objects;        /**< Objects receiving any at the view's lag. */
+    unsigned int edge;
+    int status;
+    const TreeFrame *earlier;
+    const TreeFrame *later;
+    unsigned int offset_before;
+    unsigned int offset_after;
+    const int *leaf_at_peak[2];
+    const int *from;
+    const int *to;
+    unsigned int source_leaf;
+    unsigned int cell;
+    unsigned int true_target;
+    size_t cell_size;
+    unsigned int leaves;
+    unsigned int target_size;
+    unsigned long long agree_view;
+    unsigned long long agree_true;
+    unsigned int land_true;
+    unsigned int land_objects;
 } VisCase;
 
-/**
- * @brief A bright colour fixed by an object id, by integer mixing.
- *
- * @param[in]  object The id.
- * @param[out] rgb    Three bytes [BORROWS].
- */
 static void object_colour(unsigned int object, unsigned char *rgb)
 {
     const unsigned int mixed = object * 2654435761u;
@@ -2832,17 +3306,6 @@ static void object_colour(unsigned int object, unsigned char *rgb)
     rgb[2] = (unsigned char)(80u + ((mixed >> 19u) % 160u));
 }
 
-/**
- * @brief Fills a square of voxel cells in a panel with one colour.
- *
- * @param[in,out] rgb     The picture [BORROWS].
- * @param[in]     width   Picture width in pixels.
- * @param[in]     left    Panel's left pixel.
- * @param[in]     row     Voxel row in the crop.
- * @param[in]     column  Voxel column in the crop.
- * @param[in]     inset   Pixels left bare on each side of the cell.
- * @param[in]     colour  Three bytes [BORROWS].
- */
 static void paint_voxel(unsigned char *rgb, unsigned int width, unsigned int left, int row, int column,
                         unsigned int inset, const unsigned char *colour)
 {
@@ -2854,7 +3317,6 @@ static void paint_voxel(unsigned char *rgb, unsigned int width, unsigned int lef
     {
         for (unsigned int across = inset; across < VIS_SCALE - inset; across += 1u)
         {
-            // Narrowing is safe: row and column were tested inside the crop.
             const size_t pixel = ((size_t)((unsigned int)row * VIS_SCALE + down) * width
                                   + left + (unsigned int)column * VIS_SCALE + across) * 3u;
             rgb[pixel] = colour[0];
@@ -2864,16 +3326,6 @@ static void paint_voxel(unsigned char *rgb, unsigned int width, unsigned int lef
     }
 }
 
-/**
- * @brief Draws a plus of voxel cells centred on a voxel, so a marker reads above the tint.
- *
- * @param[in,out] rgb    The picture [BORROWS].
- * @param[in]     width  Picture width in pixels.
- * @param[in]     left   Panel's left pixel.
- * @param[in]     row    Centre voxel row in the crop.
- * @param[in]     column Centre voxel column in the crop.
- * @param[in]     colour Three bytes [BORROWS].
- */
 static void paint_marker(unsigned char *rgb, unsigned int width, unsigned int left, int row, int column,
                          const unsigned char *colour)
 {
@@ -2884,23 +3336,6 @@ static void paint_marker(unsigned char *rgb, unsigned int width, unsigned int le
     }
 }
 
-/**
- * @brief The vis arm: draws one failing edge from the engine's own state, frame t beside frame t + 1, each at
- *        its answer key node's z, and appends it to the page.
- *
- * Every channel is an integer read off engine state: raw intensity scaled by the crop's largest, positive
- * voxels tinted by their object, object boundaries in the object's colour, the source cell's boundary green
- * in frame t, the true target's green in frame t + 1, the objects the tree linked the cell to red there
- * (yellow where the link is the true target), the answer key's nodes as green plus marks, the cell's peak
- * as white, where the tree carried that peak as magenta, and the answer key's other nodes on the slice as
- * white cells.
- *
- * @param[in] buffers The engine buffers, slot 0 labels and signs for t and slot 1 for t + 1 [BORROWS].
- * @param[in] inputs  The scored sample [BORROWS].
- * @param[in] stack   The open stack file [BORROWS].
- * @param[in] view    The edge [BORROWS].
- * @return            1 on success, 0 otherwise.
- */
 static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *stack, const VisCase *view)
 {
     const size_t voxels = (size_t)buffers->depth * buffers->height * buffers->width;
@@ -2915,7 +3350,6 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
                                      (unsigned int *)malloc((size_t)VIS_CROP * VIS_CROP * sizeof(unsigned int))};
     int good = (rgb != NULL) && (raw[0] != NULL) && (raw[1] != NULL) && (object[0] != NULL) && (object[1] != NULL);
 
-    // The crop is centred on the source node in both panels, so the target's displacement shows.
     const int top = (view->from[2] - (int)(VIS_CROP / 2u) < 0) ? 0
                   : ((view->from[2] + (int)(VIS_CROP / 2u) > (int)buffers->height) ? (int)buffers->height - (int)VIS_CROP
                                                                                   : view->from[2] - (int)(VIS_CROP / 2u));
@@ -2929,14 +3363,12 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
     unsigned int brightest = 1u;
     for (unsigned int side = 0u; (good != 0) && (side < 2u); side += 1u)
     {
-        // Narrowing is safe: node coordinates lie inside the view.
         const long long offset = 20LL + 2LL * (long long)((size_t)times[side] * voxels + (size_t)slice[side] * plane);
         good = (STACK_SEEK(stack, offset, SEEK_SET) == 0) && (fread(raw[side], sizeof(unsigned short), plane, stack) == plane);
         for (unsigned int down = 0u; (good != 0) && (down < VIS_CROP); down += 1u)
         {
             for (unsigned int across = 0u; across < VIS_CROP; across += 1u)
             {
-                // Narrowing is safe: the crop was placed inside the view.
                 const unsigned int flat = (unsigned int)(top + (int)down) * buffers->width + (unsigned int)(left_column + (int)across);
                 const unsigned int voxel = (unsigned int)slice[side] * plane + flat;
                 brightest = (raw[side][flat] > brightest) ? raw[side][flat] : brightest;
@@ -2946,7 +3378,6 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
                     const int leaf = view->leaf_at_peak[side][buffers->labels[side][voxel]];
                     if (leaf >= 0)
                     {
-                        // Narrowing is safe: the leaf was found, so it is nonnegative.
                         id = inputs->unified_of[offsets[side] + tree[side]->object_of[(unsigned int)leaf]];
                     }
                 }
@@ -2968,7 +3399,6 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
         {
             for (unsigned int across = 0u; across < VIS_CROP; across += 1u)
             {
-                // Narrowing is safe: the crop was placed inside the view.
                 const unsigned int flat = (unsigned int)(top + (int)down) * buffers->width + (unsigned int)(left_column + (int)across);
                 const unsigned int gray = (unsigned int)raw[side][flat] * 255u / brightest;
                 const unsigned int id = object[side][down * VIS_CROP + across];
@@ -3025,11 +3455,9 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
                 paint_voxel(rgb, width, left, (int)down, (int)across, 0u, colour);
             }
         }
-        // The answer key's other nodes on this slice, as white cells.
         for (unsigned int node = 0u; node < inputs->key->node_count; node += 1u)
         {
             const int *const place = &inputs->key->node_coordinates[(size_t)node * 4u];
-            // Narrowing is safe: a node time is nonnegative.
             if ((place[0] >= 0) && ((unsigned int)place[0] == times[side]) && (place[1] == slice[side]))
             {
                 paint_voxel(rgb, width, left, place[2] - top, place[3] - left_column, 2u, white);
@@ -3059,7 +3487,6 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
         {
             linked_true = linked_true || ((unsigned int)(inputs->unified_link[link] & 0xFFFFFFFFULL) == view->true_target);
         }
-        // Integer percentages, half rounding up.
         const unsigned long long view_share = (view->cell_size > 0u) ? (view->agree_view * 200ULL + view->cell_size) / (2ULL * view->cell_size) : 0ULL;
         const unsigned long long true_share = (view->cell_size > 0u) ? (view->agree_true * 200ULL + view->cell_size) / (2ULL * view->cell_size) : 0ULL;
         const unsigned long long landing_share = (view->agree_view > 0ULL) ? ((unsigned long long)view->land_true * 200ULL + view->agree_view) / (2ULL * view->agree_view) : 0ULL;
@@ -3087,24 +3514,6 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
     return good;
 }
 
-/**
- * @brief Reads, for every failing edge and every correct edge leaving a frame a failure leaves, how the
- *        source cell agrees with the next frame at every lag, and where its agreeing voxels land.
- *
- * One row per edge goes to the rules' coherence file:
- *     sample time status size_A leaves_A size_B own_z own_y own_x view_z view_y view_x true_z true_y true_x
- *     agree_own agree_view agree_true land_B land_max land_sumsq land_objects
- * where own is the lag at which the cell A alone agrees most with the next frame's positive voxels, over
- * every lag at once; view is the view's lag; true is the answer key's step; agree_* count A's voxels
- * that land on positive voxels at each lag; and land_* describe, at the view's lag, how those voxels
- * divide among the next frame's objects: the count landing in the true target B, the largest count, the
- * sum of squared counts, and how many objects receive any. Every value is an integer.
- *
- * @param[in,out] buffers The engine buffers [BORROWS].
- * @param[in]     inputs  The scored sample [BORROWS].
- * @param[in]     out     The coherence file [BORROWS].
- * @return                1 on success, 0 otherwise.
- */
 static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *out)
 {
     const AnswerKey *const key = inputs->key;
@@ -3134,7 +3543,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
         if ((inputs->edge_status[edge] >= 1) && (inputs->edge_status[edge] <= 3))
         {
             const long source = node_slot_of(key, key->edge_ends[2u * edge]);
-            // Narrowing is safe: a scored edge's source exists and its time lies in the stack.
             failing_time[(unsigned int)key->node_coordinates[(size_t)source * 4u]] = 1u;
         }
     }
@@ -3156,7 +3564,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
                 && (grow_leaves(buffers, slot, &held[slot]) != 0);
             for (unsigned int leaf = 0u; (good != 0) && (leaf < held[slot].leaf_count); leaf += 1u)
             {
-                // Narrowing is safe: a leaf count is below 2^31.
                 leaf_at_peak[slot][held[slot].peaks[leaf]] = (int)leaf;
             }
         }
@@ -3168,7 +3575,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
         const unsigned int offset_after = inputs->node_offset[frame + 1u];
         const TreeFrame *const later = &inputs->frames[frame + 1u];
 
-        // Every unified object's positive voxels in the later frame.
         for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
         {
             if (((positive_after[voxel / 64u] >> (voxel % 64u)) & 1ULL) == 0ULL)
@@ -3178,7 +3584,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
             const int leaf = leaf_at_peak[1][labels_after[voxel]];
             if (leaf >= 0)
             {
-                // Narrowing is safe: the leaf was found, so it is nonnegative.
                 unified_size[inputs->unified_of[offset_after + later->object_of[(unsigned int)leaf]]] += 1u;
             }
         }
@@ -3194,18 +3599,15 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
             const long target = node_slot_of(key, key->edge_ends[2u * edge + 1u]);
             const int *const from = &key->node_coordinates[(size_t)source * 4u];
             const int *const to = &key->node_coordinates[(size_t)target * 4u];
-            // Narrowing is safe: a scored edge's times lie in the stack.
             if (((unsigned int)from[0] != earlier->time) || ((unsigned int)to[0] != earlier->time + 1u))
             {
                 continue;
             }
-            // Narrowing is safe: a scored edge that is not missed has both leaves.
             const unsigned int cell = inputs->unified_of[offset_before
                                                           + earlier->object_of[(unsigned int)inputs->node_leaf[source]]];
             const unsigned int true_target = inputs->unified_of[offset_after
                                                                  + later->object_of[(unsigned int)inputs->node_leaf[target]]];
 
-            // The cell's leaves, and its voxels as a mask.
             memset(leaf_in_cell, 0, voxels / 8u + 1u);
             unsigned int leaves = 0u;
             for (unsigned int leaf = 0u; leaf < earlier->leaf_count; leaf += 1u)
@@ -3225,7 +3627,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
                     continue;
                 }
                 const int leaf = leaf_at_peak[0][labels_before[voxel]];
-                // Narrowing is safe: the leaf was tested nonnegative first.
                 if ((leaf < 0) || (((leaf_in_cell[(unsigned int)leaf / 8u] >> ((unsigned int)leaf % 8u)) & 1u) == 0u))
                 {
                     continue;
@@ -3242,7 +3643,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
                     }
                     cell_voxels = grown;
                 }
-                // Narrowing is safe: a voxel index of the view fits an unsigned int.
                 cell_voxels[cell_size] = (unsigned int)voxel;
                 cell_size += 1u;
             }
@@ -3275,7 +3675,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
                 {
                     const unsigned int voxel = cell_voxels[member];
                     const unsigned int rest = voxel % plane;
-                    // Widening to long keeps a negative landing representable before the bounds test.
                     const long z = (long)(voxel / plane) + (long)lags[which][0];
                     const long y = (long)(rest / buffers->width) + (long)lags[which][1];
                     const long x = (long)(rest % buffers->width) + (long)lags[which][2];
@@ -3284,15 +3683,12 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
                     {
                         continue;
                     }
-                    // Narrowing is safe: the landing lies inside the view.
                     const unsigned int landed = (unsigned int)((z * (long)buffers->height + y) * (long)buffers->width + x);
                     if (((positive_after[landed / 64u] >> (landed % 64u)) & 1ULL) == 0ULL)
                     {
                         continue;
                     }
                     agreement[which] += 1ULL;
-                    // Where the agreeing voxels land is read at the view's lag, the lag the tree carries
-                    // peaks by; a cell's own best lag saturates in dense tissue and says nothing.
                     if (which != 1u)
                     {
                         continue;
@@ -3300,7 +3696,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
                     const int leaf = leaf_at_peak[1][labels_after[landed]];
                     if (leaf >= 0)
                     {
-                        // Narrowing is safe: the leaf was found, so it is nonnegative.
                         const unsigned int object = inputs->unified_of[offset_after + later->object_of[(unsigned int)leaf]];
                         if (landing[object] == 0u)
                         {
@@ -3346,7 +3741,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
                 view.leaf_at_peak[1] = leaf_at_peak[1];
                 view.from = from;
                 view.to = to;
-                // Narrowing is safe: a scored edge that is not missed has its source leaf.
                 view.source_leaf = (unsigned int)inputs->node_leaf[source];
                 view.cell = cell;
                 view.true_target = true_target;
@@ -3361,7 +3755,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
             }
         }
 
-        // Clear this frame pair's maps and sizes for the next.
         for (unsigned int slot = 0u; slot < 2u; slot += 1u)
         {
             for (unsigned int leaf = 0u; leaf < held[slot].leaf_count; leaf += 1u)
@@ -3395,15 +3788,6 @@ static int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs,
     return good;
 }
 
-/**
- * @brief Scores one sample: grows the tree and tallies the answer key's edges against it.
- *
- * @param[in]  directory Where the dumped files are.
- * @param[in]  sample    The sample name.
- * @param[in]  rules     The tree's rules [BORROWS].
- * @param[out] tally     The sample's tallies [BORROWS].
- * @return               1 on success, 0 otherwise.
- */
 static int score_sample(const char *directory, const char *sample, const TreeRules *rules, EdgeTally *tally)
 {
     memset(tally, 0, sizeof(*tally));
@@ -3430,7 +3814,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     }
     const unsigned int stack_frames = header[0];
 
-    // The frames scored are those the answer key reaches, below the frames dumped, ascending.
     unsigned char *const reached = (unsigned char *)calloc((size_t)stack_frames + 1u, 1u);
     int *const tree_index_of_time = (int *)malloc(((size_t)stack_frames + 1u) * sizeof(int));
     if ((reached == NULL) || (tree_index_of_time == NULL))
@@ -3441,19 +3824,13 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         release_answer_key(&key);
         return 0;
     }
-    for (unsigned int node = 0u; node < key.node_count; node += 1u)
+    for (unsigned int time = 0u; time < stack_frames; time += 1u)
     {
-        const int time = key.node_coordinates[(size_t)node * 4u];
-        // Narrowing is safe: the time was tested nonnegative first.
-        if ((time >= 0) && ((unsigned int)time < stack_frames))
-        {
-            reached[(unsigned int)time] = 1u;
-        }
+        reached[time] = 1u;
     }
     unsigned int frame_count = 0u;
     for (unsigned int time = 0u; time < stack_frames; time += 1u)
     {
-        // Narrowing is safe: a frame count is at most the dumped frames, far below 2^31.
         tree_index_of_time[time] = (reached[time] != 0u) ? (int)frame_count : -1;
         frame_count += (reached[time] != 0u) ? 1u : 0u;
     }
@@ -3507,7 +3884,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         }
     }
 
-    // Each node's leaf, found while its frame's labels are held.
     int *const node_leaf = (int *)malloc(((size_t)key.node_count + 1u) * sizeof(int));
     if (node_leaf != NULL)
     {
@@ -3525,14 +3901,10 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             && ((rules->climb == 0) || ((buffers.leaf_at_peak[0] != NULL) && (buffers.leaf_at_peak[1] != NULL)
                                         && (buffers.basin_start[0] != NULL) && (buffers.basin_start[1] != NULL)
                                         && (buffers.basin_voxels[0] != NULL) && (buffers.basin_voxels[1] != NULL)));
-    // The machine holds every frame on the device, for the overlap and the climb, where either runs.
     const int machine_wanted = (rules->pick != 0) || (rules->climb == 1) || (rules->climb == 3);
     const unsigned long long started = clock_milliseconds();
     StageClock clocks;
     memset(&clocks, 0, sizeof(clocks));
-    // The object: a frame is cut into runs from slot 1 of the cut, slot 0 taking every write a falsy voxel makes, so
-    // the cut steers by truth values and never branches; the runs are then scattered by leaf, so a leaf's runs are
-    // one range and a run need not name its leaf. A leaf's code is its leaf plus one at its peak voxel, else zero.
     const bool object = rules->object;
     size_t object_cut_room = 0u;
     unsigned int *object_cut = NULL;
@@ -3544,8 +3916,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     unsigned int *object_leaf_runs = NULL;
     unsigned int *const object_first_run = (unsigned int *)calloc(((size_t)frame_count + 1u) * object, sizeof(unsigned int));
     unsigned int *const object_leaf_code = (unsigned int *)calloc(voxels * object, sizeof(unsigned int));
-    // A run packs its first voxel above eight bits of its length less one, and the cut packs its leaf the same way. A
-    // view past that aliases runs, which the object's control shows as aberrant leaves rather than being refused here.
     good = good && (!object || (object_first_run && object_leaf_code));
     for (unsigned int frame = 0u; (good != 0) && (frame < frame_count); frame += 1u)
     {
@@ -3555,14 +3925,11 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             && (fread(buffers.volume, sizeof(unsigned short), voxels, stack) == voxels);
         clocks.read += clock_microseconds() - mark;
         mark = clock_microseconds();
-        // The current frame fills slot 1; the frame before, when it is held, sits in slot 0.
         good = (good != 0) && (grow_leaves(&buffers, 1u, &frames[frame]) != 0);
         clocks.basins += clock_microseconds() - mark;
         mark = clock_microseconds();
         if ((good != 0) && machine_wanted && (buffers.machine == NULL))
         {
-            // Opened once the basin engine holds its buffers, leaving the motion and overlap engines their room:
-            // four padded transform volumes, and a margin.
             unsigned long long padded = 1ull;
             const unsigned int extents[3] = {buffers.depth, buffers.height, buffers.width};
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
@@ -3582,20 +3949,19 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             shape.peak_room = buffers.peak_room;
             shape.frames = frame_count;
             shape.weight_z = AXIS_WEIGHTS[0];
-            // Narrowing is safe: four padded volumes of a view the engines accept fit well within 2^32 mebibytes.
             shape.reserve_bytes = (unsigned int)(((padded * 16ull) >> 20u) + 768ull);
             buffers.machine = climb_machine_open(&shape);
+            climb_machine_land_by_mass(buffers.machine,
+                                       (unsigned int)((rules->mass != 0) || (rules->spiral != 0u)));
+            good = (good != 0) && (climb_machine_spiral(buffers.machine, rules->spiral) != 0);
             good = (buffers.machine != NULL) ? 1 : 0;
         }
         if ((good != 0) && ((rules->climb >= 2) || (rules->cast != 0) || (rules->parallax != 0)))
         {
-            // The host reference climbs grouped voxels, and the cast throws them. Grouped once, as the later
-            // frame; the swap at the end keeps it for its turn as the earlier frame.
             group_basin_voxels(&buffers, 1u, buffers.labels[1], &frames[frame]);
         }
         if ((good != 0) && (buffers.machine != NULL))
         {
-            // The frame goes to the device once, for the overlap and the climb both.
             ClimbMachineFrame stored;
             memset(&stored, 0, sizeof(stored));
             stored.frame = frames[frame].time;
@@ -3606,7 +3972,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             unsigned int *contacts = NULL;
             if ((rules->climb == 1) || (rules->climb == 3))
             {
-                // With its leaves' peaks, the machine cuts the frame's basins into runs along its rows.
                 stored.peaks = frames[frame].peaks;
                 good = (rules->sticky == 0) || (frame_contacts(&frames[frame], &contact_start, &contacts) != 0);
                 stored.contact_start = contact_start;
@@ -3624,15 +3989,12 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         }
         if (object)
         {
-            // The frame as the object the card is fed: each leaf's positive voxels as runs along rows, in raster
-            // order, a run's first voxel beside its leaf and its length less one.
             const unsigned long long *const positive = buffers.positive[1];
             size_t positives = 0u;
             for (size_t word = 0u; word < (voxels + 63u) / 64u; word += 1u)
             {
                 positives += word_population(positive[word]);
             }
-            // A frame cuts at most one run per positive voxel, and one slot past them takes the tentative first voxel.
             good = good && object_room_fit(&object_cut, &object_cut_room, positives + 2u, 2u)
                 && object_room_fit(&object_runs, &object_run_room, object_run_count + positives, 1u)
                 && object_room_fit(&object_leaf_runs, &object_leaf_room, object_leaf_count + frames[frame].leaf_count, 2u);
@@ -3653,18 +4015,13 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             size_t voxel = 0u;
             for (unsigned int row = 0u; row < buffers.depth * buffers.height; row += 1u)
             {
-                // A row starts with no code, so a live first voxel always begins a run.
                 unsigned int previous = 0u;
                 for (unsigned int column = 0u; column < buffers.width; column += 1u)
                 {
-                    // Narrowing is safe: the shifted word is masked to its lowest bit.
                     const unsigned int live = (unsigned int)((positive[voxel >> 6u] >> (voxel & 63u)) & 1ULL);
-                    // A voxel that is not positive reads the code at voxel 0 and multiplies it away.
                     const unsigned int code = live * object_leaf_code[labels[voxel] * live];
                     const unsigned int held = !!code;
                     const unsigned int begins = held & (unsigned int)(code != previous);
-                    // Narrowing is safe: a voxel index of a view the engines accept fits 32 bits. The first voxel is
-                    // written to the next free slot every voxel, and kept only where a run begins.
                     runs[2u * (count + 1u)] = (unsigned int)voxel;
                     count += begins;
                     const size_t slot = count * held;
@@ -3673,8 +4030,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                     voxel += 1u;
                 }
             }
-            // Scattered by leaf, raster order kept within each leaf: a leaf's runs counted, its first run placed past
-            // the runs of the leaves before it, each run written at its leaf's cursor, and the cursors set back.
             unsigned int *const leaf_runs = &object_leaf_runs[2u * object_leaf_count];
             for (unsigned int leaf = 0u; leaf < tree->leaf_count; leaf += 1u)
             {
@@ -3686,7 +4041,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             {
                 leaf_runs[(2u * (runs[(2u * slot) + 1u] >> 8u)) + 1u] += 1u;
             }
-            // Narrowing is safe: a sample's runs are far below 2^32.
             unsigned int placed = (unsigned int)object_run_count;
             for (unsigned int leaf = 0u; leaf < tree->leaf_count; leaf += 1u)
             {
@@ -3704,14 +4058,12 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             {
                 leaf_runs[2u * leaf] -= leaf_runs[(2u * leaf) + 1u];
             }
-            // Narrowing is safe: a sample's runs are far below 2^32.
             object_first_run[frame] = (unsigned int)object_run_count;
             object_run_count += count;
             object_leaf_count += tree->leaf_count;
         }
         if (rules->export_directory != NULL)
         {
-            // The shape each object's own edge encloses: second moments of its positive voxels, exact.
             TreeFrame *const tree = &frames[frame];
             tree->moments = (unsigned long long *)calloc((size_t)tree->leaf_count * 6u + 1u, sizeof(unsigned long long));
             tree->exposed = (unsigned int *)calloc((size_t)tree->leaf_count + 1u, sizeof(unsigned int));
@@ -3729,11 +4081,9 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                 {
                     continue;
                 }
-                // Widening: a coordinate of the view fits comfortably in 64 bits, and so does its square.
                 const unsigned long long z = (unsigned long long)(voxel / plane);
                 const unsigned long long y = (unsigned long long)((voxel % plane) / buffers.width);
                 const unsigned long long x = (unsigned long long)((voxel % plane) % buffers.width);
-                // Narrowing is safe: the leaf was found, so it is nonnegative.
                 unsigned long long *const moment = &tree->moments[(size_t)(unsigned int)leaf * 6u];
                 moment[0] += z * z;
                 moment[1] += y * y;
@@ -3741,12 +4091,9 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                 moment[3] += z * y;
                 moment[4] += z * x;
                 moment[5] += y * x;
-                // The edge the voxel's faces make: a face on a non-positive voxel or the view's edge is
-                // exposed; a face on another basin's positive voxel is contact, counted once, from the lower leaf.
                 const long neighbours[6][3] = {{1, 0, 0}, {-1, 0, 0}, {0, 1, 0}, {0, -1, 0}, {0, 0, 1}, {0, 0, -1}};
                 for (unsigned int face = 0u; face < 6u; face += 1u)
                 {
-                    // Widening to long keeps a negative neighbour representable before the bounds test.
                     const long near_z = (long)z + neighbours[face][0];
                     const long near_y = (long)y + neighbours[face][1];
                     const long near_x = (long)x + neighbours[face][2];
@@ -3756,7 +4103,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                         tree->exposed[(unsigned int)leaf] += 1u;
                         continue;
                     }
-                    // Narrowing is safe: the neighbour lies inside the view.
                     const size_t near = (size_t)((near_z * (long)buffers.height + near_y) * (long)buffers.width + near_x);
                     if (((buffers.positive[1][near / 64u] >> (near % 64u)) & 1ULL) == 0ULL)
                     {
@@ -3766,7 +4112,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                     const int other = leaf_of_peak(tree->peaks, tree->leaf_count, buffers.labels[1][near]);
                     if ((other < 0) || (other <= leaf))
                     {
-                        // A positive voxel of no leaf is exposed; the same leaf is inside; a lower leaf counts it.
                         tree->exposed[(unsigned int)leaf] += (other < 0) ? 1u : 0u;
                         continue;
                     }
@@ -3798,12 +4143,10 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         for (unsigned int node = 0u; node < key.node_count; node += 1u)
         {
             const int *const place = &key.node_coordinates[(size_t)node * 4u];
-            // Narrowing is safe: the time was tested nonnegative first.
             if ((place[0] < 0) || ((unsigned int)place[0] != frames[frame].time))
             {
                 continue;
             }
-            // Widening: coordinates of the answer key are nonnegative voxels inside the view.
             const size_t voxel = ((size_t)place[1] * buffers.height + (size_t)place[2]) * buffers.width
                                + (size_t)place[3];
             node_leaf[node] = leaf_of_peak(frames[frame].peaks, frames[frame].leaf_count, buffers.labels[1][voxel]);
@@ -3830,9 +4173,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         buffers.basin_voxels[1] = basin_voxels;
     }
     fclose(stack);
-    // The null draws: each climbed frame's leaves climb again, from the same lag the view gave toward the next frame,
-    // against frames far off in time, where no cell is the same cell. The climb is the same identity; only its input
-    // is the null. Pended beside the observed pairs, they all run in the same ticks.
     int **null_scratch = NULL;
     unsigned int null_scratch_count = 0u;
     for (unsigned int frame = 0u; (good != 0) && (rules->null_draws != 0u) && (buffers.machine != NULL) && (frame < frame_count);
@@ -3849,8 +4189,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         null_scratch = (grown != NULL) ? grown : null_scratch;
         for (unsigned int draw = 0u; (good != 0) && (draw < rules->null_draws); draw += 1u)
         {
-            // Half the series away and stepping on by one per draw, wrapping; never the frame, its neighbour, or
-            // anything within two frames of it.
             const unsigned int other = (frame + (frame_count / 2u) + draw) % frame_count;
             const unsigned int apart = (other > frame) ? (other - frame) : (frame - other);
             if ((frame_count < 8u) || (apart <= 2u) || ((frame_count - apart) <= 2u))
@@ -3874,7 +4212,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             pair.forward = (int *)malloc(((size_t)tree->leaf_count + 1u) * sizeof(int));
             pair.backward_lags = (int *)malloc(((size_t)null_frame->leaf_count + 1u) * 3u * sizeof(int));
             pair.backward = (int *)malloc(((size_t)null_frame->leaf_count + 1u) * sizeof(int));
-            // Taken draws are packed from the start, so a skipped draw leaves no zero behind to be ranked.
             pair.forward_held = &tree->null_held[(size_t)tree->null_count * ((size_t)tree->leaf_count + 1u)];
             null_scratch[null_scratch_count] = pair.forward_lags;
             null_scratch[null_scratch_count + 1u] = pair.forward;
@@ -3886,10 +4223,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             tree->null_count += (good != 0) ? 1u : 0u;
         }
     }
-    // The arms: the same climb fired from every frame at every gap beyond the next one, scattered out together
-    // and settled in the same ticks. A cell that cannot be told from the neighbour it touches one frame on has
-    // moved clear of it two or three frames on, so what the arms land in is evidence the next frame alone does
-    // not hold. Each arm starts from the view's lag multiplied by its gap and climbs from there on its own.
     int **arm_scratch = NULL;
     unsigned int arm_scratch_count = 0u;
     for (unsigned int frame = 0u; (good != 0) && (rules->arms != 0u) && (buffers.machine != NULL)
@@ -3907,7 +4240,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         }
         for (unsigned int arm = 0u; (good != 0) && (arm < rules->arms); arm += 1u)
         {
-            // Arm one is the frame after the next, arm two the one after that, and so on out.
             const unsigned int gap = arm + 2u;
             if ((frame + gap) >= frame_count)
             {
@@ -3920,7 +4252,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             pair.later = far->time;
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
             {
-                // Narrowing is safe: a lag of the view times a gap of the series stays a small step.
                 pair.lag[axis] = (int)((long long)tree->lag_to_next[axis] * (long long)gap);
             }
             pair.earlier_leaves = tree->leaf_count;
@@ -3930,7 +4261,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             pair.forward_lags = (int *)malloc(((size_t)tree->leaf_count + 1u) * 3u * sizeof(int));
             pair.backward_lags = (int *)malloc(((size_t)far->leaf_count + 1u) * 3u * sizeof(int));
             pair.backward = (int *)malloc(((size_t)far->leaf_count + 1u) * sizeof(int));
-            // Where this arm lands is kept; the way back is scratch the arm does not read.
             pair.forward = &tree->arm_forward[(size_t)arm * ((size_t)tree->leaf_count + 1u)];
             arm_scratch[arm_scratch_count] = pair.forward_lags;
             arm_scratch[arm_scratch_count + 1u] = pair.backward_lags;
@@ -3941,7 +4271,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             tree->arm_count += (good != 0) ? 1u : 0u;
         }
     }
-    // Every pair still pending climbs now, all at once, to its fixed point.
     const unsigned long long climbing = clock_microseconds();
     good = (good != 0) && ((buffers.machine == NULL) || (climb_machine_run(buffers.machine) != 0));
     clocks.climb += clock_microseconds() - climbing;
@@ -3957,7 +4286,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     free(arm_scratch);
     for (unsigned int frame = 0u; (good != 0) && (rules->climb == 3) && (frame < frame_count); frame += 1u)
     {
-        // The machine's lags against the host reference's, leaf by leaf, both directions.
         const TreeFrame *const tree = &frames[frame];
         for (unsigned int leaf = 0u; (tree->check_forward_lag != NULL) && (leaf < tree->leaf_count); leaf += 1u)
         {
@@ -3976,29 +4304,138 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     }
     const unsigned long long engines_done = clock_milliseconds();
 
-    // Objects, frame by frame in order: merge-split reads the frame before's objects. Where the repair asks the
-    // halves to agree about where they are going, a second pass reads that agreement as the next frame's objects,
-    // which the first pass has by then given it.
-    const unsigned int grouping_passes = (rules->agree != 0) ? 2u : 1u;
-    for (unsigned int pass = 0u; (good != 0) && (pass < grouping_passes); pass += 1u)
+    for (unsigned int frame = 0u; (good != 0) && (rules->tower != 0) && (frame < frame_count); frame += 1u)
     {
-        for (unsigned int frame = 0u; (good != 0) && (frame < frame_count); frame += 1u)
+        frames[frame].held_target = (unsigned int *)malloc(((size_t)frames[frame].leaf_count + 1u)
+                                                            * sizeof(unsigned int));
+        frames[frame].held_count = (unsigned int *)calloc((size_t)frames[frame].leaf_count + 1u,
+                                                           sizeof(unsigned int));
+        frames[frame].held_rounds = (unsigned int *)calloc((size_t)frames[frame].leaf_count + 1u,
+                                                            sizeof(unsigned int));
+        good = (frames[frame].held_target != NULL) && (frames[frame].held_count != NULL)
+            && (frames[frame].held_rounds != NULL);
+        for (unsigned int leaf = 0u; (good != 0) && (leaf < frames[frame].leaf_count); leaf += 1u)
         {
-            const TreeFrame *const previous = (frames[frame].backward != NULL) ? &frames[frame - 1u] : NULL;
-            const TreeFrame *const next = ((pass != 0u) && ((frame + 1u) < frame_count)) ? &frames[frame + 1u] : NULL;
-            good = group_objects(&frames[frame], previous, next, rules);
+            frames[frame].held_target[leaf] = 0xFFFFFFFFu;
         }
     }
-    for (unsigned int frame = 0u; (good != 0) && (frame + 1u < frame_count); frame += 1u)
+    unsigned int **const was_target = (unsigned int **)calloc((size_t)frame_count + 1u, sizeof(unsigned int *));
+    unsigned int *const was_count = (unsigned int *)calloc((size_t)frame_count + 1u, sizeof(unsigned int));
+    const unsigned int rounds = ((rules->tower != 0) && (was_target != NULL) && (was_count != NULL))
+                              ? TOWER_ROUNDS : 1u;
+    unsigned int turned = 0u;
+    unsigned int moving = 1u;
+    for (unsigned int round = 0u; (good != 0) && (round < rounds) && (moving != 0u); round += 1u)
     {
-        if (frames[frame].forward != NULL)
+        turned = round + 1u;
+        for (unsigned int frame = 0u; (round != 0u) && (frame < frame_count); frame += 1u)
         {
-            const TreeFrame *const before = (frame > 0u) ? &frames[frame - 1u] : NULL;
-            const TreeFrame *const after = ((frame + 2u) < frame_count) ? &frames[frame + 2u] : NULL;
-            good = (rules->unbound != 0) ? link_objects_unbound(&frames[frame], &frames[frame + 1u], before, after,
-                                                                rules)
-                                         : link_objects(&frames[frame], &frames[frame + 1u], rules);
+            free(frames[frame].link_start);
+            free(frames[frame].link_target);
+            free(frames[frame].pool_start);
+            free(frames[frame].pool_target);
+            free(frames[frame].pool_weight);
+            free(frames[frame].pool_cost);
+            frames[frame].link_start = NULL;
+            frames[frame].link_target = NULL;
+            frames[frame].pool_start = NULL;
+            frames[frame].pool_target = NULL;
+            frames[frame].pool_weight = NULL;
+            frames[frame].pool_cost = NULL;
         }
+        const unsigned int grouping_passes = (rules->agree != 0) ? 2u : 1u;
+        for (unsigned int pass = 0u; (good != 0) && (pass < grouping_passes); pass += 1u)
+        {
+            for (unsigned int frame = 0u; (good != 0) && (frame < frame_count); frame += 1u)
+            {
+                const TreeFrame *const previous = (frames[frame].backward != NULL) ? &frames[frame - 1u] : NULL;
+                const TreeFrame *const next = ((pass != 0u) && ((frame + 1u) < frame_count))
+                                            ? &frames[frame + 1u] : NULL;
+                good = group_objects(&frames[frame], previous, next, buffers.height, buffers.width, rules);
+            }
+        }
+        for (unsigned int frame = 0u; (good != 0) && (frame + 1u < frame_count); frame += 1u)
+        {
+            if (frames[frame].forward != NULL)
+            {
+                const TreeFrame *const before = (frame > 0u) ? &frames[frame - 1u] : NULL;
+                const TreeFrame *const after = ((frame + 2u) < frame_count) ? &frames[frame + 2u] : NULL;
+                good = (rules->unbound != 0) ? link_objects_unbound(&frames[frame], &frames[frame + 1u],
+                                                                    before, after, rules)
+                                             : link_objects(&frames[frame], &frames[frame + 1u], rules);
+            }
+        }
+        for (unsigned int frame = 0u; (good != 0) && (rounds > 1u) && ((frame + 1u) < frame_count); frame += 1u)
+        {
+            TreeFrame *const tree = &frames[frame];
+            const TreeFrame *const ahead = &frames[frame + 1u];
+            if ((tree->link_start == NULL) || (tree->held_target == NULL) || (ahead->member_start == NULL))
+            {
+                continue;
+            }
+            for (unsigned int leaf = 0u; leaf < tree->leaf_count; leaf += 1u)
+            {
+                const unsigned int object = tree->object_of[leaf];
+                const unsigned int links = tree->link_start[object + 1u] - tree->link_start[object];
+                unsigned int target = 0xFFFFFFFFu;
+                if (links == 1u)
+                {
+                    const unsigned int went = tree->link_target[tree->link_start[object]];
+                    unsigned int widest = 0u;
+                    for (unsigned int member = ahead->member_start[went];
+                         member < ahead->member_start[went + 1u]; member += 1u)
+                    {
+                        const unsigned int other = ahead->members[member];
+                        const unsigned int bigger = (unsigned int)((target == 0xFFFFFFFFu)
+                                                                   || (ahead->sizes[other] > widest));
+                        widest = (bigger != 0u) ? ahead->sizes[other] : widest;
+                        target = (bigger != 0u) ? other : target;
+                    }
+                }
+                const unsigned int empty = (unsigned int)(tree->held_count[leaf] == 0u);
+                const unsigned int agrees = (unsigned int)(target == tree->held_target[leaf]);
+                tree->held_target[leaf] = (empty != 0u) ? target : tree->held_target[leaf];
+                tree->held_count[leaf] = ((empty != 0u) || (agrees != 0u))
+                                       ? (tree->held_count[leaf] + 1u) : (tree->held_count[leaf] - 1u);
+                tree->held_rounds[leaf] += (unsigned int)(agrees != 0u);
+            }
+        }
+        moving = 0u;
+        for (unsigned int frame = 0u; (good != 0) && (rounds > 1u) && (frame < frame_count); frame += 1u)
+        {
+            const unsigned int links = (frames[frame].link_start != NULL)
+                                     ? frames[frame].link_start[frames[frame].object_count] : 0u;
+            const unsigned int same = (unsigned int)((links == was_count[frame]) && (was_target[frame] != NULL)
+                                                     && ((links == 0u)
+                                                         || (memcmp(was_target[frame], frames[frame].link_target,
+                                                                    (size_t)links * sizeof(unsigned int)) == 0)));
+            moving += (unsigned int)(same == 0u);
+            unsigned int *const kept = (links != 0u)
+                                     ? (unsigned int *)malloc((size_t)links * sizeof(unsigned int)) : NULL;
+            if (kept != NULL)
+            {
+                memcpy(kept, frames[frame].link_target, (size_t)links * sizeof(unsigned int));
+            }
+            free(was_target[frame]);
+            was_target[frame] = kept;
+            was_count[frame] = links;
+        }
+    }
+    for (unsigned int frame = 0u; (was_target != NULL) && (frame < frame_count); frame += 1u)
+    {
+        free(was_target[frame]);
+    }
+    free(was_target);
+    free(was_count);
+    if ((rules->tower != 0) && (rules->edges != NULL))
+    {
+        printf("    tower: %u rounds, %s\n", turned,
+               (moving == 0u) ? "settled" : "still moving when the rounds ran out");
+    }
+    const unsigned int refocused = ((good != 0) && (rules->focus != 0)) ? focus_links(frames, frame_count) : 0u;
+    if ((rules->focus != 0) && (rules->edges != NULL))
+    {
+        printf("    focus moved %u links\n", refocused);
     }
 
     NodeIndex index;
@@ -4024,7 +4461,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         }
     }
 
-    // Branches read at the end of the series: two single continuations that meet were one object.
     unsigned int rejoined = 0u;
     unsigned int visited_room = 64u;
     unsigned int *visited = (unsigned int *)malloc((size_t)visited_room * 2u * sizeof(unsigned int));
@@ -4109,12 +4545,10 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     }
     free(visited);
 
-    // Unified objects numbered by root within each frame, and the links between them.
     unsigned int *const unified_of = (unsigned int *)malloc(((size_t)index.node_count + 1u) * sizeof(unsigned int));
     unsigned int *const rank_of_root = (unsigned int *)malloc(((size_t)index.node_count + 1u) * sizeof(unsigned int));
     good = (good != 0) && (unified_of != NULL) && (rank_of_root != NULL);
     unsigned int unified_count = 0u;
-    // The first unified id of each frame: the ids of one frame are contiguous, in root order.
     unsigned int *const unified_first = (unsigned int *)calloc((size_t)frame_count + 1u, sizeof(unsigned int));
     good = (good != 0) && (unified_first != NULL);
     for (unsigned int frame = 0u; (good != 0) && (frame < frame_count); frame += 1u)
@@ -4179,7 +4613,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         unified_start[unified + 1u] += unified_start[unified];
     }
 
-    // The score: each labelled edge against the unified links, as the reference tallies it.
     unsigned int *const successors = (unsigned int *)calloc((size_t)key.node_count + 1u, sizeof(unsigned int));
     signed char *const edge_status = (signed char *)malloc((size_t)key.edge_count + 1u);
     good = (good != 0) && (successors != NULL) && (edge_status != NULL);
@@ -4205,7 +4638,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         }
         const int source_time = key.node_coordinates[(size_t)source * 4u];
         const int target_time = key.node_coordinates[(size_t)target * 4u];
-        // Narrowing is safe: both times were tested nonnegative first.
         if ((source_time < 0) || (target_time < 0) || ((unsigned int)source_time >= stack_frames)
          || ((unsigned int)target_time >= stack_frames))
         {
@@ -4256,8 +4688,14 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             edge_status[edge] = 2;
         }
     }
-    // One row per scored edge: the answer key's step, the group's motion (the view's lag), and the lag the cell
-    // was carried by, so failure can be read against how far a cell's own motion departs from the group's.
+    unsigned int *edge_near_start = NULL;
+    unsigned int *edge_nearby = NULL;
+    unsigned int *edge_later_near_start = NULL;
+    unsigned int *edge_later_nearby = NULL;
+    unsigned int *edge_seen = NULL;
+    unsigned int edge_mark = 0u;
+    unsigned int edge_pair_from = 0xFFFFFFFFu;
+    unsigned int edge_pair_to = 0xFFFFFFFFu;
     for (unsigned int edge = 0u; (good != 0) && (rules->edges != NULL) && (edge < key.edge_count); edge += 1u)
     {
         const int status = edge_status[edge];
@@ -4270,10 +4708,8 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         const int *const from = &key.node_coordinates[(size_t)source * 4u];
         const int *const to = &key.node_coordinates[(size_t)target * 4u];
         const TreeFrame *const tree = &frames[tree_index_of_time[from[0]]];
-        // Narrowing is safe: an edge that is not missed has its source leaf.
         const unsigned int leaf = (unsigned int)node_leaf[source];
         const int *const carried = (tree->forward_lag != NULL) ? &tree->forward_lag[3u * leaf] : tree->lag_to_next;
-        // The null tag: the observed coherence at the climbed lag, and how many null draws held at least as much.
         const unsigned int held = (tree->forward_held != NULL) ? tree->forward_held[leaf] : 0u;
         unsigned int null_at_least = 0u;
         unsigned int null_best = 0u;
@@ -4283,11 +4719,39 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             null_at_least += (drawn >= held) ? 1u : 0u;
             null_best = (drawn > null_best) ? drawn : null_best;
         }
-        // Why an edge came out as it did, accumulated rather than guessed at: the later frame's leaf the answer
-        // key's next node lies in, the leaf this cell's landing fell in, the voxels this cell shares with each of
-        // them and with whichever it shares most, whether the key's leaf lands back on this cell, and whether the
-        // two leaves are one object already.
         const TreeFrame *const next_tree = &frames[tree_index_of_time[to[0]]];
+        if ((edge_pair_from != tree_index_of_time[from[0]]) || (edge_pair_to != tree_index_of_time[to[0]]))
+        {
+            free(edge_near_start);
+            free(edge_nearby);
+            free(edge_later_near_start);
+            free(edge_later_nearby);
+            free(edge_seen);
+            edge_near_start = NULL;
+            edge_nearby = NULL;
+            edge_later_near_start = NULL;
+            edge_later_nearby = NULL;
+            edge_seen = NULL;
+            const int joined = (frame_contacts(tree, &edge_near_start, &edge_nearby) != 0)
+                            && (frame_contacts(next_tree, &edge_later_near_start, &edge_later_nearby) != 0);
+            edge_seen = (unsigned int *)calloc((size_t)tree->leaf_count + 2u, sizeof(unsigned int));
+            if ((joined == 0) || (edge_seen == NULL))
+            {
+                free(edge_near_start);
+                free(edge_nearby);
+                free(edge_later_near_start);
+                free(edge_later_nearby);
+                free(edge_seen);
+                edge_near_start = NULL;
+                edge_nearby = NULL;
+                edge_later_near_start = NULL;
+                edge_later_nearby = NULL;
+                edge_seen = NULL;
+            }
+            edge_mark = 0u;
+            edge_pair_from = tree_index_of_time[from[0]];
+            edge_pair_to = tree_index_of_time[to[0]];
+        }
         const int truth_leaf = node_leaf[target];
         const int chosen_leaf = (tree->forward != NULL) ? tree->forward[leaf] : -1;
         const unsigned int pairs_first = (tree->triple_start != NULL) ? tree->triple_start[leaf] : 0u;
@@ -4298,7 +4762,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         int best_leaf = -1;
         for (unsigned int pair = pairs_first; pair < pairs_past; pair += 1u)
         {
-            // Narrowing is safe: a leaf index is far below 2^31.
             const int after = (int)tree->triple_after[pair];
             const unsigned int shared = tree->triple_shared[pair];
             truth_shared = (after == truth_leaf) ? shared : truth_shared;
@@ -4312,8 +4775,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         const unsigned int one_object = (unsigned int)((truth_leaf >= 0) && (chosen_leaf >= 0)
                                                        && (next_tree->object_of[truth_leaf]
                                                            == next_tree->object_of[chosen_leaf]));
-        // The links themselves, at both heights: what this cell's object linked to in the next frame, and what
-        // the unified object it belongs to linked to, each beside whether the key's object is among them.
         const unsigned int own_object = tree->object_of[leaf];
         const unsigned int truth_object = (truth_leaf >= 0) ? next_tree->object_of[truth_leaf] : 0xFFFFFFFFu;
         const unsigned int object_links = (tree->link_start != NULL)
@@ -4323,8 +4784,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         {
             object_links_truth += (unsigned int)(tree->link_target[tree->link_start[own_object] + link] == truth_object);
         }
-        // The weighing as the linker saw it: what the whole object shares with the key's object, and with the
-        // object it did link to, summed over the object's member leaves exactly as the pick sums them.
         const unsigned int linked_object = ((tree->link_start != NULL) && (object_links != 0u))
                                          ? tree->link_target[tree->link_start[own_object]] : 0xFFFFFFFFu;
         unsigned long long truth_weight = 0ULL;
@@ -4343,6 +4802,19 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                 linked_weight += (after_object == linked_object) ? tree->triple_shared[pair] : 0u;
             }
         }
+        unsigned long long truth_web = 0ULL;
+        unsigned long long linked_web = 0ULL;
+        if ((edge_near_start != NULL) && (edge_later_near_start != NULL) && (edge_seen != NULL))
+        {
+            edge_mark += 1u;
+            truth_web = (truth_object != 0xFFFFFFFFu)
+                      ? web_count(tree, own_object, next_tree, truth_object, edge_near_start, edge_nearby,
+                                  edge_later_near_start, edge_later_nearby, edge_seen, edge_mark) : 0ULL;
+            edge_mark += 1u;
+            linked_web = (linked_object != 0xFFFFFFFFu)
+                       ? web_count(tree, own_object, next_tree, linked_object, edge_near_start, edge_nearby,
+                                   edge_later_near_start, edge_later_nearby, edge_seen, edge_mark) : 0ULL;
+        }
         const unsigned int own_unified = unified_of[index.node_offset[tree_index_of_time[from[0]]] + own_object];
         const unsigned int truth_unified = (truth_leaf >= 0)
                                          ? unified_of[index.node_offset[tree_index_of_time[to[0]]] + truth_object]
@@ -4357,14 +4829,11 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                 EDGE_STATUS_NAMES[status], to[1] - from[1], to[2] - from[2], to[3] - from[3], tree->lag_to_next[0],
                 tree->lag_to_next[1], tree->lag_to_next[2], carried[0], carried[1], carried[2], tree->sizes[leaf],
                 (tree->forward != NULL) ? 1u : 0u, held, tree->null_count, null_at_least, null_best);
-        // Every draw's coherence in draw order, so the curve can be read at any prefix of the draws.
         for (unsigned int draw = 0u; (tree->null_held != NULL) && (draw < tree->null_count); draw += 1u)
         {
             fprintf(rules->edges, "%s%u", (draw == 0u) ? "" : ",",
                     tree->null_held[((size_t)draw * ((size_t)tree->leaf_count + 1u)) + leaf]);
         }
-        // Every candidate this cell's object weighed, taken or refused, written whole beside the edge. The
-        // bounds are taken before the walk, since a run that kept no pool has none to read.
         const int kept_pool = (rules->pool != NULL) && (tree->pool_start != NULL);
         const unsigned int pool_first = (kept_pool != 0) ? tree->pool_start[own_object] : 0u;
         const unsigned int pool_past = (kept_pool != 0) ? tree->pool_start[own_object + 1u] : 0u;
@@ -4390,9 +4859,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                     next_tree->member_start[candidate + 1u] - next_tree->member_start[candidate],
                     (unsigned long long)tree->sizes[leaf], members);
         }
-        // The first arm: the object two frames on that this cell landed in, beside the object two frames on
-        // that the key's own target links to. Where the two agree and the link taken does not, the arm holds
-        // what the next frame alone could not tell.
         const TreeFrame *const beyond = ((tree_index_of_time[from[0]] + 2u) < frame_count)
                                       ? &frames[tree_index_of_time[from[0]] + 2u] : NULL;
         const int arm_leaf = ((tree->arm_forward != NULL) && (tree->arm_count != 0u))
@@ -4414,10 +4880,53 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
             linked_onward = next_tree->link_target[next_tree->link_start[linked_object] + link];
         }
         fprintf(rules->edges, "\t%u\t%u\t%u", arm_object, truth_onward, linked_onward);
-        fprintf(rules->edges, "\t%d\t%d\t%d\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%llu\t%llu\n", truth_leaf,
+        fprintf(rules->edges, "\t%d\t%d\t%d\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%llu\t%llu\t%llu\t%llu\n", truth_leaf,
                 chosen_leaf, best_leaf, truth_shared, chosen_shared, best_shared, truth_mutual, one_object,
                 object_links, object_links_truth, unified_links, unified_holds_truth, members, truth_weight,
-                linked_weight);
+                linked_weight, truth_web, linked_web);
+    }
+    for (unsigned int frame = 0u; (good != 0) && (rules->nodes != NULL) && (frame < frame_count); frame += 1u)
+    {
+        const TreeFrame *const tree = &frames[frame];
+        const size_t plane = (size_t)buffers.height * buffers.width;
+        for (unsigned int leaf = 0u; (tree->peaks != NULL) && (leaf < tree->leaf_count); leaf += 1u)
+        {
+            const unsigned int peak = tree->peaks[leaf];
+            unsigned long long departure = 0ull;
+            for (unsigned int axis = 0u; (tree->forward_lag != NULL) && (axis < 3u); axis += 1u)
+            {
+                const long long apart = (long long)tree->forward_lag[(3u * leaf) + axis]
+                                      - (long long)tree->lag_to_next[axis];
+                departure += (unsigned long long)(apart * apart) * (unsigned long long)AXIS_WEIGHTS[axis];
+            }
+            const unsigned int object = tree->object_of[leaf];
+            const unsigned int object_links = (tree->link_start != NULL)
+                                            ? (tree->link_start[object + 1u] - tree->link_start[object]) : 0u;
+            const int object_link = ((tree->link_start != NULL) && (object_links != 0u))
+                                  ? (int)tree->link_target[tree->link_start[object]] : -1;
+            const unsigned int held_here = (tree->forward_held != NULL) ? tree->forward_held[leaf] : 0u;
+            unsigned int null_at_least = 0u;
+            unsigned int null_best = 0u;
+            for (unsigned int draw = 0u; (tree->null_held != NULL) && (draw < tree->null_count); draw += 1u)
+            {
+                const unsigned int drawn = tree->null_held[((size_t)draw * ((size_t)tree->leaf_count + 1u))
+                                                           + leaf];
+                null_at_least += (unsigned int)(drawn >= held_here);
+                null_best = (drawn > null_best) ? drawn : null_best;
+            }
+            fprintf(rules->nodes, "%s\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%d\t%llu\t%u\t%d\t%u\t%u\t%u\t%u\t%d\t%u\t%d\n",
+                    sample, tree->time, leaf,
+                    (unsigned int)(peak / plane), (unsigned int)((peak % plane) / buffers.width),
+                    (unsigned int)((peak % plane) % buffers.width), tree->sizes[leaf], object,
+                    (tree->member_start != NULL)
+                    ? (tree->member_start[object + 1u] - tree->member_start[object]) : 0u,
+                    (tree->forward != NULL) ? tree->forward[leaf] : -1,
+                    departure, (tree->forward_held != NULL) ? tree->forward_held[leaf] : 0u,
+                    object_link, object_links, tree->null_count, null_at_least, null_best,
+                    (tree->held_target != NULL) ? (int)tree->held_target[leaf] : -1,
+                    (tree->held_rounds != NULL) ? tree->held_rounds[leaf] : 0u,
+                    (tree->backward != NULL) ? tree->backward[leaf] : -1);
+        }
     }
     if (good && (object || (rules->coherence != NULL) || (rules->vis_index != NULL) || (rules->export_directory != NULL)))
     {
@@ -4450,7 +4959,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
         }
         if (good && object)
         {
-            // Narrowing is safe: a sample's runs are far below 2^32.
             object_first_run[frame_count] = (unsigned int)object_run_count;
             good = export_object(&buffers, &inputs, object_runs, object_first_run, object_leaf_runs, rules);
         }
@@ -4461,8 +4969,6 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     free(object_first_run);
     free(object_leaf_code);
     const unsigned long long finished = clock_milliseconds();
-    // What the repair made of the basins: objects against leaves, and the largest object of the series. A cell is
-    // a basin or a few, so an object holding hundreds is the repair running away through cells that touch.
     unsigned int object_total = 0u;
     unsigned int leaf_total = 0u;
     unsigned int largest_object = 0u;
@@ -4491,6 +4997,30 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                clocks.store / 1000ULL, clocks.ties / 1000ULL, clocks.motion / 1000ULL, clocks.landing / 1000ULL,
                clocks.overlap / 1000ULL, clocks.climb / 1000ULL, finished - engines_done);
         fflush(stdout);
+        FILE *const log = log_open();
+        if (log != NULL)
+        {
+            char when[32];
+            log_when(when, sizeof(when));
+            fprintf(log, "%s\tsample\t%s\t%s\t%u\t%u\t%u\t%u\t%u\t%llu\t%llu\t%llu\t%llu\t%llu\t%llu"
+                         "\t%llu\t%llu\t%llu\t%llu\t%llu\t%llu\t%llu\t%llu\t%llu\t%llu"
+                         "\t%llu\t%llu\t%llu\t%u\t%llu\t%llu\t%llu\n",
+                    when, log_rules(), sample, frame_count, object_total, leaf_total, largest_object, rejoined,
+                    scored, tally->correct, tally->branched, tally->wrong, tally->unlinked, tally->missed,
+                    clocks.read / 1000ULL, clocks.basins / 1000ULL, clocks.store / 1000ULL, clocks.ties / 1000ULL,
+                    clocks.motion / 1000ULL, clocks.landing / 1000ULL, clocks.overlap / 1000ULL,
+                    clocks.climb / 1000ULL, engines_done - started, finished - engines_done,
+                    s_web_asked - s_web_logged[0], s_web_moved - s_web_logged[1],
+                    s_web_capped - s_web_logged[2], WEB_MEMBERS,
+                    s_damp_leaves - s_web_logged[3], s_damp_landings - s_web_logged[4],
+                    (unsigned long long)DAMP_DEVIATIONS);
+            fclose(log);
+            s_web_logged[0] = s_web_asked;
+            s_web_logged[1] = s_web_moved;
+            s_web_logged[2] = s_web_capped;
+            s_web_logged[3] = s_damp_leaves;
+            s_web_logged[4] = s_damp_landings;
+        }
     }
 
     free(edge_status);
@@ -4563,28 +5093,21 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
     return good;
 }
 
-/** @brief The .cfg scheme's name, written into every .cfg and checked on every read. */
 static const char CFG_SCHEME[] = "cell_tracking.cfg";
 
-/** @brief The .cfg scheme's version. */
 static const unsigned long long CFG_VERSION = 1ULL;
 
-/** @brief The climb by .cfg name, in the order of TreeRules climb. */
 static const char *const CLIMB_NAMES[4] = {"off", "machine", "host", "check"};
 
-/** @brief The outputs by .cfg name, in the order of RunInputs outputs. */
-static const char *const OUTPUT_NAMES[6] = {"edges", "coherence", "export", "object", "vis", "pool"};
+static const char *const OUTPUT_NAMES[7] = {"edges", "coherence", "export", "object", "vis", "pool", "nodes"};
 
-/** @brief The boolean rules by .cfg name, beside the rule each sets. */
 typedef struct
 {
-    const char *name;        /**< The .cfg name. */
-    int TreeRules::*rule;    /**< The rule it sets. */
+    const char *name;
+    int TreeRules::*rule;
 } CfgSwitch;
 
-/** @brief Every rule a .cfg sets true or false. */
-/** @brief Rules a .cfg sets true or false. */
-#define CFG_SWITCH_COUNT 15u
+#define CFG_SWITCH_COUNT 26u
 
 static const CfgSwitch CFG_SWITCHES[CFG_SWITCH_COUNT] = {
     {"pick", &TreeRules::pick},
@@ -4595,6 +5118,17 @@ static const CfgSwitch CFG_SWITCHES[CFG_SWITCH_COUNT] = {
     {"parallax", &TreeRules::parallax},
     {"arc", &TreeRules::arc},
     {"settle", &TreeRules::settle},
+    {"focus", &TreeRules::focus},
+    {"web", &TreeRules::web},
+    {"damp", &TreeRules::damp},
+    {"dish", &TreeRules::dish},
+    {"vote", &TreeRules::vote},
+    {"mutual", &TreeRules::mutual},
+    {"tower", &TreeRules::tower},
+    {"mass", &TreeRules::mass},
+    {"forest", &TreeRules::forest},
+    {"cohere", &TreeRules::cohere},
+    {"accrue", &TreeRules::accrue},
     {"merge_split", &TreeRules::merge_split},
     {"merge_target", &TreeRules::merge_target},
     {"forward_only", &TreeRules::forward_only},
@@ -4604,33 +5138,30 @@ static const CfgSwitch CFG_SWITCHES[CFG_SWITCH_COUNT] = {
     {"motion_check", &TreeRules::motion_check},
 };
 
-/** @brief A run's inputs and output paths, from the command line and any .cfg, in the order given. */
 typedef struct
 {
-    char *stacks;          /**< The stack directory, or NULL [OWNS]. */
-    char **samples;        /**< The samples [OWNS]. */
-    unsigned int count;    /**< Samples. */
-    unsigned int first;    /**< Where no sample is named: the first this many samples with an answer key, by name. */
-    char *species;         /**< The specimen's species, carried for the viewer, or NULL [OWNS]. */
-    unsigned long long voxel_pm[3]; /**< A voxel's size z y x in picometers, carried for the viewer; 0 where unknown. */
-    unsigned long long membrane_pm; /**< The membrane's thickness in picometers, carried for the viewer; 0 where unknown. */
-    char *outputs[6];      /**< Each output's path, or NULL, in OUTPUT_NAMES order [OWNS]. */
-    char *view;            /**< The .cfg's view section, verbatim, or NULL [OWNS]. */
+    char *stacks;
+    char **samples;
+    unsigned int count;
+    unsigned int first;
+    char *species;
+    unsigned long long voxel_pm[3];
+    unsigned long long membrane_pm;
+    char *outputs[7];
+    char *view;
 } RunInputs;
 
-/** @brief A text that grows as it is written. */
 typedef struct
 {
-    char *bytes;   /**< The text, NUL terminated [OWNS]. */
-    size_t length; /**< Its bytes. */
-    size_t room;   /**< Bytes held. */
-    bool good;     /**< False once a grow failed. */
+    char *bytes;
+    size_t length;
+    size_t room;
+    bool good;
 } CfgText;
 
 static void cfg_append(CfgText *text, const char *piece, size_t size)
 {
     const size_t wanted = text->length + size + 1u;
-    // Where the room is enough the product is zero, whatever the wrapped difference.
     const size_t room = text->room + ((size_t)(wanted > text->room) * ((2u * wanted) - text->room));
     char *const grown = (char *)realloc(text->bytes, room);
     text->good = text->good && grown;
@@ -4673,22 +5204,13 @@ static char *cfg_copy(const char *piece)
     return copy ? (char *)memcpy(copy, piece, size) : NULL;
 }
 
-/**
- * @brief Opens an output a path names, closing the one it replaces; the edges and coherence tables get their
- *        header rows and the vis arm its page.
- *
- * @param[in,out] rules  The rules [BORROWS].
- * @param[in,out] inputs The run, which keeps the path [BORROWS].
- * @param[in]     output The output, in OUTPUT_NAMES order.
- * @param[in]     path   The path, or NULL for none [BORROWS].
- * @return               True where the output is open, or is none.
- */
 static bool open_output(TreeRules *rules, RunInputs *inputs, unsigned int output, const char *path)
 {
     free(inputs->outputs[output]);
     inputs->outputs[output] = path ? cfg_copy(path) : NULL;
     const char *const kept = inputs->outputs[output];
-    FILE **const files[6] = {&rules->edges, &rules->coherence, NULL, NULL, &rules->vis_index, &rules->pool};
+    FILE **const files[7] = {&rules->edges, &rules->coherence, NULL, NULL, &rules->vis_index, &rules->pool,
+                             &rules->nodes};
     if (files[output] && *files[output])
     {
         fclose(*files[output]);
@@ -4718,14 +5240,18 @@ static bool open_output(TreeRules *rules, RunInputs *inputs, unsigned int output
                       "\tarm_object\ttruth_onward\tlinked_onward"
                       "\ttruth_leaf\tchosen_leaf\tbest_leaf\ttruth_shared\tchosen_shared\tbest_shared\ttruth_mutual"
                       "\tone_object\tobject_links\tobject_links_truth\tunified_links\tunified_holds_truth\tmembers"
-                      "\ttruth_weight\tlinked_weight\n");
+                      "\ttruth_weight\tlinked_weight\ttruth_web\tlinked_web\n");
     }
     if (output == 5u)
     {
-        // One row per candidate the cell's object weighed, whether it was taken or refused, so a question about
-        // the refusals is asked of what was actually there and not of a rule guessed at afterwards.
         fprintf(file, "sample\ttime\tstatus\tobject\tcandidate\tis_truth\tis_linked\tmeeting\tstep\tmagnitude"
                       "\tcandidate_voxels\tcandidate_leaves\tobject_voxels\tobject_leaves\n");
+    }
+    if (output == 6u)
+    {
+        fprintf(file, "sample\ttime\tleaf\tz\ty\tx\tvoxels\tobject\tobject_members\tforward\tdeparture\theld"
+                      "\tobject_link\tobject_links\tnull_draws\tnull_at_least\tnull_best"
+                      "\ttower_target\ttower_rounds\tbackward\n");
     }
     if (output == 1u)
     {
@@ -4749,15 +5275,6 @@ static bool open_output(TreeRules *rules, RunInputs *inputs, unsigned int output
     return true;
 }
 
-/**
- * @brief Refuses a .cfg at a token, naming the file, the line and column, and what was wrong.
- *
- * @param[in] path   The .cfg [BORROWS].
- * @param[in] text   Its text [BORROWS].
- * @param[in] at     The byte refused.
- * @param[in] reason What was wrong [BORROWS].
- * @return           False, always.
- */
 static bool cfg_refuse(const char *path, const char *text, size_t at, const char *reason)
 {
     size_t line = 1u;
@@ -4772,15 +5289,6 @@ static bool cfg_refuse(const char *path, const char *text, size_t at, const char
     return false;
 }
 
-/**
- * @brief Reads a .cfg and applies it over the rules and the run, section by section. Every name is checked: a
- *        name the scheme does not have is refused, never skipped, so a misspelt rule cannot run as its default.
- *
- * @param[in]     path   The .cfg [BORROWS].
- * @param[in,out] rules  The rules [BORROWS].
- * @param[in,out] inputs The run [BORROWS].
- * @return               True where the whole .cfg applied.
- */
 static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
 {
     FILE *const file = fopen(path, "rb");
@@ -4792,10 +5300,8 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
     fseek(file, 0L, SEEK_END);
     const long size = ftell(file);
     fseek(file, 0L, SEEK_SET);
-    // Widening: a .cfg's size is small and nonnegative once ftell succeeds.
     const size_t length = (size_t)((size > 0L) ? size : 0L);
     char *const text = (char *)malloc(length + 1u);
-    // A token is at least one byte and all but the last are followed by a separator.
     const unsigned int room = (unsigned int)(length / 2u) + 4u;
     CfgJsonToken *const tokens = (CfgJsonToken *)malloc((size_t)room * sizeof(CfgJsonToken));
     bool good = text && tokens && (fread(text, 1u, length, file) == length);
@@ -4857,7 +5363,6 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
                 {
                     good = (cfg_json_unsigned(text, setting, &number) && (number < 4096ULL))
                         || cfg_refuse(path, text, setting->start, "null_draws is a count below 4096");
-                    // Narrowing is safe: the count was bounded just above.
                     rules->null_draws = good ? (unsigned int)number : rules->null_draws;
                     known = true;
                 }
@@ -4865,7 +5370,6 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
                 {
                     good = (cfg_json_unsigned(text, setting, &number) && (number < 64ULL))
                         || cfg_refuse(path, text, setting->start, "arms is a count below 64");
-                    // Narrowing is safe: the count was bounded just above.
                     rules->arms = good ? (unsigned int)number : rules->arms;
                     known = true;
                 }
@@ -4937,7 +5441,6 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
             {
                 good = (cfg_json_unsigned(text, &tokens[first], &number) && (number < (1ULL << 20u)))
                     || cfg_refuse(path, text, tokens[first].start, "first is a count");
-                // Narrowing is safe: the count was bounded just above.
                 inputs->first = (unsigned int)number;
             }
         }
@@ -4948,7 +5451,7 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
             {
                 const CfgJsonToken *const setting = &tokens[output + 1u];
                 int slot = -1;
-                for (int name = 0; name < 6; name += 1)
+                for (int name = 0; name < (int)(sizeof(OUTPUT_NAMES) / sizeof(OUTPUT_NAMES[0])); name += 1)
                 {
                     slot = cfg_json_names(text, &tokens[output], OUTPUT_NAMES[name]) ? name : slot;
                 }
@@ -4956,14 +5459,12 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
                 good = ((slot >= 0) || cfg_refuse(path, text, tokens[output].start, "output has no such output"))
                     && (none || cfg_json_string(text, setting, word, sizeof(word))
                         || cfg_refuse(path, text, setting->start, "an output is a path or null"))
-                    // Narrowing is safe: the slot was found.
                     && open_output(rules, inputs, (unsigned int)slot, none ? NULL : word);
                 output = tokens[output + 1u].past;
             }
         }
         else if (cfg_json_names(text, &tokens[key], "view") && (token->kind == CFG_JSON_OBJECT))
         {
-            // The page's section: the tracker carries it into every object untouched, so the object opens as asked.
             free(inputs->view);
             inputs->view = (char *)malloc(token->end - token->start + 1u);
             good = inputs->view;
@@ -4980,31 +5481,17 @@ static bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
         }
         key = tokens[value].past;
     }
-    // The flags' implications hold for a .cfg too: a sticky climb or a null draw is a climb.
     rules->climb += (int)((rules->climb == 0) && (rules->sticky || rules->null_draws)) * 1;
     free(text);
     free(tokens);
     return good;
 }
 
-/**
- * @brief Orders two names by their bytes, for qsort.
- *
- * @param[in] left  A pointer to the first name [BORROWS].
- * @param[in] right A pointer to the second name [BORROWS].
- * @return          Negative, zero or positive as the first sorts before, with or after the second.
- */
 static int order_names(const void *left, const void *right)
 {
     return strcmp(*(const char *const *)left, *(const char *const *)right);
 }
 
-/**
- * @brief Names the first samples with an answer key in the stack directory, in byte order of their names.
- *
- * @param[in,out] inputs The run, whose samples are replaced [BORROWS].
- * @return               True where the directory was read.
- */
 static bool first_samples(RunInputs *inputs)
 {
     char **names = NULL;
@@ -5052,19 +5539,10 @@ static bool first_samples(RunInputs *inputs)
     }
     free(inputs->samples);
     inputs->samples = names;
-    // Narrowing is safe: a directory's samples are far below 2^32.
     inputs->count = (unsigned int)kept;
     return good && kept;
 }
 
-/**
- * @brief Writes the .cfg a run is taking, every rule and every path spelled out, so it runs again as it ran.
- *
- * @param[in]  rules  The rules [BORROWS].
- * @param[in]  inputs The run [BORROWS].
- * @param[out] out    The text [OWNS].
- * @return            True where the text is whole.
- */
 static bool write_cfg(const TreeRules *rules, const RunInputs *inputs, CfgText *out)
 {
     memset(out, 0, sizeof(*out));
@@ -5077,7 +5555,6 @@ static bool write_cfg(const TreeRules *rules, const RunInputs *inputs, CfgText *
         cfg_append_text(out, line);
     }
     char line[128];
-    // Narrowing is safe: the climb is one of the four modes.
     snprintf(line, sizeof(line), "    \"climb\": \"%s\",\n    \"null_draws\": %u\n  },\n", CLIMB_NAMES[(unsigned int)rules->climb & 3u],
              rules->null_draws);
     cfg_append_text(out, line);
@@ -5095,12 +5572,12 @@ static bool write_cfg(const TreeRules *rules, const RunInputs *inputs, CfgText *
     snprintf(line, sizeof(line), ",\n    \"voxel_pm\": [%llu, %llu, %llu],\n    \"membrane_pm\": %llu\n  },\n  \"output\": {\n",
              inputs->voxel_pm[0], inputs->voxel_pm[1], inputs->voxel_pm[2], inputs->membrane_pm);
     cfg_append_text(out, line);
-    for (unsigned int slot = 0u; slot < 6u; slot += 1u)
+    for (unsigned int slot = 0u; slot < 7u; slot += 1u)
     {
         snprintf(line, sizeof(line), "    \"%s\": ", OUTPUT_NAMES[slot]);
         cfg_append_text(out, line);
         cfg_append_quoted(out, inputs->outputs[slot]);
-        cfg_append_text(out, (slot < 5u) ? ",\n" : "\n  },\n");
+        cfg_append_text(out, (slot < 6u) ? ",\n" : "\n  },\n");
     }
     cfg_append_text(out, "  \"view\": ");
     cfg_append_text(out, inputs->view ? inputs->view : "{}");
@@ -5152,6 +5629,83 @@ int main(int argc, char **argv)
         {
             rules.settle = 1;
         }
+        else if (strcmp(flag, "--web") == 0)
+        {
+            rules.web = 1;
+        }
+        else if (strcmp(flag, "--damp") == 0)
+        {
+            rules.damp = 1;
+        }
+        else if (strcmp(flag, "--dish") == 0)
+        {
+            rules.dish = 1;
+        }
+        else if (strcmp(flag, "--vote") == 0)
+        {
+            rules.vote = 1;
+        }
+        else if (strcmp(flag, "--mutual") == 0)
+        {
+            rules.mutual = 1;
+        }
+        else if (strcmp(flag, "--tower") == 0)
+        {
+            rules.tower = 1;
+        }
+        else if ((strcmp(flag, "--schedule") == 0) && (argument + 1 < argc))
+        {
+            argument += 1;
+            s_schedule_path = argv[argument];
+        }
+        else if (strcmp(flag, "--survey") == 0)
+        {
+            s_survey = 1u;
+        }
+        else if (strcmp(flag, "--tree") == 0)
+        {
+            s_tree = 1u;
+        }
+        else if (strcmp(flag, "--mass") == 0)
+        {
+            rules.mass = 1;
+        }
+        else if (strcmp(flag, "--forest") == 0)
+        {
+            rules.forest = 1;
+        }
+        else if (strcmp(flag, "--cohere") == 0)
+        {
+            rules.cohere = 1;
+        }
+        else if (strcmp(flag, "--accrue") == 0)
+        {
+            rules.accrue = 1;
+        }
+        else if ((strcmp(flag, "--spiral") == 0) && (argument + 1 < argc))
+        {
+            argument += 1;
+            rules.spiral = (unsigned int)strtoul(argv[argument], NULL, 10);
+        }
+        else if ((strcmp(flag, "--nodes") == 0) && (argument + 1 < argc))
+        {
+            argument += 1;
+            if (!open_output(&rules, &inputs, 6u, argv[argument]))
+            {
+                return 2;
+            }
+        }
+        else if ((strcmp(flag, "--log") == 0) && (argument + 1 < argc))
+        {
+            argument += 1;
+            s_log_path = argv[argument];
+        }
+        else if (strcmp(flag, "--focus") == 0)
+        {
+            rules.focus = 1;
+            rules.arms = (rules.arms == 0u) ? 1u : rules.arms;
+            rules.climb = (rules.climb == 0) ? 1 : rules.climb;
+        }
         else if (strcmp(flag, "--merge-split") == 0)
         {
             rules.merge_split = 1;
@@ -5178,7 +5732,6 @@ int main(int argc, char **argv)
         }
         else if ((strcmp(flag, "--cfg") == 0) && (argument + 1 < argc))
         {
-            // Applied where it stands: flags before it are overridden by it, flags after it override it.
             argument += 1;
             if (!apply_cfg(argv[argument], &rules, &inputs))
             {
@@ -5236,11 +5789,9 @@ int main(int argc, char **argv)
         else if ((strcmp(flag, "--null") == 0) && ((argument + 1) < argc))
         {
             argument += 1;
-            // Read digit by digit: glibc 2.38 redirects strtoul to a C23 symbol older systems do not carry.
             unsigned int draws = 0u;
             for (const char *digit = argv[argument]; (*digit >= '0') && (*digit <= '9') && (draws < 4096u); digit += 1u)
             {
-                // Narrowing is safe: a digit is 0 to 9.
                 draws = (draws * 10u) + (unsigned int)(*digit - '0');
             }
             rules.null_draws = draws;
@@ -5249,11 +5800,9 @@ int main(int argc, char **argv)
         else if ((strcmp(flag, "--arms") == 0) && ((argument + 1) < argc))
         {
             argument += 1;
-            // Read digit by digit, as the draws are read, for the same reason.
             unsigned int arms = 0u;
             for (const char *digit = argv[argument]; (*digit >= '0') && (*digit <= '9') && (arms < 64u); digit += 1u)
             {
-                // Narrowing is safe: a digit is 0 to 9.
                 arms = (arms * 10u) + (unsigned int)(*digit - '0');
             }
             rules.arms = arms;
@@ -5282,7 +5831,6 @@ int main(int argc, char **argv)
         }
         argument += 1;
     }
-    // Positional words name the stack directory and then the samples, over whatever a .cfg named.
     if (argument < argc)
     {
         free(inputs.stacks);
@@ -5296,7 +5844,6 @@ int main(int argc, char **argv)
             free(inputs.samples[slot]);
         }
         free(inputs.samples);
-        // Narrowing is safe: the argument count is an int.
         inputs.count = (unsigned int)(argc - argument);
         inputs.samples = (char **)calloc((size_t)inputs.count + 1u, sizeof(char *));
         for (unsigned int slot = 0u; inputs.samples && (slot < inputs.count); slot += 1u)
@@ -5332,15 +5879,16 @@ int main(int argc, char **argv)
     }
     cfg_file ? (void)fclose(cfg_file) : (void)0;
     const char *const directory = inputs.stacks;
-    // Build the device context once, before the first frame.
     (void)cudaFree(NULL);
 
-    printf("  rules:%s%s%s%s%s%s%s%s%s%s\n", (rules.pick != 0) ? " pick" : "", (rules.share != 0) ? " share" : "",
-           (rules.agree != 0) ? " agree" : "", (rules.unbound != 0) ? " unbound" : "",
-           (rules.merge_split != 0) ? " merge-split" : "",
-           (rules.merge_target != 0) ? " merge-target" : "", (rules.forward_only != 0) ? " forward-only" : "",
-           (rules.keep_view != 0) ? " keep-view" : "", (rules.resolve != 0) ? " resolve" : "",
-           (rules.climb != 0) ? " climb" : "");
+    if (s_schedule_path != NULL)
+    {
+        const int planned = schedule_program(directory, inputs.samples, inputs.count);
+
+        return (planned != 0) ? 0 : 2;
+    }
+    rules_line(&rules, s_rules_line, sizeof(s_rules_line));
+    printf("  rules:%s\n", s_rules_line);
     printf("  %-24s %-6s %s\n", "sample", "edges", "correct/branched/wrong/no link/missed");
     EdgeTally pooled;
     memset(&pooled, 0, sizeof(pooled));
@@ -5377,7 +5925,37 @@ int main(int argc, char **argv)
             printf("    %-22s %5llu   %llu.%llu%%\n", names[row], values[row], whole, tenth);
         }
     }
-    printf("\n  %llu ms\n", clock_milliseconds() - started);
+    if ((s_web_asked + s_web_capped) > 0ULL)
+    {
+        printf("    web: asked of %llu objects, moved %llu, capped %llu over %u basins\n",
+               s_web_asked, s_web_moved, s_web_capped, WEB_MEMBERS);
+    }
+    if ((s_mutual_alone + s_mutual_split + s_mutual_empty) > 0ULL)
+    {
+        printf("    mutual: %llu cells, one survivor %llu, several %llu, none %llu, moved %llu\n",
+               s_mutual_alone + s_mutual_split + s_mutual_empty,
+               s_mutual_alone, s_mutual_split, s_mutual_empty, s_mutual_moved);
+    }
+    survey_report();
+    if (s_tree_frames != 0ull)
+    {
+        printf("    tree proved on %llu of %llu frames, %llu voxels admitted\n",
+               s_tree_held, s_tree_frames, s_tree_nodes);
+    }
+    const unsigned long long wall = clock_milliseconds() - started;
+    printf("\n  %llu ms\n", wall);
+    FILE *const log = log_open();
+    if (log != NULL)
+    {
+        char when[32];
+        log_when(when, sizeof(when));
+        fprintf(log, "%s\trun\t%s\t%u samples, %d failed\t0\t0\t0\t0\t0\t%llu\t%llu\t%llu\t%llu\t%llu\t%llu"
+                     "\t0\t0\t0\t0\t0\t0\t0\t0\t%llu\t0\t%llu\t%llu\t%llu\t%u\t%llu\t%llu\t%llu\n",
+                when, log_rules(), inputs.count, failures, total, pooled.correct, pooled.branched, pooled.wrong,
+                pooled.unlinked, pooled.missed, wall, s_web_asked, s_web_moved, s_web_capped, WEB_MEMBERS,
+                s_damp_leaves, s_damp_landings, (unsigned long long)DAMP_DEVIATIONS);
+        fclose(log);
+    }
     if (rules.coherence != NULL)
     {
         fclose(rules.coherence);

@@ -1,4 +1,4 @@
-/* cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+/* anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
  *
  * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
@@ -6,19 +6,21 @@
  */
 /**
  * @file shift_agreement.cu
- * @brief The CUDA engine for shift_agreement.h: integers only, equal to shift_agreement.c.
+ * @brief The device arm of the shift agreement: a two-level-per-launch transform, a pointwise
+ *        product, and a tournament for the best lag.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
+ * @date 2026-09-18
  *
- * One thread per element for every stage of every transform. A bit reversal gathers from one buffer
- * into another. A butterfly stage touches disjoint pairs, each owned by the thread of its nearer
- * element, so no two threads write one element. The lag with the most agreement is chosen on the
- * device by a tournament under the same total order the reference applies, so only the winner comes
- * back to the host, and every count only where the caller asks.
- *
- * Along a series each frame is after in one call and before in the next. The moved view's transform is
- * kept, and where the next call's before is the kept after, the reflected transform is gathered from it
- * through negated indices, so every frame is transformed once.
+ * @note The forward transform takes natural order input and leaves its output in bit reversed
+ *       order, butterflies running from the largest blocks down. The inverse takes bit reversed input
+ *       and returns natural order, running from the smallest blocks up. The pointwise product does
+ *       not care which order the entries sit in, so no permutation is ever applied.
+ * @note Every root of unity comes from a table built once per padded length on the host. Every
+ *       product is reduced by Barrett reduction on the device. Every value is a residue below
+ *       SHIFT_AGREEMENT_PRIME, and every count comes back exact, as in the host arm.
+ * @note Walking a recording, one call's after volume is the next call's before volume. The after
+ *       volume's transform is kept, and the next call reads the reflected before transform off it by
+ *       negating indices, which saves one of the three transforms per call.
  */
 
 #include "shift_agreement.h"
@@ -34,24 +36,30 @@
 static_assert(sizeof(unsigned int) == 4u, "shift_agreement: unsigned int must be 32 bits, a residue");
 static_assert(sizeof(unsigned long long) == 8u, "shift_agreement: unsigned long long must be 64 bits, a product");
 
-/** @brief The layout a kernel reads, passed by value. */
+/**
+ * @brief The shape of one request as the kernels read it, passed by value.
+ *
+ * @note Every entry count fits 32 bits, since the entry refuses a padded volume past 2^31 - 1.
+ */
 struct AgreementLayout
 {
-    unsigned int axes;
-    unsigned int extents[SHIFT_AGREEMENT_AXES];
-    unsigned int padded[SHIFT_AGREEMENT_AXES];
-    unsigned int padded_strides[SHIFT_AGREEMENT_AXES];
-    unsigned int weights[SHIFT_AGREEMENT_AXES];
-    unsigned int voxels;
-    unsigned int total;
+    unsigned int axes;                                /**< Axes in use. */
+    unsigned int extents[SHIFT_AGREEMENT_AXES];       /**< Voxels along each axis. */
+    unsigned int padded[SHIFT_AGREEMENT_AXES];        /**< Padded length of each axis. */
+    unsigned int padded_strides[SHIFT_AGREEMENT_AXES]; /**< Entries between neighbors, padded. */
+    unsigned int weights[SHIFT_AGREEMENT_AXES];       /**< Tie break weight of each axis. */
+    unsigned int table_offsets[SHIFT_AGREEMENT_AXES]; /**< Start of each axis in the negation table. */
+    unsigned int voxels;                              /**< Voxels in a volume. */
+    unsigned int total;                               /**< Entries in a padded volume. */
 };
 
 /**
- * @brief The weighted squared length of the lag a padded index stands for, as the reference measures it.
+ * @brief The weighted squared length of the lag a padded index stands for.
  *
- * @param[in] index  Padded raster index.
- * @param[in] layout Extents, padding and weights.
- * @return           Sum over axes of weight times lag squared.
+ * @param[in] index  A padded index.
+ * @param[in] layout The shape [BORROWS].
+ * @return           Sum over axes of weight times lag squared, in 64 bits.
+ * @note The same arithmetic the host arm's tie break uses.
  */
 __device__ static unsigned long long lag_length(unsigned int index, const AgreementLayout *layout)
 {
@@ -70,10 +78,10 @@ __device__ static unsigned long long lag_length(unsigned int index, const Agreem
 }
 
 /**
- * @brief Starts the choice: every padded index is its own candidate.
+ * @brief Seeds the tournament: every entry starts as its own candidate.
  *
- * @param[in]  total  Elements.
- * @param[out] choice Candidate per element [BORROWS].
+ * @param[in]  total  Entries.
+ * @param[out] choice The candidate index held at each entry [BORROWS].
  */
 __global__ static void choice_kernel(unsigned int total, unsigned int *choice)
 {
@@ -86,17 +94,16 @@ __global__ static void choice_kernel(unsigned int total, unsigned int *choice)
 }
 
 /**
- * @brief One round of the tournament for the heaviest lag: the candidate at pair * 2 * stride meets the
- *        one stride further, and the better stays.
+ * @brief One round of the tournament: each pair of candidates `stride` apart keeps the better.
  *
- * Better is more agreement, then the shorter weighted lag, then the lower padded index. That is a total
- * order, so the tournament's winner is the reference's choice however the pairs are drawn.
- *
- * @param[in]     counts Agreement per padded index [BORROWS].
- * @param[in,out] choice Candidate per element [BORROWS].
- * @param[in]     stride Distance between the two candidates of a pair.
- * @param[in]     pairs  Pairs this round.
- * @param[in]     layout Extents, padding and weights.
+ * @param[in]     counts The count at every padded lag [BORROWS].
+ * @param[in,out] choice The candidate held at each entry. After the round with the largest stride,
+ *                       entry 0 holds the winner [BORROWS].
+ * @param[in]     stride Distance between the two candidates of a pair, doubling each round.
+ * @param[in]     pairs  Pairs in this round.
+ * @param[in]     layout The shape, for the tie break.
+ * @note Better is the higher count, then the smaller weighted squared lag, then the lower index.
+ *       That is the host arm's order, so both arms pick the same lag.
  */
 __global__ static void tournament_kernel(const unsigned int *counts, unsigned int *choice, unsigned int stride,
                                          unsigned int pairs, AgreementLayout layout)
@@ -108,6 +115,7 @@ __global__ static void tournament_kernel(const unsigned int *counts, unsigned in
     }
     const unsigned int here = pair * 2u * stride;
     const unsigned int there = here + stride;
+    // A candidate with no opponent in this round passes through unchanged.
     if (there >= layout.total)
     {
         return;
@@ -131,20 +139,18 @@ __global__ static void tournament_kernel(const unsigned int *counts, unsigned in
     }
 }
 
-/** @brief floor(2^62 / SHIFT_AGREEMENT_PRIME), the Barrett multiplier. */
+/** @brief floor(2^62 / p), the Barrett constant for the prime. */
 #define SHIFT_AGREEMENT_BARRETT (4611686018427387904ull / (unsigned long long)SHIFT_AGREEMENT_PRIME)
 
 static_assert(SHIFT_AGREEMENT_PRIME < (1u << 30u), "shift_agreement: Barrett reduction here needs the prime below 2^30");
 
 /**
- * @brief product mod SHIFT_AGREEMENT_PRIME for a product below 2^60, by Barrett reduction.
+ * @brief Reduces a product of two residues modulo the prime without a division.
  *
- * With m = floor(2^62 / p), q = floor(floor(x / 2^29) * m / 2^33) lies within two of floor(x / p) and
- * never above it, and floor(x / 2^29) * m stays below 2^64. So x - q p lies in [0, 3p), and at most two
- * subtractions of p leave exactly x mod p. Integers only; the residue is the one % gives.
- *
- * @param[in] product A product of two residues, below 2^60.
- * @return            The product modulo the prime.
+ * @param[in] product A product of two residues, below p^2 and so below 2^60.
+ * @return            product modulo SHIFT_AGREEMENT_PRIME.
+ * @note The quotient estimate (product / 2^29) * (2^62 / p) / 2^33 approximates product / p from
+ *       below, short by at most two. The two conditional subtractions correct that.
  */
 __device__ static unsigned int reduce_product(unsigned long long product)
 {
@@ -158,19 +164,21 @@ __device__ static unsigned int reduce_product(unsigned long long product)
     {
         remainder -= (unsigned long long)SHIFT_AGREEMENT_PRIME;
     }
-    // Narrowing is safe: the remainder is below the prime.
+
+    // remainder is below the prime and fits the unsigned int.
     return (unsigned int)remainder;
 }
 
 /**
- * @brief Places each set position of the views into the reflected and the moved volumes.
+ * @brief One thread per voxel: write set voxels into the padded volumes.
  *
- * @param[in]  before    Bit packed view before [BORROWS].
- * @param[in]  after     Bit packed view after [BORROWS].
- * @param[in]  reflect   1 to place before into reflected, 0 where reflected comes from a held transform.
- * @param[in]  layout    Extents and strides.
- * @param[out] reflected Before, reflected into the period [BORROWS].
- * @param[out] moved     After, in place [BORROWS].
+ * @param[in]  before    One bit per before voxel [BORROWS].
+ * @param[in]  after     One bit per after voxel [BORROWS].
+ * @param[in]  reflect   1 to write the before volume, 0 where its transform is reused.
+ * @param[in]  layout    The shape.
+ * @param[out] reflected The before volume, every coordinate negated, zeroed by the caller
+ *                       [BORROWS].
+ * @param[out] moved     The after volume, zeroed by the caller [BORROWS].
  */
 __global__ static void scatter_kernel(const unsigned long long *before, const unsigned long long *after,
                                       unsigned int reflect, AgreementLayout layout, unsigned int *reflected,
@@ -210,17 +218,19 @@ __global__ static void scatter_kernel(const unsigned long long *before, const un
 }
 
 /**
- * @brief The transform of a view reflected through the origin, from the transform of the view in place.
+ * @brief Writes the transform of a reflected volume, read off the transform of the volume itself.
  *
- * The transform's element k is the view's polynomial at w^k, summed over positions n of v[n] w^(k n) per
- * axis. The reflected view is r[n] = v[-n mod N], so its element k is the sum of v[m] w^(-k m): the view's
- * element -k mod N. The reflected transform is a gather through negated indices, and no transform is run.
- *
- * @param[in]  source      The transform of the view in place [BORROWS].
- * @param[in]  layout      Padding and strides.
- * @param[out] destination The transform of the reflected view [BORROWS].
+ * @param[in]  source      A transformed volume, bit reversed along every axis [BORROWS].
+ * @param[in]  negation    Per axis, the bit reversed position holding the negated frequency
+ *                         [BORROWS].
+ * @param[in]  layout      The shape.
+ * @param[out] destination The transform of `source`'s volume reflected [BORROWS].
+ * @note Reflecting a sequence negates its frequencies. In bit reversed order the entry for
+ *       frequency -k sits at the position the negation table names, and each axis is negated
+ *       through its own table.
  */
-__global__ static void negate_kernel(const unsigned int *source, AgreementLayout layout, unsigned int *destination)
+__global__ static void negate_kernel(const unsigned int *source, const unsigned int *negation, AgreementLayout layout,
+                                     unsigned int *destination)
 {
     const unsigned int element = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (element >= layout.total)
@@ -233,24 +243,72 @@ __global__ static void negate_kernel(const unsigned int *source, AgreementLayout
     {
         const unsigned int coordinate = rest % layout.padded[axis - 1u];
         rest /= layout.padded[axis - 1u];
-        negated += ((layout.padded[axis - 1u] - coordinate) % layout.padded[axis - 1u]) * layout.padded_strides[axis - 1u];
+        negated += negation[layout.table_offsets[axis - 1u] + coordinate] * layout.padded_strides[axis - 1u];
     }
     destination[element] = source[negated];
 }
 
 /**
- * @brief Gathers every line along an axis into bit reversed order.
+ * @brief Adds two residues modulo the prime.
  *
- * @param[in]  source      Volume read [BORROWS].
- * @param[in]  reversal    Bit reversed position for each position along the axis [BORROWS].
- * @param[in]  length      Padded extent of the axis.
- * @param[in]  stride      Elements between neighbours along the axis.
- * @param[in]  total       Elements in the volume.
- * @param[out] destination Volume written [BORROWS].
+ * @param[in] left  A residue.
+ * @param[in] right A residue.
+ * @return          (left + right) modulo SHIFT_AGREEMENT_PRIME.
  */
-__global__ static void reverse_kernel(const unsigned int *source, const unsigned int *reversal,
-                                      unsigned int length, unsigned int stride, unsigned int total,
-                                      unsigned int *destination)
+__device__ static unsigned int agreement_add(unsigned int left, unsigned int right)
+{
+
+    // Two residues below 2^30 sum below 2^31 and cannot wrap the unsigned int.
+    const unsigned int sum = left + right;
+    return (sum >= SHIFT_AGREEMENT_PRIME) ? (sum - SHIFT_AGREEMENT_PRIME) : sum;
+}
+
+/**
+ * @brief Subtracts two residues modulo the prime.
+ *
+ * @param[in] left  A residue.
+ * @param[in] right A residue.
+ * @return          (left - right) modulo SHIFT_AGREEMENT_PRIME.
+ */
+__device__ static unsigned int agreement_subtract(unsigned int left, unsigned int right)
+{
+
+    // The prime is added first, so the difference is never negative and stays below 2^31.
+    const unsigned int difference = left + SHIFT_AGREEMENT_PRIME - right;
+    return (difference >= SHIFT_AGREEMENT_PRIME) ? (difference - SHIFT_AGREEMENT_PRIME) : difference;
+}
+
+/**
+ * @brief Multiplies two residues modulo the prime.
+ *
+ * @param[in] left  A residue.
+ * @param[in] right A residue.
+ * @return          (left * right) modulo SHIFT_AGREEMENT_PRIME.
+ */
+__device__ static unsigned int agreement_times(unsigned int left, unsigned int right)
+{
+
+    return reduce_product((unsigned long long)left * (unsigned long long)right);
+}
+
+/**
+ * @brief One launch of the forward transform along one axis: one level, or two fused.
+ *
+ * @param[in,out] values The volume [BORROWS].
+ * @param[in]     roots  Twiddles for this axis length, level l block b at (1 << l) + b [BORROWS].
+ * @param[in]     level  The first level this launch runs, 0 for the largest blocks.
+ * @param[in]     levels 1 or 2 levels in this launch.
+ * @param[in]     length Padded length of the axis.
+ * @param[in]     stride Entries between neighbors along the axis.
+ * @param[in]     total  Entries in the volume.
+ * @note A thread works on the first quarter, or half, of a block, and owns the four, or two,
+ *       entries a fused butterfly reads. Fusing two levels halves the launches and the global memory
+ *       passes over the volume.
+ * @note Cooley-Tukey butterflies, the twiddle applied to the second input: u + wv and u - wv.
+ */
+__global__ static void forward_kernel(unsigned int *values, const unsigned int *roots, unsigned int level,
+                                      unsigned int levels, unsigned int length, unsigned int stride,
+                                      unsigned int total)
 {
     const unsigned int element = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (element >= total)
@@ -258,22 +316,61 @@ __global__ static void reverse_kernel(const unsigned int *source, const unsigned
         return;
     }
     const unsigned int position = (element / stride) % length;
-    const unsigned int base = element - (position * stride);
-    destination[element] = source[base + (reversal[position] * stride)];
+    const unsigned int size = length >> level;
+    const unsigned int part = size >> levels;
+    if ((position & (size - 1u)) >= part)
+    {
+        return;
+    }
+    const unsigned int block = position / size;
+    const unsigned int root = roots[(1u << level) + block];
+    const unsigned int step = part * stride;
+    if (levels == 1u)
+    {
+        const unsigned int upper = values[element];
+        const unsigned int lower = agreement_times(values[element + step], root);
+        values[element] = agreement_add(upper, lower);
+        values[element + step] = agreement_subtract(upper, lower);
+        return;
+    }
+    // Level one: entries 0 and 2 pair, and entries 1 and 3 pair, under this block's twiddle.
+    const unsigned int first = values[element];
+    const unsigned int second = values[element + step];
+    const unsigned int third_scaled = agreement_times(values[element + (2u * step)], root);
+    const unsigned int fourth_scaled = agreement_times(values[element + (3u * step)], root);
+    const unsigned int low_first = agreement_add(first, third_scaled);
+    const unsigned int high_first = agreement_subtract(first, third_scaled);
+    const unsigned int low_second = agreement_add(second, fourth_scaled);
+    const unsigned int high_second = agreement_subtract(second, fourth_scaled);
+    // Level two: each half splits again under the two child blocks' twiddles.
+    const unsigned int low_root = roots[(2u << level) + (2u * block)];
+    const unsigned int high_root = roots[(2u << level) + (2u * block) + 1u];
+    const unsigned int low_scaled = agreement_times(low_second, low_root);
+    const unsigned int high_scaled = agreement_times(high_second, high_root);
+    values[element] = agreement_add(low_first, low_scaled);
+    values[element + step] = agreement_subtract(low_first, low_scaled);
+    values[element + (2u * step)] = agreement_add(high_first, high_scaled);
+    values[element + (3u * step)] = agreement_subtract(high_first, high_scaled);
 }
 
 /**
- * @brief One butterfly stage of size `size` along an axis.
+ * @brief One launch of the inverse transform along one axis: one level, or two fused.
  *
- * @param[in,out] values Volume [BORROWS].
- * @param[in]     roots  Powers of the stage's root, size / 2 of them [BORROWS].
- * @param[in]     size   Stage size, a power of two no larger than length.
- * @param[in]     length Padded extent of the axis.
- * @param[in]     stride Elements between neighbours along the axis.
- * @param[in]     total  Elements in the volume.
+ * @param[in,out] values        The volume, bit reversed along this axis [BORROWS].
+ * @param[in]     inverse_roots Inverse twiddles, laid out as the forward ones [BORROWS].
+ * @param[in]     level         The level whose blocks this launch finishes.
+ * @param[in]     levels        1 or 2 levels in this launch.
+ * @param[in]     length        Padded length of the axis.
+ * @param[in]     stride        Entries between neighbors along the axis.
+ * @param[in]     total         Entries in the volume.
+ * @note Gentleman-Sande butterflies, the twiddle applied after the difference: u + v and
+ *       (u - v)w. They undo the forward butterflies level by level in reverse order.
+ * @note Does not divide by the length. multiply_kernel folds the division by the whole volume's
+ *       entry count into the pointwise product instead.
  */
-__global__ static void butterfly_kernel(unsigned int *values, const unsigned int *roots, unsigned int size,
-                                        unsigned int length, unsigned int stride, unsigned int total)
+__global__ static void inverse_kernel(unsigned int *values, const unsigned int *inverse_roots, unsigned int level,
+                                      unsigned int levels, unsigned int length, unsigned int stride,
+                                      unsigned int total)
 {
     const unsigned int element = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (element >= total)
@@ -281,30 +378,47 @@ __global__ static void butterfly_kernel(unsigned int *values, const unsigned int
         return;
     }
     const unsigned int position = (element / stride) % length;
-    const unsigned int within = position % size;
-    const unsigned int half = size / 2u;
-    if (within >= half)
+    const unsigned int size = length >> level;
+    const unsigned int part = size >> levels;
+    if ((position & (size - 1u)) >= part)
     {
         return;
     }
-    const unsigned int far = element + (half * stride);
-    const unsigned int upper = values[element];
-    // Both residues are below 2^30, so their product is below 2^60.
-    const unsigned int lower = reduce_product((unsigned long long)values[far] * (unsigned long long)roots[within]);
-    // Both are below the prime, so one subtraction reduces each sum; below 2^31, neither wraps.
-    const unsigned int sum = upper + lower;
-    const unsigned int difference = upper + SHIFT_AGREEMENT_PRIME - lower;
-    values[element] = (sum >= SHIFT_AGREEMENT_PRIME) ? (sum - SHIFT_AGREEMENT_PRIME) : sum;
-    values[far] = (difference >= SHIFT_AGREEMENT_PRIME) ? (difference - SHIFT_AGREEMENT_PRIME) : difference;
+    const unsigned int block = position / size;
+    const unsigned int inverse_root = inverse_roots[(1u << level) + block];
+    const unsigned int step = part * stride;
+    if (levels == 1u)
+    {
+        const unsigned int upper = values[element];
+        const unsigned int lower = values[element + step];
+        values[element] = agreement_add(upper, lower);
+        values[element + step] = agreement_times(agreement_subtract(upper, lower), inverse_root);
+        return;
+    }
+    // The deeper level first, under the two child blocks' inverse twiddles, then this level.
+    const unsigned int first = values[element];
+    const unsigned int second = values[element + step];
+    const unsigned int third = values[element + (2u * step)];
+    const unsigned int fourth = values[element + (3u * step)];
+    const unsigned int low_inverse = inverse_roots[(2u << level) + (2u * block)];
+    const unsigned int high_inverse = inverse_roots[(2u << level) + (2u * block) + 1u];
+    const unsigned int low_first = agreement_add(first, second);
+    const unsigned int low_second = agreement_times(agreement_subtract(first, second), low_inverse);
+    const unsigned int high_first = agreement_add(third, fourth);
+    const unsigned int high_second = agreement_times(agreement_subtract(third, fourth), high_inverse);
+    values[element] = agreement_add(low_first, high_first);
+    values[element + (2u * step)] = agreement_times(agreement_subtract(low_first, high_first), inverse_root);
+    values[element + step] = agreement_add(low_second, high_second);
+    values[element + (3u * step)] = agreement_times(agreement_subtract(low_second, high_second), inverse_root);
 }
 
 /**
- * @brief Multiplies every element by a factor, or by the matching element of another volume.
+ * @brief The pointwise product of two transforms, scaled by a constant.
  *
- * @param[in,out] values Volume [BORROWS].
- * @param[in]     other  Second volume, or NULL to use `factor` [BORROWS].
- * @param[in]     factor Factor where `other` is NULL.
- * @param[in]     total  Elements.
+ * @param[in,out] values One transform, replaced by the scaled product [BORROWS].
+ * @param[in]     other  The other transform [BORROWS].
+ * @param[in]     factor The inverse of the entry count, the inverse transform's division.
+ * @param[in]     total  Entries in the volume.
  */
 __global__ static void multiply_kernel(unsigned int *values, const unsigned int *other, unsigned int factor,
                                        unsigned int total)
@@ -314,17 +428,17 @@ __global__ static void multiply_kernel(unsigned int *values, const unsigned int 
     {
         return;
     }
-    const unsigned long long by = (other != NULL) ? (unsigned long long)other[element] : (unsigned long long)factor;
-    // Both residues are below 2^30, so their product is below 2^60.
-    values[element] = reduce_product((unsigned long long)values[element] * by);
+    values[element] = agreement_times(agreement_times(values[element], other[element]), factor);
 }
 
 /**
- * @brief base^exponent modulo the prime, on the host.
+ * @brief Raises a residue to a power modulo the prime, on the host.
  *
- * @param[in] base     Base, below the prime.
- * @param[in] exponent Exponent.
- * @return             The power.
+ * @param[in] base     The residue.
+ * @param[in] exponent The power.
+ * @return            base^exponent modulo SHIFT_AGREEMENT_PRIME.
+ * @note Builds the root tables and the scale factor. A copy of the host arm's agreement_power,
+ *       since that one is static in shift_agreement.c.
  */
 static unsigned int device_agreement_power(unsigned int base, unsigned long long exponent)
 {
@@ -339,42 +453,63 @@ static unsigned int device_agreement_power(unsigned int base, unsigned long long
         square = (square * square) % SHIFT_AGREEMENT_PRIME;
         exponent >>= 1u;
     }
-    // Narrowing is safe: every value is reduced below the prime.
+
     return (unsigned int)result;
 }
 
 /**
- * @brief Whether the kernel just launched ran without a device error.
+ * @brief Whether the last launch was accepted.
  *
- * @return 1 where it did, 0 otherwise.
+ * @return 1 where no launch error is pending, 0 otherwise.
+ * @note A fault inside a kernel surfaces at the next cudaMemcpy, which every path checks.
  */
 static int agreement_launched(void)
 {
-    // No synchronise: kernels queue in order and the host's reads wait for them, so a launch only has to be accepted.
+
     return (cudaGetLastError() == cudaSuccess) ? 1 : 0;
 }
 
-/** @brief Most distinct padded axis lengths whose tables are held. */
+/** @brief Padded lengths whose root and negation tables are held at once. */
 #define SHIFT_AGREEMENT_TABLES 8u
 
-/**
- * @brief The tables one padded axis length needs, uploaded once: the bit reversal, and every butterfly stage's
- *        root powers, forward and inverse, laid end to end so stage size s starts at s / 2 - 1.
- */
+/** @brief The tables for one padded length. */
 struct AxisTables
 {
-    unsigned int length;
-    unsigned int *reversal;
-    unsigned int *roots[2];
+    unsigned int length;    /**< The padded length, 0 for a free slot. */
+    unsigned int *roots[2]; /**< Device forward twiddles at [0] and inverse twiddles at [1]. */
+    unsigned int *negation; /**< Host table of the bit reversed position of each negated one. */
 };
 
+/** @brief The held tables, one slot per padded length met, never evicted. */
 static AxisTables s_axis_tables[SHIFT_AGREEMENT_TABLES];
 
 /**
- * @brief The held tables for a padded length, built and uploaded the first time the length is seen.
+ * @brief Reverses the low bits of a position.
  *
- * @param[in] length A padded axis length, a power of two.
- * @return           The tables, or NULL on a failure.
+ * @param[in] position The position.
+ * @param[in] bits     How many low bits to reverse.
+ * @return             The position with those bits in reverse order.
+ */
+static unsigned int agreement_reverse(unsigned int position, unsigned int bits)
+{
+    unsigned int reversed = 0u;
+    for (unsigned int bit = 0u; bit < bits; bit += 1u)
+    {
+        reversed |= ((position >> bit) & 1u) << (bits - 1u - bit);
+    }
+    return reversed;
+}
+
+/**
+ * @brief The tables for one padded length, built on first use and held.
+ *
+ * @param[in] length The padded length, a power of two of at least 2.
+ * @return           The tables, or NULL where every slot holds another length or an allocation or
+ *                   copy failed.
+ * @note Level l block b's twiddle is g^((length >> (l + 1)) * reverse(b, l)), with g a primitive
+ *       length-th root of unity. The bit reversed block index lets the forward transform run over
+ *       natural order input.
+ * @warning A ninth distinct padded length is refused. Nothing frees a slot.
  */
 static const AxisTables *axis_tables(unsigned int length)
 {
@@ -401,50 +536,41 @@ static const AxisTables *axis_tables(unsigned int length)
         logarithm += 1u;
     }
     unsigned int *const host = (unsigned int *)malloc((size_t)length * sizeof(unsigned int));
-    int ok = (host != NULL) ? 1 : 0;
-    ok = ok && (cudaMalloc((void **)&tables->reversal, (size_t)length * sizeof(unsigned int)) == cudaSuccess);
+    tables->negation = (unsigned int *)malloc((size_t)length * sizeof(unsigned int));
+    int ok = (host != NULL) && (tables->negation != NULL);
     ok = ok && (cudaMalloc((void **)&tables->roots[0], (size_t)length * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&tables->roots[1], (size_t)length * sizeof(unsigned int)) == cudaSuccess);
-    if (ok != 0)
+    // The frequency at a bit reversed position is reverse(position). Its negation, length minus it
+    // modulo length, is found back at that frequency's own bit reversed position.
+    for (unsigned int position = 0u; (ok != 0) && (position < length); position += 1u)
     {
-        for (unsigned int position = 0u; position < length; position += 1u)
-        {
-            unsigned int reversed = 0u;
-            for (unsigned int bit = 0u; bit < logarithm; bit += 1u)
-            {
-                reversed |= ((position >> bit) & 1u) << (logarithm - 1u - bit);
-            }
-            host[position] = reversed;
-        }
-        ok = (cudaMemcpy(tables->reversal, host, (size_t)length * sizeof(unsigned int), cudaMemcpyHostToDevice)
-              == cudaSuccess) ? 1 : 0;
+        const unsigned int exponent = (length - agreement_reverse(position, logarithm)) % length;
+        tables->negation[position] = agreement_reverse(exponent, logarithm);
     }
+    const unsigned int generator = device_agreement_power(3u, (SHIFT_AGREEMENT_PRIME - 1u) / length);
     for (int inverse = 0; (ok != 0) && (inverse < 2); inverse += 1)
     {
-        for (unsigned int size = 2u; size <= length; size <<= 1u)
+        host[0] = 1u;
+        for (unsigned int level = 0u; level < logarithm; level += 1u)
         {
-            unsigned int root = device_agreement_power(3u, (SHIFT_AGREEMENT_PRIME - 1u) / size);
-            if (inverse != 0)
+            for (unsigned int block = 0u; block < (1u << level); block += 1u)
             {
-                root = device_agreement_power(root, SHIFT_AGREEMENT_PRIME - 2u);
-            }
-            unsigned long long factor = 1ull;
-            for (unsigned int offset = 0u; offset < (size / 2u); offset += 1u)
-            {
-                // Narrowing is safe: factor is reduced below the prime.
-                host[(size / 2u) - 1u + offset] = (unsigned int)factor;
-                factor = (factor * (unsigned long long)root) % SHIFT_AGREEMENT_PRIME;
+
+                const unsigned long long exponent = (unsigned long long)(length >> (level + 1u))
+                                                  * (unsigned long long)agreement_reverse(block, level);
+                const unsigned int root = device_agreement_power(generator, exponent);
+                host[(1u << level) + block] = (inverse != 0) ? device_agreement_power(root, SHIFT_AGREEMENT_PRIME - 2u) : root;
             }
         }
-        ok = (cudaMemcpy(tables->roots[inverse], host, (size_t)(length - 1u) * sizeof(unsigned int),
-                         cudaMemcpyHostToDevice) == cudaSuccess) ? 1 : 0;
+        ok = (cudaMemcpy(tables->roots[inverse], host, (size_t)length * sizeof(unsigned int), cudaMemcpyHostToDevice)
+              == cudaSuccess) ? 1 : 0;
     }
     free(host);
     if (ok == 0)
     {
-        cudaFree(tables->reversal);
         cudaFree(tables->roots[0]);
         cudaFree(tables->roots[1]);
+        free(tables->negation);
         memset(tables, 0, sizeof(*tables));
         return NULL;
     }
@@ -453,18 +579,17 @@ static const AxisTables *axis_tables(unsigned int length)
 }
 
 /**
- * @brief One transform along one axis on the device.
+ * @brief Runs the forward or inverse transform along one axis of a device volume.
  *
- * @param[in,out] values   Volume [BORROWS].
- * @param[in,out] spare    A second volume for the reversal [BORROWS].
- * @param[in]     layout   Layout.
- * @param[in]     axis     The axis.
- * @param[in]     inverse  1 for the inverse transform.
- * @return                 1 on success, 0 on a device error.
- * @note On return the transformed volume is in *values; the two buffers may have traded places.
+ * @param[in,out] values  The volume [BORROWS].
+ * @param[in]     layout  The shape.
+ * @param[in]     axis    The axis.
+ * @param[in]     inverse 1 for the inverse transform.
+ * @return                1 where every launch was accepted, 0 otherwise.
+ * @note The forward transform fuses levels in pairs from level 0, and an odd count leaves one
+ *       level for the last launch. The inverse runs the same pairs in reverse, the lone level first.
  */
-static int agreement_axis(unsigned int **values, unsigned int **spare, AgreementLayout layout, unsigned int axis,
-                          int inverse)
+static int agreement_axis(unsigned int *values, AgreementLayout layout, unsigned int axis, int inverse)
 {
     const unsigned int length = layout.padded[axis];
     if (length < 2u)
@@ -475,61 +600,66 @@ static int agreement_axis(unsigned int **values, unsigned int **spare, Agreement
     const unsigned int blocks = (layout.total + SHIFT_AGREEMENT_BLOCK - 1u) / SHIFT_AGREEMENT_BLOCK;
     const AxisTables *const tables = axis_tables(length);
     int ok = (tables != NULL) ? 1 : 0;
-    if (ok != 0)
+    unsigned int logarithm = 0u;
+    while ((1u << logarithm) < length)
     {
-        reverse_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(*values, tables->reversal, length, stride, layout.total, *spare);
-        ok = agreement_launched();
-        unsigned int *const swapped = *values;
-        *values = *spare;
-        *spare = swapped;
+        logarithm += 1u;
     }
-    for (unsigned int size = 2u; (size <= length) && (ok != 0); size <<= 1u)
+    if (inverse == 0)
     {
-        // Stage size s reads its root powers where the held table laid them, from s / 2 - 1.
-        const unsigned int *const roots = &tables->roots[(inverse != 0) ? 1 : 0][(size / 2u) - 1u];
-        butterfly_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(*values, roots, size, length, stride, layout.total);
-        ok = agreement_launched();
+
+        for (unsigned int level = 0u; (ok != 0) && (level < logarithm); level += 2u)
+        {
+            const unsigned int levels = ((level + 1u) < logarithm) ? 2u : 1u;
+            forward_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(values, tables->roots[0], level, levels, length, stride,
+                                                              layout.total);
+            ok = agreement_launched();
+        }
+        return ok;
     }
-    if ((ok != 0) && (inverse != 0))
+
+    unsigned int remaining = logarithm;
+    while ((ok != 0) && (remaining > 0u))
     {
-        multiply_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(*values, NULL,
-                                                          device_agreement_power(length, SHIFT_AGREEMENT_PRIME - 2u),
+        // An odd level count ran its last forward level alone, and that level is undone first, alone.
+        const unsigned int levels = (((remaining % 2u) == 1u) && (remaining == logarithm)) ? 1u : 2u;
+        const unsigned int level = remaining - levels;
+        inverse_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(values, tables->roots[1], level, levels, length, stride,
                                                           layout.total);
         ok = agreement_launched();
+        remaining = level;
     }
     return ok;
 }
 
-/** @brief Volumes held: the reflected, the moved, a spare, and the transform kept from the call before. */
+/** @brief Device volumes held: three in use per call, and the one kept from the call before. */
 #define SHIFT_AGREEMENT_VOLUMES 4u
 
-/** @brief No transform is kept. */
+/** @brief The kept slot's value where no transform is kept. */
 #define SHIFT_AGREEMENT_NONE_KEPT SHIFT_AGREEMENT_VOLUMES
 
-/**
- * @brief The volumes one extent needs, held between calls, and the moved view's transform from the last call
- *        with the sign words it was made from: a series calls with this call's after as the next call's before,
- *        and that before's reflected transform is a gather of the kept one.
- */
+/** @brief Device volumes and bit buffers held between calls. */
 struct HeldVolumes
 {
-    size_t total;
-    size_t words;
-    unsigned long long *before;
-    unsigned long long *after;
-    unsigned int *volumes[SHIFT_AGREEMENT_VOLUMES];
-    unsigned int kept;
-    unsigned long long *kept_words;
+    size_t total;                                  /**< Entries each volume was sized for. */
+    size_t words;                                  /**< Words each bit buffer was sized for. */
+    unsigned long long *before;                    /**< Device before bits. */
+    unsigned long long *after;                     /**< Device after bits. */
+    unsigned int *volumes[SHIFT_AGREEMENT_VOLUMES]; /**< Padded device volumes. */
+    unsigned int kept;                             /**< Slot holding the last after transform. */
+    unsigned long long *kept_words;                /**< Host copy of the bits that transform is of. */
 };
 
+/** @brief The one set of held volumes. Not safe to use from two threads at once. */
 static HeldVolumes s_held_volumes;
 
 /**
- * @brief Holds the device volumes for a padded total and a word count, allocating only when either changes.
+ * @brief Makes the held volumes the right size, dropping any kept transform on a resize.
  *
- * @param[in] total Padded elements.
- * @param[in] words Sign words of the view.
- * @return          1 with the volumes held, 0 on a failure with nothing held.
+ * @param[in] total Entries per padded volume.
+ * @param[in] words Words per bit buffer.
+ * @return          1 where every buffer is in place, 0 where an allocation failed, with every
+ *                  buffer released.
  */
 static int hold_volumes(size_t total, size_t words)
 {
@@ -574,6 +704,72 @@ static int hold_volumes(size_t total, size_t words)
     return 1;
 }
 
+/** @brief The device negation table for one padded shape, every axis's table end to end. */
+struct HeldNegation
+{
+    unsigned int axes;                         /**< Axes of the shape it was built for. */
+    unsigned int padded[SHIFT_AGREEMENT_AXES]; /**< Padded lengths it was built for. */
+    unsigned int *negation;                    /**< Device table. */
+};
+
+/** @brief The one held negation table. */
+static HeldNegation s_held_negation;
+
+/**
+ * @brief Makes the held negation table match a shape.
+ *
+ * @param[in] layout The shape [BORROWS].
+ * @return           1 where the table matches, 0 where an allocation or copy failed.
+ * @note A new shape drops the kept transform, which was built for the old padding and does not
+ *       describe a volume of the new one.
+ */
+static int hold_negation(const AgreementLayout *layout)
+{
+    HeldNegation *const held = &s_held_negation;
+    if ((held->negation != NULL) && (held->axes == layout->axes)
+     && (memcmp(held->padded, layout->padded, sizeof(held->padded)) == 0))
+    {
+        return 1;
+    }
+    s_held_volumes.kept = SHIFT_AGREEMENT_NONE_KEPT;
+    cudaFree(held->negation);
+    memset(held, 0, sizeof(*held));
+    size_t entries = 0u;
+    for (unsigned int axis = 0u; axis < layout->axes; axis += 1u)
+    {
+        entries += (size_t)layout->padded[axis];
+    }
+    unsigned int *const host = (unsigned int *)malloc((entries + 1u) * sizeof(unsigned int));
+    int ok = (host != NULL) ? 1 : 0;
+    for (unsigned int axis = 0u; (ok != 0) && (axis < layout->axes); axis += 1u)
+    {
+        // An axis of padded length 1 has one frequency, 0, and it negates to itself.
+        if (layout->padded[axis] < 2u)
+        {
+            host[layout->table_offsets[axis]] = 0u;
+            continue;
+        }
+        const AxisTables *const tables = axis_tables(layout->padded[axis]);
+        ok = (tables != NULL) ? 1 : 0;
+        if (ok != 0)
+        {
+            memcpy(&host[layout->table_offsets[axis]], tables->negation, (size_t)layout->padded[axis] * sizeof(unsigned int));
+        }
+    }
+    ok = ok && (cudaMalloc((void **)&held->negation, (entries + 1u) * sizeof(unsigned int)) == cudaSuccess);
+    ok = ok && (cudaMemcpy(held->negation, host, entries * sizeof(unsigned int), cudaMemcpyHostToDevice) == cudaSuccess);
+    free(host);
+    if (ok == 0)
+    {
+        cudaFree(held->negation);
+        memset(held, 0, sizeof(*held));
+        return 0;
+    }
+    held->axes = layout->axes;
+    memcpy(held->padded, layout->padded, sizeof(held->padded));
+    return 1;
+}
+
 extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
 {
     if ((args == NULL) || (args->before == NULL) || (args->after == NULL) || (args->axes == 0u)
@@ -600,7 +796,8 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
         {
             power <<= 1u;
         }
-        // Narrowing is safe: power is at most SHIFT_AGREEMENT_LONGEST_AXIS.
+
+        // power is at most SHIFT_AGREEMENT_LONGEST_AXIS and fits the unsigned int.
         layout.padded[axis] = (unsigned int)power;
         padded_total *= power;
         if ((voxels >= (unsigned long long)SHIFT_AGREEMENT_PRIME) || (padded_total > 0x7FFFFFFFull))
@@ -608,14 +805,17 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
             return SHIFT_AGREEMENT_REFUSED;
         }
     }
-    // Narrowing is safe: both totals were just bounded below 2^31.
+
     layout.voxels = (unsigned int)voxels;
     layout.total = (unsigned int)padded_total;
     unsigned int stride = layout.total;
+    unsigned int table_offset = 0u;
     for (unsigned int axis = 0u; axis < layout.axes; axis += 1u)
     {
         stride /= layout.padded[axis];
         layout.padded_strides[axis] = stride;
+        layout.table_offsets[axis] = table_offset;
+        table_offset += layout.padded[axis];
     }
     int devices = 0;
     if ((cudaGetDeviceCount(&devices) != cudaSuccess) || (devices < 1))
@@ -625,17 +825,20 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
 
     const size_t total = (size_t)layout.total;
     const size_t words = ((size_t)layout.voxels + 63u) / 64u;
-    // Every count comes to the host only where the caller asked for them.
+
     unsigned int *const host_counts = (args->counts != NULL) ? (unsigned int *)malloc(total * sizeof(unsigned int)) : NULL;
     int ok = ((args->counts == NULL) || (host_counts != NULL)) ? 1 : 0;
     ok = ok && hold_volumes(total, words);
+    ok = ok && hold_negation(&layout);
     HeldVolumes *const held = &s_held_volumes;
     unsigned long long *const device_before = held->before;
     unsigned long long *const device_after = held->after;
-    // Where this call's before is the last call's after, its transform is kept and the reflected transform is
-    // gathered from it; the three other volumes are the reflected, the moved and the spare.
+
+    // The kept transform is of the last call's after bits. Where this call's before bits match
+    // them word for word, the before transform is read off it.
     const int reuse = (ok != 0) && (held->kept != SHIFT_AGREEMENT_NONE_KEPT)
                    && (memcmp(held->kept_words, args->before, words * sizeof(unsigned long long)) == 0);
+    // Three working volumes, never the kept one where it is reused.
     unsigned int *roles[SHIFT_AGREEMENT_VOLUMES - 1u] = {NULL, NULL, NULL};
     unsigned int filled = 0u;
     for (unsigned int slot = 0u; (ok != 0) && (slot < SHIFT_AGREEMENT_VOLUMES); slot += 1u)
@@ -666,24 +869,28 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
     }
     if ((ok != 0) && (reuse != 0))
     {
-        negate_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(held->volumes[held->kept], layout, reflected);
+        negate_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(held->volumes[held->kept], s_held_negation.negation, layout,
+                                                         reflected);
         ok = agreement_launched();
     }
 
-    // The spare takes part in every reversal, trading places with the volume reversed.
+    // A reused before volume is already transformed, and only the after volume is transformed here.
     for (unsigned int axis = 0u; (axis < layout.axes) && (ok != 0); axis += 1u)
     {
-        ok = (reuse != 0) || (agreement_axis(&reflected, &spare, layout, axis, 0) != 0);
-        ok = ok && agreement_axis(&moved, &spare, layout, axis, 0);
+        ok = (reuse != 0) || (agreement_axis(reflected, layout, axis, 0) != 0);
+        ok = ok && agreement_axis(moved, layout, axis, 0);
     }
     if (ok != 0)
     {
-        multiply_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(reflected, moved, 0u, layout.total);
+
+        multiply_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(reflected, moved,
+                                                          device_agreement_power(layout.total, SHIFT_AGREEMENT_PRIME - 2u),
+                                                          layout.total);
         ok = agreement_launched();
     }
     for (unsigned int axis = 0u; (axis < layout.axes) && (ok != 0); axis += 1u)
     {
-        ok = agreement_axis(&reflected, &spare, layout, axis, 1);
+        ok = agreement_axis(reflected, layout, axis, 1);
     }
     if ((ok != 0) && (host_counts != NULL))
     {
@@ -691,14 +898,12 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
               == cudaSuccess) ? 1 : 0;
     }
 
-    // The heaviest lag, then the shortest weighted lag, then the lowest padded index, as the reference
-    // chooses, found on the device by a tournament; only the winner and its count come back. `spare`
-    // holds the candidates.
     if (ok != 0)
     {
         choice_kernel<<<blocks, SHIFT_AGREEMENT_BLOCK>>>(layout.total, spare);
         ok = agreement_launched();
     }
+    // Rounds at strides 1, 2, 4 and up. Entry 0 holds the winner once the stride covers the volume.
     for (unsigned int stride = 1u; (stride < layout.total) && (ok != 0); stride <<= 1u)
     {
         const unsigned int pairs = (layout.total + (2u * stride) - 1u) / (2u * stride);
@@ -721,7 +926,8 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
         {
             const long long coordinate = (long long)(rest % layout.padded[axis - 1u]);
             rest /= layout.padded[axis - 1u];
-            // Narrowing is safe: a lag lies within half a padded extent.
+
+            // A lag is below half a padded axis, at most 2^22, and fits the int.
             args->lag[axis - 1u] = (int)((coordinate < (long long)(layout.padded[axis - 1u] / 2u))
                                          ? coordinate
                                          : (coordinate - (long long)layout.padded[axis - 1u]));
@@ -741,8 +947,8 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
         }
         answer = 0L;
     }
-    // The moved transform is kept for the next call, whose before this call's after may be; the multiply and
-    // the inverse wrote only the reflected and the spare, so it is whole.
+
+    // Keep this call's after transform for the next call. A failed call keeps nothing.
     held->kept = SHIFT_AGREEMENT_NONE_KEPT;
     for (unsigned int slot = 0u; (answer == 0L) && (slot < SHIFT_AGREEMENT_VOLUMES); slot += 1u)
     {
@@ -752,7 +958,7 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
             memcpy(held->kept_words, args->after, words * sizeof(unsigned long long));
         }
     }
-    // The volumes stay held for the next call of the same extents.
+
     free(host_counts);
     return answer;
 }

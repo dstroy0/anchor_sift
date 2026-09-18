@@ -1,61 +1,26 @@
-/* cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
- * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
- *
- * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
- * negotiated commercial licensing contract or an educator's license issued to you personally.
- */
-/**
- * @file climb_machine.cu
- * @brief The frame store and the self-running climb of climb_machine.h.
- * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-17
- *
- * Sign words and runs are one device array per kind with a slot per frame; labels are a ring of two, because a
- * frame's labels are read only while its runs are cut and while the overlap engine reads the pair it belongs
- * to. Runs are cut on the device from the labels in the ring, one thread per row, counted and then written in
- * row order; only each run's leaf comes to the host, which orders the runs by leaf, and the device gathers them
- * into the slot in that order, writing back where each run in row order landed. A landing looks a voxel up in
- * those runs, halving over its row, in place of reading a label. A leaf's runs are bundled a few at a time, so
- * every thread of a tick does work of like size.
- *
- * A run lays every pending pair out as two sides, forward and backward; every leaf of a side is a climber;
- * every bundle a climber walks, its own and, where the climb is sticky, its contacts', is an entry. A tick is
- * two launches: the score kernel, one thread per entry, and the decide kernel, one thread per climber. Nothing
- * crosses to the host inside a tick. After each block of ticks one cell, set wherever any climber moved, is
- * copied without waiting into pinned memory, and the host reads it once that block has run; while two blocks
- * are queued the host waits on the older one, so the queue never outgrows the device. A block in which nothing
- * moved is past every fixed point.
- */
-
 #include "climb_machine.h"
+#include "spiral_table.h"
 
 #include <cuda_runtime.h>
 
 #include <stdlib.h>
 #include <string.h>
 
-/** @brief Threads per block. */
 #define CLIMB_MACHINE_BLOCK 256u
 
-/** @brief Most runs one entry thread walks, so no thread waits long on another beside it. */
 #define CLIMB_MACHINE_BUNDLE 32u
 
-/** @brief Candidate lags per tick: the climber's lag, at index 13, and its 26 neighbours in z y x order. */
 #define CLIMB_MACHINE_CANDIDATES 27u
 
-/** @brief Ticks queued between two looks at whether anything moved. */
 #define CLIMB_MACHINE_TICKS 8u
 
-/** @brief A slot holding no frame. */
 #define CLIMB_MACHINE_EMPTY 0xFFFFFFFFu
 
-/** @brief A landing outside the view. */
 #define CLIMB_MACHINE_OUTSIDE 0xFFFFFFFFu
 
 static_assert(sizeof(unsigned int) == 4u, "climb_machine: unsigned int must be 32 bits, a label");
 static_assert(sizeof(unsigned long long) == 8u, "climb_machine: unsigned long long must be 64 bits, a sign word");
 
-/** @brief Extents and strides a kernel reads, passed by value. */
 struct MachineGeometry
 {
     unsigned int depth;
@@ -72,8 +37,11 @@ struct ClimbMachine
     unsigned int peak_room;
     unsigned int capacity;
     unsigned int newest;
-    // The labels of a frame are held only while its runs are cut and while the overlap engine reads the pair it
-    // belongs to, so two frames' labels are kept in a ring and every stored frame is its runs.
+
+    unsigned int land_by_mass;
+
+    unsigned int spiral_tries;
+    int *device_spiral;
     unsigned int *scratch_labels;
     unsigned int scratch_frame[2];
     unsigned int scratch_next;
@@ -90,8 +58,7 @@ struct ClimbMachine
     unsigned int *run_start;
     unsigned int *run_length;
     unsigned int *run_leaf;
-    // A frame's runs in row order, as places in its own leaf-ordered runs, and where each row's runs begin: what a
-    // landing reads in place of a label at every voxel.
+
     unsigned int *run_at_row;
     unsigned int *row_first;
     int *device_map;
@@ -142,15 +109,6 @@ struct ClimbMachine
     cudaEvent_t blocks_done[2];
 };
 
-/**
- * @brief 64 sign bits of one slot starting at a bit; bits past the slot's last word read as zero.
- *
- * @param[in] positive  Every slot's sign words [BORROWS].
- * @param[in] base_word The slot's first word.
- * @param[in] words     Words per slot.
- * @param[in] bit       The first bit, counted within the slot.
- * @return              The bits, the first in the lowest place.
- */
 __device__ static unsigned long long machine_bits(const unsigned long long *positive, unsigned long long base_word,
                                                   unsigned long long words, unsigned long long bit)
 {
@@ -164,33 +122,15 @@ __device__ static unsigned long long machine_bits(const unsigned long long *posi
     return value;
 }
 
-/**
- * @brief The set bits of a word, by adding them in pairs, nibbles and bytes.
- *
- * @param[in] value The word.
- * @return          Its population count.
- */
 __device__ static unsigned int machine_ones(unsigned long long value)
 {
     const unsigned long long pairs = value - ((value >> 1u) & 0x5555555555555555ull);
     const unsigned long long nibbles = (pairs & 0x3333333333333333ull) + ((pairs >> 2u) & 0x3333333333333333ull);
     const unsigned long long bytes = (nibbles + (nibbles >> 4u)) & 0x0F0F0F0F0F0F0F0Full;
-    // Narrowing is safe: the count is at most 64.
+
     return (unsigned int)((bytes * 0x0101010101010101ull) >> 56u);
 }
 
-/**
- * @brief How many of count consecutive bits of one row equal the bits of another, a word at a time.
- *
- * @param[in] positive   Every slot's sign words [BORROWS].
- * @param[in] words      Words per slot.
- * @param[in] own_word   The first slot's first word.
- * @param[in] own_bit    The first bit compared there.
- * @param[in] other_word The second slot's first word.
- * @param[in] other_bit  The first bit compared there.
- * @param[in] count      Bits compared.
- * @return               Equal bits.
- */
 __device__ static unsigned int machine_agreeing(const unsigned long long *positive, unsigned long long words,
                                                 unsigned long long own_word, unsigned long long own_bit,
                                                 unsigned long long other_word, unsigned long long other_bit,
@@ -208,23 +148,6 @@ __device__ static unsigned int machine_agreeing(const unsigned long long *positi
     return agreeing;
 }
 
-/**
- * @brief One entry's runs, counted true at all 27 candidates around its climber's lag.
- *
- * @param[in]  run_start     Every stored run's first voxel [BORROWS].
- * @param[in]  run_length    Every stored run's voxels [BORROWS].
- * @param[in]  entry_first   Per entry, its first run in the arena [BORROWS].
- * @param[in]  entry_past    Per entry, the run past its last [BORROWS].
- * @param[in]  entry_climber Per entry, the climber [BORROWS].
- * @param[in]  entries       Entries.
- * @param[in]  climber_side  Per climber, its side [BORROWS].
- * @param[in]  side_slots    Two per side: the climbing slot, then the slot landed in [BORROWS].
- * @param[in]  centers       Three per climber: its lag [BORROWS].
- * @param[in]  active        Per climber, 1 while it has not reached its fixed point [BORROWS].
- * @param[in]  positive      Every slot's sign words [BORROWS].
- * @param[in]  geometry      Extents and strides.
- * @param[out] scores        CLIMB_MACHINE_CANDIDATES true counts per entry [BORROWS].
- */
 __global__ static void machine_score_kernel(const unsigned int *run_start, const unsigned int *run_length,
                                             const unsigned int *entry_first, const unsigned int *entry_past,
                                             const unsigned int *entry_climber, unsigned int entries,
@@ -244,7 +167,7 @@ __global__ static void machine_score_kernel(const unsigned int *run_start, const
         return;
     }
     const unsigned int side = climber_side[climber];
-    // Widening each slot to unsigned long long keeps every stride product exact.
+
     const unsigned long long own_word = (unsigned long long)side_slots[2u * side] * geometry.words;
     const unsigned long long other_word = (unsigned long long)side_slots[(2u * side) + 1u] * geometry.words;
     const int *const center = &centers[3u * climber];
@@ -259,7 +182,7 @@ __global__ static void machine_score_kernel(const unsigned int *run_start, const
         const unsigned int start = run_start[run];
         const long long length = (long long)run_length[run];
         const unsigned int rest = start % plane;
-        // Widening to long long keeps a negative landing representable before the bounds test.
+
         const long long base_z = (long long)(start / plane) + (long long)center[0];
         const long long base_y = (long long)(rest / geometry.width) + (long long)center[1];
         const long long base_x = (long long)(rest % geometry.width) + (long long)center[2];
@@ -274,18 +197,17 @@ __global__ static void machine_score_kernel(const unsigned int *run_start, const
                 const int inside_y = (y >= 0ll) && (y < (long long)geometry.height);
                 for (long long step_x = -1ll; step_x <= 1ll; step_x += 1ll)
                 {
-                    // The run's voxel i lands at x + i of one row; a landing outside the view is false, so only
-                    // the voxels landing inside it are compared.
+
                     const long long x = base_x + step_x;
                     const long long first = (x < 0ll) ? -x : 0ll;
                     const long long width_left = (long long)geometry.width - x;
                     const long long past = (width_left < length) ? width_left : length;
                     if ((inside_z != 0) && (inside_y != 0) && (first < past))
                     {
-                        // Widening is safe: the row and every compared landing lie inside the view.
+
                         const unsigned long long row = (unsigned long long)((z * (long long)geometry.height + y)
                                                                             * (long long)geometry.width);
-                        // Narrowing is safe: a run lies within one row, so its length fits an unsigned int.
+
                         counts[candidate] += machine_agreeing(positive, geometry.words, own_word,
                                                               (unsigned long long)start + (unsigned long long)first,
                                                               other_word, row + (unsigned long long)(x + first),
@@ -302,20 +224,6 @@ __global__ static void machine_score_kernel(const unsigned int *run_start, const
     }
 }
 
-/**
- * @brief One climber's step: its entries' counts summed per candidate, then the most coherent neighbour taken
- *        where it is strictly more coherent than staying, the shorter weighted lag first among equals, then the
- *        first in z y x order. A climber that stays has reached its fixed point.
- *
- * @param[in]     climber_entry_start Per climber, the offset of its entries; climbers + 1 of them [BORROWS].
- * @param[in]     scores              The score kernel's counts [BORROWS].
- * @param[in]     climbers            Climbers.
- * @param[in]     geometry            The weight of z.
- * @param[in,out] centers             Three per climber: its lag [BORROWS].
- * @param[in,out] active              Per climber, cleared where it stays [BORROWS].
- * @param[out]    moved               Set to 1 where any climber moves [BORROWS].
- * @param[out]    held                Per climber, its coherence at its fixed point, written where it stays [BORROWS].
- */
 __global__ static void machine_decide_kernel(const unsigned int *climber_entry_start, const unsigned int *scores,
                                              unsigned int climbers, MachineGeometry geometry, int *centers,
                                              unsigned int *active, unsigned int *moved, unsigned int *held)
@@ -334,7 +242,7 @@ __global__ static void machine_decide_kernel(const unsigned int *climber_entry_s
     {
         for (unsigned int candidate = 0u; candidate < CLIMB_MACHINE_CANDIDATES; candidate += 1u)
         {
-            // Widening an entry's count to long long is exact.
+
             sums[candidate] += (long long)scores[((unsigned long long)entry * CLIMB_MACHINE_CANDIDATES) + candidate];
         }
     }
@@ -352,7 +260,7 @@ __global__ static void machine_decide_kernel(const unsigned int *climber_entry_s
             for (long long step_x = -1ll; step_x <= 1ll; step_x += 1ll)
             {
                 const long long lag[3] = {here[0] + step_z, here[1] + step_y, here[2] + step_x};
-                // Widening: each squared lag component is nonnegative.
+
                 const unsigned long long length = (unsigned long long)geometry.weight_z * (unsigned long long)(lag[0] * lag[0])
                                                 + (unsigned long long)(lag[1] * lag[1])
                                                 + (unsigned long long)(lag[2] * lag[2]);
@@ -373,38 +281,132 @@ __global__ static void machine_decide_kernel(const unsigned int *climber_entry_s
     }
     if (stepped != 0)
     {
-        // Narrowing is safe: a lag one step from an int lag inside any view fits an int.
+
         center[0] = (int)best[0];
         center[1] = (int)best[1];
         center[2] = (int)best[2];
-        // Every thread that writes here writes the same 1.
+
         moved[0] = 1u;
     }
     else
     {
         active[climber] = 0u;
-        // Narrowing is safe: a coherence counts voxels, below 2^32.
+
         held[climber] = (unsigned int)sums[13];
     }
 }
 
-/**
- * @brief Each climber's peak carried by its lag into the other frame, and the label it lands on.
- *
- * @param[in]  climber_side Per climber, its side [BORROWS].
- * @param[in]  side_slots   Two per side [BORROWS].
- * @param[in]  climber_peak Per climber, its peak's raster index [BORROWS].
- * @param[in]  centers      Three per climber: its lag [BORROWS].
- * @param[in]  row_first    Every slot's rows + 1 offsets into its runs in row order [BORROWS].
- * @param[in]  run_at_row   Every slot's runs in row order, as places in its leaf-ordered runs [BORROWS].
- * @param[in]  run_start    Every slot's runs' first voxels, leaf order [BORROWS].
- * @param[in]  run_length   Every slot's runs' voxels, leaf order [BORROWS].
- * @param[in]  run_leaf     Every slot's runs' leaves, leaf order [BORROWS].
- * @param[in]  run_room     Runs one slot holds.
- * @param[in]  climbers     Climbers.
- * @param[in]  geometry     Extents and strides.
- * @param[out] landed       Per climber, the leaf landed in, or CLIMB_MACHINE_OUTSIDE [BORROWS].
- */
+__device__ static unsigned int machine_leaf_at(unsigned long long voxel, unsigned long long slot,
+                                               const unsigned int *row_first, const unsigned int *run_at_row,
+                                               const unsigned int *run_start, const unsigned int *run_length,
+                                               const unsigned int *run_leaf, unsigned int run_room,
+                                               MachineGeometry geometry)
+{
+    const unsigned long long rows = (unsigned long long)geometry.depth * geometry.height;
+    const unsigned long long row = voxel / geometry.width;
+    const unsigned long long base = slot * (unsigned long long)run_room;
+    const unsigned long long offsets = slot * (rows + 1ull);
+    const unsigned int first = row_first[offsets + row];
+    const unsigned int past = row_first[offsets + row + 1ull];
+    const unsigned int empty = (unsigned int)(past <= first);
+    unsigned int low = (empty != 0u) ? 0u : first;
+    unsigned int high = (empty != 0u) ? 1u : past;
+    while ((high - low) > 1u)
+    {
+        const unsigned int middle = low + ((high - low) / 2u);
+        const unsigned int at = run_at_row[base + middle];
+        low = (run_start[base + at] <= (unsigned int)voxel) ? middle : low;
+        high = (run_start[base + at] <= (unsigned int)voxel) ? high : middle;
+    }
+    const unsigned int at = run_at_row[base + low];
+    const unsigned int start = run_start[base + at];
+    const unsigned int covers = (unsigned int)((empty == 0u) && (start <= (unsigned int)voxel)
+                                               && ((unsigned int)voxel < (start + run_length[base + at])));
+    return (covers != 0u) ? run_leaf[base + at] : CLIMB_MACHINE_OUTSIDE;
+}
+
+__global__ static void machine_land_mass_kernel(const unsigned int *climber_side, const unsigned int *side_slots,
+                                                const unsigned int *climber_entry_start,
+                                                const unsigned int *entry_first, const unsigned int *entry_past,
+                                                const int *centers, const unsigned int *row_first,
+                                                const unsigned int *run_at_row, const unsigned int *run_start,
+                                                const unsigned int *run_length, const unsigned int *run_leaf,
+                                                unsigned int run_room, unsigned int climbers,
+                                                const int *spiral, unsigned int tries,
+                                                MachineGeometry geometry, unsigned int *landed)
+{
+    const unsigned int climber = (blockIdx.x * blockDim.x) + threadIdx.x;
+    if (climber >= climbers)
+    {
+        return;
+    }
+    const unsigned int side = climber_side[climber];
+    const unsigned long long other = (unsigned long long)side_slots[(2u * side) + 1u];
+    const int *const center = &centers[3u * climber];
+    const unsigned int plane = geometry.height * geometry.width;
+
+    unsigned int best_leaf = CLIMB_MACHINE_OUTSIDE;
+    unsigned int best_agreed = 0u;
+    for (unsigned int attempt = 0u; attempt < tries; attempt += 1u)
+    {
+        const int lag_z = center[0] + ((attempt == 0u) ? 0 : spiral[3u * (attempt - 1u)]);
+        const int lag_y = center[1] + ((attempt == 0u) ? 0 : spiral[(3u * (attempt - 1u)) + 1u]);
+        const int lag_x = center[2] + ((attempt == 0u) ? 0 : spiral[(3u * (attempt - 1u)) + 2u]);
+
+        unsigned int candidate = CLIMB_MACHINE_OUTSIDE;
+        unsigned int count = 0u;
+        unsigned int agreed = 0u;
+        for (unsigned int walk = 0u; walk < 2u; walk += 1u)
+        {
+            for (unsigned int entry = climber_entry_start[climber];
+                 entry < climber_entry_start[climber + 1u]; entry += 1u)
+            {
+                for (unsigned int run = entry_first[entry]; run < entry_past[entry]; run += 1u)
+                {
+                    const unsigned int start = run_start[run];
+                    const unsigned int length = run_length[run];
+                    const unsigned int rest = start % plane;
+
+                    const long long z = (long long)(start / plane) + (long long)lag_z;
+                    const long long y = (long long)(rest / geometry.width) + (long long)lag_y;
+                    const long long base_x = (long long)(rest % geometry.width) + (long long)lag_x;
+                    const int inside = (z >= 0ll) && (z < (long long)geometry.depth)
+                                    && (y >= 0ll) && (y < (long long)geometry.height);
+                    for (unsigned int step = 0u; (inside != 0) && (step < length); step += 1u)
+                    {
+                        const long long x = base_x + (long long)step;
+                        if ((x < 0ll) || (x >= (long long)geometry.width))
+                        {
+                            continue;
+                        }
+                        const unsigned long long voxel =
+                            (unsigned long long)((z * (long long)geometry.height + y)
+                                                 * (long long)geometry.width + x);
+                        const unsigned int reached = machine_leaf_at(voxel, other, row_first, run_at_row,
+                                                                      run_start, run_length, run_leaf,
+                                                                      run_room, geometry);
+
+                        const unsigned int votes = (unsigned int)(reached != CLIMB_MACHINE_OUTSIDE);
+                        const unsigned int empty = (unsigned int)(count == 0u);
+                        const unsigned int agrees = (unsigned int)(reached == candidate);
+                        candidate = ((walk == 0u) && (votes != 0u) && (empty != 0u)) ? reached : candidate;
+                        count = ((walk != 0u) || (votes == 0u))
+                              ? count
+                              : (((empty != 0u) || (agrees != 0u)) ? (count + 1u) : (count - 1u));
+                        agreed += (unsigned int)((walk != 0u) && (votes != 0u) && (agrees != 0u));
+                    }
+                }
+            }
+        }
+
+        const unsigned int ahead = (unsigned int)((candidate != CLIMB_MACHINE_OUTSIDE)
+                                                  && (agreed > best_agreed));
+        best_leaf = (ahead != 0u) ? candidate : best_leaf;
+        best_agreed = (ahead != 0u) ? agreed : best_agreed;
+    }
+    landed[climber] = best_leaf;
+}
+
 __global__ static void machine_land_kernel(const unsigned int *climber_side, const unsigned int *side_slots,
                                            const unsigned int *climber_peak, const int *centers,
                                            const unsigned int *row_first, const unsigned int *run_at_row,
@@ -421,7 +423,7 @@ __global__ static void machine_land_kernel(const unsigned int *climber_side, con
     const unsigned int peak = climber_peak[climber];
     const unsigned int rest = peak % plane;
     const int *const center = &centers[3u * climber];
-    // Widening to long long keeps a negative landing representable before the bounds test.
+
     const long long z = (long long)(peak / plane) + (long long)center[0];
     const long long y = (long long)(rest / geometry.width) + (long long)center[1];
     const long long x = (long long)(rest % geometry.width) + (long long)center[2];
@@ -432,18 +434,16 @@ __global__ static void machine_land_kernel(const unsigned int *climber_side, con
         return;
     }
     const unsigned long long other = (unsigned long long)side_slots[(2u * climber_side[climber]) + 1u];
-    // Widening is safe: the landing lies inside the view, so it is nonnegative.
+
     const unsigned long long voxel = (unsigned long long)((z * (long long)geometry.height + y) * (long long)geometry.width + x);
-    // The leaf holding the voxel: the run of its row that covers it, by halving over that row's runs, which are in
-    // voxel order. A row of a frame holds no two runs of one leaf next to each other and none overlap, so the run
-    // whose first voxel is the last one at or before the landing is the only run that can cover it.
+
     const unsigned long long rows = (unsigned long long)geometry.depth * geometry.height;
     const unsigned long long row = voxel / geometry.width;
     const unsigned long long base = other * (unsigned long long)run_room;
     const unsigned long long offsets = other * (rows + 1ull);
     const unsigned int first = row_first[offsets + row];
     const unsigned int past = row_first[offsets + row + 1ull];
-    // A row with no runs holds no leaf, and its one read is kept inside the slot's runs.
+
     const unsigned int empty = (unsigned int)(past <= first);
     unsigned int low = (empty != 0u) ? 0u : first;
     unsigned int high = (empty != 0u) ? 1u : past;
@@ -461,15 +461,6 @@ __global__ static void machine_land_kernel(const unsigned int *climber_side, con
     landed[climber] = (covers != 0u) ? run_leaf[base + at] : CLIMB_MACHINE_OUTSIDE;
 }
 
-/**
- * @brief Marks or clears each leaf's peak in the peak map: the map holds the leaf at every peak of the frame
- *        being cut and -1 everywhere else.
- *
- * @param[in]     peaks  The frame's peaks, ascending [BORROWS].
- * @param[in]     leaves Leaves.
- * @param[in]     clear  1 to clear, 0 to mark.
- * @param[in,out] map    The peak map, one entry per voxel [BORROWS].
- */
 __global__ static void machine_map_kernel(const unsigned int *peaks, unsigned int leaves, unsigned int clear, int *map)
 {
     const unsigned int leaf = (blockIdx.x * blockDim.x) + threadIdx.x;
@@ -477,24 +468,10 @@ __global__ static void machine_map_kernel(const unsigned int *peaks, unsigned in
     {
         return;
     }
-    // Narrowing is safe: a leaf count is below 2^31.
+
     map[peaks[leaf]] = (clear != 0u) ? -1 : (int)leaf;
 }
 
-/**
- * @brief One row's runs: counted, or written where the row's offset is given. A run is the voxels next to each
- *        other along the row carrying one label, where that label is a leaf's peak.
- *
- * @param[in]  labels     The frame's labels [BORROWS].
- * @param[in]  map        The peak map [BORROWS].
- * @param[in]  rows       Rows of the view.
- * @param[in]  geometry   Extents.
- * @param[in]  offsets    Per row, where its runs are written, or NULL to count [BORROWS].
- * @param[out] counts     Per row, its runs, written when counting [BORROWS].
- * @param[out] run_start  Per run, its first voxel, written when writing [BORROWS].
- * @param[out] run_length Per run, its voxels [BORROWS].
- * @param[out] run_leaf   Per run, its leaf [BORROWS].
- */
 __global__ static void machine_row_kernel(const unsigned int *labels, const int *map, unsigned int rows,
                                           MachineGeometry geometry, const unsigned int *offsets, unsigned int *counts,
                                           unsigned int *run_start, unsigned int *run_length, unsigned int *run_leaf)
@@ -527,7 +504,7 @@ __global__ static void machine_row_kernel(const unsigned int *labels, const int 
         {
             run_start[slot] = start;
             run_length[slot] = voxel - start;
-            // Narrowing is safe: the leaf was found, so it is nonnegative.
+
             run_leaf[slot] = (unsigned int)leaf;
             slot += 1u;
         }
@@ -539,20 +516,6 @@ __global__ static void machine_row_kernel(const unsigned int *labels, const int 
     }
 }
 
-/**
- * @brief Gathers the runs, in row order, into a slot's run arrays in leaf order, and writes back where each run
- *        in row order landed, which is what a landing halves over.
- *
- * @param[in]  order      Per run in leaf order, its place in row order [BORROWS].
- * @param[in]  runs       Runs.
- * @param[in]  cut_start  First voxels in row order [BORROWS].
- * @param[in]  cut_length Lengths in row order [BORROWS].
- * @param[in]  cut_leaf   Leaves in row order [BORROWS].
- * @param[out] run_start  The slot's first voxels [BORROWS].
- * @param[out] run_length The slot's lengths [BORROWS].
- * @param[out] run_leaf   The slot's leaves [BORROWS].
- * @param[out] run_at_row Per run in row order, its place in leaf order [BORROWS].
- */
 __global__ static void machine_gather_kernel(const unsigned int *order, unsigned int runs, const unsigned int *cut_start,
                                              const unsigned int *cut_length, const unsigned int *cut_leaf,
                                              unsigned int *run_start, unsigned int *run_length, unsigned int *run_leaf,
@@ -567,28 +530,16 @@ __global__ static void machine_gather_kernel(const unsigned int *order, unsigned
     run_start[run] = cut_start[at];
     run_length[run] = cut_length[at];
     run_leaf[run] = cut_leaf[at];
-    // The order is a permutation, so every run in row order is written exactly once.
+
     run_at_row[at] = run;
 }
 
-/**
- * @brief Whether the kernel just launched was accepted.
- *
- * @return 1 where it was, 0 otherwise.
- */
 static int machine_launched(void)
 {
-    // No synchronise: the machine's launches queue in order and run without the host.
+
     return (cudaGetLastError() == cudaSuccess) ? 1 : 0;
 }
 
-/**
- * @brief The slot a frame is stored in.
- *
- * @param[in] machine The machine [BORROWS].
- * @param[in] frame   The frame's index.
- * @return            The slot, or CLIMB_MACHINE_EMPTY.
- */
 static unsigned int machine_slot_of(const ClimbMachine *machine, unsigned int frame)
 {
     for (unsigned int slot = 0u; slot < machine->capacity; slot += 1u)
@@ -601,14 +552,6 @@ static unsigned int machine_slot_of(const ClimbMachine *machine, unsigned int fr
     return CLIMB_MACHINE_EMPTY;
 }
 
-/**
- * @brief Grows a host and a device array pair to hold a count of bytes; they never shrink and keep nothing.
- *
- * @param[in,out] host   The host array [BORROWS].
- * @param[in,out] device The device array [BORROWS].
- * @param[in]     bytes  Bytes needed.
- * @return               1 on success, 0 on a failure.
- */
 static int machine_grow(void **host, void **device, size_t bytes)
 {
     free(*host);
@@ -618,16 +561,6 @@ static int machine_grow(void **host, void **device, size_t bytes)
     return ((*host != NULL) && (cudaMalloc(device, bytes) == cudaSuccess)) ? 1 : 0;
 }
 
-/**
- * @brief Cuts a stored frame's leaves into runs along its rows on the device, orders them by leaf, and bundles
- *        them. Each leaf's runs keep row order.
- *
- * @param[in,out] machine The machine, the frame's labels already in the scratch ring [BORROWS].
- * @param[in]     slot    The slot.
- * @param[in]     labels  The frame's labels on the device [BORROWS].
- * @param[in]     frame   The frame, with its peaks [BORROWS].
- * @return                1 on success, 0 on a failure.
- */
 static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsigned int *labels,
                             const ClimbMachineFrame *frame)
 {
@@ -655,7 +588,7 @@ static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsi
     for (unsigned int row = 0u; (ok != 0) && (row < rows); row += 1u)
     {
         const unsigned int count = machine->row_counts[row];
-        // Narrowing is safe: the runs so far never exceed the voxels, which fit an unsigned int.
+
         machine->row_counts[row] = (unsigned int)runs;
         runs += (size_t)count;
     }
@@ -689,7 +622,7 @@ static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsi
     }
     if ((ok != 0) && (leaves != 0u))
     {
-        // The map goes back to -1 at this frame's peaks, ready for the next frame's.
+
         machine_map_kernel<<<leaf_blocks, CLIMB_MACHINE_BLOCK>>>(machine->device_peaks, leaves, 1u, machine->device_map);
         ok = machine_launched();
     }
@@ -700,8 +633,6 @@ static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsi
         return 0;
     }
 
-    // Counted by leaf and placed in row order, so each leaf's runs stay in row order; each count ends as the
-    // place past its leaf's last run.
     unsigned int *const counts = machine->leaf_counts;
     memset(counts, 0, ((size_t)leaves + 1u) * sizeof(unsigned int));
     for (size_t run = 0u; run < runs; run += 1u)
@@ -715,13 +646,11 @@ static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsi
     for (size_t run = 0u; run < runs; run += 1u)
     {
         const unsigned int leaf = machine->cut_leaf[run];
-        // Narrowing is safe: runs never exceed the voxels.
+
         machine->order[counts[leaf]] = (unsigned int)run;
         counts[leaf] += 1u;
     }
 
-    // Where this frame has more runs than a slot holds, every slot grows and every stored frame's runs move. The
-    // four arrays are one frame's whole representation, so they grow together.
     if (runs > machine->run_room)
     {
         const size_t room = runs + (runs / 4u) + 1u;
@@ -761,7 +690,7 @@ static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsi
     if ((ok != 0) && (runs != 0u))
     {
         const size_t base = (size_t)slot * machine->run_room;
-        // Narrowing is safe: runs never exceed the voxels.
+
         const unsigned int run_blocks = (unsigned int)((runs + CLIMB_MACHINE_BLOCK - 1u) / CLIMB_MACHINE_BLOCK);
         machine_gather_kernel<<<run_blocks, CLIMB_MACHINE_BLOCK>>>(machine->device_order, (unsigned int)runs,
                                                                    machine->device_cut_start, machine->device_cut_length,
@@ -770,11 +699,11 @@ static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsi
                                                                    &machine->run_at_row[base]);
         ok = machine_launched();
     }
-    // Where each row's runs begin, and the total past the last row: what a landing halves inside.
+
     if (ok != 0)
     {
         const size_t offsets = (size_t)slot * ((size_t)rows + 1u);
-        // Narrowing is safe: runs never exceed the voxels.
+
         const unsigned int total = (unsigned int)runs;
         ok = (cudaMemcpy(&machine->row_first[offsets], machine->row_counts, (size_t)rows * sizeof(unsigned int),
                          cudaMemcpyHostToDevice) == cudaSuccess) ? 1 : 0;
@@ -786,7 +715,7 @@ static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsi
     free(machine->slot_bundle_first[slot]);
     free(machine->slot_bundle_past[slot]);
     machine->slot_leaf_bundles[slot] = (unsigned int *)malloc(((size_t)leaves + 1u) * sizeof(unsigned int));
-    // Every leaf's runs make at most one bundle more than its runs fill.
+
     const size_t bundle_room = (runs / CLIMB_MACHINE_BUNDLE) + (size_t)leaves + 1u;
     machine->slot_bundle_first[slot] = (unsigned int *)malloc(bundle_room * sizeof(unsigned int));
     machine->slot_bundle_past[slot] = (unsigned int *)malloc(bundle_room * sizeof(unsigned int));
@@ -810,7 +739,7 @@ static int machine_cut_runs(ClimbMachine *machine, unsigned int slot, const unsi
     if (ok != 0)
     {
         machine->slot_leaf_bundles[slot][leaves] = bundles;
-        // Narrowing is safe: runs never exceed the voxels.
+
         machine->slot_runs[slot] = (unsigned int)runs;
     }
     return ok;
@@ -835,13 +764,11 @@ extern "C" ClimbMachine *climb_machine_open(const ClimbMachineShape *shape)
     geometry->voxels = (unsigned long long)shape->depth * shape->height * shape->width;
     geometry->words = (geometry->voxels + 63ull) / 64ull;
     machine->peak_room = shape->peak_room;
-    // Every frame asked for is held, because a frame held is its runs and its sign words, which is small. Nothing
-    // here is sized from the free memory: what is stored is what the frames contain.
+
     machine->capacity = (shape->frames < 2u) ? 2u : shape->frames;
     const size_t slots = (size_t)machine->capacity;
     int ok = 1;
-    // Two frames' labels, and no more: a frame's labels are read while its runs are cut and while the overlap
-    // engine reads the pair it belongs to, which is the frame before it and itself.
+
     ok = ok && (cudaMalloc((void **)&machine->scratch_labels, 2u * (size_t)geometry->voxels * sizeof(unsigned int))
                 == cudaSuccess);
     machine->scratch_frame[0] = CLIMB_MACHINE_EMPTY;
@@ -865,7 +792,7 @@ extern "C" ClimbMachine *climb_machine_open(const ClimbMachineShape *shape)
     {
         machine->slot_frame[slot] = CLIMB_MACHINE_EMPTY;
     }
-    // The peak map starts -1 everywhere: every byte of every entry set.
+
     const size_t rows = (size_t)shape->depth * shape->height;
     ok = ok && (cudaMalloc((void **)&machine->device_map, (size_t)geometry->voxels * sizeof(int)) == cudaSuccess);
     ok = ok && (cudaMemset(machine->device_map, 0xFF, (size_t)geometry->voxels * sizeof(int)) == cudaSuccess);
@@ -901,7 +828,7 @@ extern "C" int climb_machine_store(ClimbMachine *machine, const ClimbMachineFram
     int ok = 1;
     if (slot == CLIMB_MACHINE_EMPTY)
     {
-        // Every slot is taken: the pairs waiting on these frames run now, and all but the newest frame are let go.
+
         ok = climb_machine_run(machine);
         for (unsigned int held = 0u; (ok != 0) && (held < machine->capacity); held += 1u)
         {
@@ -918,9 +845,9 @@ extern "C" int climb_machine_store(ClimbMachine *machine, const ClimbMachineFram
         return 0;
     }
     const MachineGeometry *const geometry = &machine->geometry;
-    // Widening each slot to size_t keeps every stride product exact.
+
     const size_t at = (size_t)slot;
-    // The labels take the older half of the ring; the frame stored before this one keeps the other half.
+
     const unsigned int half = machine->scratch_next;
     unsigned int *const labels = &machine->scratch_labels[(size_t)half * (size_t)geometry->voxels];
     machine->scratch_frame[half] = CLIMB_MACHINE_EMPTY;
@@ -940,7 +867,7 @@ extern "C" int climb_machine_store(ClimbMachine *machine, const ClimbMachineFram
     machine->slot_leaf_bundles[slot] = NULL;
     if ((ok != 0) && (frame->peaks != NULL))
     {
-        // The labels are in the ring now, so the runs are cut from them and the slot keeps the runs.
+
         ok = machine_cut_runs(machine, slot, labels, frame);
     }
     if ((ok != 0) && (frame->contact_start != NULL) && (frame->contacts != NULL))
@@ -960,13 +887,41 @@ extern "C" int climb_machine_store(ClimbMachine *machine, const ClimbMachineFram
     return ok;
 }
 
+extern "C" void climb_machine_land_by_mass(ClimbMachine *machine, unsigned int by_mass)
+{
+    if (machine != NULL)
+    {
+        machine->land_by_mass = (by_mass != 0u) ? 1u : 0u;
+    }
+}
+
+extern "C" int climb_machine_spiral(ClimbMachine *machine, unsigned int tries)
+{
+    if (machine == NULL)
+    {
+        return 0;
+    }
+
+    const unsigned int held = (tries > SPIRAL_STEPS) ? SPIRAL_STEPS : tries;
+    machine->spiral_tries = held + 1u;
+    if ((machine->device_spiral != NULL) || (held == 0u))
+    {
+        return 1;
+    }
+    const int ok = (cudaMalloc((void **)&machine->device_spiral, (size_t)SPIRAL_STEPS * 3u * sizeof(int))
+                    == cudaSuccess)
+                && (cudaMemcpy(machine->device_spiral, SPIRAL_OFFSETS,
+                               (size_t)SPIRAL_STEPS * 3u * sizeof(int), cudaMemcpyHostToDevice) == cudaSuccess);
+    return ok ? 1 : 0;
+}
+
 extern "C" const unsigned int *climb_machine_labels(const ClimbMachine *machine, unsigned int frame)
 {
     if (machine == NULL)
     {
         return NULL;
     }
-    // Only the two frames in the ring have labels; a frame stored earlier than that is its runs.
+
     const unsigned int held = (unsigned int)(machine->scratch_frame[1] == frame);
     const unsigned int has = (unsigned int)((frame != CLIMB_MACHINE_EMPTY)
                                             && ((machine->scratch_frame[0] == frame) || (machine->scratch_frame[1] == frame)));
@@ -1013,7 +968,7 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
         return 1;
     }
     const MachineGeometry geometry = machine->geometry;
-    // Two sides per pair: forward, the earlier frame's leaves against the later, and backward.
+
     const size_t sides = 2u * (size_t)machine->pending_count;
     size_t climbers = 0u;
     size_t entries = 0u;
@@ -1079,7 +1034,6 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
         return 0;
     }
 
-    // Lay every side out: its slots, its climbers from the start lag, and each climber's entries.
     unsigned int climber = 0u;
     unsigned int entry = 0u;
     for (unsigned int pair = 0u; pair < machine->pending_count; pair += 1u)
@@ -1095,7 +1049,7 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
             const unsigned int *const peaks = (side == 0u) ? pending->earlier_peaks : pending->later_peaks;
             const unsigned int *const leaf_bundles = machine->slot_leaf_bundles[own];
             const unsigned int *const contact_start = machine->slot_contact_start[own];
-            // Narrowing is safe: the run arrays were held to 2^32 entries when they grew.
+
             const unsigned int run_base = (unsigned int)((size_t)own * machine->run_room);
             machine->side_slots[2u * index] = own;
             machine->side_slots[(2u * index) + 1u] = (side == 0u) ? later : earlier;
@@ -1108,7 +1062,7 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
                 machine->centers[(3u * climber) + 1u] = sign * pending->lag[1];
                 machine->centers[(3u * climber) + 2u] = sign * pending->lag[2];
                 machine->active[climber] = 1u;
-                // The basin's own bundles, then each contact's where the climb is sticky, as climb_lag sums them.
+
                 unsigned int part = leaf;
                 unsigned int next_contact = (contact_start != NULL) ? contact_start[leaf] : 0u;
                 const unsigned int last_contact = (contact_start != NULL) ? contact_start[leaf + 1u] : 0u;
@@ -1153,8 +1107,6 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
                     && (cudaMemcpy(machine->device_entry_climber, machine->entry_climber, entries * sizeof(unsigned int),
                                    cudaMemcpyHostToDevice) == cudaSuccess)));
 
-    // The machine runs itself: blocks of ticks queue one after another, and the host only watches for a block
-    // that moved nothing.
     const unsigned int entry_blocks = (entry + CLIMB_MACHINE_BLOCK - 1u) / CLIMB_MACHINE_BLOCK;
     const unsigned int climber_blocks = (climber + CLIMB_MACHINE_BLOCK - 1u) / CLIMB_MACHINE_BLOCK;
     int settled = (climber == 0u) ? 1 : 0;
@@ -1187,7 +1139,7 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
         ok = ok && (cudaEventRecord(machine->blocks_done[parity], 0) == cudaSuccess);
         if ((ok != 0) && (block > 0u))
         {
-            // The block before this one: once it has run, whether it moved anything is known.
+
             const unsigned int previous = 1u - parity;
             ok = (cudaEventSynchronize(machine->blocks_done[previous]) == cudaSuccess) ? 1 : 0;
             settled = ((ok != 0) && (machine->pinned_moved[previous] == 0u)) ? 1 : 0;
@@ -1197,11 +1149,26 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
 
     if ((ok != 0) && (climber != 0u))
     {
-        // Narrowing is safe: the run arrays were held to 2^32 entries when they grew.
-        machine_land_kernel<<<climber_blocks, CLIMB_MACHINE_BLOCK>>>(
-            machine->device_climber_side, machine->device_side_slots, machine->device_climber_peak,
-            machine->device_centers, machine->row_first, machine->run_at_row, machine->run_start, machine->run_length,
-            machine->run_leaf, (unsigned int)machine->run_room, climber, geometry, machine->device_landed);
+
+        if (machine->land_by_mass != 0u)
+        {
+            machine_land_mass_kernel<<<climber_blocks, CLIMB_MACHINE_BLOCK>>>(
+                machine->device_climber_side, machine->device_side_slots, machine->device_climber_entry_start,
+                machine->device_entry_first, machine->device_entry_past, machine->device_centers,
+                machine->row_first, machine->run_at_row, machine->run_start, machine->run_length,
+                machine->run_leaf, (unsigned int)machine->run_room, climber,
+
+                machine->device_spiral, (machine->spiral_tries != 0u) ? machine->spiral_tries : 1u,
+                geometry, machine->device_landed);
+        }
+        else
+        {
+            machine_land_kernel<<<climber_blocks, CLIMB_MACHINE_BLOCK>>>(
+                machine->device_climber_side, machine->device_side_slots, machine->device_climber_peak,
+                machine->device_centers, machine->row_first, machine->run_at_row, machine->run_start,
+                machine->run_length, machine->run_leaf, (unsigned int)machine->run_room, climber, geometry,
+                machine->device_landed);
+        }
         ok = machine_launched();
     }
     ok = ok && (cudaMemcpy(machine->centers, machine->device_centers, climbers * 3u * sizeof(int), cudaMemcpyDeviceToHost)
@@ -1211,7 +1178,6 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
     ok = ok && (cudaMemcpy(machine->held, machine->device_held, climbers * sizeof(unsigned int), cudaMemcpyDeviceToHost)
                 == cudaSuccess);
 
-    // Every output goes back to the pair it was pended with.
     climber = 0u;
     for (unsigned int pair = 0u; (ok != 0) && (pair < machine->pending_count); pair += 1u)
     {
@@ -1231,8 +1197,7 @@ extern "C" int climb_machine_run(ClimbMachine *machine)
                 lag_out[3u * leaf] = machine->centers[3u * climber];
                 lag_out[(3u * leaf) + 1u] = machine->centers[(3u * climber) + 1u];
                 lag_out[(3u * leaf) + 2u] = machine->centers[(3u * climber) + 2u];
-                // The landing is already the other frame's leaf: the run it fell in carries it.
-                // Narrowing is safe: a leaf count is below 2^31.
+
                 landing_out[leaf] = (machine->landed[climber] == CLIMB_MACHINE_OUTSIDE)
                                   ? CLIMB_MACHINE_NO_LEAF : (int)machine->landed[climber];
                 climber += 1u;

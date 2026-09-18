@@ -1,55 +1,4 @@
 #!/usr/bin/env python3
-"""Cell tracking in exact arithmetic: integer field, integer basins, rational motion, integer score.
-
-Usage:
-    python src/exact_track.py grade --root <volumes> --sample <sample> --frame 12
-    python src/exact_track.py arc-truth --limit 200
-    python src/exact_track.py score --limit 25 --frames 40
-    python src/exact_track.py score --limit 25 --frames 40 --control
-
-Build the engine first:
-    bash engine/build_engine.sh
-
-NO FLOATING POINT VALUE IS FORMED HERE AND NUMPY IS NOT IMPORTED. The volume is decoded by zarr and
-handed to the engine as its raw bytes. Everything the engine returns is an integer: limbs, counts,
-index sums, peak indices, adjacency pairs. Positions are Fractions built from those integers, motion
-is Fraction arithmetic, rounding to a voxel is floor division, and every comparison is exact.
-
-LENGTH IS COUNTED IN ONE UNIT. A y or x voxel is 13/32 um and a z voxel is 13/8 um, four times as
-long, so the unit is the y voxel and a z step counts four. Squared distance is 16 dz^2 + dy^2 + dx^2
-in that unit, an integer or a Fraction, and the common factor (13/32)^2 is left off because it
-orders nothing differently.
-
-Subcommands and their flags:
-
-    grade       the CUDA engine against the portable C11 reference on one or more frames; every
-                output must be equal
-        --root --split --sample --frame --frames
-    arc-truth   motion predictors against the answer key alone, in exact arithmetic
-        --root --split --limit
-    score       detect, link and score over labelled samples
-        --root --split --sample --limit --frames --control --engine
-
-    --root      directory holding train/ and test/ (default: this repository)
-    --split     train or test (default train)
-    --sample    sample name prefix
-    --limit     how many samples in name order (default 3)
-    --frame     one frame to grade (default 40)
-    --frames    grade: comma separated frames; score: frames below this index the key reaches
-                (default 40)
-    --control   online linker only: reverse every prediction, the control on its motion
-    --engine    device or host, which engine computes the basins and overlaps (default device)
-    --view-motion  remove: measure the view's own motion between consecutive frames over every lag
-                with exact number theoretic transforms (engine/shift_agreement) and compare frame t's
-                voxel v with frame t+1's voxel v + lag. keep: compare voxel v with voxel v.
-                (default remove)
-    --linker    culminate: feed every frame, accumulate exact basin overlap between consecutive
-                frames, and read the chains once at the end as the heaviest one-to-one matching of
-                accumulated overlap; scored for every object and for the set held to the sample's
-                published cell count per frame, ranked by the overlap its chain carries.
-                online: the earlier per-frame linker with fitted motion and neighbour flow, kept
-                only as the baseline it is measured against. (default culminate)
-"""
 
 import argparse
 import ctypes
@@ -64,30 +13,21 @@ ROOT = os.path.dirname(HERE)
 
 LIMBS = 9
 
-# Voxel extents in micrometres, exact.
 VOXEL_UM = (Fraction(13, 8), Fraction(13, 32), Fraction(13, 32))
 
-# Scale of each axis in the common unit, the y voxel.
 AXIS_UNITS = (4, 1, 1)
 
-# The two smoothing scales in micrometres, exact. Chosen scales, the same two the earlier residual
-# used, and named here as the choices they are.
 SMOOTH_UM = Fraction(6, 5)
 BACKGROUND_UM = Fraction(2)
 
-
 def binomial_order(scale_um, voxel_um):
-    """The even binomial order whose variance n/4 voxels^2 lies nearest (scale/voxel)^2, exactly."""
     target = 4 * (scale_um / voxel_um) ** 2
     return 2 * math.floor(target / 2 + Fraction(1, 2))
-
 
 SMOOTH_ORDERS = tuple(binomial_order(SMOOTH_UM, voxel) for voxel in VOXEL_UM)
 BACKGROUND_ORDERS = tuple(binomial_order(BACKGROUND_UM, voxel) for voxel in VOXEL_UM)
 
-
 class BinomialBasinsRequest(ctypes.Structure):
-    """Laid out to match BinomialBasinsRequest in engine/binomial_basins.h."""
     _fields_ = [
         ("volume", ctypes.POINTER(ctypes.c_ushort)),
         ("depth", ctypes.c_uint),
@@ -111,9 +51,7 @@ class BinomialBasinsRequest(ctypes.Structure):
         ("joined_count", ctypes.POINTER(ctypes.c_uint)),
     ]
 
-
 class BasinOverlapRequest(ctypes.Structure):
-    """Laid out to match BasinOverlapRequest in engine/basin_overlap.h."""
     _fields_ = [
         ("labels_before", ctypes.POINTER(ctypes.c_uint)),
         ("positive_before", ctypes.POINTER(ctypes.c_ulonglong)),
@@ -129,12 +67,9 @@ class BasinOverlapRequest(ctypes.Structure):
         ("counts", ctypes.POINTER(ctypes.c_uint)),
     ]
 
-
 _library = None
 
-
 def engine():
-    """The engine library, loaded once."""
     global _library
     if _library is None:
         name = "cell_tracking_engine.dll" if sys.platform == "win32" else "libcell_tracking_engine.so"
@@ -155,9 +90,7 @@ def engine():
             entry.restype = ctypes.c_long
     return _library
 
-
 class ShiftAgreementRequest(ctypes.Structure):
-    """Laid out to match ShiftAgreementRequest in engine/shift_agreement.h."""
     _fields_ = [
         ("axes", ctypes.c_uint),
         ("extents", ctypes.c_uint * 8),
@@ -170,9 +103,7 @@ class ShiftAgreementRequest(ctypes.Structure):
         ("counts", ctypes.POINTER(ctypes.c_uint)),
     ]
 
-
 def agreement_counts(before_words, after_words, extents, weights, on_device):
-    """(lag, agreement, counts, padded) for two bit packed views, counts over every padded lag."""
     library = engine()
     entry = library.shift_agreement_run if on_device else library.shift_agreement_host
     entry.argtypes = [ctypes.POINTER(ShiftAgreementRequest)]
@@ -200,9 +131,7 @@ def agreement_counts(before_words, after_words, extents, weights, on_device):
     return (tuple(request.lag[axis] for axis in range(len(extents))), request.agreement, list(counts),
             tuple(padded))
 
-
 def check_agreement_by_brute_force(trials=6):
-    """Both engines against a direct count at every lag, on small random views. True when all agree."""
     import random
     generator = random.Random(20260916)
     for trial in range(trials):
@@ -256,10 +185,7 @@ def check_agreement_by_brute_force(trials=6):
                 return False
     return True
 
-
 def view_motion(before, after, shape, on_device):
-    """(lag, agreement): the view's own motion from one frame to the next, and how many positive
-    voxels agree at it, over every lag at once. The lag is in voxels per axis, z y x."""
     library = engine()
     entry = library.shift_agreement_run if on_device else library.shift_agreement_host
     entry.argtypes = [ctypes.POINTER(ShiftAgreementRequest)]
@@ -268,7 +194,6 @@ def view_motion(before, after, shape, on_device):
     request.axes = len(shape)
     for axis, extent in enumerate(shape):
         request.extents[axis] = extent
-        # A step along an axis weighs its length squared in the y voxel unit.
         request.weights[axis] = AXIS_UNITS[axis] ** 2
     request.before = before.positive
     request.after = after.positive
@@ -277,13 +202,7 @@ def view_motion(before, after, shape, on_device):
         raise RuntimeError("the engine refused the shift agreement")
     return tuple(request.lag[axis] for axis in range(len(shape))), request.agreement
 
-
 def run_overlap(before, after, voxels, on_device, shape=None, lag=None):
-    """[(object before, object after, shared positive voxels)] between two consecutive frames' Basins.
-
-    Voxel v of the first frame is compared with voxel v + lag of the next, lag zero when not given.
-    Ascending by object before, then object after. Every count is an exact integer tally.
-    """
     entry = engine().basin_overlap_run if on_device else engine().basin_overlap_host
     room = run_overlap.room
     extents = shape if shape is not None else (voxels,)
@@ -301,26 +220,21 @@ def run_overlap(before, after, voxels, on_device, shape=None, lag=None):
             raise RuntimeError("the engine refused the overlap")
         if total <= room:
             break
-        # The pairs did not fit; the count they need is known now, so the second call is exact.
         room = total
     run_overlap.room = max(run_overlap.room, room)
     index_before = {peak: slot for slot, peak in enumerate(before.peaks)}
     index_after = {peak: slot for slot, peak in enumerate(after.peaks)}
     triples = []
     for slot in range(total):
-        # Only pairs of objects: a basin whose peak is not positive holds no object.
         first = index_before.get(peaks_before[slot])
         second = index_after.get(peaks_after[slot])
         if first is not None and second is not None:
             triples.append((first, second, counts[slot]))
     return triples
 
-
 run_overlap.room = 1 << 16
 
-
 def limbs_to_int(limbs):
-    """A two's complement value from its limbs, least significant first."""
     value = 0
     for position, limb in enumerate(limbs):
         value |= int(limb) << (32 * position)
@@ -328,31 +242,25 @@ def limbs_to_int(limbs):
         value -= 1 << (32 * len(limbs))
     return value
 
-
 class Basins:
-    """One frame's basins, every value an integer."""
 
     def __init__(self, peaks, sizes, sums, values, adjacency, labels, residual, positive, joined):
-        self.peaks = peaks            # peak raster indices, ascending
-        self.sizes = sizes            # positive voxels per basin
-        self.sums = sums              # (z, y, x) index sums per basin
-        self.values = values          # residual at each peak, a Python int
-        self.adjacency = adjacency    # (object, object) pairs, object indices into peaks
-        self.labels = labels          # ctypes array: each voxel's peak index, or None
-        self.residual = residual      # ctypes array of limbs, or None
-        self.positive = positive      # ctypes array of sign words, bit v set where voxel v is positive
-        self.joined = joined          # (object, object) pairs touching through two positive voxels
-
+        self.peaks = peaks
+        self.sizes = sizes
+        self.sums = sums
+        self.values = values
+        self.adjacency = adjacency
+        self.labels = labels
+        self.residual = residual
+        self.positive = positive
+        self.joined = joined
 
 def run_basins(frame_bytes, shape, on_device, want_labels=True, want_residual=False,
                want_values=False):
-    """Calls the engine on one frame. Returns a Basins; values is None unless want_values."""
     depth, height, width = shape
     voxels = depth * height * width
     volume = (ctypes.c_ushort * voxels).from_buffer_copy(frame_bytes)
 
-    # No two positive peaks touch, since each is strictly the highest of its 26 neighbours, so at
-    # most one lies in any 2x2x2 block. The room follows from the geometry and is never exceeded.
     room = ((depth + 1) // 2) * ((height + 1) // 2) * ((width + 1) // 2)
     peak_indices = (ctypes.c_uint * room)()
     sizes = (ctypes.c_uint * room)()
@@ -383,7 +291,6 @@ def run_basins(frame_bytes, shape, on_device, want_labels=True, want_residual=Fa
             raise RuntimeError("the engine refused the frame")
         if adjacency_count.value <= adjacency_room and joined_count.value <= joined_room:
             break
-        # The pairs did not fit; the counts they need are known now, so the second call is exact.
         adjacency_room = max(adjacency_room, adjacency_count.value)
         joined_room = max(joined_room, joined_count.value)
     run_basins.adjacency_room = max(run_basins.adjacency_room, adjacency_count.value, joined_count.value)
@@ -405,26 +312,19 @@ def run_basins(frame_bytes, shape, on_device, want_labels=True, want_residual=Fa
         joined=[(index_of[joined[2 * slot]], index_of[joined[2 * slot + 1]])
                 for slot in range(joined_count.value)])
 
-
 run_basins.adjacency_room = 1 << 18
 
-
 def open_frames(root, split, name):
-    """The raw volume of one sample as a zarr array of shape (T, Z, Y, X)."""
     import zarr
     return zarr.open(os.path.join(root, split, name + ".zarr"), mode="r")["0"]
 
-
 def frame_bytes(volume, frame):
-    """One frame's raw intensities as little endian unsigned 16 bit bytes, raster order."""
     data = volume[frame]
     if data.dtype.str != "<u2":
         raise RuntimeError("expected little endian uint16 voxels, found %s" % data.dtype.str)
     return data.tobytes(order="C")
 
-
 def read_truth(root, split, name):
-    """(nodes, edges) from one .geff: nodes maps id to (t, (z, y, x)) in integer voxels."""
     import zarr
     group = zarr.open(os.path.join(root, split, name + ".geff"), mode="r")
     ids = group["nodes/ids"][:].tolist()
@@ -439,16 +339,11 @@ def read_truth(root, split, name):
         if "edges/ids" in group else []
     return nodes, edges
 
-
 def decimal(numerator, denominator, places=2):
-    """numerator/denominator written to fixed decimal places, by integer division."""
     scaled = (abs(numerator) * 10 ** places * 2 + denominator) // (2 * denominator)
     sign = "-" if numerator * denominator < 0 else ""
     whole, fraction = divmod(scaled, 10 ** places)
     return "%s%d.%0*d" % (sign, whole, places, fraction)
-
-
-# ---- grade ---------------------------------------------------------------------------------------
 
 def command_grade(args):
     names = sample_names(args)
@@ -485,7 +380,6 @@ def command_grade(args):
                 "joined": device.joined == host.joined,
             }
             if frame + 1 < volume.shape[0]:
-                # The overlap with the next frame, by both engines, on the device's own basins.
                 following = run_basins(frame_bytes(volume, frame + 1), shape, True)
                 voxels = shape[0] * shape[1] * shape[2]
                 device_motion = view_motion(device, following, shape, True)
@@ -504,61 +398,38 @@ def command_grade(args):
     print("\n  %d of %d frames exact" % (passed, graded))
     return 0 if passed == graded else 1
 
-
 def timing(nanoseconds):
-    """Wall clock seconds for display, from the integer nanosecond clock."""
     return decimal(nanoseconds, 10 ** 9, 3)
 
-
-# ---- motion --------------------------------------------------------------------------------------
-
 def slope(points):
-    """Least squares slope of equally spaced points, exactly: sum((i - mean) p_i) / sum((i - mean)^2)."""
     count = len(points)
     offsets = [Fraction(2 * index - (count - 1), 2) for index in range(count)]
     denominator = sum(offset * offset for offset in offsets)
     return tuple(sum(offset * point[axis] for offset, point in zip(offsets, points)) / denominator
                  for axis in range(3))
 
-
 def arc_step(window):
-    """The next displacement along the arc through five positions, in exact rational arithmetic.
-
-    The slope fitted to the first four positions and the slope fitted to the last four sit one frame
-    apart. Their ratio, taken as complex numbers in the y-x plane, is the turn and the change of pace
-    over one frame, and applying it once more to the later slope carries the arc forward. A ratio of
-    Gaussian rationals is a Gaussian rational, so no angle is ever formed and nothing is rounded. z is
-    held, as the answer key showed cells keep their z slice.
-    """
     earlier = slope(window[:-1])
     later = slope(window[1:])
     earlier_norm = earlier[1] * earlier[1] + earlier[2] * earlier[2]
     if earlier_norm == 0:
         return (Fraction(0), later[1], later[2])
-    # later * later / earlier, with (y, x) read as y + i x, is later^2 * conj(earlier) / |earlier|^2.
     square_y = later[1] * later[1] - later[2] * later[2]
     square_x = 2 * later[1] * later[2]
     return (Fraction(0),
             (square_y * earlier[1] + square_x * earlier[2]) / earlier_norm,
             (square_x * earlier[1] - square_y * earlier[2]) / earlier_norm)
 
-
 def straight_step(window):
-    """The fitted slope across the whole window, z held."""
     fitted = slope(window)
     return (Fraction(0), fitted[1], fitted[2])
 
-
 def squared_units(first, second):
-    """Squared distance in the y voxel unit between two positions given in voxels."""
     return sum(AXIS_UNITS[axis] ** 2 * (first[axis] - second[axis]) ** 2 for axis in range(3))
 
-
 def median(values):
-    """The lower median of exact values."""
     ordered = sorted(values)
     return ordered[(len(ordered) - 1) // 2]
-
 
 def command_arc_truth(args):
     names = sample_names(args, need_truth=True)
@@ -592,8 +463,6 @@ def command_arc_truth(args):
                     step = predictor(window)
                     predicted = tuple(here[axis] + step[axis] for axis in range(3))
                     errors[key].append(squared_units(predicted, truth))
-                # Unbounded variants: the whole history instead of five frames, and z fitted
-                # instead of held.
                 for key, points, fit_z in (("history", history, False), ("straight z", window, True),
                                            ("history z", history, True)):
                     fitted = slope(points)
@@ -612,14 +481,7 @@ def command_arc_truth(args):
                                    decimal(mean.numerator, mean.denominator, 3)))
     return 0
 
-
 def command_parallax_truth(args):
-    """Whether labelled steps depend on depth, per sample, exactly.
-
-    For every labelled edge the step (dz, dy, dx) and the source depth z. Per sample, the least squares
-    slope of dy and of dx against z, as exact Fractions, and what that slope amounts to across the
-    depth the sample's labelled cells span, in y voxels, beside the sample's median step length.
-    """
     names = sample_names(args, need_truth=True)
     print("  %-24s %5s %6s  %-14s %-14s %-9s %s" % ("sample", "edges", "depth", "dy per z", "dx per z",
                                                     "across", "median |step|"))
@@ -653,7 +515,6 @@ def command_parallax_truth(args):
         lengths = [16 * row[3] ** 2 + row[1] ** 2 + row[2] ** 2 for row in rows]
         typical = median(lengths)
         measured += 1
-        # The depth-dependent part is at least the size of a typical step across the labelled depth.
         if across_squared >= typical:
             consistent += 1
         print("  %-24s %5d %6d  %-14s %-14s %-9s %d"
@@ -663,8 +524,6 @@ def command_parallax_truth(args):
     print("\n  %d of %d samples: the depth-dependent part of the step, across the labelled depth, is at "
           "least a typical step" % (consistent, measured))
 
-    # The frame's own motion: in each sample and frame, the common step of every labelled cell stepping
-    # out of that frame, taken as the median vector, and what is left of each step once it is removed.
     raw_lengths = []
     residual_lengths = []
     drifts = []
@@ -697,9 +556,7 @@ def command_parallax_truth(args):
         print("    mean squared |step - common|   %s" % decimal(sum(residual_lengths), len(residual_lengths), 2))
     return 0
 
-
 def sample_names(args, need_truth=False):
-    """Sample names in name order, filtered by --sample and cut by --limit."""
     here = os.path.join(args.root, args.split)
     names = sorted(entry[:-len(".zarr")] for entry in os.listdir(here) if entry.endswith(".zarr"))
     if need_truth:
@@ -709,45 +566,23 @@ def sample_names(args, need_truth=False):
     limit = getattr(args, "limit", None)
     return names[:limit] if limit else names
 
-
-# ---- linking -------------------------------------------------------------------------------------
-
 def centroid(basins, index):
-    """An object's centroid in voxels, as exact Fractions."""
     size = basins.sizes[index]
     return tuple(Fraction(total, size) for total in basins.sums[index])
 
-
 def nearest(value):
-    """The integer nearest an exact value, half rounding up, by floor division."""
     return (2 * value.numerator + value.denominator) // (2 * value.denominator)
 
-
 def fitted_step(times, values):
-    """Least squares slope of exact values against integer frame times.
-
-    (n sum(t v) - sum(t) sum(v)) / (n sum(t^2) - sum(t)^2). Two detections give their displacement per
-    frame; five consecutive ones give the fitted slope measured best against the answer key.
-    """
     count = len(times)
     time_total = sum(times)
     denominator = count * sum(when * when for when in times) - time_total * time_total
-    # The weight of each value is n t - sum(t), an integer. Carried over one common denominator, the
-    # whole numerator is a single integer sum and the Fraction is formed once.
     common = math.lcm(*(value.denominator for value in values))
     numerator = sum((count * when - time_total) * value.numerator * (common // value.denominator)
                     for when, value in zip(times, values))
     return Fraction(numerator, common * denominator)
 
-
 class Track:
-    """One track, carried in exact values.
-
-    times, ys and xs hold its last five real detections. z is its last real z, held because cells keep
-    their z slice. step is the fitted slope of those detections in y and x, or None with one. move is
-    its last displacement when its last two detections were consecutive frames, with moved_at the
-    frame it arrived; neighbours read it as flow.
-    """
 
     __slots__ = ("times", "ys", "xs", "z", "real", "held", "alive", "step", "move", "moved_at")
 
@@ -764,7 +599,6 @@ class Track:
         self.moved_at = None
 
     def detect(self, frame, position, held):
-        """Records a real detection."""
         if self.times[-1] == frame - 1:
             self.move = (position[1] - self.ys[-1], position[2] - self.xs[-1])
             self.moved_at = frame
@@ -776,14 +610,7 @@ class Track:
         self.held = held
         self.step = (fitted_step(self.times, self.ys), fitted_step(self.times, self.xs))
 
-
 def link_sample(frames, basins_at, shape, control=False):
-    """Links objects across frames. Returns (links, kept, lengths), all over (frame, object index).
-
-    links maps (frame, object) to (next frame, object). kept maps a frame to the set of object indices
-    that survive coherence over time. Every choice below is described in the module docstring of
-    src/basin_link.py; here every one of them is carried in exact arithmetic.
-    """
     depth, height, width = shape
     tracks = []
     owner = {}
@@ -820,8 +647,6 @@ def link_sample(frames, basins_at, shape, control=False):
             elapsed = frame - track.times[-1]
             own = track.step
             if track.held is not None:
-                # Held last frame: its own fitted motion averaged with the last moves of the tracks
-                # holding the basins its basin touched, where those moves were observed last frame.
                 moves = []
                 for other in previous_adjacency.get(track.held, ()):
                     neighbour = tracks[owner[(previous, other)]]
@@ -835,8 +660,6 @@ def link_sample(frames, basins_at, shape, control=False):
                 predicted_y = track.ys[-1]
                 predicted_x = track.xs[-1]
             else:
-                # Travelling or held, the prediction is the last real position carried forward by the
-                # frames elapsed, so a travelling track's values never gain denominators.
                 sign = -1 if control else 1
                 predicted_y = track.ys[-1] + sign * elapsed * own[0]
                 predicted_x = track.xs[-1] + sign * elapsed * own[1]
@@ -852,8 +675,6 @@ def link_sample(frames, basins_at, shape, control=False):
             if target is not None:
                 claims.setdefault(target, []).append((number, predicted_y, predicted_x, held_before))
 
-        # The elder keeps a contested object; equal age falls to the nearer prediction, then the
-        # older track number. Distances are formed only where two tracks want one object.
         claimed = set()
         for target, claimants in claims.items():
             if len(claimants) == 1:
@@ -898,11 +719,7 @@ def link_sample(frames, basins_at, shape, control=False):
              if source[1] in kept[source[0]] and target[1] in kept[target[0]]}
     return links, kept, lengths
 
-
-# ---- culmination ---------------------------------------------------------------------------------
-
 class HeaviestMatchingRequest(ctypes.Structure):
-    """Laid out to match HeaviestMatchingRequest in engine/heaviest_matching.h."""
     _fields_ = [
         ("before", ctypes.POINTER(ctypes.c_uint)),
         ("after", ctypes.POINTER(ctypes.c_uint)),
@@ -913,13 +730,7 @@ class HeaviestMatchingRequest(ctypes.Structure):
         ("chosen", ctypes.POINTER(ctypes.c_ubyte)),
     ]
 
-
 def heaviest_matching(triples, before_count, after_count):
-    """{object before: object after}, the one-to-one pairing carrying the most overlap, exactly.
-
-    Solved by engine/heaviest_matching.c: successive shortest paths on 64 bit integer costs, one
-    connected component at a time.
-    """
     library = engine()
     library.heaviest_matching_run.argtypes = [ctypes.POINTER(HeaviestMatchingRequest)]
     library.heaviest_matching_run.restype = ctypes.c_long
@@ -934,14 +745,7 @@ def heaviest_matching(triples, before_count, after_count):
         raise RuntimeError("the engine refused the matching")
     return {triples[slot][0]: triples[slot][1] for slot in range(count) if request.chosen[slot]}
 
-
 def culminate(frames, basins_at, shape, on_device):
-    """Feeds every frame, accumulates exact overlap, and reads the chains once at the end.
-
-    Returns (links, counts, weights, accumulated): links maps (frame, object) to (next frame, object);
-    counts maps a frame to its object count; weights maps (frame, object) to the overlap carried by
-    the chain through it; accumulated maps a frame to its overlap triples with the next frame.
-    """
     depth, height, width = shape
     voxels = depth * height * width
     accumulated = {}
@@ -954,8 +758,6 @@ def culminate(frames, basins_at, shape, on_device):
         counts[frame] = len(basins.peaks)
         if previous is not None and frame == previous + 1:
             if culminate.compensate:
-                # The view's own motion between the two frames, measured over every lag at once, is
-                # removed before overlap is counted, so overlap measures the objects' own motion.
                 lag, _ = view_motion(previous_basins, basins, shape, on_device)
             else:
                 lag = (0, 0, 0)
@@ -970,7 +772,6 @@ def culminate(frames, basins_at, shape, on_device):
         for before, after in heaviest_matching(triples, counts[frame], counts[frame + 1]).items():
             links[(frame, before)] = (frame + 1, after)
 
-    # The overlap each chain carries, summed along the whole chain: the accumulated evidence.
     overlap_of = {(frame, before, after): count for frame, triples in accumulated.items()
                   for before, after, count in triples}
     successor = links
@@ -993,15 +794,10 @@ def culminate(frames, basins_at, shape, on_device):
                 weights[member] = total
     return links, counts, weights, accumulated
 
-
 culminate.compensate = True
 culminate.lags = {}
 
-
 def _grow_once(frames, basins_at, shape, on_device, leaf_lag):
-    """One build of the tree. leaf_lag maps (frame, leaf) to the lag that leaf's peak is carried by;
-    where a leaf is absent the frame's one global lag is used. Returns the pieces grow_tree assembles.
-    """
     depth, height, width = shape
     plane = height * width
     voxels = depth * plane
@@ -1072,10 +868,6 @@ def _grow_once(frames, basins_at, shape, on_device, leaf_lag):
         goes_to = forward.get(frame, {})
         for left, right in joined[frame]:
             if grow_tree.merge_split and (frame - 1) in objects and left in came_from and right in came_from:
-                # Two joined leaves whose peaks came from one object of the earlier frame are the two
-                # halves of a cell the residual over-cut, not two cells: they are one object. The
-                # earlier frame's objects are already built, so the source object is known. A genuine
-                # division comes from two separate objects and is not merged here.
                 same_origin = object_of.get((frame - 1, came_from[left])) == object_of.get((frame - 1, came_from[right]))
             else:
                 same_origin = left in came_from and came_from.get(right) == came_from[left]
@@ -1104,9 +896,6 @@ def _grow_once(frames, basins_at, shape, on_device, leaf_lag):
         confirmed = {}
         for leaf, source in backward.get(later, {}).items():
             confirmed.setdefault(object_of[(later, leaf)], set()).add(object_of[(frame, source)])
-        # A target reached by two or more source objects is a merge: its own peak can back-land to
-        # only one of them, so the strict mutual test drops the rest. Where merge_target is set, a
-        # source whose peak lands in such a target is linked to it even without the back-landing.
         incoming = {}
         if grow_tree.merge_target:
             for source, targets in candidates.items():
@@ -1114,11 +903,6 @@ def _grow_once(frames, basins_at, shape, on_device, leaf_lag):
                     incoming.setdefault(target, set()).add(source)
         for source, targets in candidates.items():
             if grow_tree.forward_only:
-                # A source's peak landing in a target is the link, back-landing or not. f is a
-                # function, one target per source leaf, so this never over-links the source side; the
-                # pick arbitrates a source whose leaves land in several. This recovers the edges where
-                # the peak lands home but the target's own back-landing went elsewhere (a merge, or a
-                # target grown larger).
                 mutual = set(targets)
             else:
                 mutual = {target for target in targets if source in confirmed.get(target, ())}
@@ -1139,26 +923,7 @@ def _grow_once(frames, basins_at, shape, on_device, leaf_lag):
     return {"forward": forward, "objects": objects, "object_of": object_of, "links": links,
             "predecessors": predecessors, "peak_pos": peak_pos, "counts": counts}
 
-
 def grow_tree(frames, basins_at, shape, on_device):
-    """A tree that starts empty and grows as the frames arrive, decided by truthy relations only.
-
-    Leaves are basins. Every relation is read from the field and is true or false, never a count:
-    where a leaf's peak lands in the next frame (a function f, and its back g), and which leaves are
-    joined through two positive voxels. From those: continue, split, merge, and fragments (joined
-    leaves that split from or merge into one leaf are one object). Nothing is decided frame by frame;
-    the relations are gathered and the objects and links read once.
-
-    grow_tree.pick: where a source still branches, keep the object it shares the most positive voxels
-    with, the lowest local entropy of the overlap, an exact-integer count with ties left as a split.
-
-    grow_tree.step: land each object's peak by its OWN last exact displacement, a single integer
-    vector, not the one global lag. A first build gives every object its incoming step from its one
-    predecessor; a second build carries each object forward by that step. This is accumulation, not
-    averaging: one exact measurement per object, nothing meaned, since there is no error to cancel.
-
-    Returns (links, objects, events).
-    """
     result = _grow_once(frames, basins_at, shape, on_device, None)
     if grow_tree.step:
         peak_pos = result["peak_pos"]
@@ -1170,7 +935,6 @@ def grow_tree(frames, basins_at, shape, on_device):
             members = objects[frame][number]
             return peak_pos[frame][max(members)]
 
-        # Each object's own last step: its peak minus its single predecessor's peak, an exact vector.
         leaf_lag = {}
         for (frame, number), sources in predecessors.items():
             if len(sources) != 1:
@@ -1202,7 +966,6 @@ def grow_tree(frames, basins_at, shape, on_device):
     grow_tree.forward = result["forward"]
     return links, objects, events
 
-
 grow_tree.resolve = True
 grow_tree.local_flow = False
 grow_tree.pick = False
@@ -1212,19 +975,7 @@ grow_tree.merge_target = False
 grow_tree.forward_only = False
 grow_tree.forward = {}
 
-
 def resolve_branches(links, objects, frames):
-    """Branches read at the end of the series: those that meet again were fragments of one object.
-
-    For every object that continues into several, each branch is followed forward while it continues
-    into exactly one object. Two branches whose single continuations land in one object were one
-    object all along, and at every frame from the split to the meeting the two are unified. Branches
-    that never meet are left apart: that is a division. Nothing is counted or thresholded; the only
-    question asked is whether two continuations arrive at the same object.
-
-    Returns (links, objects, rejoined): links and objects over the unified objects, and how many
-    branch pairs were found to rejoin.
-    """
     parent = {}
 
     def root(node):
@@ -1248,10 +999,6 @@ def resolve_branches(links, objects, frames):
             for second in ordered[position + 1:]:
                 if root(first) == root(second):
                     continue
-                # Each branch is followed only while it continues into exactly one object. A branch
-                # that divides again has no single continuation to compare, and following every
-                # descendant instead merged almost everything: in dense tissue any two fanning
-                # branches meet something eventually.
                 left = first
                 right = second
                 visited = [(left, right)]
@@ -1268,7 +1015,6 @@ def resolve_branches(links, objects, frames):
                     for left_node, right_node in visited[:-1]:
                         union(left_node, right_node)
 
-    # Unified objects: the leaves of every member, and links between the unified objects.
     unified = {}
     renumber = {}
     for frame in frames:
@@ -1288,18 +1034,7 @@ def resolve_branches(links, objects, frames):
 
 FAILURE_TYPES = ("missed", "division", "merged", "no shared voxels", "taken", "outweighed", "unlinked")
 
-
 def failure_type(source, target, nodes, successors, tied, chosen, overlap, predecessor):
-    """The one type a failing labelled edge belongs to, tested in a fixed order.
-
-    missed            an endpoint was tied to no kept object
-    division          the key gives the source two successors
-    merged            another labelled node in either frame is tied to the same object
-    no shared voxels  the two objects share no positive voxel: the cell moved beyond its own extent
-    taken             the true target object was paired with a different object before
-    outweighed        the source object was paired with another object sharing at least as much
-    unlinked          anything else
-    """
     if source not in tied or target not in tied:
         return "missed"
     if successors.get(source, 0) >= 2:
@@ -1316,9 +1051,7 @@ def failure_type(source, target, nodes, successors, tied, chosen, overlap, prede
         return "outweighed"
     return "unlinked"
 
-
 def target_per_frame(root, split, name, frames_in_sample):
-    """The sample's published cell count per frame, nearest integer, from its .geff metadata."""
     import json
     path = os.path.join(root, split, name + ".geff", "zarr.json")
     if not os.path.isfile(path):
@@ -1331,9 +1064,6 @@ def target_per_frame(root, split, name, frames_in_sample):
     if estimate is None:
         return None
     return nearest(Fraction(int(estimate), frames_in_sample))
-
-
-# ---- score ---------------------------------------------------------------------------------------
 
 def command_score(args):
     names = sample_names(args, need_truth=True)
@@ -1408,12 +1138,8 @@ def command_score(args):
                 if not made:
                     counts_here["nolink"] += 1
                 elif made == {tied[target]} or (tied[target] in made and len(made) == successors.get(source, 0)):
-                    # One link to the true target, or a division: exactly as many links as the key
-                    # gives this node successors, the true target among them.
                     counts_here["correct"] += 1
                 elif tied[target] in made:
-                    # The true target is one of several branches. Not counted correct: a link set
-                    # that holds many objects contains the answer without choosing it.
                     counts_here["branched"] += 1
                 else:
                     counts_here["wrong"] += 1
@@ -1436,8 +1162,6 @@ def command_score(args):
                                                             args.engine == "device")
             overlap = {(frame, before, after): shared for frame, triples in accumulated.items()
                        for before, after, shared in triples}
-            # Every object read at the end of the series, and the same set held to the published
-            # target, ranked by the overlap its whole chain carries.
             kept_sets["all"] = {frame: set(range(counts[frame])) for frame in frames}
             target = target_per_frame(args.root, args.split, name, volume.shape[0])
             ranked = {}
@@ -1522,13 +1246,7 @@ def command_score(args):
     print("\n  %s s" % timing(time.perf_counter_ns() - started))
     return 0
 
-
 def print_failure_table(records):
-    """Every labelled edge by outcome type, with exact medians of its motion and overlap.
-
-    Lengths are in the y voxel unit: a z step counts four. Squared lengths are shown as their integer
-    square root so they read as distances, and every median is the lower median of exact values.
-    """
     failed = [record for record in records if record["type"] != "correct"]
     print("\n  LABELLED EDGES BY OUTCOME TYPE, every run of the culminating linker, all objects kept")
     print("  %-17s %6s %6s  %-12s %-9s %-9s %-9s %-9s %-9s %s"
@@ -1562,7 +1280,6 @@ def print_failure_table(records):
               % (kind, len(rows), share, "%d %d %d" % signed, root_of(middle("step units")),
                  root_of(middle("object units")), plain(middle("shared")), plain(middle("chosen shared")),
                  plain(middle("size before")), plain(middle("size after"))))
-
 
 def main():
     parser = argparse.ArgumentParser(description="Cell tracking in exact arithmetic.")
@@ -1615,7 +1332,6 @@ def main():
     if args.command == "parallax-truth":
         return command_parallax_truth(args)
     return command_score(args)
-
 
 if __name__ == "__main__":
     raise SystemExit(main())
