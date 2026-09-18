@@ -53,7 +53,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 def _repository_root():
-    """This repository, asked of git rather than inferred from a marker directory.
+    """This repository, asked of git.
 
     The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
@@ -155,7 +155,7 @@ REFERENCES = (
 # the same floor.
 PASSAGE = re.compile(r"[\"\u201c][^\"\u201c\u201d]{60,600}[\"\u201d]")
 
-# A quotation mark holding a path, an identifier, or a single term rather than a sentence. A
+# A quotation mark holding a path, an identifier, or a single term. A
 # passage has to read as prose. It needs whitespace and a finite verb somewhere in it.
 LOOKS_LIKE_PROSE = re.compile(r"\s\w+\s")
 

@@ -71,7 +71,7 @@ New-Item -ItemType Directory -Force $out | Out-Null
 $defines = "-DANCHOR_RASTER_HAVE_CUDA=1"
 $includes = "-I`"$src\portable`" -I`"$src\no_rounding`" -I`"$render`""
 
-# TWO STEPS, AND THE SPLIT IS FORCED RATHER THAN CHOSEN. The C sources use _Static_assert, which is
+# TWO STEPS, AND THE SPLIT IS FORCED. The C sources use _Static_assert, which is
 # C11. Handing them to nvcc compiles them through the C++ front end, where that keyword does not
 # exist, and MSVC's default C mode does not carry it either. So the C files are compiled first by cl
 # at /std:c11, and nvcc compiles the device file and links the objects. Passing -x cu over the whole

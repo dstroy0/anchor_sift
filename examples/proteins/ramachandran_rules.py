@@ -28,11 +28,11 @@
 # A protein cannot be read that way, and the crystallography README says why. A backbone is a cloud
 # of real valued coordinates. A torsion is an irrational the deposit never wrote, and the rules
 # are published on a grid of two degrees, not as a formula. So there is a quantum here, and the
-# honest thing is to declare where it comes from rather than pick one.
+# honest thing is to declare where it comes from.
 #
 # It comes from the reference. The grid is two degrees because the Richardson laboratory published
 # it at two degrees; the favored and allowed cutoffs below are the numbers MolProbity scores with,
-# named here rather than tuned. The decimal precision the angle is taken to is set far under the
+# named here. The decimal precision the angle is taken to is set far under the
 # grid so that it decides nothing. No number in this file was chosen to make a result come out, and
 # every stage that uses one reports it.
 

@@ -51,7 +51,7 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 from what_a_pixel_costs import SEED, SIDE, TRUTHS, recover, shifted, to_levels  # noqa: E402
 
 # Blob widths swept, in pixels. The narrow end sits below what a Fourier shift can carry exactly and
-# is marked rather than omitted. The wide end is past any nucleus in the 2D challenge sets.
+# is marked. The wide end is past any nucleus in the 2D challenge sets.
 WIDTHS = (1.0, 1.5, 2.0, 3.0, 4.0, 6.0, 8.0, 12.0)
 
 # Below this width the field is not band-limited on this grid and the generator's own shift is no

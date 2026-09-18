@@ -1,36 +1,14 @@
-# Build trees and fetched data. Corpora, papers, audio and page renders run to about
-# 1.9 GB and every one of them is reproducible from the tools in this repository.
-# None of it is carried in git.
+# Build trees and fetched data.
 build/
 build-*/
 
-# The rendered site. mkdocs build writes it and the GitHub Action rebuilds it on every push.
-# A copy in git is one that goes stale the moment a page changes.
+# The rendered site.
 site/
 
-# Cloned dependencies. MMgr used to sit here as four separate partial copies of itself, each one
-# byte identical to the original and none of them recording which commit it came from. A stale
-# copy and a current one looked the same. `python maint/deps/get_deps.py` clones it instead, and
-# git in the clone answers what is checked out. Same rule as build/ and site/: what a tool can
-# fetch is not carried here.
-#
-# ANCHORED, and the slash is the whole of the repair. Written as `deps/` with no leading slash this
-# matched a directory named deps at ANY depth, besides the clone directory it was written for it
-# also swallowed maint/deps/, where get_deps.py and vendor_test_vectors.py live. Both tools were
-# therefore in no commit that has ever existed, while sitting on one machine's disk, and five
-# documents instructed a reader to run a file their clone could not contain. Being ignored AND
-# untracked, `git clean -xfd` would have deleted them with nothing to restore from.
-#
-# The rule written to stop unrecorded copies had silently stopped the tool that does the recording
-# from being carried at all. A pattern anchored to the repository root says what it meant to say.
+# Cloned dependencies. 
 /deps/
 
-# The hand extractions and the papers they were read from. Every row is a form transcribed out of a
-# published paper. The tables are those papers' text and not this work's to redistribute, and the
-# papers are their authors' copyright. Both live in a closed repository, inventoried by
-# tools/maintain/corpus_manifest.py and signed there, and reach this tree under build/oracles and
-# build/papers through tools/maintain/private_sync.py. The derivations built on them are this work's
-# and stay in the repository: the ledger, the bound, the checks and the code are all here.
+# The hand extractions and the papers they were read from. 
 *.oracle.tsv
 
 # Python caches. The tools here are run directly and cache next to themselves.
@@ -40,14 +18,8 @@ __pycache__/
 
 # What a LaTeX run leaves beside the source when it is not given an output directory.
 #
-# maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this. TeXworks
-# and TeXShop compile IN PLACE. A book opened in one of those to look at it comes back with a
-# .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/anchor_sift picked
-# up twelve such files that way, 705,688 bytes of it one synctex, and the arXiv packager copied
-# every one of them into a submission before it learned to skip them.
-#
-# main.pdf is named rather than *.pdf on purpose. The corpus derivation chapter includes a
-# matplotlib figure that is a PDF and belongs to the source.
+# maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this.
+# main.pdf is included here on purpose.
 *.aux
 *.log
 *.toc
@@ -63,14 +35,7 @@ theory/*/*/main.pdf
 theory_bucket/*/main.pdf
 theory_bucket/*/*/main.pdf
 
-# What bench_raster drops where it is run from. A run writes 22 of these, and the renderer writes
-# them beside the working directory instead of under build/, so the repository root collects them
-# whenever a bench is run from there. Checked before adding: no tracked file matches any of the
-# three, so these ignore generated output and nothing else.
-#
-# These are extensions and are deliberately unanchored, unlike `deps/`, which had to become
-# `/deps/` after the bare form matched `maint/deps/` at depth and hid two files that were then in
-# no commit in this repository's history.
+# What bench_raster drops where it is run from.
 *.pgm
 *.raw
 *.raw.txt

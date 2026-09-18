@@ -88,7 +88,7 @@ def move_prior(table, prior=None):
 
     Uniform over the legal moves unless a prior is supplied. Uniform is the honest default here: it
     reads nothing about the position. H(Y|X) computed against it measures what the move set makes
-    available rather than what a particular player would do with it. A prior that already prefers the
+    available. A prior that already prefers the
     good moves lowers the entropy and reports that preference as a property of the position.
     """
     if not table:

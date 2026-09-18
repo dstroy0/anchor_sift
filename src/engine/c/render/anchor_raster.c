@@ -247,7 +247,7 @@ int anchor_raster_host(uint8_t *pixels, const AnchorRasterConfig *config, const 
         const size_t cell = anchor_raster_cell(config, at, alignments);
 
         /* An empty cell holds zero, which would win every minimum and lose every maximum. It is
-         * filled on first arrival rather than compared against. */
+         * filled on first arrival. */
         if (pixels[cell] == (uint8_t)ANCHOR_RASTER_EMPTY)
         {
             pixels[cell] = value;
@@ -388,7 +388,7 @@ size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment
 
     // Out of range folds back into the block. Every layout below is a bijection on [0, cells), and
     // an alignment count above the block size has to land somewhere; wrapping keeps the map total
-    // and is stated rather than left to an out of bounds write.
+    // and is stated.
     const size_t at = alignment % cells;
     const size_t sheet = width * height;
 
@@ -508,7 +508,7 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
         if (cell >= cells)
         {
             // The layout refused this configuration. Refusing every alignment identically is what
-            // makes the refusal visible as an empty volume rather than as a partial one.
+            // makes the refusal visible as an empty volume.
             return 0;
         }
 
@@ -609,7 +609,7 @@ int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
 
 /* BOTH ARMS DEFINED. A build without the device renderer still carries these symbols. A driver
  * written against both arms links and runs against either. The available test returning zero is what
- * a caller checks before calling the other, and the other refuses rather than pretending. */
+ * a caller checks before calling the other, and the other refuses. */
 
 int anchor_raster_device_available(void)
 {

@@ -23,7 +23,7 @@ bump2version cannot write the other two forms. This does:
 
     the banner at the head of every file in the tree, in whichever comment the file's language
     takes. There are 184 of them and a new file appears whenever a unit does. They are found by
-    walking rather than by being listed.
+    walking.
 
 Neither is a fixed string bump2version can be pointed at, and both go stale silently: a banner
 reading v0.1.0 in a 0.2.0 tree is wrong in a way no compiler and no test can see.
@@ -65,7 +65,7 @@ SKIP_PATHS = {os.path.join("docs", "learn")}
 BANNER = re.compile(r"^(?P<lead>\s*(?://|#)\s*)idemIP v(?P<version>\d+\.\d+\.\d+)(?P<rest>\s+-\s+Copyright\b)")
 
 # The block in idemip_config.h. Kept contiguous in the header so one pattern covers all four.
-# \r?\n rather than \n because the file is read with its endings intact and may carry either.
+# \r?\n.
 VERSION_BLOCK = re.compile(
     r"#define IDEMIP_VERSION_MAJOR \d+(?P<eol>\r?\n)"
     r"#define IDEMIP_VERSION_MINOR \d+\r?\n"
@@ -114,7 +114,7 @@ def walk():
 def read(rel):
     """The file's text as it sits on disk, or None where it is not text this tool can read.
 
-    newline="" so a CRLF arrives as a CRLF rather than being folded to a newline on the way in.
+    newline="" so a CRLF arrives as a CRLF.
     This tool changes one line of a file and has no business changing the other several thousand:
     reading with the default and writing back would rewrite every ending in the tree to LF, which
     is a diff nobody asked for on a checkout that happens to use CRLF.

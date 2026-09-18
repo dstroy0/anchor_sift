@@ -24,7 +24,7 @@
 # The third is what the objective is reaching for when it asks for the best next move. A position
 # where one move wins and the rest lose has a large I(X;Y) -- the choice decides the game. A position
 # where every move leads to the same distribution has none, and in that position there is no best
-# move to find, which is a fact about the position rather than a failure to decide.
+# move to find, which is a fact about the position.
 #
 # UNRESOLVED IS NOT FOLDED IN. Where the budget runs out the mass lands on UNRESOLVED and the entropy
 # is reported twice: over the resolved outcomes renormalized, and over all four categories. The first

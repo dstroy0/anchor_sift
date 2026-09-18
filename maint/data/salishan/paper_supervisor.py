@@ -48,7 +48,7 @@ import sys
 import time
 
 def _repository_root():
-    """This repository, asked of git rather than inferred from a marker directory.
+    """This repository, asked of git.
 
     The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it

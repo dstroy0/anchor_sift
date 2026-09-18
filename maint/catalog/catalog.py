@@ -49,7 +49,7 @@ import tomllib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 def _repository_root():
-    """This repository, asked of git rather than inferred from a marker directory.
+    """This repository, asked of git.
 
     The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
@@ -114,11 +114,11 @@ DOMAIN = {
 # their authors minted by pattern. A domain absent from this table makes slot_of return None, the
 # file reports as NO DOMAIN and not numbered, and the hand-written header sits there looking issued.
 # Two sessions did that independently and neither was told by anything until --check was run, which
-# is the argument for running it rather than copying the shape of a number that is already there.
+# is the argument for running it.
 # CHM joined the same way, after three chemistry examples had landed with no number and --check
 # failed on main naming them.
 #
-# EXP is the VIZ case again rather than a ninth subject. 0_experimental holds work that reads no
+# EXP is the VIZ case again. 0_experimental holds work that reads no
 # corpus yet. It names no domain in the sense the others do, and its files take stage x like
 # anything outside a numbered pipeline directory. They are numbered because a number survives a
 # move: an example that later earns a subject stage keeps the number it was issued here, and every
@@ -204,7 +204,7 @@ def standard_header():
 
     tomllib is the standard library's parser. citations.py hand-scans the same file for its own
     [layout] table, which predates this and works, but a hand-scanner reads what its author expected
-    the file to look like rather than what TOML says it is.
+    the file to look like.
     """
     path = os.path.join(ROOT, "repotools.toml")
     if not os.path.isfile(path):
@@ -243,7 +243,7 @@ def stamp(text, number):
     """The same file with its number on the line under the SPDX line, or None where there is no
     SPDX line to put it under.
 
-    Returning None rather than the text unchanged is the whole point. Unchanged text is what a file
+    Returning None. Unchanged text is what a file
     already carrying the right number returns. The caller could not tell a file it had nothing to
     do to from a file it could not write to, and reported both as stamped. The registry then held a
     number for a file whose header would never carry it, --check reported it adrift forever, and the

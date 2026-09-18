@@ -19,7 +19,7 @@ that carry their own answer key, and show what pruning the opponent's replies do
 Every other subject in this tree measures something whose right answer is either unknown or was
 produced here. A game is different: a terminal position is win, loss or draw by the rules. The
 outcome distribution under a move is a quantity with a true value, and for a game small enough to
-enumerate that value can be computed outright rather than estimated. An estimator that disagrees with
+enumerate that value can be computed outright. An estimator that disagrees with
 it is wrong in a way no amount of sampling can argue with.
 
 The four games are the four corners of the two properties that decide whether the true value is
@@ -34,7 +34,7 @@ Blackjack, checkers endgames and small-deck poker give a solved arm. Chess does 
 it is here. A chess position after four plies has more continuations than the other three games have
 positions. The chess number has to be estimated and nothing local can catch it being wrong. The
 only thing standing behind it is whether the same estimator reproduced the games that could be
-solved. This subject exists to make that boundary visible rather than to hide it.
+solved. This subject exists to make that boundary visible.
 
 ## What the stages found
 
@@ -60,7 +60,7 @@ gap of 0.472222 -- and they do not agree on what to do. Unpruned, the best move 
 Pruned, it is to keep the hand. A probability that is wrong can be caveated. A recommendation that is
 wrong gets acted on.
 
-**Blackjack is the control that makes those two numbers evidence rather than a curiosity.** Its
+**Blackjack is the control that makes those two numbers evidence.** Its
 dealer has exactly one legal move at every turn. There is nothing to prune, and the pruned and
 unpruned readings must come out identical. They do, to the digit: gap `0.000000`. Without that, three
 different numbers from three conditionings could just be three different bugs. The same holds on a
@@ -131,7 +131,7 @@ different routes are compared with `==` and not with a tolerance. `log2` of a ra
 except at powers of two. The entropy is a float and carries sixteen digits and no more.
 
 That boundary is drawn as late as possible and every probability printed beside an entropy is the
-exact rational rather than a rounded copy. A reader who distrusts the entropy can recompute it.
+exact rational. A reader who distrusts the entropy can recompute it.
 The quantity compared between conditionings is the distribution; the entropy is a summary of it.
 
 No banned library is used anywhere in this subject -- no numpy, scipy, sympy, mpmath, pandas, torch,
@@ -143,7 +143,7 @@ Stage three computes the null twice: once by enumerating every continuation exac
 seeded games out and counting. They answer the same question by different routes and have to agree
 where both can run. The sampled arm converges to the enumerated one and does not equal it; that gap
 is sampling error and shrinks with the trial count. A gap that does not shrink would mean one of the
-two routes is wrong, and it would be printed rather than tuned away.
+two routes is wrong, and it would be printed.
 
 The seed is an input of the measurement in the same way the budget is, and it is reported with the
 result. A sampled number nobody can reproduce is not a measurement.
@@ -170,9 +170,9 @@ they mean belongs upstream.
 
 Betting is not modeled in poker and doubling, splitting, insurance and surrender are not modeled in
 blackjack. All of those change what a hand pays, and this subject measures which of win, loss and
-draw is reached rather than how much is won. The fifty move rule, threefold repetition and
+draw is reached. The fifty move rule, threefold repetition and
 insufficient material are not modeled in chess, because each turns a long game into a draw and this
-subject reports a game the budget did not finish as unresolved rather than as a draw.
+subject reports a game the budget did not finish as unresolved.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-16

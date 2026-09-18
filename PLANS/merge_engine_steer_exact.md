@@ -43,7 +43,7 @@ They are not conflicted. Git treats them as added by `origin/main` and absent he
 
 ## Why removing them loses nothing
 
-The superseded version is older in design at three points, and each difference is a thing this branch added rather than a thing it dropped.
+The superseded version is older in design at three points, and each difference is a thing this branch added.
 
 Its entries are positional. `anchor_steer_spawn_coarms(size_t *offsets, size_t wanted, const uint8_t *corpus, size_t corpus_len, const uint8_t *needle, size_t needle_len, uint8_t *scratch, size_t scratch_len, size_t sample_stride)` against this branch's `anchor_steer_spawn_coarms(const AnchorSteerDescent *args)`.
 
@@ -77,7 +77,7 @@ Everything `origin/main` adds outside these paths merges clean and is kept: `exa
 
 ## What must hold before it lands
 
-The merge is not verified by inspection. It is verified by `maint/engine/build_engine.ps1` reaching `all graders passed` on the merged tree, with `test_arm_agreement` at 0 disagreements, `test_adversarial` at 0 failed cases, `test_steer` at 0, `bench_raster` at 0 and `bench_steer_arms` at 0. Those are the numbers this branch produces today at `3f63353`. A merged tree that does not reproduce them has lost something this plan did not predict, and the merge should be backed out rather than repaired in place.
+The merge is not verified by inspection. It is verified by `maint/engine/build_engine.ps1` reaching `all graders passed` on the merged tree, with `test_arm_agreement` at 0 disagreements, `test_adversarial` at 0 failed cases, `test_steer` at 0, `bench_raster` at 0 and `bench_steer_arms` at 0. Those are the numbers this branch produces today at `3f63353`. A merged tree that does not reproduce them has lost something this plan did not predict, and the merge should be backed out.
 
 ## Why this stopped short of doing it
 

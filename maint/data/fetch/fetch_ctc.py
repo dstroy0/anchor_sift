@@ -52,7 +52,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
 # Counted wrong once, by two levels instead of three, which put a dataset in
 # repos/owned/external/datasets. That directory did not exist and was created silently by the
 # fetch. Nothing failed and the only evidence was the path printed in the header. Resolved
-# against a landmark now rather than by counting, the same reason the ROOT walk above exists.
+# against a landmark now.
 OUT = ROOT
 while (OUT != os.path.dirname(OUT)) and (os.path.basename(OUT) != "repos"):
     OUT = os.path.dirname(OUT)

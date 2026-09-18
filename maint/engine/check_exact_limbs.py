@@ -54,7 +54,7 @@ sys.set_int_max_str_digits(0)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 def _repository_root():
-    """This repository, asked of git rather than inferred from a marker directory.
+    """This repository, asked of git.
 
     The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it

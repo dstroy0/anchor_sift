@@ -117,7 +117,7 @@ class Checkers(object):
                 steps.extend(_simple_steps(board, square, piece, side))
 
         # Mandatory capture. Where a capture exists the quiet moves are not legal. They are
-        # discarded rather than ranked below.
+        # discarded.
         return captures if captures else steps
 
     def apply(self, state, move):

@@ -57,7 +57,7 @@ def centroids(labels):
     """Every label's centroid in one frame, as {label: (row, column)}.
 
     Exact over the pixels the annotation assigned. No threshold and no detector of this work's
-    enters, which is what makes this an answer key rather than a second reading.
+    enters, which is what makes this an answer key.
     """
     out = {}
     present = numpy.unique(labels)

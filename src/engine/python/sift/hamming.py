@@ -7,7 +7,7 @@
 #
 #   Usage:  from sift.hamming import encode, syndrome_decode, nearest_decode
 #
-# Why this is a sift-stage object rather than a transform. A codeword must satisfy three parity checks;
+# Why this is a sift-stage object. A codeword must satisfy three parity checks;
 # a received word that fails one or more cannot be a codeword, and each failed check is a necessary
 # condition the true word met. Decoding does not reshape the word, it SELECTS: of the sixteen
 # codewords, exactly one sits within a single bit-flip of the received word, and that one is chosen.
@@ -28,7 +28,7 @@
 # flipped bit. nearest_decode ignores parity entirely and finds the codeword at least Hamming distance
 # from the received word. For a perfect code -- and Hamming(7,4) is one, every 7-bit word sits within
 # one flip of exactly one codeword -- these are provably the same decoder. They agree on every input
-# by a theorem rather than by luck. That makes their agreement a check on the two implementations, not
+# by a theorem. That makes their agreement a check on the two implementations, not
 # evidence about the data, and a caller shows the check has teeth by breaking one and watching them
 # split. Nothing here is bounded and nothing is imported: the code is fixed by its parity structure and
 # the arithmetic is bit operations.

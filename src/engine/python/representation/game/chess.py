@@ -24,7 +24,7 @@
 #
 # Not modeled: the fifty move rule, threefold repetition and insufficient material. Each of those
 # turns a long game into a draw, and this subject reports a game the budget did not finish as
-# UNRESOLVED rather than as a draw. Folding them in would move mass onto DRAW for positions the
+# UNRESOLVED. Folding them in would move mass onto DRAW for positions the
 # search never actually resolved, which is the one thing the enumerator is built not to do.
 
 from representation.game import rules
@@ -88,7 +88,7 @@ def from_layout(rows, side=rules.PLAYER_ONE, rights=(True, True, True, True), pa
 
     The rows read top down the way a board is drawn. A position written here looks like the
     position it is. Rights and the en passant square default to a full-rights opening; a fragment
-    position should pass rights explicitly rather than inherit castling it never had.
+    position should pass rights explicitly.
     """
     board = [EMPTY] * SQUARES
     for index, text in enumerate(rows):
@@ -338,7 +338,7 @@ def _in_check(board, side):
         if board[square] == king:
             return _attacked(board, square, _other(side))
 
-    # A board with no king is not a chess position. Report not in check rather than raising. A
+    # A board with no king is not a chess position. Report not in check. A
     # fragment position used in an example does not have to invent a king it does not need.
     return False
 

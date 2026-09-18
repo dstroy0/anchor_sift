@@ -4,7 +4,7 @@
 # Catalog: EXP-x-001
 #
 # The Bloom filter shown to be the anchor sift's theorem in another field, and its floor measured
-# rather than assumed.
+#.
 #
 #   Usage:  python examples/0_experimental/bloom_is_the_sift_theorem.py
 #

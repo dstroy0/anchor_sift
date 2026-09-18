@@ -13,7 +13,7 @@ expression, no source root and no file extension list, and asks a Config instead
 those two states is invisible in a directory listing, and a half-converted tool looks exactly like a
 finished one until somebody in another repository runs it.
 
-So the gap is counted here rather than remembered. Copying a tool in is cheap and reversible;
+So the gap is counted here. Copying a tool in is cheap and reversible;
 believing it is ready when it is not is what puts a project's hardcoded root into three other trees.
 
 WHY PULLING FIRST IS STILL RIGHT

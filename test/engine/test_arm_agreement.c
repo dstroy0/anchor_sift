@@ -15,14 +15,14 @@
  *       lengths nobody searches with: none, one, and two. A needle of one byte puts all four anchors
  *       on the same offset, and a needle of no bytes has no offset to put them on at all.
  *
- * @note It links the kernel rather than restating it. A grader holding its own copy of the function
+ * @note It links the kernel. A grader holding its own copy of the function
  *       it grades keeps passing forever after somebody repairs the original, which is the one way a
  *       test can be worse than no test.
  *
  * @warning This is a negative control and it is expected to FAIL before the repair it accompanies.
  *          On a kernel where choose_offsets clamps a zero length needle to needle_len - 1u, that
  *          expression wraps to SIZE_MAX on size_t and the arms read far outside both pointers. The
- *          run may crash rather than print a row, and a crash here is the finding.
+ *          run may crash.
  */
 
 #include "anchor_sift.h"
@@ -48,7 +48,7 @@ static unsigned failures = 0u;
  * @param[out] corpus     Bytes to fill [BORROWS].
  * @param[in]  corpus_len How many.
  * @note A small alphabet makes anchor agreement common. The arms actually reach their verify
- *       step rather than refuting on the first probe everywhere.
+ *       step.
  */
 static void fill_corpus(uint8_t *corpus, size_t corpus_len)
 {
@@ -126,7 +126,7 @@ int main(void)
               expected);
 
         // A plan carrying no period and the corpus's own census. The dispatcher has a real
-        // decision to make rather than being steered by a degenerate one. The census replaced the
+        // decision to make. The census replaced the
         // entropy and distinct count the plan used to carry: the rule reads integer counts now and
         // the engine holds no floating point value anywhere.
         AnchorFieldCensus census;

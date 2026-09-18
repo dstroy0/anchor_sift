@@ -30,7 +30,7 @@
  *       BW instructions, and a part with F alone would fault on them.
  * @note The tail below sixty-four is finished scalar, the same code the portable arm runs. A masked
  *       tail is cheap on this instruction set, and the scalar one is chosen to keep every scan arm
- *       the same shape, since correctness rather than the tail's cost is what an unrun arm is for.
+ *       the same shape, since correctness.
  */
 
 #include "anchor_sift.h"

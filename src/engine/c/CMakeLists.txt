@@ -107,7 +107,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
 
     # AVX-512 on the GCC and Clang builds that accept the flags. MSVC's AVX-512 handling differs and
     # no machine here runs the arm. It is gated to the same compilers the exact avx512 arm gates
-    # to and confirmed by maint/engine/verify_arm_asm.sh rather than by running.
+    # to and confirmed by maint/engine/verify_arm_asm.sh.
     if(NOT MSVC)
         check_c_compiler_flag("-mavx512f -mavx512bw" ANCHOR_STEER_CC_TAKES_AVX512)
         if(ANCHOR_STEER_CC_TAKES_AVX512)
@@ -121,7 +121,7 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
     list(APPEND ANCHOR_SIFT_SOURCES engine/scan_neon.c)
     list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_NEON=1)
     # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build does
-    # need one, and asks for the softfp ABI's NEON rather than assuming a hard float target.
+    # need one, and asks for the softfp ABI's NEON.
     if(NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
         set_source_files_properties(engine/scan_neon.c PROPERTIES COMPILE_OPTIONS "-mfpu=neon")
     endif()
@@ -167,7 +167,7 @@ target_compile_options(anchor_sift_kernel_counted PRIVATE ${SIFT_WARNINGS})
 # returns 0, and anchor_raster_render falls back to the host. Both arms of that gate are defined.
 # A caller that knows CUDA cannot work here says so, and the search below is skipped entirely. The
 # shell script sets this where nvcc is installed but its host compiler is not on PATH, which is a
-# configure that would fail rather than a device that is absent.
+# configure that would fail.
 option(ANCHOR_SKIP_CUDA "Do not look for a CUDA toolchain" OFF)
 
 include(CheckLanguage)
@@ -198,7 +198,7 @@ if(CMAKE_CUDA_COMPILER)
     set(CMAKE_CUDA_STANDARD_REQUIRED ON)
     if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
         # native asks the toolkit for the architecture this machine carries. A toolkit too old to
-        # know the keyword falls back to a concrete one rather than failing the configure.
+        # know the keyword falls back to a concrete one.
         if(CMAKE_CUDA_COMPILER_VERSION VERSION_GREATER_EQUAL 11.5)
             set(CMAKE_CUDA_ARCHITECTURES native)
         else()
@@ -252,7 +252,7 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
     list(APPEND ANCHOR_ARM_SOURCES no_rounding/arm_neon.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_NEON=1)
     # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build
-    # does need one, and asks for the softfp ABI's NEON rather than assuming a hard float target.
+    # does need one, and asks for the softfp ABI's NEON.
     if(NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
         list(APPEND ANCHOR_ARM_OPTIONS -mfpu=neon)
     endif()
@@ -332,7 +332,7 @@ target_compile_options(bench_scaling_cycles PRIVATE ${SIFT_WARNINGS})
 
 # Which arm the dispatcher should choose, scored against the clock. Links the uncounted kernel
 # because counting perturbs the timing the whole question turns on, and the driver refuses to
-# compile against the counted one rather than printing a number nobody should read.
+# compile against the counted one.
 add_executable(bench_dispatch bench/bench_dispatch.c)
 target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
@@ -341,7 +341,7 @@ target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 # this target instead of that one. bench_dispatch was covered by accident and bench_raster and
 # bench_steer_arms were covered by nothing, which is invisible because a target with no warning
 # flags emits no warnings and reads exactly like a clean one. Every add_executable here now sets its
-# own beside its own link line. The pairing is checkable by reading down rather than by counting.
+# own beside its own link line. The pairing is checkable by reading down.
 
 # Grades the entropy-ordered rejection vector. Three things in one run: the steered arm returns the
 # reference arm's count at a residual of exactly zero, the ordering reduces probe reads on a field
@@ -349,10 +349,10 @@ target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 # Carries its own negative control, ordering commonest symbol first, which must read more.
 # Grades the entropy-ordered rejection vector. In test/ and not bench/ because it answers whether the
 # engine is correct and never how fast: it carries no timing call, and the probe reads it measures
-# are assertions rather than reported costs. Ordering commonest symbol first must read MORE than the
+# are assertions. Ordering commonest symbol first must read MORE than the
 # unsteered order or the run fails, which is what makes the steering testable at all.
 #
-# Resolved from a computed root rather than an inline relative chain, matching test_arm_agreement.
+# Resolved from a computed root.
 add_executable(test_steer ${ANCHOR_SIFT_ROOT}/test/engine/test_steer.c)
 target_link_libraries(test_steer PRIVATE anchor_sift_kernel bench_corpora)
 
@@ -375,7 +375,7 @@ target_compile_definitions(test_steer PRIVATE ANCHOR_SIFT_SOURCE_ROOT="${ANCHOR_
 #
 # Its file block records that it has been seen to reject three deliberately broken engines, with the
 # mutations and their signatures. A suite nobody has watched fail is indistinguishable from an empty
-# loop. That record is part of the test rather than commentary on it.
+# loop. That record is part of the test.
 add_executable(test_adversarial "${ANCHOR_SIFT_ROOT}/test/engine/test_adversarial.c")
 target_link_libraries(test_adversarial PRIVATE anchor_sift_kernel)
 
@@ -426,7 +426,7 @@ target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 # exactly the confusion the split was made to remove.
 #
 # The source sits outside this directory because the test tree is at the repository root. The
-# path is resolved from the root rather than written as a chain of parent directories. Counting
+# path is resolved from the root. Counting
 # directories to a destination is what broke every path in this tree the last time anything moved.
 get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
 

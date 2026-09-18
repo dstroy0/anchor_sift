@@ -391,10 +391,10 @@
     // lay inside a body, summed over the bodies. Any surface is opaque to a neutron most of the time
     // and to a neutrino almost never, and it is that almost that makes this readable. The attenuation
     // is small. The deficit is close to proportional to the column, and a column is a line integral
-    // through the interior rather than a picture of its surface.
+    // through the interior.
     //
     // This is the one channel that shows every body at once instead of the nearest one, and the one
-    // that has to be drawn through the boundary rather than on it.
+    // that has to be drawn through the boundary.
     if (mode === "neutrino") {
       var reach = point.dot(beam);
       if (reach <= 0) {

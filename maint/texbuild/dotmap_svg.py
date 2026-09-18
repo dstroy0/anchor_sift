@@ -29,7 +29,7 @@
 # WHY THE FACETS ARE THE POINT
 #
 # The outline is exact at cell boundaries. A 64 grid gives hard facets where a font gives smooth
-# curves. That reads as a cut or brushed letter rather than a typeset one. --smooth cuts corners by
+# curves. That reads as a cut or brushed letter. --smooth cuts corners by
 # Chaikin's rule, which shortens every segment toward its neighbours and softens the facets without
 # inventing a curve the dotmap did not have. Two passes is usually enough; four looks like a font
 # again and loses the reason to do this.
@@ -215,7 +215,7 @@ def svg_of(grid, passes, label):
                 'width="%d" height="%d" role="img">' % (width * CELL, height * CELL,
                                                         width * CELL, height * CELL))
     if label:
-        # Named so a reader using a screen reader gets the character rather than silence. An outline
+        # Named so a reader using a screen reader gets the character. An outline
         # carries no text and this is the only place the codepoint survives.
         held.append("  <title>%s</title>" % label)
     held.append('  <path fill-rule="evenodd" d="%s"/>' % path_of(rings))

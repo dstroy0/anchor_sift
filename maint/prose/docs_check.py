@@ -41,9 +41,9 @@
 #   section: "a word that reads as a tic in one construction only is bounded to that construction."
 #   Those thirteen are gone, and WITHDRAWN at the foot of BANNED records each with what it cost.
 #   UNDER-REACH. code-documentation:149 states the British ban as a PATTERN, "the ban is on the
-#   pattern rather than on a list", and LOCALE was a list of ten. It is patterns now, and the note
+#   pattern. It is patterns now, and the note
 #   above LOCALE records what each arm reaches and what came out of it on measurement.
-#   A THIRD, STRUCTURAL RATHER THAN TEXTUAL. LOCALE was referenced at one site that only chose a
+#   A THIRD, STRUCTURAL. LOCALE was referenced at one site that only chose a
 #   word in the report, and BANNED held a hand-written second copy of the same ten. A rule table
 #   duplicated into the table that enforces it drifts with no signal at all. BANNED splices LOCALE
 #   in now. There is one copy.
@@ -1411,7 +1411,7 @@ QUOTED = (
 # the standards and five in ProtoCore, and three of those five were real TIER A findings inside a
 # heading label: BUGS.md:376 "**What survives from F1/F2:**", :518 "**Why it is deferred rather than
 # fixed:**", :1576 "**What it uncovered:**". Bold marks a heading in this tree far more often than
-# it marks a citation. The arm was a net loss and is recorded here rather than left in.
+# it marks a citation. The arm was a net loss and is recorded here.
 #
 # The italic arm refuses a span holding a table cell separator. ProtoCore TUNING.md:154 is a table
 # row where two unrelated asterisks in different cells paired across the row and swallowed a real
@@ -1599,7 +1599,7 @@ class Ledger(object):
 # exists so the default list is not the only way to answer, and a tree vendoring a corpus this tool
 # has never heard of can say so without editing this tool.
 #
-# WHAT IT COSTS, named here rather than discovered later by somebody wondering where a file went.
+# WHAT IT COSTS, named here.
 # Two files of this project's own prose go quiet with the corpora they index: idemIP
 # docs/learn/RFC/README.md and ProtoCore docs/learn/datasheets/README.md. The alternative is an
 # allowlist inside each verbatim root, which is a second list to maintain for two files, and the
@@ -1816,7 +1816,7 @@ def reconcile_command(manifest):
 # WITH THAT RULE IT SILENCES NOTHING TODAY. Measured over anchor_sift's six roots, idemIP's whole
 # tree, ProtoCore/docs, MMgr and both closed repositories: zero findings. Every legal block in every
 # one of those trees is already clean prose, which is the outcome to want from a rule whose job is
-# to protect an artifact rather than to hide a backlog. The number is worth re-deriving after any
+# to protect an artifact. The number is worth re-deriving after any
 # change to the block walker, because a walker reaching too far reports the same zero.
 #
 # THE FIXTURE THIS WAS BUILT AROUND, and it is the sharpest available because both halves sit in one
@@ -2618,7 +2618,7 @@ def banned_tokens(lines, quotations=False, comments=False, path=None, ledger=Non
     """Findings a reader sees, one per hit, carrying the tier and what stands behind it.
 
     A TIER A line names the section that bans the construction. A reader can go and read the
-    sentence rather than argue with a regex. A TIER B line carries a frequency where one was
+    sentence. A TIER B line carries a frequency where one was
     measured and says which corpus it was measured in where one was not. Neither fails a build.
 
     A finding inside a generated region keeps its place in the count and names the generator. Read
@@ -2798,7 +2798,7 @@ def walk_markdown(roots, ledger=None):
         # This tool's own test files carry banned prose on purpose, to prove the gate flags it, so
         # repairing them would break the tests. They sit beside this file and are excluded here, the
         # exclusion recorded like every other. A fixtures/ directory is already skipped by SKIP_DIRS;
-        # these are the tests that live next to the gate rather than under a fixtures directory.
+        # these are the tests that live next to the gate.
         one_name = os.path.basename(one)
         if (os.path.dirname(os.path.abspath(one)) == my_dir) and one_name.startswith("test_docs_check"):
             if ledger is not None:
@@ -2971,7 +2971,7 @@ def hash_tail(line):
 def comment_prose(lines):
     """The comment text of a build file, with the rest blanked and line numbers preserved.
 
-    Blanked rather than dropped. A finding still names the line a reader has to open. Handles the
+    Blanked. A finding still names the line a reader has to open. Handles the
     `#` form shell, CMake, YAML and make all share, and PowerShell's `<# ... #>` block.
 
     A shebang is dropped. It is the one line of a shell script that is an instruction to the kernel
@@ -2979,7 +2979,7 @@ def comment_prose(lines):
 
     THE CMake STRING IS DELIBERATELY NOT READ. idemIP's CMakeLists.txt:122 puts a banned phrase
     inside a `set(... CACHE BOOL "...")` description, which is a string and reaches a person through
-    `ccmake` rather than through the source. Reading it wants a CMake parser, and guessing at one
+    `ccmake`. Reading it wants a CMake parser, and guessing at one
     would report every quoted path in every add_custom_command. Named here because it is a known
     gap and not an oversight.
     """

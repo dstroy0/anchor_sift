@@ -29,11 +29,11 @@
 # of one and is left untouched, and a context corrupted by noise is a different context and does not
 # match. The noise must sit on the CENTER and not on the context it is read against. Where the
 # context is clean and recurs, the rejection is exact; where it does not, nothing is claimed. That is
-# the honest shape of the trade, stated rather than tuned away.
+# the honest shape of the trade, stated.
 #
 # The context excludes the center. A value is never used to estimate itself. Positions without a
 # full context on both sides are edges and are left as they are, a declared choice reported by the
-# caller rather than a padding invented here.
+# caller.
 #
 # Two routes build the group mean and share no code: one keys a dictionary by the context and averages
 # each bucket; the other, for each center, scans every center and averages those whose context equals

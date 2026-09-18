@@ -39,7 +39,7 @@ from repotools import boot, root
 CONFIG_NAME = "repotools.toml"
 
 
-# Lists a repository is EXTENDING rather than replacing. Naming them, instead of appending every
+# Lists a repository is EXTENDING. Naming them, instead of appending every
 # list, because the two intents are genuinely different: a repository adding one directory to the
 # exclusions means "as well as the defaults", and a repository stating [layout] source means
 # "these, not the defaults". Guessing either way is wrong half the time.

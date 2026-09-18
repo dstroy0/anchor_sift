@@ -397,7 +397,7 @@
       return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     }
 
-    // Series colors are spread around the hue circle rather than taken from a fixed list. Any
+    // Series colors are spread around the hue circle. Any
     // number of series stays distinguishable instead of repeating after the list runs out.
     var series = DATA.series.map(function (one, at) {
       return {

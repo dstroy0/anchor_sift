@@ -80,7 +80,7 @@ void anchor_sift_counters_reset(void);
  *       and never revisits one. The depth is bounded by this value at compile time. It is
  *       declared here rather than in the implementation because it is part of the contract: a
  *       caller sizing an array of probes needs it, and a reader asking whether a recursion
- *       terminates should find its bound in the header rather than having to open the source.
+ *       terminates should find its bound in the header.
  * @note DEFINED FROM ANCHOR_SIFT_ANCHORS, NOT COPIED. An earlier form wrote `4u` here and a comment
  *       claiming it matched ANCHOR_SIFT_ANCHORS. Nothing held that: the two were independent
  *       literals, and changing ANCHOR_SIFT_ANCHORS would have left the comment false while every
@@ -169,7 +169,7 @@ size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t 
  * one pass over the corpus. Carrying the census means the rule reads them exactly, in integers, and
  * the engine holds no floating point value anywhere.
  *
- * @note `distinct_symbols` USED TO SIT HERE and was removed rather than left unread. The census
+ * @note `distinct_symbols` USED TO SIT HERE and was removed. The census
  *       computes the same number authoritatively, and a public structure carrying a second copy
  *       lets a caller hand over two values that disagree with nothing to catch it. An unread field
  *       is untidy; a field that can contradict the truth beside it is a defect waiting for someone
@@ -302,8 +302,8 @@ uint64_t anchor_steer_magnitude(const AnchorFieldCensus *census, uint8_t symbol)
  *
  * @note Insertion sort by descending magnitude. The count is at most ANCHOR_SIFT_ANCHORS, which is
  *       four. An insertion sort is fewer instructions than setting up anything cleverer and is
- *       the right choice rather than a concession.
- * @note STABLE, and that is load bearing rather than incidental. Two anchors testing equally rare
+ *       the right choice.
+ * @note STABLE, and that is load bearing. Two anchors testing equally rare
  *       symbols keep the order choose_offsets placed them in. The spatial spread that rule exists
  *       to produce survives wherever rarity does not distinguish. An unstable sort would quietly
  *       discard the spread on a flat corpus, which is the corpus where the spread is all there is.
@@ -455,7 +455,7 @@ typedef struct
  *       An earlier form stopped at the first matching representative, which is neither the relation
  *       nor its closure, and under a non-transitive predicate it put agreeing positions in different
  *       classes, broke the necessary condition, and would have rejected alignments holding true
- *       occurrences silently. That is fixed rather than documented as a precondition.
+ *       occurrences silently. That is fixed.
  * @warning THE COST OF TAKING THE CLOSURE IS CHAINING. A loose tolerance can walk the whole field
  *          into one component through a path of near neighbours, none of which agree with the ends.
  *          One class ranks everything alike, every rank probe then refutes nothing, and the search
@@ -727,9 +727,9 @@ typedef struct
  * told you.
  *
  * This ranks each level against the alignments that actually survived the levels above it, which is
- * the CONDITIONAL distribution rather than the marginal one. It also measures survivors directly
+ * the CONDITIONAL distribution. It also measures survivors directly
  * instead of inferring them from symbol frequency. Correlation between positions is accounted
- * for rather than assumed away.
+ * for.
  *
  * IT CANNOT FAIL TO TERMINATE, AND NOT BECAUSE ANYBODY CHECKED. The halting problem is about
  * deciding termination for an ARBITRARY program. This recursion is not arbitrary:
@@ -749,7 +749,7 @@ typedef struct
  * which is false unless `force_full_depth` is set. The destroy test reads a survivor count off the
  * corpus and breaks. The field routinely ends the descent early, and an omitted member is zero so
  * that is the default path. Depth is a truthy and falsy steer bounded above by a constant, and the
- * return value exists so a caller can read the depth actually reached rather than assume `count`.
+ * return value exists so a caller can read the depth actually reached.
  *
  * @note THE PLANNER IS ALLOWED TO BE WRONG. Ordering cannot change which alignments survive, since
  *       an alignment survives only when every anchor agrees and a conjunction is order independent.
@@ -778,7 +778,7 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
  *                              the ceiling the count cannot exceed. Read the return to learn how many
  *                              were placed, and size any read of `offsets` by the return itself.
  *
- * SPAWNING RATHER THAN REORDERING. anchor_steer_plan_recursive takes anchors somebody else placed
+ * SPAWNING. anchor_steer_plan_recursive takes anchors somebody else placed
  * and decides the order to test them in. This decides WHERE THEY GO. At each level it asks every
  * position in the needle how many of the currently surviving alignments would still stand if a
  * coarm were placed there, and puts one at the position that leaves fewest. The arm is spawned at
@@ -827,14 +827,14 @@ size_t anchor_steer_plan_recursive(const AnchorSteerDescent *args);
  *
  * @note FAILS CLOSED ON THE SURVIVOR BUFFER. Returns 0 without writing `offsets` where
  *       `survivors_length` does not reach the alignment count. The kernel allocates nothing. The
- *       buffer is the caller's and a buffer too small is refused rather than worked around. Size it
+ *       buffer is the caller's and a buffer too small is refused. Size it
  *       at `corpus_len - needle_len + 1`.
  * @note A planner is free to be wrong here for the same reason it is free to be wrong anywhere else
  *       in this file: placement and order change which probe rejects first, never which alignments
  *       survive. The verification is a full compare either way.
  * @warning Costs `wanted * needle_len * alignments / sample_stride` byte comparisons to plan. On a
  *          long needle that exceeds the scan it is planning for. `sample_stride` is the control,
- *          and test_steer measures where the trade turns over rather than asserting a default.
+ *          and test_steer measures where the trade turns over.
  */
 size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args);
 
@@ -847,7 +847,7 @@ size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args);
  * length is one, and the same test walks both.
  *
  * @note `step` is unread at `length` one, and is what makes a longer probe a LINE through the
- *       needle rather than a run of adjacent bytes. A step that shares a period with the needle
+ *       needle. A step that shares a period with the needle
  *       reads the same residue repeatedly and prunes badly, which is a real failure mode and is why
  *       the sweep measures steps instead of assuming one.
  * @note Every position the probe touches must land inside the needle. anchor_steer_probe_fits is
@@ -896,7 +896,7 @@ typedef struct
  * @param[in] needle_len Length it must fit inside.
  * @return               1 where it fits, 0 otherwise.
  * @note Computed without forming the last position as a sum. A step and length that would
- *       overflow size_t are refused rather than wrapping into a position that looks valid.
+ *       overflow size_t are refused.
  */
 int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
 
@@ -925,7 +925,7 @@ int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
  * where an arm reads one. An eye has to prune more than L times as hard to be worth spawning.
  * The score here is survivors, which does not carry that cost. The caller comparing an eye
  * against an arm has to compare READS and not survivors. test_steer does exactly that and reports
- * both, which is why the guide recommends measuring rather than reaching for the longest eye.
+ * both, which is why the guide recommends measuring.
  *
  * TERMINATION, unchanged and for the same reason. One probe per level, `wanted` levels, bounded by
  * ANCHOR_STEER_ANCHORS at compile time. The sweep inside a level is three nested bounded loops over
@@ -998,7 +998,7 @@ size_t anchor_steer_count(const uint8_t *corpus, size_t corpus_len, const uint8_
  *       census instead of the needle and watch the count break, or hand over none at all.
  * @note The empty probe set is the identity. Every alignment reaches the full compare, the answer
  *       is exactly right, and the cost is maximal. That is the cheapest total check of the whole
- *       guarantee and it is why `count` of zero is accepted rather than refused.
+ *       guarantee and it is why `count` of zero is accepted.
  * @note `anchor_steer_probes` counts the corpus bytes the probes read, as it does for
  *       anchor_steer_count. Reset it before a run and read it after.
  */

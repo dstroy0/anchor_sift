@@ -468,7 +468,7 @@
 
   /* Drag the bottom edge to resize. The height lives in a custom property because the sidecar is
      capped to the same number: whatever the view window becomes, the controls beside it never grow
-     past it, and the footer below is pushed down rather than squeezed up. */
+     past it, and the footer below is pushed down. */
   .stage {
     background: var(--panel);
     border: 1px solid var(--rule);
@@ -536,7 +536,7 @@
     display: none;
   }
   /* The histogram is a control, not part of the handle: a drag that starts on it selects values
-     rather than moving the box. */
+. */
   #hist {
     display: block;
     margin-top: 6px;
@@ -7608,7 +7608,7 @@
       return;
     }
 
-    // The fields come from the data rather than being written here. This page renders any
+    // The fields come from the data. This page renders any
     // parametric table: each field is a set of series measured over one common depth axis. What was
     // once four SHA-256 projections is now whatever the generator was pointed at.
     var VIEWS = DATA.fields;
@@ -7657,13 +7657,13 @@
     // Order is one control shared by every shape that has a countable feature: sides for the
     // polygonal solids, petals for the superformula ones, winding for the knots, curvature for the
     // bends. It goes to 4096, where a polygon is a circle to within a pixel and the interesting
-    // reading is the approach rather than the limit.
+    // reading is the approach.
     var orderAt = 6;
     function order() {
       return orderAt;
     }
 
-    // Shapes whose extent grows with the count, rather than only their detail, are capped. A prism
+    // Shapes whose extent grows with the count,. A prism
     // at 4096 sides is still a prism the same size; a helicoid at 4096 turns is 23,591 units tall and
     // has left the camera behind. Measured, not guessed: the sweep that found it is in the scratch
     // harness that checks every shape at orders 3 through 4096.
@@ -7767,7 +7767,7 @@
         // At the far edge there is nothing ahead to difference against. The step is taken
         // backward and the result negated. Without the negation the tangent reverses, the cross
         // product with it, and the last row of every field is lit and extruded upside down while the
-        // other rows are not - which reads as an inverted row of data rather than as a normal.
+        // other rows are not - which reads as an inverted row of data.
         var backU = u + step > 1;
         var backV = v + step > 1;
         var alongU = f(backU ? u - step : u + step, v);
@@ -7782,7 +7782,7 @@
           return { p: here, n: [0, 1, 0] };
         }
         n = [n[0] / len, n[1] / len, n[2] / len];
-        // Point it away from the middle. A closed shape grows outward rather than into itself.
+        // Point it away from the middle. A closed shape grows outward.
         if (n[0] * here[0] + n[1] * here[1] + n[2] * here[2] < 0) {
           n = [-n[0], -n[1], -n[2]];
         }
@@ -8321,7 +8321,7 @@
     // Both of those are above the field. Now that the camera turns all the way under, the underside
     // needs its own light or it reads as one flat ambient tone and the relief disappears exactly
     // where the light cone's cliff is most legible. Weaker than the key. Up and down stay
-    // distinguishable rather than the object looking lit from nowhere.
+    // distinguishable.
     var under = new THREE.DirectionalLight(0xffffff, 0.34);
     under.position.set(60, -180, -40);
     scene.add(under);
@@ -8365,7 +8365,7 @@
     var contrastAt = 0.6;
     var picked = null;
     // Each step keeps its own selection: a range that means something in one field means nothing in
-    // the next. Switching steps restores what was selected there rather than carrying it across.
+    // the next. Switching steps restores what was selected there.
     var selections = {};
 
     /** Writes the instance colors for one moment: the gradient underneath, a mark's own color over
@@ -8539,7 +8539,7 @@
         var reach = Math.abs(t) * lift * 4;
         var high;
         if (shape.key === "balloon") {
-          // The value moves the surface rather than growing a spike. The silhouette is the field.
+          // The value moves the surface. The silhouette is the field.
           seat.addScaledVector(normal, reach);
           high = Math.max(0.8, Math.min(footAcross, footAlong));
         } else {
@@ -8569,7 +8569,7 @@
         baseColor[i * 3 + 1] = palette.zero[1] + (end[1] - palette.zero[1]) * eased;
         baseColor[i * 3 + 2] = palette.zero[2] + (end[2] - palette.zero[2]) * eased;
 
-        // The raw value is kept per instance rather than the mark it matched. Which mark claims a
+        // The raw value is kept per instance. Which mark claims a
         // cell then costs nothing to change: adding a mark, editing its range, or dragging a
         // selection across the histogram repaints colors from these numbers instead of rebuilding
         // the geometry, which is what makes a drag over 32,000 cells keep up with the pointer.
@@ -8597,7 +8597,7 @@
     // is no orientation at which this version disagrees with the screen, because the axes it turns
     // about are read off the camera at the moment of the move.
     //
-    // Right is recomputed on every pointermove rather than held for the gesture. Letting go and
+    // Right is recomputed on every pointermove. Letting go and
     // starting again therefore cannot desync it: there is no stored frame to go stale.
     //
     // The sense is grab and drag. Pull right and the object goes right, which means the camera orbits
@@ -8607,7 +8607,7 @@
     var upVec = new THREE.Vector3(0, 1, 0);
     var right = new THREE.Vector3();
 
-    // Opening view, stated once as a direction and a distance rather than as angles.
+    // Opening view, stated once as a direction and a distance.
     offset.set(Math.sin(-0.72) * Math.cos(0.62), Math.sin(0.62), Math.cos(-0.72) * Math.cos(0.62));
     offset.multiplyScalar(320);
 
@@ -8941,7 +8941,7 @@
     // -- the distribution, and selecting from it ---------------------------------------------------
     //
     // The readouts said what the field is. This says what is in it: how the values are actually
-    // distributed, rather than only their largest. Dragging across it selects a set of values and a
+    // distributed,. Dragging across it selects a set of values and a
     // click selects the one bin under the pointer, and either way the cells holding those values are
     // lit in the object while the numbers underneath say how many they are.
 
@@ -9144,7 +9144,7 @@
       var box = histCanvas.getBoundingClientRect();
       var now = event.clientX - box.left;
       // A click rather than a drag: take the single bin under the pointer, which is one value of the
-      // data rather than a set of them.
+      // data.
       if (Math.abs(now - brushStart) < 3) {
         var wide = histCanvas.clientWidth || 232;
         var at = Math.floor((now / wide) * BINS);
@@ -9213,7 +9213,7 @@
       cell.addEventListener("input", function () {
         rampNames[which] = this.textContent.trim();
       });
-      // Enter ends the edit rather than opening a second line inside the label.
+      // Enter ends the edit.
       cell.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
           event.preventDefault();
@@ -9327,7 +9327,7 @@
 
     document.getElementById("mark-add").addEventListener("click", function () {
       // A new mark opens on the range the current field actually holds. It claims something the
-      // moment it appears rather than starting empty and looking broken.
+      // moment it appears.
       var top = 0;
       var rows = view.rows;
       for (var r = 0; r < rows.length; r += 1) {
@@ -9528,7 +9528,7 @@
     //
     // The histogram selects cells in the object. This is the same road travelled the other way: click
     // a cell and its value is marked on the distribution. A feature seen in the shape can be found
-    // in the numbers rather than only described.
+    // in the numbers.
 
     var caster = new THREE.Raycaster();
     var atScreen = new THREE.Vector2();
@@ -9689,7 +9689,7 @@
     }
 
     // Motion. Turns per minute about the observer's own up or right, which keeps turning about the
-    // axis the reader sees rather than a world axis that drifts as the object is dragged.
+    // axis the reader sees.
     if (SET.spin) {
       var perFrame = (SET.spin * TAU) / (60 * 60);
       var about = SET.spinaxis === "right" ? "right" : "up";

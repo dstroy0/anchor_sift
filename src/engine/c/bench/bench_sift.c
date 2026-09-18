@@ -82,13 +82,13 @@ static const char s_english[] =
     "sufficient quantity of water, and he said as much aloud. she laughed and said that was the "
     "sort of remark that sounded wiser than it was, and he had to agree that she was probably "
     "right about that as well. by the time the rain stopped the light was almost gone and they "
-    "made camp where they stood rather than risk the descent in darkness. the fire took a long "
+    "made camp where they stood. the fire took a long "
     "while to catch because everything was wet, and when it did catch it smoked badly and gave "
     "very little heat, but it was something to sit beside and they were both glad of it. in the "
     "morning the sky had cleared completely and the grass was heavy with water that soaked their "
     "boots within the first few steps. neither of them mentioned the conversation of the previous "
     "evening, though both remembered it, and they walked down toward the village in a silence "
-    "that was comfortable rather than awkward. the bakery was already open when they arrived and "
+    "that was comfortable. the bakery was already open when they arrived and "
     "the smell of it reached them from a considerable distance up the road, which improved their "
     "mood more than anything either of them could have said. ";
 

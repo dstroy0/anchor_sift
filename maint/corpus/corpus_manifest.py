@@ -91,7 +91,7 @@ BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 # read every one of its pages as a file the inventory lists and the tree does not have.
 #
 # .claude is the same case again and it arrived the way the others did, by something new appearing
-# beside the corpus rather than inside it. A linked git worktree is created under .claude/worktrees/
+# beside the corpus. A linked git worktree is created under .claude/worktrees/
 # and is a full checkout. Every file of the corpus shows up a second time at a path the inventory
 # does not list. The gate then reads an entire second corpus as unrecorded and refuses every commit,
 # including the commit that would have recorded anything. It is not corpus content: it is a working
@@ -234,7 +234,7 @@ def _main_checkout():
     linked worktree alike, and its parent is the main checkout.
 
     Git's own variables are cleared because a rev-parse inheriting a hook's GIT_DIR answers about
-    that repository rather than about the directory it was asked from.
+    that repository.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)

@@ -32,7 +32,7 @@ Objective 5 renames `maint/` to `tools/`. That is a multi-file commit, not a dir
 every one of these has to land in it:
 
 - `repotools.toml:27` becomes `tools = "tools"`, and the lines 19-20 comment explaining the
-  exception is deleted rather than reworded.
+  exception is deleted.
 - `repotools.toml:43-44` (`[prose] roots`) and `repotools.toml:62-63`
   (`[hooks.docs_check] roots`) both name `"maint"`. Both must change in the same commit. If one is
   missed, the prose walk reads a root that **emptied** rather than one that vanished, and
@@ -102,7 +102,7 @@ After applying sparse-checkout, count the entries under the mount, compare again
 `ANCHOR_SIFT_PRIVATE_REPO` and `ANCHOR_SIFT_CITATIONS_REPO` precisely so the private repository
 names are absent from this public tree. A submodule with a literal URL would write those names into
 a public `.gitmodules`, which is strictly more disclosure than today. This is the one documented
-exception in the standard, and it is documented rather than quietly allowed.
+exception in the standard, and it is documented.
 
 `deps/mmgr/.claude/` belongs to that vendored checkout. It is not this repository's and nothing in
 this objectives pass touches it.

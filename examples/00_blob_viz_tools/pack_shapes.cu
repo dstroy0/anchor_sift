@@ -149,7 +149,7 @@ __global__ void make_points(float *points, int count, int dims, int shape, uint6
  * @brief Marks which candidates in this batch sit clear of every point already kept.
  *
  * One thread per candidate, walking the kept set. The kept set is read by every thread in the
- * block in the same order. It streams out of cache rather than being fetched per thread.
+ * block in the same order. It streams out of cache.
  */
 __global__ void clear_of_kept(const float *kept, int kept_count, const float *batch, int batch_count,
                               int dims, float limit, int *ok)
@@ -286,7 +286,7 @@ int main(int argc, char **argv)
 
     /* One batch first, to measure what the middle distance between two points on this surface is.
      * The gap is a fraction of that, measured on the same kind of points that are about to be
-     * packed rather than on a fresh draw with its own character. */
+     * packed. */
     make_points<<<(batch + block - 1) / block, block>>>(scratch, batch, dims, shape, seed);
     if (cudaDeviceSynchronize() != cudaSuccess)
     {

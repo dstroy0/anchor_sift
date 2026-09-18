@@ -246,7 +246,7 @@ def walk(roots):
 def git(root, *arguments):
     """One git command in one repository, as text, or None where git refused.
 
-    core.quotePath is turned OFF for every call rather than at the two sites that list paths.
+    core.quotePath is turned OFF for every call.
 
     With it on, which is git's default, a path holding any character outside ASCII comes back
     quoted and octal-escaped: papers/...Kwak’wala.pdf is returned as

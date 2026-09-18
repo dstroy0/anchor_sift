@@ -30,7 +30,7 @@
  *       still runs on machines without it, and calling in would raise an illegal instruction.
  * @note Two detection paths, both arms of the gate defined. MSVC has no __builtin_cpu_supports and
  *       takes __cpuidex; GCC and Clang have the builtin.
- * @note The tail below thirty-two is finished scalar rather than masked. A masked tail costs more to
+ * @note The tail below thirty-two is finished scalar. A masked tail costs more to
  *       get right than it saves at this width, and the scalar remainder is the same code the
  *       portable arm runs.
  */

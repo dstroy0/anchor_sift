@@ -114,7 +114,7 @@ typedef enum
  *
  * @note One structure drives both arms. A caller changing a field changes the host and the device
  *       render together, and the grader compares them under whatever configuration it was given
- *       rather than under a fixed one.
+ *.
  */
 typedef struct
 {
@@ -136,7 +136,7 @@ typedef struct
  * THE PROOF CHANNEL IS DIFFERENT IN KIND FROM THE OTHER FOUR AND THE DIFFERENCE IS WORTH STATING.
  * A probe set is a sound filter: it never loses a true occurrence, and it does admit alignments that
  * are not one. So the negative direction is certain and the positive is not. A cell where no
- * alignment survived contains no occurrence, and that is a proof rather than a summary.
+ * alignment survived contains no occurrence, and that is a proof.
  *
  * Three properties follow and each one is load bearing. It reduces as a conjunction, a cell being
  * proven only when every alignment under it was refuted, and conjunction is associative and
@@ -197,7 +197,7 @@ typedef enum
                                 *   preserved on all three axes at once, which is what a linear
                                 *   index set needs to read as a solid rather than as stacked
                                 *   sheets. Requires the extents to be powers of two; a caller
-                                *   giving others gets a refusal rather than a silent remap. */
+                                *   giving others gets a refusal. */
     ANCHOR_VOLUME_HELIX = 3    /**< Slab major with each slab's rows shifted by its depth index, so
                                 *   a feature at a fixed corpus offset winds through the block
                                 *   instead of stacking. A shear and not a rotation: a true helix
@@ -222,7 +222,7 @@ typedef struct
 {
     size_t width;                /**< Voxels across. Non-zero. */
     size_t height;               /**< Voxel rows. Non-zero. */
-    size_t depth;                /**< Voxel slabs. Non-zero, and one is refused rather than flattened. */
+    size_t depth;                /**< Voxel slabs. Non-zero, and one is refused. */
     AnchorVolumeLayout layout;   /**< How an alignment index becomes a voxel position. */
     AnchorRasterChannel channel; /**< What quantity a voxel carries. Same set as the raster. */
     AnchorRasterReduce reduce;   /**< How collisions resolve. Same set as the raster. */
@@ -254,7 +254,7 @@ size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment
  *                        from `corpus` and uses that for ANCHOR_CHANNEL_RARITY whatever is passed
  *                        here. The parameter is the integration point for a caller supplied rarity
  *                        source, a reference distribution or a census taken over a sampled slice,
- *                        and it is kept rather than removed for that reason. Passing NULL is
+ *                        and it is kept. Passing NULL is
  *                        correct and is what every caller in this tree does. Passing a census
  *                        built over something else is silently ignored, which has no symptom: the
  *                        render succeeds and carries rarity computed from the corpus in front of
@@ -326,7 +326,7 @@ int anchor_volume_device_available(void);
  * @return           1 on success, 0 where the file could not be written.
  *
  * @note Netpbm has no volume format. This writes the block raw and states its shape in a sidecar
- *       rather than inventing a container. A generated file says it is generated and names its
+ *. A generated file says it is generated and names its
  *       generator, which the sidecar does.
  */
 int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
@@ -366,7 +366,7 @@ int anchor_raster_host(uint8_t *pixels, const AnchorRasterConfig *config, const 
  * @param[in] alignments How many alignments the object has.
  * @return               Cell index inside `width * height`.
  * @note Exposed because the device rasterizer calls the same function, which is what keeps one
- *       transform rather than two that agree until somebody edits one.
+ *       transform.
  */
 size_t anchor_raster_cell(const AnchorRasterConfig *config, size_t at, size_t alignments);
 
@@ -420,7 +420,7 @@ int anchor_raster_write_pgm(const char *path, const uint8_t *pixels, size_t widt
  * asking, and the two arms produce the same bytes. Choosing between them is a performance
  * decision and never a correctness one. This asks the device first and falls back to the host.
  *
- * @note Falls back rather than failing where the device refuses. A render always happens if
+ * @note Falls back. A render always happens if
  *       either arm can do it.
  * @note anchor_raster_host and anchor_raster_device stay public because a grader has to be able to
  *       call one specific arm and compare. A caller that does not care should not have to.

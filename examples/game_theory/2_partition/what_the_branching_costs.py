@@ -101,7 +101,7 @@ def main():
         "\n"
         "That asymmetry is the subject. Stage six checks the estimator where the answer is known.\n"
         "Nothing checks it on chess, which is why the chess numbers carry their budget in the same\n"
-        "line as the result rather than in a footnote."
+        "line as the result."
     )
 
 

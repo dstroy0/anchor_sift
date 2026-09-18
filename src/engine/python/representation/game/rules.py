@@ -27,7 +27,7 @@
 # This does not do that. Unresolved mass is carried as its own outcome, UNRESOLVED, and it is never
 # redistributed over win, loss and draw. A distribution that reads 0.31 win / 0.12 loss / 0.00 draw
 # / 0.57 unresolved is saying it does not know what happens in most of this branch, and it says so
-# in the number rather than in a caveat. The standing discipline in this tree is that bounding is
+# in the number. The standing discipline in this tree is that bounding is
 # not allowed -- no judgment-picked tolerances or parameters -- and a search depth is a bound. It is
 # allowed here only because it is a declared input that is reported with the result and visible in
 # the distribution it produced.
@@ -80,7 +80,7 @@ class Budget(object):
 
     `plies` is how many further moves the enumeration will make before it gives up and returns
     UNRESOLVED. `nodes` caps total positions visited so an unexpectedly wide game cannot run
-    unbounded; exhausting it also returns UNRESOLVED rather than a guess.
+    unbounded; exhausting it also returns UNRESOLVED.
 
     Both are inputs of the measurement and both are printed alongside it. A result computed at
     plies=4 and one computed at plies=8 are different measurements of the same position and this is
@@ -209,7 +209,7 @@ def _walk(backend, state, plies_left, budget, conditioning, memo):
     legal = backend.moves(state)
     if not legal:
         # A backend that returns no moves from a non-terminal position is telling us its rules are
-        # incomplete. Fail closed rather than calling it a draw.
+        # incomplete. Fail closed.
         return certain(UNRESOLVED)
 
     mover = backend.to_move(state)
@@ -250,7 +250,7 @@ def best_moves(backend, state, budget, conditioning):
     Returns (chosen, table) where `table` is a list of (move, distribution) over every legal move and
     `chosen` is the sublist that ties for the best expected score. A single-element `chosen` is a
     forced best move; a longer one means the position genuinely does not distinguish them at this
-    budget, which is a finding about the position rather than a failure to decide.
+    budget, which is a finding about the position.
     """
     memo = {}
     table = []
@@ -315,7 +315,7 @@ def _weighted_pick(moves, weights, generator):
 
 
 def _shallow_pick(backend, state, legal, policy, generator):
-    """The move a one-ply look prefers, ties broken by the generator rather than by move order."""
+    """The move a one-ply look prefers, ties broken by the generator."""
     scored = []
     for move in legal:
         reached = backend.apply(state, move)

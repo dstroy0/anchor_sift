@@ -79,7 +79,7 @@ def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     canvas, blobs = field(numpy.random.default_rng(SEED), WIDTH)
 
-    out.write("  Co-arm count and lag reach swept rather than chosen.\n")
+    out.write("  Co-arm count and lag reach swept.\n")
     out.write("  %dx%d field, %d blobs %.1f px wide, true displacement %.3f px.\n\n"
               % (SIDE, SIDE, blobs, WIDTH, TRUTH))
     out.write("  %-8s %-8s %-8s %-11s %-11s %s\n"

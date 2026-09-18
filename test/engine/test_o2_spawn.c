@@ -124,7 +124,7 @@ static size_t o2_compose(const uint8_t *const corpus, const uint8_t *const needl
         if (placed == 0u)
         {
             // The destroy rule: this level's best candidate pruned nothing. No condition left
-            // separates the survivors. The composition stops rather than reading for no gain.
+            // separates the survivors. The composition stops.
             break;
         }
         depth += 1u;

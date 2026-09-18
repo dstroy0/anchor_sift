@@ -96,7 +96,7 @@ A level that finds no candidate leaving fewer survivors than it started with has
 
 The two are different kinds of statement and the guide keeps them apart. The period argument is a theorem over every corpus of that period. This rule is an observation about one field, taken on a sample of it when `sample_stride` is above one. "pruned nothing on this sample" does not establish "can prune nothing". Being wrong costs speed and cannot cost the count.
 
-Destroying the levels below a destroyed probe costs nothing, and the reason is an induction rather than a budget.
+Destroying the levels below a destroyed probe costs nothing, and the reason is an induction.
 
 The destroy test compares the minimum over every candidate against the current population (`src/engine/c/engine/anchor_sift.c:1051`). When it fires, the minimum leaves the population unchanged. Every candidate leaves it unchanged. Placing one would prune nothing, and the next level would inherit the identical population. Its candidate set is the same set or a subset of it, since the enumeration bounds are arguments and constants that do not vary by level (`src/engine/c/engine/anchor_sift.c:1202`) and the coarm descent only ever removes a placed position from consideration. Every candidate in a subset of a set that all left the population unchanged also leaves it unchanged. The next level's minimum is the whole population and its test fires too. By induction every level below prunes nothing.
 
@@ -127,7 +127,7 @@ Let `A` be the alignments, `N = |A|`, and `T` the alignments where the needle oc
 
 **Theorem, and the units are part of it.** An engine that decides each alignment using only reads taken at that alignment performs at least one READ EVENT per alignment. Total read events are at least `N`.
 
-**It does not bound distinct bytes, and an earlier version of this section implied it did.** A read at corpus position `p` lies inside the span of `m` alignments. One fetched byte is a read event for each of them. Going from "every alignment needs a read in its span" to "total bytes read is at least `N`" needs those reads partitioned one per alignment, and nothing establishes that partition. Sample one position every `m` so each span holds exactly one: a mismatch refutes that alignment on a single byte and the same byte refutes up to `m - 1` neighbours. The theorist measured it, deciding every alignment with the answer asserted against the naive scan on every row, and distinct bytes per alignment came out at 0.9948 for an alphabet of 4, 0.7573 at 16, 0.3545 at 64 and 0.1276 at 256. Well under one, and the construction is inside the premise rather than outside it.
+**It does not bound distinct bytes, and an earlier version of this section implied it did.** A read at corpus position `p` lies inside the span of `m` alignments. One fetched byte is a read event for each of them. Going from "every alignment needs a read in its span" to "total bytes read is at least `N`" needs those reads partitioned one per alignment, and nothing establishes that partition. Sample one position every `m` so each span holds exactly one: a mismatch refutes that alignment on a single byte and the same byte refutes up to `m - 1` neighbours. The theorist measured it, deciding every alignment with the answer asserted against the naive scan on every row, and distinct bytes per alignment came out at 0.9948 for an alphabet of 4, 0.7573 at 16, 0.3545 at 64 and 0.1276 at 256. Well under one, and the construction is inside the premise.
 
 The correction above that moved this claim from "reads" to "bytes read at an alignment" moved it in the direction that makes it false, while the test kept asserting the event version. Both are now stated: the bound is on read events, the test counts read events, and nothing here bounds memory traffic, because a byte read twenty four times is one cache line.
 
@@ -171,7 +171,7 @@ One descent is therefore a finite automaton WITH data dependent control flow, bo
 
 **The cap is load bearing and this paragraph used to say the opposite.** An earlier version claimed the depth is data independent and that the constant is incidental. At four billion the classification would not shift. Both halves are wrong. Depth IS data dependent, downward only: the destroy test can cut the descent short and nothing can extend it. The constant bounding it from above is the only thing ruling out unbounded depth, and at four billion it would still rule it out, which is the point. Data independence is not available as an argument.
 
-One argument this section used to give is retired outright. It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating, because non-cycling on a finite state space forces termination rather than permitting unbounded depth.
+One argument this section used to give is retired outright. It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating, because non-cycling on a finite state space forces termination.
 
 **Why removing the cap would still not reach universality, over a fixed corpus.** With the corpus nailed down the probe family is fixed, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent must halt with or without the bound. What breaks that is a corpus that grows, because a growing corpus grows the family, which is the section below.
 
@@ -187,7 +187,7 @@ What it composes into keeps everything this document argues for. Growth happens 
 
 Nobody would owe a universality proof for it either. Read a window, act on what was read, append, continue is a tag system, and 2-tag systems have been known universal since Minsky in 1961. What is owed is an encoding into that shape.
 
-The price is exactly the property the engine is sold on. At the outer level termination goes, and that is the evidence rather than a defect to repair: if it stayed decidable whether an outer run finishes, the thing would not be universal. The inner loop keeps its guarantee and the outer one gives up the one it never claimed.
+The price is exactly the property the engine is sold on. At the outer level termination goes, and that is the evidence. The inner loop keeps its guarantee and the outer one gives up the one it never claimed.
 
 None of this settles the question above. It names what would move the answer and not what the answer is, and nothing in the tree is being built toward it.
 
@@ -229,7 +229,7 @@ So the non-increasing enumeration premise stated in the section above is load be
 
 The guarantee is on alignments rejected by `k` probes. It is not a guarantee on reads, and those differ: rejecting an alignment early saves the reads a later probe would have spent on it. A set that rejects the same alignments in a different order costs a different number of reads. The read counts in the table above are measurements and are not covered by the ratio.
 
-It also assumes the marginal gains are evaluated exactly, which holds at `sample_stride` of one. Above one the planner scores candidates on a sample, which makes the oracle approximate, and greedy under an approximate oracle degrades by an amount depending on the error rather than holding at `1 - 1/e`.
+It also assumes the marginal gains are evaluated exactly, which holds at `sample_stride` of one. Above one the planner scores candidates on a sample, which makes the oracle approximate, and greedy under an approximate oracle degrades by an amount depending on the error.
 
 Nothing here has been measured against the optimal probe set, because computing that means enumerating every set of size `k` and is exponential. The ratio is a proved floor and this document does not report it as an observation.
 

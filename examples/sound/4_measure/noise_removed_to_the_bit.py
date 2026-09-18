@@ -310,7 +310,7 @@ def build_outlier():
         crowd_floor.append((count, reduction(crowd, restore_at(crowd, radius, outliers(crowd, radius)), clean)))
 
     # second mechanism: on a VARYING signal the window median is not the exact value. The restore
-    # is a floor about the signal rather than about the noise. A monotone ramp + spaced impulses.
+    # is a floor about the signal. A monotone ramp + spaced impulses.
     ramp = [20 + i for i in range(len(clean))]
     rrng = random.Random(SEED ^ 0xA5)
     ramp_dirty, rp = list(ramp), []

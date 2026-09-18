@@ -134,7 +134,7 @@ size_t anchor_sift_naive(const uint8_t *corpus, size_t corpus_len, const uint8_t
  *       runtime count gives that back. A corpus whose count wants reducing is a coherent one, and
  *       a coherent corpus dispatches here anyway.
  * @note A needle of length zero occurs at every alignment, which is exactly what the naive engine
- *       returns. That case is handed to it rather than answered a second way here. An anchor
+ *       returns. That case is handed to it. An anchor
  *       cannot be placed in a needle with no bytes, and bounding the offsets is not enough on its
  *       own: at length zero the alignment loop runs one further than the corpus. The last
  *       alignment reads one past its end, and the anchor reads element zero of a needle that has
@@ -293,7 +293,7 @@ size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t
 {
     const AnchorSiftEngine chosen = anchor_sift_choose(plan);
 
-    // Held and dispatched rather than re-asked, because the choice is now three ways and not two.
+    // Held and dispatched.
     // Reaching the tail on a null plan would have run the in order engine with the full anchor set,
     // which is the outcome the guard in anchor_sift_choose was added to prevent.
     if (chosen == anchor_sift_naive)
@@ -749,7 +749,7 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
     // merges the commonest into rank 255.
     //
     // The form this replaced capped the class count during DISCOVERY. The merged set was chosen
-    // by arrival order rather than by commonness. A class occurring once has one chance to arrive
+    // by arrival order. A class occurring once has one chance to arrive
     // early and a class occurring nine times has nine. The rarest arrived last and were merged
     // first. Two fields with identical frequency multisets and opposite arrangements merged sets
     // whose mean occupancies were 1.06 and 9.00, which no histogram can tell apart. The rarest class
@@ -853,7 +853,7 @@ int anchor_field_project(const AnchorFieldProjection *args)
     {
         // CLASSES AND NOT SLOTS EVER OPENED. A chained field once reported 18 while every position
         // carried one rank, because the count returned was the number of labels discovery had
-        // opened rather than the number surviving the merges. A caller reads this to decide whether
+        // opened. A caller reads this to decide whether
         // a projection is worth running. A healthy number on a collapsed field sends them onto a
         // projection that refutes nothing.
         *args->distinct = classes;
@@ -1197,7 +1197,7 @@ static void steer_make_falsy_probe(const uint8_t *corpus, size_t corpus_len, con
  * @return                      Probes actually placed.
  * @note Static and positional, which is where a long parameter list is allowed to live. The public
  *       surface takes one pointer to a const argument structure; this is the backend it names, and
- *       every check the contract states happens here rather than in the entry.
+ *       every check the contract states happens here.
  */
 static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8_t *corpus,
                                  size_t corpus_len, const uint8_t *needle, size_t needle_len,
@@ -1346,7 +1346,7 @@ size_t anchor_steer_count_with_probes(const uint8_t *corpus, size_t corpus_len,
     }
     // An empty needle occurs at every alignment. anchor_sift_naive and anchor_steer_count both report
     // corpus_len + 1 for it, and the reference fixes that answer. This returns the same before the
-    // loop rather than reading needle[offset] off a needle with no positions. Returning 0 here
+    // loop. Returning 0 here
     // disagreed with the reference and with the two counting entries beside it.
     if (needle_len == 0u)
     {

@@ -99,7 +99,7 @@ def main():
         "stage, which is why the later stages can compare two readings with == instead of a\n"
         "tolerance. The subject was chosen partly for that: a game is a domain where the exact\n"
         "representation is the obvious one. Nothing is lost on the way in and any loss further\n"
-        "down belongs to the measurement rather than to the reader."
+        "down belongs to the measurement."
     )
 
 

@@ -57,7 +57,7 @@
 # read with its rows reversed the same site is Cu2+.
 #
 # That is a latent hazard and not a live defect, and the distinction is worth stating precisely
-# rather than letting the stronger version stand. Two things keep it from biting today. `placed`
+#. Two things keep it from biting today. `placed`
 # has no callers anywhere in this tree. And `along`, which every period measure here goes through,
 # does not overwrite at all: it gathers every value sitting at a coordinate into a sorted tuple, so
 # it returns the same arrangement whatever order the rows arrive in. That was checked rather than
@@ -110,7 +110,7 @@ def doped_sites(text):
 
     It used to be "the deposit has no atom site rows". It is now "no site parsed", because the
     reading is crystal.exact_sites and an entry whose coordinates all fail to parse comes back with
-    an empty list rather than with rows. A deposit that has rows and no usable coordinate used to be
+    an empty list. A deposit that has rows and no usable coordinate used to be
     counted readable with nothing shared, and is now counted unreadable.
 
     The new behaviour is the more correct one, an entry nothing could be read from is not an entry

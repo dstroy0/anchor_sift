@@ -55,7 +55,7 @@ def rows(path):
 
     A row is taken only where all five fields parse as the table's own types. The run writes a
     header, a blank line and a closing paragraph into the same stream, and anything that is not a
-    data row is skipped rather than guessed at.
+    data row is skipped.
     """
     found = []
     with io.open(path, encoding="utf-8", errors="replace") as handle:

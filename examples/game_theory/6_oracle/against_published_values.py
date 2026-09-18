@@ -210,7 +210,7 @@ def main():
 class _LamePawns(chess.Chess):
     """Chess with the pawn double step removed, which the perft count has to catch.
 
-    A negative control is only worth running if it is a plausible bug rather than an obvious one.
+    A negative control is only worth running if it is a plausible bug.
     Dropping the double step changes no rule that any single move looks illegal under, and a
     generator missing it plays legal chess forever -- it just plays a different game, and only a node
     count notices.

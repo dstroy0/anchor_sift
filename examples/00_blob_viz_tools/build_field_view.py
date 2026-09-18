@@ -153,7 +153,7 @@ def main():
         "blurb": ("Every series in %s, drawn as a solid. Depth runs left to right as %s; the other "
                   "horizontal axis is the series, ordered by %s; height and color are %s. The "
                   "embedding is a choice, not a measurement: structure that appears under one shape "
-                  "and not another belongs to the map rather than to the data."
+                  "and not another belongs to the map."
                   % (os.path.basename(source), depth_at,
                      " then ".join(keys) if keys else "row order", value_at)),
         "note": "",

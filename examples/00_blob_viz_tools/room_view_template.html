@@ -159,7 +159,7 @@
     pointer-events: none;
   }
   /* The labels sit still and a line goes out to find the thing. Pinned to the object instead, they
-   slide about with it and the eye spends its time tracking the writing rather than reading it. */
+   slide about with it and the eye spends its time tracking the writing. */
   .tag {
     position: fixed;
     pointer-events: none;
@@ -503,7 +503,7 @@
   // ---------------------------------------------------------------------------------------------
   // The trace left behind. Heat put into a wire does not arrive everywhere at once: it stays where it
   // was put and leaks away from there. What a moving source leaves is a tail that fades, and the
-  // length of that tail is the dwell time rather than a decoration on it.
+  // length of that tail is the dwell time.
   //
   // Each light keeps its last few places in a ring, oldest overwritten. Brightness falls off with how
   // long ago a place was visited. At no dwell only the head is lit and the cloud reads as points,
@@ -733,7 +733,7 @@
   // ---------------------------------------------------------------------------------------------
   // Standing somewhere. The reader is always inside something: the distance runs from the middle of
   // the cloud out to just short of the wall, and crossing the inner shell is a thing that happens on
-  // the way rather than a mode that gets switched.
+  // the way.
   // ---------------------------------------------------------------------------------------------
 
   var target = new THREE.Vector3(0, 0, 0);
@@ -1169,7 +1169,7 @@
     }
     if (kind === "cone") {
       // Apex up, base down. The room allowed at a height closes to nothing at the point. A light
-      // heading for the tip runs out of room rather than reaching it.
+      // heading for the tip runs out of room.
       rho = Math.sqrt(x * x + z * z);
       allowed = Math.max(1e-4, (a * (b - y)) / (2 * b));
       var qSide = rho / allowed;
@@ -1218,7 +1218,7 @@
           if (along > 0) {
             // The speed it arrived with is the speed it leaves with. A light that lost a little here
             // would drain the cloud inward over a few minutes, slowly enough to read as the scene
-            // settling rather than as a leak.
+            // settling.
             vX[k] -= 2 * along * norm.x;
             vY[k] -= 2 * along * norm.y;
             vZ[k] -= 2 * along * norm.z;
@@ -1370,7 +1370,7 @@
 
     // The trace is laid on its own clock and not once a frame. Tied to the frame rate the tail gets
     // shorter on a fast machine and longer on a slow one, which makes the dwell time a property of
-    // the hardware rather than of the medium.
+    // the hardware.
     sinceTrail += gap;
     if (sinceTrail > 0.045) {
       sinceTrail = 0;

@@ -277,7 +277,7 @@ int main(void)
     }
 
     // THE VOLUME SWEEP. Every layout by every channel, into a 32 by 32 by 32 block, with the
-    // bijection checked rather than described. Each layout's contract is that it drops no alignment
+    // bijection checked. Each layout's contract is that it drops no alignment
     // and duplicates none, which is exactly the claim that distinct alignments reach distinct cells
     // whenever the block is large enough to hold them all. A layout that quietly folded two
     // alignments together would still render a plausible picture, and nothing else here would say

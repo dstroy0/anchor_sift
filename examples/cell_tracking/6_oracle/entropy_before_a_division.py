@@ -58,7 +58,7 @@ def collision_entropy(values, levels=LEVELS):
 
     -log2 of the sum of squared probabilities, which is the quantity every cost in anchor_sift is
     a function of. Computed over the pixels inside one label and nothing else. It is local by
-    construction rather than by a window somebody sized.
+    construction.
     """
     if values.size == 0:
         return float("nan")
@@ -287,7 +287,7 @@ def main():
         out.write("  from itself, and the two daughters read together differ by LESS than one of\n")
         out.write("  them does. What the parent held is still present once it is in two pieces,\n")
         out.write("  and splitting it is what moved the reading. That is the inheritance stated\n")
-        out.write("  as a measurement rather than an image.\n")
+        out.write("  as a measurement.\n")
         out.write("\n  It is not a detector on its own. Catching that share of divisions costs\n")
         out.write("  admitting a tenth of every ordinary frame-to-frame change, and there are\n")
         out.write("  %d of those against %d divisions. A cut at p90 fires far more often on\n"

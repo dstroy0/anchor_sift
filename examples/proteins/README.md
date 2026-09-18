@@ -132,7 +132,7 @@ This subject keeps to the corrected shape. The reusable reader, the exact-intege
 function in the engine, `representation.structure.protein.phi_psi`, additive and domain-blind about
 everything except that a protein backbone is `N`, `CA`, `C`. The Ramachandran rules, which are
 reference data and not a reader, live beside the examples in `ramachandran_rules.py`, exactly as
-the crystallography oracle keeps its COD fetch in the example rather than the engine. Nothing here
+the crystallography oracle keeps its COD fetch in the example. Nothing here
 reimplements the backbone parse, and no bound sits under the engine waiting to charge the next
 domain that reads through it.
 

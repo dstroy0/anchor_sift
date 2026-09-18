@@ -23,7 +23,7 @@
 # that agree, which is the same rule on the transpose. They read the table along different axes and
 # share no traversal. On a table that is a row effect plus a column effect they return the same value
 # to the last digit; on a table with no such structure they disagree, and the disagreement is the
-# finding rather than a bug. Nothing is bounded: agreement is exact equality on the overlap. There is
+# finding. Nothing is bounded: agreement is exact equality on the overlap. There is
 # no similarity cutoff; a row whose effect is unique has no neighbours and its holes are left unfilled.
 
 import io
@@ -139,7 +139,7 @@ def main():
     out.write("\n  on the structured table both routes land on the same rational and it is the clean\n")
     out.write("  value; they are different computations, rows against columns, that coincide only\n")
     out.write("  because the structure is real. the floor is a row whose effect is unique: no neighbour,\n")
-    out.write("  so the hole is left rather than filled.\n")
+    out.write("  so the hole is left.\n")
     out.flush()
     return 0 if (user_ok == filled and item_ok == filled and agree == filled
                  and filled > 0 and splits and pu is None and pi is None) else 1

@@ -502,7 +502,7 @@ static uint8_t *read_whole_file(const char *path, size_t *length)
  * alignment survives only when every probe agrees, a conjunction is order independent, and the
  * survivor is verified by a full compare whatever probed it. So the count is the invariant and the
  * reads are the measurement. Anything that moves the count is a defect, and it is graded at exactly
- * zero difference rather than against a tolerance.
+ * zero difference.
  */
 static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_len)
 {
@@ -587,7 +587,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
                     recursive_count == want);
     failed += (recursive_count == want) ? 0 : 1;
 
-    /* Coarms spawned wherever the field says, rather than where a spread rule put them. */
+    /* Coarms spawned wherever the field says,. */
     size_t spawned[ANCHOR_STEER_ANCHORS];
     const size_t coarms = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                             .offsets = spawned,
@@ -645,7 +645,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     }
     printf("\n");
 
-    /* THE DEPTH IS A COMPILE TIME FACT AND THIS ASSERTS IT RATHER THAN TRUSTING THE PROSE. */
+    /* THE DEPTH IS A COMPILE TIME FACT AND THIS ASSERTS IT. */
     if ((depth > ANCHOR_STEER_ANCHORS) || (coarms > ANCHOR_STEER_ANCHORS)
      || (eyes > ANCHOR_STEER_ANCHORS))
     {
@@ -662,7 +662,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     // the engine observes nothing different, and one of the two answers is wrong. So total reads,
     // probe reads plus the compares that follow them, is at least the alignment count, always.
     //
-    // The empty probe set is the sharp case and it is graded here as a route rather than described.
+    // The empty probe set is the sharp case and it is graded here as a route.
     // It takes zero probe reads and sends every alignment to the compare. Its total is exactly
     // the alignment count. The floor is ATTAINED by the configuration that steers least, which is
     // what shows the floor is a property of the problem and not an artifact of the steering.
@@ -905,7 +905,7 @@ static int check_projection_closes(void)
         return 1;
     }
 
-    // The ends disagree, which is what makes the predicate non-transitive rather than merely coarse.
+    // The ends disagree, which is what makes the predicate non-transitive.
     if (near_same_in_field(chain, 0u, 4u) != 0)
     {
         printf("  the chain ends agree. This is not the case under test: FAILS\n");
@@ -1000,7 +1000,7 @@ static int check_projection_closes(void)
     // request that cannot be met changes no state. The undersize path used to zero `distinct` while
     // the null and zero-length paths left it alone. A caller could not tell a refused zero from a
     // measured zero. The realistic caller error is sizing the buffers by an expected class count
-    // rather than by `length`, which hands over buffers correct for the field they had in mind.
+    //.
     {
         const size_t sentinel_count = 43981u;
         size_t planted = sentinel_count;
@@ -1301,7 +1301,7 @@ int main(void)
     /* A REAL NATURAL OBJECT AND NOT A GENERATOR. Everything above runs on bytes this file wrote,
      * which share whatever structure the generator happens to have. English prose is a field
      * nobody here designed: its letter frequencies span three decades, it repeats at no fixed
-     * period, and its correlations between positions are real rather than planted. The license
+     * period, and its correlations between positions are real. The license
      * text is tracked in this repository. The grader needs no network and no dataset fetch and
      * runs from a fresh clone. */
     size_t natural_len = 0u;

@@ -237,7 +237,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         # code-documentation:112 describes the clause. It fails against `\bso a\b` and passes
         # against `\bso an?\b`, which is the only reason this row is worth a line.
         ("The pool is drained. An entry is dropped.", "so an", "code-comments:200"),
-        ("The bound is read here rather than at the call.", "rather", "code-comments:200"),
+        ("The bound is read here.", "rather", "code-comments:200"),
         ("The spelling is wrong in three places.", "spelling", "code-comments:200"),
         ("The pool is sized here, which is the bound the caller sees.", "which is the",
          "code-comments:206"),
@@ -358,7 +358,7 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
         self.assertEqual(list(docs_check.banned_hits(said, quotations=True)), [])
 
     def test_the_same_token_outside_the_span_is_a_use(self):
-        said = ["The bound is read here rather than at the call."]
+        said = ["The bound is read here."]
         self.assertTrue(list(docs_check.banned_hits(said, quotations=True)))
 
     def test_an_italic_citation_is_not_a_use(self):
@@ -381,7 +381,7 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
         # Bold marks a heading far more often than a citation here. It exempted one site on the
         # standards and five in ProtoCore/docs, three of which were real TIER A findings inside a
         # heading label. The arm came out and this holds it out.
-        said = ["- **Why it is deferred rather than fixed:** the finding is in a tree we do not own."]
+        said = ["- **Why it is deferred."]
         hits = [token.lower() for _, _, token in docs_check.banned_hits(said, quotations=True)]
         self.assertIn("rather", hits)
 
@@ -425,7 +425,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         self.assertNotIn("1.1M", docs_check.CORPUS)
 
     def test_a_tier_a_finding_names_the_section_that_bans_it(self):
-        got = docs_check.banned_tokens(["The bound is read here rather than at the call."])
+        got = docs_check.banned_tokens(["The bound is read here."])
         self.assertEqual(len(got), 1)
         self.assertIn("tier A", got[0][1])
         self.assertIn("code-documentation:110", got[0][1])
@@ -511,7 +511,7 @@ class TheStructuralStageIsUntouched(unittest.TestCase):
 
     def test_locale_and_checked_were_not_this_pass_and_have_since_been_done(self):
         # This test used to assert ten patterns and five extensions, because both were known gaps
-        # and both belonged to the coverage pass rather than to this one. That pass has landed.
+        # and both belonged to the coverage pass. That pass has landed.
         # The assertion is kept and inverted instead of deleted: it still says the two are not this
         # pass's to define, and it now fails if a rebuild of the token table takes the coverage work
         # back out with it. test_docs_check_coverage.py holds what those two are for.

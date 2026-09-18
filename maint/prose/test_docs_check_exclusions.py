@@ -217,7 +217,7 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
     def test_the_cost_is_named_and_it_is_two_files_of_our_own(self):
         """The rule takes two of this project's own index pages with the corpora they index.
 
-        Named here rather than discovered later by somebody wondering where a file went. The
+        Named here. The
         alternative is an allowlist inside each verbatim root, which is a second list to maintain
         for two files.
         """
@@ -624,7 +624,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         """Derived at run time. Nothing in any tree here writes about the convention today.
 
         The rule is the objective's own clause written down before a document needs it, which is the
-        opposite of the usual order and is why the number is asserted rather than described.
+        opposite of the usual order and is why the number is asserted.
         """
         roots = [os.path.join(dc.REPOSITORY, "maint")]
         if PROTOCORE:
@@ -649,7 +649,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         self.assertEqual(silenced, 0)
 
     def test_the_standards_rule_is_a_rewrite_refusal_and_not_a_scan_exemption(self):
-        """Measured out rather than kept, and the measurement is the reason.
+        """Measured out.
 
         Exempting a run for naming a standard silenced 1,733 findings in one tree unbounded and 20
         bounded to the alphabet tier, and every one of the 20 was ordinary prose in a paragraph that

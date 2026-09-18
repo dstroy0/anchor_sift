@@ -34,7 +34,7 @@ import sys
 # The number of covalent bonds each element forms in a neutral, closed-shell molecule. Chemistry's
 # own layer, not the element ledger: it names no proton count and no electron configuration. Helium
 # forms none. A charged or open-shell species is outside this model and is left out of the catalog
-# rather than forced through it.
+#.
 VALENCE = {"H": 1, "C": 4, "N": 3, "O": 2, "F": 1, "Cl": 1}
 
 Molecule = collections.namedtuple("Molecule", ("name", "atoms", "bonds"))

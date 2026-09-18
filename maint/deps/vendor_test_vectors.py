@@ -61,7 +61,7 @@ def _sibling_base():
     alike, and its parent is the main checkout. Its own parent is where the repositories sit.
 
     Git's variables are cleared because a rev-parse inheriting a hook's GIT_DIR answers about that
-    repository rather than about the directory it was asked from.
+    repository.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
