@@ -20,7 +20,7 @@
 # against Finnish and Polish against Czech are the related pairs, which say what a real family
 # relationship is worth on this measure.
 #
-# Two things are controlled because both would otherwise decide the answer. Spelling is stripped to bare
+# Two things are controlled because both would otherwise decide the answer. definition is stripped to bare
 # letters, since Hungarian and Polish decorate their vowels differently and that alone would separate
 # them. And every comparison uses the same number of words from each side, since a longer list gives any
 # word a closer nearest match by chance and the lists run from 19 words to 468.
@@ -47,8 +47,9 @@ SEED = 0x51F7
 def bare(word):
     """The word in plain letters, with the decoration each language adds taken off."""
     opened = unicodedata.normalize("NFD", word.lower())
-    kept = "".join(symbol for symbol in opened
-                   if ("a" <= symbol <= "z") or symbol.isspace())
+    kept = "".join(
+        symbol for symbol in opened if ("a" <= symbol <= "z") or symbol.isspace()
+    )
     # Polish files many of these as a call with a leading particle, which is not the sound word
     parts = kept.split()
     if len(parts) > 1 and parts[0] in ("a", "o", "e"):
@@ -64,8 +65,13 @@ def distance(one, two):
     for index, left in enumerate(one, 1):
         current = [index]
         for place, right in enumerate(two, 1):
-            current.append(min(previous[place] + 1, current[place - 1] + 1,
-                               previous[place - 1] + (left != right)))
+            current.append(
+                min(
+                    previous[place] + 1,
+                    current[place - 1] + 1,
+                    previous[place - 1] + (left != right),
+                )
+            )
         previous = current
     return previous[-1] / float(max(len(one), len(two)))
 
@@ -82,7 +88,9 @@ def nearness(first, second, rng):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     held = {}
     for name in sorted(os.listdir(CORPORA)):
@@ -90,12 +98,16 @@ def main():
             continue
         language = name[5:-4]
         with open(os.path.join(CORPORA, name), encoding="utf-8") as handle:
-            words = {line.rstrip(chr(10)).split(chr(9))[-1] for line in handle if line.strip()}
+            words = {
+                line.rstrip(chr(10)).split(chr(9))[-1]
+                for line in handle
+                if line.strip()
+            }
         words = sorted(word for word in words if 2 <= len(word) <= 14)
         if len(words) >= 18:
             held[language] = words
 
-    out.write("  %-12s %d words each, after stripping the spelling\n" % ("", 0))
+    out.write("  %-12s %d words each, after stripping the definition\n" % ("", 0))
     for language in sorted(held):
         out.write("  %-12s %d\n" % (language, len(held[language])))
 
@@ -110,7 +122,9 @@ def main():
         ("finnish", "estonian", "one family and a border"),
     )
 
-    out.write("\n  %-26s %-34s %s\n" % ("pair", "what they are to each other", "how near"))
+    out.write(
+        "\n  %-26s %-34s %s\n" % ("pair", "what they are to each other", "how near")
+    )
     rng = random.Random(SEED)
     marks = {}
     for one, two, note in pairs:
@@ -122,16 +136,32 @@ def main():
 
     out.write("\n  lower means the words sit closer\n")
     claim = marks.get(("hungarian", "polish"))
-    floors = [marks[key] for key in (("polish", "finnish"), ("polish", "estonian")) if key in marks]
-    families = [marks[key] for key in (("hungarian", "finnish"), ("hungarian", "estonian"),
-                                       ("polish", "czech"), ("finnish", "estonian")) if key in marks]
+    floors = [
+        marks[key]
+        for key in (("polish", "finnish"), ("polish", "estonian"))
+        if key in marks
+    ]
+    families = [
+        marks[key]
+        for key in (
+            ("hungarian", "finnish"),
+            ("hungarian", "estonian"),
+            ("polish", "czech"),
+            ("finnish", "estonian"),
+        )
+        if key in marks
+    ]
     if claim and floors:
         out.write("\n  hungarian to polish      %.4f\n" % claim)
         out.write("  unrelated and no border  %.4f\n" % statistics.fmean(floors))
-        out.write("  one family              %.4f\n" % (statistics.fmean(families)
-                                                        if families else float("nan")))
-        out.write("  the claim holds: %s\n"
-                  % ("yes" if claim < statistics.fmean(floors) else "no"))
+        out.write(
+            "  one family              %.4f\n"
+            % (statistics.fmean(families) if families else float("nan"))
+        )
+        out.write(
+            "  the claim holds: %s\n"
+            % ("yes" if claim < statistics.fmean(floors) else "no")
+        )
 
     out.flush()
     return 0

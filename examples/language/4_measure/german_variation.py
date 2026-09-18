@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/language/4_measure/german_variation.py
 #
-# Four centuries of change in German spelling, capitalization and typesetting move the reading by five
+# Four centuries of change in German definition, capitalization and typesetting move the reading by five
 # percent, and what swamps it is that two books are two books. That is a residue with a name and no
 # contents. This opens it.
 #
@@ -78,13 +78,17 @@ def read_all(century):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     gathered = []
     for century in CENTURIES:
         held = read_all(century)
-        out.write("  %s: %d texts long enough, %d authors\n"
-                  % (century, len(held), len({row[0] for row in held})))
+        out.write(
+            "  %s: %d texts long enough, %d authors\n"
+            % (century, len(held), len({row[0] for row in held}))
+        )
         gathered.extend(held)
 
     if len(gathered) < 60:
@@ -106,16 +110,21 @@ def main():
         if values is not None:
             rows.append((author, year, century, values))
 
-    repeated = sorted(author for author in {row[0] for row in rows}
-                      if sum(1 for row in rows if row[0] == author) >= 2)
-    out.write("\n  %d texts read, %d authors, %d of them with more than one work\n"
-              % (len(rows), len({row[0] for row in rows}), len(repeated)))
+    repeated = sorted(
+        author
+        for author in {row[0] for row in rows}
+        if sum(1 for row in rows if row[0] == author) >= 2
+    )
+    out.write(
+        "\n  %d texts read, %d authors, %d of them with more than one work\n"
+        % (len(rows), len({row[0] for row in rows}), len(repeated))
+    )
 
     same_author = []
     same_century = []
     other_century = []
     for index, one in enumerate(rows):
-        for two in rows[index + 1:]:
+        for two in rows[index + 1 :]:
             distance = float(numpy.linalg.norm(one[3] - two[3]))
             if one[0] == two[0]:
                 same_author.append(distance)
@@ -124,14 +133,24 @@ def main():
             else:
                 other_century.append(distance)
 
-    out.write("\n  %-38s %-9s %s\n" % ("two works that share", "pairs", "how far apart"))
-    for label, marks in (("the author, and so the century", same_author),
-                         ("the century, not the author", same_century),
-                         ("neither", other_century)):
+    out.write(
+        "\n  %-38s %-9s %s\n" % ("two works that share", "pairs", "how far apart")
+    )
+    for label, marks in (
+        ("the author, and so the century", same_author),
+        ("the century, not the author", same_century),
+        ("neither", other_century),
+    ):
         if len(marks) >= 20:
-            out.write("  %-38s %-9d %.4f\n" % (label, len(marks), statistics.fmean(marks)))
+            out.write(
+                "  %-38s %-9d %.4f\n" % (label, len(marks), statistics.fmean(marks))
+            )
 
-    if (len(same_author) >= 20) and (len(same_century) >= 20) and (len(other_century) >= 20):
+    if (
+        (len(same_author) >= 20)
+        and (len(same_century) >= 20)
+        and (len(other_century) >= 20)
+    ):
         author_worth = statistics.fmean(same_century) - statistics.fmean(same_author)
         century_worth = statistics.fmean(other_century) - statistics.fmean(same_century)
         floor = statistics.fmean(same_author)
@@ -139,10 +158,21 @@ def main():
         out.write("\n  sharing an author is worth        %.4f\n" % author_worth)
         out.write("  sharing a century is worth        %.4f\n" % century_worth)
         out.write("  what remains between two works    %.4f\n" % floor)
-        out.write("  the whole distance between two unrelated works is %.4f, of which\n" % widest)
-        out.write("    the author accounts for %.0f percent\n" % (100.0 * author_worth / widest))
-        out.write("    the century accounts for %.0f percent\n" % (100.0 * century_worth / widest))
-        out.write("    neither accounts for    %.0f percent\n" % (100.0 * floor / widest))
+        out.write(
+            "  the whole distance between two unrelated works is %.4f, of which\n"
+            % widest
+        )
+        out.write(
+            "    the author accounts for %.0f percent\n"
+            % (100.0 * author_worth / widest)
+        )
+        out.write(
+            "    the century accounts for %.0f percent\n"
+            % (100.0 * century_worth / widest)
+        )
+        out.write(
+            "    neither accounts for    %.0f percent\n" % (100.0 * floor / widest)
+        )
 
     out.flush()
     return 0

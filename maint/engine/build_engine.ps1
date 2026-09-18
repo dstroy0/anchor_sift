@@ -136,7 +136,7 @@ if ($haveCuda) {
 #
 # bench_dispatch used to sit beside it and no longer does. Its cycle counter gate tested __x86_64__
 # alone, a GCC and Clang predefine MSVC never sets. Every MSVC build fell through to a POSIX
-# clock_gettime that MSVC does not ship. The gate now carries the MSVC spelling.
+# clock_gettime that MSVC does not ship. The gate now carries the MSVC definition.
 #
 # anchor_steer and anchor_steer_arms used to be on this list and no longer exist. Both folded into
 # anchor_sift_kernel, the whole engine in one translation unit.

@@ -17,7 +17,7 @@
 # spread, because it is one more neighbor. An impulse leaves it, because it was drawn from somewhere
 # else. So the band a point must clear is the largest deviation its neighbors reach from their median,
 # with the point itself left out so it cannot widen its own band. No constant is chosen; the band is
-# whatever the neighbourhood shows.
+# whatever the neighborhood shows.
 #
 # This inherits the Hampel breakdown honestly. That is the floor, the
 # same floor a MAD test has, and it is a property of a window holding more than one outlier and not of
@@ -40,7 +40,7 @@ def neighbour_median(values, index, radius):
 def band_top(values, index, radius):
     """The largest distance any neighbor sits from the neighbors' median: the drawn band.
 
-    The spread the neighbourhood shows on its own. A sample inside this band is one the neighbors
+    The spread the neighborhood shows on its own. A sample inside this band is one the neighbors
     could have produced; a sample beyond it is one they could not. Returns 0 where the neighbors all
     agree, the case that makes a lone impulse unmistakable.
     """
@@ -55,7 +55,7 @@ def is_outlier(values, index, radius):
     """Whether the sample at `index` sits beyond the band its neighbors draw.
 
     True when the sample's distance from the neighbors' median is larger than any neighbor's. The
-    neighbourhood could not have produced it. Interior only: a point without a full window on both
+    neighborhood could not have produced it. Interior only: a point without a full window on both
     sides is an edge and is never flagged, a declared choice.
     """
     if (index < radius) or (index + radius >= len(values)):

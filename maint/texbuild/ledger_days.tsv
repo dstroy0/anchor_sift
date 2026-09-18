@@ -3,9 +3,9 @@ first_seen	line	lead
 2026-09-02	42	Three corollaries.
 2026-09-02	45	Collision entropy is permutation invariant. It cannot detect an arrangement.
 2026-09-02	52	What is derivable here and what is not falls exactly on the line between the two propositions.
-2026-09-02	69	The shuffle is the maximum entropy background, which is why it cannot be wrong.
+2026-09-02	69	The shuffle is the maximum entropy background,  it cannot be wrong.
 2026-09-04	74	Exactly one distribution maximizes entropy under a given constraint, and that is where the finality comes from.
-2026-09-04	84	That reference is necessarily memoryless, which is why the memoryless control returns 1.00 and is not a baseline anybody chose.
+2026-09-04	84	That reference is necessarily memoryless,  the memoryless control returns 1.00 and is not a baseline anybody chose.
 2026-09-04	102	The permutation null and the memoryless control are not the same object, and the difference is finite sample.
 2026-09-02	109	The maximum entropy domain is the best case for this filter. $2^{-H_2}$ per anchor is a floor.
 2026-09-02	121	It is also the largest difference obtainable.
@@ -47,7 +47,7 @@ first_seen	line	lead
 2026-09-02	658	What cell selection buys has a peak and then gives it all back.
 2026-09-02	664	The tail is the needle recurring in the corpus, and placement does not reach it.
 2026-09-02	671	There are two structure meters here operating at different spans, and they agree.
-2026-09-02	680	Collision entropy cannot see structure, which is why the null had to exist.
+2026-09-02	680	Collision entropy cannot see structure,  the null had to exist.
 2026-09-02	686	Predicting the aggregate rate and predicting one search are different problems.
 2026-09-02	691	The product rule is accurate where it does not matter and wrong where it is needed.
 2026-09-02	696	Where the anchors are placed changes the sizing more than which symbols they are.
@@ -161,7 +161,7 @@ first_seen	line	lead
 2026-09-03	2245	Run against every task here, the square wins two of four by margins the size of the noise, and the character frequencies alone come within three points of it.
 2026-09-03	2264	Twenty one numbers do what four thousand were doing.
 2026-09-03	2284	Cut down to two symbols the relationship still shows, and what is left is word length.
-2026-09-03	2303	The one clean success was challenged on its spelling and survived.
+2026-09-03	2303	The one clean success was challenged on its definition and survived.
 2026-09-03	2316	Given a close pair with nothing in the way, the reading finds it, and that fixes how far it reaches.
 2026-09-02	2337	With the language held fixed and only the characters changed, the reading moves by twice what changing nothing moves, and where a text came from moves it more than either.
 2026-09-03	2361	A family separated by an ocean is found, and the same test loses a relative three times older, which puts the depth limit on both sides of one run.

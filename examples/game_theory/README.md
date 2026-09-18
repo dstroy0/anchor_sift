@@ -97,7 +97,7 @@ passant or promotion. A generator can be wrong in three ways and still pass perf
 The blackjack dealer bust rate is a windowed check, and the window is stated in the call
 rather than chosen until the result passed. The published figure is quoted for an infinite deck and
 this is one deck with three cards already removed. The two differ by composition. Standing on 16
-wins only where the dealer busts, which is why that single number checks the whole dealer rule.
+wins only where the dealer busts, that single number checks the whole dealer rule.
 
 ## What is not folded in, and why the numbers look worse for it
 

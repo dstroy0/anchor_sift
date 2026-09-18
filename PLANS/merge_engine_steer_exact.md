@@ -69,7 +69,7 @@ test/engine/test_adversarial.c                  test/engine/test_steer.c
 
 Twelve of the fourteen come from `2c2cbe2` on one side and this branch's evolution of the same work on the other. The remaining two are worth naming because they are not add/add and a reader should not have to guess.
 
-`src/engine/c/bench/bench_dispatch.c` conflicts on one token. The base spells the type `AnchorSiftArm`; `origin/main` still does; this branch renamed it to `AnchorSiftEngine` and carries that spelling in `anchor_sift.h`, `exact_arm.h` and every caller. The rename is this branch's and taking this branch's side keeps the tree consistent.
+`src/engine/c/bench/bench_dispatch.c` conflicts on one token. The base spells the type `AnchorSiftArm`; `origin/main` still does; this branch renamed it to `AnchorSiftEngine` and carries that definition in `anchor_sift.h`, `exact_arm.h` and every caller. The rename is this branch's and taking this branch's side keeps the tree consistent.
 
 `src/engine/c/CMakeLists.txt` conflicts because this branch builds one `anchor_sift_kernel` target where `origin/main` builds the engine and the steer as separate units. The single target is what the fold requires.
 

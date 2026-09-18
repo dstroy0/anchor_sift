@@ -56,10 +56,22 @@ static void build_field(uint8_t *corpus, size_t length)
         state ^= state << 5;
 
         const uint32_t roll = state % 1000u;
-        if (roll < 400u)      { corpus[at] = 0x41u; }
-        else if (roll < 700u) { corpus[at] = 0x42u; }
-        else if (roll < 900u) { corpus[at] = 0x43u; }
-        else                  { corpus[at] = (uint8_t)(0x50u + (state % 40u)); }
+        if (roll < 400u)
+        {
+            corpus[at] = 0x41u;
+        }
+        else if (roll < 700u)
+        {
+            corpus[at] = 0x42u;
+        }
+        else if (roll < 900u)
+        {
+            corpus[at] = 0x43u;
+        }
+        else
+        {
+            corpus[at] = (uint8_t)(0x50u + (state % 40u));
+        }
     }
 }
 
@@ -103,7 +115,9 @@ int main(void)
     if ((corpus == NULL) || (host_pixels == NULL) || (device_pixels == NULL))
     {
         printf("  allocation failed\n");
-        free(corpus); free(host_pixels); free(device_pixels);
+        free(corpus);
+        free(host_pixels);
+        free(device_pixels);
         return 1;
     }
     build_field(corpus, RASTER_CORPUS);
@@ -116,7 +130,9 @@ int main(void)
     if (survivors == NULL)
     {
         printf("  allocation failed\n");
-        free(corpus); free(host_pixels); free(device_pixels);
+        free(corpus);
+        free(host_pixels);
+        free(device_pixels);
         return 1;
     }
 
@@ -281,7 +297,7 @@ int main(void)
     // and duplicates none, which is exactly the claim that distinct alignments reach distinct cells
     // whenever the block is large enough to hold them all. A layout that quietly folded two
     // alignments together would still render a plausible picture, and nothing else here would say
-    // so, which is why this is counted and not eyeballed.
+    // so,  this is counted and not eyeballed.
     printf("\n  VOLUME SWEEP, %u layouts by %u channels into 32 by 32 by 32\n\n",
            (unsigned)ANCHOR_VOLUME_LAYOUTS, (unsigned)ANCHOR_RASTER_CHANNELS);
     const int have_device_volume = anchor_volume_device_available();
@@ -307,8 +323,7 @@ int main(void)
             {
                 const AnchorVolumeConfig config = {
                     volume_edge, volume_edge, volume_edge, (AnchorVolumeLayout)layout,
-                    (AnchorRasterChannel)channel, ANCHOR_REDUCE_MAX, 1u
-                };
+                    (AnchorRasterChannel)channel, ANCHOR_REDUCE_MAX, 1u};
 
                 const int rendered = anchor_volume_render_host(voxels, &config, corpus,
                                                                RASTER_CORPUS, needle, RASTER_NEEDLE,
@@ -391,8 +406,7 @@ int main(void)
         // declared. Morton is the layout worth looking at, since it is the one that reads as a solid.
         const AnchorVolumeConfig sample = {
             volume_edge, volume_edge, volume_edge, ANCHOR_VOLUME_MORTON,
-            ANCHOR_CHANNEL_DEATH_LEVEL, ANCHOR_REDUCE_MAX, 1u
-        };
+            ANCHOR_CHANNEL_DEATH_LEVEL, ANCHOR_REDUCE_MAX, 1u};
         if (anchor_volume_render_host(voxels, &sample, corpus, RASTER_CORPUS, needle, RASTER_NEEDLE,
                                       steered, coarms, NULL) != 0)
         {
@@ -417,6 +431,9 @@ int main(void)
     free(seen);
 
     printf("\n  %d check(s) failed\n", failed);
-    free(corpus); free(host_pixels); free(device_pixels); free(survivors);
+    free(corpus);
+    free(host_pixels);
+    free(device_pixels);
+    free(survivors);
     return (failed == 0) ? 0 : 1;
 }

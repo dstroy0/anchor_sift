@@ -30,7 +30,11 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
 from representation.game import blackjack, checkers, chess, poker, rules  # noqa: E402
 
-MOVER_NAMES = {rules.PLAYER_ONE: "player one", rules.PLAYER_TWO: "player two", rules.CHANCE: "chance"}
+MOVER_NAMES = {
+    rules.PLAYER_ONE: "player one",
+    rules.PLAYER_TWO: "player two",
+    rules.CHANCE: "chance",
+}
 
 
 def show(title, game, state, note):
@@ -49,11 +53,15 @@ def show(title, game, state, note):
     print("  verdict      : %s" % ("still running" if verdict is None else verdict))
     if mover == rules.CHANCE:
         weights = game.weights(state)
-        print("  chance weights: %d entries summing to %d" % (len(weights), sum(weights)))
+        print(
+            "  chance weights: %d entries summing to %d" % (len(weights), sum(weights))
+        )
 
 
 def main():
-    print("Four games, one protocol. Every backend answers the same six calls and nothing else:")
+    print(
+        "Four games, one protocol. Every backend answers the same six calls and nothing else:"
+    )
     print("  initial, to_move, moves, weights, apply, verdict")
 
     game = chess.Chess()
@@ -85,7 +93,9 @@ def main():
     show(
         "POKER",
         game,
-        game.deal((card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))),
+        game.deal(
+            (card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))
+        ),
         "chance deals and the opponent chooses without seeing our hand",
     )
 
@@ -96,7 +106,7 @@ def main():
     print(
         "Nothing was rounded to build any of these. A card is an integer, a square is an index, and\n"
         "a deck is a count per rank. There is no scale, no tolerance and no grid anywhere in this\n"
-        "stage, which is why the later stages can compare two readings with == instead of a\n"
+        "stage,  the later stages can compare two readings with == instead of a\n"
         "tolerance. The subject was chosen partly for that: a game is a domain where the exact\n"
         "representation is the obvious one. Nothing is lost on the way in and any loss further\n"
         "down belongs to the measurement."

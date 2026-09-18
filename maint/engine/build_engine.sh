@@ -156,7 +156,7 @@ fi
 # bench_dispatch USED TO BE ON THIS LIST for the same reason and no longer belongs to it. It reached
 # CLOCK_MONOTONIC because its cycle counter gate tested __x86_64__ alone, which GCC and Clang define
 # and MSVC never does, sending every MSVC build to a POSIX substitute. The gate now carries the MSVC
-# spelling and the driver builds and runs here.
+# definition and the driver builds and runs here.
 #
 # anchor_steer and anchor_steer_arms USED TO BE ON THIS LIST and no longer exist. Both folded into
 # anchor_sift_kernel, the whole engine in one translation unit.

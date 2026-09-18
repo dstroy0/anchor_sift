@@ -97,7 +97,7 @@ def _sibling_base():
 # This counted two levels up from the repository root, which after the move into
 # repos/owned/{public,private} names repos/owned and not repos/owned/public. The file was never
 # found and every run printed the SKIP below. The skip was correct and loud; the path it reported
-# was wrong, which is why a visible message still went unnoticed.
+# was wrong,  a visible message still went unnoticed.
 WYCHEPROOF_FROM = os.path.join(
     _sibling_base(), "ProtoCore", "test", "vectors", "wycheproof_hmac_sha256.json"
 )

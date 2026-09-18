@@ -16,7 +16,7 @@
 #
 # The markdown case was added after three of them were found by reading rendered pages instead. A
 # --- typesets as an em dash. The check that had been looking for the character missed the one
-# spelling a converter produces; asterisks and escaped underscores reach the page as themselves.
+# definition a converter produces; asterisks and escaped underscores reach the page as themselves.
 # None of the three is a LaTeX error. The book builds clean and carries them to the archive.
 #
 # To see everything and fail on all of it:  python maint/prose/docs_check.py --strict

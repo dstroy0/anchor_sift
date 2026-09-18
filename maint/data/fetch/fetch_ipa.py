@@ -9,8 +9,8 @@
 #
 # Words for sounds follow the border and not the family: every bordering pair of languages measured came
 # out closer than every non-bordering pair, and Hungarian sat nearer Czech, which it is unrelated to, than
-# Finnish, which is its own family. That was measured on spelling with the accents stripped off, and
-# spelling is the wrong thing to measure for this.
+# Finnish, which is its own family. That was measured on definition with the accents stripped off, and
+# definition is the wrong thing to measure for this.
 #
 # Hungarian writes sz for one consonant and Polish writes sz for another. Two words said the same way are
 # counted far apart, and two written the same way are counted close when they are not. The effect showed
@@ -36,7 +36,9 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
 AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
@@ -57,8 +59,12 @@ LANGUAGES = {
 
 def ask(titles):
     query = {
-        "action": "query", "format": "json", "prop": "revisions",
-        "rvprop": "content", "rvslots": "main", "titles": "|".join(titles),
+        "action": "query",
+        "format": "json",
+        "prop": "revisions",
+        "rvprop": "content",
+        "rvslots": "main",
+        "titles": "|".join(titles),
     }
     url = API + "?" + urllib.parse.urlencode(query)
     for attempt in range(RETRIES):
@@ -83,7 +89,7 @@ def transcription(wikitext, heading, code):
     if start < 0:
         return None
     end = wikitext.find("\n==", start + 4)
-    section = wikitext[start:end if end > 0 else len(wikitext)]
+    section = wikitext[start : end if end > 0 else len(wikitext)]
 
     found = re.search(r"\{\{IPA\|%s\|([^}|]+)" % code, section)
     if not found:
@@ -96,7 +102,9 @@ def transcription(wikitext, heading, code):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     out.write("  %-12s %-9s %-9s %s\n" % ("language", "words", "with ipa", "share"))
 
     for language, (heading, code) in sorted(LANGUAGES.items()):
@@ -115,10 +123,12 @@ def main():
 
         said = {}
         for start in range(0, len(words), BATCH):
-            payload = ask(words[start:start + BATCH])
+            payload = ask(words[start : start + BATCH])
             time.sleep(PAUSE)
             if payload is None:
-                out.write("  %-12s refused partway, keeping %d\n" % (language, len(said)))
+                out.write(
+                    "  %-12s refused partway, keeping %d\n" % (language, len(said))
+                )
                 break
             for page in payload.get("query", {}).get("pages", {}).values():
                 title = page.get("title", "")
@@ -134,8 +144,10 @@ def main():
             with open(target, "w", encoding="utf-8", newline="") as handle:
                 for word in sorted(said):
                     handle.write("%s\t%s\n" % (word, said[word]))
-        out.write("  %-12s %-9d %-9d %.2f\n"
-                  % (language, len(words), len(said), len(said) / float(max(len(words), 1))))
+        out.write(
+            "  %-12s %-9d %-9d %.2f\n"
+            % (language, len(words), len(said), len(said) / float(max(len(words), 1)))
+        )
         out.flush()
 
     out.flush()

@@ -113,7 +113,7 @@ fi
 # mean identical content and there is nothing to pull.
 #
 # The first version of this compared with git diff --quiet FETCH_HEAD:. HEAD:theory_bucket. That
-# path spelling is not valid, git exits 128 on it, and 128 is not zero. The test read every
+# path definition is not valid, git exits 128 on it, and 128 is not zero. The test read every
 # already-current subtree as changed and ran a pull on every merge. A check that cannot fail closed
 # has to be one whose failure is distinguishable from its answer.
 theirs=$(git rev-parse --verify --quiet "FETCH_HEAD^{tree}" 2>/dev/null)

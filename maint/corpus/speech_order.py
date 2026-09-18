@@ -10,7 +10,7 @@
 #
 # WHY THE ORDER IS DRAWN AND NOT DECIDED
 #
-# Any order somebody picks is a ranking. Alphabetical ranks by the spelling an English keyboard
+# Any order somebody picks is a ranking. Alphabetical ranks by the definition an English keyboard
 # gave the language. By oracle count ranks by how much has already been taken. By how easy the
 # program is to reach ranks by who has a website. Each of those encodes a judgement made by whoever
 # held the list.

@@ -25,7 +25,7 @@ STEPS = [
         "store",
         "Keep it as runs",
         "each basin becomes the stretches of voxels it holds along each row, and the"
-        " frame is those runs: about 27 times smaller than the labelled volume",
+        " frame is those runs: about 27 times smaller than the labeled volume",
         "frame",
     ),
     (
@@ -390,7 +390,7 @@ def main():
         text(
             64 + dense_room + 12,
             y + 111,
-            "%s bytes as labelled voxels" % grouped(dense),
+            "%s bytes as labeled voxels" % grouped(dense),
             15,
             DIM,
         )

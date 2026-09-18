@@ -79,7 +79,7 @@ static void grade(const char *what, size_t measured, size_t expected)
     {
         failures += 1u;
     }
-    // %zu, the spelling the rest of this tree already uses for a size_t. gcc warns on it
+    // %zu, the definition the rest of this tree already uses for a size_t. gcc warns on it
     // here because MinGW's headers assume msvcrt semantics; the runtime actually linked is the
     // UCRT, which has handled %zu since Visual Studio 2015, and the warning is noise.
     //

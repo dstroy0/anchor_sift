@@ -20,7 +20,7 @@
 # have the volume subsume the gap measure was the wrong shape from the start.
 #
 # What singles out the moving corpora took three tries. Ordered values was wrong, since recorded
-# speech is as ordered as a greyscale level and holds. Nearness between neighbors was wrong on its
+# speech is as ordered as a grayscale level and holds. Nearness between neighbors was wrong on its
 # own, since speech sits at 0.54 and whale song at 0.48 and only one of them moves. What the movers
 # have is long stays: a picture is flat regions with edges between them, and speech has small steps
 # and never stays anywhere because articulation never stops moving.
@@ -69,9 +69,20 @@ def main():
         print("usage: which_corpora_read_their_numbering.py corpus.sym [more.sym ...]")
         return 1
 
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  %-26s %-14s %-14s %-9s %-9s %s\n"
-              % ("corpus", "gap: given", "gap: renumbered", "stay", "abrupt", "volume verdict"))
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  %-26s %-14s %-14s %-9s %-9s %s\n"
+        % (
+            "corpus",
+            "gap: given",
+            "gap: renumbered",
+            "stay",
+            "abrupt",
+            "volume verdict",
+        )
+    )
 
     rng = numpy.random.default_rng(SEED)
     for path in sys.argv[1:]:
@@ -101,18 +112,35 @@ def main():
             continue
 
         scatter = float(numpy.std(drawn_volume))
-        distance = (abs(given_volume - float(numpy.mean(drawn_volume))) / scatter
-                    if scatter > 0.0 else float("inf"))
+        distance = (
+            abs(given_volume - float(numpy.mean(drawn_volume))) / scatter
+            if scatter > 0.0
+            else float("inf")
+        )
         stay = mean_stay(values, band_for(values))
 
-        out.write("  %-26s %-14.4f %-14.4f %-9.2f %-9.4f %s\n"
-                  % (os.path.basename(path)[:-4], given_gap, float(numpy.mean(drawn_gap)),
-                     stay, abruptness(values),
-                     "reads the numbering, %.1f sd" % distance if distance >= 3.0
-                     else "blind to it"))
+        out.write(
+            "  %-26s %-14.4f %-14.4f %-9.2f %-9.4f %s\n"
+            % (
+                os.path.basename(path)[:-4],
+                given_gap,
+                float(numpy.mean(drawn_gap)),
+                stay,
+                abruptness(values),
+                (
+                    "reads the numbering, %.1f sd" % distance
+                    if distance >= 3.0
+                    else "blind to it"
+                ),
+            )
+        )
 
-    out.write("\n  the two gap columns have to agree. Any difference between them is a defect\n")
-    out.write("  in this script and never a finding, since renaming symbols cannot move a\n")
+    out.write(
+        "\n  the two gap columns have to agree. Any difference between them is a defect\n"
+    )
+    out.write(
+        "  in this script and never a finding, since renaming symbols cannot move a\n"
+    )
     out.write("  reading of where they fall\n")
     out.flush()
     return 0

@@ -45,8 +45,9 @@ def every_mark(text):
     channel against a whole inventory and the difference is what that channel was worth.
     """
     opened = unicodedata.normalize("NFD", text)
-    return tuple(sorted({symbol for symbol in opened
-                         if unicodedata.category(symbol) == "Mn"}))
+    return tuple(
+        sorted({symbol for symbol in opened if unicodedata.category(symbol) == "Mn"})
+    )
 
 
 def strip_marks(text, wanted):
@@ -68,7 +69,7 @@ def to_bare(text):
     then holds a symbol another lacks. Nothing can be named by its inventory.
 
     That test was worth running because a milder one had already moved fourteen of twenty languages
-    to a different nearest neighbor, which read as the family signal being spelling. Removing the
+    to a different nearest neighbor, which read as the family signal being definition. Removing the
     alphabet entirely gives 13 of 22 languages nearest a relative, against 13 of 22 for reading every
     character they actually use. The alphabet is worth nothing to the family result, and the earlier
     reading of that milder test was an overclaim.
@@ -101,8 +102,11 @@ def latin_share(text):
     letters = sum(1 for symbol in text if symbol.isalpha())
     if letters == 0:
         return 0.0
-    latin = sum(1 for symbol in unicodedata.normalize("NFD", text)
-                if "a" <= symbol.lower() <= "z")
+    latin = sum(
+        1
+        for symbol in unicodedata.normalize("NFD", text)
+        if "a" <= symbol.lower() <= "z"
+    )
     return latin / float(letters)
 
 

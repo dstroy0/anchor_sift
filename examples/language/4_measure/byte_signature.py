@@ -105,7 +105,9 @@ def apart(first, second):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     if not os.path.isfile(SALISH):
         out.write("  no %s, run salish_corpus.py first\n" % SALISH)
         out.flush()
@@ -154,52 +156,94 @@ def main():
                 continue
             others.append(apart(shapes[names[one]], shapes[names[two]]))
 
-    out.write("\n  those distances carry the writing as well as the language. nɬeʔkepmxcín is\n")
-    out.write("  written in NAPA and shares almost no bytes with Cyrillic, which is why\n")
-    out.write("  Russian sits at 1.0000. Cutting a language in half compares it with itself\n")
+    out.write(
+        "\n  those distances carry the writing as well as the language. nɬeʔkepmxcín is\n"
+    )
+    out.write("  written in NAPA and shares almost no bytes with Cyrillic, \n")
+    out.write(
+        "  Russian sits at 1.0000. Cutting a language in half compares it with itself\n"
+    )
     out.write("  in its own writing. That number is free of this \n")
 
     out.write("\n  every language cut in half, the halves against each other\n")
-    out.write("  the support and the entropy are printed beside it because a writing that\n")
-    out.write("  uses few byte pairs concentrates its distribution and steadies at a smaller\n")
-    out.write("  sample, which would make it look consistent for a reason that is not the\n")
-    out.write("  language. If closeness tracks support, the encoding is doing the work\n")
+    out.write(
+        "  the support and the entropy are printed beside it because a writing that\n"
+    )
+    out.write(
+        "  uses few byte pairs concentrates its distribution and steadies at a smaller\n"
+    )
+    out.write(
+        "  sample, which would make it look consistent for a reason that is not the\n"
+    )
+    out.write(
+        "  language. If closeness tracks support, the encoding is doing the work\n"
+    )
     halves = []
     for name in names:
         text = bare(held[name])
         middle = len(text) // 2
         value = apart(pairs(text[:middle]), pairs(text[middle:]))
         shape = shapes[name]
-        spread = -sum(share * math.log(share, 2) for share in shape.values() if share > 0)
+        spread = -sum(
+            share * math.log(share, 2) for share in shape.values() if share > 0
+        )
         halves.append((value, name, len(shape), spread))
     halves.sort()
-    out.write("\n  %-14s %-9s %-9s %s\n" % ("language", "halves", "pairs", "entropy, bits"))
+    out.write(
+        "\n  %-14s %-9s %-9s %s\n" % ("language", "halves", "pairs", "entropy, bits")
+    )
     for value, name, support, spread in halves:
-        out.write("  %-14s %-9.4f %-9d %-9.3f%s\n"
-                  % (name, value, support, spread,
-                     "   <- the one being tested" if name == "nlekepmxcin" else ""))
+        out.write(
+            "  %-14s %-9.4f %-9d %-9.3f%s\n"
+            % (
+                name,
+                value,
+                support,
+                spread,
+                "   <- the one being tested" if name == "nlekepmxcin" else "",
+            )
+        )
 
-    elsewhere = [value for value, name, support, spread in halves if name != "nlekepmxcin"]
+    elsewhere = [
+        value for value, name, support, spread in halves if name != "nlekepmxcin"
+    ]
     middle_of_them = statistics.fmean(elsewhere)
     out.write("\n  nɬeʔkepmxcín against itself      %.4f\n" % itself)
     out.write("  the other nineteen, on average   %.4f\n" % middle_of_them)
-    out.write("  the worst of them               %.4f  (%s)\n"
-              % (max(elsewhere),
-                 [name for value, name, support, spread in halves
-                  if value == max(elsewhere)][0]))
-    out.write("  nearest other language           %.4f  (%s)\n"
-              % (distances[0][0], distances[0][1]))
+    out.write(
+        "  the worst of them               %.4f  (%s)\n"
+        % (
+            max(elsewhere),
+            [
+                name
+                for value, name, support, spread in halves
+                if value == max(elsewhere)
+            ][0],
+        )
+    )
+    out.write(
+        "  nearest other language           %.4f  (%s)\n"
+        % (distances[0][0], distances[0][1])
+    )
     out.write("  two unrelated languages, average %.4f\n" % statistics.fmean(others))
 
     out.write("\n")
     if itself <= max(elsewhere):
-        out.write("  a story split in two is no further from itself than other languages are\n")
-        out.write("  from themselves at this size, and it is %.1f times nearer to itself than\n"
-                  % (distances[0][0] / itself))
+        out.write(
+            "  a story split in two is no further from itself than other languages are\n"
+        )
+        out.write(
+            "  from themselves at this size, and it is %.1f times nearer to itself than\n"
+            % (distances[0][0] / itself)
+        )
         out.write("  to the nearest of nineteen others. The signature is present\n")
     else:
-        out.write("  a story split in two is further from itself than any other language is\n")
-        out.write("  from itself at this size. What separates it from the others cannot\n")
+        out.write(
+            "  a story split in two is further from itself than any other language is\n"
+        )
+        out.write(
+            "  from itself at this size. What separates it from the others cannot\n"
+        )
         out.write("  be told apart from having too little of it\n")
 
     out.flush()

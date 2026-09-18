@@ -15,7 +15,7 @@
  * @note ONE PRIMITIVE, WRITTEN ONCE. Every loop below asks whether `corpus[at + offset]` equals
  *       `needle[offset]` and counts the positions where it does. The search counts matches, the
  *       steering counts survivors, and the scan counts the same survivors wider. They were three
- *       files until they were folded here, which is why a reader looking for the engine now opens
+ *       files until they were folded here,  a reader looking for the engine now opens
  *       one file instead of a directory.
  * @note Every engine has the same signature and returns the same count, letting a driver call any
  *       of them through one pointer. Where two disagree, one of them has a defect. Nothing about
@@ -918,7 +918,7 @@ extern "C"
      * where an arm reads one. An eye has to prune more than L times as hard to be worth spawning.
      * The score here is survivors, which does not carry that cost. The caller comparing an eye
      * against an arm has to compare READS and not survivors. test_steer does exactly that and reports
-     * both, which is why the guide recommends measuring.
+     * both,  the guide recommends measuring.
      *
      * TERMINATION, unchanged and for the same reason. One probe per level, `wanted` levels, bounded by
      * ANCHOR_STEER_ANCHORS at compile time. The sweep inside a level is three nested bounded loops over

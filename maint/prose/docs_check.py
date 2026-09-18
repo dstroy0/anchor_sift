@@ -112,7 +112,7 @@ BANNED = (
         r"cost and not a defect",
         r"\b(is|was|are|were) an? [\w-]+ and not an? [\w-]+",
         r"(?m)(?:\A|(?<=[.!?] ))(?:(?:An?|The) )?[\w-]+, not (?:(?:an?|the) )?[\w-]+\.(?:\s|\Z)",
-        r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
+        r"\b(name|definition|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
         r"conveys|convey|announces|announce|advertises|advertise|makes clear|make clear)\b",
         r"\bso an?\b",
         r",\s+so\s+(?!that\b|far\b)",
@@ -588,7 +588,7 @@ HUMAN_RATE = {
     r"\bendeavor\b": 0.4,
     r"\baforementioned\b": 0.4,
     r"\badd up\b": 0.4,
-    r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|conveys|convey|announces|announce|advertises|advertise)\b": 0.4,
+    r"\b(name|definition|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|conveys|convey|announces|announce|advertises|advertise)\b": 0.4,
     r"\buser.friendly\b": 0.3,
     r"\bunlock(s|ing)? the\b": 0.3,
     r"\bunderpin": 0.3,
@@ -632,7 +632,7 @@ HUMAN_RATE = {
 def stage_of(pattern):
     """Which of the three filters a pattern belongs to: alphabet, word or phrase.
 
-    A pattern is alphabet when it is a spelling. It is phrase when it matches across a space, and that
+    A pattern is alphabet when it is a definition. It is phrase when it matches across a space, and that
     makes it a shape instead of a vocabulary item. Everything else is word.
 
     This answers what a pattern LOOKS like. tier_of answers what authority it carries, and the two
@@ -674,7 +674,7 @@ AUTHORITY = {
     r"\b(is|was|are|were) the [\w-]+ and not the [\w-]+": "code-documentation:146",
     r"(?m)(?:\A|(?<=[.!?] ))(?:(?:An?|The) )?[\w-]+, not (?:(?:an?|the) )?[\w-]+\.(?:\s|\Z)": "code-documentation:146",
     r"\bhas no call and no text:": "code-documentation:146",
-    r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
+    r"\b(name|definition|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
     r"conveys|convey|announces|announce|advertises|advertise|makes clear|make clear)\b": "code-documentation:147, code-comments:156",
     r"load-bearing": "code-documentation:148",
     r"\blet['’]s\b": "code-documentation:148, code-comments:155",
@@ -702,7 +702,7 @@ COMMENT_ONLY = frozenset((r"\bspelling\b",))
 
 
 def tier_of(pattern):
-    """A for a named-construction ban, B for frequency-scored vocabulary, alphabet for a spelling.
+    """A for a named-construction ban, B for frequency-scored vocabulary, alphabet for a definition.
 
     Read AUTHORITY above for why this is not stage_of with different words.
     """
@@ -1078,7 +1078,7 @@ def generated_regions(lines):
 BRITISH_SUBJECT = (
     re.compile(
         r"\b(?:british|american|canadian|commonwealth|oxford)\s+"
-        r"(?:english|spelling|spellings|convention|conventions|usage|variant|variants"
+        r"(?:english|definition|spellings|convention|conventions|usage|variant|variants"
         r"|orthograph\w*|dictionar\w*)",
         re.IGNORECASE,
     ),
@@ -1472,7 +1472,7 @@ def banned_tokens(
         if tier == "A":
             note = "tier A %s %r, banned at %s" % (shape, said, AUTHORITY[pattern])
         elif tier == "alphabet":
-            note = "spelling %r, American convention is the house rule" % said
+            note = "definition %r, American convention is the house rule" % said
         elif rate:
             note = "tier B %s %r, %.1f per 100k in %s" % (shape, said, rate, CORPUS)
         else:

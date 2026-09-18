@@ -362,7 +362,7 @@ def main():
 
     out.write(
         "\n    %-30s %-30s %-8s %s\n"
-        % ("as extracted", "the paper's own spelling", "score", "other readings")
+        % ("as extracted", "the paper's own definition", "score", "other readings")
     )
     read = 0
     ambiguous = 0

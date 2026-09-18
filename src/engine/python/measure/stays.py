@@ -8,7 +8,7 @@
 #
 # Only some corpora move when their symbols are renumbered, and the property behind it was narrowed
 # twice by things that turned out not to be it. Ordered values was wrong, since recorded speech is
-# as ordered as a greyscale level and holds. Nearness between neighbors was wrong on its own, since
+# as ordered as a grayscale level and holds. Nearness between neighbors was wrong on its own, since
 # speech sits at 0.54 and whale song at 0.48 and only one of them moves.
 #
 # What the moving corpora have is not small steps but long stays. A picture is flat regions with

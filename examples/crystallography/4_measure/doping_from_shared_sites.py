@@ -233,7 +233,7 @@ def main():
     for elements, count in sorted(pairs.items(), key=lambda pair: -pair[1])[:15]:
         out.write("     %-28s %d\n" % ("/".join(elements), count))
 
-    # Derived, and labelled as derived. The line above is the measurement: element strings exactly
+    # Derived, and labeled as derived. The line above is the measurement: element strings exactly
     # as deposited. Those strings disagree across deposits for the same chemistry, and the corpus
     # carries Fe2+, Fe+2, Fe and FE for one element. The raw tally splits one substitution
     # across four rows and understates every one of them.

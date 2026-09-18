@@ -39,7 +39,7 @@
 #include <x86intrin.h>
 #define CYCLES_ARE_REAL 1
 #elif defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
-/* The same part reached through the other compiler's spelling, as in bench_scaling.c. __x86_64__ is
+/* The same part reached through the other compiler's definition, as in bench_scaling.c. __x86_64__ is
  * a GCC and Clang predefine that MSVC never sets, and the monotonic substitute below needs
  * clock_gettime, which MSVC does not ship. */
 #include <intrin.h>

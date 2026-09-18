@@ -44,7 +44,7 @@ from reference.shuffles import SEED, permuted  # noqa: E402
 
 # The standard valence of each element used here: the number of covalent bonds a neutral, closed-shell
 # atom of it forms. A fact from general chemistry, not derived from anything measured in this script.
-# Helium forms none, which is why the He2 negative control cannot close.
+# Helium forms none,  the He2 negative control cannot close.
 VALENCE = {"H": 1, "C": 4, "N": 3, "O": 2, "F": 1, "Cl": 1, "He": 0}
 
 # Each molecule is atoms carrying an element and bonds carrying an order. A bond order counts the

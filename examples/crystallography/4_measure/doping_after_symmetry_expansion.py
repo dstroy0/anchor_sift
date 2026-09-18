@@ -52,7 +52,7 @@
 # that announced it. crystal.site_table drops those rows now, and re-reading both published figures
 # with them kept and dropped moved no period and flipped no agreement.
 #
-# A THIRD HAS NO DECIMAL, WHICH IS WHY THIS NEEDED A NEW SCALE
+# A THIRD HAS NO DECIMAL,  THIS NEEDED A NEW SCALE
 #
 # See representation/structure/symmetry.py. A translation of 1/3 is not a decimal at any number of
 # places. Carrying an R centred operation through the decimal scale would displace every copy it

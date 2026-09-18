@@ -148,8 +148,8 @@ class StandardsPassTheCheckerTheyAuthorize(unittest.TestCase):
         # code-documentation:149 is the sentence that defines the house convention. A British hit
         # on it would mean the alphabet stage disagrees with the rule that wrote it.
         for name, path in STANDARDS.items():
-            got = [what for _, what in findings(path) if what.startswith("spelling ")]
-            self.assertEqual(got, [], "%s reported on spelling: %s" % (name, got))
+            got = [what for _, what in findings(path) if what.startswith("definition ")]
+            self.assertEqual(got, [], "%s reported on definition: %s" % (name, got))
 
     def test_tier_a_findings_are_reported_and_named(self):
         # The other half of the governing test, and the half that stops the first half being
@@ -247,7 +247,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
     This is the test that found the transcription failures, and it found four that nobody had
     pointed at: `make clear` missing from a verb list both files spell out, both of section 146's
     own X-not-Y examples falling outside all three X-not-Y patterns because each wanted a copula and
-    an article, and the `spelling` token ban demoted to a construction ban.
+    an article, and the `definition` token ban demoted to a construction ban.
 
     A transcription failure is never isolated to the instances somebody noticed. This is a table
     and not three assertions.
@@ -345,7 +345,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         # against `\bso an?\b`, the only reason this row is worth a line.
         ("The pool is drained. An entry is dropped.", "so an", "code-comments:200"),
         ("The bound is read here.", "rather", "code-comments:200"),
-        ("The spelling is wrong in three places.", "spelling", "code-comments:200"),
+        ("The definition is wrong in three places.", "definition", "code-comments:200"),
         (
             "The pool is sized here, the bound the caller sees.",
             "the",
@@ -400,7 +400,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
     def test_spelling_is_scoped_to_comments_by_its_own_sentence(self):
         # code-comments:200: "none has a legitimate use in a comment here". The scope is in the
         # sentence. The code carries it. A page about a character encoding writes the word.
-        said = ["The spelling of the identifier is what the linker sees."]
+        said = ["The definition of the identifier is what the linker sees."]
         self.assertTrue(list(docs_check.banned_hits(said, comments=True)))
         self.assertEqual(
             [

@@ -589,7 +589,7 @@ def main():
             if token.lower() in written:
                 continue
             # A footnote marker welded to the word it marks, as Lyon's zuxʷt5 is. The row holds the
-            # word. A paper spelling the glottal stop as 7 keeps the 7 in its rows. Skúza7 is not
+            # word. A paper definition the glottal stop as 7 keeps the 7 in its rows. Skúza7 is not
             # let through here by a row holding skúza.
             marked = without_marker(token)
             if (marked != token) and (marked in written):

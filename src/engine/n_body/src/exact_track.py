@@ -709,7 +709,7 @@ def command_parallax_truth(args):
             )
         )
     print(
-        "\n  %d of %d samples: the depth-dependent part of the step, across the labelled depth, is at "
+        "\n  %d of %d samples: the depth-dependent part of the step, across the labeled depth, is at "
         "least a typical step" % (consistent, measured)
     )
 
@@ -749,7 +749,7 @@ def command_parallax_truth(args):
                 )
     if raw_lengths:
         print(
-            "\n  frame motion, over %d frames with at least three labelled steps:"
+            "\n  frame motion, over %d frames with at least three labeled steps:"
             % len(drifts)
         )
         print(
@@ -1426,7 +1426,7 @@ def command_score(args):
     grow_tree.merge_target = getattr(args, "merge_target", False)
     grow_tree.forward_only = getattr(args, "forward_only", False)
     print(
-        "  Scored against the published answer key, recall over its edges. A labelled node is the"
+        "  Scored against the published answer key, recall over its edges. A labeled node is the"
     )
     print(
         "  object whose basin its own voxel climbs to. Exact arithmetic throughout.\n"
@@ -1703,7 +1703,7 @@ def command_score(args):
 def print_failure_table(records):
     failed = [record for record in records if record["type"] != "correct"]
     print(
-        "\n  LABELLED EDGES BY OUTCOME TYPE, every run of the culminating linker, all objects kept"
+        "\n  labeled EDGES BY OUTCOME TYPE, every run of the culminating linker, all objects kept"
     )
     print(
         "  %-17s %6s %6s  %-12s %-9s %-9s %-9s %-9s %-9s %s"
@@ -1794,7 +1794,7 @@ def main():
     )
     score = commands.add_parser("score", help="detect, link and score")
     parallax = commands.add_parser(
-        "parallax-truth", help="whether labelled steps depend on depth"
+        "parallax-truth", help="whether labeled steps depend on depth"
     )
     parallax.add_argument("--limit", type=int, default=200)
     for sub in (grade, arc, score, parallax):

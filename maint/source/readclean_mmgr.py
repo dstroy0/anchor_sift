@@ -54,8 +54,8 @@ sys.path.insert(0, HERE)
 from strip_comments import rewrite
 from codemask import code_mask
 
-# Path arguments are resolved against the working directory FIRST. The spelling a reader types
-# is the spelling that works, then against the library and the repo. `src/confinium/confinium.h` and
+# Path arguments are resolved against the working directory FIRST. The definition a reader types
+# is the definition that works, then against the library and the repo. `src/confinium/confinium.h` and
 # `mmgr/src/confinium/confinium.h` both land on the same file from either directory.
 ROOT = os.getcwd()
 BASES = (ROOT, LIB, REPO)
@@ -244,9 +244,9 @@ ATTRS = {
 }
 # --- this project's prefixes -------------------------------------------------
 # The only place a fork of this tool has to be edited. Every rule below that names a project prefix
-# builds its regex from here instead of spelling the prefix inline. Adding a second spelling is
+# builds its regex from here instead of definition the prefix inline. Adding a second definition is
 # one edit instead of four. If one is ever added, order it longest first: a shorter alternative
-# that matches first leaves the tail of the longer spelling behind as the stem.
+# that matches first leaves the tail of the longer definition behind as the stem.
 PREFIX_UPPER = ("MMGR",)
 PREFIX_LOWER = ("mmgr",)
 _PU = "(?:%s)" % "|".join(PREFIX_UPPER)
@@ -458,7 +458,7 @@ class Blinder(object):
             ):
                 self.table[nm] = self._next("e")
 
-        # A REGION MACRO is named for its region by its BODY, not by its own spelling: sha256.c
+        # A REGION MACRO is named for its region by its BODY, not by its own definition: sha256.c
         # writes `SHA256_FS(w)` over `SHA256_OFF_STATE`. Reading the letter off the macro's suffix
         # filed FS as a region of its own. The cast and the offset it reads came out as X1_C and
         # X1_OFF_B - and whether each cast reads the offset it belongs to is the question.

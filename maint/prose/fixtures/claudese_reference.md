@@ -45,7 +45,7 @@ multiple scales simultaneously.
 
 ### Stage One: The Alphabet Layer
 
-First and foremost, we examine spelling conventions. This foundational layer serves as a powerful
+First and foremost, we examine definition conventions. This foundational layer serves as a powerful
 signal for locale identification. It's worth noting that this stage, while seemingly trivial, often
 yields the most immediately actionable insights.
 

@@ -202,14 +202,14 @@ def language_names(known):
         if not name:
             continue
         # The same name is written with and without its leading n, and with ł for ɬ.
-        for spelling in (
+        for definition in (
             name,
             name.lstrip("n"),
             name.replace("ɬ", "ł"),
             name.replace("ł", "ɬ"),
         ):
-            if spelling:
-                held.setdefault(spelling, set()).update(row.get("speakers") or ())
+            if definition:
+                held.setdefault(definition, set()).update(row.get("speakers") or ())
     return held
 
 

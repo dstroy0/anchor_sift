@@ -26,7 +26,7 @@
  *       the same data, which is what catches a drift.
  * @note THE WHOLE OBJECT CROSSES THE BUS PER CALL. The corpus and the survivor vector are copied to
  *       the device. This arm pays a transfer a host arm does not. It wins only where the object is
- *       large enough to amortize that, which is why it is graded and timed.
+ *       large enough to amortize that,  it is graded and timed.
  * @note A device refusal falls back to a host count instead of returning a sentinel into a table of
  *       counts, matching arm_cuda.cu. A driver comparing arms would otherwise read the sentinel as a
  *       disagreement and blame the scan for what was an allocation failure.

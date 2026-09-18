@@ -488,7 +488,7 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
 
         Zero is the outcome to want from a rule whose job is to protect an artifact and not to hide
         a backlog. A block walker reaching too far reports the same zero on this test and 164
-        findings on the tree, which is why the two boundary tests above are asserted by shape.
+        findings on the tree,  the two boundary tests above are asserted by shape.
         """
         roots = [os.path.join(dc.REPOSITORY, "maint")]
         if IDEMIP:
@@ -679,7 +679,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         ]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
         self.assertEqual(
-            [one for one in found if one.startswith("spelling")],
+            [one for one in found if one.startswith("definition")],
             [],
             "the subject of the sentence is the convention itself",
         )
@@ -687,7 +687,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
     def test_the_same_passage_still_reports_a_construction(self):
         """The bound is the test. A paragraph about convention does not get a register pass."""
         said = [
-            "# British spelling is what makes the difference. A reader has to know."
+            "# British definition is what makes the difference. A reader has to know."
         ]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
         self.assertTrue(
@@ -700,20 +700,20 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         said = ["# British Telecom asked for an optimisation of the initialised path."]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
         self.assertTrue(
-            any(one.startswith("spelling") for one in found),
+            any(one.startswith("definition") for one in found),
             "the subject here is a company. The convention is still reported",
         )
 
     def test_the_exemption_is_bounded_to_the_run_that_carries_the_subject(self):
         said = [
-            "# British spelling writes colour.",
+            "# British definition writes colour.",
             "",
             "# The optimisation runs once.",
         ]
         at = [
             one
             for one, what in dc.banned_tokens(said, comments=True)
-            if what.startswith("spelling")
+            if what.startswith("definition")
         ]
         self.assertEqual(
             at, [3], "the next paragraph is a different run and is reported"
@@ -769,7 +769,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         ]
         found = [what for _, what in dc.banned_tokens(said, comments=True)]
         self.assertTrue(
-            any(one.startswith("spelling") for one in found),
+            any(one.startswith("definition") for one in found),
             "naming a standard does not turn the convention stage off",
         )
         why = dc.fix_refusal("a/file.c", "alphabet", line=said[0])

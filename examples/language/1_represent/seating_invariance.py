@@ -11,7 +11,7 @@
 # Three times now a free parameter has been introduced and then measured in place of the corpus: a
 # dimension assigned per domain, a ceiling chosen for a sweep with no bound, and now the number each
 # symbol is given. The bit volume Gray codes those numbers so that two values one apart differ in one
-# bit, which is only meaningful where being one apart already meant something. A greyscale level, a sound
+# bit, which is only meaningful where being one apart already meant something. A grayscale level, a sound
 # amplitude and an ASCII code all carry that order. A number handed out in order of first appearance does
 # not, and neither does one handed out by a re-slice.
 #
@@ -37,7 +37,11 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
-from representation.bit_volume import gray_bits, load_symbols, spectrum_gap  # noqa: E402
+from representation.bit_volume import (
+    gray_bits,
+    load_symbols,
+    spectrum_gap,
+)  # noqa: E402
 
 CORPORA = os.path.join(ROOT, "build", "corpora")
 
@@ -50,6 +54,7 @@ WIDTHS = tuple(range(2, 65))
 def load(path, name):
     """One byte per symbol, from a byte file or a text one, cut to CAP."""
     return load_symbols(path, CAP, as_text=name.endswith(".txt"))
+
 
 SEED = 0x51F7
 DRAWS = 8
@@ -79,9 +84,13 @@ def excess_at(values, width):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  %-26s %-12s %-22s %s\n"
-              % ("corpus", "as numbered", "renumbered mean, sd", "verdict"))
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  %-26s %-12s %-22s %s\n"
+        % ("corpus", "as numbered", "renumbered mean, sd", "verdict")
+    )
 
     rng = numpy.random.default_rng(SEED)
     for name in WANTED:
@@ -108,10 +117,18 @@ def main():
         # A reading inside the spread of its own renumberings is a reading of the corpus. A reading far
         # outside that spread came from the numbering, which was chosen here and is not a fact about it.
         spread = float(drawn.std())
-        distance = abs(given - float(drawn.mean())) / spread if spread > 0 else float("inf")
-        out.write("  %-26s %-12.4f %-22s %s\n"
-                  % (name[:-4], given, "%.4f, %.4f" % (drawn.mean(), spread),
-                     "holds" if distance < 3.0 else "numbering, %.1f sd out" % distance))
+        distance = (
+            abs(given - float(drawn.mean())) / spread if spread > 0 else float("inf")
+        )
+        out.write(
+            "  %-26s %-12.4f %-22s %s\n"
+            % (
+                name[:-4],
+                given,
+                "%.4f, %.4f" % (drawn.mean(), spread),
+                "holds" if distance < 3.0 else "numbering, %.1f sd out" % distance,
+            )
+        )
 
     out.flush()
     return 0

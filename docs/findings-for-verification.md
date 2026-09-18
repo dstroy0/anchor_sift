@@ -76,7 +76,7 @@ A probe rejects a definite set of alignments; a probe set rejects their union; `
 
 ### F10. Two build defects that made measurements impossible
 
-`bench_dispatch` and `bench_scaling_cycles` gated their cycle counter on `__x86_64__`, a GCC and Clang predefine MSVC never sets. Both fell through to a POSIX `clock_gettime` MSVC does not ship and failed to compile. Neither had ever run on Windows. Fixed by carrying the MSVC spelling.
+`bench_dispatch` and `bench_scaling_cycles` gated their cycle counter on `__x86_64__`, a GCC and Clang predefine MSVC never sets. Both fell through to a POSIX `clock_gettime` MSVC does not ship and failed to compile. Neither had ever run on Windows. Fixed by carrying the MSVC definition.
 
 `build_engine.sh` failed in Git Bash with `target anchor_sift_kernel did not build`, because CMake prefers `cl.exe` on Windows even where gcc is on PATH and Ninja does not import the MSVC environment. Every compile died on `Cannot open include file: 'stddef.h'`. A check that merely found gcc passed, because finding a compiler is not the same as CMake choosing it. It pins the compiler now and names why.
 
@@ -218,7 +218,7 @@ The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:6
 
 **The corrected classification.** One descent is a finite automaton WITH data dependent control flow, bounded above by a constant. It is not a fixed depth decision procedure, because the destroy test is a genuine conditional branch on data deciding whether to recurse. The constant is what still rules out universality.
 
-**Why removing the cap would not reach universality over a fixed corpus.** The probe family is fixed by `needle_len` and `max_length`, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent halts with or without the bound. A growing corpus grows the family, which is why O2 is still the one term and the tag route still the target.
+**Why removing the cap would not reach universality over a fixed corpus.** The probe family is fixed by `needle_len` and `max_length`, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent halts with or without the bound. A growing corpus grows the family, O2 is still the one term and the tag route still the target.
 
 **One argument from the earlier version is retired outright.** It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating: non-cycling on a finite state space forces termination.
 

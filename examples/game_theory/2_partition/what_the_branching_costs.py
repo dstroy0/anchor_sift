@@ -78,14 +78,21 @@ def main():
     sweep("CHECKERS from a four piece ending", game, ending, plies + 2)
 
     game = blackjack.Blackjack(decks=1)
-    sweep("BLACKJACK from sixteen against a ten", game, blackjack.position(1, (10, 6), 10), plies + 2)
+    sweep(
+        "BLACKJACK from sixteen against a ten",
+        game,
+        blackjack.position(1, (10, 6), 10),
+        plies + 2,
+    )
 
     card = poker.card
     game = poker.Poker(ranks=6, suits=2, hand=3)
     sweep(
         "POKER on a twelve card deck, both hands dealt",
         game,
-        game.deal((card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))),
+        game.deal(
+            (card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))
+        ),
         plies + 2,
     )
 
@@ -100,7 +107,7 @@ def main():
         "estimated, and the estimate has nothing local to check it against.\n"
         "\n"
         "That asymmetry is the subject. Stage six checks the estimator where the answer is known.\n"
-        "Nothing checks it on chess, which is why the chess numbers carry their budget in the same\n"
+        "Nothing checks it on chess,  the chess numbers carry their budget in the same\n"
         "line as the result."
     )
 

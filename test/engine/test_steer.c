@@ -1043,7 +1043,7 @@ static int check_projection_closes(void)
  * Second, that projecting a field of any symbol type onto rarity ranks preserves soundness. Two
  * positions carrying the same symbol necessarily carry the same rank. Rank disagreement proves
  * symbol disagreement and a rank probe is a necessary condition. Rank agreement proves nothing,
- * which is why survivors still reach an exact compare. The check is therefore NOT that the projected
+ *  survivors still reach an exact compare. The check is therefore NOT that the projected
  * count equals the true count: it is that the projected engine loses no true occurrence, which is
  * the only thing soundness claims. A projection that lost one would be a broken necessary condition
  * and the whole construction with it.

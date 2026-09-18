@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-008
 #
-# Test whether the one clean success rests on a shared spelling habit, for Section 4.13 of
+# Test whether the one clean success rests on a shared definition habit, for Section 4.13 of
 # theory/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/click_letters.py
@@ -13,7 +13,7 @@
 #
 # There is a confound and it is in the script after all. Nguni languages write their click consonants with
 # c, x and q, which is a use of those letters no other language here makes, and clicks are common in
-# ordinary Nguni words. So the two languages share a spelling convention that nothing else in the corpus
+# ordinary Nguni words. So the two languages share a definition convention that nothing else in the corpus
 # shares, and three letters carrying wholly unlike frequencies from every other Latin alphabet is
 # the kind of surface this reading has followed everywhere else.
 #
@@ -23,7 +23,7 @@
 # survives losing them.
 #
 # If it survives, the pairing was about the languages and the earlier claim stands. If it does not, the
-# closest pair measured in this work is two spelling systems agreeing, and there was never a test here
+# closest pair measured in this work is two definition systems agreeing, and there was never a test here
 # without a confound in it.
 
 import io
@@ -51,12 +51,23 @@ CLICKS = "cxq"
 
 AFRICAN = ("zulu", "xhosa", "shona", "somali", "wolof", "afrikaans")
 # Latin written languages held on the same translated text, for what those letters usually do
-BESIDE = ("para_english", "para_spanish", "para_french", "para_german", "para_swedish",
-          "para_indonesian", "para_vietnamese", "para_romanian", "para_albanian")
+BESIDE = (
+    "para_english",
+    "para_spanish",
+    "para_french",
+    "para_german",
+    "para_swedish",
+    "para_indonesian",
+    "para_vietnamese",
+    "para_romanian",
+    "para_albanian",
+)
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     held = {}
     for name in AFRICAN:
@@ -78,7 +89,10 @@ def main():
         return 0
 
     out.write("  how often c, x and q are used, per thousand letters\n")
-    out.write("  %-14s %-9s %-9s %-9s %s\n" % ("language", "c", "x", "q", "the three together"))
+    out.write(
+        "  %-14s %-9s %-9s %-9s %s\n"
+        % ("language", "c", "x", "q", "the three together")
+    )
     shares = {}
     for name in sorted(held):
         text = held[name].lower()
@@ -87,35 +101,52 @@ def main():
             continue
         row = [1000.0 * text.count(letter) / letters for letter in CLICKS]
         shares[name] = sum(row)
-        out.write("  %-14s %-9.2f %-9.2f %-9.2f %.2f\n" % ((name,) + tuple(row) + (sum(row),)))
+        out.write(
+            "  %-14s %-9.2f %-9.2f %-9.2f %.2f\n" % ((name,) + tuple(row) + (sum(row),))
+        )
 
     nguni = [name for name in ("zulu", "xhosa") if name in shares]
     others = [name for name in shares if name not in ("zulu", "xhosa")]
     if nguni and others:
-        out.write("\n  the two nguni languages use them %.1f times as often as the rest\n"
-                  % (float(numpy.mean([shares[name] for name in nguni]))
-                     / float(numpy.mean([shares[name] for name in others]))))
+        out.write(
+            "\n  the two nguni languages use them %.1f times as often as the rest\n"
+            % (
+                float(numpy.mean([shares[name] for name in nguni]))
+                / float(numpy.mean([shares[name] for name in others]))
+            )
+        )
 
-    out.write("\n  the pairing, with those letters kept and with them gone from every language\n")
+    out.write(
+        "\n  the pairing, with those letters kept and with them gone from every language\n"
+    )
     out.write("  %-26s %-11s %s\n" % ("", "as written", "c, x, q removed"))
 
-    for label, pair in (("zulu to xhosa", ("zulu", "xhosa")),
-                        ("zulu to shona", ("zulu", "shona")),
-                        ("zulu to somali", ("zulu", "somali")),
-                        ("xhosa to wolof", ("xhosa", "wolof")),
-                        ("english to german", ("english", "german")),
-                        ("spanish to french", ("spanish", "french"))):
+    for label, pair in (
+        ("zulu to xhosa", ("zulu", "xhosa")),
+        ("zulu to shona", ("zulu", "shona")),
+        ("zulu to somali", ("zulu", "somali")),
+        ("xhosa to wolof", ("xhosa", "wolof")),
+        ("english to german", ("english", "german")),
+        ("spanish to french", ("spanish", "french")),
+    ):
         if not all(name in held for name in pair):
             continue
         first = [web(held[name], RANKS) for name in pair]
-        stripped = ["".join(symbol for symbol in held[name] if symbol.lower() not in CLICKS)
-                    for name in pair]
+        stripped = [
+            "".join(symbol for symbol in held[name] if symbol.lower() not in CLICKS)
+            for name in pair
+        ]
         second = [web(text, RANKS) for text in stripped]
         if any(values is None for values in first + second):
             continue
-        out.write("  %-26s %-11.4f %.4f\n"
-                  % (label, float(numpy.linalg.norm(first[0] - first[1])),
-                     float(numpy.linalg.norm(second[0] - second[1]))))
+        out.write(
+            "  %-26s %-11.4f %.4f\n"
+            % (
+                label,
+                float(numpy.linalg.norm(first[0] - first[1])),
+                float(numpy.linalg.norm(second[0] - second[1])),
+            )
+        )
 
     out.flush()
     return 0

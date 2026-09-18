@@ -534,7 +534,7 @@ class TheCMakeListsFixture(unittest.TestCase):
         # variants and none of the class that was hidden twice.
         got = spelling_findings(self.path)
         print(
-            "\n  idemIP CMakeLists.txt at %s (%s): %d spelling finding(s) %s"
+            "\n  idemIP CMakeLists.txt at %s (%s): %d definition finding(s) %s"
             % (self.ref, self.where, len(got), got)
         )
         self.assertEqual([one for one, _ in got], [123, 305, 311, 321])
@@ -648,7 +648,7 @@ class TheAlphabetStageIsAPatternAndNotAList(unittest.TestCase):
             self.assertIn(
                 pattern,
                 docs_check.BANNED,
-                "a spelling pattern that BANNED does not hold reports nothing: %r"
+                "a definition pattern that BANNED does not hold reports nothing: %r"
                 % pattern,
             )
         self.assertEqual(len(set(docs_check.LOCALE)), len(docs_check.LOCALE))
@@ -711,7 +711,8 @@ class TheAlphabetStageIsAPatternAndNotAList(unittest.TestCase):
             "license",
         ):
             self.assertFalse(
-                stage_reaches(word), "the stage reports an American spelling: %r" % word
+                stage_reaches(word),
+                "the stage reports an American definition: %r" % word,
             )
 
 
@@ -940,7 +941,7 @@ class PrecisionOverRecall(unittest.TestCase):
             checked += 1
             got = spelling_findings(path)
             self.assertEqual(
-                got, [], "%s/SKILL.md reported on spelling: %s" % (name, got)
+                got, [], "%s/SKILL.md reported on definition: %s" % (name, got)
             )
         if not checked:
             self.skipTest("neither SKILL.md is installed under ~/.claude/skills")
@@ -1050,7 +1051,7 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
             counted[ref] = found
         moved = counted[BEFORE_REF] - counted[AFTER_REF]
         print(
-            "\n  idemIP spelling findings: %s at %s, %s at %s, corrected by hand: %d"
+            "\n  idemIP definition findings: %s at %s, %s at %s, corrected by hand: %d"
             % (counted[BEFORE_REF], BEFORE_REF, counted[AFTER_REF], AFTER_REF, moved)
         )
         self.assertGreater(
@@ -1072,7 +1073,7 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
                 sites.extend((rel, at, word) for at, word in spelling_findings(path))
             at_both[ref] = sorted(sites)
         print(
-            "\n  build-file spelling sites: %d at %s, %d at %s"
+            "\n  build-file definition sites: %d at %s, %d at %s"
             % (len(at_both[BEFORE_REF]), BEFORE_REF, len(at_both[AFTER_REF]), AFTER_REF)
         )
         self.assertGreater(

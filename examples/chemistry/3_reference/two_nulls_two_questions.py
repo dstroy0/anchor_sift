@@ -25,7 +25,7 @@
 #
 # The two answers are the finding. The octet carries information about which element sits where and
 # carries none about which atoms are joined. It is a statement about degrees, necessary and not
-# sufficient, which is why telling one isomer from another is a measure question and not a valence
+# sufficient,  telling one isomer from another is a measure question and not a valence
 # question. Both nulls are drawn with the engine's own shuffle; nothing about the disordered state is
 # assumed.
 
@@ -53,15 +53,44 @@ Molecule = collections.namedtuple("Molecule", ("name", "atoms", "bonds"))
 # byte shuffle can draw the matching.
 MOLECULES = [
     Molecule("water", ["O", "H", "H"], [(0, 1, 1), (0, 2, 1)]),
-    Molecule("methane", ["C", "H", "H", "H", "H"],
-             [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1)]),
+    Molecule(
+        "methane",
+        ["C", "H", "H", "H", "H"],
+        [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1)],
+    ),
     Molecule("ammonia", ["N", "H", "H", "H"], [(0, 1, 1), (0, 2, 1), (0, 3, 1)]),
-    Molecule("ethanol", ["C", "C", "H", "H", "H", "H", "H", "O", "H"],
-             [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1), (1, 5, 1), (1, 6, 1),
-              (1, 7, 1), (7, 8, 1)]),
-    Molecule("benzene", ["C", "C", "C", "C", "C", "C", "H", "H", "H", "H", "H", "H"],
-             [(0, 1, 2), (1, 2, 1), (2, 3, 2), (3, 4, 1), (4, 5, 2), (5, 0, 1),
-              (0, 6, 1), (1, 7, 1), (2, 8, 1), (3, 9, 1), (4, 10, 1), (5, 11, 1)]),
+    Molecule(
+        "ethanol",
+        ["C", "C", "H", "H", "H", "H", "H", "O", "H"],
+        [
+            (0, 1, 1),
+            (0, 2, 1),
+            (0, 3, 1),
+            (0, 4, 1),
+            (1, 5, 1),
+            (1, 6, 1),
+            (1, 7, 1),
+            (7, 8, 1),
+        ],
+    ),
+    Molecule(
+        "benzene",
+        ["C", "C", "C", "C", "C", "C", "H", "H", "H", "H", "H", "H"],
+        [
+            (0, 1, 2),
+            (1, 2, 1),
+            (2, 3, 2),
+            (3, 4, 1),
+            (4, 5, 2),
+            (5, 0, 1),
+            (0, 6, 1),
+            (1, 7, 1),
+            (2, 8, 1),
+            (3, 9, 1),
+            (4, 10, 1),
+            (5, 11, 1),
+        ],
+    ),
 ]
 
 DRAWS = 400
@@ -84,7 +113,9 @@ def octet_holds(atoms, bonds):
 
 def null_one_rate(molecule, draws):
     """Element-label permutation: keep the bond graph, permute which element sits at which site."""
-    codes = {element: index for index, element in enumerate(sorted(set(molecule.atoms)))}
+    codes = {
+        element: index for index, element in enumerate(sorted(set(molecule.atoms)))
+    }
     back = {index: element for element, index in codes.items()}
     seats = bytes(codes[element] for element in molecule.atoms)
     passed = 0
@@ -112,8 +143,10 @@ def null_two(molecule, draws):
     with_self_bond = 0
     for step in range(draws):
         drawn = permuted(seats, seed=SEED + step)
-        bonds = [(drawn[position], drawn[position + 1], 1)
-                 for position in range(0, len(drawn), 2)]
+        bonds = [
+            (drawn[position], drawn[position + 1], 1)
+            for position in range(0, len(drawn), 2)
+        ]
         if octet_holds(molecule.atoms, bonds):
             passed += 1
         if any(one == other for one, other, _ in bonds):
@@ -122,11 +155,22 @@ def null_two(molecule, draws):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  Two nulls, two questions. Null one deletes the element-to-site match; null two deletes\n")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  Two nulls, two questions. Null one deletes the element-to-site match; null two deletes\n"
+    )
     out.write("  the connectivity and holds every degree at its valence.\n\n")
-    out.write("  %-12s %-22s %-22s %s\n"
-              % ("molecule", "null 1 octet pass-rate", "null 2 octet pass-rate", "null 2 self-bonded"))
+    out.write(
+        "  %-12s %-22s %-22s %s\n"
+        % (
+            "molecule",
+            "null 1 octet pass-rate",
+            "null 2 octet pass-rate",
+            "null 2 self-bonded",
+        )
+    )
 
     departs_one = 0
     holds_two = 0
@@ -136,20 +180,34 @@ def main():
         rate_two, self_bond = null_two(molecule, DRAWS)
         departs_one += 1 if (real and rate_one < 1.0) else 0
         holds_two += 1 if rate_two == 1.0 else 0
-        out.write("  %-12s %-22.3f %-22.3f %.3f\n"
-                  % (molecule.name, rate_one, rate_two, self_bond))
+        out.write(
+            "  %-12s %-22.3f %-22.3f %.3f\n"
+            % (molecule.name, rate_one, rate_two, self_bond)
+        )
 
-    out.write("\n  null one: the real molecule closes and departs from the shuffle in %d of %d. Which\n"
-              % (departs_one, len(MOLECULES)))
+    out.write(
+        "\n  null one: the real molecule closes and departs from the shuffle in %d of %d. Which\n"
+        % (departs_one, len(MOLECULES))
+    )
     out.write("  element sits where carries information.\n")
-    out.write("  null two: the octet closes on every degree-preserving rewire in %d of %d. It carries\n"
-              % (holds_two, len(MOLECULES)))
-    out.write("  none about which atoms are joined. The self-bonded column counts rewires that are not\n")
+    out.write(
+        "  null two: the octet closes on every degree-preserving rewire in %d of %d. It carries\n"
+        % (holds_two, len(MOLECULES))
+    )
+    out.write(
+        "  none about which atoms are joined. The self-bonded column counts rewires that are not\n"
+    )
     out.write("  molecules and pass the octet anyway.\n")
 
     ok = departs_one == len(MOLECULES) and holds_two == len(MOLECULES)
-    out.write("\n  %s\n" % ("both nulls read as predicted." if ok
-                            else "a null did not read as predicted; see the rows above."))
+    out.write(
+        "\n  %s\n"
+        % (
+            "both nulls read as predicted."
+            if ok
+            else "a null did not read as predicted; see the rows above."
+        )
+    )
     out.flush()
     return 0 if ok else 1
 

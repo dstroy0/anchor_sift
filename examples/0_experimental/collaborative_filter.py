@@ -122,7 +122,7 @@ def main():
     out.write("    declined (no neighbor):       %d\n" % declined)
 
     # the routes must be able to disagree, or their agreeing is empty. A broken user-route that
-    # averages the WHOLE column instead of the neighbourhood splits from the honest one.
+    # averages the WHOLE column instead of the neighborhood splits from the honest one.
     def broken_user(matrix, row, column):
         seen = [
             matrix[r][column]

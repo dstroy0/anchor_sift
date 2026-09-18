@@ -44,7 +44,7 @@
 #include <x86intrin.h>
 #define CYCLES_ARE_REAL 1
 #elif defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
-/* The same part reached through the other compiler's spelling. __x86_64__ is a GCC and Clang
+/* The same part reached through the other compiler's definition. __x86_64__ is a GCC and Clang
  * predefine and MSVC never sets it. Testing it alone sent every MSVC build to the monotonic
  * substitute, which needs clock_gettime, which MSVC does not ship. The driver then failed to
  * compile on the platform it was most often built on. */
@@ -58,8 +58,7 @@
 
 /** @brief Corpus lengths swept, wide enough to watch the per alignment cost for drift as N grows. */
 static const size_t CORPUS_LENGTHS[] = {
-    4096u, 16384u, 65536u, 262144u, 1048576u, 4194304u
-};
+    4096u, 16384u, 65536u, 262144u, 1048576u, 4194304u};
 
 /**
  * @brief Needles drawn per row, the same count at every corpus length.
@@ -204,8 +203,8 @@ int main(void)
                     for (size_t draw = 0u; draw < needles; draw += 1u)
                     {
                         const uint8_t *const needle = (present != 0u)
-                            ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
-                            : (absent + (draw * needle_len));
+                                                          ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
+                                                          : (absent + (draw * needle_len));
 
                         reference += anchor_sift_naive(corpus, corpus_len, needle, needle_len);
                     }
@@ -219,8 +218,8 @@ int main(void)
                         for (size_t draw = 0u; draw < needles; draw += 1u)
                         {
                             const uint8_t *const needle = (present != 0u)
-                                ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
-                                : (absent + (draw * needle_len));
+                                                              ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
+                                                              : (absent + (draw * needle_len));
 
                             found += ARMS[slot].run(corpus, corpus_len, needle, needle_len);
                         }
@@ -244,8 +243,8 @@ int main(void)
                             for (size_t draw = 0u; draw < needles; draw += 1u)
                             {
                                 const uint8_t *const needle = (present != 0u)
-                                    ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
-                                    : (absent + (draw * needle_len));
+                                                                  ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
+                                                                  : (absent + (draw * needle_len));
 
                                 seen += ARMS[slot].run(corpus, corpus_len, needle, needle_len);
                             }
