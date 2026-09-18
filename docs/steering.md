@@ -157,7 +157,7 @@ This section has now been written three ways and two of them were wrong, so what
 
 **Failing to halt is not Turing completeness.** A process can fail to halt by cycling among three states. Turing completeness needs storage that grows during execution together with the ability to compute arbitrary functions of it. The second version of this section conflated the two and claimed the engine is Turing complete because its outer loop is unbounded. That does not follow.
 
-**What is implemented today is finite.** `ANCHOR_STEER_ANCHORS` is 4, so the descent places at most four probes and spawns at most four coarms. `ANCHOR_EXACT_LIMBS` is 108, which is 3456 bits, and a fixed width counter is a finite state machine at any width. For a fixed corpus the survivor set is a subset of the alignments and the probe family is bounded by the needle length. Nothing in the engine as built grows while it runs.
+**What is implemented today is finite.** `ANCHOR_STEER_ANCHORS` is 4, so the descent places at most four probes and spawns at most four coarms. `ANCHOR_EXACT_LIMBS` is 128, which is 4096 bits, and a fixed width counter is a finite state machine at any width. For a fixed corpus the survivor set is a subset of the alignments and the probe family is bounded by the needle length. Nothing in the engine as built grows while it runs.
 
 **The methodological error is the durable finding and it survives either answer.** The first version concluded the system is total by observing that every loop inside one invocation is bounded. That is a property of one invocation. A system halting on every input decides its own halting, so the claim needed the outer loop and never looked at it.
 
