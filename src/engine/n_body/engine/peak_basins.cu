@@ -84,20 +84,16 @@ __global__ static void ascend_kernel(const float *field, BasinGeometry geometry,
                 const int at_row = row + step_row;
                 const int at_column = column + step_column;
 
-                if ((at_slice < 0) || (at_slice >= (int)geometry.depth) || (at_row < 0)
-                 || (at_row >= (int)geometry.height) || (at_column < 0)
-                 || (at_column >= (int)geometry.width))
+                if ((at_slice < 0) || (at_slice >= (int)geometry.depth) || (at_row < 0) || (at_row >= (int)geometry.height) || (at_column < 0) || (at_column >= (int)geometry.width))
                 {
                     continue;
                 }
 
-                const unsigned int neighbour = ((unsigned int)at_slice * plane)
-                                             + ((unsigned int)at_row * geometry.width)
-                                             + (unsigned int)at_column;
-                const float value = field[neighbour];
-                if ((value > best_value) || ((value == best_value) && (neighbour < best)))
+                const unsigned int neighbor = ((unsigned int)at_slice * plane) + ((unsigned int)at_row * geometry.width) + (unsigned int)at_column;
+                const float value = field[neighbor];
+                if ((value > best_value) || ((value == best_value) && (neighbor < best)))
                 {
-                    best = neighbour;
+                    best = neighbor;
                     best_value = value;
                 }
             }
@@ -181,8 +177,8 @@ __global__ static void count_kernel(const float *field, const unsigned int *peak
     }
     const unsigned int first = chunk * PEAK_BASINS_CHUNK;
     const unsigned int past = ((geometry.voxels - first) < PEAK_BASINS_CHUNK)
-                            ? geometry.voxels
-                            : (first + PEAK_BASINS_CHUNK);
+                                  ? geometry.voxels
+                                  : (first + PEAK_BASINS_CHUNK);
     unsigned int count = 0u;
     for (unsigned int voxel = first; voxel < past; voxel += 1u)
     {
@@ -217,8 +213,8 @@ __global__ static void emit_kernel(const float *field, const unsigned int *peak,
     }
     const unsigned int first = chunk * PEAK_BASINS_CHUNK;
     const unsigned int past = ((geometry.voxels - first) < PEAK_BASINS_CHUNK)
-                            ? geometry.voxels
-                            : (first + PEAK_BASINS_CHUNK);
+                                  ? geometry.voxels
+                                  : (first + PEAK_BASINS_CHUNK);
     unsigned int slot = offsets[chunk];
     for (unsigned int voxel = first; voxel < past; voxel += 1u)
     {
@@ -238,30 +234,30 @@ __global__ static void emit_kernel(const float *field, const unsigned int *peak,
 /** @brief Every buffer one call uses, device and host. */
 struct BasinBuffers
 {
-    float *field;                       /**< Device copy of the field. */
-    unsigned int *successor;            /**< Device pointer per voxel, the peak once converged. */
-    unsigned int *jumped;               /**< Device pointers being written by a jump pass. */
-    unsigned int *changed;              /**< Device flag: a jump moved a pointer. */
-    unsigned int *sizes;                /**< Device positive voxels per peak. */
-    unsigned long long *slice_sums;     /**< Device slice index sum per peak. */
-    unsigned long long *row_sums;       /**< Device row index sum per peak. */
-    unsigned long long *column_sums;    /**< Device column index sum per peak. */
-    unsigned int *chunk_peaks;          /**< Device peaks per chunk. */
-    unsigned int *offsets;              /**< Device write offset per chunk. */
-    unsigned int *emitted_indices;      /**< Device index of each peak. */
-    float *emitted_values;              /**< Device value of each peak. */
-    unsigned int *emitted_sizes;        /**< Device size of each basin. */
-    unsigned long long *emitted_slices; /**< Device slice sum of each basin. */
-    unsigned long long *emitted_rows;   /**< Device row sum of each basin. */
+    float *field;                        /**< Device copy of the field. */
+    unsigned int *successor;             /**< Device pointer per voxel, the peak once converged. */
+    unsigned int *jumped;                /**< Device pointers being written by a jump pass. */
+    unsigned int *changed;               /**< Device flag: a jump moved a pointer. */
+    unsigned int *sizes;                 /**< Device positive voxels per peak. */
+    unsigned long long *slice_sums;      /**< Device slice index sum per peak. */
+    unsigned long long *row_sums;        /**< Device row index sum per peak. */
+    unsigned long long *column_sums;     /**< Device column index sum per peak. */
+    unsigned int *chunk_peaks;           /**< Device peaks per chunk. */
+    unsigned int *offsets;               /**< Device write offset per chunk. */
+    unsigned int *emitted_indices;       /**< Device index of each peak. */
+    float *emitted_values;               /**< Device value of each peak. */
+    unsigned int *emitted_sizes;         /**< Device size of each basin. */
+    unsigned long long *emitted_slices;  /**< Device slice sum of each basin. */
+    unsigned long long *emitted_rows;    /**< Device row sum of each basin. */
     unsigned long long *emitted_columns; /**< Device column sum of each basin. */
-    unsigned int *host_offsets;         /**< Host peaks per chunk, then offsets. */
-    unsigned int *host_indices;         /**< Host copy of the peak indices. */
-    float *host_values;                 /**< Host copy of the peak values. */
-    unsigned int *host_sizes;           /**< Host copy of the basin sizes. */
-    unsigned long long *host_slices;    /**< Host copy of the slice sums. */
-    unsigned long long *host_rows;      /**< Host copy of the row sums. */
-    unsigned long long *host_columns;   /**< Host copy of the column sums. */
-    unsigned int *host_labels;          /**< Host copy of every voxel's peak. */
+    unsigned int *host_offsets;          /**< Host peaks per chunk, then offsets. */
+    unsigned int *host_indices;          /**< Host copy of the peak indices. */
+    float *host_values;                  /**< Host copy of the peak values. */
+    unsigned int *host_sizes;            /**< Host copy of the basin sizes. */
+    unsigned long long *host_slices;     /**< Host copy of the slice sums. */
+    unsigned long long *host_rows;       /**< Host copy of the row sums. */
+    unsigned long long *host_columns;    /**< Host copy of the column sums. */
+    unsigned int *host_labels;           /**< Host copy of every voxel's peak. */
 };
 
 /**
@@ -341,8 +337,7 @@ static int basins_label(BasinBuffers *buffers, BasinGeometry geometry)
     ok = ok && (cudaMemset(buffers->sizes, 0, voxels * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaMemset(buffers->slice_sums, 0, voxels * sizeof(unsigned long long)) == cudaSuccess);
     ok = ok && (cudaMemset(buffers->row_sums, 0, voxels * sizeof(unsigned long long)) == cudaSuccess);
-    ok = ok && (cudaMemset(buffers->column_sums, 0, voxels * sizeof(unsigned long long))
-                == cudaSuccess);
+    ok = ok && (cudaMemset(buffers->column_sums, 0, voxels * sizeof(unsigned long long)) == cudaSuccess);
     if (ok != 0)
     {
         census_kernel<<<blocks, PEAK_BASINS_BLOCK>>>(buffers->field, buffers->successor, geometry,
@@ -355,16 +350,12 @@ static int basins_label(BasinBuffers *buffers, BasinGeometry geometry)
 
 extern "C" long peak_basins_run(const PeakBasinsRequest *args)
 {
-    if ((args == NULL) || (args->field == NULL) || (args->depth == 0u) || (args->height == 0u)
-     || (args->width == 0u) || (args->room > PEAK_BASINS_ROOM_LIMIT)
-     || ((args->room != 0u) && ((args->centroids == NULL) || (args->peak_values == NULL)
-                                || (args->peak_indices == NULL) || (args->sizes == NULL))))
+    if ((args == NULL) || (args->field == NULL) || (args->depth == 0u) || (args->height == 0u) || (args->width == 0u) || (args->room > PEAK_BASINS_ROOM_LIMIT) || ((args->room != 0u) && ((args->centroids == NULL) || (args->peak_values == NULL) || (args->peak_indices == NULL) || (args->sizes == NULL))))
     {
         return PEAK_BASINS_REFUSED;
     }
 
-    const unsigned long long plane = (unsigned long long)args->height
-                                   * (unsigned long long)args->width;
+    const unsigned long long plane = (unsigned long long)args->height * (unsigned long long)args->width;
     if (plane > 0xFFFFFFFFull)
     {
         return PEAK_BASINS_REFUSED;
@@ -374,9 +365,7 @@ extern "C" long peak_basins_run(const PeakBasinsRequest *args)
 
     // Every index and a chunk's end stay below 2^32, and every coordinate fits the int
     // ascend_kernel computes in.
-    if ((voxel_count > (0xFFFFFFFFull - (unsigned long long)PEAK_BASINS_CHUNK))
-     || (args->depth > 0x7FFFFFFFu) || (args->height > 0x7FFFFFFFu) || (args->width > 0x7FFFFFFFu)
-     || (cudaGetDeviceCount(&devices) != cudaSuccess) || (devices < 1))
+    if ((voxel_count > (0xFFFFFFFFull - (unsigned long long)PEAK_BASINS_CHUNK)) || (args->depth > 0x7FFFFFFFu) || (args->height > 0x7FFFFFFFu) || (args->width > 0x7FFFFFFFu) || (cudaGetDeviceCount(&devices) != cudaSuccess) || (devices < 1))
     {
         return PEAK_BASINS_REFUSED;
     }
@@ -485,9 +474,7 @@ extern "C" long peak_basins_run(const PeakBasinsRequest *args)
     buffers.host_slices = (unsigned long long *)malloc(peaks * sizeof(unsigned long long));
     buffers.host_rows = (unsigned long long *)malloc(peaks * sizeof(unsigned long long));
     buffers.host_columns = (unsigned long long *)malloc(peaks * sizeof(unsigned long long));
-    ok = ok && (buffers.host_indices != NULL) && (buffers.host_values != NULL)
-      && (buffers.host_sizes != NULL) && (buffers.host_slices != NULL) && (buffers.host_rows != NULL)
-      && (buffers.host_columns != NULL);
+    ok = ok && (buffers.host_indices != NULL) && (buffers.host_values != NULL) && (buffers.host_sizes != NULL) && (buffers.host_slices != NULL) && (buffers.host_rows != NULL) && (buffers.host_columns != NULL);
     ok = ok && (cudaMemcpy(buffers.host_indices, buffers.emitted_indices, peaks * sizeof(unsigned int),
                            cudaMemcpyDeviceToHost) == cudaSuccess);
     ok = ok && (cudaMemcpy(buffers.host_values, buffers.emitted_values, peaks * sizeof(float),

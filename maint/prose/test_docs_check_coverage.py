@@ -44,7 +44,6 @@ sys.path.insert(0, HERE)
 
 import docs_check
 
-
 # The two refs this file pins a fixture to, both in idemIP and both PUSHED. The test asserts the
 # reachability; a comment claiming it is not a check. A revision is authority only while somebody
 # else can fetch it, and a fixture pinned to a local-only commit is a fixture of one machine.
@@ -69,7 +68,9 @@ def sibling_repository(name):
 def git(tree, *args):
     """One git query against a tree, or None where git cannot answer."""
     try:
-        answer = subprocess.check_output(("git",) + args, cwd=tree, stderr=subprocess.PIPE)
+        answer = subprocess.check_output(
+            ("git",) + args, cwd=tree, stderr=subprocess.PIPE
+        )
     except (OSError, subprocess.CalledProcessError):
         return None
     return answer.decode("utf-8", "replace").strip()
@@ -94,8 +95,11 @@ def tree_at(repository, ref, into):
     has to be removed afterward, and a test that leaves one behind changes the thing it measured.
     """
     try:
-        blob = subprocess.check_output(["git", "archive", "--format=tar", ref],
-                                       cwd=repository, stderr=subprocess.PIPE)
+        blob = subprocess.check_output(
+            ["git", "archive", "--format=tar", ref],
+            cwd=repository,
+            stderr=subprocess.PIPE,
+        )
     except (OSError, subprocess.CalledProcessError):
         return None
     with tarfile.open(fileobj=io.BytesIO(blob)) as bundle:
@@ -114,55 +118,302 @@ def tree_at(repository, ref, into):
 # docstring, prose_only keeps docstrings, and this tree's own run would then report every word in
 # the list as a British variant, against the file that tests for British variants.
 BRITISH_FORMS = (
-    "initialise", "initialised", "initialises", "initialising", "initialiser", "initialisers",
-    "initialisation", "optimise", "optimised", "optimises", "optimising", "optimiser",
-    "optimisation", "optimisations", "recognise", "recognised", "recognises", "recognising",
-    "recognisable", "normalise", "normalised", "normalises", "normalising", "normalisation",
-    "serialise", "serialised", "serialises", "serialising", "serialisation", "authorise",
-    "authorised", "authorises", "authorising", "authorisation", "synchronise", "synchronised",
-    "synchronises", "synchronising", "synchronisation", "minimise", "minimised", "minimises",
-    "minimising", "maximise", "maximised", "maximises", "maximising", "summarise", "summarised",
-    "summarises", "summarising", "standardise", "standardised", "standardising", "utilise",
-    "utilised", "utilises", "utilising", "categorise", "categorised", "categorising", "organise",
-    "organised", "organises", "organising", "organisation", "organisations", "parenthesise",
-    "parenthesised", "parenthesises", "specialise", "specialised", "generalise", "generalised",
-    "finalise", "finalised", "customise", "customised", "sanitise", "sanitised", "randomise",
-    "randomised", "localise", "localised", "realise", "realised", "emphasise", "emphasised",
-    "amortise", "amortised", "vectorise", "vectorised", "devirtualise", "devirtualises",
-    "parallelise", "parallelised", "centralise", "centralised", "materialise", "materialised",
-    "analyse", "analysed", "analyses", "analysing", "analyser", "analysers", "paralyse",
-    "paralysed", "catalyse", "catalysed", "dialyse", "dialysed",
-    "behaviour", "behaviours", "behavioural", "colour", "colours", "coloured", "colouring",
-    "colourful", "neighbour", "neighbours", "neighbouring", "neighbourhood", "favour", "favours",
-    "favoured", "favourite", "honour", "honours", "honoured", "honouring", "humour", "humours",
-    "labour", "labours", "laboured", "armour", "armoured", "rumour", "rumours", "vapour",
-    "vapours", "odour", "odours", "harbour", "harbours", "savour", "savoured", "valour",
-    "endeavour", "endeavours", "parlour", "splendour", "candour", "fervour", "rigour", "vigour",
-    "tumour", "tumours", "clamour", "demeanour", "saviour", "flavour", "flavours", "flavoured",
+    "initialise",
+    "initialised",
+    "initialises",
+    "initialising",
+    "initialiser",
+    "initialisers",
+    "initialisation",
+    "optimise",
+    "optimised",
+    "optimises",
+    "optimising",
+    "optimiser",
+    "optimisation",
+    "optimisations",
+    "recognise",
+    "recognised",
+    "recognises",
+    "recognising",
+    "recognisable",
+    "normalise",
+    "normalised",
+    "normalises",
+    "normalising",
+    "normalisation",
+    "serialise",
+    "serialised",
+    "serialises",
+    "serialising",
+    "serialisation",
+    "authorise",
+    "authorised",
+    "authorises",
+    "authorising",
+    "authorisation",
+    "synchronise",
+    "synchronised",
+    "synchronises",
+    "synchronising",
+    "synchronisation",
+    "minimise",
+    "minimised",
+    "minimises",
+    "minimising",
+    "maximise",
+    "maximised",
+    "maximises",
+    "maximising",
+    "summarise",
+    "summarised",
+    "summarises",
+    "summarising",
+    "standardise",
+    "standardised",
+    "standardising",
+    "utilise",
+    "utilised",
+    "utilises",
+    "utilising",
+    "categorise",
+    "categorised",
+    "categorising",
+    "organise",
+    "organised",
+    "organises",
+    "organising",
+    "organisation",
+    "organisations",
+    "parenthesise",
+    "parenthesised",
+    "parenthesises",
+    "specialise",
+    "specialised",
+    "generalise",
+    "generalised",
+    "finalise",
+    "finalised",
+    "customise",
+    "customised",
+    "sanitise",
+    "sanitised",
+    "randomise",
+    "randomised",
+    "localise",
+    "localised",
+    "realise",
+    "realised",
+    "emphasise",
+    "emphasised",
+    "amortise",
+    "amortised",
+    "vectorise",
+    "vectorised",
+    "devirtualise",
+    "devirtualises",
+    "parallelise",
+    "parallelised",
+    "centralise",
+    "centralised",
+    "materialise",
+    "materialised",
+    "analyse",
+    "analysed",
+    "analyses",
+    "analysing",
+    "analyser",
+    "analysers",
+    "paralyse",
+    "paralysed",
+    "catalyse",
+    "catalysed",
+    "dialyse",
+    "dialysed",
+    "behaviour",
+    "behaviours",
+    "behavioural",
+    "colour",
+    "colours",
+    "coloured",
+    "colouring",
+    "colourful",
+    "neighbour",
+    "neighbors",
+    "neighbouring",
+    "neighbourhood",
+    "favour",
+    "favours",
+    "favoured",
+    "favourite",
+    "honour",
+    "honours",
+    "honoured",
+    "honouring",
+    "humour",
+    "humours",
+    "labour",
+    "labours",
+    "laboured",
+    "armour",
+    "armoured",
+    "rumour",
+    "rumours",
+    "vapour",
+    "vapours",
+    "odour",
+    "odours",
+    "harbour",
+    "harbours",
+    "savour",
+    "savoured",
+    "valour",
+    "endeavour",
+    "endeavours",
+    "parlour",
+    "splendour",
+    "candour",
+    "fervour",
+    "rigour",
+    "vigour",
+    "tumour",
+    "tumours",
+    "clamour",
+    "demeanour",
+    "saviour",
+    "flavour",
+    "flavours",
+    "flavoured",
     "ardour",
-    "centre", "centres", "centred", "theatre", "theatres", "fibre", "fibres", "litre", "litres",
-    "metre", "metres", "kilometre", "kilometres", "millimetre", "millimetres", "micrometre",
-    "calibre", "calibres", "sabre", "sombre", "spectre", "lustre", "meagre", "manoeuvre",
-    "manoeuvred", "sceptre",
-    "labelled", "labelling", "labeller", "modelled", "modelling", "modeller", "signalled",
-    "signalling", "travelled", "travelling", "traveller", "cancelled", "cancelling", "levelled",
-    "levelling", "totalled", "totalling", "fuelled", "fuelling", "dialled", "dialling",
-    "marvelled", "counselled", "counselling", "equalled", "equalling", "spiralled", "spiralling",
-    "tunnelled", "tunnelling", "quarrelled", "jewelled",
-    "fulfil", "fulfils", "fulfilment", "enrol", "enrols", "enrolment", "instal", "instals",
-    "instalment", "skilful", "skilfully", "wilful", "wilfully", "enthral", "appal", "distil",
-    "distils", "instil", "instils",
-    "defence", "defences", "offence", "offences", "pretence", "pretences", "licence", "licences",
-    "practise", "practised", "practises", "practising",
-    "catalogue", "catalogues", "catalogued", "analogue", "analogues", "programme", "programmes",
-    "whilst", "amongst", "grey", "greyscale", "artefact", "artefacts", "aluminium", "sulphur",
-    "storey", "storeys", "tyre", "tyres", "cheque", "cheques", "draught", "draughts", "mould",
-    "moulds", "speciality", "jewellery", "woollen", "aeroplane", "moustache", "pyjamas", "kerb",
-    "plough", "gaol",
+    "centre",
+    "centres",
+    "centred",
+    "theatre",
+    "theatres",
+    "fibre",
+    "fibres",
+    "litre",
+    "litres",
+    "metre",
+    "metres",
+    "kilometre",
+    "kilometres",
+    "millimetre",
+    "millimetres",
+    "micrometre",
+    "calibre",
+    "calibres",
+    "sabre",
+    "sombre",
+    "spectre",
+    "lustre",
+    "meagre",
+    "manoeuvre",
+    "manoeuvred",
+    "sceptre",
+    "labelled",
+    "labelling",
+    "labeller",
+    "modelled",
+    "modelling",
+    "modeller",
+    "signalled",
+    "signalling",
+    "travelled",
+    "travelling",
+    "traveller",
+    "cancelled",
+    "cancelling",
+    "levelled",
+    "levelling",
+    "totalled",
+    "totalling",
+    "fuelled",
+    "fuelling",
+    "dialled",
+    "dialling",
+    "marvelled",
+    "counselled",
+    "counselling",
+    "equalled",
+    "equalling",
+    "spiralled",
+    "spiralling",
+    "tunnelled",
+    "tunnelling",
+    "quarrelled",
+    "jewelled",
+    "fulfil",
+    "fulfils",
+    "fulfilment",
+    "enrol",
+    "enrols",
+    "enrolment",
+    "instal",
+    "instals",
+    "instalment",
+    "skilful",
+    "skilfully",
+    "wilful",
+    "wilfully",
+    "enthral",
+    "appal",
+    "distil",
+    "distils",
+    "instil",
+    "instils",
+    "defence",
+    "defences",
+    "offence",
+    "offences",
+    "pretence",
+    "pretences",
+    "licence",
+    "licences",
+    "practise",
+    "practised",
+    "practises",
+    "practising",
+    "catalogue",
+    "catalogues",
+    "catalogued",
+    "analogue",
+    "analogues",
+    "programme",
+    "programmes",
+    "whilst",
+    "amongst",
+    "grey",
+    "greyscale",
+    "artefact",
+    "artefacts",
+    "aluminium",
+    "sulphur",
+    "storey",
+    "storeys",
+    "tyre",
+    "tyres",
+    "cheque",
+    "cheques",
+    "draught",
+    "draughts",
+    "mould",
+    "moulds",
+    "speciality",
+    "jewellery",
+    "woollen",
+    "aeroplane",
+    "moustache",
+    "pyjamas",
+    "kerb",
+    "plough",
+    "gaol",
 )
 
-GROUND_TRUTH = re.compile(r"\b(?:%s)\b" % "|".join(sorted(set(BRITISH_FORMS), key=len,
-                                                          reverse=True)), re.IGNORECASE)
+GROUND_TRUTH = re.compile(
+    r"\b(?:%s)\b" % "|".join(sorted(set(BRITISH_FORMS), key=len, reverse=True)),
+    re.IGNORECASE,
+)
 
 
 def forms_present(tree):
@@ -194,8 +445,10 @@ def spelling_findings(path):
     said = docs_check.prose_only(path, lines)
     found = []
     for at, pattern, token in docs_check.banned_hits(
-            said, quotations=path.endswith(".md"),
-            comments=not path.endswith((".md", ".tex"))):
+        said,
+        quotations=path.endswith(".md"),
+        comments=not path.endswith((".md", ".tex")),
+    ):
         if docs_check.tier_of(pattern) == "alphabet":
             found.append((at, token.lower()))
     return sorted(found)
@@ -230,12 +483,27 @@ class BuildFilesAreReadAtAll(unittest.TestCase):
         # Asserted against the roots this repository actually scans. The selection rule is
         # measured where it has to work and not only against a made-up path.
         roots = list(docs_check.DEFAULT_ROOTS) + list(docs_check.private_roots())
-        got = [one for one in docs_check.walk_markdown(roots) if docs_check.build_file(one)]
-        kinds = sorted(set(os.path.basename(one) if os.path.basename(one) in docs_check.BUILD_NAMES
-                           or os.path.basename(one) in docs_check.HOOK_NAMES
-                           else os.path.splitext(one)[1] for one in got))
-        print("\n  build files under this tree's own roots: %d, of kinds %s" % (len(got), kinds))
-        self.assertGreater(len(got), 0, "no build file was selected under this tree's own roots")
+        got = [
+            one for one in docs_check.walk_markdown(roots) if docs_check.build_file(one)
+        ]
+        kinds = sorted(
+            set(
+                (
+                    os.path.basename(one)
+                    if os.path.basename(one) in docs_check.BUILD_NAMES
+                    or os.path.basename(one) in docs_check.HOOK_NAMES
+                    else os.path.splitext(one)[1]
+                )
+                for one in got
+            )
+        )
+        print(
+            "\n  build files under this tree's own roots: %d, of kinds %s"
+            % (len(got), kinds)
+        )
+        self.assertGreater(
+            len(got), 0, "no build file was selected under this tree's own roots"
+        )
         self.assertIn("CMakeLists.txt", kinds)
         self.assertIn("pre-commit", kinds)
 
@@ -265,32 +533,52 @@ class TheCMakeListsFixture(unittest.TestCase):
         # `behaviour` one. An author watching :123 fire has seen one quarter of this file's British
         # variants and none of the class that was hidden twice.
         got = spelling_findings(self.path)
-        print("\n  idemIP CMakeLists.txt at %s (%s): %d spelling finding(s) %s"
-              % (self.ref, self.where, len(got), got))
+        print(
+            "\n  idemIP CMakeLists.txt at %s (%s): %d spelling finding(s) %s"
+            % (self.ref, self.where, len(got), got)
+        )
         self.assertEqual([one for one, _ in got], [123, 305, 311, 321])
-        self.assertEqual([two for _, two in got],
-                         ["behaviour", "optimisation", "optimisation", "optimisation"])
+        self.assertEqual(
+            [two for _, two in got],
+            ["behaviour", "optimisation", "optimisation", "optimisation"],
+        )
 
     def test_three_of_the_four_need_the_pattern_and_not_only_the_extension(self):
         # The half of this pass that a reader is most likely to undo. Held as an assertion so the
         # claim in the header is checked and not only written down.
-        was_ten = (r"\blabelled\b", r"\bmodelled\b", r"\bneighbour", r"\bbehaviour", r"\bcolour",
-                   r"\bcentre\b", r"\bwhilst\b", r"\bamongst\b",
-                   r"\borganis(e|es|ed|ing|ation|ations)\b", r"\banalyse(s|d)?\b")
-        reached = [word for _, word in spelling_findings(self.path)
-                   if any(re.search(one, word, re.IGNORECASE) for one in was_ten)]
+        was_ten = (
+            r"\blabelled\b",
+            r"\bmodelled\b",
+            r"\bneighbour",
+            r"\bbehaviour",
+            r"\bcolour",
+            r"\bcentre\b",
+            r"\bwhilst\b",
+            r"\bamongst\b",
+            r"\borganis(e|es|ed|ing|ation|ations)\b",
+            r"\banalyse(s|d)?\b",
+        )
+        reached = [
+            word
+            for _, word in spelling_findings(self.path)
+            if any(re.search(one, word, re.IGNORECASE) for one in was_ten)
+        ]
         self.assertEqual(reached, ["behaviour"])
 
     def test_the_file_reads_and_does_not_report_reading_nothing(self):
         checked = docs_check.walk_markdown([self.path])
-        self.assertEqual([os.path.abspath(one) for one in checked],
-                         [os.path.abspath(self.path)])
+        self.assertEqual(
+            [os.path.abspath(one) for one in checked], [os.path.abspath(self.path)]
+        )
 
     def test_a_build_file_of_prose_findings_still_exits_zero(self):
         # Prose never fails a build, in any repository, and a new extension does not get to be the
         # exception. Both standards say it in the sentence that names this tool.
-        run = subprocess.run([sys.executable, os.path.join(HERE, "docs_check.py"), self.path],
-                             capture_output=True, text=True)
+        run = subprocess.run(
+            [sys.executable, os.path.join(HERE, "docs_check.py"), self.path],
+            capture_output=True,
+            text=True,
+        )
         self.assertIn("0 breaking", run.stdout)
         self.assertIn("prose", run.stdout)
         self.assertEqual(run.returncode, 0, run.stdout)
@@ -307,7 +595,7 @@ class TheCommentExtractorForTheHashForm(unittest.TestCase):
         # Without the open-a-word rule, `$#` and `${#name}` read as comment markers and a run of
         # argument handling gets scanned as prose.
         self.assertEqual(docs_check.hash_tail('if [ "$#" -lt 2 ]; then'), "")
-        self.assertEqual(docs_check.hash_tail('len=${#name}'), "")
+        self.assertEqual(docs_check.hash_tail("len=${#name}"), "")
 
     def test_a_comment_after_code_is_found(self):
         self.assertEqual(docs_check.hash_tail("set(x 1)  # the reason"), "# the reason")
@@ -334,7 +622,9 @@ class TheCommentExtractorForTheHashForm(unittest.TestCase):
         # The dispatch and not only the helper, because a caller that has to know which extractor to
         # call is a caller that will get it wrong. submission_check.py imports CHECKED and
         # prose_only and never asks what kind of file it has.
-        said = docs_check.prose_only("x/CMakeLists.txt", ["set(a 1)", "# undefined behaviour"])
+        said = docs_check.prose_only(
+            "x/CMakeLists.txt", ["set(a 1)", "# undefined behaviour"]
+        )
         self.assertEqual(said[0], "")
         self.assertIn("behaviour", said[1])
 
@@ -355,9 +645,12 @@ class TheAlphabetStageIsAPatternAndNotAList(unittest.TestCase):
         # the same ten patterns. Adding a pattern to LOCALE alone changed a label and produced no
         # finding, and the two copies could be edited apart with no signal at all.
         for pattern in docs_check.LOCALE:
-            self.assertIn(pattern, docs_check.BANNED,
-                          "a spelling pattern that BANNED does not hold reports nothing: %r"
-                          % pattern)
+            self.assertIn(
+                pattern,
+                docs_check.BANNED,
+                "a spelling pattern that BANNED does not hold reports nothing: %r"
+                % pattern,
+            )
         self.assertEqual(len(set(docs_check.LOCALE)), len(docs_check.LOCALE))
 
     def test_the_ten_it_used_to_be_are_carried_forward_character_for_character(self):
@@ -365,12 +658,23 @@ class TheAlphabetStageIsAPatternAndNotAList(unittest.TestCase):
         # Rewriting one to fold it into a general arm takes a measured rate out of
         # submission_check.py's table with nothing left to say it was ever there. `whilst` carries
         # no rate, because it fired zero times in the papers HUMAN_RATE was counted over.
-        was_ten = (r"\blabelled\b", r"\bmodelled\b", r"\bneighbour", r"\bbehaviour", r"\bcolour",
-                   r"\bcentre\b", r"\bwhilst\b", r"\bamongst\b",
-                   r"\borganis(e|es|ed|ing|ation|ations)\b", r"\banalyse(s|d)?\b")
-        self.assertEqual(docs_check.LOCALE[:len(was_ten)], was_ten)
+        was_ten = (
+            r"\blabelled\b",
+            r"\bmodelled\b",
+            r"\bneighbour",
+            r"\bbehaviour",
+            r"\bcolour",
+            r"\bcentre\b",
+            r"\bwhilst\b",
+            r"\bamongst\b",
+            r"\borganis(e|es|ed|ing|ation|ations)\b",
+            r"\banalyse(s|d)?\b",
+        )
+        self.assertEqual(docs_check.LOCALE[: len(was_ten)], was_ten)
         dead = [one for one in was_ten if one not in docs_check.HUMAN_RATE]
-        self.assertEqual(dead, [r"\bwhilst\b"], "a measured rate lost its key: %s" % (dead,))
+        self.assertEqual(
+            dead, [r"\bwhilst\b"], "a measured rate lost its key: %s" % (dead,)
+        )
 
     def test_every_spelling_pattern_is_the_alphabet_tier(self):
         for pattern in docs_check.LOCALE:
@@ -380,16 +684,35 @@ class TheAlphabetStageIsAPatternAndNotAList(unittest.TestCase):
     def test_each_shape_the_standard_names_has_an_arm(self):
         # The four shapes in that one sentence, each checked through a word the sentence does not
         # itself contain. The arm is tested and not the literal.
-        for word in ("categorising", "tokenisation", "harbour", "kilometres", "tunnelled"):
+        for word in (
+            "categorising",
+            "tokenisation",
+            "harbour",
+            "kilometres",
+            "tunnelled",
+        ):
             self.assertTrue(stage_reaches(word), "no arm reaches %r" % word)
 
     def test_the_twelve_american_spellings_the_standard_names_are_left_alone(self):
         # code-documentation:149 names these as the correct forms. A rule that reports one of them
         # is a rule enforcing the opposite of what it cites.
-        for word in ("initialize", "behavior", "synchronize", "optimization", "devirtualize",
-                     "analog", "color", "center", "defense", "gray", "catalog", "license"):
-            self.assertFalse(stage_reaches(word), "the stage reports an American spelling: %r"
-                             % word)
+        for word in (
+            "initialize",
+            "behavior",
+            "synchronize",
+            "optimization",
+            "devirtualize",
+            "analog",
+            "color",
+            "center",
+            "defense",
+            "gray",
+            "catalog",
+            "license",
+        ):
+            self.assertFalse(
+                stage_reaches(word), "the stage reports an American spelling: %r" % word
+            )
 
 
 class PrecisionOverRecall(unittest.TestCase):
@@ -401,27 +724,88 @@ class PrecisionOverRecall(unittest.TestCase):
     def test_english_words_ending_in_ise_are_not_british(self):
         # The s belongs to the stem here, not to the Greek -ize suffix. American writes all of
         # these with an s too.
-        for word in ("advise", "advised", "adviser", "revise", "devise", "supervise", "televise",
-                     "improvise", "exercise", "exercises", "excise", "concise", "precise",
-                     "imprecise", "incise", "circumcise", "promise", "promises", "premise",
-                     "surmise", "demise", "compromise", "despise", "franchise", "merchandise",
-                     "paradise", "treatise", "expertise", "enterprise", "comprise", "surprise",
-                     "apprise", "reprise", "chastise", "advertise"):
+        for word in (
+            "advise",
+            "advised",
+            "adviser",
+            "revise",
+            "devise",
+            "supervise",
+            "televise",
+            "improvise",
+            "exercise",
+            "exercises",
+            "excise",
+            "concise",
+            "precise",
+            "imprecise",
+            "incise",
+            "circumcise",
+            "promise",
+            "promises",
+            "premise",
+            "surmise",
+            "demise",
+            "compromise",
+            "despise",
+            "franchise",
+            "merchandise",
+            "paradise",
+            "treatise",
+            "expertise",
+            "enterprise",
+            "comprise",
+            "surprise",
+            "apprise",
+            "reprise",
+            "chastise",
+            "advertise",
+        ):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
 
     def test_the_shapes_the_arm_refuses_without_naming_them(self):
         # The consonant class and the two-character floor carry these. None of them has to be
         # written into a list that a later reader has to maintain.
-        for word in ("noise", "raise", "praise", "braise", "chaise", "guise", "disguise", "cruise",
-                     "bruise", "poise", "tortoise", "porpoise", "malaise", "appraise", "rise",
-                     "arise", "prise", "wise", "wiser", "otherwise", "likewise", "clockwise",
-                     "bitwise", "stepwise", "pairwise", "anise"):
+        for word in (
+            "noise",
+            "raise",
+            "praise",
+            "braise",
+            "chaise",
+            "guise",
+            "disguise",
+            "cruise",
+            "bruise",
+            "poise",
+            "tortoise",
+            "porpoise",
+            "malaise",
+            "appraise",
+            "rise",
+            "arise",
+            "prise",
+            "wise",
+            "wiser",
+            "otherwise",
+            "likewise",
+            "clockwise",
+            "bitwise",
+            "stepwise",
+            "pairwise",
+            "anise",
+        ):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
 
     def test_a_safe_stem_is_matched_from_the_end_of_a_word(self):
         # These are the compounds the measurement turned up. An exemption anchored at the start of
         # the word missed every one of them.
-        for word in ("madvise", "keycompromise", "aacompromise", "saxexerciser", "unadvisable"):
+        for word in (
+            "madvise",
+            "keycompromise",
+            "aacompromise",
+            "saxexerciser",
+            "unadvisable",
+        ):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
 
     def test_two_stems_that_were_removed_stay_removed(self):
@@ -435,8 +819,19 @@ class PrecisionOverRecall(unittest.TestCase):
     def test_american_doubled_l_words_are_not_reported(self):
         # Why the doubled-l rule is a list. American doubles the l in all of these, and a general
         # rule would report a quarter of the verbs in the tree.
-        for word in ("controlled", "controlling", "installed", "installing", "enrolled",
-                     "spelled", "called", "filled", "pulled", "rolled", "billed"):
+        for word in (
+            "controlled",
+            "controlling",
+            "installed",
+            "installing",
+            "enrolled",
+            "spelled",
+            "called",
+            "filled",
+            "pulled",
+            "rolled",
+            "billed",
+        ):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
 
     def test_programmed_and_programming_are_american(self):
@@ -447,12 +842,42 @@ class PrecisionOverRecall(unittest.TestCase):
         self.assertTrue(stage_reaches("programme"))
 
     def test_the_our_arm_refuses_the_short_words_and_holds_the_long_ones(self):
-        for word in ("our", "your", "four", "hour", "tour", "pour", "sour", "flour", "scour",
-                     "dour", "amour", "devour", "contour", "contours", "detour", "glamour",
-                     "byhour", "numberofcontours", "encourage", "journal", "resourceful"):
+        for word in (
+            "our",
+            "your",
+            "four",
+            "hour",
+            "tour",
+            "pour",
+            "sour",
+            "flour",
+            "scour",
+            "dour",
+            "amour",
+            "devour",
+            "contour",
+            "contours",
+            "detour",
+            "glamour",
+            "byhour",
+            "numberofcontours",
+            "encourage",
+            "journal",
+            "resourceful",
+        ):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
-        for word in ("ardour", "candour", "behaviour", "behavioural", "colourful", "favourite",
-                     "neighbourless", "labourer", "harbour", "endeavour"):
+        for word in (
+            "ardour",
+            "candour",
+            "behaviour",
+            "behavioural",
+            "colourful",
+            "favourite",
+            "neighbourless",
+            "labourer",
+            "harbour",
+            "endeavour",
+        ):
             self.assertTrue(stage_reaches(word), "not reached: %r" % word)
 
     def test_the_single_l_arm_stops_at_the_word_boundary(self):
@@ -466,7 +891,13 @@ class PrecisionOverRecall(unittest.TestCase):
     def test_the_isable_arm_was_removed_and_stays_removed(self):
         # It matched `controldisable` and every other compound ending in `disable`, and bought
         # three real hits across five repositories and the whole of CPython.
-        for word in ("disable", "disabled", "disabling", "controldisable", "autodisabled"):
+        for word in (
+            "disable",
+            "disabled",
+            "disabling",
+            "controldisable",
+            "autodisabled",
+        ):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
 
     def test_the_two_tier_line_in_idemip_is_reported_as_two_findings(self):
@@ -485,9 +916,13 @@ class PrecisionOverRecall(unittest.TestCase):
         with open(path, encoding="utf-8", errors="replace") as handle:
             lines = handle.read().splitlines()
         said = docs_check.prose_only(path, lines)
-        tiers = sorted(set(docs_check.tier_of(pattern)
-                           for at, pattern, _ in docs_check.banned_hits(said, comments=True)
-                           if at == 12))
+        tiers = sorted(
+            set(
+                docs_check.tier_of(pattern)
+                for at, pattern, _ in docs_check.banned_hits(said, comments=True)
+                if at == 12
+            )
+        )
         print("\n  idemIP strip_comments.py:12 reports tiers %s" % tiers)
         self.assertEqual(tiers, ["A", "alphabet"])
 
@@ -504,7 +939,9 @@ class PrecisionOverRecall(unittest.TestCase):
                 continue
             checked += 1
             got = spelling_findings(path)
-            self.assertEqual(got, [], "%s/SKILL.md reported on spelling: %s" % (name, got))
+            self.assertEqual(
+                got, [], "%s/SKILL.md reported on spelling: %s" % (name, got)
+            )
         if not checked:
             self.skipTest("neither SKILL.md is installed under ~/.claude/skills")
 
@@ -546,8 +983,9 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
         for ref in (BEFORE_REF, AFTER_REF):
             where = reachability(self.repository, ref)
             print("\n  idemIP %s: %s" % (ref, where))
-            self.assertNotEqual(where, "NOT PUSHED",
-                                "%s is a fixture nobody else can fetch" % ref)
+            self.assertNotEqual(
+                where, "NOT PUSHED", "%s is a fixture nobody else can fetch" % ref
+            )
 
     def test_the_stage_reaches_every_british_form_in_the_tree(self):
         # N OF N, DERIVED. The denominator is the ground-truth list intersected with the tree at
@@ -555,22 +993,50 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
         tree = self.at[AFTER_REF]
         present = forms_present(tree)
         missed = sorted(one for one in present if not stage_reaches(one))
-        was_ten = (r"\blabelled\b", r"\bmodelled\b", r"\bneighbour", r"\bbehaviour", r"\bcolour",
-                   r"\bcentre\b", r"\bwhilst\b", r"\bamongst\b",
-                   r"\borganis(e|es|ed|ing|ation|ations)\b", r"\banalyse(s|d)?\b")
-        before = sorted(one for one in present
-                        if any(re.search(two, one, re.IGNORECASE) for two in was_ten))
-        print("\n  idemIP %s (%s): %d distinct British form(s) present over %d site(s)"
-              % (AFTER_REF, reachability(self.repository, AFTER_REF),
-                 len(present), sum(present.values())))
+        was_ten = (
+            r"\blabelled\b",
+            r"\bmodelled\b",
+            r"\bneighbour",
+            r"\bbehaviour",
+            r"\bcolour",
+            r"\bcentre\b",
+            r"\bwhilst\b",
+            r"\bamongst\b",
+            r"\borganis(e|es|ed|ing|ation|ations)\b",
+            r"\banalyse(s|d)?\b",
+        )
+        before = sorted(
+            one
+            for one in present
+            if any(re.search(two, one, re.IGNORECASE) for two in was_ten)
+        )
+        print(
+            "\n  idemIP %s (%s): %d distinct British form(s) present over %d site(s)"
+            % (
+                AFTER_REF,
+                reachability(self.repository, AFTER_REF),
+                len(present),
+                sum(present.values()),
+            )
+        )
         print("    the ten literals reached %d of %d" % (len(before), len(present)))
-        print("    the pattern arms reach   %d of %d" % (len(present) - len(missed), len(present)))
-        print("    forms: %s" % ", ".join("%s(%d)" % (one, present[one])
-                                          for one in sorted(present)))
-        self.assertGreater(len(present), 0, "the ground truth found nothing. It proves nothing")
+        print(
+            "    the pattern arms reach   %d of %d"
+            % (len(present) - len(missed), len(present))
+        )
+        print(
+            "    forms: %s"
+            % ", ".join("%s(%d)" % (one, present[one]) for one in sorted(present))
+        )
+        self.assertGreater(
+            len(present), 0, "the ground truth found nothing. It proves nothing"
+        )
         self.assertEqual(missed, [], "the stage misses: %s" % missed)
-        self.assertLess(len(before), len(present),
-                        "the ten literals already reached everything. This pass bought nothing")
+        self.assertLess(
+            len(before),
+            len(present),
+            "the ten literals already reached everything. This pass bought nothing",
+        )
 
     def test_the_correction_between_the_two_refs_is_derived_as_a_difference(self):
         # A difference and never a total. Two sessions read 58 and 15 for this repository and both
@@ -583,10 +1049,13 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
                 found += len(spelling_findings(path))
             counted[ref] = found
         moved = counted[BEFORE_REF] - counted[AFTER_REF]
-        print("\n  idemIP spelling findings: %s at %s, %s at %s, corrected by hand: %d"
-              % (counted[BEFORE_REF], BEFORE_REF, counted[AFTER_REF], AFTER_REF, moved))
-        self.assertGreater(moved, 0,
-                           "the later ref is not cleaner. This is not the fixture it was")
+        print(
+            "\n  idemIP spelling findings: %s at %s, %s at %s, corrected by hand: %d"
+            % (counted[BEFORE_REF], BEFORE_REF, counted[AFTER_REF], AFTER_REF, moved)
+        )
+        self.assertGreater(
+            moved, 0, "the later ref is not cleaner. This is not the fixture it was"
+        )
         self.assertEqual(counted[AFTER_REF] + moved, counted[BEFORE_REF])
 
     def test_the_build_file_sites_are_the_same_at_both_refs(self):
@@ -602,13 +1071,21 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
                 rel = os.path.relpath(path, tree).replace("\\", "/")
                 sites.extend((rel, at, word) for at, word in spelling_findings(path))
             at_both[ref] = sorted(sites)
-        print("\n  build-file spelling sites: %d at %s, %d at %s"
-              % (len(at_both[BEFORE_REF]), BEFORE_REF, len(at_both[AFTER_REF]), AFTER_REF))
-        self.assertGreater(len(at_both[AFTER_REF]), 0,
-                           "no build-file site at either ref. This proves nothing")
-        self.assertEqual(at_both[BEFORE_REF], at_both[AFTER_REF],
-                         "a build-file site moved between the refs. The fixture has changed "
-                         "and the claim above it needs re-deriving")
+        print(
+            "\n  build-file spelling sites: %d at %s, %d at %s"
+            % (len(at_both[BEFORE_REF]), BEFORE_REF, len(at_both[AFTER_REF]), AFTER_REF)
+        )
+        self.assertGreater(
+            len(at_both[AFTER_REF]),
+            0,
+            "no build-file site at either ref. This proves nothing",
+        )
+        self.assertEqual(
+            at_both[BEFORE_REF],
+            at_both[AFTER_REF],
+            "a build-file site moved between the refs. The fixture has changed "
+            "and the claim above it needs re-deriving",
+        )
 
 
 class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
@@ -616,7 +1093,9 @@ class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
 
     def test_the_structural_gate_still_refuses_a_doxygen_reference(self):
         self.assertFalse(docs_check.path_candidate("@ref HTTP_10"))
-        self.assertFalse(docs_check.path_candidate("const char *user, const char *pass"))
+        self.assertFalse(
+            docs_check.path_candidate("const char *user, const char *pass")
+        )
         self.assertTrue(docs_check.path_candidate("docs/README.md"))
 
     def test_the_private_survey_still_answers_in_two_halves(self):

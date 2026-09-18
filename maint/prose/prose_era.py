@@ -10,7 +10,7 @@
 #
 # docs-check: quoting
 # ban_evidence.py split the banned list into alphabet, word and phrase, and the three read different
-# things off a text. The alphabet stage recovered the locale without being asked: neighbour fires at
+# things off a text. The alphabet stage recovered the locale without being asked: neighbor fires at
 # 17.3 per hundred thousand words in the papers and analyse at 8.9, because the proceedings are
 # Canadian and British convention. This is the word stage, and the word stage carries the era.
 # docs-check: end quoting
@@ -114,7 +114,9 @@ def distance(first, second):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     markers = 18
     if "--markers" in sys.argv:
         markers = int(sys.argv[sys.argv.index("--markers") + 1])
@@ -134,7 +136,9 @@ def main():
         if year is None:
             undated += 1
             continue
-        with open(os.path.join(PAPERS, name), encoding="utf-8", errors="replace") as handle:
+        with open(
+            os.path.join(PAPERS, name), encoding="utf-8", errors="replace"
+        ) as handle:
             text = handle.read()
         held = words_of(text)
         bins.setdefault(decade_of(year), []).extend(held)
@@ -143,14 +147,20 @@ def main():
             counted = seen.setdefault("papers_with", {})
             counted[one] = counted.get(one, 0) + 1
 
-    spread = {one: bins[one] for one in bins if (isinstance(one, int) and len(bins[one]) >= LEAST)}
+    spread = {
+        one: bins[one]
+        for one in bins
+        if (isinstance(one, int) and len(bins[one]) >= LEAST)
+    }
     if len(spread) < 3:
         out.write("  too few dated decades to build a timeline\n")
         out.flush()
         return 1
 
-    out.write("\n  the timeline, from %d dated papers, %d with no date in the name\n"
-              % (sum(len(seen[one]) for one in spread), undated))
+    out.write(
+        "\n  the timeline, from %d dated papers, %d with no date in the name\n"
+        % (sum(len(seen[one]) for one in spread), undated)
+    )
     out.write("    %-8s %-8s %s\n" % ("decade", "papers", "english words"))
     profiles = {}
     for decade in sorted(spread):
@@ -161,11 +171,17 @@ def main():
 
     out.write("\n  how far each decade sits from every other, in word choice\n")
     order = sorted(profiles)
-    out.write("    %-8s %s\n" % ("", "  ".join("%-6s" % ("%ds" % one) for one in order)))
+    out.write(
+        "    %-8s %s\n" % ("", "  ".join("%-6s" % ("%ds" % one) for one in order))
+    )
     for row in order:
-        cells = "  ".join("%-6.3f" % distance(profiles[row], profiles[col]) for col in order)
+        cells = "  ".join(
+            "%-6.3f" % distance(profiles[row], profiles[col]) for col in order
+        )
         out.write("    %-8s %s\n" % ("%ds" % row, cells))
-    out.write("    a timeline shows as the numbers growing with the gap between two decades\n")
+    out.write(
+        "    a timeline shows as the numbers growing with the gap between two decades\n"
+    )
 
     # Which words moved most between the two ends. A marker is a word that one end uses and the
     # other does not, and the paper count beside it says whether it is an era or one writer.
@@ -179,16 +195,28 @@ def main():
         moved.append((late - early, word, early, late, appears.get(word, 0)))
     moved.sort()
 
-    out.write("\n  words the %ds use and the %ds do not, per 10000 english words\n"
-              % (oldest, newest))
-    out.write("    %-18s %-9s %-9s %s\n" % ("word", "%ds" % oldest, "%ds" % newest, "in papers"))
+    out.write(
+        "\n  words the %ds use and the %ds do not, per 10000 english words\n"
+        % (oldest, newest)
+    )
+    out.write(
+        "    %-18s %-9s %-9s %s\n"
+        % ("word", "%ds" % oldest, "%ds" % newest, "in papers")
+    )
     for _, word, early, late, papers in moved[:markers]:
-        out.write("    %-18s %-9.2f %-9.2f %d\n" % (word, early * 10000, late * 10000, papers))
+        out.write(
+            "    %-18s %-9.2f %-9.2f %d\n" % (word, early * 10000, late * 10000, papers)
+        )
 
     out.write("\n  words the %ds use and the %ds did not\n" % (newest, oldest))
-    out.write("    %-18s %-9s %-9s %s\n" % ("word", "%ds" % oldest, "%ds" % newest, "in papers"))
+    out.write(
+        "    %-18s %-9s %-9s %s\n"
+        % ("word", "%ds" % oldest, "%ds" % newest, "in papers")
+    )
     for _, word, early, late, papers in list(reversed(moved))[:markers]:
-        out.write("    %-18s %-9.2f %-9.2f %d\n" % (word, early * 10000, late * 10000, papers))
+        out.write(
+            "    %-18s %-9.2f %-9.2f %d\n" % (word, early * 10000, late * 10000, papers)
+        )
 
     # Where this repository's own prose lands on that timeline.
     mine = []
@@ -198,17 +226,26 @@ def main():
     out.write("\n  this repository, %d english words, against each decade\n" % total)
     scored = sorted((distance(ours, profiles[one]), one) for one in profiles)
     for score, decade in scored:
-        out.write("    %-8s %.4f%s\n"
-                  % ("%ds" % decade, score, "   nearest" if decade == scored[0][1] else ""))
+        out.write(
+            "    %-8s %.4f%s\n"
+            % ("%ds" % decade, score, "   nearest" if decade == scored[0][1] else "")
+        )
 
     # A decade against its own neighbors, for scale. A repository distance has to be read against
     # how far two decades of the same field already sit from each other.
-    steps = [distance(profiles[order[at]], profiles[order[at + 1]]) for at in range(len(order) - 1)]
+    steps = [
+        distance(profiles[order[at]], profiles[order[at + 1]])
+        for at in range(len(order) - 1)
+    ]
     if steps:
-        out.write("\n  one decade to the next averages %.4f. A distance near that is one\n"
-                  % (sum(steps) / len(steps)))
-        out.write("  decade's worth of drift, and the repository sits %.4f from its nearest\n"
-                  % scored[0][0])
+        out.write(
+            "\n  one decade to the next averages %.4f. A distance near that is one\n"
+            % (sum(steps) / len(steps))
+        )
+        out.write(
+            "  decade's worth of drift, and the repository sits %.4f from its nearest\n"
+            % scored[0][0]
+        )
 
     out.write("\n")
     out.flush()

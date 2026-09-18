@@ -10,7 +10,7 @@
 # This reads no corpus. It sits in 0_experimental: an algorithm shown working, a recommender-systems
 # filter beside the signal ones. It is the group-mean estimate the denoisers use, over a table with
 # holes: to fill a missing entry, find the rows that agree with its row wherever both have values, and
-# average what those neighbours put in the missing column.
+# average what those neighbors put in the missing column.
 #
 # It is application logic, not an engine primitive, and it lives here. A
 # group-mean is the signal estimate a reading is measured INTO. A denoiser OUTPUTS it; nothing outputs
@@ -23,7 +23,7 @@
 # share no traversal. On a table that is a row effect plus a column effect they return the same value
 # to the last digit; on a table with no such structure they disagree, and the disagreement is the
 # finding. Nothing is bounded: agreement is exact equality on the overlap. There is
-# no similarity cutoff; a row whose effect is unique has no neighbours and its holes are left unfilled.
+# no similarity cutoff; a row whose effect is unique has no neighbors and its holes are left unfilled.
 
 import io
 import os
@@ -73,7 +73,7 @@ def predict_item(matrix, row, column):
 
 
 def additive_table(users, items, hold_out):
-    """value[r][c] = u[r] + v[c], with effects shared across several rows and columns so neighbours
+    """value[r][c] = u[r] + v[c], with effects shared across several rows and columns so neighbors
     exist, and a held-out set of entries set MISSING. Returns the holed table and the clean values.
     """
     u = [((r % users) + 1) * 10 for r in range(users * 2)]  # two rows per user effect
@@ -119,7 +119,7 @@ def main():
     out.write("    user-based recovered exactly:  %d / %d\n" % (user_ok, filled))
     out.write("    item-based recovered exactly:  %d / %d\n" % (item_ok, filled))
     out.write("    the two routes agreed:         %d / %d\n" % (agree, filled))
-    out.write("    declined (no neighbour):       %d\n" % declined)
+    out.write("    declined (no neighbor):       %d\n" % declined)
 
     # the routes must be able to disagree, or their agreeing is empty. A broken user-route that
     # averages the WHOLE column instead of the neighbourhood splits from the honest one.
@@ -138,7 +138,7 @@ def main():
         % splits
     )
 
-    # null: a table with no row+column structure -- no exact neighbour exists. Both routes DECLINE
+    # null: a table with no row+column structure -- no exact neighbor exists. Both routes DECLINE
     rng_state = 0x51F7
     noise = [[0] * 8 for _ in range(8)]
     for r in range(8):
@@ -153,7 +153,7 @@ def main():
         "  null: a table with no row+column structure -> user says %s, item says %s\n"
         % (pu, pi)
     )
-    out.write("  neither finds an exact neighbour. Both decline.\n")
+    out.write("  neither finds an exact neighbor. Both decline.\n")
     out.write(
         "\n  on the structured table both routes land on the same rational and it is the clean\n"
     )
@@ -161,7 +161,7 @@ def main():
         "  value; they are different computations, rows against columns, that coincide only\n"
     )
     out.write(
-        "  because the structure is real. the floor is a row whose effect is unique: no neighbour,\n"
+        "  because the structure is real. the floor is a row whose effect is unique: no neighbor,\n"
     )
     out.write("  so the hole is left.\n")
     out.flush()

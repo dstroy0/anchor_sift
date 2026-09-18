@@ -23,8 +23,7 @@
 # three gives a different picture, and so none of them can be reported as either of the others.
 #
 # THE ANSWER EXISTS BEFORE THE MEASUREMENT. Every field here is displaced by an amount this file
-# chose, using a Fourier shift, which moves a band-limited field by a real number exactly rather than
-# by interpolating between samples. So the truth is not an annotation and not a reading: it is an
+# chose, using a Fourier shift, which moves a band-limited field by a real number exactly. So the truth is not an annotation and not a reading: it is an
 # input. theory/workbook records that a positive control with a known answer is what the permutation
 # null measure has never had, and what the spectral exponent got by building fields to a chosen
 # exponent and reading them back. This is that arrangement for displacement.
@@ -42,7 +41,9 @@ import numpy
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
@@ -79,7 +80,8 @@ def field(rng):
         brightness = rng.uniform(0.5, 1.0)
         canvas += brightness * numpy.exp(
             -(((rows - centre_row) ** 2) + ((columns - centre_column) ** 2))
-            / (2.0 * BLOB_WIDTH * BLOB_WIDTH))
+            / (2.0 * BLOB_WIDTH * BLOB_WIDTH)
+        )
     return canvas
 
 
@@ -95,7 +97,9 @@ def shifted(canvas, distance, axis):
     shape = [1, 1]
     shape[axis] = canvas.shape[axis]
     ramp = numpy.exp(-2.0j * numpy.pi * frequencies.reshape(shape) * distance)
-    return numpy.real(numpy.fft.ifft(numpy.fft.fft(canvas, axis=axis) * ramp, axis=axis))
+    return numpy.real(
+        numpy.fft.ifft(numpy.fft.fft(canvas, axis=axis) * ramp, axis=axis)
+    )
 
 
 def to_levels(canvas, levels=LEVELS):
@@ -120,7 +124,7 @@ def agreement(first, second, lag, axis):
     Scoring every position instead was measured here first and is kept in the docstring because it
     fails in a way that looks like a result: a field of blobs on a flat background is mostly
     background, background agrees with background at every lag, and the measure returns its maximum
-    at lag zero for every true displacement with both neighbours equal to it. The cross-axis control
+    at lag zero for every true displacement with both neighbors equal to it. The cross-axis control
     returned the same figure, which is what named it. theory/workbook says the same thing about the
     protein row from the other side, that in empty space every axis is identical and a line crossing
     mostly vacuum has no magnitude to carry.
@@ -136,10 +140,10 @@ def agreement(first, second, lag, axis):
     # measured here first: it returns lag zero on every row because the true displacement is
     # positive and no negative lag is swept, which reads exactly like a measure with no resolution.
     if axis == 0:
-        left = first[:first.shape[0] - lag, :] if lag else first
+        left = first[: first.shape[0] - lag, :] if lag else first
         right = second[lag:, :]
     else:
-        left = first[:, :first.shape[1] - lag] if lag else first
+        left = first[:, : first.shape[1] - lag] if lag else first
         right = second[:, lag:]
     if left.size == 0:
         return 0.0
@@ -157,7 +161,7 @@ def agreement(first, second, lag, axis):
 def recover(first, second, axis, reach=12):
     """The whole lag and the fraction beyond it, from the two lags straddling the true displacement.
 
-    Returns (lag, fraction, agreement at the lag). The fraction is the share the taller neighbour
+    Returns (lag, fraction, agreement at the lag). The fraction is the share the taller neighbor
     holds of the two, which is the quantity examples/crystallography reads off a tiling.
     """
     scores = {lag: agreement(first, second, lag, axis) for lag in range(0, reach + 1)}
@@ -165,23 +169,31 @@ def recover(first, second, axis, reach=12):
     score = scores[lag]
     above = scores.get(lag + 1, 0.0)
     below = scores.get(lag - 1, 0.0) if lag > 0 else 0.0
-    neighbour = above if above >= below else below
-    total = score + neighbour
-    share = (neighbour / total) if total > 0.0 else 0.0
+    neighbor = above if above >= below else below
+    total = score + neighbor
+    share = (neighbor / total) if total > 0.0 else 0.0
     return lag, (share if above >= below else -share), score
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     rng = numpy.random.default_rng(SEED)
     canvas = field(rng)
     first = to_levels(canvas)
 
-    out.write("  A field displaced by an amount this file chose, read back off the pixel grid.\n")
-    out.write("  %d levels, %d blobs %.1f px wide, %dx%d field.\n\n"
-              % (LEVELS, BLOBS, BLOB_WIDTH, SIDE, SIDE))
-    out.write("  %-8s %-8s %-10s %-10s %-10s %s\n"
-              % ("true", "lag", "fraction", "recovered", "error", "cross axis"))
+    out.write(
+        "  A field displaced by an amount this file chose, read back off the pixel grid.\n"
+    )
+    out.write(
+        "  %d levels, %d blobs %.1f px wide, %dx%d field.\n\n"
+        % (LEVELS, BLOBS, BLOB_WIDTH, SIDE, SIDE)
+    )
+    out.write(
+        "  %-8s %-8s %-10s %-10s %-10s %s\n"
+        % ("true", "lag", "fraction", "recovered", "error", "cross axis")
+    )
 
     errors = []
     plain = []
@@ -196,24 +208,44 @@ def main():
         # and this is the background. If the two columns agree, the fraction carries nothing.
         plain.append(abs(lag - truth))
         # The other axis moved by nothing. Anything but zero there is the reading inventing a
-        # displacement. Reported on every row rather than once, because a control quoted once is a
+        # displacement. Reported on every row  because a control quoted once is a
         # control that stopped being checked.
         cross_lag, cross_fraction, _ = recover(first, second, axis=1)
-        out.write("  %-8.2f %-8d %-10.4f %-10.4f %-10.4f %.4f\n"
-                  % (truth, lag, fraction, recovered, error, cross_lag + cross_fraction))
+        out.write(
+            "  %-8.2f %-8d %-10.4f %-10.4f %-10.4f %.4f\n"
+            % (truth, lag, fraction, recovered, error, cross_lag + cross_fraction)
+        )
 
-    out.write("\n  with the fraction:    mean %.4f px, worst %.4f px\n"
-              % (sum(errors) / len(errors), max(errors)))
-    out.write("  whole lag alone:      mean %.4f px, worst %.4f px\n"
-              % (sum(plain) / len(plain), max(plain)))
-    out.write("  the fraction is worth %.2fx on the mean, over %d rows.\n"
-              % ((sum(plain) / len(plain)) / (sum(errors) / len(errors)), len(errors)))
-    out.write("\n  The residual is not scatter. It is largest at whole-number displacements and\n")
-    out.write("  near zero at the half, because the share never reaches zero: a blob six pixels\n")
-    out.write("  wide still agrees substantially at the neighbouring lag when the displacement is\n")
-    out.write("  exact. The fraction is monotone in the true remainder and is not equal to it.\n")
-    out.write("\n  The cross-axis column is the control and it does not read zero. An axis that\n")
-    out.write("  moved by nothing returns about half a pixel, which is the same floor seen from\n")
+    out.write(
+        "\n  with the fraction:    mean %.4f px, worst %.4f px\n"
+        % (sum(errors) / len(errors), max(errors))
+    )
+    out.write(
+        "  whole lag alone:      mean %.4f px, worst %.4f px\n"
+        % (sum(plain) / len(plain), max(plain))
+    )
+    out.write(
+        "  the fraction is worth %.2fx on the mean, over %d rows.\n"
+        % ((sum(plain) / len(plain)) / (sum(errors) / len(errors)), len(errors))
+    )
+    out.write(
+        "\n  The residual is not scatter. It is largest at whole-number displacements and\n"
+    )
+    out.write(
+        "  near zero at the half, because the share never reaches zero: a blob six pixels\n"
+    )
+    out.write(
+        "  wide still agrees substantially at the neighbouring lag when the displacement is\n"
+    )
+    out.write(
+        "  exact. The fraction is monotone in the true remainder and is not equal to it.\n"
+    )
+    out.write(
+        "\n  The cross-axis column is the control and it does not read zero. An axis that\n"
+    )
+    out.write(
+        "  moved by nothing returns about half a pixel, which is the same floor seen from\n"
+    )
     out.write("  underneath. Any per-cell reading built on this inherits that floor.\n")
     out.flush()
     return 0

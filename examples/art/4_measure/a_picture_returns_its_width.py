@@ -37,7 +37,11 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
-from measure.shift_agreement import against_a_shuffle, recover_period, strongest_lags  # noqa: E402
+from measure.shift_agreement import (
+    against_a_shuffle,
+    recover_period,
+    strongest_lags,
+)  # noqa: E402
 
 
 def main():
@@ -45,9 +49,13 @@ def main():
         print("usage: a_picture_returns_its_width.py corpus.sym [more.sym ...]")
         return 1
 
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  %-22s %-9s %-9s %-11s %-9s %s\n"
-              % ("corpus", "top lag", "agree", "shuffled", "sub lag", "the top six lags"))
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  %-22s %-9s %-9s %-11s %-9s %s\n"
+        % ("corpus", "top lag", "agree", "shuffled", "sub lag", "the top six lags")
+    )
 
     for path in sys.argv[1:]:
         if not os.path.isfile(path):
@@ -63,15 +71,25 @@ def main():
         live, dead = against_a_shuffle(data)
         lag, fraction, _ = recover_period(data)
 
-        out.write("  %-22s %-9d %-9.4f %-11.4f %-9s %s\n"
-                  % (os.path.basename(path)[:-4], marks[0][1], marks[0][0],
-                     dead[0] if dead else float("nan"),
-                     "%.3f" % (lag + fraction) if lag is not None else "none",
-                     " ".join(str(one[1]) for one in marks)))
+        out.write(
+            "  %-22s %-9d %-9.4f %-11.4f %-9s %s\n"
+            % (
+                os.path.basename(path)[:-4],
+                marks[0][1],
+                marks[0][0],
+                dead[0] if dead else float("nan"),
+                "%.3f" % (lag + fraction) if lag is not None else "none",
+                " ".join(str(one[1]) for one in marks),
+            )
+        )
 
-    out.write("\n  the shuffled column holds the histogram and destroys the positions. What\n")
+    out.write(
+        "\n  the shuffled column holds the histogram and destroys the positions. What\n"
+    )
     out.write("  survives the subtraction is the only part that means anything\n")
-    out.write("  a real period arrives with its neighbours beside it and its harmonics behind\n")
+    out.write(
+        "  a real period arrives with its neighbors beside it and its harmonics behind\n"
+    )
     out.flush()
     return 0
 

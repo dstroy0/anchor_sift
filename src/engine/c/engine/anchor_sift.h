@@ -452,7 +452,7 @@ extern "C"
      *       classes, broke the necessary condition, and would have rejected alignments holding true
      *       occurrences silently. That is fixed.
      * @warning THE COST OF TAKING THE CLOSURE IS CHAINING. A loose tolerance can walk the whole field
-     *          into one component through a path of near neighbours, none of which agree with the ends.
+     *          into one component through a path of near neighbors, none of which agree with the ends.
      *          One class ranks everything alike, every rank probe then refutes nothing, and the search
      *          falls back to the exact compare at every alignment. That is useless and it is exactly
      *          sound, since a probe that rejects nothing is still a necessary condition. Tighten the

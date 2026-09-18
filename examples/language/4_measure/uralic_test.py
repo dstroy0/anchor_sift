@@ -51,12 +51,25 @@ RANKS = 64
 
 URALIC = ("finnish", "estonian", "hungarian")
 # The neighbors each of them borrowed from, where a reading of contact would go instead
-NEIGHBORS = ("swedish", "german", "russian", "polish", "czech", "slovenian", "romanian",
-             "turkish", "danish", "norwegian", "dutch")
+NEIGHBORS = (
+    "swedish",
+    "german",
+    "russian",
+    "polish",
+    "czech",
+    "slovenian",
+    "romanian",
+    "turkish",
+    "danish",
+    "norwegian",
+    "dutch",
+)
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     wanted = set(URALIC) | set(NEIGHBORS)
     held = {}
@@ -69,7 +82,7 @@ def main():
         stem = name.rsplit(".", 1)[0]
         for prefix in ("lang_", "wiki_", "para2_", "para_", "cc_"):
             if stem.startswith(prefix):
-                stem = stem[len(prefix):]
+                stem = stem[len(prefix) :]
                 break
         language = stem.rsplit("_", 1)[0] if stem.rsplit("_", 1)[-1].isdigit() else stem
         if language not in wanted:
@@ -82,15 +95,20 @@ def main():
         if len(text) < SAME_LENGTH:
             # Said plainly, because printing the gate's note here read as though the gate had rejected a
             # file it had passed, and several clean files were being dropped for length under that label
-            notes.append("%s passed the gate and holds only %d characters, under the %d needed"
-                         % (name, len(text), SAME_LENGTH))
+            notes.append(
+                "%s passed the gate and holds only %d characters, under the %d needed"
+                % (name, len(text), SAME_LENGTH)
+            )
             continue
         values = web(text[:SAME_LENGTH], RANKS)
         if values is not None:
             held.setdefault(language, []).append(values)
 
-    middles = {language: numpy.mean(numpy.stack(rows), axis=0)
-               for language, rows in held.items() if rows}
+    middles = {
+        language: numpy.mean(numpy.stack(rows), axis=0)
+        for language, rows in held.items()
+        if rows
+    }
     present = sorted(middles)
     uralic = [name for name in URALIC if name in middles]
     if len(uralic) < 2:
@@ -98,34 +116,64 @@ def main():
         out.flush()
         return 0
 
-    out.write("  %d languages held, %d of them uralic, each read from %d characters\n\n"
-              % (len(present), len(uralic), SAME_LENGTH))
+    out.write(
+        "  %d languages held, %d of them uralic, each read from %d characters\n\n"
+        % (len(present), len(uralic), SAME_LENGTH)
+    )
     for note in notes[:6]:
         out.write("  %s\n" % note)
 
-    out.write("  %-12s %-14s %-10s %s\n" % ("language", "nearest", "distance", "what that is"))
+    out.write(
+        "  %-12s %-14s %-10s %s\n" % ("language", "nearest", "distance", "what that is")
+    )
     for language in uralic:
-        marks = sorted((float(numpy.linalg.norm(middles[language] - middles[other])), other)
-                       for other in present if other != language)
+        marks = sorted(
+            (float(numpy.linalg.norm(middles[language] - middles[other])), other)
+            for other in present
+            if other != language
+        )
         distance, nearest = marks[0]
-        out.write("  %-12s %-14s %-10.4f %s\n"
-                  % (language, nearest, distance,
-                     "its own family" if nearest in URALIC else "a neighbour it borrowed from"))
+        out.write(
+            "  %-12s %-14s %-10.4f %s\n"
+            % (
+                language,
+                nearest,
+                distance,
+                (
+                    "its own family"
+                    if nearest in URALIC
+                    else "a neighbor it borrowed from"
+                ),
+            )
+        )
         second = marks[1] if len(marks) > 1 else None
         if second:
             out.write("      then %s at %.4f\n" % (second[1], second[0]))
 
     if len(uralic) >= 2:
-        within = [float(numpy.linalg.norm(middles[one] - middles[two]))
-                  for index, one in enumerate(uralic) for two in uralic[index + 1:]]
-        across = [float(numpy.linalg.norm(middles[one] - middles[two]))
-                  for one in uralic for two in present if two not in URALIC]
-        out.write("\n  uralic to uralic       %.4f over %d pairs\n"
-                  % (float(numpy.mean(within)), len(within)))
-        out.write("  uralic to its neighbours %.4f over %d pairs\n"
-                  % (float(numpy.mean(across)), len(across)))
-        out.write("  descent beats contact here: %s\n"
-                  % ("yes" if numpy.mean(within) < numpy.mean(across) else "no"))
+        within = [
+            float(numpy.linalg.norm(middles[one] - middles[two]))
+            for index, one in enumerate(uralic)
+            for two in uralic[index + 1 :]
+        ]
+        across = [
+            float(numpy.linalg.norm(middles[one] - middles[two]))
+            for one in uralic
+            for two in present
+            if two not in URALIC
+        ]
+        out.write(
+            "\n  uralic to uralic       %.4f over %d pairs\n"
+            % (float(numpy.mean(within)), len(within))
+        )
+        out.write(
+            "  uralic to its neighbors %.4f over %d pairs\n"
+            % (float(numpy.mean(across)), len(across))
+        )
+        out.write(
+            "  descent beats contact here: %s\n"
+            % ("yes" if numpy.mean(within) < numpy.mean(across) else "no")
+        )
 
     out.flush()
     return 0

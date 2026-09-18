@@ -140,8 +140,7 @@ static void host_pass(const unsigned int *source, unsigned int *destination, con
             for (unsigned int limb = 0u; limb < limbs_in; limb += 1u)
             {
 
-                accumulator[limb] += (unsigned long long)weights[tap]
-                                   * (unsigned long long)source[(read * BINOMIAL_BASINS_LIMBS) + limb];
+                accumulator[limb] += (unsigned long long)weights[tap] * (unsigned long long)source[(read * BINOMIAL_BASINS_LIMBS) + limb];
             }
         }
         unsigned long long carry = 0ull;
@@ -177,8 +176,8 @@ static void host_smooth(unsigned int **current, unsigned int **spare, const unsi
         while (remaining > 0u)
         {
             const unsigned int order = (remaining > BINOMIAL_BASINS_PASS_ORDER)
-                                     ? BINOMIAL_BASINS_PASS_ORDER
-                                     : remaining;
+                                           ? BINOMIAL_BASINS_PASS_ORDER
+                                           : remaining;
             host_binomial_row(order, weights);
             host_pass(*current, *spare, weights, order, axis, host_limbs(*bits), geometry);
             unsigned int *const swapped = *current;
@@ -322,14 +321,7 @@ static size_t host_unique_pairs(unsigned int *pairs, size_t total)
 
 long binomial_basins_host(const BinomialBasinsRequest *args)
 {
-    if ((args == NULL) || (args->volume == NULL) || (args->adjacency_count == NULL) || (args->joined_count == NULL)
-     || (args->depth == 0u) || (args->height == 0u) || (args->width == 0u)
-     || (args->room > BINOMIAL_BASINS_ROOM_LIMIT) || (args->adjacency_room > BINOMIAL_BASINS_ROOM_LIMIT)
-     || (args->joined_room > BINOMIAL_BASINS_ROOM_LIMIT)
-     || ((args->room != 0u) && ((args->peak_indices == NULL) || (args->sizes == NULL)
-                                || (args->sums == NULL) || (args->peak_limbs == NULL)))
-     || ((args->adjacency_room != 0u) && (args->adjacency == NULL))
-     || ((args->joined_room != 0u) && (args->joined == NULL)))
+    if ((args == NULL) || (args->volume == NULL) || (args->adjacency_count == NULL) || (args->joined_count == NULL) || (args->depth == 0u) || (args->height == 0u) || (args->width == 0u) || (args->room > BINOMIAL_BASINS_ROOM_LIMIT) || (args->adjacency_room > BINOMIAL_BASINS_ROOM_LIMIT) || (args->joined_room > BINOMIAL_BASINS_ROOM_LIMIT) || ((args->room != 0u) && ((args->peak_indices == NULL) || (args->sizes == NULL) || (args->sums == NULL) || (args->peak_limbs == NULL))) || ((args->adjacency_room != 0u) && (args->adjacency == NULL)) || ((args->joined_room != 0u) && (args->joined == NULL)))
     {
         return BINOMIAL_BASINS_REFUSED;
     }
@@ -341,8 +333,7 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
         {
             return BINOMIAL_BASINS_REFUSED;
         }
-        total_bits += (unsigned long long)args->smooth_orders[axis]
-                    + (unsigned long long)args->background_orders[axis];
+        total_bits += (unsigned long long)args->smooth_orders[axis] + (unsigned long long)args->background_orders[axis];
     }
 
     const unsigned long long plane_count = (unsigned long long)args->height * (unsigned long long)args->width;
@@ -375,8 +366,7 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
     unsigned int *sizes = (unsigned int *)calloc(voxels, sizeof(unsigned int));
     unsigned long long *sums = (unsigned long long *)calloc(voxels * 3u, sizeof(unsigned long long));
     long answer = BINOMIAL_BASINS_REFUSED;
-    if ((first == NULL) || (second == NULL) || (smoothed == NULL) || (successor == NULL)
-     || (positive == NULL) || (sizes == NULL) || (sums == NULL))
+    if ((first == NULL) || (second == NULL) || (smoothed == NULL) || (successor == NULL) || (positive == NULL) || (sizes == NULL) || (sums == NULL))
     {
         free(first);
         free(second);
@@ -427,8 +417,7 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
 
             // 2^32 is added before subtracting. The difference is never negative, and a result
             // below 2^32 means a borrow was taken.
-            const unsigned long long difference = (1ull << 32u) + (unsigned long long)shifted
-                                                - (unsigned long long)background[limb] - borrow;
+            const unsigned long long difference = (1ull << 32u) + (unsigned long long)shifted - (unsigned long long)background[limb] - borrow;
             spare[(voxel * BINOMIAL_BASINS_LIMBS) + limb] = (unsigned int)(difference & 0xFFFFFFFFull);
             borrow = (difference < (1ull << 32u)) ? 1ull : 0ull;
         }
@@ -453,22 +442,18 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
                     const long long at_slice = slice + step_slice;
                     const long long at_row = row + step_row;
                     const long long at_column = column + step_column;
-                    if ((at_slice < 0ll) || (at_slice >= (long long)geometry.depth) || (at_row < 0ll)
-                     || (at_row >= (long long)geometry.height) || (at_column < 0ll)
-                     || (at_column >= (long long)geometry.width))
+                    if ((at_slice < 0ll) || (at_slice >= (long long)geometry.depth) || (at_row < 0ll) || (at_row >= (long long)geometry.height) || (at_column < 0ll) || (at_column >= (long long)geometry.width))
                     {
                         continue;
                     }
 
-                    const unsigned int neighbour = ((unsigned int)at_slice * plane)
-                                                 + ((unsigned int)at_row * geometry.width)
-                                                 + (unsigned int)at_column;
-                    const int order = host_compare(&residual[neighbour * BINOMIAL_BASINS_LIMBS],
+                    const unsigned int neighbor = ((unsigned int)at_slice * plane) + ((unsigned int)at_row * geometry.width) + (unsigned int)at_column;
+                    const int order = host_compare(&residual[neighbor * BINOMIAL_BASINS_LIMBS],
                                                    &residual[best * BINOMIAL_BASINS_LIMBS]);
                     // A tie goes to the lower index, which leaves no cycle across a plateau.
-                    if ((order > 0) || ((order == 0) && (neighbour < best)))
+                    if ((order > 0) || ((order == 0) && (neighbor < best)))
                     {
-                        best = neighbour;
+                        best = neighbor;
                     }
                 }
             }
@@ -555,8 +540,7 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
     const size_t unique_total = (ok != 0) ? host_unique_pairs(pairs, pair_total) : 0u;
     const size_t joined_unique = (ok != 0) ? host_unique_pairs(joined, joined_total) : 0u;
 
-    if ((ok != 0) && (peak_count <= (unsigned long long)BINOMIAL_BASINS_ROOM_LIMIT)
-     && (unique_total <= (size_t)BINOMIAL_BASINS_ROOM_LIMIT) && (joined_unique <= (size_t)BINOMIAL_BASINS_ROOM_LIMIT))
+    if ((ok != 0) && (peak_count <= (unsigned long long)BINOMIAL_BASINS_ROOM_LIMIT) && (unique_total <= (size_t)BINOMIAL_BASINS_ROOM_LIMIT) && (joined_unique <= (size_t)BINOMIAL_BASINS_ROOM_LIMIT))
     {
 
         // All three counts are at most BINOMIAL_BASINS_ROOM_LIMIT, which fits an unsigned int and
@@ -564,8 +548,7 @@ long binomial_basins_host(const BinomialBasinsRequest *args)
         *args->adjacency_count = (unsigned int)unique_total;
         *args->joined_count = (unsigned int)joined_unique;
         answer = (long)peak_count;
-        if ((peak_count <= (unsigned long long)args->room) && (unique_total <= (size_t)args->adjacency_room)
-         && (joined_unique <= (size_t)args->joined_room))
+        if ((peak_count <= (unsigned long long)args->room) && (unique_total <= (size_t)args->adjacency_room) && (joined_unique <= (size_t)args->joined_room))
         {
             if (joined_unique != 0u)
             {

@@ -29,7 +29,7 @@
 #
 # The outline is exact at cell boundaries. A 64 grid gives hard facets where a font gives smooth
 # curves. That reads as a cut or brushed letter. --smooth cuts corners by
-# Chaikin's rule, which shortens every segment toward its neighbours and softens the facets without
+# Chaikin's rule, which shortens every segment toward its neighbors and softens the facets without
 # inventing a curve the dotmap did not have. Two passes is usually enough; four looks like a font
 # again and loses the reason to do this.
 #
@@ -108,7 +108,7 @@ def boundary_edges(grid):
                 continue
             left, top = column * CELL, row * CELL
             right, bottom = left + CELL, top + CELL
-            # Each neighbour that is empty contributes the edge between them, wound so the set cell
+            # Each neighbor that is empty contributes the edge between them, wound so the set cell
             # stays on the left.
             if not filled(row - 1, column):
                 edges[(left, top)] = (right, top)

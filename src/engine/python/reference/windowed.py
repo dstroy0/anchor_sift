@@ -29,14 +29,14 @@ def _window(values, index, radius, include_center):
     high = min(len(values), index + radius + 1)
     if include_center:
         return values[low:high]
-    return values[low:index] + values[index + 1:high]
+    return values[low:index] + values[index + 1 : high]
 
 
 def window_median(values, index, radius, include_center=True):
     """The median of the window around `index`, by sorting. The lower middle on an even count.
 
     `include_center` false reads the window with the center left out, which is what an outlier test
-    wants: the value the neighbours agree on, uncontaminated by the sample under test.
+    wants: the value the neighbors agree on, uncontaminated by the sample under test.
     """
     window = sorted(_window(values, index, radius, include_center))
     return window[(len(window) - 1) // 2]
@@ -72,7 +72,7 @@ def median_filtered(values, radius, route=window_median):
 
 
 def restore_at(values, radius, flagged):
-    """The signal with only the `flagged` positions replaced by their neighbours' median.
+    """The signal with only the `flagged` positions replaced by their neighbors' median.
 
     The reject step for the Hampel-style filter: a clean sample is left exactly as it is, and only a
     flagged outlier is replaced, by the median of its window with itself left out so the impulse does

@@ -868,7 +868,7 @@ static int near_same_in_field(const void *field, size_t left, size_t right)
  * @return Count of failures.
  *
  * THE CASE THAT WAS SILENTLY WRONG. Classes are the transitive closure of the predicate. The check builds a chain,
- * 0 1 2 3 4, where each value agrees with its neighbours at a tolerance of 2 and the ends do not
+ * 0 1 2 3 4, where each value agrees with its neighbors at a tolerance of 2 and the ends do not
  * agree with each other at all. The closure is one component. Every position must carry one rank.
  *
  * A grouping that stopped at the first matching representative would have produced more than one

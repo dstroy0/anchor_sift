@@ -103,7 +103,7 @@ LOCALE = LOCALE_NAMED + (
     r"\b(?:fulfil|fulfils|fulfilment|fulfilments|enrol|enrols|enrolment|enrolments"
     r"|instal|instals|instalment|instalments|skilful|skilfully|wilful|wilfully"
     r"|enthral|enthrals|appal|appals|distil|distils|instil|instils)\b",
-.
+
     r"\b(?:defence|offence|pretence|licence)s?\b",
 
     r"\b(?:catalogue|analogue)[sd]?\b",
@@ -1218,8 +1218,7 @@ BRITISH_SUBJECT = (
 NAMED_STANDARD = re.compile(
     r"\b(?:RFC|STD|BCP|IEEE|ISO|IEC|ANSI|FIPS|NIST(?:\s+SP)?)\s*\d", re.IGNORECASE
 )
-use reflowing a requirement is
-# how a requirement stops being the one that was agreed.
+
 RFC_2119 = re.compile(
     r"\b(?:MUST NOT|MUST|SHALL NOT|SHALL|SHOULD NOT|SHOULD|NOT RECOMMENDED|RECOMMENDED"
     r"|REQUIRED|MAY|OPTIONAL)\b"

@@ -59,7 +59,9 @@ def load(name):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     kinds = {}
     for name in sorted(os.listdir(CORPORA)):
@@ -78,49 +80,75 @@ def main():
         if values is not None:
             kinds.setdefault((kind, label), []).append(values)
 
-    entries = [(kind, label, numpy.mean(numpy.stack(values), axis=0))
-               for (kind, label), values in sorted(kinds.items())]
+    entries = [
+        (kind, label, numpy.mean(numpy.stack(values), axis=0))
+        for (kind, label), values in sorted(kinds.items())
+    ]
     languages = [row for row in entries if row[0] == "language"]
     if (len(languages) < 8) or (len(entries) - len(languages) < 2):
         out.write("  not enough of one kind to compare\n")
         out.flush()
         return 0
 
-    out.write("  %-30s %-11s %-16s %-11s %s\n"
-              % ("corpus", "kind", "nearest", "distance", "nearest is"))
+    out.write(
+        "  %-30s %-11s %-16s %-11s %s\n"
+        % ("corpus", "kind", "nearest", "distance", "nearest is")
+    )
     crossings = 0
     for kind, label, values in entries:
         marks = []
         for other_kind, other_label, other in entries:
             if other_label == label:
                 continue
-            marks.append((float(numpy.linalg.norm(values - other)), other_kind, other_label))
+            marks.append(
+                (float(numpy.linalg.norm(values - other)), other_kind, other_label)
+            )
         marks.sort()
         distance, near_kind, near_label = marks[0]
         if kind != near_kind:
             crossings += 1
         if kind != "language":
-            out.write("  %-30s %-11s %-16s %-11.5f %s\n"
-                      % (label, kind, near_label, distance, near_kind))
+            out.write(
+                "  %-30s %-11s %-16s %-11.5f %s\n"
+                % (label, kind, near_label, distance, near_kind)
+            )
 
     # How far the two kinds sit from each other against how far each sits from its own
     def spread(left, right):
-        return numpy.mean([float(numpy.linalg.norm(one[2] - two[2]))
-                           for one in left for two in right if one[1] != two[1]])
+        return numpy.mean(
+            [
+                float(numpy.linalg.norm(one[2] - two[2]))
+                for one in left
+                for two in right
+                if one[1] != two[1]
+            ]
+        )
 
     made = [row for row in entries if row[0] == "generated"]
-    out.write("\n  mean distance among the languages      %.5f\n" % spread(languages, languages))
+    out.write(
+        "\n  mean distance among the languages      %.5f\n"
+        % spread(languages, languages)
+    )
     out.write("  mean distance among the generated      %.5f\n" % spread(made, made))
-    out.write("  mean distance between the two kinds    %.5f\n" % spread(languages, made))
-    out.write("\n  %d of %d corpora have their nearest neighbour in another kind\n"
-              % (crossings, len(entries)))
+    out.write(
+        "  mean distance between the two kinds    %.5f\n" % spread(languages, made)
+    )
+    out.write(
+        "\n  %d of %d corpora have their nearest neighbor in another kind\n"
+        % (crossings, len(entries))
+    )
 
     english = [row for row in made if "english" in row[1]]
     if english:
-        marks = sorted((float(numpy.linalg.norm(english[0][2] - row[2])), row[0], row[1])
-                       for row in entries if row[1] != english[0][1])
-        out.write("  the chain given English letter frequencies is nearest %s, which is %s\n"
-                  % (marks[0][2], marks[0][1]))
+        marks = sorted(
+            (float(numpy.linalg.norm(english[0][2] - row[2])), row[0], row[1])
+            for row in entries
+            if row[1] != english[0][1]
+        )
+        out.write(
+            "  the chain given English letter frequencies is nearest %s, which is %s\n"
+            % (marks[0][2], marks[0][1])
+        )
 
     out.flush()
     return 0

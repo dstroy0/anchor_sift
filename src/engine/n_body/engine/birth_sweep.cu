@@ -77,22 +77,22 @@ __device__ static unsigned int device_root(const unsigned int *parent, unsigned 
  *
  * @param[in,out] parent    The forest [BORROWS].
  * @param[in]     voxel     An admitted voxel.
- * @param[in]     neighbour A face neighbor of it.
+ * @param[in]     neighbor A face neighbor of it.
  * @param[out]    changed   Set to 1 where two components were joined [BORROWS].
  * @note Also shortens both voxels' paths to the roots found. A neighbor still outside is skipped.
  */
-__device__ static void device_join(unsigned int *parent, unsigned int voxel, unsigned int neighbour,
+__device__ static void device_join(unsigned int *parent, unsigned int voxel, unsigned int neighbor,
                                    unsigned int *changed)
 {
-    if (parent[neighbour] == BIRTH_SWEEP_OUTSIDE)
+    if (parent[neighbor] == BIRTH_SWEEP_OUTSIDE)
     {
         return;
     }
     const unsigned int voxel_root = device_root(parent, voxel);
-    const unsigned int neighbour_root = device_root(parent, neighbour);
+    const unsigned int neighbour_root = device_root(parent, neighbor);
 
     atomicMin(&parent[voxel], voxel_root);
-    atomicMin(&parent[neighbour], neighbour_root);
+    atomicMin(&parent[neighbor], neighbour_root);
     if (voxel_root == neighbour_root)
     {
         return;
@@ -266,15 +266,14 @@ __global__ static void select_kernel(const unsigned int *parent, const unsigned 
     }
     const unsigned int first = chunk * BIRTH_SWEEP_CHUNK;
     const unsigned int past = ((geometry.voxels - first) < BIRTH_SWEEP_CHUNK)
-                            ? geometry.voxels
-                            : (first + BIRTH_SWEEP_CHUNK);
+                                  ? geometry.voxels
+                                  : (first + BIRTH_SWEEP_CHUNK);
     unsigned int count = 0u;
     for (unsigned int voxel = first; voxel < past; voxel += 1u)
     {
         // A root in range with no claimed voxel. sizes and touched are read only at a root, the
         // one place clear_kernel and census_kernel have set them this cut.
-        const int is_born = (parent[voxel] == voxel) && (sizes[voxel] >= least_voxels)
-                         && (sizes[voxel] <= most_voxels) && (touched[voxel] == 0u);
+        const int is_born = (parent[voxel] == voxel) && (sizes[voxel] >= least_voxels) && (sizes[voxel] <= most_voxels) && (touched[voxel] == 0u);
         born[voxel] = is_born ? 1u : 0u;
         count += is_born ? 1u : 0u;
     }
@@ -325,8 +324,8 @@ __global__ static void emit_kernel(const unsigned char *born, const unsigned int
     }
     const unsigned int first = chunk * BIRTH_SWEEP_CHUNK;
     const unsigned int past = ((geometry.voxels - first) < BIRTH_SWEEP_CHUNK)
-                            ? geometry.voxels
-                            : (first + BIRTH_SWEEP_CHUNK);
+                                  ? geometry.voxels
+                                  : (first + BIRTH_SWEEP_CHUNK);
     unsigned int slot = offsets[chunk];
     for (unsigned int voxel = first; voxel < past; voxel += 1u)
     {
@@ -349,32 +348,32 @@ __global__ static void emit_kernel(const unsigned char *born, const unsigned int
  */
 struct SweepContext
 {
-    SweepGeometry geometry;                /**< The shape. */
-    const BirthSweepRequest *request;      /**< The caller's request [BORROWS]. */
-    float *field;                          /**< Device copy of the field. */
-    unsigned int *parent;                  /**< Device union-find forest. */
-    unsigned char *claimed;                /**< Device claimed flag per voxel. */
-    unsigned char *born;                   /**< Device born flag per voxel, this cut. */
-    unsigned int *sizes;                   /**< Device voxels per root. */
-    unsigned long long *slice_sums;        /**< Device slice index sum per root. */
-    unsigned long long *row_sums;          /**< Device row index sum per root. */
-    unsigned long long *column_sums;       /**< Device column index sum per root. */
-    unsigned int *touched;                 /**< Device touched flag per root. */
-    unsigned int *changed;                 /**< Device flag: a join changed the forest. */
-    unsigned int *chunk_births;            /**< Device births per chunk. */
-    unsigned int *offsets;                 /**< Device write offset per chunk. */
-    unsigned int *emitted_sizes;           /**< Device sizes of this cut's births. */
-    unsigned long long *emitted_slices;    /**< Device slice sums of this cut's births. */
-    unsigned long long *emitted_rows;      /**< Device row sums of this cut's births. */
-    unsigned long long *emitted_columns;   /**< Device column sums of this cut's births. */
-    unsigned int *host_chunk_births;       /**< Host births per chunk, then offsets. */
-    unsigned int *host_emitted_sizes;      /**< Host sizes of this cut's births. */
-    unsigned long long *host_emitted_slices; /**< Host slice sums of this cut's births. */
-    unsigned long long *host_emitted_rows; /**< Host row sums of this cut's births. */
+    SweepGeometry geometry;                   /**< The shape. */
+    const BirthSweepRequest *request;         /**< The caller's request [BORROWS]. */
+    float *field;                             /**< Device copy of the field. */
+    unsigned int *parent;                     /**< Device union-find forest. */
+    unsigned char *claimed;                   /**< Device claimed flag per voxel. */
+    unsigned char *born;                      /**< Device born flag per voxel, this cut. */
+    unsigned int *sizes;                      /**< Device voxels per root. */
+    unsigned long long *slice_sums;           /**< Device slice index sum per root. */
+    unsigned long long *row_sums;             /**< Device row index sum per root. */
+    unsigned long long *column_sums;          /**< Device column index sum per root. */
+    unsigned int *touched;                    /**< Device touched flag per root. */
+    unsigned int *changed;                    /**< Device flag: a join changed the forest. */
+    unsigned int *chunk_births;               /**< Device births per chunk. */
+    unsigned int *offsets;                    /**< Device write offset per chunk. */
+    unsigned int *emitted_sizes;              /**< Device sizes of this cut's births. */
+    unsigned long long *emitted_slices;       /**< Device slice sums of this cut's births. */
+    unsigned long long *emitted_rows;         /**< Device row sums of this cut's births. */
+    unsigned long long *emitted_columns;      /**< Device column sums of this cut's births. */
+    unsigned int *host_chunk_births;          /**< Host births per chunk, then offsets. */
+    unsigned int *host_emitted_sizes;         /**< Host sizes of this cut's births. */
+    unsigned long long *host_emitted_slices;  /**< Host slice sums of this cut's births. */
+    unsigned long long *host_emitted_rows;    /**< Host row sums of this cut's births. */
     unsigned long long *host_emitted_columns; /**< Host column sums of this cut's births. */
-    double *staged_centroids;              /**< Every birth's centroid so far. */
-    unsigned int *staged_births;           /**< Every birth's cut index so far. */
-    unsigned int written;                  /**< Births staged so far. */
+    double *staged_centroids;                 /**< Every birth's centroid so far. */
+    unsigned int *staged_births;              /**< Every birth's cut index so far. */
+    unsigned int written;                     /**< Births staged so far. */
 };
 
 /**
@@ -447,10 +446,7 @@ static int sweep_allocate(SweepContext *context)
     context->host_emitted_columns = (unsigned long long *)malloc(slots * sizeof(unsigned long long));
     context->staged_centroids = (double *)malloc(slots * 3u * sizeof(double));
     context->staged_births = (unsigned int *)malloc(slots * sizeof(unsigned int));
-    ok = ok && (context->host_chunk_births != NULL) && (context->host_emitted_sizes != NULL)
-      && (context->host_emitted_slices != NULL) && (context->host_emitted_rows != NULL)
-      && (context->host_emitted_columns != NULL) && (context->staged_centroids != NULL)
-      && (context->staged_births != NULL);
+    ok = ok && (context->host_chunk_births != NULL) && (context->host_emitted_sizes != NULL) && (context->host_emitted_slices != NULL) && (context->host_emitted_rows != NULL) && (context->host_emitted_columns != NULL) && (context->staged_centroids != NULL) && (context->staged_births != NULL);
 
     // Every byte 0xFF makes every parent BIRTH_SWEEP_OUTSIDE.
     ok = ok && (cudaMemset(context->parent, 0xFF, voxels * sizeof(unsigned int)) == cudaSuccess);
@@ -613,17 +609,13 @@ static long sweep_births(SweepContext *context, unsigned int step)
         ok = sweep_launched();
     }
     ok = ok && (cudaMemcpy(context->host_emitted_sizes, context->emitted_sizes,
-                           (size_t)births * sizeof(unsigned int), cudaMemcpyDeviceToHost)
-                == cudaSuccess);
+                           (size_t)births * sizeof(unsigned int), cudaMemcpyDeviceToHost) == cudaSuccess);
     ok = ok && (cudaMemcpy(context->host_emitted_slices, context->emitted_slices,
-                           (size_t)births * sizeof(unsigned long long), cudaMemcpyDeviceToHost)
-                == cudaSuccess);
+                           (size_t)births * sizeof(unsigned long long), cudaMemcpyDeviceToHost) == cudaSuccess);
     ok = ok && (cudaMemcpy(context->host_emitted_rows, context->emitted_rows,
-                           (size_t)births * sizeof(unsigned long long), cudaMemcpyDeviceToHost)
-                == cudaSuccess);
+                           (size_t)births * sizeof(unsigned long long), cudaMemcpyDeviceToHost) == cudaSuccess);
     ok = ok && (cudaMemcpy(context->host_emitted_columns, context->emitted_columns,
-                           (size_t)births * sizeof(unsigned long long), cudaMemcpyDeviceToHost)
-                == cudaSuccess);
+                           (size_t)births * sizeof(unsigned long long), cudaMemcpyDeviceToHost) == cudaSuccess);
     if (ok == 0)
     {
         return BIRTH_SWEEP_REFUSED;
@@ -660,16 +652,12 @@ extern "C" int birth_sweep_device_available(void)
 
 extern "C" long birth_sweep_run(const BirthSweepRequest *args)
 {
-    if ((args == NULL) || (args->field == NULL) || ((args->cuts == NULL) && (args->cut_count != 0u))
-     || (args->depth == 0u) || (args->height == 0u) || (args->width == 0u)
-     || ((args->room != 0u) && ((args->centroids == NULL) || (args->births == NULL)))
-     || (args->room > BIRTH_SWEEP_ROOM_LIMIT))
+    if ((args == NULL) || (args->field == NULL) || ((args->cuts == NULL) && (args->cut_count != 0u)) || (args->depth == 0u) || (args->height == 0u) || (args->width == 0u) || ((args->room != 0u) && ((args->centroids == NULL) || (args->births == NULL))) || (args->room > BIRTH_SWEEP_ROOM_LIMIT))
     {
         return BIRTH_SWEEP_REFUSED;
     }
 
-    const unsigned long long plane = (unsigned long long)args->height
-                                   * (unsigned long long)args->width;
+    const unsigned long long plane = (unsigned long long)args->height * (unsigned long long)args->width;
     if (plane > (unsigned long long)BIRTH_SWEEP_OUTSIDE)
     {
         return BIRTH_SWEEP_REFUSED;
@@ -678,8 +666,7 @@ extern "C" long birth_sweep_run(const BirthSweepRequest *args)
 
     // Every voxel index stays below BIRTH_SWEEP_OUTSIDE, which marks a voxel outside, and a chunk's
     // end stays below 2^32.
-    if ((voxels > (unsigned long long)(BIRTH_SWEEP_OUTSIDE - BIRTH_SWEEP_CHUNK))
-     || (birth_sweep_device_available() == 0))
+    if ((voxels > (unsigned long long)(BIRTH_SWEEP_OUTSIDE - BIRTH_SWEEP_CHUNK)) || (birth_sweep_device_available() == 0))
     {
         return BIRTH_SWEEP_REFUSED;
     }

@@ -34,7 +34,9 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
 AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
@@ -47,10 +49,10 @@ WANTED = (
     ("polish", "the pair in question"),
     ("finnish", "hungarian's family, no polish border"),
     ("estonian", "hungarian's family, no polish border"),
-    ("czech", "polish's family and its neighbour"),
-    ("slovak", "polish's family and its neighbour"),
+    ("czech", "polish's family and its neighbor"),
+    ("slovak", "polish's family and its neighbor"),
     ("russian", "polish's family, further off"),
-    ("german", "a neighbour of both, unrelated to either"),
+    ("german", "a neighbor of both, unrelated to either"),
     ("romanian", "the region, unrelated to both"),
     ("turkish", "far off, no border"),
     ("spanish", "far off, no border"),
@@ -64,12 +66,18 @@ def members(category, keep=600):
     onward = ""
     while len(found) < keep:
         query = {
-            "action": "query", "format": "json", "list": "categorymembers",
-            "cmtitle": "Category:%s" % category, "cmlimit": "500", "cmnamespace": "0",
+            "action": "query",
+            "format": "json",
+            "list": "categorymembers",
+            "cmtitle": "Category:%s" % category,
+            "cmlimit": "500",
+            "cmnamespace": "0",
         }
         if onward:
             query["cmcontinue"] = onward
-        request = urllib.request.Request(API + "?" + urllib.parse.urlencode(query), headers=AGENT)
+        request = urllib.request.Request(
+            API + "?" + urllib.parse.urlencode(query), headers=AGENT
+        )
         with urllib.request.urlopen(request, timeout=120) as response:
             payload = json.loads(response.read().decode("utf-8"))
         for entry in payload.get("query", {}).get("categorymembers", []):
@@ -84,9 +92,13 @@ def members(category, keep=600):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
-    out.write("  %-14s %-38s %-8s %s\n" % ("language", "why it is here", "words", "note"))
+    out.write(
+        "  %-14s %-38s %-8s %s\n" % ("language", "why it is here", "words", "note")
+    )
 
     landed = 0
     for language, why in WANTED:
@@ -104,13 +116,16 @@ def main():
             try:
                 words.extend(members(shape % language.capitalize()))
             except Exception as trouble:
-                out.write("  %-14s %-38s %-8s %s\n"
-                          % (language, why, "0", str(trouble)[:34]))
+                out.write(
+                    "  %-14s %-38s %-8s %s\n" % (language, why, "0", str(trouble)[:34])
+                )
                 words = []
                 break
         words = sorted({word for word in words})
         if len(words) < 10:
-            out.write("  %-14s %-38s %-8d too few to compare\n" % (language, why, len(words)))
+            out.write(
+                "  %-14s %-38s %-8d too few to compare\n" % (language, why, len(words))
+            )
             continue
         with open(target, "w", encoding="utf-8", newline="") as handle:
             handle.write("\n".join(words))

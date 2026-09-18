@@ -1827,11 +1827,11 @@ static unsigned long long web_count(const TreeFrame *earlier, unsigned int objec
         const unsigned int leaf = earlier->members[member];
         for (unsigned int near = near_start[leaf]; near < near_start[leaf + 1u]; near += 1u)
         {
-            const unsigned int neighbour = nearby[near];
-            const unsigned int outside = (unsigned int)(earlier->object_of[neighbour] != object);
-            const unsigned int fresh = (unsigned int)(seen[neighbour] != mark);
-            seen[neighbour] = (outside != 0u) ? mark : seen[neighbour];
-            const int landing = ((outside != 0u) && (fresh != 0u)) ? earlier->forward[neighbour] : -1;
+            const unsigned int neighbor = nearby[near];
+            const unsigned int outside = (unsigned int)(earlier->object_of[neighbor] != object);
+            const unsigned int fresh = (unsigned int)(seen[neighbor] != mark);
+            seen[neighbor] = (outside != 0u) ? mark : seen[neighbor];
+            const int landing = ((outside != 0u) && (fresh != 0u)) ? earlier->forward[neighbor] : -1;
             if (landing < 0)
             {
                 continue;
@@ -3356,11 +3356,11 @@ static int render_case(const EngineBuffers *buffers, const CoherenceInputs *inpu
                     unsigned char own[3];
                     object_colour(id, own);
                     int boundary = 0;
-                    const int neighbours[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+                    const int neighbors[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
                     for (unsigned int which = 0u; which < 4u; which += 1u)
                     {
-                        const int near_row = (int)down + neighbours[which][0];
-                        const int near_column = (int)across + neighbours[which][1];
+                        const int near_row = (int)down + neighbors[which][0];
+                        const int near_column = (int)across + neighbors[which][1];
                         const unsigned int near = ((near_row < 0) || (near_column < 0) || (near_row >= (int)VIS_CROP) || (near_column >= (int)VIS_CROP))
                                                       ? id
                                                       : object[side][(unsigned int)near_row * VIS_CROP + (unsigned int)near_column];
@@ -4020,12 +4020,12 @@ static int score_sample(const char *directory, const char *sample, const TreeRul
                 moment[3] += z * y;
                 moment[4] += z * x;
                 moment[5] += y * x;
-                const long neighbours[6][3] = {{1, 0, 0}, {-1, 0, 0}, {0, 1, 0}, {0, -1, 0}, {0, 0, 1}, {0, 0, -1}};
+                const long neighbors[6][3] = {{1, 0, 0}, {-1, 0, 0}, {0, 1, 0}, {0, -1, 0}, {0, 0, 1}, {0, 0, -1}};
                 for (unsigned int face = 0u; face < 6u; face += 1u)
                 {
-                    const long near_z = (long)z + neighbours[face][0];
-                    const long near_y = (long)y + neighbours[face][1];
-                    const long near_x = (long)x + neighbours[face][2];
+                    const long near_z = (long)z + neighbors[face][0];
+                    const long near_y = (long)y + neighbors[face][1];
+                    const long near_x = (long)x + neighbors[face][2];
                     if ((near_z < 0L) || (near_z >= (long)buffers.depth) || (near_y < 0L) || (near_y >= (long)buffers.height) || (near_x < 0L) || (near_x >= (long)buffers.width))
                     {
                         tree->exposed[(unsigned int)leaf] += 1u;
