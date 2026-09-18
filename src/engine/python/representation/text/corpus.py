@@ -46,14 +46,16 @@ SOURCES = (
 def fold_lines(text):
     """Line endings folded to spaces, since a publisher chose the wrapping and not the author.
 
-    Correct for prose and wrong for source. A programming language ignores its own whitespace, so
+    Correct for prose and wrong for source. A programming language ignores its own whitespace,
     every line break in one was put there by a person for another person, and folding it discards
     the authored layer and keeps the part the compiler reads. Pass source through unfolded.
     """
     return text.replace("\r\n", " ").replace("\r", " ").replace("\n", " ")
 
 
-def load_language_texts(corpora, prefix="lang_", cap=CAP, least=LEAST, skip=SKIP, numbered=True):
+def load_language_texts(
+    corpora, prefix="lang_", cap=CAP, least=LEAST, skip=SKIP, numbered=True
+):
     """Every text under one prefix, as (language, label, text), folded and cut to one length.
 
     A file is named <prefix><language>_<number>.txt where numbered is true, and <prefix><language>
@@ -66,9 +68,11 @@ def load_language_texts(corpora, prefix="lang_", cap=CAP, least=LEAST, skip=SKIP
             continue
         if name[:-4] in skip:
             continue
-        stem = name[len(prefix):-4]
+        stem = name[len(prefix) : -4]
         language = stem.rsplit("_", 1)[0] if numbered else stem
-        with open(os.path.join(corpora, name), encoding="utf-8", errors="replace") as handle:
+        with open(
+            os.path.join(corpora, name), encoding="utf-8", errors="replace"
+        ) as handle:
             text = fold_lines(handle.read(cap))
         if len(text) < least:
             continue
@@ -84,6 +88,8 @@ def load_by_source(corpora, sources=SOURCES, cap=CAP, least=LEAST, skip=SKIP):
     """
     gathered = {}
     for source, prefix, numbered in sources:
-        for language, _, text in load_language_texts(corpora, prefix, cap, least, skip, numbered):
+        for language, _, text in load_language_texts(
+            corpora, prefix, cap, least, skip, numbered
+        ):
             gathered.setdefault((source, language), []).append(text)
     return gathered

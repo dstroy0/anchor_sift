@@ -65,7 +65,7 @@ def null_union(values, cells, draws, seed=SEED):
 
     Each shuffle permutes the object's own values and reads the same partition. The null is drawn from
     the object. Drawing more shuffles can only grow the union. The surviving field
-    can only shrink, which is the safe direction for a claim of structure.
+    can only shrink, the safe direction for a claim of structure.
     """
     union = 0
     for step in range(draws):
@@ -76,4 +76,6 @@ def null_union(values, cells, draws, seed=SEED):
 
 def surviving(values, cells, draws, seed=SEED):
     """The exact invariant cells the object holds that no shuffle in the drawn null ever reached."""
-    return only_in(invariant_cells(values, cells), null_union(values, cells, draws, seed))
+    return only_in(
+        invariant_cells(values, cells), null_union(values, cells, draws, seed)
+    )

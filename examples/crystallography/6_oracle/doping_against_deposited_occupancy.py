@@ -76,7 +76,7 @@ CACHE = os.path.join(ROOT, "build", "cod")
 # slack for the deposit's rounding, not for any arithmetic done here. Expressed at the scale so the
 # comparison stays integer throughout: 0.02 of a site.
 SLACK = 2 * (10 ** (exact.SCALE_DIGITS - 2))
-FULL = 10 ** exact.SCALE_DIGITS
+FULL = 10**exact.SCALE_DIGITS
 
 # Entries listed one by one before the run is summarized.
 SHOWN = 18
@@ -89,7 +89,7 @@ def sites_at_positions(text):
     A site whose coordinates are not plain decimal text is skipped and counted.
     """
     # A projection of crystal.exact_sites, which is where the reading lives. This one keeps the
-    # occupancy, which is the field stage four deliberately does not look at, and groups by
+    # occupancy, the field stage four deliberately does not look at, and groups by
     # position so a shared site arrives as one entry holding several elements.
     grouped = {}
     sites, skipped = crystal.exact_sites(text)
@@ -120,7 +120,9 @@ def total_occupancy(holders):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     if not os.path.isdir(CACHE):
         out.write("\n  nothing cached under build/cod. Run a fetcher to fill it.\n\n")
         out.flush()
@@ -131,8 +133,13 @@ def main():
     if limit:
         names = names[:limit]
 
-    out.write("\n  Doping found by incidence, checked against the occupancy column it never read.\n\n")
-    out.write("  %-12s %-9s %-22s %s\n" % ("entry", "shared", "elements", "published occupancies"))
+    out.write(
+        "\n  Doping found by incidence, checked against the occupancy column it never read.\n\n"
+    )
+    out.write(
+        "  %-12s %-9s %-22s %s\n"
+        % ("entry", "shared", "elements", "published occupancies")
+    )
 
     entries = 0
     shared_seen = 0
@@ -147,7 +154,9 @@ def main():
     started = time.time()
 
     for name in names:
-        with io.open(os.path.join(CACHE, name), encoding="utf-8", errors="replace") as handle:
+        with io.open(
+            os.path.join(CACHE, name), encoding="utf-8", errors="replace"
+        ) as handle:
             text = handle.read()
         grouped, skipped = sites_at_positions(text)
         skipped_sites += skipped
@@ -159,7 +168,7 @@ def main():
             elements = sorted({element for element, _ in holders})
             if len(elements) < 2:
                 # Not shared. A single element under full occupancy is a vacancy and not a dopant,
-                # which is the case stage four correctly declines to report.
+                # the case stage four correctly declines to report.
                 total, under = total_occupancy(holders)
                 if (total is not None) and under:
                     vacancies += 1
@@ -176,24 +185,32 @@ def main():
                 part_vacant += 1
             else:
                 impossible += 1
-                out.write("  OVER  %-12s %-22s sum exceeds a full site\n"
-                          % (name[:-4], "/".join(elements)[:22]))
+                out.write(
+                    "  OVER  %-12s %-22s sum exceeds a full site\n"
+                    % (name[:-4], "/".join(elements)[:22])
+                )
             if under == 0:
                 full_at_shared += 1
 
             if listed < SHOWN:
                 listed += 1
-                written = "  ".join(occupancy if occupancy else "none"
-                                    for _element, occupancy in holders)
-                out.write("  %-12s %-9s %-22s %s\n"
-                          % (name[:-4], "yes", "/".join(elements)[:22], written[:44]))
+                written = "  ".join(
+                    occupancy if occupancy else "none"
+                    for _element, occupancy in holders
+                )
+                out.write(
+                    "  %-12s %-9s %-22s %s\n"
+                    % (name[:-4], "yes", "/".join(elements)[:22], written[:44])
+                )
                 out.flush()
 
     checked = agreed + part_vacant + impossible
     out.write("\n  %d entries, %.1fs\n" % (entries, time.time() - started))
     if skipped_sites:
-        out.write("  %d sites skipped for a coordinate that is not plain decimal text\n"
-                  % skipped_sites)
+        out.write(
+            "  %d sites skipped for a coordinate that is not plain decimal text\n"
+            % skipped_sites
+        )
 
     out.write("\n  shared positions found by incidence      %d\n" % shared_seen)
     out.write("  of those, no occupancy column published  %d\n" % no_column)
@@ -204,27 +221,56 @@ def main():
     # A site can be substituted AND partly vacant at once, and the deposit saying so is not a
     # disagreement with anything. Only the third line is an inconsistency.
     out.write("\n  sum to a full site, pure substitution     %d\n" % agreed)
-    out.write("  sum under a full site, substitution over a partly vacant site  %d\n" % part_vacant)
-    out.write("  sum over a full site, more atoms than the site holds           %d\n" % impossible)
+    out.write(
+        "  sum under a full site, substitution over a partly vacant site  %d\n"
+        % part_vacant
+    )
+    out.write(
+        "  sum over a full site, more atoms than the site holds           %d\n"
+        % impossible
+    )
     if checked:
-        out.write("\n  physically consistent                     %d of %d  (%.1f%%)\n"
-                  % (checked - impossible, checked,
-                     100.0 * (checked - impossible) / checked))
-    out.write("  shared positions where every element is published at full occupancy  %d\n"
-              % full_at_shared)
-    out.write("     A deposit claiming two elements are both entirely present at one position\n")
-    out.write("     contradicts either this reading or itself, and the count alone does not say\n")
-    out.write("     which. It is a flag to open, not a verdict. Every one inspected in this\n")
+        out.write(
+            "\n  physically consistent                     %d of %d  (%.1f%%)\n"
+            % (checked - impossible, checked, 100.0 * (checked - impossible) / checked)
+        )
+    out.write(
+        "  shared positions where every element is published at full occupancy  %d\n"
+        % full_at_shared
+    )
+    out.write(
+        "     A deposit claiming two elements are both entirely present at one position\n"
+    )
+    out.write(
+        "     contradicts either this reading or itself, and the count alone does not say\n"
+    )
+    out.write(
+        "     which. It is a flag to open, not a verdict. Every one inspected in this\n"
+    )
     out.write("     corpus has been the deposit: COD 1011256, from 1933, writes\n")
-    out.write("     `Si1 Si4+ 8 d 0.25 0.25 0.875 1.` and `Al1 Al3+ 8 d 0.25 0.25 0.875 1.`,\n")
-    out.write("     identical coordinates and Wyckoff letter, both at full occupancy, which is\n")
-    out.write("     sixteen atoms on eight places. It is how an older deposit describes a\n")
+    out.write(
+        "     `Si1 Si4+ 8 d 0.25 0.25 0.875 1.` and `Al1 Al3+ 8 d 0.25 0.25 0.875 1.`,\n"
+    )
+    out.write(
+        "     identical coordinates and Wyckoff letter, both at full occupancy, which is\n"
+    )
+    out.write(
+        "     sixteen atoms on eight places. It is how an older deposit describes a\n"
+    )
     out.write("     disordered site: name both partners, do not normalize.\n")
 
-    out.write("\n  single element positions under full occupancy, which are vacancies and not\n")
-    out.write("  doping, and which stage four correctly does not report   %d\n" % vacancies)
-    out.write("\n  the incidence reading never opened the occupancy column. Where the two agree,\n")
-    out.write("  two independent fields of the same deposit are saying the same thing.\n\n")
+    out.write(
+        "\n  single element positions under full occupancy, which are vacancies and not\n"
+    )
+    out.write(
+        "  doping, and which stage four correctly does not report   %d\n" % vacancies
+    )
+    out.write(
+        "\n  the incidence reading never opened the occupancy column. Where the two agree,\n"
+    )
+    out.write(
+        "  two independent fields of the same deposit are saying the same thing.\n\n"
+    )
     out.flush()
     return 0
 

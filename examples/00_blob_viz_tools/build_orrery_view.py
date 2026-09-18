@@ -402,7 +402,7 @@ def main():
     #
     # Agreement does work. A body is somewhere. Every patch sees it swing. An artefact is a
     # feature of one curve. It lives on one patch and dies on the next. Antipodal patches are
-    # not independent, since a great circle through a point runs through its opposite as well, so
+    # not independent, since a great circle through a point runs through its opposite as well,
     # what gets counted is axes and never patches: three of three is a body, one of three is a
     # number that came out of one arithmetic.
     merged = []

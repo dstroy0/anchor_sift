@@ -472,7 +472,7 @@ extern "C"
      * necessary condition may be weaker than the thing it screens for.
      *
      * What that buys is the wide path. An equality oracle cannot be vectorized, because a wide compare
-     * is a statement about a representation and the oracle deliberately hides one. Ranks are bytes, so
+     * is a statement about a representation and the oracle deliberately hides one. Ranks are bytes,
      * a field of any symbol type becomes a field the existing byte engine reads at full speed, AVX2
      * scan included. A real valued alphabet, a point in eight dimensions and an opaque handle all
      * project to the same shape and all run on the same loop.

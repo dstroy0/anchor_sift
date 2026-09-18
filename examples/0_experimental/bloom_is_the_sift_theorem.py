@@ -4,7 +4,7 @@
 # Catalog: EXP-x-001
 #
 # The Bloom filter shown to be the anchor sift's theorem in another field, and its floor measured
-#.
+# .
 #
 #   Usage:  python examples/0_experimental/bloom_is_the_sift_theorem.py
 #
@@ -42,7 +42,7 @@ from sift.bloom import build, contains, false_positive_rate  # noqa: E402
 BITS = 4096
 HASHES = 3
 COUNT = 300
-ABSENT = 6000        # items queried to measure the false-positive rate; enough to resolve it
+ABSENT = 6000  # items queried to measure the false-positive rate; enough to resolve it
 
 
 def formula_rate(bits, hashes, count):
@@ -72,29 +72,57 @@ def uniform_items(count, seed):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     out.write("  the Bloom filter is the sift theorem in the field of databases\n")
-    out.write("  declared inputs: bits=%d hashes=%d count=%d absent-queried=%d\n\n"
-              % (BITS, HASHES, COUNT, ABSENT))
+    out.write(
+        "  declared inputs: bits=%d hashes=%d count=%d absent-queried=%d\n\n"
+        % (BITS, HASHES, COUNT, ABSENT)
+    )
 
     members = structured_items(COUNT)
-    absent_structured = structured_items(ABSENT, start=COUNT)    # same shape, never inserted
+    absent_structured = structured_items(
+        ABSENT, start=COUNT
+    )  # same shape, never inserted
     absent_uniform = uniform_items(ABSENT, seed=0xB100)
 
     # the theorem: soundness holds for ANY hash family, only the false-positive cost moves
-    out.write("  theorem: no member is ever reported absent, and it holds for every hash family\n")
-    out.write("  %-10s %-16s %-18s %s\n" % ("hash seed", "members absent?", "false-pos (structured)", "false-pos (uniform)"))
+    out.write(
+        "  theorem: no member is ever reported absent, and it holds for every hash family\n"
+    )
+    out.write(
+        "  %-10s %-16s %-18s %s\n"
+        % (
+            "hash seed",
+            "members absent?",
+            "false-pos (structured)",
+            "false-pos (uniform)",
+        )
+    )
     for seed in (0, 1, 2):
         table = build(members, BITS, HASHES, seed)
-        missing_member = sum(1 for item in members if not contains(table, item, BITS, HASHES, seed))
+        missing_member = sum(
+            1 for item in members if not contains(table, item, BITS, HASHES, seed)
+        )
         fp_struct = false_positive_rate(table, absent_structured, BITS, HASHES, seed)
         fp_unif = false_positive_rate(table, absent_uniform, BITS, HASHES, seed)
-        out.write("  %-10d %-16d %-18.4f %.4f\n" % (seed, missing_member, fp_struct, fp_unif))
+        out.write(
+            "  %-10d %-16d %-18.4f %.4f\n" % (seed, missing_member, fp_struct, fp_unif)
+        )
 
-    out.write("\n  every 'members absent' count is zero: that is PFN=0, the soundness, and it does not\n")
-    out.write("  depend on the seed. the two false-positive columns move with the seed: that is the\n")
-    out.write("  cost, and it is the only thing the rule changes -- exactly the anchor cascade, where\n")
-    out.write("  correctness cannot turn on the rule and the rule moves only how many false survive.\n\n")
+    out.write(
+        "\n  every 'members absent' count is zero: that is PFN=0, the soundness, and it does not\n"
+    )
+    out.write(
+        "  depend on the seed. the two false-positive columns move with the seed: that is the\n"
+    )
+    out.write(
+        "  cost, and it is the only thing the rule changes -- exactly the anchor cascade, where\n"
+    )
+    out.write(
+        "  correctness cannot turn on the rule and the rule moves only how many false survive.\n\n"
+    )
 
     # the measurement: the drawn rate against the formula, on structured and uniform items
     predicted = formula_rate(BITS, HASHES, COUNT)
@@ -105,12 +133,24 @@ def main():
     out.write("  formula (uniform-hash prediction): %.4f\n" % float(predicted))
     out.write("  measured, uniform items:           %.4f\n" % measured_unif)
     out.write("  measured, structured items:        %.4f\n" % measured_struct)
-    out.write("\n  both measured rates sit BELOW the formula above, and that gap is the finding. the\n")
-    out.write("  formula assumes k independent uniform hashes and no collision among the insertions\n")
-    out.write("  themselves; the real double hashing at this fill sets fewer distinct bits than kn, so\n")
-    out.write("  the measured rate runs under the prediction. structured and uniform items read alike,\n")
-    out.write("  which is its own finding: a shared prefix does not inflate the rate when the hash\n")
-    out.write("  decorrelates it. the floor is the rate itself -- a filter that saves space cannot\n")
+    out.write(
+        "\n  both measured rates sit BELOW the formula above, and that gap is the finding. the\n"
+    )
+    out.write(
+        "  formula assumes k independent uniform hashes and no collision among the insertions\n"
+    )
+    out.write(
+        "  themselves; the real double hashing at this fill sets fewer distinct bits than kn,\n"
+    )
+    out.write(
+        "  the measured rate runs under the prediction. structured and uniform items read alike,\n"
+    )
+    out.write(
+        "  which is its own finding: a shared prefix does not inflate the rate when the hash\n"
+    )
+    out.write(
+        "  decorrelates it. the floor is the rate itself -- a filter that saves space cannot\n"
+    )
     out.write("  drive its false positives to zero.\n")
     out.flush()
     return 0

@@ -27,7 +27,7 @@
 # Bloom filter never reporting a member absent.
 #
 # Two routes bracket the answer: the maximum clique is tight and the k-core is the cheap relaxation that
-# contains it. Both retain every inlier and the k-core admits more outliers, which is the
+# contains it. Both retain every inlier and the k-core admits more outliers, the
 # soundness-versus-cost split again. A broken compatibility that links everything is run beside them to
 # show the rule moves cost, not correctness. The null is drawn by shuffling the correspondences, which
 # destroys the rigidity so no large clique remains. The floor is stated: when outliers conspire into a
@@ -46,7 +46,11 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
-from sift.invariant_consensus import compatibility_graph, max_clique, k_core  # noqa: E402
+from sift.invariant_consensus import (
+    compatibility_graph,
+    max_clique,
+    k_core,
+)  # noqa: E402
 
 SEED = 0x2B12
 
@@ -71,26 +75,38 @@ def correspondences(inliers, outliers, seed, conspirators=0):
     truth = []
     for _ in range(inliers):
         p = (rng.randint(0, 40), rng.randint(0, 40))
-        q = (rot90(p)[0] + 10, rot90(p)[1] + 5)          # one rigid motion
-        pairs.append((p, q)); truth.append("inlier")
+        q = (rot90(p)[0] + 10, rot90(p)[1] + 5)  # one rigid motion
+        pairs.append((p, q))
+        truth.append("inlier")
     for _ in range(conspirators):
         p = (rng.randint(0, 40), rng.randint(0, 40))
-        q = (rot270(p)[0] - 7, rot270(p)[1] + 3)          # a different rigid motion, self-consistent
-        pairs.append((p, q)); truth.append("conspirator")
+        q = (
+            rot270(p)[0] - 7,
+            rot270(p)[1] + 3,
+        )  # a different rigid motion, self-consistent
+        pairs.append((p, q))
+        truth.append("conspirator")
     for _ in range(outliers):
         p = (rng.randint(0, 40), rng.randint(0, 40))
-        q = (rng.randint(0, 60), rng.randint(0, 60))       # a value from nowhere
-        pairs.append((p, q)); truth.append("outlier")
+        q = (rng.randint(0, 60), rng.randint(0, 60))  # a value from nowhere
+        pairs.append((p, q))
+        truth.append("outlier")
     order = list(range(len(pairs)))
     rng.shuffle(order)
     return [pairs[i] for i in order], [truth[i] for i in order]
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  invariant consensus: reject outlier correspondences by a distance invariant (ROBIN)\n")
-    out.write("  seed=0x%X; invariant: squared distance preserved under a rigid motion, exact integers\n\n"
-              % SEED)
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  invariant consensus: reject outlier correspondences by a distance invariant (ROBIN)\n"
+    )
+    out.write(
+        "  seed=0x%X; invariant: squared distance preserved under a rigid motion, exact integers\n\n"
+        % SEED
+    )
 
     pairs, truth = correspondences(12, 8, SEED)
     n = len(pairs)
@@ -102,18 +118,28 @@ def main():
     clique = max_clique(compatibility_graph(n, compatible))
     core = k_core(compatibility_graph(n, compatible), k=len(inliers) - 1)
 
-    out.write("  positive control: %d inliers, %d outliers\n" % (len(inliers), n - len(inliers)))
-    out.write("    max clique: kept %d, all inliers retained: %s, outliers surviving: %d\n"
-              % (len(clique), inliers <= clique, len(clique - inliers)))
-    out.write("    k-core(%d): kept %d, all inliers retained: %s, contains the clique: %s\n"
-              % (len(inliers) - 1, len(core), inliers <= core, clique <= core))
+    out.write(
+        "  positive control: %d inliers, %d outliers\n"
+        % (len(inliers), n - len(inliers))
+    )
+    out.write(
+        "    max clique: kept %d, all inliers retained: %s, outliers surviving: %d\n"
+        % (len(clique), inliers <= clique, len(clique - inliers))
+    )
+    out.write(
+        "    k-core(%d): kept %d, all inliers retained: %s, contains the clique: %s\n"
+        % (len(inliers) - 1, len(core), inliers <= core, clique <= core)
+    )
 
     # divergence probe: a compatibility that links everything keeps the inliers but admits every outlier
     def broken(i, j):
         return True
+
     broken_clique = max_clique(compatibility_graph(n, broken))
-    out.write("    broken 'always compatible' route: kept %d (splits from the invariant clique: %s)\n\n"
-              % (len(broken_clique), broken_clique != clique))
+    out.write(
+        "    broken 'always compatible' route: kept %d (splits from the invariant clique: %s)\n\n"
+        % (len(broken_clique), broken_clique != clique)
+    )
 
     # drawn null: shuffle the target points among the correspondences, destroying the rigidity
     rng = random.Random(SEED ^ 0x55)
@@ -122,16 +148,25 @@ def main():
     shuffled = [(pairs[i][0], targets[i]) for i in range(n)]
 
     def compatible_null(i, j):
-        return dist2(shuffled[i][0], shuffled[j][0]) == dist2(shuffled[i][1], shuffled[j][1])
+        return dist2(shuffled[i][0], shuffled[j][0]) == dist2(
+            shuffled[i][1], shuffled[j][1]
+        )
 
     null_clique = max_clique(compatibility_graph(n, compatible_null))
     out.write("  drawn null: with the correspondences shuffled the rigidity is gone\n")
-    out.write("    live clique %d vs shuffled clique %d (a shuffle reaches only chance agreement)\n\n"
-              % (len(clique), len(null_clique)))
+    out.write(
+        "    live clique %d vs shuffled clique %d (a shuffle reaches only chance agreement)\n\n"
+        % (len(clique), len(null_clique))
+    )
 
     # floor: outliers that conspire into a consistent set larger than the inliers win the clique
-    out.write("  floor: when outliers conspire into a consistent set larger than the inliers\n")
-    out.write("  %-14s %-14s %-16s %s\n" % ("inliers", "conspirators", "clique size", "inliers retained"))
+    out.write(
+        "  floor: when outliers conspire into a consistent set larger than the inliers\n"
+    )
+    out.write(
+        "  %-14s %-14s %-16s %s\n"
+        % ("inliers", "conspirators", "clique size", "inliers retained")
+    )
     for con in (4, 10, 14):
         cp, ct = correspondences(8, 0, SEED ^ (con << 4), conspirators=con)
         m = len(cp)
@@ -143,11 +178,20 @@ def main():
         cq = max_clique(compatibility_graph(m, compat))
         out.write("  %-14d %-14d %-16d %s\n" % (len(inl), con, len(cq), inl <= cq))
 
-    out.write("\n  the inliers are a clique because a rigid motion preserves every distance. The\n")
-    out.write("  necessary condition never splits them out; an outlier is kept only by an accidental\n")
+    out.write(
+        "\n  the inliers are a clique because a rigid motion preserves every distance. The\n"
+    )
+    out.write(
+        "  necessary condition never splits them out; an outlier is kept only by an accidental\n"
+    )
     out.write("  distance match, a false survivor and not a lost inlier. \n")
     out.flush()
-    ok = (inliers <= clique) and (len(clique - inliers) == 0) and (clique <= core) and (len(null_clique) < len(clique))
+    ok = (
+        (inliers <= clique)
+        and (len(clique - inliers) == 0)
+        and (clique <= core)
+        and (len(null_clique) < len(clique))
+    )
     return 0 if ok else 1
 
 

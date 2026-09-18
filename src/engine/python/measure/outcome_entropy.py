@@ -11,7 +11,7 @@
 # forced carries zero bits; a move into a position that could still go any of three ways carries up
 # to log2(3).
 #
-# WHERE THE FLOAT ENTERS, WHICH IS THE ONE LOSSY STEP IN THE WHOLE SUBJECT
+# WHERE THE FLOAT ENTERS, the ONE LOSSY STEP IN THE WHOLE SUBJECT
 #
 # Everything upstream is exact. The outcome distributions arrive as fractions.Fraction, built from
 # exact integer weights over deck counts and uniform move priors. Two distributions computed by
@@ -51,7 +51,7 @@ def shannon(distribution, over=rules.OUTCOMES):
     """Entropy in bits over the named categories, renormalized to the mass they hold.
 
     Returns (bits, mass) where `mass` is the exact Fraction share of the distribution those
-    categories cover. A mass of zero returns (None, 0) rather than nought bits, because no
+    categories cover. A mass of zero returns (None, 0)  because no
     distribution at all is not the same as a certain one.
     """
     mass = sum(distribution[outcome] for outcome in over)
@@ -145,8 +145,7 @@ def information_gain(table, prior=None, over=rules.RESOLVED):
     objective is reaching for when it asks which move is best: a position where one move wins and the
     rest lose has high gain, and a position where nothing can be saved has none.
 
-    Returned as (gain, marginal_bits, conditional_bits) so a reader sees both terms rather than a
-    difference they cannot check.
+    Returned as (gain, marginal_bits, conditional_bits) so a reader sees both terms.
     """
     marginal_bits, _ = shannon(marginal(table, prior), over)
     conditional_bits, _ = conditional_entropy(table, prior, over)

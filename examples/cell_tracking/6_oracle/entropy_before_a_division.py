@@ -19,7 +19,7 @@
 # supplied by it. man_track.txt names every division in the sequence, published by the people who
 # generated the data. anchor_sift/theory/workbook records that the permutation null measure carries
 # most of the findings in that work and has no positive control from outside it, and calls that the
-# largest single gap. This is an attempt at one. The instrument is collision entropy, which is the
+# largest single gap. This is an attempt at one. The instrument is collision entropy, the
 # quantity anchor_sift's entire cost model runs on: every figure there is a function of 2^-H2.
 #
 # HOW A DIVISION IS LOCATED. A track with a non-zero parent was born from one. If child C begins at
@@ -50,14 +50,14 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
 DEFAULT = os.path.join("D:", os.sep, "tmp_ctc", "Fluo-N2DH-SIM+")
 
 # Levels the intensities inside a mask are read at. CEL-4-002 sweeps this on synthetic fields and
-# finds the optimum at 256, which is the depth the substrate carries. Held here.
+# finds the optimum at 256, the depth the substrate carries. Held here.
 LEVELS = 256
 
 
 def collision_entropy(values, levels=LEVELS):
     """H2 of one cell's own intensities, in bits.
 
-    -log2 of the sum of squared probabilities, which is the quantity every cost in anchor_sift is
+    -log2 of the sum of squared probabilities, the quantity every cost in anchor_sift is
     a function of. Computed over the pixels inside one label and nothing else. It is local by
     construction.
     """
@@ -100,7 +100,7 @@ def read_tif(path):
 
 
 def frame_number(name):
-    """The digits at the end of a CTC filename, which is the only thing that orders a sequence."""
+    """The digits at the end of a CTC filename, the only thing that orders a sequence."""
     digits = "".join(
         character for character in os.path.splitext(name)[0] if character.isdigit()
     )
@@ -202,7 +202,7 @@ def main():
             continue
         for kid in present:
             inherited.append(abs(per_frame[frame + 1][kid] - before))
-        # The daughters read as one object, which is the closest thing to the parent the next
+        # The daughters read as one object, the closest thing to the parent the next
         # frame holds. Kept SIGNED. A first version of this file took an absolute value here and
         # threw away the only thing the claim under test is about: whether the pair reads slightly
         # BELOW the parent, consistently, which is a conservation statement. A magnitude cannot
@@ -304,7 +304,7 @@ def main():
         "  %-26s %-14.4f %.4f\n" % ("parent to both together", pair_rank, pair_caught)
     )
 
-    # The signed claim, which is the sharp one: the pair reads slightly BELOW the parent, and does
+    # The signed claim, the sharp one: the pair reads slightly BELOW the parent, and does
     # so consistently, against a background whose signed changes have no direction.
     signed = numpy.array(pair_gap)
     noise = numpy.array(ordinary)
@@ -313,7 +313,7 @@ def main():
     # The noise floor is the spread of the background's own mean under resampling, which is what
     # a direction has to clear to be a direction and not a draw.
     floor = float(noise.std() / numpy.sqrt(len(noise)))
-    out.write("\n  SIGNED, which is the claim: pair minus parent, in bits.\n")
+    out.write("\n  SIGNED, the claim: pair minus parent, in bits.\n")
     out.write(
         "  %-26s %-11s %-11s %-11s %s\n" % ("", "median", "mean", "share < 0", "floors")
     )

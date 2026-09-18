@@ -224,7 +224,7 @@ def exact_sites(text):
     The same loop appeared in doping_from_shared_sites.py, doping_after_symmetry_expansion.py and
     doping_against_deposited_occupancy.py: walk site_table, scale three coordinates, catch
     ValueError, count the skip. Three copies of one primitive, differing only in what each kept
-    afterwards, which is the shape a copy takes just before it starts to drift.
+    afterwards, the shape a copy takes just before it starts to drift.
 
     The subject's own README already records this fault one layer up, where the first crystal
     reading was written as a separate file that reimplemented a parse crystal.py already did: a

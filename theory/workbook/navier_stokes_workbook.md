@@ -208,7 +208,7 @@ Gaussian integer coefficients, and the whole field carrying one positive integer
 Leray's projection divides by `|k|^2`, and `1/3` has no exact decimal at any scale, and a decimal scale
 would then have to refuse where an integer denominator carries the value exactly. Every field is normalized
 by the common divisor of its integers. Equality is equality of integers, and `pi` is a symbol:
-Lindemann's theorem makes term-by-term zero the exact zero test. Every element is smooth and periodic, so
+Lindemann's theorem makes term-by-term zero the exact zero test. Every element is smooth and periodic,
 (8), (10), (11) hold by construction; (2) is an exact identity; the pressure is in the same ring and so
 periodic, the errata's condition; the energy on the unit cell is Parseval's exact sum. The solution is
 carried as Taylor coefficients at `t = 0` by the recurrence that (1) gives when differentiated `m` times,

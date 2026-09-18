@@ -426,7 +426,7 @@ def source_forms(path, repair=None, pieces=2, line_joins=False):
                 # prefix, and only the last token on a line is dropped for that reason.
                 #
                 # It stays in the lookup all the same, because the page does print those
-                # characters at that place. Lyon's interlinear arrives one token per line, so
+                # characters at that place. Lyon's interlinear arrives one token per line,
                 # every token in it is the last on its line, and dropping them outright lost
                 # an-, a-ks- and ʔakɬ-, which are forms the paper prints on their own.
                 wrapped = (

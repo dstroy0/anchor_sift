@@ -152,9 +152,9 @@ Every invariant computable from the table at \(O(n)\) cost is blind to it, becau
 
 The transform builds its twiddles once by repeated multiplication and reads them at a stride, and the group law is what permits that. But the group law permits the construction from \emph{any} root whose order divides the length, including a wrong one, and the result would be a transform returning values of the ordinary shape that are not the convolution of anything.
 
-The order proof is therefore not an optional extra beside the optimisation. It is the precondition for the optimisation being safe, and it has to run first. Stated as a rule: \textbf{prove the order, then generate the table.} Reversing those two produces a fast wrong answer.
+The order proof is therefore not an optional extra beside the optimization. It is the precondition for the optimization being safe, and it has to run first. Stated as a rule: \textbf{prove the order, then generate the table.} Reversing those two produces a fast wrong answer.
 
-The change was measured. Replacing an exponentiation per butterfly with one table read cut the transform at length \(2^{27}\) from \(2006\) ms to \(680\) ms, a factor of \(2.95\), and the output digest was identical at every length tested. A correct optimisation moves the clock and not the answer, and that check says which one happened.
+The change was measured. Replacing an exponentiation per butterfly with one table read cut the transform at length \(2^{27}\) from \(2006\) ms to \(680\) ms, a factor of \(2.95\), and the output digest was identical at every length tested. A correct optimization moves the clock and not the answer, and that check says which one happened.
 
 \section{On the card, where a second silent wrong answer was waiting}
 

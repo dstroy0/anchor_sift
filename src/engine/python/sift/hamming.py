@@ -11,7 +11,7 @@
 # a received word that fails one or more cannot be a codeword, and each failed check is a necessary
 # condition the true word met. Decoding does not reshape the word, it SELECTS: of the sixteen
 # codewords, exactly one sits within a single bit-flip of the received word, and that one is chosen.
-# It corrects by selecting the unique candidate the necessary conditions leave standing, which is the
+# It corrects by selecting the unique candidate the necessary conditions leave standing, the
 # sift's move -- a subset of conditions narrowing a field of candidates to the ones that could be true
 # -- carried into coding theory. The channel's noise is rejected not by measuring it but by asking
 # which codeword could have produced what arrived.
@@ -101,5 +101,7 @@ def nearest_decode(word):
         if (best_distance is None) or (distance < best_distance):
             best_distance = distance
             best_data = data
-            corrected = next((index + 1 for index in range(7) if codeword[index] != word[index]), 0)
+            corrected = next(
+                (index + 1 for index in range(7) if codeword[index] != word[index]), 0
+            )
     return best_data, corrected

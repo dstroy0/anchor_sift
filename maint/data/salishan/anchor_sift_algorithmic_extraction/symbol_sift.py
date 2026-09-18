@@ -357,8 +357,7 @@ def main():
         % rate
     )
     out.write(
-        "    the time, over %d draws, which is the rate a reading here has to beat\n"
-        % trials
+        "    the time, over %d draws, the rate a reading here has to beat\n" % trials
     )
 
     out.write(

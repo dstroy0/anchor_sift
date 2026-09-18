@@ -12,7 +12,7 @@
 # and nothing about where the molecule sits or how it is turned. The walk is the test of that claim.
 # A backbone is read as a run of points; internal_coords reads off each point's bond length, turn
 # angle and dihedral; rebuild walks them back. Handed a run's own terms, the walk returns the run to
-# the digit it was written to, which is the positive control printed first: the transform loses
+# the digit it was written to, the positive control printed first: the transform loses
 # nothing.
 #
 # The reading is what survives compressing the direction. Bond lengths, bond angles and the peptide
@@ -39,7 +39,11 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 sys.path.insert(0, os.path.join(ROOT, "examples", "proteins"))
 
 import numpy  # noqa: E402
-from representation.structure.protein import walk, internal_coords, rebuild  # noqa: E402
+from representation.structure.protein import (
+    walk,
+    internal_coords,
+    rebuild,
+)  # noqa: E402
 
 CORPORA = os.path.join(ROOT, "build", "corpora")
 CACHE = os.path.join(ROOT, "build", "rama")
@@ -96,7 +100,9 @@ def resolution_of(code):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     limit = int(sys.argv[1]) if len(sys.argv) > 1 else None
 
     paths = sorted(glob.glob(os.path.join(CORPORA, "pdb_*.txt")))
@@ -107,9 +113,13 @@ def main():
     if limit:
         paths = paths[:limit]
 
-    out.write("  The magnitude table is the bond lengths and angles; the direction is phi and psi,\n")
-    out.write("  each quantized to the Richardson %g-degree grid. omega keeps its measured value.\n\n"
-              % GRID_DEGREES)
+    out.write(
+        "  The magnitude table is the bond lengths and angles; the direction is phi and psi,\n"
+    )
+    out.write(
+        "  each quantized to the Richardson %g-degree grid. omega keeps its measured value.\n\n"
+        % GRID_DEGREES
+    )
 
     worst_exact = 0.0
     gaps = []
@@ -122,17 +132,23 @@ def main():
             text = handle.read()
         proteins += 1
         resolution = resolution_of(code)
-        band = "unknown" if resolution is None else "%.1f" % (round(float(resolution) * 2) / 2)
+        band = (
+            "unknown"
+            if resolution is None
+            else "%.1f" % (round(float(resolution) * 2) / 2)
+        )
         for run in walk(text, least=1):
             if len(run) < 4:
                 continue
             runs += 1
             bond, angle, dih = internal_coords(run)
             exact = kabsch(rebuild(run[:3], bond, angle, dih), run)
-            worst_exact = max(worst_exact, float(numpy.sqrt(((exact - run) ** 2).sum(1)).max()))
+            worst_exact = max(
+                worst_exact, float(numpy.sqrt(((exact - run) ** 2).sum(1)).max())
+            )
             back = kabsch(steered(run), run)
             gap = numpy.sqrt(((back - run) ** 2).sum(axis=1))
-            rmsd = float(numpy.sqrt((gap ** 2).mean()))
+            rmsd = float(numpy.sqrt((gap**2).mean()))
             gaps.append(rmsd)
             for offset, name in enumerate(CONSTITUENT):
                 by_constituent[name].extend(gap[offset::3].tolist())
@@ -145,14 +161,23 @@ def main():
         return 1
 
     gaps = numpy.array(gaps)
-    out.write("  positive control: the walk handed a run's own terms rebuilds it to within\n")
-    out.write("  %.2e A over %d proteins, %d runs. The transform loses nothing.\n\n"
-              % (worst_exact, proteins, runs))
+    out.write(
+        "  positive control: the walk handed a run's own terms rebuilds it to within\n"
+    )
+    out.write(
+        "  %.2e A over %d proteins, %d runs. The transform loses nothing.\n\n"
+        % (worst_exact, proteins, runs)
+    )
 
     q = numpy.percentile(gaps, [25, 50, 75])
-    out.write("  magnitude table + %g-degree cell, RMSD per run against the deposit:\n" % GRID_DEGREES)
-    out.write("    median %.3f A   Q1 %.3f   Q3 %.3f   under 1 A %.1f%%   under 2 A %.1f%%\n\n"
-              % (q[1], q[0], q[2], 100.0 * (gaps < 1.0).mean(), 100.0 * (gaps < 2.0).mean()))
+    out.write(
+        "  magnitude table + %g-degree cell, RMSD per run against the deposit:\n"
+        % GRID_DEGREES
+    )
+    out.write(
+        "    median %.3f A   Q1 %.3f   Q3 %.3f   under 1 A %.1f%%   under 2 A %.1f%%\n\n"
+        % (q[1], q[0], q[2], 100.0 * (gaps < 1.0).mean(), 100.0 * (gaps < 2.0).mean())
+    )
 
     out.write("  disagreement by constituent (mean gap per backbone atom, A):\n")
     for name in CONSTITUENT:
@@ -163,7 +188,10 @@ def main():
     for band in sorted(bands, key=lambda one: (one == "unknown", one)):
         rows = numpy.array(bands[band])
         label = band + (" A" if band != "unknown" else "")
-        out.write("    %-9s median %.3f A   %d runs\n" % (label, numpy.median(rows), len(rows)))
+        out.write(
+            "    %-9s median %.3f A   %d runs\n"
+            % (label, numpy.median(rows), len(rows))
+        )
 
     out.flush()
     return 0

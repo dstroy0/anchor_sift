@@ -42,7 +42,7 @@ def band_top(values, index, radius):
 
     The spread the neighbourhood shows on its own. A sample inside this band is one the neighbors
     could have produced; a sample beyond it is one they could not. Returns 0 where the neighbors all
-    agree, which is the case that makes a lone impulse unmistakable.
+    agree, the case that makes a lone impulse unmistakable.
     """
     middle = neighbour_median(values, index, radius)
     neighbors = _window(values, index, radius, include_center=False)

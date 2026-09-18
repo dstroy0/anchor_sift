@@ -85,7 +85,7 @@ while the planner went on running its own scalar loop, and nothing in the suite 
 engine that reports itself present and never gets called produces no wrong answer. Every count
 stays identical and every test keeps passing.
 
-**Run.** The wiring check reports `avx2 | 189 | 189 | 100% | ok`. Wide calls equal total calls, so
+**Run.** The wiring check reports `avx2 | 189 | 189 | 100% | ok`. Wide calls equal total calls,
 the ratio is 1 and the claim is not vacuous.
 
 ## 4. What it decided the field looks like

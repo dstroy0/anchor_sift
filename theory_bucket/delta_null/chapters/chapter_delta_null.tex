@@ -43,31 +43,31 @@ The digest implementation in \texttt{test/\allowbreak{}support} appears here as 
 \begin{center}
   \begin{tabular}{@{}p{2.2em}p{7.5em}p{0.56\textwidth}@{}}
     \toprule
-    $\Sigma$   & the universe    &
+    \(\Sigma\)   & the universe    &
       The underlying set of distinct states or symbols. Lacking intrinsic topology, metric, or
-      order, it provides only the bare primitive of distinctness: $x_1 = x_2$ or $x_1 \neq x_2$. \\
+      order, it provides only the bare primitive of distinctness: \(x_1 = x_2\) or \(x_1 \neq x_2\). \\
     \addlinespace[0.7em]
-    $\delta_0$ & the measurement &
+    \(\delta_0\) & the measurement &
       The indicator function of equality. It collapses ambient positional uncertainty into a
-      binary bit of information, match or non-match, at a group displacement $d \in G$. \\
+      binary bit of information, match or non-match, at a group displacement \(d \in G\). \\
     \addlinespace[0.7em]
-    $\partial$ & the boundary    &
-      The anchor set $A \subset D$, acting as the boundary between candidate space and rejected
+    \(\partial\) & the boundary    &
+      The anchor set \(A \subset D\), acting as the boundary between candidate space and rejected
       space. \\
     \bottomrule
   \end{tabular}
 \end{center}
 
-Checking $\mathrm{Anc}_A(s)$ determines whether a shift state $s \in G$ resides inside the feasible
+Checking \(\mathrm{Anc}_A(s)\) determines whether a shift state \(s \in G\) resides inside the feasible
 region or crosses the boundary into the rejected exterior. This is the survivorship bias in the
-algorithm. The contrapositive $\neg\,\mathrm{Anc}_A(s) \Longrightarrow \neg\,\mathrm{Occ}(s)$ means
-that hitting the boundary once permanently excludes the point $s$ from the search space.
+algorithm. The contrapositive \(\neg\,\mathrm{Anc}_A(s) \Longrightarrow \neg\,\mathrm{Occ}(s)\) means
+that hitting the boundary once permanently excludes the point \(s\) from the search space.
 
-While the selection of $A \subseteq D$ is free with respect to correctness, the boundary geometry
-$\partial A$ governs search efficiency. The density and entropy of $\Sigma$ over $A$ determine the
+While the selection of \(A \subseteq D\) is free with respect to correctness, the boundary geometry
+\(\partial A\) governs search efficiency. The density and entropy of \(\Sigma\) over \(A\) determine the
 flux of rejected candidates passing through the filter per operation.
 
-Because the boundary is defined strictly via displacement operations in $G$ and $\Sigma$, the
+Because the boundary is defined strictly via displacement operations in \(G\) and \(\Sigma\), the
 engine remains invariant under translation, permutation, or change of coordinate representation.
 
 \subsubsection{2.1 Ambient Algebra and Pattern Support}
@@ -133,7 +133,7 @@ Model occurrences of an anchor symbol as a Bernoulli process at rate \(q\). Over
 
 The second expression is Kac's lemma. For a stationary ergodic source the expected return time to a set of measure \(q\) is exactly \(1/q\), which makes the skip a recurrence time and not an artifact of the filter. That names an assumption the construction does not supply. Proposition 1 guarantees that no occurrence is lost, and Section 2.5 counts the symbol accesses, and neither says a pattern occurs at all. That last guarantee belongs to the source: a stationary ergodic process visits any event of positive probability almost surely, and there is no such promise for a process that is not stationary or not ergodic. Three guarantees with three owners, and only the first is this document's.
 
-For an uninformed anchor, the symbol is drawn from the domain by the domain's own frequencies, so
+For an uninformed anchor, the symbol is drawn from the domain by the domain's own frequencies,
 
 \[
 q \;=\; \sum_{\sigma \in \Sigma} p(\sigma)^2 \;=\; 2^{-H_2}, \qquad
@@ -156,15 +156,15 @@ with \(H_2\) the Renyi entropy of order two. This predicts the uninformed candid
     edge/.style  = {-latex, thin},
     lab/.style   = {font=\footnotesize, inner sep=2pt}
   ]
-  \node[box]                          (pos)  {position $s$};
-  \node[test, right=of pos]           (anc)  {anchor $a \in A$\\[-2pt]
-                                              $x(s+a) = x(t+a)$?};
+  \node[box]                          (pos)  {position \(s\)};
+  \node[test, right=of pos]           (anc)  {anchor \(a \in A\)\\[-2pt]
+                                              \(x(s+a) = x(t+a)\)?};
   \node[box, right=of anc]            (cand) {candidate\\[-2pt]
                                               proves nothing};
   \node[final, below=of anc]          (ref)  {refuted\\[-2pt]
                                               exact, final, never revisited};
   \node[verify, below=of cand]        (ver)  {exact compare\\[-2pt]
-                                              every $d \in D$};
+                                              every \(d \in D\)};
   \node[box, below left=11mm and 1mm of ver]  (occ) {occurrence};
   \node[box, below right=11mm and 1mm of ver] (fp)  {false positive};
 
@@ -820,7 +820,7 @@ corpus & \(m\) & chosen offset of \(m-1 = 31\) & vs Horspool \\
 
 On \texttt{uniform} it selects \(m-1\) at every needle length and ties Horspool to four decimal places. On C source it gives up two units of ceiling to reach a rarer byte and wins 11\%. This arm reads the whole corpus's frequencies before searching and that cost is not counted, which makes it a ceiling on anchor choice and not a usable rule.
 
-Which of those two happens is decided in advance by one number. Modeling the needle as carrying the observed symbol at rate \(q = 2^{-H_2}\) per position, the distance to the nearest earlier occurrence has \(\Pr[d > j] = (1-q)^j\), so
+Which of those two happens is decided in advance by one number. Modeling the needle as carrying the observed symbol at rate \(q = 2^{-H_2}\) per position, the distance to the nearest earlier occurrence has \(\Pr[d > j] = (1-q)^j\),
 
 \(\mathbb{E}[\text{advance}(a)] \;=\; \sum_{j=0}^{a}(1-q)^j \;=\; \frac{1 - (1-q)^{a+1}}{q}\)
 
@@ -1736,13 +1736,13 @@ Neither document contains the separation analysis here. That is a claim about tw
 
 Section 2.2 makes each refutation depend only on the cell that produced it. The set of alignments ruled out by a group of reads is a union and does not depend on the order they were read in. That observation is the dueling paradigm, introduced by Vishkin, and its consequences were worked out at the time. Read from Neuburger's survey, sections 1.3 and 1.4.
 
-A duel eliminates candidates pairwise from single text symbols with no traversal order, and the survey states the setting directly: "This alphabet independent method is used for fast pattern matching in a parallel setting." Alphabet independence, which Section 2.1 assumes, is a stated property of the 1990 method.
+A duel eliminates candidates pairwise from single text symbols with no traversal order, and the survey states the setting directly: ``This alphabet independent method is used for fast pattern matching in a parallel setting.'' Alphabet independence, which Section 2.1 assumes, is a stated property of the 1990 method.
 
-Deterministic sampling then chooses probe positions from the pattern before any text is read. "The deterministic sample is a set A of positions of the pattern and a number \(x\), such that if the positions match a candidate \(i\) in the text, then all other candidates in the interval \([i-x+1, i+\tfrac{m}{2}-x]\) are eliminated." Its sample size is logarithmic in the pattern length, which is a stronger result than any fixed stride over the text.
+Deterministic sampling then chooses probe positions from the pattern before any text is read. ``The deterministic sample is a set A of positions of the pattern and a number \(x\), such that if the positions match a candidate \(i\) in the text, then all other candidates in the interval \([i-x+1, i+\tfrac{m}{2}-x]\) are eliminated.'' Its sample size is logarithmic in the pattern length, which is a stronger result than any fixed stride over the text.
 
-Rare symbol selection appears inside that construction. The pattern is stacked \(\tfrac{m}{2}\) times, a witness column is chosen, and the rule is to "select the less frequent of the two symbols, which can occur in at most half of the copies," repeated at most \(\log \tfrac{m}{2}\) times. Choosing by rarity to halve a candidate set inside an order free elimination is the 1991 method.
+Rare symbol selection appears inside that construction. The pattern is stacked \(\tfrac{m}{2}\) times, a witness column is chosen, and the rule is to ``select the less frequent of the two symbols, which can occur in at most half of the copies,'' repeated at most \(\log \tfrac{m}{2}\) times. Choosing by rarity to halve a candidate set inside an order free elimination is the 1991 method.
 
-Periodicity is a stated precondition there, with a published repair. The guarantee holds "for a non-periodic pattern," and a periodic pattern is reduced by taking its prefix of size \(2\pi-1\), which is not periodic, then linking neighboring occurrences. The failure recorded in Section 4.9.3, peaking at needle lengths equal to the record period and twice it, is that precondition being violated, and the repair for it predates this document.
+Periodicity is a stated precondition there, with a published repair. The guarantee holds ``for a non-periodic pattern,'' and a periodic pattern is reduced by taking its prefix of size \(2\pi-1\), which is not periodic, then linking neighboring occurrences. The failure recorded in Section 4.9.3, peaking at needle lengths equal to the record period and twice it, is that precondition being violated, and the repair for it predates this document.
 
 \noindent\textbf{What that leaves, stated more carefully than a first reading of it allowed.} The prior art above is combinatorial and worst case. It selects a rarer symbol without pricing what rarity is worth, and it carries no distribution over the alphabet.
 
@@ -1756,9 +1756,9 @@ Section 4.9.6 also measures why the two cannot be traded freely. The safe stride
 
 Read from Tsai, \emph{Average Case Analysis of the Boyer-Moore Algorithm}, Random Structures and Algorithms 28, 481 (2006), pages 1 to 4 and 14 to 16 of 18. Sections 4 and 5, which carry the Markov chain derivation, were not read.
 
-The quantity that literature computes is \(C_n\), the number of character comparisons, and the constant is \(\mu = \lim_{n\to\infty} \mathbb{E}(C_n/n)\). Baeza-Yates and colleagues "applied an analytic approach to the average-case analysis of the BMH algorithm. Under the assumption that the text is independent and identically distributed (iid), they derived an exact expression for the linearity constant". Mahmoud, Smythe and Régnier established asymptotic normality of \(C_n\), Smythe extended the text model to Markov, and Tsai adds a Berry-Esseen bound.
+The quantity that literature computes is \(C_n\), the number of character comparisons, and the constant is \(\mu = \lim_{n\to\infty} \mathbb{E}(C_n/n)\). Baeza-Yates and colleagues ``applied an analytic approach to the average-case analysis of the BMH algorithm. Under the assumption that the text is independent and identically distributed (iid), they derived an exact expression for the linearity constant''. Mahmoud, Smythe and Régnier established asymptotic normality of \(C_n\), Smythe extended the text model to Markov, and Tsai adds a Berry-Esseen bound.
 
-\noindent\textbf{The parameter is alphabet cardinality.} The text is written over "a set of \(q\) characters", every numeric result is computed at \(q = 2\), 4 and 8, the error term is \((m-K-1)/q^K\), and the experiment uses text "built randomly". Under a uniform alphabet \(\sum_\sigma p_\sigma^2 = 1/q\) exactly. \(2^{H_2} = 1/\sum p^2\) is the effective alphabet size and the collision probability used throughout this document is that \(q\) carried to the non-uniform case. The transition probabilities in their framework are written for a general distribution. The generalization is available there and is not taken. This document does not claim a new quantity, it claims the classical one at a weaker assumption.
+\noindent\textbf{The parameter is alphabet cardinality.} The text is written over ``a set of \(q\) characters'', every numeric result is computed at \(q = 2\), 4 and 8, the error term is \((m-K-1)/q^K\), and the experiment uses text ``built randomly''. Under a uniform alphabet \(\sum_\sigma p_\sigma^2 = 1/q\) exactly. \(2^{H_2} = 1/\sum p^2\) is the effective alphabet size and the collision probability used throughout this document is that \(q\) carried to the non-uniform case. The transition probabilities in their framework are written for a general distribution. The generalization is available there and is not taken. This document does not claim a new quantity, it claims the classical one at a weaker assumption.
 
 \noindent\textbf{A comparison count cannot see a declined refutation.} Section 4.9.4 prices what an in-order shift leaves uncollected, between 3\% and 99\% depending on the needle length. That quantity is invisible to \(C_n\), because a comparison count records what the algorithm did and a forfeited refutation is something it never did. The gap is not a defect in thirty years of analysis. It is outside what the metric measures, and it becomes visible only once the traversal order is treated as a free variable, which Section 7.1 credits to Vishkin.
 
@@ -1766,9 +1766,9 @@ The quantity that literature computes is \(C_n\), the number of character compar
 
 Sections 4.3 and 4.8 reach for a physical analogy: a reference measure is worth the divergence of the domain from it, and at equilibrium there is no gradient and nothing to extract. Read from Parrondo, Horowitz and Sagawa, \emph{Thermodynamics of information}, Nature Physics 11, 131 (2015).
 
-The results are sharper than the analogy. For a system in a statistical state \(\rho\) with Hamiltonian \(\mathcal{H}_0\), the non-equilibrium free energy is \(\mathcal{F}(\rho;\mathcal{H}_0) \equiv \langle \mathcal{H}_0\rangle_\rho - TS(\rho)\), and Box 1 states that "\(-W_{\text{diss}}\) is the maximum work that can be extracted from the non-equilibrium state \(\rho\)", with \(\mathcal{F}(\rho;\mathcal{H}_0) \ge \mathcal{F}(\rho_0)\) for any \(\rho\). The second law for isothermal processes between non-equilibrium states is \(T\Delta S_{\text{tot}} = W_{\text{diss}} \equiv W - \Delta\mathcal{F} \ge 0\).
+The results are sharper than the analogy. For a system in a statistical state \(\rho\) with Hamiltonian \(\mathcal{H}_0\), the non-equilibrium free energy is \(\mathcal{F}(\rho;\mathcal{H}_0) \equiv \langle \mathcal{H}_0\rangle_\rho - TS(\rho)\), and Box 1 states that ``\(-W_{\text{diss}}\) is the maximum work that can be extracted from the non-equilibrium state \(\rho\)'', with \(\mathcal{F}(\rho;\mathcal{H}_0) \ge \mathcal{F}(\rho_0)\) for any \(\rho\). The second law for isothermal processes between non-equilibrium states is \(T\Delta S_{\text{tot}} = W_{\text{diss}} \equiv W - \Delta\mathcal{F} \ge 0\).
 
-For measurement the bound is on mutual information, not on a divergence from an arbitrary reference: \(\Delta \mathcal{F}_{\text{meas}} = kTI(X;M)\), and for a cyclic feedback process \(W \ge -kTI(X(t_{\text{ms}});M)\). The extractable work is "proportional to the information acquired in the measurement". The Szilárd engine saturates it because its outcome is left or right with equal probability, "giving \(H(M) = \ln 2\)".
+For measurement the bound is on mutual information, not on a divergence from an arbitrary reference: \(\Delta \mathcal{F}_{\text{meas}} = kTI(X;M)\), and for a cyclic feedback process \(W \ge -kTI(X(t_{\text{ms}});M)\). The extractable work is ``proportional to the information acquired in the measurement''. The Szilárd engine saturates it because its outcome is left or right with equal probability, ``giving \(H(M) = \ln 2\)''.
 
 \noindent\textbf{Where this document departs from the analogy.} The equilibrium reading holds: a domain with no structure offers nothing, and Sections 4.3 and 4.8 measure exactly that in the rows that refuse to separate. The reference measure reading does not survive Section 4.3.1. What a measure can be worth here is the uninformed rate over the expected minimum of \(m\) size biased draws, which equals one when the distribution is uniform on its support. That quantity is not a relative entropy between the domain and the table, and the corpus ordering shows entropy does not govern it. The physics is invoked as background and no result in this document rests on it.
 
@@ -1776,9 +1776,9 @@ For measurement the bound is on mutual information, not on a divergence from an 
 
 Section 4.13 measures a Zipf slope, a brevity correlation and a boundary regularity on ten corpora and reads their agreement as a property of how people produce language. Exactly that inference has been argued over in print. Four items were read in full: Sproat, \emph{Ancient Symbols, Computational Linguistics, and the Reviewing Practices of the General Science Journals}, Computational Linguistics 36(3):585, and in 36(4) the replies from Rao and colleagues at 795, from Lee and colleagues at 791, and Sproat's answer to both at 807.
 
-Sproat's case is that these statistics do not separate language from anything else, and he demonstrates it instead of asserting it. Applying the published classifier of Lee and colleagues to Mesopotamian deity symbols from kudurru boundary stones, a system known to be non-linguistic, returns \(C_r = 8.0\) and \(U_r = 1.55\) and classifies it as writing. Applying it to 75 "texts" produced by successive tosses of seven six-sided dice returns \(C_r = 12.64\) and \(U_r = 1.18\), which the same decision tree reports as a syllabic writing system. For the conditional entropy measure he notes that a memoryless process with a Zipfian and non-equiprobable unigram distribution, carrying conditional independence between symbols, reproduces the published curves. His conclusion is that neither result distinguishes "structure that derives from linguistic constraints from structure that derives from some other kind of constraints."
+Sproat's case is that these statistics do not separate language from anything else, and he demonstrates it instead of asserting it. Applying the published classifier of Lee and colleagues to Mesopotamian deity symbols from kudurru boundary stones, a system known to be non-linguistic, returns \(C_r = 8.0\) and \(U_r = 1.55\) and classifies it as writing. Applying it to 75 ``texts'' produced by successive tosses of seven six-sided dice returns \(C_r = 12.64\) and \(U_r = 1.18\), which the same decision tree reports as a syllabic writing system. For the conditional entropy measure he notes that a memoryless process with a Zipfian and non-equiprobable unigram distribution, carrying conditional independence between symbols, reproduces the published curves. His conclusion is that neither result distinguishes ``structure that derives from linguistic constraints from structure that derives from some other kind of constraints.''
 
-Rao and colleagues answer that sufficiency was never claimed. Their framework is inductive, estimating a posterior over a linguistic hypothesis from several properties at once, of which entropy is one, and they extend the measurement to block entropies up to \(N = 6\) where they report the artificial counterexamples failing to track. They also supply non-linguistic controls that are not artificial, namely DNA, protein, Fortran and music, which occupy entropic ranges away from the linguistic ones. Their own description of the Zipf-Mandelbrot property is that it is "often considered a necessary (though not sufficient) condition for language", the asymmetry between Proposition 1 and Proposition 2 reached from a different direction and by different people.
+Rao and colleagues answer that sufficiency was never claimed. Their framework is inductive, estimating a posterior over a linguistic hypothesis from several properties at once, of which entropy is one, and they extend the measurement to block entropies up to \(N = 6\) where they report the artificial counterexamples failing to track. They also supply non-linguistic controls that are not artificial, namely DNA, protein, Fortran and music, which occupy entropic ranges away from the linguistic ones. Their own description of the Zipf-Mandelbrot property is that it is ``often considered a necessary (though not sufficient) condition for language'', the asymmetry between Proposition 1 and Proposition 2 reached from a different direction and by different people.
 
 \noindent\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's counterexample class was built and run through the same code that produced every other row (\texttt{maint/\allowbreak{}data/\allowbreak{}fetch/\allowbreak{}gen\_\allowbreak{}monkey\_\allowbreak{}corpus.\allowbreak{}py}). Characters are drawn independently and a delimiter is dropped in at a fixed rate.
 
@@ -1802,7 +1802,7 @@ Three of the four measures fail. The Zipf slope from a geometric distribution ca
 
 Section 4.13 therefore may not read a Zipf slope, a brevity correlation or a type count as evidence of anything about production, and those claims are withdrawn. What remains of that section is the boundary regularity.
 
-That one separates completely, and across the whole sweep. Every memoryless arm scores between 0.99 and 1.01, which is a corpus indistinguishable from its own shuffle and is what a process with no memory has to give, whatever its alphabet size or delimiter rate. Every natural corpus scores at or above 1.79. This is the measure Sproat grants, writing of the randomization method that it "seems to make sense as a way to spot memoryless non-equiprobable processes masquerading as structured systems", and his stated limit on it applies here unchanged: a non-linguistic system that has structure passes it as well. So the surviving measure establishes that a corpus is not memoryless. It does not establish that a corpus is a language, and this document does not claim it does.
+That one separates completely, and across the whole sweep. Every memoryless arm scores between 0.99 and 1.01, which is a corpus indistinguishable from its own shuffle and is what a process with no memory has to give, whatever its alphabet size or delimiter rate. Every natural corpus scores at or above 1.79. This is the measure Sproat grants, writing of the randomization method that it ``seems to make sense as a way to spot memoryless non-equiprobable processes masquerading as structured systems'', and his stated limit on it applies here unchanged: a non-linguistic system that has structure passes it as well. So the surviving measure establishes that a corpus is not memoryless. It does not establish that a corpus is a language, and this document does not claim it does.
 
 The surviving measure is also the one Section 7.2 can price. A corpus equal to its own shuffle carries no gradient and offers nothing to extract. The equilibrium reading holds exactly here, and the ratio above one is a distance from that equilibrium.
 
@@ -1976,7 +1976,7 @@ Three experimental results apply to the method:
     shift table.
 \end{enumerate}
 
-Where an order on positions exists, that order is most of the available structure and a shift takes it. The candidate rate this document spends its length measuring is not what governs a search. Section 4.9 records that as a loss of 1.2 to 25 times and then recovers it, first by treating rejection and advance as one product and then by measuring the advance directly. The arrangement that comes out ahead holds nothing. That is a product of the underlying assumptions about the set $\Sigma$.
+Where an order on positions exists, that order is most of the available structure and a shift takes it. The candidate rate this document spends its length measuring is not what governs a search. Section 4.9 records that as a loss of 1.2 to 25 times and then recovers it, first by treating rejection and advance as one product and then by measuring the advance directly. The arrangement that comes out ahead holds nothing. That is a product of the underlying assumptions about the set \(\Sigma\).
 
 \subsection{9. Reproducibility}
 
@@ -1994,7 +1994,7 @@ The same line builds \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\
 
 \texttt{mmgr\_\allowbreak{}sha256} is test support and nothing in \texttt{src/\allowbreak{}} reaches it. A digest computed by the code under test agrees with that code whatever the code did, and testing precept 1 in this tree is that the library is never its own oracle.
 
-\texttt{mmgr\_\allowbreak{}sha256} is held to five published vectors by \texttt{mmgr\_\allowbreak{}sha256\_\allowbreak{}self\_\allowbreak{}test} (\texttt{test/\allowbreak{}support/\allowbreak{}mmgr\_\allowbreak{}sha256.\allowbreak{}c:398}). RFC 6234 section 8.5 supplies four that sit on the padding boundaries: \texttt{"abc"}, the 56 octet message whose padding overflows into a second block, 64 octets fed ten times so padding forms a whole block alone, and one million \texttt{'a'} which pushes the length field past \(2^{23}\) bits over 15,625 compressions. The empty message is the fifth, which RFC 8448 section 3 prints as the TLS 1.3 \texttt{Transcript-\allowbreak{}Hash("")}.
+\texttt{mmgr\_\allowbreak{}sha256} is held to five published vectors by \texttt{mmgr\_\allowbreak{}sha256\_\allowbreak{}self\_\allowbreak{}test} (\texttt{test/\allowbreak{}support/\allowbreak{}mmgr\_\allowbreak{}sha256.\allowbreak{}c:398}). RFC 6234 section 8.5 supplies four that sit on the padding boundaries: \texttt{``abc''}, the 56 octet message whose padding overflows into a second block, 64 octets fed ten times so padding forms a whole block alone, and one million \texttt{'a'} which pushes the length field past \(2^{23}\) bits over 15,625 compressions. The empty message is the fifth, which RFC 8448 section 3 prints as the TLS 1.3 \texttt{Transcript-\allowbreak{}Hash(``'')}.
 
 \texttt{harness.\allowbreak{}py vectors} runs the normative suites offline against bytes vendored under \texttt{test/\allowbreak{}vectors}, each one's source and digest recorded in \texttt{MANIFEST.\allowbreak{}json}, with every file's hash checked before a vector is read from it.
 

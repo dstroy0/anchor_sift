@@ -132,9 +132,7 @@ def main():
         out.write(
             "  grid buys error below it and exact matching runs out of matches above it,\n"
         )
-        out.write(
-            "  which is the protein failure and the crystal voxel meeting in one curve.\n"
-        )
+        out.write("  the protein failure and the crystal voxel meeting in one curve.\n")
     out.flush()
     return 0
 

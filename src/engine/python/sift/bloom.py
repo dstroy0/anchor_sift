@@ -57,7 +57,7 @@ def positions(item, bits, hashes, seed=0):
     """The `hashes` bit positions an item occupies, by double hashing into a table of `bits` bits.
 
     Two independent FNV hashes are combined as one plus a step, which gives as many positions as wanted
-    from two hashes. `seed` selects a whole independent family of hashes, which is the knob the demos
+    from two hashes. `seed` selects a whole independent family of hashes, the knob the demos
     turn to show soundness does not depend on it.
     """
     data = _as_bytes(item)
@@ -71,12 +71,12 @@ def build(items, bits, hashes, seed=0):
 
     A Python integer is the bit array: arbitrary precision. No length is fixed in advance and the
     whole structure is one exact number. Each item sets its positions, and a member's positions are set
-    by construction, which is the whole guarantee.
+    by construction, the whole guarantee.
     """
     table = 0
     for item in items:
         for place in positions(item, bits, hashes, seed):
-            table |= (1 << place)
+            table |= 1 << place
     return table
 
 
@@ -84,8 +84,8 @@ def contains(table, item, bits, hashes, seed=0):
     """Whether every one of an item's positions is set: present, meaning member or false positive.
 
     True for every member without exception, because a member set these same bits when it was added.
-    True for a non-member only when all of its bits were set by other items, which is the false
-    positive. Never false for a member, which is the soundness.
+    True for a non-member only when all of its bits were set by other items, the false
+    positive. Never false for a member, the soundness.
     """
     return all((table >> place) & 1 for place in positions(item, bits, hashes, seed))
 

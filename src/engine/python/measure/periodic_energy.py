@@ -101,7 +101,7 @@ def dispersion_ratio(values, period):
     """The between-class energy per degree of freedom over the within-class energy per its own.
 
     The analysis-of-variance ratio for grouping the values by phase. The between-class part is divided
-    by the period less one and the within-class part, which is the total less the between, by the
+    by the period less one and the within-class part, the total less the between, by the
     length less the period. It does not grow with the period and it suppresses a multiple of the true
     period, which splits the same energy over more classes. A grouping that explains nothing sits near
     one and the true period stands far above.
@@ -115,9 +115,15 @@ def dispersion_ratio(values, period):
     within = sub(total_energy(values), between)
     freedom_between = period - 1
     freedom_within = length - period
-    if (freedom_between <= 0) or (freedom_within <= 0) or (compare(within, whole(0)) <= 0):
+    if (
+        (freedom_between <= 0)
+        or (freedom_within <= 0)
+        or (compare(within, whole(0)) <= 0)
+    ):
         return None
-    return over(over(between, whole(freedom_between)), over(within, whole(freedom_within)))
+    return over(
+        over(between, whole(freedom_between)), over(within, whole(freedom_within))
+    )
 
 
 def against_a_shuffle(values, period, seed=SEED):
@@ -186,7 +192,9 @@ def null_band(values, reach, draws=8, seed=SEED):
     values = list(values)
     ratios = []
     for step in range(draws):
-        _, ratio, _ = recover_period(list(permuted(values, seed + step)), reach, seed + step + 1)
+        _, ratio, _ = recover_period(
+            list(permuted(values, seed + step)), reach, seed + step + 1
+        )
         if ratio is not None:
             ratios.append(ratio)
     return sorted(ratios, key=cmp_to_key(compare))

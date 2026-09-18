@@ -195,7 +195,7 @@ extern "C"
                                     *   preserved on all three axes at once, which is what a linear
                                     *   index set needs to read as a solid. Requires the extents to be powers of two; a caller
                                     *   giving others gets a refusal. */
-        ANCHOR_VOLUME_HELIX = 3    /**< Slab major with each slab's rows shifted by its depth index, so
+        ANCHOR_VOLUME_HELIX = 3    /**< Slab major with each slab's rows shifted by its depth index,
                                     *   a feature at a fixed corpus offset winds through the block
                                     *   instead of stacking. A shear and not a rotation: a true helix
                                     *   needs trigonometry, this renderer is integer throughout so the

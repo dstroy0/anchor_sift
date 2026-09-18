@@ -16,7 +16,7 @@
 # between the primes and the human corpora. If it reads only arrangement they need not.
 #
 # The treatment matches the one given to pictures: quantize the values, read the sequence, and let the
-# measure see a domain and not a recording. Audio is decoded to 8 kHz mono at one byte a sample, so
+# measure see a domain and not a recording. Audio is decoded to 8 kHz mono at one byte a sample,
 # consecutive samples are far enough apart in time that the waveform's own smoothness does not stand for
 # all of the structure.
 
@@ -30,18 +30,24 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 OUT = os.path.join(ROOT, "build", "corpora")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"}
+AGENT = {
+    "User-Agent": "anchor-sift-research/1.0 (https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"
+}
 
 WANTED = (
     ("voc_bird_sparrow", "Arremon abeillei - Black-capped Sparrow XC250490.mp3"),
-    ("voc_whale_humpback",
-     "Humpback-Whale-Song-and-Foraging-Behavior-on-an-Antarctic-Feeding-Ground-pone.0051214.s001.oga"),
+    (
+        "voc_whale_humpback",
+        "Humpback-Whale-Song-and-Foraging-Behavior-on-an-Antarctic-Feeding-Ground-pone.0051214.s001.oga",
+    ),
     ("voc_wolf_howl", "Wolf howls.ogg"),
     ("voc_birds_dawn", "Bourne woods 2020-05-31 0823.mp3"),
-    # The control the animal rows cannot be read without: a human voice through the same pipeline, so
+    # The control the animal rows cannot be read without: a human voice through the same pipeline,
     # the smoothness every waveform carries is present in both sides of the comparison
     ("voc_human_speech", "Bone Wars spoken Wikipedia article (English).ogg"),
     ("voc_human_speech2", "Angelo Fabroni (Spoken Wikipedia, English).ogg"),
@@ -57,7 +63,9 @@ FLOOR = 90000
 
 
 def fetch(title):
-    url = "https://commons.wikimedia.org/wiki/Special:FilePath/" + urllib.parse.quote(title)
+    url = "https://commons.wikimedia.org/wiki/Special:FilePath/" + urllib.parse.quote(
+        title
+    )
     request = urllib.request.Request(url, headers=AGENT)
     with urllib.request.urlopen(request, timeout=240) as response:
         return response.read()
@@ -117,15 +125,19 @@ def main():
             continue
         samples, complaint = to_samples(blob, scratch)
         if samples is None or len(samples) < FLOOR:
-            print("  %-22s %d bytes fetched, decoded to %s samples. %s"
-                  % (name, len(blob), "0" if samples is None else len(samples), complaint))
+            print(
+                "  %-22s %d bytes fetched, decoded to %s samples. %s"
+                % (name, len(blob), "0" if samples is None else len(samples), complaint)
+            )
             continue
         # Seated away from zero to match every other corpus here
         seated = bytearray(samples)
         with open(os.path.join(OUT, "%s.sym" % name), "wb") as handle:
             handle.write(seated)
-        print("  %-22s %d samples at %d Hz, %d distinct levels"
-              % (name, len(seated), RATE, len(set(seated))))
+        print(
+            "  %-22s %d samples at %d Hz, %d distinct levels"
+            % (name, len(seated), RATE, len(set(seated)))
+        )
     return 0
 
 

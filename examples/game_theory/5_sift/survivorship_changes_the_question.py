@@ -15,7 +15,7 @@
 #   P(outcome | our move, the opponent plays into our line)    what pruning returns
 #
 # Those are different quantities about different things, and the second is not an estimate of the
-# first. Reporting the second under the first's name is the way this work would be quietly wrong, so
+# first. Reporting the second under the first's name is the way this work would be quietly wrong,
 # all three conditionings are computed on the same position at the same budget and printed together,
 # each carrying the sentence that says which quantity it is.
 #
@@ -68,7 +68,10 @@ def spread(title, game, state, plies, namer=str, note=""):
         readings[conditioning.name] = distribution
         print("")
         print("  %s -- %s" % (conditioning.name.upper(), conditioning.statement))
-        print("  " + outcome_entropy.format_reading(outcome_entropy.reading(distribution), ""))
+        print(
+            "  "
+            + outcome_entropy.format_reading(outcome_entropy.reading(distribution), "")
+        )
         print("    budget     : %s" % budget.describe())
         print("    best move(s): %s" % ", ".join(namer(move) for move, _ in chosen))
 
@@ -84,7 +87,9 @@ def spread(title, game, state, plies, namer=str, note=""):
 
 
 def main():
-    print("Three conditionings, one position, one budget. The spread between them is the bias.")
+    print(
+        "Three conditionings, one position, one budget. The spread between them is the bias."
+    )
 
     game = blackjack.Blackjack(decks=1)
     spread(
@@ -113,7 +118,9 @@ def main():
     spread(
         "POKER -- a pair of sevens, where pruning also changes the recommendation",
         game,
-        game.deal((card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))),
+        game.deal(
+            (card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))
+        ),
         10,
         lambda move: poker.show(move) if move else "(keep all)",
     )

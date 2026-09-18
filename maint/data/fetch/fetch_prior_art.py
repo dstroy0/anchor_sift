@@ -16,7 +16,7 @@
 #
 # A paywalled article is recorded and left. Three attempts against Baeza-Yates and Regnier returned
 # 403, the last against the publisher's own tokened link, and retrying a paywall does not open it.
-# The entry for it in the ledger says unread, which is the honest state and is worth more than a
+# The entry for it in the ledger says unread, the honest state and is worth more than a
 # citation nobody checked.
 #
 # THE COURTESIES ARE THE ONLY PATH TO THE NETWORK
@@ -41,14 +41,18 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
 ROOT = HERE
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 
 INTO = os.path.join(ROOT, "build", "prior_art")
 
 # Named, with a contact address. An archive operator can see who is asking and reach a person.
-AGENT = {"User-Agent": "anchor-sift-research/1.0 "
-                       "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"}
+AGENT = {
+    "User-Agent": "anchor-sift-research/1.0 "
+    "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"
+}
 
 # Seconds between requests that reach a host. Longer than any limit these archives publish.
 PAUSE = 3.0
@@ -72,9 +76,9 @@ WANTED = (
     {
         "name": "kolmogorov_1958_new_metric_invariant.pdf",
         "cite": "Kolmogorov, A new metric invariant of transitive dynamical systems and "
-                "automorphisms of Lebesgue spaces, Doklady Akademii Nauk SSSR 119(5):861-864, 1958",
+        "automorphisms of Lebesgue spaces, Doklady Akademii Nauk SSSR 119(5):861-864, 1958",
         "why": "Kolmogorov-Sinai entropy is defined as a supremum over partitions, which is where "
-               "the partition dependence this document observes was already answered",
+        "the partition dependence this document observes was already answered",
         # dan22922, and the identifier came from the archive's own article page and not from a
         # pattern. The first attempt used dan22851, which was invented and returned a metallurgy
         # paper. Confirmed at https://www.mathnet.ru/eng/dan22922: Kolmogorov, Dokl. Akad. Nauk
@@ -91,12 +95,12 @@ WANTED = (
     {
         "name": "sinai_1959_concept_of_entropy.pdf",
         "cite": "Sinai, On the concept of entropy for a dynamic system, "
-                "Doklady Akademii Nauk SSSR 124(4):768-771, 1959",
+        "Doklady Akademii Nauk SSSR 124(4):768-771, 1959",
         "why": "The second half of the same result, and the paper that carries the definition into "
-               "a form the field uses",
+        "a form the field uses",
         "urls": (),
         "by_hand": "https://www.mathnet.ru/eng/dan  (search the archive for the 1959 volume 124 "
-                   "issue 4 contents; the identifier is not known here and must not be guessed)",
+        "issue 4 contents; the identifier is not known here and must not be guessed)",
         "must_hold": ("Синай", "энтроп"),
     },
 )
@@ -116,7 +120,9 @@ def confirms(path, must_hold, out):
     try:
         from pypdf import PdfReader
     except ImportError:
-        out.write("      cannot confirm: no pypdf installed. Refusing to keep an unchecked file.\n")
+        out.write(
+            "      cannot confirm: no pypdf installed. Refusing to keep an unchecked file.\n"
+        )
         return False
 
     try:
@@ -127,12 +133,16 @@ def confirms(path, must_hold, out):
 
     if len(text.strip()) < 400:
         out.write("      cannot confirm: the file is a page scan and yields no text.\n")
-        out.write("      Render it and read the first page before citing anything from it.\n")
+        out.write(
+            "      Render it and read the first page before citing anything from it.\n"
+        )
         return False
 
     missing = [one for one in must_hold if one.lower() not in text.lower()]
     if missing:
-        out.write("      WRONG PAPER: the file does not contain %s\n" % " ".join(missing))
+        out.write(
+            "      WRONG PAPER: the file does not contain %s\n" % " ".join(missing)
+        )
         return False
     return True
 
@@ -154,14 +164,18 @@ def fetch(url, out):
             return None
         except Exception as trouble:
             if attempt == (TRIES - 1):
-                out.write("      %s: %s\n" % (type(trouble).__name__, str(trouble)[:60]))
+                out.write(
+                    "      %s: %s\n" % (type(trouble).__name__, str(trouble)[:60])
+                )
                 return None
             time.sleep(PAUSE * (attempt + 2))
     return None
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(INTO, exist_ok=True)
 
     listing = "--list" in sys.argv

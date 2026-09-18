@@ -15,7 +15,7 @@
 # Noise that ADDS to a sample (a hum, a periodic interference, an offset that repeats) leaves the
 # phase class holding one number plus a spread. The least committal reconstruction of the addend,
 # fixing only the class's first moment, is the mean of the class. Subtract that tiled mean and the
-# residual is whatever varied inside the class, which is the part the period did not explain. When the
+# residual is whatever varied inside the class, the part the period did not explain. When the
 # thing that varies sums to zero inside every class -- the target sitting orthogonal to the period's
 # subspace -- the mean is the addend exactly and the residual is the target exactly, to the last
 # digit, because the arithmetic is Fraction and nothing here rounds.

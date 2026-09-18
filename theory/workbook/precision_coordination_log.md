@@ -52,7 +52,7 @@ Two notes carried from that check and from the private repository's lead:
 
 - The generator and the Proth witness are different numbers for `2013265921` (generator 31, witness
   11). They must not be conflated: one builds the twiddle table, the other proves the prime. For the
-  other two device primes both are 3. The generators are absent from the paper's witness table, so
+  other two device primes both are 3. The generators are absent from the paper's witness table,
   where the book states one it re-derives it and shows the primitive-root check instead of citing the
   paper for it.
 - The three device primes multiply to a 94-bit number, the CRT reassembly ceiling for the device

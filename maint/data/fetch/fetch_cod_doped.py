@@ -67,8 +67,10 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
 CACHE = os.path.join(ROOT, "build", "cod")
 FAMILIES_FILE = os.path.join(CACHE, "families.tsv")
 
-AGENT = {"User-Agent": "anchor-sift-research/1.0 "
-                       "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"}
+AGENT = {
+    "User-Agent": "anchor-sift-research/1.0 "
+    "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"
+}
 SEARCH = "https://www.crystallography.net/cod/result?format=json&text=%s&count=%d"
 CIF = "https://www.crystallography.net/cod/%s.cif"
 
@@ -87,7 +89,7 @@ TRIES = 3
 # large.
 #
 # Raising it alone would undo what it was introduced for. Walking the families in order with a high
-# cap lets olivine and feldspar reach the target before the sulfides are asked at all, which is the
+# cap lets olivine and feldspar reach the target before the sulfides are asked at all, the
 # same one family corpus the cap was added to prevent, arriving by a different route. The names are
 # therefore interleaved across families below. The cap governs how deep a single name goes and
 # the interleave governs how evenly the families are sampled. Neither setting is sufficient alone.
@@ -96,51 +98,286 @@ PER_NAME = 120
 # Solid solution formers, grouped by the family a mineralogist would put them in. The family is the
 # unit a reading reports by; the names are how the archive is asked.
 FAMILIES = (
-    ("olivine", ("olivine", "forsterite", "fayalite", "tephroite", "monticellite",
-                 "liebenbergite", "kirschsteinite")),
-    ("feldspar", ("plagioclase", "albite", "anorthite", "oligoclase", "andesine", "labradorite",
-                  "bytownite", "orthoclase", "microcline", "sanidine", "anorthoclase", "celsian")),
-    ("feldspathoid", ("nepheline", "leucite", "sodalite", "cancrinite", "scapolite", "analcime")),
-    ("garnet", ("garnet", "almandine", "pyrope", "grossular", "andradite", "spessartine",
-                "uvarovite", "majorite", "schorlomite")),
-    ("pyroxene", ("pyroxene", "diopside", "augite", "enstatite", "ferrosilite", "hedenbergite",
-                  "jadeite", "aegirine", "spodumene", "omphacite", "wollastonite")),
-    ("amphibole", ("amphibole", "hornblende", "tremolite", "actinolite", "glaucophane",
-                   "riebeckite", "cummingtonite", "grunerite", "pargasite", "edenite")),
-    ("mica", ("biotite", "phlogopite", "muscovite", "annite", "lepidolite", "paragonite",
-              "zinnwaldite")),
+    (
+        "olivine",
+        (
+            "olivine",
+            "forsterite",
+            "fayalite",
+            "tephroite",
+            "monticellite",
+            "liebenbergite",
+            "kirschsteinite",
+        ),
+    ),
+    (
+        "feldspar",
+        (
+            "plagioclase",
+            "albite",
+            "anorthite",
+            "oligoclase",
+            "andesine",
+            "labradorite",
+            "bytownite",
+            "orthoclase",
+            "microcline",
+            "sanidine",
+            "anorthoclase",
+            "celsian",
+        ),
+    ),
+    (
+        "feldspathoid",
+        ("nepheline", "leucite", "sodalite", "cancrinite", "scapolite", "analcime"),
+    ),
+    (
+        "garnet",
+        (
+            "garnet",
+            "almandine",
+            "pyrope",
+            "grossular",
+            "andradite",
+            "spessartine",
+            "uvarovite",
+            "majorite",
+            "schorlomite",
+        ),
+    ),
+    (
+        "pyroxene",
+        (
+            "pyroxene",
+            "diopside",
+            "augite",
+            "enstatite",
+            "ferrosilite",
+            "hedenbergite",
+            "jadeite",
+            "aegirine",
+            "spodumene",
+            "omphacite",
+            "wollastonite",
+        ),
+    ),
+    (
+        "amphibole",
+        (
+            "amphibole",
+            "hornblende",
+            "tremolite",
+            "actinolite",
+            "glaucophane",
+            "riebeckite",
+            "cummingtonite",
+            "grunerite",
+            "pargasite",
+            "edenite",
+        ),
+    ),
+    (
+        "mica",
+        (
+            "biotite",
+            "phlogopite",
+            "muscovite",
+            "annite",
+            "lepidolite",
+            "paragonite",
+            "zinnwaldite",
+        ),
+    ),
     ("chlorite", ("chlorite", "clinochlore", "chamosite", "penninite")),
-    ("tourmaline", ("tourmaline", "schorl", "elbaite", "dravite", "uvite", "liddicoatite")),
-    ("apatite", ("apatite", "fluorapatite", "chlorapatite", "hydroxylapatite", "pyromorphite",
-                 "mimetite", "vanadinite")),
-    ("spinel", ("spinel", "magnetite", "chromite", "franklinite", "gahnite", "hercynite",
-                "magnesioferrite", "ulvospinel", "trevorite")),
+    (
+        "tourmaline",
+        ("tourmaline", "schorl", "elbaite", "dravite", "uvite", "liddicoatite"),
+    ),
+    (
+        "apatite",
+        (
+            "apatite",
+            "fluorapatite",
+            "chlorapatite",
+            "hydroxylapatite",
+            "pyromorphite",
+            "mimetite",
+            "vanadinite",
+        ),
+    ),
+    (
+        "spinel",
+        (
+            "spinel",
+            "magnetite",
+            "chromite",
+            "franklinite",
+            "gahnite",
+            "hercynite",
+            "magnesioferrite",
+            "ulvospinel",
+            "trevorite",
+        ),
+    ),
     ("perovskite", ("perovskite", "tausonite", "loparite", "latrappite", "lueshite")),
-    ("oxide", ("ilmenite", "hematite", "corundum", "rutile", "anatase", "brookite", "cassiterite",
-               "pyrolusite", "columbite", "tantalite", "wolframite", "pseudobrookite")),
+    (
+        "oxide",
+        (
+            "ilmenite",
+            "hematite",
+            "corundum",
+            "rutile",
+            "anatase",
+            "brookite",
+            "cassiterite",
+            "pyrolusite",
+            "columbite",
+            "tantalite",
+            "wolframite",
+            "pseudobrookite",
+        ),
+    ),
     ("tungstate", ("scheelite", "powellite", "stolzite", "raspite")),
-    ("sulfate", ("barite", "celestine", "anglesite", "anhydrite", "gypsum", "alunite", "jarosite")),
-    ("epidote", ("epidote", "clinozoisite", "allanite", "zoisite", "piemontite", "vesuvianite")),
+    (
+        "sulfate",
+        (
+            "barite",
+            "celestine",
+            "anglesite",
+            "anhydrite",
+            "gypsum",
+            "alunite",
+            "jarosite",
+        ),
+    ),
+    (
+        "epidote",
+        ("epidote", "clinozoisite", "allanite", "zoisite", "piemontite", "vesuvianite"),
+    ),
     ("cyclosilicate", ("cordierite", "beryl", "osumilite", "milarite", "sekaninaite")),
-    ("nesosilicate", ("staurolite", "chloritoid", "zircon", "titanite", "monazite", "xenotime",
-                      "topaz", "andalusite", "kyanite", "sillimanite", "datolite")),
-    ("serpentine", ("serpentine", "antigorite", "lizardite", "chrysotile", "greenalite")),
+    (
+        "nesosilicate",
+        (
+            "staurolite",
+            "chloritoid",
+            "zircon",
+            "titanite",
+            "monazite",
+            "xenotime",
+            "topaz",
+            "andalusite",
+            "kyanite",
+            "sillimanite",
+            "datolite",
+        ),
+    ),
+    (
+        "serpentine",
+        ("serpentine", "antigorite", "lizardite", "chrysotile", "greenalite"),
+    ),
     ("melilite", ("melilite", "gehlenite", "akermanite", "hardystonite")),
-    ("sulfide", ("chalcopyrite", "bornite", "tetrahedrite", "tennantite", "arsenopyrite",
-                 "pentlandite", "pyrrhotite", "marcasite", "cobaltite", "skutterudite",
-                 "sphalerite", "galena", "stannite", "enargite")),
-    ("carbonate", ("dolomite", "ankerite", "magnesite", "rhodochrosite", "smithsonite", "calcite",
-                   "siderite", "aragonite", "witherite", "strontianite", "kutnohorite")),
-    ("hydroxide", ("goethite", "lepidocrocite", "manganite", "psilomelane", "romanechite",
-                   "brucite", "gibbsite", "diaspore", "boehmite")),
-    ("phosphate", ("triphylite", "lithiophilite", "graftonite", "sarcopside", "wagnerite",
-                   "amblygonite", "montebrasite", "childrenite", "eosphorite")),
-    ("halide", ("fluorite", "halite", "sylvite", "carnallite", "cryolite", "villiaumite",
-                "chlorargyrite", "atacamite")),
-    ("clay", ("montmorillonite", "illite", "kaolinite", "vermiculite", "saponite", "nontronite",
-              "beidellite")),
-    ("zeolite", ("zeolite", "natrolite", "heulandite", "clinoptilolite", "chabazite", "stilbite",
-                 "mordenite", "phillipsite", "laumontite")),
+    (
+        "sulfide",
+        (
+            "chalcopyrite",
+            "bornite",
+            "tetrahedrite",
+            "tennantite",
+            "arsenopyrite",
+            "pentlandite",
+            "pyrrhotite",
+            "marcasite",
+            "cobaltite",
+            "skutterudite",
+            "sphalerite",
+            "galena",
+            "stannite",
+            "enargite",
+        ),
+    ),
+    (
+        "carbonate",
+        (
+            "dolomite",
+            "ankerite",
+            "magnesite",
+            "rhodochrosite",
+            "smithsonite",
+            "calcite",
+            "siderite",
+            "aragonite",
+            "witherite",
+            "strontianite",
+            "kutnohorite",
+        ),
+    ),
+    (
+        "hydroxide",
+        (
+            "goethite",
+            "lepidocrocite",
+            "manganite",
+            "psilomelane",
+            "romanechite",
+            "brucite",
+            "gibbsite",
+            "diaspore",
+            "boehmite",
+        ),
+    ),
+    (
+        "phosphate",
+        (
+            "triphylite",
+            "lithiophilite",
+            "graftonite",
+            "sarcopside",
+            "wagnerite",
+            "amblygonite",
+            "montebrasite",
+            "childrenite",
+            "eosphorite",
+        ),
+    ),
+    (
+        "halide",
+        (
+            "fluorite",
+            "halite",
+            "sylvite",
+            "carnallite",
+            "cryolite",
+            "villiaumite",
+            "chlorargyrite",
+            "atacamite",
+        ),
+    ),
+    (
+        "clay",
+        (
+            "montmorillonite",
+            "illite",
+            "kaolinite",
+            "vermiculite",
+            "saponite",
+            "nontronite",
+            "beidellite",
+        ),
+    ),
+    (
+        "zeolite",
+        (
+            "zeolite",
+            "natrolite",
+            "heulandite",
+            "clinoptilolite",
+            "chabazite",
+            "stilbite",
+            "mordenite",
+            "phillipsite",
+            "laumontite",
+        ),
+    ),
     ("borate", ("tourmaline group", "boracite", "ludwigite", "vonsenite", "kotoite")),
 )
 
@@ -152,8 +389,12 @@ def fetched(url, out):
             request = urllib.request.Request(url, headers=AGENT)
             with urllib.request.urlopen(request, timeout=180) as response:
                 return response.read().decode("utf-8", errors="replace")
-        except (urllib.error.URLError, http.client.HTTPException, socket.timeout,
-                OSError) as reason:
+        except (
+            urllib.error.URLError,
+            http.client.HTTPException,
+            socket.timeout,
+            OSError,
+        ) as reason:
             # The archive closes a connection now and then under a sweep this size. A dropped
             # request is not an absent entry. It is retried before being given up on.
             #
@@ -171,7 +412,9 @@ def fetched(url, out):
             # has the full sized version of it. A network retry should not be able to swallow a bug
             # in the code doing the retrying.
             if attempt == (TRIES - 1):
-                out.write("      gave up on %s: %s\n" % (url.rsplit("/", 1)[-1], reason))
+                out.write(
+                    "      gave up on %s: %s\n" % (url.rsplit("/", 1)[-1], reason)
+                )
                 out.flush()
                 return None
             time.sleep(PAUSE * (attempt + 2))
@@ -200,7 +443,9 @@ def recorded():
 
 def main():
     target = int(sys.argv[1]) if len(sys.argv) > 1 else 1200
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     if not os.path.isdir(CACHE):
         os.makedirs(CACHE)
@@ -277,8 +522,12 @@ def main():
             if not text or "_atom_site" not in text:
                 continue
             try:
-                with io.open(os.path.join(CACHE, number + ".cif"), "w",
-                             encoding="utf-8", errors="replace") as handle:
+                with io.open(
+                    os.path.join(CACHE, number + ".cif"),
+                    "w",
+                    encoding="utf-8",
+                    errors="replace",
+                ) as handle:
                     handle.write(text)
             except OSError as reason:
                 # One entry that will not write does not end the sweep. The alternative is losing
@@ -297,8 +546,10 @@ def main():
         out.flush()
 
     families.close()
-    out.write("\n  added %d, family backfilled onto %d already cached, cache now %d, %.0fs\n\n"
-              % (added, backfilled, len(held()), time.time() - started))
+    out.write(
+        "\n  added %d, family backfilled onto %d already cached, cache now %d, %.0fs\n\n"
+        % (added, backfilled, len(held()), time.time() - started)
+    )
     out.flush()
     return 0
 

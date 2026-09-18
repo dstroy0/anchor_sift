@@ -9,7 +9,7 @@
 #           state = checkers.endgame(((5, 2, checkers.MAN),), ((2, 5, checkers.KING),))
 #
 # This backend carries the weight of the survivorship result, because it is the only solved arm where
-# the opponent actually chooses. Blackjack's dealer has exactly one legal move at every turn, so
+# the opponent actually chooses. Blackjack's dealer has exactly one legal move at every turn,
 # pruning its paths changes nothing and the pruned and unpruned readings come out identical -- which
 # is a useful control, and is also why blackjack alone cannot show what pruning costs. Here the
 # opponent has real choices, the three conditionings separate, and the gap between them is the size
@@ -21,7 +21,7 @@
 # an adjacent enemy into the empty square beyond. Capturing is mandatory: where any capture exists,
 # only captures are legal. A capture that can continue must continue. One move is a whole jump
 # chain and not a single hop. A man reaching the far rank becomes a king and the move ends there,
-# which is the standard rule and is the one place a chain stops early. Kings move and capture in all
+# the standard rule and is the one place a chain stops early. Kings move and capture in all
 # four diagonal directions. A player with no pieces, or with no legal move, has lost.
 #
 # There is no draw by repetition or by inaction here. A game that does not finish inside the declared
@@ -141,7 +141,10 @@ class Checkers(object):
             piece = PIECES[(side, KING)]
         squares[landing] = piece
 
-        return (tuple(squares), rules.PLAYER_TWO if side == rules.PLAYER_ONE else rules.PLAYER_ONE)
+        return (
+            tuple(squares),
+            rules.PLAYER_TWO if side == rules.PLAYER_ONE else rules.PLAYER_ONE,
+        )
 
     def verdict(self, state):
         board, side = state
@@ -223,7 +226,9 @@ def _extend(board, square, piece, side, path, chains):
         stepped[over] = EMPTY
         stepped[landing] = piece
 
-        crowned = not is_king(piece) and land_row == (SIZE - 1 if side == rules.PLAYER_ONE else 0)
+        crowned = not is_king(piece) and land_row == (
+            SIZE - 1 if side == rules.PLAYER_ONE else 0
+        )
         if crowned:
             # Crowning ends the turn. A man that has just become a king does not carry on jumping in
             # the same move under standard rules.

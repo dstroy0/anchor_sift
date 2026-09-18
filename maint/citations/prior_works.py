@@ -153,7 +153,7 @@ CLAIMS = (
 )
 
 # What makes a priority claim honest without a reference: saying the reading has not been done.
-# These are read off the crystallography chapter, which is the worked example.
+# These are read off the crystallography chapter, the worked example.
 DISCLAIMERS = (
     r"\bhas not been done\b",
     r"\bnobody here has\b",
@@ -168,7 +168,7 @@ DISCLAIMERS = (
 )
 
 # What a reference looks like in these books: a LaTeX citation, a bracketed key, or a surname
-# standing against a year, which is the shape citations.py's second pass reads.
+# standing against a year, the shape citations.py's second pass reads.
 REFERENCES = (
     r"\\(cite|citep|citet|footcite|autocite)\w*\s*[\[{]",
     r"\\ref\s*\{",

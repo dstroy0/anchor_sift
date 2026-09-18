@@ -24,7 +24,7 @@
 # Not modeled: the fifty move rule, threefold repetition and insufficient material. Each of those
 # turns a long game into a draw, and this subject reports a game the budget did not finish as
 # UNRESOLVED. Folding them in would move mass onto DRAW for positions the
-# search never actually resolved, which is the one thing the enumerator is built not to do.
+# search never actually resolved, the one thing the enumerator is built not to do.
 
 from representation.game import rules
 

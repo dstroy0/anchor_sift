@@ -444,7 +444,7 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
     def test_a_bare_comment_marker_separates_two_blocks(self):
         """The regression this rule was rewritten for, guarded by name.
 
-        A first attempt split blocks on blank SOURCE lines. A `#` alone on a line is not blank, so
+        A first attempt split blocks on blank SOURCE lines. A `#` alone on a line is not blank,
         an entire comment header read as one block: 164 findings went quiet across this tree alone,
         among them six hits in a file about orthography. Emptiness is measured on the MARKER-stripped
         text instead, the same test runs() already makes.

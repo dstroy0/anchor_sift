@@ -15,7 +15,7 @@
 # estimator that is right only where it cannot be checked is not a measurement.
 #
 # The hand ranking is the external answer key. Nothing in this tree decides that a flush beats a
-# straight; that ordering came from outside and predates the instrument, which is the same property
+# straight; that ordering came from outside and predates the instrument, the same property
 # that makes the Crystallography Open Database a positive control.
 #
 # WHAT A MOVE IS
@@ -238,7 +238,9 @@ class Poker(object):
         """A named position with both hands already dealt, for measuring one discard decision."""
         one = tuple(sorted(one_cards))
         two = tuple(sorted(two_cards))
-        deck = tuple(value for value in self.deck if value not in one and value not in two)
+        deck = tuple(
+            value for value in self.deck if value not in one and value not in two
+        )
         return (DISCARD_ONE, one, two, deck, ())
 
 
@@ -262,7 +264,11 @@ def show(hand):
             "%s%s"
             % (
                 letters[rank] if rank < len(letters) else str(rank),
-                suited[suit_of(value)] if suit_of(value) < len(suited) else str(suit_of(value)),
+                (
+                    suited[suit_of(value)]
+                    if suit_of(value) < len(suited)
+                    else str(suit_of(value))
+                ),
             )
         )
     return " ".join(parts)

@@ -34,7 +34,7 @@
 # relaxation, found by peeling low-degree vertices, and it CONTAINS the maximum clique because a clique
 # of size s is an (s-1)-core. So clique and k-core bracket the inliers: both retain every inlier
 # (soundness), and the k-core admits more outliers (cost). That they agree on retaining the inliers is
-# the check; where they differ is the cost the relaxation pays, which is the soundness-versus-cost split
+# the check; where they differ is the cost the relaxation pays, the soundness-versus-cost split
 # the whole family rests on.
 #
 # NOTHING IS BOUNDED HERE. Compatibility is an exact predicate the caller supplies; there is no

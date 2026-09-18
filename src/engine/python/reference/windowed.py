@@ -7,7 +7,7 @@
 #   Usage:  from reference.windowed import window_median, median_filtered, restore_at
 #
 # A rank background groups by neither position nor content but by NEARNESS: a value is estimated from
-# the window around it. The estimate is the median, the middle value of the window, which is the rank
+# the window around it. The estimate is the median, the middle value of the window, the rank
 # statistic a majority of the window agrees on and the one an impulse cannot move, because dragging the
 # middle takes more than half the window. That is why a median rejects the
 # replacement noise a mean cannot: the mean is the first moment and one impulse owns it, the median is

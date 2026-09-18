@@ -20,7 +20,7 @@
 #
 # Two routes are read and they are shown able to disagree. The per-atom octet is the strong one. The
 # handshake sum, that the valences add to twice the bond count, is a weaker necessary condition: it
-# can pass on an arrangement the per-atom check refuses, which is the mis-wired peroxide below. A
+# can pass on an arrangement the per-atom check refuses, the mis-wired peroxide below. A
 # route that could never disagree with the other would be the same route twice.
 #
 # The null is drawn, not assumed. Keep the bond graph and the multiset of elements, and permute which
@@ -51,27 +51,44 @@ VALENCE = {"H": 1, "C": 4, "N": 3, "O": 2, "F": 1, "Cl": 1, "He": 0}
 # shared pairs: one for a single bond, two for a double, three for a triple.
 MOLECULES = [
     ("water", ["O", "H", "H"], [(0, 1, 1), (0, 2, 1)]),
-    ("methane", ["C", "H", "H", "H", "H"], [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1)]),
+    (
+        "methane",
+        ["C", "H", "H", "H", "H"],
+        [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1)],
+    ),
     ("ammonia", ["N", "H", "H", "H"], [(0, 1, 1), (0, 2, 1), (0, 3, 1)]),
     ("carbon dioxide", ["C", "O", "O"], [(0, 1, 2), (0, 2, 2)]),
-    ("ethane", ["C", "C", "H", "H", "H", "H", "H", "H"],
-     [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1), (1, 5, 1), (1, 6, 1), (1, 7, 1)]),
-    ("ethene", ["C", "C", "H", "H", "H", "H"],
-     [(0, 1, 2), (0, 2, 1), (0, 3, 1), (1, 4, 1), (1, 5, 1)]),
+    (
+        "ethane",
+        ["C", "C", "H", "H", "H", "H", "H", "H"],
+        [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1), (1, 5, 1), (1, 6, 1), (1, 7, 1)],
+    ),
+    (
+        "ethene",
+        ["C", "C", "H", "H", "H", "H"],
+        [(0, 1, 2), (0, 2, 1), (0, 3, 1), (1, 4, 1), (1, 5, 1)],
+    ),
     ("ethyne", ["C", "C", "H", "H"], [(0, 1, 3), (0, 2, 1), (1, 3, 1)]),
     ("hydrogen peroxide", ["O", "O", "H", "H"], [(0, 1, 1), (0, 2, 1), (1, 3, 1)]),
 ]
 
 # Arrangements the octet must refuse. Carbon cannot carry five bonds and helium cannot carry one.
 IMPOSSIBLE = [
-    ("carbon with five hydrogens", ["C", "H", "H", "H", "H", "H"],
-     [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1), (0, 5, 1)]),
+    (
+        "carbon with five hydrogens",
+        ["C", "H", "H", "H", "H", "H"],
+        [(0, 1, 1), (0, 2, 1), (0, 3, 1), (0, 4, 1), (0, 5, 1)],
+    ),
     ("bonded helium", ["He", "He"], [(0, 1, 1)]),
 ]
 
 # Same atoms as peroxide and the same number of shared pairs, wired so the handshake sum still passes
 # while two oxygens miss their octet. This is the case the two routes disagree on.
-MISWIRED = ("mis-wired peroxide", ["O", "O", "H", "H"], [(0, 1, 1), (0, 2, 1), (0, 3, 1)])
+MISWIRED = (
+    "mis-wired peroxide",
+    ["O", "O", "H", "H"],
+    [(0, 1, 1), (0, 2, 1), (0, 3, 1)],
+)
 
 DRAWS = 400
 
@@ -93,7 +110,9 @@ def octet_ok(atoms, bonds):
 
 def handshake_ok(atoms, bonds):
     """The valences add to twice the bond orders. A weaker necessary condition than the octet."""
-    return sum(VALENCE[element] for element in atoms) == 2 * sum(order for _, _, order in bonds)
+    return sum(VALENCE[element] for element in atoms) == 2 * sum(
+        order for _, _, order in bonds
+    )
 
 
 def null_pass_rate(atoms, bonds, draws):
@@ -116,12 +135,26 @@ def null_pass_rate(atoms, bonds, draws):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
-    out.write("  The octet is a necessary condition on every atom at once. A real molecule meets it,\n")
-    out.write("  a shuffle of the same atoms across the same bonds usually does not.\n\n")
-    out.write("  %-20s %-7s %-9s %-9s %s\n"
-              % ("molecule", "atoms", "octet", "handshake", "null pass-rate over 400 shuffles"))
+    out.write(
+        "  The octet is a necessary condition on every atom at once. A real molecule meets it,\n"
+    )
+    out.write(
+        "  a shuffle of the same atoms across the same bonds usually does not.\n\n"
+    )
+    out.write(
+        "  %-20s %-7s %-9s %-9s %s\n"
+        % (
+            "molecule",
+            "atoms",
+            "octet",
+            "handshake",
+            "null pass-rate over 400 shuffles",
+        )
+    )
 
     real_hits = 0
     null_low, null_high = 1.0, 0.0
@@ -132,16 +165,29 @@ def main():
         real_hits += 1 if strong else 0
         null_low = min(null_low, rate)
         null_high = max(null_high, rate)
-        out.write("  %-20s %-7d %-9s %-9s %.3f\n"
-                  % (name, len(atoms), "closes" if strong else "open",
-                     "holds" if weak else "breaks", rate))
+        out.write(
+            "  %-20s %-7d %-9s %-9s %.3f\n"
+            % (
+                name,
+                len(atoms),
+                "closes" if strong else "open",
+                "holds" if weak else "breaks",
+                rate,
+            )
+        )
 
-    out.write("\n  positive control: %d of %d real molecules close every atom, and each sits above its\n"
-              % (real_hits, len(MOLECULES)))
-    out.write("  own null band of %.3f to %.3f. The real assignment is the departure from the shuffle.\n\n"
-              % (null_low, null_high))
+    out.write(
+        "\n  positive control: %d of %d real molecules close every atom, and each sits above its\n"
+        % (real_hits, len(MOLECULES))
+    )
+    out.write(
+        "  own null band of %.3f to %.3f. The real assignment is the departure from the shuffle.\n\n"
+        % (null_low, null_high)
+    )
 
-    out.write("  negative control: arrangements the octet must refuse, or the pass above proves only\n")
+    out.write(
+        "  negative control: arrangements the octet must refuse, or the pass above proves only\n"
+    )
     out.write("  that the check is wired to say yes.\n")
     refused = 0
     for name, atoms, bonds in IMPOSSIBLE:
@@ -154,14 +200,25 @@ def main():
     strong = octet_ok(atoms, bonds)
     weak = handshake_ok(atoms, bonds)
     out.write("  two routes, shown able to disagree:\n")
-    out.write("    %-28s octet %s, handshake %s\n"
-              % (name, "closes" if strong else "refused", "holds" if weak else "breaks"))
+    out.write(
+        "    %-28s octet %s, handshake %s\n"
+        % (name, "closes" if strong else "refused", "holds" if weak else "breaks")
+    )
     disagree = strong != weak
-    out.write("  the routes %s here. Neither is the other twice.\n"
-              % ("disagree" if disagree else "agree"))
+    out.write(
+        "  the routes %s here. Neither is the other twice.\n"
+        % ("disagree" if disagree else "agree")
+    )
 
     ok = real_hits == len(MOLECULES) and refused == len(IMPOSSIBLE) and disagree
-    out.write("\n  %s\n" % ("every control held." if ok else "a control did not hold; read the rows above."))
+    out.write(
+        "\n  %s\n"
+        % (
+            "every control held."
+            if ok
+            else "a control did not hold; read the rows above."
+        )
+    )
     out.flush()
     return 0 if ok else 1
 

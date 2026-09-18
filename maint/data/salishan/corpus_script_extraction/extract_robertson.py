@@ -358,7 +358,7 @@ def main():
         )
         handle.write("# marked by where it sits and not by its letters.\n")
         handle.write(
-            "# The morphemic row is Robertson's analysis and holds forms nobody wrote, so\n"
+            "# The morphemic row is Robertson's analysis and holds forms nobody wrote,\n"
         )
         handle.write("# it is in the record and out of the pure stream.\n")
         handle.write("line\tsection\tkind\tswitches\tcontent\n")

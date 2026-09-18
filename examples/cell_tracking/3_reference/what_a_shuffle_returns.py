@@ -49,7 +49,9 @@ sys.path.insert(0, SIBLING)
 ROOT = HERE
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
@@ -75,14 +77,16 @@ def tiles(canvas):
     step = canvas.shape[0] // TILES
     for row in range(TILES):
         for column in range(TILES):
-            yield canvas[row * step:(row + 1) * step, column * step:(column + 1) * step]
+            yield canvas[
+                row * step : (row + 1) * step, column * step : (column + 1) * step
+            ]
 
 
 def scrambled(levels, rng):
     """`levels` with every position permuted, holding every level count exactly.
 
     The histogram is preserved by construction, since this is a permutation of the same array.
-    What is destroyed is where each level sits, which is the property the reading is about.
+    What is destroyed is where each level sits, the property the reading is about.
     """
     flat = levels.reshape(-1).copy()
     rng.shuffle(flat)
@@ -115,7 +119,9 @@ def condition(canvas, axis, truth, rng, out):
     # one field agreeing on a displacement is the thing a shuffle cannot produce.
     null_spreads = []
     for _ in range(DRAWS):
-        null_spreads.append(float(numpy.std(read_arms(first, scrambled(second, rng), axis))))
+        null_spreads.append(
+            float(numpy.std(read_arms(first, scrambled(second, rng), axis)))
+        )
     null_spread = float(numpy.mean(null_spreads))
     floor = float(numpy.std(null_spreads))
 
@@ -124,56 +130,106 @@ def condition(canvas, axis, truth, rng, out):
     tightening = (null_spread / live_spread) if live_spread > 0.0 else float("inf")
     floors = ((null_spread - live_spread) / floor) if floor > 0.0 else float("inf")
 
-    out.write("  %-12s %-8.3f %-10.4f %-10.4f %-10.4f %-8.1f %.1f\n"
-              % ("axis %d" % axis, truth, live_mean, live_spread,
-                 null_spread, tightening, floors))
+    out.write(
+        "  %-12s %-8.3f %-10.4f %-10.4f %-10.4f %-8.1f %.1f\n"
+        % (
+            "axis %d" % axis,
+            truth,
+            live_mean,
+            live_spread,
+            null_spread,
+            tightening,
+            floors,
+        )
+    )
     return tightening, floors, live_mean, live_spread
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     rng = numpy.random.default_rng(SEED)
     canvas, count = field(numpy.random.default_rng(SEED), WIDTH)
 
     out.write("  The sub-pixel reading against a permutation null of the same field.\n")
-    out.write("  %d co-arms from one %dx%d field, %d blobs %.1f px wide, %d null draws.\n\n"
-              % (TILES * TILES, SIDE, SIDE, count, WIDTH, DRAWS))
-    out.write("  %-12s %-8s %-10s %-10s %-10s %-8s %s\n"
-              % ("condition", "true", "live mean", "live sd", "null sd", "tighter", "floors out"))
+    out.write(
+        "  %d co-arms from one %dx%d field, %d blobs %.1f px wide, %d null draws.\n\n"
+        % (TILES * TILES, SIDE, SIDE, count, WIDTH, DRAWS)
+    )
+    out.write(
+        "  %-12s %-8s %-10s %-10s %-10s %-8s %s\n"
+        % (
+            "condition",
+            "true",
+            "live mean",
+            "live sd",
+            "null sd",
+            "tighter",
+            "floors out",
+        )
+    )
 
     # Axis 0 carries the displacement. Axis 1 carries none and is read from the same pair. The
     # two conditions differ in exactly one thing.
-    moved_tight, moved_floors, moved_mean, moved_sd = condition(canvas, 0, TRUTH, rng, out)
+    moved_tight, moved_floors, moved_mean, moved_sd = condition(
+        canvas, 0, TRUTH, rng, out
+    )
     still_tight, still_floors, _, still_sd = condition(canvas, 1, TRUTH, rng, out)
 
-    out.write("\n  Moved axis: %d co-arms agree at %.4f px against a truth of %.3f, an error of\n"
-              % (TILES * TILES, moved_mean, TRUTH))
-    out.write("  %.4f px, and they sit %.1f times tighter than the shuffled arms, %.1f floors out.\n"
-              % (abs(moved_mean - TRUTH), moved_tight, moved_floors))
-    out.write("  Still axis: the same arms scatter at %.4f px, %.1f times tighter, %.1f floors.\n\n"
-              % (still_sd, still_tight, still_floors))
+    out.write(
+        "\n  Moved axis: %d co-arms agree at %.4f px against a truth of %.3f, an error of\n"
+        % (TILES * TILES, moved_mean, TRUTH)
+    )
+    out.write(
+        "  %.4f px, and they sit %.1f times tighter than the shuffled arms, %.1f floors out.\n"
+        % (abs(moved_mean - TRUTH), moved_tight, moved_floors)
+    )
+    out.write(
+        "  Still axis: the same arms scatter at %.4f px, %.1f times tighter, %.1f floors.\n\n"
+        % (still_sd, still_tight, still_floors)
+    )
 
     # Both conditions clear a fixed floor, and a fixed floor is therefore the wrong comparison:
     # even with no displacement the field's own structure constrains an argmax more than a full
     # shuffle does. The still axis concentrates a little and clears three floors on that alone.
     # What separates them is how much, 179x against 3.2x, and the test is the ratio of the two.
     separation = (moved_tight / still_tight) if still_tight > 0.0 else float("inf")
-    out.write("  The moved axis concentrates %.0f times more than the still one.\n\n" % separation)
+    out.write(
+        "  The moved axis concentrates %.0f times more than the still one.\n\n"
+        % separation
+    )
 
     if (moved_floors >= 3.0) and (separation >= 10.0):
-        out.write("  The two conditions separate on the statistic that is a departure and not a\n")
-        out.write("  value. A displacement makes independent regions of one field agree, and a\n")
-        out.write("  shuffle cannot make them agree. The still axis does not concentrate, which\n")
+        out.write(
+            "  The two conditions separate on the statistic that is a departure and not a\n"
+        )
+        out.write(
+            "  value. A displacement makes independent regions of one field agree, and a\n"
+        )
+        out.write(
+            "  shuffle cannot make them agree. The still axis does not concentrate, which\n"
+        )
         out.write("  is the control reading nothing and reporting it.\n")
-        out.write("\n  This also corrects the error figures in CEL-2-001 and CEL-2-002. Those read\n")
-        out.write("  the whole field once, at 0.1041 px at this width. Sixteen co-arms from the\n")
-        out.write("  same field read %.4f px. The co-arms were always available and were not taken.\n"
-                  % abs(moved_mean - TRUTH))
+        out.write(
+            "\n  This also corrects the error figures in CEL-2-001 and CEL-2-002. Those read\n"
+        )
+        out.write(
+            "  the whole field once, at 0.1041 px at this width. Sixteen co-arms from the\n"
+        )
+        out.write(
+            "  same field read %.4f px. The co-arms were always available and were not taken.\n"
+            % abs(moved_mean - TRUTH)
+        )
     elif moved_floors < 3.0:
-        out.write("  The moved axis does not concentrate past its own null. The reading carries\n")
+        out.write(
+            "  The moved axis does not concentrate past its own null. The reading carries\n"
+        )
         out.write("  nothing at this width whatever its mean happens to equal.\n")
     else:
-        out.write("  The two conditions do not separate by an order of magnitude. Nothing here\n")
+        out.write(
+            "  The two conditions do not separate by an order of magnitude. Nothing here\n"
+        )
         out.write("  distinguishes an axis that moved from one that did not.\n")
     out.flush()
     return 0

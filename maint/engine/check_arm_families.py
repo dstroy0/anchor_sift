@@ -14,7 +14,7 @@
 # is missing its portable reference.
 #
 # It fails closed. A directory that does not resolve, or one that yields no arm at all, is a defect
-# and exits non-zero. Every root it read is printed, so
+# and exits non-zero. Every root it read is printed,
 # a run that scanned the wrong tree says so instead of returning a number about a smaller tree than it
 # names.
 
@@ -69,13 +69,23 @@ def main():
     scan_sets = sets_in(SCAN_DIR, "scan")
     arm_sets = sets_in(ARM_DIR, "arm")
 
-    print("  scan family: " + ", ".join(sorted(scan_sets)) if scan_sets else "  scan family: none")
-    print("  arm family:  " + ", ".join(sorted(arm_sets)) if arm_sets else "  arm family:  none")
+    print(
+        "  scan family: " + ", ".join(sorted(scan_sets))
+        if scan_sets
+        else "  scan family: none"
+    )
+    print(
+        "  arm family:  " + ", ".join(sorted(arm_sets))
+        if arm_sets
+        else "  arm family:  none"
+    )
 
     # Fails closed. An empty family is a scan that read the wrong directory or a move that took the
     # arms with it, not a match.
     if not scan_sets:
-        problems.append("scan family is empty; no scan_<set> file under " + str(SCAN_DIR))
+        problems.append(
+            "scan family is empty; no scan_<set> file under " + str(SCAN_DIR)
+        )
     if not arm_sets:
         problems.append("arm family is empty; no arm_<set> file under " + str(ARM_DIR))
 
@@ -87,7 +97,9 @@ def main():
     scan_only = scan_sets - arm_sets
     arm_only = arm_sets - scan_sets
     for one in sorted(scan_only):
-        problems.append("scan_" + one + " has no matching arm_" + one + " in no_rounding/")
+        problems.append(
+            "scan_" + one + " has no matching arm_" + one + " in no_rounding/"
+        )
     for one in sorted(arm_only):
         problems.append("arm_" + one + " has no matching scan_" + one + " in engine/")
 

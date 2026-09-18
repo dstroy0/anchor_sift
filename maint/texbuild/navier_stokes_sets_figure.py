@@ -21,7 +21,7 @@
 # The base is the plane of pairs (datum, force) with the datum along the front edge and the force
 # running back. Over every point stands a stalk, the solution set for that pair. The alternatives (A)
 # and (B) speak only of the front edge, force zero: no stalk there is empty. The alternatives (C) and
-# (D) speak of the whole plane: some stalk somewhere is empty. The front edge lies inside the plane, so
+# (D) speak of the whole plane: some stalk somewhere is empty. The front edge lies inside the plane,
 # an empty stalk on the edge would refute (A) or (B) and establish (C) or (D), and an empty stalk off the
 # edge establishes (C) or (D) and says nothing about the edge. That containment is the whole of what the
 # panel draws. It draws every stalk except one as a question, because that is what they are. The one
@@ -94,8 +94,15 @@ class Canvas:
         self.ops.append("[] 0 d")
 
     def line(self, x_from, y_from, x_to, y_to):
-        self.ops.append("%s %s m %s %s l S" % (coordinate(x_from), coordinate(y_from),
-                                               coordinate(x_to), coordinate(y_to)))
+        self.ops.append(
+            "%s %s m %s %s l S"
+            % (
+                coordinate(x_from),
+                coordinate(y_from),
+                coordinate(x_to),
+                coordinate(y_to),
+            )
+        )
 
     def polygon(self, points, fill=None, stroke=True):
         moves = ["%s %s m" % (coordinate(points[0][0]), coordinate(points[0][1]))]
@@ -104,26 +111,72 @@ class Canvas:
         moves.append("h")
         if fill is not None:
             self.ops.append("%s g" % coordinate(fill))
-        self.ops.append(" ".join(moves) + (" B" if (fill is not None and stroke) else (" f" if fill is not None else " S")))
+        self.ops.append(
+            " ".join(moves)
+            + (
+                " B"
+                if (fill is not None and stroke)
+                else (" f" if fill is not None else " S")
+            )
+        )
         if fill is not None:
             self.ops.append("0 g")
 
     def rect(self, x_at, y_at, wide, high, fill=None, stroke=True):
         if fill is not None:
             self.ops.append("%s g" % coordinate(fill))
-        self.ops.append("%s %s %s %s re %s" % (coordinate(x_at), coordinate(y_at), coordinate(wide),
-                                               coordinate(high),
-                                               "B" if (fill is not None and stroke) else ("f" if fill is not None else "S")))
+        self.ops.append(
+            "%s %s %s %s re %s"
+            % (
+                coordinate(x_at),
+                coordinate(y_at),
+                coordinate(wide),
+                coordinate(high),
+                (
+                    "B"
+                    if (fill is not None and stroke)
+                    else ("f" if fill is not None else "S")
+                ),
+            )
+        )
         if fill is not None:
             self.ops.append("0 g")
 
     def circle(self, center_x, center_y, radius, fill=None):
         reach = KAPPA * radius
         arcs = [
-            (center_x + radius, center_y + reach, center_x + reach, center_y + radius, center_x, center_y + radius),
-            (center_x - reach, center_y + radius, center_x - radius, center_y + reach, center_x - radius, center_y),
-            (center_x - radius, center_y - reach, center_x - reach, center_y - radius, center_x, center_y - radius),
-            (center_x + reach, center_y - radius, center_x + radius, center_y - reach, center_x + radius, center_y),
+            (
+                center_x + radius,
+                center_y + reach,
+                center_x + reach,
+                center_y + radius,
+                center_x,
+                center_y + radius,
+            ),
+            (
+                center_x - reach,
+                center_y + radius,
+                center_x - radius,
+                center_y + reach,
+                center_x - radius,
+                center_y,
+            ),
+            (
+                center_x - radius,
+                center_y - reach,
+                center_x - reach,
+                center_y - radius,
+                center_x,
+                center_y - radius,
+            ),
+            (
+                center_x + reach,
+                center_y - radius,
+                center_x + radius,
+                center_y - reach,
+                center_x + radius,
+                center_y,
+            ),
         ]
         moves = ["%s %s m" % (coordinate(center_x + radius), coordinate(center_y))]
         for arc in arcs:
@@ -135,9 +188,15 @@ class Canvas:
             self.ops.append("0 g")
 
     def text(self, x_at, y_at, string, size=7, font="F1", rotate=False):
-        matrix = "0 1 -1 0 %s %s Tm" % (coordinate(x_at), coordinate(y_at)) if rotate else \
-                 "1 0 0 1 %s %s Tm" % (coordinate(x_at), coordinate(y_at))
-        self.ops.append("BT /%s %s Tf %s %s Tj ET" % (font, coordinate(size), matrix, pdf_string(string)))
+        matrix = (
+            "0 1 -1 0 %s %s Tm" % (coordinate(x_at), coordinate(y_at))
+            if rotate
+            else "1 0 0 1 %s %s Tm" % (coordinate(x_at), coordinate(y_at))
+        )
+        self.ops.append(
+            "BT /%s %s Tf %s %s Tj ET"
+            % (font, coordinate(size), matrix, pdf_string(string))
+        )
 
     def stream(self):
         return "\n".join(self.ops) + "\n"
@@ -149,7 +208,8 @@ def build_pdf(canvas, title, producer):
         "<< /Type /Catalog /Pages 2 0 R >>",
         "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
         "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 %d %d] /Contents 4 0 R "
-        "/Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>" % (PAGE_WIDTH, PAGE_HEIGHT),
+        "/Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>"
+        % (PAGE_WIDTH, PAGE_HEIGHT),
         None,  # the content stream, filled below
         "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
         "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>",
@@ -171,8 +231,10 @@ def build_pdf(canvas, title, producer):
     out.write(b"0000000000 65535 f \n")
     for offset in offsets:
         out.write(b"%010d 00000 n \n" % offset)
-    out.write(b"trailer\n<< /Size %d /Root 1 0 R /Info 7 0 R >>\nstartxref\n%d\n%%%%EOF\n"
-              % (len(objects) + 1, xref_at))
+    out.write(
+        b"trailer\n<< /Size %d /Root 1 0 R /Info 7 0 R >>\nstartxref\n%d\n%%%%EOF\n"
+        % (len(objects) + 1, xref_at)
+    )
     return out.getvalue()
 
 
@@ -180,22 +242,36 @@ def measure_horizon(order):
     """The horizon numbers from the example itself: modes held, outside two boxes, and the reach."""
     datum = torus.generic_field()
     velocities, _ = torus.taylor_velocity(datum, torus.VISCOSITY, order)
-    return [(len(torus.modes_of(velocities[step])),
-             torus.modes_outside(velocities[step], 1),
-             torus.modes_outside(velocities[step], 2),
-             torus.mode_reach(velocities[step]))
-            for step in range(order + 1)]
+    return [
+        (
+            len(torus.modes_of(velocities[step])),
+            torus.modes_outside(velocities[step], 1),
+            torus.modes_outside(velocities[step], 2),
+            torus.mode_reach(velocities[step]),
+        )
+        for step in range(order + 1)
+    ]
 
 
 def draw_sets(canvas):
     """The left panel: the plane the breakdown alternatives speak of, and the edge the others do."""
     left, right = 12, 205
-    canvas.text(left, PAGE_HEIGHT - 14, "their sets: the plane (C), (D) speak of holds the edge (A), (B) speak of", 7)
+    canvas.text(
+        left,
+        PAGE_HEIGHT - 14,
+        "their sets: the plane (C), (D) speak of holds the edge (A), (B) speak of",
+        7,
+    )
 
     # the base plane, drawn oblique so a stalk can rise from it
     front_y, back_y, skew = 70, 150, 22
     front_left, front_right = 30, 185
-    plane = [(front_left, front_y), (front_right, front_y), (front_right + skew, back_y), (front_left + skew, back_y)]
+    plane = [
+        (front_left, front_y),
+        (front_right, front_y),
+        (front_right + skew, back_y),
+        (front_left + skew, back_y),
+    ]
     canvas.width(0.6)
     canvas.polygon(plane, fill=0.96)
     canvas.width(1.4)
@@ -205,7 +281,12 @@ def draw_sets(canvas):
     # the countable island: dots along the front edge, not to scale
     for at in range(front_left + 6, front_right - 4, 9):
         canvas.circle(at, front_y, 0.9, fill=0)
-    canvas.text(front_left + 2, front_y - 9, "front edge: force f = 0, datum in D_8; dots: R_div, the countable island (not to scale)", 5)
+    canvas.text(
+        front_left + 2,
+        front_y - 9,
+        "front edge: force f = 0, datum in D_8; dots: R_div, the countable island (not to scale)",
+        5,
+    )
     canvas.text(front_right + skew + 3, back_y - 4, "F_89", 6, "F2")
     canvas.text(front_right + skew + 3, back_y - 40, "force", 6, "F2")
     canvas.text(front_right + skew + 3, back_y - 48, "runs back", 6, "F2")
@@ -215,7 +296,9 @@ def draw_sets(canvas):
     canvas.width(1.2)
     canvas.line(abc_x, front_y, abc_x, front_y + 48)
     canvas.circle(abc_x, front_y + 48, 1.6, fill=0)
-    canvas.text(abc_x - 24, front_y + 54, "ABC datum: S_1011(u0, 0) not empty, one instance", 5)
+    canvas.text(
+        abc_x - 24, front_y + 54, "ABC datum: S_1011(u0, 0) not empty, one instance", 5
+    )
     canvas.width(0.6)
     canvas.dash(1.5, 1.5)
     for stalk_x in (110, 150):
@@ -228,11 +311,36 @@ def draw_sets(canvas):
     canvas.text(interior_x - 2, interior_y + 33, "?", 7)
     canvas.solid()
     canvas.circle(interior_x, interior_y, 1.4)
-    canvas.text(interior_x - 62, interior_y + 42, "(C), (D): some stalk anywhere in the plane empty?", 5)
-    canvas.text(left, 38, "a stalk over (u0, f) is the solution set S(u0, f). The edge lies in the plane:", 5.5)
-    canvas.text(left, 30, "an empty stalk on the edge refutes (A) or (B) and gives (C) or (D);", 5.5)
-    canvas.text(left, 22, "an empty stalk off the edge gives (C) or (D) and says nothing about the edge.", 5.5)
-    canvas.text(left, 14, "(C) is not the negation of (A). Nothing here says which stalks are empty.", 5.5)
+    canvas.text(
+        interior_x - 62,
+        interior_y + 42,
+        "(C), (D): some stalk anywhere in the plane empty?",
+        5,
+    )
+    canvas.text(
+        left,
+        38,
+        "a stalk over (u0, f) is the solution set S(u0, f). The edge lies in the plane:",
+        5.5,
+    )
+    canvas.text(
+        left,
+        30,
+        "an empty stalk on the edge refutes (A) or (B) and gives (C) or (D);",
+        5.5,
+    )
+    canvas.text(
+        left,
+        22,
+        "an empty stalk off the edge gives (C) or (D) and says nothing about the edge.",
+        5.5,
+    )
+    canvas.text(
+        left,
+        14,
+        "(C) is not the negation of (A). Nothing here says which stalks are empty.",
+        5.5,
+    )
     canvas.width(0.4)
     canvas.line(right + 8, 12, right + 8, PAGE_HEIGHT - 10)
 
@@ -240,7 +348,12 @@ def draw_sets(canvas):
 def draw_horizon(canvas, rows):
     """The right panel: the mode count per Taylor order, from the run, with the two boxes inside it."""
     left = 228
-    canvas.text(left, PAGE_HEIGHT - 14, "the horizon: modes held by u_m for a generic datum, from the run", 7)
+    canvas.text(
+        left,
+        PAGE_HEIGHT - 14,
+        "the horizon: modes held by u_m for a generic datum, from the run",
+        7,
+    )
     base_y = 60
     tallest = max(row[0] for row in rows) or 1
     scale = 140 / tallest
@@ -258,14 +371,32 @@ def draw_horizon(canvas, rows):
         canvas.text(x_at + 2, base_y + held * scale + 3, str(held), 6)
         canvas.text(x_at + 6, base_y - 9, "u_%d" % step, 6)
         canvas.text(x_at + 4, base_y - 18, "%d" % reach, 6, "F2")
-    canvas.text(left, base_y - 30, "largest |k|_1 per order (climbs by one):", 5.5, "F2")
+    canvas.text(
+        left, base_y - 30, "largest |k|_1 per order (climbs by one):", 5.5, "F2"
+    )
     legend_y = PAGE_HEIGHT - 30
-    for offset, (level, label) in enumerate(((0.85, "modes held"), (0.6, "outside |k|_inf <= 1"), (0.3, "outside |k|_inf <= 2"))):
+    for offset, (level, label) in enumerate(
+        (
+            (0.85, "modes held"),
+            (0.6, "outside |k|_inf <= 1"),
+            (0.3, "outside |k|_inf <= 2"),
+        )
+    ):
         canvas.rect(left, legend_y - offset * 10, 8, 6, fill=level)
         canvas.text(left + 11, legend_y - offset * 10 + 1, label, 5.5)
-    canvas.text(left, 22, "any fixed box misses some order; the count it misses is measured,", 5.5)
-    canvas.text(left, 14, "not bounded. Coefficients exact, orders 0..%d, viscosity %s at %d place(s)." % (
-        len(rows) - 1, torus.VISCOSITY[0], torus.VISCOSITY[1]), 5.5)
+    canvas.text(
+        left,
+        22,
+        "any fixed box misses some order; the count it misses is measured,",
+        5.5,
+    )
+    canvas.text(
+        left,
+        14,
+        "not bounded. Coefficients exact, orders 0..%d, viscosity %s at %d place(s)."
+        % (len(rows) - 1, torus.VISCOSITY[0], torus.VISCOSITY[1]),
+        5.5,
+    )
 
 
 def flag(argv, name, fallback):
@@ -278,7 +409,9 @@ def flag(argv, name, fallback):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     target = flag(sys.argv[1:], "--out", DEFAULT_OUT)
     order = 4
     rows = measure_horizon(order)
@@ -286,20 +419,41 @@ def main():
     canvas = Canvas()
     draw_sets(canvas)
     draw_horizon(canvas, rows)
-    canvas.text(12, 4, "generated by %s from %s; it claims nothing about (A), (B), (C) or (D)" % (GENERATOR, SOURCE), 4.5, "F2")
-    document = build_pdf(canvas, "Their sets, and the measured horizon",
-                         "anchor_sift %s, drawing %s" % (GENERATOR, SOURCE))
+    canvas.text(
+        12,
+        4,
+        "generated by %s from %s; it claims nothing about (A), (B), (C) or (D)"
+        % (GENERATOR, SOURCE),
+        4.5,
+        "F2",
+    )
+    document = build_pdf(
+        canvas,
+        "Their sets, and the measured horizon",
+        "anchor_sift %s, drawing %s" % (GENERATOR, SOURCE),
+    )
 
     os.makedirs(os.path.dirname(target), exist_ok=True)
     with io.open(target, "wb") as handle:
         handle.write(document)
 
     out.write("  horizon from the run, orders 0..%d:\n" % order)
-    out.write("    order:                %s\n" % "  ".join("%4d" % step for step in range(order + 1)))
-    out.write("    modes held:           %s\n" % "  ".join("%4d" % row[0] for row in rows))
-    out.write("    outside |k|_inf <= 1: %s\n" % "  ".join("%4d" % row[1] for row in rows))
-    out.write("    outside |k|_inf <= 2: %s\n" % "  ".join("%4d" % row[2] for row in rows))
-    out.write("    largest |k|_1:        %s\n" % "  ".join("%4d" % row[3] for row in rows))
+    out.write(
+        "    order:                %s\n"
+        % "  ".join("%4d" % step for step in range(order + 1))
+    )
+    out.write(
+        "    modes held:           %s\n" % "  ".join("%4d" % row[0] for row in rows)
+    )
+    out.write(
+        "    outside |k|_inf <= 1: %s\n" % "  ".join("%4d" % row[1] for row in rows)
+    )
+    out.write(
+        "    outside |k|_inf <= 2: %s\n" % "  ".join("%4d" % row[2] for row in rows)
+    )
+    out.write(
+        "    largest |k|_1:        %s\n" % "  ".join("%4d" % row[3] for row in rows)
+    )
     out.write("  %s  %d bytes\n" % (target, len(document)))
     out.flush()
     return 0

@@ -121,8 +121,9 @@ def working_tree():
         return os.path.abspath(top)
 
     climbed = HERE
-    while (climbed != os.path.dirname(climbed)) \
-            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+    while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
+        os.path.join(climbed, "src", "engine")
+    ):
         climbed = os.path.dirname(climbed)
     return climbed
 
@@ -134,8 +135,18 @@ NAME = "SOURCES.tsv"
 # The one way past the gate. A flag reaches the tool when a person runs it, and the variable is how
 # the same flag reaches it from inside a commit hook, where nobody is typing arguments.
 BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
-FIELDS = ("key", "bucket", "author", "year", "title", "identifier", "file", "differs",
-          "uses", "first_use")
+FIELDS = (
+    "key",
+    "bucket",
+    "author",
+    "year",
+    "title",
+    "identifier",
+    "file",
+    "differs",
+    "uses",
+    "first_use",
+)
 
 # differs says what this work does that the source does not. Building on a result and departing
 # from it are two different relationships to it, and a registry recording only the first leaves a
@@ -168,8 +179,23 @@ SKIP = ("__pycache__", ".git", "build", "deps", "site")
 # SHA-256s -- a provenance record the citation gate could not see is the exact case this tool
 # exists for. .html hid two citations inside a built view, .rsp is the CAVP response format, and
 # .cff is the repository's own citation file, which it would be absurd for a citation gate to skip.
-TEXT = (".md", ".tex", ".py", ".c", ".h", ".R", ".m", ".sh", ".bib",
-        ".html", ".js", ".json", ".tsv", ".rsp", ".cff")
+TEXT = (
+    ".md",
+    ".tex",
+    ".py",
+    ".c",
+    ".h",
+    ".R",
+    ".m",
+    ".sh",
+    ".bib",
+    ".html",
+    ".js",
+    ".json",
+    ".tsv",
+    ".rsp",
+    ".cff",
+)
 
 # One entry of the [layout] table: a bare string, or a list of them.
 LAYOUT_ENTRY = re.compile(r"^\s*([a-z_]+)\s*=\s*(.+?)\s*$")
@@ -178,7 +204,7 @@ LAYOUT_ENTRY = re.compile(r"^\s*([a-z_]+)\s*=\s*(.+?)\s*$")
 #
 # This is the repair for the defect that brought me here. The list used to name "tools", and this
 # repository has no tools/ directory -- README.md:59 says so deliberately, because the code lives
-# under maint/. os.walk over a directory that does not exist yields nothing and raises nothing, so
+# under maint/. os.walk over a directory that does not exist yields nothing and raises nothing,
 # the entry scanned zero files and reported zero findings, while maint/, evidence/ and test/ were
 # never named at all and so were never scanned either. A gate that reads nothing exits 0.
 #
@@ -191,7 +217,13 @@ WRITTEN_KINDS = ("docs", "source", "examples", "tests", "tools")
 
 # Places with no layout kind of their own. evidence/ holds the proofs that pin the numbers, and the
 # three files are the loose ones at the root.
-EXTRA_SEARCHED = ("evidence", "README.md", "SECURITY.md", "CONTRIBUTING.md", "CITATION.cff")
+EXTRA_SEARCHED = (
+    "evidence",
+    "README.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CITATION.cff",
+)
 
 
 def layout_table():
@@ -225,20 +257,24 @@ def searched_names():
 
     Refuses  or a
     named directory that is not on disk. Each of those otherwise reads as a smaller scan that
-    reports fewer findings and exits 0, which is the failure this whole function is about.
+    reports fewer findings and exits 0, the failure this whole function is about.
     """
     table = layout_table()
     if not table:
-        raise SystemExit("citations: no [layout] table in %s. The directories to scan are named "
-                         "there, and guessing them is how this gate came to scan a tools/ "
-                         "directory that does not exist." % os.path.join(ROOT, "repotools.toml"))
+        raise SystemExit(
+            "citations: no [layout] table in %s. The directories to scan are named "
+            "there, and guessing them is how this gate came to scan a tools/ "
+            "directory that does not exist." % os.path.join(ROOT, "repotools.toml")
+        )
 
     names = []
     for kind in WRITTEN_KINDS:
         if kind not in table:
-            raise SystemExit("citations: repotools.toml [layout] has no %s key. A kind that is "
-                             "not listed is not scanned, and an unscanned tree reports no missing "
-                             "citations." % kind)
+            raise SystemExit(
+                "citations: repotools.toml [layout] has no %s key. A kind that is "
+                "not listed is not scanned, and an unscanned tree reports no missing "
+                "citations." % kind
+            )
         for one in table[kind]:
             if one not in names:
                 names.append(one)
@@ -249,9 +285,11 @@ def searched_names():
 
     absent = [one for one in names if not os.path.exists(os.path.join(ROOT, one))]
     if absent:
-        raise SystemExit("citations: %s named for scanning and not on disk. os.walk over a "
-                         "directory that is not there yields nothing and raises nothing. This "
-                         "stops instead." % ", ".join(absent))
+        raise SystemExit(
+            "citations: %s named for scanning and not on disk. os.walk over a "
+            "directory that is not there yields nothing and raises nothing. This "
+            "stops instead." % ", ".join(absent)
+        )
 
     return tuple(names)
 
@@ -261,9 +299,26 @@ SEARCHED = searched_names()
 # The names to enter on a first --seed. After that the registry is the vocabulary and this list is
 # only the starting point, kept so an empty registry can be rebuilt from nothing.
 STARTING = (
-    "Bloom", "Boyer", "Crystallography Open Database", "Fisher", "Heaps", "Horspool", "Jaynes",
-    "Kac", "Kolmogorov", "Montemurro", "Moore", "NIST SP 800-90B", "RFC 6234", "Renyi", "Rényi",
-    "Shannon", "Sinai", "Wycheproof", "Zanette", "Zipf",
+    "Bloom",
+    "Boyer",
+    "Crystallography Open Database",
+    "Fisher",
+    "Heaps",
+    "Horspool",
+    "Jaynes",
+    "Kac",
+    "Kolmogorov",
+    "Montemurro",
+    "Moore",
+    "NIST SP 800-90B",
+    "RFC 6234",
+    "Renyi",
+    "Rényi",
+    "Shannon",
+    "Sinai",
+    "Wycheproof",
+    "Zanette",
+    "Zipf",
 )
 
 # The same source written two ways is one source. The registry key is on the right.
@@ -272,15 +327,41 @@ SAME = {"Rényi": "Renyi"}
 # A capitalized name against a year, the form somebody writes a citation in.
 # It finds sources this file has never heard of, and it also finds every date in the tree. What
 # it reports is a list to read and not a list to enter.
-SHAPED = re.compile(r"\b([A-Z][A-Za-zéáíóúüñ]{3,}"
-                    r"(?:(?: and | & |, )[A-Z][A-Za-zéáíóúüñ]{3,})*),? \(?((?:19|20)[0-9]{2})\)?")
+SHAPED = re.compile(
+    r"\b([A-Z][A-Za-zéáíóúüñ]{3,}"
+    r"(?:(?: and | & |, )[A-Z][A-Za-zéáíóúüñ]{3,})*),? \(?((?:19|20)[0-9]{2})\)?"
+)
 
 # Words that open the citation shape and are not names. Months and the like.
-NOT_A_NAME = frozenset((
-    "January", "February", "March", "April", "June", "July", "August", "September", "October",
-    "November", "December", "Recorded", "English", "Languages", "Copyright", "Version", "Retrieved",
-    "Accessed", "Updated", "Published", "Since", "Before", "After", "Between", "During",
-))
+NOT_A_NAME = frozenset(
+    (
+        "January",
+        "February",
+        "March",
+        "April",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+        "Recorded",
+        "English",
+        "Languages",
+        "Copyright",
+        "Version",
+        "Retrieved",
+        "Accessed",
+        "Updated",
+        "Published",
+        "Since",
+        "Before",
+        "After",
+        "Between",
+        "During",
+    )
+)
 
 
 def main_checkout():
@@ -315,7 +396,9 @@ def private_candidates():
         # The authoring copy, at repos/owned/private/ beside repos/owned/public/. This is where the
         # registry actually lives after the move into owned/{public,private}, and its absence from
         # this list is why --check exited 2 on every commit and every commit needed the bypass.
-        os.path.join(os.path.dirname(os.path.dirname(base)), "private", "anchor_sift_citations"),
+        os.path.join(
+            os.path.dirname(os.path.dirname(base)), "private", "anchor_sift_citations"
+        ),
         # The clone under deps/, the route onto a machine that only consumes it.
         os.path.join(base, "deps", "anchor_sift_citations"),
         # The layout before the move. Kept so a checkout that has not been reorganized still works.
@@ -419,19 +502,33 @@ def read_registry(root):
 def write_registry(root, rows, out):
     """The registry, sorted by key. Only uses and first_use ever change under a written row."""
     target = os.path.join(root, NAME)
-    unattributed = [one for one in rows.values() if not (one["author"] or one["identifier"])]
+    unattributed = [
+        one for one in rows.values() if not (one["author"] or one["identifier"])
+    ]
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
         handle.write("# The sources the anchor sift measurements are built on.\n")
-        handle.write("# Entered by maint/citations/citations.py --seed in anchor_sift, which writes\n")
-        handle.write("# the key and the use counts and never writes a bibliographic field.\n")
+        handle.write(
+            "# Entered by maint/citations/citations.py --seed in anchor_sift, which writes\n"
+        )
+        handle.write(
+            "# the key and the use counts and never writes a bibliographic field.\n"
+        )
         handle.write("#\n")
-        handle.write("# author, year, title and identifier are filled in by hand from the source\n")
-        handle.write("# itself. A surname in a comment is not a citation and this tool cannot turn\n")
-        handle.write("# one into a reference. file names the copy held under sources/, where there\n")
+        handle.write(
+            "# author, year, title and identifier are filled in by hand from the source\n"
+        )
+        handle.write(
+            "# itself. A surname in a comment is not a citation and this tool cannot turn\n"
+        )
+        handle.write(
+            "# one into a reference. file names the copy held under sources/, where there\n"
+        )
         handle.write("# is one.\n")
         handle.write("#\n")
-        handle.write("# %d sources, %d with no author and no identifier yet.\n"
-                     % (len(rows), len(unattributed)))
+        handle.write(
+            "# %d sources, %d with no author and no identifier yet.\n"
+            % (len(rows), len(unattributed))
+        )
         handle.write("\t".join(FIELDS))
         handle.write("\n")
         for key in sorted(rows):
@@ -459,8 +556,9 @@ def used(keys):
                         continue
                     if any(key in name for key in keys):
                         continue
-                    shaped.setdefault("%s %s" % (name, found.group(2)),
-                                      []).append("%s:%d" % (shown, at))
+                    shaped.setdefault("%s %s" % (name, found.group(2)), []).append(
+                        "%s:%d" % (shown, at)
+                    )
     return where, shaped
 
 
@@ -487,11 +585,13 @@ def main():
     root = private_root()
     out.write("\n  %s\n" % root.replace("\\", "/"))
     if not os.path.isdir(root):
-        out.write("  not there. Clone the closed citations repository, or set"
-                  " ANCHOR_SIFT_CITATIONS.\n")
+        out.write(
+            "  not there. Clone the closed citations repository, or set"
+            " ANCHOR_SIFT_CITATIONS.\n"
+        )
         # Naming every place it looked, and not only the one it would have used. A gate that
         # reports a single path it did not find reads as "the repository is missing" when what
-        # happened is that the repository moved and this list did not, which is the state this
+        # happened is that the repository moved and this list did not, the state this
         # tool was in for the whole of the migration.
         out.write("  looked for it at:\n")
         for candidate in private_candidates():
@@ -529,37 +629,56 @@ def main():
         # carries a line number and a hand entered one does not. That separates them.
         row["first_use"] = hits[0] if hits else (row.get("first_use") or "")
 
-    unattributed = sorted(one for one, row in registry.items()
-                          if not (row["author"] or row["identifier"]))
+    unattributed = sorted(
+        one for one, row in registry.items() if not (row["author"] or row["identifier"])
+    )
     # A row with no uses here and a first_use pointing at another repository is cited from the
     # closed corpus, which this scan cannot read. Calling it retired would be wrong twice over: it
     # is in use, and the label would invite somebody to drop it.
-    elsewhere = sorted(one for one, row in registry.items()
-                       if row["uses"] == "0" and row["first_use"]
-                       and ":" not in row["first_use"])
-    unused = sorted(one for one, row in registry.items()
-                    if row["uses"] == "0" and one not in set(elsewhere))
+    elsewhere = sorted(
+        one
+        for one, row in registry.items()
+        if row["uses"] == "0" and row["first_use"] and ":" not in row["first_use"]
+    )
+    unused = sorted(
+        one
+        for one, row in registry.items()
+        if row["uses"] == "0" and one not in set(elsewhere)
+    )
     on_disk = held_files(root)
     claimed = {row["file"] for row in registry.values() if row["file"]}
-    unheld = sorted(one for one, row in registry.items()
-                    if row["file"] and row["file"] not in set(on_disk))
+    unheld = sorted(
+        one
+        for one, row in registry.items()
+        if row["file"] and row["file"] not in set(on_disk)
+    )
     orphan = sorted(one for one in on_disk if one not in claimed)
 
-    out.write("    %d source(s) registered, %d used in the tree\n"
-              % (len(registry), sum(1 for row in registry.values() if row["uses"] != "0")))
+    out.write(
+        "    %d source(s) registered, %d used in the tree\n"
+        % (len(registry), sum(1 for row in registry.values() if row["uses"] != "0"))
+    )
 
     by_field = {}
     for key, row in registry.items():
-        by_field.setdefault((row["bucket"] or "/").split("/")[0] or "unbucketed", []).append(key)
+        by_field.setdefault(
+            (row["bucket"] or "/").split("/")[0] or "unbucketed", []
+        ).append(key)
     for field in sorted(by_field):
         out.write("\n  %s\n" % field)
-        for key in sorted(by_field[field],
-                          key=lambda one: (registry[one]["bucket"], one)):
-            out.write("    %-32s %-38s %s uses\n"
-                      % (key, registry[key]["bucket"] or "no bucket", registry[key]["uses"]))
+        for key in sorted(
+            by_field[field], key=lambda one: (registry[one]["bucket"], one)
+        ):
+            out.write(
+                "    %-32s %-38s %s uses\n"
+                % (key, registry[key]["bucket"] or "no bucket", registry[key]["uses"])
+            )
 
-    malformed = sorted(one for one, row in registry.items()
-                       if row["bucket"] and not BUCKET.match(row["bucket"]))
+    malformed = sorted(
+        one
+        for one, row in registry.items()
+        if row["bucket"] and not BUCKET.match(row["bucket"])
+    )
     if malformed:
         out.write("\n  BUCKET IS NOT field/category (%d)\n" % len(malformed))
         for key in malformed:
@@ -571,8 +690,10 @@ def main():
             hits = sorted(set(where[key]))
             out.write("    %-32s %3d uses, first at %s\n" % (key, len(hits), hits[0]))
     if unattributed:
-        out.write("\n  NO AUTHOR AND NO IDENTIFIER. Not yet a reference (%d)\n"
-                  % len(unattributed))
+        out.write(
+            "\n  NO AUTHOR AND NO IDENTIFIER. Not yet a reference (%d)\n"
+            % len(unattributed)
+        )
         for key in unattributed:
             out.write("    %-32s %s uses\n" % (key, registry[key]["uses"]))
     if unheld:
@@ -584,7 +705,10 @@ def main():
         for one in orphan:
             out.write("    %s\n" % one)
     if elsewhere:
-        out.write("\n  CITED FROM ANOTHER REPOSITORY, not by this tree (%d)\n" % len(elsewhere))
+        out.write(
+            "\n  CITED FROM ANOTHER REPOSITORY, not by this tree (%d)\n"
+            % len(elsewhere)
+        )
         for key in elsewhere:
             out.write("    %-32s %s\n" % (key, registry[key]["first_use"]))
     if unused:
@@ -597,22 +721,29 @@ def main():
             out.write("    %-40s %s\n" % (one, sorted(set(shaped[one]))[0]))
         if len(shaped) > 24:
             out.write("    and %d more\n" % (len(shaped) - 24))
-        out.write("    These are a list to read. Most are dates and some are sources.\n")
+        out.write(
+            "    These are a list to read. Most are dates and some are sources.\n"
+        )
 
     if seeding:
         out.write("\n")
         write_registry(root, registry, out)
         out.write("\n  the bibliographic fields are empty and are yours to fill.\n")
         out.write("  reconcile and sign after:\n")
-        out.write("      python maint/corpus/corpus_manifest.py --write --root %s\n"
-                  % root.replace("\\", "/"))
+        out.write(
+            "      python maint/corpus/corpus_manifest.py --write --root %s\n"
+            % root.replace("\\", "/")
+        )
         out.write("      gpg --armor --detach-sign --yes MANIFEST.tsv\n\n")
         out.flush()
         return 0
 
     if checking and unregistered:
         if bypassing:
-            out.write("\n  %d name(s) used here and in no row. Bypassed.\n\n" % len(unregistered))
+            out.write(
+                "\n  %d name(s) used here and in no row. Bypassed.\n\n"
+                % len(unregistered)
+            )
             out.flush()
             return 0
         out.write("\n  a name is used here and is in no row. Run --seed.\n")
@@ -621,7 +752,9 @@ def main():
         out.flush()
         return 1
 
-    out.write("\n  --seed enters what is used and is unregistered, with every field empty\n\n")
+    out.write(
+        "\n  --seed enters what is used and is unregistered, with every field empty\n\n"
+    )
     out.flush()
     return 0
 

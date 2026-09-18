@@ -278,7 +278,7 @@ KINKADE_COLUMBIAN = SHARED + "̣" + "́̀̌" + "æɪ"
 #
 # The paper's own footnote 1 names the orthography: a form of the North American Phonetic Alphabet
 # employed by Thompson and Thompson 1992 and 1996. That is a paper stating what its characters are,
-# which is the strongest provenance available for a marks set here.
+# the strongest provenance available for a marks set here.
 GIVENS_HALL_NLEKEPMXCIN = SHARED + "́" + "̣"
 
 # This paper's extraction flattens its own labialization in 24 places and gets it right in 94. The

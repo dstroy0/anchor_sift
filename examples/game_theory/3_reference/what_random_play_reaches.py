@@ -12,7 +12,7 @@
 # wins under random play too. The null here is both sides moving uniformly over their legal moves,
 # which reads nothing about the position at all.
 #
-# This stage also carries the two-arm check, which is the reason the null is computed twice. The
+# This stage also carries the two-arm check, the reason the null is computed twice. The
 # enumerated arm sums over every continuation exactly, in Fractions. The sampled arm plays games out
 # with a seeded generator and counts. They answer the same question by different routes, and where
 # both can run they have to agree. Where they disagree, the disagreement is the finding and it is
@@ -47,7 +47,9 @@ def compare(title, game, state, plies, trials, seed=SEED):
     budget = rules.Budget(plies=plies, nodes=4000000)
     exact = rules.outcome_distribution(game, state, budget, rules.NULL)
     print("  enumerated  : %s" % budget.describe())
-    print("  " + outcome_entropy.format_reading(outcome_entropy.reading(exact), "exact"))
+    print(
+        "  " + outcome_entropy.format_reading(outcome_entropy.reading(exact), "exact")
+    )
 
     print("")
     print("  sampled, seed %d, both arms under the same null:" % seed)
@@ -56,18 +58,25 @@ def compare(title, game, state, plies, trials, seed=SEED):
             game, state, rules.Budget(plies=plies), rules.NULL, trials=count, seed=seed
         )
         gap = max(
-            abs(float(sampled[outcome]) - float(exact[outcome])) for outcome in rules.RESOLVED
+            abs(float(sampled[outcome]) - float(exact[outcome]))
+            for outcome in rules.RESOLVED
         )
         print(
             "    %-8d %s  worst gap %.5f"
-            % (count, outcome_entropy.format_reading(outcome_entropy.reading(sampled), ""), gap)
+            % (
+                count,
+                outcome_entropy.format_reading(outcome_entropy.reading(sampled), ""),
+                gap,
+            )
         )
 
 
 def main():
     trials = int(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_TRIALS
 
-    print("The null is both sides uniform over their legal moves. It reads nothing about the")
+    print(
+        "The null is both sides uniform over their legal moves. It reads nothing about the"
+    )
     print("position. It is the floor every later number is measured against.")
 
     game = blackjack.Blackjack(decks=1)
@@ -96,7 +105,9 @@ def main():
     compare(
         "POKER -- a pair of sevens on a twelve card deck",
         game,
-        game.deal((card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))),
+        game.deal(
+            (card(5, 0), card(5, 1), card(0, 0)), (card(4, 0), card(3, 1), card(2, 0))
+        ),
         10,
         trials,
     )

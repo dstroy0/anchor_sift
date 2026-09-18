@@ -56,7 +56,7 @@ UNITS = 24
 
 # One whole cell edge, in the units this module works in. A coordinate is reduced modulo this, since
 # a symmetry copy one cell over is the same place in the arrangement.
-SYM_SCALE = UNITS * (10 ** exact.SCALE_DIGITS)
+SYM_SCALE = UNITS * (10**exact.SCALE_DIGITS)
 
 # The tag a CIF gives its operations under. Both spellings occur: the first is the current one and
 # the second is what older deposits wrote, and the corpus holds plenty of both.
@@ -102,16 +102,17 @@ def component(text):
             if (UNITS % denominator) != 0:
                 raise WillNotDivide(
                     "%r has denominator %d, which does not divide %d"
-                    % (text, denominator, UNITS))
+                    % (text, denominator, UNITS)
+                )
             translation += way * int(top) * (UNITS // denominator)
         elif decimal:
             # A deposit occasionally writes 0.5 where it means 1/2. Carried through the same exact
             # path: the decimal is read exactly and then required to land on a whole unit.
             numerator, places = exact.units(decimal)
             scaled = numerator * UNITS
-            if (scaled % (10 ** places)) != 0:
+            if (scaled % (10**places)) != 0:
                 raise WillNotDivide("%r is not a whole %dth" % (text, UNITS))
-            translation += way * (scaled // (10 ** places))
+            translation += way * (scaled // (10**places))
         elif whole:
             translation += way * int(whole) * UNITS
 
@@ -124,7 +125,7 @@ def operations(text):
     """Every symmetry operation the deposit publishes, as three components each.
 
     Returns a list of operations, each a tuple of three (cx, cy, cz, translation) rows, one per
-    output axis. An entry publishing no operations gets the identity alone, which is the honest
+    output axis. An entry publishing no operations gets the identity alone, the honest
     reading: the deposit said nothing. The only copy known is the one written down.
 
     Duplicate operations are dropped. A deposit repeating 'x,y,z' does not have two identities.
@@ -133,8 +134,9 @@ def operations(text):
     for tag in TAGS:
         # The operations sit in a loop, one per line, usually quoted. Both the quoted and bare
         # spellings occur and the corpus holds both.
-        block = re.search(r"%s\s*\n(.*?)(?=\n\s*(?:loop_|_|$))" % re.escape(tag), text,
-                          re.DOTALL)
+        block = re.search(
+            r"%s\s*\n(.*?)(?=\n\s*(?:loop_|_|$))" % re.escape(tag), text, re.DOTALL
+        )
         if not block:
             continue
         for line in block.group(1).splitlines():
@@ -192,7 +194,7 @@ def expand(points, ops):
                 # integers in this scale, and the translation is already in these units multiplied
                 # up by the decimal scale.
                 total = (cx * along[0]) + (cy * along[1]) + (cz * along[2])
-                total += translation * (10 ** exact.SCALE_DIGITS)
+                total += translation * (10**exact.SCALE_DIGITS)
                 moved.append(total % SYM_SCALE)
             made.add(((moved[0], moved[1], moved[2]), value))
     return [(place, value) for place, value in made]

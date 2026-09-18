@@ -7,7 +7,7 @@
 #   Usage:  from representation.game import rules
 #           dist = rules.outcome_distribution(backend, state, rules.Budget(plies=6), rules.NULL)
 #
-# A backend is six calls. The enumeration below never learns which game it is reading, which is the
+# A backend is six calls. The enumeration below never learns which game it is reading, the
 # only reason one measurement can cover blackjack and chess at all:
 #
 #   initial()          the opening position
@@ -57,7 +57,7 @@ CHANCE = 2
 # What a resolved outcome is worth to PLAYER_ONE when a policy has to order two branches. A draw is
 # half a win because that is the convention the games themselves score by, not because it was tuned.
 # UNRESOLVED is worth nothing. A policy prefers a branch it can see the end of over one it
-# cannot, which is the conservative direction.
+# cannot, the conservative direction.
 SCORE = {
     WIN: fractions.Fraction(1),
     DRAW: fractions.Fraction(1, 2),
@@ -185,7 +185,7 @@ def outcome_distribution(backend, state, budget, conditioning, memo=None):
 
     Exact in the arithmetic sense: every number returned is a Fraction. A distribution computed
     two ways can be compared with `==` and not with a tolerance. Exact is not the same as complete --
-    where the budget runs out the mass lands on UNRESOLVED, which is the honest statement of what a
+    where the budget runs out the mass lands on UNRESOLVED, the honest statement of what a
     bounded search knows.
     """
     if memo is None:
@@ -214,14 +214,23 @@ def _walk(backend, state, plies_left, budget, conditioning, memo):
 
     mover = backend.to_move(state)
     children = [
-        _walk(backend, backend.apply(state, move), plies_left - 1, budget, conditioning, memo)
+        _walk(
+            backend,
+            backend.apply(state, move),
+            plies_left - 1,
+            budget,
+            conditioning,
+            memo,
+        )
         for move in legal
     ]
 
     if mover == CHANCE:
         result = blend(list(zip(backend.weights(state), children)))
     else:
-        policy = conditioning.hero_policy if mover == PLAYER_ONE else conditioning.foe_policy
+        policy = (
+            conditioning.hero_policy if mover == PLAYER_ONE else conditioning.foe_policy
+        )
         result = _choose(children, policy)
 
     memo[key] = result
@@ -256,7 +265,12 @@ def best_moves(backend, state, budget, conditioning):
     table = []
     for move in backend.moves(state):
         reached = _walk(
-            backend, backend.apply(state, move), budget.plies - 1, budget, conditioning, memo
+            backend,
+            backend.apply(state, move),
+            budget.plies - 1,
+            budget,
+            conditioning,
+            memo,
         )
         table.append((move, reached))
 
@@ -286,10 +300,14 @@ def rollout(backend, state, budget, conditioning, generator):
 
         mover = backend.to_move(state)
         if mover == CHANCE:
-            state = backend.apply(state, _weighted_pick(legal, backend.weights(state), generator))
+            state = backend.apply(
+                state, _weighted_pick(legal, backend.weights(state), generator)
+            )
             continue
 
-        policy = conditioning.hero_policy if mover == PLAYER_ONE else conditioning.foe_policy
+        policy = (
+            conditioning.hero_policy if mover == PLAYER_ONE else conditioning.foe_policy
+        )
         if policy == UNIFORM:
             state = backend.apply(state, generator.choice(legal))
             continue
@@ -297,7 +315,9 @@ def rollout(backend, state, budget, conditioning, generator):
         # A sampled arm under BEST or WORST still has to look one ply ahead to know what best means.
         # It is a shallow look on purpose: this arm exists to be a different route to the same
         # number, and giving it the enumerator's depth would make it the same route twice.
-        state = backend.apply(state, _shallow_pick(backend, state, legal, policy, generator))
+        state = backend.apply(
+            state, _shallow_pick(backend, state, legal, policy, generator)
+        )
 
     return UNRESOLVED
 
@@ -322,8 +342,10 @@ def _shallow_pick(backend, state, legal, policy, generator):
         verdict = backend.verdict(reached)
         scored.append((SCORE[verdict] if verdict is not None else SCORE[DRAW], move))
 
-    target = max(score for score, _ in scored) if policy == BEST else min(
-        score for score, _ in scored
+    target = (
+        max(score for score, _ in scored)
+        if policy == BEST
+        else min(score for score, _ in scored)
     )
     return generator.choice([move for score, move in scored if score == target])
 

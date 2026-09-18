@@ -8,7 +8,7 @@
 #   Usage:  python maint/data/fetch/fetch_african.py
 #
 # Nothing measured here is African except Afrikaans, which is Germanic, and Arabic, which arrived through
-# scripture. Four families are reachable on the parallel text this work already holds in 43 languages, so
+# scripture. Four families are reachable on the parallel text this work already holds in 43 languages,
 # the content is fixed and they arrive directly comparable to everything measured on it: Bantu in Zulu,
 # Xhosa and Shona, Cushitic in Somali, Semitic in Amharic, and Atlantic in Wolof.
 #
@@ -34,7 +34,9 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
 AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
@@ -62,7 +64,9 @@ def get(url, timeout=300):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     out.write("  %-14s %-22s %-10s %s\n" % ("language", "family", "characters", "note"))
 
@@ -71,18 +75,33 @@ def main():
         name, family = WANTED[code]
         target = os.path.join(CORPORA, "afr_%s.txt" % name)
         if os.path.isfile(target) and (os.path.getsize(target) >= LEAST):
-            out.write("  %-14s %-22s %-10d already held\n"
-                      % (name, family, os.path.getsize(target)))
+            out.write(
+                "  %-14s %-22s %-10d already held\n"
+                % (name, family, os.path.getsize(target))
+            )
             landed += 1
             continue
         try:
-            payload = json.loads(get(API + "?" + urllib.parse.urlencode(
-                {"corpus": CORPUS, "source": code, "preprocessing": "mono",
-                 "version": "latest"})).decode("utf-8"))
+            payload = json.loads(
+                get(
+                    API
+                    + "?"
+                    + urllib.parse.urlencode(
+                        {
+                            "corpus": CORPUS,
+                            "source": code,
+                            "preprocessing": "mono",
+                            "version": "latest",
+                        }
+                    )
+                ).decode("utf-8")
+            )
             entries = payload.get("corpora", []) if isinstance(payload, dict) else []
             time.sleep(PAUSE)
             if not entries:
-                out.write("  %-14s %-22s %-10s not offered on its own\n" % (name, family, "0"))
+                out.write(
+                    "  %-14s %-22s %-10s not offered on its own\n" % (name, family, "0")
+                )
                 continue
             entries.sort(key=lambda entry: -int(entry.get("size", 0) or 0))
             url = entries[0].get("url")
@@ -91,11 +110,15 @@ def main():
                 blob = gzip.decompress(blob)
             text = blob.decode("utf-8", errors="replace")
         except Exception as trouble:
-            out.write("  %-14s %-22s %-10s %s\n" % (name, family, "0", str(trouble)[:44]))
+            out.write(
+                "  %-14s %-22s %-10s %s\n" % (name, family, "0", str(trouble)[:44])
+            )
             continue
 
         if len(text) < LEAST:
-            out.write("  %-14s %-22s %-10d too little text\n" % (name, family, len(text)))
+            out.write(
+                "  %-14s %-22s %-10d too little text\n" % (name, family, len(text))
+            )
             continue
         with open(target, "w", encoding="utf-8", newline="") as handle:
             handle.write(text)
@@ -103,7 +126,9 @@ def main():
         landed += 1
         out.flush()
 
-    out.write("\n  %d languages landed on the text already held in 43 others\n" % landed)
+    out.write(
+        "\n  %d languages landed on the text already held in 43 others\n" % landed
+    )
     out.flush()
     return 0
 

@@ -12,7 +12,7 @@
 # detecting human production and the measure detecting arrangement are not separated by anything
 # measured. The control has to be a domain with structure and no author.
 #
-# A genome will not serve. The selective pressure that shaped language shaped the organism reading it, so
+# A genome will not serve. The selective pressure that shaped language shaped the organism reading it,
 # no biological sequence is independent of the hypothesis, and all biology shares one machinery in any
 # case. What is needed is a domain under no selection at all.
 #
@@ -50,7 +50,9 @@ def prime_gaps(limit):
     flags[0] = flags[1] = 0
     for value in range(2, math.isqrt(limit) + 1):
         if flags[value]:
-            flags[value * value::value] = bytearray(len(flags[value * value::value]))
+            flags[value * value :: value] = bytearray(
+                len(flags[value * value :: value])
+            )
 
     out = bytearray()
     previous = None
@@ -73,13 +75,19 @@ def main():
     body = bytearray(ord(character) - ord("0") + 1 for character in digits)
     with open(os.path.join(OUT, "math_sqrt2_digits.sym"), "wb") as handle:
         handle.write(body)
-    print("  math_sqrt2_digits    %d symbols over %d distinct" % (len(body), len(set(body))))
+    print(
+        "  math_sqrt2_digits    %d symbols over %d distinct"
+        % (len(body), len(set(body)))
+    )
 
     gaps = prime_gaps(SIEVE)
     seated = bytearray(value + 1 for value in gaps)
     with open(os.path.join(OUT, "math_prime_gaps.sym"), "wb") as handle:
         handle.write(seated)
-    print("  math_prime_gaps      %d symbols over %d distinct" % (len(seated), len(set(seated))))
+    print(
+        "  math_prime_gaps      %d symbols over %d distinct"
+        % (len(seated), len(set(seated)))
+    )
     return 0
 
 

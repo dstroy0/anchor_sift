@@ -8,7 +8,7 @@
 #   Usage:  python examples/cell_tracking/4_measure/where_the_coarms_stop_paying.py
 #
 # WHY THIS FILE EXISTS. CEL-3-001 cuts one field into sixteen co-arms and reads 0.0295 px where the
-# whole field read 0.1041 px. Sixteen was chosen by this author on no evidence, which is the defect
+# whole field read 0.1041 px. Sixteen was chosen by this author on no evidence, the defect
 # theory/workbook records ten separate times in one sitting: a bound is chosen because something has
 # to be chosen, the measurement returns a number, and the number describes the choice. A dimension
 # assigned per domain returned heights instead of widths. A sum stopped at 24 bits was still

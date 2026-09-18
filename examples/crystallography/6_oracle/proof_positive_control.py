@@ -42,7 +42,7 @@
 #
 # The Crystallography Open Database, https://www.crystallography.net/cod/, read live through the
 # search and CIF endpoints below and cached under build/cod. COD releases its entries to the public
-# domain, which is the reason a derived corpus here can be redistributed at all and is worth stating
+# domain, the reason a derived corpus here can be redistributed at all and is worth stating
 # beside the URLs instead of being assumed.
 #
 # The database is what this measurement rests on: the published _cell_length_a/b/c of every entry is
@@ -84,8 +84,10 @@ from representation.structure.crystal import exact_points  # noqa: E402
 
 CACHE = os.path.join(ROOT, "build", "cod")
 
-AGENT = {"User-Agent": "anchor-sift-research/1.0 "
-                       "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"}
+AGENT = {
+    "User-Agent": "anchor-sift-research/1.0 "
+    "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"
+}
 SEARCH = "https://www.crystallography.net/cod/result?format=json&text=%s&count=%d"
 CIF = "https://www.crystallography.net/cod/%s.cif"
 
@@ -102,17 +104,70 @@ KEPT_PER_NAME = 3
 # Minerals and simple compounds likely to be published with right angles. Names, not formulas,
 # because the archive's text search is what accepts them.
 WANTED = (
-    "halite", "fluorite", "pyrite", "periclase", "galena", "sylvite", "magnetite",
-    "spinel", "rutile", "anatase", "cassiterite", "zincite", "corundum", "hematite",
-    "quartz", "cristobalite", "calcite", "aragonite", "dolomite", "siderite",
-    "sphalerite", "wurtzite", "chromite", "franklinite", "gahnite", "bunsenite",
-    "manganosite", "wustite", "lime", "cerianite", "thorianite", "uraninite",
-    "villiaumite", "carobbiite", "chlorargyrite", "bromargyrite", "iodargyrite",
-    "cooperite", "cattierite", "vaesite", "hauerite", "alabandite", "oldhamite",
-    "niningerite", "carlsbergite", "osbornite", "khamrabaevite", "tantalcarbide",
-    "brucite", "portlandite", "bromellite", "tenorite", "cuprite", "massicot",
-    "litharge", "senarmontite", "valentinite", "arsenolite", "claudetite",
-    "molybdenite", "tungstenite", "berndtite", "herzenbergite", "teallite",
+    "halite",
+    "fluorite",
+    "pyrite",
+    "periclase",
+    "galena",
+    "sylvite",
+    "magnetite",
+    "spinel",
+    "rutile",
+    "anatase",
+    "cassiterite",
+    "zincite",
+    "corundum",
+    "hematite",
+    "quartz",
+    "cristobalite",
+    "calcite",
+    "aragonite",
+    "dolomite",
+    "siderite",
+    "sphalerite",
+    "wurtzite",
+    "chromite",
+    "franklinite",
+    "gahnite",
+    "bunsenite",
+    "manganosite",
+    "wustite",
+    "lime",
+    "cerianite",
+    "thorianite",
+    "uraninite",
+    "villiaumite",
+    "carobbiite",
+    "chlorargyrite",
+    "bromargyrite",
+    "iodargyrite",
+    "cooperite",
+    "cattierite",
+    "vaesite",
+    "hauerite",
+    "alabandite",
+    "oldhamite",
+    "niningerite",
+    "carlsbergite",
+    "osbornite",
+    "khamrabaevite",
+    "tantalcarbide",
+    "brucite",
+    "portlandite",
+    "bromellite",
+    "tenorite",
+    "cuprite",
+    "massicot",
+    "litharge",
+    "senarmontite",
+    "valentinite",
+    "arsenolite",
+    "claudetite",
+    "molybdenite",
+    "tungstenite",
+    "berndtite",
+    "herzenbergite",
+    "teallite",
 )
 
 
@@ -131,8 +186,12 @@ def cached(name, url, out):
             with urllib.request.urlopen(request, timeout=180) as response:
                 text = response.read().decode("utf-8", "replace")
             break
-        except (urllib.error.URLError, http.client.HTTPException, socket.timeout,
-                OSError) as trouble:
+        except (
+            urllib.error.URLError,
+            http.client.HTTPException,
+            socket.timeout,
+            OSError,
+        ) as trouble:
             # This caught bare Exception until now, which retried a NameError or a bad format
             # string three times and then reported it as the archive refusing. A programming error
             # presented as a network failure, and the run still printed a denominator.
@@ -161,8 +220,8 @@ def angstroms(value):
     """
     sign = "-" if value < 0 else ""
     digits = str(abs(value)).rjust(exact.SCALE_DIGITS + 1, "0")
-    whole = digits[:-exact.SCALE_DIGITS]
-    part = digits[-exact.SCALE_DIGITS:].rstrip("0")
+    whole = digits[: -exact.SCALE_DIGITS]
+    part = digits[-exact.SCALE_DIGITS :].rstrip("0")
     return "%s%s.%s" % (sign, whole, part) if part else "%s%s" % (sign, whole)
 
 
@@ -189,22 +248,29 @@ def measure_entry(text):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CACHE, exist_ok=True)
 
     how_many = int(sys.argv[1]) if len(sys.argv) > 1 else len(WANTED)
     names = WANTED[:how_many]
 
-    out.write("  Predicted before measuring: the recovered period equals the published edge, on\n")
+    out.write(
+        "  Predicted before measuring: the recovered period equals the published edge, on\n"
+    )
     out.write("  every axis of every structure, with nothing told to the detector.\n\n")
-    out.write("  %-16s %-11s %-5s %-14s %-14s %-6s %s\n"
-              % ("mineral", "cod id", "axis", "published", "recovered", "same", "agreement"))
+    out.write(
+        "  %-16s %-11s %-5s %-14s %-14s %-6s %s\n"
+        % ("mineral", "cod id", "axis", "published", "recovered", "same", "agreement")
+    )
 
     rows = []
     seen = set()
     for name in names:
-        found, reached = cached("search_%s.json" % name, SEARCH % (urllib.parse.quote(name),
-                                                                   PER_NAME), out)
+        found, reached = cached(
+            "search_%s.json" % name, SEARCH % (urllib.parse.quote(name), PER_NAME), out
+        )
         if reached:
             time.sleep(PAUSE)
         if found is None:
@@ -235,33 +301,58 @@ def main():
             for axis, published, recovered, score in measured:
                 same = recovered == published
                 rows.append((name, identifier, axis, published, recovered, same, score))
-                out.write("  %-16s %-11s %-5s %-14s %-14s %-6s %d\n"
-                          % (name[:16], identifier, axis, angstroms(published),
-                             angstroms(recovered), "yes" if same else "NO", score))
+                out.write(
+                    "  %-16s %-11s %-5s %-14s %-14s %-6s %d\n"
+                    % (
+                        name[:16],
+                        identifier,
+                        axis,
+                        angstroms(published),
+                        angstroms(recovered),
+                        "yes" if same else "NO",
+                        score,
+                    )
+                )
             out.flush()
 
     if not rows:
-        out.write("\n  nothing measured. The archive may be unreachable and the cache is empty.\n")
+        out.write(
+            "\n  nothing measured. The archive may be unreachable and the cache is empty.\n"
+        )
         out.flush()
         return 1
 
     same = sum(1 for row in rows if row[5])
     structures = len({row[1] for row in rows})
 
-    out.write("\n  %d axes measured over %d structures from %d names\n"
-              % (len(rows), structures, len(names)))
-    out.write("  %d of %d equal the published edge exactly, which is %.1f percent\n"
-              % (same, len(rows), 100.0 * same / len(rows)))
-    out.write("  every coordinate carried as an integer at 1e-%d angstroms, nothing rounded\n"
-              % exact.SCALE_DIGITS)
+    out.write(
+        "\n  %d axes measured over %d structures from %d names\n"
+        % (len(rows), structures, len(names))
+    )
+    out.write(
+        "  %d of %d equal the published edge exactly, which is %.1f percent\n"
+        % (same, len(rows), 100.0 * same / len(rows))
+    )
+    out.write(
+        "  every coordinate carried as an integer at 1e-%d angstroms, nothing rounded\n"
+        % exact.SCALE_DIGITS
+    )
 
     # A miss counts for more than a hit here. Every one is named instead of counted.
     missed = [row for row in rows if not row[5]]
     if missed:
         out.write("\n  not equal to the published edge\n")
         for name, identifier, axis, published, recovered, _, score in missed[:20]:
-            out.write("    %-16s %-11s %-5s published %-16s read %s\n"
-                      % (name[:16], identifier, axis, angstroms(published), angstroms(recovered)))
+            out.write(
+                "    %-16s %-11s %-5s published %-16s read %s\n"
+                % (
+                    name[:16],
+                    identifier,
+                    axis,
+                    angstroms(published),
+                    angstroms(recovered),
+                )
+            )
     else:
         out.write("\n  no axis differed from its published edge\n")
 
