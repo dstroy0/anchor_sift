@@ -292,7 +292,7 @@ def recover(curve, span, frames, bodies):
     #
     # A candidate is dropped where a stronger candidate already sits at a whole fraction of its
     # frequency. Where the harmonic came in stronger than its own fundamental, the fundamental
-    # replaces it instead, since the body has the longer period and the harmonic is an artefact of
+    # replaces it instead, since the body has the longer period and the harmonic is an artifact of
     # the shape of the swing.
     found.sort(key=lambda one: -one["strength"])
     kept = []
@@ -396,11 +396,11 @@ def main():
 
     # Merged across every patch, and ranked by how many independent axes agree.
     #
-    # Peak strength was tried first as the way to tell a body from an artefact and it does not
+    # Peak strength was tried first as the way to tell a body from an artifact and it does not
     # work: on one patch a spurious peak scored 2419 while a real body scored 555. Strength says
     # how loud a bin is, not whether anything is there.
     #
-    # Agreement does work. A body is somewhere. Every patch sees it swing. An artefact is a
+    # Agreement does work. A body is somewhere. Every patch sees it swing. An artifact is a
     # feature of one curve. It lives on one patch and dies on the next. Antipodal patches are
     # not independent, since a great circle through a point runs through its opposite as well,
     # what gets counted is axes and never patches: three of three is a body, one of three is a

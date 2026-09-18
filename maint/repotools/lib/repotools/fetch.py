@@ -228,7 +228,7 @@ def fetch(cfg, sets=None, dry=False):
 
     # A set that cannot work without another one pulls it in. This was declared in cli.SET_NEEDS and
     # never read here. The first repository to fetch media_tools without naming lib/numerics
-    # installed six viewers that died on ModuleNotFoundError at run time. The spine travelled
+    # installed six viewers that died on ModuleNotFoundError at run time. The spine traveled
     # correctly because it is forced above; nothing carried the rest.
     # Walked over the growing list, not over the list it started with. A dependency of a
     # dependency travels too. `nsconv_test.py` needs `nsconv.py`, which needs `codemask.py`, and a

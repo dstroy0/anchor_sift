@@ -22,7 +22,7 @@
 # the construction permits and all it permits. Raising the level count makes each comparison finer
 # and ought to carry more. It also makes an exact match rarer, and at enough levels two samples of a
 # real field never carry the same value at all, which is precisely the failure theory/workbook
-# records on proteins: coordinates voxelised at two angstroms and required to agree exactly, where
+# records on proteins: coordinates voxelized at two angstroms and required to agree exactly, where
 # two occurrences of one motif never land on identical offsets, because nature does not supply exact
 # repeats. So the grid buys error at one end and the exactness buys emptiness at the other.
 #

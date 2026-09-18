@@ -39,14 +39,14 @@
 # The same measurement has read three values tonight and only the last is true:
 #
 #   1228 entries   0   the two real cases were not in the corpus yet
-#   2801 entries   5   three of the five were a parser artefact
-#   2853 entries   2   artefact removed, two real cases remain
+#   2801 entries   5   three of the five were a parser artifact
+#   2853 entries   2   artifact removed, two real cases remain
 #
 # Each was correct for its corpus and its parser. The sequence says more than the value does,
 # because it says what the measurement is sensitive to: corpus size found the real cases and a
 # parser defect invented three others. Anyone quoting this number should quote the corpus with it.
 #
-# The artefact was the dum sentinel described in crystal.py: an undetermined position written as -1,
+# The artifact was the dum sentinel described in crystal.py: an undetermined position written as -1,
 # reducing into the cell at the origin, landing on whatever real atom sits there. It surfaced as Mo
 # and O sharing a site, which is chemically impossible, and that impossibility was the only thing
 # that announced it. crystal.site_table drops those rows now, and re-reading both published figures
@@ -120,7 +120,9 @@ def sites(text):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     if not os.path.isdir(CACHE):
         out.write("\n  nothing cached under build/cod. Run a fetcher to fill it.\n\n")
         out.flush()
@@ -132,7 +134,9 @@ def main():
         names = names[:limit]
     known = families()
 
-    out.write("\n  Doping in the whole cell, by mineral family. Operations applied exactly.\n\n")
+    out.write(
+        "\n  Doping in the whole cell, by mineral family. Operations applied exactly.\n\n"
+    )
 
     read = 0
     with_ops = 0
@@ -146,7 +150,9 @@ def main():
     started = time.time()
 
     for name in names:
-        with io.open(os.path.join(CACHE, name), encoding="utf-8", errors="replace") as handle:
+        with io.open(
+            os.path.join(CACHE, name), encoding="utf-8", errors="replace"
+        ) as handle:
             text = handle.read()
         points, skipped = sites(text)
         skipped_sites += skipped
@@ -154,8 +160,9 @@ def main():
             continue
         read += 1
         family = known.get(name[:-4], "unrecorded")
-        row = per_family.setdefault(family, {"entries": 0, "doped": 0, "before": 0, "after": 0,
-                                             "ops": 0})
+        row = per_family.setdefault(
+            family, {"entries": 0, "doped": 0, "before": 0, "after": 0, "ops": 0}
+        )
         row["entries"] += 1
 
         try:
@@ -184,36 +191,66 @@ def main():
         if before == 0 and after > 0:
             newly_doped += 1
 
-    out.write("  %-16s %-9s %-8s %-11s %-11s %s\n"
-              % ("family", "entries", "doped", "asymmetric", "whole cell", "mean ops"))
+    out.write(
+        "  %-16s %-9s %-8s %-11s %-11s %s\n"
+        % ("family", "entries", "doped", "asymmetric", "whole cell", "mean ops")
+    )
     for family, row in sorted(per_family.items(), key=lambda pair: -pair[1]["after"]):
         if not row["entries"]:
             continue
-        out.write("  %-16s %-9d %-8d %-11d %-11d %.0f\n"
-                  % (family[:16], row["entries"], row["doped"], row["before"], row["after"],
-                     row["ops"] / row["entries"]))
+        out.write(
+            "  %-16s %-9d %-8d %-11d %-11d %.0f\n"
+            % (
+                family[:16],
+                row["entries"],
+                row["doped"],
+                row["before"],
+                row["after"],
+                row["ops"] / row["entries"],
+            )
+        )
 
     out.write("\n  %d entries read, %.0fs\n" % (read, time.time() - started))
     out.write("  publishing operations                    %d\n" % with_ops)
-    out.write("  refused, a denominator not dividing %d   %d\n" % (symmetry.UNITS, refused))
-    out.write("  held back, over %d placements        %d\n" % (MOST_PLACEMENTS, held_back))
+    out.write(
+        "  refused, a denominator not dividing %d   %d\n" % (symmetry.UNITS, refused)
+    )
+    out.write(
+        "  held back, over %d placements        %d\n" % (MOST_PLACEMENTS, held_back)
+    )
     if skipped_sites:
-        out.write("  sites skipped, coordinate not plain decimal text   %d\n" % skipped_sites)
+        out.write(
+            "  sites skipped, coordinate not plain decimal text   %d\n" % skipped_sites
+        )
 
     out.write("\n  shared positions, asymmetric unit only   %d\n" % before_total)
     out.write("  shared positions, whole cell             %d\n" % after_total)
     if before_total:
-        out.write("  ratio                                    %.2fx\n"
-                  % (after_total / float(before_total)))
+        out.write(
+            "  ratio                                    %.2fx\n"
+            % (after_total / float(before_total))
+        )
 
-    out.write("\n  entries with no shared site before expansion that have one after   %d\n"
-              % newly_doped)
+    out.write(
+        "\n  entries with no shared site before expansion that have one after   %d\n"
+        % newly_doped
+    )
     out.write("     This is the number that makes expansion a detection.\n")
-    out.write("     Nearly every position the expansion adds is a symmetry copy of a site the\n")
-    out.write("     asymmetric reading already found, and the few that are not are the whole\n")
-    out.write("     reason to run it. See the header for the two in this corpus: one ordinary\n")
-    out.write("     Ta for W solid solution, and one deposit putting an anion and a cation in\n")
-    out.write("     the same orbit at a sum of one and a half atoms on a site that holds one.\n\n")
+    out.write(
+        "     Nearly every position the expansion adds is a symmetry copy of a site the\n"
+    )
+    out.write(
+        "     asymmetric reading already found, and the few that are not are the whole\n"
+    )
+    out.write(
+        "     reason to run it. See the header for the two in this corpus: one ordinary\n"
+    )
+    out.write(
+        "     Ta for W solid solution, and one deposit putting an anion and a cation in\n"
+    )
+    out.write(
+        "     the same orbit at a sum of one and a half atoms on a site that holds one.\n\n"
+    )
     out.flush()
     return 0
 

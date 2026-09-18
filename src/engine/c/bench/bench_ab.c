@@ -796,7 +796,7 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
     while ((start + needle_len) <= corpus_len)
     {
         const uint8_t answer = corpus[start + anchor];
-        size_t travelled;
+        size_t traveled;
 
         result.reads++;
         since_review++;
@@ -821,13 +821,13 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
             {
                 result.found++;
             }
-            travelled = 1u;
+            traveled = 1u;
         }
         else
         {
-            travelled = advance[answer];
+            traveled = advance[answer];
         }
-        start += travelled;
+        start += traveled;
 
         // One answer, credited to every offset. What a read at some other offset would have reached
         // from this same cell is decided by where the needle has the symbol just seen, a property
@@ -899,9 +899,9 @@ static AbResult ab_distance_only(const uint8_t *corpus, size_t corpus_len, const
             }
         }
 
-        recent += 0.30 * ((double)travelled - recent);
-        settled += 0.02 * ((double)travelled - settled);
-        background += 0.02 * ((double)travelled - background);
+        recent += 0.30 * ((double)traveled - recent);
+        settled += 0.02 * ((double)traveled - settled);
+        background += 0.02 * ((double)traveled - background);
         since_reset++;
 
         // Unassume. The field is an accumulated claim about a corpus, and a corpus that has changed
