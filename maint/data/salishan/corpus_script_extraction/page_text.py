@@ -15,8 +15,7 @@
 # THE MAPPING IS NOT IDEMPOTENT
 #
 # Running it a second time destroys the text instead of leaving it alone. P becomes ʔ. Papers is
-# ʔapers and the gloss label APPL is AʔʔL. Q becomes ʕ. Quilchena is ʕuilchena. @ becomes ə, so
-# john.lyon@alumni.ubc.ca ends with a schwa in the middle of it. Every repair here returns its line.
+# ʔapers and the gloss label APPL is AʔʔL. Q becomes ʕ. Quilchena is ʕuilchena. @ becomes ə.
 #
 # THE LANGUAGE TEST CANNOT PASS THROUGH
 #
@@ -71,5 +70,7 @@ def language_line(text, floor=1):
     these stories wrap and leave lines as short as sámaʔ. and təmxʷúlaʔxʷ., and asking for two
     throws them out of the running text.
     """
-    return sum(1 for token in text.split()
-               if any(mark in token for mark in TEXT_SPACE)) >= floor
+    return (
+        sum(1 for token in text.split() if any(mark in token for mark in TEXT_SPACE))
+        >= floor
+    )

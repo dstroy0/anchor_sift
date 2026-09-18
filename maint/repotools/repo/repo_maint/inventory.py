@@ -148,10 +148,7 @@ def spread(members, roots):
 
 
 def report(groups, unshaped, roots, crossing_only, stream=None):
-    """Print the groups, largest duplicated line count first.
 
-    Sorted by what a promotion would save. The first row read is the one worth doing first.
-    """
     stream = stream or sys.stdout
     rows = []
     for shape_id, members in groups.items():

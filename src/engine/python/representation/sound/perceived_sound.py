@@ -86,12 +86,14 @@ def band_gain(centers, audiogram=NO_LOSS):
     """The linear gain each band reaches one listener's ear at, from their audiogram.
 
     Interpolated across the frequencies the test was run at and held flat outside them, as
-    numpy.interp does at both ends. A test reports six frequencies and there are 64 bands, so
-    every band but a few is an interpolated value and the document says so.
+    numpy.interp does at both ends. A test reports six frequencies and there are 64 bands.
     """
     measured_at, loss_db = audiogram
-    at_band = numpy.interp(centers, numpy.asarray(measured_at, dtype=float),
-                           numpy.asarray(loss_db, dtype=float))
+    at_band = numpy.interp(
+        centers,
+        numpy.asarray(measured_at, dtype=float),
+        numpy.asarray(loss_db, dtype=float),
+    )
     return numpy.power(10.0, -at_band / 20.0)
 
 
@@ -107,17 +109,22 @@ def band_matrix(width, rate, centers, gain):
     spacing was chosen to follow it.
     """
     at = numpy.fft.rfftfreq(width, 1.0 / rate)
-    edges = numpy.concatenate(([centers[0] ** 2 / centers[1]],
-                               numpy.sqrt(centers[:-1] * centers[1:]),
-                               [centers[-1] ** 2 / centers[-2]]))
+    edges = numpy.concatenate(
+        (
+            [centers[0] ** 2 / centers[1]],
+            numpy.sqrt(centers[:-1] * centers[1:]),
+            [centers[-1] ** 2 / centers[-2]],
+        )
+    )
     held = numpy.zeros((len(at), len(centers)))
     for band in range(len(centers)):
         held[(at >= edges[band]) & (at < edges[band + 1]), band] = 1.0
-    return held * (gain ** 2)
+    return held * (gain**2)
 
 
-def frame_chunks(samples, rate, window_seconds=WINDOW_SECONDS, hop_seconds=HOP_SECONDS,
-                 chunk=CHUNK):
+def frame_chunks(
+    samples, rate, window_seconds=WINDOW_SECONDS, hop_seconds=HOP_SECONDS, chunk=CHUNK
+):
     """The recording as Hann windowed frames, handed over a chunk of rows at a time."""
     width = int(round(window_seconds * rate))
     hop = int(round(hop_seconds * rate))
@@ -159,7 +166,7 @@ def segment_code(shape, bits=SEGMENT_BITS):
     magnitude of a Fourier transform along that axis is unchanged by the slide. Coefficient 0 is
     the envelope's mean, which is loudness, and it goes to the prosody field instead.
     """
-    return numpy.abs(numpy.fft.rfft(shape, axis=1))[:, 1:bits + 1]
+    return numpy.abs(numpy.fft.rfft(shape, axis=1))[:, 1 : bits + 1]
 
 
 def pitch(windowed, rate, low_hz=LOW_PITCH_HZ, high_hz=HIGH_PITCH_HZ):
@@ -180,7 +187,7 @@ def pitch(windowed, rate, low_hz=LOW_PITCH_HZ, high_hz=HIGH_PITCH_HZ):
     longest = min(width - 1, int(round(rate / low_hz)))
     if longest <= shortest:
         return numpy.zeros(windowed.shape[0]), numpy.zeros(windowed.shape[0])
-    searched = correlation[:, shortest:longest + 1]
+    searched = correlation[:, shortest : longest + 1]
     at = searched.argmax(axis=1)
     strength = searched[numpy.arange(searched.shape[0]), at]
     period = (at + shortest) / float(rate)
@@ -208,7 +215,9 @@ def prosody_code(measured):
         heard = fundamental > 0.0
         relative[heard] = numpy.log2(fundamental[heard] / middle)
     # In octaves from that median, which makes a rise of a fifth one number whoever is speaking.
-    moving = numpy.gradient(relative) if len(relative) > 1 else numpy.zeros(len(relative))
+    moving = (
+        numpy.gradient(relative) if len(relative) > 1 else numpy.zeros(len(relative))
+    )
     return numpy.column_stack((level, relative, moving, voicing))
 
 
@@ -271,11 +280,17 @@ def represented(samples, rate, audiogram=NO_LOSS):
         loudness = heard_bands(windowed, matrix)
         shapes.append(segment_code(envelope(loudness)))
         fundamental, voicing = pitch(windowed, rate)
-        raw.append(numpy.column_stack((numpy.log(loudness.sum(axis=1) + TINY),
-                                       fundamental, voicing)))
+        raw.append(
+            numpy.column_stack(
+                (numpy.log(loudness.sum(axis=1) + TINY), fundamental, voicing)
+            )
+        )
     if not shapes:
-        return (numpy.zeros(0), numpy.zeros((0, SEGMENT_BITS), dtype=numpy.uint8),
-                numpy.zeros((0, PROSODY_BITS), dtype=numpy.uint8))
+        return (
+            numpy.zeros(0),
+            numpy.zeros((0, SEGMENT_BITS), dtype=numpy.uint8),
+            numpy.zeros((0, PROSODY_BITS), dtype=numpy.uint8),
+        )
     # The median every threshold is taken against is the whole recording's. The fields are cut
     # only once both are assembled. This is also where the speaker's own pitch range comes from.
     measured = numpy.concatenate(raw)
@@ -284,5 +299,8 @@ def represented(samples, rate, audiogram=NO_LOSS):
     # are anonymous and vary together, and decorrelated() is for that. The four prosody
     # columns are each a named thing, and rotating them would mix pitch back into the field the
     # segment code was made shift invariant to get away from.
-    return (at, bits(decorrelated(numpy.concatenate(shapes))),
-            bits(prosody_code(measured)))
+    return (
+        at,
+        bits(decorrelated(numpy.concatenate(shapes))),
+        bits(prosody_code(measured)),
+    )

@@ -90,7 +90,9 @@ def main():
         name = "generated signal"
 
     if len(values) < fft_size:
-        sys.stderr.write("only %d samples, need at least --fft %d\n" % (len(values), fft_size))
+        sys.stderr.write(
+            "only %d samples, need at least --fft %d\n" % (len(values), fft_size)
+        )
         return 1
 
     pad_to = dsp.next_power(fft_size * pad)
@@ -98,8 +100,7 @@ def main():
 
     starts = list(range(0, len(values) - fft_size + 1, hop))
     if len(starts) > frames_max:
-        # Spread the kept frames across the whole signal and never take the first of them, so
-        # the picture is of the recording and not of its opening second.
+        # Spread the kept frames across the whole signal and never take the first of them.
         step = len(starts) / float(frames_max)
         starts = [starts[int(i * step)] for i in range(frames_max)]
 
@@ -112,7 +113,9 @@ def main():
     began = time.time()
     columns = []
     for at, start in enumerate(starts):
-        columns.append(dsp.spectrum(values[start:start + fft_size], win, pad_to)[:bins])
+        columns.append(
+            dsp.spectrum(values[start : start + fft_size], win, pad_to)[:bins]
+        )
         if at and at % 32 == 0:
             sys.stderr.write("  %d of %d frames\r" % (at, len(starts)))
             sys.stderr.flush()
@@ -134,7 +137,11 @@ def main():
         for t in range(len(columns)):
             one = columns[t][b]
             row_lin.append(round(one / loudest, 5))
-            db = floor_db if one <= 0 else max(floor_db, 20.0 * math.log10(one / loudest))
+            db = (
+                floor_db
+                if one <= 0
+                else max(floor_db, 20.0 * math.log10(one / loudest))
+            )
             row_db.append(round(db, 3))
             was = columns[t - 1][b] if t else one
             row_flux.append(round((one - was) / loudest, 5))
@@ -152,24 +159,54 @@ def main():
         "valueLabel": "level",
         "eyebrow": "Sound - rendered as a solid",
         "title": name,
-        "blurb": ("%s at %d Hz. %d frames of %d samples, transformed at %d after zero-padding %dx, "
-                  "%s window, hop %d. Depth runs left to right as time; the other horizontal axis "
-                  "is frequency, %d bins up to %d Hz at %.2f Hz each."
-                  % (name, rate, len(columns), fft_size, pad_to, pad, kind, hop,
-                     bins, int(bins * hz_per_bin), hz_per_bin)),
+        "blurb": (
+            "%s at %d Hz. %d frames of %d samples, transformed at %d after zero-padding %dx, "
+            "%s window, hop %d. Depth runs left to right as time; the other horizontal axis "
+            "is frequency, %d bins up to %d Hz at %.2f Hz each."
+            % (
+                name,
+                rate,
+                len(columns),
+                fft_size,
+                pad_to,
+                pad,
+                kind,
+                hop,
+                bins,
+                int(bins * hz_per_bin),
+                hz_per_bin,
+            )
+        ),
         "noteTitle": "Padding places a peak, it does not separate two",
-        "note": ("Resolution is set by how many samples a frame holds and nothing else: two tones "
-                 "closer together than the frame can separate stay unseparated at any pad. Padding "
-                 "interpolates onto a finer grid. A peak falling between bins is drawn at its "
-                 "real height and place instead of smeared across two. Raise fft to separate, "
-                 "raise pad to place. A feature that appears at one window and not another belongs "
-                 "to the window."),
+        "note": (
+            "Resolution is set by how many samples a frame holds and nothing else: two tones "
+            "closer together than the frame can separate stay unseparated at any pad. Padding "
+            "interpolates onto a finer grid. A peak falling between bins is drawn at its "
+            "real height and place instead of smeared across two. Raise fft to separate, "
+            "raise pad to place. A feature that appears at one window and not another belongs "
+            "to the window."
+        ),
         "settings": settings.collect(sys.argv[1:]),
         "fields": [
-            {"key": "level", "label": "Level dB", "axis": "frequency bin", "rows": level},
-            {"key": "linear", "label": "Linear", "axis": "frequency bin", "rows": linear},
+            {
+                "key": "level",
+                "label": "Level dB",
+                "axis": "frequency bin",
+                "rows": level,
+            },
+            {
+                "key": "linear",
+                "label": "Linear",
+                "axis": "frequency bin",
+                "rows": linear,
+            },
             {"key": "flux", "label": "Flux", "axis": "frequency bin", "rows": flux},
-            {"key": "slope", "label": "Bin slope", "axis": "frequency bin", "rows": slope},
+            {
+                "key": "slope",
+                "label": "Bin slope",
+                "axis": "frequency bin",
+                "rows": slope,
+            },
         ],
     }
 
@@ -177,16 +214,23 @@ def main():
         page = handle.read()
     if "</script>" not in page:
         raise SystemExit("template is truncated: the script tag is never closed")
-    page = page.replace("/*VOXEL_DATA*/null", json.dumps(payload, separators=(",", ":")))
+    page = page.replace(
+        "/*VOXEL_DATA*/null", json.dumps(payload, separators=(",", ":"))
+    )
 
     target = text("--out") or os.path.join(HERE, "sound_view.html")
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(page)
 
     print("wrote %s (%.1f KB)" % (target, os.path.getsize(target) / 1024.0))
-    print("  %d frames of %d, transform %d (%dx pad), %s window"
-          % (len(columns), fft_size, pad_to, pad, kind))
-    print("  %d bins to %d Hz, %.2f Hz per bin" % (bins, int(bins * hz_per_bin), hz_per_bin))
+    print(
+        "  %d frames of %d, transform %d (%dx pad), %s window"
+        % (len(columns), fft_size, pad_to, pad, kind)
+    )
+    print(
+        "  %d bins to %d Hz, %.2f Hz per bin"
+        % (bins, int(bins * hz_per_bin), hz_per_bin)
+    )
     print("  %.1f s of transforms" % took)
     return 0
 

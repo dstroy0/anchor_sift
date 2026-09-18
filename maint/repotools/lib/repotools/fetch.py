@@ -85,30 +85,12 @@ MARKERS = {
 
 
 def digest(text):
-    """Sixteen hex characters of the SHA-256 of `text`, newlines normalized.
 
-    Normalized, because a checkout on Windows and one on Linux hold the same file with different
-    line endings, and a check that called those two files different would fire on every clone.
-    """
     return hashlib.sha256(text.replace("\r\n", "\n").encode("utf-8")).hexdigest()[:16]
 
 
 def is_stamp(line):
-    """Whether `line` is a stamp line, as apply_stamp writes one.
-
-    A stamp line is a comment marker, the stamp token, a path and a digest, in that order. The test
-    used to be `STAMP in line`, which is true of any line mentioning the token anywhere.
-
-    This file is the one that breaks under that, and it broke silently. Line 46 here is
-
-        STAMP = "repotools-stamp:"
-
-    and it contains the token. Fetching lib/repotools stripped this module's own constant out of
-    the installed copy. Every repository that fetched the spine got a fetch.py whose STAMP is
-    undefined, and `repotools check` died on NameError the moment it reached this function. It went
-    unseen because check raised earlier, in the toolkit walk, and the first crash hid the second.
-    A tool that cannot copy itself correctly is the one defect a toolkit cannot afford.
-    """
+    
     body = line.strip()
     if not body:
         return False

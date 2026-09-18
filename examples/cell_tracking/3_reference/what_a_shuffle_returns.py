@@ -9,8 +9,7 @@
 #
 # WHAT THIS CORRECTS. CEL-2-001 and CEL-2-002 report a cross-axis reading of about 0.47 px on an
 # axis displaced by nothing, and call it a floor the method inherits. That is a raw value quoted
-# with no background under it, which is the one thing theory/workbook says never says anything:
-# every quantity there is a departure from a background and none is a value, and a dispersion of
+# with no background under it. Every quantity there is a departure from a background and none is a value, and a dispersion of
 # 0.28 says nothing while the same dispersion against a shuffle of the same bytes is 2.91.
 #
 # Nothing was stopping the background from being built. One field holds as many co-arms as anyone

@@ -65,8 +65,16 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from docs_check import (BANNED, CHECKED, HUMAN_RATE, SKIP_DIRS,  # noqa: E402
-                        banned_hits, prose_only, quieted, stage_of)
+from docs_check import (
+    BANNED,
+    CHECKED,
+    HUMAN_RATE,
+    SKIP_DIRS,  # noqa: E402
+    banned_hits,
+    prose_only,
+    quieted,
+    stage_of,
+)
 
 # The rate a human research writer carries for the whole banned list, per hundred thousand words.
 # Summed from the table instead of written down. The two cannot disagree. It comes to 387.9.
@@ -78,8 +86,7 @@ HUMAN_WHOLE = sum(HUMAN_RATE.values())
 PLAIN = (".txt", ".rst", ".markdown", ".text", ".org")
 SUBMITTED = CHECKED + PLAIN
 
-# Names that identify a vendor or a product. None of these is also an ordinary English word, so
-# each one is matched anywhere on a line, case folded. The PHRASES below need more care.
+# Names that identify a vendor or a product. None of these is also an ordinary English word.
 NAMES = ("anthropic", "claude", "openai", "chatgpt")
 
 # Words that are ordinary English on their own. Each is matched only where a version number sits
@@ -97,9 +104,7 @@ PHRASES = (
 
 # Phrases that hold one of those names and are not a vendor reference. claudetite is an antimony
 # oxide and it sits in the crystallography oracle beside senarmontite and valentinite.
-ALLOWED = (
-    "claudetite",
-)
+ALLOWED = ("claudetite",)
 
 # Claude is a given name, and a Salishan bibliography is full of people who carry it: Hagege,
 # Levi-Strauss, Vaucher, Bacqueville de la Potherie. Shannon is one entry away from joining them.
@@ -120,11 +125,18 @@ ALLOWED = (
 # These do not clear a line. They move it to a count that prints and refuses nothing, and the lines
 # themselves print under --people. A hit that is quietly dropped is a hit nobody reads.
 LETTER = r"[^\W\d_]"
-MARK = chr(0x0300) + chr(0x002d) + chr(0x036f)
+MARK = chr(0x0300) + chr(0x002D) + chr(0x036F)
 PEOPLE = (
-    re.compile(r"(?i:claude)\s+(?:de\s+la\s+|de\s+|van\s+|von\s+)?(?P<surname>"
-               + LETTER + r"[\w'~" + MARK + r"\-]{2,})"),
-    re.compile(r"(?P<surname>" + LETTER + r"[\w'~." + MARK + r"\-]{2,})\s*[,.•] *(?i:claude)\b"),
+    re.compile(
+        r"(?i:claude)\s+(?:de\s+la\s+|de\s+|van\s+|von\s+)?(?P<surname>"
+        + LETTER
+        + r"[\w'~"
+        + MARK
+        + r"\-]{2,})"
+    ),
+    re.compile(
+        r"(?P<surname>" + LETTER + r"[\w'~." + MARK + r"\-]{2,})\s*[,.•] *(?i:claude)\b"
+    ),
 )
 
 # Words that follow the given name in a model's name and never in a person's. A line holding one of
@@ -133,17 +145,47 @@ MODELS = ("opus", "sonnet", "haiku", "instant", "code", "next")
 
 # Extensions read as bytes. A match inside one would be unreadable in a report.
 BINARY = (
-    ".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".ico", ".pdf", ".zip", ".gz", ".xz",
-    ".tar", ".7z", ".wav", ".mp3", ".flac", ".ogg", ".ttf", ".otf", ".woff", ".woff2",
-    ".so", ".dll", ".exe", ".dylib", ".o", ".a", ".pyc", ".npy", ".npz", ".bin",
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".webp",
+    ".bmp",
+    ".ico",
+    ".pdf",
+    ".zip",
+    ".gz",
+    ".xz",
+    ".tar",
+    ".7z",
+    ".wav",
+    ".mp3",
+    ".flac",
+    ".ogg",
+    ".ttf",
+    ".otf",
+    ".woff",
+    ".woff2",
+    ".so",
+    ".dll",
+    ".exe",
+    ".dylib",
+    ".o",
+    ".a",
+    ".pyc",
+    ".npy",
+    ".npz",
+    ".bin",
 )
 
 # Bytes above which a file is reported as skipped instead of read. A silent skip reads as a clean
 # result. Every skipped file is named at the foot of the report.
 LARGE = 4 * 1024 * 1024
 
-MATCHERS = tuple([(one, re.compile(re.escape(one))) for one in NAMES]
-                 + [(one, re.compile(one)) for one in PHRASES])
+MATCHERS = tuple(
+    [(one, re.compile(re.escape(one))) for one in NAMES]
+    + [(one, re.compile(one)) for one in PHRASES]
+)
 
 # A letter run. Digits, punctuation and the markup docs_check leaves behind are not words, and
 # counting them lowers every rate by inflating the denominator.
@@ -201,7 +243,7 @@ def shown(text):
     flat = " ".join(text.split())
     if len(flat) <= TRIM:
         return flat
-    return flat[:TRIM - 3] + "..."
+    return flat[: TRIM - 3] + "..."
 
 
 def text_of(path):
@@ -265,8 +307,12 @@ def git(root, *arguments):
     through does not.
     """
     try:
-        done = subprocess.run(("git", "-c", "core.quotePath=false") + arguments, cwd=root,
-                              capture_output=True, timeout=120)
+        done = subprocess.run(
+            ("git", "-c", "core.quotePath=false") + arguments,
+            cwd=root,
+            capture_output=True,
+            timeout=120,
+        )
     except (OSError, subprocess.SubprocessError):
         return None
     if done.returncode != 0:
@@ -283,7 +329,11 @@ def tracked(root):
     listed = git(root, "ls-files")
     if listed is None:
         return None
-    return [os.path.join(root, one.replace("/", os.sep)) for one in listed.splitlines() if one]
+    return [
+        os.path.join(root, one.replace("/", os.sep))
+        for one in listed.splitlines()
+        if one
+    ]
 
 
 def served(root):
@@ -323,8 +373,11 @@ def counted(paths, base, show_people, out, clones=None):
         if found and not person:
             # Where the tree is a repository, whether a fresh clone already receives this path.
             # A submission is tracked nowhere. The column is left off entirely.
-            standing = None if clones is None else \
-                ("in every clone" if shortened in clones else "local only")
+            standing = (
+                None
+                if clones is None
+                else ("in every clone" if shortened in clones else "local only")
+            )
             named.append((shortened, found, standing))
 
         if path.endswith(BINARY) or not path.endswith(SUBMITTED):
@@ -357,7 +410,9 @@ def counted(paths, base, show_people, out, clones=None):
             if standing is None:
                 out.write("    %s  [%s]\n" % (shortened, ", ".join(found)))
             else:
-                out.write("    %-15s %s  [%s]\n" % (standing, shortened, ", ".join(found)))
+                out.write(
+                    "    %-15s %s  [%s]\n" % (standing, shortened, ", ".join(found))
+                )
     if lined:
         out.write("\n  NAMES IN THE TEXT\n")
         for shortened, number, line in lined:
@@ -382,33 +437,51 @@ def register(out, tally, words):
     scale = 100000.0 / words
 
     total = sum(tally.values()) * scale
-    phrase = sum(count for pattern, count in tally.items()
-                 if stage_of(pattern) == "phrase") * scale
-    absent = sum(count for pattern, count in tally.items()
-                 if pattern not in HUMAN_RATE) * scale
+    phrase = (
+        sum(count for pattern, count in tally.items() if stage_of(pattern) == "phrase")
+        * scale
+    )
+    absent = (
+        sum(count for pattern, count in tally.items() if pattern not in HUMAN_RATE)
+        * scale
+    )
 
     out.write("\n  REGISTER, per hundred thousand words of prose\n")
-    out.write("    %-26s %9.1f   human %7.1f   %s\n"
-              % ("the whole banned list", total, HUMAN_WHOLE, times(total, HUMAN_WHOLE)))
-    out.write("    %-26s %9.1f   human %7.1f   %s\n"
-              % ("the phrase stage", phrase, phrase_human(), times(phrase, phrase_human())))
-    out.write("    %-26s %9.1f   human %7.1f   %s\n"
-              % ("patterns humans never use", absent, 0.0, "no human rate to divide by"))
+    out.write(
+        "    %-26s %9.1f   human %7.1f   %s\n"
+        % ("the whole banned list", total, HUMAN_WHOLE, times(total, HUMAN_WHOLE))
+    )
+    out.write(
+        "    %-26s %9.1f   human %7.1f   %s\n"
+        % ("the phrase stage", phrase, phrase_human(), times(phrase, phrase_human()))
+    )
+    out.write(
+        "    %-26s %9.1f   human %7.1f   %s\n"
+        % ("patterns humans never use", absent, 0.0, "no human rate to divide by")
+    )
 
-    ranked = sorted(tally.items(), key=lambda one: excess(one[0], one[1] * scale), reverse=True)
+    ranked = sorted(
+        tally.items(), key=lambda one: excess(one[0], one[1] * scale), reverse=True
+    )
     if not ranked:
         return
-    out.write("\n    %-46s %5s %8s %8s %9s\n" % ("token", "n", "here", "human", "times"))
+    out.write(
+        "\n    %-46s %5s %8s %8s %9s\n" % ("token", "n", "here", "human", "times")
+    )
     for pattern, count in ranked:
         rate = count * scale
         human = HUMAN_RATE.get(pattern, 0.0)
-        out.write("    %-46s %5d %8.1f %8.1f %9s\n"
-                  % (readable(pattern), count, rate, human, times(rate, human)))
+        out.write(
+            "    %-46s %5d %8.1f %8.1f %9s\n"
+            % (readable(pattern), count, rate, human, times(rate, human))
+        )
 
 
 def phrase_human():
     """What a human writer carries for the phrase stage, summed from the same table."""
-    return sum(rate for pattern, rate in HUMAN_RATE.items() if stage_of(pattern) == "phrase")
+    return sum(
+        rate for pattern, rate in HUMAN_RATE.items() if stage_of(pattern) == "phrase"
+    )
 
 
 def excess(pattern, rate):
@@ -436,7 +509,10 @@ def readable(pattern):
 
 def main():
     import io
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     show_people = "--people" in sys.argv
     tree = "--tree" in sys.argv
@@ -466,18 +542,26 @@ def main():
         paths = walk([os.path.abspath(one) for one in given])
         out.write("  SUBMISSION %s\n" % ", ".join(given))
 
-    named, lined, people, tally, words, read = counted(paths, base, show_people, out, clones)
+    named, lined, people, tally, words, read = counted(
+        paths, base, show_people, out, clones
+    )
 
-    out.write("\n  %d file(s) offered, %d read, %s words of prose\n"
-              % (len(paths), read, format(words, ",")))
+    out.write(
+        "\n  %d file(s) offered, %d read, %s words of prose\n"
+        % (len(paths), read, format(words, ","))
+    )
     if people and not show_people:
-        out.write("  %d line(s) carry the given name of a person. Run with --people to read them\n"
-                  % len(people))
+        out.write(
+            "  %d line(s) carry the given name of a person. Run with --people to read them\n"
+            % len(people)
+        )
 
     register(out, tally, words)
 
-    out.write("\n  %d name(s) in a path, %d in the text, %d register hit(s).\n"
-              % (len(named), len(lined), sum(tally.values())))
+    out.write(
+        "\n  %d name(s) in a path, %d in the text, %d register hit(s).\n"
+        % (len(named), len(lined), sum(tally.values()))
+    )
     out.write("  A person reads this. Nothing here is a verdict.\n")
     out.flush()
 

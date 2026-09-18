@@ -9,7 +9,7 @@
 # WHAT THIS GRADE IS AND WHAT IT IS NOT
 #
 # Two of these arms have hardware here and are run against the portable arm on real data. AVX-512
-# and SVE have no hardware here. The strongest available check is the one below: build for the
+# and SVE have no hardware here. The strongest available check: build for the
 # target, disassemble, and confirm the instructions the arm was written to use are the instructions
 # that came out.
 #

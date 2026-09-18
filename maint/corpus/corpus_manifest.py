@@ -255,7 +255,7 @@ def write_manifest(root, rows, out, name=NAME):
 
 
 def _main_checkout():
-    """The main working tree, which is the one the closed repositories sit beside.
+    """The main working treee.
 
     Deliberately NOT the tree this tool was run from. A linked worktree lives under
     <repo>/.claude/worktrees/<name>. A sibling path computed from it lands inside .claude/ and

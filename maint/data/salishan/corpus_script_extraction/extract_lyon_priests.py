@@ -610,8 +610,7 @@ def main():
 
     # A file of its own for what the tool could not sort: a line inside a story that none of the
     # tests typed, and a line no section reached, which here is the front matter and the prose
-    # introducing each story. The source is put through the same font repair before comparing, so
-    # that a correctly repaired word is not reported. What that repair does to English is reported:
+    # introducing each story. The source is put through the same font repair before comparing. What that repair does to English is reported:
     # it turns Pierre into ʔierre and Quilchena into ʕuilchena, and those arrive here as unreached.
     stuck = TARGET[:-4] + ".unclassifiable.tsv"
     flagged = [

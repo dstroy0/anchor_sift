@@ -45,8 +45,7 @@
 # as integers through representation.exact, because a shared position is decided by equality and
 # an equality decided on rounded values is not one.
 #
-# The general lesson is the one the subject's README already records twice: reach for the smallest
-# reading that answers the question. A measure that asks for more of the pipeline than it needs
+# A measure that asks for more of the pipeline than it needs
 # inherits every limit that pipeline has.
 #
 # WHAT THE READER WOULD DO TO THIS, AND WHAT IT ACTUALLY DOES TODAY
@@ -59,8 +58,7 @@
 # That is a latent hazard and not a live defect, and the distinction is worth stating precisely
 # . Two things keep it from biting today. `placed`
 # has no callers anywhere in this tree. And `along`, which every period measure here goes through,
-# does not overwrite at all: it gathers every value sitting at a coordinate into a sorted tuple, so
-# it returns the same arrangement whatever order the rows arrive in. That was checked.
+# does not overwrite at all: it gathers every value sitting at a coordinate into a sorted tuple.
 #
 # So no published result in this subject is affected. What is true is that the first reading to
 # reach for `placed` on a structure carrying shared positions inherits a silent dependence on file

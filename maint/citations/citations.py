@@ -182,7 +182,7 @@ LAYOUT_ENTRY = re.compile(r"^\s*([a-z_]+)\s*=\s*(.+?)\s*$")
 # the entry scanned zero files and reported zero findings, while maint/, evidence/ and test/ were
 # never named at all and so were never scanned either. A gate that reads nothing exits 0.
 #
-# Worth recording rather than quietly fixing: objective 5 moves the tools into tools/, which would
+# Worth recording  which would
 # have made that directory exist and REPAIRED this half by accident. The gate would have started
 # working and nobody would have learned it had been blind, nor that maint/ had never been in the
 # list in the first place. Inheriting a fix by luck is worse than making it, because the second
@@ -198,8 +198,7 @@ def layout_table():
     """The [layout] table of repotools.toml, every value as a tuple of names.
 
     Reads both spellings the table uses: `tools = "maint"` and `docs = ["docs", "theory"]`. An
-    absent file returns an empty table, which the caller turns into a stopped run rather than a
-    silent one.
+    absent file returns an empty table, which the caller turns into a stopped run.
     """
     path = os.path.join(ROOT, "repotools.toml")
     if not os.path.isfile(path):
@@ -224,7 +223,7 @@ def layout_table():
 def searched_names():
     """Every place this tree's own writing lives, resolved through repotools.toml.
 
-    Refuses rather than guesses, in all three ways it can be wrong: no table, a missing kind, or a
+    Refuses  or a
     named directory that is not on disk. Each of those otherwise reads as a smaller scan that
     reports fewer findings and exits 0, which is the failure this whole function is about.
     """
@@ -285,7 +284,7 @@ NOT_A_NAME = frozenset((
 
 
 def main_checkout():
-    """The main working tree, which is the one the private repositories sit beside.
+    """The main working tree
 
     A linked worktree lives at <repo>/.claude/worktrees/<name>. A sibling path computed from it
     lands inside .claude/ and finds nothing. Git knows the difference: --git-common-dir names the
@@ -308,8 +307,7 @@ def main_checkout():
 def private_candidates():
     """Every place the closed citations repository is looked for, in the order it is looked for.
 
-    Returned rather than searched inline so the caller can say what it looked for when it finds
-    nothing. A gate that reports only "not there" sends the reader to guess at paths, and the
+    Returned. A gate that reports only "not there" sends the reader to guess at paths, and the
     guessing is what left this tool pointing at private_repos/ for the whole of the migration.
     """
     base = main_checkout()
@@ -360,7 +358,7 @@ def is_generated(path):
     it. Such a row can never read as unused and --check cannot tell "cited by the work" from
     "listed in a bibliography the registry produced".
 
-    Keyed on the file's first line rather than a list of paths, because a path list is a second
+    Keyed on the file's first line  because a path list is a second
     place to remember something and the marker is already there. SKIP cannot reach this case: it
     filters directories, and this is a generated file inside a directory that is kept.
     """

@@ -75,8 +75,7 @@ def squashed(text, as_codes, widths):
     and the nearest eight from 73.3 to 76.2, closing the gap to the characters from 12.8 points to
     7.1. It does not fix the families, which stay at 8 of 22.
 
-    The widths are joined as they come. Each already sums to one, being shares of a whole text, so
-    what each level holds is conserved before anything is joined. Rescaling them to a common length
+    The widths are joined as they come. Each already sums to one, being shares of a whole text. Rescaling them to a common length
     was tried and is wrong: it makes a coarse level weigh the same as a fine one, when the
     difference between them is the reason for reading several in the first place.
     """
@@ -141,9 +140,11 @@ def deep_web(text, orders):
 
     parts = []
     for order, ranks in orders:
-        width = ranks ** order
+        width = ranks**order
         seat = {symbol: place for place, symbol in enumerate(ranked[:ranks])}
-        coded = numpy.asarray([seat.get(symbol, -1) for symbol in text], dtype=numpy.int64)
+        coded = numpy.asarray(
+            [seat.get(symbol, -1) for symbol in text], dtype=numpy.int64
+        )
         keep = coded >= 0
 
         # A run counts only where every symbol in it is inside the kept ranks
@@ -153,8 +154,8 @@ def deep_web(text, orders):
             shifted = numpy.roll(coded, -step)
             alive &= numpy.roll(keep, -step)
             placed = (placed * ranks) + numpy.where(shifted >= 0, shifted, 0)
-        placed = placed[:len(coded) - order + 1]
-        alive = alive[:len(coded) - order + 1]
+        placed = placed[: len(coded) - order + 1]
+        alive = alive[: len(coded) - order + 1]
 
         grid = numpy.zeros(width, dtype=numpy.float64)
         if int(alive.sum()) >= 1000:
@@ -230,8 +231,11 @@ def leave_one_out(rows):
         best = None
         picked = None
         for other in labels:
-            kept = [row[2] for position, row in enumerate(rows)
-                    if row[0] == other and position != index]
+            kept = [
+                row[2]
+                for position, row in enumerate(rows)
+                if row[0] == other and position != index
+            ]
             if not kept:
                 continue
             middle = numpy.mean(numpy.stack(kept), axis=0)

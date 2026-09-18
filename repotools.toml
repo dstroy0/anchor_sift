@@ -16,7 +16,7 @@ copyright = "Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>"
 prefix = "ANCHOR_SIFT"
 
 [layout]
-# This repository keeps its tools under maint/ and not tools/, which is the one line that differs
+# This repository keeps its tools under maint/ and not tools/, which differs
 # from the template. Every tool asks for the kind and never for the directory.
 source = ["src"]
 # Two theory trees. The workbook is authored here in theory/ because it is the book about this
@@ -57,7 +57,7 @@ gates = ["docs_check", "fetch_check"]
 [hooks.docs_check]
 # Named, because the prose checker lives in the toolkit's no_replicate_ set, which is local only and
 # never fetched. Every repository asking for this gate has to point at its own copy or the gate
-# refuses, and refusing is correct: it is the one check nothing can supply for you.
+# refuses, and refusing is correct.
 tool = "maint/prose/docs_check.py"
 roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "theory_bucket", "src", "examples",
          "maint"]

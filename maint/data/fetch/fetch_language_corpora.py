@@ -24,7 +24,9 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 OUT = os.path.join(ROOT, "build", "corpora")
 
@@ -46,8 +48,7 @@ WANTED = [
     (36248, "greek_iliad.txt", "Greek, Indo-European Hellenic, Greek script"),
     # Section 4.13.07 failed to find an epic register in the Greek Iliad, where an epithet declines
     # with its noun and no exact match survives. These two carry the register in a language that
-    # barely inflects, and the second is the same story as the Greek one. Both are single works, so
-    # neither carries the anthology structure that made the burst count meaningless.
+    # barely inflects, and the second is the same story as the Greek one. Both are single works.
     (26, "english_1667_milton_epic.txt", "English epic verse, single work, 1667"),
     (6130, "english_1720_pope_iliad_epic.txt", "English epic verse, single work, 1720"),
     # Section 4.13.08 cannot separate a drift rate from a change of genre. These three translate one
@@ -70,7 +71,11 @@ WANTED = [
     (10136, "kind_procedure_beeton.txt", "English, recipes and instructions, 1861"),
     (18, "kind_legal_federalist.txt", "English, political and legal argument, 1788"),
     (2591, "kind_folktale_grimm.txt", "English, folk narrative, 1812"),
-    (6763, "kind_philosophy_aristotle.txt", "English, philosophical criticism, translated"),
+    (
+        6763,
+        "kind_philosophy_aristotle.txt",
+        "English, philosophical criticism, translated",
+    ),
     (3300, "kind_economics_smith.txt", "English, economic treatise, 1776"),
 ]
 
@@ -100,10 +105,14 @@ def strip_boilerplate(text):
 
 def fetch(book_id):
     """Try the two layouts Gutenberg serves plain text under."""
-    for url in ("https://www.gutenberg.org/cache/epub/%d/pg%d.txt" % (book_id, book_id),
-                "https://www.gutenberg.org/files/%d/%d-0.txt" % (book_id, book_id)):
+    for url in (
+        "https://www.gutenberg.org/cache/epub/%d/pg%d.txt" % (book_id, book_id),
+        "https://www.gutenberg.org/files/%d/%d-0.txt" % (book_id, book_id),
+    ):
         try:
-            request = urllib.request.Request(url, headers={"User-Agent": "anchor-sift-research/1.0"})
+            request = urllib.request.Request(
+                url, headers={"User-Agent": "anchor-sift-research/1.0"}
+            )
             with urllib.request.urlopen(request, timeout=60) as response:
                 return response.read().decode("utf-8", "replace"), url
         except Exception:
@@ -134,7 +143,10 @@ def main():
 
         with open(target, "w", encoding="utf-8", newline="") as handle:
             handle.write(body)
-        print("  got    %-32s %-46s %d KB" % (name, what, len(body.encode("utf-8")) // 1024))
+        print(
+            "  got    %-32s %-46s %d KB"
+            % (name, what, len(body.encode("utf-8")) // 1024)
+        )
         taken += 1
 
     print("\n%d of %d corpora under build/corpora" % (taken, len(WANTED)))

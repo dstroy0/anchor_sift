@@ -72,8 +72,7 @@ OCCUPANCY = "_atom_site_occupancy"
 #
 # WHICH MEASURES THIS EVER PUT AT RISK, WHICH IS NARROWER THAN IT LOOKS
 #
-# Dropping these rows changes what site_text returns, and site_text is what exact_points reads, so
-# every exact reading in this subject saw different coordinates the moment the default changed. The
+# Dropping these rows changes what site_text returns, and site_text is what exact_points reads. The
 # published figures were re-read both ways over every entry carrying a dum row: no recovered period
 # moved and no agreement with a published edge flipped.
 #
@@ -174,8 +173,11 @@ def site_table(text, dummies=False):
         if not all(name in headers for name in FRACTIONS):
             continue
         spots = [headers.index(name) for name in FRACTIONS]
-        kind = headers.index("_atom_site_type_symbol") if "_atom_site_type_symbol" in headers \
+        kind = (
+            headers.index("_atom_site_type_symbol")
+            if "_atom_site_type_symbol" in headers
             else None
+        )
         share = headers.index(OCCUPANCY) if OCCUPANCY in headers else None
         flag = headers.index(CALC_FLAG) if CALC_FLAG in headers else None
         while index < len(lines):
@@ -184,13 +186,22 @@ def site_table(text, dummies=False):
                 break
             parts = row.split()
             if len(parts) >= len(headers):
-                if (not dummies) and (flag is not None) \
-                        and parts[flag].strip().lower() == DUMMY:
+                if (
+                    (not dummies)
+                    and (flag is not None)
+                    and parts[flag].strip().lower() == DUMMY
+                ):
                     index += 1
                     continue
-                rows.append((parts[spots[0]], parts[spots[1]], parts[spots[2]],
-                             parts[kind] if kind is not None else "X",
-                             parts[share] if share is not None else None))
+                rows.append(
+                    (
+                        parts[spots[0]],
+                        parts[spots[1]],
+                        parts[spots[2]],
+                        parts[kind] if kind is not None else "X",
+                        parts[share] if share is not None else None,
+                    )
+                )
             index += 1
     return rows
 
@@ -228,7 +239,11 @@ def exact_sites(text):
     skipped = 0
     for along_a, along_b, along_c, element, occupancy in site_table(text):
         try:
-            position = (exact.scaled(along_a), exact.scaled(along_b), exact.scaled(along_c))
+            position = (
+                exact.scaled(along_a),
+                exact.scaled(along_b),
+                exact.scaled(along_c),
+            )
         except ValueError:
             skipped += 1
             continue
@@ -244,8 +259,10 @@ def right_angled(raw):
     control in this work that is supposed to be beyond doubt.
     """
     try:
-        return all(abs(number(raw[angle]) - 90.0) <= RIGHT_ANGLE_SLACK
-                   for angle in ("alpha", "beta", "gamma"))
+        return all(
+            abs(number(raw[angle]) - 90.0) <= RIGHT_ANGLE_SLACK
+            for angle in ("alpha", "beta", "gamma")
+        )
     except ValueError:
         return False
 
@@ -285,9 +302,14 @@ def exact_points(text, tiles=EXACT_TILES, digits=exact.SCALE_DIGITS):
                     for row in rows:
                         along = []
                         for axis in range(3):
-                            fraction = exact.shifted(exact.units(row[axis]), offsets[axis])
-                            along.append(exact.at_scale(*exact.product(fraction, edges[axis]),
-                                                        digits=digits))
+                            fraction = exact.shifted(
+                                exact.units(row[axis]), offsets[axis]
+                            )
+                            along.append(
+                                exact.at_scale(
+                                    *exact.product(fraction, edges[axis]), digits=digits
+                                )
+                            )
                         points.append(((along[0], along[1], along[2]), row[3]))
         published = tuple(exact.at_scale(*edge, digits=digits) for edge in edges)
     except exact.WillNotFit:
@@ -354,7 +376,9 @@ def voxel_grid(cell, sites, voxel=VOXEL, tiles=None):
     if (tiles is None) or (not sites):
         return None, None
 
-    shape = tuple(max(1, int(round(tiles * cell[axis] / voxel))) for axis in ("a", "b", "c"))
+    shape = tuple(
+        max(1, int(round(tiles * cell[axis] / voxel))) for axis in ("a", "b", "c")
+    )
     if min(shape) < 8:
         return None, None
 

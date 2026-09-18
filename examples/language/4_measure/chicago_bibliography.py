@@ -14,8 +14,7 @@
 # and how many works a writer has in it follows their popularity.
 #
 # This collection is 1276 novels published before 1923, prepared the same way as each other, and it
-# answers in a machine readable form. What is wanted from it first is only the list: who wrote what, so
-# the writers carrying enough works can be found before anything is downloaded.
+# answers in a machine readable form. What is wanted from it first is only the list: who wrote what.
 
 import io
 import json
@@ -44,8 +43,10 @@ def ask(start, end, tries=4):
     It answered a first probe and then timed out on the next request. A single failure says nothing
     about whether the collection is reachable, and it should not end the run.
     """
-    url = ("%s/reports/bibliography.py?report=bibliography&format=json&start=%d&end=%d"
-           % (BASE, start, end))
+    url = (
+        "%s/reports/bibliography.py?report=bibliography&format=json&start=%d&end=%d"
+        % (BASE, start, end)
+    )
     last = None
     for attempt in range(tries):
         try:
@@ -54,12 +55,14 @@ def ask(start, end, tries=4):
                 return json.loads(response.read().decode("utf-8", errors="replace"))
         except Exception as trouble:
             last = trouble
-            time.sleep(PAUSE * (2 ** attempt))
+            time.sleep(PAUSE * (2**attempt))
     raise last
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     first = ask(0, 1)
     total = int(first.get("results_length", 0))
@@ -79,38 +82,57 @@ def main():
             break
         for entry in found:
             fields = entry.get("metadata_fields", {})
-            rows.append({
-                "author": (fields.get("author") or "").strip(),
-                "title": (fields.get("title") or "").strip().replace(",", ";"),
-                "year": (fields.get("year") or fields.get("date") or "").strip(),
-                "filename": (fields.get("filename") or "").strip(),
-                "philo": entry.get("philo_id", [None])[0],
-            })
+            rows.append(
+                {
+                    "author": (fields.get("author") or "").strip(),
+                    "title": (fields.get("title") or "").strip().replace(",", ";"),
+                    "year": (fields.get("year") or fields.get("date") or "").strip(),
+                    "filename": (fields.get("filename") or "").strip(),
+                    "philo": entry.get("philo_id", [None])[0],
+                }
+            )
         start += PAGE
         time.sleep(PAUSE)
 
     with open(TARGET, "w", encoding="utf-8", newline="") as handle:
         handle.write("philo,author,year,title,filename\n")
         for row in rows:
-            handle.write("%s,%s,%s,%s,%s\n" % (row["philo"], row["author"].replace(",", ";"),
-                                               row["year"], row["title"][:70], row["filename"]))
+            handle.write(
+                "%s,%s,%s,%s,%s\n"
+                % (
+                    row["philo"],
+                    row["author"].replace(",", ";"),
+                    row["year"],
+                    row["title"][:70],
+                    row["filename"],
+                )
+            )
 
     counts = {}
     for row in rows:
         if row["author"]:
             counts.setdefault(row["author"], []).append(row)
 
-    many = sorted((author for author in counts if len(counts[author]) >= ENOUGH),
-                  key=lambda author: -len(counts[author]))
-    out.write("  %d of %d novels name an author, %d writers have %d works or more\n\n"
-              % (sum(len(counts[author]) for author in counts), len(rows), len(many), ENOUGH))
+    many = sorted(
+        (author for author in counts if len(counts[author]) >= ENOUGH),
+        key=lambda author: -len(counts[author]),
+    )
+    out.write(
+        "  %d of %d novels name an author, %d writers have %d works or more\n\n"
+        % (sum(len(counts[author]) for author in counts), len(rows), len(many), ENOUGH)
+    )
     out.write("  %-38s %-7s %s\n" % ("writer", "works", "years"))
     for author in many[:30]:
         held = counts[author]
         years = sorted(row["year"] for row in held if row["year"])
-        out.write("  %-38s %-7d %s\n"
-                  % (author[:38], len(held),
-                     ("%s to %s" % (years[0], years[-1])) if years else "unknown"))
+        out.write(
+            "  %-38s %-7d %s\n"
+            % (
+                author[:38],
+                len(held),
+                ("%s to %s" % (years[0], years[-1])) if years else "unknown",
+            )
+        )
 
     out.write("\n  wrote %s\n" % TARGET)
     out.flush()

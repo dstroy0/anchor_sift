@@ -17,8 +17,7 @@
 # cut a corner from.
 #
 # Tracing produces the actual boundary: every edge with a set cell on one side and an unset cell on
-# the other, chained into closed loops. Two set cells touching contribute no edge between them, so
-# the outline is one continuous path around the shape and there is nothing to seam.
+# the other, chained into closed loops. Two set cells touching contribute no edge between them.
 #
 # HOLES COME FREE, AND THE FILL RULE IS WHY
 #
@@ -172,8 +171,7 @@ def straightened(ring):
 def chaikin(ring, passes):
     """The ring with its corners cut, `passes` times, by Chaikin's rule.
 
-    Each pass replaces every corner with two points a quarter and three quarters along its edges, so
-    the ring keeps its shape and loses its sharpest angles. It invents no curve the dotmap did not
+    Each pass replaces every corner with two points a quarter and three quarters along its edges. It invents no curve the dotmap did not
     imply, which is the reason to prefer it here over fitting splines.
     """
     for _ in range(max(0, passes)):

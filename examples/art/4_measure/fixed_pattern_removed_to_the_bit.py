@@ -33,8 +33,7 @@
 # it is why cameras need a dark frame or motion. A scene feature that never moves -- a pixel that is
 # bright in every frame in the same place -- is indistinguishable from a fixed pattern, because both
 # are a constant per-pixel offset across the stack. This removes it along with the noise, and the
-# reduction falls by exactly the static feature's energy. That is not a defect. Noise shaped exactly
-# like the signal is the one thing no instrument can reject, and a static object is signal shaped
+# reduction falls by exactly the static feature's energy. That is not a defect. A static object is signal shaped
 # exactly like fixed-pattern noise.
 #
 # A native-C route is the natural hardening and is not claimed here.

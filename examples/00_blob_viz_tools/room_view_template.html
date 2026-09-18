@@ -1252,8 +1252,8 @@
       }
 
       // A halo belongs to the interior as much as the light does. At full size it reaches past the
-      // shell and draws light outside a boundary nothing inside is able to cross, and that is the one
-      // claim this room is making. Capped by the room left, measured the same way the wall is.
+      // shell and draws light outside a boundary nothing inside is able to cross.
+      // Capped by the room left, measured the same way the wall is.
       var slack = Math.max(0, 1 - measure(kind, atX[k], atY[k], atZ[k], across, upright, norm));
       haloAt[k * 3] = atX[k];
       haloAt[k * 3 + 1] = atY[k];

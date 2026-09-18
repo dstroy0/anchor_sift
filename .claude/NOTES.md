@@ -101,8 +101,8 @@ After applying sparse-checkout, count the entries under the mount, compare again
 **Keep `get_deps.py` for exactly the two closed edges.** Lines 56-57 read the addresses from
 `ANCHOR_SIFT_PRIVATE_REPO` and `ANCHOR_SIFT_CITATIONS_REPO` precisely so the private repository
 names are absent from this public tree. A submodule with a literal URL would write those names into
-a public `.gitmodules`, which is strictly more disclosure than today. This is the one documented
-exception in the standard, and it is documented.
+a public `.gitmodules`, which is strictly more disclosure than today. This is the only documented
+exception in the standard.
 
 `deps/mmgr/.claude/` belongs to that vendored checkout. It is not this repository's and nothing in
 this objectives pass touches it.
@@ -260,7 +260,7 @@ Everything that has to move with it:
   last being `corpus-derivation.pdf`, a tracked binary among theory_bucket's 81 files). Under the mount these become generators writing into
   a dependency, and under the refusal rule they turn the next bootstrap into a refusal. Either the
   generator writes upstream and the chapter returns through the dep, or generated chapters land
-  outside the mount and are `\input`. This is the one place the move makes a workflow worse and no
+  outside the mount and are `\input`. This move makes a workflow worse and no
   mechanism resolves it.
 - **The reproduction-path convention.** `preamble.tex:10` in the workbook and in every book under
   `theory_bucket/` names `maint/texbuild/build_theory.sh`. A bare repo-relative path means the

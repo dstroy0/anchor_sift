@@ -267,8 +267,7 @@ def main():
         out.flush()
         return 1
 
-    # This PDF leaves a space after 856 of its glottalization marks, the most of any paper here, so
-    # c̓ʔáq̓ʷ ‘wet’ arrives as three tokens and k̓ʷén̓s ‘she looked at it’ as two. Closed on the way
+    # This PDF leaves a space after 856 of its glottalization marks, the most of any paper here. Closed on the way
     # in. The stress accents are left alone, for the reason inserted_space.py gives.
     with open(SOURCE, encoding="utf-8", errors="replace") as handle:
         lines = [closed_spaces(one) for one in handle.read().splitlines()]

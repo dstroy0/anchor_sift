@@ -21,8 +21,7 @@
 #                       reason was that the papers are not English.
 #   claudese_distance   put the Salishan extraction scripts furthest from the assistant pole. They
 #                       were matching the papers on Salishan, not on register.
-#   ban_evidence        divided phrase counts by a word total padded with non-English tokens, so
-#                       every per-100k rate it reported was low.
+#   ban_evidence        divided phrase counts by a word total padded with non-English tokens.
 #
 # prose_era did not have the fault, because it counted ASCII words only. This is that fix, taken out
 # of one file and made shared, and applied to both sides of every comparison.
@@ -155,11 +154,16 @@ def english_words(text):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     counts, total, lines = reference()
     cut = _default_cut()
     out.write("\n  reference: %d byte pairs over %d lines\n" % (total, lines))
-    out.write("  cut: %.4f bits per pair, the reference's own median times %.2f\n" % (cut, SLACK))
+    out.write(
+        "  cut: %.4f bits per pair, the reference's own median times %.2f\n"
+        % (cut, SLACK)
+    )
 
     papers = os.path.join(ROOT, "build", "papers")
     corpora = os.path.join(ROOT, "build", "corpora")
@@ -168,7 +172,9 @@ def main():
         held = []
         for name in sorted(os.listdir(papers)):
             if name.endswith(".txt"):
-                with open(os.path.join(papers, name), encoding="utf-8", errors="replace") as one:
+                with open(
+                    os.path.join(papers, name), encoding="utf-8", errors="replace"
+                ) as one:
                     held.append(one.read())
         targets.append(("research papers", "\n".join(held)))
     claude = os.path.join(corpora, "claude_prose.txt")
@@ -176,15 +182,19 @@ def main():
         with open(claude, encoding="utf-8", errors="replace") as one:
             targets.append(("fetched assistant prose", one.read()))
 
-    out.write("\n  %-26s %12s %12s %12s %s\n"
-              % ("corpus", "words in", "words kept", "ascii kept", "share"))
+    out.write(
+        "\n  %-26s %12s %12s %12s %s\n"
+        % ("corpus", "words in", "words kept", "ascii kept", "share")
+    )
     for name, text in targets:
         before = len(text.split())
         gated = english_only(text, cut)
         after = len(gated.split())
         ascii_kept = len(english_words(gated))
-        out.write("  %-26s %12d %12d %12d %.2f\n"
-                  % (name, before, after, ascii_kept, ascii_kept / float(max(1, before))))
+        out.write(
+            "  %-26s %12d %12d %12d %.2f\n"
+            % (name, before, after, ascii_kept, ascii_kept / float(max(1, before)))
+        )
     out.write("\n  no sample of any corpus is printed. These are counts.\n\n")
     out.flush()
     return 0

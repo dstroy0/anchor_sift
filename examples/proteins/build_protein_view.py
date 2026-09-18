@@ -50,7 +50,7 @@ CONSTITUENT = ("N", "CA", "C")
 def bin_two_degrees(radians):
     """Quantize an angle to the nearest Richardson two-degree grid center, in radians.
 
-    Two degrees is the reference's grid, not a number chosen here. It is the one quantum the walk is
+    Two degrees is the reference's grid, not a number chosen here. It is
     given for direction, and it is the same grid ramachandran_rules scores a residue against.
     """
     degrees = numpy.degrees(radians)

@@ -25,8 +25,8 @@
 # line by minimising squared error, and a single outlier drags it because a square rewards the fit for
 # chasing the far point. Theil-Sen and least-squares therefore return DIFFERENT slopes on the same data
 # whenever an outlier is present, and that gap is not a bug to reconcile: it is the measurement of what
-# a square costs. Where the data is clean the two agree; where it is not, the robust route is the one
-# that kept the slope and the square is the wrong reference.
+# a square costs. Where the data is clean the two agree; where it is not, the robust route
+# kept the slope and the square is the wrong reference.
 #
 # NOTHING IS BOUNDED HERE. The slope is a median, a rank, not a residual threshold chosen by anyone. The
 # arithmetic is exact rational. A clean line is recovered to the last digit. The floor is stated and

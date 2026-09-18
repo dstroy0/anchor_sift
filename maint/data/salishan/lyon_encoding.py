@@ -75,7 +75,11 @@ def moved_marks(token):
     while at < len(token):
         symbol = token[at]
         combining = MOVED.get(symbol)
-        if (combining is not None) and ((at + 1) < len(token)) and token[at + 1].isalpha():
+        if (
+            (combining is not None)
+            and ((at + 1) < len(token))
+            and token[at + 1].isalpha()
+        ):
             out.append(token[at + 1])
             out.append(combining)
             at += 2
@@ -194,14 +198,16 @@ def lengthened(line):
         end = at
         while (end < len(line)) and (line[end] == ";"):
             end += 1
-        after = line[end:end + 2]
+        after = line[end : end + 2]
         # The letter it lengthens comes next, and one of two things can stand between. A spacing
         # mark waiting for that letter, as ’kwu;’l-s has. An inserted space in front of that mark,
         # as qw@mí;; ’wt has. A space with a plain letter after it is the sentence carrying on,
         # and that keeps níkmən; iP apart.
-        carries = bool(after) and (after[0].isalpha() or (after[0] in MOVED)
-                                   or ((after[0] == " ") and (len(after) > 1)
-                                       and (after[1] in MOVED)))
+        carries = bool(after) and (
+            after[0].isalpha()
+            or (after[0] in MOVED)
+            or ((after[0] == " ") and (len(after) > 1) and (after[1] in MOVED))
+        )
         out.append(("·" * (end - at)) if carries else line[at:end])
         at = end
     return "".join(out)
@@ -220,7 +226,9 @@ def labialized(line):
     for symbol in line:
         if (symbol == "w") and out:
             at = len(out) - 1
-            while (at >= 0) and ((out[at] in TRANSPARENT) or unicodedata.combining(out[at])):
+            while (at >= 0) and (
+                (out[at] in TRANSPARENT) or unicodedata.combining(out[at])
+            ):
                 at -= 1
             if (at >= 0) and (out[at].lower() in LABIALIZED):
                 out.append("ʷ")
@@ -253,8 +261,7 @@ def drafted(line):
 
     Gating it on salish() instead is worse and was measured: the drafted ʷ count falls from 1624 to
     1172 on 19-Lyon and from 1729 to 1017 on Lindley, and the tree goes from 214 disagreements to
-    827. salish() asks for a mark of the orthography or a medial P, and kwukw carries neither, so
-    the tokens that most need labializing are exactly the ones that gate turns off.
+    827. salish() asks for a mark of the orthography or a medial P, and kwukw carries neither.
 
     a_gloss() does not separate them either: it wants a run of two capitals, and backwards has
     none. What actually distinguishes them is the line, not the token, since the five-line

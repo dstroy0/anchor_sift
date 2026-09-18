@@ -24,8 +24,7 @@
 # The product rule predicts survivors as the product of the anchors' own rates. An anchor is
 # `element E at displacement d`, and the rate it is given credit for is how often E occurs.
 #
-# In a structure with one element every anchor matches compositionally at every occupied place, so
-# each rate is 1 and the rule predicts that nothing is filtered. What actually filters an alignment
+# In a structure with one element every anchor matches compositionally at every occupied place. What actually filters an alignment
 # there is whether the displacement lands on an occupied place at all, which is geometry and which
 # the rule does not model. So the rule OVER predicts and the ratio falls below one.
 #
@@ -64,8 +63,15 @@ def rows(path):
             if len(parts) != 6:
                 continue
             try:
-                found.append((parts[0], int(parts[1]), int(parts[2]),
-                              float(parts[3]), float(parts[4])))
+                found.append(
+                    (
+                        parts[0],
+                        int(parts[1]),
+                        int(parts[2]),
+                        float(parts[3]),
+                        float(parts[4]),
+                    )
+                )
             except ValueError:
                 continue
     return found
@@ -76,17 +82,23 @@ def main():
     parser.add_argument("run", help="output file of lattice_breaks_the_product_rule.py")
     args = parser.parse_args()
 
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     out.write("\n  run %s\n\n" % args.run)
 
     if not os.path.isfile(args.run):
-        out.write("  REFUSED: no file at that path. This is not a split of zero rows.\n\n")
+        out.write(
+            "  REFUSED: no file at that path. This is not a split of zero rows.\n\n"
+        )
         out.flush()
         return 1
 
     found = rows(args.run)
     if not found:
-        out.write("  REFUSED: no data rows parsed out of that file. This is not a split of zero.\n\n")
+        out.write(
+            "  REFUSED: no data rows parsed out of that file. This is not a split of zero.\n\n"
+        )
         out.flush()
         return 1
 
@@ -94,28 +106,42 @@ def main():
     several = [row for row in found if row[2] > 1]
 
     out.write("  %d structures in the run\n\n" % len(found))
-    out.write("  %-26s %-10s %-12s %s\n" % ("population", "structures", "median", "share over 1"))
+    out.write(
+        "  %-26s %-10s %-12s %s\n"
+        % ("population", "structures", "median", "share over 1")
+    )
 
-    for name, group in (("one element", single), ("more than one element", several),
-                        ("every structure", found)):
+    for name, group in (
+        ("one element", single),
+        ("more than one element", several),
+        ("every structure", found),
+    ):
         if not group:
             out.write("  %-26s %-10d %-12s %s\n" % (name, 0, "none", "none"))
             continue
         medians = [row[3] for row in group]
         over = sum(1 for value in medians if value > 1.0)
-        out.write("  %-26s %-10d %-12.2f %.1f%%\n"
-                  % (name, len(group), statistics.median(medians), 100.0 * over / len(group)))
+        out.write(
+            "  %-26s %-10d %-12.2f %.1f%%\n"
+            % (name, len(group), statistics.median(medians), 100.0 * over / len(group))
+        )
 
-    out.write("\n  These are medians OF PER-STRUCTURE MEDIANS, read off the table the run wrote.\n")
-    out.write("  The cascade's own closing figure is a median over every needle and is not this.\n\n")
+    out.write(
+        "\n  These are medians OF PER-STRUCTURE MEDIANS, read off the table the run wrote.\n"
+    )
+    out.write(
+        "  The cascade's own closing figure is a median over every needle and is not this.\n\n"
+    )
 
     out.write("  %-12s %-12s %s\n" % ("elements", "structures", "median of medians"))
     counts = {}
     for row in found:
         counts.setdefault(row[2], []).append(row[3])
     for elements in sorted(counts):
-        out.write("  %-12d %-12d %.2f\n"
-                  % (elements, len(counts[elements]), statistics.median(counts[elements])))
+        out.write(
+            "  %-12d %-12d %.2f\n"
+            % (elements, len(counts[elements]), statistics.median(counts[elements]))
+        )
     out.write("\n")
 
     out.flush()

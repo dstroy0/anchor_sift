@@ -11,8 +11,7 @@
 # periodic background groups the positions congruent modulo a period and averages each group; the
 # group key is a POSITION. This groups the positions that carry the same surrounding CONTEXT and
 # averages each group; the group key is a piece of CONTENT. Everything else is identical, and that is
-# the point: non-local means and a comb filter are one operation over two different groupings, so
-# nothing is ported between them.
+# the point: non-local means and a comb filter are one operation over two different groupings.
 #
 # The invariant it rejects against is repetition of context. A motif that occurs many times, at
 # positions with no period between them, gives many places that share one context. If the noise on the
@@ -51,8 +50,8 @@ def context_of(values, index, radius):
     """
     if (index < radius) or (index + radius >= len(values)):
         return None
-    left = tuple(values[index - radius:index])
-    right = tuple(values[index + 1:index + 1 + radius])
+    left = tuple(values[index - radius : index])
+    right = tuple(values[index + 1 : index + 1 + radius])
     return left + right
 
 

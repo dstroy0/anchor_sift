@@ -13,8 +13,7 @@
 # between two books that happen to be in different languages, and nothing in the measurement separates the
 # two.
 #
-# A translation of one text into many languages removes it. The content is held fixed by construction, so
-# what remains between two versions is the language. It also reaches languages a book catalog does not
+# A translation of one text into many languages removes it. The content is held fixed by construction. It also reaches languages a book catalog does not
 # carry, including Vietnamese and Urdu, and it reaches them without hammering an encyclopedia that has
 # been refusing these requests all evening.
 #
@@ -35,7 +34,9 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
 AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
@@ -46,18 +47,61 @@ PAUSE = 0.6
 LEAST = 60000
 
 NAMES = {
-    "vi": "vietnamese", "ur": "urdu", "hi": "hindi", "bn": "bengali", "ta": "tamil",
-    "ko": "korean", "id": "indonesian", "uk": "ukrainian", "ar": "arabic", "fa": "persian",
-    "th": "thai", "sw": "swahili", "tr": "turkish", "ms": "malay", "he": "hebrew",
-    "el": "greek", "ru": "russian", "pl": "polish", "cs": "czech", "hu": "hungarian",
-    "fi": "finnish", "de": "german", "es": "spanish", "fr": "french", "it": "italian",
-    "nl": "dutch", "sv": "swedish", "da": "danish", "no": "norwegian", "ro": "romanian",
-    "pt": "portuguese", "zh": "chinese", "ja": "japanese", "af": "afrikaans",
-    "eo": "esperanto", "et": "estonian", "lt": "lithuanian", "lv": "latvian",
-    "sl": "slovenian", "sq": "albanian", "hy": "armenian", "ka": "georgian",
-    "kk": "kazakh", "my": "burmese", "ne": "nepali", "mr": "marathi", "te": "telugu",
-    "ml": "malayalam", "gu": "gujarati", "pa": "punjabi", "am": "amharic",
-    "ceb": "cebuano", "tl": "tagalog", "mg": "malagasy", "ht": "haitian",
+    "vi": "vietnamese",
+    "ur": "urdu",
+    "hi": "hindi",
+    "bn": "bengali",
+    "ta": "tamil",
+    "ko": "korean",
+    "id": "indonesian",
+    "uk": "ukrainian",
+    "ar": "arabic",
+    "fa": "persian",
+    "th": "thai",
+    "sw": "swahili",
+    "tr": "turkish",
+    "ms": "malay",
+    "he": "hebrew",
+    "el": "greek",
+    "ru": "russian",
+    "pl": "polish",
+    "cs": "czech",
+    "hu": "hungarian",
+    "fi": "finnish",
+    "de": "german",
+    "es": "spanish",
+    "fr": "french",
+    "it": "italian",
+    "nl": "dutch",
+    "sv": "swedish",
+    "da": "danish",
+    "no": "norwegian",
+    "ro": "romanian",
+    "pt": "portuguese",
+    "zh": "chinese",
+    "ja": "japanese",
+    "af": "afrikaans",
+    "eo": "esperanto",
+    "et": "estonian",
+    "lt": "lithuanian",
+    "lv": "latvian",
+    "sl": "slovenian",
+    "sq": "albanian",
+    "hy": "armenian",
+    "ka": "georgian",
+    "kk": "kazakh",
+    "my": "burmese",
+    "ne": "nepali",
+    "mr": "marathi",
+    "te": "telugu",
+    "ml": "malayalam",
+    "gu": "gujarati",
+    "pa": "punjabi",
+    "am": "amharic",
+    "ceb": "cebuano",
+    "tl": "tagalog",
+    "mg": "malagasy",
+    "ht": "haitian",
 }
 
 
@@ -69,17 +113,31 @@ def get(url, timeout=180):
 
 def offered():
     """Which languages the parallel corpus holds."""
-    payload = json.loads(get(API + "?" + urllib.parse.urlencode(
-        {"corpus": CORPUS, "languages": "True"})).decode("utf-8"))
+    payload = json.loads(
+        get(
+            API + "?" + urllib.parse.urlencode({"corpus": CORPUS, "languages": "True"})
+        ).decode("utf-8")
+    )
     values = payload if isinstance(payload, list) else list(payload.values())[0]
     return [str(one) for one in values]
 
 
 def link_for(code):
     """The download the corpus offers for one language on its own."""
-    payload = json.loads(get(API + "?" + urllib.parse.urlencode(
-        {"corpus": CORPUS, "source": code, "preprocessing": "mono",
-         "version": "latest"})).decode("utf-8"))
+    payload = json.loads(
+        get(
+            API
+            + "?"
+            + urllib.parse.urlencode(
+                {
+                    "corpus": CORPUS,
+                    "source": code,
+                    "preprocessing": "mono",
+                    "version": "latest",
+                }
+            )
+        ).decode("utf-8")
+    )
     entries = payload.get("corpora", []) if isinstance(payload, dict) else []
     for entry in entries:
         url = entry.get("url", "")
@@ -89,7 +147,9 @@ def link_for(code):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
 
     try:
@@ -100,7 +160,10 @@ def main():
         return 1
 
     wanted = [code for code in NAMES if code in have]
-    out.write("  the corpus holds %d languages, %d of them named here\n\n" % (len(have), len(wanted)))
+    out.write(
+        "  the corpus holds %d languages, %d of them named here\n\n"
+        % (len(have), len(wanted))
+    )
     out.write("  %-14s %-10s %s\n" % ("language", "characters", "note"))
 
     landed = 0
@@ -120,6 +183,7 @@ def main():
             blob = get(url)
             if url.endswith(".gz"):
                 import gzip
+
                 blob = gzip.decompress(blob)
             text = blob.decode("utf-8", errors="replace")
         except Exception as trouble:

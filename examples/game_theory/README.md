@@ -94,7 +94,7 @@ numbers that existed before this code did, and one deliberately broken generator
 Kiwipete is in there for a specific reason: the opening position does not exercise castling, en
 passant or promotion. A generator can be wrong in three ways and still pass perft from the start.
 
-The blackjack dealer bust rate is the one check with a window, and the window is stated in the call
+The blackjack dealer bust rate is a windowed check, and the window is stated in the call
 rather than chosen until the result passed. The published figure is quoted for an infinite deck and
 this is one deck with three cards already removed. The two differ by composition. Standing on 16
 wins only where the dealer busts, which is why that single number checks the whole dealer rule.
@@ -157,7 +157,7 @@ python examples/game_theory/2_partition/what_the_branching_costs.py 5
 python examples/game_theory/3_reference/what_random_play_reaches.py 20000
 ```
 
-Stage six is the one to run first -- it is the positive control, it takes a few seconds, and nothing
+Stage six is the positive control, it takes a few seconds, and nothing
 else in the subject means anything if it fails. Stage two is the slow one: its chess arm is a perft
 and the node count is exponential. Passing a larger ply count costs what the game charges.
 

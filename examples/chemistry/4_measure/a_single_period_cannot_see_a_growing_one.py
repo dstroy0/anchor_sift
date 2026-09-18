@@ -3,8 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: CHM-4-002
 #
-# A single-period reader recovers a constant recurrence and goes blind on a growing one, so
-# the periodic recurrence along Z needs its shell boundaries supplied from outside.
+# A single-period reader recovers a constant recurrence and goes blind on a growing one.
 #
 #   Usage:  python examples/chemistry/4_measure/a_single_period_cannot_see_a_growing_one.py
 #
@@ -98,7 +97,9 @@ def partition_agreement(series, boundaries):
     supervised, supplied from outside, not found in the series.
     """
     edges = list(boundaries) + [len(series)]
-    segments = [series[edges[index]:edges[index + 1]] for index in range(len(boundaries))]
+    segments = [
+        series[edges[index] : edges[index + 1]] for index in range(len(boundaries))
+    ]
     reference = segments[0]
     matched = 0
     compared = 0
@@ -143,20 +144,45 @@ def read_one(name, segment_lengths, out):
     agreement_null = shuffle_band_agreement(series, boundaries, DRAWS)
     route_two_departs = agreement > agreement_null
 
-    out.write("  %-10s %-8d %8.3f %10.3f %-8s %8.3f %10.3f %-8s\n"
-              % (name, len(series), margin, margin_null,
-                 "departs" if route_one_departs else "flat",
-                 agreement, agreement_null,
-                 "departs" if route_two_departs else "flat"))
+    out.write(
+        "  %-10s %-8d %8.3f %10.3f %-8s %8.3f %10.3f %-8s\n"
+        % (
+            name,
+            len(series),
+            margin,
+            margin_null,
+            "departs" if route_one_departs else "flat",
+            agreement,
+            agreement_null,
+            "departs" if route_two_departs else "flat",
+        )
+    )
     return route_one_departs, route_two_departs
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  A recurrence read two ways. Route one estimates a single period; route two is handed\n")
-    out.write("  the boundaries. Each is read against its own shuffle of the same values.\n\n")
-    out.write("  %-10s %-8s %8s %10s %-8s %8s %10s %-8s\n"
-              % ("sequence", "length", "margin", "null high", "route1", "agree", "null high", "route2"))
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  A recurrence read two ways. Route one estimates a single period; route two is handed\n"
+    )
+    out.write(
+        "  the boundaries. Each is read against its own shuffle of the same values.\n\n"
+    )
+    out.write(
+        "  %-10s %-8s %8s %10s %-8s %8s %10s %-8s\n"
+        % (
+            "sequence",
+            "length",
+            "margin",
+            "null high",
+            "route1",
+            "agree",
+            "null high",
+            "route2",
+        )
+    )
 
     # Positive control: a constant recurrence. The single-period reader is built for this case. Both
     # routes must depart from the shuffle. Segment length five, repeated enough to read at lag sixteen.
@@ -166,25 +192,45 @@ def main():
     # reader must go flat while the supervised partition departs.
     growing_one, growing_two = read_one("growing", [4, 6, 8, 10, 12, 14, 16], out)
 
-    out.write("\n  positive control: the constant recurrence departs on both routes, %s and %s.\n"
-              % ("route one " + ("yes" if constant_one else "no"),
-                 "route two " + ("yes" if constant_two else "no")))
-    out.write("  the trap: on the growing recurrence route one is %s and route two is %s. The single\n"
-              % ("flat" if not growing_one else "departing",
-                 "departs" if growing_two else "flat"))
-    out.write("  period cannot see a boundary that moves; the supplied partition can.\n")
+    out.write(
+        "\n  positive control: the constant recurrence departs on both routes, %s and %s.\n"
+        % (
+            "route one " + ("yes" if constant_one else "no"),
+            "route two " + ("yes" if constant_two else "no"),
+        )
+    )
+    out.write(
+        "  the trap: on the growing recurrence route one is %s and route two is %s. The single\n"
+        % (
+            "flat" if not growing_one else "departing",
+            "departs" if growing_two else "flat",
+        )
+    )
+    out.write(
+        "  period cannot see a boundary that moves; the supplied partition can.\n"
+    )
 
-    disagree = (growing_one != growing_two)
-    out.write("  two routes, shown able to disagree: on the growing recurrence they %s. Neither route\n"
-              % ("disagree" if disagree else "agree"))
+    disagree = growing_one != growing_two
+    out.write(
+        "  two routes, shown able to disagree: on the growing recurrence they %s. Neither route\n"
+        % ("disagree" if disagree else "agree")
+    )
     out.write("  is the other twice.\n")
 
     # The whole reading holds when: the constant case departs on both, the growing case is flat on the
     # single period and departs on the partition, and the two routes therefore disagree on the growing
     # case. Anything else means a control did not hold.
-    ok = (constant_one and constant_two and (not growing_one) and growing_two and disagree)
-    out.write("\n  %s\n" % ("every control held." if ok
-                            else "a control did not hold; read the rows above."))
+    ok = (
+        constant_one and constant_two and (not growing_one) and growing_two and disagree
+    )
+    out.write(
+        "\n  %s\n"
+        % (
+            "every control held."
+            if ok
+            else "a control did not hold; read the rows above."
+        )
+    )
     out.flush()
     return 0 if ok else 1
 

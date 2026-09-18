@@ -74,8 +74,18 @@ class Paper(object):
     check reports. It is a measurement to run and not an edit to make quietly.
     """
 
-    def __init__(self, stem, oracle, record, language, speakers=(), marks=SHARED, repair=None,
-                 coverage=None, note=""):
+    def __init__(
+        self,
+        stem,
+        oracle,
+        record,
+        language,
+        speakers=(),
+        marks=SHARED,
+        repair=None,
+        coverage=None,
+        note="",
+    ):
         self.stem = stem
         self.oracle = oracle
         self.record = record
@@ -235,7 +245,7 @@ ELMENDORF_COMPARATIVE = "?ə" + "čšɬƛθɪᴀ" + "ʷʸ" + "áäéíóú" + "�
 # Hamp on Tillamook. This paper cites no words: what it sets out is four consonant inventories and
 # two feature matrices. Its language content is segments and not forms.
 #
-# Reichard's chart is the one of the four that carries the plain lateral affricate as well as the
+# Reichard's chart carries the plain lateral affricate as well as the
 # glottalized, the other three carrying the glottalized alone. That is a fact about the charts and
 # not about this set, because SHARED already holds ƛ; naming it here as an addition would be a
 # character that changes nothing and a comment that reads as though it does.
@@ -289,8 +299,7 @@ GIVENS_HALL_NLEKEPMXCIN = SHARED + "́" + "̣"
 #
 # Written as seven patterns and not as a rule mapping every Cw to Cʷ. The rule is the guess
 # draft_page_text.py already makes and papers.py already warns about, that page kʷ and page wist both
-# arrive as w and a draft labializes whichever consonant takes it. Here the sites are counted, so
-# each pattern is evidence about one word. None of them is a rule about a letter.
+# arrive as w and a draft labializes whichever consonant takes it. Here the sites are counted.
 GIVENS_HALL_FLATTENED = (
     ("xwúy̓", "xʷúy̓"),
     ("xwʔít", "xʷʔít"),
@@ -307,310 +316,391 @@ GIVENS_HALL_FLATTENED = (
 # never says who spoke, the list is empty and the index prints that. A linguist's name never goes in
 # the slot: they wrote the paper down, and the language is not theirs.
 PAPERS = (
-    Paper("Mellesmoen_Kye_ICSNL61",
-          "Mellesmoen_Kye_ICSNL61.oracle.tsv",
-          "MarthaLamont-AnnieJack_AComparativeAnalysisOfStressInNorthernAndSouthernLushootseed"
-          "_MellesmoenKye_Salish_lushootseed_2026_mixed.txt",
-          "Lushootseed",
-          speakers=("Martha Lamont, Northern dialect", "Annie Jack, Southern dialect"),
-          marks=LUSHOOTSEED_STRESS,
-          repair=sequence(INSERTED_SPACE_AT_ACCENTS, closed_after_bracket(),
-                          one_mark(COMMA_ABOVE_RIGHT, COMMA_ABOVE), composed()),
-          coverage=("mellesmoen",),
-          note="Both recorded by Leon Metcalf in the 1950s. The only paper here that labels "
-               "every form by dialect, and the border test is scored against it."),
-    Paper("1983_Hilbert",
-          "1983_Hilbert.oracle.tsv",
-          "SusieSampsonPeter-MarthaLaMont_PokingFunInLushootseed_Hilbert"
-          "_Salish_lushootseed_1983_mixed.txt",
-          "Lushootseed",
-          speakers=("Susie Sampson Peter, Upper Skagit", "Martha LaMont, Tulalip-Skagit"),
-          marks=DAMAGED,
-          note="Vi taqʷšəblu Hilbert wrote the paper; the twenty-one examples were said by her "
-               "aunt Susie Sampson Peter and by Martha LaMont, recorded by Leon Metcalf between "
-               "1950 and 1958 and by Thom Hess in 1963. The record credited Hilbert as the "
-               "speaker until the hand extraction found it."),
-    Paper("Matthewson_Redan_ICSNL61",
-          "Matthewson_Redan_ICSNL61.oracle.tsv",
-          "Kweswapaw-LindaRedan_Cw7aozKati7Lati7KuNaxwit_MatthewsonRedan"
-          "_Salish_statimcets_2026_mixed.txt",
-          "St'át'imcets",
-          speakers=("K̓weswapáw̓ (Linda Redan), Qayqáyten",
-                    "Sam Mitchell, in van Eijk and Williams 1981"),
-          repair=INSERTED_SPACE, coverage=("inserted spaces",),
-          note="K̓weswapáw̓ told the story over Zoom on 31 October 2025, three minutes twenty-eight "
-               "seconds, and the audio and video are held by her. Sam Mitchell is the speaker of "
-               "the earlier text the paper cites."),
-    Paper("AlexanderDavis_ICSNL61",
-          "AlexanderDavis_ICSNL61.oracle.tsv",
-          "Qwa7yanak-CarlAlexander_ITsicwasSQwa7yanakAku7GraveyardValley_AlexanderDavis"
-          "_Salish_statimcets_2026_mixed.txt",
-          "St'át'imcets",
-          speakers=("Qwa7yán'ak (Carl Alexander), Nxwísten",),
-          note="Recorded at Nxwísten on 7 July 2025, just over half an hour."),
-    Paper("22-Nater-Bella-Coola-tale-10",
-          "22-Nater-Bella-Coola-tale-10.oracle.tsv",
-          "MargaretSiwallace_ABellaCoolaTale_Nater_Salish_nuxalk_2015_nomixed.txt",
-          "Nuxalk",
-          speakers=("Dr. Margaret Siwallace",),
-          note="Recorded about 1975, published 2015."),
-    Paper("ICSNL59_LaFontaine_Janzen_final",
-          "ICSNL59_LaFontaine_Janzen_final.oracle.tsv",
-          "wlwlmelst-MauriceMichell_FourStoriesByWlwlmelst_LaFontaineJanzen"
-          "_Salish_nlekepmxcin_2024_mixed.txt",
-          "nɬeʔkepmxcín",
-          speakers=("wlwlmelst (Maurice Michell), Southern yutémkt dialect",),
-          repair=INSERTED_SPACE, coverage=("inserted spaces",),
-          note="He shares his four stories freely for people connecting with the language. They "
-               "came from his mother nxwelinek and his grandmother ʔústko."),
-    Paper("ICSNL59_Garcia_Hannon_Stacey_final",
-          "ICSNL59_Garcia_Hannon_Stacey_final.oracle.tsv",
-          "Kweltezetkwu-BerniceGarcia_ThreeGlossedNlekepmxcinNarratives_GarciaHannonStacey"
-          "_Salish_nlekepmxcin_2024_mixed.txt",
-          "nɬeʔkepmxcín",
-          speakers=("Kʷəɬtəzétkʷu (Bernice Garcia), c̓əɬétkʷu (Coldwater)",),
-          repair=INSERTED_SPACE, coverage=("inserted spaces",),
-          note="She asks it be acknowledged she is a Kamloops Indian Residential School speaker "
-               "re-learning her language."),
-    Paper("ICSNL56_DavisJ_2_final-1",
-          "ICSNL56_DavisJ_2_final-1.oracle.tsv",
-          "MaryGeorge_MaryGeorgePersonalNarratives_JohnHamiltonDavis"
-          "_Salish_ayajuthem_2021_mixed.txt",
-          "Mainland Comox (ayajuthem)",
-          speakers=("Mary George, Sliammon", "Noel George Harry", "Tommy Paul"),
-          repair=mary_george_repaired, coverage=(),
-          note="Recorded 1969 to 1980. The oracle check applies this paper's own repair and the "
-               "coverage check applies none, which is one of the two drifts named above."),
-    Paper("HallPhillipsICSNL60",
-          "HallPhillipsICSNL60.oracle.tsv",
-          "BevPhillips_WhenOldOneCreatedTheEarth_HallPhillips"
-          "_Salish_nlekepmxcin_2025_nomixed.txt",
-          "nɬeʔkepmxcín",
-          speakers=("Bev Phillips, Lytton First Nation (ƛ̓q̓əmcín)",),
-          repair=INSERTED_SPACE, coverage=("spaces",),
-          note="Her own reading of the story is in build/audio. It is an oracle for the "
-               "extraction and not only a source. The coverage check applies a cruder space "
-               "closer here than the oracle check does, the other drift named above."),
-    Paper("19-Lyon_ICSNL50_final-78",
-          "19-Lyon_ICSNL50_final-78.oracle.tsv",
-          "GeorgeLezard-NellieGuitterez-AndrewMcGinnis_ThreeOkanaganStoriesAboutPriests_Lyon"
-          "_Salish_nsyilxcen_2015_nomixed.txt",
-          "Nsyilxcən",
-          speakers=("George Lezard, Penticton Indian Reserve",
-                    "Nellie Guitterez, Upper Nicola Indian Band",
-                    "Kiláwnaʔ (Andrew McGinnis), Penticton Indian Reserve"),
-          marks=OKANAGAN, coverage=("page", "columns"),
-          note="George Lezard recorded 1966 by Randy Bouchard, transcribed by Larry Pierre 1970, "
-               "updated by permission of Arnie Baptiste, his son. Nellie Guitterez recorded 1978 "
-               "or 1979 by Yvonne Hébert, reprinted by permission of Lynne Jorgesen, her "
-               "great-granddaughter."),
-    Paper("2013_Lindley_Lyon",
-          "2013_Lindley_Lyon.oracle.tsv",
-          "LottieLindley_TwelveMoreUpperNicolaOkanaganNarratives_LindleyLyon"
-          "_Salish_nsyilxcen_2013_nomixed.txt",
-          "Nsyilxcən",
-          speakers=("Lottie Lindley, Upper Nicola",),
-          marks=OKANAGAN, coverage=("page", "columns")),
-    Paper("1975_Hilbert_Hess",
-          "1975_Hilbert_Hess.oracle.tsv",
-          "ViHilbert-ThomHess_ANoteOnAeConstructionsInLushootseed_HilbertHess"
-          "_Salish_lushootseed_1975_mixed.txt",
-          "Lushootseed",
-          marks=HILBERT_HESS,
-          note="A 1975 typescript, scanned, and what is on disk is OCR of the scan. The paper "
-               "names no speaker for its examples. The OCR carries none of the orthography: zero "
-               "schwas, zero raised w, zero barred l, zero wedges, against 169, 77, 41 and 33 in "
-               "the hand extraction. It writes taqWsablu for taqʷšəblu and slahal for sləhal. All "
-               "200 direction-one disagreements filed against this paper come from that, and "
-               "they are the source text and not the reader. It needs a drafted page text and a "
-               "place in NOT_FAITHFUL, the way the two Lyon papers have, before the check against "
-               "it means anything."),
-    Paper("2012_Robertson",
-          "2012_Robertson.oracle.tsv",
-          "CharleyAlexisMayoos-WilliamCelestin_BCIndigenousPeoplesChinukPipaScript_Robertson"
-          "_Salish_nlekepmxcin-secwepemctsin_2012_mixed.txt",
-          "nɬeʔkepmxcín and Secwepemctsín",
-          speakers=("Charley Alexis Mayoos", "William Celestin"),
-          marks=ROBERTSON, repair=glyph_names_decoded,
-          coverage=("glyph names", "line joins"),
-          note="Their texts are written in Chinuk pipa. Texts 3 to 6 are Chinook Jargon, which "
-               "is a pidgin and is not Salish, and the who column keeps those out."),
-    Paper("WolfeICSNL60",
-          "WolfeICSNL60.oracle.tsv",
-          "unstated_LexicalSuffixesAndConnectivesInProtoCentralSalishAndBeyond_Wolfe"
-          "_Salish_centralsalish_2025_mixed.txt",
-          "eighteen Central Salish languages",
-          marks=WOLFE, repair=INSERTED_SPACE, coverage=("inserted spaces",),
-          note="Every form is cited from a published dictionary of one of eighteen languages. "
-               "there is nobody this corpus is of. The who column carries the language instead, "
-               "and the reader writes a .pure.tsv keyed by it and no flat pure file."),
-    Paper("ICSNL59_Nater_2_final",
-          "ICSNL59_Nater_2_final.oracle.tsv",
-          "unstated_VoicelessWordsInBellaCoolaFactVsFiction_Nater"
-          "_Salish_nuxalk_2024_mixed.txt",
-          "Nuxalk",
-          marks=NATER_VOICELESS, repair=INSERTED_SPACE, coverage=("inserted spaces",),
-          note="Nater's own records, from his 1990 dictionary and 1984 grammar. No speaker is "
-               "named. Six entries and two tables are Heiltsuk, Oowekyala, Kwak̓wala and Haisla, "
-               "which are North Wakashan and not Salish at all."),
-    Paper("LyonICSNL60_Inch-2",
-          "LyonICSNL60_Inch-2.oracle.tsv",
-          "DelphineDerricksonArmstrong-DaveMichele_NsyilxcnInchoativesAndTheirDistributions"
-          "AcrossRootTypes_Lyon_Salish_nsyilxcen_2025_mixed.txt",
-          "Nsyilxcən",
-          speakers=("ɬk̓mxnalqs (Delphine Derrickson-Armstrong), stq̓aʔtkʷɬniw̓t",
-                    "c̓əskʕáknaʔ (Dave Michele), stq̓aʔtkʷɬniw̓t"),
-          marks=LYON_INCH, repair=INSERTED_SPACE, coverage=("inserted spaces",),
-          note="Elicited from both speakers. Most cells of its two tables are starred, which is "
-               "a form the linguist built and the speakers rejected, and those are held out."),
-    Paper("Kim_TwanaReduplication_final",
-          "Kim_TwanaReduplication_final.oracle.tsv",
-          "unstated_TheTruncatedReduplicationInTwana_Kim"
-          "_Salish_twana_2017_mixed.txt",
-          "Twana",
-          marks=KIM,
-          # Composition runs before the corrections for the reason it does everywhere: corrected()
-          # composes its own patterns. A pattern meets composed text or it matches nothing.
-          repair=sequence(INSERTED_SPACE, composed(), corrected(KIM_DOUBLED)),
-          coverage=("inserted spaces",),
-          note="Every Twana form is Drachman's, out of a 1969 dissertation the paper calls the "
-               "only reliable reference in existence for this. No speaker is named. Footnote 9's "
-               "four Moses-Columbian forms are the only place its extraction repeats a combining "
-               "mark, and those are corrected from the page."),
-    Paper("2013_Nater",
-          "2013_Nater.oracle.tsv",
-          "unstated_HowSalishIsBellaCoola_Nater"
-          "_Salish_nuxalk_2013_mixed.txt",
-          "Nuxalk",
-          marks=NATER_ETYM, repair=INSERTED_SPACE, coverage=("inserted spaces",),
-          note="1407 numbered entries out of Nater's own 1990 dictionary. No speaker is named."),
-    Paper("Hall-et-al_-ICSNL_61-1",
-          "Hall-et-al_-ICSNL_61-1.oracle.tsv",
-          "unstated_CtrlAltDeleteTheControlDirectiveAndAssociatedTDeletionInNlekepmxcin"
-          "_HallLuntzlaraMellesmoenReid_Salish_nlekepmxcin_2026_mixed.txt",
-          "nɬeʔkepmxcín",
-          speakers=("Bev Phillips", "c̓úʔsinek (Marty Aspinall)",
-                    "kʷaɬtèzetkʷ (Bernice Garcia)"),
-          marks=HALL_CTR,
-          note="The forms are cited from Thompson and Thompson's grammar and dictionary. These "
-               "three are the speakers the paper thanks, two examples are Bev Phillips reading "
-               "her own story, and kʷaɬtèzetkʷ introduces herself in the acknowledgement."),
-    Paper("ICSNL58_Davis_Mellesmoen_final",
-          "ICSNL58_Davis_Mellesmoen_final.oracle.tsv",
-          "unstated_ANewlyDiscoveredReduplicationPatternInStatimcetsAndItsImplications"
-          "_DavisMellesmoen_Salish_statimcets_2023_mixed.txt",
-          "St'át'imcets",
-          speakers=("Qwa7yán'ak (Carl Alexander), Nxwísten",),
-          marks=DAVIS_MELLESMOEN,
-          # The dropped marks go back last, after the other grains and after composition. Each pair
-          # was read off a line that had already been through them. A pair matches the repaired
-          # text and not the raw text: running it first matched nothing at all.
-          repair=sequence(INSERTED_SPACE_AT_ACCENTS, closed_after_bracket(),
-                          one_mark(COMMA_ABOVE_RIGHT, COMMA_ABOVE), composed(),
-                          corrected(DAVIS_MELLESMOEN_DROPPED)),
-          coverage=("mellesmoen",),
-          note="Its data has three sources: van Eijk's dictionary, Davis et al. in preparation, "
-               "and elicitation with Carl Alexander. It labels forms (U) and (L) for Upper and "
-               "Lower St'át'imcets, the second external dialect label in the archive."),
-    Paper("1967_Hamp",
-          "1967_Hamp.oracle.tsv",
-          "",
-          "Tillamook",
-          marks=HAMP_TILLAMOOK,
-          note="Eric P. Hamp, Another Look at Tillamook Phonology, ICSNL 2. It cites no words. "
-               "its language content is four consonant inventories set side by side and two "
-               "feature matrices. No speaker is named, and the paper works throughout from "
-               "Thompson and Thompson, Reichard, Kinkade, Drachman and Edel. What it does record "
-               "is that a Tillamook speaker was living in 1967 and it does not say who: the "
-               "urgency of the matter is put as being that there is yet a surviving speaker "
-               "available for possible re-check, and page 2 grants one sense of its claim only "
-               "on the assumption that a last remaining speaker is typical of a community. Both "
-               "sentences are in the table. The Twana chart is used, in the page's own words, "
-               "without his permission, meaning Drachman's. The dot under the uvular fricatives "
-               "prints solid in some cells of these charts and as an open ring in others, and the "
-               "two positions swap between the Tillamook and Twana charts. It is one mark and "
-               "the variation is the typewriter."),
-    Paper("ICSNL58_Givens_Hall_final",
-          "ICSNL58_Givens_Hall_final.oracle.tsv",
-          "",
-          "nɬeʔkepmxcín",
-          speakers=("Bev Phillips, Lytton (ƛ̓q̓əmcín) dialect",),
-          marks=GIVENS_HALL_NLEKEPMXCIN,
-          # Composition before the corrections, for the reason it runs first everywhere: corrected()
-          # composes its own patterns, and a pattern meeting decomposed text matches nothing.
-          repair=sequence(INSERTED_SPACE, composed(), corrected(GIVENS_HALL_FLATTENED)),
-          coverage=("inserted spaces", "flattened labialization"),
-          note="Katherine Givens and Brent Hall, The Moon and the Birchbark Canoe "
-               "(ɬ máʕxetn pe ɬ qʷɬinéwɬ), ICSNL 58. Seven pages, read one at a time off page "
-               "renders. Page 1: the story was recounted in Nɬeʔkepmxcín by Bev Phillips, a "
-               "native speaker of the Lytton dialect, who also helped with the translation, and "
-               "Givens and Hall transcribed and glossed it. She is quoted on the page choosing "
-               "the story and saying creation stories are not just stories to us, and the paper's "
-               "first footnote thanks her for entrusting it to them. The recording is held as "
-               "speech/icsnl_proceedings/ICSNL58_GivensHall_MoonAndBirchbarkCanoe.mp3, "
-               "the only one of the three whose name carries the transcribers and not the "
-               "speaker, and a reader working from that filename alone read it as a second "
-               "speaker. Footnote 4 defines (VG), a volunteered gloss, as a translated sentence "
-               "BP offered. The parenthesis at the right margin is the only thing separating "
-               "her English from the authors', and examples 12, 13 and 14 lack it. Its section 4 "
-               "repeats every sentence of section 2 in morpheme-broken form, which gave a second "
-               "independent reading of every word and turned up three places where the two tiers "
-               "disagree. Footnotes 2, 6, 7 and 8 each declare a mark or a parsing the authors "
-               "reached by ear or by inference, which is more than any other paper here states "
-               "about its own readings."),
-    Paper("1967_Hess",
-          "1967_Hess.oracle.tsv",
-          "",
-          "Snohomish",
-          marks=HESS_SNOHOMISH,
-          note="Thom Hess, The Morph /-(ə)b/ in Snohomish, ICSNL 2. Oracle.tsv checked against the "
-               "paper. No speaker named. The forms are Hess's Snohomish data. Marked characters, "
-               "page 3, by eye and inside one table: xáyəb 'laugh' and xʷúyub 'sell' print a bare "
-               "x where ƛ̓áɬəb 'salty' prints a barred x body with a glottalization mark, t̓ádəb "
-               "'bitter' prints the same t as the English word taste on the first line of that "
-               "page with a glottalization mark added, and d̓áƛ̓əb 'cloud' carries a hook at the "
-               "top of its d and a bar across the foot, one composite, where the d of t̓ádəb one "
-               "column away is bare. Below 16x either half of that composite drops out. Glyphs in "
-               "the printed text unclear. 1975_Hilbert_Hess sets the same character in "
-               "dəxʷgʷəƛ̓əlads, and Nater's Coast Salish *ƛ̓aɬ 'bitter, salt' matches ƛ̓áɬəb "
-               "segment for segment."),
-    Paper("1967_Elmendorf",
-          "1967_Elmendorf.oracle.tsv",
-          "",
-          "Twana",
-          marks=ELMENDORF_COMPARATIVE,
-          note="William W. Elmendorf, Word Tabu and Change Rates, ICSNL 2. Thirteen languages are "
-               "cited in it and Twana is its subject. That is the language named here; "
-               "every row carries its own language in the who column. No speaker is named "
-               "anywhere: the forms come from Boas and Haeberlin 1927, Krueger 1967, McIlwraith "
-               "1948, Walters 1938 and Ray 1932, from Warren Snyder's Suquamish list and Wayne "
-               "Suttles' Squamish field notes, and from Elmendorf's own field data. This "
-               "typescript writes its uvular as x under a dot where 1975_Hilbert_Hess writes it "
-               "under a caron, and 1967_Hess agrees with it, which is two papers of one "
-               "conference against one of a later year. One mark is unresolved and marked so in "
-               "the table: a short raised stroke over the s of the Columbia ska'u on page 7, "
-               "which is not the wedge the Upper Chehalis sča'u carries two words earlier."),
-    Paper("1967_Kinkade",
-          "1967_Kinkade.oracle.tsv",
-          "",
-          "Columbian",
-          marks=KINKADE_COLUMBIAN,
-          note="M. Dale Kinkade, Deictics in Columbian: A Work Paper, ICSNL 2. Twelve pages, read "
-               "one at a time off page renders. Columbian is what it is about; Kalispel comes from "
-               "Vogt 1940, Coeur d'Alene from Reichard 1938, and three Colville forms from an "
-               "unnamed speaker who also knew Columbian. Every row carries its own language in the "
-               "who column. No speaker is named anywhere in the paper: it says my Cm informants "
-               "and says no more than that. The forms in this table were said by people it "
-               "does not identify. Its typewriter has three raised marks and the table's symbol notes turn "
-               "on telling them apart, a comma with a thick head and a curling tail, a V wedge, "
-               "and a straight acute. čén̓ on page 10 carries all three in one word and is the "
-               "control. The wedge appears only in the Kalispel and Coeur d'Alene forms, ten times "
-               "for ten, and never in the Columbian ones, whose seven caron readings are assigned "
-               "and are all x̌ or the č of čiílx. Whether that split is about the language or about "
-               "page order is not decidable here, because the wedge first appears on page 8 and "
-               "every Columbian form was typed on pages 1 to 7. 1967_Elmendorf, from the same "
-               "conference, distinguishes a wedge from a short raised stroke in its own table. "
-               "the distinction is one these typescripts can carry."),
+    Paper(
+        "Mellesmoen_Kye_ICSNL61",
+        "Mellesmoen_Kye_ICSNL61.oracle.tsv",
+        "MarthaLamont-AnnieJack_AComparativeAnalysisOfStressInNorthernAndSouthernLushootseed"
+        "_MellesmoenKye_Salish_lushootseed_2026_mixed.txt",
+        "Lushootseed",
+        speakers=("Martha Lamont, Northern dialect", "Annie Jack, Southern dialect"),
+        marks=LUSHOOTSEED_STRESS,
+        repair=sequence(
+            INSERTED_SPACE_AT_ACCENTS,
+            closed_after_bracket(),
+            one_mark(COMMA_ABOVE_RIGHT, COMMA_ABOVE),
+            composed(),
+        ),
+        coverage=("mellesmoen",),
+        note="Both recorded by Leon Metcalf in the 1950s. The only paper here that labels "
+        "every form by dialect, and the border test is scored against it.",
+    ),
+    Paper(
+        "1983_Hilbert",
+        "1983_Hilbert.oracle.tsv",
+        "SusieSampsonPeter-MarthaLaMont_PokingFunInLushootseed_Hilbert"
+        "_Salish_lushootseed_1983_mixed.txt",
+        "Lushootseed",
+        speakers=("Susie Sampson Peter, Upper Skagit", "Martha LaMont, Tulalip-Skagit"),
+        marks=DAMAGED,
+        note="Vi taqʷšəblu Hilbert wrote the paper; the twenty-one examples were said by her "
+        "aunt Susie Sampson Peter and by Martha LaMont, recorded by Leon Metcalf between "
+        "1950 and 1958 and by Thom Hess in 1963. The record credited Hilbert as the "
+        "speaker until the hand extraction found it.",
+    ),
+    Paper(
+        "Matthewson_Redan_ICSNL61",
+        "Matthewson_Redan_ICSNL61.oracle.tsv",
+        "Kweswapaw-LindaRedan_Cw7aozKati7Lati7KuNaxwit_MatthewsonRedan"
+        "_Salish_statimcets_2026_mixed.txt",
+        "St'át'imcets",
+        speakers=(
+            "K̓weswapáw̓ (Linda Redan), Qayqáyten",
+            "Sam Mitchell, in van Eijk and Williams 1981",
+        ),
+        repair=INSERTED_SPACE,
+        coverage=("inserted spaces",),
+        note="K̓weswapáw̓ told the story over Zoom on 31 October 2025, three minutes twenty-eight "
+        "seconds, and the audio and video are held by her. Sam Mitchell is the speaker of "
+        "the earlier text the paper cites.",
+    ),
+    Paper(
+        "AlexanderDavis_ICSNL61",
+        "AlexanderDavis_ICSNL61.oracle.tsv",
+        "Qwa7yanak-CarlAlexander_ITsicwasSQwa7yanakAku7GraveyardValley_AlexanderDavis"
+        "_Salish_statimcets_2026_mixed.txt",
+        "St'át'imcets",
+        speakers=("Qwa7yán'ak (Carl Alexander), Nxwísten",),
+        note="Recorded at Nxwísten on 7 July 2025, just over half an hour.",
+    ),
+    Paper(
+        "22-Nater-Bella-Coola-tale-10",
+        "22-Nater-Bella-Coola-tale-10.oracle.tsv",
+        "MargaretSiwallace_ABellaCoolaTale_Nater_Salish_nuxalk_2015_nomixed.txt",
+        "Nuxalk",
+        speakers=("Dr. Margaret Siwallace",),
+        note="Recorded about 1975, published 2015.",
+    ),
+    Paper(
+        "ICSNL59_LaFontaine_Janzen_final",
+        "ICSNL59_LaFontaine_Janzen_final.oracle.tsv",
+        "wlwlmelst-MauriceMichell_FourStoriesByWlwlmelst_LaFontaineJanzen"
+        "_Salish_nlekepmxcin_2024_mixed.txt",
+        "nɬeʔkepmxcín",
+        speakers=("wlwlmelst (Maurice Michell), Southern yutémkt dialect",),
+        repair=INSERTED_SPACE,
+        coverage=("inserted spaces",),
+        note="He shares his four stories freely for people connecting with the language. They "
+        "came from his mother nxwelinek and his grandmother ʔústko.",
+    ),
+    Paper(
+        "ICSNL59_Garcia_Hannon_Stacey_final",
+        "ICSNL59_Garcia_Hannon_Stacey_final.oracle.tsv",
+        "Kweltezetkwu-BerniceGarcia_ThreeGlossedNlekepmxcinNarratives_GarciaHannonStacey"
+        "_Salish_nlekepmxcin_2024_mixed.txt",
+        "nɬeʔkepmxcín",
+        speakers=("Kʷəɬtəzétkʷu (Bernice Garcia), c̓əɬétkʷu (Coldwater)",),
+        repair=INSERTED_SPACE,
+        coverage=("inserted spaces",),
+        note="She asks it be acknowledged she is a Kamloops Indian Residential School speaker "
+        "re-learning her language.",
+    ),
+    Paper(
+        "ICSNL56_DavisJ_2_final-1",
+        "ICSNL56_DavisJ_2_final-1.oracle.tsv",
+        "MaryGeorge_MaryGeorgePersonalNarratives_JohnHamiltonDavis"
+        "_Salish_ayajuthem_2021_mixed.txt",
+        "Mainland Comox (ayajuthem)",
+        speakers=("Mary George, Sliammon", "Noel George Harry", "Tommy Paul"),
+        repair=mary_george_repaired,
+        coverage=(),
+        note="Recorded 1969 to 1980. The oracle check applies this paper's own repair and the "
+        "coverage check applies none, which is one of the two drifts named above.",
+    ),
+    Paper(
+        "HallPhillipsICSNL60",
+        "HallPhillipsICSNL60.oracle.tsv",
+        "BevPhillips_WhenOldOneCreatedTheEarth_HallPhillips"
+        "_Salish_nlekepmxcin_2025_nomixed.txt",
+        "nɬeʔkepmxcín",
+        speakers=("Bev Phillips, Lytton First Nation (ƛ̓q̓əmcín)",),
+        repair=INSERTED_SPACE,
+        coverage=("spaces",),
+        note="Her own reading of the story is in build/audio. It is an oracle for the "
+        "extraction and not only a source. The coverage check applies a cruder space "
+        "closer here than the oracle check does, the other drift named above.",
+    ),
+    Paper(
+        "19-Lyon_ICSNL50_final-78",
+        "19-Lyon_ICSNL50_final-78.oracle.tsv",
+        "GeorgeLezard-NellieGuitterez-AndrewMcGinnis_ThreeOkanaganStoriesAboutPriests_Lyon"
+        "_Salish_nsyilxcen_2015_nomixed.txt",
+        "Nsyilxcən",
+        speakers=(
+            "George Lezard, Penticton Indian Reserve",
+            "Nellie Guitterez, Upper Nicola Indian Band",
+            "Kiláwnaʔ (Andrew McGinnis), Penticton Indian Reserve",
+        ),
+        marks=OKANAGAN,
+        coverage=("page", "columns"),
+        note="George Lezard recorded 1966 by Randy Bouchard, transcribed by Larry Pierre 1970, "
+        "updated by permission of Arnie Baptiste, his son. Nellie Guitterez recorded 1978 "
+        "or 1979 by Yvonne Hébert, reprinted by permission of Lynne Jorgesen, her "
+        "great-granddaughter.",
+    ),
+    Paper(
+        "2013_Lindley_Lyon",
+        "2013_Lindley_Lyon.oracle.tsv",
+        "LottieLindley_TwelveMoreUpperNicolaOkanaganNarratives_LindleyLyon"
+        "_Salish_nsyilxcen_2013_nomixed.txt",
+        "Nsyilxcən",
+        speakers=("Lottie Lindley, Upper Nicola",),
+        marks=OKANAGAN,
+        coverage=("page", "columns"),
+    ),
+    Paper(
+        "1975_Hilbert_Hess",
+        "1975_Hilbert_Hess.oracle.tsv",
+        "ViHilbert-ThomHess_ANoteOnAeConstructionsInLushootseed_HilbertHess"
+        "_Salish_lushootseed_1975_mixed.txt",
+        "Lushootseed",
+        marks=HILBERT_HESS,
+        note="A 1975 typescript, scanned, and what is on disk is OCR of the scan. The paper "
+        "names no speaker for its examples. The OCR carries none of the orthography: zero "
+        "schwas, zero raised w, zero barred l, zero wedges, against 169, 77, 41 and 33 in "
+        "the hand extraction. It writes taqWsablu for taqʷšəblu and slahal for sləhal. All "
+        "200 direction-one disagreements filed against this paper come from that, and "
+        "they are the source text and not the reader. It needs a drafted page text and a "
+        "place in NOT_FAITHFUL, the way the two Lyon papers have, before the check against "
+        "it means anything.",
+    ),
+    Paper(
+        "2012_Robertson",
+        "2012_Robertson.oracle.tsv",
+        "CharleyAlexisMayoos-WilliamCelestin_BCIndigenousPeoplesChinukPipaScript_Robertson"
+        "_Salish_nlekepmxcin-secwepemctsin_2012_mixed.txt",
+        "nɬeʔkepmxcín and Secwepemctsín",
+        speakers=("Charley Alexis Mayoos", "William Celestin"),
+        marks=ROBERTSON,
+        repair=glyph_names_decoded,
+        coverage=("glyph names", "line joins"),
+        note="Their texts are written in Chinuk pipa. Texts 3 to 6 are Chinook Jargon, which "
+        "is a pidgin and is not Salish, and the who column keeps those out.",
+    ),
+    Paper(
+        "WolfeICSNL60",
+        "WolfeICSNL60.oracle.tsv",
+        "unstated_LexicalSuffixesAndConnectivesInProtoCentralSalishAndBeyond_Wolfe"
+        "_Salish_centralsalish_2025_mixed.txt",
+        "eighteen Central Salish languages",
+        marks=WOLFE,
+        repair=INSERTED_SPACE,
+        coverage=("inserted spaces",),
+        note="Every form is cited from a published dictionary of one of eighteen languages. "
+        "there is nobody this corpus is of. The who column carries the language instead, "
+        "and the reader writes a .pure.tsv keyed by it and no flat pure file.",
+    ),
+    Paper(
+        "ICSNL59_Nater_2_final",
+        "ICSNL59_Nater_2_final.oracle.tsv",
+        "unstated_VoicelessWordsInBellaCoolaFactVsFiction_Nater"
+        "_Salish_nuxalk_2024_mixed.txt",
+        "Nuxalk",
+        marks=NATER_VOICELESS,
+        repair=INSERTED_SPACE,
+        coverage=("inserted spaces",),
+        note="Nater's own records, from his 1990 dictionary and 1984 grammar. No speaker is "
+        "named. Six entries and two tables are Heiltsuk, Oowekyala, Kwak̓wala and Haisla, "
+        "which are North Wakashan and not Salish at all.",
+    ),
+    Paper(
+        "LyonICSNL60_Inch-2",
+        "LyonICSNL60_Inch-2.oracle.tsv",
+        "DelphineDerricksonArmstrong-DaveMichele_NsyilxcnInchoativesAndTheirDistributions"
+        "AcrossRootTypes_Lyon_Salish_nsyilxcen_2025_mixed.txt",
+        "Nsyilxcən",
+        speakers=(
+            "ɬk̓mxnalqs (Delphine Derrickson-Armstrong), stq̓aʔtkʷɬniw̓t",
+            "c̓əskʕáknaʔ (Dave Michele), stq̓aʔtkʷɬniw̓t",
+        ),
+        marks=LYON_INCH,
+        repair=INSERTED_SPACE,
+        coverage=("inserted spaces",),
+        note="Elicited from both speakers. Most cells of its two tables are starred, which is "
+        "a form the linguist built and the speakers rejected, and those are held out.",
+    ),
+    Paper(
+        "Kim_TwanaReduplication_final",
+        "Kim_TwanaReduplication_final.oracle.tsv",
+        "unstated_TheTruncatedReduplicationInTwana_Kim" "_Salish_twana_2017_mixed.txt",
+        "Twana",
+        marks=KIM,
+        # Composition runs before the corrections for the reason it does everywhere: corrected()
+        # composes its own patterns. A pattern meets composed text or it matches nothing.
+        repair=sequence(INSERTED_SPACE, composed(), corrected(KIM_DOUBLED)),
+        coverage=("inserted spaces",),
+        note="Every Twana form is Drachman's, out of a 1969 dissertation the paper calls the "
+        "only reliable reference in existence for this. No speaker is named. Footnote 9's "
+        "four Moses-Columbian forms are the only place its extraction repeats a combining "
+        "mark, and those are corrected from the page.",
+    ),
+    Paper(
+        "2013_Nater",
+        "2013_Nater.oracle.tsv",
+        "unstated_HowSalishIsBellaCoola_Nater" "_Salish_nuxalk_2013_mixed.txt",
+        "Nuxalk",
+        marks=NATER_ETYM,
+        repair=INSERTED_SPACE,
+        coverage=("inserted spaces",),
+        note="1407 numbered entries out of Nater's own 1990 dictionary. No speaker is named.",
+    ),
+    Paper(
+        "Hall-et-al_-ICSNL_61-1",
+        "Hall-et-al_-ICSNL_61-1.oracle.tsv",
+        "unstated_CtrlAltDeleteTheControlDirectiveAndAssociatedTDeletionInNlekepmxcin"
+        "_HallLuntzlaraMellesmoenReid_Salish_nlekepmxcin_2026_mixed.txt",
+        "nɬeʔkepmxcín",
+        speakers=(
+            "Bev Phillips",
+            "c̓úʔsinek (Marty Aspinall)",
+            "kʷaɬtèzetkʷ (Bernice Garcia)",
+        ),
+        marks=HALL_CTR,
+        note="The forms are cited from Thompson and Thompson's grammar and dictionary. These "
+        "three are the speakers the paper thanks, two examples are Bev Phillips reading "
+        "her own story, and kʷaɬtèzetkʷ introduces herself in the acknowledgement.",
+    ),
+    Paper(
+        "ICSNL58_Davis_Mellesmoen_final",
+        "ICSNL58_Davis_Mellesmoen_final.oracle.tsv",
+        "unstated_ANewlyDiscoveredReduplicationPatternInStatimcetsAndItsImplications"
+        "_DavisMellesmoen_Salish_statimcets_2023_mixed.txt",
+        "St'át'imcets",
+        speakers=("Qwa7yán'ak (Carl Alexander), Nxwísten",),
+        marks=DAVIS_MELLESMOEN,
+        # The dropped marks go back last, after the other grains and after composition. Each pair
+        # was read off a line that had already been through them. A pair matches the repaired
+        # text and not the raw text: running it first matched nothing at all.
+        repair=sequence(
+            INSERTED_SPACE_AT_ACCENTS,
+            closed_after_bracket(),
+            one_mark(COMMA_ABOVE_RIGHT, COMMA_ABOVE),
+            composed(),
+            corrected(DAVIS_MELLESMOEN_DROPPED),
+        ),
+        coverage=("mellesmoen",),
+        note="Its data has three sources: van Eijk's dictionary, Davis et al. in preparation, "
+        "and elicitation with Carl Alexander. It labels forms (U) and (L) for Upper and "
+        "Lower St'át'imcets, the second external dialect label in the archive.",
+    ),
+    Paper(
+        "1967_Hamp",
+        "1967_Hamp.oracle.tsv",
+        "",
+        "Tillamook",
+        marks=HAMP_TILLAMOOK,
+        note="Eric P. Hamp, Another Look at Tillamook Phonology, ICSNL 2. It cites no words. "
+        "its language content is four consonant inventories set side by side and two "
+        "feature matrices. No speaker is named, and the paper works throughout from "
+        "Thompson and Thompson, Reichard, Kinkade, Drachman and Edel. What it does record "
+        "is that a Tillamook speaker was living in 1967 and it does not say who: the "
+        "urgency of the matter is put as being that there is yet a surviving speaker "
+        "available for possible re-check, and page 2 grants one sense of its claim only "
+        "on the assumption that a last remaining speaker is typical of a community. Both "
+        "sentences are in the table. The Twana chart is used, in the page's own words, "
+        "without his permission, meaning Drachman's. The dot under the uvular fricatives "
+        "prints solid in some cells of these charts and as an open ring in others, and the "
+        "two positions swap between the Tillamook and Twana charts. It is one mark and "
+        "the variation is the typewriter.",
+    ),
+    Paper(
+        "ICSNL58_Givens_Hall_final",
+        "ICSNL58_Givens_Hall_final.oracle.tsv",
+        "",
+        "nɬeʔkepmxcín",
+        speakers=("Bev Phillips, Lytton (ƛ̓q̓əmcín) dialect",),
+        marks=GIVENS_HALL_NLEKEPMXCIN,
+        # Composition before the corrections, for the reason it runs first everywhere: corrected()
+        # composes its own patterns, and a pattern meeting decomposed text matches nothing.
+        repair=sequence(INSERTED_SPACE, composed(), corrected(GIVENS_HALL_FLATTENED)),
+        coverage=("inserted spaces", "flattened labialization"),
+        note="Katherine Givens and Brent Hall, The Moon and the Birchbark Canoe "
+        "(ɬ máʕxetn pe ɬ qʷɬinéwɬ), ICSNL 58. Seven pages, read one at a time off page "
+        "renders. Page 1: the story was recounted in Nɬeʔkepmxcín by Bev Phillips, a "
+        "native speaker of the Lytton dialect, who also helped with the translation, and "
+        "Givens and Hall transcribed and glossed it. She is quoted on the page choosing "
+        "the story and saying creation stories are not just stories to us, and the paper's "
+        "first footnote thanks her for entrusting it to them. The recording is held as "
+        "speech/icsnl_proceedings/ICSNL58_GivensHall_MoonAndBirchbarkCanoe.mp3, "
+        "the only one of the three whose name carries the transcribers and not the "
+        "speaker, and a reader working from that filename alone read it as a second "
+        "speaker. Footnote 4 defines (VG), a volunteered gloss, as a translated sentence "
+        "BP offered. The parenthesis at the right margin is the only thing separating "
+        "her English from the authors', and examples 12, 13 and 14 lack it. Its section 4 "
+        "repeats every sentence of section 2 in morpheme-broken form, which gave a second "
+        "independent reading of every word and turned up three places where the two tiers "
+        "disagree. Footnotes 2, 6, 7 and 8 each declare a mark or a parsing the authors "
+        "reached by ear or by inference, which is more than any other paper here states "
+        "about its own readings.",
+    ),
+    Paper(
+        "1967_Hess",
+        "1967_Hess.oracle.tsv",
+        "",
+        "Snohomish",
+        marks=HESS_SNOHOMISH,
+        note="Thom Hess, The Morph /-(ə)b/ in Snohomish, ICSNL 2. Oracle.tsv checked against the "
+        "paper. No speaker named. The forms are Hess's Snohomish data. Marked characters, "
+        "page 3, by eye and inside one table: xáyəb 'laugh' and xʷúyub 'sell' print a bare "
+        "x where ƛ̓áɬəb 'salty' prints a barred x body with a glottalization mark, t̓ádəb "
+        "'bitter' prints the same t as the English word taste on the first line of that "
+        "page with a glottalization mark added, and d̓áƛ̓əb 'cloud' carries a hook at the "
+        "top of its d and a bar across the foot, one composite, where the d of t̓ádəb one "
+        "column away is bare. Below 16x either half of that composite drops out. Glyphs in "
+        "the printed text unclear. 1975_Hilbert_Hess sets the same character in "
+        "dəxʷgʷəƛ̓əlads, and Nater's Coast Salish *ƛ̓aɬ 'bitter, salt' matches ƛ̓áɬəb "
+        "segment for segment.",
+    ),
+    Paper(
+        "1967_Elmendorf",
+        "1967_Elmendorf.oracle.tsv",
+        "",
+        "Twana",
+        marks=ELMENDORF_COMPARATIVE,
+        note="William W. Elmendorf, Word Tabu and Change Rates, ICSNL 2. Thirteen languages are "
+        "cited in it and Twana is its subject. That is the language named here; "
+        "every row carries its own language in the who column. No speaker is named "
+        "anywhere: the forms come from Boas and Haeberlin 1927, Krueger 1967, McIlwraith "
+        "1948, Walters 1938 and Ray 1932, from Warren Snyder's Suquamish list and Wayne "
+        "Suttles' Squamish field notes, and from Elmendorf's own field data. This "
+        "typescript writes its uvular as x under a dot where 1975_Hilbert_Hess writes it "
+        "under a caron, and 1967_Hess agrees with it, which is two papers of one "
+        "conference against one of a later year. One mark is unresolved and marked so in "
+        "the table: a short raised stroke over the s of the Columbia ska'u on page 7, "
+        "which is not the wedge the Upper Chehalis sča'u carries two words earlier.",
+    ),
+    Paper(
+        "1967_Kinkade",
+        "1967_Kinkade.oracle.tsv",
+        "",
+        "Columbian",
+        marks=KINKADE_COLUMBIAN,
+        note="M. Dale Kinkade, Deictics in Columbian: A Work Paper, ICSNL 2. Twelve pages, read "
+        "one at a time off page renders. Columbian is what it is about; Kalispel comes from "
+        "Vogt 1940, Coeur d'Alene from Reichard 1938, and three Colville forms from an "
+        "unnamed speaker who also knew Columbian. Every row carries its own language in the "
+        "who column. No speaker is named anywhere in the paper: it says my Cm informants "
+        "and says no more than that. The forms in this table were said by people it "
+        "does not identify. Its typewriter has three raised marks and the table's symbol notes turn "
+        "on telling them apart, a comma with a thick head and a curling tail, a V wedge, "
+        "and a straight acute. čén̓ on page 10 carries all three in one word and is the "
+        "control. The wedge appears only in the Kalispel and Coeur d'Alene forms, ten times "
+        "for ten, and never in the Columbian ones, whose seven caron readings are assigned "
+        "and are all x̌ or the č of čiílx. Whether that split is about the language or about "
+        "page order is not decidable here, because the wedge first appears on page 8 and "
+        "every Columbian form was typed on pages 1 to 7. 1967_Elmendorf, from the same "
+        "conference, distinguishes a wedge from a short raised stroke in its own table. "
+        "the distinction is one these typescripts can carry.",
+    ),
 )
 
 

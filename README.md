@@ -141,7 +141,7 @@ maint/engine/build_engine.sh               # configure, build, run the graders
 maint/engine/build_engine.sh --build-only  # configure and build, run nothing
 ```
 
-Windows PowerShell uses `maint/engine/build_engine.ps1`, same two forms, and it is the one to reach for on Windows: it imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment. It pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back. Delete it freely.
+Windows PowerShell uses `maint/engine/build_engine.ps1`, same two forms, it imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment. It pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back. Delete it freely.
 
 Both scripts share that directory, and a CMake cache outranks anything a script prints. Each one now passes the decisive settings on every configure and wipes a cache naming a different toolchain, because the alternative was observed: after a Git Bash run, the PowerShell script announced the MSVC environment and the device arm and then produced a gcc build with no CUDA in it, and every render row read `host only` while the script reported success. The PowerShell script now checks the configure for a CUDA compiler before it builds and fails if the announcement does not hold.
 
@@ -177,7 +177,7 @@ The renderer draws the object under examination straight from engine state. What
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `slabs`         | fills a sheet, then the sheet behind it. The three dimensional reading of the row layout.                                                                                                                             |
 | `boustrophedon` | every other row and every other slab reversed. Consecutive alignments stay adjacent across both boundaries.                                                                                                           |
-| `morton`        | interleaves the bits of x, y and z, preserving locality on all three axes at once. This is the one that reads as a solid instead of as stacked sheets. Needs power of two extents and refuses others.                 |
+| `morton`        | interleaves the bits of x, y and z, preserving locality on all three axes at once. This reads as a solid instead of as stacked sheets. Needs power of two extents and refuses others.                 |
 | `helix`         | each slab's rows shifted by its depth index. A feature at a fixed corpus offset winds through the block. A shear and not a rotation, because a true helix needs trigonometry and this renderer is integer throughout. |
 
 Every layout is a bijection on the cell index, computed in integers. `bench_raster` checks that. A layout that quietly folded two alignments together would still draw a plausible picture and nothing else would notice.

@@ -37,7 +37,9 @@ import re
 import sys
 
 _at = os.path.dirname(os.path.abspath(__file__))
-while _at != os.path.dirname(_at) and not os.path.isdir(os.path.join(_at, "lib", "repotools")):
+while _at != os.path.dirname(_at) and not os.path.isdir(
+    os.path.join(_at, "lib", "repotools")
+):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "lib"))
 
@@ -96,7 +98,11 @@ def literal(node):
             if all(one is not None for one in pieces):
                 return "/".join(one.strip("/") for one in pieces)
         if name in ("format", "abspath", "normpath", "expanduser"):
-            return literal(node.func.value) if isinstance(node.func, ast.Attribute) else None
+            return (
+                literal(node.func.value)
+                if isinstance(node.func, ast.Attribute)
+                else None
+            )
     return None
 
 
@@ -108,7 +114,13 @@ def literal(node):
 # as landing somewhere outside the repository.
 TOP = tuple(
     sorted(
-        {os.path.basename(one) for one in CFG.source_roots() + CFG.docs_roots() + CFG.test_roots() + CFG.example_roots()}
+        {
+            os.path.basename(one)
+            for one in CFG.source_roots()
+            + CFG.docs_roots()
+            + CFG.test_roots()
+            + CFG.example_roots()
+        }
         | {os.path.basename(CFG.tools_root())}
         | set(CFG.data.get("survey", {}).get("top", ()))
     )
@@ -131,7 +143,9 @@ def destination(where):
     text = text.lstrip("/")
     if not text or text.startswith(("$", "<", "?")):
         return None
-    parts = [one for one in text.split("/") if one and not one.startswith(("$", "<", "?"))]
+    parts = [
+        one for one in text.split("/") if one and not one.startswith(("$", "<", "?"))
+    ]
     if not parts:
         return None
     if len(parts) == 1:
@@ -142,8 +156,7 @@ def destination(where):
 def module_names(tree):
     """Module level names bound to a path. `open(TARGET, "w")` resolves to what TARGET is.
 
-    Almost every tool here names its destination once at the top and writes to that name later, so
-    without this pass the common case is the unresolved case. Two rounds, because a destination is
+    Almost every tool here names its destination once at the top and writes to that name later. Two rounds, because a destination is
     usually built from another constant: CORPORA from ROOT, then TARGET from CORPORA.
     """
     held = {}
@@ -200,12 +213,20 @@ def writes_in(path):
                     mode = literal(word.value)
             if mode is None or not WRITING.search(mode):
                 continue
-            found.append((node.lineno, "open", resolved(node.args[0]) if node.args else None))
+            found.append(
+                (node.lineno, "open", resolved(node.args[0]) if node.args else None)
+            )
         elif name in ("write_text", "write_bytes"):
-            target = resolved(node.func.value) if isinstance(node.func, ast.Attribute) else None
+            target = (
+                resolved(node.func.value)
+                if isinstance(node.func, ast.Attribute)
+                else None
+            )
             found.append((node.lineno, name, target))
         elif name == "makedirs":
-            found.append((node.lineno, "makedirs", resolved(node.args[0]) if node.args else None))
+            found.append(
+                (node.lineno, "makedirs", resolved(node.args[0]) if node.args else None)
+            )
     return found
 
 
@@ -237,12 +258,17 @@ def main():
                     outside.setdefault(lands, []).append(row)
 
     out.write("\n  %d python files read\n" % scanned)
-    out.write("  %d write(s) land under build/\n"
-              % sum(len(one) for one in inside.values()))
-    out.write("  %d write(s) land somewhere else\n"
-              % sum(len(one) for one in outside.values()))
-    out.write("  %d write(s) build their path at run time and are not resolved here\n"
-              % sum(len(one) for one in unresolved.values()))
+    out.write(
+        "  %d write(s) land under build/\n" % sum(len(one) for one in inside.values())
+    )
+    out.write(
+        "  %d write(s) land somewhere else\n"
+        % sum(len(one) for one in outside.values())
+    )
+    out.write(
+        "  %d write(s) build their path at run time and are not resolved here\n"
+        % sum(len(one) for one in unresolved.values())
+    )
 
     out.write("\n  UNDER build/, which is where generated output belongs\n")
     for lands in sorted(inside):
@@ -251,14 +277,18 @@ def main():
     out.write("\n  EVERYWHERE ELSE, worth a look one at a time\n")
     for lands in sorted(outside, key=lambda one: -len(outside[one])):
         out.write("    %s  (%d)\n" % (lands, len(outside[lands])))
-        for shown, line, kind, where in sorted(outside[lands])[: (99 if show_all else 4)]:
+        for shown, line, kind, where in sorted(outside[lands])[
+            : (99 if show_all else 4)
+        ]:
             out.write("      %s:%d  %s  %s\n" % (shown, line, kind, where[:58]))
 
     if show_all:
         out.write("\n  PATH BUILT AT RUN TIME\n")
         for shown in sorted(unresolved):
             for _, line, kind, where in unresolved[shown]:
-                out.write("    %s:%d  %s  %s\n" % (shown, line, kind, (where or "?")[:58]))
+                out.write(
+                    "    %s:%d  %s  %s\n" % (shown, line, kind, (where or "?")[:58])
+                )
 
     out.write("\n  --all lists every site, including the unresolved ones.\n\n")
     out.flush()

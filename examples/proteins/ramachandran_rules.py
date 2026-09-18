@@ -7,10 +7,7 @@
 #
 #   Usage:  from ramachandran_rules import angle, load_contours, region, score
 #
-# The engine hands back a torsion as exact integer terms and stops there, because the atan2 that
-# turns them into a degree is the one irrational step in the path and does not belong in the reader.
-# This is where it is taken, in decimal and to a precision stated below, well under the grid the
-# answer is read against. Nothing here imports numpy or any other computing library. Python's own
+# Nothing here imports numpy or any other computing library. Python's own
 # integers and decimals are the whole of the arithmetic.
 #
 # The rules themselves are not this work's. The contour grids are the Top8000 percentile contours

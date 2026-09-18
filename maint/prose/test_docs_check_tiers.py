@@ -51,9 +51,11 @@ def findings(path):
     """
     lines = read(path)
     said = docs_check.prose_only(path, lines)
-    return docs_check.banned_tokens(said,
-                                    quotations=path.endswith(".md"),
-                                    comments=not path.endswith((".md", ".tex")))
+    return docs_check.banned_tokens(
+        said,
+        quotations=path.endswith(".md"),
+        comments=not path.endswith((".md", ".tex")),
+    )
 
 
 def sibling_repository(name):
@@ -72,15 +74,30 @@ def sibling_repository(name):
 def describe_ref(tree):
     """The revision a measurement was taken at, and whether it is reachable anywhere but here."""
     try:
-        head = subprocess.check_output(
-            ["git", "rev-parse", "--short", "HEAD"], cwd=tree, stderr=subprocess.PIPE
-        ).decode("utf-8", "replace").strip()
-        remote = subprocess.check_output(
-            ["git", "branch", "-r", "--contains", "HEAD"], cwd=tree, stderr=subprocess.PIPE
-        ).decode("utf-8", "replace").strip()
+        head = (
+            subprocess.check_output(
+                ["git", "rev-parse", "--short", "HEAD"],
+                cwd=tree,
+                stderr=subprocess.PIPE,
+            )
+            .decode("utf-8", "replace")
+            .strip()
+        )
+        remote = (
+            subprocess.check_output(
+                ["git", "branch", "-r", "--contains", "HEAD"],
+                cwd=tree,
+                stderr=subprocess.PIPE,
+            )
+            .decode("utf-8", "replace")
+            .strip()
+        )
     except (OSError, subprocess.CalledProcessError):
         return "no git history"
-    return "%s (%s)" % (head, remote.splitlines()[0].strip() if remote else "NOT PUSHED")
+    return "%s (%s)" % (
+        head,
+        remote.splitlines()[0].strip() if remote else "NOT PUSHED",
+    )
 
 
 class StandardsPassTheCheckerTheyAuthorize(unittest.TestCase):
@@ -113,12 +130,19 @@ class StandardsPassTheCheckerTheyAuthorize(unittest.TestCase):
 
     def test_no_tier_b_vocabulary_finding_on_either_standard(self):
         for name, path in STANDARDS.items():
-            got = [(at, what) for at, what in findings(path) if what.startswith("tier B")]
+            got = [
+                (at, what) for at, what in findings(path) if what.startswith("tier B")
+            ]
             self.assertEqual(
-                got, [],
+                got,
+                [],
                 "%s is the standard this checker enforces. A TIER B vocabulary finding on it is "
                 "the gate over-reaching, never the document failing:\n  %s"
-                % (name, "\n  ".join("%s:%d %s" % (name, at, what) for at, what in got)))
+                % (
+                    name,
+                    "\n  ".join("%s:%d %s" % (name, at, what) for at, what in got),
+                ),
+            )
 
     def test_no_spelling_finding_on_either_standard(self):
         # code-documentation:149 is the sentence that defines the house convention. A British hit
@@ -133,25 +157,41 @@ class StandardsPassTheCheckerTheyAuthorize(unittest.TestCase):
         # and carries the section that bans it, and a reader can go and read the sentence.
         for name, path in STANDARDS.items():
             got = findings(path)
-            self.assertTrue(got, "%s reports nothing at all, which means the gate stopped "
-                                 "reading it rather than agreeing with it" % name)
+            self.assertTrue(
+                got,
+                "%s reports nothing at all, which means the gate stopped "
+                "reading it rather than agreeing with it" % name,
+            )
             for at, what in got:
-                self.assertTrue(what.startswith("tier A "),
-                                "%s:%d is neither TIER A nor exempt: %s" % (name, at, what))
-                self.assertIn("banned at ", what,
-                              "%s:%d is TIER A and names no sentence: %s" % (name, at, what))
-        print("\n  standards after the tier split: %s"
-              % ", ".join("%s %d TIER A" % (name, len(findings(path)))
-                          for name, path in STANDARDS.items()))
+                self.assertTrue(
+                    what.startswith("tier A "),
+                    "%s:%d is neither TIER A nor exempt: %s" % (name, at, what),
+                )
+                self.assertIn(
+                    "banned at ",
+                    what,
+                    "%s:%d is TIER A and names no sentence: %s" % (name, at, what),
+                )
+        print(
+            "\n  standards after the tier split: %s"
+            % ", ".join(
+                "%s %d TIER A" % (name, len(findings(path)))
+                for name, path in STANDARDS.items()
+            )
+        )
 
     def test_em_dashes_are_the_standards_own_rule_and_are_not_quieted(self):
         # Recorded, not argued here. em_dashes() is a different rule in a different stage and
         # nothing in the tier work touches it. If this number moves, either somebody edited the
         # standards or somebody quieted the rule, and the two are not the same thing.
-        counted = {name: len(docs_check.em_dashes(docs_check.prose_only(path, read(path))))
-                   for name, path in STANDARDS.items()}
-        self.assertTrue(all(one > 0 for one in counted.values()),
-                        "an em dash count fell to zero: %s" % counted)
+        counted = {
+            name: len(docs_check.em_dashes(docs_check.prose_only(path, read(path))))
+            for name, path in STANDARDS.items()
+        }
+        self.assertTrue(
+            all(one > 0 for one in counted.values()),
+            "an em dash count fell to zero: %s" % counted,
+        )
         print("\n  em dashes in the standards, structural and unresolved: %s" % counted)
 
 
@@ -165,7 +205,9 @@ class TierIsDecidedByTheSentence(unittest.TestCase):
         self.assertEqual(docs_check.tier_of(r"\brather\b"), "A")
 
     def test_superlative_group_is_tier_b_although_it_spans_words(self):
-        group = r"\b(stellar|superb|phenomenal|tremendous|immense|enormous|staggering)\b"
+        group = (
+            r"\b(stellar|superb|phenomenal|tremendous|immense|enormous|staggering)\b"
+        )
         self.assertIn(group, docs_check.BANNED)
         self.assertEqual(docs_check.tier_of(group), "B")
 
@@ -173,12 +215,17 @@ class TierIsDecidedByTheSentence(unittest.TestCase):
         # The import-time guard already raises on drift. This asserts the guard's condition
         # directly. A later edit that removes the guard then fails a test and not a run.
         orphans = [one for one in docs_check.AUTHORITY if one not in docs_check.BANNED]
-        self.assertEqual(orphans, [], "AUTHORITY names patterns BANNED does not hold: %s" % orphans)
+        self.assertEqual(
+            orphans, [], "AUTHORITY names patterns BANNED does not hold: %s" % orphans
+        )
 
     def test_every_authority_entry_cites_a_standard_and_a_line(self):
         for pattern, where in docs_check.AUTHORITY.items():
-            self.assertRegex(where, r"code-(documentation|comments):\d+",
-                             "AUTHORITY[%r] does not cite a section: %r" % (pattern, where))
+            self.assertRegex(
+                where,
+                r"code-(documentation|comments):\d+",
+                "AUTHORITY[%r] does not cite a section: %r" % (pattern, where),
+            )
 
     def test_locale_patterns_are_neither_tier(self):
         for pattern in docs_check.LOCALE:
@@ -188,7 +235,9 @@ class TierIsDecidedByTheSentence(unittest.TestCase):
     def test_the_table_holds_no_pattern_twice(self):
         # One rule in two places is two rules that can be edited apart. \band nothing else\b was
         # written twice and only the dedupe in banned_hits kept it from doubling every finding.
-        seen = [one for one in set(docs_check.BANNED) if docs_check.BANNED.count(one) > 1]
+        seen = [
+            one for one in set(docs_check.BANNED) if docs_check.BANNED.count(one) > 1
+        ]
         self.assertEqual(seen, [], "BANNED holds a pattern more than once: %s" % seen)
 
 
@@ -208,28 +257,86 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
     #
     # docs-check: quoting
     NAMED = (
-        ("The colon is what separates them.", "is what separates", "code-documentation:126"),
-        ("The guard is what holds the invariant.", "is what holds", "code-documentation:126"),
-        ("The flag is what decides the branch.", "is what decides", "code-documentation:126"),
-        ("The bound is what makes the walk finite.", "is what makes", "code-comments:205"),
-        ("The token makes clear that the payload follows.", "make clear", "code-documentation:147"),
-        ("The token announces the end of the frame.", "announces", "code-documentation:147"),
+        (
+            "The colon is what separates them.",
+            "is what separates",
+            "code-documentation:126",
+        ),
+        (
+            "The guard is what holds the invariant.",
+            "is what holds",
+            "code-documentation:126",
+        ),
+        (
+            "The flag is what decides the branch.",
+            "is what decides",
+            "code-documentation:126",
+        ),
+        (
+            "The bound is what makes the walk finite.",
+            "is what makes",
+            "code-comments:205",
+        ),
+        (
+            "The token makes clear that the payload follows.",
+            "make clear",
+            "code-documentation:147",
+        ),
+        (
+            "The token announces the end of the frame.",
+            "announces",
+            "code-documentation:147",
+        ),
         ("Declared, not allocated.", "X-not-Y, bare", "code-documentation:146"),
         ("A number, not a guess.", "X-not-Y, bare", "code-documentation:146"),
-        ("The pool is a cache and never a buffer.", "is a P and never a Q",
-         "code-documentation:127"),
-        ("It reports the count and nothing more.", "and nothing more", "code-documentation:128"),
+        (
+            "The pool is a cache and never a buffer.",
+            "is a P and never a Q",
+            "code-documentation:127",
+        ),
+        (
+            "It reports the count and nothing more.",
+            "and nothing more",
+            "code-documentation:128",
+        ),
         ("It reports the count and no more.", "and no more", "code-documentation:128"),
-        ("It reports the count and nothing else.", "and nothing else", "code-comments:207"),
-        ("That is the one place the bound is set.", "the one place", "code-documentation:129"),
-        ("The header is the one thing the loader reads.", "the one thing", "code-comments:207"),
-        ("This is the whole of what the call does.", "the whole of what", "code-documentation:130"),
+        (
+            "It reports the count and nothing else.",
+            "and nothing else",
+            "code-comments:207",
+        ),
+        (
+            "That is the one place the bound is set.",
+            "the one place",
+            "code-documentation:129",
+        ),
+        (
+            "The header is the one thing the loader reads.",
+            "the one thing",
+            "code-comments:207",
+        ),
+        (
+            "This is the whole of what the call does.",
+            "the whole of what",
+            "code-documentation:130",
+        ),
         ("That is the whole of the contract.", "the whole of the", "code-comments:207"),
-        ("It is precisely the bound the header sets.", "is precisely the",
-         "code-documentation:131"),
-        ("The alignment is what matters most.", "that matters most", "code-documentation:131"),
+        (
+            "It is precisely the bound the header sets.",
+            "is precisely the",
+            "code-documentation:131",
+        ),
+        (
+            "The alignment is what matters most.",
+            "that matters most",
+            "code-documentation:131",
+        ),
         ("What matters is the alignment.", "what matters is", "code-documentation:131"),
-        ("The size is the one that matters.", "the one that matters", "code-documentation:116"),
+        (
+            "The size is the one that matters.",
+            "the one that matters",
+            "code-documentation:116",
+        ),
         ("That is what survives a reset.", "what survives", "code-documentation:120"),
         ("The counts add up to the header length.", "add up", "code-documentation:110"),
         ("The pool is drained. A caller sees nothing.", "so a", "code-comments:200"),
@@ -239,21 +346,36 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         ("The pool is drained. An entry is dropped.", "so an", "code-comments:200"),
         ("The bound is read here.", "rather", "code-comments:200"),
         ("The spelling is wrong in three places.", "spelling", "code-comments:200"),
-        ("The pool is sized here, which is the bound the caller sees.", "which is the",
-         "code-comments:206"),
-        ("It frees the block, which is what the caller asked for.", "which is what",
-         "code-comments:206"),
-        ("It frees the block, which is why the pool shrinks.", "which is why",
-         "code-comments:206"),
+        (
+            "The pool is sized here, which is the bound the caller sees.",
+            "which is the",
+            "code-comments:206",
+        ),
+        (
+            "It frees the block, which is what the caller asked for.",
+            "which is what",
+            "code-comments:206",
+        ),
+        (
+            "It frees the block, which is why the pool shrinks.",
+            "which is why",
+            "code-comments:206",
+        ),
     )
     # docs-check: end quoting
 
     def test_every_phrase_the_standards_name_is_caught(self):
-        missed = [(phrase, where, sentence) for sentence, phrase, where in self.NAMED
-                  if not list(docs_check.banned_hits([sentence], comments=True))]
-        self.assertEqual(missed, [],
-                         "the standards name these by name and the table does not reach them:\n  %s"
-                         % "\n  ".join("%s (%s): %s" % one for one in missed))
+        missed = [
+            (phrase, where, sentence)
+            for sentence, phrase, where in self.NAMED
+            if not list(docs_check.banned_hits([sentence], comments=True))
+        ]
+        self.assertEqual(
+            missed,
+            [],
+            "the standards name these by name and the table does not reach them:\n  %s"
+            % "\n  ".join("%s (%s): %s" % one for one in missed),
+        )
 
     def test_every_phrase_the_standards_name_is_tier_a(self):
         # At least one TIER A pattern has to fire, not every pattern that fires. A carrier sentence
@@ -262,29 +384,46 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         # Both are reported, and the tier separates them.
         wrong = []
         for sentence, phrase, where in self.NAMED:
-            tiers = {docs_check.tier_of(pattern)
-                     for _, pattern, _ in docs_check.banned_hits([sentence], comments=True)}
+            tiers = {
+                docs_check.tier_of(pattern)
+                for _, pattern, _ in docs_check.banned_hits([sentence], comments=True)
+            }
             if "A" not in tiers:
                 wrong.append((phrase, where, sorted(tiers)))
-        self.assertEqual(wrong, [],
-                         "a construction the standard bans by name is scored as vocabulary:\n  %s"
-                         % "\n  ".join("%s (%s) fired only as %s" % one for one in wrong))
+        self.assertEqual(
+            wrong,
+            [],
+            "a construction the standard bans by name is scored as vocabulary:\n  %s"
+            % "\n  ".join("%s (%s) fired only as %s" % one for one in wrong),
+        )
 
     def test_spelling_is_scoped_to_comments_by_its_own_sentence(self):
         # code-comments:200: "none has a legitimate use in a comment here". The scope is in the
         # sentence. The code carries it. A page about a character encoding writes the word.
         said = ["The spelling of the identifier is what the linker sees."]
         self.assertTrue(list(docs_check.banned_hits(said, comments=True)))
-        self.assertEqual([one for one in docs_check.banned_hits(said, comments=False)
-                          if one[1] == r"\bspelling\b"], [])
+        self.assertEqual(
+            [
+                one
+                for one in docs_check.banned_hits(said, comments=False)
+                if one[1] == r"\bspelling\b"
+            ],
+            [],
+        )
 
     def test_the_mid_sentence_appositive_is_left_alone(self):
-        # Section 146 permits the contrast where a reader would otherwise land on the wrong one, so
-        # the bare X-not-Y pattern is bounded to a whole short sentence. This is the boundary.
-        said = ["The bound is read in the header, not in the .c, and the caller never sees it."]
-        hits = [token for _, pattern, token in docs_check.banned_hits(said)
-                if ", not " in pattern]
-        self.assertEqual(hits, [], "the mid-sentence appositive was reported: %s" % hits)
+        # Section 146 permits the contrast where a reader would otherwise land on the wrong one.
+        said = [
+            "The bound is read in the header, not in the .c, and the caller never sees it."
+        ]
+        hits = [
+            token
+            for _, pattern, token in docs_check.banned_hits(said)
+            if ", not " in pattern
+        ]
+        self.assertEqual(
+            hits, [], "the mid-sentence appositive was reported: %s" % hits
+        )
 
 
 class TierBIsBoundedToConstructions(unittest.TestCase):
@@ -302,7 +441,10 @@ class TierBIsBoundedToConstructions(unittest.TestCase):
         ("holds", "holds the list as regexes"),
         ("reads", "reads .c and .h comments and docstrings, not only .md"),
         ("spends", "it spends a reader's trust before it wastes their time"),
-        ("buys", "breaks the line the prose is walking and buys nothing the reader asked for"),
+        (
+            "buys",
+            "breaks the line the prose is walking and buys nothing the reader asked for",
+        ),
         ("construction", "are essay construction, not comment construction"),
         ("slots", "the slots are already the explanation"),
         ("earned", "each one earned its place by measurement"),
@@ -310,43 +452,76 @@ class TierBIsBoundedToConstructions(unittest.TestCase):
 
     def test_the_standards_own_sentences_are_not_reported(self):
         for word, sentence in self.THE_STANDARDS_OWN_USE:
-            hits = [token for _, _, token in docs_check.banned_hits([sentence], comments=True)]
-            self.assertNotIn(word, [one.lower() for one in hits],
-                             "%r is reported, and the standard writes it: %r" % (word, sentence))
+            hits = [
+                token
+                for _, _, token in docs_check.banned_hits([sentence], comments=True)
+            ]
+            self.assertNotIn(
+                word,
+                [one.lower() for one in hits],
+                "%r is reported, and the standard writes it: %r" % (word, sentence),
+            )
 
     def test_the_construction_is_still_caught(self):
         # What the bare bans were reaching for, bounded. The is-what-VERB family is the construction
         # both standards name, and the withdrawn verbs went into it.
-        for sentence in ("The manifest is what carries the digest.",
-                         "The column is what holds the year.",
-                         "The header is what reads the length.",
-                         "The retry is what costs the round."):
+        for sentence in (
+            "The manifest is what carries the digest.",
+            "The column is what holds the year.",
+            "The header is what reads the length.",
+            "The retry is what costs the round.",
+        ):
             hits = list(docs_check.banned_hits([sentence]))
-            self.assertTrue(hits, "the bounded construction was not caught: %r" % sentence)
+            self.assertTrue(
+                hits, "the bounded construction was not caught: %r" % sentence
+            )
             self.assertEqual({docs_check.tier_of(one[1]) for one in hits}, {"A"})
 
     def test_the_plain_technical_verb_is_left_standing(self):
-        for sentence in ("The header carries the checksum.",
-                         "The buffer holds the segment.",
-                         "The parser reads the option list.",
-                         "A retry costs one round trip."):
+        for sentence in (
+            "The header carries the checksum.",
+            "The buffer holds the segment.",
+            "The parser reads the option list.",
+            "A retry costs one round trip.",
+        ):
             hits = [token for _, _, token in docs_check.banned_hits([sentence])]
-            self.assertEqual(hits, [],
-                             "a correct technical verb was reported in %r: %s" % (sentence, hits))
+            self.assertEqual(
+                hits,
+                [],
+                "a correct technical verb was reported in %r: %s" % (sentence, hits),
+            )
 
     def test_withdrawn_records_every_word_that_came_out(self):
         # The table is the record. A later reader who meets only the absence puts the ban back.
-        for word in ("carry", "hold", "read", "slot", "cost", "buy", "pay", "spend", "earn",
-                     "afford", "win", "price", "book", "construction"):
+        for word in (
+            "carry",
+            "hold",
+            "read",
+            "slot",
+            "cost",
+            "buy",
+            "pay",
+            "spend",
+            "earn",
+            "afford",
+            "win",
+            "price",
+            "book",
+            "construction",
+        ):
             self.assertIn(word, docs_check.WITHDRAWN)
-            self.assertTrue(len(docs_check.WITHDRAWN[word]) > 40,
-                            "WITHDRAWN[%r] gives a rule and no reason" % word)
+            self.assertTrue(
+                len(docs_check.WITHDRAWN[word]) > 40,
+                "WITHDRAWN[%r] gives a rule and no reason" % word,
+            )
 
     def test_no_withdrawn_word_is_banned_bare_again(self):
         # The shape that must not come back: a pattern that matches the word in any context at all.
         for word in docs_check.WITHDRAWN:
             for pattern in docs_check.BANNED:
-                if re.fullmatch(r"\\b%s(?:\(\?:[^)]*\)|\[[^\]]*\])?\??\\b" % word, pattern):
+                if re.fullmatch(
+                    r"\\b%s(?:\(\?:[^)]*\)|\[[^\]]*\])?\??\\b" % word, pattern
+                ):
                     self.fail("%r is banned bare again by %r" % (word, pattern))
 
 
@@ -382,12 +557,17 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
         # standards and five in ProtoCore/docs, three of which were real TIER A findings inside a
         # heading label. The arm came out and this holds it out.
         said = ["- **Why it is deferred."]
-        hits = [token.lower() for _, _, token in docs_check.banned_hits(said, quotations=True)]
+        hits = [
+            token.lower()
+            for _, _, token in docs_check.banned_hits(said, quotations=True)
+        ]
         self.assertIn("rather", hits)
 
     def test_a_backtick_span_is_exempt_in_a_comment_too(self):
         # Not bounded to markdown. A comment names a symbol in backticks the same way a page does.
-        self.assertEqual(list(docs_check.banned_hits(["# the `rather` pattern fires here"])), [])
+        self.assertEqual(
+            list(docs_check.banned_hits(["# the `rather` pattern fires here"])), []
+        )
 
 
 class TheReportSaysWhatItMeasured(unittest.TestCase):
@@ -404,8 +584,9 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         with open(docs_check.__file__, encoding="utf-8") as handle:
             source = handle.read()
         emitted = re.findall(r'"[^"\n]*1\.1M[^"\n]*"', source)
-        self.assertEqual(emitted, [],
-                         "a report string still claims 1.1M human words: %s" % emitted)
+        self.assertEqual(
+            emitted, [], "a report string still claims 1.1M human words: %s" % emitted
+        )
 
     def test_every_unmeasured_finding_names_the_corpus(self):
         said = ["The retry is what costs the round and nothing more."]
@@ -448,8 +629,11 @@ class ProseNeverFailsABuild(unittest.TestCase):
     """
 
     def run_tool(self, *where):
-        done = subprocess.run([sys.executable, os.path.join(HERE, "docs_check.py")] + list(where),
-                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        done = subprocess.run(
+            [sys.executable, os.path.join(HERE, "docs_check.py")] + list(where),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+        )
         return done.returncode, done.stdout.decode("utf-8", "replace")
 
     def test_a_tier_a_finding_alone_does_not_fail(self):
@@ -463,22 +647,33 @@ class ProseNeverFailsABuild(unittest.TestCase):
             self.skipTest("idemIP is not checked out beside this tree")
         where = os.path.join(tree, "src")
         status, said = self.run_tool(where)
-        breaking = [one for one in said.splitlines() if one.strip().startswith("BREAK ")]
+        breaking = [
+            one for one in said.splitlines() if one.strip().startswith("BREAK ")
+        ]
         prose = [one for one in said.splitlines() if one.strip().startswith("prose ")]
-        print("\n  idemIP/src at %s: %d breaking, %d prose, exit %d"
-              % (describe_ref(tree), len(breaking), len(prose), status))
+        print(
+            "\n  idemIP/src at %s: %d breaking, %d prose, exit %d"
+            % (describe_ref(tree), len(breaking), len(prose), status)
+        )
         self.assertEqual(breaking, [], "the fixture stopped being prose-only")
-        self.assertTrue(len(prose) > 100, "the fixture stopped producing prose findings")
-        self.assertEqual(status, 0,
-                         "%d prose findings and no structural finding exited %d. Both standards "
-                         "say a prose hit never fails a build." % (len(prose), status))
+        self.assertTrue(
+            len(prose) > 100, "the fixture stopped producing prose findings"
+        )
+        self.assertEqual(
+            status,
+            0,
+            "%d prose findings and no structural finding exited %d. Both standards "
+            "say a prose hit never fails a build." % (len(prose), status),
+        )
 
     def test_strict_is_the_cleanup_pass_and_does_fail(self):
         tree = sibling_repository("idemIP")
         if not tree or not os.path.isdir(os.path.join(tree, "src")):
             self.skipTest("idemIP is not checked out beside this tree")
         status, _ = self.run_tool(os.path.join(tree, "src"), "--strict")
-        self.assertEqual(status, 1, "--strict is the mode a cleanup pass wants and it did not fail")
+        self.assertEqual(
+            status, 1, "--strict is the mode a cleanup pass wants and it did not fail"
+        )
 
     def test_anchor_sift_itself_is_held_to_the_same_contract(self):
         # Named because the brief for this tool has been read the other way before. anchor_sift owns
@@ -486,8 +681,11 @@ class ProseNeverFailsABuild(unittest.TestCase):
         tier_a = [one for one in docs_check.BANNED if docs_check.tier_of(one) == "A"]
         self.assertTrue(tier_a)
         source = open(docs_check.__file__, encoding="utf-8").read()
-        self.assertIn("if breaking or (strict and prose):", source,
-                      "the exit rule moved. Prose must not reach the exit status without --strict")
+        self.assertIn(
+            "if breaking or (strict and prose):",
+            source,
+            "the exit rule moved. Prose must not reach the exit status without --strict",
+        )
 
 
 class TheStructuralStageIsUntouched(unittest.TestCase):
@@ -501,7 +699,9 @@ class TheStructuralStageIsUntouched(unittest.TestCase):
     def test_dead_links_still_has_its_path_candidate_gate(self):
         self.assertTrue(hasattr(docs_check, "path_candidate"))
         self.assertFalse(docs_check.path_candidate("@ref HTTP_10"))
-        self.assertFalse(docs_check.path_candidate("const char *user, const char *pass"))
+        self.assertFalse(
+            docs_check.path_candidate("const char *user, const char *pass")
+        )
         self.assertTrue(docs_check.path_candidate("docs/README.md"))
 
     def test_the_private_survey_still_answers_in_two_halves(self):

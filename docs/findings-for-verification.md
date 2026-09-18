@@ -234,7 +234,7 @@ The engine computes `best_standing` at every level of the descent and compares i
 
 A caller who wants it today runs the descent twice with `force_full_depth` flipped and subtracts. That recovers the fact that the destroy rule fired and what its firing cost. It does not recover the reason.
 
-**Why it matters more after F15.** Four documents were just corrected to say depth is a data dependent steer. The quantity that steer reads is the one quantity the engine does not report.
+**Why it matters more after F15.** Four documents were just corrected to say depth is a data dependent steer. The quantity that steer reads is not reported by the engine.
 
 The shape would be a caller supplied array of `count` entries, filled with the survivor count at each level, which is the same contract every other buffer here already has. Nothing is blocked on it and nothing is being built.
 

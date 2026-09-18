@@ -75,8 +75,7 @@ def mean_background_incremental(values, period):
 
     Each phase class is read on its own stride and its mean is grown by the Welford update, exact in
     Fraction: the mean after i members is the mean after i minus one plus the new member's distance
-    from it over i. It shares no sum, no traversal and no division count with `mean_background`, so
-    the two agreeing is a check and not a restatement. Where they disagree, one carries a defect.
+    from it over i. It shares no sum, no traversal and no division count with `mean_background`.
     """
     means = [None] * period
     length = len(values)
@@ -86,7 +85,9 @@ def mean_background_incremental(values, period):
         index = phase
         while index < length:
             seen += 1
-            running = add(running, over(sub(whole(values[index]), running), whole(seen)))
+            running = add(
+                running, over(sub(whole(values[index]), running), whole(seen))
+            )
             index += period
         means[phase] = running
     return [means[index % period] for index in range(length)]
@@ -131,8 +132,7 @@ def consensus_median(values, period):
 
     The lower of the two middle values on an even class, a declared rule. Where a phase class carries
     a strict majority of one value the median is that value. This agrees with the count route to
-    the integer on every class a majority reaches. It sorts and selects where the other counts, so
-    the two share no code, and a class they disagree on is a class with no majority: the floor.
+    the integer on every class a majority reaches. It sorts and selects where the other counts.
     """
     length = len(values)
     picked = [None] * period

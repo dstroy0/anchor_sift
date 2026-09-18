@@ -16,8 +16,7 @@
 #
 # The repair is to stop reading at whatever numbering a file arrived in and take the value it
 # converges to. That is reached and not approached: minimizing a weighted spread over whole
-# positions has a known answer, since the spread weights each position by how often it is used, so
-# the commonest symbol belongs at the middle and the rest go outward in order of frequency.
+# positions has a known answer, since the spread weights each position by how often it is used.
 #
 # Under it, Greek moves from a spread of 31.44 to 7.83 and from 0.056 returned to 0.222, Finnish
 # gains the most at 0.250, and English gains 0.194. That the numbering was being read is itself
@@ -58,7 +57,7 @@ def tightest(series, width=256):
             places.append(middle + step)
         if (middle - step) >= 0:
             places.append(middle - step)
-    places = places[:len(ordered)]
+    places = places[: len(ordered)]
 
     seating = numpy.zeros(width, dtype=numpy.uint8)
     for symbol, place in zip(ordered, places):

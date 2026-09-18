@@ -85,9 +85,11 @@ def unit(vector):
 
 
 def cross(left, right):
-    return [left[1] * right[2] - left[2] * right[1],
-            left[2] * right[0] - left[0] * right[2],
-            left[0] * right[1] - left[1] * right[0]]
+    return [
+        left[1] * right[2] - left[2] * right[1],
+        left[2] * right[0] - left[0] * right[2],
+        left[0] * right[1] - left[1] * right[0],
+    ]
 
 
 def sideways(axis):
@@ -126,17 +128,19 @@ def system(count, seed):
         first = sideways(normal)
         second = unit(cross(normal, first))
 
-        bodies.append({
-            "index": index,
-            "radius": round(radius, 4),
-            "size": round(size, 4),
-            "period": round(math.pow(radius, 1.5), 6),
-            "phase": round(next(stream) * 2.0 * math.pi, 5),
-            "brightness": round(brightness, 6),
-            "normal": [round(one, 5) for one in normal],
-            "u": [round(one, 5) for one in first],
-            "v": [round(one, 5) for one in second],
-        })
+        bodies.append(
+            {
+                "index": index,
+                "radius": round(radius, 4),
+                "size": round(size, 4),
+                "period": round(math.pow(radius, 1.5), 6),
+                "phase": round(next(stream) * 2.0 * math.pi, 5),
+                "brightness": round(brightness, 6),
+                "normal": [round(one, 5) for one in normal],
+                "u": [round(one, 5) for one in first],
+                "v": [round(one, 5) for one in second],
+            }
+        )
     return bodies
 
 
@@ -145,9 +149,11 @@ def at_time(body, moment):
     angle = body["phase"] + 2.0 * math.pi * moment / body["period"]
     here = math.cos(angle)
     there = math.sin(angle)
-    return (body["u"][0] * here + body["v"][0] * there,
-            body["u"][1] * here + body["v"][1] * there,
-            body["u"][2] * here + body["v"][2] * there)
+    return (
+        body["u"][0] * here + body["v"][0] * there,
+        body["u"][1] * here + body["v"][1] * there,
+        body["u"][2] * here + body["v"][2] * there,
+    )
 
 
 def watch_shadow(bodies, frames, span, patch):
@@ -272,15 +278,14 @@ def recover(curve, span, frames, bodies):
         here = score[index]
         if floor <= 0.0 or here < floor * reach * 2.0:
             continue
-        if here < max(score[index - oversample:index + oversample + 1]):
+        if here < max(score[index - oversample : index + oversample + 1]):
             continue
         frequency = index * (frames / float(padded)) / span
         if frequency <= 0.0:
             continue
         found.append({"period": 1.0 / frequency, "strength": here / (floor * reach)})
 
-    # Harmonic families, folded to their fundamental. A body's swing is smooth but not a sine, so
-    # it puts power at twice its frequency and three times it as well. Read as periods those come
+    # Harmonic families, folded to their fundamental. A body's swing is smooth but not a sine. Read as periods those come
     # back as radii the second and third harmonics imply, and every one of them lands on a body
     # that is not there: 0.786 arrives a second time as 0.498, 0.558 as 0.351, 0.443 as 0.279.
     # Six real bodies became twelve, half of them ghosts of the other half.
@@ -292,7 +297,9 @@ def recover(curve, span, frames, bodies):
     found.sort(key=lambda one: -one["strength"])
     kept = []
     for entry in found:
-        if any(abs(entry["period"] - one["period"]) < 0.04 * one["period"] for one in kept):
+        if any(
+            abs(entry["period"] - one["period"]) < 0.04 * one["period"] for one in kept
+        ):
             continue
         kept.append(entry)
         # A fixed ceiling, never the number of bodies. Capping at the count the scene was built
@@ -305,13 +312,15 @@ def recover(curve, span, frames, bodies):
     for entry in sorted(kept, key=lambda one: one["period"]):
         radius = math.pow(entry["period"], 2.0 / 3.0)
         near = min(bodies, key=lambda body: abs(body["radius"] - radius))
-        out.append({
-            "period": round(entry["period"], 5),
-            "radius": round(radius, 4),
-            "strength": round(entry["strength"], 2),
-            "nearest": near["index"],
-            "off_by": round(abs(near["radius"] - radius), 4),
-        })
+        out.append(
+            {
+                "period": round(entry["period"], 5),
+                "radius": round(radius, 4),
+                "strength": round(entry["strength"], 2),
+                "nearest": near["index"],
+                "off_by": round(abs(near["radius"] - radius), 4),
+            }
+        )
     return out
 
 
@@ -356,9 +365,12 @@ def main():
     # each patch found on its own and what they found together, and the gap between those is the
     # measure of what moving the observer is worth.
     patches = [
-        ("+x", (1.0, 0.0, 0.0)), ("-x", (-1.0, 0.0, 0.0)),
-        ("+y", (0.0, 1.0, 0.0)), ("-y", (0.0, -1.0, 0.0)),
-        ("+z", (0.0, 0.0, 1.0)), ("-z", (0.0, 0.0, -1.0)),
+        ("+x", (1.0, 0.0, 0.0)),
+        ("-x", (-1.0, 0.0, 0.0)),
+        ("+y", (0.0, 1.0, 0.0)),
+        ("-y", (0.0, -1.0, 0.0)),
+        ("+z", (0.0, 0.0, 1.0)),
+        ("-z", (0.0, 0.0, -1.0)),
     ]
 
     profiles = {}
@@ -372,13 +384,15 @@ def main():
         glow = watch_glow(bodies, frames, span, patch, profiles)
         shade = watch_shadow(bodies, frames, span, patch)
         seen = recover(glow, span, frames, bodies)
-        watched.append({
-            "name": name,
-            "curve": [round(one, 6) for one in glow],
-            "shadow": [round(one, 6) for one in shade],
-            "found": seen,
-            "transits": round(1.0 - min(shade), 6),
-        })
+        watched.append(
+            {
+                "name": name,
+                "curve": [round(one, 6) for one in glow],
+                "shadow": [round(one, 6) for one in shade],
+                "found": seen,
+                "transits": round(1.0 - min(shade), 6),
+            }
+        )
 
     # Merged across every patch, and ranked by how many independent axes agree.
     #
@@ -401,11 +415,16 @@ def main():
                     match = already
                     break
             if match is None:
-                merged.append({
-                    "period": one["period"], "radius": one["radius"],
-                    "nearest": one["nearest"], "off_by": one["off_by"],
-                    "patches": [entry["name"]], "axes": [axis],
-                })
+                merged.append(
+                    {
+                        "period": one["period"],
+                        "radius": one["radius"],
+                        "nearest": one["nearest"],
+                        "off_by": one["off_by"],
+                        "patches": [entry["name"]],
+                        "axes": [axis],
+                    }
+                )
             else:
                 if entry["name"] not in match["patches"]:
                     match["patches"].append(entry["name"])
@@ -426,7 +445,9 @@ def main():
     # exponential of the path in scattering lengths. The brightness a shadow needs is that
     # exponential. Printing it keeps the shadow mode honest about being a clear-medium answer.
     depths = [1.0, 4.0, 12.0, 30.0]
-    attenuation = [{"lengths": one, "survives": "%.2e" % math.exp(-one)} for one in depths]
+    attenuation = [
+        {"lengths": one, "survives": "%.2e" % math.exp(-one)} for one in depths
+    ]
 
     payload = {
         "mode": mode,
@@ -448,7 +469,9 @@ def main():
     if "/*ORRERY_DATA*/null" not in page:
         sys.stderr.write("the template has no place to put the data\n")
         return 1
-    page = page.replace("/*ORRERY_DATA*/null", json.dumps(payload, separators=(",", ":")))
+    page = page.replace(
+        "/*ORRERY_DATA*/null", json.dumps(payload, separators=(",", ":"))
+    )
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
@@ -458,9 +481,13 @@ def main():
         handle.write(page)
 
     print("%s" % out)
-    print("  %d bodies, %d steps over %.2f turns of the slowest" % (count, frames, span /
-                                                                    max(b["period"] for b in bodies)))
-    print("  built radii:     %s" % ", ".join("%.3f" % body["radius"] for body in bodies))
+    print(
+        "  %d bodies, %d steps over %.2f turns of the slowest"
+        % (count, frames, span / max(b["period"] for b in bodies))
+    )
+    print(
+        "  built radii:     %s" % ", ".join("%.3f" % body["radius"] for body in bodies)
+    )
     for entry in watched:
         names = ", ".join("%.3f" % one["radius"] for one in entry["found"]) or "nothing"
         print("    patch %s found %d: %s" % (entry["name"], len(entry["found"]), names))
@@ -484,9 +511,13 @@ def main():
     for was in truth:
         if any(abs(one["radius"] - was) < 0.04 for one in sure):
             caught += 1
-    wrong = sum(1 for one in sure if min(abs(one["radius"] - was) for was in truth) >= 0.04)
-    print("  of %d bodies built, %d recovered on all three axes, with %d that match nothing"
-          % (len(bodies), caught, wrong))
+    wrong = sum(
+        1 for one in sure if min(abs(one["radius"] - was) for was in truth) >= 0.04
+    )
+    print(
+        "  of %d bodies built, %d recovered on all three axes, with %d that match nothing"
+        % (len(bodies), caught, wrong)
+    )
     return 0
 
 

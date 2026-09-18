@@ -22,8 +22,7 @@
 # closed-shell atom forms, which for the main group is min(v, 8 - v) over its valence electrons.
 #
 # The validity gate on the catalog is the octet: every atom of every molecule below must close, or a
-# bond was entered wrong. That is the positive control on a hand-built table. The reading it delivers
-# is the one the next stages rest on: a formula does not fix a molecule. Ethanol and dimethyl ether
+# bond was entered wrong. That is the positive control on a hand-built table. Ethanol and dimethyl ether
 # are both C2H6O and both close every atom. The formula is a necessary label and not the structure,
 # which is why the sift's survivors still need confirming.
 

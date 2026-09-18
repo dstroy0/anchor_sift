@@ -17,8 +17,7 @@
 #
 # What it costs is measured and is in two parts. Interleaving jumps whenever it crosses a block
 # boundary, and a jump puts a step into the reading that no part of the set put there. Separately, a
-# line cannot hold everything about a plane whatever path it takes. A Hilbert curve never jumps, so
-# measuring along both separates the two: the jumps account for about 0.43 of the shortfall and the
+# line cannot hold everything about a plane whatever path it takes. A Hilbert curve never jumps.43 of the shortfall and the
 # remaining 0.57 survives a curve with nothing to blame.
 #
 # The two do not have one winner. The Hilbert curve is the better reading of the exponent and the
@@ -82,7 +81,9 @@ def hilbert_order(side, dims):
     at once.
     """
     bits = int(numpy.ceil(numpy.log2(side)))
-    axes = numpy.meshgrid(*[numpy.arange(side, dtype=numpy.uint64)] * dims, indexing="ij")
+    axes = numpy.meshgrid(
+        *[numpy.arange(side, dtype=numpy.uint64)] * dims, indexing="ij"
+    )
     coords = [axis.ravel().copy() for axis in axes]
 
     # Undo the excess work, which turns the plain binary corner into the Hilbert one
@@ -102,8 +103,9 @@ def hilbert_order(side, dims):
     trailing = numpy.zeros_like(coords[0])
     step = numpy.uint64(1) << numpy.uint64(bits - 1)
     while step > 1:
-        trailing ^= numpy.where((coords[dims - 1] & step) != 0, step - numpy.uint64(1),
-                                numpy.uint64(0))
+        trailing ^= numpy.where(
+            (coords[dims - 1] & step) != 0, step - numpy.uint64(1), numpy.uint64(0)
+        )
         step >>= numpy.uint64(1)
     for place in range(dims):
         coords[place] ^= trailing

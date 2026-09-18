@@ -59,7 +59,7 @@ CACHE = os.path.join(ROOT, "build", "cod")
 FAMILIES = os.path.join(ROOT, "build", "cod", "families.tsv")
 
 # The refusal names, in the order exact_points applies them. A row is counted under the first test
-# it fails, because that is the one that actually turned it away.
+# it fails, it turned it away.
 NO_CELL = "no cell published"
 NOT_RIGHT = "cell not right angled"
 NO_SITES = "no atom sites"

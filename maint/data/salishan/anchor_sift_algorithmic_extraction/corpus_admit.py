@@ -17,8 +17,7 @@
 #
 # So candidates are sorted by distance to the corpus and admitted in batches while D_self stays
 # inside the band the corpus was already in. Admission stops at the first batch that leaves it.
-# What is admitted is written out. What is not is kept, with the batch number that rejected it, so
-# the boundary is visible and not left implied.
+# What is admitted is written out. What is not is kept, with the batch number that rejected it.
 
 import collections
 import glob

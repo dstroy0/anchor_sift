@@ -64,9 +64,11 @@ def seat_tightest(symbols):
             places.append(middle - step)
 
     seating = {}
-    for symbol, place in zip(ranked, places[:len(ranked)]):
+    for symbol, place in zip(ranked, places[: len(ranked)]):
         seating[symbol] = place
-    return numpy.asarray([seating[symbol] for symbol in symbols], dtype=numpy.int64), len(ranked)
+    return numpy.asarray(
+        [seating[symbol] for symbol in symbols], dtype=numpy.int64
+    ), len(ranked)
 
 
 def returned(series, bits):
@@ -81,20 +83,27 @@ def returned(series, bits):
     steps = 1 << bits
     angles = numpy.angle(spectrum)
     rounded = numpy.round(angles / (2.0 * numpy.pi) * steps) * (2.0 * numpy.pi / steps)
-    rebuilt = numpy.fft.irfft(numpy.exp(1j * rounded) * numpy.abs(spectrum), n=len(floats)) + middle
+    rebuilt = (
+        numpy.fft.irfft(numpy.exp(1j * rounded) * numpy.abs(spectrum), n=len(floats))
+        + middle
+    )
     landed = numpy.rint(rebuilt).astype(numpy.int64)
     return float((landed == series).mean())
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
 
     gathered = []
     for name in sorted(os.listdir(CORPORA)):
         if not (name.startswith("lang_") and name.endswith(".txt")):
             continue
         language = name[5:].rsplit("_", 1)[0]
-        with open(os.path.join(CORPORA, name), encoding="utf-8", errors="replace") as handle:
+        with open(
+            os.path.join(CORPORA, name), encoding="utf-8", errors="replace"
+        ) as handle:
             text = handle.read(CAP)
         # Line endings folded, as everywhere here, to keep a publisher's wrapping out of it
         text = text.replace("\r\n", " ").replace("\r", " ").replace("\n", " ")
@@ -107,10 +116,18 @@ def main():
         effective = 1.0 / float((shares * shares).sum())
         spread = float(seated.astype(numpy.float64).std())
         # As a share of the positions the alphabet occupies, since there is no fixed width to quote a
-        # spread in levels against. An alphabet of 3150 needs about 11.6 bits and one of 90 needs 6.5, so
-        # the same number of levels means different things in the two and only the fraction compares.
-        gathered.append((language, name[:-4], distinct, effective, spread,
-                         spread / float(distinct), returned(seated, BITS)))
+        # spread in levels against. An alphabet of 3150 needs about 11.6 bits and one of 90 needs 6.5.
+        gathered.append(
+            (
+                language,
+                name[:-4],
+                distinct,
+                effective,
+                spread,
+                spread / float(distinct),
+                returned(seated, BITS),
+            )
+        )
 
     if not gathered:
         out.write("  no language corpora long enough were found\n")
@@ -122,22 +139,46 @@ def main():
         for row in gathered:
             handle.write("%s,%s,%d,%.4f,%.4f,%.6f,%.6f\n" % row)
 
-    out.write("  %-14s %-7s %-9s %-11s %-11s %-15s %s\n"
-              % ("language", "texts", "symbols", "effective", "in levels", "of the range",
-                 "returned"))
+    out.write(
+        "  %-14s %-7s %-9s %-11s %-11s %-15s %s\n"
+        % (
+            "language",
+            "texts",
+            "symbols",
+            "effective",
+            "in levels",
+            "of the range",
+            "returned",
+        )
+    )
     summary = []
     for language in sorted({row[0] for row in gathered}):
         rows = [row for row in gathered if row[0] == language]
         shares = [row[5] for row in rows]
-        summary.append((language, len(rows), statistics.fmean(shares),
-                        statistics.fmean(row[6] for row in rows)))
-        out.write("  %-14s %-7d %-9d %-11.1f %-11.2f %-15s %.3f\n"
-                  % (language, len(rows), int(statistics.fmean(row[2] for row in rows)),
-                     statistics.fmean(row[3] for row in rows),
-                     statistics.fmean(row[4] for row in rows),
-                     "%.4f, %.4f" % (statistics.fmean(shares),
-                                     statistics.pstdev(shares) if len(shares) > 1 else 0.0),
-                     statistics.fmean(row[6] for row in rows)))
+        summary.append(
+            (
+                language,
+                len(rows),
+                statistics.fmean(shares),
+                statistics.fmean(row[6] for row in rows),
+            )
+        )
+        out.write(
+            "  %-14s %-7d %-9d %-11.1f %-11.2f %-15s %.3f\n"
+            % (
+                language,
+                len(rows),
+                int(statistics.fmean(row[2] for row in rows)),
+                statistics.fmean(row[3] for row in rows),
+                statistics.fmean(row[4] for row in rows),
+                "%.4f, %.4f"
+                % (
+                    statistics.fmean(shares),
+                    statistics.pstdev(shares) if len(shares) > 1 else 0.0,
+                ),
+                statistics.fmean(row[6] for row in rows),
+            )
+        )
 
     # Convergence is a variance question: if a language has a value of its own, the spread inside one
     # language is small against the spread between them, and if they converge the between falls toward
@@ -146,22 +187,39 @@ def main():
     if len(alphabetic) >= 4:
         for label, column in (("in levels", 4), ("as a share of the range", 5)):
             inside = statistics.fmean(
-                statistics.pstdev([row[column] for row in gathered if row[0] == language])
-                for language, count, _, _ in alphabetic if count > 1)
-            middles = [statistics.fmean([row[column] for row in gathered if row[0] == language])
-                       for language, _, _, _ in alphabetic]
+                statistics.pstdev(
+                    [row[column] for row in gathered if row[0] == language]
+                )
+                for language, count, _, _ in alphabetic
+                if count > 1
+            )
+            middles = [
+                statistics.fmean(
+                    [row[column] for row in gathered if row[0] == language]
+                )
+                for language, _, _, _ in alphabetic
+            ]
             between = statistics.pstdev(middles)
-            out.write("\n  %s, over %d languages other than Chinese\n" % (label, len(alphabetic)))
-            out.write("    within a language %.4f, between languages %.4f, ratio %.2f\n"
-                      % (inside, between, (between / inside) if inside > 0 else float("nan")))
+            out.write(
+                "\n  %s, over %d languages other than Chinese\n"
+                % (label, len(alphabetic))
+            )
+            out.write(
+                "    within a language %.4f, between languages %.4f, ratio %.2f\n"
+                % (inside, between, (between / inside) if inside > 0 else float("nan"))
+            )
             out.write("    they run %.4f to %.4f\n" % (min(middles), max(middles)))
 
             chinese = [row[column] for row in gathered if row[0] == "chinese"]
             if chinese and (inside > 0):
                 middle = statistics.fmean(middles)
-                out.write("    chinese at %.4f, %.1f within-language deviations out\n"
-                          % (statistics.fmean(chinese),
-                             abs(statistics.fmean(chinese) - middle) / inside))
+                out.write(
+                    "    chinese at %.4f, %.1f within-language deviations out\n"
+                    % (
+                        statistics.fmean(chinese),
+                        abs(statistics.fmean(chinese) - middle) / inside,
+                    )
+                )
 
     out.write("\n  wrote %s with %d texts\n" % (TARGET, len(gathered)))
     out.flush()

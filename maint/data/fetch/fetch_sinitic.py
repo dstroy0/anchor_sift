@@ -35,7 +35,9 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
 AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
@@ -62,17 +64,26 @@ def pull(code, offset):
     # in a Latin encyclopedia and almost absent from one written in Chinese characters. Every one of
     # these varieties came back with nothing and looked like an empty encyclopedia.
     #
-    # Opening sections only. A full extract is served one page at a time whatever limit is asked for, so
-    # every request was returning a single article and often a stub, which read as an empty encyclopedia.
+    # Opening sections only. A full extract is served one page at a time whatever limit is asked for.
     # Opening sections are served twenty at a time and are still ordinary prose.
     query = {
-        "action": "query", "format": "json", "generator": "allpages",
-        "gaplimit": str(PER_REQUEST), "gapnamespace": "0", "gapfilterredir": "nonredirects",
-        "prop": "extracts", "explaintext": "1", "exintro": "1", "exlimit": "20",
+        "action": "query",
+        "format": "json",
+        "generator": "allpages",
+        "gaplimit": str(PER_REQUEST),
+        "gapnamespace": "0",
+        "gapfilterredir": "nonredirects",
+        "prop": "extracts",
+        "explaintext": "1",
+        "exintro": "1",
+        "exlimit": "20",
     }
     if offset:
         query["gapcontinue"] = offset
-    url = "https://%s.wikipedia.org/w/api.php?%s" % (code, urllib.parse.urlencode(query))
+    url = "https://%s.wikipedia.org/w/api.php?%s" % (
+        code,
+        urllib.parse.urlencode(query),
+    )
     request = urllib.request.Request(url, headers=AGENT)
 
     payload = None
@@ -130,7 +141,9 @@ def gather(code, name):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     out.write("  %-14s %-10s %s\n" % ("variety", "characters", "note"))
 

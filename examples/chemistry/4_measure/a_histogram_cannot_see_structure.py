@@ -8,8 +8,7 @@
 #   Usage:  python examples/chemistry/4_measure/a_histogram_cannot_see_structure.py
 #
 # The measure part of the engine reads how far an object sits from its reference, and it carries a
-# warning about one class of measure: collision entropy is computed from the symbol counts alone, so
-# it is permutation invariant. A corpus and its own shuffle carry identical values, exactly and not
+# warning about one class of measure: collision entropy is computed from the symbol counts alone. A corpus and its own shuffle carry identical values, exactly and not
 # approximately, and no entropy of that order separates a structured arrangement from a rearrangement
 # of the same symbols.
 #
@@ -62,10 +61,19 @@ def as_bytes(atoms):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  Collision entropy reads the atom counts alone. It is permutation invariant: a\n")
-    out.write("  molecule and any rearrangement of its atoms carry the same value, exactly.\n\n")
-    out.write("  %-16s %-8s %-14s %s\n" % ("molecule", "H2 bits", "eff. alphabet", "real minus shuffle, worst of 8"))
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  Collision entropy reads the atom counts alone. It is permutation invariant: a\n"
+    )
+    out.write(
+        "  molecule and any rearrangement of its atoms carry the same value, exactly.\n\n"
+    )
+    out.write(
+        "  %-16s %-8s %-14s %s\n"
+        % ("molecule", "H2 bits", "eff. alphabet", "real minus shuffle, worst of 8")
+    )
 
     worst_gap = 0.0
     for molecule in MOLECULES:
@@ -77,21 +85,41 @@ def main():
             shifted, _, _, _ = collision_entropy(shuffled)
             gap = max(gap, abs(shifted - bits))
         worst_gap = max(worst_gap, gap)
-        out.write("  %-16s %-8.3f %-14.3f %.3e\n" % (molecule.name, bits, alphabet, gap))
+        out.write(
+            "  %-16s %-8.3f %-14.3f %.3e\n" % (molecule.name, bits, alphabet, gap)
+        )
 
-    out.write("\n  the departure from a shuffle is zero to machine precision on every molecule, worst %.1e.\n"
-              % worst_gap)
+    out.write(
+        "\n  the departure from a shuffle is zero to machine precision on every molecule, worst %.1e.\n"
+        % worst_gap
+    )
 
-    ethanol = collision_entropy(as_bytes(["C", "C", "H", "H", "H", "H", "H", "O", "H"]))[0]
-    ether = collision_entropy(as_bytes(["C", "C", "O", "H", "H", "H", "H", "H", "H"]))[0]
-    out.write("  the two isomers read identically: ethanol %.4f, dimethyl ether %.4f, difference %.1e.\n"
-              % (ethanol, ether, abs(ethanol - ether)))
-    out.write("  So the histogram reads the formula and no more. Arrangement is the sift's to read, and\n")
-    out.write("  which isomer a formula becomes is a geometry question the bond-length oracle answers.\n")
+    ethanol = collision_entropy(
+        as_bytes(["C", "C", "H", "H", "H", "H", "H", "O", "H"])
+    )[0]
+    ether = collision_entropy(as_bytes(["C", "C", "O", "H", "H", "H", "H", "H", "H"]))[
+        0
+    ]
+    out.write(
+        "  the two isomers read identically: ethanol %.4f, dimethyl ether %.4f, difference %.1e.\n"
+        % (ethanol, ether, abs(ethanol - ether))
+    )
+    out.write(
+        "  So the histogram reads the formula and no more. Arrangement is the sift's to read, and\n"
+    )
+    out.write(
+        "  which isomer a formula becomes is a geometry question the bond-length oracle answers.\n"
+    )
 
     ok = worst_gap == 0.0 and ethanol == ether
-    out.write("\n  %s\n" % ("the measure is blind to arrangement, as predicted." if ok
-                            else "a departure was not zero; the invariance did not hold."))
+    out.write(
+        "\n  %s\n"
+        % (
+            "the measure is blind to arrangement, as predicted."
+            if ok
+            else "a departure was not zero; the invariance did not hold."
+        )
+    )
     out.flush()
     return 0 if ok else 1
 

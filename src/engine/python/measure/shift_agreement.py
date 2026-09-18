@@ -144,8 +144,7 @@ def recover_exact_period(placed, families=2):
     """The period of an exact point set, read off the whole of its own difference set.
 
     Every difference between two places is a candidate, and that set is complete: a period that
-    agrees with anything at all appears in it. There is no sweep, no ceiling and no stride, so
-    nothing here narrows what can be found.
+    agrees with anything at all appears in it. There is no sweep, no ceiling and no stride.
 
     The family rule matches recover_lattice_period and it is needed for the same reason. A
     set with period P agrees with itself at 2P and 3P as well. The tallest lag alone reports a
@@ -161,7 +160,7 @@ def recover_exact_period(placed, families=2):
     ordered = sorted(placed)
     candidates = set()
     for at, first in enumerate(ordered):
-        for second in ordered[at + 1:]:
+        for second in ordered[at + 1 :]:
             candidates.add(second - first)
     if not candidates:
         return None, None
@@ -173,8 +172,11 @@ def recover_exact_period(placed, families=2):
     best = None
     period = None
     for candidate in sorted(candidates):
-        family = [scores[candidate * step] for step in range(1, families + 1)
-                  if (candidate * step) in scores]
+        family = [
+            scores[candidate * step]
+            for step in range(1, families + 1)
+            if (candidate * step) in scores
+        ]
         if len(family) < families:
             continue
         mean = sum(family) / float(len(family))
@@ -207,7 +209,9 @@ def recover_lattice_period(grid, axis, most=None):
     reach = most if most is not None else (grid.shape[axis] // 2)
     reach = max(4, int(reach))
 
-    agreements = {lag: lattice_agreement(grid, axis, lag) for lag in range(1, reach + 1)}
+    agreements = {
+        lag: lattice_agreement(grid, axis, lag) for lag in range(1, reach + 1)
+    }
     if not any(value > 0.0 for value in agreements.values()):
         return None, None, None
 

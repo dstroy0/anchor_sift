@@ -7,7 +7,6 @@
 #
 #   Usage:  python examples/chemistry/5_sift/valence_is_a_necessary_condition.py
 #
-# This is the one chemistry demonstration that runs on the primitives already in the tree. The
 # molecule reader and the bond-length oracle are design, stated in theory/chemistry; nothing here
 # depends on them. What runs here is the sift proposition read on chemistry: an atom's octet is a
 # condition on every atom of an arrangement, a real molecule satisfies all of them at once, and the
@@ -28,8 +27,7 @@
 # element sits at which atom with reference.shuffles.permuted. That deletes one property, the match
 # between an element and the degree its place carries, and keeps the counts exactly. Most such
 # permutations put an element where its valence does not fit the degree. The octet refuses them.
-# The real assignment is the one the elements were dealt, and it sits above the band the shuffles
-# occupy. No distance here is a value; every one is a departure from that band.
+# No distance here is a value; every one is a departure from that band.
 
 import io
 import os

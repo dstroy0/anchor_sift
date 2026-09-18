@@ -34,7 +34,9 @@ import unicodedata
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 PAPERS = os.path.join(ROOT, "build", "papers")
 CORPORA = os.path.join(ROOT, "build", "corpora")
@@ -46,8 +48,11 @@ QUOTED = re.compile(r"[‘'\"“]")
 
 # Words that mark a line as English prose. Deliberately narrow: we, te, e, ne and tu are words of
 # nɬeʔkepmxcín. Anything that could collide with the language is left out of this list.
-ENGLISH = re.compile(r"\b(?:the|to|is|of|for|and|there|this|that|with|are|was|from|which|"
-                     r"convention|orthography|standardized)\b", re.IGNORECASE)
+ENGLISH = re.compile(
+    r"\b(?:the|to|is|of|for|and|there|this|that|with|are|was|from|which|"
+    r"convention|orthography|standardized)\b",
+    re.IGNORECASE,
+)
 
 # What tells a segmentation line from the surface line above it
 SEGMENTED = ("=", "[", "]", "<", ">", "~")
@@ -108,7 +113,11 @@ def section_two(lines):
             building = []
             when = "%s:%s" % (ticked.group(1), ticked.group(2))
             continue
-        if (when is not None) and salish_enough(trimmed) and not trimmed.startswith("====="):
+        if (
+            (when is not None)
+            and salish_enough(trimmed)
+            and not trimmed.startswith("=====")
+        ):
             # A footnote runs across the bottom of these pages and carries ɬ in the language's own
             # name. It passes the character test. Two English function words rule it out, and two
             # are wanted because we, te and e are words of the language. Every rejection is counted
@@ -173,7 +182,9 @@ def section_four(lines):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     source = os.path.join(PAPERS, "HallPhillipsICSNL60.txt")
     if not os.path.isfile(source):
@@ -186,9 +197,15 @@ def main():
 
     plain, refused = section_two(lines)
     glossed = section_four(lines)
-    out.write("  section 2 gave %d sentences, section 4 gave %d\n" % (len(plain), len(glossed)))
+    out.write(
+        "  section 2 gave %d sentences, section 4 gave %d\n"
+        % (len(plain), len(glossed))
+    )
     if refused:
-        out.write("  %d line(s) in section 2 refused as English footnote text:\n" % len(refused))
+        out.write(
+            "  %d line(s) in section 2 refused as English footnote text:\n"
+            % len(refused)
+        )
         for line in refused:
             out.write("    %s\n" % line[:96])
 
@@ -201,7 +218,9 @@ def main():
     agreed = []
     differed = []
     only_one = 0
-    for when in sorted(by_clock, key=lambda key: (int(key.split(":")[0]), int(key.split(":")[1]))):
+    for when in sorted(
+        by_clock, key=lambda key: (int(key.split(":")[0]), int(key.split(":")[1]))
+    ):
         first, second = by_clock[when]
         if not (first and second):
             only_one += 1
@@ -212,28 +231,34 @@ def main():
             differed.append((when, first, second))
 
     both = len(agreed) + len(differed)
-    out.write("  %d sentences appear in both sections, %d in only one\n" % (both, only_one))
+    out.write(
+        "  %d sentences appear in both sections, %d in only one\n" % (both, only_one)
+    )
     if both:
-        out.write("  %d agree exactly after the repair, %.1f%%\n"
-                  % (len(agreed), 100.0 * len(agreed) / both))
+        out.write(
+            "  %d agree exactly after the repair, %.1f%%\n"
+            % (len(agreed), 100.0 * len(agreed) / both)
+        )
 
     if differed:
         out.write("\n  where the two witnesses disagree, for hand copying\n")
         for when, first, second in differed[:14]:
-            out.write("  [%s]\n    section 2: %s\n    section 4: %s\n" % (when, first, second))
+            out.write(
+                "  [%s]\n    section 2: %s\n    section 4: %s\n" % (when, first, second)
+            )
         if len(differed) > 14:
             out.write("  and %d more\n" % (len(differed) - 14))
 
     # Everything is written. A sentence the two printings disagree on is a real sentence with a
     # discrepancy to record, and a sentence that appears in only one of them is a real sentence with
-    # no second copy. Dropping either loses text from a language that has very little of it left, so
-    # the status is a column.
+    # no second copy. Dropping either loses text from a language that has very little of it left.
     target = os.path.join(CORPORA, "salish_nlekepmxcin.txt")
     written = 0
     with open(target, "w", encoding="utf-8", newline="") as handle:
         handle.write("time\tstatus\ttext\talternate\n")
-        for when in sorted(by_clock,
-                           key=lambda key: (int(key.split(":")[0]), int(key.split(":")[1]))):
+        for when in sorted(
+            by_clock, key=lambda key: (int(key.split(":")[0]), int(key.split(":")[1]))
+        ):
             first, second = by_clock[when]
             if first and second and (first == second):
                 handle.write("%s\tagreed\t%s\t\n" % (when, first))
@@ -245,8 +270,10 @@ def main():
                 handle.write("%s\tsection4only\t%s\t\n" % (when, second))
             written += 1
     out.write("\n  %d sentences written to %s, none discarded\n" % (written, target))
-    out.write("  %d agreed, %d differ between the printings, %d in one section only\n"
-              % (len(agreed), len(differed), only_one))
+    out.write(
+        "  %d agreed, %d differ between the printings, %d in one section only\n"
+        % (len(agreed), len(differed), only_one)
+    )
 
     out.write("\n  the first six verified sentences, to be read against the paper\n")
     for when, text in agreed[:6]:
@@ -255,10 +282,16 @@ def main():
     everything = [(when, one) for when, pair in by_clock.items() for one in pair if one]
     words = sum(len(text.split()) for when, text in everything)
     letters = sum(1 for when, text in everything for symbol in text if symbol.isalpha())
-    left = sum(1 for when, text in everything for index, symbol in enumerate(text)
-               if (symbol == " ") and index and (unicodedata.combining(text[index - 1]) != 0))
-    out.write("  %d words, %d letters, %d spaces still following a combining mark\n"
-              % (words, letters, left))
+    left = sum(
+        1
+        for when, text in everything
+        for index, symbol in enumerate(text)
+        if (symbol == " ") and index and (unicodedata.combining(text[index - 1]) != 0)
+    )
+    out.write(
+        "  %d words, %d letters, %d spaces still following a combining mark\n"
+        % (words, letters, left)
+    )
 
     out.flush()
     return 0

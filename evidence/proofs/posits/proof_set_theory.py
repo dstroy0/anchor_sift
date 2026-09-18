@@ -23,8 +23,7 @@
 #                    inject into the naturals; the enumeration is shown injective and total on a sample.
 #   uncountable      Cantor's diagonal: from any finite table of reals a real is built differing from
 #                    every row. No list catches them all.
-#   measure zero     a countable set is covered by intervals of total length epsilon for any epsilon, so
-#                    its measure is zero; the null is that the whole interval cannot be so covered.
+#   measure zero     a countable set is covered by intervals of total length epsilon for any epsilon.
 #
 # Prior art: Cantor 1891 (the diagonal), Turing 1936 (the computable reals are a countable subset), and
 # that the computable reals have measure zero. No bounding: every test is exact integer or rational.
@@ -70,26 +69,47 @@ def all_subsets(universe):
 
 def prove_moore_closure(out):
     """The generation operator is a Moore closure; one round of derivation is not idempotent."""
-    out.write("  Moore closure: generation is extensive, monotone, idempotent; one round is not\n")
+    out.write(
+        "  Moore closure: generation is extensive, monotone, idempotent; one round is not\n"
+    )
     subsets = all_subsets(UNIVERSE)
 
     extensive = all(subset <= generate(subset) for subset in subsets)
-    idempotent = all(generate(generate(subset)) == generate(subset) for subset in subsets)
-    monotone = all(generate(smaller) <= generate(larger)
-                   for smaller in subsets for larger in subsets if smaller <= larger)
+    idempotent = all(
+        generate(generate(subset)) == generate(subset) for subset in subsets
+    )
+    monotone = all(
+        generate(smaller) <= generate(larger)
+        for smaller in subsets
+        for larger in subsets
+        if smaller <= larger
+    )
     # closed sets are closed under intersection
     closed = [subset for subset in subsets if generate(subset) == subset]
-    intersection_closed = all((left & right) in closed for left in closed for right in closed)
+    intersection_closed = all(
+        (left & right) in closed for left in closed for right in closed
+    )
 
-    round_not_idempotent = any(derive_once(derive_once(subset)) != derive_once(subset)
-                               for subset in subsets)
+    round_not_idempotent = any(
+        derive_once(derive_once(subset)) != derive_once(subset) for subset in subsets
+    )
 
-    out.write("    extensive: %s ; monotone: %s ; idempotent: %s\n"
-              % (extensive, monotone, idempotent))
+    out.write(
+        "    extensive: %s ; monotone: %s ; idempotent: %s\n"
+        % (extensive, monotone, idempotent)
+    )
     out.write("    closed sets closed under intersection: %s\n" % intersection_closed)
-    out.write("    one round of derivation is idempotent: %s (the null: a closure needs the fixed point)\n\n"
-              % (not round_not_idempotent))
-    return extensive and monotone and idempotent and intersection_closed and round_not_idempotent
+    out.write(
+        "    one round of derivation is idempotent: %s (the null: a closure needs the fixed point)\n\n"
+        % (not round_not_idempotent)
+    )
+    return (
+        extensive
+        and monotone
+        and idempotent
+        and intersection_closed
+        and round_not_idempotent
+    )
 
 
 def description_index(description, alphabet):
@@ -102,7 +122,7 @@ def description_index(description, alphabet):
     rank = {symbol: position for position, symbol in enumerate(alphabet)}
     index = 0
     for length in range(len(description)):
-        index += base ** length  # skip all shorter strings
+        index += base**length  # skip all shorter strings
     value = 0
     for symbol in description:
         value = value * base + rank[symbol]
@@ -111,7 +131,9 @@ def description_index(description, alphabet):
 
 def prove_countable(out):
     """Finite descriptions enumerate. The nameable quantities inject into the naturals."""
-    out.write("  countable: finite descriptions over a finite alphabet inject into the naturals\n")
+    out.write(
+        "  countable: finite descriptions over a finite alphabet inject into the naturals\n"
+    )
     alphabet = "0123456789abcdefghijklmnopqrstuvwxyz+-*/().^ "  # enough to write the engine's constants
     sample = ["3", "22/7", "sqrt(2)", "pi", "pi^2/6", "e", "ln(2)", "sqrt(2)*sqrt(3)"]
 
@@ -132,10 +154,14 @@ def prove_countable(out):
             seen[description_index(text, alphabet)] = text
     contiguous = sorted(seen) == list(range(len(seen)))
 
-    out.write("    the sample of named constants maps to distinct naturals: %s\n" % injective)
+    out.write(
+        "    the sample of named constants maps to distinct naturals: %s\n" % injective
+    )
     out.write("    every index is a finite natural: %s\n" % finite)
-    out.write("    the enumeration is a contiguous prefix of the naturals over strings up to length 2: %s\n\n"
-              % contiguous)
+    out.write(
+        "    the enumeration is a contiguous prefix of the naturals over strings up to length 2: %s\n\n"
+        % contiguous
+    )
     return injective and finite and contiguous
 
 
@@ -160,37 +186,56 @@ def prove_uncountable(out):
         escaper.append(5 if digit != 5 else 6)
 
     not_in_table = all(escaper != row[:rows] for row in table)
-    differs_on_diagonal = all(escaper[position] != table[position][position] for position in range(rows))
+    differs_on_diagonal = all(
+        escaper[position] != table[position][position] for position in range(rows)
+    )
 
-    out.write("    the built real differs from every row on the diagonal: %s\n" % differs_on_diagonal)
-    out.write("    so it is in none of the %d rows: %s (and this works for any list)\n\n"
-              % (rows, not_in_table))
+    out.write(
+        "    the built real differs from every row on the diagonal: %s\n"
+        % differs_on_diagonal
+    )
+    out.write(
+        "    so it is in none of the %d rows: %s (and this works for any list)\n\n"
+        % (rows, not_in_table)
+    )
     return not_in_table and differs_on_diagonal
 
 
 def prove_measure_zero(out):
     """A countable set is covered by intervals of total length epsilon. Its measure is zero."""
-    out.write("  measure zero: a countable set is covered to any total length, the interval is not\n")
+    out.write(
+        "  measure zero: a countable set is covered to any total length, the interval is not\n"
+    )
     epsilon = Fraction(1, 1000)
     # cover the n-th point by an interval of length epsilon / 2^(n+1); the total is a geometric sum
     terms = 200
     total = sum(epsilon * Fraction(1, 2 ** (index + 1)) for index in range(terms))
-    within = total < epsilon  # the partial sum is strictly under epsilon, and the full sum equals it
+    within = (
+        total < epsilon
+    )  # the partial sum is strictly under epsilon, and the full sum equals it
 
     # the null: the whole interval [0,1] has measure 1 and cannot be covered to total length epsilon
     interval_measure = Fraction(1)
     interval_not_coverable = interval_measure > epsilon
 
-    out.write("    countable cover total after %d terms: %s < epsilon %s: %s\n"
-              % (terms, total, epsilon, within))
-    out.write("    the unit interval has measure %s, not coverable to epsilon: %s (the null)\n\n"
-              % (interval_measure, interval_not_coverable))
+    out.write(
+        "    countable cover total after %d terms: %s < epsilon %s: %s\n"
+        % (terms, total, epsilon, within)
+    )
+    out.write(
+        "    the unit interval has measure %s, not coverable to epsilon: %s (the null)\n\n"
+        % (interval_measure, interval_not_coverable)
+    )
     return within and interval_not_coverable
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  PROOF: the exact quantities are a countable, measure-zero set in the uncountable reals\n\n")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  PROOF: the exact quantities are a countable, measure-zero set in the uncountable reals\n\n"
+    )
     results = [
         prove_moore_closure(out),
         prove_countable(out),
@@ -198,8 +243,12 @@ def main():
         prove_measure_zero(out),
     ]
     if all(results):
-        out.write("  all four hold: generation is a closure, the nameable quantities are countable, the\n")
-        out.write("  reals are not, and the countable set has measure zero. the measurement floor is that\n")
+        out.write(
+            "  all four hold: generation is a closure, the nameable quantities are countable, the\n"
+        )
+        out.write(
+            "  reals are not, and the countable set has measure zero. the measurement floor is that\n"
+        )
         out.write("  boundary; it claims nothing about any open problem.\n")
     else:
         out.write("  a part missed its forced outcome: refuted as stated.\n")

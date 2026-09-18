@@ -286,7 +286,7 @@ def main():
                 % (language, len({one[1] for one in held}))
             )
             handle.write(
-                "# The language is the one each paper names in its own front matter.\n"
+                "# The language is named in each papers' front matter.\n"
             )
             handle.write(
                 "# No speaker is named and no line was read against a layout. This is\n"

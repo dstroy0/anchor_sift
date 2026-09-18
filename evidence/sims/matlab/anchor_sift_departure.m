@@ -29,8 +29,7 @@ function value = anchor_sift_departure(seats, seed, min_occurrences)
 
     [live_symbols, live_spread, counts] = local_dispersion(seats, min_occurrences);
 
-    % The null. Same multiset, every position destroyed, which is the one background that cannot be
-    % wrong about the property it removes because it is the data with that property gone.
+    % The null. Same multiset, every position destroyed.
     % rng is the seeding call that pins randperm. rand('seed', ...) is the legacy interface and does
     % not pin it across versions. Octave before 8 has no rng. The legacy call stays as a fallback
     % and those builds reproduce only against themselves.
