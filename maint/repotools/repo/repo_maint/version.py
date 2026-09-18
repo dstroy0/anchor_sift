@@ -62,7 +62,7 @@ SKIP_DIRS = {
 }
 SKIP_PATHS = {os.path.join("docs", "learn")}
 
-# The banner, and the comment each language takes it in. The version is the one group that moves.
+# The banner, and the comment each language takes it in. The version group that moves.
 BANNER = re.compile(
     r"^(?P<lead>\s*(?://|#)\s*)idemIP v(?P<version>\d+\.\d+\.\d+)(?P<rest>\s+-\s+Copyright\b)"
 )

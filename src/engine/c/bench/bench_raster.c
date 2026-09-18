@@ -136,8 +136,7 @@ int main(void)
         return 1;
     }
 
-    /* The probe set the renderer draws with is the one the engine steered to. The render and the
-     * search cost the same thing. An unsteered set is built beside it for the timing comparison. */
+
     size_t spawned[ANCHOR_STEER_ANCHORS];
     const size_t coarms = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                             .offsets = spawned,

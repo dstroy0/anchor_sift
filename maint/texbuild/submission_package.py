@@ -21,8 +21,7 @@
 # that wants only the built PDF still needs the build to have worked somewhere.
 #
 # So the assembly and the checks below are the whole job and they are the same every time. The
-# archive format is the only part that changes, and it is a flag rather than a name baked into the
-# file. This started life as arxiv_package.py and that was the wrong shape: it made one venue's
+# archive format is the only part that changes, and it is a flag.py and that was the wrong shape: it made one venue's
 # packaging look like a property of the work.
 #
 # WHY ANY OF IT IS NEEDED
@@ -92,7 +91,7 @@ import zipfile
 def _repository_root():
     """This repository, asked of git.
 
-    The marker climbed to before was build/, which the repository PRODUCES rather than CONTAINS, so
+    The marker climbed to before was build/, which the repository PRODUCES  so
     a linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
@@ -104,7 +103,7 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository rather than about the directory it was asked from,
+    inherits it answers about that repository 
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
@@ -293,12 +292,7 @@ def flatten(out):
 
 
 def strip_latex(text):
-    """One run of LaTeX source as the plain text arXiv's web form wants.
-
-    Control sequences and their braces come out, the accented forms LaTeX spells in ASCII are left
-    as their letter, and every run of whitespace becomes one space. The last part is the one that
-    matters: LaTeX ignores the line breaks in an abstract and arXiv prints them.
-    """
+   
     text = re.sub(r"\\(?:emph|textbf|textit|texttt|text|mbox|spacedallcaps|spacedlowsmallcaps)"
                   r"\{([^{}]*)\}", r"\1", text)
     text = re.sub(r"\\[A-Za-z@]+\*?", " ", text)
@@ -312,8 +306,7 @@ def metadata(out, book):
     """The title, authors and abstract of an assembled book, as text to paste into the form.
 
     Read off the assembled copy, because that is what ships. The titlepage carries the title and
-    the author and the abstract sits in its own file, and both are found by name rather than by
-    position so a book that orders its frontmatter differently still reports.
+    the author and the abstract sits in its own file, and both are found by name.
     """
     lines = []
     title = ""

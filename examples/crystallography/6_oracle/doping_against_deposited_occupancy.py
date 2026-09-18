@@ -23,7 +23,7 @@
 #
 # A FALSIFIER YOU CANNOT TELL FROM A DEPOSIT DEFECT IS NOT A FALSIFIER YET
 #
-# This file said for a while that the full occupancy count "is the one that would falsify the
+# This file said for a while that the full occupancy count "would falsify the
 # detection", and that was a badly built test. It named a number whose appearance was supposed to
 # settle the question, and the number cannot settle it: a shared position with two full occupancies
 # is the reading being wrong OR the deposit contradicting itself, and the count is identical either
