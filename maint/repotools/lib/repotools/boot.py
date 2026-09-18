@@ -87,7 +87,7 @@ def installed_root(start):
 
     The toolkit root when a tool runs from inside the toolkit, and the fetch directory when it
     runs from a repository that fetched it. This is the walk documented at the top of this file,
-    given a name so a tool needing its own siblings does not repeat it.
+    given a name, a tool needing its own siblings does not repeat it.
     """
     at = os.path.dirname(os.path.abspath(start))
     while at != os.path.dirname(at) and not os.path.isdir(

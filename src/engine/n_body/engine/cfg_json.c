@@ -37,9 +37,7 @@ typedef struct
  */
 static void cfg_json_space(CfgJsonWalk *walk)
 {
-    while ((walk->at < walk->length)
-           && ((walk->text[walk->at] == ' ') || (walk->text[walk->at] == '\t') || (walk->text[walk->at] == '\n')
-               || (walk->text[walk->at] == '\r')))
+    while ((walk->at < walk->length) && ((walk->text[walk->at] == ' ') || (walk->text[walk->at] == '\t') || (walk->text[walk->at] == '\n') || (walk->text[walk->at] == '\r')))
     {
         walk->at += 1u;
     }
@@ -100,7 +98,7 @@ static int cfg_json_literal(CfgJsonWalk *walk, const char *spelled, CfgJsonKind 
  * @param[in,out] walk The reader, at the opening quote [BORROWS].
  * @return             1 where the string closed and a token was written, 0 otherwise.
  * @note The token covers the bytes between the quotes. A backslash steps over the byte after it,
- *       so an escaped quote does not close the string. cfg_json_string resolves the escapes later.
+ *      , an escaped quote does not close the string. cfg_json_string resolves the escapes later.
  * @note A byte below 0x20 inside the string is refused, as JSON requires.
  */
 static int cfg_json_quoted(CfgJsonWalk *walk)
@@ -148,8 +146,7 @@ static int cfg_json_number(CfgJsonWalk *walk)
     {
         walk->at += 1u;
     }
-    const int fraction = (walk->at < walk->length)
-                      && ((walk->text[walk->at] == '.') || (walk->text[walk->at] == 'e') || (walk->text[walk->at] == 'E'));
+    const int fraction = (walk->at < walk->length) && ((walk->text[walk->at] == '.') || (walk->text[walk->at] == 'e') || (walk->text[walk->at] == 'E'));
     if ((walk->at == digits) || fraction)
     {
         walk->reason = fraction ? "a number that is not an integer; a .cfg takes integers only" : "a number with no digits";
@@ -179,8 +176,7 @@ int cfg_json_parse(const char *text, size_t length, CfgJsonToken *tokens, unsign
         const char byte = walk.text[walk.at];
         const CfgJsonToken *const parent = (depth > 0u) ? &walk.tokens[open[depth - 1u]] : NULL;
         // A close bracket counts only where it matches the innermost open container.
-        const int closes = (parent != NULL)
-                        && (((byte == '}') && (parent->kind == CFG_JSON_OBJECT)) || ((byte == ']') && (parent->kind == CFG_JSON_ARRAY)));
+        const int closes = (parent != NULL) && (((byte == '}') && (parent->kind == CFG_JSON_OBJECT)) || ((byte == ']') && (parent->kind == CFG_JSON_ARRAY)));
         if (closes)
         {
 
@@ -247,12 +243,12 @@ int cfg_json_parse(const char *text, size_t length, CfgJsonToken *tokens, unsign
         // Deviation: the last arm assigns the refusal reason and yields 0 through the comma
         // operator, inside the initializer. It records why a byte that opens no value was refused
         // in the same expression that selects the reader for every byte that does.
-        const int made = (byte == '"')                                  ? cfg_json_quoted(&walk)
-                       : ((byte == '-') || ((byte >= '0') && (byte <= '9'))) ? cfg_json_number(&walk)
-                       : (byte == 't')                                  ? cfg_json_literal(&walk, "true", CFG_JSON_TRUE)
-                       : (byte == 'f')                                  ? cfg_json_literal(&walk, "false", CFG_JSON_FALSE)
-                       : (byte == 'n')                                  ? cfg_json_literal(&walk, "null", CFG_JSON_NULL)
-                                                                        : (walk.reason = "a value the scheme does not know", 0);
+        const int made = (byte == '"')                                         ? cfg_json_quoted(&walk)
+                         : ((byte == '-') || ((byte >= '0') && (byte <= '9'))) ? cfg_json_number(&walk)
+                         : (byte == 't')                                       ? cfg_json_literal(&walk, "true", CFG_JSON_TRUE)
+                         : (byte == 'f')                                       ? cfg_json_literal(&walk, "false", CFG_JSON_FALSE)
+                         : (byte == 'n')                                       ? cfg_json_literal(&walk, "null", CFG_JSON_NULL)
+                                                                               : (walk.reason = "a value the scheme does not know", 0);
         if (!made)
         {
             break;
@@ -294,8 +290,7 @@ int cfg_json_parse(const char *text, size_t length, CfgJsonToken *tokens, unsign
 int cfg_json_names(const char *text, const CfgJsonToken *token, const char *name)
 {
     const size_t size = strlen(name);
-    return (token->kind == CFG_JSON_STRING) && ((token->end - token->start) == size)
-        && (memcmp(&text[token->start], name, size) == 0);
+    return (token->kind == CFG_JSON_STRING) && ((token->end - token->start) == size) && (memcmp(&text[token->start], name, size) == 0);
 }
 
 int cfg_json_unsigned(const char *text, const CfgJsonToken *token, unsigned long long *value)
@@ -325,11 +320,11 @@ int cfg_json_string(const char *text, const CfgJsonToken *token, char *out, size
         const char next = escaped ? text[at + 1u] : byte;
 
         // An escape this reader does not resolve maps to NUL, which ends the copy as a refusal.
-        const char resolved = !escaped      ? byte
-                            : (next == 'n') ? '\n'
-                            : (next == 't') ? '\t'
-                            : ((next == '"') || (next == '\\') || (next == '/')) ? next
-                                                                                : '\0';
+        const char resolved = !escaped                                             ? byte
+                              : (next == 'n')                                      ? '\n'
+                              : (next == 't')                                      ? '\t'
+                              : ((next == '"') || (next == '\\') || (next == '/')) ? next
+                                                                                   : '\0';
         good = (resolved != '\0') && (written + 1u < room);
         out[written] = resolved;
         // good and escaped are 0 or 1, which widen to size_t unchanged. A refused byte is written

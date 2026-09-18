@@ -265,7 +265,7 @@
   // Adding both faces together was tried and is wrong for that reason: it laid the far side's spots
   // over the near side's and showed two places at once, which is a picture of a surface light passes
   // straight through and not of one it leaves from. The value at a point is still flux and not paint,
-  // so a point that receives nothing goes dark on its own without anything being painted black.
+  //, a point that receives nothing goes dark on its own without anything being painted black.
   //
   // The opacity control stays, since turning the surface down is how the interior gets looked at
   // while the recovery is being checked against it. That is a deliberate act by whoever is reading
@@ -474,7 +474,7 @@
         high = v;
       }
     }
-    // The scale is carried between frames so a transit reads as the surface going dark. Rescaling to
+    // The scale is carried between frames, a transit reads as the surface going dark. Rescaling to
     // the frame's own range every frame renormalises the dip away and the boundary looks unchanged
     // through the very event the page exists to show.
     // A guard, because the failure above cost an hour and left nothing on screen to read. NaN is the

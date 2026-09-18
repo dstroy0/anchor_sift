@@ -548,7 +548,7 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
     def test_italic_does_not_straddle_a_table_cell(self):
         # ProtoCore TUNING.md:154. Two unrelated asterisks in different cells paired across the row
         # and swallowed a real `so a`. A citation of a form does not cross a cell boundary.
-        said = ["| *a* | tracks `MAX_CONNS` so a raised pool never trips it | *b* |"]
+        said = ["| *a* | tracks `MAX_CONNS`, a raised pool never trips it | *b* |"]
         hits = [token for _, _, token in docs_check.banned_hits(said, quotations=True)]
         self.assertIn("so a", [one.lower() for one in hits])
 

@@ -77,7 +77,7 @@ exclude = [
 
 [prose]
 extensions = [".md"]
-# Prose roots default to empty so a repository states them. The one repository that guessed read
+# Prose roots default to empty, a repository states them. The one repository that guessed read
 # four roots that had moved and reported success on every commit for a week.
 roots = []
 # Prose OUTSIDE this repository that this repository is responsible for. Opt in, always empty by

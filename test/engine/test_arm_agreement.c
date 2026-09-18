@@ -37,7 +37,7 @@
 #define AGREEMENT_NEEDLE_AT 1000u
 
 /* The lengths under test. Zero and one are the bounds this driver exists for; the rest are ordinary
- * lengths present so a failure at a bound is distinguishable from an arm that is simply broken. */
+ * lengths present, a failure at a bound is distinguishable from an arm that is simply broken. */
 static const size_t AGREEMENT_LENGTHS[] = {0u, 1u, 2u, 3u, 4u, 16u, 64u};
 
 static unsigned failures = 0u;

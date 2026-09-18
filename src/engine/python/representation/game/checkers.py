@@ -39,7 +39,7 @@ KING = 2
 SIZE = 8
 SQUARES = SIZE * SIZE
 
-# A square holds one of these. Sign carries the owner so a single integer says both things.
+# A square holds one of these. Sign carries the owner, a single integer says both things.
 PIECES = {
     (rules.PLAYER_ONE, MAN): 1,
     (rules.PLAYER_ONE, KING): 2,

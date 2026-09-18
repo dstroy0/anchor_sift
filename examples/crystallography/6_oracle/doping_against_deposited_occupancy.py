@@ -90,7 +90,7 @@ def sites_at_positions(text):
     """
     # A projection of crystal.exact_sites, which is where the reading lives. This one keeps the
     # occupancy, the field stage four deliberately does not look at, and groups by
-    # position so a shared site arrives as one entry holding several elements.
+    # position, a shared site arrives as one entry holding several elements.
     grouped = {}
     sites, skipped = crystal.exact_sites(text)
     for position, element, occupancy in sites:

@@ -147,7 +147,7 @@ target_compile_definitions(anchor_sift_kernel PUBLIC ${ANCHOR_SIFT_DEFINES})
 target_link_libraries(anchor_sift_kernel PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel PRIVATE ${SIFT_WARNINGS})
 
-# The same source with the counters compiled in. ANCHOR_SIFT_COUNT_READS is PUBLIC so a driver
+# The same source with the counters compiled in. ANCHOR_SIFT_COUNT_READS is PUBLIC, a driver
 # linking this library sees the same value the library was built with, which is what keeps a driver
 # from calling anchor_sift_counters_reset against a kernel that does not define it.
 add_library(anchor_sift_kernel_counted STATIC ${ANCHOR_SIFT_SOURCES})

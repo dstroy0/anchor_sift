@@ -744,11 +744,11 @@ extern "C"
      * which is false unless `force_full_depth` is set. The destroy test reads a survivor count off the
      * corpus and breaks. The field routinely ends the descent early, and an omitted member is zero so
      * that is the default path. Depth is a truthy and falsy steer bounded above by a constant, and the
-     * return value exists so a caller can read the depth actually reached.
+     * return value exists, a caller can read the depth actually reached.
      *
      * @note THE PLANNER IS ALLOWED TO BE WRONG. Ordering cannot change which alignments survive, since
      *       an alignment survives only when every anchor agrees and a conjunction is order independent.
-     *       So a planner that samples, guesses badly, or is outright defective costs speed and cannot
+     *      , a planner that samples, guesses badly, or is outright defective costs speed and cannot
      *       cost correctness. That is what makes `sample_stride` safe: planning on a subset risks a
      *       worse order and never a wrong count.
      * @note Does nothing and returns 0 where any pointer is null, where `count` is zero, or where
@@ -816,7 +816,7 @@ extern "C"
      * contradicted the comment at the break site in the same tree. Depth is a truthy and falsy steer
      * like everything else here, bounded above by a constant and free to come in under it.
      *
-     * The return value is there so a caller can read the depth actually reached.
+     * The return value is there, a caller can read the depth actually reached.
      *
      * @note FAILS CLOSED ON THE SURVIVOR BUFFER. Returns 0 without writing `offsets` where
      *       `survivors_length` does not reach the alignment count. The kernel allocates nothing. The

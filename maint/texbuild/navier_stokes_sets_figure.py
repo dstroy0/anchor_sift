@@ -263,7 +263,7 @@ def draw_sets(canvas):
         7,
     )
 
-    # the base plane, drawn oblique so a stalk can rise from it
+    # the base plane, drawn oblique, a stalk can rise from it
     front_y, back_y, skew = 70, 150, 22
     front_left, front_right = 30, 185
     plane = [

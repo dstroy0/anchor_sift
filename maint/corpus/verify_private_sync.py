@@ -15,7 +15,7 @@
 # drift. What is left is the question the copy was really answering: is the corpus reachable from
 # here the corpus somebody signed.
 #
-# The 186 MB duplicate is gone with it. It existed so an rm -rf build/ could not reach the closed
+# The 186 MB duplicate is gone with it. It existed, an rm -rf build/ could not reach the closed
 # repository, and a symbolic link under POSIX removal answers that: rm takes the link and leaves
 # the target. PowerShell's Remove-Item -Recurse has followed directory links. Clearing build/
 # from PowerShell means deleting the three links first.

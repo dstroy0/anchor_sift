@@ -160,8 +160,7 @@ static void agreement_transform_axis(unsigned int *values, size_t total, unsigne
 
 long shift_agreement_host(ShiftAgreementRequest *args)
 {
-    if ((args == NULL) || (args->before == NULL) || (args->after == NULL) || (args->axes == 0u)
-     || (args->axes > SHIFT_AGREEMENT_AXES))
+    if ((args == NULL) || (args->before == NULL) || (args->after == NULL) || (args->axes == 0u) || (args->axes > SHIFT_AGREEMENT_AXES))
     {
         return SHIFT_AGREEMENT_REFUSED;
     }
@@ -223,7 +222,7 @@ long shift_agreement_host(ShiftAgreementRequest *args)
             }
             direct += coordinate * stride;
             // -coordinate modulo the padded length, written as padded - coordinate so it stays
-            // unsigned, and reduced so a coordinate of 0 negates to 0.
+            // unsigned, and reduced, a coordinate of 0 negates to 0.
             negated += ((padded[axis - 1u] - coordinate) % padded[axis - 1u]) * stride;
         }
         if (in_before != 0)
@@ -247,8 +246,7 @@ long shift_agreement_host(ShiftAgreementRequest *args)
     {
 
         // Both residues are below the prime. The product is below 2^60 and the result is a residue.
-        reflected[at] = (unsigned int)(((unsigned long long)reflected[at] * (unsigned long long)moved[at])
-                                       % SHIFT_AGREEMENT_PRIME);
+        reflected[at] = (unsigned int)(((unsigned long long)reflected[at] * (unsigned long long)moved[at]) % SHIFT_AGREEMENT_PRIME);
     }
     stride = total;
     for (unsigned int axis = 0u; axis < args->axes; axis += 1u)
@@ -275,8 +273,8 @@ long shift_agreement_host(ShiftAgreementRequest *args)
             rest /= padded[axis - 1u];
             // The upper half of the padded axis holds the negative lags.
             const long long lag = (coordinate < (long long)(padded[axis - 1u] / 2u))
-                                ? coordinate
-                                : (coordinate - (long long)padded[axis - 1u]);
+                                      ? coordinate
+                                      : (coordinate - (long long)padded[axis - 1u]);
             length += (unsigned long long)args->weights[axis - 1u] * (unsigned long long)(lag * lag);
         }
         if ((reflected[at] > reflected[best]) || (length < best_length))
@@ -294,8 +292,8 @@ long shift_agreement_host(ShiftAgreementRequest *args)
 
         // A lag is below half a padded axis, at most 2^22, and fits the int.
         args->lag[axis - 1u] = (int)((coordinate < (long long)(padded[axis - 1u] / 2u))
-                                     ? coordinate
-                                     : (coordinate - (long long)padded[axis - 1u]));
+                                         ? coordinate
+                                         : (coordinate - (long long)padded[axis - 1u]));
     }
     for (unsigned int axis = 0u; axis < SHIFT_AGREEMENT_AXES; axis += 1u)
     {

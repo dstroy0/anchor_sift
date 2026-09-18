@@ -297,7 +297,7 @@ def searched_names():
 SEARCHED = searched_names()
 
 # The names to enter on a first --seed. After that the registry is the vocabulary and this list is
-# only the starting point, kept so an empty registry can be rebuilt from nothing.
+# only the starting point, kept, an empty registry can be rebuilt from nothing.
 STARTING = (
     "Bloom",
     "Boyer",
@@ -401,7 +401,7 @@ def private_candidates():
         ),
         # The clone under deps/, the route onto a machine that only consumes it.
         os.path.join(base, "deps", "anchor_sift_citations"),
-        # The layout before the move. Kept so a checkout that has not been reorganized still works.
+        # The layout before the move. Kept, a checkout that has not been reorganized still works.
         os.path.join(os.path.dirname(base), "private_repos", "anchor_sift_citations"),
     )
 

@@ -32,7 +32,7 @@ else
     # and not the basename, since that is what the loop below joins back onto $ROOT.
     # Two trees as well as two depths. The workbook stays in theory/ because it is the book about
     # this engine; the other seven are pulled in under theory_bucket/ as a subtree. The tree name is
-    # stripped here so a book is named the same way whichever one holds it, and a name typed on the
+    # stripped here, a book is named the same way whichever one holds it, and a name typed on the
     # command line keeps working.
     BOOKS=$(for one in "$ROOT"/theory/*/main.tex "$ROOT"/theory/*/*/main.tex \
                        "$ROOT"/theory_bucket/*/main.tex "$ROOT"/theory_bucket/*/*/main.tex; do

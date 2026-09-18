@@ -74,7 +74,7 @@ def field(rng):
     rows, columns = numpy.mgrid[0:SIDE, 0:SIDE]
     canvas = numpy.zeros((SIDE, SIDE), dtype=numpy.float64)
     for _ in range(BLOBS):
-        # Kept off the border by two widths so a shift never wraps a blob through the edge.
+        # Kept off the border by two widths, a shift never wraps a blob through the edge.
         centre_row = rng.uniform(3.0 * BLOB_WIDTH, SIDE - 3.0 * BLOB_WIDTH)
         centre_column = rng.uniform(3.0 * BLOB_WIDTH, SIDE - 3.0 * BLOB_WIDTH)
         brightness = rng.uniform(0.5, 1.0)

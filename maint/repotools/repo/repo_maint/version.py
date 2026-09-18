@@ -131,7 +131,7 @@ def walk():
 def read(rel):
     """The file's text as it sits on disk, or None where it is not text this tool can read.
 
-    newline="" so a CRLF arrives as a CRLF.
+    newline="", a CRLF arrives as a CRLF.
     This tool changes one line of a file and has no business changing the other several thousand:
     reading with the default and writing back would rewrite every ending in the tree to LF, which
     is a diff nobody asked for on a checkout that happens to use CRLF.

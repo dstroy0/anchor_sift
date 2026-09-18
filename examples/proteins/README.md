@@ -167,7 +167,7 @@ family fraction, corpus fraction, excess) with the largest excess first.
 
 `family_rules.py` is generated, says so in its header, and names `derive_family_rules.py` as its
 author. It is a table of reference data: it exposes `FAMILIES` and `cell_of(phi_degrees,
-psi_degrees)` so a caller can place a residue on the grid the families are written over, and nothing
+psi_degrees)`, a caller can place a residue on the grid the families are written over, and nothing
 in the engine depends on it.
 
 ```

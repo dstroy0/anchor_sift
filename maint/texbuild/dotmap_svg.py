@@ -219,7 +219,7 @@ def path_of(rings):
 
 
 def svg_of(grid, passes, label):
-    """The whole document, sized to the grid so a consumer scales it by width and height."""
+    """The whole document, sized to the grid, a consumer scales it by width and height."""
     height = len(grid)
     width = max(len(row) for row in grid)
     rings = [
@@ -233,7 +233,7 @@ def svg_of(grid, passes, label):
         % (width * CELL, height * CELL, width * CELL, height * CELL)
     )
     if label:
-        # Named so a reader using a screen reader gets the character. An outline
+        # Named, a reader using a screen reader gets the character. An outline
         # carries no text and this is the only place the codepoint survives.
         held.append("  <title>%s</title>" % label)
     held.append('  <path fill-rule="evenodd" d="%s"/>' % path_of(rings))

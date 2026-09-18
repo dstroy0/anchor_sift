@@ -757,7 +757,7 @@ static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const ui
 
     /* A COUNT SAYS THE ARM RAN. A SHARE SAYS IT RAN ON THE WORK IT WAS GIVEN. The distinction
      * matters because they fail differently: a count above zero is satisfied by a single dispatch,
-     * so a change that accidentally routed almost every sweep to the scalar fall-through would keep
+     *, a change that accidentally routed almost every sweep to the scalar fall-through would keep
      * the count non-zero and be entirely wrong. This whole planner run is at stride one, which is
      * the only stride an arm serves. Every scan in it should reach the wide arm and the share
      * should be the full hundred. */

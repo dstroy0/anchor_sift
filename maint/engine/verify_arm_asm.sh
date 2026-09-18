@@ -18,7 +18,7 @@
 # ignored. What it does not touch is behavior: no value is computed, nothing is compared against the
 # portable arm, and a logic error inside the vector loop would pass this check untouched.
 #
-# So a row here reads "emits" and never "agrees". Only a run against portable earns "agrees", and
+#, a row here reads "emits" and never "agrees". Only a run against portable earns "agrees", and
 # the two words are kept apart on purpose.
 
 set -u

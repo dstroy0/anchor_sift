@@ -28,7 +28,7 @@
 # one in this project's testing rules. An expectation derived from the thing under test proves
 # nothing and passes forever.
 #
-# So a low score here is not evidence of anything. A high score is, because the instrument had every
+# , a low score here is not evidence of anything. A high score is, because the instrument had every
 # reason to return the opposite. Read the findings and never the passes.
 #
 # NO CREDENTIAL AND NO VENDOR IN THIS FILE

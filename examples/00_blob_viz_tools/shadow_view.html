@@ -7041,7 +7041,7 @@
       palette.signal = readToken("--signal");
     }
 
-    /** Diverging ramp: zero takes the panel color so an empty shadow reads as empty. */
+    /** Diverging ramp: zero takes the panel color, an empty shadow reads as empty. */
     function colorAt(t) {
       var end = t < 0 ? palette.cool : palette.warm;
       var k = Math.min(1, Math.abs(t));

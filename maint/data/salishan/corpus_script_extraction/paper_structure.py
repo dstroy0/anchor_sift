@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Report the shape of an extracted paper so an extractor can be written against it.
+# Report the shape of an extracted paper, an extractor can be written against it.
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/paper_structure.py <name> [name ...]
 #
@@ -30,7 +30,9 @@ from salish_marking import MARKED, PRACTICAL
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 PAPERS = os.path.join(ROOT, "build", "papers")
 
@@ -66,7 +68,9 @@ def looks_heading(trimmed):
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     if len(sys.argv) < 2:
         out.write("  usage: paper_structure.py <name> [name ...]\n")
         out.flush()
@@ -83,8 +87,11 @@ def main():
             lines = [one.rstrip("\n") for one in handle]
 
         whole = "\n".join(lines)
-        present = [name for name, marks in ALPHABETS.items()
-                   if any(mark in whole for mark in marks)]
+        present = [
+            name
+            for name, marks in ALPHABETS.items()
+            if any(mark in whole for mark in marks)
+        ]
         out.write("    writes the language with: %s\n" % ", ".join(present))
 
         current = None
@@ -117,11 +124,22 @@ def main():
 
         out.write("    %-58s %-7s %-8s %s\n" % ("heading", "lines", "blocks", "clocks"))
         for name in order:
-            out.write("    %-58s %-7d %-8d %d\n"
-                      % (name[:58], held.get(name, 0), blocks.get(name, 0), clocks.get(name, 0)))
+            out.write(
+                "    %-58s %-7d %-8d %d\n"
+                % (
+                    name[:58],
+                    held.get(name, 0),
+                    blocks.get(name, 0),
+                    clocks.get(name, 0),
+                )
+            )
 
-    out.write("\n  blocks are lines opening with a bracketed number, clocks are timestamps on\n")
-    out.write("  a line of their own. A section with lines and no blocks is running text\n")
+    out.write(
+        "\n  blocks are lines opening with a bracketed number, clocks are timestamps on\n"
+    )
+    out.write(
+        "  a line of their own. A section with lines and no blocks is running text\n"
+    )
     out.flush()
     return 0
 

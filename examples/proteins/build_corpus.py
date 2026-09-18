@@ -11,7 +11,7 @@
 #
 # The draw is the same one the oracle uses: every X-ray protein entry in the Protein Data Bank,
 # shuffled by a held seed. A smaller number is a prefix of that shuffle and a larger one extends it,
-# so a corpus of 10000 contains the oracle's 1000 and every number between.
+# , a corpus of 10000 contains the oracle's 1000 and every number between.
 #
 # The target is a count to reach, not a slice off the top. An id with no PDB-format coordinate file
 # is skipped and the next drawn, until the target many are cached. The archive is open and keyless,
@@ -47,26 +47,37 @@ TARGET = 10000
 def pool():
     """The held-seed shuffle of every matching entry id, read from the oracle's cached list."""
     import json
+
     with open(IDS, encoding="utf-8", errors="replace") as handle:
         found = json.load(handle)
-    ids = ([row["identifier"] for row in found.get("result_set", [])]
-           if isinstance(found, dict) else list(found))
+    ids = (
+        [row["identifier"] for row in found.get("result_set", [])]
+        if isinstance(found, dict)
+        else list(found)
+    )
     random.Random(SEED).shuffle(ids)
     return ids
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
     os.makedirs(CORPORA, exist_ok=True)
     if not os.path.isfile(IDS):
-        out.write("no id list at %s. Run the oracle once to cache it, or set it in place.\n" % IDS)
+        out.write(
+            "no id list at %s. Run the oracle once to cache it, or set it in place.\n"
+            % IDS
+        )
         out.flush()
         return 1
 
     target = int(sys.argv[1]) if len(sys.argv) > 1 else TARGET
     ids = pool()
-    out.write("drawing until %d coordinate files are cached, from %d shuffled ids\n"
-              % (target, len(ids)))
+    out.write(
+        "drawing until %d coordinate files are cached, from %d shuffled ids\n"
+        % (target, len(ids))
+    )
     out.flush()
 
     have = fetched = failed = drawn = 0
@@ -96,12 +107,16 @@ def main():
         else:
             failed += 1
         if (drawn % 100) == 0:
-            out.write("  drawn %d  cached %d  fetched this run %d  no file %d\n"
-                      % (drawn, have, fetched, failed))
+            out.write(
+                "  drawn %d  cached %d  fetched this run %d  no file %d\n"
+                % (drawn, have, fetched, failed)
+            )
             out.flush()
 
-    out.write("\ndone: %d coordinate files cached (drew %d ids, fetched %d this run, %d had no file)\n"
-              % (have, drawn, fetched, failed))
+    out.write(
+        "\ndone: %d coordinate files cached (drew %d ids, fetched %d this run, %d had no file)\n"
+        % (have, drawn, fetched, failed)
+    )
     out.flush()
     return 0 if have >= target else 1
 

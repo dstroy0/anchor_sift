@@ -223,7 +223,7 @@ def _remove(shoe, rank):
 def position(decks, player_cards, dealer_card):
     """A named position to measure, built by dealing the given cards out of a fresh shoe.
 
-    This exists so an example can ask about a specific decision -- sixteen against a dealer ten, the
+    This exists, an example can ask about a specific decision -- sixteen against a dealer ten, the
     hand every basic strategy table is remembered for --.
     """
     shoe = list(PER_DECK[rank] * decks for rank in RANKS)

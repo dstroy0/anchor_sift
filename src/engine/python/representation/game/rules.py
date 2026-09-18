@@ -79,7 +79,7 @@ class Budget(object):
     """The declared search bound, carried with the result so it is never lost from the number.
 
     `plies` is how many further moves the enumeration will make before it gives up and returns
-    UNRESOLVED. `nodes` caps total positions visited so an unexpectedly wide game cannot run
+    UNRESOLVED. `nodes` caps total positions visited, an unexpectedly wide game cannot run
     unbounded; exhausting it also returns UNRESOLVED.
 
     Both are inputs of the measurement and both are printed alongside it. A result computed at
@@ -102,7 +102,7 @@ class Budget(object):
 
 
 class Conditioning(object):
-    """Which quantity is being measured, named so a reader cannot mistake one for another.
+    """Which quantity is being measured, named, a reader cannot mistake one for another.
 
     This exists because the objective asks for survivorship pruning -- prune the opponent's paths
     and maximize our own -- and pruning changes what the distribution means. It stops being

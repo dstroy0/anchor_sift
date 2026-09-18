@@ -54,7 +54,7 @@ It binds this class only. A skipping search decides ranges from one read and nev
 
 A descent stops, recurses, or refuses. It stops when the destroy test fires, recurses when a level prunes, and refuses when the question is malformed. There is no branch in which it revisits a state it already held.
 
-**Check:** `test_adversarial` case 12. Seven malformed questions refused, each against a sentinel filled buffer so a refusal that returned zero after writing would be caught. Placed offsets required pairwise distinct, since placing an already placed probe leaves the survivor set unchanged and would be a revisit.
+**Check:** `test_adversarial` case 12. Seven malformed questions refused, each against a sentinel filled buffer, a refusal that returned zero after writing would be caught. Placed offsets required pairwise distinct, since placing an already placed probe leaves the survivor set unchanged and would be a revisit.
 
 ### F7. The descent is greedy submodular coverage maximization
 

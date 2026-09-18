@@ -58,7 +58,7 @@ static long long overlap_moved(const BasinOverlapRequest *args, unsigned int pos
     long long stride = 1ll;
     for (unsigned int axis = args->axes; axis > 0u; axis -= 1u)
     {
-        // Widened to 64 bits so a coordinate plus a negative lag is computed signed and a coordinate
+        // Widened to 64 bits, a coordinate plus a negative lag is computed signed and a coordinate
         // below zero is seen as below zero.
         const long long extent = (long long)args->extents[axis - 1u];
         const long long coordinate = (long long)(rest % args->extents[axis - 1u]) + (long long)args->lag[axis - 1u];
@@ -75,12 +75,7 @@ static long long overlap_moved(const BasinOverlapRequest *args, unsigned int pos
 
 long basin_overlap_host(const BasinOverlapRequest *args)
 {
-    if ((args == NULL) || (args->labels_before == NULL) || (args->positive_before == NULL)
-     || (args->labels_after == NULL) || (args->positive_after == NULL) || (args->voxels == 0u)
-     || (args->axes == 0u) || (args->axes > BASIN_OVERLAP_AXES)
-     || (args->room > BASIN_OVERLAP_ROOM_LIMIT)
-     || ((args->room != 0u) && ((args->peaks_before == NULL) || (args->peaks_after == NULL)
-                                || (args->counts == NULL))))
+    if ((args == NULL) || (args->labels_before == NULL) || (args->positive_before == NULL) || (args->labels_after == NULL) || (args->positive_after == NULL) || (args->voxels == 0u) || (args->axes == 0u) || (args->axes > BASIN_OVERLAP_AXES) || (args->room > BASIN_OVERLAP_ROOM_LIMIT) || ((args->room != 0u) && ((args->peaks_before == NULL) || (args->peaks_after == NULL) || (args->counts == NULL))))
     {
         return BASIN_OVERLAP_REFUSED;
     }
@@ -125,8 +120,7 @@ long basin_overlap_host(const BasinOverlapRequest *args)
             continue;
         }
 
-        pairs[total] = ((unsigned long long)args->labels_before[voxel] << 32u)
-                     | (unsigned long long)args->labels_after[there];
+        pairs[total] = ((unsigned long long)args->labels_before[voxel] << 32u) | (unsigned long long)args->labels_after[there];
         total += 1u;
     }
     if (total != 0u)

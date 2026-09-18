@@ -38,7 +38,9 @@ import zipfile
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
+    os.path.join(ROOT, "src", "engine")
+):
     ROOT = os.path.dirname(ROOT)
 OUT = os.path.join(ROOT, "test", "vectors")
 CACHE = os.path.join(ROOT, "build", "vectors-cache")
@@ -55,22 +57,32 @@ HMAC_URL = NIST + "/mac/hmactestvectors.zip"
 def _sibling_base():
     """The directory the sibling repositories sit in, which is beside the MAIN checkout.
 
-    Deliberately not derived from ROOT. A linked worktree lives under <repo>/.claude/worktrees/<name>
-    so a sibling path computed from it lands inside .claude/, and git answers the question directly:
-    --git-common-dir names the shared git directory for the main tree and every linked worktree
-    alike, and its parent is the main checkout. Its own parent is where the repositories sit.
+     Deliberately not derived from ROOT. A linked worktree lives under <repo>/.claude/worktrees/<name>
+    , a sibling path computed from it lands inside .claude/, and git answers the question directly:
+     --git-common-dir names the shared git directory for the main tree and every linked worktree
+     alike, and its parent is the main checkout. Its own parent is where the repositories sit.
 
-    Git's variables are cleared because a rev-parse inheriting a hook's GIT_DIR answers about that
-    repository.
+     Git's variables are cleared because a rev-parse inheriting a hook's GIT_DIR answers about that
+     repository.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
-    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+    for key in (
+        "GIT_DIR",
+        "GIT_WORK_TREE",
+        "GIT_INDEX_FILE",
+        "GIT_PREFIX",
+        "GIT_COMMON_DIR",
+    ):
         environment.pop(key, None)
 
     try:
-        said = subprocess.check_output(["git", "rev-parse", "--git-common-dir"], cwd=start,
-                                       stderr=subprocess.PIPE, env=environment)
+        said = subprocess.check_output(
+            ["git", "rev-parse", "--git-common-dir"],
+            cwd=start,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
     except (OSError, subprocess.CalledProcessError):
         return os.path.dirname(ROOT)
 
@@ -86,8 +98,9 @@ def _sibling_base():
 # repos/owned/{public,private} names repos/owned and not repos/owned/public. The file was never
 # found and every run printed the SKIP below. The skip was correct and loud; the path it reported
 # was wrong, which is why a visible message still went unnoticed.
-WYCHEPROOF_FROM = os.path.join(_sibling_base(), "ProtoCore", "test", "vectors",
-                               "wycheproof_hmac_sha256.json")
+WYCHEPROOF_FROM = os.path.join(
+    _sibling_base(), "ProtoCore", "test", "vectors", "wycheproof_hmac_sha256.json"
+)
 
 
 def digest_of(path):
@@ -104,7 +117,9 @@ def fetch(url, name):
         print("fetching %s" % url)
         # csrc.nist.gov answers 403 to a request with no User-Agent, which urllib omits by default.
         # Measured: the identical URL fetches fine under curl, which sends one.
-        request = urllib.request.Request(url, headers={"User-Agent": "anchor-sift-vendor-test-vectors/1.0"})
+        request = urllib.request.Request(
+            url, headers={"User-Agent": "anchor-sift-vendor-test-vectors/1.0"}
+        )
         with urllib.request.urlopen(request) as response, open(path, "wb") as handle:
             handle.write(response.read())
     return path, digest_of(path)
@@ -117,16 +132,24 @@ def take_members(archive, stamp, url, members, prefix, what, manifest):
         target = os.path.join(OUT, prefix + name)
         with open(target, "wb") as handle:
             handle.write(zf.read(member))
-        manifest["files"].append({
-            "file": os.path.basename(target),
-            "source": url,
-            "archive_sha256": stamp,
-            "member": member,
-            "sha256": digest_of(target),
-            "what": what,
-        })
-        print("  %-38s %s  %d KB"
-              % (os.path.basename(target), digest_of(target)[:16], os.path.getsize(target) // 1024))
+        manifest["files"].append(
+            {
+                "file": os.path.basename(target),
+                "source": url,
+                "archive_sha256": stamp,
+                "member": member,
+                "sha256": digest_of(target),
+                "what": what,
+            }
+        )
+        print(
+            "  %-38s %s  %d KB"
+            % (
+                os.path.basename(target),
+                digest_of(target)[:16],
+                os.path.getsize(target) // 1024,
+            )
+        )
 
 
 def take_hmac_section(archive, stamp, manifest):
@@ -136,7 +159,7 @@ def take_hmac_section(archive, stamp, manifest):
     for raw in whole.splitlines():
         line = raw.strip()
         if line.startswith("[L="):
-            taking = (line == "[L=32]")
+            taking = line == "[L=32]"
             if taking:
                 kept.append(line)
             continue
@@ -144,27 +167,40 @@ def take_hmac_section(archive, stamp, manifest):
             kept.append(raw)
 
     target = os.path.join(OUT, "nist_cavp_hmac_sha256.rsp")
-    header = ("# Extracted from HMAC.rsp, the [L=32] section only, by maint/deps/vendor_test_vectors.py\n"
-              "# Source %s\n# Archive sha256 %s\n\n" % (HMAC_URL, stamp))
+    header = (
+        "# Extracted from HMAC.rsp, the [L=32] section only, by maint/deps/vendor_test_vectors.py\n"
+        "# Source %s\n# Archive sha256 %s\n\n" % (HMAC_URL, stamp)
+    )
     with open(target, "w", encoding="utf-8") as handle:
         handle.write(header + "\n".join(kept) + "\n")
 
-    manifest["files"].append({
-        "file": os.path.basename(target),
-        "source": HMAC_URL,
-        "archive_sha256": stamp,
-        "member": "HMAC.rsp [L=32]",
-        "sha256": digest_of(target),
-        "what": "NIST CAVP HMAC-SHA-256, truncated tag lengths included",
-    })
-    print("  %-38s %s  %d KB"
-          % (os.path.basename(target), digest_of(target)[:16], os.path.getsize(target) // 1024))
+    manifest["files"].append(
+        {
+            "file": os.path.basename(target),
+            "source": HMAC_URL,
+            "archive_sha256": stamp,
+            "member": "HMAC.rsp [L=32]",
+            "sha256": digest_of(target),
+            "what": "NIST CAVP HMAC-SHA-256, truncated tag lengths included",
+        }
+    )
+    print(
+        "  %-38s %s  %d KB"
+        % (
+            os.path.basename(target),
+            digest_of(target)[:16],
+            os.path.getsize(target) // 1024,
+        )
+    )
 
 
 def main():
     ap = argparse.ArgumentParser(description="vendor the published SHA-256 vectors")
-    ap.add_argument("--keep-archives", action="store_true",
-                    help="leave the downloaded zips under build/vectors-cache")
+    ap.add_argument(
+        "--keep-archives",
+        action="store_true",
+        help="leave the downloaded zips under build/vectors-cache",
+    )
     args = ap.parse_args()
 
     os.makedirs(OUT, exist_ok=True)
@@ -176,18 +212,34 @@ def main():
 
     byte_zip, byte_stamp = fetch(BYTE_URL, "shabytetestvectors.zip")
     print("byte archive %s" % byte_stamp)
-    take_members(byte_zip, byte_stamp, BYTE_URL,
-                 [("shabytetestvectors/SHA256ShortMsg.rsp", "sha256shortmsg.rsp"),
-                  ("shabytetestvectors/SHA256LongMsg.rsp", "sha256longmsg.rsp"),
-                  ("shabytetestvectors/SHA256Monte.rsp", "sha256monte.rsp")],
-                 "nist_cavp_", "NIST CAVP byte oriented SHA-256 vectors", manifest)
+    take_members(
+        byte_zip,
+        byte_stamp,
+        BYTE_URL,
+        [
+            ("shabytetestvectors/SHA256ShortMsg.rsp", "sha256shortmsg.rsp"),
+            ("shabytetestvectors/SHA256LongMsg.rsp", "sha256longmsg.rsp"),
+            ("shabytetestvectors/SHA256Monte.rsp", "sha256monte.rsp"),
+        ],
+        "nist_cavp_",
+        "NIST CAVP byte oriented SHA-256 vectors",
+        manifest,
+    )
 
     bit_zip, bit_stamp = fetch(BIT_URL, "shabittestvectors.zip")
     print("bit archive %s" % bit_stamp)
-    take_members(bit_zip, bit_stamp, BIT_URL,
-                 [("shabittestvectors/SHA256ShortMsg.rsp", "sha256shortmsg.rsp"),
-                  ("shabittestvectors/SHA256LongMsg.rsp", "sha256longmsg.rsp")],
-                 "nist_cavp_bit_", "NIST CAVP bit oriented SHA-256 vectors, Len counts bits", manifest)
+    take_members(
+        bit_zip,
+        bit_stamp,
+        BIT_URL,
+        [
+            ("shabittestvectors/SHA256ShortMsg.rsp", "sha256shortmsg.rsp"),
+            ("shabittestvectors/SHA256LongMsg.rsp", "sha256longmsg.rsp"),
+        ],
+        "nist_cavp_bit_",
+        "NIST CAVP bit oriented SHA-256 vectors, Len counts bits",
+        manifest,
+    )
 
     hmac_zip, hmac_stamp = fetch(HMAC_URL, "hmactestvectors.zip")
     print("hmac archive %s" % hmac_stamp)
@@ -199,14 +251,16 @@ def main():
             doc = json.load(handle)
         target = os.path.join(OUT, "wycheproof_hmac_sha256.json")
         shutil.copyfile(source, target)
-        manifest["files"].append({
-            "file": os.path.basename(target),
-            "source": doc.get("source"),
-            "commit": doc.get("commit"),
-            "member": doc.get("file"),
-            "sha256": digest_of(target),
-            "what": "Wycheproof HMAC-SHA-256, adversarial subset curated by ProtoCore",
-        })
+        manifest["files"].append(
+            {
+                "file": os.path.basename(target),
+                "source": doc.get("source"),
+                "commit": doc.get("commit"),
+                "member": doc.get("file"),
+                "sha256": digest_of(target),
+                "what": "Wycheproof HMAC-SHA-256, adversarial subset curated by ProtoCore",
+            }
+        )
         print("  %-38s %s" % (os.path.basename(target), digest_of(target)[:16]))
     else:
         # Said out loud. A silently missing adversarial set is a gate that got weaker without anyone
@@ -219,7 +273,10 @@ def main():
     if not args.keep_archives:
         shutil.rmtree(CACHE, ignore_errors=True)
 
-    print("\n%d file(s) vendored, manifest at test/vectors/MANIFEST.json" % len(manifest["files"]))
+    print(
+        "\n%d file(s) vendored, manifest at test/vectors/MANIFEST.json"
+        % len(manifest["files"])
+    )
     return 0
 
 

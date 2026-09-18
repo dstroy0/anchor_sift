@@ -187,7 +187,7 @@ uint8_t anchor_raster_sample(const AnchorRasterConfig *config, const uint8_t *co
     {
         /* A refuted alignment is proven to hold no occurrence. A survivor is undetermined: the
          * probes could not refute it and only the full compare decides. Proven takes the higher
-         * value so a minimum reduction behaves as the conjunction this channel needs, a cell
+         * value, a minimum reduction behaves as the conjunction this channel needs, a cell
          * staying proven only while every alignment under it was refuted. */
         int matched = 0;
         const size_t level = raster_death_level(corpus, needle, needle_len, probes,

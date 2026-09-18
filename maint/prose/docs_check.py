@@ -474,7 +474,7 @@ BANNED = (
 )
 
 WITHDRAWN = {
-    "carry": "the verb in every inflection, banned so a digest would be said to be listed in a "
+    "carry": "the verb in every inflection, banned, a digest would be said to be listed in a "
     "manifest instead. Both standards use it and code-documentation:145 uses it about "
     "this file. 518 hits in idemIP/src at 29a808c.",
     "hold": "added when the repair pass for carry wrote hold everywhere instead. Chasing a "
@@ -495,7 +495,7 @@ WITHDRAWN = {
     'measurement", the sentence that justifies half this table. 1 hit.',
     "afford": "the same again, and one of the three that fired nowhere in idemIP/src at all.",
     "win": "an arm does not win. True, and the word has a plain use the ban could not see. 3 hits.",
-    "price": "added so a repair pass could not swap cost for it. A ban added to close the exit "
+    "price": "added, a repair pass could not swap cost for it. A ban added to close the exit "
     "from another ban is the shape of a rule that is chasing words. 0 hits.",
     "book": "these are theories, which is a naming rule about this tree's own vocabulary and "
     "carries no claim about register at all.",
@@ -1250,7 +1250,7 @@ def private_survey():
             else [
                 # Where they live after the move into owned/{public,private}.
                 os.path.join(owned, "private", one),
-                # The layout before it, kept so an unreorganized checkout still works.
+                # The layout before it, kept, an unreorganized checkout still works.
                 os.path.join(os.path.dirname(base), "private_repos", one),
             ]
         )

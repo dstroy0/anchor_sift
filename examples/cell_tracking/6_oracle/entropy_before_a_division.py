@@ -79,7 +79,7 @@ def collision_entropy(values, levels=LEVELS):
 
 
 def read_tif(path):
-    """One TIFF as an array, reading every page so a z-stack arrives whole.
+    """One TIFF as an array, reading every page, a z-stack arrives whole.
 
     A 2D frame comes back as one plane and a 3D frame as a stack. Nothing downstream reads a
     shape: collision_entropy takes the values inside a mask and a mask selects them the same way

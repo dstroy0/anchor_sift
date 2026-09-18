@@ -83,7 +83,7 @@ OCCUPANCY = "_atom_site_occupancy"
 # plane the same way, leaving the set of agreeing lags unchanged. A period is a statement about
 # repetition and a defect that repeats perfectly does not disturb it.
 #
-# So a period was safe and nothing else was. A count of atoms, a density, a formula weight, an
+# , a period was safe and nothing else was. A count of atoms, a density, a formula weight, an
 # occupancy sum, any distance between two sites: every one of those moves by exactly one spurious
 # atom per cell. Anyone consuming site_text for something other than a period needs that sentence
 # before they trust a number that came out of it.

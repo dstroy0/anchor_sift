@@ -114,15 +114,22 @@ def boundary_kind(reach, format_level, horizon_level, target):
 
 def describe(out, name, verdict):
     kind, gap, by_format, by_horizon = verdict
-    out.write("    %-48s gap %-5s format %-5s horizon %-5s -> %s\n"
-              % (name, gap, by_format, by_horizon, kind))
+    out.write(
+        "    %-48s gap %-5s format %-5s horizon %-5s -> %s\n"
+        % (name, gap, by_format, by_horizon, kind)
+    )
 
 
 # ---------------------------------------------------------------- positive controls, kind known by construction
 
-FORMAT_PRIMES = [(998244353, 23, 3), (2013265921, 27, 31)]  # prime, 2-adic order of p-1, primitive root
-DEPOSIT = exact.units("1.234567")               # a value deposited to six places
-TRUTH = exact.units("1.2345671234567")          # a defined stand-in for the value the deposit truncates
+FORMAT_PRIMES = [
+    (998244353, 23, 3),
+    (2013265921, 27, 31),
+]  # prime, 2-adic order of p-1, primitive root
+DEPOSIT = exact.units("1.234567")  # a value deposited to six places
+TRUTH = exact.units(
+    "1.2345671234567"
+)  # a defined stand-in for the value the deposit truncates
 
 
 def has_root_of_order(prime, generator, length):
@@ -135,8 +142,11 @@ def has_root_of_order(prime, generator, length):
 def ntt_reach(format_level, horizon_level):
     """The power-of-two exponents up to the horizon whose length has a root modulo the format's prime."""
     prime, _, generator = FORMAT_PRIMES[min(format_level, len(FORMAT_PRIMES) - 1)]
-    return frozenset(exponent for exponent in range(1, horizon_level + 1)
-                     if has_root_of_order(prime, generator, 2 ** exponent))
+    return frozenset(
+        exponent
+        for exponent in range(1, horizon_level + 1)
+        if has_root_of_order(prime, generator, 2**exponent)
+    )
 
 
 def tree_reach(_format_level, horizon_level):
@@ -147,7 +157,7 @@ def tree_reach(_format_level, horizon_level):
 def deposit_at(places):
     """The deposit read at `places` decimal places, at least its own six, as a reduced pair."""
     digits = max(places, DEPOSIT[1])
-    return reduced(exact.at_scale(DEPOSIT[0], DEPOSIT[1], digits), 10 ** digits)
+    return reduced(exact.at_scale(DEPOSIT[0], DEPOSIT[1], digits), 10**digits)
 
 
 def deposit_reach(format_level, _horizon_level):
@@ -157,7 +167,7 @@ def deposit_reach(format_level, _horizon_level):
 def report_controls(out):
     out.write("  positive controls: four objects whose kind is fixed by construction\n")
     ntt = boundary_kind(ntt_reach, 0, 25, frozenset(range(1, 26)))
-    tree = boundary_kind(tree_reach, 0, 7, 3 ** 12)
+    tree = boundary_kind(tree_reach, 0, 7, 3**12)
     deposit = boundary_kind(deposit_reach, 6, 0, reduced(TRUTH[0], 10 ** TRUTH[1]))
     exact_value = boundary_kind(lambda _f, _h: reduced(22, 7), 0, 0, reduced(22, 7))
     describe(out, "NTT length, prime 119*2^23+1, horizon 2^25", ntt)
@@ -165,11 +175,18 @@ def report_controls(out):
     describe(out, "a deposit of 6 places against its true value", deposit)
     describe(out, "the rational 22/7 against itself", exact_value)
     # the null for the classifier: a probe that cannot move the object reports measurement
-    blind = boundary_kind(lambda _f, _h: 3 ** 7, 0, 7, 3 ** 12)
+    blind = boundary_kind(lambda _f, _h: 3**7, 0, 7, 3**12)
     describe(out, "null: the tree count with the horizon probe cut", blind)
-    out.write("    the null shows the limit: measurement means unmoved by OUR probes, nothing more\n\n")
-    return (ntt[0] == "format" and tree[0] == "completeness" and deposit[0] == "measurement"
-            and exact_value[0] == "none" and blind[0] == "measurement")
+    out.write(
+        "    the null shows the limit: measurement means unmoved by OUR probes, nothing more\n\n"
+    )
+    return (
+        ntt[0] == "format"
+        and tree[0] == "completeness"
+        and deposit[0] == "measurement"
+        and exact_value[0] == "none"
+        and blind[0] == "measurement"
+    )
 
 
 # ---------------------------------------------------------------- pi as a scaled integer, Machin 1706
@@ -197,7 +214,7 @@ def pi_scaled(digits):
     guard = 10
     scale = 10 ** (digits + guard)
     value = 16 * arctan_reciprocal(5, scale) - 4 * arctan_reciprocal(239, scale)
-    return value // (10 ** guard)
+    return value // (10**guard)
 
 
 def evaluate_part(poly, den, part, digits):
@@ -214,10 +231,14 @@ def evaluate_part(poly, den, part, digits):
         if coefficient == 0:
             continue
         if power >= 0:
-            total = pair_add(total, (coefficient * pi_value ** power, 10 ** (work * power)))
+            total = pair_add(
+                total, (coefficient * pi_value**power, 10 ** (work * power))
+            )
         else:
-            total = pair_add(total, (coefficient * 10 ** (work * (-power)), pi_value ** (-power)))
-    numerator, denominator = total[0] * 10 ** digits, total[1] * den
+            total = pair_add(
+                total, (coefficient * 10 ** (work * (-power)), pi_value ** (-power))
+            )
+    numerator, denominator = total[0] * 10**digits, total[1] * den
     return numerator // denominator
 
 
@@ -225,9 +246,17 @@ def evaluate_part(poly, den, part, digits):
 
 
 def within(vector, radius):
-    return tuple(torus.Scalar({mode: poly for mode, poly in vector[axis].modes.items()
-                               if max(abs(mode[0]), abs(mode[1]), abs(mode[2])) <= radius}, vector[axis].den)
-                 for axis in AXES)
+    return tuple(
+        torus.Scalar(
+            {
+                mode: poly
+                for mode, poly in vector[axis].modes.items()
+                if max(abs(mode[0]), abs(mode[1]), abs(mode[2])) <= radius
+            },
+            vector[axis].den,
+        )
+        for axis in AXES
+    )
 
 
 def decimal_reach_for(vector):
@@ -236,29 +265,45 @@ def decimal_reach_for(vector):
     A floored decimal is returned as a reduced pair. 1/2 read at one place and at two places is the
     same value, and only a value whose expansion goes on is moved by the scale.
     """
+
     def reach(digits, radius):
         held = within(vector, radius)
         rows = []
         for axis in AXES:
             for mode in sorted(held[axis].modes):
                 poly = held[axis].modes[mode]
-                rows.append((axis, mode,
-                             reduced(evaluate_part(poly, held[axis].den, 0, digits), 10 ** digits),
-                             reduced(evaluate_part(poly, held[axis].den, 1, digits), 10 ** digits)))
+                rows.append(
+                    (
+                        axis,
+                        mode,
+                        reduced(
+                            evaluate_part(poly, held[axis].den, 0, digits), 10**digits
+                        ),
+                        reduced(
+                            evaluate_part(poly, held[axis].den, 1, digits), 10**digits
+                        ),
+                    )
+                )
         return tuple(rows)
+
     return reach
 
 
 def ring_reach_for(vector):
     """The coefficients within the horizon, exact; the scale is not part of the representation."""
+
     def reach(_digits, radius):
         return exact_rows(within(vector, radius))
+
     return reach
 
 
 def exact_rows(vector):
-    return tuple((axis, mode, vector[axis].den, tuple(sorted(vector[axis].modes[mode].items())))
-                 for axis in AXES for mode in sorted(vector[axis].modes))
+    return tuple(
+        (axis, mode, vector[axis].den, tuple(sorted(vector[axis].modes[mode].items())))
+        for axis in AXES
+        for mode in sorted(vector[axis].modes)
+    )
 
 
 def abc_with_amplitude(amplitude):
@@ -266,7 +311,9 @@ def abc_with_amplitude(amplitude):
 
 
 def report_their_sets(out):
-    out.write("  their sets: Taylor coefficients of (1)-(3) on the unit torus, read by the probes\n")
+    out.write(
+        "  their sets: Taylor coefficients of (1)-(3) on the unit torus, read by the probes\n"
+    )
     generic = torus.generic_field()
     velocities, _ = torus.taylor_velocity(generic, torus.VISCOSITY, 3)
     second = velocities[2]  # its modes reach |k|_inf = 2
@@ -284,11 +331,14 @@ def report_their_sets(out):
     order = 2
 
     def measured_reach(digits, radius):
-        held, _ = torus.taylor_velocity(abc_with_amplitude(deposit_at(digits)), torus.VISCOSITY, order)
+        held, _ = torus.taylor_velocity(
+            abc_with_amplitude(deposit_at(digits)), torus.VISCOSITY, order
+        )
         return exact_rows(within(held[order], radius))
 
-    true_velocities, _ = torus.taylor_velocity(abc_with_amplitude(reduced(TRUTH[0], 10 ** TRUTH[1])),
-                                               torus.VISCOSITY, order)
+    true_velocities, _ = torus.taylor_velocity(
+        abc_with_amplitude(reduced(TRUTH[0], 10 ** TRUTH[1])), torus.VISCOSITY, order
+    )
     measured = boundary_kind(measured_reach, 6, 1, exact_rows(true_velocities[order]))
     describe(out, "u_2 from A deposited to 6 places, against true A", measured)
 
@@ -297,28 +347,44 @@ def report_their_sets(out):
 
     def ratio_rows(velocities_held):
         expected = torus.vec_times(velocities_held[0], rate)
-        return tuple((axis, mode, velocities_held[1][axis] == expected[axis])
-                     for axis in AXES for mode in sorted(velocities_held[0][axis].modes))
+        return tuple(
+            (axis, mode, velocities_held[1][axis] == expected[axis])
+            for axis in AXES
+            for mode in sorted(velocities_held[0][axis].modes)
+        )
 
     def ratio_reach(digits, _radius):
-        held, _ = torus.taylor_velocity(abc_with_amplitude(deposit_at(digits)), torus.VISCOSITY, 1)
+        held, _ = torus.taylor_velocity(
+            abc_with_amplitude(deposit_at(digits)), torus.VISCOSITY, 1
+        )
         return ratio_rows(held)
 
     ratio = boundary_kind(ratio_reach, 6, 1, ratio_rows(true_velocities))
     ratio_all_true = all(row[2] for row in ratio_rows(true_velocities))
     describe(out, "u_1/u_0 = -4 nu pi^2, deposit against true A", ratio)
-    out.write("    the ratio identity holds at every mode for the true amplitude: %s\n\n" % ratio_all_true)
+    out.write(
+        "    the ratio identity holds at every mode for the true amplitude: %s\n\n"
+        % ratio_all_true
+    )
 
-    return (decimal_narrow[0] == "format and completeness" and decimal_full[0] == "format"
-            and ring_narrow[0] == "completeness" and ring_full[0] == "none"
-            and measured[0] == "measurement" and ratio[0] == "none" and ratio_all_true)
+    return (
+        decimal_narrow[0] == "format and completeness"
+        and decimal_full[0] == "format"
+        and ring_narrow[0] == "completeness"
+        and ring_full[0] == "none"
+        and measured[0] == "measurement"
+        and ratio[0] == "none"
+        and ratio_all_true
+    )
 
 
 # ---------------------------------------------------------------- inheritance through the constructor chain
 
 
 def report_inheritance(out):
-    out.write("  inheritance: which kinds the chain datum -> u_1 -> u_2 -> u_3 carries forward\n")
+    out.write(
+        "  inheritance: which kinds the chain datum -> u_1 -> u_2 -> u_3 carries forward\n"
+    )
     depth = 3
     generic = torus.generic_field()
     velocities, _ = torus.taylor_velocity(generic, torus.VISCOSITY, depth)
@@ -329,41 +395,90 @@ def report_inheritance(out):
     for step in range(depth + 1):
         held = velocities[step]
         radius = torus.mode_radius(held)
-        ring_silent.append(not boundary_kind(ring_reach_for(held), 30, radius, exact_rows(held))[2])
-        decimal_moves.append(boundary_kind(decimal_reach_for(held), 30, radius, exact_rows(held))[2])
+        ring_silent.append(
+            not boundary_kind(ring_reach_for(held), 30, radius, exact_rows(held))[2]
+        )
+        decimal_moves.append(
+            boundary_kind(decimal_reach_for(held), 30, radius, exact_rows(held))[2]
+        )
     decimal_pattern = decimal_moves == [False] + [True] * depth
-    out.write("    format, ring:     scale probe silent at orders 0..%d: %s\n" % (depth, ring_silent))
-    out.write("    format, decimals: scale probe moves at orders 0..%d:  %s\n" % (depth, decimal_moves))
-    out.write("      silent at the datum, whose coefficients are rational, and moving from order 1 on: the\n")
-    out.write("      derivative brings pi in, and a coefficient with pi has no last digit: %s\n" % decimal_pattern)
+    out.write(
+        "    format, ring:     scale probe silent at orders 0..%d: %s\n"
+        % (depth, ring_silent)
+    )
+    out.write(
+        "    format, decimals: scale probe moves at orders 0..%d:  %s\n"
+        % (depth, decimal_moves)
+    )
+    out.write(
+        "      silent at the datum, whose coefficients are rational, and moving from order 1 on: the\n"
+    )
+    out.write(
+        "      derivative brings pi in, and a coefficient with pi has no last digit: %s\n"
+        % decimal_pattern
+    )
 
     # measurement: a deposit's gap is carried to every order, and on the linear ABC solution it is carried
     # exactly, gap_m = (-4 nu pi^2)^m gap_0; on the generic datum it is nonzero at every order
     truth = reduced(TRUTH[0], 10 ** TRUTH[1])
     deposit = deposit_at(6)
-    abc_dep, _ = torus.taylor_velocity(abc_with_amplitude(deposit), torus.VISCOSITY, depth)
-    abc_true, _ = torus.taylor_velocity(abc_with_amplitude(truth), torus.VISCOSITY, depth)
+    abc_dep, _ = torus.taylor_velocity(
+        abc_with_amplitude(deposit), torus.VISCOSITY, depth
+    )
+    abc_true, _ = torus.taylor_velocity(
+        abc_with_amplitude(truth), torus.VISCOSITY, depth
+    )
     rate = torus.decay_rate(torus.VISCOSITY, -4)
     gap_0 = torus.vec_sub(abc_true[0], abc_dep[0])
-    abc_gaps = [not torus.vec_is_zero(torus.vec_sub(abc_true[step], abc_dep[step])) for step in range(depth + 1)]
-    abc_exact = all(torus.vec_eq(torus.vec_sub(abc_true[step], abc_dep[step]),
-                                 torus.vec_times(gap_0, torus.ratio_power(rate, step)))
-                    for step in range(depth + 1))
+    abc_gaps = [
+        not torus.vec_is_zero(torus.vec_sub(abc_true[step], abc_dep[step]))
+        for step in range(depth + 1)
+    ]
+    abc_exact = all(
+        torus.vec_eq(
+            torus.vec_sub(abc_true[step], abc_dep[step]),
+            torus.vec_times(gap_0, torus.ratio_power(rate, step)),
+        )
+        for step in range(depth + 1)
+    )
 
-    gen_dep, _ = torus.taylor_velocity(torus.generic_field(deposit), torus.VISCOSITY, depth)
-    gen_true, _ = torus.taylor_velocity(torus.generic_field(truth), torus.VISCOSITY, depth)
-    gen_gaps = [not torus.vec_is_zero(torus.vec_sub(gen_true[step], gen_dep[step])) for step in range(depth + 1)]
-    out.write("    measurement, ABC:     gap nonzero at orders 0..%d: %s ; gap_m = (-4 nu pi^2)^m gap_0 exactly: %s\n"
-              % (depth, abc_gaps, abc_exact))
-    out.write("    measurement, generic: gap nonzero at orders 0..%d: %s (carried, not lowered by any order)\n"
-              % (depth, gen_gaps))
+    gen_dep, _ = torus.taylor_velocity(
+        torus.generic_field(deposit), torus.VISCOSITY, depth
+    )
+    gen_true, _ = torus.taylor_velocity(
+        torus.generic_field(truth), torus.VISCOSITY, depth
+    )
+    gen_gaps = [
+        not torus.vec_is_zero(torus.vec_sub(gen_true[step], gen_dep[step]))
+        for step in range(depth + 1)
+    ]
+    out.write(
+        "    measurement, ABC:     gap nonzero at orders 0..%d: %s ; gap_m = (-4 nu pi^2)^m gap_0 exactly: %s\n"
+        % (depth, abc_gaps, abc_exact)
+    )
+    out.write(
+        "    measurement, generic: gap nonzero at orders 0..%d: %s (carried, not lowered by any order)\n"
+        % (depth, gen_gaps)
+    )
 
     # completeness: modes outside a fixed horizon, per order: carried and growing
     outside = [torus.modes_outside(velocities[step], 1) for step in range(depth + 1)]
-    growing = all(outside[step + 1] >= outside[step] for step in range(depth)) and outside[depth] > outside[0]
-    out.write("    completeness: modes outside |k|_inf <= 1 at orders 0..%d: %s ; carried and growing: %s\n\n"
-              % (depth, outside, growing))
-    return (all(ring_silent) and decimal_pattern and all(abc_gaps) and abc_exact and all(gen_gaps) and growing)
+    growing = (
+        all(outside[step + 1] >= outside[step] for step in range(depth))
+        and outside[depth] > outside[0]
+    )
+    out.write(
+        "    completeness: modes outside |k|_inf <= 1 at orders 0..%d: %s ; carried and growing: %s\n\n"
+        % (depth, outside, growing)
+    )
+    return (
+        all(ring_silent)
+        and decimal_pattern
+        and all(abc_gaps)
+        and abc_exact
+        and all(gen_gaps)
+        and growing
+    )
 
 
 # ---------------------------------------------------------------- the disjoint-translate constructor, its algebra
@@ -398,7 +513,9 @@ def poly_integral(poly, lower, upper):
     """The exact integral over [lower, upper] in y, as a reduced integer pair."""
     total = (0, 1)
     for index, value in enumerate(poly):
-        total = pair_add(total, (value * (upper ** (index + 1) - lower ** (index + 1)), index + 1))
+        total = pair_add(
+            total, (value * (upper ** (index + 1) - lower ** (index + 1)), index + 1)
+        )
     return total
 
 
@@ -410,7 +527,9 @@ def bump(lower, upper):
     """(y - lower)^2 (upper - y)^2 on [lower, upper]: a compactly supported piece with integer coefficients."""
     rising = [-lower, 1]
     falling = [upper, -1]
-    return [(lower, upper, poly_mul(poly_mul(rising, rising), poly_mul(falling, falling)))]
+    return [
+        (lower, upper, poly_mul(poly_mul(rising, rising), poly_mul(falling, falling)))
+    ]
 
 
 def piecewise_canonical(pieces):
@@ -446,7 +565,9 @@ def piecewise_mul(left, right):
 
 
 def piecewise_derivative(pieces):
-    return piecewise_canonical([(lower, upper, poly_derivative(poly)) for lower, upper, poly in pieces])
+    return piecewise_canonical(
+        [(lower, upper, poly_derivative(poly)) for lower, upper, poly in pieces]
+    )
 
 
 def piecewise_is_zero(pieces):
@@ -466,10 +587,12 @@ def bilinear(left, right):
 
 
 def report_constructor(out):
-    out.write("  the disjoint-translate constructor: the bilinear term of a sum splits exactly when supports are disjoint\n")
-    piece = bump(0, 2)          # [0, 1/4] in eighths
-    apart = bump(4, 6)          # [1/2, 3/4]
-    overlapping = bump(1, 3)    # [1/8, 3/8]
+    out.write(
+        "  the disjoint-translate constructor: the bilinear term of a sum splits exactly when supports are disjoint\n"
+    )
+    piece = bump(0, 2)  # [0, 1/4] in eighths
+    apart = bump(4, 6)  # [1/2, 3/4]
+    overlapping = bump(1, 3)  # [1/8, 3/8]
 
     def cross_terms(first, second):
         return piecewise_add(bilinear(first, second), bilinear(second, first))
@@ -483,29 +606,71 @@ def report_constructor(out):
         by_coefficients = piecewise_is_zero(difference)
         by_integral = piecewise_integral(piecewise_mul(difference, difference))[0] == 0
         cross = cross_terms(first, second)
-        return by_coefficients, by_integral, piecewise_integral(piecewise_mul(cross, cross))
+        return (
+            by_coefficients,
+            by_integral,
+            piecewise_integral(piecewise_mul(cross, cross)),
+        )
 
-    disjoint_coefficients, disjoint_integral, disjoint_square = split_holds(piece, apart)
-    overlap_coefficients, overlap_integral, overlap_square = split_holds(piece, overlapping)
-    linear_inherits = piecewise_is_zero(piecewise_add(
-        piecewise_derivative(piecewise_add(piece, apart)),
-        piecewise_neg(piecewise_add(piecewise_derivative(piece), piecewise_derivative(apart)))))
+    disjoint_coefficients, disjoint_integral, disjoint_square = split_holds(
+        piece, apart
+    )
+    overlap_coefficients, overlap_integral, overlap_square = split_holds(
+        piece, overlapping
+    )
+    linear_inherits = piecewise_is_zero(
+        piecewise_add(
+            piecewise_derivative(piecewise_add(piece, apart)),
+            piecewise_neg(
+                piecewise_add(piecewise_derivative(piece), piecewise_derivative(apart))
+            ),
+        )
+    )
 
-    out.write("    pieces in eighths: (y-a)^2 (b-y)^2 on [0,2] and on [4,6] (disjoint), on [1,3] (overlapping)\n")
-    out.write("    disjoint: split holds by coefficients %s, by integral %s ; int (cross)^2 dy = %d/%d\n"
-              % (disjoint_coefficients, disjoint_integral, disjoint_square[0], disjoint_square[1]))
-    out.write("    overlap (the null): split holds by coefficients %s, by integral %s ; int (cross)^2 dy = %d/%d\n"
-              % (overlap_coefficients, overlap_integral, overlap_square[0], overlap_square[1]))
-    out.write("    the linear terms split regardless (derivative of the sum): %s\n" % linear_inherits)
-    out.write("    so a sum of disjoint translates inherits the equation from its pieces through the bilinear\n")
-    out.write("    term only because the cross terms vanish; the construction is theirs, this is its algebra.\n\n")
-    return (disjoint_coefficients and disjoint_integral and disjoint_square[0] == 0
-            and not overlap_coefficients and not overlap_integral and overlap_square[0] > 0 and linear_inherits)
+    out.write(
+        "    pieces in eighths: (y-a)^2 (b-y)^2 on [0,2] and on [4,6] (disjoint), on [1,3] (overlapping)\n"
+    )
+    out.write(
+        "    disjoint: split holds by coefficients %s, by integral %s ; int (cross)^2 dy = %d/%d\n"
+        % (
+            disjoint_coefficients,
+            disjoint_integral,
+            disjoint_square[0],
+            disjoint_square[1],
+        )
+    )
+    out.write(
+        "    overlap (the null): split holds by coefficients %s, by integral %s ; int (cross)^2 dy = %d/%d\n"
+        % (overlap_coefficients, overlap_integral, overlap_square[0], overlap_square[1])
+    )
+    out.write(
+        "    the linear terms split regardless (derivative of the sum): %s\n"
+        % linear_inherits
+    )
+    out.write(
+        "   , a sum of disjoint translates inherits the equation from its pieces through the bilinear\n"
+    )
+    out.write(
+        "    term only because the cross terms vanish; the construction is theirs, this is its algebra.\n\n"
+    )
+    return (
+        disjoint_coefficients
+        and disjoint_integral
+        and disjoint_square[0] == 0
+        and not overlap_coefficients
+        and not overlap_integral
+        and overlap_square[0] > 0
+        and linear_inherits
+    )
 
 
 def main():
-    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  PROOF: the boundary function defined by probes, run on their sets, inheritance checked\n\n")
+    out = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", newline=""
+    )
+    out.write(
+        "  PROOF: the boundary function defined by probes, run on their sets, inheritance checked\n\n"
+    )
     results = [
         report_controls(out),
         report_their_sets(out),
@@ -513,8 +678,12 @@ def main():
         report_constructor(out),
     ]
     if all(results):
-        out.write("  every part lands: the probes recover the known kinds, read their sets, and the chain carries\n")
-        out.write("  the measurement and completeness kinds forward while the ring carries no format kind at all.\n")
+        out.write(
+            "  every part lands: the probes recover the known kinds, read their sets, and the chain carries\n"
+        )
+        out.write(
+            "  the measurement and completeness kinds forward while the ring carries no format kind at all.\n"
+        )
         out.write("  nothing here bears on whether (A), (B), (C) or (D) holds.\n")
     else:
         out.write("  a part missed its forced outcome: refuted as stated.\n")

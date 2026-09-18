@@ -43,7 +43,9 @@ import subprocess
 import sys
 
 _at = os.path.dirname(os.path.abspath(__file__))
-while _at != os.path.dirname(_at) and not os.path.isdir(os.path.join(_at, "lib", "repotools")):
+while _at != os.path.dirname(_at) and not os.path.isdir(
+    os.path.join(_at, "lib", "repotools")
+):
     _at = os.path.dirname(_at)
 sys.path.insert(0, os.path.join(_at, "lib"))
 
@@ -104,7 +106,8 @@ def _resolve(cfg, name, settings, default_names):
 
     raise GateMissing(
         "gate %s: no tool found. Looked at:\n    %s\n"
-        "  Name one under [hooks.%s] tool, or set REPOTOOLS_%s." % (name, "\n    ".join(tried), name, name.upper())
+        "  Name one under [hooks.%s] tool, or set REPOTOOLS_%s."
+        % (name, "\n    ".join(tried), name, name.upper())
     )
 
 
@@ -118,7 +121,9 @@ def _roots_for(cfg, settings, fallback):
     listed = settings.get("roots")
     if not listed:
         return cfg.existing(fallback)
-    return cfg.existing(tuple(os.path.join(cfg.where, one.replace("/", os.sep)) for one in listed))
+    return cfg.existing(
+        tuple(os.path.join(cfg.where, one.replace("/", os.sep)) for one in listed)
+    )
 
 
 # --- the gates ---------------------------------------------------------------
@@ -191,12 +196,14 @@ def gate_manifest(cfg, settings, _strict):
 def gate_command(cfg, settings, _strict):
     """An arbitrary command this repository names, for a check the toolkit does not carry.
 
-    Present so a repository with one specific gate does not have to fork the driver to run it. The
+    Present, a repository with one specific gate does not have to fork the driver to run it. The
     command is refused when it names nothing, because an empty command succeeds and reads as a pass.
     """
     argv = settings.get("argv")
     if not argv:
-        raise GateMissing("gate command: [hooks.command] names no argv. It would check nothing.")
+        raise GateMissing(
+            "gate command: [hooks.command] names no argv. It would check nothing."
+        )
     return subprocess.call(list(argv), cwd=cfg.where)
 
 
@@ -234,15 +241,23 @@ def main(argv):
     chosen = [one for one in argv if not one.startswith("-")] or list(cfg.gates())
 
     if not chosen:
-        print("  %s names no gates under [hooks] gates. Nothing was checked." % cfg.project_name())
-        print("  A repository opts in to each gate by naming it. Known gates: %s." % ", ".join(sorted(GATES)))
+        print(
+            "  %s names no gates under [hooks] gates. Nothing was checked."
+            % cfg.project_name()
+        )
+        print(
+            "  A repository opts in to each gate by naming it. Known gates: %s."
+            % ", ".join(sorted(GATES))
+        )
         return findings.EXIT_OK
 
     if "--list" in argv:
         for name in chosen:
             settings = cfg.gate(name)
             try:
-                where = _resolve(cfg, name, settings, ("no_replicate_/prose_detection/%s.py" % name,))
+                where = _resolve(
+                    cfg, name, settings, ("no_replicate_/prose_detection/%s.py" % name,)
+                )
             except GateMissing:
                 where = "(resolved at run time)"
             print("  %-14s %s" % (name, where))
@@ -252,7 +267,9 @@ def main(argv):
         status = run(cfg, chosen, strict)
     except GateMissing as missing:
         print("\n  commit stopped: %s" % missing)
-        print("  A gate this repository asked for could not be run. That is never a pass.")
+        print(
+            "  A gate this repository asked for could not be run. That is never a pass."
+        )
         return findings.EXIT_BREAKING
 
     if status == findings.EXIT_OK:

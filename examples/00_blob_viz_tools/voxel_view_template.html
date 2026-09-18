@@ -1594,7 +1594,7 @@
 
     /** Writes the instance colors for one moment: the gradient underneath, a mark's own color over
       it, and for a moving mark a mix between the two that depends on the clock. Separated from
-      build so an animating mark repaints colors alone rather than rebuilding the geometry sixty
+      build, an animating mark repaints colors alone rather than rebuilding the geometry sixty
       times a second, which would be the difference between a page that turns and one that does
       not. */
     function paintColors(now) {

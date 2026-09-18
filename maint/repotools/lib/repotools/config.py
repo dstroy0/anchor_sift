@@ -63,7 +63,11 @@ def _merge(base, over, path=()):
         here = path + (key,)
         if isinstance(value, dict) and isinstance(out.get(key), dict):
             out[key] = _merge(out[key], value, here)
-        elif here in EXTENDED_LISTS and isinstance(value, list) and isinstance(out.get(key), list):
+        elif (
+            here in EXTENDED_LISTS
+            and isinstance(value, list)
+            and isinstance(out.get(key), list)
+        ):
             seen = list(out[key])
             seen.extend(one for one in value if one not in seen)
             out[key] = seen
@@ -93,7 +97,9 @@ class Config:
         """The name a generated header line carries. Required; there is no sensible default."""
         name = self.data.get("project", {}).get("name")
         if not name:
-            raise SystemExit("repotools: %s/%s sets no [project] name" % (self.where, CONFIG_NAME))
+            raise SystemExit(
+                "repotools: %s/%s sets no [project] name" % (self.where, CONFIG_NAME)
+            )
         return name
 
     def version(self):
@@ -121,7 +127,11 @@ class Config:
         stamped = self.project_name()
         if self.version():
             stamped = "%s v%s" % (stamped, self.version())
-        lines = ["%s - %s" % (stamped, self.copyright_holder())] if self.copyright_holder() else [stamped]
+        lines = (
+            ["%s - %s" % (stamped, self.copyright_holder())]
+            if self.copyright_holder()
+            else [stamped]
+        )
         if self.spdx():
             lines.append("SPDX-License-Identifier: %s" % self.spdx())
         return lines
@@ -130,7 +140,9 @@ class Config:
 
     def _roots(self, key):
         listed = self.data.get("layout", {}).get(key, [])
-        return tuple(os.path.join(self.where, one.replace("/", os.sep)) for one in listed)
+        return tuple(
+            os.path.join(self.where, one.replace("/", os.sep)) for one in listed
+        )
 
     def source_roots(self):
         return self._roots("source")
@@ -148,7 +160,7 @@ class Config:
     def fixture_roots(self):
         """Where test DATA lives. Read by a check, never collected as one.
 
-        Held apart from `tests` so a zero collection under `tests` means something. While one key
+        Held apart from `tests`, a zero collection under `tests` means something. While one key
         carried both, a directory of pure fixtures reported no tests, exited 5, and nothing about it
         was fixable: it was not missing and it was not malformed, it simply was not a suite.
         """
@@ -156,11 +168,17 @@ class Config:
 
     def scratch_root(self):
         """The throwaway directory, absolute. Anything generated that nobody edits goes under it."""
-        return os.path.join(self.where, self.data.get("layout", {}).get("scratch", "build").replace("/", os.sep))
+        return os.path.join(
+            self.where,
+            self.data.get("layout", {}).get("scratch", "build").replace("/", os.sep),
+        )
 
     def tools_root(self):
         """Where fetched tools land in this repository, absolute."""
-        return os.path.join(self.where, self.data.get("layout", {}).get("tools", "tools").replace("/", os.sep))
+        return os.path.join(
+            self.where,
+            self.data.get("layout", {}).get("tools", "tools").replace("/", os.sep),
+        )
 
     def existing(self, roots):
         """The subset of `roots` present on disk, and a refusal when every one of them is absent.
@@ -217,7 +235,9 @@ class Config:
                     out.append(one)
                 continue
             for here, dirs, names in os.walk(one):
-                dirs[:] = sorted(name for name in dirs if name not in self.excluded_names())
+                dirs[:] = sorted(
+                    name for name in dirs if name not in self.excluded_names()
+                )
                 for name in sorted(names):
                     if name.endswith(extensions):
                         out.append(os.path.join(here, name))
@@ -284,7 +304,9 @@ class Config:
 
 def defaults():
     """The toolkit's own defaults, read from `defaults.toml` beside this module."""
-    return _read(os.path.join(os.path.dirname(os.path.abspath(__file__)), "defaults.toml"))
+    return _read(
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "defaults.toml")
+    )
 
 
 def load(start=None, required=True):

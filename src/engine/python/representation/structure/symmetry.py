@@ -68,7 +68,7 @@ TERM = re.compile(r"([+-]?)\s*(?:(\d+)\s*/\s*(\d+)|(\d*\.\d+)|(\d+)|([xyz]))")
 class WillNotDivide(ValueError):
     """A translation whose denominator does not divide UNITS.
 
-    Its own class so a caller can tell it from unparsable text, exactly as exact.WillNotFit is kept
+    Its own class, a caller can tell it from unparsable text, exactly as exact.WillNotFit is kept
     apart from a ValueError. Unparsable text is an operation this does not understand. This is an
     operation it understands and a scale that cannot hold it, and the two want opposite responses.
     """

@@ -65,7 +65,7 @@ roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "theory_bucket", "src
 [fetch]
 # What anchor_sift pulls, and why each one.
 #
-#   lib/repotools            comes with every fetch regardless; named so a reader sees what lands
+#   lib/repotools            comes with every fetch regardless; named, a reader sees what lands
 #   media_tools/source_render  src2png.py, which renders a file to PNG pages. This is the tool the
 #                            hand extraction reads pages with, and it was adopted out of this tree
 #   docs/docs_maint          math_hazards.py and quotes.py, both already used here by path

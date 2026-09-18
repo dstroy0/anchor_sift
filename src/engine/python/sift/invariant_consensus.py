@@ -89,9 +89,9 @@ def max_clique(adjacency):
 def k_core(adjacency, k):
     """The largest set where every member has at least `k` neighbors inside it, by peeling.
 
-    The cheap relaxation of the clique: a clique of size s is a (k)-core for every k up to s minus one,
-    so a k-core with k one below the expected inlier count contains the inlier clique and, usually, some
-    outliers besides. `k` is the declared input.
+     The cheap relaxation of the clique: a clique of size s is a (k)-core for every k up to s minus one,
+    , a k-core with k one below the expected inlier count contains the inlier clique and, usually, some
+     outliers besides. `k` is the declared input.
     """
     degree = {vertex: len(neighbors) for vertex, neighbors in adjacency.items()}
     alive = set(adjacency)

@@ -145,7 +145,7 @@ def information_gain(table, prior=None, over=rules.RESOLVED):
     objective is reaching for when it asks which move is best: a position where one move wins and the
     rest lose has high gain, and a position where nothing can be saved has none.
 
-    Returned as (gain, marginal_bits, conditional_bits) so a reader sees both terms.
+    Returned as (gain, marginal_bits, conditional_bits), a reader sees both terms.
     """
     marginal_bits, _ = shannon(marginal(table, prior), over)
     conditional_bits, _ = conditional_entropy(table, prior, over)

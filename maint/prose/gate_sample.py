@@ -16,7 +16,7 @@
 # reaches the detector as though it were a sentence.
 #
 # Files are taken in the order given and truncated at a paragraph boundary when the budget runs out,
-# so a sample is a set of whole paragraphs and never a sentence cut in half.
+# , a sample is a set of whole paragraphs and never a sentence cut in half.
 #
 # The closed corpus and the private repositories never go in. A pasted sample is published the
 # moment it is pasted, and the hand extractions are the papers' text and the speakers' words.
@@ -29,7 +29,12 @@ import docs_check
 
 OUT = os.path.join(docs_check.REPOSITORY, "build", "gate", "sample.txt")
 
-CLOSED = ("/private_repos/", "/salishan_corpus/", "/anchor_sift_citations/", "/no_replicate_/")
+CLOSED = (
+    "/private_repos/",
+    "/salishan_corpus/",
+    "/anchor_sift_citations/",
+    "/no_replicate_/",
+)
 
 
 def closed(path):
@@ -65,8 +70,10 @@ def main():
     if not named:
         raise SystemExit("  gate_sample: name a file or a directory")
 
-    roots = [one if os.path.exists(one) else os.path.join(docs_check.REPOSITORY, one)
-             for one in named]
+    roots = [
+        one if os.path.exists(one) else os.path.join(docs_check.REPOSITORY, one)
+        for one in named
+    ]
 
     held = []
     manifest = []
@@ -89,7 +96,9 @@ def main():
             words += count
             took += count
         if took:
-            manifest.append((os.path.relpath(path, docs_check.REPOSITORY).replace("\\", "/"), took))
+            manifest.append(
+                (os.path.relpath(path, docs_check.REPOSITORY).replace("\\", "/"), took)
+            )
 
     body = "\n\n".join(held)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
