@@ -3,11 +3,11 @@
 **Purpose:** Read how atoms assemble from the atomic properties alone, and detect which molecular formulae can carry a valence structure: the bond count an atom carries is a vector magnitude off its outermost shell, an integer with no tolerance, and it dictates the assembly and gates the legal from the illegal.
 **Scope:** `examples/molecules/`
 
-| stage | script | what it answers |
-|---|---|---|
-| `1_represent` | `assembly_from_atomic_properties.py` | the bonds an atom forms, read off its shell, and the assembly they dictate |
-| `1_represent` | `build_legal_molecules.py` | build the molecules the valence rules allow, ten thousand and more, from the ledger |
-| `6_oracle` | `legal_against_a_wide_set.py` | whether a formula can carry a valence structure, tested against ten thousand real molecules |
+| stage         | script                               | what it answers                                                                             |
+| ------------- | ------------------------------------ | ------------------------------------------------------------------------------------------- |
+| `1_represent` | `assembly_from_atomic_properties.py` | the bonds an atom forms, read off its shell, and the assembly they dictate                  |
+| `1_represent` | `build_legal_molecules.py`           | build the molecules the valence rules allow, ten thousand and more, from the ledger         |
+| `6_oracle`    | `legal_against_a_wide_set.py`        | whether a formula can carry a valence structure, tested against ten thousand real molecules |
 
 The other stages are not written. This subject reads the count. The measured side of a bond, its length, its angle and its energy, is the chemistry subject's oracle, and nothing here reaches for it.
 
@@ -25,7 +25,7 @@ One magnitude reads the main group, the first eighteen elements, where the outer
 
 `build_legal_molecules.py` walks the assembly the other way. It enumerates the compositions of carbon, hydrogen, nitrogen and oxygen within a bound, turns each into the degree list its atoms carry, and keeps the ones a molecule graph can hold. Each atom's degree is its capacity, read from the ledger through the assembly stage, and the build takes its valences from the shells and puts none in by hand. Over carbon zero to twenty, hydrogen to forty-four, nitrogen to six and oxygen to eight, 17499 compositions carry a legal valence structure.
 
-The keep decision is `connected_multigraph` in `src/engine/python/measure/graph_realizable.py`, a domain-blind test of whether a connected multigraph exists for a given list of degrees, and it is the same gate the wide-set detector runs: what is built legal and what is detected legal are one test. It is a necessary condition and not a sufficient one, and the built space is far larger than the molecules that exist. CO2 is in it, and so are CO4 through CO8, which are not molecules.
+The keep decision is `connected_multigraph` in `src/engine/python/measure/graph_realizable.py`, a domain-blind test of whether a connected multigraph exists for a given list of degrees, and it is the same gate the wide-set detector runs: what is built legal and what is detected legal are one test. It is a necessary condition and not a sufficient one, and the built space is far larger than the molecules that exist. CO2 is in it, and are CO4 through CO8, which are not molecules.
 
 The build carries the verification itself, the way the crystallography oracle checks a deposit: it never read which molecules exist, and it agrees with the existing set on a truth it did not use. Of 3982 existing neutral C/H/N/O molecules inside the bound, 3979 are built, and the three misses are named by the gate, two net-neutral salts and carbon monoxide, whose triple bond and lone pair one fixed valence cannot hold. The built space is the outer bound the valence rules draw, and reality is a subset of it: of the 17499 built, 3979 are confirmed by this existing set.
 

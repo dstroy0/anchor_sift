@@ -86,7 +86,7 @@ HUMAN_WHOLE = sum(HUMAN_RATE.values())
 PLAIN = (".txt", ".rst", ".markdown", ".text", ".org")
 SUBMITTED = CHECKED + PLAIN
 
-# Names that identify a vendor or a product. None of these is also an ordinary English word.
+# Names that identify a vendor or a product. None of these is alan ordinary English word.
 NAMES = ("anthropic", "claude", "openai", "chatgpt")
 
 # Words that are ordinary English on their own. Each is matched only where a version number sits

@@ -141,6 +141,7 @@ extern "C" int max_tree_order_agrees(const unsigned int *residual, unsigned int 
                                                           device_admits);
         ok = (cudaGetLastError() == cudaSuccess) ? 1 : 0;
     }
+
     unsigned int *const admits = (unsigned int *)malloc(voxels * sizeof(unsigned int));
     unsigned int *const offsets = (unsigned int *)malloc(voxels * sizeof(unsigned int));
     ok = ok && (admits != NULL) && (offsets != NULL);
@@ -172,6 +173,7 @@ extern "C" int max_tree_order_agrees(const unsigned int *residual, unsigned int 
         ok = ok && (cudaMemcpy(counts, device_counts,
                                (size_t)blocks * MAX_TREE_BUCKETS * sizeof(unsigned int),
                                cudaMemcpyDeviceToHost) == cudaSuccess);
+
         unsigned int place = 0u;
         for (unsigned int bucket = 0u; (ok != 0) && (bucket < MAX_TREE_BUCKETS); bucket += 1u)
         {
@@ -257,6 +259,7 @@ __device__ static unsigned int max_tree_key_limb(const unsigned int *residual, u
                                                  unsigned int name, unsigned int limb)
 {
     const unsigned int above = (unsigned int)((limb >= 1u) && (limb <= BINOMIAL_BASINS_LIMBS));
+
     const unsigned int value = residual[((size_t)weaker * BINOMIAL_BASINS_LIMBS) + ((limb - 1u) * above)];
     return (limb == 0u) ? ~name : (value * above);
 }
@@ -300,11 +303,13 @@ __global__ static void max_tree_faces_kernel(const unsigned int *residual, unsig
     unsigned int flags = 0u;
     for (unsigned int axis = 0u; axis < 3u; axis += 1u)
     {
+
         const unsigned int near = voxel + (stride[axis] * inside[axis]);
         const unsigned int binds = inside[axis] & here & max_tree_admitted(residual, near);
         const unsigned int far_weaker = max_tree_below(residual, near, voxel);
         flags |= (binds << axis) | ((binds & far_weaker) << (axis + 3u));
     }
+
     faces[voxel] = (unsigned char)flags;
 }
 
@@ -369,6 +374,7 @@ __global__ static void max_tree_choose_kernel(const unsigned int *residual, cons
     for (unsigned int axis = 0u; axis < 3u; axis += 1u)
     {
         const unsigned int binds = (flags >> axis) & 1u;
+
         const unsigned int near = voxel + (stride[axis] * binds);
         const unsigned int other = belongs[near];
         if (other == one)
@@ -378,6 +384,7 @@ __global__ static void max_tree_choose_kernel(const unsigned int *residual, cons
         const unsigned int weaker = (((flags >> (axis + 3u)) & 1u) != 0u) ? near : voxel;
         const unsigned int name = (voxel * 3u) + axis;
         const unsigned long long mine = max_tree_key_word(residual, weaker, name, word);
+
         if (max_tree_leads(residual, weaker, name, word, &strongest[(size_t)one * MAX_TREE_KEY_WORDS]) != 0u)
         {
             atomicMax(&strongest[((size_t)one * MAX_TREE_KEY_WORDS) + word], mine);
@@ -406,6 +413,7 @@ __global__ static void max_tree_partner_kernel(const unsigned long long *stronge
         partner[voxel] = voxel;
         return;
     }
+
     const unsigned int name = ~(unsigned int)(low & 0xFFFFFFFFull);
     const unsigned int lower = name / 3u;
     const unsigned int axis = name % 3u;
@@ -447,6 +455,7 @@ static unsigned long long max_tree_microseconds(void)
 {
     struct timespec now;
     timespec_get(&now, TIME_UTC);
+
     return ((unsigned long long)now.tv_sec * 1000000ull) + ((unsigned long long)now.tv_nsec / 1000ull);
 }
 
@@ -458,6 +467,7 @@ __global__ static void max_tree_reaches_kernel(const unsigned int *residual, uns
     {
         return;
     }
+
     reaches[voxel] = (unsigned char)(max_tree_admitted(residual, voxel)
                                      & (max_tree_below(residual, voxel, level) ^ 1u));
 }
@@ -578,6 +588,7 @@ static int max_tree_label(const unsigned char *reaches, const unsigned char *bou
         }
         block += 1u;
     }
+
     return (ok != 0) && (cudaDeviceSynchronize() == cudaSuccess);
 }
 
@@ -592,6 +603,7 @@ extern "C" long max_tree_bind(const MaxTreeBindRequest *request)
     const unsigned int height = request->height;
     const unsigned int width = request->width;
     const size_t voxels = (size_t)depth * height * width;
+
     if ((voxels == 0u) || ((voxels * 3u) >= 0xFFFFFFFFull))
     {
         return MAX_TREE_REFUSED;
@@ -629,6 +641,7 @@ extern "C" long max_tree_bind(const MaxTreeBindRequest *request)
     ok = ok && (cudaMemset(device_differ, 0, proved_at * sizeof(unsigned int)) == cudaSuccess);
     ok = ok && (cudaDeviceSynchronize() == cudaSuccess);
     const unsigned long long began = max_tree_microseconds();
+
     const unsigned int count = (unsigned int)voxels;
     const unsigned int spread = (count + MAX_TREE_BLOCK - 1u) / MAX_TREE_BLOCK;
     if (ok != 0)
@@ -651,6 +664,7 @@ extern "C" long max_tree_bind(const MaxTreeBindRequest *request)
                 max_tree_jump_kernel<<<spread, MAX_TREE_BLOCK>>>(count, device_belongs);
             }
             max_tree_flatten_kernel<<<spread, MAX_TREE_BLOCK>>>(count, device_belongs);
+
             for (unsigned int word = MAX_TREE_KEY_WORDS; word > 0u; word -= 1u)
             {
                 max_tree_choose_kernel<<<spread, MAX_TREE_BLOCK>>>(device_residual, device_faces, device_belongs,
@@ -670,6 +684,7 @@ extern "C" long max_tree_bind(const MaxTreeBindRequest *request)
         ok = ok && (cudaEventRecord(blocks_done[parity], 0) == cudaSuccess);
         if ((ok != 0) && (block > 0u))
         {
+
             const unsigned int previous = 1u - parity;
             ok = (cudaEventSynchronize(blocks_done[previous]) == cudaSuccess) ? 1 : 0;
             settled = ((ok != 0) && (pinned_moved[previous] == 0u)) ? 1 : 0;

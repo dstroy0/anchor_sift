@@ -1636,7 +1636,7 @@ static void ab_language(const char *name, const uint8_t *corpus, size_t corpus_l
  * @param[in] corpus_len How many.
  * @param[in] needle_len Bytes in the needles drawn from it.
  * @param[in] marker     The boundary symbol Section 4.12 found.
- * @note What is being asked. Once a boundary symbol is known, a corpus is also a sequence of gaps
+ * @note What is being asked. Once a boundary symbol is known, a corpus is ala sequence of gaps
  *       between its occurrences, and that sequence is shorter than the byte sequence by the mean gap.
  *       A needle carrying $k$ boundaries carries $k-1$ gaps between them, and any true occurrence has
  *       to reproduce that run of gaps exactly. So the run is a filter, and the question is how much it

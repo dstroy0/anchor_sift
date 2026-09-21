@@ -1,25 +1,3 @@
-/* anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
- * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
- *
- * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
- * negotiated commercial licensing contract or an educator's license issued to you personally.
- */
-/**
- * @file basin_overlap.cu
- * @brief The device arm of the lagged overlap count, run length encoded per chunk of voxels.
- * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-18
- *
- * @note One thread walks one chunk of BASIN_OVERLAP_CHUNK consecutive voxels. Neighboring voxels
- *       of one basin usually land in one basin. A chunk yields long runs of one label pair, and a
- *       thread writes a run as a pair and a length instead of one key per voxel.
- * @note Two passes over the same kernel. The first counts each chunk's runs. The host turns the
- *       counts into write offsets, and the second pass writes the runs there. The runs are sorted on
- *       the host with their lengths carried along, and equal pairs are summed. The result equals
- *       basin_overlap_host's pair for pair.
- * @note Every quantity is an integer: voxel indices, labels, lags and counts.
- */
-
 #include "basin_overlap.h"
 #include "radix_keys.h"
 
@@ -28,34 +6,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-/** @brief Threads per block. */
 #define BASIN_OVERLAP_BLOCK 256u
 
-/** @brief Consecutive voxels one thread walks. */
 #define BASIN_OVERLAP_CHUNK 256u
 
 static_assert(sizeof(unsigned int) == 4u, "basin_overlap: unsigned int must be 32 bits, a peak index");
 static_assert(sizeof(unsigned long long) == 8u, "basin_overlap: unsigned long long must be 64 bits, a pair");
 
-/**
- * @brief The shape and lag a kernel needs, passed by value so no device copy is made.
- */
 struct OverlapView
 {
-    unsigned int axes;                        /**< Axes in use. */
-    unsigned int extents[BASIN_OVERLAP_AXES]; /**< Voxels along each axis. */
-    int lag[BASIN_OVERLAP_AXES];              /**< Shift per axis. */
+    unsigned int axes;
+    unsigned int extents[BASIN_OVERLAP_AXES];
+    int lag[BASIN_OVERLAP_AXES];
 };
 
-/**
- * @brief Where a voxel lands after the lag, on the device.
- *
- * @param[in] view     The shape and lag [BORROWS].
- * @param[in] position The voxel's index, last axis fastest.
- * @return             The index it lands on, or -1 where it leaves the volume.
- * @note The same arithmetic as overlap_moved in basin_overlap.c, transcribed, since a __device__
- *       function cannot be shared with the host translation unit.
- */
 __device__ static long long device_overlap_moved(const OverlapView *view, unsigned int position)
 {
     unsigned int rest = position;
@@ -76,25 +40,6 @@ __device__ static long long device_overlap_moved(const OverlapView *view, unsign
     return moved;
 }
 
-/**
- * @brief One thread per chunk: collapse the chunk's overlapping pairs into runs.
- *
- * @param[in]  positive_before One bit per before voxel [BORROWS].
- * @param[in]  positive_after  One bit per after voxel [BORROWS].
- * @param[in]  labels_before   Label of every before voxel [BORROWS].
- * @param[in]  labels_after    Label of every after voxel [BORROWS].
- * @param[in]  view            The shape and lag.
- * @param[in]  voxels          Voxels per frame.
- * @param[in]  chunks          Chunks covering the frame.
- * @param[in]  offsets         Where each chunk writes its first run, or NULL on the counting pass
- *                             [BORROWS].
- * @param[out] chunk_counts    Runs in each chunk, written on the counting pass only [BORROWS].
- * @param[out] pairs           Pair of each run, written on the writing pass only [BORROWS].
- * @param[out] lengths         Voxels in each run, written on the writing pass only [BORROWS].
- * @note A run is a stretch of voxels, positive and landing on a positive voxel, carrying one label
- *       pair, with any number of skipped voxels between them. The same pair can open several runs
- *       in one chunk, and the host sums them.
- */
 __global__ static void overlap_kernel(const unsigned long long *positive_before,
                                       const unsigned long long *positive_after,
                                       const unsigned int *labels_before, const unsigned int *labels_after,
@@ -108,7 +53,6 @@ __global__ static void overlap_kernel(const unsigned long long *positive_before,
         return;
     }
     const unsigned int first = chunk * BASIN_OVERLAP_CHUNK;
-    // The last chunk ends at the frame's end. The test is on the room left and cannot overflow.
     const unsigned int past = ((voxels - first) < BASIN_OVERLAP_CHUNK) ? voxels : (first + BASIN_OVERLAP_CHUNK);
     unsigned int slot = (offsets != NULL) ? offsets[chunk] : 0u;
     unsigned int runs = 0u;
@@ -126,7 +70,6 @@ __global__ static void overlap_kernel(const unsigned long long *positive_before,
             continue;
         }
 
-        // moved is a voxel index below `voxels`, which fits an unsigned int.
         const unsigned int there = (unsigned int)moved;
         if ((positive_after[there / 64u] & (1ull << (there % 64u))) == 0ull)
         {
@@ -140,8 +83,6 @@ __global__ static void overlap_kernel(const unsigned long long *positive_before,
             run_length += 1u;
             continue;
         }
-        // A new pair closes the open run. Only the writing pass stores it. Both passes count it,
-        // and the offsets from the first pass line up with the writes of the second.
         if ((run_length != 0u) && (offsets != NULL))
         {
             pairs[slot] = run_pair;
@@ -164,53 +105,33 @@ __global__ static void overlap_kernel(const unsigned long long *positive_before,
     }
 }
 
-/**
- * @brief Whether the last launch was accepted.
- *
- * @return 1 where no launch error is pending, 0 otherwise.
- * @note Catches a launch the device refused. A fault inside the kernel surfaces at the next
- *       cudaMemcpy, which every caller checks.
- */
 static int overlap_launched(void)
 {
 
     return (cudaGetLastError() == cudaSuccess) ? 1 : 0;
 }
 
-/**
- * @brief Device and host buffers held between calls.
- *
- * @note Every frame of one recording has one size. Holding the buffers across calls on frames of
- *       that size skips a cudaMalloc and cudaFree per call.
- */
 struct HeldOverlap
 {
-    size_t voxels;                   /**< Voxel count the frame buffers were sized for. */
-    unsigned int chunks;             /**< Chunks the count and offset buffers were sized for. */
-    int uploads;                     /**< 1 where the four frame buffers are allocated. */
-    unsigned long long *before_words; /**< Device copy of the before bits. */
-    unsigned long long *after_words; /**< Device copy of the after bits. */
-    unsigned int *before_labels;     /**< Device copy of the before labels. */
-    unsigned int *after_labels;      /**< Device copy of the after labels. */
-    unsigned int *counts;            /**< Device runs per chunk. */
-    unsigned int *offsets;           /**< Device write offset per chunk. */
-    unsigned int *host_offsets;      /**< Host copy of the counts, turned into offsets in place. */
-    size_t run_room;                 /**< Runs the four run buffers hold. */
-    unsigned long long *pairs;       /**< Device pair of each run. */
-    unsigned int *lengths;           /**< Device length of each run. */
-    unsigned long long *host_pairs;  /**< Host copy of the pairs, sorted in place. */
-    unsigned int *host_lengths;      /**< Host copy of the lengths, reordered with the pairs. */
+    size_t voxels;
+    unsigned int chunks;
+    int uploads;
+    unsigned long long *before_words;
+    unsigned long long *after_words;
+    unsigned int *before_labels;
+    unsigned int *after_labels;
+    unsigned int *counts;
+    unsigned int *offsets;
+    unsigned int *host_offsets;
+    size_t run_room;
+    unsigned long long *pairs;
+    unsigned int *lengths;
+    unsigned long long *host_pairs;
+    unsigned int *host_lengths;
 };
 
-/** @brief The one set of held buffers. Not safe to use from two threads at once. */
 static HeldOverlap s_held_overlap;
 
-/**
- * @brief Frees every held buffer and zeroes the record.
- *
- * @param[in,out] held The buffers [BORROWS].
- * @note cudaFree and free both accept a null pointer. A partly allocated record frees cleanly.
- */
 static void release_overlap(HeldOverlap *held)
 {
     cudaFree(held->before_words);
@@ -227,19 +148,6 @@ static void release_overlap(HeldOverlap *held)
     memset(held, 0, sizeof(*held));
 }
 
-/**
- * @brief Makes the held buffers big enough for a frame and a run count.
- *
- * @param[in] voxels  Voxels per frame, or 0 to leave the frame buffers as they are.
- * @param[in] chunks  Chunks covering the frame.
- * @param[in] uploads 1 where the frames arrive from host memory and need device copies.
- * @param[in] runs    Runs the next writing pass will produce.
- * @return            1 where every buffer is in place, 0 where an allocation failed, with every
- *                    buffer released.
- * @note The frame buffers are rebuilt only when the voxel count changes or uploads are newly
- *       needed. The run buffers grow to half again the room asked for, which keeps a slowly rising
- *       run count from reallocating on every frame.
- */
 static int hold_overlap(size_t voxels, unsigned int chunks, int uploads, size_t runs)
 {
     HeldOverlap *const held = &s_held_overlap;
@@ -266,7 +174,6 @@ static int hold_overlap(size_t voxels, unsigned int chunks, int uploads, size_t 
     if ((ok != 0) && (runs + 1u > held->run_room))
     {
 
-        // One more than asked. A count of zero still allocates, and half again for growth.
         const size_t room = (runs + 1u) + (runs + 1u) / 2u;
         cudaFree(held->pairs);
         cudaFree(held->lengths);
@@ -288,15 +195,6 @@ static int hold_overlap(size_t voxels, unsigned int chunks, int uploads, size_t 
     return ok;
 }
 
-/**
- * @brief Checks a request and copies its shape and lag into a view.
- *
- * @param[in]  args The request [BORROWS].
- * @param[out] view The shape and lag [BORROWS].
- * @return          1 where the request is well formed and a device answers, 0 otherwise.
- * @note Refuses a voxel count within BASIN_OVERLAP_CHUNK of 2^32. The last chunk's start plus a
- *       chunk is computed in unsigned int, and that keeps it from wrapping.
- */
 static int overlap_view(const BasinOverlapRequest *args, OverlapView *view)
 {
     if ((args == NULL) || (args->labels_before == NULL) || (args->positive_before == NULL)
@@ -325,19 +223,6 @@ static int overlap_view(const BasinOverlapRequest *args, OverlapView *view)
             && (devices >= 1)) ? 1 : 0;
 }
 
-/**
- * @brief Runs both passes over frames already on the device and reduces the runs to pairs.
- *
- * @param[in] args            The request, read for its sizes and written through its outputs
- *                            [BORROWS].
- * @param[in] view            The shape and lag.
- * @param[in] positive_before Device before bits [BORROWS].
- * @param[in] positive_after  Device after bits [BORROWS].
- * @param[in] labels_before   Device before labels [BORROWS].
- * @param[in] labels_after    Device after labels [BORROWS].
- * @return                    What basin_overlap_host returns for the same frames, or
- *                            BASIN_OVERLAP_REFUSED where a device step or an allocation failed.
- */
 static long overlap_tally(const BasinOverlapRequest *args, OverlapView view,
                           const unsigned long long *positive_before, const unsigned long long *positive_after,
                           const unsigned int *labels_before, const unsigned int *labels_after)
@@ -352,13 +237,11 @@ static long overlap_tally(const BasinOverlapRequest *args, OverlapView view,
     ok = ok && (cudaMemcpy(offsets, held->counts, (size_t)chunks * sizeof(unsigned int), cudaMemcpyDeviceToHost)
                 == cudaSuccess);
 
-    // An exclusive prefix sum turns each chunk's run count into the index of its first run.
     size_t total = 0u;
     for (unsigned int chunk = 0u; (ok != 0) && (chunk < chunks); chunk += 1u)
     {
         const unsigned int count = offsets[chunk];
 
-        // total is at most one run per voxel, below 2^32, and fits the unsigned int.
         offsets[chunk] = (unsigned int)total;
         total += (size_t)count;
     }
@@ -381,7 +264,6 @@ static long overlap_tally(const BasinOverlapRequest *args, OverlapView view,
 
     long answer = BASIN_OVERLAP_REFUSED;
 
-    // Runs of one pair from different chunks become neighbors once sorted, and are summed below.
     ok = ok && radix_sort_keyed(pairs, lengths, total);
     if (ok != 0)
     {
@@ -396,7 +278,6 @@ static long overlap_tally(const BasinOverlapRequest *args, OverlapView view,
         if (distinct <= (size_t)BASIN_OVERLAP_ROOM_LIMIT)
         {
 
-            // distinct is at most BASIN_OVERLAP_ROOM_LIMIT, which a long holds on every target.
             answer = (long)distinct;
             if (distinct <= (size_t)args->room)
             {
@@ -456,8 +337,6 @@ extern "C" long basin_overlap_run_on_device(const BasinOverlapRequest *args)
     }
     const unsigned int chunks = (args->voxels + BASIN_OVERLAP_CHUNK - 1u) / BASIN_OVERLAP_CHUNK;
 
-    // The frames are the caller's device memory and need no upload buffers. Passing the held flag
-    // through keeps any upload buffers an earlier basin_overlap_run allocated.
     const int ok = hold_overlap((size_t)args->voxels, chunks, s_held_overlap.uploads, 0u);
     return (ok != 0) ? overlap_tally(args, view, args->positive_before, args->positive_after, args->labels_before,
                                      args->labels_after)

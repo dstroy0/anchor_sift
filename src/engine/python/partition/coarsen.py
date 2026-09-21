@@ -26,7 +26,7 @@
 # lengths line up with the pairings exactly: Zulu 5.70 against Xhosa 5.88, Spanish 4.41 against
 # French 4.66. Finnish at 6.41 puts it away from Spanish.
 #
-# So at the bottom of the sweep the reading is a single magnitude per language and not a relation
+# at the bottom of the sweep the reading is a single magnitude per language and not a relation
 # between quantities. One comparison is void at that level and it was not noticed until the
 # commonest characters were listed: Shona and Somali have the letter a as their commonest and not
 # the space. Their two symbol reading records where a falls and not where words end.

@@ -131,7 +131,7 @@ Let `A` be the alignments, `N = |A|`, and `T` the alignments where the needle oc
 
 The correction above that moved this claim from "reads" to "bytes read at an alignment" moved it in the direction that makes it false, while the test kept asserting the event version. Both are now stated: the bound is on read events, the test counts read events, and nothing here bounds memory traffic, because a byte read twenty four times is one cache line.
 
-**Proof.** Suppose the engine decides alignment `a` having read nothing at `a`. Its decision is then a function whose domain is the empty tuple. Its range holds exactly one value and it answers identically whatever the corpus holds at `a`. An adversary edits the corpus at `a` to flip whether `a` belongs to `T`. The engine reads nothing different and returns the same answer, which is wrong for one of the two corpora. So at least one read happens at every alignment the engine classifies.
+**Proof.** Suppose the engine decides alignment `a` having read nothing at `a`. Its decision is then a function whose domain is the empty tuple. Its range holds exactly one value and it answers identically whatever the corpus holds at `a`. An adversary edits the corpus at `a` to flip whether `a` belongs to `T`. The engine reads nothing different and returns the same answer, which is wrong for one of the two corpora. at least one read happens at every alignment the engine classifies.
 
 The bound is attained. The empty probe set takes no probe reads and sends every alignment to the compare, which reads at least one byte each, giving exactly `N`. The configuration that steers least sits exactly on the floor, which is what shows the floor belongs to the problem instead of to the steering.
 
@@ -213,7 +213,7 @@ Fix the corpus and the needle. Each candidate probe `p` rejects a definite set o
 
 `f` is a coverage function. It is monotone, because adding a probe never un-rejects an alignment, and it is submodular, because an alignment already rejected by some probe in `P` contributes nothing when a later probe rejects it again. Coverage functions are the textbook example of monotone submodularity, and this one needs no assumption about the corpus to be one.
 
-The descent maximizes `f` greedily. At each level it scores every candidate by the survivors it would leave and keeps the smallest count (`src/engine/c/engine/anchor_sift.c:1027`), and fewest survivors left is most alignments newly rejected  is the largest marginal gain in `f` given what is already placed. Nemhauser, Wolsey and Fisher proved in 1978 that greedy maximization of a monotone submodular function under a cardinality constraint returns at least `1 - 1/e` of what the best set of that size achieves. The probe set the descent places rejects at least about 63 percent of the alignments the optimal probe set of the same size rejects. Nothing in the engine has to be changed for that to hold. It holds because of what the objective is.
+The descent maximizes `f` greedily. At each level it scores every candidate by the survivors it would leave and keeps the smallest count (`src/engine/c/engine/anchor_sift.c:1027`), and fewest survivors left is most alignments newly rejected is the largest marginal gain in `f` given what is already placed. Nemhauser, Wolsey and Fisher proved in 1978 that greedy maximization of a monotone submodular function under a cardinality constraint returns at least `1 - 1/e` of what the best set of that size achieves. The probe set the descent places rejects at least about 63 percent of the alignments the optimal probe set of the same size rejects. Nothing in the engine has to be changed for that to hold. It holds because of what the objective is.
 
 Two things follow that the hand induction had to work for.
 
@@ -229,7 +229,7 @@ So the non-increasing enumeration premise stated in the section above is load be
 
 The guarantee is on alignments rejected by `k` probes. It is not a guarantee on reads, and those differ: rejecting an alignment early saves the reads a later probe would have spent on it. A set that rejects the same alignments in a different order costs a different number of reads. The read counts in the table above are measurements and are not covered by the ratio.
 
-It also assumes the marginal gains are evaluated exactly, which holds at `sample_stride` of one. Above one the planner scores candidates on a sample, which makes the oracle approximate, and greedy under an approximate oracle degrades by an amount depending on the error.
+It alassumes the marginal gains are evaluated exactly, which holds at `sample_stride` of one. Above one the planner scores candidates on a sample, which makes the oracle approximate, and greedy under an approximate oracle degrades by an amount depending on the error.
 
 Nothing here has been measured against the optimal probe set, because computing that means enumerating every set of size `k` and is exponential. The ratio is a proved floor and this document does not report it as an observation.
 

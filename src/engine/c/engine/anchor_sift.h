@@ -794,7 +794,7 @@ extern "C"
      *
      * @warning THE GUARANTEE IS ON ALIGNMENTS REJECTED AND NOT ON READS. Rejecting an alignment early
      *          saves the reads a later probe would spend on it. Two probe sets covering the same
-     *          alignments can cost different numbers of reads. It also assumes marginal gains are
+     *          alignments can cost different numbers of reads. It alassumes marginal gains are
      *          scored exactly, which holds only at `sample_stride` of one. Above one the scoring is
      *          taken on a sample, the oracle is approximate, and the ratio no longer holds as stated.
      *

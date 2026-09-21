@@ -9,15 +9,15 @@ A natural constant is not an oracle. The engine's oracle boundary holds the answ
 
 Every public function computes its constant by two independent routes and returns the value only when they agree at the requested precision. That agreement is the positive control, run on every call. A route with a bug, or a series stopped one term too early, disagrees with the other and raises instead of handing back a wrong digit. The matching check is the two derivations meeting, and never a pasted expansion.
 
-| constant | function | route one | route two |
-|---|---|---|---|
-| pi | `pi` | Machin, `16 arctan(1/5) - 4 arctan(1/239)` | Euler, `4 (arctan(1/2) + arctan(1/3))` |
-| e | `euler_e` | the Taylor series of `1/k!` | the continued fraction `[2; 1, 2, 1, 1, 4, ...]` |
-| sqrt(2) | `root_two` | integer Newton square root | the continued fraction `[1; 2, 2, 2, ...]` |
-| ln(2) | `ln_two` | the series `sum 1/(k 2^k)` | `2 artanh(1/3)` |
-| golden ratio | `golden_ratio` | `(1 + sqrt 5)/2` | the ratio of consecutive Fibonacci numbers |
+| constant     | function       | route one                                  | route two                                        |
+| ------------ | -------------- | ------------------------------------------ | ------------------------------------------------ |
+| pi           | `pi`           | Machin, `16 arctan(1/5) - 4 arctan(1/239)` | Euler, `4 (arctan(1/2) + arctan(1/3))`           |
+| e            | `euler_e`      | the Taylor series of `1/k!`                | the continued fraction `[2; 1, 2, 1, 1, 4, ...]` |
+| sqrt(2)      | `root_two`     | integer Newton square root                 | the continued fraction `[1; 2, 2, 2, ...]`       |
+| ln(2)        | `ln_two`       | the series `sum 1/(k 2^k)`                 | `2 artanh(1/3)`                                  |
+| golden ratio | `golden_ratio` | `(1 + sqrt 5)/2`                           | the ratio of consecutive Fibonacci numbers       |
 
-The drawn null is in `evidence/proofs/posits/proof_constants_two_routes.py` (PRF-x-015): a Machin identity with one coefficient wrong is fed in, and the two-route check raises on it. That posit also adds a third route where an algebraic identity supplies one, `sqrt(2)^2` bracketing 2 and `phi^2 = phi + 1`, both independent of the series.
+The drawn null is in `evidence/proofs/posits/proof_constants_two_routes.py` (PRF-x-015): a Machin identity with one coefficient wrong is fed in, and the two-route check raises on it. That posit aladds a third route where an algebraic identity supplies one, `sqrt(2)^2` bracketing 2 and `phi^2 = phi + 1`, both independent of the series.
 
 ## The integer form, and the precision knob
 

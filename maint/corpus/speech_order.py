@@ -52,7 +52,7 @@
 #
 # It exists for the case where the register is still empty and no one has been written to. Once a
 # nation has been approached in this order, redrawing throws away the record of why that one came
-# first. It says so and asks for the word again.
+# first. It says and asks for the word again.
 
 import hashlib
 import io
@@ -366,7 +366,7 @@ def main():
                 "\n  a redraw moves everybody and throws away the record of why those came\n"
             )
             out.write(
-                "  first. Say so again with --redraw --yes if that is what you mean.\n\n"
+                "  first. Say again with --redraw --yes if that is what you mean.\n\n"
             )
             if "--yes" not in sys.argv:
                 out.flush()

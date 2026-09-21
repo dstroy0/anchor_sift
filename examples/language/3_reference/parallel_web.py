@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/language/3_reference/parallel_web.py
 #
-# Every earlier reading compared different books. A difference between two languages was also a
+# Every earlier reading compared different books. A difference between two languages was ala
 # difference between an epic and a novel. One text translated into 43 languages removes that: the content
 # is the same everywhere. Topic cannot help tell two languages apart and what the web finds is the
 # language.

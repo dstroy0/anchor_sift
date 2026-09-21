@@ -41,7 +41,7 @@ A second way it misleads: two generations of a tool that share a command surface
 docstring land in one bucket while sharing no API at all. Three trees held a `readclean.py` that way,
 and the test promoted with one of them could not import against another.
 
-So a group here is a claim that two files are the same SHAPE. Deciding which text survives a
+a group here is a claim that two files are the same SHAPE. Deciding which text survives a
 promotion means reading both in full. A survey narrows a thousand files to a list a person can read;
 the reading is the part it does not do, and skipping it promoted a broken tool.
 """

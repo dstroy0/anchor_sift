@@ -455,7 +455,7 @@ def spelling_findings(path):
 
 
 class BuildFilesAreReadAtAll(unittest.TestCase):
-    """The extension list could not open a build file, and said so as success.
+    """The extension list could not open a build file, and said as success.
 
     Pointed at idemIP's CMakeLists.txt the tool printed "0 file(s) checked, 0 breaking, 0 prose"
     and "no files were read". The exit status was 2. That sentinel for reading nothing was the only

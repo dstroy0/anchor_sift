@@ -20,7 +20,7 @@
 # Cantonese against Mandarin is the other half, two languages that are not mutually intelligible and are
 # written in largely the same characters. That comparison carries a fault that cannot be removed with what
 # is available: the Cantonese is subtitles and the Mandarin beside it is not from the same collection. A
-# difference between them is also a difference of subject. It is reported and marked, not leaned on.
+# difference between them is ala difference of subject. It is reported and marked, not leaned on.
 #
 # What the script pair alone can settle: if one language in two character sets reads as far apart as two
 # unrelated languages do, the reading is following the writing.

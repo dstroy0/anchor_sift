@@ -63,7 +63,7 @@ That check has already caught one thing. The SVE row first reported no `whilelt`
 
 The measure asks the set for membership: is there a point exactly one lag away carrying the same value. That is a hash lookup, and `anchor_exact_agreement_using` is the only implementation of it in the tree. An arm supplies its equality test and contributes nothing further.
 
-It was not so at first, and the numbers that produced are worth recording. Every arm carried its own ordered search, portable included. A full comparison then ran at each step of a binary search, and the vector arms looked very strong against it. AVX2 read **3.44x**. Moving portable alone to the hash dropped it to **1.75x**, which measured nothing, because the two arms were running different algorithms by then. Moving every arm to the hash gives **1.19x**. That is the figure, being the only one where the sole difference is the instruction.
+It was not at first, and the numbers that produced are worth recording. Every arm carried its own ordered search, portable included. A full comparison then ran at each step of a binary search, and the vector arms looked very strong against it. AVX2 read **3.44x**. Moving portable alone to the hash dropped it to **1.75x**, which measured nothing, because the two arms were running different algorithms by then. Moving every arm to the hash gives **1.19x**. That is the figure, being the only one where the sole difference is the instruction.
 
 A vector arm timed against a reference doing work the problem never asked for is measuring its own speedup at a benchmark.
 

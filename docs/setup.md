@@ -94,7 +94,7 @@ python maint/catalog/catalog_verify.py        where an example's description and
 python maint/tree/write_survey.py          every file write in the tree, and where it lands
 ```
 
-Four more gates run against the two closed repositories and say so and stop without them: `maint/corpus/corpus_manifest.py`, `maint/corpus/verify_private_sync.py`, `maint/corpus/speech_gate.py` and `maint/citations/citations.py`. Each takes `--bypass`, and `ANCHOR_SIFT_BYPASS=1` carries that into a commit hook.
+Four more gates run against the two closed repositories and say and stop without them: `maint/corpus/corpus_manifest.py`, `maint/corpus/verify_private_sync.py`, `maint/corpus/speech_gate.py` and `maint/citations/citations.py`. Each takes `--bypass`, and `ANCHOR_SIFT_BYPASS=1` carries that into a commit hook.
 
 `.githooks/pre-commit` runs the first of these. Turn it on once per clone:
 

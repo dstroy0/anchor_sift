@@ -20,7 +20,7 @@
 # itself.
 #
 # Anything found is stored apart from the English books, since a difference between the two sets would
-# otherwise be read as a difference between periods when it is also a difference between languages.
+# otherwise be read as a difference between periods when it is ala difference between languages.
 
 import io
 import json

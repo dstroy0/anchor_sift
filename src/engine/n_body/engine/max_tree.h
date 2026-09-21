@@ -33,11 +33,14 @@ typedef struct
     unsigned int height;
     unsigned int width;
     const unsigned int *levels;
+
     unsigned int level_count;
     unsigned char *bound;
+
     unsigned int *rounds;
     unsigned int *levels_held;
     unsigned long long *bound_microseconds;
+
     unsigned long long *proved_microseconds;
 } MaxTreeBindRequest;
 

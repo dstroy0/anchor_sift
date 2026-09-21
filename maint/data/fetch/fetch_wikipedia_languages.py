@@ -12,7 +12,7 @@
 # language does from what it is written in. Every other pairing available has those two travelling
 # together.
 #
-# An encyclopedia carries all of them. It is also a different kind of writing from a novel, and comparing
+# An encyclopedia carries all of them. It is ala different kind of writing from a novel, and comparing
 # encyclopedia text in one language against a novel in another would put that difference inside every
 # comparison without it being visible. So languages already held from the book catalog are fetched here as
 # well, and the gap between a language's two readings is the size of the genre effect, measured instead of

@@ -31,10 +31,12 @@ static void max_tree_exact_of(const unsigned int *residual, unsigned int voxel, 
     for (unsigned int limb = 0u; limb < BINOMIAL_BASINS_LIMBS; limb += 1u)
     {
         const unsigned long long total = (unsigned long long)(limbs[limb] ^ flip) + carry;
+
         value->limb[limb] = (unsigned int)(total & 0xFFFFFFFFull);
         carry = total >> 32u;
         any |= value->limb[limb];
     }
+
     for (unsigned int limb = BINOMIAL_BASINS_LIMBS; limb < MAX_TREE_KEY_LIMBS; limb += 1u)
     {
         value->limb[limb] = 0u;
@@ -130,6 +132,7 @@ static long max_tree_grow(const unsigned int *residual, unsigned int depth, unsi
     unsigned int admitted = 0u;
     for (size_t voxel = 0u; voxel < voxels; voxel += 1u)
     {
+
         tree->parent[voxel] = MAX_TREE_ABSENT;
         admitted += (unsigned int)max_tree_admits(residual, (unsigned int)voxel);
     }
@@ -146,6 +149,7 @@ static long max_tree_grow(const unsigned int *residual, unsigned int depth, unsi
     unsigned int held = 0u;
     for (size_t voxel = 0u; voxel < voxels; voxel += 1u)
     {
+
         if (max_tree_admits(residual, (unsigned int)voxel) != 0)
         {
             tree->order[held] = (unsigned int)voxel;
@@ -164,6 +168,7 @@ static long max_tree_grow(const unsigned int *residual, unsigned int depth, unsi
         tree->parent[voxel] = voxel;
         zpar[voxel] = voxel;
         arrived[voxel] = 1u;
+
         const long long z = (long long)(voxel / plane);
         const long long y = (long long)((voxel % plane) / width);
         const long long x = (long long)((voxel % plane) % width);
@@ -180,8 +185,10 @@ static long max_tree_grow(const unsigned int *residual, unsigned int depth, unsi
             {
                 continue;
             }
+
             const unsigned int near = (unsigned int)(((near_z * (long long)height) + near_y)
                                                      * (long long)width + near_x);
+
             const unsigned int axis = step / 2u;
             const unsigned int lower = ((step % 2u) != 0u) ? voxel : near;
             const int kept = (every != 0u) || (bound[((size_t)lower * 3u) + axis] != 0u);
@@ -192,11 +199,13 @@ static long max_tree_grow(const unsigned int *residual, unsigned int depth, unsi
             const unsigned int root = max_tree_root(zpar, near);
             if (root != voxel)
             {
+
                 tree->parent[root] = voxel;
                 zpar[root] = voxel;
             }
         }
     }
+
     for (unsigned int at = held; at > 0u; at -= 1u)
     {
         const unsigned int voxel = tree->order[at - 1u];
@@ -271,6 +280,7 @@ int max_tree_holds(const unsigned int *residual, const MaxTree *tree, unsigned i
     int good = (standing != NULL) && (flooded != NULL) && (waiting != NULL);
     for (unsigned int taken = 0u; (good != 0) && (taken < levels); taken += 1u)
     {
+
         const unsigned int level = tree->order[(size_t)(taken + 1u) * tree->admitted / (levels + 1u)];
 
         for (size_t voxel = 0u; voxel < voxels; voxel += 1u)
@@ -300,6 +310,7 @@ int max_tree_holds(const unsigned int *residual, const MaxTree *tree, unsigned i
         unsigned int marks = 0u;
         for (size_t seed = 0u; seed < voxels; seed += 1u)
         {
+
             if ((flooded[seed] != MAX_TREE_ABSENT)
              || (max_tree_admits(residual, (unsigned int)seed) == 0)
              || (max_tree_reaches(residual, (unsigned int)seed, level) == 0))
@@ -331,6 +342,7 @@ int max_tree_holds(const unsigned int *residual, const MaxTree *tree, unsigned i
                     {
                         continue;
                     }
+
                     const unsigned int near = (unsigned int)(((near_z * (long long)tree->height) + near_y)
                                                              * (long long)tree->width + near_x);
                     if ((flooded[near] != MAX_TREE_ABSENT)
@@ -440,6 +452,7 @@ int max_tree_poc(const unsigned int *residual, unsigned int depth, unsigned int 
     const size_t voxels = (size_t)depth * height * width;
     const size_t plane = (size_t)height * width;
     memset(bound, 0, voxels * 3u);
+
     unsigned int *const left = (unsigned int *)malloc(voxels * 3u * sizeof(unsigned int));
     unsigned int *const right = (unsigned int *)malloc(voxels * 3u * sizeof(unsigned int));
     unsigned int *const axes = (unsigned int *)malloc(voxels * 3u * sizeof(unsigned int));
@@ -451,6 +464,7 @@ int max_tree_poc(const unsigned int *residual, unsigned int depth, unsigned int 
     unsigned int faces = 0u;
     for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
     {
+
         const unsigned int here = (unsigned int)voxel;
         if (max_tree_admits(residual, here) == 0)
         {
@@ -459,6 +473,7 @@ int max_tree_poc(const unsigned int *residual, unsigned int depth, unsigned int 
         const long long z = (long long)(voxel / plane);
         const long long y = (long long)((voxel % plane) / width);
         const long long x = (long long)((voxel % plane) % width);
+
         const long long steps[3][3] = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
         for (unsigned int step = 0u; step < 3u; step += 1u)
         {
@@ -478,6 +493,7 @@ int max_tree_poc(const unsigned int *residual, unsigned int depth, unsigned int 
             left[faces] = here;
             right[faces] = near;
             axes[faces] = step;
+
             const unsigned int weaker = (max_tree_before(residual, here, near) < 0) ? near : here;
             max_tree_imprint(residual, weaker, (here * 3u) + step, &keys[(size_t)faces * MAX_TREE_KEY_LIMBS]);
             faces += 1u;
@@ -487,6 +503,7 @@ int max_tree_poc(const unsigned int *residual, unsigned int depth, unsigned int 
     {
         belongs[voxel] = (unsigned int)voxel;
     }
+
     unsigned int turns = 0u;
     unsigned int moving = 1u;
     while ((good != 0) && (moving != 0u))
@@ -531,6 +548,7 @@ int max_tree_poc(const unsigned int *residual, unsigned int depth, unsigned int 
             {
                 continue;
             }
+
             belongs[(one < other) ? other : one] = (one < other) ? one : other;
             bound[((size_t)left[face] * 3u) + axes[face]] = 1u;
             moving += 1u;

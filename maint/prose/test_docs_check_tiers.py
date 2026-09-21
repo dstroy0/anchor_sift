@@ -339,11 +339,11 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         ),
         ("That is what survives a reset.", "what survives", "code-documentation:120"),
         ("The counts add up to the header length.", "add up", "code-documentation:110"),
-        ("The pool is drained. A caller sees nothing.", "so a", "code-comments:200"),
+        ("The pool is drained. A caller sees nothing.", "a", "code-comments:200"),
         # The inflection. Unmatched until 2026-09-16 because the pattern implemented the token and
-        # code-documentation:112 describes the clause. It fails against `\bso a\b` and passes
-        # against `\bso an?\b`, the only reason this row is worth a line.
-        ("The pool is drained. An entry is dropped.", "so an", "code-comments:200"),
+        # code-documentation:112 describes the clause. It fails against `\ba\b` and passes
+        # against `\ban?\b`, the only reason this row is worth a line.
+        ("The pool is drained. An entry is dropped.", "an", "code-comments:200"),
         ("The bound is read here.", "rather", "code-comments:200"),
         ("The definition is wrong in three places.", "definition", "code-comments:200"),
         (
@@ -537,7 +537,7 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
         self.assertTrue(list(docs_check.banned_hits(said, quotations=True)))
 
     def test_an_italic_citation_is_not_a_use(self):
-        said = ["It opens the consequence clause every time: *so a build is asked*."]
+        said = ["It opens the consequence clause every time: *a build is asked*."]
         self.assertEqual(list(docs_check.banned_hits(said, quotations=True)), [])
 
     def test_a_short_quoted_form_is_not_a_use(self):
@@ -547,10 +547,10 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
 
     def test_italic_does_not_straddle_a_table_cell(self):
         # ProtoCore TUNING.md:154. Two unrelated asterisks in different cells paired across the row
-        # and swallowed a real `so a`. A citation of a form does not cross a cell boundary.
+        # and swallowed a real `a`. A citation of a form does not cross a cell boundary.
         said = ["| *a* | tracks `MAX_CONNS`, a raised pool never trips it | *b* |"]
         hits = [token for _, _, token in docs_check.banned_hits(said, quotations=True)]
-        self.assertIn("so a", [one.lower() for one in hits])
+        self.assertIn("a", [one.lower() for one in hits])
 
     def test_bold_is_not_exempt(self):
         # Bold marks a heading far more often than a citation here. It exempted one site on the

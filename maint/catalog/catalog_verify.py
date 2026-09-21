@@ -180,7 +180,7 @@ def theory_sections():
             for found in HEADING_NUMBER.finditer(body):
                 held.add(found.group(1))
             for one in list(held):
-                # A heading numbered 4.13.05 also answers a citation to 4.13.
+                # A heading numbered 4.13.05 alanswers a citation to 4.13.
                 parts = one.split(".")
                 if len(parts) > 2:
                     held.add(".".join(parts[:2]))

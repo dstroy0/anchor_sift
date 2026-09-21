@@ -605,7 +605,7 @@ class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
             len(empty),
             0,
             "the genuine structural finding this rule must not delete is gone. If "
-            "it was fixed in ProtoCore, say so and retire this assertion; do not "
+            "it was fixed in ProtoCore, say and retire this assertion; do not "
             "make a suppressing rule pass by deleting the finding it suppressed.",
         )
         for at, what in empty:

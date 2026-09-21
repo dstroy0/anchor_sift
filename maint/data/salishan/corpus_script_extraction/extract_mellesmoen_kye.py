@@ -646,7 +646,7 @@ def read_paper(lines):
     appendix = ""
     # The dialect the last section heading named, carried in a list so flush() can read it. §3 is
     # headed Northern Lushootseed stress pattern and §4 Southern Lushootseed stress pattern, and
-    # every subsection under each of them is about that dialect whether or not it says so again.
+    # every subsection under each of them is about that dialect whether or not it says again.
     heading_dialect = [""]
 
     def flush():

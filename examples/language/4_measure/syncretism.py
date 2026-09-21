@@ -14,7 +14,7 @@
 # gender and person it stands in. The readings sharing one surface form can be counted instead of
 # guessed at.
 #
-# It also answers a question left open by the earlier work here, where a reading over a growing window
+# It alanswers a question left open by the earlier work here, where a reading over a growing window
 # kept climbing and would not settle. If the average written word carries more than one reading, then
 # taking a second word multiplies the readings instead of settling the first, and the possibilities over a
 # sentence grow as a product. Below one they cannot grow. A walk either explodes or collapses on
