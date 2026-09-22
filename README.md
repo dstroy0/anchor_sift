@@ -5,20 +5,35 @@
 
 ## Contents
 
-1. [The algorithm](#the-algorithm)
-2. [Areas of research](#areas-of-research)
-3. [Where things are](#where-things-are)
-4. [The detector and the measure are not the same reading](#the-detector-and-the-measure-are-not-the-same-reading)
-5. [The transforms](#the-transforms)
-6. [The sift](#the-sift)
-7. [Ports](#ports)
-8. [What it knows](#what-it-knows)
-9. [Whose language this is](#whose-language-this-is)
-10. [The condition of use](#the-condition-of-use)
-11. [Where to start](#where-to-start)
-12. [What is not here](#what-is-not-here)
-13. [Licensing, dual](#licensing-dual)
-14. [A note on how this is written](#a-note-on-how-this-is-written)
+1. [Quick start](#quick-start)
+2. [The algorithm](#the-algorithm)
+3. [No bounding, no tuning](#no-bounding-no-tuning)
+4. [Areas of research](#areas-of-research)
+5. [Where things are](#where-things-are)
+6. [The detector and the measure are not the same reading](#the-detector-and-the-measure-are-not-the-same-reading)
+7. [The transforms](#the-transforms)
+8. [The sift](#the-sift)
+9. [Ports](#ports)
+10. [What it knows](#what-it-knows)
+11. [Whose language this is](#whose-language-this-is)
+12. [The condition of use](#the-condition-of-use)
+13. [Where to start reading](#where-to-start-reading)
+14. [What is not here](#what-is-not-here)
+15. [Licensing](#licensing)
+16. [A note on how this is written](#a-note-on-how-this-is-written)
+
+## Quick start
+
+From a fresh clone, at the repository root:
+
+```sh
+maint/engine/build_engine.sh                                      # the C engine: configure, build, run the graders
+python examples/any_corpus/4_measure/collision_entropy.py         # a reading that knows nothing about its corpus
+python examples/crystallography/6_oracle/proof_positive_control.py  # the positive control, against published cells
+sh maint/texbuild/build_theory.sh                                 # the eleven books
+```
+
+On Windows PowerShell the engine builds with `maint/engine/build_engine.ps1`. Most examples read corpora under `build/`, which are not in git: `maint/data/fetch/` fetches them, and `python maint/deps/get_deps.py` clones what the C side needs. `docs/setup.md` and `docs/usage.md` cover the rest.
 
 ## The algorithm
 
@@ -33,11 +48,11 @@ Every domain below is that sentence with a different answer to what counts as a 
 - bytes in a file
 - coordinates in a board layout
 
-The reference is built from the object's own parts, there is no prior to estimate, no training set, no model, or neural net representation of the domain.
+The reference is built from the object's own parts. There is no prior to estimate, no training set, no model, and no neural net representation of the domain.
 
 Building a reference by maximizing entropy under the constraints the object supplies is Jaynes's principle. The departure from it is the free energy above equilibrium.
 
-The basic construction Identity:Null Permutation runs through all six parts. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference that partition allows, and read the departure from it. The sift and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
+The basic construction, Identity:Null Permutation, runs through all six parts. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference that partition allows, and read the departure from it. The sift and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
 
 | part             | what it does                                                                                       |
 | ---------------- | -------------------------------------------------------------------------------------------------- |
@@ -48,9 +63,9 @@ The basic construction Identity:Null Permutation runs through all six parts. Rep
 | `sift`           | the sound filter, a necessary condition over any index set                                         |
 | `oracle`         | agreement with ground truth that somebody else published                                           |
 
-Everything downstream of `representation` sees points and values and is blind to what an object is. One instrument reads both. Seven subjects have their own directories: `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text`, all under `representation`, the only part that knows a domain exists.
+Each part is a directory under `src/engine/python/`, beside `instrument/` and `render/`. Everything downstream of `representation` sees points and values and is blind to what an object is. One instrument reads both. Seven subjects have their own directories under `representation`, the only part that knows a domain exists: `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text`. `representation/constants/` sits beside them.
 
-`src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora.
+`src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora, one stage directory per part.
 
 ## No bounding, no tuning
 
@@ -62,7 +77,7 @@ A number picked to make a result come out is not a measurement. This work does n
 
 ## Areas of research
 
-Twelve domains have numbered pipelines under `examples/`. Seven have run end to end and agree: language, art, crystals, proteins, sound, source code and arbitrary corpora. Chemistry, game theory, cell tracking, molecules and particle physics are the newest and are being brought to the same standard. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end to end and agree.
+Twelve subjects have staged pipelines under `examples/`. Seven have run end to end and agree: language, art, crystals, proteins, sound, source code and arbitrary corpora. Chemistry, game theory, cell tracking, molecules and particle physics are the newest and are being brought to the same standard. The proofs that pin the numbers are under `evidence/proofs/`. The same six parts test each other end to end and agree.
 
 Published cell edges from the Crystallography Open Database, tiled and voxelized and handed over with nothing told to the detector, come back three of three exact, to 0.0006 angstroms against a voxel of 0.25. No other positive control here took its answer from outside the work.
 
@@ -76,17 +91,17 @@ The workbook holds the rest, including every row that failed and why.
 
 Each directory serves one purpose.
 
-|                             | what it operates on          |                                                                                           |
-| --------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------- |
-| `src/`                      | points and values, no domain | the engine                                                                                |
-| `test/`                     | the engine                   | the correctness checks                                                                    |
-| `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                    |
-| `examples/`                 | a corpus, through `src/`     | 147 numbered demonstrations, twelve domains                                               |
-| `maint/`                    | the repository itself        | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline |
-| `theory/`, `theory_bucket/` | the argument                 | eleven books                                                                              |
-| `docs/`                     | the reader                   | setup and usage                                                                           |
+|                             | what it operates on          |                                                                                                   |
+| --------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------- |
+| `src/`                      | points and values, no domain | the engine: the Python in `src/engine/python/`, the C in `src/engine/c/` with its benches in `bench/` |
+| `test/`                     | the engine                   | the C correctness checks in `test/engine/`, the maintenance tests, and the published test vectors |
+| `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                            |
+| `examples/`                 | a corpus, through `src/`     | 152 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
+| `maint/`                    | the repository itself        | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline         |
+| `theory/`, `theory_bucket/` | the argument                 | eleven books                                                                                      |
+| `docs/`                     | the reader                   | setup, usage, steering, rendering and the verification notes                                      |
 
-`build/` is generated and disposable, and nothing irreplaceable is reachable through it.
+`examples/README.md` explains the stages and how to run a script. `maint/README.md` maps the maintenance tools. `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
 
 ## The detector and the measure are not the same reading
 
@@ -124,7 +139,7 @@ The full set lives one per file under `src/engine/python/` and in the C renderer
 
 **It searches with no pattern at all.** Given only bytes it recovered a multiple of a record period from 512 reads, at 92 shifts against 0 on a shuffle of the same bytes.
 
-**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`. Asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs and the number belongs to the toolchain that produced it, the bench exists and why its output is a recommendation to act on. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
+**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`. Asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs, and each number belongs to the toolchain that produced it. That is why the bench exists, and why its output is a recommendation to act on. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
 
 **The needle length term in the shipped rule does nothing on this data.** Scoring flatness alone ties the kernel exactly, same rows and same cycles. The length term changes no answer on any of the 42. The rule as documented, flatness then length, scores strictly worse than the flatness it contains, and the rule as originally shipped, length alone, is worse than both. A tunable with no reader is an integration point and is neither removed nor described as unimplemented. It is named here and kept until a row is found where it pays.
 
@@ -141,37 +156,41 @@ maint/engine/build_engine.sh               # configure, build, run the graders
 maint/engine/build_engine.sh --build-only  # configure and build, run nothing
 ```
 
-Windows PowerShell uses `maint/engine/build_engine.ps1`, same two forms, it imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment. It pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back. Delete it freely.
+Windows PowerShell uses `maint/engine/build_engine.ps1`, and `-BuildOnly` in place of `--build-only`. It imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment. It pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back. Delete it freely.
 
 Both scripts share that directory, and a CMake cache outranks anything a script prints. Each one now passes the decisive settings on every configure and wipes a cache naming a different toolchain, because the alternative was observed: after a Git Bash run, the PowerShell script announced the MSVC environment and the device arm and then produced a gcc build with no CUDA in it, and every render row read `host only` while the script reported success. The PowerShell script now checks the configure for a CUDA compiler before it builds and fails if the announcement does not hold.
 
 A machine with a card should render on it without being asked, and `bench_raster` prints `device rasterizer: present` and grades all twenty configurations `host/device identical` when it does.
 
-Two questions, two directories, and they are not the same question. `test/` answers whether the engine is right. `bench/` answers how fast it is. A failing test is a defect; a slow bench is a cost.
+Two questions, two directories, and they are not the same question. `test/engine/` answers whether the engine is right. `src/engine/c/bench/` answers how fast it is. A failing test is a defect; a slow bench is a cost.
+
+The graders the scripts run after a build are `test_steer`, `test_adversarial`, `test_arm_agreement`, `bench_steer_arms`, `bench_raster` and `bench_exact_arms`; the PowerShell script also builds and runs `test_o2_spawn`. The rest are built and left for you to run. `bench_lattice` and `bench_sigma` are built by neither script. Build one on its own with `cmake --build build/engine_c --target <name>`.
 
 | run this                          | it answers                                                                                                                                                                                                                                                                                                 |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `test_arm_agreement`              | every engine against the naive one at the lengths that bound the input: none, one, two. A disagreement is a defect whatever it measures.                                                                                                                                                                   |
 | `test_adversarial`                | thirteen cases built to break the guarantee from outside the public surface: overlapping occurrences, both boundary alignments, a field where every survivor is false, a permutation null, the probe guard including the widest line that must be admitted, and a joint projection.                        |
 | `test_steer`                      | the steering, on five fields. Grades the ordering at seven needle lengths, carries a negative control ordering the commonest symbol first that must read MORE, checks the exact dispatch against four fields worked out by hand, and asserts that the widest scan engine the machine carries actually ran. |
+| `test_o2_spawn`                   | the engine turned onto itself: a descent that resumes from another descent's survivors, past the four conditions one descent can place.                                                                                                                                                                   |
 | `bench_dispatch`                  | which dispatch rule to carry, scored against the clock over 42 rows, sweeping its threshold instead of assuming it.                                                                                                                                                                                        |
 | `bench_steer_arms`                | the scan engines graded against the portable one and then timed, at lengths straddling the thirty-two lane boundary where a vectorized tail fails if it is going to.                                                                                                                                       |
 | `bench_scaling_reads`             | reads per alignment as the corpus grows. Reads travel between machines and are what an asymptotic claim is made of.                                                                                                                                                                                        |
 | `bench_scaling_cycles`            | the same sweep in cycles, which belong to the machine that produced them.                                                                                                                                                                                                                                  |
 | `bench_coherence`                 | at what scale the corpus agrees with itself, and what that costs the histogram bound.                                                                                                                                                                                                                      |
+| `bench_sigma`                     | the oracle route against a counter table, timed as the alphabet grows and as it does not.                                                                                                                                                                                                                  |
 | `bench_raster`                    | every render configuration. Four sheet layouts by five channels, each written as a PGM and graded host against device byte for byte where a device is present, then four volume layouts by the same five channels into a 32 by 32 by 32 block.                                                             |
 | `bench_exact`, `bench_exact_arms` | the fixed width limb arithmetic, and every vectorized limb engine against the portable one.                                                                                                                                                                                                                |
 | `bench_lattice`                   | soundness in one to eight dimensions, over a rotated point set and a scatter no rectangle covers. It holds its own core, because what is under test is the construction and not the byte specialization.                                                                                                   |
 
 **The counted build and the timed build are different binaries and cannot be mixed.** `bench_scaling_reads` links the kernel compiled with `ANCHOR_SIFT_COUNT_READS=1`; `bench_scaling_cycles` links the kernel compiled without it. Counting perturbs the timing it would otherwise be reported beside. A driver calling `anchor_sift_counters_reset` therefore fails to link against the timed kernel, and that failure is deliberate.
 
-**Known gap:** `bench_lattice` needs C99 `_Complex` arithmetic and does not build under MSVC, which supplies the types without the operators. Build it with GCC or Clang. Every other target in the table was built and run on MSVC 19.44 x64 at Release for this note. The GCC and Clang paths are exercised by the same CMake file and were not re-run here.
+**Known gap:** `bench_lattice` needs C99 `_Complex` arithmetic and does not build under MSVC, which supplies the types without the operators. Build it with GCC or Clang. Every other target in the table was built and run on MSVC 19.44 x64 at Release. The GCC and Clang paths are exercised by the same CMake file and were not re-run for this note.
 
 ### Rendering the object, flat and solid
 
-The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps.
+The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps. `docs/rendering.md` covers both.
 
-`AnchorRasterConfig` renders a sheet: `width` by `height`, one of four layouts, one of five channels, a reduce rule for cells several alignments land on, and a gain. `AnchorVolumeConfig` renders a block: `width` by `height` by `depth`, one of four volume layouts, and the same five channels, the same two reduce rules and the same gain, named by reference to the same enums, a channel means one thing in this tree.
+`AnchorRasterConfig` renders a sheet: `width` by `height`, one of four layouts, one of five channels, a reduce rule for cells several alignments land on, and a gain. `AnchorVolumeConfig` renders a block: `width` by `height` by `depth`, one of four volume layouts, and the same five channels, the same two reduce rules and the same gain, named by reference to the same enums, because a channel means one thing in this tree.
 
 | volume layout   | what it is for                                                                                                                                                                                                        |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -204,9 +223,9 @@ Nothing. There is no model, no training, no corpus of examples, no prior. It has
 
 It runs on human timescales: seconds on a laptop against a database somebody else published. Its reach is unbounded, because it assumes nothing about the domain and needs only that the object is not already at maximum entropy. Every single reading is finite and carries a stated floor. Where the floor is not cleared, the honest answer is that nothing was read.
 
-## Language research: Whose language this is
+## Whose language this is
 
-The largest language corpus, and the one everything else in the languages category is currently measured against is Salishan speech, which was written down by a linguist or their transcriber in almost all cases.
+The largest language corpus, and the one everything else in the languages category is currently measured against, is Salishan speech, which was written down by a linguist or their transcriber in almost all cases.
 
 **This work does not exist without the speakers.**
 
@@ -249,7 +268,7 @@ No amount of measurement turns it into a question an algorithm can answer.
 That is a condition of use, not a recommendation.
 For a language with few remaining speakers, publishing a form drawn from outside the distribution as though it were the language is not a recoverable harm.
 
-## Where to start
+## Where to start reading
 
 The research is eleven books, built with LuaLaTeX. Four are under `theory/`: the workbook, chemistry, image transforms and particle physics. The other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
 
@@ -271,17 +290,31 @@ sh maint/texbuild/build_theory.sh
 | the null, its delta, and where the two reconcile                                  | `theory_bucket/delta_null`          |
 | the corpus, the state of the field, and what this toolkit reaches                 | `theory_bucket/millennium`          |
 
+For code rather than argument, start with `src/engine/python/README.md`, then `examples/README.md`, then `examples/any_corpus/`.
+
 ## What is not here
 
-The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `maint/data/salishan/get_papers.py` fetches the papers from the public archive and the tools rebuild the rest.
+The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `maint/data/salishan/get_papers.py` fetches the papers from the public archive, `maint/data/fetch/` fetches the other corpora, and the tools rebuild the rest.
 
 The hand extractions are forms transcribed out of published papers. The tables are those papers' text and not this work's to redistribute.
 They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/corpus/verify_private_sync.py`.
 Everything that does not read a paper or a table runs without them.
 
-## Licensing, dual
+## Licensing
 
-Licensed AGPL-3.0-or-later, with commercial contracts available. It will always be free to use under the AGPL.
+Every source file carries this header:
+
+```
+SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+```
+
+Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a negotiated commercial licensing contract or an educator's license issued to you personally. It will always be free to use under the AGPL.
+
+| license                  | text                                                                                     | terms                                                                      |
+| ------------------------ | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `AGPL-3.0-or-later`      | [`LICENSES/AGPL-3.0-or-later.txt`](LICENSES/AGPL-3.0-or-later.txt), also [`LICENSE`](LICENSE) | the GNU Affero General Public License, version 3 or any later version |
+| `LicenseRef-Commercial`  | [`LICENSES/LicenseRef-Commercial.txt`](LICENSES/LicenseRef-Commercial.txt)               | a negotiated commercial contract                                           |
+| `LicenseRef-Educational` | [`LICENSES/LicenseRef-Educational.txt`](LICENSES/LicenseRef-Educational.txt)             | an educator's license, issued in writing to a named person                 |
 
 Educators: for an exception to use this in classrooms or research projects, email dstroy0 (Douglas Quigg) <dquigg123@gmail.com> from your `.edu` or `.org` faculty address.
 Exceptions are granted case by case and govern your use, specifically the accreditation requirement of underlying systems in research or presentation materials.
@@ -299,7 +332,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
    - Claims that were withdrawn stay on the page with the measurement that killed them.
    - A document recording only what survived is not evidence.
 2. Several results are rediscoveries of published work, and where that is known the precedent is named.
-   - citation is ongoing, any corrections are appreciated and welcome, attribution is critical.
+   - Citation is ongoing, any corrections are appreciated and welcome, and attribution is critical.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16
+**Date:** 2026-09-22
