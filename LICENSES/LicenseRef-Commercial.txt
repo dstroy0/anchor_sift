@@ -759,7 +759,7 @@ R.6  Where a term of this license can be read more than one way, the reading tha
 
 12.3 Licensee Group does not structure, request or accept an arrangement under which work on a
      Covered Offering is done under a Grant, or under an academic, sponsored research or
-     non-profit arrangement. That Consideration falls outside the Royalty Base or so that a
+     non-profit arrangement so that Consideration falls outside the Royalty Base or so that a
      Covered Offering avoids being either a Licensed Product or an AGPL-Compliant Offering.
 
 12.4 Licensee Group does not induce any holder of a Grant to breach it.
