@@ -290,7 +290,7 @@ sh maint/texbuild/build_theory.sh
 | the null, its delta, and where the two reconcile                                  | `theory_bucket/delta_null`          |
 | the corpus, the state of the field, and what this toolkit reaches                 | `theory_bucket/millennium`          |
 
-For code rather than argument, start with `src/engine/python/README.md`, then `examples/README.md`, then `examples/any_corpus/`.
+To read the code instead of the argument, start with `src/engine/python/README.md`, then `examples/README.md`, then `examples/any_corpus/`.
 
 ## What is not here
 
