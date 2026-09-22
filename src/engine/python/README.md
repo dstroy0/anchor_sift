@@ -37,7 +37,7 @@ Inside a part, anything that knows about one kind of thing goes in its own direc
 
 The test is what the module would have to be told. A primitive that would need nothing changed to read a protein instead of a paragraph is shared. One that carries a fact about encodings, or about how long a whale call lasts, is a subject.
 
-Four subjects have their own directories so far: `text`, `sound`, `picture` and `structure`. All four sit under `representation`, the only part that knows a domain exists. `oracle` carries one subject, `language`, and its parent directory is deliberately empty. Everything downstream of representation sees points and values and cannot tell a painting from a paragraph. One instrument reads both.
+Five subjects have their own directories so far: `text`, `sound`, `picture`, `structure` and `game`. All five sit under `representation`, the only part that knows a domain exists. `oracle` carries one subject, `language`, and its parent directory is deliberately empty. Everything downstream of representation sees points and values and cannot tell a painting from a paragraph. One instrument reads both.
 
 ## Nothing here writes to a stream
 

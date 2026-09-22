@@ -30,7 +30,7 @@ From a fresh clone, at the repository root:
 maint/engine/build_engine.sh                                      # the C engine: configure, build, run the graders
 python examples/any_corpus/4_measure/collision_entropy.py         # a reading that knows nothing about its corpus
 python examples/crystallography/6_oracle/proof_positive_control.py  # the positive control, against published cells
-sh maint/texbuild/build_theory.sh                                 # the eleven books
+sh maint/texbuild/build_theory.sh                                 # the twelve books
 ```
 
 On Windows PowerShell the engine builds with `maint/engine/build_engine.ps1`. Most examples read corpora under `build/`, which are not in git: `maint/data/fetch/` fetches them, and `python maint/deps/get_deps.py` clones what the C side needs. `docs/setup.md` and `docs/usage.md` cover the rest.
@@ -85,6 +85,8 @@ A dialect border inside Lushootseed, labeled by Mellesmoen and Kye and then held
 
 An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length. A protein backbone returns bond lengths of 1.45, 1.52 and 1.33 against chemistry's 1.46, 1.52 and 1.33. None of them was told anything.
 
+Subtraction games return their Grundy period on 383 of 383 rows the detector can score, against periods computed by a separate exact routine, at a worst margin of 16 floors. The same detector returns a confident number on a sequence that has no period at all, and what it is reading there is the continued fraction of the sequence's slope.
+
 The workbook holds the rest, including every row that failed and why.
 
 ## Where things are
@@ -96,9 +98,9 @@ Each directory serves one purpose.
 | `src/`                      | points and values, no domain | the engine: the Python in `src/engine/python/`, the C in `src/engine/c/` with its benches in `bench/` |
 | `test/`                     | the engine                   | the C correctness checks in `test/engine/`, the maintenance tests, and the published test vectors |
 | `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                            |
-| `examples/`                 | a corpus, through `src/`     | 152 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
+| `examples/`                 | a corpus, through `src/`     | 159 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
 | `maint/`                    | the repository itself        | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline         |
-| `theory/`, `theory_bucket/` | the argument                 | eleven books                                                                                      |
+| `theory/`, `theory_bucket/` | the argument                 | twelve books                                                                                      |
 | `docs/`                     | the reader                   | setup, usage, steering, rendering and the verification notes                                      |
 
 `examples/README.md` explains the stages and how to run a script. `maint/README.md` maps the maintenance tools. `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
@@ -270,7 +272,7 @@ For a language with few remaining speakers, publishing a form drawn from outside
 
 ## Where to start reading
 
-The research is eleven books, built with LuaLaTeX. Four are under `theory/`: the workbook, chemistry, image transforms and particle physics. The other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
+The research is twelve books, built with LuaLaTeX. Five are under `theory/`: the workbook, chemistry, game theory, image transforms and particle physics. The other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
 
 ```sh
 sh maint/texbuild/build_theory.sh
@@ -280,6 +282,7 @@ sh maint/texbuild/build_theory.sh
 | --------------------------------------------------------------------------------- | ----------------------------------- |
 | the construction, the method, and what is settled, open or withdrawn              | `theory/workbook`                   |
 | valence read as a necessary condition, and where the oracle enters                | `theory/chemistry`                  |
+| a domain that supplies its own answers, and the reading it corrected              | `theory/game_theory`                |
 | the image transform program, exact, and which of the transforms is built          | `theory/image_transforms`           |
 | particles as exact charges and shells, and what a quantum number costs            | `theory/particle_physics`           |
 | whose words the corpus holds, and how wrong it could be                           | `theory_bucket/Salishan`            |

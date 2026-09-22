@@ -1,0 +1,90 @@
+\chapter{The series}
+
+\textbf{Purpose:} Report the controlled series and every number in it, including the rows the
+detector cannot be asked to read. \textbf{Scope:}
+\texttt{examples/\allowbreak{}game\_\allowbreak{}theory/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}grundy\_\allowbreak{}period.\allowbreak{}py}
+
+\section{How a row is made}
+
+A move set is a finite set of positive integers. The game is one heap, a move takes a number in that
+set, and whoever cannot move loses. Two thousand and forty eight positions are generated, each
+carrying the least non-negative integer absent from the values it reaches.
+
+The answer is computed twice by two routines that share nothing. The exact one slides the tail of
+the sequence against itself and returns the shortest shift under which it repeats to the end. The
+measured one is \texttt{measure.\allowbreak{}periodicity.\allowbreak{}sequence\_\allowbreak{}period},
+the same function the crystallography chapter asks for a cell edge, which is handed a list of small
+integers and told nothing else.
+
+The sweep is every move set of one to four moves drawn from 1 to 10, which is three hundred and
+eighty five games. Every one of them settled: the exact routine found a period on all three hundred
+and eighty five, and the periods present run 2 to 45.
+
+\section{The window is a constraint and not a result}
+
+The detector scores a candidate period together with its own multiples, which is the correction the
+crystallography chapter had to make when published cell edges came back at twice their value on ten
+of eighteen axes. A period beyond half the window has one multiple inside the window, so its family
+is one lag and the score degenerates to taking the tallest lag again.
+
+Rows whose true period exceeds half the window are therefore out of range by construction. They are
+counted separately below and they are not failures. Counting them as failures would be reporting the
+detector's documented precondition as its error rate.
+
+\begin{center}
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+window & in range & exact & out of range \\
+\midrule
+16 & 115 & 115 & 270 \\
+24 & 220 & 220 & 165 \\
+32 & 346 & 346 & 39 \\
+48 & 378 & 378 & 7 \\
+64 & 383 & 383 & 2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three hundred and eighty three of three hundred and eighty three at the widest window, and the same
+at every narrower one over the rows it can reach. The two rows still out of range at a window of 64
+have periods of 45 and 33.
+
+\section{Every row against its own floor}
+
+A count of agreements is not evidence on its own, because a detector that always answered 2 would
+agree with every period-2 row. Each sequence is therefore scored against twelve shuffles of itself.
+A shuffle keeps every Grundy value and destroys which position carries it, so whatever margin it
+reaches is what the detector reads off the histogram alone, and the figure quoted is the tallest of
+the twelve rather than their average.
+
+At a window of 64, over three hundred and eighty three rows:
+
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+ & minimum & median & maximum \\
+\midrule
+live margin & 1.016 & 1.091 & 2.000 \\
+shuffle floor & 0.030 & 0.044 & 0.066 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The worst ratio of live margin to its own floor is 16.0 and the median is 25.6. No row failed to
+clear its floor. The bands do not touch: the smallest live margin is fifteen times the largest
+floor anywhere in the series.
+
+\section{What the series does and does not license}
+
+It licenses a statement about this domain. Over subtraction games with move sets drawn from 1 to 10,
+the detector returns the exact Grundy period on every sequence whose period it is able to score. The
+quantifier is over an enumerated set, the answers came from a proof, and the count is large enough
+that a coincidence would have to be systematic rather than lucky.
+
+It does not license a statement about any other domain, and it does not upgrade the workbook's span
+table. The workbook's own deduction says why: soundness belongs to the construction and cost belongs
+to the domain's distribution, so a result obtained inside one distribution stays inside it. A
+subtraction game's Grundy sequence is exactly periodic after a short preperiod, with two to a few
+dozen distinct values and no noise at all. That is the easiest thing a period detector will ever be
+shown. The series establishes that the detector is right where an answer exists and is checkable,
+at a count nobody has to take on faith, and the next chapter is the half that matters more.

@@ -1,0 +1,417 @@
+<title>Bit Pairs</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root { color-scheme: dark; }
+body { margin: 0; background: #06070a; color: #e8ebf0;
+  font: 12px/1.5 "Segoe UI", system-ui, sans-serif; overflow: hidden; }
+#stage { position: fixed; inset: 0; }
+canvas { display: block; }
+.panel { position: fixed; background: #12141a; border: 1px solid #262b34;
+  border-radius: 5px; padding: 10px 12px; opacity: 0.94; user-select: none; }
+#controls { left: 14px; top: 14px; width: 250px; }
+#controls h4 { margin: 0 0 8px; font-size: 10px; letter-spacing: 0.09em;
+  text-transform: uppercase; color: #99a1ae; }
+.row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.row label { flex: 0 0 66px; color: #99a1ae; }
+.row input[type=range] { flex: 1; accent-color: #ffe14d; }
+.row .val { flex: 0 0 46px; text-align: right; font-variant-numeric: tabular-nums; }
+button { background: #1a1d24; color: #e8ebf0; border: 1px solid #333b47;
+  border-radius: 3px; padding: 3px 9px; font: inherit; cursor: pointer; }
+button:hover { border-color: #ffe14d; }
+#key { right: 14px; top: 14px; width: 210px; }
+#key .swatch { display: inline-block; width: 22px; height: 4px; border-radius: 2px;
+  vertical-align: middle; margin-right: 7px; }
+#key .line { margin: 5px 0; color: #c6ccd6; }
+#digest { position: fixed; left: 50%; transform: translateX(-50%); bottom: 12px;
+  font-size: 11px; color: #626a78; font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em; pointer-events: none; }
+</style>
+
+<div id="stage"></div>
+
+<div class="panel" id="controls">
+  <h4>The rounds</h4>
+  <div class="row">
+    <label>round</label>
+    <input type="range" id="round" min="1" max="64" value="64">
+    <span class="val" id="roundOut">64</span>
+  </div>
+  <div class="row">
+    <button id="prev">&#8249; step</button>
+    <button id="play">play</button>
+    <button id="next">step &#8250;</button>
+  </div>
+  <div class="row">
+    <label>envelope</label>
+    <input type="range" id="env" min="0" max="100" value="55">
+    <span class="val" id="envOut">0.55</span>
+  </div>
+  <div class="row">
+    <label>lines</label>
+    <input type="range" id="fat" min="4" max="40" value="16">
+    <span class="val" id="fatOut">0.016</span>
+  </div>
+  <div class="row">
+    <label>side on</label>
+    <button id="sideOn" style="flex:1">look from the side</button>
+  </div>
+</div>
+
+<div class="panel" id="key">
+  <h4>What a line is</h4>
+  <div class="line"><span class="swatch" style="background:#ffe14d"></span>both bits set</div>
+  <div class="line"><span class="swatch" style="background:#ff3d81"></span>top set, bottom clear</div>
+  <div class="line"><span class="swatch" style="background:#3dd6ff"></span>bottom set, top clear</div>
+  <div class="line"><span class="swatch" style="background:#2b3550"></span>both clear</div>
+  <div class="line" style="color:#626a78; margin-top:9px">a line is one bit and its antipode,
+    read as one thing. Flip which end is set and the colour flips.</div>
+</div>
+
+<div id="digest"></div>
+
+<script>
+var DATA = /*PAIRS_DATA*/null;
+
+var stage = document.getElementById("stage");
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
+var renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+stage.appendChild(renderer.domElement);
+
+var R = 12;
+
+// Colours for the four ordered states of a pair. Cyan and magenta are opposite hues on purpose:
+// flipping which end is set flips the colour, which is the reading asked for. Yellow for both set,
+// a dim slate for both clear so a cold line is present without shouting.
+var HOT = new THREE.Color(0xffe14d);
+var TOP = new THREE.Color(0xff3d81);
+var BOT = new THREE.Color(0x3dd6ff);
+var COLD = new THREE.Color(0x2b3550);
+
+// One cylinder per pair, because a WebGL line is one pixel wide on most drivers and reads as a
+// thread. A cylinder is real geometry with a real radius, so "not too thin" is a number the reader
+// can turn. Vertex colours down its length carry the gradient: a mixed pair runs hot at the set end
+// to cold at the clear end, so the line shows which bit is which and not only that they differ.
+var pairs = DATA.pairs;
+var lines = [];
+var group = new THREE.Group();
+scene.add(group);
+
+var baseGeometry = new THREE.CylinderGeometry(1, 1, 1, 10, 1);
+// The cylinder is built along Y from -0.5 to +0.5. Tag each vertex with how far along it is, 0 at
+// the bottom end and 1 at the top, so the two ends can be coloured independently per frame.
+var along = [];
+var pos = baseGeometry.attributes.position;
+for (var v = 0; v < pos.count; v++) { along.push(pos.getY(v) + 0.5); }
+
+function makeLine(dir) {
+  var geometry = baseGeometry.clone();
+  geometry.setAttribute("color", new THREE.BufferAttribute(new Float32Array(pos.count * 3), 3));
+  var mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ vertexColors: true }));
+
+  // Orient the cylinder's Y axis onto the pair's diameter and stretch it end to end. The endpoints
+  // are +dir*R and -dir*R, so the centre of the cylinder is the origin: the line passes through the
+  // centre exactly, which is the whole point of the construction.
+  var axis = new THREE.Vector3(dir[0], dir[1], dir[2]).normalize();
+  var quat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), axis);
+  mesh.quaternion.copy(quat);
+  mesh.userData.top = axis.y >= 0 ? 1 : 0;  // which end is the "a" bit, for the gradient direction
+  return mesh;
+}
+
+for (var p = 0; p < pairs.length; p++) {
+  var line = makeLine(pairs[p].dir);
+  group.add(line);
+  lines.push(line);
+}
+
+// Small markers at the 256 endpoints, so the bits are visible as bits and not only as line ends.
+var dotGeometry = new THREE.SphereGeometry(0.13, 8, 6);
+var dotMesh = new THREE.InstancedMesh(dotGeometry,
+  new THREE.MeshBasicMaterial({ color: 0x8a93a3 }), pairs.length * 2);
+var slot = new THREE.Matrix4();
+for (var d = 0; d < pairs.length; d++) {
+  var dir = pairs[d].dir;
+  slot.makeTranslation(dir[0] * R, dir[1] * R, dir[2] * R);
+  dotMesh.setMatrixAt(d * 2, slot);
+  slot.makeTranslation(-dir[0] * R, -dir[1] * R, -dir[2] * R);
+  dotMesh.setMatrixAt(d * 2 + 1, slot);
+}
+scene.add(dotMesh);
+
+// The envelope. For each pair direction the radius is how much the pair carries: a set end reaches
+// out, a clear end pulls in, so the surface bulges where the state is set and dents where it is not.
+// It is lumpy for that reason, and it repeats as the rounds do because the state does. Drawn as a
+// second, faint skin over a subdivided icosahedron whose vertices are pushed along their own
+// direction by the nearest pair's fill.
+var envGeometry = new THREE.IcosahedronGeometry(1, 4);
+var envBase = envGeometry.attributes.position.array.slice(0);
+var envMesh = new THREE.Mesh(envGeometry, new THREE.MeshStandardMaterial({
+  color: 0x7fd0ff, roughness: 0.5, metalness: 0.0, transparent: true, opacity: 0.55,
+  side: THREE.DoubleSide, flatShading: false
+}));
+scene.add(envMesh);
+scene.add(new THREE.AmbientLight(0x222833, 1.0));
+var key = new THREE.DirectionalLight(0xffffff, 0.8); key.position.set(1, 1, 1); scene.add(key);
+
+// Each envelope vertex takes its fill from the pair whose axis it lies nearest. Precomputed once.
+var envVerts = envBase.length / 3;
+var nearestPair = new Int32Array(envVerts);
+for (var e = 0; e < envVerts; e++) {
+  var ex = envBase[e * 3], ey = envBase[e * 3 + 1], ez = envBase[e * 3 + 2];
+  var best = -1, bestDot = -2;
+  for (var q = 0; q < pairs.length; q++) {
+    var dr = pairs[q].dir;
+    var dot = Math.abs(ex * dr[0] + ey * dr[1] + ez * dr[2]);
+    if (dot > bestDot) { bestDot = dot; best = q; }
+  }
+  nearestPair[e] = best;
+}
+
+// ---------------------------------------------------------------------------------------------
+// State per round.
+// ---------------------------------------------------------------------------------------------
+
+var state = { round: 64, env: 0.55, fat: 0.016, playing: false };
+var fill = new Float32Array(pairs.length);   // 0 both clear, 1 both set, used by the envelope
+
+function paint(roundIndex) {
+  var frame = DATA.frames[roundIndex - 1];
+  for (var i = 0; i < pairs.length; i++) {
+    var a = frame.charCodeAt(pairs[i].a) === 49;
+    var b = frame.charCodeAt(pairs[i].b) === 49;
+    fill[i] = (a ? 0.5 : 0) + (b ? 0.5 : 0);
+
+    // The two ends of this cylinder. "a" is bit `a` at one end, "b" at the other; which end is the
+    // geometric top depends on how the axis was oriented, tracked at build time.
+    var aColour = a ? HOT : COLD;
+    var bColour = b ? HOT : COLD;
+    // Mixed pairs get the order hue rather than two greys, so a flip of which bit is set is a change
+    // of colour and not only of which end glows.
+    if (a !== b) {
+      aColour = a ? TOP : COLD;
+      bColour = b ? BOT : COLD;
+    }
+    var topEnd = lines[i].userData.top === 1 ? aColour : bColour;
+    var botEnd = lines[i].userData.top === 1 ? bColour : aColour;
+
+    var colour = lines[i].geometry.attributes.color;
+    for (var v = 0; v < along.length; v++) {
+      var t = along[v];
+      colour.setXYZ(v,
+        botEnd.r + (topEnd.r - botEnd.r) * t,
+        botEnd.g + (topEnd.g - botEnd.g) * t,
+        botEnd.b + (topEnd.b - botEnd.b) * t);
+    }
+    colour.needsUpdate = true;
+
+    var lit = (a && b);
+    lines[i].material.opacity = lit ? 1.0 : (a || b ? 0.92 : 0.5);
+    lines[i].material.transparent = !lit;
+  }
+  shapeLines();
+  shapeEnvelope();
+  document.getElementById("digest").textContent =
+    (roundIndex === 64 ? "digest  " : "round " + roundIndex + " of 64   ") + DATA.digest;
+}
+
+function shapeLines() {
+  var radius = state.fat * R;
+  for (var i = 0; i < lines.length; i++) {
+    // Length is the full diameter; radius is the reader's setting. Scaling the shared base cylinder
+    // avoids rebuilding 128 geometries every time the thickness moves.
+    lines[i].scale.set(radius, 2 * R, radius);
+  }
+}
+
+function shapeEnvelope() {
+  var array = envGeometry.attributes.position.array;
+  for (var e = 0; e < envVerts; e++) {
+    var f = fill[nearestPair[e]];
+    // Bulge out where the pair is set, dent in where it is clear, about a mid radius. The envelope
+    // is a low, lumpy skin and never a sphere, because the state it is reading is not uniform.
+    var reach = R * (0.55 + 0.5 * state.env * (f - 0.5) * 2);
+    array[e * 3] = envBase[e * 3] * reach;
+    array[e * 3 + 1] = envBase[e * 3 + 1] * reach;
+    array[e * 3 + 2] = envBase[e * 3 + 2] * reach;
+  }
+  envGeometry.attributes.position.needsUpdate = true;
+  envGeometry.computeVertexNormals();
+}
+
+// ---------------------------------------------------------------------------------------------
+// Observer, dragged. Offset plus up vector, axes re-derived, so nothing inverts over the pole.
+// ---------------------------------------------------------------------------------------------
+
+var target = new THREE.Vector3(0, 0, 0);
+var offset = new THREE.Vector3(0, 6, 40);
+var upVec = new THREE.Vector3(0, 1, 0);
+var side = new THREE.Vector3();
+function screenRight() {
+  side.crossVectors(upVec, offset);
+  if (side.lengthSq() < 1e-9) { side.set(1, 0, 0); }
+  return side.normalize();
+}
+
+var dragging = false, lastX = 0, lastY = 0;
+renderer.domElement.addEventListener("mousedown", function (e) {
+  dragging = true; lastX = e.clientX; lastY = e.clientY;
+});
+window.addEventListener("mouseup", function () { dragging = false; });
+window.addEventListener("mousemove", function (e) {
+  if (!dragging) { return; }
+  var dx = e.clientX - lastX, dy = e.clientY - lastY;
+  lastX = e.clientX; lastY = e.clientY;
+  var right = screenRight().clone();
+  offset.applyAxisAngle(upVec, -dx * 0.006);
+  offset.applyAxisAngle(right, -dy * 0.006);
+  upVec.applyAxisAngle(right, -dy * 0.006).normalize();
+});
+renderer.domElement.addEventListener("wheel", function (e) {
+  e.preventDefault();
+  offset.multiplyScalar(e.deltaY > 0 ? 1.06 : 0.94);
+}, { passive: false });
+
+// ---------------------------------------------------------------------------------------------
+// Controls.
+// ---------------------------------------------------------------------------------------------
+
+var roundIn = document.getElementById("round");
+var roundOut = document.getElementById("roundOut");
+roundIn.addEventListener("input", function () {
+  state.round = Number(roundIn.value);
+  roundOut.textContent = String(state.round);
+  paint(state.round);
+});
+function step(by) {
+  state.round = Math.max(1, Math.min(64, state.round + by));
+  roundIn.value = String(state.round);
+  roundOut.textContent = String(state.round);
+  paint(state.round);
+}
+document.getElementById("prev").addEventListener("click", function () { step(-1); });
+document.getElementById("next").addEventListener("click", function () { step(1); });
+var playBtn = document.getElementById("play");
+playBtn.addEventListener("click", function () {
+  state.playing = !state.playing;
+  playBtn.textContent = state.playing ? "pause" : "play";
+});
+
+document.getElementById("env").addEventListener("input", function (e) {
+  state.env = Number(e.target.value) / 100;
+  document.getElementById("envOut").textContent = state.env.toFixed(2);
+  shapeEnvelope();
+});
+document.getElementById("fat").addEventListener("input", function (e) {
+  state.fat = Number(e.target.value) / 1000;
+  document.getElementById("fatOut").textContent = state.fat.toFixed(3);
+  shapeLines();
+});
+document.getElementById("sideOn").addEventListener("click", function () {
+  offset.set(offset.length(), 0, 0);
+  upVec.set(0, 1, 0);
+});
+
+function fit() {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener("resize", fit);
+fit();
+paint(state.round);
+
+var clock = new THREE.Clock();
+var since = 0;
+function turn() {
+  var gap = clock.getDelta();
+  if (state.playing) {
+    since += gap;
+    if (since > 0.12) { since = 0; step(state.round >= 64 ? -63 : 1); }
+  }
+  camera.position.copy(target).add(offset);
+  camera.up.copy(upVec);
+  camera.lookAt(target);
+  renderer.render(scene, camera);
+  requestAnimationFrame(turn);
+}
+// ---------------------------------------------------------------------------------------------
+// Does the loop turn twice?
+// ---------------------------------------------------------------------------------------------
+//
+// A page whose loop throws on its first turn has already had one frame drawn by setup, so it
+// renders a complete, correct, still picture. The build succeeds, the parse check passes, and every
+// feature after the throw does nothing -- which is every feature. That failure has happened in this
+// tree once and nothing outside the page can catch it cheaply, since it is a runtime fault in a file
+// that parses. So the page reports on itself.
+//
+// Two turns and not one, because one is exactly what a dead loop produces.
+var LOOP_WATCH_MS = 1500;
+var loopTurns = 0;
+//
+// TWO WAYS THE LOOP CAN STOP, AND THEY ARE NOT THE SAME EVENT. A throw is fatal, because the next
+// turn throws the same way. Slowness is a report and stops nothing.
+//
+// The first version treated them alike and set one flag on either, which the guard then refused to
+// run under. `setTimeout` runs in a background tab and `requestAnimationFrame` does not, so a page
+// opened in a tab that is not visible completed one turn, was declared dead on schedule, and never
+// ran again even once brought to the front. The watchdog was the thing that killed the loop.
+var loopThrew = null;    // fatal, and the only thing that stops scheduling
+var loopWarned = false;  // reported once, stops nothing
+window.__loopHealth = { ok: null, turns: 0, why: "not checked yet" };
+
+function loopOutOfSight() {
+  return typeof document !== "undefined" && document.visibilityState === "hidden";
+}
+
+function loopSay(why, detail) {
+  window.__loopHealth = { ok: false, turns: loopTurns, why: why, detail: detail || "" };
+  if (window.console && console.error) { console.error("FRAME LOOP: " + why, detail || ""); }
+}
+
+function loopFailed(why, detail) {
+  loopThrew = why;
+  loopSay(why, detail);
+}
+
+function guardedTurn() {
+  if (loopThrew) { return; }
+  try {
+    turn();
+  } catch (thrown) {
+    loopFailed("threw on turn " + (loopTurns + 1) + ", " + String(thrown),
+               String(thrown && thrown.stack ? thrown.stack : ""));
+    return;
+  }
+  loopTurns += 1;
+  if (loopTurns >= 2 && window.__loopHealth.ok !== true) {
+    window.__loopHealth = { ok: true, turns: loopTurns, why: "the loop turned twice" };
+  }
+}
+
+var loopScheduled = requestAnimationFrame;
+requestAnimationFrame = function (fn) { return loopScheduled(fn === turn ? guardedTurn : fn); };
+
+function loopWatch() {
+  if (loopThrew || loopWarned) { return; }
+  // Hidden is not slow. The frame clock is stopped by the browser, so there is nothing to judge and
+  // the question is asked again later instead of answered wrongly now.
+  if (loopOutOfSight()) { setTimeout(loopWatch, LOOP_WATCH_MS); return; }
+  if (loopTurns < 2) {
+    loopWarned = true;
+    loopSay("only " + loopTurns + " turn(s) in " + LOOP_WATCH_MS + " ms",
+            "a page that renders one frame and stops looks correct and is not");
+  }
+}
+
+setTimeout(loopWatch, LOOP_WATCH_MS);
+
+if (typeof document !== "undefined" && document.addEventListener) {
+  document.addEventListener("visibilitychange", function () {
+    if (!loopOutOfSight() && !loopThrew && loopTurns < 2) { setTimeout(loopWatch, LOOP_WATCH_MS); }
+  });
+}
+
+guardedTurn();
+</script>

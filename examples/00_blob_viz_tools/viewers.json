@@ -1,0 +1,309 @@
+{
+  "viewers": [
+    {
+      "builder": "build_blob_view.py",
+      "builder_digest": "5092d43bb06edc594760aa4aa38150cadb62212bc4fa7990b27b2f6ee06a8181",
+      "optional": [
+        "depthLabel",
+        "noteTitle",
+        "settings",
+        "title",
+        "valueLabel"
+      ],
+      "requires": [
+        "blurb",
+        "depth",
+        "fields",
+        "note"
+      ],
+      "template": "voxel_view_template.html",
+      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
+      "writes": null
+    },
+    {
+      "builder": "build_chart_view.py",
+      "builder_digest": "1436354435d4ecd14dec66d4b843871bb6e9c3dd59d8c8e90b8262a9a7e625dd",
+      "optional": [
+        "blurb",
+        "kind",
+        "title"
+      ],
+      "requires": [
+        "series",
+        "xLabel"
+      ],
+      "template": "chart_view_template.html",
+      "template_digest": "b66dc71ec045ce19f0f6c13b465075b2c39d9fe9c1ee78712bc1635c4864dbee",
+      "writes": null
+    },
+    {
+      "builder": "build_field_view.py",
+      "builder_digest": "0fe536467a46b44e2e023bd343dcd8a0414e704d17ee1c4183f37e680b39e6b1",
+      "optional": [
+        "depthLabel",
+        "noteTitle",
+        "settings",
+        "title",
+        "valueLabel"
+      ],
+      "requires": [
+        "blurb",
+        "depth",
+        "fields",
+        "note"
+      ],
+      "template": "voxel_view_template.html",
+      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
+      "writes": null
+    },
+    {
+      "builder": "build_orrery_view.py",
+      "builder_digest": "bee8a977134b24e019d425c0cf6bb5460eed6eac1470e4adc4e528916add1ca2",
+      "optional": [
+        "settings"
+      ],
+      "requires": [
+        "attenuation",
+        "bodies",
+        "curve",
+        "found",
+        "mode",
+        "profiles",
+        "span"
+      ],
+      "template": "orrery_view_template.html",
+      "template_digest": "b4d30452020fa747620a92f8363aa7e8a6fa49700560cd2c896bb0dec84f2701",
+      "writes": "orrery_view.html"
+    },
+    {
+      "builder": "build_plot_view.py",
+      "builder_digest": "c906f79ca4d0f1df86396194873acb163a6581edf6803616af1db90897902945",
+      "optional": [
+        "depthLabel",
+        "noteTitle",
+        "settings",
+        "title",
+        "valueLabel"
+      ],
+      "requires": [
+        "blurb",
+        "depth",
+        "fields",
+        "note"
+      ],
+      "template": "voxel_view_template.html",
+      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
+      "writes": "plot_view.html"
+    },
+    {
+      "builder": "build_room_view.py",
+      "builder_digest": "5d3d91189baa4cd017d8a4854ad14d36e24f857c43cb25b1a6e80215fce4794b",
+      "optional": [
+        "clock",
+        "core",
+        "settings",
+        "sources"
+      ],
+      "requires": [
+        "shell",
+        "source",
+        "things"
+      ],
+      "template": "room_view_template.html",
+      "template_digest": "8043eec9fbf62f96acef6c95d10c6ae57e21dc2c9a9145da578de137419929ed",
+      "writes": "room_view.html"
+    },
+    {
+      "builder": "build_sha_clock_view.py",
+      "builder_digest": "3b987fe87003d74c149d0e4542fcafa89aec5dfd3cec1f8dbaef890eeaf061b1",
+      "optional": [
+        "clock",
+        "core",
+        "settings",
+        "sources"
+      ],
+      "requires": [
+        "shell",
+        "source",
+        "things"
+      ],
+      "template": "room_view_template.html",
+      "template_digest": "8043eec9fbf62f96acef6c95d10c6ae57e21dc2c9a9145da578de137419929ed",
+      "writes": "sha_clock_view.html"
+    },
+    {
+      "builder": "build_sha_pairs_view.py",
+      "builder_digest": "92b2ae3472a01bfd159bfbe13fea779d23ca290ad232c8b5e4ba45fe702cabe0",
+      "optional": [],
+      "requires": [
+        "digest",
+        "frames",
+        "pairs"
+      ],
+      "template": "pairs_view_template.html",
+      "template_digest": "0387ee7364d7d59977b43ed706d20b943ddfc3f824ddad0a249a9a23b70fb570",
+      "writes": "sha_pairs_view.html"
+    },
+    {
+      "builder": "build_sha_room_view.py",
+      "builder_digest": "6449cd917e86975354abc33df97887db67c7ced9770197db800a9b7292142810",
+      "optional": [
+        "clock",
+        "core",
+        "settings",
+        "sources"
+      ],
+      "requires": [
+        "shell",
+        "source",
+        "things"
+      ],
+      "template": "room_view_template.html",
+      "template_digest": "8043eec9fbf62f96acef6c95d10c6ae57e21dc2c9a9145da578de137419929ed",
+      "writes": "sha_room_view.html"
+    },
+    {
+      "builder": "build_sha_sphere_view.py",
+      "builder_digest": "740c70f9e6a93183a3262e49a35dc8b71910652dd6639bfef23bb5313a3807fc",
+      "optional": [
+        "settings"
+      ],
+      "requires": [
+        "grid",
+        "null_spectrum",
+        "place",
+        "profiles",
+        "read",
+        "sources",
+        "spectrum",
+        "symbols",
+        "tau",
+        "title"
+      ],
+      "template": "sphere_view_template.html",
+      "template_digest": "7693bd2dff78d62c420006f62fa0d0e623862b06abc51b54d16936270fa44f92",
+      "writes": "sha_sphere.html"
+    },
+    {
+      "builder": "build_shadow_view.py",
+      "builder_digest": "78c33dd61cc261354342e243c40a768eadcf9aca2e53da8596ecd92a29061449",
+      "optional": [],
+      "requires": [
+        "rounds",
+        "word"
+      ],
+      "template": "shadow_view_template.html",
+      "template_digest": "b2300f2cf91677504bbd553165312031717ed1be10b4d523b814998cc0e09a51",
+      "writes": "shadow_view.html"
+    },
+    {
+      "builder": "build_sound_view.py",
+      "builder_digest": "67584c4cb3f8f8da898c72d6fb2ab0b66d6a89e57af84111a6e64a5e7528f655",
+      "optional": [
+        "depthLabel",
+        "noteTitle",
+        "settings",
+        "title",
+        "valueLabel"
+      ],
+      "requires": [
+        "blurb",
+        "depth",
+        "fields",
+        "note"
+      ],
+      "template": "voxel_view_template.html",
+      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
+      "writes": "sound_view.html"
+    },
+    {
+      "builder": "build_sources_view.py",
+      "builder_digest": "458bcd2bd1e4a90da3fa9984865d74a90cbf39df8649d65464b3fe8a0548bfd1",
+      "optional": [
+        "order"
+      ],
+      "requires": [
+        "rounds",
+        "sources"
+      ],
+      "template": "sources_view_template.html",
+      "template_digest": "317aeedb05fa475d779fe41d0ac74ac13cf597ea495e2470f2f3814f8bf2c253",
+      "writes": "sources_view.html"
+    },
+    {
+      "builder": "build_sphere_view.py",
+      "builder_digest": "a114344050bfc002ccb026c8fbce5a43579221fdfaa06134ea1e277f05e63fe4",
+      "optional": [
+        "settings"
+      ],
+      "requires": [
+        "grid",
+        "null_spectrum",
+        "place",
+        "profiles",
+        "read",
+        "sources",
+        "spectrum",
+        "symbols",
+        "tau",
+        "title"
+      ],
+      "template": "sphere_view_template.html",
+      "template_digest": "7693bd2dff78d62c420006f62fa0d0e623862b06abc51b54d16936270fa44f92",
+      "writes": null
+    },
+    {
+      "builder": "build_step_view.py",
+      "builder_digest": "2eb2c23eb24cdc072265a59add9b1e651bb0e5136cb4077bcb8e8d6d6e473d5b",
+      "optional": [
+        "keys"
+      ],
+      "requires": [
+        "rounds"
+      ],
+      "template": "step_view_template.html",
+      "template_digest": "28e70b33a5dfeb2a4732a8f03fcbdf8e63cf3c6283cdb29bcd182dca8c1ab047",
+      "writes": "step_view.html"
+    },
+    {
+      "builder": "build_sweep_view.py",
+      "builder_digest": "f36e5ddaefe9e601253a1458185825f9c303745873195bcff1759f0948990b42",
+      "optional": [
+        "depthLabel",
+        "noteTitle",
+        "settings",
+        "title",
+        "valueLabel"
+      ],
+      "requires": [
+        "blurb",
+        "depth",
+        "fields",
+        "note"
+      ],
+      "template": "voxel_view_template.html",
+      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
+      "writes": "sweep_view.html"
+    },
+    {
+      "builder": "build_voxel_view.py",
+      "builder_digest": "b018844e643fa34fe6bb951d655ab03c7543da43b27e8b704708a9ada6369156",
+      "optional": [
+        "depthLabel",
+        "noteTitle",
+        "settings",
+        "title",
+        "valueLabel"
+      ],
+      "requires": [
+        "blurb",
+        "depth",
+        "fields",
+        "note"
+      ],
+      "template": "voxel_view_template.html",
+      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
+      "writes": "voxel_view.html"
+    }
+  ]
+}

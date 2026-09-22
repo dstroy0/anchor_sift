@@ -1,0 +1,713 @@
+<title>Residue A-Scope</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #0E1319; --panel: #141B23; --panel-2: #1A232C; --edge: #26323E;
+    --ink: #C8D4DE; --ink-strong: #E8F0F6; --dim: #6B7C8C;
+    --hot: #F2A03D; --cold: #4A9DAD; --mark: #E8613C; --null: #2A3540; --grid: #1F2A35;
+    --sans-c: "IBM Plex Sans Condensed", "Helvetica Neue", Arial, sans-serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  }
+  :root[data-theme="light"] {
+    --ground: #EFF3F7; --panel: #FFFFFF; --panel-2: #F6F9FB; --edge: #D6DFE8;
+    --ink: #37424E; --ink-strong: #10171E; --dim: #78848F;
+    --hot: #B96608; --cold: #1F6576; --mark: #BC3C18; --null: #DCE4EB; --grid: #E5ECF1;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --ground: #EFF3F7; --panel: #FFFFFF; --panel-2: #F6F9FB; --edge: #D6DFE8;
+      --ink: #37424E; --ink-strong: #10171E; --dim: #78848F;
+      --hot: #B96608; --cold: #1F6576; --mark: #BC3C18; --null: #DCE4EB; --grid: #E5ECF1;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink);
+         font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding-inline: 18px;
+          padding-block: 26px 40px; display: flex; flex-direction: column; gap: 14px; }
+
+  header { display: flex; flex-direction: column; gap: 9px; }
+  h1 { font-family: var(--sans-c); font-weight: 700; font-size: clamp(26px, 4.2vw, 40px);
+       letter-spacing: -0.015em; line-height: 1.04; margin: 0; color: var(--ink-strong);
+       text-wrap: balance; }
+  .sub { max-width: 68ch; margin: 0; color: var(--dim); }
+  .sub b { color: var(--ink); font-weight: 500; }
+  .ident { display: flex; flex-wrap: wrap; gap: 5px 20px; font-family: var(--mono);
+           font-size: 11.5px; color: var(--dim); font-variant-numeric: tabular-nums;
+           border-top: 1px solid var(--edge); padding-top: 9px; }
+  .ident em { font-style: normal; color: var(--ink); }
+
+  .stage { display: grid; grid-template-columns: 1.18fr 1fr; gap: 12px; }
+  @media (max-width: 900px) { .stage { grid-template-columns: 1fr; } }
+
+  .box { background: var(--panel); border: 1px solid var(--edge);
+         display: flex; flex-direction: column; min-width: 0; }
+  .box-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+              padding: 8px 12px; border-bottom: 1px solid var(--edge); background: var(--panel-2); }
+  .box-title { font-family: var(--sans-c); font-weight: 600; font-size: 11.5px;
+               letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-strong); }
+  .box-note { font-family: var(--mono); font-size: 10.5px; color: var(--dim);
+              font-variant-numeric: tabular-nums; text-align: right; }
+  canvas { display: block; width: 100%; height: auto; max-width: 100%; touch-action: none; }
+
+  .readout { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+             border-top: 1px solid var(--edge); }
+  .readout > div:nth-child(-n+3) { border-bottom: 1px solid var(--edge); }
+  .readout > div { padding: 7px 10px; border-right: 1px solid var(--edge); min-width: 0; }
+  .readout > div:last-child { border-right: 0; }
+  .readout dt { font-family: var(--sans-c); font-size: 9.5px; letter-spacing: 0.1em;
+                text-transform: uppercase; color: var(--dim); margin: 0 0 1px; white-space: nowrap; }
+  .readout dd { margin: 0; font-family: var(--mono); font-size: 15px; font-weight: 500;
+                color: var(--ink-strong); font-variant-numeric: tabular-nums; }
+  .readout dd.sig { color: var(--hot); }
+  .readout dd.quiet { color: var(--dim); }
+
+  .bar { background: var(--panel); border: 1px solid var(--edge); padding: 12px;
+         display: flex; flex-direction: column; gap: 12px; }
+  .scrub { display: flex; align-items: center; gap: 11px; flex-wrap: wrap; }
+  .scrub label { font-family: var(--sans-c); font-size: 10.5px; letter-spacing: 0.1em;
+                 text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+  input[type="range"] { flex: 1 1 180px; min-width: 120px; accent-color: var(--hot); height: 20px; }
+  .levers { display: grid; grid-template-columns: repeat(auto-fit, minmax(152px, 1fr)); gap: 10px; }
+  .lever { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .lever > span { font-family: var(--sans-c); font-size: 9.5px; letter-spacing: 0.11em;
+                  text-transform: uppercase; color: var(--dim); display: flex;
+                  justify-content: space-between; gap: 6px; }
+  .lever > span var { font-style: normal; font-family: var(--mono); color: var(--ink);
+                      letter-spacing: 0; }
+  .seg { display: flex; border: 1px solid var(--edge); }
+  .seg button { flex: 1; background: transparent; border: 0; border-right: 1px solid var(--edge);
+                color: var(--dim); font-family: var(--mono); font-size: 10.5px; padding: 5px 1px;
+                cursor: pointer; min-width: 0; }
+  .seg button:last-child { border-right: 0; }
+  .seg button[aria-pressed="true"] { background: var(--panel-2); color: var(--hot); }
+  .seg button:focus-visible { outline: 2px solid var(--hot); outline-offset: -2px; }
+  button.wide { background: var(--panel-2); border: 1px solid var(--edge); color: var(--ink);
+                font-family: var(--mono); font-size: 11.5px; padding: 5px 13px; cursor: pointer; }
+  button.wide:focus-visible { outline: 2px solid var(--hot); outline-offset: 1px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 5px 16px; font-family: var(--mono);
+            font-size: 10.5px; color: var(--dim); }
+  .legend i { width: 9px; height: 9px; display: inline-block; margin-right: 5px; vertical-align: -1px; }
+
+  footer { border-top: 1px solid var(--edge); padding-top: 13px; color: var(--dim);
+           font-size: 12.5px; max-width: 78ch; }
+  footer b { color: var(--ink); font-weight: 500; }
+  footer code { font-family: var(--mono); font-size: 11.5px; color: var(--ink); }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Residue A-Scope</h1>
+    <p class="sub">Four readings of one object. The compression state as 256 boundary spikes with a
+      persistence smear across depth; the residue spectrum at that depth against the floor the null
+      actually produced; every round and every class at once; and the matched filter's whole
+      trajectory. <b>Scrub and watch the signal appear near depth 6, hold through 16, and collapse
+      by 24.</b></p>
+    <div class="ident" id="ident"></div>
+  </header>
+
+  <div class="stage">
+    <section class="box">
+      <div class="box-head">
+        <span class="box-title">State boundary</span>
+        <span class="box-note" id="ballNote">—</span>
+      </div>
+      <canvas id="ball" width="860" height="600" aria-label="Compression state as 256 boundary spikes"></canvas>
+    </section>
+
+    <section class="box">
+      <div class="box-head">
+        <span class="box-title">Residue spectrum at depth</span>
+        <span class="box-note">32 classes · standard errors</span>
+      </div>
+      <canvas id="scope" width="660" height="360" aria-label="Residue spectrum by class"></canvas>
+      <dl class="readout">
+        <div><dt>Round</dt><dd id="rRound">—</dd></div>
+        <div><dt>Hot bits</dt><dd id="rHot">—</dd></div>
+        <div><dt>Moved</dt><dd id="rMoved">—</dd></div>
+        <div><dt>Filter</dt><dd id="rFilter">—</dd></div>
+        <div><dt>Σ1 (6,11,25)</dt><dd id="rS1">—</dd></div>
+        <div><dt>Σ0 (2,13,22)</dt><dd id="rS0">—</dd></div>
+      </dl>
+    </section>
+  </div>
+
+  <section class="box">
+    <div class="box-head">
+      <span class="box-title">Every round, every class</span>
+      <span class="box-note">64 depths × 32 residue classes — the whole measurement in one frame</span>
+    </div>
+    <canvas id="field" width="1280" height="330" aria-label="Residue value by round and class"></canvas>
+  </section>
+
+  <section class="box">
+    <div class="box-head">
+      <span class="box-title">Matched filter across depth</span>
+      <span class="box-note">waveform [0, 31, 6, 11, 25] — named from the round function, not chosen after looking</span>
+    </div>
+    <canvas id="strip" width="1280" height="180" aria-label="Matched filter value by round"></canvas>
+  </section>
+
+  <div class="bar">
+    <div class="scrub">
+      <label for="round">Round</label>
+      <input type="range" id="round" min="1" max="64" value="11" step="1">
+      <button class="wide" id="play" aria-pressed="false">Play</button>
+      <button class="wide" id="reset">Reset view</button>
+    </div>
+    <div class="levers">
+      <div class="lever"><span>Spikes shown</span>
+        <div class="seg" role="group" id="segShow">
+          <button data-v="both" aria-pressed="true">both</button>
+          <button data-v="hot" aria-pressed="false">hot</button>
+          <button data-v="cold" aria-pressed="false">cold</button>
+        </div>
+      </div>
+      <div class="lever"><span>Marked classes</span>
+        <div class="seg" role="group" id="segMark">
+          <button data-v="wave" aria-pressed="true">wave</button>
+          <button data-v="s1" aria-pressed="false">Σ1</button>
+          <button data-v="s0" aria-pressed="false">Σ0</button>
+          <button data-v="none" aria-pressed="false">none</button>
+        </div>
+      </div>
+      <div class="lever"><span>Ring</span>
+        <div class="seg" role="group" id="segRing">
+          <button data-v="-1" aria-pressed="true">all</button>
+          <button data-v="0" aria-pressed="false">0</button>
+          <button data-v="2" aria-pressed="false">2</button>
+          <button data-v="4" aria-pressed="false">4</button>
+          <button data-v="6" aria-pressed="false">6</button>
+        </div>
+      </div>
+      <div class="lever"><span>Null band</span>
+        <div class="seg" role="group" id="segNull">
+          <button data-v="1" aria-pressed="true">show</button>
+          <button data-v="0" aria-pressed="false">hide</button>
+        </div>
+      </div>
+      <div class="lever"><span>Spin</span>
+        <div class="seg" role="group" id="segSpin">
+          <button data-v="1" aria-pressed="true">on</button>
+          <button data-v="0" aria-pressed="false">off</button>
+        </div>
+      </div>
+      <div class="lever"><span>Stick colour</span>
+        <div class="seg" role="group" id="segColour">
+          <button data-v="state" aria-pressed="true">hot</button>
+          <button data-v="role" aria-pressed="false">a·e</button>
+          <button data-v="word" aria-pressed="false">word</button>
+          <button data-v="dwell" aria-pressed="false">dwell</button>
+        </div>
+      </div>
+      <div class="lever"><span>Move tracer</span>
+        <div class="seg" role="group" id="segTracer">
+          <button data-v="both" aria-pressed="true">both</button>
+          <button data-v="on" aria-pressed="false">lit</button>
+          <button data-v="off" aria-pressed="false">out</button>
+          <button data-v="none" aria-pressed="false">off</button>
+        </div>
+      </div>
+      <div class="lever"><span>Field reading</span>
+        <div class="seg" role="group" id="segField">
+          <button data-v="abs" aria-pressed="true">value</button>
+          <button data-v="diff" aria-pressed="false">Δ round</button>
+        </div>
+      </div>
+      <div class="lever"><span>Tracer strength <var id="vAmp">62</var></span>
+        <input type="range" id="amp" min="0" max="100" value="62" step="1">
+      </div>
+      <div class="lever"><span>Smear <var id="vSmear">14</var></span>
+        <input type="range" id="smear" min="0" max="32" value="14" step="1">
+      </div>
+      <div class="lever"><span>Spike length <var id="vLen">52</var></span>
+        <input type="range" id="len" min="8" max="130" value="52" step="1">
+      </div>
+      <div class="lever"><span>Field wash <var id="vWash">55</var></span>
+        <input type="range" id="wash" min="0" max="100" value="55" step="1">
+      </div>
+      <div class="lever"><span>Scope range ±<var id="vRange">5</var></span>
+        <input type="range" id="range" min="2" max="12" value="5" step="1">
+      </div>
+      <div class="lever"><span>Perspective <var id="vPersp">55</var></span>
+        <input type="range" id="persp" min="0" max="100" value="55" step="1">
+      </div>
+      <div class="lever"><span>Play speed <var id="vSpeed">320</var>ms</span>
+        <input type="range" id="speed" min="60" max="900" value="320" step="20">
+      </div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--hot)"></i>hot bit / positive residue</span>
+      <span><i style="background:var(--cold)"></i>cold bit / negative residue</span>
+      <span><i style="background:var(--mark)"></i>waveform class · computed words a, e</span>
+      <span><i style="background:var(--null)"></i>null band, ±2 s.e.</span>
+      <span><i style="border:1.5px solid var(--ink-strong);background:transparent"></i>tracer: bit ignited this round</span>
+      <span><i style="border:1.5px solid var(--mark);background:transparent"></i>tracer: bit went out</span>
+    </div>
+  </div>
+
+  <footer>
+    <p>Spikes are the real compression state of a real block — drag the ball to turn it; the smear
+      trails the preceding rounds so the deformation reads as motion rather than a single frame.
+      Residues come from <code>shadows.csv</code>, standardised against the scatter of the other
+      classes with the common mode removed. Classes <b>0, 31, 6, 11, 25</b> are the diagonal, the
+      carry (−1 mod 32) and Σ1's three rotation amounts — the only ways SHA-256 moves bits across
+      positions. The waveform was named from the round function before the spectrum was opened, so
+      its matched filter carries no multiple-comparison penalty. Past depth 24 the receiver finds
+      nothing: the largest magnitude anywhere is 2.30 against a null peak of 2.45.</p>
+  </footer>
+</div>
+
+<script>
+const DATA = /*DATA*/;
+const WAVE = DATA.waveform, S0 = DATA.sigma0, S1 = DATA.sigma1;
+const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const state = {
+  round: 11, show: "both", mark: "wave", ring: -1, showNull: true,
+  spin: !reduce, smear: 14, len: 52, wash: 55, range: 5, persp: 55, speed: 320,
+  tracer: "both", tracerAmp: 62, fieldMode: "abs", colour: "state",
+  yaw: 0.6, pitch: -0.32, playing: false
+};
+
+const litCache = new Map();
+function litSet(r) {
+  if (litCache.has(r)) return litCache.get(r);
+  const hex = DATA.rounds[r], bits = new Uint8Array(256);
+  for (let i = 0; i < 64; i++) {
+    const nib = parseInt(hex[i], 16);
+    for (let b = 0; b < 4; b++) bits[i * 4 + b] = (nib >> (3 - b)) & 1;
+  }
+  litCache.set(r, bits);
+  return bits;
+}
+const hotCount = (r) => litSet(r).reduce((a, v) => a + v, 0);
+
+/* Dwell: how many rounds a bit has held its value. Frozen bits and churning bits separate. */
+const dwellCache = new Map();
+function dwellAt(r) {
+  if (dwellCache.has(r)) return dwellCache.get(r);
+  const now = litSet(r), out = new Uint8Array(256);
+  for (let i = 0; i < 256; i++) {
+    let d = 0;
+    for (let back = r - 1; back >= 0 && d < 24; back--) {
+      if (litSet(back)[i] !== now[i]) break;
+      d++;
+    }
+    out[i] = d;
+  }
+  dwellCache.set(r, out);
+  return out;
+}
+
+/* The instantaneous moves: which bits ignited and which went out entering this round. */
+const flipCache = new Map();
+function flipsAt(r) {
+  if (flipCache.has(r)) return flipCache.get(r);
+  const res = { on: [], off: [] };
+  if (r >= 1) {
+    const now = litSet(r), was = litSet(r - 1);
+    for (let i = 0; i < 256; i++) {
+      if (now[i] === was[i]) continue;
+      (now[i] ? res.on : res.off).push(i);
+    }
+  }
+  flipCache.set(r, res);
+  return res;
+}
+
+/* SHA-256's shift register: only words a and e are computed each round. The other six are
+   carried through unchanged, which is the structural fact the backward recovery proved. */
+const WORD_NAME = ["a", "b", "c", "d", "e", "f", "g", "h"];
+const COMPUTED = new Set([0, 4]);
+const wordOf = (i) => (i / 32) | 0;
+function wordHue(w) {
+  const light = matchMedia("(prefers-color-scheme: light)").matches
+    && document.documentElement.dataset.theme !== "dark";
+  return "hsl(" + Math.round(18 + w * 42) + ", 58%, " + (light ? "38%" : "60%") + ")";
+}
+
+const rowAt = (r) => DATA.spectrum[r] || new Array(32).fill(0);
+function filterOn(r, cls) {
+  const row = rowAt(r);
+  let s = 0; for (const c of cls) s += row[c];
+  return s / Math.sqrt(cls.length);
+}
+const filterAt = (r) => filterOn(r, WAVE);
+const marked = () => state.mark === "wave" ? WAVE : state.mark === "s1" ? S1
+                   : state.mark === "s0" ? S0 : [];
+
+/* --------------------------------------------------- 1. the spike ball */
+const ball = document.getElementById("ball"), bctx = ball.getContext("2d");
+function drawBall() {
+  const W = ball.width, H = ball.height, cx = W / 2, cy = H / 2;
+  const R = Math.min(W, H) * 0.33;
+  bctx.fillStyle = css("--panel"); bctx.fillRect(0, 0, W, H);
+
+  /* field wash: fills the whole pane so the spikes read against contrast, keyed to hot fraction */
+  const frac = hotCount(state.round) / 256;
+  if (state.wash > 0) {
+    const g = bctx.createRadialGradient(cx, cy, R * 0.15, cx, cy, Math.max(W, H) * 0.62);
+    const a = (state.wash / 100) * (0.10 + frac * 0.20);
+    g.addColorStop(0, hexA(css("--hot"), a));
+    g.addColorStop(0.45, hexA(css("--cold"), a * 0.42));
+    g.addColorStop(1, hexA(css("--cold"), 0));
+    bctx.fillStyle = g; bctx.fillRect(0, 0, W, H);
+  }
+
+  const cyy = Math.cos(state.yaw), syy = Math.sin(state.yaw);
+  const cp = Math.cos(state.pitch), sp = Math.sin(state.pitch);
+  const rot = (v) => {
+    const x = v[0] * cyy + v[2] * syy, z = -v[0] * syy + v[2] * cyy;
+    return [x, v[1] * cp - z * sp, v[1] * sp + z * cp];
+  };
+  const k = 0.15 + (state.persp / 100) * 0.85;
+  const proj = (p, rad) => {
+    const d = 3.4, f = d / (d - p[2] * 0.55 * k);
+    return [cx + p[0] * rad * f, cy - p[1] * rad * f];
+  };
+
+  bctx.strokeStyle = css("--grid"); bctx.lineWidth = 1;
+  for (let li = 1; li < 8; li++) {
+    const t = (li / 8) * Math.PI, sr = Math.sin(t), yy = Math.cos(t);
+    bctx.beginPath();
+    for (let a = 0; a <= 56; a++) {
+      const ang = (a / 56) * Math.PI * 2;
+      const p = proj(rot([sr * Math.cos(ang), yy, sr * Math.sin(ang)]), R);
+      a ? bctx.lineTo(p[0], p[1]) : bctx.moveTo(p[0], p[1]);
+    }
+    bctx.stroke();
+  }
+
+  const scale = state.len / 100, hotC = css("--hot"), coldC = css("--cold");
+
+  /* the smear: tips of preceding rounds, faded back through depth */
+  if (state.smear > 0) {
+    for (let back = state.smear; back >= 1; back--) {
+      const r = state.round - back;
+      if (r < 0) continue;
+      const bits = litSet(r), fade = (1 - back / (state.smear + 1)) * 0.34;
+      bctx.fillStyle = hotC; bctx.globalAlpha = fade;
+      for (let i = 0; i < 256; i++) {
+        if (!bits[i]) continue;
+        const ring = (i / 32) | 0;
+        if (state.ring >= 0 && ring !== state.ring) continue;
+        if (state.show === "cold") continue;
+        const v = rot(DATA.spikes[i]), o = 1 + scale;
+        const p = proj([v[0] * o, v[1] * o, v[2] * o], R);
+        bctx.fillRect(p[0] - 0.9, p[1] - 0.9, 1.8, 1.8);
+      }
+    }
+    bctx.globalAlpha = 1;
+  }
+
+  const bits = litSet(state.round), dwell = dwellAt(state.round);
+  const flips = flipsAt(state.round);
+  const onSet = new Set(flips.on), offSet = new Set(flips.off);
+  const markC = css("--mark"), brightC = css("--ink-strong");
+
+  function tint(i, hot) {
+    if (state.colour === "role") {
+      return COMPUTED.has(wordOf(i)) ? markC : (hot ? hotC : coldC);
+    }
+    if (state.colour === "word") return wordHue(wordOf(i));
+    if (state.colour === "dwell") {
+      const d = Math.min(dwell[i], 16) / 16;
+      return "hsl(" + Math.round(34 + d * 158) + ", 62%, " + (d > 0.7 ? "42%" : "58%") + ")";
+    }
+    return hot ? hotC : coldC;
+  }
+
+  const items = [];
+  for (let i = 0; i < 256; i++) {
+    const ring = (i / 32) | 0;
+    if (state.ring >= 0 && ring !== state.ring) continue;
+    const hot = bits[i] === 1;
+    if (state.show === "hot" && !hot) continue;
+    if (state.show === "cold" && hot) continue;
+    const v = rot(DATA.spikes[i]);
+    items.push({ i, v, hot, out: 1 + (hot ? scale : scale * 0.32) });
+  }
+  items.sort((a, b) => a.v[2] - b.v[2]);
+
+  for (const it of items) {
+    const a = proj(it.v, R);
+    const b = proj([it.v[0] * it.out, it.v[1] * it.out, it.v[2] * it.out], R);
+    const depth = (it.v[2] + 1) / 2;
+    bctx.globalAlpha = it.hot ? 0.32 + depth * 0.64 : 0.14 + depth * 0.32;
+    bctx.strokeStyle = tint(it.i, it.hot);
+    bctx.lineWidth = it.hot ? 2.1 : 1.1;
+    bctx.beginPath(); bctx.moveTo(a[0], a[1]); bctx.lineTo(b[0], b[1]); bctx.stroke();
+    if (it.hot) {
+      bctx.fillStyle = tint(it.i, true);
+      bctx.beginPath(); bctx.arc(b[0], b[1], 2.0, 0, 6.2832); bctx.fill();
+    }
+
+    /* Tracers on the instantaneous moves. Thin open rings, so they read at a glance and still
+       leave the state underneath visible. */
+    const amp = state.tracerAmp / 100;
+    const ignited = onSet.has(it.i), quenched = offSet.has(it.i);
+    const wantOn = state.tracer === "both" || state.tracer === "on";
+    const wantOff = state.tracer === "both" || state.tracer === "off";
+    if ((ignited && wantOn) || (quenched && wantOff)) {
+      const tipOut = 1 + scale;
+      const tp = proj([it.v[0] * tipOut, it.v[1] * tipOut, it.v[2] * tipOut], R);
+      bctx.globalAlpha = (0.45 + depth * 0.55) * amp;
+      bctx.strokeStyle = ignited ? brightC : markC;
+      bctx.lineWidth = 1.5;
+      bctx.beginPath(); bctx.arc(tp[0], tp[1], ignited ? 5.4 : 4.2, 0, 6.2832); bctx.stroke();
+      if (ignited) {
+        bctx.globalAlpha = 0.3 * amp;
+        bctx.beginPath(); bctx.arc(tp[0], tp[1], 9.2, 0, 6.2832); bctx.stroke();
+      }
+    }
+  }
+  bctx.globalAlpha = 1;
+
+  document.getElementById("ballNote").textContent =
+    hotCount(state.round) + "/256 hot · +" + flips.on.length + " / −" + flips.off.length +
+    " moved · round " + state.round;
+}
+function hexA(hex, a) {
+  const h = hex.replace("#", "");
+  const n = parseInt(h.length === 3 ? h.split("").map((c) => c + c).join("") : h, 16);
+  return "rgba(" + ((n >> 16) & 255) + "," + ((n >> 8) & 255) + "," + (n & 255) + "," + a + ")";
+}
+
+/* ------------------------------------------------------ 2. the A-scope */
+const scope = document.getElementById("scope"), sctx = scope.getContext("2d");
+function drawScope() {
+  const W = scope.width, H = scope.height, padL = 40, padR = 12, padT = 14, padB = 32;
+  const iw = W - padL - padR, ih = H - padT - padB;
+  sctx.fillStyle = css("--panel"); sctx.fillRect(0, 0, W, H);
+  const row = rowAt(state.round), lim = state.range;
+  const y = (v) => padT + ih / 2 - (Math.max(-lim, Math.min(lim, v)) / lim) * (ih / 2);
+
+  if (state.showNull) { sctx.fillStyle = css("--null"); sctx.fillRect(padL, y(2), iw, y(-2) - y(2)); }
+  sctx.font = '500 10px ' + css("--mono");
+  sctx.textAlign = "right"; sctx.textBaseline = "middle";
+  const step = lim <= 4 ? 1 : lim <= 8 ? 2 : 4;
+  for (let g = -lim; g <= lim; g += step) {
+    sctx.strokeStyle = css("--grid");
+    sctx.beginPath(); sctx.moveTo(padL, y(g) + 0.5); sctx.lineTo(padL + iw, y(g) + 0.5); sctx.stroke();
+    sctx.fillStyle = css("--dim");
+    sctx.fillText((g > 0 ? "+" : "") + g, padL - 6, y(g));
+  }
+  sctx.strokeStyle = css("--edge");
+  sctx.beginPath(); sctx.moveTo(padL, y(0) + 0.5); sctx.lineTo(padL + iw, y(0) + 0.5); sctx.stroke();
+
+  const marks = marked(), bw = iw / 32;
+  for (let c = 0; c < 32; c++) {
+    const v = row[c], isM = marks.includes(c);
+    sctx.fillStyle = isM ? css("--mark") : (v >= 0 ? css("--hot") : css("--cold"));
+    sctx.globalAlpha = isM ? 1 : 0.7;
+    sctx.fillRect(padL + c * bw + bw * 0.16, Math.min(y(0), y(v)), bw * 0.68,
+                  Math.max(Math.abs(y(v) - y(0)), 1));
+  }
+  sctx.globalAlpha = 1;
+  sctx.font = '500 9.5px ' + css("--mono");
+  sctx.textAlign = "center"; sctx.textBaseline = "top";
+  for (const c of [0, 6, 11, 25, 31]) {
+    sctx.fillStyle = marks.includes(c) ? css("--mark") : css("--dim");
+    sctx.fillText(String(c), padL + c * bw + bw / 2, padT + ih + 6);
+  }
+  sctx.fillStyle = css("--dim"); sctx.textAlign = "left";
+  sctx.fillText("residue class  (bit-position difference, mod 32)", padL, padT + ih + 19);
+
+  let peak = 1;
+  for (let c = 1; c < 32; c++) if (Math.abs(row[c]) > Math.abs(row[peak])) peak = c;
+  const f = filterAt(state.round);
+  document.getElementById("rRound").textContent = state.round;
+  document.getElementById("rHot").textContent = hotCount(state.round);
+  const fl = flipsAt(state.round);
+  document.getElementById("rMoved").textContent = "+" + fl.on.length + " / −" + fl.off.length;
+  const fe = document.getElementById("rFilter");
+  fe.textContent = (f >= 0 ? "+" : "") + f.toFixed(2);
+  fe.className = Math.abs(f) >= 2 ? "sig" : "quiet";
+  for (const [id, cls] of [["rS1", S1], ["rS0", S0]]) {
+    const v = filterOn(state.round, cls), el = document.getElementById(id);
+    el.textContent = (v >= 0 ? "+" : "") + v.toFixed(2);
+    el.className = Math.abs(v) >= 2 ? "sig" : "quiet";
+  }
+}
+
+/* --------------------------------------- 3. every round, every class */
+const field = document.getElementById("field"), fctx = field.getContext("2d");
+function drawField() {
+  const W = field.width, H = field.height, padL = 44, padR = 14, padT = 14, padB = 28;
+  const iw = W - padL - padR, ih = H - padT - padB;
+  fctx.fillStyle = css("--panel"); fctx.fillRect(0, 0, W, H);
+  const cw = iw / 64, ch = ih / 32, lim = state.range;
+  const hotC = css("--hot"), coldC = css("--cold");
+
+  const diff = state.fieldMode === "diff";
+  for (let r = 1; r <= 64; r++) {
+    const row = rowAt(r), prev = rowAt(Math.max(1, r - 1));
+    for (let c = 0; c < 32; c++) {
+      const v = diff ? row[c] - prev[c] : row[c];
+      const m = Math.min(1, Math.abs(v) / lim);
+      fctx.globalAlpha = 0.07 + m * 0.93;
+      fctx.fillStyle = v >= 0 ? hotC : coldC;
+      fctx.fillRect(padL + (r - 1) * cw, padT + c * ch, Math.ceil(cw), Math.ceil(ch));
+    }
+  }
+  fctx.globalAlpha = 1;
+
+  const marks = marked();
+  fctx.strokeStyle = css("--mark"); fctx.lineWidth = 1;
+  for (const c of marks) {
+    fctx.strokeRect(padL + 0.5, padT + c * ch + 0.5, iw - 1, ch - 1);
+  }
+  fctx.strokeStyle = css("--ink-strong"); fctx.lineWidth = 1.6;
+  fctx.beginPath();
+  fctx.moveTo(padL + (state.round - 1) * cw + cw / 2, padT);
+  fctx.lineTo(padL + (state.round - 1) * cw + cw / 2, padT + ih);
+  fctx.stroke();
+
+  fctx.font = '500 9.5px ' + css("--mono"); fctx.fillStyle = css("--dim");
+  fctx.textAlign = "right"; fctx.textBaseline = "middle";
+  for (const c of [0, 6, 11, 25, 31]) {
+    fctx.fillStyle = marks.includes(c) ? css("--mark") : css("--dim");
+    fctx.fillText(String(c), padL - 6, padT + c * ch + ch / 2);
+  }
+  fctx.fillStyle = css("--dim");
+  fctx.textAlign = "center"; fctx.textBaseline = "top";
+  for (const r of [1, 8, 16, 24, 32, 40, 48, 56, 64]) {
+    fctx.fillText(String(r), padL + (r - 1) * cw + cw / 2, padT + ih + 6);
+  }
+  fctx.textAlign = "left";
+  fctx.fillText("round  →   (class on the vertical)", padL, padT + ih + 17);
+}
+
+/* ------------------------------------------------- 4. the depth strip */
+const strip = document.getElementById("strip"), tctx = strip.getContext("2d");
+function drawStrip() {
+  const W = strip.width, H = strip.height, padL = 44, padR = 14, padT = 12, padB = 26;
+  const iw = W - padL - padR, ih = H - padT - padB;
+  tctx.fillStyle = css("--panel"); tctx.fillRect(0, 0, W, H);
+  const vals = []; for (let r = 1; r <= 64; r++) vals.push(filterAt(r));
+  const lim = Math.max(6, Math.ceil(Math.max(...vals.map(Math.abs))));
+  const x = (r) => padL + ((r - 1) / 63) * iw;
+  const y = (v) => padT + ih / 2 - (v / lim) * (ih / 2);
+
+  if (state.showNull) { tctx.fillStyle = css("--null"); tctx.fillRect(padL, y(2), iw, y(-2) - y(2)); }
+  tctx.font = '500 10px ' + css("--mono");
+  tctx.textAlign = "right"; tctx.textBaseline = "middle";
+  for (let g = -lim; g <= lim; g += lim / 2) {
+    tctx.strokeStyle = css("--grid");
+    tctx.beginPath(); tctx.moveTo(padL, y(g) + 0.5); tctx.lineTo(padL + iw, y(g) + 0.5); tctx.stroke();
+    tctx.fillStyle = css("--dim");
+    tctx.fillText((g > 0 ? "+" : "") + g.toFixed(0), padL - 6, y(g));
+  }
+  tctx.fillStyle = css("--hot"); tctx.globalAlpha = 0.15;
+  tctx.beginPath(); tctx.moveTo(x(1), y(0));
+  for (let r = 1; r <= 64; r++) tctx.lineTo(x(r), y(vals[r - 1]));
+  tctx.lineTo(x(64), y(0)); tctx.closePath(); tctx.fill();
+  tctx.globalAlpha = 1;
+  tctx.strokeStyle = css("--hot"); tctx.lineWidth = 1.9;
+  tctx.beginPath();
+  for (let r = 1; r <= 64; r++) { const p = [x(r), y(vals[r - 1])]; r === 1 ? tctx.moveTo(p[0], p[1]) : tctx.lineTo(p[0], p[1]); }
+  tctx.stroke();
+  tctx.strokeStyle = css("--mark"); tctx.lineWidth = 1.4;
+  tctx.beginPath(); tctx.moveTo(x(state.round), padT); tctx.lineTo(x(state.round), padT + ih); tctx.stroke();
+  tctx.fillStyle = css("--mark");
+  tctx.beginPath(); tctx.arc(x(state.round), y(vals[state.round - 1]), 3.4, 0, 6.2832); tctx.fill();
+  tctx.fillStyle = css("--dim");
+  tctx.textAlign = "center"; tctx.textBaseline = "top";
+  for (const r of [1, 8, 16, 24, 32, 40, 48, 56, 64]) tctx.fillText(String(r), x(r), padT + ih + 6);
+  tctx.textAlign = "left"; tctx.fillText("round", padL, padT + ih + 6);
+}
+
+function render() { drawBall(); drawScope(); drawField(); drawStrip(); }
+
+document.getElementById("ident").innerHTML =
+  '<span>block <em>' + DATA.height.toLocaleString() + '</em></span>' +
+  '<span>nonce <em>' + DATA.nonce.toLocaleString() + '</em></span>' +
+  '<span>digest <em>' + DATA.id.slice(0, 12) + '…' + DATA.id.slice(-6) + '</em></span>' +
+  '<span>rank <em>256 modes</em></span>' +
+  '<span>null peak <em>2.45</em></span>';
+
+const roundEl = document.getElementById("round");
+roundEl.addEventListener("input", () => { state.round = +roundEl.value; render(); });
+
+function knob(id, key, label, after) {
+  const el = document.getElementById(id), out = document.getElementById(label);
+  el.addEventListener("input", () => {
+    state[key] = +el.value;
+    if (out) out.textContent = el.value;
+    (after || render)();
+  });
+}
+knob("smear", "smear", "vSmear", drawBall);
+knob("len", "len", "vLen", drawBall);
+knob("wash", "wash", "vWash", drawBall);
+knob("persp", "persp", "vPersp", drawBall);
+knob("range", "range", "vRange", () => { drawScope(); drawField(); });
+knob("speed", "speed", "vSpeed", () => {});
+knob("amp", "tracerAmp", "vAmp", drawBall);
+
+function seg(id, key, cast, after) {
+  const g = document.getElementById(id);
+  g.addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    [...g.querySelectorAll("button")].forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    state[key] = cast(b.dataset.v);
+    (after || render)();
+  });
+}
+seg("segShow", "show", String, drawBall);
+seg("segMark", "mark", String, render);
+seg("segRing", "ring", Number, drawBall);
+seg("segNull", "showNull", (v) => v === "1", render);
+seg("segSpin", "spin", (v) => v === "1", () => {});
+seg("segColour", "colour", String, drawBall);
+seg("segTracer", "tracer", String, drawBall);
+seg("segField", "fieldMode", String, drawField);
+
+const playBtn = document.getElementById("play");
+playBtn.addEventListener("click", () => {
+  state.playing = !state.playing;
+  playBtn.textContent = state.playing ? "Pause" : "Play";
+  playBtn.setAttribute("aria-pressed", String(state.playing));
+});
+document.getElementById("reset").addEventListener("click", () => {
+  state.yaw = 0.6; state.pitch = -0.32; drawBall();
+});
+
+let drag = null;
+ball.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, y: e.clientY }; ball.setPointerCapture(e.pointerId); });
+ball.addEventListener("pointermove", (e) => {
+  if (!drag) return;
+  state.yaw += (e.clientX - drag.x) * 0.009;
+  state.pitch = Math.max(-1.4, Math.min(1.4, state.pitch + (e.clientY - drag.y) * 0.007));
+  drag = { x: e.clientX, y: e.clientY };
+  drawBall();
+});
+ball.addEventListener("pointerup", () => { drag = null; });
+ball.addEventListener("pointercancel", () => { drag = null; });
+
+let last = 0, acc = 0;
+function tick(t) {
+  const dt = last ? t - last : 16; last = t;
+  if (state.spin && !drag) { state.yaw += dt * 0.00015; drawBall(); }
+  if (state.playing) {
+    acc += dt;
+    if (acc > state.speed) {
+      acc = 0;
+      state.round = state.round >= 64 ? 1 : state.round + 1;
+      roundEl.value = state.round;
+      render();
+    }
+  }
+  requestAnimationFrame(tick);
+}
+render();
+requestAnimationFrame(tick);
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+</script>

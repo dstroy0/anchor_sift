@@ -1,0 +1,192 @@
+# Prose rewrites for maint/fix_prose.py. Three tab separated fields: file, exact text to find,
+# replacement. Use \n for a line break inside a field.
+#
+# This file quotes banned phrases by necessity, since that is what it matches on. The gate does not
+# read .tsv, which is why the table lives here and not inside the tool.
+#
+# Every row below has been applied. They are kept as the record of what was changed and why the
+# wording is what it is, and re-running reports them as already applied.
+tools/view/README.md	candidates. The rest hardcode a path into this repository and are examples of the pattern rather\nthan tools:	candidates. The rest hardcode a path into this repository and are examples of the pattern,\nnot tools:
+tools/view/README.md	Checked by opening each one rather than by pattern: `make_shadow_figure.py` reads as general to a\ngrep for `src/bench` because it builds the path with two nested `dirname` calls, and it is not.	Checked by opening each one and never by pattern: `make_shadow_figure.py` reads as general to a\ngrep for `src/bench` because it builds the path with two nested `dirname` calls, and it is not.
+tools/view/README.md	Every general generator takes `--set key=value`, repeatable, so a caller asks for a view instead of\npublishing one and describing which controls to move. An unknown key exits with the list of known\nones, because a typo is otherwise silent and the page just opens looking wrong.	Every general generator takes `--set key=value`, repeatable. A caller asks for a view instead of\npublishing one and describing which controls to move. An unknown key exits with the list of known\nones, because a typo is otherwise silent and the page just opens looking wrong.
+tools/view/README.md	series toggle off, y switches to log. It prints which columns it chose so a wrong guess is visible.	series toggle off, y switches to log. It prints which columns it chose, making a wrong guess visible.
+tools/view/build_step_view.py	between them, which is the difference itself.	between them: the difference itself.
+tools/view/build_step_view.py	# A real 512-bit message tail, so the trace is of something that occurs rather than of zeros.\n# Word 3 is the one --bit 96 through 127 varies.	# A real 512-bit message tail, so the trace is of something that occurs and not of zeros.\n# Word 3 is what --bit 96 through 127 varies.
+tools/view/build_step_view.py	"""Every intermediate of every round, kept rather than discarded."""	"""Every intermediate of every round, kept and never discarded."""
+tools/view/build_voxel_view.py	    # Word pairs arrive as 16 planes of 8 and are flattened here rather than in the page, because\n    # the template now takes one shape for every field: a list of series over the depth axis. That\n    # is the whole reason it renders any parametric table and not only this one.	    # Word pairs arrive as 16 planes of 8 and are flattened here and not in the page, because\n    # the template now takes one shape for every field: a list of series over the depth axis.\n    # For that reason it renders any parametric table and not only this one.
+tools/view/make_shadow_figure.py	# through the other, and a cell at zero is blank rather than a dot, so empty reads as em	# through the other, and a cell at zero is blank and not a dot, so empty reads as em
+tools/view/make_shadow_figure.py	# With the class mean removed at each depth, which is the only reading that means anythi	# With the class mean removed at each depth, the only reading that means anythi
+src/bench/bench_depth_score.h	The one place	The single place
+src/bench/bench_depth_score.h	is exactly the	is the
+src/bench/bench_depth_score.h	s exact rather than fitted.	s exact and not fitted.
+src/bench/bench_depth_score.h	, which is the	, the
+src/bench/bench_depth_score.h	ceiling rather than toward 	ceiling and not toward 
+src/bench/bench_depth_score.h	inement rather than a secon	inement and not a secon
+src/bench/bench_load_limit.h	r turns rather than for cor	r turns and not for cor
+src/bench/bench_load_limit.h	 things rather than one. Th	 things and not one. Th
+src/bench/bench_load_limit.h	on purpose	deliberately
+src/bench/bench_load_limit.h	workers rather than fifteen	workers and not fifteen
+src/bench/bench_nature_score.h	The one place	The single place
+src/bench/bench_nature_score.h	, which is the	, the
+src/bench/bench_nature_score.h	rather than	and not
+src/bench/bench_renyi_cuda.h	s exact rather than statist	s exact and not statist
+src/bench/bench_renyi_cuda.h	That is the reason	That is the ground on which
+src/bench/bench_renyi_cuda.h	dded to rather than overwri	dded to and not overwri
+src/bench/bench_renyi_cuda.h	l fails rather than silentl	l fails and not silentl
+src/bench/bench_seed.h	ariable rather than an argu	ariable and not an argu
+src/bench/bench_seed.h	history rather than a break	history and not a break
+src/bench/bench_seed.h	e a run rather than a mista	e a run and not a mista
+src/engine/anchor_sift.c	, which is the	, the
+src/engine/anchor_sift.h	That is what makes	That leaves
+src/engine/cuda_miner.h	er count, which is what cuda_mi	er count, as cuda_mi
+src/engine/cuda_miner.h	, which is what makes	, and that leaves
+src/engine/sha256_core.c	and nothing else	, alone
+src/engine/sha256_core.c	rd right, which is the only ro	rd right, the only ro
+src/engine/sha256_core.c	ian word, which is the order t	ian word, the order t
+src/engine/sha256_core.c	, which is why	, and so
+src/engine/sha256_core.c	ly block, which is the first h	ly block, the first h
+src/engine/sha256_core.c	h exact rather than heurist	h exact and not heurist
+src/engine/sha256_core.c	, which is what	, as
+src/engine/sha256_core.c	chedule rather than into a 	chedule and not into a 
+src/engine/sha256_core.c	 defers rather than inventi	 defers instead of inventi
+src/engine/sha256_core.c	ls back rather than issuing	ls back instead of issuing
+src/engine/sha256_core.h	, which is what	, as
+src/engine/sha256_core.h	_scalar rather than risk re	_scalar and not risk re
+src/engine/sha256_core.h	hecking rather than for	hecking and not for
+src/engine/sha256_core.h	 domain rather than assumin	 domain instead of assumin
+src/format/json_value.h	 parsed rather than pattern	 parsed and not pattern
+src/format/json_value.h	and nothing more	, alone
+src/format/json_value.h	eholder rather than given a	eholder and not given a
+src/bench/bench_depth_score.h	which is exactly the size	exactly the size
+src/bench/bench_depth_score.h	so a pair	and a pair
+src/bench/bench_load_limit.h	is worse than not measuring	defeats the measurement
+src/bench/bench_load_limit.h	so a run	and a run
+src/bench/bench_renyi_cuda.h	so a caller	and a caller
+src/bench/bench_seed.h	outside so a result can be told from a draw	outside, to tell a result from a draw
+src/bench/bench_seed.h	is a draw and not a finding	is a property of the draw
+src/bench/bench_seed.h	so a sweep	and a sweep
+src/engine/anchor_sift.c	so a driver	so that a driver
+src/engine/anchor_sift.h	so a driver can call them	so that a driver can call them
+src/engine/anchor_sift.h	through one pointer and a disagreement between two of them is a defect and not a tradeoff.	through one pointer. A disagreement between two of them is a defect.
+src/engine/cuda_miner.h	so a bias bound	and a bias bound
+src/engine/cuda_miner.h	that leaves putting	that makes putting
+src/engine/sha256_core.c	so a survivor	and a survivor
+src/engine/sha256_core.c	is worse than no fast path	costs more than it saves
+src/engine/sha256_core.c	protocol reads, which is	protocol reads:
+src/engine/sha256_core.c	so a caller falls back	so that a caller falls back
+src/engine/sha256_core.c	so a difficulty far	so any difficulty far
+src/engine/sha256_core.c	so a bit at position p	and a bit at position p
+src/engine/sha256_core.h	is the one under measurement, so a disagreement between them is a defect and not a tradeoff.	is under measurement, and a disagreement between them is a defect.
+src/engine/sha256_core.h	so a defect here	and a defect here
+src/engine/sha256_core.h	on every nonce rather	on every nonce instead
+src/engine/sha256_core.h	than only where the anchor	of only where the anchor
+src/engine/sha256_core.h	so a scan that finds	and a scan that finds
+src/engine/sha256_core.h	so a range split	and a split
+src/bench/bench_renyi_cuda.h	That is the ground on which this file exists, more than the speed itself.	This file exists for that, more than for the speed itself.
+src/bench/bench_renyi_cuda.h	the call fails and not silently skipping it	the call fails instead of silently skipping it
+src/bench/bench_nature_score.h	and not sampled and it is drawn	and not sampled, and it is drawn
+src/engine/anchor_sift.h	correctness. That leaves a	correctness. That makes a
+src/engine/cuda_miner.h	the winner count, as cuda_miner_scan reports	the winner count that cuda_miner_scan reports
+src/engine/sha256_core.h	twice, as Bitcoin means by a hash	twice, the operation Bitcoin means by a hash
+src/engine/sha256_core.h	and not risk refusing a nonce	instead of refusing a nonce
+src/format/json_value.h	parses the value grammar, alone.	parses the value grammar and stops there.
+tools/view/sphere_field.py	(r/R)^l, so a	(r/R)^l, and a
+tools/view/sphere_field.py	near the centre reaches	near the center reaches
+tools/view/sphere_field.py	volume, which is the statement worth measuring rather	volume, a statement worth measuring instead
+tools/view/sphere_field.py	than asserting	of asserting
+tools/view/sphere_field.py	and nothing else needs computing.	and no further computation is needed.
+tools/view/sphere_field.py	degree zero alone, so a boundary	degree zero alone, and a boundary
+tools/view/sphere_field.py	goes wrong, so a picture	goes wrong, and a picture
+tools/view/sphere_field.py	the whole of the physics	all of the physics
+tools/view/sphere_field.py	this basis, so a source costs	this basis, and a source costs
+tools/view/sphere_field.py	the whole field rather than per source.	the whole field and not per source.
+tools/view/sphere_field.py	which is a summary and not a decomposition.	summarizing them without separating them.
+tools/view/sphere_field.py	a definition rather than a	a definition instead of a
+tools/view/sphere_field.py	at the centre returns pi	at the center returns pi
+tools/view/sphere_field.py	and this is where the claim	and there the claim
+tools/view/sphere_field.py	from its centre to the far side. It falls away from the centre	from its center to the far side. It falls away from the center
+tools/view/sphere_field.py	again, so a level cuts it	again, and a level cuts it
+tools/view/sphere_field.py	enters, which is the reason this is the quantity worth reporting:	enters, and that makes it the quantity worth reporting:
+tools/view/sphere_field.py	The level is a reading and not a measurement.	The level is a reading, never a measurement.
+tools/view/build_sphere_view.py	in bits, so a byte that fills	in bits, and a byte that fills
+tools/view/build_sphere_view.py	leaves degree zero, which	leaves degree zero, the shape
+tools/view/build_sphere_view.py	is what a reading with nothing injected looks like.	of a reading with nothing injected.
+tools/view/build_sphere_view.py	by averaging rather than by a value here	by averaging and not by a value here
+tools/view/build_sphere_view.py	sees the data, which is the null	sees the data, the null
+tools/view/build_sphere_view.py	value, so a bare word	value, and a bare word
+tools/view/build_orrery_view.py	can print, so a body	can print, and a body
+tools/view/build_orrery_view.py	near the centre is a broad warmth	near the center is a broad warmth
+tools/view/build_orrery_view.py	tools use, so a seed means	tools use, so that a seed means
+tools/view/build_orrery_view.py	That is the reason the run has to be long	The run has to be long for that reason
+tools/view/build_orrery_view.py	pass dead centre.	pass dead center.
+tools/view/build_orrery_view.py	than it is, which is the failure this construction exists to avoid.	than it is. That failure is what this construction exists to avoid.
+tools/view/build_orrery_view.py	from the centre to the patch	from the center to the patch
+tools/view/build_orrery_view.py	fundamental first, which is the period the body actually has.	fundamental first: the period the body actually has.
+tools/view/build_orrery_view.py	and nothing else went into it	and no other quantity went into it
+tools/view/build_orrery_view.py	never sees, so a recovery	never sees, and a recovery
+tools/view/build_orrery_view.py	makes neighbouring bins copies of one another, so a window	makes neighboring bins copies of one another, and a window
+tools/view/build_orrery_view.py	was tried and is worse than not filtering	was tried and made the answer worse
+tools/view/build_orrery_view.py	close to the centre has	close to the center has
+maint/build_fixes.py	impossible rather than unlikely.	impossible instead of unlikely.
+maint/build_fixes.py	is reported rather than replaced at the wrong site.	is reported instead of replaced at the wrong site.
+maint/grade_unread.py	rather than graded twice.	instead of graded twice.
+maint/plan_fixes.py	it reports `rather` where the text says `rather than`. A swap	it reports the bare contrast word where the text carries its two-word form. A swap
+maint/plan_fixes.py	Swap a connective for one that carries the same relation. `rather than` and `and not` both mark a	Swap a connective for one that carries the same relation. The two forms in the table below mark a
+maint/plan_fixes.py	and that is why every proposal goes through the	and for that reason every proposal goes through the
+maint/plan_fixes.py	Replacing a bare `which is the` with `, the` where the	Replacing a bare explainer with its comma-led form where the
+maint/plan_fixes.py	# `rather than` takes two shapes. Before a noun or a participle the contrast survives as	# The contrast phrase takes two shapes. Before a noun or a participle it survives as
+maint/plan_fixes.py	# `and not`: "exact rather than fitted" becomes "exact and not fitted". Before a gerund it	# the paired form, where a null described one way becomes one described the other. Before a gerund
+maint/plan_fixes.py	# does not, because the verb needs a preposition to hang from: "defers rather than	# it does not, because the verb needs a preposition to hang from. A deferral standing before
+maint/plan_fixes.py	# inventing" becomes "defers instead of inventing", never "defers and not inventing".	# a gerund takes the preposition form, and the paired form reads wrong in that position.
+tools/view/build_room_view.py	falling with energy rather than a wall becoming a window.	falling with energy and not a wall becoming a window.
+tools/view/build_room_view.py	WHY THE SHELL SHAPE IS A CONTROL AND NOT A SETTING	WHY THE SHELL SHAPE IS A CONTROL
+tools/view/build_room_view.py	drawn evenly over the directions rather than evenly over the angles.	drawn evenly over the directions and not evenly over the angles.
+tools/view/build_room_view.py	survive averaging, which is the worst size for	survive averaging, the worst size for
+tools/view/boundary_count.py	the account is wrong and nothing else in	the account is wrong and no other part of
+tools/view/boundary_count.py	which is the mistake that makes a cube look like	the mistake that makes a cube look like
+tools/view/boundary_count.py	This is what says whether a packing count means anything.	This decides whether a packing count means anything.
+docs/boundary-counting.md	on nothing else here, so a cube has to be packed	on no other shape here, and a cube has to be packed
+docs/boundary-counting.md	a sum, and that is the work that would settle it.	a sum. That is the work that would settle it.
+docs/boundary-counting.md	fixes the boundary, so a whole family of interiors	fixes the boundary, and a whole family of interiors
+docs/boundary-counting.md	periods through Kepler, so a dynamical	periods through Kepler, and a dynamical
+docs/boundary-counting.md	visible in the tools rather than only in the literature	visible in the tools and not only in the literature
+docs/boundary-counting.md	tested for the wrong behaviour	tested for the wrong behavior
+docs/boundary-counting.md	the lattice point problem, which is the Gauss circle problem	the lattice point problem, the Gauss circle problem
+docs/boundary-counting.md	open problem rather than a defect in the measurement.	open problem and not a defect in the measurement.
+docs/boundary-counting.md	was measured rather than argued	was measured and not argued
+tools/view/gpu_pack.py	The device counts and nothing else.	The device counts, and does nothing further.
+tools/view/torus_count.py	which is the Gauss circle problem when d is two	the Gauss circle problem when d is two
+tools/view/torus_count.py	a known-hard quantity rather than a defect	a known-hard quantity and not a defect
+tools/view/torus_count.py	over a band of radii rather than at a point.	over a band of radii and not at a point.
+tools/view/build_sha_clock_view.py	exactly d + T1, which is the new e,	exactly d + T1, the new e,
+tools/view/build_sha_clock_view.py	rather than taken	and not taken
+tools/view/build_sha_clock_view.py	rather than truncated	and not truncated
+tools/view/build_sha_clock_view.py	d + T1, which is the new e, and op	d + T1, the new e, and op
+tools/view/build_sha_clock_view.py	alone, so a	alone, and a
+tools/view/build_sha_clock_view.py	state rather than recomputed	state and not recomputed
+tools/view/build_sha_clock_view.py	which is the reading	and it is the reading
+tools/view/build_sha_clock_view.py	angle rather than in height	angle and not in height
+tools/view/build_sha_clock_view.py	cost rather than being kept	cost instead of being kept
+tools/view/build_sha_clock_view.py	layout rather than the state	layout and not the state
+tools/view/build_sha_clock_view.py	an be checked against any other implementation rather than	an be checked against any other implementation and not
+tools/view/build_sha_room_view.py	from the centre	from the center
+tools/view/build_sha_room_view.py	golden angle, which is	golden angle, and it is
+tools/view/build_sha_room_view.py	uses, so a bit	uses, and a bit
+tools/view/build_sha_room_view.py	radius is what makes the shape	radius makes the shape
+tools/view/build_sha_room_view.py	set so a cell	set so that a cell
+tools/view/build_sha_room_view.py	the colour it is drawn in and nothing else	the color it is drawn in, alone
+tools/view/build_sha_room_view.py	check rather than assert, which is why the flag exists	check and not assert, and the flag is there
+tools/view/build_sha_room_view.py	exactly rather than landing	exactly instead of landing
+tools/view/build_sha_room_view.py	field rather than as the	field and not as the
+tools/view/build_sha_room_view.py	which is the one thing	the single thing
+tools/view/build_sha_room_view.py	it rather than being a colour change	it instead of being a color change
+tools/view/build_sha_room_view.py	refusing rather than shipping	refusing instead of shipping
+tools/view/build_sha_room_view.py	so the run says what it drew	so what it drew is printed
+tools/view/build_sha_pairs_view.py	a line through the centre.	a line through the center.
+tools/view/build_sha_pairs_view.py	centre exactly	center exactly
+tools/view/build_sha_pairs_view.py	built to have it rather than hoped into it	built to have it instead of hoped into it
+tools/view/build_sha_pairs_view.py	two bits, which is what a pair superposed comes to	two bits, as a pair superposed comes to
+tools/view/build_sha_pairs_view.py	So a line is not an edge	A line is not an edge
+tools/view/build_sha_pairs_view.py	the mix rather than as a colour chosen	the mix and not as a color chosen
+tools/view/build_sha_pairs_view.py	implementation rather than taken on trust	implementation and not taken on trust
+tools/view/build_sha_pairs_view.py	its exact negative is what does	its exact negative does

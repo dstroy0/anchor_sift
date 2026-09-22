@@ -39,6 +39,7 @@ Where a subject has no script for a stage, the directory is absent. That means n
 | `crystallography` | published cells from the Crystallography Open Database                | 1, 2, 3, 4, 5, 6 |
 | `sound`           | animal and human vocalizations                                        | 1                |
 | `source`          | programming languages, assembly, board layouts                        | 1, 4             |
+| `game_theory`     | games with their own answer key, played boards and impartial games    | 1, 2, 3, 4, 5, 6 |
 | `proofs`          | proofs of the posits the ledger cites                                 | `posits`         |
 
 Start with `any_corpus`. Those scripts do not know what they are reading, and the rest of the work rests on that claim. Each other subject runs the same steps with domain knowledge added at stage one, and some of them can check the answer at stage six.
