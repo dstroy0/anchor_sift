@@ -1,6 +1,6 @@
 """Which of a page's optional features come out inert, said out loud at build time.
 
-    python tools/view/inert_report.py [page.html ...]
+    python examples/00_blob_viz_tools/inert_report.py [page.html ...]
 
 THE FAILURE THIS EXISTS FOR
 

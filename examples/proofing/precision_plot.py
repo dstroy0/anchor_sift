@@ -12,7 +12,7 @@ should report a residual near `10^-d`, so the log of the residual against the di
 minus one and no free parameter anywhere in it.
 
 Eight readings go on that axis. Host and device float32, host and device float64, from
-`src/bench/bench_precision_cuda.cu`, and decimal at 20, 30, 40 and 50 places from
+`src/engine/c/sha256/bench/bench_precision_cuda.cu`, and decimal at 20, 30, 40 and 50 places from
 `precision_floor.py`. Between the ends they span about 43 decimal digits of precision and 55 orders
 of magnitude of residual.
 

@@ -12,7 +12,7 @@ about the function. Rises after the field has reached its floor are not construc
 its own seed, so consecutive rounds are independent draws and about half of them will land higher
 than the one before whatever the function does.
 
-    python tools/check_monotone.py
+    python maint/check/check_monotone.py
 """
 
 import csv
@@ -21,7 +21,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 
 FLOOR_FROM = 23
 

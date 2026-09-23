@@ -4,7 +4,7 @@
 #
 # Pull the readable prose out of a document and leave the mathematics behind.
 #
-#   Usage:  python tools/prose/plain_text.py [--out FILE] [--min-words N] path [path ...]
+#   Usage:  python maint/prose/plain_text.py [--out FILE] [--min-words N] path [path ...]
 #
 # WHY THE MATHEMATICS HAS TO COME OUT
 #

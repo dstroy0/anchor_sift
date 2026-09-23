@@ -18,7 +18,7 @@ Three things are varied here, because each of them moves the answer:
 Taint is simulated bit by bit through each compressor and never modeled by a climb rate, so the
 climb is measured out of the simulation and printed beside the assumption it replaces.
 
-    python tools/compressor_test.py
+    python maint/hardware/compressor_test.py
 """
 
 import sys

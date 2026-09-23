@@ -14,7 +14,7 @@ Each round is standardized across its own 512 bits first. The very large shallow
 quiet deep ones contribute on the same scale and a stack is not simply reporting where the light
 cone is.
 
-    python tools/check_slant.py
+    python maint/check/check_slant.py
 """
 
 import csv
@@ -23,7 +23,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 
 BITS = 512
 STEPS = 161

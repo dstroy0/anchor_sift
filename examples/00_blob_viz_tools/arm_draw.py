@@ -1,6 +1,6 @@
 """One arm set drawn several ways, to find out whether a reading depends on the drawing.
 
-    python tools/view/arm_draw.py --check
+    python examples/00_blob_viz_tools/arm_draw.py --check
 
 WHAT IS BEING TESTED
 

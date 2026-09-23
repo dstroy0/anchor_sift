@@ -18,24 +18,27 @@
 
 $ErrorActionPreference = "Stop"
 
-$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$work = Join-Path $root "audit" "phase"
-# Prefers the device build where it exists: the sweep is eight full runs and the host is shared.
-$exe = Join-Path $root "src" "bench" "bench_renyi_gpu.exe"
-$onDevice = 1
-if (-not (Test-Path $exe))
-{
-    $exe = Join-Path $root "src" "bench" "bench_renyi.exe"
-    $onDevice = 0
-}
+$root = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path))
+$work = Join-Path $root "build" "audit" "phase"
+$core = Join-Path $root "src" "engine" "c" "sha256" "core"
+$benchDirectory = Join-Path $root "src" "engine" "c" "sha256" "bench"
+$compiler = "g++"
 
 New-Item -ItemType Directory -Force -Path $work | Out-Null
 
-if (-not (Test-Path $exe))
-{
-    Write-Error "bench_renyi.exe not built"
-    exit 1
-}
+# Built from source into build/ on every run, the same way audit_seeds.ps1 builds its benches. The
+# host arm only: the device arm has no build rule in this tree.
+$object = Join-Path $work "sha256_core.o"
+Write-Host "[*] building core" -ForegroundColor Cyan
+& $compiler -c (Join-Path $core "sha256_core.c") -o $object -O2 -mavx2
+if ($LASTEXITCODE -ne 0) { Write-Error "core build failed"; exit 1 }
+
+$exe = Join-Path $work "bench_renyi.exe"
+Write-Host "[*] building bench_renyi" -ForegroundColor Cyan
+& $compiler (Join-Path $benchDirectory "bench_renyi.cpp") $object -o $exe -O2 -mavx2 `
+    -std=c++17 -ffp-contract=off -I $core -I $benchDirectory
+if ($LASTEXITCODE -ne 0) { Write-Error "bench_renyi build failed"; exit 1 }
+$onDevice = 0
 
 $domain = 28
 Write-Host "[*] sweeping eight phases at domain 2^$domain" -ForegroundColor Cyan
@@ -51,4 +54,4 @@ foreach ($phase in 0..7)
 }
 
 Write-Host "[*] comparing" -ForegroundColor Cyan
-& python (Join-Path $root "tools" "sweep_phase.py") $work
+& python (Join-Path $root "maint" "audit" "sweep_phase.py") $work

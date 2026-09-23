@@ -52,7 +52,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-VIEW = os.path.join(ROOT, "tools", "view")
+VIEW = os.path.join(ROOT, "examples", "00_blob_viz_tools")
 for where in (HERE, VIEW):
     if where not in sys.path:
         sys.path.insert(0, where)

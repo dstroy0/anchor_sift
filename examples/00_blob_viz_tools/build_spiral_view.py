@@ -24,7 +24,7 @@ Every comparison is integer: a position set c times out of N deviates by exactly
 addition, and reach in standard errors is (sum of deviations) squared against k squared times the
 summed N. Division appears only when a number is formatted.
 
-    python tools/view/build_spiral_view.py
+    python examples/00_blob_viz_tools/build_spiral_view.py
 """
 
 import argparse

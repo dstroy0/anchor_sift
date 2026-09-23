@@ -1,8 +1,8 @@
 """Puts the measured SHA-256 dependency field inside the room, as a solid you stand within.
 
-    python tools/view/build_sha_room_view.py
-    python tools/view/build_sha_room_view.py --field inbit --every 16
-    python tools/view/build_sha_room_view.py --glow random --shell dodecahedron
+    python examples/00_blob_viz_tools/build_sha_room_view.py
+    python examples/00_blob_viz_tools/build_sha_room_view.py --field inbit --every 16
+    python examples/00_blob_viz_tools/build_sha_room_view.py --glow random --shell dodecahedron
 
   --field     which cut of the field: outbit, inbit, residue, word. Default outbit.
   --every     keep one direction in this many, to hold the body count down. Default 8.
@@ -11,7 +11,7 @@
   --seed      the draw behind --glow random. Default 4.
   --shell     the room wall: sphere, cube, hexagon, octahedron, dodecahedron. Default sphere.
   --core      the nested boundaries: sphere, cube, octahedron, cone. Default sphere.
-  --source    the bench dump to read. Default src/bench/shadows.csv.
+  --source    the bench dump to read. Default build/bench/shadows.csv.
   --out       where to write. Default sha_room_view.html beside this script.
 
 WHAT THE OBJECT IS
@@ -67,7 +67,7 @@ import settings
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-SOURCE = os.path.join(ROOT, "src", "bench", "shadows.csv")
+SOURCE = os.path.join(ROOT, "build", "bench", "shadows.csv")
 TEMPLATE = os.path.join(HERE, "room_view_template.html")
 
 GOLDEN = math.pi * (3.0 - math.sqrt(5.0))
@@ -267,7 +267,7 @@ def main():
         return 2
 
     if not os.path.exists(source):
-        sys.stderr.write("no %s yet - run: src/bench/bench_sac.exe 18 45 64 shadow\n" % source)
+        sys.stderr.write("no %s yet - build src/engine/c/sha256/bench/bench_sac.cu into build/bench and run it there with 18 45 64 shadow\n" % source)
         return 1
 
     rows, seen = read_field(source, field)

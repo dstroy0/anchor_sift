@@ -159,11 +159,11 @@ A continuous single-author work is the arm with the LEAST large-lag excess. Conc
 have the most. Large-k excess tracks how a corpus was assembled and is close to silent about the
 writing inside it.
 
-    python tools/prose/dependence_decay.py --control
-    python tools/prose/dependence_decay.py --band
-    python tools/prose/dependence_decay.py --twoband --length 200000
-    python tools/prose/dependence_decay.py --scramble
-    python tools/prose/dependence_decay.py --file docs/aiming-the-engine.md
+    python maint/prose/dependence_decay.py --control
+    python maint/prose/dependence_decay.py --band
+    python maint/prose/dependence_decay.py --twoband --length 200000
+    python maint/prose/dependence_decay.py --scramble
+    python maint/prose/dependence_decay.py --file docs/aiming-the-engine.md
 """
 
 import argparse

@@ -28,7 +28,7 @@ import sys
 import tempfile
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CHECK = os.path.join(HERE, "tools", "prose", "docs_check.py")
+CHECK = os.path.join(HERE, "maint", "prose", "docs_check.py")
 
 # Kinds the gate does not read, and the checked kind each is staged as. C++ and CUDA are staged as
 # .c because their comment syntax is identical; nothing about the code is being compiled here.

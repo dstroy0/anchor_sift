@@ -4,7 +4,7 @@
 #
 # What the partition says, checked instead of remembered.
 #
-#   Usage:  python tools/book/check_partition.py [repository_root]
+#   Usage:  python maint/texbuild/check_partition.py [repository_root]
 #
 # The partition is a rule about which measurements reach the general public. Held as a rule someone
 # remembers, it survives exactly as long as nobody builds a book without thinking about it. The name

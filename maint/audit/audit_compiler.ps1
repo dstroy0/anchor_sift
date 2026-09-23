@@ -22,15 +22,15 @@
 
 $ErrorActionPreference = "Stop"
 
-$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$root = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path))
 $src = Join-Path $root "src"
-$engine = Join-Path $src "engine"
+$engine = Join-Path $src "engine" "c" "sha256" "core"
 # Not $bench: the loop below binds that name to each source in turn, and a directory sharing it
 # would be silently replaced part way through.
-$benchDirectory = Join-Path $src "bench"
-$format = Join-Path $src "format"
-$testDirectory = Join-Path $src "test"
-$work = Join-Path $root "audit"
+$benchDirectory = Join-Path $src "engine" "c" "sha256" "bench"
+$format = Join-Path $src "engine" "c" "sha256" "format"
+$testDirectory = Join-Path $src "engine" "c" "sha256" "test"
+$work = Join-Path $root "build" "audit" "compiler"
 $compiler = "g++"
 
 New-Item -ItemType Directory -Force -Path $work | Out-Null

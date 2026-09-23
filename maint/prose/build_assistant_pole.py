@@ -5,7 +5,7 @@
 # Build the assistant pole from every session transcript on this machine, split by whether the
 # writing was under suppression.
 #
-#   Usage:  python tools/prose/build_assistant_pole.py [--out-dir DIR] [--limit N]
+#   Usage:  python maint/prose/build_assistant_pole.py [--out-dir DIR] [--limit N]
 #
 # WHY THIS EXISTS
 #

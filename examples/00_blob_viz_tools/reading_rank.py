@@ -1,6 +1,6 @@
 """How many independent numbers a boundary reading actually carries, and how many it cannot.
 
-    python tools/view/reading_rank.py --check
+    python examples/00_blob_viz_tools/reading_rank.py --check
 
 A tool and not a library: it measures one thing and prints it.
 

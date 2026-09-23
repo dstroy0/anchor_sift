@@ -38,7 +38,7 @@ Status is one of \textbf{built}, where a mechanical detector exists and has been
 
 Measuring a quantity that structurally cannot depend on the input, and reporting the resulting zero or perfect agreement as a result.
 
-\textbf{Caught.} H6 rotated the nonce, which enters at \texttt{W[3]} in round three, instead of the chaining value, and reported a decay that never happened. H23 measured through \texttt{W[17]}, which does not depend on \texttt{W[3]}, and reported \(100.000\%\) agreement, which was zero equalling zero. \texttt{bench\_closeness} labeled rounds 1 to 3 \emph{premise holds: no} when the nonce had not entered yet.
+\textbf{Caught.} H6 rotated the nonce, which enters at \texttt{W[3]} in round three, instead of the chaining value, and reported a decay that never happened. H23 measured through \texttt{W[17]}, which does not depend on \texttt{W[3]}, and reported \(100.000\%\) agreement, which was zero equaling zero. \texttt{bench\_closeness} labeled rounds 1 to 3 \emph{premise holds: no} when the nonce had not entered yet.
 
 \textbf{The subtraction.} \texttt{bench\_reach.cpp}, computed and not sampled. Every state bit carries the set of input bits that can reach it, propagated through the real operations: rotation permutes positions, shift drops them, bitwise operations union bit by bit, and addition unions upward through the carry. Addition is the only widening operation, making this an over-approximation. A path may carry no influence, but \textbf{the absence of a path is exact}, the correct side to err on for a precondition.
 
@@ -56,7 +56,7 @@ bits of \texttt{state[0]} reachable from \texttt{W[3]} & 0 & 0 & 0 & 32 & 32 \\
 
 In the schedule, \texttt{W[16]} and \texttt{W[17]} carry \textbf{zero} bits of \texttt{W[3]} while \texttt{W[18]} carries all \(32\), correctly, since \texttt{W[18]} is the first word whose \texttt{W[t-15]} term is \texttt{W[3]}. Both of the defects that produced H6 and H23 are visible directly in those two tables, and both would have been caught before the measurement instead of after it.
 
-\textbf{The control, run in the opposite direction.} An analysis claiming reachability everywhere would pass an absence test trivially, so both halves are needed. Over \(24{,}000\) random flips at rounds one to six:
+\textbf{The control, run in the opposite direction.} An analysis claiming reachability everywhere would pass an absence test trivially. Both halves are needed. Over \(24{,}000\) random flips at rounds one to six:
 
 \begin{center}
 \begin{tabular}{@{}lr@{}}
@@ -85,7 +85,7 @@ Comparing a measurement against an analytical reference derived by hand, where t
 
 \section{Asymmetric treatment of the two arms (open)}
 
-Applying one operation to one member of a pair and a different operation to the other, so the measured difference includes the difference in treatment.
+Applying one operation to one member of a pair and a different operation to the other, leaving the difference in treatment inside the measured difference.
 
 \textbf{Caught.} H29 added \(K\) to one member and \(\mathrm{rotr}(K)\) to the other and produced a \(25.8\%\) survival that appeared to overturn H22. The same constant to both gives \(0.000000\%\).
 
@@ -109,7 +109,7 @@ share of an eight-word read that agrees for free & \textbf{75\%} & 50\% & 25\% &
 \end{tabular}
 \end{center}
 
-\textbf{H30 read all eight words after one round, so three quarters of its comparison agreed before the round function was consulted.} Reading only the written words needs no correction factor and no argument. It is the right read.
+\textbf{H30 read all eight words after one round. Three quarters of its comparison agreed before the round function was consulted.} Reading only the written words needs no correction factor and no argument. It is the right read.
 
 \section{Sample below the detectable effect (open)}
 
@@ -123,7 +123,7 @@ Running an experiment whose expected count under the hypothesis is far below one
 
 Reporting a plug-in estimate whose value is fixed by how many samples were drawn and not by the distribution.
 
-\textbf{Caught.} The Renyi order one half plug-in is \(2 \log_2 \sum \sqrt{p}\). Where every observed value is a singleton that sum is exactly \(\sqrt{n}\), so the estimate reads \(\log_2 n\) whatever the true entropy is. At \(2{,}000{,}000\) pairs the ceiling is \(20.93\) bits and the estimate reads \(18.25\).
+\textbf{Caught.} The Renyi order one half plug-in is \(2 \log_2 \sum \sqrt{p}\). Where every observed value is a singleton that sum is exactly \(\sqrt{n}\), and the estimate reads \(\log_2 n\) whatever the true entropy is. At \(2{,}000{,}000\) pairs the ceiling is \(20.93\) bits and the estimate reads \(18.25\).
 
 \textbf{The subtraction.} Print the ceiling next to the estimate. Where they are close the estimate is mostly sample size and is not a measurement.
 
@@ -133,21 +133,21 @@ Reporting a plug-in estimate whose value is fixed by how many samples were drawn
 
 Constructing a pair meant to differ and failing to check that it does.
 
-\textbf{Caught.} \texttt{bench\_closeness} exclusive-ored at positions that were not distinct, so bits flipped back and some pairs were identical. It printed \emph{smallest output distance: 0 bits}, which reads as a collision, directly above prose saying nothing came close.
+\textbf{Caught.} \texttt{bench\_closeness} exclusive-ored at positions that were not distinct. Bits flipped back, and some pairs were identical. It printed \emph{smallest output distance: 0 bits}, which reads as a collision, directly above prose saying nothing came close.
 
 \textbf{The subtraction.} Count and report the pairs whose intended difference is zero. A nonzero count is a construction defect, and not a result.
 
-\section{Optimiser-dependent result (built)}
+\section{Optimizer-dependent result (built)}
 
 A compiler folds, contracts, reassociates and hoists. A folded measurement is indistinguishable from a computed one by reading the output.
 
 \textbf{Caught.} \texttt{bench\_engines} found an entire legacy engine that was a constant function. The tree-wide audit then found three performance ratios that move with the build.
 
-\textbf{The subtraction.} \texttt{tools/\allowbreak{}audit/\allowbreak{}audit\_compiler.ps1} builds every bench three ways, \texttt{-O0}, \texttt{-O2}, and \texttt{-O2 -ffp-contract=off}, and \texttt{tools/\allowbreak{}audit/\allowbreak{}audit\_diff.py} compares outputs with stopwatch lines dropped.
+\textbf{The subtraction.} \texttt{maint/\allowbreak{}audit/\allowbreak{}audit\_compiler.ps1} builds every bench three ways, \texttt{-O0}, \texttt{-O2}, and \texttt{-O2 -ffp-contract=off}, and \texttt{maint/\allowbreak{}audit/\allowbreak{}audit\_diff.py} compares outputs with stopwatch lines dropped.
 
 \textbf{Result.} \(19\) of \(22\) judged benches are byte-identical across all three arms. The three that move are all ratios of measured throughputs: extranonce cost \(11.1\times\) / \(28.3\times\) / \(23.4\times\), expansion speedup \(0.932\times\) / \(0.395\times\) / \(0.256\times\), delivery search-over-verify \(1.08 \times 10^{19}\) / \(5.46 \times 10^{19}\) / \(6.15 \times 10^{19}\).
 
-\textbf{What it does not close.} That a folded constant was folded \emph{correctly}. For \texttt{bench\_renyi} that is settled separately by \texttt{tools/\allowbreak{}audit/\allowbreak{}verify\_renyi.py}, which reimplements every printed prediction in another language against another libm. Nothing else has that check.
+\textbf{What it does not close.} That a folded constant was folded \emph{correctly}. For \texttt{bench\_renyi} that is settled separately by \texttt{maint/\allowbreak{}audit/\allowbreak{}verify\_renyi.py}, which reimplements every printed prediction in another language against another libm. Nothing else has that check.
 
 \textbf{What chasing the last three stragglers turned up, which was worse than a folded constant.} \texttt{kat\_validation} and \texttt{bench\_engines} produced no \texttt{-O0} output because they segfault there. The trace:
 
@@ -157,15 +157,15 @@ vmovdqa %ymm0,-0x20(%rbp)   rbp = 0x5fe0b0, target 0x5fe090, which is 16 mod 32
 
 \texttt{vmovdqa} is the \emph{aligned} 256-bit move and requires \(32\). MinGW-w64 GCC at \texttt{-O0} hand-aligns a pointer for one over-aligned \texttt{\_\_m256i} local, the emitted \texttt{add \$0x1f; shr \$0x5; shl \$0x5} being visible in the prologue, and then places another at a fixed offset from a frame pointer it never realigned. \texttt{-mstackrealign} changes the prologue not at all. \textbf{Nothing in this tree causes it and no source change here avoids it}; the instruction is available and \texttt{-O2} runs it happily.
 
-The resolution is that the \texttt{-O0} arm drops \texttt{-mavx2}. \texttt{sha256\_core.c} gates its vector arm on \texttt{\_\_AVX2\_\_} and the \texttt{\#else} arm defers to the scalar reference, so the unoptimised build is the reference arm, the arm a fold audit wants, since it is the arm whose arithmetic the statistics read. \texttt{kat\_validation} then runs \texttt{-O0} clean: \textbf{24 run, 0 failed.}
+The resolution is that the \texttt{-O0} arm drops \texttt{-mavx2}. \texttt{sha256\_core.c} gates its vector arm on \texttt{\_\_AVX2\_\_} and the \texttt{\#else} arm defers to the scalar reference. The unoptimized build is therefore the reference arm, the arm a fold audit wants, since it is the arm whose arithmetic the statistics read. \texttt{kat\_validation} then runs \texttt{-O0} clean: \textbf{24 run, 0 failed.}
 
-\textbf{And what that costs, which has to be said instead of buried.} For the two benches exercising the vector arm, the \texttt{-O0} column now tests different code from the other two columns, so agreement there is evidence about the reference arm and not about the vector arm. The vector arm is covered instead by \texttt{kat\_validation} asserting it equal to the reference on the FIPS vectors, the genesis block, block 125552 and \(1000\) consecutive real headers. That is a strong check, and it is a different check, and reading the audit table as though all three columns meant the same thing for those two rows would be the kind of substitution this register exists to catch.
+\textbf{And what that costs, which has to be said instead of buried.} For the two benches exercising the vector arm, the \texttt{-O0} column now tests different code from the other two columns. Agreement there is evidence about the reference arm and not about the vector arm. The vector arm is covered instead by \texttt{kat\_validation} asserting it equal to the reference on the FIPS vectors, the genesis block, block 125552 and \(1000\) consecutive real headers. That is a strong check, and it is a different check, and reading the audit table as though all three columns meant the same thing for those two rows would be the kind of substitution this register exists to catch.
 
 \section{Prose contradicting its own table (open)}
 
 \textbf{Caught.} H23's prose said the two \emph{agree often} directly above a column reading \(0.0000\%\).
 
-\textbf{The subtraction.} Every prose claim names the number it rests on, so the two can be compared without re-deriving the claim.
+\textbf{The subtraction.} Every prose claim names the number it rests on. The two can then be compared without re-deriving the claim.
 
 \section{Conflated quantities (open)}
 
@@ -189,7 +189,7 @@ Reporting the largest of many bins against the expectation for one bin.
 
 \section{Argmax over a tied set (partial, and freshly caught)}
 
-Selecting \emph{the most common} value where many values share the top count, so the selection is made by the sort's tiebreak and not by the data.
+Selecting \emph{the most common} value where many values share the top count. The sort's tiebreak makes the selection, and the data does not.
 
 \textbf{Caught.} \texttt{bench\_canary} steers a walk through delta space by following the most common outgoing delta. Counting how many share that maximum:
 
@@ -223,11 +223,11 @@ Two copies of one statistic, differing in a case one of them handles and the oth
 
 \textbf{Caught, in the sieve's own instrument.} \texttt{bench\_renyi} had three copies of the deficit sum: the general one over bins, an inline one over the count histogram, and a third inside the Arikan block. The empty-bin rule is opposite at order one and at every other order. A bin holding nothing contributes exactly \(-1\) at a positive order and exactly \(0\) at order one, since the count in front of the logarithm goes to zero faster than the logarithm goes to minus infinity. The general copy knew both rules. The histogram copy applied the first rule to order one and put \textbf{0.2965 in a table where 0.8272 belonged}, on the headline full-domain run.
 
-\textbf{Caught again, one layer out.} The Poisson prediction at order one was missing a \(-\log_2(\mathrm{mean})\) term. That term is exactly zero when the mean count is one, the full-domain case, so the wrong formula \textbf{agreed perfectly at the only point it was being read at} and disagreed everywhere else. A defect that hides at the operating point is the worst kind to leave in, and it was only visible because a smoke run at a smaller domain existed.
+\textbf{Caught again, one layer out.} The Poisson prediction at order one was missing a \(-\log_2(\mathrm{mean})\) term. That term is exactly zero when the mean count is one, the full-domain case. The wrong formula \textbf{agreed perfectly at the only point it was being read at} and disagreed everywhere else. A defect that hides at the operating point is the worst kind to leave in, and it was only visible because a smoke run at a smaller domain existed.
 
 \textbf{The subtraction.} One function, \texttt{deficit\_term}, that knows the empty-bin rule for every order, and every path goes through it. Not a check on the copies: the removal of the copies.
 
-\textbf{A limit worth stating.} \texttt{tools/\allowbreak{}audit/\allowbreak{}verify\_renyi.py} reimplements the predictions in another language against another libm, and it closed mode 8's remaining gap. It carried the same missing \(-\log_2(\mathrm{mean})\) term. An independent implementation written by the same author reproduces the author's misconceptions faithfully; what it catches is transcription and folding, and not a wrong idea. What caught the wrong idea was running at a domain where the term does not vanish.
+\textbf{A limit worth stating.} \texttt{maint/\allowbreak{}audit/\allowbreak{}verify\_renyi.py} reimplements the predictions in another language against another libm, and it closed mode 8's remaining gap. It carried the same missing \(-\log_2(\mathrm{mean})\) term. An independent implementation written by the same author reproduces the author's misconceptions faithfully; what it catches is transcription and folding, and not a wrong idea. What caught the wrong idea was running at a domain where the term does not vanish.
 
 \section{What the sieve has removed so far}
 
@@ -238,7 +238,7 @@ mode & detector & status & what it removed \\
 \midrule
 1 absence as measurement & exact reachability, \texttt{bench\_reach} & \textbf{built} & 3 defects, and it predates them \\
 4 over-reading the output & write mask, \texttt{bench\_reach} & \textbf{built} & 75\% of H30's one-round read \\
-8 optimiser & three-arm build diff & \textbf{built} & 3 performance claims; 19 cleared \\
+8 optimizer & three-arm build diff & \textbf{built} & 3 performance claims; 19 cleared \\
 14 one seed & seed sweep, \texttt{audit\_seeds} & \textbf{built} & H22 confirmed not a draw \\
 15 formula written twice & one \texttt{deficit\_term} & \textbf{built} & 2 wrong numbers in \texttt{bench\_renyi} \\
 2 hand null & \(\Pi_\Sigma\) permutation & partial & a factor of 4,200 from the headline \\
@@ -246,7 +246,7 @@ mode & detector & status & what it removed \\
 6 estimator ceiling & ceiling beside estimate & partial & the order-1/2 plug-in as a measurement \\
 11 partial for whole & lead with the whole & partial & five reduced-round claims \\
 7 degenerate pairs & zero-difference counter & partial & a false 0-bit output distance \\
-3, 5, 9, 10, 12 & --- & \textbf{open} & nothing yet \\
+3, 5, 9, 10, 12 & none & \textbf{open} & nothing yet \\
 \bottomrule
 \end{tabular}
 \end{center}

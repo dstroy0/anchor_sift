@@ -19,11 +19,11 @@ which is most measured data. Long format, one row per cell:
 
 Usage, in the simple case where the columns are already named that way:
 
-    python tools/view/build_field_view.py data.csv
+    python examples/00_blob_viz_tools/build_field_view.py data.csv
 
 and in the general case, naming the columns yourself:
 
-    python tools/view/build_field_view.py data.csv --value amplitude --depth time --field sensor
+    python examples/00_blob_viz_tools/build_field_view.py data.csv --value amplitude --depth time --field sensor
 
   --value   the column holding the number to draw. Default: "value", else the last numeric column.
   --depth   the column that runs left to right. Default: the first of round, step, t, time, frame,

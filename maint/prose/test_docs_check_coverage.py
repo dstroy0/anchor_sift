@@ -239,7 +239,7 @@ BRITISH_FORMS = (
     "colouring",
     "colourful",
     "neighbour",
-    "neighbors",
+    "neighbours",
     "neighbouring",
     "neighbourhood",
     "favour",
@@ -482,7 +482,7 @@ class BuildFilesAreReadAtAll(unittest.TestCase):
     def test_the_default_run_now_reads_build_files(self):
         # Asserted against the roots this repository actually scans. The selection rule is
         # measured where it has to work and not only against a made-up path.
-        roots = list(docs_check.DEFAULT_ROOTS) + list(docs_check.private_roots())
+        roots = list(docs_check.DEFAULT_ROOTS)
         got = [
             one for one in docs_check.walk_markdown(roots) if docs_check.build_file(one)
         ]
@@ -1098,14 +1098,6 @@ class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
             docs_check.path_candidate("const char *user, const char *pass")
         )
         self.assertTrue(docs_check.path_candidate("docs/README.md"))
-
-    def test_the_private_survey_still_answers_in_two_halves(self):
-        # Commit 915b3a9. A run that scanned no closed repository and a checkout that has none
-        # printed the same nothing, and that is how the scan covered the public tree alone for the
-        # whole migration.
-        held, absent = docs_check.private_survey()
-        self.assertEqual(len(held) + len(absent), len(docs_check.PRIVATE_NAMES))
-        print("\n  private roots: %d held, %d absent" % (len(held), len(absent)))
 
     def test_the_tier_split_still_names_its_sections(self):
         self.assertEqual(docs_check.tier_of(r"\brather\b"), "A")

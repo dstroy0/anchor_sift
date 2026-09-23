@@ -14,9 +14,9 @@ anywhere with no interpreter and no install, and stays interactive once it is op
 point, drag across to zoom, toggle a series, switch the y axis to log. This therefore exists
 beside it and not in place of it.
 
-    python tools/view/build_chart_view.py readings.csv
-    python tools/view/build_chart_view.py readings.csv --x time --y temperature pressure
-    python tools/view/build_chart_view.py points.csv --kind scatter
+    python examples/00_blob_viz_tools/build_chart_view.py readings.csv
+    python examples/00_blob_viz_tools/build_chart_view.py readings.csv --x time --y temperature pressure
+    python examples/00_blob_viz_tools/build_chart_view.py points.csv --kind scatter
 
   --x NAME       the column along the bottom. Default: the first column named one of time, t, x,
                  date, step, round, index, or failing that the first column that parses as numbers.

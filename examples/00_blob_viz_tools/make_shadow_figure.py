@@ -9,7 +9,7 @@ The published viewers are interactive and the book is not. The same field is dra
 characters. Density stands for magnitude and the sign is carried by the character set, because a
 book printed in one color cannot use hue for it.
 
-    python tools/make_shadow_figure.py
+    python examples/00_blob_viz_tools/make_shadow_figure.py
 
 Writes a LaTeX verbatim block to stdout; paste it into the chapter.
 """
@@ -20,7 +20,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 
 # Two ramps. Sign survives a monochrome page. Negative deepens through one set, positive
 # through the other, and a cell at zero is blank and not a dot. Empty reads as empty.

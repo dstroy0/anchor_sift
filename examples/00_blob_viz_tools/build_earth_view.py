@@ -25,8 +25,8 @@ The evidence is marginal. Twenty-four bins over six thousand nine hundred and ei
 chi-square of 36.62 against a multinomial null whose ninety-fifth percentile is 35.10. That is
 p = 0.036 and it is drawn on the page, so it cannot be read as more than it is.
 
-    python tools/view/build_earth_view.py
-    python tools/view/build_earth_view.py --corpus tools/chain/blocks_deep.json
+    python examples/00_blob_viz_tools/build_earth_view.py
+    python examples/00_blob_viz_tools/build_earth_view.py --corpus maint/chain/blocks_deep.json
 """
 
 import argparse
@@ -39,7 +39,7 @@ import random
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 TEMPLATE = os.path.join(HERE, "earth_view_template.html")
-DEFAULT = os.path.join(ROOT, "tools", "chain", "blocks_deep.json")
+DEFAULT = os.path.join(ROOT, "maint", "chain", "blocks_deep.json")
 
 # Longitudes where mining is known to concentrate, for reference marks only. These are drawn as
 # labels on the dial and are never fitted to anything.

@@ -27,8 +27,8 @@ full nonce range wrapped to zero iterations and returned every counter empty whi
 the whole count. The run looked, from outside, exactly like one that completed. The panel puts the
 two runs side by side because a silent zero is the failure mode worth being able to recognise.
 
-    python tools/view/build_survey_view.py
-    python tools/view/build_survey_view.py --dump path/to/survey_dump.json
+    python examples/00_blob_viz_tools/build_survey_view.py
+    python examples/00_blob_viz_tools/build_survey_view.py --dump path/to/survey_dump.json
 """
 
 import argparse

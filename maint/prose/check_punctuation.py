@@ -4,7 +4,7 @@
 #
 # The whole smart-punctuation family, not the em dash alone.
 #
-#   Usage:  python tools/prose/check_punctuation.py [root ...]
+#   Usage:  python maint/prose/check_punctuation.py [root ...]
 #
 # docs_check.py refuses U+2014 and stops there. The quote characters below are the substitutions a
 # word processor, a web paste or a well-meaning editor makes, and each has an ASCII spelling that

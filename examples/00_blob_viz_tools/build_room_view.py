@@ -5,9 +5,9 @@
 #
 """A dark room you stand inside, with a beam you carry and things that stop it.
 
-    python tools/view/build_room_view.py
-    python tools/view/build_room_view.py --shell cube --things 9 --seed 4
-    python tools/view/build_room_view.py --blob firmware.bin
+    python examples/00_blob_viz_tools/build_room_view.py
+    python examples/00_blob_viz_tools/build_room_view.py --shell cube --things 9 --seed 4
+    python examples/00_blob_viz_tools/build_room_view.py --blob firmware.bin
 
   --shell     the enclosing wall: sphere, cube, hexagon, octahedron, dodecahedron. Default sphere.
   --core      the shell holding the lights: sphere, cube, octahedron, cone. Default cube.

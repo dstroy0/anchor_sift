@@ -5,9 +5,9 @@
 #
 """Puts SHA-256's compression function inside the ball and reads it round by round.
 
-    python tools/view/build_sha_sphere_view.py
-    python tools/view/build_sha_sphere_view.py --rounds 24 --samples 4000
-    python tools/view/build_sha_sphere_view.py --sweep
+    python examples/00_blob_viz_tools/build_sha_sphere_view.py
+    python examples/00_blob_viz_tools/build_sha_sphere_view.py --rounds 24 --samples 4000
+    python examples/00_blob_viz_tools/build_sha_sphere_view.py --sweep
 
   --rounds    how many of the 64 rounds to run before reading the output. Default 64.
   --samples   how many random blocks to average the avalanche over. Default 3000.

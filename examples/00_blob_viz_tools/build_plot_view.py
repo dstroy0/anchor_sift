@@ -10,9 +10,9 @@ written down, which makes the same instrument useful for a surface you already u
 function whose shape is known is the way to find out what an embedding does to a shape, and a
 function nobody has drawn on a torus before is worth a look on its own.
 
-    python tools/view/build_plot_view.py "sin(x)*cos(y)"
-    python tools/view/build_plot_view.py "sin(x)*cos(y)" "sin(2*x)*cos(2*y)" --n 128
-    python tools/view/build_plot_view.py "exp(-(x**2+y**2))" --x -2 2 --y -2 2 --title Gaussian
+    python examples/00_blob_viz_tools/build_plot_view.py "sin(x)*cos(y)"
+    python examples/00_blob_viz_tools/build_plot_view.py "sin(x)*cos(y)" "sin(2*x)*cos(2*y)" --n 128
+    python examples/00_blob_viz_tools/build_plot_view.py "exp(-(x**2+y**2))" --x -2 2 --y -2 2 --title Gaussian
 
 Each expression becomes one step. A sequence of them can therefore be stepped through in the
 page: a function and its derivative, or the same function at rising frequency.

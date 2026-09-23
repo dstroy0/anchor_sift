@@ -1,8 +1,8 @@
 """Every viewer in one record, and a change to any one of them re-checks all of them.
 
-    python tools/view/manifest.py                 check the tree against the record
-    python tools/view/manifest.py --write         rewrite the record from the tree
-    python tools/view/manifest.py --check         run this tool against cases with known answers
+    python examples/00_blob_viz_tools/manifest.py                 check the tree against the record
+    python examples/00_blob_viz_tools/manifest.py --write         rewrite the record from the tree
+    python examples/00_blob_viz_tools/manifest.py --check         run this tool against cases with known answers
 
 WHAT WAS MISSING
 

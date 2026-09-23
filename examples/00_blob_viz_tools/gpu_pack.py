@@ -5,8 +5,8 @@
 #
 """Drives the device packer across shapes and dimensions, and grades what comes back.
 
-    python tools/view/gpu_pack.py --check
-    python tools/view/gpu_pack.py --dims 19 --fraction 0.66
+    python examples/00_blob_viz_tools/gpu_pack.py --check
+    python examples/00_blob_viz_tools/gpu_pack.py --dims 19 --fraction 0.66
 
 The device counts, and does nothing further. Every surface measure, every constant and every verdict is
 computed here, from closed forms that never read a count. That split is the point: one side is a
@@ -134,7 +134,7 @@ def host_pack(shape, dims, fraction, candidates, seed):
 
 def device_pack(shape, dims, fraction, candidates, seed, wide=0):
     if not os.path.exists(PACKER):
-        sys.stderr.write("build it first: powershell tools/view/build_pack.ps1\n")
+        sys.stderr.write("build it first: powershell examples/00_blob_viz_tools/build_pack.ps1\n")
         raise SystemExit(1)
     done = subprocess.run([PACKER, "--shape", shape, "--dims", str(dims),
                            "--fraction", "%.6f" % fraction, "--candidates", str(candidates),

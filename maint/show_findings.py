@@ -19,7 +19,7 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CHECK = os.path.join(HERE, "tools", "prose", "docs_check.py")
+CHECK = os.path.join(HERE, "maint", "prose", "docs_check.py")
 UNREAD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "grade_unread.py")
 
 SITE = re.compile(r"^\s*(?:prose|BREAK)\s+(.+?):(\d+):\s*(.*)$")

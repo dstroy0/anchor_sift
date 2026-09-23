@@ -5,7 +5,7 @@
 #
 """Cuts a line through a lattice and reads the dimension of the lattice back off the line.
 
-    python tools/view/cut_project.py --check
+    python examples/00_blob_viz_tools/cut_project.py --check
 
 WHAT THIS DEMONSTRATES
 

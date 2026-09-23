@@ -7,7 +7,7 @@ time. If any of that survives into the dependency matrix it appears at those res
 This ranks the classes at several depths after the common mode is removed, and says where the two
 Sigma functions' amounts land in that ranking.
 
-    python tools/check_rotation_residues.py
+    python maint/check/check_rotation_residues.py
 """
 
 import csv
@@ -16,7 +16,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 
 SIGMA0 = (2, 13, 22)
 SIGMA1 = (6, 11, 25)
@@ -41,7 +41,7 @@ def ranked(values):
 
 def main():
     if not os.path.exists(SOURCE):
-        sys.stderr.write("no shadows.csv - run: src/bench/bench_sac.exe 18 45 64 shadow\n")
+        sys.stderr.write("no build/bench/shadows.csv - build src/engine/c/sha256/bench/bench_sac.cu into build/bench and run it there with 18 45 64 shadow\n")
         return 1
 
     by_round = load()

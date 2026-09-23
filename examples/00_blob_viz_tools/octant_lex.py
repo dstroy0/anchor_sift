@@ -1,7 +1,7 @@
 """Lexes SHA-256's morphing boundary into a language: eight octant letters, round by round.
 
-    python tools/view/octant_lex.py --check
-    python tools/view/octant_lex.py --message "abc"
+    python examples/00_blob_viz_tools/octant_lex.py --check
+    python examples/00_blob_viz_tools/octant_lex.py --message "abc"
 
   --message   the block to compress. Default the empty message, padded.
   --top       highest harmonic degree the readings use. Default 8.

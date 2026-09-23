@@ -5,7 +5,7 @@
 #
 """Counts what a boundary can hold, two ways that share no step, in any shape and any dimension.
 
-    python tools/view/boundary_count.py --check
+    python examples/00_blob_viz_tools/boundary_count.py --check
 
 THE CLAIM BEING TESTED
 

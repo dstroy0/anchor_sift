@@ -11,8 +11,8 @@ it is a sequence of bytes, and any sequence can be folded into a grid by choosin
 the right width and repeating structure lines up into columns you can see; choose the wrong one and
 it shears. That shearing is itself the reading, and width is therefore the first thing this exposes.
 
-    python tools/view/build_blob_view.py firmware.bin
-    python tools/view/build_blob_view.py firmware.bin --width 16 --offset 4096 --rows 4096
+    python examples/00_blob_viz_tools/build_blob_view.py firmware.bin
+    python examples/00_blob_viz_tools/build_blob_view.py firmware.bin --width 16 --offset 4096 --rows 4096
 
   --width     bytes per row, taken as the depth axis. Default 64.
   --offset    first byte to read. Default 0.

@@ -10,7 +10,7 @@ The reading is the vector \(a\), of length \((L+1)^2\). At the ceiling the clock
 
 Two facts about the vector before any operator touches it.
 
-\textbf{Its length bounds what a reading can say.} A reading to degree \(L\) carries \((L+1)^2\) real numbers about its source, whatever the source is. \(256\) sources read at degree \(8\) arrive as \(81\) numbers, so \(175\) directions of the source space are absent from the reading. The eight-letter octant alphabet is rank \(8\), absent in \(248\), with \(7\) free numbers left once the weight is fixed.
+\textbf{Its length bounds what a reading can say.} A reading to degree \(L\) carries \((L+1)^2\) real numbers about its source, whatever the source is. \(256\) sources read at degree \(8\) arrive as \(81\) numbers, and \(175\) directions of the source space are absent from the reading. The eight-letter octant alphabet is rank \(8\), absent in \(248\), with \(7\) free numbers left once the weight is fixed.
 
 \textbf{Degree 15 dips and then recovers.} At full depth the least live singular value is \(3.47 \times 10^{-3}\) at degree \(15\) against \(1.75\) at degree \(14\). The exactly-complete degree is about \(500\) times worse conditioned than the incomplete degree beneath it, recovery arrives by \(17\), and saturation follows. Completeness of count and health of conditioning are separate properties.
 
@@ -52,13 +52,13 @@ Three rows carry the weight of the table.
 
 \section{The composition law}
 
-Rows T3 to T8 are all diagonal. Diagonal operators on the same eigenspaces commute, and composing them multiplies one number per degree, so the entire chain from an interior state to a screen pixel collapses to a single vector of \(L+1\) gains:
+Rows T3 to T8 are all diagonal. Diagonal operators on the same eigenspaces commute, and composing them multiplies one number per degree. The entire chain from an interior state to a screen pixel therefore collapses to a single vector of \(L+1\) gains:
 
 \begin{center}
 \(a_{lm}(\text{screen}) = g_l\, a_{lm}(\text{state}), \qquad g_l = (r/R)^l e^{-l(l+1)\tau_{\text{total}}}, \qquad \tau_{\text{total}} = \tau_{\text{conduction}} + \tau_{\text{pixel}}\)
 \end{center}
 
-The two smoothing times add. The heat kernel on the sphere is a semigroup, so smoothing for \(\tau_1\) then \(\tau_2\) is smoothing once for the sum. Nothing about that is an approximation.
+The two smoothing times add. The heat kernel on the sphere is a semigroup: smoothing for \(\tau_1\) then \(\tau_2\) is smoothing once for the sum. Nothing about that is an approximation.
 
 \textbf{The whole physical and imaging chain is 11 multiplications.} At \(L = 10\), \(g\) is eleven numbers, recomputed when the depth, the smoothing or the ceiling changes and never per pixel.
 
@@ -66,7 +66,7 @@ The two smoothing times add. The heat kernel on the sphere is a semigroup, so sm
 
 \section{Why they are diagonal, and why one is not}
 
-The table is not a coincidence and does not have to be memorized. The Laplace-Beltrami operator on the sphere has the degree \(l\) subspace as its eigenspace with eigenvalue \(-l(l+1)\), so \(\Delta Y_{lm} = -l(l+1) Y_{lm}\).
+The table is not a coincidence and does not have to be memorized. The Laplace-Beltrami operator on the sphere has the degree \(l\) subspace as its eigenspace with eigenvalue \(-l(l+1)\), that is, \(\Delta Y_{lm} = -l(l+1) Y_{lm}\).
 
 Any operator commuting with \(\Delta\) preserves its eigenspaces and therefore acts on each degree separately.
 
@@ -74,11 +74,11 @@ Any operator commuting with \(\Delta\) preserves its eigenspaces and therefore a
 
 \textbf{T4 and T5, smoothing.} Both are \(e^{\tau\Delta}\), the heat semigroup. An operator built as a function of \(\Delta\) commutes with it by construction.
 
-\textbf{T1, T2, T7, T8, rotations and parity.} These are isometries of the sphere, and \(\Delta\) is built from the metric, so they commute with it. Each degree \(l\) subspace is an irreducible unitary representation of \(\mathrm{SO}(3)\) of dimension \(2l+1\), and rotation therefore mixes orders inside a degree while moving no power between degrees.
+\textbf{T1, T2, T7, T8, rotations and parity.} These are isometries of the sphere, and \(\Delta\) is built from the metric. They therefore commute with it. Each degree \(l\) subspace is an irreducible unitary representation of \(\mathrm{SO}(3)\) of dimension \(2l+1\), and rotation therefore mixes orders inside a degree while moving no power between degrees.
 
 \textbf{T6, truncation.} A spectral projection onto a set of eigenspaces.
 
-\textbf{T11 does not commute with \(\Delta\), and cannot.} A translation is not a map of the sphere to itself, so there is no \(\Delta\) on the sphere for it to commute with. Re-expanding a field about a shifted origin mixes every degree into every other, at \(O(L^3)\) and with no per-degree number to carry it. Every cheap operation in this tree is diagonal, and the operation the tree avoids fails to be.
+\textbf{T11 does not commute with \(\Delta\), and cannot.} A translation is not a map of the sphere to itself. There is no \(\Delta\) on the sphere for it to commute with. Re-expanding a field about a shifted origin mixes every degree into every other, at \(O(L^3)\) and with no per-degree number to carry it. Every cheap operation in this tree is diagonal, and the operation the tree avoids fails to be.
 
 \section{Reading a picture off the coefficients}
 
@@ -96,11 +96,11 @@ The comparison is therefore not between one scheme and a cheaper scheme. Supersa
 
 The width to filter at is the pixel's own angular size on the boundary, available per fragment from the screen-space derivatives of the direction vector: \(\sigma\) is the length of the change in direction across one pixel, in radians, and \(\tau_{\text{pixel}} = \sigma^2/2\).
 
-Two properties follow that a mip chain has to be built to imitate. The width varies per pixel, so the filter is continuous in distance and in surface angle with no levels and no transitions between them. And the width enters \(\tau_{\text{total}}\), so it is applied by the same eleven multiplications the chain already pays for.
+Two properties follow that a mip chain has to be built to imitate. The width varies per pixel, and the filter is therefore continuous in distance and in surface angle with no levels and no transitions between them. And the width enters \(\tau_{\text{total}}\), where it is applied by the same eleven multiplications the chain already pays for.
 
 \subsection{Where the degrees stop mattering}
 
-The prefilter also says which degrees can be skipped. \(e^{-l(l+1)\tau}\) falls below a threshold \(\epsilon\) once \(l(l+1) > \ln(1/\epsilon)/\tau\), so \(l_{\max} \approx \sqrt{2\ln(1/\epsilon)}/\sigma\). At \(\epsilon = 1/256\), one level of an eight-bit channel, \(l_{\max}\) is about \(3.33/\sigma\).
+The prefilter also says which degrees can be skipped. \(e^{-l(l+1)\tau}\) falls below a threshold \(\epsilon\) once \(l(l+1) > \ln(1/\epsilon)/\tau\), which gives \(l_{\max} \approx \sqrt{2\ln(1/\epsilon)}/\sigma\). At \(\epsilon = 1/256\), one level of an eight-bit channel, \(l_{\max}\) is about \(3.33/\sigma\).
 
 \textbf{Stated honestly, this saving is small.} \(l_{\max}\) reaches down to \(10\) only when \(\sigma\) is about \(0.33\) radians, which happens when the object spans a few tens of pixels. Above that size every one of the \(121\) terms contributes something visible and none may be dropped. The level-of-detail behavior is real, it is derived instead of authored, and it earns nothing at the sizes the viewer is normally used at.
 
@@ -140,7 +140,7 @@ flat spectrum to degree 10 & \(0.0312\) & \(0.0050\) & \(5.85^\circ\) \\
 
 The depth kernel is doing the work in that last column. A deeper reading carries less high-degree power by T3, and the same grid draws it more accurately. The grid is wrong in proportion to the fine structure the state happens to hold.
 
-\textbf{Read the gradient column.} The surface is shaded, and shading takes its normal from the gradient. A linear interpolant has a constant gradient inside a triangle, so the drawn normal is a staircase across a field whose gradient turns smoothly. At degree \(10\) the median normal is \(7.5\) degrees off and one sample in twenty is more than \(47\) degrees off. That is the 5-degree quilt visible on the reconstruction, and it is a far larger error than the one per cent in the value column.
+\textbf{Read the gradient column.} The surface is shaded, and shading takes its normal from the gradient. A linear interpolant has a constant gradient inside a triangle. The drawn normal is a staircase across a field whose gradient turns smoothly. At degree \(10\) the median normal is \(7.5\) degrees off and one sample in twenty is more than \(47\) degrees off. That is the 5-degree quilt visible on the reconstruction, and it is a far larger error than the one percent in the value column.
 
 A per-fragment evaluation has no interpolation error in either column, because there is no interpolation. T10 supplies the exact gradient in closed form for the same reason T9 supplies the exact value: the derivative of the expansion is another expansion.
 
@@ -176,7 +176,7 @@ samples at 900 px across & not applicable & \(636{,}172\) \\
 \end{tabular}
 \end{center}
 
-The grid pass is bound by a \(1.25\) MB table that does not fit in cache. A fragment evaluation reads the \(121\) coefficients and computes the basis from the direction, so its working set is \(484\) bytes at any sample count. \textbf{No frame time is claimed here.} These are sizes and counts; throughput belongs to a measurement that has not been made.
+The grid pass is bound by a \(1.25\) MB table that does not fit in cache. A fragment evaluation reads the \(121\) coefficients and computes the basis from the direction. Its working set is \(484\) bytes at any sample count. \textbf{No frame time is claimed here.} These are sizes and counts; throughput belongs to a measurement that has not been made.
 
 \subsection{Where this fails}
 
@@ -188,7 +188,7 @@ The grid pass is bound by a \(1.25\) MB table that does not fit in cache. A frag
 
 \(P_l = \sum_m a_{lm}^2\) is invariant under every element of \(\mathrm{SO}(3)\), because the degree \(l\) subspace is a unitary irreducible representation. Under a rotation by \(\alpha\) about the read axis, \(\arg a_{lm}\) moves by exactly \(-m\alpha\).
 
-A reading therefore splits exactly. \textbf{Power per degree is intrinsic}, a property of the source carrying no information about where the reader stands. \textbf{Phase is contextual}, a property of the source and the reader together, moving by a known amount under a known rotation. The split needs no estimator, and deflection and torsion are the two halves.
+The reading splits exactly along those two properties. \textbf{Power per degree is intrinsic}, a property of the source carrying no information about where the reader stands. \textbf{Phase is contextual}, a property of the source and the reader together, moving by a known amount under a known rotation. The split needs no estimator, and deflection and torsion are the two halves.
 
 \section{The constants, and which kind they are}
 
@@ -198,7 +198,7 @@ The golden angle is \(\pi(3 - \sqrt{5})\), the index step of T8. The harmonic un
 
 \textbf{The verification carries no trusted digit string.} SHA-256's \(64\) round constants are defined as the first \(32\) bits of the fractional parts of the cube roots of the first \(64\) primes, and its \(8\) starting words the same for the square roots of the first \(8\) primes. Recomputing them from the primes and comparing against FIPS 180-4 checks \(2{,}048\) independently published bits. All \(2{,}048\) agree. The tool also grades every copy of the table in this tree against the definition: fifteen copies found, one of them the tool's own reference, and all fifteen match.
 
-Pi is checked twice more, against a 50-digit prefix and against a second computation from Euler's arctangent identity. Machin's and Euler's identities share no term, so agreement between them is not two copies of one mistake.
+Pi is checked twice more, against a 50-digit prefix and against a second computation from Euler's arctangent identity. Machin's and Euler's identities share no term. Agreement between them is not two copies of one mistake.
 
 \textbf{The measured value this produced.} The double the golden placement runs on sits \(4.441 \times 10^{-16}\) radians from the true golden angle. Over \(63\) indices the accumulated difference is about \(2.8 \times 10^{-14}\) radians, negligible, and now a number instead of an assumption.
 
@@ -232,7 +232,7 @@ The null is the only measured floor of the three, and it measures this tree's ow
 
 \textbf{T11's cost} is quoted as \(O(L^3)\) from the shape of the re-expansion and has not been timed here, because the tree avoids it.
 
-\textbf{Depth and degree do not interact in the choice.} Depth multiplies a column by about a constant without reordering degrees, so the price and the structure are chosen separately. Measured, and the mechanism is T3's diagonality.
+\textbf{Depth and degree do not interact in the choice.} Depth multiplies a column by about a constant without reordering degrees. The price and the structure are chosen separately. Measured, and the mechanism is T3's diagonality.
 
 \section{References}
 

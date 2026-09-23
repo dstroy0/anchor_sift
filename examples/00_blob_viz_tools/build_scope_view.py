@@ -29,8 +29,8 @@ amounts. SHA-256 moves bits across positions in exactly those ways and no others
 is read off the round function rather than chosen after looking at the spectrum, and its matched
 filter carries no multiple-comparison penalty. That is the whole reason the number means anything.
 
-    python tools/view/build_scope_view.py
-    python tools/view/build_scope_view.py --block 4 --out somewhere.html
+    python examples/00_blob_viz_tools/build_scope_view.py
+    python examples/00_blob_viz_tools/build_scope_view.py --block 4 --out somewhere.html
 
   --block   which block of the corpus supplies the header. Default: 0, the newest.
   --out     where to write. Default: scope_view.html beside this script.
@@ -48,8 +48,8 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 TEMPLATE = os.path.join(HERE, "scope_view_template.html")
-CORPUS = os.path.join(ROOT, "tools", "chain", "blocks.json")
-SHADOWS = os.path.join(ROOT, "src", "bench", "shadows.csv")
+CORPUS = os.path.join(ROOT, "maint", "chain", "blocks.json")
+SHADOWS = os.path.join(ROOT, "build", "bench", "shadows.csv")
 
 sys.path.insert(0, os.path.join(ROOT, "examples", "proofing"))
 

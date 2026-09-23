@@ -4,7 +4,7 @@
 #
 # Does this prose sound like a person wrote it? Answered as a rate against a drawn bar.
 #
-#   Usage:  python tools/prose/prosody_rate.py PATH [PATH ...]
+#   Usage:  python maint/prose/prosody_rate.py PATH [PATH ...]
 #
 # docs_check.py answers a different question. It reports every banned token it finds, so a file with
 # no findings passes, and passing a ban list is not the same as reading human: a writer who avoids

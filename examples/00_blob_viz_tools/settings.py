@@ -9,8 +9,8 @@ It decides what the viewer looks like when it opens: which representation, where
 whether it turns on its own, what is already selected. A caller that wants a particular view asks
 for it instead of publishing a page and telling the reader which controls to move.
 
-    python tools/view/build_blob_view.py file.bin --set shape=hilbert --set spin=0.3
-    python tools/view/build_field_view.py data.csv --set theme=light --set floor=20
+    python examples/00_blob_viz_tools/build_blob_view.py file.bin --set shape=hilbert --set spin=0.3
+    python examples/00_blob_viz_tools/build_field_view.py data.csv --set theme=light --set floor=20
 
 Unknown keys are refused and never ignored. A typo in a setting is silent otherwise, and a page
 that opens in the wrong state looks like a bug in the viewer.

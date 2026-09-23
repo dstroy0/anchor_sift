@@ -17,7 +17,7 @@ alone, and the rule set's contribution is in all nine.
 
 \section{The representation, and what happens to an empty square}
 
-A square is a point and the piece on it is its value. Reversi on sixty four squares, two colours.
+A square is a point and the piece on it is its value. Reversi on sixty four squares, two colors.
 
 Emptiness does not get a symbol. A board part way through a game is mostly empty, and a symbol for
 emptiness puts the game's clock into the histogram, where a measure reading counts will find it and
@@ -26,24 +26,24 @@ the empty squares; the one that reads the grid's shape keeps them, because a hol
 of the shape.
 
 The null is this work's null permutation written for a grid: the same pieces on the same squares in
-a uniformly drawn order. It keeps how many of each colour are on the board and which squares are
-occupied at all, and destroys only which colour sits where. Everything a rule imposed is in what it
+a uniformly drawn order. It keeps how many of each color are on the board and which squares are
+occupied, and destroys only which color sits where. Everything a rule imposed is in what it
 destroys.
 
-The measure is the share of occupied squares whose neighbour one step away carries the same colour,
+The measure is the share of occupied squares whose neighbor one step away carries the same color,
 averaged over both axes. The dispersion measure this work usually quotes needs four symbols clearing
-an occurrence floor and a board has two colours, so this reads the same thing at the one lag a board
-is large enough to carry.
+an occurrence floor, and a board has two colors. This measure reads the same quantity at the only lag
+a board is large enough to carry.
 
 \section{The departure, and the control that says what it is}
 
 Two hundred games with both sides drawing uniformly from the legal moves. Live 0.6555 against a null
 of 0.5350, a ratio of 1.225. Six disjoint batches of two hundred give 1.2253, 1.2193, 1.2219, 1.2238,
-1.2222 and 1.2282, a spread of 0.0089, so the departure is about twenty five times the spread between
+1.2222 and 1.2282, a spread of 0.0089. The departure is about twenty five times the spread between
 batches.
 
 A departure on its own does not say which ingredient produced it, and a board supplies the control
-for nothing. Play the same board with the same two colours and the same number of squares filled,
+for nothing. Play the same board with the same two colors and the same number of squares filled,
 where a move places a piece and nothing is turned over. That game has rules and has play and has no
 flip.
 
@@ -63,21 +63,21 @@ The departure is the flip rule. A board being a board contributes nothing.
 
 \subsection{The 0.971 row, which was a mistake of ours}
 
-The first version of that control kept Reversi's four fixed centre pieces and read 0.971, three
+The first version of that control kept Reversi's four fixed center pieces and read 0.971, three
 floors below the null where the argument wanted one. The gap is the opening itself. Those four
-squares are laid out black over white and white over black, so all four neighbouring pairs inside
-them disagree by construction where a draw would have half of them agree. Four guaranteed
-disagreements out of a hundred and twelve pairs is 0.018 of the reading, which is the whole of the
-gap, and starting from an empty board returns 0.998.
+squares are laid out black over white and white over black. All four neighboring pairs inside them
+therefore disagree by construction, where a draw would have half of them agree. Four guaranteed
+disagreements out of a hundred and twelve pairs is 0.018 of the reading and accounts for all of the
+gap. Starting from an empty board returns 0.998.
 
 It is kept because it points the other way as well. The same four squares sit under every Reversi row
-above and push them in the same direction, so the 1.225 is understated by about that much and is
-never overstated.
+above and push them in the same direction. The ratio of 1.225 is understated by about that much and
+is never overstated.
 
 \section{The negative}
 
 The three arms are the textbook ones. Drawing uniformly from the legal moves knows the rules and
-nothing else. Taking the move that turns over the most pieces is the standard weak heuristic and is
+has no strategy. Taking the move that turns over the most pieces is the standard weak heuristic and is
 weak here too. Taking a corner where one is offered, and otherwise turning over the fewest pieces, is
 the standard improvement: a corner can never be flipped back, and a small flip leaves the opponent
 fewer replies.
@@ -110,8 +110,8 @@ The departures do not order them at all. They run 1.184 to 1.255 with no relatio
 beside them, and the correlation over the nine pairings is 0.067.
 
 The explanation is the same one that makes the flip rule the source of the departure. Every legal
-move turns over a bracketed run, whoever chose it, so a strong player and a weak one leave the same
-kind of trace and differ only in where on the board they put it. The measure reads what was done to
+move turns over a bracketed run, whoever chose it. A strong player and a weak one leave the same kind
+of trace and differ only in where on the board they put it. The measure reads what was done to
 the board. It does not read who chose it.
 
 \section{Reading the width back off it}
@@ -135,7 +135,7 @@ corner & scattered null & 10 & 0.0093 \\
 \end{center}
 
 Eight, across the rows and down the columns, on a weak arm and a strong one, at seven to fifteen
-times what the same pieces scattered reach. The null returns a wrong number at a margin near zero,
-which is the correct behaviour: it is asked for a period and reports one with no confidence at all.
+times what the same pieces scattered reach. The null returns a wrong number at a margin near zero.
+That is the correct behavior: it is asked for a period and reports one with no confidence at all.
 
 That result has a boundary and the next chapter is where it sits.

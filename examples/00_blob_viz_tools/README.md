@@ -22,12 +22,12 @@ not tools:
 
 | stays here                                                           | why                                          |
 | -------------------------------------------------------------------- | -------------------------------------------- |
-| `build_voxel_view.py` `build_shadow_view.py` `build_sources_view.py` | open `src/bench/*.csv`                       |
-| `make_shadow_figure.py`                                              | opens `src/bench/shadows.csv`                |
+| `build_voxel_view.py` `build_shadow_view.py` `build_sources_view.py` | open `src/engine/c/sha256/bench/*.csv`       |
+| `make_shadow_figure.py`                                              | opens `src/engine/c/sha256/bench/shadows.csv` |
 | `build_step_view.py`                                                 | traces SHA-256, which is this tree's subject |
 
 Checked by opening each one and never by pattern: `make_shadow_figure.py` reads as general to a
-grep for `src/bench` because it builds the path with two nested `dirname` calls, and it is not.
+grep for `src/engine/c/sha256/bench` because it builds the path with two nested `dirname` calls, and it is not.
 
 ## Opening state
 

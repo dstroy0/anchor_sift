@@ -8,7 +8,7 @@ The question is whether a *measured* number moved. This drops timing lines and t
 prints the surviving differences in full so that each one is judged on what it says and not on
 a hash.
 
-Usage: python tools/audit/audit_diff.py <audit directory>
+Usage: python maint/audit/audit_diff.py <audit directory>
 """
 
 import re

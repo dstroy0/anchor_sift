@@ -5,9 +5,9 @@
 #
 """Turns a sound into a solid: frequency against time, as a surface you can turn.
 
-    python tools/view/build_sound_view.py take.wav
-    python tools/view/build_sound_view.py take.wav --fft 2048 --pad 8 --window blackman
-    python tools/view/build_sound_view.py --synth
+    python examples/00_blob_viz_tools/build_sound_view.py take.wav
+    python examples/00_blob_viz_tools/build_sound_view.py take.wav --fft 2048 --pad 8 --window blackman
+    python examples/00_blob_viz_tools/build_sound_view.py --synth
 
   --fft N      samples per frame. Default 1024.
   --pad K      zero-pad factor. The transform is fft times this. Default 4.

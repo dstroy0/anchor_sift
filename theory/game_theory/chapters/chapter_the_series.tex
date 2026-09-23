@@ -20,12 +20,12 @@ The sweep is every move set of one to four moves drawn from 1 to 10, which is th
 eighty five games. Every one of them settled: the exact routine found a period on all three hundred
 and eighty five, and the periods present run 2 to 45.
 
-\section{The window is a constraint and not a result}
+\section{The window limits which rows can be scored}
 
-The detector scores a candidate period together with its own multiples, which is the correction the
-crystallography chapter had to make when published cell edges came back at twice their value on ten
-of eighteen axes. A period beyond half the window has one multiple inside the window, so its family
-is one lag and the score degenerates to taking the tallest lag again.
+The detector scores a candidate period together with its own multiples. The crystallography chapter
+made that correction when published cell edges came back at twice their value on ten of eighteen
+axes. A period beyond half the window has one multiple inside the window. Its family is then one lag,
+and the score degenerates to taking the tallest lag again.
 
 Rows whose true period exceeds half the window are therefore out of range by construction. They are
 counted separately below and they are not failures. Counting them as failures would be reporting the
@@ -53,9 +53,9 @@ have periods of 45 and 33.
 
 A count of agreements is not evidence on its own, because a detector that always answered 2 would
 agree with every period-2 row. Each sequence is therefore scored against twelve shuffles of itself.
-A shuffle keeps every Grundy value and destroys which position carries it, so whatever margin it
-reaches is what the detector reads off the histogram alone, and the figure quoted is the tallest of
-the twelve rather than their average.
+A shuffle keeps every Grundy value and destroys which position carries it. Whatever margin it
+reaches is what the detector reads off the histogram alone. The figure quoted is the tallest of the
+twelve, not their average.
 
 At a window of 64, over three hundred and eighty three rows:
 
@@ -79,12 +79,11 @@ floor anywhere in the series.
 It licenses a statement about this domain. Over subtraction games with move sets drawn from 1 to 10,
 the detector returns the exact Grundy period on every sequence whose period it is able to score. The
 quantifier is over an enumerated set, the answers came from a proof, and the count is large enough
-that a coincidence would have to be systematic rather than lucky.
+that a coincidence would have to be systematic. Luck does not reach three hundred and eighty three.
 
 It does not license a statement about any other domain, and it does not upgrade the workbook's span
 table. The workbook's own deduction says why: soundness belongs to the construction and cost belongs
-to the domain's distribution, so a result obtained inside one distribution stays inside it. A
+to the domain's distribution. A result obtained inside one distribution stays inside it. A
 subtraction game's Grundy sequence is exactly periodic after a short preperiod, with two to a few
-dozen distinct values and no noise at all. That is the easiest thing a period detector will ever be
-shown. The series establishes that the detector is right where an answer exists and is checkable,
+dozen distinct values and no noise at all. That is the easiest case a period detector can be shown. The series establishes that the detector is right where an answer exists and is checkable,
 at a count nobody has to take on faith, and the next chapter is the half that matters more.

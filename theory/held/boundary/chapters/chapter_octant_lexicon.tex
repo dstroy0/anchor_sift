@@ -1,8 +1,8 @@
 \chapter{The octant lexicon}
 
-\textbf{Purpose:} Record what an eight-letter reading of a lit set does and, at greater length, what it cannot do, including two conclusions withdrawn when the object being read turned out to be the wrong one. \textbf{Scope:} \texttt{tools/\allowbreak{}view/\allowbreak{}octant\_lex.py}, \texttt{quotient\_coherence.py}, and SHA-256 compressing one block as the instance.
+\textbf{Purpose:} Record what an eight-letter reading of a lit set does and, at greater length, what it cannot do, including two conclusions withdrawn when the object being read turned out to be the wrong one. \textbf{Scope:} \texttt{examples/\allowbreak{}00\_blob\_viz\_tools/\allowbreak{}octant\_lex.py}, \texttt{quotient\_coherence.py}, and SHA-256 compressing one block as the instance.
 
-Eight regions, one letter each, and a word that a computation spells as it runs. The alphabet is general. It reads a lit set on a boundary and knows nothing about what lit it, so the same eight letters serve any object that can be placed on a sphere.
+Eight regions, one letter each, and a word that a computation spells as it runs. The alphabet is general. It reads a lit set on a boundary and knows nothing about what lit it. The same eight letters serve any object that can be placed on a sphere.
 
 Stated first, because a reader who takes one thing away should take this: the alphabet carries eight numbers about a source with \(256\) degrees of freedom, and the result that looks like a success is close to free. Neither of those is a defect in the tool. They are the size of the instrument, counted.
 
@@ -40,11 +40,11 @@ degree & coefficients & rank & blind & least singular value \\
 \end{tabular}
 \end{center}
 
-Against a 256-bit lit set, a reading to degree eight recovers \(81\) directions and is blind in \(175\). The map reaches the rank its coefficient count allows at every degree below the source count, so the shortfall in coefficients accounts for the blindness on its own. No sample size, no precision and no number of beams changes it.
+Against a 256-bit lit set, a reading to degree eight recovers \(81\) directions and is blind in \(175\). The map reaches the rank its coefficient count allows at every degree below the source count. The shortfall in coefficients accounts for the blindness on its own. No sample size, no precision and no number of beams changes it.
 
 The eight-letter alphabet here is rank \(8\), seven free numbers once the weight is fixed, blind in \(248\) of \(256\) directions.
 
-Degree fifteen is the floor, where \((L+1)^2\) first reaches \(256\). Reaching the floor is not reaching a usable reading: the least singular value collapses to \(3.5 \times 10^{-3}\) there and recovers to \(1.5 \times 10^{-1}\) at sixteen, so one degree of headroom is worth \(44\) times in conditioning. A reading degree picked by counting coefficients alone lands on fifteen and reports success.
+Degree fifteen is the floor, where \((L+1)^2\) first reaches \(256\). Reaching the floor is not reaching a usable reading: the least singular value collapses to \(3.5 \times 10^{-3}\) there and recovers to \(1.5 \times 10^{-1}\) at sixteen. One degree of headroom is worth \(44\) times in conditioning. A reading degree picked by counting coefficients alone lands on fifteen and reports success.
 
 \section{The object being read}
 
@@ -52,11 +52,11 @@ Everything from here down is one instance: SHA-256 compressing a single block, w
 
 A frame is the eight working words as the round leaves them, with nothing added back. That distinction decides every number below, and an earlier version of this page had it wrong.
 
-The check counts which object it has instead of trusting the caller. A round only copies six of its eight words, \(b,c,d\) taking \(a,b,c\) and \(f,g,h\) taking \(e,f,g\), so on the working state all \(378\) carried words match the words they come from and on the digest none do.
+The check counts which object it has instead of trusting the caller. A round only copies six of its eight words, \(b,c,d\) taking \(a,b,c\) and \(f,g,h\) taking \(e,f,g\). On the working state all \(378\) carried words match the words they come from and on the digest none do.
 
 \section{The placement under it}
 
-The \(256\) state bits go onto a golden placement. One index of shift on that placement is a rigid screw: turn \(2.399963\) radians, axial slide \(-0.007812\), pitch \(-0.003255258\). The pitch holds for every amount, so one helix carries them all, and where a shifted bit lands is fixed once the amount is known.
+The \(256\) state bits go onto a golden placement. One index of shift on that placement is a rigid screw: turn \(2.399963\) radians, axial slide \(-0.007812\), pitch \(-0.003255258\). The pitch holds for every amount. One helix carries them all, and where a shifted bit lands is fixed once the amount is known.
 
 \section{The word}
 
@@ -107,7 +107,7 @@ The early rounds move the reading further than two unrelated states do. A readin
 
 Two cautions on that, both of which bound it.
 
-The fall is a trend in the means and not a monotone series. The per-round deltas over the first eight rounds run \(12.9\), \(14.0\), \(12.8\), \(8.4\), \(11.9\), \(14.9\), \(8.5\) and \(12.0\), so round \(5\) is the first crossing and not the last time the delta sits high.
+The fall is a trend in the means and not a monotone series. The per-round deltas over the first eight rounds run \(12.9\), \(14.0\), \(12.8\), \(8.4\), \(11.9\), \(14.9\), \(8.5\) and \(12.0\). Round \(5\) is the first crossing and not the last time the delta sits high.
 
 Naming the move is not part of the measurement. A move carrying mass from octant to octant instead of mixing it will raise the delta above independence, and a rigid relabeling of the indices is such a move. Reading the early excess as the register shift is a reading of why, and it has not been measured. The measurement says only that the excess is present on the working state and absent on the digest.
 
@@ -129,11 +129,11 @@ mean over all 63 pairs & \(0.0278\) & \(1.04\) times \\
 \end{tabular}
 \end{center}
 
-Read the split and never the mean. The early changes sit in the directions the alphabet can see above what chance would put there, the late changes sit in its blind directions below what chance would put there, and the mean is those two cancelling. Taken alone the mean reports that the reading catches an arbitrary few per cent, and that reading of it is an artifact of averaging.
+Read the split and never the mean. The early changes sit in the directions the alphabet can see above what chance would put there, the late changes sit in its blind directions below what chance would put there, and the mean is those two canceling. Taken alone the mean reports that the reading catches an arbitrary few percent, and that reading of it is an artifact of averaging.
 
 The early to late ratio is \(2.88\), against \(1.68\) for the delta over the same split, on \(8\) pairs at each end. The direction is clear and the sample is small, and the ratio should be quoted with the \(8\) in the same breath.
 
-\textbf{The two routes share no denominator, and one of them was raised as an objection to the other.} The delta divides counts by a weight moving \(4.3\) bits a round, and that moving denominator was offered as the reason the delta's trend might be bookkeeping instead of arrangement. The visible fraction is a ratio of two norms of one difference vector in raw counts and carries no such term. It shows the trend larger, so the denominator was damping the effect and not producing it.
+\textbf{The two routes share no denominator, and one of them was raised as an objection to the other.} The delta divides counts by a weight moving \(4.3\) bits a round, and that moving denominator was offered as the reason the delta's trend might be bookkeeping instead of arrangement. The visible fraction is a ratio of two norms of one difference vector in raw counts and carries no such term. It shows the trend larger. The denominator was damping the effect and not producing it.
 
 The control arm is what licenses reading any of this. Differences with no structure in them must return the fraction the row space predicts, and for differences holding the weight that figure is \(7\) of \(255\) and not \(8\) of \(256\): such a difference sums to zero, the all-ones direction lies inside the row space since the eight indicators add to it, and the difference lives in the hyperplane orthogonal to all-ones. Measured over \(200\) draws the control returns \(0.0267\) against a predicted \(0.0275\). \texttt{quotient\_coherence.py} refuses to report the measurement at all when the control misses.
 
@@ -176,10 +176,10 @@ Refining the cells raises the coefficient count, and the counting table above is
 \toprule
 command \\
 \midrule
-\texttt{python tools/view/octant\_lex.py --check} \\
-\texttt{python tools/view/octant\_lex.py --message "abc"} \\
-\texttt{python tools/view/octant\_lex.py --read digest} \\
-\texttt{python tools/view/octant\_lex.py --top 12} \\
+\texttt{python examples/00\_blob\_viz\_tools/octant\_lex.py --check} \\
+\texttt{python examples/00\_blob\_viz\_tools/octant\_lex.py --message "abc"} \\
+\texttt{python examples/00\_blob\_viz\_tools/octant\_lex.py --read digest} \\
+\texttt{python examples/00\_blob\_viz\_tools/octant\_lex.py --top 12} \\
 \bottomrule
 \end{tabular}
 \end{center}

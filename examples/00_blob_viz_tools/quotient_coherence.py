@@ -1,6 +1,6 @@
 """How much of what changed between two states the alphabet could see at all.
 
-    python tools/view/quotient_coherence.py --check
+    python examples/00_blob_viz_tools/quotient_coherence.py --check
 
 THE QUESTION
 

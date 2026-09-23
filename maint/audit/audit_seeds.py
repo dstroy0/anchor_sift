@@ -8,7 +8,7 @@ What is reported per bench is the number that moved the most, in units of its ow
 with the line it came from. A headline whose spread across seeds is comparable to its distance from
 the null was never a measurement of the null's failure.
 
-Usage: python tools/audit/audit_seeds.py <seed sweep directory>
+Usage: python maint/audit/audit_seeds.py <seed sweep directory>
 """
 
 import re

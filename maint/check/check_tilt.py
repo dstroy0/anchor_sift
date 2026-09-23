@@ -11,7 +11,7 @@ Two questions, and the second only matters if the first survives.
   is it periodic?           autocorrelation of that profile in the bit index, where a period of
                             32 is the word structure and any other period is not accounted for
 
-    python tools/check_tilt.py
+    python maint/check/check_tilt.py
 """
 
 import csv
@@ -20,7 +20,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 
 DEEP_FIRST = 24
 DEEP_LAST = 48

@@ -5,8 +5,8 @@
 #
 """Writes a blob onto the inside of a scattering ball and shows what reaches the surface.
 
-    python tools/view/build_sphere_view.py file.bin
-    python tools/view/build_sphere_view.py file.bin --place pair --heat rare --degrees 48
+    python examples/00_blob_viz_tools/build_sphere_view.py file.bin
+    python examples/00_blob_viz_tools/build_sphere_view.py file.bin --place pair --heat rare --degrees 48
 
   --place     how a symbol gets a direction: spread, random, spiral, pair. Default pair.
   --heat      rare for surprisal per event, total for surprisal times how often. Default rare.

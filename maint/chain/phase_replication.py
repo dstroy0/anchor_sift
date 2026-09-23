@@ -40,7 +40,7 @@ WHAT EACH OUTCOME MEANS
     parity halves differ                        no phase to speak of. The trough hour is this
                                                 corpus' noise and the geography paragraph has to go
 
-    python tools/chain/phase_replication.py
+    python maint/chain/phase_replication.py
 """
 
 import argparse

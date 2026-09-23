@@ -1,7 +1,7 @@
 """Does the page's own script parse? Asked of the template before a build, and of the build after.
 
-    python tools/view/script_check.py tools/view/room_view_template.html
-    python tools/view/script_check.py --check
+    python examples/00_blob_viz_tools/script_check.py examples/00_blob_viz_tools/room_view_template.html
+    python examples/00_blob_viz_tools/script_check.py --check
 
 THE DEFECT THIS EXISTS FOR
 

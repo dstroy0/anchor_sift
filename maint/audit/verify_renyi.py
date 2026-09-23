@@ -10,7 +10,7 @@ the two agree to the last printed digit the constant in the binary is the consta
 Where they disagree the binary is wrong, or this is, and either way the number stops being quotable
 until that is settled.
 
-Usage: python tools/verify_renyi.py <bench output file>
+Usage: python maint/audit/verify_renyi.py <bench output file>
 """
 
 import math

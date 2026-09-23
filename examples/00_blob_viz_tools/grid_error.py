@@ -1,7 +1,7 @@
 """How wrong is the picture the mesh draws, measured against the field the coefficients hold.
 
-    python tools/view/grid_error.py
-    python tools/view/grid_error.py --check
+    python examples/00_blob_viz_tools/grid_error.py
+    python examples/00_blob_viz_tools/grid_error.py --check
 
 THE QUESTION THIS ANSWERS
 

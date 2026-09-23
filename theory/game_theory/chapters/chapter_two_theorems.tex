@@ -9,8 +9,8 @@ Nim is heaps, a move takes any number from one heap, and whoever cannot move los
 that a position loses for the player to move exactly when the heap sizes exclusive or to zero.
 
 One consequence of that is readable by counting and needs no exclusive or performed by the reader.
-Fix every heap but one. Exactly one size of the free heap makes the total zero, so every axis line of
-the grid holds exactly one losing position.
+Fix every heap but one. Exactly one size of the free heap makes the total zero. Every axis line of the
+grid therefore holds exactly one losing position.
 
 \begin{center}
 \begin{tabular}{@{}lrll@{}}
@@ -25,9 +25,9 @@ game & lines & losses per line & loss density \\
 \end{center}
 
 The set is one and not a range, on every line, in every arity. A set of the same density scattered
-over the same cells puts exactly one loss in a line of 64 with probability 0.371, so a scatter
-producing all ones over four thousand and ninety six lines is not something to quantify past saying
-it does not happen.
+over the same cells puts exactly one loss in a line of 64 with probability 0.371. A scatter
+producing all ones over four thousand and ninety six lines does not happen, and there is no need to
+quantify it further.
 
 This grid is generated from Bouton's own theorem, which is stated in the module and is why these
 rows are reported as a count and not as a recovery. What they establish is that the property is in
@@ -39,8 +39,8 @@ Wythoff's game is two heaps, where a move takes any number from one heap or the 
 both. Wythoff showed the losing positions are the pairs
 \(\left(\lfloor n\varphi \rfloor, \lfloor n\varphi^{2} \rfloor\right)\) and their mirrors.
 
-The grid here is played out by the minimum excludant recursion and holds no formula, so the
-comparison against that closed form is a check and not a definition.
+The grid here is played out by the minimum excludant recursion and holds no formula. Comparing it
+against that closed form checks the grid against an answer it was never given.
 
 \begin{center}
 \begin{tabular}{@{}rrlrl@{}}
@@ -55,14 +55,14 @@ side & positions & matches the 1907 form & \(a_n/n\) & relative error \\
 \end{center}
 
 Every pair agrees with the published one, at every side. The second coordinate minus the first runs
-1, 2, 3, 4 and onward with no exception, which is the other half of Wythoff's statement. And the
+1, 2, 3, 4 and onward with no exception, as the other half of Wythoff's statement requires. And the
 ratio converges on \(\varphi = 1.618034\) from below, reaching one part in a thousand at a side of
 800, which is a published irrational arriving out of a game played by a recursion that was told
 nothing.
 
 \section{Why the pair is here together}
 
-They are the same shape of game and their answers are opposite in the one way this work cares about.
+They are the same shape of game and their answers are opposite in the way this work cares about.
 
 Nim's losing set is built from the exclusive or, which is a bitwise operation, and its regularity is
 exact at every scale. Wythoff's sits on a line of slope \(\varphi\), and a line of irrational slope

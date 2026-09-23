@@ -37,7 +37,7 @@ import sys
 import tempfile
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CHECK = os.path.join(HERE, "tools", "prose", "docs_check.py")
+CHECK = os.path.join(HERE, "maint", "prose", "docs_check.py")
 THEORY = os.path.join(HERE, "theory")
 
 # Commands whose braced argument is prose and belongs in the graded text.

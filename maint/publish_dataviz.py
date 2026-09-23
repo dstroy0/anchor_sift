@@ -29,7 +29,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VIEW = os.path.join(HERE, "tools", "view")
+VIEW = os.path.join(HERE, "examples", "00_blob_viz_tools")
 TOOLKIT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(HERE))), "repo_tools")
 
 HEADER = (
@@ -85,10 +85,10 @@ IMPORTS = [
 LEFTOVERS = ("import dsp", "import exact", "import settings as")
 
 STAYS = {
-    "build_voxel_view.py": "opens src/bench/shadows.csv",
-    "build_shadow_view.py": "opens src/bench/shadows.csv",
-    "build_sources_view.py": "opens src/bench/sources.csv",
-    "make_shadow_figure.py": "opens src/bench/shadows.csv",
+    "build_voxel_view.py": "opens build/bench/shadows.csv",
+    "build_shadow_view.py": "opens build/bench/shadows.csv",
+    "build_sources_view.py": "opens build/bench/sources.csv",
+    "make_shadow_figure.py": "opens build/bench/shadows.csv",
     "build_step_view.py": "traces SHA-256, which is this tree's subject",
     "step_view_template.html": "belongs to build_step_view.py",
     "shadow_view_template.html": "belongs to build_shadow_view.py",

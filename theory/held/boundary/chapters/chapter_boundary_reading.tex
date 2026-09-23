@@ -1,10 +1,10 @@
 \chapter{Reading a lit set on a boundary}
 
-\textbf{Purpose:} Describe the three readings a lit set on a sphere admits, the floor under each, and what a caller has to know before lifting the module into another tree. \textbf{Scope:} \texttt{tools/\allowbreak{}view/\allowbreak{}boundary\_read.py}, \texttt{sphere\_field.py}, \texttt{null\_harness.py}, \texttt{arm\_draw.py}.
+\textbf{Purpose:} Describe the three readings a lit set on a sphere admits, the floor under each, and what a caller has to know before lifting the module into another tree. \textbf{Scope:} \texttt{examples/\allowbreak{}00\_blob\_viz\_tools/\allowbreak{}boundary\_read.py}, \texttt{sphere\_field.py}, \texttt{null\_harness.py}, \texttt{arm\_draw.py}.
 
-\texttt{boundary\_read.py} takes a set of lit points on a sphere and returns three readings of where those points sit, how they push the boundary, and how they twist it. Nothing in the module knows what a lit point means, so the same code serves a hash state, a solar system or a file of bytes without changing. The caller supplies the meaning.
+\texttt{boundary\_read.py} takes a set of lit points on a sphere and returns three readings of where those points sit, how they push the boundary, and how they twist it. Nothing in the module knows what a lit point means. The same code serves a hash state, a solar system or a file of bytes without changing. The caller supplies the meaning.
 
-Every number below came from \texttt{python tools/view/boundary\_read.py --check} and can be produced again by running it.
+Every number below came from \texttt{python examples/00\_blob\_viz\_tools/boundary\_read.py --check} and can be produced again by running it.
 
 \section{What has to come with it}
 
@@ -14,7 +14,7 @@ Two further files are worth taking and neither is required to run anything. \tex
 
 \section{Placements}
 
-A placement decides where index \(k\) sits on the sphere. The choice shapes what can be read, so both are offered and neither is a default.
+A placement decides where index \(k\) sits on the sphere. The choice shapes what can be read. Both are offered and neither is a default.
 
 \begin{center}
 \begin{tabular}{@{}lp{0.3\linewidth}p{0.3\linewidth}@{}}
@@ -27,7 +27,7 @@ placement & where index \(k\) goes & what it is good for \\
 \end{tabular}
 \end{center}
 
-\texttt{golden\_place} carries the property the screw below depends on: one step in the index is one fixed rigid move, the same move everywhere along the spiral. \texttt{ring\_place} puts its latitudes at the interiors of the bands, so no ring lands on a pole where every point of it would pile into one place. Pick the ring placement when the operation under test is a rotation, and the golden placement when the operation is a shift of the index.
+\texttt{golden\_place} carries the property the screw below depends on: one step in the index is one fixed rigid move, the same move everywhere along the spiral. \texttt{ring\_place} puts its latitudes at the interiors of the bands. No ring lands on a pole where every point of it would pile into one place. Pick the ring placement when the operation under test is a rotation, and the golden placement when the operation is a shift of the index.
 
 \texttt{as\_angles(points)} converts either one into the colatitude and longitude pairs the readings want.
 
@@ -66,15 +66,15 @@ torsion & recovered the angle to \(1.8 \times 10^{-13}\) radians, sign included 
 \end{tabular}
 \end{center}
 
-The split is exact in both directions, so the choice is not a matter of taste. A caller whose operations are rotations reads the twist. A caller wanting a quantity that holds still while the object turns reads the push. A caller who does not yet know which of those they have should read both and keep whichever carries a signal.
+The split is exact in both directions. The choice is not a matter of taste. A caller whose operations are rotations reads the twist. A caller wanting a quantity that holds still while the object turns reads the push. A caller who does not yet know which of those they have should read both and keep whichever carries a signal.
 
 \texttt{turn\_between(before, after, order=1)} performs the recovery, returning radians in the direction the longitudes run. Order one is asked by default because it pins the angle down without a wrap of its own; a higher order divides the angle and returns it only up to its own fraction of a turn. It returns \texttt{None} when neither set has a usable entry at that order, a real outcome and not an error to swallow.
 
 \section{The octant reading}
 
-\texttt{octant\_share(points, live)} splits space into eight regions by the sign of each coordinate. Every region has a trilateral right-angle corner at the origin, all eight corners meet at that one point, and on the boundary the same split cuts eight congruent spherical triangles of area \(\pi/2\) each, by Girard, totalling \(4\pi\). The measured shares sum to \(1.000000000000000\).
+\texttt{octant\_share(points, live)} splits space into eight regions by the sign of each coordinate. Every region has a trilateral right-angle corner at the origin, all eight corners meet at that one point, and on the boundary the same split cuts eight congruent spherical triangles of area \(\pi/2\) each, by Girard, totaling \(4\pi\). The measured shares sum to \(1.000000000000000\).
 
-The eight sign frames are not all the same kind of move. Their determinants split four at \(+1\) and four at \(-1\), so half are rotations of the first octant and half carry a mirror. A caller reading handedness off this split should know it is there before relying on it.
+The eight sign frames are not all the same kind of move. Their determinants split four at \(+1\) and four at \(-1\). Half are rotations of the first octant and half carry a mirror. A caller reading handedness off this split should know it is there before relying on it.
 
 \texttt{octant\_delta(before, after)} reports how much of the reading moved between two shares, as a percentage of the whole. It is halved, because a share leaving one octant arrives in another and the two ends of a single move would otherwise be counted twice.
 
@@ -90,13 +90,13 @@ On \(256\) points the pitch is \(-0.003255258\) whatever the amount is. Across t
 
 \section{What it costs}
 
-\texttt{complex\_coefficients} is the expensive call. It walks the lit set once per order and computes a Legendre column per point, so the work grows as the lit count times \texttt{top} squared. Degree eight over a few hundred lit points is immediate. A caller wanting a much higher degree should form the table once and hand it to both readings, the shape the module is already written in.
+\texttt{complex\_coefficients} is the expensive call. It walks the lit set once per order and computes a Legendre column per point. The work grows as the lit count times \texttt{top} squared. Degree eight over a few hundred lit points is immediate. A caller wanting a much higher degree should form the table once and hand it to both readings, the shape the module is already written in.
 
 \texttt{legendre\_column} climbs the diagonal and then recurs in degree, keeping every intermediate at unit scale. Computing the same values from factorials overflows above degree about \(150\) and loses digits well before that, and it fails quietly: the low degrees stay right while the fine structure goes wrong. The recurrence is there to prevent a picture that looks plausible and is not.
 
 \section{Choosing the degree}
 
-The degree is a choice about how much a reading carries, and not a limit the arithmetic imposes. The basis measures orthonormal to \(2.2 \times 10^{-14}\) at degree fifteen under exact quadrature, and to \(1.8 \times 10^{-14}\) at degree eight, so precision is not what holds a reading at any degree a caller is likely to want. The overflow above is a real ceiling and it sits an order of magnitude beyond that.
+The degree is a choice about how much a reading carries, and not a limit the arithmetic imposes. The basis measures orthonormal to \(2.2 \times 10^{-14}\) at degree fifteen under exact quadrature, and to \(1.8 \times 10^{-14}\) at degree eight. Precision is not what holds a reading at any degree a caller is likely to want. The overflow above is a real ceiling and it sits an order of magnitude beyond that.
 
 What does bound the reading is counting. A reading to degree \(L\) carries exactly \((L+1)^2\) real numbers about its source, and against a source with \(N\) degrees of freedom it is blind in \(N - (L+1)^2\) directions at any precision whatsoever.
 
@@ -135,9 +135,9 @@ a reading over arms & the arms redrawn as different shapes at the same weight & 
 \end{tabular}
 \end{center}
 
-The last row is a null over the reader instead of over the object. An arm is identified by its topology together with its weight, and a shape is one realization of that, so drawing the arms differently while holding the weight cannot move a letter. \texttt{arm\_draw.py} draws one set four ways, including as a line with a dwell particle on it, and no placement point changed arm under any of them.
+The last row is a null over the reader instead of over the object. An arm is identified by its topology together with its weight, and a shape is one realization of that. Drawing the arms differently while holding the weight cannot move a letter. \texttt{arm\_draw.py} draws one set four ways, including as a line with a dwell particle on it, and no placement point changed arm under any of them.
 
-Three of the seven are exactly zero and not merely small, because the moves are exact on integers. The octant reading has no continuum of small changes at all: a share is a count over a weight and both are integers, and at fixed weight the smallest change it can register is \(1/\mathit{weight}\). Two states of \emph{differing} weight can still give shares arbitrarily close together, leaving a caller who compares across weights to make a modelling choice about which states count as the same. Say that plainly instead of calling it a tolerance.
+Three of the seven are exactly zero and not merely small, because the moves are exact on integers. The octant reading has no continuum of small changes at all: a share is a count over a weight and both are integers, and at fixed weight the smallest change it can register is \(1/\mathit{weight}\). Two states of \emph{differing} weight can still give shares arbitrarily close together, leaving a caller who compares across weights to make a modeling choice about which states count as the same. Say that plainly instead of calling it a tolerance.
 
 The companion measurement is not a null. Torsion recovers a known angle to \(1.803 \times 10^{-13}\) radians, which asks whether the reading moves the right amount when something did happen. A null asks whether it holds still when nothing did. A reading wants both answers and they are different questions.
 
@@ -148,9 +148,9 @@ The companion measurement is not a null. Torsion recovers a known angle to \(1.8
 \toprule
 command \\
 \midrule
-\texttt{python tools/view/boundary\_read.py --check} \\
-\texttt{python tools/view/null\_harness.py --check} \\
-\texttt{python tools/view/arm\_draw.py --check} \\
+\texttt{python examples/00\_blob\_viz\_tools/boundary\_read.py --check} \\
+\texttt{python examples/00\_blob\_viz\_tools/null\_harness.py --check} \\
+\texttt{python examples/00\_blob\_viz\_tools/arm\_draw.py --check} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -159,6 +159,6 @@ The first holds the placement to the screw it should be, holds deflection and to
 
 The second measures the floors above, and before it reports any of them it hands itself a move that is not a null while declaring that it is, and a genuine null of the same shape. It has to catch the first and stay quiet on the second, and it withholds every floor and fails if either misbehaves. A checker that has never caught its own defect is a checker nobody has tested.
 
-The third reports the redraw row at each of its three levels and holds four drawings that are not redraws against itself first. It is called by the second, so running it separately is for reading the detail and not for coverage.
+The third reports the redraw row at each of its three levels and holds four drawings that are not redraws against itself first. The second calls it. Running it separately is for reading the detail and not for coverage.
 
 Exit status is zero when all of them pass. Running any of the modules without \texttt{--check} prints its own documentation, since all of them are libraries and have no work of their own to do.

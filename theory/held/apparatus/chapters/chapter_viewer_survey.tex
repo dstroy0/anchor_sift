@@ -1,6 +1,6 @@
 \chapter{The room viewer, measured before it is split}
 
-\textbf{Purpose:} Make the case for modularizing the room viewer as counts instead of impressions, state what has to exist before the split, and record the measurement that changed the author's own answer. \textbf{Scope:} \texttt{tools/\allowbreak{}view/\allowbreak{}room\_view\_template.html} and the builders sharing it.
+\textbf{Purpose:} Make the case for modularizing the room viewer as counts instead of impressions, state what has to exist before the split, and record the measurement that changed the author's own answer. \textbf{Scope:} \texttt{examples/\allowbreak{}00\_blob\_viz\_tools/\allowbreak{}room\_view\_template.html} and the builders sharing it.
 
 \section{What the file is}
 
@@ -22,9 +22,9 @@ frame-loop sites & 3 & 4 & 3 \\
 \end{tabular}
 \end{center}
 
-No script carries \texttt{type="module"}. Every declaration at the top of the room viewer's script is therefore a property of one hoisted scope, and any of the \(355\) is reachable from any of the \(102\) functions. Nothing there is private, so nothing is known to be safe to move.
+No script carries \texttt{type="module"}. Every declaration at the top of the room viewer's script is therefore a property of one hoisted scope, and any of the \(355\) is reachable from any of the \(102\) functions. Nothing there is private, and nothing is known to be safe to move.
 
-Two numbers say the split is not a rewrite. The duplicate count is zero, so no name has to be renamed to make modules possible. And \(38\) banner-marked sections already name the decomposition in comments: the boundaries, the engine arms, the beam and what it scatters from, the operation clock, the boundary reconstruction, the panels, the callouts, the redraw. Whoever wrote those wrote the module list.
+Two numbers say the split is not a rewrite. The duplicate count is zero, and no name has to be renamed to make modules possible. And \(38\) banner-marked sections already name the decomposition in comments: the boundaries, the engine arms, the beam and what it scatters from, the operation clock, the boundary reconstruction, the panels, the callouts, the redraw. Whoever wrote those wrote the module list.
 
 \textbf{A number in an earlier version of this survey was wrong.} It read \(750\) top-level declarations and \(144\) duplicate names. The pattern allowed six spaces of indentation and was counting declarations inside functions, and the duplicates were nested scopes doing their job. Counting at column zero inside the script body gives \(355\) and zero. The corrected figures are the ones above.
 
@@ -32,7 +32,7 @@ Two numbers say the split is not a rewrite. The duplicate count is zero, so no n
 
 \textbf{A frame-loop checker, and it is not enough on its own.} A split of \(355\) declarations across \(38\) sections is likelier to drop a value than to stop the loop. A checker answering \emph{did it die} passes a page whose loop turns over data it no longer has.
 
-\textbf{The first one manufactured the failure it reported, and that sharpens the argument instead of weakening it.} The watchdog advanced its turn counter from \texttt{requestAnimationFrame} and ran its check on \texttt{setTimeout}. A background tab stops the first and not the second, and a page opened in a tab that was not visible therefore completed one turn and was declared dead on schedule. The report then latched: the failure set a flag and the guarded turn opened by returning on that flag, so the loop never ran again even once the tab came forward. What Douglas saw was a frozen viewer with a red banner, frozen by its own watchdog.
+\textbf{The first one manufactured the failure it reported, and that sharpens the argument instead of weakening it.} The watchdog advanced its turn counter from \texttt{requestAnimationFrame} and ran its check on \texttt{setTimeout}. A background tab stops the first and not the second, and a page opened in a tab that was not visible therefore completed one turn and was declared dead on schedule. The report then latched: the failure set a flag and the guarded turn opened by returning on that flag. The loop never ran again, even once the tab came forward. What Douglas saw was a frozen viewer with a red banner, frozen by its own watchdog.
 
 It was repaired in the room template and the compact copies. A thrown error is fatal, slowness reports once and stops nothing, a hidden document is not judged at all and re-arms on \texttt{visibilitychange}, and a loop reaching two turns withdraws a warning raised while it was hidden.
 

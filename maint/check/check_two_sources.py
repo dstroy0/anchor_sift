@@ -5,7 +5,7 @@ does that by flicker; this does it by subtraction, on the same fields, with the 
 shares taken out first - because the raw fold is dominated by that offset and would show the two as
 identical whatever they carry.
 
-    python tools/check_two_sources.py [left] [right]
+    python maint/check/check_two_sources.py [left] [right]
 """
 
 import csv
@@ -14,7 +14,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "sources.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "sources.csv")
 
 FIRST = 8
 LAST = 16

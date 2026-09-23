@@ -3,13 +3,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: VIZ-x-011
 #
-"""Turns src/bench/sources.csv into a viewer that switches between sources.
+"""Turns build/bench/sources.csv into a viewer that switches between sources.
 
 Every null in this work is a number. This puts the fields themselves side by side - SHA-256, a
 matrix that is pseudorandom by construction, and two ablations - through identical projection code,
 so "does this look like noise" can be answered by looking as well as by a statistic.
 
-    python tools/build_sources_view.py
+    python examples/00_blob_viz_tools/build_sources_view.py
 """
 
 import csv
@@ -19,7 +19,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-SOURCE = os.path.join(ROOT, "src", "bench", "sources.csv")
+SOURCE = os.path.join(ROOT, "build", "bench", "sources.csv")
 TEMPLATE = os.path.join(HERE, "sources_view_template.html")
 TARGET = os.path.join(HERE, "sources_view.html")
 
@@ -53,7 +53,7 @@ def trimmed(rows, places):
 
 def main():
     if not os.path.exists(SOURCE):
-        sys.stderr.write("no sources.csv - run: src/bench/bench_sac.exe 18 45 64 sources\n")
+        sys.stderr.write("no build/bench/sources.csv - build src/engine/c/sha256/bench/bench_sac.cu into build/bench and run it there with 18 45 64 sources\n")
         return 1
 
     packed = read()

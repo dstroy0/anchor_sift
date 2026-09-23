@@ -1,8 +1,8 @@
 """SHA-256 running, inside the room, on its own operation clock with time as the radius.
 
-    python tools/view/build_sha_clock_view.py
-    python tools/view/build_sha_clock_view.py --message "abc" --rounds 16
-    python tools/view/build_sha_clock_view.py --glow random --shell dodecahedron
+    python examples/00_blob_viz_tools/build_sha_clock_view.py
+    python examples/00_blob_viz_tools/build_sha_clock_view.py --message "abc" --rounds 16
+    python examples/00_blob_viz_tools/build_sha_clock_view.py --glow random --shell dodecahedron
 
   --message   the block to compress. Default the empty message, padded.
   --rounds    how many of the 64 rounds are traced. Default 64.

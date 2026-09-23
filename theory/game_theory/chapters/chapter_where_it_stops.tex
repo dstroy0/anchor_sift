@@ -11,8 +11,8 @@ not a property of the reader, and a reader handed a grid with structure on both 
 know which of them it answered with.
 
 The demonstration is a two-heap subtraction game. The value of a sum of independent games is the
-exclusive or of their values, which is Sprague and Grundy's and not measured here, so a square grid
-of two heaps under one move set is generated for nothing. Such a grid repeats down the column at the
+exclusive or of their values. That is Sprague and Grundy's theorem and is not measured here. A square
+grid of two heaps under one move set is therefore generated for nothing. Such a grid repeats down the column at the
 width it was laid out at, and along the row at the game's own Grundy period. Three hundred and
 fifteen of them, at five widths:
 
@@ -29,8 +29,8 @@ a combination of the two & 43 \\
 \end{tabular}
 \end{center}
 
-The same grids shuffled return the width on 5 of 100, which is the chance rate, so none of the four
-groups above is noise. Every one of them is a real repeat in the flattened sequence, and the detector
+The same grids shuffled return the width on 5 of 100, the chance rate. None of the four groups above
+is noise. Every one of them is a real repeat in the flattened sequence, and the detector
 returns whichever family scored higher.
 
 The off-by-one group is the clearest case. Where a grid's content is a function of the sum or the
@@ -45,11 +45,11 @@ assumption about the corpus dressed as a measurement.
 
 \section{What this book has not established}
 
-\textbf{The series covers subtraction games and nothing else.} The workbook's own division says why:
-soundness belongs to the construction and cost belongs to the domain's distribution, so a result
-obtained inside one distribution stays there. A subtraction game's Grundy sequence is exactly
-periodic after a short preperiod, over a small alphabet, with no noise. It is the easiest thing a
-period detector will ever be shown, and three hundred and eighty three rows of it establish that the
+\textbf{The series covers subtraction games only.} The workbook's own division says why: soundness
+belongs to the construction and cost belongs to the domain's distribution. A result obtained inside
+one distribution stays there. A subtraction game's Grundy sequence is exactly periodic after a short
+preperiod, over a small alphabet, with no noise. It is the easiest case a period detector can be
+shown, and three hundred and eighty three rows of it establish that the
 detector is right where an answer exists and is checkable. They establish nothing about a corpus
 that is noisy, or only approximately periodic, or long.
 
@@ -62,8 +62,8 @@ accounts for sixty one. The two it does not are the weakest rows in the table by
 and rank 8 of 63, which is consistent with them being noise and is not a demonstration that they are.
 
 \textbf{The played board is one game.} Reversi has a flip rule, and the finding that the departure
-reads the rules rather than the play may be a fact about flip rules. A game whose rules constrain
-placement rather than transform it might well leave a trace that a stronger player deepens. Nothing
+reads the rules and not the play may be a fact about flip rules. A game whose rules constrain where
+a piece is placed, and flip nothing, might well leave a trace that a stronger player deepens. Nothing
 here has tried one.
 
 \textbf{The three arms are weak.} Corner beats random by 0.645 to 0.355 and that is a real ordering,
@@ -71,17 +71,17 @@ but all three are one line of heuristic. The correlation of 0.067 is measured ov
 that a competent Reversi program would sit entirely above, and a wider range could show a
 relationship this one cannot see.
 
-\textbf{A game is not a natural object.} Its regularity was put there by a person on purpose. This is
-a positive control, in the same class as a published cell edge and with less excuse, since nobody
-had to go and measure a subtraction game. What a positive control is for is the one thing a
-memoryless control cannot do, and that is all it is claimed to do here.
+\textbf{A game is not a natural object.} A person put its regularity there deliberately. This is a
+positive control, in the same class as a published cell edge and with less excuse, since nobody had
+to go and measure a subtraction game. A positive control shows what a memoryless control cannot, and
+nothing larger is claimed for it here.
 
 \section{What the book is for, if one thing}
 
-Not the three hundred and eighty three. Those were cheap on purpose and a domain that hands out its
+Not the three hundred and eighty three. Those were cheap by design, and a domain that hands out its
 own answers is not hard to agree with.
 
-The chapter worth carrying forward is the one where the instrument was confident, cleared every
+The chapter worth carrying forward is the chapter where the instrument was confident, cleared every
 floor by three to twenty nine times, produced a number with a clean mechanism behind it, and was
 still not reporting what its output was called. That could not have been found with a memoryless
 control, because a memoryless control has no structure to be confidently wrong about. It took an

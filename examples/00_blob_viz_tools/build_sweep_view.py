@@ -11,10 +11,10 @@ setting on its own row of one solid, and adds a field that is each setting minus
 all of them. A feature that stands in the same place at every setting is in the signal. A feature
 that moves, or appears at one setting and not the next, is the analysis talking about itself.
 
-    python tools/view/build_sweep_view.py take.wav
-    python tools/view/build_sweep_view.py --synth --sweep pad
-    python tools/view/build_sweep_view.py --synth --sweep window --top 4000
-    python tools/view/build_sweep_view.py --synth --sweep fft --exact 256
+    python examples/00_blob_viz_tools/build_sweep_view.py take.wav
+    python examples/00_blob_viz_tools/build_sweep_view.py --synth --sweep pad
+    python examples/00_blob_viz_tools/build_sweep_view.py --synth --sweep window --top 4000
+    python examples/00_blob_viz_tools/build_sweep_view.py --synth --sweep fft --exact 256
 
   --sweep WHAT   fft, pad or window. Default fft.
   --fft N        frame size when it is not the swept axis. Default 1024.

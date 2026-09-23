@@ -1,7 +1,7 @@
 """Every allocation on a viewer's per-frame path, and every disposal of something it does not own.
 
-    python tools/view/frame_audit.py tools/view/room_view_template.html
-    python tools/view/frame_audit.py --check
+    python examples/00_blob_viz_tools/frame_audit.py examples/00_blob_viz_tools/room_view_template.html
+    python examples/00_blob_viz_tools/frame_audit.py --check
 
 THE DEFECT THIS EXISTS FOR
 

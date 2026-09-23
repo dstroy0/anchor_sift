@@ -20,7 +20,7 @@ Four stages, in the order a receiver applies them:
                    amounts. Projecting onto it costs no multiple-comparison penalty at all, since
                    nothing was chosen after looking
 
-    python tools/radar_receive.py
+    python maint/radar/radar_receive.py
 """
 
 import csv
@@ -29,7 +29,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 
 # The waveform, named before the data is opened. SHA-256 moves bits across positions in exactly
 # these ways and no others.
@@ -86,7 +86,7 @@ def os_cfar(values, cell):
 
 def main():
     if not os.path.exists(SOURCE):
-        sys.stderr.write("no shadows.csv - run: src/bench/bench_sac.exe 18 45 64 shadow\n")
+        sys.stderr.write("no build/bench/shadows.csv - build src/engine/c/sha256/bench/bench_sac.cu into build/bench and run it there with 18 45 64 shadow\n")
         return 1
 
     by_round = load()

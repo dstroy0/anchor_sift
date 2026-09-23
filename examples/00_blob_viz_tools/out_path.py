@@ -1,6 +1,6 @@
 """Where a generated page goes, resolved to keep a tool from writing beside itself.
 
-    python tools/view/out_path.py --check
+    python examples/00_blob_viz_tools/out_path.py --check
 
 A library and not a tool.
 

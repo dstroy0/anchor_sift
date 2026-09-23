@@ -11,7 +11,7 @@ word that departs from that is doing something the schedule does not account for
 
 Three crossings are timed per word, from the deterministic plateau down to the noise floor.
 
-    python tools/check_word_collapse.py
+    python maint/check/check_word_collapse.py
 """
 
 import csv
@@ -19,7 +19,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 
 PLATEAU = 67108608.0
 MARKS = [("leaves plateau", 0.98), ("half fallen", 0.50), ("near floor", 0.001)]

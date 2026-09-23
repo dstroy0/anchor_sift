@@ -11,7 +11,7 @@ of four: a, b, c, d are a delayed nought to three rounds, and e, f, g, h are e d
 So the prediction is exact. At a fixed offset past the wavefront the eight output words should show
 two groups of four, each group stepping with its delay, and no other structure.
 
-    python tools/check_word_pairs.py
+    python maint/check/check_word_pairs.py
 """
 
 import csv
@@ -20,7 +20,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 
 NAMES = "abcdefgh"
 

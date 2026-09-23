@@ -5,8 +5,8 @@
 #
 """Puts a moving system inside the ball and derives it back from the boundary alone.
 
-    python tools/view/build_orrery_view.py
-    python tools/view/build_orrery_view.py --bodies 6 --frames 512 --mode shadow
+    python examples/00_blob_viz_tools/build_orrery_view.py
+    python examples/00_blob_viz_tools/build_orrery_view.py --bodies 6 --frames 512 --mode shadow
 
   --bodies    how many orbiting bodies. Default 6.
   --frames    how many steps of the clock to precompute. Default 512.

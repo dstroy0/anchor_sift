@@ -2,7 +2,7 @@
 
 \textbf{Purpose:} Record what each transform in this work translates between, what the translation buys, and the single condition under which any of them helps at all. \textbf{Scope:} the bitpack, fixed point, the number-theoretic transform, the four-step fold, the golden placement, the harmonic expansion, and the permutation read as an orthogonal map.
 
-Seven transforms carry this work. They look unrelated and they do one thing: they express the same information in coordinates where a question is easier to ask. None of them creates information and none destroys it, so each has an inverse or is lossless at full rank.
+Seven transforms carry this work. They look unrelated and they do one thing: they express the same information in coordinates where a question is easier to ask. No transform here creates information or destroys it. Each has an inverse or is lossless at full rank.
 
 \section{The seven}
 
@@ -12,13 +12,13 @@ Seven transforms carry this work. They look unrelated and they do one thing: the
 
 \textbf{The number-theoretic transform.} Coefficients to evaluations and back. A polynomial of \(n\) coefficients evaluated at \(n\) points costs \(n^2\) pointwise and \(n \log n\) through the transform, because the transform shares work between the points that pointwise evaluation repeats.
 
-\textbf{The four-step fold.} One dimension of length \(N\) becomes two of \(P \times Q\), with a twiddle between them. Nothing is lost, since it is a relabelling of the same indices, and it lets a transform too large for one pass fit in two.
+\textbf{The four-step fold.} One dimension of length \(N\) becomes two of \(P \times Q\), with a twiddle between them. Nothing is lost, since it is a relabeling of the same indices, and it lets a transform too large for one pass fit in two.
 
 \textbf{The golden placement.} An index becomes a direction. Index \(k\) goes to height \(1 - 2(k + 0.5)/n\) at longitude \(k\gamma\), and \(256\) bit positions become \(256\) points on a sphere with no seam and no pole pile. A one-dimensional list becomes a two-dimensional surface.
 
 \textbf{The harmonic expansion.} A set of points on that surface becomes \((L+1)^2\) coefficients sorted by angular scale. At full rank it is lossless, making it a change of vocabulary and not a summary, and the sorting is what it buys: structure at a scale concentrates in one band instead of smearing across \(256\) numbers.
 
-\textbf{The permutation as an orthogonal map.} \(k\) observations of a quantity become a vector in \(k\) dimensions, and correlation becomes the cosine of an angle. A permutation is then a rotation within the coordinate subgroup, preserving every length and randomising every angle. This one was hiding in plain sight all night as \emph{shuffling the data}.
+\textbf{The permutation as an orthogonal map.} \(k\) observations of a quantity become a vector in \(k\) dimensions, and correlation becomes the cosine of an angle. A permutation is then a rotation within the coordinate subgroup, preserving every length and randomizing every angle. This one was hiding in plain sight all night as \emph{shuffling the data}.
 
 \section{What they preserve and what they move}
 
@@ -30,7 +30,7 @@ The engine is faster because of the NTT, and not more capable. The boundary read
 
 A transform pays when the object has fewer coefficients than it has points. That is the entire mechanism, in every case.
 
-Multipoint evaluation is fast because a degree-\(n\) polynomial has \(n\) coefficients however many places it is evaluated, so the work at one point overlaps the work at the next. Harmonic sorting is useful because a smooth field has most of its power in low degrees, so the high ones can be dropped. The arms pool because independent observations share a mean, so \(k\) of them carry one number's worth of uncertainty instead of \(k\).
+Multipoint evaluation is fast because a degree-\(n\) polynomial has \(n\) coefficients however many places it is evaluated. The work at one point overlaps the work at the next. Harmonic sorting is useful because a smooth field has most of its power in low degrees, and the high ones can be dropped. The arms pool because independent observations share a mean, and \(k\) of them carry one number's worth of uncertainty instead of \(k\).
 
 That fixes when a transform is useless, and the test for it is direct. A Boolean function of degree below \(k\) sums to zero over any \(k\)-dimensional affine subspace, and a cube of inputs therefore collapses if and only if the function is rank-deficient in that sense. Measured over \(126\) cells at every depth from eight rounds to sixty-four, nothing collapsed: every cell sat near \(128\) of \(256\), which is full degree.
 
@@ -42,7 +42,7 @@ That fixes when a transform is useless, and the test for it is direct. A Boolean
 
 \textbf{Earned it.} The harmonic expansion beat every rival scanner on spatial structure by a factor of twenty-two, \(328\) standard errors against \(14.8\), because sorting by angular scale gives the coordinate in which a shape is one coefficient instead of \(256\).
 
-\textbf{Did not.} The same expansion read \(2.43\) against its own \(3.75\) floor on a forced parity, below its own noise. A parity is not a linear property of which points are lit, so the expansion is blind to it by construction, and the crudest scan in the comparison caught it. A transform translates into one language and is deaf in every other.
+\textbf{Did not.} The same expansion read \(2.43\) against its own \(3.75\) floor on a forced parity, below its own noise. A parity is not a linear property of which points are lit. The expansion is blind to it by construction, and the crudest scan in the comparison caught it. A transform translates into one language and is deaf in every other.
 
 \textbf{Did not.} Reading a state through a mirrored placement looked like a chirality test and was a geometric identity: reflection negates every longitude, conjugating every coefficient and negating every phase, for any data whatever. The answer was fixed before the data was consulted. A transform's own symmetries can produce a result saying nothing about the object.
 

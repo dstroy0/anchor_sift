@@ -704,11 +704,6 @@ class TheStructuralStageIsUntouched(unittest.TestCase):
         )
         self.assertTrue(docs_check.path_candidate("docs/README.md"))
 
-    def test_the_private_survey_still_answers_in_two_halves(self):
-        held, absent = docs_check.private_survey()
-        self.assertEqual(len(held) + len(absent), len(docs_check.PRIVATE_NAMES))
-        print("\n  private roots: %d held, %d absent" % (len(held), len(absent)))
-
     def test_locale_and_checked_were_not_this_pass_and_have_since_been_done(self):
         # This test used to assert ten patterns and five extensions, because both were known gaps
         # and both belonged to the coverage pass. That pass has landed.

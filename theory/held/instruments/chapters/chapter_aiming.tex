@@ -15,7 +15,7 @@ what & measured \\
 \midrule
 pi to \(10{,}000{,}000\) digits & \(116.5\) s, checked twice against an independent series \\
 a \(1{,}290{,}000{,}000\)-bit product & \(1.72\) s of device time \\
-\(2.15\) trillion SHA-256 evaluations & summarised in \(3\) MB of counters \\
+\(2.15\) trillion SHA-256 evaluations & summarized in \(3\) MB of counters \\
 \(26.6\) billion multiply-accumulates & \(3.2\) s, once the work was in the shape the card wants \\
 \bottomrule
 \end{tabular}
@@ -25,7 +25,7 @@ The last line rewards reading twice. The same permutation null took \(24\) draws
 
 \section{Read the interior, not the boundary}
 
-A physical system forces a boundary reading: the interior cannot be reached, so it is inferred from what escapes. Almost nothing the engine is pointed at has that constraint, and treating it as though it does is a blindfold put on by hand.
+A physical system forces a boundary reading: the interior cannot be reached and is inferred from what escapes. Almost nothing the engine is pointed at has that constraint, and treating it as though it does is a blindfold put on by hand.
 
 Pointed at a compression function, hours went into reading digests while every schedule word, every state word at every round, and every value built inside a round were readable at every instant. The interior said in one run what the boundary could not say at all: the two nonlinear functions lag the linear ones by exactly one round, because a value like \((e \wedge f) \oplus (\neg e \wedge g)\) does not depend on \(e\) wherever \(f\) and \(g\) agree. A digest sums every path into one number and can never separate them.
 
@@ -43,13 +43,13 @@ Six hundred excitations found \(214\) of \(256\) positions unreachable at one de
 
 Without one, \emph{we found nothing} and \emph{we could not have found anything} print identically, and there is no way to tell them apart from inside the result.
 
-The clearest case: a compression test found no structure in a hash and was about to be believed. Adding an arm for the digits of pi, a sequence with a \emph{kilobyte} generating program by construction, showed pi compressing to \(1.0010\) against random's \(1.0001\). The instrument could not distinguish a known short program from none, so its verdict was empty and the claim would have been a fact about zlib.
+The clearest case: a compression test found no structure in a hash and was about to be believed. Adding an arm for the digits of pi, a sequence with a \emph{kilobyte} generating program by construction, showed pi compressing to \(1.0010\) against random's \(1.0001\). The instrument could not distinguish a known short program from none. Its verdict was empty, and the claim would have been a fact about zlib.
 
 Every instrument gets one: pi for algorithmic structure, a planted relation for a relation search, a held-out range for anything selected, a known-answer vector for any reader, planted structure of each class for a scanner. If the control does not fire, the null is about the tool.
 
 \section{Draw the bar, never derive it}
 
-Seven derived thresholds in one session and every one came in too low. The error runs in one direction only, so it earns a rule instead of more care: deriving a bar means enumerating the sources of variance, and the ones left out only ever \emph{add} variance, so the derived value is always the low estimate. A drawn bar has them all whether or not anyone thought of them.
+Seven derived thresholds in one session and every one came in too low. The error runs in one direction only, and that earns a rule instead of more care. Deriving a bar means enumerating the sources of variance, and the ones left out only ever \emph{add} variance. The derived value is always the low estimate. A drawn bar has them all whether or not anyone thought of them.
 
 \begin{center}
 \begin{tabular}{@{}l@{}}
@@ -59,7 +59,7 @@ the seven, by shape \\
 a shuffle of labels returning identical counts every draw, sd \(0.00\) \\
 a bar at two Poisson floors for a statistic spanning three and a half by construction \\
 chi-square's variance through a logarithm: \(0.0582\) where shuffling gives \(0.1015\) \\
-\(\sqrt{2 \ln N}\), the \emph{expected} maximum, so half of all nulls exceed it \\
+\(\sqrt{2 \ln N}\), the \emph{expected} maximum, which half of all nulls exceed \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -72,9 +72,9 @@ A null that does not match reports the nuisance parameter and calls it structure
 
 \textbf{Hold fixed whatever the statistic is sensitive to and does not mean.}
 
-\section{Normalise so the baseline is flat}
+\section{Normalize until the baseline is flat}
 
-For points with no preferred direction every mode carries the same expected power, and a degree holds \(2l+1\) of them, so per-degree power \emph{rises} as \(2l+1\) with nothing in it at all. Drawn: the ratio is flat at \(3.867\) for a weight of \(64\) and \(5.095\) for \(128\), to within two and a half per cent across ten degrees, and the two constants stand in the ratio the finite-population correction predicts, \(1.318\) measured against \(1.333\) expected.
+For points with no preferred direction every mode carries the same expected power, and a degree holds \(2l+1\) of them. Per-degree power therefore \emph{rises} as \(2l+1\) with nothing in it at all. Drawn: the ratio is flat at \(3.867\) for a weight of \(64\) and \(5.095\) for \(128\), to within two and a half percent across ten degrees, and the two constants stand in the ratio the finite-population correction predicts, \(1.318\) measured against \(1.333\) expected.
 
 Plotted raw, every spectrum rises and the rise is entirely mode count. Divided by \(2l+1\) the null is a horizontal line, the baseline is one number instead of a curve, and a departure is a departure with nothing to subtract by eye.
 
@@ -88,7 +88,7 @@ Scanners were raced against planted structure of four kinds. The harmonic expans
 
 \section{Distinguish the format's floor from the object's}
 
-A residual \emph{stopping} at \(10^{-16}\) is float64. A residual \emph{falling} with the width belongs to the object. Only fixed point can tell those apart, and the difference is not academic: an invariance measured in a double reported \(10^{-14}\) and could not say whether the theorem held exactly or merely sat where a double runs out. Recomputed in fixed point it read \(2^{-60}\), \(2^{-92}\) and \(2^{-123}\) at widths of \(64\), \(96\) and \(128\), tracking the width, so the invariance is exact.
+A residual \emph{stopping} at \(10^{-16}\) is float64. A residual \emph{falling} with the width belongs to the object. Only fixed point can tell those apart, and the difference is not academic: an invariance measured in a double reported \(10^{-14}\) and could not say whether the theorem held exactly or merely sat where a double runs out. Recomputed in fixed point it read \(2^{-60}\), \(2^{-92}\) and \(2^{-123}\) at widths of \(64\), \(96\) and \(128\), tracking the width. The invariance is exact.
 
 \textbf{Measure the same thing at two widths. If the answer moves, it was the format.}
 
@@ -127,7 +127,7 @@ It was established here by direct measurement instead of assumption. Distance-to
 
 \subsection{Ruled out, at and above a measured floor}
 
-Every ordering strategy at once. If items are independent, search order cannot change the expected cost, so any cleverness about \emph{which} item to try next is spending effort on a quantity that does not exist. One measurement retires the entire family instead of each member separately, the strongest thing a null does anywhere in this tree, and the reason it got quoted past its evidence.
+Every ordering strategy at once. If items are independent, search order cannot change the expected cost, and any cleverness about \emph{which} item to try next is spending effort on a quantity that does not exist. One measurement retires the entire family instead of each member separately, the strongest thing a null does anywhere in this tree, and the reason it got quoted past its evidence.
 
 Both arms read the digest through the leading-zero count, about two bits of entropy per evaluation, discarding everything below the first set bit. That was never wrong, and it was never bounded either: \emph{we found no gradient} was standing in for \emph{no gradient exists} with nothing fixing the difference. Fading an injected gradient until the same statistic loses it puts a number on it: \(0.0625\) leading-zero bits per single-bit step, with the control flat at every rung. Above that, excluded. Below it, or expressed anywhere else in the digest, not looked at.
 
@@ -179,7 +179,7 @@ The general form: \textbf{elision is where the object stops being able to tell y
   \item Read the interior if the interior is readable.
   \item Run the positive control. If it does not fire, stop.
   \item Draw the bar. Match the null to the nuisance parameters.
-  \item Normalise until the baseline is flat.
+  \item Normalize until the baseline is flat.
   \item Measure at two widths and see whether the floor moves.
   \item When something clears, suspect the instrument, and only then the object.
 \end{enumerate}

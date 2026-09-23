@@ -10,9 +10,13 @@
 #     git config core.hooksPath .githooks
 #
 # Breaking findings stop the commit: an empty table, an em dash, a link to a file that is not there,
-# and markdown left in a .tex. Those render as a broken page and a reader sees them. Prose findings
-# are printed and let through, because the prose backlog predates the check and a hook nobody can
-# satisfy gets turned off.
+# and markdown left in a .tex. Those render as a broken page and a reader sees them.
+#
+# Prose findings are a ratchet. maint/prose/prose_ratchet.tsv holds the most prose findings each file
+# may carry. A commit that raises a staged file above its number is stopped. A commit that lowers one
+# writes the lower number into the ratchet and stages it with the commit, so the backlog only
+# shrinks. Only staged files are held to it: the rest of the working tree is somebody else's work in
+# progress.
 #
 # The markdown case was added after three of them were found by reading rendered pages instead. A
 # --- typesets as an em dash. The check that had been looking for the character missed the one
@@ -20,6 +24,7 @@
 # None of the three is a LaTeX error. The book builds clean and carries them to the archive.
 #
 # To see everything and fail on all of it:  python maint/prose/docs_check.py --strict
+# To rewrite the ratchet after a file moves: python maint/prose/docs_check.py --ratchet-write=maint/prose/prose_ratchet.tsv
 # To commit past it once:                   git commit --no-verify
 #
 # WHY THIS RESOLVES ITS OWN PATHS
@@ -65,12 +70,20 @@ if [ ! -f "$CHECK" ]; then
     exit 1
 fi
 
-# No argument. The checker uses its own roots: docs, src, examples and maint. Naming only docs
-# here once left twelve READMEs beside the code unchecked, and one of them was carrying a paragraph
-# inside a table. The checker now raises on a root that does not exist, the other half of
-# the same fault: it once read 188 files instead of 317 and exited 0.
-python "$CHECK"
+# No root argument. The checker uses its own roots, all inside this repository: docs, src, examples,
+# maint, theory and theory_bucket. Naming only docs here once left twelve READMEs beside the code
+# unchecked, and one of them was carrying a paragraph inside a table. The checker now raises on a
+# root that does not exist, the other half of the same fault: it once read 188 files instead of 317
+# and exited 0.
+RATCHET="$REPO/$TOOLS/prose/prose_ratchet.tsv"
+python "$CHECK" --staged --ratchet="$RATCHET"
 status=$?
+
+# A lowered ceiling is written by the checker and goes into this commit with the files that lowered
+# it. Left unstaged, the next commit would carry it without the change that earned it.
+if ! git -C "$REPO" diff --quiet -- "$RATCHET"; then
+    git -C "$REPO" add -- "$RATCHET"
+fi
 
 # The citation registry, and it refuses. A name used in this tree with no row means the work rests
 # on somebody's result and does not say whose, and that is the same class of defect the corpus
@@ -111,6 +124,10 @@ echo ""
 if [ "$status" -eq 2 ]; then
     # The checker returns this when it read no files at all. That is never a pass.
     echo "  commit stopped: the docs check read nothing. Nothing was checked."
+elif [ "$status" -eq 3 ]; then
+    echo "  commit stopped: a staged file carries more prose findings than its ratchet allows."
+elif [ "$status" -eq 4 ]; then
+    echo "  commit stopped: the prose ratchet at $RATCHET is missing."
 else
     echo "  commit stopped: breaking finding(s) above."
 fi

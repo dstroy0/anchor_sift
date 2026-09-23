@@ -9,18 +9,18 @@
 # computes a function of its seed; stability says the answer is a property of SHA-256 rather than
 # of the seed. Only the second one makes a number quotable.
 #
-# Output goes to tools/audit/audit_seeds.py, which lines the runs up and reports min, max and spread for
+# Output goes to maint/audit/audit_seeds.py, which lines the runs up and reports min, max and spread for
 # every number that appears in the same place across seeds.
 
 $ErrorActionPreference = "Stop"
 
-$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$root = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path))
 $src = Join-Path $root "src"
-$engine = Join-Path $src "engine"
+$engine = Join-Path $src "engine" "c" "sha256" "core"
 # Not $bench: the loops below bind that name to each source in turn.
-$benchDirectory = Join-Path $src "bench"
-$format = Join-Path $src "format"
-$work = Join-Path $root "audit" "seeds"
+$benchDirectory = Join-Path $src "engine" "c" "sha256" "bench"
+$format = Join-Path $src "engine" "c" "sha256" "format"
+$work = Join-Path $root "build" "audit" "seeds"
 $compiler = "g++"
 
 # The benches whose numbers the workbook quotes and which draw from a generator. Benches that
@@ -87,4 +87,4 @@ $jobs | ForEach-Object -ThrottleLimit $parallel -Parallel {
 }
 
 Write-Host "[*] done, comparing" -ForegroundColor Cyan
-& python (Join-Path $root "tools" "audit_seeds.py") $work
+& python (Join-Path $root "maint" "audit" "audit_seeds.py") $work

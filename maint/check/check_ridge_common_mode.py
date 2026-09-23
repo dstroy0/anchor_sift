@@ -8,7 +8,7 @@ evenly over all 32 residues - and the loudest class is then mostly that offset.
 The honest statistic is a class's deviation from the mean of classes, in units of the scatter of
 the other classes. This prints that per round, and the full profile at a chosen round.
 
-    python tools/check_ridge_common_mode.py
+    python maint/check/check_ridge_common_mode.py
 """
 
 import csv
@@ -16,7 +16,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "src", "bench", "shadows.csv")
+SOURCE = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "bench", "shadows.csv")
 NULL_PEAK = (2.0 * (32.0 ** 0.0 + 0.0)) ** 0.0  # replaced below; kept explicit for clarity
 
 
@@ -41,7 +41,7 @@ def standardised(values, skip):
 
 def main():
     if not os.path.exists(SOURCE):
-        sys.stderr.write("no shadows.csv - run: src/bench/bench_sac.exe 18 45 64 shadow\n")
+        sys.stderr.write("no build/bench/shadows.csv - build src/engine/c/sha256/bench/bench_sac.cu into build/bench and run it there with 18 45 64 shadow\n")
         return 1
 
     import math

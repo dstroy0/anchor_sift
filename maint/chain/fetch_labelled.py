@@ -18,10 +18,10 @@ Note that the label is the explorer's attribution, not a fact carried by the cha
 does not tag its coinbase, or tags it in a way the list does not know, is reported as unknown. That
 is a property of the labelling and the analysis has to allow for it.
 
-    python tools/chain/fetch_labelled.py
-    python tools/chain/fetch_labelled.py --blocks 4000
+    python maint/chain/fetch_labelled.py
+    python maint/chain/fetch_labelled.py --blocks 4000
 
-Output: one JSON array at tools/chain/blocks_labelled.json, newest first.
+Output: one JSON array at maint/chain/blocks_labelled.json, newest first.
 """
 
 import argparse

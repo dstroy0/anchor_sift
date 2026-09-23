@@ -1183,13 +1183,6 @@ for one in DEFAULT_ROOTS:
         )
 
 
-PRIVATE_NAMES = ("salishan_corpus", "anchor_sift_citations")
-
-PRIVATE_OVERRIDES = {
-    "salishan_corpus": "ANCHOR_SIFT_PRIVATE",
-    "anchor_sift_citations": "ANCHOR_SIFT_CITATIONS",
-}
-
 GIT_HANDOFF = (
     "GIT_DIR",
     "GIT_WORK_TREE",
@@ -1232,41 +1225,6 @@ def main_checkout():
         common = os.path.join(REPOSITORY, common)
     base = os.path.dirname(os.path.abspath(common))
     return base if os.path.isdir(base) else REPOSITORY
-
-
-def private_survey():
-
-    base = main_checkout()
-    owned = os.path.dirname(os.path.dirname(base))
-
-    held = []
-    absent = []
-    for one in PRIVATE_NAMES:
-        named = os.environ.get(PRIVATE_OVERRIDES[one])
-
-        tried = (
-            [named]
-            if named
-            else [
-                # Where they live after the move into owned/{public,private}.
-                os.path.join(owned, "private", one),
-                # The layout before it, kept, an unreorganized checkout still works.
-                os.path.join(os.path.dirname(base), "private_repos", one),
-            ]
-        )
-
-        found = next((where for where in tried if where and os.path.isdir(where)), None)
-        if found:
-            held.append(found)
-        else:
-            absent.append((one, tuple(where for where in tried if where)))
-
-    return tuple(held), tuple(absent)
-
-
-def private_roots():
-    """The closed repositories that are present, for adding to the roots being scanned."""
-    return private_survey()[0]
 
 
 _REF_CACHE = {}
@@ -1777,15 +1735,67 @@ def prose_only(path, lines, ledger=None):
     return legal_blank(quieted(kept), path, ledger)
 
 
+RATCHET_HEADER = (
+    "# Prose findings per file, the most each file may carry. docs_check.py --ratchet reads it.\n"
+    "# A count may fall and never rise: a commit that raises one is stopped, and a commit that\n"
+    "# lowers one writes the lower number here. Regenerate by hand with --ratchet-write only when a\n"
+    "# file moves, since a moved file starts again at zero under its new name.\n"
+)
+
+
+def ratchet_read(path):
+    """The per-file ceilings in a ratchet file, or None where the file is absent."""
+    if not os.path.isfile(path):
+        return None
+    ceilings = {}
+    with open(path, encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip() or line.startswith("#"):
+                continue
+            name, count = line.rstrip("\n").rsplit("\t", 1)
+            ceilings[name] = int(count)
+    return ceilings
+
+
+def ratchet_write(path, ceilings):
+    """Write the ceilings sorted by path, leaving out every file that carries none."""
+    with open(path, "w", encoding="utf-8", newline="\n") as handle:
+        handle.write(RATCHET_HEADER)
+        for name in sorted(ceilings):
+            if ceilings[name]:
+                handle.write("%s\t%d\n" % (name, ceilings[name]))
+
+
+def staged_paths():
+    """Repository-relative paths the commit being written adds, copies, modifies or renames."""
+    said = git_say(REPOSITORY, ("diff", "--cached", "--name-only", "--diff-filter=ACMR"))
+    return set(one.strip() for one in (said or "").splitlines() if one.strip())
+
+
+def option_value(name):
+    """The value of a --name=value option, or None where it was not given."""
+    for one in sys.argv[1:]:
+        if one.startswith(name + "="):
+            return one[len(name) + 1:]
+    return None
+
+
 def main():
 
     strict = "--strict" in sys.argv
+    ratchet = option_value("--ratchet")
+    ratchet_out = option_value("--ratchet-write")
+    staged = "--staged" in sys.argv
+    counts = {}
 
     planning = "--fix" in sys.argv
     where_given = [one for one in sys.argv[1:] if not one.startswith("-")]
+    if ratchet and where_given:
+        print("  --ratchet holds the whole repository to its ceilings and does not take roots.")
+        return 4
 
     roots = []
-    for one in where_given or (DEFAULT_ROOTS + private_roots()):
+    for one in where_given or DEFAULT_ROOTS:
         if os.path.exists(one):
             roots.append(one)
             continue
@@ -1799,7 +1809,7 @@ def main():
             (
                 "given on the command line"
                 if where_given
-                else "this tool's own defaults plus every closed repository found"
+                else "this tool's own defaults, inside this repository only"
             ),
         )
     )
@@ -1869,18 +1879,42 @@ def main():
 
         breaking += len(structural)
         prose += len(wording)
+        counts[os.path.relpath(path, REPOSITORY).replace("\\", "/")] = len(wording)
 
     print("  %d file(s) checked, %d breaking, %d prose" % (checked, breaking, prose))
 
-    if not where_given:
-        held, absent = private_survey()
-        print("  private roots scanned: %d of %d" % (len(held), len(PRIVATE_NAMES)))
-        for one in held:
-            print("    %s" % one.replace("\\", "/"))
-        for name, tried in absent:
-            print("    %s NOT FOUND, looked at:" % name)
-            for where in tried:
-                print("      %s" % where.replace("\\", "/"))
+    risen = []
+    if ratchet_out:
+        ratchet_write(ratchet_out, counts)
+        print("  ratchet written: %d file(s) carry prose findings" % sum(1 for n in counts.values() if n))
+
+    if ratchet:
+        ceilings = ratchet_read(ratchet)
+        if ceilings is None:
+            print("  no ratchet at %s. Nothing to compare against, and that is never a pass." % ratchet)
+            print("  write one with: python %s --ratchet-write=%s" % (sys.argv[0], ratchet))
+            return 4
+        # Only what this commit carries is held to its ceiling. Other files in the working tree are
+        # other people's work in progress, and stopping a commit over them stops the wrong person.
+        scope = staged_paths() if staged else set(counts)
+        lowered = 0
+        for name in sorted(scope):
+            if name not in counts:
+                continue
+            ceiling = ceilings.get(name, 0)
+            if counts[name] > ceiling:
+                risen.append((name, counts[name], ceiling))
+            elif counts[name] < ceiling:
+                ceilings[name] = counts[name]
+                lowered += 1
+        if lowered:
+            ratchet_write(ratchet, ceilings)
+        print(
+            "  ratchet: %d file(s) held to their ceiling, %d lowered, %d risen"
+            % (len([one for one in scope if one in counts]), lowered, len(risen))
+        )
+        for name, count, ceiling in risen:
+            print("  RISEN %s: %d prose finding(s), ceiling %d" % (name, count, ceiling))
 
     print("  excluded: %d" % ledger.total())
     for line in ledger.report():
@@ -1924,6 +1958,8 @@ def main():
 
     if breaking or (strict and prose):
         return 1
+    if risen:
+        return 3
     return 0
 
 

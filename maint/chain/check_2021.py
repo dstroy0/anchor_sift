@@ -25,8 +25,8 @@ the planet. If the daily cycle measures where miners are, its phase has to move 
 hours across 2021. A cycle that stays put while the miners demonstrably moved is not measuring
 miners, and that would retire the longitude reading rather than support it.
 
-    python tools/chain/check_2021.py
-    python tools/chain/check_2021.py --corpus tools/chain/blocks_2021.json
+    python maint/chain/check_2021.py
+    python maint/chain/check_2021.py --corpus maint/chain/blocks_2021.json
 """
 
 import argparse
@@ -93,9 +93,9 @@ def main():
         print()
         print("    Fetch the window that spans the event, roughly heights 675,000 to 715,000:")
         print()
-        print("      python tools/chain/fetch_deep.py --from 675000 --to 715000 \\")
-        print("          --into tools/chain/blocks_ban_2021.json")
-        print("      python tools/chain/check_2021.py --corpus tools/chain/blocks_ban_2021.json")
+        print("      python maint/chain/fetch_deep.py --from 675000 --to 715000 \\")
+        print("          --into maint/chain/blocks_ban_2021.json")
+        print("      python maint/chain/check_2021.py --corpus maint/chain/blocks_ban_2021.json")
         print()
         return 1
 

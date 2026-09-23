@@ -17,10 +17,10 @@ of it, and the two outcomes are not alike.
 Read only, and self-verifying: every header field is kept so a block can be rebuilt and hashed
 against its own recorded id without trusting the source.
 
-    python tools/chain/fetch_deep.py
-    python tools/chain/fetch_deep.py --blocks 50000
+    python maint/chain/fetch_deep.py
+    python maint/chain/fetch_deep.py --blocks 50000
 
-Output: one JSON array at tools/chain/blocks_deep.json, newest first.
+Output: one JSON array at maint/chain/blocks_deep.json, newest first.
 """
 
 import argparse

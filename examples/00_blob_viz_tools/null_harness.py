@@ -1,7 +1,7 @@
 """Measured noise floors for the boundary readings, and the proof that the measuring works.
 
-    python tools/view/null_harness.py --check
-    python tools/view/null_harness.py --floors
+    python examples/00_blob_viz_tools/null_harness.py --check
+    python examples/00_blob_viz_tools/null_harness.py --floors
 
 WHAT A NULL IS HERE
 

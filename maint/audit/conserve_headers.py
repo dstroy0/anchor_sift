@@ -15,7 +15,7 @@ hash** before it is used. Bitcoin's serialisation reverses the two hashes and st
 little-endian, and this project has already had a prevhash byte order wrong once. A header that does
 not reproduce its own block id is not used, and that refusal is reported instead of measuring the wrong bytes.
 
-Usage: python tools/conserve_headers.py [how many headers] [domain bits]
+Usage: python maint/audit/conserve_headers.py [how many headers] [domain bits]
 """
 
 import hashlib
@@ -29,7 +29,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-BLOCKS = ROOT / "tools" / "blocks.json"
+BLOCKS = ROOT / "maint" / "chain" / "blocks.json"
+CORE = ROOT / "src" / "engine" / "c" / "sha256" / "core"
+BENCH = ROOT / "src" / "engine" / "c" / "sha256" / "bench"
+WORK = ROOT / "build" / "audit" / "headers"
 
 ROW = re.compile(r"^\s+(0|1/2|1|2|3|4|inf)\s+(\S+)\s+(\S+)\s+(\S+)\s")
 FAMILY = re.compile(r"windows (\d+), bins (\d+), mean count")
@@ -46,6 +49,26 @@ def build_header(block):
         + struct.pack("<I", block["bits"])
         + struct.pack("<I", block["nonce"])
     )
+
+
+def build_bench():
+    """Compiles bench_renyi from source into build/, host arm only, and returns the binary.
+
+    The same flags audit_seeds.ps1 uses. The device arm has no build rule in this tree.
+    """
+    WORK.mkdir(parents=True, exist_ok=True)
+    core_object = WORK / "sha256_core.o"
+    binary = WORK / "bench_renyi.exe"
+    subprocess.run(
+        ["g++", "-c", str(CORE / "sha256_core.c"), "-o", str(core_object), "-O2", "-mavx2"],
+        check=True,
+    )
+    subprocess.run(
+        ["g++", str(BENCH / "bench_renyi.cpp"), str(core_object), "-o", str(binary),
+         "-O2", "-mavx2", "-std=c++17", "-ffp-contract=off", "-I", str(CORE), "-I", str(BENCH)],
+        check=True,
+    )
+    return binary
 
 
 def block_id_of(header):
@@ -92,11 +115,8 @@ def main():
     step = max(1, len(blocks) // wanted)
     chosen = blocks[::step][:wanted]
 
-    exe = ROOT / "src" / "bench" / "bench_renyi_gpu.exe"
-    on_device = "1"
-    if not exe.exists():
-        exe = ROOT / "src" / "bench" / "bench_renyi.exe"
-        on_device = "0"
+    exe = build_bench()
+    on_device = "0"
 
     print("=" * 84)
     print("  Do the deficits conserve across headers, or are they facts about block 125552")

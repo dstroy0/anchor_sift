@@ -6,9 +6,9 @@ A harmonic reading of the SHA-256 compression state renders a surface, and that 
 
 \section{The object}
 
-SHA-256 compresses in sixty four rounds over a state of eight thirty-two bit words, which is \(256\) bits. The reading places those \(256\) bits on \(256\) points of a ring arrangement and expands the lit set in spherical harmonics, so the state becomes a field on a sphere and the field has a shape. Bit \(i\) lights point \(i\); no mapping was invented to make the instrument fit the object, because \(256\) bits and \(256\) points are the same count.
+SHA-256 compresses in sixty four rounds over a state of eight thirty-two bit words, which is \(256\) bits. The reading places those \(256\) bits on \(256\) points of a ring arrangement and expands the lit set in spherical harmonics. The state becomes a field on a sphere, and the field has a shape. Bit \(i\) lights point \(i\); no mapping was invented to make the instrument fit the object, because \(256\) bits and \(256\) points are the same count.
 
-The compression agrees with the published digest of the empty string before any of this is read, so the object under the instrument is SHA-256 and not an approximation of it.
+The compression agrees with the published digest of the empty string before any of this is read. The object under the instrument is SHA-256 and not an approximation of it.
 
 \section{The calibration: which part of the shape is the observer's}
 
@@ -22,20 +22,20 @@ The magnitude of the anisotropy is therefore observer-independent and its direct
 
 \section{The measurement, on the surface itself}
 
-The reading renders exactly one deformed surface in the scene, and it is the state's. Every enclosing shell measures a vertex-radius standard deviation of exactly zero, so they are perfect spheres; the state's surface measures a standard deviation of \(0.999\) against a mean radius of \(8.795\), at \(11.4\) per cent. Read as a radius field over the sphere and tracked across the sixty four rounds:
+The reading renders exactly one deformed surface in the scene, and it is the state's. Every enclosing shell measures a vertex-radius standard deviation of exactly zero, and each is a perfect sphere. The state's surface measures a standard deviation of \(0.999\) against a mean radius of \(8.795\), at \(11.4\) percent. Read as a radius field over the sphere and tracked across the sixty four rounds:
 
 \begin{center}
 \begin{tabular}{@{}llp{0.42\linewidth}@{}}
 \toprule
 feature & degree & across the clock \\
 \midrule
-the elongation, a lemon & 2 & \(q_{zz} \approx -1.50\) at every round, \(17\) per cent of the mean radius \\
+the elongation, a lemon & 2 & \(q_{zz} \approx -1.50\) at every round, \(17\) percent of the mean radius \\
 the offset, a cone & 1 & \(d_z\) swings about \(0.07\) and changes sign several times \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The quadrupole is a fixed feature: the surface is elongated by the same amount, in the same axis, the whole way through. The dipole migrates and inverts, so the cone walks around the surface and changes which pole it favours more than once.
+The quadrupole is a fixed feature: the surface is elongated by the same amount, in the same axis, the whole way through. The dipole migrates and inverts. The cone walks around the surface and changes which pole it favors more than once.
 
 \section{The claim, stated as a number}
 
@@ -47,7 +47,7 @@ The dipole does not merely move. It moves \textbf{coherently}: its sign, taken r
 
 Measured a second way, on a different object through different code, the rendered mesh in the viewer against the lit set in Python, the same statistic reads \(\mathbf{z = -3.0}\). Two pipelines with no shared arithmetic land two hundredths apart.
 
-A drift at that level is what a surface computed from a slowly changing state looks like, so the next section is the control pinning the change to the state.
+A drift at that level is what a surface computed from a slowly changing state looks like. The next section is the control pinning the change to the state.
 
 \section{Pinning the change to the state}
 
@@ -55,7 +55,7 @@ Two interventions, because the round clock advances everything at once and an ob
 
 \textbf{The probe was moved and nothing happened.} Holding the round fixed and swinging the beam \(180\) degrees in azimuth, \(128\) in elevation and \(4.7\) times in radius left the surface unchanged in every digit: mean radius, dipole and quadrupole all identical before, during and after. One round of the clock, with the beam untouched, then moved the dipole by five times. The surface answers to the state and not to the probe.
 
-\textbf{The rounds were replaced by independent states.} The real round sequence gives \(z = -2.87\). A control swapping the rounds for independent states of the same per-round weights, everything else identical, gives \(z = 0.00\) with a spread of \(0.94\), so the real sequence sits \(3.1\) control deviations out. The drift is in the succession of states, and not in the reading of any one of them.
+\textbf{The rounds were replaced by independent states.} The real round sequence gives \(z = -2.87\). A control swapping the rounds for independent states of the same per-round weights, everything else identical, gives \(z = 0.00\) with a spread of \(0.94\). The real sequence sits \(3.1\) control deviations out. The drift is in the succession of states, and not in the reading of any one of them.
 
 \section{The mechanism, which is not exotic}
 

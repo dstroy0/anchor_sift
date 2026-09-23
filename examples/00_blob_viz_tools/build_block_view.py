@@ -19,7 +19,7 @@ chance alone produces on the same statistic at the same sample size, and a verdi
 Roughly half the entries are level, which is the honest proportion and the reason to publish them
 next to the tilted ones rather than only the interesting half.
 
-    python tools/view/build_block_view.py
+    python examples/00_blob_viz_tools/build_block_view.py
 """
 
 import argparse
@@ -31,7 +31,7 @@ import struct
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 TEMPLATE = os.path.join(HERE, "block_view_template.html")
-CORPUS = os.path.join(ROOT, "tools", "chain", "blocks.json")
+CORPUS = os.path.join(ROOT, "maint", "chain", "blocks.json")
 
 # Offset and width of every field of the eighty byte header, in the order it is serialised.
 FIELDS = [

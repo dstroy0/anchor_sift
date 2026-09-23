@@ -1,6 +1,6 @@
 """The whole prose gate for this tree, in one command.
 
-    python tools/prose/gate.py [root ...] [--strict]
+    python maint/prose/gate.py [root ...] [--strict]
 
 Three things have to run before any page or tool here is offered, and running two of them is how
 findings have shipped twice.

@@ -13,7 +13,7 @@ value it was given in source will match, correctly. What the report is for is th
 number described as measured that turns out to be a literal the compiler folded. Every match has to
 be looked at against the source line that printed it.
 
-Usage: python tools/audit/audit_constants.py <audit directory> [arm]
+Usage: python maint/audit/audit_constants.py <audit directory> [arm]
 """
 
 import re

@@ -5,7 +5,7 @@
 #
 """Counts modes on a flat torus exactly, by counting lattice points, at any dimension.
 
-    python tools/view/torus_count.py --check
+    python examples/00_blob_viz_tools/torus_count.py --check
 
 WHY A TORUS
 

@@ -11,7 +11,7 @@ sample. Taint runs forward through the schedule and the compression, over-approx
 step: a path may carry no influence, but the absence of a path is exact, and a guaranteed-invariant
 bit is the only kind hardware can spend.
 
-    python tools/batch_invariant.py
+    python maint/hardware/batch_invariant.py
 
 The Bitcoin nonce is bytes 76 to 79 of the header, which is W[3] of the second block.
 

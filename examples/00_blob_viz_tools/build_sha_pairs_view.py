@@ -1,8 +1,8 @@
 """SHA-256's 256 output bits as 128 antipodal pairs, each pair a line through the center.
 
-    python tools/view/build_sha_pairs_view.py
-    python tools/view/build_sha_pairs_view.py --message "abc"
-    python tools/view/build_sha_pairs_view.py --out somewhere.html
+    python examples/00_blob_viz_tools/build_sha_pairs_view.py
+    python examples/00_blob_viz_tools/build_sha_pairs_view.py --message "abc"
+    python examples/00_blob_viz_tools/build_sha_pairs_view.py --out somewhere.html
 
   --message   the block to compress. Default the empty message, padded.
   --out       where to write. Default sha_pairs_view.html beside this script.

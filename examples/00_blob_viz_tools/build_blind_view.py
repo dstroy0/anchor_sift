@@ -1,8 +1,8 @@
 """The directions a boundary reading cannot see, drawn beside the field they produce.
 
-    python tools/view/build_blind_view.py
-    python tools/view/build_blind_view.py --degree 8 --count 256
-    python tools/view/build_blind_view.py --check
+    python examples/00_blob_viz_tools/build_blind_view.py
+    python examples/00_blob_viz_tools/build_blind_view.py --degree 8 --count 256
+    python examples/00_blob_viz_tools/build_blind_view.py --check
 
 WHAT THIS DRAWS
 

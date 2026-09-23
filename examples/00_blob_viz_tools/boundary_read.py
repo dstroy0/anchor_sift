@@ -1,6 +1,6 @@
 """Reading a set of lit points on a boundary: where they sit, how they push it, how they twist it.
 
-    python tools/view/boundary_read.py --check
+    python examples/00_blob_viz_tools/boundary_read.py --check
 
 A library and not a tool. Nothing here knows what the lit points mean, so it serves a hash, a solar
 system, or a file of bytes without changing. The part that knows is the caller.

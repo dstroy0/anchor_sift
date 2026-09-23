@@ -20,9 +20,9 @@ What becomes visible, none of which a table of digests shows:
 
 No GPU: this is one hash pair.
 
-    python tools/view/build_step_view.py [--bit N]
+    python examples/00_blob_viz_tools/build_step_view.py [--bit N]
 
-Writes tools/step_view.html, which is self-contained.
+Writes examples/00_blob_viz_tools/step_view.html, which is self-contained.
 """
 
 import io

@@ -1,7 +1,7 @@
 """Does the page's script read a key its own data does not carry?
 
-    python tools/view/data_check.py build/view/sha_clock_view.html
-    python tools/view/data_check.py --check
+    python examples/00_blob_viz_tools/data_check.py build/view/sha_clock_view.html
+    python examples/00_blob_viz_tools/data_check.py --check
 
 THE DEFECT THIS EXISTS FOR
 

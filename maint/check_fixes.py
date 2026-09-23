@@ -41,7 +41,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 TABLE = os.path.join(HERE, "prose_fixes.tsv")
 
-sys.path.insert(0, os.path.join(ROOT, "tools", "prose"))
+sys.path.insert(0, os.path.join(ROOT, "maint", "prose"))
 import docs_check
 
 

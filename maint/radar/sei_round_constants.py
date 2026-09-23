@@ -13,7 +13,7 @@ Two things are needed and both are checked here. First, whether the scatter is r
 settled by comparing it to the error the fold actually has, estimated from the deep rounds where
 there is no signal at all. Second, whether it correlates with anything about K_t.
 
-    python tools/sei_round_constants.py
+    python maint/radar/sei_round_constants.py
 
 The constants are read from the tree and never retyped, because a transcription error here would
 manufacture exactly the correlation being looked for.
@@ -27,8 +27,8 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-SOURCE = os.path.join(ROOT, "src", "bench", "shadows.csv")
-CONSTANTS = os.path.join(ROOT, "src", "bench", "bench_depth_cuda.cu")
+SOURCE = os.path.join(ROOT, "build", "bench", "shadows.csv")
+CONSTANTS = os.path.join(ROOT, "src", "engine", "c", "sha256", "bench", "bench_depth_cuda.cu")
 
 CLEAN_FIRST = 8
 CLEAN_LAST = 16
@@ -74,7 +74,7 @@ def correlate(left, right):
 
 def main():
     if not os.path.exists(SOURCE):
-        sys.stderr.write("no shadows.csv - run: src/bench/bench_sac.exe 18 45 64 shadow\n")
+        sys.stderr.write("no build/bench/shadows.csv - build src/engine/c/sha256/bench/bench_sac.cu into build/bench and run it there with 18 45 64 shadow\n")
         return 1
 
     constants = load_constants()

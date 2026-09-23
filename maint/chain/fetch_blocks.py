@@ -6,7 +6,7 @@ without trusting the explorer's own hash: we rebuild the 80 byte header, hash it
 compare against the id the explorer reported. A disagreement means either our algorithm or their
 record is wrong, and the test says which.
 
-Output: one JSON array at tools/blocks.json, newest first.
+Output: one JSON array at maint/chain/blocks.json, newest first.
 """
 import json
 import os

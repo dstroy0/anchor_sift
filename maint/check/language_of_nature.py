@@ -24,7 +24,7 @@ The corpora carry their own controls, and this set was therefore used in place o
   monkey_a26_d18_uniform             Synthetic uniform. Both views must see nothing.
   math_sqrt2_digits                  A normal number. Both views must see nothing.
 
-Usage: python tools/language_of_nature.py [corpus directory]
+Usage: python maint/check/language_of_nature.py [corpus directory]
 """
 
 import math

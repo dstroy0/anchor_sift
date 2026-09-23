@@ -91,9 +91,8 @@ def findings_in(path, regions=None):
 class EveryExclusionRefusesAndSaysSo(unittest.TestCase):
     """A skip that says nothing is the failure this whole section exists against.
 
-    private_survey's docstring records the case that earned it: the scan covered zero closed
-    repositories for the whole of a directory migration, and nobody could see it, because "scanned
-    none" and "there are none" printed the same nothing.
+    A skip that prints nothing and a tree with nothing to skip look the same from outside, and a
+    run that read less than it should have passed for a clean one.
     """
 
     def test_a_declined_file_is_named_by_the_run_that_declined_it(self):
@@ -925,22 +924,8 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
             "a revision no remote contains is a tree of one and has to say so",
         )
 
-    def test_the_private_footer_from_the_worktree_repair_still_prints(self):
-        """Carried forward from the commit that landed it, and guarded here because a rebuild of
-        the report is exactly what drops it. Its own docstring records the third occurrence of the
-        failure it prevents."""
-        said = self.run_on("--strict", os.path.join(HERE, "docs_check.py"))
-        self.assertNotIn(
-            "private roots scanned",
-            said,
-            "a named root is a scoped run and does not survey the closed repositories",
-        )
-        held, absent = dc.private_survey()
-        print("  private roots: %d held, %d absent" % (len(held), len(absent)))
-        self.assertEqual(len(held) + len(absent), len(dc.PRIVATE_NAMES))
-
     def test_the_excluded_count_prints_even_when_it_is_zero(self):
-        """ "excluded: 0" and a silence are the same two states private_survey exists to separate."""
+        """ "excluded: 0" and a silence have to print differently."""
         said = self.run_on(os.path.join(HERE, "docs_check.py"))
         self.assertIn("excluded:", said)
 
@@ -1020,15 +1005,6 @@ class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
         self.assertFalse(dc.path_candidate("@ref HTTP_10"))
         self.assertFalse(dc.path_candidate("const char *user, const char *pass"))
         self.assertTrue(dc.path_candidate("docs/README.md"))
-
-    def test_private_survey_still_returns_both_halves(self):
-        held, absent = dc.private_survey()
-        self.assertEqual(len(held) + len(absent), len(dc.PRIVATE_NAMES))
-        self.assertIn(
-            "scanned none",
-            dc.private_survey.__doc__,
-            "the docstring records the regression and is the record of it",
-        )
 
     def test_the_tiers_still_name_their_sections(self):
         self.assertEqual(dc.tier_of(r"\brather\b"), "A")
