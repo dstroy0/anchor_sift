@@ -3,9 +3,11 @@
 //
 // The object as the host holds it: the header, the small sections copied out of the mapped buffer, and what the
 // panels read from them. The runs stay on the card. Every number here is an integer; a fraction is shown by
-// integer division to the places asked for.
+// integer division to the places asked for. The object is two files, laid end to end in one buffer: the .vbo (the
+// header, frames, leaves, cells, runs and the .cfg) and the .ibo (its own short header, the links and the edges).
 
-EV.MAGIC = 0x314A424F;
+EV.MAGIC = 0x314F4256;
+EV.INDEX_MAGIC = 0x314F4249;
 EV.STATUS_NAMES = ["correct", "branched", "wrong", "no link", "missed"];
 EV.NONE = 0xFFFFFFFF;
 
@@ -33,10 +35,11 @@ EV.readHeader = (bytes) => {
   header.leaves_at = header.frames_at + 10 * header.frames;
   header.cells_at = header.leaves_at + 4 * header.leaf_total;
   header.runs_at = header.cells_at + 4 * header.cell_total;
-  header.links_at = header.runs_at + header.run_total;
+  header.cfg_at = header.runs_at + header.run_total;
+  header.index_at = header.cfg_at + Math.ceil(header.cfg_bytes / 4);
+  header.links_at = header.index_at + 4;
   header.edges_at = header.links_at + 2 * header.link_total;
-  header.cfg_at = header.edges_at + 3 * header.edge_total;
-  header.total_words = header.cfg_at + Math.ceil(header.cfg_bytes / 4);
+  header.total_words = header.edges_at + 3 * header.edge_total;
   header.plane = header.height * header.width;
   return header;
 };
@@ -69,7 +72,7 @@ EV.indexObject = (header, mapped) => {
     frames: all.slice(header.frames_at, header.leaves_at),
     cells: all.slice(header.cells_at, header.runs_at),
     links: all.slice(header.links_at, header.edges_at),
-    edges: all.slice(header.edges_at, header.cfg_at),
+    edges: all.slice(header.edges_at, header.total_words),
     cfgText: new TextDecoder().decode(new Uint8Array(mapped, header.cfg_at * 4, header.cfg_bytes)),
   };
   const cellTotal = header.cell_total;

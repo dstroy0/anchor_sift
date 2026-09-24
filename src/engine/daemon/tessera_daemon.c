@@ -33,15 +33,15 @@
 #define TESSERA_TICKET_ROOM 4096u
 
 #if defined(_WIN32)
-#define TESSERA_DAEMON_SEPARATOR '\\'
+#define TESSERA_DAEMON_SEPARATOR_TEXT "\\"
 #else
-#define TESSERA_DAEMON_SEPARATOR '/'
+#define TESSERA_DAEMON_SEPARATOR_TEXT "/"
 #endif
 
-_Alignas(8) static const char s_daemon_history[] = "history";
-_Alignas(8) static const char s_daemon_history_fresh[] = "history.fresh";
-_Alignas(8) static const char s_daemon_lock_file[] = "daemon.lock";
-_Alignas(8) static const char s_daemon_ticket[] = "ticket";
+_Alignas(8) static const char s_daemon_history_folder[] = "hst";
+_Alignas(8) static const char s_daemon_history[] = "hst" TESSERA_DAEMON_SEPARATOR_TEXT "head.log";
+_Alignas(8) static const char s_daemon_history_fresh[] = "hst" TESSERA_DAEMON_SEPARATOR_TEXT "tail.log";
+_Alignas(8) static const char s_daemon_lock_file[] = "tessera.lock";
 _Alignas(8) static const char s_daemon_identity[] = "identity ";
 _Alignas(8) static const char s_daemon_pid[] = "\npid ";
 _Alignas(8) static const char s_daemon_declared[] = "\ndeclared ";
@@ -244,13 +244,7 @@ static int daemon_directories_make(const char *path)
 
 static int daemon_state_file(const char *name, char *path)
 {
-    const int written = snprintf(path, ENGINE_PATH_ROOM, "%s%s%s", s_daemon.state,
-#if defined(_WIN32)
-                                 "\\",
-#else
-                                 "/",
-#endif
-                                 name);
+    const int written = snprintf(path, ENGINE_PATH_ROOM, "%s%s%s", s_daemon.state, TESSERA_DAEMON_SEPARATOR_TEXT, name);
     // a non-negative length is compared whole against the room
     return (written >= 0) && ((unsigned int)written < ENGINE_PATH_ROOM);
 }
@@ -363,22 +357,9 @@ static int daemon_history_save(void)
     return held;
 }
 
-static int daemon_ticket_path(unsigned long long identity, const TesseraPeer *peer, int make, char *path)
+static int daemon_ticket_seal_append(const char *path, const char *text, unsigned long long length)
 {
-    char folder[ENGINE_PATH_ROOM];
-    if (!tessera_path_lost(s_daemon.device, identity, &peer->signum, folder, ENGINE_PATH_ROOM)
-        || (make && !daemon_directories_make(folder)))
-    {
-        return 0;
-    }
-    const int written = snprintf(path, ENGINE_PATH_ROOM, "%s%c%s", folder, TESSERA_DAEMON_SEPARATOR, s_daemon_ticket);
-    // a non-negative length is compared whole against the room
-    return (written >= 0) && ((unsigned int)written < ENGINE_PATH_ROOM);
-}
-
-static int daemon_ticket_seal_write(const char *path, const char *text, unsigned long long length)
-{
-    // the ticket's text, then a last line sealing every byte above it
+    // one block of lost and found: its text, then a last line sealing every byte of the block above it
     static const char s_hex[] = "0123456789abcdef";
     unsigned char signum[OBSIGNATIO_SIGNUM_BYTES];
     EngineError error;
@@ -395,7 +376,7 @@ static int daemon_ticket_seal_write(const char *path, const char *text, unsigned
         line[(2u * byte) + 1u] = s_hex[signum[byte] & 0x0Fu];
     }
     line[2u * OBSIGNATIO_SIGNUM_BYTES] = '\0';
-    FILE *const file = fopen(path, "wb");
+    FILE *const file = fopen(path, "ab");
     if (file == NULL)
     {
         return 0;
@@ -410,7 +391,7 @@ static int daemon_ticket_write(unsigned long long identity, const TesseraPeer *p
 {
     char path[ENGINE_PATH_ROOM];
     char text[TESSERA_TICKET_ROOM];
-    if (!daemon_ticket_path(identity, peer, 1, path))
+    if (!tessera_path_lost(s_daemon.device, path, ENGINE_PATH_ROOM))
     {
         return 0;
     }
@@ -427,41 +408,23 @@ static int daemon_ticket_write(unsigned long long identity, const TesseraPeer *p
                                  s_daemon_reason, reason);
     // a non-negative length is compared whole against the room
     return (written >= 0) && ((unsigned int)written < TESSERA_TICKET_ROOM)
-           && daemon_ticket_seal_write(path, text, (unsigned long long)written);
+           && daemon_ticket_seal_append(path, text, (unsigned long long)written);
 }
 
-static int daemon_ticket_note(unsigned long long identity, const TesseraPeer *peer, const char *note)
+static int daemon_seal_line_read(const char *line, unsigned char signum[OBSIGNATIO_SIGNUM_BYTES])
 {
-    // the note goes in only on a ticket whose seal holds, and the ticket is sealed again with it
-    char path[ENGINE_PATH_ROOM];
-    char text[TESSERA_TICKET_ROOM];
-    if (!daemon_ticket_path(identity, peer, 0, path))
+    // a seal line is "seal ", 64 lower hex digits and a newline
+    if (memcmp(line, s_daemon_seal, sizeof(s_daemon_seal) - 1u) != 0)
     {
         return 0;
     }
-    FILE *const file = fopen(path, "rb");
-    if (file == NULL)
-    {
-        return 0;
-    }
-    const size_t length = fread(text, 1u, sizeof(text) - 1u, file);
-    const int whole = feof(file) != 0;
-    fclose(file);
-    const size_t seal_line = (sizeof(s_daemon_seal) - 1u) + (2u * OBSIGNATIO_SIGNUM_BYTES) + 1u;
-    if (!whole || (length < seal_line) || (text[length - 1u] != '\n')
-        || (memcmp(text + (length - seal_line), s_daemon_seal, sizeof(s_daemon_seal) - 1u) != 0))
-    {
-        return 0;
-    }
-    const size_t body = length - seal_line;
-    unsigned char signum[OBSIGNATIO_SIGNUM_BYTES];
+    const char *const digits = line + (sizeof(s_daemon_seal) - 1u);
     for (unsigned int byte = 0u; byte < OBSIGNATIO_SIGNUM_BYTES; byte += 1u)
     {
-        const char *const pair = text + body + (sizeof(s_daemon_seal) - 1u) + (2u * byte);
         unsigned int value = 0u;
         for (unsigned int digit = 0u; digit < 2u; digit += 1u)
         {
-            const char glyph = pair[digit];
+            const char glyph = digits[(2u * byte) + digit];
             const int decimal = (glyph >= '0') && (glyph <= '9');
             const int letter = (glyph >= 'a') && (glyph <= 'f');
             if (!decimal && !letter)
@@ -474,17 +437,57 @@ static int daemon_ticket_note(unsigned long long identity, const TesseraPeer *pe
         // two nibbles are one byte
         signum[byte] = (unsigned char)value;
     }
-    EngineError error;
-    memset(&error, 0, sizeof(error));
-    const ObsignatioSealRequest seal = {(const unsigned char *)text, body, signum, &error};
-    // the note is a whole line, its newline included
-    const size_t added = strlen(note);
-    if ((obsignatio_seal_holds(&seal) != 1L) || ((body + added) >= sizeof(text)))
+    return digits[2u * OBSIGNATIO_SIGNUM_BYTES] == '\n';
+}
+
+static int daemon_ticket_note(unsigned long long identity, const char *note)
+{
+    // the note goes in only after a ticket of this identity whose seal holds, as its own sealed block
+    char path[ENGINE_PATH_ROOM];
+    if (!tessera_path_lost(s_daemon.device, path, ENGINE_PATH_ROOM))
     {
         return 0;
     }
-    memcpy(text + body, note, added);
-    return daemon_ticket_seal_write(path, text, body + added);
+    FILE *const file = fopen(path, "rb");
+    if (file == NULL)
+    {
+        return 0;
+    }
+    int held = fseek(file, 0L, SEEK_END) == 0;
+    const long length = held ? ftell(file) : -1L;
+    held = held && (length > 0L) && (fseek(file, 0L, SEEK_SET) == 0);
+    // a length checked positive above is the log's byte count
+    const size_t total = held ? (size_t)length : 0u;
+    char *const text = held ? (char *)malloc(total + 1u) : NULL;
+    held = held && (text != NULL) && (fread(text, 1u, total, file) == total);
+    fclose(file);
+    char named[sizeof(s_daemon_identity) + 17u];
+    snprintf(named, sizeof(named), "%s%016llx\n", s_daemon_identity, identity);
+    const size_t seal_line = (sizeof(s_daemon_seal) - 1u) + (2u * OBSIGNATIO_SIGNUM_BYTES) + 1u;
+    int found = 0;
+    size_t block = 0u;
+    for (size_t at = 0u; held && ((at + seal_line) <= total); at += 1u)
+    {
+        unsigned char signum[OBSIGNATIO_SIGNUM_BYTES];
+        const int line_start = (at == 0u) || (text[at - 1u] == '\n');
+        if (!line_start || !daemon_seal_line_read(text + at, signum))
+        {
+            continue;
+        }
+        EngineError error;
+        memset(&error, 0, sizeof(error));
+        const ObsignatioSealRequest seal = {(const unsigned char *)text + block, at - block, signum, &error};
+        const int ours = ((at - block) >= strlen(named)) && (memcmp(text + block, named, strlen(named)) == 0);
+        found = (ours && (obsignatio_seal_holds(&seal) == 1L)) ? 1 : found;
+        block = at + seal_line;
+        at = block - 1u;
+    }
+    free(text);
+    char added[TESSERA_TICKET_ROOM];
+    const int written = snprintf(added, sizeof(added), "%s%s", named, note);
+    // a non-negative length is compared whole against the room
+    return found && (written >= 0) && ((unsigned int)written < TESSERA_TICKET_ROOM)
+           && daemon_ticket_seal_append(path, added, (unsigned long long)written);
 }
 
 static void daemon_frame_start(TesseraFrame *frame, unsigned int kind, unsigned long long identity)
@@ -652,7 +655,7 @@ static void daemon_handle(TesseraPeer *peer, const TesseraFrame *frame)
         return;
     }
     if ((frame->kind == TESSERA_ASK_PRECALC_KEPT) && (peer->lost_identity != 0ull)
-        && daemon_ticket_note(peer->lost_identity, peer, s_daemon_precalc))
+        && daemon_ticket_note(peer->lost_identity, s_daemon_precalc))
     {
         daemon_post(peer, TESSERA_TELL_RELEASED, peer->lost_identity, 0ull, 0ull);
         peer->lost_identity = 0ull;
@@ -1093,7 +1096,9 @@ int main(int count, char **arguments)
         fputs(s_daemon_usage, stderr);
         return 2;
     }
-    if (!tessera_path_state(s_daemon.device, s_daemon.state, ENGINE_PATH_ROOM) || !daemon_directories_make(s_daemon.state)
+    char history_folder[ENGINE_PATH_ROOM];
+    if (!tessera_path_state(s_daemon.device, s_daemon.state, ENGINE_PATH_ROOM)
+        || !daemon_state_file(s_daemon_history_folder, history_folder) || !daemon_directories_make(history_folder)
         || !tessera_path_endpoint(s_daemon.device, s_daemon.endpoint, ENGINE_PATH_ROOM))
     {
         fputs(s_daemon_no_state, stderr);

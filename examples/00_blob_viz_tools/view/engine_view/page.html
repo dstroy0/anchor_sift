@@ -121,10 +121,10 @@ The engine view. Built by maint/build_engine_view.py from view/engine_view/; edi
   <button id="faceMachine" title="exact integers, offsets, timings, the page as JSON">machine</button>
   <span class="gap"></span>
   <button id="configOpen" title="read or write the whole view as a .cfg">config</button>
-  <button id="openFile" title="open an object file">open</button>
+  <button id="openFile" title="open a sample's .vbo and .ibo">open</button>
   <button id="snapshot" title="save the view as a PNG">snapshot</button>
   <button id="exportCsv" title="save the chosen cells, or every cell, as CSV">CSV</button>
-  <input type="file" id="fileInput" accept=".object" hidden>
+  <input type="file" id="fileInput" accept=".vbo,.ibo" multiple hidden>
 </div>
 
 <div class="box tucked" id="panel">
@@ -229,7 +229,7 @@ The engine view. Built by maint/build_engine_view.py from view/engine_view/; edi
 <div id="hover" hidden></div>
 <div id="ask">?</div>
 <div class="box" id="tile" hidden></div>
-<div id="drop" hidden>drop an .object file</div>
+<div id="drop" hidden>drop a sample's .vbo and .ibo</div>
 
 <div class="box" id="configBox" hidden>
   <h4>.cfg</h4>

@@ -11,7 +11,7 @@ import urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__))
 SAMPLE_NAME = re.compile(r"^[A-Za-z0-9_]+$")
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(HERE)), "maint"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(HERE))), "maint"))
 import zarr_frames
 
 
@@ -41,11 +41,11 @@ def main():
         def do_GET(self):
             parsed = urllib.parse.urlparse(self.path)
             if parsed.path == "/samples":
-                names = sorted(entry[:-5] for entry in os.listdir(os.path.join(HERE, "data")) if entry.endswith(".room"))
+                names = sorted(entry[:-4] for entry in os.listdir(os.path.join(HERE, "data")) if entry.endswith(".smp"))
                 self.reply(200, json.dumps(names).encode("utf-8"), "application/json")
                 return
             if parsed.path == "/objects":
-                names = sorted(entry[:-7] for entry in os.listdir(os.path.join(HERE, "data")) if entry.endswith(".object"))
+                names = sorted(entry[:-4] for entry in os.listdir(os.path.join(HERE, "data")) if entry.endswith(".vbo"))
                 self.reply(200, json.dumps(names).encode("utf-8"), "application/json")
                 return
             if parsed.path not in ("/slice", "/frame"):

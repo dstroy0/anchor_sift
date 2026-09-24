@@ -105,7 +105,7 @@ Two consequences follow, and both are used.
 
 \section{\texorpdfstring{7. The noise is read, never modeled}{7. The noise is read, never modeled}}
 
-The residue left after the bodies are subtracted is the sample's own field noise. It is deterministic, constant for that sample, and unique to it. It is held whole in the .iapx, never bounded, fitted, thresholded or thrown away. Where the engine needs a background to stand a body against, it reads one. The null draws climb the same body toward frames far off in time, where only the field noise can answer. A body is real where it stands above that reading. No distribution is assumed, and no random number is drawn anywhere in the tracker.
+The residue left after the bodies are subtracted is the sample's own field noise. It is deterministic, constant for that sample, and unique to it. It is held whole in the .kcr, never bounded, fitted, thresholded or thrown away. Where the engine needs a background to stand a body against, it reads one. The null draws climb the same body toward frames far off in time, where only the field noise can answer. A body is real where it stands above that reading. No distribution is assumed, and no random number is drawn anywhere in the tracker.
 
 \textbf{Measured:} across the 25 44b6 samples, the low five bit planes are set in about 46\% of frames at nearly every voxel, with no anchor anywhere. That is the floor, read directly from the data, and it is the same test the entropy section of \hyperref[chap:noise-sieve-tower]{noise\_\allowbreak{}sieve\_\allowbreak{}tower.md} states.
 

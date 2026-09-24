@@ -121,10 +121,10 @@ The engine view. Built by maint/build_engine_view.py from view/engine_view/; edi
   <button id="faceMachine" title="exact integers, offsets, timings, the page as JSON">machine</button>
   <span class="gap"></span>
   <button id="configOpen" title="read or write the whole view as a .cfg">config</button>
-  <button id="openFile" title="open an object file">open</button>
+  <button id="openFile" title="open a sample's .vbo and .ibo">open</button>
   <button id="snapshot" title="save the view as a PNG">snapshot</button>
   <button id="exportCsv" title="save the chosen cells, or every cell, as CSV">CSV</button>
-  <input type="file" id="fileInput" accept=".object" hidden>
+  <input type="file" id="fileInput" accept=".vbo,.ibo" multiple hidden>
 </div>
 
 <div class="box tucked" id="panel">
@@ -229,7 +229,7 @@ The engine view. Built by maint/build_engine_view.py from view/engine_view/; edi
 <div id="hover" hidden></div>
 <div id="ask">?</div>
 <div class="box" id="tile" hidden></div>
-<div id="drop" hidden>drop an .object file</div>
+<div id="drop" hidden>drop a sample's .vbo and .ibo</div>
 
 <div class="box" id="configBox" hidden>
   <h4>.cfg</h4>
@@ -1182,9 +1182,11 @@ fn compose(@builtin(position) at: vec4<f32>) -> @location(0) vec4<f32> {
 //
 // The object as the host holds it: the header, the small sections copied out of the mapped buffer, and what the
 // panels read from them. The runs stay on the card. Every number here is an integer; a fraction is shown by
-// integer division to the places asked for.
+// integer division to the places asked for. The object is two files, laid end to end in one buffer: the .vbo (the
+// header, frames, leaves, cells, runs and the .cfg) and the .ibo (its own short header, the links and the edges).
 
-EV.MAGIC = 0x314A424F;
+EV.MAGIC = 0x314F4256;
+EV.INDEX_MAGIC = 0x314F4249;
 EV.STATUS_NAMES = ["correct", "branched", "wrong", "no link", "missed"];
 EV.NONE = 0xFFFFFFFF;
 
@@ -1212,10 +1214,11 @@ EV.readHeader = (bytes) => {
   header.leaves_at = header.frames_at + 10 * header.frames;
   header.cells_at = header.leaves_at + 4 * header.leaf_total;
   header.runs_at = header.cells_at + 4 * header.cell_total;
-  header.links_at = header.runs_at + header.run_total;
+  header.cfg_at = header.runs_at + header.run_total;
+  header.index_at = header.cfg_at + Math.ceil(header.cfg_bytes / 4);
+  header.links_at = header.index_at + 4;
   header.edges_at = header.links_at + 2 * header.link_total;
-  header.cfg_at = header.edges_at + 3 * header.edge_total;
-  header.total_words = header.cfg_at + Math.ceil(header.cfg_bytes / 4);
+  header.total_words = header.edges_at + 3 * header.edge_total;
   header.plane = header.height * header.width;
   return header;
 };
@@ -1248,7 +1251,7 @@ EV.indexObject = (header, mapped) => {
     frames: all.slice(header.frames_at, header.leaves_at),
     cells: all.slice(header.cells_at, header.runs_at),
     links: all.slice(header.links_at, header.edges_at),
-    edges: all.slice(header.edges_at, header.cfg_at),
+    edges: all.slice(header.edges_at, header.total_words),
     cfgText: new TextDecoder().decode(new Uint8Array(mapped, header.cfg_at * 4, header.cfg_bytes)),
   };
   const cellTotal = header.cell_total;
@@ -1652,13 +1655,10 @@ EV.writeLayout = (gpu, values) => {
   gpu.device.queue.writeBuffer(gpu.layoutBuffer, 0, gpu.layoutBytes);
 };
 
-// Streams an object from a fetch response or a file into one mapped storage buffer, then indexes its small sections.
-EV.loadObject = async (gpu, source) => {
-  const device = gpu.device;
-  const began = performance.now();
-  const reader = (source.body || source.stream()).getReader();
+// The first bytes of a stream, at least the count asked for unless the stream ends first.
+EV.readHead = async (reader, count) => {
   let pending = new Uint8Array(0);
-  while (pending.length < 64) {
+  while (pending.length < count) {
     const { value, done } = await reader.read();
     if (done) {
       break;
@@ -1668,28 +1668,50 @@ EV.loadObject = async (gpu, source) => {
     joined.set(value, pending.length);
     pending = joined;
   }
-  const header = EV.readHeader(pending.subarray(0, 64).slice());
-  if (header.magic !== EV.MAGIC) {
-    throw new Error("not an object file");
+  return pending;
+};
+
+// The rest of a stream, its head already read, laid into the landing from a byte place; nothing lands past the limit.
+// Returns the stream's whole length.
+EV.streamInto = async (reader, landing, at, limit, head) => {
+  let written = 0;
+  let value = head;
+  for (let done = false; !done;) {
+    const place = at + written;
+    if (place < limit) {
+      landing.set(value.subarray(0, Math.min(value.length, limit - place)), place);
+    }
+    written += value.length;
+    ({ value, done } = await reader.read());
+  }
+  return written;
+};
+
+// Streams an object's .vbo and .ibo, from fetch responses or files, end to end into one mapped storage buffer, then
+// indexes its small sections.
+EV.loadObject = async (gpu, sources) => {
+  const device = gpu.device;
+  const began = performance.now();
+  const vertex = (sources.vertex.body || sources.vertex.stream()).getReader();
+  const index = (sources.index.body || sources.index.stream()).getReader();
+  const vertexHead = await EV.readHead(vertex, 64);
+  const indexHead = await EV.readHead(index, 16);
+  const header = EV.readHeader(vertexHead.subarray(0, 64).slice());
+  const indexWords = new Uint32Array(indexHead.subarray(0, 16).slice().buffer);
+  if ((header.magic !== EV.MAGIC) || (indexWords[0] !== EV.INDEX_MAGIC) || (indexWords[2] !== header.link_total)
+      || (indexWords[3] !== header.edge_total)) {
+    throw new Error("not a .vbo and its .ibo");
   }
   const bytes = header.total_words * 4;
   const buffer = device.createBuffer({ size: bytes, usage: GPUBufferUsage.STORAGE, mappedAtCreation: true });
   const mapped = buffer.getMappedRange();
   const landing = new Uint8Array(mapped);
-  landing.set(pending.subarray(0, Math.min(pending.length, bytes)), 0);
-  let written = pending.length;
-  for (;;) {
-    const { value, done } = await reader.read();
-    if (done) {
-      break;
-    }
-    landing.set(value.subarray(0, Math.max(0, Math.min(value.length, bytes - written))), written);
-    written += value.length;
-  }
+  const vertexBytes = await EV.streamInto(vertex, landing, 0, header.index_at * 4, vertexHead);
+  const indexBytes = await EV.streamInto(index, landing, header.index_at * 4, bytes, indexHead);
   const object = EV.indexObject(header, mapped);
   buffer.unmap();
   object.streamMs = Math.round(performance.now() - began);
-  object.bytes = written;
+  object.bytes = vertexBytes + indexBytes;
 
   EV.releaseObject(gpu);
   const storage = (size) => device.createBuffer({ size, usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST });
@@ -3108,11 +3130,30 @@ EV.recall = (app) => {
   }
 };
 
-EV.openSource = async (app, source, sample, fromFile) => {
+// A served sample's two files, its .vbo and its .ibo.
+EV.fetchSample = async (sample) => ({
+  vertex: await fetch(`data/${sample}.vbo`, { cache: "no-store" }),
+  index: await fetch(`data/${sample}.ibo`, { cache: "no-store" }),
+});
+
+// Opens the .vbo and .ibo among the files picked or dropped, the pair named by the .vbo's sample.
+EV.openFiles = async (app, files) => {
+  const picked = Array.from(files);
+  const vertex = picked.find((file) => file.name.endsWith(".vbo"));
+  const sample = vertex ? vertex.name.replace(/\.vbo$/, "") : "";
+  const index = picked.find((file) => file.name === `${sample}.ibo`);
+  if (!vertex || !index) {
+    EV.$("where").textContent = "Open a sample's .vbo and its .ibo together.";
+    return;
+  }
+  await EV.openSource(app, { vertex, index }, sample, true);
+};
+
+EV.openSource = async (app, sources, sample, fromFile) => {
   const gpu = app.gpu;
   EV.$("where").textContent = `opening ${sample} …`;
   app.object = null;
-  const object = await EV.loadObject(gpu, source);
+  const object = await EV.loadObject(gpu, sources);
   app.sample = sample;
   app.fromFile = fromFile;
   app.compacted = "";
@@ -3192,8 +3233,7 @@ EV.bindControls = (app) => {
     element.addEventListener(element.type === "range" ? "input" : "change", () => EV.readControl(app, id, name, kind));
   }
   EV.$("sample").addEventListener("change", async (event) => {
-    const response = await fetch(`data/${event.target.value}.object`, { cache: "no-store" });
-    await EV.openSource(app, response, event.target.value, false);
+    await EV.openSource(app, await EV.fetchSample(event.target.value), event.target.value, false);
   });
   for (const button of document.querySelectorAll("#menu [data-show]")) {
     button.addEventListener("click", () => {
@@ -3209,12 +3249,7 @@ EV.bindControls = (app) => {
   EV.$("faceMachine").addEventListener("click", () => { app.view.face = "machine"; EV.showView(app); EV.paintReview(app); });
   EV.$("grip").addEventListener("click", () => { EV.$("panel").classList.toggle("pinned"); EV.remember(app); });
   EV.$("openFile").addEventListener("click", () => EV.$("fileInput").click());
-  EV.$("fileInput").addEventListener("change", async (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      await EV.openSource(app, file, file.name.replace(/\.object$/, ""), true);
-    }
-  });
+  EV.$("fileInput").addEventListener("change", async (event) => EV.openFiles(app, event.target.files));
   EV.$("snapshot").addEventListener("click", async () => EV.download(`engine_view_frame_${app.frame + 1}.png`, await EV.snapshot(app)));
   EV.$("exportCsv").addEventListener("click", () => EV.download("engine_view_cells.csv", new Blob([EV.csv(app)], { type: "text/csv" })));
   EV.$("play").addEventListener("click", () => { app.playing = !app.playing; app.heading = app.playing ? 1 : app.heading; });
@@ -3385,17 +3420,14 @@ EV.bindPointer = (app) => {
     EV.showView(app);
   }, { passive: false });
 
-  // Dropping an object file anywhere opens it.
+  // Dropping a sample's .vbo and .ibo anywhere opens them.
   const drop = EV.$("drop");
   window.addEventListener("dragover", (event) => { event.preventDefault(); drop.hidden = false; });
   window.addEventListener("dragleave", (event) => { if (!event.relatedTarget) drop.hidden = true; });
   window.addEventListener("drop", async (event) => {
     event.preventDefault();
     drop.hidden = true;
-    const file = event.dataTransfer.files[0];
-    if (file) {
-      await EV.openSource(app, file, file.name.replace(/\.object$/, ""), true);
-    }
+    await EV.openFiles(app, event.dataTransfer.files);
   });
   window.addEventListener("resize", () => { app.dirty = true; });
 };
@@ -3467,8 +3499,8 @@ EV.exposeApi = (app) => {
     state: () => EV.stateJson(app),
     cfg: () => EV.cfgText(object() ? object().cfgText : "", app.view),
     apply: (input) => EV.apply(app, input),
-    load: async (sample) => EV.openSource(app, await fetch(`data/${sample}.object`, { cache: "no-store" }), sample, false),
-    open: (file) => EV.openSource(app, file, file.name.replace(/\.object$/, ""), true),
+    load: async (sample) => EV.openSource(app, await EV.fetchSample(sample), sample, false),
+    open: (files) => EV.openFiles(app, files),
     frame: (frame) => { if (frame === undefined) return app.frame; EV.goTo(app, frame); return app.frame; },
     play: (on) => { app.playing = !!on; return app.playing; },
     choose: (cells, mode = "set") => { EV.choose(app, cells, mode); return [...app.chosen]; },
@@ -3534,9 +3566,9 @@ EV.start = async () => {
   const sample = samples.includes(asked) ? asked : samples[0];
   if (sample) {
     EV.$("sample").value = sample;
-    await EV.openSource(app, await fetch(`data/${sample}.object`, { cache: "no-store" }), sample, false);
+    await EV.openSource(app, await EV.fetchSample(sample), sample, false);
   } else {
-    EV.$("where").textContent = "Open an object file with the open button, or drop one on the page.";
+    EV.$("where").textContent = "Open a sample's .vbo and .ibo with the open button, or drop them on the page.";
   }
 };
 

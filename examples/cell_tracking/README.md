@@ -10,7 +10,7 @@ Follow the steps below in order. Do not skip any. Every command is typed exactly
 2. **The CUDA toolkit**, which gives you a program called `nvcc`. To check you have it, open a terminal and type `nvcc --version`. If it says "not found", install the CUDA toolkit from NVIDIA first.
 3. **On Windows only: Visual Studio Build Tools 2022.** `nvcc` needs it to work. You do not open it; the build script finds it on its own.
 4. **Git Bash** on Windows, or any normal terminal on Linux. Every command below runs in that terminal, not in PowerShell and not in cmd.
-5. **The anchor_sift exact integer code** at `/d/git_project/repos/owned/public/anchor_sift/src/engine/c/no_rounding`. If yours is somewhere else, type `export ANCHOR_EXACT_ROOT=/your/path/to/no_rounding` before you build.
+5. **The exact integer code.** It comes with this repository, at `../../src/engine/base/no_rounding`, and the build finds it there on its own. To build against another copy, type `export ANCHOR_EXACT_ROOT=/your/path/to/no_rounding` before you build.
 6. **About 90 GB of free disk space** for the compressed copy of the training movies (step 3).
 
 ## Step 1: get the data
@@ -34,7 +34,7 @@ If your data is somewhere else, that is fine. You will tell the program where it
 
 ## Step 2: build the program
 
-Open a terminal in this folder (`cell_tracking`), then type:
+Open a terminal in this folder (`examples/cell_tracking`), then type:
 
 ```
 bash build_driver.sh
@@ -43,27 +43,27 @@ bash build_driver.sh
 Wait. It takes a few minutes. When it is done, the last line says:
 
 ```
-  built .../build/track_driver.exe
+  published .../build/track_driver.exe
 ```
 
 The build also makes `tessera_daemon.exe` and copies it next to the program. Leave it there: every run uses it (see "Sharing the graphics card").
 
 If the last line says `build failed`, read the line above it. It names the file that did not compile. Nothing half-built is left behind; you cannot run an old build by mistake.
 
-The finished program is `../build/track_driver.exe` (on Linux, `../build/track_driver`), in the repository's `build/` folder, the only place in the repository any build writes to.
+The finished program is `../../build/track_driver.exe` (on Linux, `../../build/track_driver`), in the repository's `build/` folder, the only place in the repository any build writes to.
 
-Each build compiles into its own `../build/<date>_<time>_driver/` folder, then copies the program up into `../build/`. A build folder older than a day is removed when the next build starts. `../build/logs/` and `../build/tsv/` are never removed.
+Each build compiles into its own `../../build/<date>_<time>_driver/` folder, then copies the program up into `../../build/`. A build folder older than a day is removed when the next build starts. Nothing else in `../../build/` is removed; `../../build/logs/` stays.
 
 If you want the build somewhere else, put `BUILD_OUT=/some/folder` in front: `BUILD_OUT=/some/folder bash build_driver.sh`. That folder is used as it is and nothing is removed from it.
 
 ## Step 3: make the set (do this once)
 
-The movies are big and slow to read. So first, the program copies every movie into its own compressed format, called `.iapx`. The folder it copies them into is called the **set**.
+The movies are big and slow to read. So first, the program copies every movie into its own compressed format, called `.kcr`. The folder it copies them into is called the **set**.
 
 The set must **not** be inside the source folder. Put it next to it:
 
 ```
-../build/track_driver.exe --ingest --source D:/kaggle_project_data/biohub_cell_tracking_data/train D:/kaggle_project_data/biohub_cell_tracking_set/train 44b6_0113de3b
+../../build/track_driver.exe --ingest --source D:/kaggle_project_data/biohub_cell_tracking_data/train D:/kaggle_project_data/biohub_cell_tracking_set/train 44b6_0113de3b
 ```
 
 That line means:
@@ -81,13 +81,18 @@ For each movie it prints one line like this:
 
 "Rebuilt from the file, voxel for voxel" means it checked the copy: it unpacked the copy and compared every single pixel against a second, fresh read of the original movie. If even one pixel is different, it deletes the copy and tells you. **You never get a bad copy.** A movie takes about 25 seconds.
 
-When it is done, the set looks like this:
+When it is done, the set holds one folder per movie, with the movie's `.kcr` in it. Later parts add files beside it:
 
 ```
 D:/kaggle_project_data/biohub_cell_tracking_set/train/
     44b6_0113de3b/
-        44b6_0113de3b.iapx
+        44b6_0113de3b.kcr      <- the compressed movie (--ingest)
+        44b6_0113de3b.knf      <- its noise floor (--run entropy or --run floor)
+        44b6_0113de3b.kcs      <- its body table, when one has been written
+    train.ksh                  <- every body of every movie as one number each (--run flatten)
 ```
+
+The `.ksh` is named after the set's own folder: a set at `.../train` keeps it at `.../train/train.ksh`.
 
 The right answers (`.geff`) are **not** copied. The program reads them straight from the source when it scores.
 
@@ -99,7 +104,7 @@ before the seal was added:
 | | bytes |
 |---|---|
 | the movies as they came, as plain 16-bit pixels | 170,288,742,400 |
-| the same movies as `.iapx` | 63,555,427,780 |
+| the same movies as `.kcr` | 63,555,427,780 |
 | saved | 106,733,314,620 |
 
 So the set was **37.3%** of the size of the movies, and every pixel still comes back exactly. The smallest copy
@@ -112,17 +117,17 @@ a crystal; it doesn't explain the whole difference. The set has not been re-meas
 To see it come back yourself, unpack every copy from the copy alone and check it:
 
 ```
-../build/track_driver.exe --run iapx-prove D:/kaggle_project_data/biohub_cell_tracking_set/train 44b6_0113de3b
+../../build/track_driver.exe --run kcr-prove D:/kaggle_project_data/biohub_cell_tracking_set/train 44b6_0113de3b
 ```
 
-It prints one line per movie, ending in the root of its seal, which it checks node by node. It also prints a total
+It prints one line per movie, naming the root of its seal, which it checks node by node. It also prints a total
 for all of them, and the set's root over every movie's root.
 
-**This is nowhere near as small as it can get.** Right now the `.iapx` keeps the camera's noise exactly as it is, bit for bit. That noise is most of what is left: the lowest five bits of every pixel flip in about half of all frames, like a coin, everywhere in the movie. But that noise is not random. It is the same for a given movie every time; it can be worked out instead of stored. When those noise patterns are worked out and applied to the whole set at once, those bits no longer have to be kept, and the copy shrinks toward its true floor. That work is waiting deliberately. The first job is the tracking itself: finding every cell, following it, and catching when it divides or dies. Squeezing the files further comes after.
+**This is nowhere near as small as it can get.** Right now the `.kcr` keeps the camera's noise exactly as it is, bit for bit. That noise is most of what is left: the lowest five bits of every pixel flip in about half of all frames, like a coin, everywhere in the movie. But that noise is not random. It is the same for a given movie every time; it can be worked out instead of stored. When those noise patterns are worked out and applied to the whole set at once, those bits no longer have to be kept, and the copy shrinks toward its true floor. That work is waiting deliberately. The first job is the tracking itself: finding every cell, following it, and catching when it divides or dies. Squeezing the files further comes after.
 
 ### What movie formats it can read
 
-You do not have to use zarr. Any of these work, and they all end up as the same `.iapx`:
+You do not have to use zarr. Any of these work, and they all end up as the same `.kcr`:
 
 | format | file or folder name |
 |---|---|
@@ -141,7 +146,7 @@ The program needs to know which direction in the file is time (`t`), depth (`z`)
 
 ## Step 4: tell the program where everything is
 
-Settings live in `.cfg` files. `base.cfg` in this folder has every setting. Ready-made ones are in `../engine/sims/cfg/`.
+Settings live in `.cfg` files. `base.cfg` in this folder has every setting. Ready-made ones are in `cfg/`, also in this folder.
 
 Open the `.cfg` you want in a text editor and find the `input` part:
 
@@ -168,7 +173,7 @@ Use forward slashes `/` in paths, even on Windows.
 From this folder:
 
 ```
-../build/track_driver.exe --cfg ../engine/sims/cfg/one.cfg
+../../build/track_driver.exe --cfg cfg/one.cfg
 ```
 
 You will see one line per movie, then a total:
@@ -197,14 +202,14 @@ What the rows mean:
 
 For a test movie there are no right answers; it prints `no answer key ...; run unscored` and the counts stay at 0. That is normal.
 
-Every run also adds one line to `logs/track_driver.log` beside the program, which is `../build/logs/track_driver.log` for the one the build publishes; you can compare runs later. `--log <file>` puts it somewhere else.
+Every run also adds one line to `logs/track_driver.log` beside the program, which is `../../build/logs/track_driver.log` for the one the build publishes; you can compare runs later. `--log <file>` puts it somewhere else.
 
 ### Changing a setting without editing the file
 
 Anything you type **after** `--cfg` wins over the file. For example, to run just one other movie:
 
 ```
-../build/track_driver.exe --cfg ../engine/sims/cfg/one.cfg D:/kaggle_project_data/biohub_cell_tracking_set/train 44b6_0b24845f
+../../build/track_driver.exe --cfg cfg/one.cfg D:/kaggle_project_data/biohub_cell_tracking_set/train 44b6_0b24845f
 ```
 
 The first path after the flags is the set, and every word after it is a movie name.
@@ -218,17 +223,18 @@ The program does two different jobs, and they never mix.
 
 | part | what it does |
 |---|---|
-| `track` | link the cells and score the links (step 5). This is what runs when you give no `--run` at all |
-| `iapx-prove` | unpack every copy in the set from the copy alone and check that every node of its seal holds |
-| `entropy` | work out the noise history of each movie and store it next to its `.iapx` as `.oapx` |
-| `floor` | lay down that noise history. If the `.cfg` turns `floor` on, this part runs first without being asked |
 | `schedule` | work out how many frames fit on your graphics card at once and write the plan to the path given by `--plan` |
-| `flatten` | turn every body in every frame of the set into one number and save them all as `flattened.iapx` in the set |
+| `kcr-prove` | unpack every copy in the set from the copy alone and check that every node of its seal holds |
+| `entropy` | work out the noise floor of each movie and store it next to its `.kcr` as `.knf` |
+| `floor` | lay down that noise floor, keeping a `.knf` that already matches its `.kcr`. If the `.cfg` turns `floor` on, this part runs first without being asked |
+| `flatten` | turn every body in every frame of the set into one number and save them all as the set's `.ksh` (`<set>/<set folder name>.ksh`) |
+| `track` | link the cells and score the links (step 5). This is what runs when you give no `--run` at all |
+| `fingerprint` | read the set's `.ksh`, give every body a print, and check the prints on the graphics card against the same work done on the processor |
 
 For example, to check every copy, lay down the noise floor, and then track, in that order:
 
 ```
-../build/track_driver.exe --cfg ../engine/sims/cfg/one.cfg --run iapx-prove --run floor --run track
+../../build/track_driver.exe --cfg cfg/one.cfg --run kcr-prove --run floor --run track
 ```
 
 Other flags:
@@ -243,7 +249,7 @@ Other flags:
 ## Sharing the graphics card
 
 Every run goes through **tessera**, the one scheduler for your graphics card
-([../engine/daemon/README.md](../../src/engine/daemon/README.md)). `--ingest` is one job, and so is each `--run` part. Before
+([../../src/engine/daemon/README.md](../../src/engine/daemon/README.md)). `--ingest` is one job, and so is each `--run` part. Before
 the part starts, the program asks tessera for room on the card. The part runs only once tessera admits it, and when
 the part ends the program releases the job. If no tessera is running, the program starts the `tessera_daemon.exe`
 beside it. The daemon closes by itself a few seconds after the last job ends.
@@ -264,10 +270,11 @@ You see a line when a job starts and one when it ends:
 
 "More than it declared" is expected the first time. A movie's pixels are a fraction of what a part holds on the
 card. From then on, the same run is reserved its kept peak, not its declaration. So the second time it says, for
-example, `iapx-prove admitted, 3958566912 bytes reserved`.
+example, `kcr-prove admitted, 3958566912 bytes reserved`.
 
 If a job declares more than its kept peak, tessera holds it and asks. The program then waits for its holding time
-(2 seconds), and the job is lost: the part fails and says so. Its ticket goes to tessera's lost and found. Run it
+(2 seconds), and the job is lost: the part fails and says so. Its ticket is appended, sealed, to tessera's lost and found log, `hst/lnf.log` in tessera's state folder; the
+message names the file. Run it
 again with `--override` to let it run anyway.
 
 If the program cannot reach tessera or start it (`the daemon (...) did not take the job`), nothing runs. There is no
@@ -281,12 +288,12 @@ way to run without it.
 | `no host compiler nvcc accepts on this platform was found` | install Visual Studio Build Tools 2022 (Windows) |
 | `no exact_integer.h under ...` | set `ANCHOR_EXACT_ROOT` (see "What you need") |
 | `no source for it under ...` | the movie name is wrong, or `source` points at the wrong folder |
-| `its .iapx in ... did not load and prove` | you have not done step 3 for that movie, or `set` points at the wrong folder |
+| `its .kcr in ... did not load and prove` | you have not done step 3 for that movie, or `set` points at the wrong folder |
 | `the source's N axes are not all named t z y x` | add `--axes` (see step 3) |
 | `usage: track_driver ...` | it did not get a set or any movie names; check the `input` part of the `.cfg` |
-| `tessera: ... the daemon (...) did not take the job` | `tessera_daemon.exe` is missing from beside the program (rebuild), or its history was refused (the daemon names the file; see [../engine/daemon/README.md](../../src/engine/daemon/README.md)) |
+| `tessera: ... the daemon (...) did not take the job` | `tessera_daemon.exe` is missing from beside the program (rebuild), or its history was refused (the daemon names the file; see [../../src/engine/daemon/README.md](../../src/engine/daemon/README.md)) |
 | `tessera: ... was held past its holding time and lost` | the job declared more than its kept peak; rerun with `--override` if that is meant |
 
 ## Where the results are written up
 
-Every measured result, what was tried and what it gave, is in `../theory/workbook/ledger.md`. What the tracker does for each part of the problem and what it still needs to do is in `../theory/workbook/cell_tracking_table.md`; the engine it runs on has its own table, `../theory/workbook/engine_table.md`.
+Every measured result, what was tried and what it gave, is in `../../theory_bucket/cell_tracking/ledger.md`. What the tracker does for each part of the problem and what it still needs to do is in `../../theory_bucket/cell_tracking/cell_tracking_table.md`; the engine it runs on has its own table, `../../theory_bucket/cell_tracking/engine_table.md`.

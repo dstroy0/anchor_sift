@@ -54,7 +54,7 @@ tessera_daemon --device <32 lowercase hex digits> --luid <hex> --idle <microseco
   it.
 
 Only one daemon runs for each device. On Windows a second daemon's pipe fails at birth
-(`FILE_FLAG_FIRST_PIPE_INSTANCE`). On Linux a second daemon can't take the lock file.
+(`FILE_FLAG_FIRST_PIPE_INSTANCE`). On Linux a second daemon can't take the lock file, `tessera.lock`.
 
 ## Where it lives
 
@@ -62,19 +62,25 @@ Only one daemon runs for each device. On Windows a second daemon's pipe fails at
 |---|---|---|
 | endpoint | `\\.\pipe\tessera-<uuid>` | `$TESSERA_RUNTIME`, else `$XDG_RUNTIME_DIR`, else `/tmp`, then `/tessera-<uuid>.sock` |
 | state | `$TESSERA_STATE`, else `%LOCALAPPDATA%\tessera`, then `\<uuid>` | `$TESSERA_STATE`, else `$XDG_STATE_HOME/tessera`, else `$HOME/.local/state/tessera`, then `/<uuid>` |
-| lost and found | `<state>\lostandfound\<identity>-<signum>\` | `<state>/lostandfound/<identity>-<signum>/` |
+| lock | none: the pipe keeps one daemon (`FILE_FLAG_FIRST_PIPE_INSTANCE`) | `<state>/tessera.lock` |
+| history | `<state>\hst\head.log` | `<state>/hst/head.log` |
+| history being saved | `<state>\hst\tail.log` | `<state>/hst/tail.log` |
+| lost and found | `<state>\hst\lnf.log` | `<state>/hst/lnf.log` |
 
-The state directory holds the history and lost and found.
+The state directory holds the lock file on Linux and the folder `hst`: the history (`head.log`), the copy a save
+writes first (`tail.log`) and lost and found (`lnf.log`).
 
 **The history is sealed.** It is every signum's peak and run time, one 48-byte record each, then a 32-byte seal
-over all of them: obsignatio's keyed BLAKE3 at the file level. The daemon writes it to `history.fresh` and renames
-it over `history`. A save that fails is reported on the daemon's stderr with the path. On start the daemon refuses
+over all of them: obsignatio's keyed BLAKE3 at the file level. The daemon writes it whole to `hst/tail.log`, sealed,
+then renames that over `hst/head.log`. A save that fails is reported on the daemon's stderr with the path. On start the daemon refuses
 a history whose seal doesn't hold, whose length is not whole records plus the seal, or that has no seal at all. It
 says so with the path and exits, and no job is admitted. A missing history is a fresh start. A refused history is
 never rewritten: move it aside to start fresh, or put back a good copy.
 
-**Tickets are sealed.** Each ticket in lost and found ends with a line `seal <64 hex digits>`, the same seal over
-every byte above it. The daemon adds "precalc kept" to a ticket only when its seal holds, then seals it again.
+**Tickets are sealed.** `hst/lnf.log` is one append-only file of sealed blocks. Each ticket is one block, and it
+ends with a line `seal <64 hex digits>`, the seal over every byte of the block above it. When a lost job's client
+says its precalc is kept, the daemon appends a note as a sealed block of its own: `identity <16 hex digits>`, then
+`precalc kept`. It appends the note only when a ticket of that identity is in the log and its seal holds.
 
 ## Submitting a job
 
@@ -104,7 +110,7 @@ if (tessera_job_submit(&ask, &client, &ticket) == TESSERA_REFUSED) { /* the erro
 |---|---|---|
 | `asked == 0`, `lost == 0` | **admitted.** `granted` is the bytes reserved for it | run the job, then release it |
 | `asked == 1` | **held.** It declared more than its signum's last peak (`last_peak`) | override it, or wait |
-| `lost == 1` | **lost.** It was held past its holding time | keep its precalc in `lost_path`, then say so |
+| `lost == 1` | **lost.** It was held past its holding time; `lost_path` names `hst/lnf.log`, which holds its ticket | keep its precalc, then say so |
 
 A job that doesn't fit the headroom yet waits inside the submit until it fits, with no ticket until then. A job
 with a signum never seen before is admitted on its declaration and measured.
@@ -113,9 +119,10 @@ with a signum never seen before is admitted on its declaration and measured.
 &error)`, which admits it on its declaration. Or wait with `tessera_job_wait(client, &ticket, &error)`: it
 returns when the job is admitted or lost.
 
-**Lost.** Write whatever the job had already worked out into `ticket.lost_path`, beside the ticket the daemon
-wrote there. Then call `tessera_job_precalc_kept(client, &error)`, which releases the job and ends the client.
-A later run can resume from that directory instead of starting over.
+**Lost.** The daemon has appended the job's ticket to `hst/lnf.log`, the file `ticket.lost_path` names. Keep
+whatever the job had already worked out, then call `tessera_job_precalc_kept(client, &error)`. The daemon appends
+the precalc note to the log, releases the job, and the client ends. The ticket names the job's signum. A later run
+finds the job again by its request instead of starting over.
 
 ## Running and releasing
 
@@ -135,7 +142,7 @@ use `grown_to` for that: a job whose reservation is already its kept peak is nev
 outruns its declaration.
 
 If a process dies without releasing, its connection closes and the daemon sees it at once. The job's reservation
-is freed and its ticket goes to lost and found. The periodic sweep catches the same thing if the close is missed,
+is freed and its ticket is appended to `hst/lnf.log`. The periodic sweep catches the same thing if the close is missed,
 and a pid reused by a new process is never taken for the old one.
 
 ## What the job test shows
@@ -149,8 +156,9 @@ and a pid reused by a new process is never taken for the old one.
    admits it on its declaration.
 3. Declaring exactly the kept peak is admitted at once.
 4. Declaring four times the peak with no answer is held for its 0.4 s holding time, then lost. The ticket names
-   its lost and found directory, and the precalc kept releases it. The ticket's seal holds with the note in it.
-5. Once the daemon has ended, the history it left is whole records and a seal. The test damages one byte of it,
+   `hst/lnf.log`, and the precalc kept releases it. The log then ends with the precalc note in a sealed block of
+   its own, and that seal holds.
+5. Once the daemon has ended, the history it left (`hst/head.log`) is whole records and a seal. The test damages one byte of it,
    then cuts one byte off, then strips the seal. Each time the submit is refused because no daemon starts on it.
    With the file restored, the daemon starts and the same signum over its peak is asked with the kept peak; the
    history really was read.
@@ -165,7 +173,7 @@ part 5 damages the history deliberately.
 
 - **Signum:** the host BLAKE3 of the part's name, a zero byte, then the effective .cfg.
 - **Declaration:** the largest sample's lattice in 16-bit lanes. For ingest that comes from the source's shape
-  (`engine_source_lanes`, which reads no voxel); for every other part, from the `.iapx` head.
+  (`engine_source_lanes`, which reads no voxel); for every other part, from the `.kcr` head.
 - **Daemon:** `tessera_daemon` beside the driver, which `build_driver.sh` builds and publishes with it.
 - **Times:** holding 2 s, sweep 20 ms, idle 5 s.
 - **When held:** `--override` overrides; otherwise the job waits, is lost, and the part fails.
@@ -176,8 +184,8 @@ Run on 24 September, on one sample (44b6_0113de3b) in a scratch set, with the da
 | run | declared | peak measured |
 |---|---|---|
 | `--ingest` | 838,860,800 | 5,091,037,184 |
-| `--run iapx-prove` | 838,860,800 | 3,962,761,216 |
-| `--run iapx-prove` again | 838,860,800 | 3,958,566,912 |
+| `--run kcr-prove` | 838,860,800 | 3,962,761,216 |
+| `--run kcr-prove` again | 838,860,800 | 3,958,566,912 |
 
 The history then held both signa, two records and the seal (128 bytes).
 

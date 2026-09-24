@@ -168,7 +168,7 @@ is refused at imprint, and an index past its member is refused at the sweep. 11 
 |---|---|---|
 | `.cfg` | a run's configuration, JSON (`cfg/`, read by `run_cfg` through `base/cfg_json`) | built for the tracking runs |
 | `.sch` | the schedule: `schedule_program` (`base/schedule`) measures the tower (the device's memory), plans against two thirds of what is free, and writes the stages, each with the bytes it needs, as JSON (`nbody_program/program.json`) | written for the tracking runs; nothing reads the stages back |
-| `.imp` | a math key: a program imprinted onto the impulse, carrying the program so it can be verified | the container kind is reserved (`APXREP_KIND_KEY`, `base/apxrep`); no writer or reader yet |
+| `.imp` | a math key: a program imprinted onto the impulse, carrying the program so it can be verified | the container kind is reserved (`KREP_KIND_KEY`, `base/krep`); no writer or reader yet |
 
 Until `.imp` is written and read, a program lives as its step list in the source that sweeps it, and is imprinted
 each run.

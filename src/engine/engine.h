@@ -190,7 +190,7 @@ int engine_ingest_print(const EngineIngestRequest *request, FILE *file);
 
 int engine_prove_print(const EngineSetRequest *request, FILE *file);
 
-long engine_iapx_head(const char *set, const char *sample, unsigned long long extent[4], EngineError *error);
+long engine_kcr_head(const char *set, const char *sample, unsigned long long extent[4], EngineError *error);
 
 typedef struct
 {
@@ -205,10 +205,10 @@ long engine_geff_read(const char *path, EngineGeff *geff);
 
 void engine_geff_release(EngineGeff *geff);
 
-long engine_iapx_prove_set(const EngineSetRequest *request);
+long engine_kcr_prove_set(const EngineSetRequest *request);
 
-long engine_iapx_load(const char *set, const char *sample, unsigned long long extent[4], unsigned short **volume,
-                      EngineSignum *root, EngineSideBytes *side, EngineError *error);
+long engine_kcr_load(const char *set, const char *sample, unsigned long long extent[4], unsigned short **volume,
+                     EngineSignum *root, EngineSideBytes *side, EngineError *error);
 
 void engine_side_release(EngineSideBytes *side);
 

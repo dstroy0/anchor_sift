@@ -79,12 +79,13 @@ def read_objects(directory):
     sizes = {}
     aberrant = 0
     for name in sorted(os.listdir(directory)):
-        if not name.endswith(".object"):
+        if not name.endswith(".vbo"):
             continue
-        path = os.path.join(directory, name)
-        with open(path, "rb") as handle:
+        vertex_path = os.path.join(directory, name)
+        index_path = vertex_path[:-4] + ".ibo"
+        with open(vertex_path, "rb") as handle:
             header = struct.unpack("<16I", handle.read(64))
-        sizes[name[:-7]] = (os.path.getsize(path), header)
+        sizes[name[:-4]] = (os.path.getsize(vertex_path) + os.path.getsize(index_path), header)
         aberrant += header[11] + header[12] + header[13]
     return sizes, aberrant
 
@@ -113,8 +114,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--stages", required=True, help="a Windows driver log of the 25 samples, no objects written")
     parser.add_argument("--linux", required=True, help="the Linux build's log of the same 25 samples")
-    parser.add_argument("--objects", default=os.path.join(ROOT, "view", "data"))
-    parser.add_argument("--out", default="D:/kaggle/biohub_cell_tracking/SUBMISSION/infographic.svg")
+    parser.add_argument("--objects", default=os.path.join(ROOT, "examples", "00_blob_viz_tools", "view", "data"))
+    parser.add_argument("--out", required=True, help="where the .svg is written")
     options = parser.parse_args()
 
     totals, frames, samples, wall, pooled = read_stages(options.stages)
@@ -202,8 +203,8 @@ def main():
     y += 260
 
     panel(y, 300, "What comes out")
-    parts.append(text(64, y + 70, "One sample of %d frames, %d x %d x %d voxels, as one file, including the .cfg that"
-                      " made it:" % (header[2], header[3], header[4], header[5]), 16, INK))
+    parts.append(text(64, y + 70, "One sample of %d frames, %d x %d x %d voxels, as a .vbo and an .ibo, including the"
+                      " .cfg that made it:" % (header[2], header[3], header[4], header[5]), 16, INK))
     dense_room = width - 80 - 64 - 240
     object_length = max(3, (object_bytes * dense_room) // dense)
     parts.append('<rect x="64" y="%d" width="%d" height="30" rx="4" fill="%s"/>' % (y + 90, dense_room, EDGE))

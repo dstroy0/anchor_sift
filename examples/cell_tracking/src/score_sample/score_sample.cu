@@ -38,7 +38,7 @@ static int score_flattened_slice(const char *sample, const TreeFrame *frames, un
     }
     if (held == rules->flattened_samples)
     {
-        fprintf(stderr, "  %s: not among the samples flattened.iapx holds; flatten it first\n", sample);
+        fprintf(stderr, "  %s: not among the samples the set's .ksh holds; flatten it first\n", sample);
         return 0;
     }
     *first = rules->flattened_start[held];
@@ -50,7 +50,7 @@ static int score_flattened_slice(const char *sample, const TreeFrame *frames, un
     }
     if ((leaves != *bodies) || (*bodies > 0xFFFFFFFFull))
     {
-        fprintf(stderr, "  %s: the tracker holds %llu bodies and flattened.iapx %llu; flatten it again\n", sample,
+        fprintf(stderr, "  %s: the tracker holds %llu bodies and the set's .ksh %llu; flatten it again\n", sample,
                 leaves, *bodies);
         return 0;
     }
@@ -894,10 +894,10 @@ static int score_box_history(const char *set, const char *sample, const TreeFram
     memset(&history, 0, sizeof(history));
     EngineError error;
     memset(&error, 0, sizeof(error));
-    if ((engine_sample_path(path, sizeof(path), set, sample, ".oapx") == 0)
+    if ((engine_sample_path(path, sizeof(path), set, sample, ".knf") == 0)
      || (engine_entropy_history_read(path, &history, &error) != 0L))
     {
-        fprintf(stderr, "  %s: no entropy history (.oapx) to gather the boxes from\n", sample);
+        fprintf(stderr, "  %s: no noise floor (.knf) to gather the boxes from\n", sample);
         if (error.kind != ENGINE_ERROR_NONE)
         {
             track_error_report("entropy history read", &error);
@@ -1525,13 +1525,13 @@ int score_sample(const char *set, const char *source, const char *sample, const 
     EngineSignum volume_root;
     EngineError error;
     memset(&error, 0, sizeof(error));
-    if ((engine_iapx_load(set, sample, extent, &volume, &volume_root, NULL, &error) != 0L) || (extent[0] > 0xFFFFFFFFull)
+    if ((engine_kcr_load(set, sample, extent, &volume, &volume_root, NULL, &error) != 0L) || (extent[0] > 0xFFFFFFFFull)
         || (extent[1] > 0xFFFFFFFFull) || (extent[2] > 0xFFFFFFFFull) || (extent[3] > 0xFFFFFFFFull))
     {
-        fprintf(stderr, "  %s: its .iapx in %s did not load and prove\n", sample, set);
+        fprintf(stderr, "  %s: its .kcr in %s did not load and prove\n", sample, set);
         if (error.kind != ENGINE_ERROR_NONE)
         {
-            track_error_report("iapx load", &error);
+            track_error_report("kcr load", &error);
         }
         free(volume);
         release_answer_key(&key);
@@ -1915,7 +1915,7 @@ int score_sample(const char *set, const char *source, const char *sample, const 
     if ((good != 0) && (rules->null_draws != 0u) && (rules->floor_entropy != 0))
     {
         char cloud_path[ENGINE_PATH_ROOM];
-        good = engine_sample_path(cloud_path, sizeof(cloud_path), set, sample, ".oapx")
+        good = engine_sample_path(cloud_path, sizeof(cloud_path), set, sample, ".knf")
             && (engine_entropy_cloud(cloud_path, &floors, cloud, &error) == 0L);
         if (good == 0)
         {

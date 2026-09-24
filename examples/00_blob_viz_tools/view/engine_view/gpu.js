@@ -198,13 +198,10 @@ EV.writeLayout = (gpu, values) => {
   gpu.device.queue.writeBuffer(gpu.layoutBuffer, 0, gpu.layoutBytes);
 };
 
-// Streams an object from a fetch response or a file into one mapped storage buffer, then indexes its small sections.
-EV.loadObject = async (gpu, source) => {
-  const device = gpu.device;
-  const began = performance.now();
-  const reader = (source.body || source.stream()).getReader();
+// The first bytes of a stream, at least the count asked for unless the stream ends first.
+EV.readHead = async (reader, count) => {
   let pending = new Uint8Array(0);
-  while (pending.length < 64) {
+  while (pending.length < count) {
     const { value, done } = await reader.read();
     if (done) {
       break;
@@ -214,28 +211,50 @@ EV.loadObject = async (gpu, source) => {
     joined.set(value, pending.length);
     pending = joined;
   }
-  const header = EV.readHeader(pending.subarray(0, 64).slice());
-  if (header.magic !== EV.MAGIC) {
-    throw new Error("not an object file");
+  return pending;
+};
+
+// The rest of a stream, its head already read, laid into the landing from a byte place; nothing lands past the limit.
+// Returns the stream's whole length.
+EV.streamInto = async (reader, landing, at, limit, head) => {
+  let written = 0;
+  let value = head;
+  for (let done = false; !done;) {
+    const place = at + written;
+    if (place < limit) {
+      landing.set(value.subarray(0, Math.min(value.length, limit - place)), place);
+    }
+    written += value.length;
+    ({ value, done } = await reader.read());
+  }
+  return written;
+};
+
+// Streams an object's .vbo and .ibo, from fetch responses or files, end to end into one mapped storage buffer, then
+// indexes its small sections.
+EV.loadObject = async (gpu, sources) => {
+  const device = gpu.device;
+  const began = performance.now();
+  const vertex = (sources.vertex.body || sources.vertex.stream()).getReader();
+  const index = (sources.index.body || sources.index.stream()).getReader();
+  const vertexHead = await EV.readHead(vertex, 64);
+  const indexHead = await EV.readHead(index, 16);
+  const header = EV.readHeader(vertexHead.subarray(0, 64).slice());
+  const indexWords = new Uint32Array(indexHead.subarray(0, 16).slice().buffer);
+  if ((header.magic !== EV.MAGIC) || (indexWords[0] !== EV.INDEX_MAGIC) || (indexWords[2] !== header.link_total)
+      || (indexWords[3] !== header.edge_total)) {
+    throw new Error("not a .vbo and its .ibo");
   }
   const bytes = header.total_words * 4;
   const buffer = device.createBuffer({ size: bytes, usage: GPUBufferUsage.STORAGE, mappedAtCreation: true });
   const mapped = buffer.getMappedRange();
   const landing = new Uint8Array(mapped);
-  landing.set(pending.subarray(0, Math.min(pending.length, bytes)), 0);
-  let written = pending.length;
-  for (;;) {
-    const { value, done } = await reader.read();
-    if (done) {
-      break;
-    }
-    landing.set(value.subarray(0, Math.max(0, Math.min(value.length, bytes - written))), written);
-    written += value.length;
-  }
+  const vertexBytes = await EV.streamInto(vertex, landing, 0, header.index_at * 4, vertexHead);
+  const indexBytes = await EV.streamInto(index, landing, header.index_at * 4, bytes, indexHead);
   const object = EV.indexObject(header, mapped);
   buffer.unmap();
   object.streamMs = Math.round(performance.now() - began);
-  object.bytes = written;
+  object.bytes = vertexBytes + indexBytes;
 
   EV.releaseObject(gpu);
   const storage = (size) => device.createBuffer({ size, usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST });
