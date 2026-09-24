@@ -354,7 +354,16 @@ typedef enum
     ENGINE_RECORD_QUOTIENT = 11,
     ENGINE_RECORD_REMAINDER = 12,
     ENGINE_RECORD_GCD = 13,
-    ENGINE_RECORD_EXACT_QUOTIENT = 14
+    ENGINE_RECORD_EXACT_QUOTIENT = 14,
+    // the bitwise operations on the exact integers' two's complement, as though each were sign-extended without end:
+    // the xor is negative where exactly one operand is, the and where both are. Each is one bit wider than its wider
+    // operand, since -1 xor (2^n - 1) is -2^n.
+    ENGINE_RECORD_XOR = 15,
+    ENGINE_RECORD_AND = 16,
+    // the two's complement wrap of the left register to `right` bits, ENGINE_RECORD_WRAP_BITS_LEAST or more: the
+    // value modulo 2^right, read back signed, in [-2^(right - 1), 2^(right - 1)). The unsigned residue is the and
+    // with the mask 2^right - 1.
+    ENGINE_RECORD_WRAP = 17
 } EngineRecordOperation;
 
 #define ENGINE_GOLDEN_RUNGS 92u
@@ -368,6 +377,9 @@ typedef enum
 
 // A lookup table's index is the low bits of one register; it fits a single limb.
 #define ENGINE_RECORD_TABLE_INDEX_BITS_MOST 32u
+
+// The narrowest two's complement wrap, a nibble.
+#define ENGINE_RECORD_WRAP_BITS_LEAST 4u
 
 #define ENGINE_RECORD_MEMBERS_MAX 3u
 
@@ -427,6 +439,7 @@ typedef struct
     unsigned int member;
     unsigned int table_offset;
     unsigned int index_bits;
+    unsigned int wrap_bits;
 } DeviceRecordStep;
 
 typedef struct CycleRecord CycleRecord;

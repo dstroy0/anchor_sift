@@ -133,20 +133,22 @@ typedef struct
 } KeyScheduleBlock;
 
 // The step indices a term reads, so a register can be freed once its last reader has run. A field or
-// constant reads no register; a table and an absolute read one; the rest read two.
+// constant reads no register; a table, an absolute and a wrap read one; the rest read two.
 static unsigned int key_schedule_refs(const EngineRecordTerm *term, unsigned int *refs)
 {
     if ((term->operation == ENGINE_RECORD_PRODUCT) || (term->operation == ENGINE_RECORD_SUM)
         || (term->operation == ENGINE_RECORD_DIFFERENCE) || (term->operation == ENGINE_RECORD_LADDER)
         || (term->operation == ENGINE_RECORD_COMPARE) || (term->operation == ENGINE_RECORD_QUOTIENT)
         || (term->operation == ENGINE_RECORD_REMAINDER) || (term->operation == ENGINE_RECORD_GCD)
-        || (term->operation == ENGINE_RECORD_EXACT_QUOTIENT))
+        || (term->operation == ENGINE_RECORD_EXACT_QUOTIENT) || (term->operation == ENGINE_RECORD_XOR)
+        || (term->operation == ENGINE_RECORD_AND))
     {
         refs[0] = term->left;
         refs[1] = term->right;
         return 2u;
     }
-    if ((term->operation == ENGINE_RECORD_ABSOLUTE) || (term->operation == ENGINE_RECORD_TABLE))
+    if ((term->operation == ENGINE_RECORD_ABSOLUTE) || (term->operation == ENGINE_RECORD_TABLE)
+        || (term->operation == ENGINE_RECORD_WRAP))
     {
         refs[0] = term->left;
         return 1u;
@@ -328,6 +330,13 @@ extern "C" long key_schedule_record_lay(const KeyScheduleRecordRequest *request)
             device.left = term.left;
             device.index_bits = key->table[term.right].index_bits;
             device.table_offset = (unsigned int)table_offset[term.right];
+        }
+        else if (term.operation == ENGINE_RECORD_WRAP)
+        {
+            // keymath took the width from the step's right, at least ENGINE_RECORD_WRAP_BITS_LEAST and an unsigned int
+            device.left_limbs = steps[term.left].limbs;
+            device.right_limbs = steps[term.right].limbs;
+            device.wrap_bits = (unsigned int)term.constant;
         }
         else
         {

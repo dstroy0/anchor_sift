@@ -226,7 +226,8 @@ static int keymath_record_reads(EngineRecordOperation operation)
         || (operation == ENGINE_RECORD_DIFFERENCE) || (operation == ENGINE_RECORD_LADDER)
         || (operation == ENGINE_RECORD_ABSOLUTE) || (operation == ENGINE_RECORD_COMPARE)
         || (operation == ENGINE_RECORD_QUOTIENT) || (operation == ENGINE_RECORD_REMAINDER)
-        || (operation == ENGINE_RECORD_GCD) || (operation == ENGINE_RECORD_EXACT_QUOTIENT);
+        || (operation == ENGINE_RECORD_GCD) || (operation == ENGINE_RECORD_EXACT_QUOTIENT)
+        || (operation == ENGINE_RECORD_XOR) || (operation == ENGINE_RECORD_AND);
 }
 
 extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
@@ -316,6 +317,28 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
             // gcd(a, 0) = |a|, so only the wider operand bounds it
             term.bits = (terms[doing.left].bits > terms[doing.right].bits) ? terms[doing.left].bits
                                                                           : terms[doing.right].bits;
+        }
+        else if ((doing.operation == ENGINE_RECORD_XOR) || (doing.operation == ENGINE_RECORD_AND))
+        {
+            // both operands lie in the signed range of one bit over the wider, and so does any bitwise result there,
+            // down to -2^wider, whose magnitude takes that bit
+            const unsigned int wider = (terms[doing.left].bits > terms[doing.right].bits) ? terms[doing.left].bits
+                                                                                        : terms[doing.right].bits;
+            term.bits = wider + 1u;
+        }
+        else if (doing.operation == ENGINE_RECORD_WRAP)
+        {
+            if (!KEYMATH_HELD((doing.left < step) && (doing.right >= ENGINE_RECORD_WRAP_BITS_LEAST), &doing, error,
+                              ENGINE_ERROR_REQUEST))
+            {
+                return KEYMATH_REFUSED;
+            }
+            // a register of fewer bits than the wrap already lies in its signed range and passes through; a wider one
+            // lands in [-2^(right - 1), 2^(right - 1)), whose magnitude takes all `right` bits at -2^(right - 1)
+            term.bits = (terms[doing.left].bits < doing.right) ? terms[doing.left].bits : doing.right;
+            // the one register read is the left, as the absolute's; the width rides in the term's constant
+            term.right = doing.left;
+            term.constant = (unsigned long long)doing.right;
         }
         else if (doing.operation == ENGINE_RECORD_TABLE)
         {

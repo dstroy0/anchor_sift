@@ -548,6 +548,74 @@ __device__ static void cycle_record_negate(unsigned int *value, unsigned int lim
     value[limbs - 1u] = (left < 32u) ? (value[limbs - 1u] & ((1u << left) - 1u)) : value[limbs - 1u];
 }
 
+// limb `at` of a register's two's complement: the magnitude's limb, or its complement where the sign is negative,
+// with `carry` running the negation's one up the limbs; it starts at 1 and the limbs are taken from the lowest up
+__device__ static unsigned int cycle_record_complement(const unsigned int *value, unsigned int limbs, unsigned int at,
+                                                       int sign, unsigned long long *carry)
+{
+    const unsigned int held = cycle_record_limb(value, limbs, at);
+    if (sign >= 0)
+    {
+        return held;
+    }
+    const unsigned long long total = (unsigned long long)(~held) + *carry;
+    *carry = total >> 32u;
+    return (unsigned int)(total & 0xFFFFFFFFull);
+}
+
+// the xor or the and of two registers' two's complements over `limbs`, read back as a magnitude; returns its sign.
+// The limbs reach the result's bits, one over the wider operand's, so bit 32 limbs - 1 carries every operand's sign
+// and the result's.
+__device__ static int cycle_record_bitwise(unsigned int operation, const unsigned int *left, unsigned int left_limbs,
+                                          int left_sign, const unsigned int *right, unsigned int right_limbs,
+                                          int right_sign, unsigned int *value, unsigned int limbs)
+{
+    unsigned long long left_carry = 1ull;
+    unsigned long long right_carry = 1ull;
+    for (unsigned int at = 0u; at < limbs; at += 1u)
+    {
+        const unsigned int one = cycle_record_complement(left, left_limbs, at, left_sign, &left_carry);
+        const unsigned int other = cycle_record_complement(right, right_limbs, at, right_sign, &right_carry);
+        value[at] = (operation == ENGINE_RECORD_XOR) ? (one ^ other) : (one & other);
+    }
+    const int negative = ((value[limbs - 1u] >> 31u) != 0u) ? 1 : 0;
+    if (negative != 0)
+    {
+        cycle_record_negate(value, limbs, 32u * limbs);
+    }
+    return (cycle_record_is_zero(value, limbs) != 0) ? 0 : ((negative != 0) ? -1 : 1);
+}
+
+// a register wrapped to `bits` of two's complement, read back signed as a magnitude over `limbs`; returns its sign.
+// keymath gave the step the fewer of the source's bits and the wrap's, so a wrap wider than the step's 32 limbs is a
+// source already inside the signed range, passed through, and any other step holds exactly the wrap's limbs.
+__device__ static int cycle_record_wrap(const unsigned int *source, unsigned int source_limbs, int source_sign,
+                                       unsigned int bits, unsigned int *value, unsigned int limbs)
+{
+    if (bits > (32u * limbs))
+    {
+        for (unsigned int at = 0u; at < limbs; at += 1u)
+        {
+            value[at] = cycle_record_limb(source, source_limbs, at);
+        }
+        return source_sign;
+    }
+    unsigned long long carry = 1ull;
+    for (unsigned int at = 0u; at < limbs; at += 1u)
+    {
+        value[at] = cycle_record_complement(source, source_limbs, at, source_sign, &carry);
+    }
+    const unsigned int kept = bits - (32u * (limbs - 1u));
+    value[limbs - 1u] = (kept < 32u) ? (value[limbs - 1u] & ((1u << kept) - 1u)) : value[limbs - 1u];
+    const unsigned int top = bits - 1u;
+    const int negative = (((value[top / 32u] >> (top % 32u)) & 1u) != 0u) ? 1 : 0;
+    if (negative != 0)
+    {
+        cycle_record_negate(value, limbs, bits);
+    }
+    return (cycle_record_is_zero(value, limbs) != 0) ? 0 : ((negative != 0) ? -1 : 1);
+}
+
 __device__ static void cycle_record_add(const unsigned int *left, unsigned int left_limbs, const unsigned int *right,
                                         unsigned int right_limbs, unsigned int *value, unsigned int limbs)
 {
@@ -1027,6 +1095,16 @@ __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
                     value[limb] = entry[limb];
                 }
                 sign[at] = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : 1;
+            }
+            else if ((step.operation == ENGINE_RECORD_XOR) || (step.operation == ENGINE_RECORD_AND))
+            {
+                sign[at] = (signed char)cycle_record_bitwise(step.operation, left, step.left_limbs, sign[step.left], right,
+                                                             step.right_limbs, sign[step.right], value, step.limbs);
+            }
+            else if (step.operation == ENGINE_RECORD_WRAP)
+            {
+                sign[at] = (signed char)cycle_record_wrap(left, step.left_limbs, sign[step.left], step.wrap_bits, value,
+                                                          step.limbs);
             }
             else if ((DIVIDES != 0u) && (cycle_record_divides(step.operation) != 0))
             {

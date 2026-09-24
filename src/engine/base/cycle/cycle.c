@@ -85,6 +85,76 @@ static int cycle_host_ladder(const AnchorExactInteger *numerator, const AnchorEx
     return 1;
 }
 
+// limb `at` of an integer's two's complement, the device's cycle_record_complement: `carry` starts at 1 and the limbs
+// are taken from the lowest up
+static uint32_t cycle_host_complement(const AnchorExactInteger *value, unsigned int at, unsigned long long *carry)
+{
+    if (value->sign >= 0)
+    {
+        return value->limb[at];
+    }
+    const unsigned long long total = (unsigned long long)(~value->limb[at] & 0xFFFFFFFFu) + *carry;
+    *carry = total >> 32u;
+    return (uint32_t)(total & 0xFFFFFFFFull);
+}
+
+// the low `limbs` of a two's complement read back as a magnitude, masked to `bits`, and settled with `negative`
+static void cycle_host_uncomplement(AnchorExactInteger *value, unsigned int limbs, unsigned int bits, int negative)
+{
+    unsigned long long carry = 1ull;
+    for (unsigned int at = 0u; (negative != 0) && (at < limbs); at += 1u)
+    {
+        const unsigned long long total = (unsigned long long)(~value->limb[at] & 0xFFFFFFFFu) + carry;
+        value->limb[at] = (uint32_t)(total & 0xFFFFFFFFull);
+        carry = total >> 32u;
+    }
+    const unsigned int kept = bits - (32u * (limbs - 1u));
+    value->limb[limbs - 1u] &= (kept < 32u) ? ((1u << kept) - 1u) : 0xFFFFFFFFu;
+    cycle_host_settle(value, (negative != 0) ? -1 : 1);
+}
+
+// the xor or the and over the step's limbs, whose top bit carries every sign, as the device's cycle_record_bitwise
+static void cycle_host_bitwise(const DeviceRecordStep *step, const AnchorExactInteger *left,
+                               const AnchorExactInteger *right, AnchorExactInteger *value)
+{
+    AnchorExactInteger result;
+    anchor_exact_zero(&result);
+    unsigned long long left_carry = 1ull;
+    unsigned long long right_carry = 1ull;
+    for (unsigned int at = 0u; at < step->limbs; at += 1u)
+    {
+        const uint32_t one = cycle_host_complement(left, at, &left_carry);
+        const uint32_t other = cycle_host_complement(right, at, &right_carry);
+        result.limb[at] = (step->operation == ENGINE_RECORD_XOR) ? (one ^ other) : (one & other);
+    }
+    const int negative = ((result.limb[step->limbs - 1u] >> 31u) != 0u) ? 1 : 0;
+    cycle_host_uncomplement(&result, step->limbs, 32u * step->limbs, negative);
+    *value = result;
+}
+
+// the two's complement wrap to the step's wrap_bits, as the device's cycle_record_wrap
+static void cycle_host_wrap(const DeviceRecordStep *step, const AnchorExactInteger *source, AnchorExactInteger *value)
+{
+    if (step->wrap_bits > (32u * step->limbs))
+    {
+        *value = *source;
+        return;
+    }
+    AnchorExactInteger result;
+    anchor_exact_zero(&result);
+    unsigned long long carry = 1ull;
+    for (unsigned int at = 0u; at < step->limbs; at += 1u)
+    {
+        result.limb[at] = cycle_host_complement(source, at, &carry);
+    }
+    const unsigned int kept = step->wrap_bits - (32u * (step->limbs - 1u));
+    result.limb[step->limbs - 1u] &= (kept < 32u) ? ((1u << kept) - 1u) : 0xFFFFFFFFu;
+    const unsigned int top = step->wrap_bits - 1u;
+    const int negative = (((result.limb[top / 32u] >> (top % 32u)) & 1u) != 0u) ? 1 : 0;
+    cycle_host_uncomplement(&result, step->limbs, step->wrap_bits, negative);
+    *value = result;
+}
+
 static void cycle_host_put(unsigned int *record, unsigned int offset, unsigned int bits,
                            const AnchorExactInteger *value)
 {
@@ -197,6 +267,16 @@ static int cycle_host_step(const DeviceRecordStep *step, const unsigned int *ato
     if (step->operation == ENGINE_RECORD_EXACT_QUOTIENT)
     {
         return anchor_exact_divide_exact(left, right, value) == ANCHOR_EXACT_OK;
+    }
+    if ((step->operation == ENGINE_RECORD_XOR) || (step->operation == ENGINE_RECORD_AND))
+    {
+        cycle_host_bitwise(step, left, right, value);
+        return 1;
+    }
+    if (step->operation == ENGINE_RECORD_WRAP)
+    {
+        cycle_host_wrap(step, left, value);
+        return 1;
     }
     if ((step->operation == ENGINE_RECORD_LADDER) && (right->sign > 0))
     {
