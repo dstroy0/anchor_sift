@@ -376,10 +376,41 @@ with each comparison a 128-bit cross-multiply. A period P also peaks at 2P and 3
 A record program is a list of steps s\_\allowbreak{}1, …, s\_\allowbreak{}n over registers of limbs, each step reading earlier registers and writing its own, run for every record in one sweep.
 
 \begin{itemize}
-\item \textbf{The steps are n} (Doug, 23 September: “increase the scheduler steps to n”). \texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}STEPS\_\allowbreak{}MAX} = 1,024 is the step count, no longer tied to the register file's width. The binding resource is the file: \texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}LIMBS\_\allowbreak{}MOST} = 256 limbs of live registers.
+\item \textbf{The steps are n} (Doug, 23 September: “increase the scheduler steps to n”; 24 September: stack the floors, “make it so”).
+
+\begin{itemize}
+\item The step count has no bound. \texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}STEPS\_\allowbreak{}MAX} is gone: it sized a per-thread array holding one sign per step, and each sign now sits beside its register in the file.
+\item The binding resource is the file: \texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}LIMBS\_\allowbreak{}MOST} = 256 limbs of live registers.
+\item A stack of floors runs as one program in one launch. Each floor is a round that reads the floor below and leaves its state, often wrapped, for the next.
+\item The layout frees each register in a single pass, bucketed by its last reader. It frees the same registers at the same steps as the per-step scan it replaced.
+\item The algebra of the stack, what it compresses and what it leaves, with the stacked-against-chained measurement (13 to 22 times, records equal): \hyperref[chap:vertical-time-compression]{vertical\_\allowbreak{}time\_\allowbreak{}compression.md}.
+\item \textbf{Proved:} 700 floors of a round over four 32-bit words (xor, and, sum, xor with a constant, a 32-bit wrap), 4,204 steps, run in an 8-limb file. On 1,024 lanes the device equals the host word for word, and both equal the same rounds on the CPU's own 64-bit two's complement at every tapped floor (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}bitwise\_\allowbreak{}test}).
+\end{itemize}
+\item \textbf{Xor, and, and the two's complement wrap} (Doug, 24 September).
+
+\begin{itemize}
+\item \texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}XOR} and \texttt{\_\allowbreak{}AND} work bitwise on each operand's two's complement, sign-extended without end, one bit wider than the wider operand. The imprint narrows that where it can show a register is never negative. An and with such a register is no wider than it, and an xor of two such is no wider than the wider. The result's sign is read from the operands' signs.
+\item \texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}WRAP} takes left modulo 2\textasciicircum{}w, read back signed, with w ≥ 4 in \texttt{right}.
+\item \textbf{Proved:}
+
+\begin{itemize}
+\item Every output bit is rebuilt from the raw fields one bit at a time, and each sign still holds 64 bits past its written width. This holds on 4,096 lanes in the 64-limb file and 512 in the 256-limb file.
+\item Hand-worked answers match.
+\item The narrowed widths are exactly the rule's: 32, 20, 20, 32, 41, 41, 32 and 32 over unsigned 32- and 20-bit fields and a signed 40-bit field. All 4,096 lanes equal the oracle past every narrowed width.
+\item A wrap below 4 bits is refused at imprint (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}bitwise\_\allowbreak{}test}, 24 checks, 0 failed).
+\end{itemize}
+\end{itemize}
 \item \textbf{Register reuse} (opt-in, 23 September). Register r is live from the step that writes it to its last reader. With reuse on, a liveness free-list returns r to the file once its last reader has run; a chain needs only the registers live at once, not one per step. \textbf{Proved} on a 21-step additive chain: the same output from 3 limbs as from 21. Off by default; a program that does not ask keeps one register per step: each register placed at the running total of the limbs before it, the same bump as before; a program with no tables keeps the same layout as before, by construction (not measured against the old binary).
 \item \textbf{The lookup table} (Doug, 23 September: “implement the lut”). A table step reads the low b bits of one register, b ≤ 32, and returns T[x mod 2\textasciicircum{}b], an \texttt{out\_\allowbreak{}bits}-wide value, from 2\textasciicircum{}b rows of ⌈out\_\allowbreak{}bits/32⌉ limbs. It is a general one-variable function on the lane's alphabet: 2\textasciicircum{}16 entries for a u16 lane, built once by pushing every value through. \textbf{Proved:} filled by running the ordinary operations over the whole 16-bit alphabet, the table equals them on 4,096 lanes, on the device and the host (M10).
 \item \textbf{Composition keeps the order.} Reading g through f gives the table (g∘f)[x] = g[f[x]], one table for the chain: the floor is 2-D, but the operations need not be, for a chain of them “gets collapsed in order onto it” (Doug, 23 September). Composition regroups, (h∘g)∘f = h∘(g∘f), but does not reorder: g∘f ≠ f∘g. \textbf{Proved} with f(x) = 65535 − x and g(y) = |y − 30000|. Regrouping: g read through f equals the ops for |35535 − x|, and one table composed on the host equals the two. No reordering: f∘g differs on some lane.
+\item \textbf{The two towers} (Doug, 24 September: a second tower over the first one's boundary, inverted, and the two collapse together).
+
+\begin{itemize}
+\item Floor division is a record floor: ⌊v / 2\textasciicircum{}k⌋ = EXACT\_\allowbreak{}QUOTIENT(v − AND(v, 2\textasciicircum{}k − 1), 2\textasciicircum{}k), rounding toward −∞ for every integer v, as \texttt{tower\_\allowbreak{}floor\_\allowbreak{}shift} does.
+\item With it, the crystal's 5/3 lifting T (A14) and its inverse are sums, differences, constants and that division: stacks of record floors. An operation program F over the crystal and T⁻¹ compose into one stack F ∘ T⁻¹ by the regrouping law.
+\item \textbf{Proved:} one 5/3 level over 8 signed 16-bit samples and its inverse, 129 steps in one program and a 12-limb file. On 4,096 lanes the device equals the host word for word, the forward floor equals tower.cu's formulas, and the inverse returns every sample exactly (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}bitwise\_\allowbreak{}test}).
+\item Open: the neighbor gather across levels, what F ∘ T⁻¹ saves, and the whole crystal as one stack (\hyperref[chap:vertical-time-compression]{vertical\_\allowbreak{}time\_\allowbreak{}compression.md}).
+\end{itemize}
 \item \textbf{The full Kolmogorov–Arnold form.} With linear steps only, the machine held the theorem's skeleton with linear edges; the table gives it general one-variable edges, which is item 1 of \hyperref[chap:kolmogorov-arnold]{kolmogorov\_\allowbreak{}arnold.md} and the LUT of \hyperref[chap:noise-sieve-tower]{noise\_\allowbreak{}sieve\_\allowbreak{}tower.md} §2. Which functions to tabulate, without fitting, is still open (item 3 there).
 \end{itemize}
 
