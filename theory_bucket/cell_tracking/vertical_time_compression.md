@@ -373,7 +373,7 @@ Derived.
 - **The smallest file.** An order of the lifting's steps with a smaller file than depth-first, or a proof that none exists.
 - **F ∘ T⁻¹ in D axes.** The bound on its distance from the linear F ∘ W⁻¹, and any particular F that runs through T⁻¹ in fewer steps than the two apart.
 - **Operations that commute with T.** Which operations on the lifted floors, edges included, commute with T, and run on the samples with no lifting.
-- **The heap and the wrap at the mirror as tests.** The scratch runs committed as tests, and the heap tabled under the narrowed widths.
+- **The heap and the wrap at the mirror as tests.** The scratch runs committed as tests, and the heap tabled under the narrowed widths. **Proved** since: `test/engine/record_boundary_test` (41 checks, 0 failed, cell_tracking main de5bdff) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring is ring_0 + 6(n − n/2^ℓ) at floor ℓ and one bit wider for each wrapped low at its mirror, and the pinch orders the four classes; the ring derived in [two_crystals.md](two_crystals.md).
 - **The oval.** Which shape it is, the heap's hourglass or the gap between heap and ring, is Doug's call.
 - **The lens.** Whether a ladder of lenses comes closer to K on a named class of lanes, and what "tetrated resources" measures.
 - **The whole crystal as one stack.** The proof above is one level along one line. All levels along all four axes as record floors, against tower.cu's own crystal, is not built.

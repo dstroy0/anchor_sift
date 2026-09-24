@@ -9,7 +9,9 @@
 // coefficient only at bit b - 3L and above, and for b >= 3L the move is exactly 2^b times a column of T's rational
 // matrix M, whose 2-adic valuations give the reach per band (3l for the lows at level l, 3l - 2 for its highs). T^-1
 // is held to the reach L + 2 the same way. What passes through T: a constant added to every sample lands on the
-// crystal's lows alone, and a vector in 2^(3L) Z^n lands as M times it; negation and doubling do not pass. The heap
+// crystal's lows alone, and a vector in 2^(3L) Z^n lands as M times it; negation and doubling do not pass. The
+// identity of a lane's structure, taken with T and null permutations of its own samples: every structured lane's
+// crystal heap stands below all its shuffles', and noise no more often than 1 / (draws + 1) allows. The heap
 // and the ring at every floor of T then T^-1: the heap mirrors exactly, the ring is ring_0 + 6(n - n / 2^l) at floor
 // l and its mirror one bit wider per wrapped low, and the heap's pinch at the crystal orders a ramp, a ramp +-8, a
 // ramp +-1024 and noise. Last, the top projection x -> x / 2^k toward zero, the other end of the window from the
@@ -67,6 +69,11 @@
 #define BOUNDARY_TEST_COUNT_SAMPLES 4u
 
 #define BOUNDARY_TEST_COUNT_REACH 3u
+
+// the identity by null permutation: lanes drawn for each class, and the keyed shuffles drawn of each
+#define BOUNDARY_TEST_IDENTITY_BASES 256u
+
+#define BOUNDARY_TEST_IDENTITY_DRAWS 8u
 
 typedef struct
 {
@@ -539,6 +546,8 @@ static void boundary_precision(BoundaryTally *tally, BoundaryLoaded *loaded, con
     unsigned int lawful = 0u;
     unsigned int lawful_pairs = 0u;
     unsigned int bounded = 0u;
+    // a single flipped bit must move some output: the map is one to one, so no flip leaves the image unchanged
+    unsigned int changed = 0u;
     int seen = -1000;
     for (unsigned int pair = 0u; (ran != 0) && (narrow != 0) && (pair < BOUNDARY_TEST_PAIRS); pair += 1u)
     {
@@ -576,9 +585,11 @@ static void boundary_precision(BoundaryTally *tally, BoundaryLoaded *loaded, con
         const int in_law = bit >= BOUNDARY_TEST_REACH;
         int law = 1;
         int within = 1;
+        int moved_any = 0;
         for (unsigned int at = 0u; at < n; at += 1u)
         {
             const long long move = out[1][at] - out[0][at];
+            moved_any = moved_any || (move != 0ll);
             if (in_law != 0)
             {
                 law = law && (move == (sign * matrix[at][input] * (1ll << (bit - BOUNDARY_TEST_REACH))));
@@ -593,6 +604,7 @@ static void boundary_precision(BoundaryTally *tally, BoundaryLoaded *loaded, con
         lawful_pairs += (in_law != 0) ? 1u : 0u;
         lawful += ((in_law != 0) && (law != 0)) ? 1u : 0u;
         bounded += (within != 0) ? 1u : 0u;
+        changed += (moved_any != 0) ? 1u : 0u;
     }
     *reach_seen = seen;
     scriptura_text(&tally->line, "  ");
@@ -624,7 +636,11 @@ static void boundary_precision(BoundaryTally *tally, BoundaryLoaded *loaded, con
     scriptura_decimal(&tally->line, bound, 1u);
     scriptura_text(&tally->line, " bits below the flip; the furthest reach met is ");
     scriptura_signed(&tally->line, seen);
-    scriptura_character(&tally->line, '\n');
+    scriptura_text(&tally->line, "; ");
+    scriptura_decimal(&tally->line, changed, 1u);
+    scriptura_text(&tally->line, " of ");
+    scriptura_decimal(&tally->line, BOUNDARY_TEST_PAIRS, 1u);
+    scriptura_text(&tally->line, " flips change the image\n");
     boundary_check(tally, ran != 0, "the program runs on the host and the device, and the records agree word for word");
     boundary_check(tally, narrow != 0, "every output fits a 64-bit word");
     boundary_check(tally, mapped == lanes, "every lane equals the host's map");
@@ -635,6 +651,7 @@ static void boundary_precision(BoundaryTally *tally, BoundaryLoaded *loaded, con
     boundary_check(tally, (lawful_pairs != 0u) && (lawful == lawful_pairs),
                    "a flip at bit 3L or above moves the outputs by exactly 2^b times the matrix's column");
     boundary_check(tally, bounded == BOUNDARY_TEST_PAIRS, "no flip reaches further below itself than the bound");
+    boundary_check(tally, changed == BOUNDARY_TEST_PAIRS, "every single flipped bit changes the image: the map is one to one");
     free(atoms);
     free(host_out);
     free(device_out);
@@ -738,8 +755,10 @@ static void boundary_written(BoundaryTally *tally)
     free(again);
 }
 
-// T alone over the samples: its precision, then what passes through it
+// T alone over the samples: its precision, then what passes through it, then the identity null permutations take
 static void boundary_through(BoundaryTally *tally, BoundaryLoaded *loaded, const BoundaryProgram *program);
+
+static void boundary_identity(BoundaryTally *tally, BoundaryLoaded *loaded, const BoundaryProgram *program);
 
 static void boundary_read_off(BoundaryTally *tally)
 {
@@ -771,6 +790,7 @@ static void boundary_read_off(BoundaryTally *tally)
                            BOUNDARY_TEST_REACH, 0, "read off (T)", &reach);
         boundary_check(tally, reach == (int)BOUNDARY_TEST_REACH, "T's reach 3L is met on the device");
         boundary_through(tally, &loaded, program);
+        boundary_identity(tally, &loaded, program);
         boundary_free(&loaded);
     }
     free(program);
@@ -916,6 +936,136 @@ static unsigned int boundary_heap(long long value)
         bits += 1u;
     }
     return (bits == 0u) ? 0u : (bits + 1u);
+}
+
+// The identity of a lane's structure, taken with T and null permutations of T's input (Doug, 24 September: "an
+// identity of T using T:null permutation of T"). Each lane is drawn with BOUNDARY_TEST_IDENTITY_DRAWS keyed shuffles
+// of its own samples. A shuffle keeps every value, so the samples' heap is the same on every draw, and T keeps the
+// count exactly (det M = 1, Haar measure), so whatever the crystal's heap tells apart is the arrangement alone. A
+// lane is identified when its crystal's heap stands below every draw's. With no arrangement to find, the lane and its
+// draws are exchangeable and a lane is identified with probability at most 1/(draws + 1), as the period reading's
+// null (A12).
+static void boundary_identity(BoundaryTally *tally, BoundaryLoaded *loaded, const BoundaryProgram *program)
+{
+    const unsigned int n = BOUNDARY_TEST_SAMPLES;
+    const unsigned int group = 1u + BOUNDARY_TEST_IDENTITY_DRAWS;
+    const unsigned int lanes = BOUNDARY_TEST_CLASSES * BOUNDARY_TEST_IDENTITY_BASES * group;
+    const unsigned int out_limbs = loaded->layout.out_limbs;
+    unsigned int *const atoms = (unsigned int *)calloc((size_t)lanes * n, sizeof(unsigned int));
+    unsigned int *const host_out = (unsigned int *)calloc((size_t)lanes * out_limbs, sizeof(unsigned int));
+    unsigned int *const device_out = (unsigned int *)calloc((size_t)lanes * out_limbs, sizeof(unsigned int));
+    const int buffers = (atoms != NULL) && (host_out != NULL) && (device_out != NULL);
+    for (unsigned int first = 0u; (buffers != 0) && (first < lanes); first += group)
+    {
+        unsigned int *const own = &atoms[(size_t)first * n];
+        boundary_class_fill(own, first / (BOUNDARY_TEST_IDENTITY_BASES * group));
+        for (unsigned int draw = 1u; draw < group; draw += 1u)
+        {
+            unsigned int *const shuffled = &atoms[(size_t)(first + draw) * n];
+            memcpy(shuffled, own, (size_t)n * sizeof(unsigned int));
+            // Fisher-Yates from the top: each place swaps with one at or below it
+            for (unsigned int at = n - 1u; at >= 1u; at -= 1u)
+            {
+                const unsigned int with = boundary_random() % (at + 1u);
+                const unsigned int held = shuffled[at];
+                shuffled[at] = shuffled[with];
+                shuffled[with] = held;
+            }
+        }
+    }
+    const int ran = (buffers != 0) && (boundary_run(loaded, atoms, lanes, host_out, device_out) != 0);
+    unsigned int identified[BOUNDARY_TEST_CLASSES] = {0u, 0u, 0u, 0u};
+    unsigned long long own_heap[BOUNDARY_TEST_CLASSES] = {0ull, 0ull, 0ull, 0ull};
+    unsigned long long null_heap[BOUNDARY_TEST_CLASSES] = {0ull, 0ull, 0ull, 0ull};
+    int kept = 1;
+    // the crystal is a one-to-one identity of its samples: a draw's crystal equals the lane's exactly when the
+    // shuffle moved no value, and every draw that moved one must change the crystal
+    unsigned int draws_fixed = 0u;
+    unsigned int draws_one_to_one = 0u;
+    for (unsigned int first = 0u; (ran != 0) && (first < lanes); first += group)
+    {
+        const unsigned int kind = first / (BOUNDARY_TEST_IDENTITY_BASES * group);
+        unsigned long long crystal[1u + BOUNDARY_TEST_IDENTITY_DRAWS];
+        unsigned long long samples[1u + BOUNDARY_TEST_IDENTITY_DRAWS];
+        for (unsigned int member = 0u; member < group; member += 1u)
+        {
+            const unsigned int lane = first + member;
+            crystal[member] = 0ull;
+            samples[member] = 0ull;
+            for (unsigned int at = 0u; at < n; at += 1u)
+            {
+                crystal[member] += boundary_heap(boundary_read(&device_out[(size_t)lane * out_limbs],
+                                                               &loaded->layout.step_table[program->outputs[at]]));
+                samples[member] += boundary_heap(boundary_field(atoms[((size_t)lane * n) + at]));
+            }
+            kept = kept && (samples[member] == samples[0]);
+        }
+        int below = 1;
+        for (unsigned int draw = 1u; draw < group; draw += 1u)
+        {
+            below = below && (crystal[0] < crystal[draw]);
+            null_heap[kind] += crystal[draw];
+            const int same_samples = memcmp(&atoms[(size_t)first * n], &atoms[(size_t)(first + draw) * n],
+                                            (size_t)n * sizeof(unsigned int))
+                                  == 0;
+            int same_crystal = 1;
+            for (unsigned int at = 0u; at < n; at += 1u)
+            {
+                const DeviceRecordStep *const step = &loaded->layout.step_table[program->outputs[at]];
+                same_crystal = same_crystal
+                            && (boundary_read(&device_out[(size_t)first * out_limbs], step)
+                                == boundary_read(&device_out[(size_t)(first + draw) * out_limbs], step));
+            }
+            draws_fixed += (same_samples != 0) ? 1u : 0u;
+            draws_one_to_one += (same_samples == same_crystal) ? 1u : 0u;
+        }
+        own_heap[kind] += crystal[0];
+        identified[kind] += (below != 0) ? 1u : 0u;
+    }
+    const char *const names[BOUNDARY_TEST_CLASSES] = {"ramp", "ramp +-8", "ramp +-1024", "noise"};
+    scriptura_text(&tally->line, "  identity by null permutation, ");
+    scriptura_decimal(&tally->line, BOUNDARY_TEST_IDENTITY_DRAWS, 1u);
+    scriptura_text(&tally->line, " draws a lane, lanes identified of ");
+    scriptura_decimal(&tally->line, BOUNDARY_TEST_IDENTITY_BASES, 1u);
+    scriptura_text(&tally->line, " (crystal heap against the draws' mean):");
+    for (unsigned int kind = 0u; kind < BOUNDARY_TEST_CLASSES; kind += 1u)
+    {
+        scriptura_text(&tally->line, (kind == 0u) ? " " : "; ");
+        scriptura_text(&tally->line, names[kind]);
+        scriptura_character(&tally->line, ' ');
+        scriptura_decimal(&tally->line, identified[kind], 1u);
+        scriptura_text(&tally->line, " (");
+        boundary_hundredths(&tally->line, own_heap[kind] * BOUNDARY_TEST_IDENTITY_DRAWS, null_heap[kind]);
+        scriptura_character(&tally->line, ')');
+    }
+    const unsigned int draws_total = BOUNDARY_TEST_CLASSES * BOUNDARY_TEST_IDENTITY_BASES * BOUNDARY_TEST_IDENTITY_DRAWS;
+    scriptura_text(&tally->line, "\n    one to one: ");
+    scriptura_decimal(&tally->line, draws_one_to_one, 1u);
+    scriptura_text(&tally->line, " of ");
+    scriptura_decimal(&tally->line, draws_total, 1u);
+    scriptura_text(&tally->line, " draws change the crystal exactly when they move a value (");
+    scriptura_decimal(&tally->line, draws_fixed, 1u);
+    scriptura_text(&tally->line, " moved none)\n");
+    // the null's bound on identified noise lanes: bases / (draws + 1) and five of its standard deviations
+    const double rate = 1.0 / (double)(BOUNDARY_TEST_IDENTITY_DRAWS + 1u);
+    const double bases = (double)BOUNDARY_TEST_IDENTITY_BASES;
+    const double ceiling = (bases * rate) + (5.0 * sqrt(bases * rate * (1.0 - rate)));
+    boundary_check(tally, ran != 0, "the identity lanes run on the host and the device, word for word");
+    boundary_check(tally, kept, "a null permutation keeps every value: the samples' heap is the same on every draw");
+    boundary_check(tally, draws_one_to_one == draws_total,
+                   "the crystal is a one-to-one identity: T(pi x) = T(x) exactly when pi x = x");
+    // a structured lane is not promised to be identified: a shallow ramp under +-1024 is mostly noise, and its
+    // shuffles have little arrangement to destroy. What the null bounds is the rate; each structured class must
+    // stand far past it
+    boundary_check(tally,
+                   ((double)identified[0] > ceiling) && ((double)identified[1] > ceiling)
+                       && ((double)identified[2] > ceiling),
+                   "each structured class is identified past the null's bound");
+    boundary_check(tally, (double)identified[3] <= ceiling,
+                   "noise is identified no more often than the null allows, 1 / (draws + 1) within five deviations");
+    free(atoms);
+    free(host_out);
+    free(device_out);
 }
 
 // the registers standing at floor k of T then T^-1: at a forward floor l the level-l lows and the highs of levels 1
