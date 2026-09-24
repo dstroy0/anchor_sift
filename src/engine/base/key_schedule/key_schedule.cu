@@ -234,17 +234,22 @@ static int key_schedule_places(const EngineRecordKey *key, std::vector<DeviceRec
             last_use[refs[ref]] = step;
         }
     }
+    // each register waits under its last reader, and is freed as the step after that reader begins: one pass over the
+    // stack, freeing the same registers at the same steps, in the same order, as a scan of every earlier step would
+    std::vector<std::vector<unsigned int>> ending(key->steps);
+    for (unsigned int step = 0u; step < key->steps; step += 1u)
+    {
+        ending[last_use[step]].push_back(step);
+    }
     std::vector<KeyScheduleBlock> freed;
-    std::vector<char> released(key->steps, 0);
     unsigned int top = 0u;
     for (unsigned int step = 0u; step < key->steps; step += 1u)
     {
-        for (unsigned int earlier = 0u; earlier < step; earlier += 1u)
+        if (step > 0u)
         {
-            if ((released[earlier] == 0) && (last_use[earlier] < step))
+            for (const unsigned int earlier : ending[step - 1u])
             {
                 key_schedule_free(freed, steps[earlier].place, steps[earlier].limbs);
-                released[earlier] = 1;
             }
         }
         steps[step].place = key_schedule_alloc(freed, steps[step].limbs, &top);

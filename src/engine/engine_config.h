@@ -368,12 +368,11 @@ typedef enum
 
 #define ENGINE_GOLDEN_RUNGS 92u
 
+// The register file: ENGINE_RECORD_LIMBS_MOST limbs of live registers, each register's sign held beside it. It is
+// the record machine's one binding resource. The step count is the scheduler's n and has no bound of its own: floors
+// of steps stack in one step table, register reuse frees a register after its last reader, and a lane runs the whole
+// stack in one launch.
 #define ENGINE_RECORD_LIMBS_MOST 256u
-
-// The step count is the scheduler's n, held apart from the register file's limb width. A chain long
-// enough to reach it is meant to run with register reuse on, or to be composed into ENGINE_RECORD_TABLE
-// steps, since the file (ENGINE_RECORD_LIMBS_MOST limbs of live registers) is the binding resource.
-#define ENGINE_RECORD_STEPS_MAX 1024u
 
 // A lookup table's index is the low bits of one register; it fits a single limb.
 #define ENGINE_RECORD_TABLE_INDEX_BITS_MOST 32u

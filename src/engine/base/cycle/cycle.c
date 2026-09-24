@@ -113,7 +113,8 @@ static void cycle_host_uncomplement(AnchorExactInteger *value, unsigned int limb
     cycle_host_settle(value, (negative != 0) ? -1 : 1);
 }
 
-// the xor or the and over the step's limbs, whose top bit carries every sign, as the device's cycle_record_bitwise
+// the xor or the and over the step's limbs, its sign the operands' (the xor negative where exactly one is, the and
+// where both are), as the device's cycle_record_bitwise
 static void cycle_host_bitwise(const DeviceRecordStep *step, const AnchorExactInteger *left,
                                const AnchorExactInteger *right, AnchorExactInteger *value)
 {
@@ -127,7 +128,10 @@ static void cycle_host_bitwise(const DeviceRecordStep *step, const AnchorExactIn
         const uint32_t other = cycle_host_complement(right, at, &right_carry);
         result.limb[at] = (step->operation == ENGINE_RECORD_XOR) ? (one ^ other) : (one & other);
     }
-    const int negative = ((result.limb[step->limbs - 1u] >> 31u) != 0u) ? 1 : 0;
+    const int left_negative = (left->sign < 0) ? 1 : 0;
+    const int right_negative = (right->sign < 0) ? 1 : 0;
+    const int negative = (step->operation == ENGINE_RECORD_XOR) ? (left_negative ^ right_negative)
+                                                                : (left_negative & right_negative);
     cycle_host_uncomplement(&result, step->limbs, 32u * step->limbs, negative);
     *value = result;
 }
@@ -296,7 +300,7 @@ static int cycle_host_step(const DeviceRecordStep *step, const unsigned int *ato
 long cycle_record_run_host(const CycleRecordHostRequest *request)
 {
     const EngineRecordLayout *const layout = request->layout;
-    if ((layout->steps == 0u) || (layout->steps > ENGINE_RECORD_STEPS_MAX) || (layout->out_limbs == 0u)
+    if ((layout->steps == 0u) || (layout->out_limbs == 0u)
      || (layout->members == 0u) || (layout->members > ENGINE_RECORD_MEMBERS_MAX))
     {
         return CYCLE_REFUSED;
