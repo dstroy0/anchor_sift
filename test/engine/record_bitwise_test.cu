@@ -9,7 +9,8 @@
 // truncated record. Hand-worked answers, both register files, and the refusals at imprint (a wrap below 4 bits, an
 // operation reading a later step) are checked too. Last, a stack of floors far past a thousand steps (rounds over four
 // 32-bit words, each floored by a wrap) runs as one program with register reuse, held to the CPU's own 64-bit two's
-// complement at every tapped floor.
+// complement at every tapped floor. And one level of the tower's 5/3 lifting with its inverse, the floor divisions
+// made from an and and an exact quotient, must equal tower.cu's formulas and return every sample exactly.
 #include "cycle.h"
 #include "keymath.h"
 #include "key_schedule.h"
@@ -829,6 +830,240 @@ static void bitwise_stack(BitwiseTally *tally)
     bitwise_free(&loaded);
 }
 
+#define BITWISE_TEST_LIFT_SAMPLES 8u
+
+#define BITWISE_TEST_LIFT_LANES 4096u
+
+// room for the level and its inverse: 8 fields, 4 highs and 4 lows each way at up to 8 steps, and the constant 2
+#define BITWISE_TEST_LIFT_STEPS 160u
+
+// the lifting's outputs: 4 lows, 4 highs and the 8 rebuilt samples
+#define BITWISE_TEST_LIFT_OUTPUTS 16u
+
+typedef struct
+{
+    EngineRecordStep steps[BITWISE_TEST_LIFT_STEPS];
+    unsigned int count;
+} BitwiseLift;
+
+static unsigned int bitwise_lift_emit(BitwiseLift *lift, EngineRecordOperation operation, unsigned int left,
+                                      unsigned int right)
+{
+    lift->steps[lift->count] = EngineRecordStep{operation, left, right, 0u};
+    lift->count += 1u;
+    return lift->count - 1u;
+}
+
+// floor(v / 2^k), toward minus infinity, from record steps: the and with 2^k - 1 is v's residue, never negative, and
+// v less it divides exactly
+static unsigned int bitwise_floor_shift(BitwiseLift *lift, unsigned int value, unsigned int shift)
+{
+    const unsigned int mask = bitwise_lift_emit(lift, ENGINE_RECORD_CONSTANT, (1u << shift) - 1u, 0u);
+    const unsigned int residue = bitwise_lift_emit(lift, ENGINE_RECORD_AND, value, mask);
+    const unsigned int whole = bitwise_lift_emit(lift, ENGINE_RECORD_DIFFERENCE, value, residue);
+    const unsigned int power = bitwise_lift_emit(lift, ENGINE_RECORD_CONSTANT, 1u << shift, 0u);
+    return bitwise_lift_emit(lift, ENGINE_RECORD_EXACT_QUOTIENT, whole, power);
+}
+
+// the tower's own floor shift, as tower.cu computes it on the device
+static long long bitwise_tower_shift(long long value, unsigned int shift)
+{
+    return (value >= 0ll) ? (value >> shift) : -(((-value) + (1ll << shift) - 1ll) >> shift);
+}
+
+// one level of the tower's 5/3 lifting over 8 samples, forward then inverse, stacked in one program of record steps.
+// The forward floor's coefficients must equal tower.cu's formulas on the CPU, and the inverse floor must return the
+// samples exactly: the lifting and its inverse are record floors, and T^-1 . T is the identity on the machine.
+static void bitwise_lifting(BitwiseTally *tally)
+{
+    const unsigned int count = BITWISE_TEST_LIFT_SAMPLES;
+    const unsigned int lows = (count + 1u) / 2u;
+    const unsigned int highs = count / 2u;
+    BitwiseLift *const steps = (BitwiseLift *)calloc(1u, sizeof(BitwiseLift));
+    if (steps == NULL)
+    {
+        bitwise_check(tally, 0, "the lifting is held");
+        return;
+    }
+    unsigned int sample[BITWISE_TEST_LIFT_SAMPLES];
+    unsigned int field_bits[BITWISE_TEST_LIFT_SAMPLES];
+    unsigned int field_offset[BITWISE_TEST_LIFT_SAMPLES];
+    for (unsigned int at = 0u; at < count; at += 1u)
+    {
+        sample[at] = bitwise_lift_emit(steps, ENGINE_RECORD_FIELD_SIGNED, at, 0u);
+        field_bits[at] = 16u;
+        field_offset[at] = 16u * at;
+    }
+    // forward: the high d_j = x_(2j+1) - floor((x_2j + x_(2j+2)) / 2), the edge repeating x_2j
+    unsigned int high[BITWISE_TEST_LIFT_SAMPLES];
+    for (unsigned int j = 0u; j < highs; j += 1u)
+    {
+        const unsigned int left = sample[2u * j];
+        const unsigned int right = ((2u * j) + 2u < count) ? sample[(2u * j) + 2u] : left;
+        const unsigned int pair = bitwise_lift_emit(steps, ENGINE_RECORD_SUM, left, right);
+        high[j] = bitwise_lift_emit(steps, ENGINE_RECORD_DIFFERENCE, sample[(2u * j) + 1u],
+                                    bitwise_floor_shift(steps, pair, 1u));
+    }
+    // the low s_i = x_2i + floor((d_(i-1) + d_i + 2) / 4), the edges repeating their neighbor
+    const unsigned int two = bitwise_lift_emit(steps, ENGINE_RECORD_CONSTANT, 2u, 0u);
+    unsigned int low[BITWISE_TEST_LIFT_SAMPLES];
+    for (unsigned int i = 0u; i < lows; i += 1u)
+    {
+        const unsigned int before = (i > 0u) ? high[i - 1u] : high[0];
+        const unsigned int after = (i < highs) ? high[i] : before;
+        const unsigned int pair = bitwise_lift_emit(steps, ENGINE_RECORD_SUM, before, after);
+        const unsigned int rounded = bitwise_lift_emit(steps, ENGINE_RECORD_SUM, pair, two);
+        low[i] = bitwise_lift_emit(steps, ENGINE_RECORD_SUM, sample[2u * i], bitwise_floor_shift(steps, rounded, 2u));
+    }
+    // inverse, read from the forward floor only: x_2i = s_i - floor((d_(i-1) + d_i + 2) / 4), then
+    // x_(2j+1) = d_j + floor((x_2j + x_(2j+2)) / 2)
+    unsigned int even[BITWISE_TEST_LIFT_SAMPLES];
+    for (unsigned int i = 0u; i < lows; i += 1u)
+    {
+        const unsigned int before = (i > 0u) ? high[i - 1u] : high[0];
+        const unsigned int after = (i < highs) ? high[i] : before;
+        const unsigned int pair = bitwise_lift_emit(steps, ENGINE_RECORD_SUM, before, after);
+        const unsigned int rounded = bitwise_lift_emit(steps, ENGINE_RECORD_SUM, pair, two);
+        even[i] = bitwise_lift_emit(steps, ENGINE_RECORD_DIFFERENCE, low[i], bitwise_floor_shift(steps, rounded, 2u));
+    }
+    unsigned int rebuilt[BITWISE_TEST_LIFT_SAMPLES];
+    for (unsigned int j = 0u; j < highs; j += 1u)
+    {
+        const unsigned int left = even[j];
+        const unsigned int right = (j + 1u < lows) ? even[j + 1u] : left;
+        const unsigned int pair = bitwise_lift_emit(steps, ENGINE_RECORD_SUM, left, right);
+        rebuilt[(2u * j) + 1u] = bitwise_lift_emit(steps, ENGINE_RECORD_SUM, high[j], bitwise_floor_shift(steps, pair, 1u));
+        rebuilt[2u * j] = even[j];
+    }
+    // the outputs: s_0..s_3, d_0..d_3, then the rebuilt x_0..x_7
+    unsigned int outputs[BITWISE_TEST_LIFT_OUTPUTS];
+    unsigned int output_count = 0u;
+    for (unsigned int i = 0u; i < lows; i += 1u)
+    {
+        outputs[output_count] = low[i];
+        output_count += 1u;
+    }
+    for (unsigned int j = 0u; j < highs; j += 1u)
+    {
+        outputs[output_count] = high[j];
+        output_count += 1u;
+    }
+    for (unsigned int at = 0u; at < count; at += 1u)
+    {
+        outputs[output_count] = rebuilt[at];
+        output_count += 1u;
+    }
+    BitwiseLoaded loaded;
+    memset(&loaded, 0, sizeof(loaded));
+    unsigned int in_limbs[ENGINE_RECORD_MEMBERS_MAX] = {(16u * count) / 32u, 0u, 0u};
+    const KeymathRecordRequest imprint = {steps->steps, steps->count, field_bits, count, 1u, outputs, output_count,
+                                          NULL, 0u, &loaded.key, &loaded.error};
+    const KeyScheduleRecordRequest lay = {&loaded.key, field_offset, count, in_limbs, 1, &loaded.layout,
+                                          &loaded.error};
+    int loads = keymath_record_imprint(&imprint) != KEYMATH_REFUSED;
+    loads = loads && (key_schedule_record_lay(&lay) != KEY_SCHEDULE_REFUSED);
+    loads = loads && (cycle_record_load(&loaded.layout, &loaded.record, &loaded.error) != CYCLE_REFUSED);
+    bitwise_check(tally, loads, "one 5/3 lifting level and its inverse imprint as one stack");
+    if (loads == 0)
+    {
+        free(steps);
+        return;
+    }
+    const unsigned int lanes = BITWISE_TEST_LIFT_LANES;
+    const unsigned int record_limbs = in_limbs[0];
+    const unsigned int out_limbs = loaded.layout.out_limbs;
+    unsigned int *const atoms = (unsigned int *)calloc((size_t)lanes * record_limbs, sizeof(unsigned int));
+    unsigned int *const host_out = (unsigned int *)calloc((size_t)lanes * out_limbs, sizeof(unsigned int));
+    unsigned int *const device_out = (unsigned int *)calloc((size_t)lanes * out_limbs, sizeof(unsigned int));
+    const int buffers = (atoms != NULL) && (host_out != NULL) && (device_out != NULL);
+    for (unsigned int lane = 0u; (buffers != 0) && (lane < lanes); lane += 1u)
+    {
+        const unsigned int shape = bitwise_random();
+        for (unsigned int at = 0u; at < count; at += 1u)
+        {
+            bitwise_field_fill(&atoms[(size_t)lane * record_limbs], field_offset[at], 16u, shape >> (3u * (at % 8u)));
+        }
+    }
+    int host_ran = 0;
+    int device_ran = 0;
+    if (buffers != 0)
+    {
+        bitwise_run(&loaded, atoms, lanes, host_out, device_out, &host_ran, &device_ran);
+    }
+    unsigned int coefficients_held = 0u;
+    unsigned int rebuilt_held = 0u;
+    for (unsigned int lane = 0u; (host_ran != 0) && (lane < lanes); lane += 1u)
+    {
+        const unsigned int *const atom = &atoms[(size_t)lane * record_limbs];
+        long long x[BITWISE_TEST_LIFT_SAMPLES];
+        for (unsigned int at = 0u; at < count; at += 1u)
+        {
+            // a 16-bit field read signed: 2^16 comes off where its top bit is set
+            const unsigned int raw = (atom[(16u * at) / 32u] >> ((16u * at) % 32u)) & 0xFFFFu;
+            x[at] = ((raw & 0x8000u) != 0u) ? ((long long)raw - 65536ll) : (long long)raw;
+        }
+        long long d[BITWISE_TEST_LIFT_SAMPLES];
+        for (unsigned int j = 0u; j < highs; j += 1u)
+        {
+            const long long left = x[2u * j];
+            const long long right = ((2u * j) + 2u < count) ? x[(2u * j) + 2u] : left;
+            d[j] = x[(2u * j) + 1u] - bitwise_tower_shift(left + right, 1u);
+        }
+        long long expected[2u * BITWISE_TEST_LIFT_SAMPLES];
+        for (unsigned int i = 0u; i < lows; i += 1u)
+        {
+            const long long before = (i > 0u) ? d[i - 1u] : d[0];
+            const long long after = (i < highs) ? d[i] : before;
+            expected[i] = x[2u * i] + bitwise_tower_shift(before + after + 2ll, 2u);
+        }
+        for (unsigned int j = 0u; j < highs; j += 1u)
+        {
+            expected[lows + j] = d[j];
+        }
+        int coefficients = 1;
+        int samples = 1;
+        for (unsigned int output = 0u; output < output_count; output += 1u)
+        {
+            const DeviceRecordStep *const step = &loaded.layout.step_table[outputs[output]];
+            AnchorExactInteger value;
+            bitwise_take(&device_out[(size_t)lane * out_limbs], step->out_offset, step->out_bits, &value);
+            // every coefficient and sample lies below 2^20 in magnitude, one limb
+            const long long read = (long long)value.sign * (long long)value.limb[0];
+            if (output < count)
+            {
+                coefficients = coefficients && (read == expected[output]);
+            }
+            else
+            {
+                samples = samples && (read == x[output - count]);
+            }
+        }
+        coefficients_held += (coefficients != 0) ? 1u : 0u;
+        rebuilt_held += (samples != 0) ? 1u : 0u;
+    }
+    scriptura_text(&tally->line, "  lifting: one 5/3 level and its inverse, ");
+    scriptura_decimal(&tally->line, steps->count, 1u);
+    scriptura_text(&tally->line, " steps, file ");
+    scriptura_decimal(&tally->line, loaded.layout.file_limbs, 1u);
+    scriptura_text(&tally->line, " limbs; ");
+    scriptura_decimal(&tally->line, coefficients_held, 1u);
+    scriptura_text(&tally->line, " of ");
+    scriptura_decimal(&tally->line, lanes, 1u);
+    scriptura_text(&tally->line, " lanes equal tower.cu's coefficients, ");
+    scriptura_decimal(&tally->line, rebuilt_held, 1u);
+    scriptura_text(&tally->line, " rebuilt exactly\n");
+    bitwise_check(tally, (host_ran != 0) && (device_ran != 0)
+                             && (memcmp(host_out, device_out, (size_t)lanes * out_limbs * sizeof(unsigned int)) == 0),
+                  "the lifting's device records equal the host's word for word");
+    bitwise_check(tally, coefficients_held == lanes, "the record floor's coefficients equal tower.cu's 5/3 lifting");
+    bitwise_check(tally, rebuilt_held == lanes, "the inverse floor returns every sample exactly");
+    free(atoms);
+    free(host_out);
+    free(device_out);
+    free(steps);
+    bitwise_free(&loaded);
+}
+
 int main(void)
 {
     BitwiseTally tally;
@@ -847,6 +1082,7 @@ int main(void)
     bitwise_wide(&tally);
     bitwise_refused(&tally);
     bitwise_stack(&tally);
+    bitwise_lifting(&tally);
     scriptura_text(&tally.line, "  record bitwise test: ");
     scriptura_decimal(&tally.line, tally.checks, 1u);
     scriptura_text(&tally.line, " checks, ");

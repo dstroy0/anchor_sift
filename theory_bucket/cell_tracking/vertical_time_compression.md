@@ -70,9 +70,35 @@
 - It does not evaluate fewer steps than the program has. The depth stays; the compression is of the time between floors and across the lanes.
 - It does not change a result: a stack and its chained programs give the same records.
 
+## The two towers
+
+Doug's (24 September): a second tower stacked over the first one's boundary, inverted, and the two collapse together. One is the crystal, the tower of the data's lifted floors. The other is the tower of operations, the stack above.
+
+- **The crystal's tower T** is the 5/3 integer lifting of `src/engine/base/tower/tower.cu` (A14 in [engine_table.md](engine_table.md)). One level over a line of samples x:
+  - the high d_j = x_{2j+1} − ⌊(x_{2j} + x_{2j+2}) / 2⌋;
+  - the low s_i = x_{2i} + ⌊(d_{i−1} + d_i + 2) / 4⌋;
+  - an edge repeats its neighbor.
+- **Its inverse T⁻¹** runs the same two lines backward and in the other order: x_{2i} = s_i − ⌊(d_{i−1} + d_i + 2) / 4⌋, then x_{2j+1} = d_j + ⌊(x_{2j} + x_{2j+2}) / 2⌋.
+- **Floor division is a record floor.** For every integer v and k ≥ 0:
+
+  ⌊v / 2^k⌋ = EXACT_QUOTIENT(v − AND(v, 2^k − 1), 2^k)
+
+  - The and reads v's two's complement without end. With the never-negative mask 2^k − 1 it gives v's residue modulo 2^k, in [0, 2^k), for a negative v as for a positive one.
+  - v less its residue is a multiple of 2^k. The exact quotient divides it with nothing left over, and the quotient rounds toward −∞, as `tower_floor_shift` does.
+  - The residue is no wider than the mask, k bits, by the never-negative width rule (3).
+- **T and T⁻¹ are stacks of record floors.** Every step of a lifting level is a sum, a difference, a constant or that floor division. A level is a floor of the record machine, L levels are L floors, and the inverse is L more.
+- **The operation tower over the crystal.** A program F that reads the crystal's lifted floors, and the inverse T⁻¹ that brings them back, compose into one stack F ∘ T⁻¹ by the regrouping law (1). No step between them leaves the lane, and T⁻¹ ∘ T is the identity on the machine exactly.
+- **Proved** (`test/engine/record_bitwise_test`): one 5/3 level over 8 signed 16-bit samples and its inverse, 129 steps as one program, register reuse on, a 12-limb file, 4,096 lanes of edge-shaped samples.
+  - The device equals the host word for word.
+  - The forward floor's 4 lows and 4 highs equal tower.cu's formulas, computed on the CPU, on every lane.
+  - The inverse floor returns all 8 samples exactly on every lane.
+
 ## Open
 
 - **A lane's own index as a register.** A lane now reads its inputs only from records. An operation giving the lane's number as a value would let one shared atom stand for a whole range of inputs, with the lanes enumerating the range and no input stored per lane.
 - **The latch.** A device reduction that returns the first lane whose output meets a condition. Only that lane's index comes back to the host.
 - **Depth by tables.** Which rounds' sub-functions fit a 32-bit index, and how much depth that removes.
 - **The chained cost apart.** Launch, synchronization and the state's round trip through memory, each measured on its own.
+- **The neighbor gather.** A lifting level reads each sample's neighbors, and L levels in one lane read the cone of samples under that lane, widening with every level. A lane reads at most 3 members through the index, one record from each. Whether the cone is laid into a lane's record, or the levels split across sweeps where the cone outgrows it, is open.
+- **What F ∘ T⁻¹ saves.** Whether a linear F passes through T⁻¹ or folds into it, in fewer steps than the two apart, is not measured.
+- **The whole crystal as one stack.** The proof above is one level along one line. All levels along all four axes as record floors, against tower.cu's own crystal, is not built.
