@@ -7,9 +7,9 @@ TOP="$(cd "$SIMS/../../.." && pwd)"
 SIM="${1:-}"
 shift || true
 case "$SIM" in
-    nbody_lattice|noise_floor|period_power|root_universal|ask_state|ka_psi|chaitin_omega|fixed_pattern|classify_reject_recover) ;;
+    nbody_lattice|knf_identity|noise_floor|period_power|root_universal|ask_state|ka_psi|chaitin_omega|fixed_pattern|classify_reject_recover) ;;
     *)
-        echo "  usage: run.sh nbody_lattice|noise_floor|period_power|root_universal|ask_state|ka_psi|chaitin_omega|fixed_pattern|classify_reject_recover [-- sim arguments]"
+        echo "  usage: run.sh nbody_lattice|knf_identity|noise_floor|period_power|root_universal|ask_state|ka_psi|chaitin_omega|fixed_pattern|classify_reject_recover [-- sim arguments]"
         exit 2
         ;;
 esac
@@ -27,6 +27,7 @@ COMPRESSION="$TOP/src/engine/base/compression"
 CYCLE="$TOP/src/engine/base/cycle"
 KEYMATH="$TOP/src/engine/base/keymath"
 KEY_SCHEDULE="$TOP/src/engine/base/key_schedule"
+ENTROPY_HISTORY="$TOP/src/engine/base/entropy_history"
 source "$TOP/maint/build_stamp.sh"
 build_stamp "sim_$SIM"
 
@@ -40,6 +41,9 @@ if [ "$SIM" = "period_power" ]; then
 fi
 if [ "$SIM" = "root_universal" ]; then
     MODULE_SOURCES+=("$TOWER/tower.cu" "$COMPRESSION/compression.cu")
+fi
+if [ "$SIM" = "knf_identity" ]; then
+    MODULE_SOURCES+=("$ENTROPY_HISTORY/entropy_history.cu")
 fi
 # chaitin_omega runs its reduction as a program on the engine's record machine
 HOST_SOURCES=()
@@ -86,6 +90,9 @@ DAEMON_DIRECTORY="$TOP/src/engine/daemon"
 OBSIGNATIO="$TOP/src/engine/base/obsignatio"
 INCLUDES=(-I "$TOP/src/engine" -I "$SIMS" -I "$SCRIPTURA" -I "$NO_ROUNDING" -I "$PERIOD" -I "$TOWER" -I "$COMPRESSION"
           -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$DAEMON_DIRECTORY" -I "$OBSIGNATIO")
+if [ "$SIM" = "knf_identity" ]; then
+    INCLUDES+=(-I "$TOP/src/engine/base" -I "$ENTROPY_HISTORY")
+fi
 rm -f "$BINARY"
 build_object()
 {
