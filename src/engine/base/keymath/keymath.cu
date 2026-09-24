@@ -339,8 +339,15 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
         }
         else if ((doing.operation == ENGINE_RECORD_QUOTIENT) || (doing.operation == ENGINE_RECORD_EXACT_QUOTIENT))
         {
-            // a nonzero divisor is at least 1, so the quotient is no wider than the numerator
+            // a nonzero divisor is at least 1, so the quotient is no wider than the numerator. A constant divisor c
+            // takes floor(log2 c) bits off: |left| < 2^L and c >= 2^floor(log2 c) put |left| / c below
+            // 2^(L - floor(log2 c)). A zero constant narrows nothing and is refused where it divides.
             term.bits = terms[doing.left].bits;
+            if (terms[doing.right].operation == ENGINE_RECORD_CONSTANT)
+            {
+                const unsigned int dropped = (terms[doing.right].bits == 0u) ? 0u : (terms[doing.right].bits - 1u);
+                term.bits = (term.bits > dropped) ? (term.bits - dropped) : 1u;
+            }
         }
         else if (doing.operation == ENGINE_RECORD_REMAINDER)
         {

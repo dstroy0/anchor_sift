@@ -921,7 +921,10 @@ __device__ static int cycle_record_exact_quotient(const unsigned int *top, unsig
     unsigned int *const inverse = &scratch[2u * WIDE];
     unsigned int *const stepped = &scratch[3u * WIDE];
     unsigned int *const grown = &scratch[4u * WIDE];
-    cycle_record_shift_down(top, top_limbs, low_zeros, numerator, limbs);
+    // the work runs at the numerator's width: a quotient by a constant can be narrower than its numerator, and the
+    // multiply back must see the numerator whole
+    const unsigned int work = (top_limbs > limbs) ? top_limbs : limbs;
+    cycle_record_shift_down(top, top_limbs, low_zeros, numerator, work);
     cycle_record_shift_down(bottom, bottom_limbs, low_zeros, divisor, divisor_used);
     // an odd word is its own inverse to 3 bits, and each step doubles the bits: 6, 12, 24, 48
     unsigned int word = divisor[0];
@@ -930,9 +933,9 @@ __device__ static int cycle_record_exact_quotient(const unsigned int *top, unsig
         word *= 2u - (divisor[0] * word);
     }
     inverse[0] = word;
-    for (unsigned int held = 1u; held < limbs;)
+    for (unsigned int held = 1u; held < work;)
     {
-        const unsigned int reach = ((2u * held) < limbs) ? (2u * held) : limbs;
+        const unsigned int reach = ((2u * held) < work) ? (2u * held) : work;
         cycle_record_product(divisor, (divisor_used < reach) ? divisor_used : reach, inverse, held, stepped, reach);
         // 2 - d x modulo 2^(32 reach): the two's complement of d x, plus 2
         unsigned long long carry = 2ull;
@@ -949,11 +952,29 @@ __device__ static int cycle_record_exact_quotient(const unsigned int *top, unsig
         }
         held = reach;
     }
-    cycle_record_product(numerator, limbs, inverse, limbs, value, limbs);
-    // the inverse and its step product lie together, room for the whole product of the quotient and the divisor
+    // the whole quotient lands in grown; the inverse and its step product then lie together, room for the whole
+    // product of the quotient and the divisor
+    unsigned int *const whole = grown;
+    cycle_record_product(numerator, work, inverse, work, whole, work);
     unsigned int *const back = inverse;
-    cycle_record_product(value, limbs, divisor, divisor_used, back, limbs + divisor_used);
-    return (cycle_record_compare(back, limbs + divisor_used, numerator, limbs) == 0) ? 1 : 0;
+    cycle_record_product(whole, work, divisor, divisor_used, back, work + divisor_used);
+    if (cycle_record_compare(back, work + divisor_used, numerator, work) != 0)
+    {
+        return 0;
+    }
+    // a quotient past its register's limbs outgrew it
+    for (unsigned int at = limbs; at < work; at += 1u)
+    {
+        if (whole[at] != 0u)
+        {
+            return 0;
+        }
+    }
+    for (unsigned int at = 0u; at < limbs; at += 1u)
+    {
+        value[at] = whole[at];
+    }
+    return 1;
 }
 
 __device__ static void cycle_record_put(unsigned int *record, unsigned int offset, unsigned int bits,

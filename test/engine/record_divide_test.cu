@@ -622,6 +622,118 @@ static void divide_wide(DivideTally *tally)
     free(device_out);
 }
 
+// a constant divisor narrows its quotient by floor(log2 c) bits. Signed 40-bit factors multiplied by 3, 12 and
+// 2^32 + 7 divide back exactly; the last is a 3-limb numerator whose 41-bit quotient takes 2 limbs, so the device's
+// exact quotient must work at the numerator's width and keep only the register's. A signed 64-bit value over
+// 2^32 + 7 is a 32-bit quotient in one limb, against the library's.
+static void divide_constant(DivideTally *tally)
+{
+    DivideProgram program;
+    memset(&program, 0, sizeof(program));
+    program.fields = 2u;
+    program.field_bits[0] = 40u;
+    program.field_bits[1] = 64u;
+    program.field_offset[1] = 64u;
+    program.in_limbs[0] = 4u;
+    divide_step(&program, ENGINE_RECORD_FIELD_SIGNED, 0u, 0u);
+    divide_step(&program, ENGINE_RECORD_FIELD_SIGNED, 1u, 0u);
+    divide_step(&program, ENGINE_RECORD_CONSTANT, 3u, 0u);
+    divide_step(&program, ENGINE_RECORD_CONSTANT, 12u, 0u);
+    divide_step(&program, ENGINE_RECORD_CONSTANT, 7u, 1u);
+    divide_step(&program, ENGINE_RECORD_PRODUCT, 0u, 2u);
+    divide_step(&program, ENGINE_RECORD_EXACT_QUOTIENT, 5u, 2u);
+    divide_step(&program, ENGINE_RECORD_PRODUCT, 0u, 3u);
+    divide_step(&program, ENGINE_RECORD_EXACT_QUOTIENT, 7u, 3u);
+    divide_step(&program, ENGINE_RECORD_PRODUCT, 0u, 4u);
+    divide_step(&program, ENGINE_RECORD_EXACT_QUOTIENT, 9u, 4u);
+    divide_step(&program, ENGINE_RECORD_QUOTIENT, 1u, 4u);
+    program.outputs[0] = 6u;
+    program.outputs[1] = 8u;
+    program.outputs[2] = 10u;
+    program.outputs[3] = 11u;
+    program.output_count = 4u;
+    DivideLoaded loaded;
+    if (divide_load(&program, &loaded) == 0)
+    {
+        divide_check(tally, 0, "the constant division program loads");
+        return;
+    }
+    // 40 + 2 bits over 3 (2 bits) keeps 41; 40 + 4 over 12 (4 bits) keeps 41; 40 + 33 over 2^32 + 7 keeps 41 in 2
+    // limbs from 73 in 3; 64 over 2^32 + 7 keeps 32
+    const EngineRecordTerm *const term = loaded.key.term;
+    divide_check(tally,
+                 (term[6].bits == 41u) && (term[8].bits == 41u) && (term[10].bits == 41u) && (term[9].bits == 73u)
+                     && (term[11].bits == 32u),
+                 "a constant divisor narrows the quotient by floor(log2 c) bits");
+    const unsigned int lanes = DIVIDE_TEST_NARROW_LANES;
+    const unsigned int in_limbs = program.in_limbs[0];
+    const unsigned int out_limbs = loaded.layout.out_limbs;
+    unsigned int *const atoms = (unsigned int *)calloc((size_t)lanes * in_limbs, sizeof(unsigned int));
+    AnchorExactInteger *const operand = (AnchorExactInteger *)malloc((size_t)lanes * 2u * sizeof(AnchorExactInteger));
+    unsigned int *const host_out = (unsigned int *)calloc((size_t)lanes * out_limbs, sizeof(unsigned int));
+    unsigned int *const device_out = (unsigned int *)calloc((size_t)lanes * out_limbs, sizeof(unsigned int));
+    if ((atoms == NULL) || (operand == NULL) || (host_out == NULL) || (device_out == NULL))
+    {
+        divide_check(tally, 0, "the constant lanes are held");
+        free(atoms);
+        free(operand);
+        free(host_out);
+        free(device_out);
+        divide_free(&loaded);
+        return;
+    }
+    for (unsigned int lane = 0u; lane < lanes; lane += 1u)
+    {
+        AnchorExactInteger *const factor = &operand[2u * lane];
+        AnchorExactInteger *const value = &operand[(2u * lane) + 1u];
+        const unsigned int shape = divide_random();
+        divide_magnitude(factor, 39u, shape);
+        divide_magnitude(value, 63u, shape >> 2u);
+        factor->sign = ((divide_random() & 1u) != 0u) ? -factor->sign : factor->sign;
+        value->sign = ((divide_random() & 1u) != 0u) ? -value->sign : value->sign;
+        divide_put(&atoms[lane * in_limbs], 0u, 40u, factor);
+        divide_put(&atoms[lane * in_limbs], 64u, 64u, value);
+    }
+    int host_ran = 0;
+    int device_ran = 0;
+    divide_run(&loaded, atoms, lanes, host_out, device_out, &host_ran, &device_ran);
+    divide_check(tally, (host_ran != 0) && (device_ran != 0)
+                            && (memcmp(host_out, device_out, (size_t)lanes * out_limbs * sizeof(unsigned int)) == 0),
+                 "the constant program runs and the device equals the host word for word");
+    AnchorExactInteger wide;
+    anchor_exact_zero(&wide);
+    wide.limb[0] = 7u;
+    wide.limb[1] = 1u;
+    wide.sign = 1;
+    int factors = (host_ran != 0);
+    int quotients = (host_ran != 0);
+    const DeviceRecordStep *const table = loaded.layout.step_table;
+    for (unsigned int lane = 0u; (host_ran != 0) && (lane < lanes); lane += 1u)
+    {
+        const unsigned int *const record = &device_out[lane * out_limbs];
+        for (unsigned int output = 0u; output < 3u; output += 1u)
+        {
+            AnchorExactInteger back;
+            const unsigned int step = program.outputs[output];
+            divide_take(record, table[step].out_offset, table[step].out_bits, &back);
+            factors = factors && (anchor_exact_equal(&back, &operand[2u * lane]) != 0);
+        }
+        AnchorExactInteger quotient;
+        AnchorExactInteger library;
+        AnchorExactInteger rest;
+        divide_take(record, table[11].out_offset, table[11].out_bits, &quotient);
+        quotients = quotients && (anchor_exact_divide(&operand[(2u * lane) + 1u], &wide, &library, &rest) == ANCHOR_EXACT_OK)
+                 && (anchor_exact_equal(&quotient, &library) != 0);
+    }
+    divide_check(tally, factors, "factor . c divides back exactly by 3, 12 and 2^32 + 7, the last narrowed a limb");
+    divide_check(tally, quotients, "a 64-bit value over 2^32 + 7 is the library's quotient in 32 bits");
+    free(atoms);
+    free(operand);
+    free(host_out);
+    free(device_out);
+    divide_free(&loaded);
+}
+
 int main(void)
 {
     DivideTally tally;
@@ -636,6 +748,7 @@ int main(void)
     }
     divide_narrow(&tally);
     divide_wide(&tally);
+    divide_constant(&tally);
     scriptura_text(&tally.line, "  record divide test: ");
     scriptura_decimal(&tally.line, tally.checks, 1u);
     scriptura_text(&tally.line, " checks, ");
