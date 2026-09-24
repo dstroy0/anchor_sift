@@ -286,9 +286,11 @@ The tracker-side modules are `nbody/bodies` (`assign_bodies`), `nbody/group_obje
 [prg_sch/README.md](prg_sch/README.md) is the guide to writing a program: the operations, the fields, the outputs,
 the index, the tables, a worked example, and the machine's limits:
 
-- `ENGINE_RECORD_STEPS_MAX`: 1,024 steps;
 - `ENGINE_RECORD_MEMBERS_MAX`: 3 members;
-- `ENGINE_RECORD_LIMBS_MOST`: 256 limbs live in the register file.
+- `ENGINE_RECORD_LIMBS_MOST`: 256 limbs live in the register file, each register's sign beside it.
+
+The step count has no limit. Floors of steps stack in one program, and with register reuse a lane runs the whole
+stack in one launch.
 
 Every step is imprinted by `base/keymath`, laid out by `base/key_schedule` and run by `base/cycle`.
 

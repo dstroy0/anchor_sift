@@ -133,20 +133,22 @@ typedef struct
 } KeyScheduleBlock;
 
 // The step indices a term reads, so a register can be freed once its last reader has run. A field or
-// constant reads no register; a table and an absolute read one; the rest read two.
+// constant reads no register; a table, an absolute and a wrap read one; the rest read two.
 static unsigned int key_schedule_refs(const EngineRecordTerm *term, unsigned int *refs)
 {
     if ((term->operation == ENGINE_RECORD_PRODUCT) || (term->operation == ENGINE_RECORD_SUM)
         || (term->operation == ENGINE_RECORD_DIFFERENCE) || (term->operation == ENGINE_RECORD_LADDER)
         || (term->operation == ENGINE_RECORD_COMPARE) || (term->operation == ENGINE_RECORD_QUOTIENT)
         || (term->operation == ENGINE_RECORD_REMAINDER) || (term->operation == ENGINE_RECORD_GCD)
-        || (term->operation == ENGINE_RECORD_EXACT_QUOTIENT))
+        || (term->operation == ENGINE_RECORD_EXACT_QUOTIENT) || (term->operation == ENGINE_RECORD_XOR)
+        || (term->operation == ENGINE_RECORD_AND))
     {
         refs[0] = term->left;
         refs[1] = term->right;
         return 2u;
     }
-    if ((term->operation == ENGINE_RECORD_ABSOLUTE) || (term->operation == ENGINE_RECORD_TABLE))
+    if ((term->operation == ENGINE_RECORD_ABSOLUTE) || (term->operation == ENGINE_RECORD_TABLE)
+        || (term->operation == ENGINE_RECORD_WRAP))
     {
         refs[0] = term->left;
         return 1u;
@@ -232,17 +234,22 @@ static int key_schedule_places(const EngineRecordKey *key, std::vector<DeviceRec
             last_use[refs[ref]] = step;
         }
     }
+    // each register waits under its last reader, and is freed as the step after that reader begins: one pass over the
+    // stack, freeing the same registers at the same steps, in the same order, as a scan of every earlier step would
+    std::vector<std::vector<unsigned int>> ending(key->steps);
+    for (unsigned int step = 0u; step < key->steps; step += 1u)
+    {
+        ending[last_use[step]].push_back(step);
+    }
     std::vector<KeyScheduleBlock> freed;
-    std::vector<char> released(key->steps, 0);
     unsigned int top = 0u;
     for (unsigned int step = 0u; step < key->steps; step += 1u)
     {
-        for (unsigned int earlier = 0u; earlier < step; earlier += 1u)
+        if (step > 0u)
         {
-            if ((released[earlier] == 0) && (last_use[earlier] < step))
+            for (const unsigned int earlier : ending[step - 1u])
             {
                 key_schedule_free(freed, steps[earlier].place, steps[earlier].limbs);
-                released[earlier] = 1;
             }
         }
         steps[step].place = key_schedule_alloc(freed, steps[step].limbs, &top);
@@ -328,6 +335,13 @@ extern "C" long key_schedule_record_lay(const KeyScheduleRecordRequest *request)
             device.left = term.left;
             device.index_bits = key->table[term.right].index_bits;
             device.table_offset = (unsigned int)table_offset[term.right];
+        }
+        else if (term.operation == ENGINE_RECORD_WRAP)
+        {
+            // keymath took the width from the step's right, at least ENGINE_RECORD_WRAP_BITS_LEAST and an unsigned int
+            device.left_limbs = steps[term.left].limbs;
+            device.right_limbs = steps[term.right].limbs;
+            device.wrap_bits = (unsigned int)term.constant;
         }
         else
         {

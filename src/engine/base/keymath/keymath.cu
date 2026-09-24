@@ -226,7 +226,43 @@ static int keymath_record_reads(EngineRecordOperation operation)
         || (operation == ENGINE_RECORD_DIFFERENCE) || (operation == ENGINE_RECORD_LADDER)
         || (operation == ENGINE_RECORD_ABSOLUTE) || (operation == ENGINE_RECORD_COMPARE)
         || (operation == ENGINE_RECORD_QUOTIENT) || (operation == ENGINE_RECORD_REMAINDER)
-        || (operation == ENGINE_RECORD_GCD) || (operation == ENGINE_RECORD_EXACT_QUOTIENT);
+        || (operation == ENGINE_RECORD_GCD) || (operation == ENGINE_RECORD_EXACT_QUOTIENT)
+        || (operation == ENGINE_RECORD_XOR) || (operation == ENGINE_RECORD_AND);
+}
+
+// whether a step's register is never negative, read from its operation and its operands': a field read unsigned, a
+// constant, an absolute value, a gcd and a table's entry are never negative; so are a sum, product, quotient, exact
+// quotient or xor of two such, a remainder of one such (it carries the numerator's sign), an and with one such, and a
+// wrap that passes one such through unchanged
+static char keymath_never_negative(const EngineRecordStep &doing, const std::vector<char> &never_negative,
+                                   int wrap_passes)
+{
+    const EngineRecordOperation operation = doing.operation;
+    if ((operation == ENGINE_RECORD_FIELD) || (operation == ENGINE_RECORD_CONSTANT)
+        || (operation == ENGINE_RECORD_ABSOLUTE) || (operation == ENGINE_RECORD_GCD)
+        || (operation == ENGINE_RECORD_TABLE))
+    {
+        return 1;
+    }
+    if ((operation == ENGINE_RECORD_SUM) || (operation == ENGINE_RECORD_PRODUCT)
+        || (operation == ENGINE_RECORD_QUOTIENT) || (operation == ENGINE_RECORD_EXACT_QUOTIENT)
+        || (operation == ENGINE_RECORD_XOR))
+    {
+        return ((never_negative[doing.left] != 0) && (never_negative[doing.right] != 0)) ? 1 : 0;
+    }
+    if (operation == ENGINE_RECORD_REMAINDER)
+    {
+        return never_negative[doing.left];
+    }
+    if (operation == ENGINE_RECORD_AND)
+    {
+        return ((never_negative[doing.left] != 0) || (never_negative[doing.right] != 0)) ? 1 : 0;
+    }
+    if (operation == ENGINE_RECORD_WRAP)
+    {
+        return ((wrap_passes != 0) && (never_negative[doing.left] != 0)) ? 1 : 0;
+    }
+    return 0;
 }
 
 extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
@@ -237,7 +273,7 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
     }
     EngineError *const error = request->error;
     if (!KEYMATH_HELD((request->key != NULL) && (request->steps != NULL) && (request->count != 0u)
-                          && (request->count <= ENGINE_RECORD_STEPS_MAX) && (request->outputs != NULL)
+                          && (request->outputs != NULL)
                           && (request->output_count != 0u) && (request->output_count <= request->count)
                           && (request->members != 0u) && (request->members <= ENGINE_RECORD_MEMBERS_MAX),
                       request, error, ENGINE_ERROR_REQUEST))
@@ -246,6 +282,7 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
     }
     memset(request->key, 0, sizeof(*request->key));
     std::vector<EngineRecordTerm> terms(request->count);
+    std::vector<char> never_negative(request->count, 0);
     for (unsigned int step = 0u; step < request->count; step += 1u)
     {
         const EngineRecordStep &doing = request->steps[step];
@@ -317,6 +354,45 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
             term.bits = (terms[doing.left].bits > terms[doing.right].bits) ? terms[doing.left].bits
                                                                           : terms[doing.right].bits;
         }
+        else if ((doing.operation == ENGINE_RECORD_XOR) || (doing.operation == ENGINE_RECORD_AND))
+        {
+            // both operands lie in the signed range of one bit over the wider, and so does any bitwise result there,
+            // down to -2^wider, whose magnitude takes that bit. An and with a register never negative lies between 0
+            // and that register, and the xor of two never negative lies below 2^wider, so neither takes the extra bit.
+            const unsigned int left_bits = terms[doing.left].bits;
+            const unsigned int right_bits = terms[doing.right].bits;
+            const unsigned int wider = (left_bits > right_bits) ? left_bits : right_bits;
+            const unsigned int narrower = (left_bits < right_bits) ? left_bits : right_bits;
+            const int left_kept = (never_negative[doing.left] != 0) ? 1 : 0;
+            const int right_kept = (never_negative[doing.right] != 0) ? 1 : 0;
+            term.bits = wider + 1u;
+            if ((doing.operation == ENGINE_RECORD_AND) && (left_kept != 0) && (right_kept != 0))
+            {
+                term.bits = narrower;
+            }
+            else if ((doing.operation == ENGINE_RECORD_AND) && ((left_kept != 0) || (right_kept != 0)))
+            {
+                term.bits = (left_kept != 0) ? left_bits : right_bits;
+            }
+            else if ((left_kept != 0) && (right_kept != 0))
+            {
+                term.bits = wider;
+            }
+        }
+        else if (doing.operation == ENGINE_RECORD_WRAP)
+        {
+            if (!KEYMATH_HELD((doing.left < step) && (doing.right >= ENGINE_RECORD_WRAP_BITS_LEAST), &doing, error,
+                              ENGINE_ERROR_REQUEST))
+            {
+                return KEYMATH_REFUSED;
+            }
+            // a register of fewer bits than the wrap already lies in its signed range and passes through; a wider one
+            // lands in [-2^(right - 1), 2^(right - 1)), whose magnitude takes all `right` bits at -2^(right - 1)
+            term.bits = (terms[doing.left].bits < doing.right) ? terms[doing.left].bits : doing.right;
+            // the one register read is the left, as the absolute's; the width rides in the term's constant
+            term.right = doing.left;
+            term.constant = (unsigned long long)doing.right;
+        }
         else if (doing.operation == ENGINE_RECORD_TABLE)
         {
             if (!KEYMATH_HELD((request->tables != NULL) && (doing.left < step)
@@ -345,6 +421,8 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
         {
             return KEYMATH_REFUSED;
         }
+        const int wrap_passes = (doing.operation == ENGINE_RECORD_WRAP) && (terms[doing.left].bits < doing.right);
+        never_negative[step] = keymath_never_negative(doing, never_negative, wrap_passes);
     }
     for (unsigned int output = 0u; output < request->output_count; output += 1u)
     {

@@ -48,8 +48,29 @@ imprint derives them from the operands (`keymath_record_imprint`); no width is d
 | `ENGINE_RECORD_EXACT_QUOTIENT` | `left`, `right` | left / right, where right divides left | left's width |
 | `ENGINE_RECORD_LADDER` | `left`, `right` | how many rungs F · right ≤ \|left\| hold, F running 1, 1, 2, 3, 5, … over 91 rungs and stopping at the first that fails, with left's sign | 7 |
 | `ENGINE_RECORD_TABLE` | step `left`, table `right` | the table's entry at the low `index_bits` of left's magnitude | the table's `out_bits` |
+| `ENGINE_RECORD_XOR` | `left`, `right` | left xor right, on the two's complement of each, sign-extended without end | the wider operand + 1; the wider operand where both are never negative |
+| `ENGINE_RECORD_AND` | `left`, `right` | left and right, the same way | the wider operand + 1; the never-negative operand's width where one is, the narrower where both are |
+| `ENGINE_RECORD_WRAP` | `left`, and `right` as a width of 4 or more | left modulo 2^right, read back signed, in [−2^(right − 1), 2^(right − 1)) | the fewer of left's width and `right` |
 
 A register of 0 bits is given 1.
+
+The imprint knows some registers are **never negative**:
+- a field read unsigned;
+- a constant;
+- an absolute value;
+- a gcd;
+- a table's entry;
+- a sum, product, quotient, exact quotient or xor of two never-negative registers;
+- a remainder of a never-negative register;
+- an and with a never-negative register.
+
+An and with such a register lies between 0 and it, and an xor of two lies below the wider's top. Neither takes the extra bit. A round on fixed-width words therefore keeps its words at their width.
+
+The bitwise operations read each operand as though its two's complement ran on forever. The xor is then negative
+where exactly one operand is, and the and where both are. The extra bit is needed because −1 xor (2^n − 1) is −2^n. A wrap
+narrower than 4 bits is refused at imprint. A register already inside the wrap's signed range passes through
+unchanged. The unsigned residue modulo 2^w is the and with the constant 2^w − 1. A 32-bit word's add is a sum
+followed by that and with `0xFFFFFFFF`, and its not is the xor with `0xFFFFFFFF`.
 
 A comparison and two sums make a selector with no branch. `[a > b]` is `(c + |c|) / 2` with `c = COMPARE(a, b)`,
 and a choice is a product: `x + [a > b] · (y − x)`.
@@ -122,7 +143,12 @@ engine_record_host(&request, &sweep);  // the same program on the host, from the
   A new program is proved by the device's records equaling the host's word for word, as every test and the
   tracking driver do.
 
-A program has no loop. To iterate, sweep again with this sweep's outputs as the next sweep's members.
+A program has no loop. An iteration of known length is unrolled into the program as **floors**: each floor is a
+round of steps reading the floor below it, and its last steps, often wraps, leave the state the next floor reads.
+There is no step limit. With `reuse` set, the register file holds only a floor's live state and the round
+in flight. One sweep then runs the whole stack in one launch. `test/record_bitwise_test` stacks 700 floors, 4,204
+steps, in an 8-limb file. An iteration whose length depends on the data sweeps again, with this sweep's outputs
+as the next sweep's members.
 
 ## Tables
 
@@ -177,9 +203,12 @@ each run.
 
 These are the machine's own limits, from `engine_config.h` and the code above:
 
-- at most `ENGINE_RECORD_STEPS_MAX` (1024) steps;
 - 1 to `ENGINE_RECORD_MEMBERS_MAX` (3) members;
 - a register of at most 32 · `ENGINE_RECORD_LIMBS_MOST` bits (8,192);
 - a register file of at most `ENGINE_RECORD_LIMBS_MOST` (256) limbs live at once;
 - an index of 32 bits;
-- a table index of at most 32 bits.
+- a table index of at most 32 bits;
+- a wrap of fewer than `ENGINE_RECORD_WRAP_BITS_LEAST` (4) bits.
+
+The step count is not among them. A register's sign is held beside it in the file, and the step table is read
+from device memory. A program can be as long as its register file allows.

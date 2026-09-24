@@ -548,6 +548,78 @@ __device__ static void cycle_record_negate(unsigned int *value, unsigned int lim
     value[limbs - 1u] = (left < 32u) ? (value[limbs - 1u] & ((1u << left) - 1u)) : value[limbs - 1u];
 }
 
+// limb `at` of a register's two's complement: the magnitude's limb, or its complement where the sign is negative,
+// with `carry` running the negation's one up the limbs; it starts at 1 and the limbs are taken from the lowest up
+__device__ static unsigned int cycle_record_complement(const unsigned int *value, unsigned int limbs, unsigned int at,
+                                                       int sign, unsigned long long *carry)
+{
+    const unsigned int held = cycle_record_limb(value, limbs, at);
+    if (sign >= 0)
+    {
+        return held;
+    }
+    const unsigned long long total = (unsigned long long)(~held) + *carry;
+    *carry = total >> 32u;
+    return (unsigned int)(total & 0xFFFFFFFFull);
+}
+
+// the xor or the and of two registers' two's complements over `limbs`, read back as a magnitude; returns its sign.
+// The sign is the operands': the xor is negative where exactly one is, the and where both are. A negative result has
+// the extra bit over the wider operand in its limbs, so its low limbs read back to the magnitude; a result keymath
+// narrowed (an and with a register never negative, an xor of two) is never negative and is its low limbs.
+__device__ static int cycle_record_bitwise(unsigned int operation, const unsigned int *left, unsigned int left_limbs,
+                                          int left_sign, const unsigned int *right, unsigned int right_limbs,
+                                          int right_sign, unsigned int *value, unsigned int limbs)
+{
+    unsigned long long left_carry = 1ull;
+    unsigned long long right_carry = 1ull;
+    for (unsigned int at = 0u; at < limbs; at += 1u)
+    {
+        const unsigned int one = cycle_record_complement(left, left_limbs, at, left_sign, &left_carry);
+        const unsigned int other = cycle_record_complement(right, right_limbs, at, right_sign, &right_carry);
+        value[at] = (operation == ENGINE_RECORD_XOR) ? (one ^ other) : (one & other);
+    }
+    const int left_negative = (left_sign < 0) ? 1 : 0;
+    const int right_negative = (right_sign < 0) ? 1 : 0;
+    const int negative = (operation == ENGINE_RECORD_XOR) ? (left_negative ^ right_negative)
+                                                          : (left_negative & right_negative);
+    if (negative != 0)
+    {
+        cycle_record_negate(value, limbs, 32u * limbs);
+    }
+    return (cycle_record_is_zero(value, limbs) != 0) ? 0 : ((negative != 0) ? -1 : 1);
+}
+
+// a register wrapped to `bits` of two's complement, read back signed as a magnitude over `limbs`; returns its sign.
+// keymath gave the step the fewer of the source's bits and the wrap's, so a wrap wider than the step's 32 limbs is a
+// source already inside the signed range, passed through, and any other step holds exactly the wrap's limbs.
+__device__ static int cycle_record_wrap(const unsigned int *source, unsigned int source_limbs, int source_sign,
+                                       unsigned int bits, unsigned int *value, unsigned int limbs)
+{
+    if (bits > (32u * limbs))
+    {
+        for (unsigned int at = 0u; at < limbs; at += 1u)
+        {
+            value[at] = cycle_record_limb(source, source_limbs, at);
+        }
+        return source_sign;
+    }
+    unsigned long long carry = 1ull;
+    for (unsigned int at = 0u; at < limbs; at += 1u)
+    {
+        value[at] = cycle_record_complement(source, source_limbs, at, source_sign, &carry);
+    }
+    const unsigned int kept = bits - (32u * (limbs - 1u));
+    value[limbs - 1u] = (kept < 32u) ? (value[limbs - 1u] & ((1u << kept) - 1u)) : value[limbs - 1u];
+    const unsigned int top = bits - 1u;
+    const int negative = (((value[top / 32u] >> (top % 32u)) & 1u) != 0u) ? 1 : 0;
+    if (negative != 0)
+    {
+        cycle_record_negate(value, limbs, bits);
+    }
+    return (cycle_record_is_zero(value, limbs) != 0) ? 0 : ((negative != 0) ? -1 : 1);
+}
+
 __device__ static void cycle_record_add(const unsigned int *left, unsigned int left_limbs, const unsigned int *right,
                                         unsigned int right_limbs, unsigned int *value, unsigned int limbs)
 {
@@ -903,13 +975,134 @@ __device__ static void cycle_record_put(unsigned int *record, unsigned int offse
     }
 }
 
+// one step that reads registers: the left, and the right, where a table reads the left alone (its right names the
+// table, not a step). Each operand's sign is read beside it, at its place in the file, and the result's sign is left
+// in `held`; `good` falls to 0 for a lane the step refuses.
+template <unsigned int WIDE, unsigned int DIVIDES>
+__device__ static void cycle_record_operate(const CycleRecordLaunch &launch, const DeviceRecordStep &step,
+                                            const unsigned int *file, const signed char *sign, unsigned int *scratch,
+                                            unsigned int *value, signed char *held, int *good)
+{
+    const unsigned int left_place = launch.steps[step.left].place;
+    const unsigned int right_place = (step.operation == ENGINE_RECORD_TABLE) ? left_place
+                                                                             : launch.steps[step.right].place;
+    const unsigned int *const left = &file[left_place];
+    const unsigned int *const right = &file[right_place];
+    const int left_sign = sign[left_place];
+    const int right_sign = sign[right_place];
+    if (step.operation == ENGINE_RECORD_PRODUCT)
+    {
+        cycle_record_product(left, step.left_limbs, right, step.right_limbs, value, step.limbs);
+        *held = (signed char)(left_sign * right_sign);
+    }
+    else if ((step.operation == ENGINE_RECORD_SUM) || (step.operation == ENGINE_RECORD_DIFFERENCE))
+    {
+        const int addend_sign = (step.operation == ENGINE_RECORD_SUM) ? right_sign : -right_sign;
+        if ((left_sign == addend_sign) || (addend_sign == 0) || (left_sign == 0))
+        {
+            cycle_record_add(left, step.left_limbs, right, step.right_limbs, value, step.limbs);
+            *held = (signed char)((left_sign != 0) ? left_sign : addend_sign);
+        }
+        else if (cycle_record_compare(left, step.left_limbs, right, step.right_limbs) >= 0)
+        {
+            cycle_record_subtract(left, step.left_limbs, right, step.right_limbs, value, step.limbs);
+            *held = (signed char)left_sign;
+        }
+        else
+        {
+            cycle_record_subtract(right, step.right_limbs, left, step.left_limbs, value, step.limbs);
+            *held = (signed char)addend_sign;
+        }
+        *held = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : *held;
+    }
+    else if (step.operation == ENGINE_RECORD_LADDER)
+    {
+        *good = (right_sign > 0) ? 1 : 0;
+        unsigned int band = 0u;
+        if (*good != 0)
+        {
+            cycle_record_ladder<WIDE>(left, step.left_limbs, right, step.right_limbs, &band);
+        }
+        value[0] = band;
+        *held = (band == 0u) ? 0 : (signed char)left_sign;
+    }
+    else if (step.operation == ENGINE_RECORD_ABSOLUTE)
+    {
+        for (unsigned int limb = 0u; limb < step.limbs; limb += 1u)
+        {
+            value[limb] = cycle_record_limb(left, step.left_limbs, limb);
+        }
+        *held = (left_sign != 0) ? 1 : 0;
+    }
+    else if (step.operation == ENGINE_RECORD_COMPARE)
+    {
+        const int order = (left_sign != right_sign)
+                        ? ((left_sign > right_sign) ? 1 : -1)
+                        : (left_sign * cycle_record_compare(left, step.left_limbs, right, step.right_limbs));
+        value[0] = (order != 0) ? 1u : 0u;
+        *held = (signed char)order;
+    }
+    else if (step.operation == ENGINE_RECORD_TABLE)
+    {
+        // the low index_bits of the source register (index_bits <= 32, one limb) select a row
+        const unsigned int index = (step.index_bits >= 32u) ? left[0] : (left[0] & ((1u << step.index_bits) - 1u));
+        const unsigned int *const entry = &launch.tables[step.table_offset + (index * step.limbs)];
+        for (unsigned int limb = 0u; limb < step.limbs; limb += 1u)
+        {
+            value[limb] = entry[limb];
+        }
+        *held = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : 1;
+    }
+    else if ((step.operation == ENGINE_RECORD_XOR) || (step.operation == ENGINE_RECORD_AND))
+    {
+        *held = (signed char)cycle_record_bitwise(step.operation, left, step.left_limbs, left_sign, right,
+                                                  step.right_limbs, right_sign, value, step.limbs);
+    }
+    else if (step.operation == ENGINE_RECORD_WRAP)
+    {
+        *held = (signed char)cycle_record_wrap(left, step.left_limbs, left_sign, step.wrap_bits, value, step.limbs);
+    }
+    else if ((DIVIDES != 0u) && (cycle_record_divides(step.operation) != 0))
+    {
+        int held_sign = 1;
+        if (step.operation == ENGINE_RECORD_QUOTIENT)
+        {
+            *good = cycle_record_divide<WIDE>(left, step.left_limbs, right, step.right_limbs, value, step.limbs, NULL,
+                                              0u, scratch);
+            held_sign = left_sign * right_sign;
+        }
+        else if (step.operation == ENGINE_RECORD_REMAINDER)
+        {
+            *good = cycle_record_divide<WIDE>(left, step.left_limbs, right, step.right_limbs, NULL, 0u, value,
+                                              step.limbs, scratch);
+            held_sign = left_sign;
+        }
+        else if (step.operation == ENGINE_RECORD_GCD)
+        {
+            cycle_record_gcd<WIDE>(left, step.left_limbs, right, step.right_limbs, value, step.limbs, scratch);
+        }
+        else
+        {
+            *good = cycle_record_exact_quotient<WIDE>(left, step.left_limbs, right, step.right_limbs, value,
+                                                      step.limbs, scratch);
+            held_sign = left_sign * right_sign;
+        }
+        *held = (signed char)((cycle_record_is_zero(value, step.limbs) != 0) ? 0 : held_sign);
+    }
+    else
+    {
+        *good = 0;
+    }
+}
+
 // DIVIDES is 1 for a program holding a division operation, which alone carries the division scratch
 template <unsigned int WIDE, unsigned int DIVIDES>
 __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
 {
     unsigned int file[WIDE];
     unsigned int scratch[(DIVIDES != 0u) ? CYCLE_RECORD_SCRATCH(WIDE) : 1u];
-    signed char sign[ENGINE_RECORD_STEPS_MAX];
+    // a register's sign lies beside it, at its place in the file, so the steps are bounded by nothing held per step
+    signed char sign[WIDE];
     const DeviceRecordStep *const steps = launch.steps;
     const unsigned long long stride = (unsigned long long)gridDim.x * blockDim.x;
     for (unsigned long long lane = ((unsigned long long)blockIdx.x * blockDim.x) + threadIdx.x; lane < launch.count;
@@ -933,13 +1126,12 @@ __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
         {
             const DeviceRecordStep step = steps[at];
             unsigned int *const value = &file[step.place];
-            const unsigned int *const left = &file[steps[step.left].place];
-            const unsigned int *const right = &file[steps[step.right].place];
+            signed char *const held = &sign[step.place];
             if (step.operation == ENGINE_RECORD_FIELD)
             {
                 cycle_record_field(atom[step.member], launch.in_limbs[step.member], step.left, step.right, value,
                                    step.limbs);
-                sign[at] = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : 1;
+                *held = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : 1;
             }
             else if (step.operation == ENGINE_RECORD_FIELD_SIGNED)
             {
@@ -951,7 +1143,7 @@ __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
                 {
                     cycle_record_negate(value, step.limbs, step.right);
                 }
-                sign[at] = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : ((negative != 0) ? -1 : 1);
+                *held = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : ((negative != 0) ? -1 : 1);
             }
             else if (step.operation == ENGINE_RECORD_CONSTANT)
             {
@@ -960,110 +1152,15 @@ __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
                 {
                     value[1] = step.right;
                 }
-                sign[at] = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : 1;
-            }
-            else if (step.operation == ENGINE_RECORD_PRODUCT)
-            {
-                cycle_record_product(left, step.left_limbs, right, step.right_limbs, value, step.limbs);
-                sign[at] = (signed char)(sign[step.left] * sign[step.right]);
-            }
-            else if ((step.operation == ENGINE_RECORD_SUM) || (step.operation == ENGINE_RECORD_DIFFERENCE))
-            {
-                const int left_sign = sign[step.left];
-                const int right_sign = (step.operation == ENGINE_RECORD_SUM) ? sign[step.right] : -sign[step.right];
-                if ((left_sign == right_sign) || (right_sign == 0) || (left_sign == 0))
-                {
-                    cycle_record_add(left, step.left_limbs, right, step.right_limbs, value, step.limbs);
-                    sign[at] = (signed char)((left_sign != 0) ? left_sign : right_sign);
-                }
-                else if (cycle_record_compare(left, step.left_limbs, right, step.right_limbs) >= 0)
-                {
-                    cycle_record_subtract(left, step.left_limbs, right, step.right_limbs, value, step.limbs);
-                    sign[at] = (signed char)left_sign;
-                }
-                else
-                {
-                    cycle_record_subtract(right, step.right_limbs, left, step.left_limbs, value, step.limbs);
-                    sign[at] = (signed char)right_sign;
-                }
-                sign[at] = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : sign[at];
-            }
-            else if (step.operation == ENGINE_RECORD_LADDER)
-            {
-                good = (sign[step.right] > 0) ? 1 : 0;
-                unsigned int band = 0u;
-                if (good != 0)
-                {
-                    cycle_record_ladder<WIDE>(left, step.left_limbs, right, step.right_limbs, &band);
-                }
-                value[0] = band;
-                sign[at] = (band == 0u) ? 0 : sign[step.left];
-            }
-            else if (step.operation == ENGINE_RECORD_ABSOLUTE)
-            {
-                for (unsigned int limb = 0u; limb < step.limbs; limb += 1u)
-                {
-                    value[limb] = cycle_record_limb(left, step.left_limbs, limb);
-                }
-                sign[at] = (sign[step.left] != 0) ? 1 : 0;
-            }
-            else if (step.operation == ENGINE_RECORD_COMPARE)
-            {
-                const int left_sign = sign[step.left];
-                const int right_sign = sign[step.right];
-                const int order = (left_sign != right_sign)
-                                ? ((left_sign > right_sign) ? 1 : -1)
-                                : (left_sign * cycle_record_compare(left, step.left_limbs, right, step.right_limbs));
-                value[0] = (order != 0) ? 1u : 0u;
-                sign[at] = (signed char)order;
-            }
-            else if (step.operation == ENGINE_RECORD_TABLE)
-            {
-                // the low index_bits of the source register (index_bits <= 32, one limb) select a row
-                const unsigned int index = (step.index_bits >= 32u) ? left[0] : (left[0] & ((1u << step.index_bits) - 1u));
-                const unsigned int *const entry = &launch.tables[step.table_offset + (index * step.limbs)];
-                for (unsigned int limb = 0u; limb < step.limbs; limb += 1u)
-                {
-                    value[limb] = entry[limb];
-                }
-                sign[at] = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : 1;
-            }
-            else if ((DIVIDES != 0u) && (cycle_record_divides(step.operation) != 0))
-            {
-                const int left_sign = sign[step.left];
-                const int right_sign = sign[step.right];
-                int held_sign = 1;
-                if (step.operation == ENGINE_RECORD_QUOTIENT)
-                {
-                    good = cycle_record_divide<WIDE>(left, step.left_limbs, right, step.right_limbs, value, step.limbs,
-                                                     NULL, 0u, scratch);
-                    held_sign = left_sign * right_sign;
-                }
-                else if (step.operation == ENGINE_RECORD_REMAINDER)
-                {
-                    good = cycle_record_divide<WIDE>(left, step.left_limbs, right, step.right_limbs, NULL, 0u, value,
-                                                     step.limbs, scratch);
-                    held_sign = left_sign;
-                }
-                else if (step.operation == ENGINE_RECORD_GCD)
-                {
-                    cycle_record_gcd<WIDE>(left, step.left_limbs, right, step.right_limbs, value, step.limbs, scratch);
-                }
-                else
-                {
-                    good = cycle_record_exact_quotient<WIDE>(left, step.left_limbs, right, step.right_limbs, value,
-                                                             step.limbs, scratch);
-                    held_sign = left_sign * right_sign;
-                }
-                sign[at] = (signed char)((cycle_record_is_zero(value, step.limbs) != 0) ? 0 : held_sign);
+                *held = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : 1;
             }
             else
             {
-                good = 0;
+                cycle_record_operate<WIDE, DIVIDES>(launch, step, file, sign, scratch, value, held, &good);
             }
             if ((good != 0) && (step.out_bits != 0u))
             {
-                cycle_record_put(record, step.out_offset, step.out_bits, value, step.limbs, sign[at]);
+                cycle_record_put(record, step.out_offset, step.out_bits, value, step.limbs, *held);
             }
         }
         if (good == 0)
@@ -1081,7 +1178,6 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
     }
     int asked = CYCLE_HELD((layout != NULL) && (record_out != NULL), layout, error, ENGINE_ERROR_REQUEST)
              && CYCLE_HELD((layout->step_table != NULL) && (layout->steps != 0u)
-                               && (layout->steps <= ENGINE_RECORD_STEPS_MAX)
                                && (layout->file_limbs <= ENGINE_RECORD_LIMBS_MOST) && (layout->out_limbs != 0u)
                                && (layout->members != 0u) && (layout->members <= ENGINE_RECORD_MEMBERS_MAX),
                            layout, error, ENGINE_ERROR_REQUEST);

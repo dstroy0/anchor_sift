@@ -35,6 +35,8 @@
 #include "keymath.h"
 #include "key_schedule.h"
 
+#include <cub/cub.cuh>
+
 #include <atomic>
 #include <chrono>
 #include <map>
@@ -885,9 +887,10 @@ static __device__ unsigned long long omega_device_count(const unsigned long long
 }
 
 // omega_unrank with the pending right parts on a stack; each application leaves one more, so a term of at most
-// 60 bits leaves at most 15
+// 60 bits leaves at most 15. The kernel's rooms hold shorts and the engine's pool long longs.
+template <typename Token>
 static __device__ unsigned int omega_device_unrank(const unsigned long long *__restrict__ counts, unsigned int length,
-                                                   unsigned long long index, short *term)
+                                                   unsigned long long index, Token *term)
 {
     unsigned char lengths[16];
     unsigned char depths[16];
@@ -909,7 +912,7 @@ static __device__ unsigned int omega_device_unrank(const unsigned long long *__r
             {
                 if (rank == 0ull)
                 {
-                    term[size] = (short)(part - 1u);
+                    term[size] = (Token)(part - 1u);
                     size += 1u;
                     break;
                 }
@@ -1609,17 +1612,18 @@ static int omega_device(SimTally *tally, const OmegaCounts *counts, unsigned int
 
 // The run by the engine: every normal order step of every live term is one sweep of the engine's record machine,
 // and nothing bounds it but the machine. A term is as many records as it has tokens, so it grows by adding records
-// and no register or field holds a whole term. Each round the host's threads find each live term's leftmost redex
-// and lay out where every token of the reduct comes from: the prefix and the suffix copied, the body's tokens with
-// the depth they sit at, and a copy of the argument for each variable the redex's lambda binds, with the depth it
-// is put under and the lambdas above each of its tokens. The record machine gathers each source token through its
-// index list and computes the reduct's token: a body variable bound past the redex moves in by one, an argument's
-// variable bound outside it moves out by the depth, and the rest are copied. The record program is imprinted for
-// the widths the round's values need, so no width is set anywhere. The host then takes the same decisions as
-// omega_run, in the same order: a normal form halts, Brent's watcher proves a loop, and omega_grows_forever's proof
-// is made on the new term. There is no step budget and no token budget: a term runs until one of those settles it.
-// A term the machine's memory cannot hold for its next step is parked as outgrown, which is the only exit left
-// open, and a stop leaves every live term open.
+// and no register or field holds a whole term. The live terms stay on the device from admission to their fate. Each
+// round, a thread a term finds its leftmost redex and lays out where every token of the reduct comes from: the
+// prefix and the suffix copied, the body's tokens with the depth they sit at, and a copy of the argument for each
+// variable the redex's lambda binds, with the depth it is put under and the lambdas above each of its tokens. The
+// record machine gathers each source token through its index list and computes the reduct's token: a body variable
+// bound past the redex moves in by one, an argument's variable bound outside it moves out by the depth, and the
+// rest are copied. The record program is imprinted for the widths the round's values need, so no width is set
+// anywhere. A thread a term then takes the same decisions as omega_run, in the same order: a normal form halts,
+// Brent's watcher proves a loop, and omega_grows_forever's proof is made on the new term. Only a settled term
+// leaves the device, as one record. There is no step budget and no token budget: a term runs until one of those
+// settles it. A term the device's memory cannot hold for its next round is parked as outgrown, which is the only
+// exit left open, and a stop leaves every live term open. The run is one tessera job.
 
 // a job: one length's terms from `from`, at most this many, admitted to the live pool as the pool drains
 #define OMEGA_ENGINE_JOB (1ull << 22u)
@@ -1627,106 +1631,146 @@ static int omega_device(SimTally *tally, const OmegaCounts *counts, unsigned int
 // the pool takes the next job once fewer terms than this are live
 #define OMEGA_ENGINE_ADMIT (1ull << 21u)
 
-// the engine's index is 32 bits, so a sweep is cut where its sources would span more, and at this many lanes
+// a sweep of the record machine is at most this many lanes; the lane's plan index restarts at each sweep
 #define OMEGA_ENGINE_SWEEP (1ull << 26u)
 
-#define OMEGA_ENGINE_NONE (~(size_t)0u)
+// the engine's index is 32 bits, so every token a round reads must sit below this in the pool
+#define OMEGA_ENGINE_INDEX_MOST 0xFFFFFFFFull
+
+#define OMEGA_ENGINE_NONE (~0ull)
 
 // the terms settled on the engine are checked against omega_run through this length
 #define OMEGA_ENGINE_CROSS_MOST 24u
 
 typedef long long OmegaToken;
 
+// One live term in the device's pool: where its tokens and its watcher's copy sit, and this round's survey.
 typedef struct
 {
-    unsigned int length;
-    unsigned int job;
     unsigned long long index;
     unsigned long long steps;
     unsigned long long power;
     unsigned long long since;
-    size_t least;
-    size_t held_reach;
-    std::vector<OmegaToken> term;
-    std::vector<OmegaToken> held;
-    std::vector<size_t> held_ends;
+    unsigned long long least;
+    unsigned long long base;
+    unsigned long long size;
+    unsigned long long held_base;
+    unsigned long long held_size;
+    unsigned long long held_reach;
+    unsigned long long ends_base;
     // this round: the head redex's spine position, the leftmost redex, its argument and what follows it
-    size_t head;
-    size_t redex;
-    size_t argument;
-    size_t after;
-    size_t out_size;
-    size_t in_base;
-    size_t out_base;
+    unsigned long long head;
+    unsigned long long redex;
+    unsigned long long argument;
+    unsigned long long after;
+    unsigned long long out_size;
+    unsigned long long out_base;
+    // settled: a halt's normal form in bits
+    unsigned long long bits;
+    unsigned int length;
+    unsigned int job;
+    int fate;
+    // the watcher takes the reduct as its new copy
+    unsigned int held_again;
+} OmegaTerm;
+
+// what a round's threads find across the pool
+typedef struct
+{
+    unsigned long long most_token;
     unsigned long long most_depth;
     unsigned long long most_bound;
-    unsigned long long most_token;
-    // settled: a fate, and a halt's normal form in bits
-    int fate;
-    unsigned long long bits;
-} OmegaLive;
+    unsigned long long most_tokens;
+    unsigned long long settled;
+    unsigned int unread;
+} OmegaRoundTotals;
+
+// the round's widths, from which the reduct program is imprinted and the records are laid
+typedef struct
+{
+    unsigned int token_bits;
+    unsigned int depth_bits;
+    unsigned int bound_bits;
+    unsigned int token_limbs;
+    unsigned int plan_limbs;
+} OmegaRoundWidths;
 
 typedef struct
 {
     unsigned int length;
+    unsigned int job;
     unsigned long long index;
     int fate;
     unsigned long long steps;
     unsigned long long bits;
 } OmegaSettled;
 
-static size_t omega_engine_end(const OmegaToken *term, size_t at)
+static __device__ unsigned long long omega_pool_end(const OmegaToken *term, unsigned long long at)
 {
     long long need = 1;
     while (need > 0)
     {
         const OmegaToken token = term[at];
-        at += 1u;
+        at += 1ull;
         need += (token == OMEGA_APPLY) ? 1 : ((token == OMEGA_LAMBDA) ? 0 : -1);
     }
     return at;
 }
 
-static size_t omega_engine_spine(const std::vector<OmegaToken> &term, std::vector<size_t> &ends)
+// omega_spine on a pool term: the spine subterm ends into `ends`, and the leading applications returned
+static __device__ unsigned long long omega_pool_spine(const OmegaToken *term, unsigned long long size,
+                                                      unsigned long long *ends)
 {
-    size_t reach = 0u;
-    while ((reach < term.size()) && (term[reach] == OMEGA_APPLY))
+    unsigned long long reach = 0ull;
+    while ((reach < size) && (term[reach] == OMEGA_APPLY))
     {
-        reach += 1u;
+        reach += 1ull;
     }
-    ends.resize(reach + 1u);
-    size_t end = omega_engine_end(term.data(), reach);
+    unsigned long long end = omega_pool_end(term, reach);
     ends[reach] = end;
-    for (size_t position = reach; position > 0u; position -= 1u)
+    for (unsigned long long position = reach; position > 0ull; position -= 1ull)
     {
-        end = omega_engine_end(term.data(), end);
-        ends[position - 1u] = end;
+        end = omega_pool_end(term, end);
+        ends[position - 1ull] = end;
     }
     return reach;
 }
 
-static size_t omega_engine_head(const std::vector<OmegaToken> &term)
+static __device__ unsigned long long omega_pool_head(const OmegaToken *term, unsigned long long size)
 {
-    size_t reach = 0u;
-    while ((reach < term.size()) && (term[reach] == OMEGA_APPLY))
+    unsigned long long reach = 0ull;
+    while ((reach < size) && (term[reach] == OMEGA_APPLY))
     {
-        reach += 1u;
+        reach += 1ull;
     }
-    return ((reach > 0u) && (reach < term.size()) && (term[reach] == OMEGA_LAMBDA)) ? (reach - 1u) : OMEGA_ENGINE_NONE;
+    return ((reach > 0ull) && (reach < size) && (term[reach] == OMEGA_LAMBDA)) ? (reach - 1ull) : OMEGA_ENGINE_NONE;
 }
 
-// omega_grows_forever on the engine's terms
-static int omega_engine_grows(const OmegaLive *live, size_t least, std::vector<size_t> &ends)
+static __device__ int omega_pool_same(const OmegaToken *one, const OmegaToken *other, unsigned long long size)
 {
-    const size_t reach = omega_engine_spine(live->term, ends);
-    const size_t deepest = (least < live->held_reach) ? least : live->held_reach;
-    for (size_t from = 0u; from <= deepest; from += 1u)
+    for (unsigned long long at = 0ull; at < size; at += 1ull)
     {
-        const size_t part = live->held_ends[from] - from;
-        for (size_t to = from + 1u; to <= reach; to += 1u)
+        if (one[at] != other[at])
         {
-            if (((ends[to] - to) == part)
-                && (memcmp(&live->held[from], &live->term[to], part * sizeof(OmegaToken)) == 0))
+            return 0;
+        }
+    }
+    return 1;
+}
+
+// omega_grows_forever on a pool term, its spine ends written to `ends`
+static __device__ int omega_pool_grows(const OmegaToken *held, const unsigned long long *held_ends,
+                                       unsigned long long held_reach, const OmegaToken *term, unsigned long long size,
+                                       unsigned long long least, unsigned long long *ends)
+{
+    const unsigned long long reach = omega_pool_spine(term, size, ends);
+    const unsigned long long deepest = (least < held_reach) ? least : held_reach;
+    for (unsigned long long from = 0ull; from <= deepest; from += 1ull)
+    {
+        const unsigned long long part = held_ends[from] - from;
+        for (unsigned long long to = from + 1ull; to <= reach; to += 1ull)
+        {
+            if (((ends[to] - to) == part) && (omega_pool_same(&held[from], &term[to], part) != 0))
             {
                 return 1;
             }
@@ -1735,38 +1779,42 @@ static int omega_engine_grows(const OmegaLive *live, size_t least, std::vector<s
     return 0;
 }
 
-// a walk over one subterm keeping the lambdas above each token: the frames hold the children still to start, and
-// whether the frame is a lambda
+// A walk over one subterm keeping the lambdas above each token. The frames, one byte each in the pool's frame
+// room at the term's own place, hold the children still to start and whether the frame is a lambda; a subterm has
+// no more frames open than it has tokens.
 typedef struct
 {
-    std::vector<unsigned char> frames;
+    unsigned char *frames;
+    unsigned long long top;
     unsigned long long depth;
 } OmegaWalk;
 
-static void omega_walk_open(OmegaWalk *walk, OmegaToken token)
+static __device__ void omega_walk_open(OmegaWalk *walk, OmegaToken token)
 {
-    if (!walk->frames.empty())
+    if (walk->top > 0ull)
     {
-        walk->frames.back() -= 1u;
+        walk->frames[walk->top - 1ull] -= 1u;
     }
     if (token == OMEGA_LAMBDA)
     {
-        walk->frames.push_back((unsigned char)(OMEGA_FRAME_LAMBDA | 1u));
+        walk->frames[walk->top] = (unsigned char)(OMEGA_FRAME_LAMBDA | 1u);
+        walk->top += 1ull;
         walk->depth += 1ull;
     }
     else if (token == OMEGA_APPLY)
     {
-        walk->frames.push_back(2u);
+        walk->frames[walk->top] = 2u;
+        walk->top += 1ull;
     }
 }
 
 // after a variable: every frame whose children have all started is ended
-static void omega_walk_close(OmegaWalk *walk)
+static __device__ void omega_walk_close(OmegaWalk *walk)
 {
-    while ((!walk->frames.empty()) && ((walk->frames.back() & 3u) == 0u))
+    while ((walk->top > 0ull) && ((walk->frames[walk->top - 1ull] & 3u) == 0u))
     {
-        walk->depth -= ((walk->frames.back() & OMEGA_FRAME_LAMBDA) != 0u) ? 1ull : 0ull;
-        walk->frames.pop_back();
+        walk->depth -= ((walk->frames[walk->top - 1ull] & OMEGA_FRAME_LAMBDA) != 0u) ? 1ull : 0ull;
+        walk->top -= 1ull;
     }
 }
 
@@ -1781,7 +1829,7 @@ static unsigned int omega_engine_bits_of(unsigned long long value)
 }
 
 // `bits` of a value into a record at `offset`, two's complement when negative
-static void omega_engine_put(unsigned int *record, unsigned int offset, unsigned int bits, OmegaToken value)
+static __device__ void omega_pool_put(unsigned int *record, unsigned int offset, unsigned int bits, OmegaToken value)
 {
     const unsigned long long word = (unsigned long long)value;
     for (unsigned int bit = 0u; bit < bits; bit += 1u)
@@ -1793,7 +1841,8 @@ static void omega_engine_put(unsigned int *record, unsigned int offset, unsigned
 }
 
 // `bits` of a record at `offset` as two's complement; 0 where the value does not fit a token
-static int omega_engine_take(const unsigned int *record, unsigned int offset, unsigned int bits, OmegaToken *value)
+static __device__ int omega_pool_take(const unsigned int *record, unsigned int offset, unsigned int bits,
+                                      OmegaToken *value)
 {
     const unsigned int top = offset + bits - 1u;
     const unsigned int sign = (record[top / 32u] >> (top % 32u)) & 1u;
@@ -1910,136 +1959,154 @@ static void omega_program_free(OmegaProgram *program)
     keymath_record_release(&program->key);
 }
 
-// phase one of a round: the redex, what the reduct holds, and the widths its values need; a normal form settles
-static void omega_engine_survey(std::vector<OmegaLive> *pool, size_t first, size_t last)
+// every index of [0, count) once across the launch's threads
+#define OMEGA_POOL_EACH(at_, count_)                                                                                     \
+    for (unsigned long long at_ = ((unsigned long long)blockIdx.x * blockDim.x) + threadIdx.x; at_ < (count_);          \
+         at_ += (unsigned long long)gridDim.x * blockDim.x)
+
+// phase one of a round, a thread a term: the redex, what the reduct holds, and the widths its values need; a normal
+// form settles. A settled term reduces to nothing, so its out size is 0.
+static __global__ void omega_pool_survey(OmegaTerm *terms, unsigned long long live, const OmegaToken *tokens,
+                                         unsigned char *frames, unsigned long long *out_sizes,
+                                         OmegaRoundTotals *totals)
 {
-    OmegaWalk walk;
-    for (size_t at = first; at < last; at += 1u)
+    OMEGA_POOL_EACH(at, live)
     {
-        OmegaLive *const live = &(*pool)[at];
-        const std::vector<OmegaToken> &term = live->term;
-        live->head = omega_engine_head(term);
-        live->redex = OMEGA_ENGINE_NONE;
+        OmegaTerm *const term = &terms[at];
+        const OmegaToken *const text = &tokens[term->base];
+        const unsigned long long size = term->size;
+        atomicMax(&totals->most_tokens, size);
+        term->head = omega_pool_head(text, size);
+        term->redex = OMEGA_ENGINE_NONE;
+        term->out_size = 0ull;
+        out_sizes[at] = 0ull;
         unsigned long long most_token = 1ull;
-        for (size_t token = 0u; token < term.size(); token += 1u)
+        for (unsigned long long token = 0ull; token < size; token += 1ull)
         {
-            const unsigned long long size = (unsigned long long)((term[token] < 0) ? -term[token] : term[token]);
-            most_token = (size > most_token) ? size : most_token;
-            if ((live->redex == OMEGA_ENGINE_NONE) && ((token + 1u) < term.size()) && (term[token] == OMEGA_APPLY)
-                && (term[token + 1u] == OMEGA_LAMBDA))
+            const unsigned long long magnitude = (unsigned long long)((text[token] < 0) ? -text[token] : text[token]);
+            most_token = (magnitude > most_token) ? magnitude : most_token;
+            if ((term->redex == OMEGA_ENGINE_NONE) && ((token + 1ull) < size) && (text[token] == OMEGA_APPLY)
+                && (text[token + 1ull] == OMEGA_LAMBDA))
             {
-                live->redex = token;
+                term->redex = token;
             }
         }
-        live->most_token = most_token;
-        if (live->redex == OMEGA_ENGINE_NONE)
+        if (term->redex == OMEGA_ENGINE_NONE)
         {
             unsigned long long bits = 0ull;
-            for (size_t token = 0u; token < term.size(); token += 1u)
+            for (unsigned long long token = 0ull; token < size; token += 1ull)
             {
-                bits += (term[token] <= 0) ? 2ull : ((unsigned long long)term[token] + 1ull);
+                bits += (text[token] <= 0) ? 2ull : ((unsigned long long)text[token] + 1ull);
             }
-            live->fate = OMEGA_HALTS;
-            live->bits = bits;
+            term->fate = OMEGA_HALTS;
+            term->bits = bits;
             continue;
         }
-        live->argument = omega_engine_end(term.data(), live->redex + 1u);
-        live->after = omega_engine_end(term.data(), live->argument);
-        walk.frames.clear();
-        walk.depth = 0ull;
-        size_t uses = 0u;
+        term->argument = omega_pool_end(text, term->redex + 1ull);
+        term->after = omega_pool_end(text, term->argument);
+        OmegaWalk walk = {&frames[term->base], 0ull, 0ull};
+        unsigned long long uses = 0ull;
         unsigned long long most_depth = 0ull;
-        for (size_t token = live->redex + 2u; token < live->argument; token += 1u)
+        for (unsigned long long token = term->redex + 2ull; token < term->argument; token += 1ull)
         {
-            omega_walk_open(&walk, term[token]);
+            omega_walk_open(&walk, text[token]);
             most_depth = (walk.depth > most_depth) ? walk.depth : most_depth;
-            if (term[token] > 0)
+            if (text[token] > 0)
             {
-                uses += (term[token] == (OmegaToken)(walk.depth + 1ull)) ? 1u : 0u;
+                uses += (text[token] == (OmegaToken)(walk.depth + 1ull)) ? 1ull : 0ull;
                 omega_walk_close(&walk);
             }
         }
-        walk.frames.clear();
+        walk.top = 0ull;
         walk.depth = 0ull;
         unsigned long long most_bound = 0ull;
-        for (size_t token = live->argument; token < live->after; token += 1u)
+        for (unsigned long long token = term->argument; token < term->after; token += 1ull)
         {
-            omega_walk_open(&walk, term[token]);
+            omega_walk_open(&walk, text[token]);
             most_bound = (walk.depth > most_bound) ? walk.depth : most_bound;
-            if (term[token] > 0)
+            if (text[token] > 0)
             {
                 omega_walk_close(&walk);
             }
         }
-        live->most_depth = most_depth;
-        live->most_bound = most_bound;
-        const size_t body = live->argument - (live->redex + 2u);
-        const size_t argument = live->after - live->argument;
-        live->out_size = live->redex + (body - uses) + (uses * argument) + (term.size() - live->after);
+        const unsigned long long body = term->argument - (term->redex + 2ull);
+        const unsigned long long argument = term->after - term->argument;
+        term->out_size = term->redex + (body - uses) + (uses * argument) + (size - term->after);
+        out_sizes[at] = term->out_size;
+        atomicMax(&totals->most_token, most_token);
+        atomicMax(&totals->most_depth, most_depth);
+        atomicMax(&totals->most_bound, most_bound);
     }
 }
 
-// phase two: the round's records. Each live term's tokens become records of member 0, and each reduct token a plan
-// record of member 1 and the source it gathers.
-typedef struct
+// phase two: the round's records. Every token of the pool becomes a record of member 0, and each reduct token a
+// plan record of member 1 with the source it gathers.
+static __global__ void omega_pool_pack(const OmegaToken *tokens, unsigned long long count, OmegaRoundWidths widths,
+                                       unsigned int *packed)
 {
-    unsigned int token_bits;
-    unsigned int depth_bits;
-    unsigned int bound_bits;
-    unsigned int token_limbs;
-    unsigned int plan_limbs;
-    unsigned int *tokens;
-    unsigned int *plans;
-    unsigned long long *sources;
-} OmegaRound;
-
-static void omega_engine_plan_put(const OmegaRound *round, size_t out, unsigned long long source,
-                                  unsigned long long depth, unsigned long long bound, unsigned int body,
-                                  unsigned int argument)
-{
-    unsigned int *const plan = &round->plans[out * round->plan_limbs];
-    omega_engine_put(plan, 0u, round->depth_bits, (OmegaToken)depth);
-    omega_engine_put(plan, round->depth_bits, round->bound_bits, (OmegaToken)bound);
-    omega_engine_put(plan, round->depth_bits + round->bound_bits, 1u, (OmegaToken)body);
-    omega_engine_put(plan, round->depth_bits + round->bound_bits + 1u, 1u, (OmegaToken)argument);
-    round->sources[out] = source;
+    OMEGA_POOL_EACH(at, count)
+    {
+        unsigned int *const record = &packed[at * widths.token_limbs];
+        for (unsigned int limb = 0u; limb < widths.token_limbs; limb += 1u)
+        {
+            record[limb] = 0u;
+        }
+        omega_pool_put(record, 0u, widths.token_bits, tokens[at]);
+    }
 }
 
-static void omega_engine_lay(std::vector<OmegaLive> *pool, const std::vector<size_t> *stepping, size_t first,
-                             size_t last, const OmegaRound *round)
+// A reduct token's plan and the index pair that gathers it. The source is below OMEGA_ENGINE_INDEX_MOST, which the
+// host checks before the round, and the plan's place restarts at each sweep, so both fit the engine's 32-bit index.
+static __device__ void omega_pool_plan(const OmegaRoundWidths *widths, unsigned int *plans, unsigned int *index,
+                                       unsigned long long out, unsigned long long source, unsigned long long depth,
+                                       unsigned long long bound, unsigned int body, unsigned int argument)
 {
-    OmegaWalk walk;
-    OmegaWalk inner;
-    for (size_t at = first; at < last; at += 1u)
+    unsigned int *const plan = &plans[out * widths->plan_limbs];
+    for (unsigned int limb = 0u; limb < widths->plan_limbs; limb += 1u)
     {
-        const OmegaLive *const live = &(*pool)[(*stepping)[at]];
-        const std::vector<OmegaToken> &term = live->term;
-        for (size_t token = 0u; token < term.size(); token += 1u)
+        plan[limb] = 0u;
+    }
+    omega_pool_put(plan, 0u, widths->depth_bits, (OmegaToken)depth);
+    omega_pool_put(plan, widths->depth_bits, widths->bound_bits, (OmegaToken)bound);
+    omega_pool_put(plan, widths->depth_bits + widths->bound_bits, 1u, (OmegaToken)body);
+    omega_pool_put(plan, widths->depth_bits + widths->bound_bits + 1u, 1u, (OmegaToken)argument);
+    index[2ull * out] = (unsigned int)source;
+    index[(2ull * out) + 1ull] = (unsigned int)(out % OMEGA_ENGINE_SWEEP);
+}
+
+// a thread a stepping term lays its reduct's plans at the term's out base
+static __global__ void omega_pool_lay(const OmegaTerm *terms, unsigned long long live, const OmegaToken *tokens,
+                                      const unsigned long long *out_bases, unsigned char *frames,
+                                      unsigned char *inner_frames, OmegaRoundWidths widths, unsigned int *plans,
+                                      unsigned int *index)
+{
+    OMEGA_POOL_EACH(at, live)
+    {
+        const OmegaTerm *const term = &terms[at];
+        if (term->fate >= 0)
         {
-            omega_engine_put(&round->tokens[(live->in_base + token) * round->token_limbs], 0u, round->token_bits,
-                             term[token]);
+            continue;
         }
-        size_t out = live->out_base;
-        for (size_t token = 0u; token < live->redex; token += 1u)
+        const OmegaToken *const text = &tokens[term->base];
+        unsigned long long out = out_bases[at];
+        for (unsigned long long token = 0ull; token < term->redex; token += 1ull)
         {
-            omega_engine_plan_put(round, out, live->in_base + token, 0ull, 0ull, 0u, 0u);
-            out += 1u;
+            omega_pool_plan(&widths, plans, index, out, term->base + token, 0ull, 0ull, 0u, 0u);
+            out += 1ull;
         }
-        walk.frames.clear();
-        walk.depth = 0ull;
-        for (size_t token = live->redex + 2u; token < live->argument; token += 1u)
+        OmegaWalk walk = {&frames[term->base], 0ull, 0ull};
+        for (unsigned long long token = term->redex + 2ull; token < term->argument; token += 1ull)
         {
-            omega_walk_open(&walk, term[token]);
-            if ((term[token] > 0) && (term[token] == (OmegaToken)(walk.depth + 1ull)))
+            omega_walk_open(&walk, text[token]);
+            if ((text[token] > 0) && (text[token] == (OmegaToken)(walk.depth + 1ull)))
             {
-                inner.frames.clear();
-                inner.depth = 0ull;
-                for (size_t copy = live->argument; copy < live->after; copy += 1u)
+                OmegaWalk inner = {&inner_frames[term->base], 0ull, 0ull};
+                for (unsigned long long copy = term->argument; copy < term->after; copy += 1ull)
                 {
-                    omega_walk_open(&inner, term[copy]);
-                    omega_engine_plan_put(round, out, live->in_base + copy, walk.depth, inner.depth, 0u, 1u);
-                    out += 1u;
-                    if (term[copy] > 0)
+                    omega_walk_open(&inner, text[copy]);
+                    omega_pool_plan(&widths, plans, index, out, term->base + copy, walk.depth, inner.depth, 0u, 1u);
+                    out += 1ull;
+                    if (text[copy] > 0)
                     {
                         omega_walk_close(&inner);
                     }
@@ -2047,54 +2114,222 @@ static void omega_engine_lay(std::vector<OmegaLive> *pool, const std::vector<siz
             }
             else
             {
-                omega_engine_plan_put(round, out, live->in_base + token, walk.depth, 0ull, 1u, 0u);
-                out += 1u;
+                omega_pool_plan(&widths, plans, index, out, term->base + token, walk.depth, 0ull, 1u, 0u);
+                out += 1ull;
             }
-            if (term[token] > 0)
+            if (text[token] > 0)
             {
                 omega_walk_close(&walk);
             }
         }
-        for (size_t token = live->after; token < term.size(); token += 1u)
+        for (unsigned long long token = term->after; token < term->size; token += 1ull)
         {
-            omega_engine_plan_put(round, out, live->in_base + token, 0ull, 0ull, 0u, 0u);
-            out += 1u;
+            omega_pool_plan(&widths, plans, index, out, term->base + token, 0ull, 0ull, 0u, 0u);
+            out += 1ull;
         }
     }
 }
 
-// phase three: each reduct taken back and watched, as omega_run watches it
-static void omega_engine_watch(std::vector<OmegaLive> *pool, const std::vector<size_t> *stepping, size_t first,
-                               size_t last, const std::vector<OmegaToken> *reducts)
+// a sweep's reduct tokens read back out of the machine's records; one that does not fit a token is marked unread
+static __global__ void omega_pool_unpack(const unsigned int *out, unsigned long long lanes, unsigned int out_limbs,
+                                         unsigned int offset, unsigned int bits, OmegaToken *reducts,
+                                         OmegaRoundTotals *totals)
 {
-    static thread_local std::vector<size_t> ends;
-    for (size_t at = first; at < last; at += 1u)
+    OMEGA_POOL_EACH(lane, lanes)
     {
-        OmegaLive *const live = &(*pool)[(*stepping)[at]];
-        live->term.assign(reducts->begin() + (long long)live->out_base,
-                          reducts->begin() + (long long)(live->out_base + live->out_size));
-        live->least = ((live->head == OMEGA_ENGINE_NONE) || (live->least == OMEGA_ENGINE_NONE))
-                    ? OMEGA_ENGINE_NONE : ((live->head < live->least) ? live->head : live->least);
-        live->steps += 1ull;
-        if (live->term == live->held)
+        if (omega_pool_take(&out[lane * out_limbs], offset, bits, &reducts[lane]) == 0)
         {
-            live->fate = OMEGA_LOOPS;
+            atomicExch(&totals->unread, 1u);
+        }
+    }
+}
+
+// Phase three, a thread a stepping term: its reduct watched as omega_run watches it. The spine ends of the reduct
+// go to `ends` at the term's out base plus its place in the pool, which leaves each term out_size + 1 of them.
+static __global__ void omega_pool_watch(OmegaTerm *terms, unsigned long long live, const OmegaToken *reducts,
+                                        const unsigned long long *out_bases, const OmegaToken *held,
+                                        const unsigned long long *held_ends, unsigned long long *ends)
+{
+    OMEGA_POOL_EACH(at, live)
+    {
+        OmegaTerm *const term = &terms[at];
+        if (term->fate >= 0)
+        {
             continue;
         }
-        if ((live->least != OMEGA_ENGINE_NONE) && (omega_engine_grows(live, live->least, ends) != 0))
+        term->out_base = out_bases[at];
+        term->held_again = 0u;
+        const OmegaToken *const text = &reducts[term->out_base];
+        const unsigned long long size = term->out_size;
+        term->least = ((term->head == OMEGA_ENGINE_NONE) || (term->least == OMEGA_ENGINE_NONE))
+                    ? OMEGA_ENGINE_NONE : ((term->head < term->least) ? term->head : term->least);
+        term->steps += 1ull;
+        if ((size == term->held_size) && (omega_pool_same(text, &held[term->held_base], size) != 0))
         {
-            live->fate = OMEGA_DIVERGES;
+            term->fate = OMEGA_LOOPS;
             continue;
         }
-        live->since += 1ull;
-        if (live->since == live->power)
+        if ((term->least != OMEGA_ENGINE_NONE)
+            && (omega_pool_grows(&held[term->held_base], &held_ends[term->ends_base], term->held_reach, text, size,
+                                 term->least, &ends[term->out_base + at]) != 0))
         {
-            live->held = live->term;
-            live->held_reach = omega_engine_spine(live->held, live->held_ends);
-            live->least = OMEGA_ENGINE_NONE - 1u;
-            live->power *= 2ull;
-            live->since = 0ull;
+            term->fate = OMEGA_DIVERGES;
+            continue;
         }
+        term->since += 1ull;
+        if (term->since == term->power)
+        {
+            term->held_again = 1u;
+            term->least = OMEGA_ENGINE_NONE - 1ull;
+            term->power *= 2ull;
+            term->since = 0ull;
+        }
+    }
+}
+
+// every settled term as one record for the host, in no fixed order
+static __global__ void omega_pool_settled(const OmegaTerm *terms, unsigned long long live, OmegaSettled *settled,
+                                          OmegaRoundTotals *totals)
+{
+    OMEGA_POOL_EACH(at, live)
+    {
+        const OmegaTerm *const term = &terms[at];
+        if (term->fate < 0)
+        {
+            continue;
+        }
+        const unsigned long long slot = atomicAdd(&totals->settled, 1ull);
+        settled[slot].length = term->length;
+        settled[slot].job = term->job;
+        settled[slot].index = term->index;
+        settled[slot].fate = term->fate;
+        settled[slot].steps = term->steps;
+        settled[slot].bits = term->bits;
+    }
+}
+
+// the sizes each kept term takes in the next round's rooms: its place, its tokens, its watcher's copy and that
+// copy's spine ends; a settled term takes none
+static __global__ void omega_pool_kept_sizes(const OmegaTerm *terms, unsigned long long live,
+                                             unsigned long long *places, unsigned long long *token_sizes,
+                                             unsigned long long *held_sizes, unsigned long long *end_sizes)
+{
+    OMEGA_POOL_EACH(at, live)
+    {
+        const OmegaTerm *const term = &terms[at];
+        const unsigned long long kept = (term->fate < 0) ? 1ull : 0ull;
+        const unsigned long long held = (term->held_again != 0u) ? term->out_size : term->held_size;
+        places[at] = kept;
+        token_sizes[at] = kept * term->out_size;
+        held_sizes[at] = kept * held;
+        end_sizes[at] = kept * (held + 1ull);
+    }
+}
+
+// a block a kept term moves its reduct, its watcher's copy and that copy's spine ends into the next round's rooms
+static __global__ void omega_pool_keep(const OmegaTerm *terms, unsigned long long live, const OmegaToken *reducts,
+                                       const OmegaToken *held, const unsigned long long *held_ends,
+                                       const unsigned long long *places, const unsigned long long *token_bases,
+                                       const unsigned long long *held_bases, const unsigned long long *end_bases,
+                                       OmegaTerm *kept, OmegaToken *kept_tokens, OmegaToken *kept_held,
+                                       unsigned long long *kept_ends)
+{
+    for (unsigned long long at = blockIdx.x; at < live; at += gridDim.x)
+    {
+        const OmegaTerm *const term = &terms[at];
+        if (term->fate >= 0)
+        {
+            continue;
+        }
+        const OmegaToken *const reduct = &reducts[term->out_base];
+        const OmegaToken *const copy = (term->held_again != 0u) ? reduct : &held[term->held_base];
+        const unsigned long long copy_size = (term->held_again != 0u) ? term->out_size : term->held_size;
+        for (unsigned long long token = threadIdx.x; token < term->out_size; token += blockDim.x)
+        {
+            kept_tokens[token_bases[at] + token] = reduct[token];
+        }
+        for (unsigned long long token = threadIdx.x; token < copy_size; token += blockDim.x)
+        {
+            kept_held[held_bases[at] + token] = copy[token];
+        }
+        if (term->held_again == 0u)
+        {
+            for (unsigned long long end = threadIdx.x; end <= term->held_reach; end += blockDim.x)
+            {
+                kept_ends[end_bases[at] + end] = held_ends[term->ends_base + end];
+            }
+        }
+        if (threadIdx.x == 0u)
+        {
+            OmegaTerm moved = *term;
+            moved.base = token_bases[at];
+            moved.size = term->out_size;
+            moved.held_base = held_bases[at];
+            moved.held_size = copy_size;
+            moved.ends_base = end_bases[at];
+            if (term->held_again != 0u)
+            {
+                // read from the reduct, which the block's other threads are still copying out of, not into
+                moved.held_reach = omega_pool_spine(reduct, term->out_size, &kept_ends[end_bases[at]]);
+            }
+            kept[places[at]] = moved;
+        }
+    }
+}
+
+// the sizes of a job's terms, each unranked into the thread's own room; a term of L bits has fewer than L tokens
+static __global__ void omega_pool_admit_sizes(const unsigned long long *counts, unsigned int length,
+                                              unsigned long long from, unsigned long long count,
+                                              unsigned long long *sizes)
+{
+    OmegaToken term[OMEGA_LENGTH_MOST];
+    OMEGA_POOL_EACH(at, count)
+    {
+        sizes[at] = omega_device_unrank(counts, length, from + at, term);
+    }
+}
+
+// a job's terms admitted after the pool's `live` terms, their tokens, copies and spine ends after the rooms' ends
+static __global__ void omega_pool_admit(const unsigned long long *counts, unsigned int length, unsigned int job,
+                                        unsigned long long from, unsigned long long count,
+                                        const unsigned long long *offsets, unsigned long long live,
+                                        unsigned long long token_end, unsigned long long held_end,
+                                        unsigned long long ends_end, OmegaTerm *terms, OmegaToken *tokens,
+                                        OmegaToken *held, unsigned long long *held_ends)
+{
+    OMEGA_POOL_EACH(at, count)
+    {
+        const unsigned long long offset = offsets[at];
+        OmegaToken *const text = &tokens[token_end + offset];
+        const unsigned int size = omega_device_unrank(counts, length, from + at, text);
+        for (unsigned int token = 0u; token < size; token += 1u)
+        {
+            held[held_end + offset + token] = text[token];
+        }
+        OmegaTerm term;
+        term.index = from + at;
+        term.steps = 0ull;
+        term.power = 1ull;
+        term.since = 0ull;
+        term.least = OMEGA_ENGINE_NONE - 1ull;
+        term.base = token_end + offset;
+        term.size = size;
+        term.held_base = held_end + offset;
+        term.held_size = size;
+        term.ends_base = ends_end + offset + at;
+        term.held_reach = omega_pool_spine(text, size, &held_ends[term.ends_base]);
+        term.head = OMEGA_ENGINE_NONE;
+        term.redex = OMEGA_ENGINE_NONE;
+        term.argument = 0ull;
+        term.after = 0ull;
+        term.out_size = 0ull;
+        term.out_base = 0ull;
+        term.bits = 0ull;
+        term.length = length;
+        term.job = job;
+        term.fate = -1;
+        term.held_again = 0u;
+        terms[live + at] = term;
     }
 }
 
@@ -2219,57 +2454,240 @@ typedef struct
     unsigned long long parked;
 } OmegaEngineReport;
 
-static void omega_engine_settle(const OmegaCounts *counts, OmegaEngineJob *job, const OmegaLive *live,
+static void omega_engine_settle(const OmegaCounts *counts, OmegaEngineJob *job, const OmegaSettled *settled,
                                 std::vector<int> &scratch, std::vector<OmegaSettled> *crossed)
 {
     OmegaTally *const tally = &job->tally;
-    if (live->fate == OMEGA_HALTS)
+    if (settled->fate == OMEGA_HALTS)
     {
-        tally->fate[OMEGA_HALTS][live->length] += 1ull;
-        omega_champion(&tally->most_steps[live->length], &tally->steps_champion[live->length], live->steps,
-                       live->index);
-        omega_champion(&tally->most_bits[live->length], &tally->bits_champion[live->length], live->bits, live->index);
+        tally->fate[OMEGA_HALTS][settled->length] += 1ull;
+        omega_champion(&tally->most_steps[settled->length], &tally->steps_champion[settled->length], settled->steps,
+                       settled->index);
+        omega_champion(&tally->most_bits[settled->length], &tally->bits_champion[settled->length], settled->bits,
+                       settled->index);
     }
     else
     {
         // the type certificate and the contradiction check, read off the program
-        omega_settle(counts, live->length, live->index, (OmegaFate)live->fate, 0u, scratch, tally);
+        omega_settle(counts, settled->length, settled->index, (OmegaFate)settled->fate, 0u, scratch, tally);
     }
     job->settled += 1ull;
-    if (live->length <= OMEGA_ENGINE_CROSS_MOST)
+    if (settled->length <= OMEGA_ENGINE_CROSS_MOST)
     {
-        const OmegaSettled settled = {live->length, live->index, live->fate, live->steps, live->bits};
-        crossed->push_back(settled);
+        crossed->push_back(*settled);
     }
 }
 
-static void omega_engine_admit(const OmegaCounts *counts, std::vector<OmegaEngineJob> &jobs, size_t job,
-                               std::vector<OmegaLive> &pool)
+// A device room that only grows. 0 where the device cannot hold `bytes`: the failed allocation's error is cleared
+// and the room is left as it was. -1 where a copy into the larger room fails. `keep` carries the room's bytes over.
+typedef struct
 {
-    std::vector<int> term;
-    for (unsigned long long index = jobs[job].from; index < (jobs[job].from + jobs[job].count); index += 1ull)
+    void *data;
+    size_t bytes;
+} OmegaRoom;
+
+static int omega_room_hold(OmegaRoom *room, size_t bytes, int keep)
+{
+    if (bytes <= room->bytes)
     {
-        term.clear();
-        omega_unrank(counts, jobs[job].length, 0u, index, term);
-        OmegaLive live;
-        live.length = jobs[job].length;
-        live.job = (unsigned int)job;
-        live.index = index;
-        live.steps = 0ull;
-        live.power = 1ull;
-        live.since = 0ull;
-        live.least = OMEGA_ENGINE_NONE - 1u;
-        live.term.assign(term.begin(), term.end());
-        live.held = live.term;
-        live.held_reach = omega_engine_spine(live.held, live.held_ends);
-        live.fate = -1;
-        live.bits = 0ull;
-        pool.push_back(std::move(live));
+        return 1;
     }
+    void *grown = NULL;
+    if (cudaMalloc(&grown, bytes) != cudaSuccess)
+    {
+        (void)cudaGetLastError();
+        return 0;
+    }
+    if ((keep != 0) && (room->bytes != 0u)
+        && (cudaMemcpy(grown, room->data, room->bytes, cudaMemcpyDeviceToDevice) != cudaSuccess))
+    {
+        (void)cudaFree(grown);
+        return -1;
+    }
+    (void)cudaFree(room->data);
+    room->data = grown;
+    room->bytes = bytes;
+    return 1;
 }
 
-static int omega_engine(SimTally *tally, const OmegaCounts *counts, unsigned int workers, const char *ledger,
-                        OmegaEngineReport *report, std::vector<OmegaSettled> *crossed, OmegaTally *fates)
+static void omega_room_release(OmegaRoom *room)
+{
+    (void)cudaFree(room->data);
+    room->data = NULL;
+    room->bytes = 0u;
+}
+
+static void omega_room_swap(OmegaRoom *one, OmegaRoom *other)
+{
+    const OmegaRoom held = *one;
+    *one = *other;
+    *other = held;
+}
+
+// the exclusive prefix sum of `count` values, and their total; 0 where the device refused
+static int omega_room_scan(SimTally *tally, OmegaRoom *scratch, const unsigned long long *values,
+                           unsigned long long *sums, unsigned long long count, unsigned long long *total)
+{
+    size_t bytes = 0u;
+    int good = sim_took(tally, cub::DeviceScan::ExclusiveSum(NULL, bytes, values, sums, (long long)count),
+                        "engine: scan size");
+    good = good && (omega_room_hold(scratch, bytes, 0) == 1);
+    good = good && sim_took(tally, cub::DeviceScan::ExclusiveSum(scratch->data, bytes, values, sums,
+                                                                 (long long)count), "engine: scan");
+    unsigned long long last[2] = {0ull, 0ull};
+    good = good && sim_took(tally, cudaMemcpy(&last[0], &sums[count - 1ull], sizeof(last[0]),
+                                              cudaMemcpyDeviceToHost), "engine: scan read")
+        && sim_took(tally, cudaMemcpy(&last[1], &values[count - 1ull], sizeof(last[1]), cudaMemcpyDeviceToHost),
+                    "engine: scan read");
+    *total = last[0] + last[1];
+    return good;
+}
+
+// the pool's rooms; each round moves its kept terms from the one of a pair into the other
+typedef enum
+{
+    OMEGA_ROOM_TERMS = 0,
+    OMEGA_ROOM_KEPT_TERMS,
+    OMEGA_ROOM_TOKENS,
+    OMEGA_ROOM_KEPT_TOKENS,
+    OMEGA_ROOM_HELD,
+    OMEGA_ROOM_KEPT_HELD,
+    OMEGA_ROOM_ENDS,
+    OMEGA_ROOM_KEPT_ENDS,
+    OMEGA_ROOM_FRAMES,
+    OMEGA_ROOM_INNER_FRAMES,
+    OMEGA_ROOM_OUT_SIZES,
+    OMEGA_ROOM_OUT_BASES,
+    OMEGA_ROOM_PLACES,
+    OMEGA_ROOM_PLACE_BASES,
+    OMEGA_ROOM_TOKEN_SIZES,
+    OMEGA_ROOM_TOKEN_BASES,
+    OMEGA_ROOM_HELD_SIZES,
+    OMEGA_ROOM_HELD_BASES,
+    OMEGA_ROOM_END_SIZES,
+    OMEGA_ROOM_END_BASES,
+    OMEGA_ROOM_PACKED,
+    OMEGA_ROOM_PLANS,
+    OMEGA_ROOM_INDEX,
+    OMEGA_ROOM_OUT,
+    OMEGA_ROOM_REDUCTS,
+    OMEGA_ROOM_REDUCT_ENDS,
+    OMEGA_ROOM_SETTLED,
+    OMEGA_ROOM_SCAN,
+    OMEGA_ROOM_TOTALS,
+    OMEGA_ROOM_COUNTS,
+    OMEGA_ROOMS
+} OmegaRoomName;
+
+#define OMEGA_ROOM(rooms_, name_, type_) ((type_ *)(rooms_)[(name_)].data)
+
+// how much of the pool's rooms the live terms fill
+typedef struct
+{
+    unsigned long long live;
+    unsigned long long tokens;
+    unsigned long long held;
+    unsigned long long ends;
+} OmegaPoolExtent;
+
+#define OMEGA_POOL_BLOCK 256u
+
+#define OMEGA_POOL_GRID_MOST 65536ull
+
+// a grid for a launch over `count` items, each thread taking every stride-th
+static unsigned int omega_pool_grid(unsigned long long count)
+{
+    const unsigned long long blocks = (count + OMEGA_POOL_BLOCK - 1ull) / OMEGA_POOL_BLOCK;
+    const unsigned long long held = (blocks == 0ull) ? 1ull : blocks;
+    // at most OMEGA_POOL_GRID_MOST, which an unsigned int holds
+    return (unsigned int)((held < OMEGA_POOL_GRID_MOST) ? held : OMEGA_POOL_GRID_MOST);
+}
+
+// A job's terms unranked on the device after the pool's live terms. 1 where admitted, 2 where the device cannot
+// hold them beside the live terms, so the job waits for the pool to drain, and 0 where the device refused.
+static int omega_pool_admit_job(SimTally *tally, OmegaRoom *rooms, const OmegaEngineJob *job, unsigned int job_at,
+                                OmegaPoolExtent *extent)
+{
+    const unsigned long long count = job->count;
+    const size_t word = sizeof(unsigned long long);
+    if ((omega_room_hold(&rooms[OMEGA_ROOM_OUT_SIZES], count * word, 0) != 1)
+        || (omega_room_hold(&rooms[OMEGA_ROOM_OUT_BASES], count * word, 0) != 1))
+    {
+        return 2;
+    }
+    unsigned long long *const sizes = OMEGA_ROOM(rooms, OMEGA_ROOM_OUT_SIZES, unsigned long long);
+    unsigned long long *const bases = OMEGA_ROOM(rooms, OMEGA_ROOM_OUT_BASES, unsigned long long);
+    omega_pool_admit_sizes<<<omega_pool_grid(count), OMEGA_POOL_BLOCK>>>(
+        OMEGA_ROOM(rooms, OMEGA_ROOM_COUNTS, unsigned long long), job->length, job->from, count, sizes);
+    unsigned long long total = 0ull;
+    if ((sim_took(tally, cudaGetLastError(), "engine: admission sizes") == 0)
+        || (omega_room_scan(tally, &rooms[OMEGA_ROOM_SCAN], sizes, bases, count, &total) == 0))
+    {
+        return 0;
+    }
+    const OmegaRoomName grown[4] = {OMEGA_ROOM_TERMS, OMEGA_ROOM_TOKENS, OMEGA_ROOM_HELD, OMEGA_ROOM_ENDS};
+    const size_t bytes[4] = {(size_t)(extent->live + count) * sizeof(OmegaTerm),
+                             (size_t)(extent->tokens + total) * sizeof(OmegaToken),
+                             (size_t)(extent->held + total) * sizeof(OmegaToken),
+                             (size_t)(extent->ends + total + count) * word};
+    for (unsigned int room = 0u; room < 4u; room += 1u)
+    {
+        const int held = omega_room_hold(&rooms[grown[room]], bytes[room], 1);
+        if (held == 0)
+        {
+            return 2;
+        }
+        if (held < 0)
+        {
+            sim_check(tally, 0, "engine: a grown room carries the pool over");
+            return 0;
+        }
+    }
+    omega_pool_admit<<<omega_pool_grid(count), OMEGA_POOL_BLOCK>>>(
+        OMEGA_ROOM(rooms, OMEGA_ROOM_COUNTS, unsigned long long), job->length, job_at, job->from, count, bases,
+        extent->live, extent->tokens, extent->held, extent->ends, OMEGA_ROOM(rooms, OMEGA_ROOM_TERMS, OmegaTerm),
+        OMEGA_ROOM(rooms, OMEGA_ROOM_TOKENS, OmegaToken), OMEGA_ROOM(rooms, OMEGA_ROOM_HELD, OmegaToken),
+        OMEGA_ROOM(rooms, OMEGA_ROOM_ENDS, unsigned long long));
+    if (sim_took(tally, cudaGetLastError(), "engine: admission") == 0)
+    {
+        return 0;
+    }
+    extent->live += count;
+    extent->tokens += total;
+    extent->held += total;
+    extent->ends += total + count;
+    return 1;
+}
+
+// a term's bytes across a round's rooms: itself twice, its settled record and its twelve sizes and bases
+#define OMEGA_ENGINE_TERM_BYTES ((2u * sizeof(OmegaTerm)) + sizeof(OmegaSettled) + (12u * sizeof(unsigned long long)))
+
+// a token's bytes across a round's rooms: its token, its watcher's copy and a spine end, each twice (16 each), its
+// two frames (2), its record and its plan (8 each at most), its index pair (8), its reduct and the reduct's spine
+// end (8 each): 90, taken as 96
+#define OMEGA_ENGINE_TOKEN_BYTES 96ull
+
+// The bytes a run on the engine declares to tessera: its first round's admitted terms, each at the most tokens its
+// length holds (a token takes 2 bits at least), and the counts it copies to the device.
+static unsigned long long omega_engine_declared(const OmegaCounts *counts)
+{
+    unsigned long long terms = 0ull;
+    unsigned long long tokens = 0ull;
+    for (unsigned int length = 2u; (length <= counts->length) && (terms < OMEGA_ENGINE_ADMIT); length += 1u)
+    {
+        const unsigned long long total = omega_count(counts, length, 0u);
+        for (unsigned long long from = 0ull; (from < total) && (terms < OMEGA_ENGINE_ADMIT); from += OMEGA_ENGINE_JOB)
+        {
+            const unsigned long long count = ((total - from) < OMEGA_ENGINE_JOB) ? (total - from) : OMEGA_ENGINE_JOB;
+            terms += count;
+            tokens += count * (length / 2u);
+        }
+    }
+    return (terms * OMEGA_ENGINE_TERM_BYTES) + (tokens * OMEGA_ENGINE_TOKEN_BYTES) + sizeof(counts->count);
+}
+
+static int omega_engine(SimTally *tally, const OmegaCounts *counts, const char *ledger, OmegaEngineReport *report,
+                        std::vector<OmegaSettled> *crossed, OmegaTally *fates)
 {
     omega_tally_open(fates);
     memset(report, 0, sizeof(*report));
@@ -2312,181 +2730,205 @@ static int omega_engine(SimTally *tally, const OmegaCounts *counts, unsigned int
     std::map<unsigned long long, OmegaProgram> programs;
     EngineError error;
     memset(&error, 0, sizeof(error));
-    std::vector<OmegaLive> pool;
-    std::vector<size_t> stepping;
-    std::vector<OmegaToken> reducts;
-    std::vector<unsigned int> round_tokens;
-    std::vector<unsigned int> round_plans;
-    std::vector<unsigned long long> round_sources;
-    std::vector<unsigned int> index;
-    std::vector<unsigned int> out;
+    OmegaRoom rooms[OMEGA_ROOMS];
+    memset(rooms, 0, sizeof(rooms));
+    OmegaPoolExtent extent = {0ull, 0ull, 0ull, 0ull};
+    std::vector<OmegaSettled> settled;
+    std::vector<unsigned long long> out_sizes;
     std::vector<int> scratch;
-    unsigned int *device_tokens = NULL;
-    unsigned int *device_plans = NULL;
-    unsigned int *device_index = NULL;
-    unsigned int *device_out = NULL;
-    size_t device_room[4] = {0u, 0u, 0u, 0u};
+    const size_t word = sizeof(unsigned long long);
+    int good = (omega_room_hold(&rooms[OMEGA_ROOM_COUNTS], sizeof(counts->count), 0) == 1)
+            && (omega_room_hold(&rooms[OMEGA_ROOM_TOTALS], sizeof(OmegaRoundTotals), 0) == 1);
+    if (good == 0)
+    {
+        sim_check(tally, 0, "engine: the device holds the counts and the round's totals");
+    }
+    good = good && sim_took(tally, cudaMemcpy(rooms[OMEGA_ROOM_COUNTS].data, counts->count, sizeof(counts->count),
+                                              cudaMemcpyHostToDevice), "engine: counts");
+    OmegaRoundTotals *const totals = OMEGA_ROOM(rooms, OMEGA_ROOM_TOTALS, OmegaRoundTotals);
     size_t next_job = 0u;
-    int good = 1;
     const std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
     unsigned long long report_at = 1ull;
-    while ((good != 0) && ((next_job < jobs.size()) || !pool.empty()))
+    while ((good != 0) && ((next_job < jobs.size()) || (extent.live > 0ull)))
     {
-        while ((next_job < jobs.size()) && (pool.size() < OMEGA_ENGINE_ADMIT))
+        // jobs join while fewer than OMEGA_ENGINE_ADMIT terms are live and the device holds them beside the rest
+        while ((good != 0) && (next_job < jobs.size()) && (extent.live < OMEGA_ENGINE_ADMIT))
         {
-            omega_engine_admit(counts, jobs, next_job, pool);
+            const int admitted = omega_pool_admit_job(tally, rooms, &jobs[next_job], (unsigned int)next_job, &extent);
+            good = (admitted != 0);
+            if (admitted != 1)
+            {
+                break;
+            }
             next_job += 1u;
         }
-        omega_engine_threads(pool.size(), workers, [&pool](size_t first, size_t last)
-                             { omega_engine_survey(&pool, first, last); });
-        // the terms that step this round, their records laid end to end
-        stepping.clear();
-        size_t in_total = 0u;
-        size_t out_total = 0u;
-        unsigned long long most_token = 1ull;
-        unsigned long long most_depth = 0ull;
-        unsigned long long most_bound = 0ull;
-        for (size_t at = 0u; at < pool.size(); at += 1u)
+        if ((good != 0) && (extent.live == 0ull))
         {
-            OmegaLive *const live = &pool[at];
-            report->most_tokens = (live->term.size() > report->most_tokens) ? live->term.size() : report->most_tokens;
-            if (live->fate >= 0)
-            {
-                continue;
-            }
-            live->in_base = in_total;
-            live->out_base = out_total;
-            in_total += live->term.size();
-            out_total += live->out_size;
-            most_token = (live->most_token > most_token) ? live->most_token : most_token;
-            most_depth = (live->most_depth > most_depth) ? live->most_depth : most_depth;
-            most_bound = (live->most_bound > most_bound) ? live->most_bound : most_bound;
-            stepping.push_back(at);
+            sim_check(tally, 0, "engine: the device holds a job's terms");
+            good = 0;
         }
-        // the round's host records; a term the machine's memory cannot hold is parked, the largest first
-        int held = 0;
-        while ((held == 0) && !stepping.empty())
+        const size_t live_bytes = (size_t)extent.live * word;
+        if (good != 0)
         {
-            OmegaRound round;
-            round.token_bits = omega_engine_bits_of(most_token) + 1u;
-            round.depth_bits = omega_engine_bits_of(most_depth);
-            round.bound_bits = omega_engine_bits_of(most_bound);
-            round.token_limbs = (round.token_bits + 31u) / 32u;
-            round.plan_limbs = (round.depth_bits + round.bound_bits + 2u + 31u) / 32u;
-            try
+            good = (omega_room_hold(&rooms[OMEGA_ROOM_FRAMES], (size_t)extent.tokens, 0) == 1)
+                && (omega_room_hold(&rooms[OMEGA_ROOM_INNER_FRAMES], (size_t)extent.tokens, 0) == 1)
+                && (omega_room_hold(&rooms[OMEGA_ROOM_OUT_SIZES], live_bytes, 0) == 1)
+                && (omega_room_hold(&rooms[OMEGA_ROOM_OUT_BASES], live_bytes, 0) == 1);
+            if (good == 0)
             {
-                round_tokens.assign(in_total * round.token_limbs, 0u);
-                round_plans.assign(out_total * round.plan_limbs, 0u);
-                round_sources.resize(out_total);
-                reducts.resize(out_total);
-                held = 1;
+                sim_check(tally, 0, "engine: the device holds the round's survey");
             }
-            catch (const std::bad_alloc &)
+        }
+        if (good == 0)
+        {
+            break;
+        }
+        OmegaTerm *const terms = OMEGA_ROOM(rooms, OMEGA_ROOM_TERMS, OmegaTerm);
+        const OmegaToken *const tokens = OMEGA_ROOM(rooms, OMEGA_ROOM_TOKENS, OmegaToken);
+        unsigned long long *const device_out_sizes = OMEGA_ROOM(rooms, OMEGA_ROOM_OUT_SIZES, unsigned long long);
+        unsigned long long *const out_bases = OMEGA_ROOM(rooms, OMEGA_ROOM_OUT_BASES, unsigned long long);
+        // the terms that step this round and the widths of their records
+        good = sim_took(tally, cudaMemset(totals, 0, sizeof(OmegaRoundTotals)), "engine: totals");
+        omega_pool_survey<<<omega_pool_grid(extent.live), OMEGA_POOL_BLOCK>>>(
+            terms, extent.live, tokens, OMEGA_ROOM(rooms, OMEGA_ROOM_FRAMES, unsigned char), device_out_sizes, totals);
+        OmegaRoundTotals found;
+        good = good && sim_took(tally, cudaGetLastError(), "engine: survey")
+            && sim_took(tally, cudaMemcpy(&found, totals, sizeof(found), cudaMemcpyDeviceToHost), "engine: survey read");
+        unsigned long long out_total = 0ull;
+        good = good && omega_room_scan(tally, &rooms[OMEGA_ROOM_SCAN], device_out_sizes, out_bases, extent.live,
+                                       &out_total);
+        if (good == 0)
+        {
+            break;
+        }
+        report->most_tokens = (found.most_tokens > report->most_tokens) ? found.most_tokens : report->most_tokens;
+        OmegaRoundWidths widths;
+        widths.token_bits = omega_engine_bits_of(found.most_token) + 1u;
+        widths.depth_bits = omega_engine_bits_of(found.most_depth);
+        widths.bound_bits = omega_engine_bits_of(found.most_bound);
+        widths.token_limbs = (widths.token_bits + 31u) / 32u;
+        widths.plan_limbs = (widths.depth_bits + widths.bound_bits + 2u + 31u) / 32u;
+        // the record program for this round's widths
+        const unsigned long long key = ((unsigned long long)widths.token_bits << 40u)
+                                     | ((unsigned long long)widths.depth_bits << 20u) | widths.bound_bits;
+        if (programs.find(key) == programs.end())
+        {
+            OmegaProgram program;
+            program.token_bits = widths.token_bits;
+            program.depth_bits = widths.depth_bits;
+            program.bound_bits = widths.bound_bits;
+            if (omega_program_load(&program, &error) == 0)
             {
-                size_t largest = 0u;
-                for (size_t at = 1u; at < stepping.size(); at += 1u)
+                sim_check(tally, 0, "engine: the reduct program imprints and loads for the round's widths");
+                good = 0;
+                break;
+            }
+            programs[key] = program;
+        }
+        const OmegaProgram *const program = &programs[key];
+        const unsigned int out_limbs = program->layout.out_limbs;
+        // the round's rooms; while the device cannot hold them, the stepping term with the largest reduct is parked
+        // as outgrown and the reducts laid again without it
+        const OmegaRoomName round_rooms[19] = {
+            OMEGA_ROOM_PACKED,      OMEGA_ROOM_PLANS,       OMEGA_ROOM_INDEX,       OMEGA_ROOM_OUT,
+            OMEGA_ROOM_REDUCTS,     OMEGA_ROOM_REDUCT_ENDS, OMEGA_ROOM_KEPT_TERMS,  OMEGA_ROOM_KEPT_TOKENS,
+            OMEGA_ROOM_KEPT_HELD,   OMEGA_ROOM_KEPT_ENDS,   OMEGA_ROOM_SETTLED,     OMEGA_ROOM_PLACES,
+            OMEGA_ROOM_PLACE_BASES, OMEGA_ROOM_TOKEN_SIZES, OMEGA_ROOM_TOKEN_BASES, OMEGA_ROOM_HELD_SIZES,
+            OMEGA_ROOM_HELD_BASES,  OMEGA_ROOM_END_SIZES,   OMEGA_ROOM_END_BASES};
+        int held = 0;
+        while ((good != 0) && (held == 0))
+        {
+            const unsigned long long lanes = (out_total < OMEGA_ENGINE_SWEEP) ? out_total : OMEGA_ENGINE_SWEEP;
+            const size_t limb = sizeof(unsigned int);
+            const size_t bytes[19] = {(size_t)extent.tokens * widths.token_limbs * limb,
+                                      (size_t)out_total * widths.plan_limbs * limb,
+                                      (size_t)out_total * 2u * limb,
+                                      (size_t)lanes * out_limbs * limb,
+                                      (size_t)out_total * sizeof(OmegaToken),
+                                      (size_t)(out_total + extent.live) * word,
+                                      (size_t)extent.live * sizeof(OmegaTerm),
+                                      (size_t)out_total * sizeof(OmegaToken),
+                                      (size_t)(extent.held + out_total) * sizeof(OmegaToken),
+                                      (size_t)(extent.ends + out_total + extent.live) * word,
+                                      (size_t)extent.live * sizeof(OmegaSettled),
+                                      live_bytes, live_bytes, live_bytes, live_bytes, live_bytes, live_bytes,
+                                      live_bytes, live_bytes};
+            held = 1;
+            for (unsigned int room = 0u; room < 19u; room += 1u)
+            {
+                const int one = omega_room_hold(&rooms[round_rooms[room]], bytes[room], 0);
+                if (one < 0)
                 {
-                    largest = (pool[stepping[at]].out_size > pool[stepping[largest]].out_size) ? at : largest;
+                    sim_check(tally, 0, "engine: a round's room is held");
+                    good = 0;
                 }
-                OmegaLive *const live = &pool[stepping[largest]];
-                live->fate = OMEGA_GREW;
-                report->parked += 1ull;
-                stepping.erase(stepping.begin() + (long long)largest);
-                in_total = 0u;
-                out_total = 0u;
-                for (size_t at = 0u; at < stepping.size(); at += 1u)
+                if (one != 1)
                 {
-                    pool[stepping[at]].in_base = in_total;
-                    pool[stepping[at]].out_base = out_total;
-                    in_total += pool[stepping[at]].term.size();
-                    out_total += pool[stepping[at]].out_size;
+                    held = 0;
+                    break;
                 }
+            }
+            if ((good == 0) || (held != 0))
+            {
                 continue;
             }
-            round.tokens = round_tokens.data();
-            round.plans = round_plans.data();
-            round.sources = round_sources.data();
-            omega_engine_threads(stepping.size(), workers, [&pool, &stepping, &round](size_t first, size_t last)
-                                 { omega_engine_lay(&pool, &stepping, first, last, &round); });
-            // the record program for this round's widths
-            const unsigned long long widths = ((unsigned long long)round.token_bits << 40u)
-                                            | ((unsigned long long)round.depth_bits << 20u) | round.bound_bits;
-            if (programs.find(widths) == programs.end())
+            out_sizes.resize((size_t)extent.live);
+            good = sim_took(tally, cudaMemcpy(out_sizes.data(), device_out_sizes, live_bytes, cudaMemcpyDeviceToHost),
+                            "engine: reduct sizes");
+            size_t largest = 0u;
+            for (size_t at = 1u; at < out_sizes.size(); at += 1u)
             {
-                OmegaProgram program;
-                program.token_bits = round.token_bits;
-                program.depth_bits = round.depth_bits;
-                program.bound_bits = round.bound_bits;
-                if (omega_program_load(&program, &error) == 0)
-                {
-                    sim_check(tally, 0, "engine: the reduct program imprints and loads for the round's widths");
-                    good = 0;
-                    break;
-                }
-                programs[widths] = program;
+                largest = (out_sizes[at] > out_sizes[largest]) ? at : largest;
             }
-            const OmegaProgram *const program = &programs[widths];
-            const unsigned int out_limbs = program->layout.out_limbs;
-            // the sweeps, each cut where its sources would span past the engine's 32-bit index
-            size_t sweep_first = 0u;
-            while ((good != 0) && (sweep_first < out_total))
+            if ((good != 0) && (out_sizes[largest] == 0ull))
             {
-                unsigned long long lowest = round_sources[sweep_first];
-                unsigned long long highest = lowest;
-                size_t sweep_last = sweep_first + 1u;
-                while ((sweep_last < out_total) && ((sweep_last - sweep_first) < OMEGA_ENGINE_SWEEP))
-                {
-                    const unsigned long long source = round_sources[sweep_last];
-                    const unsigned long long low = (source < lowest) ? source : lowest;
-                    const unsigned long long high = (source > highest) ? source : highest;
-                    if ((high - low) > 0xFFFFFFFFull)
-                    {
-                        break;
-                    }
-                    lowest = low;
-                    highest = high;
-                    sweep_last += 1u;
-                }
-                const size_t lanes = sweep_last - sweep_first;
-                const size_t sources = (size_t)(highest - lowest) + 1u;
-                index.resize(lanes * 2u);
-                for (size_t lane = 0u; lane < lanes; lane += 1u)
-                {
-                    index[2u * lane] = (unsigned int)(round_sources[sweep_first + lane] - lowest);
-                    index[(2u * lane) + 1u] = (unsigned int)lane;
-                }
-                const size_t need[4] = {sources * round.token_limbs * sizeof(unsigned int),
-                                        lanes * round.plan_limbs * sizeof(unsigned int),
-                                        lanes * 2u * sizeof(unsigned int), lanes * out_limbs * sizeof(unsigned int)};
-                unsigned int **const rooms[4] = {&device_tokens, &device_plans, &device_index, &device_out};
-                for (unsigned int room = 0u; (good != 0) && (room < 4u); room += 1u)
-                {
-                    if (need[room] > device_room[room])
-                    {
-                        (void)cudaFree(*rooms[room]);
-                        *rooms[room] = NULL;
-                        device_room[room] = 0u;
-                        good = sim_took(tally, cudaMalloc((void **)rooms[room], need[room]), "engine: device room");
-                        device_room[room] = (good != 0) ? need[room] : 0u;
-                    }
-                }
-                good = good
-                    && sim_took(tally, cudaMemcpy(device_tokens, &round_tokens[lowest * round.token_limbs], need[0],
-                                                  cudaMemcpyHostToDevice), "engine: tokens")
-                    && sim_took(tally, cudaMemcpy(device_plans, &round_plans[sweep_first * round.plan_limbs], need[1],
-                                                  cudaMemcpyHostToDevice), "engine: plans")
-                    && sim_took(tally, cudaMemcpy(device_index, index.data(), need[2], cudaMemcpyHostToDevice),
-                                "engine: index");
-                if (good == 0)
-                {
-                    break;
-                }
+                sim_check(tally, 0, "engine: the device holds a round once every reduct is parked");
+                good = 0;
+            }
+            const int grew = OMEGA_GREW;
+            const unsigned long long none = 0ull;
+            good = good
+                && sim_took(tally, cudaMemcpy(&terms[largest].fate, &grew, sizeof(grew), cudaMemcpyHostToDevice),
+                            "engine: park")
+                && sim_took(tally, cudaMemcpy(&device_out_sizes[largest], &none, sizeof(none), cudaMemcpyHostToDevice),
+                            "engine: park")
+                && omega_room_scan(tally, &rooms[OMEGA_ROOM_SCAN], device_out_sizes, out_bases, extent.live,
+                                   &out_total);
+            report->parked += (good != 0) ? 1ull : 0ull;
+        }
+        if ((good != 0) && (extent.tokens > OMEGA_ENGINE_INDEX_MOST))
+        {
+            sim_check(tally, 0, "engine: every token a round reads sits within the engine's 32-bit index");
+            good = 0;
+        }
+        if (good == 0)
+        {
+            break;
+        }
+        unsigned int *const packed = OMEGA_ROOM(rooms, OMEGA_ROOM_PACKED, unsigned int);
+        unsigned int *const plans = OMEGA_ROOM(rooms, OMEGA_ROOM_PLANS, unsigned int);
+        unsigned int *const index = OMEGA_ROOM(rooms, OMEGA_ROOM_INDEX, unsigned int);
+        unsigned int *const out = OMEGA_ROOM(rooms, OMEGA_ROOM_OUT, unsigned int);
+        OmegaToken *const reducts = OMEGA_ROOM(rooms, OMEGA_ROOM_REDUCTS, OmegaToken);
+        if (out_total > 0ull)
+        {
+            omega_pool_pack<<<omega_pool_grid(extent.tokens), OMEGA_POOL_BLOCK>>>(tokens, extent.tokens, widths,
+                                                                                  packed);
+            omega_pool_lay<<<omega_pool_grid(extent.live), OMEGA_POOL_BLOCK>>>(
+                terms, extent.live, tokens, out_bases, OMEGA_ROOM(rooms, OMEGA_ROOM_FRAMES, unsigned char),
+                OMEGA_ROOM(rooms, OMEGA_ROOM_INNER_FRAMES, unsigned char), widths, plans, index);
+            good = sim_took(tally, cudaGetLastError(), "engine: pack and lay");
+            // the sweeps: every token of the pool is member 0, and each sweep's plans member 1 from its first lane
+            for (unsigned long long first = 0ull; (good != 0) && (first < out_total); first += OMEGA_ENGINE_SWEEP)
+            {
+                const unsigned long long lanes = ((out_total - first) < OMEGA_ENGINE_SWEEP) ? (out_total - first)
+                                                                                           : OMEGA_ENGINE_SWEEP;
                 const CycleRecordRunRequest run = {program->record,
-                                                   {device_tokens, device_plans, NULL},
-                                                   {(unsigned long long)sources, (unsigned long long)lanes, 0ull},
-                                                   device_index,
-                                                   (unsigned long long)lanes,
-                                                   device_out,
+                                                   {packed, &plans[first * widths.plan_limbs], NULL},
+                                                   {extent.tokens, lanes, 0ull},
+                                                   &index[2ull * first],
+                                                   lanes,
+                                                   out,
                                                    &error};
                 if (cycle_record_run(&run) == CYCLE_REFUSED)
                 {
@@ -2494,47 +2936,49 @@ static int omega_engine(SimTally *tally, const OmegaCounts *counts, unsigned int
                     good = 0;
                     break;
                 }
-                out.resize(lanes * out_limbs);
-                good = sim_took(tally, cudaMemcpy(out.data(), device_out, need[3], cudaMemcpyDeviceToHost),
-                                "engine: reducts");
-                for (size_t lane = 0u; (good != 0) && (lane < lanes); lane += 1u)
-                {
-                    if (omega_engine_take(&out[lane * out_limbs], program->out_offset, program->out_bits,
-                                          &reducts[sweep_first + lane]) == 0)
-                    {
-                        sim_check(tally, 0, "engine: every reduct token is read back whole");
-                        good = 0;
-                    }
-                }
+                omega_pool_unpack<<<omega_pool_grid(lanes), OMEGA_POOL_BLOCK>>>(
+                    out, lanes, out_limbs, program->out_offset, program->out_bits, &reducts[first], totals);
+                good = sim_took(tally, cudaGetLastError(), "engine: reducts");
                 report->sweeps += 1ull;
                 report->records += lanes;
-                sweep_first = sweep_last;
             }
+            unsigned int unread = 0u;
+            good = good && sim_took(tally, cudaMemcpy(&unread, &totals->unread, sizeof(unread), cudaMemcpyDeviceToHost),
+                                    "engine: reducts read");
+            if ((good != 0) && (unread != 0u))
+            {
+                sim_check(tally, 0, "engine: every reduct token is read back whole");
+                good = 0;
+            }
+            omega_pool_watch<<<omega_pool_grid(extent.live), OMEGA_POOL_BLOCK>>>(
+                terms, extent.live, reducts, out_bases, OMEGA_ROOM(rooms, OMEGA_ROOM_HELD, OmegaToken),
+                OMEGA_ROOM(rooms, OMEGA_ROOM_ENDS, unsigned long long),
+                OMEGA_ROOM(rooms, OMEGA_ROOM_REDUCT_ENDS, unsigned long long));
+            good = good && sim_took(tally, cudaGetLastError(), "engine: watch");
         }
         if (good == 0)
         {
             break;
         }
-        omega_engine_threads(stepping.size(), workers, [&pool, &stepping, &reducts](size_t first, size_t last)
-                             { omega_engine_watch(&pool, &stepping, first, last, &reducts); });
         report->rounds += 1ull;
         // the settled leave the pool into their jobs; a job whose every term settled is written to the ledger
-        size_t kept_live = 0u;
-        for (size_t at = 0u; at < pool.size(); at += 1u)
+        omega_pool_settled<<<omega_pool_grid(extent.live), OMEGA_POOL_BLOCK>>>(
+            terms, extent.live, OMEGA_ROOM(rooms, OMEGA_ROOM_SETTLED, OmegaSettled), totals);
+        unsigned long long settled_count = 0ull;
+        good = sim_took(tally, cudaGetLastError(), "engine: settled")
+            && sim_took(tally, cudaMemcpy(&settled_count, &totals->settled, sizeof(settled_count),
+                                          cudaMemcpyDeviceToHost), "engine: settled count");
+        settled.resize((size_t)settled_count);
+        good = good && ((settled_count == 0ull)
+                        || sim_took(tally, cudaMemcpy(settled.data(), rooms[OMEGA_ROOM_SETTLED].data,
+                                                      (size_t)settled_count * sizeof(OmegaSettled),
+                                                      cudaMemcpyDeviceToHost), "engine: settled read"));
+        for (size_t at = 0u; (good != 0) && (at < settled.size()); at += 1u)
         {
-            OmegaLive *const live = &pool[at];
-            if (live->fate < 0)
-            {
-                if (kept_live != at)
-                {
-                    pool[kept_live] = std::move(*live);
-                }
-                kept_live += 1u;
-                continue;
-            }
-            report->most_steps = (live->steps > report->most_steps) ? live->steps : report->most_steps;
-            OmegaEngineJob *const job = &jobs[live->job];
-            omega_engine_settle(counts, job, live, scratch, crossed);
+            const OmegaSettled *const one = &settled[at];
+            report->most_steps = (one->steps > report->most_steps) ? one->steps : report->most_steps;
+            OmegaEngineJob *const job = &jobs[one->job];
+            omega_engine_settle(counts, job, one, scratch, crossed);
             if (job->settled == job->count)
             {
                 if ((ledger != NULL) && (omega_engine_ledger_write(ledger, job) == 0))
@@ -2546,14 +2990,51 @@ static int omega_engine(SimTally *tally, const OmegaCounts *counts, unsigned int
                 report->jobs_run += 1ull;
             }
         }
-        pool.resize(kept_live);
+        // the kept terms move into the other room of each pair, in pool order
+        unsigned long long *const places = OMEGA_ROOM(rooms, OMEGA_ROOM_PLACES, unsigned long long);
+        unsigned long long *const token_sizes = OMEGA_ROOM(rooms, OMEGA_ROOM_TOKEN_SIZES, unsigned long long);
+        unsigned long long *const held_sizes = OMEGA_ROOM(rooms, OMEGA_ROOM_HELD_SIZES, unsigned long long);
+        unsigned long long *const end_sizes = OMEGA_ROOM(rooms, OMEGA_ROOM_END_SIZES, unsigned long long);
+        unsigned long long *const place_bases = OMEGA_ROOM(rooms, OMEGA_ROOM_PLACE_BASES, unsigned long long);
+        unsigned long long *const token_bases = OMEGA_ROOM(rooms, OMEGA_ROOM_TOKEN_BASES, unsigned long long);
+        unsigned long long *const held_bases = OMEGA_ROOM(rooms, OMEGA_ROOM_HELD_BASES, unsigned long long);
+        unsigned long long *const end_bases = OMEGA_ROOM(rooms, OMEGA_ROOM_END_BASES, unsigned long long);
+        omega_pool_kept_sizes<<<omega_pool_grid(extent.live), OMEGA_POOL_BLOCK>>>(terms, extent.live, places,
+                                                                                  token_sizes, held_sizes, end_sizes);
+        OmegaPoolExtent kept_extent = {0ull, 0ull, 0ull, 0ull};
+        good = good && sim_took(tally, cudaGetLastError(), "engine: kept sizes")
+            && omega_room_scan(tally, &rooms[OMEGA_ROOM_SCAN], places, place_bases, extent.live, &kept_extent.live)
+            && omega_room_scan(tally, &rooms[OMEGA_ROOM_SCAN], token_sizes, token_bases, extent.live,
+                               &kept_extent.tokens)
+            && omega_room_scan(tally, &rooms[OMEGA_ROOM_SCAN], held_sizes, held_bases, extent.live, &kept_extent.held)
+            && omega_room_scan(tally, &rooms[OMEGA_ROOM_SCAN], end_sizes, end_bases, extent.live, &kept_extent.ends);
+        if (good == 0)
+        {
+            break;
+        }
+        const unsigned long long keep_blocks = (extent.live < OMEGA_POOL_GRID_MOST) ? extent.live
+                                                                                    : OMEGA_POOL_GRID_MOST;
+        // at most OMEGA_POOL_GRID_MOST blocks, which an unsigned int holds
+        omega_pool_keep<<<(unsigned int)keep_blocks, 128u>>>(
+            terms, extent.live, reducts, OMEGA_ROOM(rooms, OMEGA_ROOM_HELD, OmegaToken),
+            OMEGA_ROOM(rooms, OMEGA_ROOM_ENDS, unsigned long long), place_bases, token_bases, held_bases, end_bases,
+            OMEGA_ROOM(rooms, OMEGA_ROOM_KEPT_TERMS, OmegaTerm), OMEGA_ROOM(rooms, OMEGA_ROOM_KEPT_TOKENS, OmegaToken),
+            OMEGA_ROOM(rooms, OMEGA_ROOM_KEPT_HELD, OmegaToken),
+            OMEGA_ROOM(rooms, OMEGA_ROOM_KEPT_ENDS, unsigned long long));
+        good = sim_took(tally, cudaGetLastError(), "engine: keep")
+            && sim_took(tally, cudaDeviceSynchronize(), "engine: keep");
+        omega_room_swap(&rooms[OMEGA_ROOM_TERMS], &rooms[OMEGA_ROOM_KEPT_TERMS]);
+        omega_room_swap(&rooms[OMEGA_ROOM_TOKENS], &rooms[OMEGA_ROOM_KEPT_TOKENS]);
+        omega_room_swap(&rooms[OMEGA_ROOM_HELD], &rooms[OMEGA_ROOM_KEPT_HELD]);
+        omega_room_swap(&rooms[OMEGA_ROOM_ENDS], &rooms[OMEGA_ROOM_KEPT_ENDS]);
+        extent = kept_extent;
         if (report->rounds == report_at)
         {
             const double seconds = std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count();
             scriptura_text(&tally->line, "  round ");
             scriptura_decimal(&tally->line, report->rounds, 1u);
             scriptura_text(&tally->line, ": ");
-            scriptura_decimal(&tally->line, pool.size(), 1u);
+            scriptura_decimal(&tally->line, extent.live, 1u);
             scriptura_text(&tally->line, " live, ");
             scriptura_decimal(&tally->line, report->jobs_run, 1u);
             scriptura_text(&tally->line, " of ");
@@ -2573,10 +3054,10 @@ static int omega_engine(SimTally *tally, const OmegaCounts *counts, unsigned int
     {
         omega_program_free(&one->second);
     }
-    (void)cudaFree(device_tokens);
-    (void)cudaFree(device_plans);
-    (void)cudaFree(device_index);
-    (void)cudaFree(device_out);
+    for (unsigned int room = 0u; room < (unsigned int)OMEGA_ROOMS; room += 1u)
+    {
+        omega_room_release(&rooms[room]);
+    }
     return good;
 }
 
@@ -2726,10 +3207,11 @@ int main(int argc, char **argv)
     sim_check(&tally, omega_fate_of("01000101101010000101101010", 1000000u, 4096u) == OMEGA_DIVERGES,
               "(x x x)(x x x) is proven to grow forever: it returns at its own head");
 
-    // a run on the device is one tessera job; it declares the count table it copies there, and the daemon measures
-    // the rooms and the batch it grows to and keeps that peak under the run's arguments
-    if (((on_engine != 0) || (on_device != 0))
-        && !sim_job_submit(&tally, "chaitin_omega", argc, argv, sizeof(counts.count)))
+    // a run on the device is one tessera job. The kernel's run declares the count table it copies there, and the
+    // engine's run its first round's pool; the daemon measures the rooms each grows to and keeps that peak under the
+    // run's arguments
+    const unsigned long long declared = (on_engine != 0) ? omega_engine_declared(&counts) : sizeof(counts.count);
+    if (((on_engine != 0) || (on_device != 0)) && !sim_job_submit(&tally, "chaitin_omega", argc, argv, declared))
     {
         return sim_close(&tally, "chaitin_omega");
     }
@@ -2747,7 +3229,7 @@ int main(int argc, char **argv)
     std::vector<OmegaSettled> crossed;
     if (on_engine != 0)
     {
-        if (omega_engine(&tally, &counts, workers, ledger, &engine_report, &crossed, &fates) == 0)
+        if (omega_engine(&tally, &counts, ledger, &engine_report, &crossed, &fates) == 0)
         {
             return sim_close(&tally, "chaitin_omega");
         }
@@ -2916,10 +3398,17 @@ int main(int argc, char **argv)
     scriptura_text(&tally.line, "  Chaitin's Omega for the binary lambda calculus, every closed term through ");
     scriptura_decimal(&tally.line, counts.length, 1u);
     scriptura_text(&tally.line, " bits (");
-    scriptura_decimal(&tally.line, counts.steps, 1u);
-    scriptura_text(&tally.line, " steps, ");
-    scriptura_decimal(&tally.line, counts.tokens, 1u);
-    scriptura_text(&tally.line, " tokens, ");
+    if (on_engine != 0)
+    {
+        scriptura_text(&tally.line, "no step or token budget, ");
+    }
+    else
+    {
+        scriptura_decimal(&tally.line, counts.steps, 1u);
+        scriptura_text(&tally.line, " steps, ");
+        scriptura_decimal(&tally.line, counts.tokens, 1u);
+        scriptura_text(&tally.line, " tokens, ");
+    }
     if (on_device != 0)
     {
         scriptura_decimal(&tally.line, device_threads, 1u);
@@ -2930,6 +3419,16 @@ int main(int argc, char **argv)
         scriptura_text(&tally.line, " jobs run, ");
         scriptura_decimal(&tally.line, jobs_kept, 1u);
         scriptura_text(&tally.line, " from the ledger, ");
+    }
+    else if (on_engine != 0)
+    {
+        scriptura_text(&tally.line, "on the device's record machine, ");
+        scriptura_decimal(&tally.line, engine_report.rounds, 1u);
+        scriptura_text(&tally.line, " rounds, ");
+        scriptura_decimal(&tally.line, engine_report.records, 1u);
+        scriptura_text(&tally.line, " records swept, ");
+        scriptura_decimal(&tally.line, engine_report.parked, 1u);
+        scriptura_text(&tally.line, " parked as outgrown, ");
     }
     else
     {
