@@ -53,7 +53,8 @@ fi
 # The tools directory is named once, in repotools.toml, and asked for by kind and not by
 # directory. Hardcoding maint/ here makes the tools move under objective 5 a hook edit
 # instead of a config line, and a hook that is edited by hand during a move is a hook that gets it
-# wrong. A missing key stops the commit instead of falling back to a guess: guessing is how this
+# wrong. A missing key stops the commit instead of falling back to a guess. A guessed path can
+# name a directory that no longer holds the tools, and every check below would then be skipped.
 TOOLS=$(sed -n 's/^[[:space:]]*tools[[:space:]]*=[[:space:]]*"\([^"]*\)".*/\1/p' \
     "$REPO/repotools.toml" 2>/dev/null | head -1)
 
