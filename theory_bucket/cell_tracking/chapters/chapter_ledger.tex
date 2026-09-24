@@ -5,7 +5,7 @@
 
 \textbf{Purpose:} Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled; no result is taken twice and none is quoted without its run.
 
-\textbf{Scope:} runs of the tracker, the .iapx codec and the measurement tools. Samples are named by their id; “the 25” means the first 25 44b6 training samples by name. Logs are under \texttt{cell\_\allowbreak{}tracking/\allowbreak{}logs/\allowbreak{}}.
+\textbf{Scope:} runs of the tracker, the .kcr codec and the measurement tools. Samples are named by their id; “the 25” means the first 25 44b6 training samples by name. Logs are under \texttt{cell\_\allowbreak{}tracking/\allowbreak{}logs/\allowbreak{}}.
 
 \section{\texorpdfstring{2026-09-21}{2026-09-21}}
 
@@ -24,7 +24,7 @@ time a frame & the 25 & 31 ms, against 24.5 ms for the passes & the key is not y
 \end{longtable}
 }
 
-\subsection{\texorpdfstring{The .iapx codec}{The .iapx codec}}
+\subsection{\texorpdfstring{The .kcr codec}{The .kcr codec}}
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
@@ -40,7 +40,7 @@ tower codec, whole sample as one object & the 25 & 42.0\% of raw; every file reb
 
 \subsection{\texorpdfstring{The residue's floor: radix around a line, rotation, spiral}{The residue's floor: radix around a line, rotation, spiral}}
 
-Stream sizes against the residue as the .iapx writes it, sample 44b6\_\allowbreak{}0113de3b, 340,189,016 bytes. Every alternative was decoded back and checked.
+Stream sizes against the residue as the .kcr writes it, sample 44b6\_\allowbreak{}0113de3b, 340,189,016 bytes. Every alternative was decoded back and checked.
 
 {\small
 \setlength{\tabcolsep}{6pt}
@@ -91,7 +91,7 @@ what & result & settles \\
 \midrule
 \endhead
 the tower undone in the spiral and ratio runs & 180, then 80 voxels differ, each one bit (0x0100, 0x0400) & the code was cleared first: a rerun holding the coefficients found 0 moved \\
-44b6\_\allowbreak{}0b24845f and 44b6\_\allowbreak{}341df25f, re-proved from their .iapx & one voxel each wrong in the file; the disk, read past the cache, holds the right value & the machine flips single bits in memory under load; both files had been written from a bad cached copy \\
+44b6\_\allowbreak{}0b24845f and 44b6\_\allowbreak{}341df25f, re-proved from their .kcr & one voxel each wrong in the file; the disk, read past the cache, holds the right value & the machine flips single bits in memory under load; both files had been written from a bad cached copy \\
 fix & every .stack read for ingestion and proof now bypasses the file cache; both samples re-ingested and proved & a cached copy can no longer vouch for itself \\
 \bottomrule
 \end{longtable}
@@ -114,7 +114,7 @@ every sample ingested with its CRC, then proved from the file alone & the 25 & 2
 
 \subsection{\texorpdfstring{The anchor bits}{The anchor bits}}
 
-Per voxel and per bit, the frames of the 100 that carry the bit; the counts were written as .oapx and read back equal.
+Per voxel and per bit, the frames of the 100 that carry the bit; the counts were written as .knf and read back equal.
 
 {\small
 \setlength{\tabcolsep}{6pt}
@@ -139,7 +139,7 @@ any voxel anchored in every sample & none & the floor is per sample, not per set
 what & samples & result & settles \\
 \midrule
 \endhead
-the split driver (22 functionals, now under \texttt{engine/\allowbreak{}} and \texttt{cell\_\allowbreak{}tracking/\allowbreak{}src/\allowbreak{}}) against the driver before the split & 44b6\_\allowbreak{}0113de3b, 44b6\_\allowbreak{}0b24845f & edges, object files and every score line byte identical & the split changed nothing (proved) \\
+the split driver (22 functionals, now under \texttt{engine/\allowbreak{}} and \texttt{cell\_\allowbreak{}tracking/\allowbreak{}src/\allowbreak{}}) against the driver before the split & 44b6\_\allowbreak{}0113de3b, 44b6\_\allowbreak{}0b24845f & edges, .vbo/.ibo files and every score line byte identical & the split changed nothing (proved) \\
 \bottomrule
 \end{longtable}
 }
@@ -155,7 +155,7 @@ the split driver (22 functionals, now under \texttt{engine/\allowbreak{}} and \t
 what & samples & result & settles \\
 \midrule
 \endhead
-the driver from the new layout, run from the root, against the driver before the split & 44b6\_\allowbreak{}0113de3b, 44b6\_\allowbreak{}0b24845f & edges and score rows identical; object files identical but for the embedded .cfg naming the new paths & the move changed nothing (proved) \\
+the driver from the new layout, run from the root, against the driver before the split & 44b6\_\allowbreak{}0113de3b, 44b6\_\allowbreak{}0b24845f & edges and score rows identical; .vbo/.ibo files identical but for the embedded .cfg naming the new paths & the move changed nothing (proved) \\
 \bottomrule
 \end{longtable}
 }
@@ -219,9 +219,9 @@ SCORE, the 400 largest nodes a frame & the 25 & 0.661: edge Jaccard 0.670, node 
 what & samples & result & settles \\
 \midrule
 \endhead
-compression split out of the tower: 44b6\_\allowbreak{}0113de3b re-encoded & 44b6\_\allowbreak{}0113de3b & the .iapx byte identical to the one before the split & the coder moved unchanged (proved) \\
-every .iapx decoded by the split coder, from the file alone & the 25 & 25 of 25 hold; set CRC 091daa41e1aceb7e & the decoder moved unchanged (proved) \\
-keymath and key\_\allowbreak{}schedule split out of the cycle: the tracker run & 44b6\_\allowbreak{}0113de3b, 44b6\_\allowbreak{}0b24845f & edges identical; object files identical but for the embedded .cfg & the imprint and the layout moved unchanged (proved) \\
+compression split out of the tower: 44b6\_\allowbreak{}0113de3b re-encoded & 44b6\_\allowbreak{}0113de3b & the .kcr byte identical to the one before the split & the coder moved unchanged (proved) \\
+every .kcr decoded by the split coder, from the file alone & the 25 & 25 of 25 hold; set CRC 091daa41e1aceb7e & the decoder moved unchanged (proved) \\
+keymath and key\_\allowbreak{}schedule split out of the cycle: the tracker run & 44b6\_\allowbreak{}0113de3b, 44b6\_\allowbreak{}0b24845f & edges identical; .vbo/.ibo files identical but for the embedded .cfg & the imprint and the layout moved unchanged (proved) \\
 the residual's key, sized &  & weights 1,130 words, 4,520 bytes, plus a 256 byte term table, standing for 268 unit steps a voxel: 112,407,347,200 step applications a sample & a key's size is the program's reach, not its use \\
 \bottomrule
 \end{longtable}
@@ -229,7 +229,7 @@ the residual's key, sized &  & weights 1,130 words, 4,520 bytes, plus a 256 byte
 
 \subsection{\texorpdfstring{The entropy history}{The entropy history}}
 
-Per voxel and per bit, the flips in each window of 11 transitions (9 windows over 100 frames), read from each sample's .iapx; one .oapx a sample, 288 MiB, each read back whole against its CRC-64. Tables in \texttt{cell\_\allowbreak{}tracking/\allowbreak{}logs/\allowbreak{}entropy/\allowbreak{}44b6\_\allowbreak{}25.\allowbreak{}txt}, summarized by \texttt{maint/\allowbreak{}entropy\_\allowbreak{}summary.\allowbreak{}py}.
+Per voxel and per bit, the flips in each window of 11 transitions (9 windows over 100 frames), read from each sample's .kcr; one .knf a sample, 288 MiB, each read back whole against its CRC-64. Tables in \texttt{cell\_\allowbreak{}tracking/\allowbreak{}logs/\allowbreak{}entropy/\allowbreak{}44b6\_\allowbreak{}25.\allowbreak{}txt}, summarized by \texttt{maint/\allowbreak{}entropy\_\allowbreak{}summary.\allowbreak{}py}.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}

@@ -37,7 +37,7 @@ _Alignas(8) static const char s_client_device[] = "\" --device ";
 _Alignas(8) static const char s_client_luid[] = " --luid ";
 _Alignas(8) static const char s_client_idle[] = " --idle ";
 #else
-_Alignas(8) static const char s_client_lock[] = "/daemon.lock";
+_Alignas(8) static const char s_client_lock[] = "/tessera.lock";
 #endif
 
 struct TesseraClient
@@ -435,8 +435,7 @@ static long tessera_decided(TesseraClient *client, TesseraTicket *ticket, Engine
         {
             ticket->asked = 0u;
             ticket->lost = 1u;
-            const int named = tessera_path_lost(client->device, frame.identity, &client->signum, ticket->lost_path,
-                                                ENGINE_PATH_ROOM);
+            const int named = tessera_path_lost(client->device, ticket->lost_path, ENGINE_PATH_ROOM);
             return TESSERA_HELD(named, ticket, error, ENGINE_ERROR_REQUEST) ? 0L : TESSERA_REFUSED;
         }
         TESSERA_HELD(0, &frame, error, ENGINE_ERROR_REQUEST);

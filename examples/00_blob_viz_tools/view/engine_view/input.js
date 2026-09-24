@@ -245,11 +245,30 @@ EV.recall = (app) => {
   }
 };
 
-EV.openSource = async (app, source, sample, fromFile) => {
+// A served sample's two files, its .vbo and its .ibo.
+EV.fetchSample = async (sample) => ({
+  vertex: await fetch(`data/${sample}.vbo`, { cache: "no-store" }),
+  index: await fetch(`data/${sample}.ibo`, { cache: "no-store" }),
+});
+
+// Opens the .vbo and .ibo among the files picked or dropped, the pair named by the .vbo's sample.
+EV.openFiles = async (app, files) => {
+  const picked = Array.from(files);
+  const vertex = picked.find((file) => file.name.endsWith(".vbo"));
+  const sample = vertex ? vertex.name.replace(/\.vbo$/, "") : "";
+  const index = picked.find((file) => file.name === `${sample}.ibo`);
+  if (!vertex || !index) {
+    EV.$("where").textContent = "Open a sample's .vbo and its .ibo together.";
+    return;
+  }
+  await EV.openSource(app, { vertex, index }, sample, true);
+};
+
+EV.openSource = async (app, sources, sample, fromFile) => {
   const gpu = app.gpu;
   EV.$("where").textContent = `opening ${sample} …`;
   app.object = null;
-  const object = await EV.loadObject(gpu, source);
+  const object = await EV.loadObject(gpu, sources);
   app.sample = sample;
   app.fromFile = fromFile;
   app.compacted = "";
@@ -329,8 +348,7 @@ EV.bindControls = (app) => {
     element.addEventListener(element.type === "range" ? "input" : "change", () => EV.readControl(app, id, name, kind));
   }
   EV.$("sample").addEventListener("change", async (event) => {
-    const response = await fetch(`data/${event.target.value}.object`, { cache: "no-store" });
-    await EV.openSource(app, response, event.target.value, false);
+    await EV.openSource(app, await EV.fetchSample(event.target.value), event.target.value, false);
   });
   for (const button of document.querySelectorAll("#menu [data-show]")) {
     button.addEventListener("click", () => {
@@ -346,12 +364,7 @@ EV.bindControls = (app) => {
   EV.$("faceMachine").addEventListener("click", () => { app.view.face = "machine"; EV.showView(app); EV.paintReview(app); });
   EV.$("grip").addEventListener("click", () => { EV.$("panel").classList.toggle("pinned"); EV.remember(app); });
   EV.$("openFile").addEventListener("click", () => EV.$("fileInput").click());
-  EV.$("fileInput").addEventListener("change", async (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      await EV.openSource(app, file, file.name.replace(/\.object$/, ""), true);
-    }
-  });
+  EV.$("fileInput").addEventListener("change", async (event) => EV.openFiles(app, event.target.files));
   EV.$("snapshot").addEventListener("click", async () => EV.download(`engine_view_frame_${app.frame + 1}.png`, await EV.snapshot(app)));
   EV.$("exportCsv").addEventListener("click", () => EV.download("engine_view_cells.csv", new Blob([EV.csv(app)], { type: "text/csv" })));
   EV.$("play").addEventListener("click", () => { app.playing = !app.playing; app.heading = app.playing ? 1 : app.heading; });
@@ -522,17 +535,14 @@ EV.bindPointer = (app) => {
     EV.showView(app);
   }, { passive: false });
 
-  // Dropping an object file anywhere opens it.
+  // Dropping a sample's .vbo and .ibo anywhere opens them.
   const drop = EV.$("drop");
   window.addEventListener("dragover", (event) => { event.preventDefault(); drop.hidden = false; });
   window.addEventListener("dragleave", (event) => { if (!event.relatedTarget) drop.hidden = true; });
   window.addEventListener("drop", async (event) => {
     event.preventDefault();
     drop.hidden = true;
-    const file = event.dataTransfer.files[0];
-    if (file) {
-      await EV.openSource(app, file, file.name.replace(/\.object$/, ""), true);
-    }
+    await EV.openFiles(app, event.dataTransfer.files);
   });
   window.addEventListener("resize", () => { app.dirty = true; });
 };
@@ -604,8 +614,8 @@ EV.exposeApi = (app) => {
     state: () => EV.stateJson(app),
     cfg: () => EV.cfgText(object() ? object().cfgText : "", app.view),
     apply: (input) => EV.apply(app, input),
-    load: async (sample) => EV.openSource(app, await fetch(`data/${sample}.object`, { cache: "no-store" }), sample, false),
-    open: (file) => EV.openSource(app, file, file.name.replace(/\.object$/, ""), true),
+    load: async (sample) => EV.openSource(app, await EV.fetchSample(sample), sample, false),
+    open: (files) => EV.openFiles(app, files),
     frame: (frame) => { if (frame === undefined) return app.frame; EV.goTo(app, frame); return app.frame; },
     play: (on) => { app.playing = !!on; return app.playing; },
     choose: (cells, mode = "set") => { EV.choose(app, cells, mode); return [...app.chosen]; },
@@ -671,9 +681,9 @@ EV.start = async () => {
   const sample = samples.includes(asked) ? asked : samples[0];
   if (sample) {
     EV.$("sample").value = sample;
-    await EV.openSource(app, await fetch(`data/${sample}.object`, { cache: "no-store" }), sample, false);
+    await EV.openSource(app, await EV.fetchSample(sample), sample, false);
   } else {
-    EV.$("where").textContent = "Open an object file with the open button, or drop one on the page.";
+    EV.$("where").textContent = "Open a sample's .vbo and .ibo with the open button, or drop them on the page.";
   }
 };
 

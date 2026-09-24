@@ -29,7 +29,7 @@ static unsigned int s_ingest = 0u;
 typedef enum
 {
     RUN_SCHEDULE = 0,
-    RUN_IAPX_PROVE = 1,
+    RUN_KCR_PROVE = 1,
     RUN_ENTROPY = 2,
     RUN_FLOOR = 3,
     RUN_FLATTEN = 4,
@@ -38,7 +38,7 @@ typedef enum
     RUN_PARTS = 7
 } RunPart;
 
-static const char *const RUN_PART_NAMES[RUN_PARTS] = {"schedule", "iapx-prove", "entropy", "floor", "flatten", "track",
+static const char *const RUN_PART_NAMES[RUN_PARTS] = {"schedule", "kcr-prove", "entropy", "floor", "flatten", "track",
                                                       "fingerprint"};
 
 #define RUN_PART_ROOM 16u
@@ -91,7 +91,7 @@ static unsigned long long run_job_declared(const RunInputs *inputs, const char *
                 return 0ull;
             }
         }
-        else if (engine_iapx_head(inputs->set, inputs->samples[at], extent, &error) == 0L)
+        else if (engine_kcr_head(inputs->set, inputs->samples[at], extent, &error) == 0L)
         {
             lanes = extent[0] * extent[1] * extent[2] * extent[3];
         }
@@ -461,7 +461,7 @@ static int run_fingerprint(const RunInputs *inputs)
     memset(&error, 0, sizeof(error));
     if (flatten_read(inputs->set, &held, &error) == 0)
     {
-        track_error_report("run fingerprint: flattened.iapx", &error);
+        track_error_report("run fingerprint: the set's .ksh", &error);
         return 1;
     }
     FingerprintRequest print;
@@ -588,7 +588,7 @@ static int run_flattened_prepare(const RunInputs *inputs, FlattenHeld *held, uns
     memset(&error, 0, sizeof(error));
     if (flatten_read(inputs->set, held, &error) == 0)
     {
-        track_error_report("flattened.iapx", &error);
+        track_error_report("the set's .ksh", &error);
         return 0;
     }
     const unsigned int sample_bits = held->layout.bits[MAX_TREE_FIELD_SAMPLE];
@@ -610,7 +610,7 @@ static int run_flattened_prepare(const RunInputs *inputs, FlattenHeld *held, uns
     }
     if (good == 0)
     {
-        fprintf(stderr, "  flattened.iapx in %s does not hold its samples in order\n", inputs->set);
+        fprintf(stderr, "  the .ksh in %s does not hold its samples in order\n", inputs->set);
         return 0;
     }
     rules->flattened = held->magnitudes;
@@ -1083,7 +1083,7 @@ int main(int argc, char **argv)
             RunPart part = RUN_TRACK;
             if ((run_part_named(argv[argument], &part) == 0) || (s_part_count >= RUN_PART_ROOM))
             {
-                fprintf(stderr, "  --run %s: the parts are schedule, iapx-prove, entropy, floor, flatten, track and"
+                fprintf(stderr, "  --run %s: the parts are schedule, kcr-prove, entropy, floor, flatten, track and"
                                 " fingerprint,"
                                 " at most %u of them\n", argv[argument], RUN_PART_ROOM);
                 return 2;
@@ -1363,9 +1363,9 @@ int main(int argc, char **argv)
                         "       track_driver [--cfg run.cfg] [--cfg-out effective.cfg] [--run part ...] [--plan path]"
                         " [--pick] [--merge-split] [--merge-target] [--forward-only] [--keep-view] [--no-resolve] [--climb]"
                         " [--edges path] [--object directory] [<set> [<sample> ...]]\n"
-                        "  the source is the dataset as it came; the set holds one <sample>/<sample>.iapx per sample,"
+                        "  the source is the dataset as it came; the set holds one <sample>/<sample>.kcr per sample,"
                         " made from the source by --ingest and by nothing else\n"
-                        "  --run names one part and repeats, the parts running in the order given: schedule, iapx-prove,"
+                        "  --run names one part and repeats, the parts running in the order given: schedule, kcr-prove,"
                         " entropy, floor, flatten, track, fingerprint\n"
                         "  a .cfg names the source, the set and the samples in its input section; positional words"
                         " override it\n"
@@ -1438,7 +1438,7 @@ int main(int argc, char **argv)
         }
         return 0;
     }
-    const EngineSetRequest iapx = {directory, inputs.samples, inputs.count};
+    const EngineSetRequest crystals = {directory, inputs.samples, inputs.count};
     int failures = 0;
     for (unsigned int at = 0u; (failures == 0) && (at < s_part_count); at += 1u)
     {
@@ -1458,29 +1458,29 @@ int main(int argc, char **argv)
                 fprintf(stderr, "  run schedule: --plan names where the plan is written\n");
             }
         }
-        else if (part == RUN_IAPX_PROVE)
+        else if (part == RUN_KCR_PROVE)
         {
             EngineError error;
             memset(&error, 0, sizeof(error));
             EngineSetReport report;
             memset(&report, 0, sizeof(report));
             report.samples = (EngineSampleRecord *)calloc((size_t)inputs.count + 1u, sizeof(EngineSampleRecord));
-            EngineSetRequest prove = iapx;
+            EngineSetRequest prove = crystals;
             prove.error = &error;
             prove.report = &report;
-            failures = (engine_iapx_prove_set(&prove) == 0L) ? 0 : 1;
+            failures = (engine_kcr_prove_set(&prove) == 0L) ? 0 : 1;
             engine_prove_print(&prove, stdout);
             free(report.samples);
             if (failures != 0)
             {
-                track_error_report("iapx prove", &error);
+                track_error_report("kcr prove", &error);
             }
         }
         else if ((part == RUN_ENTROPY) || (part == RUN_FLOOR))
         {
             EngineError error;
             memset(&error, 0, sizeof(error));
-            EngineEntropySetRequest entropy = {iapx, (part == RUN_FLOOR) ? 1u : 0u};
+            EngineEntropySetRequest entropy = {crystals, (part == RUN_FLOOR) ? 1u : 0u};
             entropy.set.error = &error;
             failures = (engine_entropy_set(&entropy) == 0L) ? 0 : 1;
             if (failures != 0)

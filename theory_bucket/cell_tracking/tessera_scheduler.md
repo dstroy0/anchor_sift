@@ -10,9 +10,9 @@
 - The byte budget is a request field. The engine chooses no share; schedule.cu's free/3·2 goes.
 - One arbiter per host and device: "daemon or systemd on linux that self tears down/knocks up, single win pid, single docker hook ... this shit is getting deployed onto SaN".
 - Clients reach it over a local socket.
-- It measures each process's device memory by pid, "with periodic dead sweeps ... otherwise itll leak over time and lock down memory that is never used". Stale tickets "get dumped to lostandfound".
+- It measures each process's device memory by pid, "with periodic dead sweeps ... otherwise itll leak over time and lock down memory that is never used". Stale tickets "get dumped to lostandfound" (now `hst/lnf.log`).
 - "caller declares, we measure, they overbudget it could be for a reason we ask they can override, they underbudget we grow and report via warn so accounting isnt perturbed".
-- Over budget is judged at admission, against the last measured peak of the job's signum. An over-budget job is not thrown away: "it goes into holding before stalling and dumping to lostandfound".
+- Over budget is judged at admission, against the last measured peak of the job's signum. An over-budget job is not thrown away: "it goes into holding before stalling and dumping to lostandfound" (now `hst/lnf.log`).
 - Times (the holding time, the sweep and the idle time) are per-job fields.
 
 ## The accounting
@@ -64,7 +64,7 @@ is kept under its signum σ_j, the BLAKE3 root of its request. The engine is det
   - On each sweep it reads the device's memory and the job's pid, and warns if the job grew.
   - After every change it runs admission and tells each admitted client.
   - It keeps each process's identity: a handle on Windows, a pidfd on Linux. A reused pid can never pass for the old process.
-- **Its files** live in a state directory per device: the history (signum, peak, duration), sealed with the host BLAKE3; and `lostandfound/<identity>-<signum>/`, holding the ticket and the precalc the client writes there.
+- **Its files** live in a state directory per device. The lock is `tessera.lock`. The rest sit under `hst/`: the history `hst/head.log` (signum, peak, duration), sealed with the host BLAKE3; `hst/tail.log`, the copy each save writes before it renames it over `hst/head.log`; and `hst/lnf.log`, one append-only file of sealed blocks, each a lost job's ticket or the note a client sends when it keeps that job's precalc.
 
 ## One daemon per host
 
@@ -84,13 +84,13 @@ is kept under its signum σ_j, the BLAKE3 root of its request. The engine is det
   - A job whose signum has no history has no duration: it can never be proved not to delay the head; it is not backfilled. It waits its turn, and its first run records (p_σ, t_σ).
   - If a job overruns its expected end, the head's shadow moves later. That is measured and reported like a growth, never hidden.
 - **Time: the soonest change is the root.** Doug: "what I want is the shortest time to change of anything to be the root because that is most likely event, in order". Every deadline goes into one min-heap keyed by the time until it changes something: each live job's next sweep, each held job's holding expiry, the idle teardown. The daemon waits on its socket for at most the root's remaining time, handles the root, pushes that item's next deadline and takes the new root. Events are handled strictly in time order, and nothing is polled on a fixed tick. The shortest sweep among live jobs falls out of the heap without being chosen.
-- **Lost and found keeps the work.** When a held job stalls past its holding time, the daemon tells the client. The client writes its precalc into lost and found beside the ticket (signum, pid, start time, declared, peak, times, reason), which is sealed; the job can be resumed and not recomputed.
+- **Lost and found keeps the work.** When a held job stalls past its holding time, the daemon appends its ticket (identity, signum, pid, declared, peak, measured, times, reason) to `hst/lnf.log` as a sealed block and tells the client, with the log's path. The client keeps its precalc and says so; the daemon then appends a sealed note for that identity. The job can be resumed and not recomputed.
 
 **The seal (24 September).** The seal is `obsignatio_seal`, BLAKE3 keyed at the file level (`OBSIGNATIO_LEVEL_FILE`), and it runs on the host; the daemon still makes no CUDA call and holds no device context.
 
-- **The history file** is its records, 48 bytes each (the 32-byte signum, then the peak and the duration, 8 bytes each), followed by a 32-byte seal over them. The save builds the whole file, seals it, writes it as `history.fresh` and renames it over the history. Each failure on the way (the allocation, the seal, the open, the write, the close, the rename) is printed on stderr. The call sites still don't branch on the save's result, but a failed save is never silent.
+- **The history file** is its records, 48 bytes each (the 32-byte signum, then the peak and the duration, 8 bytes each), followed by a 32-byte seal over them. The save builds the whole file, seals it, writes it whole as `hst/tail.log` and renames it over `hst/head.log`. Each failure on the way (the allocation, the seal, the open, the write, the close, the rename) is printed on stderr. The call sites still don't branch on the save's result, but a failed save is never silent.
 - **The load** refuses a history shorter than the seal, one whose length less the seal is not a whole number of records (a short tail, or a file with no seal), and one whose seal does not hold. It names the file and the daemon exits. A missing history is a fresh start.
-- **A ticket** is its text, then a last line `seal <64 hex digits>` sealing every byte above it. A note, such as "precalc kept", goes in only when the ticket's seal holds, and the ticket is then sealed again. A ticket whose seal is broken takes no note, and the precalc kept is not answered.
+- **A ticket** is one block of `hst/lnf.log`: its text, starting `identity <16 hex digits>`, then a last line `seal <64 hex digits>` sealing every byte of the block above it. A note, such as "precalc kept", is appended as its own sealed block that starts `identity <16 hex digits>` and then the note text. It goes in only when the log holds a ticket of that identity whose seal holds. A job whose ticket's seal is broken takes no note, and the precalc kept is not answered.
 
 That was the gap before this date: the history was raw records and the ticket plain text. A damaged history of whole records read without complaint, a short tail was dropped silently, and a failed save went unreported.
 
@@ -101,7 +101,7 @@ The daemon opens its ledger and loads its history before it makes any endpoint: 
 `track_driver` runs every job through tessera. `--ingest` is one job, and so is each `--run` part.
 
 - **The signum** is the BLAKE3 hash of the part's name, a NUL, and the whole effective request; a changed setting is a new signum.
-- **The declaration** is the largest sample's lattice in 16-bit lanes. For `--ingest` it comes from the source's description (`engine_source_lanes`, which reads no voxel); for every other part, from the `.iapx` head.
+- **The declaration** is the largest sample's lattice in 16-bit lanes. For `--ingest` it comes from the source's description (`engine_source_lanes`, which reads no voxel); for every other part, from the `.kcr` head.
 - **The times** are 2 s holding, 20 ms sweep and 5 s idle.
 - **The daemon** is `tessera_daemon` beside the driver, which the driver starts when none answers.
 - **A part fails** if its job is not taken, or is held and lost; `--override` admits a held job on its declaration.
@@ -111,8 +111,8 @@ Measured on 44b6_0113de3b, in a scratch state directory:
 | run | declared and granted | peak measured |
 |---|---|---|
 | `--ingest` | 838,860,800 | 5,091,037,184 |
-| `--run iapx-prove` | 838,860,800 | 3,958,566,912 |
-| `--run iapx-prove` again | 838,860,800 | 3,962,761,216 |
+| `--run kcr-prove` | 838,860,800 | 3,958,566,912 |
+| `--run kcr-prove` again | 838,860,800 | 3,962,761,216 |
 
 The history then held two records and the seal (128 bytes), and the daemon ended once idle. Anchor_sift's run on the real state gave the same declarations and ingest peak, with the two prove peaks in the other order.
 

@@ -64,7 +64,7 @@ EXACT_FLAGS=(-I "$EXACT_ROOT" "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_E
 echo "  exact integer: $((EXACT_LIMBS * 32)) bits, $EXACT_DIGITS digits, for a question of $QUESTION_LIMBS limbs, from $EXACT_ROOT"
 
 FUNCTIONALS=(src/engine/prg_sch/run_cfg src/engine/base/cfg_json src/engine/prg_sch/run_log src/engine/base/stack
-             src/engine/base/apxrep src/engine/base/compression src/engine/base/tower src/engine/base/entropy_history
+             src/engine/base/krep src/engine/base/compression src/engine/base/tower src/engine/base/entropy_history
              src/engine/base/schedule src/engine/base/keymath src/engine/base/key_schedule src/engine/base/cycle
              src/engine/base/radix_keys src/engine/base/unit_sweep src/engine/base/obsignatio src/engine/base/residual
              src/engine/nbody/max_tree src/engine/nbody/flatten examples/cell_tracking/src/track

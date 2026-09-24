@@ -316,7 +316,7 @@ bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
             const unsigned int paths[3] = {source, set, axes};
             char **const held[3] = {&inputs->source, &inputs->set, &inputs->axes};
             const char *const refusals[3] = {"source is the dataset's directory, a path or null",
-                                             "set is the directory the engine's .iapx live in, a path or null",
+                                             "set is the directory the engine's .kcr live in, a path or null",
                                              "axes names the source's axes in order from t z y x c, or null"};
             for (unsigned int slot = 0u; good && (slot < 3u); slot += 1u)
             {

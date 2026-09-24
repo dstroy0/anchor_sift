@@ -135,7 +135,7 @@ int main(int argc, char **argv)
     std::vector<unsigned int> naturals(lanes);
     for (unsigned long long i = 0ull; i < lanes; i += 1ull) naturals[i] = zigzag(data[i]);
     const unsigned long long base_bytes = (rice_bits(naturals) + 7ull) / 8ull;
-    printf("  %-44s %12llu bytes, %3llu.%llu%% of raw\n", "the residue as the .iapx writes it", base_bytes,
+    printf("  %-44s %12llu bytes, %3llu.%llu%% of raw\n", "the residue as the .kcr writes it", base_bytes,
            100ull * base_bytes / raw_bytes, (1000ull * base_bytes / raw_bytes) % 10ull);
     fflush(stdout);
 

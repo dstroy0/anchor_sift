@@ -1,7 +1,7 @@
 # Ledger
 
 **Purpose:** Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled; no result is taken twice and none is quoted without its run.
-**Scope:** runs of the tracker, the .iapx codec and the measurement tools. Samples are named by their id; "the 25" means the first 25 44b6 training samples by name. Logs are under `cell_tracking/logs/`.
+**Scope:** runs of the tracker, the .kcr codec and the measurement tools. Samples are named by their id; "the 25" means the first 25 44b6 training samples by name. Logs are under `cell_tracking/logs/`.
 
 ## 2026-09-21
 
@@ -12,7 +12,7 @@
 | the residual from the imprinted key, lane for lane against the smoothing passes and the transform | the 25, 2,500 frames | 0 of 10,485,760,000 lanes differ | the key is the program (proved) |
 | time a frame | the 25 | 31 ms, against 24.5 ms for the passes | the key is not yet faster; factor the binomial as [1 1]^n next |
 
-### The .iapx codec
+### The .kcr codec
 
 | what | samples | result | settles |
 |---|---|---|---|
@@ -20,7 +20,7 @@
 
 ### The residue's floor: radix around a line, rotation, spiral
 
-Stream sizes against the residue as the .iapx writes it, sample 44b6_0113de3b, 340,189,016 bytes. Every alternative was decoded back and checked.
+Stream sizes against the residue as the .kcr writes it, sample 44b6_0113de3b, 340,189,016 bytes. Every alternative was decoded back and checked.
 
 | what | result | settles |
 |---|---|---|
@@ -50,7 +50,7 @@ Settles: refuted. The first ratio was a coincidence, and pairing along t hurts o
 | what | result | settles |
 |---|---|---|
 | the tower undone in the spiral and ratio runs | 180, then 80 voxels differ, each one bit (0x0100, 0x0400) | the code was cleared first: a rerun holding the coefficients found 0 moved |
-| 44b6_0b24845f and 44b6_341df25f, re-proved from their .iapx | one voxel each wrong in the file; the disk, read past the cache, holds the right value | the machine flips single bits in memory under load; both files had been written from a bad cached copy |
+| 44b6_0b24845f and 44b6_341df25f, re-proved from their .kcr | one voxel each wrong in the file; the disk, read past the cache, holds the right value | the machine flips single bits in memory under load; both files had been written from a bad cached copy |
 | fix | every .stack read for ingestion and proof now bypasses the file cache; both samples re-ingested and proved | a cached copy can no longer vouch for itself |
 
 ### The CRC-64 fold
@@ -62,7 +62,7 @@ Settles: refuted. The first ratio was a coincidence, and pairing along t hurts o
 
 ### The anchor bits
 
-Per voxel and per bit, the frames of the 100 that carry the bit; the counts were written as .oapx and read back equal.
+Per voxel and per bit, the frames of the 100 that carry the bit; the counts were written as .knf and read back equal.
 
 | what | result | settles |
 |---|---|---|
@@ -74,7 +74,7 @@ Per voxel and per bit, the frames of the 100 that carry the bit; the counts were
 
 | what | samples | result | settles |
 |---|---|---|---|
-| the split driver (22 functionals, now under `engine/` and `cell_tracking/src/`) against the driver before the split | 44b6_0113de3b, 44b6_0b24845f | edges, object files and every score line byte identical | the split changed nothing (proved) |
+| the split driver (22 functionals, now under `engine/` and `cell_tracking/src/`) against the driver before the split | 44b6_0113de3b, 44b6_0b24845f | edges, .vbo/.ibo files and every score line byte identical | the split changed nothing (proved) |
 
 ## 2026-09-22
 
@@ -82,7 +82,7 @@ Per voxel and per bit, the frames of the 100 that carry the bit; the counts were
 
 | what | samples | result | settles |
 |---|---|---|---|
-| the driver from the new layout, run from the root, against the driver before the split | 44b6_0113de3b, 44b6_0b24845f | edges and score rows identical; object files identical but for the embedded .cfg naming the new paths | the move changed nothing (proved) |
+| the driver from the new layout, run from the root, against the driver before the split | 44b6_0113de3b, 44b6_0b24845f | edges and score rows identical; .vbo/.ibo files identical but for the embedded .cfg naming the new paths | the move changed nothing (proved) |
 
 ### The competition metric
 
@@ -114,14 +114,14 @@ The training set is 71 samples of 44b6 and 128 of 6bba; the test set holds both.
 
 | what | samples | result | settles |
 |---|---|---|---|
-| compression split out of the tower: 44b6_0113de3b re-encoded | 44b6_0113de3b | the .iapx byte identical to the one before the split | the coder moved unchanged (proved) |
-| every .iapx decoded by the split coder, from the file alone | the 25 | 25 of 25 hold; set CRC 091daa41e1aceb7e | the decoder moved unchanged (proved) |
-| keymath and key_schedule split out of the cycle: the tracker run | 44b6_0113de3b, 44b6_0b24845f | edges identical; object files identical but for the embedded .cfg | the imprint and the layout moved unchanged (proved) |
+| compression split out of the tower: 44b6_0113de3b re-encoded | 44b6_0113de3b | the .kcr byte identical to the one before the split | the coder moved unchanged (proved) |
+| every .kcr decoded by the split coder, from the file alone | the 25 | 25 of 25 hold; set CRC 091daa41e1aceb7e | the decoder moved unchanged (proved) |
+| keymath and key_schedule split out of the cycle: the tracker run | 44b6_0113de3b, 44b6_0b24845f | edges identical; .vbo/.ibo files identical but for the embedded .cfg | the imprint and the layout moved unchanged (proved) |
 | the residual's key, sized | | weights 1,130 words, 4,520 bytes, plus a 256 byte term table, standing for 268 unit steps a voxel: 112,407,347,200 step applications a sample | a key's size is the program's reach, not its use |
 
 ### The entropy history
 
-Per voxel and per bit, the flips in each window of 11 transitions (9 windows over 100 frames), read from each sample's .iapx; one .oapx a sample, 288 MiB, each read back whole against its CRC-64. Tables in `cell_tracking/logs/entropy/44b6_25.txt`, summarized by `maint/entropy_summary.py`.
+Per voxel and per bit, the flips in each window of 11 transitions (9 windows over 100 frames), read from each sample's .kcr; one .knf a sample, 288 MiB, each read back whole against its CRC-64. Tables in `cell_tracking/logs/entropy/44b6_25.txt`, summarized by `maint/entropy_summary.py`.
 
 | what | samples | result | settles |
 |---|---|---|---|

@@ -61,8 +61,7 @@ int tessera_path_endpoint(const unsigned char device[TESSERA_DEVICE_BYTES], char
 
 int tessera_path_state(const unsigned char device[TESSERA_DEVICE_BYTES], char *path, unsigned int room);
 
-int tessera_path_lost(const unsigned char device[TESSERA_DEVICE_BYTES], unsigned long long identity,
-                      const EngineSignum *signum, char *path, unsigned int room);
+int tessera_path_lost(const unsigned char device[TESSERA_DEVICE_BYTES], char *path, unsigned int room);
 
 // a paravirtual device (WSL) measures no process from outside it; each job's process measures itself and says so
 int tessera_self_paravirtual(void);

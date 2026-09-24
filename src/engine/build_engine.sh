@@ -63,7 +63,7 @@ EXACT_FLAGS=(-I "$EXACT_ROOT" "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_E
 
 DEFINES=(-DBODY_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
          -DSHIFT_AGREEMENT_BUILD_DLL=1)
-MODULES=(engine/base/stack engine/base/apxrep engine/base/compression engine/base/tower engine/base/entropy_history
+MODULES=(engine/base/stack engine/base/krep engine/base/compression engine/base/tower engine/base/entropy_history
          engine/base/keymath engine/base/key_schedule engine/base/cycle engine/base/radix_keys engine/base/unit_sweep
          engine/base/obsignatio engine/base/residual engine/nbody/max_tree engine/nbody/flatten engine/nbody/grow
          engine/base/double_fields engine/base/decimal_double engine/base/scriptura engine/nbody/body_overlap

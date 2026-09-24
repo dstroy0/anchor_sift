@@ -129,7 +129,7 @@ const STRIDE = 44;
 
 function view(buffer) {
   const header = new Uint32Array(buffer, 0, 12);
-  if (header[0] !== MAGIC) throw new Error("not a room file");
+  if (header[0] !== MAGIC) throw new Error("not a .smp file");
   const [, , frames, depth, height, width, cells, links, contacts, nodes, edges] = header;
   let at = 48;
   const take = (Kind, count, width) => { const out = new Kind(buffer, at, count * width); at += count * width * Kind.BYTES_PER_ELEMENT; return out; };
@@ -867,7 +867,7 @@ canvas.addEventListener("wheel", event => { event.preventDefault(); camera.dista
 async function load(sample) {
   document.getElementById("status").textContent = `reading ${sample}…`;
   const started = performance.now();
-  const room = view(await (await fetch(`data/${sample}.room`)).arrayBuffer());
+  const room = view(await (await fetch(`data/${sample}.smp`)).arrayBuffer());
   const built = build(room);
   gl.bindBuffer(gl.ARRAY_BUFFER, device.instanceBuffer);
   gl.bufferData(gl.ARRAY_BUFFER, built.instances, gl.STATIC_DRAW);

@@ -39,9 +39,9 @@ int schedule_program(const char *set, char *const *names, unsigned int count)
         unsigned long long head[4] = {0ull, 0ull, 0ull, 0ull};
         EngineError error;
         memset(&error, 0, sizeof(error));
-        if (engine_iapx_head(set, names[at], head, &error) != 0L)
+        if (engine_kcr_head(set, names[at], head, &error) != 0L)
         {
-            fprintf(stderr, "  %s: no .iapx in %s; not scheduled\n", names[at], set);
+            fprintf(stderr, "  %s: no .kcr in %s; not scheduled\n", names[at], set);
             continue;
         }
         const unsigned long long frames = head[0];

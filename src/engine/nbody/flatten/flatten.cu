@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "flatten.h"
 
-#include "apxrep.h"
 #include "cycle.h"
 #include "engine.h"
+#include "krep.h"
 #include "max_tree.h"
 
 #include <cuda_runtime.h>
@@ -25,8 +25,30 @@ static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success"
 #define FLATTEN_IO(held_, evacaddr_, error_) \
     engine_io_check((held_), ENGINE_MODULE_FLATTEN, (unsigned int)__LINE__, (const void *)(evacaddr_), (error_))
 
-static int flatten_write_iapx(const char *path, const MaxTreeLayout *layout, char *const *names, unsigned int count,
-                              const unsigned int *device_magnitudes, unsigned long long bodies, EngineError *error)
+#define FLATTEN_SHARD_SUFFIX ".ksh"
+
+static int flatten_shard_path(char *out, size_t room, const char *set)
+{
+    size_t end = strlen(set);
+    while ((end > 1u) && ((set[end - 1u] == '/') || (set[end - 1u] == '\\')))
+    {
+        end -= 1u;
+    }
+    size_t start = end;
+    while ((start != 0u) && (set[start - 1u] != '/') && (set[start - 1u] != '\\'))
+    {
+        start -= 1u;
+    }
+    const size_t length = end - start;
+    const int dotted = (length != 0u) && (set[start] == '.')
+                    && ((length == 1u) || ((length == 2u) && (set[start + 1u] == '.')));
+    // both spans are bounded by the path room the caller holds, which an int counts
+    const int written = snprintf(out, room, "%.*s/%.*s" FLATTEN_SHARD_SUFFIX, (int)end, set, (int)length, &set[start]);
+    return (length != 0u) && (dotted == 0) && (written > 0) && ((size_t)written < room);
+}
+
+static int flatten_shard_write(const char *path, const MaxTreeLayout *layout, char *const *names, unsigned int count,
+                               const unsigned int *device_magnitudes, unsigned long long bodies, EngineError *error)
 {
     const size_t words = (size_t)bodies * layout->limbs;
     unsigned int *const host = (unsigned int *)malloc((words + 1u) * sizeof(unsigned int));
@@ -38,18 +60,18 @@ static int flatten_write_iapx(const char *path, const MaxTreeLayout *layout, cha
     const unsigned int head[4] = {MAX_TREE_FIELDS, layout->total_bits, layout->limbs, count};
     FILE *file = good ? fopen(path, "wb") : NULL;
     good = good && FLATTEN_IO(file != NULL, path, error)
-        && FLATTEN_IO(apxrep_head_write(file, APXREP_KIND_INPUT) != 0, file, error)
-        && FLATTEN_IO(apxrep_limbs_write(file, head, 4u) != 0, head, error)
-        && FLATTEN_IO(apxrep_limbs_write(file, layout->bits, MAX_TREE_FIELDS) != 0, layout->bits, error)
-        && FLATTEN_IO(apxrep_limbs_write(file, layout->offset, MAX_TREE_FIELDS) != 0, layout->offset, error);
+        && FLATTEN_IO(krep_head_write(file, KREP_KIND_SHARD) != 0, file, error)
+        && FLATTEN_IO(krep_limbs_write(file, head, 4u) != 0, head, error)
+        && FLATTEN_IO(krep_limbs_write(file, layout->bits, MAX_TREE_FIELDS) != 0, layout->bits, error)
+        && FLATTEN_IO(krep_limbs_write(file, layout->offset, MAX_TREE_FIELDS) != 0, layout->offset, error);
     for (unsigned int sample = 0u; good && (sample < count); sample += 1u)
     {
         const unsigned int length = (unsigned int)strlen(names[sample]);
-        good = FLATTEN_IO(apxrep_limbs_write(file, &length, 1u) != 0, &length, error)
+        good = FLATTEN_IO(krep_limbs_write(file, &length, 1u) != 0, &length, error)
             && FLATTEN_IO(fwrite(names[sample], 1u, length, file) == length, names[sample], error);
     }
-    good = good && FLATTEN_IO(apxrep_words_write(file, &bodies, 1u) != 0, &bodies, error)
-        && FLATTEN_IO(apxrep_limbs_write(file, host, words) != 0, host, error);
+    good = good && FLATTEN_IO(krep_words_write(file, &bodies, 1u) != 0, &bodies, error)
+        && FLATTEN_IO(krep_limbs_write(file, host, words) != 0, host, error);
     if (file != NULL)
     {
         good = FLATTEN_IO(fclose(file) == 0, file, error) && good;
@@ -60,28 +82,28 @@ static int flatten_write_iapx(const char *path, const MaxTreeLayout *layout, cha
     unsigned int read_bits[MAX_TREE_FIELDS];
     unsigned int read_offset[MAX_TREE_FIELDS];
     good = good && FLATTEN_IO(file != NULL, path, error)
-        && FLATTEN_IO(apxrep_head_read(file, APXREP_KIND_INPUT) != 0, file, error)
-        && FLATTEN_IO(apxrep_limbs_read(file, read_head, 4u) != 0, read_head, error)
+        && FLATTEN_IO(krep_head_read(file, KREP_KIND_SHARD) != 0, file, error)
+        && FLATTEN_IO(krep_limbs_read(file, read_head, 4u) != 0, read_head, error)
         && FLATTEN_HELD(memcmp(read_head, head, sizeof(head)) == 0, read_head, error, ENGINE_ERROR_LOGIC)
-        && FLATTEN_IO(apxrep_limbs_read(file, read_bits, MAX_TREE_FIELDS) != 0, read_bits, error)
+        && FLATTEN_IO(krep_limbs_read(file, read_bits, MAX_TREE_FIELDS) != 0, read_bits, error)
         && FLATTEN_HELD(memcmp(read_bits, layout->bits, sizeof(read_bits)) == 0, read_bits, error, ENGINE_ERROR_LOGIC)
-        && FLATTEN_IO(apxrep_limbs_read(file, read_offset, MAX_TREE_FIELDS) != 0, read_offset, error)
+        && FLATTEN_IO(krep_limbs_read(file, read_offset, MAX_TREE_FIELDS) != 0, read_offset, error)
         && FLATTEN_HELD(memcmp(read_offset, layout->offset, sizeof(read_offset)) == 0, read_offset, error,
                         ENGINE_ERROR_LOGIC);
     for (unsigned int sample = 0u; good && (sample < count); sample += 1u)
     {
         char name[ENGINE_PATH_ROOM];
         unsigned int length = 0u;
-        good = FLATTEN_IO(apxrep_limbs_read(file, &length, 1u) != 0, &length, error)
+        good = FLATTEN_IO(krep_limbs_read(file, &length, 1u) != 0, &length, error)
             && FLATTEN_HELD(length < sizeof(name), &length, error, ENGINE_ERROR_LOGIC)
             && FLATTEN_IO(fread(name, 1u, length, file) == length, name, error)
             && FLATTEN_HELD((length == strlen(names[sample])) && (memcmp(name, names[sample], length) == 0), name, error,
                             ENGINE_ERROR_LOGIC);
     }
     unsigned long long read_bodies = 0ull;
-    good = good && FLATTEN_IO(apxrep_words_read(file, &read_bodies, 1u) != 0, &read_bodies, error)
+    good = good && FLATTEN_IO(krep_words_read(file, &read_bodies, 1u) != 0, &read_bodies, error)
         && FLATTEN_HELD(read_bodies == bodies, &read_bodies, error, ENGINE_ERROR_LOGIC)
-        && FLATTEN_IO(apxrep_limbs_read(file, again, words) != 0, again, error)
+        && FLATTEN_IO(krep_limbs_read(file, again, words) != 0, again, error)
         && FLATTEN_HELD(memcmp(again, host, words * sizeof(unsigned int)) == 0, again, error, ENGINE_ERROR_LOGIC)
         && FLATTEN_HELD(fgetc(file) == EOF, file, error, ENGINE_ERROR_LOGIC);
     if (file != NULL)
@@ -101,16 +123,15 @@ int flatten_read(const char *set, FlattenHeld *held, EngineError *error)
     }
     memset(held, 0, sizeof(*held));
     char path[ENGINE_PATH_ROOM];
-    const int written = snprintf(path, sizeof(path), "%s/flattened.iapx", set);
-    const int named = (written > 0) && ((size_t)written < sizeof(path));
+    const int named = flatten_shard_path(path, sizeof(path), set);
     FILE *const file = named ? fopen(path, "rb") : NULL;
     unsigned int head[4] = {0u, 0u, 0u, 0u};
     int good = FLATTEN_HELD(named, set, error, ENGINE_ERROR_REQUEST) && FLATTEN_IO(file != NULL, path, error)
-            && FLATTEN_IO(apxrep_head_read(file, APXREP_KIND_INPUT) != 0, file, error)
-            && FLATTEN_IO(apxrep_limbs_read(file, head, 4u) != 0, head, error)
+            && FLATTEN_IO(krep_head_read(file, KREP_KIND_SHARD) != 0, file, error)
+            && FLATTEN_IO(krep_limbs_read(file, head, 4u) != 0, head, error)
             && FLATTEN_HELD(head[0] == MAX_TREE_FIELDS, &head[0], error, ENGINE_ERROR_LOGIC)
-            && FLATTEN_IO(apxrep_limbs_read(file, held->layout.bits, MAX_TREE_FIELDS) != 0, held->layout.bits, error)
-            && FLATTEN_IO(apxrep_limbs_read(file, held->layout.offset, MAX_TREE_FIELDS) != 0, held->layout.offset,
+            && FLATTEN_IO(krep_limbs_read(file, held->layout.bits, MAX_TREE_FIELDS) != 0, held->layout.bits, error)
+            && FLATTEN_IO(krep_limbs_read(file, held->layout.offset, MAX_TREE_FIELDS) != 0, held->layout.offset,
                           error);
     held->layout.total_bits = head[1];
     held->layout.limbs = head[2];
@@ -120,19 +141,19 @@ int flatten_read(const char *set, FlattenHeld *held, EngineError *error)
     for (unsigned int sample = 0u; good && (sample < held->samples); sample += 1u)
     {
         unsigned int length = 0u;
-        good = FLATTEN_IO(apxrep_limbs_read(file, &length, 1u) != 0, &length, error)
+        good = FLATTEN_IO(krep_limbs_read(file, &length, 1u) != 0, &length, error)
             && FLATTEN_HELD(length < 1024u, &length, error, ENGINE_ERROR_LOGIC);
         held->names[sample] = good ? (char *)calloc((size_t)length + 1u, 1u) : NULL;
         good = good && FLATTEN_HELD(held->names[sample] != NULL, &held->names[sample], error, ENGINE_ERROR_RESOURCE)
             && FLATTEN_IO(fread(held->names[sample], 1u, length, file) == length, held->names[sample], error);
     }
-    good = good && FLATTEN_IO(apxrep_words_read(file, &held->bodies, 1u) != 0, &held->bodies, error)
+    good = good && FLATTEN_IO(krep_words_read(file, &held->bodies, 1u) != 0, &held->bodies, error)
         && FLATTEN_HELD((held->layout.limbs != 0u) && (held->layout.total_bits <= (32u * held->layout.limbs)),
                         &held->layout, error, ENGINE_ERROR_LOGIC);
     const size_t words = good ? (size_t)held->bodies * held->layout.limbs : 0u;
     held->magnitudes = good ? (unsigned int *)malloc((words + 1u) * sizeof(unsigned int)) : NULL;
     good = good && FLATTEN_HELD(held->magnitudes != NULL, &held->magnitudes, error, ENGINE_ERROR_RESOURCE)
-        && FLATTEN_IO(apxrep_limbs_read(file, held->magnitudes, words) != 0, held->magnitudes, error)
+        && FLATTEN_IO(krep_limbs_read(file, held->magnitudes, words) != 0, held->magnitudes, error)
         && FLATTEN_HELD(fgetc(file) == EOF, file, error, ENGINE_ERROR_LOGIC);
     if (file != NULL)
     {
@@ -159,7 +180,7 @@ void flatten_release(FlattenHeld *held)
 static int flatten_header(const char *set, const char *name, unsigned int header[4], EngineError *error)
 {
     unsigned long long extent[4] = {0ull, 0ull, 0ull, 0ull};
-    const int good = FLATTEN_HELD(engine_iapx_head(set, name, extent, error) == 0L, name, error, ENGINE_ERROR_REQUEST)
+    const int good = FLATTEN_HELD(engine_kcr_head(set, name, extent, error) == 0L, name, error, ENGINE_ERROR_REQUEST)
                   && FLATTEN_HELD((extent[0] <= 0xFFFFFFFFull) && (extent[1] <= 0xFFFFFFFFull)
                                   && (extent[2] <= 0xFFFFFFFFull) && (extent[3] <= 0xFFFFFFFFull),
                                   extent, error, ENGINE_ERROR_REQUEST);
@@ -227,7 +248,7 @@ int flatten_set(const FlattenSetRequest *request)
         unsigned long long extent[4] = {0ull, 0ull, 0ull, 0ull};
         unsigned short *volume = NULL;
         EngineSignum volume_root;
-        good = FLATTEN_HELD(engine_iapx_load(set, names[sample], extent, &volume, &volume_root, NULL, error) == 0L,
+        good = FLATTEN_HELD(engine_kcr_load(set, names[sample], extent, &volume, &volume_root, NULL, error) == 0L,
                             names[sample], error, ENGINE_ERROR_REQUEST)
             && FLATTEN_HELD((extent[0] <= most_frames) && ((extent[1] * extent[2] * extent[3]) <= most_voxels), extent,
                             error, ENGINE_ERROR_LOGIC);
@@ -315,18 +336,17 @@ int flatten_set(const FlattenSetRequest *request)
            lost_bits);
     printf("  codebook graded on %llu frames against the full exact key: %llu faces chosen differently\n", graded,
            graded_differ);
-    printf("  %llu ms: loading and proving the .iapx %llu ms, the device %llu ms, of which the residual %llu ms\n",
+    printf("  %llu ms: loading and proving the .kcr %llu ms, the device %llu ms, of which the residual %llu ms\n",
            wall / 1000ull, read_us / 1000ull, device_us / 1000ull, residual_us / 1000ull);
     max_tree_profile_report();
-    char iapx_path[ENGINE_PATH_ROOM];
-    const int named = snprintf(iapx_path, sizeof(iapx_path), "%s/flattened.iapx", set);
-    const int proved = good && FLATTEN_HELD((named > 0) && ((size_t)named < sizeof(iapx_path)), set, error,
-                                            ENGINE_ERROR_REQUEST)
+    char shard_path[ENGINE_PATH_ROOM];
+    const int named = flatten_shard_path(shard_path, sizeof(shard_path), set);
+    const int proved = good && FLATTEN_HELD(named, set, error, ENGINE_ERROR_REQUEST)
                     && FLATTEN_HELD((lost_bits == 0ull) && (proofs == frames_done), &proofs, error, ENGINE_ERROR_LOGIC);
-    const int written = proved && flatten_write_iapx(iapx_path, &layout, names, count, magnitudes, bodies, error);
+    const int written = proved && flatten_shard_write(shard_path, &layout, names, count, magnitudes, bodies, error);
     if (written)
     {
-        printf("  the vector magnitudes are on disk: %s, %llu bodies, read back equal limb for limb\n", iapx_path,
+        printf("  the vector magnitudes are on disk: %s, %llu bodies, read back equal limb for limb\n", shard_path,
                bodies);
     }
     cudaFree(magnitudes);

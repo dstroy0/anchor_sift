@@ -48,7 +48,7 @@ static unsigned int frame_of_unified(const CoherenceInputs *inputs, unsigned int
 int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, const char *directory)
 {
     char path[ENGINE_PATH_ROOM];
-    const int written = snprintf(path, sizeof(path), "%s/%s.room", directory, inputs->sample);
+    const int written = snprintf(path, sizeof(path), "%s/%s.smp", directory, inputs->sample);
     const size_t unified = inputs->unified_first[inputs->frame_count];
     const unsigned int link_total = inputs->unified_start[unified];
     unsigned long long *const cells = (unsigned long long *)calloc((unified + 1u) * 12u, sizeof(unsigned long long));
@@ -233,8 +233,10 @@ static unsigned int object_cell_of_node(const CoherenceInputs *inputs, long node
 int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, const unsigned int *runs,
                          const unsigned int *first_run, const unsigned int *leaf_runs, const TreeRules *rules)
 {
-    char path[ENGINE_PATH_ROOM];
-    const int written = snprintf(path, sizeof(path), "%s/%s.object", rules->object_directory, inputs->sample);
+    char vertex_path[ENGINE_PATH_ROOM];
+    char index_path[ENGINE_PATH_ROOM];
+    const int vertex_written = snprintf(vertex_path, sizeof(vertex_path), "%s/%s.vbo", rules->object_directory, inputs->sample);
+    const int index_written = snprintf(index_path, sizeof(index_path), "%s/%s.ibo", rules->object_directory, inputs->sample);
     const unsigned int frame_count = inputs->frame_count;
     const unsigned int cell_count = inputs->unified_first[frame_count];
     const unsigned int link_count = inputs->unified_start[cell_count];
@@ -255,8 +257,8 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
     unsigned int *const cells = (unsigned int *)malloc(((size_t)cell_count + 1u) * 4u * sizeof(unsigned int));
     unsigned int *const links = (unsigned int *)malloc(((size_t)link_count + 1u) * 2u * sizeof(unsigned int));
     unsigned int *const edges = (unsigned int *)malloc(((size_t)edge_count + 1u) * 3u * sizeof(unsigned int));
-    int good = (written > 0) && ((size_t)written < sizeof(path)) && frame_table && leaves && sums && cells && links
-            && edges;
+    int good = (vertex_written > 0) && ((size_t)vertex_written < sizeof(vertex_path)) && (index_written > 0)
+            && ((size_t)index_written < sizeof(index_path)) && frame_table && leaves && sums && cells && links && edges;
 
     unsigned int leaf_base = 0u;
     unsigned int aberrant_leaves = 0u;
@@ -322,25 +324,34 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
         scored += (unsigned int)(inputs->edge_status[edge] >= 0);
     }
 
-    FILE *const out = good ? fopen(path, "wb") : NULL;
-    good = good && out;
+    // The .vbo carries the frames, leaves, cells, runs and cfg; the .ibo carries the links and edges that index them.
+    FILE *const vertex_out = good ? fopen(vertex_path, "wb") : NULL;
+    good = good && vertex_out;
     if (good)
     {
         const unsigned int cfg_bytes = (unsigned int)rules->cfg_length;
         const unsigned char padding[4] = {0u, 0u, 0u, 0u};
-        const unsigned int header[16] = {0x314A424Fu, 1u, frame_count, buffers->depth, buffers->height, buffers->width,
+        const unsigned int header[16] = {0x314F4256u, 1u, frame_count, buffers->depth, buffers->height, buffers->width,
                                          leaf_count, run_count, cell_count, link_count, edge_count, aberrant_leaves,
                                          aberrant_voxels, wide_sums, cfg_bytes, 0u};
-        good = (fwrite(header, sizeof(unsigned int), 16u, out) == 16u)
-            && (fwrite(frame_table, sizeof(unsigned int), (size_t)frame_count * 10u, out) == (size_t)frame_count * 10u)
-            && (fwrite(leaves, sizeof(unsigned int), (size_t)leaf_count * 4u, out) == (size_t)leaf_count * 4u)
-            && (fwrite(cells, sizeof(unsigned int), (size_t)cell_count * 4u, out) == (size_t)cell_count * 4u)
-            && (fwrite(runs, sizeof(unsigned int), run_count, out) == run_count)
-            && (fwrite(links, sizeof(unsigned int), (size_t)link_count * 2u, out) == (size_t)link_count * 2u)
-            && (fwrite(edges, sizeof(unsigned int), (size_t)edge_count * 3u, out) == (size_t)edge_count * 3u)
-            && (fwrite(rules->cfg_text, 1u, cfg_bytes, out) == cfg_bytes)
-            && (fwrite(padding, 1u, (4u - (cfg_bytes & 3u)) & 3u, out) == ((4u - (cfg_bytes & 3u)) & 3u));
-        good = (fclose(out) == 0) && good;
+        good = (fwrite(header, sizeof(unsigned int), 16u, vertex_out) == 16u)
+            && (fwrite(frame_table, sizeof(unsigned int), (size_t)frame_count * 10u, vertex_out) == (size_t)frame_count * 10u)
+            && (fwrite(leaves, sizeof(unsigned int), (size_t)leaf_count * 4u, vertex_out) == (size_t)leaf_count * 4u)
+            && (fwrite(cells, sizeof(unsigned int), (size_t)cell_count * 4u, vertex_out) == (size_t)cell_count * 4u)
+            && (fwrite(runs, sizeof(unsigned int), run_count, vertex_out) == run_count)
+            && (fwrite(rules->cfg_text, 1u, cfg_bytes, vertex_out) == cfg_bytes)
+            && (fwrite(padding, 1u, (4u - (cfg_bytes & 3u)) & 3u, vertex_out) == ((4u - (cfg_bytes & 3u)) & 3u));
+        good = (fclose(vertex_out) == 0) && good;
+    }
+    FILE *const index_out = good ? fopen(index_path, "wb") : NULL;
+    good = good && index_out;
+    if (good)
+    {
+        const unsigned int header[4] = {0x314F4249u, 1u, link_count, edge_count};
+        good = (fwrite(header, sizeof(unsigned int), 4u, index_out) == 4u)
+            && (fwrite(links, sizeof(unsigned int), (size_t)link_count * 2u, index_out) == (size_t)link_count * 2u)
+            && (fwrite(edges, sizeof(unsigned int), (size_t)edge_count * 3u, index_out) == (size_t)edge_count * 3u);
+        good = (fclose(index_out) == 0) && good;
     }
     free(frame_table);
     free(leaves);
