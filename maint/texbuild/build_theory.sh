@@ -1,11 +1,13 @@
 #!/usr/bin/env sh
-# Build every theory book under theory/ with LuaLaTeX, into build/theory/<book>/.
+# Build every theory book under theory/ with XeLaTeX, into build/theory/<book>/.
 #
 #   Usage:  sh maint/texbuild/build_theory.sh [<book> ...]
 #
 # Two passes, because the table of contents is written on the first and read on the second. The
-# engine is lualatex and not pdflatex: these books quote Salishan orthography, IPA and Greek, and
-# pdflatex stops with a fatal error on the first Greek letter it meets.
+# engine is xelatex and not pdflatex: these books quote Salishan orthography, IPA and Greek, and
+# pdflatex stops with a fatal error on the first Greek letter it meets. It is xelatex and not
+# lualatex because arXiv runs xelatex and does not run lualatex, and a local build on a different
+# engine from the archive's proves nothing about the archive's.
 #
 # Every output lands under build/. Nothing is written beside the source.
 #
@@ -61,9 +63,9 @@ for book in $BOOKS; do
     mkdir -p "$out"
     cd "$src"
     for pass in 1 2; do
-        if ! lualatex -interaction=nonstopmode -file-line-error \
+        if ! xelatex -interaction=nonstopmode -file-line-error \
                 -output-directory="$out" main.tex > "$out/pass$pass.log" 2>&1; then
-            echo "  $book: lualatex failed on pass $pass, see $out/pass$pass.log"
+            echo "  $book: xelatex failed on pass $pass, see $out/pass$pass.log"
             grep -m 5 -E "^[^ ]+\.tex:[0-9]+:" "$out/main.log" 2>/dev/null || true
             STATUS=1
         fi

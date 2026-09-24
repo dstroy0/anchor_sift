@@ -24,6 +24,7 @@
 #   uncountable      Cantor's diagonal: from any finite table of reals a real is built differing from
 #                    every row. No list catches them all.
 #   measure zero     a countable set is covered by intervals of total length epsilon for any epsilon.
+#                    Its measure is zero; the null is that the whole interval cannot be so covered.
 #
 # Prior art: Cantor 1891 (the diagonal), Turing 1936 (the computable reals are a countable subset), and
 # that the computable reals have measure zero. No bounding: every test is exact integer or rational.

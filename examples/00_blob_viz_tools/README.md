@@ -86,6 +86,7 @@ holds up when it is drawn several ways.
 ## Boundaries
 
 What a closed surface can hold, and what can be read back off it. These carry checks that fail.
+Run the check before trusting the picture.
 
 ```
 python sphere_field.py --check          the harmonics, the depth law, the null

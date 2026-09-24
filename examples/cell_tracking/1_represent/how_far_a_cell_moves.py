@@ -57,7 +57,7 @@ def centroids(labels):
     """Every label's centroid in one frame, as {label: (row, column)}.
 
     Exact over the pixels the annotation assigned. No threshold and no detector of this work's
-    enters, which is what makes this an answer key.
+    enters, which makes this an answer key and not a second reading.
     """
     out = {}
     present = numpy.unique(labels)
@@ -104,7 +104,8 @@ def main():
         here = centroids(labels)
         for label in here:
             rows, columns = numpy.nonzero(labels == label)
-            # Equivalent diameter of the label's area
+            # Equivalent diameter of the label's area, the closest thing to the width
+            # the synthetic fields called a blob width.
             sizes.append(2.0 * numpy.sqrt(len(rows) / numpy.pi))
         if previous is not None:
             for label, (row, column) in here.items():

@@ -24,7 +24,8 @@
 # The product rule predicts survivors as the product of the anchors' own rates. An anchor is
 # `element E at displacement d`, and the rate it is given credit for is how often E occurs.
 #
-# In a structure with one element every anchor matches compositionally at every occupied place. What actually filters an alignment
+# In a structure with one element every anchor matches compositionally at every occupied place.
+# Each rate is 1 and the rule predicts that nothing is filtered. What actually filters an alignment
 # there is whether the displacement lands on an occupied place at all, which is geometry and which
 # the rule does not model. So the rule OVER predicts and the ratio falls below one.
 #
@@ -54,7 +55,7 @@ def rows(path):
 
     A row is taken only where all five fields parse as the table's own types. The run writes a
     header, a blank line and a closing paragraph into the same stream, and anything that is not a
-    data row is skipped.
+    data row is skipped and not guessed at.
     """
     found = []
     with io.open(path, encoding="utf-8", errors="replace") as handle:

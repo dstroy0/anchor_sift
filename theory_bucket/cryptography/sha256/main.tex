@@ -1,10 +1,10 @@
-% !TEX TS-program = lualatex
+% !TEX TS-program = xelatex
 % Hand-written. markdown_to_latex.py is retired: theory/ is the source.
 %
 % Compile from this directory so the shared inputs resolve:
-%     latexmk -pdf -outdir=../../../build/theory/cryptography/sha256 main.tex
+%     latexmk -xelatex -outdir=../../../build/theory/cryptography/sha256 main.tex
 %
-% One directory deeper than the other books. The preamble is two levels up.
+% One directory deeper than the other books. The preamble is two levels up and not one.
 \documentclass[11pt,paper=a4,twoside,openright,titlepage,
 headinclude,footinclude,BCOR=5mm]{scrbook}
 

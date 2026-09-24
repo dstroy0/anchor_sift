@@ -57,7 +57,7 @@
 # See representation/structure/symmetry.py. A translation of 1/3 is not a decimal at any number of
 # places. Carrying an R centred operation through the decimal scale would displace every copy it
 # generates. Coordinates here are integers in units of 1/(24 * 10**SCALE_DIGITS), and an operation
-# whose denominator does not divide 24 raises. Over this corpus nothing raised:
+# whose denominator does not divide 24 raises instead of rounding. Over this corpus nothing raised:
 # 24 held every operation the deposits published.
 #
 # WHAT A FAMILY IS HERE
@@ -66,7 +66,7 @@
 # and it records the search term an entry was fetched under. That is provenance and not chemistry.
 # An entry the archive returned for "olivine" that is not an olivine is still filed under olivine,
 # because that is what happened. Entries fetched before families were recorded carry none, and are
-# counted separately.
+# counted separately instead of being guessed at.
 
 import io
 import os
@@ -89,7 +89,7 @@ FAMILIES_FILE = os.path.join(CACHE, "families.tsv")
 
 # Entries whose expansion is larger than this are read for their asymmetric unit only and counted
 # apart. A cell with 192 operations over 400 sites is 76800 placements, and the cost is in the
-# expansion. Declared here as an input, not applied quietly: the count of
+# expansion and not in the reading. Declared here as an input, not applied quietly: the count of
 # entries it holds back is printed.
 MOST_PLACEMENTS = 200000
 
@@ -168,7 +168,7 @@ def main():
         try:
             ops = symmetry.operations(text)
         except symmetry.WillNotDivide:
-            # Refused. The entry is counted and left out of the totals.
+            # Refused and not rounded. The entry is counted and left out of the totals.
             refused += 1
             continue
         if len(ops) > 1:
@@ -235,7 +235,7 @@ def main():
         "\n  entries with no shared site before expansion that have one after   %d\n"
         % newly_doped
     )
-    out.write("     This is the number that makes expansion a detection.\n")
+    out.write("     This is the number that makes expansion a detection and not a count.\n")
     out.write(
         "     Nearly every position the expansion adds is a symmetry copy of a site the\n"
     )

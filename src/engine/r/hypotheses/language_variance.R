@@ -12,7 +12,7 @@
 # Three quantities are tested and they are not expected to behave alike. The mean distance between word
 # boundaries should belong to a language, since word length does. Collision entropy should belong to it
 # partly, through the size and shape of its character inventory. The rare half against a permutation null
-# was found in earlier work to hold across every language measured.f it is a universal it should
+# was found in earlier work to hold across every language measured. If it is a universal it should
 # fail to separate them, and that failure is the result and not the absence of one.
 #
 # Chinese is held out of the main test and reported separately. It is logographic, carries 3164 distinct

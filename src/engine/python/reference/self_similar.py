@@ -12,6 +12,7 @@
 # group key is a POSITION. This groups the positions that carry the same surrounding CONTEXT and
 # averages each group; the group key is a piece of CONTENT. Everything else is identical, and that is
 # the point: non-local means and a comb filter are one operation over two different groupings.
+# Nothing is ported between them.
 #
 # The invariant it rejects against is repetition of context. A motif that occurs many times, at
 # positions with no period between them, gives many places that share one context. If the noise on the
@@ -28,11 +29,11 @@
 # of one and is left untouched, and a context corrupted by noise is a different context and does not
 # match. The noise must sit on the CENTER and not on the context it is read against. Where the
 # context is clean and recurs, the rejection is exact; where it does not, nothing is claimed. That is
-# the honest shape of the trade, stated.
+# the honest shape of the trade, stated and not tuned away.
 #
 # The context excludes the center. A value is never used to estimate itself. Positions without a
 # full context on both sides are edges and are left as they are, a declared choice reported by the
-# caller.
+# caller and not a padding invented here.
 #
 # Two routes build the group mean and share no code: one keys a dictionary by the context and averages
 # each bucket; the other, for each center, scans every center and averages those whose context equals

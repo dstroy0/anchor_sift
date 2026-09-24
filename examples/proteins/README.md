@@ -119,7 +119,7 @@ own count does not, almost never the reverse.
 The angle is not in dispute, since the decimal `atan2` agrees with a double to fourteen places.
 What differs is which residues each side scores at all. Chain ends, alternate locations and
 residues at a break are counting conventions, and the last residue of disagreement lives there. The
-geometry is exact; the residue bookkeeping is the tolerance, and it is small and named.
+geometry is exact; the residue bookkeeping is the tolerance, and it is small and named and not
 
 ## The engine boundary this subject was careful about
 
@@ -131,7 +131,7 @@ This subject keeps to the corrected shape. The reusable reader, the exact-intege
 function in the engine, `representation.structure.protein.phi_psi`, additive and domain-blind about
 everything except that a protein backbone is `N`, `CA`, `C`. The Ramachandran rules, which are
 reference data and not a reader, live beside the examples in `ramachandran_rules.py`, exactly as
-the crystallography oracle keeps its COD fetch in the example. Nothing here
+the crystallography oracle keeps its COD fetch in the example and not the engine. Nothing here
 reimplements the backbone parse, and no bound sits under the engine waiting to charge the next
 domain that reads through it.
 

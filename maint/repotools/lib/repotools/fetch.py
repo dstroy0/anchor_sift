@@ -50,7 +50,7 @@ STAMP = "repotools-stamp:"
 # so it travels with every fetch whether or not a repository named it.
 SPINE = "lib/repotools"
 
-# A set that cannot work without another one. Held here  because a fetch can
+# A set that cannot work without another one. Held here and not in the CLI, because a fetch can
 # be driven from a script and the dependency has to travel with the mechanism instead of with one
 # caller of it.
 SET_NEEDS = {
@@ -90,7 +90,21 @@ def digest(text):
 
 
 def is_stamp(line):
+    """Whether `line` is a stamp line, as apply_stamp writes one.
 
+    A stamp line is a comment marker, the stamp token, a path and a digest, in that order. The test
+    used to be `STAMP in line`, which is true of any line mentioning the token anywhere.
+
+    This file breaks under that, and it broke silently. Line 46 here is
+
+        STAMP = "repotools-stamp:"
+
+    and it contains the token. Fetching lib/repotools stripped this module's own constant out of
+    the installed copy. Every repository that fetched the spine got a fetch.py whose STAMP is
+    undefined, and `repotools check` died on NameError the moment it reached this function. It went
+    unseen because check raised earlier, in the toolkit walk, and the first crash hid the second.
+    A tool that cannot copy itself correctly is the single defect a toolkit cannot afford.
+    """
     body = line.strip()
     if not body:
         return False
@@ -184,7 +198,7 @@ def _set_files(toolkit, one_set):
     also imports `codemask` and `nsconv` as siblings from its own tools directory. Both were left
     carrying five files they would rather have fetched, to decline three.
 
-    Naming a file  because the collisions are
+    Naming a file instead of splitting the set into ever smaller sets, because the collisions are
     per file and a set that is subdivided until nothing collides has stopped being a grouping.
     """
     base = os.path.join(toolkit, one_set.replace("/", os.sep))

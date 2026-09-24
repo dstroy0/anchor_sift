@@ -2,8 +2,8 @@
 
 \section{Rotation and scale as translations}
 
-The magnitude of a Fourier transform does not change when the image translates,  it is
-called the Fourier-Mellin invariant. Resample that magnitude on a log-polar grid and the two
+The magnitude of a Fourier transform does not change when the image translates, and for this reason it
+is called the Fourier-Mellin invariant. Resample that magnitude on a log-polar grid and the two
 remaining similarity parameters become translations: a rotation of the image is a translation
 along the angle axis, and a uniform scaling by a constant factor is a translation along the log
 radius axis. Phase correlation in log-polar space recovers rotation and scale, the image is corrected
@@ -34,7 +34,7 @@ three dimensional point clouds.
 
 A space of spherical harmonics of degree \(n\) has dimension \(2n+1\), and its members are
 eigenfunctions of the Laplace-Beltrami operator with eigenvalue \(n(n+1)\). Degree 1 is where a rigid
-turn of the whole sphere lives,  rotation is read off the lowest degrees and finer
+turn of the whole sphere lives. Rotation is therefore read off the lowest degrees and finer
 motion off higher ones.
 
 \section{Perspective}
@@ -58,5 +58,5 @@ based registration keeps it. One published method, built for multi-view volumetr
 embeds fiducial points and matches their constellations with a local geometric descriptor invariant
 to translation and rotation, reaching an average displacement of about one pixel. Because it depends
 only on repeatable point detections it is more robust than intensity based registration and orders of
-magnitude faster, and the same software is used to stabilise three dimensional time series, not only
+magnitude faster, and the same software is used to stabilize three dimensional time series, not only
 to align views.

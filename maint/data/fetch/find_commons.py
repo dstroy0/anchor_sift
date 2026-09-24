@@ -8,7 +8,8 @@
 #   Usage:  python maint/data/fetch/find_commons.py
 #
 # The first attempt at the two extremes asked for a drip painting and a color field painting by guessed
-# titles and got two 404s. The titles were wrong, and behind that both works are still in copyright.
+# titles and got two 404s. The titles were wrong, and behind that both works are still in copyright. The
+# repository does not hold them at all and no title would have worked.
 #
 # The extremes have to come from painters whose work is out of copyright, and the test is unharmed by
 # that, since what it needs is a range of abruptness and not any particular canvas. Hard edged flat

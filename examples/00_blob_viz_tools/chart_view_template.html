@@ -397,7 +397,7 @@
       return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     }
 
-    // Series colors are spread around the hue circle. Any
+    // Series colors are spread around the hue circle and not taken from a fixed list. Any
     // number of series stays distinguishable instead of repeating after the list runs out.
     var series = DATA.series.map(function (one, at) {
       return {
@@ -479,7 +479,7 @@
       return pad.top + ((high - here) / (high - low)) * at;
     }
 
-    /** Ticks on round numbers  which is what makes a chart
+    /** Ticks on round numbers and not on the data's own extremes, which makes a chart
       readable at a glance instead of needing its labels parsed. */
     function ticks(low, high, want) {
       var raw = (high - low) / want;

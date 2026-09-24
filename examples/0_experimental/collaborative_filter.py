@@ -12,17 +12,18 @@
 # holes: to fill a missing entry, find the rows that agree with its row wherever both have values, and
 # average what those neighbors put in the missing column.
 #
-# It is application logic, not an engine primitive, and it lives here. A
+# It is application logic, not an engine primitive, and it lives here and not in reference/ for a
+# reason worth stating: reference/ is the null a reading stands AGAINST -- memoryless, solved for. A
 # group-mean is the signal estimate a reading is measured INTO. A denoiser OUTPUTS it; nothing outputs
 # a null. Same mathematical form, opposite role. The estimate is application and only the null is a
 # reference-stage object.
 #
 # TWO ROUTES THAT CAN GENUINELY DISAGREE: the field's own two methods. User-based filtering averages
 # down the missing column over the ROWS that agree; item-based averages across the row over the COLUMNS
-# that agree. They read the table along different axes and
+# that agree, the same rule on the transpose. They read the table along different axes and
 # share no traversal. On a table that is a row effect plus a column effect they return the same value
 # to the last digit; on a table with no such structure they disagree, and the disagreement is the
-# finding. Nothing is bounded: agreement is exact equality on the overlap. There is
+# finding and not a bug. Nothing is bounded: agreement is exact equality on the overlap. There is
 # no similarity cutoff; a row whose effect is unique has no neighbors and its holes are left unfilled.
 
 import io
@@ -163,7 +164,7 @@ def main():
     out.write(
         "  because the structure is real. the floor is a row whose effect is unique: no neighbor,\n"
     )
-    out.write("  so the hole is left.\n")
+    out.write("  so the hole is left and not filled.\n")
     out.flush()
     return (
         0

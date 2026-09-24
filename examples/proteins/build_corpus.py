@@ -10,8 +10,9 @@
 #   Usage:  python examples/proteins/build_corpus.py [how many]
 #
 # The draw is the same one the oracle uses: every X-ray protein entry in the Protein Data Bank,
-# shuffled by a held seed. A smaller number is a prefix of that shuffle and a larger one extends it,
-# , a corpus of 10000 contains the oracle's 1000 and every number between.
+# shuffled by a held seed. A smaller number is a prefix of that shuffle and a larger one extends it.
+# A corpus of 10000 contains the oracle's 1000 and every number between. The oracle already cached
+# the id list under build/rama; this reads it and never re-asks the search.
 #
 # The target is a count to reach, not a slice off the top. An id with no PDB-format coordinate file
 # is skipped and the next drawn, until the target many are cached. The archive is open and keyless,

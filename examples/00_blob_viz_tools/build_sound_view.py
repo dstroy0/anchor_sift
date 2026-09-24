@@ -101,6 +101,7 @@ def main():
     starts = list(range(0, len(values) - fft_size + 1, hop))
     if len(starts) > frames_max:
         # Spread the kept frames across the whole signal and never take the first of them.
+        # The picture is of the recording and not of its opening second.
         step = len(starts) / float(frames_max)
         starts = [starts[int(i * step)] for i in range(frames_max)]
 

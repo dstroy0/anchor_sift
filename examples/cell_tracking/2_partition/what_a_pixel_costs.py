@@ -23,7 +23,8 @@
 # three gives a different picture, and so none of them can be reported as either of the others.
 #
 # THE ANSWER EXISTS BEFORE THE MEASUREMENT. Every field here is displaced by an amount this file
-# chose, using a Fourier shift, which moves a band-limited field by a real number exactly. So the truth is not an annotation and not a reading: it is an
+# chose, using a Fourier shift, which moves a band-limited field by a real number exactly and not
+# by interpolating between samples. So the truth is not an annotation and not a reading: it is an
 # input. theory/workbook records that a positive control with a known answer is what the permutation
 # null measure has never had, and what the spectral exponent got by building fields to a chosen
 # exponent and reading them back. This is that arrangement for displacement.
@@ -208,7 +209,7 @@ def main():
         # and this is the background. If the two columns agree, the fraction carries nothing.
         plain.append(abs(lag - truth))
         # The other axis moved by nothing. Anything but zero there is the reading inventing a
-        # displacement. Reported on every row  because a control quoted once is a
+        # displacement. Reported on every row and not once, because a control quoted once is a
         # control that stopped being checked.
         cross_lag, cross_fraction, _ = recover(first, second, axis=1)
         out.write(

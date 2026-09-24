@@ -24,7 +24,7 @@
 # The third is what the objective is reaching for when it asks for the best next move. A position
 # where one move wins and the rest lose has a large I(X;Y) -- the choice decides the game. A position
 # where every move leads to the same distribution has none, and in that position there is no best
-# move to find, which is a fact about the position.
+# move to find, which is a fact about the position and not a failure to decide.
 #
 # UNRESOLVED IS NOT FOLDED IN. Where the budget runs out the mass lands on UNRESOLVED and the entropy
 # is reported twice: over the resolved outcomes renormalized, and over all four categories. The first
@@ -73,7 +73,8 @@ def measure(title, game, state, plies, namer=str, conditioning=rules.ADVERSARY, 
     print("  moves       : %d" % len(table))
 
     # Both category sets, because on a shallow budget they answer different questions and the
-    # resolved-only reading can collapse to zero for a reason that is about the budget. A move whose branch resolved nothing contributes no term to the
+    # resolved-only reading can collapse to zero for a reason that is about the budget and not
+    # about the position. A move whose branch resolved nothing contributes no term to the
     # resolved-only entropy. A position where one move mates and nineteen run out of depth has
     # every informative term dropped and reports a gain of zero. Over all four categories the same
     # position reports what it should, because "the search did not finish" is itself one of the

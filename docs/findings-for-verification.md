@@ -20,7 +20,7 @@ Builds referenced are MSVC 19.44 x64 Release and MinGW gcc, both exercised. Run 
 
 ### F2. The vectorized scan is flag confined to its own source
 
-`/arch:AVX2` and `-mavx2` are set with `set_source_files_properties` on `vectorized_win/anchor_steer_avx2.c`, not on the target. A target level flag would let the compiler emit AVX2 into the portable path, which is an illegal instruction on a machine without it.
+`/arch:AVX2` and `-mavx2` are set with `set_source_files_properties` on `vectorized_win/anchor_steer_avx2.c`, not on the target. A target level flag would let the compiler emit AVX2 into the portable path, which is an illegal instruction on a machine without it and not a slower answer.
 
 **Check:** `grep -n "set_source_files_properties" src/engine/c/CMakeLists.txt`.
 
@@ -64,7 +64,7 @@ A probe rejects a definite set of alignments; a probe set rejects their union; `
 
 ### F8. The sweep enumerates the whole legal probe set
 
-`anchor_steer_probe_fits` is the boundary function, domain probes by needle length, range `{0,1}`. `anchor_steer_sweep_probes` enumerates origins to `needle_len`, lengths to `max_length` and steps to `needle_len`, putting every candidate to the boundary function before scoring it. Every bound is an argument or a compile time constant and none is read from the corpus. That is what makes the argmax exact.
+`anchor_steer_probe_fits` is the boundary function, domain probes by needle length, range `{0,1}`. `anchor_steer_sweep_probes` enumerates origins to `needle_len`, lengths to `max_length` and steps to `needle_len`, putting every candidate to the boundary function before scoring it. Every bound is an argument or a compile time constant and none is read from the corpus, and that makes the argmax exact and not sampled, as F7 needs.
 
 ### F9. The volume renderer, with its bijection checked
 
@@ -88,7 +88,7 @@ A probe rejects a definite set of alignments; a probe set rejects their union; `
 
 Recorded as "around one percent of the cycles the worst rule gives up". Measured, with the gate in F10 fixed so the driver runs at all, it is **0.035** on x64 MSVC 19.44 at Release, 39 of 42 rows, 9131790 cycles. The one percent corresponds to no run recoverable from this tree.
 
-**And 0.035 does not reproduce either.** The theorist ran the same bench under gcc and got 41 of 42 at 86511 cycles, share 0.000. A hundredfold gap in cycles, not rounding, and both are real runs. The figure belongs to the toolchain that produced it and must be quoted with one. A rule scored by row count is fragile precisely where two engines sit within noise of each other.
+**And 0.035 does not reproduce either.** The theorist ran the same bench under gcc and got 41 of 42 at 86511 cycles, share 0.000. A hundredfold gap in cycles, not rounding, and both are real runs. The figure belongs to the toolchain that produced it and must be quoted with one. A rule scored by row count is fragile precisely where two engines sit within noise of each other. That is the argument the bench's own closing note makes for scoring by cycles given up.
 
 **The needle length term is dead weight on this data, which R1 never mentioned.** Flatness alone ties the kernel exactly, same rows and same cycles on the theorist's run. The length term changes no answer across 42 rows. "Flatness then length, as documented" scores strictly worse than the flatness it contains, and the shipped rule of length alone is worse than both. So the document is beaten by the kernel it documents and the kernel is behaviorally the simpler rule. The sweep's own text already supports it: a structured corpus takes the free order engine at every length, and the ceiling of 16 it used to carry survives at no value. A tunable with no reader is an integration point, never deleted and never called unimplemented. It is named and kept until a row is found where it pays.
 
@@ -158,7 +158,7 @@ I told the crystallography session that nothing of the engine work was committed
 
 `0474582 src anchor_sift rewrite`, authored 2026-09-16 08:47:49, is HEAD of `worktree-engine-steer-exact` and touches `src/engine/c/portable/anchor_sift.{c,h}`, three benches, `CMakeLists.txt` and `test/engine/test_arm_agreement.c`. Verified by `git log` and `git show` here after they reported it from their own worktree.
 
-So the rewrite is in the tree and only the work on top of it is uncommitted. The distinction matters to whoever commits next, because a commit lands on a branch that has already moved.
+So the rewrite is in the tree and only the work on top of it is uncommitted. The distinction matters to whoever commits next, because a commit lands on a branch that has already moved and not on a branch that has not.
 
 ### R8. The overflow merged by arrival order, and the header claimed it merged by rarity
 
@@ -170,7 +170,7 @@ Two fields with the same frequency multiset and opposite arrangements, 256 class
 
 **The natural arrangement is the harmful one.** A class occurring once has one chance to arrive early; a class occurring nine times has nine. Rare classes therefore arrive late and the overflow ate exactly them, at mean occupancy 1.06. The rarest class is the best probe the steering has. The degradation spent the thing the projection exists to find.
 
-**Fixed by refusing.** A field holding more classes than a byte rank can name now returns 0 with `distinct` set to 0,. That also enforces the advice already given to three sessions whose fields are this shape: do not project, hand the oracle to a descent, which needs no ranks, no closure and no table. Tested: 400 distinct classes refused, `distinct` reporting 0.
+**Fixed by refusing.** A field holding more classes than a byte rank can name now returns 0 with `distinct` set to 0, instead of degrading silently. That also enforces the advice already given to three sessions whose fields are this shape: do not project, hand the oracle to a descent, which needs no ranks, no closure and no table. Tested: 400 distinct classes refused, `distinct` reporting 0.
 
 The theorist's alternative fix, labelling with a separate `uint32_t` array of `length` entries so the component count runs unbounded and the clamp applies at relabel time, would make the original sentence true. It needs a caller supplied label array, because the kernel allocates nothing, and it is not taken here. Refusing is smaller and it is the honest answer for a byte ranked output.
 
@@ -182,7 +182,7 @@ Measured by the theorist on the same 400 class field, 2448 positions, 256 ranks,
 
 Across every needle position: 150 needles where the projected survivor count is strictly above the exact one, and **zero** where it falls below. Sample rows show exact 6 against projected 150.
 
-So F7's inequality is the right assertion and my own test could not reach the strict case, because 6 classes against 256 ranks means no merge occurred and projected and exact were identical. An equality assertion would have passed that run unchanged.
+So F7's inequality is the right assertion and my own test could not reach the strict case, because 6 classes against 256 ranks means no merge occurred and projected and exact were identical. An equality assertion would have passed that run unchanged. That is the thing that made the test weak evidence.
 
 Unchanged under the transitive closure, for a stated reason: a different rank means no edge in the closure. The predicate is false on that pair. Agreement still implies a shared rank. The closure only makes same-rank weaker, which widens the gap the inequality allows and cannot invert it.
 
@@ -198,7 +198,7 @@ Found by the theorist in published code, verified here, fixed at `ca62234`.
 
 **Fixed by correcting the document, not by removing the parameter**, because a tunable with no reader is an integration point that is never deleted and never described as unimplemented. The declaration now says the call builds its own census from `corpus`, that this parameter is reserved for a caller supplied rarity source, and that an earlier form of the line called it the rarity source and was wrong. The same note sits at the discard site. A reader of either meets it.
 
-\*\*Swept for the class. Every discarded parameter in the engine and the renderer was checked: `raster_value`'s is a static helper, and `anchor_raster_device`'s are the stub arm on a build with no CUDA, which is documented as refusing. `census` was the only public parameter documented as used and not used.
+**Swept for the class and not the instance**, the lesson from R8's sibling an hour earlier. Every discarded parameter in the engine and the renderer was checked: `raster_value`'s is a static helper, and `anchor_raster_device`'s are the stub arm on a build with no CUDA, which is documented as refusing. `census` was the only public parameter documented as used and not used.
 
 ## Open
 
@@ -218,9 +218,9 @@ The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:6
 
 **The corrected classification.** One descent is a finite automaton WITH data dependent control flow, bounded above by a constant. It is not a fixed depth decision procedure, because the destroy test is a genuine conditional branch on data deciding whether to recurse. The constant is what still rules out universality.
 
-**Why removing the cap would not reach universality over a fixed corpus.** The probe family is fixed by `needle_len` and `max_length`, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent halts with or without the bound. A growing corpus grows the family, O2 is still the one term and the tag route still the target.
+**Why removing the cap would not reach universality over a fixed corpus.** The probe family is fixed by `needle_len` and `max_length`, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent halts with or without the bound. A growing corpus grows the family. That is why O2 is still the one term and the tag route still the target.
 
-**One argument from the earlier version is retired outright.** It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating: non-cycling on a finite state space forces termination.
+**One argument from the earlier version is retired outright.** It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating: non-cycling on a finite state space forces termination instead of permitting unbounded depth.
 
 **Scope, stated tightly.** This classifies a SINGLE DESCENT over a fixed corpus and needle. `wanted` is `args->count`, a caller supplied value. A caller may compute it from data; within one descent it is fixed and the above holds, and across descents that is the caller's loop, which is exactly the boundary O2 draws.
 
@@ -230,13 +230,13 @@ The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:6
 
 Found by the theorist while writing `docs/inspection-points.md`, and it is sharper now than it would have been this morning.
 
-The engine computes `best_standing` at every level of the descent and compares it against `steer_truthy_total` to decide whether to stop. Then it discards it. `placed` reports the depth reached, and the raster's `DEATH_LEVEL` channel reports which probe killed each alignment, and **nothing between those two reports the survivor count at each level**
+The engine computes `best_standing` at every level of the descent and compares it against `steer_truthy_total` to decide whether to stop. Then it discards it. `placed` reports the depth reached, and the raster's `DEATH_LEVEL` channel reports which probe killed each alignment, and **nothing between those two reports the survivor count at each level**, the number the decision actually turned on.
 
 A caller who wants it today runs the descent twice with `force_full_depth` flipped and subtracts. That recovers the fact that the destroy rule fired and what its firing cost. It does not recover the reason.
 
-**Why it matters more after F15.** Four documents were just corrected to say depth is a data dependent steer. The quantity that steer reads is not reported by the engine.
+**Why it matters more after F15.** Four documents were just corrected to say depth is a data dependent steer and not a constant. The quantity that steer reads is not reported by the engine.
 
-The shape would be a caller supplied array of `count` entries, filled with the survivor count at each level. Nothing is blocked on it and nothing is being built.
+The shape would be a caller supplied array of `count` entries, filled with the survivor count at each level, the same contract every other buffer here already has. Nothing is blocked on it and nothing is being built.
 
 ### O2. WANT: the one term that would make the engine a computer
 
@@ -244,9 +244,9 @@ The shape would be a caller supplied array of `count` entries, filled with the s
 
 **The term.** The entries take `const uint8_t *corpus` with a `corpus_len`, which is a window nailed down. The engine cannot ask for more universe. The change is a reader the engine may call for more, in place of a pointer and a length.
 
-**Why that is sufficient and not merely necessary** Unbounded READ alone does not buy universality: a finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can come back to it. But a reader is a callback the CALLER backs, and a caller can back it with a store that the previous descent's results extend. The write lives in the caller's loop, the engine stays `const`, and the engine still ends up reading what it itself produced. No write primitive enters the engine at all.
+**Why that is sufficient and not merely necessary**, the part that was missing. Unbounded READ alone does not buy universality: a finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can come back to it. But a reader is a callback the CALLER backs, and a caller can back it with a store that the previous descent's results extend. The write lives in the caller's loop, the engine stays `const`, and the engine still ends up reading what it itself produced. No write primitive enters the engine at all.
 
-**What it composes into, and this is what makes it cheap to keep.** Growth happens only BETWEEN descents on the refuse branch. Inside a descent survivors still only shrink. Soundness, the anytime property and termination are all intact at the inner level, since all three follow from that one monotonicity. The result is a Turing complete outer machine whose every inner step is a sound, terminating, interruptible filter. The universality lives in the composition and the inner loop does not change.
+**What it composes into, and this is what makes it cheap to keep.** Growth happens only BETWEEN descents, on the refuse branch: the "ask another slightly different question" shape. Inside a descent survivors still only shrink. Soundness, the anytime property and termination are all intact at the inner level, since all three follow from that one monotonicity. The result is a Turing complete outer machine whose every inner step is a sound, terminating, interruptible filter. The universality lives in the composition and the inner loop does not change.
 
 **The reduction target is named. Nobody owes a universality proof.** Read a window, act on what was read, append, continue is a tag system. Post introduced them in 1943, Minsky proved 2-tag systems universal in 1961, Cocke and Minsky tightened it in 1964. What would be owed is an encoding into that shape, not a proof from scratch.
 
@@ -258,7 +258,7 @@ The shape would be a caller supplied array of `count` entries, filled with the s
 
 ### F14. O3 measured: the oracle is flat in alphabet size and the table is not, with a crossover
 
-Built and measured by the theorist, who went looking for where the table route WINS. Both routes answer the same question, ordering four candidate needle offsets by symbol rarity. Table is a direct indexed counter per symbol value, the census generalized to a four byte symbol. Oracle is `anchor_steer_plan_recursive` with `any` set. Four byte symbols, needle 16, each timing repeated to at least 60 ms.
+Built and measured by the theorist, who went looking for where the table route WINS and not for the flat line. Both routes answer the same question, ordering four candidate needle offsets by symbol rarity. Table is a direct indexed counter per symbol value, the census generalized to a four byte symbol. Oracle is `anchor_steer_plan_recursive` with `any` set. Four byte symbols, needle 16, each timing repeated to at least 60 ms.
 
 **Alphabet grows, corpus fixed at 131072:**
 
@@ -281,7 +281,7 @@ The oracle column is flat across a 65536 fold increase in sigma, with no trend. 
 
 **One behavioral note from the same run.** `placed` came back 2 at sigma 2^8 and 2^12 and 1 from 2^16 up: at a large alphabet the first probe cuts the survivors far enough that a second adds nothing. That also explains why the oracle's small sigma rows are its slowest. It is doing more work there, not suffering from sigma.
 
-So the claim boundary in O3 is now partly closed. The trend is measured, it is the trend the construction predicts, and the regime where the table is the right choice is named.
+So the claim boundary in O3 is now partly closed. The trend is measured, it is the trend the construction predicts, and the regime where the table is the right choice is named and not waved at.
 
 ### O3. The alphabet size bench, which would produce a new number
 
@@ -307,11 +307,11 @@ Clifford, Jalsenius, Porat and Sach, "Space Lower Bounds for Online Pattern Matc
 
 **The exact byte path falls on the `Omega(log m)` and `O(log^2 m)` side.** Porat and Porat, FOCS 2009, do exact pattern matching in a stream in `O(log m log n)` bits. So the engine carrying `m` bits on the exact path is not meeting a lower bound. It is roughly `m` over a known upper bound.
 
-**The rank projected path is the candidate case and nothing is asserted about it.** Matching on equivalence classes, where a needle position of rank `r` accepts any corpus symbol of rank `r`, is pattern matching with character classes, which the paper names explicitly as an `Omega(m)` case. The reduction has not been written and the theorem is not claimed to transfer. What is established is only that the projected path is where this citation plausibly applies and the exact path is where it plainly does not.
+**The rank projected path is the candidate case and nothing is asserted about it.** Matching on equivalence classes, where a needle position of rank `r` accepts any corpus symbol of rank `r`, is pattern matching with character classes, which the paper names explicitly as an `Omega(m)` case. The reduction has not been written and the theorem is not claimed to transfer. What is established is only that the projected path is where this citation plausibly applies and the exact path is where it plainly does not. That is the opposite of how the entry read.
 
 **Also corrected: the bound is not deterministic only.** Verbatim: "We require that the correct answer is given at each position with constant probability." It binds randomized algorithms too. A summarizer told the theorist deterministic only and the abstract contradicted it. "The lower bound is only for deterministic algorithms" is exactly the plausible sentence that would otherwise have been written here.
 
-**Why the engine carries `m` bits anyway, and it is an interface cost.** The `O(log^2 m)` route is fingerprinting, reached by combining Karp-Rabin with KMP. Karp-Rabin needs arithmetic on symbols, treating them as numbers modulo a prime. `AnchorField` exposes equality and nothing else: no order, no hash, no element size, no arithmetic. The engine cannot reach that regime, and the reason is its own oracle.
+**Why the engine carries `m` bits anyway, and it is an interface cost and not a theorem.** The `O(log^2 m)` route is fingerprinting, reached by combining Karp-Rabin with KMP. Karp-Rabin needs arithmetic on symbols, treating them as numbers modulo a prime. `AnchorField` exposes equality alone: no order, no hash, no element size, no arithmetic. The engine cannot reach that regime, and the reason is its own oracle.
 
 **That is the same trade F14 measured, priced in the other currency.** The equality-only oracle buys independence from alphabet size. F14 prices that in time: a 7.4 times constant factor per corpus symbol, with a crossover near six times the corpus length. This prices it in space: `m` bits where `O(log^2 m)` is achievable for exact matching, because fingerprinting is closed to an engine that refuses to expose a representation. One interface decision, two measured costs. That is a better account of what the oracle costs than a lower bound the engine was never up against.
 
@@ -321,7 +321,7 @@ Sources: [arXiv:1106.4412](https://arxiv.org/abs/1106.4412) for the lower bounds
 
 ## What the theorist is asked to do
 
-Transcribe the holds and the retractions into the workbooks in their own words, and verify. The three I most want attacked are F5, because the domain and range argument is mine and short enough to be wrong quickly; F8, because F7's bound depends on the enumeration being complete and I have asserted completeness from reading the loops.
+Transcribe the holds and the retractions into the workbooks in their own words, and verify and not copy. The three I most want attacked are F5, because the domain and range argument is mine and short enough to be wrong quickly; F8, because F7's bound depends on the enumeration being complete and I have asserted completeness from reading the loops and not from a test; and O1, which is open and which two competent arguments currently split.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-16

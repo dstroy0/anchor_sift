@@ -8,6 +8,7 @@
 #   python maint/texbuild/submission_package.py --archive zip    every book, zip
 #   python maint/texbuild/submission_package.py --archive none   directories only
 #   python maint/texbuild/submission_package.py <book> ...       named books
+#   python maint/texbuild/submission_package.py --arxiv [<book>] arXiv's shape, under build/arxiv/
 #
 # Writes build/submission/<book>/ and, unless --archive none, an archive beside it. Nothing under
 # theory/ is modified: the rewrite happens on the copy, and the source keeps the shared preamble it
@@ -21,7 +22,8 @@
 # that wants only the built PDF still needs the build to have worked somewhere.
 #
 # So the assembly and the checks below are the whole job and they are the same every time. The
-# archive format is the only part that changes, and it is a flag.py and that was the wrong shape: it made one venue's
+# archive format is the only part that changes, and it is a flag and not a name baked into the
+# file. This started life as arxiv_package.py and that was the wrong shape: it made one venue's
 # packaging look like a property of the work.
 #
 # WHY ANY OF IT IS NEEDED
@@ -69,7 +71,15 @@
 #                  each one is somebody's local state.
 #   nothing unread A .tex no \input or \include chain reaches from main.tex is dropped. An old
 #                  draft nobody compiles still publishes.
-#   four passes    \typeout after \end{document} makes arXiv run LaTeX until the labels settle.
+#   no notes       A Markdown file is dropped. The ones beside a book are working notes and logs,
+#                  and LaTeX reads none of them. Any other file that is not source or a figure is
+#                  named and kept.
+#   four passes    \typeout just before \end{document} makes arXiv run LaTeX until the labels
+#                  settle. It was once placed after \end{document}, where LaTeX has already stopped
+#                  reading and the line never reached the log.
+#   00README.json  The engine, the top-level file and the TeX Live release, in the JSON form arXiv
+#                  reads (https://info.arxiv.org/help/00README.html, read 2026-09-23). Without it
+#                  arXiv guesses the engine from the source, and these books need xelatex.
 #   flat tarball   No wrapping directory, which is what `tar -cvvf ax.tar *` produces from inside
 #                  the assembled copy.
 #   metadata.txt   The title, the authors and the abstract with the LaTeX taken out and the line
@@ -80,6 +90,7 @@
 # output, and a person uploads them.
 
 import io
+import json
 import os
 import re
 import shutil
@@ -89,10 +100,10 @@ import tarfile
 import zipfile
 
 def _repository_root():
-    """This repository, asked of git.
+    """This repository, asked of git and not inferred from a marker directory.
 
-    The marker climbed to before was build/, which the repository PRODUCES  so
-    a linked worktree and a never-built clone both lack it. The climb then walked past the root it
+    The marker climbed to before was build/, which the repository PRODUCES and not CONTAINS. A
+    linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
     which is indistinguishable from working.
@@ -103,7 +114,7 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository 
+    inherits it answers about that repository and not about the directory it was asked from,
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
@@ -136,13 +147,26 @@ THEORY = os.path.join(ROOT, "theory")
 THEORY_BUCKET = os.path.join(ROOT, "theory_bucket")
 TREES = (THEORY, THEORY_BUCKET)
 OUT = os.path.join(ROOT, "build", "submission")
+OUT_ARXIV = os.path.join(ROOT, "build", "arxiv")
 
-# The files every book shares, which sit in theory/ and not in any book. These are copied into the
+# The files every book shares, which sat in theory/ and not in any book. These are copied into the
 # submission root and the lines that reach up for them are rewritten to name them plainly.
 #
 # dedication.tex is here for the same reason preamble.tex is. One wording reaches every book, held
 # in one place so it cannot drift between them.
+#
+# Every book now carries its own preamble.tex, and theory/ holds none of the three. A shared file
+# is copied only where theory/ still has it and the book does not. Copying unconditionally stopped
+# the packager on the first book with a missing-file error.
 SHARED = ("preamble.tex", "macros.tex", "dedication.tex")
+
+# What arXiv reads before it compiles anything. spec_version 1 is the only version the format has.
+README = {
+    "spec_version": 1,
+    "process": {"compiler": "xelatex"},
+    "sources": [{"filename": "main.tex", "usage": "toplevel"}],
+    "texlive_version": 2025,
+}
 
 # An \input or \include whose argument climbs out of the directory it is read from. The name is
 # captured so only the shared files are rewritten: another climbing path is a different problem and
@@ -181,9 +205,10 @@ def is_leaving(name):
     return any(lowered.endswith(one) for one in LEAVINGS)
 
 
-# The line arXiv reads as an instruction to run LaTeX again. Placed after \end{document}, where it
+# The line arXiv reads as an instruction to run LaTeX again. Placed just before \end{document}: it
 # typesets nothing and only reaches the log the rerun logic watches.
 TYPEOUT = "\\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}"
+END_DOCUMENT = "\\end{document}"
 
 # An \input or \include naming a file inside the book. Rewritten when the tree is flattened.
 NAMED = re.compile(r"(\\(?:input|include)\{)([^}]+)(\})")
@@ -292,7 +317,12 @@ def flatten(out):
 
 
 def strip_latex(text):
-   
+    """One run of LaTeX source as the plain text arXiv's web form wants.
+
+    Control sequences and their braces come out, the accented forms LaTeX spells in ASCII are left
+    as their letter, and every run of whitespace becomes one space. The last part matters most:
+    LaTeX ignores the line breaks in an abstract and arXiv prints them.
+    """
     text = re.sub(r"\\(?:emph|textbf|textit|texttt|text|mbox|spacedallcaps|spacedlowsmallcaps)"
                   r"\{([^{}]*)\}", r"\1", text)
     text = re.sub(r"\\[A-Za-z@]+\*?", " ", text)
@@ -306,7 +336,8 @@ def metadata(out, book):
     """The title, authors and abstract of an assembled book, as text to paste into the form.
 
     Read off the assembled copy, because that is what ships. The titlepage carries the title and
-    the author and the abstract sits in its own file, and both are found by name.
+    the author and the abstract sits in its own file, and both are found by name and not by
+    position. A book that orders its frontmatter differently still reports.
     """
     lines = []
     title = ""
@@ -417,7 +448,9 @@ def assemble(book, out):
     shutil.copytree(source, out, ignore=lambda where, names: [one for one in names
                                                              if is_leaving(one)])
     for name in SHARED:
-        shutil.copy2(os.path.join(THEORY, name), os.path.join(out, name))
+        shared = os.path.join(THEORY, name)
+        if os.path.isfile(shared) and not os.path.isfile(os.path.join(out, name)):
+            shutil.copy2(shared, os.path.join(out, name))
 
     rewritten = []
     refused = []
@@ -483,6 +516,80 @@ def bundle(out, kind):
     return os.path.basename(archive), os.path.getsize(archive)
 
 
+def for_arxiv(out, book):
+    """The --arxiv steps, in the order the header lists them, on an assembled copy.
+
+    Returns (said, stopped). said is one line per thing done. stopped is a reason the copy cannot
+    ship, or empty.
+    """
+    said = []
+
+    for where, dirs, names in os.walk(out):
+        for one in [name for name in dirs if name.startswith(".")]:
+            shutil.rmtree(os.path.join(where, one))
+            dirs.remove(one)
+            said.append("hidden       %s/ removed" % one)
+        for one in [name for name in names if name.startswith(".")]:
+            os.remove(os.path.join(where, one))
+            said.append("hidden       %s removed" % one)
+
+    read = reachable(out)
+    for where, _dirs, names in os.walk(out):
+        for name in names:
+            if name.endswith(TEX) and (name[:-len(TEX)] not in read):
+                os.remove(os.path.join(where, name))
+                said.append("unread       %s dropped" % os.path.relpath(os.path.join(where, name), out))
+
+    moved, collisions = flatten(out)
+    if collisions:
+        for name, paths in sorted(collisions.items()):
+            said.append("COLLISION    %s at %s" % (name, ", ".join(os.path.relpath(one, out) for one in paths)))
+        return said, "two files share a basename and flattening would destroy one"
+    said.append("flattened    %d file(s) into the root" % len(moved))
+
+    stripped = 0
+    for name in sorted(os.listdir(out)):
+        if not name.endswith(TEX):
+            continue
+        path = os.path.join(out, name)
+        with open(path, encoding="utf-8") as handle:
+            text, found = uncomment(handle.read())
+        with open(path, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(text)
+        stripped += found
+    said.append("comments     %d removed" % stripped)
+
+    main_tex = os.path.join(out, "main.tex")
+    with open(main_tex, encoding="utf-8") as handle:
+        text = handle.read()
+    if text.count(END_DOCUMENT) != 1:
+        return said, "main.tex holds %d \\end{document}, not one" % text.count(END_DOCUMENT)
+    with open(main_tex, "w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text.replace(END_DOCUMENT, TYPEOUT + "\n" + END_DOCUMENT))
+    said.append("four passes  requested before \\end{document}")
+
+    with open(os.path.join(out, "00README.json"), "w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(README, indent=2) + "\n")
+    said.append("00README.json  %s, TeX Live %d" % (README["process"]["compiler"], README["texlive_version"]))
+
+    # Markdown beside a book is working notes and logs. LaTeX never reads it, and arXiv would publish
+    # it with the paper. The workbook carried seven such files into its first package.
+    for name in sorted(os.listdir(out)):
+        if name.lower().endswith(".md"):
+            os.remove(os.path.join(out, name))
+            said.append("notes        %s dropped, LaTeX does not read it" % name)
+
+    # Anything else left that is neither source nor a figure publishes with the paper. It is named
+    # here and not deleted, because an unknown file may be one the book needs.
+    for name in sorted(os.listdir(out)):
+        if not name.lower().endswith((TEX, ".pdf", ".png", ".jpg", ".jpeg", ".json")):
+            said.append("SHIPS        %s is not source or a figure and will be public" % name)
+
+    path, _title, _authors, _abstract = metadata(out, book)
+    said.append("metadata     %s" % os.path.basename(path))
+    return said, ""
+
+
 def wanted_archive(argv):
     """The archive kind named on the command line, defaulting to a gzipped tar."""
     if "--archive" not in argv:
@@ -501,6 +608,7 @@ def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     argv = sys.argv[1:]
     kind = wanted_archive(argv)
+    arxiv = "--arxiv" in argv
     skip = {"--archive", kind}
     named = [one for one in argv if (one not in skip) and not one.startswith("-")]
     status = 0
@@ -512,7 +620,7 @@ def main():
             continue
 
         flat = book.replace("/", "_")
-        target = os.path.join(OUT, flat)
+        target = os.path.join(OUT_ARXIV if arxiv else OUT, flat)
         rewritten, refused = assemble(book, target)
         left = still_climbing(target)
 
@@ -529,13 +637,24 @@ def main():
             status = 1
             continue
 
+        if arxiv:
+            said, stopped = for_arxiv(target, book)
+            for line in said:
+                out.write("    %s\n" % line)
+            if stopped:
+                out.write("    %s is not shippable: %s\n" % (book, stopped))
+                status = 1
+                continue
+            out.write("    %s  %d bytes\n" % flat_tar(target))
+            continue
+
         made = bundle(target, kind)
         if made is None:
             out.write("    %s/  directory only\n" % flat)
         else:
             out.write("    %s  %d bytes\n" % made)
 
-    out.write("\n  Assembled under %s\n" % os.path.relpath(OUT, ROOT))
+    out.write("\n  Assembled under %s\n" % os.path.relpath(OUT_ARXIV if arxiv else OUT, ROOT))
     out.write("  A package is not a submission until it has compiled from inside its own\n")
     out.write("  directory. Nothing here has compiled anything.\n")
     out.flush()

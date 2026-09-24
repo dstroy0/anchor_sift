@@ -1,8 +1,8 @@
-% !TEX TS-program = lualatex
+% !TEX TS-program = xelatex
 % Precision. Hand-written, transcribed from docs/ on 2026-09-11.
 %
 % Compile from this directory so the shared inputs resolve:
-%     latexmk -pdf -outdir=../../build/theory/precision main.tex
+%     latexmk -xelatex -outdir=../../build/theory/precision main.tex
 %
 % One level under theory/, the ordinary depth. ../preamble.tex reaches the shared
 % preamble and its own \input{../macros.tex} lands on theory/macros.tex directly. No shim is needed
@@ -29,7 +29,7 @@
 % whether what remains is a WHOLE SUBJECT. A chapter that cannot stand without a held piece does not
 % go in hollow, it does not go in.
 %
-% THE UNIT OF WORK DECIDES A BENCHMARK, and it is mechanical. A figure is fair when its unit is an ARITHMETIC operation and held when its unit names a
+% THE UNIT OF WORK DECIDES A BENCHMARK, and it is mechanical and not a judgment made afresh each time. A figure is fair when its unit is an ARITHMETIC operation and held when its unit names a
 % DOMAIN operation. Read the units off the sentence:
 %
 %   fair    a 1,290,000,000-bit product in 1.72 s of device time

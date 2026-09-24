@@ -9,7 +9,8 @@
 #
 # WHAT THIS CORRECTS. CEL-2-001 and CEL-2-002 report a cross-axis reading of about 0.47 px on an
 # axis displaced by nothing, and call it a floor the method inherits. That is a raw value quoted
-# with no background under it. Every quantity there is a departure from a background and none is a value, and a dispersion of
+# with no background under it, the only thing theory/workbook says never says anything:
+# every quantity there is a departure from a background and none is a value, and a dispersion of
 # 0.28 says nothing while the same dispersion against a shuffle of the same bytes is 2.91.
 #
 # Nothing was stopping the background from being built. One field holds as many co-arms as anyone
@@ -25,7 +26,7 @@
 #
 # THE NULL, AND WHICH PROPERTY IT DELETES. Positions are permuted within the second frame, holding
 # every level count exactly and destroying where each level sits. That deletes the correspondence
-# between the two frames and nothing else: both frames keep their histograms. The agreement
+# between the two frames alone: both frames keep their histograms. The agreement
 # measure is handed the same symbol inventory it had. theory/workbook records the protein posit
 # failing because two nulls deleted properties that were not separable, and records what survives
 # of it, that a result read as evidence about one property is unsupported until a null exists that

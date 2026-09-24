@@ -14,8 +14,8 @@
 # is missing its portable reference.
 #
 # It fails closed. A directory that does not resolve, or one that yields no arm at all, is a defect
-# and exits non-zero. Every root it read is printed,
-# a run that scanned the wrong tree says so instead of returning a number about a smaller tree than it
+# and exits non-zero instead of reporting an empty match as a pass. Every root it read is printed.
+# A run that scanned the wrong tree says so instead of returning a number about a smaller tree than it
 # names.
 
 import sys

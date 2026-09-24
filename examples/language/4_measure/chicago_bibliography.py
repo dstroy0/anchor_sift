@@ -14,7 +14,8 @@
 # and how many works a writer has in it follows their popularity.
 #
 # This collection is 1276 novels published before 1923, prepared the same way as each other, and it
-# answers in a machine readable form. What is wanted from it first is only the list: who wrote what.
+# answers in a machine readable form. What is wanted from it first is only the list: who wrote what. The writers
+# carrying enough works can then be found before anything is downloaded.
 
 import io
 import json

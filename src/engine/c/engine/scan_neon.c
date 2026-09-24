@@ -62,7 +62,8 @@ size_t anchor_steer_truthy_after_neon(const uint8_t *corpus, size_t alignments,
         const uint8x16_t agrees = vceqq_u8(window, broadcast);
 
         /* An alive flag is zero or non-zero. vceqq against zero marks the refuted lanes, and the
-         * complement marks the standing ones. Complementing. */
+         * complement marks the standing ones. Complementing instead of comparing against one keeps
+         * this correct if a caller ever stores a flag other than one. */
         const uint8x16_t alive_mask = vmvnq_u8(vceqq_u8(standing_bytes, zero));
 
         /* A surviving lane is all ones. Shifting it down to one and adding the sixteen lanes gives

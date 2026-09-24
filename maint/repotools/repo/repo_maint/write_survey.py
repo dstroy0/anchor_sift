@@ -156,7 +156,8 @@ def destination(where):
 def module_names(tree):
     """Module level names bound to a path. `open(TARGET, "w")` resolves to what TARGET is.
 
-    Almost every tool here names its destination once at the top and writes to that name later. Two rounds, because a destination is
+    Almost every tool here names its destination once at the top and writes to that name later.
+    Without this pass the common case is the unresolved case. Two rounds, because a destination is
     usually built from another constant: CORPORA from ROOT, then TARGET from CORPORA.
     """
     held = {}

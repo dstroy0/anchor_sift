@@ -262,6 +262,7 @@ def drafted(line):
     Gating it on salish() instead is worse and was measured: the drafted ʷ count falls from 1624 to
     1172 on 19-Lyon and from 1729 to 1017 on Lindley, and the tree goes from 214 disagreements to
     827. salish() asks for a mark of the orthography or a medial P, and kwukw carries neither.
+    The tokens that most need labializing are exactly the ones that gate turns off.
 
     a_gloss() does not separate them either: it wants a run of two capitals, and backwards has
     none. What actually distinguishes them is the line, not the token, since the five-line

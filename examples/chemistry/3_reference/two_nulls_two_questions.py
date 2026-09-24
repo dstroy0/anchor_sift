@@ -25,9 +25,9 @@
 #
 # The two answers are the finding. The octet carries information about which element sits where and
 # carries none about which atoms are joined. It is a statement about degrees, necessary and not
-# sufficient,  telling one isomer from another is a measure question and not a valence
-# question. Both nulls are drawn with the engine's own shuffle; nothing about the disordered state is
-# assumed.
+# sufficient, and for that reason telling one isomer from another is a measure question and not a
+# valence question. Both nulls are drawn with the engine's own shuffle; nothing about the disordered
+# state is assumed.
 
 import collections
 import io

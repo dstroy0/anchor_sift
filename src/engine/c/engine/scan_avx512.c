@@ -30,7 +30,7 @@
  *       BW instructions, and a part with F alone would fault on them.
  * @note The tail below sixty-four is finished scalar, the same code the portable arm runs. A masked
  *       tail is cheap on this instruction set, and the scalar one is chosen to keep every scan arm
- *       the same shape, since correctness.
+ *       the same shape, since an unrun arm is for correctness and not for the tail's cost.
  */
 
 #include "anchor_sift.h"
@@ -124,7 +124,8 @@ size_t anchor_steer_truthy_after_avx512(const uint8_t *corpus, size_t alignments
 
         /* An alive flag is zero or non-zero. The mask of alignments still standing is the lanes
          * whose byte ANDs with itself to a non-zero, which is every lane that is not zero. Testing
-         * this way. */
+         * this way and not against one keeps it correct if a caller stores a flag other than
+         * one. */
         const __mmask64 alive_mask = _mm512_test_epi8_mask(standing_bytes, standing_bytes);
 
         standing += steer_popcount64((uint64_t)(agrees & alive_mask));

@@ -89,7 +89,7 @@ Every number in the table above is printed by the file beside it, with no argume
 configuration. `SEED` is fixed at `0x51F7` in `2_partition/what_a_pixel_costs.py` and every other
 file imports it. Two runs on two machines return the same digits.
 
-To change what is swept edit the module-level tuples: `TRUTHS` and
+To change what is swept and not what is measured, edit the module-level tuples: `TRUTHS` and
 `LEVELS` in `what_a_pixel_costs.py`, `WIDTHS` in `where_the_floor_comes_from.py`, `COUNTS` and
 `REACHES` in `where_the_coarms_stop_paying.py`. They are tuples at the top of each file for that
 reason.

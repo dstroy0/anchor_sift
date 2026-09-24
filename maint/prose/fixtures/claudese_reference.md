@@ -24,14 +24,16 @@ surprising depth once you start to delve into it. Think of it like an iceberg: t
 list is just the tip, while the real substance lies beneath.
 
 Here's the thing. When we talk about "machine-written prose," we're really talking about a
-constellation of subtle signals — word choice, sentence rhythm, the tendency to explain. And that
+constellation of subtle signals — word choice, sentence rhythm, the tendency to explain rather than
+state. It's not just one thing; it's the interplay of many things working together. And that
 interplay is precisely what makes this such a compelling problem to tackle.
 
 Consider the following:
 
 - **Vocabulary drift.** Certain words become overrepresented, creating a kind of lexical
   fingerprint that's remarkably consistent across documents.
-- **Structural patterns.** Clauses that restate what was just said,.
+- **Structural patterns.** Clauses that restate what was just said, rather than advancing the
+  argument, are a hallmark of this register.
 - **Rhythmic uniformity.** Sentences tend toward a similar length and cadence, which can feel
   polished but ultimately reads as flat.
 

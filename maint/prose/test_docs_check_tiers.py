@@ -247,7 +247,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
     This is the test that found the transcription failures, and it found four that nobody had
     pointed at: `make clear` missing from a verb list both files spell out, both of section 146's
     own X-not-Y examples falling outside all three X-not-Y patterns because each wanted a copula and
-    an article, and the `definition` token ban demoted to a construction ban.
+    an article, and the `spelling` token ban demoted to a construction ban.
 
     A transcription failure is never isolated to the instances somebody noticed. This is a table
     and not three assertions.
@@ -339,16 +339,16 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         ),
         ("That is what survives a reset.", "what survives", "code-documentation:120"),
         ("The counts add up to the header length.", "add up", "code-documentation:110"),
-        ("The pool is drained. A caller sees nothing.", "a", "code-comments:200"),
+        ("The pool is drained, so a caller sees nothing.", "so a", "code-comments:200"),
         # The inflection. Unmatched until 2026-09-16 because the pattern implemented the token and
-        # code-documentation:112 describes the clause. It fails against `\ba\b` and passes
-        # against `\ban?\b`, the only reason this row is worth a line.
-        ("The pool is drained. An entry is dropped.", "an", "code-comments:200"),
-        ("The bound is read here.", "rather", "code-comments:200"),
-        ("The definition is wrong in three places.", "definition", "code-comments:200"),
+        # code-documentation:112 describes the clause. It fails against `\bso a\b` and passes
+        # against `\bso an?\b`, the only reason this row is worth a line.
+        ("The pool is drained, so an entry is dropped.", "so an", "code-comments:200"),
+        ("The bound is read here rather than at the call.", "rather", "code-comments:200"),
+        ("The spelling is wrong in three places.", "spelling", "code-comments:200"),
         (
-            "The pool is sized here, the bound the caller sees.",
-            "the",
+            "The pool is sized here, which is the bound the caller sees.",
+            "which is the",
             "code-comments:206",
         ),
         (
@@ -400,7 +400,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
     def test_spelling_is_scoped_to_comments_by_its_own_sentence(self):
         # code-comments:200: "none has a legitimate use in a comment here". The scope is in the
         # sentence. The code carries it. A page about a character encoding writes the word.
-        said = ["The definition of the identifier is what the linker sees."]
+        said = ["The spelling of the identifier is what the linker sees."]
         self.assertTrue(list(docs_check.banned_hits(said, comments=True)))
         self.assertEqual(
             [
@@ -413,6 +413,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
 
     def test_the_mid_sentence_appositive_is_left_alone(self):
         # Section 146 permits the contrast where a reader would otherwise land on the wrong one.
+        # The bare X-not-Y pattern is bounded to a whole short sentence. This is the boundary.
         said = [
             "The bound is read in the header, not in the .c, and the caller never sees it."
         ]
@@ -533,7 +534,7 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
         self.assertEqual(list(docs_check.banned_hits(said, quotations=True)), [])
 
     def test_the_same_token_outside_the_span_is_a_use(self):
-        said = ["The bound is read here."]
+        said = ["The bound is read here rather than at the call."]
         self.assertTrue(list(docs_check.banned_hits(said, quotations=True)))
 
     def test_an_italic_citation_is_not_a_use(self):
@@ -547,16 +548,16 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
 
     def test_italic_does_not_straddle_a_table_cell(self):
         # ProtoCore TUNING.md:154. Two unrelated asterisks in different cells paired across the row
-        # and swallowed a real `a`. A citation of a form does not cross a cell boundary.
-        said = ["| *a* | tracks `MAX_CONNS`, a raised pool never trips it | *b* |"]
+        # and swallowed a real `so a`. A citation of a form does not cross a cell boundary.
+        said = ["| *a* | tracks `MAX_CONNS` so a raised pool never trips it | *b* |"]
         hits = [token for _, _, token in docs_check.banned_hits(said, quotations=True)]
-        self.assertIn("a", [one.lower() for one in hits])
+        self.assertIn("so a", [one.lower() for one in hits])
 
     def test_bold_is_not_exempt(self):
         # Bold marks a heading far more often than a citation here. It exempted one site on the
         # standards and five in ProtoCore/docs, three of which were real TIER A findings inside a
         # heading label. The arm came out and this holds it out.
-        said = ["- **Why it is deferred."]
+        said = ["- **Why it is deferred rather than fixed:** the finding is in a tree we do not own."]
         hits = [
             token.lower()
             for _, _, token in docs_check.banned_hits(said, quotations=True)
@@ -606,7 +607,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         self.assertNotIn("1.1M", docs_check.CORPUS)
 
     def test_a_tier_a_finding_names_the_section_that_bans_it(self):
-        got = docs_check.banned_tokens(["The bound is read here."])
+        got = docs_check.banned_tokens(["The bound is read here rather than at the call."])
         self.assertEqual(len(got), 1)
         self.assertIn("tier A", got[0][1])
         self.assertIn("code-documentation:110", got[0][1])
@@ -706,7 +707,7 @@ class TheStructuralStageIsUntouched(unittest.TestCase):
 
     def test_locale_and_checked_were_not_this_pass_and_have_since_been_done(self):
         # This test used to assert ten patterns and five extensions, because both were known gaps
-        # and both belonged to the coverage pass. That pass has landed.
+        # and both belonged to the coverage pass and not to this one. That pass has landed.
         # The assertion is kept and inverted instead of deleted: it still says the two are not this
         # pass's to define, and it now fails if a rebuild of the token table takes the coverage work
         # back out with it. test_docs_check_coverage.py holds what those two are for.

@@ -149,7 +149,7 @@ typedef struct
     CorpusKind kind;
     double entropy;
     size_t distinct;
-    /* The dispatch rule reads the field's census now  and this
+    /* The dispatch rule reads the field's census now and not an entropy in double, and this
      * bench scores the rule against the clock. A row has to carry what the rule consumes. The
      * entropy and the distinct count above stay because this bench PRINTS them; they are its report
      * and no longer the engine's input. */

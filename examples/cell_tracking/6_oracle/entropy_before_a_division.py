@@ -50,7 +50,8 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
 DEFAULT = os.path.join("D:", os.sep, "tmp_ctc", "Fluo-N2DH-SIM+")
 
 # Levels the intensities inside a mask are read at. CEL-4-002 sweeps this on synthetic fields and
-# finds the optimum at 256, the depth the substrate carries. Held here.
+# finds the optimum at 256, the depth the substrate carries. Held here and not swept,
+# because the sweep belongs to a later file and this one is asking a different question.
 LEVELS = 256
 
 
@@ -59,7 +60,7 @@ def collision_entropy(values, levels=LEVELS):
 
     -log2 of the sum of squared probabilities, the quantity every cost in anchor_sift is
     a function of. Computed over the pixels inside one label and nothing else. It is local by
-    construction.
+    construction and not by a window somebody sized.
     """
     if values.size == 0:
         return float("nan")
@@ -360,7 +361,7 @@ def main():
         out.write(
             "  and splitting it is what moved the reading. That is the inheritance stated\n"
         )
-        out.write("  as a measurement.\n")
+        out.write("  as a measurement and not an image.\n")
         out.write(
             "\n  It is not a detector on its own. Catching that share of divisions costs\n"
         )

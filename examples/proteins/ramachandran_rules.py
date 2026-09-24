@@ -7,8 +7,11 @@
 #
 #   Usage:  from ramachandran_rules import angle, load_contours, region, score
 #
-# Nothing here imports numpy or any other computing library. Python's own
-# integers and decimals are the whole of the arithmetic.
+# The engine hands back a torsion as exact integer terms and stops there, because the atan2 that
+# turns them into a degree is the only irrational step in the path and does not belong in the reader.
+# This is where it is taken, in decimal and to a precision stated below, well under the grid the
+# answer is read against. Nothing here imports numpy or any other computing library. Python's own
+# integers and decimals do all the arithmetic.
 #
 # The rules themselves are not this work's. The contour grids are the Top8000 percentile contours
 # published by the Richardson laboratory, the same grids MolProbity and the wwPDB validation
@@ -25,11 +28,11 @@
 # A protein cannot be read that way, and the crystallography README says why. A backbone is a cloud
 # of real valued coordinates. A torsion is an irrational the deposit never wrote, and the rules
 # are published on a grid of two degrees, not as a formula. So there is a quantum here, and the
-# honest thing is to declare where it comes from.
+# honest thing is to declare where it comes from and not pick one.
 #
 # It comes from the reference. The grid is two degrees because the Richardson laboratory published
 # it at two degrees; the favored and allowed cutoffs below are the numbers MolProbity scores with,
-# named here. The decimal precision the angle is taken to is set far under the
+# named here and not tuned. The decimal precision the angle is taken to is set far under the
 # grid so that it decides nothing. No number in this file was chosen to make a result come out, and
 # every stage that uses one reports it.
 

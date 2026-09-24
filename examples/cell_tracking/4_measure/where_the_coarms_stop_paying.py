@@ -92,7 +92,7 @@ def main():
     )
     canvas, blobs = field(numpy.random.default_rng(SEED), WIDTH)
 
-    out.write("  Co-arm count and lag reach swept.\n")
+    out.write("  Co-arm count and lag reach swept and not chosen.\n")
     out.write(
         "  %dx%d field, %d blobs %.1f px wide, true displacement %.3f px.\n\n"
         % (SIDE, SIDE, blobs, WIDTH, TRUTH)
@@ -107,7 +107,7 @@ def main():
         tile = SIDE // count
         for reach in REACHES:
             # A reach shorter than the displacement cannot return it, and a reach longer than the
-            # tile has no positions left to score. Both are stated
+            # tile has no positions left to score. Both are stated and not silently skipped,
             # because a row missing without a reason reads as a row that was not run.
             if reach >= tile:
                 out.write(

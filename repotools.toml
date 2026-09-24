@@ -16,8 +16,8 @@ copyright = "Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>"
 prefix = "ANCHOR_SIFT"
 
 [layout]
-# This repository keeps its tools under maint/ and not tools/, which differs
-# from the template. Every tool asks for the kind and never for the directory.
+# This repository keeps its tools under maint/ and not tools/, the only line that
+# differs from the template. Every tool asks for the kind and never for the directory.
 source = ["src"]
 # Two theory trees. The workbook is authored here in theory/ because it is the book about this
 # engine; the other seven are authored upstream in theory_bucket and arrive as a subtree.
@@ -57,7 +57,7 @@ gates = ["docs_check", "fetch_check"]
 [hooks.docs_check]
 # Named, because the prose checker lives in the toolkit's no_replicate_ set, which is local only and
 # never fetched. Every repository asking for this gate has to point at its own copy or the gate
-# refuses, and refusing is correct.
+# refuses, and refusing is correct: it is a check nothing can supply for you.
 tool = "maint/prose/docs_check.py"
 roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "theory_bucket", "src", "examples",
          "maint"]
@@ -72,7 +72,8 @@ roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "theory_bucket", "src
 #   repo/repo_maint          gates.py, corpus_manifest.py, write_survey.py, inventory.py
 #
 # code/code_maint is NOT fetched. It holds a readclean.py that is a different tool sharing a name
-# with the one in maint/source, and dedup.py and strip_comments.py were adopted out of this tree. Named files
+# with the one in maint/source, and dedup.py and strip_comments.py were adopted out of this tree.
+# Fetching the set back would land three files over three this repository already has. Named files
 # from it can be fetched later one at a time.
 sets = [
     "lib/repotools",

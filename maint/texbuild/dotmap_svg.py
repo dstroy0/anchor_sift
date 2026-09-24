@@ -7,7 +7,7 @@
 #   python maint/texbuild/dotmap_svg.py glyph.txt                 a 64x64 grid of . and #
 #   python maint/texbuild/dotmap_svg.py glyph.hex --side 64       4096 bits as hex
 #   python maint/texbuild/dotmap_svg.py glyph.txt --smooth 2      corners cut twice
-#   python maint/texbuild/dotmap_svg.py glyph.txt --out g.svg     written rather than printed
+#   python maint/texbuild/dotmap_svg.py glyph.txt --out g.svg     written to the file, not printed
 #
 # WHY TRACE AND NOT DRAW A SQUARE PER CELL
 #
@@ -18,6 +18,7 @@
 #
 # Tracing produces the actual boundary: every edge with a set cell on one side and an unset cell on
 # the other, chained into closed loops. Two set cells touching contribute no edge between them.
+# The outline is therefore one continuous path around the shape and there is nothing to seam.
 #
 # HOLES COME FREE, AND THE FILL RULE IS WHY
 #
@@ -28,7 +29,7 @@
 # WHY THE FACETS ARE THE POINT
 #
 # The outline is exact at cell boundaries. A 64 grid gives hard facets where a font gives smooth
-# curves. That reads as a cut or brushed letter. --smooth cuts corners by
+# curves. That reads as a cut or brushed letter and not a typeset one. --smooth cuts corners by
 # Chaikin's rule, which shortens every segment toward its neighbors and softens the facets without
 # inventing a curve the dotmap did not have. Two passes is usually enough; four looks like a font
 # again and loses the reason to do this.
@@ -69,7 +70,8 @@ def from_text(text):
 def from_hex(text, side):
     """A grid of `side` by `side`, read from hex digits, most significant bit first.
 
-    4096 bits is 1024 hex digits and a side of 64. The count is checked.
+    4096 bits is 1024 hex digits and a side of 64. The count is checked and not assumed: a
+    dotmap one digit short would otherwise silently lose its last four cells.
     """
     digits = "".join(one for one in text.split() if one)
     digits = digits[2:] if digits[:2].lower() == "0x" else digits
@@ -90,8 +92,8 @@ def boundary_edges(grid):
     """Every unit edge with a set cell on one side and nothing on the other.
 
     Each edge is returned as (start, end) with the set cell kept on the left of the direction of
-    travel. That makes an outer loop run one way and a hole run the other, which is what lets the
-    fill rule separate them later without anything here knowing which is which.
+    travel. That makes an outer loop run one way and a hole run the other. The
+    fill rule then separates them later without anything here knowing which is which.
     """
     height = len(grid)
     width = max(len(row) for row in grid)
@@ -150,7 +152,7 @@ def straightened(ring):
 
     A traced ring carries a point per cell along a straight run. A flat side of forty cells
     arrives as forty points describing one line. Dropping the middles changes no geometry at all and
-    is what keeps the path readable and the file small.
+    keeps the path readable and the file small.
     """
     if len(ring) < 3:
         return ring
@@ -171,8 +173,9 @@ def straightened(ring):
 def chaikin(ring, passes):
     """The ring with its corners cut, `passes` times, by Chaikin's rule.
 
-    Each pass replaces every corner with two points a quarter and three quarters along its edges. It invents no curve the dotmap did not
-    imply, the reason to prefer it here over fitting splines.
+    Each pass replaces every corner with two points a quarter and three quarters along its edges.
+    The ring keeps its shape and loses its sharpest angles. It invents no curve the dotmap did not
+    imply, and that is the reason to prefer it here over fitting splines.
     """
     for _ in range(max(0, passes)):
         count = len(ring)
@@ -233,7 +236,7 @@ def svg_of(grid, passes, label):
         % (width * CELL, height * CELL, width * CELL, height * CELL)
     )
     if label:
-        # Named, a reader using a screen reader gets the character. An outline
+        # Named for a reader using a screen reader to get the character and not silence. An outline
         # carries no text and this is the only place the codepoint survives.
         held.append("  <title>%s</title>" % label)
     held.append('  <path fill-rule="evenodd" d="%s"/>' % path_of(rings))

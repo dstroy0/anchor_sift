@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: CHM-4-002
 #
-# A single-period reader recovers a constant recurrence and goes blind on a growing one.
+# A single-period reader recovers a constant recurrence and goes blind on a growing one. The
+# periodic recurrence along Z therefore needs its shell boundaries supplied from outside.
 #
 #   Usage:  python examples/chemistry/4_measure/a_single_period_cannot_see_a_growing_one.py
 #

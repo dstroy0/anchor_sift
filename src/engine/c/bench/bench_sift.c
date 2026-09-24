@@ -24,7 +24,8 @@
  *       skip is the corpus length over the occurrence count, and it decides whether a sieve
  *       can visit a space it could never enumerate.
  * @warning The cost table is a link time singleton. A build links exactly one of the five profiles
- *          and this binary can only report on that one. It does not even record its own name. Comparing
+ *          and this binary can only report on that one. It does not even record its own name.
+ *          Every row below is stamped with a fingerprint of the 256 costs instead. Comparing
  *          profiles takes five builds, and the current design charges that.
  */
 #include "impensa_ancorae_acus/impensa_ancorae_acus.h"
@@ -81,13 +82,13 @@ static const char s_english[] =
     "sufficient quantity of water, and he said as much aloud. she laughed and said that was the "
     "sort of remark that sounded wiser than it was, and he had to agree that she was probably "
     "right about that as well. by the time the rain stopped the light was almost gone and they "
-    "made camp where they stood. the fire took a long "
+    "made camp where they stood rather than risk the descent in darkness. the fire took a long "
     "while to catch because everything was wet, and when it did catch it smoked badly and gave "
     "very little heat, but it was something to sit beside and they were both glad of it. in the "
     "morning the sky had cleared completely and the grass was heavy with water that soaked their "
     "boots within the first few steps. neither of them mentioned the conversation of the previous "
     "evening, though both remembered it, and they walked down toward the village in a silence "
-    "that was comfortable. the bakery was already open when they arrived and "
+    "that was comfortable rather than awkward. the bakery was already open when they arrived and "
     "the smell of it reached them from a considerable distance up the road, which improved their "
     "mood more than anything either of them could have said. ";
 
@@ -957,7 +958,8 @@ static void report_domain(const char *name, const uint8_t *corpus, size_t corpus
     const double positions = (double)((corpus_len - needle_len) + 1u);
 
     // The rate a perfectly matched table would reach, the ceiling on what any measure can be
-    // worth. The anchor is the rarest of needle_len symbols and a needle is drawn from the corpus. For draws weighted that way,
+    // worth. The anchor is the rarest of needle_len symbols and a needle is drawn from the corpus.
+    // Each symbol arrives with probability equal to its own frequency. For draws weighted that way,
     // the expected minimum is the integral of the survival function raised to the draw count, and a
     // sorted frequency list turns that integral into a sum over its steps
     double shares[256];
@@ -1015,7 +1017,8 @@ static void report_domain(const char *name, const uint8_t *corpus, size_t corpus
  *       alignment starting at s+d puts pattern offset a-d on that same cell. Every d whose pattern
  *       byte differs from what was read is refused by the one read. A byte absent from the needle
  *       entirely refutes every alignment touching the cell.
- * @note The count is the needle length less how many times the observed byte occurs in the needle. That
+ * @note The count is the needle length less how many times the observed byte occurs in the needle.
+ *       Its expectation over a corpus is needle_len times one minus the collision probability. That
  *       is the same collision probability the candidate count measures, appearing here as a distance
  *       instead of a rate.
  */

@@ -48,10 +48,10 @@ from salish_unsorted import UNKNOWN_KIND, covered_tokens, unreached, write_unsor
 # Walk up to the tree that holds build/. Counting directories has been wrong twice now, once when
 # these moved into Salishan and again when they moved into categories.
 def _repository_root():
-    """This repository, asked of git.
+    """This repository, asked of git and not inferred from a marker directory.
 
-    The marker climbed to before was build/, which the repository PRODUCES  so
-    a linked worktree and a never-built clone both lack it. The climb then walked past the root it
+    The marker climbed to before was build/, which the repository PRODUCES and not CONTAINS.
+    A linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
     which is indistinguishable from working.
@@ -62,7 +62,7 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository
+    inherits it answers about that repository and not about the directory it was asked from,
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
@@ -267,7 +267,8 @@ def main():
         out.flush()
         return 1
 
-    # This PDF leaves a space after 856 of its glottalization marks, the most of any paper here. Closed on the way
+    # This PDF leaves a space after 856 of its glottalization marks, the most of any paper here.
+    # C̓ʔáq̓ʷ ‘wet’ arrives as three tokens and k̓ʷén̓s ‘she looked at it’ as two. Closed on the way
     # in. The stress accents are left alone, for the reason inserted_space.py gives.
     with open(SOURCE, encoding="utf-8", errors="replace") as handle:
         lines = [closed_spaces(one) for one in handle.read().splitlines()]

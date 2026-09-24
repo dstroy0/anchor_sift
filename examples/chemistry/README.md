@@ -26,7 +26,8 @@ formula does not fix a molecule: ethanol and dimethyl ether are both C2H6O and b
 formula is a label and not the structure. It holds only chemistry's own valence layer. It runs
 before the element ledger lands and transcribes no element identity.
 
-Stage three grades the null. A departure is only as good as the background it is read against. Permuting which element
+Stage three grades the null. A departure is only as good as the background it is read against.
+`two_nulls_two_questions.py` draws two, each deleting a different property. Permuting which element
 sits on which site deletes the element-to-site match, and the octet departs from it: the real molecule
 closes and most permutations do not. A degree-preserving rewire deletes the connectivity while holding
 each atom's degree at its valence, and the octet does not depart from it at all, closing on every
@@ -78,7 +79,7 @@ atoms as points in space, and stage six needs `oracle/chemistry`, the bond lengt
 from the language family trees, which the oracle README already reserves a directory for. Stage one
 above stops at the connectivity precisely because the coordinate a stage-two reading needs is a bond
 length, and a bond length is that oracle. Those are coordinated additions, not this subject's to write
-alone, and until they land the remaining stages would be transcriptions of the plan.
+alone, and until they land the remaining stages would be transcriptions of the plan and not the
 
 What each stage will do, and the predictions each makes, is stated in `theory/chemistry` before the
 readers exist, in the design-only posture the exact-arithmetic chapter of the image-transforms book

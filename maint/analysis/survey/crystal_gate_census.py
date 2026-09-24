@@ -16,7 +16,7 @@
 # refused entry and its closing line still reports a median over whatever survived, with nothing on
 # the page saying how much did not.
 #
-# The cache this runs against makes that worse. maint/data/fetch/fetch_cod_doped.py
+# The cache this runs against makes that worse and not better. maint/data/fetch/fetch_cod_doped.py
 # fetched solid solution formers on purpose and says so in its header: most of them are monoclinic
 # or triclinic, and the right angle restriction is deliberately not applied at fetch time. So the
 # corpus was built to contain exactly the cells the reading gate turns away.
@@ -59,7 +59,7 @@ CACHE = os.path.join(ROOT, "build", "cod")
 FAMILIES = os.path.join(ROOT, "build", "cod", "families.tsv")
 
 # The refusal names, in the order exact_points applies them. A row is counted under the first test
-# it fails, it turned it away.
+# it fails, because that test actually turned it away.
 NO_CELL = "no cell published"
 NOT_RIGHT = "cell not right angled"
 NO_SITES = "no atom sites"

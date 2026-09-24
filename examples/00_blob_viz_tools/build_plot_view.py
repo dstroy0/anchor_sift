@@ -170,7 +170,8 @@ def main():
         "noteTitle": "The shape is yours, the embedding is a claim",
         "note": (
             "A surface you already know is the way to see what an embedding does. Draw it as a "
-            "plane first, then as a tube or a toroid, and what changes is the map. Joining the ends of an axis says the last x is next to the first, "
+            "plane first, then as a tube or a toroid, and what changes is the map and not "
+                 "the function. Joining the ends of an axis says the last x is next to the first, "
             "which is true for a periodic function and false for most others."
         ),
         "settings": settings.collect(sys.argv[1:]),

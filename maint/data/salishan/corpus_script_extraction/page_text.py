@@ -15,7 +15,8 @@
 # THE MAPPING IS NOT IDEMPOTENT
 #
 # Running it a second time destroys the text instead of leaving it alone. P becomes ʔ. Papers is
-# ʔapers and the gloss label APPL is AʔʔL. Q becomes ʕ. Quilchena is ʕuilchena. @ becomes ə.
+# ʔapers and the gloss label APPL is AʔʔL. Q becomes ʕ. Quilchena is ʕuilchena. @ becomes ə, and
+# john.lyon@alumni.ubc.ca ends with a schwa in the middle of it.
 #
 # THE LANGUAGE TEST CANNOT PASS THROUGH
 #

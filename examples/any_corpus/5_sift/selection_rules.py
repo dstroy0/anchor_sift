@@ -17,7 +17,8 @@
 # positioned independently: the rare half of a distribution is the half whose occurrences gather
 # into passages. A cascade of rare anchors therefore survives more often than the product predicts.
 #
-# The needle source matters and is swept. A needle cut from the corpus is guaranteed to occur. The construction
+# The needle source matters and is swept. A needle cut from the corpus is guaranteed to occur.
+# Every search confirms one true occurrence and that hit is not a false positive. The construction
 # is specified against a pattern that is unknown and of arbitrary width, and such a pattern is almost
 # never present. A needle drawn independently over the same alphabet is the stated problem.
 

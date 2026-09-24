@@ -57,13 +57,13 @@ HMAC_URL = NIST + "/mac/hmactestvectors.zip"
 def _sibling_base():
     """The directory the sibling repositories sit in, which is beside the MAIN checkout.
 
-     Deliberately not derived from ROOT. A linked worktree lives under <repo>/.claude/worktrees/<name>
-    , a sibling path computed from it lands inside .claude/, and git answers the question directly:
+     Deliberately not derived from ROOT. A linked worktree lives under <repo>/.claude/worktrees/<name>.
+     A sibling path computed from it lands inside .claude/, and git answers the question directly:
      --git-common-dir names the shared git directory for the main tree and every linked worktree
      alike, and its parent is the main checkout. Its own parent is where the repositories sit.
 
      Git's variables are cleared because a rev-parse inheriting a hook's GIT_DIR answers about that
-     repository.
+     repository and not about the directory it was asked from.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
@@ -97,7 +97,7 @@ def _sibling_base():
 # This counted two levels up from the repository root, which after the move into
 # repos/owned/{public,private} names repos/owned and not repos/owned/public. The file was never
 # found and every run printed the SKIP below. The skip was correct and loud; the path it reported
-# was wrong,  a visible message still went unnoticed.
+# was wrong, and that is how a visible message still went unnoticed.
 WYCHEPROOF_FROM = os.path.join(
     _sibling_base(), "ProtoCore", "test", "vectors", "wycheproof_hmac_sha256.json"
 )

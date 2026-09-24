@@ -16,7 +16,7 @@
 # enumerated arm sums over every continuation exactly, in Fractions. The sampled arm plays games out
 # with a seeded generator and counts. They answer the same question by different routes, and where
 # both can run they have to agree. Where they disagree, the disagreement is the finding and it is
-# printed.
+# printed and not tuned away.
 #
 # The sampled arm converges to the enumerated one and does not equal it. That gap is sampling error
 # and it shrinks as the trial count grows, which is what the sweep below shows. A gap that does not

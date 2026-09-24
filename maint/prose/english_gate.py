@@ -22,6 +22,7 @@
 #   claudese_distance   put the Salishan extraction scripts furthest from the assistant pole. They
 #                       were matching the papers on Salishan, not on register.
 #   ban_evidence        divided phrase counts by a word total padded with non-English tokens.
+#                       Every per-100k rate it reported was low.
 #
 # prose_era did not have the fault, because it counted ASCII words only. This is that fix, taken out
 # of one file and made shared, and applied to both sides of every comparison.

@@ -15,7 +15,7 @@
 # a mean cannot, and it needs no threshold: the element width is a declared input and min and max are
 # positions in a sorted window, not tolerances.
 #
-# It is application logic  and for the reason the collaborative filter
+# It is application logic and not an engine primitive, and for the reason the collaborative filter
 # is: opening TRANSFORMS the reading into a different reading of itself. It is not a null a departure is
 # measured against. It is not a reference-stage object; it is an operator, and operators live in the
 # example until the ladder has a place for them.

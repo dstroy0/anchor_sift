@@ -50,7 +50,15 @@ That produces the benches and the tests. `bench_lattice` needs C99 `_Complex` an
 
 ## The books
 
-LuaLaTeX, from TeX Live or MiKTeX. The build runs it twice per book, because the table of contents is written on the first pass and read on the second.
+XeLaTeX, from TeX Live or MiKTeX. The build runs it twice per book, because the table of contents is written on the first pass and read on the second. XeLaTeX and not LuaLaTeX because arXiv runs XeLaTeX and does not run LuaLaTeX. The fonts are Charis SIL, DejaVu and TeX Gyre Termes Math, all named by file and all shipped with TeX Live 2025.
+
+To package a book for arXiv:
+
+```sh
+python maint/texbuild/submission_package.py --arxiv <book>
+```
+
+The tarball lands in `build/arxiv/<book>.tar` with a `00README.json` that selects XeLaTeX and TeX Live 2025.
 
 ```sh
 sh maint/texbuild/build_theory.sh

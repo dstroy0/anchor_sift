@@ -64,7 +64,7 @@ def null_union(values, cells, draws, seed=SEED):
     """The union over `draws` shuffles of the invariant-cell field: every cell chance can make invariant.
 
     Each shuffle permutes the object's own values and reads the same partition. The null is drawn from
-    the object. Drawing more shuffles can only grow the union. The surviving field
+    the object and not assumed. Drawing more shuffles can only grow the union. The surviving field
     can only shrink, the safe direction for a claim of structure.
     """
     union = 0

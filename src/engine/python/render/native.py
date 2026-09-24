@@ -20,7 +20,7 @@
 # The structures below mirror AnchorRasterConfig, AnchorVolumeConfig and AnchorRasterProbe in
 # src/engine/c/render/anchor_raster.h field for field. ctypes lays them out under the same ABI the C
 # library was built with, and the grader compares the bytes this binding returns against the pure
-# Python arm. A layout that did not match would fail.
+# Python arm. A layout that did not match would fail and not pass quietly.
 
 import ctypes
 import os
@@ -87,7 +87,7 @@ def load(path=None):
     """Loads the render shared library, or returns None where none is reachable.
 
     Tries `path`, then the ANCHOR_RENDER_LIB environment variable, then a platform search for a
-    library named anchor_render. Returns None. A caller can fall back to the
+    library named anchor_render. Returns None instead of raising. A caller can fall back to the
     pure Python arm.
     """
     candidates = []

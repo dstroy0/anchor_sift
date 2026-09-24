@@ -15,7 +15,7 @@
  * @note ONE PRIMITIVE, WRITTEN ONCE. Every loop below asks whether `corpus[at + offset]` equals
  *       `needle[offset]` and counts the positions where it does. The search counts matches, the
  *       steering counts survivors, and the scan counts the same survivors wider. They were three
- *       files until they were folded here,  a reader looking for the engine now opens
+ *       files until they were folded here. A reader looking for the engine now opens
  *       one file instead of a directory.
  * @note Every engine has the same signature and returns the same count, letting a driver call any
  *       of them through one pointer. Where two disagree, one of them has a defect. Nothing about
@@ -79,9 +79,9 @@ extern "C"
  *
  * @note THIS CONSTANT IS THE TERMINATION ARGUMENT. Every descent below places one probe per level
  *       and never revisits one. The depth is bounded by this value at compile time. It is
- *       declared here rather than in the implementation because it is part of the contract: a
+ *       declared here and not in the implementation because it is part of the contract: a
  *       caller sizing an array of probes needs it, and a reader asking whether a recursion
- *       terminates should find its bound in the header.
+ *       terminates should find its bound in the header instead of having to open the source.
  * @note DEFINED FROM ANCHOR_SIFT_ANCHORS, NOT COPIED. An earlier form wrote `4u` here and a comment
  *       claiming it matched ANCHOR_SIFT_ANCHORS. Nothing held that: the two were independent
  *       literals, and changing ANCHOR_SIFT_ANCHORS would have left the comment false while every
@@ -93,8 +93,8 @@ extern "C"
     /**
      * @brief What one pass over a corpus records about the field it is.
      *
-     * @note This is the whole of what steers the engine. It is read off the corpus and nothing else
-     *       contributes to it, which is what makes the steering the field's own and not a parameter.
+     * @note The engine is steered by this census alone. It is read off the corpus, and no other input
+     *       contributes to it. The steering therefore comes from the field and is not a parameter.
      * @note `total` is the byte count and not the alignment count. A census describes the field, not
      *       the search about to be run over it. It does not know the needle length.
      */
@@ -169,7 +169,7 @@ extern "C"
      * one pass over the corpus. Carrying the census means the rule reads them exactly, in integers, and
      * the engine holds no floating point value anywhere.
      *
-     * @note `distinct_symbols` USED TO SIT HERE and was removed. The census
+     * @note `distinct_symbols` USED TO SIT HERE and was removed and not left unread. The census
      *       computes the same number authoritatively, and a public structure carrying a second copy
      *       lets a caller hand over two values that disagree with nothing to catch it. An unread field
      *       is untidy; a field that can contradict the truth beside it is a defect waiting for someone
@@ -178,7 +178,8 @@ extern "C"
      *       swept over every value the bench measures and no ceiling beat having none. The rule does
      *       not consult it. It duplicates nothing. It stays.
      * @warning `census` is BORROWED for the duration of every call taking this plan. It is a pointer
-     *         .
+     *          and not an embedded structure because AnchorFieldCensus is about two kilobytes
+     *          and a plan is passed by pointer on a hot path.
      */
     typedef struct
     {
@@ -240,7 +241,7 @@ extern "C"
      *       toolchain that produced it. Re-run the bench before quoting either. An earlier form of this
      *       note said "around one percent", which no recorded run produced.
      * @note THE NEEDLE LENGTH TERM CHANGES NO ANSWER ON THIS DATA. Scoring flatness alone ties this rule
-     *       exactly, same rows and same cycles, across all 42. It is kept rather than removed because a
+     *       exactly, same rows and same cycles, across all 42. It is kept and not removed because a
      *       tunable with no reader is an integration point, and it is named here so nobody concludes
      *       from the code that it is carrying weight. Find a row where it pays or leave it inert.
      * @note The rule is read off the cycle measurements and belongs to the machine that produced them.
@@ -298,8 +299,8 @@ extern "C"
      *
      * @note Insertion sort by descending magnitude. The count is at most ANCHOR_SIFT_ANCHORS, which is
      *       four. An insertion sort is fewer instructions than setting up anything cleverer and is
-     *       the right choice.
-     * @note STABLE, and that is load bearing. Two anchors testing equally rare
+     *       the right choice and not a concession.
+     * @note STABLE, and that is load bearing and not incidental. Two anchors testing equally rare
      *       symbols keep the order choose_offsets placed them in. The spatial spread that rule exists
      *       to produce survives wherever rarity does not distinguish. An unstable sort would quietly
      *       discard the spread on a flat corpus, the corpus where the spread is all there is.
@@ -327,12 +328,13 @@ extern "C"
      *           100 * total^2  >=  85 * distinct * sum(count^2)
      *
      *       which is a comparison between two exact integers. No logarithm is taken, no power of two is
-     *       approximated by a series, and the threshold is the exact rational 85/100.
+     *       approximated by a series, and the threshold is the exact rational 85/100 and not the
+     *       nearest double to 0.85.
      * @note Both sides outgrow 64 bits on a corpus of any size, since total^2 passes 2^64 at a four
      *       gigabyte corpus and the sum of squares is accumulated over 256 terms. Both are carried in
      *       AnchorExactInteger for that reason, the fixed width limb form the rest of the
      *       engine already measures in.
-     * @note The threshold was swept  and the sweep is recorded against the constant
+     * @note The threshold was swept and not chosen, and the sweep is recorded against the constant
      *       in anchor_sift.c. Clearing the denominators does not re-open that: 85/100 is the same value
      *       the sweep scored, carried exactly instead of rounded.
      */
@@ -443,14 +445,14 @@ extern "C"
      *       equality is the wrong test on a continuous domain.
      *
      *       Soundness needs agreement to imply a shared rank. It does NOT need a shared rank to imply
-     *       agreement. The labelling has to be a superset of the relation, and the smallest superset
+     *       agreement. The labeling has to be a superset of the relation, and the smallest superset
      *       that is an equivalence is the transitive closure. Classes are therefore connected
      *       components: a position joins every class it matches and merges them.
      *
      *       An earlier form stopped at the first matching representative, which is neither the relation
      *       nor its closure, and under a non-transitive predicate it put agreeing positions in different
      *       classes, broke the necessary condition, and would have rejected alignments holding true
-     *       occurrences silently. That is fixed.
+     *       occurrences silently. That is fixed and not documented as a precondition.
      * @warning THE COST OF TAKING THE CLOSURE IS CHAINING. A loose tolerance can walk the whole field
      *          into one component through a path of near neighbors, none of which agree with the ends.
      *          One class ranks everything alike, every rank probe then refutes nothing, and the search
@@ -472,8 +474,8 @@ extern "C"
      * necessary condition may be weaker than the thing it screens for.
      *
      * What that buys is the wide path. An equality oracle cannot be vectorized, because a wide compare
-     * is a statement about a representation and the oracle deliberately hides one. Ranks are bytes,
-     * a field of any symbol type becomes a field the existing byte engine reads at full speed, AVX2
+     * is a statement about a representation and the oracle deliberately hides one. Ranks are bytes.
+     * A field of any symbol type therefore becomes a field the existing byte engine reads at full speed, AVX2
      * scan included. A real valued alphabet, a point in eight dimensions and an opaque handle all
      * project to the same shape and all run on the same loop.
      *
@@ -722,9 +724,9 @@ extern "C"
      * told you.
      *
      * This ranks each level against the alignments that actually survived the levels above it, which is
-     * the CONDITIONAL distribution. It also measures survivors directly
+     * the CONDITIONAL distribution and not the marginal one. It also measures survivors directly
      * instead of inferring them from symbol frequency. Correlation between positions is accounted
-     * for.
+     * for and not assumed away.
      *
      * IT CANNOT FAIL TO TERMINATE, AND NOT BECAUSE ANYBODY CHECKED. The halting problem is about
      * deciding termination for an ARBITRARY program. This recursion is not arbitrary:
@@ -744,7 +746,7 @@ extern "C"
      * which is false unless `force_full_depth` is set. The destroy test reads a survivor count off the
      * corpus and breaks. The field routinely ends the descent early, and an omitted member is zero so
      * that is the default path. Depth is a truthy and falsy steer bounded above by a constant, and the
-     * return value exists, a caller can read the depth actually reached.
+     * return value exists for a caller to read the depth actually reached instead of assuming `count`.
      *
      * @note THE PLANNER IS ALLOWED TO BE WRONG. Ordering cannot change which alignments survive, since
      *       an alignment survives only when every anchor agrees and a conjunction is order independent.
@@ -777,7 +779,8 @@ extern "C"
      * and decides the order to test them in. This decides WHERE THEY GO. At each level it asks every
      * position in the needle how many of the currently surviving alignments would still stand if a
      * coarm were placed there, and puts one at the position that leaves fewest. The arm is spawned at
-     * the place the field says is worth reading,.
+     * the place the field says is worth reading, and not at a place a spread rule chose before the
+     * field was looked at.
      *
      * That is the same steering the rest of this file applies, moved from the order to the placement.
      * The spread rule above answers "where, knowing nothing" and this answers "where, given the corpus
@@ -816,18 +819,19 @@ extern "C"
      * contradicted the comment at the break site in the same tree. Depth is a truthy and falsy steer
      * like everything else here, bounded above by a constant and free to come in under it.
      *
-     * The return value is there, a caller can read the depth actually reached.
+     * The return value is there for a caller to read the depth actually reached instead of assuming
+     * `wanted`, which matters more now that the two can differ.
      *
      * @note FAILS CLOSED ON THE SURVIVOR BUFFER. Returns 0 without writing `offsets` where
      *       `survivors_length` does not reach the alignment count. The kernel allocates nothing. The
-     *       buffer is the caller's and a buffer too small is refused. Size it
+     *       buffer is the caller's and a buffer too small is refused and not worked around. Size it
      *       at `corpus_len - needle_len + 1`.
      * @note A planner is free to be wrong here for the same reason it is free to be wrong anywhere else
      *       in this file: placement and order change which probe rejects first, never which alignments
      *       survive. The verification is a full compare either way.
      * @warning Costs `wanted * needle_len * alignments / sample_stride` byte comparisons to plan. On a
      *          long needle that exceeds the scan it is planning for. `sample_stride` is the control,
-     *          and test_steer measures where the trade turns over.
+     *          and test_steer measures where the trade turns over instead of asserting a default.
      */
     size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args);
 
@@ -840,7 +844,7 @@ extern "C"
      * length is one, and the same test walks both.
      *
      * @note `step` is unread at `length` one, and is what makes a longer probe a LINE through the
-     *       needle. A step that shares a period with the needle
+     *       needle and not a run of adjacent bytes. A step that shares a period with the needle
      *       reads the same residue repeatedly and prunes badly, which is a real failure mode and is why
      *       the sweep measures steps instead of assuming one.
      * @note Every position the probe touches must land inside the needle. anchor_steer_probe_fits is
@@ -862,7 +866,7 @@ extern "C"
      * @note Declared here and not beside AnchorSteerDescent because it holds an AnchorProbe, which is
      *       declared just above. A structure cannot name a type the compiler has not seen.
      * @note An omitted member is zero, as it is for AnchorSteerDescent. `sample_stride` of zero is read
-     *       as one, and `max_length` of zero is refused  because a sweep that
+     *       as one, and `max_length` of zero is refused and not read as one, because a sweep that
      *       considers no probe shape is a caller error and not a default worth inventing.
      */
     typedef struct
@@ -889,7 +893,7 @@ extern "C"
      * @param[in] needle_len Length it must fit inside.
      * @return               1 where it fits, 0 otherwise.
      * @note Computed without forming the last position as a sum. A step and length that would
-     *       overflow size_t are refused.
+     *       overflow size_t are refused instead of wrapping into a position that looks valid.
      */
     int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
 
@@ -918,7 +922,7 @@ extern "C"
      * where an arm reads one. An eye has to prune more than L times as hard to be worth spawning.
      * The score here is survivors, which does not carry that cost. The caller comparing an eye
      * against an arm has to compare READS and not survivors. test_steer does exactly that and reports
-     * both,  the guide recommends measuring.
+     * both. That is why the guide recommends measuring instead of reaching for the longest eye.
      *
      * TERMINATION, unchanged and for the same reason. One probe per level, `wanted` levels, bounded by
      * ANCHOR_STEER_ANCHORS at compile time. The sweep inside a level is three nested bounded loops over
@@ -934,7 +938,8 @@ extern "C"
      *          one comparison per candidate and understated the bound in the unsafe direction.
      *          anchor_steer_probe_fits rejects shapes that do not fit. The real count sits below
      *          this figure. It is still far more than the scan it plans on any but a tiny needle, and
-     *          it is a planner for a search run many times against one needle.
+     *          it is a planner for a search run many times against one needle and not for a
+     *          single shot. `sample_stride` makes it affordable.
      */
     size_t anchor_steer_sweep_probes(const AnchorSteerSweep *args);
 
@@ -958,13 +963,14 @@ extern "C"
      *       the two routes. Same offsets, same probe loop, same verification; `steered` decides only
      *       the ORDER the probes are evaluated in. A comparison between two separate implementations
      *       would measure the implementations. This measures the ordering.
-     * @note The count is identical for both values of `steered` and that is a guarantee. An alignment survives only when every anchor agrees, a conjunction does not
+     * @note The count is identical for both values of `steered` and that is a guarantee and not an
+     *       observation. An alignment survives only when every anchor agrees, a conjunction does not
      *       depend on the order of its terms, and the survivor is verified by a full memcmp either way.
      *       The bench grades it at a residual of exactly zero for that reason and not against a
      *       tolerance.
      * @note `anchor_steer_probes` counts the corpus bytes the probes read, which is where the ordering
      *       pays. Reset it before a run and read it after.
-     * @warning Delegates to a full compare at `needle_len` zero  because there is
+     * @warning Delegates to a full compare at `needle_len` zero instead of probing, because there is
      *          no symbol to probe and no offset that indexes one. That matches the reference engine,
      *          which reports an empty needle as occurring at every alignment.
      */
@@ -989,7 +995,7 @@ extern "C"
      *       census instead of the needle and watch the count break, or hand over none at all.
      * @note The empty probe set is the identity. Every alignment reaches the full compare, the answer
      *       is exactly right, and the cost is maximal. That is the cheapest total check of the whole
-     *       guarantee and it is why `count` of zero is accepted.
+     *       guarantee and it is why `count` of zero is accepted and not refused.
      * @note `anchor_steer_probes` counts the corpus bytes the probes read, as it does for
      *       anchor_steer_count. Reset it before a run and read it after.
      */
@@ -1039,7 +1045,7 @@ extern "C"
      * @brief The widest engine this machine carries, which is what the planner calls.
      *
      * @return The engine. Never null, since the portable one is always present.
-     * @note Resolved on every call. A caller in a hot path holds the result
+     * @note Resolved on every call. A caller in a hot path holds the result instead of asking again,
      *       because the processor query costs more than a scan does.
      */
     const AnchorSteerEngine *anchor_steer_best_engine(void);

@@ -50,9 +50,10 @@ if [ -z "$REPO" ]; then
     exit 1
 fi
 
-# The tools directory is named once, in repotools.toml, and asked for by kind. Hardcoding maint/ here is what makes the tools move under objective 5 a hook edit
+# The tools directory is named once, in repotools.toml, and asked for by kind and not by
+# directory. Hardcoding maint/ here makes the tools move under objective 5 a hook edit
 # instead of a config line, and a hook that is edited by hand during a move is a hook that gets it
-# wrong. A missing key stops the commit.
+# wrong. A missing key stops the commit instead of falling back to a guess: guessing is how this
 TOOLS=$(sed -n 's/^[[:space:]]*tools[[:space:]]*=[[:space:]]*"\([^"]*\)".*/\1/p' \
     "$REPO/repotools.toml" 2>/dev/null | head -1)
 

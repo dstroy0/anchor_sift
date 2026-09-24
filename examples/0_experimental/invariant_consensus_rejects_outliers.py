@@ -10,7 +10,8 @@
 #
 # This reads no corpus. It sits in 0_experimental: an algorithm shown working, a robust-estimation
 # filter beside the signal ones. The medium is new -- a graph whose vertices are MEASUREMENTS and whose
-# edges are pairwise compatibility; the technique is new to this tree.
+# edges are pairwise compatibility; the technique is new to this tree, but the theorem is the same
+# one the anchor cascade already proves.
 #
 # The setup is ROBIN's (arXiv:2011.03659): two integer point sets are related by a rigid motion, and
 # correspondences pair a point in one with a point in the other. The inliers are the true pairs; the
@@ -184,7 +185,8 @@ def main():
     out.write(
         "  necessary condition never splits them out; an outlier is kept only by an accidental\n"
     )
-    out.write("  distance match, a false survivor and not a lost inlier. \n")
+    out.write("  distance match, a false survivor and not a lost inlier. the floor is a large accident:\n")
+    out.write("  a conspiracy bigger than the truth is the only thing a necessary condition cannot refuse.\n")
     out.flush()
     ok = (
         (inliers <= clique)

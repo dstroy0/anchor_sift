@@ -13,7 +13,8 @@
 # between two books that happen to be in different languages, and nothing in the measurement separates the
 # two.
 #
-# A translation of one text into many languages removes it. The content is held fixed by construction. It also reaches languages a book catalog does not
+# A translation of one text into many languages removes it. The content is held fixed by construction.
+# What remains between two versions is the language. It also reaches languages a book catalog does not
 # carry, including Vietnamese and Urdu, and it reaches them without hammering an encyclopedia that has
 # been refusing these requests all evening.
 #

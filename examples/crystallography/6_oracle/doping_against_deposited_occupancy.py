@@ -52,7 +52,7 @@
 # either were written at the same one or were not, which is an equality. An occupancy is a measured
 # quantity, published rounded, and two of them summing to 0.999 is a deposit reporting a full site
 # to the precision it had. The tolerance below is the deposit's own and not this instrument's, and
-# it is applied to the deposit's numbers. The sum itself is
+# it is applied to the deposit's numbers and not to any result computed here. The sum itself is
 # computed exactly, as integers.
 
 import io

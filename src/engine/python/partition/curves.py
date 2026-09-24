@@ -17,7 +17,8 @@
 #
 # What it costs is measured and is in two parts. Interleaving jumps whenever it crosses a block
 # boundary, and a jump puts a step into the reading that no part of the set put there. Separately, a
-# line cannot hold everything about a plane whatever path it takes. A Hilbert curve never jumps.43 of the shortfall and the
+# line cannot hold everything about a plane whatever path it takes. A Hilbert curve never jumps.
+# Measuring along both separates the two: the jumps account for about 0.43 of the shortfall and the
 # remaining 0.57 survives a curve with nothing to blame.
 #
 # The two do not have one winner. The Hilbert curve is the better reading of the exponent and the

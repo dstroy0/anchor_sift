@@ -15,14 +15,14 @@
  *       lengths nobody searches with: none, one, and two. A needle of one byte puts all four anchors
  *       on the same offset, and a needle of no bytes has no offset to put them on at all.
  *
- * @note It links the kernel. A grader holding its own copy of the function
+ * @note It links the kernel instead of restating it. A grader holding its own copy of the function
  *       it grades keeps passing forever after somebody repairs the original, the one way a
  *       test can be worse than no test.
  *
  * @warning This is a negative control and it is expected to FAIL before the repair it accompanies.
  *          On a kernel where choose_offsets clamps a zero length needle to needle_len - 1u, that
  *          expression wraps to SIZE_MAX on size_t and the arms read far outside both pointers. The
- *          run may crash.
+ *          run may crash and not print a row, and a crash here is the finding.
  */
 
 #include "anchor_sift.h"
@@ -48,7 +48,7 @@ static unsigned failures = 0u;
  * @param[out] corpus     Bytes to fill [BORROWS].
  * @param[in]  corpus_len How many.
  * @note A small alphabet makes anchor agreement common. The arms actually reach their verify
- *       step.
+ *       step instead of refuting on the first probe everywhere.
  */
 static void fill_corpus(uint8_t *corpus, size_t corpus_len)
 {
@@ -83,7 +83,7 @@ static void grade(const char *what, size_t measured, size_t expected)
     // here because MinGW's headers assume msvcrt semantics; the runtime actually linked is the
     // UCRT, which has handled %zu since Visual Studio 2015, and the warning is noise.
     //
-    // Measured  because an earlier revision of this file got it wrong in the
+    // Measured and not assumed, because an earlier revision of this file got it wrong in the
     // other direction: it widened every count to unsigned long long and recorded in a comment that
     // the runtime rejects %zu and prints the letter. That was inferred from the warning and never
     // observed. A probe printing two %zu followed by a %s prints all three correctly. Argument
@@ -126,7 +126,7 @@ int main(void)
               expected);
 
         // A plan carrying no period and the corpus's own census. The dispatcher has a real
-        // decision to make. The census replaced the
+        // decision to make instead of being steered by a degenerate one. The census replaced the
         // entropy and distinct count the plan used to carry: the rule reads integer counts now and
         // the engine holds no floating point value anywhere.
         AnchorFieldCensus census;

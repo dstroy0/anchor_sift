@@ -11,7 +11,8 @@
 # it is on, and the day its lead first appeared.
 #
 # The day comes from ledger_days.tsv, which was computed once from the MMgr history the ledger was
-# written in. anchor_sift cannot recompute it, because its own history begins at a single commit. An entry the file does not know is new and reports as the
+# written in. anchor_sift cannot recompute it, because its own history begins at a single commit.
+# That file is the record and not a cache. An entry the file does not know is new and reports as the
 # date this runs.
 #
 # Line numbers shift when the contents are inserted. The block is built twice: once to learn how

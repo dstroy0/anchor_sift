@@ -26,7 +26,7 @@ that carry their own answer key, and show what pruning the opponent's replies do
 Every other subject in this tree measures something whose right answer is either unknown or was
 produced here. A game is different: a terminal position is win, loss or draw by the rules. The
 outcome distribution under a move is a quantity with a true value, and for a game small enough to
-enumerate that value can be computed outright. An estimator that disagrees with
+enumerate that value can be computed outright and not estimated. An estimator that disagrees with
 it is wrong in a way no amount of sampling can argue with.
 
 The four games are the four corners of the two properties that decide whether the true value is
@@ -41,7 +41,7 @@ Blackjack, checkers endgames and small-deck poker give a solved arm. Chess does 
 it is here. A chess position after four plies has more continuations than the other three games have
 positions. The chess number has to be estimated and nothing local can catch it being wrong. The
 only thing standing behind it is whether the same estimator reproduced the games that could be
-solved. This subject exists to make that boundary visible.
+solved. This subject exists to make that boundary visible and not to hide it.
 
 ## What the stages found
 
@@ -67,7 +67,7 @@ gap of 0.472222 -- and they do not agree on what to do. Unpruned, the best move 
 Pruned, it is to keep the hand. A probability that is wrong can be caveated. A recommendation that is
 wrong gets acted on.
 
-**Blackjack is the control that makes those two numbers evidence.** Its
+**Blackjack is the control that makes those two numbers evidence and not a curiosity.** Its
 dealer has exactly one legal move at every turn. There is nothing to prune, and the pruned and
 unpruned readings must come out identical. They do, to the digit: gap `0.000000`. Without that, three
 different numbers from three conditionings could just be three different bugs. The same holds on a
@@ -101,10 +101,10 @@ numbers that existed before this code did, and one deliberately broken generator
 Kiwipete is in there for a specific reason: the opening position does not exercise castling, en
 passant or promotion. A generator can be wrong in three ways and still pass perft from the start.
 
-The blackjack dealer bust rate is a windowed check, and the window is stated in the call
-rather than chosen until the result passed. The published figure is quoted for an infinite deck and
+The blackjack dealer bust rate is the only check with a window, and the window is stated in the call
+and not chosen until the result passed. The published figure is quoted for an infinite deck and
 this is one deck with three cards already removed. The two differ by composition. Standing on 16
-wins only where the dealer busts, that single number checks the whole dealer rule.
+wins only where the dealer busts. That is why that single number checks the whole dealer rule.
 
 ## Played boards and impartial games
 
@@ -143,7 +143,7 @@ two apart afterwards.
 
 This does not do that. Unresolved mass is carried as its own outcome and never redistributed over
 win, loss and draw. That is why the checkers table above reads 0.96 unresolved under an adversary
-and why the chess opening at four plies resolves almost
+and not a confident-looking draw, and why the chess opening at four plies resolves almost
 nothing and says so. The standing discipline in this tree is that bounding is not allowed -- no
 judgment-picked tolerances or parameters -- and a search depth is a bound. It is allowed here only
 because it is a declared input, reported beside every result and visible in the distribution it
@@ -166,7 +166,7 @@ different routes are compared with `==` and not with a tolerance. `log2` of a ra
 except at powers of two. The entropy is a float and carries sixteen digits and no more.
 
 That boundary is drawn as late as possible and every probability printed beside an entropy is the
-exact rational. A reader who distrusts the entropy can recompute it.
+exact rational and not a rounded copy. A reader who distrusts the entropy can recompute it.
 The quantity compared between conditionings is the distribution; the entropy is a summary of it.
 
 No banned library is used anywhere in this subject -- no numpy, scipy, sympy, mpmath, pandas, torch,
@@ -178,7 +178,7 @@ Stage three computes the null twice: once by enumerating every continuation exac
 seeded games out and counting. They answer the same question by different routes and have to agree
 where both can run. The sampled arm converges to the enumerated one and does not equal it; that gap
 is sampling error and shrinks with the trial count. A gap that does not shrink would mean one of the
-two routes is wrong, and it would be printed.
+two routes is wrong, and it would be printed and not tuned away.
 
 The seed is an input of the measurement in the same way the budget is, and it is reported with the
 result. A sampled number nobody can reproduce is not a measurement.
@@ -192,7 +192,7 @@ python examples/game_theory/2_partition/what_the_branching_costs.py 5
 python examples/game_theory/3_reference/what_random_play_reaches.py 20000
 ```
 
-Stage six is the positive control, it takes a few seconds, and nothing
+Run stage six first -- it is the positive control, it takes a few seconds, and nothing
 else in the subject means anything if it fails. Stage two is the slow one: its chess arm is a perft
 and the node count is exponential. Passing a larger ply count costs what the game charges.
 
@@ -203,9 +203,9 @@ the implementation and the measurements.
 
 Betting is not modeled in poker and doubling, splitting, insurance and surrender are not modeled in
 blackjack. All of those change what a hand pays, and this subject measures which of win, loss and
-draw is reached. The fifty move rule, threefold repetition and
+draw is reached and not how much is won. The fifty move rule, threefold repetition and
 insufficient material are not modeled in chess, because each turns a long game into a draw and this
-subject reports a game the budget did not finish as unresolved.
+subject reports a game the budget did not finish as unresolved and not as a draw.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-16

@@ -250,7 +250,7 @@ def phi_psi(text):
 
     omega is the peptide torsion CA-C-N-CA into this residue, from which a caller tells a cis proline
     from a trans one. A residue at a chain end or across a break, where a neighbor is missing, is
-    left out.
+    left out and not joined across the gap.
     """
     def scaled(field):
         body = field.strip()

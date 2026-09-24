@@ -14,7 +14,7 @@
 # estimator that is wrong on blackjack is caught immediately; an estimator that is wrong on chess is
 # not caught by anything local. The only thing standing behind a chess number is whether the same
 # estimator reproduced the solved games. This backend is where the measurement stops being checkable
-# and starts having to be trusted, and the subject exists to make that boundary visible.
+# and starts having to be trusted, and the subject exists to make that boundary visible and not
 #
 # The rules are complete: castling with its four conditions, en passant, promotion to all four
 # pieces, check, checkmate and stalemate. They are complete because an incomplete move generator
@@ -23,7 +23,7 @@
 #
 # Not modeled: the fifty move rule, threefold repetition and insufficient material. Each of those
 # turns a long game into a draw, and this subject reports a game the budget did not finish as
-# UNRESOLVED. Folding them in would move mass onto DRAW for positions the
+# UNRESOLVED and not as a draw. Folding them in would move mass onto DRAW for positions the
 # search never actually resolved, the one thing the enumerator is built not to do.
 
 from representation.game import rules
@@ -54,7 +54,7 @@ ONE_LONG = 1
 TWO_SHORT = 2
 TWO_LONG = 3
 
-# The opening array, rank 1 at the bottom for PLAYER_ONE. Written out.
+# The opening array, rank 1 at the bottom for PLAYER_ONE. Written out and not generated so it can
 OPENING = (
     "rnbqkbnr",
     "pppppppp",
@@ -88,7 +88,7 @@ def from_layout(
 
     The rows read top down the way a board is drawn. A position written here looks like the
     position it is. Rights and the en passant square default to a full-rights opening; a fragment
-    position should pass rights explicitly.
+    position should pass rights explicitly and not inherit castling it never had.
     """
     board = [EMPTY] * SQUARES
     for index, text in enumerate(rows):
@@ -347,7 +347,7 @@ def _in_check(board, side):
         if board[square] == king:
             return _attacked(board, square, _other(side))
 
-    # A board with no king is not a chess position. Report not in check. A
+    # A board with no king is not a chess position. Report not in check instead of raising. A
     # fragment position used in an example does not have to invent a king it does not need.
     return False
 

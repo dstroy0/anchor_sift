@@ -87,6 +87,7 @@ def band_gain(centers, audiogram=NO_LOSS):
 
     Interpolated across the frequencies the test was run at and held flat outside them, as
     numpy.interp does at both ends. A test reports six frequencies and there are 64 bands.
+    Every band but a few is an interpolated value and the document says so.
     """
     measured_at, loss_db = audiogram
     at_band = numpy.interp(

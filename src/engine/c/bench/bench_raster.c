@@ -136,7 +136,8 @@ int main(void)
         return 1;
     }
 
-
+    /* The renderer draws with the probe set the engine steered to. The render and the
+     * search cost the same thing. An unsteered set is built beside it for the timing comparison. */
     size_t spawned[ANCHOR_STEER_ANCHORS];
     const size_t coarms = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                             .offsets = spawned,
@@ -292,11 +293,11 @@ int main(void)
     }
 
     // THE VOLUME SWEEP. Every layout by every channel, into a 32 by 32 by 32 block, with the
-    // bijection checked. Each layout's contract is that it drops no alignment
+    // bijection checked and not described. Each layout's contract is that it drops no alignment
     // and duplicates none, which is exactly the claim that distinct alignments reach distinct cells
     // whenever the block is large enough to hold them all. A layout that quietly folded two
-    // alignments together would still render a plausible picture, and nothing else here would say
-    // so,  this is counted and not eyeballed.
+    // alignments together would still render a plausible picture, and no other check here would
+    // catch it. This is counted and not eyeballed for that reason.
     printf("\n  VOLUME SWEEP, %u layouts by %u channels into 32 by 32 by 32\n\n",
            (unsigned)ANCHOR_VOLUME_LAYOUTS, (unsigned)ANCHOR_RASTER_CHANNELS);
     const int have_device_volume = anchor_volume_device_available();

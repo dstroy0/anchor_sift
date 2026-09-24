@@ -18,7 +18,7 @@
 # energy into the class means and a wrong period does not. This detector reads that concentration.
 #
 # The quantity is the between-class sum of squares, the energy that sits in the differences between
-# the phase means. It rises with the period on its own, because more
+# the phase means and not inside the classes. It rises with the period on its own, because more
 # classes hold more between-class variance whatever the data. The count alone means nothing. The
 # only thing that means anything is the amount above what the same histogram reaches with its
 # positions shuffled: reference.shuffles.permuted holds every value and destroys every phase. Its
@@ -38,7 +38,7 @@
 #
 # The perfectly periodic case, where a period drives the within-class energy to zero, is not this
 # detector's. A sequence that repeats exactly is a coherent TARGET and shift_agreement reads it by
-# exact equality; here that case is declined. The two detectors never both
+# exact equality; here that case is declined and not reported. The two detectors never both
 # claim one reading.
 #
 # NOTHING IS BOUNDED HERE
@@ -187,7 +187,7 @@ def null_band(values, reach, draws=8, seed=SEED):
     must clear is the last element; the first and last together are the spread.
 
     Returns the sorted list of ratios the shuffles reached, empty where none reached one. `draws` is a
-    small sample. Widen it for a marginal case.
+    small sample. Widen it for a marginal case instead of trusting one draw.
     """
     values = list(values)
     ratios = []

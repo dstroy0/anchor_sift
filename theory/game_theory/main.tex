@@ -1,12 +1,12 @@
-% !TEX TS-program = lualatex
+% !TEX TS-program = xelatex
 % Hand-written. markdown_to_latex.py is retired: theory/ is the source.
 %
 % The line above picks the engine in TeXworks and TeXShop. Typesetting this with pdfLaTeX stops on
-% \RequireLuaTeX in the preamble, and preamble.tex on its own stops sooner than that: it carries no
+% \RequireXeTeX in the preamble, and preamble.tex on its own stops sooner than that: it carries no
 % \documentclass because this file supplies one and then reads it.
 %
 % Compile from this directory so the shared inputs resolve:
-%     latexmk -pdf -outdir=../../build/theory/game_theory main.tex
+%     latexmk -xelatex -outdir=../../build/theory/game_theory main.tex
 \documentclass[11pt,paper=a4,twoside,openright,titlepage,
 headinclude,footinclude,BCOR=5mm]{scrbook}
 

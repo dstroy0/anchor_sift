@@ -27,7 +27,7 @@ The research is in `theory/` and `theory_bucket/`, as books. It was kept here as
 sh maint/texbuild/build_theory.sh
 ```
 
-The PDFs land in `build/theory/<book>/main.pdf`. The build runs LuaLaTeX twice, because the table of contents is written on the first pass and read on the second, and it fails if any book drops a glyph.
+The PDFs land in `build/theory/<book>/main.pdf`. The build runs XeLaTeX twice, because the table of contents is written on the first pass and read on the second, and it fails if any book drops a glyph.
 
 One book on its own:
 

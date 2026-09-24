@@ -58,7 +58,7 @@ fi
 # has not run it. The Visual Studio generator imports them itself; Ninja does not.
 #
 # Caught here and named, because the failure it produces otherwise is a compiler error about a
-# standard header, which reads as a broken toolchain.
+# standard header, which reads as a broken toolchain and not a missing environment.
 #
 # Naming the compiler is what fixes it, and testing for one is not enough. CMake prefers cl.exe on
 # Windows even where gcc sits on PATH. A check that merely finds gcc passes and the build still
@@ -133,7 +133,7 @@ else
     echo "[*] no nvcc, host arms only"
 fi
 
-# Unquoted on purpose: empty must expand to no argument.
+# Unquoted on purpose: empty must expand to no argument and not to an empty one.
 # shellcheck disable=SC2086
 if [ "$want_cuda" -eq 1 ]; then
     cmake -S "$src" -B "$build" $generator $compiler -DCMAKE_BUILD_TYPE=Release >/dev/null
@@ -187,7 +187,7 @@ if [ "$run_graders" -eq 0 ]; then
 fi
 
 # Every grader returns non-zero on a failed check. The loop below reports the first one that
-# fails and stops.
+# fails and stops instead of printing a wall of output and exiting zero.
 failed=0
 for grader in test_steer test_adversarial test_arm_agreement bench_steer_arms bench_raster bench_exact_arms; do
     exe="$bin/$grader"

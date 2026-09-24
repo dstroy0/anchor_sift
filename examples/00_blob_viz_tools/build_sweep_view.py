@@ -238,7 +238,7 @@ def main():
         worst = max(others)
         floor = float(20 * (worst / top).log10()) if worst > 0 else float("-inf")
         exact_note = (
-            " Measured  at "
+            " Measured and not claimed: a %d-point transform of a tone on a bin, at "
             "%d bits, puts every other bin %.0f dB down, which is %.0f effective bits "
             "against 51 for float64. Anything above that floor in the other fields is the "
             "signal or the window and not the arithmetic. That measurement took %.1f s."

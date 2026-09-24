@@ -391,10 +391,10 @@
     // lay inside a body, summed over the bodies. Any surface is opaque to a neutron most of the time
     // and to a neutrino almost never, and it is that almost that makes this readable. The attenuation
     // is small. The deficit is close to proportional to the column, and a column is a line integral
-    // through the interior.
+    // through the interior and not a picture of its surface.
     //
-    // This shows every body at once instead of the nearest one, and the one
-    // that has to be drawn through the boundary.
+    // This is the only channel that shows every body at once instead of the nearest one, and the
+    // only one that has to be drawn through the boundary and not on it.
     if (mode === "neutrino") {
       var reach = point.dot(beam);
       if (reach <= 0) {
@@ -418,7 +418,7 @@
     }
 
     // Ballistic. A point on the far side is lit unless a body sits on the line the beam took to
-    // reach it. Nothing here is smoothed.
+    // reach it. Nothing here is smoothed. That is the whole difference from the branch above.
     // The shadow falls on the side the beam leaves by, never the side it arrives at. Lighting the
     // arrival side puts every body downstream of the surface being drawn. No body is ever between
     // the source and the point and the ball renders evenly lit with the shadow mode switched on.
@@ -499,7 +499,8 @@
     // Contrast is a curve on the value and never a scale on it. Raising the reading to a power pulls
     // the middle down and leaves both ends where they are. The ball goes dark while exactly as
     // much light still arrives at the brightest place on it. Multiplying instead would dim the peak
-    // along with everything else, which is a darker picture of nothing.
+    // along with everything else, which is a darker picture of nothing and not the same picture
+    // with the floor taken out from under it.
     // Black is the floor, because the surface is added to the view and never painted over it. A dark
     // grey floor would add a grey wash everywhere and put an opaque ball back on the screen by a
     // slower route. Nothing arriving has to contribute nothing.

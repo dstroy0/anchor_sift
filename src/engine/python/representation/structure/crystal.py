@@ -72,7 +72,8 @@ OCCUPANCY = "_atom_site_occupancy"
 #
 # WHICH MEASURES THIS EVER PUT AT RISK, WHICH IS NARROWER THAN IT LOOKS
 #
-# Dropping these rows changes what site_text returns, and site_text is what exact_points reads. The
+# Dropping these rows changes what site_text returns, and site_text is what exact_points reads.
+# Every exact reading in this subject saw different coordinates the moment the default changed. The
 # published figures were re-read both ways over every entry carrying a dum row: no recovered period
 # moved and no agreement with a published edge flipped.
 #
@@ -213,7 +214,7 @@ def exact_sites(text):
     coordinates exact integers at representation.exact.SCALE_DIGITS, and `skipped` counts the sites
     whose coordinates were not plain decimal text. A deposit writing `?` for a coordinate is
     declining to give one, and a site with no position cannot be compared with anything. It is
-    counted.
+    counted and not guessed at.
 
     No cell, no edges, no angles and no tiling. This is fractional space, which is all a reading
     about which sites share a position needs, and it is why such a reading works on a cell that

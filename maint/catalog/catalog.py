@@ -51,10 +51,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def _repository_root():
-    """This repository, asked of git.
+    """This repository, asked of git and not inferred from a marker directory.
 
-    The marker climbed to before was build/, which the repository PRODUCES  so
-    a linked worktree and a never-built clone both lack it. The climb then walked past the root it
+    The marker climbed to before was build/, which the repository PRODUCES and not CONTAINS.
+    A linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
     which is indistinguishable from working.
@@ -65,7 +65,7 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository
+    inherits it answers about that repository and not about the directory it was asked from,
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
@@ -127,11 +127,11 @@ DOMAIN = {
 # their authors minted by pattern. A domain absent from this table makes slot_of return None, the
 # file reports as NO DOMAIN and not numbered, and the hand-written header sits there looking issued.
 # Two sessions did that independently and neither was told by anything until --check was run, which
-# is the argument for running it.
+# is the argument for running it instead of copying the shape of a number that is already there.
 # CHM joined the same way, after three chemistry examples had landed with no number and --check
 # failed on main naming them.
 #
-# EXP is the VIZ case again. 0_experimental holds work that reads no
+# EXP is the VIZ case again and not a ninth subject. 0_experimental holds work that reads no
 # corpus yet. It names no domain in the sense the others do, and its files take stage x like
 # anything outside a numbered pipeline directory. They are numbered because a number survives a
 # move: an example that later earns a subject stage keeps the number it was issued here, and every
@@ -215,13 +215,13 @@ def write_registry(rows):
 def standard_header():
     """The license header this tree puts at the top of every file, read from repotools.toml.
 
-    Read  because a second copy of the SPDX string is a second place to
+    Read and not spelled here, because a second copy of the SPDX string is a second place to
     change it and nothing compares the two. repotools.toml already holds the project name, the
     copyright line and the SPDX expression, and it is the file the rest of the toolkit asks.
 
     tomllib is the standard library's parser. citations.py hand-scans the same file for its own
     [layout] table, which predates this and works, but a hand-scanner reads what its author expected
-    the file to look like.
+    the file to look like and not what TOML says it is.
     """
     path = os.path.join(ROOT, "repotools.toml")
     if not os.path.isfile(path):
@@ -260,8 +260,8 @@ def stamp(text, number):
     """The same file with its number on the line under the SPDX line, or None where there is no
     SPDX line to put it under.
 
-    Returning None. Unchanged text is what a file
-    already carrying the right number returns. The caller could not tell a file it had nothing to
+    Returning None and not the text unchanged is the whole point. A file
+    already carrying the right number returns its text unchanged. The caller could not tell a file it had nothing to
     do to from a file it could not write to, and reported both as stamped. The registry then held a
     number for a file whose header would never carry it, --check reported it adrift forever, and the
     remedy --check named was the run that had just silently skipped it.

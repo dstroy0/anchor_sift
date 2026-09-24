@@ -74,9 +74,9 @@ Returns the number of coarms placed, at most `count`. Returns 0 without writing 
 
 Two separate properties hold, and the second one carries the argument.
 
-The descent is bounded from above. One probe is placed per level, a placed probe is never reconsidered, and the depth is AT MOST `wanted`, which the guard holds at or under `ANCHOR_STEER_ANCHORS` (`src/engine/c/engine/anchor_sift.c:953`). That constant is 4 (`src/engine/c/engine/anchor_sift.h:86`). The loop cannot run longer than that whatever the corpus holds, and that is what makes it terminate.
+The descent is bounded from above. One probe is placed per level, a placed probe is never reconsidered, and the depth is AT MOST `wanted`, which the guard holds at or under `ANCHOR_STEER_ANCHORS` (`src/engine/c/engine/anchor_sift.c:953`). That constant is 4 (`src/engine/c/engine/anchor_sift.h:86`). The loop cannot run longer than that whatever the corpus holds, and it therefore terminates.
 
-It can run shorter, and the corpus is what decides. The destroy test compares the best candidate's surviving population against the current one, and that count is read off the corpus. Where nothing prunes the descent breaks early. `force_full_depth` exists to override exactly that, and an omitted member is zero. The default path's field is ended by the descent. `bench_sigma` measures it: `wanted` fixed at 4 on every row while `placed` returns 2 at an alphabet of 2^8 and 1 from 2^16 up.
+It can run shorter, and the corpus decides when. The destroy test compares the best candidate's surviving population against the current one, and that count is read off the corpus. Where nothing prunes the descent breaks early. `force_full_depth` exists to override exactly that, and an omitted member is zero. On the default path the field ends the descent. `bench_sigma` measures it: `wanted` fixed at 4 on every row while `placed` returns 2 at an alphabet of 2^8 and 1 from 2^16 up.
 
 An earlier version of this paragraph said no branch lets corpus content change how many levels run and that the depth is fixed before the program starts. That holds only under `force_full_depth` and was written as though it held always.
 
@@ -96,7 +96,7 @@ A level that finds no candidate leaving fewer survivors than it started with has
 
 The two are different kinds of statement and the guide keeps them apart. The period argument is a theorem over every corpus of that period. This rule is an observation about one field, taken on a sample of it when `sample_stride` is above one. "pruned nothing on this sample" does not establish "can prune nothing". Being wrong costs speed and cannot cost the count.
 
-Destroying the levels below a destroyed probe costs nothing, and the reason is an induction.
+Destroying the levels below a destroyed probe costs nothing, and the reason is an induction and not a budget.
 
 The destroy test compares the minimum over every candidate against the current population (`src/engine/c/engine/anchor_sift.c:1051`). When it fires, the minimum leaves the population unchanged. Every candidate leaves it unchanged. Placing one would prune nothing, and the next level would inherit the identical population. Its candidate set is the same set or a subset of it, since the enumeration bounds are arguments and constants that do not vary by level (`src/engine/c/engine/anchor_sift.c:1202`) and the coarm descent only ever removes a placed position from consideration. Every candidate in a subset of a set that all left the population unchanged also leaves it unchanged. The next level's minimum is the whole population and its test fires too. By induction every level below prunes nothing.
 
@@ -104,13 +104,13 @@ Stopping is therefore equivalent to continuing, and the probe set is not smaller
 
 The induction needs one property of the enumeration: the candidate set is non-increasing along the descent. Both planners have it. The sweep enumerates the same set at every level, and the coarm descent removes each placed position from consideration (`src/engine/c/engine/anchor_sift.c:1012`), which is a strict subset. A set that grows at a deeper level voids the theorem, because a candidate absent from the level that fired has never been shown to prune nothing. A set that varies for any other reason voids it as well, since the two cases become indistinguishable from inside.
 
-The argument is exact over the population the planner sees. Against the full field it carries the same sample caveat as the destroy rule itself.
+The argument is exact over the population the planner sees: the sampled one when `sample_stride` is above one. Against the full field it carries the same sample caveat as the destroy rule itself.
 
 ## The boundary, stated as domain and range
 
 Every claim below falls out of writing down what each function takes and what it can return. Nothing here is new behavior. It is the same engine read algebraically.
 
-Let `A` be the alignments, `N = |A|`, and `T` the alignments where the needle occurs exactly. A probe `p` is a set of needle positions together with the needle's bytes there. Its decision at an alignment is determined by the corpus bytes at that alignment and those positions, and nothing else.
+Let `A` be the alignments, `N = |A|`, and `T` the alignments where the needle occurs exactly. A probe `p` is a set of needle positions together with the needle's bytes there. Its decision at an alignment is determined by the corpus bytes at that alignment and those positions alone.
 
     S_p   = { a in A : the corpus agrees with the needle at every position p reads }
     S(P)  = intersection of S_p over p in P,   with S(empty set) = A
@@ -121,7 +121,7 @@ Let `A` be the alignments, `N = |A|`, and `T` the alignments where the needle oc
 
 **Nonhalting self examination.** Take any growing chain of probe sets `P_0` inside `P_1` inside `P_2` and onward. The survivor sets are non-increasing and every single one contains `T`. The engine may therefore extend its probe set forever, or stop at any index, or be interrupted, and the exact compare over whatever `S(P_i)` it holds returns exactly `T` in every case. Correctness never depends on termination, and `A` being finite means the chain is eventually constant. A fixed point exists without anything depending on reaching it.
 
-**The legal operation is union, and that is the whole algebra.** `S` turns union into intersection: `S(P union Q) = S(P) intersect S(Q)`. Union is commutative, associative and idempotent. The probe set is a set and never a sequence and never a multiset. Placing a probe twice changes nothing, and the engine's check for an already-placed offset is therefore a saving and not a correctness requirement. Order and placement are nulls, which Section 1 gets from necessary conditions and this gets from the algebra. The two arguments are independent and agree.
+**The legal operation is union, and the algebra has no other.** `S` turns union into intersection: `S(P union Q) = S(P) intersect S(Q)`. Union is commutative, associative and idempotent. The probe set is a set. Neither the order of its probes nor a repeated probe carries meaning. Placing a probe twice changes nothing, and the engine's check for an already-placed offset is therefore a saving and not a correctness requirement. Order and placement are nulls, which Section 1 gets from necessary conditions and this gets from the algebra. The two arguments are independent and agree.
 
 ## The wall: one read per alignment, and it cannot be crossed
 
@@ -133,7 +133,7 @@ The correction above that moved this claim from "reads" to "bytes read at an ali
 
 **Proof.** Suppose the engine decides alignment `a` having read nothing at `a`. Its decision is then a function whose domain is the empty tuple. Its range holds exactly one value and it answers identically whatever the corpus holds at `a`. An adversary edits the corpus at `a` to flip whether `a` belongs to `T`. The engine reads nothing different and returns the same answer, which is wrong for one of the two corpora. at least one read happens at every alignment the engine classifies.
 
-The bound is attained. The empty probe set takes no probe reads and sends every alignment to the compare, which reads at least one byte each, giving exactly `N`. The configuration that steers least sits exactly on the floor, which is what shows the floor belongs to the problem instead of to the steering.
+The bound is attained. The empty probe set takes no probe reads and sends every alignment to the compare, which reads at least one byte each, giving exactly `N`. The configuration that steers least sits exactly on the floor. The floor therefore belongs to the problem; no steering lowers it.
 
 `test_steer` asserts this on all five fields. It checks that every route's probe reads plus compares reaches `N`, and that the empty probe set takes exactly zero probe reads and exactly `N` compares (`test/engine/test_steer.c`). The floor is reported outside the route table on purpose: the table counts probe reads and the floor counts total reads, and one column carrying two units invites a reader to compare a bound against a cost. In real bytes the empty probe set is the most expensive route there is, since every alignment takes a full compare.
 
@@ -153,7 +153,7 @@ This section has now been written three ways and two of them were wrong. What fo
 
 **The trichotomy.** A descent stops, recurses, or refuses to run. It stops when the destroy test fires. It recurses when a level prunes. It refuses, returning zero and writing nothing, when a pointer is null, when the count exceeds `ANCHOR_STEER_ANCHORS`, when the needle length is zero or exceeds the corpus, or when the survivor buffer does not reach the alignment count (`src/engine/c/engine/anchor_sift.c:938-964`). A malformed question does not run. There is no fourth branch in which it revisits a state it has already held.
 
-**Soundness does not depend on which branch is taken.** `T` is contained in `S(P)` for the probe set placed right now, and that statement never mentions how `P` was reached or whether the process reaching it will stop. The answer is exact at every instant of a process that need not terminate. The anytime property is not a convenience attached to a terminating computation; it is what makes a non-terminating one useful.
+**Soundness does not depend on which branch is taken.** `T` is contained in `S(P)` for the probe set placed right now, and that statement never mentions how `P` was reached or whether the process reaching it will stop. The answer is exact at every instant of a process that need not terminate. The anytime property is not a convenience attached to a terminating computation; it makes a non-terminating one useful.
 
 **Failing to halt is not Turing completeness.** A process can fail to halt by cycling among three states. Turing completeness needs storage that grows during execution together with the ability to compute arbitrary functions of it. The second version of this section conflated the two and claimed the engine is Turing complete because its outer loop is unbounded. That does not follow.
 
@@ -169,11 +169,11 @@ The question was whether the construction admits unbounded storage, and it was f
 
 One descent is therefore a finite automaton WITH data dependent control flow, bounded above by a constant. It is not a fixed depth decision procedure, because the destroy test is a genuine conditional branch on data that decides whether to recurse.
 
-**The cap is load bearing and this paragraph used to say the opposite.** An earlier version claimed the depth is data independent and that the constant is incidental. At four billion the classification would not shift. Both halves are wrong. Depth IS data dependent, downward only: the destroy test can cut the descent short and nothing can extend it. The constant bounding it from above is the only thing ruling out unbounded depth, and at four billion it would still rule it out. Data independence is not available as an argument.
+**The cap is load bearing and this paragraph used to say the opposite.** An earlier version claimed the depth is data independent and that the constant is incidental. At four billion the classification would not shift. Both halves are wrong. Depth IS data dependent, downward only: the destroy test can cut the descent short and nothing can extend it. The constant bounding it from above is the only thing ruling out unbounded depth, and at four billion it would still rule it out, and that is the point. Data independence is not available as an argument.
 
-One argument this section used to give is retired outright. It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating, because non-cycling on a finite state space forces termination.
+One argument this section used to give is retired outright. It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating, because non-cycling on a finite state space forces termination instead of permitting unbounded depth.
 
-**Why removing the cap would still not reach universality, over a fixed corpus.** With the corpus nailed down the probe family is fixed, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent must halt with or without the bound. What breaks that is a corpus that grows, because a growing corpus grows the family.
+**Why removing the cap would still not reach universality, over a fixed corpus.** With the corpus nailed down the probe family is fixed, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent must halt with or without the bound. What breaks that is a corpus that grows, because a growing corpus grows the family, the case the section below takes up.
 
 This classifies ONE DESCENT over a fixed corpus and needle. `wanted` is a caller supplied count. A caller may compute it from data across descents, and that is the caller's loop and belongs to the section below.
 
@@ -181,13 +181,13 @@ This classifies ONE DESCENT over a fixed corpus and needle. `wanted` is a caller
 
 The engine reads `const uint8_t *corpus` with a `corpus_len`. It cannot ask for more field than it was handed. Replace that with a reader it may call for more and the picture changes, for a reason worth stating because it is not obvious.
 
-Unbounded reading alone buys nothing. A finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can reach it again. But a reader is a callback the CALLER backs, and a caller may back it with a store that the previous descent's results extend. The write then lives in the caller's loop, the engine stays `const` and gains no write primitive, and the engine still ends up reading what it itself produced. That is the whole of it.
+Unbounded reading alone buys nothing. A finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can reach it again. But a reader is a callback the CALLER backs, and a caller may back it with a store that the previous descent's results extend. The write then lives in the caller's loop, the engine stays `const` and gains no write primitive, and the engine still ends up reading what it itself produced.
 
-What it composes into keeps everything this document argues for. Growth happens only between descents, on the branch where a descent refuses. Inside a descent the survivors still only shrink. Soundness, the anytime property and termination all hold at the inner level, because all three follow from that one monotonicity. The outer machine is universal and every inner step of it is a sound, terminating, interruptible filter.
+What it composes into keeps everything this document argues for. Growth happens only between descents, on the branch where a descent refuses: the shape of asking another slightly different question. Inside a descent the survivors still only shrink. Soundness, the anytime property and termination all hold at the inner level, because all three follow from that one monotonicity. The outer machine is universal and every inner step of it is a sound, terminating, interruptible filter.
 
 Nobody would owe a universality proof for it either. Read a window, act on what was read, append, continue is a tag system, and 2-tag systems have been known universal since Minsky in 1961. What is owed is an encoding into that shape.
 
-The price is exactly the property the engine is sold on. At the outer level termination goes, and that is the evidence. The inner loop keeps its guarantee and the outer one gives up the one it never claimed.
+The price is exactly the property the engine is sold on. At the outer level termination goes, and that is the evidence and not a defect to repair: if it stayed decidable whether an outer run finishes, the thing would not be universal. The inner loop keeps its guarantee and the outer one gives up the one it never claimed.
 
 None of this settles the question above. It names what would move the answer and not what the answer is, and nothing in the tree is being built toward it.
 
@@ -229,7 +229,7 @@ So the non-increasing enumeration premise stated in the section above is load be
 
 The guarantee is on alignments rejected by `k` probes. It is not a guarantee on reads, and those differ: rejecting an alignment early saves the reads a later probe would have spent on it. A set that rejects the same alignments in a different order costs a different number of reads. The read counts in the table above are measurements and are not covered by the ratio.
 
-It alassumes the marginal gains are evaluated exactly, which holds at `sample_stride` of one. Above one the planner scores candidates on a sample, which makes the oracle approximate, and greedy under an approximate oracle degrades by an amount depending on the error.
+It also assumes the marginal gains are evaluated exactly, which holds at `sample_stride` of one. Above one the planner scores candidates on a sample, which makes the oracle approximate, and greedy under an approximate oracle degrades by an amount depending on the error instead of holding at `1 - 1/e`.
 
 Nothing here has been measured against the optimal probe set, because computing that means enumerating every set of size `k` and is exponential. The ratio is a proved floor and this document does not report it as an observation.
 
@@ -255,7 +255,7 @@ Every route on every field returned the reference count.
 
 The family shows three things one field could not. Steering pays nothing on a uniform field, where no symbol is rarer than another and the ordering has nothing to order by. It pays most where the field repeats or its rarity spreads, taking 1.877 to 1.067 on the skewed field and 1.187 to an exact 1.000 on the period 16 field, which the planner reaches with one probe where the unsteered route places four. And the two mechanisms separate: on the skewed field the recursive reorder moves 1.877 to 1.875 while spawning coarms moves it to 1.067. What pays there is the spawning and not the ordering. On the license text both routes move together and the distinction is invisible.
 
-**The weakest field is uniform, and an earlier version of this paragraph said it was the license text.** Read the best steered route and not the reorder column: the license text goes 1.072 to an exact 1.000 on coarms. Uniform goes 1.003 to 1.003 and does not move at all, on any route, because a uniform field has no rarity for the steering to spend and there is nothing for an ordering to order by. That is the honest worst case.
+**The weakest field is uniform, and an earlier version of this paragraph said it was the license text.** Read the best steered route and not the reorder column: the license text goes 1.072 to an exact 1.000 on coarms, the floor. Uniform goes 1.003 to 1.003 and does not move at all, on any route, because a uniform field has no rarity for the steering to spend and there is nothing for an ordering to order by. That is the honest worst case and the one to quote against.
 
 The earlier error was reading 1.066 out of the recursive reorder column and calling it the field's result. Every field's result is its best route, and on the license text the reorder does almost nothing while the coarms reach the floor, the spawn against reorder distinction the rest of this section is about.
 
@@ -265,9 +265,9 @@ One read per alignment is the floor for a scheme that decides each alignment fro
 
 That floor describes this engine and is not a number to hold a different search style against. Boyer-Moore, Horspool, Sunday and the factor-based methods skip alignments outright: a mismatch at one alignment proves non-occurrence across a range, and the skipped alignments are never read. Their reads per alignment is taken over the alignments they chose to visit, which is a sparse subset of the alignments counted in this table. The name is shared and the set counted underneath it is not. A ratio between the two columns measures nothing. This engine visits every alignment by construction and rejects; a skipping search advances. No figure here is a comparison against one.
 
-The engine gives that up deliberately, and what it spends is worth stating precisely because `README.md:99` makes two separate claims: that the engine carries `m` bits of state for a pattern of length `m`, and that nothing is indexed and no table is built over the alphabet.
+The engine gives that up deliberately, and what it spends is worth stating precisely because `README.md:99` makes two separate claims: that the engine carries `m` bits of state for a pattern of length `m`, and that nothing is indexed and no table is built over the alphabet, the half covering a real-valued or unenumerable alphabet.
 
-A classical bad character table is indexed by symbol and spends both. A structure built from the needle's own values spends only the first: for each needle position it records the next position to its left carrying the same value, which is `m` positions and therefore `m log m` bits, and it indexes nothing over the alphabet because it tests equality against the `m` values the needle holds. The good suffix rule is not available here at any price. It needs a contiguous right to left comparison to know which suffix matched, and this engine probes an arbitrary subset in an arbitrary order. Adopting it would mean giving up probe placement. Nothing here implements either.
+A classical bad character table is indexed by symbol and spends both. A structure built from the needle's own values spends only the first: for each needle position it records the next position to its left carrying the same value, which is `m` positions and therefore `m log m` bits, and it indexes nothing over the alphabet because it tests equality against the `m` values the needle holds. The good suffix rule is not available here at any price. It needs a contiguous right to left comparison to know which suffix matched, and this engine probes an arbitrary subset in an arbitrary order. Adopting it would mean giving up probe placement, the thing being steered. Nothing here implements either.
 
 ## Running the graders
 

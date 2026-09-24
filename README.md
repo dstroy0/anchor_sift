@@ -30,7 +30,7 @@ From a fresh clone, at the repository root:
 maint/engine/build_engine.sh                                      # the C engine: configure, build, run the graders
 python examples/any_corpus/4_measure/collision_entropy.py         # a reading that knows nothing about its corpus
 python examples/crystallography/6_oracle/proof_positive_control.py  # the positive control, against published cells
-sh maint/texbuild/build_theory.sh                                 # the twelve books
+sh maint/texbuild/build_theory.sh                                 # the fifteen books
 ```
 
 On Windows PowerShell the engine builds with `maint/engine/build_engine.ps1`. Most examples read corpora under `build/`, which are not in git: `maint/data/fetch/` fetches them, and `python maint/deps/get_deps.py` clones what the C side needs. `docs/setup.md` and `docs/usage.md` cover the rest.
@@ -100,7 +100,7 @@ Each directory serves one purpose.
 | `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                            |
 | `examples/`                 | a corpus, through `src/`     | 159 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
 | `maint/`                    | the repository itself        | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline         |
-| `theory/`, `theory_bucket/` | the argument                 | twelve books                                                                                      |
+| `theory/`, `theory_bucket/` | the argument                 | fifteen books                                                                                     |
 | `docs/`                     | the reader                   | setup, usage, steering, rendering and the verification notes                                      |
 
 `examples/README.md` explains the stages and how to run a script. `maint/README.md` maps the maintenance tools. `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
@@ -141,7 +141,7 @@ The full set lives one per file under `src/engine/python/` and in the C renderer
 
 **It searches with no pattern at all.** Given only bytes it recovered a multiple of a record period from 512 reads, at 92 shifts against 0 on a shuffle of the same bytes.
 
-**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`. Asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs, and each number belongs to the toolchain that produced it. That is why the bench exists, and why its output is a recommendation to act on. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
+**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`. Asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs, and each number belongs to the toolchain that produced it. That is why the bench exists, and why its output is a recommendation to act on and not a figure to quote. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
 
 **The needle length term in the shipped rule does nothing on this data.** Scoring flatness alone ties the kernel exactly, same rows and same cycles. The length term changes no answer on any of the 42. The rule as documented, flatness then length, scores strictly worse than the flatness it contains, and the rule as originally shipped, length alone, is worse than both. A tunable with no reader is an integration point and is neither removed nor described as unimplemented. It is named here and kept until a row is found where it pays.
 
@@ -190,7 +190,7 @@ The graders the scripts run after a build are `test_steer`, `test_adversarial`, 
 
 ### Rendering the object, flat and solid
 
-The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps. `docs/rendering.md` covers both.
+The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps and not the same one at two sizes. `docs/rendering.md` covers both.
 
 `AnchorRasterConfig` renders a sheet: `width` by `height`, one of four layouts, one of five channels, a reduce rule for cells several alignments land on, and a gain. `AnchorVolumeConfig` renders a block: `width` by `height` by `depth`, one of four volume layouts, and the same five channels, the same two reduce rules and the same gain, named by reference to the same enums, because a channel means one thing in this tree.
 
@@ -198,10 +198,10 @@ The renderer draws the object under examination straight from engine state. What
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `slabs`         | fills a sheet, then the sheet behind it. The three dimensional reading of the row layout.                                                                                                                             |
 | `boustrophedon` | every other row and every other slab reversed. Consecutive alignments stay adjacent across both boundaries.                                                                                                           |
-| `morton`        | interleaves the bits of x, y and z, preserving locality on all three axes at once. This reads as a solid instead of as stacked sheets. Needs power of two extents and refuses others.                                 |
+| `morton`        | interleaves the bits of x, y and z, preserving locality on all three axes at once. This reads as a solid instead of as stacked sheets. Needs power of two extents and refuses others instead of remapping quietly.                                 |
 | `helix`         | each slab's rows shifted by its depth index. A feature at a fixed corpus offset winds through the block. A shear and not a rotation, because a true helix needs trigonometry and this renderer is integer throughout. |
 
-Every layout is a bijection on the cell index, computed in integers. `bench_raster` checks that. A layout that quietly folded two alignments together would still draw a plausible picture and nothing else would notice.
+Every layout is a bijection on the cell index, computed in integers. `bench_raster` checks that instead of stating it: it maps every alignment through every layout at every channel and counts collisions, which must be zero. A layout that quietly folded two alignments together would still draw a plausible picture and no other check would notice.
 
 Netpbm has no volume container. `anchor_volume_write_raw` writes the block as raw bytes, x fastest, and puts the extents, the layout, the channel, the reduce rule and the gain in a `.txt` sidecar naming the function that generated it. Any volume viewer that reads raw unsigned 8 bit will open it given those three numbers.
 
@@ -272,7 +272,7 @@ For a language with few remaining speakers, publishing a form drawn from outside
 
 ## Where to start reading
 
-The research is twelve books, built with LuaLaTeX. Five are under `theory/`: the workbook, chemistry, game theory, image transforms and particle physics. The other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
+The research is fifteen books, built with XeLaTeX. Eight are under `theory/`: the workbook, chemistry, game theory, image transforms, particle physics, and the three held books under `theory/held/`. The other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
 
 ```sh
 sh maint/texbuild/build_theory.sh
@@ -285,6 +285,9 @@ sh maint/texbuild/build_theory.sh
 | a domain that supplies its own answers, and the reading it corrected              | `theory/game_theory`                |
 | the image transform program, exact, and which of the transforms is built          | `theory/image_transforms`           |
 | particles as exact charges and shells, and what a quantum number costs            | `theory/particle_physics`           |
+| the information theory under the nulls, and the survey of viewers                 | `theory/held/apparatus`             |
+| a lit set on a sphere read as a boundary, and how deep into the rounds it reaches | `theory/held/boundary`              |
+| what the instruments cannot see, how they failed, and how to aim them             | `theory/held/instruments`           |
 | whose words the corpus holds, and how wrong it could be                           | `theory_bucket/Salishan`            |
 | the posits whose experiment cannot be built                                       | `theory_bucket/thought_experiments` |
 | a published cell edge read back off a voxel grid, and whose result that is        | `theory_bucket/crystallography`     |

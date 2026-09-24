@@ -1484,7 +1484,7 @@ int main(void)
 {
     int failed = 0;
 
-    printf("\n  ADVERSARIAL SUITE, written to break the guarantees.\n\n");
+    printf("\n  ADVERSARIAL SUITE, written to break the guarantees and not show them.\n\n");
 
     failed += adversarial_case_differential_net();
     failed += adversarial_case_overlapping();

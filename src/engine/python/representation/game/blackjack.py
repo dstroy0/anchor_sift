@@ -14,7 +14,8 @@
 # WHAT IS MODELED AND WHAT IS NOT
 #
 # The dealer has a fixed rule and therefore never chooses; it is given PLAYER_TWO with exactly one
-# legal move at every turn, which states the absence of choice in the protocol. For
+# legal move at every turn, which states the absence of choice in the protocol and not in a
+# comment. The dealer draws its second card during its own play instead of holding a hole card. For
 # the distribution over win, loss and draw that is the same game -- the hole card is unknown to the
 # player either way and is drawn from the same deck -- and it keeps hidden information out of a
 # backend that is not about hidden information. Poker is the backend that is.
@@ -223,8 +224,8 @@ def _remove(shoe, rank):
 def position(decks, player_cards, dealer_card):
     """A named position to measure, built by dealing the given cards out of a fresh shoe.
 
-    This exists, an example can ask about a specific decision -- sixteen against a dealer ten, the
-    hand every basic strategy table is remembered for --.
+    This exists for an example to ask about a specific decision -- sixteen against a dealer ten, the
+    hand every basic strategy table is remembered for -- and not about the opening deal.
     """
     shoe = list(PER_DECK[rank] * decks for rank in RANKS)
     player_pips = 0

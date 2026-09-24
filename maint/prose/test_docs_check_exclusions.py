@@ -35,7 +35,8 @@ def sibling_repository(name):
     """A repository beside this one, or None.
 
     Resolved through docs_check.main_checkout() and not through __file__. This suite inherits
-    the worktree repair.
+    the worktree repair instead of reintroducing the bug it fixed: from a linked worktree a sibling
+    computed from this file's path lands inside .claude/worktrees/.
     """
     named = os.environ.get("%s_TREE" % name.upper())
     if named:
@@ -238,7 +239,7 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
     def test_the_cost_is_named_and_it_is_two_files_of_our_own(self):
         """The rule takes two of this project's own index pages with the corpora they index.
 
-        Named here. The
+        Named here and not discovered later by somebody wondering where a file went. The
         alternative is an allowlist inside each verbatim root, which is a second list to maintain
         for two files.
         """
@@ -487,7 +488,7 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
 
         Zero is the outcome to want from a rule whose job is to protect an artifact and not to hide
         a backlog. A block walker reaching too far reports the same zero on this test and 164
-        findings on the tree,  the two boundary tests above are asserted by shape.
+        findings on the tree, and for that reason the two boundary tests above are asserted by shape.
         """
         roots = [os.path.join(dc.REPOSITORY, "maint")]
         if IDEMIP:
@@ -728,7 +729,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         """Derived at run time. Nothing in any tree here writes about the convention today.
 
         The rule is the objective's own clause written down before a document needs it, the
-        opposite of the usual order and is why the number is asserted.
+        opposite of the usual order and is why the number is asserted and not described.
         """
         roots = [os.path.join(dc.REPOSITORY, "maint")]
         if PROTOCORE:
@@ -756,7 +757,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         self.assertEqual(silenced, 0)
 
     def test_the_standards_rule_is_a_rewrite_refusal_and_not_a_scan_exemption(self):
-        """Measured out.
+        """Measured out and not kept, and the measurement is the reason.
 
         Exempting a run for naming a standard silenced 1,733 findings in one tree unbounded and 20
         bounded to the alphabet tier, and every one of the 20 was ordinary prose in a paragraph that
@@ -964,18 +965,22 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
     def test_prose_still_never_fails_a_build(self):
         """Verbatim in both standards, in the sentence that names this tool, and unchanged here.
 
-        An exclusion layer is a place where an exit rule gets rewritten by accident.
+        An exclusion layer is a place where an exit rule gets rewritten by accident. The run reads a
+        fixture carrying one banned phrase. This file is excluded as a gate self-test, and a run
+        over it reads nothing and exits 2 for that reason.
         """
-        answer = subprocess.run(
-            [
-                sys.executable,
-                os.path.join(HERE, "docs_check.py"),
-                os.path.join(HERE, "test_docs_check_exclusions.py"),
-            ],
-            capture_output=True,
-            text=True,
-            env=dc.git_env(),
-        )
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as where:
+            fixture = os.path.join(where, "prose_only.md")
+            with open(fixture, "w", encoding="utf-8") as handle:
+                handle.write("# A fixture\n\nThe cache is small, which is what makes it fast.\n")
+            answer = subprocess.run(
+                [sys.executable, os.path.join(HERE, "docs_check.py"), fixture],
+                capture_output=True,
+                text=True,
+                env=dc.git_env(),
+            )
         breaking = [
             one for one in answer.stdout.splitlines() if one.strip().startswith("BREAK")
         ]
@@ -990,6 +995,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
             "  this suite reports %d prose finding(s) and exits %d"
             % (len(prose), answer.returncode)
         )
+        self.assertTrue(prose, "the fixture carries a prose finding")
         self.assertEqual(answer.returncode, 0)
 
 

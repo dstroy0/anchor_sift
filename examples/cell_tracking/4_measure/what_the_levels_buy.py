@@ -53,7 +53,7 @@ from what_a_pixel_costs import SEED, TRUTHS, recover, shifted  # noqa: E402
 from where_the_floor_comes_from import field  # noqa: E402
 
 # Swept over eleven doublings. The top is past any microscope's bit depth and is included so the
-# sweep runs off the end of what a real image could carry,.
+# sweep runs off the end of what a real image could carry, instead of stopping where this author
 LEVELS = (4, 8, 16, 32, 64, 128, 256, 1024, 4096, 16384, 65536)
 
 WIDTH = 4.0

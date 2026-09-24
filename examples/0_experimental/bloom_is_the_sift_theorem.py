@@ -4,7 +4,7 @@
 # Catalog: EXP-x-001
 #
 # The Bloom filter shown to be the anchor sift's theorem in another field, and its floor measured
-# .
+# and not assumed.
 #
 #   Usage:  python examples/0_experimental/bloom_is_the_sift_theorem.py
 #
@@ -140,7 +140,7 @@ def main():
         "  formula assumes k independent uniform hashes and no collision among the insertions\n"
     )
     out.write(
-        "  themselves; the real double hashing at this fill sets fewer distinct bits than kn,\n"
+        "  themselves; the real double hashing at this fill sets fewer distinct bits than kn, and\n"
     )
     out.write(
         "  the measured rate runs under the prediction. structured and uniform items read alike,\n"

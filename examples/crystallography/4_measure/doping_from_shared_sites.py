@@ -45,7 +45,8 @@
 # as integers through representation.exact, because a shared position is decided by equality and
 # an equality decided on rounded values is not one.
 #
-# A measure that asks for more of the pipeline than it needs
+# The general lesson is one the subject's README already records twice: reach for the smallest
+# reading that answers the question. A measure that asks for more of the pipeline than it needs
 # inherits every limit that pipeline has.
 #
 # WHAT THE READER WOULD DO TO THIS, AND WHAT IT ACTUALLY DOES TODAY
@@ -56,9 +57,11 @@
 # read with its rows reversed the same site is Cu2+.
 #
 # That is a latent hazard and not a live defect, and the distinction is worth stating precisely
-# . Two things keep it from biting today. `placed`
+# instead of letting the stronger version stand. Two things keep it from biting today. `placed`
 # has no callers anywhere in this tree. And `along`, which every period measure here goes through,
-# does not overwrite at all: it gathers every value sitting at a coordinate into a sorted tuple.
+# does not overwrite at all: it gathers every value sitting at a coordinate into a sorted tuple. It
+# returns the same arrangement whatever order the rows arrive in. That was checked and not
+# assumed, on the same entry.
 #
 # So no published result in this subject is affected. What is true is that the first reading to
 # reach for `placed` on a structure carrying shared positions inherits a silent dependence on file
@@ -107,7 +110,7 @@ def doped_sites(text):
 
     It used to be "the deposit has no atom site rows". It is now "no site parsed", because the
     reading is crystal.exact_sites and an entry whose coordinates all fail to parse comes back with
-    an empty list. A deposit that has rows and no usable coordinate used to be
+    an empty list and not with rows. A deposit that has rows and no usable coordinate used to be
     counted readable with nothing shared, and is now counted unreadable.
 
     The new behaviour is the more correct one, an entry nothing could be read from is not an entry

@@ -30,7 +30,7 @@
  *       still runs on machines without it, and calling in would raise an illegal instruction.
  * @note Two detection paths, both arms of the gate defined. MSVC has no __builtin_cpu_supports and
  *       takes __cpuidex; GCC and Clang have the builtin.
- * @note The tail below thirty-two is finished scalar. A masked tail costs more to
+ * @note The tail below thirty-two is finished scalar and not masked. A masked tail costs more to
  *       get right than it saves at this width, and the scalar remainder is the same code the
  *       portable arm runs.
  */
@@ -124,7 +124,8 @@ size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
         const __m256i agrees = _mm256_cmpeq_epi8(window, broadcast);
 
         /* An alive flag is zero or non-zero. The mask of alignments still standing is the
-         * complement of "equals zero". Testing against zero and complementing. */
+         * complement of "equals zero". Testing against zero and complementing instead of testing
+         * against one keeps this correct if a caller ever stores a flag other than one. */
         const __m256i refuted = _mm256_cmpeq_epi8(standing_bytes, zero);
         const __m256i alive_mask = _mm256_andnot_si256(refuted, _mm256_set1_epi8((char)0xFF));
 

@@ -106,10 +106,10 @@ def main():
     print(
         "Nothing was rounded to build any of these. A card is an integer, a square is an index, and\n"
         "a deck is a count per rank. There is no scale, no tolerance and no grid anywhere in this\n"
-        "stage,  the later stages can compare two readings with == instead of a\n"
+        "stage. The later stages can therefore compare two readings with == instead of a\n"
         "tolerance. The subject was chosen partly for that: a game is a domain where the exact\n"
         "representation is the obvious one. Nothing is lost on the way in and any loss further\n"
-        "down belongs to the measurement."
+        "down belongs to the measurement and not to the reader."
     )
 
 

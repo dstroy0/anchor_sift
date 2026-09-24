@@ -252,6 +252,7 @@ def main():
     # Everything is written. A sentence the two printings disagree on is a real sentence with a
     # discrepancy to record, and a sentence that appears in only one of them is a real sentence with
     # no second copy. Dropping either loses text from a language that has very little of it left.
+    # The status is a column.
     target = os.path.join(CORPORA, "salish_nlekepmxcin.txt")
     written = 0
     with open(target, "w", encoding="utf-8", newline="") as handle:

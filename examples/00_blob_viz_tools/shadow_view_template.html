@@ -457,7 +457,7 @@
         dim: "32 × 64",
         signed: true,
         title: "Residue against round",
-        note: "The field folded onto (input bit − output bit) mod 32. 4,096 cells stand behind every square. This shadow sees structure a maximum cannot.",
+        note: "The field folded onto (input bit − output bit) mod 32, the coordinate the rotations act in. 4,096 cells stand behind every square. This shadow sees structure a maximum cannot.",
         axis: function (i) {
           return "residue " + i;
         },
@@ -468,7 +468,7 @@
         dim: "512 × 64",
         signed: false,
         title: "Every input bit against round",
-        note: "Power in each of the 512 message bits, unfolded. Excess over the 256 expected per row. A bit that behaves reads zero.",
+        note: "Power in each of the 512 message bits, unfolded. Excess over the 256 expected per row. A bit that behaves reads zero and not 256.",
         axis: function (i) {
           return "bit " + i + " (word " + Math.floor(i / 32) + ")";
         },

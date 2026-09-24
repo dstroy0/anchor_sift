@@ -124,7 +124,7 @@ static size_t o2_compose(const uint8_t *const corpus, const uint8_t *const needl
         if (placed == 0u)
         {
             // The destroy rule: this level's best candidate pruned nothing. No condition left
-            // separates the survivors. The composition stops.
+            // separates the survivors. The composition stops instead of reading for no gain.
             break;
         }
         depth += 1u;
@@ -175,7 +175,8 @@ static int o2_case_found_past_cap(void)
     uint64_t state = 0x0123456789ABCDEFULL;
     o2_fill(corpus, 2u, &state);
 
-    // The target is the first alignment whose needle occurs exactly once, searched for.
+    // The target is the first alignment whose needle occurs exactly once, searched for and not
+    // assumed. The premise the depth bound rests on is a fact of this field and not a hope.
     size_t origin = alignments;
     for (size_t candidate = 0u; candidate < alignments; candidate += 1u)
     {

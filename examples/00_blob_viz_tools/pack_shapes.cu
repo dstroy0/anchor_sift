@@ -149,7 +149,7 @@ __global__ void make_points(float *points, int count, int dims, int shape, uint6
  * @brief Marks which candidates in this batch sit clear of every point already kept.
  *
  * One thread per candidate, walking the kept set. The kept set is read by every thread in the
- * block in the same order. It streams out of cache.
+ * block in the same order. It streams out of cache instead of being fetched per thread.
  */
 __global__ void clear_of_kept(const float *kept, int kept_count, const float *batch, int batch_count,
                               int dims, float limit, int *ok)
@@ -297,7 +297,8 @@ int main(int argc, char **argv)
      * big enough to saturate a surface in nineteen dimensions is large and almost all of it is
      * refused. Holding it costs memory to store points that were only ever going to be rejected.
      * Drawing fresh ones against a kept set that is already growing does the same work, keeps the
-     * footprint at one batch, and lets the run stop when it stops finding anything. */
+     * footprint at one batch, and lets the run stop when it stops finding anything and not when
+     * a number chosen in advance runs out. */
     int block = 256;
     int batch = 4096;
     float *scratch = NULL;
@@ -313,7 +314,7 @@ int main(int argc, char **argv)
 
     /* One batch first, to measure what the middle distance between two points on this surface is.
      * The gap is a fraction of that, measured on the same kind of points that are about to be
-     * packed. */
+     * packed and not on a fresh draw with its own character. */
     make_points<<<(batch + block - 1) / block, block>>>(scratch, batch, dims, shape, seed);
     if (cudaDeviceSynchronize() != cudaSuccess)
     {

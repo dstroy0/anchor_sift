@@ -65,6 +65,7 @@ def pull(code, offset):
     # these varieties came back with nothing and looked like an empty encyclopedia.
     #
     # Opening sections only. A full extract is served one page at a time whatever limit is asked for.
+    # Every request was returning a single article and often a stub, which read as an empty encyclopedia.
     # Opening sections are served twenty at a time and are still ordinary prose.
     query = {
         "action": "query",

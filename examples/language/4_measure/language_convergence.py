@@ -116,7 +116,8 @@ def main():
         effective = 1.0 / float((shares * shares).sum())
         spread = float(seated.astype(numpy.float64).std())
         # As a share of the positions the alphabet occupies, since there is no fixed width to quote a
-        # spread in levels against. An alphabet of 3150 needs about 11.6 bits and one of 90 needs 6.5.
+        # spread in levels against. An alphabet of 3150 needs about 11.6 bits and one of 90 needs 6.5. The same
+        # number of levels therefore means different things in the two and only the fraction compares.
         gathered.append(
             (
                 language,

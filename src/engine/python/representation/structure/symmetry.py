@@ -28,7 +28,7 @@
 # A trigonal or hexagonal space group is full of thirds. '-y,x-y,z' with 'x+2/3,y+1/3,z+1/3' is an
 # ordinary R centred operation, and the corpus is full of R-3 and R-3c. Carrying those through a
 # decimal scale would round them, and a rounded symmetry copy lands next to the atom it should have
-# landed on. Two sites that are one place stop comparing equal and the doping
+# landed on and not on it. Two sites that are one place stop comparing equal and the doping
 # at that place disappears. The failure would be silent and would look like an absence of doping.
 #
 # So coordinates here are integers in units of 1/(UNITS * 10**SCALE_DIGITS). The deposit's decimals
@@ -42,7 +42,7 @@
 # multiple of 1, 2, 3, 4, 6 and 8 is 24. 24 holds every translation the 230 space groups use in
 # their standard settings.
 #
-# A denominator that does not divide 24 raises. That is the same rule
+# A denominator that does not divide 24 raises instead of rounding. That is the same rule
 # exact.WillNotFit follows one module over and for the same reason: a setting this does not cover is
 # a setting this must refuse, because the alternative is a quiet displacement that nothing
 # downstream can see.

@@ -15,7 +15,7 @@
 # cannot tell a frame stack from a waveform. This is the README's one instrument, shown reading the
 # second medium.
 #
-# The period is the frame size.
+# The period is the frame size, the file's geometry and a declared input, not a fitted one.
 # It is confirmed here anyway: measure.periodic_energy recovers it from the stack against a shuffle,
 # the same way ART-4-001 recovers a still image's width. Once it is confirmed the fixed pattern is the
 # per-pixel mean across frames, which reference.periodic builds, and the residual is the moving scene.
@@ -33,7 +33,8 @@
 # it is why cameras need a dark frame or motion. A scene feature that never moves -- a pixel that is
 # bright in every frame in the same place -- is indistinguishable from a fixed pattern, because both
 # are a constant per-pixel offset across the stack. This removes it along with the noise, and the
-# reduction falls by exactly the static feature's energy. That is not a defect. A static object is signal shaped
+# reduction falls by exactly the static feature's energy. That is not a defect. Noise shaped exactly
+# like the signal is the single thing no instrument can reject, and a static object is signal shaped
 # exactly like fixed-pattern noise.
 #
 # A native-C route is the natural hardening and is not claimed here.
@@ -114,7 +115,7 @@ def with_static_feature(scene, frame, depth):
 def with_impulses(stack, count, swing, seed):
     """The stack with `count` pixels replaced by a value from nowhere: the wrong KIND of noise.
 
-    Impulses are incoherent. The frame-period detector should decline them.
+    Impulses are incoherent. The frame-period detector should decline them and not scrub them.
     """
     rng = random.Random(seed)
     out = list(stack)
@@ -198,7 +199,7 @@ def main():
               % (wrong, to_float(wrong_nrr) * 100.0))
 
     # 3c. negative controls: the score must be able to NOT be 100, or it measures the removal of the
-    #     pattern injected. A stack with no fixed pattern
+    #     pattern injected and not the detection of a fixed pattern. A stack with no fixed pattern
     #     and a stack corrupted by impulses must both sit inside the null band and be declined.
     band = null_band(byte_view, frame, DRAWS)
     boundary = band[-1] if band else None

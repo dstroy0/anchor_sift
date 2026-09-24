@@ -43,10 +43,12 @@ put in after a correct quotation was reported as an invention:
     because that is what it is. Reading the mask alone gives one block per line and truncates
     every quotation spanning two of them. That was hiding 591 quotations - two fifths of the total
     - and every one of the odd quote-mark counts that made blocks unreadable.
-  - A block often cites a bare "sec 5.4.2" against the document the FILE is about. The RFCs in the
+  - A block often cites a bare "sec 5.4.2" against the document the FILE is about and not the
+    last RFC it happened to name. dad.h quotes six RFC 4862 sections that way. The RFCs in the
     file's own @file comment are tried as well, or those six read as inventions.
 
-  A comment block whose quote marks still do not pair after all that is skipped. With an odd count every candidate after the stray mark is the gap
+  A comment block whose quote marks still do not pair after all that is skipped and not guessed
+  at, and the report says which. With an odd count every candidate after the stray mark is the gap
   BETWEEN two quotations, and each would be reported as an invented sentence.
 
 WHAT THIS DOES NOT SETTLE. An RFC figure, state table or pseudo-code block is laid out in columns

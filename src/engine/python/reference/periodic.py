@@ -76,6 +76,7 @@ def mean_background_incremental(values, period):
     Each phase class is read on its own stride and its mean is grown by the Welford update, exact in
     Fraction: the mean after i members is the mean after i minus one plus the new member's distance
     from it over i. It shares no sum, no traversal and no division count with `mean_background`.
+    The two agreeing is a check and not a restatement. Where they disagree, one carries a defect.
     """
     means = [None] * period
     length = len(values)
@@ -109,7 +110,7 @@ def consensus_majority(values, period, on_tie=min):
     """Each phase class's value of greatest count, tiled back over every position. Route one.
 
     The reject step for replacement noise. A class holding the true value in most members and a wrong
-    value in a few returns the true value, because the true value is the one most members carry. A
+    value in a few returns the true value, because most members carry the true value. A
     tie is broken by `on_tie` over the tied values, a declared rule reported with the reading and not
     a value chosen until the output looked right; it only decides classes with no majority at all,
     which are the floor this cannot clear.
@@ -133,6 +134,7 @@ def consensus_median(values, period):
     The lower of the two middle values on an even class, a declared rule. Where a phase class carries
     a strict majority of one value the median is that value. This agrees with the count route to
     the integer on every class a majority reaches. It sorts and selects where the other counts.
+    The two share no code, and a class they disagree on is a class with no majority: the floor.
     """
     length = len(values)
     picked = [None] * period

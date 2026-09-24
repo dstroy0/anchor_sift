@@ -24,7 +24,8 @@
  * count, and one that also matched under the full compare carries ANCHOR_RASTER_MATCH. Brighter is
  * later. A bright pixel is an alignment the probe set could not cheaply refute.
  *
- * HOST AND DEVICE PRODUCE THE SAME BYTES. That is the contract, and it is gradeable. Agreement is exact and a difference of
+ * HOST AND DEVICE PRODUCE THE SAME BYTES. That is the contract, and it is gradeable and not
+ * aspirational: the raster is integer valued throughout. Agreement is exact and a difference of
  * one in one pixel is a defect. This is the same contract exact_arm.h states for the arms, kept for
  * the same reason.
  *
@@ -61,7 +62,8 @@ extern "C"
      * periodicity that a row layout smears across a scanline stands up as a column stripe.
      *
      * @note Every transform here is a bijection on the cell index computed in integer arithmetic.
-     */
+ *       The device reproduces it exactly and no transform can drop or duplicate an alignment.
+ */
     typedef enum
     {
         ANCHOR_LAYOUT_ROWS = 0,       /**< Row major. Corpus order runs left to right, top to bottom. */
@@ -113,8 +115,8 @@ extern "C"
      *
      * @note One structure drives both arms. A caller changing a field changes the host and the device
      *       render together, and the grader compares them under whatever configuration it was given
-     *.
-     */
+ *       and not under a fixed one.
+ */
     typedef struct
     {
         size_t width;                /**< Pixels across. Non-zero. */
@@ -135,7 +137,7 @@ extern "C"
  * THE PROOF CHANNEL IS DIFFERENT IN KIND FROM THE OTHER FOUR AND THE DIFFERENCE IS WORTH STATING.
  * A probe set is a sound filter: it never loses a true occurrence, and it does admit alignments that
  * are not one. So the negative direction is certain and the positive is not. A cell where no
- * alignment survived contains no occurrence, and that is a proof.
+ * alignment survived contains no occurrence, and that is a proof and not a summary.
  *
  * Three properties follow and each one is load bearing. It reduces as a conjunction, a cell being
  * proven only when every alignment under it was refuted, and conjunction is associative and
@@ -156,7 +158,8 @@ extern "C"
     /**
      * @brief One probe as the rasterizer needs it, matching AnchorProbe in anchor_sift.h.
      *
-     * @note Declared here. The two layouts are identical
+     * @note Declared here instead of including the engine header so the device translation unit
+ *       compiles without pulling in the limb library it does not use. The two layouts are identical
      *       and anchor_raster.c asserts that at compile time.
      * @note Declared above the volume surface below, which names this type in a signature. A structure
      *       cannot name a type the compiler has not seen, and this header has been reordered once
@@ -190,13 +193,14 @@ extern "C"
         ANCHOR_VOLUME_SLABS = 0,   /**< Slab major. Fills a sheet, then the next sheet behind it. The
                                     *   three dimensional reading of ANCHOR_LAYOUT_ROWS. */
         ANCHOR_VOLUME_BOUSTRO = 1, /**< Slab major with every other row and every other slab reversed,
-                                    *   so consecutive alignments stay adjacent across both boundaries. */
+                                    *   keeping consecutive alignments adjacent across both boundaries. */
         ANCHOR_VOLUME_MORTON = 2,  /**< Morton order, interleaving the bits of x, y and z. Locality is
                                     *   preserved on all three axes at once, which is what a linear
-                                    *   index set needs to read as a solid. Requires the extents to be powers of two; a caller
-                                    *   giving others gets a refusal. */
-        ANCHOR_VOLUME_HELIX = 3    /**< Slab major with each slab's rows shifted by its depth index,
-                                    *   a feature at a fixed corpus offset winds through the block
+                                    *   index set needs to read as a solid and not as stacked sheets.
+                                    *   Requires the extents to be powers of two; a caller giving
+                                    *   others gets a refusal and not a silent remap. */
+        ANCHOR_VOLUME_HELIX = 3    /**< Slab major with each slab's rows shifted by its depth index.
+                                    *   A feature at a fixed corpus offset winds through the block
                                     *   instead of stacking. A shear and not a rotation: a true helix
                                     *   needs trigonometry, this renderer is integer throughout so the
                                     *   host and a device agree exactly, and a shear is the bijection
@@ -219,7 +223,7 @@ extern "C"
     {
         size_t width;                /**< Voxels across. Non-zero. */
         size_t height;               /**< Voxel rows. Non-zero. */
-        size_t depth;                /**< Voxel slabs. Non-zero, and one is refused. */
+        size_t depth;                /**< Voxel slabs. Non-zero, and one is refused and not flattened. */
         AnchorVolumeLayout layout;   /**< How an alignment index becomes a voxel position. */
         AnchorRasterChannel channel; /**< What quantity a voxel carries. Same set as the raster. */
         AnchorRasterReduce reduce;   /**< How collisions resolve. Same set as the raster. */
@@ -251,7 +255,7 @@ extern "C"
      *                        from `corpus` and uses that for ANCHOR_CHANNEL_RARITY whatever is passed
      *                        here. The parameter is the integration point for a caller supplied rarity
      *                        source, a reference distribution or a census taken over a sampled slice,
-     *                        and it is kept. Passing NULL is
+     *                        and it is kept and not removed for that reason. Passing NULL is
      *                        correct and is what every caller in this tree does. Passing a census
      *                        built over something else is silently ignored, which has no symptom: the
      *                        render succeeds and carries rarity computed from the corpus in front of
@@ -323,7 +327,7 @@ extern "C"
      * @return           1 on success, 0 where the file could not be written.
      *
      * @note Netpbm has no volume format. This writes the block raw and states its shape in a sidecar
-     *. A generated file says it is generated and names its
+ *       instead of inventing a container. A generated file says it is generated and names its
      *       generator, which the sidecar does.
      */
     int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
@@ -363,8 +367,8 @@ extern "C"
      * @param[in] alignments How many alignments the object has.
      * @return               Cell index inside `width * height`.
      * @note Exposed because the device rasterizer calls the same function, which is what keeps one
-     *       transform.
-     */
+     *       transform and not two that agree until somebody edits one.
+ */
     size_t anchor_raster_cell(const AnchorRasterConfig *config, size_t at, size_t alignments);
 
     /**
@@ -417,7 +421,7 @@ extern "C"
      * asking, and the two arms produce the same bytes. Choosing between them is a performance
      * decision and never a correctness one. This asks the device first and falls back to the host.
      *
-     * @note Falls back. A render always happens if
+     * @note Falls back instead of failing where the device refuses. A render always happens if
      *       either arm can do it.
      * @note anchor_raster_host and anchor_raster_device stay public because a grader has to be able to
      *       call one specific arm and compare. A caller that does not care should not have to.

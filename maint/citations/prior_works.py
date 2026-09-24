@@ -55,10 +55,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def _repository_root():
-    """This repository, asked of git.
+    """This repository, asked of git and not inferred from a marker directory.
 
-    The marker climbed to before was build/, which the repository PRODUCES  so
-    a linked worktree and a never-built clone both lack it. The climb then walked past the root it
+    The marker climbed to before was build/, which the repository PRODUCES and not CONTAINS.
+    A linked worktree and a never-built clone both lack it. The climb then walked past the root it
     was looking for into another checkout entirely, and every path derived from it pointed at a
     different tree than the tool was run from. That lands on a real repository with real files,
     which is indistinguishable from working.
@@ -69,7 +69,7 @@ def _repository_root():
     none of them until something has already run.
 
     Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
-    inherits it answers about that repository
+    inherits it answers about that repository and not about the directory it was asked from,
     returning the current directory instead of the root.
     """
     start = os.path.dirname(os.path.abspath(__file__))
@@ -181,7 +181,7 @@ REFERENCES = (
 # the same floor.
 PASSAGE = re.compile(r"[\"\u201c][^\"\u201c\u201d]{60,600}[\"\u201d]")
 
-# A quotation mark holding a path, an identifier, or a single term. A
+# A quotation mark holding a path, an identifier, or a single term and not a sentence. A
 # passage has to read as prose. It needs whitespace and a finite verb somewhere in it.
 LOOKS_LIKE_PROSE = re.compile(r"\s\w+\s")
 

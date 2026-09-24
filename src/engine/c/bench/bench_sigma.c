@@ -162,8 +162,9 @@ static size_t bench_oracle_once(const uint32_t *corpus, size_t corpus_len, const
         .needle_len = BENCH_NEEDLE_LEN};
 
     // NAMED AND NOT POSITIONAL. AnchorSteerDescent gained two members the day this was written, and
-    // a positional initializer misassigns silently the next time one is added. The byte members go unnamed on purpose: an omitted member is zero, which is what
-    // takes the oracle path, and naming them NULL would read as a choice.
+    // a positional initializer misassigns silently the next time one is added instead of failing to
+    // compile. The byte members go unnamed on purpose: an omitted member is zero, which is what
+    // takes the oracle path, and naming them NULL would read as a choice and not as an absence.
     const AnchorSteerDescent args = {
         .offsets = order_out,
         .count = BENCH_CANDIDATES,

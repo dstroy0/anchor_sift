@@ -84,7 +84,7 @@ def build(n, slope, intercept, outliers, seed):
 
 def build_competing(n, slope, intercept, competitors, comp_slope, comp_intercept, seed):
     """Replace `competitors` points with points on a DIFFERENT line, an adversarial conspiracy that
-    fakes a second trend. When its pairs outnumber the clean ones the median
+    fakes a second trend instead of scattering. When its pairs outnumber the clean ones the median
     slope follows it -- the honest breakdown, a majority of pairs agreeing on the wrong slope."""
     xs = list(range(n))
     ys = [slope * x + intercept for x in xs]

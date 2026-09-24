@@ -8,7 +8,8 @@
 #   Usage:  python examples/chemistry/4_measure/a_histogram_cannot_see_structure.py
 #
 # The measure part of the engine reads how far an object sits from its reference, and it carries a
-# warning about one class of measure: collision entropy is computed from the symbol counts alone. A corpus and its own shuffle carry identical values, exactly and not
+# warning about one class of measure: collision entropy is computed from the symbol counts alone.
+# It is permutation invariant. A corpus and its own shuffle carry identical values, exactly and not
 # approximately, and no entropy of that order separates a structured arrangement from a rearrangement
 # of the same symbols.
 #

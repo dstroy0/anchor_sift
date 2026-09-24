@@ -92,7 +92,7 @@ else {
 # This is the stale device failure one layer up: the announcement describes the intent and the cache
 # decides the build, and agreement between them is never checked. The two decisive variables are
 # passed explicitly on every configure now, and a cache naming a different C compiler is removed
-#.
+# and not argued with, because CMake refuses a compiler change outright.
 $cache = Join-Path $build "CMakeCache.txt"
 if (Test-Path $cache) {
     $cachedCompiler = Select-String -Path $cache -Pattern "^CMAKE_C_COMPILER:" -ErrorAction SilentlyContinue
@@ -119,7 +119,8 @@ if ($LASTEXITCODE -ne 0) {
 
 # THE ANNOUNCEMENT IS CHECKED AGAINST THE CACHE. The defect above was a script stating an intent
 # while the build did something else, and nothing compared the two. Where the device arm was
-# announced and the configure carries no CUDA compiler, that is a failure here.
+# announced and the configure carries no CUDA compiler, that is a failure here and not a
+# discovery twenty minutes later in a raster row reading "host only".
 if ($haveCuda) {
     $cudaLine = Select-String -Path $cache -Pattern "^CMAKE_CUDA_COMPILER:" -ErrorAction SilentlyContinue
     if ((-not $cudaLine) -or ($cudaLine.Line -match "NOTFOUND")) {

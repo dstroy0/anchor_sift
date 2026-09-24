@@ -68,6 +68,7 @@ FETCHED = os.path.join(ROOT, "build", "corpora", "claude_prose.txt")
 LEAST = 500
 
 # Words naming what this repository is about. They are the subject and both poles discuss it.
+# Leaving them in would join a file to whichever pole happened to mention anchors more often.
 SUBJECT = set("""
 anchor anchors sift sifting corpus corpora prose text texts word words phrase phrases file files
 repository tree code line lines comment comments document documents page pages check checker

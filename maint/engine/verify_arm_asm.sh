@@ -127,7 +127,7 @@ check "scan avx2 x86-64" gcc \
     vpcmpeqb ymm
 
 # AVX-512: emission is the whole of the grade. The byte compare writes a mask register. The
-# instruction is vpcmpeqb against a zmm operand.
+# instruction is vpcmpeqb against a zmm operand and not the vpcmpeqd the exact arm emits.
 check "scan avx512 xeon" gcc \
     "-O2 -mavx512f -mavx512bw $SCAN_INC -DANCHOR_STEER_HAVE_AVX512=1" \
     "$ENGINE/scan_avx512.c" objdump \

@@ -2209,7 +2209,8 @@ static int ab_by_place(const void *left, const void *right)
  *       so they say nothing about what a text is about.
  * @note What separates them is where they fall. A unit doing grammatical work is spread evenly through
  *       a text, which leaves the gaps between its occurrences close to geometric and their dispersion
- *       near one. A unit belonging to a subject appears in bursts where that subject is discussed. That is the statistic of
+ *       near one. A unit belonging to a subject appears in bursts where that subject is discussed.
+ *       Its gaps are far more varied and its dispersion is well above one. That is the statistic of
  *       Section 4.12 read at the other end: low dispersion marks a boundary and high dispersion marks
  *       a subject.
  */

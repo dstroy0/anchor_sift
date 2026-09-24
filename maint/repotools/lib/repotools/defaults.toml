@@ -40,7 +40,7 @@ tools = "tools"
 # build-werror, and a tool writing to a hard coded `build` would have put objects in a tracked tree.
 scratch = "build"
 
-# A tool set that is imported.path after the four
+# A tool set that is imported and not run lives under lib/ and is on sys.path after the four
 # line preamble. Everything else is run: invoked by path, or through bin/repotools.
 
 
@@ -81,7 +81,7 @@ extensions = [".md"]
 # four roots that had moved and reported success on every commit for a week.
 roots = []
 # Prose OUTSIDE this repository that this repository is responsible for. Opt in, always empty by
-# default, and a named root that is absent is reported.
+# default, and a named root that is absent is reported and not skipped.
 #
 # The checker used to guess instead: two closed repositories, resolved as siblings of whatever tree
 # was being checked. On a machine where every repository sits beside them, a public library that

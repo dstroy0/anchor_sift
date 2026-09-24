@@ -184,7 +184,7 @@ def main():
                   % (os.path.basename(source), width, rows, offset, size)),
         "noteTitle": "Width is the only assumption",
         "note": ("Nothing in a blob says how wide it is. Structure that appears at one width and "
-                 "vanishes at another belongs to the choice of width. "
+                 "vanishes at another belongs to the choice of width and not to the file. "
                  "Change it and keep what survives."),
         "settings": settings.collect(sys.argv[1:]),
         "fields": [

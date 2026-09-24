@@ -20,7 +20,7 @@
 # It has been seen to fail. Setting render.host.STEP to 41 breaks the death-level gray ramp, and the
 # eight death-level rows report FAILS at exit 1 while the other channels, which do not read the ramp,
 # stay ok. A suite nobody has watched fail is indistinguishable from an empty loop. That is
-# recorded here.
+# recorded here and not assumed.
 
 import os
 import sys

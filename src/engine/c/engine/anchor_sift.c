@@ -134,7 +134,7 @@ size_t anchor_sift_naive(const uint8_t *corpus, size_t corpus_len, const uint8_t
  *       runtime count gives that back. A corpus whose count wants reducing is a coherent one, and
  *       a coherent corpus dispatches here anyway.
  * @note A needle of length zero occurs at every alignment, which is exactly what the naive engine
- *       returns. That case is handed to it. An anchor
+ *       returns. That case is handed to it and not answered a second way here. An anchor
  *       cannot be placed in a needle with no bytes, and bounding the offsets is not enough on its
  *       own: at length zero the alignment loop runs one further than the corpus. The last
  *       alignment reads one past its end, and the anchor reads element zero of a needle that has
@@ -233,7 +233,8 @@ size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t 
  * like a rule that is still enforced.
  *
  * What it meant is unchanged. It is how close the effective alphabet has to sit to the symbols
- * actually used before a corpus counts as memoryless, and it was swept by bench_dispatch.96 scores identically on the corpora measured, since the
+ * actually used before a corpus counts as memoryless, and it was swept by bench_dispatch and not
+ * chosen. Every threshold from 0.34 to 0.96 scores identically on the corpora measured, since the
  * three of them read 0.96, 0.33 and 1.00 and nothing sits between. Clearing the denominators did not
  * re-open that sweep; 85/100 is the same value carried exactly instead of rounded. */
 
@@ -292,7 +293,7 @@ size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t
 {
     const AnchorSiftEngine chosen = anchor_sift_choose(plan);
 
-    // Held and dispatched.
+    // Held and dispatched and not re-asked, because the choice is now three ways and not two.
     // Reaching the tail on a null plan would have run the in order engine with the full anchor set,
     // the outcome the guard in anchor_sift_choose was added to prevent.
     if (chosen == anchor_sift_naive)
@@ -504,7 +505,8 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
  * moves that CANNOT change the answer, which is what this tree calls a null. Steering is choosing
  * which element of that group to apply.
  *
- * That is the whole safety argument for everything below, and it is structural. A planner that samples badly, ranks wrongly, or is outright broken still lands on some
+ * That is the whole safety argument for everything below, and it is structural and not
+ * defensive. A planner that samples badly, ranks wrongly, or is outright broken still lands on some
  * element of the null group, and every element yields the same count. The planner moves inside the
  * null and the null has one value. Correctness is therefore not something the planner can spend,
  * and speed is the only currency it holds.
@@ -515,6 +517,7 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
  *
  * @param[in] alive  One flag per alignment, non-zero for truthy [BORROWS].
  * @param[in] stride Sample every Nth alignment. The ranking is a comparison between candidates.
+ *                   A consistent sample ranks them consistently without reading them all.
  * @return           Count of survivors, in the sampled population.
  */
 static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
@@ -752,7 +755,7 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
     // merges the commonest into rank 255.
     //
     // The form this replaced capped the class count during DISCOVERY. The merged set was chosen
-    // by arrival order. A class occurring once has one chance to arrive
+    // by arrival order and not by commonness. A class occurring once has one chance to arrive
     // early and a class occurring nine times has nine. The rarest arrived last and were merged
     // first. Two fields with identical frequency multisets and opposite arrangements merged sets
     // whose mean occupancies were 1.06 and 9.00, which no histogram can tell apart. The rarest class
@@ -854,7 +857,7 @@ int anchor_field_project(const AnchorFieldProjection *args)
     {
         // CLASSES AND NOT SLOTS EVER OPENED. A chained field once reported 18 while every position
         // carried one rank, because the count returned was the number of labels discovery had
-        // opened. A caller reads this to decide whether
+        // opened and not the number surviving the merges. A caller reads this to decide whether
         // a projection is worth running. A healthy number on a collapsed field sends them onto a
         // projection that refutes nothing.
         *args->distinct = classes;
@@ -930,7 +933,8 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
                             int resume)
 {
     // A field of any symbol type supplies its own extents and its own validity, and the byte
-    // pointers go unread. Checked separately.
+    // pointers go unread. Checked separately and not by casting the field into the byte
+    // pointers to satisfy a null test, which would pass the guard while meaning nothing.
     if (any != NULL)
     {
         if ((offsets == NULL) || (survivors == NULL) || (count == 0u) || (any->same == NULL) || (any->alignments == 0u) || (any->needle_len == 0u))
@@ -1190,7 +1194,7 @@ static void steer_make_falsy_probe(const uint8_t *corpus, size_t corpus_len, con
  * @return                      Probes actually placed.
  * @note Static and positional, which is where a long parameter list is allowed to live. The public
  *       surface takes one pointer to a const argument structure; this is the backend it names, and
- *       every check the contract states happens here.
+ *       every check the contract states happens here and not in the entry.
  */
 static size_t steer_sweep_probes(AnchorProbe *probes, size_t wanted, const uint8_t *corpus,
                                  size_t corpus_len, const uint8_t *needle, size_t needle_len,
@@ -1301,7 +1305,7 @@ void anchor_steer_probes_reset(void)
  * @note The same placement rule the search above uses, carried here so the steered route chooses where
  *       to probe the same way the engines it is compared against do. Only the ORDER of evaluation is
  *       this file's contribution, and placing differently would confound the two.
- * @note Returns every offset zero at `needle_len` zero
+ * @note Returns every offset zero at `needle_len` zero instead of computing `needle_len - 1u`,
  *       which on size_t wraps to SIZE_MAX. The caller does not probe at that length in any case.
  */
 static void steer_choose_offsets(size_t *offsets, size_t wanted, size_t needle_len)
@@ -1337,7 +1341,7 @@ size_t anchor_steer_count_with_probes(const uint8_t *corpus, size_t corpus_len,
     }
     // An empty needle occurs at every alignment. anchor_sift_naive and anchor_steer_count both report
     // corpus_len + 1 for it, and the reference fixes that answer. This returns the same before the
-    // loop. Returning 0 here
+    // loop instead of reading needle[offset] off a needle with no positions. Returning 0 here
     // disagreed with the reference and with the two counting entries beside it.
     if (needle_len == 0u)
     {

@@ -536,6 +536,7 @@ static ptrdiff_t s_cube_box[PATTERN_POINTS];
  *       base_count / L^p times, which is already under one at eight points over sixteen symbols. The
  *       invariant sweep then reports that it had nothing to check, and a row that checked nothing is
  *       not evidence that anything held. A planted copy is a true occurrence by construction.
+ *       Refusing one is the failure the proposition forbids.
  * @note Copies are spread across the base list instead of placed adjacently, since overlapping
  *       plants would overwrite each other and the last one written would be the only whole copy.
  *       Two plants can still overlap where the pattern is long, and that costs nothing: the check

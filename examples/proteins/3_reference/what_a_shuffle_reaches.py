@@ -19,7 +19,7 @@
 # would survive this untouched. It does not, because the favored regions are diagonal ridges on the
 # plane and not a rectangle: a helix is one narrow place and a sheet another, and a phi from the
 # helix put beside a psi from the sheet lands between them where the reference is thin. The pairing
-# is the secondary structure.
+# is the secondary structure, and this deletion shows it.
 #
 # Drawing angles uniformly keeps nothing. It is the flat background, the fraction of the whole plane
 # the favored regions cover, and it says how much a reading would get from a structure that had no

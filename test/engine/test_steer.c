@@ -266,7 +266,8 @@ static int check_dispatch_exact(void)
     printf("  %26s %10d %10d %10s\n", "two symbols, 99 to 1", 1, got, (got == 1) ? "ok" : "FAILS");
     failed += (got == 1) ? 0 : 1;
 
-    /* An empty field has no structure and takes the short circuiting arm. Stated. */
+    /* An empty field has no structure and takes the short circuiting arm. Stated and not
+     * discovered, because a caller with no corpus hands over a census of nothing. */
     memset(&census, 0, sizeof(census));
     got = anchor_steer_prefers_free(&census);
     printf("  %26s %10d %10d %10s\n", "empty field", 0, got, (got == 0) ? "ok" : "FAILS");
@@ -501,7 +502,7 @@ static uint8_t *read_whole_file(const char *path, size_t *length)
  * alignment survives only when every probe agrees, a conjunction is order independent, and the
  * survivor is verified by a full compare whatever probed it. So the count is the invariant and the
  * reads are the measurement. Anything that moves the count is a defect, and it is graded at exactly
- * zero difference.
+ * zero difference and not against a tolerance.
  */
 static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_len)
 {
@@ -586,7 +587,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
                     recursive_count == want);
     failed += (recursive_count == want) ? 0 : 1;
 
-    /* Coarms spawned wherever the field says,. */
+    /* Coarms spawned wherever the field says, and not where a spread rule put them. */
     size_t spawned[ANCHOR_STEER_ANCHORS];
     const size_t coarms = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                             .offsets = spawned,
@@ -660,7 +661,7 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
     // the engine observes nothing different, and one of the two answers is wrong. So total reads,
     // probe reads plus the compares that follow them, is at least the alignment count, always.
     //
-    // The empty probe set is the sharp case and it is graded here as a route.
+    // The empty probe set is the sharp case and it is graded here as a route and not described.
     // It takes zero probe reads and sends every alignment to the compare. Its total is exactly
     // the alignment count. The floor is ATTAINED by the configuration that steers least, which is
     // what shows the floor is a property of the problem and not an artifact of the steering.
@@ -720,7 +721,8 @@ static int grade_field(const char *label, const uint8_t *corpus, size_t corpus_l
  *
  * The claim asserted here is about the WIRING. Run the planner, then require that the widest arm
  * reporting itself present is the one the scan counter says ran. A machine with no wide arm passes
- * on the portable count alone, which is correct.
+ * on the portable count alone, which is correct and not a waiver: there is nothing to have
+ * failed to wire.
  */
 static int check_arm_is_wired(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
                               size_t needle_len)
@@ -867,13 +869,14 @@ static int near_same_in_field(const void *field, size_t left, size_t right)
  *
  * @return Count of failures.
  *
- * THE CASE THAT WAS SILENTLY WRONG. Classes are the transitive closure of the predicate. The check builds a chain,
+ * THE CASE THAT WAS SILENTLY WRONG. Classes are the transitive closure of the predicate.
+ * Agreement must imply a shared rank even where the predicate chains. The check builds a chain,
  * 0 1 2 3 4, where each value agrees with its neighbors at a tolerance of 2 and the ends do not
  * agree with each other at all. The closure is one component. Every position must carry one rank.
  *
  * A grouping that stopped at the first matching representative would have produced more than one
  * class here, and a rank probe built on it would have refuted an alignment holding a true
- * occurrence. This asserts the closure  the difference between
+ * occurrence. This asserts the closure and not the first match, the difference between
  * useless and wrong.
  */
 static int check_projection_closes(void)
@@ -898,7 +901,7 @@ static int check_projection_closes(void)
         return 1;
     }
 
-    // The ends disagree, which is what makes the predicate non-transitive.
+    // The ends disagree, which makes the predicate non-transitive and not merely coarse.
     if (near_same_in_field(chain, 0u, 4u) != 0)
     {
         printf("  the chain ends agree. This is not the case under test: FAILS\n");
@@ -991,7 +994,7 @@ static int check_projection_closes(void)
     // request that cannot be met changes no state. The undersize path used to zero `distinct` while
     // the null and zero-length paths left it alone. A caller could not tell a refused zero from a
     // measured zero. The realistic caller error is sizing the buffers by an expected class count
-    //.
+    // and not by `length`, which hands over buffers correct for the field they had in mind.
     {
         const size_t sentinel_count = 43981u;
         size_t planted = sentinel_count;
@@ -1042,8 +1045,8 @@ static int check_projection_closes(void)
  *
  * Second, that projecting a field of any symbol type onto rarity ranks preserves soundness. Two
  * positions carrying the same symbol necessarily carry the same rank. Rank disagreement proves
- * symbol disagreement and a rank probe is a necessary condition. Rank agreement proves nothing,
- *  survivors still reach an exact compare. The check is therefore NOT that the projected
+ * symbol disagreement and a rank probe is a necessary condition. Rank agreement proves nothing.
+ * That is why survivors still reach an exact compare. The check is therefore NOT that the projected
  * count equals the true count: it is that the projected engine loses no true occurrence, which is
  * the only thing soundness claims. A projection that lost one would be a broken necessary condition
  * and the whole construction with it.
@@ -1312,7 +1315,7 @@ int main(void)
     /* A REAL NATURAL OBJECT AND NOT A GENERATOR. Everything above runs on bytes this file wrote,
      * which share whatever structure the generator happens to have. English prose is a field
      * nobody here designed: its letter frequencies span three decades, it repeats at no fixed
-     * period, and its correlations between positions are real. The license
+     * period, and its correlations between positions are real and not planted. The license
      * text is tracked in this repository. The grader needs no network and no dataset fetch and
      * runs from a fresh clone. */
     size_t natural_len = 0u;

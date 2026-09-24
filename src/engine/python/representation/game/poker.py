@@ -16,7 +16,7 @@
 #
 # The hand ranking is the external answer key. Nothing in this tree decides that a flush beats a
 # straight; that ordering came from outside and predates the instrument, the same property
-# that makes the Crystallography Open Database a positive control.
+# that makes the Crystallography Open Database a positive control and not a second opinion.
 #
 # WHAT A MOVE IS
 #

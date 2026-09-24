@@ -102,7 +102,8 @@ extern "C"
  * _Static_assert does not exist. Unguarded, this header failed to compile under nvcc, the GPU arm
  * was never built, and a stale bench binary carrying no CUDA symbols went on reporting a "cuda" arm
  * that agreed with the portable one. It agreed because it WAS the portable one. */
-/* Three arms and every one defined, keyed on what the LANGUAGE offers. C++ spells it static_assert, C11 spells it _Static_assert, and a C compiler
+/* Three arms and every one defined, keyed on what the LANGUAGE offers and not on which
+ * compiler is driving. C++ spells it static_assert, C11 spells it _Static_assert, and a C compiler
  * older than C11 has neither, where a negative array width fails at compile time on any of them.
  * Naming a vendor here would only move the hole to the next toolchain that is not that vendor. */
 #if defined(__cplusplus)

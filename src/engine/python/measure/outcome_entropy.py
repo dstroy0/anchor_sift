@@ -51,7 +51,7 @@ def shannon(distribution, over=rules.OUTCOMES):
     """Entropy in bits over the named categories, renormalized to the mass they hold.
 
     Returns (bits, mass) where `mass` is the exact Fraction share of the distribution those
-    categories cover. A mass of zero returns (None, 0)  because no
+    categories cover. A mass of zero returns (None, 0) and not nought bits, because no
     distribution at all is not the same as a certain one.
     """
     mass = sum(distribution[outcome] for outcome in over)
@@ -88,7 +88,7 @@ def move_prior(table, prior=None):
 
     Uniform over the legal moves unless a prior is supplied. Uniform is the honest default here: it
     reads nothing about the position. H(Y|X) computed against it measures what the move set makes
-    available. A prior that already prefers the
+    available and not what a particular player would do with it. A prior that already prefers the
     good moves lowers the entropy and reports that preference as a property of the position.
     """
     if not table:
@@ -145,7 +145,8 @@ def information_gain(table, prior=None, over=rules.RESOLVED):
     objective is reaching for when it asks which move is best: a position where one move wins and the
     rest lose has high gain, and a position where nothing can be saved has none.
 
-    Returned as (gain, marginal_bits, conditional_bits), a reader sees both terms.
+    Returned as (gain, marginal_bits, conditional_bits). A reader sees both terms and not a
+    difference they cannot check.
     """
     marginal_bits, _ = shannon(marginal(table, prior), over)
     conditional_bits, _ = conditional_entropy(table, prior, over)

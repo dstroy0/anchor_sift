@@ -245,7 +245,7 @@ ELMENDORF_COMPARATIVE = "?ə" + "čšɬƛθɪᴀ" + "ʷʸ" + "áäéíóú" + "�
 # Hamp on Tillamook. This paper cites no words: what it sets out is four consonant inventories and
 # two feature matrices. Its language content is segments and not forms.
 #
-# Reichard's chart carries the plain lateral affricate as well as the
+# Reichard's chart alone of the four carries the plain lateral affricate as well as the
 # glottalized, the other three carrying the glottalized alone. That is a fact about the charts and
 # not about this set, because SHARED already holds ƛ; naming it here as an addition would be a
 # character that changes nothing and a comment that reads as though it does.
@@ -299,7 +299,8 @@ GIVENS_HALL_NLEKEPMXCIN = SHARED + "́" + "̣"
 #
 # Written as seven patterns and not as a rule mapping every Cw to Cʷ. The rule is the guess
 # draft_page_text.py already makes and papers.py already warns about, that page kʷ and page wist both
-# arrive as w and a draft labializes whichever consonant takes it. Here the sites are counted.
+# arrive as w and a draft labializes whichever consonant takes it. Here the sites are counted. Each
+# pattern is evidence about one word. None of them is a rule about a letter.
 GIVENS_HALL_FLATTENED = (
     ("xwúy̓", "xʷúy̓"),
     ("xwʔít", "xʷʔít"),

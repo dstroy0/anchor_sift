@@ -7,6 +7,7 @@
 #
 #   Usage:  python examples/chemistry/5_sift/valence_is_a_necessary_condition.py
 #
+# This is the only chemistry demonstration that runs on the primitives already in the tree. The
 # molecule reader and the bond-length oracle are design, stated in theory/chemistry; nothing here
 # depends on them. What runs here is the sift proposition read on chemistry: an atom's octet is a
 # condition on every atom of an arrangement, a real molecule satisfies all of them at once, and the
@@ -27,6 +28,7 @@
 # element sits at which atom with reference.shuffles.permuted. That deletes one property, the match
 # between an element and the degree its place carries, and keeps the counts exactly. Most such
 # permutations put an element where its valence does not fit the degree. The octet refuses them.
+# The real assignment, the one the elements were dealt, sits above the band the shuffles occupy.
 # No distance here is a value; every one is a departure from that band.
 
 import io
@@ -44,7 +46,7 @@ from reference.shuffles import SEED, permuted  # noqa: E402
 
 # The standard valence of each element used here: the number of covalent bonds a neutral, closed-shell
 # atom of it forms. A fact from general chemistry, not derived from anything measured in this script.
-# Helium forms none,  the He2 negative control cannot close.
+# Helium forms none, and for that reason the He2 negative control cannot close.
 VALENCE = {"H": 1, "C": 4, "N": 3, "O": 2, "F": 1, "Cl": 1, "He": 0}
 
 # Each molecule is atoms carrying an element and bonds carrying an order. A bond order counts the

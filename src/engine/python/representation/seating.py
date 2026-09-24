@@ -17,6 +17,7 @@
 # The repair is to stop reading at whatever numbering a file arrived in and take the value it
 # converges to. That is reached and not approached: minimizing a weighted spread over whole
 # positions has a known answer, since the spread weights each position by how often it is used.
+# The commonest symbol therefore belongs at the middle and the rest go outward in order of frequency.
 #
 # Under it, Greek moves from a spread of 31.44 to 7.83 and from 0.056 returned to 0.222, Finnish
 # gains the most at 0.250, and English gains 0.194. That the numbering was being read is itself

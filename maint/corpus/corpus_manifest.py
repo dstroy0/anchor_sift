@@ -91,7 +91,7 @@ BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 # read every one of its pages as a file the inventory lists and the tree does not have.
 #
 # .claude is the same case again and it arrived the way the others did, by something new appearing
-# beside the corpus. A linked git worktree is created under .claude/worktrees/
+# beside the corpus and not inside it. A linked git worktree is created under .claude/worktrees/
 # and is a full checkout. Every file of the corpus shows up a second time at a path the inventory
 # does not list. The gate then reads an entire second corpus as unrecorded and refuses every commit,
 # including the commit that would have recorded anything. It is not corpus content: it is a working
@@ -255,7 +255,7 @@ def write_manifest(root, rows, out, name=NAME):
 
 
 def _main_checkout():
-    """The main working treee.
+    """The main working tree, the one the closed repositories sit beside.
 
     Deliberately NOT the tree this tool was run from. A linked worktree lives under
     <repo>/.claude/worktrees/<name>. A sibling path computed from it lands inside .claude/ and
@@ -263,7 +263,7 @@ def _main_checkout():
     linked worktree alike, and its parent is the main checkout.
 
     Git's own variables are cleared because a rev-parse inheriting a hook's GIT_DIR answers about
-    that repository.
+    that repository and not about the directory it was asked from.
     """
     start = os.path.dirname(os.path.abspath(__file__))
     environment = dict(os.environ)
@@ -298,7 +298,8 @@ def _main_checkout():
 def _corpus_candidates():
     """Every place the closed corpus is looked for, in the order it is looked for.
 
-    Returned./private_repos/salishan_corpus,
+    Returned and not searched inline so the caller can say what it looked for when it finds
+    nothing. The first entry is the repair: this defaulted to ../private_repos/salishan_corpus,
     which after the move into repos/owned/{public,private} resolves to
     repos/owned/public/private_repos and does not exist. The default was never once correct.
     """

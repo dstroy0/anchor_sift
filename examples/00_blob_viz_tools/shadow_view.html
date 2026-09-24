@@ -6964,7 +6964,7 @@
         dim: "512 Ã— 64",
         signed: false,
         title: "Every input bit against round",
-        note: "Power in each of the 512 message bits, unfolded. Excess over the 256 expected per row. A bit that behaves reads zero.",
+        note: "Power in each of the 512 message bits, unfolded. Excess over the 256 expected per row. A bit that behaves reads zero and not 256.",
         axis: function (i) {
           return "bit " + i + " (word " + Math.floor(i / 32) + ")";
         },

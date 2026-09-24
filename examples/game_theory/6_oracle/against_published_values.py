@@ -86,7 +86,8 @@ def check(label, got, expected, detail=""):
 def near(label, got, expected, window, detail=""):
     """For a published figure quoted at a different deck composition than the one measured here.
 
-    The window is stated in the call and printed. It is a declared input of the check.
+    The window is stated in the call and printed. It is a declared input of the check and not
+    a tolerance chosen until the result passed.
     """
     passed = abs(got - expected) <= window
     results.append(passed)
@@ -320,7 +321,7 @@ def main():
 class _LamePawns(chess.Chess):
     """Chess with the pawn double step removed, which the perft count has to catch.
 
-    A negative control is only worth running if it is a plausible bug.
+    A negative control is only worth running if it is a plausible bug and not an obvious one.
     Dropping the double step changes no rule that any single move looks illegal under, and a
     generator missing it plays legal chess forever -- it just plays a different game, and only a node
     count notices.

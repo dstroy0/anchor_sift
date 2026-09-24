@@ -4,66 +4,228 @@
 % THIS FILE IS NOT A DOCUMENT AND WILL NOT TYPESET ON ITS OWN. It carries no \documentclass,
 % because a book supplies one and then reads this. Opening it in TeXworks and pressing typeset
 % stops at the first \usepackage with "LaTeX Error: \usepackage before \documentclass". Open the
-% book's main.tex instead; each one names lualatex on its first line so the engine is already set.
+% book's main.tex instead; each one names xelatex on its first line so the engine is already set.
 %
 % Every book shares this file. A layout change reaches all of them. Build them with
 % maint/texbuild/build_theory.sh, which compiles twice and fails on a dropped glyph.
 %
-% Compile with lualatex. pdflatex stops dead on the first Greek letter in the construction chapter,
+% Compile with xelatex. pdflatex stops dead on the first Greek letter in the construction chapter,
 % and these books quote 392 IPA characters, 182 spacing modifiers and 175 combining marks besides.
-% LuaHBTeX shapes those marks through HarfBuzz, which is what puts a Salishan ejective on its letter
+% XeTeX shapes those marks through HarfBuzz, and HarfBuzz puts a Salishan ejective on its letter
 % instead of beside it.
+%
+% The engine is XeLaTeX because arXiv runs it and does not run LuaLaTeX. Its processors are tex,
+% pdftex, latex, pdflatex and xelatex (https://info.arxiv.org/help/faq/texlive.html, read
+% 2026-09-23). A book only LuaLaTeX can build cannot go to arXiv as source.
 
 \usepackage{iftex}
-\RequireLuaTeX
+\RequireXeTeX
 
 \usepackage{fontspec}
 
+% Every face is named by its file and never by its family name. XeTeX finds a font by name through
+% fontconfig, and arXiv registers practically no fonts with fontconfig. \setmainfont{Charis SIL}
+% fails there with the file on disk. The FAQ above gives the file name form as the one that
+% works. Every file named below ships with TeX Live 2025: CharisSIL-*.ttf in charissil,
+% DejaVu*.ttf in dejavu, texgyretermes-math.otf in tex-gyre-math.
+%
 % Charis SIL is SIL's own text face for exactly this material: full IPA, the Americanist letters
 % the Salishan papers are written with, and combining marks that sit correctly on the letters this
-% corpus stacks them on. DejaVu stands behind it for the arrows, box drawing and math operators the
-% workbook tables use, which Charis does not carry.
-\directlua{
-  luaotfload.add_fallback(``theoryfallback'', {
-    ``DejaVuSerif:mode=harf;'',
-    ``DejaVuSans:mode=harf;'',
-  })
-}
-
-% The monospace face needs its own chain. The oracle pages mark a space with U+02FD, the modifier
-% letter shelf, and DejaVu Sans Mono does not carry it: the Salishan book dropped that character
-% six times and still built, the failure this whole engine change exists to stop. Charis
-% carries it. It stands behind the mono face.
-\directlua{
-  luaotfload.add_fallback(``theorymonofallback'', {
-    ``CharisSIL:mode=harf;'',
-    ``DejaVuSans:mode=harf;'',
-  })
-}
-
-\setmainfont{Charis SIL}[
+% corpus stacks them on.
+\setmainfont{CharisSIL}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
   Ligatures=TeX,
   Numbers=OldStyle,
-  RawFeature={fallback=theoryfallback},
 ]
-\setsansfont{DejaVu Sans}[Ligatures=TeX, Scale=MatchLowercase]
-\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase, RawFeature={fallback=theorymonofallback}]
+\setsansfont{DejaVuSans}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Oblique,
+  BoldItalicFont=*-BoldOblique,
+  Ligatures=TeX,
+  Scale=MatchLowercase,
+]
+\setmonofont{DejaVuSansMono}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Oblique,
+  BoldItalicFont=*-BoldOblique,
+  Scale=MatchLowercase,
+]
 
 \usepackage[eulerchapternumbers, listings, style=linedheaders,
 pdfspacing]{classicthesis}
 
 % classicthesis sets its own text face after it loads. These put the Unicode faces back, because a
 % book that silently drops a letter of the language it is about is worse than one that fails.
-\setmainfont{Charis SIL}[
+\setmainfont{CharisSIL}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
   Ligatures=TeX,
   Numbers=OldStyle,
-  RawFeature={fallback=theoryfallback},
 ]
-\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase, RawFeature={fallback=theorymonofallback}]
+\setmonofont{DejaVuSansMono}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Oblique,
+  BoldItalicFont=*-BoldOblique,
+  Scale=MatchLowercase,
+]
+
+% FALLBACK. Charis does not carry Greek outside the IPA letters, box drawing, or most of the arrows
+% and operators the tables print. Under LuaLaTeX a luaotfload fallback chain handed those to DejaVu.
+% XeTeX has no fallback chain. It has character classes: a character is put in a class, and a token
+% list runs where a run of that class begins and where it ends. The list here opens a group and
+% switches face, and the closing list ends the group.
+%
+% Three rules keep the classes from damaging the text around them.
+%
+%   Only characters Charis lacks are classed. A class boundary ends XeTeX's shaping run, and a
+%   combining mark shaped apart from its letter lands beside it. Charis's own Greek, the IPA theta,
+%   chi and beta among it, is never classed, and neither is any combining mark.
+%
+%   The switch fires from every face except DejaVu Sans and DejaVu Sans Mono, which already carry
+%   the Greek, the boxes and the arrows. Switching there would replace a face that was correct.
+%   The test is by exclusion because Charis appears under more than one family name: classicthesis
+%   letterspaces its headings with \addfontfeature, which makes a new family, and a capital sigma in a
+%   chapter title was dropped while the test asked for the main family by name.
+%
+%   A character no face here carries still fails the build. \tracinglostchars puts every one in
+%   the log as "Missing character", and build_theory.sh counts them.
+%
+% The ranges are Charis 6.101's character map subtracted from ten Unicode blocks (Greek, the arrow
+% blocks, the operator blocks, technical, box drawing, block elements, geometric shapes), split by
+% which DejaVu face has the glyph. They were computed from the font files. A range naming a
+% codepoint Charis carries would pull that letter out of its word.
+%
+% The monospace class holds U+02FD, the modifier letter shelf the oracle pages mark a space with,
+% and U+200B. DejaVu Sans Mono carries neither and Charis carries both. The Salishan book dropped
+% the shelf six times under the old engine and still built. The shelf switches to Charis only
+% where it is set in the monospace face.
+\tracinglostchars=2
+
+\newfontfamily\theoryserifface{DejaVuSerif}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Scale=MatchLowercase,
+]
+\newfontfamily\theorysansface{DejaVuSans}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Oblique,
+  BoldItalicFont=*-BoldOblique,
+  Scale=MatchLowercase,
+]
+\newfontfamily\theorycharisface{CharisSIL}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+]
+
+\makeatletter
+\newXeTeXintercharclass\theory@serifclass
+\newXeTeXintercharclass\theory@sansclass
+\newXeTeXintercharclass\theory@monoclass
+
+% \theory@classes{<class>}{<hex>-<hex>,<hex>,...}: every codepoint in each range joins the class.
+\newcount\theory@point
+\newcommand*\theory@span[3]{%
+  \theory@point="#2\relax
+  \loop
+    \XeTeXcharclass\theory@point=#1\relax
+  \ifnum\theory@point<"#3\relax
+    \advance\theory@point\@ne
+  \repeat}
+\def\theory@split#1-#2-#3\relax#4{%
+  \ifx\relax#2\relax
+    \theory@span{#4}{#1}{#1}%
+  \else
+    \theory@span{#4}{#1}{#2}%
+  \fi}
+\newcommand*\theory@classes[2]{%
+  \@for\theory@item:=#2\do{\expandafter\theory@split\theory@item--\relax{#1}}}
+
+\theory@classes\theory@serifclass{%
+0370-0377,037A-037E,0384-0386,0388-038A,038C,038E-0392,0395-0397,0399-039D,039F,03A1,%
+03A3-03A7,03AA-03B0,03B5-03B7,03B9-03BA,03BD-03BF,03C2,03C4-03C5,03C8,03CA-03D0,03D2-03E1,%
+03F0-03F3,03F5-03FF,219C-21A7,21A9-21CF,21D6-2200,2207-2209,220B-220C,2210,2214-2215,%
+2217-2218,221B-221D,221F-2220,2223-2224,2227-222A,222C-222D,2238-223B,223D,2242-2243,%
+2250-2255,228C-22AF,22C5,2302,2310-2311,2318-2319,2320-2321,2325,2328,237D,23AE,23CF,%
+2500-25C9,25CB,25CD-25FF,27F0-27FF,2900-297F,2A0C-2A0E,2A2F,2A6A-2A6B}
+\theory@classes\theory@sansclass{%
+03E2-03EF,2201,220A,220D-220E,2216,2221-2222,222E-2233,2236-2237,223E-2241,2244-2247,%
+2249-224F,2256-225E,2263,2266-2281,2288-228B,22B0-22C4,22C6-2301,2303-2307,230C-230F,2324,%
+2326-2327,232B-232C,2373-2375,237A,2387,2394,23CE,23E3,23E5,23E8,2A00-2A02,2A0F-2A1C,%
+2A7D-2AA0,2AAE-2ABA,2AF9-2AFA}
+\theory@classes\theory@monoclass{02FD,200B}
+
+% Each entry opens a group and switches face only where the rules above allow it, and records
+% whether it did. \theory@leave closes exactly what was opened.
+\let\theory@leave\relax
+\newcommand*\theory@open[1]{\begingroup\global\let\theory@leave\endgroup#1}
+\newcommand*\theory@stay{\global\let\theory@leave\relax}
+\newcommand*\theory@unlessdejavu[1]{%
+  \edef\theory@here{\f@family}%
+  \edef\theory@sf{\sfdefault}%
+  \edef\theory@tt{\ttdefault}%
+  \ifx\theory@here\theory@sf
+    \theory@stay
+  \else\ifx\theory@here\theory@tt
+    \theory@stay
+  \else
+    \theory@open{#1}%
+  \fi\fi}
+\newcommand*\theory@onlymono[1]{%
+  \edef\theory@here{\f@family}%
+  \edef\theory@tt{\ttdefault}%
+  \ifx\theory@here\theory@tt
+    \theory@open{#1}%
+  \else
+    \theory@stay
+  \fi}
+\def\theory@toserif{\theory@unlessdejavu\theoryserifface}
+\def\theory@tosans{\theory@unlessdejavu\theorysansface}
+\def\theory@tocharis{\theory@onlymono\theorycharisface}
+
+% 4095 is XeTeX's boundary class: the start or end of a run of characters, at a space, a brace or
+% a box edge.
+\newcommand*\theory@switch[2]{%
+  \XeTeXinterchartoks 0 #1 = {#2}%
+  \XeTeXinterchartoks 4095 #1 = {#2}%
+  \XeTeXinterchartoks #1 0 = {\theory@leave}%
+  \XeTeXinterchartoks #1 4095 = {\theory@leave}}
+\theory@switch\theory@serifclass\theory@toserif
+\theory@switch\theory@sansclass\theory@tosans
+\theory@switch\theory@monoclass\theory@tocharis
+\XeTeXinterchartoks\theory@serifclass\theory@sansclass = {\theory@leave\theory@tosans}
+\XeTeXinterchartoks\theory@sansclass\theory@serifclass = {\theory@leave\theory@toserif}
+\XeTeXinterchartoks\theory@serifclass\theory@monoclass = {\theory@leave\theory@tocharis}
+\XeTeXinterchartoks\theory@monoclass\theory@serifclass = {\theory@leave\theory@toserif}
+\XeTeXinterchartoks\theory@sansclass\theory@monoclass = {\theory@leave\theory@tocharis}
+\XeTeXinterchartoks\theory@monoclass\theory@sansclass = {\theory@leave\theory@tosans}
+\XeTeXinterchartokenstate=1
+\makeatother
 
 % The text block, set after classicthesis so this wins.
 %
-% classicthesis calls \areaset[current]{356pt}{700pt} on A4 at 11pt. An A4 page is 597pt wide. Forty
+% classicthesis calls \areaset[current]{356pt}{700pt} on A4 at 11pt. An A4 page is 597pt wide.
+% That leaves 241pt of margin, and a 7em marginpar gutter is carved out of one side of it. Forty
 % percent of every page is blank, which is a page design for a printed thesis read at a desk with a
 % pencil. These books are read on a screen and posted to an archive.
 %
@@ -82,13 +244,14 @@ pdfspacing]{classicthesis}
 \usepackage{unicode-math}
 % Times-metric, to sit with Charis SIL. DejaVu Math is wide and sans-metric and put
 % gaps around every inline formula.
-\setmathfont{TeX Gyre Termes Math}
+\setmathfont{texgyretermes-math.otf}
 \usepackage{array,booktabs,longtable}
 \usepackage{ragged2e}
 % Font expansion and margin protrusion. Without them TeX sets a line with interword space
 % alone and the greyness of the page moves from one page to the next. classicthesis loads
 % microtype already. These go on the copy it loaded.
-\microtypesetup{protrusion=true,expansion=true,final=true}
+% XeTeX has no font expansion, and microtype drops that key with a warning. Protrusion stays.
+\microtypesetup{protrusion=true,final=true}
 
 % Page breaking. Nothing set these before. A line could be stranded alone at the top or the foot
 % of a page and vertical space was stretched to force a flush bottom, which is what pulls a table
@@ -101,7 +264,7 @@ pdfspacing]{classicthesis}
 % bottom margin, and a table near the foot gets split to make the arithmetic work.
 \raggedbottom
 % Figures. corpus_derivation.py draws with matplotlib and saves a PDF beside its chapter, because
-% LuaLaTeX includes PDF directly and needs Inkscape on the machine to include an SVG.
+% XeLaTeX includes PDF directly and needs Inkscape on the machine to include an SVG.
 \usepackage{graphicx}
 \graphicspath{{./}{./chapters/}}
 \renewcommand{\cfttoctitlefont}{\hfill\spacedallcaps}

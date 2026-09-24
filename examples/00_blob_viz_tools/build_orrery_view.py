@@ -285,7 +285,8 @@ def recover(curve, span, frames, bodies):
             continue
         found.append({"period": 1.0 / frequency, "strength": here / (floor * reach)})
 
-    # Harmonic families, folded to their fundamental. A body's swing is smooth but not a sine. Read as periods those come
+    # Harmonic families, folded to their fundamental. A body's swing is smooth but not a sine.
+    # It puts power at twice its frequency and three times it as well. Read as periods those come
     # back as radii the second and third harmonics imply, and every one of them lands on a body
     # that is not there: 0.786 arrives a second time as 0.498, 0.558 as 0.351, 0.443 as 0.279.
     # Six real bodies became twelve, half of them ghosts of the other half.

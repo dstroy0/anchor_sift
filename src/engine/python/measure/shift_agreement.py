@@ -145,6 +145,7 @@ def recover_exact_period(placed, families=2):
 
     Every difference between two places is a candidate, and that set is complete: a period that
     agrees with anything at all appears in it. There is no sweep, no ceiling and no stride.
+    Nothing here narrows what can be found.
 
     The family rule matches recover_lattice_period and it is needed for the same reason. A
     set with period P agrees with itself at 2P and 3P as well. The tallest lag alone reports a

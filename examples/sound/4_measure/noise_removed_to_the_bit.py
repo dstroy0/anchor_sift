@@ -21,10 +21,10 @@
 # matched 100% cannot be read alone -- the same signal through another noise's reference reads near zero
 # or below. The method rejected the noise that was present and not the noise it was handed.
 #
-# The second section keeps the evidence in this file  because a floor and a
+# The second section keeps the evidence in this file and not in a test, because a floor and a
 # divergence probe are not tests of the code, they are the justification for the number beside them; a
 # number separated from its basis gets requoted without it. Per method it carries the two independent
-# routes and a broken third that must split from them, the drawn null with its spread.
+# routes and a broken third that must split from them, the drawn null with its spread and not one
 #
 # THE TWO ROUTES NOW LIVE IN THE PRIMITIVES. Name them here where the example cannot show them:
 #   coherent hum        periodic.mean_background        vs mean_background_incremental
@@ -401,7 +401,7 @@ def build_outlier():
         )
 
     # second mechanism: on a VARYING signal the window median is not the exact value. The restore
-    # is a floor about the signal. A monotone ramp + spaced impulses.
+    # is a floor about the signal and not about the noise. A monotone ramp + spaced impulses.
     ramp = [20 + i for i in range(len(clean))]
     rrng = random.Random(SEED ^ 0xA5)
     ramp_dirty, rp = list(ramp), []

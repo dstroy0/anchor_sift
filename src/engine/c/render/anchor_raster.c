@@ -245,7 +245,7 @@ int anchor_raster_host(uint8_t *pixels, const AnchorRasterConfig *config, const 
         const size_t cell = anchor_raster_cell(config, at, alignments);
 
         /* An empty cell holds zero, which would win every minimum and lose every maximum. It is
-         * filled on first arrival. */
+         * filled on first arrival and not compared against. */
         if (pixels[cell] == (uint8_t)ANCHOR_RASTER_EMPTY)
         {
             pixels[cell] = value;
@@ -419,7 +419,7 @@ size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment
 
     // Out of range folds back into the block. Every layout below is a bijection on [0, cells), and
     // an alignment count above the block size has to land somewhere; wrapping keeps the map total
-    // and is stated.
+    // and is stated and not left to an out of bounds write.
     const size_t at = alignment % cells;
     const size_t sheet = width * height;
 
@@ -450,7 +450,7 @@ size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment
     }
     case ANCHOR_VOLUME_MORTON:
     {
-        // Refused  because the
+        // Refused and not remapped where the extents are not powers of two, because the
         // interleave is a bijection only then and a silent fallback would make two
         // configurations render identically while reporting different layouts.
         if ((volume_is_power_of_two(width) == 0) || (volume_is_power_of_two(height) == 0) || (volume_is_power_of_two(depth) == 0))
@@ -498,7 +498,7 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
 {
     // RESERVED, NOT READ, AND NOT DELETED. The census below is built from `corpus`. A caller
     // supplied one is discarded here. The parameter stays because a tunable with no reader is an
-    // integration point  and the header says at the declaration instead
+    // integration point and not dead weight, and the header says so at the declaration instead
     // of calling it the rarity source, which is what it said until it was measured.
     (void)census_in;
 
@@ -535,7 +535,7 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
         if (cell >= cells)
         {
             // The layout refused this configuration. Refusing every alignment identically is what
-            // makes the refusal visible as an empty volume.
+            // makes the refusal visible as an empty volume and not as a partial one.
             return 0;
         }
 
@@ -635,7 +635,7 @@ int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
 
 /* BOTH ARMS DEFINED. A build without the device renderer still carries these symbols. A driver
  * written against both arms links and runs against either. The available test returning zero is what
- * a caller checks before calling the other, and the other refuses. */
+ * a caller checks before calling the other, and the other refuses instead of pretending. */
 
 int anchor_raster_device_available(void)
 {

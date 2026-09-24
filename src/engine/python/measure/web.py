@@ -75,7 +75,8 @@ def squashed(text, as_codes, widths):
     and the nearest eight from 73.3 to 76.2, closing the gap to the characters from 12.8 points to
     7.1. It does not fix the families, which stay at 8 of 22.
 
-    The widths are joined as they come. Each already sums to one, being shares of a whole text. Rescaling them to a common length
+    The widths are joined as they come. Each already sums to one, being shares of a whole text.
+    What each level holds is conserved before anything is joined. Rescaling them to a common length
     was tried and is wrong: it makes a coarse level weigh the same as a fine one, when the
     difference between them is the reason for reading several in the first place.
     """

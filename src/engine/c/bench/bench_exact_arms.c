@@ -16,7 +16,8 @@
  *       questions on the same data in the same order, and the answers are compared item by item
  *       one at a time and never in aggregate, because two different sets of mistakes can sum to
  *       one total.
- * @note The run is planted. Positions step by a known amount and values cycle on a known period. An arm that agrees with
+ * @note The run is planted. Positions step by a known amount and values cycle on a known period.
+ *       What the agreement should be is arithmetic and not a measurement. An arm that agrees with
  *       portable while both are wrong is still caught.
  * @note Every arm is asked a second time over the same run with a repeated position at every eighth
  *       entry. The portable count on repeated positions is checked against python by

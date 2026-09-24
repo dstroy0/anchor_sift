@@ -159,7 +159,7 @@
     pointer-events: none;
   }
   /* The labels sit still and a line goes out to find the thing. Pinned to the object instead, they
-   slide about with it and the eye spends its time tracking the writing. */
+   slide about with it and the eye spends its time tracking the writing instead of reading it. */
   .tag {
     position: fixed;
     pointer-events: none;
@@ -503,7 +503,7 @@
   // ---------------------------------------------------------------------------------------------
   // The trace left behind. Heat put into a wire does not arrive everywhere at once: it stays where it
   // was put and leaks away from there. What a moving source leaves is a tail that fades, and the
-  // length of that tail is the dwell time.
+  // length of that tail is the dwell time and not a decoration on it.
   //
   // Each light keeps its last few places in a ring, oldest overwritten. Brightness falls off with how
   // long ago a place was visited. At no dwell only the head is lit and the cloud reads as points,
@@ -603,7 +603,7 @@
         trailSize[k2 * TRAIL + j] = spread[k2] * (0.35 + 0.4 * lit);
 
         // What lands on the shell is brighter and broader than what made it, since the boundary is
-        // being read  and a smear is what a spot becomes once it has had
+        // being read and not the thing itself, and a spot becomes a smear once it has had
         // time to move.
         smearTint[to] = tint[k2 * 3] * lit * 0.95;
         smearTint[to + 1] = tint[k2 * 3 + 1] * lit * 0.95;
@@ -733,7 +733,7 @@
   // ---------------------------------------------------------------------------------------------
   // Standing somewhere. The reader is always inside something: the distance runs from the middle of
   // the cloud out to just short of the wall, and crossing the inner shell is a thing that happens on
-  // the way.
+  // the way and not a mode that gets switched.
   // ---------------------------------------------------------------------------------------------
 
   var target = new THREE.Vector3(0, 0, 0);
@@ -992,7 +992,8 @@
   document.getElementById("core").value = DATA.core || "sphere";
   document.getElementById("core").addEventListener("change", function (event) {
     // The shape the lights are held by, swapped under them while they are moving. Nothing about the
-    // cloud is rebuilt: the same population carries on against a different wall
+    // cloud is rebuilt: the same population carries on against a different wall. That is the only
+    // way to see that the wall being a different shape changes nothing about what is held.
     state.core = event.target.value;
     setCore(state.core);
   });
@@ -1138,7 +1139,7 @@
   // Each shape supplies one number that is under one inside and over one outside, and the outward
   // direction where it is over. That is all confinement needs, and writing it that way is the claim
   // being made: a curved wall, a flat-faced one and one with a point on it are the same wall as far
-  // as anything inside is concerned. Every one of them is closed.
+  // as anything inside is concerned. Every one of them is closed, and that is the part that matters.
   //
   // The normal is the shape's own and never the direction back to the middle. Those agree on a
   // sphere and on nothing else, and a light bouncing off a cube by its radial direction slides along
@@ -1168,7 +1169,7 @@
     }
     if (kind === "cone") {
       // Apex up, base down. The room allowed at a height closes to nothing at the point. A light
-      // heading for the tip runs out of room.
+      // heading for the tip runs out of room instead of reaching it.
       rho = Math.sqrt(x * x + z * z);
       allowed = Math.max(1e-4, (a * (b - y)) / (2 * b));
       var qSide = rho / allowed;
@@ -1217,7 +1218,7 @@
           if (along > 0) {
             // The speed it arrived with is the speed it leaves with. A light that lost a little here
             // would drain the cloud inward over a few minutes, slowly enough to read as the scene
-            // settling.
+            // settling and not as a leak.
             vX[k] -= 2 * along * norm.x;
             vY[k] -= 2 * along * norm.y;
             vZ[k] -= 2 * along * norm.z;
@@ -1251,7 +1252,8 @@
       }
 
       // A halo belongs to the interior as much as the light does. At full size it reaches past the
-      // shell and draws light outside a boundary nothing inside is able to cross.
+      // shell and draws light outside a boundary nothing inside is able to cross, and that is the
+      // single claim this room is making.
       // Capped by the room left, measured the same way the wall is.
       var slack = Math.max(0, 1 - measure(kind, atX[k], atY[k], atZ[k], across, upright, norm));
       haloAt[k * 3] = atX[k];
@@ -1275,7 +1277,7 @@
   // Callouts. Each label is a flat pane the reader can drag anywhere, and the line finds it: the end
   // of the leader is wherever the segment from the target crosses that pane's own edge. The line
   // touches the box and never runs across it. Nothing about where the label sits changes where the
-  // thing is.
+  // thing is. That is the only reason the label is allowed to move at all.
   // ---------------------------------------------------------------------------------------------
 
   var flatPoint = new THREE.Vector3();
@@ -1369,7 +1371,7 @@
 
     // The trace is laid on its own clock and not once a frame. Tied to the frame rate the tail gets
     // shorter on a fast machine and longer on a slow one, which makes the dwell time a property of
-    // the hardware.
+    // the hardware and not of the medium.
     sinceTrail += gap;
     if (sinceTrail > 0.045) {
       sinceTrail = 0;
@@ -1388,7 +1390,9 @@
     veilStuff.opacity = state.veil * through;
 
     // Step outside the room and the room's own wall becomes the thing being read. It goes part way to
-    // transparent so what is inside registers on it.
+    // transparent so what is inside registers on it. That is the same reading one shell out: the
+    // surface of a thing is where what is inside it is legible from. Standing outside is not a
+    // different kind of looking, it is the same looking against a bigger boundary.
     var beyond = Math.max(0, Math.min(1, (here - ROOM) / (ROOM * 0.5)));
     wallStuff.opacity = 1 - 0.72 * beyond;
     wallStuff.depthWrite = beyond < 0.02;

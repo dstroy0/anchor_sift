@@ -84,7 +84,7 @@ TRIES = 3
 # hundred for "olivine", which on an early run filled a fifth of the corpus from one family before
 # the sweep reached its second name. The cap below is what actually holds.
 #
-# Set against the target. At 60 the name list tops out well short of
+# Set against the target and not for its own sake. At 60 the name list tops out well short of
 # ten thousand, because most names return fewer than sixty and the overlap between related names is
 # large.
 #
@@ -456,7 +456,7 @@ def main():
     out.write("\n  cached now %d, target %d\n\n" % (len(have), target))
     out.flush()
 
-    # Appended. The family of an entry already fetched is a fact about a run
+    # Appended and not rewritten. The family of an entry already fetched is a fact about a run
     # that already happened, and a later run overwriting it would erase provenance to no purpose.
     families = io.open(FAMILIES_FILE, "a", encoding="utf-8")
     if fresh:

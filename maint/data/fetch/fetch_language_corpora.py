@@ -49,6 +49,7 @@ WANTED = [
     # Section 4.13.07 failed to find an epic register in the Greek Iliad, where an epithet declines
     # with its noun and no exact match survives. These two carry the register in a language that
     # barely inflects, and the second is the same story as the Greek one. Both are single works.
+    # Neither carries the anthology structure that made the burst count meaningless.
     (26, "english_1667_milton_epic.txt", "English epic verse, single work, 1667"),
     (6130, "english_1720_pope_iliad_epic.txt", "English epic verse, single work, 1720"),
     # Section 4.13.08 cannot separate a drift rate from a change of genre. These three translate one

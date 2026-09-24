@@ -86,7 +86,8 @@ HUMAN_WHOLE = sum(HUMAN_RATE.values())
 PLAIN = (".txt", ".rst", ".markdown", ".text", ".org")
 SUBMITTED = CHECKED + PLAIN
 
-# Names that identify a vendor or a product. None of these is alan ordinary English word.
+# Names that identify a vendor or a product. None of these is also an ordinary English word.
+# Each one is matched anywhere on a line, case folded. The PHRASES below need more care.
 NAMES = ("anthropic", "claude", "openai", "chatgpt")
 
 # Words that are ordinary English on their own. Each is matched only where a version number sits
@@ -288,7 +289,7 @@ def walk(roots):
 def git(root, *arguments):
     """One git command in one repository, as text, or None where git refused.
 
-    core.quotePath is turned OFF for every call.
+    core.quotePath is turned OFF for every call and not at the two sites that list paths.
 
     With it on, which is git's default, a path holding any character outside ASCII comes back
     quoted and octal-escaped: papers/...Kwak’wala.pdf is returned as

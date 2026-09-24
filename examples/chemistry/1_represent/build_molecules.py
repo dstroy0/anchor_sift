@@ -22,7 +22,8 @@
 # closed-shell atom forms, which for the main group is min(v, 8 - v) over its valence electrons.
 #
 # The validity gate on the catalog is the octet: every atom of every molecule below must close, or a
-# bond was entered wrong. That is the positive control on a hand-built table. Ethanol and dimethyl ether
+# bond was entered wrong. That is the positive control on a hand-built table. The next
+# stages rest on the reading it delivers: a formula does not fix a molecule. Ethanol and dimethyl ether
 # are both C2H6O and both close every atom. The formula is a necessary label and not the structure,
 #  the sift's survivors still need confirming.
 
@@ -33,7 +34,7 @@ import sys
 # The number of covalent bonds each element forms in a neutral, closed-shell molecule. Chemistry's
 # own layer, not the element ledger: it names no proton count and no electron configuration. Helium
 # forms none. A charged or open-shell species is outside this model and is left out of the catalog
-# .
+# and not forced through it.
 VALENCE = {"H": 1, "C": 4, "N": 3, "O": 2, "F": 1, "Cl": 1}
 
 Molecule = collections.namedtuple("Molecule", ("name", "atoms", "bonds"))

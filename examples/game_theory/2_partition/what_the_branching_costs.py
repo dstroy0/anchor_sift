@@ -107,8 +107,8 @@ def main():
         "estimated, and the estimate has nothing local to check it against.\n"
         "\n"
         "That asymmetry is the subject. Stage six checks the estimator where the answer is known.\n"
-        "Nothing checks it on chess,  the chess numbers carry their budget in the same\n"
-        "line as the result."
+        "Nothing checks it on chess. The chess numbers therefore carry their budget in the same\n"
+        "line as the result and not in a footnote."
     )
 
 
