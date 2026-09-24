@@ -1,0 +1,4 @@
+  the residue as the .iapx writes it              340189016 bytes,  40.5% of raw
+  each floor's rectangles row by row              339031483 bytes,  40.4% of raw, -1157533 bytes; decoded back: 0 differ
+  shells, each swept by angle (21 September)      340847089 bytes,  40.6% of raw, +658073 bytes; decoded back: 0 differ
+  shells, each in the golden order                340856533 bytes,  40.6% of raw, +667517 bytes; decoded back: 0 differ

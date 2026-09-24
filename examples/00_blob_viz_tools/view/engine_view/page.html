@@ -1,0 +1,254 @@
+<!doctype html>
+<!--
+cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+The engine view. Built by maint/build_engine_view.py from view/engine_view/; edit the parts there, never this page.
+-->
+<html lang="en" data-theme="dark" data-face="clinical">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engine View</title>
+<style>
+  :root {
+    --page: #07080a; --panel: rgba(13, 15, 19, var(--sheer, 0.9)); --edge: #2a2f38; --ink: #dde3ec; --dim: #8a93a3;
+    --accent: #56b4e9; --good: #009e73; --warn: #e69f00; --bad: #d55e00; --text: 12px; --panel-w: 290px; --side-w: 300px;
+    --font: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  :root[data-theme="light"] {
+    --page: #eef1f5; --panel: rgba(255, 255, 255, var(--sheer, 0.92)); --edge: #c5ccd6; --ink: #1b2330; --dim: #5a6576;
+  }
+  :root[data-face="clinical"] { --font: system-ui, "Segoe UI", Roboto, sans-serif; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--page); color: var(--ink); font: var(--text)/1.45 var(--font); }
+  canvas#view { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; touch-action: none; cursor: crosshair; }
+  .box { position: fixed; background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: 8px 10px; box-sizing: border-box; max-height: calc(100vh - 120px); overflow: auto; }
+  .box h4 { margin: -2px 0 6px; font-size: 1em; letter-spacing: 0.04em; cursor: move; user-select: none; color: var(--dim); text-transform: uppercase; }
+  .row { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
+  .row label { flex: 0 0 96px; color: var(--dim); }
+  .row input[type=range] { flex: 1; min-width: 60px; }
+  .row .val { flex: 0 0 64px; text-align: right; font-variant-numeric: tabular-nums; }
+  .check { display: inline-flex; align-items: center; gap: 4px; margin: 2px 10px 2px 0; }
+  button, select, input[type=number], textarea { background: transparent; color: var(--ink); border: 1px solid var(--edge); border-radius: 5px; font: inherit; padding: 2px 6px; }
+  button:hover { border-color: var(--accent); }
+  button.on { background: var(--accent); color: #051018; border-color: var(--accent); }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  td { padding: 1px 4px; vertical-align: top; }
+  td:first-child { color: var(--dim); white-space: nowrap; }
+  td.num { text-align: right; }
+  .note { color: var(--dim); margin: 4px 0; }
+  .bad { color: var(--bad); }
+  .good { color: var(--good); }
+  .warn { color: var(--warn); }
+  #menu { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; max-width: calc(100vw - 32px); background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: 4px 6px; z-index: 5; }
+  #menu .gap { width: 10px; }
+  /* Whose engine this is, over the cells it draws, out of the way of everything that is read. */
+  #credit { position: fixed; top: 46px; left: 50%; transform: translateX(-50%); z-index: 5; color: var(--dim); font-size: 12px; letter-spacing: 0.04em; white-space: nowrap; pointer-events: auto; }
+  #credit a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--edge); }
+  #credit a:hover { border-bottom-color: var(--ink); }
+  #panel { left: 12px; top: 60px; width: var(--panel-w); transition: transform 0.25s ease; z-index: 4; }
+  #panel.tucked:not(.pinned):not(:hover) { transform: translateX(calc(-100% + 26px)); }
+  #grip { position: absolute; right: 4px; top: 4px; cursor: pointer; color: var(--dim); }
+  #panel section { border-top: 1px solid var(--edge); padding-top: 4px; margin-top: 6px; }
+  #panel section > b { display: block; color: var(--dim); font-weight: 600; margin-bottom: 2px; }
+  #right { position: fixed; right: 12px; top: 60px; width: var(--side-w); display: flex; flex-direction: column; gap: 8px; max-height: calc(100vh - 140px); overflow: auto; z-index: 4; }
+  #right .box { position: static; max-height: 40vh; flex: 0 0 auto; }
+  #transport { left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; max-width: calc(100vw - 32px); z-index: 5; }
+  /* What this is and what it is not, at the top under whose engine it is, with the cells set below both. */
+  #standing { position: fixed; left: 50%; top: 64px; transform: translateX(-50%); z-index: 5; max-width: min(980px, calc(100vw - 32px)); text-align: center; color: var(--dim); font-size: 11px; line-height: 1.5; }
+  #standing b { color: var(--warn); }
+  #standing i { color: var(--ink); font-style: normal; }
+  #transport input[type=number] { width: 58px; }
+  #clock { width: min(420px, 60vw); }
+  /* What the render cost and where the view is, side by side over the transport: the cost to the left of it. */
+  #ticker { position: fixed; left: 50%; bottom: 58px; transform: translateX(-50%); display: flex; gap: 18px; align-items: flex-end; max-width: calc(100vw - 32px); pointer-events: none; }
+  #where { color: var(--dim); white-space: nowrap; }
+  #rate { color: var(--dim); font-family: ui-monospace, Consolas, monospace; font-size: 11px; white-space: pre; text-align: right; }
+  #loopAlarm { position: fixed; left: 50%; top: 56px; transform: translateX(-50%); background: var(--bad); color: #fff; padding: 6px 12px; border-radius: 6px; z-index: 9; }
+  #ask { position: fixed; right: 12px; bottom: 12px; width: 26px; height: 26px; border-radius: 13px; border: 1px solid var(--edge); background: var(--panel); text-align: center; line-height: 26px; cursor: help; z-index: 6; }
+  #tile { position: fixed; right: 12px; bottom: 46px; width: min(380px, calc(100vw - 24px)); z-index: 7; }
+  #hover { position: fixed; pointer-events: none; background: var(--panel); border: 1px solid var(--edge); border-radius: 6px; padding: 4px 8px; white-space: pre; z-index: 8; }
+  #tags { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
+  #tags .tag { position: absolute; pointer-events: auto; background: var(--panel); border: 1px solid var(--accent); border-radius: 5px; padding: 1px 6px; white-space: nowrap; cursor: grab; }
+  #leads { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 3; }
+  #lightHandles { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
+  #lightHandles .light { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 11px; pointer-events: auto; cursor: grab; background: radial-gradient(circle, #fff7d6 0 30%, #ffcf6b 45%, rgba(255, 207, 107, 0) 72%); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #3a2a00; font-weight: 700; }
+  #lightHandles .light.picked { outline: 1px solid var(--accent); }
+  #configBox { left: 50%; top: 80px; transform: translateX(-50%); width: min(620px, calc(100vw - 24px)); z-index: 8; }
+  #configText { width: 100%; box-sizing: border-box; min-height: 260px; resize: vertical; font-family: ui-monospace, Consolas, monospace; font-size: 11px; }
+  #drop { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; background: rgba(0, 0, 0, 0.6); color: #fff; z-index: 10; }
+  #machine pre { margin: 0; white-space: pre-wrap; word-break: break-all; font-family: ui-monospace, Consolas, monospace; font-size: 11px; }
+  #review li { cursor: pointer; margin: 2px 0; }
+  #review ol { margin: 0; padding-left: 20px; }
+  :root[data-face="clinical"] .machine-only { display: none !important; }
+  :root[data-face="machine"] .clinical-only { display: none !important; }
+  [hidden] { display: none !important; }
+  @media (max-width: 760px) {
+    #right { display: none; }
+    #panel { width: calc(100vw - 24px); }
+  }
+</style>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="credit">DEMO courtesy of Douglas Quigg (dstroy0) &mdash; <a href="https://github.com/dstroy0" target="_blank" rel="noopener noreferrer">github.com/dstroy0</a></div>
+<div id="standing">
+  Prepared for the Kaggle <i>Biohub &mdash; Cell Tracking During Development</i> competition. A pure algebraic
+  reasoning engine: branchless, memoryless, exact limb arithmetic. No neural net, no model, nothing learned and
+  nothing held. It needs no internet connection and reads no dataset but the one handed to it. Any data prepared
+  like the input set can be passed through by altering the .cfg &mdash; see README.md in the competition notebook.
+  <b>Non-clinical demonstration only.</b>
+  The engine renders this directly from what it sees. Move <i>slide</i> across the gradient between the sample and
+  the engine's reasoning to verify the acceptance and rejection of that sample in real time, at any clock or
+  perspective you need. That tunes the acceptance rate alongside the null permutation error curve written in the
+  .tsv. The two terms are one integral, and it is the probability distribution for a given species and tissue
+  composition. A fully working engine can be pointed at itself to floor the error within like tissue samples,
+  which greatly improves candidate acceptance and rejection throughput.
+</div>
+<svg id="leads"></svg>
+<div id="tags"></div>
+<div id="lightHandles"></div>
+<div id="menu">
+  <button data-show="counts" class="on">counts</button>
+  <button data-show="dims">dimensions</button>
+  <button data-show="lineage">lineage</button>
+  <button data-show="legend">legend</button>
+  <button data-show="review">review</button>
+  <button data-show="machine" class="machine-only">state</button>
+  <button data-show="all">all</button>
+  <span class="gap"></span>
+  <button id="faceClinical" title="plain labels, the slice, the review list">clinical</button>
+  <button id="faceMachine" title="exact integers, offsets, timings, the page as JSON">machine</button>
+  <span class="gap"></span>
+  <button id="configOpen" title="read or write the whole view as a .cfg">config</button>
+  <button id="openFile" title="open an object file">open</button>
+  <button id="snapshot" title="save the view as a PNG">snapshot</button>
+  <button id="exportCsv" title="save the chosen cells, or every cell, as CSV">CSV</button>
+  <input type="file" id="fileInput" accept=".object" hidden>
+</div>
+
+<div class="box tucked" id="panel">
+  <span id="grip" title="pin the controls open, or let them tuck away">&#9776;</span>
+  <h4>controls</h4>
+  <section>
+    <b>object</b>
+    <div class="row"><label for="sample">sample</label><select id="sample" style="flex:1"></select></div>
+  </section>
+  <section>
+    <b>view</b>
+    <div class="row"><label for="yaw">turn</label><input type="range" id="yaw" min="0" max="359" value="30"><span class="val" id="yawOut"></span></div>
+    <div class="row"><label for="pitch">tilt</label><input type="range" id="pitch" min="-89" max="89" value="35"><span class="val" id="pitchOut"></span></div>
+    <div class="row"><label for="zoom">zoom</label><input type="range" id="zoom" min="1" max="1024" value="64"><span class="val" id="zoomOut"></span></div>
+    <div class="row"><label for="zScale">z scale</label><input type="range" id="zScale" min="2" max="16" step="2" value="8"><span class="val" id="zScaleOut"></span></div>
+    <div class="row"><label for="spread">spread</label><input type="range" id="spread" min="0" max="2048" step="16" value="0"><span class="val" id="spreadOut"></span></div>
+  </section>
+  <section>
+    <b>cells</b>
+    <div class="row"><label for="body">draw as</label><select id="body"><option value="0">smooth</option><option value="1">voxels</option><option value="2">centroids</option></select></div>
+    <div class="row"><label for="smoothRadius">smooth reach</label><input type="range" id="smoothRadius" min="1" max="8" value="3"><span class="val" id="smoothRadiusOut"></span></div>
+    <div class="row"><label for="smoothOpacity">smooth opacity</label><input type="range" id="smoothOpacity" min="1" max="255" value="16"><span class="val" id="smoothOpacityOut"></span></div>
+    <label class="check"><input type="checkbox" id="walls" checked>cell walls</label>
+    <div class="row"><label for="wallTone">wall lightness</label><input type="range" id="wallTone" min="0" max="255" value="110"><span class="val" id="wallToneOut"></span></div>
+    <div class="row"><label for="wallOpacity">wall opacity</label><input type="range" id="wallOpacity" min="1" max="255" value="220"><span class="val" id="wallOpacityOut"></span></div>
+    <div class="row"><label for="palette">color</label><select id="palette"><option value="1">by lineage</option><option value="3">lineage, color-blind safe</option><option value="0">by cell</option><option value="2">by volume</option></select></div>
+    <div class="row"><label for="ghosts">earlier frames</label><input type="range" id="ghosts" min="0" max="8" value="0"><span class="val" id="ghostsOut"></span></div>
+    <div class="row"><label for="ghostFade">their fade</label><input type="range" id="ghostFade" min="0" max="224" value="48"><span class="val" id="ghostFadeOut"></span></div>
+    <div class="row"><label for="minVoxels">smallest</label><input type="range" id="minVoxels" min="0" max="16" value="0"><span class="val" id="minVoxelsOut"></span></div>
+    <label class="check"><input type="checkbox" id="shadeOn" checked>light</label>
+    <div class="row"><label for="bodyOpacity">body opacity</label><input type="range" id="bodyOpacity" min="0" max="255" value="160"><span class="val" id="bodyOpacityOut"></span></div>
+    <div class="row" title="fade between the microscope's own voxels and what the engine made of them"><label for="slide">slide</label><input type="range" id="slide" min="0" max="255" value="0"><span class="val" id="slideOut"></span></div>
+  </section>
+  <section>
+    <b>lights</b>
+    <div class="row"><label>sources</label><button id="lightFewer" title="one fewer light">&minus;</button><b id="lightCount">2</b><button id="lightMore" title="one more light">+</button><select id="lightPick" style="flex:1"></select></div>
+    <div class="row"><label for="lightTurnBox">turn</label><input type="range" id="lightTurnBox" min="0" max="359" value="300"><span class="val" id="lightTurnBoxOut"></span></div>
+    <div class="row"><label for="lightTiltBox">tilt</label><input type="range" id="lightTiltBox" min="-89" max="89" value="50"><span class="val" id="lightTiltBoxOut"></span></div>
+    <div class="row"><label for="lightStrength">strength</label><input type="range" id="lightStrength" min="0" max="255" value="210"><span class="val" id="lightStrengthOut"></span></div>
+    <div class="note">Drag a light's marker on the view to move it.</div>
+  </section>
+  <section>
+    <b>show</b>
+    <label class="check"><input type="checkbox" id="links" checked>links</label>
+    <label class="check"><input type="checkbox" id="tracks">whole tracks</label>
+    <label class="check"><input type="checkbox" id="edges" checked>answer key</label>
+    <label class="check"><input type="checkbox" id="onlyChosen">only chosen</label>
+    <label class="check"><input type="checkbox" id="glow" checked>glow chosen</label>
+    <label class="check"><input type="checkbox" id="ride">labels ride</label>
+    <label class="check"><input type="checkbox" id="labels" checked>labels</label>
+    <div class="row" style="flex-wrap:wrap">
+      <label class="check"><input type="checkbox" id="status0" checked><span class="good">correct</span></label>
+      <label class="check"><input type="checkbox" id="status1" checked><span class="warn">branched</span></label>
+      <label class="check"><input type="checkbox" id="status2" checked><span class="bad">wrong</span></label>
+      <label class="check"><input type="checkbox" id="status3" checked>no link</label>
+    </div>
+  </section>
+  <section>
+    <b>map</b>
+    <label class="check"><input type="checkbox" id="slice" checked>show the map</label>
+    <div class="row"><label for="mapMode">shows</label><select id="mapMode"><option value="projection">the whole volume from above</option><option value="slice">one layer</option></select></div>
+    <label class="check"><input type="checkbox" id="sliceFollow" checked>cells turn with the camera</label>
+    <div class="row"><label for="sliceZ">depth z</label><input type="range" id="sliceZ" min="0" max="63" value="32"><span class="val" id="sliceZOut"></span></div>
+    <div class="row"><label for="windowLow">black at</label><input type="range" id="windowLow" min="0" max="65535" value="0"><span class="val" id="windowLowOut"></span></div>
+    <div class="row"><label for="windowHigh">white at</label><input type="range" id="windowHigh" min="1" max="65535" value="1024"><span class="val" id="windowHighOut"></span></div>
+    <div class="note" id="rawNote"></div>
+  </section>
+  <section>
+    <b>page</b>
+    <div class="row"><label for="sheer">panel opacity</label><input type="range" id="sheer" min="20" max="100" value="90"><span class="val" id="sheerOut"></span></div>
+    <div class="row"><label for="textSize">text size</label><input type="range" id="textSize" min="80" max="200" step="10" value="100"><span class="val" id="textSizeOut"></span></div>
+    <div class="row"><label for="theme">theme</label><select id="theme"><option value="dark">dark</option><option value="light">light</option></select></div>
+  </section>
+</div>
+
+<div id="right">
+  <div class="box" id="counts"><h4>counts</h4><table id="countTable"></table></div>
+  <div class="box" id="dims" hidden><h4>dimensions</h4><table id="dimTable"></table><canvas id="bars" width="280" height="110" style="width:100%"></canvas><div class="note" id="barNote"></div></div>
+  <div class="box" id="lineage" hidden><h4>lineage</h4><table id="lineageTable"></table><div class="note" id="lineageNote"></div></div>
+  <div class="box" id="legend" hidden><h4>legend</h4><div id="legendBody"></div></div>
+  <div class="box" id="review" hidden><h4>review</h4><div class="note" id="reviewNote"></div><ol id="reviewList"></ol></div>
+  <div class="box machine-only" id="machine" hidden><h4>state</h4><pre id="machineText"></pre></div>
+</div>
+
+<div class="box" id="transport">
+  <button id="play" title="play or stop">&#9654;</button>
+  <button id="back" title="one frame back">&#9198;</button>
+  <label>frame <input type="number" id="frameBox" min="0" step="1" value="0"></label>
+  <button id="forth" title="one frame on">&#9197;</button>
+  <label>step <input type="number" id="stepBox" min="1" step="1" value="1"></label>
+  <label>frames/s <input type="number" id="rateBox" min="0" max="60" step="1" value="2"></label>
+  <label class="check"><input type="checkbox" id="loop" checked>loop</label>
+  <input type="range" id="clock" min="0" max="0" value="0">
+  <span id="transportOf"></span>
+</div>
+
+<div id="ticker">
+  <div id="rate" class="machine-only"></div>
+  <div id="where"></div>
+</div>
+<div id="loopAlarm" hidden></div>
+<div id="hover" hidden></div>
+<div id="ask">?</div>
+<div class="box" id="tile" hidden></div>
+<div id="drop" hidden>drop an .object file</div>
+
+<div class="box" id="configBox" hidden>
+  <h4>.cfg</h4>
+  <p class="note">The whole view as a .cfg. The track, input and output sections are what made this object and take effect when the tracker runs this file; the view section applies here at once. Numbers are integers.</p>
+  <textarea id="configText" spellcheck="false"></textarea>
+  <div class="row" style="flex-wrap:wrap">
+    <button id="configRead">read the page</button>
+    <button id="configApply">apply</button>
+    <button id="configCopy">copy</button>
+    <button id="configSave">save .cfg</button>
+    <label class="check"><button id="configLoad">load a file</button><input type="file" id="configFile" accept=".cfg,.json,.txt" hidden></label>
+    <button id="configClose">close</button>
+  </div>
+  <p class="note" id="configSaid"></p>
+</div>
+
+<script type="application/json" id="engine-state">{}</script>
+<script type="module">
+/*ENGINE_VIEW_SCRIPT*/
+</script>
+</body>
+</html>

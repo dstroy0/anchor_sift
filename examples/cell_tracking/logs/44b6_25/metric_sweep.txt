@@ -1,0 +1,19 @@
+  read 25 samples from ../tsv/44b6_25/nodes.tsv
+
+  grain    policy          n        nodes      jaccard        SCORE
+  basin    stands          -      1324063     0.533241     0.506415  (target 880906)
+  basin    all             -      5820999     0.635103     0.278939
+  basin    largest       200       500000     0.493198     0.514524
+  basin    largest       400      1000000     0.670365     0.661302
+  basin    largest       700      1750000     0.689574     0.621541
+  basin    held          200       495000     0.434094     0.453111
+  basin    held          400       990000     0.629650     0.621852
+  basin    held          700      1732500     0.685049     0.618824
+  object   stands          -       140691     0.201760     0.218713  (target 880906)
+  object   all             -      1757400     0.331777     0.298765
+  object   largest       200       494635     0.296327     0.309320
+  object   largest       400       958407     0.377561     0.374240
+  object   largest       700      1467964     0.349625     0.326325
+  object   held          200       487532     0.266033     0.277913
+  object   held          400       933443     0.361768     0.359610
+  object   held          700      1374979     0.338590     0.319599

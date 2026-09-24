@@ -60,7 +60,9 @@ for book in $BOOKS; do
         STATUS=1
         continue
     fi
-    mkdir -p "$out"
+    # \include writes each chapter's .aux under the output directory at the chapter's own path,
+    # and xelatex does not make the directory.
+    mkdir -p "$out/chapters" "$out/frontmatter"
     cd "$src"
     for pass in 1 2; do
         if ! xelatex -interaction=nonstopmode -file-line-error \

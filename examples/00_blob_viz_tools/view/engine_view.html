@@ -1,0 +1,3547 @@
+<!doctype html>
+<!--
+cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+The engine view. Built by maint/build_engine_view.py from view/engine_view/; edit the parts there, never this page.
+-->
+<html lang="en" data-theme="dark" data-face="clinical">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engine View</title>
+<style>
+  :root {
+    --page: #07080a; --panel: rgba(13, 15, 19, var(--sheer, 0.9)); --edge: #2a2f38; --ink: #dde3ec; --dim: #8a93a3;
+    --accent: #56b4e9; --good: #009e73; --warn: #e69f00; --bad: #d55e00; --text: 12px; --panel-w: 290px; --side-w: 300px;
+    --font: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  :root[data-theme="light"] {
+    --page: #eef1f5; --panel: rgba(255, 255, 255, var(--sheer, 0.92)); --edge: #c5ccd6; --ink: #1b2330; --dim: #5a6576;
+  }
+  :root[data-face="clinical"] { --font: system-ui, "Segoe UI", Roboto, sans-serif; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--page); color: var(--ink); font: var(--text)/1.45 var(--font); }
+  canvas#view { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; touch-action: none; cursor: crosshair; }
+  .box { position: fixed; background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: 8px 10px; box-sizing: border-box; max-height: calc(100vh - 120px); overflow: auto; }
+  .box h4 { margin: -2px 0 6px; font-size: 1em; letter-spacing: 0.04em; cursor: move; user-select: none; color: var(--dim); text-transform: uppercase; }
+  .row { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
+  .row label { flex: 0 0 96px; color: var(--dim); }
+  .row input[type=range] { flex: 1; min-width: 60px; }
+  .row .val { flex: 0 0 64px; text-align: right; font-variant-numeric: tabular-nums; }
+  .check { display: inline-flex; align-items: center; gap: 4px; margin: 2px 10px 2px 0; }
+  button, select, input[type=number], textarea { background: transparent; color: var(--ink); border: 1px solid var(--edge); border-radius: 5px; font: inherit; padding: 2px 6px; }
+  button:hover { border-color: var(--accent); }
+  button.on { background: var(--accent); color: #051018; border-color: var(--accent); }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  td { padding: 1px 4px; vertical-align: top; }
+  td:first-child { color: var(--dim); white-space: nowrap; }
+  td.num { text-align: right; }
+  .note { color: var(--dim); margin: 4px 0; }
+  .bad { color: var(--bad); }
+  .good { color: var(--good); }
+  .warn { color: var(--warn); }
+  #menu { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; max-width: calc(100vw - 32px); background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: 4px 6px; z-index: 5; }
+  #menu .gap { width: 10px; }
+  /* Whose engine this is, over the cells it draws, out of the way of everything that is read. */
+  #credit { position: fixed; top: 46px; left: 50%; transform: translateX(-50%); z-index: 5; color: var(--dim); font-size: 12px; letter-spacing: 0.04em; white-space: nowrap; pointer-events: auto; }
+  #credit a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--edge); }
+  #credit a:hover { border-bottom-color: var(--ink); }
+  #panel { left: 12px; top: 60px; width: var(--panel-w); transition: transform 0.25s ease; z-index: 4; }
+  #panel.tucked:not(.pinned):not(:hover) { transform: translateX(calc(-100% + 26px)); }
+  #grip { position: absolute; right: 4px; top: 4px; cursor: pointer; color: var(--dim); }
+  #panel section { border-top: 1px solid var(--edge); padding-top: 4px; margin-top: 6px; }
+  #panel section > b { display: block; color: var(--dim); font-weight: 600; margin-bottom: 2px; }
+  #right { position: fixed; right: 12px; top: 60px; width: var(--side-w); display: flex; flex-direction: column; gap: 8px; max-height: calc(100vh - 140px); overflow: auto; z-index: 4; }
+  #right .box { position: static; max-height: 40vh; flex: 0 0 auto; }
+  #transport { left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; max-width: calc(100vw - 32px); z-index: 5; }
+  /* What this is and what it is not, at the top under whose engine it is, with the cells set below both. */
+  #standing { position: fixed; left: 50%; top: 64px; transform: translateX(-50%); z-index: 5; max-width: min(980px, calc(100vw - 32px)); text-align: center; color: var(--dim); font-size: 11px; line-height: 1.5; }
+  #standing b { color: var(--warn); }
+  #standing i { color: var(--ink); font-style: normal; }
+  #transport input[type=number] { width: 58px; }
+  #clock { width: min(420px, 60vw); }
+  /* What the render cost and where the view is, side by side over the transport: the cost to the left of it. */
+  #ticker { position: fixed; left: 50%; bottom: 58px; transform: translateX(-50%); display: flex; gap: 18px; align-items: flex-end; max-width: calc(100vw - 32px); pointer-events: none; }
+  #where { color: var(--dim); white-space: nowrap; }
+  #rate { color: var(--dim); font-family: ui-monospace, Consolas, monospace; font-size: 11px; white-space: pre; text-align: right; }
+  #loopAlarm { position: fixed; left: 50%; top: 56px; transform: translateX(-50%); background: var(--bad); color: #fff; padding: 6px 12px; border-radius: 6px; z-index: 9; }
+  #ask { position: fixed; right: 12px; bottom: 12px; width: 26px; height: 26px; border-radius: 13px; border: 1px solid var(--edge); background: var(--panel); text-align: center; line-height: 26px; cursor: help; z-index: 6; }
+  #tile { position: fixed; right: 12px; bottom: 46px; width: min(380px, calc(100vw - 24px)); z-index: 7; }
+  #hover { position: fixed; pointer-events: none; background: var(--panel); border: 1px solid var(--edge); border-radius: 6px; padding: 4px 8px; white-space: pre; z-index: 8; }
+  #tags { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
+  #tags .tag { position: absolute; pointer-events: auto; background: var(--panel); border: 1px solid var(--accent); border-radius: 5px; padding: 1px 6px; white-space: nowrap; cursor: grab; }
+  #leads { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 3; }
+  #lightHandles { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
+  #lightHandles .light { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 11px; pointer-events: auto; cursor: grab; background: radial-gradient(circle, #fff7d6 0 30%, #ffcf6b 45%, rgba(255, 207, 107, 0) 72%); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #3a2a00; font-weight: 700; }
+  #lightHandles .light.picked { outline: 1px solid var(--accent); }
+  #configBox { left: 50%; top: 80px; transform: translateX(-50%); width: min(620px, calc(100vw - 24px)); z-index: 8; }
+  #configText { width: 100%; box-sizing: border-box; min-height: 260px; resize: vertical; font-family: ui-monospace, Consolas, monospace; font-size: 11px; }
+  #drop { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; background: rgba(0, 0, 0, 0.6); color: #fff; z-index: 10; }
+  #machine pre { margin: 0; white-space: pre-wrap; word-break: break-all; font-family: ui-monospace, Consolas, monospace; font-size: 11px; }
+  #review li { cursor: pointer; margin: 2px 0; }
+  #review ol { margin: 0; padding-left: 20px; }
+  :root[data-face="clinical"] .machine-only { display: none !important; }
+  :root[data-face="machine"] .clinical-only { display: none !important; }
+  [hidden] { display: none !important; }
+  @media (max-width: 760px) {
+    #right { display: none; }
+    #panel { width: calc(100vw - 24px); }
+  }
+</style>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="credit">DEMO courtesy of Douglas Quigg (dstroy0) &mdash; <a href="https://github.com/dstroy0" target="_blank" rel="noopener noreferrer">github.com/dstroy0</a></div>
+<div id="standing">
+  Prepared for the Kaggle <i>Biohub &mdash; Cell Tracking During Development</i> competition. A pure algebraic
+  reasoning engine: branchless, memoryless, exact limb arithmetic. No neural net, no model, nothing learned and
+  nothing held. It needs no internet connection and reads no dataset but the one handed to it. Any data prepared
+  like the input set can be passed through by altering the .cfg &mdash; see README.md in the competition notebook.
+  <b>Non-clinical demonstration only.</b>
+  The engine renders this directly from what it sees. Move <i>slide</i> across the gradient between the sample and
+  the engine's reasoning to verify the acceptance and rejection of that sample in real time, at any clock or
+  perspective you need. That tunes the acceptance rate alongside the null permutation error curve written in the
+  .tsv. The two terms are one integral, and it is the probability distribution for a given species and tissue
+  composition. A fully working engine can be pointed at itself to floor the error within like tissue samples,
+  which greatly improves candidate acceptance and rejection throughput.
+</div>
+<svg id="leads"></svg>
+<div id="tags"></div>
+<div id="lightHandles"></div>
+<div id="menu">
+  <button data-show="counts" class="on">counts</button>
+  <button data-show="dims">dimensions</button>
+  <button data-show="lineage">lineage</button>
+  <button data-show="legend">legend</button>
+  <button data-show="review">review</button>
+  <button data-show="machine" class="machine-only">state</button>
+  <button data-show="all">all</button>
+  <span class="gap"></span>
+  <button id="faceClinical" title="plain labels, the slice, the review list">clinical</button>
+  <button id="faceMachine" title="exact integers, offsets, timings, the page as JSON">machine</button>
+  <span class="gap"></span>
+  <button id="configOpen" title="read or write the whole view as a .cfg">config</button>
+  <button id="openFile" title="open an object file">open</button>
+  <button id="snapshot" title="save the view as a PNG">snapshot</button>
+  <button id="exportCsv" title="save the chosen cells, or every cell, as CSV">CSV</button>
+  <input type="file" id="fileInput" accept=".object" hidden>
+</div>
+
+<div class="box tucked" id="panel">
+  <span id="grip" title="pin the controls open, or let them tuck away">&#9776;</span>
+  <h4>controls</h4>
+  <section>
+    <b>object</b>
+    <div class="row"><label for="sample">sample</label><select id="sample" style="flex:1"></select></div>
+  </section>
+  <section>
+    <b>view</b>
+    <div class="row"><label for="yaw">turn</label><input type="range" id="yaw" min="0" max="359" value="30"><span class="val" id="yawOut"></span></div>
+    <div class="row"><label for="pitch">tilt</label><input type="range" id="pitch" min="-89" max="89" value="35"><span class="val" id="pitchOut"></span></div>
+    <div class="row"><label for="zoom">zoom</label><input type="range" id="zoom" min="1" max="1024" value="64"><span class="val" id="zoomOut"></span></div>
+    <div class="row"><label for="zScale">z scale</label><input type="range" id="zScale" min="2" max="16" step="2" value="8"><span class="val" id="zScaleOut"></span></div>
+    <div class="row"><label for="spread">spread</label><input type="range" id="spread" min="0" max="2048" step="16" value="0"><span class="val" id="spreadOut"></span></div>
+  </section>
+  <section>
+    <b>cells</b>
+    <div class="row"><label for="body">draw as</label><select id="body"><option value="0">smooth</option><option value="1">voxels</option><option value="2">centroids</option></select></div>
+    <div class="row"><label for="smoothRadius">smooth reach</label><input type="range" id="smoothRadius" min="1" max="8" value="3"><span class="val" id="smoothRadiusOut"></span></div>
+    <div class="row"><label for="smoothOpacity">smooth opacity</label><input type="range" id="smoothOpacity" min="1" max="255" value="16"><span class="val" id="smoothOpacityOut"></span></div>
+    <label class="check"><input type="checkbox" id="walls" checked>cell walls</label>
+    <div class="row"><label for="wallTone">wall lightness</label><input type="range" id="wallTone" min="0" max="255" value="110"><span class="val" id="wallToneOut"></span></div>
+    <div class="row"><label for="wallOpacity">wall opacity</label><input type="range" id="wallOpacity" min="1" max="255" value="220"><span class="val" id="wallOpacityOut"></span></div>
+    <div class="row"><label for="palette">color</label><select id="palette"><option value="1">by lineage</option><option value="3">lineage, color-blind safe</option><option value="0">by cell</option><option value="2">by volume</option></select></div>
+    <div class="row"><label for="ghosts">earlier frames</label><input type="range" id="ghosts" min="0" max="8" value="0"><span class="val" id="ghostsOut"></span></div>
+    <div class="row"><label for="ghostFade">their fade</label><input type="range" id="ghostFade" min="0" max="224" value="48"><span class="val" id="ghostFadeOut"></span></div>
+    <div class="row"><label for="minVoxels">smallest</label><input type="range" id="minVoxels" min="0" max="16" value="0"><span class="val" id="minVoxelsOut"></span></div>
+    <label class="check"><input type="checkbox" id="shadeOn" checked>light</label>
+    <div class="row"><label for="bodyOpacity">body opacity</label><input type="range" id="bodyOpacity" min="0" max="255" value="160"><span class="val" id="bodyOpacityOut"></span></div>
+    <div class="row" title="fade between the microscope's own voxels and what the engine made of them"><label for="slide">slide</label><input type="range" id="slide" min="0" max="255" value="0"><span class="val" id="slideOut"></span></div>
+  </section>
+  <section>
+    <b>lights</b>
+    <div class="row"><label>sources</label><button id="lightFewer" title="one fewer light">&minus;</button><b id="lightCount">2</b><button id="lightMore" title="one more light">+</button><select id="lightPick" style="flex:1"></select></div>
+    <div class="row"><label for="lightTurnBox">turn</label><input type="range" id="lightTurnBox" min="0" max="359" value="300"><span class="val" id="lightTurnBoxOut"></span></div>
+    <div class="row"><label for="lightTiltBox">tilt</label><input type="range" id="lightTiltBox" min="-89" max="89" value="50"><span class="val" id="lightTiltBoxOut"></span></div>
+    <div class="row"><label for="lightStrength">strength</label><input type="range" id="lightStrength" min="0" max="255" value="210"><span class="val" id="lightStrengthOut"></span></div>
+    <div class="note">Drag a light's marker on the view to move it.</div>
+  </section>
+  <section>
+    <b>show</b>
+    <label class="check"><input type="checkbox" id="links" checked>links</label>
+    <label class="check"><input type="checkbox" id="tracks">whole tracks</label>
+    <label class="check"><input type="checkbox" id="edges" checked>answer key</label>
+    <label class="check"><input type="checkbox" id="onlyChosen">only chosen</label>
+    <label class="check"><input type="checkbox" id="glow" checked>glow chosen</label>
+    <label class="check"><input type="checkbox" id="ride">labels ride</label>
+    <label class="check"><input type="checkbox" id="labels" checked>labels</label>
+    <div class="row" style="flex-wrap:wrap">
+      <label class="check"><input type="checkbox" id="status0" checked><span class="good">correct</span></label>
+      <label class="check"><input type="checkbox" id="status1" checked><span class="warn">branched</span></label>
+      <label class="check"><input type="checkbox" id="status2" checked><span class="bad">wrong</span></label>
+      <label class="check"><input type="checkbox" id="status3" checked>no link</label>
+    </div>
+  </section>
+  <section>
+    <b>map</b>
+    <label class="check"><input type="checkbox" id="slice" checked>show the map</label>
+    <div class="row"><label for="mapMode">shows</label><select id="mapMode"><option value="projection">the whole volume from above</option><option value="slice">one layer</option></select></div>
+    <label class="check"><input type="checkbox" id="sliceFollow" checked>cells turn with the camera</label>
+    <div class="row"><label for="sliceZ">depth z</label><input type="range" id="sliceZ" min="0" max="63" value="32"><span class="val" id="sliceZOut"></span></div>
+    <div class="row"><label for="windowLow">black at</label><input type="range" id="windowLow" min="0" max="65535" value="0"><span class="val" id="windowLowOut"></span></div>
+    <div class="row"><label for="windowHigh">white at</label><input type="range" id="windowHigh" min="1" max="65535" value="1024"><span class="val" id="windowHighOut"></span></div>
+    <div class="note" id="rawNote"></div>
+  </section>
+  <section>
+    <b>page</b>
+    <div class="row"><label for="sheer">panel opacity</label><input type="range" id="sheer" min="20" max="100" value="90"><span class="val" id="sheerOut"></span></div>
+    <div class="row"><label for="textSize">text size</label><input type="range" id="textSize" min="80" max="200" step="10" value="100"><span class="val" id="textSizeOut"></span></div>
+    <div class="row"><label for="theme">theme</label><select id="theme"><option value="dark">dark</option><option value="light">light</option></select></div>
+  </section>
+</div>
+
+<div id="right">
+  <div class="box" id="counts"><h4>counts</h4><table id="countTable"></table></div>
+  <div class="box" id="dims" hidden><h4>dimensions</h4><table id="dimTable"></table><canvas id="bars" width="280" height="110" style="width:100%"></canvas><div class="note" id="barNote"></div></div>
+  <div class="box" id="lineage" hidden><h4>lineage</h4><table id="lineageTable"></table><div class="note" id="lineageNote"></div></div>
+  <div class="box" id="legend" hidden><h4>legend</h4><div id="legendBody"></div></div>
+  <div class="box" id="review" hidden><h4>review</h4><div class="note" id="reviewNote"></div><ol id="reviewList"></ol></div>
+  <div class="box machine-only" id="machine" hidden><h4>state</h4><pre id="machineText"></pre></div>
+</div>
+
+<div class="box" id="transport">
+  <button id="play" title="play or stop">&#9654;</button>
+  <button id="back" title="one frame back">&#9198;</button>
+  <label>frame <input type="number" id="frameBox" min="0" step="1" value="0"></label>
+  <button id="forth" title="one frame on">&#9197;</button>
+  <label>step <input type="number" id="stepBox" min="1" step="1" value="1"></label>
+  <label>frames/s <input type="number" id="rateBox" min="0" max="60" step="1" value="2"></label>
+  <label class="check"><input type="checkbox" id="loop" checked>loop</label>
+  <input type="range" id="clock" min="0" max="0" value="0">
+  <span id="transportOf"></span>
+</div>
+
+<div id="ticker">
+  <div id="rate" class="machine-only"></div>
+  <div id="where"></div>
+</div>
+<div id="loopAlarm" hidden></div>
+<div id="hover" hidden></div>
+<div id="ask">?</div>
+<div class="box" id="tile" hidden></div>
+<div id="drop" hidden>drop an .object file</div>
+
+<div class="box" id="configBox" hidden>
+  <h4>.cfg</h4>
+  <p class="note">The whole view as a .cfg. The track, input and output sections are what made this object and take effect when the tracker runs this file; the view section applies here at once. Numbers are integers.</p>
+  <textarea id="configText" spellcheck="false"></textarea>
+  <div class="row" style="flex-wrap:wrap">
+    <button id="configRead">read the page</button>
+    <button id="configApply">apply</button>
+    <button id="configCopy">copy</button>
+    <button id="configSave">save .cfg</button>
+    <label class="check"><button id="configLoad">load a file</button><input type="file" id="configFile" accept=".cfg,.json,.txt" hidden></label>
+    <button id="configClose">close</button>
+  </div>
+  <p class="note" id="configSaid"></p>
+</div>
+
+<script type="application/json" id="engine-state">{}</script>
+<script type="module">
+const EV = {};
+// ---- turn_table.js ----
+// Generated by maint/emit_turn_table.py from anchor_sift representation.constants.naturals.pi(60); do not edit.
+// sin(d degrees) * 2^14, rounded half up, for d = 0 to 90.
+EV.SINE_DEGREES = [0, 286, 572, 857, 1143, 1428, 1713, 1997, 2280, 2563, 2845, 3126, 3406, 3686, 3964, 4240, 4516, 4790, 5063, 5334, 5604, 5872, 6138, 6402, 6664, 6924, 7182, 7438, 7692, 7943, 8192, 8438, 8682, 8923, 9162, 9397, 9630, 9860, 10087, 10311, 10531, 10749, 10963, 11174, 11381, 11585, 11786, 11982, 12176, 12365, 12551, 12733, 12911, 13085, 13255, 13421, 13583, 13741, 13894, 14044, 14189, 14330, 14466, 14598, 14726, 14849, 14968, 15082, 15191, 15296, 15396, 15491, 15582, 15668, 15749, 15826, 15897, 15964, 16026, 16083, 16135, 16182, 16225, 16262, 16294, 16322, 16344, 16362, 16374, 16382, 16384];
+
+// ---- shaders.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The engine view's shaders. Every position is integer arithmetic in doubled voxel units until the clip boundary,
+// where one conversion to f32 hands it to the rasterizer. Every pick is a select; nothing is discarded. A primitive
+// that should not be drawn is moved outside the clip volume in the vertex stage.
+
+EV.LAYOUT_WORDS = 88;
+
+EV.LAYOUT = [
+  "frames_at", "leaves_at", "cells_at", "runs_at", "links_at", "edges_at", "depth", "height",
+  "width", "plane", "frame_total", "leaf_total", "leaf_first", "leaf_span", "pow2", "only_chosen",
+  "run_first", "run_past", "run_total", "cell_total", "yaw_cos", "yaw_sin", "pitch_cos", "pitch_sin",
+  "zoom", "pan_x", "pan_y", "half_w", "half_h", "spread", "frame_now", "progress",
+  "z_scale", "min_voxels", "shade_on", "light_x", "light_y", "light_z", "chosen_weight", "glow",
+  "status_mask", "palette", "ghost_frames", "ghost_fade", "slice_z", "slice_on", "window_low", "window_high",
+  "hover_cell", "body", "slice_x0", "slice_y0", "slice_scale", "raw_on", "link_frames", "soft_radius",
+  "soft_alpha", "wall_inset", "wall_tone", "wall_alpha", "wall_on", "slice_w", "slice_h", "slice_follow",
+  "map_projection", "light_count", "body_alpha", "map_reach",
+  "light0_x", "light0_y", "light0_z", "light0_strength", "light1_x", "light1_y", "light1_z", "light1_strength",
+  "light2_x", "light2_y", "light2_z", "light2_strength", "light3_x", "light3_y", "light3_z", "light3_strength",
+  "typical_voxels", "slide", "spare86", "spare87",
+];
+
+// Fields read as signed integers; every other field is unsigned.
+EV.SIGNED = new Set(["yaw_cos", "yaw_sin", "pitch_cos", "pitch_sin", "zoom", "pan_x", "pan_y", "half_w", "half_h",
+  "spread", "z_scale", "light_x", "light_y", "light_z", "slice_x0", "slice_y0", "slice_scale", "soft_radius", "slice_w", "slice_h",
+  "light0_x", "light0_y", "light0_z", "light1_x", "light1_y", "light1_z", "light2_x", "light2_y", "light2_z",
+  "light3_x", "light3_y", "light3_z", "map_reach"]);
+
+EV.PRELUDE = `
+struct Layout {
+${EV.LAYOUT.map((name) => `  ${name}: ${EV.SIGNED.has(name) ? "i32" : "u32"},`).join("\n")}
+}
+const STRIDE: u32 = 65535u * 256u;
+const HIDDEN: vec4<f32> = vec4<f32>(4.0, 4.0, 4.0, 1.0);
+`;
+
+// Each run's leaf: the largest leaf whose first run is at or before the run, by 24 halvings.
+EV.RESOLVE = EV.PRELUDE + `
+@group(0) @binding(0) var<storage, read> obj: array<u32>;
+@group(0) @binding(1) var<uniform> lay: Layout;
+@group(0) @binding(2) var<storage, read_write> run_leaf: array<u32>;
+@compute @workgroup_size(256)
+fn main(@builtin(global_invocation_id) id: vec3<u32>) {
+  let run = id.x + id.y * STRIDE;
+  var leaf = 0u;
+  for (var step = 0u; step < 24u; step++) {
+    let probe = leaf + ((1u << 23u) >> step);
+    let first = obj[lay.leaves_at + 4u * min(probe, lay.leaf_total - 1u) + 2u];
+    leaf = select(leaf, probe, (probe < lay.leaf_total) && (first <= run));
+  }
+  run_leaf[select(lay.run_total, run, run < lay.run_total)] = leaf;
+}`;
+
+EV.CHOSEN = `
+fn chosen_bit(cell: u32) -> u32 {
+  return (chosen[cell >> 5u] >> (cell & 31u)) & 1u;
+}`;
+
+// Each leaf in range: its runs where it is kept, else zero; past the range, zero.
+EV.KEEP = EV.PRELUDE + `
+@group(0) @binding(0) var<storage, read> obj: array<u32>;
+@group(0) @binding(1) var<uniform> lay: Layout;
+@group(0) @binding(2) var<storage, read> chosen: array<u32>;
+@group(0) @binding(3) var<storage, read_write> prefix: array<u32>;
+${EV.CHOSEN}
+@compute @workgroup_size(256)
+fn main(@builtin(global_invocation_id) id: vec3<u32>) {
+  let slot = id.x + id.y * STRIDE;
+  let at = lay.leaves_at + 4u * (lay.leaf_first + slot);
+  let cell = obj[at];
+  let big = u32(obj[lay.cells_at + 4u * cell] >= lay.min_voxels);
+  let kept = select(1u, chosen_bit(cell), lay.only_chosen == 1u) * big * u32(slot < lay.leaf_span);
+  prefix[select(lay.pow2, slot, slot < lay.pow2)] = obj[at + 3u] * kept;
+}`;
+
+// One Sklansky level: every slot with the level's bit set adds the last slot of the half block below it.
+EV.LEVEL = EV.PRELUDE + `
+struct Level { bit: u32, spare0: u32, spare1: u32, spare2: u32 }
+@group(0) @binding(0) var<uniform> level: Level;
+@group(0) @binding(1) var<uniform> lay: Layout;
+@group(0) @binding(2) var<storage, read_write> prefix: array<u32>;
+@compute @workgroup_size(256)
+fn main(@builtin(global_invocation_id) id: vec3<u32>) {
+  let walk = id.x + id.y * STRIDE;
+  let low = (1u << level.bit) - 1u;
+  let block = (walk >> level.bit) << (level.bit + 1u);
+  let slot = block | (1u << level.bit) | (walk & low);
+  let source = block | low;
+  prefix[select(lay.pow2, slot, slot < lay.pow2)] += prefix[min(source, lay.pow2)];
+}`;
+
+// Each run in range lands at its leaf's kept runs before it plus its place in its leaf; a run not kept lands in slot 0.
+EV.SCATTER = EV.PRELUDE + `
+@group(0) @binding(0) var<storage, read> obj: array<u32>;
+@group(0) @binding(1) var<uniform> lay: Layout;
+@group(0) @binding(2) var<storage, read> chosen: array<u32>;
+@group(0) @binding(3) var<storage, read> prefix: array<u32>;
+@group(0) @binding(4) var<storage, read> run_leaf: array<u32>;
+@group(0) @binding(5) var<storage, read_write> compact: array<u32>;
+${EV.CHOSEN}
+@compute @workgroup_size(256)
+fn main(@builtin(global_invocation_id) id: vec3<u32>) {
+  let run = lay.run_first + id.x + id.y * STRIDE;
+  let leaf = run_leaf[min(run, lay.run_total)];
+  let at = lay.leaves_at + 4u * leaf;
+  let cell = obj[at];
+  let big = u32(obj[lay.cells_at + 4u * cell] >= lay.min_voxels);
+  let kept = select(1u, chosen_bit(cell), lay.only_chosen == 1u) * big * u32(run < lay.run_past);
+  let before = prefix[min(leaf - lay.leaf_first, lay.pow2)] - obj[at + 3u] * kept;
+  compact[kept * (before + (run - obj[at + 2u]) + 1u)] = run;
+}`;
+
+EV.COUNT = EV.PRELUDE + `
+@group(0) @binding(0) var<uniform> lay: Layout;
+@group(0) @binding(1) var<storage, read> prefix: array<u32>;
+@group(0) @binding(2) var<storage, read_write> drawn: array<u32, 8>;
+@compute @workgroup_size(1)
+fn main() {
+  // Two sets of drawIndirect arguments over the same kept runs: 18 vertices for a box's three faces, 6 for a capsule.
+  drawn[0] = 18u;
+  drawn[1] = prefix[lay.pow2 - 1u];
+  drawn[2] = 0u;
+  drawn[3] = 0u;
+  drawn[4] = 6u;
+  drawn[5] = prefix[lay.pow2 - 1u];
+  drawn[6] = 0u;
+  drawn[7] = 0u;
+}`;
+
+// ---- shaders_render.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The drawing shaders: boxes warped out of runs, cells as blobs, links and edges as lines, and the slice.
+//
+// A frame change is a transition, never a cut. Across one transition the runs of frame t slide by their cell's
+// step toward its children and dissolve out, while the runs of frame t + 1 slide in from their parents and dissolve
+// in; progress runs 0 to 4096 and is eased by an integer smoothstep. The dissolve grain is a hash of the run.
+
+EV.RENDER_BINDINGS = `
+@group(0) @binding(0) var<storage, read> obj: array<u32>;
+@group(0) @binding(1) var<uniform> lay: Layout;
+@group(0) @binding(2) var<storage, read> chosen: array<u32>;
+@group(0) @binding(3) var<storage, read> motion: array<i32>;
+`;
+
+EV.RENDER_COMMON = `
+var<private> OKABE: array<u32, 8> = array<u32, 8>(0xE69F00u, 0x56B4E9u, 0x009E73u, 0xF0E442u, 0x0072B2u, 0xD55E00u, 0xCC79A7u, 0xBBBBBBu);
+var<private> RAMP: array<u32, 8> = array<u32, 8>(0x440154u, 0x46327Eu, 0x365C8Du, 0x277F8Eu, 0x1FA187u, 0x4AC16Du, 0xA0DA39u, 0xFDE725u);
+var<private> STATUS: array<u32, 5> = array<u32, 5>(0x009E73u, 0xE69F00u, 0xD55E00u, 0xCC79A7u, 0x999999u);
+
+struct Out {
+  @builtin(position) place: vec4<f32>,
+  @location(0) @interpolate(flat) colour: vec4<f32>,
+  @location(1) @interpolate(flat) pick: u32,
+}
+struct Drawn {
+  @location(0) colour: vec4<f32>,
+  @location(1) pick: u32,
+}
+
+${EV.CHOSEN}
+
+fn unpack(packed: u32) -> vec3<u32> {
+  return vec3<u32>((packed >> 16u) & 255u, (packed >> 8u) & 255u, packed & 255u);
+}
+
+fn hue(key: u32) -> vec3<u32> {
+  var mixed = key * 2654435761u;
+  mixed = mixed ^ (mixed >> 15u);
+  mixed = mixed * 2246822519u;
+  mixed = mixed ^ (mixed >> 13u);
+  return vec3<u32>(64u + (mixed & 191u), 64u + ((mixed >> 8u) & 191u), 64u + ((mixed >> 16u) & 191u));
+}
+
+// 0 by cell, 1 by lineage, 2 by volume, 3 lineage in the Okabe-Ito colors that stay apart under color blindness.
+fn paint(cell: u32) -> vec3<u32> {
+  let root = u32(motion[cell * 8u + 6u]);
+  let size = max(obj[lay.cells_at + 4u * cell], 1u);
+  let level = min(((31u - countLeadingZeros(size)) * 8u) / 23u, 7u);
+  let okabe = unpack(OKABE[(root * 2654435761u) >> 29u]);
+  return select(select(select(hue(cell), hue(root), lay.palette == 1u), unpack(RAMP[level]), lay.palette == 2u),
+                okabe, lay.palette == 3u);
+}
+
+fn ease(progress: u32) -> i32 {
+  let p = i32(min(progress, 4096u));
+  return (((p * p) >> 12u) * (12288 - 2 * p)) >> 12u;
+}
+
+// The turn: yaw about z, then pitch about the turned x, both as integers scaled by 2^14.
+fn project(x: i32, y: i32, z: i32, frame: u32) -> vec4<f32> {
+  let x1 = (lay.yaw_cos * x - lay.yaw_sin * y) >> 14u;
+  let y1 = (lay.yaw_sin * x + lay.yaw_cos * y) >> 14u;
+  let y2 = (lay.pitch_cos * y1 - lay.pitch_sin * z) >> 14u;
+  let z2 = (lay.pitch_sin * y1 + lay.pitch_cos * z) >> 14u;
+  let shift = ((i32(frame) - i32(lay.frame_now)) * lay.spread) - ((ease(lay.progress) * lay.spread) >> 12u);
+  return vec4<f32>(f32((x1 + shift) * lay.zoom + lay.pan_x) / f32(lay.half_w * 256),
+                   f32(z2 * lay.zoom + lay.pan_y) / f32(lay.half_h * 256),
+                   f32(8192 + y2) / 16384.0, 1.0);
+}
+
+// A cell's step across the transition: toward its children for frame t, in from its parents for frame t + 1.
+fn step_of(cell: u32, frame: u32) -> vec3<i32> {
+  let at = cell * 8u;
+  let eased = ease(lay.progress);
+  let toward = vec3<i32>(motion[at], motion[at + 1u], (motion[at + 2u] * lay.z_scale) / 2);
+  let inward = vec3<i32>(motion[at + 3u], motion[at + 4u], (motion[at + 5u] * lay.z_scale) / 2);
+  let now = frame == lay.frame_now;
+  let next = frame == lay.frame_now + 1u;
+  return select(vec3<i32>(0), (toward * eased) / 4096, now) - select(vec3<i32>(0), (inward * (4096 - eased)) / 4096, next);
+}
+
+fn centroid(cell: u32) -> vec3<i32> {
+  let at = lay.cells_at + 4u * cell;
+  let size = max(obj[at], 1u);
+  let doubled_z = i32((2u * obj[at + 1u] + size) / size);
+  return vec3<i32>(i32((2u * obj[at + 3u] + size) / size) - i32(lay.width),
+                   i32((2u * obj[at + 2u] + size) / size) - i32(lay.height),
+                   (lay.z_scale * (doubled_z - i32(lay.depth))) / 2);
+}
+
+fn frame_of_cell(cell: u32) -> u32 {
+  var frame = 0u;
+  for (var step = 0u; step < 8u; step++) {
+    let probe = frame + (128u >> step);
+    let first = obj[lay.frames_at + 10u * min(probe, lay.frame_total - 1u) + 5u];
+    frame = select(frame, probe, (probe < lay.frame_total) && (first <= cell));
+  }
+  return frame;
+}
+
+// Shaded, faded by age, grayed where cells are chosen and this one is not, lifted where it is hovered or glows.
+fn lit(cell: u32, frame: u32, shade: u32) -> vec4<f32> {
+  let base = (paint(cell) * shade) / 256u;
+  let age = select(0u, lay.frame_now - frame, frame < lay.frame_now);
+  let bright = 256u - min(age * lay.ghost_fade, 224u);
+  let faded = (base * bright) / 256u;
+  let picked = chosen_bit(cell);
+  let dim = (lay.chosen_weight * (1u - picked)) / 1u;
+  let grey = vec3<u32>((faded.x + faded.y + faded.z) / 10u);
+  let shown = (faded * (256u - dim) + grey * dim) / 256u;
+  let lift = 48u * u32(lay.hover_cell == cell + 1u) + 64u * lay.glow * picked;
+  let raised = min(shown + vec3<u32>(lift), vec3<u32>(255u));
+  return vec4<f32>(vec3<f32>(raised) / 255.0, 1.0);
+}
+`;
+
+EV.RENDER = EV.PRELUDE + EV.RENDER_BINDINGS + `
+@group(0) @binding(4) var<storage, read> run_leaf: array<u32>;
+@group(0) @binding(5) var<storage, read> compact: array<u32>;
+` + EV.RENDER_COMMON + `
+@vertex
+fn box(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> Out {
+  let run = compact[instance + 1u];
+  let word = obj[lay.runs_at + run];
+  let leaf = run_leaf[run];
+  let cell = obj[lay.leaves_at + 4u * leaf];
+  let frame = obj[lay.leaves_at + 4u * leaf + 1u];
+  let voxel = word >> 8u;
+  let span = i32(word & 255u) + 1;
+  let x0 = 2 * i32(voxel % lay.width) - i32(lay.width);
+  let y0 = 2 * i32((voxel / lay.width) % lay.height) - i32(lay.height);
+  let z0 = (lay.z_scale * (2 * i32(voxel / lay.plane) - i32(lay.depth))) / 2;
+  let face = vertex / 6u;
+  let corner = vertex % 6u;
+  let u = i32((0x16u >> corner) & 1u);
+  let v = i32((0x34u >> corner) & 1u);
+  let top = face == 0u;
+  let side_x = face == 1u;
+  let x_face = select(x0, x0 + 2 * span, lay.yaw_sin < 0);
+  let y_face = select(y0, y0 + 2, lay.yaw_cos < 0);
+  let z_face = select(z0, z0 + lay.z_scale, lay.pitch_sin > 0);
+  let step = step_of(cell, frame);
+  let x = select(x0 + u * 2 * span, x_face, side_x) + step.x;
+  let y = select(select(y_face, y0 + u * 2, side_x), y0 + v * 2, top) + step.y;
+  let z = select(z0 + v * lay.z_scale, z_face, top) + step.z;
+  let facing = select(select(select(-lay.light_y, lay.light_y, lay.yaw_cos < 0),
+                             select(-lay.light_x, lay.light_x, lay.yaw_sin < 0), side_x),
+                      select(-lay.light_z, lay.light_z, lay.pitch_sin > 0), top);
+  let shade = select(256u - face * 40u, u32(72 + (max(facing, 0) * 184) / 256), lay.shade_on == 1u);
+  let grain = (run * 2654435761u) >> 20u;
+  let eased = u32(ease(lay.progress));
+  let shown = select(select(true, grain < eased, frame == lay.frame_now + 1u), grain >= eased, frame == lay.frame_now);
+  var out: Out;
+  out.place = select(HIDDEN, project(x, y, z, frame), shown);
+  out.colour = lit(cell, frame, shade);
+  out.pick = cell + 1u;
+  return out;
+}
+
+// A cell as one blob at its centroid, the size of a cube of its volume, riding its step across the transition.
+@vertex
+fn blob(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> Out {
+  let cell = instance;
+  let frame = frame_of_cell(cell);
+  let size = obj[lay.cells_at + 4u * cell];
+  var side = 0u;
+  for (var step = 0u; step < 8u; step++) {
+    let probe = side + (128u >> step);
+    side = select(side, probe, probe * probe * probe <= size);
+  }
+  let middle = centroid(cell) + step_of(cell, frame);
+  let half = i32(side);
+  let face = vertex / 6u;
+  let corner = vertex % 6u;
+  let u = i32((0x16u >> corner) & 1u);
+  let v = i32((0x34u >> corner) & 1u);
+  let top = face == 0u;
+  let side_x = face == 1u;
+  let low = middle - vec3<i32>(half, half, half * lay.z_scale / 2);
+  let high = middle + vec3<i32>(half, half, half * lay.z_scale / 2);
+  let x_face = select(low.x, high.x, lay.yaw_sin < 0);
+  let y_face = select(low.y, high.y, lay.yaw_cos < 0);
+  let z_face = select(low.z, high.z, lay.pitch_sin > 0);
+  let x = select(low.x + u * (high.x - low.x), x_face, side_x);
+  let y = select(select(y_face, low.y + u * (high.y - low.y), side_x), low.y + v * (high.y - low.y), top);
+  let z = select(low.z + v * (high.z - low.z), z_face, top);
+  let kept = select(true, chosen_bit(cell) == 1u, lay.only_chosen == 1u) && (size >= lay.min_voxels);
+  let in_range = (frame + lay.ghost_frames >= lay.frame_now) && (frame <= lay.frame_now);
+  var out: Out;
+  out.place = select(HIDDEN, project(x, y, z, frame), kept && in_range);
+  out.colour = lit(cell, frame, 256u - face * 40u);
+  out.pick = cell + 1u;
+  return out;
+}
+
+@fragment
+fn paint_fragment(input: Out) -> Drawn {
+  return Drawn(input.colour, input.pick);
+}`;
+
+EV.LINES = EV.PRELUDE + EV.RENDER_BINDINGS + EV.RENDER_COMMON + `
+@vertex
+fn link(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> Out {
+  let at = lay.links_at + 2u * instance;
+  let source = obj[at];
+  let cell = obj[at + (vertex & 1u)];
+  let frame = frame_of_cell(source) + (vertex & 1u);
+  let middle = centroid(cell);
+  let either = chosen_bit(obj[at]) | chosen_bit(obj[at + 1u]);
+  let kept = select(true, either == 1u, lay.only_chosen == 1u);
+  let tone = (paint(cell) * (96u + 160u * either)) / 256u;
+  var out: Out;
+  out.place = select(HIDDEN, project(middle.x, middle.y, middle.z, frame), kept);
+  out.colour = vec4<f32>(vec3<f32>(tone) / 255.0, 1.0);
+  out.pick = 0u;
+  return out;
+}
+
+@vertex
+fn edge(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> Out {
+  let at = lay.edges_at + 3u * instance;
+  let source = obj[at];
+  let status = min(obj[at + 2u], 4u);
+  let whole = (source != 0xFFFFFFFFu) && (obj[at + 1u] != 0xFFFFFFFFu);
+  let cell = select(0u, obj[at + (vertex & 1u)], whole);
+  let middle = centroid(cell);
+  let from_frame = frame_of_cell(select(0u, source, whole));
+  let near = (from_frame + lay.ghost_frames >= lay.frame_now) && (from_frame <= lay.frame_now + 1u);
+  let wanted = ((lay.status_mask >> status) & 1u) == 1u;
+  var out: Out;
+  out.place = select(HIDDEN, project(middle.x, middle.y, middle.z, from_frame + (vertex & 1u)), whole && near && wanted);
+  out.colour = vec4<f32>(vec3<f32>(unpack(STATUS[status])) / 255.0, 1.0);
+  out.pick = 0u;
+  return out;
+}
+
+@fragment
+fn paint_fragment(input: Out) -> Drawn {
+  return Drawn(input.colour, input.pick);
+}`;
+
+// ---- shaders_slice.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The map. The image holds still: the frame seen from above, as the brightest voxel of each column, or one layer's
+// voxels. The cells on it are flat and move with the camera: each cell's ellipsoid is turned by the camera's yaw and
+// tilt and projected orthographically into a square texture of cell numbers (map_cell, in the smooth shaders), and as
+// the camera turns the flat cells shift as the volume does. The composite reads that texture and the image at each pixel of
+// the map square, fills each cell with its color over the windowed intensity, and outlines it where a neighboring
+// texel belongs to another cell. Integers until the texture reads.
+
+EV.MAP_SIZE = 512;
+
+// Steps a map pixel's ray takes across the reach. The reach is the volume's half diagonal in doubled units, so
+// this many steps lands within a voxel or two of every layer without reading the whole diagonal.
+EV.MAP_STEPS = 256;
+
+EV.SLICE_COMPOSITE = EV.PRELUDE + EV.RENDER_BINDINGS + `
+@group(0) @binding(4) var ids: texture_2d<u32>;
+@group(0) @binding(5) var raw: texture_3d<u32>;
+@group(0) @binding(7) var painted: texture_2d<f32>;
+` + EV.RENDER_COMMON + `
+@vertex
+fn slice_cover(@builtin(vertex_index) vertex: u32) -> @builtin(position) vec4<f32> {
+  let corner = vec2<i32>(i32(vertex & 1u) * 4 - 1, i32((vertex >> 1u) & 1u) * 4 - 1);
+  return vec4<f32>(vec2<f32>(corner), 0.5, 1.0);
+}
+
+fn id_at(texel: vec2<i32>) -> u32 {
+  let size = vec2<i32>(textureDimensions(ids));
+  return textureLoad(ids, clamp(texel, vec2<i32>(0), size - vec2<i32>(1)), 0).r;
+}
+
+@fragment
+fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
+  let right = i32(at.x) - lay.slice_x0;
+  let down = i32(at.y) - lay.slice_y0;
+  let inside = (right >= 0) && (down >= 0) && (right < lay.slice_w) && (down < lay.slice_h);
+  // The image: the volume itself laid flat on the plane. The square's pixel is a place on that plane, in the same
+  // doubled and centred units the cells are turned in, and the ray behind it is walked back through the volume by
+  // the camera's own turn read the other way round: what the cells' turn scatters out, this gathers in. The
+  // brightest voxel along the ray stands. So the whole volume is on the plane, and none of it is a box held still.
+  // The plane is overhead and holds still, so the pixel is the column straight under it, the image centred in
+  // the square with row zero at the top. Nothing here turns; only what falls on the plane does.
+  let column = vec2<i32>(i32(lay.width) / 2 + ((right - lay.slice_w / 2) * 256) / max(lay.slice_scale, 1),
+                         i32(lay.height) / 2 + ((down - lay.slice_h / 2) * 256) / max(lay.slice_scale, 1));
+  let on_image = (column.x >= 0) && (column.y >= 0) && (column.x < i32(lay.width)) && (column.y < i32(lay.height));
+  // The whole volume is given up onto that one place: the brightest voxel of the column standing for all of it,
+  // or one layer where the map is asked for a layer.
+  let layers = select(1u, lay.depth, lay.map_projection == 1u);
+  let first_layer = select(lay.slice_z, 0u, lay.map_projection == 1u);
+  let at_column = clamp(column, vec2<i32>(0), vec2<i32>(i32(lay.width) - 1, i32(lay.height) - 1)) * i32(lay.raw_on);
+  var raw_value = 0u;
+  for (var layer = 0u; layer < max(layers, 1u); layer++) {
+    let at_layer = i32(min(first_layer + layer, lay.depth - 1u)) * i32(lay.raw_on);
+    raw_value = max(raw_value, textureLoad(raw, vec3<i32>(at_column, at_layer), 0).r);
+  }
+  raw_value = raw_value * u32(on_image) * lay.raw_on;
+  let span = max(lay.window_high, lay.window_low + 1u) - lay.window_low;
+  let grey = (min(max(raw_value, lay.window_low) - lay.window_low, span) * 255u) / span * lay.raw_on * u32(on_image);
+  // The cells: the square's pixel read as a texel of the turned, projected cell numbers.
+  let size = i32(textureDimensions(ids).x);
+  let texel = vec2<i32>((right * size) / max(lay.slice_w, 1), (down * size) / max(lay.slice_h, 1));
+  let id = id_at(texel);
+  let outline = (id != id_at(texel + vec2<i32>(1, 0))) || (id != id_at(texel - vec2<i32>(1, 0)))
+             || (id != id_at(texel + vec2<i32>(0, 1))) || (id != id_at(texel - vec2<i32>(0, 1)));
+  let filled = id != 0u;
+  let cell = select(0u, id - 1u, filled);
+  let picked = chosen_bit(cell) * u32(filled);
+  // The plane's colour is every cell that reaches this place, divided by how much of them reached it, so a cell
+  // behind another still shows through: what is drawn is the whole volume flattened and not its nearest face.
+  let gathered = textureLoad(painted, clamp(texel, vec2<i32>(0), vec2<i32>(size - 1)), 0);
+  let reached = gathered.a;
+  let flattened = vec3<u32>(clamp(gathered.rgb / max(reached, 0.0001), vec3<f32>(0.0), vec3<f32>(1.0)) * 255.0);
+  // How much of the plane this place holds, one cell's worth of cover being the whole of it.
+  let covered = u32(clamp(reached, 0.0, 1.0) * 255.0);
+  let alpha = select((covered * 88u) / 255u, 255u, outline && filled);
+  let tone = select(flattened, vec3<u32>(255u), outline && filled && (picked == 1u));
+  let mixed = (vec3<u32>(grey) * (256u - alpha) + tone * alpha) / 256u;
+  let hovered = u32(filled && (lay.hover_cell == id)) * 40u;
+  let shown = min(mixed + vec3<u32>(hovered), vec3<u32>(255u));
+  return Drawn(select(vec4<f32>(0.03, 0.035, 0.045, 1.0), vec4<f32>(vec3<f32>(shown) / 255.0, 1.0), inside),
+               select(0u, id, inside));
+}`;
+
+// ---- shaders_soft.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// Smooth cells. The blur: each run is an ellipsoid drawn as the ellipse it projects to, bright at its center and
+// falling smoothly to nothing, so the runs of one cell merge into one translucent blob from every angle. The wall: each
+// cell's solid ellipsoid of equal second moments, less the membrane, drawn into a texture of cell numbers; the
+// composite traces a line wherever that number changes, in a lighter tone of the cell's color, over the blur. The
+// wall is one smooth surface per cell, so no layer of the volume shows in it.
+//
+// Positions are integers up to the clip boundary, as everywhere; past it the ellipses and the blend are display
+// arithmetic in f32 and feed no count. The blend is weighted, blended order-independent transparency (McGuire and
+// Bavoil, 2013): every splat adds its weighted color to one target and multiplies its transparency into another, and
+// the composite divides the first by its weight and lays the result over the page by the second. No sort is needed.
+// Splats and walls take the same palette, the same step and a dissolve grain like the run's box, so the smooth cells
+// move and shimmer as the voxel cells do.
+
+EV.SOFT = EV.PRELUDE + EV.RENDER_BINDINGS + `
+@group(0) @binding(4) var<storage, read> run_leaf: array<u32>;
+@group(0) @binding(5) var<storage, read> compact: array<u32>;
+` + EV.RENDER_COMMON + `
+struct SoftOut {
+  @builtin(position) place: vec4<f32>,
+  @location(0) local: vec2<f32>,
+  @location(1) @interpolate(flat) inverse: vec3<f32>,
+  @location(2) @interpolate(flat) colour: vec4<f32>,
+  @location(3) @interpolate(flat) cell: u32,
+  @location(4) @interpolate(flat) far: f32,
+}
+struct SoftDrawn {
+  @location(0) accumulated: vec4<f32>,
+  @location(1) revealed: vec4<f32>,
+}
+
+struct WallDrawn {
+  @location(0) pick: u32,
+  @location(1) tone: vec4<f32>,
+  @builtin(frag_depth) depth: f32,
+}
+
+// How far into the volume a point lies along the view: 0 at the nearest point the volume can reach and 1 at the
+// farthest. The view depth is clip z * 16384 - 8192 doubled units, and no point of the volume lies farther from its
+// center than the length of its half diagonal, width, height and depth * z_scale / 2 doubled units.
+fn farness(clip_z: f32) -> f32 {
+  let reach = length(vec3<f32>(f32(lay.width), f32(lay.height), f32(i32(lay.depth) * lay.z_scale) * 0.5));
+  return clamp((clip_z * 16384.0 - 8192.0 + reach) / (2.0 * reach), 0.0, 1.0);
+}
+
+// One run as an ellipsoid in the volume, drawn as the exact ellipse it projects to. Its three semi-axes lie along x, y
+// and z: along x half the run's length plus a reach of soft_radius halves of a voxel, along y that reach, and along z
+// that reach in layers plus half a layer, so neighboring rows and layers overlap from every angle and the density does
+// not band by layer. The reach grows with distance, by 35% at the far side, so far cells soften a little while near
+// ones keep their shape.
+//
+// An ellipsoid with semi-axis vectors a, b, c projects orthographically to the ellipse of points p with
+// p' M^-1 p <= 1, M = a a' + b b' + c c' taken on the screen: the same ellipse from any turn and tilt.
+@vertex
+fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> SoftOut {
+  let run = compact[instance + 1u];
+  let word = obj[lay.runs_at + run];
+  let leaf = run_leaf[run];
+  let cell = obj[lay.leaves_at + 4u * leaf];
+  let frame = obj[lay.leaves_at + 4u * leaf + 1u];
+  let voxel = word >> 8u;
+  let span = i32(word & 255u) + 1;
+  let step = step_of(cell, frame);
+  let x = 2 * i32(voxel % lay.width) - i32(lay.width) + span + step.x;
+  let y = 2 * i32((voxel / lay.width) % lay.height) - i32(lay.height) + 1 + step.y;
+  let z = (lay.z_scale * (2 * i32(voxel / lay.plane) - i32(lay.depth) + 1)) / 2 + step.z;
+  let half = vec2<f32>(f32(lay.half_w), f32(lay.half_h));
+  let middle = project(x, y, z, frame);
+  let centre = middle.xy * half;
+  // A voxel and a layer on the screen, each measured over 32 of them so the integer turn's rounding is a 32nd.
+  let across_x = (project(x + 64, y, z, frame).xy * half - centre) / 32.0;
+  let across_y = (project(x, y + 64, z, frame).xy * half - centre) / 32.0;
+  let across_z = (project(x, y, z + 32 * lay.z_scale, frame).xy * half - centre) / 32.0;
+  // The distance is the cell's, taken at its centroid: every run of a cell carries one weight, so where two cells
+  // overlap on the screen the nearer one wins throughout, never row by row.
+  let own_centre = centroid(cell) + step;
+  let far = farness(project(own_centre.x, own_centre.y, own_centre.z, frame).z);
+  let reach = f32(lay.soft_radius) * 0.5 * (1.0 + 0.35 * far);
+  let a = across_x * (f32(span) * 0.5 + reach);
+  let b = across_y * reach;
+  let c = across_z * (reach + 0.5);
+  // Half a pixel added on the diagonal keeps an ellipse seen edge on from collapsing to a line.
+  let m00 = a.x * a.x + b.x * b.x + c.x * c.x + 0.25;
+  let m01 = a.x * a.y + b.x * b.y + c.x * c.y;
+  let m11 = a.y * a.y + b.y * b.y + c.y * c.y + 0.25;
+  let determinant = m00 * m11 - m01 * m01;
+  let corner = vertex % 6u;
+  let extent = vec2<f32>(sqrt(m00), sqrt(m11)) + vec2<f32>(1.0);
+  let offset = vec2<f32>(select(-extent.x, extent.x, ((0x16u >> corner) & 1u) == 1u),
+                         select(-extent.y, extent.y, ((0x34u >> corner) & 1u) == 1u));
+  let grain = (run * 2654435761u) >> 20u;
+  let eased = u32(ease(lay.progress));
+  let shown = select(select(true, grain < eased, frame == lay.frame_now + 1u), grain >= eased, frame == lay.frame_now);
+  var out: SoftOut;
+  out.place = select(HIDDEN, vec4<f32>((centre + offset) / half, middle.z, 1.0), shown);
+  out.local = offset;
+  out.inverse = vec3<f32>(m11, -m01, m00) / determinant;
+  out.cell = cell + 1u;
+  out.far = far;
+  // The cell's own lift or dim, as its body and wall take it, so the blur of neighbors of one lineage differs too.
+  let own = 0.84 + 0.32 * f32((cell * 2246822519u) >> 24u) / 255.0;
+  let tone = min(lit(cell, frame, 256u).rgb * own, vec3<f32>(1.0));
+  out.colour = vec4<f32>(tone, f32(lay.soft_alpha) / 255.0);
+  return out;
+}
+
+fn falloff_of(input: SoftOut) -> f32 {
+  let d = input.local;
+  let q = input.inverse.x * d.x * d.x + 2.0 * input.inverse.y * d.x * d.y + input.inverse.z * d.y * d.y;
+  return clamp(1.0 - q, 0.0, 1.0);
+}
+
+// A Gaussian: the ellipse's edge lies at two and a half standard deviations, so with the reach of one and a half rows
+// and two layers the deviation is 0.6 of a row and 0.8 of a layer, and Gaussians laid at that spacing sum to a density
+// that ripples by under 1%: no row or layer shows as a band from any angle. The blend's weight falls as the fourth
+// power of the distance into the volume, a thousand to one from the near side to the far, so a near cell holds its own
+// pixels against everything behind it; a far splat is also drawn at 70% of its opacity.
+@fragment
+fn soft_fragment(input: SoftOut) -> SoftDrawn {
+  let d = input.local;
+  let q = input.inverse.x * d.x * d.x + 2.0 * input.inverse.y * d.x * d.y + input.inverse.z * d.y * d.y;
+  let alpha = input.colour.a * exp(-3.125 * q) * f32(q < 1.0) * (1.0 - 0.3 * input.far);
+  let far = input.far;
+  let weight = alpha * clamp(1.0 / (0.001 + far * far * far * far), 0.01, 1000.0);
+  return SoftDrawn(vec4<f32>(input.colour.rgb * alpha * weight, alpha * weight), vec4<f32>(alpha));
+}
+
+@group(0) @binding(6) var<storage, read> shape: array<i32>;
+
+// A cell's ellipsoid: the solid ellipsoid with the cell's own second moments, drawn as the ellipse it projects to. A
+// solid ellipsoid's second moment along a semi-axis of length r is r^2 / 5, so with the moments C in voxels squared the
+// projected ellipse is M = 5 P C P', P taking a voxel along x and y and a layer along z to the screen. The wall is
+// shrunk by the membrane; the body is not. Both ride the cell's step and dissolve by the cell's grain across a
+// transition.
+fn cell_ellipse(vertex: u32, cell: u32, wall: bool) -> SoftOut {
+  let frame = frame_of_cell(cell);
+  let size = obj[lay.cells_at + 4u * cell];
+  let middle = centroid(cell) + step_of(cell, frame);
+  let half = vec2<f32>(f32(lay.half_w), f32(lay.half_h));
+  let projected = project(middle.x, middle.y, middle.z, frame);
+  let centre = projected.xy * half;
+  let per_x = (project(middle.x + 64, middle.y, middle.z, frame).xy * half - centre) / 32.0;
+  let per_y = (project(middle.x, middle.y + 64, middle.z, frame).xy * half - centre) / 32.0;
+  let per_z = (project(middle.x, middle.y, middle.z + 32 * lay.z_scale, frame).xy * half - centre) / 32.0;
+  let at = 6u * cell;
+  let zz = f32(shape[at]) / 256.0;
+  let yy = f32(shape[at + 1u]) / 256.0;
+  let xx = f32(shape[at + 2u]) / 256.0;
+  let zy = f32(shape[at + 3u]) / 256.0;
+  let zx = f32(shape[at + 4u]) / 256.0;
+  let yx = f32(shape[at + 5u]) / 256.0;
+  // M = 5 (sum over axis pairs of C_ij p_i p_j'), taken for the two screen components.
+  let m00 = 5.0 * (xx * per_x.x * per_x.x + yy * per_y.x * per_y.x + zz * per_z.x * per_z.x
+                   + 2.0 * (yx * per_x.x * per_y.x + zx * per_x.x * per_z.x + zy * per_y.x * per_z.x));
+  let m11 = 5.0 * (xx * per_x.y * per_x.y + yy * per_y.y * per_y.y + zz * per_z.y * per_z.y
+                   + 2.0 * (yx * per_x.y * per_y.y + zx * per_x.y * per_z.y + zy * per_y.y * per_z.y));
+  let m01 = 5.0 * (xx * per_x.x * per_x.y + yy * per_y.x * per_y.y + zz * per_z.x * per_z.y
+                   + yx * (per_x.x * per_y.y + per_y.x * per_x.y) + zx * (per_x.x * per_z.y + per_z.x * per_x.y)
+                   + zy * (per_y.x * per_z.y + per_z.x * per_y.y));
+  // The membrane shrinks every radius by the same number of voxels; a voxel is |per_x| pixels.
+  let radius = sqrt(max(0.5 * (m00 + m11), 0.0001));
+  let membrane = select(0.0, (f32(lay.wall_inset) / 65536.0) * length(per_x), wall);
+  let shrink = max(radius - membrane, 0.5) / radius;
+  let n00 = m00 * shrink * shrink + 0.25;
+  let n11 = m11 * shrink * shrink + 0.25;
+  let n01 = m01 * shrink * shrink;
+  let determinant = n00 * n11 - n01 * n01;
+  let corner = vertex % 6u;
+  let extent = vec2<f32>(sqrt(n00), sqrt(n11)) + vec2<f32>(1.0);
+  let offset = vec2<f32>(select(-extent.x, extent.x, ((0x16u >> corner) & 1u) == 1u),
+                         select(-extent.y, extent.y, ((0x34u >> corner) & 1u) == 1u));
+  let grain = (cell * 2654435761u) >> 20u;
+  let eased = u32(ease(lay.progress));
+  let now = frame == lay.frame_now;
+  let next = frame == lay.frame_now + 1u;
+  let shown = select(select(false, grain < eased, next), grain >= eased, now);
+  let kept = select(true, chosen_bit(cell) == 1u, lay.only_chosen == 1u) && (size >= lay.min_voxels);
+  var out: SoftOut;
+  out.place = select(HIDDEN, vec4<f32>((centre + offset) / half, projected.z, 1.0), shown && kept);
+  out.local = offset;
+  out.inverse = vec3<f32>(n11, -n01, n00) / determinant;
+  out.cell = cell + 1u;
+  let far = farness(projected.z);
+  out.far = far;
+  // How much of its ellipsoid the cell fills: its voxels over the ellipsoid's volume, 4/3 pi times the product of the
+  // semi-axes, sqrt(125 det C). A compact cell is near 1; a sprawling object of many cells joined is near 0, and its
+  // body and wall fade out as the share falls from 0.4 to 0.1. They also fade out as the cell grows from 8 to 32 times
+  // the median cell of its frame, typical_voxels: a solid fused object is compact but far larger than any one cell.
+  // Either way one fused object cannot cover the cells around it, and it still shows through its runs' blur.
+  let spread = xx * (yy * zz - zy * zy) - yx * (yx * zz - zy * zx) + zx * (yx * zy - yy * zx);
+  let compact = clamp(f32(size) / (4.18879 * sqrt(max(125.0 * spread, 0.0001))), 0.0, 1.0);
+  // Cells of one lineage share a color; each is lifted or dimmed by up to a sixth by its own number so neighbors of one
+  // lineage still read as separate cells.
+  let own = 0.84 + 0.32 * f32((cell * 2246822519u) >> 24u) / 255.0;
+  let tone = min(lit(cell, frame, 256u).rgb * own, vec3<f32>(1.0));
+  // A wall's tone is lifted toward white and its alpha carries its nearness and solidity, so the composite fades walls
+  // with distance and sprawl; a body's tone is the cell's own at the body's opacity times its solidity.
+  let typical = f32(max(lay.typical_voxels, 1u));
+  let solid = smoothstep(0.1, 0.4, compact) * (1.0 - smoothstep(8.0 * typical, 32.0 * typical, f32(size)));
+  out.colour = select(vec4<f32>(tone, solid * f32(lay.body_alpha) / 255.0),
+                      vec4<f32>(tone + (vec3<f32>(1.0) - tone) * (f32(lay.wall_tone) / 255.0), (1.0 - 0.35 * far) * solid), wall);
+  return out;
+}
+
+// The map's flat cells: each cell's ellipsoid turned by the camera, yaw about z and then tilt about the turned x,
+// projected orthographically by dropping the view depth, and fitted so the volume's half diagonal, map_reach doubled
+// units, fills the square texture of cell numbers. Nothing of zoom, pan or spread applies. The composite fills each
+// cell's ellipse with its color and outlines it; the nearest cell is in front.
+// The plane stays overhead and never turns: a place on it is where the cell stands seen from straight above, laid
+// on the same still image the map draws under it, so the map holds while the view moves. Row zero is at the top,
+// as the image has it, and the clip space counts the other way.
+fn map_place(x: i32, y: i32, z: i32) -> vec3<f32> {
+  let across = f32(x * lay.slice_scale) / f32(256 * max(lay.slice_w, 1));
+  let down = f32(y * lay.slice_scale) / f32(256 * max(lay.slice_h, 1));
+  let reach = f32(lay.map_reach);
+  // Overhead, the nearest cell is the highest one, so its own height is the depth it is written at.
+  return vec3<f32>(across, -down, (f32(z) + reach) / (2.0 * reach));
+}
+
+// What the camera makes of a step in the volume: the cells keep the shape the view gives them as it turns, and
+// that shape is what falls on the plane below. Only the shape turns; where it falls does not.
+fn map_turn(x: i32, y: i32, z: i32) -> vec2<f32> {
+  let x1 = (lay.yaw_cos * x - lay.yaw_sin * y) >> 14u;
+  let y1 = (lay.yaw_sin * x + lay.yaw_cos * y) >> 14u;
+  let z2 = (lay.pitch_sin * y1 + lay.pitch_cos * z) >> 14u;
+  let reach = f32(lay.map_reach);
+  return vec2<f32>(f32(x1) / reach, f32(z2) / reach);
+}
+
+@vertex
+fn map_cell(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> SoftOut {
+  let cell = instance;
+  let frame = frame_of_cell(cell);
+  let size = obj[lay.cells_at + 4u * cell];
+  let middle = centroid(cell) + step_of(cell, frame);
+  // The map texture is EV.MAP_SIZE texels across; a unit of the fitted projection is half of that.
+  let half = vec2<f32>(f32(${EV.MAP_SIZE}) * 0.5);
+  let projected = map_place(middle.x, middle.y, middle.z);
+  let centre = projected.xy * half;
+  // Where it falls is overhead and still; what falls is the shape the camera is making of it.
+  let turned = map_turn(middle.x, middle.y, middle.z) * half;
+  let per_x = (map_turn(middle.x + 64, middle.y, middle.z) * half - turned) / 32.0;
+  let per_y = (map_turn(middle.x, middle.y + 64, middle.z) * half - turned) / 32.0;
+  let per_z = (map_turn(middle.x, middle.y, middle.z + 32 * lay.z_scale) * half - turned) / 32.0;
+  let at = 6u * cell;
+  let zz = f32(shape[at]) / 256.0;
+  let yy = f32(shape[at + 1u]) / 256.0;
+  let xx = f32(shape[at + 2u]) / 256.0;
+  let zy = f32(shape[at + 3u]) / 256.0;
+  let zx = f32(shape[at + 4u]) / 256.0;
+  let yx = f32(shape[at + 5u]) / 256.0;
+  let m00 = 5.0 * (xx * per_x.x * per_x.x + yy * per_y.x * per_y.x + zz * per_z.x * per_z.x
+                   + 2.0 * (yx * per_x.x * per_y.x + zx * per_x.x * per_z.x + zy * per_y.x * per_z.x)) + 0.25;
+  let m11 = 5.0 * (xx * per_x.y * per_x.y + yy * per_y.y * per_y.y + zz * per_z.y * per_z.y
+                   + 2.0 * (yx * per_x.y * per_y.y + zx * per_x.y * per_z.y + zy * per_y.y * per_z.y)) + 0.25;
+  let m01 = 5.0 * (xx * per_x.x * per_x.y + yy * per_y.x * per_y.y + zz * per_z.x * per_z.y
+                   + yx * (per_x.x * per_y.y + per_y.x * per_x.y) + zx * (per_x.x * per_z.y + per_z.x * per_x.y)
+                   + zy * (per_y.x * per_z.y + per_z.x * per_y.y));
+  let determinant = m00 * m11 - m01 * m01;
+  let corner = vertex % 6u;
+  let extent = vec2<f32>(sqrt(m00), sqrt(m11)) + vec2<f32>(1.0);
+  let offset = vec2<f32>(select(-extent.x, extent.x, ((0x16u >> corner) & 1u) == 1u),
+                         select(-extent.y, extent.y, ((0x34u >> corner) & 1u) == 1u));
+  let grain = (cell * 2654435761u) >> 20u;
+  let eased = u32(ease(lay.progress));
+  let shown = select(select(false, grain < eased, frame == lay.frame_now + 1u), grain >= eased, frame == lay.frame_now);
+  let kept = select(true, chosen_bit(cell) == 1u, lay.only_chosen == 1u) && (size >= lay.min_voxels);
+  // A fused object is left off the map as it is left out of the bodies: by its share of its ellipsoid and its size.
+  let spread = xx * (yy * zz - zy * zy) - yx * (yx * zz - zy * zx) + zx * (yx * zy - yy * zx);
+  let compact = clamp(f32(size) / (4.18879 * sqrt(max(125.0 * spread, 0.0001))), 0.0, 1.0);
+  let typical = f32(max(lay.typical_voxels, 1u));
+  let solid = smoothstep(0.1, 0.4, compact) * (1.0 - smoothstep(8.0 * typical, 32.0 * typical, f32(size)));
+  var out: SoftOut;
+  out.place = select(HIDDEN, vec4<f32>((centre + offset) / half, projected.z, 1.0), shown && kept && (solid >= 0.5));
+  out.local = offset;
+  out.inverse = vec3<f32>(m11, -m01, m00) / determinant;
+  out.cell = cell + 1u;
+  out.far = 0.0;
+  out.colour = vec4<f32>(0.0);
+  return out;
+}
+
+struct MapDrawn {
+  @location(0) pick: u32,
+  @builtin(frag_depth) depth: f32,
+}
+
+// Inside its ellipse a cell writes its number at its depth; outside, depth 1 never passes the cleared depth.
+@fragment
+fn map_cell_fragment(input: SoftOut) -> MapDrawn {
+  let falloff = falloff_of(input);
+  return MapDrawn(input.cell, select(1.0, input.place.z, falloff > 0.0));
+}
+
+// The plane holds the whole volume and not its near face: every cell adds its own colour where its ellipse
+// covers, nothing tested against depth and nothing hidden behind anything else. The weight added beside the
+// colour is what the composite divides by, so a place many cells reach reads as all of their colours together
+// rather than as whichever of them happened to lie nearest the camera.
+@fragment
+fn map_paint_fragment(input: SoftOut) -> @location(0) vec4<f32> {
+  let falloff = falloff_of(input);
+  let tone = vec3<f32>(paint(input.cell - 1u)) / 255.0;
+  return vec4<f32>(tone * falloff, falloff);
+}
+
+@vertex
+fn wall_cell(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> SoftOut {
+  return cell_ellipse(vertex, instance, true);
+}
+
+@vertex
+fn body_cell(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> SoftOut {
+  return cell_ellipse(vertex, instance, false);
+}
+
+// One light's contribution at a surface normal seen from the front: diffuse by the cosine to the light, and a soft
+// highlight where the normal halves the way between the light and the eye. A light is its direction in view space, x
+// right, y up, z toward the eye, times 256, and its strength of 255.
+fn light_at(normal: vec3<f32>, x: i32, y: i32, z: i32, strength: u32, on: bool) -> f32 {
+  let toward = normalize(vec3<f32>(f32(x), f32(y), f32(z)) + vec3<f32>(0.0, 0.0, 0.0001));
+  let diffuse = max(dot(normal, toward), 0.0);
+  let halfway = normalize(toward + vec3<f32>(0.0, 0.0, 1.0));
+  let highlight = pow(max(dot(normal, halfway), 0.0), 24.0) * 0.35;
+  return select(0.0, (diffuse + highlight) * f32(strength) / 255.0, on);
+}
+
+// A cell's body, lit: the ellipse read as the front of its ellipsoid, the normal tilting from facing the eye at the
+// center to lying in the screen at the rim, shaded by every light that is on, and blended like the blur with its
+// alpha easing out toward the rim.
+@fragment
+fn body_fragment(input: SoftOut) -> SoftDrawn {
+  let d = input.local;
+  let gradient = vec2<f32>(input.inverse.x * d.x + input.inverse.y * d.y, input.inverse.y * d.x + input.inverse.z * d.y);
+  let q = d.x * gradient.x + d.y * gradient.y;
+  let rim = sqrt(max(1.0 - q, 0.0));
+  let tilt = gradient * inverseSqrt(max(dot(gradient, gradient) / max(q, 0.000001), 0.000001));
+  let normal = normalize(vec3<f32>(tilt, rim + 0.0001));
+  let count = lay.light_count;
+  let shade = 0.22 + light_at(normal, lay.light0_x, lay.light0_y, lay.light0_z, lay.light0_strength, count > 0u)
+                   + light_at(normal, lay.light1_x, lay.light1_y, lay.light1_z, lay.light1_strength, count > 1u)
+                   + light_at(normal, lay.light2_x, lay.light2_y, lay.light2_z, lay.light2_strength, count > 2u)
+                   + light_at(normal, lay.light3_x, lay.light3_y, lay.light3_z, lay.light3_strength, count > 3u);
+  let falloff = clamp(1.0 - q, 0.0, 1.0);
+  let alpha = input.colour.a * smoothstep(0.0, 0.12, falloff);
+  let far = input.far;
+  let weight = alpha * clamp(1.0 / (0.001 + far * far * far * far), 0.01, 1000.0);
+  let colour = min(input.colour.rgb * shade, vec3<f32>(1.0));
+  return SoftDrawn(vec4<f32>(colour * alpha * weight, alpha * weight), vec4<f32>(alpha));
+}
+
+// The wall's cell at a pixel is the nearest cell there, and between cells at one depth the one whose ellipse is most
+// central: the depth written is the view depth plus the distance from the ellipse's center, scaled to about two voxels
+// of depth, so the depth test keeps cells in front and settles touching cells by their rounded shapes. Outside an
+// ellipse the depth is 1, which never passes the cleared depth, so the region outside every cell keeps cell 0 and the
+// wall between a cell and the outside follows the ellipses' rounded union.
+@fragment
+fn wall_soft_fragment(input: SoftOut) -> WallDrawn {
+  let falloff = falloff_of(input);
+  return WallDrawn(input.cell, input.colour, select(1.0, input.place.z + (1.0 - falloff) * 0.00025, falloff > 0.0));
+}`;
+
+EV.SOFT_COMPOSITE = EV.PRELUDE + `
+@group(0) @binding(0) var accumulated: texture_2d<f32>;
+@group(0) @binding(1) var revealed: texture_2d<f32>;
+@group(0) @binding(2) var wall_ids: texture_2d<u32>;
+@group(0) @binding(3) var wall_tones: texture_2d<f32>;
+@group(0) @binding(4) var<uniform> lay: Layout;
+@group(0) @binding(5) var raw: texture_3d<u32>;
+
+// The slide under the cells: the microscope's own voxels, gathered along the very ray the view is looking down,
+// so the image and what the engine made of it stand in the same place at the same turn. The pixel is carried back
+// through the turn, the brightest voxel along it stands, and the slider says how much of it is seen against the
+// representation. Nothing of the two is drawn twice: one fades in as the other fades out.
+fn slide_grey(pixel: vec2<i32>) -> vec2<f32> {
+  let wide = i32(lay.half_w);
+  let high = i32(lay.half_h);
+  // Back through the view's own placing: the pixel as the turned place it came from, before the zoom and the pan.
+  let across = (((pixel.x - wide) * 256 * 128) / max(lay.zoom, 1) - lay.pan_x * 128 / max(lay.zoom, 1)) / 128;
+  let up = (((high - pixel.y) * 256 * 128) / max(lay.zoom, 1) - lay.pan_y * 128 / max(lay.zoom, 1)) / 128;
+  let reach = i32(lay.map_reach);
+  var brightest = 0u;
+  var held_any = false;
+  for (var step = 0u; step < ${EV.MAP_STEPS}u; step++) {
+    let deep = -reach + i32((2u * u32(reach) * step) / (${EV.MAP_STEPS}u - 1u));
+    let y1 = (lay.pitch_cos * deep + lay.pitch_sin * up) >> 14u;
+    let turned_z = (lay.pitch_cos * up - lay.pitch_sin * deep) >> 14u;
+    let turned_x = (lay.yaw_cos * across + lay.yaw_sin * y1) >> 14u;
+    let turned_y = (lay.yaw_cos * y1 - lay.yaw_sin * across) >> 14u;
+    let voxel = vec3<i32>((turned_x + i32(lay.width)) / 2, (turned_y + i32(lay.height)) / 2,
+                          ((turned_z * 2) / max(i32(lay.z_scale), 1) + i32(lay.depth)) / 2);
+    let held = (voxel.x >= 0) && (voxel.y >= 0) && (voxel.z >= 0) && (voxel.x < i32(lay.width))
+            && (voxel.y < i32(lay.height)) && (voxel.z < i32(lay.depth));
+    held_any = held_any || held;
+    let at_voxel = clamp(voxel, vec3<i32>(0), vec3<i32>(i32(lay.width) - 1, i32(lay.height) - 1, i32(lay.depth) - 1));
+    let read = textureLoad(raw, at_voxel * i32(lay.raw_on), 0).r;
+    brightest = max(brightest, read * u32(held) * lay.raw_on);
+  }
+  let span = max(lay.window_high, lay.window_low + 1u) - lay.window_low;
+  let grey = f32(min(max(brightest, lay.window_low) - lay.window_low, span)) / f32(span);
+  return vec2<f32>(grey * f32(lay.raw_on), select(0.0, 1.0, held_any && (lay.raw_on == 1u)));
+}
+
+@vertex
+fn cover(@builtin(vertex_index) vertex: u32) -> @builtin(position) vec4<f32> {
+  let corner = vec2<i32>(i32(vertex & 1u) * 4 - 1, i32((vertex >> 1u) & 1u) * 4 - 1);
+  return vec4<f32>(vec2<f32>(corner), 0.5, 1.0);
+}
+
+fn wall_at(pixel: vec2<i32>) -> u32 {
+  let size = vec2<i32>(textureDimensions(wall_ids));
+  return textureLoad(wall_ids, clamp(pixel, vec2<i32>(0), size - vec2<i32>(1)), 0).r;
+}
+
+@fragment
+fn compose(@builtin(position) at: vec4<f32>) -> @location(0) vec4<f32> {
+  let pixel = vec2<i32>(at.xy);
+  // Alpha smoothing: both blend targets are read through a 3 by 3 tent, weights 1 2 1 by 1 2 1 over 16, before the
+  // color is resolved, so the edges of blobs and the grain of the dissolve soften by a pixel.
+  let limit = vec2<i32>(textureDimensions(accumulated)) - vec2<i32>(1);
+  var sum = vec4<f32>(0.0);
+  var clear = 0.0;
+  for (var row = -1; row <= 1; row++) {
+    for (var column = -1; column <= 1; column++) {
+      let weight = f32((2 - abs(row)) * (2 - abs(column))) / 16.0;
+      let near = clamp(pixel + vec2<i32>(column, row), vec2<i32>(0), limit);
+      sum += textureLoad(accumulated, near, 0) * weight;
+      clear += textureLoad(revealed, near, 0).r * weight;
+    }
+  }
+  let blob_alpha = 1.0 - clear;
+  let blob = sum.rgb / max(sum.a, 0.00001);
+  // A wall pixel lies inside a shrunken cell and beside a pixel of another cell or of none.
+  let own = wall_at(pixel);
+  // Two pixels wide: a wall pixel has another cell, or none, within one pixel in any of the eight directions.
+  var differs = false;
+  for (var row = -1; row <= 1; row++) {
+    for (var column = -1; column <= 1; column++) {
+      differs = differs || (own != wall_at(pixel + vec2<i32>(column, row)));
+    }
+  }
+  let edge = (own != 0u) && differs;
+  // A wall is drawn at its tone's alpha: full for a near compact cell, 65% at the far side, less with sprawl.
+  let wall_tone = textureLoad(wall_tones, pixel, 0);
+  let wall_alpha = select(0.0, f32(lay.wall_alpha) / 255.0, edge && (lay.wall_on == 1u)) * wall_tone.a;
+  let wall = wall_tone.rgb;
+  let alpha = blob_alpha + wall_alpha * (1.0 - blob_alpha);
+  let mixed = (blob * blob_alpha * (1.0 - wall_alpha) + wall * wall_alpha) / max(alpha, 0.00001);
+  // The slider between what the microscope saw and what the engine made of it: at nothing only the cells stand,
+  // at full only the slide, and between them each is there in its own measure, in the same place at the same turn.
+  let slide = f32(lay.slide) / 255.0;
+  let seen = slide_grey(pixel);
+  let slide_alpha = seen.y * slide;
+  let ours = alpha * (1.0 - slide);
+  let together = ours + slide_alpha * (1.0 - ours);
+  let shown = (mixed * ours * (1.0 - slide_alpha) + vec3<f32>(seen.x) * slide_alpha) / max(together, 0.00001);
+  return vec4<f32>(shown, together);
+}`;
+
+// ---- object.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The object as the host holds it: the header, the small sections copied out of the mapped buffer, and what the
+// panels read from them. The runs stay on the card. Every number here is an integer; a fraction is shown by
+// integer division to the places asked for.
+
+EV.MAGIC = 0x314A424F;
+EV.STATUS_NAMES = ["correct", "branched", "wrong", "no link", "missed"];
+EV.NONE = 0xFFFFFFFF;
+
+EV.grouped = (value) => String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+// numerator / denominator to a number of places, rounded half up, by integers.
+EV.decimal = (numerator, denominator, places) => {
+  const scale = 10 ** places;
+  const negative = (numerator < 0) !== (denominator < 0);
+  const top = Math.abs(numerator) * scale * 2 + Math.abs(denominator);
+  const scaled = Math.floor(top / (2 * Math.abs(denominator)));
+  const whole = Math.floor(scaled / scale);
+  const part = String(scaled % scale).padStart(places, "0");
+  return (negative && scaled ? "-" : "") + (places ? `${whole}.${part}` : `${whole}`);
+};
+
+EV.readHeader = (bytes) => {
+  const words = new Uint32Array(bytes.buffer, bytes.byteOffset, 16);
+  const header = {
+    magic: words[0], version: words[1], frames: words[2], depth: words[3], height: words[4], width: words[5],
+    leaf_total: words[6], run_total: words[7], cell_total: words[8], link_total: words[9], edge_total: words[10],
+    aberrant_leaves: words[11], aberrant_voxels: words[12], wide_sums: words[13], cfg_bytes: words[14],
+  };
+  header.frames_at = 16;
+  header.leaves_at = header.frames_at + 10 * header.frames;
+  header.cells_at = header.leaves_at + 4 * header.leaf_total;
+  header.runs_at = header.cells_at + 4 * header.cell_total;
+  header.links_at = header.runs_at + header.run_total;
+  header.edges_at = header.links_at + 2 * header.link_total;
+  header.cfg_at = header.edges_at + 3 * header.edge_total;
+  header.total_words = header.cfg_at + Math.ceil(header.cfg_bytes / 4);
+  header.plane = header.height * header.width;
+  return header;
+};
+
+// Compressed rows over links, one side's cell to the other side's cells.
+EV.linkRows = (links, cellTotal, side) => {
+  const start = new Uint32Array(cellTotal + 1);
+  const count = links.length / 2;
+  for (let link = 0; link < count; link += 1) {
+    start[links[2 * link + side] + 1] += 1;
+  }
+  for (let cell = 0; cell < cellTotal; cell += 1) {
+    start[cell + 1] += start[cell];
+  }
+  const cursor = start.slice();
+  const other = new Uint32Array(count);
+  for (let link = 0; link < count; link += 1) {
+    const own = links[2 * link + side];
+    other[cursor[own]] = links[2 * link + 1 - side];
+    cursor[own] += 1;
+  }
+  return { start, other };
+};
+
+// Copies the small sections out of the mapped object and builds every host index the panels and the motion read.
+EV.indexObject = (header, mapped) => {
+  const all = new Uint32Array(mapped);
+  const object = {
+    header,
+    frames: all.slice(header.frames_at, header.leaves_at),
+    cells: all.slice(header.cells_at, header.runs_at),
+    links: all.slice(header.links_at, header.edges_at),
+    edges: all.slice(header.edges_at, header.cfg_at),
+    cfgText: new TextDecoder().decode(new Uint8Array(mapped, header.cfg_at * 4, header.cfg_bytes)),
+  };
+  const cellTotal = header.cell_total;
+  object.cellFrame = new Uint32Array(cellTotal);
+  for (let frame = 0; frame < header.frames; frame += 1) {
+    const first = object.frames[10 * frame + 5];
+    object.cellFrame.fill(frame, first, first + object.frames[10 * frame + 6]);
+  }
+  object.forward = EV.linkRows(object.links, cellTotal, 0);
+  object.backward = EV.linkRows(object.links, cellTotal, 1);
+
+  // Doubled centroids, z in doubled voxel units before the z scale: exact floors of (2 sum + n) / n.
+  const cells = object.cells;
+  object.centre = new Int32Array(cellTotal * 3);
+  for (let cell = 0; cell < cellTotal; cell += 1) {
+    const size = Math.max(cells[4 * cell], 1);
+    object.centre[3 * cell] = Math.floor((2 * cells[4 * cell + 3] + size) / size) - header.width;
+    object.centre[3 * cell + 1] = Math.floor((2 * cells[4 * cell + 2] + size) / size) - header.height;
+    object.centre[3 * cell + 2] = Math.floor((2 * cells[4 * cell + 1] + size) / size);
+  }
+
+  // The joint centroid of a set of cells, from their summed sums.
+  const joint = (rows, cell) => {
+    let size = 0;
+    let x = 0;
+    let y = 0;
+    let z = 0;
+    for (let at = rows.start[cell]; at < rows.start[cell + 1]; at += 1) {
+      const other = rows.other[at];
+      size += cells[4 * other];
+      z += cells[4 * other + 1];
+      y += cells[4 * other + 2];
+      x += cells[4 * other + 3];
+    }
+    if (!size) {
+      return null;
+    }
+    return [Math.floor((2 * x + size) / size) - header.width, Math.floor((2 * y + size) / size) - header.height,
+            Math.floor((2 * z + size) / size)];
+  };
+
+  // Eight per cell: step to its children's joint centroid, step in from its parents', lineage root, children.
+  object.motion = new Int32Array(cellTotal * 8);
+  object.root = new Uint32Array(cellTotal);
+  for (let cell = 0; cell < cellTotal; cell += 1) {
+    const own = [object.centre[3 * cell], object.centre[3 * cell + 1], object.centre[3 * cell + 2]];
+    const children = joint(object.forward, cell);
+    const parents = joint(object.backward, cell);
+    const at = 8 * cell;
+    for (let axis = 0; axis < 3; axis += 1) {
+      object.motion[at + axis] = children ? children[axis] - own[axis] : 0;
+      object.motion[at + 3 + axis] = parents ? own[axis] - parents[axis] : 0;
+    }
+    // Cells come in frame order and every link steps one frame on, so a parent's root is already known.
+    const firstParent = object.backward.start[cell] < object.backward.start[cell + 1]
+      ? object.backward.other[object.backward.start[cell]] : cell;
+    object.root[cell] = firstParent === cell ? cell : object.root[firstParent];
+    object.motion[at + 6] = object.root[cell];
+    object.motion[at + 7] = object.forward.start[cell + 1] - object.forward.start[cell];
+  }
+  object.shape = EV.cellShapes(header, all, object.cells);
+  // Each frame's median cell volume, the lower middle of its sorted voxel counts.
+  object.frameMedian = new Uint32Array(header.frames);
+  for (let frame = 0; frame < header.frames; frame += 1) {
+    const first = object.frames[10 * frame + 5];
+    const count = object.frames[10 * frame + 6];
+    const sizes = new Uint32Array(count);
+    for (let slot = 0; slot < count; slot += 1) {
+      sizes[slot] = object.cells[4 * (first + slot)];
+    }
+    sizes.sort();
+    object.frameMedian[frame] = count ? sizes[(count - 1) >> 1] : 0;
+  }
+  object.review = EV.reviewList(object);
+  return object;
+};
+
+// Each cell's second moments about its centroid, from its runs, exact: six per cell, zz yy xx zy zx yx, in voxels
+// squared (z in layers) times 256, floored, with each voxel's own spread of 1/12 added on the diagonal. A run of length
+// n from x0 at row y, layer z adds n, n x0 + n(n-1)/2, and n x0^2 + x0 n(n-1) + (n-1)n(2n-1)/6 to its sums. The sums
+// of a view of 2^22 voxels stay below 2^53, so they are held exactly; the covariance products are taken in BigInt.
+EV.cellShapes = (header, all, cells) => {
+  const total = header.cell_total;
+  const sums = new Float64Array(total * 9);
+  const leaves = header.leaves_at;
+  const width = header.width;
+  const plane = header.plane;
+  for (let leaf = 0; leaf < header.leaf_total; leaf += 1) {
+    const cell = all[leaves + 4 * leaf];
+    const first = all[leaves + 4 * leaf + 2];
+    const past = first + all[leaves + 4 * leaf + 3];
+    const at = 9 * cell;
+    for (let run = first; run < past; run += 1) {
+      const word = all[header.runs_at + run];
+      const voxel = word >>> 8;
+      const n = (word & 255) + 1;
+      const z = Math.floor(voxel / plane);
+      const y = Math.floor(voxel / width) % header.height;
+      const x = voxel % width;
+      const sumX = n * x + (n * (n - 1)) / 2;
+      sums[at] += n * z;
+      sums[at + 1] += n * y;
+      sums[at + 2] += sumX;
+      sums[at + 3] += n * z * z;
+      sums[at + 4] += n * y * y;
+      sums[at + 5] += n * x * x + x * n * (n - 1) + ((n - 1) * n * (2 * n - 1)) / 6;
+      sums[at + 6] += n * z * y;
+      sums[at + 7] += z * sumX;
+      sums[at + 8] += y * sumX;
+    }
+  }
+  const shape = new Int32Array(total * 6);
+  const pairs = [[3, 0, 0], [4, 1, 1], [5, 2, 2], [6, 0, 1], [7, 0, 2], [8, 1, 2]];
+  for (let cell = 0; cell < total; cell += 1) {
+    const n = BigInt(Math.max(cells[4 * cell], 1));
+    const at = 9 * cell;
+    pairs.forEach(([second, left, right], slot) => {
+      const spread = (n * BigInt(sums[at + second]) - BigInt(sums[at + left]) * BigInt(sums[at + right])) * 256n / (n * n);
+      shape[6 * cell + slot] = Number(spread) + (slot < 3 ? 21 : 0);
+    });
+  }
+  return shape;
+};
+
+EV.childrenOf = (object, cell) => Array.from(object.forward.other.subarray(object.forward.start[cell], object.forward.start[cell + 1]));
+EV.parentsOf = (object, cell) => Array.from(object.backward.other.subarray(object.backward.start[cell], object.backward.start[cell + 1]));
+
+// Every cell linked to a cell through any chain of links, in both directions, ascending.
+EV.lineage = (object, seeds) => {
+  const seen = new Set(seeds);
+  const queue = [...seeds];
+  while (queue.length) {
+    const cell = queue.pop();
+    for (const rows of [object.forward, object.backward]) {
+      for (let at = rows.start[cell]; at < rows.start[cell + 1]; at += 1) {
+        const other = rows.other[at];
+        if (!seen.has(other)) {
+          seen.add(other);
+          queue.push(other);
+        }
+      }
+    }
+  }
+  return [...seen].sort((left, right) => left - right);
+};
+
+// What a reader should look at, each item naming its frame and cells. Rankings, never cutoffs: the most linked and
+// the largest cells are listed first, and the reader decides where concern starts.
+EV.reviewList = (object) => {
+  const header = object.header;
+  const items = [];
+  if (header.aberrant_leaves || header.aberrant_voxels || header.wide_sums) {
+    items.push({ kind: "control", frame: 0, cells: [], text: `control: ${header.aberrant_leaves} leaves, ${header.aberrant_voxels} voxels, ${header.wide_sums} wide sums` });
+  }
+  for (let edge = 0; edge < header.edge_total; edge += 1) {
+    const status = object.edges[3 * edge + 2];
+    const source = object.edges[3 * edge];
+    const target = object.edges[3 * edge + 1];
+    if (status === 2 || status === 3) {
+      const cells = [source, target].filter((cell) => cell !== EV.NONE);
+      const frame = source !== EV.NONE ? object.cellFrame[source] : 0;
+      items.push({ kind: EV.STATUS_NAMES[status], frame, cells, edge });
+    }
+  }
+  const byDegree = [];
+  const bySize = [];
+  for (let cell = 0; cell < header.cell_total; cell += 1) {
+    const degree = (object.forward.start[cell + 1] - object.forward.start[cell]) + (object.backward.start[cell + 1] - object.backward.start[cell]);
+    byDegree.push([degree, cell]);
+    bySize.push([object.cells[4 * cell], cell]);
+  }
+  byDegree.sort((left, right) => right[0] - left[0] || left[1] - right[1]);
+  bySize.sort((left, right) => right[0] - left[0] || left[1] - right[1]);
+  for (const [degree, cell] of byDegree.slice(0, 12)) {
+    items.push({ kind: "most linked", frame: object.cellFrame[cell], cells: [cell], degree });
+  }
+  for (const [voxels, cell] of bySize.slice(0, 12)) {
+    items.push({ kind: "largest", frame: object.cellFrame[cell], cells: [cell], voxels });
+  }
+  return items;
+};
+
+// Divisions, ends and starts of one frame: a cell with two or more children, a cell with none where the frame has
+// links onward, and a cell with no parent where the frame before has links into it.
+EV.frameEvents = (object, frame) => {
+  const table = object.frames;
+  const first = table[10 * frame + 5];
+  const past = first + table[10 * frame + 6];
+  const onward = table[10 * frame + 8] > 0;
+  const inward = frame > 0 && table[10 * (frame - 1) + 8] > 0;
+  const events = { divisions: 0, ends: 0, starts: 0, voxels: 0 };
+  for (let cell = first; cell < past; cell += 1) {
+    const children = object.forward.start[cell + 1] - object.forward.start[cell];
+    const parents = object.backward.start[cell + 1] - object.backward.start[cell];
+    events.divisions += children >= 2 ? 1 : 0;
+    events.ends += onward && children === 0 ? 1 : 0;
+    events.starts += inward && parents === 0 ? 1 : 0;
+    events.voxels += object.cells[4 * cell];
+  }
+  return events;
+};
+
+// ---- gpu.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The card's side: the device, every pipeline compiled before anything is timed, the object streamed from the wire
+// or a file straight into one mapped storage buffer, the compaction, the passes and the one-pixel pick.
+
+EV.words = (count) => Math.max(4, (count + 1) * 4);
+
+EV.workgroups = (count) => {
+  const groups = Math.max(1, Math.ceil(count / 256));
+  return [Math.min(groups, 65535), Math.ceil(groups / 65535)];
+};
+
+EV.nextPower = (count) => {
+  let power = 1;
+  while (power < count) {
+    power *= 2;
+  }
+  return power;
+};
+
+EV.startGpu = async (canvas) => {
+  if (!navigator.gpu) {
+    throw new Error("this browser has no WebGPU; Chrome 113 or later has it");
+  }
+  const adapter = await navigator.gpu.requestAdapter({ powerPreference: "high-performance" });
+  if (!adapter) {
+    throw new Error("WebGPU found no adapter");
+  }
+  const device = await adapter.requestDevice({
+    requiredLimits: {
+      maxStorageBufferBindingSize: adapter.limits.maxStorageBufferBindingSize,
+      maxBufferSize: adapter.limits.maxBufferSize,
+      maxStorageBuffersPerShaderStage: Math.min(8, adapter.limits.maxStorageBuffersPerShaderStage),
+    },
+  });
+  device.addEventListener("uncapturederror", (event) => console.error("[engine view]", event.error.message));
+  const context = canvas.getContext("webgpu");
+  const format = navigator.gpu.getPreferredCanvasFormat();
+  context.configure({ device, format, alphaMode: "opaque" });
+
+  const began = performance.now();
+  const compute = (code) => device.createComputePipelineAsync({
+    layout: "auto", compute: { module: device.createShaderModule({ code }), entryPoint: "main" },
+  });
+  const renderModule = device.createShaderModule({ code: EV.RENDER });
+  const linesModule = device.createShaderModule({ code: EV.LINES });
+  const compositeModule = device.createShaderModule({ code: EV.SLICE_COMPOSITE });
+  const targets = [{ format }, { format: "r32uint" }];
+  const solid = { format: "depth24plus", depthWriteEnabled: true, depthCompare: "less" };
+  const above = { format: "depth24plus", depthWriteEnabled: false, depthCompare: "always" };
+  const draw = (module, vertex, fragment, topology, depthStencil, lineTargets) => device.createRenderPipelineAsync({
+    layout: "auto",
+    vertex: { module, entryPoint: vertex },
+    fragment: { module, entryPoint: fragment, targets: lineTargets || targets },
+    primitive: { topology, cullMode: "none" },
+    depthStencil,
+  });
+  const quiet = [{ format }, { format: "r32uint", writeMask: 0 }];
+  const softModule = device.createShaderModule({ code: EV.SOFT });
+  const composeModule = device.createShaderModule({ code: EV.SOFT_COMPOSITE });
+  const adding = { color: { srcFactor: "one", dstFactor: "one", operation: "add" }, alpha: { srcFactor: "one", dstFactor: "one", operation: "add" } };
+  const clearing = { color: { srcFactor: "zero", dstFactor: "one-minus-src", operation: "add" }, alpha: { srcFactor: "zero", dstFactor: "one-minus-src", operation: "add" } };
+  const over = { color: { srcFactor: "src-alpha", dstFactor: "one-minus-src-alpha", operation: "add" }, alpha: { srcFactor: "one", dstFactor: "one-minus-src-alpha", operation: "add" } };
+  const splatTargets = [{ format: "rgba16float", blend: adding }, { format: "r8unorm", blend: clearing }];
+  const [resolve, keep, level, scatter, count, box, blob, link, edge, mapIds, mapPaint, sliceComposite, soft, softCompose, boxPick, wall, body] = await Promise.all([
+    compute(EV.RESOLVE), compute(EV.KEEP), compute(EV.LEVEL), compute(EV.SCATTER), compute(EV.COUNT),
+    draw(renderModule, "box", "paint_fragment", "triangle-list", solid),
+    draw(renderModule, "blob", "paint_fragment", "triangle-list", solid),
+    draw(linesModule, "link", "paint_fragment", "line-list", { format: "depth24plus", depthWriteEnabled: false, depthCompare: "less" }, quiet),
+    draw(linesModule, "edge", "paint_fragment", "line-list", above, quiet),
+    draw(softModule, "map_cell", "map_cell_fragment", "triangle-list", solid, [{ format: "r32uint" }]),
+    // The plane's colour: no depth at all, every cell adding into what is already there.
+    device.createRenderPipelineAsync({
+      layout: "auto",
+      vertex: { module: softModule, entryPoint: "map_cell" },
+      fragment: { module: softModule, entryPoint: "map_paint_fragment",
+                  targets: [{ format: "rgba16float", blend: adding }] },
+      primitive: { topology: "triangle-list", cullMode: "none" },
+    }),
+    draw(compositeModule, "slice_cover", "slice_paint", "triangle-list", above),
+    device.createRenderPipelineAsync({
+      layout: "auto",
+      vertex: { module: softModule, entryPoint: "soft" },
+      fragment: { module: softModule, entryPoint: "soft_fragment", targets: splatTargets },
+      primitive: { topology: "triangle-list", cullMode: "none" },
+    }),
+    device.createRenderPipelineAsync({
+      layout: "auto",
+      vertex: { module: composeModule, entryPoint: "cover" },
+      fragment: { module: composeModule, entryPoint: "compose", targets: [{ format, blend: over }, { format: "r32uint", writeMask: 0 }] },
+      primitive: { topology: "triangle-list", cullMode: "none" },
+      depthStencil: above,
+    }),
+    draw(renderModule, "box", "paint_fragment", "triangle-list", solid, [{ format, writeMask: 0 }, { format: "r32uint" }]),
+    draw(softModule, "wall_cell", "wall_soft_fragment", "triangle-list", solid, [{ format: "r32uint" }, { format: "rgba8unorm" }]),
+    device.createRenderPipelineAsync({
+      layout: "auto",
+      vertex: { module: softModule, entryPoint: "body_cell" },
+      fragment: { module: softModule, entryPoint: "body_fragment", targets: splatTargets },
+      primitive: { topology: "triangle-list", cullMode: "none" },
+    }),
+  ]);
+  const gpu = {
+    adapter, device, context, format, canvas,
+    pipelines: { resolve, keep, level, scatter, count, box, blob, link, edge, mapIds, mapPaint, sliceComposite, soft, softCompose, boxPick, wall, body },
+    compileMs: Math.round(performance.now() - began),
+    layoutBytes: new ArrayBuffer(EV.LAYOUT_WORDS * 4),
+    layoutBuffer: device.createBuffer({ size: EV.LAYOUT_WORDS * 4, usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST }),
+    drawn: device.createBuffer({ size: 32, usage: GPUBufferUsage.STORAGE | GPUBufferUsage.INDIRECT | GPUBufferUsage.COPY_SRC }),
+    drawnRead: device.createBuffer({ size: 16, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST }),
+    pickRead: device.createBuffer({ size: 256, usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST }),
+    levels: [],
+    rawTexture: null,
+    object: null,
+  };
+  gpu.layoutU = new Uint32Array(gpu.layoutBytes);
+  gpu.layoutI = new Int32Array(gpu.layoutBytes);
+  for (let bit = 0; bit < 24; bit += 1) {
+    const buffer = device.createBuffer({ size: 16, usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST });
+    device.queue.writeBuffer(buffer, 0, new Uint32Array([bit, 0, 0, 0]));
+    gpu.levels.push(buffer);
+  }
+  EV.setRaw(gpu, null, 1, 1, 1);
+  EV.fit(gpu);
+  return gpu;
+};
+
+EV.fit = (gpu) => {
+  const ratio = window.devicePixelRatio || 1;
+  const width = Math.max(1, Math.floor(gpu.canvas.clientWidth * ratio));
+  const height = Math.max(1, Math.floor(gpu.canvas.clientHeight * ratio));
+  if (gpu.depth && gpu.canvas.width === width && gpu.canvas.height === height) {
+    return;
+  }
+  gpu.canvas.width = width;
+  gpu.canvas.height = height;
+  gpu.depth?.destroy();
+  gpu.pick?.destroy();
+  gpu.depth = gpu.device.createTexture({ size: [width, height], format: "depth24plus", usage: GPUTextureUsage.RENDER_ATTACHMENT });
+  gpu.pick = gpu.device.createTexture({ size: [width, height], format: "r32uint", usage: GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.COPY_SRC });
+  for (const name of ["accumulated", "revealed", "wallIds", "wallTones", "wallDepth"]) {
+    gpu[name]?.destroy();
+  }
+  const blended = GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.TEXTURE_BINDING;
+  gpu.accumulated = gpu.device.createTexture({ size: [width, height], format: "rgba16float", usage: blended });
+  gpu.revealed = gpu.device.createTexture({ size: [width, height], format: "r8unorm", usage: blended });
+  gpu.wallIds = gpu.device.createTexture({ size: [width, height], format: "r32uint", usage: blended });
+  gpu.wallTones = gpu.device.createTexture({ size: [width, height], format: "rgba8unorm", usage: blended });
+  gpu.wallDepth = gpu.device.createTexture({ size: [width, height], format: "depth24plus", usage: GPUTextureUsage.RENDER_ATTACHMENT });
+  gpu.composeGroup = gpu.device.createBindGroup({
+    layout: gpu.pipelines.softCompose.getBindGroupLayout(0),
+    entries: [
+      { binding: 0, resource: gpu.accumulated.createView() }, { binding: 1, resource: gpu.revealed.createView() },
+      { binding: 2, resource: gpu.wallIds.createView() }, { binding: 3, resource: gpu.wallTones.createView() },
+      { binding: 4, resource: { buffer: gpu.layoutBuffer } },
+      { binding: 5, resource: gpu.rawTexture.createView() },
+    ],
+  });
+};
+
+// The raw voxels of one whole frame, every layer, or none: a 1 by 1 by 1 texture keeps the binding whole when no
+// stack is served.
+EV.setRaw = (gpu, voxels, width, height, depth) => {
+  gpu.rawTexture?.destroy();
+  gpu.rawTexture = gpu.device.createTexture({
+    size: [width, height, depth], dimension: "3d", format: "r16uint", usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_DST,
+  });
+  if (voxels) {
+    gpu.device.queue.writeTexture({ texture: gpu.rawTexture }, voxels, { bytesPerRow: width * 2, rowsPerImage: height }, { width, height, depthOrArrayLayers: depth });
+  }
+  gpu.rawOn = voxels ? 1 : 0;
+  gpu.compositeGroup = null;
+  // The composite of the view reads these voxels too, for the slide under the cells, so its group is made again
+  // against the texture that stands now and never against the one just let go.
+  if (gpu.composeGroup) {
+    gpu.composeGroup = gpu.device.createBindGroup({
+      layout: gpu.pipelines.softCompose.getBindGroupLayout(0),
+      entries: [
+        { binding: 0, resource: gpu.accumulated.createView() }, { binding: 1, resource: gpu.revealed.createView() },
+        { binding: 2, resource: gpu.wallIds.createView() }, { binding: 3, resource: gpu.wallTones.createView() },
+        { binding: 4, resource: { buffer: gpu.layoutBuffer } },
+        { binding: 5, resource: gpu.rawTexture.createView() },
+      ],
+    });
+  }
+};
+
+EV.writeLayout = (gpu, values) => {
+  EV.LAYOUT.forEach((name, slot) => {
+    const value = values[name] | 0;
+    if (EV.SIGNED.has(name)) {
+      gpu.layoutI[slot] = value;
+    } else {
+      gpu.layoutU[slot] = value >>> 0;
+    }
+  });
+  gpu.device.queue.writeBuffer(gpu.layoutBuffer, 0, gpu.layoutBytes);
+};
+
+// Streams an object from a fetch response or a file into one mapped storage buffer, then indexes its small sections.
+EV.loadObject = async (gpu, source) => {
+  const device = gpu.device;
+  const began = performance.now();
+  const reader = (source.body || source.stream()).getReader();
+  let pending = new Uint8Array(0);
+  while (pending.length < 64) {
+    const { value, done } = await reader.read();
+    if (done) {
+      break;
+    }
+    const joined = new Uint8Array(pending.length + value.length);
+    joined.set(pending, 0);
+    joined.set(value, pending.length);
+    pending = joined;
+  }
+  const header = EV.readHeader(pending.subarray(0, 64).slice());
+  if (header.magic !== EV.MAGIC) {
+    throw new Error("not an object file");
+  }
+  const bytes = header.total_words * 4;
+  const buffer = device.createBuffer({ size: bytes, usage: GPUBufferUsage.STORAGE, mappedAtCreation: true });
+  const mapped = buffer.getMappedRange();
+  const landing = new Uint8Array(mapped);
+  landing.set(pending.subarray(0, Math.min(pending.length, bytes)), 0);
+  let written = pending.length;
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) {
+      break;
+    }
+    landing.set(value.subarray(0, Math.max(0, Math.min(value.length, bytes - written))), written);
+    written += value.length;
+  }
+  const object = EV.indexObject(header, mapped);
+  buffer.unmap();
+  object.streamMs = Math.round(performance.now() - began);
+  object.bytes = written;
+
+  EV.releaseObject(gpu);
+  const storage = (size) => device.createBuffer({ size, usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST });
+  const held = {
+    object: buffer,
+    runLeaf: storage(EV.words(header.run_total)),
+    prefix: storage(EV.words(EV.nextPower(Math.max(1, header.leaf_total)))),
+    compact: storage(EV.words(header.run_total)),
+    chosen: storage(EV.words((header.cell_total >>> 5) + 1)),
+    motion: storage(EV.words(header.cell_total * 8)),
+    shape: storage(EV.words(header.cell_total * 6)),
+    ids: device.createTexture({ size: [EV.MAP_SIZE, EV.MAP_SIZE], format: "r32uint", usage: GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.TEXTURE_BINDING }),
+    idsDepth: device.createTexture({ size: [EV.MAP_SIZE, EV.MAP_SIZE], format: "depth24plus", usage: GPUTextureUsage.RENDER_ATTACHMENT }),
+    // The plane's own colour: every cell of the volume added into it, with no depth standing between them.
+    painted: device.createTexture({ size: [EV.MAP_SIZE, EV.MAP_SIZE], format: "rgba16float",
+                                    usage: GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.TEXTURE_BINDING }),
+  };
+  device.queue.writeBuffer(held.motion, 0, object.motion);
+  device.queue.writeBuffer(held.shape, 0, object.shape);
+  const group = (pipeline, entries) => device.createBindGroup({
+    layout: pipeline.getBindGroupLayout(0),
+    entries: entries.map((resource, binding) => ({ binding, resource: resource instanceof GPUBuffer ? { buffer: resource } : resource })),
+  });
+  // A bind group by binding number, for a pipeline whose shader reads only some of the module's bindings.
+  const numbered = (pipeline, pairs) => device.createBindGroup({
+    layout: pipeline.getBindGroupLayout(0),
+    entries: pairs.map(([binding, resource]) => ({ binding, resource: { buffer: resource } })),
+  });
+  const p = gpu.pipelines;
+  const lay = gpu.layoutBuffer;
+  held.groups = {
+    resolve: group(p.resolve, [buffer, lay, held.runLeaf]),
+    keep: group(p.keep, [buffer, lay, held.chosen, held.prefix]),
+    levels: gpu.levels.map((level) => group(p.level, [level, lay, held.prefix])),
+    scatter: group(p.scatter, [buffer, lay, held.chosen, held.prefix, held.runLeaf, held.compact]),
+    count: group(p.count, [lay, held.prefix, gpu.drawn]),
+    box: group(p.box, [buffer, lay, held.chosen, held.motion, held.runLeaf, held.compact]),
+    boxPick: group(p.boxPick, [buffer, lay, held.chosen, held.motion, held.runLeaf, held.compact]),
+    soft: group(p.soft, [buffer, lay, held.chosen, held.motion, held.runLeaf, held.compact]),
+    wall: numbered(p.wall, [[0, buffer], [1, lay], [2, held.chosen], [3, held.motion], [6, held.shape]]),
+    body: numbered(p.body, [[0, buffer], [1, lay], [2, held.chosen], [3, held.motion], [6, held.shape]]),
+    blob: group(p.blob, [buffer, lay, held.chosen, held.motion]),
+    link: group(p.link, [buffer, lay, held.chosen, held.motion]),
+    edge: group(p.edge, [buffer, lay]),
+    mapIds: numbered(p.mapIds, [[0, buffer], [1, lay], [2, held.chosen], [3, held.motion], [6, held.shape]]),
+    mapPaint: numbered(p.mapPaint, [[0, buffer], [1, lay], [2, held.chosen], [3, held.motion], [6, held.shape]]),
+  };
+  gpu.held = held;
+  gpu.object = object;
+  gpu.compositeGroup = null;
+  return object;
+};
+
+EV.releaseObject = (gpu) => {
+  const held = gpu.held;
+  if (!held) {
+    return;
+  }
+  for (const name of ["object", "runLeaf", "prefix", "compact", "chosen", "motion", "shape", "ids", "idsDepth"]) {
+    held[name].destroy();
+  }
+  gpu.held = null;
+  gpu.object = null;
+};
+
+// The run's leaf for every run, once per object; run twice so the first touch and the warm pass are both measured.
+EV.resolveRuns = async (gpu) => {
+  const times = [];
+  for (let round = 0; round < 2; round += 1) {
+    const began = performance.now();
+    const encoder = gpu.device.createCommandEncoder();
+    const pass = encoder.beginComputePass();
+    pass.setPipeline(gpu.pipelines.resolve);
+    pass.setBindGroup(0, gpu.held.groups.resolve);
+    pass.dispatchWorkgroups(...EV.workgroups(gpu.object.header.run_total));
+    pass.end();
+    gpu.device.queue.submit([encoder.finish()]);
+    await gpu.device.queue.onSubmittedWorkDone();
+    times.push(Math.round(performance.now() - began));
+  }
+  return times;
+};
+
+EV.writeChosen = (gpu, chosen) => {
+  const bits = new Uint32Array(Math.max(1, (gpu.object.header.cell_total >>> 5) + 2));
+  for (const cell of chosen) {
+    bits[cell >>> 5] |= (1 << (cell & 31)) >>> 0;
+  }
+  gpu.device.queue.writeBuffer(gpu.held.chosen, 0, bits);
+};
+
+// Counts the kept runs of each leaf in range, prefix sums them in place, scatters the kept runs into one list and
+// writes the draw count where drawIndirect reads it. The layout must already hold the range.
+EV.compact = async (gpu, leafSpan, runSpan) => {
+  const began = performance.now();
+  const groups = gpu.held.groups;
+  const p = gpu.pipelines;
+  const pow2 = EV.nextPower(Math.max(1, leafSpan));
+  const encoder = gpu.device.createCommandEncoder();
+  const pass = encoder.beginComputePass();
+  pass.setPipeline(p.keep);
+  pass.setBindGroup(0, groups.keep);
+  pass.dispatchWorkgroups(...EV.workgroups(pow2));
+  pass.setPipeline(p.level);
+  for (let bit = 0; (1 << bit) < pow2; bit += 1) {
+    pass.setBindGroup(0, groups.levels[bit]);
+    pass.dispatchWorkgroups(...EV.workgroups(pow2 >>> 1));
+  }
+  pass.setPipeline(p.scatter);
+  pass.setBindGroup(0, groups.scatter);
+  pass.dispatchWorkgroups(...EV.workgroups(runSpan));
+  pass.setPipeline(p.count);
+  pass.setBindGroup(0, groups.count);
+  pass.dispatchWorkgroups(1);
+  pass.end();
+  encoder.copyBufferToBuffer(gpu.drawn, 0, gpu.drawnRead, 0, 16);
+  gpu.device.queue.submit([encoder.finish()]);
+  await gpu.drawnRead.mapAsync(GPUMapMode.READ);
+  const drawn = new Uint32Array(gpu.drawnRead.getMappedRange().slice(0))[1];
+  gpu.drawnRead.unmap();
+  return { drawn, ms: Math.round(performance.now() - began) };
+};
+
+// One frame of the view: the slice's cell numbers first, then the 3D region and the slice region in one pass.
+EV.render = (gpu, plan) => {
+  const device = gpu.device;
+  const held = gpu.held;
+  const p = gpu.pipelines;
+  const encoder = device.createCommandEncoder();
+  if (plan.slice) {
+    const ids = encoder.beginRenderPass({
+      colorAttachments: [{ view: held.ids.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 }, loadOp: "clear", storeOp: "store" }],
+      depthStencilAttachment: { view: held.idsDepth.createView(), depthClearValue: 1, depthLoadOp: "clear", depthStoreOp: "store" },
+    });
+    ids.setPipeline(p.mapIds);
+    ids.setBindGroup(0, held.groups.mapIds);
+    ids.draw(6, plan.cellCount, 0, plan.cellFirst);
+    ids.end();
+    // The same cells again with no depth between them, adding their colours into the plane, so the plane holds
+    // the whole volume and not the face of it nearest the camera.
+    const painted = encoder.beginRenderPass({
+      colorAttachments: [{ view: held.painted.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 },
+                           loadOp: "clear", storeOp: "store" }],
+    });
+    painted.setPipeline(p.mapPaint);
+    painted.setBindGroup(0, held.groups.mapPaint);
+    painted.draw(6, plan.cellCount, 0, plan.cellFirst);
+    painted.end();
+  }
+  const [x, y, width, height] = plan.region;
+  if (plan.body === 1) {
+    const splats = encoder.beginRenderPass({
+      colorAttachments: [
+        { view: gpu.accumulated.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 }, loadOp: "clear", storeOp: "store" },
+        { view: gpu.revealed.createView(), clearValue: { r: 1, g: 1, b: 1, a: 1 }, loadOp: "clear", storeOp: "store" },
+      ],
+    });
+    splats.setViewport(x, y, width, height, 0, 1);
+    splats.setPipeline(p.soft);
+    splats.setBindGroup(0, held.groups.soft);
+    splats.drawIndirect(gpu.drawn, 16);
+    splats.setPipeline(p.body);
+    splats.setBindGroup(0, held.groups.body);
+    splats.draw(6, plan.cellCount, 0, plan.cellFirst);
+    splats.end();
+    const walls = encoder.beginRenderPass({
+      colorAttachments: [
+        { view: gpu.wallIds.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 }, loadOp: "clear", storeOp: "store" },
+        { view: gpu.wallTones.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 }, loadOp: "clear", storeOp: "store" },
+      ],
+      depthStencilAttachment: { view: gpu.wallDepth.createView(), depthClearValue: 1, depthLoadOp: "clear", depthStoreOp: "store" },
+    });
+    if (plan.wall) {
+      walls.setViewport(x, y, width, height, 0, 1);
+      walls.setPipeline(p.wall);
+      walls.setBindGroup(0, held.groups.wall);
+      walls.draw(6, plan.cellCount, 0, plan.cellFirst);
+    }
+    walls.end();
+  }
+  const pass = encoder.beginRenderPass({
+    colorAttachments: [
+      { view: gpu.context.getCurrentTexture().createView(), clearValue: plan.background, loadOp: "clear", storeOp: "store" },
+      { view: gpu.pick.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 }, loadOp: "clear", storeOp: "store" },
+    ],
+    depthStencilAttachment: { view: gpu.depth.createView(), depthClearValue: 1, depthLoadOp: "clear", depthStoreOp: "store" },
+  });
+  pass.setViewport(x, y, width, height, 0, 1);
+  pass.setScissorRect(x, y, width, height);
+  if (plan.body === 0) {
+    pass.setPipeline(p.box);
+    pass.setBindGroup(0, held.groups.box);
+    pass.drawIndirect(gpu.drawn, 0);
+  } else if (plan.body === 1) {
+    // The boxes still fill the pick target and the depth, unseen, so a smooth cell is picked where its voxels are.
+    pass.setPipeline(p.boxPick);
+    pass.setBindGroup(0, held.groups.boxPick);
+    pass.drawIndirect(gpu.drawn, 0);
+    pass.setPipeline(p.softCompose);
+    pass.setBindGroup(0, gpu.composeGroup);
+    pass.draw(3);
+  } else {
+    pass.setPipeline(p.blob);
+    pass.setBindGroup(0, held.groups.blob);
+    pass.draw(18, plan.cellCount, 0, plan.cellFirst);
+  }
+  if (plan.links) {
+    pass.setPipeline(p.link);
+    pass.setBindGroup(0, held.groups.link);
+    pass.draw(2, plan.linkCount, 0, plan.linkFirst);
+  }
+  if (plan.edges) {
+    pass.setPipeline(p.edge);
+    pass.setBindGroup(0, held.groups.edge);
+    pass.draw(2, gpu.object.header.edge_total, 0, 0);
+  }
+  if (plan.slice) {
+    if (!gpu.compositeGroup) {
+      gpu.compositeGroup = device.createBindGroup({
+        layout: p.sliceComposite.getBindGroupLayout(0),
+        entries: [
+          // The plane's colours come from the painted texture now, so the composite reads no cell of the object
+          // and no motion of one: the bindings it takes are the ones its own code still names.
+          { binding: 1, resource: { buffer: gpu.layoutBuffer } },
+          { binding: 2, resource: { buffer: held.chosen } },
+          { binding: 4, resource: held.ids.createView() }, { binding: 5, resource: gpu.rawTexture.createView() },
+          { binding: 7, resource: held.painted.createView() },
+        ],
+      });
+    }
+    const [sx, sy, sw, sh] = plan.sliceRegion;
+    pass.setViewport(sx, sy, sw, sh, 0, 1);
+    pass.setScissorRect(sx, sy, sw, sh);
+    pass.setPipeline(p.sliceComposite);
+    pass.setBindGroup(0, gpu.compositeGroup);
+    pass.draw(3);
+  }
+  pass.end();
+  device.queue.submit([encoder.finish()]);
+};
+
+// The cell under one device pixel, plus one, or 0 for none.
+EV.pickAt = async (gpu, x, y) => {
+  const encoder = gpu.device.createCommandEncoder();
+  const clampedX = Math.max(0, Math.min(gpu.canvas.width - 1, x));
+  const clampedY = Math.max(0, Math.min(gpu.canvas.height - 1, y));
+  encoder.copyTextureToBuffer({ texture: gpu.pick, origin: { x: clampedX, y: clampedY } }, { buffer: gpu.pickRead, bytesPerRow: 256 }, { width: 1, height: 1 });
+  gpu.device.queue.submit([encoder.finish()]);
+  await gpu.pickRead.mapAsync(GPUMapMode.READ);
+  const picked = new Uint32Array(gpu.pickRead.getMappedRange().slice(0, 4))[0];
+  gpu.pickRead.unmap();
+  return picked;
+};
+
+// ---- cfg.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The view section of a .cfg: every setting the page has, by the name the .cfg uses, with its kind and its range.
+// The tracker copies this section into each object untouched and the page opens in it. Applying a .cfg is partial:
+// names it does not carry keep their values. A name the scheme does not have, a fraction, a value of the wrong kind
+// or one outside its range is reported by name and not applied.
+
+EV.VIEW_SCHEME = {
+  face: { kind: "word", words: ["clinical", "machine"], fallback: "clinical" },
+  frame: { kind: "integer", low: 0, high: 65535, fallback: 0 },
+  ghosts: { kind: "integer", low: 0, high: 8, fallback: 0 },
+  ghost_fade: { kind: "integer", low: 0, high: 224, fallback: 48 },
+  turn: { kind: "integer", low: 0, high: 359, fallback: 30 },
+  tilt: { kind: "integer", low: -89, high: 89, fallback: 35 },
+  zoom: { kind: "integer", low: 0, high: 1024, fallback: 0 },
+  pan_x: { kind: "integer", low: -1048576, high: 1048576, fallback: 0 },
+  pan_y: { kind: "integer", low: -1048576, high: 1048576, fallback: 0 },
+  z_scale: { kind: "integer", low: 2, high: 16, fallback: 8 },
+  spread: { kind: "integer", low: 0, high: 2048, fallback: 0 },
+  body: { kind: "word", words: ["smooth", "voxels", "centroids"], fallback: "smooth" },
+  smooth_radius: { kind: "integer", low: 1, high: 8, fallback: 3 },
+  smooth_opacity: { kind: "integer", low: 1, high: 255, fallback: 16 },
+  walls: { kind: "switch", fallback: true },
+  wall_tone: { kind: "integer", low: 0, high: 255, fallback: 110 },
+  wall_opacity: { kind: "integer", low: 1, high: 255, fallback: 220 },
+  slice_follow: { kind: "switch", fallback: true },
+  map: { kind: "word", words: ["projection", "slice"], fallback: "projection" },
+  palette: { kind: "word", words: ["lineage", "okabe_ito", "cell", "volume"], fallback: "okabe_ito" },
+  min_voxels: { kind: "integer", low: 0, high: 65536, fallback: 0 },
+  light: { kind: "switch", fallback: true },
+  lights: { kind: "lights", fallback: [{ turn: 300, tilt: 50, strength: 210 }, { turn: 130, tilt: 20, strength: 90 }] },
+  body_opacity: { kind: "integer", low: 0, high: 255, fallback: 160 },
+  // Nothing of the microscope at 0, all of it at 255, and the two of them together anywhere between.
+  slide: { kind: "integer", low: 0, high: 255, fallback: 0 },
+  links: { kind: "switch", fallback: true },
+  tracks: { kind: "switch", fallback: false },
+  edges: { kind: "switch", fallback: true },
+  correct: { kind: "switch", fallback: true },
+  branched: { kind: "switch", fallback: true },
+  wrong: { kind: "switch", fallback: true },
+  no_link: { kind: "switch", fallback: true },
+  only_chosen: { kind: "switch", fallback: false },
+  glow: { kind: "switch", fallback: true },
+  labels: { kind: "switch", fallback: true },
+  ride: { kind: "switch", fallback: false },
+  slice: { kind: "switch", fallback: true },
+  slice_z: { kind: "integer", low: -1, high: 65535, fallback: -1 },
+  window_low: { kind: "integer", low: 0, high: 65535, fallback: 0 },
+  window_high: { kind: "integer", low: 1, high: 65535, fallback: 1024 },
+  rate: { kind: "integer", low: 0, high: 60, fallback: 2 },
+  step: { kind: "integer", low: 1, high: 64, fallback: 1 },
+  loop: { kind: "switch", fallback: true },
+  sheer: { kind: "integer", low: 20, high: 100, fallback: 90 },
+  text_size: { kind: "integer", low: 80, high: 200, fallback: 100 },
+  theme: { kind: "word", words: ["dark", "light"], fallback: "dark" },
+  panels: { kind: "words", words: ["counts", "dims", "lineage", "legend", "review", "machine"], fallback: ["counts"] },
+  chosen: { kind: "integers", low: 0, high: 4294967294, fallback: [] },
+};
+
+EV.defaultView = () => {
+  const view = {};
+  for (const [name, rule] of Object.entries(EV.VIEW_SCHEME)) {
+    view[name] = Array.isArray(rule.fallback) ? rule.fallback.map((one) => (one && typeof one === "object" ? { ...one } : one)) : rule.fallback;
+  }
+  return view;
+};
+
+// Checks one value against its rule; returns the reason it is refused, or null.
+EV.refuseValue = (rule, value) => {
+  const integer = (one) => Number.isInteger(one) && one >= rule.low && one <= rule.high;
+  if (rule.kind === "integer") {
+    return integer(value) ? null : `an integer from ${rule.low} to ${rule.high}`;
+  }
+  if (rule.kind === "switch") {
+    return typeof value === "boolean" ? null : "true or false";
+  }
+  if (rule.kind === "word") {
+    return rule.words.includes(value) ? null : `one of ${rule.words.join(", ")}`;
+  }
+  if (rule.kind === "words") {
+    return Array.isArray(value) && value.every((one) => rule.words.includes(one)) ? null : `a list of ${rule.words.join(", ")}`;
+  }
+  if (rule.kind === "lights") {
+    const light = (one) => one && typeof one === "object" && Object.keys(one).every((key) => ["turn", "tilt", "strength"].includes(key))
+      && Number.isInteger(one.turn) && one.turn >= 0 && one.turn <= 359
+      && Number.isInteger(one.tilt) && one.tilt >= -89 && one.tilt <= 89
+      && Number.isInteger(one.strength) && one.strength >= 0 && one.strength <= 255;
+    return Array.isArray(value) && value.length <= 4 && value.every(light)
+      ? null : "up to four lights, each turn 0 to 359, tilt -89 to 89 and strength 0 to 255, in degrees and 255ths";
+  }
+  return Array.isArray(value) && value.every(integer) ? null : "a list of cell numbers";
+};
+
+// Applies a view section over a view. Returns what was applied and what was refused, by name.
+EV.applyView = (view, section) => {
+  const applied = [];
+  const refused = [];
+  if (!section || typeof section !== "object" || Array.isArray(section)) {
+    return { applied, refused: ["view: an object of name to value"] };
+  }
+  for (const [name, value] of Object.entries(section)) {
+    const rule = EV.VIEW_SCHEME[name];
+    if (!rule) {
+      refused.push(`${name}: the view has no such setting`);
+      continue;
+    }
+    const reason = EV.refuseValue(rule, value);
+    if (reason) {
+      refused.push(`${name}: ${reason}`);
+      continue;
+    }
+    view[name] = Array.isArray(value) ? value.map((one) => (one && typeof one === "object" ? { ...one } : one)) : value;
+    applied.push(name);
+  }
+  return { applied, refused };
+};
+
+// The whole .cfg: the object's own sections as the tracker wrote them, with the page's view in place of its view.
+EV.cfgText = (objectCfgText, view) => {
+  let base = {};
+  try {
+    base = objectCfgText ? JSON.parse(objectCfgText) : {};
+  } catch (error) {
+    base = {};
+  }
+  const cfg = { scheme: "cell_tracking.cfg", version: 1, track: base.track || {}, input: base.input || {}, output: base.output || {}, view };
+  return JSON.stringify(cfg, null, 2) + "\n";
+};
+
+// The specimen the input section names: species, voxel size z y x and membrane thickness, in picometers. An object
+// written before the input section carried them reads as unknown, with a membrane of 0.
+EV.specimen = (cfgText) => {
+  let input = {};
+  try {
+    input = (JSON.parse(cfgText || "{}").input) || {};
+  } catch (error) {
+    input = {};
+  }
+  const whole = (value) => Number.isInteger(value) && value >= 0;
+  const voxel = Array.isArray(input.voxel_pm) && input.voxel_pm.length === 3 && input.voxel_pm.every(whole) ? input.voxel_pm : [0, 0, 0];
+  return {
+    species: typeof input.species === "string" ? input.species : "",
+    voxel_pm: voxel,
+    membrane_pm: whole(input.membrane_pm) ? input.membrane_pm : 0,
+  };
+};
+
+// Reads a .cfg's text for the page: checks the scheme, version and every section name, and hands back the view.
+EV.parseCfg = (text) => {
+  let cfg;
+  try {
+    cfg = JSON.parse(text);
+  } catch (error) {
+    return { refused: [`that is not JSON: ${error.message}`] };
+  }
+  if (!cfg || typeof cfg !== "object" || Array.isArray(cfg)) {
+    return { refused: ["a .cfg is one object"] };
+  }
+  const refused = [];
+  if (cfg.scheme !== undefined && cfg.scheme !== "cell_tracking.cfg") {
+    refused.push("scheme: always cell_tracking.cfg");
+  }
+  if (cfg.version !== undefined && cfg.version !== 1) {
+    refused.push("version: this page reads version 1");
+  }
+  for (const name of Object.keys(cfg)) {
+    if (!["scheme", "version", "track", "input", "output", "view"].includes(name)) {
+      refused.push(`${name}: a .cfg has scheme, version, track, input, output and view`);
+    }
+  }
+  return { refused, view: cfg.view };
+};
+
+// ---- app.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The page's state and its clock. The .cfg view holds the targets; the live values ease toward them every frame, so
+// a turn, a zoom, a spread, a choice and a frame change all move instead of jumping. Angles are held in sixteenths of
+// a degree and turned through the integer sine table.
+
+EV.$ = (id) => document.getElementById(id);
+
+EV.app = {
+  gpu: null, object: null, samples: [], sample: null,
+  view: EV.defaultView(),
+  live: { turn: 30 * 16, tilt: 35 * 16, zoom: 64, spread: 0, panX: 0, panY: 0, chosenWeight: 0, lights: [] },
+  frame: 0, progress: 0, heading: 0, playing: false,
+  chosen: new Set(), hover: 0,
+  compacted: "", compacting: false, drawn: 0, compactMs: 0,
+  dirty: true, workMs: [], resolveMs: [], lastTick: 0, turns: 0,
+};
+
+// sin of an angle in sixteenths of a degree, scaled by 2^14, interpolated between whole-degree table entries.
+EV.sine16 = (angle) => {
+  const whole = ((angle % 5760) + 5760) % 5760;
+  const at = (degree) => {
+    const d = ((degree % 360) + 360) % 360;
+    const table = EV.SINE_DEGREES;
+    return d <= 90 ? table[d] : d <= 180 ? table[180 - d] : d <= 270 ? -table[d - 180] : -table[360 - d];
+  };
+  const degree = whole >> 4;
+  const low = at(degree);
+  return low + (((at(degree + 1) - low) * (whole & 15)) >> 4);
+};
+EV.cosine16 = (angle) => EV.sine16(angle + 1440);
+
+EV.frameRange = (app) => {
+  const header = app.object.header;
+  const table = app.object.frames;
+  const first = Math.max(0, app.frame - app.view.ghosts);
+  const last = Math.min(header.frames - 1, app.frame + 1);
+  return {
+    first, last,
+    leafFirst: table[10 * first + 1], leafPast: table[10 * last + 1] + table[10 * last + 2],
+    runFirst: table[10 * first + 3], runPast: table[10 * last + 3] + table[10 * last + 4],
+    cellFirst: table[10 * first + 5], cellPast: table[10 * last + 5] + table[10 * last + 6],
+    linkFirst: table[10 * first + 7], linkPast: table[10 * app.frame + 7] + table[10 * app.frame + 8],
+  };
+};
+
+// The regions of the canvas, in device pixels: the 3D view everywhere, and the slice as an inset at the lower right.
+EV.regions = (app) => {
+  const canvas = app.gpu.canvas;
+  const ratio = window.devicePixelRatio || 1;
+  const header = app.object.header;
+  const showSlice = app.view.slice;
+  const side = Math.floor(Math.min(canvas.height * 0.42, canvas.width * 0.34));
+  // The map holds still in a square; the shapes turning on it may leave its corners.
+  const scale = Math.max(1, Math.floor((side * 256) / Math.max(header.width, header.height)));
+  const sliceWidth = side;
+  const sliceHeight = side;
+  const margin = Math.floor(12 * ratio);
+  const sliceX = canvas.width - sliceWidth - margin;
+  const sliceY = canvas.height - sliceHeight - Math.floor(70 * ratio);
+  // The cells sit below what is written over them: the menu, whose engine this is, and what it is and is not.
+  const under = Math.floor(126 * ratio);
+  return { view: [0, under, canvas.width, Math.max(1, canvas.height - under)],
+           slice: showSlice ? [sliceX, sliceY, sliceWidth, sliceHeight] : null, scale };
+};
+
+EV.layoutValues = (app, range, regions) => {
+  const header = app.object.header;
+  const view = app.view;
+  const live = app.live;
+  const leafSpan = range.leafPast - range.leafFirst;
+  const lights = EV.lightVectors(app);
+  const first = lights[0] || { world: [0, 0, 256], view: [0, 0, 256], strength: 0 };
+  const sliceZ = view.slice_z < 0 ? header.depth >> 1 : Math.min(view.slice_z, header.depth - 1);
+  return {
+    frames_at: header.frames_at, leaves_at: header.leaves_at, cells_at: header.cells_at, runs_at: header.runs_at,
+    links_at: header.links_at, edges_at: header.edges_at, depth: header.depth, height: header.height, width: header.width,
+    plane: header.plane, frame_total: header.frames, leaf_total: header.leaf_total,
+    leaf_first: range.leafFirst, leaf_span: leafSpan, pow2: EV.nextPower(Math.max(1, leafSpan)), only_chosen: view.only_chosen ? 1 : 0,
+    run_first: range.runFirst, run_past: range.runPast, run_total: header.run_total, cell_total: header.cell_total,
+    yaw_cos: EV.cosine16(live.turn), yaw_sin: EV.sine16(live.turn), pitch_cos: EV.cosine16(live.tilt), pitch_sin: EV.sine16(live.tilt),
+    zoom: live.zoom, pan_x: live.panX, pan_y: live.panY, half_w: regions.view[2] >> 1, half_h: regions.view[3] >> 1,
+    spread: live.spread, frame_now: app.frame, progress: app.progress, z_scale: view.z_scale, min_voxels: view.min_voxels,
+    shade_on: view.light ? 1 : 0,
+    light_x: first.world[0], light_y: first.world[1], light_z: first.world[2],
+    light_count: lights.length, body_alpha: view.body_opacity, typical_voxels: app.object.frameMedian[app.frame],
+    slide: view.slide,
+    map_reach: Math.max(1, Math.floor(Math.sqrt(header.width * header.width + header.height * header.height
+      + ((header.depth * view.z_scale) >> 1) * ((header.depth * view.z_scale) >> 1)))),
+    ...Object.fromEntries(lights.flatMap((light, slot) => [
+      [`light${slot}_x`, light.view[0]], [`light${slot}_y`, light.view[1]], [`light${slot}_z`, light.view[2]],
+      [`light${slot}_strength`, light.strength],
+    ])),
+    chosen_weight: live.chosenWeight, glow: view.glow ? 1 : 0,
+    status_mask: (view.correct ? 1 : 0) | (view.branched ? 2 : 0) | (view.wrong ? 4 : 0) | (view.no_link ? 8 : 0) | 16,
+    palette: { cell: 0, lineage: 1, volume: 2, okabe_ito: 3 }[view.palette], ghost_frames: view.ghosts, ghost_fade: view.ghost_fade,
+    slice_z: sliceZ, slice_on: regions.slice ? 1 : 0, window_low: view.window_low, window_high: view.window_high,
+    hover_cell: app.hover, body: { voxels: 0, smooth: 1, centroids: 2 }[view.body],
+    soft_radius: view.smooth_radius, soft_alpha: view.smooth_opacity,
+    wall_inset: app.wallInset || 0, wall_tone: view.wall_tone, wall_alpha: view.wall_opacity, wall_on: view.walls ? 1 : 0,
+    slice_w: regions.slice ? regions.slice[2] : 0, slice_h: regions.slice ? regions.slice[3] : 0,
+    slice_follow: view.slice_follow ? 1 : 0, map_projection: view.map === "projection" ? 1 : 0,
+    slice_x0: regions.slice ? regions.slice[0] : 0, slice_y0: regions.slice ? regions.slice[1] : 0, slice_scale: regions.scale,
+    raw_on: app.gpu.rawOn, link_frames: view.tracks ? 1 : 0,
+  };
+};
+
+// Each light as a direction toward it, times 256: in the volume's own frame for the voxel faces, and turned by the camera
+// into view space, x right, y up, z toward the eye, for the lit bodies. A light is fixed to the volume, so turning the
+// camera turns its light with the cells. Integers throughout.
+EV.lightVectors = (app) => {
+  const live = app.live;
+  const yc = EV.cosine16(live.turn);
+  const ys = EV.sine16(live.turn);
+  const pc = EV.cosine16(live.tilt);
+  const ps = EV.sine16(live.tilt);
+  return app.view.lights.slice(0, 4).map((light, slot) => {
+    const angles = live.lights[slot] || { turn: light.turn * 16, tilt: light.tilt * 16 };
+    const flat = EV.cosine16(angles.tilt);
+    const x = (flat * EV.cosine16(angles.turn)) >> 14;
+    const y = (flat * EV.sine16(angles.turn)) >> 14;
+    const z = EV.sine16(angles.tilt);
+    const x1 = (yc * x - ys * y) >> 14;
+    const y1 = (ys * x + yc * y) >> 14;
+    const y2 = (pc * y1 - ps * z) >> 14;
+    const z2 = (ps * y1 + pc * z) >> 14;
+    return { world: [x >> 6, y >> 6, z >> 6], view: [x1 >> 6, z2 >> 6, -(y2 >> 6)], strength: light.strength, screen: [x1, z2] };
+  });
+};
+
+// The fit: the whole view inside the smaller half of the canvas, with a sixth to spare.
+EV.fitZoom = (app) => {
+  const header = app.object.header;
+  const canvas = app.gpu.canvas;
+  const reach = Math.max(header.width, header.height, (header.depth * app.view.z_scale) >> 1) * 2;
+  return Math.max(1, Math.floor((Math.min(canvas.width, canvas.height) * 256 * 5) / (12 * reach)));
+};
+
+// One ease step of an integer toward its target: a quarter of the way, at least one unit.
+EV.approach = (value, target) => {
+  const gap = target - value;
+  const step = gap >> 2;
+  return value + (step !== 0 ? step : Math.sign(gap));
+};
+
+EV.tick = (app, now) => {
+  const gap = Math.min(100, Math.max(0, Math.floor(now - (app.lastTick || now))));
+  app.lastTick = now;
+  const view = app.view;
+  const live = app.live;
+  const before = JSON.stringify(live) + app.progress + app.frame;
+  // The turn takes the short way round.
+  const turnTarget = view.turn * 16;
+  const around = ((turnTarget - live.turn) % 5760 + 8640) % 5760 - 2880;
+  live.turn = ((EV.approach(0, around) + live.turn) % 5760 + 5760) % 5760;
+  live.tilt = EV.approach(live.tilt, view.tilt * 16);
+  live.zoom = EV.approach(live.zoom, view.zoom || EV.fitZoom(app));
+  live.spread = EV.approach(live.spread, view.spread);
+  live.panX = EV.approach(live.panX, view.pan_x);
+  live.panY = EV.approach(live.panY, view.pan_y);
+  live.lights = view.lights.map((light, slot) => {
+    const was = live.lights[slot] || { turn: light.turn * 16, tilt: light.tilt * 16 };
+    const around = ((light.turn * 16 - was.turn) % 5760 + 8640) % 5760 - 2880;
+    return { turn: ((was.turn + EV.approach(0, around)) % 5760 + 5760) % 5760, tilt: EV.approach(was.tilt, light.tilt * 16) };
+  });
+  live.chosenWeight = EV.approach(live.chosenWeight, app.chosen.size ? 160 : 0);
+
+  // Frames: a heading of +1 runs the transition forward, -1 runs it back, 0 holds.
+  const header = app.object.header;
+  const perMs = Math.max(1, view.rate) * 4096;
+  if (app.playing && app.heading === 0) {
+    app.heading = 1;
+  }
+  if (app.heading > 0) {
+    if (app.frame >= header.frames - 1) {
+      app.heading = 0;
+      app.progress = 0;
+      if (app.playing && view.loop) {
+        EV.goTo(app, 0);
+      } else {
+        app.playing = false;
+      }
+    } else {
+      app.progress = Math.min(4096, app.progress + Math.floor((gap * perMs) / 1000));
+      if (app.progress >= 4096) {
+        app.frame += 1;
+        app.progress = 0;
+        app.stepsLeft = Math.max(0, (app.stepsLeft || 1) - 1);
+        app.heading = app.playing || app.stepsLeft ? 1 : 0;
+      }
+    }
+  } else if (app.heading < 0) {
+    app.progress = Math.max(0, app.progress - Math.floor((gap * perMs) / 1000));
+    if (app.progress === 0) {
+      app.stepsLeft = Math.max(0, (app.stepsLeft || 1) - 1);
+      if (app.stepsLeft && app.frame > 0) {
+        app.frame -= 1;
+        app.progress = 4096;
+      } else {
+        app.heading = 0;
+      }
+    }
+  }
+  if (before !== JSON.stringify(live) + app.progress + app.frame) {
+    app.dirty = true;
+  }
+};
+
+EV.goTo = (app, frame) => {
+  app.frame = Math.max(0, Math.min(app.object.header.frames - 1, frame | 0));
+  app.progress = 0;
+  app.heading = 0;
+  app.dirty = true;
+};
+
+EV.stepFrames = (app, count) => {
+  const header = app.object.header;
+  if (count > 0 && app.frame < header.frames - 1) {
+    app.stepsLeft = Math.min(count, header.frames - 1 - app.frame);
+    app.heading = 1;
+  }
+  if (count < 0 && app.frame > 0) {
+    app.stepsLeft = Math.min(-count, app.frame);
+    app.frame -= 1;
+    app.progress = 4096;
+    app.heading = -1;
+  }
+  app.dirty = true;
+};
+
+EV.compactKey = (app) => {
+  const range = EV.frameRange(app);
+  return [range.leafFirst, range.leafPast, app.view.only_chosen, app.view.min_voxels, app.view.only_chosen ? [...app.chosen].join(",") : ""].join("|");
+};
+
+EV.frameLoop = (app, now) => {
+  const began = performance.now();
+  const gpu = app.gpu;
+  if (app.object) {
+    EV.tick(app, now);
+  }
+  if (app.object && !app.compacting) {
+    EV.fit(gpu);
+    const range = EV.frameRange(app);
+    const regions = EV.regions(app);
+    const values = EV.layoutValues(app, range, regions);
+    const key = EV.compactKey(app);
+    if (key !== app.compacted) {
+      app.compacting = true;
+      EV.writeLayout(gpu, values);
+      EV.compact(gpu, range.leafPast - range.leafFirst, range.runPast - range.runFirst).then((result) => {
+        app.drawn = result.drawn;
+        app.compactMs = result.ms;
+        app.compacted = key;
+        app.compacting = false;
+        app.dirty = true;
+      });
+    } else if (app.dirty) {
+      EV.writeLayout(gpu, values);
+      const table = app.object.frames;
+      const sliceFrame = app.progress >= 2048 ? Math.min(app.frame + 1, range.last) : app.frame;
+      EV.render(gpu, {
+        region: regions.view, sliceRegion: regions.slice, slice: !!regions.slice,
+        sliceFirstRun: table[10 * sliceFrame + 3], sliceRuns: table[10 * sliceFrame + 4],
+        body: values.body, wall: app.view.walls, cellFirst: range.cellFirst, cellCount: range.cellPast - range.cellFirst,
+        links: app.view.links, linkFirst: app.view.tracks ? 0 : range.linkFirst,
+        linkCount: app.view.tracks ? app.object.header.link_total : range.linkPast - range.linkFirst,
+        edges: app.view.edges,
+        background: document.documentElement.dataset.theme === "light" ? { r: 0.93, g: 0.945, b: 0.96, a: 1 } : { r: 0.027, g: 0.031, b: 0.039, a: 1 },
+      });
+      app.dirty = false;
+      app.workMs.push(performance.now() - began);
+      app.workMs.splice(0, Math.max(0, app.workMs.length - 60));
+      EV.afterRender(app, regions);
+    }
+  }
+  app.turns += 1;
+};
+
+// The frame loop runs inside a guard: a throw stops it and says so on the page, on the console and on
+// window.__loopHealth, and a loop that has not turned twice a second and a half after start is reported the same way.
+EV.startLoop = (app) => {
+  window.__loopHealth = { ok: true, turns: 0, why: "", detail: "" };
+  const alarm = EV.$("loopAlarm");
+  const turn = (now) => {
+    try {
+      EV.frameLoop(app, now);
+      window.__loopHealth.turns = app.turns;
+      requestAnimationFrame(turn);
+    } catch (error) {
+      window.__loopHealth = { ok: false, turns: app.turns, why: "threw", detail: String(error && error.stack || error) };
+      alarm.textContent = `frame loop stopped: ${error.message}`;
+      alarm.hidden = false;
+      console.error("[engine view] frame loop stopped", error);
+    }
+  };
+  requestAnimationFrame(turn);
+  setTimeout(() => {
+    if (window.__loopHealth.ok && app.turns < 2 && document.visibilityState === "visible") {
+      window.__loopHealth.why = "slow start";
+      alarm.textContent = `the frame loop turned ${app.turns} times in its first 1.5 s`;
+      alarm.hidden = false;
+    }
+  }, 1500);
+};
+
+// ---- panels.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The panels, the labels and their leader lines, and the lines of text along the edges of the view. The clinical face
+// names things in words; the machine face shows the integers the file holds.
+
+EV.ease = (progress) => {
+  const p = Math.min(progress, 4096);
+  return (((p * p) >> 12) * (12288 - 2 * p)) >> 12;
+};
+
+// A cell's centroid on the screen, in CSS pixels, by the same integer steps the vertex stage takes.
+EV.screenOf = (app, cell) => {
+  const object = app.object;
+  const header = object.header;
+  const live = app.live;
+  const zScale = app.view.z_scale;
+  const frame = object.cellFrame[cell];
+  const eased = EV.ease(app.progress);
+  let x = object.centre[3 * cell];
+  let y = object.centre[3 * cell + 1];
+  let z = Math.trunc((zScale * (object.centre[3 * cell + 2] - header.depth)) / 2);
+  const at = 8 * cell;
+  if (frame === app.frame) {
+    x += Math.trunc((object.motion[at] * eased) / 4096);
+    y += Math.trunc((object.motion[at + 1] * eased) / 4096);
+    z += Math.trunc((Math.trunc((object.motion[at + 2] * zScale) / 2) * eased) / 4096);
+  }
+  if (frame === app.frame + 1) {
+    x -= Math.trunc((object.motion[at + 3] * (4096 - eased)) / 4096);
+    y -= Math.trunc((object.motion[at + 4] * (4096 - eased)) / 4096);
+    z -= Math.trunc((Math.trunc((object.motion[at + 5] * zScale) / 2) * (4096 - eased)) / 4096);
+  }
+  const yc = EV.cosine16(live.turn);
+  const ys = EV.sine16(live.turn);
+  const pc = EV.cosine16(live.tilt);
+  const ps = EV.sine16(live.tilt);
+  const x1 = (yc * x - ys * y) >> 14;
+  const y1 = (ys * x + yc * y) >> 14;
+  const z2 = (ps * y1 + pc * z) >> 14;
+  const shift = (frame - app.frame) * live.spread - ((eased * live.spread) >> 12);
+  const canvas = app.gpu.canvas;
+  const ratio = window.devicePixelRatio || 1;
+  const px = (canvas.width >> 1) + Math.floor(((x1 + shift) * live.zoom + live.panX) / 256);
+  const py = (canvas.height >> 1) - Math.floor((z2 * live.zoom + live.panY) / 256);
+  return [px / ratio, py / ratio];
+};
+
+EV.centroidText = (object, cell, places) => {
+  const size = Math.max(object.cells[4 * cell], 1);
+  return [1, 2, 3].map((axis) => EV.decimal(object.cells[4 * cell + axis], size, places)).join(", ");
+};
+
+EV.table = (element, rows) => {
+  element.replaceChildren(...rows.map(([name, value, kind]) => {
+    const row = document.createElement("tr");
+    const left = document.createElement("td");
+    const right = document.createElement("td");
+    left.textContent = name;
+    right.className = "num" + (kind ? ` ${kind}` : "");
+    right.textContent = value;
+    row.append(left, right);
+    return row;
+  }));
+};
+
+EV.clinical = () => document.documentElement.dataset.face === "clinical";
+
+EV.paintCounts = (app) => {
+  const object = app.object;
+  const header = object.header;
+  const frame = app.frame;
+  const table = object.frames;
+  const events = EV.frameEvents(object, frame);
+  const status = [0, 0, 0, 0, 0];
+  for (let edge = 0; edge < header.edge_total; edge += 1) {
+    const source = object.edges[3 * edge];
+    if (source !== EV.NONE && object.cellFrame[source] === frame) {
+      status[Math.min(object.edges[3 * edge + 2], 4)] += 1;
+    }
+  }
+  const control = header.aberrant_leaves + header.aberrant_voxels + header.wide_sums;
+  const cells = table[10 * frame + 6];
+  if (EV.clinical()) {
+    EV.table(EV.$("countTable"), [
+      ["frame", `${frame + 1} of ${header.frames}`],
+      ["time point", EV.grouped(table[10 * frame])],
+      ["cells found", EV.grouped(cells)],
+      ["dividing", EV.grouped(events.divisions)],
+      ["tracks ending", EV.grouped(events.ends)],
+      ["tracks starting", EV.grouped(events.starts)],
+      ["volume, voxels", EV.grouped(events.voxels)],
+      ["answer key: correct", EV.grouped(status[0]), "good"],
+      ["answer key: wrong", EV.grouped(status[2]), status[2] ? "bad" : ""],
+      ["answer key: no link", EV.grouped(status[3]), status[3] ? "bad" : ""],
+      ["data check", control ? "failed" : "passed", control ? "bad" : "good"],
+    ]);
+    return;
+  }
+  EV.table(EV.$("countTable"), [
+    ["frame / t", `${frame} / ${table[10 * frame]}`],
+    ["cells", EV.grouped(cells)],
+    ["leaves", EV.grouped(table[10 * frame + 2])],
+    ["runs", EV.grouped(table[10 * frame + 4])],
+    ["voxels", EV.grouped(events.voxels)],
+    ["links out", EV.grouped(table[10 * frame + 8])],
+    ["divisions / ends / starts", `${events.divisions} / ${events.ends} / ${events.starts}`],
+    ["edges c/b/w/n/m", status.join(" / ")],
+    ["drawn instances", EV.grouped(app.drawn)],
+    ["aberrant leaves", header.aberrant_leaves, header.aberrant_leaves ? "bad" : "good"],
+    ["aberrant voxels", header.aberrant_voxels, header.aberrant_voxels ? "bad" : "good"],
+    ["wide sums", header.wide_sums, header.wide_sums ? "bad" : "good"],
+    ["object bytes", EV.grouped(object.bytes)],
+    ["dense bytes", EV.grouped(header.frames * header.depth * header.plane * 4)],
+  ]);
+};
+
+EV.focusCell = (app) => (app.hover ? app.hover - 1 : app.chosen.size ? [...app.chosen][0] : -1);
+
+EV.paintDims = (app) => {
+  const object = app.object;
+  const cell = EV.focusCell(app);
+  const clinical = EV.clinical();
+  if (cell < 0) {
+    EV.table(EV.$("dimTable"), [["cell", clinical ? "point at or click a cell" : "none"]]);
+  } else {
+    const size = object.cells[4 * cell];
+    const parents = EV.parentsOf(object, cell);
+    const children = EV.childrenOf(object, cell);
+    const frame = object.cellFrame[cell];
+    EV.table(EV.$("dimTable"), clinical ? [
+      ["cell", `#${cell}`],
+      ["frame", `${frame + 1}`],
+      ["volume, voxels", EV.grouped(size)],
+      ["center z, y, x", EV.centroidText(object, cell, 1)],
+      ["came from", parents.length ? parents.map((one) => `#${one}`).join(", ") : "no earlier cell"],
+      ["becomes", children.length ? children.map((one) => `#${one}`).join(", ") : "no later cell"],
+      ["lineage starts at", `#${object.root[cell]}`],
+    ] : [
+      ["cell / frame", `${cell} / ${frame}`],
+      ["n", size],
+      ["sum z, y, x", `${object.cells[4 * cell + 1]}, ${object.cells[4 * cell + 2]}, ${object.cells[4 * cell + 3]}`],
+      ["centroid", EV.centroidText(object, cell, 3)],
+      ["doubled centre", `${object.centre[3 * cell]}, ${object.centre[3 * cell + 1]}, ${object.centre[3 * cell + 2]}`],
+      ["step to children", `${object.motion[8 * cell]}, ${object.motion[8 * cell + 1]}, ${object.motion[8 * cell + 2]}`],
+      ["parents", parents.join(", ") || "none"],
+      ["children", children.join(", ") || "none"],
+      ["root", object.root[cell]],
+    ]);
+  }
+  // Volumes of the frame's cells by power of two: bin b holds sizes from 2^b to 2^(b+1) - 1.
+  const table = object.frames;
+  const first = table[10 * app.frame + 5];
+  const past = first + table[10 * app.frame + 6];
+  const bins = new Array(24).fill(0);
+  for (let one = first; one < past; one += 1) {
+    bins[31 - Math.clz32(Math.max(object.cells[4 * one], 1))] += 1;
+  }
+  const canvas = EV.$("bars");
+  const context = canvas.getContext("2d");
+  const tallest = Math.max(1, ...bins);
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  const barWidth = Math.floor(canvas.width / bins.length);
+  const focusBin = cell >= 0 ? 31 - Math.clz32(Math.max(object.cells[4 * cell], 1)) : -1;
+  bins.forEach((count, bin) => {
+    const height = Math.floor(((canvas.height - 14) * count) / tallest);
+    context.fillStyle = bin === focusBin ? "#e69f00" : "#56b4e9";
+    context.fillRect(bin * barWidth + 1, canvas.height - 12 - height, barWidth - 2, height);
+  });
+  context.fillStyle = getComputedStyle(document.body).color;
+  context.font = "10px sans-serif";
+  context.fillText("1", 1, canvas.height - 1);
+  context.fillText("2^23 voxels", canvas.width - 64, canvas.height - 1);
+  EV.$("barNote").textContent = clinical
+    ? `How many cells in this frame have each size. The tallest bar holds ${tallest} cells.`
+    : `bins by floor(log2 n), 24 bins, tallest ${tallest}`;
+};
+
+EV.paintLineage = (app) => {
+  const object = app.object;
+  const cell = app.chosen.size ? [...app.chosen][0] : -1;
+  const clinical = EV.clinical();
+  const note = EV.$("lineageNote");
+  if (cell < 0) {
+    EV.table(EV.$("lineageTable"), []);
+    note.textContent = clinical ? "Click a cell to see where it came from and what it became." : "choose a cell";
+    return;
+  }
+  const family = EV.lineage(object, [cell]);
+  const byFrame = new Map();
+  for (const one of family) {
+    const frame = object.cellFrame[one];
+    byFrame.set(frame, [...(byFrame.get(frame) || []), one]);
+  }
+  const shownPerFrame = 12;
+  const rows = [...byFrame.entries()].sort((left, right) => left[0] - right[0]).map(([frame, members]) => {
+    const more = members.length - shownPerFrame;
+    const words = members.slice(0, shownPerFrame).map((one) => {
+      const children = object.forward.start[one + 1] - object.forward.start[one];
+      const onward = object.frames[10 * frame + 8] > 0;
+      const mark = children >= 2 ? (clinical ? " divides" : " /2+") : onward && children === 0 ? (clinical ? " ends" : " end") : "";
+      return clinical ? `#${one} (${EV.grouped(object.cells[4 * one])})${mark}` : `${one}:${object.cells[4 * one]}${mark}`;
+    });
+    const rest = more > 0 ? (clinical ? `, and ${more} more` : `, +${more}`) : "";
+    return [clinical ? `frame ${frame + 1}` : `f${frame}`, words.join(", ") + rest];
+  });
+  EV.table(EV.$("lineageTable"), rows);
+  note.textContent = clinical
+    ? `${family.length} cells in this lineage across ${byFrame.size} frames. Numbers in brackets are volumes in voxels.`
+    : `${family.length} cells, ${byFrame.size} frames, cell:n`;
+};
+
+EV.paintLegend = (app) => {
+  const clinical = EV.clinical();
+  const swatch = (color, text) => `<div class="row"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:${color}"></span><span>${text}</span></div>`;
+  const palette = {
+    lineage: "Each lineage has its own color, kept from frame to frame.",
+    okabe_ito: "Each lineage has one of eight colors chosen to stay distinct under color blindness.",
+    cell: "Each cell has its own color in every frame.",
+    volume: "Color runs from purple for the smallest cells to yellow for the largest.",
+  }[app.view.palette];
+  EV.$("legendBody").innerHTML = [
+    `<p class="note">${palette}</p>`,
+    swatch("#009E73", clinical ? "answer key link the tracker got right" : "edge status 0 correct"),
+    swatch("#E69F00", clinical ? "the right cell, among several the tracker kept" : "edge status 1 branched"),
+    swatch("#D55E00", clinical ? "answer key link the tracker got wrong" : "edge status 2 wrong"),
+    swatch("#CC79A7", clinical ? "answer key link the tracker did not make" : "edge status 3 no link"),
+    `<p class="note">${clinical
+      ? "Between frames each cell slides toward what it becomes while the next frame fades in. A cell that divides slides toward the middle of its two daughters."
+      : "transition: runs of frame t move by the step to their children's joint centroid and dissolve by a run hash against the eased progress; frame t+1 enters the same way from its parents"}</p>`,
+  ].join("");
+};
+
+EV.paintReview = (app) => {
+  const object = app.object;
+  const clinical = EV.clinical();
+  const list = EV.$("reviewList");
+  EV.$("reviewNote").textContent = clinical
+    ? "Links the answer key marks wrong or missing, then the most linked and the largest cells, which can be several cells counted as one. Click an item to go to it."
+    : "status 2 and 3 edges, then top 12 by degree and by n";
+  list.replaceChildren(...object.review.slice(0, 80).map((item) => {
+    const entry = document.createElement("li");
+    const cells = item.cells.map((one) => `#${one}`).join(" to ");
+    entry.textContent = item.text || (item.kind === "most linked"
+      ? `${cells}, ${item.degree} links, frame ${item.frame + (clinical ? 1 : 0)}`
+      : item.kind === "largest"
+        ? `${cells}, ${EV.grouped(item.voxels)} voxels, frame ${item.frame + (clinical ? 1 : 0)}`
+        : `${item.kind}: ${cells}, frame ${item.frame + (clinical ? 1 : 0)}`);
+    entry.className = item.kind === "wrong" || item.kind === "no link" || item.kind === "control" ? "bad" : "";
+    entry.addEventListener("click", () => {
+      EV.goTo(app, item.frame);
+      EV.choose(app, item.cells, "set");
+    });
+    return entry;
+  }));
+};
+
+EV.stateJson = (app) => {
+  const object = app.object;
+  return {
+    sample: app.sample, frame: app.frame, progress: app.progress, playing: app.playing,
+    chosen: [...app.chosen], hover: app.hover ? app.hover - 1 : null, drawn: app.drawn,
+    view: app.view,
+    header: object ? object.header : null,
+    timings: object ? { compile_ms: app.gpu.compileMs, stream_ms: object.streamMs, resolve_ms: app.resolveMs, compact_ms: app.compactMs } : null,
+  };
+};
+
+EV.paintMachine = (app) => {
+  const text = JSON.stringify(EV.stateJson(app), null, 1);
+  EV.$("machineText").textContent = text;
+  EV.$("engine-state").textContent = text;
+};
+
+EV.helpText = () => EV.clinical()
+  ? `<b>Reading the view</b><p class="note">Each colored shape is one cell as the tracker found it, built from the microscope's voxels. Press play or the arrow keys to move through time; cells slide to where they go next. The square at the lower right is one slice through the volume, like a single microscope image, with each cell outlined.</p>
+     <p class="note">Drag with either mouse button to move the camera around the volume, scroll to zoom, hold Shift and drag (or drag with the middle button) to slide the picture. Click a cell to choose it; Shift-click adds more. Press L to choose its whole lineage.</p>
+     <p class="note">Keys: arrows frame, Space play, [ ] slice depth, R quarter turn, 0 fit, L lineage, W answer-key problems, F only chosen, B smooth, voxels or centroids, C colors, M machine face, Esc clear.</p>`
+  : `<b>engine view, machine face</b><p class="note">window.engineView: state(), cfg(), apply(view or .cfg text), load(sample), open(file), frame(n), play(on), choose(cells, mode), cells(frame), cell(id), lineage(id), review(), pick(x, y), snapshot(), csv(), sections(). The page's state is also JSON in script#engine-state and window.__loopHealth reports the frame loop.</p>
+     <p class="note">keys: arrows frame, shift+arrows ghosts, space play, [ ] slice z, r turn 90, t tilt, 0 fit, + - zoom, l lineage, w failing, f only chosen, k links, e edges, b body, c palette, g glow, m clinical face, s snapshot, esc clear</p>`;
+
+EV.paintPanels = (app) => {
+  if (!app.object) {
+    return;
+  }
+  EV.paintCounts(app);
+  if (!EV.$("dims").hidden) {
+    EV.paintDims(app);
+  }
+  if (!EV.$("lineage").hidden) {
+    EV.paintLineage(app);
+  }
+  if (!EV.$("legend").hidden) {
+    EV.paintLegend(app);
+  }
+  if (!EV.$("machine").hidden || !EV.clinical()) {
+    EV.paintMachine(app);
+  }
+};
+
+// Labels for the chosen cells of the frames on screen, with leader lines. In a row along the top they are sorted by
+// their cell's position so leaders do not cross, and crossing pairs left over are swapped; riding, they sit beside
+// their cell. A dragged label stays where it is put; a double click lets it go.
+EV.paintTags = (app) => {
+  const tags = EV.$("tags");
+  const leads = EV.$("leads");
+  const object = app.object;
+  if (!app.view.labels || !object) {
+    tags.replaceChildren();
+    leads.replaceChildren();
+    return;
+  }
+  app.pins = app.pins || new Map();
+  const shown = [...app.chosen].filter((cell) => {
+    const frame = object.cellFrame[cell];
+    return frame === app.frame || (frame === app.frame + 1 && app.progress >= 2048);
+  }).slice(0, 24);
+  const clinical = EV.clinical();
+  const targets = shown.map((cell) => ({ cell, at: EV.screenOf(app, cell) })).sort((left, right) => left.at[0] - right.at[0]);
+  const panel = EV.$("panel").getBoundingClientRect();
+  let x = Math.max(panel.right + 12, 12);
+  const width = window.innerWidth;
+  let y = 64;
+  for (const target of targets) {
+    const text = clinical ? `#${target.cell} · ${EV.grouped(object.cells[4 * target.cell])} voxels` : `${target.cell} n=${object.cells[4 * target.cell]}`;
+    target.text = text;
+    const guess = text.length * 7 + 14;
+    if (app.view.ride) {
+      target.place = [target.at[0] + 18, target.at[1] - 30];
+    } else {
+      if (x + guess > width - 330) {
+        x = Math.max(panel.right + 12, 12);
+        y += 26;
+      }
+      target.place = [x, y];
+      x += guess + 8;
+    }
+    const pin = app.pins.get(target.cell);
+    target.place = pin ? pin : target.place;
+  }
+  for (let pass = 0; pass < 4 && !app.view.ride; pass += 1) {
+    for (let one = 0; one + 1 < targets.length; one += 1) {
+      const left = targets[one];
+      const right = targets[one + 1];
+      const crossed = (left.place[0] - right.place[0]) * (left.at[0] - right.at[0]) < 0;
+      if (crossed && !app.pins.has(left.cell) && !app.pins.has(right.cell)) {
+        [left.place, right.place] = [right.place, left.place];
+      }
+    }
+  }
+  tags.replaceChildren(...targets.map((target) => {
+    const tag = document.createElement("div");
+    tag.className = "tag";
+    tag.textContent = target.text;
+    tag.style.left = `${target.place[0]}px`;
+    tag.style.top = `${target.place[1]}px`;
+    tag.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+      tag.setPointerCapture(event.pointerId);
+      const start = [event.clientX - target.place[0], event.clientY - target.place[1]];
+      tag.onpointermove = (move) => {
+        app.pins.set(target.cell, [move.clientX - start[0], move.clientY - start[1]]);
+        EV.paintTags(app);
+      };
+      tag.onpointerup = () => { tag.onpointermove = null; };
+    });
+    tag.addEventListener("dblclick", () => {
+      app.pins.delete(target.cell);
+      EV.paintTags(app);
+    });
+    return tag;
+  }));
+  const svg = "http://www.w3.org/2000/svg";
+  leads.replaceChildren(...targets.flatMap((target) => {
+    const line = document.createElementNS(svg, "line");
+    line.setAttribute("x1", target.place[0] + 10);
+    line.setAttribute("y1", target.place[1] + 20);
+    line.setAttribute("x2", target.at[0]);
+    line.setAttribute("y2", target.at[1]);
+    line.setAttribute("stroke", "#56b4e9");
+    line.setAttribute("stroke-width", "1.2");
+    const ring = document.createElementNS(svg, "circle");
+    ring.setAttribute("cx", target.at[0]);
+    ring.setAttribute("cy", target.at[1]);
+    ring.setAttribute("r", "6");
+    ring.setAttribute("fill", "none");
+    ring.setAttribute("stroke", "#56b4e9");
+    return [line, ring];
+  }));
+};
+
+EV.paintLines = (app) => {
+  const header = app.object.header;
+  const clinical = EV.clinical();
+  const sliceZ = app.view.slice_z < 0 ? header.depth >> 1 : Math.min(app.view.slice_z, header.depth - 1);
+  EV.$("where").textContent = clinical
+    ? `frame ${app.frame + 1} of ${header.frames}`
+      + (app.view.slice ? (app.view.map === "projection" ? " · map: the whole volume from above" : ` · map: layer ${sliceZ + 1} of ${header.depth}`) : "")
+      + ` · ${app.chosen.size} chosen`
+    : `F=${app.frame} p=${app.progress} turn=${app.live.turn >> 4} tilt=${app.live.tilt >> 4} zoom=${app.live.zoom} spread=${app.live.spread} z=${sliceZ} drawn=${app.drawn}`;
+  const work = app.workMs.length ? app.workMs.reduce((sum, one) => sum + one, 0) / app.workMs.length : 0;
+  EV.$("rate").textContent = `work ${work.toFixed(1)} ms mean of ${app.workMs.length} · compact ${app.compactMs} ms · resolve ${app.resolveMs.join("/")} ms\nstream ${app.object.streamMs} ms · compile ${app.gpu.compileMs} ms · drawn ${EV.grouped(app.drawn)}`;
+  EV.$("transportOf").textContent = clinical ? `of ${header.frames}` : `of ${header.frames} (0-based)`;
+  const frameBox = EV.$("frameBox");
+  if (document.activeElement !== frameBox) {
+    frameBox.value = clinical ? app.frame + 1 : app.frame;
+  }
+  const clock = EV.$("clock");
+  clock.max = String((header.frames - 1) * 64);
+  if (document.activeElement !== clock) {
+    clock.value = String(app.frame * 64 + (app.progress >> 6));
+  }
+  EV.$("play").innerHTML = app.playing ? "&#10074;&#10074;" : "&#9654;";
+};
+
+EV.afterRender = (app, regions) => {
+  // The right column stops above the slice when the slice is shown.
+  const ratio = window.devicePixelRatio || 1;
+  const right = EV.$("right");
+  const bottom = regions && regions.slice ? Math.floor(regions.slice[1] / ratio) - 12 : window.innerHeight - 80;
+  right.style.maxHeight = `${Math.max(120, bottom - 60)}px`;
+  EV.paintTags(app);
+  EV.paintLightHandles(app);
+  const now = performance.now();
+  if (now - (app.panelsAt || 0) > 250) {
+    app.panelsAt = now;
+    EV.fetchRaw(app);
+    EV.paintLines(app);
+    EV.paintPanels(app);
+  }
+};
+
+// ---- input.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The controls, the pointer and the keys, loading, saving, and window.engineView for a program to drive the page.
+
+// Each control by element id: the view setting it writes, and how its value reads.
+EV.CONTROLS = [
+  ["yaw", "turn", "integer"], ["pitch", "tilt", "integer"], ["zoom", "zoom", "integer"], ["zScale", "z_scale", "integer"],
+  ["spread", "spread", "integer"], ["body", "body", "body"], ["smoothRadius", "smooth_radius", "integer"],
+  ["smoothOpacity", "smooth_opacity", "integer"], ["walls", "walls", "switch"],
+  ["wallTone", "wall_tone", "integer"], ["wallOpacity", "wall_opacity", "integer"], ["sliceFollow", "slice_follow", "switch"], ["mapMode", "map", "word"],
+  ["palette", "palette", "palette"], ["ghosts", "ghosts", "integer"],
+  ["ghostFade", "ghost_fade", "integer"], ["minVoxels", "min_voxels", "power"], ["shadeOn", "light", "switch"],
+  ["bodyOpacity", "body_opacity", "integer"], ["slide", "slide", "integer"], ["links", "links", "switch"],
+  ["tracks", "tracks", "switch"], ["edges", "edges", "switch"], ["onlyChosen", "only_chosen", "switch"], ["glow", "glow", "switch"],
+  ["ride", "ride", "switch"], ["labels", "labels", "switch"], ["status0", "correct", "switch"], ["status1", "branched", "switch"],
+  ["status2", "wrong", "switch"], ["status3", "no_link", "switch"], ["slice", "slice", "switch"], ["sliceZ", "slice_z", "integer"],
+  ["windowLow", "window_low", "integer"], ["windowHigh", "window_high", "integer"], ["sheer", "sheer", "integer"],
+  ["textSize", "text_size", "integer"], ["theme", "theme", "word"], ["rateBox", "rate", "integer"], ["stepBox", "step", "integer"],
+  ["loop", "loop", "switch"],
+];
+
+EV.BODY_WORDS = ["smooth", "voxels", "centroids"];
+EV.PALETTE_WORDS = { 0: "cell", 1: "lineage", 2: "volume", 3: "okabe_ito" };
+
+// Writes the view into every control and the page's own styles.
+EV.showView = (app) => {
+  const view = app.view;
+  for (const [id, name, kind] of EV.CONTROLS) {
+    const element = EV.$(id);
+    const value = view[name];
+    if (kind === "switch") {
+      element.checked = !!value;
+    } else if (kind === "body") {
+      element.value = String(EV.BODY_WORDS.indexOf(value));
+    } else if (kind === "palette") {
+      element.value = Object.keys(EV.PALETTE_WORDS).find((key) => EV.PALETTE_WORDS[key] === value);
+    } else if (kind === "power") {
+      element.value = String(value ? 32 - Math.clz32(value) : 0);
+    } else if (id === "sliceZ" && value < 0 && app.object) {
+      element.value = String(app.object.header.depth >> 1);
+    } else {
+      element.value = String(value);
+    }
+    const out = EV.$(`${id}Out`);
+    if (out) {
+      out.textContent = kind === "power" ? EV.grouped(value) : kind === "switch" ? "" : String(element.value);
+    }
+  }
+  const root = document.documentElement;
+  root.dataset.face = view.face;
+  root.dataset.theme = view.theme;
+  root.style.setProperty("--sheer", String(view.sheer / 100));
+  root.style.setProperty("--text", `${Math.floor((12 * view.text_size) / 100)}px`);
+  EV.$("faceClinical").classList.toggle("on", view.face === "clinical");
+  EV.$("faceMachine").classList.toggle("on", view.face === "machine");
+  for (const button of document.querySelectorAll("#menu [data-show]")) {
+    const name = button.dataset.show;
+    const on = name === "all" ? false : view.panels.includes(name);
+    button.classList.toggle("on", on);
+    if (name !== "all") {
+      EV.$(name).hidden = !on;
+    }
+  }
+  EV.$("tile").innerHTML = EV.helpText();
+  EV.showLights(app);
+  app.dirty = true;
+  app.panelsAt = 0;
+  EV.remember(app);
+};
+
+EV.readControl = (app, id, name, kind) => {
+  const element = EV.$(id);
+  const value = kind === "switch" ? element.checked
+    : kind === "body" ? EV.BODY_WORDS[Number(element.value)]
+      : kind === "palette" ? EV.PALETTE_WORDS[element.value]
+        : kind === "power" ? (Number(element.value) ? 2 ** (Number(element.value) - 1) : 0)
+          : kind === "word" ? element.value : Math.trunc(Number(element.value));
+  const refused = EV.refuseValue(EV.VIEW_SCHEME[name], value);
+  if (!refused) {
+    app.view[name] = value;
+  }
+  if (name === "slice_z" || name === "window_low" || name === "window_high" || name === "slice") {
+    EV.fetchRaw(app);
+  }
+  EV.showView(app);
+};
+
+// The lights panel: how many lights, which one the sliders edit, and its turn, tilt and strength.
+EV.showLights = (app) => {
+  const lights = app.view.lights;
+  app.lightPick = Math.min(app.lightPick || 0, Math.max(0, lights.length - 1));
+  EV.$("lightCount").textContent = String(lights.length);
+  EV.$("lightFewer").disabled = lights.length === 0;
+  EV.$("lightMore").disabled = lights.length >= 4;
+  const pick = EV.$("lightPick");
+  pick.replaceChildren(...lights.map((unused, slot) => Object.assign(document.createElement("option"), { value: String(slot), textContent: `light ${slot + 1}` })));
+  pick.value = String(app.lightPick);
+  const light = lights[app.lightPick];
+  for (const [id, key] of [["lightTurnBox", "turn"], ["lightTiltBox", "tilt"], ["lightStrength", "strength"]]) {
+    EV.$(id).disabled = !light;
+    EV.$(id).value = light ? String(light[key]) : "0";
+    EV.$(`${id}Out`).textContent = light ? String(light[key]) : "";
+  }
+};
+
+EV.bindLights = (app) => {
+  EV.$("lightFewer").addEventListener("click", () => { app.view.lights.pop(); EV.showView(app); });
+  EV.$("lightMore").addEventListener("click", () => {
+    const count = app.view.lights.length;
+    // A new light is placed a golden angle round from the last, halfway up.
+    app.view.lights.push({ turn: ((count ? app.view.lights[count - 1].turn : 0) + 137) % 360, tilt: 45, strength: 160 });
+    app.lightPick = count;
+    EV.showView(app);
+  });
+  EV.$("lightPick").addEventListener("change", (event) => { app.lightPick = Number(event.target.value); EV.showView(app); });
+  for (const [id, key] of [["lightTurnBox", "turn"], ["lightTiltBox", "tilt"], ["lightStrength", "strength"]]) {
+    EV.$(id).addEventListener("input", (event) => {
+      const light = app.view.lights[app.lightPick];
+      if (light) {
+        light[key] = Math.trunc(Number(event.target.value));
+        EV.showView(app);
+      }
+    });
+  }
+};
+
+// A marker for each light, where its direction points out of the volume's center on the screen. Dragging one turns
+// the light by half a degree a pixel across and tilts it by half a degree a pixel up.
+EV.paintLightHandles = (app) => {
+  const layer = EV.$("lightHandles");
+  if (!app.object) {
+    layer.replaceChildren();
+    return;
+  }
+  const lights = EV.lightVectors(app);
+  const canvas = app.gpu.canvas;
+  const ratio = window.devicePixelRatio || 1;
+  const header = app.object.header;
+  const reach = Math.max(header.width, header.height) * 1.2;
+  while (layer.children.length < lights.length) {
+    const handle = document.createElement("div");
+    handle.className = "light";
+    const slot = layer.children.length;
+    handle.textContent = String(slot + 1);
+    handle.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+      handle.setPointerCapture(event.pointerId);
+      app.lightPick = slot;
+      let last = [event.clientX, event.clientY];
+      handle.onpointermove = (move) => {
+        const light = app.view.lights[slot];
+        if (!light) {
+          return;
+        }
+        light.turn = (((light.turn + Math.round((move.clientX - last[0]) / 2)) % 360) + 360) % 360;
+        light.tilt = Math.max(-89, Math.min(89, light.tilt - Math.round((move.clientY - last[1]) / 2)));
+        last = [move.clientX, move.clientY];
+        EV.showView(app);
+      };
+      handle.onpointerup = () => { handle.onpointermove = null; };
+    });
+    layer.appendChild(handle);
+  }
+  while (layer.children.length > lights.length) {
+    layer.lastChild.remove();
+  }
+  lights.forEach((light, slot) => {
+    const handle = layer.children[slot];
+    const px = (canvas.width >> 1) + Math.floor(((light.screen[0] * reach) / 16384) * app.live.zoom / 256 + app.live.panX / 256);
+    const py = (canvas.height >> 1) - Math.floor(((light.screen[1] * reach) / 16384) * app.live.zoom / 256 + app.live.panY / 256);
+    handle.style.left = `${px / ratio}px`;
+    handle.style.top = `${py / ratio}px`;
+    handle.classList.toggle("picked", slot === app.lightPick);
+  });
+};
+
+EV.choose = (app, cells, mode) => {
+  if (mode === "set") {
+    app.chosen = new Set(cells);
+  } else {
+    for (const cell of cells) {
+      if (mode === "toggle" && app.chosen.has(cell)) {
+        app.chosen.delete(cell);
+      } else {
+        app.chosen.add(cell);
+      }
+    }
+  }
+  app.view.chosen = [...app.chosen].slice(0, 4096);
+  EV.writeChosen(app.gpu, app.chosen);
+  app.dirty = true;
+  app.panelsAt = 0;
+  if (!EV.$("review").hidden) {
+    EV.paintReview(app);
+  }
+};
+
+// The raw voxels of the slice, when the page is served beside the stacks. A file opened from disk has none.
+EV.fetchRaw = async (app) => {
+  const header = app.object && app.object.header;
+  const note = EV.$("rawNote");
+  if (!header || !app.sample || !app.view.slice || app.fromFile) {
+    note.textContent = app.fromFile ? "The microscope image needs the page served beside the stacks; cells are drawn without it." : "";
+    return;
+  }
+  // The whole frame is fetched once: the projection reads every layer, and a slice reads one without a new fetch.
+  const frame = Math.min(app.progress >= 2048 ? app.frame + 1 : app.frame, header.frames - 1);
+  const key = `${app.sample}|${frame}`;
+  if (app.rawKey === key) {
+    return;
+  }
+  app.rawKey = key;
+  try {
+    const time = app.object.frames[10 * frame];
+    const response = await fetch(`/frame?sample=${encodeURIComponent(app.sample)}&t=${time}`, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(String(response.status));
+    }
+    const voxels = new Uint16Array(await response.arrayBuffer());
+    EV.setRaw(app.gpu, voxels, header.width, header.height, header.depth);
+    note.textContent = "";
+  } catch (error) {
+    EV.setRaw(app.gpu, null, 1, 1, 1);
+    note.textContent = "No microscope image is served for this frame; cells are drawn without it.";
+  }
+  app.dirty = true;
+};
+
+EV.remember = (app) => {
+  try {
+    localStorage.setItem("engine_view", JSON.stringify({ face: app.view.face, theme: app.view.theme, text_size: app.view.text_size, sheer: app.view.sheer, pinned: EV.$("panel").classList.contains("pinned") }));
+  } catch (error) {
+    // Storage can be refused; the page works without it.
+  }
+};
+
+EV.recall = (app) => {
+  try {
+    const kept = JSON.parse(localStorage.getItem("engine_view") || "{}");
+    EV.applyView(app.view, { face: kept.face, theme: kept.theme, text_size: kept.text_size, sheer: kept.sheer });
+    EV.$("panel").classList.toggle("pinned", !!kept.pinned);
+  } catch (error) {
+    // Nothing remembered.
+  }
+};
+
+EV.openSource = async (app, source, sample, fromFile) => {
+  const gpu = app.gpu;
+  EV.$("where").textContent = `opening ${sample} …`;
+  app.object = null;
+  const object = await EV.loadObject(gpu, source);
+  app.sample = sample;
+  app.fromFile = fromFile;
+  app.compacted = "";
+  app.rawKey = "";
+  // The object opens in the view its .cfg carries; the page's remembered face, theme and text size stay the reader's.
+  const kept = { face: app.view.face, theme: app.view.theme, text_size: app.view.text_size, sheer: app.view.sheer };
+  app.view = EV.defaultView();
+  const parsed = EV.parseCfg(object.cfgText);
+  if (parsed.view) {
+    EV.applyView(app.view, parsed.view);
+  }
+  EV.applyView(app.view, kept);
+  // What the object's .cfg says about the specimen: the voxel's size and the membrane's thickness, both in picometers,
+  // give the wall's inset as the membrane in voxels times 65536.
+  const specimen = EV.specimen(object.cfgText);
+  app.specimen = specimen;
+  app.wallInset = specimen.voxel_pm[2] ? Math.floor((specimen.membrane_pm * 65536) / specimen.voxel_pm[2]) : 0;
+  const asked = new URLSearchParams(location.search);
+  if (asked.get("face")) {
+    EV.applyView(app.view, { face: asked.get("face") });
+  }
+  app.gpu.object = object;
+  app.object = object;
+  app.frame = Math.min(app.view.frame, object.header.frames - 1);
+  app.progress = 0;
+  app.heading = 0;
+  app.playing = false;
+  // The resolve reads the sections' offsets from the layout, so the layout is written for this object first.
+  EV.fit(gpu);
+  EV.writeLayout(gpu, EV.layoutValues(app, EV.frameRange(app), EV.regions(app)));
+  app.resolveMs = await EV.resolveRuns(gpu);
+  EV.choose(app, app.view.chosen.filter((cell) => cell < object.header.cell_total), "set");
+  app.live.zoom = app.view.zoom || EV.fitZoom(app);
+  EV.$("sliceZ").max = String(object.header.depth - 1);
+  EV.showView(app);
+  EV.paintReview(app);
+  EV.paintLegend(app);
+  EV.fetchRaw(app);
+  if (!fromFile) {
+    const url = new URL(location.href);
+    url.searchParams.set("sample", sample);
+    history.replaceState(null, "", url);
+  }
+};
+
+EV.download = (name, blob) => {
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = name;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+};
+
+EV.snapshot = (app) => new Promise((resolve) => {
+  app.dirty = true;
+  EV.frameLoop(app, performance.now());
+  app.gpu.canvas.toBlob((blob) => resolve(blob), "image/png");
+});
+
+EV.csv = (app) => {
+  const object = app.object;
+  const cells = app.chosen.size ? [...app.chosen].sort((left, right) => left - right) : Array.from({ length: object.header.cell_total }, (unused, cell) => cell);
+  const lines = ["cell,frame,t,voxels,sum_z,sum_y,sum_x,centroid_z,centroid_y,centroid_x,parents,children,lineage_root"];
+  for (const cell of cells) {
+    const frame = object.cellFrame[cell];
+    const size = Math.max(object.cells[4 * cell], 1);
+    lines.push([cell, frame, object.frames[10 * frame], object.cells[4 * cell], object.cells[4 * cell + 1], object.cells[4 * cell + 2], object.cells[4 * cell + 3],
+      EV.decimal(object.cells[4 * cell + 1], size, 3), EV.decimal(object.cells[4 * cell + 2], size, 3), EV.decimal(object.cells[4 * cell + 3], size, 3),
+      EV.parentsOf(object, cell).join(";"), EV.childrenOf(object, cell).join(";"), object.root[cell]].join(","));
+  }
+  return lines.join("\n") + "\n";
+};
+
+EV.bindControls = (app) => {
+  for (const [id, name, kind] of EV.CONTROLS) {
+    const element = EV.$(id);
+    element.addEventListener(element.type === "range" ? "input" : "change", () => EV.readControl(app, id, name, kind));
+  }
+  EV.$("sample").addEventListener("change", async (event) => {
+    const response = await fetch(`data/${event.target.value}.object`, { cache: "no-store" });
+    await EV.openSource(app, response, event.target.value, false);
+  });
+  for (const button of document.querySelectorAll("#menu [data-show]")) {
+    button.addEventListener("click", () => {
+      const name = button.dataset.show;
+      const every = ["counts", "dims", "lineage", "legend", "review"].concat(app.view.face === "machine" ? ["machine"] : []);
+      app.view.panels = name === "all" ? every
+        : app.view.panels.includes(name) ? app.view.panels.filter((one) => one !== name) : [...app.view.panels, name];
+      EV.showView(app);
+      EV.paintReview(app);
+    });
+  }
+  EV.$("faceClinical").addEventListener("click", () => { app.view.face = "clinical"; EV.showView(app); EV.paintReview(app); });
+  EV.$("faceMachine").addEventListener("click", () => { app.view.face = "machine"; EV.showView(app); EV.paintReview(app); });
+  EV.$("grip").addEventListener("click", () => { EV.$("panel").classList.toggle("pinned"); EV.remember(app); });
+  EV.$("openFile").addEventListener("click", () => EV.$("fileInput").click());
+  EV.$("fileInput").addEventListener("change", async (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      await EV.openSource(app, file, file.name.replace(/\.object$/, ""), true);
+    }
+  });
+  EV.$("snapshot").addEventListener("click", async () => EV.download(`engine_view_frame_${app.frame + 1}.png`, await EV.snapshot(app)));
+  EV.$("exportCsv").addEventListener("click", () => EV.download("engine_view_cells.csv", new Blob([EV.csv(app)], { type: "text/csv" })));
+  EV.$("play").addEventListener("click", () => { app.playing = !app.playing; app.heading = app.playing ? 1 : app.heading; });
+  EV.$("forth").addEventListener("click", () => EV.stepFrames(app, app.view.step));
+  EV.$("back").addEventListener("click", () => EV.stepFrames(app, -app.view.step));
+  EV.$("frameBox").addEventListener("change", (event) => EV.goTo(app, Number(event.target.value) - (EV.clinical() ? 1 : 0)));
+  EV.$("clock").addEventListener("input", (event) => {
+    const value = Number(event.target.value);
+    app.playing = false;
+    app.heading = 0;
+    app.frame = Math.floor(value / 64);
+    app.progress = (value % 64) << 6;
+    app.dirty = true;
+  });
+
+  // The .cfg box.
+  const said = EV.$("configSaid");
+  const readPage = () => { EV.$("configText").value = EV.cfgText(app.object ? app.object.cfgText : "", app.view); said.textContent = "Read from the page."; said.className = "note"; };
+  EV.$("configOpen").addEventListener("click", () => { const box = EV.$("configBox"); box.hidden = !box.hidden; if (!box.hidden) readPage(); });
+  EV.$("configClose").addEventListener("click", () => { EV.$("configBox").hidden = true; });
+  EV.$("configRead").addEventListener("click", readPage);
+  EV.$("configApply").addEventListener("click", () => {
+    const report = EV.apply(app, EV.$("configText").value);
+    said.textContent = `${report.applied.length} applied.` + (report.refused.length ? ` Refused: ${report.refused.join("; ")}` : "");
+    said.className = report.refused.length ? "note bad" : "note";
+  });
+  EV.$("configCopy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(EV.$("configText").value);
+      said.textContent = "Copied.";
+    } catch (error) {
+      EV.$("configText").select();
+      said.textContent = "The clipboard refused; the text is selected.";
+    }
+  });
+  EV.$("configSave").addEventListener("click", () => EV.download("engine_view.cfg", new Blob([EV.$("configText").value], { type: "application/json" })));
+  EV.$("configLoad").addEventListener("click", () => EV.$("configFile").click());
+  EV.$("configFile").addEventListener("change", async (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      EV.$("configText").value = await file.text();
+      said.textContent = "Loaded. Apply to use it.";
+    }
+    event.target.value = "";
+  });
+
+  // Help.
+  const ask = EV.$("ask");
+  const tile = EV.$("tile");
+  ask.addEventListener("mouseenter", () => { tile.hidden = false; });
+  ask.addEventListener("click", () => { tile.hidden = !tile.hidden; });
+  tile.addEventListener("mouseleave", () => { tile.hidden = true; });
+
+  // Boxes move by their titles.
+  for (const title of document.querySelectorAll(".box h4")) {
+    title.addEventListener("pointerdown", (event) => {
+      const box = title.parentElement;
+      const rect = box.getBoundingClientRect();
+      if (box.parentElement.id === "right") {
+        document.body.appendChild(box);
+      }
+      box.style.position = "fixed";
+      box.style.transform = "none";
+      box.style.width = `${rect.width}px`;
+      const offset = [event.clientX - rect.left, event.clientY - rect.top];
+      title.setPointerCapture(event.pointerId);
+      title.onpointermove = (move) => {
+        box.style.left = `${move.clientX - offset[0]}px`;
+        box.style.top = `${move.clientY - offset[1]}px`;
+        box.style.right = "auto";
+      };
+      title.onpointerup = () => { title.onpointermove = null; };
+    });
+  }
+};
+
+EV.bindPointer = (app) => {
+  const canvas = app.gpu.canvas;
+  const pointers = new Map();
+  let moved = 0;
+  let pinch = 0;
+  canvas.addEventListener("pointerdown", (event) => {
+    canvas.setPointerCapture(event.pointerId);
+    pointers.set(event.pointerId, [event.clientX, event.clientY]);
+    moved = 0;
+  });
+  canvas.addEventListener("pointermove", async (event) => {
+    const last = pointers.get(event.pointerId);
+    const ratio = window.devicePixelRatio || 1;
+    if (last) {
+      const dx = event.clientX - last[0];
+      const dy = event.clientY - last[1];
+      moved += Math.abs(dx) + Math.abs(dy);
+      pointers.set(event.pointerId, [event.clientX, event.clientY]);
+      if (pointers.size === 2) {
+        const [first, second] = [...pointers.values()];
+        const span = Math.hypot(first[0] - second[0], first[1] - second[1]);
+        if (pinch) {
+          app.view.zoom = Math.max(1, Math.min(8192, Math.round(((app.view.zoom || app.live.zoom) * span) / pinch)));
+        }
+        pinch = span;
+      } else if (event.shiftKey || event.buttons === 4) {
+        // Middle drag, or Shift drag, carries the picture with the pointer.
+        app.view.pan_x += Math.round(dx * ratio) * 256;
+        app.view.pan_y -= Math.round(dy * ratio) * 256;
+        app.live.panX = app.view.pan_x;
+        app.live.panY = app.view.pan_y;
+      } else {
+        // Left or right drag moves the camera around the volume; the volume turns the way the pointer goes.
+        app.view.turn = (((app.view.turn + Math.round(dx / 2)) % 360) + 360) % 360;
+        app.view.tilt = Math.max(-89, Math.min(89, app.view.tilt - Math.round(dy / 2)));
+        app.live.turn = app.view.turn * 16;
+        app.live.tilt = app.view.tilt * 16;
+      }
+      app.dirty = true;
+      return;
+    }
+    // Hovering: the cell under the pointer, read back at most every 80 ms.
+    const now = performance.now();
+    if (!app.object || app.picking || now - (app.hoverAt || 0) < 80) {
+      return;
+    }
+    app.hoverAt = now;
+    app.picking = true;
+    const picked = await EV.pickAt(app.gpu, Math.floor(event.clientX * ratio), Math.floor(event.clientY * ratio));
+    app.picking = false;
+    const box = EV.$("hover");
+    if (picked !== app.hover) {
+      app.hover = picked;
+      app.dirty = true;
+      app.panelsAt = 0;
+    }
+    if (!picked) {
+      box.hidden = true;
+      return;
+    }
+    const cell = picked - 1;
+    const object = app.object;
+    box.hidden = false;
+    box.style.left = `${event.clientX + 14}px`;
+    box.style.top = `${event.clientY + 14}px`;
+    box.textContent = EV.clinical()
+      ? `Cell #${cell}\n${EV.grouped(object.cells[4 * cell])} voxels · frame ${object.cellFrame[cell] + 1}`
+      : `cell ${cell} f${object.cellFrame[cell]} n=${object.cells[4 * cell]}\ncentroid ${EV.centroidText(object, cell, 3)}`;
+  });
+  const release = async (event) => {
+    const had = pointers.has(event.pointerId);
+    pointers.delete(event.pointerId);
+    pinch = pointers.size === 2 ? pinch : 0;
+    if (!had || moved > 4 || !app.object || app.picking || event.type !== "pointerup") {
+      return;
+    }
+    const ratio = window.devicePixelRatio || 1;
+    app.picking = true;
+    const picked = await EV.pickAt(app.gpu, Math.floor(event.clientX * ratio), Math.floor(event.clientY * ratio));
+    app.picking = false;
+    EV.choose(app, picked ? [picked - 1] : [], event.shiftKey ? "toggle" : "set");
+  };
+  canvas.addEventListener("pointerup", release);
+  canvas.addEventListener("pointercancel", release);
+  canvas.addEventListener("dblclick", () => { if (app.object && app.chosen.size) EV.choose(app, EV.lineage(app.object, [...app.chosen]), "set"); });
+  canvas.addEventListener("contextmenu", (event) => event.preventDefault());
+  canvas.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    const zoom = app.view.zoom || app.live.zoom;
+    const step = Math.max(1, zoom >> 3);
+    app.view.zoom = Math.max(1, Math.min(8192, zoom + (event.deltaY < 0 ? step : -step)));
+    EV.showView(app);
+  }, { passive: false });
+
+  // Dropping an object file anywhere opens it.
+  const drop = EV.$("drop");
+  window.addEventListener("dragover", (event) => { event.preventDefault(); drop.hidden = false; });
+  window.addEventListener("dragleave", (event) => { if (!event.relatedTarget) drop.hidden = true; });
+  window.addEventListener("drop", async (event) => {
+    event.preventDefault();
+    drop.hidden = true;
+    const file = event.dataTransfer.files[0];
+    if (file) {
+      await EV.openSource(app, file, file.name.replace(/\.object$/, ""), true);
+    }
+  });
+  window.addEventListener("resize", () => { app.dirty = true; });
+};
+
+EV.bindKeys = (app) => {
+  window.addEventListener("keydown", (event) => {
+    if (!app.object || event.target.closest("input, textarea, select")) {
+      return;
+    }
+    const view = app.view;
+    const key = event.key;
+    const header = app.object.header;
+    const actions = {
+      ArrowRight: () => (event.shiftKey ? (view.ghosts = Math.min(8, view.ghosts + 1)) : EV.stepFrames(app, view.step)),
+      ArrowLeft: () => (event.shiftKey ? (view.ghosts = Math.max(0, view.ghosts - 1)) : EV.stepFrames(app, -view.step)),
+      Home: () => EV.goTo(app, 0),
+      End: () => EV.goTo(app, header.frames - 1),
+      " ": () => { app.playing = !app.playing; },
+      "[": () => { view.slice_z = Math.max(0, (view.slice_z < 0 ? header.depth >> 1 : view.slice_z) - 1); EV.fetchRaw(app); },
+      "]": () => { view.slice_z = Math.min(header.depth - 1, (view.slice_z < 0 ? header.depth >> 1 : view.slice_z) + 1); EV.fetchRaw(app); },
+      r: () => { view.turn = (view.turn + 90) % 360; },
+      t: () => { view.tilt = view.tilt > 45 ? 20 : 89; },
+      0: () => { view.zoom = 0; view.pan_x = 0; view.pan_y = 0; },
+      "=": () => { view.zoom = Math.min(8192, (view.zoom || app.live.zoom) + Math.max(1, (view.zoom || app.live.zoom) >> 3)); },
+      "+": () => { view.zoom = Math.min(8192, (view.zoom || app.live.zoom) + Math.max(1, (view.zoom || app.live.zoom) >> 3)); },
+      "-": () => { view.zoom = Math.max(1, (view.zoom || app.live.zoom) - Math.max(1, (view.zoom || app.live.zoom) >> 3)); },
+      l: () => EV.choose(app, EV.lineage(app.object, [...app.chosen]), "set"),
+      w: () => EV.choose(app, app.object.review.filter((item) => item.kind === "wrong" || item.kind === "no link").flatMap((item) => item.cells), "set"),
+      f: () => { view.only_chosen = !view.only_chosen; },
+      k: () => { view.links = !view.links; },
+      e: () => { view.edges = !view.edges; },
+      b: () => { const words = EV.VIEW_SCHEME.body.words; view.body = words[(words.indexOf(view.body) + 1) % words.length]; },
+      c: () => { const words = EV.VIEW_SCHEME.palette.words; view.palette = words[(words.indexOf(view.palette) + 1) % words.length]; },
+      g: () => { view.glow = !view.glow; },
+      m: () => { view.face = view.face === "clinical" ? "machine" : "clinical"; EV.paintReview(app); },
+      s: async () => EV.download(`engine_view_frame_${app.frame + 1}.png`, await EV.snapshot(app)),
+      Escape: () => EV.choose(app, [], "set"),
+      "?": () => { EV.$("tile").hidden = !EV.$("tile").hidden; },
+    };
+    const action = actions[key];
+    if (action) {
+      event.preventDefault();
+      action();
+      EV.showView(app);
+    }
+  });
+};
+
+// Applies a view section, or a whole .cfg's text, and reports by name what took and what did not.
+EV.apply = (app, input) => {
+  const parsed = typeof input === "string" ? EV.parseCfg(input) : { refused: [], view: input };
+  const report = parsed.view ? EV.applyView(app.view, parsed.view) : { applied: [], refused: [] };
+  report.refused = [...parsed.refused, ...report.refused];
+  if (report.applied.includes("chosen") && app.object) {
+    EV.choose(app, app.view.chosen.filter((cell) => cell < app.object.header.cell_total), "set");
+  }
+  if (report.applied.includes("frame") && app.object) {
+    EV.goTo(app, app.view.frame);
+  }
+  EV.fetchRaw(app);
+  EV.showView(app);
+  return report;
+};
+
+EV.exposeApi = (app) => {
+  const object = () => app.object;
+  window.engineView = {
+    version: 1,
+    state: () => EV.stateJson(app),
+    cfg: () => EV.cfgText(object() ? object().cfgText : "", app.view),
+    apply: (input) => EV.apply(app, input),
+    load: async (sample) => EV.openSource(app, await fetch(`data/${sample}.object`, { cache: "no-store" }), sample, false),
+    open: (file) => EV.openSource(app, file, file.name.replace(/\.object$/, ""), true),
+    frame: (frame) => { if (frame === undefined) return app.frame; EV.goTo(app, frame); return app.frame; },
+    play: (on) => { app.playing = !!on; return app.playing; },
+    choose: (cells, mode = "set") => { EV.choose(app, cells, mode); return [...app.chosen]; },
+    cells: (frame = app.frame) => {
+      const table = object().frames;
+      const first = table[10 * frame + 5];
+      return Array.from({ length: table[10 * frame + 6] }, (unused, slot) => window.engineView.cell(first + slot));
+    },
+    cell: (cell) => {
+      const found = object();
+      const size = found.cells[4 * cell];
+      return {
+        cell, frame: found.cellFrame[cell], t: found.frames[10 * found.cellFrame[cell]], voxels: size,
+        sums: [found.cells[4 * cell + 1], found.cells[4 * cell + 2], found.cells[4 * cell + 3]],
+        centroid: [1, 2, 3].map((axis) => `${found.cells[4 * cell + axis]}/${size}`),
+        parents: EV.parentsOf(found, cell), children: EV.childrenOf(found, cell), root: found.root[cell],
+      };
+    },
+    lineage: (cell) => EV.lineage(object(), [cell]),
+    review: () => object().review,
+    pick: async (x, y) => {
+      const ratio = window.devicePixelRatio || 1;
+      const picked = await EV.pickAt(app.gpu, Math.floor(x * ratio), Math.floor(y * ratio));
+      return picked ? picked - 1 : null;
+    },
+    snapshot: async () => {
+      const blob = await EV.snapshot(app);
+      return new Promise((resolve) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.readAsDataURL(blob); });
+    },
+    csv: () => EV.csv(app),
+    sections: () => object().header,
+    // Every function and table the page is built from, for a program that wants to look further in.
+    internals: EV,
+  };
+};
+
+EV.start = async () => {
+  const app = EV.app;
+  try {
+    app.gpu = await EV.startGpu(EV.$("view"));
+  } catch (error) {
+    EV.$("where").textContent = `error: ${error.message}`;
+    return;
+  }
+  EV.recall(app);
+  EV.bindControls(app);
+  EV.bindLights(app);
+  EV.bindPointer(app);
+  EV.bindKeys(app);
+  EV.exposeApi(app);
+  EV.showView(app);
+  EV.startLoop(app);
+  let samples = [];
+  try {
+    const listed = await fetch("/objects", { cache: "no-store" });
+    samples = listed.ok ? await listed.json() : [];
+  } catch (error) {
+    samples = [];
+  }
+  app.samples = samples;
+  EV.$("sample").replaceChildren(...samples.map((name) => Object.assign(document.createElement("option"), { value: name, textContent: name })));
+  const asked = new URLSearchParams(location.search).get("sample");
+  const sample = samples.includes(asked) ? asked : samples[0];
+  if (sample) {
+    EV.$("sample").value = sample;
+    await EV.openSource(app, await fetch(`data/${sample}.object`, { cache: "no-store" }), sample, false);
+  } else {
+    EV.$("where").textContent = "Open an object file with the open button, or drop one on the page.";
+  }
+};
+
+EV.start();
+
+</script>
+</body>
+</html>

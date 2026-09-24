@@ -1,0 +1,254 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#include "anchor_sift.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define ARMS_CORPUS 1048576u
+
+#define ARMS_MAX 5u
+
+static void build_field(uint8_t *corpus, size_t length)
+{
+    uint32_t state = 2463534242u;
+
+    for (size_t at = 0u; at < length; at += 1u)
+    {
+        state ^= state << 13;
+        state ^= state >> 17;
+        state ^= state << 5;
+
+        const uint32_t roll = state % 1000u;
+        if (roll < 400u)      { corpus[at] = 0x41u; }
+        else if (roll < 700u) { corpus[at] = 0x42u; }
+        else if (roll < 900u) { corpus[at] = 0x43u; }
+        else                  { corpus[at] = (uint8_t)(0x50u + (state % 40u)); }
+    }
+}
+
+typedef enum
+{
+    MASK_ALL_ALIVE = 0,
+    MASK_NONE_ALIVE = 1,
+    MASK_ALTERNATING = 2,
+    MASK_SPARSE = 3
+} MaskKind;
+
+static const char *mask_name(MaskKind kind)
+{
+    switch (kind)
+    {
+        case MASK_ALL_ALIVE:   { return "all alive"; }
+        case MASK_NONE_ALIVE:  { return "none alive"; }
+        case MASK_ALTERNATING: { return "alternating"; }
+        case MASK_SPARSE:      { return "sparse"; }
+        default:               { return "unknown"; }
+    }
+}
+
+static void build_mask(uint8_t *alive, size_t alignments, MaskKind kind)
+{
+    for (size_t at = 0u; at < alignments; at += 1u)
+    {
+        switch (kind)
+        {
+            case MASK_NONE_ALIVE:  { alive[at] = 0u; break; }
+            case MASK_ALTERNATING: { alive[at] = (uint8_t)(at % 2u); break; }
+            case MASK_SPARSE:      { alive[at] = (uint8_t)(((at % 97u) == 0u) ? 1u : 0u); break; }
+            case MASK_ALL_ALIVE:
+            default:               { alive[at] = 1u; break; }
+        }
+    }
+}
+
+int main(void)
+{
+    int failed = 0;
+
+    const AnchorSteerEngine *arms[ARMS_MAX];
+    size_t arm_count = 0u;
+    arms[arm_count] = anchor_steer_portable_engine();
+    arm_count += 1u;
+
+#if defined(ANCHOR_STEER_HAVE_AVX512) && ANCHOR_STEER_HAVE_AVX512
+    {
+        const AnchorSteerEngine *avx512 = anchor_steer_avx512_engine();
+        if (avx512 != NULL)
+        {
+            arms[arm_count] = avx512;
+            arm_count += 1u;
+        }
+        else
+        {
+            printf("  avx512 arm compiled in and reported absent by the processor\n");
+        }
+    }
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_AVX2) && ANCHOR_STEER_HAVE_AVX2
+    {
+        const AnchorSteerEngine *avx2 = anchor_steer_avx2_engine();
+        if (avx2 != NULL)
+        {
+            arms[arm_count] = avx2;
+            arm_count += 1u;
+        }
+        else
+        {
+            printf("  avx2 arm compiled in and reported absent by the processor\n");
+        }
+    }
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_SVE) && ANCHOR_STEER_HAVE_SVE
+    {
+        const AnchorSteerEngine *sve = anchor_steer_sve_engine();
+        if (sve != NULL)
+        {
+            arms[arm_count] = sve;
+            arm_count += 1u;
+        }
+        else
+        {
+            printf("  sve arm compiled in and reported absent by the kernel\n");
+        }
+    }
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_NEON) && ANCHOR_STEER_HAVE_NEON
+    {
+        const AnchorSteerEngine *neon = anchor_steer_neon_engine();
+        if (neon != NULL)
+        {
+            arms[arm_count] = neon;
+            arm_count += 1u;
+        }
+    }
+#endif
+
+#if defined(ANCHOR_STEER_HAVE_CUDA) && ANCHOR_STEER_HAVE_CUDA
+    {
+        const AnchorSteerEngine *cuda = anchor_steer_cuda_engine();
+        if (cuda != NULL)
+        {
+            char device[128];
+            if (anchor_steer_cuda_describe(device, sizeof(device)) != 0)
+            {
+                printf("  cuda device: %s\n", device);
+            }
+            arms[arm_count] = cuda;
+            arm_count += 1u;
+        }
+        else
+        {
+            printf("  cuda arm compiled in and no device answered\n");
+        }
+    }
+#endif
+
+    uint8_t *corpus = (uint8_t *)malloc(ARMS_CORPUS);
+    uint8_t *alive = (uint8_t *)malloc(ARMS_CORPUS);
+    if ((corpus == NULL) || (alive == NULL))
+    {
+        printf("  allocation failed\n");
+        free(corpus); free(alive);
+        return 1;
+    }
+    build_field(corpus, ARMS_CORPUS);
+
+    printf("\n  STEERING SCAN ARMS, every arm against the portable one.\n\n");
+    printf("  arms present:");
+    for (size_t which = 0u; which < arm_count; which += 1u)
+    {
+        printf(" %s", arms[which]->name);
+    }
+    printf("\n\n");
+
+    const size_t lengths[] = { 1u, 2u, 31u, 32u, 33u, 63u, 64u, 65u, 1000u, 65536u };
+    const size_t length_count = sizeof(lengths) / sizeof(lengths[0]);
+
+    printf("  %10s %14s %8s %14s %10s\n", "alignments", "mask", "offset", "count", "verdict");
+
+    for (size_t which_length = 0u; which_length < length_count; which_length += 1u)
+    {
+        const size_t alignments = lengths[which_length];
+
+        for (unsigned int which_mask = 0u; which_mask < 4u; which_mask += 1u)
+        {
+            build_mask(alive, alignments, (MaskKind)which_mask);
+
+            const size_t offsets[] = { 0u, 7u };
+            for (unsigned int which_offset = 0u; which_offset < 2u; which_offset += 1u)
+            {
+                const size_t offset = offsets[which_offset];
+                const uint8_t wanted = corpus[offset];
+
+                const size_t want = arms[0]->count(corpus, alignments, alive, wanted, offset);
+                int agreed = 1;
+                for (size_t which_arm = 1u; which_arm < arm_count; which_arm += 1u)
+                {
+                    const size_t got = arms[which_arm]->count(corpus, alignments, alive, wanted,
+                                                              offset);
+                    if (got != want)
+                    {
+                        printf("  %10zu %14s %8zu %14zu %10s  %s returned %zu\n", alignments,
+                               mask_name((MaskKind)which_mask), offset, want, "FAILS",
+                               arms[which_arm]->name, got);
+                        agreed = 0;
+                        failed += 1;
+                    }
+                }
+                if (agreed != 0)
+                {
+                    printf("  %10zu %14s %8zu %14zu %10s\n", alignments,
+                           mask_name((MaskKind)which_mask), offset, want, "ok");
+                }
+            }
+        }
+    }
+
+    if (arm_count < 2u)
+    {
+        printf("\n  only the portable arm is present. Nothing was graded against it\n");
+    }
+
+    printf("\n  SCAN RATE, %u alignments, all alive, 200 passes each\n\n", ARMS_CORPUS);
+    printf("  %12s %12s %12s %16s\n", "arm", "passes", "seconds", "alignments/second");
+
+    build_mask(alive, ARMS_CORPUS, MASK_ALL_ALIVE);
+    const size_t passes = 200u;
+    double portable_seconds = 0.0;
+
+    for (size_t which = 0u; which < arm_count; which += 1u)
+    {
+        volatile size_t sink = 0u;
+        const clock_t opened = clock();
+        for (size_t pass = 0u; pass < passes; pass += 1u)
+        {
+            sink += arms[which]->count(corpus, ARMS_CORPUS - 8u, alive, corpus[0], 0u);
+        }
+        const clock_t closed = clock();
+        (void)sink;
+
+        const double seconds = (double)(closed - opened) / (double)CLOCKS_PER_SEC;
+        if (which == 0u)
+        {
+            portable_seconds = seconds;
+        }
+        const double rate = (seconds > 0.0)
+                          ? (((double)passes * (double)(ARMS_CORPUS - 8u)) / seconds)
+                          : 0.0;
+        printf("  %12s %12zu %12.3f %16.3e", arms[which]->name, passes, seconds, rate);
+        if ((which > 0u) && (seconds > 0.0))
+        {
+            printf("   %.2fx portable", portable_seconds / seconds);
+        }
+        printf("\n");
+    }
+
+    printf("\n  %d check(s) failed\n", failed);
+    free(corpus); free(alive);
+    return (failed == 0) ? 0 : 1;
+}

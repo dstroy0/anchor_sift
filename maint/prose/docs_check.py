@@ -2537,6 +2537,9 @@ ROW = re.compile(r"^\s*\|")
 
 # A relative markdown link, skipping anything with a scheme and anything anchored to a heading.
 LINK = re.compile(r"\[[^\]]*\]\(([^)#][^)]*)\)")
+# Markdown renders nothing inside an inline code span as a link. A formula set as code, such as
+# `C[a, b](v)`, is blanked out before LINK reads the line.
+CODE_SPAN = re.compile(r"`[^`\n]*`")
 
 # A Doxygen cross-reference written in markdown link syntax: [`HTTP_10`](@ref HTTP_10). Doxygen
 # resolves the target against the symbol table it builds from the source. The word after the command
@@ -2853,6 +2856,7 @@ def dead_links(path, lines):
     here = os.path.dirname(path)
     found = []
     for at, line in enumerate(lines):
+        line = CODE_SPAN.sub(lambda span: " " * len(span.group(0)), line)
         for hit in LINK.finditer(line):
             target = hit.group(1).split("#")[0].strip()
             if not path_candidate(target):
@@ -3239,6 +3243,10 @@ def option_value(name):
 
 
 def main():
+    # Findings quote the text they flag, which can hold any character (U+2212 in a formula). A
+    # Windows console defaults to cp1252 and raised on it, ending the run before later findings
+    # printed.
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     # Structure fails a commit. Prose is reported and does not, because the prose backlog predates
     # this check and a hook nobody can satisfy is a hook somebody turns off. Pass --strict to fail
     # on everything, the setting a cleanup pass wants.

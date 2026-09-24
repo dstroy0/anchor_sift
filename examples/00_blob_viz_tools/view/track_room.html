@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inside The Tissue</title>
+<style>
+:root {
+  --room: #11151c;
+  --panel: rgba(18, 22, 30, 0.93);
+  --edge: #262d3a;
+  --ink: #d7dbe3;
+  --dim: #8b93a3;
+  --accent: #e8834f;
+  --cold: #3b9bef;
+  --hot: #ff7a3d;
+  --true: #3fe28a;
+  --wrong: #ff4a3d;
+}
+html, body { margin: 0; height: 100%; background: var(--room); color: var(--ink); font: 11px/1.45 "Segoe UI", system-ui, sans-serif; overflow: hidden; }
+#room { position: fixed; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; }
+#room:active { cursor: grabbing; }
+.panel { position: fixed; background: var(--panel); border: 1px solid var(--edge); border-radius: 4px; padding: 10px 12px; box-sizing: border-box; }
+#controls { top: 10px; left: 10px; width: 250px; max-height: calc(100% - 20px); overflow-y: auto; }
+#readings { top: 10px; right: 10px; width: 300px; max-height: calc(100% - 220px); overflow-y: auto; }
+#legend { bottom: 10px; right: 10px; width: 300px; }
+#imageWindow { top: 10px; left: 272px; width: 284px; z-index: 5; }
+#imageWindow.superimposed { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(232, 131, 79, 0.35); }
+#imageWindow.dragging { opacity: 0.8; }
+.grip { cursor: move; user-select: none; display: flex; justify-content: space-between; align-items: center; }
+.grip span { color: var(--dim); font-size: 9.5px; letter-spacing: 0; text-transform: none; }
+#liveImage { width: 256px; height: 256px; image-rendering: pixelated; display: block; margin: 4px auto 6px; background: #000; border: 1px solid var(--edge); cursor: grab; }
+h2 { margin: 2px 0 8px; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); font-weight: 600; }
+.section + .section { margin-top: 12px; }
+.row { display: grid; grid-template-columns: 92px 1fr 52px; align-items: center; gap: 6px; margin: 4px 0; }
+.row .value { text-align: right; font-variant-numeric: tabular-nums; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+select, button { background: #1b212c; color: var(--ink); border: 1px solid var(--edge); border-radius: 3px; font: inherit; padding: 2px 6px; }
+button { cursor: pointer; }
+button:hover { border-color: var(--accent); }
+.buttons { display: flex; gap: 6px; margin: 6px 0; flex-wrap: wrap; }
+.check { display: flex; align-items: center; gap: 6px; margin: 4px 0; }
+.check input { accent-color: var(--accent); margin: 0; }
+table { width: 100%; border-collapse: collapse; }
+td { padding: 1.5px 0; vertical-align: top; }
+td:first-child { color: var(--dim); padding-right: 10px; white-space: nowrap; }
+td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.gap td { padding-top: 7px; }
+.swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 7px; vertical-align: -1px; }
+.legend-row { margin: 3px 0; }
+#status { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); color: var(--dim); font-size: 10.5px; pointer-events: none; }
+.note { color: var(--dim); margin-top: 8px; font-size: 10px; }
+</style>
+</head>
+<body>
+<canvas id="room"></canvas>
+
+<div id="controls" class="panel">
+  <div class="section">
+    <h2>The Tissue</h2>
+    <div class="row"><label>sample</label><select id="sample" style="grid-column: span 2"></select></div>
+  </div>
+  <div class="section">
+    <h2>The Frame Clock</h2>
+    <div class="row"><label>clock</label><input id="clock" type="range" min="0" max="0" step="0.001" value="0"><span class="value" id="clockValue">0</span></div>
+    <div class="row"><label>rate</label><input id="rate" type="range" min="0" max="4" step="1" value="0"><span class="value" id="rateValue">held</span></div>
+  </div>
+  <div class="section">
+    <h2>The Cells</h2>
+    <div class="row"><label>cells</label><input id="cellAlpha" type="range" min="0" max="1" step="0.01" value="0.25"><span class="value" id="cellAlphaValue">0.25</span></div>
+    <div class="row"><label>membrane</label><input id="rim" type="range" min="0.5" max="5" step="0.05" value="2.6"><span class="value" id="rimValue">2.60</span></div>
+    <div class="row"><label>coat</label><input id="coat" type="range" min="0" max="0.6" step="0.01" value="0.22"><span class="value" id="coatValue">0.22</span></div>
+    <div class="row"><label>hairs</label><input id="strands" type="range" min="0" max="900" step="10" value="420"><span class="value" id="strandsValue">420</span></div>
+    <div class="row"><label>crowding</label><input id="crowding" type="range" min="0" max="1" step="0.01" value="0.8"><span class="value" id="crowdingValue">0.80</span></div>
+    <div class="row"><label>reach</label><input id="reach" type="range" min="0" max="256" step="1" value="0"><span class="value" id="reachValue">all</span></div>
+    <label class="check"><input id="keyOnly" type="checkbox"> only cells the answer key names</label>
+    <label class="check"><input id="showLinks" type="checkbox" checked> the tree's links</label>
+    <label class="check"><input id="showEdges" type="checkbox" checked> the answer key's steps</label>
+    <label class="check"><input id="showBox" type="checkbox" checked> the view's walls</label>
+  </div>
+  <div class="section">
+    <h2>The Failures</h2>
+    <div class="buttons"><button id="previous">previous</button><button id="next">next failure</button><button id="overview">whole view</button></div>
+    <div class="note" id="failureCount"></div>
+  </div>
+  <div class="note">Drag to turn, wheel to come closer, right drag to slide. The engine's vectors load once into the device and the device draws them; the clock is the only thing that moves.</div>
+</div>
+
+<div id="imageWindow" class="panel">
+  <h2 class="grip" id="imageGrip">The Live Image <span id="imageMode">floating · drag onto the volume</span></h2>
+  <canvas id="liveImage" width="256" height="256"></canvas>
+  <div class="row"><label>slice z</label><input id="sliceZ" type="range" min="0" max="63" step="1" value="32"><span class="value" id="sliceZValue">32</span></div>
+  <div class="row"><label>opacity</label><input id="imageOpacity" type="range" min="0" max="1" step="0.01" value="0.75"><span class="value" id="imageOpacityValue">0.75</span></div>
+  <div class="buttons"><button id="superimpose">superimpose</button><button id="liftOut">lift out</button></div>
+  <div class="note">The stack's own voxels at the clock's frame. Drag the window by its title or picture; drop it on the volume and it lies in the box at its z.</div>
+</div>
+
+<div id="readings" class="panel">
+  <h2>What The Engine Holds</h2>
+  <table id="readingTable"></table>
+</div>
+
+<div id="legend" class="panel">
+  <h2>What The Colors Mean</h2>
+  <div class="legend-row"><span class="swatch" style="background: var(--cold)"></span>a cell's lipid membrane, its protein coat around it</div>
+  <div class="legend-row"><span class="swatch" style="background: #bfe6ff"></span>a cell the answer key names</div>
+  <div class="legend-row"><span class="swatch" style="background: var(--hot)"></span>a named cell whose next step the engine got wrong</div>
+  <div class="legend-row"><span class="swatch" style="background: var(--true)"></span>the answer key's step, and its true target</div>
+  <div class="legend-row"><span class="swatch" style="background: var(--wrong)"></span>where the engine linked it instead</div>
+  <div class="legend-row"><span class="swatch" style="background: #4a6c96"></span>a link the tree made</div>
+  <div class="legend-row"><span class="swatch" style="background: #b873ff"></span>crowding: the share of the membrane in contact, raising apoptosis risk</div>
+  <div class="legend-row"><span class="swatch" style="background: linear-gradient(90deg, #3b9bef, #ffd27a)"></span>coat warming at a contact: slowed, exchanging across it</div>
+</div>
+
+<div id="status"></div>
+
+<script>
+"use strict";
+
+// ---- the vectors: one file of exact integers from the engine, viewed in place ----------------------------
+
+const MAGIC = 0x31525443;
+const CELL = 12, FRAME = 12, LINK = 3, CONTACT = 3, NODE = 7, EDGE_RECORD = 9;
+const STATUS = ["correct", "branched", "wrong", "nolink", "missed"];
+// A solid ellipsoid of semi-axis a has variance a^2/5: its edge lies at sqrt(5) standard deviations, so the drawn
+// edge is the body's own edge, and the lipid wall sits inside it by the coat's share of the radius.
+const EDGE = Math.sqrt(5);
+const STRIDE = 44;
+
+function view(buffer) {
+  const header = new Uint32Array(buffer, 0, 12);
+  if (header[0] !== MAGIC) throw new Error("not a room file");
+  const [, , frames, depth, height, width, cells, links, contacts, nodes, edges] = header;
+  let at = 48;
+  const take = (Kind, count, width) => { const out = new Kind(buffer, at, count * width); at += count * width * Kind.BYTES_PER_ELEMENT; return out; };
+  return {
+    shape: [depth, height, width],
+    frames: take(Uint32Array, frames, FRAME), frameCount: frames,
+    cells: take(BigUint64Array, cells, CELL), cellCount: cells,
+    links: take(Uint32Array, links, LINK), linkCount: links,
+    contacts: take(Uint32Array, contacts, CONTACT), contactCount: contacts,
+    nodes: take(Int32Array, nodes, NODE), nodeCount: nodes,
+    edges: take(Int32Array, edges, EDGE_RECORD), edgeCount: edges,
+  };
+}
+
+// ---- once, at load: the vectors become device buffers ----------------------------------------------------
+
+function legendre(x, top) {
+  const out = [1, x];
+  for (let l = 2; l <= top; l++) out.push(((2 * l - 1) * x * out[l - 1] - (l - 1) * out[l - 2]) / l);
+  return out;
+}
+
+// Real orthonormal spherical harmonics to degree 3, in the order the shader evaluates them.
+function harmonics(x, y, z) {
+  return [0.282095,
+    0.488603 * y, 0.488603 * z, 0.488603 * x,
+    1.092548 * x * y, 1.092548 * y * z, 0.315392 * (3 * z * z - 1), 1.092548 * x * z, 0.546274 * (x * x - y * y),
+    0.590044 * y * (3 * x * x - y * y), 2.890611 * x * y * z, 0.457046 * y * (5 * z * z - 1), 0.373176 * z * (5 * z * z - 3),
+    0.457046 * x * (5 * z * z - 1), 1.445306 * z * (x * x - y * y), 0.590044 * x * (x * x - 3 * y * y)];
+}
+const DEGREE_OF = [0, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3];
+
+function build(room) {
+  const [depth, height, width] = room.shape;
+  const C = room.cellCount, F = room.frameCount;
+  const frameFirst = new Uint32Array(F), frameCells = new Uint32Array(F), follows = new Uint8Array(F), times = new Uint32Array(F);
+  const lags = [];
+  for (let f = 0; f < F; f++) {
+    const o = f * FRAME;
+    times[f] = room.frames[o]; follows[f] = room.frames[o + 1];
+    lags.push([room.frames[o + 2] | 0, room.frames[o + 3] | 0, room.frames[o + 4] | 0]);
+    frameFirst[f] = room.frames[o + 5]; frameCells[f] = room.frames[o + 6];
+  }
+  const frameOfCell = new Uint32Array(C);
+  for (let f = 0; f < F; f++) frameOfCell.fill(f, frameFirst[f], frameFirst[f] + frameCells[f]);
+
+  // Shapes: centre and the Cholesky factor of the covariance, in the drawing's axes x, y, 4z.
+  const shape = new Float32Array(C * 12), size = new Float64Array(C), bodies = new Uint32Array(C), membrane = new Float64Array(C);
+  for (let c = 0; c < C; c++) {
+    const o = c * CELL, v = k => Number(room.cells[o + k]);
+    const n = v(0) || 1;
+    const mz = v(1) / n, my = v(2) / n, mx = v(3) / n;
+    const xx = v(6) / n - mx * mx + 1 / 12, yy = v(5) / n - my * my + 1 / 12, zz = 16 * (v(4) / n - mz * mz + 1 / 12);
+    const xy = v(9) / n - mx * my, xz = 4 * (v(8) / n - mz * mx), yz = 4 * (v(7) / n - mz * my);
+    const l00 = Math.sqrt(Math.max(xx, 1e-6)), l10 = xy / l00, l20 = xz / l00;
+    const l11 = Math.sqrt(Math.max(yy - l10 * l10, 1e-6)), l21 = (yz - l20 * l10) / l11;
+    const l22 = Math.sqrt(Math.max(zz - l20 * l20 - l21 * l21, 1e-6));
+    shape.set([mx, my, 4 * mz, l00, l10, l20, 0, l11, l21, 0, 0, l22], c * 12);
+    size[c] = v(0); bodies[c] = v(10); membrane[c] = v(11);
+  }
+
+  // Links as global cell indices.
+  const childStart = new Uint32Array(C + 1), childList = new Uint32Array(room.linkCount), parents = new Uint16Array(C);
+  for (let k = 0; k < room.linkCount; k++) childStart[frameFirst[room.links[3 * k]] + room.links[3 * k + 1] + 1]++;
+  for (let c = 0; c < C; c++) childStart[c + 1] += childStart[c];
+  const fill = childStart.slice(0, C);
+  for (let k = 0; k < room.linkCount; k++) {
+    const f = room.links[3 * k], source = frameFirst[f] + room.links[3 * k + 1], child = frameFirst[f + 1] + room.links[3 * k + 2];
+    childList[fill[source]++] = child;
+    parents[child]++;
+  }
+
+  // The membrane's contact potential as spherical harmonic coefficients: each contact is a zonal cap of solid angle
+  // 4 pi f toward the neighbour, f its share of the membrane, expanded to degree 3 and rotated by the addition theorem.
+  const potential = new Float32Array(C * 16), crowding = new Float32Array(C), neighbours = new Uint16Array(C);
+  for (let f = 0; f < F; f++) {
+    const first = room.frames[f * FRAME + 9], count = room.frames[f * FRAME + 10];
+    for (let k = first; k < first + count; k++) {
+      const a = frameFirst[f] + room.contacts[3 * k], b = frameFirst[f] + room.contacts[3 * k + 1], faces = room.contacts[3 * k + 2];
+      for (const [self, other] of [[a, b], [b, a]]) {
+        const share = membrane[self] > 0 ? faces / membrane[self] : 0;
+        crowding[self] = Math.min(1, crowding[self] + share);
+        neighbours[self]++;
+        let dx = shape[other * 12] - shape[self * 12], dy = shape[other * 12 + 1] - shape[self * 12 + 1], dz = shape[other * 12 + 2] - shape[self * 12 + 2];
+        const length = Math.hypot(dx, dy, dz) || 1; dx /= length; dy /= length; dz /= length;
+        const cosine = Math.max(-1, Math.min(1, 1 - 2 * share)), p = legendre(cosine, 4);
+        const g = [(1 - cosine) / 2, (p[0] - p[2]) / 2, (p[1] - p[3]) / 2, (p[2] - p[4]) / 2];
+        const y = harmonics(dx, dy, dz);
+        for (let m = 0; m < 16; m++) { const l = DEGREE_OF[m]; potential[self * 16 + m] += g[l] * (4 * Math.PI / (2 * l + 1)) * y[m]; }
+      }
+    }
+  }
+
+  // Named cells, failing cells and their true targets, from the answer key.
+  const kind = new Uint8Array(C);
+  const nodeCell = new Int32Array(room.nodeCount).fill(-1), frameOfTime = new Map();
+  for (let f = 0; f < F; f++) frameOfTime.set(times[f], f);
+  for (let s = 0; s < room.nodeCount; s++) {
+    const o = s * NODE, f = frameOfTime.get(room.nodes[o + 2]), local = room.nodes[o + 6];
+    if (f !== undefined && local >= 0) { nodeCell[s] = frameFirst[f] + local; kind[nodeCell[s]] = Math.max(kind[nodeCell[s]], 1); }
+  }
+  const failures = [], ghosts = Array.from({ length: F }, () => []), tallies = Array.from({ length: F }, () => [0, 0, 0, 0, 0]);
+  for (let e = 0; e < room.edgeCount; e++) {
+    const o = e * EDGE_RECORD, source = room.edges[o], target = room.edges[o + 1], status = room.edges[o + 2];
+    const f = frameOfTime.get(room.nodes[source * NODE + 2]);
+    if (f === undefined) continue;
+    tallies[f][status]++;
+    if (status === 0) continue;
+    failures.push(e);
+    if (nodeCell[source] >= 0) kind[nodeCell[source]] = 2;
+    if (nodeCell[target] >= 0) ghosts[f].push(nodeCell[target]);
+  }
+  failures.sort((x, y) => room.nodes[room.edges[x * EDGE_RECORD] * NODE + 2] - room.nodes[room.edges[y * EDGE_RECORD] * NODE + 2]);
+
+  // Instances: every cell of a frame once per child it continues into, cells that end, cells of the next frame
+  // that begin, and each failing step's true target. One record: from shape, to shape, style, potential.
+  let total = 0;
+  for (let f = 0; f < F; f++) {
+    for (let c = frameFirst[f]; c < frameFirst[f] + frameCells[f]; c++) total += Math.max(1, childStart[c + 1] - childStart[c]);
+    if (f + 1 < F && follows[f]) for (let c = frameFirst[f + 1]; c < frameFirst[f + 1] + frameCells[f + 1]; c++) if (parents[c] === 0) total++;
+    total += ghosts[f].length;
+  }
+  const instances = new Float32Array(total * STRIDE), instanceFirst = new Uint32Array(F), instanceCount = new Uint32Array(F);
+  let at = 0;
+  const put = (from, to, style, cell) => {
+    const o = at * STRIDE;
+    instances.set(shape.subarray(from * 12, from * 12 + 12), o);
+    instances.set(shape.subarray(to * 12, to * 12 + 12), o + 12);
+    instances.set(style, o + 24);
+    instances.set(potential.subarray(cell * 16, cell * 16 + 16), o + 28);
+    at++;
+  };
+  // style: kind (0 cell, 1 named, 2 failing, 3 true target), mode (0 continues, 1 ends, 2 begins, 3 appears), crowding, seed
+  for (let f = 0; f < F; f++) {
+    instanceFirst[f] = at;
+    const next = f + 1 < F && follows[f];
+    for (let c = frameFirst[f]; c < frameFirst[f] + frameCells[f]; c++) {
+      const seed = (c * 0.6180339887) % 1;
+      if (childStart[c + 1] === childStart[c]) { put(c, c, [kind[c], next ? 1 : 0, crowding[c], seed], c); continue; }
+      for (let k = childStart[c]; k < childStart[c + 1]; k++) put(c, childList[k], [kind[c], 0, crowding[c], seed], c);
+    }
+    if (next) for (let c = frameFirst[f + 1]; c < frameFirst[f + 1] + frameCells[f + 1]; c++) {
+      if (parents[c] === 0) put(c, c, [kind[c], 2, crowding[c], (c * 0.6180339887) % 1], c);
+    }
+    for (const c of ghosts[f]) put(c, c, [3, 3, crowding[c], (c * 0.6180339887) % 1], c);
+    instanceCount[f] = at - instanceFirst[f];
+  }
+
+  // Lines and points, static, one range per frame.
+  const lineData = [], pointData = [], linkRange = [], edgeRange = [], pointRange = [];
+  const centre = c => [shape[c * 12], shape[c * 12 + 1], shape[c * 12 + 2]];
+  const segment = (a, b, color, alpha) => lineData.push(...a, ...color, alpha, ...b, ...color, alpha);
+  const corners = [[0, 0, 0], [width, 0, 0], [width, height, 0], [0, height, 0], [0, 0, 4 * depth], [width, 0, 4 * depth], [width, height, 4 * depth], [0, height, 4 * depth]];
+  [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]].forEach(([a, b]) => segment(corners[a], corners[b], [0.35, 0.4, 0.5], 0.35));
+  const boxCount = lineData.length / 7;
+  for (let f = 0; f < F; f++) {
+    let start = lineData.length / 7;
+    for (let c = frameFirst[f]; c < frameFirst[f] + frameCells[f]; c++)
+      for (let k = childStart[c]; k < childStart[c + 1]; k++) segment(centre(c), centre(childList[k]), [0.29, 0.42, 0.59], kind[c] ? 0.6 : 0.28);
+    linkRange.push([start, lineData.length / 7 - start]);
+    start = lineData.length / 7;
+    const pointStart = pointData.length / 7;
+    for (let e = 0; e < room.edgeCount; e++) {
+      const o = e * EDGE_RECORD, source = room.edges[o], target = room.edges[o + 1], status = room.edges[o + 2];
+      if (frameOfTime.get(room.nodes[source * NODE + 2]) !== f) continue;
+      const node = s => [room.nodes[s * NODE + 5], room.nodes[s * NODE + 4], 4 * room.nodes[s * NODE + 3]];
+      const a = node(source), b = node(target);
+      pointData.push(...a, 1, 1, 1, 0.95, ...b, ...(status === 0 ? [1, 1, 1] : [0.25, 0.89, 0.54]), 0.95);
+      segment(a, b, [0.25, 0.89, 0.54], status === 0 ? 0.3 : 0.95);
+      if (status !== 0 && nodeCell[source] >= 0) {
+        const c = nodeCell[source];
+        for (let k = childStart[c]; k < childStart[c + 1]; k++) segment(centre(c), centre(childList[k]), [1, 0.29, 0.24], 0.95);
+      }
+    }
+    edgeRange.push([start, lineData.length / 7 - start]);
+    pointRange.push([pointStart, pointData.length / 7 - pointStart]);
+  }
+
+  return { room, shape, size, bodies, membrane, crowding, neighbours, kind, times, follows, lags, frameFirst, frameCells, childStart, childList,
+    nodeCell, frameOfTime, failures, tallies, instances, instanceFirst, instanceCount,
+    lines: new Float32Array(lineData), boxCount, linkRange, edgeRange, points: new Float32Array(pointData), pointRange };
+}
+
+// ---- the device ---------------------------------------------------------------------------------------
+
+const canvas = document.getElementById("room");
+const gl = canvas.getContext("webgl2", { antialias: true, premultipliedAlpha: false });
+
+function program(vertexSource, fragmentSource) {
+  const compile = (type, source) => {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source); gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(shader));
+    return shader;
+  };
+  const made = gl.createProgram();
+  gl.attachShader(made, compile(gl.VERTEX_SHADER, vertexSource));
+  gl.attachShader(made, compile(gl.FRAGMENT_SHADER, fragmentSource));
+  gl.linkProgram(made);
+  if (!gl.getProgramParameter(made, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(made));
+  const uniforms = {};
+  for (let k = 0; k < gl.getProgramParameter(made, gl.ACTIVE_UNIFORMS); k++) {
+    const name = gl.getActiveUniform(made, k).name;
+    uniforms[name] = gl.getUniformLocation(made, name);
+  }
+  return { made, uniforms };
+}
+
+// The instance record as attributes 1 to 13; 0 is the mesh.
+const INSTANCE_LAYOUT = `
+layout(location=1) in vec3 fromCentre;
+layout(location=2) in vec3 fromColumn0;
+layout(location=3) in vec3 fromColumn1;
+layout(location=4) in vec3 fromColumn2;
+layout(location=5) in vec3 toCentre;
+layout(location=6) in vec3 toColumn0;
+layout(location=7) in vec3 toColumn1;
+layout(location=8) in vec3 toColumn2;
+layout(location=9) in vec4 style;
+layout(location=10) in vec4 potential0;
+layout(location=11) in vec4 potential1;
+layout(location=12) in vec4 potential2;
+layout(location=13) in vec4 potential3;
+uniform mat4 viewProjection;
+uniform vec3 eye;
+uniform float step;
+uniform float time;
+uniform vec3 focus;
+uniform float reach;
+uniform float keyOnly;
+uniform float cellAlpha;
+uniform float coat;
+uniform float crowdingGain;
+const float EDGE = 2.2360680;
+const vec3 COLD = vec3(0.23, 0.61, 0.94);
+const vec3 NAMED = vec3(0.75, 0.9, 1.0);
+const vec3 HOT = vec3(1.0, 0.48, 0.24);
+const vec3 TRUE_TARGET = vec3(0.25, 0.89, 0.54);
+const vec3 RISK = vec3(0.72, 0.45, 1.0);
+struct Body { vec3 centre; mat3 shape; vec3 color; float alpha; bool hidden; };
+Body body() {
+  float kind = style.x, mode = style.y;
+  float s = mode == 0.0 ? step : 0.0;
+  Body b;
+  b.centre = mix(fromCentre, toCentre, s);
+  b.shape = mat3(mix(fromColumn0, toColumn0, s), mix(fromColumn1, toColumn1, s), mix(fromColumn2, toColumn2, s));
+  vec3 base = kind == 3.0 ? TRUE_TARGET : (kind == 2.0 ? HOT : (kind == 1.0 ? NAMED : COLD));
+  b.color = mix(base, RISK, crowdingGain * style.z);
+  float strength = kind == 2.0 ? max(cellAlpha, 0.85) : (kind >= 1.0 ? max(cellAlpha, 0.55) : cellAlpha);
+  float presence = mode == 1.0 ? 1.0 - step : (mode == 2.0 ? step : (mode == 3.0 ? 0.3 + 0.6 * step : 1.0));
+  b.alpha = strength * presence;
+  b.hidden = (keyOnly > 0.5 && kind == 0.0) || (reach > 0.0 && distance(b.centre, focus) > reach) || b.alpha < 0.003;
+  return b;
+}
+float membranePotential(vec3 n) {
+  float x = n.x, y = n.y, z = n.z;
+  float value = potential0.x * 0.282095
+    + potential0.y * 0.488603 * y + potential0.z * 0.488603 * z + potential0.w * 0.488603 * x
+    + potential1.x * 1.092548 * x * y + potential1.y * 1.092548 * y * z + potential1.z * 0.315392 * (3.0 * z * z - 1.0)
+    + potential1.w * 1.092548 * x * z + potential2.x * 0.546274 * (x * x - y * y)
+    + potential2.y * 0.590044 * y * (3.0 * x * x - y * y) + potential2.z * 2.890611 * x * y * z
+    + potential2.w * 0.457046 * y * (5.0 * z * z - 1.0) + potential3.x * 0.373176 * z * (5.0 * z * z - 3.0)
+    + potential3.y * 0.457046 * x * (5.0 * z * z - 1.0) + potential3.z * 1.445306 * z * (x * x - y * y)
+    + potential3.w * 0.590044 * x * (x * x - 3.0 * y * y);
+  return clamp(value, 0.0, 1.0);
+}`;
+
+// The lipid wall: the body's shape scaled in by the coat's share, lit only where seen edge on.
+const WALL = program(`#version 300 es
+layout(location=0) in vec3 position;
+${INSTANCE_LAYOUT}
+out vec3 normalWorld;
+out vec3 toEye;
+out vec4 tint;
+void main() {
+  Body b = body();
+  if (b.hidden) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); tint = vec4(0.0); return; }
+  vec3 world = b.centre + b.shape * (position * EDGE * (1.0 - coat));
+  normalWorld = normalize(transpose(inverse(b.shape)) * position);
+  toEye = normalize(eye - world);
+  tint = vec4(b.color, b.alpha);
+  gl_Position = viewProjection * vec4(world, 1.0);
+}`, `#version 300 es
+precision highp float;
+in vec3 normalWorld;
+in vec3 toEye;
+in vec4 tint;
+uniform float rimPower;
+out vec4 outColor;
+void main() {
+  float rim = pow(1.0 - abs(dot(normalize(normalWorld), toEye)), rimPower);
+  outColor = vec4(tint.rgb * (0.45 + 0.9 * rim), tint.a * (0.03 + 0.97 * rim));
+}`);
+
+// The coat: numerous short strands rooted on the wall and reaching to the body's edge, drawn from the vertex index.
+// A strand's direction is kinematic until it has grown: a cell that begins or appears unfolds its strands from the
+// wall's tangent to the outward direction, alpha = 3 tau^2 - 2 tau^3, and hands them to the dynamics over the rest
+// of the step, beta. The dynamics is the closed form of a damped spring on a moving root: strands trail the cell's
+// motion, a contact's potential slows that trailing and warms and jostles the strands there.
+const COAT = program(`#version 300 es
+${INSTANCE_LAYOUT}
+uniform float strands;
+out vec4 tint;
+float hash(float value) { return fract(sin(value * 91.3458) * 47453.5453); }
+void main() {
+  Body b = body();
+  if (b.hidden) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); tint = vec4(0.0); return; }
+  float strand = float(gl_VertexID / 2);
+  float tip = float(gl_VertexID % 2);
+  float golden = 2.3999632;
+  float height = 1.0 - 2.0 * (strand + 0.5) / strands;
+  float ring = sqrt(max(0.0, 1.0 - height * height));
+  float around = golden * strand + style.w * 6.2831853;
+  vec3 u = vec3(cos(around) * ring, height, sin(around) * ring);
+  vec3 n = normalize(transpose(inverse(b.shape)) * u);
+  vec3 outward = b.shape * u;
+  vec3 root = b.centre + outward * EDGE * (1.0 - coat);
+  float reachOut = coat * EDGE * length(outward) * (0.55 + 0.45 * hash(strand + style.w * 17.0));
+  vec3 helper = abs(n.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
+  vec3 tangent = normalize(cross(n, helper));
+  float grow = (style.y == 2.0 || style.y == 3.0) ? step : 1.0;
+  float alpha = grow * grow * (3.0 - 2.0 * grow);
+  float beta = clamp((grow - 0.6) / 0.4, 0.0, 1.0);
+  vec3 direction = normalize(mix(tangent, normalize(mix(normalize(outward), n, 0.6)), alpha));
+  float contact = membranePotential(n);
+  vec3 velocity = style.y == 0.0 ? toCentre - fromCentre : vec3(0.0);
+  vec3 trail = -velocity * 0.35 / (1.0 + 6.0 * contact);
+  vec3 jostle = tangent * sin(time * (2.3 + hash(strand) * 2.0) + strand * 1.7 + style.w * 31.0) * (0.12 + 0.9 * contact);
+  vec3 end = root + direction * reachOut + beta * (trail + jostle * reachOut);
+  gl_Position = viewProjection * vec4(mix(root, end, tip), 1.0);
+  vec3 warm = mix(b.color, vec3(1.0, 0.82, 0.48), contact);
+  tint = vec4(mix(b.color, warm, tip), b.alpha * mix(0.5, 0.06, tip));
+}`, `#version 300 es
+precision highp float;
+in vec4 tint;
+out vec4 outColor;
+void main() { outColor = tint; }`);
+
+const LINES = program(`#version 300 es
+layout(location=0) in vec3 position;
+layout(location=1) in vec4 color;
+uniform mat4 viewProjection;
+uniform vec3 focus;
+uniform float reach;
+out vec4 tint;
+void main() { tint = (reach > 0.0 && distance(position, focus) > reach) ? vec4(0.0) : color; gl_Position = viewProjection * vec4(position, 1.0); }`, `#version 300 es
+precision highp float;
+in vec4 tint;
+out vec4 outColor;
+void main() { outColor = tint; }`);
+
+const POINTS = program(`#version 300 es
+layout(location=0) in vec3 position;
+layout(location=1) in vec4 color;
+uniform mat4 viewProjection;
+uniform float scale;
+out vec4 tint;
+void main() { tint = color; gl_Position = viewProjection * vec4(position, 1.0); gl_PointSize = scale / gl_Position.w; }`, `#version 300 es
+precision highp float;
+in vec4 tint;
+out vec4 outColor;
+void main() {
+  vec2 from = gl_PointCoord * 2.0 - 1.0;
+  float reach = dot(from, from);
+  if (reach > 1.0) discard;
+  outColor = vec4(tint.rgb, tint.a * (1.0 - reach) * (1.0 - reach));
+}`);
+
+const PLANE = program(`#version 300 es
+layout(location=0) in vec3 position;
+layout(location=1) in vec2 texel;
+uniform mat4 viewProjection;
+out vec2 at;
+void main() { at = texel; gl_Position = viewProjection * vec4(position, 1.0); }`, `#version 300 es
+precision highp float;
+in vec2 at;
+uniform sampler2D image;
+uniform float opacity;
+out vec4 outColor;
+void main() { float level = texture(image, at).r; outColor = vec4(vec3(level), opacity * (0.25 + 0.75 * level)); }`);
+
+function sphere(rings, segments) {
+  const out = [];
+  const point = (r, s) => { const d = Math.PI * r / rings, a = 2 * Math.PI * s / segments; return [Math.sin(d) * Math.cos(a), Math.cos(d), Math.sin(d) * Math.sin(a)]; };
+  for (let r = 0; r < rings; r++) for (let s = 0; s < segments; s++) {
+    const a = point(r, s), b = point(r + 1, s), c = point(r + 1, s + 1), d = point(r, s + 1);
+    out.push(...a, ...b, ...c, ...a, ...c, ...d);
+  }
+  return new Float32Array(out);
+}
+const MESH = sphere(12, 20);
+
+const device = { instanceBuffer: gl.createBuffer(), meshBuffer: gl.createBuffer(), lineBuffer: gl.createBuffer(), pointBuffer: gl.createBuffer(),
+  planeBuffer: gl.createBuffer(), bodyVao: gl.createVertexArray(), lineVao: gl.createVertexArray(), pointVao: gl.createVertexArray(),
+  planeVao: gl.createVertexArray(), texture: gl.createTexture() };
+
+gl.bindBuffer(gl.ARRAY_BUFFER, device.meshBuffer);
+gl.bufferData(gl.ARRAY_BUFFER, MESH, gl.STATIC_DRAW);
+gl.bindVertexArray(device.bodyVao);
+gl.bindBuffer(gl.ARRAY_BUFFER, device.meshBuffer);
+gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 0, 0);
+for (let k = 1; k <= 13; k++) { gl.enableVertexAttribArray(k); gl.vertexAttribDivisor(k, 1); }
+gl.bindVertexArray(null);
+
+function pointInstances(firstInstance) {
+  // Pointing the attributes at a frame's first record is the whole per frame upload: nothing is copied.
+  gl.bindVertexArray(device.bodyVao);
+  gl.bindBuffer(gl.ARRAY_BUFFER, device.instanceBuffer);
+  const base = firstInstance * STRIDE * 4;
+  const fields = [[1, 3, 0], [2, 3, 3], [3, 3, 6], [4, 3, 9], [5, 3, 12], [6, 3, 15], [7, 3, 18], [8, 3, 21], [9, 4, 24], [10, 4, 28], [11, 4, 32], [12, 4, 36], [13, 4, 40]];
+  for (const [location, count, offset] of fields) gl.vertexAttribPointer(location, count, gl.FLOAT, false, STRIDE * 4, base + offset * 4);
+}
+
+for (const [vao, buffer] of [[device.lineVao, device.lineBuffer], [device.pointVao, device.pointBuffer]]) {
+  gl.bindVertexArray(vao);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 28, 0);
+  gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1, 4, gl.FLOAT, false, 28, 12);
+}
+gl.bindVertexArray(device.planeVao);
+gl.bindBuffer(gl.ARRAY_BUFFER, device.planeBuffer);
+gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 20, 0);
+gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1, 2, gl.FLOAT, false, 20, 12);
+gl.bindVertexArray(null);
+gl.bindTexture(gl.TEXTURE_2D, device.texture);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+gl.texImage2D(gl.TEXTURE_2D, 0, gl.R8, 1, 1, 0, gl.RED, gl.UNSIGNED_BYTE, new Uint8Array([0]));
+
+// ---- camera -------------------------------------------------------------------------------------------
+
+const camera = { yaw: 0.6, pitch: 0.45, distance: 520, target: [128, 128, 128] };
+const viewProjection = new Float32Array(16), eye = new Float32Array(3);
+
+function updateCamera() {
+  eye[0] = camera.target[0] + camera.distance * Math.cos(camera.pitch) * Math.sin(camera.yaw);
+  eye[1] = camera.target[1] - camera.distance * Math.sin(camera.pitch);
+  eye[2] = camera.target[2] + camera.distance * Math.cos(camera.pitch) * Math.cos(camera.yaw);
+  let zx = eye[0] - camera.target[0], zy = eye[1] - camera.target[1], zz = eye[2] - camera.target[2];
+  let zl = Math.hypot(zx, zy, zz); zx /= zl; zy /= zl; zz /= zl;
+  let xx = -zz, xy = 0, xz = zx;
+  let xl = Math.hypot(xx, xy, xz) || 1; xx /= xl; xy /= xl; xz /= xl;
+  // up is -y: flip the cross product so y points down the screen as the image's rows do.
+  xx = -xx; xz = -xz;
+  const yx = zy * xz - zz * xy, yy = zz * xx - zx * xz, yz = zx * xy - zy * xx;
+  const view = [xx, yx, zx, 0, xy, yy, zy, 0, xz, yz, zz, 0,
+    -(xx * eye[0] + xy * eye[1] + xz * eye[2]), -(yx * eye[0] + yy * eye[1] + yz * eye[2]), -(zx * eye[0] + zy * eye[1] + zz * eye[2]), 1];
+  const f = 1 / Math.tan(0.4), aspect = canvas.width / canvas.height, near = 1, far = 5000, range = 1 / (near - far);
+  const projection = [f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (far + near) * range, -1, 0, 0, 2 * far * near * range, 0];
+  for (let column = 0; column < 4; column++) for (let row = 0; row < 4; row++) {
+    let sum = 0;
+    for (let k = 0; k < 4; k++) sum += projection[k * 4 + row] * view[column * 4 + k];
+    viewProjection[column * 4 + row] = sum;
+  }
+}
+
+// ---- state and the frame loop -------------------------------------------------------------------------
+
+const state = { built: null, sample: "", clock: 0, rate: 0, focus: -1, lastFrame: -1, lastFocus: -2, last: performance.now() };
+const controls = {};
+for (const id of ["cellAlpha", "rim", "coat", "strands", "crowding", "reach", "keyOnly", "showLinks", "showEdges", "showBox", "sliceZ", "imageOpacity"]) controls[id] = document.getElementById(id);
+
+function frameAndStep() {
+  const built = state.built, last = built.times.length - 1;
+  const frame = Math.min(Math.floor(state.clock), last);
+  return { frame, step: frame < last && built.follows[frame] ? state.clock - frame : 0 };
+}
+
+function draw(now) {
+  requestAnimationFrame(draw);
+  const width = Math.floor(canvas.clientWidth * devicePixelRatio), height = Math.floor(canvas.clientHeight * devicePixelRatio);
+  if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; }
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  gl.clearColor(0.067, 0.082, 0.11, 1);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  const built = state.built;
+  if (!built) return;
+  const elapsed = Math.min(0.1, (now - state.last) / 1000);
+  state.last = now;
+  if (state.rate > 0) {
+    state.clock = Math.min(state.clock + state.rate * elapsed, built.times.length - 1);
+    if (state.clock >= built.times.length - 1) setRate(0);
+    syncClock();
+  }
+  updateCamera();
+  const { frame, step } = frameAndStep();
+  const reach = parseFloat(controls.reach.value);
+  gl.enable(gl.BLEND);
+  gl.disable(gl.DEPTH_TEST);
+
+  if (image.superimposed && image.width > 0) {
+    const z = 4 * parseInt(controls.sliceZ.value, 10);
+    gl.bindBuffer(gl.ARRAY_BUFFER, device.planeBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, z, 0, 0, image.width, 0, z, 1, 0, 0, image.height, z, 0, 1, image.width, image.height, z, 1, 1]), gl.DYNAMIC_DRAW);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.useProgram(PLANE.made);
+    gl.uniformMatrix4fv(PLANE.uniforms.viewProjection, false, viewProjection);
+    gl.uniform1f(PLANE.uniforms.opacity, parseFloat(controls.imageOpacity.value));
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, device.texture);
+    gl.uniform1i(PLANE.uniforms.image, 0);
+    gl.bindVertexArray(device.planeVao);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+
+  gl.useProgram(LINES.made);
+  gl.uniformMatrix4fv(LINES.uniforms.viewProjection, false, viewProjection);
+  gl.uniform3fv(LINES.uniforms.focus, camera.target);
+  gl.uniform1f(LINES.uniforms.reach, reach);
+  gl.bindVertexArray(device.lineVao);
+  if (controls.showBox.checked) gl.drawArrays(gl.LINES, 0, built.boxCount);
+  if (controls.showLinks.checked && built.linkRange[frame][1] > 0) gl.drawArrays(gl.LINES, built.linkRange[frame][0], built.linkRange[frame][1]);
+  if (controls.showEdges.checked && built.edgeRange[frame][1] > 0) gl.drawArrays(gl.LINES, built.edgeRange[frame][0], built.edgeRange[frame][1]);
+
+  const shared = (p) => {
+    gl.useProgram(p.made);
+    gl.uniformMatrix4fv(p.uniforms.viewProjection, false, viewProjection);
+    gl.uniform3fv(p.uniforms.eye, eye);
+    gl.uniform1f(p.uniforms.step, step);
+    gl.uniform1f(p.uniforms.time, now / 1000);
+    gl.uniform3fv(p.uniforms.focus, camera.target);
+    gl.uniform1f(p.uniforms.reach, reach);
+    gl.uniform1f(p.uniforms.keyOnly, controls.keyOnly.checked ? 1 : 0);
+    gl.uniform1f(p.uniforms.cellAlpha, parseFloat(controls.cellAlpha.value));
+    gl.uniform1f(p.uniforms.coat, parseFloat(controls.coat.value));
+    gl.uniform1f(p.uniforms.crowdingGain, parseFloat(controls.crowding.value));
+  };
+  pointInstances(built.instanceFirst[frame]);
+  const count = built.instanceCount[frame];
+  shared(WALL);
+  gl.uniform1f(WALL.uniforms.rimPower, parseFloat(controls.rim.value));
+  gl.drawArraysInstanced(gl.TRIANGLES, 0, MESH.length / 3, count);
+  const strands = parseInt(controls.strands.value, 10);
+  if (strands > 0) {
+    shared(COAT);
+    gl.uniform1f(COAT.uniforms.strands, strands);
+    gl.drawArraysInstanced(gl.LINES, 0, 2 * strands, count);
+  }
+
+  if (controls.showEdges.checked && built.pointRange[frame][1] > 0) {
+    gl.useProgram(POINTS.made);
+    gl.uniformMatrix4fv(POINTS.uniforms.viewProjection, false, viewProjection);
+    gl.uniform1f(POINTS.uniforms.scale, 2600 * devicePixelRatio);
+    gl.bindVertexArray(device.pointVao);
+    gl.drawArrays(gl.POINTS, built.pointRange[frame][0], built.pointRange[frame][1]);
+  }
+  gl.bindVertexArray(null);
+
+  if (frame !== state.lastFrame || state.focus !== state.lastFocus) { updateReadings(frame); state.lastFrame = frame; state.lastFocus = state.focus; }
+  refreshImage(frame);
+}
+
+// ---- readings, written only when the frame or the focus changes ---------------------------------------
+
+function updateReadings(frame) {
+  const b = state.built, room = b.room;
+  const tally = b.tallies[frame];
+  const running = [0, 0, 0, 0, 0];
+  for (let f = 0; f <= frame; f++) for (let k = 0; k < 5; k++) running[k] += b.tallies[f][k];
+  let links = 0;
+  for (let c = b.frameFirst[frame]; c < b.frameFirst[frame] + b.frameCells[frame]; c++) links += b.childStart[c + 1] - b.childStart[c];
+  const rows = [
+    ["sample", state.sample],
+    ["frame", b.follows[frame] && frame + 1 < b.times.length ? `${b.times[frame]} → ${b.times[frame + 1]}` : `${b.times[frame]}`],
+    ["cells held", b.frameCells[frame]],
+    ["links made", links],
+    ["view lag z y x", b.follows[frame] ? b.lags[frame].join("  ") : "none"],
+    ["", ""],
+    ["named steps here", tally.reduce((x, y) => x + y, 0)],
+    ["right here", tally[0]],
+    ["wrong here", tally[1] + tally[2]],
+    ["unlinked here", tally[3]],
+    ["right so far", running[0]],
+    ["wrong so far", running[1] + running[2] + running[3]],
+  ];
+  if (state.focus >= 0) {
+    const e = b.failures[state.focus], o = e * EDGE_RECORD;
+    const source = room.edges[o], target = room.edges[o + 1];
+    const node = s => [room.nodes[s * NODE + 3], room.nodes[s * NODE + 4], room.nodes[s * NODE + 5]];
+    const from = node(source), to = node(target);
+    const cell = b.nodeCell[source], truth = b.nodeCell[target];
+    const children = cell >= 0 ? Array.from(b.childList.subarray(b.childStart[cell], b.childStart[cell + 1])) : [];
+    rows.push(["", ""], ["focused failure", `${state.focus + 1} of ${b.failures.length}`], ["status", STATUS[room.edges[o + 2]]],
+      ["source node z y x", from.join(" ")], ["target node z y x", to.join(" ")],
+      ["true step", to.map((v, k) => v - from[k]).join(" ")],
+      ["peak carried by", [room.edges[o + 3], room.edges[o + 4], room.edges[o + 5]].join(" ")],
+      ["cell", cell >= 0 ? `${b.size[cell]} voxels, ${b.bodies[cell]} bodies` : "not held"],
+      ["membrane", cell >= 0 ? `${b.membrane[cell]} faces` : ""],
+      ["in contact", cell >= 0 ? `${Math.round(100 * b.crowding[cell])}% with ${b.neighbours[cell]} cells` : ""],
+      ["true target", truth >= 0 ? `${b.size[truth]} voxels, ${b.bodies[truth]} bodies` : "not held"],
+      ["linked to", children.length ? children.map(c => `${c === truth ? "true " : ""}${b.size[c]}v/${b.bodies[c]}b`).join(", ") : "nothing"]);
+  }
+  document.getElementById("readingTable").innerHTML = rows.map(([name, value]) => name === "" ? `<tr class="gap"><td></td><td></td></tr>` : `<tr><td>${name}</td><td>${value}</td></tr>`).join("");
+}
+
+// ---- the live image -----------------------------------------------------------------------------------
+
+const image = { superimposed: false, key: "", loading: "", width: 0, height: 0 };
+function refreshImage(frame) {
+  const z = parseInt(controls.sliceZ.value, 10), t = state.built.times[frame];
+  const key = `${state.sample}/${t}/${z}`;
+  if (key === image.key || key === image.loading) return;
+  image.loading = key;
+  fetch(`slice?sample=${state.sample}&t=${t}&z=${z}`).then(async response => {
+    if (!response.ok) throw new Error(await response.text());
+    const height = parseInt(response.headers.get("X-Height"), 10), width = parseInt(response.headers.get("X-Width"), 10);
+    const values = new Uint16Array(await response.arrayBuffer());
+    if (image.loading !== key) return;
+    let brightest = 1;
+    for (let k = 0; k < values.length; k++) if (values[k] > brightest) brightest = values[k];
+    const levels = new Uint8Array(values.length);
+    for (let k = 0; k < values.length; k++) levels[k] = (values[k] * 255 / brightest) | 0;
+    image.loading = ""; image.key = key; image.width = width; image.height = height;
+    const shown = document.getElementById("liveImage");
+    shown.width = width; shown.height = height;
+    const context = shown.getContext("2d"), pixels = context.createImageData(width, height);
+    for (let k = 0; k < levels.length; k++) { pixels.data[4 * k] = pixels.data[4 * k + 1] = pixels.data[4 * k + 2] = levels[k]; pixels.data[4 * k + 3] = 255; }
+    context.putImageData(pixels, 0, 0);
+    gl.bindTexture(gl.TEXTURE_2D, device.texture);
+    gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.R8, width, height, 0, gl.RED, gl.UNSIGNED_BYTE, levels);
+  }).catch(error => { image.loading = ""; document.getElementById("status").textContent = `slice: ${error.message}`; });
+}
+
+function setSuperimposed(on) {
+  image.superimposed = on;
+  document.getElementById("imageWindow").classList.toggle("superimposed", on);
+  document.getElementById("imageMode").textContent = on ? `in the volume at z ${controls.sliceZ.value}` : "floating · drag onto the volume";
+}
+
+(function draggableWindow() {
+  const panel = document.getElementById("imageWindow");
+  let grab = null;
+  const start = event => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    const box = panel.getBoundingClientRect();
+    grab = { dx: event.clientX - box.left, dy: event.clientY - box.top };
+    panel.classList.add("dragging");
+  };
+  document.getElementById("imageGrip").addEventListener("mousedown", start);
+  document.getElementById("liveImage").addEventListener("mousedown", start);
+  window.addEventListener("mousemove", event => {
+    if (!grab) return;
+    panel.style.left = `${Math.max(0, event.clientX - grab.dx)}px`;
+    panel.style.top = `${Math.max(0, event.clientY - grab.dy)}px`;
+  });
+  window.addEventListener("mouseup", event => {
+    if (!grab) return;
+    grab = null;
+    panel.classList.remove("dragging");
+    panel.style.pointerEvents = "none";
+    const under = document.elementFromPoint(event.clientX, event.clientY);
+    panel.style.pointerEvents = "";
+    if (under === canvas) setSuperimposed(true);
+  });
+})();
+
+// ---- controls -----------------------------------------------------------------------------------------
+
+const RATES = [0, 0.5, 1, 2, 4];
+function syncClock() {
+  document.getElementById("clock").value = state.clock;
+  document.getElementById("clockValue").textContent = state.built ? state.built.times[Math.floor(state.clock)] : 0;
+}
+function setRate(index) {
+  state.rate = RATES[index];
+  document.getElementById("rate").value = index;
+  document.getElementById("rateValue").textContent = state.rate === 0 ? "held" : `${state.rate}/s`;
+}
+document.getElementById("clock").addEventListener("input", event => { state.clock = parseFloat(event.target.value); setRate(0); syncClock(); });
+document.getElementById("rate").addEventListener("input", event => {
+  setRate(parseInt(event.target.value, 10));
+  if (state.rate > 0 && state.built && state.clock >= state.built.times.length - 1) state.clock = 0;
+});
+for (const [id, places] of [["cellAlpha", 2], ["rim", 2], ["coat", 2], ["strands", 0], ["crowding", 2], ["reach", 0], ["sliceZ", 0], ["imageOpacity", 2]]) {
+  const input = controls[id], shown = document.getElementById(id + "Value");
+  input.addEventListener("input", () => {
+    shown.textContent = id === "reach" && parseFloat(input.value) === 0 ? "all" : parseFloat(input.value).toFixed(places);
+    if (id === "sliceZ" && image.superimposed) setSuperimposed(true);
+  });
+}
+document.getElementById("superimpose").addEventListener("click", () => setSuperimposed(true));
+document.getElementById("liftOut").addEventListener("click", () => setSuperimposed(false));
+function setControl(id, value, shown) { controls[id].value = value; document.getElementById(id + "Value").textContent = shown; }
+
+function focusFailure(position) {
+  const b = state.built;
+  if (!b || b.failures.length === 0) return;
+  state.focus = (position + b.failures.length) % b.failures.length;
+  const source = b.room.edges[b.failures[state.focus] * EDGE_RECORD];
+  const o = source * NODE;
+  state.clock = b.frameOfTime.get(b.room.nodes[o + 2]) + 0.5;
+  setRate(0);
+  camera.target = [b.room.nodes[o + 5], b.room.nodes[o + 4], 4 * b.room.nodes[o + 3]];
+  camera.distance = 160;
+  setControl("sliceZ", b.room.nodes[o + 3], String(b.room.nodes[o + 3]));
+  if (parseFloat(controls.reach.value) === 0) setControl("reach", 48, "48");
+  if (image.superimposed) setSuperimposed(true);
+  syncClock();
+}
+document.getElementById("next").addEventListener("click", () => focusFailure(state.focus + 1));
+document.getElementById("previous").addEventListener("click", () => focusFailure(state.focus - 1));
+document.getElementById("overview").addEventListener("click", () => {
+  state.focus = -1;
+  setControl("reach", 0, "all");
+  const [d, h, w] = state.built.room.shape;
+  camera.target = [w / 2, h / 2, 2 * d]; camera.distance = 520;
+});
+
+let dragging = null;
+canvas.addEventListener("contextmenu", event => event.preventDefault());
+canvas.addEventListener("mousedown", event => { dragging = { x: event.clientX, y: event.clientY, button: event.button }; });
+window.addEventListener("mouseup", () => { dragging = null; });
+window.addEventListener("mousemove", event => {
+  if (!dragging) return;
+  const dx = event.clientX - dragging.x, dy = event.clientY - dragging.y;
+  dragging.x = event.clientX; dragging.y = event.clientY;
+  if (dragging.button === 2) {
+    const scale = camera.distance / 600;
+    camera.target[0] -= Math.cos(camera.yaw) * dx * scale;
+    camera.target[2] += Math.sin(camera.yaw) * dx * scale;
+    camera.target[1] -= dy * scale;
+  } else {
+    camera.yaw -= dx * 0.006;
+    camera.pitch = Math.max(-1.45, Math.min(1.45, camera.pitch + dy * 0.006));
+  }
+});
+canvas.addEventListener("wheel", event => { event.preventDefault(); camera.distance = Math.max(20, Math.min(3000, camera.distance * Math.exp(event.deltaY * 0.001))); }, { passive: false });
+
+// ---- loading ------------------------------------------------------------------------------------------
+
+async function load(sample) {
+  document.getElementById("status").textContent = `reading ${sample}…`;
+  const started = performance.now();
+  const room = view(await (await fetch(`data/${sample}.room`)).arrayBuffer());
+  const built = build(room);
+  gl.bindBuffer(gl.ARRAY_BUFFER, device.instanceBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, built.instances, gl.STATIC_DRAW);
+  gl.bindBuffer(gl.ARRAY_BUFFER, device.lineBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, built.lines, gl.STATIC_DRAW);
+  gl.bindBuffer(gl.ARRAY_BUFFER, device.pointBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, built.points, gl.STATIC_DRAW);
+  state.built = built; state.sample = sample; state.focus = -1; state.clock = 0; state.lastFrame = -1;
+  image.key = "";
+  const [d, h, w] = room.shape;
+  camera.target = [w / 2, h / 2, 2 * d];
+  document.getElementById("clock").max = built.times.length - 1;
+  controls.sliceZ.max = d - 1;
+  setControl("sliceZ", Math.floor(d / 2), String(Math.floor(d / 2)));
+  document.getElementById("failureCount").textContent = `${built.failures.length} failing named step${built.failures.length === 1 ? "" : "s"} in this sample`;
+  document.getElementById("status").textContent = `${built.times.length} frames, ${room.cellCount} cells, ${built.instanceCount.reduce((x, y) => x + y, 0)} instances on the device, loaded in ${Math.round(performance.now() - started)} ms`;
+  syncClock();
+  history.replaceState(null, "", `?sample=${sample}`);
+}
+
+const PARAMS = new URLSearchParams(location.search);
+const select = document.getElementById("sample");
+select.addEventListener("change", () => load(select.value));
+fetch("samples").then(response => response.json()).then(names => {
+  for (const name of names) { const option = document.createElement("option"); option.value = name; option.textContent = name; select.appendChild(option); }
+  const opening = names.includes(PARAMS.get("sample")) ? PARAMS.get("sample") : names[0];
+  select.value = opening;
+  return load(opening);
+}).then(() => { if (PARAMS.has("failure")) focusFailure(parseInt(PARAMS.get("failure"), 10)); })
+  .catch(error => { document.getElementById("status").textContent = error.message; });
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>

@@ -89,13 +89,13 @@ rm -f "$OUT/bench_exact_gpu.exe"
 # empty one to nvcc.
 # shellcheck disable=SC2086
 nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
-    -I "$ROOT/src/engine/c/no_rounding" \
+    -I "$ROOT/src/engine/base/no_rounding" \
     -DANCHOR_EXACT_HAVE_CUDA=1 $WIDTH_DEFINES \
     -o "$OUT/bench_exact_gpu.exe" \
-    "$ROOT/src/engine/c/no_rounding/arm_cuda.cu" \
-    "$ROOT/src/engine/c/no_rounding/exact_integer.c" \
-    "$ROOT/src/engine/c/no_rounding/arm_portable.c" \
-    "$ROOT/src/engine/c/bench/bench_exact_arms.c" \
+    "$ROOT/src/engine/base/no_rounding/arm_cuda.cu" \
+    "$ROOT/src/engine/base/no_rounding/exact_integer.c" \
+    "$ROOT/src/engine/base/no_rounding/arm_portable.c" \
+    "$ROOT/bench/bench_exact_arms.c" \
     2>&1 | grep -viE "^\s*$|Copyright|Microsoft \(R\)|exact_integer\.c$|arm_portable\.c$|bench_exact_arms\.c$|arm_cuda\.cu$" | head -20
 NVCC_STATUS=${PIPESTATUS[0]}
 

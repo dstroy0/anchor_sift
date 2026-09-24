@@ -1,0 +1,15 @@
+  object 44b6_0113de3b: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  rules: pick unbound merge-split resolve climb
+  sample                   edges  correct/branched/wrong/no link/missed
+  44b6_0113de3b            50     50/0/0/0/0   100 frames, 74406 objects of 303492 leaves, largest 1765, rejoined 9, engines 11585 ms (read 270, basins 4652, store 506, ties 1832, motion 3013, landing 1, overlap 691, climb 616), tree 537 ms
+  object 44b6_0b24845f: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_0b24845f            49     49/0/0/0/0   100 frames, 45933 objects of 172357 leaves, largest 1255, rejoined 6, engines 11067 ms (read 246, basins 4543, store 483, ties 1712, motion 2935, landing 0, overlap 708, climb 436), tree 234 ms
+
+  POOLED over 99 ground truth edges:
+    correct link              99   100.0%
+    target among branches      0   0.0%
+    wrong link                 0   0.0%
+    no link made               0   0.0%
+    endpoint undetected        0   0.0%
+
+  23785 ms

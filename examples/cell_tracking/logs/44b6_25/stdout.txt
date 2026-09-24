@@ -1,0 +1,61 @@
+  object 44b6_0113de3b: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  rules: pick unbound merge-split resolve climb
+  sample                   edges  correct/branched/wrong/no link/missed
+  44b6_0113de3b            50     50/0/0/0/0   100 frames, 74406 objects of 303492 leaves, largest 1765, rejoined 9, engines 11057 ms (read 237, basins 4408, store 494, ties 1663, motion 3000, landing 1, overlap 633, climb 617), tree 871 ms
+  object 44b6_0b24845f: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_0b24845f            49     49/0/0/0/0   100 frames, 45933 objects of 172357 leaves, largest 1255, rejoined 6, engines 10800 ms (read 237, basins 4461, store 442, ties 1589, motion 2932, landing 0, overlap 703, climb 433), tree 926 ms
+  object 44b6_0c582fdc: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_0c582fdc            70     70/0/0/0/0   100 frames, 66992 objects of 279734 leaves, largest 2285, rejoined 12, engines 11368 ms (read 627, basins 4423, store 480, ties 1633, motion 2972, landing 0, overlap 658, climb 569), tree 798 ms
+  object 44b6_0db75fae: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_0db75fae            151    149/0/2/0/0   100 frames, 99638 objects of 309810 leaves, largest 2777, rejoined 10, engines 11408 ms (read 641, basins 4474, store 498, ties 1699, motion 2912, landing 0, overlap 628, climb 551), tree 848 ms
+  object 44b6_12dfb391: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_12dfb391            773    757/0/16/0/0   100 frames, 65214 objects of 154177 leaves, largest 466, rejoined 1, engines 10931 ms (read 636, basins 4314, store 454, ties 1627, motion 2936, landing 0, overlap 579, climb 381), tree 463 ms
+  object 44b6_144b256d: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_144b256d            119    119/0/0/0/0   100 frames, 44195 objects of 129293 leaves, largest 828, rejoined 0, engines 11107 ms (read 665, basins 4417, store 440, ties 1671, motion 2956, landing 1, overlap 688, climb 265), tree 406 ms
+  object 44b6_1574802b: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_1574802b            153    151/0/2/0/0   100 frames, 117016 objects of 357975 leaves, largest 2569, rejoined 23, engines 11088 ms (read 642, basins 4276, store 513, ties 1633, motion 2931, landing 0, overlap 558, climb 530), tree 1030 ms
+  object 44b6_18ced818: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_18ced818            99     98/0/1/0/0   100 frames, 28450 objects of 136242 leaves, largest 1183, rejoined 1, engines 11647 ms (read 755, basins 4471, store 490, ties 1775, motion 2950, landing 1, overlap 774, climb 428), tree 486 ms
+  object 44b6_1d530831: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_1d530831            271    268/0/3/0/0   100 frames, 54805 objects of 133812 leaves, largest 700, rejoined 2, engines 10808 ms (read 655, basins 4230, store 442, ties 1668, motion 2928, landing 1, overlap 536, climb 345), tree 473 ms
+  object 44b6_24264f12: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_24264f12            221    215/0/6/0/0   100 frames, 88633 objects of 271145 leaves, largest 1609, rejoined 10, engines 11331 ms (read 691, basins 4405, store 495, ties 1651, motion 2975, landing 1, overlap 581, climb 530), tree 773 ms
+  object 44b6_267148e4: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_267148e4            277    273/0/4/0/0   100 frames, 75412 objects of 213881 leaves, largest 2189, rejoined 7, engines 11006 ms (read 581, basins 4427, store 464, ties 1606, motion 2994, landing 0, overlap 480, climb 450), tree 572 ms
+  object 44b6_2a2eff9f: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_2a2eff9f            210    205/0/5/0/0   100 frames, 54660 objects of 154262 leaves, largest 987, rejoined 9, engines 11203 ms (read 643, basins 4450, store 476, ties 1633, motion 3031, landing 1, overlap 596, climb 368), tree 493 ms
+  object 44b6_2f31fc2f: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_2f31fc2f            85     84/0/1/0/0   100 frames, 87292 objects of 260614 leaves, largest 2432, rejoined 7, engines 11211 ms (read 676, basins 4428, store 468, ties 1594, motion 2964, landing 0, overlap 550, climb 526), tree 734 ms
+  object 44b6_33b596bf: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_33b596bf            49     49/0/0/0/0   100 frames, 60542 objects of 301149 leaves, largest 3131, rejoined 6, engines 11742 ms (read 627, basins 4606, store 489, ties 1609, motion 2982, landing 1, overlap 756, climb 667), tree 833 ms
+  object 44b6_341df25f: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_341df25f            209    204/0/5/0/0   100 frames, 84337 objects of 450882 leaves, largest 3707, rejoined 19, engines 11779 ms (read 657, basins 4583, store 507, ties 1610, motion 2948, landing 1, overlap 771, climb 698), tree 1194 ms
+  object 44b6_3a861e03: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_3a861e03            919    905/0/14/0/0   100 frames, 67469 objects of 184924 leaves, largest 1115, rejoined 7, engines 11131 ms (read 719, basins 4377, store 457, ties 1562, motion 2971, landing 1, overlap 564, climb 476), tree 547 ms
+  object 44b6_3bb3690f: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_3bb3690f            396    388/0/8/0/0   100 frames, 108067 objects of 257263 leaves, largest 1197, rejoined 18, engines 11064 ms (read 620, basins 4364, store 474, ties 1651, motion 2974, landing 0, overlap 543, climb 433), tree 699 ms
+  object 44b6_40c45f5a: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_40c45f5a            198    196/0/2/0/0   100 frames, 72099 objects of 219221 leaves, largest 1181, rejoined 9, engines 11043 ms (read 641, basins 4356, store 457, ties 1586, motion 2998, landing 0, overlap 558, climb 442), tree 599 ms
+  object 44b6_415c0a3a: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_415c0a3a            322    312/0/10/0/0   100 frames, 74226 objects of 150498 leaves, largest 295, rejoined 4, engines 11037 ms (read 671, basins 4342, store 458, ties 1657, motion 2997, landing 0, overlap 557, climb 350), tree 551 ms
+  object 44b6_53f95252: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_53f95252            68     64/0/4/0/0   100 frames, 41980 objects of 120799 leaves, largest 812, rejoined 2, engines 11164 ms (read 668, basins 4408, store 463, ties 1625, motion 3035, landing 0, overlap 544, climb 417), tree 378 ms
+  object 44b6_551a5dba: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_551a5dba            224    220/0/4/0/0   100 frames, 46787 objects of 178860 leaves, largest 970, rejoined 7, engines 11426 ms (read 575, basins 4547, store 482, ties 1645, motion 3066, landing 1, overlap 688, climb 417), tree 573 ms
+  object 44b6_5740d24b: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_5740d24b            170    170/0/0/0/0   100 frames, 48017 objects of 211309 leaves, largest 1195, rejoined 6, engines 11553 ms (read 705, basins 4665, store 439, ties 1600, motion 3011, landing 0, overlap 689, climb 439), tree 644 ms
+  object 44b6_587a1e22: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_587a1e22            371    360/0/11/0/0   100 frames, 93775 objects of 364078 leaves, largest 3456, rejoined 10, engines 11991 ms (read 675, basins 4622, store 531, ties 1757, motion 3139, landing 0, overlap 601, climb 661), tree 1034 ms
+  object 44b6_5f15d135: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_5f15d135            273    272/0/1/0/0   100 frames, 69334 objects of 220507 leaves, largest 1325, rejoined 15, engines 11544 ms (read 637, basins 4525, store 468, ties 1649, motion 3081, landing 0, overlap 653, climb 527), tree 644 ms
+  object 44b6_668e0cc7: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  44b6_668e0cc7            631    626/0/5/0/0   100 frames, 88121 objects of 284715 leaves, largest 4261, rejoined 5, engines 11482 ms (read 644, basins 4500, store 477, ties 1632, motion 3080, landing 0, overlap 541, climb 603), tree 759 ms
+
+  POOLED over 6358 ground truth edges:
+    correct link            6254   98.4%
+    target among branches      0   0.0%
+    wrong link               104   1.6%
+    no link made               0   0.0%
+    endpoint undetected        0   0.0%
+
+  300274 ms

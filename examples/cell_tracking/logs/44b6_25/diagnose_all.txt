@@ -1,0 +1,9 @@
+  6358 key edges over 25 samples, every node
+  hit                                          5540   87.1%
+  source unmatched                               69    1.1%
+  target unmatched                               54    0.8%
+  lands elsewhere                               695   10.9%
+  links nowhere                                   0    0.0%
+    (landed on a node the policy dropped)         0    0.0%
+  matched node to key node, um               median 1.82, 90th 3.68, n 6420
+  elsewhere landing to target's match, um    median 5.75, 90th 10.92, n 695

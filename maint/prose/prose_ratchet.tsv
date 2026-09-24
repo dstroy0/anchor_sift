@@ -68,7 +68,6 @@ examples/cell_tracking/3_reference/what_a_shuffle_returns.py	5
 examples/cell_tracking/4_measure/what_the_levels_buy.py	3
 examples/cell_tracking/4_measure/where_the_coarms_stop_paying.py	3
 examples/cell_tracking/6_oracle/entropy_before_a_division.py	4
-examples/cell_tracking/README.md	2
 examples/chemistry/4_measure/a_histogram_cannot_see_structure.py	1
 examples/chemistry/5_sift/valence_is_a_necessary_condition.py	1
 examples/chemistry/README.md	2

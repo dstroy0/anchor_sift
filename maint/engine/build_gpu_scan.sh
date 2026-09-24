@@ -52,16 +52,16 @@ rm -f "$OUT/bench_steer_gpu.exe"
 # PIPESTATUS and not $?, because the pipe into grep would otherwise report grep's status and grep
 # succeeds whatever nvcc did. A filter on the output must never decide whether the build passed.
 nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
-    -I "$ROOT/src/engine/c/engine" \
-    -I "$ROOT/src/engine/c/no_rounding" \
+    -I "$ROOT/src/engine/nbody/anchor_sift" \
+    -I "$ROOT/src/engine/base/no_rounding" \
     -DANCHOR_STEER_HAVE_CUDA=1 \
     -o "$OUT/bench_steer_gpu.exe" \
-    "$ROOT/src/engine/c/engine/scan_cuda.cu" \
-    "$ROOT/src/engine/c/engine/scan_portable.c" \
-    "$ROOT/src/engine/c/engine/anchor_sift.c" \
-    "$ROOT/src/engine/c/no_rounding/exact_integer.c" \
-    "$ROOT/src/engine/c/no_rounding/arm_portable.c" \
-    "$ROOT/src/engine/c/bench/bench_steer_arms.c" \
+    "$ROOT/src/engine/nbody/anchor_sift/scan_cuda.cu" \
+    "$ROOT/src/engine/nbody/anchor_sift/scan_portable.c" \
+    "$ROOT/src/engine/nbody/anchor_sift/anchor_sift.c" \
+    "$ROOT/src/engine/base/no_rounding/exact_integer.c" \
+    "$ROOT/src/engine/base/no_rounding/arm_portable.c" \
+    "$ROOT/bench/bench_steer_arms.c" \
     2>&1 | grep -viE "^\s*$|Copyright|Microsoft \(R\)|scan_cuda\.cu$|scan_portable\.c$|anchor_sift\.c$|exact_integer\.c$|arm_portable\.c$|bench_steer_arms\.c$" | head -30
 NVCC_STATUS=${PIPESTATUS[0]}
 

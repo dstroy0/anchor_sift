@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# tessera's daemon for one device, started by its socket: systemd hands the listening socket over as fd 3
+# (LISTEN_FDS=1), the daemon takes it instead of binding its own, and ends once it has held no job for its idle time.
+# The next connection starts it again. Each job's own idle time replaces the one given here.
+[Unit]
+Description=tessera daemon for device %i
+Requires=tessera@%i.socket
+After=tessera@%i.socket
+# a daemon that refuses (a history whose seal fails, a device it cannot measure) closes every waiting connection
+# before it exits, so each start answers a real client; systemd's start limit would only turn clients away
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/tessera_daemon --device %i --luid 0 --idle 5000000

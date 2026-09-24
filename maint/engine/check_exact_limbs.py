@@ -14,12 +14,12 @@
 # the first routine forever, including on the days both are wrong.
 #
 # A python integer is arbitrary precision and is implemented by somebody else. It has no fixed
-# width, no limb, no carry the author of exact_limbs.c wrote, and no shared line of code. Where the
+# width, no limb, no carry the author of exact_integer.c wrote, and no shared line of code. Where the
 # two disagree the disagreement is real.
 #
 # WHAT THIS CHECK CANNOT SEE
 #
-# Both sides read one contract, and that contract is exact_limbs.h. Agreement here is evidence the
+# Both sides read one contract, and that contract is exact_integer.h. Agreement here is evidence the
 # contract is unambiguous and that two implementations read it the same way. It is not evidence
 # that either reading matches a deposit.
 #
@@ -176,11 +176,11 @@ def version_lock(out):
     Returns 1 where they agree, 0 where they do not.
     """
     limbs = constant(
-        "src/engine/c/no_rounding/exact_integer.h",
+        "src/engine/base/no_rounding/exact_integer.h",
         r"#define\s+ANCHOR_EXACT_LIMBS\s+(\d+)",
     )
     floor = constant(
-        "src/engine/c/no_rounding/exact_integer.h",
+        "src/engine/base/no_rounding/exact_integer.h",
         r"#define\s+ANCHOR_EXACT_DIGITS\s+(\d+)",
     )
     scale = constant(
@@ -323,7 +323,7 @@ def main():
         if not os.path.isfile(DRIVER):
             out.write("\n  no bench_exact at %s\n" % DRIVER)
             out.write(
-                "  cmake -S src/engine/c -B build/engine_c -G Ninja"
+                "  cmake -S src/engine -B build/engine_c -G Ninja"
                 " -DCMAKE_BUILD_TYPE=Release && cmake --build build/engine_c\n\n"
             )
             out.flush()

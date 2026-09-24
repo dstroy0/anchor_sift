@@ -77,7 +77,7 @@ echo
 echo "  Instruction selection, read off the object file. This grades emission, never behavior."
 echo
 
-ARMS="$ROOT/src/engine/c/no_rounding"
+ARMS="$ROOT/src/engine/base/no_rounding"
 
 # The two arms that also have hardware here. Checked the same way so the grade is comparable, and
 # separately run against portable by bench_exact_arms.
@@ -111,10 +111,10 @@ check "sve neoverse" aarch64-linux-gnu-gcc \
     whilelo cmpne ptest ld1w
 
 echo
-echo "  The steering scan arms, engine/. Same grade and the same two words: emits, never agrees."
+echo "  The steering scan arms, nbody/anchor_sift/. Same grade and the same two words: emits, never agrees."
 echo
 
-ENGINE="$ROOT/src/engine/c/engine"
+ENGINE="$ROOT/src/engine/nbody/anchor_sift"
 # A scan arm includes anchor_sift.h, which includes exact_integer.h. Both directories are on the
 # include path even though a scan arm reads no exact arithmetic.
 SCAN_INC="-I$ENGINE -I$ARMS"

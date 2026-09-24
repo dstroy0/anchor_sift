@@ -5,7 +5,7 @@
  * negotiated commercial licensing contract or an educator's license issued to you personally.
  */
 /**
- * @file bench_arm_agreement.c
+ * @file test_arm_agreement.c
  * @brief Grades every arm against the naive one at the lengths that bound the input, and at none.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-16

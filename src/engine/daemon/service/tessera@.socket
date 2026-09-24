@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+# tessera's socket for one device, a systemd user unit; the instance is the device's UUID as 32 lowercase hex digits.
+# %t is $XDG_RUNTIME_DIR, the same place tessera_path_endpoint names, so a client finds it without being told.
+[Unit]
+Description=tessera, the device-job scheduler, for device %i
+
+[Socket]
+ListenStream=%t/tessera-%i.sock
+SocketMode=0600
+Accept=no
+
+[Install]
+WantedBy=sockets.target

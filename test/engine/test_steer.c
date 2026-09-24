@@ -5,7 +5,7 @@
  * negotiated commercial licensing contract or an educator's license issued to you personally.
  */
 /**
- * @file bench_steer.c
+ * @file test_steer.c
  * @brief Grades the entropy-ordered rejection vector: same counts, fewer reads, exact dispatch.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
  * @date 2026-09-16

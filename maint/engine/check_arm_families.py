@@ -6,7 +6,8 @@
 #     python maint/engine/check_arm_families.py
 #
 # The engine carries one operation per instruction set in two families: the steering scan in
-# src/engine/c/engine/scan_<set>.c and the exact arithmetic in src/engine/c/no_rounding/arm_<set>.c.
+# src/engine/nbody/anchor_sift/scan_<set>.c and the exact arithmetic in
+# src/engine/base/no_rounding/arm_<set>.c.
 # The CMake file states that a listing of the two directories names the same sets, because the
 # portable arm is the reference in each and every other set exists to be faster at an answer portable
 # already fixed. This check holds that invariant: it reads the two directories, takes the <set>
@@ -25,8 +26,8 @@ from pathlib import Path
 # __file__ and not by walking up for a marker, since a marker the tree also produces can send the
 # resolution off the top of the drive.
 ROOT = Path(__file__).resolve().parents[2]
-SCAN_DIR = ROOT / "src" / "engine" / "c" / "engine"
-ARM_DIR = ROOT / "src" / "engine" / "c" / "no_rounding"
+SCAN_DIR = ROOT / "src" / "engine" / "nbody" / "anchor_sift"
+ARM_DIR = ROOT / "src" / "engine" / "base" / "no_rounding"
 
 # The reference every other arm is graded against. A family without it has no baseline and is refused.
 REFERENCE = "portable"
@@ -50,7 +51,7 @@ def sets_in(directory, prefix):
 
 
 def main():
-    print("  arm family homogeneity, engine/scan_<set> against no_rounding/arm_<set>")
+    print("  arm family homogeneity, nbody/anchor_sift/scan_<set> against base/no_rounding/arm_<set>")
     print("  roots scanned:")
     print("    " + str(SCAN_DIR))
     print("    " + str(ARM_DIR))
@@ -101,7 +102,7 @@ def main():
             "scan_" + one + " has no matching arm_" + one + " in no_rounding/"
         )
     for one in sorted(arm_only):
-        problems.append("arm_" + one + " has no matching scan_" + one + " in engine/")
+        problems.append("arm_" + one + " has no matching scan_" + one + " in nbody/anchor_sift/")
 
     if problems:
         for one in problems:

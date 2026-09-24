@@ -21,8 +21,11 @@ param(
 $ErrorActionPreference = "Stop"
 
 $root = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
-$src = Join-Path $root "src\engine\c"
+$src = Join-Path $root "src\engine"
 $render = Join-Path $src "render"
+$exact = Join-Path $src "base\no_rounding"
+$sift = Join-Path $src "nbody\anchor_sift"
+$bench = Join-Path $root "bench"
 $out = Join-Path $root "build\engine_gpu"
 
 if (-not (Get-Command nvcc -ErrorAction SilentlyContinue))
@@ -69,7 +72,7 @@ New-Item -ItemType Directory -Force $out | Out-Null
 # ANCHOR_RASTER_HAVE_CUDA is what suppresses the stub arms in anchor_raster.c. Defined on this build
 # and undefined on the CMake one. Exactly one definition of each device symbol ever exists.
 $defines = "-DANCHOR_RASTER_HAVE_CUDA=1"
-$includes = "-I`"$src\portable`" -I`"$src\no_rounding`" -I`"$render`""
+$includes = "-I`"$sift`" -I`"$exact`" -I`"$render`""
 
 # TWO STEPS, AND THE SPLIT IS FORCED. The C sources use _Static_assert, which is
 # C11. Handing them to nvcc compiles them through the C++ front end, where that keyword does not
@@ -77,8 +80,8 @@ $includes = "-I`"$src\portable`" -I`"$src\no_rounding`" -I`"$render`""
 # at /std:c11, and nvcc compiles the device file and links the objects. Passing -x cu over the whole
 # set fails at exact_integer.h:77 and passing them to nvcc by extension fails the same way.
 $clIncludes = @(
-    "/I" + (Join-Path $src "portable"),
-    "/I" + (Join-Path $src "no_rounding"),
+    "/I" + $sift,
+    "/I" + $exact,
     "/I" + $render
 )
 
@@ -88,9 +91,10 @@ try
     Write-Host "[*] cl /std:c11 -> objects"
     $units = @(
         (Join-Path $render "anchor_raster.c"),
-        (Join-Path $src "no_rounding\exact_integer.c"),
-        (Join-Path $src "portable\anchor_sift.c"),
-        (Join-Path $src "bench\bench_raster.c")
+        (Join-Path $exact "exact_integer.c"),
+        (Join-Path $sift "anchor_sift.c"),
+        (Join-Path $sift "scan_portable.c"),
+        (Join-Path $bench "bench_raster.c")
     )
     foreach ($unit in $units)
     {
@@ -105,7 +109,7 @@ try
     Write-Host "[*] nvcc -> bench_raster.exe"
     & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + $render) `
         (Join-Path $render "raster_cuda.cu") `
-        anchor_raster.obj exact_integer.obj anchor_sift.obj bench_raster.obj `
+        anchor_raster.obj exact_integer.obj anchor_sift.obj scan_portable.obj bench_raster.obj `
         -o bench_raster.exe
     if ($LASTEXITCODE -ne 0)
     {

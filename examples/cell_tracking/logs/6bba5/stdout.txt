@@ -1,0 +1,21 @@
+  object 6bba_05b6850b: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  rules: pick unbound merge-split resolve climb
+  sample                   edges  correct/branched/wrong/no link/missed
+  6bba_05b6850b            845    820/0/25/0/0   100 frames, 65866 objects of 403694 leaves, largest 3250, rejoined 34, engines 11298 ms (read 239, basins 4569, store 501, ties 1587, motion 3034, landing 0, overlap 755, climb 609), tree 1138 ms
+  object 6bba_05db0fb1: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  6bba_05db0fb1            1183   1151/0/32/0/0   100 frames, 58475 objects of 153720 leaves, largest 996, rejoined 5, engines 10585 ms (read 240, basins 4320, store 452, ties 1538, motion 2982, landing 0, overlap 646, climb 402), tree 521 ms
+  object 6bba_062c8d37: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  6bba_062c8d37            898    863/0/33/0/2   100 frames, 45002 objects of 463079 leaves, largest 4349, rejoined 11, engines 12561 ms (read 267, basins 4934, store 556, ties 1964, motion 3028, landing 0, overlap 1108, climb 700), tree 1769 ms
+  object 6bba_07477033: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  6bba_07477033            602    582/0/20/0/0   100 frames, 57526 objects of 524899 leaves, largest 3622, rejoined 18, engines 12326 ms (read 258, basins 4926, store 576, ties 1832, motion 2993, landing 1, overlap 1091, climb 644), tree 1468 ms
+  object 6bba_07e24132: 0 aberrant leaves, 0 aberrant voxels, 0 wide sums
+  6bba_07e24132            345    340/0/5/0/0   100 frames, 60138 objects of 214659 leaves, largest 1361, rejoined 11, engines 11288 ms (read 274, basins 4481, store 511, ties 1880, motion 2991, landing 0, overlap 737, climb 409), tree 603 ms
+
+  POOLED over 3873 ground truth edges:
+    correct link            3756   97.0%
+    target among branches      0   0.0%
+    wrong link               115   3.0%
+    no link made               0   0.0%
+    endpoint undetected        2   0.1%
+
+  63814 ms

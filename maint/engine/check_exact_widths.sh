@@ -22,7 +22,7 @@
 #   steer   test_steer, the engine's consumer of the exact integer
 #
 # The engine itself needs 8 limbs. Its dispatch rule reaches 143 bits on a 64 bit census, and
-# src/engine/c/engine/anchor_sift.c refuses a narrower width at compile time. Below 8 limbs the steer
+# src/engine/nbody/anchor_sift/anchor_sift.c refuses a narrower width at compile time. Below 8 limbs the steer
 # column reads "-", since there is no engine at that width to grade. The exact integer is graded at
 # every width regardless.
 #
@@ -124,7 +124,7 @@ while [ "$limbs" -le "$to" ]; do
     # Unquoted. An empty generator has to expand to no argument at all, and quoted it would pass an
     # empty one. The target list expands to one argument per target.
     # shellcheck disable=SC2086
-    if cmake -S "$ROOT/src/engine/c" -B "$tree" $generator $compiler -DCMAKE_BUILD_TYPE=Release \
+    if cmake -S "$ROOT/src/engine" -B "$tree" $generator $compiler -DCMAKE_BUILD_TYPE=Release \
            -DANCHOR_SKIP_CUDA=ON -DANCHOR_EXACT_LIMBS="$limbs" -DANCHOR_EXACT_DIGITS="$digits" \
            > "$log" 2>&1 \
        && cmake --build "$tree" --target $targets >> "$log" 2>&1; then
