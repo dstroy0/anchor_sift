@@ -115,6 +115,7 @@ def dispersion_ratio(values, period):
     within = sub(total_energy(values), between)
     freedom_between = period - 1
     freedom_within = length - period
+<<<<<<< HEAD
     if (
         (freedom_between <= 0)
         or (freedom_within <= 0)
@@ -124,6 +125,11 @@ def dispersion_ratio(values, period):
     return over(
         over(between, whole(freedom_between)), over(within, whole(freedom_within))
     )
+=======
+    if (freedom_between <= 0) or (freedom_within <= 0) or (compare(within, whole(0)) <= 0):
+        return None
+    return over(over(between, whole(freedom_between)), over(within, whole(freedom_within)))
+>>>>>>> worktree-measure-integer-only
 
 
 def against_a_shuffle(values, period, seed=SEED):
