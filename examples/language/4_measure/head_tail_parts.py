@@ -4,7 +4,7 @@
 # Catalog: LNG-4-019
 #
 # Compare what the frequent and rare halves of an English corpus are made of, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/head_tail_parts.py corpus.txt [more.txt ...]
 #

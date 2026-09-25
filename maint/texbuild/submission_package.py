@@ -29,7 +29,7 @@
 # WHY ANY OF IT IS NEEDED
 #
 # Every book reaches outside its own directory for the two files it shares with the others.
-# theory/Salishan/main.tex says \input{../preamble.tex} and theory/cryptography/sha256/main.tex
+# theory/theory/Salishan/main.tex says \input{../preamble.tex} and theory/theory/cryptography/sha256/main.tex
 # says \input{../../preamble.tex}, and preamble.tex then says \input{../macros.tex}. That resolves
 # here because theory/ is the directory above them all, and it resolves nowhere else.
 #
@@ -141,11 +141,9 @@ def _repository_root():
 
 ROOT = _repository_root()
 THEORY = os.path.join(ROOT, "theory")
-# The seven books pulled in from upstream as a subtree. The workbook stays in theory/ because it is
-# the book about this engine. A book is named the same way whichever tree holds it. Nothing
-# outside this file has to know which one it came from.
-THEORY_BUCKET = os.path.join(ROOT, "theory_bucket")
-TREES = (THEORY, THEORY_BUCKET)
+# Every book sits under theory/, on one of theory_bucket's three shelves: theory/theory/,
+# theory/workbooks/ and theory/thought_experiments/. A book is named by its path below theory/.
+TREES = (THEORY,)
 OUT = os.path.join(ROOT, "build", "submission")
 OUT_ARXIV = os.path.join(ROOT, "build", "arxiv")
 
@@ -187,7 +185,7 @@ ARCHIVES = ("tar.gz", "zip", "none")
 # main.log, main.aux, main.toc, a .aux per included chapter, and a synctex index larger than the
 # whole rest of the book. Copying a book directory wholesale ships all of it.
 #
-# Measured once: theory/anchor_sift packaged at 1,269,699 bytes against 73,201 for the same book
+# Measured once: theory/workbooks/anchor_sift packaged at 1,269,699 bytes against 73,201 for the same book
 # clean, and 705,688 of that was one synctex file. It would have been accepted.
 LEAVINGS = (".aux", ".log", ".toc", ".lof", ".lot", ".out", ".bbl", ".blg", ".idx", ".ilg",
             ".ind", ".nav", ".snm", ".vrb", ".fls", ".fdb_latexmk", ".synctex", ".synctex.gz")
@@ -404,16 +402,15 @@ def book_tree(book):
 
 
 def books():
-    """Every book in either tree, as its path below whichever tree holds it.
+    """Every book, as its path below theory/.
 
-    Two depths, matching build_theory.sh. <book>/ is where most of them sit, and <subject>/<book>/
-    is where the cryptography one does. The tree name is not part of the returned path: a book that
-    moves between theory/ and theory_bucket/ keeps the name a caller already types.
+    Two depths, matching build_theory.sh. <shelf>/<book>/ is where most of them sit, and
+    theory/<subject>/<book>/ is where the cryptography one does.
     """
     import glob
     found = []
     for tree in TREES:
-        for pattern in (("*", "main.tex"), ("*", "*", "main.tex")):
+        for pattern in (("*", "*", "main.tex"), ("*", "*", "*", "main.tex")):
             for one in sorted(glob.glob(os.path.join(tree, *pattern))):
                 found.append(os.path.relpath(os.path.dirname(one), tree).replace("\\", "/"))
     return sorted(set(found))

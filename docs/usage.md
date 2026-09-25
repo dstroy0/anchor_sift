@@ -37,7 +37,7 @@ Only `representation` knows a domain exists. It has `atom`, `game`, `particle`, 
 | `src/` | points and values, no domain. The engine |
 | `evidence/` | the claims. The proofs, and the R and MATLAB ports |
 | `examples/` | a corpus, through `src/`. Numbered demonstrations |
-| `theory/`, `theory_bucket/` | the books, and the ledger they cite |
+| `theory/` | the books, and the ledger they cite |
 | `maint/` | the repository itself. Records, gates, prose checks, fetchers, the book build |
 
 `maint/` is sorted into categories and holds no loose scripts. `maint/README.md` states what belongs in each, including `maint/data/` for external material and `maint/analysis/` for the surveys the books ask for.

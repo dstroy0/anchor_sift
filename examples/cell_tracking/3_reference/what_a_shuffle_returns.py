@@ -9,7 +9,7 @@
 #
 # WHAT THIS CORRECTS. CEL-2-001 and CEL-2-002 report a cross-axis reading of about 0.47 px on an
 # axis displaced by nothing, and call it a floor the method inherits. That is a raw value quoted
-# with no background under it, the only thing theory/workbook says never says anything:
+# with no background under it, the only thing theory/workbooks/anchor_sift says never says anything:
 # every quantity there is a departure from a background and none is a value, and a dispersion of
 # 0.28 says nothing while the same dispersion against a shuffle of the same bytes is 2.91.
 #
@@ -27,13 +27,13 @@
 # THE NULL, AND WHICH PROPERTY IT DELETES. Positions are permuted within the second frame, holding
 # every level count exactly and destroying where each level sits. That deletes the correspondence
 # between the two frames alone: both frames keep their histograms. The agreement
-# measure is handed the same symbol inventory it had. theory/workbook records the protein posit
+# measure is handed the same symbol inventory it had. theory/workbooks/anchor_sift records the protein posit
 # failing because two nulls deleted properties that were not separable, and records what survives
 # of it, that a result read as evidence about one property is unsupported until a null exists that
 # deletes only that one. This null deletes arrangement in the second frame and is stated as such.
 #
 # THE FLOOR IS THE NULL'S OWN SCATTER. Redrawing the permutation gives a spread, and a separation
-# smaller than that spread is not a separation. theory/workbook reseeds twelve times and gets a
+# smaller than that spread is not a separation. theory/workbooks/anchor_sift reseeds twelve times and gets a
 # standard deviation of about one percent of the value, and every separation it records is quoted
 # in units of that floor. Same arrangement here.
 
@@ -63,7 +63,7 @@ from where_the_floor_comes_from import field  # noqa: E402
 # from one field, which is what makes a spread available without generating sixteen fields.
 TILES = 4
 
-# Null permutations drawn per condition. Twelve is what theory/workbook reseeds at.
+# Null permutations drawn per condition. Twelve is what theory/workbooks/anchor_sift reseeds at.
 DRAWS = 12
 
 # Blob width held at the value CEL-2-002 measures the width relation on.

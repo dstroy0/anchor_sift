@@ -1,0 +1,65 @@
+scriptura.c
+scriptura_arm_avx2.c
+scriptura_arm_avx512.c
+scriptura_arm_neon.c
+scriptura_arm_portable.c
+scriptura_arm_sve.c
+exact_integer.c
+cycle.c
+tessera_client.c
+tessera_paths.c
+tessera_frame.c
+tessera_self.c
+tessera_ledger.c
+tessera_measure.c
+tessera_daemon.c
+obsignatio.cu
+tmpxft_00006320_00000000-10_obsignatio.cudafe1.cpp
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+tessera_ledger_sim.obj
+tessera_measure_sim.obj
+tessera_daemon_sim.obj
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+obsignatio_sim.obj
+pi_tower.cu
+tmpxft_0000a20c_00000000-10_pi_tower.cudafe1.cpp
+sim_job.cu
+tmpxft_0000a20c_00000000-14_sim_job.cudafe1.cpp
+cycle.cu
+tmpxft_0000a20c_00000000-18_cycle.cudafe1.cpp
+keymath.cu
+tmpxft_0000a20c_00000000-22_keymath.cudafe1.cpp
+key_schedule.cu
+tmpxft_0000a20c_00000000-26_key_schedule.cudafe1.cpp
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+exact_integer_sim.obj
+cycle_sim.obj
+tessera_client_sim.obj
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+obsignatio_sim.obj
+  resolution (2, n): 2^n cells, n = 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    the turn's precision P = 30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000064 bits; a host turn would need an exact width of 90000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000352 bits, SIM_EXACT_LIMBS = 2^331
+  tessera: pi_tower admitted, 11542512 bytes reserved
+    the turn at depth n is alpha's bit n: its cell's low bits are the window from hex position 2499999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999984, on the engine
+    777216 of 2499999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999985 terms in 11 cycles and 1.072 s, 7.246e5 terms a second; 2.499e99 left, 1.093e86 years at this rate
+    1483776 of 2499999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999985 terms in 21 cycles and 2.040 s, 7.272e5 terms a second; 2.499e99 left, 1.089e86 years at this rate
+    2967552 of 2499999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999985 terms in 42 cycles and 4.049 s, 7.327e5 terms a second; 2.499e99 left, 1.081e86 years at this rate
+    5935104 of 2499999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999985 terms in 84 cycles and 8.087 s, 7.339e5 terms a second; 2.499e99 left, 1.079e86 years at this rate
+    11799552 of 2499999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999985 terms in 167 cycles and 16.090 s, 7.333e5 terms a second; 2.499e99 left, 1.080e86 years at this rate
+    23457792 of 2499999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999985 terms in 332 cycles and 32.038 s, 7.321e5 terms a second; 2.499e99 left, 1.081e86 years at this rate
+    46844928 of 2499999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999985 terms in 663 cycles and 64.043 s, 7.314e5 terms a second; 2.499e99 left, 1.083e86 years at this rate
+  pi_tower exit 1

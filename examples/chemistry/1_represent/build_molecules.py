@@ -13,7 +13,7 @@
 # the atoms and the bonds and their orders. It does not place the atoms in space, because a bond's
 # magnitude is its length and a length is an oracle fact, valence-fixed and tabulated, that belongs in
 # oracle/chemistry with a citation and is not entered yet. So what is built here is the molecular
-# graph, and the geometry it carries is stated as design in theory/chemistry, not asserted here.
+# graph, and the geometry it carries is stated as design in theory/theory/chemistry, not asserted here.
 #
 # The element identity, the proton count and the electron set, is authored once by the atomic-structure
 # subject in representation.atom.element and consumed, not transcribed. This example holds only

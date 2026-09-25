@@ -15,7 +15,7 @@
 # figure was never looked up. It is available directly: the ground truth carries every cell's
 # position in every frame.
 #
-# theory/workbook records the same defect from the other side, that a bound is chosen because
+# theory/workbooks/anchor_sift records the same defect from the other side, that a bound is chosen because
 # something has to be chosen and the number then describes the choice. A feature width of 6 px and a
 # displacement of 3.4 px were both invented by this author to stand in for a cell, and this file is
 # what should have set them.

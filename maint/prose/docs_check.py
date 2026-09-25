@@ -101,7 +101,7 @@ import sys
 # PRECISION, MEASURED BEFORE THESE LANDED. The arms were run over five repositories here and over
 # 544 files of CPython's standard library and site-packages, which is a large body of American and
 # British English nobody here wrote. 530 hits across the five repositories, of which one is a false
-# positive: `storyrevised` at theory_bucket/Salishan/chapters/chapter_Salishan_refs.tex:463, a
+# positive: `storyrevised` at theory/theory/Salishan/chapters/chapter_Salishan_refs.tex:463, a
 # filename fragment that tex_prose leaves behind because a `\texttt` holding nested `\allowbreak{}`
 # braces defeats its stripper. 1,216 hits across the Python tree, of which 34 are identifiers and
 # not prose: `vonmises` and `cramervonmises` in scipy, `caretsloperise` in pygments, `sanssecours`,
@@ -742,7 +742,7 @@ BANNED = (
         r"\bdoes not put a (reader|person|user) on the path\b",
         r"\ba (rule|check|gate|test) added here\b",
         # Tier six, and the first tier this file did not find by itself. A 340 word passage of
-        # theory/crystallography/chapters/chapter_whose_result.tex was scored by an outside
+        # theory/theory/crystallography/chapters/chapter_whose_result.tex was scored by an outside
         # detector, which returned 80.4 percent machine written and marked which sentences carried
         # it. Every shape below is out of a marked sentence and was not already in the table above.
         #
@@ -822,7 +822,7 @@ BANNED = (
         r"\bhas never been more important\b",
 
         # Tier seven, and the first tier an outside detector found instead of a person. One passage
-        # of theory/Salishan/chapters/chapter_Salishan_pure_corpus_README.tex read 35.6 percent
+        # of theory/theory/Salishan/chapters/chapter_Salishan_pure_corpus_README.tex read 35.6 percent
         # machine written. Six constructions came out of it and the same passage read 4.5 percent,
         # with every fact and every number unchanged. The patterns below are those six.
         #
@@ -2303,13 +2303,14 @@ while (REPOSITORY != os.path.dirname(REPOSITORY)) and not os.path.isdir(
 # A root that no longer exists is not an error this could see. The guard below turns that
 # into one, and the count at the foot is still the thing to watch after a move.
 #
-# theory_bucket is the third instance. Seven books moved out of theory/ into a subtree at
-# theory_bucket/, theory/ still existed because the workbook stayed in it. The guard below stayed
+# theory_bucket was the third instance. Seven books moved out of theory/ into a subtree at
+# theory_bucket/, and theory/ still existed because the workbook stayed in it. The guard below stayed
 # quiet and eighty files of prose went unread. The guard catches a root that vanished and never a
-# root that emptied, and the count at the foot is the only thing that shows the difference.
+# root that emptied, and the count at the foot is the only thing that shows the difference. The
+# seven moved back under theory/ on 2026-09-25.
 DEFAULT_ROOTS = tuple(
     os.path.join(REPOSITORY, one)
-    for one in ("docs", "src", "examples", "maint", "theory", "theory_bucket")
+    for one in ("docs", "src", "examples", "maint", "theory")
 )
 
 for one in DEFAULT_ROOTS:

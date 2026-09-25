@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-030
 #
-# Read every Indic language at one set of distinctions, for Section 4.13 of theory/anchor_sift.
+# Read every Indic language at one set of distinctions, for Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/phoneme_lexer.py
 #

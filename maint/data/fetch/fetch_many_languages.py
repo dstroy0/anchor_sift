@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Widen the language corpus enough to test convergence, for Section 4.13 of theory/anchor_sift.
+# Widen the language corpus enough to test convergence, for Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/data/fetch/fetch_many_languages.py
 #

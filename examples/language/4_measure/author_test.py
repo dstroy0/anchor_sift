@@ -4,7 +4,7 @@
 # Catalog: LNG-4-001
 #
 # Test whether a writer has a mark of their own, and at which unit, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/author_test.py
 #

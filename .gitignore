@@ -42,7 +42,7 @@ __pycache__/
 #
 # maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this. TeXworks
 # and TeXShop compile IN PLACE. A book opened in one of those to look at it comes back with a
-# .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/anchor_sift picked
+# .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/workbooks/anchor_sift picked
 # up twelve such files that way, 705,688 bytes of it one synctex, and the arXiv packager copied
 # every one of them into a submission before it learned to skip them.
 #
@@ -58,10 +58,8 @@ __pycache__/
 *.synctex.gz
 *.fls
 *.fdb_latexmk
-theory/*/main.pdf
 theory/*/*/main.pdf
-theory_bucket/*/main.pdf
-theory_bucket/*/*/main.pdf
+theory/*/*/*/main.pdf
 
 # What bench_raster drops where it is run from. A run writes 22 of these, and the renderer writes
 # them beside the working directory instead of under build/, and the repository root collects them

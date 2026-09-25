@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Generate corpora from memoryless random processes, as controls for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/data/fetch/gen_monkey_corpus.py
 #

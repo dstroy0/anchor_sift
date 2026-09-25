@@ -6,7 +6,7 @@
 # that reads as machine written.
 #
 #   python maint/prose/api_gate.py --dry-run theory   what would be sent, and how much of it
-#   python maint/prose/api_gate.py theory/millennium  score one book
+#   python maint/prose/api_gate.py theory/theory/millennium  score one book
 #   python maint/prose/api_gate.py --bar 0.40 docs    score with the bar drawn somewhere else
 #
 # WHAT THIS ADDS TO docs_check

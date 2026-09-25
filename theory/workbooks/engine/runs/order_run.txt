@@ -1,0 +1,33 @@
+  build directory: /d/kaggle/biohub_cell_tracking/build/20260924_181659_record_order_test
+scriptura.c
+scriptura_arm_avx2.c
+scriptura_arm_avx512.c
+scriptura_arm_neon.c
+scriptura_arm_portable.c
+scriptura_arm_sve.c
+exact_integer.c
+cycle.c
+record_order_test.cu
+tmpxft_00007a40_00000000-10_record_order_test.cudafe1.cpp
+cycle.cu
+tmpxft_00007a40_00000000-14_cycle.cudafe1.cpp
+keymath.cu
+tmpxft_00007a40_00000000-18_keymath.cudafe1.cpp
+key_schedule.cu
+tmpxft_00007a40_00000000-22_key_schedule.cudafe1.cpp
+scriptura_order.obj
+scriptura_arm_avx2_order.obj
+scriptura_arm_avx512_order.obj
+scriptura_arm_neon_order.obj
+scriptura_arm_portable_order.obj
+scriptura_arm_sve_order.obj
+exact_integer_order.obj
+cycle_order.obj
+  orders: G of four shears over 32-bit words, 0 -> 256 -> -256 -> 0 in 1024 floors, 12293 steps, file 10 limbs
+    512 of 512 lanes hold the CPU's G^k(x) at every visit to every order; the counter reads k on 512; 512 return to x exactly; G carries each order to the next on 512
+  omega: pi of 2^16 states, a run of 2048 floors, 16379 steps, files 6 and 6 limbs, 1024 lanes
+    every window equals the CPU's walk on 1024; every orbit returns to its start on 1024
+    decided (the cycle fits the run): 528, +omega is the cycle's or and meeting on 528, -omega equals +omega on 528; halts 329, runs forever 199
+    open (the cycle is longer than the run): 496, a halt seen on 391, clear and halting past the run on 105, clear and never halting on 0
+  record order test: 17 checks, 0 failed
+  record order test exit 0

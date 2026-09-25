@@ -4,7 +4,7 @@
 # Catalog: ANY-4-010
 #
 # Compare how stable two candidate invariants are across sources, for the ledger entry on collision
-# entropy in theory/workbook.
+# entropy in theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/any_corpus/4_measure/which_is_constant.py corpus.sym [more.sym ...]
 #

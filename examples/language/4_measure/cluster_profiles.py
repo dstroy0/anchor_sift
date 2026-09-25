@@ -4,7 +4,7 @@
 # Catalog: LNG-4-010
 #
 # Group the languages by their positional ambiguity profile and check what the grouping recovers, for
-# Section 4.13 of theory/anchor_sift.
+# Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/cluster_profiles.py
 #

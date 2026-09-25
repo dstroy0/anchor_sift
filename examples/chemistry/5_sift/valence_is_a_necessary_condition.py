@@ -8,7 +8,7 @@
 #   Usage:  python examples/chemistry/5_sift/valence_is_a_necessary_condition.py
 #
 # This is the only chemistry demonstration that runs on the primitives already in the tree. The
-# molecule reader and the bond-length oracle are design, stated in theory/chemistry; nothing here
+# molecule reader and the bond-length oracle are design, stated in theory/theory/chemistry; nothing here
 # depends on them. What runs here is the sift proposition read on chemistry: an atom's octet is a
 # condition on every atom of an arrangement, a real molecule satisfies all of them at once, and the
 # error is one directional. A structure the octet refuses cannot be a closed-shell molecule; a

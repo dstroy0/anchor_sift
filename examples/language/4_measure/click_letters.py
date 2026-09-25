@@ -4,7 +4,7 @@
 # Catalog: LNG-4-008
 #
 # Test whether the one clean success rests on a shared definition habit, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/click_letters.py
 #

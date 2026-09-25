@@ -4,7 +4,7 @@
 # Catalog: LNG-4-041
 #
 # Measure how much of a language is its tone, where the tone can be deleted exactly, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/tone_oracle.py
 #

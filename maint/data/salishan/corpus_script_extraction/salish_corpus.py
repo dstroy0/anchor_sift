@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Build a pure nɬeʔkepmxcín corpus from a paper that prints the same story twice, and verify it against
-# itself, for Section 4.13 of theory/anchor_sift.
+# itself, for Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/salish_corpus.py
 #

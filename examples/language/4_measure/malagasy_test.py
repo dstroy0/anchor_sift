@@ -4,7 +4,7 @@
 # Catalog: LNG-4-026
 #
 # Ask the descent against contact question a second time, on a family separated by an ocean, for
-# Section 4.13 of theory/anchor_sift.
+# Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/malagasy_test.py
 #

@@ -17,7 +17,7 @@
 #
 # WHY IT IS A 6_ORACLE AND NOT AN EXAMPLE. The answer exists before the measurement and was not
 # supplied by it. man_track.txt names every division in the sequence, published by the people who
-# generated the data. anchor_sift/theory/workbook records that the permutation null measure carries
+# generated the data. anchor_sift/theory/anchor_sift_workbook records that the permutation null measure carries
 # most of the findings in that work and has no positive control from outside it, and calls that the
 # largest single gap. This is an attempt at one. The instrument is collision entropy, the
 # quantity anchor_sift's entire cost model runs on: every figure there is a function of 2^-H2.
@@ -208,7 +208,7 @@ def main():
         # threw away the only thing the claim under test is about: whether the pair reads slightly
         # BELOW the parent, consistently, which is a conservation statement. A magnitude cannot
         # carry a direction and reporting one as the other is how three claims in
-        # anchor_sift/theory/workbook merged two instruments.
+        # anchor_sift/theory/anchor_sift_workbook merged two instruments.
         together = numpy.isin(after_labels, present)
         pair_gap.append(collision_entropy(after_raw[together]) - before)
 
@@ -277,7 +277,7 @@ def main():
 
     # A standard deviation on this background is not a valid floor and a first version of this file
     # used one. The background is heavy tailed, mean %.4f against median %.4f, and
-    # anchor_sift/theory/workbook records that quoting a mean and a deviation on such a quantity is
+    # anchor_sift/theory/anchor_sift_workbook records that quoting a mean and a deviation on such a quantity is
     # the defect that put figures three orders of magnitude too large into several of its entries,
     # with a Jarque-Bera of 800 against a one percent point of 9.21. The rank statistic it uses
     # instead is what this now reports.

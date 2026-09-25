@@ -1,0 +1,34 @@
+# Laplace's demon, a non-halting UTM, and the four noise vector magnitudes
+
+Combining Laplace's Demon (omniscient physical state knowledge) with a non-halting, mathematically perfect UTM allows us to treat video noise not as a random statistical distribution, but as a fully deterministic, computable function of atomic interactions, photon arrivals, and circuit thermodynamics.
+
+Below is a rigorous framework representing this noise function by integrating across $n$ still frames using four distinct vector magnitudes corresponding to fundamental physical noise components.
+
+## 1. Theoretical Foundations (The Demon & The UTM)
+
+Laplace's Demon provides the ground-truth micro-state $S(x,y,z,t)$ for every atom in the sensor matrix, incident photons, and intervening medium.
+
+The UTM acts as the universal evaluator, running the exact quantum-electrodynamic (QED) simulation to compute the ideal noise-free photon flux $I(x, y, t)$ versus the observed corrupted pixel matrix $F(x, y, t)$.
+
+The residual noise tensor $\mathcal{N}(x, y, t)$ is defined as:
+
+$$\mathcal{N}(x, y, t) = F(x, y, t) - I(x, y, t)$$
+
+## 2. The Four Noise Vector Magnitudes
+
+To integrate noise across a temporal sample of $n$ still frames, we decompose $\mathcal{N}$ into four orthogonal vector fields representing distinct physical noise sources, each quantified by its magnitude across the frame sequence:
+
+1. **Photon Shot Noise Vector Magnitude** ($\|\vec{v}_{\text{sh}}\|$): captures the Poisson-distributed variance of discrete photon arrivals governed by quantum mechanics.
+2. **Thermal/Read Noise Vector Magnitude** ($\|\vec{v}_{\text{th}}\|$): captures electron agitation and circuit-level voltage fluctuations within the sensor wells.
+3. **Fixed-Pattern Noise Vector Magnitude** ($\|\vec{v}_{\text{fp}}\|$): captures spatial manufacturing inhomogeneities and dark current variations across individual sensor pixels.
+4. **Quantization/Stochastic Vector Magnitude** ($\|\vec{v}_{\text{q}}\|$): captures analog-to-digital conversion rounding errors and high-frequency atmospheric scintillation.
+
+## 3. The Integrated Noise Function
+
+Let each frame at time index $t \in \{1, 2, \dots, n\}$ be represented over spatial coordinates $(x, y)$. We integrate the noise function $\Psi$ by summing the inner products of these four vector magnitudes weighted across the $n$-frame temporal window:
+
+$$\Psi(x, y, n) = \sum_{t=1}^{n} \left( \|\vec{v}_{\text{sh}}(x,y,t)\| + \|\vec{v}_{\text{th}}(x,y,t)\| + \|\vec{v}_{\text{fp}}(x,y)\| + \|\vec{v}_{\text{q}}(x,y,t)\| \right) \cdot w(t)$$
+
+where $w(t)$ is a temporal weighting function computable by the UTM to account for shutter exposure profiles and sensor thermal accumulation over the sample duration $n$.
+
+Because Laplace's Demon tracks the exact phase space of every particle, the "random" variables driving these four vectors are reduced to deterministic initial conditions, allowing the UTM to evaluate $\Psi(x, y, n)$ with zero statistical variance.

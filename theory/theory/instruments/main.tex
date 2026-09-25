@@ -1,0 +1,44 @@
+% The instruments. Hand-written, transcribed from docs/ on 2026-09-11.
+%
+% Compile from this directory so the shared inputs resolve:
+%     latexmk -xelatex -outdir=../../../build/theory/theory/instruments main.tex
+%
+% The preamble beside this file is the one every book in this tree carries, macros included.
+%
+% WHY THIS BOOK IS SEPARATE
+%
+% Every chapter here is PENDING in theory/PARTITION.tsv: the method is general and every worked
+% example is SHA-256, so publishing them as written would leak the subject even where the method is
+% the point. Nobody has ruled on them. Keeping them in one book means the ruling moves one file
+% between classes instead of requiring surgery on a book that mixes the two.
+%
+% Until that ruling, maint/texbuild/check_partition.py treats PENDING as HELD and this book does not
+% build into anything public.
+\documentclass[11pt,paper=a4,twoside,openright,titlepage,
+headinclude,footinclude,BCOR=5mm]{scrbook}
+
+\input{preamble.tex}
+
+\begin{document}
+\frenchspacing
+\emergencystretch=3em
+\hbadness=10000
+\vbadness=10000
+\hfuzz=8pt
+\cfoot*{}
+\ofoot*{\pagemark}
+
+\frontmatter
+\pagestyle{plain}
+\include{frontmatter/titlepage}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{scrheadings}
+
+\include{chapters/chapter_cannot_see}
+\include{chapters/chapter_failure_modes}
+\include{chapters/chapter_aiming}
+\include{chapters/chapter_transforms}
+\end{document}

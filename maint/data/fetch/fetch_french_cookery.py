@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch French cookery, which is where the old material actually is, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/data/fetch/fetch_french_cookery.py
 #

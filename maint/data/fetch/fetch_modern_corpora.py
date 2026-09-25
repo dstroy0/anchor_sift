@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Pull text from Common Corpus into build/corpora, for the language measurements in
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/data/fetch/fetch_modern_corpora.py [documents per language]
 #

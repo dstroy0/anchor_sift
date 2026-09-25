@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Cut one paper out of an extracted proceedings volume so it can be read whole, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/analysis/survey/paper_slice.py icsnl2016 203-224 vaneijk
 #

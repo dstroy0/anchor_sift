@@ -4,7 +4,7 @@
 # Catalog: ANY-3-002
 #
 # Build and dismantle collections, to test what word burstiness is reading, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/any_corpus/3_reference/heterogeneity_control.py
 #

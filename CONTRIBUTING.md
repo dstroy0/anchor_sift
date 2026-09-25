@@ -13,7 +13,7 @@ A contribution that removes a person from that loop, or that makes it easier to 
 
 This is a research body with code attached. Three kinds of change are useful:
 
-**A measurement.** A number with its conditions attached: what corpus, what length, what it was measured against, and what the floor was. A ratio with no denominator is not a result. Every figure in `theory/workbook` names the tool that produced it, and a new one does the same.
+**A measurement.** A number with its conditions attached: what corpus, what length, what it was measured against, and what the floor was. A ratio with no denominator is not a result. Every figure in `theory/workbooks/anchor_sift` names the tool that produced it, and a new one does the same.
 
 **A correction.** The ledger keeps its own corrections and it is the most valuable thing in the repository. A claim that turns out to be wrong stays on the page beside the measurement that killed it. If you find a figure that does not reproduce, the contribution is the demonstration, not a quiet edit.
 
@@ -21,7 +21,7 @@ This is a research body with code attached. Three kinds of change are useful:
 
 ## What is not in the repository
 
-The 20 hand extraction tables under `theory/Salishan/` are not carried in git. Every row is a form transcribed out of a published paper. The tables are those papers' text and not this work's to redistribute. `refs.md` gives the address of every source paper, and the tables go to anyone who has the papers and asks.
+The 20 hand extraction tables under `theory/theory/Salishan/` are not carried in git. Every row is a form transcribed out of a published paper. The tables are those papers' text and not this work's to redistribute. `refs.md` gives the address of every source paper, and the tables go to anyone who has the papers and asks.
 
 The derivations built on them are here in full: the ledger, the bound, the checks and the code.
 
@@ -72,9 +72,9 @@ Every arm has to agree with `anchor_sift_naive` on every row. A row printing `DI
 
 ## Writing
 
-Prose here is plain. One fact per sentence, subject and verb and object, no em dashes, American spellings. `theory/anchor_sift` says which words are the field's and which this work minted, and the field's word wins wherever one exists.
+Prose here is plain. One fact per sentence, subject and verb and object, no em dashes, American spellings. `theory/workbooks/anchor_sift` says which words are the field's and which this work minted, and the field's word wins wherever one exists.
 
-`theory/Salishan` is generated from `paper_config.py` by `pure_corpus_index.py`, which keeps a speaker's name typed in exactly one place. Do not edit it by hand.
+`theory/theory/Salishan` is generated from `paper_config.py` by `pure_corpus_index.py`, which keeps a speaker's name typed in exactly one place. Do not edit it by hand.
 
 ## Licensing
 

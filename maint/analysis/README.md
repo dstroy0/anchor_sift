@@ -9,7 +9,7 @@ The rule against `examples/`: an example demonstrates the method on one corpus a
 
 ## survey
 
-Questions asked across the whole tree at once, feeding sections of `theory/anchor_sift`.
+Questions asked across the whole tree at once, feeding sections of `theory/workbooks/anchor_sift`.
 
 |                                   |                                                                                            |
 | --------------------------------- | ------------------------------------------------------------------------------------------ |

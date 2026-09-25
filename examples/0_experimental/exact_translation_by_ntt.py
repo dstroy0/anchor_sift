@@ -19,7 +19,7 @@
 # with the other slid by l. That correlation is a convolution, and a number theoretic transform
 # computes a convolution exactly in the integers modulo a prime p, with no float and no rounding, when
 # p carries a root of unity of the transform length. The prime is p = 998244353 = 119 * 2^23 + 1,
-# primitive root 3, certified in ntt_twiddle_certificate.py and in theory_bucket/twiddle_constants_article.tex.
+# primitive root 3, certified in ntt_twiddle_certificate.py and in theory/theory/twiddle_constants_article.tex.
 #
 # Four things are shown. Positive control: the NTT correlation equals the direct O(N^2) correlation at
 # EVERY lag, exactly, on binary views, and its peak is the true shift. Two routes able to disagree:

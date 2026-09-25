@@ -1,0 +1,99 @@
+\chapter{The same transforms in exact arithmetic}
+
+\textbf{One transform here is demonstrated; the other two are design only, and the predictions are
+unmeasured.} The translation by number theoretic transform is built and run in
+\texttt{examples/\allowbreak{}0\_experimental/\allowbreak{}exact\_translation\_by\_ntt.py}: its
+correlation agrees to the digit with the direct \(O(N^2)\) count and recovers the planted shift. Its
+grade is \emph{agrees}, a run against a reference and not a prediction. The precision constants it rests
+on are re-derived and a wrong one refused in
+\texttt{examples/\allowbreak{}0\_experimental/\allowbreak{}ntt\_twiddle\_certificate.py}. The
+integer-field and rotation transforms are not built: nothing in their sections has been measured, and
+they are the design this work adds to the methods quoted before it, stated before any result. The
+predictions at the end of the chapter concern behavior on real sequences and remain unmeasured for
+every transform, the translation included.
+
+\section{Why exactness changes the order of operations}
+
+Every published method in this book rounds. A fast Fourier transform carries each coefficient to
+machine precision, a sub-pixel peak is fitted by a curve, a variational problem is solved to a
+tolerance, and a spherical integral is a quadrature on a mesh. Each rounding is small, and each is
+fed to the next stage: the translation that was rounded is removed before the rotation is estimated,
+and the rotation that was rounded is removed before the flow is. A stratified pipeline is exactly the
+arrangement in which small errors compound, because every stage reads the residual the last stage
+left, including what the last stage got wrong.
+
+The consequence for design is specific. Averaging exists to cancel error: fitting a line across many
+frames, pooling neighbors, smoothing a field. Where the arithmetic makes no error there is nothing to
+cancel, and averaging only mixes the present with the past and one object with another. What remains
+useful is accumulation: exact counts added over time, which lose nothing however many are added.
+
+\section{Integer fields}
+
+A smoothing kernel with integer weights keeps a field in the integers. The binomial kernel of even
+order \(n\), the \(n\)th row of Pascal's triangle, sums to exactly \(2^n\) and has variance \(n/4\) in units of
+the grid spacing. It is the integer counterpart of a Gaussian of that variance. Separable along each
+axis, a volume smoothed by orders \((n_1, \dots, n_d)\) is scaled by exactly \(2^{n_1 + \dots + n_d}\), and
+the difference of two smoothings,
+\[
+r \;=\; s \cdot 2^{\,\sum_i m_i} \;-\; b,
+\]
+with \(s\) smoothed by orders \(n_i\) and \(b\) smoothed further by orders \(m_i\), compares them at one common
+scale with nothing divided. Its width is fixed by the orders and the input depth. It is carried in a
+fixed number of limbs, and its sign says exactly whether a point stands above its local background.
+
+\section{Translation by number theoretic transforms}
+
+The agreement at every lag, \(C(\ell) = \sum_v a(v)\, b(v + \ell)\), is a convolution of the reflected
+first view with the second. A number theoretic transform computes a convolution exactly in the
+integers modulo a prime \(p\) that carries roots of unity of the transform length. The prime is
+\(p = 119 \cdot 2^{23} + 1 = 998244353\), with \(p - 1 = 2^{23} \cdot 7 \cdot 17\). 3 is a primitive
+root and the longest power-of-two transform the modulus admits has length \(2^{23}\), past any image
+axis. The certificate is re-derived in
+\texttt{examples/\allowbreak{}0\_experimental/\allowbreak{}ntt\_twiddle\_certificate.py}, and the prime,
+its generator and the \(2^{27}\) device primes beside it are proved in
+\texttt{theory/\allowbreak{}theory/\allowbreak{}twiddle\_constants\_article.tex}. This prime is below \(2^{31}\),
+which the same proof shows is the property that keeps a butterfly's sum and its subtraction from
+wrapping in a 32-bit word; a modulus above \(2^{31}\) carried a silent wrong answer there. A single
+small prime keeps this transform clear of that boundary.
+
+Exactness has a stated bound. Each coefficient is a sum of products \(a(v)\, b(v + \ell)\). For binary
+views it counts agreeing positions and is at most the transform length. The transform length divides
+\(p - 1\) and so is below \(p\) for any valid prime, which makes a binary view exact with no separate
+precondition: no residue is ever reduced. Weighting the views is what can breach \(p\). The bound becomes
+the sum of the weight products, and past \(p\) a single prime counts modulo itself, silently, the same
+fault one level up from a wrong constant. The remedy is a prime above the largest coefficient, or the
+Chinese remainder theorem over several, the device path of that proof reassembling a 94-bit product. A
+view is embedded on each axis in a period of at least twice its extent less one so that no two lags
+alias, and the transform is separable, one axis at a time. The construction holds in any number of
+dimensions.
+
+The peak is then an integer, and ties among lags are broken by a rule, not by rounding: the shortest
+lag by a weighted squared length whose weights carry the view's anisotropy, then a fixed index order.
+
+\section{Rotation without angles}
+
+A rotation in the plane is multiplication by a unit complex number, and the ratio of two directions
+is a complex number whose argument is the turn between them. Where directions are given by rational
+coordinates the ratio is a Gaussian rational, and applying it is exact. A turn carried forward one
+step is exact in the same way. What is not rational is a fraction of a turn, a cube root of a
+rotation for instance, and a design that needs one has left exact arithmetic and should say so.
+
+For turns in three dimensions the same holds for quaternions with rational components. The spherical
+harmonic route of the third chapter needs coefficients that are integrals, and a function sampled at
+points gives those integrals only through a quadrature rule; which quadratures are exact for which
+degrees on which point sets is the question an exact design has to answer first.
+
+\section{Predictions}
+
+\textbf{First.} Removing the view's motion before linking will reduce links made to the wrong object
+more than any change to the linker does, wherever the view moves by as much as the objects do,
+because in that regime most of every object's apparent step belongs to the view.
+
+\textbf{Second.} A view that orbits its subject leaves a residual after the best translation that is
+structured, not scattered: parallax that varies with depth, or a turn that varies with distance from
+an axis. The residual of the translation stage is the measurement that says the next transform is
+needed.
+
+\textbf{Third.} Each transform recovered exactly and removed will leave the next stage a residual with
+no rounding in it. The improvement from adding a stage will not shrink the way it does in a floating
+point pipeline, where each stage inherits the error of the last.

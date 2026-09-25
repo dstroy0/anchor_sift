@@ -70,7 +70,7 @@ This is a real piece of work and it is a prerequisite, not a detail.
     src/bench/bench_ntt_cuda.cu                 the transform kernel
     src/scripts/build_ntt.ps1                   how to build it
     docs/twiddle-proof.md
-    theory/precision/                           main.tex, titlepage, chapter_twiddle_proof
+    theory/theory/precision/                           main.tex, titlepage, chapter_twiddle_proof
     theory/preamble.tex, theory/macros.tex      layout the book needs
     LICENSE
     README.md                                   A NEW ONE. The current README describes the viewers.
@@ -101,7 +101,7 @@ Run from the repository root, one at a time, reading the output of each.
             examples/proofing/bbp_search.py examples/proofing/bbp_sweep.py \
             examples/proofing/bbp_scaling.py \
             src/bench/bench_ntt_cuda.cu src/scripts/build_ntt.ps1 \
-            docs/twiddle-proof.md theory/precision theory/preamble.tex theory/macros.tex \
+            docs/twiddle-proof.md theory/theory/precision theory/preamble.tex theory/macros.tex \
             LICENSE README.md .gitignore
 
     # Check what is about to be committed BEFORE committing it.

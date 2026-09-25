@@ -22,7 +22,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-TARGET = os.path.join(ROOT, "theory", "cryptography", "sha256", "chapters", "chapter_sources.tex")
+TARGET = os.path.join(ROOT, "theory", "theory", "cryptography", "sha256", "chapters", "chapter_sources.tex")
 
 # Only rows the SHA-256 work actually cites. The registry also serves anchor sift, and a
 # bibliography listing sources this book never mentions would be padding.

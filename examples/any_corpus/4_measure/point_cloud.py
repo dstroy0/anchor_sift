@@ -4,7 +4,7 @@
 # Catalog: ANY-4-006
 #
 # One representation and one reduction for every corpus in this work, for Section 4.2 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/any_corpus/4_measure/point_cloud.py
 #

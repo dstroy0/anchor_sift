@@ -8,7 +8,7 @@ That is the construction. Every domain is that one sentence with a different ans
 | ----------------------------- | ----------------------------------------------------------------------------- |
 | [Setup](setup.md)             | dependencies, building the engine, building the books                         |
 | [Using it](usage.md)          | run the measure on something of your own                                      |
-| [Research](research/index.md) | the eleven books across `theory/` and `theory_bucket/`, and how to build them |
+| [Research](research/index.md) | the books in `theory/`, and how to build them |
 
 The repository is at [github.com/dstroy0/anchor_sift](https://github.com/dstroy0/anchor_sift). Its README covers the algorithm, the areas of research, and the licensing.
 

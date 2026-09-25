@@ -41,7 +41,7 @@
 # kind is carried and grows.
 #
 # The last part is the algebra of one constructor read in the millennium book's Navier-Stokes chapter
-# (theory_bucket/millennium/chapters/chapter_navier_stokes.tex, its account of Corollary 10.6 of the
+# (theory/theory/millennium/chapters/chapter_navier_stokes.tex, its account of Corollary 10.6 of the
 # 2026 paper it reviews): a periodic field built by summing integer translates of a compactly supported
 # one, whose supports stay disjoint. What that constructor inherits from its pieces rests on one exact
 # fact, that the bilinear term of a sum splits into the pieces' bilinear terms when supports are disjoint,

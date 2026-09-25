@@ -31,7 +31,7 @@
 #
 # THE MODEL FOR A GOOD PRIORITY CLAIM IS ALREADY IN THE TREE
 #
-# theory/crystallography/chapters/chapter_whose_result.tex says an autocorrelation of density in a
+# theory/theory/crystallography/chapters/chapter_whose_result.tex says an autocorrelation of density in a
 # crystal is very unlikely to be new, that the reasonable prior is that it has a name and a
 # literature behind it, and that nobody here has done the reading. That paragraph asserts no
 # priority and states its own gap. It needs no citation and passes. Every DISCLAIMER pattern
@@ -109,7 +109,7 @@ ROOT = _repository_root()
 
 # The books and the pages. src/ and maint/ are excluded: a comment claiming a method is new is
 # worth catching too, but the first pass is aimed at what gets posted.
-DEFAULT_ROOTS = ("theory", "theory_bucket", "docs", "README.md")
+DEFAULT_ROOTS = ("theory", "docs", "README.md")
 CHECKED = (".tex", ".md")
 SKIP_DIRS = (".git", "build", "site", "deps", "__pycache__", "fixtures")
 

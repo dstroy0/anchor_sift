@@ -1,0 +1,34 @@
+% !TEX TS-program = xelatex
+% Edited by hand. sh maint/texbuild/build_theory.sh compiles it.
+%
+% The chapters are generated from the markdown beside this file by maint/texbuild/theory_tex.py,
+% which also writes chapters/order.tex, the list of chapters in the order the README gives them.
+% The markdown stays the source until the port is finished.
+%
+% Compile from this directory so the shared inputs resolve:
+%     latexmk -xelatex -outdir=../../build/theory/cell_tracking main.tex
+\documentclass[11pt,paper=a4,twoside,openright,titlepage,
+headinclude,footinclude,BCOR=5mm]{scrbook}
+
+\input{preamble.tex}
+
+\begin{document}
+\frenchspacing
+\emergencystretch=3em
+\hbadness=2000
+\vbadness=10000
+\hfuzz=2pt
+\cfoot*{}
+\ofoot*{\pagemark}
+
+\frontmatter
+\pagestyle{plain}
+\include{frontmatter/titlepage}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{scrheadings}
+
+\input{chapters/order.tex}
+\end{document}

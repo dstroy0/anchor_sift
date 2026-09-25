@@ -73,7 +73,7 @@ if [ ! -f "$CHECK" ]; then
 fi
 
 # No root argument. The checker uses its own roots, all inside this repository: docs, src, examples,
-# maint, theory and theory_bucket. Naming only docs here once left twelve READMEs beside the code
+# maint and theory. Naming only docs here once left twelve READMEs beside the code
 # unchecked, and one of them was carrying a paragraph inside a table. The checker now raises on a
 # root that does not exist, the other half of the same fault: it once read 188 files instead of 317
 # and exited 0.

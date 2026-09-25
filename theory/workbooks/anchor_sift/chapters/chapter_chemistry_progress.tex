@@ -1,0 +1,85 @@
+\chapter{Chemistry: progress and what is unmeasured}
+
+Working notes for the chemistry subject, dated 2026-09-17. Kept here because a claim recorded beside
+what it still lacks is the only check available on work with no reviewer, and because the subject is
+mostly design and the design should be scrutinized before a reader is written to it.
+
+\section*{The hypothesis}
+
+Chemistry is the general question with the atom as the part: how far an arrangement sits from the most
+disordered arrangement of its own atoms. The building block is the atom, a point carrying an element
+vector; the rule that makes an arrangement non-random is valence; and the bond length valence fixes is
+an oracle of the strongest kind, a fact and not a consensus. The protein backbone and the crystal
+cell edge both rest on it. Chemistry is the layer under two existing subjects and not a third
+beside them. The full statement is in \texttt{theory/theory/chemistry}.
+
+\section*{The boundary that was found before anything was committed}
+
+The first thing measured was a collision, not a result. The particle-physics subject transcribes the
+element ledger, \(Z\) and the electron set and the periodic recurrence, and chemistry consumes exactly
+that. Two transcriptions of one ledger is two sources of truth for a fact neither chemistry nor a
+protein established. The boundary is: the atomic structure is authored once in a shared
+\texttt{representation/atom} home, and chemistry adds only the bonding layer, valence and bond order
+and the bond-length oracle, on top of it. The engine holds any commit that would duplicate the
+ledger. This was agreed before the element data was written, the outcome that boundary
+existed to produce.
+
+\section*{What runs today}
+
+Four stages of the pipeline run on the primitives already in the tree, each graded by what it emitted
+and each agreeing with its prediction.
+
+\texttt{examples/chemistry/1\_represent/build\_molecules.py} builds seventeen molecules as atoms
+carrying an element and bonds carrying an order, and octet-gates the catalog: all seventeen close, the
+positive control on a hand-built table. It builds the connectivity and not the geometry, because a
+bond's length is the oracle fact that is not entered yet. The reading it delivers is that a formula
+does not fix a molecule: ethanol and dimethyl ether are both \texttt{C2H6O} and both close. The
+formula is a label and not the structure.
+
+\texttt{examples/chemistry/3\_reference/two\_nulls\_two\_questions.py} draws two nulls, each deleting a
+different property. Permuting which element sits at which site deletes the element-to-site match, and
+the octet departs from it on all five molecules read: the real molecule closes and most permutations
+do not. A degree-preserving rewire deletes the connectivity while holding each atom's degree at its
+valence, and the octet closes on every rewire on all five, including the self-bonded graphs that are
+not molecules. So the octet carries which element sits where and carries nothing about which atoms are
+joined.
+
+\texttt{examples/chemistry/4\_measure/a\_histogram\_cannot\_see\_structure.py} reads collision entropy,
+which is computed from the atom counts alone and so is permutation invariant. A molecule and every
+rearrangement of its atoms carry the identical value to machine precision, worst departure
+\(0.0\mathrm{e}{+}00\), and the two isomers read the same number. A histogram reads the formula and stops
+there. Arrangement is left to the sift and the choice among isomers to a geometry the bond-length
+oracle carries.
+
+\texttt{examples/chemistry/5\_sift/valence\_is\_a\_necessary\_condition.py} reads the octet as the sift
+proposition on chemistry: every atom of a real molecule closes. The octet refuses no molecule and
+prunes the rest, one directional error. Over eight real molecules all eight close, each above a drawn
+null band of 0.030 to 0.307, the null being the fraction of element-label permutations over the same
+bond graph that still close across 400 shuffles. The two negative controls, carbon with five hydrogens
+and bonded helium, are both refused. Two routes are read and shown to disagree: the handshake sum
+holds on a mis-wired peroxide the per-atom octet refuses. Neither route is the other twice. The
+sampled null rates track the arithmetic by hand: water near one permutation in three, methane near one
+in five, ethyne near one in six.
+
+\section*{What is unmeasured, and stated so}
+
+The geometric molecule reader does not exist: the four stages above read connectivity, and no stage
+places an atom in space. That reader belongs in \texttt{representation/structure} beside the protein
+and crystal readers, imports the shared element ledger, and needs the bond-length oracle in
+\texttt{oracle/chemistry}, which does not exist either. The shared ledger in
+\texttt{representation/atom} does not exist yet. Stage one holds only chemistry's own valence layer
+and transcribes no element identity. The periodic-property reading is a prediction with a known trap
+in front of it: the period lengths are \(2, 8, 8, 18, 18, 32\), not one number. A detector taking the
+tallest lag will report a harmonic, and the shell boundaries have to be read as a partition instead.
+The octet stages prove a necessary condition, not a sufficient one; which isomer a valid formula
+becomes is left to a geometry measure and is not claimed here. Until the shared ledger, the
+\texttt{representation/structure} reader and \texttt{oracle/chemistry} land, stage two, the geometric
+part of stage four and stage six are design and are named as design.
+
+\section*{A refutation kept}
+
+The tempting strong claim, that a departure from the disordered background measures human production,
+fails in chemistry as it failed on the prime gaps. A single-element metal packs into a lattice of
+enormous order that no person arranged. So chemistry belongs with the primes, not with the prose:
+arrangement is not authorship, and a reading that took the departure as evidence of design would be
+wrong on every mineral in the ground. Recorded here so it is not rediscovered as a result later.

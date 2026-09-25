@@ -1,0 +1,98 @@
+  build directory: /d/kaggle/biohub_cell_tracking/build/20260924_172609_sim_knf_identity
+scriptura.c
+scriptura_arm_avx2.c
+scriptura_arm_avx512.c
+scriptura_arm_neon.c
+scriptura_arm_portable.c
+scriptura_arm_sve.c
+exact_integer.c
+tessera_client.c
+tessera_paths.c
+tessera_frame.c
+tessera_self.c
+tessera_ledger.c
+tessera_measure.c
+tessera_daemon.c
+obsignatio.cu
+tmpxft_0000c77c_00000000-10_obsignatio.cudafe1.cpp
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+tessera_ledger_sim.obj
+tessera_measure_sim.obj
+tessera_daemon_sim.obj
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+obsignatio_sim.obj
+knf_identity.cu
+tmpxft_0000b3f4_00000000-10_knf_identity.cudafe1.cpp
+sim_job.cu
+tmpxft_0000b3f4_00000000-14_sim_job.cudafe1.cpp
+entropy_history.cu
+tmpxft_0000b3f4_00000000-18_entropy_history.cudafe1.cpp
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+exact_integer_sim.obj
+tessera_client_sim.obj
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+obsignatio_sim.obj
+  tessera: knf_identity admitted, 404752392 bytes reserved
+  the knf's identity by spatial null permutation: the nbody lattice's law in a 64^3 cube over 177 frames,
+  16 windows of 11 transitions; a section is one voxel's windows, E couples each with its xyz neighbours
+  one bit: the host's walk equals the knf at every voxel; of 8192 single flipped bits, 1500 leave the knf unchanged, and the window rule names 8192 of them exactly
+  the exact motions (6 axis orders x 8 reflections, each with a keyed torus translation), the data moved
+  over xyz and projected again: the knf carried as a whole on 48 of 48, its entangled entropy unchanged on 48, its cloud unchanged on 48
+  the lattice: the entangled entropy against the free null's mean 44.626, identified yes
+    the departure curve, as a share of the free null's departure (19 draws a tile size, E past every draw marked *)
+      tile    inside   between       sum
+         1 0.000      1.002    * 1.002    
+         2 0.126    * 0.492    * 0.618    
+         4 0.349    * 0.241    * 0.590    
+         8 0.647    * 0.106    * 0.754    
+        16 0.896    * 0.047    * 0.944    
+        32 0.974    * 0.008    * 0.982    
+        64 1.000    * 0.000      1.000    
+    each body's box (zmin..zmax, ymin..ymax, xmin..xmax over its life), its own inside curve as a share of
+    its free departure, and that departure as a share of the whole's
+      body parent  born ended  vy vx  box z      y      x           2        4        8       16       32     share
+         0      -     0     8  -1 -1  51-57 30-45  3-24  0.122     0.323     0.809     0.963     0.997     0.164    
+         1      -     0    12   1  1  24-28 24-47 19-38  0.176     0.318     0.733     0.975     1.017     0.028    
+         2      -     0    16   0  0  51-57 10-22 10-24  0.135     0.502     0.874     0.971     0.980     0.059    
+         3      -     0   177   0  0  53-59 12-20 24-38  0.545     1.192     0.861     0.822     0.731     0.002    
+         4      -     0   177   1  1  27-31 16-63 22-63  0.116     0.373     0.614     0.928     1.019     0.038    
+         5      -     0   177  -1 -1  53-59  0-27  0-30  0.135     0.401     0.862     0.932     0.956     0.122    
+         6      -     0   177   1  1  11-17 11-63 16-63  0.112     0.276     0.809     0.959     1.000     0.108    
+         7      -     0   177  -1 -1  33-39  0-50  0-38  0.112     0.465     0.619     0.953     0.982     0.426    
+         8      -     0   177   0 -1  49-53 17-25  0-45  0.173     0.376     0.594     0.920     0.947     0.032    
+         9      -     0   177  -1 -1   4- 8  0-39  0-37  0.195     0.311     0.818     0.900     0.991     0.032    
+        10      0     8   177  -2 -1  51-57  0-34  0-16  0.138     0.254     0.804     0.943     0.980     0.172    
+        11      0     8   177   0 -1  51-57 32-38  0-16  0.137     0.416     0.832     0.980     0.998     0.175    
+        12      1    12   177   0  1  24-28 35-43 31-63  0.195     0.360     0.895     0.989     0.993     0.025    
+        13      1    12   177   2  1  24-28 41-63 31-50  0.196     0.329     0.818     0.961     1.006     0.027    
+        14      2    16   177  -1  0  51-57  0-17 10-24  0.124     0.465     0.893     0.964     0.972     0.048    
+        15      2    16   177   1  0  51-57 15-63 10-24  0.126     0.323     0.806     0.959     0.986     0.136    
+  the same camera and ramp, no bodies: the entangled entropy against the free null's mean -10.675, identified no
+    the departure curve, as a share of the free null's departure (19 draws a tile size, E past every draw marked *)
+      tile    inside   between       sum
+         1 0.000      0.940      0.940    
+         2 0.622      0.396      1.019    
+         4 0.955      0.186      1.142    
+         8 0.933      0.146      1.080    
+        16 0.705      -0.172   * 0.532    
+        32 0.946      0.030      0.977    
+        64 1.000      0.000      1.000    
+  tessera: released, peak 370311168 bytes
+  the null's own rate: 64 volumes of 32^3 with every voxel drawn alike (no bodies, no ramp, no fixed pattern), each
+  against 19 free spatial draws: 4 identified, where exchangeability bounds the rate by 1/20
+  knf identity: 23 checks, 0 failed
+  knf_identity exit 0

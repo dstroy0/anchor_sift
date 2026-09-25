@@ -4,7 +4,7 @@
 # Catalog: LNG-4-043
 #
 # Separate descent from contact using a family that has one without the other, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/uralic_test.py
 #

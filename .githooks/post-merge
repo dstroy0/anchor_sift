@@ -54,6 +54,10 @@ UPSTREAM=https://github.com/dstroy0/theory_bucket.git
 # public books is made against dstroy0/theory, never typed into theory_bucket/ here and never carried
 # up into the private repository.
 #
+# On 2026-09-25 Douglas ordered theory_bucket's layout and books adopted here, which supersedes the
+# paragraph above. theory/ now mirrors theory_bucket's theory/, workbooks/ and thought_experiments/,
+# copied by hand. theory_bucket/ does not exist in this tree, and this hook still does not run.
+#
 # Deleting this hook is Douglas's call and is planned at PLANS/THEORY_MIGRATION.md section 4. This
 # block only stops the hook. To lift the hold, delete this block, and not before the routing above
 # is settled.

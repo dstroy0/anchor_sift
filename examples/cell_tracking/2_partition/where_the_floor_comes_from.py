@@ -13,7 +13,7 @@
 # offered there for that floor is feature width, that a blob six pixels across still agrees
 # substantially at the neighbouring lag when the displacement is exact.
 #
-# THAT IS A GUESS UNTIL IT IS SWEPT, and this file sweeps it. theory/workbook records ten separate
+# THAT IS A GUESS UNTIL IT IS SWEPT, and this file sweeps it. theory/workbooks/anchor_sift records ten separate
 # bounds in this work that had to come back off, each one a quantity chosen because something had to
 # be chosen, and the rule it ends with is that what works is not choosing better but sweeping the
 # quantity and letting the data say where it stops mattering. Blob width was chosen once, by this

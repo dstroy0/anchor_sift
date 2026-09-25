@@ -1,0 +1,19 @@
+  the bump keeps the tree: 80256 of 80256 values below 20000 at bases 2 to 6 whose bump fits 64 bits
+  2^^1 = 2 in hereditary base 2 is w
+  2^^2 = 4 in hereditary base 2 is w^(w)
+  2^^3 = 16 in hereditary base 2 is w^(w^(w))
+  2^^4 = 65536 in hereditary base 2 is w^(w^(w^(w)))
+  start 1: 0 after 1 steps
+  start 2: 0 after 3 steps
+  start 3: 0 after 5 steps
+  start 4, the ordinal w^(w)
+    after 1000000 steps, base 1000002, 3 blocks; the ordinal fell on 1000000; the value equals the numeric sequence's on 1000000 steps, where it fits 64 bits
+    now w^2 + w.8 + 572861
+  start 16, the ordinal w^(w^(w))
+    after 1000000 steps, base 1000002, 4 blocks; the ordinal fell on 1000000; the value equals the numeric sequence's on 1 steps, where it fits 64 bits
+    now [w^(w^2.2 + w.2 + 2).2 + ... + w^(w).2; 24 terms] + w^2 + w.8 + 572861
+  start 65536, the ordinal w^(w^(w^(w)))
+    after 1000000 steps, base 1000002, 4 blocks; the ordinal fell on 1000000; the value equals the numeric sequence's on 0 steps, where it fits 64 bits
+    now [w^(w^(w^2.2 + w.2 + 2).2 + w^(w^2.2 + w.2 + 1).2 + w^(w^2.2 + w.2).2 + w^(w^2.2 + w + 2).2 + w^(w^2.2 + w + 1).2 + w^(w^2.2 + w).2 + w^(w^2.2 + 2).2 + w^(w^2.2 + 1).2 + w^(w^2.2).2 + w^(w^2 + w.2 + 2).2 + w^(w^2 + w.2 + 1).2 + w^(w^2 + w.2).2 + w^(w^2 + w ...).2 ...).2 + ... + w^( ...).2; 7625597484984 terms] ...
+  goodstein: 7 checks, 0 failed
+  goodstein exit 0

@@ -4,7 +4,7 @@
 # Catalog: LNG-4-007
 #
 # Score the family again with the untranslated English taken out, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/clean_dravidian.py
 #

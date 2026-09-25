@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch the World Atlas of Language Structures, which lets a claim about many languages be checked
-# against many languages, for Section 4.13 of theory/anchor_sift.
+# against many languages, for Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/data/fetch/wals_fetch.py
 #

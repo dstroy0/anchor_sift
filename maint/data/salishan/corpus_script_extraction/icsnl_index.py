@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # List every volume of the Salish and neighbouring languages proceedings that can be downloaded, for
-# Section 4.13 of theory/anchor_sift.
+# Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/icsnl_index.py [page url]
 #

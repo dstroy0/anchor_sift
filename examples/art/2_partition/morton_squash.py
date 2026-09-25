@@ -4,7 +4,7 @@
 # Catalog: ART-2-001
 #
 # Carry a plane through a single dimension by interleaving its coordinates, for Section 4.2 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/art/2_partition/morton_squash.py
 #

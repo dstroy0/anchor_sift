@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Put every corpus in the tree through the gate and see what has been standing in the readings, for
-# Section 4.13 of theory/anchor_sift.
+# Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/analysis/survey/gate_report.py
 #

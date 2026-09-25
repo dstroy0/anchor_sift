@@ -6,7 +6,7 @@
 # as machine written.
 #
 #   python maint/prose/ai_detect.py --dry-run theory    what would be sent, and what it costs
-#   python maint/prose/ai_detect.py theory/millennium   score one book
+#   python maint/prose/ai_detect.py theory/theory/millennium   score one book
 #   python maint/prose/ai_detect.py --bar 0.40 docs     score with the bar drawn somewhere else
 #
 # WHY AN OUTSIDE DETECTOR AT ALL

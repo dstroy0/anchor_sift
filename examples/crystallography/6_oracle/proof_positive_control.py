@@ -8,7 +8,7 @@
 #   Usage:  python examples/crystallography/6_oracle/proof_positive_control.py [how many names]
 #
 # Proof of the posit that a negative control cannot show an instrument works, from the posits
-# section of theory/workbook. Every control in this work until the protein
+# section of theory/workbooks/anchor_sift. Every control in this work until the protein
 # structures was a memoryless process, and one of those can only show that an instrument does not
 # invent structure. It cannot show that the instrument finds structure that is there, and the
 # protein case demonstrated the difference by being reported as unstructured twice.

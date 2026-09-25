@@ -432,8 +432,8 @@ def is_generated(path):
 
     THE CIRCULARITY THIS PREVENTS, which is silent and lossy and not merely untidy.
 
-    theory_bucket/cryptography/sha256/chapters/chapter_sources.tex is written by the book build FROM
-    the citations registry, and it lands inside theory_bucket, which is scanned. So the registry's
+    theory/theory/cryptography/sha256/chapters/chapter_sources.tex is written by the book build FROM
+    the citations registry, and it lands inside theory/, which is scanned. So the registry's
     own bibliography is a file full of the names in the registry. A --seed run over it rewrites
     first_use from the document that genuinely cites a work to the file that exists only because the
     row exists, and the real user of the source is erased. The registry ends up recording itself as

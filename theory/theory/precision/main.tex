@@ -1,0 +1,36 @@
+% !TEX TS-program = xelatex
+% Precision. Hand-written, transcribed from docs/ on 2026-09-11.
+%
+% Compile from this directory so the shared inputs resolve:
+%     latexmk -xelatex -outdir=../../build/theory/precision main.tex
+%
+% One level under theory/, the ordinary depth. ../preamble.tex reaches the shared
+% preamble and its own \input{../macros.tex} lands on theory/macros.tex directly. No shim is needed
+% here; a book that sits a level deeper, such as theory/cryptography/, needs one.
+\documentclass[11pt,paper=a4,twoside,openright,titlepage,
+headinclude,footinclude,BCOR=5mm]{scrbook}
+
+\input{preamble.tex}
+
+\begin{document}
+\frenchspacing
+\emergencystretch=1em
+\hbadness=2000
+\vbadness=10000
+\hfuzz=2pt
+\cfoot*{}
+\ofoot*{\pagemark}
+
+\frontmatter
+\pagestyle{plain}
+\include{frontmatter/titlepage}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{scrheadings}
+
+\include{chapters/chapter_twiddle_proof}
+\include{chapters/chapter_relation_search}
+\include{chapters/chapter_engine_workbook}
+\end{document}

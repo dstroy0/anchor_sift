@@ -1,0 +1,461 @@
+\chapter{Their sets, defined, and what runs on them exactly}
+
+\textbf{Purpose:} Define the sets Fefferman's problem statement names, as sets; record what he says
+was known and what he asks for; and record what the engine's exact integer arithmetic shows when it
+is pointed at those sets, with the boundary of each object read off the object by a probe and the
+inheritance of that boundary through the constructors measured. \textbf{Scope:} Fefferman's
+statement, six pages with the errata, fetched from the Clay site and read in full on 2026-09-17;
+\texttt{examples/\allowbreak{}0\_experimental/\allowbreak{}exact\_navier\_stokes\_on\_torus.py}
+and \texttt{evidence/\allowbreak{}proofs/\allowbreak{}posits/\allowbreak{}proof\_boundary\_inheritance.py}
+in the \texttt{anchor\_sift} tree, both run and both exiting 0; and the dated workbook beside them at
+\texttt{theory/\allowbreak{}workbook/\allowbreak{}navier\_stokes\_workbook.md}, whose withdrawn
+entries this chapter repeats.
+
+Nothing in this chapter bears on whether (A), (B), (C) or (D) holds. It follows the rail the first
+chapter set down: claim nothing, cite nothing unread, put the gap in the sentence that makes the
+claim, keep a withdrawn claim on the page with what killed it, draw the bar and never derive it. It
+adds one more, from the arithmetic: the boundary kind of an object is not assigned by judgment. It is
+read off the object by a probe, and the object answers.
+
+We know nothing here that the field does not. Every object in this chapter belongs to someone else
+and is named with respect in the prior-art section. The two files run those objects in exact
+arithmetic, which adds no rounding and a second route, and they add nothing else.
+
+\section{Their sets, defined}
+
+Written as sets so that every later sentence names the set it is about. $n = 3$ and $\nu > 0$ are
+fixed throughout, $e_j$ are the unit vectors, and smooth means $C^\infty$. Each set is Fefferman's
+condition as he wrote it, and the definitions are transcribed, not designed. His numbered conditions
+are: (1) the momentum equation, (2) $\operatorname{div} u = 0$, (3) $u(x,0) = u^\circ(x)$, (4)
+rapid decay of every derivative of the datum on $\R^3$, (5) rapid decay of every space-time
+derivative of the force on $\R^3\times[0,\infty)$, (6) $p, u$ smooth there, (7) one constant
+bounding $\int_{\R^3}|u(x,t)|^2\,dx$ for every $t\ge 0$, (8) the datum and the force periodic in each
+$e_j$, with the errata adding that the pressure is periodic, (9) rapid decay of every derivative of
+the force in $t$ alone, (10) the solution periodic, (11) $p, u$ smooth.
+
+\begin{itemize}
+\item $D_4$, the whole-space data: smooth $u^\circ:\R^3\to\R^3$ with $\operatorname{div}u^\circ = 0$
+  and, for every multi-index $\alpha$ and every $K>0$, a constant $C_{\alpha K}$ with
+  $|\partial_x^\alpha u^\circ(x)| \le C_{\alpha K}(1+|x|)^{-K}$ on $\R^3$.
+\item $F_5$, the whole-space forces: smooth $f:\R^3\times[0,\infty)\to\R^3$ with, for every
+  $\alpha, m, K$, a constant with $|\partial_x^\alpha\partial_t^m f(x,t)| \le C_{\alpha m K}(1+|x|+t)^{-K}$.
+\item $S_{67}(u^\circ,f)$, the physically reasonable whole-space solutions for a datum and a force:
+  pairs $(p,u)$ smooth on $\R^3\times[0,\infty)$, satisfying (1) and (2) there, with $u(x,0)=u^\circ(x)$
+  and one constant $C$ with $\int_{\R^3}|u(x,t)|^2\,dx < C$ for every $t \ge 0$.
+\item $D_8$, the periodic data: smooth $u^\circ$ with $\operatorname{div}u^\circ=0$ and
+  $u^\circ(x+e_j) = u^\circ(x)$ for $j = 1,2,3$. No decay condition; the torus replaces it.
+\item $F_{89}$, the periodic forces: smooth $f$ with $f(x+e_j,t) = f(x,t)$ and, for every
+  $\alpha, m, K$, a constant with $|\partial_x^\alpha\partial_t^m f(x,t)| \le C_{\alpha m K}(1+|t|)^{-K}$.
+\item $S_{1011}(u^\circ,f)$, the periodic solutions: pairs $(p,u)$ smooth on $\R^3\times[0,\infty)$,
+  satisfying (1), (2), (3), with $u(x+e_j,t) = u(x,t)$ and, by the errata, $p(x+e_j,t) = p(x,t)$. No
+  energy condition is written; on a period cell the energy of a smooth periodic field is finite.
+\end{itemize}
+
+The four alternatives in those names:
+
+\begin{itemize}
+\item (A): for every $u^\circ$ in $D_4$, $S_{67}(u^\circ, 0)$ is not empty.
+\item (B): for every $u^\circ$ in $D_8$, $S_{1011}(u^\circ, 0)$ is not empty.
+\item (C): there exist $u^\circ$ in $D_4$ and $f$ in $F_5$ with $S_{67}(u^\circ,f)$ empty.
+\item (D): there exist $u^\circ$ in $D_8$ and $f$ in $F_{89}$ with $S_{1011}(u^\circ,f)$ empty.
+\end{itemize}
+
+Two readings of those definitions, both from the statement and neither new. (C) is not the negation
+of (A): the negation of (A) is (C) with $f = 0$, and (C) allows any $f$ in $F_5$, so (A) and (C) can
+both be true, and likewise (B) and (D). The previous chapter called that two different removals, and
+the removal instances below are that shape on one field each. Fefferman's own sentence on the
+unforced case is that either (A) and (B) hold, or else there is a smooth divergence-free $u^\circ$
+for which (1), (2), (3) have a solution with a finite blowup time $T$, past which the velocity becomes
+unbounded; for Euler, $\nu = 0$, the Beale--Kato--Majda criterion then gives
+$\int_0^T \sup_x |\operatorname{curl} u(x,t)|\,dt = \infty$. Both are his sentences and nothing here
+touches them.
+
+Two more sets he defines and this chapter does not use: the weak solutions, pairs $(p,u)$ with $u$
+in $L^2$, $p$ and $f$ in $L^1$, satisfying his (12) for every smooth compactly supported test field
+and (13) for every smooth compactly supported test function, which Leray showed always exist in three
+dimensions with suitable growth; and the singular set of a weak solution, the points near which $u$ is
+unbounded, whose one-dimensional parabolic Hausdorff measure Caffarelli, Kohn and Nirenberg showed
+is zero, with F.-H. Lin's simpler proof. Named here because they are in the statement, and named as
+his account of them, since the papers are unread here. The errata page also corrects an equation it
+numbers (10) to a weak form with the signs
+$-\iint u\cdot\partial_t\theta - \sum\iint u_iu_j\,\partial_j\theta_i = \nu\iint u\cdot\Delta\theta
++ \iint f\cdot\theta + \iint p\,\operatorname{div}\theta$; in the text as fetched (10) is the
+periodicity of $u$ and the weak form is (12), so the errata refer to an earlier numbering. Recorded as
+read.
+
+\section{What they knew, what they wanted, what we know}
+
+Three lists, kept apart. The first two are Fefferman's statement, read; the third is the two files,
+run.
+
+\textbf{What they knew}, as the statement records it, in his order and his attributions. In two
+dimensions the analogs of (A) and (B) have been known for a long time, Ladyzhenskaya, and also for
+the harder case of Euler; the three-dimensional difficulties are absent there. In three dimensions (A)
+and (B) hold when $u^\circ$ satisfies a smallness condition, and for general $u^\circ$ they hold,
+also for $\nu = 0$, on a short interval $[0,T)$ with $T$ depending on the datum; the largest such $T$
+is the blowup time, and either (A) and (B) hold or some smooth divergence-free datum has a solution
+with finite blowup time, near which the velocity is unbounded. For Euler with finite blowup time the
+vorticity satisfies the Beale--Kato--Majda divergence, so it blows up rapidly; many numerical
+computations appear to show Euler blowup, and the extreme numerical instability of the equations
+makes reliable conclusions hard to draw; he points to Bertozzi and Majda's book. Leray, 1934: weak
+solutions always exist in three dimensions with suitable growth; their uniqueness for Navier--Stokes
+is not known, and for Euler it is false, by Scheffer and then Shnirelman, who built weak solutions
+with compact support in spacetime, a fluid at rest that starts moving with no stimulus and returns to
+rest. Scheffer, then Caffarelli, Kohn and Nirenberg, then Lin: partial regularity, the singular set of
+a suitable weak solution having one-dimensional parabolic Hausdorff measure zero, so that it contains
+no spacetime curve; he calls it the best partial regularity theorem known so far and says it appears
+very hard to go further. His closing sentence: standard methods from PDE appear inadequate, and some
+deep, new ideas are probably needed. Past the statement, and as the previous chapter recorded on
+2026-09-11: a 2026 paper and a Lean repository were published against (C) and (D); that chapter read
+the formalized statement against his six points and found each matched, built nothing, and read
+neither proof. Nothing here adds to that.
+
+\textbf{What they wanted}: a proof of one of (A), (B), (C), (D), in the sets defined above. He says the
+leeway is deliberate, to give solvers room while retaining the heart of the problem: whether smooth,
+physically reasonable solutions exist for every reasonable datum, or whether some datum breaks down.
+Physically reasonable is defined, not left open: smooth, with bounded energy on $\R^3$, or smooth and
+periodic on the torus with the periodic pressure of the errata. The Euler case is wanted too, in his
+words, and is not on the Clay list.
+
+\textbf{What we know}, each line with its set and its scope, and nothing past the scope.
+
+\begin{itemize}
+\item On $R_{\mathrm{div}}$, a subset of $D_8$ defined in the next section, the residual of (1) with
+  (2) is computable exactly, and for the Arnold--Beltrami--Childress datum it is zero at every Taylor
+  order checked, orders 0 to 4, by two routes that agree to the integer. The closed form is a solution
+  for every $t$ by the two identities verified; that is an instance of (B) for one datum, known since
+  Arnold and Childress.
+\item For a generic datum in $R_{\mathrm{div}}$ the Taylor coefficients to order 4 are exact,
+  divergence-free, real-valued, and the vorticity route agrees at every order; their mode support
+  grows by one in $|k|_1$ per order, measured, so no fixed horizon holds the solution. What happens
+  past order 4, whether the series converges, and for how long, is not known here.
+\item At $t = 0$, on both data, the energy identity holds exactly, with the nonlinear term and the
+  pressure moving no energy. That is one instant; (7) is every instant.
+\item The time and space scalings hold exactly on the coefficients to order 3; the viscosity is a
+  parameter a scaling moves.
+\item On one datum each, the solution sets of Euler and of Navier--Stokes do not contain each other's
+  member, and the forced and unforced sets do not; the residuals are exact and proportional to $\nu$
+  or equal to $f$. Two instances, no theorem.
+\item $R_{\mathrm{div}}$ is countable and $D_8$ is not, so the exactly nameable data are a
+  measure-zero island in the data class; everything the ring does is on that island.
+\item The boundary kind of each object, read by probe: none on the ABC coefficients and on the exact
+  ring, completeness on a generic datum's horizon, format on any decimal report of a coefficient with
+  $\pi$ in it, measurement on a deposited amplitude and none on the ratio that cancels it. Through the
+  chain from the datum to $u_3$ the ring carries no format kind, measurement is carried to every
+  order, exactly on the ABC family, and completeness is carried and grows.
+\item The disjoint-translate constructor splits the bilinear term exactly when supports are disjoint
+  and not when they overlap, in one variable on a lattice of eighths. Its algebra, not their
+  corollary.
+\item We do not know whether (A), (B), (C) or (D) holds. We have not read the 2026 proof. We have
+  computed no blowup, no weak solution, no singular set, and no solution on $\R^3$. The two files
+  reach one countable island inside $D_8$ and read it exactly; they reach nothing past it.
+\end{itemize}
+
+\section{Our set, and where it sits in theirs}
+
+The arithmetic is the engine's alone: Python integers as the bignum, decimal inputs read by
+\texttt{representation.exact} as (numerator, places) pairs, and booleans; no float, no fraction
+library. A field on $\R^3/\Z^3$ is a finite sum of modes $e^{2\pi i k\cdot x}$, $k\in\Z^3$, each mode
+carrying a Laurent polynomial in $\pi$ with Gaussian integer coefficients, and the whole field
+carrying one positive integer denominator, the way the engine's exact reader carries one count of
+decimal places. The denominator is widened past a power of ten for one reason: Leray's projection
+divides by $|k|^2$, and $1/3$ has no exact decimal at any scale, and a decimal scale would then have
+to refuse where an integer denominator carries the value exactly. Every field is normalized by the
+common divisor of its integers, so equality is equality of integers, and $\pi$ is a symbol:
+Lindemann's theorem makes term-by-term zero the exact zero test. Call the ring $R$, real-valued when
+the coefficient at $-k$ is the conjugate of the one at $k$, and $R_{\mathrm{div}}$ its
+divergence-free vector fields. The solution is carried as Taylor coefficients at $t=0$,
+\[
+u_{m+1} \;=\; \nu\,\Delta u_m \;-\; P\sum_{j=0}^{m}\binom{m}{j}\,(u_j\cdot\nabla)\,u_{m-j},
+\]
+with $P$ Leray's projection and the pressure from the same sum, which is (1) differentiated $m$ times
+at $t=0$ with (2) enforced by $P$. Nothing is rounded.
+
+\begin{itemize}
+\item $R_{\mathrm{div}} \subset D_8$: every element is a trigonometric polynomial, so smooth and
+  periodic, and the divergence is an exact identity. That inclusion is what the whole of the next
+  section rests on.
+\item $R_{\mathrm{div}}$ meets $D_4$ only at zero: a nonzero periodic field does not decay. So the
+  ring reaches (B) and (D)'s data and none of (A) and (C)'s.
+\item $R_{\mathrm{div}}$ is closed under the constructors of the recurrence, products, derivatives,
+  and Leray's projection with the denominator widened, so every Taylor coefficient of a solution with
+  datum in $R_{\mathrm{div}}$ is in $R_{\mathrm{div}}$; shown to order 4 and true by construction at
+  every order.
+\item The solution itself, $u(t)$ for $t>0$, is not in $R$: for the ABC datum it is
+  $e^{-4\nu\pi^2 t}u_0$, whose amplitude is not a Laurent polynomial in $\pi$ with integer
+  coefficients, and for a generic datum the horizon table shows the mode set has no finite bound. $R$
+  names the datum and the coefficients at one instant; $S_{1011}$ is where the solution lives, and the
+  ring reaches into it only through the coefficients.
+\item For the ABC datum $u_0$, $S_{1011}(u_0,0)$ is not empty, by the two identities the run verifies
+  exactly, $\operatorname{curl}u_0 = 2\pi u_0$ and $(u_0\cdot\nabla)u_0 = \nabla(|u_0|^2/2)$, which
+  make the closed form a solution at every $t$ since time enters only as a scalar factor. One datum's
+  instance of (B), and not (B).
+\end{itemize}
+
+\section{The runs}
+
+\texttt{exact\_navier\_stokes\_on\_torus.py}, run and exit 0.
+
+\textbf{Positive control.} The Arnold--Beltrami--Childress field
+$u_0 = (A\sin 2\pi z + C\cos 2\pi y,\; B\sin 2\pi x + A\cos 2\pi z,\; C\sin 2\pi y + B\cos 2\pi x)$
+with $A,B,C = 1,2,3$ and $\nu = 1/10$, orders 0 to 4. Beltrami, $\operatorname{curl}u_0 = 2\pi u_0$,
+exact. $(u_0\cdot\nabla)u_0 = \nabla(|u_0|^2/2)$, exact, and its Leray part is zero. The recurrence
+returns $u_m = (-4\nu\pi^2)^m u_0$ and $p_m = (-8\nu\pi^2)^m(-|u_0|^2/2)$ at every order, to the
+integer. The residual of (1) with (2) is zero at every order.
+
+\textbf{Two routes.} The vorticity recurrence, Helmholtz's equation with velocities recovered by
+Biot--Savart and no pressure anywhere, meets the velocity route at $\operatorname{curl}u_m = \omega_m$
+at every order, on the exact solution and on a generic datum, and Biot--Savart returns $u_m$ from
+$\omega_m$. Drawn nulls: dropping the vortex-stretching term, the two-dimensional form of the
+equation, breaks the agreement at order 1 in three dimensions; flipping the pressure sign leaves a
+nonzero residual.
+
+\textbf{The energy identity} at $t=0$, $\frac{d}{dt}\int|u|^2 = -2\nu\int|\nabla u|^2$, holds
+exactly on both data: on the ABC datum both sides are $-56\pi^2/5$ with $\int|u_0|^2 = 14$. On the
+generic datum the two pieces that vanish are shown to vanish, $\int u\cdot(u\cdot\nabla)u = 0$ and
+$\int u\cdot\nabla p = 0$, and the null is a field with divergence, $u_0 + \nabla\cos 2\pi x$, which
+moves energy through a pressure. This is the mechanism behind (7) for $f = 0$, shown at one instant on
+one instance; it is not (7).
+
+\textbf{The horizon}, on a generic divergence-free datum
+$g_0 = (\sin 2\pi y + \sin 2\pi z,\; \sin 2\pi z,\; \sin 2\pi x)$, not Beltrami, with a surviving
+Leray part and a nonzero pressure from order 1:
+
+\begin{center}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+order & 0 & 1 & 2 & 3 & 4 \\
+\midrule
+largest $|k|_1$ & 1 & 2 & 3 & 4 & 5 \\
+largest $|k|_\infty$ & 1 & 1 & 2 & 3 & 4 \\
+modes held & 6 & 18 & 42 & 88 & 170 \\
+outside $|k|_\infty \le 1$ & 0 & 0 & 16 & 62 & 144 \\
+outside $|k|_\infty \le 2$ & 0 & 0 & 0 & 16 & 66 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+$|k|_1$ climbs by exactly one per order, because a product of modes adds their index vectors. A
+truncation at any fixed radius misses some order, and the count it misses is measured, not bounded.
+Every coefficient stays divergence-free and real-valued.
+
+\textbf{Symmetries}, exact on the coefficients. Time scaling $v(x,t) = \mu u(x,\mu t)$ solves
+(1)--(3) at viscosity $\mu\nu$ with $v_m = \mu^{m+1}u_m$, checked at $\mu = 3$; the wrong exponent
+$\mu^m$ is refused. Space scaling $v(x,t) = \lambda u(\lambda x, \lambda^2 t)$ at the same $\nu$
+keeps the period and gives $v_m = \lambda^{1+2m}u_m(\lambda x)$, checked at $\lambda = 2$. The
+viscosity is a parameter a scaling moves.
+
+\textbf{The two removals}, on instances. At $\nu = 0$ the ABC field is stationary and solves Euler
+exactly; in (1) at $\nu = 1/10$ its residual is $4\nu\pi^2u_0$, nonzero; the decaying viscous field's
+residual in Euler at $t = 0$ is $-4\nu\pi^2u_0$, nonzero. The field $e^{-t}g_0$ solves the forced
+equation with $f$ equal to its own residual, real and periodic, nonzero at orders 0 to 2, and in the
+unforced equation its residual is that $f$. Neither solution set inherits the other's membership on
+these instances. This is the previous chapter's argument from the shapes of the statements, that
+removing the force and removing the viscosity are different removals, shown exactly on one field
+each. It says nothing about blowup and nothing about the 2026 paper's construction, which is not
+represented here.
+
+\textbf{The island.} $F_b = \sum_n 2b_n n^{-n}\cos(2\pi n x)\,e_y$, for a bit sequence $b$, is
+divergence-free and real-valued at every truncation, distinct sequences give distinct fields, and the
+bits read back from the coefficients. The full sums are smooth, since $n^{-n}$ beats every power of
+$n$, and periodic, so they sit in $D_8$. The bit sequences are uncountable, by Cantor's diagonal as
+the engine's set-theory posit reproduces it, and the ring is countable.
+
+\section{The boundary function, asked to define itself}
+
+\texttt{proof\_boundary\_inheritance.py}, run and exit 0. The engine's precision document names
+three kinds of boundary on an exact representation, from a survey: a format boundary, which a larger
+format raises; a measurement boundary, fixed upstream by whoever measured; and a completeness
+boundary, which only more computation crosses. A survey assigns the kind by judgment. Here the kind is
+not assigned. Two probes are applied to the object, raise our scale by one and raise our horizon by
+one, and the object answers: format is what the scale probe moves, completeness what the horizon
+probe moves, measurement a gap to the target that neither probe moves, none no gap. Measurement means
+exactly unmoved by both of our probes, and from this side external means the same. The verdict is
+only as good as the probes: the drawn null cuts the horizon probe from a completeness object and the
+classifier reports measurement, the limit stated and not hidden.
+
+Positive controls, kind fixed by construction: the number theoretic transform length on the prime
+$119\cdot2^{23}+1$ at horizon $2^{25}$ reads format; a 3-ary tree count at horizon 7 of 12 reads
+completeness; a deposit of six places against its true value reads measurement; $22/7$ against itself
+reads none.
+
+Their sets, read by the probes, on $u_2$ of the generic datum, whose modes reach $|k|_\infty = 2$:
+
+\begin{center}
+\begin{tabular}{@{}p{0.46\textwidth}ccc p{0.22\textwidth}@{}}
+\toprule
+object & gap & scale probe & horizon probe & kind \\
+\midrule
+$u_2$ in decimals, 30 places, modes $|k|_\infty\le1$ & yes & moves & moves & format and completeness \\
+$u_2$ in decimals, 30 places, modes $|k|_\infty\le2$ & yes & moves & silent & format \\
+$u_2$ in the ring, modes $|k|_\infty\le1$ & yes & silent & moves & completeness \\
+$u_2$ in the ring, modes $|k|_\infty\le2$ & no & silent & silent & none \\
+$u_2$ from $A$ deposited to 6 places, against true $A$ & yes & silent & silent & measurement \\
+$u_1/u_0 = -4\nu\pi^2$, deposit against true $A$ & no & silent & silent & none \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The format kind is a property of the report, not of the object: the same coefficient reads format in
+decimals, because a coefficient carrying $\pi$ has no last digit, and reads none in the ring, which
+has no scale. The measurement kind is the deposit's, and it is canceled only by the ratio in which
+the amplitude cancels.
+
+Each of Fefferman's sets against the boundary function:
+
+\begin{center}
+\begin{tabular}{@{}p{0.30\textwidth}p{0.40\textwidth}p{0.26\textwidth}@{}}
+\toprule
+his set & what the ring does with it & kind, by probe \\
+\midrule
+(1), the equation behind $S_{67}$ and $S_{1011}$ & residual exact on any element of $R_{\mathrm{div}}$; solution as Taylor coefficients & none on the ABC family; completeness on a generic datum \\[0.4em]
+(2), the condition on every $D$ and $S$ & exact identity, carried by every coefficient & none \\[0.4em]
+(3), $u^\circ$ in $D_8$ & any element of $R_{\mathrm{div}}$; a deposited amplitude & none; measurement for the deposit \\[0.4em]
+$D_4$, $F_5$, $S_{67}$ & not represented: $R_{\mathrm{div}}$ meets $D_4$ at zero & not run \\[0.4em]
+(7) on the unit cell & Parseval's sum, exact; the energy identity at $t=0$, exact & none at the instant checked \\[0.4em]
+$D_8$ with the errata's periodic pressure & by construction: datum, force and pressure all periodic & none \\[0.4em]
+$F_{89}$, decay of $f$ in $t$ & not probed: time is carried at $t=0$ only & not run \\[0.4em]
+$S_{1011}$ & by construction for every coefficient; the solution itself is outside $R$ & none on the coefficients; the solution reached only through them \\[0.4em]
+$\nu > 0$ & moved exactly by the time scaling & format, in the sense a symmetry moves it \\[0.4em]
+Euler, $\nu = 0$ & the ABC field is a stationary exact solution & none; nothing about blowup or the Beale--Kato--Majda integral \\[0.4em]
+(A), (B) & the ring reaches one exact family in $D_8$ and finitely many orders of a generic datum & completeness; claims nothing \\[0.4em]
+(C), (D) & the 2026 paper's datum and force are not represented, and the paper is unread past what the previous chapter read & not run \\[0.4em]
+the weak solutions and the singular set & not represented & not run \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Constructors, and what inherits their proof}
+
+A ring element is built by a fixed set of constructors: exact integer arithmetic with one
+denominator per field, the mode convolution, a linear convolution on $\Z^3$ that never aliases, the
+derivative multiplier $2\pi i k_j$, Leray's projection, and the Taylor recurrence. A coefficient
+built only from proven constructors inherits their proof. What each boundary kind does through the
+chain from the datum to $u_3$, measured:
+
+\begin{center}
+\begin{tabular}{@{}p{0.20\textwidth}p{0.22\textwidth}p{0.30\textwidth}p{0.24\textwidth}@{}}
+\toprule
+kind & at the datum & through the chain & inherited? \\
+\midrule
+format, in the ring & absent & scale probe silent at every order & no format kind exists to inherit \\[0.4em]
+format, in decimals & absent: the datum's coefficients are rational & moves from order 1 on: the derivative brings $\pi$ in & introduced by the constructors, then carried \\[0.4em]
+measurement, ABC & the deposit's gap & $\mathrm{gap}_m = (-4\nu\pi^2)^m\,\mathrm{gap}_0$, exactly & carried exactly, unamplified; canceled by the ratio \\[0.4em]
+measurement, generic & the deposit's gap & nonzero at every order & carried; no order lowers it \\[0.4em]
+completeness & 0 modes outside $|k|_\infty\le1$ & 0, 0, 16, 62 & carried and growing \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two more inheritances, one run and one read.
+
+\textbf{The disjoint-translate constructor.} The previous chapter's account of the 2026 paper's
+Corollary 10.6 is that the periodic case is built by summing integer translates of a compactly
+supported solution whose supports stay disjoint. What that sum inherits from its pieces through the
+bilinear term rests on one exact fact, and the posit shows it on piecewise polynomials with integer
+coefficients on a lattice of eighths, $y = 8x$: with pieces $(y-a)^2(b-y)^2$ on $[0,2]$ and $[4,6]$,
+the bilinear term of the sum splits into the pieces' bilinear terms by coefficients and by the exact
+integral of the squared difference, which is $0$; with the second piece moved to $[1,3]$, the drawn
+null, both routes refuse and the integral of the squared cross term over $y$ is $156928/5005$. The
+linear terms split regardless. The construction is theirs. Only its algebra is run here, in one
+variable, and nothing here checks the paper's own proof of that corollary, which was not read.
+
+\textbf{Fefferman's statement to the Lean statement.} That is a reading, not a computation, and the
+previous chapter did it on six points and found each matched. Nothing here adds to it, and nothing
+here was machine-checked either.
+
+\section{The figure}
+
+The figure below is drawn by the engine, not by hand:
+\texttt{maint/\allowbreak{}texbuild/\allowbreak{}navier\_stokes\_sets\_figure.py} in the
+\texttt{anchor\_sift} tree writes the PDF itself, with no drawing library, and takes the right panel's
+numbers from running the torus example at that moment. The left panel is the shape of the four
+alternatives read off the set definitions above: the base is the plane of pairs (datum, force), the
+front edge is force zero, a stalk over a point is the solution set for that pair. (A) and (B) speak of
+the edge, (C) and (D) of the plane, and the edge lies in the plane. Every stalk but one is drawn as a
+question, because that is what it is; the one drawn solid is the ABC datum, one instance.
+
+\IfFileExists{../../build/theory/figures/navier_stokes_sets.pdf}{%
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{../../build/theory/figures/navier_stokes_sets.pdf}
+\caption{Left: the plane the breakdown alternatives speak of holds the edge the existence
+alternatives speak of; every stalk but one is a question. Right: modes held by the Taylor
+coefficients $u_0$ to $u_4$ of a generic datum, from the run, with the count outside two fixed boxes
+inside each bar. Generated by \texttt{navier\_stokes\_sets\_figure.py}; it claims nothing about (A),
+(B), (C) or (D).}
+\end{figure}}{%
+The figure is absent from this build. Generate it with
+\texttt{python maint/texbuild/navier\_stokes\_sets\_figure.py} from the \texttt{anchor\_sift} root,
+which writes \texttt{build/theory/figures/navier\_stokes\_sets.pdf}, and build again.}
+
+\section{Prior art, named with respect}
+
+Every object above is the field's. The problem statement, its numbered conditions, the four
+alternatives and the errata are Charles Fefferman's for the Clay Mathematics Institute, read in full.
+The equations are Navier's and Stokes's, the inviscid case Euler's. The field with
+$\operatorname{curl}u$ proportional to $u$ is Beltrami's; the three-term example is Arnold's (1965)
+and Childress's (1970), reported from memory of the literature and unread here, so the file verifies
+the solution itself and does not rest on the citation. The projection onto divergence-free fields and
+the pressure it defines are Leray's. The recovery of a velocity from its vorticity is the Biot--Savart
+law; the vorticity equation is Helmholtz's. The energy sum over modes is Parseval's. The
+transcendence of $\pi$ is Lindemann's (1882). The Taylor recurrence is the classical power-series
+method of Cauchy and Kovalevskaya. The Beale--Kato--Majda criterion is quoted from Fefferman's
+statement and not used. Cantor's diagonal and the Moore closure are credited in the engine's
+set-theory posit. Machin's formula (1706) supplies $\pi$ where a decimal is needed. The 2026 paper on
+finite-time blowup and its Lean repository are described only as the previous chapter described them,
+and that chapter states what it did not read. Result checking by an independent route is Blum, Luby
+and Rubinfeld's, credited in the engine's analytic number theory workbook. Nothing in either file is
+new mathematics, and neither file wants it to be.
+
+\section{Withdrawn}
+
+Four claims were withdrawn in the course of this chapter's work, and each stays on the page with what
+killed it.
+
+\textbf{Withdrawn.} The first build of both files, which carried the coefficients as Gaussian
+rationals from a fraction library and the binomials from a math library. \textbf{What killed it:}
+Douglas Quigg, on reading it. The engine's arithmetic is Python integers as the bignum, decimal text
+read by the exact reader, and booleans, with no other arithmetic beside them; a library that carries
+rationals for us is a second arithmetic under the one the tree is built to trust, and the exact path
+exists so that there is no second arithmetic. Rebuilt on integers with one denominator per field, and
+every result above was reproduced to the integer. The one number that changed is the overlap
+integral, $613/44024445576151040$ over $x$ in the first build and $156928/5005$ over $y = 8x$ in this
+one, because the lattice moved to eighths; both are nonzero, and that is all the null asks of them.
+Recorded first because it was the largest fault.
+
+\textbf{Withdrawn.} That the mode radius $|k|_\infty$ of the generic datum's Taylor coefficients grows
+at every order. \textbf{What killed it:} the run. At order 1 the radius is 1, the same as at order 0,
+because the first products of unit modes land on modes like $(0,1,1)$, whose sup-norm is still 1.
+Replaced by the measured statement: $|k|_1$ climbs by exactly one per order, and $|k|_\infty$ never
+falls and ends higher. The first wording was derived from the shape of a convolution and not drawn
+from the output.
+
+\textbf{Withdrawn.} That the format kind, in a decimal report, is present at every order of the
+chain. \textbf{What killed it:} the run. At the datum the coefficients are $\pm i/2$, terminating
+rationals, and the scale probe is silent there. The kind appears at order 1, when the derivative
+multiplies by $2\pi i k$. Replaced by the measured statement that the constructors introduce it. The
+better finding was in the refusal.
+
+\textbf{Withdrawn}, for the duration of one run. That two bit patterns produced two distinct fields
+whose bits read back. The first build of the island summed $\cos 2\pi x$ for every $n$ in place of
+$\cos 2\pi n x$, so every bit landed on one mode. The check that reads the bits back refused it; the
+harmonic was corrected and the check passed. Recorded because a wrong construction had produced a
+true reading of distinctness by accident, and only the second check caught it.
+
+\section{What was not verified, and what is still open}
+
+\textbf{Nothing here is a theorem about the problem.} Every statement in the runs section is an
+exact computation on one or two data to a stated order, and the boundary and inheritance tables are
+about those computations. The whole-space conditions (4) to (7) need a representation with decay on
+$\R^3$, which the periodic ring is not; a compactly supported piecewise-polynomial representation in
+three variables would reach the disjoint-translate constructor in its own setting, and the
+one-variable algebra above has the shape of that setting and is not it. Condition (9), decay of the
+force in time, needs the time dependence carried past $t = 0$, which Taylor coefficients at one
+instant do not see. The horizon count is measured to order 4 on one datum; whether $|k|_1$ climbing by
+one per order is the general rule it looks like or the property of this datum is stated above as
+measured, on this datum, to this order.
+
+\textbf{The 2026 proof was not read} past what the previous chapter read, and nothing here rests on
+it. \textbf{Arnold and Childress were not read}, and the ABC solution is verified in the file instead
+of cited for. \textbf{Nothing was machine-checked.}

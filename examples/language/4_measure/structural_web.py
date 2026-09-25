@@ -4,7 +4,7 @@
 # Catalog: LNG-4-039
 #
 # Take the frequencies out of the reading and leave what follows what, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/structural_web.py
 #

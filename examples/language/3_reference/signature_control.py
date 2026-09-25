@@ -4,7 +4,7 @@
 # Catalog: LNG-3-002
 #
 # Test whether the web separates written languages from generated text, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/3_reference/signature_control.py
 #
