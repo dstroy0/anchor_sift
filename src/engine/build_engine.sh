@@ -63,11 +63,15 @@ EXACT_FLAGS=(-I "$EXACT_ROOT" "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_E
 
 DEFINES=(-DBODY_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
          -DSHIFT_AGREEMENT_BUILD_DLL=1)
-MODULES=(engine/base/stack engine/base/krep engine/base/compression engine/base/tower engine/base/entropy_history
-         engine/base/keymath engine/base/key_schedule engine/base/cycle engine/base/radix_keys engine/base/unit_sweep
-         engine/base/obsignatio engine/base/residual engine/nbody/max_tree engine/nbody/flatten engine/nbody/grow
-         engine/base/double_fields engine/base/decimal_double engine/base/scriptura engine/nbody/body_overlap
-         engine/nbody/heaviest_matching engine/base/shift_agreement engine/base/period)
+MODULES=(engine/base/stack engine/base/apxrep engine/base/compression engine/base/tower engine/base/device_pool
+         engine/base/entropy_history engine/base/noise_detector engine/base/schedule engine/base/keymath
+         engine/base/key_schedule engine/base/cycle engine/base/radix_keys engine/base/unit_sweep engine/base/obsignatio
+         engine/base/residual engine/nbody/max_tree engine/nbody/flatten engine/base/golden_bands
+         engine/base/residual_survey engine/nbody/grow engine/base/shift_agreement engine/nbody/climb_machine
+         engine/nbody/body_overlap engine/nbody/fingerprint engine/nbody/print_pair engine/nbody/velocity
+         engine/nbody/division engine/nbody/marginal engine/nbody/contact_side engine/nbody/box_history
+         engine/nbody/heaviest_matching engine/base/double_fields engine/base/decimal_double engine/base/scriptura
+         engine/base/period)
 INGEST=(engine/base/cfg_json engine/base/zarr engine/base/zstd engine/base/inflate engine/base/deflate engine/base/lz4
         engine/base/snappy engine/base/blosc engine/base/tiff engine/base/hdf5 engine/base/zip engine/base/dicom
         engine/base/npy engine/base/nrrd engine/base/nifti)
@@ -82,8 +86,8 @@ for module in "${MODULES[@]}"; do
 done
 PORTABLE_OBJECTS=()
 for portable in engine/nbody/body_overlap engine/nbody/heaviest_matching engine/base/shift_agreement \
-                engine/nbody/max_tree engine/base/cycle engine/base/double_fields engine/base/decimal_double \
-                engine/base/scriptura "${INGEST[@]}"; do
+                engine/nbody/max_tree engine/base/cycle engine/nbody/marginal engine/base/double_fields \
+                engine/base/decimal_double engine/base/scriptura "${INGEST[@]}"; do
     for source in "$TOP/src/$portable"/*.c; do
         name="$(basename "$source" .c)"
         OBJECT="$OUT/${name}_portable.o"
