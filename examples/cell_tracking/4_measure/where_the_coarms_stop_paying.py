@@ -9,7 +9,7 @@
 #
 # WHY THIS FILE EXISTS. CEL-3-001 cuts one field into sixteen co-arms and reads 0.0295 px where the
 # whole field read 0.1041 px. Sixteen was chosen by this author on no evidence, the defect
-# theory/workbook records ten separate times in one sitting: a bound is chosen because something has
+# theory/workbooks/anchor_sift records ten separate times in one sitting: a bound is chosen because something has
 # to be chosen, the measurement returns a number, and the number describes the choice. A dimension
 # assigned per domain returned heights instead of widths. A sum stopped at 24 bits was still
 # climbing at 64. A band fixed at eight levels read a picture spread over 160 of them as having no
@@ -21,7 +21,7 @@
 # WHAT A SWEEP CAN SHOW THAT A POINT CANNOT. Three outcomes and they are not the same finding. The
 # error may fall and flatten, which names a working count and makes the figure quotable at it. It
 # may fall and keep falling to the edge of the table, in which case the total belongs to the edge
-# and not to the method, which is how the bit-volume divergence in theory/workbook was found at all.
+# and not to the method, which is how the bit-volume divergence in theory/workbooks/anchor_sift was found at all.
 # Or it may fall and then rise, which locates a real optimum and says what sets it.
 #
 # WHAT SETS THE FAR END. Co-arms are cut from one field. More of them means smaller ones, and a

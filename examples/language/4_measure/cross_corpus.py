@@ -4,7 +4,7 @@
 # Catalog: LNG-4-011
 #
 # Test whether a language reads the same across two different works, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/cross_corpus.py
 #

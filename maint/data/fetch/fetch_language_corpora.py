@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Fetch public domain texts for the linguistic universals test in theory/anchor_sift.
+# Fetch public domain texts for the linguistic universals test in theory/workbooks/anchor_sift.
 #
 # The claim under test is that every natural language carries the same regularities whatever its
 # culture or century. A sample of one modern English author says nothing about it. These are

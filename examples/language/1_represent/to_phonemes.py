@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-1-006
 #
-# Put five spellings into one set of sounds, for Section 4.13 of theory/anchor_sift.
+# Put five spellings into one set of sounds, for Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/1_represent/to_phonemes.py
 #

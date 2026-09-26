@@ -4,7 +4,7 @@
 # Catalog: PRF-x-012
 #
 # Proof of the posit that an exact invariant of the field survives a drawn null while a non-invariant
-# does not, from the posits section of theory/workbook (exact_inspection_and_the_cloud_clock).
+# does not, from the posits section of theory/workbooks/anchor_sift (exact_inspection_and_the_cloud_clock).
 #
 #   Usage:  python evidence/proofs/posits/proof_invariance_survives_null.py
 #

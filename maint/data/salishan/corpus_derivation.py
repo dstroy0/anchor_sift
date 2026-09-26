@@ -124,16 +124,13 @@ CORPORA = os.path.join(ROOT, "build", "corpora")
 # chapter was in theory/, which left the book referring to a picture in another directory and put
 # a research artifact inside what is otherwise repository documentation. PDF because matplotlib
 # writes it from the same savefig call and XeLaTeX includes it without Inkscape.
-# The Salishan book is authored upstream in theory_bucket and reaches this tree as a subtree. The
-# chapter and its figure are written there, and what this produces is carried upstream like any other
-# change to those books.
-CHAPTERS = os.path.join(ROOT, "theory_bucket", "Salishan", "chapters")
+CHAPTERS = os.path.join(ROOT, "theory", "theory", "Salishan", "chapters")
 TARGET = os.path.join(CHAPTERS, "chapter_Salishan_corpus_derivation.tex")
 FIGURE = os.path.join(CHAPTERS, "corpus-derivation.pdf")
 
 # The papers whose extracted text is not what the page prints. A check against one of these is
 # measuring the source. Its disagreements say nothing about the table and it contributes no
-# trials to the bound. The references chapter in theory/Salishan names each and says what happened.
+# trials to the bound. The references chapter in theory/theory/Salishan names each and says what happened.
 #
 # ORTHOGRAPHY_ABSENT is read from papers.py and not restated here. It used to be, as the single stem
 # 1975_Hilbert_Hess, and the other four in that tuple were counted into the bound as though their

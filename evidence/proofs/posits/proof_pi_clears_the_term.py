@@ -4,7 +4,7 @@
 # Catalog: PRF-x-013
 #
 # Proof of the posit that the exact boundary is read without touching it: pi clears the term-tower and is
-# never held, from the posits section of theory/workbook (exact_inspection_and_the_cloud_clock).
+# never held, from the posits section of theory/workbooks/anchor_sift (exact_inspection_and_the_cloud_clock).
 #
 #   Usage:  python evidence/proofs/posits/proof_pi_clears_the_term.py
 #

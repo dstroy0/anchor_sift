@@ -156,7 +156,6 @@ TOP = (
     "src",
     "examples",
     "theory",
-    "theory_bucket",
     "site",
 )
 

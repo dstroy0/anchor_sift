@@ -2,136 +2,71 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Brings the theory books down after a pull. The release always carries the current ones.
+# Brings theory/ to the commit this tree records for it, after a pull.
 #
 # It lives in the repository instead of .git/hooks so it is version controlled and everyone gets the
 # same one. Turn it on once per clone:
 #
 #     git config core.hooksPath .githooks
 #
-# THE DIRECTION, AS THE OLD DESIGN HAD IT. Read the HELD block below first: this describes what the
-# hook did before it was held, and the routing here is superseded.
+# theory/ is the public repository https://github.com/dstroy0/theory, held here as a git submodule.
+# The books are written there: an edit is committed and pushed in theory/ first, and this tree then
+# commits the new submodule commit. A pull that moves the recorded commit leaves theory/ checked out
+# at the old one until `git submodule update` runs, and this hook runs it.
 #
-# theory_bucket was upstream and this repository downstream, with the books arriving as a git subtree
-# under theory_bucket/. That is exactly the route now withheld, because theory_bucket holds
-# unpublished research and this repository is public. The workbook is a separate thing: it is the
-# book about this engine, it lives in theory/, and it is authored here.
+# The subtree design this file held until 2026-09-26 is gone. theory_bucket, a private repository,
+# was renamed dstroy0/theory and made public, and it reaches this tree only as the submodule.
 #
-# Do not route an edit up into theory_bucket expecting it to come back down. Public books are edited
-# against the public dstroy0/theory repository. theory_bucket does not feed this tree.
+# WHY IT SOMETIMES REFUSES
 #
-# WHY THIS REFUSES INSTEAD OF PULLING, MOST OF THE TIME
+# `git submodule update` checks theory/ out at a detached commit. Uncommitted work in theory/ would be
+# lost or stop the checkout halfway, and a local commit there that the recorded one does not hold
+# would be left behind on no branch. In either case the hook says what it found and does nothing.
 #
-# A hook that writes commits behind someone's back is worse than no hook. git subtree pull makes a
-# merge commit, and making one during another merge, on a detached head, or over a dirty tree
-# produces a mess that is hard to read afterwards and easy to push by accident. So every condition
-# below is checked first and the hook says what it found and does nothing when any of them fails.
-#
-# The one case it acts on is the safe one: on the main branch, with nothing uncommitted, with the
-# upstream reachable and actually ahead. Everything else prints the command and leaves it to a
-# person.
-#
-# ANCHOR_SIFT_NO_SUBTREE=1 turns it off for a clone that does not want the network on every pull.
+# ANCHOR_SIFT_NO_THEORY_UPDATE=1 turns it off.
 
 set -u
 
-REPO=$(cd "$(dirname "$0")/.." && pwd)
-PREFIX=theory_bucket
-UPSTREAM=https://github.com/dstroy0/theory_bucket.git
-
-# HELD 2026-09-16, AND THE MANUAL COMMAND IS WITHHELD ON PURPOSE. Everything below this block is the
-# old design and none of it runs while this block stands.
-#
-# theory_bucket's remote is private and Douglas ruled on 2026-09-16 that it holds unpublished
-# research: the held advantage work, engine material nobody has reviewed for a public tree. This
-# repository is public. `git subtree pull` from theory_bucket copies ALL of it under
-# theory_bucket/ here. The pull the design below performs, and the manual command an earlier hold
-# printed, are both one push from publishing held research. The command is not printed here for that
-# reason: a line a person can copy is the hazard, not only the automatic run.
-#
-# Nothing enters this public repository from theory_bucket. Public theory reaches consumers through
-# the public repository dstroy0/theory instead, and that is the only route. An edit meant for the
-# public books is made against dstroy0/theory, never typed into theory_bucket/ here and never carried
-# up into the private repository.
-#
-# Deleting this hook is Douglas's call and is planned at PLANS/THEORY_MIGRATION.md section 4. This
-# block only stops the hook. To lift the hold, delete this block, and not before the routing above
-# is settled.
-echo "  theory not refreshed: this hook is held (see .githooks/post-merge)"
-echo "  theory_bucket holds unpublished research and does not feed this public repository"
-echo "  public theory reaches consumers through dstroy0/theory, the only route in"
-exit 0
-
-if [ "${ANCHOR_SIFT_NO_SUBTREE:-0}" = "1" ]; then
+if [ "${ANCHOR_SIFT_NO_THEORY_UPDATE:-0}" = "1" ]; then
     exit 0
 fi
 
-# A clone that has not taken the subtree yet is not an error. Nothing to refresh and nothing to say.
-if [ ! -d "$REPO/$PREFIX" ]; then
-    exit 0
-fi
-
+REPO=$(git rev-parse --show-toplevel 2>/dev/null) || exit 0
 cd "$REPO" || exit 0
 
-say_manual() {
-    echo "  theory not refreshed: $1"
-    echo "  when you are ready:  git subtree pull --prefix=$PREFIX $UPSTREAM main --squash"
-}
-
-branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null)
-if [ -z "$branch" ]; then
-    say_manual "detached head"
-    exit 0
-fi
-if [ "$branch" != "main" ]; then
-    say_manual "on branch $branch, not main"
+# A clone that has not initialized the submodule is not an error. It reads the books with
+# `git submodule update --init theory` when it wants them.
+if [ ! -e theory/.git ]; then
     exit 0
 fi
 
-# A subtree pull over uncommitted work stops partway and leaves the tree in conflict. The check is
-# cheap and the alternative is somebody losing an afternoon.
-if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
-    say_manual "the working tree has uncommitted changes"
+recorded=$(git rev-parse --verify --quiet "HEAD:theory" 2>/dev/null)
+current=$(git -C theory rev-parse --verify --quiet HEAD 2>/dev/null)
+if [ -z "$recorded" ] || [ -z "$current" ]; then
+    echo "  theory not updated: could not read the recorded and checked-out commits"
+    exit 0
+fi
+if [ "$recorded" = "$current" ]; then
     exit 0
 fi
 
-# Mid-merge, mid-rebase, mid-cherry-pick. git reports these as directories and files under .git.
-gitdir=$(git rev-parse --git-dir 2>/dev/null)
-if [ -f "$gitdir/MERGE_HEAD" ] || [ -d "$gitdir/rebase-merge" ] || [ -d "$gitdir/rebase-apply" ]; then
-    say_manual "another merge or rebase is in progress"
+if [ -n "$(git -C theory status --porcelain 2>/dev/null)" ]; then
+    echo "  theory not updated: theory/ has uncommitted changes"
+    echo "  when you are ready:  git submodule update theory"
     exit 0
 fi
 
-# Offline is normal and is not a failure. The books already in the tree are what gets used.
-if ! git fetch --quiet "$UPSTREAM" main 2>/dev/null; then
-    echo "  theory not refreshed: upstream unreachable, using the books already in the tree"
+# The checked-out commit must already be in the recorded one's history, or a local commit in theory/
+# would be left on no branch.
+if ! git -C theory merge-base --is-ancestor "$current" "$recorded" 2>/dev/null; then
+    echo "  theory not updated: theory/ is at $current, which $recorded does not contain"
+    echo "  push or rebase it in theory/, then:  git submodule update theory"
     exit 0
 fi
 
-# Nothing to do is the common case, and it should be silent. Two tree objects are compared by their
-# ids: what upstream holds at its root, against what this tree holds under the prefix. Identical ids
-# mean identical content and there is nothing to pull.
-#
-# The first version of this compared with git diff --quiet FETCH_HEAD:. HEAD:theory_bucket. That
-# path definition is not valid, git exits 128 on it, and 128 is not zero. The test read every
-# already-current subtree as changed and ran a pull on every merge. A check that cannot fail closed
-# has to be one whose failure is distinguishable from its answer.
-theirs=$(git rev-parse --verify --quiet "FETCH_HEAD^{tree}" 2>/dev/null)
-ours=$(git rev-parse --verify --quiet "HEAD:$PREFIX" 2>/dev/null)
-if [ -z "$theirs" ] || [ -z "$ours" ]; then
-    say_manual "could not read both trees to compare them"
-    exit 0
-fi
-if [ "$theirs" = "$ours" ]; then
-    exit 0
-fi
-
-echo "  theory moved upstream, bringing it down"
-if git subtree pull --prefix="$PREFIX" "$UPSTREAM" main --squash; then
-    echo "  theory refreshed from $UPSTREAM"
+if git submodule update theory; then
+    echo "  theory updated to $recorded"
 else
-    echo ""
-    echo "  the subtree pull did not finish. The tree is mid-merge and needs a person."
-    echo "  resolve it, or:  git merge --abort"
-    exit 1
+    echo "  theory not updated: git submodule update failed, see above"
 fi
+exit 0

@@ -4,7 +4,7 @@
 # Catalog: PRF-x-001
 #
 # Proof of the posit that a quantity failing to conserve indicates the instrument, from the posits
-# section of theory/workbook.
+# section of theory/workbooks/anchor_sift.
 #
 #   Usage:  python evidence/proofs/posits/proof_conservation.py corpus.sym
 #

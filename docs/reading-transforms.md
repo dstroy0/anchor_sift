@@ -350,4 +350,4 @@ and not the world. The power-under-rotation null floor stands at 4.005e-16 from 
 * FIPS 180-4, *Secure Hash Standard*, for the round constants section 7 recomputes.
 * `docs/boundary-reading.md` and `docs/boundary-counting.md` for the rank bound.
 * `docs/octant-lexicon.md` for T12.
-* `theory/cryptography/sha256/chapters/chapter_boundary.tex` for the theory these tools serve.
+* `theory/theory/cryptography/sha256/chapters/chapter_boundary.tex` for the theory these tools serve.

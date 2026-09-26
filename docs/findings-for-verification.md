@@ -1,7 +1,7 @@
 # Engine session findings, for verification
 
 **Purpose:** Hand the theorist every claim this session produced, each with where it is recorded and the exact command or argument that settles it. None of it has to be taken on my word.
-**Scope:** `src/engine/c/`, `test/engine/`, `maint/engine/`, `docs/steering.md`, `theory/workbook/chapters/chapter_anchor_sift_workbook.tex`, and the engine workbook chapter staged for upstream.
+**Scope:** `src/engine/c/`, `test/engine/`, `maint/engine/`, `docs/steering.md`, `theory/workbooks/anchor_sift/chapters/chapter_anchor_sift_workbook.tex`, and the engine workbook chapter staged for upstream.
 
 Every claim below is in one of three states. **Holds** means checked and standing. **Retracted** means it was published here and is now withdrawn, with the reason. **Open** means it is not settled and is not to be quoted as though it were.
 

@@ -136,7 +136,6 @@ sys.path.insert(0, os.path.join(ROOT, "data", "salishan", "corpus_script_extract
 SEARCHED = (
     "docs",
     "theory",
-    "theory_bucket",
     "src",
     "examples",
     "tools",

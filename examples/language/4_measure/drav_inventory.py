@@ -4,7 +4,7 @@
 # Catalog: LNG-4-014
 #
 # Look at what is actually in these files before theorizing about them again, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/drav_inventory.py
 #

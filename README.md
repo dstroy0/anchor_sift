@@ -1,7 +1,7 @@
 # Anchor sift: an algorithm for precision measurement
 
 **Purpose:** Find an object's information entropy.
-**Scope:** `src/`, `test/`, `maint/`, `examples/`, `evidence/`, `docs/`, `theory/`, `theory_bucket/`
+**Scope:** `src/`, `test/`, `maint/`, `examples/`, `evidence/`, `docs/`, `theory/`
 
 ## Contents
 
@@ -100,7 +100,7 @@ Each directory serves one purpose.
 | `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                            |
 | `examples/`                 | a corpus, through `src/`     | 159 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
 | `maint/`                    | the repository itself        | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline         |
-| `theory/`, `theory_bucket/` | the argument                 | fifteen books                                                                                     |
+| `theory/`                   | the argument                 | seventeen books                                                                                   |
 | `docs/`                     | the reader                   | setup, usage, steering, rendering and the verification notes                                      |
 
 `examples/README.md` explains the stages and how to run a script. `maint/README.md` maps the maintenance tools. `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
@@ -127,7 +127,7 @@ The engine carries a large set of transforms, maps that put the object into anot
 
 **Reference backgrounds.** A maximum-entropy background is built by a transform that deletes a property. A permutation or block shuffle draws the null the whole engine measures against, a phase fold groups positions congruent modulo a period and reassembles them, and a windowed median and a self-similar context map each build a background by nearness or by shared context.
 
-**The image transform program.** `theory/image_transforms` is a book of exact image transforms: translation, rotation with scale and perspective, observed motion, and waves on a surface. Translation is built, and it is the number-theoretic transform above. The rest are stated in the book and not yet implemented in the tree, and the book says which is which.
+**The image transform program.** `theory/theory/image_transforms` is a book of exact image transforms: translation, rotation with scale and perspective, observed motion, and waves on a surface. Translation is built, and it is the number-theoretic transform above. The rest are stated in the book and not yet implemented in the tree, and the book says which is which.
 
 The full set lives one per file under `src/engine/python/` and in the C renderer, and the workbook records what each has been shown to do. A defensible count is eleven invertible transform families, or seventeen if every render layout is counted on its own, beside several one-way maps.
 
@@ -272,29 +272,31 @@ For a language with few remaining speakers, publishing a form drawn from outside
 
 ## Where to start reading
 
-The research is fifteen books, built with XeLaTeX. Eight are under `theory/`: the workbook, chemistry, game theory, image transforms, particle physics, and the three held books under `theory/held/`. The other seven are pulled in under `theory_bucket/` as a subtree. One command builds all of them:
+The research is seventeen books under `theory/`, built with XeLaTeX. One command builds all of them:
 
 ```sh
 sh maint/texbuild/build_theory.sh
 ```
 
-| you want                                                                          | book                                |
-| --------------------------------------------------------------------------------- | ----------------------------------- |
-| the construction, the method, and what is settled, open or withdrawn              | `theory/workbook`                   |
-| valence read as a necessary condition, and where the oracle enters                | `theory/chemistry`                  |
-| a domain that supplies its own answers, and the reading it corrected              | `theory/game_theory`                |
-| the image transform program, exact, and which of the transforms is built          | `theory/image_transforms`           |
-| particles as exact charges and shells, and what a quantum number costs            | `theory/particle_physics`           |
-| the information theory under the nulls, and the survey of viewers                 | `theory/held/apparatus`             |
-| a lit set on a sphere read as a boundary, and how deep into the rounds it reaches | `theory/held/boundary`              |
-| what the instruments cannot see, how they failed, and how to aim them             | `theory/held/instruments`           |
-| whose words the corpus holds, and how wrong it could be                           | `theory_bucket/Salishan`            |
-| the posits whose experiment cannot be built                                       | `theory_bucket/thought_experiments` |
-| a published cell edge read back off a voxel grid, and whose result that is        | `theory_bucket/crystallography`     |
-| where the structure in SHA-256 is, where it stops, and how each null was measured | `theory_bucket/cryptography/sha256` |
-| exact arithmetic, the natural constants and the residue codes                     | `theory_bucket/precision`           |
-| the null, its delta, and where the two reconcile                                  | `theory_bucket/delta_null`          |
-| the corpus, the state of the field, and what this toolkit reaches                 | `theory_bucket/millennium`          |
+| you want                                                                          | book                                     |
+| --------------------------------------------------------------------------------- | ---------------------------------------- |
+| the construction, the method, and what is settled, open or withdrawn              | `theory/workbooks/anchor_sift`            |
+| valence read as a necessary condition, and where the oracle enters                | `theory/theory/chemistry`                       |
+| a domain that supplies its own answers, and the reading it corrected              | `theory/theory/game_theory`                     |
+| the image transform program, exact, and which of the transforms is built          | `theory/theory/image_transforms`                |
+| particles as exact charges and shells, and what a quantum number costs            | `theory/theory/particle_physics`                |
+| the information theory under the nulls, and the survey of viewers                 | `theory/theory/apparatus`                  |
+| a lit set on a sphere read as a boundary, and how deep into the rounds it reaches | `theory/theory/boundary`                   |
+| what the instruments cannot see, how they failed, and how to aim them             | `theory/theory/instruments`                |
+| whose words the corpus holds, and how wrong it could be                           | `theory/theory/Salishan`                        |
+| the posits whose experiment cannot be built                                       | `theory/thought_experiments/anchor_sift`             |
+| a published cell edge read back off a voxel grid, and whose result that is        | `theory/theory/crystallography`                 |
+| where the structure in SHA-256 is, where it stops, and how each null was measured | `theory/theory/cryptography/sha256`             |
+| exact arithmetic, the natural constants and the residue codes                     | `theory/theory/precision`                       |
+| the null, its delta, and where the two reconcile                                  | `theory/theory/delta_null`                      |
+| the corpus, the state of the field, and what this toolkit reaches                 | `theory/theory/millennium`                      |
+| the cell tracking engine's ledger: each claim with the status that backs it       | `theory/workbooks/cell_tracking`                   |
+| the cell tracking thought experiments, kept as they were written                  | `theory/thought_experiments/cell_tracking` |
 
 To read the code instead of the argument, start with `src/engine/python/README.md`, then `examples/README.md`, then `examples/any_corpus/`.
 

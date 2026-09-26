@@ -4,7 +4,7 @@
 # Catalog: LNG-4-013
 #
 # Ask whether the square is ever the best description of a text, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/descriptor_bakeoff.py
 #

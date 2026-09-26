@@ -4,7 +4,7 @@
 # Catalog: LNG-3-001
 #
 # Read the web with the content held fixed across every language, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/3_reference/parallel_web.py
 #

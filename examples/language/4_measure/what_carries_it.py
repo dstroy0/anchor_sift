@@ -4,7 +4,7 @@
 # Catalog: LNG-4-044
 #
 # Find what the reading is actually keying on when it names a language, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/what_carries_it.py
 #

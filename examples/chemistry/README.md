@@ -81,7 +81,7 @@ above stops at the connectivity precisely because the coordinate a stage-two rea
 length, and a bond length is that oracle. Those are coordinated additions, not this subject's to write
 alone, and until they land the remaining stages would be transcriptions of the plan and not the
 
-What each stage will do, and the predictions each makes, is stated in `theory/chemistry` before the
+What each stage will do, and the predictions each makes, is stated in `theory/theory/chemistry` before the
 readers exist, in the design-only posture the exact-arithmetic chapter of the image-transforms book
 uses.
 

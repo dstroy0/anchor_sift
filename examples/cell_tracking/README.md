@@ -296,4 +296,4 @@ way to run without it.
 
 ## Where the results are written up
 
-Every measured result, what was tried and what it gave, is in `../../theory_bucket/cell_tracking/ledger.md`. What the tracker does for each part of the problem and what it still needs to do is in `../../theory_bucket/cell_tracking/cell_tracking_table.md`; the engine it runs on has its own table, `../../theory_bucket/cell_tracking/engine_table.md`.
+Every measured result, what was tried and what it gave, is in `../../theory/workbooks/cell_tracking/ledger.md`. What the tracker does for each part of the problem and what it still needs to do is in `../../theory/workbooks/cell_tracking/cell_tracking_table.md`; the engine it runs on has its own table, `../../theory/workbooks/engine/engine_table.md`.

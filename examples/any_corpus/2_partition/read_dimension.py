@@ -4,7 +4,7 @@
 # Catalog: ANY-2-002
 #
 # Recover how many dimensions a set has from a single line drawn through it, for Section 4.2 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/any_corpus/2_partition/read_dimension.py
 #

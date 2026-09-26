@@ -4,7 +4,7 @@
 # Catalog: PRF-x-002
 #
 # Proof of the posit that the content has to be printed and not only the statistic, from the posits
-# section of theory/workbook.
+# section of theory/workbooks/anchor_sift.
 #
 #   Usage:  python evidence/proofs/posits/proof_corpus_audit.py
 #

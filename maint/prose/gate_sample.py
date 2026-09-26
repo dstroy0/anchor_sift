@@ -5,7 +5,7 @@
 # Assemble one continuous sample of this project's prose, for a detector that takes pasted text.
 #
 #   python maint/prose/gate_sample.py --words 10000 theory
-#   python maint/prose/gate_sample.py --words 4000 theory/millennium
+#   python maint/prose/gate_sample.py --words 4000 theory/theory/millennium
 #
 # Writes build/gate/sample.txt and prints the word count, the character count, and every file that
 # went into it with its share. The manifest is the point: a detector returns one number over the

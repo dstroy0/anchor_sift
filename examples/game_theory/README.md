@@ -198,7 +198,7 @@ and the node count is exponential. Passing a larger ply count costs what the gam
 
 ## What is not here
 
-The write-up of what these measurements mean is the book at `theory/game_theory`. This directory is
+The write-up of what these measurements mean is the book at `theory/theory/game_theory`. This directory is
 the implementation and the measurements.
 
 Betting is not modeled in poker and doubling, splitting, insurance and surrender are not modeled in

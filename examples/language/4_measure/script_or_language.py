@@ -4,7 +4,7 @@
 # Catalog: LNG-4-037
 #
 # Ask whether the reading follows the language or the writing, with one held fixed at a time, for
-# Section 4.13 of theory/anchor_sift.
+# Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/script_or_language.py
 #

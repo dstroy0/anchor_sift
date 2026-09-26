@@ -4,7 +4,7 @@
 # Catalog: PRO-5-001
 #
 # Run the anchor cascade on a protein structure in three dimensions, for Section 4.2 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/proteins/5_sift/protein_domain.py
 #

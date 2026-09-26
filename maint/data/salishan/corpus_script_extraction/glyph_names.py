@@ -6,7 +6,7 @@
 #
 #   Usage:  from glyph_names import decoded
 #
-# This paper is on the list in theory/Salishan of PDFs whose fonts renumber their
+# This paper is on the list in theory/theory/Salishan of PDFs whose fonts renumber their
 # codes and declare no /ToUnicode map, and it is the only one on that list where nothing was lost. The
 # extractor could not resolve a glyph. It printed the glyph's name with a leading slash and
 # carried on. Page 30 sets the morphemic line

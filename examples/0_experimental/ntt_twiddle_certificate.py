@@ -12,7 +12,7 @@
 # reading. A number theoretic transform is exact only if its modulus is prime, its stated generator is
 # a primitive root, and the root it builds twiddles from has order exactly the transform length. Each
 # of those is a constant, and a constant taken on trust is a silent wrong answer waiting: the twiddle
-# proof in theory_bucket/twiddle_constants_article.tex records two of them found in this project by
+# proof in theory/theory/twiddle_constants_article.tex records two of them found in this project by
 # running the check instead of reading the code.
 #
 # Three things are shown. First, the certificate: every modulus used here, the three device primes and
@@ -21,7 +21,7 @@
 # primitive-root claim are refused by the same checks that pass the real ones. The checks can fail
 # and passing means something. Third, the floor: a root of HALF the required order passes every
 # invariant computable from the table in O(n), and only the order test, two exponentiations, separates
-# it. That is the paper's central result reproduced here (theory_bucket/twiddle_constants_article.tex, its section on a root of half the order and the only test that catches it).
+# it. That is the paper's central result reproduced here (theory/theory/twiddle_constants_article.tex, its section on a root of half the order and the only test that catches it).
 #
 # No bounding: no threshold is set here. Every verdict is an exact integer equality or inequality on
 # unbounded Python integers, and the wrong cases are drawn, not described.
@@ -30,7 +30,7 @@ import io
 import sys
 
 # Declared inputs. The pinned moduli, each with the shape it is quoted in and the constants claimed for
-# it. Device primes and witnesses are in theory_bucket/twiddle_constants_article.tex, its section on the
+# it. Device primes and witnesses are in theory/theory/twiddle_constants_article.tex, its section on the
 # two silent wrong answers the certificate caught; the goldilocks prime is in its section on what the
 # size costs; the translation prime is the image_transforms exact-arithmetic chapter.
 # generator is the primitive root that builds the twiddle table; witness is the Proth primality witness,
@@ -195,7 +195,7 @@ def report_half_order_floor(out):
 def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     out.write("  the twiddle certificate: NTT precision constants re-derived, and a wrong one refused\n")
-    out.write("  constants cite theory_bucket/twiddle_constants_article.tex (public, on ePrint)\n\n")
+    out.write("  constants cite theory/theory/twiddle_constants_article.tex (public, on ePrint)\n\n")
 
     certificate = report_certificate(out)
     rejection = report_rejection(out)

@@ -35,7 +35,7 @@
 #
 # Labialization. Page 30 sets /kʷú[·kʷ]piʔ and the text gives /kwú[·kw]pi. The raised w is gone and
 # a plain one stands where it was. This reader writes what the file holds and the hand extraction
-# carries what the page prints. theory/Salishan has the measurement.
+# carries what the page prints. theory/theory/Salishan has the measurement.
 
 import io
 import os

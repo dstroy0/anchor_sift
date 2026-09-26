@@ -4,7 +4,7 @@
 # Catalog: LNG-4-046
 #
 # Test whether two numbers do what four thousand were doing, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/word_length_families.py
 #

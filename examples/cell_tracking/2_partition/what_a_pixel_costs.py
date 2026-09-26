@@ -12,7 +12,7 @@
 # land alternately on the two lags straddling it, and the share of agreement at the upper one carries
 # the fraction between them. Read that way a published cell edge came back to 0.0006 angstroms
 # against a voxel of 0.25. A cell's displacement between two frames is not a whole number of pixels
-# either, and theory_bucket/cell_tracking predicts the same relation carries the same remainder.
+# either, and theory/workbooks/cell_tracking predicts the same relation carries the same remainder.
 #
 # WHY THAT PREDICTION IS NOT ENTAILED. The crystal mechanism needs
 # a repeating tile: the fraction accumulates because tile after tile lands at a shifting phase, and
@@ -25,7 +25,7 @@
 # THE ANSWER EXISTS BEFORE THE MEASUREMENT. Every field here is displaced by an amount this file
 # chose, using a Fourier shift, which moves a band-limited field by a real number exactly and not
 # by interpolating between samples. So the truth is not an annotation and not a reading: it is an
-# input. theory/workbook records that a positive control with a known answer is what the permutation
+# input. theory/workbooks/anchor_sift records that a positive control with a known answer is what the permutation
 # null measure has never had, and what the spectral exponent got by building fields to a chosen
 # exponent and reading them back. This is that arrangement for displacement.
 #
@@ -61,7 +61,7 @@ BLOB_WIDTH = 6.0
 
 # Levels the field is quantized to before agreement is measured. Agreement is a share of positions
 # carrying the same value. A continuous field has to be given values it can carry. 32 is the
-# figure theory/workbook settles on for envelopes, where a finer slice leaves too few occurrences per
+# figure theory/workbooks/anchor_sift settles on for envelopes, where a finer slice leaves too few occurrences per
 # level to clear the floor.
 LEVELS = 32
 
@@ -106,7 +106,7 @@ def shifted(canvas, distance, axis):
 def to_levels(canvas, levels=LEVELS):
     """The field as integer levels, scaled to its own range so the band is not a fixed one.
 
-    theory/workbook records a band fixed in absolute levels reading a picture spread over 160 of
+    theory/workbooks/anchor_sift records a band fixed in absolute levels reading a picture spread over 160 of
     them as having no structure, and a corpus of eight symbols as one run covering everything. The
     cure recorded there is to scale the band to each corpus, which is what this does.
     """
@@ -126,7 +126,7 @@ def agreement(first, second, lag, axis):
     fails in a way that looks like a result: a field of blobs on a flat background is mostly
     background, background agrees with background at every lag, and the measure returns its maximum
     at lag zero for every true displacement with both neighbors equal to it. The cross-axis control
-    returned the same figure, which is what named it. theory/workbook says the same thing about the
+    returned the same figure, which is what named it. theory/workbooks/anchor_sift says the same thing about the
     protein row from the other side, that in empty space every axis is identical and a line crossing
     mostly vacuum has no magnitude to carry.
 

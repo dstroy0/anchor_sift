@@ -23,7 +23,7 @@ A search kernel in C11, a driver that times it, Python tools that fetch and read
 
 **They parse PDFs.** The readers run `pypdf` and `pypdfium2` over files downloaded from the web, which is a real parser surface and it is not this work's parser. Keep those dependencies current, and treat a PDF from anywhere else the way you would treat any untrusted document.
 
-**They write only under `build/`.** Three exceptions, all of them fixed paths: the two generators that emit documentation write chapters under `theory/Salishan/chapters/`, `maint/deps/vendor_test_vectors.py` writes `test/vectors/`, and `maint/deps/get_deps.py` clones into `deps/`. `python maint/tree/write_survey.py` reads every script for the files it opens and reports where each one lands. That list is checked instead of remembered.
+**They write only under `build/`.** Three exceptions, all of them fixed paths: the two generators that emit documentation write chapters under `theory/theory/Salishan/chapters/`, `maint/deps/vendor_test_vectors.py` writes `test/vectors/`, and `maint/deps/get_deps.py` clones into `deps/`. `python maint/tree/write_survey.py` reads every script for the files it opens and reports where each one lands. That list is checked instead of remembered.
 
 ## The vendored library
 

@@ -4,7 +4,7 @@
 # Catalog: LNG-4-022
 #
 # Repeat outside Indo-European the one decomposition that was only done inside it, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/japanese_variation.py
 #

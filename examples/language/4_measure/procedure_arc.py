@@ -4,7 +4,7 @@
 # Catalog: LNG-4-033
 #
 # Measure how a procedure is arranged, across several centuries of writing them down, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/procedure_arc.py
 #

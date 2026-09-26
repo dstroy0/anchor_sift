@@ -4,7 +4,7 @@
 # Catalog: LNG-4-017
 #
 # Ask how writing moves over three centuries, with dates nobody here chose, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/german_centuries.py
 #

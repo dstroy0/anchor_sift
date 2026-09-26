@@ -14,7 +14,7 @@
 #
 # WHAT THIS CATCHES
 #
-# theory/cryptography/sha256/main.tex includes eleven chapters. Six were published from anchor_sift.
+# theory/theory/cryptography/sha256/main.tex includes eleven chapters. Six were published from anchor_sift.
 # Five postdate them and are held. Nothing in the build refuses that combination, so `build_theory.sh`
 # produces one PDF carrying both halves and looking finished. That is the defect this exists for.
 #
@@ -130,7 +130,7 @@ def resolve(argument, build_dir, root):
 
     LaTeX resolves every path against the directory the compiler was invoked from, and not against
     the file holding the include. theory/preamble.tex says `\\input{../macros.tex}` and that reaches
-    theory/cryptography/macros.tex when main.tex is built from theory/cryptography/sha256, which is
+    theory/theory/cryptography/macros.tex when main.tex is built from theory/theory/cryptography/sha256, which is
     the documented way to build it. An earlier version of this resolved against the including file
     and reported the shared preamble as missing on a tree where the build works.
     """

@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Fetch the Cell Tracking Challenge datasets for theory/cell_tracking.
+# Fetch the Cell Tracking Challenge datasets for theory/workbooks/cell_tracking.
 #
 #   Usage:  python maint/data/fetch/fetch_ctc.py                 list the manifest, fetch nothing
 #           python maint/data/fetch/fetch_ctc.py --fetch NAME     one dataset, training arm
@@ -20,7 +20,7 @@
 # not carried here. What the repository keeps is this manifest.
 #
 # WHY THESE DATASETS AND NOT A LEADERBOARD. The permutation null measure carries most of the
-# findings in this work and has no positive control from outside it, which theory/workbook calls the
+# findings in this work and has no positive control from outside it, which theory/workbooks/anchor_sift calls the
 # largest single gap in the work. The shift agreement detector has three, all from published crystal
 # cell edges. These datasets ship published ground truth tracking annotations, which is what a
 # positive control is: an answer that existed before the measurement and was not supplied by it.

@@ -4,7 +4,7 @@
 # Catalog: LNG-2-002
 #
 # Find how few symbols a language relationship survives on, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/2_partition/minimum_alphabet.py
 #

@@ -4,7 +4,7 @@
 # Catalog: LNG-4-006
 #
 # List the public novels and find the writers with enough works to test, for Section 4.13 of
-# theory/anchor_sift.
+# theory/workbooks/anchor_sift.
 #
 #   Usage:  python examples/language/4_measure/chicago_bibliography.py
 #
