@@ -57,6 +57,8 @@ struct TesseraMeasure
     TesseraNvmlMemoryInfo memory_info;
     TesseraNvmlProcesses processes;
     int reported;
+    int host;
+    unsigned long long host_capacity;
 #if defined(_WIN32)
     PDH_HQUERY query;
     PDH_HCOUNTER counter;
@@ -112,6 +114,11 @@ int tessera_measure_reported(const TesseraMeasure *measure)
     return measure->reported;
 }
 
+int tessera_measure_host(const TesseraMeasure *measure)
+{
+    return measure->host;
+}
+
 TesseraMeasure *tessera_measure_open(const unsigned char device[TESSERA_DEVICE_BYTES], unsigned long long luid)
 {
     TesseraMeasure *const measure = (TesseraMeasure *)calloc(1u, sizeof(TesseraMeasure));
@@ -120,6 +127,21 @@ TesseraMeasure *tessera_measure_open(const unsigned char device[TESSERA_DEVICE_B
         return NULL;
     }
     measure->luid = luid;
+    // the host's processors: no library reads them, and each job's process reports its own use
+    if (tessera_device_names_host(device))
+    {
+        const unsigned long long mask = tessera_self_host_mask();
+        measure->host = 1;
+        measure->reported = 1;
+        // a processor count is at most sixty-four, held whole
+        measure->host_capacity = (unsigned long long)engine_word_population(mask) * TESSERA_HOST_PROCESSOR;
+        if (mask == 0ull)
+        {
+            tessera_measure_close(measure);
+            return NULL;
+        }
+        return measure;
+    }
     // under WSL NVML still reads the device whole, but each job's process reports its own bytes
     measure->reported = tessera_self_paravirtual();
 #if defined(_WIN32)
@@ -186,6 +208,12 @@ void tessera_measure_close(TesseraMeasure *measure)
 
 int tessera_measure_device(TesseraMeasure *measure, unsigned long long *capacity, unsigned long long *in_use)
 {
+    if (measure->host)
+    {
+        *capacity = measure->host_capacity;
+        *in_use = 0ull;
+        return 1;
+    }
     TesseraNvmlMemory memory;
     memset(&memory, 0, sizeof(memory));
     if (measure->memory_info(measure->device, &memory) != TESSERA_NVML_SUCCESS)

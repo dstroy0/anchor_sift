@@ -1,11 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "tower.h"
 
+#include "device_pool.h"
+
 #include <cuda_runtime.h>
 
 #include <stdlib.h>
 #include <string.h>
 
+#include <utility>
 #include <vector>
 
 static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success");
@@ -173,6 +176,21 @@ __global__ static void tower_widen_kernel(const unsigned short *lanes, unsigned 
     }
 }
 
+__global__ static void tower_take_kernel(const int *values, unsigned long long count, int *to, unsigned int *overflow)
+{
+    const unsigned long long jump = (unsigned long long)gridDim.x * blockDim.x;
+    for (unsigned long long index = ((unsigned long long)blockIdx.x * blockDim.x) + threadIdx.x; index < count;
+         index += jump)
+    {
+        const int value = values[index];
+        if ((value >= TOWER_LIMIT) || (value <= -TOWER_LIMIT))
+        {
+            atomicOr(overflow, 1u);
+        }
+        to[index] = value;
+    }
+}
+
 __global__ static void tower_differ_kernel(const int *rebuilt, const unsigned short *lanes, unsigned long long count,
                                            unsigned long long *mismatches)
 {
@@ -239,8 +257,11 @@ static std::vector<TowerStep> tower_floors(const unsigned long long *extent)
     return floors;
 }
 
+// the coefficients, the scratch, the flag and the mismatch count are slices of one pool, held for the most lanes asked
+// so far; the edge table grows apart, only when an edge is laid
 struct TowerHeld
 {
+    DevicePool pool;
     int *coefficients;
     int *scratch;
     size_t lanes;
@@ -271,27 +292,65 @@ static int tower_edge_hold(unsigned int entries, EngineError *error)
     return 1;
 }
 
+#define TOWER_SLICES 4u
+
+// the pool's slices for `lanes`, in the order they are laid and taken: the coefficients, the scratch, the flag and the
+// mismatch count; the plan is laid from them, and a pool held from it takes them
+static DevicePoolPlan tower_plan(size_t lanes, EngineError *error, DevicePoolTakeRequest takes[TOWER_SLICES])
+{
+    TowerHeld *const held = &s_tower_held;
+    const DevicePoolTakeRequest laid[TOWER_SLICES] = {
+        {&held->pool, lanes * sizeof(int), (void **)&held->coefficients, error},
+        {&held->pool, lanes * sizeof(int), (void **)&held->scratch, error},
+        {&held->pool, sizeof(unsigned int), (void **)&held->flag, error},
+        {&held->pool, sizeof(unsigned long long), (void **)&held->mismatches, error}};
+    DevicePoolPlan plan = {0ull, 0ull, 0};
+    for (unsigned int at = 0u; at < TOWER_SLICES; at += 1u)
+    {
+        takes[at] = laid[at];
+        device_pool_plan_slice(&plan, laid[at].bytes);
+    }
+    return plan;
+}
+
 static int tower_hold(size_t lanes, EngineError *error)
 {
     TowerHeld *const held = &s_tower_held;
-    int ok = 1;
-    if (lanes > held->lanes)
+    if (lanes <= held->lanes)
     {
-        cudaFree(held->coefficients);
-        cudaFree(held->scratch);
-        held->coefficients = NULL;
-        held->scratch = NULL;
-        held->lanes = 0u;
-        ok = TOWER_TOOK(cudaMalloc((void **)&held->coefficients, lanes * sizeof(int)), &held->coefficients, error)
-          && TOWER_TOOK(cudaMalloc((void **)&held->scratch, lanes * sizeof(int)), &held->scratch, error);
-        held->lanes = (ok != 0) ? lanes : 0u;
+        return 1;
     }
-    if ((ok != 0) && (held->flag == NULL))
+    device_pool_release(&held->pool);
+    held->coefficients = NULL;
+    held->scratch = NULL;
+    held->flag = NULL;
+    held->mismatches = NULL;
+    held->lanes = 0u;
+    DevicePoolTakeRequest takes[TOWER_SLICES];
+    const DevicePoolPlan plan = tower_plan(lanes, error, takes);
+    const DevicePoolHoldRequest hold = {&plan, &held->pool, error};
+    int ok = device_pool_hold(&hold) == 0L;
+    // the slices are taken in the plan's order, so each lands where the plan laid it and none is refused
+    for (unsigned int at = 0u; (ok != 0) && (at < TOWER_SLICES); at += 1u)
     {
-        ok = TOWER_TOOK(cudaMalloc((void **)&held->flag, sizeof(unsigned int)), &held->flag, error)
-          && TOWER_TOOK(cudaMalloc((void **)&held->mismatches, sizeof(unsigned long long)), &held->mismatches, error);
+        ok = device_pool_take(&takes[at]) == 0L;
     }
+    held->lanes = (ok != 0) ? lanes : 0u;
     return ok;
+}
+
+extern "C" unsigned long long tower_hold_bytes(unsigned long long lanes)
+{
+    // past 2^60 lanes the two int slices alone pass the plan's 2^62 bytes, which spoils it; refused here before the
+    // product could wrap
+    if ((lanes == 0ull) || (lanes > (1ull << 60u)))
+    {
+        return 0ull;
+    }
+    DevicePoolTakeRequest takes[TOWER_SLICES];
+    // a size_t holds 64 bits, which device_pool asserts, so the lane count converts exactly
+    const DevicePoolPlan plan = tower_plan((size_t)lanes, NULL, takes);
+    return device_pool_plan_bytes(&plan);
 }
 
 static unsigned long long tower_lanes(const unsigned long long *extent)
@@ -444,8 +503,8 @@ extern "C" long tower_lift(const TowerLiftRequest *request)
         return TOWER_REFUSED;
     }
     EngineError *const error = request->error;
-    if (!TOWER_HELD((request->device_lanes != NULL) && (request->coefficients != NULL) && (request->scratch != NULL)
-                        && (request->floors != NULL),
+    if (!TOWER_HELD(((request->device_lanes != NULL) || (request->device_values != NULL))
+                        && (request->coefficients != NULL) && (request->scratch != NULL) && (request->floors != NULL),
                     request, error, ENGINE_ERROR_REQUEST))
     {
         return TOWER_REFUSED;
@@ -463,7 +522,13 @@ extern "C" long tower_lift(const TowerLiftRequest *request)
         return TOWER_REFUSED;
     }
     int ok = TOWER_TOOK(cudaMemset(held->flag, 0, sizeof(unsigned int)), held->flag, error);
-    if (ok != 0)
+    if ((ok != 0) && (request->device_values != NULL))
+    {
+        tower_take_kernel<<<tower_blocks(lanes), TOWER_THREADS>>>(request->device_values, lanes, held->coefficients,
+                                                                  held->flag);
+        ok = TOWER_TOOK(cudaGetLastError(), held->coefficients, error);
+    }
+    else if (ok != 0)
     {
         tower_widen_kernel<<<tower_blocks(lanes), TOWER_THREADS>>>(request->device_lanes, lanes, held->coefficients);
         ok = TOWER_TOOK(cudaGetLastError(), held->coefficients, error);
@@ -598,4 +663,283 @@ extern "C" long tower_lower(const TowerLowerRequest *request)
     }
     *request->device_rebuilt = narrowed;
     return 0L;
+}
+
+// the ruleset tower_forward_kernel and tower_inverse_kernel run: the highs less floor((x_2j + x_(2j+2)) / 2), then the
+// lows plus floor((d_(j-1) + d_j + 2) / 4)
+static const TowerLiftingStep s_tower_five_three[2] = {{TOWER_BAND_HIGH, -1, 2u, {0, 1}, {1, 1}, 0u, 1u},
+                                                       {TOWER_BAND_LOW, 1, 2u, {-1, 0}, {1, 1}, 2u, 2u}};
+
+// the record floors' writer: every step is counted, and written only where the caller's program is held. Each
+// constant is laid once, where it is first read, and its register kept beside its value.
+struct TowerRecordEmit
+{
+    EngineRecordStep *steps;
+    unsigned long long count;
+    std::vector<std::pair<unsigned long long, unsigned int>> constants;
+};
+
+static unsigned int tower_record_emit(TowerRecordEmit *emit, EngineRecordOperation operation, unsigned int left,
+                                      unsigned int right)
+{
+    if (emit->steps != NULL)
+    {
+        emit->steps[emit->count] = EngineRecordStep{operation, left, right, 0u};
+    }
+    emit->count += 1ull;
+    // a program is written only once its count is held to 2^32 - 1, and a counted name past that is refused unread
+    return (unsigned int)(emit->count - 1ull);
+}
+
+static unsigned int tower_record_constant(TowerRecordEmit *emit, unsigned long long value)
+{
+    for (const std::pair<unsigned long long, unsigned int> &held : emit->constants)
+    {
+        if (held.first == value)
+        {
+            return held.second;
+        }
+    }
+    // a constant step holds its value's low 32 bits in `left` and its high 32 in `right`
+    const unsigned int laid = tower_record_emit(emit, ENGINE_RECORD_CONSTANT, (unsigned int)(value & 0xFFFFFFFFull),
+                                                (unsigned int)(value >> 32u));
+    emit->constants.push_back(std::pair<unsigned long long, unsigned int>(value, laid));
+    return laid;
+}
+
+// floor(v / 2^shift), toward minus infinity as tower_floor_shift: v's residue, the and with 2^shift - 1, is never
+// negative, and v less it divides exactly
+static unsigned int tower_record_floor_shift(TowerRecordEmit *emit, unsigned int value, unsigned int shift)
+{
+    if (shift == 0u)
+    {
+        return value;
+    }
+    const unsigned int mask = tower_record_constant(emit, (1ull << shift) - 1ull);
+    const unsigned int residue = tower_record_emit(emit, ENGINE_RECORD_AND, value, mask);
+    const unsigned int whole = tower_record_emit(emit, ENGINE_RECORD_DIFFERENCE, value, residue);
+    return tower_record_emit(emit, ENGINE_RECORD_EXACT_QUOTIENT, whole, tower_record_constant(emit, 1ull << shift));
+}
+
+// one lifting step over a band: each value moves by sign * floor((rounding + sum_k weight_k * other[a + offset_k]) /
+// 2^shift), an index past either end of the other band taken at that end, and `undo` turns the sign
+static void tower_record_lifting_step(TowerRecordEmit *emit, const TowerLiftingStep &rule, int undo,
+                                      std::vector<unsigned int> &target, const std::vector<unsigned int> &other)
+{
+    // both bands of a lifted line hold at least one value, and far fewer than 2^31
+    const long long last = (long long)other.size() - 1ll;
+    for (size_t at = 0u; at < target.size(); at += 1u)
+    {
+        unsigned int sum = 0u;
+        int summed = 0;
+        if (rule.rounding != 0u)
+        {
+            sum = tower_record_constant(emit, rule.rounding);
+            summed = 1;
+        }
+        for (unsigned int tap = 0u; tap < rule.taps; tap += 1u)
+        {
+            const long long wanted = (long long)at + (long long)rule.offset[tap];
+            const long long taken = (wanted < 0ll) ? 0ll : ((wanted > last) ? last : wanted);
+            unsigned int term = other[(size_t)taken];
+            // a weight is never INT_MIN, so its magnitude is an int
+            const unsigned int magnitude = (unsigned int)((rule.weight[tap] < 0) ? -rule.weight[tap] : rule.weight[tap]);
+            if (magnitude != 1u)
+            {
+                term = tower_record_emit(emit, ENGINE_RECORD_PRODUCT, term, tower_record_constant(emit, magnitude));
+            }
+            if (summed == 0)
+            {
+                sum = (rule.weight[tap] > 0) ? term
+                                             : tower_record_emit(emit, ENGINE_RECORD_DIFFERENCE,
+                                                                 tower_record_constant(emit, 0ull), term);
+                summed = 1;
+            }
+            else
+            {
+                sum = tower_record_emit(emit, (rule.weight[tap] > 0) ? ENGINE_RECORD_SUM : ENGINE_RECORD_DIFFERENCE, sum,
+                                        term);
+            }
+        }
+        const unsigned int moved = tower_record_floor_shift(emit, sum, rule.shift);
+        const int adds = (rule.sign > 0) != (undo != 0);
+        target[at] = tower_record_emit(emit, adds ? ENGINE_RECORD_SUM : ENGINE_RECORD_DIFFERENCE, target[at], moved);
+    }
+}
+
+// one level along one line of `length` values, or its undoing. Lifting splits the line into its evens, the lows,
+// and its odds, the highs, runs the ruleset's steps in order and lays the lows first and the highs after them, as
+// tower_forward_kernel lays them; lowering reads the two bands back from there, runs the steps last first with each
+// sign turned, and interleaves them again, as tower_inverse_kernel does.
+static void tower_record_line(TowerRecordEmit *emit, const TowerLiftingStep *rules, unsigned int rule_count,
+                              std::vector<unsigned int> &registers, unsigned long long line, unsigned long long stride,
+                              unsigned long long length, int inverse)
+{
+    const unsigned long long lows = (length + 1ull) / 2ull;
+    const unsigned long long highs = length / 2ull;
+    // a band's k-th value sits at 2k or 2k + 1 along the interleaved line, and at k or lows + k along the lifted one
+    std::vector<unsigned int> low((size_t)lows);
+    std::vector<unsigned int> high((size_t)highs);
+    for (unsigned long long k = 0ull; k < lows; k += 1ull)
+    {
+        low[(size_t)k] = registers[(size_t)(line + (((inverse != 0) ? k : (2ull * k)) * stride))];
+    }
+    for (unsigned long long k = 0ull; k < highs; k += 1ull)
+    {
+        high[(size_t)k] = registers[(size_t)(line + (((inverse != 0) ? (lows + k) : ((2ull * k) + 1ull)) * stride))];
+    }
+    for (unsigned int walked = 0u; walked < rule_count; walked += 1u)
+    {
+        const TowerLiftingStep &rule = rules[(inverse != 0) ? (rule_count - 1u - walked) : walked];
+        if (rule.target == TOWER_BAND_HIGH)
+        {
+            tower_record_lifting_step(emit, rule, inverse, high, low);
+        }
+        else
+        {
+            tower_record_lifting_step(emit, rule, inverse, low, high);
+        }
+    }
+    for (unsigned long long k = 0ull; k < lows; k += 1ull)
+    {
+        registers[(size_t)(line + (((inverse != 0) ? (2ull * k) : k) * stride))] = low[(size_t)k];
+    }
+    for (unsigned long long k = 0ull; k < highs; k += 1ull)
+    {
+        registers[(size_t)(line + (((inverse != 0) ? ((2ull * k) + 1ull) : (lows + k)) * stride))] = high[(size_t)k];
+    }
+}
+
+// the first position of every line along `axis` in a level's active region, in t, z, y, x order
+static std::vector<unsigned long long> tower_record_lines(const TowerStep &step, unsigned int axis)
+{
+    unsigned long long across[4];
+    unsigned long long lines = 1ull;
+    for (unsigned int each = 0u; each < 4u; each += 1u)
+    {
+        across[each] = (each == axis) ? 1ull : step.extent[each];
+        lines *= across[each];
+    }
+    std::vector<unsigned long long> first((size_t)lines);
+    for (unsigned long long index = 0ull; index < lines; index += 1ull)
+    {
+        unsigned long long rest = index;
+        unsigned long long offset = 0ull;
+        for (unsigned int each = 4u; each > 0u; each -= 1u)
+        {
+            offset += (rest % across[each - 1u]) * step.stride[each - 1u];
+            rest /= across[each - 1u];
+        }
+        first[(size_t)index] = offset;
+    }
+    return first;
+}
+
+// T, or T^-1 run from the last level and axis back, over a block's registers in place: the levels and axes
+// tower_lift and tower_lower walk, each axis whose active extent is 2 or more
+static void tower_record_build(TowerRecordEmit *emit, const TowerLiftingStep *rules, unsigned int rule_count,
+                               const std::vector<TowerStep> &floors, std::vector<unsigned int> &registers, int inverse)
+{
+    const size_t levels = floors.size();
+    for (size_t walked = 0u; walked < levels; walked += 1u)
+    {
+        const TowerStep &step = floors[(inverse != 0) ? (levels - 1u - walked) : walked];
+        for (unsigned int turn = 0u; turn < 4u; turn += 1u)
+        {
+            const unsigned int axis = (inverse != 0) ? (3u - turn) : turn;
+            if (step.extent[axis] < 2ull)
+            {
+                continue;
+            }
+            for (const unsigned long long line : tower_record_lines(step, axis))
+            {
+                tower_record_line(emit, rules, rule_count, registers, line, step.stride[axis], step.extent[axis],
+                                  inverse);
+            }
+        }
+    }
+}
+
+static long tower_record_run(const TowerRecordRequest *request, int inverse)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return TOWER_REFUSED;
+    }
+    EngineError *const error = request->error;
+    if (!TOWER_HELD((request->in_registers != NULL) && (request->out_registers != NULL) && (request->count != NULL),
+                    request, error, ENGINE_ERROR_REQUEST))
+    {
+        return TOWER_REFUSED;
+    }
+    const unsigned long long lanes = tower_lanes(request->extent);
+    if (!TOWER_HELD((lanes != 0ull) && (lanes <= 0xFFFFFFFFull), request->extent, error, ENGINE_ERROR_REQUEST))
+    {
+        return TOWER_REFUSED;
+    }
+    // no ruleset named is the kernels' 5/3
+    const int named_rules = (request->rules != NULL) || (request->rule_count != 0u);
+    const TowerLiftingStep *const rules = (named_rules != 0) ? request->rules : s_tower_five_three;
+    const unsigned int rule_count = (named_rules != 0) ? request->rule_count : 2u;
+    if (!TOWER_HELD((rules != NULL) && (rule_count != 0u), request, error, ENGINE_ERROR_REQUEST))
+    {
+        return TOWER_REFUSED;
+    }
+    for (unsigned int at = 0u; at < rule_count; at += 1u)
+    {
+        const TowerLiftingStep *const rule = &rules[at];
+        int held = ((rule->target == TOWER_BAND_LOW) || (rule->target == TOWER_BAND_HIGH))
+                && ((rule->sign == 1) || (rule->sign == -1)) && (rule->taps >= 1u) && (rule->taps <= TOWER_RULE_TAPS_MOST)
+                && (rule->shift <= TOWER_RULE_SHIFT_MOST);
+        for (unsigned int tap = 0u; (held != 0) && (tap < rule->taps); tap += 1u)
+        {
+            // a weight's magnitude is an int, so INT_MIN is refused with 0
+            held = (rule->weight[tap] != 0) && (rule->weight[tap] != INT_MIN);
+        }
+        if (!TOWER_HELD(held, rule, error, ENGINE_ERROR_REQUEST))
+        {
+            return TOWER_REFUSED;
+        }
+    }
+    const unsigned int start = *request->count;
+    std::vector<unsigned int> registers((size_t)lanes);
+    for (unsigned long long lane = 0ull; lane < lanes; lane += 1ull)
+    {
+        // a value the block reads is an earlier step's register
+        if (!TOWER_HELD(request->in_registers[lane] < start, &request->in_registers[lane], error, ENGINE_ERROR_REQUEST))
+        {
+            return TOWER_REFUSED;
+        }
+        registers[(size_t)lane] = request->in_registers[lane];
+    }
+    const std::vector<TowerStep> floors = tower_floors(request->extent);
+    // counted first, so a program its step names or the caller's room cannot hold is refused before a step is written
+    TowerRecordEmit counted = {NULL, start, {}};
+    std::vector<unsigned int> named = registers;
+    tower_record_build(&counted, rules, rule_count, floors, named, inverse);
+    if (!TOWER_HELD((counted.count <= 0xFFFFFFFFull)
+                        && ((request->steps == NULL) || (counted.count <= (unsigned long long)request->step_room)),
+                    request, error, ENGINE_ERROR_REQUEST))
+    {
+        return TOWER_REFUSED;
+    }
+    if (request->steps != NULL)
+    {
+        TowerRecordEmit written = {request->steps, start, {}};
+        tower_record_build(&written, rules, rule_count, floors, registers, inverse);
+    }
+    memcpy(request->out_registers, named.data(), (size_t)lanes * sizeof(unsigned int));
+    // the count was held to 2^32 - 1 above, so it narrows to the program's next step exactly
+    *request->count = (unsigned int)counted.count;
+    return 0L;
+}
+
+extern "C" long tower_record_lift(const TowerRecordRequest *request)
+{
+    return tower_record_run(request, 0);
+}
+
+extern "C" long tower_record_lower(const TowerRecordRequest *request)
+{
+    return tower_record_run(request, 1);
 }

@@ -264,7 +264,7 @@ static __global__ void energy_welford_kernel(const long long *values, unsigned l
     for (unsigned long long at = phase; at < length; at += period)
     {
         seen += 1ull;
-        // d and seen are member counts below 2^16 here; every product fits 64 bits
+        // d and seen are member counts below 2^16 here, so every product fits 64 bits
         const long long step_numerator = (values[at] * (long long)denominator) - numerator;
         const unsigned long long step_denominator = denominator * seen;
         numerator = (numerator * (long long)step_denominator) + (step_numerator * (long long)denominator);
@@ -339,7 +339,7 @@ static inline int energy_reduction(const long long *noisy, const long long *targ
         injected += (unsigned long long)(apart * apart);
         const unsigned long long phase = at % period;
         const unsigned long long members = energy_members(length, period, phase);
-        // the member count is below 2^16 and each value below 2^16; the product fits
+        // the member count is below 2^16 and each value below 2^16, so the product fits
         const long long left = ((long long)members * (noisy[at] - target[at])) - phase_sums[phase];
         sim_exact_signed(&term, left);
         good = sim_exact_product(&term, &term, &term);

@@ -234,6 +234,46 @@ static void test_budget(TestTally *tally)
     tessera_ledger_close(&kept);
 }
 
+// a process holding bytes as it asks is reserved them beside its declaration, and admitted on what it has yet to find,
+// since the device's measured use already counts what it holds; the held rule weighs the declaration alone against
+// the kept peak
+static void test_standing(TestTally *tally)
+{
+    TesseraLedger ledger;
+    tessera_ledger_open(&ledger);
+    tessera_ledger_device(&ledger, 1000ull, 300ull);
+    TesseraEvent event;
+    TesseraEvent events[TEST_EVENTS];
+    TesseraJobRequest request = test_request(11ull, 650ull);
+    request.standing = 200ull;
+    unsigned long long first = 0ull;
+    test_check(tally, tessera_ledger_submit(&ledger, &request, 0ull, &first, &event) && (event.kind == TESSERA_EVENT_NONE)
+                          && (tessera_ledger_wants(&ledger, tessera_ledger_job(&ledger, first)) == 850ull));
+    // its whole 850 passes the 700 free, but the 650 it has yet to find fits
+    test_check(tally, (tessera_ledger_admit(&ledger, 0ull, events, TEST_EVENTS) == 1ull) && (events[0].bytes == 850ull)
+                          && (tessera_ledger_job(&ledger, first)->used == 200ull));
+    test_check(tally, tessera_ledger_headroom(&ledger) == 50ll);
+    unsigned long long second = 0ull;
+    const TesseraJobRequest after = test_request(12ull, 100ull);
+    test_check(tally, tessera_ledger_submit(&ledger, &after, 0ull, &second, &event)
+                          && (tessera_ledger_admit(&ledger, 0ull, events, TEST_EVENTS) == 0ull));
+    test_check(tally, tessera_ledger_measure(&ledger, first, 900ull, &event) && (event.kind == TESSERA_EVENT_GREW)
+                          && (tessera_ledger_job(&ledger, first)->reservation == 900ull));
+    test_check(tally, tessera_ledger_release(&ledger, first, 50ull, 1)
+                          && (tessera_ledger_history(&ledger, &request.signum)->peak == 900ull));
+    // standing on 300 and declaring 650 under the kept 900 is not held, and is reserved its whole 950
+    request.standing = 300ull;
+    unsigned long long third = 0ull;
+    test_check(tally, tessera_ledger_submit(&ledger, &request, 60ull, &third, &event) && (event.kind == TESSERA_EVENT_NONE)
+                          && (tessera_ledger_wants(&ledger, tessera_ledger_job(&ledger, third)) == 950ull));
+    // declaring 950 over the kept 900 is held, whatever its process stands on
+    const TesseraJobRequest greedy = test_request(11ull, 950ull);
+    unsigned long long fourth = 0ull;
+    test_check(tally, tessera_ledger_submit(&ledger, &greedy, 70ull, &fourth, &event)
+                          && (event.kind == TESSERA_EVENT_ASKED));
+    tessera_ledger_close(&ledger);
+}
+
 static int test_idle_fired(TesseraLedger *ledger, unsigned long long now)
 {
     TesseraEvent event;
@@ -439,22 +479,25 @@ int main(void)
     TestTally headroom = {"headroom identity", 0ull, 0ull};
     TestTally heap = {"deadlines in order", 0ull, 0ull};
     TestTally budget = {"budget, hold, override, lost", 0ull, 0ull};
+    TestTally standing = {"standing beside the declaration", 0ull, 0ull};
     TestTally idle = {"idle teardown", 0ull, 0ull};
     TestTally kept = {"backfill keeps the head", 0ull, 0ull};
     TestTally finished = {"every scenario finishes", 0ull, 0ull};
     test_headroom(&headroom);
     test_heap_order(&heap);
     test_budget(&budget);
+    test_standing(&standing);
     test_idle(&idle);
     test_backfill(&kept, &finished);
     test_report(&headroom);
     test_report(&heap);
     test_report(&budget);
+    test_report(&standing);
     test_report(&idle);
     test_report(&kept);
     test_report(&finished);
-    const unsigned long long failed
-        = headroom.failed + heap.failed + budget.failed + idle.failed + kept.failed + finished.failed;
+    const unsigned long long failed = headroom.failed + heap.failed + budget.failed + standing.failed + idle.failed
+                                    + kept.failed + finished.failed;
     printf("  tessera ledger: %llu failed\n", failed);
     return (failed == 0ull) ? 0 : 1;
 }

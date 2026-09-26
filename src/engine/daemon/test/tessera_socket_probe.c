@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // a client with no device of its own: it submits one job for the device named on its command line through the
-// endpoint tessera_path_endpoint names ($TESSERA_RUNTIME in a container), with no daemon path; only a daemon
+// endpoint tessera_path_endpoint names ($TESSERA_RUNTIME in a container), with no daemon path, so only a daemon
 // already listening there, or a socket systemd holds, can answer. It prints what came back.
 #include "tessera.h"
 

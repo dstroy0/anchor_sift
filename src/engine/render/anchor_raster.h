@@ -137,7 +137,7 @@ extern "C"
  * THE PROOF CHANNEL IS DIFFERENT IN KIND FROM THE OTHER FOUR AND THE DIFFERENCE IS WORTH STATING.
  * A probe set is a sound filter: it never loses a true occurrence, and it does admit alignments that
  * are not one. So the negative direction is certain and the positive is not. A cell where no
- * alignment survived contains no occurrence, and that is proved and not summarized.
+ * alignment survived contains no occurrence, and that is a proof and not a summary.
  *
  * Three properties follow and each one is load bearing. It reduces as a conjunction, a cell being
  * proven only when every alignment under it was refuted, and conjunction is associative and
@@ -181,8 +181,9 @@ extern "C"
      * raster uses as its bound, and would hand those callers layouts needing a depth they do not carry.
      *
      * @note The channel, the reduce rule and the gain are unchanged and are not duplicated here. Each
-     *       reads one alignment and returns one value. It does not know how many dimensions the
-     *       destination has. Only the index to position map changes between a sheet and a block, the same statement the engine makes about its own index set needing no order and no
+     *       reads one alignment and returns one value. None of them knows how many dimensions the
+     *       destination has. Only the index to position map changes between a sheet and a block, which
+     *       is the same statement the engine makes about its own index set needing no order and no
      *       dimension.
      * @note Every transform here is a bijection computed in integer arithmetic. A device
      *       implementation reproduces it exactly and no transform can drop or duplicate an alignment.
@@ -191,10 +192,10 @@ extern "C"
     {
         ANCHOR_VOLUME_SLABS = 0,   /**< Slab major. Fills a sheet, then the next sheet behind it. The
                                     *   three dimensional reading of ANCHOR_LAYOUT_ROWS. */
-        ANCHOR_VOLUME_BOUSTRO = 1, /**< Slab major with every other row and every other slab reversed;
-                                    *   consecutive alignments stay adjacent across both boundaries. */
+        ANCHOR_VOLUME_BOUSTRO = 1, /**< Slab major with every other row and every other slab reversed,
+                                    *   so consecutive alignments stay adjacent across both boundaries. */
         ANCHOR_VOLUME_MORTON = 2,  /**< Morton order, interleaving the bits of x, y and z. Locality is
-                                    *   preserved on all three axes at once, as a linear
+                                    *   preserved on all three axes at once, which is what a linear
                                     *   index set needs to read as a solid and not as stacked sheets.
                                     *   Requires the extents to be powers of two; a caller giving
                                     *   others gets a refusal and not a silent remap. */
@@ -365,7 +366,7 @@ extern "C"
      * @param[in] at         Alignment index.
      * @param[in] alignments How many alignments the object has.
      * @return               Cell index inside `width * height`.
-     * @note Exposed because the device rasterizer calls the same function, which keeps one
+     * @note Exposed because the device rasterizer calls the same function, which is what keeps one
      *       transform and not two that agree until somebody edits one.
  */
     size_t anchor_raster_cell(const AnchorRasterConfig *config, size_t at, size_t alignments);
@@ -454,7 +455,8 @@ extern "C"
      *
      * @note Produces the same bytes anchor_raster_host produces for the same arguments. A difference is
      *       a defect in one of them, and bench_raster grades exactly that.
-     * @note One thread per alignment, reducing into the raster with atomicMin. The minimum rule lets that reduction run in any order and still agree with the host.
+     * @note One thread per alignment, reducing into the raster with atomicMin. The minimum rule is what
+     *       lets that reduction run in any order and still agree with the host.
      */
     int anchor_raster_device(uint8_t *pixels, const AnchorRasterConfig *config, const uint8_t *corpus,
                              size_t corpus_len, const uint8_t *needle, size_t needle_len,

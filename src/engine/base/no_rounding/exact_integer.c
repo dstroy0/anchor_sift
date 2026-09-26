@@ -34,7 +34,7 @@
 #define EXACT_LIMBS ((size_t)ANCHOR_EXACT_LIMBS)
 
 // A call's width-sized working copies are one room, placed at compile time: on the stack while the width is at most
-// ANCHOR_EXACT_STACK_LIMBS, from the heap beyond it; no width is bounded by a stack. A room from the heap that
+// ANCHOR_EXACT_STACK_LIMBS, from the heap beyond it, so no width is bounded by a stack. A room from the heap that
 // cannot be held is refused as ANCHOR_EXACT_WILL_NOT_FIT.
 #if (ANCHOR_EXACT_LIMBS) <= (ANCHOR_EXACT_STACK_LIMBS)
 #define EXACT_ROOM(name_, count_)                                                                                      \
@@ -483,7 +483,7 @@ static int limbs_product(uint32_t *result, const uint32_t *left, size_t left_cou
 }
 
 // A ring element modulo 2^n + 1, n = 32 limbs, is limbs + 1 words holding a value from 0 to 2^n. In this ring 2 is a
-// root of unity (2^(2n) = 1); every twiddle of the transform is a shift, and nothing is rounded.
+// root of unity (2^(2n) = 1), so every twiddle of the transform is a shift, and nothing is rounded.
 #define TRANSFORM_BASE_LIMBS 64u
 
 static unsigned int bits_ceiling_log(size_t value)
@@ -522,7 +522,7 @@ static void fermat_add(uint32_t *result, const uint32_t *left, const uint32_t *r
     fermat_settle(result, limbs);
 }
 
-// a wrapped difference comes back by adding 2^n + 1, the wrap of the words canceling
+// a wrapped difference comes back by adding 2^n + 1, the wrap of the words cancelling
 static void fermat_mend(uint32_t *value, size_t limbs)
 {
     uint32_t one = 1u;
@@ -571,7 +571,7 @@ static void fermat_shift(uint32_t *result, const uint32_t *value, size_t shift, 
             scratch[at + whole + 1u] |= value[at] >> (LIMB_BITS - part);
         }
     }
-    // value . 2^shift < 2^(2n); the part above n is below 2^n and its top word is zero
+    // value . 2^shift < 2^(2n), so the part above n is below 2^n and its top word is zero
     memcpy(result, scratch, limbs * sizeof(uint32_t));
     result[limbs] = 0u;
     fermat_subtract(result, result, &scratch[limbs], limbs);
@@ -622,7 +622,7 @@ static void fermat_fourier(uint32_t *elements, size_t count, unsigned int depth,
     }
 }
 
-// the inner ring for pieces of piece_bits in 2^depth parts: at least 2 piece_bits + depth + 2 bits; a signed
+// the inner ring for pieces of piece_bits in 2^depth parts: at least 2 piece_bits + depth + 2 bits, so a signed
 // coefficient of the negacyclic product fits, and a multiple of the part count and of a limb; a ring past the base
 // case also leaves room to split in turn
 static size_t fermat_inner_bits(size_t piece_bits, unsigned int depth)
@@ -670,7 +670,7 @@ static unsigned long long fermat_cost_at(size_t limbs, unsigned int depth)
 }
 
 // the cheapest way to multiply in the ring of the given limbs: the depth of the transform, or 0 for the ladder
-// below; depths are tried near the balanced split of sqrt(n) pieces, where the inner ring is near sqrt(n) bits;
+// below; depths are tried near the balanced split of sqrt(n) pieces, where the inner ring is near sqrt(n) bits, so
 // the model's own recursion is a few levels deep
 static unsigned long long fermat_cost(size_t limbs, unsigned int *depth)
 {
@@ -862,7 +862,7 @@ static int transform_product(uint32_t *wide, const uint32_t *left, size_t left_u
     uint32_t *const product = &held[2u * (limbs + 1u)];
     memcpy(first, left, left_used * sizeof(uint32_t));
     memcpy(second, right, right_used * sizeof(uint32_t));
-    // the product is below 2^bits <= 2^n; the ring leaves it whole
+    // the product is below 2^bits <= 2^n, so the ring leaves it whole
     const int held_product = fermat_multiply(product, first, second, limbs);
     if (held_product != 0)
     {
@@ -1012,7 +1012,7 @@ static void limbs_divide(const uint32_t *top, size_t top_used, const uint32_t *b
         for (size_t at = top_used; at > 0u; at--)
         {
             const uint64_t current = (carried << LIMB_BITS) | (uint64_t)top[at - 1u];
-            // current is below divisor . 2^32; the quotient limb fits 32 bits
+            // current is below divisor . 2^32, so the quotient limb fits 32 bits
             quotient[at - 1u] = (uint32_t)(current / divisor);
             carried = current % divisor;
         }
@@ -1095,7 +1095,7 @@ static void limbs_ladder_product(uint32_t *result, const uint32_t *left, size_t 
 // x = floor(beta^t / d), beta = 2^32, for d of used limbs with its top limb nonzero and t >= used; x takes
 // t - used + 2 limbs. Each level halves the quotient's precision p: the top p/2 + 2 limbs of d give a reciprocal good
 // to half the limbs, shifted back up; one Newton step x + x (beta^t - d x) / beta^t squares its relative error; and
-// multiplying back fixes the last units exactly. Every product is on the ladder; the reciprocal costs a few
+// multiplying back fixes the last units exactly. Every product is on the ladder, so the reciprocal costs a few
 // products. 0 when workspace cannot be held
 static int limbs_reciprocal(uint32_t *x, const uint32_t *d, size_t used, size_t t)
 {
@@ -1416,7 +1416,7 @@ static void magnitude_low_product(const uint32_t *left, const uint32_t *right, s
 }
 
 // the inverse of an odd magnitude modulo 2^(32 limbs) by Newton's step x (2 - d x), which doubles the bits that are
-// right; each step works only to the doubled precision; 2 - t is the two's complement negation of t plus two;
+// right, so each step works only to the doubled precision; 2 - t is the two's complement negation of t plus two;
 // work holds four widths
 static void magnitude_odd_inverse(const uint32_t *odd, size_t limbs, uint32_t *inverse, uint32_t *work)
 {

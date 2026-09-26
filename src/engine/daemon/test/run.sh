@@ -4,13 +4,13 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODULE="$(cd "$TEST/.." && pwd)"
-TOP="$(cd "$MODULE/../../.." && pwd)"
+TOP="$(cd "$MODULE/../.." && pwd)"
 source "$TOP/maint/build_stamp.sh"
 build_stamp tessera_test
 
-SCRIPTURA="$TOP/src/engine/base/scriptura"
-OBSIGNATIO="$TOP/src/engine/base/obsignatio"
-INCLUDES=(-I "$TOP/src/engine" -I "$MODULE" -I "$SCRIPTURA" -I "$OBSIGNATIO")
+SCRIPTURA="$TOP/engine/base/scriptura"
+OBSIGNATIO="$TOP/engine/base/obsignatio"
+INCLUDES=(-I "$TOP/engine" -I "$MODULE" -I "$SCRIPTURA" -I "$OBSIGNATIO")
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*)
         MSVC_BIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
@@ -28,7 +28,7 @@ case "$(uname -s)" in
         {
             nvcc -ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor -Xcompiler -W4 -O2 "${INCLUDES[@]}" "$@" -lpdh
         }
-        LONG_PATHS=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$TOP/src/engine/long_paths.manifest")")
+        LONG_PATHS=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$TOP/engine/long_paths.manifest")")
         ;;
     *)
         SUFFIX=
@@ -72,6 +72,13 @@ if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
         -o "$OUT/tessera_measure_test$SUFFIX"
     run_one tessera_measure_test
 
+    # the tests' daemons answer endpoints of their own ($TESSERA_RUNTIME), apart from the daemons real jobs use: a pipe
+    # name on Windows, and on Linux a short folder, since a socket's path holds 108 bytes
+    case "$(uname -s)" in
+        MINGW*|MSYS*|CYGWIN*) RUNTIME="tessera_test_$$" ;;
+        *) RUNTIME="$(mktemp -d /tmp/tessera_test.XXXXXX)" ;;
+    esac
+
     # the daemon, and the client against it end to end
     rm -f "$OUT/tessera_daemon$SUFFIX" "$OUT/tessera_job_test$SUFFIX"
     OBJECTS=()
@@ -100,17 +107,60 @@ if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
     build_device "$TEST/tessera_job_test.cu" "${CLIENT_OBJECTS[@]}" "$SEAL_OBJECT" "${LONG_PATHS[@]}" \
         -o "$OUT/tessera_job_test$SUFFIX"
     if [ -f "$OUT/tessera_job_test$SUFFIX" ]; then
-        # the test damages the history deliberately; it runs in a state of its own; the daemon it starts inherits it
+        # the test damages the history on purpose, so it runs in a state of its own; the daemon it starts inherits it
         STATE="$OUT/tessera_state"
         rm -rf "$STATE"
         mkdir -p "$STATE"
-        TESSERA_STATE="$(cygpath -w "$STATE" 2>/dev/null || echo "$STATE")" \
+        TESSERA_STATE="$(cygpath -w "$STATE" 2>/dev/null || echo "$STATE")" TESSERA_RUNTIME="$RUNTIME" \
         "$OUT/tessera_job_test$SUFFIX" "$(cygpath -w "$OUT/tessera_daemon$SUFFIX" 2>/dev/null || echo "$OUT/tessera_daemon$SUFFIX")"
         STATUS=$?
         echo "  tessera_job_test exit $STATUS"
         [ "$STATUS" -eq 0 ] || FAILED=1
     else
         echo "  build failed: tessera_job_test did not compile"
+        FAILED=1
+    fi
+
+    # the host's processors: tessera_run holds a host ticket around its command, beside the daemon it starts
+    RUN_OBJECT="$OUT/tessera_run_tessera.$OBJECT"
+    rm -f "$RUN_OBJECT" "$OUT/tessera_run$SUFFIX" "$OUT/tessera_burn$SUFFIX"
+    build_host -c "$MODULE/tessera_run.c" -o "$RUN_OBJECT"
+    build_device "$RUN_OBJECT" "${CLIENT_OBJECTS[@]}" "$SEAL_OBJECT" "${LONG_PATHS[@]}" -o "$OUT/tessera_run$SUFFIX"
+    build_host "$TEST/tessera_burn.c" -o "$OUT/tessera_burn$SUFFIX"
+    if [ -f "$OUT/tessera_run$SUFFIX" ] && [ -f "$OUT/tessera_burn$SUFFIX" ]; then
+        # the host test runs in a state of its own, which the host daemon it starts inherits
+        HOST_STATE="$OUT/tessera_host_state"
+        rm -rf "$HOST_STATE"
+        mkdir -p "$HOST_STATE"
+        TESSERA_STATE="$(cygpath -w "$HOST_STATE" 2>/dev/null || echo "$HOST_STATE")" TESSERA_RUNTIME="$RUNTIME" \
+        bash "$TEST/tessera_run_test.sh" "$OUT/tessera_run$SUFFIX" "$OUT/tessera_burn$SUFFIX" "$OUT/tessera_run_scratch"
+        STATUS=$?
+        echo "  tessera_run_test exit $STATUS"
+        [ "$STATUS" -eq 0 ] || FAILED=1
+        # once it holds, tessera_run and the daemon it starts are published together into build/tessera_host, where
+        # every build that wraps itself in a host job finds them; the device daemons beside the programs are untouched.
+        # A copy that is running is renamed aside first (Windows lets a running program be renamed, not overwritten),
+        # and the jobs already under it keep it; the ones set aside before are removed once nothing runs them
+        if [ "$STATUS" -eq 0 ] && [ "$FINAL" != "$OUT" ]; then
+            HOST="$FINAL/tessera_host"
+            mkdir -p "$HOST"
+            rm -f "$HOST"/*.replaced 2> /dev/null
+            PUBLISHED=1
+            for name in "tessera_run$SUFFIX" "tessera_daemon$SUFFIX"; do
+                if [ -f "$HOST/$name" ]; then
+                    mv -f "$HOST/$name" "$HOST/$name.$(date +%Y%m%d_%H%M%S).replaced" || PUBLISHED=0
+                fi
+                cp -f "$OUT/$name" "$HOST/$name" || PUBLISHED=0
+            done
+            if [ "$PUBLISHED" -eq 1 ]; then
+                echo "  published $HOST/tessera_run$SUFFIX and its daemon"
+            else
+                echo "  build failed: could not publish tessera_run and its daemon to $HOST"
+                FAILED=1
+            fi
+        fi
+    else
+        echo "  build failed: tessera_run or tessera_burn did not compile"
         FAILED=1
     fi
 fi

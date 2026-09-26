@@ -7,6 +7,10 @@
 
 _Static_assert(ANCHOR_EXACT_LIMBS >= 2u, "cycle: a record constant is 64 bits and needs two limbs");
 
+#define CYCLE_HELD(held_, evacaddr_, error_, kind_) \
+    engine_error_check((held_), (kind_), ENGINE_MODULE_CYCLE, (unsigned int)__LINE__, (const void *)(evacaddr_), \
+                       (error_))
+
 static int cycle_host_fits(const AnchorExactInteger *value, unsigned int limbs)
 {
     for (unsigned int at = limbs; at < ANCHOR_EXACT_LIMBS; at += 1u)
@@ -299,29 +303,39 @@ static int cycle_host_step(const DeviceRecordStep *step, const unsigned int *ato
 
 long cycle_record_run_host(const CycleRecordHostRequest *request)
 {
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return CYCLE_REFUSED;
+    }
+    EngineError *const error = request->error;
     const EngineRecordLayout *const layout = request->layout;
-    if ((layout->steps == 0u) || (layout->out_limbs == 0u)
-     || (layout->members == 0u) || (layout->members > ENGINE_RECORD_MEMBERS_MAX))
+    if (!CYCLE_HELD((layout != NULL) && (request->out != NULL), request, error, ENGINE_ERROR_REQUEST)
+     || !CYCLE_HELD((layout->steps != 0u) && (layout->out_limbs != 0u) && (layout->members != 0u)
+                        && (layout->members <= ENGINE_RECORD_MEMBERS_MAX),
+                    layout, error, ENGINE_ERROR_REQUEST))
     {
         return CYCLE_REFUSED;
     }
     for (unsigned int member = 0u; member < layout->members; member += 1u)
     {
-        if ((request->in[member] == NULL) || (request->bodies[member] == 0ull)
-         || ((request->index == NULL) && (request->count > request->bodies[member])))
+        if (!CYCLE_HELD((request->in[member] != NULL) && (request->bodies[member] != 0ull)
+                            && ((request->index != NULL) || (request->count <= request->bodies[member])),
+                        &request->in[member], error, ENGINE_ERROR_REQUEST))
         {
             return CYCLE_REFUSED;
         }
     }
     for (unsigned int at = 0u; at < layout->steps; at += 1u)
     {
-        if (layout->step_table[at].limbs > ANCHOR_EXACT_LIMBS)
+        // a step wider than the host's exact integer cannot be held on the host
+        if (!CYCLE_HELD(layout->step_table[at].limbs <= ANCHOR_EXACT_LIMBS, &layout->step_table[at], error,
+                        ENGINE_ERROR_REQUEST))
         {
             return CYCLE_REFUSED;
         }
     }
     AnchorExactInteger *const file = (AnchorExactInteger *)malloc((size_t)layout->steps * sizeof(AnchorExactInteger));
-    if (file == NULL)
+    if (!CYCLE_HELD(file != NULL, layout, error, ENGINE_ERROR_RESOURCE))
     {
         return CYCLE_REFUSED;
     }
@@ -333,7 +347,9 @@ long cycle_record_run_host(const CycleRecordHostRequest *request)
         {
             const unsigned long long body = (request->index != NULL)
                                           ? (unsigned long long)request->index[(lane * layout->members) + member] : lane;
-            good = good && (body < request->bodies[member]);
+            // a lane whose index names a record past its member refuses the run, as the device's refused count does
+            good = good && CYCLE_HELD(body < request->bodies[member], &request->bodies[member], error,
+                                      ENGINE_ERROR_REQUEST);
             atom[member] = &request->in[member][(good ? body : 0ull) * layout->in_limbs[member]];
         }
         unsigned int *const record = &request->out[lane * layout->out_limbs];
@@ -341,9 +357,11 @@ long cycle_record_run_host(const CycleRecordHostRequest *request)
         for (unsigned int at = 0u; good && (at < layout->steps); at += 1u)
         {
             const DeviceRecordStep *const step = &layout->step_table[at];
-            good = cycle_host_step(step, atom[step->member], layout->in_limbs[step->member], file, layout->table_values,
-                                   &file[at])
-                && cycle_host_fits(&file[at], step->limbs);
+            // a refused lane (a zero divisor, an inexact quotient) refuses the run, as the device's refused count does
+            good = CYCLE_HELD(cycle_host_step(step, atom[step->member], layout->in_limbs[step->member], file,
+                                              layout->table_values, &file[at]),
+                              step, error, ENGINE_ERROR_REQUEST)
+                && CYCLE_HELD(cycle_host_fits(&file[at], step->limbs), step, error, ENGINE_ERROR_REQUEST);
             if (good && (step->out_bits != 0u))
             {
                 cycle_host_put(record, step->out_offset, step->out_bits, &file[at]);

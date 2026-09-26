@@ -36,6 +36,7 @@ struct UnitSweepHeld
     unsigned int *narrow_planes;
     unsigned int *wide_planes;
     unsigned long long *disagreements;
+    unsigned int *past_width;
     size_t narrow_words;
     size_t wide_words;
 };
@@ -57,6 +58,27 @@ __global__ static void unit_sweep_load_kernel(const unsigned short *volume, unsi
     }
 }
 
+__global__ static void unit_sweep_planes_load_kernel(const unsigned int *input, unsigned int input_limbs,
+                                                     unsigned int top_mask, unsigned long long voxels,
+                                                     unsigned int limbs, unsigned int *planes,
+                                                     unsigned int *past_width)
+{
+    const unsigned long long voxel = ((unsigned long long)blockIdx.x * blockDim.x) + threadIdx.x;
+    if (voxel >= voxels)
+    {
+        return;
+    }
+    for (unsigned int limb = 0u; limb < limbs; limb += 1u)
+    {
+        planes[((unsigned long long)limb * voxels) + voxel]
+            = (limb < input_limbs) ? input[((unsigned long long)limb * voxels) + voxel] : 0u;
+    }
+    if ((input[((unsigned long long)(input_limbs - 1u) * voxels) + voxel] & top_mask) != 0u)
+    {
+        atomicOr(past_width, 1u);
+    }
+}
+
 __global__ static void unit_sweep_widen_kernel(const unsigned int *narrow_planes, unsigned int narrow_limbs,
                                                unsigned long long voxels, unsigned int wide_limbs,
                                                unsigned int *wide_planes)
@@ -73,8 +95,14 @@ __global__ static void unit_sweep_widen_kernel(const unsigned int *narrow_planes
     }
 }
 
+// `steps` unit pairs [1, 2, 1] along the axis, each reading the voxel's neighbours with the edge voxel standing in past
+// either end, then with `half` set the one unit step [1, 1] an odd order leaves, reading the voxel and the one before
+// it with the first voxel standing in before the start. That is the key's window reflected at the edges: a pair keeps
+// the line's reflection about the half voxel before its start, and the step after all pairs starts where the key's
+// window of the whole order starts, floor((order + 1) / 2) before the voxel.
 __global__ static void unit_sweep_axis_kernel(unsigned int *planes, UnitSweepShape shape, unsigned int axis,
-                                              unsigned int limbs, unsigned int steps, unsigned int bits)
+                                              unsigned int limbs, unsigned int steps, unsigned int half,
+                                              unsigned int bits)
 {
     extern __shared__ unsigned int shared_line[];
     const unsigned int length = shape.extent[axis];
@@ -121,7 +149,28 @@ __global__ static void unit_sweep_axis_kernel(unsigned int *planes, UnitSweepSha
         front = back;
         back = former_front;
     }
-    const unsigned int final_limbs = (bits + (2u * steps) + 31u) / 32u;
+    if (half != 0u)
+    {
+        const unsigned int grown_limbs = (bits + (2u * steps) + 1u + 31u) / 32u;
+        const unsigned int live_limbs = (grown_limbs < limbs) ? grown_limbs : limbs;
+        for (unsigned int place = threadIdx.x; place < length; place += blockDim.x)
+        {
+            const unsigned int before = (place == 0u) ? place : (place - 1u);
+            unsigned long long carry = 0ull;
+            for (unsigned int limb = 0u; limb < live_limbs; limb += 1u)
+            {
+                const unsigned int *const row = &front[limb * length];
+                const unsigned long long total = (unsigned long long)row[before] + (unsigned long long)row[place] + carry;
+                back[(limb * length) + place] = (unsigned int)(total & 0xFFFFFFFFull);
+                carry = total >> 32u;
+            }
+        }
+        __syncthreads();
+        unsigned int *const former_front = front;
+        front = back;
+        back = former_front;
+    }
+    const unsigned int final_limbs = (bits + (2u * steps) + half + 31u) / 32u;
     const unsigned int stored_limbs = (final_limbs < limbs) ? final_limbs : limbs;
     for (unsigned int place = threadIdx.x; place < length; place += blockDim.x)
     {
@@ -203,16 +252,21 @@ static int unit_sweep_grow(unsigned int **planes, size_t *room, size_t words, En
     return ok;
 }
 
+// each axis's unit pairs, floor(order / 2) of them; or with `halves` set, only the one unit step [1, 1] each odd order
+// leaves, which runs after every pair either term takes so that the pairs see the line's reflection. `bits` bounds the
+// planes' width going in: the limbs a step reads and writes follow from it, and a bound above the width only carries
+// limbs of zeros.
 static int unit_sweep_axes(unsigned int *planes, const UnitSweepShape *shape, unsigned int limbs,
-                           const unsigned int orders[ENGINE_AXES], unsigned int bits, EngineError *error)
+                           const unsigned int orders[ENGINE_AXES], unsigned int bits, int halves, EngineError *error)
 {
     int ok = 1;
     for (unsigned int axis = 0u; (ok != 0) && (axis < ENGINE_AXES); axis += 1u)
     {
-        const unsigned int steps = orders[axis] / 2u;
+        const unsigned int steps = (halves != 0) ? 0u : (orders[axis] / 2u);
+        const unsigned int half = (halves != 0) ? (orders[axis] % 2u) : 0u;
         const unsigned int input_bits = bits;
-        bits += orders[axis];
-        if (steps == 0u)
+        bits += (2u * steps) + half;
+        if ((steps == 0u) && (half == 0u))
         {
             continue;
         }
@@ -225,11 +279,37 @@ static int unit_sweep_axes(unsigned int *planes, const UnitSweepShape *shape, un
         {
             // lines was held at or below 2^31 - 1 above, so it narrows to the unsigned int grid size exactly
             unit_sweep_axis_kernel<<<(unsigned int)lines, UNIT_SWEEP_THREADS, shared_bytes>>>(planes, *shape, axis,
-                                                                                             limbs, steps, input_bits);
+                                                                                             limbs, steps, half,
+                                                                                             input_bits);
             ok = UNIT_SWEEP_TOOK(cudaGetLastError(), planes, error);
         }
     }
     return ok;
+}
+
+static int unit_sweep_planes_load(const UnitSweepRequest *request, const UnitSweepShape *shape,
+                                  unsigned int narrow_limbs, unsigned int blocks, UnitSweepHeld *buffers,
+                                  EngineError *error)
+{
+    const unsigned int input_limbs = (request->input_bits + 31u) / 32u;
+    const unsigned int top_bits = request->input_bits % 32u;
+    const unsigned int top_mask = (top_bits == 0u) ? 0u : ~((1u << top_bits) - 1u);
+    unsigned int past_width = 0u;
+    int ok = (buffers->past_width != NULL)
+          || UNIT_SWEEP_TOOK(cudaMalloc((void **)&buffers->past_width, sizeof(unsigned int)), &buffers->past_width,
+                             error);
+    ok = ok && UNIT_SWEEP_TOOK(cudaMemset(buffers->past_width, 0, sizeof(unsigned int)), buffers->past_width, error);
+    if (ok != 0)
+    {
+        unit_sweep_planes_load_kernel<<<blocks, UNIT_SWEEP_THREADS>>>(request->device_planes, input_limbs, top_mask,
+                                                                      shape->voxels, narrow_limbs,
+                                                                      buffers->narrow_planes, buffers->past_width);
+        ok = UNIT_SWEEP_TOOK(cudaGetLastError(), buffers->narrow_planes, error);
+    }
+    ok = ok
+      && UNIT_SWEEP_TOOK(cudaMemcpy(&past_width, buffers->past_width, sizeof(unsigned int), cudaMemcpyDeviceToHost),
+                         buffers->past_width, error);
+    return ok && UNIT_SWEEP_HELD(past_width == 0u, &request->input_bits, error, ENGINE_ERROR_REQUEST);
 }
 
 extern "C" long unit_sweep_residual(const UnitSweepRequest *request)
@@ -239,20 +319,28 @@ extern "C" long unit_sweep_residual(const UnitSweepRequest *request)
         return UNIT_SWEEP_REFUSED;
     }
     EngineError *const error = request->error;
-    const int asked = UNIT_SWEEP_HELD((request->device_volume != NULL) && (request->device_out != NULL), request,
-                                      error, ENGINE_ERROR_REQUEST)
+    const int planes_given = (request->device_planes != NULL) ? 1 : 0;
+    const int asked = UNIT_SWEEP_HELD(((request->device_volume != NULL) != (planes_given != 0))
+                                          && (request->device_out != NULL),
+                                      request, error, ENGINE_ERROR_REQUEST)
+                   && UNIT_SWEEP_HELD((planes_given == 0)
+                                          || ((request->input_bits != 0u)
+                                              && (request->input_bits < (32u * request->limbs))),
+                                      &request->input_bits, error, ENGINE_ERROR_REQUEST)
                    && UNIT_SWEEP_HELD((request->depth != 0u) && (request->height != 0u) && (request->width != 0u),
                                       &request->depth, error, ENGINE_ERROR_REQUEST);
     if (asked == 0)
     {
         return UNIT_SWEEP_REFUSED;
     }
-    unsigned int narrow_bits = UNIT_SWEEP_INPUT_BITS;
+    const unsigned int input_bits = (planes_given != 0) ? request->input_bits : UNIT_SWEEP_INPUT_BITS;
+    unsigned int narrow_bits = input_bits;
     unsigned int gain = 0u;
     for (unsigned int axis = 0u; axis < ENGINE_AXES; axis += 1u)
     {
-        if (!UNIT_SWEEP_HELD(((request->smooth_orders[axis] % 2u) == 0u) && ((request->background_orders[axis] % 2u) == 0u),
-                             &request->smooth_orders[axis], error, ENGINE_ERROR_REQUEST))
+        // an odd background order would subtract the terms half a voxel apart; an odd smooth order moves both alike
+        if (!UNIT_SWEEP_HELD((request->background_orders[axis] % 2u) == 0u, &request->background_orders[axis], error,
+                             ENGINE_ERROR_REQUEST))
         {
             return UNIT_SWEEP_REFUSED;
         }
@@ -273,22 +361,28 @@ extern "C" long unit_sweep_residual(const UnitSweepRequest *request)
     const unsigned int blocks = (unsigned int)((shape.voxels + UNIT_SWEEP_THREADS - 1u) / UNIT_SWEEP_THREADS);
     int ok = unit_sweep_grow(&buffers->narrow_planes, &buffers->narrow_words, (size_t)shape.voxels * narrow_limbs, error)
           && unit_sweep_grow(&buffers->wide_planes, &buffers->wide_words, (size_t)shape.voxels * wide_limbs, error);
-    if (ok != 0)
+    if ((ok != 0) && (planes_given == 0))
     {
         unit_sweep_load_kernel<<<blocks, UNIT_SWEEP_THREADS>>>(request->device_volume, shape.voxels, narrow_limbs,
                                                                buffers->narrow_planes);
         ok = UNIT_SWEEP_TOOK(cudaGetLastError(), buffers->narrow_planes, error);
     }
-    ok = ok
-      && unit_sweep_axes(buffers->narrow_planes, &shape, narrow_limbs, request->smooth_orders, UNIT_SWEEP_INPUT_BITS,
-                         error);
+    ok = ok && ((planes_given == 0) || unit_sweep_planes_load(request, &shape, narrow_limbs, blocks, buffers, error));
+    ok = ok && unit_sweep_axes(buffers->narrow_planes, &shape, narrow_limbs, request->smooth_orders, input_bits, 0,
+                               error);
     if (ok != 0)
     {
         unit_sweep_widen_kernel<<<blocks, UNIT_SWEEP_THREADS>>>(buffers->narrow_planes, narrow_limbs, shape.voxels,
                                                                 wide_limbs, buffers->wide_planes);
         ok = UNIT_SWEEP_TOOK(cudaGetLastError(), buffers->wide_planes, error);
     }
-    ok = ok && unit_sweep_axes(buffers->wide_planes, &shape, wide_limbs, request->background_orders, narrow_bits, error);
+    ok = ok && unit_sweep_axes(buffers->wide_planes, &shape, wide_limbs, request->background_orders, narrow_bits, 0,
+                               error);
+    // the smooth orders' odd steps last, on both terms alike, once every pair has run
+    ok = ok
+      && unit_sweep_axes(buffers->narrow_planes, &shape, narrow_limbs, request->smooth_orders, narrow_bits, 1, error)
+      && unit_sweep_axes(buffers->wide_planes, &shape, wide_limbs, request->smooth_orders, narrow_bits + gain, 1,
+                         error);
     if (ok != 0)
     {
         unit_sweep_residual_kernel<<<blocks, UNIT_SWEEP_THREADS>>>(buffers->narrow_planes, narrow_limbs,
@@ -341,5 +435,6 @@ extern "C" void unit_sweep_release(void)
     cudaFree(buffers->narrow_planes);
     cudaFree(buffers->wide_planes);
     cudaFree(buffers->disagreements);
+    cudaFree(buffers->past_width);
     memset(buffers, 0, sizeof(*buffers));
 }

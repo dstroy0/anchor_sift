@@ -11,7 +11,7 @@
  * @date 2026-09-16
  *
  * ONE PRIMITIVE. Held at one needle offset, count the alignments still standing whose corpus byte at
- * that offset equals the needle byte the level is testing. A planner asks nothing more
+ * that offset equals the needle byte the level is testing. That is the whole operation a planner asks
  * of a scan engine, and it is the same question every wide arm answers faster.
  *
  * @note THE REFERENCE. This arm uses no intrinsic and no compiler extension. It builds anywhere a

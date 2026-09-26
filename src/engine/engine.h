@@ -68,6 +68,23 @@ long engine_residual(const EngineResidualRequest *request, const unsigned int **
 
 typedef struct
 {
+    const unsigned int *planes;
+    unsigned int input_bits;
+    unsigned int depth;
+    unsigned int height;
+    unsigned int width;
+    unsigned int smooth_orders[ENGINE_AXES];
+    unsigned int background_orders[ENGINE_AXES];
+    // the residual's place per axis in half voxels, as EngineResidualRequest's
+    int *offset_halves;
+    EngineError *error;
+} EngineResidualPlanesRequest;
+
+long engine_residual_planes(const EngineResidualPlanesRequest *request, const unsigned int **device_residual,
+                            unsigned int *limbs);
+
+typedef struct
+{
     EngineResidualRequest residual;
     unsigned int room;
     EngineBody *bodies;
@@ -190,7 +207,13 @@ int engine_ingest_print(const EngineIngestRequest *request, FILE *file);
 
 int engine_prove_print(const EngineSetRequest *request, FILE *file);
 
-long engine_kcr_head(const char *set, const char *sample, unsigned long long extent[4], EngineError *error);
+long engine_iapx_head(const char *set, const char *sample, unsigned long long extent[4], EngineError *error);
+
+// The bits the crystal spends on a lattice of ints laid frames, z, y and x: lifted through the tower and coded, the
+// coder's bits. A value of 2^30 or more in magnitude refuses it, as a coefficient does. It is the noise detector's price
+// (NoiseCost), which the driver passes so the detector reaches no module but its own.
+long engine_lattice_bits(const int *values, const unsigned long long extent[4], unsigned long long *bits,
+                         EngineError *error);
 
 typedef struct
 {
@@ -205,10 +228,10 @@ long engine_geff_read(const char *path, EngineGeff *geff);
 
 void engine_geff_release(EngineGeff *geff);
 
-long engine_kcr_prove_set(const EngineSetRequest *request);
+long engine_iapx_prove_set(const EngineSetRequest *request);
 
-long engine_kcr_load(const char *set, const char *sample, unsigned long long extent[4], unsigned short **volume,
-                     EngineSignum *root, EngineSideBytes *side, EngineError *error);
+long engine_iapx_load(const char *set, const char *sample, unsigned long long extent[4], unsigned short **volume,
+                      EngineSignum *root, EngineSideBytes *side, EngineError *error);
 
 void engine_side_release(EngineSideBytes *side);
 

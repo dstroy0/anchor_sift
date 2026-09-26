@@ -1,683 +1,826 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+// The four Python models' demonstrations, run on the port, each result checked against the value the Python printed
+// (exact_qubits.py, mps_qubits.py, symbolic_qubits.py and boundary_lens.py 13 13 8 6 2024 1 16 30).
 #include "qasm.h"
 
-#include "exact_integer.h"
-
-#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-// qasm_test <fixture directory>: refusals by line and column, known answers on the device and the host, the
-// bound's formula, the probabilities within the proved slack of their true values, and the device against the
-// host word for word.
-
-#define TEXT_ROOM (1u << 20u)
-
-static unsigned int g_passed = 0u;
-static unsigned int g_failed = 0u;
-
-static void check(int held, const char *format, ...)
-{
-    char what[1024];
-    va_list list;
-    va_start(list, format);
-    vsnprintf(what, sizeof(what), format, list);
-    va_end(list);
-    if (held != 0)
-    {
-        g_passed += 1u;
-        printf("  ok   %s\n", what);
-    }
-    else
-    {
-        g_failed += 1u;
-        printf("  FAIL %s\n", what);
-    }
-}
-
-static const char HEADER[] = "OPENQASM 2.0;\ninclude \"qelib1.inc\";\n";
-
 typedef struct
 {
-    char *text;
-    size_t length;
-} Text;
+    unsigned int checks;
+    unsigned int failed;
+} QasmTally;
 
-static void text_add(Text *text, const char *format, ...)
+static void qasm_test_check(QasmTally *tally, int held, const char *claim)
 {
-    va_list list;
-    va_start(list, format);
-    const int written = vsnprintf(text->text + text->length, TEXT_ROOM - text->length, format, list);
-    va_end(list);
-    if (written > 0)
+    tally->checks += 1u;
+    if (held == 0)
     {
-        text->length += (size_t)written;
+        tally->failed += 1u;
+        printf("  FAIL %s\n", claim);
     }
 }
 
-static int read_text(const char *name, const char *text, QasmCircuit *circuit, char *reason, size_t room)
+static char qasm_test_text[QASM_NUMBER_TEXT_ROOM];
+
+// f_str's text of a number, without the float the Python printed beside it
+static int qasm_test_number_is(const QasmNumber *value, const char *expected, EngineError *error)
+{
+    return (qasm_number_text(value, qasm_test_text, sizeof(qasm_test_text), error) == 0L)
+        && (strcmp(qasm_test_text, expected) == 0);
+}
+
+static int qasm_test_short_is(const QasmNumber *value, const char *expected, EngineError *error)
+{
+    return (qasm_number_short_text(value, qasm_test_text, sizeof(qasm_test_text), error) == 0L)
+        && (strcmp(qasm_test_text, expected) == 0);
+}
+
+static int qasm_test_function_is(const QasmRationalFunction *value, const char *expected, EngineError *error)
+{
+    return (qasm_rational_function_text(value, qasm_test_text, sizeof(qasm_test_text), error) == 0L)
+        && (strcmp(qasm_test_text, expected) == 0);
+}
+
+static int qasm_test_clean(const EngineError *error)
+{
+    return error->kind == ENGINE_ERROR_NONE;
+}
+
+static int qasm_test_refused_here(long status, const EngineError *error)
+{
+    return (status == QASM_REFUSED) && (error->kind == ENGINE_ERROR_REQUEST) && (error->module == ENGINE_MODULE_QASM);
+}
+
+// the gates, as mps_qubits.py builds them: [out][in], and [2 t0 + t1][2 s0 + s1]
+static QasmNumber qasm_test_hadamard[4];
+static QasmNumber qasm_test_cnot[16];
+static QasmNumber qasm_test_controlled_t[16];
+static QasmNumber qasm_test_controlled_t_back[16];
+
+static void qasm_test_gates(void)
+{
+    QasmNumber minus_half_sqrt2;
+    qasm_number_negate(&qasm_number_half_sqrt2, &minus_half_sqrt2);
+    qasm_test_hadamard[0] = qasm_number_half_sqrt2;
+    qasm_test_hadamard[1] = qasm_number_half_sqrt2;
+    qasm_test_hadamard[2] = qasm_number_half_sqrt2;
+    qasm_test_hadamard[3] = minus_half_sqrt2;
+    for (unsigned int entry = 0u; entry < 16u; entry += 1u)
+    {
+        qasm_test_cnot[entry] = qasm_number_zero;
+        qasm_test_controlled_t[entry] = qasm_number_zero;
+        qasm_test_controlled_t_back[entry] = qasm_number_zero;
+    }
+    // 00 -> 00, 01 -> 01, 11 -> 10, 10 -> 11: the control is the left qubit
+    qasm_test_cnot[0] = qasm_number_one;
+    qasm_test_cnot[5] = qasm_number_one;
+    qasm_test_cnot[11] = qasm_number_one;
+    qasm_test_cnot[14] = qasm_number_one;
+    for (unsigned int diagonal = 0u; diagonal < 3u; diagonal += 1u)
+    {
+        qasm_test_controlled_t[5u * diagonal] = qasm_number_one;
+        qasm_test_controlled_t_back[5u * diagonal] = qasm_number_one;
+    }
+    qasm_test_controlled_t[15] = qasm_number_eighth_turn;
+    qasm_test_controlled_t_back[15] = qasm_number_eighth_turn_back;
+}
+
+// one build runs on the chain or on the dense state, so the two can be compared amplitude for amplitude
+typedef struct
+{
+    QasmChain *chain;
+    QasmDense *dense;
+} QasmTestTarget;
+
+static long qasm_test_one(const QasmTestTarget *target, const QasmNumber *gate, unsigned int site, EngineError *error)
+{
+    if (target->chain != NULL)
+    {
+        return qasm_chain_apply_one(target->chain, gate, site, error);
+    }
+    const QasmGate apply = {QASM_GATE_ONE_QUBIT, site, 0u, gate};
+    return qasm_dense_apply(target->dense, &apply, error);
+}
+
+static long qasm_test_two(const QasmTestTarget *target, const QasmNumber *gate, unsigned int site, EngineError *error)
+{
+    if (target->chain != NULL)
+    {
+        return qasm_chain_apply_two(target->chain, gate, site, error);
+    }
+    const QasmGate apply = {QASM_GATE_TWO_QUBIT, site, 0u, gate};
+    return qasm_dense_apply(target->dense, &apply, error);
+}
+
+// build_ghz: H on 0, then a cascade of adjacent CNOTs
+static long qasm_test_ghz(const QasmTestTarget *target, unsigned int sites, EngineError *error)
+{
+    long status = qasm_test_one(target, qasm_test_hadamard, 0u, error);
+    for (unsigned int site = 0u; (status == 0L) && ((site + 1u) < sites); site += 1u)
+    {
+        status = qasm_test_two(target, qasm_test_cnot, site, error);
+    }
+    return status;
+}
+
+// nc_build: the GHZ chain, then a controlled-T on sites 2 and 3
+static long qasm_test_ghz_t(const QasmTestTarget *target, unsigned int sites, EngineError *error)
+{
+    const long status = qasm_test_ghz(target, sites, error);
+    return (status == 0L) ? qasm_test_two(target, qasm_test_controlled_t, 2u, error) : status;
+}
+
+// build_scrambler: |+..+>, then bricks of controlled-T, H on every wire between bricks
+static long qasm_test_scrambler(const QasmTestTarget *target, unsigned int sites, unsigned int depth,
+                                EngineError *error)
+{
+    long status = 0L;
+    for (unsigned int site = 0u; (status == 0L) && (site < sites); site += 1u)
+    {
+        status = qasm_test_one(target, qasm_test_hadamard, site, error);
+    }
+    for (unsigned int layer = 0u; (status == 0L) && (layer < depth); layer += 1u)
+    {
+        for (unsigned int site = layer % 2u; (status == 0L) && ((site + 1u) < sites); site += 2u)
+        {
+            status = qasm_test_two(target, qasm_test_controlled_t, site, error);
+        }
+        for (unsigned int site = 0u; (status == 0L) && (site < sites); site += 1u)
+        {
+            status = qasm_test_one(target, qasm_test_hadamard, site, error);
+        }
+    }
+    return status;
+}
+
+static long qasm_test_scrambler_six(const QasmTestTarget *target, unsigned int sites, EngineError *error)
+{
+    return qasm_test_scrambler(target, sites, 6u, error);
+}
+
+static int qasm_test_bonds_are(const QasmChain *chain, const unsigned int *bonds)
+{
+    int equal = 1;
+    for (unsigned int site = 0u; (equal != 0) && ((site + 1u) < chain->sites); site += 1u)
+    {
+        equal = (qasm_chain_bond(chain, site) == bonds[site]);
+    }
+    return equal;
+}
+
+static void qasm_test_bits(unsigned long long index, unsigned int sites, unsigned char *bits)
+{
+    for (unsigned int site = 0u; site < sites; site += 1u)
+    {
+        // one bit of the index, 0 or 1
+        bits[site] = (unsigned char)((index >> site) & 1ull);
+    }
+}
+
+static int qasm_test_amplitude_is(const QasmChain *chain, unsigned int value, const char *expected,
+                                  EngineError *error)
+{
+    unsigned char bits[128];
+    QasmNumber amplitude = qasm_number_zero;
+    for (unsigned int site = 0u; site < chain->sites; site += 1u)
+    {
+        // the value is 0 or 1, which an unsigned char holds exactly
+        bits[site] = (unsigned char)value;
+    }
+    return (qasm_chain_amplitude(chain, bits, &amplitude, error) == 0L)
+        && qasm_test_number_is(&amplitude, expected, error);
+}
+
+static int qasm_test_norm_is_one(const QasmChain *chain, EngineError *error)
+{
+    QasmNumber norm = qasm_number_zero;
+    return (qasm_chain_norm(chain, &norm, error) == 0L) && qasm_number_equal(&norm, &qasm_number_one);
+}
+
+static void qasm_test_exact_qubits(QasmTally *tally)
 {
     EngineError error;
     memset(&error, 0, sizeof(error));
-    reason[0] = '\0';
-    const QasmReadRequest request = {name, text, strlen(text), reason, room, &error};
-    return qasm_read(&request, circuit) != QASM_REFUSED;
+    QasmNumber norm = qasm_number_zero;
+    const unsigned long long start = engine_clock_microseconds();
+
+    // Bell: H0, CNOT 0 -> 1
+    QasmDense bell = {0u, NULL};
+    const QasmGate hadamard_zero = {QASM_GATE_H, 0u, 0u, NULL};
+    const QasmGate cnot_zero_one = {QASM_GATE_CNOT, 0u, 1u, NULL};
+    const int bell_built = (qasm_dense_alloc(&bell, 2u, &error) == 0L)
+                        && (qasm_dense_apply(&bell, &hadamard_zero, &error) == 0L)
+                        && (qasm_dense_apply(&bell, &cnot_zero_one, &error) == 0L);
+    qasm_test_check(tally, bell_built, "exact: the Bell pair builds");
+    qasm_test_check(tally,
+                    bell_built && qasm_test_number_is(&bell.amplitudes[0], "1/2*sqrt2 + 0 i", &error)
+                        && qasm_test_number_is(&bell.amplitudes[3], "1/2*sqrt2 + 0 i", &error)
+                        && qasm_number_is_zero(&bell.amplitudes[1]) && qasm_number_is_zero(&bell.amplitudes[2]),
+                    "exact: Bell |00> = |11> = 1/2*sqrt2 + 0 i, |01> = |10> = 0");
+    qasm_test_check(tally,
+                    bell_built && (qasm_dense_norm(&bell, &norm, &error) == 0L)
+                        && qasm_number_equal(&norm, &qasm_number_one),
+                    "exact: Bell <psi|psi> is exactly 1");
+
+    // GHZ3: H0, CNOT 0 -> 1, CNOT 0 -> 2
+    QasmDense ghz = {0u, NULL};
+    const QasmGate cnot_zero_two = {QASM_GATE_CNOT, 0u, 2u, NULL};
+    const int ghz_built = (qasm_dense_alloc(&ghz, 3u, &error) == 0L)
+                       && (qasm_dense_apply(&ghz, &hadamard_zero, &error) == 0L)
+                       && (qasm_dense_apply(&ghz, &cnot_zero_one, &error) == 0L)
+                       && (qasm_dense_apply(&ghz, &cnot_zero_two, &error) == 0L);
+    int ghz_rest_zero = ghz_built;
+    for (unsigned int index = 1u; (ghz_rest_zero != 0) && (index < 7u); index += 1u)
+    {
+        ghz_rest_zero = qasm_number_is_zero(&ghz.amplitudes[index]);
+    }
+    qasm_test_check(tally,
+                    ghz_rest_zero && qasm_test_number_is(&ghz.amplitudes[0], "1/2*sqrt2 + 0 i", &error)
+                        && qasm_test_number_is(&ghz.amplitudes[7], "1/2*sqrt2 + 0 i", &error)
+                        && (qasm_dense_norm(&ghz, &norm, &error) == 0L) && qasm_number_equal(&norm, &qasm_number_one),
+                    "exact: GHZ3 |000> = |111> = 1/2*sqrt2 + 0 i, the rest 0, <psi|psi> exactly 1");
+
+    // Bell, then the controlled-T: an exact e^{i pi/4} phase on |11>
+    QasmDense phased = {0u, NULL};
+    const QasmGate controlled_t = {QASM_GATE_CONTROLLED_PHASE, 0u, 1u, &qasm_number_eighth_turn};
+    const int phased_built = (qasm_dense_alloc(&phased, 2u, &error) == 0L)
+                          && (qasm_dense_apply(&phased, &hadamard_zero, &error) == 0L)
+                          && (qasm_dense_apply(&phased, &cnot_zero_one, &error) == 0L)
+                          && (qasm_dense_apply(&phased, &controlled_t, &error) == 0L);
+    qasm_test_check(tally,
+                    phased_built && qasm_test_number_is(&phased.amplitudes[0], "1/2*sqrt2 + 0 i", &error)
+                        && qasm_test_number_is(&phased.amplitudes[3], "1/2 + 1/2 i", &error)
+                        && (qasm_dense_norm(&phased, &norm, &error) == 0L)
+                        && qasm_number_equal(&norm, &qasm_number_one),
+                    "exact: Bell + controlled-T, |11> = 1/2 + 1/2 i, <psi|psi> exactly 1");
+
+    // reversibility: a unitary run, then its exact inverse, back to |000>
+    QasmDense round_trip = {0u, NULL};
+    QasmDense ground = {0u, NULL};
+    const QasmGate cnot_one_two = {QASM_GATE_CNOT, 1u, 2u, NULL};
+    const QasmGate hadamard_two = {QASM_GATE_H, 2u, 0u, NULL};
+    const QasmGate controlled_t_back = {QASM_GATE_CONTROLLED_PHASE, 0u, 1u, &qasm_number_eighth_turn_back};
+    const QasmGate forward[5] = {hadamard_zero, cnot_zero_one, controlled_t, cnot_one_two, hadamard_two};
+    const QasmGate inverse[5] = {hadamard_two, cnot_one_two, controlled_t_back, cnot_zero_one, hadamard_zero};
+    int turned = (qasm_dense_alloc(&round_trip, 3u, &error) == 0L) && (qasm_dense_alloc(&ground, 3u, &error) == 0L);
+    for (unsigned int gate = 0u; (turned != 0) && (gate < 5u); gate += 1u)
+    {
+        turned = (qasm_dense_apply(&round_trip, &forward[gate], &error) == 0L);
+    }
+    const int moved = turned && !qasm_dense_equal(&round_trip, &ground);
+    for (unsigned int gate = 0u; (turned != 0) && (gate < 5u); gate += 1u)
+    {
+        turned = (qasm_dense_apply(&round_trip, &inverse[gate], &error) == 0L);
+    }
+    qasm_test_check(tally, moved && turned && qasm_dense_equal(&round_trip, &ground),
+                    "exact: five gates, then their exact inverse, return |000> to the bit");
+
+    // the seal: the same state seals the same, and one rational moved by 1/10^9 changes it
+    unsigned char clean[ENGINE_SIGNUM_BYTES];
+    unsigned char again[ENGINE_SIGNUM_BYTES];
+    unsigned char tampered[ENGINE_SIGNUM_BYTES];
+    QasmRational nudge;
+    const int sealed = bell_built && (qasm_dense_seal(&bell, clean, &error) == 0L)
+                    && (qasm_dense_seal(&bell, again, &error) == 0L)
+                    && (qasm_rational_set(&nudge, 1LL, 1000000000LL, &error) == 0L)
+                    && (qasm_rational_add(&bell.amplitudes[0].real.rational, &nudge,
+                                          &bell.amplitudes[0].real.rational, &error)
+                        == 0L)
+                    && (qasm_dense_seal(&bell, tampered, &error) == 0L);
+    qasm_test_check(tally,
+                    sealed && (memcmp(clean, again, sizeof(clean)) == 0)
+                        && (memcmp(clean, tampered, sizeof(clean)) != 0),
+                    "exact: the seal repeats, and one rational moved by 1/10^9 changes it");
+
+    // refusals: a qubit past the state, and a division by zero
+    EngineError refused;
+    memset(&refused, 0, sizeof(refused));
+    const QasmGate past = {QASM_GATE_H, 2u, 0u, NULL};
+    qasm_test_check(tally, qasm_test_refused_here(qasm_dense_apply(&phased, &past, &refused), &refused),
+                    "exact: a gate on a qubit past the state refuses, a request error from qasm");
+    memset(&refused, 0, sizeof(refused));
+    QasmRational quotient;
+    const QasmRational zero_rational = QASM_RATIONAL_ZERO_INITIALIZER;
+    qasm_test_check(tally,
+                    qasm_test_refused_here(qasm_rational_divide(&nudge, &zero_rational, &quotient, &refused),
+                                           &refused),
+                    "exact: a division by zero refuses, a request error from qasm");
+    qasm_test_check(tally, qasm_test_clean(&error), "exact: no error was raised on the paths that held");
+    qasm_dense_release(&bell);
+    qasm_dense_release(&ghz);
+    qasm_dense_release(&phased);
+    qasm_dense_release(&round_trip);
+    qasm_dense_release(&ground);
+    printf("  exact qubits: %llu us\n", engine_clock_microseconds() - start);
 }
 
-static int run(const QasmCircuit *circuit, int on_host, QasmOutcome *outcome, unsigned int *state)
+typedef long (*QasmTestBuild)(const QasmTestTarget *target, unsigned int sites, EngineError *error);
+
+// compact against dense on six qubits, all 64 amplitudes
+static int qasm_test_cross(QasmTestBuild build, EngineError *error)
+{
+    QasmChain chain = {NULL, 0u, NULL};
+    QasmDense dense = {0u, NULL};
+    const QasmTestTarget on_chain = {&chain, NULL};
+    const QasmTestTarget on_dense = {NULL, &dense};
+    int agree = (qasm_chain_alloc(&chain, &qasm_number_field, 6u, error) == 0L)
+             && (qasm_dense_alloc(&dense, 6u, error) == 0L) && (build(&on_chain, 6u, error) == 0L)
+             && (build(&on_dense, 6u, error) == 0L);
+    for (unsigned long long index = 0ull; (agree != 0) && (index < 64ull); index += 1ull)
+    {
+        unsigned char bits[6];
+        QasmNumber amplitude = qasm_number_zero;
+        qasm_test_bits(index, 6u, bits);
+        agree = (qasm_chain_amplitude(&chain, bits, &amplitude, error) == 0L)
+             && qasm_number_equal(&amplitude, &dense.amplitudes[index]);
+    }
+    qasm_chain_release(&chain);
+    qasm_dense_release(&dense);
+    return agree;
+}
+
+static void qasm_test_mps_qubits(QasmTally *tally)
 {
     EngineError error;
     memset(&error, 0, sizeof(error));
-    const QasmRunRequest request = {circuit, on_host, state, &error};
-    if (qasm_run(&request, outcome) == QASM_REFUSED)
+    const unsigned long long start = engine_clock_microseconds();
+
+    // Bell
+    QasmChain bell = {NULL, 0u, NULL};
+    const QasmTestTarget on_bell = {&bell, NULL};
+    const unsigned int bell_bonds[1] = {2u};
+    const int bell_built = (qasm_chain_alloc(&bell, &qasm_number_field, 2u, &error) == 0L)
+                        && (qasm_test_ghz(&on_bell, 2u, &error) == 0L);
+    qasm_test_check(tally,
+                    bell_built && qasm_test_bonds_are(&bell, bell_bonds) && (qasm_chain_elements(&bell) == 8ull)
+                        && qasm_test_norm_is_one(&bell, &error)
+                        && qasm_test_amplitude_is(&bell, 0u, "1/2*sqrt2 + 0 i", &error)
+                        && qasm_test_amplitude_is(&bell, 1u, "1/2*sqrt2 + 0 i", &error),
+                    "mps: Bell, bond [2], 8 elements, <psi|psi> exactly 1, <00| = <11| = 1/2*sqrt2 + 0 i");
+
+    // GHZ-6
+    QasmChain ghz_six = {NULL, 0u, NULL};
+    const QasmTestTarget on_ghz_six = {&ghz_six, NULL};
+    const unsigned int ghz_six_bonds[5] = {2u, 2u, 2u, 2u, 2u};
+    const int ghz_six_built = (qasm_chain_alloc(&ghz_six, &qasm_number_field, 6u, &error) == 0L)
+                           && (qasm_test_ghz(&on_ghz_six, 6u, &error) == 0L);
+    qasm_test_check(tally,
+                    ghz_six_built && qasm_test_bonds_are(&ghz_six, ghz_six_bonds)
+                        && (qasm_chain_elements(&ghz_six) == 40ull) && qasm_test_norm_is_one(&ghz_six, &error)
+                        && qasm_test_amplitude_is(&ghz_six, 0u, "1/2*sqrt2 + 0 i", &error)
+                        && qasm_test_amplitude_is(&ghz_six, 1u, "1/2*sqrt2 + 0 i", &error),
+                    "mps: GHZ-6, bonds [2, 2, 2, 2, 2], 40 elements, <psi|psi> exactly 1");
+
+    // GHZ-4, then a controlled-T on the last pair
+    QasmChain ghz_t = {NULL, 0u, NULL};
+    const QasmTestTarget on_ghz_t = {&ghz_t, NULL};
+    const unsigned int ghz_t_bonds[3] = {2u, 2u, 2u};
+    const int ghz_t_built = (qasm_chain_alloc(&ghz_t, &qasm_number_field, 4u, &error) == 0L)
+                         && (qasm_test_ghz_t(&on_ghz_t, 4u, &error) == 0L);
+    qasm_test_check(tally,
+                    ghz_t_built && qasm_test_bonds_are(&ghz_t, ghz_t_bonds) && (qasm_chain_elements(&ghz_t) == 24ull)
+                        && qasm_test_norm_is_one(&ghz_t, &error)
+                        && qasm_test_amplitude_is(&ghz_t, 0u, "1/2*sqrt2 + 0 i", &error)
+                        && qasm_test_amplitude_is(&ghz_t, 1u, "1/2 + 1/2 i", &error),
+                    "mps: GHZ-4 + controlled-T, bonds [2, 2, 2], 24 elements, <1111| = 1/2 + 1/2 i");
+
+    // GHZ-100
+    const unsigned long long hundred_start = engine_clock_microseconds();
+    QasmChain ghz_hundred = {NULL, 0u, NULL};
+    const QasmTestTarget on_ghz_hundred = {&ghz_hundred, NULL};
+    const int hundred_built = (qasm_chain_alloc(&ghz_hundred, &qasm_number_field, 100u, &error) == 0L)
+                           && (qasm_test_ghz(&on_ghz_hundred, 100u, &error) == 0L);
+    unsigned int widest = 0u;
+    for (unsigned int site = 0u; (hundred_built != 0) && ((site + 1u) < 100u); site += 1u)
     {
-        printf("  run refused on the %s: error kind %d, module %d, site %u, status %d\n", on_host ? "host" : "device",
-               (int)error.kind, (int)error.module, error.site, error.status);
-        return 0;
+        const unsigned int bond = qasm_chain_bond(&ghz_hundred, site);
+        widest = (bond > widest) ? bond : widest;
     }
-    return 1;
+    qasm_test_check(tally,
+                    hundred_built && (widest == 2u) && (qasm_chain_elements(&ghz_hundred) == 792ull)
+                        && qasm_test_norm_is_one(&ghz_hundred, &error)
+                        && qasm_test_amplitude_is(&ghz_hundred, 0u, "1/2*sqrt2 + 0 i", &error)
+                        && qasm_test_amplitude_is(&ghz_hundred, 1u, "1/2*sqrt2 + 0 i", &error),
+                    "mps: GHZ-100, widest bond 2, 792 elements, <psi|psi> exactly 1, both ends 1/2*sqrt2 + 0 i");
+    printf("  GHZ-100: %llu field elements, %llu us\n", qasm_chain_elements(&ghz_hundred),
+           engine_clock_microseconds() - hundred_start);
+
+    // the scrambler: 10 qubits, depth 6
+    const unsigned long long scrambler_start = engine_clock_microseconds();
+    QasmChain scrambled = {NULL, 0u, NULL};
+    const QasmTestTarget on_scrambled = {&scrambled, NULL};
+    const unsigned int scrambled_bonds[9] = {2u, 3u, 6u, 8u, 8u, 8u, 6u, 3u, 2u};
+    const int scrambled_built = (qasm_chain_alloc(&scrambled, &qasm_number_field, 10u, &error) == 0L)
+                             && (qasm_test_scrambler(&on_scrambled, 10u, 6u, &error) == 0L);
+    qasm_test_check(tally,
+                    scrambled_built && qasm_test_bonds_are(&scrambled, scrambled_bonds)
+                        && (qasm_chain_elements(&scrambled) == 552ull) && qasm_test_norm_is_one(&scrambled, &error),
+                    "mps: scrambler 10 x 6, bonds [2, 3, 6, 8, 8, 8, 6, 3, 2], 552 elements, <psi|psi> exactly 1");
+    printf("  scrambler: bonds");
+    for (unsigned int site = 0u; (scrambled_built != 0) && ((site + 1u) < 10u); site += 1u)
+    {
+        printf(" %u", qasm_chain_bond(&scrambled, site));
+    }
+    printf(", %llu us\n", engine_clock_microseconds() - scrambler_start);
+
+    // reversibility on the compact form
+    QasmChain round_trip = {NULL, 0u, NULL};
+    QasmChain ground = {NULL, 0u, NULL};
+    const QasmTestTarget on_round_trip = {&round_trip, NULL};
+    int turned = (qasm_chain_alloc(&round_trip, &qasm_number_field, 5u, &error) == 0L)
+              && (qasm_chain_alloc(&ground, &qasm_number_field, 5u, &error) == 0L)
+              && (qasm_test_one(&on_round_trip, qasm_test_hadamard, 0u, &error) == 0L)
+              && (qasm_test_two(&on_round_trip, qasm_test_cnot, 0u, &error) == 0L)
+              && (qasm_test_two(&on_round_trip, qasm_test_cnot, 1u, &error) == 0L)
+              && (qasm_test_two(&on_round_trip, qasm_test_controlled_t, 2u, &error) == 0L)
+              && (qasm_test_two(&on_round_trip, qasm_test_cnot, 3u, &error) == 0L)
+              && (qasm_test_two(&on_round_trip, qasm_test_cnot, 3u, &error) == 0L)
+              && (qasm_test_two(&on_round_trip, qasm_test_controlled_t_back, 2u, &error) == 0L)
+              && (qasm_test_two(&on_round_trip, qasm_test_cnot, 1u, &error) == 0L)
+              && (qasm_test_two(&on_round_trip, qasm_test_cnot, 0u, &error) == 0L)
+              && (qasm_test_one(&on_round_trip, qasm_test_hadamard, 0u, &error) == 0L);
+    for (unsigned long long index = 0ull; (turned != 0) && (index < 32ull); index += 1ull)
+    {
+        unsigned char bits[5];
+        QasmNumber returned = qasm_number_zero;
+        QasmNumber expected = qasm_number_zero;
+        qasm_test_bits(index, 5u, bits);
+        turned = (qasm_chain_amplitude(&round_trip, bits, &returned, &error) == 0L)
+              && (qasm_chain_amplitude(&ground, bits, &expected, &error) == 0L)
+              && qasm_number_equal(&returned, &expected);
+    }
+    qasm_test_check(tally, turned, "mps: a five-qubit circuit, then its exact inverse, returns |00000> to the bit");
+
+    // compact against dense
+    qasm_test_check(tally, qasm_test_cross(qasm_test_ghz, &error),
+                    "mps: cross-check GHZ chain, compact against dense on 6 qubits, all 64 amplitudes agree");
+    qasm_test_check(tally, qasm_test_cross(qasm_test_ghz_t, &error),
+                    "mps: cross-check GHZ + controlled-T, compact against dense on 6 qubits, all 64 agree");
+    qasm_test_check(tally, qasm_test_cross(qasm_test_scrambler_six, &error),
+                    "mps: cross-check scrambler depth 6, compact against dense on 6 qubits, all 64 agree");
+
+    // the chain's seal repeats and tells GHZ-6 from GHZ-4 + controlled-T
+    unsigned char six_root[ENGINE_SIGNUM_BYTES];
+    unsigned char six_again[ENGINE_SIGNUM_BYTES];
+    unsigned char t_root[ENGINE_SIGNUM_BYTES];
+    const int sealed = ghz_six_built && ghz_t_built && (qasm_chain_seal(&ghz_six, six_root, &error) == 0L)
+                    && (qasm_chain_seal(&ghz_six, six_again, &error) == 0L)
+                    && (qasm_chain_seal(&ghz_t, t_root, &error) == 0L);
+    qasm_test_check(tally,
+                    sealed && (memcmp(six_root, six_again, sizeof(six_root)) == 0)
+                        && (memcmp(six_root, t_root, sizeof(six_root)) != 0),
+                    "mps: the chain's seal repeats, and two different states seal differently");
+
+    EngineError refused;
+    memset(&refused, 0, sizeof(refused));
+    qasm_test_check(tally,
+                    qasm_test_refused_here(qasm_chain_apply_two(&bell, qasm_test_cnot, 1u, &refused), &refused),
+                    "mps: a two-site gate on the last site refuses, a request error from qasm");
+    // the builder session's review found site + 1 wrapping here and reading past the tensors
+    qasm_test_check(tally,
+                    (qasm_chain_bond(&bell, 1u) == 0u) && (qasm_chain_bond(&bell, 0xFFFFFFFFu) == 0u),
+                    "mps: the bond past the last cut is 0, the widest site index included");
+    qasm_test_check(tally, qasm_test_clean(&error), "mps: no error was raised on the paths that held");
+    qasm_chain_release(&bell);
+    qasm_chain_release(&ghz_six);
+    qasm_chain_release(&ghz_t);
+    qasm_chain_release(&ghz_hundred);
+    qasm_chain_release(&scrambled);
+    qasm_chain_release(&round_trip);
+    qasm_chain_release(&ground);
+    printf("  mps qubits: %llu us\n", engine_clock_microseconds() - start);
 }
 
-static void units_exact(const unsigned int units[QASM_WIDE_LIMBS], AnchorExactInteger *value)
-{
-    anchor_exact_zero(value);
-    int any = 0;
-    for (unsigned int limb = 0u; limb < QASM_WIDE_LIMBS; limb += 1u)
-    {
-        value->limb[limb] = units[limb];
-        any |= (units[limb] != 0u);
-    }
-    value->sign = any ? 1 : 0;
-}
-
-// |units - num 2^shift| <= slack, all in units of 2^-2F
-static int within(const unsigned int units[QASM_WIDE_LIMBS], unsigned int num, unsigned int shift,
-                  const unsigned int slack_units[QASM_WIDE_LIMBS])
-{
-    AnchorExactInteger value;
-    AnchorExactInteger target;
-    AnchorExactInteger slack;
-    AnchorExactInteger gap;
-    units_exact(units, &value);
-    units_exact(slack_units, &slack);
-    anchor_exact_zero(&target);
-    target.limb[shift / 32u] = num << (shift % 32u);
-    if ((shift % 32u) != 0u)
-    {
-        target.limb[(shift / 32u) + 1u] = (unsigned int)((unsigned long long)num >> (32u - (shift % 32u)));
-    }
-    target.sign = (num != 0u) ? 1 : 0;
-    anchor_exact_subtract(&value, &target, &gap);
-    gap.sign = (gap.sign < 0) ? 1 : gap.sign;
-    return anchor_exact_compare(&gap, &slack) <= 0;
-}
-
-static int units_are_power(const unsigned int units[QASM_WIDE_LIMBS], unsigned int shift)
-{
-    for (unsigned int limb = 0u; limb < QASM_WIDE_LIMBS; limb += 1u)
-    {
-        const unsigned int wanted = (limb == (shift / 32u)) ? (1u << (shift % 32u)) : 0u;
-        if (units[limb] != wanted)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-// ---------------------------------------------------------------------------------------------------------------
-
+// the symbolic gates and observables, as symbolic_qubits.py builds them over a field
 typedef struct
 {
-    const char *body;
-    unsigned int qubits;
-    const char *expected;
-} KnownAnswer;
+    QasmRationalFunction hadamard[4];
+    QasmRationalFunction cnot[16];
+    QasmRationalFunction cphase[16];
+    QasmRationalFunction identity[4];
+    QasmRationalFunction pauli_x[4];
+    QasmRationalFunction pauli_z[4];
+    QasmRationalFunction local_phase[4];
+    QasmRationalFunction omega;
+} QasmTestSymbols;
 
-static const KnownAnswer KNOWN[] = {
-    {"x q[0];", 3u, "001"},
-    {"u3(pi,0,pi) q[0];", 1u, "1"},
-    {"U(pi,0,pi) q[0];", 1u, "1"},
-    {"u(pi,0,pi) q[0];", 1u, "1"},
-    {"rx(pi) q[0];", 1u, "1"},
-    {"ry(pi/2) q[0]; ry(pi/2) q[0];", 1u, "1"},
-    {"sx q[0]; sx q[0];", 1u, "1"},
-    {"sxdg q[0]; sxdg q[0];", 1u, "1"},
-    {"h q[0]; t q[0]; t q[0]; t q[0]; t q[0]; h q[0];", 1u, "1"},
-    {"h q[0]; tdg q[0]; tdg q[0]; tdg q[0]; tdg q[0]; h q[0];", 1u, "1"},
-    {"h q[0]; rz(pi) q[0]; h q[0];", 1u, "1"},
-    {"h q[0]; u1(pi/2) q[0]; u1(pi/2) q[0]; h q[0];", 1u, "1"},
-    {"h q[0]; p(0.5) q[0]; p(pi-0.5) q[0]; h q[0];", 1u, "1"},
-    {"u2(0,pi) q[0]; u2(0,pi) q[0];", 1u, "0"},
-    {"h q[0]; s q[0]; s q[0]; h q[0];", 1u, "1"},
-    {"h q[0]; sdg q[0]; sdg q[0]; h q[0];", 1u, "1"},
-    {"h q[0]; z q[0]; h q[0];", 1u, "1"},
-    {"y q[0];", 1u, "1"},
-    {"x q[0]; cy q[0],q[1];", 2u, "11"},
-    {"x q[0]; h q[1]; cz q[0],q[1]; h q[1];", 2u, "11"},
-    {"x q[0]; h q[1]; ch q[0],q[1];", 2u, "01"},
-    {"h q[1]; ch q[0],q[1]; h q[1];", 2u, "00"},
-    {"x q[0]; crx(pi) q[0],q[1];", 2u, "11"},
-    {"crx(pi) q[0],q[1];", 2u, "00"},
-    {"x q[0]; cry(pi) q[0],q[1];", 2u, "11"},
-    {"x q[0]; h q[1]; crz(pi) q[0],q[1]; h q[1];", 2u, "11"},
-    {"x q[0]; h q[1]; cu1(pi) q[0],q[1]; h q[1];", 2u, "11"},
-    {"x q[0]; h q[1]; cp(pi/3) q[0],q[1]; cp(2*pi/3) q[0],q[1]; h q[1];", 2u, "11"},
-    {"x q[0]; cu3(pi,0,pi) q[0],q[1];", 2u, "11"},
-    {"x q[0]; cu(pi,0,pi,pi/2) q[0],q[1];", 2u, "11"},
-    {"x q[0]; csx q[0],q[1]; csx q[0],q[1];", 2u, "11"},
-    {"x q[0]; swap q[0],q[1];", 2u, "10"},
-    {"x q[0]; x q[1]; cswap q[0],q[1],q[2];", 3u, "101"},
-    {"x q[1]; cswap q[0],q[1],q[2];", 3u, "010"},
-    {"x q[0]; x q[1]; ccx q[0],q[1],q[2];", 3u, "111"},
-    {"x q[0]; ccx q[0],q[1],q[2];", 3u, "001"},
-    {"x q[0]; x q[1]; x q[2]; c3x q[0],q[1],q[2],q[3];", 4u, "1111"},
-    {"rxx(pi) q[0],q[1];", 2u, "11"},
-    {"ryy(pi) q[0],q[1];", 2u, "11"},
-    {"h q[0]; h q[1]; rzz(pi) q[0],q[1]; h q[0]; h q[1];", 2u, "11"},
-    {"id q[0]; u0(1) q[0]; x q[1];", 2u, "10"},
-    {"x q[1]; barrier q; x q[2];", 3u, "110"},
-    {"x q;", 3u, "111"},
-    {"gate g(t) a { ry(t) a; } g(pi) q;", 3u, "111"},
-    {"gate f(t) a,b { ry(t) a; cx a,b; } f(pi) q[0],q[1];", 2u, "11"},
-    {"gate f(t) a,b { ry(t) a; cx a,b; } gate g(t) b,a { f(2*t) a,b; } g(pi/2) q[1],q[0];", 3u, "011"},
-    {"gate h a { x a; } h q[0];", 1u, "1"},
-    {"rx(-(-pi)) q[0];", 1u, "1"},
-    {"rx(pi*1) q[0]; rx(2*pi/2 - 0) q[0]; rx(1e0*pi) q[0];", 1u, "1"},
-    {"rx(pi + 100*pi) q[0];", 1u, "1"},
-    {"ry(3.14159265358979323846264338327950288) q[0];", 1u, "1"},
-    {"ry(-3.14159265358979323846264338327950288e0) q[0];", 1u, "1"},
-    {"/* a comment */ x q[0]; // and another\n", 1u, "1"},
-};
-
-static void known_answers(void)
+static long qasm_test_symbol(QasmRationalFunction *slot, const QasmNumber *coefficient, int exponent,
+                             EngineError *error)
 {
-    char *const text = (char *)malloc(TEXT_ROOM);
-    char reason[QASM_REASON_ROOM];
-    for (size_t at = 0u; at < (sizeof(KNOWN) / sizeof(KNOWN[0])); at += 1u)
-    {
-        const KnownAnswer *const known = &KNOWN[at];
-        Text built = {text, 0u};
-        text_add(&built, "%sqreg q[%u];\ncreg c[%u];\n%s\nmeasure q -> c;\n", HEADER, known->qubits, known->qubits,
-                 known->body);
-        QasmCircuit circuit;
-        if (!read_text("known.qasm", text, &circuit, reason, sizeof(reason)))
-        {
-            check(0, "known answer '%s' reads (%s)", known->body, reason);
-            continue;
-        }
-        QasmOutcome device;
-        QasmOutcome host;
-        const unsigned long long lanes = 1ull << circuit.qubits;
-        unsigned int *const device_state = (unsigned int *)calloc((size_t)(lanes * QASM_STATE_LIMBS), sizeof(unsigned int));
-        unsigned int *const host_state = (unsigned int *)calloc((size_t)(lanes * QASM_STATE_LIMBS), sizeof(unsigned int));
-        const int ran = run(&circuit, 0, &device, device_state) && run(&circuit, 1, &host, host_state);
-        char bitstring[QASM_CLBITS_MOST + 1u];
-        qasm_bitstring(&circuit, ran ? device.peak : 0ull, bitstring, sizeof(bitstring));
-        check(ran && (device.proved != 0u) && (strcmp(bitstring, known->expected) == 0)
-                  && (memcmp(device_state, host_state, (size_t)(lanes * QASM_STATE_LIMBS * sizeof(unsigned int))) == 0)
-                  && (host.peak == device.peak) && (host.proved == device.proved),
-              "known answer %-78s -> %s (wanted %s, %s, device = host)", known->body, bitstring, known->expected,
-              (ran && device.proved) ? "proved" : "not proved");
-        free(device_state);
-        free(host_state);
-        qasm_release(&circuit);
-    }
-    free(text);
+    return qasm_rational_function_set(slot, coefficient, exponent, error);
 }
 
-// ---------------------------------------------------------------------------------------------------------------
-
-typedef struct
+static long qasm_test_symbols(QasmTestSymbols *symbols, EngineError *error)
 {
-    const char *body;
-    const char *prefix;
-    const char *fragment;
-} Refusal;
-
-static void refusals(void)
-{
-    static const Refusal REFUSALS[] = {
-        {"OPENQASM 3.0;\n", "r.qasm:1:10:", "only OpenQASM 2.0"},
-        {"OPENQASM 2.0;\ninclude \"other.inc\";\n", "r.qasm:2:9:", "qelib1.inc"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\nreset q[0];\n", "r.qasm:4:1:", "'reset' is not read"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[2];\nmeasure q[0] -> c[0];\nh q[0];\n",
-         "r.qasm:6:1:", "follows the measure"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[1];\nrx(sin(1)) q[0];\n", "r.qasm:4:4:", "sin()"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[1];\nfoo q[0];\n", "r.qasm:4:1:", "not defined"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[31];\n", "r.qasm:3:6:", "past 30 qubits"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[1];\ncreg c[1];\nif (c==1) x q[0];\n", "r.qasm:5:1:",
-         "'if' is not read"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[1];\nopaque g a;\n", "r.qasm:4:1:", "'opaque' is not read"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncx q[0],q[0];\n", "r.qasm:4:1:", "names qubit 0 twice"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[1];\nrx(pi*pi) q[0];\n", "r.qasm:4:6:", "pi times pi"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[1];\nrx(1/pi) q[0];\n", "r.qasm:4:5:", "division by a multiple of pi"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[1];\nrx(2^3) q[0];\n", "r.qasm:4:5:", "'^'"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\nh q[2];\n", "r.qasm:4:5:", "past the register"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\nrx(pi) q[0], q[1];\n", "r.qasm:4:1:", "takes 1 parameters and 1 qubits"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[2];\nmeasure q[0] -> c[0];\nmeasure q[0] -> c[1];\n",
-         "r.qasm:6:9:", "measured twice"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[1];\nx q[0]\n", "r.qasm:5:1:", "';' was expected"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate g a { measure a -> a; }\nqreg q[1];\ng q[0];\n", "r.qasm:3:12:",
-         "inside a gate definition"},
-    };
-    char reason[QASM_REASON_ROOM];
-    for (size_t at = 0u; at < (sizeof(REFUSALS) / sizeof(REFUSALS[0])); at += 1u)
+    QasmNumber minus_half_sqrt2;
+    qasm_number_negate(&qasm_number_half_sqrt2, &minus_half_sqrt2);
+    long status = qasm_test_symbol(&symbols->omega, &qasm_number_one, 1, error);
+    for (unsigned int entry = 0u; (status == 0L) && (entry < 16u); entry += 1u)
     {
-        QasmCircuit circuit;
-        const int read = read_text("r.qasm", REFUSALS[at].body, &circuit, reason, sizeof(reason));
-        if (read)
-        {
-            qasm_release(&circuit);
-        }
-        check(!read && (strncmp(reason, REFUSALS[at].prefix, strlen(REFUSALS[at].prefix)) == 0)
-                  && (strstr(reason, REFUSALS[at].fragment) != NULL),
-              "refused: %s", read ? "(it was read)" : reason);
+        const int cnot_one = (entry == 0u) || (entry == 5u) || (entry == 11u) || (entry == 14u);
+        const int diagonal = (entry == 0u) || (entry == 5u) || (entry == 10u);
+        status = qasm_test_symbol(&symbols->cnot[entry], cnot_one ? &qasm_number_one : &qasm_number_zero, 0, error);
+        status = (status == 0L) ? qasm_test_symbol(&symbols->cphase[entry],
+                                                   diagonal ? &qasm_number_one : &qasm_number_zero, 0, error)
+                                : status;
     }
+    status = (status == 0L) ? qasm_rational_function_copy(&symbols->omega, &symbols->cphase[15], error) : status;
+    for (unsigned int entry = 0u; (status == 0L) && (entry < 4u); entry += 1u)
+    {
+        const int diagonal = (entry == 0u) || (entry == 3u);
+        status = qasm_test_symbol(&symbols->hadamard[entry],
+                                  (entry == 3u) ? &minus_half_sqrt2 : &qasm_number_half_sqrt2, 0, error);
+        status = (status == 0L) ? qasm_test_symbol(&symbols->identity[entry],
+                                                   diagonal ? &qasm_number_one : &qasm_number_zero, 0, error)
+                                : status;
+        status = (status == 0L) ? qasm_test_symbol(&symbols->pauli_x[entry],
+                                                   diagonal ? &qasm_number_zero : &qasm_number_one, 0, error)
+                                : status;
+        status = (status == 0L) ? qasm_test_symbol(&symbols->pauli_z[entry],
+                                                   (entry == 0u) ? &qasm_number_one
+                                                                 : ((entry == 3u) ? &qasm_number_minus_one
+                                                                                  : &qasm_number_zero),
+                                                   0, error)
+                                : status;
+        status = (status == 0L) ? qasm_test_symbol(&symbols->local_phase[entry],
+                                                   diagonal ? &qasm_number_one : &qasm_number_zero, 0, error)
+                                : status;
+    }
+    status = (status == 0L) ? qasm_rational_function_copy(&symbols->omega, &symbols->local_phase[3], error) : status;
+    return status;
 }
 
-// ---------------------------------------------------------------------------------------------------------------
-
-// a tie at 1/2: not proved, and each p' within the slack of 1/2
-static void ties(void)
+static void qasm_test_symbols_release(QasmTestSymbols *symbols)
 {
-    static const struct
+    for (unsigned int entry = 0u; entry < 16u; entry += 1u)
     {
-        const char *body;
-        unsigned int qubits;
-        const char *one;
-        const char *other;
-    } TIES[] = {
-        {"h q[0]; cx q[0],q[1];", 2u, "00", "11"},
-        {"h q[0]; cx q[0],q[1]; cx q[1],q[2]; cx q[2],q[3]; cx q[3],q[4];", 5u, "00000", "11111"},
-    };
-    char *const text = (char *)malloc(TEXT_ROOM);
-    char reason[QASM_REASON_ROOM];
-    for (size_t at = 0u; at < (sizeof(TIES) / sizeof(TIES[0])); at += 1u)
-    {
-        Text built = {text, 0u};
-        text_add(&built, "%sqreg q[%u];\ncreg c[%u];\n%s\nmeasure q -> c;\n", HEADER, TIES[at].qubits, TIES[at].qubits,
-                 TIES[at].body);
-        QasmCircuit circuit;
-        QasmOutcome outcome;
-        const int ran = read_text("tie.qasm", text, &circuit, reason, sizeof(reason)) && run(&circuit, 0, &outcome, NULL);
-        char peak[QASM_CLBITS_MOST + 1u];
-        char second[QASM_CLBITS_MOST + 1u];
-        qasm_bitstring(&circuit, ran ? outcome.peak : 0ull, peak, sizeof(peak));
-        qasm_bitstring(&circuit, ran ? outcome.runner_up : 0ull, second, sizeof(second));
-        const int pair = ((strcmp(peak, TIES[at].one) == 0) && (strcmp(second, TIES[at].other) == 0))
-                      || ((strcmp(peak, TIES[at].other) == 0) && (strcmp(second, TIES[at].one) == 0));
-        check(ran && pair && (outcome.proved == 0u)
-                  && within(outcome.peak_units, 1u, (2u * QASM_FRACTION_BITS) - 1u, outcome.slack_units)
-                  && within(outcome.runner_up_units, 1u, (2u * QASM_FRACTION_BITS) - 1u, outcome.slack_units),
-              "tie %s / %s at 1/2 within the slack, not proved", peak, second);
-        if (ran)
-        {
-            qasm_release(&circuit);
-        }
+        qasm_rational_function_release(&symbols->cnot[entry]);
+        qasm_rational_function_release(&symbols->cphase[entry]);
     }
-    free(text);
+    for (unsigned int entry = 0u; entry < 4u; entry += 1u)
+    {
+        qasm_rational_function_release(&symbols->hadamard[entry]);
+        qasm_rational_function_release(&symbols->identity[entry]);
+        qasm_rational_function_release(&symbols->pauli_x[entry]);
+        qasm_rational_function_release(&symbols->pauli_z[entry]);
+        qasm_rational_function_release(&symbols->local_phase[entry]);
+    }
+    qasm_rational_function_release(&symbols->omega);
 }
 
-// the bound's formula: a Bell pair has one rounded gate at n = 2, so E' = (3 + 2^ceil(3/2)) 2^F = 7 2^60
-static void bound_formula(void)
+// <psi|O|psi> with one site's operator per site, copied into a run of slots the chain reads
+static long qasm_test_lens(const QasmChain *chain, const QasmRationalFunction *const *each, QasmRationalFunction *value,
+                           EngineError *error)
 {
-    char reason[QASM_REASON_ROOM];
-    QasmCircuit circuit;
-    const char *const text = "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[2];\nh q[0];\ncx q[0],q[1];\n"
-                             "measure q -> c;\n";
-    const int read = read_text("bell.qasm", text, &circuit, reason, sizeof(reason));
-    unsigned int wanted[QASM_WIDE_LIMBS] = {0u, 7u << 28u, 0u, 0u, 0u, 0u, 0u, 0u};
-    check(read && (circuit.rounded_gates == 1u) && (circuit.exact_gates == 1u)
-              && (memcmp(circuit.bound, wanted, sizeof(wanted)) == 0),
-          "bound after one rounded gate on 2 qubits is exactly 7 * 2^60 units");
-    if (read)
+    QasmRationalFunction operators[12];
+    memset(operators, 0, sizeof(operators));
+    long status = 0L;
+    for (unsigned int site = 0u; (status == 0L) && (site < chain->sites); site += 1u)
     {
-        qasm_release(&circuit);
+        for (unsigned int entry = 0u; (status == 0L) && (entry < 4u); entry += 1u)
+        {
+            status = qasm_rational_function_copy(&each[site][entry], &operators[(4u * site) + entry], error);
+        }
     }
-    // a second rounded gate grows it by ceil(3 E / 2^F) and adds the same local term: 7 2^60 + 21 + 7 2^60
-    const char *const twice = "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[2];\nh q[0];\nh q[0];\n"
-                              "measure q -> c;\n";
-    const int again = read_text("twice.qasm", twice, &circuit, reason, sizeof(reason));
-    unsigned int grown[QASM_WIDE_LIMBS] = {21u, 14u << 28u, 0u, 0u, 0u, 0u, 0u, 0u};
-    check(again && (memcmp(circuit.bound, grown, sizeof(grown)) == 0),
-          "bound after two rounded gates is (1 + 3 / 2^F) 7 2^60 + 7 2^60, rounded up");
-    if (again)
+    status = (status == 0L) ? qasm_chain_expectation(chain, operators, value, error) : status;
+    for (unsigned int entry = 0u; entry < 12u; entry += 1u)
     {
-        qasm_release(&circuit);
+        qasm_rational_function_release(&operators[entry]);
     }
+    return status;
 }
 
-// exact gates alone: E = 0 and the peak's probability is 1 exactly
-static void exact_only(void)
+static void qasm_test_symbolic_qubits(QasmTally *tally)
 {
-    char reason[QASM_REASON_ROOM];
-    QasmCircuit circuit;
-    const char *const text = "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[4];\ncreg c[4];\nx q[0];\ncx q[0],q[1];\n"
-                             "swap q[1],q[2];\ns q[2];\ny q[3];\nccx q[2],q[3],q[0];\ncz q[2],q[3];\nmeasure q -> c;\n";
-    QasmOutcome outcome;
-    const int ran = read_text("exact.qasm", text, &circuit, reason, sizeof(reason)) && run(&circuit, 0, &outcome, NULL);
-    char bitstring[QASM_CLBITS_MOST + 1u];
-    qasm_bitstring(&circuit, ran ? outcome.peak : 0ull, bitstring, sizeof(bitstring));
-    const unsigned int zero[QASM_WIDE_LIMBS] = {0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u};
-    check(ran && (circuit.rounded_gates == 0u) && (memcmp(circuit.bound, zero, sizeof(zero)) == 0)
-              && units_are_power(outcome.peak_units, 2u * QASM_FRACTION_BITS) && (outcome.proved != 0u)
-              && (strcmp(bitstring, "1100") == 0),
-          "exact gates only: E = 0, p(%s) = 1 exactly, proved", bitstring);
-    if (ran)
-    {
-        qasm_release(&circuit);
-    }
-}
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    const unsigned long long start = engine_clock_microseconds();
+    QasmTestSymbols symbols;
+    memset(&symbols, 0, sizeof(symbols));
+    const int symbols_built = (qasm_test_symbols(&symbols, &error) == 0L);
+    qasm_test_check(tally, symbols_built, "symbolic: the gates and observables build over Q(sqrt2)[i](w)");
 
-// rxx(2 pi / 3) on |00>: cos(pi/3)|00> - i sin(pi/3)|11>, so p(11) = 3/4 and p(00) = 1/4
-static void rxx_split(void)
-{
-    char reason[QASM_REASON_ROOM];
-    QasmCircuit circuit;
-    const char *const text = "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[2];\nrxx(2*pi/3) q[0],q[1];\n"
-                             "measure q -> c;\n";
-    QasmOutcome outcome;
-    const int ran = read_text("rxx.qasm", text, &circuit, reason, sizeof(reason)) && run(&circuit, 0, &outcome, NULL);
-    char peak[QASM_CLBITS_MOST + 1u];
-    char second[QASM_CLBITS_MOST + 1u];
-    qasm_bitstring(&circuit, ran ? outcome.peak : 0ull, peak, sizeof(peak));
-    qasm_bitstring(&circuit, ran ? outcome.runner_up : 0ull, second, sizeof(second));
-    check(ran && (strcmp(peak, "11") == 0) && (strcmp(second, "00") == 0) && (outcome.proved != 0u)
-              && within(outcome.peak_units, 3u, (2u * QASM_FRACTION_BITS) - 2u, outcome.slack_units)
-              && within(outcome.runner_up_units, 1u, (2u * QASM_FRACTION_BITS) - 2u, outcome.slack_units),
-          "rxx(2 pi/3): p(%s) = 3/4 and p(%s) = 1/4 within the slack, proved", peak, second);
-    if (ran)
-    {
-        qasm_release(&circuit);
-    }
-}
+    // the delta-Bell state (|00> + w|11>)/sqrt2
+    QasmChain bell = {NULL, 0u, NULL};
+    const unsigned int bell_bonds[1] = {2u};
+    const int bell_built = symbols_built
+                        && (qasm_chain_alloc(&bell, &qasm_rational_function_field, 2u, &error) == 0L)
+                        && (qasm_chain_apply_one(&bell, symbols.hadamard, 0u, &error) == 0L)
+                        && (qasm_chain_apply_two(&bell, symbols.cnot, 0u, &error) == 0L)
+                        && (qasm_chain_apply_two(&bell, symbols.cphase, 0u, &error) == 0L);
+    QasmRationalFunction value;
+    memset(&value, 0, sizeof(value));
+    const unsigned char zeros[2] = {0u, 0u};
+    const unsigned char ones[2] = {1u, 1u};
+    qasm_test_check(tally,
+                    bell_built && qasm_test_bonds_are(&bell, bell_bonds)
+                        && (qasm_chain_amplitude(&bell, zeros, &value, &error) == 0L)
+                        && qasm_test_function_is(&value, "1/2sqrt2", &error)
+                        && (qasm_chain_amplitude(&bell, ones, &value, &error) == 0L)
+                        && qasm_test_function_is(&value, "(1/2sqrt2)w", &error),
+                    "symbolic: delta-Bell, bond [2], <00| = 1/2sqrt2, <11| = (1/2sqrt2)w");
 
-// the inverse quantum Fourier transform of the Fourier state of k returns k
-static void inverse_fourier(void)
-{
-    const unsigned int n = 12u;
-    const unsigned int k = 2741u;
-    const unsigned int size = 1u << n;
-    char *const text = (char *)malloc(TEXT_ROOM);
-    Text built = {text, 0u};
-    text_add(&built, "%sqreg q[%u];\ncreg c[%u];\n", HEADER, n, n);
-    // (|0> + e^{2 pi i k 2^j / N}|1>) / sqrt 2 on qubit j is the Fourier state of k, bit j of x on qubit j
-    for (unsigned int j = 0u; j < n; j += 1u)
-    {
-        text_add(&built, "h q[%u];\nu1(2*pi*%u/%u) q[%u];\n", j, (k << j) % size, size, j);
-    }
-    // the inverse of Qiskit's QFT: the swaps, then for each j its controlled phases and its h
-    for (unsigned int i = 0u; i < (n / 2u); i += 1u)
-    {
-        text_add(&built, "swap q[%u],q[%u];\n", i, n - 1u - i);
-    }
-    for (unsigned int j = 0u; j < n; j += 1u)
-    {
-        for (unsigned int m = 0u; m < j; m += 1u)
-        {
-            text_add(&built, "cp(-pi/%u) q[%u],q[%u];\n", 1u << (j - m), j, m);
-        }
-        text_add(&built, "h q[%u];\n", j);
-    }
-    text_add(&built, "measure q -> c;\n");
-    char reason[QASM_REASON_ROOM];
-    QasmCircuit circuit;
-    QasmOutcome outcome;
-    const int read = read_text("fourier.qasm", text, &circuit, reason, sizeof(reason));
-    const int ran = read && run(&circuit, 0, &outcome, NULL);
-    char bitstring[QASM_CLBITS_MOST + 1u];
-    char wanted[QASM_CLBITS_MOST + 1u];
-    qasm_bitstring(&circuit, ran ? outcome.peak : 0ull, bitstring, sizeof(bitstring));
-    qasm_bitstring(&circuit, k, wanted, sizeof(wanted));
-    check(ran && (strcmp(bitstring, wanted) == 0) && (outcome.proved != 0u)
-              && within(outcome.peak_units, 1u, 2u * QASM_FRACTION_BITS, outcome.slack_units),
-          "inverse QFT over %u qubits returns k = %u as %s (%u gates, %u rounded), p = 1 within the slack, proved", n,
-          k, bitstring, read ? circuit.gate_count : 0u, read ? circuit.rounded_gates : 0u);
-    if (!read)
-    {
-        printf("  %s\n", reason);
-    }
-    if (read)
-    {
-        qasm_release(&circuit);
-    }
-    free(text);
-}
+    QasmRationalFunction norm;
+    QasmRationalFunction xx;
+    QasmRationalFunction zz;
+    QasmRationalFunction x0;
+    memset(&norm, 0, sizeof(norm));
+    memset(&xx, 0, sizeof(xx));
+    memset(&zz, 0, sizeof(zz));
+    memset(&x0, 0, sizeof(x0));
+    const QasmRationalFunction *const identities[2] = {symbols.identity, symbols.identity};
+    const QasmRationalFunction *const both_x[3] = {symbols.pauli_x, symbols.pauli_x, symbols.pauli_x};
+    const QasmRationalFunction *const both_z[2] = {symbols.pauli_z, symbols.pauli_z};
+    const QasmRationalFunction *const first_x[2] = {symbols.pauli_x, symbols.identity};
+    const int norm_read = bell_built && (qasm_test_lens(&bell, identities, &norm, &error) == 0L);
+    qasm_test_check(tally,
+                    norm_read && qasm_test_function_is(&norm, "1", &error)
+                        && qasm_rational_function_equal(&norm, (const QasmRationalFunction *)qasm_rational_function_field.one),
+                    "symbolic: <psi|psi> = 1 exactly, w cancels");
+    const int lens_read = bell_built && (qasm_test_lens(&bell, both_x, &xx, &error) == 0L)
+                       && (qasm_test_lens(&bell, both_z, &zz, &error) == 0L)
+                       && (qasm_test_lens(&bell, first_x, &x0, &error) == 0L);
+    qasm_test_check(tally, lens_read && qasm_test_function_is(&xx, "(1/2 + (1/2)w^2) / (w)", &error),
+                    "symbolic: the boundary lens reads <X0 X1> = (1/2 + (1/2)w^2) / (w)");
+    qasm_test_check(tally,
+                    lens_read && qasm_test_function_is(&zz, "1", &error) && qasm_test_function_is(&x0, "0", &error),
+                    "symbolic: <Z0 Z1> = 1 and <X0> = 0");
 
-// the measure's clbits, measuring part of the register, and no measure at all
-static void measurement(void)
-{
-    static const struct
-    {
-        const char *text;
-        const char *expected;
-        const char *what;
-    } CASES[] = {
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[3];\ncreg c[3];\nx q[0];\nmeasure q[0] -> c[2];\n"
-         "measure q[1] -> c[0];\nmeasure q[2] -> c[1];\n",
-         "100", "q[0] measured into c[2]"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[1];\nh q[0];\nx q[1];\nmeasure q[1] -> c[0];\n", "1",
-         "q[1] alone measured, q[0] summed over"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\nx q[1];\n", "10", "no measure: every qubit into its own clbit"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg a[2];\nqreg b[2];\ncreg c[4];\nx a;\ncx a, b;\n"
-         "measure a[0] -> c[0];\nmeasure a[1] -> c[1];\nmeasure b[0] -> c[2];\nmeasure b[1] -> c[3];\n",
-         "1111", "two registers broadcast together"},
-        {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg a[2];\nqreg b[1];\ncreg c[2];\ncreg d[1];\nx b[0];\n"
-         "measure a -> c;\nmeasure b -> d;\n",
-         "100", "registers flattened in declaration order"},
-    };
-    char reason[QASM_REASON_ROOM];
-    for (size_t at = 0u; at < (sizeof(CASES) / sizeof(CASES[0])); at += 1u)
-    {
-        QasmCircuit circuit;
-        QasmOutcome outcome;
-        const int read = read_text("measure.qasm", CASES[at].text, &circuit, reason, sizeof(reason));
-        const int ran = read && run(&circuit, 0, &outcome, NULL);
-        char bitstring[QASM_CLBITS_MOST + 1u];
-        qasm_bitstring(&circuit, ran ? outcome.peak : 0ull, bitstring, sizeof(bitstring));
-        check(ran && (strcmp(bitstring, CASES[at].expected) == 0) && (outcome.proved != 0u)
-                  && within(outcome.peak_units, 1u, 2u * QASM_FRACTION_BITS, outcome.slack_units),
-              "%s: %s (wanted %s), p = 1 within the slack, proved", CASES[at].what, bitstring, CASES[at].expected);
-        if (!read)
-        {
-            printf("  %s\n", reason);
-        }
-        if (read)
-        {
-            qasm_release(&circuit);
-        }
-    }
-}
+    // delta-GHZ3
+    QasmChain ghz = {NULL, 0u, NULL};
+    const unsigned int ghz_bonds[2] = {2u, 2u};
+    QasmRationalFunction xxx;
+    memset(&xxx, 0, sizeof(xxx));
+    const int ghz_read = symbols_built && (qasm_chain_alloc(&ghz, &qasm_rational_function_field, 3u, &error) == 0L)
+                      && (qasm_chain_apply_one(&ghz, symbols.hadamard, 0u, &error) == 0L)
+                      && (qasm_chain_apply_two(&ghz, symbols.cnot, 0u, &error) == 0L)
+                      && (qasm_chain_apply_two(&ghz, symbols.cnot, 1u, &error) == 0L)
+                      && (qasm_chain_apply_two(&ghz, symbols.cphase, 1u, &error) == 0L)
+                      && (qasm_test_lens(&ghz, both_x, &xxx, &error) == 0L);
+    qasm_test_check(tally,
+                    ghz_read && qasm_test_bonds_are(&ghz, ghz_bonds)
+                        && qasm_test_function_is(&xxx, "(1/2 + (1/2)w^2) / (w)", &error),
+                    "symbolic: delta-GHZ3, bonds [2, 2], <X0 X1 X2> = (1/2 + (1/2)w^2) / (w)");
 
-// the fixtures, read by path
-static void fixtures(const char *directory)
-{
-    static const struct
+    // a single-qubit phase couples nothing: the product stays rank 1
+    QasmChain product = {NULL, 0u, NULL};
+    const unsigned int product_bonds[2] = {1u, 1u};
+    int product_built = symbols_built
+                     && (qasm_chain_alloc(&product, &qasm_rational_function_field, 3u, &error) == 0L);
+    for (unsigned int site = 0u; (product_built != 0) && (site < 3u); site += 1u)
     {
-        const char *file;
-        const char *expected;
-        unsigned int proved;
-    } FIXTURES[] = {
-        {"bernstein_vazirani.qasm", "101101001101", 1u},
-        {"bell.qasm", NULL, 0u},
-    };
-    for (size_t at = 0u; at < (sizeof(FIXTURES) / sizeof(FIXTURES[0])); at += 1u)
-    {
-        char path[4096];
-        snprintf(path, sizeof(path), "%s/%s", directory, FIXTURES[at].file);
-        char reason[QASM_REASON_ROOM];
-        reason[0] = '\0';
-        EngineError error;
-        memset(&error, 0, sizeof(error));
-        QasmCircuit circuit;
-        const QasmReadRequest request = {path, NULL, 0u, reason, sizeof(reason), &error};
-        const int read = qasm_read(&request, &circuit) != QASM_REFUSED;
-        QasmOutcome outcome;
-        const int ran = read && run(&circuit, 0, &outcome, NULL);
-        char bitstring[QASM_CLBITS_MOST + 1u];
-        qasm_bitstring(&circuit, ran ? outcome.peak : 0ull, bitstring, sizeof(bitstring));
-        check(ran && (outcome.proved == FIXTURES[at].proved)
-                  && ((FIXTURES[at].expected == NULL) || (strcmp(bitstring, FIXTURES[at].expected) == 0)),
-              "fixture %s: %s, %s", FIXTURES[at].file, bitstring, (ran && outcome.proved) ? "proved" : "not proved");
-        if (!read)
-        {
-            printf("  %s\n", reason);
-        }
-        if (read)
-        {
-            qasm_release(&circuit);
-        }
+        product_built = (qasm_chain_apply_one(&product, symbols.hadamard, site, &error) == 0L);
     }
-}
+    product_built = product_built && (qasm_chain_apply_one(&product, symbols.local_phase, 0u, &error) == 0L);
+    qasm_test_check(tally, product_built && qasm_test_bonds_are(&product, product_bonds),
+                    "symbolic: |+++> with a phase on wire 0 keeps bonds [1, 1]");
 
-// a random circuit on the device and on the host: the same state word for word
-static unsigned long long g_seed = 0x9E3779B97F4A7C15ull;
+    // host against host: w = e^{i pi/4} specialises the symbolic reading to the controlled-T one
+    QasmChain numeric = {NULL, 0u, NULL};
+    QasmNumber symbolic_xx = qasm_number_zero;
+    QasmNumber numeric_xx = qasm_number_zero;
+    QasmNumber symbolic_norm = qasm_number_zero;
+    QasmNumber numeric_x[4];
+    QasmNumber both_numeric_x[8];
+    numeric_x[0] = qasm_number_zero;
+    numeric_x[1] = qasm_number_one;
+    numeric_x[2] = qasm_number_one;
+    numeric_x[3] = qasm_number_zero;
+    for (unsigned int entry = 0u; entry < 8u; entry += 1u)
+    {
+        both_numeric_x[entry] = numeric_x[entry % 4u];
+    }
+    const int crossed = lens_read && norm_read
+                     && (qasm_rational_function_evaluate(&xx, &qasm_number_eighth_turn, &symbolic_xx, &error) == 0L)
+                     && (qasm_rational_function_evaluate(&norm, &qasm_number_eighth_turn, &symbolic_norm, &error)
+                         == 0L)
+                     && (qasm_chain_alloc(&numeric, &qasm_number_field, 2u, &error) == 0L)
+                     && (qasm_chain_apply_one(&numeric, qasm_test_hadamard, 0u, &error) == 0L)
+                     && (qasm_chain_apply_two(&numeric, qasm_test_cnot, 0u, &error) == 0L)
+                     && (qasm_chain_apply_two(&numeric, qasm_test_controlled_t, 0u, &error) == 0L)
+                     && (qasm_chain_expectation(&numeric, both_numeric_x, &numeric_xx, &error) == 0L);
+    qasm_test_check(tally,
+                    crossed && qasm_number_equal(&symbolic_xx, &numeric_xx)
+                        && qasm_test_short_is(&symbolic_xx, "1/2sqrt2", &error),
+                    "symbolic: <X0 X1> at w = e^{i pi/4} equals the controlled-T reading, 1/2sqrt2");
+    qasm_test_check(tally, crossed && qasm_number_equal(&symbolic_norm, &qasm_number_one),
+                    "symbolic: the norm at w = e^{i pi/4} is exactly 1");
 
-static unsigned int next_random(unsigned int below)
-{
-    g_seed = (g_seed * 6364136223846793005ull) + 1442695040888963407ull;
-    return (unsigned int)((g_seed >> 33u) % below);
-}
-
-static void random_angle(char *angle, size_t room)
-{
-    const unsigned int form = next_random(3u);
-    if (form == 0u)
-    {
-        snprintf(angle, room, "%d*pi/%u", (int)next_random(17u) - 8, 1u + next_random(12u));
-    }
-    else if (form == 1u)
-    {
-        snprintf(angle, room, "0.%06u", next_random(1000000u));
-    }
-    else
-    {
-        snprintf(angle, room, "-%u.%03u + pi/%u", next_random(4u), next_random(1000u), 1u + next_random(7u));
-    }
-}
-
-static void device_against_host(void)
-{
-    static const char *const ONE[] = {"h", "x", "y", "z", "s", "sdg", "t", "tdg", "sx", "sxdg"};
-    static const char *const ONE_ANGLE[] = {"rx", "ry", "rz", "u1", "p"};
-    static const char *const TWO[] = {"cx", "cz", "cy", "ch", "swap", "csx"};
-    static const char *const TWO_ANGLE[] = {"crx", "cry", "crz", "cu1", "cp", "rzz", "rxx", "ryy"};
-    const unsigned int n = 8u;
-    const unsigned int gates = 200u;
-    char *const text = (char *)malloc(TEXT_ROOM);
-    Text built = {text, 0u};
-    text_add(&built, "%sqreg q[%u];\ncreg c[%u];\n", HEADER, n, n);
-    for (unsigned int gate = 0u; gate < gates; gate += 1u)
-    {
-        const unsigned int a = next_random(n);
-        const unsigned int b = (a + 1u + next_random(n - 1u)) % n;
-        unsigned int c = next_random(n);
-        while ((c == a) || (c == b))
-        {
-            c = (c + 1u) % n;
-        }
-        char one[64];
-        char two[64];
-        char three[64];
-        random_angle(one, sizeof(one));
-        random_angle(two, sizeof(two));
-        random_angle(three, sizeof(three));
-        const unsigned int kind = next_random(8u);
-        if (kind == 0u)
-        {
-            text_add(&built, "%s q[%u];\n", ONE[next_random(10u)], a);
-        }
-        else if (kind == 1u)
-        {
-            text_add(&built, "%s(%s) q[%u];\n", ONE_ANGLE[next_random(5u)], one, a);
-        }
-        else if (kind == 2u)
-        {
-            text_add(&built, "u3(%s,%s,%s) q[%u];\n", one, two, three, a);
-        }
-        else if (kind == 3u)
-        {
-            text_add(&built, "u2(%s,%s) q[%u];\n", one, two, a);
-        }
-        else if (kind == 4u)
-        {
-            text_add(&built, "%s q[%u],q[%u];\n", TWO[next_random(6u)], a, b);
-        }
-        else if (kind == 5u)
-        {
-            text_add(&built, "%s(%s) q[%u],q[%u];\n", TWO_ANGLE[next_random(8u)], one, a, b);
-        }
-        else if (kind == 6u)
-        {
-            text_add(&built, "cu3(%s,%s,%s) q[%u],q[%u];\n", one, two, three, a, b);
-        }
-        else
-        {
-            text_add(&built, "%s q[%u],q[%u],q[%u];\n", (next_random(2u) == 0u) ? "ccx" : "cswap", a, b, c);
-        }
-    }
-    text_add(&built, "measure q -> c;\n");
-    char reason[QASM_REASON_ROOM];
-    QasmCircuit circuit;
-    const int read = read_text("random.qasm", text, &circuit, reason, sizeof(reason));
-    const unsigned long long lanes = 1ull << n;
-    unsigned int *const device_state = (unsigned int *)calloc((size_t)(lanes * QASM_STATE_LIMBS), sizeof(unsigned int));
-    unsigned int *const host_state = (unsigned int *)calloc((size_t)(lanes * QASM_STATE_LIMBS), sizeof(unsigned int));
-    QasmOutcome device;
-    QasmOutcome host;
-    const int ran = read && run(&circuit, 0, &device, device_state) && run(&circuit, 1, &host, host_state);
-    check(ran && (memcmp(device_state, host_state, (size_t)(lanes * QASM_STATE_LIMBS * sizeof(unsigned int))) == 0)
-              && (device.peak == host.peak) && (device.runner_up == host.runner_up)
-              && (memcmp(device.peak_units, host.peak_units, sizeof(device.peak_units)) == 0)
-              && (memcmp(device.slack_units, host.slack_units, sizeof(device.slack_units)) == 0)
-              && (device.proved == host.proved),
-          "random circuit, %u qubits, %u gates (%u rounded): device and host agree word for word", n,
-          read ? circuit.gate_count : 0u, read ? circuit.rounded_gates : 0u);
-    if (!read)
-    {
-        printf("  %s\n", reason);
-    }
-    if (read)
-    {
-        qasm_release(&circuit);
-    }
-    free(device_state);
-    free(host_state);
-    free(text);
-}
-
-int main(int count, char **arguments)
-{
-    const char *const directory = (count > 1) ? arguments[1] : ".";
-    // the job reserves the widest run here: 13 qubits
-    QasmCircuit widest;
+    // The builder session's review found the evaluation forming one power past the highest. w^(bits - 1) at w = 2 is
+    // 2^(bits - 1), which the width holds; the power past it, 2^bits, does not.
+    QasmRationalFunction widest;
     memset(&widest, 0, sizeof(widest));
-    widest.qubits = 13u;
+    QasmNumber two = qasm_number_zero;
+    QasmNumber evaluated = qasm_number_zero;
+    AnchorExactInteger top_bit;
+    anchor_exact_zero(&top_bit);
+    top_bit.limb[ANCHOR_EXACT_LIMBS - 1u] = 0x80000000u;
+    top_bit.sign = 1;
+    AnchorExactInteger unit;
+    anchor_exact_zero(&unit);
+    unit.limb[0] = 1u;
+    unit.sign = 1;
+    // the width's bits are a power of two far below 2^31, so bits - 1 is held whole in an int
+    const int widest_power = (int)(ANCHOR_EXACT_BITS - 1ull);
+    const int widest_read = (qasm_rational_set(&two.real.rational, 2LL, 1LL, &error) == 0L)
+                         && (qasm_rational_function_set(&widest, &qasm_number_one, widest_power, &error) == 0L)
+                         && (qasm_rational_function_evaluate(&widest, &two, &evaluated, &error) == 0L);
+    qasm_test_check(tally,
+                    widest_read && anchor_exact_equal(&evaluated.real.rational.numerator, &top_bit)
+                        && anchor_exact_equal(&evaluated.real.rational.denominator, &unit)
+                        && qasm_rational_is_zero(&evaluated.real.sqrt2)
+                        && qasm_rational_is_zero(&evaluated.imaginary.rational)
+                        && qasm_rational_is_zero(&evaluated.imaginary.sqrt2),
+                    "symbolic: w^(bits - 1) at w = 2 evaluates to 2^(bits - 1), the widest power the width holds");
+    qasm_rational_function_release(&widest);
+
+    EngineError refused;
+    memset(&refused, 0, sizeof(refused));
+    QasmRationalFunction zero_function;
+    QasmRationalFunction inverse;
+    memset(&zero_function, 0, sizeof(zero_function));
+    memset(&inverse, 0, sizeof(inverse));
+    const int zero_set = (qasm_rational_function_set(&zero_function, &qasm_number_zero, 0, &error) == 0L);
+    qasm_test_check(tally,
+                    zero_set
+                        && qasm_test_refused_here(qasm_rational_function_invert(&zero_function, &inverse, &refused),
+                                                  &refused),
+                    "symbolic: inverting zero refuses, a request error from qasm");
+    qasm_test_check(tally, qasm_test_clean(&error), "symbolic: no error was raised on the paths that held");
+    qasm_rational_function_release(&value);
+    qasm_rational_function_release(&norm);
+    qasm_rational_function_release(&xx);
+    qasm_rational_function_release(&zz);
+    qasm_rational_function_release(&x0);
+    qasm_rational_function_release(&xxx);
+    qasm_rational_function_release(&zero_function);
+    qasm_rational_function_release(&inverse);
+    qasm_test_symbols_release(&symbols);
+    qasm_chain_release(&bell);
+    qasm_chain_release(&ghz);
+    qasm_chain_release(&product);
+    qasm_chain_release(&numeric);
+    printf("  symbolic qubits: %llu us\n", engine_clock_microseconds() - start);
+}
+
+static void qasm_test_boundary_lens(QasmTally *tally)
+{
     EngineError error;
     memset(&error, 0, sizeof(error));
-    QasmJob *job = NULL;
-    static const unsigned char named[] = "qasm_test";
-    if (qasm_job_submit(named, sizeof(named) - 1u, qasm_device_bytes(&widest), &job, &error) == QASM_REFUSED)
+    const unsigned long long start = engine_clock_microseconds();
+    // lens_counts: every round from 16 to 30 read 126, 130, 0, 30, 14, 64, 64, True, True
+    int every = 1;
+    for (unsigned int rounds = 16u; rounds <= 30u; rounds += 1u)
     {
-        printf("  FAIL the device's tessera daemon did not admit the test (error kind %d, module %d, site %u)\n",
-               (int)error.kind, (int)error.module, error.site);
-        return 1;
+        const QasmLensRequest request = {13u, 13u, 8u, 6u, 2024ull, 0ull, rounds};
+        QasmLensReading reading;
+        memset(&reading, 0, sizeof(reading));
+        const int read = (qasm_lens_read(&request, &reading, &error) == 0L);
+        const int held = read && (reading.raw_rank == 126u) && (reading.complement == 130u)
+                      && (reading.lift_extra_rank == 0u) && (reading.forward_vanish == 30u)
+                      && (reading.backward_vanish == 14u) && (reading.forward_fiber == 64ull)
+                      && (reading.backward_fiber == 64ull) && (reading.reversible != 0) && (reading.root_stable != 0);
+        if (held == 0)
+        {
+            printf("  round %u: rank %u, complement %u, lift %u, vanish %u and %u, fibers %llu and %llu, clock %d, "
+                   "root %d\n",
+                   rounds, reading.raw_rank, reading.complement, reading.lift_extra_rank, reading.forward_vanish,
+                   reading.backward_vanish, reading.forward_fiber, reading.backward_fiber, reading.reversible,
+                   reading.root_stable);
+        }
+        every = every && held;
     }
-    refusals();
-    bound_formula();
-    known_answers();
-    ties();
-    exact_only();
-    rxx_split();
-    inverse_fourier();
-    measurement();
-    fixtures(directory);
-    device_against_host();
-    EngineError released;
-    memset(&released, 0, sizeof(released));
-    qasm_job_release(job, &released);
-    printf("qasm_test: %u passed, %u failed\n", g_passed, g_failed);
-    return (g_failed == 0u) ? 0 : 1;
+    qasm_test_check(tally, every,
+                    "lens: rounds 16 to 30 each read rank 126, complement 130, lift 0, vanish 30 and 14 of 400, "
+                    "fibers 64 and 64, the clock closed and the root stable, as the Python did");
+    unsigned char clean[ENGINE_SIGNUM_BYTES];
+    unsigned char flipped[ENGINE_SIGNUM_BYTES];
+    const QasmLensRequest seal_request = {13u, 13u, 8u, 6u, 2024ull, 0ull, 30u};
+    qasm_test_check(tally,
+                    (qasm_lens_seal_check(&seal_request, clean, flipped, &error) == 0L)
+                        && (memcmp(clean, flipped, sizeof(clean)) != 0),
+                    "lens: one flipped generator bit changes the seal");
+    EngineError refused;
+    memset(&refused, 0, sizeof(refused));
+    QasmLensReading reading;
+    const QasmLensRequest too_wide = {13u, 13u, 8u, QASM_LENS_BITS_MOST + 1u, 2024ull, 0ull, 30u};
+    qasm_test_check(tally, qasm_test_refused_here(qasm_lens_read(&too_wide, &reading, &refused), &refused),
+                    "lens: an aperture past the widest refuses, a request error from qasm");
+    qasm_test_check(tally, qasm_test_clean(&error), "lens: no error was raised on the paths that held");
+    printf("  boundary lens: %llu us\n", engine_clock_microseconds() - start);
+}
+
+int main(void)
+{
+    QasmTally tally = {0u, 0u};
+    qasm_test_gates();
+    qasm_test_exact_qubits(&tally);
+    qasm_test_mps_qubits(&tally);
+    qasm_test_symbolic_qubits(&tally);
+    qasm_test_boundary_lens(&tally);
+    printf("  qasm test: %u checks, %u failed\n", tally.checks, tally.failed);
+    return (tally.failed == 0u) ? 0 : 1;
 }

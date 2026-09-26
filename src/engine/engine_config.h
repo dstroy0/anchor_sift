@@ -61,7 +61,7 @@ static inline unsigned long long engine_clock_microseconds(void)
 {
     struct timespec now;
     timespec_get(&now, TIME_UTC);
-    // tv_sec and tv_nsec are non-negative after timespec_get; they re-sign to unsigned long long exactly
+    // tv_sec and tv_nsec are non-negative after timespec_get, so they re-sign to unsigned long long exactly
     return ((unsigned long long)now.tv_sec * 1000000ull) + ((unsigned long long)now.tv_nsec / 1000ull);
 }
 
@@ -153,7 +153,7 @@ typedef enum
     ENGINE_MODULE_KEY_SCHEDULE = 7,
     ENGINE_MODULE_RESIDUAL = 8,
     ENGINE_MODULE_GROW = 9,
-    ENGINE_MODULE_KREP = 10,
+    ENGINE_MODULE_APXREP = 10,
     ENGINE_MODULE_COMPRESSION = 11,
     ENGINE_MODULE_TOWER = 12,
     ENGINE_MODULE_ENTROPY_HISTORY = 13,
@@ -163,7 +163,9 @@ typedef enum
     ENGINE_MODULE_OBSIGNATIO = 17,
     ENGINE_MODULE_TESSERA = 18,
     ENGINE_MODULE_PERIOD = 19,
-    ENGINE_MODULE_QASM = 20
+    ENGINE_MODULE_QASM = 20,
+    ENGINE_MODULE_NOISE_DETECTOR = 21,
+    ENGINE_MODULE_DEVICE_POOL = 22
 } EngineModule;
 
 #if defined(_MSC_VER)
@@ -179,7 +181,7 @@ extern const char __ehdr_start;
 #define ENGINE_IMAGE_BASE ((const void *)&__ehdr_start)
 #define ENGINE_RETURN_ADDRESS() ((const void *)__builtin_return_address(0))
 #define ENGINE_NOINLINE __attribute__((noinline))
-// a header helper kept out of line: gcc refuses noinline on an inline function; it is a static marked unused
+// a header helper kept out of line: gcc refuses noinline on an inline function, so it is a static marked unused
 #define ENGINE_NOINLINE_HELPER __attribute__((noinline, unused)) static
 #else
 #error "the engine needs its image base, a return address and noinline from the compiler"
@@ -374,7 +376,7 @@ typedef enum
 // stack in one launch.
 #define ENGINE_RECORD_LIMBS_MOST 256u
 
-// A lookup table's index is the low bits of one register; it fits a single limb.
+// A lookup table's index is the low bits of one register, so it fits a single limb.
 #define ENGINE_RECORD_TABLE_INDEX_BITS_MOST 32u
 
 // The narrowest two's complement wrap, a nibble.
@@ -500,6 +502,10 @@ typedef struct
     unsigned int *grouped;
 } EngineGroupRequest;
 
+// A background order is even on every axis. A smooth order may be odd. An order o's window starts floor((o + 1) / 2)
+// before the voxel: on an axis whose smooth order is odd, both terms and the residual with them sit half a voxel before
+// the voxel of the lane's index. `offset_halves` receives that place per axis in half voxels, -1 on such an axis and 0
+// on the others. A request with an odd smooth order and no `offset_halves` refuses, and the offset is never lost.
 typedef struct
 {
     const unsigned short *volume;
@@ -509,6 +515,7 @@ typedef struct
     unsigned int smooth_orders[ENGINE_AXES];
     unsigned int background_orders[ENGINE_AXES];
     unsigned int unit_sweep;
+    int *offset_halves;
     EngineError *error;
 } EngineResidualRequest;
 
@@ -536,6 +543,89 @@ typedef struct
 {
     unsigned char bytes[ENGINE_SIGNUM_BYTES];
 } EngineSignum;
+
+// A program resident on the device keeps a block: what it is, what the scheduler tells it, where it stands and how it
+// left. The program runs on its own, checks in to its block as it goes, and yields before its time to live runs out,
+// leaving in the block all a launch needs to resume it. The scheduler writes only the command; the program writes the
+// rest while a launch holds the block, and the checksum seals the block whenever none does. Every word is 64 bits, a
+// device address among them, so the host and the device read one layout.
+typedef enum
+{
+    ENGINE_PROGRAM_RUN = 0,
+    ENGINE_PROGRAM_YIELD = 1,
+    ENGINE_PROGRAM_STOP = 2
+} EngineProgramCommand;
+
+// where a program stands: running, yielded to be resumed, waiting for its grant, or one of its exits. A question's exits
+// are true, false, malformed (it built no lattice) and answered (the answer table held it); a sweep's is done, its
+// records written. A waiting program's grant is more than the tally holds free, and it runs once the space frees
+typedef enum
+{
+    ENGINE_PROGRAM_LAID = 0,
+    ENGINE_PROGRAM_RUNNING = 1,
+    ENGINE_PROGRAM_YIELDED = 2,
+    ENGINE_PROGRAM_DONE = 3,
+    ENGINE_PROGRAM_TRUE = 4,
+    ENGINE_PROGRAM_FALSE = 5,
+    ENGINE_PROGRAM_MALFORMED = 6,
+    ENGINE_PROGRAM_ANSWERED = 7,
+    ENGINE_PROGRAM_STOPPED = 8,
+    ENGINE_PROGRAM_FAULT = 9,
+    ENGINE_PROGRAM_WAITING = 10
+} EngineProgramState;
+
+// the blocks one program reads from and is read by, at most
+#define ENGINE_PROGRAM_LINKS 4u
+
+typedef struct
+{
+    // what it is: its signum, the run it was laid for, and the launch that holds it
+    EngineSignum signature;
+    unsigned long long generation;
+    unsigned long long owner;
+    // what the scheduler tells it (EngineProgramCommand), and the grant it is held to: registers a thread, threads a
+    // launch, the local frame's device bytes across them, and the shared memory each thread block holds its registers
+    // in (the tally's measure: exact, from the program's widths)
+    unsigned long long command;
+    unsigned long long grant_registers;
+    unsigned long long grant_threads;
+    unsigned long long grant_bytes;
+    unsigned long long grant_shared;
+    // where it stands (EngineProgramState): the next lane it runs (execaddr), the step it left inside a lane
+    // (evacaddr, 0 where it leaves between lanes), the register map's limbs, and the registers it saved there
+    unsigned long long state;
+    unsigned long long offset;
+    unsigned long long step;
+    unsigned long long span;
+    unsigned long long saved;
+    // its clock, in the device timer's nanoseconds: the time a launch runs before it yields, the check-in the
+    // scheduler holds it to, this launch's start, the time across every launch of the run and this launch's own
+    unsigned long long ttl;
+    unsigned long long wdt;
+    unsigned long long launch_time;
+    unsigned long long runtime;
+    unsigned long long exectime;
+    // its progress: check-ins in order, the last one's time, the launches the run took, its lanes and the refused
+    unsigned long long checkin;
+    unsigned long long checkin_time;
+    unsigned long long launches;
+    unsigned long long lanes;
+    unsigned long long refused;
+    // how it failed: the engine module and the site, as EngineError holds them
+    unsigned long long error_module;
+    unsigned long long error_site;
+    // its wiring: the blocks it reads, the blocks that read it, each link's words produced and consumed, its result
+    // and its length in words, and the block that launched it
+    unsigned long long inputs[ENGINE_PROGRAM_LINKS];
+    unsigned long long outputs[ENGINE_PROGRAM_LINKS];
+    unsigned long long produced[ENGINE_PROGRAM_LINKS];
+    unsigned long long consumed[ENGINE_PROGRAM_LINKS];
+    unsigned long long result;
+    unsigned long long result_words;
+    unsigned long long parent;
+    // CRC-64/XZ over every word above
+    unsigned long long checksum;
+} EngineProgramBlock;
 
 typedef enum
 {

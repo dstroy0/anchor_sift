@@ -65,8 +65,11 @@ int sim_job_submit(SimTally *tally, const char *name, int count, char *const *ar
         bytes += strlen(arguments[at]) + 1ull;
     }
     unsigned char *const request = (unsigned char *)malloc((size_t)bytes);
+    // the context is made before the job asks, so the daemon measures it with the process and counts it beside the
+    // declaration
     int good = (request != NULL) && (declared != 0ull) && sim_job_daemon(daemon, sizeof(daemon))
-            && (cudaGetDevice(&device) == cudaSuccess) && (cudaGetDeviceProperties(&properties, device) == cudaSuccess);
+            && (cudaGetDevice(&device) == cudaSuccess) && (cudaGetDeviceProperties(&properties, device) == cudaSuccess)
+            && (cudaFree(0) == cudaSuccess);
     if (good)
     {
         unsigned long long at_byte = 0ull;
@@ -117,9 +120,10 @@ int sim_job_submit(SimTally *tally, const char *name, int count, char *const *ar
     {
         return 0;
     }
-    printf("  tessera: %s admitted, %llu bytes reserved\n", name, ticket.granted);
+    printf("  tessera: %s admitted, %llu bytes reserved; it declared %llu over the %llu its process held as it asked\n",
+           name, ticket.granted, declared, ticket.standing);
     tally->job = client;
-    tally->job_declared = declared;
+    tally->job_declared = declared + ticket.standing;
     return 1;
 }
 

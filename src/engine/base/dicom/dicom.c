@@ -348,7 +348,7 @@ static int dicom_decimal_align(DicomDecimal *value, long long exponent, EngineEr
     {
         return 0;
     }
-    // the gap is at most ANCHOR_EXACT_DIGITS; it fits a uint32_t exactly
+    // the gap is at most ANCHOR_EXACT_DIGITS, so it fits a uint32_t exactly
     const uint32_t power = (uint32_t)(value->exponent - exponent);
     if (!DICOM_HELD(anchor_exact_scale_by_ten(&value->mantissa, power) == ANCHOR_EXACT_OK, value, error,
                     ENGINE_ERROR_REQUEST))
