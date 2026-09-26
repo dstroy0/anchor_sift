@@ -58,4 +58,6 @@ nav:
   - Home: index.md
   - Setup: setup.md
   - Using it: usage.md
+  - Why the count is exact: ENGINE_PROOF.md
+  - What those proofs license: ENGINE_DIRECTIONS.md
   - Research: research/index.md

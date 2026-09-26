@@ -553,7 +553,7 @@ Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a co
 
 ## Rendering
 
-`render/` turns engine state into an image, as a sheet or a volume, with no export step between the state and the pixels. Each renderer has a host arm in C and a device arm in CUDA that produce the same bytes. A caller uses the dispatch and does not choose an arm. `anchor_raster_render` for a sheet and `anchor_volume_render` for a volume both prefer the device where one is present and fall back to the host where none is. Where a device is present, `bench_raster` grades the two arms against each other byte for byte on every configuration, twenty sheet combinations and twenty volume combinations, and a single differing pixel or voxel is a defect. `docs/rendering.md` is the guide: the configuration structures, the layouts and channels, what each is checked against, and what is not checked.
+`render/` turns engine state into an image, as a sheet or a volume, with no export step between the state and the pixels. Each renderer has a host arm in C and a device arm in CUDA that produce the same bytes. A caller uses the dispatch and does not choose an arm. `anchor_raster_render` for a sheet and `anchor_volume_render` for a volume both prefer the device where one is present and fall back to the host where none is. Where a device is present, `bench_raster` grades the two arms against each other byte for byte on every configuration, twenty sheet combinations and twenty volume combinations, and a single differing pixel or voxel is a defect. `theory/workbooks/anchor_sift/rendering.md` is the guide: the configuration structures, the layouts and channels, what each is checked against, and what is not checked.
 
 ## bench_lattice, where the soundness claim is tested
 
