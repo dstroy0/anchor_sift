@@ -184,8 +184,17 @@ static void cycle_host_put(unsigned int *record, unsigned int offset, unsigned i
 }
 
 static int cycle_host_step(const DeviceRecordStep *step, const unsigned int *atom, unsigned int in_limbs,
-                           const AnchorExactInteger *file, const unsigned int *tables, AnchorExactInteger *value)
+                           const AnchorExactInteger *file, const unsigned int *tables, unsigned long long lane,
+                           AnchorExactInteger *value)
 {
+    if (step->operation == ENGINE_RECORD_LANE)
+    {
+        anchor_exact_zero(value);
+        value->limb[0] = (uint32_t)(lane & 0xFFFFFFFFull);
+        value->limb[1] = (uint32_t)(lane >> 32u);
+        cycle_host_settle(value, 1);
+        return 1;
+    }
     if (step->operation == ENGINE_RECORD_FIELD)
     {
         cycle_host_field(atom, in_limbs, step->left, step->right, step->limbs, value);
@@ -318,8 +327,10 @@ long cycle_record_run_host(const CycleRecordHostRequest *request)
     }
     for (unsigned int member = 0u; member < layout->members; member += 1u)
     {
+        // with no index, lane i reads record i of a member, or its one record where it has one
         if (!CYCLE_HELD((request->in[member] != NULL) && (request->bodies[member] != 0ull)
-                            && ((request->index != NULL) || (request->count <= request->bodies[member])),
+                            && ((request->index != NULL) || (request->count <= request->bodies[member])
+                                || (request->bodies[member] == 1ull)),
                         &request->in[member], error, ENGINE_ERROR_REQUEST))
         {
             return CYCLE_REFUSED;
@@ -346,7 +357,8 @@ long cycle_record_run_host(const CycleRecordHostRequest *request)
         for (unsigned int member = 0u; member < layout->members; member += 1u)
         {
             const unsigned long long body = (request->index != NULL)
-                                          ? (unsigned long long)request->index[(lane * layout->members) + member] : lane;
+                                          ? (unsigned long long)request->index[(lane * layout->members) + member]
+                                          : ((request->bodies[member] == 1ull) ? 0ull : lane);
             // a lane whose index names a record past its member refuses the run, as the device's refused count does
             good = good && CYCLE_HELD(body < request->bodies[member], &request->bodies[member], error,
                                       ENGINE_ERROR_REQUEST);
@@ -359,7 +371,7 @@ long cycle_record_run_host(const CycleRecordHostRequest *request)
             const DeviceRecordStep *const step = &layout->step_table[at];
             // a refused lane (a zero divisor, an inexact quotient) refuses the run, as the device's refused count does
             good = CYCLE_HELD(cycle_host_step(step, atom[step->member], layout->in_limbs[step->member], file,
-                                              layout->table_values, &file[at]),
+                                              layout->table_values, lane, &file[at]),
                               step, error, ENGINE_ERROR_REQUEST)
                 && CYCLE_HELD(cycle_host_fits(&file[at], step->limbs), step, error, ENGINE_ERROR_REQUEST);
             if (good && (step->out_bits != 0u))
@@ -370,4 +382,45 @@ long cycle_record_run_host(const CycleRecordHostRequest *request)
     }
     free(file);
     return good ? (long)request->count : CYCLE_REFUSED;
+}
+
+// 1 where a record's `bits` bits at `offset` are not all zero, as the device's cycle_latch_holds
+static int cycle_host_latch_holds(const unsigned int *record, unsigned int offset, unsigned int bits)
+{
+    unsigned int held = 0u;
+    for (unsigned int bit = offset; bit < (offset + bits);)
+    {
+        const unsigned int shift = bit % 32u;
+        const unsigned int left = offset + bits - bit;
+        const unsigned int taken = (left < (32u - shift)) ? left : (32u - shift);
+        const unsigned int mask = (taken == 32u) ? 0xFFFFFFFFu : (((1u << taken) - 1u) << shift);
+        held |= record[bit / 32u] & mask;
+        bit += taken;
+    }
+    return (held != 0u) ? 1 : 0;
+}
+
+long cycle_record_latch_host(const CycleRecordLatchRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return CYCLE_REFUSED;
+    }
+    EngineError *const error = request->error;
+    if (!CYCLE_HELD((request->records != NULL) && (request->first != NULL) && (request->count != 0ull)
+                        && (request->out_limbs != 0u) && (request->bits != 0u)
+                        && (((unsigned long long)request->offset + request->bits)
+                            <= (32ull * (unsigned long long)request->out_limbs)),
+                    request, error, ENGINE_ERROR_REQUEST))
+    {
+        return CYCLE_REFUSED;
+    }
+    unsigned long long first = CYCLE_LATCH_NONE;
+    for (unsigned long long lane = 0ull; (first == CYCLE_LATCH_NONE) && (lane < request->count); lane += 1ull)
+    {
+        const unsigned int *const record = &request->records[lane * request->out_limbs];
+        first = cycle_host_latch_holds(record, request->offset, request->bits) ? lane : CYCLE_LATCH_NONE;
+    }
+    *request->first = first;
+    return (long)request->count;
 }

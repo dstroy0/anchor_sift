@@ -1198,7 +1198,8 @@ __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
         for (unsigned int member = 0u; member < launch.members; member += 1u)
         {
             const unsigned long long body = (launch.index != NULL)
-                                          ? (unsigned long long)launch.index[(lane * launch.members) + member] : lane;
+                                          ? (unsigned long long)launch.index[(lane * launch.members) + member]
+                                          : ((launch.bodies[member] == 1ull) ? 0ull : lane);
             good = good && (body < launch.bodies[member]);
             atom[member] = &launch.in[member][((good != 0) ? body : 0ull) * launch.in_limbs[member]];
         }
@@ -1238,6 +1239,15 @@ __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
                     value[1] = step.right;
                 }
                 *held = (cycle_record_is_zero(value, step.limbs) != 0) ? 0 : 1;
+            }
+            else if (step.operation == ENGINE_RECORD_LANE)
+            {
+                for (unsigned int limb = 0u; limb < step.limbs; limb += 1u)
+                {
+                    value[limb] = (limb == 0u) ? (unsigned int)(lane & 0xFFFFFFFFull)
+                                               : ((limb == 1u) ? (unsigned int)(lane >> 32u) : 0u);
+                }
+                *held = (lane == 0ull) ? 0 : 1;
             }
             else
             {
@@ -1357,6 +1367,8 @@ extern "C" __device__ void cycle_field(const u32 *atom, u32 in_limbs, u32 offset
 extern "C" __device__ void cycle_field_signed(const u32 *atom, u32 in_limbs, u32 offset, u32 bits, u32 place, u32 limbs);
 
 extern "C" __device__ void cycle_constant(u32 low, u32 high, u32 place, u32 limbs);
+
+extern "C" __device__ void cycle_lane_index(u64 lane, u32 place, u32 limbs);
 
 extern "C" __device__ void cycle_product(u32 place, u32 limbs, u32 left, u32 left_limbs, u32 right, u32 right_limbs);
 
@@ -1850,6 +1862,16 @@ extern "C" __device__ void cycle_constant(u32 low, u32 high, u32 place, u32 limb
         cycle_word(place + at) = (at == 0u) ? low : ((at == 1u) ? high : 0u);
     }
     cycle_sign(place) = (cycle_is_zero(place, limbs) != 0) ? 0 : 1;
+}
+
+// the lane's own number, its two words and every limb above them cleared; never negative
+extern "C" __device__ void cycle_lane_index(u64 lane, u32 place, u32 limbs)
+{
+    for (u32 at = 0u; at < limbs; at += 1u)
+    {
+        cycle_word(place + at) = (at == 0u) ? (u32)(lane & 0xFFFFFFFFull) : ((at == 1u) ? (u32)(lane >> 32u) : 0u);
+    }
+    cycle_sign(place) = (lane == 0ull) ? 0 : 1;
 }
 
 extern "C" __device__ void cycle_product(u32 place, u32 limbs, u32 left, u32 left_limbs, u32 right, u32 right_limbs)
@@ -2376,7 +2398,7 @@ static int cycle_program_step(const EngineRecordLayout *layout, unsigned int at,
     const unsigned int operation = step->operation;
     const unsigned int limbs = step->limbs;
     const int reads_left = (operation != ENGINE_RECORD_FIELD) && (operation != ENGINE_RECORD_FIELD_SIGNED)
-                        && (operation != ENGINE_RECORD_CONSTANT);
+                        && (operation != ENGINE_RECORD_CONSTANT) && (operation != ENGINE_RECORD_LANE);
     // a table reads its source's low limb alone, and key_schedule leaves its left_limbs 0
     const int reads_left_whole = reads_left && (operation != ENGINE_RECORD_TABLE);
     if ((limbs == 0u) || (reads_left && (step->left >= at))
@@ -2413,6 +2435,10 @@ static int cycle_program_step(const EngineRecordLayout *layout, unsigned int at,
     else if (operation == ENGINE_RECORD_CONSTANT)
     {
         cycle_emit(text, "            cycle_constant(%uu, %uu, %uu, %uu);\n", left, right, place, limbs);
+    }
+    else if (operation == ENGINE_RECORD_LANE)
+    {
+        cycle_emit(text, "            cycle_lane_index(lane, %uu, %uu);\n", place, limbs);
     }
     else if ((operation == ENGINE_RECORD_PRODUCT) || (operation == ENGINE_RECORD_COMPARE))
     {
@@ -2558,11 +2584,14 @@ static std::string cycle_program_source(const EngineRecordLayout *layout, const 
     text += "    int good = 1;\n";
     for (unsigned int member = 0u; member < layout->members; member += 1u)
     {
+        // with no index, lane i reads record i of a member, or its one record where it has one
         cycle_emit(text,
-                   "    const u64 body%u = (launch->index != nullptr) ? (u64)launch->index[(lane * %uull) + %uull] : lane;\n"
+                   "    const u64 body%u = (launch->index != nullptr) ? (u64)launch->index[(lane * %uull) + %uull]\n"
+                   "                    : ((launch->bodies[%u] == 1ull) ? 0ull : lane);\n"
                    "    good = ((good != 0) && (body%u < launch->bodies[%u])) ? 1 : 0;\n"
                    "    const u32 *const atom%u = &launch->in[%u][((good != 0) ? body%u : 0ull) * %uull];\n",
-                   member, layout->members, member, member, member, member, member, member, layout->in_limbs[member]);
+                   member, layout->members, member, member, member, member, member, member, member,
+                   layout->in_limbs[member]);
     }
     cycle_emit(text, "    u32 *const record = &launch->out[lane * %uull];\n", layout->out_limbs);
     cycle_emit(text, "    for (u32 limb = 0u; limb < %uu; limb += 1u)\n    {\n", layout->out_limbs);
@@ -3413,8 +3442,10 @@ extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
     memset(&launch, 0, sizeof(launch));
     for (unsigned int member = 0u; member < record->members; member += 1u)
     {
+        // with no index, lane i reads record i of a member, or its one record where it has one
         if (!CYCLE_HELD((request->device_in[member] != NULL) && (request->bodies[member] != 0ull)
-                            && ((request->device_index != NULL) || (request->count <= request->bodies[member])),
+                            && ((request->device_index != NULL) || (request->count <= request->bodies[member])
+                                || (request->bodies[member] == 1ull)),
                         &request->device_in[member], error, ENGINE_ERROR_REQUEST))
         {
             return CYCLE_REFUSED;
@@ -3461,6 +3492,88 @@ extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
                     record->device_refused, error)
       && CYCLE_HELD(refused == 0u, record->device_refused, error, ENGINE_ERROR_REQUEST);
     return (ok != 0) ? (long)request->count : CYCLE_REFUSED;
+}
+
+// 1 where a record's `bits` bits at `offset` are not all zero
+__device__ static int cycle_latch_holds(const unsigned int *record, unsigned int offset, unsigned int bits)
+{
+    unsigned int held = 0u;
+    for (unsigned int bit = offset; bit < (offset + bits);)
+    {
+        const unsigned int shift = bit % 32u;
+        const unsigned int left = offset + bits - bit;
+        const unsigned int taken = (left < (32u - shift)) ? left : (32u - shift);
+        const unsigned int mask = (taken == 32u) ? 0xFFFFFFFFu : (((1u << taken) - 1u) << shift);
+        held |= record[bit / 32u] & mask;
+        bit += taken;
+    }
+    return (held != 0u) ? 1 : 0;
+}
+
+// the latch over the records: each thread scans its lanes from its lowest and stops at the first whose output holds,
+// each warp takes the least of its threads' by a tree of shuffles, and each warp's goes to one atomic minimum over the
+// device. Every thread of a warp reaches the shuffles, the block being whole warps
+__global__ static void cycle_latch_kernel(const unsigned int *records, unsigned long long count, unsigned int out_limbs,
+                                          unsigned int offset, unsigned int bits, unsigned long long *first)
+{
+    const unsigned long long stride = (unsigned long long)gridDim.x * blockDim.x;
+    unsigned long long found = CYCLE_LATCH_NONE;
+    for (unsigned long long lane = ((unsigned long long)blockIdx.x * blockDim.x) + threadIdx.x;
+         (found == CYCLE_LATCH_NONE) && (lane < count); lane += stride)
+    {
+        found = (cycle_latch_holds(&records[lane * out_limbs], offset, bits) != 0) ? lane : CYCLE_LATCH_NONE;
+    }
+    for (unsigned int reach = 16u; reach > 0u; reach /= 2u)
+    {
+        const unsigned long long other = __shfl_down_sync(0xFFFFFFFFu, found, reach);
+        found = (other < found) ? other : found;
+    }
+    if (((threadIdx.x % 32u) == 0u) && (found != CYCLE_LATCH_NONE))
+    {
+        atomicMin(first, found);
+    }
+}
+
+static_assert((CYCLE_BLOCK % 32u) == 0u, "cycle: the latch's thread blocks are whole warps");
+
+extern "C" long cycle_record_latch(const CycleRecordLatchRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return CYCLE_REFUSED;
+    }
+    EngineError *const error = request->error;
+    if (!CYCLE_HELD((request->records != NULL) && (request->first != NULL) && (request->count != 0ull)
+                        && (request->out_limbs != 0u) && (request->bits != 0u)
+                        && (((unsigned long long)request->offset + request->bits)
+                            <= (32ull * (unsigned long long)request->out_limbs)),
+                    request, error, ENGINE_ERROR_REQUEST))
+    {
+        return CYCLE_REFUSED;
+    }
+    unsigned long long *device_first = NULL;
+    unsigned long long first = CYCLE_LATCH_NONE;
+    const unsigned long long needed = (request->count + CYCLE_BLOCK - 1ull) / CYCLE_BLOCK;
+    const unsigned int blocks = (unsigned int)((needed < CYCLE_RECORD_BLOCKS_MOST) ? needed : CYCLE_RECORD_BLOCKS_MOST);
+    int ok = CYCLE_TOOK(cudaMalloc((void **)&device_first, sizeof(unsigned long long)), &device_first, error)
+          && CYCLE_TOOK(cudaMemcpy(device_first, &first, sizeof(unsigned long long), cudaMemcpyHostToDevice),
+                        device_first, error);
+    if (ok != 0)
+    {
+        cycle_latch_kernel<<<blocks, CYCLE_BLOCK>>>(request->records, request->count, request->out_limbs,
+                                                    request->offset, request->bits, device_first);
+    }
+    ok = ok && CYCLE_TOOK(cudaGetLastError(), device_first, error)
+      && CYCLE_TOOK(cudaDeviceSynchronize(), device_first, error)
+      && CYCLE_TOOK(cudaMemcpy(&first, device_first, sizeof(unsigned long long), cudaMemcpyDeviceToHost), device_first,
+                    error);
+    cudaFree(device_first);
+    if (ok == 0)
+    {
+        return CYCLE_REFUSED;
+    }
+    *request->first = first;
+    return (long)request->count;
 }
 
 extern "C" long cycle_run(const CycleRunRequest *request)

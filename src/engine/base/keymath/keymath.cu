@@ -240,16 +240,16 @@ static int keymath_record_reads(EngineRecordOperation operation)
 }
 
 // whether a step's register is never negative, read from its operation and its operands': a field read unsigned, a
-// constant, an absolute value, a gcd and a table's entry are never negative; so are a sum, product, quotient, exact
-// quotient or xor of two such, a remainder of one such (it carries the numerator's sign), an and with one such, and a
-// wrap that passes one such through unchanged
+// constant, an absolute value, a gcd, a table's entry and the lane's number are never negative; so are a sum, product,
+// quotient, exact quotient or xor of two such, a remainder of one such (it carries the numerator's sign), an and with
+// one such, and a wrap that passes one such through unchanged
 static char keymath_never_negative(const EngineRecordStep &doing, const std::vector<char> &never_negative,
                                    int wrap_passes)
 {
     const EngineRecordOperation operation = doing.operation;
     if ((operation == ENGINE_RECORD_FIELD) || (operation == ENGINE_RECORD_CONSTANT)
         || (operation == ENGINE_RECORD_ABSOLUTE) || (operation == ENGINE_RECORD_GCD)
-        || (operation == ENGINE_RECORD_TABLE))
+        || (operation == ENGINE_RECORD_TABLE) || (operation == ENGINE_RECORD_LANE))
     {
         return 1;
     }
@@ -535,6 +535,14 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
                 return KEYMATH_REFUSED;
             }
             term.bits = table.out_bits;
+        }
+        else if (doing.operation == ENGINE_RECORD_LANE)
+        {
+            // the lane's number is known only at the sweep, so its register holds any lane a sweep can count; it reads
+            // nothing, and the step's left and right name nothing
+            term.bits = ENGINE_RECORD_LANE_BITS;
+            term.left = 0u;
+            term.right = 0u;
         }
         else
         {

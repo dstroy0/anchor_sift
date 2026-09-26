@@ -73,6 +73,29 @@ typedef struct
 
 long cycle_record_run_host(const CycleRecordHostRequest *request);
 
+// the latch's answer where no lane's output holds: the minimum over no lane, infinity
+#define CYCLE_LATCH_NONE 0xFFFFFFFFFFFFFFFFull
+
+// The latch: the first of `count` records whose output at bit `offset`, `bits` wide, is not zero, the least such lane,
+// or CYCLE_LATCH_NONE where no lane's is; the output is a program's condition, and it holds where it is not zero. The
+// minimum is associative, commutative and idempotent, so any grouping returns the lane a serial scan from lane 0 does.
+// cycle_record_latch reads records in device memory by a tree over each warp and one atomic minimum over the device,
+// and only the lane comes back to the host; cycle_record_latch_host reads records in host memory by that serial scan.
+typedef struct
+{
+    const unsigned int *records;
+    unsigned long long count;
+    unsigned int out_limbs;
+    unsigned int offset;
+    unsigned int bits;
+    unsigned long long *first;
+    EngineError *error;
+} CycleRecordLatchRequest;
+
+long cycle_record_latch(const CycleRecordLatchRequest *request);
+
+long cycle_record_latch_host(const CycleRecordLatchRequest *request);
+
 #ifdef __cplusplus
 }
 #endif

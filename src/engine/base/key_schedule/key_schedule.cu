@@ -132,8 +132,8 @@ typedef struct
     unsigned int limbs;
 } KeyScheduleBlock;
 
-// The step indices a term reads, so a register can be freed once its last reader has run. A field or
-// constant reads no register; a table, an absolute and a wrap read one; the rest read two.
+// The step indices a term reads, so a register can be freed once its last reader has run. A field, a
+// constant and the lane's number read no register; a table, an absolute and a wrap read one; the rest read two.
 static unsigned int key_schedule_refs(const EngineRecordTerm *term, unsigned int *refs)
 {
     if ((term->operation == ENGINE_RECORD_PRODUCT) || (term->operation == ENGINE_RECORD_SUM)
@@ -342,6 +342,12 @@ extern "C" long key_schedule_record_lay(const KeyScheduleRecordRequest *request)
             device.left_limbs = steps[term.left].limbs;
             device.right_limbs = steps[term.right].limbs;
             device.wrap_bits = (unsigned int)term.constant;
+        }
+        else if (term.operation == ENGINE_RECORD_LANE)
+        {
+            // the lane's number reads no register, so the step carries no operand's limbs
+            device.left_limbs = 0u;
+            device.right_limbs = 0u;
         }
         else
         {

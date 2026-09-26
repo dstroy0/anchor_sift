@@ -365,7 +365,10 @@ typedef enum
     // the two's complement wrap of the left register to `right` bits, ENGINE_RECORD_WRAP_BITS_LEAST or more: the
     // value modulo 2^right, read back signed, in [-2^(right - 1), 2^(right - 1)). The unsigned residue is the and
     // with the mask 2^right - 1.
-    ENGINE_RECORD_WRAP = 17
+    ENGINE_RECORD_WRAP = 17,
+    // the lane's own number, the one a sweep runs the lane as, never negative and ENGINE_RECORD_LANE_BITS wide. It
+    // reads no register and no field, so one shared record and the lanes enumerate a range with nothing stored a lane.
+    ENGINE_RECORD_LANE = 18
 } EngineRecordOperation;
 
 #define ENGINE_GOLDEN_RUNGS 92u
@@ -381,6 +384,9 @@ typedef enum
 
 // The narrowest two's complement wrap, a nibble.
 #define ENGINE_RECORD_WRAP_BITS_LEAST 4u
+
+// A lane's number is a sweep's 64-bit count, and its register is that wide: two limbs.
+#define ENGINE_RECORD_LANE_BITS 64u
 
 #define ENGINE_RECORD_MEMBERS_MAX 3u
 

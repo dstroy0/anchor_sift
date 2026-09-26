@@ -51,6 +51,7 @@ imprint derives them from the operands (`keymath_record_imprint`), and no width 
 | `ENGINE_RECORD_XOR` | `left`, `right` | left xor right, on the two's complement of each, sign-extended without end | the wider operand + 1; the wider operand where both are never negative |
 | `ENGINE_RECORD_AND` | `left`, `right` | left and right, the same way | the wider operand + 1; the never-negative operand's width where one is, the narrower where both are |
 | `ENGINE_RECORD_WRAP` | `left`, and `right` as a width of 4 or more | left modulo 2^right, read back signed, in [−2^(right − 1), 2^(right − 1)) | the fewer of left's width and `right` |
+| `ENGINE_RECORD_LANE` | nothing | the lane's own number ℓ, the one the sweep runs it as, never negative | 64 (`ENGINE_RECORD_LANE_BITS`) |
 
 A register of 0 bits is given 1.
 
@@ -72,6 +73,7 @@ The imprint knows some registers are **never negative**:
 - an absolute value;
 - a gcd;
 - a table's entry;
+- the lane's number;
 - a sum, product, quotient, exact quotient or xor of two never-negative registers;
 - a remainder of a never-negative register;
 - an and with a never-negative register.
@@ -144,9 +146,12 @@ engine_record_host(&request, &sweep);  // the same program on the host, from the
 
 - `magnitudes[m]` is member m's records on the host, and `bodies[m]` is how many there are. The sweep copies
   them to the device itself.
-- With `index` NULL, lane i reads record i of every member. With an index, lane i reads record
-  `index[i · members + m]` of member m. That is how one record is shared by every lane, or how a lane gathers
-  its inputs from anywhere in a member. An index names a record by a 32-bit number.
+- With `index` NULL, lane i reads record i of each member, or the member's one record where it holds only one. One
+  shared record is then read by every lane with nothing stored a lane, and with the lane's own number
+  (`ENGINE_RECORD_LANE`) the lanes enumerate a range from it: x = base + ℓ. With an index, lane i reads record
+  `index[i · members + m]` of member m. That is how a lane gathers its inputs from anywhere in a member. An index
+  names a record by a 32-bit number, and the lane's number is still i, not the record it reads. With no index, a
+  member holding more than one record and fewer than the lanes refuses the sweep before any lane runs.
 - `out` receives `lanes` output records.
 - A lane is **refused** when a division meets a zero divisor, an exact quotient meets a remainder, a ladder's
   `right` is not positive, a value outgrows its register, or an index names a record past its member. One
@@ -161,6 +166,27 @@ There is no step limit. With `reuse` set, the register file holds only a floor's
 in flight. One sweep then runs the whole stack in one launch. `test/record_bitwise_test` stacks 700 floors, 4,204
 steps, in an 8-limb file. An iteration whose length depends on the data sweeps again, with this sweep's outputs
 as the next sweep's members.
+
+## The latch
+
+The latch is the first lane that meets a condition: min{ℓ : cond(ℓ)}, or none. A program makes its condition an
+output, such as the selector `[a > b]` above, 0 or 1. `cycle_record_latch` (`base/cycle/cycle.h`) reads a sweep's
+records where they lie on the device and returns the least lane whose output at `offset`, `bits` wide, is not zero,
+or `CYCLE_LATCH_NONE` where no lane's is:
+- each thread scans its lanes from its lowest and stops at its first hit;
+- each warp takes the least of its threads' by a tree of shuffles;
+- one atomic minimum takes the least of the warps'.
+
+Only the lane comes back to the host. The minimum is associative, commutative and idempotent, so this grouping
+returns the lane a serial scan from lane 0 returns. `cycle_record_latch_host` is that scan, over records on the host.
+The latch is a call on `base/cycle`. `engine_record_sweep` copies every record back to the host, and a latch through
+the engine's own entry is not built.
+
+`test/record_lane_test` enumerates x = base + ℓ over 65,536 lanes of one shared record and latches the first lane
+whose hash of x falls under T, with base and T in that record. At six thresholds, from every lane to none, the device
+latch over the interpreter's records and over the compiled program's, the host's scan and the host's own arithmetic
+return the same lane. The host, the interpreter and the compiled program agree word for word. Over 2^24 lanes on the
+device alone, the latch returns lane 428,243, which the host's arithmetic finds first. 17 checks, 0 failed.
 
 ## Tables
 
@@ -198,7 +224,7 @@ and sign(x') in bits 34 to 35, a 2-limb record. The index pairs every body with 
 
 `test/record_guide_test` runs this program over 1,000 bodies with dt = 37. The device's records equal the host's
 word for word, and every x' and sign decode to the arithmetic done directly. A version whose step 6 read itself
-is refused at imprint, and an index past its member is refused at the sweep. 11 checks, 0 failed.
+is refused at imprint, and an index past its member is refused at the sweep. 12 checks, 0 failed.
 
 ## The machine's files
 
