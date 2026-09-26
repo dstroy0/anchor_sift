@@ -3,11 +3,11 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOP="$(cd "$TEST/.." && pwd)"
-MODULE="$TOP/anchor_sift/src/engine/base/period"
-DEVICE_POOL="$TOP/anchor_sift/src/engine/base/device_pool"
-NO_ROUNDING="$TOP/anchor_sift/src/engine/base/no_rounding"
-SCRIPTURA="$TOP/anchor_sift/src/engine/base/scriptura"
+TOP="$(cd "$TEST/../.." && pwd)"
+MODULE="$TOP/src/engine/base/period"
+DEVICE_POOL="$TOP/src/engine/base/device_pool"
+NO_ROUNDING="$TOP/src/engine/base/no_rounding"
+SCRIPTURA="$TOP/src/engine/base/scriptura"
 source "$TOP/maint/build_stamp.sh"
 source "$TOP/maint/tessera_build.sh"
 build_stamp period_test
@@ -44,7 +44,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/anchor_sift/src/engine" -I "$MODULE" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$TOP/src/engine" -I "$MODULE" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()
@@ -67,7 +67,7 @@ done
 tessera_build period "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/period_test.cu" "$TOP/anchor_sift/src/engine/sims/sim_job.cu" "$MODULE/period.cu" "$DEVICE_POOL/device_pool.cu" \
+    "$TEST/period_test.cu" "$TOP/src/engine/sims/sim_job.cu" "$MODULE/period.cu" "$DEVICE_POOL/device_pool.cu" \
     "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
 if [ "${BUILD_ONLY:-0}" = "1" ]; then

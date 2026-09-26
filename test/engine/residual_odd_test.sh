@@ -3,14 +3,14 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOP="$(cd "$TEST/.." && pwd)"
-CYCLE="$TOP/engine/base/cycle"
-KEYMATH="$TOP/engine/base/keymath"
-KEY_SCHEDULE="$TOP/engine/base/key_schedule"
-RESIDUAL="$TOP/engine/base/residual"
-UNIT_SWEEP="$TOP/engine/base/unit_sweep"
-NO_ROUNDING="$TOP/engine/base/no_rounding"
-SCRIPTURA="$TOP/engine/base/scriptura"
+TOP="$(cd "$TEST/../.." && pwd)"
+CYCLE="$TOP/src/engine/base/cycle"
+KEYMATH="$TOP/src/engine/base/keymath"
+KEY_SCHEDULE="$TOP/src/engine/base/key_schedule"
+RESIDUAL="$TOP/src/engine/base/residual"
+UNIT_SWEEP="$TOP/src/engine/base/unit_sweep"
+NO_ROUNDING="$TOP/src/engine/base/no_rounding"
+SCRIPTURA="$TOP/src/engine/base/scriptura"
 source "$TOP/maint/build_stamp.sh"
 source "$TOP/maint/tessera_build.sh"
 build_stamp residual_odd_test
@@ -47,7 +47,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$RESIDUAL" -I "$UNIT_SWEEP"
+INCLUDES=(-I "$TOP/src/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$RESIDUAL" -I "$UNIT_SWEEP"
           -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
@@ -71,7 +71,7 @@ done
 tessera_build odd "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/residual_odd_test.cu" "$TOP/engine/sims/sim_job.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" \
+    "$TEST/residual_odd_test.cu" "$TOP/src/engine/sims/sim_job.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" \
     "$KEY_SCHEDULE/key_schedule.cu" "$RESIDUAL/residual.cu" "$UNIT_SWEEP/unit_sweep.cu" "${OBJECTS[@]}" \
     "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
