@@ -15,7 +15,8 @@
 #
 # WHAT DOES NOT MOVE
 #
-# book and prose already exist and hold symlinks into anchor_sift. book\build_theory.sh derives the
+# research_paper and prose already exist and hold symlinks into anchor_sift.
+# research_paper\build_theory.sh derives the
 # repository root with dirname "$0"/../.., which is only correct at exactly that depth, so moving it
 # deeper would break it silently. Both stay where they are.
 
@@ -50,7 +51,7 @@ $sorting = @{
     )
     "hardware" = @("batch_invariant.py", "compressor_test.py")
     "chain" = @("fetch_blocks.py", "blocks.json")
-    "book" = @("build_bibliography.py")
+    "research_paper" = @("build_bibliography.py")
     "maint" = @("link_shared.ps1", "link_viz.ps1", "reorganize_src.ps1")
 }
 

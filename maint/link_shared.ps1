@@ -16,7 +16,7 @@
 #
 # It derives its root with cd "$(dirname "$0")/../..". A shell sets $0 to the path as invoked and
 # does not resolve it through the link, so running it from this repository as
-# tools/book/build_theory.sh gives dirname tools/book, a real directory here, and ../.. lands back
+# tools/research_paper/build_theory.sh gives dirname tools/research_paper, a real directory here, and ../.. lands back
 # at this repository instead of at anchor_sift. The invocation carries the location.
 #
 # WHAT THIS COSTS
@@ -35,7 +35,7 @@ $here = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 #
 # The loop below removes the existing link or file and then creates the replacement. Windows refuses
 # symlink creation to an unelevated process, so run without elevation the remove succeeded and the
-# create failed, and tools\book\build_theory.sh went from a stale link to no file at all - a script
+# create failed, and the build_theory.sh link went from a stale link to no file at all - a script
 # meant to repair links deleted one. The header has said "Run elevated" since it was written, which
 # is exactly the kind of instruction that does not survive being ignored once.
 #
@@ -78,7 +78,7 @@ $shared = @(
     @{ mine = "theory\preamble.tex";            name = "preamble.tex";    root = $anchor },
     @{ mine = "theory\macros.tex";              name = "macros.tex";      root = $anchor; under = "theory" },
     @{ mine = "theory\cryptography\macros.tex"; name = "macros.tex";      root = $anchor; under = "cryptography" },
-    @{ mine = "tools\book\build_theory.sh";     name = "build_theory.sh"; root = $anchor },
+    @{ mine = "tools\research_paper\build_theory.sh"; name = "build_theory.sh"; root = $anchor },
     @{ mine = "tools\prose\docs_check.py";      name = "docs_check.py";   root = $repotools }
 )
 
@@ -151,8 +151,8 @@ foreach ($one in $shared)
     # not exist is created without complaint by Windows and by every other system, so "link" printed
     # in green has never meant the file is reachable - only that a link object now sits there.
     #
-    # That gap is not hypothetical here. anchor_sift renamed maint\book to maint\tex_book and
-    # tools\book\build_theory.sh dangled for a day, while REPRODUCE.md went on telling a reader to
+    # That gap is not hypothetical here. anchor_sift moved its research paper build scripts and
+    # the build_theory.sh link dangled for a day, while REPRODUCE.md went on telling a reader to
     # run it. Nothing noticed until a scanner crashed opening it. The search above is what makes the
     # link survive a rename, but only once someone re-runs this; until then a stale link is the one
     # state this script cannot see and a reader hits first.

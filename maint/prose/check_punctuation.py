@@ -46,8 +46,8 @@ SKIP = {".git", "build", "__pycache__", "node_modules", "logs", "audit", "figure
 def scan(path):
     findings = []
     # A dangling symlink appears in a directory listing and cannot be opened. os.walk reports the
-    # name, so the first run of this crashed on tools/book/build_theory.sh, which is a broken link
-    # that README.md and REPRODUCE.md both tell a reader to run. Reporting it beats dying on it.
+    # name. The first run of this crashed on the build_theory.sh link, which was dangling while
+    # README.md and REPRODUCE.md both told a reader to run it. Reporting it beats dying on it.
     if not os.path.isfile(path):
         findings.append((0, "unreadable, a dangling link or a vanished file", "n/a", 0))
         return findings
