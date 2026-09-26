@@ -447,6 +447,22 @@ def is_generated(path):
     place to remember something and the marker is already there. SKIP cannot reach this case: it
     filters directories, and this is a generated file inside a directory that is kept.
     """
+    # The theory books hold no TeX comments, and their generated files carry no marker line. Two
+    # kinds are known by where they sit: the sha256 bibliography, and every chapter theory_tex.py
+    # writes, which is every file in the chapters/ of a README book under workbooks/ or
+    # thought_experiments/.
+    normal = os.path.abspath(path).replace("\\", "/")
+    if normal.endswith("/cryptography/sha256/chapters/chapter_sources.tex"):
+        return True
+    chapters = os.path.dirname(os.path.abspath(path))
+    book = os.path.dirname(chapters)
+    if (
+        normal.endswith(".tex")
+        and os.path.basename(chapters) == "chapters"
+        and os.path.basename(os.path.dirname(book)) in ("workbooks", "thought_experiments")
+        and os.path.isfile(os.path.join(book, "README.md"))
+    ):
+        return True
     try:
         with io.open(path, encoding="utf-8", errors="replace") as handle:
             return bool(GENERATED.match(handle.readline()))
