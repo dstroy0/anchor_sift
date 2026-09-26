@@ -77,6 +77,22 @@
 
 #define TERMS_EXPOSURES 2ull
 
+// thinning: 64 electrons of light, each counted electron kept with chance a / 4 for a from 1 to 4
+#define TERMS_THIN_LIGHT 64ull
+
+#define TERMS_THIN_BITS 2u
+
+#define TERMS_THIN_STEPS 4ull
+
+// optical crosstalk: (1, 2, 1) / 4 along x over a plant along x of period 16 and amplitude 64
+#define TERMS_BLUR_EIGHTHS 2ull
+
+#define TERMS_BLUR_PERIOD 16ull
+
+#define TERMS_BLUR_AMPLITUDE 64ull
+
+#define TERMS_BLUR_KEY 0x424C5552ull
+
 static const unsigned long long TERMS_EXTENT[4] = {TERMS_FRAMES, TERMS_DEPTH, TERMS_HEIGHT, TERMS_WIDTH};
 
 static void terms_within(SimTally *tally, const char *what, long long read, long long expected, long long reach)
@@ -288,11 +304,23 @@ static void terms_ratio_within(SimTally *tally, const char *what, const AnchorEx
     scriptura_text(line, ": read ");
     sim_ratio_print(line, numerator, denominator, 4u);
     scriptura_text(line, ", the plant predicts ");
-    scriptura_signed(line, expected_numerator);
-    if (expected_denominator != 1ull)
+    // printed in lowest terms: a magnitude below 2^63 re-signs exactly
+    unsigned long long common = (expected_numerator < 0ll) ? (unsigned long long)(-expected_numerator)
+                                                          : (unsigned long long)expected_numerator;
+    unsigned long long other = expected_denominator;
+    while (other != 0ull)
+    {
+        const unsigned long long rest = common % other;
+        common = other;
+        other = rest;
+    }
+    common = (common == 0ull) ? 1ull : common;
+    // the common factor divides the numerator's magnitude, so the quotient keeps its sign and range
+    scriptura_signed(line, expected_numerator / (long long)common);
+    if ((expected_denominator / common) != 1ull)
     {
         scriptura_character(line, '/');
-        scriptura_decimal(line, expected_denominator, 1u);
+        scriptura_decimal(line, expected_denominator / common, 1u);
     }
     scriptura_text(line, " within ");
     scriptura_decimal(line, reach_numerator, 1u);
@@ -458,6 +486,73 @@ static void terms_charge(SimTally *tally, const unsigned short *bias, const unsi
     {
         terms_ratio_within(tally, "g, their ratio", &reading.gain, &reading.gain_denominator, gain, 1ull, 1ull, 300ull);
     }
+}
+
+// C16 read back (build plan item 38). A lit series against the bias, as C14 reads a dark one: the lit mean less the
+// bias's is g q S and the lit E[d^2] / 2 less the bias's is g^2 f' q S, so their ratio is g f'. A count of Fano factor
+// f thinned by q holds f' - 1 = q (f - 1), and where the excess follows the thinning, f' = F^2 f at every q. The
+// standard error of the ratio is under 1/1000 in every run here, so a reach of 1/200 is at least 5 of them.
+static void terms_thinned(SimTally *tally, const unsigned short *bias, const unsigned short *lit, long long expected,
+                          unsigned long long expected_denominator)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseChargeReading reading;
+    const int good = noise_charge_series(bias, lit, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good && (reading.gain_read != 0), "the charge pass read the lit series against the bias");
+    if ((good == 0) || (reading.gain_read == 0))
+    {
+        return;
+    }
+    terms_ratio_within(tally, "  g f', the lit ratio", &reading.gain, &reading.gain_denominator, expected,
+                       expected_denominator, 1ull, 200ull);
+}
+
+// Row 16 read back: the light is blurred before the draw, so every column's mean over the frames, z and y is the
+// offset, the pattern's column mean and g times the blurred light, within 1/8 of a lane unit, 6 to 8 standard errors
+// over its 393,216 voxel-frames at levels 120 to 184; and the kernel moves the planted light by more than 1
+// somewhere.
+static void terms_blur(SimTally *tally, const unsigned short *lanes, const SimScene *scene, const SimCamera *camera)
+{
+    const unsigned long long plane = TERMS_HEIGHT * TERMS_WIDTH;
+    const unsigned long long voxels = TERMS_DEPTH * plane;
+    const unsigned long long samples = TERMS_FRAMES * TERMS_DEPTH * TERMS_HEIGHT;
+    unsigned long long worst = 0ull;
+    unsigned long long moved = 0ull;
+    for (unsigned long long x = 0ull; x < TERMS_WIDTH; x += 1ull)
+    {
+        // a column index is far below 2^63
+        const long long place[SIM_AXES] = {0ll, 0ll, (long long)x};
+        const unsigned long long light = sim_light(scene, camera, 0ull, place);
+        const unsigned long long planted = sim_signal(scene, 0ull, place);
+        const unsigned long long shift = (light > planted) ? (light - planted) : (planted - light);
+        moved = (shift > moved) ? shift : moved;
+        unsigned long long pattern = 0ull;
+        unsigned long long total = 0ull;
+        for (unsigned long long z = 0ull; z < TERMS_DEPTH; z += 1ull)
+        {
+            for (unsigned long long y = 0ull; y < TERMS_HEIGHT; y += 1ull)
+            {
+                const unsigned long long voxel = (((z * TERMS_HEIGHT) + y) * TERMS_WIDTH) + x;
+                pattern += sim_pattern(camera, voxel);
+                for (unsigned long long frame = 0ull; frame < TERMS_FRAMES; frame += 1ull)
+                {
+                    total += lanes[(frame * voxels) + voxel];
+                }
+            }
+        }
+        const unsigned long long expected = (samples * (camera->offset + (camera->gain * light)))
+                                          + (TERMS_FRAMES * pattern);
+        const unsigned long long apart = (total > expected) ? (total - expected) : (expected - total);
+        worst = (apart > worst) ? apart : worst;
+    }
+    scriptura_text(&tally->line, "    the worst column's mean less the blurred light's: ");
+    sim_fraction_print(&tally->line, worst, samples, 4u);
+    scriptura_text(&tally->line, " lane units; the kernel moves the planted light by up to ");
+    scriptura_decimal(&tally->line, moved, 1u);
+    scriptura_text(&tally->line, " electrons\n");
+    sim_check(tally, (8ull * worst) <= samples, "every column's mean is the blurred light's within 1/8");
+    sim_check(tally, moved > 1ull, "the kernel moves the planted light by more than 1 somewhere");
 }
 
 // The clip pass against the plant: spikes at 128 in one voxel-frame of 1024, dips never. At 16 and 32 a symmetric
@@ -810,9 +905,80 @@ int main(void)
                     terms_charge(&tally, bias, lanes, &camera);
                 }
             }
+            sim_flush(&tally);
+            scriptura_text(&tally.line, "  thinning: 64 electrons of light against the same bias, each counted electron"
+                                        " kept with chance q = a/4; g f' = g (1 + q (f - 1))\n");
+            camera.dark = 0ull;
+            scene.background = TERMS_THIN_LIGHT;
+            const unsigned long long thin_laws[3] = {SIM_SHOT_POISSON, SIM_SHOT_HALF, SIM_SHOT_PAIRED};
+            // each law's Fano factor, a numerator over a denominator
+            const long long fano_numerator[3] = {1ll, 1ll, 2ll};
+            const long long fano_denominator[3] = {1ll, 2ll, 1ll};
+            const char *const thin_names[3] = {"    the Poisson count, f = 1\n", "    Binomial(2S, 1/2), f = 1/2\n",
+                                               "    twice a Poisson count of pairs, f = 2\n"};
+            for (unsigned int law = 0u; law < 3u; law += 1u)
+            {
+                scriptura_text(&tally.line, thin_names[law]);
+                camera.shot = thin_laws[law];
+                camera.keep_bits = TERMS_THIN_BITS;
+                for (unsigned long long keep = 1ull; keep <= TERMS_THIN_STEPS; keep += 1ull)
+                {
+                    camera.key = TERMS_KEY + (16ull * (law + 1ull)) + keep;
+                    camera.keep_numerator = keep;
+                    scriptura_text(&tally.line, "    q = ");
+                    scriptura_decimal(&tally.line, keep, 1u);
+                    scriptura_text(&tally.line, "/4\n");
+                    if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+                    {
+                        // g (4 d + a (n - d)) / (4 d), each term a few units
+                        const long long denominator = 4ll * fano_denominator[law];
+                        const long long numerator = (long long)camera.gain
+                                                  * (denominator + ((long long)keep
+                                                                    * (fano_numerator[law] - fano_denominator[law])));
+                        terms_thinned(&tally, bias, lanes, numerator, (unsigned long long)denominator);
+                    }
+                }
+                sim_flush(&tally);
+            }
+            scriptura_text(&tally.line, "    the Poisson count thinned, then the excess, F^2 = 2: g f' = 2 g at every q\n");
+            camera.shot = SIM_SHOT_POISSON;
+            camera.excess = 1u;
+            for (unsigned long long keep = 1ull; keep <= TERMS_THIN_STEPS; keep += 3ull)
+            {
+                camera.key = TERMS_KEY + 128ull + keep;
+                camera.keep_numerator = keep;
+                scriptura_text(&tally.line, "    q = ");
+                scriptura_decimal(&tally.line, keep, 1u);
+                scriptura_text(&tally.line, "/4\n");
+                if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+                {
+                    // the gain is a small positive constant
+                    terms_thinned(&tally, bias, lanes, 2ll * (long long)camera.gain, 1ull);
+                }
+            }
         }
         free(bias);
         scene.background = TERMS_BACKGROUND;
+        sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  optical crosstalk: a plant along x of period 16 and amplitude 64 over 100 electrons,"
+                                    " blurred by (1, 2, 1)/4 along x before the draw\n");
+        terms_camera(&camera);
+        camera.blur_eighths = TERMS_BLUR_EIGHTHS;
+        scene.plant_axis = 2u;
+        scene.plant_period = TERMS_BLUR_PERIOD;
+        scene.plant_amplitude = TERMS_BLUR_AMPLITUDE;
+        scene.plant_key = TERMS_BLUR_KEY;
+        if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+        {
+            terms_blur(&tally, lanes, &scene, &camera);
+            terms_neighbours(&tally, lanes, 0ll);
+            terms_crosstalk(&tally, lanes, 0ull);
+        }
+        scene.plant_period = 0ull;
+        scene.plant_amplitude = 0ull;
         sim_flush(&tally);
     }
     cudaFree(device_lanes);

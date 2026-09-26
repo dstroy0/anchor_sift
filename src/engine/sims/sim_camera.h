@@ -30,12 +30,23 @@
 
 #define SIM_RESET_PURPOSE 0x5245534554ull
 
+#define SIM_THIN_PURPOSE 0x5448494Eull
+
+#define SIM_EXCESS_PURPOSE 0x455843455353ull
+
 // the camera's shot laws, 0 for none: sim_poisson_four_cumulants, the camera's own, whose first four cumulants are
 // each S, a Poisson count's; and Binomial(4S, 1/2) - S, of mean and variance S but symmetric (third cumulant 0,
 // fourth -S/2), kept for a sim to read beside it
 #define SIM_SHOT_POISSON 1ull
 
 #define SIM_SHOT_SYMMETRIC 2ull
+
+// two more counts for a sim to thin (rows 13 and 14): Binomial(2S, 1/2), of mean S and variance S / 2, Fano factor
+// 1/2, a sub-Poisson source; and twice the camera's Poisson count of S / 2 pairs, S even, of mean S and variance 2 S,
+// Fano factor 2, a bunched source
+#define SIM_SHOT_HALF 3ull
+
+#define SIM_SHOT_PAIRED 4ull
 
 typedef struct
 {
@@ -88,6 +99,16 @@ typedef struct
     // drawn per voxel-frame (kTC), level-free like the read
     unsigned long long dark;
     unsigned long long reset_square;
+    // a count law's stages after the draw, each off unless set (rows 12 to 14): every counted electron kept with
+    // chance keep_numerator / 2^keep_bits, keep_bits 1 to 16 (quantum efficiency, a binomial thinning); then, where
+    // excess is set, every electron left doubled or lost with chance 1/2, F^2 = 2 (an electron-multiplying register)
+    unsigned long long keep_numerator;
+    unsigned int keep_bits;
+    unsigned int excess;
+    // optical crosstalk (row 16), 0 unless set, 1 to 4: the light takes blur_eighths / 8 of each x neighbour's before
+    // the draw and keeps (8 - 2 blur_eighths) / 8 of its own, rounded to the nearest; an edge voxel's missing
+    // neighbour is itself
+    unsigned long long blur_eighths;
 } SimCamera;
 
 typedef struct
@@ -187,6 +208,25 @@ static inline __host__ __device__ unsigned long long sim_signal(const SimScene *
     return electrons;
 }
 
+// the light a voxel's draw is made from: the scene's signal, blurred along x before the draw where the camera says so
+static inline __host__ __device__ unsigned long long sim_light(const SimScene *scene, const SimCamera *camera,
+                                                               unsigned long long frame, const long long *place)
+{
+    const unsigned long long own = sim_signal(scene, frame, place);
+    if (camera->blur_eighths == 0ull)
+    {
+        return own;
+    }
+    long long beside[SIM_AXES] = {place[0], place[1], place[2] - 1ll};
+    const unsigned long long left = (place[2] > 0ll) ? sim_signal(scene, frame, beside) : own;
+    beside[2] = place[2] + 1ll;
+    // a column index inside the view is non-negative and below the extent
+    const unsigned long long right = (((unsigned long long)place[2] + 1ull) < scene->extent[2])
+                                         ? sim_signal(scene, frame, beside)
+                                         : own;
+    return (((8ull - (2ull * camera->blur_eighths)) * own) + (camera->blur_eighths * (left + right)) + 4ull) / 8ull;
+}
+
 static inline __host__ __device__ unsigned long long sim_pattern(const SimCamera *camera, unsigned long long voxel)
 {
     if (camera->pattern_reach == 0ull)
@@ -194,6 +234,31 @@ static inline __host__ __device__ unsigned long long sim_pattern(const SimCamera
         return 0ull;
     }
     return sim_draw_below(camera->key ^ SIM_PATTERN_PURPOSE, voxel, camera->pattern_reach + 1ull);
+}
+
+// each of count electrons kept with chance numerator / 2^bits, bits 1 to 16: a word holds 64 / bits electrons' draws,
+// so a counter's SIM_COUNTER_STRIDE words hold that many each
+static inline __host__ __device__ unsigned long long sim_thinned(unsigned long long key, unsigned long long counter,
+                                                                 unsigned long long count, unsigned long long numerator,
+                                                                 unsigned int bits)
+{
+    const unsigned long long per_word = 64ull / bits;
+    const unsigned long long mask = (1ull << bits) - 1ull;
+    unsigned long long kept = 0ull;
+    unsigned long long word = 0ull;
+    for (unsigned long long done = 0ull; done < count; done += per_word)
+    {
+        unsigned long long draw = sim_draw(key, (counter * SIM_COUNTER_STRIDE) + word);
+        const unsigned long long left = count - done;
+        const unsigned long long taken = (left < per_word) ? left : per_word;
+        for (unsigned long long electron = 0ull; electron < taken; electron += 1ull)
+        {
+            kept += ((draw & mask) < numerator) ? 1ull : 0ull;
+            draw >>= bits;
+        }
+        word += 1ull;
+    }
+    return kept;
 }
 
 static inline __host__ __device__ long long sim_value(const SimCamera *camera, unsigned long long counter,
@@ -208,10 +273,32 @@ static inline __host__ __device__ long long sim_value(const SimCamera *camera, u
         // a head count of at most 4 S is far below 2^62
         collected = (long long)sim_binomial_half(camera->key ^ SIM_SHOT_PURPOSE, counter, 4ull * charge) - collected;
     }
-    else if (camera->shot == SIM_SHOT_POISSON)
+    else
     {
-        // a count of at most 4 S is far below 2^62
-        collected = (long long)sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, charge);
+        unsigned long long count = charge;
+        if (camera->shot == SIM_SHOT_POISSON)
+        {
+            count = sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, charge);
+        }
+        else if (camera->shot == SIM_SHOT_HALF)
+        {
+            count = sim_binomial_half(camera->key ^ SIM_SHOT_PURPOSE, counter, 2ull * charge);
+        }
+        else if (camera->shot == SIM_SHOT_PAIRED)
+        {
+            count = 2ull * sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, charge / 2ull);
+        }
+        if (camera->keep_bits != 0u)
+        {
+            count = sim_thinned(camera->key ^ SIM_THIN_PURPOSE, counter, count, camera->keep_numerator,
+                                camera->keep_bits);
+        }
+        if (camera->excess != 0u)
+        {
+            count = 2ull * sim_binomial_half(camera->key ^ SIM_EXCESS_PURPOSE, counter, count);
+        }
+        // a count of at most 4 S, doubled, is far below 2^62
+        collected = (long long)count;
     }
     long long read = 0ll;
     if (camera->read_square != 0ull)
@@ -296,7 +383,7 @@ static __global__ void sim_render_kernel(SimScene scene, SimCamera camera, unsig
     place[0] = (long long)(voxel / (scene.extent[1] * scene.extent[2]));
     place[1] = (long long)((voxel / scene.extent[2]) % scene.extent[1]);
     place[2] = (long long)(voxel % scene.extent[2]);
-    const unsigned long long electrons = sim_signal(&scene, frame, place);
+    const unsigned long long electrons = sim_light(&scene, &camera, frame, place);
     if (signal != NULL)
     {
         // the signal of every scene here is far below 2^32
