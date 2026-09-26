@@ -40,7 +40,7 @@
 # pi in; the measurement kind is carried to every order and canceled only by a ratio; the completeness
 # kind is carried and grows.
 #
-# The last part is the algebra of one constructor read in the millennium book's Navier-Stokes chapter
+# The last part is the algebra of one constructor read in the millennium research paper's Navier-Stokes chapter
 # (theory/theory/millennium/chapters/chapter_navier_stokes.tex, its account of Corollary 10.6 of the
 # 2026 paper it reviews): a periodic field built by summing integer translates of a compactly supported
 # one, whose supports stay disjoint. What that constructor inherits from its pieces rests on one exact

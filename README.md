@@ -30,7 +30,7 @@ From a fresh clone, at the repository root:
 maint/engine/build_engine.sh                                      # the C engine: configure, build, run the graders
 python examples/any_corpus/4_measure/collision_entropy.py         # a reading that knows nothing about its corpus
 python examples/crystallography/6_oracle/proof_positive_control.py  # the positive control, against published cells
-sh maint/texbuild/build_theory.sh                                 # the fifteen books
+sh maint/texbuild/build_theory.sh                                 # the fifteen research papers
 ```
 
 On Windows PowerShell the engine builds with `maint/engine/build_engine.ps1`. Most examples read corpora under `build/`, which are not in git: `maint/data/fetch/` fetches them, and `python maint/deps/get_deps.py` clones what the C side needs. `docs/setup.md` and `docs/usage.md` cover the rest.
@@ -99,8 +99,8 @@ Each directory serves one purpose.
 | `test/`                     | the engine                   | the C correctness checks in `test/engine/`, the maintenance tests, and the published test vectors |
 | `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                            |
 | `examples/`                 | a corpus, through `src/`     | 159 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
-| `maint/`                    | the repository itself        | records, gates, prose checks, the book build, the data fetchers and the Salishan pipeline         |
-| `theory/`                   | the argument                 | seventeen books                                                                                   |
+| `maint/`                    | the repository itself        | records, gates, prose checks, the research paper build, the data fetchers and the Salishan pipeline         |
+| `theory/`                   | the argument                 | seventeen research papers                                                                                   |
 | `docs/`                     | the reader                   | setup, usage, steering, rendering and the verification notes                                      |
 
 `examples/README.md` explains the stages and how to run a script. `maint/README.md` maps the maintenance tools. `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
@@ -127,7 +127,7 @@ The engine carries a large set of transforms, maps that put the object into anot
 
 **Reference backgrounds.** A maximum-entropy background is built by a transform that deletes a property. A permutation or block shuffle draws the null the whole engine measures against, a phase fold groups positions congruent modulo a period and reassembles them, and a windowed median and a self-similar context map each build a background by nearness or by shared context.
 
-**The image transform program.** `theory/theory/image_transforms` is a book of exact image transforms: translation, rotation with scale and perspective, observed motion, and waves on a surface. Translation is built, and it is the number-theoretic transform above. The rest are stated in the book and not yet implemented in the tree, and the book says which is which.
+**The image transform program.** `theory/theory/image_transforms` is a research paper of exact image transforms: translation, rotation with scale and perspective, observed motion, and waves on a surface. Translation is built, and it is the number-theoretic transform above. The rest are stated in the research paper and not yet implemented in the tree, and the research paper says which is which.
 
 The full set lives one per file under `src/engine/python/` and in the C renderer, and the workbook records what each has been shown to do. A defensible count is eleven invertible transform families, or seventeen if every render layout is counted on its own, beside several one-way maps.
 
@@ -233,7 +233,7 @@ The largest language corpus, and the one everything else in the languages catego
 
 Every table in the Salishan corpus opens with the person who spoke, before the linguist who published and before anyone who read it into a file.
 Where a paper cites a published dictionary and never says who spoke, its entry says so.
-The Salishan theory book carries that index, written speaker first.
+The Salishan theory research paper carries that index, written speaker first.
 
 The rationale is simple:
 
@@ -272,13 +272,13 @@ For a language with few remaining speakers, publishing a form drawn from outside
 
 ## Where to start reading
 
-The research is seventeen books under `theory/`, built with XeLaTeX. One command builds all of them:
+The research is seventeen research papers under `theory/`, built with XeLaTeX. One command builds all of them:
 
 ```sh
 sh maint/texbuild/build_theory.sh
 ```
 
-| you want                                                                          | book                                     |
+| you want                                                                          | research paper                           |
 | --------------------------------------------------------------------------------- | ---------------------------------------- |
 | the construction, the method, and what is settled, open or withdrawn              | `theory/workbooks/anchor_sift`            |
 | valence read as a necessary condition, and where the oracle enters                | `theory/theory/chemistry`                       |

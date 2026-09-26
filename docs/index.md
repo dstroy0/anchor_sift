@@ -6,9 +6,9 @@ That is the construction. Every domain is that one sentence with a different ans
 
 |                               |                                                                               |
 | ----------------------------- | ----------------------------------------------------------------------------- |
-| [Setup](setup.md)             | dependencies, building the engine, building the books                         |
+| [Setup](setup.md)             | dependencies, building the engine, building the research papers                         |
 | [Using it](usage.md)          | run the measure on something of your own                                      |
-| [Research](research/index.md) | the books in `theory/`, and how to build them |
+| [Research](research/index.md) | the research papers in `theory/`, and how to build them |
 
 The repository is at [github.com/dstroy0/anchor_sift](https://github.com/dstroy0/anchor_sift). Its README covers the algorithm, the areas of research, and the licensing.
 
@@ -20,7 +20,7 @@ Regeneration stays faithful near the subject and escapes it with distance, and n
 
 ## The languages here belong to the people who speak them
 
-The corpus this work is measured against is Salishan speech, written down. **It does not exist without the speakers.** The Salishan book opens every entry with the person who spoke, before the linguist who published and before anyone who read a paper into a file.
+The corpus this work is measured against is Salishan speech, written down. **It does not exist without the speakers.** The Salishan research paper opens every entry with the person who spoke, before the linguist who published and before anyone who read a paper into a file.
 
 A linguist wrote the paper. A person read the paper into a table. Neither of those is whose language it is.
 

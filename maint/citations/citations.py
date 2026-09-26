@@ -432,7 +432,7 @@ def is_generated(path):
 
     THE CIRCULARITY THIS PREVENTS, which is silent and lossy and not merely untidy.
 
-    theory/theory/cryptography/sha256/chapters/chapter_sources.tex is written by the book build FROM
+    theory/theory/cryptography/sha256/chapters/chapter_sources.tex is written by the research paper build FROM
     the citations registry, and it lands inside theory/, which is scanned. So the registry's
     own bibliography is a file full of the names in the registry. A --seed run over it rewrites
     first_use from the document that genuinely cites a work to the file that exists only because the
@@ -447,20 +447,20 @@ def is_generated(path):
     place to remember something and the marker is already there. SKIP cannot reach this case: it
     filters directories, and this is a generated file inside a directory that is kept.
     """
-    # The theory books hold no TeX comments, and their generated files carry no marker line. Two
+    # The theory research papers hold no TeX comments, and their generated files carry no marker line. Two
     # kinds are known by where they sit: the sha256 bibliography, and every chapter theory_tex.py
-    # writes, which is every file in the chapters/ of a README book under workbooks/ or
+    # writes, which is every file in the chapters/ of a README research paper under workbooks/ or
     # thought_experiments/.
     normal = os.path.abspath(path).replace("\\", "/")
     if normal.endswith("/cryptography/sha256/chapters/chapter_sources.tex"):
         return True
     chapters = os.path.dirname(os.path.abspath(path))
-    book = os.path.dirname(chapters)
+    research_paper = os.path.dirname(chapters)
     if (
         normal.endswith(".tex")
         and os.path.basename(chapters) == "chapters"
-        and os.path.basename(os.path.dirname(book)) in ("workbooks", "thought_experiments")
-        and os.path.isfile(os.path.join(book, "README.md"))
+        and os.path.basename(os.path.dirname(research_paper)) in ("workbooks", "thought_experiments")
+        and os.path.isfile(os.path.join(research_paper, "README.md"))
     ):
         return True
     try:

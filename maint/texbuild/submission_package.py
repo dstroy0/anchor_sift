@@ -2,15 +2,15 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Assemble one self-contained submission per book, in whatever shape the venue asks for.
+# Assemble one self-contained submission per research paper, in whatever shape the venue asks for.
 #
-#   python maint/texbuild/submission_package.py                  every book, gzipped tar
-#   python maint/texbuild/submission_package.py --archive zip    every book, zip
+#   python maint/texbuild/submission_package.py                  every research paper, gzipped tar
+#   python maint/texbuild/submission_package.py --archive zip    every research paper, zip
 #   python maint/texbuild/submission_package.py --archive none   directories only
-#   python maint/texbuild/submission_package.py <book> ...       named books
-#   python maint/texbuild/submission_package.py --arxiv [<book>] arXiv's shape, under build/arxiv/
+#   python maint/texbuild/submission_package.py <research_paper> ...       named research papers
+#   python maint/texbuild/submission_package.py --arxiv [<research_paper>] arXiv's shape, under build/arxiv/
 #
-# Writes build/submission/<book>/ and, unless --archive none, an archive beside it. Nothing under
+# Writes build/submission/<research_paper>/ and, unless --archive none, an archive beside it. Nothing under
 # theory/ is modified: the rewrite happens on the copy, and the source keeps the shared preamble it
 # has always had.
 #
@@ -28,19 +28,19 @@
 #
 # WHY ANY OF IT IS NEEDED
 #
-# Every book reaches outside its own directory for the two files it shares with the others.
+# Every research paper reaches outside its own directory for the two files it shares with the others.
 # theory/theory/Salishan/main.tex says \input{../preamble.tex} and theory/theory/cryptography/sha256/main.tex
 # says \input{../../preamble.tex}, and preamble.tex then says \input{../macros.tex}. That resolves
 # here because theory/ is the directory above them all, and it resolves nowhere else.
 #
-# The fix is not to restructure theory/, because one shared preamble across every book is what keeps
-# a layout change reaching all of them. The fix is to copy the shared files into the book at
+# The fix is not to restructure theory/, because one shared preamble across every research paper is what keeps
+# a layout change reaching all of them. The fix is to copy the shared files into the research paper at
 # packaging time and rewrite the lines that point at them.
 #
-# BOOKS ARE DISCOVERED, NOT LISTED
+# RESEARCH PAPERS ARE DISCOVERED, NOT LISTED
 #
 # build_theory.sh:26 records what happens otherwise. The four names were written into it once, and a
-# book added after that line would not have built. Two books were missing from the tree's own
+# research paper added after that line would not have built. Two research papers were missing from the tree's own
 # documentation for the same reason, and a seventh was missing from README.md and from
 # docs/research/index.md on the day it was created. This walks for main.tex at both depths so the
 # packager cannot go stale the way a hand-written list does.
@@ -49,7 +49,7 @@
 #
 # A submission still holding a climbing path is broken and fails on upload with a LaTeX error nobody
 # can read. Every .tex in the assembled copy is re-read AFTER the rewrite, and a remaining ../ in an
-# \input or \include fails that book and names the file and the line. A rule that was supposed to
+# \input or \include fails that research paper and names the file and the line. A rule that was supposed to
 # catch a path is not evidence that it did.
 #
 # It also refuses to carry what a LaTeX run leaves behind. See LEAVINGS.
@@ -71,7 +71,7 @@
 #                  each one is somebody's local state.
 #   nothing unread A .tex no \input or \include chain reaches from main.tex is dropped. An old
 #                  draft nobody compiles still publishes.
-#   no notes       A Markdown file is dropped. The ones beside a book are working notes and logs,
+#   no notes       A Markdown file is dropped. The ones beside a research paper are working notes and logs,
 #                  and LaTeX reads none of them. Any other file that is not source or a figure is
 #                  named and kept.
 #   four passes    \typeout just before \end{document} makes arXiv run LaTeX until the labels
@@ -79,7 +79,7 @@
 #                  reading and the line never reached the log.
 #   00README.json  The engine, the top-level file and the TeX Live release, in the JSON form arXiv
 #                  reads (https://info.arxiv.org/help/00README.html, read 2026-09-23). Without it
-#                  arXiv guesses the engine from the source, and these books need xelatex.
+#                  arXiv guesses the engine from the source, and these research papers need xelatex.
 #   flat tarball   No wrapping directory, which is what `tar -cvvf ax.tar *` produces from inside
 #                  the assembled copy.
 #   metadata.txt   The title, the authors and the abstract with the LaTeX taken out and the line
@@ -141,22 +141,22 @@ def _repository_root():
 
 ROOT = _repository_root()
 THEORY = os.path.join(ROOT, "theory")
-# Every book sits under theory/, the dstroy0/theory submodule, on one of its three shelves:
-# theory/theory/, theory/workbooks/ and theory/thought_experiments/. A book is named by its path
+# Every research paper sits under theory/, the dstroy0/theory submodule, on one of its three shelves:
+# theory/theory/, theory/workbooks/ and theory/thought_experiments/. A research paper is named by its path
 # below theory/.
 TREES = (THEORY,)
 OUT = os.path.join(ROOT, "build", "submission")
 OUT_ARXIV = os.path.join(ROOT, "build", "arxiv")
 
-# The files every book shares, which sat in theory/ and not in any book. These are copied into the
+# The files every research paper shares, which sat in theory/ and not in any research paper. These are copied into the
 # submission root and the lines that reach up for them are rewritten to name them plainly.
 #
-# dedication.tex is here for the same reason preamble.tex is. One wording reaches every book, held
+# dedication.tex is here for the same reason preamble.tex is. One wording reaches every research paper, held
 # in one place so it cannot drift between them.
 #
-# Every book now carries its own preamble.tex, and theory/ holds none of the three. A shared file
-# is copied only where theory/ still has it and the book does not. Copying unconditionally stopped
-# the packager on the first book with a missing-file error.
+# Every research paper now carries its own preamble.tex, and theory/ holds none of the three. A shared file
+# is copied only where theory/ still has it and the research paper does not. Copying unconditionally stopped
+# the packager on the first research paper with a missing-file error.
 SHARED = ("preamble.tex", "macros.tex", "dedication.tex")
 
 # What arXiv reads before it compiles anything. spec_version 1 is the only version the format has.
@@ -172,7 +172,7 @@ README = {
 # gets reported instead of quietly repointed.
 CLIMBING = re.compile(r"(\\(?:input|include)\{)((?:\.\./)+)([^}]+)(\})")
 
-# What a source file is. Everything else in a book directory is copied as it stands, which is how
+# What a source file is. Everything else in a research paper directory is copied as it stands, which is how
 # the matplotlib figure beside the corpus derivation chapter travels with its chapter.
 TEX = ".tex"
 
@@ -182,11 +182,11 @@ ARCHIVES = ("tar.gz", "zip", "none")
 # What a LaTeX run leaves beside the source, and what never belongs in a submission.
 #
 # build_theory.sh compiles with -output-directory so it leaves none of this. TeXworks and TeXShop
-# compile IN PLACE, and a book opened in one of those to look at it comes back with main.pdf,
+# compile IN PLACE, and a research paper opened in one of those to look at it comes back with main.pdf,
 # main.log, main.aux, main.toc, a .aux per included chapter, and a synctex index larger than the
-# whole rest of the book. Copying a book directory wholesale ships all of it.
+# whole rest of the research paper. Copying a research paper directory wholesale ships all of it.
 #
-# Measured once: theory/workbooks/anchor_sift packaged at 1,269,699 bytes against 73,201 for the same book
+# Measured once: theory/workbooks/anchor_sift packaged at 1,269,699 bytes against 73,201 for the same research paper
 # clean, and 705,688 of that was one synctex file. It would have been accepted.
 LEAVINGS = (".aux", ".log", ".toc", ".lof", ".lot", ".out", ".bbl", ".blg", ".idx", ".ilg",
             ".ind", ".nav", ".snm", ".vrb", ".fls", ".fdb_latexmk", ".synctex", ".synctex.gz")
@@ -209,7 +209,7 @@ def is_leaving(name):
 TYPEOUT = "\\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}"
 END_DOCUMENT = "\\end{document}"
 
-# An \input or \include naming a file inside the book. Rewritten when the tree is flattened.
+# An \input or \include naming a file inside the research paper. Rewritten when the tree is flattened.
 NAMED = re.compile(r"(\\(?:input|include)\{)([^}]+)(\})")
 
 
@@ -331,12 +331,12 @@ def strip_latex(text):
     return " ".join(text.split())
 
 
-def metadata(out, book):
-    """The title, authors and abstract of an assembled book, as text to paste into the form.
+def metadata(out, research_paper):
+    """The title, authors and abstract of an assembled research paper, as text to paste into the form.
 
     Read off the assembled copy, because that is what ships. The titlepage carries the title and
     the author and the abstract sits in its own file, and both are found by name and not by
-    position. A book that orders its frontmatter differently still reports.
+    position. A research paper that orders its frontmatter differently still reports.
     """
     lines = []
     title = ""
@@ -394,19 +394,19 @@ def flat_tar(out):
     return os.path.basename(archive), os.path.getsize(archive)
 
 
-def book_tree(book):
-    """Which tree holds this book, or None where no tree does."""
+def research_paper_tree(research_paper):
+    """Which tree holds this research paper, or None where no tree does."""
     for tree in TREES:
-        if os.path.isfile(os.path.join(tree, book, "main.tex")):
+        if os.path.isfile(os.path.join(tree, research_paper, "main.tex")):
             return tree
     return None
 
 
-def books():
-    """Every book, as its path below theory/.
+def research_papers():
+    """Every research paper, as its path below theory/.
 
-    Two depths, matching build_theory.sh. <shelf>/<book>/ is where most of them sit, and
-    theory/<subject>/<book>/ is where the cryptography one does.
+    Two depths, matching build_theory.sh. <shelf>/<research_paper>/ is where most of them sit, and
+    theory/<subject>/<research_paper>/ is where the cryptography one does.
     """
     import glob
     found = []
@@ -438,9 +438,9 @@ def rewrite(text):
     return CLIMBING.sub(one, text), rewritten, refused
 
 
-def assemble(book, out):
-    """One book copied into out, with the shared files inside it. Returns what was rewritten."""
-    source = os.path.join(book_tree(book) or THEORY, book)
+def assemble(research_paper, out):
+    """One research paper copied into out, with the shared files inside it. Returns what was rewritten."""
+    source = os.path.join(research_paper_tree(research_paper) or THEORY, research_paper)
     if os.path.isdir(out):
         shutil.rmtree(out)
     shutil.copytree(source, out, ignore=lambda where, names: [one for one in names
@@ -490,7 +490,7 @@ def still_climbing(out):
 def bundle(out, kind):
     """The assembled directory wrapped as the venue asked. Returns (name, bytes), or None.
 
-    Every path inside the archive sits under one top-level directory named for the book, which is
+    Every path inside the archive sits under one top-level directory named for the research paper, which is
     what an extract-into-one-root venue needs and what a person unpacking it locally wants anyway.
     """
     base = os.path.basename(out)
@@ -514,7 +514,7 @@ def bundle(out, kind):
     return os.path.basename(archive), os.path.getsize(archive)
 
 
-def for_arxiv(out, book):
+def for_arxiv(out, research_paper):
     """The --arxiv steps, in the order the header lists them, on an assembled copy.
 
     Returns (said, stopped). said is one line per thing done. stopped is a reason the copy cannot
@@ -570,7 +570,7 @@ def for_arxiv(out, book):
         handle.write(json.dumps(README, indent=2) + "\n")
     said.append("00README.json  %s, TeX Live %d" % (README["process"]["compiler"], README["texlive_version"]))
 
-    # Markdown beside a book is working notes and logs. LaTeX never reads it, and arXiv would publish
+    # Markdown beside a research paper is working notes and logs. LaTeX never reads it, and arXiv would publish
     # it with the paper. The workbook carried seven such files into its first package.
     for name in sorted(os.listdir(out)):
         if name.lower().endswith(".md"):
@@ -578,12 +578,12 @@ def for_arxiv(out, book):
             said.append("notes        %s dropped, LaTeX does not read it" % name)
 
     # Anything else left that is neither source nor a figure publishes with the paper. It is named
-    # here and not deleted, because an unknown file may be one the book needs.
+    # here and not deleted, because an unknown file may be one the research paper needs.
     for name in sorted(os.listdir(out)):
         if not name.lower().endswith((TEX, ".pdf", ".png", ".jpg", ".jpeg", ".json")):
             said.append("SHIPS        %s is not source or a figure and will be public" % name)
 
-    path, _title, _authors, _abstract = metadata(out, book)
+    path, _title, _authors, _abstract = metadata(out, research_paper)
     said.append("metadata     %s" % os.path.basename(path))
     return said, ""
 
@@ -611,18 +611,18 @@ def main():
     named = [one for one in argv if (one not in skip) and not one.startswith("-")]
     status = 0
 
-    for book in (named or books()):
-        if book_tree(book) is None:
-            out.write("  no such book: %s\n" % book)
+    for research_paper in (named or research_papers()):
+        if research_paper_tree(research_paper) is None:
+            out.write("  no such research paper: %s\n" % research_paper)
             status = 1
             continue
 
-        flat = book.replace("/", "_")
+        flat = research_paper.replace("/", "_")
         target = os.path.join(OUT_ARXIV if arxiv else OUT, flat)
-        rewritten, refused = assemble(book, target)
+        rewritten, refused = assemble(research_paper, target)
         left = still_climbing(target)
 
-        out.write("  %s\n" % book)
+        out.write("  %s\n" % research_paper)
         for path, name in rewritten:
             out.write("    brought in   %-34s in %s\n" % (name, path))
         for path, name in refused:
@@ -631,16 +631,16 @@ def main():
         if left:
             for path, number, line in left:
                 out.write("    STILL CLIMBS %s:%d  %s\n" % (path, number, line))
-            out.write("    %s is not shippable and no archive was written\n" % book)
+            out.write("    %s is not shippable and no archive was written\n" % research_paper)
             status = 1
             continue
 
         if arxiv:
-            said, stopped = for_arxiv(target, book)
+            said, stopped = for_arxiv(target, research_paper)
             for line in said:
                 out.write("    %s\n" % line)
             if stopped:
-                out.write("    %s is not shippable: %s\n" % (book, stopped))
+                out.write("    %s is not shippable: %s\n" % (research_paper, stopped))
                 status = 1
                 continue
             out.write("    %s  %d bytes\n" % flat_tar(target))

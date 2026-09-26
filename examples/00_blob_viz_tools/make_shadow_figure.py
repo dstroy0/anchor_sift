@@ -3,11 +3,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: VIZ-x-020
 #
-"""Renders the residue shadow as a character map for the theory book.
+"""Renders the residue shadow as a character map for the theory research paper.
 
-The published viewers are interactive and the book is not. The same field is drawn here in
+The published viewers are interactive and the research paper is not. The same field is drawn here in
 characters. Density stands for magnitude and the sign is carried by the character set, because a
-book printed in one color cannot use hue for it.
+research paper printed in one color cannot use hue for it.
 
     python examples/00_blob_viz_tools/make_shadow_figure.py
 

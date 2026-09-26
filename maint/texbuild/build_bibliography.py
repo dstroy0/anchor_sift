@@ -1,4 +1,4 @@
-"""Generates the book's bibliography from the citations registry, pinned to a commit.
+"""Generates the research paper's bibliography from the citations registry, pinned to a commit.
 
 A surname in a chapter tells a reader which idea is being used and gives them nothing to go and
 read. This turns the registry next door into a bibliography, and pins it: every entry carries the
@@ -25,7 +25,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 TARGET = os.path.join(ROOT, "theory", "theory", "cryptography", "sha256", "chapters", "chapter_sources.tex")
 
 # Only rows the SHA-256 work actually cites. The registry also serves anchor sift, and a
-# bibliography listing sources this book never mentions would be padding.
+# bibliography listing sources this research paper never mentions would be padding.
 # A selector matched against the rows of the shared registry, and never a path to open, so it has
 # to read the same as whatever the rows were tagged with. Derived from the directory this tree
 # actually sits in instead of spelled out, which keeps it correct if the tree is renamed and keeps
@@ -135,7 +135,7 @@ def main():
     out.append("\\item[Inventory] \\texttt{MANIFEST.tsv}, signed; the hashes below are its rows")
     out.append("\\end{description}")
     out.append("")
-    out.append("A reader who disagrees with a number in this book can ask which copy it was checked")
+    out.append("A reader who disagrees with a number in this research paper can ask which copy it was checked")
     out.append("against, and the hash answers exactly. Two copies of a paper are rarely the same")
     out.append("bytes.")
     out.append("")

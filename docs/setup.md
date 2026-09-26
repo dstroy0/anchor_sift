@@ -48,29 +48,29 @@ That produces the benches and the tests. `bench_lattice` needs C99 `_Complex` an
 
 `src/engine/c/engine/anchor_sift.c` compiles on its own with no build system at all, if you only want the search kernel.
 
-## The books
+## The research papers
 
-XeLaTeX, from TeX Live or MiKTeX. The build runs it twice per book, because the table of contents is written on the first pass and read on the second. XeLaTeX and not LuaLaTeX because arXiv runs XeLaTeX and does not run LuaLaTeX. The fonts are Charis SIL, DejaVu and TeX Gyre Termes Math, all named by file and all shipped with TeX Live 2025.
+XeLaTeX, from TeX Live or MiKTeX. The build runs it twice per research paper, because the table of contents is written on the first pass and read on the second. XeLaTeX and not LuaLaTeX because arXiv runs XeLaTeX and does not run LuaLaTeX. The fonts are Charis SIL, DejaVu and TeX Gyre Termes Math, all named by file and all shipped with TeX Live 2025.
 
-To package a book for arXiv:
+To package a research paper for arXiv:
 
 ```sh
-python maint/texbuild/submission_package.py --arxiv <book>
+python maint/texbuild/submission_package.py --arxiv <research_paper>
 ```
 
-The tarball lands in `build/arxiv/<book>.tar` with a `00README.json` that selects XeLaTeX and TeX Live 2025.
+The tarball lands in `build/arxiv/<research_paper>.tar` with a `00README.json` that selects XeLaTeX and TeX Live 2025.
 
 ```sh
 sh maint/texbuild/build_theory.sh
 ```
 
-PDFs land in `build/theory/<book>/main.pdf`. One book on its own:
+PDFs land in `build/theory/<research_paper>/main.pdf`. One research paper on its own:
 
 ```sh
 sh maint/texbuild/build_theory.sh workbook
 ```
 
-The build fails if a book drops a glyph. That is deliberate: these books set Salishan orthography, and a missing character is a silently wrong page.
+The build fails if a research paper drops a glyph. That is deliberate: these research papers set Salishan orthography, and a missing character is a silently wrong page.
 
 ## Corpora
 

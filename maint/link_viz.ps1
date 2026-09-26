@@ -15,7 +15,7 @@
 #
 # WHICH WAY THE LINK POINTS
 #
-# link_shared.ps1 runs the other direction: shared book and prose files live in anchor_sift and are
+# link_shared.ps1 runs the other direction: shared research paper and prose files live in anchor_sift and are
 # linked into here. This one is the reverse, because the viewers were written here and anchor_sift
 # is the consumer. One directory link rather than a file each, so a viewer added to view later
 # appears over there without anyone re-running this.

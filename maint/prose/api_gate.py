@@ -6,7 +6,7 @@
 # that reads as machine written.
 #
 #   python maint/prose/api_gate.py --dry-run theory   what would be sent, and how much of it
-#   python maint/prose/api_gate.py theory/theory/millennium  score one book
+#   python maint/prose/api_gate.py theory/theory/millennium  score one research paper
 #   python maint/prose/api_gate.py --bar 0.40 docs    score with the bar drawn somewhere else
 #
 # WHAT THIS ADDS TO docs_check
@@ -68,7 +68,7 @@ CONFIG = os.environ.get("PROSE_API_CONFIG") or os.path.join(
 
 BAR = 0.50
 
-# Characters per request. A whole book in one request gets one number for sixty pages, and a number
+# Characters per request. A whole research paper in one request gets one number for sixty pages, and a number
 # that coarse names nothing a writer can repair.
 CHUNK = 6000
 

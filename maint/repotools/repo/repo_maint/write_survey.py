@@ -65,7 +65,7 @@ ANCHOR = {
     "SOUND": "build/sound",
     "CORPORA": "build/corpora",
     "APART": "build/corpora/claude_prose_by_source",
-    "CHAPTERS": "theory/<book>/chapters",
+    "CHAPTERS": "theory/<research_paper>/chapters",
     "OUT": "<out>",
     "TARGET": "<target>",
 }

@@ -7,7 +7,7 @@
 #   Usage:  python maint/texbuild/check_partition.py [repository_root]
 #
 # The partition is a rule about which measurements reach the general public. Held as a rule someone
-# remembers, it survives exactly as long as nobody builds a book without thinking about it. The name
+# remembers, it survives exactly as long as nobody builds a research paper without thinking about it. The name
 # guard in hooks/pre-commit makes this argument about a product name and the argument is the same
 # here, with a larger blast radius: a name in a banner is embarrassing, and a held chapter bound into
 # a published PDF cannot be recalled from anyone who downloaded it.
@@ -34,7 +34,7 @@ import sys
 
 MANIFEST = os.path.join("theory", "PARTITION.tsv")
 
-# Order matters. A book takes the strictest class of anything it reaches, and strictness increases
+# Order matters. A research paper takes the strictest class of anything it reaches, and strictness increases
 # down this list.
 #
 # EXTERNAL is the precision work: arbitrary-precision arithmetic, the certified NTT moduli, integer
@@ -42,7 +42,7 @@ MANIFEST = os.path.join("theory", "PARTITION.tsv")
 # general-purpose multiply does not reveal what it is aimed at, and the advantage is the aiming.
 #
 # It ranks with PUBLIC and not below it. PUBLIC means already published in anchor_sift and therefore
-# settled; EXTERNAL means cleared for publication and not yet out. Neither constrains a book, so they
+# settled; EXTERNAL means cleared for publication and not yet out. Neither constrains a research paper, so they
 # carry the same strictness, and keeping them distinct is what lets "cleared but unpublished" be
 # counted rather than assumed.
 #
@@ -141,15 +141,15 @@ def resolve(argument, build_dir, root):
     return None
 
 
-def reachable(book, root, seen=None, build_dir=None):
-    """Every file a book pulls in, following includes through as many levels as they go.
+def reachable(research_paper, root, seen=None, build_dir=None):
+    """Every file a research paper pulls in, following includes through as many levels as they go.
 
-    A chapter that includes a fragment puts that fragment in the book, so a check reading only the
-    top level would pass a book whose held material sits one level down.
+    A chapter that includes a fragment puts that fragment in the research paper, so a check reading only the
+    top level would pass a research paper whose held material sits one level down.
     """
     if seen is None:
         seen = []
-    full = os.path.join(root, book)
+    full = os.path.join(root, research_paper)
     if build_dir is None:
         build_dir = os.path.dirname(full)
     if not os.path.isfile(full):
@@ -158,7 +158,7 @@ def reachable(book, root, seen=None, build_dir=None):
     with open(full, encoding="utf-8", errors="replace") as handle:
         text = handle.read()
 
-    # A commented-out include is not in the book.
+    # A commented-out include is not in the research paper.
     text = re.sub(r"(?<!\\)%.*", "", text)
 
     for match in INCLUDE.finditer(text):
@@ -206,19 +206,19 @@ def main(argv):
         return 2
     MANIFEST_CACHE = manifest
 
-    books = [p for p, (klass, _) in manifest.items() if _looks_like_book(p, manifest)]
+    research_papers = [p for p, (klass, _) in manifest.items() if _looks_like_research_paper(p, manifest)]
     findings = 0
     checked = 0
 
-    print("  partition: %d artifacts classified, %d books" % (len(manifest), len(books)))
+    print("  partition: %d artifacts classified, %d research papers" % (len(manifest), len(research_papers)))
 
-    for book in sorted(books):
-        declared = manifest[normalise(book)][0]
-        if not os.path.isfile(os.path.join(root, book)):
-            print("  SKIP  %s: declared in the manifest and not on disk" % book)
+    for research_paper in sorted(research_papers):
+        declared = manifest[normalise(research_paper)][0]
+        if not os.path.isfile(os.path.join(root, research_paper)):
+            print("  SKIP  %s: declared in the manifest and not on disk" % research_paper)
             continue
         checked += 1
-        parts = reachable(book, root)
+        parts = reachable(research_paper, root)
         worst = declared
         for target, klass in parts:
             if target is None or klass is None:
@@ -229,18 +229,18 @@ def main(argv):
         if RANK[worst] > RANK[declared]:
             findings += 1
             print("")
-            print("  LEAK  %s is declared %s and reaches %s material:" % (book, declared, worst))
+            print("  LEAK  %s is declared %s and reaches %s material:" % (research_paper, declared, worst))
             for target, klass in parts:
                 if klass and RANK[klass] > RANK[declared]:
                     print("          %-8s %s" % (klass, target))
-            print("        a build of this book puts the above in front of the general public.")
+            print("        a build of this research paper puts the above in front of the general public.")
         else:
-            print("  ok    %-52s %-7s (%d files)" % (book, declared, len(parts)))
+            print("  ok    %-52s %-7s (%d files)" % (research_paper, declared, len(parts)))
 
         for target, klass in parts:
             if klass is None:
                 findings += 1
-                print("  BREAK %s includes %s, which is not on disk" % (book, target))
+                print("  BREAK %s includes %s, which is not on disk" % (research_paper, target))
 
     unlisted = [p for p in walk_prose(root) if p not in manifest]
     if unlisted:
@@ -253,16 +253,16 @@ def main(argv):
     # Checking nothing is not passing. docs_check.py learned this the expensive way and the lesson
     # transfers without modification.
     if checked == 0:
-        print("  no book was read. Nothing was checked, so nothing passed.")
+        print("  no research paper was read. Nothing was checked, so nothing passed.")
         return 2
 
     print("")
-    print("  %d book(s) checked, %d finding(s)" % (checked, findings))
+    print("  %d research paper(s) checked, %d finding(s)" % (checked, findings))
     return findings
 
 
-def _looks_like_book(path, manifest):
-    """A book is an artifact the manifest tagged as one in its subject column."""
+def _looks_like_research_paper(path, manifest):
+    """A research paper is an artifact the manifest tagged as one in its subject column."""
     full = manifest.get(normalise(path))
     return bool(full) and path.endswith(".tex") and "main" in os.path.basename(path)
 

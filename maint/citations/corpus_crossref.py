@@ -24,7 +24,7 @@
 # papers behind these tables name nobody at all.
 #
 # That direction is reversed here. The speakers are named in paper_config, they are named in the
-# books, and this check keeps them named as the tree grows.
+# research papers, and this check keeps them named as the tree grows.
 #
 # The licence on the corpus turns on that attribution, and so does the condition of use in
 # SECURITY.md. Neither survives an example that prints a Lushootseed word with no idea where it
@@ -287,7 +287,7 @@ def person_of(who):
     An entry is written "K̓weswapáw̓ (Linda Redan), Qayqáyten": the person, then where they are
     from. A name written in the language and again in English is one person written two ways, and
     a page that carries either one has named them. A leading title comes off as well, since the
-    books write Margaret Siwallace where paper_config writes Dr. Margaret Siwallace.
+    research papers write Margaret Siwallace where paper_config writes Dr. Margaret Siwallace.
     """
     person = who.split(",")[0].strip()
     held = [person]

@@ -3,11 +3,11 @@
 **Purpose:** Say where the research is and how to build it.
 **Scope:** `theory/`, and `maint/texbuild/build_theory.sh`, which builds them.
 
-The research is in `theory/`, as books. It was kept here as markdown once. Two copies of a document drift apart, and the copy a reader finds first is then wrong.
+The research is in `theory/`, as research papers. It was kept here as markdown once. Two copies of a document drift apart, and the copy a reader finds first is then wrong.
 
-## The books
+## The research papers
 
-| book | what it holds |
+| research paper | what it holds |
 |---|---|
 | `theory/workbooks/anchor_sift/` | The construction, the method, ordering anchors by rarity, the terms, and the ledger: deductive results, hypotheses, and what was measured, filed by whether the posit held. |
 | `theory/theory/chemistry/` | Valence read as a necessary condition, and where the oracle enters. |
@@ -27,9 +27,9 @@ The research is in `theory/`, as books. It was kept here as markdown once. Two c
 sh maint/texbuild/build_theory.sh
 ```
 
-The PDFs land in `build/theory/<book>/main.pdf`. The build runs XeLaTeX twice, because the table of contents is written on the first pass and read on the second, and it fails if any book drops a glyph.
+The PDFs land in `build/theory/<research_paper>/main.pdf`. The build runs XeLaTeX twice, because the table of contents is written on the first pass and read on the second, and it fails if any research paper drops a glyph.
 
-One book on its own:
+One research paper on its own:
 
 ```sh
 sh maint/texbuild/build_theory.sh workbook
@@ -37,7 +37,7 @@ sh maint/texbuild/build_theory.sh workbook
 
 ## What the split is for
 
-The workbook holds a claim and the work that settles it. A conjecture leads the entry and the measurement follows, filed by whether the posit held or was refuted. Anything whose experiment cannot be built as written is in the thought experiments book instead.
+The workbook holds a claim and the work that settles it. A conjecture leads the entry and the measurement follows, filed by whether the posit held or was refuted. Anything whose experiment cannot be built as written is in the thought experiments research paper instead.
 
 Mixed together those read as one undifferentiated pile, and a conjecture about an unbounded carrier sitting beside a 582-row bench table discredits both. Apart, each reads as what it is.
 

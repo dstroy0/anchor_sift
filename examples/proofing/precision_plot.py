@@ -51,9 +51,9 @@ import precision_floor
 
 DEVICE_BENCH = os.path.join(ROOT, "build", "bench", "bench_precision_cuda.exe")
 LADDER = (20, 30, 40, 50)
-# Under build/ with the book outputs, because it is generated and nothing generated is written
+# Under build/ with the research paper outputs, because it is generated and nothing generated is written
 # beside the source. The chapter reaches it by a relative path and guards the include. A tree
-# where this tool has not been run still builds its book.
+# where this tool has not been run still builds its research paper.
 PICTURE = os.path.join(ROOT, "build", "theory", "figures", "precision_floor.png")
 
 # Colors chosen so the figure reads in print and in grey. The two arms differ in marker as well as

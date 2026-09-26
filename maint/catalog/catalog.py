@@ -12,7 +12,7 @@
 #
 # WHY A NUMBER AND NOT A PATH
 #
-# The theory books cite examples, and a path is the wrong identifier for that. A file that moves
+# The theory research papers cite examples, and a path is the wrong identifier for that. A file that moves
 # breaks every citation to it, and this tree has already reorganized examples once, from
 # examples/language_testing/natural_languages into examples/language/4_measure, leaving 190 of 252
 # cited paths pointing at nothing. A catalog number survives a move. At 98 examples the paths were
