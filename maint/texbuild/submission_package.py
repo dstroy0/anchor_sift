@@ -141,8 +141,9 @@ def _repository_root():
 
 ROOT = _repository_root()
 THEORY = os.path.join(ROOT, "theory")
-# Every book sits under theory/, on one of theory_bucket's three shelves: theory/theory/,
-# theory/workbooks/ and theory/thought_experiments/. A book is named by its path below theory/.
+# Every book sits under theory/, the dstroy0/theory submodule, on one of its three shelves:
+# theory/theory/, theory/workbooks/ and theory/thought_experiments/. A book is named by its path
+# below theory/.
 TREES = (THEORY,)
 OUT = os.path.join(ROOT, "build", "submission")
 OUT_ARXIV = os.path.join(ROOT, "build", "arxiv")
