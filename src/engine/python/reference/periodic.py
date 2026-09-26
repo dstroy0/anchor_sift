@@ -86,13 +86,9 @@ def mean_background_incremental(values, period):
         index = phase
         while index < length:
             seen += 1
-<<<<<<< HEAD
             running = add(
                 running, over(sub(whole(values[index]), running), whole(seen))
             )
-=======
-            running = add(running, over(sub(whole(values[index]), running), whole(seen)))
->>>>>>> worktree-measure-integer-only
             index += period
         means[phase] = running
     return [means[index % period] for index in range(length)]
