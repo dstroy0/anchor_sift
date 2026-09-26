@@ -107,6 +107,18 @@
 
 #define TERMS_SCALE_BITS 10u
 
+// the gain pattern: flat lights of 100, 200 and 400 electrons, each pixel's gain (1024 + p) / 1024, p in [-32, 32]
+#define TERMS_GAIN_PATTERN_REACH 32ull
+
+#define TERMS_GAIN_PATTERN_BITS 10u
+
+#define TERMS_FLAT_LIGHTS 3u
+
+static const unsigned long long TERMS_FLAT_LIGHT[TERMS_FLAT_LIGHTS] = {100ull, 200ull, 400ull};
+
+// the halves' covariance's reaches at each light with the gain pattern, in lane units squared
+static const unsigned long long TERMS_FLAT_REACH[TERMS_FLAT_LIGHTS][2] = {{1ull, 10ull}, {1ull, 5ull}, {2ull, 5ull}};
+
 static const unsigned long long TERMS_EXTENT[4] = {TERMS_FRAMES, TERMS_DEPTH, TERMS_HEIGHT, TERMS_WIDTH};
 
 static void terms_within(SimTally *tally, const char *what, long long read, long long expected, long long reach)
@@ -693,6 +705,46 @@ static void terms_structure(SimTally *tally, const unsigned short *lanes, const 
     free(light);
 }
 
+// Rows 18 and 19 read back. Under a flat light S the halves' covariance is var(p) (g S)^2 over the pixels' drawn p,
+// (P Σ p^2 - (Σ p)^2) g^2 S^2 / (P^2 2^(2b)): the fixed pattern is drawn per voxel, so no two planes share it, and the
+// null reads 0. The pattern and the draws, independent between the halves with variance h^2 in a half's mean, spread
+// the reading by sqrt((var(p) g^2 S^2 2 h^2 + h^4) / P): about 1/70, 1/33 and 1/15 lane units squared at the three
+// lights with the gain pattern, and 1/260 to 1/190 in the null, so the reaches of 1/10, 1/5 and 2/5, and 1/30, are
+// each at least 6 of them.
+static void terms_halves(SimTally *tally, const unsigned short *lanes, const SimCamera *camera,
+                         unsigned long long light, unsigned long long reach_numerator,
+                         unsigned long long reach_denominator)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseHalvesReading reading;
+    const int good = noise_halves_volume(lanes, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good, "the halves pass read the volume");
+    if (good == 0)
+    {
+        return;
+    }
+    const unsigned long long pixels = TERMS_HEIGHT * TERMS_WIDTH;
+    long long spread = 0ll;
+    unsigned long long spread_square = 0ull;
+    for (unsigned long long pixel = 0ull; pixel < pixels; pixel += 1ull)
+    {
+        const long long own = sim_gain_spread(camera, pixel);
+        spread += own;
+        // a spread of at most 32 squares exactly
+        spread_square += (unsigned long long)(own * own);
+    }
+    // P Σ p^2 - (Σ p)^2 is below 2^40 here, and g S below 2^10, so the product is far below 2^63
+    const long long varied = (long long)(pixels * spread_square) - (spread * spread);
+    const long long gained = (long long)(camera->gain * light);
+    const unsigned long long unit = (camera->gain_pattern_bits != 0u) ? (1ull << camera->gain_pattern_bits) : 1ull;
+    scriptura_text(&tally->line, "    the level: ");
+    sim_ratio_print(&tally->line, &reading.level, &reading.level_denominator, 4u);
+    scriptura_character(&tally->line, '\n');
+    terms_ratio_within(tally, "  the halves' covariance", &reading.covariance, &reading.covariance_denominator,
+                       varied * gained * gained, pixels * pixels * unit * unit, reach_numerator, reach_denominator);
+}
+
 // The clip pass against the plant: spikes at 128 in one voxel-frame of 1024, dips never. At 16 and 32 a symmetric
 // shot's null holds its spikes and dips equal within 5 standard errors; a Poisson shot's upper tail is longer than its
 // lower, so its null's spikes outnumber its dips by more than 5.
@@ -1146,6 +1198,30 @@ int main(void)
         scene.background = TERMS_BACKGROUND;
         scene.plant_period = 0ull;
         scene.plant_amplitude = 0ull;
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  the gain pattern: flat lights of 100, 200 and 400 electrons, the fixed pattern per"
+                                    " voxel; the null, then each pixel's gain (1024 + p)/1024, p in [-32, 32]\n");
+        terms_camera(&camera);
+        for (unsigned int patterned = 0u; patterned < 2u; patterned += 1u)
+        {
+            scriptura_text(&tally.line, (patterned != 0u) ? "    the gain pattern\n" : "    the null\n");
+            camera.gain_pattern_reach = (patterned != 0u) ? TERMS_GAIN_PATTERN_REACH : 0ull;
+            camera.gain_pattern_bits = (patterned != 0u) ? TERMS_GAIN_PATTERN_BITS : 0u;
+            for (unsigned int flat = 0u; flat < TERMS_FLAT_LIGHTS; flat += 1u)
+            {
+                scene.background = TERMS_FLAT_LIGHT[flat];
+                if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+                {
+                    terms_halves(&tally, lanes, &camera, TERMS_FLAT_LIGHT[flat],
+                                 (patterned != 0u) ? TERMS_FLAT_REACH[flat][0] : 1ull,
+                                 (patterned != 0u) ? TERMS_FLAT_REACH[flat][1] : 30ull);
+                }
+            }
+            sim_flush(&tally);
+        }
+        scene.background = TERMS_BACKGROUND;
     }
     cudaFree(device_lanes);
     free(lanes);

@@ -315,6 +315,25 @@ typedef struct
 long noise_structure_volume(const unsigned short *volume, const unsigned long long extent[4],
                             NoiseStructureReading *reading, EngineError *error);
 
+// Rows 18 and 19, what a camera pixel holds in every plane. Over each pixel (y, x), its values in the z planes below
+// the middle and in those from the middle up, each summed over the frames: lo and hi, over n_lo and n_hi values. An
+// offset o or a gain g (1 + p) fixed at a pixel puts the same amount into both halves' means, and the draws,
+// independent between planes, share nothing, so the halves' covariance across the P pixels,
+// C = (P Σ lo hi - Σ lo Σ hi) / (P^2 n_lo n_hi), is var(o) + var(p) (g S)^2 under a flat light S. Read at several
+// lights, C's line over the level squared has slope var(p) and intercept var(o). With it, the mean level
+// Σ (lo + hi) / (P (n_lo + n_hi)). Each is a numerator over a positive denominator.
+typedef struct
+{
+    AnchorExactInteger covariance;
+    AnchorExactInteger covariance_denominator;
+    AnchorExactInteger level;
+    AnchorExactInteger level_denominator;
+} NoiseHalvesReading;
+
+// refuses a volume of fewer than two planes, or whose sums could pass 128 bits
+long noise_halves_volume(const unsigned short *volume, const unsigned long long extent[4], NoiseHalvesReading *reading,
+                         EngineError *error);
+
 // The root noise of a box: a span of frames and a place the caller names, an object's in the cell workbook. Each term the
 // noise vector table names as shared is a pattern in fewer dimensions than the box, one value for every place along
 // the axes it is kept on and the same along the axes it is shared along. A term's pattern over a box is the box's mean

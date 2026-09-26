@@ -36,6 +36,10 @@
 
 #define SIM_SCALE_PURPOSE 0x5343414C45ull
 
+#define SIM_GAIN_PATTERN_PURPOSE 0x50524E55ull
+
+#define SIM_GAIN_ROUND_PURPOSE 0x524F554E44ull
+
 // the camera's shot laws, 0 for none: sim_poisson_four_cumulants, the camera's own, whose first four cumulants are
 // each S, a Poisson count's; and Binomial(4S, 1/2) - S, of mean and variance S but symmetric (third cumulant 0,
 // fourth -S/2), kept for a sim to read beside it
@@ -117,6 +121,11 @@ typedef struct
     unsigned long long scale_square;
     unsigned int scale_octaves;
     unsigned int scale_bits;
+    // a gain per camera pixel (PRNU, row 19), off unless gain_pattern_bits is set, 1 to 32: the pixel (y, x)'s gain is
+    // gain (2^gain_pattern_bits + p) / 2^gain_pattern_bits in every plane, p drawn once in [-reach, reach] with
+    // gain_pattern_reach below 2^gain_pattern_bits, and the gained count rounded by chance so its mean is exact
+    unsigned long long gain_pattern_reach;
+    unsigned int gain_pattern_bits;
 } SimCamera;
 
 typedef struct
@@ -300,8 +309,22 @@ static inline __host__ __device__ unsigned long long sim_thinned(unsigned long l
     return kept;
 }
 
+// a camera pixel's p, its gain's departure in units of 2^-gain_pattern_bits, 0 where the camera has no gain pattern
+static inline __host__ __device__ long long sim_gain_spread(const SimCamera *camera, unsigned long long pixel)
+{
+    if (camera->gain_pattern_bits == 0u)
+    {
+        return 0ll;
+    }
+    // the reach is below 2^32 in every camera here, so the draw and the difference fit a long long
+    return (long long)sim_draw_below(camera->key ^ SIM_GAIN_PATTERN_PURPOSE, pixel,
+                                     (2ull * camera->gain_pattern_reach) + 1ull)
+         - (long long)camera->gain_pattern_reach;
+}
+
 static inline __host__ __device__ long long sim_value(const SimCamera *camera, unsigned long long counter,
-                                                      unsigned long long voxel, unsigned long long electrons)
+                                                      unsigned long long voxel, unsigned long long pixel,
+                                                      unsigned long long electrons)
 {
     // the light's electrons and the dark's are drawn together, before the gain
     const unsigned long long charge = electrons + camera->dark;
@@ -353,8 +376,21 @@ static inline __host__ __device__ long long sim_value(const SimCamera *camera, u
               - (2ll * (long long)camera->reset_square);
     }
     // the offset, pattern and gain are each far below 2^31 in every camera here
-    return (long long)camera->offset + (long long)sim_pattern(camera, voxel) + ((long long)camera->gain * collected)
-         + read;
+    long long gained = (long long)camera->gain * collected;
+    if (camera->gain_pattern_bits != 0u)
+    {
+        const long long unit = 1ll << camera->gain_pattern_bits;
+        const long long scaled = gained * (unit + sim_gain_spread(camera, pixel));
+        // the quotient toward minus infinity, then up by one with the chance of the remainder over the unit, so the
+        // gained count's mean is exact
+        const long long below = (scaled / unit) - ((((scaled % unit) != 0ll) && (scaled < 0ll)) ? 1ll : 0ll);
+        // the remainder lies in [0, unit), so it re-signs exactly
+        const unsigned long long remainder = (unsigned long long)(scaled - (below * unit));
+        const unsigned long long chance = sim_draw_below(camera->key ^ SIM_GAIN_ROUND_PURPOSE, counter,
+                                                         (unsigned long long)unit);
+        gained = below + ((chance < remainder) ? 1ll : 0ll);
+    }
+    return (long long)camera->offset + (long long)sim_pattern(camera, voxel) + gained + read;
 }
 
 // The terms a camera shares across voxels or carries across frames: an offset drawn per frame for each row, column
@@ -420,7 +456,9 @@ static __global__ void sim_render_kernel(SimScene scene, SimCamera camera, unsig
         // the signal of every scene here is far below 2^32
         signal[index] = (unsigned int)electrons;
     }
-    const long long value = sim_value(&camera, index, voxel, electrons)
+    // a camera pixel is a (y, x), the same in every plane
+    const unsigned long long pixel = voxel % (scene.extent[1] * scene.extent[2]);
+    const long long value = sim_value(&camera, index, voxel, pixel, electrons)
                           + sim_shared(&camera, &scene, frame, place, voxel, index);
     if ((value < 0ll) || (value > SIM_LANE_MOST))
     {
