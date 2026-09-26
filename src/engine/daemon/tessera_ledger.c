@@ -95,7 +95,7 @@ static TesseraJob *tessera_find(const TesseraLedger *ledger, unsigned long long 
 
 static void tessera_remove(TesseraLedger *ledger, const TesseraJob *job)
 {
-    // the job points into the array; its distance from the start is its index
+    // the job points into the array, so its distance from the start is its index
     const unsigned long long at = (unsigned long long)(job - ledger->jobs);
     memmove(&ledger->jobs[at], &ledger->jobs[at + 1ull], (size_t)(ledger->job_count - at - 1ull) * sizeof(TesseraJob));
     ledger->job_count -= 1ull;
@@ -143,7 +143,7 @@ long long tessera_ledger_headroom(const TesseraLedger *ledger)
         }
     }
     const unsigned long long taken = tessera_sum(ledger->in_use, owed);
-    // a device's bytes and every sum here stay below two to the sixty-third; each difference is exact signed
+    // a device's bytes and every sum here stay below two to the sixty-third, so each difference is exact signed
     return (taken <= ledger->capacity) ? (long long)(ledger->capacity - taken) : -(long long)(taken - ledger->capacity);
 }
 
@@ -166,10 +166,20 @@ const TesseraHistory *tessera_ledger_history(const TesseraLedger *ledger, const 
 
 unsigned long long tessera_ledger_wants(const TesseraLedger *ledger, const TesseraJob *job)
 {
-    // a job is reserved its signum's kept peak when that is more than it declares; the room it will take is
-    // held from its start and not only once a sweep has seen it grow
+    // a job is reserved its whole declaration, the bytes its process held as it asked and the bytes it declares on
+    // top, or its signum's kept peak when that is more, so the room it will take is held from its start and not only
+    // once a sweep has seen it grow
     const TesseraHistory *const past = tessera_ledger_history(ledger, &job->request.signum);
-    return ((past != NULL) && (past->peak > job->request.declared)) ? past->peak : job->request.declared;
+    const unsigned long long whole = tessera_sum(job->request.standing, job->request.declared);
+    return ((past != NULL) && (past->peak > whole)) ? past->peak : whole;
+}
+
+// the bytes a waiting job has yet to find on the device: what it wants less what its process already holds there,
+// which the device's measured use counts
+static unsigned long long tessera_needs(const TesseraLedger *ledger, const TesseraJob *job)
+{
+    const unsigned long long wants = tessera_ledger_wants(ledger, job);
+    return (wants > job->request.standing) ? (wants - job->request.standing) : 0ull;
 }
 
 int tessera_ledger_submit(TesseraLedger *ledger, const TesseraJobRequest *request, unsigned long long now,
@@ -307,7 +317,9 @@ static int tessera_start(TesseraLedger *ledger, TesseraJob *job, unsigned long l
     }
     job->state = TESSERA_JOB_RUNNING;
     job->reservation = tessera_ledger_wants(ledger, job);
-    job->used = 0ull;
+    // until its first sweep the job uses what its process held as it asked, which the device's measure already counts,
+    // so the headroom owes the device only the bytes it has yet to find
+    job->used = job->request.standing;
     job->peak = 0ull;
     job->measures = 0ull;
     job->started = now;
@@ -356,7 +368,7 @@ static int tessera_shadow(const TesseraLedger *ledger, unsigned long long wanted
         if (room >= (long long)wanted)
         {
             *shadow = soonest;
-            // the room is at least the wanted bytes here; the difference is not negative
+            // the room is at least the wanted bytes here, so the difference is not negative
             *spare = (unsigned long long)(room - (long long)wanted);
             return 1;
         }
@@ -375,8 +387,8 @@ unsigned long long tessera_ledger_admit(TesseraLedger *ledger, unsigned long lon
         {
             continue;
         }
-        // the wanted bytes are a device's bytes, below two to the sixty-third
-        if ((long long)tessera_ledger_wants(ledger, job) <= tessera_ledger_headroom(ledger))
+        // the needed bytes are a device's bytes, below two to the sixty-third
+        if ((long long)tessera_needs(ledger, job) <= tessera_ledger_headroom(ledger))
         {
             if (!tessera_start(ledger, job, now, &events[made]))
             {
@@ -394,30 +406,30 @@ unsigned long long tessera_ledger_admit(TesseraLedger *ledger, unsigned long lon
     }
     unsigned long long shadow = 0ull;
     unsigned long long spare = 0ull;
-    if (!tessera_shadow(ledger, tessera_ledger_wants(ledger, head), tessera_ledger_headroom(ledger), &shadow, &spare))
+    if (!tessera_shadow(ledger, tessera_needs(ledger, head), tessera_ledger_headroom(ledger), &shadow, &spare))
     {
         return made;
     }
-    // the head points into the array; its distance from the start is its index
+    // the head points into the array, so its distance from the start is its index
     for (unsigned long long at = (unsigned long long)(head - ledger->jobs) + 1ull; (made < room) && (at < ledger->job_count);
          at += 1ull)
     {
         TesseraJob *const job = &ledger->jobs[at];
         const TesseraHistory *const past = tessera_ledger_history(ledger, &job->request.signum);
-        const unsigned long long wants = tessera_ledger_wants(ledger, job);
-        // the wanted bytes are a device's bytes, below two to the sixty-third
-        const int fits = (long long)wants <= tessera_ledger_headroom(ledger);
+        const unsigned long long needs = tessera_needs(ledger, job);
+        // the needed bytes are a device's bytes, below two to the sixty-third
+        const int fits = (long long)needs <= tessera_ledger_headroom(ledger);
         if ((job->state != TESSERA_JOB_WAITING) || (past == NULL) || !fits)
         {
             continue;
         }
         const int before_shadow = tessera_sum(now, past->duration) <= shadow;
-        const int in_spare = wants <= spare;
+        const int in_spare = needs <= spare;
         if (!before_shadow && !in_spare)
         {
             continue;
         }
-        spare -= (!before_shadow) ? wants : 0ull;
+        spare -= (!before_shadow) ? needs : 0ull;
         if (!tessera_start(ledger, job, now, &events[made]))
         {
             return made;

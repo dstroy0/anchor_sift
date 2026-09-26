@@ -77,6 +77,40 @@ static inline __host__ __device__ unsigned long long sim_binomial_half(unsigned 
     return heads;
 }
 
+// one electron's draw of the shot below: 0, 1, 2 or 4 with chances 9, 8, 6 and 1 in 24
+#define SIM_SHOT_CHANCES 24ull
+
+// six electrons' chances from one word, 24^6 of them
+#define SIM_SHOT_DIGITS 6ull
+
+#define SIM_SHOT_DIGIT_WORD 191102976ull
+
+// A count of mean S whose first four cumulants are each S, a Poisson count's: each of the S expected electrons adds
+// 0, 1, 2 or 4 with chances 9, 8, 6 and 1 in 24, a law whose factorial moments are 1 to the fourth, as Poisson(1)'s
+// are; it parts from Poisson at the fifth. A word's draw below 24^6 gives six electrons' chances, so a counter's
+// SIM_COUNTER_STRIDE words hold 6 of them each.
+static inline __host__ __device__ unsigned long long sim_poisson_four_cumulants(unsigned long long key,
+                                                                               unsigned long long counter,
+                                                                               unsigned long long electrons)
+{
+    unsigned long long collected = 0ull;
+    unsigned long long word = 0ull;
+    for (unsigned long long done = 0ull; done < electrons; done += SIM_SHOT_DIGITS)
+    {
+        unsigned long long digits = sim_draw(key, (counter * SIM_COUNTER_STRIDE) + word) % SIM_SHOT_DIGIT_WORD;
+        const unsigned long long left = electrons - done;
+        const unsigned long long taken = (left < SIM_SHOT_DIGITS) ? left : SIM_SHOT_DIGITS;
+        for (unsigned long long digit = 0ull; digit < taken; digit += 1ull)
+        {
+            const unsigned long long chance = digits % SIM_SHOT_CHANCES;
+            digits /= SIM_SHOT_CHANCES;
+            collected += (chance < 9ull) ? 0ull : ((chance < 17ull) ? 1ull : ((chance < 23ull) ? 2ull : 4ull));
+        }
+        word += 1ull;
+    }
+    return collected;
+}
+
 static inline void sim_open(SimTally *tally, char *room)
 {
     memset(tally, 0, sizeof(*tally));

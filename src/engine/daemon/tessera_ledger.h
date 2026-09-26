@@ -26,6 +26,9 @@ typedef enum
     TESSERA_EVENT_IDLE = 6
 } TesseraEventKind;
 
+// A job as it asks. `declared` is the bytes the job says it will take; `standing` is the bytes its process already
+// holds on the device as it asks (its CUDA context, and whatever it kept from an earlier job), measured by the daemon.
+// The job's whole declaration is the two together, and the device's measured use already counts the standing bytes.
 typedef struct
 {
     EngineSignum signum;
@@ -34,6 +37,7 @@ typedef struct
     unsigned long long sweep_microseconds;
     unsigned long long idle_microseconds;
     unsigned int override_budget;
+    unsigned long long standing;
 } TesseraJobRequest;
 
 typedef struct

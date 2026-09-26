@@ -4,8 +4,8 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODULE="$(cd "$TEST/.." && pwd)"
-TOP="$(cd "$MODULE/../../../.." && pwd)"
-SCRIPTURA="$TOP/src/engine/base/scriptura"
+TOP="$(cd "$MODULE/../../.." && pwd)"
+SCRIPTURA="$TOP/engine/base/scriptura"
 source "$TOP/maint/build_stamp.sh"
 build_stamp obsignatio_test
 
@@ -41,7 +41,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$MODULE" -I "$SCRIPTURA")
+INCLUDES=(-I "$TOP/engine" -I "$MODULE" -I "$SCRIPTURA")
 rm -f "$BINARY"
 OBJECTS=()
 for source in "$SCRIPTURA"/*.c; do

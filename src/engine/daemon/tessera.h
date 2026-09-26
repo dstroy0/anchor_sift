@@ -4,6 +4,14 @@
 
 #include "engine_config.h"
 
+// the client's calls, exported where the engine library builds them in (build_engine.sh); a program that links the
+// client's objects itself leaves TESSERA_BUILD_DLL undefined
+#if defined(TESSERA_BUILD_DLL) && TESSERA_BUILD_DLL && defined(_WIN32)
+#define TESSERA_EXPORT __declspec(dllexport)
+#else
+#define TESSERA_EXPORT
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -13,6 +21,10 @@ extern "C" {
 #define TESSERA_MAGIC 0x41525353u
 #define TESSERA_VERSION 1u
 #define TESSERA_DEVICE_BYTES 16u
+
+// a device of sixteen zero bytes names the host's processors, which a job declares and reports in thousandths of one
+// logical processor
+#define TESSERA_HOST_PROCESSOR 1000ull
 
 typedef enum
 {
@@ -61,12 +73,19 @@ int tessera_path_endpoint(const unsigned char device[TESSERA_DEVICE_BYTES], char
 
 int tessera_path_state(const unsigned char device[TESSERA_DEVICE_BYTES], char *path, unsigned int room);
 
-int tessera_path_lost(const unsigned char device[TESSERA_DEVICE_BYTES], char *path, unsigned int room);
+int tessera_path_lost(const unsigned char device[TESSERA_DEVICE_BYTES], unsigned long long identity,
+                      const EngineSignum *signum, char *path, unsigned int room);
 
 // a paravirtual device (WSL) measures no process from outside it; each job's process measures itself and says so
-int tessera_self_paravirtual(void);
+TESSERA_EXPORT int tessera_self_paravirtual(void);
 
-int tessera_self_measure(unsigned long long luid, unsigned long long *used);
+TESSERA_EXPORT int tessera_self_measure(unsigned long long luid, unsigned long long *used);
+
+TESSERA_EXPORT int tessera_device_names_host(const unsigned char device[TESSERA_DEVICE_BYTES]);
+
+// the logical processors host jobs run on: every one but those of the host's last cores, kept for the desktop (two,
+// or $TESSERA_HOST_KEPT_CORES, and never every core); 0 where the host's cores could not be read
+TESSERA_EXPORT unsigned long long tessera_self_host_mask(void);
 
 typedef struct
 {
@@ -82,12 +101,15 @@ typedef struct
     EngineError *error;
 } TesseraJobAsk;
 
+// `standing` is the bytes the job's process already held on the device as it asked (its CUDA context and whatever it
+// kept from an earlier job), which the daemon measured and counted with its declaration; it is told on admission
 typedef struct
 {
     unsigned long long identity;
     unsigned long long granted;
     unsigned long long last_peak;
     unsigned long long grown_to;
+    unsigned long long standing;
     unsigned int asked;
     unsigned int lost;
     char lost_path[ENGINE_PATH_ROOM];
@@ -101,15 +123,20 @@ _Static_assert((offsetof(TesseraTicket, lost_path) % 8u) == 0u, "tessera: a tick
 
 typedef struct TesseraClient TesseraClient;
 
-long tessera_job_submit(const TesseraJobAsk *ask, TesseraClient **client, TesseraTicket *ticket);
+TESSERA_EXPORT long tessera_job_submit(const TesseraJobAsk *ask, TesseraClient **client, TesseraTicket *ticket);
 
-long tessera_job_override(TesseraClient *client, TesseraTicket *ticket, EngineError *error);
+TESSERA_EXPORT long tessera_job_override(TesseraClient *client, TesseraTicket *ticket, EngineError *error);
 
-long tessera_job_wait(TesseraClient *client, TesseraTicket *ticket, EngineError *error);
+TESSERA_EXPORT long tessera_job_wait(TesseraClient *client, TesseraTicket *ticket, EngineError *error);
 
-long tessera_job_precalc_kept(TesseraClient *client, EngineError *error);
+TESSERA_EXPORT long tessera_job_precalc_kept(TesseraClient *client, EngineError *error);
 
-long tessera_job_release(TesseraClient *client, TesseraTicket *ticket, EngineError *error);
+// an admitted job's own measure, where the daemon reads none from outside (the host's processors, or a device under
+// WSL); any growth the daemon has told back is read into the ticket
+TESSERA_EXPORT long tessera_job_report(TesseraClient *client, TesseraTicket *ticket, unsigned long long measured,
+                                       EngineError *error);
+
+TESSERA_EXPORT long tessera_job_release(TesseraClient *client, TesseraTicket *ticket, EngineError *error);
 
 #ifdef __cplusplus
 }

@@ -62,6 +62,12 @@ typedef struct
 
 unsigned long long period_agreement_entries(unsigned int rank, const unsigned long long *shape);
 
+// The bytes of the device pool period_read and period_draw keep after they return, for `voxels` lanes and `entries`
+// agreement counts (period_agreement_entries): the histogram, the agreement and a shuffled copy of the lanes. The pool
+// grows to the most voxels and the most entries asked so far, and a job over several shapes declares it for the most of
+// each. 0 for no voxels or more than 2^32 - 1, which the calls refuse.
+unsigned long long period_hold_bytes(unsigned long long voxels, unsigned long long entries);
+
 long period_read(const PeriodRequest *request);
 
 long period_draw(const PeriodRequest *request, unsigned long long draw, PeriodMargin *heights);

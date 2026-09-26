@@ -11,7 +11,7 @@ builds and runs it as written here.
 ## What a program is
 
 A program is a list of **steps** in order. Each step is one operation, and its value is held in a **register**
-named by the step's number. A step reads only steps before it; a program is straight-line and has no branch
+named by the step's number. A step reads only steps before it, so a program is straight-line and has no branch
 and no loop. A program runs once per **lane**. A lane reads one **record** from each of 1 to 3 **members**, the
 kinds of record the program takes in, and writes one output record. A sweep runs every lane at once.
 
@@ -30,16 +30,16 @@ typedef struct
 ## The operations
 
 `left` and `right` name earlier steps unless the row says otherwise. The width is the register's bits as the
-imprint derives them from the operands (`keymath_record_imprint`); no width is declared by hand.
+imprint derives them from the operands (`keymath_record_imprint`), so no width is declared by hand.
 
 | operation | reads | value | width |
 |---|---|---|---|
 | `ENGINE_RECORD_FIELD` | field `left` of member `member` | the field as an unsigned integer | the field's bits |
 | `ENGINE_RECORD_FIELD_SIGNED` | field `left` of member `member` | the field as two's complement | the field's bits |
 | `ENGINE_RECORD_CONSTANT` | nothing | `left + 2^32 · right`, never negative | the constant's bits |
-| `ENGINE_RECORD_SUM` | `left`, `right` | left + right | the wider operand + 1 |
-| `ENGINE_RECORD_DIFFERENCE` | `left`, `right` | left − right | the wider operand + 1 |
-| `ENGINE_RECORD_PRODUCT` | `left`, `right` | left · right | the two widths added |
+| `ENGINE_RECORD_SUM` | `left`, `right` | left + right | the wider operand + 1, or the linear form's bound where fewer |
+| `ENGINE_RECORD_DIFFERENCE` | `left`, `right` | left − right | the wider operand + 1, or the linear form's bound where fewer |
+| `ENGINE_RECORD_PRODUCT` | `left`, `right` | left · right | the two widths added; by a constant, the linear form's bound where fewer |
 | `ENGINE_RECORD_ABSOLUTE` | `left` | \|left\| | left's width |
 | `ENGINE_RECORD_COMPARE` | `left`, `right` | −1, 0 or +1: the sign of left − right | 1 |
 | `ENGINE_RECORD_QUOTIENT` | `left`, `right` | left / right, rounded toward zero | left's width |
@@ -53,6 +53,18 @@ imprint derives them from the operands (`keymath_record_imprint`); no width is d
 | `ENGINE_RECORD_WRAP` | `left`, and `right` as a width of 4 or more | left modulo 2^right, read back signed, in [−2^(right − 1), 2^(right − 1)) | the fewer of left's width and `right` |
 
 A register of 0 bits is given 1.
+
+The imprint also carries every register as a **linear form**: integer coefficients over **atoms**, plus a constant.
+- A sum or a difference adds its operands' forms, and terms that cancel drop out.
+- A product by a constant, a register whose form has no atoms, scales the other operand's form.
+- A constant is its own value, and a wrap that passes its register through keeps that register's form.
+- Every other register, fields included, is an atom with coefficient 1. So is a register whose coefficients or
+  constant would pass 2^62.
+
+The form bounds the value: |x| ≤ |c| + Σ |c_i| · (2^(b_i) − 1), over the atoms' widths b_i. Where that bound needs
+fewer bits than the operation's own rule, the register takes the fewer. (a − b) + b, with the same b, is a's width,
+and a Gaussian floor (a − b, a + b) grows half a bit a floor, as its values do, not a whole bit
+(`test/record_gaussian_test`).
 
 The imprint knows some registers are **never negative**:
 - a field read unsigned;
@@ -111,14 +123,14 @@ if (engine_record_imprint(&request, &record, &error) == ENGINE_REFUSED) { /* the
 1. **The imprint** (`keymath_record_imprint`) checks that every step reads only earlier steps, derives every
    register's width, and checks the fields, the tables and the outputs. The result is the program's **key**.
 2. **The layout** (`key_schedule_record_lay`) places every register in the lane's **register file** and every
-   output in the output record. With `reuse` set, a register is freed once its last reader has run; a long
+   output in the output record. With `reuse` set, a register is freed once its last reader has run, so a long
    program fits a small file.
 3. **The load** (`cycle_record_load`) puts the layout on the device. A program's file of at most 64 limbs runs
    in the 64-limb kernel, and a larger one in the 256-limb kernel. Only a program that divides carries the
    scratch its divisions need.
 
 The imprint and the layout are the serial work, done once. The sweep then runs that key over every lane
-([imprint_key_cycle.md](../../../theory/workbooks/engine/imprint_key_cycle.md)).
+([imprint_key_cycle.md](../../theory/workbook/imprint_key_cycle.md)).
 
 ## Sweeping
 
@@ -140,7 +152,7 @@ engine_record_host(&request, &sweep);  // the same program on the host, from the
   `right` is not positive, a value outgrows its register, or an index names a record past its member. One
   refused lane refuses the whole sweep.
 - **The port check.** `engine_record_host` runs the same program with the exact integer library as every step.
-  A new program is proved by the device's records equaling the host's word for word, as every test and the
+  A new program is proved by the device's records equalling the host's word for word, as every test and the
   tracking driver do.
 
 A program has no loop. An iteration of known length is unrolled into the program as **floors**: each floor is a
@@ -194,7 +206,7 @@ is refused at imprint, and an index past its member is refused at the sweep. 11 
 |---|---|---|
 | `.cfg` | a run's configuration, JSON (`cfg/`, read by `run_cfg` through `base/cfg_json`) | built for the tracking runs |
 | `.sch` | the schedule: `schedule_program` (`base/schedule`) measures the tower (the device's memory), plans against two thirds of what is free, and writes the stages, each with the bytes it needs, as JSON (`nbody_program/program.json`) | written for the tracking runs; nothing reads the stages back |
-| `.imp` | a math key: a program imprinted onto the impulse, carrying the program so it can be verified | the container kind is reserved (`KREP_KIND_KEY`, `base/krep`); no writer or reader yet |
+| `.imp` | a math key: a program imprinted onto the impulse, carrying the program so it can be verified | the container kind is reserved (`APXREP_KIND_KEY`, `base/apxrep`); no writer or reader yet |
 
 Until `.imp` is written and read, a program lives as its step list in the source that sweeps it, and is imprinted
 each run.

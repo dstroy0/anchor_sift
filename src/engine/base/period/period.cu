@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "period.h"
 
+#include "device_pool.h"
 #include "scriptura.h"
 
 #include <cuda_runtime.h>
@@ -80,6 +81,22 @@ typedef struct
     unsigned long long *agreement;
     size_t held_entries;
 } PeriodPass;
+
+// the histogram, the agreement and the shuffled lanes are slices of one pool, kept after the call and held for the
+// most voxels and the most agreement entries asked so far
+typedef struct
+{
+    DevicePool pool;
+    unsigned int *histogram;
+    unsigned long long *agreement;
+    unsigned short *shuffled;
+    unsigned long long voxels;
+    unsigned long long entries;
+} PeriodHeld;
+
+static PeriodHeld s_period_held;
+
+#define PERIOD_SLICES 3u
 
 __global__ static void period_histogram_kernel(const unsigned short *lanes, unsigned long long voxels,
                                                unsigned int *histogram)
@@ -336,6 +353,68 @@ extern "C" unsigned long long period_agreement_entries(unsigned int rank, const 
     return entries;
 }
 
+// the pool's slices for `voxels` and `entries`, in the order they are laid and taken: the histogram, the agreement and
+// the shuffled lanes; the plan is laid from them, and a pool held from it takes them
+static DevicePoolPlan period_plan(unsigned long long voxels, unsigned long long entries, EngineError *error,
+                                  DevicePoolTakeRequest takes[PERIOD_SLICES])
+{
+    PeriodHeld *const held = &s_period_held;
+    const DevicePoolTakeRequest laid[PERIOD_SLICES] = {
+        {&held->pool, PERIOD_VALUES * sizeof(unsigned int), (void **)&held->histogram, error},
+        {&held->pool, entries * sizeof(unsigned long long), (void **)&held->agreement, error},
+        {&held->pool, voxels * sizeof(unsigned short), (void **)&held->shuffled, error}};
+    DevicePoolPlan plan = {0ull, 0ull, 0};
+    for (unsigned int at = 0u; at < PERIOD_SLICES; at += 1u)
+    {
+        takes[at] = laid[at];
+        device_pool_plan_slice(&plan, laid[at].bytes);
+    }
+    return plan;
+}
+
+// the pool grown to hold `voxels` and `entries`. A pool that already holds both is kept as it is, and a grown pool
+// holds the most of each asked so far: shapes that take turns grow it once.
+static int period_hold(unsigned long long voxels, unsigned long long entries, EngineError *error)
+{
+    PeriodHeld *const held = &s_period_held;
+    if ((voxels <= held->voxels) && (entries <= held->entries))
+    {
+        return 1;
+    }
+    const unsigned long long most_voxels = (voxels > held->voxels) ? voxels : held->voxels;
+    const unsigned long long most_entries = (entries > held->entries) ? entries : held->entries;
+    device_pool_release(&held->pool);
+    held->histogram = NULL;
+    held->agreement = NULL;
+    held->shuffled = NULL;
+    held->voxels = 0ull;
+    held->entries = 0ull;
+    DevicePoolTakeRequest takes[PERIOD_SLICES];
+    const DevicePoolPlan plan = period_plan(most_voxels, most_entries, error, takes);
+    const DevicePoolHoldRequest hold = {&plan, &held->pool, error};
+    int ok = device_pool_hold(&hold) == 0L;
+    // the slices are taken in the plan's order, and each lands where the plan laid it with none refused
+    for (unsigned int at = 0u; (ok != 0) && (at < PERIOD_SLICES); at += 1u)
+    {
+        ok = device_pool_take(&takes[at]) == 0L;
+    }
+    held->voxels = (ok != 0) ? most_voxels : 0ull;
+    held->entries = (ok != 0) ? most_entries : 0ull;
+    return ok;
+}
+
+extern "C" unsigned long long period_hold_bytes(unsigned long long voxels, unsigned long long entries)
+{
+    if ((voxels == 0ull) || (voxels > PERIOD_VOXELS_MOST))
+    {
+        return 0ull;
+    }
+    DevicePoolTakeRequest takes[PERIOD_SLICES];
+    // the agreement's slice holds one entry at the least, as the calls hold it
+    const DevicePoolPlan plan = period_plan(voxels, (entries != 0ull) ? entries : 1ull, NULL, takes);
+    return device_pool_plan_bytes(&plan);
+}
+
 static int period_lattice_fill(const PeriodRequest *request, PeriodLattice *lattice, unsigned long long *voxels)
 {
     EngineError *const error = request->error;
@@ -567,19 +646,12 @@ extern "C" long period_read(const PeriodRequest *request)
     const size_t held_bands = (size_t)((draws != 0ull) ? (draws * lattice.rank) : 1ull);
     PeriodMargin *const bands = (PeriodMargin *)calloc(held_bands, sizeof(PeriodMargin));
     unsigned long long band_counts[ENGINE_ARRAY_RANK] = {0ull};
-    unsigned int *device_histogram = NULL;
-    unsigned long long *device_agreement = NULL;
-    unsigned short *device_shuffled = NULL;
     int good = PERIOD_HELD((histogram != NULL) && (shuffled_histogram != NULL) && (agreement != NULL)
                                && (shuffled_agreement != NULL) && (bands != NULL),
                            request, error, ENGINE_ERROR_RESOURCE)
-            && PERIOD_TOOK(cudaMalloc((void **)&device_histogram, PERIOD_VALUES * sizeof(unsigned int)),
-                           &device_histogram, error)
-            && PERIOD_TOOK(cudaMalloc((void **)&device_agreement, held_entries * sizeof(unsigned long long)),
-                           &device_agreement, error)
-            && PERIOD_TOOK(cudaMalloc((void **)&device_shuffled, (size_t)voxels * sizeof(unsigned short)),
-                           &device_shuffled, error);
-    PeriodPass pass = {request->device_lanes, voxels, columns, device_histogram, device_agreement, histogram, agreement,
+            && period_hold(voxels, held_entries, error);
+    const PeriodHeld *const held = &s_period_held;
+    PeriodPass pass = {request->device_lanes, voxels, columns, held->histogram, held->agreement, histogram, agreement,
                        held_entries};
     good = good && period_count(&pass, &lattice, 1, error);
     unsigned long long collisions = 0ull;
@@ -599,14 +671,14 @@ extern "C" long period_read(const PeriodRequest *request)
     reading->voxels = voxels;
     reading->collisions = collisions;
     reading->draws = draws;
-    PeriodPass shuffled_pass = {device_shuffled, voxels, columns, device_histogram, device_agreement,
-                                shuffled_histogram, shuffled_agreement, held_entries};
+    PeriodPass shuffled_pass = {held->shuffled, voxels, columns, held->histogram, held->agreement, shuffled_histogram,
+                                shuffled_agreement, held_entries};
     for (unsigned long long draw = 0ull; (good != 0) && (voxels >= 2ull) && (draw < draws); draw += 1ull)
     {
         for (unsigned int axis = 0u; (good != 0) && (axis < lattice.rank); axis += 1u)
         {
             PeriodMargin height;
-            good = period_null_axis(request, &lattice, (draw * lattice.rank) + axis, axis, device_shuffled,
+            good = period_null_axis(request, &lattice, (draw * lattice.rank) + axis, axis, held->shuffled,
                                     &shuffled_pass, histogram, &height, error);
             if ((good != 0) && (height.numerator != 0ull))
             {
@@ -615,9 +687,6 @@ extern "C" long period_read(const PeriodRequest *request)
             }
         }
     }
-    cudaFree(device_histogram);
-    cudaFree(device_agreement);
-    cudaFree(device_shuffled);
     for (unsigned int axis = 0u; (good != 0) && (axis < lattice.rank); axis += 1u)
     {
         period_select(&agreement[lattice.first[axis]], &lattice, axis, &bands[axis * draws], band_counts[axis],
@@ -666,21 +735,14 @@ extern "C" long period_draw(const PeriodRequest *request, unsigned long long dra
     unsigned int *const histogram = (unsigned int *)malloc(PERIOD_VALUES * sizeof(unsigned int));
     unsigned int *const shuffled_histogram = (unsigned int *)malloc(PERIOD_VALUES * sizeof(unsigned int));
     unsigned long long *const shuffled_agreement = (unsigned long long *)calloc(held_entries, sizeof(unsigned long long));
-    unsigned int *device_histogram = NULL;
-    unsigned long long *device_agreement = NULL;
-    unsigned short *device_shuffled = NULL;
     int good = PERIOD_HELD((histogram != NULL) && (shuffled_histogram != NULL) && (shuffled_agreement != NULL), request,
                            error, ENGINE_ERROR_RESOURCE)
-            && PERIOD_TOOK(cudaMalloc((void **)&device_histogram, PERIOD_VALUES * sizeof(unsigned int)),
-                           &device_histogram, error)
-            && PERIOD_TOOK(cudaMalloc((void **)&device_agreement, held_entries * sizeof(unsigned long long)),
-                           &device_agreement, error)
-            && PERIOD_TOOK(cudaMalloc((void **)&device_shuffled, (size_t)voxels * sizeof(unsigned short)),
-                           &device_shuffled, error);
-    PeriodPass pass = {request->device_lanes, voxels, columns, device_histogram, device_agreement, histogram,
+            && period_hold(voxels, held_entries, error);
+    const PeriodHeld *const held = &s_period_held;
+    PeriodPass pass = {request->device_lanes, voxels, columns, held->histogram, held->agreement, histogram,
                        shuffled_agreement, held_entries};
-    PeriodPass shuffled_pass = {device_shuffled, voxels, columns, device_histogram, device_agreement,
-                                shuffled_histogram, shuffled_agreement, held_entries};
+    PeriodPass shuffled_pass = {held->shuffled, voxels, columns, held->histogram, held->agreement, shuffled_histogram,
+                                shuffled_agreement, held_entries};
     good = good && period_count(&pass, &lattice, 0, error);
     for (unsigned int axis = 0u; (good != 0) && (axis < lattice.rank); axis += 1u)
     {
@@ -690,13 +752,10 @@ extern "C" long period_draw(const PeriodRequest *request, unsigned long long dra
         heights[axis].denominator = open.pairs_per_lag;
         if (voxels >= 2ull)
         {
-            good = period_null_axis(request, &lattice, (draw * lattice.rank) + axis, axis, device_shuffled,
+            good = period_null_axis(request, &lattice, (draw * lattice.rank) + axis, axis, held->shuffled,
                                     &shuffled_pass, histogram, &heights[axis], error);
         }
     }
-    cudaFree(device_histogram);
-    cudaFree(device_agreement);
-    cudaFree(device_shuffled);
     free(histogram);
     free(shuffled_histogram);
     free(shuffled_agreement);

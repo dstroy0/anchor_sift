@@ -16,8 +16,8 @@
  * @note A NEON register is 128 bits and holds four 32 bit limbs against AVX2's eight. The loop is
  *       otherwise identical. The arithmetic belongs to the representation and not to the
  *       instruction set, and every arm has to return what the portable one returns.
- * @note vceqq_u32 sets a lane to all ones where the two limbs match. There is no movemask on NEON;
- *       the four lanes are folded to one 64 bit pair with vminvq_u32, which returns the smallest
+ * @note vceqq_u32 sets a lane to all ones where the two limbs match. There is no movemask on NEON,
+ *       so the four lanes are folded to one 64 bit pair with vminvq_u32, which returns the smallest
  *       lane: that is zero exactly when some lane failed to match.
  */
 
@@ -162,7 +162,7 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
 static size_t arm_agreement(const AnchorExactInteger *positions, const uint64_t *values,
                             size_t count, const AnchorExactInteger *lag)
 {
-    // The shared search, with only the equality test swapped. The timing measures the instruction
+    // The shared search, with only the equality test swapped. What is timed is the instruction
     // set and not a second algorithm. This arm carried its own ordered search once, which measured
     // the difference between two algorithms and reported it as the difference between two parts.
     return anchor_exact_agreement_using(arm_equal, positions, values, count, lag);

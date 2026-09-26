@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "compression.h"
 
+#include "device_pool.h"
+
 #include <cub/cub.cuh>
 #include <cuda_runtime.h>
 
@@ -208,11 +210,15 @@ static unsigned int compression_blocks(unsigned long long count)
     return (unsigned int)((needed < 65536ull) ? ((needed == 0ull) ? 1ull : needed) : 65536ull);
 }
 
+// each chunk's bits, each chunk's offset and the scan's scratch are slices of one pool, held for the most chunks asked
+// so far; the stream is sized by the values themselves, known only once they are measured, and is a pool of its own
 struct CompressionHeld
 {
+    DevicePool chunk_pool;
     unsigned long long *chunk_bits;
     unsigned long long *chunk_offsets;
     size_t chunk_room;
+    DevicePool stream_pool;
     unsigned int *stream;
     size_t stream_room;
     void *scan;
@@ -223,6 +229,27 @@ struct CompressionHeld
 
 static CompressionHeld s_compression_held;
 
+#define COMPRESSION_CHUNK_SLICES 3u
+
+// the chunk pool's slices for `chunks`, in the order they are laid and taken: each chunk's bits, each chunk's offset,
+// and the scan's scratch of `scan_bytes`; the plan is laid from them, and a pool held from it takes them
+static DevicePoolPlan compression_chunk_plan(size_t chunks, size_t scan_bytes, EngineError *error,
+                                             DevicePoolTakeRequest takes[COMPRESSION_CHUNK_SLICES])
+{
+    CompressionHeld *const held = &s_compression_held;
+    const DevicePoolTakeRequest laid[COMPRESSION_CHUNK_SLICES] = {
+        {&held->chunk_pool, chunks * sizeof(unsigned long long), (void **)&held->chunk_bits, error},
+        {&held->chunk_pool, chunks * sizeof(unsigned long long), (void **)&held->chunk_offsets, error},
+        {&held->chunk_pool, scan_bytes, &held->scan, error}};
+    DevicePoolPlan plan = {0ull, 0ull, 0};
+    for (unsigned int at = 0u; at < COMPRESSION_CHUNK_SLICES; at += 1u)
+    {
+        takes[at] = laid[at];
+        device_pool_plan_slice(&plan, laid[at].bytes);
+    }
+    return plan;
+}
+
 static int compression_hold_chunks(size_t chunks, EngineError *error)
 {
     CompressionHeld *const held = &s_compression_held;
@@ -230,23 +257,29 @@ static int compression_hold_chunks(size_t chunks, EngineError *error)
     {
         return 1;
     }
-    cudaFree(held->chunk_bits);
-    cudaFree(held->chunk_offsets);
-    cudaFree(held->scan);
+    device_pool_release(&held->chunk_pool);
     held->chunk_bits = NULL;
     held->chunk_offsets = NULL;
     held->scan = NULL;
     held->chunk_room = 0u;
     held->scan_bytes = 0u;
-    const int ok = COMPRESSION_TOOK(cudaMalloc((void **)&held->chunk_bits, chunks * sizeof(unsigned long long)),
-                                    &held->chunk_bits, error)
-                && COMPRESSION_TOOK(cudaMalloc((void **)&held->chunk_offsets, chunks * sizeof(unsigned long long)),
-                                    &held->chunk_offsets, error)
-                && COMPRESSION_TOOK(cub::DeviceScan::ExclusiveSum(NULL, held->scan_bytes, held->chunk_bits,
-                                                                  held->chunk_offsets, (int)chunks),
-                                    &held->scan_bytes, error)
-                && COMPRESSION_TOOK(cudaMalloc(&held->scan, held->scan_bytes), &held->scan, error);
+    size_t scan_bytes = 0u;
+    // cub sizes the scan's scratch when asked with none, and allocates nothing; compression_chunks holds the count
+    // below 2^31 - 1, so it narrows to cub's int exactly
+    int ok = COMPRESSION_TOOK(cub::DeviceScan::ExclusiveSum(NULL, scan_bytes, held->chunk_bits, held->chunk_offsets,
+                                                           (int)chunks),
+                              &scan_bytes, error);
+    DevicePoolTakeRequest takes[COMPRESSION_CHUNK_SLICES];
+    const DevicePoolPlan plan = compression_chunk_plan(chunks, scan_bytes, error, takes);
+    const DevicePoolHoldRequest hold = {&plan, &held->chunk_pool, error};
+    ok = ok && (device_pool_hold(&hold) == 0L);
+    // the slices are taken in the plan's order, so each lands where the plan laid it and none is refused
+    for (unsigned int at = 0u; (ok != 0) && (at < COMPRESSION_CHUNK_SLICES); at += 1u)
+    {
+        ok = device_pool_take(&takes[at]) == 0L;
+    }
     held->chunk_room = (ok != 0) ? chunks : 0u;
+    held->scan_bytes = (ok != 0) ? scan_bytes : 0u;
     return ok;
 }
 
@@ -257,11 +290,15 @@ static int compression_hold_stream(size_t limbs, EngineError *error)
     {
         return 1;
     }
-    cudaFree(held->stream);
+    device_pool_release(&held->stream_pool);
     held->stream = NULL;
     held->stream_room = 0u;
-    const int ok = COMPRESSION_TOOK(cudaMalloc((void **)&held->stream, (limbs + 1u) * sizeof(unsigned int)),
-                                    &held->stream, error);
+    const DevicePoolTakeRequest take = {&held->stream_pool, (limbs + 1u) * sizeof(unsigned int), (void **)&held->stream,
+                                        error};
+    DevicePoolPlan plan = {0ull, 0ull, 0};
+    device_pool_plan_slice(&plan, take.bytes);
+    const DevicePoolHoldRequest hold = {&plan, &held->stream_pool, error};
+    const int ok = (device_pool_hold(&hold) == 0L) && (device_pool_take(&take) == 0L);
     held->stream_room = (ok != 0) ? (limbs + 1u) : 0u;
     return ok;
 }
@@ -270,6 +307,25 @@ extern "C" unsigned long long compression_chunks(unsigned long long count)
 {
     const unsigned long long chunks = (count + COMPRESSION_CHUNK - 1ull) / COMPRESSION_CHUNK;
     return ((count != 0ull) && (chunks < 0x7FFFFFFFull)) ? chunks : 0ull;
+}
+
+extern "C" unsigned long long compression_hold_bytes(unsigned long long count)
+{
+    const unsigned long long chunks = compression_chunks(count);
+    size_t scan_bytes = 0u;
+    // cub sizes the scan's scratch when asked with none, and allocates nothing; compression_chunks holds the count
+    // below 2^31 - 1, so it narrows to cub's int exactly
+    if ((chunks == 0ull)
+        || (cub::DeviceScan::ExclusiveSum(NULL, scan_bytes, (const unsigned long long *)NULL, (unsigned long long *)NULL,
+                                          (int)chunks)
+            != cudaSuccess))
+    {
+        return 0ull;
+    }
+    DevicePoolTakeRequest takes[COMPRESSION_CHUNK_SLICES];
+    // a size_t holds 64 bits, which device_pool asserts, so the chunk count converts exactly
+    const DevicePoolPlan plan = compression_chunk_plan((size_t)chunks, scan_bytes, NULL, takes);
+    return device_pool_plan_bytes(&plan);
 }
 
 extern "C" long compression_encode(const CompressionEncodeRequest *request)

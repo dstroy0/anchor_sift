@@ -115,7 +115,7 @@ size_t anchor_steer_truthy_after_avx512(const uint8_t *corpus, size_t alignments
 
     for (; (at + ANCHOR_STEER_LANES) <= alignments; at += ANCHOR_STEER_LANES)
     {
-        /* Unaligned loads deliberately. The corpus window starts at an arbitrary offset and forcing
+        /* Unaligned loads on purpose. The corpus window starts at an arbitrary offset and forcing
          * alignment would mean copying, which costs more than the load does. */
         const __m512i window = _mm512_loadu_si512((const void *)(corpus + at + offset));
         const __m512i standing_bytes = _mm512_loadu_si512((const void *)(alive + at));

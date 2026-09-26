@@ -133,8 +133,8 @@ size_t anchor_sift_naive(const uint8_t *corpus, size_t corpus_len, const uint8_t
  *       are written out and fold into one value with one branch behind them, and a loop over a
  *       runtime count gives that back. A corpus whose count wants reducing is a coherent one, and
  *       a coherent corpus dispatches here anyway.
- * @note A needle of length zero occurs at every alignment, and the naive engine
- *       returns that count. That case is handed to it and not answered a second way here. An anchor
+ * @note A needle of length zero occurs at every alignment, which is exactly what the naive engine
+ *       returns. That case is handed to it and not answered a second way here. An anchor
  *       cannot be placed in a needle with no bytes, and bounding the offsets is not enough on its
  *       own: at length zero the alignment loop runs one further than the corpus. The last
  *       alignment reads one past its end, and the anchor reads element zero of a needle that has
@@ -410,10 +410,10 @@ void anchor_steer_probe_order(size_t *offsets, size_t count, const AnchorFieldCe
  *
  * @param[out] value Where the limbs are written [BORROWS].
  * @param[in]  from  The value to carry.
- * @note Base 2^32 least significant limb first, the layout exact_integer.h declares.
- *       Writing the two limbs directly is reading that declaration, not reaching around it;
+ * @note Base 2^32 least significant limb first, which is what exact_integer.h declares the layout to
+ *       be. Writing the two limbs directly is reading that declaration, not reaching around it;
  *       there is no decimal text here to route through anchor_exact_from_decimal and converting a
- *       counter to text to parse it back would be slower and not more exact.
+ *       counter to text to parse it back would be slower and no more exact.
  * @note limb[1] exists because the assert at the top of this file holds the engine to 8 limbs or
  *       more.
  */
@@ -433,8 +433,8 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
 {
     if ((census == NULL) || (census->total == 0u) || (census->distinct == 0u))
     {
-        // An empty field distinguishes nothing. It takes the short circuiting engine, which
-        // ran before any of this and is the cheaper of the two on a field with no
+        // An empty field distinguishes nothing. It takes the short circuiting engine. That is
+        // what ran before any of this and it is the cheaper of the two on a field with no
         // structure to exploit.
         return 0;
     }
@@ -502,10 +502,10 @@ int anchor_steer_prefers_free(const AnchorFieldCensus *census)
  * EACH PERMUTATION OF THE ANCHORS IS A NULL, AND EACH NULL IS A STEER. An alignment survives only
  * when every anchor agrees, and a conjunction does not depend on the order of its terms. Every
  * ordering of a given anchor set returns the same count. The orderings therefore form a group of
- * moves that CANNOT change the answer, called a null in this tree. Steering is choosing
+ * moves that CANNOT change the answer, which is what this tree calls a null. Steering is choosing
  * which element of that group to apply.
  *
- * This one argument carries the safety of everything below, and it is structural and not
+ * That is the whole safety argument for everything below, and it is structural and not
  * defensive. A planner that samples badly, ranks wrongly, or is outright broken still lands on some
  * element of the null group, and every element yields the same count. The planner moves inside the
  * null and the null has one value. Correctness is therefore not something the planner can spend,
@@ -527,7 +527,7 @@ static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const
     // ANY SYMBOL TYPE TAKES THE SCALAR LOOP AND CANNOT TAKE A WIDE ONE. A vectorized scan compares
     // bytes against a broadcast byte, which is a statement about the representation. The oracle is
     // a statement about equality and the engine never learns what it is comparing. There is
-    // nothing to broadcast. This path is slower, and the theory describes it; the byte
+    // nothing to broadcast. This path is slower and it is the one the theory describes; the byte
     // path below is the specialization that can be made wide.
     if (any != NULL)
     {
@@ -555,15 +555,15 @@ static size_t steer_truthy_after(const uint8_t *corpus, size_t corpus_len, const
     // of a speedup. The engine is resolved once and held, because asking the processor on every
     // candidate would cost more than the candidates do.
     //
-    // Only at stride one. A sampled scan walks every Nth alignment and the engines count every one;
-    // handing a sampled sweep to one would change what is being counted. Sampling falls through
+    // Only at stride one. A sampled scan walks every Nth alignment and the engines count every one,
+    // so handing a sampled sweep to one would change what is being counted. Sampling falls through
     // to the loop below, the same code the portable engine runs.
     if (stride == 1u)
     {
         // Resolved through anchor_steer_best_engine, which holds the one dispatch every arm is added
         // to. Reproducing the #if ladder here would be a second copy that a new arm could miss, and a
         // scan that keeps running the old widest arm while a wider one reports itself present is
-        // the unused-implementation defect the scan counters exist to catch.
+        // exactly the unused-implementation defect the scan counters exist to catch.
         static const AnchorSteerEngine *chosen = NULL;
         static int resolved = 0;
         if (resolved == 0)
@@ -686,9 +686,9 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
         rarity_place_of_class[at] = 0u;
     }
 
-    // CLASSES ARE CONNECTED COMPONENTS AND NOT FIRST MATCHES, WHICH MAKES THIS SOUND FOR A
+    // CLASSES ARE CONNECTED COMPONENTS AND NOT FIRST MATCHES, WHICH IS WHAT MAKES THIS SOUND FOR A
     // PREDICATE THAT IS NOT TRANSITIVE. Soundness needs agreement to imply a shared rank. It does
-    // NOT need a shared rank to imply agreement. The labeling must be a superset of the
+    // NOT need a shared rank to imply agreement. The labelling must be a superset of the
     // relation, and the smallest superset that is an equivalence is the transitive closure.
     //
     // EVERY PAIR, NOT EVERY REPRESENTATIVE. Comparing a position against one member of each class is
@@ -963,7 +963,8 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
 
     const size_t stride = (sample_stride == 0u) ? 1u : sample_stride;
 
-    // Every alignment starts standing and a probe can only ever take one down. That direction makes the descent safe to stop at any level: the set shrinks and never grows back.
+    // Every alignment starts standing and a probe can only ever take one down. That direction is
+    // what makes the descent safe to stop at any level: the set shrinks and never grows back.
     //
     // ON RESUME THE SURVIVORS ARE THE INPUT, NOT RESET. A caller composes a recursive spawn by
     // running one descent, then running the next over the survivors the last one left. The child
@@ -1019,7 +1020,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
 
             const size_t standing = steer_truthy_after(corpus, corpus_len, needle, needle_len,
                                                        survivors, offset, stride, any);
-            // Strictly fewer survivors wins. A tie keeps the earlier candidate, which makes
+            // Strictly fewer survivors wins. A tie keeps the earlier candidate, which is what makes
             // the descent deterministic on identical input.
             if ((found == 0) || (standing < best_standing))
             {
@@ -1279,7 +1280,7 @@ size_t anchor_steer_sweep_probes(const AnchorSteerSweep *args)
         return 0u;
     }
 
-    // The entry tests the only thing the backend cannot: whether it was handed arguments at all.
+    // The entry tests the one thing the backend cannot: whether it was handed arguments at all.
     // Everything else the contract states is checked in steer_sweep_probes, against the values it
     // is going to use. No check exists in two places to drift apart.
     return steer_sweep_probes(args->probes, args->count, args->corpus, args->corpus_len,

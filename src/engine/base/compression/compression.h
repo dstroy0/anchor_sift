@@ -39,6 +39,11 @@ long compression_decode(const CompressionDecodeRequest *request);
 
 unsigned long long compression_chunks(unsigned long long count);
 
+// the device bytes compression holds for `count` values before it measures them: its chunk pool, each chunk's bits and
+// offset beside the scan's scratch, rounded to the page; 0 for a count it refuses. The stream is sized by the values
+// and held as a pool of its own, whose bytes are the stream's limbs and one more, rounded to the page.
+unsigned long long compression_hold_bytes(unsigned long long count);
+
 #ifdef __cplusplus
 }
 #endif

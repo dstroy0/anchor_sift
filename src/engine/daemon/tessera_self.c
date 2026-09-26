@@ -2,14 +2,20 @@
 #include "tessera.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-#if !defined(_WIN32)
+#if defined(_WIN32)
+#define NOMINMAX
+#include <windows.h>
+#else
 #include <dlfcn.h>
 #endif
 
 #define TESSERA_SELF_ADAPTERS 16u
 #define TESSERA_SELF_LOCAL_SEGMENTS 0
+#define TESSERA_SELF_CORES 64u
+#define TESSERA_SELF_KEPT_CORES 2ull
 
 // dxcore's kernel-mode thunks, laid out as d3dkmthk.h lays them
 typedef struct
@@ -111,4 +117,130 @@ int tessera_self_measure(unsigned long long luid, unsigned long long *used)
     dlclose(library);
     return good;
 #endif
+}
+
+int tessera_device_names_host(const unsigned char device[TESSERA_DEVICE_BYTES])
+{
+    unsigned int named = 0u;
+    for (unsigned int byte = 0u; byte < TESSERA_DEVICE_BYTES; byte += 1u)
+    {
+        named |= device[byte];
+    }
+    return named == 0u;
+}
+
+// each core's logical processors as one mask, the first sixty-four processors only; returns how many cores were read
+static unsigned int tessera_self_cores(unsigned long long cores[TESSERA_SELF_CORES])
+{
+    unsigned int count = 0u;
+#if defined(_WIN32)
+    DWORD length = 0u;
+    GetLogicalProcessorInformationEx(RelationProcessorCore, NULL, &length);
+    unsigned char *const bytes = (length != 0u) ? (unsigned char *)malloc(length) : NULL;
+    // the buffer is walked as the records it was filled with, each its own Size long
+    if ((bytes == NULL)
+        || !GetLogicalProcessorInformationEx(RelationProcessorCore, (SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)bytes,
+                                             &length))
+    {
+        free(bytes);
+        return 0u;
+    }
+    for (DWORD at = 0u; (at < length) && (count < TESSERA_SELF_CORES);)
+    {
+        // each record starts where the last one's Size ends
+        const SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *const core = (const SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)(bytes + at);
+        if (core->Size == 0u)
+        {
+            break;
+        }
+        if ((core->Relationship == RelationProcessorCore) && (core->Processor.GroupMask[0].Group == 0u))
+        {
+            // a group's affinity is the machine word, which an unsigned long long holds whole
+            cores[count] = (unsigned long long)core->Processor.GroupMask[0].Mask;
+            count += 1u;
+        }
+        at += core->Size;
+    }
+    free(bytes);
+#else
+    for (unsigned int processor = 0u; (processor < TESSERA_SELF_CORES) && (count < TESSERA_SELF_CORES); processor += 1u)
+    {
+        char path[128];
+        snprintf(path, sizeof(path), "/sys/devices/system/cpu/cpu%u/topology/thread_siblings", processor);
+        FILE *const siblings = fopen(path, "r");
+        if (siblings == NULL)
+        {
+            continue;
+        }
+        char line[256];
+        const int read = fgets(line, sizeof(line), siblings) != NULL;
+        fclose(siblings);
+        // the mask is hex words split by commas, the highest processors first: shifting drops those past sixty-four
+        unsigned long long mask = 0ull;
+        for (const char *digit = line; read && (*digit != '\0'); digit += 1)
+        {
+            const int decimal = (*digit >= '0') && (*digit <= '9');
+            const int lower = (*digit >= 'a') && (*digit <= 'f');
+            if (decimal || lower)
+            {
+                // a hexadecimal digit's value is below sixteen
+                mask = (mask << 4u) | (decimal ? (unsigned long long)(*digit - '0') : (unsigned long long)(*digit - 'a' + 10));
+            }
+        }
+        int known = mask == 0ull;
+        for (unsigned int at = 0u; !known && (at < count); at += 1u)
+        {
+            known = cores[at] == mask;
+        }
+        if (!known)
+        {
+            cores[count] = mask;
+            count += 1u;
+        }
+    }
+#endif
+    return count;
+}
+
+unsigned long long tessera_self_host_mask(void)
+{
+    unsigned long long cores[TESSERA_SELF_CORES];
+    const unsigned int count = tessera_self_cores(cores);
+    if (count == 0u)
+    {
+        return 0ull;
+    }
+    unsigned long long kept = TESSERA_SELF_KEPT_CORES;
+    const char *const named = getenv("TESSERA_HOST_KEPT_CORES");
+    if ((named != NULL) && (named[0] != '\0'))
+    {
+        char *end = NULL;
+        const unsigned long long value = strtoull(named, &end, 10);
+        kept = (*end == '\0') ? value : kept;
+    }
+    // one core at least is always left to the jobs
+    kept = (kept < count) ? kept : (count - 1u);
+    unsigned long long mask = 0ull;
+    for (unsigned int at = 0u; at < count; at += 1u)
+    {
+        mask |= cores[at];
+    }
+    // the kept cores are the last ones, by their lowest logical processor
+    for (unsigned long long taken = 0ull; taken < kept; taken += 1ull)
+    {
+        unsigned int last = 0u;
+        unsigned long long last_lowest = 0ull;
+        for (unsigned int at = 0u; at < count; at += 1u)
+        {
+            const unsigned long long lowest = cores[at] & (~cores[at] + 1ull);
+            if (lowest > last_lowest)
+            {
+                last = at;
+                last_lowest = lowest;
+            }
+        }
+        mask &= ~cores[last];
+        cores[last] = 0ull;
+    }
+    return mask;
 }

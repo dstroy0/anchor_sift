@@ -11,7 +11,7 @@
  * @date 2026-09-16
  *
  * WHY THIS IS FAST, AND IT IS THE SAME REASON THE SEARCH IS. A pixel costs what the alignment under
- * it costs, and a steered probe set rejects most alignments on the first read. The renderer gains
+ * it costs, and a steered probe set rejects most alignments on the first read. The renderer inherits
  * that directly: driving reads per alignment toward one drives the cost of a frame toward one read
  * per alignment. Nothing here is optimized separately from the search, and there is no second code
  * path to keep in agreement with it.
@@ -73,7 +73,7 @@ static size_t raster_death_level(const uint8_t *corpus, const uint8_t *needle, s
         }
     }
 
-    /* Survived every probe. The full compare decides an occurrence, and a survivor that
+    /* Survived every probe. The full compare is what decides an occurrence, and a survivor that
      * fails it is a false positive the probe set could not refute cheaply. Both outcomes are worth
      * seeing. They take different values. */
     for (size_t step = 0u; step < needle_len; step += 1u)
@@ -499,7 +499,7 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
     // RESERVED, NOT READ, AND NOT DELETED. The census below is built from `corpus`. A caller
     // supplied one is discarded here. The parameter stays because a tunable with no reader is an
     // integration point and not dead weight, and the header says so at the declaration instead
-    // of calling it the rarity source, as it did until it was measured.
+    // of calling it the rarity source, which is what it said until it was measured.
     (void)census_in;
 
     if ((voxels == NULL) || (config == NULL) || (corpus == NULL) || (needle == NULL) || (config->width == 0u) || (config->height == 0u) || (config->depth == 0u) || (needle_len == 0u) || (needle_len > corpus_len))
@@ -534,7 +534,8 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
         const size_t cell = anchor_volume_cell_for(config, at);
         if (cell >= cells)
         {
-            // The layout refused this configuration. Refusing every alignment identically makes the refusal visible as an empty volume and not as a partial one.
+            // The layout refused this configuration. Refusing every alignment identically is what
+            // makes the refusal visible as an empty volume and not as a partial one.
             return 0;
         }
 
@@ -605,7 +606,7 @@ int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
 
     // The sidecar, because Netpbm has no volume container and inventing one would make this tree
     // the only reader of its own output. A generated file says it is generated and names what made
-    // it, which lets somebody meeting the .raw alone work out what to do with it.
+    // it, which is what lets somebody meeting the .raw alone work out what to do with it.
     char sidecar[512];
     const int used = snprintf(sidecar, sizeof(sidecar), "%s.txt", path);
     if ((used <= 0) || ((size_t)used >= sizeof(sidecar)))

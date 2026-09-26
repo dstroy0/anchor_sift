@@ -13,6 +13,8 @@ extern "C" {
 typedef struct
 {
     const unsigned short *device_volume;
+    const unsigned int *device_planes;
+    unsigned int input_bits;
     unsigned int depth;
     unsigned int height;
     unsigned int width;

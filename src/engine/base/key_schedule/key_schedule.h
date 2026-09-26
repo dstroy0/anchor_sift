@@ -20,9 +20,9 @@ typedef struct
     const unsigned int *field_offset;
     unsigned int fields;
     const unsigned int *in_limbs;
-    // When set, a register is freed once no later step reads it; a long chain runs within the
+    // When set, a register is freed once no later step reads it, so a long chain runs within the
     // file's ENGINE_RECORD_LIMBS_MOST limbs. When clear, every step keeps its own register for the
-    // whole run, the layout the proven programs were measured against.
+    // whole run, which is the layout the proven programs were measured against.
     int reuse;
     EngineRecordLayout *layout;
     EngineError *error;

@@ -18,6 +18,23 @@
 
 #define SIM_PATTERN_PURPOSE 0x50415454ull
 
+#define SIM_ROW_PURPOSE 0x524F57ull
+
+#define SIM_COLUMN_PURPOSE 0x434F4C554D4Eull
+
+#define SIM_PLANE_PURPOSE 0x504C414E45ull
+
+#define SIM_FLICKER_PURPOSE 0x464C49434B4552ull
+
+#define SIM_SPIKE_PURPOSE 0x5350494B45ull
+
+// the camera's shot laws, 0 for none: sim_poisson_four_cumulants, the camera's own, whose first four cumulants are
+// each S, a Poisson count's; and Binomial(4S, 1/2) - S, of mean and variance S but symmetric (third cumulant 0,
+// fourth -S/2), kept for a sim to read beside it
+#define SIM_SHOT_POISSON 1ull
+
+#define SIM_SHOT_SYMMETRIC 2ull
+
 typedef struct
 {
     long long centre[SIM_AXES];
@@ -50,7 +67,20 @@ typedef struct
     unsigned long long gain;
     unsigned long long read_square;
     unsigned long long pattern_reach;
+    // the shot law, SIM_SHOT_POISSON or SIM_SHOT_SYMMETRIC, or 0 for none
     unsigned long long shot;
+    // the terms noise_vector_integration_table.md rows 7 to 11 plant, each 0 unless set: an offset of this variance
+    // drawn per frame for each row, each column and each plane
+    unsigned long long row_square;
+    unsigned long long column_square;
+    unsigned long long plane_square;
+    // flicker octaves 0 up to this count, each a draw of flicker_square held for 2^o frames at a voxel
+    unsigned long long flicker_square;
+    unsigned int flicker_octaves;
+    // a spike of spike_electrons at a voxel-frame, at the rate numerator over denominator
+    unsigned long long spike_numerator;
+    unsigned long long spike_denominator;
+    unsigned long long spike_electrons;
 } SimCamera;
 
 typedef struct
@@ -73,7 +103,7 @@ static inline unsigned long long sim_draws_between(SimDraws *draws, unsigned lon
 
 static inline long long sim_draws_signed(SimDraws *draws, long long reach)
 {
-    // the reach is a small positive speed; 2 reach + 1 and the draw below it fit both types
+    // the reach is a small positive speed, so 2 reach + 1 and the draw below it fit both types
     return (long long)sim_draws_between(draws, 0ull, 2ull * (unsigned long long)reach) - reach;
 }
 
@@ -164,11 +194,16 @@ static inline __host__ __device__ long long sim_value(const SimCamera *camera, u
 {
     // an electron count is far below 2^62, the signal's bound in every scene here
     long long collected = (long long)electrons;
-    if (camera->shot != 0ull)
+    if (camera->shot == SIM_SHOT_SYMMETRIC)
     {
         // a head count of at most 4 S is far below 2^62
         collected = (long long)sim_binomial_half(camera->key ^ SIM_SHOT_PURPOSE, counter, 4ull * electrons)
                   - collected;
+    }
+    else if (camera->shot == SIM_SHOT_POISSON)
+    {
+        // a count of at most 4 S is far below 2^62
+        collected = (long long)sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, electrons);
     }
     long long read = 0ll;
     if (camera->read_square != 0ull)
@@ -180,6 +215,55 @@ static inline __host__ __device__ long long sim_value(const SimCamera *camera, u
     // the offset, pattern and gain are each far below 2^31 in every camera here
     return (long long)camera->offset + (long long)sim_pattern(camera, voxel) + ((long long)camera->gain * collected)
          + read;
+}
+
+// a draw of variance square about 0: Binomial(4 square, 1/2) - 2 square
+static inline __host__ __device__ long long sim_centred(unsigned long long key, unsigned long long counter,
+                                                        unsigned long long square)
+{
+    // a head count of at most 4 square is far below 2^62
+    return (long long)sim_binomial_half(key, counter, 4ull * square) - (2ll * (long long)square);
+}
+
+// The terms a camera shares across voxels or carries across frames: an offset drawn per frame for each row, column
+// and plane, flicker octaves each held for 2^o frames, and spikes at a rational rate. Each is 0 unless its field is
+// set, so a camera setting none of them renders as it did before they existed.
+static inline __host__ __device__ long long sim_shared(const SimCamera *camera, const SimScene *scene,
+                                                       unsigned long long frame, const long long *place,
+                                                       unsigned long long voxel, unsigned long long counter)
+{
+    // each coordinate is inside the view, non-negative and below its extent
+    const unsigned long long plane = (frame * scene->extent[0]) + (unsigned long long)place[0];
+    const unsigned long long row = (plane * scene->extent[1]) + (unsigned long long)place[1];
+    const unsigned long long column = (plane * scene->extent[2]) + (unsigned long long)place[2];
+    long long shared = 0ll;
+    if (camera->row_square != 0ull)
+    {
+        shared += sim_centred(camera->key ^ SIM_ROW_PURPOSE, row, camera->row_square);
+    }
+    if (camera->column_square != 0ull)
+    {
+        shared += sim_centred(camera->key ^ SIM_COLUMN_PURPOSE, column, camera->column_square);
+    }
+    if (camera->plane_square != 0ull)
+    {
+        shared += sim_centred(camera->key ^ SIM_PLANE_PURPOSE, plane, camera->plane_square);
+    }
+    for (unsigned int octave = 0u; (camera->flicker_square != 0ull) && (octave < camera->flicker_octaves); octave += 1u)
+    {
+        // octave o's draw is held for 2^o frames: its counter changes only when frame >> o does
+        const unsigned long long held = ((((voxel * camera->flicker_octaves) + octave) * scene->frames)
+                                         + (frame >> octave));
+        shared += sim_centred(camera->key ^ SIM_FLICKER_PURPOSE, held, camera->flicker_square);
+    }
+    if ((camera->spike_denominator != 0ull)
+        && (sim_draw_below(camera->key ^ SIM_SPIKE_PURPOSE, counter, camera->spike_denominator)
+            < camera->spike_numerator))
+    {
+        // a spike's electrons times the gain, like the signal's, are far below 2^62
+        shared += (long long)(camera->gain * camera->spike_electrons);
+    }
+    return shared;
 }
 
 static __global__ void sim_render_kernel(SimScene scene, SimCamera camera, unsigned short *lanes, unsigned int *signal,
@@ -204,7 +288,8 @@ static __global__ void sim_render_kernel(SimScene scene, SimCamera camera, unsig
         // the signal of every scene here is far below 2^32
         signal[index] = (unsigned int)electrons;
     }
-    const long long value = sim_value(&camera, index, voxel, electrons);
+    const long long value = sim_value(&camera, index, voxel, electrons)
+                          + sim_shared(&camera, &scene, frame, place, voxel, index);
     if ((value < 0ll) || (value > SIM_LANE_MOST))
     {
         atomicAdd(clipped, 1ull);

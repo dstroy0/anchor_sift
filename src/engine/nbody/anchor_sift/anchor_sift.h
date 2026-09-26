@@ -32,7 +32,7 @@ extern "C"
 {
 #endif
 
-/* The dispatch rule reads the field's census directly. The plan carries one. This makes
+/* The dispatch rule reads the field's census directly. The plan carries one. This is what makes
  * the rule exact: the census holds integer counts and the comparison clears its denominators into
  * integers, where the old form took a logarithm and approximated a power of two in double. */
 
@@ -79,8 +79,8 @@ extern "C"
  *
  * @note THIS CONSTANT IS THE TERMINATION ARGUMENT. Every descent below places one probe per level
  *       and never revisits one. The depth is bounded by this value at compile time. It is
- *       declared here and not in the implementation because it is part of the contract: a
- *       caller sizing a probe array needs it, and a reader asking whether a recursion
+ *       declared here rather than in the implementation because it is part of the contract: a
+ *       caller sizing an array of probes needs it, and a reader asking whether a recursion
  *       terminates should find its bound in the header instead of having to open the source.
  * @note DEFINED FROM ANCHOR_SIFT_ANCHORS, NOT COPIED. An earlier form wrote `4u` here and a comment
  *       claiming it matched ANCHOR_SIFT_ANCHORS. Nothing held that: the two were independent
@@ -93,8 +93,8 @@ extern "C"
     /**
      * @brief What one pass over a corpus records about the field it is.
      *
-     * @note The engine is steered by this census alone. It is read off the corpus, and no other input
-     *       contributes to it. The steering therefore comes from the field and is not a parameter.
+     * @note This is the whole of what steers the engine. It is read off the corpus and nothing else
+     *       contributes to it, which is what makes the steering the field's own and not a parameter.
      * @note `total` is the byte count and not the alignment count. A census describes the field, not
      *       the search about to be run over it. It does not know the needle length.
      */
@@ -177,8 +177,8 @@ extern "C"
      * @note `needle_len` is carried and not read, and that is a different case. A ceiling on it was
      *       swept over every value the bench measures and no ceiling beat having none. The rule does
      *       not consult it. It duplicates nothing. It stays.
-     * @warning `census` is BORROWED for the duration of every call taking this plan. It is held by pointer
-     *          and not as an embedded structure because AnchorFieldCensus is about two kilobytes
+     * @warning `census` is BORROWED for the duration of every call taking this plan. It is a pointer
+     *          and not an embedded structure because AnchorFieldCensus is about two kilobytes
      *          and a plan is passed by pointer on a hot path.
      */
     typedef struct
@@ -241,7 +241,7 @@ extern "C"
      *       toolchain that produced it. Re-run the bench before quoting either. An earlier form of this
      *       note said "around one percent", which no recorded run produced.
      * @note THE NEEDLE LENGTH TERM CHANGES NO ANSWER ON THIS DATA. Scoring flatness alone ties this rule
-     *       exactly, same rows and same cycles, across all 42. It is kept and not removed because a
+     *       exactly, same rows and same cycles, across all 42. It is kept rather than removed because a
      *       tunable with no reader is an integration point, and it is named here so nobody concludes
      *       from the code that it is carrying weight. Find a row where it pays or leave it inert.
      * @note The rule is read off the cycle measurements and belongs to the machine that produced them.
@@ -349,8 +349,8 @@ extern "C"
      * @return              Non-zero where the two positions carry the same symbol, zero otherwise.
      *
      * @note THIS IS THE WHOLE INTERFACE THE ENGINE NEEDS TO A SYMBOL. Not an order, not a hash, not a
-     *       size, not an enumeration of the alphabet. Equality at two positions alone, the relation
-     *       the soundness proof uses: a subset of a pattern's points is a necessary
+     *       size, not an enumeration of the alphabet. Equality at two positions and nothing else, which
+     *       is exactly what the soundness proof uses: a subset of a pattern's points is a necessary
      *       condition, and the proof reads no order, no dimension and no alphabet.
      * @note A symbol may therefore be a byte, a 32 bit sample, an exact rational, a point in eight
      *       dimensions, a pointer compared by identity, or a value only its owner can compare. The
@@ -359,7 +359,7 @@ extern "C"
      * @note THIS ENGINE WAS THE NARROW ONE AND THE REST OF THE TREE WAS NOT. bench_lattice has taken a
      *       callback since it was written, and the python cascade has never needed bytes either: its
      *       `survivors` indexes a dict by symbol and `positions_by_symbol` builds that dict from any
-     *       iterable of values. It requires only equality and hashability. A
+     *       iterable of values. It requires equality and hashability and nothing else. A
      *       crystallography example feeds it element strings and has done so for longer than this note
      *       has existed. The C entries demanded a `uint8_t *` and were therefore narrower both than the
      *       proof they implement and than the python engine they are checked against.
@@ -380,8 +380,8 @@ extern "C"
      *       oracle about them. Where the symbols live and how wide they are belong to the caller.
      * @warning `alignments` is the number of positions that can host a pattern, which for a linear field
      *          of `n` symbols is `n - needle_len + 1`. The engine cannot compute it, because it does not
-     *          know the field's shape, and a caller that supplies it wrongly gets a wrong sweep and
-     *          not a refusal.
+     *          know the field's shape, and a caller that supplies it wrongly gets a wrong sweep rather
+     *          than a refusal.
      */
     typedef struct
     {
@@ -445,7 +445,7 @@ extern "C"
      *       equality is the wrong test on a continuous domain.
      *
      *       Soundness needs agreement to imply a shared rank. It does NOT need a shared rank to imply
-     *       agreement. The labeling has to be a superset of the relation, and the smallest superset
+     *       agreement. The labelling has to be a superset of the relation, and the smallest superset
      *       that is an equivalence is the transitive closure. Classes are therefore connected
      *       components: a position joins every class it matches and merges them.
      *
@@ -464,7 +464,7 @@ extern "C"
      *          AnchorSameAt as used by a descent answers about a CORPUS position against a NEEDLE
      *          position, which are two index spaces. Grouping a field into classes compares two
      *          positions of the FIELD. Passing a descent's oracle here indexes the needle with a field
-     *          position and reads off the end of it, the fault this signature was
+     *          position and reads off the end of it, which is exactly the fault this signature was
      *          changed to prevent after it segfaulted the suite.
      *
      * WHY PROJECT AT ALL. A probe only has to be a necessary condition of an occurrence. Within one
@@ -627,8 +627,8 @@ extern "C"
      *
      * @note AN OMITTED MEMBER IS ZERO AND THAT IS PART OF THE CONTRACT. `sample_stride` of zero is read
      *       as one, `force_full_depth` of zero honors the destroy rule, `any` of zero takes the byte
-     *       path, and `resume` of zero resets the survivors to all standing. A caller that leaves them all at zero
-     *       gets the full sweep, the destroy rule, bytes, and a fresh survivor set, the configuration
+     *       path, and `resume` of zero resets the survivors to all standing. A caller that names none of
+     *       them gets the full sweep, the destroy rule, bytes, and a fresh survivor set, which is what
      *       almost every caller wants.
      *
      * ANY SYMBOL TYPE, THROUGH `any`. Set it and the engine reads the field only through an equality
@@ -640,7 +640,7 @@ extern "C"
      *
      * WHAT `force_full_depth` EXISTS TO MAKE TESTABLE. The descent normally stops at a level whose best
      * candidate leaves the truthy population unchanged, and destroys every level below it. Stopping and
-     * continuing are therefore claimed to be equivalent, and this member lets a caller check the
+     * continuing are therefore claimed to be equivalent, and this member is what lets a caller check the
      * claim instead of believing it. Set it, and THE COUNT PRODUCED BY THE RESULTING PROBE SET MUST BE
      * IDENTICAL while the placed probe count MAY be larger. A test comparing the two runs gets two
      * separable failures: if the counts ever differ the necessary-condition guarantee broke, and if the
@@ -671,8 +671,8 @@ extern "C"
         int force_full_depth;    /**< Non-zero descends every level, ignoring the destroy rule. */
         const AnchorField *any;  /**< A field of any symbol type [BORROWS]. Null takes the byte path. */
         int resume;              /**< Non-zero starts the descent from the survivors already in the buffer
-                                  *   instead of resetting them to all standing. A caller uses it to
-                                  *   compose a recursive spawn: descend, then descend again over the
+                                  *   instead of resetting them to all standing, which is how a caller
+                                  *   composes a recursive spawn: descend, then descend again over the
                                   *   survivors the last descent left. Each child reads only what its
                                   *   parent kept standing. Zero, the default, resets the buffer and is what
                                   *   every existing caller gets. The engine does not check the incoming set
@@ -698,8 +698,8 @@ extern "C"
      *          is read on the way in. A caller who leaves the array uninitialized expecting the
      *          descent to fill it gets whatever was in that memory ranked, and gets it silently.
      *          anchor_steer_spawn_coarms is the entry that chooses the positions itself.
-     * @warning `count` ABOVE ANCHOR_STEER_ANCHORS RETURNS ZERO AND SAYS NOTHING ELSE.
-     *          Zero is also what a null pointer and a zero needle length return. A caller
+     * @warning `count` ABOVE ANCHOR_STEER_ANCHORS RETURNS ZERO AND SAYS NOTHING. That is the whole
+     *          report: zero is also what a null pointer and a zero needle length return. A caller
      *          reading the return value alone cannot tell which guard refused. Check the bound before
      *          the call, because the call will not tell you.
      *
@@ -723,7 +723,8 @@ extern "C"
      * over the field. Ranking the second anchor by its marginal rarity ignores what the first one just
      * told you.
      *
-     * This ranks each level against the alignments that actually survived the levels above it, the CONDITIONAL distribution and not the marginal one. It also measures survivors directly
+     * This ranks each level against the alignments that actually survived the levels above it, which is
+     * the CONDITIONAL distribution and not the marginal one. It also measures survivors directly
      * instead of inferring them from symbol frequency. Correlation between positions is accounted
      * for and not assumed away.
      *
@@ -750,7 +751,7 @@ extern "C"
      * @note THE PLANNER IS ALLOWED TO BE WRONG. Ordering cannot change which alignments survive, since
      *       an alignment survives only when every anchor agrees and a conjunction is order independent.
      *      , a planner that samples, guesses badly, or is outright defective costs speed and cannot
-     *       cost correctness. That makes `sample_stride` safe: planning on a subset risks a
+     *       cost correctness. That is what makes `sample_stride` safe: planning on a subset risks a
      *       worse order and never a wrong count.
      * @note Does nothing and returns 0 where any pointer is null, where `count` is zero, or where
      *       `needle_len` is zero. A zero length needle has no symbol to rank.
@@ -802,12 +803,13 @@ extern "C"
      *
      * TERMINATION IS A BOUND FROM ABOVE AND NOT A FIXED DEPTH. One coarm per level, a placed position
      * never reconsidered, and depth AT MOST `wanted`, which the guard holds at or under
-     * ANCHOR_STEER_ANCHORS. The loop cannot run longer than that whatever the corpus holds, which makes it terminate.
+     * ANCHOR_STEER_ANCHORS. The loop cannot run longer than that whatever the corpus holds, which is
+     * what makes it terminate.
      *
-     * IT CAN RUN SHORTER, AND CORPUS CONTENT DECIDES. The destroy test compares the best
+     * IT CAN RUN SHORTER, AND CORPUS CONTENT IS WHAT DECIDES. The destroy test compares the best
      * candidate's surviving population against the current one, and that count is read off the corpus.
      * Where nothing prunes, the descent breaks early. `force_full_depth` exists precisely to override
-     * that, and an omitted member is zero. On the DEFAULT path the field ends the
+     * that, and an omitted member is zero. The DEFAULT path is the one where the field ends the
      * descent. bench_sigma measures it: with `wanted` fixed at 4 on every row, `placed` comes back 2 at
      * an alphabet of 2^8 and 1 from 2^16 up, because a larger alphabet lets the first probe cut far
      * enough that a second buys nothing.
@@ -841,7 +843,7 @@ extern "C"
      * shape of the support, not in the arithmetic applied to it. Here that means an arm is an eye whose
      * length is one, and the same test walks both.
      *
-     * @note `step` is unread at `length` one, and makes a longer probe a LINE through the
+     * @note `step` is unread at `length` one, and is what makes a longer probe a LINE through the
      *       needle and not a run of adjacent bytes. A step that shares a period with the needle
      *       reads the same residue repeatedly and prunes badly, which is a real failure mode and is why
      *       the sweep measures steps instead of assuming one.
@@ -920,7 +922,7 @@ extern "C"
      * where an arm reads one. An eye has to prune more than L times as hard to be worth spawning.
      * The score here is survivors, which does not carry that cost. The caller comparing an eye
      * against an arm has to compare READS and not survivors. test_steer does exactly that and reports
-     * both. For that reason the guide recommends measuring instead of reaching for the longest eye.
+     * both. That is why the guide recommends measuring instead of reaching for the longest eye.
      *
      * TERMINATION, unchanged and for the same reason. One probe per level, `wanted` levels, bounded by
      * ANCHOR_STEER_ANCHORS at compile time. The sweep inside a level is three nested bounded loops over
@@ -961,8 +963,8 @@ extern "C"
      *       the two routes. Same offsets, same probe loop, same verification; `steered` decides only
      *       the ORDER the probes are evaluated in. A comparison between two separate implementations
      *       would measure the implementations. This measures the ordering.
-     * @note The count is identical for both values of `steered`. This is guaranteed by construction and
-     *       not only observed. An alignment survives only when every anchor agrees, a conjunction does not
+     * @note The count is identical for both values of `steered` and that is a guarantee and not an
+     *       observation. An alignment survives only when every anchor agrees, a conjunction does not
      *       depend on the order of its terms, and the survivor is verified by a full memcmp either way.
      *       The bench grades it at a residual of exactly zero for that reason and not against a
      *       tolerance.
@@ -1008,7 +1010,7 @@ extern "C"
      *
      * @note `count` takes the corpus, the alignment count, the survivor flags, the needle byte being
      *       tested and the offset it sits at, and returns how many still-standing alignments agree.
-     *       A planner asks nothing more of a scan engine.
+     *       That is the whole operation a planner asks of a scan engine.
      */
     typedef struct
     {
@@ -1040,7 +1042,7 @@ extern "C"
     void anchor_steer_scan_counters_reset(void);
 
     /**
-     * @brief The widest engine this machine carries; the planner calls it.
+     * @brief The widest engine this machine carries, which is what the planner calls.
      *
      * @return The engine. Never null, since the portable one is always present.
      * @note Resolved on every call. A caller in a hot path holds the result instead of asking again,

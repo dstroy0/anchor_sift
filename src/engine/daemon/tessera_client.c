@@ -13,6 +13,7 @@
 #include <windows.h>
 #else
 #include <fcntl.h>
+#include <poll.h>
 #include <pthread.h>
 #include <sys/file.h>
 #include <sys/socket.h>
@@ -37,7 +38,7 @@ _Alignas(8) static const char s_client_device[] = "\" --device ";
 _Alignas(8) static const char s_client_luid[] = " --luid ";
 _Alignas(8) static const char s_client_idle[] = " --idle ";
 #else
-_Alignas(8) static const char s_client_lock[] = "/tessera.lock";
+_Alignas(8) static const char s_client_lock[] = "/daemon.lock";
 #endif
 
 struct TesseraClient
@@ -51,6 +52,7 @@ struct TesseraClient
     unsigned long long luid;
     EngineSignum signum;
     unsigned long long identity;
+    unsigned long long declared;
     unsigned long long sweep_microseconds;
 #if !defined(_WIN32)
     // where no pid is measured from outside (WSL), a thread reports this process's own bytes every sweep
@@ -99,7 +101,8 @@ static TesseraConnect tessera_connect(TesseraClient *client, const char *endpoin
         return TESSERA_CONNECT_FAILED;
     }
     memcpy(address.sun_path, endpoint, strlen(endpoint) + 1u);
-    client->socket_descriptor = socket(AF_UNIX, SOCK_STREAM, 0);
+    // the connection closes on exec: a program this process starts never holds its job open
+    client->socket_descriptor = socket(AF_UNIX, SOCK_STREAM | SOCK_CLOEXEC, 0);
     if (client->socket_descriptor < 0)
     {
         return TESSERA_CONNECT_FAILED;
@@ -236,7 +239,7 @@ static int tessera_send(TesseraClient *client, const TesseraFrame *frame)
     }
     unsigned int sent = 0u;
 #if !defined(_WIN32)
-    // the measuring thread and the caller share the socket; a frame goes out whole
+    // the measuring thread and the caller share the socket, so a frame goes out whole
     pthread_mutex_lock(&client->sending);
 #endif
     int whole = 1;
@@ -350,8 +353,10 @@ static void tessera_self_begin(TesseraClient *client, const TesseraTicket *ticke
     (void)client;
     (void)ticket;
 #else
-    // an admitted job on a paravirtual device reports its own bytes from now until it is released
-    if ((ticket->asked == 0u) && (ticket->lost == 0u) && !client->measuring && tessera_self_paravirtual())
+    // an admitted job on a paravirtual device reports its own bytes from now until it is released; a host job reports
+    // its processors itself (tessera_job_report)
+    if ((ticket->asked == 0u) && (ticket->lost == 0u) && !client->measuring && !tessera_device_names_host(client->device)
+        && tessera_self_paravirtual())
     {
         client->stopping = 0;
         client->measuring = pthread_create(&client->measurer, NULL, tessera_self_run, client) == 0;
@@ -374,7 +379,7 @@ static void tessera_self_end(TesseraClient *client)
     pthread_mutex_unlock(&client->watch);
     pthread_join(client->measurer, NULL);
     client->measuring = 0;
-    // the last reading goes in before the release; the peak kept holds the whole run
+    // the last reading goes in before the release, so the peak kept holds the whole run
     tessera_self_report(client);
 #endif
 }
@@ -424,6 +429,8 @@ static long tessera_decided(TesseraClient *client, TesseraTicket *ticket, Engine
         {
             ticket->asked = 0u;
             ticket->granted = frame.bytes;
+            // the admission names the whole declaration: the bytes the process held as it asked, then the job's own
+            ticket->standing = (frame.declared > client->declared) ? (frame.declared - client->declared) : 0ull;
             return 0L;
         }
         if (frame.kind == TESSERA_TELL_ASKED)
@@ -435,7 +442,8 @@ static long tessera_decided(TesseraClient *client, TesseraTicket *ticket, Engine
         {
             ticket->asked = 0u;
             ticket->lost = 1u;
-            const int named = tessera_path_lost(client->device, ticket->lost_path, ENGINE_PATH_ROOM);
+            const int named = tessera_path_lost(client->device, frame.identity, &client->signum, ticket->lost_path,
+                                                ENGINE_PATH_ROOM);
             return TESSERA_HELD(named, ticket, error, ENGINE_ERROR_REQUEST) ? 0L : TESSERA_REFUSED;
         }
         TESSERA_HELD(0, &frame, error, ENGINE_ERROR_REQUEST);
@@ -468,6 +476,7 @@ long tessera_job_submit(const TesseraJobAsk *ask, TesseraClient **client, Tesser
     memcpy(made->device, ask->device, TESSERA_DEVICE_BYTES);
     made->luid = ask->luid;
     made->signum = ask->signum;
+    made->declared = ask->declared;
     made->sweep_microseconds = ask->sweep_microseconds;
     _Alignas(8) char endpoint[ENGINE_PATH_ROOM];
     if (!TESSERA_HELD(tessera_path_endpoint(ask->device, endpoint, ENGINE_PATH_ROOM), ask, ask->error,
@@ -492,6 +501,13 @@ long tessera_job_submit(const TesseraJobAsk *ask, TesseraClient **client, Tesser
     frame.holding_microseconds = ask->holding_microseconds;
     frame.sweep_microseconds = ask->sweep_microseconds;
     frame.idle_microseconds = ask->idle_microseconds;
+    // where no pid is measured from outside, the process reports the bytes it already holds as it asks; a host job
+    // stands on nothing, since the processors it uses are counted only once it runs
+    unsigned long long standing = 0ull;
+    if (!tessera_device_names_host(ask->device) && tessera_self_paravirtual() && tessera_self_measure(ask->luid, &standing))
+    {
+        frame.measured = standing;
+    }
     if (!TESSERA_HELD(tessera_send(made, &frame), made, ask->error, ENGINE_ERROR_RESOURCE)
         || (tessera_decided(made, ticket, ask->error) == TESSERA_REFUSED))
     {
@@ -547,6 +563,44 @@ long tessera_job_precalc_kept(TesseraClient *client, EngineError *error)
                   && TESSERA_HELD(frame.kind == TESSERA_TELL_RELEASED, &frame, error, ENGINE_ERROR_REQUEST);
     tessera_client_end(client);
     return told ? 0L : TESSERA_REFUSED;
+}
+
+// 1 when a whole frame from the daemon waits to be read, read without blocking
+static int tessera_waiting(TesseraClient *client)
+{
+#if defined(_WIN32)
+    DWORD available = 0u;
+    return PeekNamedPipe(client->pipe, NULL, 0u, NULL, &available, NULL) && (available >= TESSERA_FRAME_BYTES);
+#else
+    struct pollfd watch;
+    watch.fd = client->socket_descriptor;
+    watch.events = POLLIN;
+    watch.revents = 0;
+    return poll(&watch, 1u, 0) > 0;
+#endif
+}
+
+long tessera_job_report(TesseraClient *client, TesseraTicket *ticket, unsigned long long measured, EngineError *error)
+{
+    TesseraFrame frame;
+    tessera_frame_start(client, &frame, TESSERA_ASK_MEASURED);
+    frame.measured = measured;
+    if (!TESSERA_HELD(tessera_send(client, &frame), client, error, ENGINE_ERROR_RESOURCE))
+    {
+        return TESSERA_REFUSED;
+    }
+    // a report gets no answer, but the growth it shows is told back: each telling is read as it waits, and none is
+    // left to fill the pipe while the daemon waits to write the next
+    while (tessera_waiting(client))
+    {
+        if (!TESSERA_HELD(tessera_receive(client, &frame), client, error, ENGINE_ERROR_RESOURCE)
+            || !TESSERA_HELD(frame.kind == TESSERA_TELL_GREW, &frame, error, ENGINE_ERROR_REQUEST))
+        {
+            return TESSERA_REFUSED;
+        }
+        ticket->grown_to = (frame.measured > ticket->grown_to) ? frame.measured : ticket->grown_to;
+    }
+    return 0L;
 }
 
 long tessera_job_release(TesseraClient *client, TesseraTicket *ticket, EngineError *error)

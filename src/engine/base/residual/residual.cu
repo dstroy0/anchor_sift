@@ -19,10 +19,12 @@ extern "C" long residual_program(const EngineResidualRequest *request, EngineSte
     {
         return RESIDUAL_REFUSED;
     }
+    // an odd smooth order moves both terms' centres half a voxel alike; an odd background order would move the wide
+    // term's alone, and the two would be subtracted half a voxel apart
     for (unsigned int axis = 0u; axis < 3u; axis += 1u)
     {
-        if (!RESIDUAL_HELD(((request->smooth_orders[axis] & 1u) == 0u) && ((request->background_orders[axis] & 1u) == 0u),
-                           &request->smooth_orders[axis], error, ENGINE_ERROR_REQUEST))
+        if (!RESIDUAL_HELD((request->background_orders[axis] & 1u) == 0u, &request->background_orders[axis], error,
+                           ENGINE_ERROR_REQUEST))
         {
             return RESIDUAL_REFUSED;
         }

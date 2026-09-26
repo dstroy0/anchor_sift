@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "engine.h"
 
+#include "apxrep.h"
 #include "blosc.h"
 #include "cfg_json.h"
 #include "compression.h"
@@ -13,7 +14,6 @@
 #include "deflate.h"
 #include "inflate.h"
 #include "keymath.h"
-#include "krep.h"
 #include "lz4.h"
 #include "max_tree.h"
 #include "nifti.h"
@@ -125,10 +125,6 @@ extern "C" void engine_error_clear(void)
 #define ENTRY_PATH_ROOM ENGINE_PATH_ROOM
 
 #define ENTRY_CRYSTAL_SUFFIX ".kcr"
-
-#define ENTRY_NOISE_FLOOR_SUFFIX ".knf"
-
-#define ENTRY_CONSTRUCTION_SET_SUFFIX ".kcs"
 
 extern "C" long engine_key_imprint(const EngineStep *steps, unsigned int count, CycleKey **key, EngineError *error)
 {
@@ -244,9 +240,10 @@ extern "C" long engine_record_host(const EngineRecordRequest *request, const Eng
     run.index = sweep->index;
     run.count = sweep->count;
     run.out = sweep->records;
+    run.error = error;
     const long ran = cycle_record_run_host(&run);
     key_schedule_record_release(&layout);
-    return ENGINE_HELD(ran != CYCLE_REFUSED, sweep->records, error, ENGINE_ERROR_REQUEST) ? ran : ENGINE_REFUSED;
+    return (ran == CYCLE_REFUSED) ? ENGINE_REFUSED : ran;
 }
 
 extern "C" long engine_record_sweep(const EngineRecordSweep *request)
@@ -391,6 +388,29 @@ static int engine_residual_hold(size_t voxels, EngineError *error)
     return ok;
 }
 
+// an odd smooth order puts the residual half a voxel before its lane's voxel. It is held only where the request gives
+// the place to say so.
+static int engine_residual_placed(const unsigned int smooth_orders[ENGINE_AXES], int *const *offset_halves,
+                                  EngineError *error)
+{
+    unsigned int odd = 0u;
+    for (unsigned int axis = 0u; axis < ENGINE_AXES; axis += 1u)
+    {
+        odd |= smooth_orders[axis] & 1u;
+    }
+    return ENGINE_HELD((odd == 0u) || (*offset_halves != NULL), offset_halves, error, ENGINE_ERROR_REQUEST);
+}
+
+// the residual's place per axis in half voxels, written once the residual is made
+static void engine_residual_offset(const unsigned int smooth_orders[ENGINE_AXES], int *offset_halves)
+{
+    for (unsigned int axis = 0u; (offset_halves != NULL) && (axis < ENGINE_AXES); axis += 1u)
+    {
+        // an order's parity is 0 or 1, which re-signs to int exactly
+        offset_halves[axis] = -(int)(smooth_orders[axis] & 1u);
+    }
+}
+
 extern "C" long engine_residual(const EngineResidualRequest *request, const unsigned int **device_residual)
 {
     if ((request == NULL) || (request->error == NULL))
@@ -405,7 +425,8 @@ extern "C" long engine_residual(const EngineResidualRequest *request, const unsi
     *device_residual = NULL;
     const int asked = ENGINE_HELD(request->volume != NULL, &request->volume, error, ENGINE_ERROR_REQUEST)
                    && ENGINE_HELD((request->depth != 0u) && (request->height != 0u) && (request->width != 0u),
-                                  &request->depth, error, ENGINE_ERROR_REQUEST);
+                                  &request->depth, error, ENGINE_ERROR_REQUEST)
+                   && engine_residual_placed(request->smooth_orders, &request->offset_halves, error);
     if (asked == 0)
     {
         return ENGINE_REFUSED;
@@ -493,7 +514,99 @@ extern "C" long engine_residual(const EngineResidualRequest *request, const unsi
     s_residual_tally.frames += 1ull;
     s_residual_tally.key_microseconds += (key_runs != 0) ? (sweep_started - key_started) : 0ull;
     s_residual_tally.sweep_microseconds += (sweep_runs != 0) ? (sweep_finished - sweep_started) : 0ull;
+    engine_residual_offset(request->smooth_orders, request->offset_halves);
     *device_residual = held->residual;
+    return 0L;
+}
+
+struct EngineResidualPlanesHeld
+{
+    unsigned int *planes;
+    unsigned int *residual;
+    size_t plane_words;
+    size_t residual_words;
+};
+
+static EngineResidualPlanesHeld s_residual_planes_held;
+
+static int engine_residual_planes_grow(unsigned int **words, size_t *room, size_t wanted, EngineError *error)
+{
+    if (wanted <= *room)
+    {
+        return 1;
+    }
+    cudaFree(*words);
+    *words = NULL;
+    *room = 0u;
+    const int ok = ENGINE_TOOK(cudaMalloc((void **)words, wanted * sizeof(unsigned int)), words, error);
+    *room = (ok != 0) ? wanted : 0u;
+    return ok;
+}
+
+extern "C" long engine_residual_planes(const EngineResidualPlanesRequest *request, const unsigned int **device_residual,
+                                       unsigned int *limbs)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return ENGINE_REFUSED;
+    }
+    EngineError *const error = request->error;
+    if (!ENGINE_HELD((device_residual != NULL) && (limbs != NULL), &device_residual, error, ENGINE_ERROR_REQUEST))
+    {
+        return ENGINE_REFUSED;
+    }
+    *device_residual = NULL;
+    *limbs = 0u;
+    unsigned long long residual_bits = (unsigned long long)request->input_bits + 1ull;
+    for (unsigned int axis = 0u; axis < ENGINE_AXES; axis += 1u)
+    {
+        residual_bits += (unsigned long long)request->smooth_orders[axis] + request->background_orders[axis];
+    }
+    const unsigned long long plane_voxels = (unsigned long long)request->height * request->width;
+    const unsigned long long voxels = (plane_voxels <= 0xFFFFFFFFull) ? (plane_voxels * request->depth) : 0ull;
+    const unsigned long long residual_limbs = (residual_bits + 31ull) / 32ull;
+    const unsigned long long input_limbs = ((unsigned long long)request->input_bits + 31ull) / 32ull;
+    const int asked = ENGINE_HELD(request->planes != NULL, &request->planes, error, ENGINE_ERROR_REQUEST)
+                   && ENGINE_HELD(request->input_bits != 0u, &request->input_bits, error, ENGINE_ERROR_REQUEST)
+                   && ENGINE_HELD((voxels != 0ull) && (voxels <= 0xFFFFFFFFull), &request->depth, error,
+                                  ENGINE_ERROR_REQUEST)
+                   && ENGINE_HELD(residual_limbs <= (0xFFFFFFFFull / 32ull), request->background_orders, error,
+                                  ENGINE_ERROR_REQUEST)
+                   && engine_residual_placed(request->smooth_orders, &request->offset_halves, error);
+    EngineResidualPlanesHeld *const held = &s_residual_planes_held;
+    int ok = asked
+          && engine_residual_planes_grow(&held->planes, &held->plane_words, (size_t)(voxels * input_limbs), error)
+          && engine_residual_planes_grow(&held->residual, &held->residual_words, (size_t)(voxels * residual_limbs),
+                                         error)
+          && ENGINE_TOOK(cudaMemcpy(held->planes, request->planes, (size_t)(voxels * input_limbs) * sizeof(unsigned int),
+                                    cudaMemcpyHostToDevice),
+                         held->planes, error);
+    UnitSweepRequest sweep_request;
+    memset(&sweep_request, 0, sizeof(sweep_request));
+    sweep_request.device_planes = held->planes;
+    sweep_request.input_bits = request->input_bits;
+    sweep_request.depth = request->depth;
+    sweep_request.height = request->height;
+    sweep_request.width = request->width;
+    memcpy(sweep_request.smooth_orders, request->smooth_orders, sizeof(sweep_request.smooth_orders));
+    memcpy(sweep_request.background_orders, request->background_orders, sizeof(sweep_request.background_orders));
+    // the limbs are held at or below 2^32 / 32 above, so they narrow to unsigned int exactly
+    sweep_request.limbs = (unsigned int)residual_limbs;
+    sweep_request.device_out = held->residual;
+    sweep_request.error = error;
+    const unsigned long long sweep_started = engine_clock_microseconds();
+    ok = ok
+      && ENGINE_HELD(unit_sweep_residual(&sweep_request) == 0L, sweep_request.device_out, error, ENGINE_ERROR_RESOURCE)
+      && ENGINE_TOOK(cudaDeviceSynchronize(), held->residual, error);
+    if (ok == 0)
+    {
+        return ENGINE_REFUSED;
+    }
+    s_residual_tally.frames += 1ull;
+    s_residual_tally.sweep_microseconds += engine_clock_microseconds() - sweep_started;
+    engine_residual_offset(request->smooth_orders, request->offset_halves);
+    *device_residual = held->residual;
+    *limbs = sweep_request.limbs;
     return 0L;
 }
 
@@ -1913,7 +2026,7 @@ extern "C" long engine_geff_read(const char *path, EngineGeff *geff)
     return 0L;
 }
 
-extern "C" long engine_kcr_head(const char *set, const char *sample, unsigned long long extent[4], EngineError *error)
+extern "C" long engine_iapx_head(const char *set, const char *sample, unsigned long long extent[4], EngineError *error)
 {
     if (error == NULL)
     {
@@ -1924,7 +2037,7 @@ extern "C" long engine_kcr_head(const char *set, const char *sample, unsigned lo
     memset(&stream, 0, sizeof(stream));
     if ((ENGINE_HELD(engine_sample_path(path, sizeof(path), set, sample, ENTRY_CRYSTAL_SUFFIX) != 0, sample, error,
                      ENGINE_ERROR_REQUEST) == 0)
-        || (krep_crystal_head(path, &stream, NULL, error) == 0))
+        || (apxrep_input_head(path, &stream, NULL, error) == 0))
     {
         engine_error_frame(error);
         engine_error_keep(error);
@@ -1948,8 +2061,8 @@ static unsigned long long entry_lanes(const unsigned long long extent[4])
     return lanes;
 }
 
-static int entry_kcr_decode(const EngineStream *stream, const unsigned short *device_lanes, unsigned short *rebuilt,
-                            unsigned long long *mismatches, const unsigned short **device_rebuilt, EngineError *error)
+static int entry_iapx_decode(const EngineStream *stream, const unsigned short *device_lanes, unsigned short *rebuilt,
+                             unsigned long long *mismatches, const unsigned short **device_rebuilt, EngineError *error)
 {
     int *coefficients = NULL;
     if (tower_room(stream->extent, &coefficients, error) != 0L)
@@ -1980,8 +2093,8 @@ static int entry_kcr_decode(const EngineStream *stream, const unsigned short *de
     return (tower_lower(&lower) == 0L) ? 1 : 0;
 }
 
-static int entry_kcr_encode(const unsigned short *device_lanes, const unsigned long long extent[4],
-                            EngineStream *stream, unsigned int *floors, EngineError *error)
+static int entry_iapx_encode(const unsigned short *device_lanes, const unsigned long long extent[4],
+                             EngineStream *stream, unsigned int *floors, EngineError *error)
 {
     memset(stream, 0, sizeof(*stream));
     memcpy(stream->extent, extent, sizeof(stream->extent));
@@ -2010,6 +2123,61 @@ static int entry_kcr_encode(const unsigned short *device_lanes, const unsigned l
     code.stream = &stream->stream;
     code.error = error;
     return (compression_encode(&code) == 0L) ? 1 : 0;
+}
+
+extern "C" long engine_lattice_bits(const int *values, const unsigned long long extent[4], unsigned long long *bits,
+                                    EngineError *error)
+{
+    if (error == NULL)
+    {
+        return ENGINE_REFUSED;
+    }
+    const unsigned long long lanes = (extent != NULL) ? entry_lanes(extent) : 0ull;
+    int *device_values = NULL;
+    int good = ENGINE_HELD((values != NULL) && (bits != NULL) && (lanes != 0ull), &values, error, ENGINE_ERROR_REQUEST)
+            && ENGINE_TOOK(cudaMalloc((void **)&device_values, (size_t)lanes * sizeof(int)), &device_values, error)
+            && ENGINE_TOOK(cudaMemcpy(device_values, values, (size_t)lanes * sizeof(int), cudaMemcpyHostToDevice),
+                           device_values, error);
+    const int *coefficients = NULL;
+    unsigned int *scratch = NULL;
+    unsigned int floors = 0u;
+    if (good != 0)
+    {
+        TowerLiftRequest lift;
+        memset(&lift, 0, sizeof(lift));
+        lift.device_values = device_values;
+        memcpy(lift.extent, extent, sizeof(lift.extent));
+        lift.coefficients = &coefficients;
+        lift.scratch = &scratch;
+        lift.floors = &floors;
+        lift.error = error;
+        good = tower_lift(&lift) == 0L;
+    }
+    if (good != 0)
+    {
+        // the offsets and the stream are compression's own, held for its next call; only the bits are kept
+        EngineStream stream;
+        memset(&stream, 0, sizeof(stream));
+        CompressionEncodeRequest code;
+        memset(&code, 0, sizeof(code));
+        code.device_coefficients = coefficients;
+        code.count = lanes;
+        code.device_scratch = scratch;
+        code.chunks = &stream.chunks;
+        code.bits = bits;
+        code.offsets = &stream.offsets;
+        code.stream = &stream.stream;
+        code.error = error;
+        good = compression_encode(&code) == 0L;
+    }
+    cudaFree(device_values);
+    if (good == 0)
+    {
+        engine_error_frame(error);
+        engine_error_keep(error);
+        return ENGINE_REFUSED;
+    }
+    return 0L;
 }
 
 static int entry_side_pack(EngineSideSection *section, EngineError *error)
@@ -2292,7 +2460,7 @@ static int entry_seal_make(const unsigned short *device_lanes, const EngineStrea
                   && entry_seal_sample(stream, section, seal, error);
     if (good == 0)
     {
-        krep_seal_release(seal);
+        apxrep_seal_release(seal);
     }
     return good;
 }
@@ -2344,7 +2512,7 @@ static int entry_crystal_verify(const EngineStream *file, EngineSideSection *sec
                               + entry_roots_differ(&fresh, seal, ENGINE_SEAL_SIDE);
     }
     good = good && ENGINE_HELD(record->roots_differ == 0ull, seal, error, ENGINE_ERROR_LOGIC)
-        && (entry_kcr_decode(file, device_source, rebuilt, &record->voxels_differ, &device_rebuilt, error) != 0)
+        && (entry_iapx_decode(file, device_source, rebuilt, &record->voxels_differ, &device_rebuilt, error) != 0)
         && entry_seal_lanes(device_rebuilt, file->extent, fresh.lane_nodes, fresh.lane_count, error);
     const unsigned long long rows = file->extent[0] * file->extent[1] * file->extent[2];
     for (unsigned long long node = 0ull; good && (node < fresh.lane_count); node += 1ull)
@@ -2366,7 +2534,7 @@ static int entry_crystal_verify(const EngineStream *file, EngineSideSection *sec
     good = good
         && ENGINE_HELD((record->rows_differ == 0ull) && (record->roots_differ == 0ull) && (record->voxels_differ == 0ull),
                        seal, error, ENGINE_ERROR_LOGIC);
-    krep_seal_release(&fresh);
+    apxrep_seal_release(&fresh);
     return good;
 }
 
@@ -2635,21 +2803,21 @@ extern "C" long engine_ingest_set(const EngineIngestRequest *request)
         memset(record, 0, sizeof(*record));
         report->reached = sample + 1ull;
         char source_path[ENTRY_PATH_ROOM];
-        char kcr_path[ENTRY_PATH_ROOM];
+        char iapx_path[ENTRY_PATH_ROOM];
         const int archived = entry_is_file(request->source);
         const int placed = archived ? (snprintf(source_path, sizeof(source_path), "%s", request->source) > 0)
                                     : engine_source_find(request->source, request->samples[sample], source_path,
                                                          sizeof(source_path));
         unsigned int made = 0u;
         good = ENGINE_HELD(placed != 0, request->samples[sample], error, ENGINE_ERROR_REQUEST)
-            && ENGINE_HELD(engine_sample_path(kcr_path, sizeof(kcr_path), request->set, request->samples[sample],
+            && ENGINE_HELD(engine_sample_path(iapx_path, sizeof(iapx_path), request->set, request->samples[sample],
                                               ENTRY_CRYSTAL_SUFFIX)
                                != 0,
                            request->samples[sample], error, ENGINE_ERROR_REQUEST)
-            && ENGINE_IO(entry_directories_make(kcr_path, 0, &made) != 0, kcr_path, error);
+            && ENGINE_IO(entry_directories_make(iapx_path, 0, &made) != 0, iapx_path, error);
         if (good == 0)
         {
-            entry_directories_remove(kcr_path, 0, made);
+            entry_directories_remove(iapx_path, 0, made);
             break;
         }
         record->placed = 1ull;
@@ -2686,11 +2854,11 @@ extern "C" long engine_ingest_set(const EngineIngestRequest *request)
         memset(&written, 0, sizeof(written));
         EngineSeal seal;
         memset(&seal, 0, sizeof(seal));
-        good = good && (entry_kcr_encode(device_lanes, extent, &written, &floors, error) != 0);
+        good = good && (entry_iapx_encode(device_lanes, extent, &written, &floors, error) != 0);
         written.lane_offset = lane_offset;
         good = good && entry_seal_make(device_lanes, &written, &section, &seal, error);
-        const KrepCrystalRequest write = {kcr_path, &written, &section, &seal, error};
-        good = good && (krep_crystal_write(&write) != 0);
+        const ApxrepInputRequest write = {iapx_path, &written, &section, &seal, error};
+        good = good && (apxrep_input_write(&write) != 0);
         record->crystal_written = good ? 1ull : 0ull;
 
         EngineStream file;
@@ -2701,17 +2869,17 @@ extern "C" long engine_ingest_set(const EngineIngestRequest *request)
         memset(&back_seal, 0, sizeof(back_seal));
         unsigned long long pixels_differ = 0ull;
         std::vector<unsigned short> rebuilt(good ? (size_t)lanes : 0u);
-        const KrepCrystalRequest read = {kcr_path, &file, &back, &back_seal, error};
-        good = good && krep_crystal_read(&read)
+        const ApxrepInputRequest read = {iapx_path, &file, &back, &back_seal, error};
+        good = good && apxrep_input_read(&read)
             && ENGINE_HELD((memcmp(file.extent, extent, sizeof(extent)) == 0) && (file.chunks == written.chunks)
                                && (file.bits == written.bits) && (file.lane_offset == written.lane_offset)
                                && entry_signum_same(&back_seal.roots[ENGINE_SEAL_SAMPLE], &seal.roots[ENGINE_SEAL_SAMPLE]),
                            &file, error, ENGINE_ERROR_LOGIC)
             && entry_crystal_verify(&file, &back, &back_seal, device_lanes, rebuilt.data(), record, error)
             && ENGINE_HELD(entry_side_same(&back.side, &section.side), &back, error, ENGINE_ERROR_LOGIC);
-        krep_crystal_release(&file);
-        krep_side_release(&back);
-        krep_seal_release(&back_seal);
+        apxrep_input_release(&file);
+        apxrep_side_release(&back);
+        apxrep_seal_release(&back_seal);
         cudaFree(device_lanes);
         unsigned long long again[4] = {0ull, 0ull, 0ull, 0ull};
         unsigned short *disk = NULL;
@@ -2728,16 +2896,16 @@ extern "C" long engine_ingest_set(const EngineIngestRequest *request)
         }
         free(disk);
         record->floors = floors;
-        record->crystal_bytes = krep_crystal_bytes(&written, &section, &seal);
+        record->crystal_bytes = apxrep_input_bytes(&written, &section, &seal);
         record->raw_bytes = lanes * 2ull;
         record->root = seal.roots[ENGINE_SEAL_SAMPLE];
         record->pixels_differ = pixels_differ;
-        krep_side_release(&section);
-        krep_seal_release(&seal);
+        apxrep_side_release(&section);
+        apxrep_seal_release(&seal);
         if (good == 0)
         {
-            remove(kcr_path);
-            entry_directories_remove(kcr_path, 0, made);
+            remove(iapx_path);
+            entry_directories_remove(iapx_path, 0, made);
             break;
         }
         record->held = 1ull;
@@ -2760,7 +2928,7 @@ extern "C" long engine_ingest_set(const EngineIngestRequest *request)
     return 0L;
 }
 
-extern "C" long engine_kcr_prove_set(const EngineSetRequest *request)
+extern "C" long engine_iapx_prove_set(const EngineSetRequest *request)
 {
     if ((request == NULL) || (request->error == NULL))
     {
@@ -2790,27 +2958,27 @@ extern "C" long engine_kcr_prove_set(const EngineSetRequest *request)
         EngineSampleRecord *const record = (records != NULL) ? &records[sample] : &unkept;
         memset(record, 0, sizeof(*record));
         report->reached = sample + 1ull;
-        char kcr_path[ENTRY_PATH_ROOM];
+        char iapx_path[ENTRY_PATH_ROOM];
         EngineStream file;
         memset(&file, 0, sizeof(file));
         EngineSideSection section;
         memset(&section, 0, sizeof(section));
         EngineSeal seal;
         memset(&seal, 0, sizeof(seal));
-        const KrepCrystalRequest read = {kcr_path, &file, &section, &seal, error};
-        const int held = ENGINE_HELD(engine_sample_path(kcr_path, sizeof(kcr_path), request->set,
+        const ApxrepInputRequest read = {iapx_path, &file, &section, &seal, error};
+        const int held = ENGINE_HELD(engine_sample_path(iapx_path, sizeof(iapx_path), request->set,
                                                         request->samples[sample], ENTRY_CRYSTAL_SUFFIX)
                                          != 0,
                                      request->samples[sample], error, ENGINE_ERROR_REQUEST)
-                      && krep_crystal_read(&read)
+                      && apxrep_input_read(&read)
                       && entry_crystal_verify(&file, &section, &seal, NULL, NULL, record, error);
         const unsigned long long lanes = entry_lanes(file.extent);
         record->placed = 1ull;
-        record->crystal_bytes = krep_crystal_bytes(&file, &section, &seal);
+        record->crystal_bytes = apxrep_input_bytes(&file, &section, &seal);
         record->raw_bytes = lanes * 2ull;
-        krep_crystal_release(&file);
-        krep_side_release(&section);
-        krep_seal_release(&seal);
+        apxrep_input_release(&file);
+        apxrep_side_release(&section);
+        apxrep_seal_release(&seal);
         if (held == 0)
         {
             continue;
@@ -2839,13 +3007,13 @@ extern "C" void engine_side_release(EngineSideBytes *side)
     EngineSideSection section;
     memset(&section, 0, sizeof(section));
     section.side = *side;
-    krep_side_release(&section);
+    apxrep_side_release(&section);
     memset(side, 0, sizeof(*side));
 }
 
-extern "C" long engine_kcr_load(const char *set, const char *sample, unsigned long long extent[4],
-                                unsigned short **volume, EngineSignum *root, EngineSideBytes *side,
-                                EngineError *error)
+extern "C" long engine_iapx_load(const char *set, const char *sample, unsigned long long extent[4],
+                                 unsigned short **volume, EngineSignum *root, EngineSideBytes *side,
+                                 EngineError *error)
 {
     if (error == NULL)
     {
@@ -2859,7 +3027,7 @@ extern "C" long engine_kcr_load(const char *set, const char *sample, unsigned lo
     }
     *volume = NULL;
     memset(root, 0, sizeof(*root));
-    char kcr_path[ENTRY_PATH_ROOM];
+    char iapx_path[ENTRY_PATH_ROOM];
     EngineStream file;
     memset(&file, 0, sizeof(file));
     EngineSideSection section;
@@ -2868,20 +3036,20 @@ extern "C" long engine_kcr_load(const char *set, const char *sample, unsigned lo
     memset(&seal, 0, sizeof(seal));
     EngineSampleRecord record;
     memset(&record, 0, sizeof(record));
-    const KrepCrystalRequest read = {kcr_path, &file, &section, &seal, error};
-    int good = ENGINE_HELD(engine_sample_path(kcr_path, sizeof(kcr_path), set, sample, ENTRY_CRYSTAL_SUFFIX) != 0,
+    const ApxrepInputRequest read = {iapx_path, &file, &section, &seal, error};
+    int good = ENGINE_HELD(engine_sample_path(iapx_path, sizeof(iapx_path), set, sample, ENTRY_CRYSTAL_SUFFIX) != 0,
                            sample, error, ENGINE_ERROR_REQUEST)
-            && krep_crystal_read(&read);
+            && apxrep_input_read(&read);
     const unsigned long long lanes = good ? entry_lanes(file.extent) : 0ull;
     unsigned short *const rebuilt = good ? (unsigned short *)malloc((size_t)lanes * sizeof(unsigned short)) : NULL;
     good = good && ENGINE_HELD(rebuilt != NULL, &rebuilt, error, ENGINE_ERROR_RESOURCE)
         && entry_crystal_verify(&file, &section, &seal, NULL, rebuilt, &record, error);
-    krep_crystal_release(&file);
-    krep_seal_release(&seal);
+    apxrep_input_release(&file);
+    apxrep_seal_release(&seal);
     if (good == 0)
     {
         free(rebuilt);
-        krep_side_release(&section);
+        apxrep_side_release(&section);
         ScripturaLine line;
         line.room = ENTRY_ROW_TEXT + scriptura_length(sample, ENTRY_PATH_ROOM);
         line.out = (char *)malloc((size_t)line.room);
@@ -2910,7 +3078,7 @@ extern "C" long engine_kcr_load(const char *set, const char *sample, unsigned lo
     }
     else
     {
-        krep_side_release(&section);
+        apxrep_side_release(&section);
     }
     return 0L;
 }
@@ -2945,10 +3113,10 @@ extern "C" long engine_entropy_set(const EngineEntropySetRequest *request)
     {
         const char *const name = request->set.samples[sample];
         char path[ENTRY_PATH_ROOM];
-        char kcr_path[ENTRY_PATH_ROOM];
-        good = ENGINE_HELD(engine_sample_path(path, sizeof(path), request->set.set, name, ENTRY_NOISE_FLOOR_SUFFIX) != 0,
-                           name, error, ENGINE_ERROR_REQUEST)
-            && ENGINE_HELD(engine_sample_path(kcr_path, sizeof(kcr_path), request->set.set, name, ENTRY_CRYSTAL_SUFFIX) != 0, name,
+        char iapx_path[ENTRY_PATH_ROOM];
+        good = ENGINE_HELD(engine_sample_path(path, sizeof(path), request->set.set, name, ".oapx") != 0, name, error,
+                           ENGINE_ERROR_REQUEST)
+            && ENGINE_HELD(engine_sample_path(iapx_path, sizeof(iapx_path), request->set.set, name, ENTRY_CRYSTAL_SUFFIX) != 0, name,
                            error, ENGINE_ERROR_REQUEST);
         if (good == 0)
         {
@@ -2959,12 +3127,12 @@ extern "C" long engine_entropy_set(const EngineEntropySetRequest *request)
         EngineSignum standing_root;
         EngineError probe;
         memset(&probe, 0, sizeof(probe));
-        if ((request->keep != 0u) && krep_crystal_head(kcr_path, &standing, &standing_root, &probe))
+        if ((request->keep != 0u) && apxrep_input_head(iapx_path, &standing, &standing_root, &probe))
         {
             EngineHistory kept;
-            const int whole = krep_history_read(path, &kept, 1u, &probe);
+            const int whole = apxrep_history_read(path, &kept, 1u, &probe);
             const int same = whole && entry_signum_same(&kept.sample, &standing_root);
-            krep_history_release(&kept);
+            apxrep_history_release(&kept);
             if (same)
             {
                 printf("  %-24s laid down already: read back whole, projected from the " ENTRY_CRYSTAL_SUFFIX
@@ -2979,7 +3147,7 @@ extern "C" long engine_entropy_set(const EngineEntropySetRequest *request)
         unsigned short *volume = NULL;
         EngineSignum sample_root;
         memset(&sample_root, 0, sizeof(sample_root));
-        good = (engine_kcr_load(request->set.set, name, extent, &volume, &sample_root, NULL, error) == 0L);
+        good = (engine_iapx_load(request->set.set, name, extent, &volume, &sample_root, NULL, error) == 0L);
         const long windows = good ? entropy_history_windows(extent, error) : ENTROPY_HISTORY_REFUSED;
         good = good && (windows != ENTROPY_HISTORY_REFUSED);
         const unsigned long long window_count = good ? (unsigned long long)windows : 0ull;
@@ -3010,9 +3178,9 @@ extern "C" long engine_entropy_set(const EngineEntropySetRequest *request)
         EngineHistory read;
         memset(&read, 0, sizeof(read));
         good = good && ENGINE_IO(engine_directories_make(path, 0) != 0, path, error)
-            && krep_history_write(path, &history, error) && krep_history_read(path, &read, 1u, error)
+            && apxrep_history_write(path, &history, error) && apxrep_history_read(path, &read, 1u, error)
             && ENGINE_HELD(entry_history_same(&history, &read) != 0, &read, error, ENGINE_ERROR_LOGIC);
-        krep_history_release(&read);
+        apxrep_history_release(&read);
         if (good == 0)
         {
             fprintf(stderr, "  %s: the entropy history was not written and read back whole\n", name);
@@ -3043,7 +3211,7 @@ extern "C" long engine_entropy_cloud(const char *path, unsigned int *windows, un
     }
     EngineHistory held;
     if ((ENGINE_HELD((windows != NULL) && (cloud != NULL), &cloud, error, ENGINE_ERROR_REQUEST) == 0)
-        || (krep_history_read(path, &held, 0u, error) == 0))
+        || (apxrep_history_read(path, &held, 0u, error) == 0))
     {
         engine_error_frame(error);
         engine_error_keep(error);
@@ -3051,7 +3219,7 @@ extern "C" long engine_entropy_cloud(const char *path, unsigned int *windows, un
     }
     *windows = (unsigned int)held.windows;
     memcpy(cloud, held.cloud, (size_t)(held.windows * held.windows) * sizeof(unsigned long long));
-    krep_history_release(&held);
+    apxrep_history_release(&held);
     return 0L;
 }
 
@@ -3061,7 +3229,7 @@ extern "C" long engine_entropy_history_read(const char *path, EngineHistory *his
     {
         return ENGINE_REFUSED;
     }
-    if (krep_history_read(path, history, 1u, error) == 0)
+    if (apxrep_history_read(path, history, 1u, error) == 0)
     {
         engine_error_frame(error);
         engine_error_keep(error);
@@ -3072,7 +3240,7 @@ extern "C" long engine_entropy_history_read(const char *path, EngineHistory *his
 
 extern "C" void engine_entropy_history_release(EngineHistory *history)
 {
-    krep_history_release(history);
+    apxrep_history_release(history);
 }
 
 extern "C" long engine_bodies_write(const char *set, const char *sample, EngineBodyTable *table, EngineError *error)
@@ -3089,16 +3257,16 @@ extern "C" long engine_bodies_write(const char *set, const char *sample, EngineB
     }
     char path[ENTRY_PATH_ROOM];
     table->crc = crc_words(CRC_TABLE, table->words, (size_t)(table->bodies * ENGINE_BODY_WORDS));
-    if ((ENGINE_HELD(engine_sample_path(path, sizeof(path), set, sample, ENTRY_CONSTRUCTION_SET_SUFFIX) != 0, sample,
-                     error, ENGINE_ERROR_REQUEST) == 0)
-        || (krep_bodies_write(path, table, error) == 0))
+    if ((ENGINE_HELD(engine_sample_path(path, sizeof(path), set, sample, ".bapx") != 0, sample, error,
+                     ENGINE_ERROR_REQUEST) == 0)
+        || (apxrep_bodies_write(path, table, error) == 0))
     {
         engine_error_frame(error);
         engine_error_keep(error);
         return ENGINE_REFUSED;
     }
     EngineBodyTable back;
-    const int held = krep_bodies_read(path, &back, error);
+    const int held = apxrep_bodies_read(path, &back, error);
     const int same = (held != 0)
                   && ENGINE_HELD((back.bodies == table->bodies) && (back.crc == table->crc)
                                      && (memcmp(back.frame_start, table->frame_start,
@@ -3108,7 +3276,7 @@ extern "C" long engine_bodies_write(const char *set, const char *sample, EngineB
                                                 (size_t)(table->bodies * ENGINE_BODY_WORDS) * sizeof(unsigned long long))
                                          == 0),
                                  &back, error, ENGINE_ERROR_LOGIC);
-    krep_bodies_release(&back);
+    apxrep_bodies_release(&back);
     if (same == 0)
     {
         remove(path);
@@ -3126,9 +3294,9 @@ extern "C" long engine_bodies_read(const char *set, const char *sample, EngineBo
         return ENGINE_REFUSED;
     }
     char path[ENTRY_PATH_ROOM];
-    if ((ENGINE_HELD(engine_sample_path(path, sizeof(path), set, sample, ENTRY_CONSTRUCTION_SET_SUFFIX) != 0, sample,
-                     error, ENGINE_ERROR_REQUEST) == 0)
-        || (krep_bodies_read(path, table, error) == 0))
+    if ((ENGINE_HELD(engine_sample_path(path, sizeof(path), set, sample, ".bapx") != 0, sample, error,
+                     ENGINE_ERROR_REQUEST) == 0)
+        || (apxrep_bodies_read(path, table, error) == 0))
     {
         engine_error_frame(error);
         engine_error_keep(error);
@@ -3139,5 +3307,5 @@ extern "C" long engine_bodies_read(const char *set, const char *sample, EngineBo
 
 extern "C" void engine_bodies_release(EngineBodyTable *table)
 {
-    krep_bodies_release(table);
+    apxrep_bodies_release(table);
 }

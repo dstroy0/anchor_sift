@@ -34,7 +34,7 @@
  *       that ladder from ANCHOR_EXACT_NEWTON_LIMBS. Every rung is measured by
  *       test/exact_transform_test and gives the product or quotient the rung below it gives.
  * @note A width-sized working copy sits on the stack up to ANCHOR_EXACT_STACK_LIMBS and is held
- *       from the heap past it; no width is bounded by a stack. Where the heap cannot hold a
+ *       from the heap past it, so no width is bounded by a stack. Where the heap cannot hold a
  *       copy, the call refuses with ANCHOR_EXACT_WILL_NOT_FIT. A caller holding many integers at a
  *       wide width keeps them in static or allocated storage. A main thread stack defaults to 1 MiB
  *       under the MSVC linker and 8 MiB under a stock Linux.
@@ -115,7 +115,7 @@ extern "C"
  * every size the build selects. Scaling is by doubling the limb count, 128 to 256 to 512, holding
  * 4096, 8192, 16384 bits. A width that is not a power of two, an override such as the earlier 108
  * limbs, fails compilation here. The power of two test alone passes a width of zero, because
- * 0 & (0 - 1) is 0; the bottom of the range is tested with it. */
+ * 0 & (0 - 1) is 0, so the bottom of the range is tested with it. */
 /* The declared floor has to fit the width, and the build can decide that. A decimal digit needs
  * log2(10) bits, which is 3.3219, carried here as 3322 parts in a thousand and rounded up so the
  * test is never optimistic. A floor raised past the width fails compilation with this line. */
@@ -165,7 +165,7 @@ typedef char anchor_exact_digits_fit_the_width[(((((unsigned long long)(ANCHOR_E
  * @brief The shorter factor's limbs from which a product is taken by Karatsuba instead of long
  *        multiplication.
  *
- * @note Karatsuba splits each factor in halves and recurses into three half products; its cost
+ * @note Karatsuba splits each factor in halves and recurses into three half products, so its cost
  *       grows as n^1.585 against the long multiplication's n^2.
  */
 #ifndef ANCHOR_EXACT_KARATSUBA_LIMBS
@@ -309,8 +309,8 @@ typedef char anchor_exact_rungs_in_order[((ANCHOR_EXACT_TRANSFORM_LIMBS) >= (ANC
      * @return            ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT where the product needs more
      *                    limbs than the width holds.
      * @note Taken on the ladder over the limbs each factor uses. The arithmetic grows with the used
-     *       lengths and the width adds one pass writing the result, the cost of a product of a few
-     *       limbs at a wide width: 8e-5 s at 131072 limbs. A rung whose workspace cannot be held
+     *       lengths and the width adds one pass writing the result, which is what a product of a few
+     *       limbs costs at a wide width: 8e-5 s at 131072 limbs. A rung whose workspace cannot be held
      *       steps down to the rung below it, and long multiplication needs none.
      * @note Factors whose used lengths sum past the width by more than one limb are refused before any
      *       arithmetic. Their product is at least 2^(32 * (sum - 2)), which already overruns.
@@ -349,7 +349,7 @@ typedef char anchor_exact_rungs_in_order[((ANCHOR_EXACT_TRANSFORM_LIMBS) >= (ANC
      *                       ANCHOR_EXACT_WILL_NOT_FIT where a working copy past the stack cannot be
      *                       held.
      * @note numerator = quotient * divisor + remainder, with |remainder| below |divisor|. That is C's
-     *       own division; a caller moving between the two meets no sign rule of a third kind.
+     *       own division, so a caller moving between the two meets no sign rule of a third kind.
      * @note Knuth's Algorithm D, and Newton's reciprocal once the divisor and the quotient both reach
      *       ANCHOR_EXACT_NEWTON_LIMBS.
      * @note On a refusal `quotient` and `remainder` are left unchanged.

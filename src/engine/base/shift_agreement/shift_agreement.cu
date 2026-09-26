@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "shift_agreement.h"
 
+#include "device_pool.h"
+
 #include <cuda_runtime.h>
 
 #include <stdlib.h>
@@ -419,12 +421,61 @@ static int agreement_axis(unsigned int *values, AgreementLayout layout, unsigned
     return ok;
 }
 
+// The layout for `axes` extents, `weights` NULL for none: each axis padded to the power of two at or above 2e - 1, the
+// length a cyclic transform needs to hold every lag without wrap. 0 for extents the run refuses: an extent of 0 or past
+// half the longest axis, a voxel count at the prime or past it, or a padded total past 2^31 - 1.
+static int lay_out(unsigned int axes, const unsigned int *extents, const unsigned int *weights, AgreementLayout *layout)
+{
+    memset(layout, 0, sizeof(*layout));
+    layout->axes = axes;
+    unsigned long long voxels = 1ull;
+    unsigned long long padded_total = 1ull;
+    for (unsigned int axis = 0u; axis < axes; axis += 1u)
+    {
+        if ((extents[axis] == 0u) || (extents[axis] > (SHIFT_AGREEMENT_LONGEST_AXIS / 2u)))
+        {
+            return 0;
+        }
+        layout->extents[axis] = extents[axis];
+        layout->weights[axis] = (weights != NULL) ? weights[axis] : 0u;
+        voxels *= (unsigned long long)extents[axis];
+        unsigned long long power = 1ull;
+        while (power < ((2ull * (unsigned long long)extents[axis]) - 1ull))
+        {
+            power <<= 1u;
+        }
+        // the extent is at most 2^22, and its power at most 2^23
+        layout->padded[axis] = (unsigned int)power;
+        padded_total *= power;
+        if ((voxels >= (unsigned long long)SHIFT_AGREEMENT_PRIME) || (padded_total > 0x7FFFFFFFull))
+        {
+            return 0;
+        }
+    }
+    // the voxel count is below the prime, under 2^30, and the padded total at most 2^31 - 1
+    layout->voxels = (unsigned int)voxels;
+    layout->total = (unsigned int)padded_total;
+    unsigned int stride = layout->total;
+    unsigned int table_offset = 0u;
+    for (unsigned int axis = 0u; axis < axes; axis += 1u)
+    {
+        stride /= layout->padded[axis];
+        layout->padded_strides[axis] = stride;
+        layout->table_offsets[axis] = table_offset;
+        table_offset += layout->padded[axis];
+    }
+    return 1;
+}
+
 #define SHIFT_AGREEMENT_VOLUMES 4u
 
 #define SHIFT_AGREEMENT_NONE_KEPT SHIFT_AGREEMENT_VOLUMES
 
+// the before and after words and the four transform volumes are slices of one pool, held for one total and one word
+// count at a time
 struct HeldVolumes
 {
+    DevicePool pool;
     size_t total;
     size_t words;
     unsigned long long *before;
@@ -432,9 +483,37 @@ struct HeldVolumes
     unsigned int *volumes[SHIFT_AGREEMENT_VOLUMES];
     unsigned int kept;
     unsigned long long *kept_words;
+    unsigned int kept_axes;
+    unsigned int kept_extents[SHIFT_AGREEMENT_AXES];
 };
 
 static HeldVolumes s_held_volumes;
+
+#define SHIFT_AGREEMENT_SLICES (2u + SHIFT_AGREEMENT_VOLUMES)
+
+static_assert(SHIFT_AGREEMENT_VOLUMES == 4u, "shift_agreement: the pool lays one slice for each of the four volumes");
+
+// the pool's slices for `total` padded elements and `words` bit words, in the order they are laid and taken: the
+// before and after words, then the four volumes; the plan is laid from them, and a pool held from it takes them
+static DevicePoolPlan plan_volumes(size_t total, size_t words, EngineError *error,
+                                   DevicePoolTakeRequest takes[SHIFT_AGREEMENT_SLICES])
+{
+    HeldVolumes *const held = &s_held_volumes;
+    const DevicePoolTakeRequest laid[SHIFT_AGREEMENT_SLICES] = {
+        {&held->pool, words * sizeof(unsigned long long), (void **)&held->before, error},
+        {&held->pool, words * sizeof(unsigned long long), (void **)&held->after, error},
+        {&held->pool, total * sizeof(unsigned int), (void **)&held->volumes[0], error},
+        {&held->pool, total * sizeof(unsigned int), (void **)&held->volumes[1], error},
+        {&held->pool, total * sizeof(unsigned int), (void **)&held->volumes[2], error},
+        {&held->pool, total * sizeof(unsigned int), (void **)&held->volumes[3], error}};
+    DevicePoolPlan plan = {0ull, 0ull, 0};
+    for (unsigned int at = 0u; at < SHIFT_AGREEMENT_SLICES; at += 1u)
+    {
+        takes[at] = laid[at];
+        device_pool_plan_slice(&plan, laid[at].bytes);
+    }
+    return plan;
+}
 
 static int hold_volumes(size_t total, size_t words)
 {
@@ -443,32 +522,27 @@ static int hold_volumes(size_t total, size_t words)
     {
         return 1;
     }
-    cudaFree(held->before);
-    cudaFree(held->after);
-    for (unsigned int slot = 0u; slot < SHIFT_AGREEMENT_VOLUMES; slot += 1u)
-    {
-        cudaFree(held->volumes[slot]);
-    }
+    device_pool_release(&held->pool);
     free(held->kept_words);
     memset(held, 0, sizeof(*held));
     held->kept = SHIFT_AGREEMENT_NONE_KEPT;
-    int ok = 1;
-    ok = ok && (cudaMalloc((void **)&held->before, words * sizeof(unsigned long long)) == cudaSuccess);
-    ok = ok && (cudaMalloc((void **)&held->after, words * sizeof(unsigned long long)) == cudaSuccess);
-    for (unsigned int slot = 0u; (ok != 0) && (slot < SHIFT_AGREEMENT_VOLUMES); slot += 1u)
+    // the run refuses without detail, and the pool's error is kept here and dropped
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    DevicePoolTakeRequest takes[SHIFT_AGREEMENT_SLICES];
+    const DevicePoolPlan plan = plan_volumes(total, words, &error, takes);
+    const DevicePoolHoldRequest hold = {&plan, &held->pool, &error};
+    int ok = device_pool_hold(&hold) == 0L;
+    // the slices are taken in the plan's order, and each lands where the plan laid it with none refused
+    for (unsigned int at = 0u; (ok != 0) && (at < SHIFT_AGREEMENT_SLICES); at += 1u)
     {
-        ok = (cudaMalloc((void **)&held->volumes[slot], total * sizeof(unsigned int)) == cudaSuccess) ? 1 : 0;
+        ok = device_pool_take(&takes[at]) == 0L;
     }
     held->kept_words = (unsigned long long *)malloc(words * sizeof(unsigned long long));
     ok = ok && (held->kept_words != NULL);
     if (ok == 0)
     {
-        cudaFree(held->before);
-        cudaFree(held->after);
-        for (unsigned int slot = 0u; slot < SHIFT_AGREEMENT_VOLUMES; slot += 1u)
-        {
-            cudaFree(held->volumes[slot]);
-        }
+        device_pool_release(&held->pool);
         free(held->kept_words);
         memset(held, 0, sizeof(*held));
         held->kept = SHIFT_AGREEMENT_NONE_KEPT;
@@ -534,6 +608,35 @@ static int hold_negation(const AgreementLayout *layout)
     return 1;
 }
 
+extern "C" unsigned long long shift_agreement_hold_bytes(unsigned int axes, const unsigned int *extents)
+{
+    AgreementLayout layout;
+    if ((extents == NULL) || (axes == 0u) || (axes > SHIFT_AGREEMENT_AXES)
+        || (lay_out(axes, extents, NULL, &layout) == 0))
+    {
+        return 0ull;
+    }
+    DevicePoolTakeRequest takes[SHIFT_AGREEMENT_SLICES];
+    const DevicePoolPlan plan = plan_volumes((size_t)layout.total, ((size_t)layout.voxels + 63u) / 64u, NULL, takes);
+    // the negation table, one entry past every padded coordinate, and each distinct length's two root tables
+    unsigned long long tables = 1ull;
+    for (unsigned int axis = 0u; axis < axes; axis += 1u)
+    {
+        tables += layout.padded[axis];
+        unsigned int earlier = 0u;
+        while ((earlier < axis) && (layout.padded[earlier] != layout.padded[axis]))
+        {
+            earlier += 1u;
+        }
+        tables += ((earlier == axis) && (layout.padded[axis] >= 2u)) ? (2ull * layout.padded[axis]) : 0ull;
+    }
+    // the tables are small allocations beside the pool, which the device maps into shared pages: they are counted
+    // together, rounded up to the page
+    DevicePoolPlan tables_plan = {0ull, 0ull, 0};
+    device_pool_plan_slice(&tables_plan, tables * sizeof(unsigned int));
+    return device_pool_plan_bytes(&plan) + device_pool_plan_bytes(&tables_plan);
+}
+
 extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
 {
     if ((args == NULL) || (args->before == NULL) || (args->after == NULL) || (args->axes == 0u)
@@ -542,41 +645,9 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
         return SHIFT_AGREEMENT_REFUSED;
     }
     AgreementLayout layout;
-    memset(&layout, 0, sizeof(layout));
-    layout.axes = args->axes;
-    unsigned long long voxels = 1ull;
-    unsigned long long padded_total = 1ull;
-    for (unsigned int axis = 0u; axis < args->axes; axis += 1u)
+    if (lay_out(args->axes, args->extents, args->weights, &layout) == 0)
     {
-        if ((args->extents[axis] == 0u) || (args->extents[axis] > (SHIFT_AGREEMENT_LONGEST_AXIS / 2u)))
-        {
-            return SHIFT_AGREEMENT_REFUSED;
-        }
-        layout.extents[axis] = args->extents[axis];
-        layout.weights[axis] = args->weights[axis];
-        voxels *= (unsigned long long)args->extents[axis];
-        unsigned long long power = 1ull;
-        while (power < ((2ull * (unsigned long long)args->extents[axis]) - 1ull))
-        {
-            power <<= 1u;
-        }
-        layout.padded[axis] = (unsigned int)power;
-        padded_total *= power;
-        if ((voxels >= (unsigned long long)SHIFT_AGREEMENT_PRIME) || (padded_total > 0x7FFFFFFFull))
-        {
-            return SHIFT_AGREEMENT_REFUSED;
-        }
-    }
-    layout.voxels = (unsigned int)voxels;
-    layout.total = (unsigned int)padded_total;
-    unsigned int stride = layout.total;
-    unsigned int table_offset = 0u;
-    for (unsigned int axis = 0u; axis < layout.axes; axis += 1u)
-    {
-        stride /= layout.padded[axis];
-        layout.padded_strides[axis] = stride;
-        layout.table_offsets[axis] = table_offset;
-        table_offset += layout.padded[axis];
+        return SHIFT_AGREEMENT_REFUSED;
     }
     int devices = 0;
     if ((cudaGetDeviceCount(&devices) != cudaSuccess) || (devices < 1))
@@ -593,7 +664,9 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
     HeldVolumes *const held = &s_held_volumes;
     unsigned long long *const device_before = held->before;
     unsigned long long *const device_after = held->after;
-    const int reuse = (ok != 0) && (held->kept != SHIFT_AGREEMENT_NONE_KEPT)
+    // the kept transform was scattered by its own extents, and one padding and one word count hold several extents
+    const int reuse = (ok != 0) && (held->kept != SHIFT_AGREEMENT_NONE_KEPT) && (held->kept_axes == layout.axes)
+                   && (memcmp(held->kept_extents, layout.extents, sizeof(held->kept_extents)) == 0)
                    && (memcmp(held->kept_words, args->before, words * sizeof(unsigned long long)) == 0);
     unsigned int *roles[SHIFT_AGREEMENT_VOLUMES - 1u] = {NULL, NULL, NULL};
     unsigned int filled = 0u;
@@ -705,6 +778,8 @@ extern "C" long shift_agreement_run(ShiftAgreementRequest *args)
         {
             held->kept = slot;
             memcpy(held->kept_words, args->after, words * sizeof(unsigned long long));
+            held->kept_axes = layout.axes;
+            memcpy(held->kept_extents, layout.extents, sizeof(held->kept_extents));
         }
     }
     free(host_counts);

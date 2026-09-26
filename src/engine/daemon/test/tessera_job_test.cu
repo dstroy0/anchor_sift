@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // tessera end to end: the client against the built daemon on this device. The client starts the daemon when no
-// daemon answers. A job declaring less than it then holds is admitted on its declaration and told it grew; its peak
+// daemon answers. Every job is reserved its declaration over the bytes its process already held as it asked, which
+// the daemon measures and tells on admission; the test keeps its first job's memory, so every later job's process
+// stands on it. A job declaring less than it then holds is admitted on its declaration and told it grew; its peak
 // is kept under its signum. The same signum declaring four times that peak is asked, and admitted on the override.
 // Declaring within the peak it is admitted at once. Declaring over it again with no answer, it is held past its
-// holding time and lost, its ticket naming hst/lnf.log; the precalc kept releases it, and lnf.log ends with the
-// precalc note in a sealed block of its own. Once the daemon has gone, hst/head.log is damaged by one byte, cut
+// holding time and lost, its ticket naming the lost and found place; the precalc kept there releases it. Its ticket
+// is sealed with the precalc note in it. Once the daemon has gone, the history it sealed is damaged by one byte, cut
 // short, and stripped of its seal, and each time no daemon will start on it; restored, it starts and the kept peak
 // is still there. The damage is done in $TESSERA_STATE, which run.sh points at a scratch directory.
 #include "obsignatio.h"
@@ -76,7 +78,7 @@ static int job_daemon_gone(const unsigned char *device)
     // the daemon holds its state's lock while it lives; a socket systemd holds outlives it, so the lock is asked
     char state[ENGINE_PATH_ROOM];
     const int named = tessera_path_state(device, state, ENGINE_PATH_ROOM)
-                   && (snprintf(endpoint, sizeof(endpoint), "%s/tessera.lock", state) < (int)sizeof(endpoint));
+                   && (snprintf(endpoint, sizeof(endpoint), "%s/daemon.lock", state) < (int)sizeof(endpoint));
     if (!named)
     {
         return 0;
@@ -142,22 +144,23 @@ static int job_file_write(const char *path, const unsigned char *bytes, unsigned
     return (fclose(file) == 0) && written;
 }
 
-static int job_ticket_sealed(const char *lost_path, unsigned long long identity)
+static int job_ticket_sealed(const char *lost_path)
 {
-    // lnf.log is sealed blocks, each ending "seal " and 64 hex digits over every byte of its block; the last block is
-    // the lost job's identity and the precalc note
+    // the ticket's last line is "seal " and 64 hex digits, sealing every byte above it
+    char path[ENGINE_PATH_ROOM];
+    const int named = snprintf(path, sizeof(path), "%s%sticket", lost_path,
+#if defined(_WIN32)
+                               "\\"
+#else
+                               "/"
+#endif
+    );
     unsigned long long length = 0ull;
-    unsigned char *const text = job_file_read(lost_path, &length);
+    // a non-negative length is compared whole against the room
+    unsigned char *const text = ((named > 0) && ((size_t)named < sizeof(path))) ? job_file_read(path, &length) : NULL;
     const unsigned long long line = 5ull + (2ull * OBSIGNATIO_SIGNUM_BYTES) + 1ull;
     int held = (text != NULL) && (length > line) && (memcmp(text + (length - line), "seal ", 5u) == 0);
     const unsigned long long body = held ? (length - line) : 0ull;
-    unsigned long long block = 0ull;
-    for (unsigned long long at = 0ull; held && ((at + line) <= body); at += 1ull)
-    {
-        const int line_start = (at == 0ull) || (text[at - 1ull] == '\n');
-        const int sealing = line_start && (memcmp(text + at, "seal ", 5u) == 0) && (text[at + line - 1ull] == '\n');
-        block = sealing ? (at + line) : block;
-    }
     unsigned char signum[OBSIGNATIO_SIGNUM_BYTES];
     for (unsigned int byte = 0u; held && (byte < OBSIGNATIO_SIGNUM_BYTES); byte += 1u)
     {
@@ -166,13 +169,11 @@ static int job_ticket_sealed(const char *lost_path, unsigned long long identity)
         held = sscanf(pair, "%2x", &value) == 1;
         signum[byte] = (unsigned char)value;
     }
-    char note[64];
-    const int noted = snprintf(note, sizeof(note), "identity %016llx\nprecalc kept\n", identity);
-    held = held && (noted > 0) && ((body - block) == (unsigned long long)noted)
-        && (memcmp(text + block, note, (size_t)noted) == 0);
+    const char note[] = "precalc kept\n";
+    held = held && (body >= (sizeof(note) - 1u)) && (memcmp(text + body - (sizeof(note) - 1u), note, sizeof(note) - 1u) == 0);
     EngineError error;
     memset(&error, 0, sizeof(error));
-    const ObsignatioSealRequest seal = {text + block, body - block, signum, &error};
+    const ObsignatioSealRequest seal = {text, body, signum, &error};
     held = held && (obsignatio_seal_holds(&seal) == 1L);
     free(text);
     return held;
@@ -218,8 +219,10 @@ int main(int count, char **arguments)
     TesseraClient *client = NULL;
     TesseraTicket ticket;
     long answer = tessera_job_submit(&ask, &client, &ticket);
-    job_check((answer == 0L) && (ticket.asked == 0u) && (ticket.lost == 0u) && (ticket.granted == JOB_TEST_DECLARED),
-              "a job never seen is admitted on its declaration");
+    job_check((answer == 0L) && (ticket.asked == 0u) && (ticket.lost == 0u)
+                  && (ticket.granted == (ticket.standing + JOB_TEST_DECLARED)),
+              "a job never seen is admitted on its declaration over what its process held");
+    printf("  its process held %llu bytes as it asked\n", ticket.standing);
     void *held = NULL;
     job_check(cudaMalloc(&held, JOB_TEST_HELD) == cudaSuccess, "the job takes device memory");
     job_check(cudaMemset(held, 1, JOB_TEST_HELD) == cudaSuccess, "the job touches it");
@@ -238,15 +241,19 @@ int main(int count, char **arguments)
     job_check((answer == 0L) && (ticket.asked != 0u), "declaring four times the kept peak is asked");
     job_check((answer == 0L) && (ticket.last_peak == peak), "the ask names the kept peak");
     answer = (answer == 0L) ? tessera_job_override(client, &ticket, &error) : -1L;
-    job_check((answer == 0L) && (ticket.asked == 0u) && (ticket.granted == (4ull * peak)),
-              "the override admits it on its declaration");
+    job_check((answer == 0L) && (ticket.asked == 0u) && (ticket.granted == (ticket.standing + (4ull * peak))),
+              "the override admits it on its declaration over what its process held");
+    job_check((answer == 0L) && (ticket.standing >= JOB_TEST_HELD),
+              "the memory its process kept from the first job is measured as standing");
+    printf("  standing on the first job's memory: %llu bytes\n", ticket.standing);
     answer = (answer == 0L) ? tessera_job_release(client, &ticket, &error) : -1L;
     job_check(answer == 0L, "the overridden job releases");
 
     // 3: within its peak it is admitted at once
     ask.declared = peak;
     answer = tessera_job_submit(&ask, &client, &ticket);
-    job_check((answer == 0L) && (ticket.asked == 0u) && (ticket.granted == peak), "declaring the kept peak is admitted");
+    job_check((answer == 0L) && (ticket.asked == 0u) && (ticket.granted == (ticket.standing + peak)),
+              "declaring the kept peak is admitted, over what its process held");
     answer = (answer == 0L) ? tessera_job_release(client, &ticket, &error) : -1L;
     job_check(answer == 0L, "that job releases");
 
@@ -260,18 +267,17 @@ int main(int count, char **arguments)
     printf("  lost and found: %s\n", ticket.lost_path);
     answer = (answer == 0L) ? tessera_job_precalc_kept(client, &error) : -1L;
     job_check(answer == 0L, "the precalc kept in lost and found releases the job");
-    job_check((answer == 0L) && job_ticket_sealed(ticket.lost_path, ticket.identity),
-              "lnf.log ends with the lost job's precalc note, sealed");
+    job_check((answer == 0L) && job_ticket_sealed(ticket.lost_path), "the lost ticket is sealed with the precalc note in it");
 
     // 5: the history is sealed; damaged, cut short or unsealed, no daemon starts on it; restored, the peak is kept
     char state[ENGINE_PATH_ROOM];
     char history[ENGINE_PATH_ROOM];
     const int placed = (getenv("TESSERA_STATE") != NULL) && tessera_path_state(ask.device, state, ENGINE_PATH_ROOM);
-    const int named = placed ? snprintf(history, sizeof(history), "%s%shst%shead.log", state,
+    const int named = placed ? snprintf(history, sizeof(history), "%s%shistory", state,
 #if defined(_WIN32)
-                                        "\\", "\\"
+                                        "\\"
 #else
-                                        "/", "/"
+                                        "/"
 #endif
                                         )
                              : -1;

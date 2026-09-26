@@ -19,8 +19,7 @@ _Alignas(8) static const char s_tessera_local_state[] = "/.local/state/tessera";
 _Alignas(8) static const char s_tessera_temporary[] = "/tmp";
 #endif
 _Alignas(8) static const char s_tessera_folder[] = "tessera";
-_Alignas(8) static const char s_tessera_history[] = "hst";
-_Alignas(8) static const char s_tessera_lost[] = "lnf.log";
+_Alignas(8) static const char s_tessera_lost[] = "lostandfound";
 
 int tessera_text_staged(ScripturaLine *line, const char *text)
 {
@@ -61,6 +60,17 @@ int tessera_path_endpoint(const unsigned char device[TESSERA_DEVICE_BYTES], char
     ScripturaLine line = {path, room, 0ull};
 #if defined(_WIN32)
     scriptura_text(&line, s_tessera_pipe);
+    // a runtime named apart (a test's) is a pipe of its own, as it is a folder of its own on Linux; a backslash, which
+    // a pipe's name may not hold past its prefix, is written as '_'
+    const char *const runtime = tessera_environment("TESSERA_RUNTIME");
+    for (const char *walk = runtime; (walk != NULL) && (*walk != '\0'); walk += 1)
+    {
+        scriptura_character(&line, (*walk == '\\') ? '_' : *walk);
+    }
+    if (runtime != NULL)
+    {
+        scriptura_character(&line, '-');
+    }
     tessera_bytes_hex(&line, device, TESSERA_DEVICE_BYTES);
 #else
     const char *runtime = tessera_environment("TESSERA_RUNTIME");
@@ -123,7 +133,8 @@ int tessera_path_state(const unsigned char device[TESSERA_DEVICE_BYTES], char *p
     return tessera_line_done(&line);
 }
 
-int tessera_path_lost(const unsigned char device[TESSERA_DEVICE_BYTES], char *path, unsigned int room)
+int tessera_path_lost(const unsigned char device[TESSERA_DEVICE_BYTES], unsigned long long identity,
+                      const EngineSignum *signum, char *path, unsigned int room)
 {
     if (!tessera_path_state(device, path, room))
     {
@@ -132,8 +143,10 @@ int tessera_path_lost(const unsigned char device[TESSERA_DEVICE_BYTES], char *pa
     ScripturaLine line = {path, room, 0ull};
     line.at = strlen(path);
     scriptura_character(&line, TESSERA_SEPARATOR);
-    scriptura_text(&line, s_tessera_history);
-    scriptura_character(&line, TESSERA_SEPARATOR);
     scriptura_text(&line, s_tessera_lost);
+    scriptura_character(&line, TESSERA_SEPARATOR);
+    scriptura_hex(&line, identity, 16u);
+    scriptura_character(&line, '-');
+    tessera_bytes_hex(&line, signum->bytes, ENGINE_SIGNUM_BYTES);
     return tessera_line_done(&line);
 }

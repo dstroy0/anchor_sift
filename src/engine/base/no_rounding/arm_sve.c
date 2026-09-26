@@ -173,7 +173,7 @@ static int arm_compare(const AnchorExactInteger *left, const AnchorExactInteger 
 static size_t arm_agreement(const AnchorExactInteger *positions, const uint64_t *values,
                             size_t count, const AnchorExactInteger *lag)
 {
-    // The shared search, with only the equality test swapped. The timing measures the instruction
+    // The shared search, with only the equality test swapped. What is timed is the instruction
     // set and not a second algorithm.
     return anchor_exact_agreement_using(arm_equal, positions, values, count, lag);
 }

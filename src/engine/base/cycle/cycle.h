@@ -38,6 +38,15 @@ unsigned int cycle_record_members(const CycleRecord *record);
 
 unsigned int cycle_record_in_limbs(const CycleRecord *record, unsigned int member);
 
+// 1 where the loaded program runs as its own compiled kernel, linked against the operator block; 0 where it runs on
+// the interpreter (a step the compiler does not hold, NVRTC or nvJitLink not found, or CYCLE_RECORD_INTERPRET=1)
+int cycle_record_compiled(const CycleRecord *record);
+
+// the host's copy of the loaded program's block, read back from the device as each launch ends: where it stands,
+// sealed whenever no launch holds it. A compiled program runs resident and writes it on the device; a program on the
+// interpreter leaves it laid
+const EngineProgramBlock *cycle_record_block(const CycleRecord *record);
+
 typedef struct
 {
     const CycleRecord *record;
@@ -59,6 +68,7 @@ typedef struct
     const unsigned int *index;
     unsigned long long count;
     unsigned int *out;
+    EngineError *error;
 } CycleRecordHostRequest;
 
 long cycle_record_run_host(const CycleRecordHostRequest *request);
