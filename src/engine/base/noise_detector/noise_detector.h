@@ -288,6 +288,33 @@ typedef struct
 long noise_charge_series(const unsigned short *bias, const unsigned short *dark, const unsigned long long extent[4],
                          NoiseChargeReading *reading, EngineError *error);
 
+// C17, the structure function against the shared scale (build plan item 38). Over each voxel and its x neighbour whose
+// mean level over the frames lies in 40 to 199, at each lag k of the flicker pass, every frame pair's
+// y = (d_k - d_{k,x})^2 against q = (Σ_t I - Σ_t I_x)^2 = (T (L - L_x))^2 and the pair's total M = Σ_t I + Σ_t I_x:
+// per lag and level bin of 8, the pairs N and the sums of M, M^2, q, q^2, M q, y, M y and q y. A scale 1 + ε_t shared
+// by the whole volume moves d_k - d_{k,x} by (ε_{t+k} - ε_t) times the pair's light apart, so y rises over
+// (L - L_x)^2 with slope D_a(k) = E[(ε_{t+k} - ε_t)^2], the scale's structure function, above 2 D(k), the pair's own
+// noise. The own noise grows with the level, and a bin of 8 still holds a spread of it, so y is fitted against M and q
+// together within each bin, the least squares of the line above over two places, pooled over the bins: with each bin's
+// centred sums N Σ u v - Σ u Σ v summed over the bins as MM, QQ, MQ, MY and QY,
+// D_a(k) = T^2 (MM QY - MQ MY) / (MM QQ - MQ^2), and the intercept is the pairs' mean y less D_a(k) times their mean
+// (L - L_x)^2. Each reading is a numerator over a positive denominator.
+typedef struct
+{
+    unsigned long long pairs[NOISE_FLICKER_LAGS];
+    // set where q is not a line in M within every bin, so MM QQ - MQ^2 is positive
+    int read[NOISE_FLICKER_LAGS];
+    AnchorExactInteger slope[NOISE_FLICKER_LAGS];
+    AnchorExactInteger slope_denominator[NOISE_FLICKER_LAGS];
+    AnchorExactInteger intercept[NOISE_FLICKER_LAGS];
+    AnchorExactInteger intercept_denominator[NOISE_FLICKER_LAGS];
+} NoiseStructureReading;
+
+// refuses a volume of fewer than two frames or two columns, of more than 65536 frames, or whose sums could pass 128
+// bits
+long noise_structure_volume(const unsigned short *volume, const unsigned long long extent[4],
+                            NoiseStructureReading *reading, EngineError *error);
+
 // The root noise of a box: a span of frames and a place the caller names, an object's in the cell workbook. Each term the
 // noise vector table names as shared is a pattern in fewer dimensions than the box, one value for every place along
 // the axes it is kept on and the same along the axes it is shared along. A term's pattern over a box is the box's mean

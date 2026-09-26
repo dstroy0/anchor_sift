@@ -93,6 +93,20 @@
 
 #define TERMS_BLUR_KEY 0x424C5552ull
 
+// the structure function against the shared scale: a plant along x over the whole width, 60 to 180 electrons, and a
+// scale of 4 octaves of variance 1024 over 2^10, about 1 +- 6%
+#define TERMS_STRUCTURE_BACKGROUND 60ull
+
+#define TERMS_STRUCTURE_AMPLITUDE 120ull
+
+#define TERMS_STRUCTURE_KEY 0x5354525543ull
+
+#define TERMS_SCALE_SQUARE 1024ull
+
+#define TERMS_SCALE_OCTAVES 4u
+
+#define TERMS_SCALE_BITS 10u
+
 static const unsigned long long TERMS_EXTENT[4] = {TERMS_FRAMES, TERMS_DEPTH, TERMS_HEIGHT, TERMS_WIDTH};
 
 static void terms_within(SimTally *tally, const char *what, long long read, long long expected, long long reach)
@@ -555,6 +569,130 @@ static void terms_blur(SimTally *tally, const unsigned short *lanes, const SimSc
     sim_check(tally, moved > 1ull, "the kernel moves the planted light by more than 1 somewhere");
 }
 
+// C17 read back (build plan item 38). The scale moves a pair's d_k - d_{k,x} by (ε_{t+k} - ε_t) g (S - S_x), and
+// L - L_x = g (S - S_x)(1 + mean ε), so D_a(k) reads the scale path's mean squared step over (1 + mean ε)^2, from the
+// path the camera drew: 10^6 T^2 Σ_t (e_{t+k} - e_t)^2 / ((T - k)(2^b T + Σ_t e_t)^2) in millionths. The intercept
+// reads the pairs' own noise, the mean over the pairs in 40 to 199 and their frame pairs of g^2 times the four
+// lights plus 4 R^2; the rounded scale adds about 1/3 to it. The slope's standard error, estimated from the plant, is
+// under 100 millionths at every lag and the intercept's about 0.2, so the reaches of 500 millionths and 1 are at least
+// 5 of them.
+static void terms_structure(SimTally *tally, const unsigned short *lanes, const SimScene *scene,
+                            const SimCamera *camera)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    // the reading's 28 exact integers are held off the stack
+    NoiseStructureReading *const reading = (NoiseStructureReading *)malloc(sizeof(NoiseStructureReading));
+    const int good = (reading != NULL) && (noise_structure_volume(lanes, TERMS_EXTENT, reading, &error) == 0L);
+    sim_check(tally, good, "the structure pass read the volume");
+    unsigned long long *const light = (unsigned long long *)malloc(TERMS_WIDTH * TERMS_FRAMES
+                                                                   * sizeof(unsigned long long));
+    sim_check(tally, light != NULL, "the lights' table");
+    if ((good == 0) || (light == NULL))
+    {
+        free(reading);
+        free(light);
+        return;
+    }
+    // the light at every column and frame, exactly as the camera drew it: the scene has no body, so every z and y of a
+    // column holds the same light
+    for (unsigned long long x = 0ull; x < TERMS_WIDTH; x += 1ull)
+    {
+        // a column index is far below 2^63
+        const long long place[SIM_AXES] = {0ll, 0ll, (long long)x};
+        for (unsigned long long frame = 0ull; frame < TERMS_FRAMES; frame += 1ull)
+        {
+            light[(x * TERMS_FRAMES) + frame] = sim_light(scene, camera, frame, place);
+        }
+    }
+    long long path[TERMS_FRAMES];
+    long long path_total = 0ll;
+    long long least = 0ll;
+    long long most = 0ll;
+    for (unsigned long long frame = 0ull; frame < TERMS_FRAMES; frame += 1ull)
+    {
+        path[frame] = (camera->scale_bits != 0u) ? sim_scale(camera, frame) : 0ll;
+        path_total += path[frame];
+        least = ((frame == 0ull) || (path[frame] < least)) ? path[frame] : least;
+        most = ((frame == 0ull) || (path[frame] > most)) ? path[frame] : most;
+    }
+    const long long unit = (camera->scale_bits != 0u) ? (1ll << camera->scale_bits) : 1ll;
+    scriptura_text(&tally->line, "    e_t from ");
+    scriptura_signed(&tally->line, least);
+    scriptura_text(&tally->line, " to ");
+    scriptura_signed(&tally->line, most);
+    scriptura_text(&tally->line, ", summing to ");
+    scriptura_signed(&tally->line, path_total);
+    scriptura_text(&tally->line, " over the frames\n");
+    // the gain, offset and read variance are each far below 2^31
+    const unsigned long long gain = camera->gain;
+    const char *const said[NOISE_FLICKER_LAGS] = {"lag 1", "lag 2", "lag 4", "lag 8", "lag 16", "lag 32", "lag 64"};
+    for (unsigned int lag = 0u; lag < NOISE_FLICKER_LAGS; lag += 1u)
+    {
+        const unsigned long long apart = 1ull << lag;
+        const unsigned long long frame_pairs = TERMS_FRAMES - apart;
+        unsigned long long steps = 0ull;
+        for (unsigned long long frame = 0ull; frame < frame_pairs; frame += 1ull)
+        {
+            const long long step = path[frame + apart] - path[frame];
+            // a step of a few hundred squares far below 2^63, and re-signs exactly
+            steps += (unsigned long long)(step * step);
+        }
+        // the pairs in 40 to 199 by their lights' totals, and their own noise over the frame pairs
+        unsigned long long included = 0ull;
+        unsigned long long own = 0ull;
+        for (unsigned long long x = 0ull; (x + 1ull) < TERMS_WIDTH; x += 1ull)
+        {
+            const unsigned long long *const here = &light[x * TERMS_FRAMES];
+            const unsigned long long *const beside = &light[(x + 1ull) * TERMS_FRAMES];
+            unsigned long long totals = 0ull;
+            for (unsigned long long frame = 0ull; frame < TERMS_FRAMES; frame += 1ull)
+            {
+                totals += (2ull * camera->offset) + (gain * (here[frame] + beside[frame]));
+            }
+            const unsigned long long level_bin = totals / (16ull * TERMS_FRAMES);
+            if ((level_bin < 5ull) || (level_bin > 24ull))
+            {
+                continue;
+            }
+            included += 1ull;
+            for (unsigned long long frame = 0ull; frame < frame_pairs; frame += 1ull)
+            {
+                own += (gain * gain * (here[frame] + here[frame + apart] + beside[frame] + beside[frame + apart]))
+                     + (4ull * camera->read_square);
+            }
+        }
+        scriptura_text(&tally->line, "    ");
+        scriptura_text(&tally->line, said[lag]);
+        scriptura_text(&tally->line, ", over ");
+        scriptura_decimal(&tally->line, reading->pairs[lag], 1u);
+        scriptura_text(&tally->line, " frame pairs\n");
+        sim_check(tally, reading->read[lag] != 0, "some bin's q spans two values, so the line reads");
+        if (reading->read[lag] == 0)
+        {
+            continue;
+        }
+        // the unit times the frames, and the path's total, are each far below 2^31
+        const long long level = (unit * (long long)TERMS_FRAMES) + path_total;
+        // each factor is small here: the product stays far below 2^63, the denominator below 2^64
+        const long long expected = (long long)(1000000ull * TERMS_FRAMES * TERMS_FRAMES * steps);
+        const unsigned long long expected_denominator = frame_pairs * (unsigned long long)(level * level);
+        AnchorExactInteger millionths;
+        const int scaled = sim_exact_scaled(&reading->slope[lag], 1000000ull, &millionths);
+        sim_check(tally, scaled, "the slope in millionths");
+        if (scaled)
+        {
+            terms_ratio_within(tally, "  D_a(k), millionths", &millionths, &reading->slope_denominator[lag], expected,
+                               expected_denominator, 500ull, 1ull);
+        }
+        // the own noise summed is far below 2^63
+        terms_ratio_within(tally, "  2 D(k), the pairs' own noise", &reading->intercept[lag],
+                           &reading->intercept_denominator[lag], (long long)own, included * frame_pairs, 1ull, 1ull);
+    }
+    free(reading);
+    free(light);
+}
+
 // The clip pass against the plant: spikes at 128 in one voxel-frame of 1024, dips never. At 16 and 32 a symmetric
 // shot's null holds its spikes and dips equal within 5 standard errors; a Poisson shot's upper tail is longer than its
 // lower, so its null's spikes outnumber its dips by more than 5.
@@ -980,6 +1118,34 @@ int main(void)
         scene.plant_period = 0ull;
         scene.plant_amplitude = 0ull;
         sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  the structure function against the shared scale: a plant along x of 60 to 180"
+                                    " electrons, no fixed pattern; the null, then a light scale of 4 octaves of variance"
+                                    " 1024 over 2^10, octave o held 2^o frames\n");
+        terms_camera(&camera);
+        camera.pattern_reach = 0ull;
+        scene.background = TERMS_STRUCTURE_BACKGROUND;
+        scene.plant_axis = 2u;
+        scene.plant_period = TERMS_WIDTH;
+        scene.plant_amplitude = TERMS_STRUCTURE_AMPLITUDE;
+        scene.plant_key = TERMS_STRUCTURE_KEY;
+        for (unsigned int scaled = 0u; scaled < 2u; scaled += 1u)
+        {
+            scriptura_text(&tally.line, (scaled != 0u) ? "    the scale\n" : "    the null\n");
+            camera.scale_square = (scaled != 0u) ? TERMS_SCALE_SQUARE : 0ull;
+            camera.scale_octaves = (scaled != 0u) ? TERMS_SCALE_OCTAVES : 0u;
+            camera.scale_bits = (scaled != 0u) ? TERMS_SCALE_BITS : 0u;
+            if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+            {
+                terms_structure(&tally, lanes, &scene, &camera);
+            }
+            sim_flush(&tally);
+        }
+        scene.background = TERMS_BACKGROUND;
+        scene.plant_period = 0ull;
+        scene.plant_amplitude = 0ull;
     }
     cudaFree(device_lanes);
     free(lanes);

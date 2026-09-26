@@ -34,6 +34,8 @@
 
 #define SIM_EXCESS_PURPOSE 0x455843455353ull
 
+#define SIM_SCALE_PURPOSE 0x5343414C45ull
+
 // the camera's shot laws, 0 for none: sim_poisson_four_cumulants, the camera's own, whose first four cumulants are
 // each S, a Poisson count's; and Binomial(4S, 1/2) - S, of mean and variance S but symmetric (third cumulant 0,
 // fourth -S/2), kept for a sim to read beside it
@@ -109,6 +111,12 @@ typedef struct
     // the draw and keeps (8 - 2 blur_eighths) / 8 of its own, rounded to the nearest; an edge voxel's missing
     // neighbour is itself
     unsigned long long blur_eighths;
+    // a light scale shared by the whole volume, with memory (row 10), off unless scale_bits is set, 1 to 32: frame t's
+    // light times (2^scale_bits + e_t) / 2^scale_bits before the draw, rounded to the nearest, e_t the sum of
+    // scale_octaves draws of variance scale_square, octave o's held for 2^o frames
+    unsigned long long scale_square;
+    unsigned int scale_octaves;
+    unsigned int scale_bits;
 } SimCamera;
 
 typedef struct
@@ -208,23 +216,54 @@ static inline __host__ __device__ unsigned long long sim_signal(const SimScene *
     return electrons;
 }
 
-// the light a voxel's draw is made from: the scene's signal, blurred along x before the draw where the camera says so
+// a draw of variance square about 0: Binomial(4 square, 1/2) - 2 square
+static inline __host__ __device__ long long sim_centred(unsigned long long key, unsigned long long counter,
+                                                        unsigned long long square)
+{
+    // a head count of at most 4 square is far below 2^62
+    return (long long)sim_binomial_half(key, counter, 4ull * square) - (2ll * (long long)square);
+}
+
+// the shared scale's e_t in frame t: scale_octaves draws of variance scale_square, octave o's held for 2^o frames
+static inline __host__ __device__ long long sim_scale(const SimCamera *camera, unsigned long long frame)
+{
+    long long shared = 0ll;
+    for (unsigned int octave = 0u; octave < camera->scale_octaves; octave += 1u)
+    {
+        // octave o's draw changes only when frame >> o does
+        const unsigned long long held = ((frame >> octave) * camera->scale_octaves) + octave;
+        shared += sim_centred(camera->key ^ SIM_SCALE_PURPOSE, held, camera->scale_square);
+    }
+    return shared;
+}
+
+// The light a voxel's draw is made from: the scene's signal, blurred along x before the draw, then scaled by the
+// shared scale, each where the camera says so.
 static inline __host__ __device__ unsigned long long sim_light(const SimScene *scene, const SimCamera *camera,
                                                                unsigned long long frame, const long long *place)
 {
-    const unsigned long long own = sim_signal(scene, frame, place);
-    if (camera->blur_eighths == 0ull)
+    unsigned long long light = sim_signal(scene, frame, place);
+    if (camera->blur_eighths != 0ull)
     {
-        return own;
+        long long beside[SIM_AXES] = {place[0], place[1], place[2] - 1ll};
+        const unsigned long long left = (place[2] > 0ll) ? sim_signal(scene, frame, beside) : light;
+        beside[2] = place[2] + 1ll;
+        // a column index inside the view is non-negative and below the extent
+        const unsigned long long right = (((unsigned long long)place[2] + 1ull) < scene->extent[2])
+                                             ? sim_signal(scene, frame, beside)
+                                             : light;
+        light = (((8ull - (2ull * camera->blur_eighths)) * light) + (camera->blur_eighths * (left + right)) + 4ull)
+              / 8ull;
     }
-    long long beside[SIM_AXES] = {place[0], place[1], place[2] - 1ll};
-    const unsigned long long left = (place[2] > 0ll) ? sim_signal(scene, frame, beside) : own;
-    beside[2] = place[2] + 1ll;
-    // a column index inside the view is non-negative and below the extent
-    const unsigned long long right = (((unsigned long long)place[2] + 1ull) < scene->extent[2])
-                                         ? sim_signal(scene, frame, beside)
-                                         : own;
-    return (((8ull - (2ull * camera->blur_eighths)) * own) + (camera->blur_eighths * (left + right)) + 4ull) / 8ull;
+    if (camera->scale_bits != 0u)
+    {
+        // the unit is far below 2^62, and the scale is held at 1 at least
+        const long long unit = 1ll << camera->scale_bits;
+        const long long scale = unit + sim_scale(camera, frame);
+        const unsigned long long held = (scale < 1ll) ? 1ull : (unsigned long long)scale;
+        light = ((light * held) + (1ull << (camera->scale_bits - 1u))) >> camera->scale_bits;
+    }
+    return light;
 }
 
 static inline __host__ __device__ unsigned long long sim_pattern(const SimCamera *camera, unsigned long long voxel)
@@ -316,14 +355,6 @@ static inline __host__ __device__ long long sim_value(const SimCamera *camera, u
     // the offset, pattern and gain are each far below 2^31 in every camera here
     return (long long)camera->offset + (long long)sim_pattern(camera, voxel) + ((long long)camera->gain * collected)
          + read;
-}
-
-// a draw of variance square about 0: Binomial(4 square, 1/2) - 2 square
-static inline __host__ __device__ long long sim_centred(unsigned long long key, unsigned long long counter,
-                                                        unsigned long long square)
-{
-    // a head count of at most 4 square is far below 2^62
-    return (long long)sim_binomial_half(key, counter, 4ull * square) - (2ll * (long long)square);
 }
 
 // The terms a camera shares across voxels or carries across frames: an offset drawn per frame for each row, column
