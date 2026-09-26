@@ -3,6 +3,7 @@
 #define NOISE_DETECTOR_H
 
 #include "engine_config.h"
+#include "exact_integer.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -178,6 +179,66 @@ long noise_clips_volume(const unsigned short *volume, const unsigned long long e
 
 long noise_moments_volume(const unsigned short *volume, const unsigned long long extent[4],
                           long long cumulants[NOISE_MOMENT_CUMULANTS], EngineError *error);
+
+// The line over the level (build plan item 38): the least-squares line through points each weighted by a count, held
+// as three exact integers over one denominator. count points sit at an integer place, and their readings sum to total.
+// A level is a place over level_scale and a reading a total's share over reading_scale, so with N = sum of counts,
+// A = sum of count place, B = sum of count place^2, T = sum of totals and C = sum of place total, the line is
+//   slope = level_scale (N C - A T) / D,  intercept = (T B - A C) / D,  D = reading_scale (N B - A^2)
+// in readings per level and in readings at level 0.
+typedef struct
+{
+    AnchorExactInteger samples;
+    AnchorExactInteger along;
+    AnchorExactInteger along_square;
+    AnchorExactInteger measured;
+    AnchorExactInteger cross;
+} NoiseLineSums;
+
+typedef struct
+{
+    AnchorExactInteger slope;
+    AnchorExactInteger intercept;
+    AnchorExactInteger denominator;
+} NoiseLine;
+
+void noise_line_sums_zero(NoiseLineSums *sums);
+
+// count points at place whose readings sum to total; on a refusal the sums are unchanged
+long noise_line_sums_add(NoiseLineSums *sums, unsigned long long count, unsigned long long place,
+                         const AnchorExactInteger *total, EngineError *error);
+
+// refuses where the places do not span two levels (D would be 0), a scale is 0, or a product passes the exact
+// integer's width; on a refusal the line is unchanged
+long noise_line_fit(const NoiseLineSums *sums, unsigned long long level_scale, unsigned long long reading_scale,
+                    NoiseLine *line, EngineError *error);
+
+// C15, the cumulant ladder, and C19, the single-electron tail (build plan item 38). The moment pass's quiet static
+// blocks, each block's k-statistics read against its voxel's level over the frames of the voxel's other blocks, so a
+// block's own values never set the level it is read at; then each cumulant's line over that level in lane units.
+#define NOISE_LADDER_ORDERS 3u
+
+typedef struct
+{
+    // the lines of k2, k3 and k4 against the level
+    NoiseLine cumulant[NOISE_LADDER_ORDERS];
+    unsigned long long blocks;
+    unsigned long long left_out;
+    // s3 >= s2^2 and s2 s4 >= s3^2, each cross-multiplied over the slopes' positive denominators
+    int rising;
+    int convex;
+    // C19 from the k2 and k3 lines, set where s3 is not 0: O = -c3 / s3 and R^2 = (c2 s3 - c3 s2) / s3, each a
+    // numerator over a positive denominator. O is the offset only where rising and convex both hold.
+    int tail;
+    AnchorExactInteger offset;
+    AnchorExactInteger offset_denominator;
+    AnchorExactInteger read_square;
+    AnchorExactInteger read_square_denominator;
+} NoiseLadderReading;
+
+// refuses a volume with fewer than two whole blocks of frames, or whose blocks' levels do not span two values
+long noise_ladder_volume(const unsigned short *volume, const unsigned long long extent[4], NoiseLadderReading *reading,
+                         EngineError *error);
 
 // The root noise of a box: a span of frames and a place the caller names, an object's in the cell workbook. Each term the
 // noise vector table names as shared is a pattern in fewer dimensions than the box, one value for every place along

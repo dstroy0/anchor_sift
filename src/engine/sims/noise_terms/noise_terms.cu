@@ -57,6 +57,13 @@
 // to the fourth over the static blocks, and third to about 0.1
 #define TERMS_SHOT_BACKGROUND 16ull
 
+// the ladder's scene: 1 electron plus 1 a column along x, read at gain 2
+#define TERMS_LADDER_BACKGROUND 1ull
+
+#define TERMS_LADDER_RAMP 1ull
+
+#define TERMS_LADDER_GAIN 2ll
+
 static const unsigned long long TERMS_EXTENT[4] = {TERMS_FRAMES, TERMS_DEPTH, TERMS_HEIGHT, TERMS_WIDTH};
 
 static void terms_within(SimTally *tally, const char *what, long long read, long long expected, long long reach)
@@ -252,6 +259,85 @@ static void terms_shot_law(SimTally *tally, const unsigned short *lanes, unsigne
     {
         terms_within(tally, said[order], cumulants[order], expected[order], reach[order]);
     }
+}
+
+// numerator / denominator, the denominator positive, within reach_numerator / reach_denominator of expected: the
+// difference cross-multiplied, |numerator reach_denominator - expected denominator reach_denominator| against
+// reach_numerator denominator
+static void terms_ratio_within(SimTally *tally, const char *what, const AnchorExactInteger *numerator,
+                               const AnchorExactInteger *denominator, long long expected,
+                               unsigned long long reach_numerator, unsigned long long reach_denominator)
+{
+    ScripturaLine *const line = &tally->line;
+    scriptura_text(line, "    ");
+    scriptura_text(line, what);
+    scriptura_text(line, ": read ");
+    sim_ratio_print(line, numerator, denominator, 4u);
+    scriptura_text(line, ", the plant predicts ");
+    scriptura_signed(line, expected);
+    scriptura_text(line, " within ");
+    scriptura_decimal(line, reach_numerator, 1u);
+    if (reach_denominator != 1ull)
+    {
+        scriptura_character(line, '/');
+        scriptura_decimal(line, reach_denominator, 1u);
+    }
+    scriptura_character(line, '\n');
+    AnchorExactInteger left;
+    AnchorExactInteger right;
+    AnchorExactInteger term;
+    sim_exact_signed(&term, expected);
+    int good = sim_exact_scaled(numerator, reach_denominator, &left) && sim_exact_product(&term, denominator, &right)
+            && sim_exact_scaled(&right, reach_denominator, &right) && sim_exact_less(&left, &right, &left);
+    left.sign = (left.sign < 0) ? 1 : left.sign;
+    good = good && sim_exact_scaled(denominator, reach_numerator, &right) && (anchor_exact_compare(&left, &right) <= 0);
+    sim_check(tally, good, what);
+}
+
+// C15 and C19 read back (build plan item 38). A Poisson shot at gain g over a ramp of levels, offset O and read
+// variance r^2, no fixed pattern: at a level L = O + g S the cumulants are k2 = g (L - O) + r^2, k3 = g^2 (L - O) and
+// k4 = g^3 (L - O) - r^2 / 2, so the ladder's slopes are g, g^2 and g^3, the k3 line crosses 0 at O, and the k2 line
+// reads r^2 there. A Poisson count holds both checks with equality, so the sim prints them and checks neither. Each
+// reach is about 5 standard errors of its reading over the static blocks here: the quiet static quarter of the view,
+// levels 22 to 84, 19 blocks of 5 frames a voxel.
+static void terms_ladder(SimTally *tally, const unsigned short *lanes)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseLadderReading reading;
+    const int good = noise_ladder_volume(lanes, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good, "the ladder read the volume");
+    if (good == 0)
+    {
+        return;
+    }
+    ScripturaLine *const line = &tally->line;
+    scriptura_text(line, "    ");
+    scriptura_decimal(line, reading.blocks, 1u);
+    scriptura_text(line, " blocks kept, ");
+    scriptura_decimal(line, reading.left_out, 1u);
+    scriptura_text(line, " left out; s3 >= s2^2 ");
+    scriptura_text(line, (reading.rising != 0) ? "holds" : "fails");
+    scriptura_text(line, ", s2 s4 >= s3^2 ");
+    scriptura_text(line, (reading.convex != 0) ? "holds" : "fails");
+    scriptura_character(line, '\n');
+    const long long gain = TERMS_LADDER_GAIN;
+    terms_ratio_within(tally, "s2, the k2 line's slope", &reading.cumulant[0].slope, &reading.cumulant[0].denominator,
+                       gain, 1ull, 50ull);
+    terms_ratio_within(tally, "s3, the k3 line's slope", &reading.cumulant[1].slope, &reading.cumulant[1].denominator,
+                       gain * gain, 1ull, 4ull);
+    terms_ratio_within(tally, "s4, the k4 line's slope", &reading.cumulant[2].slope, &reading.cumulant[2].denominator,
+                       gain * gain * gain, 3ull, 1ull);
+    sim_check(tally, reading.tail != 0, "the k3 line has a slope, so the tail reads");
+    if (reading.tail == 0)
+    {
+        return;
+    }
+    // the offset and the read variance are each far below 2^31
+    terms_ratio_within(tally, "O, where the k3 line crosses 0", &reading.offset, &reading.offset_denominator,
+                       (long long)TERMS_OFFSET, 3ull, 1ull);
+    terms_ratio_within(tally, "R^2, the k2 line at O", &reading.read_square, &reading.read_square_denominator,
+                       (long long)TERMS_READ_SQUARE, 6ull, 1ull);
 }
 
 // The clip pass against the plant: spikes at 128 in one voxel-frame of 1024, dips never. At 16 and 32 a symmetric
@@ -538,6 +624,24 @@ int main(void)
             scriptura_text(&tally.line, " microseconds\n");
             terms_spikes(&tally, lanes, 0ull, laws[each]);
         }
+        sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  the ladder and the tail: a Poisson shot at gain 2 over 1 to 128 electrons along x,"
+                                    " offset 20, read variance 4, no fixed pattern\n");
+        terms_camera(&camera);
+        // the gain is a small positive constant
+        camera.gain = (unsigned long long)TERMS_LADDER_GAIN;
+        camera.pattern_reach = 0ull;
+        scene.background = TERMS_LADDER_BACKGROUND;
+        scene.ramp = TERMS_LADDER_RAMP;
+        if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+        {
+            terms_ladder(&tally, lanes);
+        }
+        scene.background = TERMS_BACKGROUND;
+        scene.ramp = 0ull;
         sim_flush(&tally);
     }
     cudaFree(device_lanes);

@@ -2430,6 +2430,358 @@ extern "C" long noise_moments_volume(const unsigned short *volume, const unsigne
     return (good != 0) ? 0L : NOISE_DETECTOR_REFUSED;
 }
 
+extern "C" void noise_line_sums_zero(NoiseLineSums *sums)
+{
+    anchor_exact_zero(&sums->samples);
+    anchor_exact_zero(&sums->along);
+    anchor_exact_zero(&sums->along_square);
+    anchor_exact_zero(&sums->measured);
+    anchor_exact_zero(&sums->cross);
+}
+
+// sum gains left times right, exactly
+static int noise_exact_add_product(AnchorExactInteger *sum, const AnchorExactInteger *left,
+                                   const AnchorExactInteger *right)
+{
+    AnchorExactInteger product;
+    return (anchor_exact_multiply(left, right, &product) == ANCHOR_EXACT_OK)
+        && (anchor_exact_add(sum, &product, sum) == ANCHOR_EXACT_OK);
+}
+
+extern "C" long noise_line_sums_add(NoiseLineSums *sums, unsigned long long count, unsigned long long place,
+                                    const AnchorExactInteger *total, EngineError *error)
+{
+    if (error == NULL)
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    if (!NOISE_DETECTOR_HELD((sums != NULL) && (total != NULL), sums, error, ENGINE_ERROR_REQUEST))
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    NoiseLineSums gained = *sums;
+    AnchorExactInteger number;
+    AnchorExactInteger level;
+    AnchorExactInteger weighted;
+    noise_exact_word(&number, count);
+    noise_exact_word(&level, place);
+    const int good = (anchor_exact_add(&gained.samples, &number, &gained.samples) == ANCHOR_EXACT_OK)
+                  && (anchor_exact_multiply(&number, &level, &weighted) == ANCHOR_EXACT_OK)
+                  && (anchor_exact_add(&gained.along, &weighted, &gained.along) == ANCHOR_EXACT_OK)
+                  && noise_exact_add_product(&gained.along_square, &weighted, &level)
+                  && (anchor_exact_add(&gained.measured, total, &gained.measured) == ANCHOR_EXACT_OK)
+                  && noise_exact_add_product(&gained.cross, &level, total);
+    if (!NOISE_DETECTOR_HELD(good, sums, error, ENGINE_ERROR_RESOURCE))
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    *sums = gained;
+    return 0L;
+}
+
+extern "C" long noise_line_fit(const NoiseLineSums *sums, unsigned long long level_scale,
+                               unsigned long long reading_scale, NoiseLine *line, EngineError *error)
+{
+    if (error == NULL)
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    if (!NOISE_DETECTOR_HELD((sums != NULL) && (line != NULL) && (level_scale != 0ull) && (reading_scale != 0ull),
+                             sums, error, ENGINE_ERROR_REQUEST))
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    AnchorExactInteger left;
+    AnchorExactInteger right;
+    AnchorExactInteger scale;
+    NoiseLine fitted;
+    // N B - A^2 is positive exactly where the places span two levels, by Cauchy-Schwarz over the counts
+    const int formed = (anchor_exact_multiply(&sums->samples, &sums->along_square, &left) == ANCHOR_EXACT_OK)
+                    && (anchor_exact_multiply(&sums->along, &sums->along, &right) == ANCHOR_EXACT_OK)
+                    && (anchor_exact_subtract(&left, &right, &fitted.denominator) == ANCHOR_EXACT_OK);
+    const int spanned = (formed == 0) || (fitted.denominator.sign > 0);
+    noise_exact_word(&scale, level_scale);
+    int good = formed && spanned
+            && (anchor_exact_multiply(&sums->samples, &sums->cross, &left) == ANCHOR_EXACT_OK)
+            && (anchor_exact_multiply(&sums->along, &sums->measured, &right) == ANCHOR_EXACT_OK)
+            && (anchor_exact_subtract(&left, &right, &fitted.slope) == ANCHOR_EXACT_OK)
+            && (anchor_exact_multiply(&fitted.slope, &scale, &fitted.slope) == ANCHOR_EXACT_OK)
+            && (anchor_exact_multiply(&sums->measured, &sums->along_square, &left) == ANCHOR_EXACT_OK)
+            && (anchor_exact_multiply(&sums->along, &sums->cross, &right) == ANCHOR_EXACT_OK)
+            && (anchor_exact_subtract(&left, &right, &fitted.intercept) == ANCHOR_EXACT_OK);
+    noise_exact_word(&scale, reading_scale);
+    good = good && (anchor_exact_multiply(&fitted.denominator, &scale, &fitted.denominator) == ANCHOR_EXACT_OK);
+    if (!NOISE_DETECTOR_HELD(spanned, sums, error, ENGINE_ERROR_REQUEST)
+        || !NOISE_DETECTOR_HELD(good, sums, error, ENGINE_ERROR_RESOURCE))
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    *line = fitted;
+    return 0L;
+}
+
+// A signed sum 128 bits wide, held as its raised and lowered parts
+typedef struct
+{
+    NoiseWide raised;
+    NoiseWide lowered;
+} NoiseSignedWide;
+
+// sum gains left times right: the 64 by 64 bit product as four 32 by 32 bit parts, each below 2^64
+static void noise_wide_add_product(NoiseWide *sum, unsigned long long left, unsigned long long right)
+{
+    const unsigned long long left_upper = left >> 32u;
+    const unsigned long long left_lower = left & 0xFFFFFFFFull;
+    const unsigned long long right_upper = right >> 32u;
+    const unsigned long long right_lower = right & 0xFFFFFFFFull;
+    const unsigned long long first = left_upper * right_lower;
+    const unsigned long long second = left_lower * right_upper;
+    noise_wide_add(sum, left_lower * right_lower, left_upper * right_upper);
+    noise_wide_add(sum, first << 32u, first >> 32u);
+    noise_wide_add(sum, second << 32u, second >> 32u);
+}
+
+// sum gains place times a signed reading
+static void noise_signed_wide_add(NoiseSignedWide *sum, unsigned long long place, long long reading)
+{
+    // the magnitude of a negative word is its two's complement negation, taken unsigned
+    const unsigned long long magnitude = (reading < 0ll) ? (0ull - (unsigned long long)reading)
+                                                         : (unsigned long long)reading;
+    noise_wide_add_product((reading < 0ll) ? &sum->lowered : &sum->raised, place, magnitude);
+}
+
+static int noise_exact_signed_wide(AnchorExactInteger *value, const NoiseSignedWide *wide)
+{
+    AnchorExactInteger lowered;
+    noise_exact_wide(value, &wide->raised);
+    noise_exact_wide(&lowered, &wide->lowered);
+    return anchor_exact_subtract(value, &lowered, value) == ANCHOR_EXACT_OK;
+}
+
+// The ladder's sums over the kept blocks: a block's place x is its voxel's frames summed over the voxel's other whole
+// blocks, and its readings e2, e3 and e4 are its k-statistics' numerators, each k_j being e_j over n (n - 1) down to
+// n - j + 1 (the formulas at NoiseMomentCell, with V = 1). By the bounds noise_ladder_sample holds, x is below 2^32,
+// every |e_j| below 2^46 and the blocks below 2^31, so Σ x^2 stays below 2^95 and every Σ x e_j below 2^109.
+typedef struct
+{
+    unsigned long long blocks;
+    NoiseWide along;
+    NoiseWide along_square;
+    NoiseSignedWide measured[NOISE_LADDER_ORDERS];
+    NoiseSignedWide cross[NOISE_LADDER_ORDERS];
+} NoiseLadderSums;
+
+// A sample's quiet static voxels, their frames in blocks as the moment pass takes them, each kept block added to the
+// ladder's sums at its voxel's level over the other blocks
+static long noise_ladder_sample(const unsigned short *volume, const unsigned long long extent[4],
+                                NoiseLadderSums *sums, unsigned long long *left_out, EngineError *error)
+{
+    const unsigned long long frames = extent[0];
+    const unsigned long long voxels = extent[1] * extent[2] * extent[3];
+    const unsigned long long blocks = frames / NOISE_MOMENT_BLOCK;
+    const unsigned long long square = NOISE_MOMENT_REACH * NOISE_MOMENT_REACH;
+    const unsigned long long fourth = square * square;
+    const unsigned long long spread = ((voxels != 0ull) && (frames <= (~0ull / voxels))) ? (frames * voxels) : ~0ull;
+    // the moment pass's bounds, and two whole blocks so every block has another to set its level
+    const int bounded = (blocks >= 2ull) && (frames <= 65536ull) && (voxels != 0ull) && (spread != ~0ull)
+                     && (spread <= (NOISE_SIGNED_TOP / fourth)) && (spread <= (NOISE_SIGNED_TOP / NOISE_LANE_TOP));
+    if (!NOISE_DETECTOR_HELD(bounded, extent, error, ENGINE_ERROR_REQUEST))
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    memset(sums, 0, sizeof(*sums));
+    *left_out = 0ull;
+    unsigned long long ceiling = 0ull;
+    unsigned char *const mask = (unsigned char *)malloc((size_t)voxels);
+    int good = NOISE_DETECTOR_HELD(mask != NULL, &mask, error, ENGINE_ERROR_RESOURCE)
+            && NOISE_DETECTOR_HELD(noise_static_mask(volume, frames, voxels, 1u, mask, &ceiling) != 0, mask, error,
+                                   ENGINE_ERROR_RESOURCE);
+    unsigned long long members = 0ull;
+    for (unsigned long long voxel = 0ull; good && (voxel < voxels); voxel += 1ull)
+    {
+        members += mask[voxel];
+    }
+    // one more than the members, so a sample with none still allocates
+    unsigned long long *const places = (unsigned long long *)malloc((size_t)(members + 1ull)
+                                                                    * sizeof(unsigned long long));
+    unsigned long long *const totals = (unsigned long long *)calloc((size_t)(members + 1ull),
+                                                                    sizeof(unsigned long long));
+    good = good && NOISE_DETECTOR_HELD((places != NULL) && (totals != NULL), &places, error, ENGINE_ERROR_RESOURCE);
+    if (good != 0)
+    {
+        unsigned long long member = 0ull;
+        for (unsigned long long voxel = 0ull; voxel < voxels; voxel += 1ull)
+        {
+            if (mask[voxel] != 0u)
+            {
+                places[member] = voxel;
+                member += 1ull;
+            }
+        }
+        // each voxel's frames over its whole blocks: at most 65536 lanes, below 2^32
+        for (unsigned long long frame = 0ull; frame < (blocks * NOISE_MOMENT_BLOCK); frame += 1ull)
+        {
+            const unsigned short *const lanes = &volume[frame * voxels];
+            for (unsigned long long each = 0ull; each < members; each += 1ull)
+            {
+                totals[each] += lanes[places[each]];
+            }
+        }
+    }
+    const long long reach = (long long)NOISE_MOMENT_REACH;
+    const long long n = (long long)NOISE_MOMENT_BLOCK;
+    for (unsigned long long block = 0ull; good && (block < blocks); block += 1ull)
+    {
+        const unsigned short *const first = &volume[block * NOISE_MOMENT_BLOCK * voxels];
+        for (unsigned long long each = 0ull; each < members; each += 1ull)
+        {
+            const unsigned short *const lane = &first[places[each]];
+            unsigned long long total = 0ull;
+            for (unsigned long long frame = 0ull; frame < NOISE_MOMENT_BLOCK; frame += 1ull)
+            {
+                total += lane[frame * voxels];
+            }
+            // a mean of lanes rounded to the nearest is itself a lane
+            const long long centre = (long long)((total + (NOISE_MOMENT_BLOCK / 2ull)) / NOISE_MOMENT_BLOCK);
+            long long power[NOISE_MOMENT_POWERS] = {0ll, 0ll, 0ll, 0ll};
+            int within = 1;
+            for (unsigned long long frame = 0ull; within && (frame < NOISE_MOMENT_BLOCK); frame += 1ull)
+            {
+                const long long apart = (long long)lane[frame * voxels] - centre;
+                within = (apart <= reach) && (apart >= -reach);
+                if (within != 0)
+                {
+                    const long long apart_squared = apart * apart;
+                    power[0] += apart;
+                    power[1] += apart_squared;
+                    power[2] += apart_squared * apart;
+                    power[3] += apart_squared * apart_squared;
+                }
+            }
+            if (within == 0)
+            {
+                *left_out += 1ull;
+                continue;
+            }
+            // the block's own frames are part of its voxel's total, so the rest is never negative
+            const unsigned long long place = totals[each] - total;
+            const long long s1 = power[0];
+            const long long s2 = power[1];
+            const long long s3 = power[2];
+            const long long s4 = power[3];
+            // |S1| is at most n / 2, S2 at most n reach^2, |S3| at most n reach^3 and S4 at most n reach^4, so each
+            // term below is under 2^44 and each numerator under 2^46
+            const long long readings[NOISE_LADDER_ORDERS] = {
+                (n * s2) - (s1 * s1),
+                (2ll * s1 * s1 * s1) - (3ll * n * s1 * s2) + (n * n * s3),
+                (n * n * (n + 1ll) * s4) - (4ll * n * (n + 1ll) * s1 * s3) - (3ll * n * (n - 1ll) * s2 * s2)
+                    + (12ll * n * s1 * s1 * s2) - (6ll * s1 * s1 * s1 * s1)};
+            sums->blocks += 1ull;
+            noise_wide_add(&sums->along, place, 0ull);
+            noise_wide_add_square(&sums->along_square, place);
+            for (unsigned int order = 0u; order < NOISE_LADDER_ORDERS; order += 1u)
+            {
+                noise_signed_wide_add(&sums->measured[order], 1ull, readings[order]);
+                noise_signed_wide_add(&sums->cross[order], place, readings[order]);
+            }
+        }
+    }
+    free(mask);
+    free(places);
+    free(totals);
+    return (good != 0) ? 0L : NOISE_DETECTOR_REFUSED;
+}
+
+extern "C" long noise_ladder_volume(const unsigned short *volume, const unsigned long long extent[4],
+                                    NoiseLadderReading *reading, EngineError *error)
+{
+    if (error == NULL)
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    if (!NOISE_DETECTOR_HELD((volume != NULL) && (extent != NULL) && (reading != NULL), volume, error,
+                             ENGINE_ERROR_REQUEST))
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    NoiseLadderSums *const sums = (NoiseLadderSums *)malloc(sizeof(NoiseLadderSums));
+    unsigned long long left_out = 0ull;
+    int good = NOISE_DETECTOR_HELD(sums != NULL, &sums, error, ENGINE_ERROR_RESOURCE)
+            && (noise_ladder_sample(volume, extent, sums, &left_out, error) == 0L);
+    // a block's level is its voxel's frames over the other blocks, so the level scale is those frames' count
+    const unsigned long long other_frames = ((extent[0] / NOISE_MOMENT_BLOCK) - 1ull) * NOISE_MOMENT_BLOCK;
+    NoiseLadderReading read;
+    memset(&read, 0, sizeof(read));
+    unsigned long long falling = NOISE_MOMENT_BLOCK;
+    for (unsigned int order = 0u; good && (order < NOISE_LADDER_ORDERS); order += 1u)
+    {
+        // k of order j + 2 is its numerator over n (n - 1) down to n - j - 1
+        falling *= NOISE_MOMENT_BLOCK - (unsigned long long)(order + 1u);
+        NoiseLineSums line;
+        noise_line_sums_zero(&line);
+        noise_exact_word(&line.samples, sums->blocks);
+        noise_exact_wide(&line.along, &sums->along);
+        noise_exact_wide(&line.along_square, &sums->along_square);
+        good = NOISE_DETECTOR_HELD(noise_exact_signed_wide(&line.measured, &sums->measured[order])
+                                       && noise_exact_signed_wide(&line.cross, &sums->cross[order]),
+                                   sums, error, ENGINE_ERROR_RESOURCE)
+            && (noise_line_fit(&line, other_frames, falling, &read.cumulant[order], error) == 0L);
+    }
+    read.blocks = (sums != NULL) ? sums->blocks : 0ull;
+    read.left_out = left_out;
+    free(sums);
+    const NoiseLine *const second = &read.cumulant[0];
+    const NoiseLine *const third = &read.cumulant[1];
+    const NoiseLine *const fourth = &read.cumulant[2];
+    if (good == 0)
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    AnchorExactInteger left;
+    AnchorExactInteger right;
+    AnchorExactInteger term;
+    // s3 >= s2^2: S3 D2^2 >= S2^2 D3, every denominator positive
+    int formed = (anchor_exact_multiply(&second->denominator, &second->denominator, &term) == ANCHOR_EXACT_OK)
+              && (anchor_exact_multiply(&third->slope, &term, &left) == ANCHOR_EXACT_OK)
+              && (anchor_exact_multiply(&second->slope, &second->slope, &term) == ANCHOR_EXACT_OK)
+              && (anchor_exact_multiply(&term, &third->denominator, &right) == ANCHOR_EXACT_OK);
+    read.rising = formed && (anchor_exact_compare(&left, &right) >= 0);
+    // s2 s4 >= s3^2: S2 S4 D3^2 >= S3^2 D2 D4
+    formed = formed && (anchor_exact_multiply(&second->slope, &fourth->slope, &term) == ANCHOR_EXACT_OK)
+          && (anchor_exact_multiply(&term, &third->denominator, &term) == ANCHOR_EXACT_OK)
+          && (anchor_exact_multiply(&term, &third->denominator, &left) == ANCHOR_EXACT_OK)
+          && (anchor_exact_multiply(&third->slope, &third->slope, &term) == ANCHOR_EXACT_OK)
+          && (anchor_exact_multiply(&term, &second->denominator, &term) == ANCHOR_EXACT_OK)
+          && (anchor_exact_multiply(&term, &fourth->denominator, &right) == ANCHOR_EXACT_OK);
+    read.convex = formed && (anchor_exact_compare(&left, &right) >= 0);
+    // C19: O = -C3 / S3 and R^2 = (C2 S3 - C3 S2) / (D2 S3), each turned to a positive denominator
+    read.tail = formed && (third->slope.sign != 0);
+    if (read.tail != 0)
+    {
+        anchor_exact_zero(&term);
+        formed = (anchor_exact_subtract(&term, &third->intercept, &read.offset) == ANCHOR_EXACT_OK)
+              && (anchor_exact_multiply(&second->intercept, &third->slope, &left) == ANCHOR_EXACT_OK)
+              && (anchor_exact_multiply(&third->intercept, &second->slope, &right) == ANCHOR_EXACT_OK)
+              && (anchor_exact_subtract(&left, &right, &read.read_square) == ANCHOR_EXACT_OK)
+              && (anchor_exact_multiply(&second->denominator, &third->slope, &read.read_square_denominator)
+                  == ANCHOR_EXACT_OK);
+        read.offset_denominator = third->slope;
+        if (third->slope.sign < 0)
+        {
+            read.offset.sign = -read.offset.sign;
+            read.offset_denominator.sign = -read.offset_denominator.sign;
+            read.read_square.sign = -read.read_square.sign;
+            read.read_square_denominator.sign = -read.read_square_denominator.sign;
+        }
+    }
+    if (!NOISE_DETECTOR_HELD(formed, &read, error, ENGINE_ERROR_RESOURCE))
+    {
+        return NOISE_DETECTOR_REFUSED;
+    }
+    *reading = read;
+    return 0L;
+}
+
 extern "C" long noise_flicker_volume(const unsigned short *volume, const unsigned long long extent[4],
                                      unsigned long long per_mille[NOISE_FLICKER_LAGS],
                                      unsigned long long neighbour_per_mille[NOISE_FLICKER_LAGS], EngineError *error)

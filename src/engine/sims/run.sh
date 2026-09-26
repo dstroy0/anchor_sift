@@ -30,7 +30,8 @@ KEYMATH="$TOP/engine/base/keymath"
 KEY_SCHEDULE="$TOP/engine/base/key_schedule"
 ENTROPY_HISTORY="$TOP/engine/base/entropy_history"
 NOISE_DETECTOR="$TOP/engine/base/noise_detector"
-source "$TOP/maint/build_stamp.sh"
+# maint/ is at the repository's root, one above src/
+source "$(cd "$TOP/.." && pwd)/maint/build_stamp.sh"
 build_stamp "sim_$SIM"
 
 case "$SIM" in
@@ -47,8 +48,9 @@ fi
 if [ "$SIM" = "knf_identity" ]; then
     MODULE_SOURCES+=("$ENTROPY_HISTORY/entropy_history.cu")
 fi
-# noise_terms reads each planted volume back through the noise detector's volume readings
-if [ "$SIM" = "noise_terms" ]; then
+# noise_terms reads each planted volume back through the noise detector's volume readings, and noise_floor fits its
+# transfer curves by the detector's line over the level
+if [ "$SIM" = "noise_terms" ] || [ "$SIM" = "noise_floor" ]; then
     MODULE_SOURCES+=("$NOISE_DETECTOR/noise_detector.cu")
 fi
 # noise_root finds each planted term as a box's root noise, pricing it through the tower and compression's coder
@@ -107,7 +109,7 @@ INCLUDES=(-I "$TOP/engine" -I "$SIMS" -I "$SCRIPTURA" -I "$NO_ROUNDING" -I "$PER
 if [ "$SIM" = "knf_identity" ]; then
     INCLUDES+=(-I "$TOP/engine/base" -I "$ENTROPY_HISTORY")
 fi
-if [ "$SIM" = "noise_terms" ] || [ "$SIM" = "noise_root" ]; then
+if [ "$SIM" = "noise_terms" ] || [ "$SIM" = "noise_root" ] || [ "$SIM" = "noise_floor" ]; then
     INCLUDES+=(-I "$NOISE_DETECTOR")
 fi
 # SIM_EXACT_LIMBS sets the exact integer's width in 32-bit limbs, a power of two, for every object the sim links

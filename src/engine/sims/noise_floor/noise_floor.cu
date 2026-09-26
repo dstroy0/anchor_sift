@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "sim_camera.h"
 
+#include "noise_detector.h"
+
 #define FLOOR_KEY 0x464C4F4F52ull
 
 #define FLOOR_STREAM_BITS 512u
@@ -400,18 +402,14 @@ typedef struct
     unsigned long long samples;
 } FloorLine;
 
+// the line over the level through the noise detector's fit (build plan item 38), each level a place and its squares a
+// total, at scale 1 on both
 static int floor_fit(const unsigned long long *count, const unsigned long long *total, FloorLine *fit)
 {
-    AnchorExactInteger samples;
-    AnchorExactInteger along;
-    AnchorExactInteger along_square;
-    AnchorExactInteger measured;
-    AnchorExactInteger cross;
-    anchor_exact_zero(&samples);
-    anchor_exact_zero(&along);
-    anchor_exact_zero(&along_square);
-    anchor_exact_zero(&measured);
-    anchor_exact_zero(&cross);
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseLineSums sums;
+    noise_line_sums_zero(&sums);
     fit->samples = 0ull;
     int good = 1;
     for (unsigned long long level = 0ull; good && (level < FLOOR_LEVELS); level += 1ull)
@@ -421,27 +419,19 @@ static int floor_fit(const unsigned long long *count, const unsigned long long *
             continue;
         }
         fit->samples += count[level];
-        AnchorExactInteger number;
-        AnchorExactInteger place;
-        AnchorExactInteger term;
-        sim_exact_whole(&number, count[level]);
-        sim_exact_whole(&place, level);
-        good = good && sim_exact_sum(&samples, &number, &samples);
-        good = good && sim_exact_product(&number, &place, &term) && sim_exact_sum(&along, &term, &along);
-        good = good && sim_exact_product(&term, &place, &term) && sim_exact_sum(&along_square, &term, &along_square);
-        sim_exact_whole(&number, total[level]);
-        good = good && sim_exact_sum(&measured, &number, &measured);
-        good = good && sim_exact_product(&number, &place, &term) && sim_exact_sum(&cross, &term, &cross);
+        AnchorExactInteger measured;
+        sim_exact_whole(&measured, total[level]);
+        good = noise_line_sums_add(&sums, count[level], level, &measured, &error) == 0L;
     }
-    AnchorExactInteger left;
-    AnchorExactInteger right;
-    good = good && sim_exact_product(&samples, &along_square, &left) && sim_exact_product(&along, &along, &right)
-        && sim_exact_less(&left, &right, &fit->denominator);
-    good = good && sim_exact_product(&samples, &cross, &left) && sim_exact_product(&along, &measured, &right)
-        && sim_exact_less(&left, &right, &fit->slope);
-    good = good && sim_exact_product(&measured, &along_square, &left) && sim_exact_product(&along, &cross, &right)
-        && sim_exact_less(&left, &right, &fit->intercept);
-    return good && (fit->denominator.sign > 0);
+    NoiseLine line;
+    good = good && (noise_line_fit(&sums, 1ull, 1ull, &line, &error) == 0L);
+    if (good != 0)
+    {
+        fit->slope = line.slope;
+        fit->intercept = line.intercept;
+        fit->denominator = line.denominator;
+    }
+    return good;
 }
 
 static void floor_print_fit(ScripturaLine *line, const char *name, const FloorLine *fit)
