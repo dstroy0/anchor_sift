@@ -561,3 +561,557 @@ int max_tree_poc(const unsigned int *residual, unsigned int depth, unsigned int 
     max_tree_release(&reference);
     return good;
 }
+
+#define MAX_TREE_HOST_HELD(held_, evacaddr_, error_, kind_) \
+    engine_error_check((held_), (kind_), ENGINE_MODULE_MAX_TREE, (unsigned int)__LINE__, (const void *)(evacaddr_), \
+                       (error_))
+
+static int max_tree_key_compare(const void *left, const void *right)
+{
+    const unsigned long long one = *(const unsigned long long *)left;
+    const unsigned long long other = *(const unsigned long long *)right;
+    return (one < other) ? -1 : ((one > other) ? 1 : 0);
+}
+
+void max_tree_nodes_release(MaxTreeNodes *nodes)
+{
+    if (nodes == NULL)
+    {
+        return;
+    }
+    free(nodes->voxel);
+    free(nodes->parent);
+    free(nodes->level);
+    free(nodes->subtree_end);
+    free(nodes->root);
+    free(nodes->own);
+    memset(nodes, 0, sizeof(*nodes));
+}
+
+// the node arrays numbered in DFS order from the canonical voxels: `slot` names each canonical voxel's place among
+// them in voxel order, `rank` each admitted voxel's dense rank; returns 0 where a voxel's parent is not canonical
+static int max_tree_nodes_lay(const MaxTree *tree, const unsigned int *slot, const unsigned int *rank,
+                              unsigned int count, MaxTreeNodes *nodes, EngineError *error)
+{
+    const size_t voxels = tree->voxels;
+    unsigned int *const starts = (unsigned int *)calloc((size_t)count + 2u, sizeof(unsigned int));
+    unsigned int *const children = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+    unsigned int *const canonical = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+    unsigned int *const filled = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+    unsigned int *const placed = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+    unsigned int *const waiting = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+    int good = MAX_TREE_HOST_HELD((starts != NULL) && (children != NULL) && (canonical != NULL) && (filled != NULL)
+                                      && (placed != NULL) && (waiting != NULL),
+                                  tree, error, ENGINE_ERROR_RESOURCE);
+    for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
+    {
+        if (slot[voxel] == MAX_TREE_ABSENT)
+        {
+            continue;
+        }
+        // a voxel index is below the tree's voxel count, which max_tree_grow holds below 2^32 - 1
+        canonical[slot[voxel]] = (unsigned int)voxel;
+        const unsigned int above = tree->parent[voxel];
+        if (above == voxel)
+        {
+            continue;
+        }
+        // a canonical voxel's parent is the canonical voxel of the node below it
+        good = MAX_TREE_HOST_HELD(slot[above] != MAX_TREE_ABSENT, &tree->parent[voxel], error, ENGINE_ERROR_LOGIC);
+        starts[slot[above] + 1u] += (good != 0) ? 1u : 0u;
+    }
+    for (unsigned int node = 0u; (good != 0) && (node < count); node += 1u)
+    {
+        starts[node + 1u] += starts[node];
+    }
+    for (unsigned int node = 0u; (good != 0) && (node < count); node += 1u)
+    {
+        filled[node] = starts[node];
+    }
+    for (unsigned int node = 0u; (good != 0) && (node < count); node += 1u)
+    {
+        const unsigned int voxel = canonical[node];
+        const unsigned int above = tree->parent[voxel];
+        if (above != voxel)
+        {
+            children[filled[slot[above]]] = node;
+            filled[slot[above]] += 1u;
+        }
+    }
+    unsigned int waiting_count = 0u;
+    for (unsigned int node = count; (good != 0) && (node > 0u); node -= 1u)
+    {
+        if (tree->parent[canonical[node - 1u]] == canonical[node - 1u])
+        {
+            waiting[waiting_count] = node - 1u;
+            waiting_count += 1u;
+        }
+    }
+    unsigned int next = 0u;
+    while ((good != 0) && (waiting_count != 0u))
+    {
+        waiting_count -= 1u;
+        const unsigned int node = waiting[waiting_count];
+        placed[node] = next;
+        next += 1u;
+        for (unsigned int child = starts[node + 1u]; child > starts[node]; child -= 1u)
+        {
+            waiting[waiting_count] = children[child - 1u];
+            waiting_count += 1u;
+        }
+    }
+    good = (good != 0) && MAX_TREE_HOST_HELD(next == count, tree, error, ENGINE_ERROR_LOGIC);
+    for (unsigned int node = 0u; (good != 0) && (node < count); node += 1u)
+    {
+        const unsigned int voxel = canonical[node];
+        const unsigned int at = placed[node];
+        const unsigned int above = tree->parent[voxel];
+        nodes->voxel[at] = voxel;
+        nodes->level[at] = rank[voxel];
+        nodes->parent[at] = (above == voxel) ? at : placed[slot[above]];
+        nodes->subtree_end[at] = 1u;
+    }
+    for (unsigned int at = count; (good != 0) && (at > 0u); at -= 1u)
+    {
+        const unsigned int node = at - 1u;
+        if (nodes->parent[node] != node)
+        {
+            nodes->subtree_end[nodes->parent[node]] += nodes->subtree_end[node];
+        }
+    }
+    for (unsigned int node = 0u; (good != 0) && (node < count); node += 1u)
+    {
+        nodes->subtree_end[node] += node;
+        nodes->root[node] = (nodes->parent[node] == node) ? node : nodes->root[nodes->parent[node]];
+    }
+    for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
+    {
+        const unsigned int above = tree->parent[voxel];
+        if (above == MAX_TREE_ABSENT)
+        {
+            nodes->own[voxel] = MAX_TREE_ABSENT;
+            continue;
+        }
+        const unsigned int held = (slot[voxel] != MAX_TREE_ABSENT) ? slot[voxel] : slot[above];
+        // an admitted voxel that is not canonical points at its node's canonical voxel
+        good = MAX_TREE_HOST_HELD(held != MAX_TREE_ABSENT, &tree->parent[voxel], error, ENGINE_ERROR_LOGIC);
+        nodes->own[voxel] = (good != 0) ? placed[held] : MAX_TREE_ABSENT;
+    }
+    free(starts);
+    free(children);
+    free(canonical);
+    free(filled);
+    free(placed);
+    free(waiting);
+    return good;
+}
+
+long max_tree_nodes(const MaxTreeNodesRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    EngineError *const error = request->error;
+    if (!MAX_TREE_HOST_HELD((request->residual != NULL) && (request->tree != NULL) && (request->nodes != NULL)
+                                && (request->tree->parent != NULL) && (request->tree->order != NULL),
+                            request, error, ENGINE_ERROR_REQUEST))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    const unsigned int *const residual = request->residual;
+    const MaxTree *const tree = request->tree;
+    MaxTreeNodes *const nodes = request->nodes;
+    memset(nodes, 0, sizeof(*nodes));
+    const size_t voxels = tree->voxels;
+    const unsigned int admitted = tree->admitted;
+    unsigned int *const rank = (unsigned int *)malloc((voxels + 1u) * sizeof(unsigned int));
+    unsigned int *const slot = (unsigned int *)malloc((voxels + 1u) * sizeof(unsigned int));
+    int good = MAX_TREE_HOST_HELD((rank != NULL) && (slot != NULL), request, error, ENGINE_ERROR_RESOURCE);
+    unsigned int levels = 0u;
+    for (unsigned int at = admitted; (good != 0) && (at > 0u); at -= 1u)
+    {
+        const unsigned int voxel = tree->order[at - 1u];
+        levels += ((at == admitted) || (max_tree_same(residual, voxel, tree->order[at]) == 0)) ? 1u : 0u;
+        rank[voxel] = levels;
+    }
+    unsigned int count = 0u;
+    for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
+    {
+        const unsigned int above = tree->parent[voxel];
+        // a voxel index is below the tree's voxel count, which max_tree_grow holds below 2^32 - 1
+        const unsigned int here = (unsigned int)voxel;
+        const int canonical = (above != MAX_TREE_ABSENT)
+                           && ((above == here) || (max_tree_same(residual, here, above) == 0));
+        slot[voxel] = (canonical != 0) ? count : MAX_TREE_ABSENT;
+        count += (canonical != 0) ? 1u : 0u;
+    }
+    if (good != 0)
+    {
+        nodes->voxel = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+        nodes->parent = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+        nodes->level = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+        nodes->subtree_end = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+        nodes->root = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
+        nodes->own = (unsigned int *)malloc((voxels + 1u) * sizeof(unsigned int));
+        good = MAX_TREE_HOST_HELD((nodes->voxel != NULL) && (nodes->parent != NULL) && (nodes->level != NULL)
+                                      && (nodes->subtree_end != NULL) && (nodes->root != NULL)
+                                      && (nodes->own != NULL),
+                                  request, error, ENGINE_ERROR_RESOURCE);
+    }
+    good = (good != 0) && max_tree_nodes_lay(tree, slot, rank, count, nodes, error);
+    free(rank);
+    free(slot);
+    if (good == 0)
+    {
+        max_tree_nodes_release(nodes);
+        return MAX_TREE_REFUSED;
+    }
+    nodes->count = count;
+    nodes->levels = levels;
+    nodes->voxels = tree->voxels;
+    nodes->depth = tree->depth;
+    nodes->height = tree->height;
+    nodes->width = tree->width;
+    return (long)count;
+}
+
+unsigned int max_tree_node_at(const MaxTreeNodes *nodes, unsigned int node, unsigned int level)
+{
+    if ((nodes == NULL) || (node >= nodes->count) || (nodes->level[node] < level))
+    {
+        return MAX_TREE_ABSENT;
+    }
+    unsigned int at = node;
+    while ((nodes->parent[at] != at) && (nodes->level[nodes->parent[at]] >= level))
+    {
+        at = nodes->parent[at];
+    }
+    return at;
+}
+
+long max_tree_probe_levels(const MaxTreeProbeRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    EngineError *const error = request->error;
+    const MaxTreeNodes *const nodes = request->nodes;
+    const unsigned int probes = request->probe_count;
+    if (!MAX_TREE_HOST_HELD((nodes != NULL) && (nodes->own != NULL)
+                                && ((probes == 0u) || ((request->probe_voxels != NULL) && (request->sorted != NULL)
+                                                       && (request->own_level != NULL) && (request->joined != NULL))),
+                            request, error, ENGINE_ERROR_REQUEST))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    for (unsigned int probe = 0u; probe < probes; probe += 1u)
+    {
+        if (!MAX_TREE_HOST_HELD(request->probe_voxels[probe] < nodes->voxels, &request->probe_voxels[probe], error,
+                                ENGINE_ERROR_REQUEST))
+        {
+            return MAX_TREE_REFUSED;
+        }
+    }
+    if (probes == 0u)
+    {
+        return 0L;
+    }
+    unsigned long long *const keys = (unsigned long long *)malloc((size_t)probes * sizeof(unsigned long long));
+    if (!MAX_TREE_HOST_HELD(keys != NULL, request, error, ENGINE_ERROR_RESOURCE))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    for (unsigned int probe = 0u; probe < probes; probe += 1u)
+    {
+        const unsigned int own = nodes->own[request->probe_voxels[probe]];
+        request->own_level[probe] = (own == MAX_TREE_ABSENT) ? 0u : nodes->level[own];
+        // MAX_TREE_ABSENT in the high word sorts a probe that is not admitted after every node
+        keys[probe] = ((unsigned long long)own << 32u) | probe;
+    }
+    qsort(keys, probes, sizeof(unsigned long long), max_tree_key_compare);
+    for (unsigned int at = 0u; at < probes; at += 1u)
+    {
+        // the low word of a key is the probe's index
+        request->sorted[at] = (unsigned int)(keys[at] & 0xFFFFFFFFull);
+    }
+    for (unsigned int at = 0u; (at + 1u) < probes; at += 1u)
+    {
+        const unsigned int one = nodes->own[request->probe_voxels[request->sorted[at]]];
+        const unsigned int other = nodes->own[request->probe_voxels[request->sorted[at + 1u]]];
+        unsigned int joined = 0u;
+        if ((one != MAX_TREE_ABSENT) && (other != MAX_TREE_ABSENT) && (one == other))
+        {
+            joined = nodes->level[one];
+        }
+        else if ((one != MAX_TREE_ABSENT) && (other != MAX_TREE_ABSENT) && (nodes->root[one] == nodes->root[other]))
+        {
+            // every node in (one, other] lies under the LCA, and the LCA's child toward other is one of them
+            unsigned int lowest = nodes->level[nodes->parent[one + 1u]];
+            for (unsigned int node = one + 2u; node <= other; node += 1u)
+            {
+                const unsigned int above = nodes->level[nodes->parent[node]];
+                lowest = (above < lowest) ? above : lowest;
+            }
+            joined = lowest;
+        }
+        request->joined[at] = joined;
+    }
+    free(keys);
+    return (long)probes;
+}
+
+unsigned int max_tree_probe_partition(const unsigned int *sorted, const unsigned int *own_level,
+                                      const unsigned int *joined, unsigned int probe_count, unsigned int level,
+                                      unsigned int *part)
+{
+    if ((sorted == NULL) || (own_level == NULL) || (part == NULL) || ((probe_count > 1u) && (joined == NULL)))
+    {
+        return 0u;
+    }
+    unsigned int parts = 0u;
+    int open = 0;
+    for (unsigned int at = 0u; at < probe_count; at += 1u)
+    {
+        const unsigned int probe = sorted[at];
+        if ((at > 0u) && (joined[at - 1u] < level))
+        {
+            open = 0;
+        }
+        if ((own_level[probe] == 0u) || (own_level[probe] < level))
+        {
+            part[probe] = MAX_TREE_ABSENT;
+            open = 0;
+            continue;
+        }
+        if (open == 0)
+        {
+            open = 1;
+            parts += 1u;
+        }
+        part[probe] = parts - 1u;
+    }
+    return parts;
+}
+
+void max_tree_pairs_release(MaxTreePairs *pairs)
+{
+    if (pairs == NULL)
+    {
+        return;
+    }
+    free(pairs->earlier);
+    free(pairs->later);
+    free(pairs->voxels);
+    memset(pairs, 0, sizeof(*pairs));
+}
+
+long max_tree_pairs(const MaxTreePairsRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    EngineError *const error = request->error;
+    const MaxTreeNodes *const earlier = request->earlier;
+    const MaxTreeNodes *const later = request->later;
+    MaxTreePairs *const pairs = request->pairs;
+    if (!MAX_TREE_HOST_HELD((earlier != NULL) && (later != NULL) && (pairs != NULL) && (earlier->own != NULL)
+                                && (later->own != NULL),
+                            request, error, ENGINE_ERROR_REQUEST)
+     || !MAX_TREE_HOST_HELD((earlier->depth == later->depth) && (earlier->height == later->height)
+                                && (earlier->width == later->width) && (earlier->voxels == later->voxels),
+                            later, error, ENGINE_ERROR_REQUEST))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    memset(pairs, 0, sizeof(*pairs));
+    const size_t voxels = earlier->voxels;
+    const size_t plane = (size_t)earlier->height * earlier->width;
+    unsigned long long *const keys = (unsigned long long *)malloc((voxels + 1u) * sizeof(unsigned long long));
+    if (!MAX_TREE_HOST_HELD(keys != NULL, request, error, ENGINE_ERROR_RESOURCE))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    size_t found = 0u;
+    for (size_t voxel = 0u; voxel < voxels; voxel += 1u)
+    {
+        const unsigned int from = earlier->own[voxel];
+        if (from == MAX_TREE_ABSENT)
+        {
+            continue;
+        }
+        // each coordinate is below its extent, far under 2^63, and the lag is an int
+        const long long z = (long long)(voxel / plane) + request->lag[0];
+        const long long y = (long long)((voxel % plane) / earlier->width) + request->lag[1];
+        const long long x = (long long)((voxel % plane) % earlier->width) + request->lag[2];
+        if ((z < 0) || (z >= (long long)earlier->depth) || (y < 0) || (y >= (long long)earlier->height) || (x < 0)
+         || (x >= (long long)earlier->width))
+        {
+            continue;
+        }
+        // the target lies inside the extent: its index is below the voxel count
+        const size_t target = (size_t)((((z * (long long)earlier->height) + y) * (long long)earlier->width) + x);
+        const unsigned int to = later->own[target];
+        if (to == MAX_TREE_ABSENT)
+        {
+            continue;
+        }
+        keys[found] = ((unsigned long long)from << 32u) | to;
+        found += 1u;
+    }
+    qsort(keys, found, sizeof(unsigned long long), max_tree_key_compare);
+    unsigned int distinct = 0u;
+    for (size_t at = 0u; at < found; at += 1u)
+    {
+        distinct += ((at == 0u) || (keys[at] != keys[at - 1u])) ? 1u : 0u;
+    }
+    pairs->earlier = (unsigned int *)malloc(((size_t)distinct + 1u) * sizeof(unsigned int));
+    pairs->later = (unsigned int *)malloc(((size_t)distinct + 1u) * sizeof(unsigned int));
+    pairs->voxels = (unsigned long long *)malloc(((size_t)distinct + 1u) * sizeof(unsigned long long));
+    if (!MAX_TREE_HOST_HELD((pairs->earlier != NULL) && (pairs->later != NULL) && (pairs->voxels != NULL), request,
+                            error, ENGINE_ERROR_RESOURCE))
+    {
+        free(keys);
+        max_tree_pairs_release(pairs);
+        return MAX_TREE_REFUSED;
+    }
+    unsigned int entry = 0u;
+    for (size_t at = 0u; at < found; at += 1u)
+    {
+        if ((at != 0u) && (keys[at] == keys[at - 1u]))
+        {
+            pairs->voxels[entry - 1u] += 1ull;
+            continue;
+        }
+        // the high word is the earlier node and the low word the later one
+        pairs->earlier[entry] = (unsigned int)(keys[at] >> 32u);
+        pairs->later[entry] = (unsigned int)(keys[at] & 0xFFFFFFFFull);
+        pairs->voxels[entry] = 1ull;
+        entry += 1u;
+    }
+    free(keys);
+    pairs->count = distinct;
+    return (long)distinct;
+}
+
+static void max_tree_fenwick_add(unsigned long long *fenwick, unsigned int size, unsigned int at,
+                                 unsigned long long amount)
+{
+    for (unsigned int slot = at + 1u; slot <= size; slot += slot & (0u - slot))
+    {
+        fenwick[slot] += amount;
+    }
+}
+
+static unsigned long long max_tree_fenwick_below(const unsigned long long *fenwick, unsigned int end)
+{
+    unsigned long long total = 0ull;
+    for (unsigned int slot = end; slot > 0u; slot -= slot & (0u - slot))
+    {
+        total += fenwick[slot];
+    }
+    return total;
+}
+
+long max_tree_overlap_sums(const MaxTreeOverlapSumsRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    EngineError *const error = request->error;
+    const MaxTreeNodes *const earlier = request->earlier;
+    const MaxTreeNodes *const later = request->later;
+    const MaxTreePairs *const pairs = request->pairs;
+    const unsigned int asked = request->asked;
+    if (!MAX_TREE_HOST_HELD((earlier != NULL) && (later != NULL) && (pairs != NULL) && (asked <= 0x7FFFFFFFu)
+                                && ((asked == 0u) || ((request->earlier_nodes != NULL) && (request->later_nodes != NULL)
+                                                      && (request->sums != NULL))),
+                            request, error, ENGINE_ERROR_REQUEST))
+    {
+        return MAX_TREE_REFUSED;
+    }
+    for (unsigned int entry = 0u; entry < pairs->count; entry += 1u)
+    {
+        // the sweep reads the table in the order max_tree_pairs lays it, sorted by the earlier node
+        if (!MAX_TREE_HOST_HELD((pairs->earlier[entry] < earlier->count) && (pairs->later[entry] < later->count)
+                                    && ((entry == 0u) || (pairs->earlier[entry - 1u] <= pairs->earlier[entry])),
+                                &pairs->earlier[entry], error, ENGINE_ERROR_REQUEST))
+        {
+            return MAX_TREE_REFUSED;
+        }
+    }
+    for (unsigned int query = 0u; query < asked; query += 1u)
+    {
+        if (!MAX_TREE_HOST_HELD((request->earlier_nodes[query] < earlier->count)
+                                    && (request->later_nodes[query] < later->count),
+                                &request->earlier_nodes[query], error, ENGINE_ERROR_REQUEST))
+        {
+            return MAX_TREE_REFUSED;
+        }
+    }
+    if (asked == 0u)
+    {
+        return 0L;
+    }
+    const size_t events = 2u * (size_t)asked;
+    unsigned long long *const keys = (unsigned long long *)malloc(events * sizeof(unsigned long long));
+    unsigned long long *const below = (unsigned long long *)malloc((size_t)asked * sizeof(unsigned long long));
+    unsigned long long *const fenwick = (unsigned long long *)calloc((size_t)later->count + 1u,
+                                                                     sizeof(unsigned long long));
+    if (!MAX_TREE_HOST_HELD((keys != NULL) && (below != NULL) && (fenwick != NULL), request, error,
+                            ENGINE_ERROR_RESOURCE))
+    {
+        free(keys);
+        free(below);
+        free(fenwick);
+        return MAX_TREE_REFUSED;
+    }
+    for (unsigned int query = 0u; query < asked; query += 1u)
+    {
+        const unsigned int node = request->earlier_nodes[query];
+        // an event's low word is twice the query, plus 1 for the range's lower edge; the high word is the row edge
+        keys[2u * (size_t)query] = ((unsigned long long)earlier->subtree_end[node] << 32u) | (2ull * query);
+        keys[(2u * (size_t)query) + 1u] = ((unsigned long long)node << 32u) | ((2ull * query) + 1ull);
+    }
+    qsort(keys, events, sizeof(unsigned long long), max_tree_key_compare);
+    unsigned int entry = 0u;
+    for (size_t at = 0u; at < events; at += 1u)
+    {
+        // the high word is a node index or a subtree's end, each below 2^32
+        const unsigned int edge = (unsigned int)(keys[at] >> 32u);
+        while ((entry < pairs->count) && (pairs->earlier[entry] < edge))
+        {
+            max_tree_fenwick_add(fenwick, later->count, pairs->later[entry], pairs->voxels[entry]);
+            entry += 1u;
+        }
+        // the low word is twice the query plus the edge, below 2^32
+        const unsigned int event = (unsigned int)(keys[at] & 0xFFFFFFFFull);
+        const unsigned int query = event / 2u;
+        const unsigned int node = request->later_nodes[query];
+        const unsigned long long held = max_tree_fenwick_below(fenwick, later->subtree_end[node])
+                                      - max_tree_fenwick_below(fenwick, node);
+        if ((event % 2u) == 0u)
+        {
+            request->sums[query] = held;
+        }
+        else
+        {
+            below[query] = held;
+        }
+    }
+    int good = 1;
+    for (unsigned int query = 0u; (good != 0) && (query < asked); query += 1u)
+    {
+        // the rows below a subtree's start are a subset of the rows below its end
+        good = MAX_TREE_HOST_HELD(request->sums[query] >= below[query], &request->sums[query], error,
+                                  ENGINE_ERROR_LOGIC);
+        request->sums[query] -= (good != 0) ? below[query] : 0ull;
+    }
+    free(keys);
+    free(below);
+    free(fenwick);
+    return (good != 0) ? (long)asked : MAX_TREE_REFUSED;
+}

@@ -63,6 +63,118 @@ int max_tree_order_agrees(const unsigned int *residual, unsigned int depth, unsi
 
 long max_tree_bind(const MaxTreeBindRequest *request);
 
+// The tree as nodes (A2). A node is one component of one upper level set, the nodes of a tree built by max_tree_build.
+// A node's level is the dense rank of its value among the admitted values, 1 the least, and `levels` is the most.
+// Nodes are numbered in DFS order: a node's subtree is the one range [node, subtree_end[node]), its parent is the node
+// of the next lower level that holds it, a root is its own parent, and `root` names each node's root. A child's level
+// is above its parent's. `own` names each voxel's own node, the node at its own level that holds it, and is
+// MAX_TREE_ABSENT for a voxel that is not admitted. The component at level r holding voxel x is the ancestor a of
+// own[x] with level[a] >= r > level[parent[a]]: max_tree_node_at.
+typedef struct
+{
+    unsigned int count;
+    unsigned int levels;
+    unsigned int voxels;
+    unsigned int depth;
+    unsigned int height;
+    unsigned int width;
+    unsigned int *voxel;
+    unsigned int *parent;
+    unsigned int *level;
+    unsigned int *subtree_end;
+    unsigned int *root;
+    unsigned int *own;
+} MaxTreeNodes;
+
+typedef struct
+{
+    const unsigned int *residual;
+    const MaxTree *tree;
+    MaxTreeNodes *nodes;
+    EngineError *error;
+} MaxTreeNodesRequest;
+
+// the nodes of `tree`, built over `residual`; returns the node count, or MAX_TREE_REFUSED with the error filled and
+// `nodes` left empty
+long max_tree_nodes(const MaxTreeNodesRequest *request);
+
+void max_tree_nodes_release(MaxTreeNodes *nodes);
+
+// the component at `level` that holds `node`'s voxels: `node` itself or its ancestor, or MAX_TREE_ABSENT where the
+// node's level is below `level`
+unsigned int max_tree_node_at(const MaxTreeNodes *nodes, unsigned int node, unsigned int level);
+
+// The probe partition at every level at once (A2). `sorted` lists the probes by their own nodes' DFS order, a probe
+// whose voxel is not admitted last. `own_level` is each probe's own level, 0 where its voxel is not admitted.
+// `joined[i]` is the level of the LCA of sorted probes i and i + 1, 0 where no level holds both. At level r a probe is
+// present where its own level is r or more, and two present probes are in one component exactly where every joined
+// level between them in the order is r or more. Each joined level is read in one scan of the DFS order: for u before
+// v in one tree, the LCA's level is the least level among the parents of the nodes in (u, v], since each of those
+// nodes lies under the LCA and the LCA's child toward v is one of them.
+typedef struct
+{
+    const MaxTreeNodes *nodes;
+    const unsigned int *probe_voxels;
+    unsigned int probe_count;
+    unsigned int *sorted;
+    unsigned int *own_level;
+    unsigned int *joined;
+    EngineError *error;
+} MaxTreeProbeRequest;
+
+// returns the probe count, or MAX_TREE_REFUSED with the error filled
+long max_tree_probe_levels(const MaxTreeProbeRequest *request);
+
+// one level's partition from max_tree_probe_levels: each probe's part, numbered from 0 in the sorted order, or
+// MAX_TREE_ABSENT where the probe is not present at `level`; returns the number of parts
+unsigned int max_tree_probe_partition(const unsigned int *sorted, const unsigned int *own_level,
+                                      const unsigned int *joined, unsigned int probe_count, unsigned int level,
+                                      unsigned int *part);
+
+// The own-node pair table (A2). For an earlier and a later frame's nodes over one extent and a lag v (z, y, x), entry
+// i counts the voxels x whose own node in the earlier frame is earlier[i] and whose x + v is admitted in the later
+// frame with own node later[i]. Entries are sorted by the earlier node, then the later one, each pair once.
+typedef struct
+{
+    unsigned int count;
+    unsigned int *earlier;
+    unsigned int *later;
+    unsigned long long *voxels;
+} MaxTreePairs;
+
+typedef struct
+{
+    const MaxTreeNodes *earlier;
+    const MaxTreeNodes *later;
+    int lag[3];
+    MaxTreePairs *pairs;
+    EngineError *error;
+} MaxTreePairsRequest;
+
+// returns the entry count, or MAX_TREE_REFUSED with the error filled and `pairs` left empty
+long max_tree_pairs(const MaxTreePairsRequest *request);
+
+void max_tree_pairs_release(MaxTreePairs *pairs);
+
+// The overlap at every pair of levels from the one table (A2). For each asked pair of nodes, a of the earlier frame
+// and b of the later, `sums` is the table summed over a's subtree and b's subtree: C_{r,r'}[A, B](v) for the components
+// A and B those nodes are, at any level each is a component at. The sums are answered together in one sweep of the
+// table.
+typedef struct
+{
+    const MaxTreeNodes *earlier;
+    const MaxTreeNodes *later;
+    const MaxTreePairs *pairs;
+    const unsigned int *earlier_nodes;
+    const unsigned int *later_nodes;
+    unsigned int asked;
+    unsigned long long *sums;
+    EngineError *error;
+} MaxTreeOverlapSumsRequest;
+
+// returns the number of sums, or MAX_TREE_REFUSED with the error filled
+long max_tree_overlap_sums(const MaxTreeOverlapSumsRequest *request);
+
 typedef struct
 {
     const unsigned int *device_residual;
