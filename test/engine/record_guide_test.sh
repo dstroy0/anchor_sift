@@ -3,13 +3,14 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOP="$(cd "$TEST/../.." && pwd)"
-CYCLE="$TOP/src/engine/base/cycle"
-KEYMATH="$TOP/src/engine/base/keymath"
-KEY_SCHEDULE="$TOP/src/engine/base/key_schedule"
-NO_ROUNDING="$TOP/src/engine/base/no_rounding"
-SCRIPTURA="$TOP/src/engine/base/scriptura"
+TOP="$(cd "$TEST/.." && pwd)"
+CYCLE="$TOP/anchor_sift/src/engine/base/cycle"
+KEYMATH="$TOP/anchor_sift/src/engine/base/keymath"
+KEY_SCHEDULE="$TOP/anchor_sift/src/engine/base/key_schedule"
+NO_ROUNDING="$TOP/anchor_sift/src/engine/base/no_rounding"
+SCRIPTURA="$TOP/anchor_sift/src/engine/base/scriptura"
 source "$TOP/maint/build_stamp.sh"
+source "$TOP/maint/tessera_build.sh"
 build_stamp record_guide_test
 
 HOST_FLAGS=()
@@ -44,9 +45,11 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$NO_ROUNDING" -I "$SCRIPTURA")
+INCLUDES=(-I "$TOP/anchor_sift/src/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$NO_ROUNDING" -I "$SCRIPTURA"
+          "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
+SCRIPTURA_OBJECTS=()
 for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$CYCLE/cycle.c"; do
     object="$OUT/$(basename "$source" .c)_guide.$EXTENSION"
     rm -f "$object"
@@ -58,10 +61,16 @@ for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$CYCLE/cycle.c"; 
     esac
     [ -f "$object" ] || { echo "  build failed: $(basename "$source") did not compile"; exit 1; }
     OBJECTS+=("$object")
+    case "$(basename "$source")" in
+        scriptura*) SCRIPTURA_OBJECTS+=("$object") ;;
+    esac
 done
+# the test is a job on the device's tessera daemon, built beside it
+tessera_build guide "${SCRIPTURA_OBJECTS[@]}" || exit 1
+
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/record_guide_test.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu" \
-    "${OBJECTS[@]}"
+    "$TEST/record_guide_test.cu" "$TOP/anchor_sift/src/engine/sims/sim_job.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" \
+    "$KEY_SCHEDULE/key_schedule.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
 
 "$BINARY"

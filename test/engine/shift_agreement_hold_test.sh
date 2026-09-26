@@ -4,15 +4,15 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/.." && pwd)"
-TOWER="$TOP/engine/base/tower"
+SHIFT="$TOP/engine/base/shift_agreement"
 DEVICE_POOL="$TOP/engine/base/device_pool"
 source "$TOP/maint/build_stamp.sh"
-build_stamp tower_edge_test
+build_stamp shift_agreement_hold_test
 
 HOST_FLAGS=()
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*)
-        BINARY="$OUT/tower_edge_test.exe"
+        BINARY="$OUT/shift_agreement_hold_test.exe"
         MSVC_BIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
         if [ -z "$MSVC_BIN" ]; then
             MSVC_BIN="$(ls -d "/c/Program Files/Microsoft Visual Studio"/*/*/VC/Tools/MSVC/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
@@ -24,7 +24,7 @@ case "$(uname -s)" in
         HOST_FLAGS=(-ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor)
         ;;
     *)
-        BINARY="$OUT/tower_edge_test"
+        BINARY="$OUT/shift_agreement_hold_test"
         HOST_FLAGS=(-Xcompiler -fPIC)
         ;;
 esac
@@ -39,13 +39,18 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/engine" -I "$TOWER" -I "$DEVICE_POOL")
+INCLUDES=(-I "$TOP/engine" -I "$SHIFT" -I "$DEVICE_POOL")
 rm -f "$BINARY"
+# the test is host arithmetic: it links the module's device code but asks nothing of the device, so it is no job
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/tower_edge_test.cu" "$TOWER/tower.cu" "$DEVICE_POOL/device_pool.cu"
+    "$TEST/shift_agreement_hold_test.cu" "$SHIFT/shift_agreement.cu" "$DEVICE_POOL/device_pool.cu"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
+if [ "${BUILD_ONLY:-0}" = "1" ]; then
+    echo "  built $BINARY"
+    exit 0
+fi
 
 "$BINARY"
 STATUS=$?
-echo "  tower edge test exit $STATUS"
+echo "  shift_agreement hold test exit $STATUS"
 exit "$STATUS"

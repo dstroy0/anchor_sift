@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "period.h"
 
+#include "device_pool.h"
 #include "scriptura.h"
+#include "sim.h"
 
 #include <cuda_runtime.h>
 
@@ -10,20 +12,16 @@
 
 #define TEST_LOW_HALF 0xFFFFFFFFull
 
-#define TEST_LINE_ROOM 4096ull
+// the largest volume, 32 x 64 x 64, and the most agreement entries, the one-axis line's 4096 / 2
+#define TEST_VOXELS_MOST (32ull * 64ull * 64ull)
+
+#define TEST_ENTRIES_MOST 2048ull
 
 #define TEST_RANDOM_VOLUMES 64u
 
 #define TEST_DRAWS 8ull
 
 #define TEST_SMOOTH_VOLUMES 16u
-
-typedef struct
-{
-    unsigned long long checks;
-    unsigned long long failures;
-    ScripturaLine line;
-} TestTally;
 
 typedef struct
 {
@@ -60,24 +58,6 @@ static int test_wide_above(TestWide one, TestWide other, int or_equal)
         return one.high > other.high;
     }
     return or_equal ? (one.low >= other.low) : (one.low > other.low);
-}
-
-static void test_check(TestTally *tally, int held, const char *what)
-{
-    tally->checks += 1ull;
-    if (held == 0)
-    {
-        tally->failures += 1ull;
-        scriptura_text(&tally->line, "  FAILED: ");
-        scriptura_text(&tally->line, what);
-        scriptura_character(&tally->line, '\n');
-    }
-}
-
-static void test_flush(TestTally *tally)
-{
-    scriptura_write(&tally->line, stdout);
-    tally->line.at = 0ull;
 }
 
 static unsigned long long test_reference_counts(const unsigned short *volume, unsigned int rank,
@@ -320,7 +300,7 @@ static int test_draws_and_given_top(const unsigned short *volume, unsigned int r
     return good;
 }
 
-static void test_volume(TestTally *tally, const char *name, const unsigned short *volume, unsigned int rank,
+static void test_volume(SimTally *tally, const char *name, const unsigned short *volume, unsigned int rank,
                         const unsigned long long *shape, const unsigned long long *expected, int print)
 {
     const unsigned long long entries = period_agreement_entries(rank, shape);
@@ -336,11 +316,11 @@ static void test_volume(TestTally *tally, const char *name, const unsigned short
     const int read = (counts != NULL) && (reference != NULL) && (band != NULL) && (band_again != NULL)
                   && test_read(volume, rank, shape, &reading, counts, entries, band, &error)
                   && test_read(volume, rank, shape, &reading_again, NULL, 0ull, band_again, &error);
-    test_check(tally, read, name);
-    test_check(tally, read && (memcmp(&reading, &reading_again, sizeof(reading)) == 0)
-                          && (memcmp(band, band_again, (size_t)(TEST_DRAWS * rank) * sizeof(PeriodMargin)) == 0),
-               name);
-    test_check(tally, read && test_draws_and_given_top(volume, rank, shape, &reading, band), name);
+    sim_check(tally, read, name);
+    sim_check(tally, read && (memcmp(&reading, &reading_again, sizeof(reading)) == 0)
+                         && (memcmp(band, band_again, (size_t)(TEST_DRAWS * rank) * sizeof(PeriodMargin)) == 0),
+              name);
+    sim_check(tally, read && test_draws_and_given_top(volume, rank, shape, &reading, band), name);
     if (read != 0)
     {
         test_reference_counts(volume, rank, shape, reference);
@@ -349,7 +329,7 @@ static void test_volume(TestTally *tally, const char *name, const unsigned short
         {
             differ += (counts[entry] != reference[entry]) ? 1ull : 0ull;
         }
-        test_check(tally, differ == 0ull, name);
+        sim_check(tally, differ == 0ull, name);
         unsigned long long voxels = 1ull;
         unsigned long long histogram_check = 0ull;
         for (unsigned int axis = 0u; axis < rank; axis += 1u)
@@ -366,7 +346,7 @@ static void test_volume(TestTally *tally, const char *name, const unsigned short
             histogram_check += (unsigned long long)histogram[value] * histogram[value];
         }
         free(histogram);
-        test_check(tally, (reading.voxels == voxels) && (reading.collisions == histogram_check), name);
+        sim_check(tally, (reading.voxels == voxels) && (reading.collisions == histogram_check), name);
         unsigned long long first = 0ull;
         for (unsigned int axis = 0u; axis < rank; axis += 1u)
         {
@@ -386,15 +366,15 @@ static void test_volume(TestTally *tally, const char *name, const unsigned short
             unsigned long long candidate = 0ull;
             const unsigned long long period = test_reference_select(&reference[first], lags, pairs, &top, &candidate,
                                                                    &margin);
-            test_check(tally, (reading.axis[axis].pairs_per_lag == pairs) && (reading.axis[axis].lags == lags)
-                                  && (reading.axis[axis].candidate == candidate)
-                                  && (reading.axis[axis].period == period)
-                                  && (memcmp(&reading.axis[axis].margin, &margin, sizeof(margin)) == 0)
-                                  && test_band_holds(&reading.axis[axis], &band[axis * TEST_DRAWS]),
-                       name);
+            sim_check(tally, (reading.axis[axis].pairs_per_lag == pairs) && (reading.axis[axis].lags == lags)
+                                 && (reading.axis[axis].candidate == candidate)
+                                 && (reading.axis[axis].period == period)
+                                 && (memcmp(&reading.axis[axis].margin, &margin, sizeof(margin)) == 0)
+                                 && test_band_holds(&reading.axis[axis], &band[axis * TEST_DRAWS]),
+                      name);
             if (expected != NULL)
             {
-                test_check(tally, reading.axis[axis].period == expected[axis], name);
+                sim_check(tally, reading.axis[axis].period == expected[axis], name);
             }
             first += lags;
         }
@@ -403,7 +383,7 @@ static void test_volume(TestTally *tally, const char *name, const unsigned short
             scriptura_text(&tally->line, "  ");
             scriptura_text(&tally->line, name);
             scriptura_character(&tally->line, '\n');
-            test_flush(tally);
+            sim_flush(tally);
             period_print(&reading, stdout);
         }
     }
@@ -413,7 +393,7 @@ static void test_volume(TestTally *tally, const char *name, const unsigned short
     free(band_again);
 }
 
-static void test_refusal(TestTally *tally, const char *name, const unsigned short *device_lanes, unsigned int rank,
+static void test_refusal(SimTally *tally, const char *name, const unsigned short *device_lanes, unsigned int rank,
                          const unsigned long long *shape, unsigned long long draws, unsigned long long *counts,
                          unsigned long long room, PeriodMargin *band, unsigned long long band_room)
 {
@@ -436,22 +416,23 @@ static void test_refusal(TestTally *tally, const char *name, const unsigned shor
     request.reading = &reading;
     request.error = &error;
     const long result = period_read(&request);
-    test_check(tally, (result == PERIOD_REFUSED) && (error.kind == ENGINE_ERROR_REQUEST)
-                          && (error.module == ENGINE_MODULE_PERIOD),
-               name);
+    sim_check(tally, (result == PERIOD_REFUSED) && (error.kind == ENGINE_ERROR_REQUEST)
+                         && (error.module == ENGINE_MODULE_PERIOD),
+              name);
 }
 
-int main(void)
+int main(int count, char **arguments)
 {
-    TestTally tally;
-    tally.checks = 0ull;
-    tally.failures = 0ull;
-    tally.line.room = TEST_LINE_ROOM;
-    tally.line.out = (char *)malloc((size_t)TEST_LINE_ROOM);
-    tally.line.at = 0ull;
-    if (tally.line.out == NULL)
+    char room[SIM_LINE_ROOM];
+    SimTally tally;
+    sim_open(&tally, room);
+    // the most the test holds on the device at once: one volume's lanes, an allocation under a page, beside the period
+    // pool grown for the largest volume and the most agreement entries
+    const unsigned long long declared = DEVICE_POOL_PAGE_BYTES + period_hold_bytes(TEST_VOXELS_MOST, TEST_ENTRIES_MOST);
+    const int admitted = sim_job_submit(&tally, "period_test", count, arguments, declared);
+    if (admitted == 0)
     {
-        return 2;
+        return sim_close(&tally, "period test");
     }
 
     static unsigned short line_volume[4096];
@@ -581,7 +562,7 @@ int main(void)
 
     unsigned short *device_lanes = NULL;
     const int allocated = cudaMalloc((void **)&device_lanes, 64u * sizeof(unsigned short)) == cudaSuccess;
-    test_check(&tally, allocated, "device allocation for the refusals");
+    sim_check(&tally, allocated, "device allocation for the refusals");
     if (allocated != 0)
     {
         const unsigned long long small[2] = {8ull, 8ull};
@@ -612,18 +593,16 @@ int main(void)
         request.null_top = tops;
         request.reading = &reading;
         request.error = &error;
-        test_check(&tally, (period_read(&request) == PERIOD_REFUSED) && (error.kind == ENGINE_ERROR_REQUEST)
-                               && (error.module == ENGINE_MODULE_PERIOD),
-                   "a given band with draws of its own");
+        sim_check(&tally, (period_read(&request) == PERIOD_REFUSED) && (error.kind == ENGINE_ERROR_REQUEST)
+                              && (error.module == ENGINE_MODULE_PERIOD),
+                  "a given band with draws of its own");
         cudaFree(device_lanes);
     }
 
-    scriptura_text(&tally.line, "  period test: ");
-    scriptura_decimal(&tally.line, tally.checks, 1u);
-    scriptura_text(&tally.line, " checks, ");
-    scriptura_decimal(&tally.line, tally.failures, 1u);
-    scriptura_text(&tally.line, " failed\n");
-    test_flush(&tally);
-    free(tally.line.out);
-    return (tally.failures == 0ull) ? 0 : 1;
+    sim_check(&tally, period_hold_bytes(0ull, 1ull) == 0ull, "a pool for no voxels is 0 bytes");
+    sim_check(&tally, period_hold_bytes(0x100000000ull, 1ull) == 0ull,
+              "a pool for 2^32 voxels, which the calls refuse, is 0 bytes");
+    sim_check(&tally, period_hold_bytes(TEST_VOXELS_MOST, TEST_ENTRIES_MOST) == DEVICE_POOL_PAGE_BYTES,
+              "the test's largest pool, 528 KiB of slices, is one page");
+    return sim_close(&tally, "period test");
 }

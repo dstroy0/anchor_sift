@@ -12,18 +12,21 @@
 // crystal's lows alone, and a vector in 2^(3L) Z^n lands as M times it; negation and doubling do not pass. The
 // identity of a lane's structure, taken with T and null permutations of its own samples: every structured lane's
 // crystal heap stands below all its shuffles', and noise no more often than 1 / (draws + 1) allows. The heap
-// and the ring at every floor of T then T^-1: the heap mirrors exactly, the ring is ring_0 + 6(n - n / 2^l) at floor
-// l and its mirror one bit wider per wrapped low, and the heap's pinch at the crystal orders a ramp, a ramp +-8, a
+// and the ring at every floor of T then T^-1: the heap mirrors exactly, the ring is ring_0 + n + 2(n - n / 2^l) at
+// floor l >= 1 (keymath's linear forms give every register at level l, low and high, w + l + 1 bits) and its mirror
+// one bit wider per wrapped low, and the heap's pinch at the crystal orders a ramp, a ramp +-8, a
 // ramp +-1024 and noise. Last, the top projection x -> x / 2^k toward zero, the other end of the window from the
 // 2-adic projection: nested quotients commute with it, it never reverses a comparison (the 8-bit wrap reverses
 // many), and a sum through it is off by at most one. The count each crystal keeps: on a 4-sample tower every input
 // quantum at level w + 3 is run, and T and T^-1 send exactly as many onto every output quantum at level w (Haar
 // measure on Z_2^n); det M and det M^-1 are +-1 exactly, proved modulo primes past Hadamard's bound (volume on R^n).
-// Every program runs on the device and the host, word for word.
+// Every program runs on the device and the host, word for word. The test is one job on the device's tessera daemon,
+// submitted before its first device work.
 #include "cycle.h"
 #include "keymath.h"
 #include "key_schedule.h"
 #include "scriptura.h"
+#include "sim.h"
 
 #include <cuda_runtime.h>
 
@@ -69,6 +72,10 @@
 #define BOUNDARY_TEST_COUNT_SAMPLES 4u
 
 #define BOUNDARY_TEST_COUNT_REACH 3u
+
+// the most the test puts on the device at once: the counted tower's 2^20 lanes at w = 2, under 8 words a lane
+#define BOUNDARY_TEST_DECLARED \
+    ((1ull << (BOUNDARY_TEST_COUNT_SAMPLES * (2u + BOUNDARY_TEST_COUNT_REACH))) * 8ull * sizeof(unsigned int))
 
 // the identity by null permutation: lanes drawn for each class, and the keyed shuffles drawn of each
 #define BOUNDARY_TEST_IDENTITY_BASES 256u
@@ -441,7 +448,7 @@ static int boundary_run(BoundaryLoaded *loaded, const unsigned int *atoms, unsig
     const unsigned int in_limbs = loaded->layout.in_limbs[0];
     const unsigned int out_limbs = loaded->layout.out_limbs;
     const CycleRecordHostRequest host = {&loaded->layout, {atoms, NULL, NULL}, {count, 0ull, 0ull}, NULL, count,
-                                         host_out};
+                                         host_out, &loaded->error};
     const int host_ran = cycle_record_run_host(&host) != CYCLE_REFUSED;
     unsigned int *device_atoms = NULL;
     unsigned int *device_record = NULL;
@@ -1222,7 +1229,10 @@ static void boundary_floors(BoundaryTally *tally)
     int ring_widest = 1;
     for (unsigned int level = 0u; level <= BOUNDARY_TEST_LEVELS; level += 1u)
     {
-        ring_forward = ring_forward && (ring[level] == (ring[0] + (6ull * (unsigned long long)(n - (n >> level)))));
+        // the first level widens every register by 2 bits and each after it by 1: ring_0 + n + 2(n - n / 2^l)
+        const unsigned long long whole = (unsigned long long)n;
+        const unsigned long long grown = (level == 0u) ? 0ull : (whole + (2ull * (whole - (whole >> level))));
+        ring_forward = ring_forward && (ring[level] == (ring[0] + grown));
         ring_widest = ring_widest && (ring[level] <= ring[BOUNDARY_TEST_LEVELS]);
         if (level < BOUNDARY_TEST_LEVELS)
         {
@@ -1282,7 +1292,7 @@ static void boundary_floors(BoundaryTally *tally)
     boundary_check(tally, rebuilt == lanes, "the last floor returns every sample exactly");
     boundary_check(tally, mirrored == lanes, "the heap at floor 2L - k equals the heap at floor k, every lane");
     boundary_check(tally, within == lanes, "every floor's heap lies inside its ring and one sign bit per nonzero value");
-    boundary_check(tally, ring_forward, "the ring at forward floor l is ring_0 + 6(n - n / 2^l)");
+    boundary_check(tally, ring_forward, "the ring at forward floor l >= 1 is ring_0 + n + 2(n - n / 2^l)");
     boundary_check(tally, ring_mirror, "the ring at floor 2L - l is the ring at floor l and one bit per wrapped low");
     boundary_check(tally, ring_widest, "the ring is widest at the crystal");
     boundary_check(tally, ordered, "the heap's pinch at the crystal falls from ramp to +-8 to +-1024 to noise");
@@ -1679,7 +1689,7 @@ static void boundary_volume(BoundaryTally *tally)
     boundary_check(tally, identity, "T^-1's matrix is the inverse of T's");
 }
 
-int main(void)
+int main(int count, char **arguments)
 {
     BoundaryTally tally;
     tally.checks = 0ull;
@@ -1693,11 +1703,22 @@ int main(void)
     }
     boundary_matrices();
     boundary_bands(&tally);
-    boundary_written(&tally);
-    boundary_read_off(&tally);
-    boundary_floors(&tally);
-    boundary_top(&tally);
-    boundary_counted(&tally);
+    char job_room[SIM_LINE_ROOM];
+    SimTally job;
+    sim_open(&job, job_room);
+    const int admitted = sim_job_submit(&job, "record_boundary_test", count, arguments, BOUNDARY_TEST_DECLARED);
+    if (admitted != 0)
+    {
+        boundary_written(&tally);
+        boundary_read_off(&tally);
+        boundary_floors(&tally);
+        boundary_top(&tally);
+        boundary_counted(&tally);
+    }
+    sim_job_release(&job);
+    sim_flush(&job);
+    boundary_check(&tally, (admitted != 0) && (job.failures == 0ull),
+                   "tessera: the device's daemon admits the test's job and it releases");
     boundary_volume(&tally);
     scriptura_text(&tally.line, "  record boundary test: ");
     scriptura_decimal(&tally.line, tally.checks, 1u);

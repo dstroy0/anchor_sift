@@ -9,12 +9,14 @@
 // break the agreement on some lane. An exact quotient by an odd c is the product by c^-1 in Z_2, and must equal that
 // product in every projection. The odd crystals Z_3, Z_5 and Z_7 are orthogonal to Z_2: a ring program commutes with
 // the remainder by p^v as it does with the wrap, the machine joins the two windows into the exact run modulo 2^w p^v,
-// and an xor, the 2-adic crystal's alone, breaks modulo 3.
+// and an xor, the 2-adic crystal's alone, breaks modulo 3. The test is one job on the device's tessera daemon,
+// submitted before its first device work.
 #include "cycle.h"
 #include "keymath.h"
 #include "key_schedule.h"
 #include "scriptura.h"
 #include "exact_integer.h"
+#include "sim.h"
 
 #include <cuda_runtime.h>
 
@@ -41,6 +43,9 @@
 #define COHERENCE_TEST_WIDTHS 6u
 
 #define COHERENCE_TEST_LANES 4096u
+
+// the most the test puts on the device at once: a program's atoms and records, under 32 words a lane
+#define COHERENCE_TEST_DECLARED ((unsigned long long)COHERENCE_TEST_LANES * 32ull * sizeof(unsigned int))
 
 static const unsigned int s_coherence_widths[COHERENCE_TEST_WIDTHS] = {5u, 8u, 13u, 16u, 31u, 32u};
 
@@ -159,7 +164,7 @@ static void coherence_run(CoherenceLoaded *loaded, const unsigned int *atoms, un
     const unsigned int in_limbs = loaded->layout.in_limbs[0];
     const unsigned int out_limbs = loaded->layout.out_limbs;
     const CycleRecordHostRequest host = {&loaded->layout, {atoms, NULL, NULL}, {count, 0ull, 0ull}, NULL, count,
-                                         host_out};
+                                         host_out, &loaded->error};
     *host_ran = cycle_record_run_host(&host) != CYCLE_REFUSED;
     unsigned int *device_atoms = NULL;
     unsigned int *device_record = NULL;
@@ -823,7 +828,7 @@ static void coherence_orthogonal(CoherenceTally *tally)
     free(program);
 }
 
-int main(void)
+int main(int count, char **arguments)
 {
     CoherenceTally tally;
     tally.checks = 0ull;
@@ -835,10 +840,21 @@ int main(void)
     {
         return 2;
     }
-    coherence_programs(&tally);
-    coherence_broken(&tally);
-    coherence_odd_divisors(&tally);
-    coherence_orthogonal(&tally);
+    char job_room[SIM_LINE_ROOM];
+    SimTally job;
+    sim_open(&job, job_room);
+    const int admitted = sim_job_submit(&job, "record_coherence_test", count, arguments, COHERENCE_TEST_DECLARED);
+    if (admitted != 0)
+    {
+        coherence_programs(&tally);
+        coherence_broken(&tally);
+        coherence_odd_divisors(&tally);
+        coherence_orthogonal(&tally);
+    }
+    sim_job_release(&job);
+    sim_flush(&job);
+    coherence_check(&tally, (admitted != 0) && (job.failures == 0ull),
+                    "tessera: the device's daemon admits the test's job and it releases");
     scriptura_text(&tally.line, "  record coherence test: ");
     scriptura_decimal(&tally.line, tally.checks, 1u);
     scriptura_text(&tally.line, " checks, ");
