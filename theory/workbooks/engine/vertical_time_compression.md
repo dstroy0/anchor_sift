@@ -60,7 +60,7 @@
 
 ## Proved and measured
 
-- **The stack test** (`test/record_bitwise_test`). 700 floors of one round each, over four 32-bit words: xor, and, sum, xor with the floor's constant, and a 32-bit wrap.
+- **The stack test** (`test/engine/record_bitwise_test`). 700 floors of one round each, over four 32-bit words: xor, and, sum, xor with the floor's constant, and a 32-bit wrap.
   - 4,204 steps, one program, register reuse on, an 8-limb file.
   - On 1,024 lanes the device equals the host word for word. Both equal the same rounds run on the CPU's own 64-bit two's complement at every tapped floor.
 - **Stacked against chained.** The same 700 floors, run as one program of 4,204 steps (a 12-limb file) and as 700 programs of 13 steps. Each chained sweep reads the previous sweep's records from device memory. RTX 3070, the second sweep of each timed:
@@ -130,7 +130,7 @@ Doug's (24 September): a second tower stacked over the first one's boundary, inv
   - The residue is no wider than the mask, k bits, by the never-negative width rule (3).
 - **T and T⁻¹ are stacks of record floors.** Every step of a lifting level is a sum, a difference, a constant or that floor division. A level is a floor of the record machine, L levels are L floors, and the inverse is L more.
 - **The operation tower over the crystal.** A program F that reads the crystal's lifted floors, and the inverse T⁻¹ that brings them back, compose into one stack F ∘ T⁻¹ by the regrouping law (1). No step between them leaves the lane, and T⁻¹ ∘ T is the identity on the machine exactly.
-- **Proved** (`test/record_bitwise_test`): one 5/3 level over 8 signed 16-bit samples and its inverse, 129 steps as one program, register reuse on, a 12-limb file, 4,096 lanes of edge-shaped samples.
+- **Proved** (`test/engine/record_bitwise_test`): one 5/3 level over 8 signed 16-bit samples and its inverse, 129 steps as one program, register reuse on, a 12-limb file, 4,096 lanes of edge-shaped samples.
   - The device equals the host word for word.
   - The forward floor's 4 lows and 4 highs equal tower.cu's formulas, computed on the CPU, on every lane.
   - The inverse floor returns all 8 samples exactly on every lane.
@@ -163,7 +163,7 @@ Doug's (24 September): a second tower stacked over the first one's boundary, inv
   - The file stays far below the samples read. The count of samples read is not a bound on the file.
   - Depth-first is one order among many, and the order with the smallest file is not known here. Finding the smallest register file for a program without recomputation is NP-complete in general (Sethi, "Complete register allocation problems", SIAM J. Comput. 4, 1975).
 - **Widths across levels.** Derived.
-  - **The constant-divisor narrowing** (Anchor_sift, 24 September). keymath gives a quotient or exact quotient whose divisor is a constant c the dividend's width less ⌊log2 c⌋ bits, never under 1. The engine's quotient rounds toward zero and the exact quotient does not round: |q| ≤ |v|/c < 2^{w − ⌊log2 c⌋} for a w-bit dividend. The floor toward −∞ belongs to the lifting's composite of an and, a difference and an exact quotient, never to one operation. The exact quotient now works at its numerator's width and checks q · c against the whole numerator. **Proved** (`test/record_divide_test`, 19 checks, 0 failed): 40-bit factors times 3, 12 and 2^32 + 7 divide back exactly, a 64-bit value over 2^32 + 7 equals the library's quotient, and the widths are exactly the rule's.
+  - **The constant-divisor narrowing** (Anchor_sift, 24 September). keymath gives a quotient or exact quotient whose divisor is a constant c the dividend's width less ⌊log2 c⌋ bits, never under 1. The engine's quotient rounds toward zero and the exact quotient does not round: |q| ≤ |v|/c < 2^{w − ⌊log2 c⌋} for a w-bit dividend. The floor toward −∞ belongs to the lifting's composite of an and, a difference and an exact quotient, never to one operation. The exact quotient now works at its numerator's width and checks q · c against the whole numerator. **Proved** (`test/engine/record_divide_test`, 19 checks, 0 failed): 40-bit factors times 3, 12 and 2^32 + 7 divide back exactly, a 64-bit value over 2^32 + 7 equals the library's quotient, and the widths are exactly the rule's.
   - With it, keymath gives a high of 16-bit samples 18 bits and a low 20. Each level adds 4 bits to a low: 16, 20, 24, 28, and 40 at level 6, two limbs. Before it, 7 bits a level: 23, 30, and 58 at level 6. The proved program's file is 12 limbs under either rule.
   - The values grow far less. The low's linear part is (−1, 2, 6, 2, −1)/8 over x_{2i−2} to x_{2i+2}, with Σ|c| = 1.5. Its floors add less than 3/4.
   - Over samples |x| ≤ B: |s| ≤ 1.5B + 1 and |d| ≤ 2B. The edge cases (a line of 2 or 3, either end) repeat a neighbor and keep Σ|c| ≤ 1.5 for a low and 2 for a high.
@@ -220,7 +220,7 @@ Doug's (24 September): the bottom boundary of the inverted tower and the bottom 
 - **Never touching, literally.**
   - T's floor 0 is the atom: fields in the record, in device memory, which field steps read.
   - T⁻¹'s floor 0 is registers in the file, written by steps and put into the output record.
-  - **Proved** (`test/record_bitwise_test`): on 4,096 lanes the rebuilt samples equal the input fields, value for value. They are never the same register. One side lives in the record read, the other in the file and the record written.
+  - **Proved** (`test/engine/record_bitwise_test`): on 4,096 lanes the rebuilt samples equal the input fields, value for value. They are never the same register. One side lives in the record read, the other in the file and the record written.
 - **T is a bijection.** Derived.
   - Each lifting step adds to one half of the line a function of the other half only. The highs subtract a floored prediction made from the evens, then the lows add a floored update made from the highs.
   - A step (a, b) ↦ (a, b − P(a)) is undone by (a, c) ↦ (a, c + P(a)) for any function P, floors included: the same value comes back off.
@@ -373,7 +373,7 @@ Derived.
 - **The smallest file.** An order of the lifting's steps with a smaller file than depth-first, or a proof that none exists.
 - **F ∘ T⁻¹ in D axes.** The bound on its distance from the linear F ∘ W⁻¹, and any particular F that runs through T⁻¹ in fewer steps than the two apart.
 - **Operations that commute with T.** Which operations on the lifted floors, edges included, commute with T, and run on the samples with no lifting.
-- **The heap and the wrap at the mirror as tests.** The scratch runs committed as tests, and the heap tabled under the narrowed widths. **Proved** since: `test/record_boundary_test` (41 checks, 0 failed, cell_tracking main de5bdff) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring was ring_0 + 6(n − n/2^ℓ) at floor ℓ under the widths then (ring_0 + n + 2(n − n/2^ℓ) for ℓ ≥ 1 under keymath's linear forms, 25 September) and one bit wider for each wrapped low at its mirror, and the pinch orders the four classes; the ring derived in [two_crystals.md](two_crystals.md).
+- **The heap and the wrap at the mirror as tests.** The scratch runs committed as tests, and the heap tabled under the narrowed widths. **Proved** since: `test/engine/record_boundary_test` (41 checks, 0 failed, cell_tracking main de5bdff) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring is ring_0 + 6(n − n/2^ℓ) at floor ℓ and one bit wider for each wrapped low at its mirror, and the pinch orders the four classes; the ring derived in [two_crystals.md](two_crystals.md).
 - **The oval.** Which shape it is, the heap's hourglass or the gap between heap and ring, is Doug's call.
 - **The lens.** Whether a ladder of lenses comes closer to K on a named class of lanes, and what "tetrated resources" measures.
 - **The whole crystal as one stack.** The proof above is one level along one line. All levels along all four axes as record floors, against tower.cu's own crystal, is not built.

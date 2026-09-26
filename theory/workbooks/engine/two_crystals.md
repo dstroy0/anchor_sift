@@ -35,7 +35,7 @@ Derived.
 
 ## Proved: the coherence test
 
-**Proved** (`test/record_coherence_test`, 9 checks, 0 failed, cell_tracking main 46b8018; 14 checks, 0 failed, at de5bdff, with the odd crystals below).
+**Proved** (`test/engine/record_coherence_test`, 9 checks, 0 failed, cell_tracking main 46b8018; 14 checks, 0 failed, at de5bdff, with the odd crystals below).
 
 - **The programs.** 16 random programs of 10 operations. Each operation is drawn from the five and reads two values from among the 4 signed 24-bit fields and the operations before it. A program has at most 2 products, and its last operation reads the one before it. The widest exact register is 73 bits.
 - **The lanes.** 4,096 lanes for each program. Each field is 0, −1, the most negative or the most positive 24-bit value, 1, or random (random 3 times in 8).
@@ -71,7 +71,7 @@ Derived. An operation G factors through π_w when WRAP(G(x), w) is a function of
   WRAP(v / c, w) = WRAP(WRAP(v, w) · (c⁻¹ mod 2^w), w)
 
   Both sides are π_w(v · c⁻¹). At 8 bits with v = 150 and c = 3: c⁻¹ mod 256 = 171, and (−106) · 171 = −18,126 ≡ 50 mod 256.
-- **Proved** (`test/record_coherence_test`, its third part). c = 3, 7 and 12345, and v = PRODUCT(u, c) for a signed 24-bit field u, on the same inputs.
+- **Proved** (`test/engine/record_coherence_test`, its third part). c = 3, 7 and 12345, and v = PRODUCT(u, c) for a signed 24-bit field u, on the same inputs.
   - At the six widths, WRAP(EXACT_QUOTIENT(v, c), w) and WRAP(PRODUCT(WRAP(v, w), CONSTANT(c⁻¹ mod 2^w)), w) both equal WRAP(u, w).
   - 73,728 of 73,728 lane-widths agree (3 divisors × 4,096 lanes × 6 widths). The device equals the host.
   - The host's c⁻¹ is Newton's iteration in a 32-bit word, four rounds from x = c.
@@ -155,7 +155,7 @@ Derived.
 
 ## The boundary: the crystal measured on itself
 
-**Proved** (`test/record_boundary_test`, 41 checks, 0 failed, cell_tracking main de5bdff; 48 checks, 0 failed, at 24b2785, with the identity by null permutation in "Doug's posits"). A 5/3 tower T of L = 4 levels over n = 64 signed 24-bit samples runs as record floors. Each floor shift is three record steps: an AND with 2^k − 1, a DIFFERENCE, then EXACT_QUOTIENT by 2^k. The crystal is in Mallat order: the level-4 lows first, then the highs of levels 4 down to 1. Every program runs on the device and the host, and the records agree word for word.
+**Proved** (`test/engine/record_boundary_test`, 41 checks, 0 failed, cell_tracking main de5bdff; 48 checks, 0 failed, at 24b2785, with the identity by null permutation in "Doug's posits"). A 5/3 tower T of L = 4 levels over n = 64 signed 24-bit samples runs as record floors. Each floor shift is three record steps: an AND with 2^k − 1, a DIFFERENCE, then EXACT_QUOTIENT by 2^k. The crystal is in Mallat order: the level-4 lows first, then the highs of levels 4 down to 1. Every program runs on the device and the host, and the records agree word for word.
 
 - **T's matrix.** The test builds 2^12·M, column i the image of 2^12·e_i under T, and the same for T⁻¹. On multiples of 2^12 every floor is exact and the +2 offset drops out: M is T's linear part, with entries in ℤ[1/2].
 - **The reach, per band.** A row's reach is 12 less the least 2-adic valuation of its entries. T's matrix reaches 12 bits from the level-4 lows, and 10, 7, 4 and 1 from the highs of levels 4, 3, 2 and 1: 3L at the lows and 3ℓ − 2 at the level-ℓ highs, the counts derived above. T⁻¹'s matrix reaches 6 = L + 2.
@@ -189,7 +189,7 @@ Derived.
 
 ## The top projection and its limit ℝ
 
-**Proved** (`test/record_boundary_test`). The top projection τ_k(x) = x / 2^k toward zero, the machine's QUOTIENT by a power of two, keeps the top of the window where π_w keeps the bottom. (k, c) = (3, 3), (7, 5) and (5, 12,345), 65,536 lanes each, 196,608 in all, x and y random signed 24-bit fields.
+**Proved** (`test/engine/record_boundary_test`). The top projection τ_k(x) = x / 2^k toward zero, the machine's QUOTIENT by a power of two, keeps the top of the window where π_w keeps the bottom. (k, c) = (3, 3), (7, 5) and (5, 12,345), 65,536 lanes each, 196,608 in all, x and y random signed 24-bit fields.
 
 - Nested quotients commute, every quotient toward zero: τ_k(x) / c = τ_k(x / c) on 196,608 of 196,608.
 - A COMPARE through τ_k is never reversed: on every lane τ_k(x) against τ_k(y) is a tie or the order of x against y. **Measured:** 4 ties.
@@ -208,7 +208,7 @@ Derived.
 
 ## The odd crystals
 
-**Proved** (`test/record_coherence_test`, its last part, 14 checks in all, 0 failed, de5bdff). The moduli m = 243, 59,049, 625 and 343 (3^5, 3^10, 5^4 and 7^3). 16 ring-only programs of SUM, DIFFERENCE and PRODUCT, 4,096 lanes each.
+**Proved** (`test/engine/record_coherence_test`, its last part, 14 checks in all, 0 failed, de5bdff). The moduli m = 243, 59,049, 625 and 343 (3^5, 3^10, 5^4 and 7^3). 16 ring-only programs of SUM, DIFFERENCE and PRODUCT, 4,096 lanes each.
 
 - Three reckonings agree on 262,144 of 262,144 lane-moduli: REMAINDER by m of the exact run; the run with every step reduced by REMAINDER by m; the host's arithmetic mod m. REMAINDER carries the numerator's sign, and each is read mod m.
 - The CRT join y_2 + 2^8·(((y_p − y_2)·2^{−8}) rem m), with y_2 the run mod 2^8 and y_p the run mod m, equals the exact run mod 2^8·m on 262,144 of 262,144.
@@ -699,7 +699,7 @@ Cited; both pages read, and only what they state is given.
   - The procedure. Run T on the samples x and on d null draws σ_1 x, …, σ_d x, each σ_i a uniform random shuffle of the samples: A12's drawn null in [engine_table.md](engine_table.md). A lane is identified when its crystal's heap stands strictly below every draw's.
   - Derived. A shuffle keeps every value, the histogram and the count, and changes the arrangement only. x and its draws share one multiset of values, and any gap between T(x)'s heap and the draws' heaps reads arrangement alone. T keeps the count exactly (det M = 1, Haar counted): the gap is not T gaining or losing volume.
   - Derived. Under the null that x's arrangement is itself a uniform shuffle, x and the d draws are exchangeable, and the chance that x's heap stands strictly below all d draws is at most 1/(d + 1) (Hope 1968). This is A12's false-period rate, carried over.
-  - **Proved** (`test/record_boundary_test`, 48 checks, 0 failed, cell_tracking main 24b2785). d = 8 Fisher–Yates shuffles a lane from the test's seeded generator, 256 lanes a class, the ID the crystal's total heap, the four classes of "The boundary". A shuffle keeps the samples' heap exactly, on every draw. Noise is identified no more often than 256/9 plus 5 standard deviations of the binomial count, and each structured class is identified past that bound.
+  - **Proved** (`test/engine/record_boundary_test`, 48 checks, 0 failed, cell_tracking main 24b2785). d = 8 Fisher–Yates shuffles a lane from the test's seeded generator, 256 lanes a class, the ID the crystal's total heap, the four classes of "The boundary". A shuffle keeps the samples' heap exactly, on every draw. Noise is identified no more often than 256/9 plus 5 standard deviations of the binomial count, and each structured class is identified past that bound.
   - **Measured:** lanes identified, with the lane's crystal heap over the draws' mean in brackets: ramp 256 of 256 (0.13), ramp ±8 256 of 256 (0.33), ramp ±1,024 254 of 256 (0.73), noise 21 of 256 (1.00).
   - The claim is the rate, not every lane. The null bounds how often noise is identified; it promises nothing for any one structured lane. Two shallow ramps under ±1,024 were not identified: their noise swamps the slope, and their shuffles have little arrangement to destroy. A first form of the check asserted every structured lane and failed on those two.
   - **One to one** (Doug: "unique", not bit to bit; "change one bit and the permutation fails"). **Proved** in the same test.
@@ -729,10 +729,10 @@ Cited; both pages read, and only what they state is given.
 
 - **The anchors** (above).
 - **The counts in D axes.** The reaches 3ℓ and 3ℓ − 2 for T and L + 2 for T⁻¹ are proved exact along one line ("The boundary"). In D axes they are open.
-- **The precision count as a test.** Proved since: `test/record_boundary_test` flips input bits and meets the reach 3L on the device ("The boundary").
+- **The precision count as a test.** Proved since: `test/engine/record_boundary_test` flips input bits and meets the reach 3L on the device ("The boundary").
 - **A table by the residue.** A table indexed by x mod 2^b in two's complement factors through π_w for w ≥ b. It is not built.
-- **Operations that commute with T** ([vertical_time_compression.md](vertical_time_compression.md)), now on ℤ₂^n as on ℤ^n. `test/record_boundary_test` proves that constants and lattice moves in 2^{3L}ℤ^n pass through T, and that negation and doubling do not. The general question is open.
-- **The fingerprint's counts.** **Proved** since: `test/record_boundary_test` at 24b2785 (Doug's posits, above). The fingerprint per band, not only the total heap, is open.
+- **Operations that commute with T** ([vertical_time_compression.md](vertical_time_compression.md)), now on ℤ₂^n as on ℤ^n. `test/engine/record_boundary_test` proves that constants and lattice moves in 2^{3L}ℤ^n pass through T, and that negation and doubling do not. The general question is open.
+- **The fingerprint's counts.** **Proved** since: `test/engine/record_boundary_test` at 24b2785 (Doug's posits, above). The fingerprint per band, not only the total heap, is open.
 - **The knf's agreement as a test** (Doug's posits, above). The knf's identity by spatial null is built and run (`knf_identity`, e4eae72). The pairwise test, one body's departure curve against another's, is not built.
 - **The two nulls' gap.** Whether 1 − (inside + between) measures shared membership at scale b (Anchor_sift's reading) is not proved.
 - **`record_order_test`** ("The ordered machine"). **Proved** since: 17 checks, 0 failed.
