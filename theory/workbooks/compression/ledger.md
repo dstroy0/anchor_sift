@@ -1,11 +1,11 @@
 # Ledger
 
 **Purpose:** Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled, so no result is taken twice and none is quoted without its run.
-**Scope:** runs of the .iapx codec, its variants, and the measurements of the floor it answers to. Samples are named by their id; "the 25" means the first 25 44b6 training samples by name.
+**Scope:** runs of the .kcr codec, its variants, and the measurements of the floor it answers to. Samples are named by their id; "the 25" means the first 25 44b6 training samples by name.
 
 ## 2026-09-21
 
-### The .iapx codec
+### The .kcr codec
 
 | what | samples | result | settles |
 |---|---|---|---|
@@ -13,7 +13,7 @@
 
 ### The residue's floor: radix around a line, rotation, spiral
 
-Stream sizes against the residue as the .iapx writes it, sample 44b6_0113de3b, 340,189,016 bytes. Every alternative was decoded back and checked.
+Stream sizes against the residue as the .kcr writes it, sample 44b6_0113de3b, 340,189,016 bytes. Every alternative was decoded back and checked.
 
 | what | result | settles |
 |---|---|---|

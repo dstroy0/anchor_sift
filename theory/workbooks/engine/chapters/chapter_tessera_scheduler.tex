@@ -15,9 +15,9 @@
 \item The byte budget is a request field. The engine chooses no share, so schedule.cu's free/3·2 goes.
 \item One arbiter per host and device: “daemon or systemd on linux that self tears down/knocks up, single win pid, single docker hook ... this shit is getting deployed onto SaN”.
 \item Clients reach it over a local socket.
-\item It measures each process's device memory by pid, “with periodic dead sweeps ... otherwise itll leak over time and lock down memory that is never used”. Stale tickets “get dumped to lostandfound”.
+\item It measures each process's device memory by pid, “with periodic dead sweeps ... otherwise itll leak over time and lock down memory that is never used”. Stale tickets “get dumped to lostandfound” (now \texttt{hst/\allowbreak{}lnf.\allowbreak{}log}).
 \item “caller declares, we measure, they overbudget it could be for a reason we ask they can override, they underbudget we grow and report via warn so accounting isnt perturbed”.
-\item Over budget is judged at admission, against the last measured peak of the job's signum. An over-budget job is not thrown away: “it goes into holding before stalling and dumping to lostandfound”.
+\item Over budget is judged at admission, against the last measured peak of the job's signum. An over-budget job is not thrown away: “it goes into holding before stalling and dumping to lostandfound” (now \texttt{hst/\allowbreak{}lnf.\allowbreak{}log}).
 \item Times (the holding time, the sweep and the idle time) are per-job fields.
 \end{itemize}
 
@@ -85,7 +85,7 @@ is kept under its signum σ\_\allowbreak{}j, the BLAKE3 root of its request. The
 \item After every change it runs admission and tells each admitted client.
 \item It keeps each process's identity: a handle on Windows, a pidfd on Linux. A reused pid can never pass for the old process.
 \end{itemize}
-\item \textbf{Its files} live in a state directory per device: the history (signum, peak, duration), sealed with the host BLAKE3; and \texttt{lostandfound/\allowbreak{}<identity>-\allowbreak{}<signum>/\allowbreak{}}, holding the ticket and the precalc the client writes there.
+\item \textbf{Its files} live in a state directory per device. The lock is \texttt{tessera.\allowbreak{}lock}. The rest sit under \texttt{hst/\allowbreak{}}: the history \texttt{hst/\allowbreak{}head.\allowbreak{}log} (signum, peak, duration), sealed with the host BLAKE3; \texttt{hst/\allowbreak{}tail.\allowbreak{}log}, the copy each save writes before it renames it over \texttt{hst/\allowbreak{}head.\allowbreak{}log}; and \texttt{hst/\allowbreak{}lnf.\allowbreak{}log}, one append-only file of sealed blocks, each a lost job's ticket or the note a client sends when it keeps that job's precalc.
 \end{itemize}
 
 \section{\texorpdfstring{One daemon per host}{One daemon per host}}
@@ -112,15 +112,15 @@ is kept under its signum σ\_\allowbreak{}j, the BLAKE3 root of its request. The
 \item If a job overruns its expected end, the head's shadow moves later. That is measured and reported like a growth, never hidden.
 \end{itemize}
 \item \textbf{Time: the soonest change is the root.} Doug: “what I want is the shortest time to change of anything to be the root because that is most likely event, in order”. Every deadline goes into one min-heap keyed by the time until it changes something: each live job's next sweep, each held job's holding expiry, the idle teardown. The daemon waits on its socket for at most the root's remaining time, handles the root, pushes that item's next deadline and takes the new root. Events are handled strictly in time order, and nothing is polled on a fixed tick. The shortest sweep among live jobs falls out of the heap without being chosen.
-\item \textbf{Lost and found keeps the work.} When a held job stalls past its holding time, the daemon tells the client. The client writes its precalc into lost and found beside the ticket (signum, pid, start time, declared, peak, times, reason), which is sealed, so the job can be resumed rather than recomputed.
+\item \textbf{Lost and found keeps the work.} When a held job stalls past its holding time, the daemon appends its ticket (identity, signum, pid, declared, peak, measured, times, reason) to \texttt{hst/\allowbreak{}lnf.\allowbreak{}log} as a sealed block and tells the client, with the log's path. The client keeps its precalc and says so; the daemon then appends a sealed note for that identity. The job can be resumed and not recomputed.
 \end{itemize}
 
 \textbf{The seal (24 September).} The seal is \texttt{obsignatio\_\allowbreak{}seal}, BLAKE3 keyed at the file level (\texttt{OBSIGNATIO\_\allowbreak{}LEVEL\_\allowbreak{}FILE}), and it runs on the host, so the daemon still makes no CUDA call and holds no device context.
 
 \begin{itemize}
-\item \textbf{The history file} is its records, 48 bytes each (the 32-byte signum, then the peak and the duration, 8 bytes each), followed by a 32-byte seal over them. The save builds the whole file, seals it, writes it as \texttt{history.\allowbreak{}fresh} and renames it over the history. Each failure on the way (the allocation, the seal, the open, the write, the close, the rename) is printed on stderr. The call sites still don't branch on the save's result, but a failed save is never silent.
+\item \textbf{The history file} is its records, 48 bytes each (the 32-byte signum, then the peak and the duration, 8 bytes each), followed by a 32-byte seal over them. The save builds the whole file, seals it, writes it whole as \texttt{hst/\allowbreak{}tail.\allowbreak{}log} and renames it over \texttt{hst/\allowbreak{}head.\allowbreak{}log}. Each failure on the way (the allocation, the seal, the open, the write, the close, the rename) is printed on stderr. The call sites still don't branch on the save's result, but a failed save is never silent.
 \item \textbf{The load} refuses a history shorter than the seal, one whose length less the seal is not a whole number of records (a short tail, or a file with no seal), and one whose seal does not hold. It names the file and the daemon exits. A missing history is a fresh start.
-\item \textbf{A ticket} is its text, then a last line \texttt{seal <64 hex digits>} sealing every byte above it. A note, such as “precalc kept”, goes in only when the ticket's seal holds, and the ticket is then sealed again. A ticket whose seal is broken takes no note, and the precalc kept is not answered.
+\item \textbf{A ticket} is one block of \texttt{hst/\allowbreak{}lnf.\allowbreak{}log}: its text, starting \texttt{identity <16 hex digits>}, then a last line \texttt{seal <64 hex digits>} sealing every byte of the block above it. A note, such as “precalc kept”, is appended as its own sealed block that starts \texttt{identity <16 hex digits>} and then the note text. It goes in only when the log holds a ticket of that identity whose seal holds. A job whose ticket's seal is broken takes no note, and the precalc kept is not answered.
 \end{itemize}
 
 That was the gap before this date: the history was raw records and the ticket plain text. A damaged history of whole records read without complaint, a short tail was dropped silently, and a failed save went unreported.
@@ -131,7 +131,31 @@ The daemon opens its ledger and loads its history before it makes any endpoint: 
 
 A program's driver runs every job through tessera, one job a part. Its signum, its declaration, its parts and its runs are the program's, in the cell book (on\_\allowbreak{}the\_\allowbreak{}engine.md). Its times are 2 s holding, 20 ms sweep and 5 s idle.
 
-Two proves of one crystal in a row, each declared and granted 838,860,800 bytes, peaked at 3,958,566,912 and 3,962,761,216. Anchor\_\allowbreak{}sift's run on the real state gave the same declarations, with the two prove peaks in the other order.
+\begin{itemize}
+\item \textbf{The signum} is the BLAKE3 hash of the part's name, a NUL, and the whole effective request; a changed setting is a new signum.
+\item \textbf{The declaration} is the largest sample's lattice in 16-bit lanes. For \texttt{-\allowbreak{}-\allowbreak{}ingest} it comes from the source's description (\texttt{engine\_\allowbreak{}source\_\allowbreak{}lanes}, which reads no voxel); for every other part, from the \texttt{.\allowbreak{}kcr} head.
+\item \textbf{The times} are 2 s holding, 20 ms sweep and 5 s idle.
+\item \textbf{The daemon} is \texttt{tessera\_\allowbreak{}daemon} beside the driver, which the driver starts when none answers.
+\item \textbf{A part fails} if its job is not taken, or is held and lost; \texttt{-\allowbreak{}-\allowbreak{}override} admits a held job on its declaration.
+\end{itemize}
+
+Measured on 44b6\_\allowbreak{}0113de3b, in a scratch state directory:
+
+{\small
+\setlength{\tabcolsep}{6pt}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3185\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3301\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3514\linewidth-2\tabcolsep\relax}}
+\toprule
+run & declared and granted & peak measured \\
+\midrule
+\endhead
+\texttt{-\allowbreak{}-\allowbreak{}ingest} & 838,860,800 & 5,091,037,184 \\
+\texttt{-\allowbreak{}-\allowbreak{}run kcr-\allowbreak{}prove} & 838,860,800 & 3,958,566,912 \\
+\texttt{-\allowbreak{}-\allowbreak{}run kcr-\allowbreak{}prove} again & 838,860,800 & 3,962,761,216 \\
+\bottomrule
+\end{longtable}
+}
+
+The history then held two records and the seal (128 bytes), and the daemon ended once idle. Anchor\_\allowbreak{}sift's run on the real state gave the same declarations and ingest peak, with the two prove peaks in the other order.
 
 Two findings, both measured:
 

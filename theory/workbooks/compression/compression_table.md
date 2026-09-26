@@ -124,7 +124,7 @@ Shot noise has variance proportional to the level: variance / mean constant. Her
 | the same, empirical counts of the residual from the 100-frame mean, per σ bin | 7.687 | 48.0% |
 | one frame alone, residual from the mean of 4 neighbours, order 0 (uses neighbours on both sides, so not a code length a coder can spend; a reference only) | 6.287 | 39.3% |
 | shot-limited floor, first estimate: variance = 1.22 × level at every decile, the gain read from the dimmest decile | about 6.00 | about 37.5% |
-| the stream as the `.iapx` wrote it | 6.49 | 40.6% |
+| the stream as the `.kcr` wrote it | 6.49 | 40.6% |
 
 The first estimate left two things open, the dark offset and whether the gain holds at every level. The next two passes settle both.
 
@@ -157,7 +157,7 @@ The bright excess is structure: the difference's correlation with its neighbour 
 | less the neighbour, best axis, plain | C5, C1 | 6.008 | 37.6% |
 | less the x neighbour, robust | C5, C8, C1 | 5.979 | 37.4% |
 | **the shot line, 1.162 × level + 2.46, at every voxel-frame's level (F4)** | **C7 fitted through C5, then C1** | **5.902** | **36.9%** |
-| the stream as the `.iapx` wrote it; its gap to F4 | C9 | 6.49 | 40.6% |
+| the stream as the `.kcr` wrote it; its gap to F4 | C9 | 6.49 | 40.6% |
 
 **What it says.** One frame of 44b6_0113de3b, given everything else, costs 5.90 bits a voxel: shot noise at gain 1.162 and read noise near 1.6, with every other change in the frame spatially coherent and so structure. The stream spends 6.49, 0.59 bits a voxel above it: 3.7 points of raw, about 310 KB a frame (4,194,304 voxels), 30.9 MB over the sample. That is what the functionals can still take on this sample. The shot line is taken as holding above level 300, where it cannot be read through the structure; a camera whose noise departs from shot there would move the floor up.
 
@@ -241,8 +241,8 @@ It replaces the Rice coder's fixed block, k and escape (the audit's debts) with 
 
 | set | samples | raw (F0) | crystal | of raw | seal's share | floor | gap | status | next |
 |---|---|---|---|---|---|---|---|---|---|
-| **Cell tracking, 44b6** | the 25 (first 25 44b6 training samples by name), 100 × 64 × 256 × 256 u16 each | 20,971,520,000 bytes | 8,809,343,524 bytes as `.iapx` (21 September, CRC era, before the seal) | 42.0% | not in these (CRC-64, 8 bytes a sample) | F4 38.9% (6.229 bits a voxel), the mean of the 25 measured one by one (above); F1 to F3 not measured | 3.1 points of raw: 0.492 bits a voxel, about 645 MB (C9) | measured, proved lossless (25 of 25 rebuilt, set CRC `091daa41e1aceb7e`) | Re-ingest the 25 as `.kcr` and take the size with the seal. Measure F2 per floor on 44b6_0113de3b first. |
-| **Cell tracking, 44b6_0113de3b alone** | 1 | 838,860,800 bytes | stream 340,189,016 bytes as the `.iapx` wrote it (21 September) | 40.6% for the stream alone (6.49 bits a voxel) | none | F4 5.902 bits a voxel, 36.9% (shot line 1.162 × level + 2.46, structure removed by local coherence); bits 0 to 5 carry no linear generator (measured) | 3.7 points of raw: 0.59 bits a voxel, about 310 KB a frame, 30.9 MB over the sample | measured | F2 on the stream, so the Rice coder's share of the 0.59 is known. Then the stream variants in the next table. |
+| **Cell tracking, 44b6** | the 25 (first 25 44b6 training samples by name), 100 × 64 × 256 × 256 u16 each | 20,971,520,000 bytes | 8,809,343,524 bytes as `.kcr` (21 September, CRC era, before the seal) | 42.0% | not in these (CRC-64, 8 bytes a sample) | F4 38.9% (6.229 bits a voxel), the mean of the 25 measured one by one (above); F1 to F3 not measured | 3.1 points of raw: 0.492 bits a voxel, about 645 MB (C9) | measured, proved lossless (25 of 25 rebuilt, set CRC `091daa41e1aceb7e`) | Re-ingest the 25 as `.kcr` and take the size with the seal. Measure F2 per floor on 44b6_0113de3b first. |
+| **Cell tracking, 44b6_0113de3b alone** | 1 | 838,860,800 bytes | stream 340,189,016 bytes as the `.kcr` wrote it (21 September) | 40.6% for the stream alone (6.49 bits a voxel) | none | F4 5.902 bits a voxel, 36.9% (shot line 1.162 × level + 2.46, structure removed by local coherence); bits 0 to 5 carry no linear generator (measured) | 3.7 points of raw: 0.59 bits a voxel, about 310 KB a frame, 30.9 MB over the sample | measured | F2 on the stream, so the Rice coder's share of the 0.59 is known. Then the stream variants in the next table. |
 | **RSNA knee, one series, unsigned** | 1 × 34 × 960 × 960 | 62,668,800 bytes | 25,218,496 bytes, sealed `7ac2cb89…12eb2a` | 40.2% | 5.4% of the crystal; 2.1% of raw at 960 columns | not measured | none | proved (rebuilt voxel for voxel, pixel for pixel, node for node) | F2 on it. |
 | **RSNA knee, one series, signed** | 1 × 24 × 640 × 640 | 19,660,800 bytes | 11,319,416 bytes, sealed `3e70b8cb…8d9966` | 57.6% (the engine table rounded it to 57.5%) | in the crystal | not measured | none | proved | Why signed runs 17 points above unsigned: the lift by 2^15 into the u16 lane, or the data itself. Compare F1 on both. |
 | **RSNA knee, test_series** | 15 series, 557 slices (the RSNA session, 23 September) | 599,191,552 bytes | 192,020,272 bytes | 32.0% | in the crystals | not measured | none | measured by the RSNA session: 15 of 15 held; the prove (696 ms) held every seal node; set root `98b25a42…d7af979` | Their train set, 24,371 series, is ingesting now to `E:\rk\train`. Enter its total when it lands. |

@@ -21,7 +21,7 @@ Read right to left, it is the engine's run order:
 | Key(·) | the imprint | the impulse pushed through the program once; `keymath_imprint` | proved |
 | LUT(·) | transform symbols compiled to binary lookup tables | a pointwise step imprinted on its alphabet: every value a lane can hold, pushed through once | built: the record machine's table step (M10, A13 of [engine_table.md](engine_table.md)), proved by `record_table_test` |
 | ⊕ | the discrete bitwise fold over the n limb array | the cycle's fold of every term into each output lane, in two's complement; the CRC's fold of segment registers, one operator a level | proved |
-| Π₋₄ | the zero rounding exact limb indicator, locking out at floor −4 | the proof on the product: the .iapx rebuilt voxel for voxel and by CRC-64 | proved |
+| Π₋₄ | the zero rounding exact limb indicator, locking out at floor −4 | the proof on the product: the .kcr rebuilt voxel for voxel and by CRC-64 | proved |
 
 ## 1. Control plane and data plane
 
@@ -68,14 +68,14 @@ Read right to left, it is the engine's run order:
 
 | claim | status |
 |---|---|
-| the tower read back to the plane with nothing lost | proved: all 25 samples rebuilt voxel for voxel and pixel for pixel from their .iapx |
+| the tower read back to the plane with nothing lost | proved: all 25 samples rebuilt voxel for voxel and pixel for pixel from their .kcr |
 | the floors dissolved into one operation instead of eight floors of steps | theory: the tower still runs floor by floor, four axes a floor |
 
 ## 5. The tower, time stacking, and floor −4
 
 **The idea.** Time is part of the tower: samples enter at the bottom and stack upward, so the time domain is written into the lattice. Every tower has a floor configuration and a master schedule by family of operation. Floor −4 is where the noise bits are at their smallest and become irreducible.
 
-**In the engine.** The .iapx tower lifts t, z, y and x together: time is a lifted axis, not a loop. A whole 100×64×256×256 sample reaches one coefficient in 8 floors. What the program does not generate is every floor's highs, the residue. That residue is held whole and never bounded, modelled or discarded.
+**In the engine.** The .kcr tower lifts t, z, y and x together: time is a lifted axis, not a loop. A whole 100×64×256×256 sample reaches one coefficient in 8 floors. What the program does not generate is every floor's highs, the residue. That residue is held whole and never bounded, modelled or discarded.
 
 **The floor, measured.** The anchor count stacks every frame of a sample and counts, per voxel and per bit, the frames that carry the bit. In every one of the 25 44b6 samples, bits 0 to 4 are set in about 46% of frames at nearly every voxel: those planes carry no anchor, and they look alike in every sample. The anchors sit in bits 6 to 11 and differ between samples. That is the measured floor, and it answers the drafts' "noise bits minimised to their smallest state". It also says why floor −4 is sample bound: no voxel is anchored in every sample.
 
@@ -126,7 +126,7 @@ Read right to left, it is the engine's run order:
 | set | in the engine | status |
 |---|---|---|
 | true coherence | the residual's structure above the medium: bodies and their links | built; a program's links measured in the cell book |
-| the noise key | the residue: every floor's highs, held whole in the .iapx; the anchor counts per bit | proved lossless; measured |
+| the noise key | the residue: every floor's highs, held whole in the .kcr; the anchor counts per bit | proved lossless; measured |
 | the construct kit | the program, its key (.imp), the schedule (.sch) and the configuration (.cfg) | built |
 
 ## 9. The elevator, recursion, identity and entropy
@@ -141,7 +141,7 @@ Read right to left, it is the engine's run order:
 
 | claim | status |
 |---|---|
-| any floor at any time read directly | built: chunked stream with stored offsets; the per chunk decode is proved in every .iapx proof |
+| any floor at any time read directly | built: chunked stream with stored offsets; the per chunk decode is proved in every .kcr proof |
 | keys compose into keys; towers in n dimensions | proved for composed linear keys; the n dimensional lift is built for four axes |
 | identity from coherence, not tags | built: links chosen by coherence; bodies follow links |
 | entropy separates floor −4 from coherence | measured for the low bit planes (near ½, so at H_max); the per voxel Φ map is theory, one read of the anchor counts away |
@@ -242,13 +242,13 @@ The conversation in `subtractive_cosmological_framework.pdf` is a cosmology. Its
 
 ## 17. The floor laid down first, entropy conserved, and the clock as the elevator
 
-**The floor is laid down first.** The noise keys are part of the run's configuration: the `.cfg` carries a `floor` section, written first after the version, naming where each sample's noise keys are held. A run with a floor lays it down before anything else runs. Each sample's entropy history is kept where it reads back whole and was projected from the sample's `.iapx` as it stands, and projected again where not. A run whose floor cannot be laid down stops there.
+**The floor is laid down first.** The noise keys are part of the run's configuration: the `.cfg` carries a `floor` section, written first after the version, naming where each sample's noise keys are held. A run with a floor lays it down before anything else runs. Each sample's entropy history is kept where it reads back whole and was projected from the sample's `.kcr` as it stands, and projected again where not. A run whose floor cannot be laid down stops there.
 
 **Then it accumulates going forward, and entropy is conserved.** The flips accumulate window after window, and each bit's running total is carried to the last frame. Conservation is exact and checked at every voxel in the same pass. Over a voxel's whole line, the flips of a bit have the parity of that bit's net change: an even count where the first and last frames agree in it, odd where they differ. A voxel that breaks it would be a flip counted twice or missed, and the sample is refused.
 
 **The floor's identity, and where steering happened.** With the floor known at every voxel (half the transitions, a coin at maximum entropy; or no transitions at all, the constant region), every departure from it is placed. Where the history leaves the floor is where steering happened, whether a body moved through, the field was driven, or a split or a lysis bumped it. The demon's waveform, which the fluidic draft lets settle on the hot bits, collapses onto exactly those places: the union U | U of every departure from the floor, over every window. Nothing outside it is asked about again.
 
-**The clock is the elevator.** The fluidic draft's elevator E(f, t) reads floor f at time t directly. The clock is that elevator: volumeless and dimensionless, it takes you to any floor as fast as you can press the buttons. In the engine every floor of the tower sits at a known offset and every chunk of the stream decodes on its own from a stored first bit. Every window of the history sits at a known place in its `.oapx`. So any floor at any time is reached directly, without decoding what comes before it.
+**The clock is the elevator.** The fluidic draft's elevator E(f, t) reads floor f at time t directly. The clock is that elevator: volumeless and dimensionless, it takes you to any floor as fast as you can press the buttons. In the engine every floor of the tower sits at a known offset and every chunk of the stream decodes on its own from a stored first bit. Every window of the history sits at a known place in its `.knf`. So any floor at any time is reached directly, without decoding what comes before it.
 
 | claim | status |
 |---|---|

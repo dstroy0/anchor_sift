@@ -17,7 +17,7 @@
 | what | result | settles |
 |---|---|---|
 | the tower undone in the spiral and ratio runs | 180, then 80 voxels differ, each one bit (0x0100, 0x0400) | the code was cleared first: a rerun holding the coefficients found 0 moved |
-| 44b6_0b24845f and 44b6_341df25f, re-proved from their .iapx | one voxel each wrong in the file; the disk, read past the cache, holds the right value | the machine flips single bits in memory under load; both files had been written from a bad cached copy |
+| 44b6_0b24845f and 44b6_341df25f, re-proved from their .kcr | one voxel each wrong in the file; the disk, read past the cache, holds the right value | the machine flips single bits in memory under load; both files had been written from a bad cached copy |
 | fix | every .stack read for ingestion and proof now bypasses the file cache; both samples re-ingested and proved | a cached copy can no longer vouch for itself |
 
 ### The CRC-64 fold
@@ -29,7 +29,7 @@
 
 ### The anchor bits
 
-Per voxel and per bit, the frames of the 100 that carry the bit; the counts were written as .oapx and read back equal.
+Per voxel and per bit, the frames of the 100 that carry the bit; the counts were written as .knf and read back equal.
 
 | what | result | settles |
 |---|---|---|
@@ -43,14 +43,14 @@ Per voxel and per bit, the frames of the 100 that carry the bit; the counts were
 
 | what | samples | result | settles |
 |---|---|---|---|
-| compression split out of the tower: 44b6_0113de3b re-encoded | 44b6_0113de3b | the .iapx byte identical to the one before the split | the coder moved unchanged (proved) |
-| every .iapx decoded by the split coder, from the file alone | the 25 | 25 of 25 hold; set CRC 091daa41e1aceb7e | the decoder moved unchanged (proved) |
-| keymath and key_schedule split out of the cycle: the tracker run | 44b6_0113de3b, 44b6_0b24845f | edges identical; object files identical but for the embedded .cfg | the imprint and the layout moved unchanged (proved) |
+| compression split out of the tower: 44b6_0113de3b re-encoded | 44b6_0113de3b | the .kcr byte identical to the one before the split | the coder moved unchanged (proved) |
+| every .kcr decoded by the split coder, from the file alone | the 25 | 25 of 25 hold; set CRC 091daa41e1aceb7e | the decoder moved unchanged (proved) |
+| keymath and key_schedule split out of the cycle: the tracker run | 44b6_0113de3b, 44b6_0b24845f | edges identical; .vbo/.ibo files identical but for the embedded .cfg | the imprint and the layout moved unchanged (proved) |
 | the residual's key, sized | | weights 1,130 words, 4,520 bytes, plus a 256 byte term table, standing for 268 unit steps a voxel: 112,407,347,200 step applications a sample | a key's size is the program's reach, not its use |
 
 ### The entropy history
 
-Per voxel and per bit, the flips in each window of 11 transitions (9 windows over 100 frames), read from each sample's .iapx; one .oapx a sample, 288 MiB, each read back whole against its CRC-64. Tables in `cell_tracking/logs/entropy/44b6_25.txt`, summarised by `maint/entropy_summary.py`.
+Per voxel and per bit, the flips in each window of 11 transitions (9 windows over 100 frames), read from each sample's .kcr; one .knf a sample, 288 MiB, each read back whole against its CRC-64. Tables in `cell_tracking/logs/entropy/44b6_25.txt`, summarised by `maint/entropy_summary.py`.
 
 | what | samples | result | settles |
 |---|---|---|---|
