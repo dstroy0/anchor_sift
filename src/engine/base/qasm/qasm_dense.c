@@ -200,7 +200,7 @@ static long qasm_dense_two_qubit(QasmDense *state, unsigned int first, const Qas
     return status;
 }
 
-long qasm_dense_apply(QasmDense *state, const QasmGate *gate, EngineError *error)
+long qasm_dense_apply(QasmDense *state, const QasmExactGate *gate, EngineError *error)
 {
     if (error == NULL)
     {
@@ -208,15 +208,15 @@ long qasm_dense_apply(QasmDense *state, const QasmGate *gate, EngineError *error
     }
     const int present = (state != NULL) && (state->amplitudes != NULL) && (gate != NULL);
     const int pair = present
-                  && ((gate->kind == QASM_GATE_CNOT) || (gate->kind == QASM_GATE_CZ)
-                      || (gate->kind == QASM_GATE_CONTROLLED_PHASE));
+                  && ((gate->kind == QASM_EXACT_GATE_CNOT) || (gate->kind == QASM_EXACT_GATE_CZ)
+                      || (gate->kind == QASM_EXACT_GATE_CONTROLLED_PHASE));
     const int numbered = present
-                      && ((gate->kind == QASM_GATE_CONTROLLED_PHASE) || (gate->kind == QASM_GATE_ONE_QUBIT)
-                          || (gate->kind == QASM_GATE_TWO_QUBIT));
-    const int held = present && (gate->kind >= QASM_GATE_X) && (gate->kind <= QASM_GATE_TWO_QUBIT)
+                      && ((gate->kind == QASM_EXACT_GATE_CONTROLLED_PHASE) || (gate->kind == QASM_EXACT_GATE_ONE_QUBIT)
+                          || (gate->kind == QASM_EXACT_GATE_TWO_QUBIT));
+    const int held = present && (gate->kind >= QASM_EXACT_GATE_X) && (gate->kind <= QASM_EXACT_GATE_TWO_QUBIT)
                   && (gate->first < state->qubits) && (!pair || (gate->second < state->qubits))
                   && (!numbered || (gate->numbers != NULL))
-                  && ((gate->kind != QASM_GATE_TWO_QUBIT) || ((gate->first + 1u) < state->qubits));
+                  && ((gate->kind != QASM_EXACT_GATE_TWO_QUBIT) || ((gate->first + 1u) < state->qubits));
     if (QASM_HELD(held, gate, error, ENGINE_ERROR_REQUEST) == 0)
     {
         return QASM_REFUSED;
@@ -226,33 +226,33 @@ long qasm_dense_apply(QasmDense *state, const QasmGate *gate, EngineError *error
     long status = 0L;
     switch (gate->kind)
     {
-        case QASM_GATE_X:
+        case QASM_EXACT_GATE_X:
             qasm_dense_x(state, first);
             break;
-        case QASM_GATE_Y:
+        case QASM_EXACT_GATE_Y:
             qasm_dense_z(state, first);
             qasm_dense_x(state, first);
             qasm_dense_s(state, first);
             break;
-        case QASM_GATE_Z:
+        case QASM_EXACT_GATE_Z:
             qasm_dense_z(state, first);
             break;
-        case QASM_GATE_S:
+        case QASM_EXACT_GATE_S:
             qasm_dense_s(state, first);
             break;
-        case QASM_GATE_H:
+        case QASM_EXACT_GATE_H:
             status = qasm_dense_h(state, first, error);
             break;
-        case QASM_GATE_CNOT:
+        case QASM_EXACT_GATE_CNOT:
             status = qasm_dense_cnot(state, first, second);
             break;
-        case QASM_GATE_CZ:
+        case QASM_EXACT_GATE_CZ:
             qasm_dense_z(state, first | second);
             break;
-        case QASM_GATE_CONTROLLED_PHASE:
+        case QASM_EXACT_GATE_CONTROLLED_PHASE:
             status = qasm_dense_phase(state, first | second, gate->numbers, error);
             break;
-        case QASM_GATE_ONE_QUBIT:
+        case QASM_EXACT_GATE_ONE_QUBIT:
             status = qasm_dense_one_qubit(state, first, gate->numbers, error);
             break;
         default:
