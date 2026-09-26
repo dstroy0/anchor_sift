@@ -32,7 +32,7 @@ extern "C" {
 
 // Loads one sample of a set: its extent (frames, depth, height, width) and its volume, frame by frame, z, y and x
 // within; the volume is the caller's to free. Returns 0, or a negative value with the error filled. The driver passes
-// the engine's crystal loader, and the detector reaches no module but its own.
+// the engine's crystal loader, so the detector reaches no module but its own.
 typedef long (*NoiseLoad)(const char *set, const char *sample, unsigned long long extent[4], unsigned short **volume,
                           EngineError *error);
 
@@ -62,7 +62,7 @@ long noise_flicker_set(const NoiseSetRequest *request);
 // sums squared, written to <set>/noise_planes.tsv; both summarized on stdout
 long noise_lines_set(const NoiseSetRequest *request);
 
-// the five sums each axis and level bin of the neighbor pass holds (noise_vector_integration_table.md, rows 17 and
+// the five sums each axis and level bin of the neighbour pass holds (noise_vector_integration_table.md, rows 17 and
 // 25): the pairs, the squared frame difference, the next voxel's, and their products raised and lowered apart
 #define NOISE_NEIGHBOURS_PAIRS 0u
 
@@ -76,12 +76,12 @@ long noise_lines_set(const NoiseSetRequest *request);
 
 #define NOISE_NEIGHBOURS_SUMS 5u
 
-// the neighbor pass's reaches: the next voxel along z, y and x, then the voxel 2, 4, 8, 16 and 32 planes on along z.
-// An interpolation between neighboring planes leaves every reach past the first uncorrelated; a blur along z fades
+// the neighbour pass's reaches: the next voxel along z, y and x, then the voxel 2, 4, 8, 16 and 32 planes on along z.
+// An interpolation between neighbouring planes leaves every reach past the first uncorrelated; a blur along z fades
 // over its reach; a term every plane of a pixel shares holds at every reach.
 #define NOISE_NEIGHBOUR_REACHES 8u
 
-// every sample's neighbor correlation at each reach, written to <set>/noise_neighbours.tsv and summarized
+// every sample's neighbour correlation at each reach, written to <set>/noise_neighbours.tsv and summarized
 long noise_neighbours_set(const NoiseSetRequest *request);
 
 // the clip pass (noise_vector_integration_table.md, rows 11, 12, 23 and 24): a spike is a frame above both frames
@@ -128,12 +128,12 @@ long noise_pixels_set(const NoiseSetRequest *request);
 // unbiased k-statistics of the second, third and fourth cumulants follow exactly; written to <set>/noise_moments.tsv
 long noise_moments_set(const NoiseSetRequest *request);
 
-// One volume's readings, the numbers each set call prints for a sample. A sim plants a term and reads it back through these.
+// One volume's readings, the numbers each set call prints for a sample, so a sim can plant a term and read it back.
 // The volume and extent are laid out as NoiseLoad gives them. Each returns 0, or NOISE_DETECTOR_REFUSED with the error
 // filled; a reading the volume cannot give is 0.
 
 // each lag's mean square against lag 1's, per mille over means 40 to 199: the frame difference, then it less its x
-// neighbor's
+// neighbour's
 long noise_flicker_volume(const unsigned short *volume, const unsigned long long extent[4],
                           unsigned long long per_mille[NOISE_FLICKER_LAGS],
                           unsigned long long neighbour_per_mille[NOISE_FLICKER_LAGS], EngineError *error);
@@ -163,7 +163,7 @@ long noise_flicker_volume(const unsigned short *volume, const unsigned long long
 long noise_lines_volume(const unsigned short *volume, const unsigned long long extent[4],
                         long long readings[NOISE_PLANE_READINGS], EngineError *error);
 
-// the neighbor correlation at each reach over means 40 to 199, signed per mille
+// the neighbour correlation at each reach over means 40 to 199, signed per mille
 long noise_neighbours_volume(const unsigned short *volume, const unsigned long long extent[4],
                              long long per_mille[NOISE_NEIGHBOUR_REACHES], EngineError *error);
 
@@ -179,7 +179,7 @@ long noise_clips_volume(const unsigned short *volume, const unsigned long long e
 long noise_moments_volume(const unsigned short *volume, const unsigned long long extent[4],
                           long long cumulants[NOISE_MOMENT_CUMULANTS], EngineError *error);
 
-// The root noise of a box: a span of frames and a place the caller names, an object's in the cell workbook. Each term the
+// The root noise of a box: a span of frames and a place the caller names, an object's in the cell book. Each term the
 // noise vector table names as shared is a pattern in fewer dimensions than the box, one value for every place along
 // the axes it is kept on and the same along the axes it is shared along. A term's pattern over a box is the box's mean
 // along its shared axes, rounded down, exactly; its residual is the box less the pattern spread back along them. The
@@ -205,7 +205,7 @@ long noise_moments_volume(const unsigned short *volume, const unsigned long long
 #define NOISE_ROOT_TERMS 5u
 
 // Prices a lattice of ints laid as NoiseLoad lays a volume, frames, z, y and x: the bits the crystal spends on it.
-// Returns 0, or a negative value with the error filled. The driver passes the engine's, and the detector reaches no
+// Returns 0, or a negative value with the error filled. The driver passes the engine's, so the detector reaches no
 // module but its own.
 typedef long (*NoiseCost)(const int *values, const unsigned long long extent[4], unsigned long long *bits,
                           EngineError *error);

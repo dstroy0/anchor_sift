@@ -10,12 +10,14 @@
 // operation reading a later step) are checked too. Last, a stack of floors far past a thousand steps (rounds over four
 // 32-bit words, each floored by a wrap) runs as one program with register reuse, held to the CPU's own 64-bit two's
 // complement at every tapped floor. And one level of the tower's 5/3 lifting with its inverse, the floor divisions
-// made from an and and an exact quotient, must equal tower.cu's formulas and return every sample exactly.
+// made from an and and an exact quotient, must equal tower.cu's formulas and return every sample exactly. The test is
+// one job on the device's tessera daemon, submitted before its first device work.
 #include "cycle.h"
 #include "keymath.h"
 #include "key_schedule.h"
 #include "scriptura.h"
 #include "exact_integer.h"
+#include "sim.h"
 
 #include <cuda_runtime.h>
 
@@ -31,6 +33,9 @@
 #define BITWISE_TEST_NARROW_LANES 4096u
 
 #define BITWISE_TEST_WIDE_LANES 512u
+
+// the most the test puts on the device at once: the narrow sweep's atoms and records, under 64 words a lane
+#define BITWISE_TEST_DECLARED ((unsigned long long)BITWISE_TEST_NARROW_LANES * 64ull * sizeof(unsigned int))
 
 // how far past each output's written width the oracle's sign must already extend
 #define BITWISE_TEST_BEYOND 64u
@@ -165,7 +170,7 @@ static void bitwise_run(BitwiseLoaded *loaded, const unsigned int *atoms, unsign
     const unsigned int in_limbs = loaded->layout.in_limbs[0];
     const unsigned int out_limbs = loaded->layout.out_limbs;
     const CycleRecordHostRequest host = {&loaded->layout, {atoms, NULL, NULL}, {count, 0ull, 0ull}, NULL, count,
-                                         host_out};
+                                         host_out, &loaded->error};
     *host_ran = cycle_record_run_host(&host) != CYCLE_REFUSED;
     unsigned int *device_atoms = NULL;
     unsigned int *device_record = NULL;
@@ -1064,7 +1069,7 @@ static void bitwise_lifting(BitwiseTally *tally)
     bitwise_free(&loaded);
 }
 
-int main(void)
+int main(int count, char **arguments)
 {
     BitwiseTally tally;
     tally.checks = 0ull;
@@ -1076,13 +1081,24 @@ int main(void)
     {
         return 2;
     }
-    bitwise_known(&tally);
-    bitwise_narrow(&tally);
-    bitwise_narrowed(&tally);
-    bitwise_wide(&tally);
-    bitwise_refused(&tally);
-    bitwise_stack(&tally);
-    bitwise_lifting(&tally);
+    char job_room[SIM_LINE_ROOM];
+    SimTally job;
+    sim_open(&job, job_room);
+    const int admitted = sim_job_submit(&job, "record_bitwise_test", count, arguments, BITWISE_TEST_DECLARED);
+    if (admitted != 0)
+    {
+        bitwise_known(&tally);
+        bitwise_narrow(&tally);
+        bitwise_narrowed(&tally);
+        bitwise_wide(&tally);
+        bitwise_refused(&tally);
+        bitwise_stack(&tally);
+        bitwise_lifting(&tally);
+    }
+    sim_job_release(&job);
+    sim_flush(&job);
+    bitwise_check(&tally, (admitted != 0) && (job.failures == 0ull),
+                  "tessera: the device's daemon admits the test's job and it releases");
     scriptura_text(&tally.line, "  record bitwise test: ");
     scriptura_decimal(&tally.line, tally.checks, 1u);
     scriptura_text(&tally.line, " checks, ");

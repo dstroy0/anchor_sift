@@ -4,19 +4,20 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/.." && pwd)"
-CYCLE="$TOP/engine/base/cycle"
-KEYMATH="$TOP/engine/base/keymath"
-KEY_SCHEDULE="$TOP/engine/base/key_schedule"
+SORT="$TOP/cell_tracking/src/sort"
+SCAN="$TOP/cell_tracking/src/scan"
+HEAVIEST="$TOP/engine/nbody/heaviest_matching"
+DEVICE_POOL="$TOP/engine/base/device_pool"
 NO_ROUNDING="$TOP/engine/base/no_rounding"
 SCRIPTURA="$TOP/engine/base/scriptura"
 source "$TOP/maint/build_stamp.sh"
 source "$TOP/maint/tessera_build.sh"
-build_stamp record_table_test
+build_stamp sort_test
 
 HOST_FLAGS=()
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*)
-        BINARY="$OUT/record_table_test.exe"
+        BINARY="$OUT/sort_test.exe"
         EXTENSION=obj
         MSVC_BIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
         if [ -z "$MSVC_BIN" ]; then
@@ -29,7 +30,7 @@ case "$(uname -s)" in
         HOST_FLAGS=(-ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor)
         ;;
     *)
-        BINARY="$OUT/record_table_test"
+        BINARY="$OUT/sort_test"
         EXTENSION=o
         HOST_FLAGS=(-Xcompiler -fPIC)
         ;;
@@ -45,13 +46,13 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$NO_ROUNDING" -I "$SCRIPTURA"
+INCLUDES=(-I "$TOP/engine" -I "$SORT" -I "$SCAN" -I "$HEAVIEST" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA"
           "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()
-for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$CYCLE/cycle.c"; do
-    object="$OUT/$(basename "$source" .c)_table.$EXTENSION"
+for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$HEAVIEST/heaviest_matching.c"; do
+    object="$OUT/$(basename "$source" .c)_sort.$EXTENSION"
     rm -f "$object"
     case "$(uname -s)" in
         MINGW*|MSYS*|CYGWIN*)
@@ -66,14 +67,21 @@ for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$CYCLE/cycle.c"; 
     esac
 done
 # the test is a job on the device's tessera daemon, built beside it
-tessera_build table "${SCRIPTURA_OBJECTS[@]}" || exit 1
+tessera_build sort "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/record_table_test.cu" "$TOP/engine/sims/sim_job.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" \
-    "$KEY_SCHEDULE/key_schedule.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
+    "$TEST/sort_test.cu" "$TOP/engine/sims/sim_job.cu" "$SORT/sort_link.cu" "$SCAN/drift.cu" \
+    "$DEVICE_POOL/device_pool.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
+# BUILD_ONLY=1 builds and stops, so the device run can be its own launch
+if [ "${BUILD_ONLY:-}" = "1" ]; then
+    echo "  built $BINARY"
+    exit 0
+fi
 
-"$BINARY"
+# the synthetic set's samples are written under the build directory
+mkdir -p "$OUT/sort_test_set"
+"$BINARY" "$OUT/sort_test_set"
 STATUS=$?
-echo "  record table test exit $STATUS"
+echo "  sort test exit $STATUS"
 exit "$STATUS"

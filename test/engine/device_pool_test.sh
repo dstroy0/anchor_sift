@@ -4,19 +4,17 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/.." && pwd)"
-CYCLE="$TOP/engine/base/cycle"
-KEYMATH="$TOP/engine/base/keymath"
-KEY_SCHEDULE="$TOP/engine/base/key_schedule"
-NO_ROUNDING="$TOP/engine/base/no_rounding"
-SCRIPTURA="$TOP/engine/base/scriptura"
+DEVICE_POOL="$TOP/anchor_sift/src/engine/base/device_pool"
+NO_ROUNDING="$TOP/anchor_sift/src/engine/base/no_rounding"
+SCRIPTURA="$TOP/anchor_sift/src/engine/base/scriptura"
 source "$TOP/maint/build_stamp.sh"
 source "$TOP/maint/tessera_build.sh"
-build_stamp record_table_test
+build_stamp device_pool_test
 
 HOST_FLAGS=()
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*)
-        BINARY="$OUT/record_table_test.exe"
+        BINARY="$OUT/device_pool_test.exe"
         EXTENSION=obj
         MSVC_BIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
         if [ -z "$MSVC_BIN" ]; then
@@ -27,11 +25,13 @@ case "$(uname -s)" in
             exit 1
         fi
         HOST_FLAGS=(-ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor)
+        MEASURE_LIBRARIES=(-lpdh)
         ;;
     *)
-        BINARY="$OUT/record_table_test"
+        BINARY="$OUT/device_pool_test"
         EXTENSION=o
         HOST_FLAGS=(-Xcompiler -fPIC)
+        MEASURE_LIBRARIES=(-ldl)
         ;;
 esac
 
@@ -45,13 +45,12 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$NO_ROUNDING" -I "$SCRIPTURA"
-          "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$TOP/anchor_sift/src/engine" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()
-for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$CYCLE/cycle.c"; do
-    object="$OUT/$(basename "$source" .c)_table.$EXTENSION"
+for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c"; do
+    object="$OUT/$(basename "$source" .c)_pool.$EXTENSION"
     rm -f "$object"
     case "$(uname -s)" in
         MINGW*|MSYS*|CYGWIN*)
@@ -65,15 +64,17 @@ for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$CYCLE/cycle.c"; 
         scriptura*) SCRIPTURA_OBJECTS+=("$object") ;;
     esac
 done
-# the test is a job on the device's tessera daemon, built beside it
-tessera_build table "${SCRIPTURA_OBJECTS[@]}" || exit 1
+# the test is a job on the device's tessera daemon, built beside it, and reads its own device bytes through the
+# counter the daemon reads
+tessera_build pool "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/record_table_test.cu" "$TOP/engine/sims/sim_job.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" \
-    "$KEY_SCHEDULE/key_schedule.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
+    "$TEST/device_pool_test.cu" "$TOP/anchor_sift/src/engine/sims/sim_job.cu" "$DEVICE_POOL/device_pool.cu" \
+    "$OUT/tessera_measure_pool.$EXTENSION" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL" \
+    "${MEASURE_LIBRARIES[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
 
 "$BINARY"
 STATUS=$?
-echo "  record table test exit $STATUS"
+echo "  device pool test exit $STATUS"
 exit "$STATUS"

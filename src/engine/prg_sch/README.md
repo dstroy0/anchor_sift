@@ -11,7 +11,7 @@ builds and runs it as written here.
 ## What a program is
 
 A program is a list of **steps** in order. Each step is one operation, and its value is held in a **register**
-named by the step's number. A step reads only steps before it. A program is straight-line and has no branch
+named by the step's number. A step reads only steps before it, so a program is straight-line and has no branch
 and no loop. A program runs once per **lane**. A lane reads one **record** from each of 1 to 3 **members**, the
 kinds of record the program takes in, and writes one output record. A sweep runs every lane at once.
 
@@ -30,7 +30,7 @@ typedef struct
 ## The operations
 
 `left` and `right` name earlier steps unless the row says otherwise. The width is the register's bits as the
-imprint derives them from the operands (`keymath_record_imprint`), and no width is declared by hand.
+imprint derives them from the operands (`keymath_record_imprint`), so no width is declared by hand.
 
 | operation | reads | value | width |
 |---|---|---|---|
@@ -123,14 +123,14 @@ if (engine_record_imprint(&request, &record, &error) == ENGINE_REFUSED) { /* the
 1. **The imprint** (`keymath_record_imprint`) checks that every step reads only earlier steps, derives every
    register's width, and checks the fields, the tables and the outputs. The result is the program's **key**.
 2. **The layout** (`key_schedule_record_lay`) places every register in the lane's **register file** and every
-   output in the output record. With `reuse` set, a register is freed once its last reader has run. A long
-   program then fits a small file.
+   output in the output record. With `reuse` set, a register is freed once its last reader has run, so a long
+   program fits a small file.
 3. **The load** (`cycle_record_load`) puts the layout on the device. A program's file of at most 64 limbs runs
    in the 64-limb kernel, and a larger one in the 256-limb kernel. Only a program that divides carries the
    scratch its divisions need.
 
 The imprint and the layout are the serial work, done once. The sweep then runs that key over every lane
-([imprint_key_cycle.md](../../../theory/workbooks/engine/imprint_key_cycle.md)).
+([imprint_key_cycle.md](../../theory/workbook/imprint_key_cycle.md)).
 
 ## Sweeping
 
@@ -152,7 +152,7 @@ engine_record_host(&request, &sweep);  // the same program on the host, from the
   `right` is not positive, a value outgrows its register, or an index names a record past its member. One
   refused lane refuses the whole sweep.
 - **The port check.** `engine_record_host` runs the same program with the exact integer library as every step.
-  A new program is proved by the device's records equaling the host's word for word, as every test and the
+  A new program is proved by the device's records equalling the host's word for word, as every test and the
   tracking driver do.
 
 A program has no loop. An iteration of known length is unrolled into the program as **floors**: each floor is a

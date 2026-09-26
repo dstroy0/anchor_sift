@@ -6,12 +6,14 @@
 // numerator = quotient . divisor + remainder with the remainder below the divisor and carrying the numerator's
 // sign, a gcd dividing both, and an exact quotient returning the factor it was built from. A zero divisor and an
 // inexact division refuse, on both sides. Both register files are exercised: the 64-limb kernel on signed
-// 160-bit numerators and the 256-limb kernel on 2048-bit numerators.
+// 160-bit numerators and the 256-limb kernel on 2048-bit numerators. The test is one job on the device's tessera
+// daemon, submitted before its first device work.
 #include "cycle.h"
 #include "keymath.h"
 #include "key_schedule.h"
 #include "scriptura.h"
 #include "exact_integer.h"
+#include "sim.h"
 
 #include <cuda_runtime.h>
 
@@ -27,6 +29,9 @@
 #define DIVIDE_TEST_NARROW_LANES 4096u
 
 #define DIVIDE_TEST_WIDE_LANES 512u
+
+// the most the test puts on the device at once: the wide sweep's 96-limb atoms and records of up to 256 limbs
+#define DIVIDE_TEST_DECLARED ((unsigned long long)DIVIDE_TEST_WIDE_LANES * (96ull + 256ull) * sizeof(unsigned int))
 
 typedef struct
 {
@@ -128,7 +133,7 @@ static void divide_run(DivideLoaded *loaded, const unsigned int *atoms, unsigned
     const unsigned int in_limbs = loaded->layout.in_limbs[0];
     const unsigned int out_limbs = loaded->layout.out_limbs;
     const CycleRecordHostRequest host = {&loaded->layout, {atoms, NULL, NULL}, {count, 0ull, 0ull}, NULL, count,
-                                         host_out};
+                                         host_out, &loaded->error};
     *host_ran = cycle_record_run_host(&host) != CYCLE_REFUSED;
     unsigned int *device_atoms = NULL;
     unsigned int *device_record = NULL;
@@ -734,7 +739,7 @@ static void divide_constant(DivideTally *tally)
     divide_free(&loaded);
 }
 
-int main(void)
+int main(int count, char **arguments)
 {
     DivideTally tally;
     tally.checks = 0ull;
@@ -746,9 +751,20 @@ int main(void)
     {
         return 2;
     }
-    divide_narrow(&tally);
-    divide_wide(&tally);
-    divide_constant(&tally);
+    char job_room[SIM_LINE_ROOM];
+    SimTally job;
+    sim_open(&job, job_room);
+    const int admitted = sim_job_submit(&job, "record_divide_test", count, arguments, DIVIDE_TEST_DECLARED);
+    if (admitted != 0)
+    {
+        divide_narrow(&tally);
+        divide_wide(&tally);
+        divide_constant(&tally);
+    }
+    sim_job_release(&job);
+    sim_flush(&job);
+    divide_check(&tally, (admitted != 0) && (job.failures == 0ull),
+                 "tessera: the device's daemon admits the test's job and it releases");
     scriptura_text(&tally.line, "  record divide test: ");
     scriptura_decimal(&tally.line, tally.checks, 1u);
     scriptura_text(&tally.line, " checks, ");

@@ -28,31 +28,88 @@ def estimated_nodes(name):
     return _ESTIMATED[name]
 
 
+NODE_COLUMNS = ("sample", "time", "leaf", "z", "y", "x", "voxels", "object", "object_members", "forward", "departure",
+                "held")
+NODE_OPTIONAL = (("object_link", "-1"), ("object_links", "0"), ("null_draws", "0"), ("null_at_least", "0"),
+                 ("null_best", "0"), ("split_from", "-1"))
+
+
+def read_rows(handle, head, held):
+    for line in handle:
+        parts = line.rstrip("\n").split("\t")
+        if len(parts) < len(head):
+            continue
+        row = dict(zip(head, parts))
+        held[row["sample"]][int(row["time"])].append({
+            "leaf": int(row["leaf"]),
+            "place": (int(row["z"]), int(row["y"]), int(row["x"])),
+            "voxels": int(row["voxels"]),
+            "object": int(row["object"]),
+            "members": int(row["object_members"]),
+            "forward": int(row["forward"]),
+            "departure": int(row["departure"]),
+            "held": int(row["held"]),
+            "object_link": int(row.get("object_link", -1)),
+            "object_links": int(row.get("object_links", 0)),
+            "null_draws": int(row.get("null_draws", 0)),
+            "null_at_least": int(row.get("null_at_least", 0)),
+            "null_best": int(row.get("null_best", 0)),
+            "split_from": int(row.get("split_from", -1)),
+        })
+
+
+def read_rows_fast(handle, head, held):
+    # read_rows by column number: a column the head names twice is read at its last place, as dict(zip()) keeps it,
+    # and an optional column the head lacks reads its default from a tail past the row's own fields. Rows come a frame
+    # at a time, so the frame's list is looked up only when the sample or time field changes
+    index = {}
+    for at, name in enumerate(head):
+        index[name] = at
+    width = len(head)
+    tail = []
+    for name, fallback in NODE_OPTIONAL:
+        if name not in index:
+            index[name] = width + len(tail)
+            tail.append(fallback)
+    (sample, time, leaf, z, y, x, voxels, identity, members, forward, departure, kept, link, links, draws, at_least,
+     best, split) = (index[name] for name in NODE_COLUMNS + tuple(name for name, _ in NODE_OPTIONAL))
+    last = (None, None)
+    frame = None
+    for line in handle:
+        parts = line.rstrip("\n").split("\t")
+        if len(parts) < width:
+            continue
+        if tail:
+            parts = parts[:width] + tail
+        if (parts[sample], parts[time]) != last:
+            last = (parts[sample], parts[time])
+            frame = held[parts[sample]][int(parts[time])]
+        frame.append({
+            "leaf": int(parts[leaf]),
+            "place": (int(parts[z]), int(parts[y]), int(parts[x])),
+            "voxels": int(parts[voxels]),
+            "object": int(parts[identity]),
+            "members": int(parts[members]),
+            "forward": int(parts[forward]),
+            "departure": int(parts[departure]),
+            "held": int(parts[kept]),
+            "object_link": int(parts[link]),
+            "object_links": int(parts[links]),
+            "null_draws": int(parts[draws]),
+            "null_at_least": int(parts[at_least]),
+            "null_best": int(parts[best]),
+            "split_from": int(parts[split]),
+        })
+
+
 def read_nodes(path):
     held = collections.defaultdict(lambda: collections.defaultdict(list))
     with open(path, encoding="utf-8") as handle:
         head = handle.readline().rstrip("\n").split("\t")
-        for line in handle:
-            parts = line.rstrip("\n").split("\t")
-            if len(parts) < len(head):
-                continue
-            row = dict(zip(head, parts))
-            held[row["sample"]][int(row["time"])].append({
-                "leaf": int(row["leaf"]),
-                "place": (int(row["z"]), int(row["y"]), int(row["x"])),
-                "voxels": int(row["voxels"]),
-                "object": int(row["object"]),
-                "members": int(row["object_members"]),
-                "forward": int(row["forward"]),
-                "departure": int(row["departure"]),
-                "held": int(row["held"]),
-                "object_link": int(row.get("object_link", -1)),
-                "object_links": int(row.get("object_links", 0)),
-                "null_draws": int(row.get("null_draws", 0)),
-                "null_at_least": int(row.get("null_at_least", 0)),
-                "null_best": int(row.get("null_best", 0)),
-                "split_from": int(row.get("split_from", -1)),
-            })
+        if all(name in head for name in NODE_COLUMNS):
+            read_rows_fast(handle, head, held)
+        else:
+            read_rows(handle, head, held)
     for frames in held.values():
         times = sorted(frames)
         for at, time in enumerate(times[1:], 1):
@@ -107,11 +164,27 @@ def as_objects(frames):
     return held
 
 
+def cell_of(place):
+    return (math.floor(SCALE[0] * place[0] / REACH_UM), math.floor(SCALE[1] * place[1] / REACH_UM),
+            math.floor(SCALE[2] * place[2] / REACH_UM))
+
+
 def match(predicted, truth_nodes, truth_places):
+    # the true nodes in a grid of cells REACH_UM wide in scaled um, each listed under its own cell and the 26 around
+    # it, so the list under a predicted node's cell is every true node in that cell and the 26 around it. A pair within
+    # REACH_UM differs by at most one cell on every axis, so no pair is lost; the pairs are measured and sorted as when
+    # every predicted node met every true node, and the matching is the same
+    near = collections.defaultdict(list)
+    for identity in truth_nodes:
+        _, tz, ty, tx = truth_places[identity]
+        cz, cy, cx = cell_of((tz, ty, tx))
+        for dz in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                for dx in (-1, 0, 1):
+                    near[(cz + dz, cy + dy, cx + dx)].append((identity, tz, ty, tx))
     pairs = []
     for at, node in enumerate(predicted):
-        for identity in truth_nodes:
-            _, tz, ty, tx = truth_places[identity]
+        for identity, tz, ty, tx in near.get(cell_of(node["place"]), ()):
             apart = math.sqrt(sum((SCALE[axis] * (node["place"][axis] - (tz, ty, tx)[axis])) ** 2
                                   for axis in range(3)))
             if apart <= REACH_UM:
@@ -129,8 +202,8 @@ def match(predicted, truth_nodes, truth_places):
     return matched
 
 
-def score(dumped, directory, policy, first=25, quiet=False, objects=False):
-    names = truth_io.every(directory)[:first]
+def score(dumped, directory, policy, first=25, quiet=False, objects=False, names=None):
+    names = truth_io.every(directory)[:first] if names is None else names
     edge_tp = edge_fp = edge_fn = 0
     division_tp = division_fp = division_fn = 0
     predicted_total = 0
@@ -333,7 +406,20 @@ def main():
         return 0
     count = int(sys.argv[4]) if len(sys.argv) > 4 else 3
     objects = (len(sys.argv) > 5) and (sys.argv[5] == "object")
-    score(dumped, directory, POLICIES[wanted](count) if wanted != "all" else policy_all, objects=objects)
+    names = None
+    if (len(sys.argv) > 6) and (sys.argv[6] == "nodes"):
+        names = sorted(dumped)
+        if not names:
+            print("  the nodes hold no samples")
+            return 1
+        keys = set(truth_io.every(directory))
+        missing = [name for name in names if name not in keys]
+        if missing:
+            print("  no key in %s for: %s" % (directory, " ".join(missing)))
+            return 1
+        print("  scoring the %d samples the nodes hold: %s .. %s" % (len(names), names[0], names[-1]))
+    score(dumped, directory, POLICIES[wanted](count) if wanted != "all" else policy_all, objects=objects,
+          names=names)
     return 0
 
 

@@ -4,11 +4,13 @@
 // filled by running an ordinary-ops program over its whole alphabet, so the ops are the oracle: a table
 // step must then reproduce those ops lane for lane, on the device and on the host, and a chain of table
 // steps must compose the way reading one table through another does. The register reuse the scheduler
-// grew for long programs is proved to leave the output unchanged while shrinking the file.
+// grew for long programs is proved to leave the output unchanged while shrinking the file. The test is one job on the
+// device's tessera daemon, submitted before its first device work.
 #include "cycle.h"
 #include "keymath.h"
 #include "key_schedule.h"
 #include "scriptura.h"
+#include "sim.h"
 
 #include <cuda_runtime.h>
 
@@ -25,6 +27,11 @@
 
 // The widest output record any program here writes, in 32-bit words.
 #define ANCHOR_RECORD_OUT_WORDS 4u
+
+// the most the test puts on the device at once: two tables over the alphabet, and a sweep's atoms and records
+#define TABLE_TEST_DECLARED                                  \
+    ((2ull * TABLE_TEST_ALPHABET * sizeof(unsigned int))     \
+     + ((unsigned long long)TABLE_TEST_LANES * (1ull + ANCHOR_RECORD_OUT_WORDS) * sizeof(unsigned int)))
 
 typedef struct
 {
@@ -140,7 +147,8 @@ static int table_run_host(TableProgram *program, const unsigned int *atoms, unsi
         return 0;
     }
     *out_limbs = layout.out_limbs;
-    const CycleRecordHostRequest request = {&layout, {atoms, NULL, NULL}, {count, 0ull, 0ull}, NULL, count, out};
+    const CycleRecordHostRequest request = {&layout, {atoms, NULL, NULL}, {count, 0ull, 0ull}, NULL, count, out,
+                                            &error};
     const int good = cycle_record_run_host(&request) != CYCLE_REFUSED;
     table_free(&key, &layout, record);
     return good;
@@ -497,7 +505,7 @@ static void table_refusals(TableTally *tally)
     free(values);
 }
 
-int main(void)
+int main(int count, char **arguments)
 {
     TableTally tally;
     tally.checks = 0ull;
@@ -509,32 +517,42 @@ int main(void)
     {
         return 2;
     }
+    char job_room[SIM_LINE_ROOM];
+    SimTally job;
+    sim_open(&job, job_room);
+    const int admitted = sim_job_submit(&job, "record_table_test", count, arguments, TABLE_TEST_DECLARED);
+    if (admitted != 0)
+    {
+        // the square, the whole 32-bit product through the table
+        TableProgram square;
+        table_program_init(&square);
+        table_step(&square, ENGINE_RECORD_FIELD, 0u, 0u);
+        table_step(&square, ENGINE_RECORD_PRODUCT, 0u, 0u);
+        square.outputs[0] = 1u;
+        square.output_count = 1u;
+        table_case(&tally, "x squared", &square, 32u);
 
-    // the square, the whole 32-bit product through the table
-    TableProgram square;
-    table_program_init(&square);
-    table_step(&square, ENGINE_RECORD_FIELD, 0u, 0u);
-    table_step(&square, ENGINE_RECORD_PRODUCT, 0u, 0u);
-    square.outputs[0] = 1u;
-    square.output_count = 1u;
-    table_case(&tally, "x squared", &square, 32u);
+        // an absolute difference plus a constant, exercising constant, difference, absolute and sum
+        TableProgram deviate;
+        table_program_init(&deviate);
+        table_step(&deviate, ENGINE_RECORD_FIELD, 0u, 0u);
+        table_step(&deviate, ENGINE_RECORD_CONSTANT, 30000u, 0u);
+        table_step(&deviate, ENGINE_RECORD_DIFFERENCE, 0u, 1u);
+        table_step(&deviate, ENGINE_RECORD_ABSOLUTE, 2u, 0u);
+        table_step(&deviate, ENGINE_RECORD_CONSTANT, 100u, 0u);
+        table_step(&deviate, ENGINE_RECORD_SUM, 3u, 4u);
+        deviate.outputs[0] = 5u;
+        deviate.output_count = 1u;
+        table_case(&tally, "the absolute deviation plus 100", &deviate, 18u);
 
-    // an absolute difference plus a constant, exercising constant, difference, absolute and sum
-    TableProgram deviate;
-    table_program_init(&deviate);
-    table_step(&deviate, ENGINE_RECORD_FIELD, 0u, 0u);
-    table_step(&deviate, ENGINE_RECORD_CONSTANT, 30000u, 0u);
-    table_step(&deviate, ENGINE_RECORD_DIFFERENCE, 0u, 1u);
-    table_step(&deviate, ENGINE_RECORD_ABSOLUTE, 2u, 0u);
-    table_step(&deviate, ENGINE_RECORD_CONSTANT, 100u, 0u);
-    table_step(&deviate, ENGINE_RECORD_SUM, 3u, 4u);
-    deviate.outputs[0] = 5u;
-    deviate.output_count = 1u;
-    table_case(&tally, "the absolute deviation plus 100", &deviate, 18u);
-
-    table_compose(&tally);
-    table_reuse(&tally);
-    table_refusals(&tally);
+        table_compose(&tally);
+        table_reuse(&tally);
+        table_refusals(&tally);
+    }
+    sim_job_release(&job);
+    sim_flush(&job);
+    table_check(&tally, (admitted != 0) && (job.failures == 0ull),
+                "tessera: the device's daemon admits the test's job and it releases");
 
     scriptura_text(&tally.line, "  record table test: ");
     scriptura_decimal(&tally.line, tally.checks, 1u);

@@ -4,12 +4,14 @@
 // velocity over a shared time step, x' = x + v . dt, and says which side of the origin it lands on. The program is
 // imprinted, laid and loaded by the three calls engine_record_imprint makes, swept on the device with an index that
 // pairs every body with the one time-step record, run again on the host, and each record decoded and checked
-// against the arithmetic done directly.
+// against the arithmetic done directly. The test is one job on the device's tessera daemon, submitted before the
+// program is loaded onto the device.
 #include "cycle.h"
 #include "keymath.h"
 #include "key_schedule.h"
 #include "scriptura.h"
 #include "exact_integer.h"
+#include "sim.h"
 
 #include <cuda_runtime.h>
 
@@ -65,7 +67,7 @@ static long long guide_take(const unsigned int *record, unsigned int offset, uns
     return (long long)word;
 }
 
-int main(void)
+int main(int count, char **arguments)
 {
     GuideTally tally;
     tally.checks = 0ull;
@@ -77,6 +79,9 @@ int main(void)
     {
         return 2;
     }
+    char job_room[SIM_LINE_ROOM];
+    SimTally job;
+    sim_open(&job, job_room);
 
     // the program, as the README writes it
     const EngineRecordStep steps[6] = {
@@ -132,6 +137,10 @@ int main(void)
                             && (layout.out_limbs == 2u),
                 "the outputs pack as x' in bits 0..33 and the side in bits 34..35 of a 2-limb record");
     CycleRecord *record = NULL;
+    // the job declares what the test puts on the device: the bodies, the time step, the index and the records
+    const unsigned long long declared = ((unsigned long long)GUIDE_TEST_BODIES * 6ull * sizeof(unsigned int))
+                                      + sizeof(unsigned int) + (7ull * sizeof(DeviceRecordStep));
+    good = good && sim_job_submit(&job, "record_guide_test", count, arguments, declared);
     good = good && (cycle_record_load(&layout, &record, &error) != CYCLE_REFUSED);
     guide_check(&tally, good, "the example program loads");
 
@@ -176,7 +185,7 @@ int main(void)
     }
     guide_check(&tally, good, "the example sweeps on the device");
     const CycleRecordHostRequest host = {&layout, {bodies, step_record, NULL}, {GUIDE_TEST_BODIES, 1ull, 0ull}, index,
-                                         GUIDE_TEST_BODIES, host_out};
+                                         GUIDE_TEST_BODIES, host_out, &error};
     const int host_ran = (good != 0) && (cycle_record_run_host(&host) == (long)GUIDE_TEST_BODIES);
     guide_check(&tally, host_ran, "the example runs on the host");
     guide_check(&tally, host_ran && (memcmp(host_out, device_out, (size_t)GUIDE_TEST_BODIES * 2u * sizeof(unsigned int)) == 0),
@@ -193,12 +202,16 @@ int main(void)
     }
     guide_check(&tally, right, "every body's x + v . dt and its side of the origin decode exactly");
 
-    // a lane whose index names a record past its member refuses the sweep
+    // a lane whose index names a record past its member refuses the sweep, and the record machine names it a request
+    // error in an error of its own, since `error` already holds the imprint's refusal above
     index[0] = GUIDE_TEST_BODIES;
+    EngineError past_error;
+    memset(&past_error, 0, sizeof(past_error));
     const CycleRecordHostRequest past = {&layout, {bodies, step_record, NULL}, {GUIDE_TEST_BODIES, 1ull, 0ull}, index,
-                                         GUIDE_TEST_BODIES, host_out};
-    guide_check(&tally, cycle_record_run_host(&past) == CYCLE_REFUSED,
-                "an index past its member's records refuses the sweep");
+                                         GUIDE_TEST_BODIES, host_out, &past_error};
+    guide_check(&tally, (cycle_record_run_host(&past) == CYCLE_REFUSED) && (past_error.kind == ENGINE_ERROR_REQUEST)
+                            && (past_error.module == ENGINE_MODULE_CYCLE),
+                "an index past its member's records refuses the sweep, a request error from the record machine");
 
     cudaFree(device_bodies);
     cudaFree(device_step);
@@ -214,6 +227,10 @@ int main(void)
     }
     key_schedule_record_release(&layout);
     keymath_record_release(&key);
+    sim_job_release(&job);
+    sim_flush(&job);
+    guide_check(&tally, (job.checks == 2ull) && (job.failures == 0ull),
+                "tessera: the device's daemon admits the test's job and it releases");
     scriptura_text(&tally.line, "  record guide test: ");
     scriptura_decimal(&tally.line, tally.checks, 1u);
     scriptura_text(&tally.line, " checks, ");

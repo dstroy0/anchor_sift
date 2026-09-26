@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 
+# The engine is anchor_sift's src/engine, found from this file's own place, so a build in anchor_sift and a project
+# that takes anchor_sift as a submodule and sources this file read the same engine; without it the build fails here,
+# before anything compiles
+ENGINE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/src/engine"
+if [ ! -f "$ENGINE/engine_config.h" ]; then
+    echo "  build failed: no engine at $ENGINE (git submodule update --init anchor_sift)"
+    exit 1
+fi
+
+# a build's path: engine/... is the engine's, and anything else the project's
+build_path()
+{
+    case "$1" in
+        engine/*) printf '%s\n' "$ENGINE/${1#engine/}" ;;
+        *) printf '%s\n' "$TOP/$1" ;;
+    esac
+}
+
 build_stamp()
 {
     local label="$1"
