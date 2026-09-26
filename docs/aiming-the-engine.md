@@ -63,7 +63,7 @@ class for a scanner. If the control does not fire, the null is about the tool.
 
 ## Draw the bar, never derive it
 
-Seven derived thresholds in one session and every one came in too low. The error is one-directional
+Seven derived thresholds in one night and every one came in too low. The error is one-directional
 and that is why it is worth a rule rather than more care: deriving a bar means enumerating the
 sources of variance, and the ones left out only ever ADD variance, so the derived value is always
 the low estimate. A drawn bar has them all whether or not anyone thought of them.
@@ -132,7 +132,7 @@ argument for keeping the ring narrow was being made about the same number.
 
 ## The instrument is the first suspect
 
-Six faults in one session, every one producing something that looked like a finding, every one
+Six faults in one night, every one producing something that looked like a finding, every one
 caught by the result being too clean rather than by care beforehand:
 
     a thirty sigma excess that was a generator with a period of 256

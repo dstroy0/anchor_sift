@@ -717,5 +717,43 @@ class TheStructuralStageIsUntouched(unittest.TestCase):
         self.assertTrue(docs_check.build_file("CMakeLists.txt"))
 
 
+class OneAuthor(unittest.TestCase):
+    """Prose credits no session, role or tool with the author's work. Douglas, 2026-09-26."""
+
+    def patterns_hit(self, sentence):
+        return [pattern for _, pattern, _ in docs_check.banned_hits([sentence], quotations=True)]
+
+    def test_each_carrier_is_caught_and_is_tier_a(self):
+        for sentence in (
+            "A later session found the bound was loose.",
+            "Seven derived thresholds in one session and every one came in too low.",
+            "Hand the theorist every claim this session produced.",
+            "Found by the crystallography session pointing at the protein subject.",
+            "The project architect set the scope.",
+            "anchor_sift's reading of the threads is not run here.",
+            "Written by the builder session Anchor_sift leaderboard disruptor.",
+        ):
+            hits = self.patterns_hit(sentence)
+            self.assertTrue(hits, "no finding on %r" % sentence)
+            for pattern in hits:
+                self.assertEqual(docs_check.tier_of(pattern), "A", "%r is not tier A" % pattern)
+
+    def test_a_session_that_credits_nobody_stands(self):
+        # Transcripts, a PowerShell session, a recording session and this repository's own runs.
+        for sentence in (
+            "Take the assistant's own prose out of a session transcript.",
+            "Its variables are carried into this session before nvcc is called.",
+            "The story, the session, the microphone and the speaker vary together.",
+            "These device runs shared the device with anchor_sift's 54-bit run.",
+            "A worktree dies with the session that made it.",
+        ):
+            one_author = [
+                pattern
+                for pattern in self.patterns_hit(sentence)
+                if docs_check.AUTHORITY.get(pattern, "").endswith("one author")
+            ]
+            self.assertEqual(one_author, [], "%r fired on %r" % (one_author, sentence))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

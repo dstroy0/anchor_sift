@@ -1002,6 +1002,47 @@ BANNED = (
         # WITHDRAWN 2026-09-16: the bare cost, buy, bought, pay, paid, spend, spent, earn, afford,
         # win, won, read and price bans. The observation behind them stands and the bare word ban
         # does not. See WITHDRAWN at the foot of this tuple.
+        #
+        # One author. Douglas, 2026-09-26: "there are NO other contributors here, only me, and the
+        # prior art." Every observation in this tree and in theory/ is his. Prose that credits one
+        # to a session, a peer session, the theorist, a specialist, the project architect or
+        # Anchor_sift as a person presents one author's work as a team's. code-documentation:141
+        # bans the assistant register in a file a person wrote about their own work. Naming the
+        # run or the tool that wrote a sentence as its source is the same register. State the
+        # observation as the author's and drop the carrier.
+        #
+        # Bare `session` stays legal. It names a transcript in session_prose.py and
+        # build_assistant_pole.py, a PowerShell session in build_pack.ps1, a recording session in
+        # the Salishan chapter and a worktree's lifetime in the comments of this file. Each pattern
+        # here needs a second word that turns the session into an agent: `a later session`, `in
+        # one session`, `this session found`, `reported by the crystallography session`. The same
+        # holds for Anchor_sift. `anchor_sift's run` and `anchor_sift's 54-bit run` name this
+        # repository's own measurement and stay. `anchor_sift's reading` credits a reader and goes.
+        #
+        # Measured on 2026-09-26 before these went in: 39 matches in 10 files across both trees,
+        # 25 of them in docs/findings-for-verification.md and 2 in theory/, both at
+        # theory/workbooks/engine/ledger.md:248. `handoff`, `handed off`, `a peer's`, `the
+        # specialist` and bare `this session` were measured and left out. Each fired on sentences
+        # that credit nobody, `this session` on the PowerShell one in build_pack.ps1 among them.
+        r"\b(a|the|one|each|every|another) (later|earlier|previous|next|other|second|third|peer"
+        r"|builder) sessions?\b",
+        r"\bpeer sessions?\b",
+        r"\b(every|each) session (builds|reads|takes|writes|runs)\b",
+        r"\bin (one|a single|the same|an earlier|a later) session\b",
+        r"\bthis session(?: (?:read|wrote|found|ran|measured|produced)\b|['’]s work\b)",
+        r"\bsessions? (fed|relayed|reported|contributed)\b",
+        r"\b(the|your|our) theorists?\b",
+        r"\bproject architect\b",
+        r"\bprecision measurement specialist\b",
+        r"\blead of the private\b",
+        r"\b(relayed|reported|flagged|found|caught|reproduced) by (the |a )?(\w+ )?(session|peer"
+        r"|theorist|writer|specialist|architect)\b",
+        r"\b(relayed|reported|flagged|found|caught|written) by anchor_sift\b",
+        r"\banchor_sift['’]s (reading|framing|bounds?|why|formalization|hand conversion)\b",
+        r"\b(agreed with|per) anchor_sift\b",
+        r"\banchor_sift (confirmed|checked|changed|gave|framed)\b",
+        r"\bbiohub-cell-tracking-\d+\b",
+        r"\bleaderboard disruptor\b",
     )
 )
 
@@ -1403,6 +1444,27 @@ AUTHORITY = {
     r"\bas a language model\b": "code-documentation:141",
     r"\bmy training data\b": "code-documentation:141",
     r"\b(i apologi[sz]e|my apologies|sorry for the)\b": "code-documentation:141",
+    # One author. The assistant register at code-documentation:141, in the form that credits a
+    # session, a role or Anchor_sift with the author's observation. Douglas ruled on 2026-09-26.
+    r"\b(a|the|one|each|every|another) (later|earlier|previous|next|other|second|third|peer"
+    r"|builder) sessions?\b": "code-documentation:141, one author",
+    r"\bpeer sessions?\b": "code-documentation:141, one author",
+    r"\b(every|each) session (builds|reads|takes|writes|runs)\b": "code-documentation:141, one author",
+    r"\bin (one|a single|the same|an earlier|a later) session\b": "code-documentation:141, one author",
+    r"\bthis session(?: (?:read|wrote|found|ran|measured|produced)\b|['’]s work\b)": "code-documentation:141, one author",
+    r"\bsessions? (fed|relayed|reported|contributed)\b": "code-documentation:141, one author",
+    r"\b(the|your|our) theorists?\b": "code-documentation:141, one author",
+    r"\bproject architect\b": "code-documentation:141, one author",
+    r"\bprecision measurement specialist\b": "code-documentation:141, one author",
+    r"\blead of the private\b": "code-documentation:141, one author",
+    r"\b(relayed|reported|flagged|found|caught|reproduced) by (the |a )?(\w+ )?(session|peer"
+    r"|theorist|writer|specialist|architect)\b": "code-documentation:141, one author",
+    r"\b(relayed|reported|flagged|found|caught|written) by anchor_sift\b": "code-documentation:141, one author",
+    r"\banchor_sift['’]s (reading|framing|bounds?|why|formalization|hand conversion)\b": "code-documentation:141, one author",
+    r"\b(agreed with|per) anchor_sift\b": "code-documentation:141, one author",
+    r"\banchor_sift (confirmed|checked|changed|gave|framed)\b": "code-documentation:141, one author",
+    r"\bbiohub-cell-tracking-\d+\b": "code-documentation:141, one author",
+    r"\bleaderboard disruptor\b": "code-documentation:141, one author",
     # The which-is clause again, in the form the later tier wrote it.
     r"\bwhich is (what|why|how|the (difference|point|whole|answer|reason|rule))\b": "code-comments:206",
 }

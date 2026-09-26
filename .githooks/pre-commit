@@ -39,9 +39,9 @@ set -u
 # The tree being committed, and not the tree this script happens to sit in. core.hooksPath is an
 # absolute path into the main checkout. "$0" is always main's copy of this file however many
 # linked worktrees exist. Resolving from it gated every worktree commit on main's WORKING TREE
-# instead of on what was being committed, and main's working tree is whatever the other sessions
-# have half written at that moment. Two commits were stopped that way inside a few minutes, by two
-# different files, neither belonging to the session being stopped. --show-toplevel is correct for
+# instead of on what was being committed, and main's working tree holds whatever is half written
+# there at that moment. Two commits were stopped that way inside a few minutes, by two different
+# files, neither belonging to the commit being stopped. --show-toplevel is correct for
 # the main worktree and for a linked one alike.
 REPO=$(git rev-parse --show-toplevel 2>/dev/null)
 

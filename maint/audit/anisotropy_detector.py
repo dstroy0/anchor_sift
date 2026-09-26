@@ -26,7 +26,7 @@ THE THREE CONDITIONS A DETECTION MUST MEET
 Stated as requirements because each one is a fault this work actually made:
 
     same statistic   the floor is this statistic at this sample size and this weight, drawn, never
-                     derived. Six derived floors in one session, every one too low.
+                     derived. Six derived floors in one night, every one too low.
     max of N         the bar is the null's own LOUDEST over the same number of degrees, because
                      reporting the loudest of ten against a one-cell threshold manufactures
                      findings.

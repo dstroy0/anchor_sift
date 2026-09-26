@@ -1224,7 +1224,7 @@ static int adversarial_count_together(const uint32_t *corpus, size_t corpus_leng
  *       refutes an alignment whose symbols match.
  *
  * @note THREE PARTS, EACH WITH ITS PREMISE CHECKED.
- *       Part one is the counterexample as the theorist reported it, built by hand. The separate
+ *       Part one is the counterexample in its original form, built by hand. The separate
  *       route MUST return 0 there. If it does not, the case no longer reaches the defect and a
  *       passing joint route proves nothing.
  *       Part two is a seeded sweep, needles cut from the corpus on even seeds and drawn
