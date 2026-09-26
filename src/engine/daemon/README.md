@@ -4,14 +4,14 @@
 
 **Scope:** `engine/daemon`: the daemon (`tessera_daemon.c`), the client calls (`tessera.h`,
 `tessera_client.c`), and the suite in `test/`. The theory (the accounting, backfill, the deadline heap) is in
-[tessera_scheduler.md](../../theory/workbook/tessera_scheduler.md).
+[tessera_scheduler.md](../../../theory/workbooks/engine/tessera_scheduler.md).
 
 ## What it does
 
 One daemon runs for each device on a host. Every process that wants the device's memory submits a job to it and
 declares how many bytes the job needs. The daemon measures what the process already holds on the device as it asks,
 its **standing** (its CUDA context, and anything it kept from an earlier job), and counts it beside the declaration.
-It admits jobs while the bytes they have yet to find fit the device's measured headroom, so several run at once. It measures each running job's process by pid on every sweep. A job that grows
+It admits jobs while the bytes they have yet to find fit the device's measured headroom, and several run at once. It measures each running job's process by pid on every sweep. A job that grows
 past its declaration keeps running, and its client is told what it grew to. When a job is released, its measured
 peak and run time are kept under its **signum**, and the next job with that signum is judged against that peak.
 
@@ -42,7 +42,7 @@ folder. The job test and the host test each start a daemon there, apart from the
 
 A client links `tessera_client.c`, `tessera_paths.c`, `tessera_frame.c`, `tessera_self.c` and scriptura. The
 daemon also links `tessera_ledger.c`, `tessera_measure.c` and obsignatio (`engine/base/obsignatio/obsignatio.cu`),
-and `pdh` on Windows. On Linux both link `-ldl -lpthread`. It uses obsignatio's host seal (`obsignatio_seal`, `obsignatio_seal_holds`), so it never makes a CUDA
+and `pdh` on Windows. On Linux both link `-ldl -lpthread`. It uses obsignatio's host seal (`obsignatio_seal`, `obsignatio_seal_holds`), and it never makes a CUDA
 context of its own.
 
 ## Starting the daemon
@@ -88,7 +88,7 @@ every byte above it. The daemon adds "precalc kept" to a ticket only when its se
 
 ## Submitting a job
 
-Make the process's CUDA context before asking (`cudaFree(0)`), so the daemon measures it as standing instead of
+Make the process's CUDA context before asking (`cudaFree(0)`). The daemon then measures it as standing instead of
 finding it later as growth:
 
 ```c
@@ -144,7 +144,7 @@ tessera_job_release(client, &ticket, &error);   // ends the client
 // ticket.grown_to  the largest size it was told it grew to (0 if it never outgrew its declaration)
 ```
 
-If `last_peak` is larger than its standing and `declared` together, the job underdeclared. Report it, so the next
+If `last_peak` is larger than its standing and `declared` together, the job underdeclared. Report it, and the next
 declaration is right. Don't
 use `grown_to` for that: a job whose reservation is already its kept peak is never told it grew, however far it
 outruns its declaration.
@@ -162,17 +162,17 @@ and a pid reused by a new process is never taken for the old one.
    412,254,208 bytes, with a peak of 412,254,208. That is the process's whole dedicated memory, CUDA context
    included. The test keeps that memory to its end.
 2. The same signum declaring four times that peak is held, and the ask names the kept peak. The override
-   admits it on its declaration over its standing, which is the memory it kept: 412,254,208 bytes.
+   admits it on its declaration over its standing, the memory it kept: 412,254,208 bytes.
 3. Declaring exactly the kept peak is admitted at once, over its standing.
 4. Declaring four times the peak with no answer is held for its 0.4 s holding time, then lost. The ticket names
    its lost and found directory, and the precalc kept releases it. The ticket's seal holds with the note in it.
 5. Once the daemon has ended, the history it left is whole records and a seal. The test damages one byte of it,
    then cuts one byte off, then strips the seal. Each time the submit is refused because no daemon starts on it.
-   With the file restored, the daemon starts and the same signum over its peak is asked with the kept peak, so the
+   With the file restored, the daemon starts and the same signum over its peak is asked with the kept peak, and the
    history really was read.
 
 The test runs in its own state directory (`run.sh` sets `TESSERA_STATE` to `<build>/tessera_state`), because
-part 5 damages the history on purpose.
+part 5 damages the history deliberately.
 
 ## The engine's runs
 
@@ -187,7 +187,7 @@ part 5 damages the history on purpose.
   (`compression_hold_bytes`), each kept for the largest lattice. The stream, sized by the values, and the seal's
   passing buffers are left to the kept peak. The lanes come from the source's shape for ingest
   (`engine_source_lanes`, which reads no voxel), and from the `.iapx` head for every other part.
-- **Standing:** the driver makes its context before its first job, so each job stands on it. The admitted line prints
+- **Standing:** the driver makes its context before its first job, and each job stands on it. The admitted line prints
   the standing, and the release compares the peak against the standing and the declaration together.
 - **Daemon:** `tessera_daemon` beside the driver, which `build_driver.sh` builds and publishes with it.
 - **Times:** holding 2 s, sweep 20 ms, idle 5 s.
@@ -205,7 +205,7 @@ Run on 24 September, on one sample (44b6_0113de3b) in a scratch set, with the da
 The history then held both signa, two records and the seal (128 bytes).
 
 **A job is reserved the larger of its declaration and its signum's kept peak** (`tessera_ledger_wants`, 24
-September). The runs above found that a job used to be reserved only its declaration, so the second prove held
+September). The runs above found that a job used to be reserved only its declaration, and the second prove held
 839 MB of reservation while it used 3.96 GB. Until a sweep grew the reservation, another job could be admitted into
 that room. Admission, the head's shadow, the backfill's spare and the reservation now all use the wanted bytes. A
 declaration over the kept peak is still held and asked, as before. With the new rule, the same prove was admitted
@@ -215,12 +215,12 @@ is 500.
 
 **The declaration stands on what the process already holds** (25 September). The daemon measures the process as it
 asks (by pid, or from the process's own report under WSL) and the job wants its standing and its declaration
-together, or its kept peak when that is more. The device's measured use already counts the standing, so admission,
+together, or its kept peak when that is more. The device's measured use already counts the standing. Admission,
 the head's shadow and the backfill weigh only what the job has yet to find: what it wants less its standing. An
-admitted job's use starts at its standing until its first sweep, so the headroom owes the device only those bytes.
-The held rule is unchanged: the declaration alone is weighed against the kept peak, which is the whole process's.
+admitted job's use starts at its standing until its first sweep, and the headroom owes the device only those bytes.
+The held rule is unchanged: the declaration alone is weighed against the kept peak, and that peak is the whole process's.
 The ledger test checks it with a device of 1,000 bytes, 300 in use. A job standing on 200 and declaring 650 wants 850,
-more than the 700 free. But it has only 650 to find, so it is admitted with 850 reserved, and the headroom left is 50.
+more than the 700 free. But it has only 650 to find. It is admitted with 850 reserved, and the headroom left is 50.
 Its peak of 900 is kept. The same signum standing on 300 and declaring 650 is not held, and wants 950. Declaring 950
 is held.
 
@@ -248,7 +248,7 @@ its two tessera checks:
 | classify_reject_recover | 118,016 | 145,915,904 | 9, 0 failed |
 | chaitin_omega (L 16, on the engine) | 30,256 | 286,425,088 | 16, 0 failed |
 
-Nothing in the repository loads the engine DLL (`build_engine.sh` builds it and nothing calls it), so there is no
+Nothing in the repository loads the engine DLL (`build_engine.sh` builds it and nothing calls it), and there is no
 other caller to submit. `cell_tracking/src/cell_shift.c` runs on anchor_sift's engine, not this one.
 
 ## Host jobs: the host's processors
@@ -368,15 +368,15 @@ job in WSL shares the Windows budget only through the Windows `tessera_run`.
 Run on 24 September on WSL 2: kernel 6.18, gcc 13.3, CUDA 13.3, on the RTX 3070. The sources were carried to
 ext4 by git: a tree object from a scratch index, then `git archive`. The run found and fixed these:
 
-- `PATH_MAX` is not in strict C11's `limits.h`, so `engine_config.h` now takes it from `<linux/limits.h>`.
+- `PATH_MAX` is not in strict C11's `limits.h`, and `engine_config.h` now takes it from `<linux/limits.h>`.
 - `tessera_measure.c` needed `_GNU_SOURCE` for `syscall` and `pid_t`.
 - The timer thread had no return. It now runs while the daemon lives.
-- gcc warns on `noinline` together with `inline`, so the error helpers use `ENGINE_NOINLINE_HELPER`.
+- gcc warns on `noinline` together with `inline`, and the error helpers use `ENGINE_NOINLINE_HELPER`.
 - Platform-only strings were declared on both platforms. They are now behind their `#if`.
 - The daemon printed literal copies of its own string table. It now uses the table, and each ticket names its
   signum.
 
-**Under WSL each job reports its own bytes.** WSL reaches the device through the Windows driver, so its NVML lists
+**Under WSL each job reports its own bytes.** WSL reaches the device through the Windows driver, and its NVML lists
 no process's memory, and dxcore's `D3DKMTQueryVideoMemoryInfo` answers only for the calling process (asked about
 another it returns `0xC000000D`). So on a paravirtual kernel (`tessera_self_paravirtual`, from
 `/proc/sys/kernel/osrelease`) the daemon's measure opens in **reported** mode and measures no pid. Each admitted
@@ -395,7 +395,7 @@ growth, the peak kept, the wake. A daemon in reported mode ignores these frames 
 gcc builds all of it with 0 warnings. On a native Linux driver the daemon measures each pid through NVML and
 ignores reports. This machine has no native Linux NVIDIA driver, so that path has not run.
 
-**One endpoint, one daemon.** The socket path names the device, not the state, so a daemon with another
+**One endpoint, one daemon.** The socket path names the device, not the state. A daemon with another
 `TESSERA_STATE` can reach the same path. Before binding, a daemon now connects to the path: if something answers,
 it says so and exits. It removes the socket file at idle only if that file is still the one it bound. Before this
 fix, a daemon left over from the suite removed systemd's socket file when it went idle, and every later connect
@@ -420,13 +420,13 @@ systemctl --user enable --now tessera@<uuid>.socket
   The daemon takes that socket instead of binding its own. When idle it exits without removing the socket, and the
   next connection starts it again.
 - A daemon that refuses to start (its history's seal fails, or the device can't be measured) accepts and closes
-  every connection waiting on the socket before it exits, so the client that started it is refused and systemd has
+  every connection waiting on the socket before it exits. The client that started it is refused and systemd has
   nothing queued to start it for again. `StartLimitIntervalSec=0` stops systemd's start limit from turning away the
   next real client.
 
 Run on 24 September in WSL 2 (systemd 255), with the socket at
 `/run/user/1000/tessera-70fc945bd257269d3ffdb316ae03ace1.sock`. The whole job test ran with a daemon path that
-doesn't exist, so systemd started every daemon, in a scratch `TESSERA_STATE` set through `systemctl --user
+doesn't exist, and systemd started every daemon, in a scratch `TESSERA_STATE` set through `systemctl --user
 set-environment`. It passed 24 checks, 0 failed, on three runs in a row, each straight after the suite. Every
 refused history made one failed start and one refused client, and the restored history started a daemon that asked
 over the kept peak.
@@ -442,12 +442,12 @@ The daemon reads a client's pid with `SO_PEERCRED`, which the kernel gives in th
 host's, and that is the pid NVML reports.
 
 Run on 24 September with Docker Engine 29.1.3 in WSL 2. `test/tessera_socket_probe.c` is a client with no device of
-its own. It submits one 1-byte job for a named device, with no daemon path, so only a listening socket can answer.
+its own. It submits one 1-byte job for a named device, with no daemon path. Only a listening socket can answer.
 Built static and run in a container with the socket mounted and `TESSERA_RUNTIME=/run/tessera`:
 
 - It connected to `/run/tessera/tessera-70fc945bd257269d3ffdb316ae03ace1.sock`.
 - systemd started `tessera@70fc945bd257269d3ffdb316ae03ace1.service` on the container's connection.
-- The daemon admitted the job and it released. The container had no GPU mounted, so its client had no bytes to
+- The daemon admitted the job and it released. The container had no GPU mounted, and its client had no bytes to
   report. The history it left held no record, just the seal (32 bytes).
 
 ## Not built yet
