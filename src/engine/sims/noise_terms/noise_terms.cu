@@ -64,6 +64,9 @@
 
 #define TERMS_LADDER_GAIN 2ll
 
+// crosstalk along x: 1/8 of each neighbour's value after the draw
+#define TERMS_CROSSTALK_EIGHTHS 1ull
+
 static const unsigned long long TERMS_EXTENT[4] = {TERMS_FRAMES, TERMS_DEPTH, TERMS_HEIGHT, TERMS_WIDTH};
 
 static void terms_within(SimTally *tally, const char *what, long long read, long long expected, long long reach)
@@ -261,12 +264,13 @@ static void terms_shot_law(SimTally *tally, const unsigned short *lanes, unsigne
     }
 }
 
-// numerator / denominator, the denominator positive, within reach_numerator / reach_denominator of expected: the
-// difference cross-multiplied, |numerator reach_denominator - expected denominator reach_denominator| against
-// reach_numerator denominator
+// numerator / denominator, the denominator positive, within reach_numerator / reach_denominator of expected_numerator
+// / expected_denominator: the difference cross-multiplied, |numerator ed rd - en denominator rd| against rn
+// denominator ed
 static void terms_ratio_within(SimTally *tally, const char *what, const AnchorExactInteger *numerator,
-                               const AnchorExactInteger *denominator, long long expected,
-                               unsigned long long reach_numerator, unsigned long long reach_denominator)
+                               const AnchorExactInteger *denominator, long long expected_numerator,
+                               unsigned long long expected_denominator, unsigned long long reach_numerator,
+                               unsigned long long reach_denominator)
 {
     ScripturaLine *const line = &tally->line;
     scriptura_text(line, "    ");
@@ -274,7 +278,12 @@ static void terms_ratio_within(SimTally *tally, const char *what, const AnchorEx
     scriptura_text(line, ": read ");
     sim_ratio_print(line, numerator, denominator, 4u);
     scriptura_text(line, ", the plant predicts ");
-    scriptura_signed(line, expected);
+    scriptura_signed(line, expected_numerator);
+    if (expected_denominator != 1ull)
+    {
+        scriptura_character(line, '/');
+        scriptura_decimal(line, expected_denominator, 1u);
+    }
     scriptura_text(line, " within ");
     scriptura_decimal(line, reach_numerator, 1u);
     if (reach_denominator != 1ull)
@@ -286,11 +295,13 @@ static void terms_ratio_within(SimTally *tally, const char *what, const AnchorEx
     AnchorExactInteger left;
     AnchorExactInteger right;
     AnchorExactInteger term;
-    sim_exact_signed(&term, expected);
-    int good = sim_exact_scaled(numerator, reach_denominator, &left) && sim_exact_product(&term, denominator, &right)
+    sim_exact_signed(&term, expected_numerator);
+    int good = sim_exact_scaled(numerator, expected_denominator, &left)
+            && sim_exact_scaled(&left, reach_denominator, &left) && sim_exact_product(&term, denominator, &right)
             && sim_exact_scaled(&right, reach_denominator, &right) && sim_exact_less(&left, &right, &left);
     left.sign = (left.sign < 0) ? 1 : left.sign;
-    good = good && sim_exact_scaled(denominator, reach_numerator, &right) && (anchor_exact_compare(&left, &right) <= 0);
+    good = good && sim_exact_scaled(denominator, reach_numerator, &right)
+        && sim_exact_scaled(&right, expected_denominator, &right) && (anchor_exact_compare(&left, &right) <= 0);
     sim_check(tally, good, what);
 }
 
@@ -323,11 +334,11 @@ static void terms_ladder(SimTally *tally, const unsigned short *lanes)
     scriptura_character(line, '\n');
     const long long gain = TERMS_LADDER_GAIN;
     terms_ratio_within(tally, "s2, the k2 line's slope", &reading.cumulant[0].slope, &reading.cumulant[0].denominator,
-                       gain, 1ull, 50ull);
+                       gain, 1ull, 1ull, 50ull);
     terms_ratio_within(tally, "s3, the k3 line's slope", &reading.cumulant[1].slope, &reading.cumulant[1].denominator,
-                       gain * gain, 1ull, 4ull);
+                       gain * gain, 1ull, 1ull, 4ull);
     terms_ratio_within(tally, "s4, the k4 line's slope", &reading.cumulant[2].slope, &reading.cumulant[2].denominator,
-                       gain * gain * gain, 3ull, 1ull);
+                       gain * gain * gain, 1ull, 3ull, 1ull);
     sim_check(tally, reading.tail != 0, "the k3 line has a slope, so the tail reads");
     if (reading.tail == 0)
     {
@@ -335,9 +346,73 @@ static void terms_ladder(SimTally *tally, const unsigned short *lanes)
     }
     // the offset and the read variance are each far below 2^31
     terms_ratio_within(tally, "O, where the k3 line crosses 0", &reading.offset, &reading.offset_denominator,
-                       (long long)TERMS_OFFSET, 3ull, 1ull);
+                       (long long)TERMS_OFFSET, 1ull, 3ull, 1ull);
     terms_ratio_within(tally, "R^2, the k2 line at O", &reading.read_square, &reading.read_square_denominator,
-                       (long long)TERMS_READ_SQUARE, 6ull, 1ull);
+                       (long long)TERMS_READ_SQUARE, 1ull, 6ull, 1ull);
+}
+
+// crosstalk along x: every voxel takes alpha = TERMS_CROSSTALK_EIGHTHS / 8 of each x neighbour's value after the
+// draw, rounded to the nearest, read from a copy so each mixes unmixed values; the first and last columns take their
+// one neighbour
+static void terms_crosstalk_mix(unsigned short *lanes, const unsigned short *drawn)
+{
+    const unsigned long long rows = TERMS_FRAMES * TERMS_DEPTH * TERMS_HEIGHT;
+    for (unsigned long long row = 0ull; row < rows; row += 1ull)
+    {
+        const unsigned short *const from = &drawn[row * TERMS_WIDTH];
+        unsigned short *const into = &lanes[row * TERMS_WIDTH];
+        for (unsigned long long x = 0ull; x < TERMS_WIDTH; x += 1ull)
+        {
+            const unsigned long long left = (x != 0ull) ? from[x - 1ull] : 0ull;
+            const unsigned long long right = ((x + 1ull) < TERMS_WIDTH) ? from[x + 1ull] : 0ull;
+            const unsigned long long mixed = from[x] + (((TERMS_CROSSTALK_EIGHTHS * (left + right)) + 4ull) / 8ull);
+            // the scene's lanes are near 120, so a lane plus a quarter of two more stays far below 65536
+            into[x] = (unsigned short)mixed;
+        }
+    }
+}
+
+// C20 read back (build plan item 38): along x, a draw shared by alpha with each neighbour gives alpha = C1 / (2 V),
+// alpha^2 = C2 / V and C3 / V = 0; along y nothing is shared, so all three read 0. Over M products of frame
+// differences, each difference sharing a frame with the next, the null's C1 / (2 V) has a standard error of
+// sqrt(3/2) / (2 sqrt(M)) and C2 / V and C3 / V twice that: at M = 95 x 32 x 128 x 125, about 1/11000 and 1/5700, so
+// each reach is about 11 of them, room for the mix's larger ones.
+static void terms_crosstalk(SimTally *tally, const unsigned short *lanes, unsigned long long along_x_eighths)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseCrosstalkReading reading;
+    const int good = noise_crosstalk_volume(lanes, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good, "the crosstalk pass read the volume");
+    if (good == 0)
+    {
+        return;
+    }
+    const char *const axis_names[NOISE_CROSSTALK_AXES] = {"along y", "along x"};
+    for (unsigned int axis = 0u; axis < NOISE_CROSSTALK_AXES; axis += 1u)
+    {
+        // the planted share is a few eighths, far below 2^31
+        const long long eighths = (axis == 1u) ? (long long)along_x_eighths : 0ll;
+        scriptura_text(&tally->line, "    ");
+        scriptura_text(&tally->line, axis_names[axis]);
+        scriptura_text(&tally->line, ", over ");
+        scriptura_decimal(&tally->line, reading.pairs[axis], 1u);
+        scriptura_text(&tally->line, " frame differences\n");
+        AnchorExactInteger twice;
+        const int doubled = sim_exact_scaled(&reading.spread[axis], 2ull, &twice);
+        sim_check(tally, doubled && (reading.spread[axis].sign > 0), "V is positive");
+        if ((doubled == 0) || (reading.spread[axis].sign <= 0))
+        {
+            continue;
+        }
+        // no share reads as 0, not 0/8
+        const unsigned long long eighth = (eighths != 0ll) ? 8ull : 1ull;
+        terms_ratio_within(tally, "  alpha, C1 / (2 V)", &reading.steps[axis][0], &twice, eighths, eighth, 1ull,
+                           1000ull);
+        terms_ratio_within(tally, "  alpha^2, C2 / V", &reading.steps[axis][1], &reading.spread[axis],
+                           eighths * eighths, eighth * eighth, 1ull, 500ull);
+        terms_ratio_within(tally, "  C3 / V", &reading.steps[axis][2], &reading.spread[axis], 0ll, 1ull, 1ull, 500ull);
+    }
 }
 
 // The clip pass against the plant: spikes at 128 in one voxel-frame of 1024, dips never. At 16 and 32 a symmetric
@@ -642,6 +717,25 @@ int main(void)
         }
         scene.background = TERMS_BACKGROUND;
         scene.ramp = 0ull;
+        sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  crosstalk read in the null\n");
+        terms_camera(&camera);
+        unsigned short *const drawn = (unsigned short *)malloc((size_t)lane_bytes);
+        sim_check(&tally, drawn != NULL, "the crosstalk copy");
+        if ((drawn != NULL) && terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+        {
+            terms_crosstalk(&tally, lanes, 0ull);
+            sim_flush(&tally);
+            scriptura_text(&tally.line, "  the null with each voxel taking 1/8 of each x neighbour's value after the draw"
+                                        "\n");
+            memcpy(drawn, lanes, (size_t)lane_bytes);
+            terms_crosstalk_mix(lanes, drawn);
+            terms_crosstalk(&tally, lanes, TERMS_CROSSTALK_EIGHTHS);
+        }
+        free(drawn);
         sim_flush(&tally);
     }
     cudaFree(device_lanes);

@@ -240,6 +240,28 @@ typedef struct
 long noise_ladder_volume(const unsigned short *volume, const unsigned long long extent[4], NoiseLadderReading *reading,
                          EngineError *error);
 
+// C20, crosstalk in the neighbour correlation (build plan item 38). Along y and along x, over the same voxels (those
+// whose voxel three steps on is inside the view), every frame pair's difference d': the pairs, Σ d'^2, and the
+// products Σ d'(v) d'(v + s δ) for the steps s = 1, 2 and 3, C1, C2 and C3. A draw shared with each neighbour by α after
+// it is made leaves V = Σ d'^2 - 2 C2, α = C1 / (2 V) and α^2 = C2 / V, which agree where C1^2 = 4 C2 V, and C3 = 0.
+// The detector reads the sums exactly; how near to agreement and to 0 a reading must come is not set here.
+#define NOISE_CROSSTALK_AXES 2u
+
+#define NOISE_CROSSTALK_STEPS 3u
+
+typedef struct
+{
+    unsigned long long pairs[NOISE_CROSSTALK_AXES];
+    AnchorExactInteger squares[NOISE_CROSSTALK_AXES];
+    AnchorExactInteger steps[NOISE_CROSSTALK_AXES][NOISE_CROSSTALK_STEPS];
+    // V = Σ d'^2 - 2 C2
+    AnchorExactInteger spread[NOISE_CROSSTALK_AXES];
+} NoiseCrosstalkReading;
+
+// refuses a volume of fewer than two frames or one whose products could pass 64 bits a sum
+long noise_crosstalk_volume(const unsigned short *volume, const unsigned long long extent[4],
+                            NoiseCrosstalkReading *reading, EngineError *error);
+
 // The root noise of a box: a span of frames and a place the caller names, an object's in the cell workbook. Each term the
 // noise vector table names as shared is a pattern in fewer dimensions than the box, one value for every place along
 // the axes it is kept on and the same along the axes it is shared along. A term's pattern over a box is the box's mean
