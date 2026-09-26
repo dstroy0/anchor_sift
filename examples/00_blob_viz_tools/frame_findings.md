@@ -1,7 +1,7 @@
 # Findings, 2026-09-10
 
 Raw record. Every finding from one session on the boundary reading and the viewer that draws it,
-written for transcription into the documents and the book instead of as a document itself.
+written for transcription into the documents and the research paper instead of as a document itself.
 
 Ordered by kind and not by importance. Each entry carries what was measured, what it means, and
 where the number came from, leaving every claim checkable against the thing that produced it.

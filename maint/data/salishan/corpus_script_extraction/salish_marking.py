@@ -89,7 +89,7 @@ PRACTICAL = "7"
 # THIS SET CARRIES NO PHONETIC CONTENT. ɬ and ł are both members because both occur, and nothing
 # here says the two are one sound. A distribution taken over these characters is a distribution over
 # what a transcriber typed. The table that takes a written form and returns the sound it stands for
-# is build/experiments/salish_phonemes.py. The Salishan book's chapter on going from the page to a
+# is build/experiments/salish_phonemes.py. The Salishan research paper's chapter on going from the page to a
 # distribution over sounds names the three stages, character, segment and sound, and says which tool
 # belongs to each and what a measurement reads if a stage is skipped.
 TEXT_SPACE = MARKED + PRACTICAL + "̓̔̕ʷ˽"

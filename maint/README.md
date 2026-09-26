@@ -3,7 +3,7 @@
 **Purpose:** Find the tool that maintains one part of this repository, and know before adding a script where it belongs.
 **Scope:** `maint/`
 
-Nothing here reads a corpus to answer a research question. That is `examples/`. Everything here acts on the repository: its records, its gates, its prose, its dependencies, its books, and the material it ingests.
+Nothing here reads a corpus to answer a research question. That is `examples/`. Everything here acts on the repository: its records, its gates, its prose, its dependencies, its research papers, and the material it ingests.
 
 ## Every script sits in a category and none sit loose
 
@@ -19,9 +19,9 @@ A directory with no membership rule collects whatever nobody had a better place 
 | `deps/`      | material brought in from outside this repository                                                                |
 | `tree/`      | what this repository itself contains and writes                                                                 |
 | `prose/`     | the writing in this tree, measured against human writing                                                        |
-| `book/`      | building the theory documents                                                                                   |
+| `texbuild/`  | building the theory research papers                                                                             |
 | `data/`      | fetching, converting, transcribing or repairing somebody else's material                                        |
-| `analysis/`  | a corpus read through `src/`, for a survey a book asked for                                                     |
+| `analysis/`  | a corpus read through `src/`, for a survey a research paper asked for                                           |
 
 ## What each holds
 

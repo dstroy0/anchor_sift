@@ -1,17 +1,17 @@
-"""Generate the theory books' chapters from the markdown beside them.
+"""Generate the theory research papers' chapters from the markdown beside them.
 
     python maint/texbuild/theory_tex.py [--hold name.md,...]
 
-A book here is a directory under theory/workbooks/ or theory/thought_experiments/ that holds a
+A research paper here is a directory under theory/workbooks/ or theory/thought_experiments/ that holds a
 README.md. Its markdown stays the source until the TeX port is finished. Each file becomes
-chapters/chapter_<stem>.tex in its own book, and each book gets chapters/order.tex, its list of
-chapters with the README first and the rest in the order the book's README names them. A file the
-README does not name comes after the named ones, by name. A PDF in a book's directory is brought in
+chapters/chapter_<stem>.tex in its own research paper, and each research paper gets chapters/order.tex, its list of
+chapters with the README first and the rest in the order the research paper's README names them. A file the
+README does not name comes after the named ones, by name. A PDF in a research paper's directory is brought in
 whole with \\includepdf.
 
 The markdown is only ever read. Run this again whenever the markdown changes: every generated file
 is rewritten whole, and a file whose text did not change is left alone. A generated chapter whose
-markdown is gone is removed. --hold leaves the named files out of the books, for a file another
+markdown is gone is removed. --hold leaves the named files out of the research papers, for a file another
 session is still writing.
 """
 
@@ -68,8 +68,8 @@ def label(stem):
 
 
 class Chapter:
-    def __init__(self, book_dir, source, chapters):
-        self.book_dir = book_dir.resolve()
+    def __init__(self, research_paper_dir, source, chapters):
+        self.research_paper_dir = research_paper_dir.resolve()
         self.source = source
         self.chapters = chapters
 
@@ -82,12 +82,12 @@ def link_target(url, chapter):
     if path:
         target = (chapter.source.parent / path).resolve()
         if (
-            target.parent == chapter.book_dir
+            target.parent == chapter.research_paper_dir
             and target.suffix == ".md"
             and target.stem in chapter.chapters
         ):
             return r"\hyperref[" + label(target.stem) + "]{", "}"
-    # A link out of the book, to code or to a file held back, keeps its words and loses its target.
+    # A link out of the research paper, to code or to a file held back, keeps its words and loses its target.
     return "", ""
 
 
@@ -392,11 +392,11 @@ def pretty(stem):
     return stem.replace("_", " ").capitalize()
 
 
-def markdown_chapter(book, source, chapters):
-    chapter = Chapter(THEORY / book, source, chapters)
+def markdown_chapter(research_paper, source, chapters):
+    chapter = Chapter(THEORY / research_paper, source, chapters)
     title = []
     # An HTML comment is for the markdown's readers and tools, such as docs_check's quoting fences,
-    # and does not reach the book.
+    # and does not reach the research paper.
     text = re.sub(r"<!--.*?-->", "", source.read_text(encoding="utf-8"), flags=re.S)
     body = convert_blocks(text.splitlines(), chapter, title)
     heading = title[0] if title else pretty(source.stem)
@@ -410,7 +410,7 @@ def markdown_chapter(book, source, chapters):
     ).rstrip() + "\n"
 
 
-def pdf_chapter(book, source):
+def pdf_chapter(research_paper, source):
     return "\n".join(
         [
             r"\chapter{" + escape_text(pretty(source.stem)) + "}",
@@ -420,33 +420,33 @@ def pdf_chapter(book, source):
     ) + "\n"
 
 
-def books():
+def research_papers():
     return [
-        book_dir.relative_to(THEORY).as_posix()
+        research_paper_dir.relative_to(THEORY).as_posix()
         for shelf in SHELVES
-        for book_dir in sorted((THEORY / shelf).iterdir())
-        if (book_dir / "README.md").is_file()
+        for research_paper_dir in sorted((THEORY / shelf).iterdir())
+        if (research_paper_dir / "README.md").is_file()
     ]
 
 
-def readme_order(book_dir):
+def readme_order(research_paper_dir):
     names = []
-    for match in re.finditer(r"([\w./-]+\.(?:md|pdf))", (book_dir / "README.md").read_text(encoding="utf-8")):
-        target = (book_dir / match.group(1)).resolve()
-        if target.parent == book_dir.resolve() and target.name not in names:
+    for match in re.finditer(r"([\w./-]+\.(?:md|pdf))", (research_paper_dir / "README.md").read_text(encoding="utf-8")):
+        target = (research_paper_dir / match.group(1)).resolve()
+        if target.parent == research_paper_dir.resolve() and target.name not in names:
             names.append(target.name)
     return names
 
 
-def book_sources(book, held):
-    book_dir = THEORY / book
+def research_paper_sources(research_paper, held):
+    research_paper_dir = THEORY / research_paper
     present = {
         path.name: path
-        for path in sorted(book_dir.iterdir())
+        for path in sorted(research_paper_dir.iterdir())
         if path.suffix in (".md", ".pdf") and path.name not in held
     }
     ordered = ["README.md"] if "README.md" in present else []
-    for name in readme_order(book_dir):
+    for name in readme_order(research_paper_dir):
         if name in present and name not in ordered:
             ordered.append(name)
     ordered.extend(sorted(name for name in present if name not in ordered))
@@ -466,18 +466,18 @@ def main():
     parser.add_argument("--hold", default="", help="comma separated file names to leave out")
     arguments = parser.parse_args()
     held = {name.strip() for name in arguments.hold.split(",") if name.strip()}
-    for book in books():
-        sources = book_sources(book, held)
+    for research_paper in research_papers():
+        sources = research_paper_sources(research_paper, held)
         chapters = {source.stem for source in sources}
-        chapter_dir = THEORY / book / "chapters"
+        chapter_dir = THEORY / research_paper / "chapters"
         written = []
         includes = []
         for source in sources:
             target = chapter_dir / f"chapter_{source.stem.lower()}.tex"
             if source.suffix == ".md":
-                text = markdown_chapter(book, source, chapters)
+                text = markdown_chapter(research_paper, source, chapters)
             else:
-                text = pdf_chapter(book, source)
+                text = pdf_chapter(research_paper, source)
             if write_if_changed(target, text):
                 written.append(target.name)
             includes.append(r"\include{chapters/" + target.stem + "}")
@@ -486,12 +486,12 @@ def main():
             written.append("order.tex")
         keep = {f"chapter_{source.stem.lower()}.tex" for source in sources} | {"order.tex"}
         for stale in chapter_dir.glob("*.tex"):
-            # Every chapter in a book this script manages is generated. One with no source is stale.
+            # Every chapter in a research paper this script manages is generated. One with no source is stale.
             # The generated chapters carry no comment line marking them.
             if stale.name not in keep:
                 stale.unlink()
                 written.append(f"removed {stale.name}")
-        print(f"  {book}: {len(sources)} chapters, {len(written)} files changed")
+        print(f"  {research_paper}: {len(sources)} chapters, {len(written)} files changed")
         for name in written:
             print(f"      {name}")
     return 0

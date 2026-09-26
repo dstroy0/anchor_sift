@@ -841,7 +841,7 @@ BANNED = (
         # Tier eight. Sapling scored the passage these came from at 0.1 percent, every sentence 0.0,
         # and the author read the same passage and said it was not his writing. An outside detector
         # is trained on published machine prose. Whether a page sounds like the person whose name is
-        # on the book is a different question and it does not answer it.
+        # on the research paper is a different question and it does not answer it.
         #
         # These four came out by ear. All of them name a table field and then give it something to
         # do. The tree already calls that field the who column, and somebody fills it in by hand.
@@ -869,7 +869,7 @@ BANNED = (
         r"\bthe only place a \w+ was dropped\b",
         # A footnote reported as though its absence were an event.
         r"\bhas no call and no text\b",
-        # The mark has a name. The book uses glottalization mark three times.
+        # The mark has a name. The research paper uses glottalization mark three times.
         r"\bglottal tick\b",
         r"\bwith a tick added\b",
         # Two sentences restating the sentence before them. Where the magnification already
@@ -925,7 +925,7 @@ BANNED = (
         # The provenance section of the workbook, read out loud. Every one of these came out of one
         # page.
         #
-        # shape, where nothing has a shape. The topology books use it for a real one and are the
+        # shape, where nothing has a shape. The topology research papers use it for a real one and are the
         # only place it stands.
         r"\bfor that shape and reports\b",
         # WITHDRAWN: bare \bthat shape\b. It fired on code-documentation/SKILL.md:51, "putting that
@@ -1071,7 +1071,7 @@ WITHDRAWN = {
     "idemIP/src at 29a808c, the single largest pattern in the table.",
     "read": "a fold does not read and a person does, which is true and is not what \\breads\\b "
     'tests. code-comments:208 writes "reads .c and .h comments". 337 hits.',
-    "slot": "nothing in the theory books has slots, which is a house naming rule about one "
+    "slot": "nothing in the theory research papers has slots, which is a house naming rule about one "
     "directory. code-comments:195 makes a handle slot a term of art in a section "
     "heading. 134 hits.",
     "cost": "say the number and its units. The instruction is right and the ban is not: a cost "
@@ -1323,7 +1323,7 @@ def stage_of(pattern):
 # TIER B is FREQUENCY-SCORED VOCABULARY: a word or an idiom, reported with what it costs a human
 # writer where that has been measured. Most of it is the machine-prose vocabulary code-documentation
 # section 135 through 141 lists by word. The rest is this file's own house style, calibrated on
-# anchor_sift's theory books and named as such in the report.
+# anchor_sift's theory research papers and named as such in the report.
 #
 # THE TIER IS DECIDED BY THE SENTENCE IN THE STANDARD, NEVER BY THE REGEX. This is the correction
 # that matters and it runs both ways:
@@ -1499,11 +1499,11 @@ NAMED_IN_MARKDOWN = (
     re.compile(r"[\"“][^\"“”\n]{1,600}[\"”]"),
 )
 
-# Prose lives in pages, in comments, in the books and in the build, and the same voice writes all
+# Prose lives in pages, in comments, in the research papers and in the build, and the same voice writes all
 # four.
 #
-# .tex was absent from this tuple until now. No theory book had ever been register checked. The
-# books are the longest continuous prose in the tree and the only part written to be read straight
+# .tex was absent from this tuple until now. No theory research paper had ever been register checked. The
+# research papers are the longest continuous prose in the tree and the only part written to be read straight
 # through, which made them the worst thing to have been leaving out.
 #
 # BUILD FILES WERE THE SAME GAP A SECOND TIME. A comment in a CMakeLists.txt makes the same claim a
@@ -2303,7 +2303,7 @@ while (REPOSITORY != os.path.dirname(REPOSITORY)) and not os.path.isdir(
 # A root that no longer exists is not an error this could see. The guard below turns that
 # into one, and the count at the foot is still the thing to watch after a move.
 #
-# theory_bucket was the third instance. Seven books moved out of theory/ into a subtree at
+# theory_bucket was the third instance. Seven research papers moved out of theory/ into a subtree at
 # theory_bucket/, and theory/ still existed because the workbook stayed in it. The guard below stayed
 # quiet and eighty files of prose went unread. The guard catches a root that vanished and never a
 # root that emptied, and the count at the foot is the only thing that shows the difference. The
@@ -2753,7 +2753,7 @@ def em_dashes(lines):
     return [(at + 1, "em dash") for at, line in enumerate(lines) if EM_DASH in line]
 
 
-# Markdown that survived the conversion into .tex. Every one of these is valid LaTeX. The book
+# Markdown that survived the conversion into .tex. Every one of these is valid LaTeX. The research paper
 # compiles with no error, no warning and no dropped glyph, and carries the artifact to the archive.
 #
 # The em dash rule above could not see any of it. A --- is an em dash after typesetting and the
@@ -2874,19 +2874,19 @@ def dead_links(path, lines):
 # The dstroy0/theory repository's copy of this file, anchor_sift's theory/ as a submodule, skips
 # them the same way.
 #
-# The chapters carry no comment line saying they are generated; the theory books hold no TeX
-# comments. theory_tex.py manages every book under workbooks/ or thought_experiments/ that holds a
-# README.md, and every file in such a book's chapters/ is its output.
+# The chapters carry no comment line saying they are generated; the theory research papers hold no TeX
+# comments. theory_tex.py manages every research paper under workbooks/ or thought_experiments/ that holds a
+# README.md, and every file in such a research paper's chapters/ is its output.
 def generated_chapter(path):
     """Whether a .tex was written by theory_tex.py from a markdown source."""
     if not path.endswith(".tex"):
         return False
     chapters = os.path.dirname(os.path.abspath(path))
-    book = os.path.dirname(chapters)
+    research_paper = os.path.dirname(chapters)
     return (
         os.path.basename(chapters) == "chapters"
-        and os.path.basename(os.path.dirname(book)) in ("workbooks", "thought_experiments")
-        and os.path.isfile(os.path.join(book, "README.md"))
+        and os.path.basename(os.path.dirname(research_paper)) in ("workbooks", "thought_experiments")
+        and os.path.isfile(os.path.join(research_paper, "README.md"))
     )
 
 

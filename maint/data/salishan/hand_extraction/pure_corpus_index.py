@@ -126,7 +126,7 @@ def main():
         found.append((paper, counted(path) if os.path.isfile(path) else 0))
 
     # Written as markdown into memory and converted once. These lines stay readable as the page
-    # they describe and the book still gets TeX.
+    # they describe and the research paper still gets TeX.
     with io.StringIO() as handle:
         handle.write("# Whose words these are\n\n")
         handle.write(

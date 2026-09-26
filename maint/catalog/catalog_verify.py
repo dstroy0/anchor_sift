@@ -155,9 +155,9 @@ def header_of(text):
 
 
 def theory_sections():
-    """Every section number the theory books actually carry."""
+    """Every section number the theory research papers actually carry."""
     held = set()
-    # Every book sits under theory/. The seven that stood under theory_bucket/ moved there on
+    # Every research paper sits under theory/. The seven that stood under theory_bucket/ moved there on
     # 2026-09-25.
     roots = (os.path.join(ROOT, "theory"),)
     for base, dirs, names in itertools.chain.from_iterable(
@@ -267,7 +267,7 @@ def main():
 
             for cited in set(SECTION.findall(head)):
                 if sections and (cited not in sections):
-                    said.append(("cites", "Section %s is in no book" % cited))
+                    said.append(("cites", "Section %s is in no research paper" % cited))
 
             writes = bool(WRITES.search(body))
             claims_write = bool(SAYS_WRITE.search(head))

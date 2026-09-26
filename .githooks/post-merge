@@ -10,7 +10,7 @@
 #     git config core.hooksPath .githooks
 #
 # theory/ is the public repository https://github.com/dstroy0/theory, held here as a git submodule.
-# The books are written there: an edit is committed and pushed in theory/ first, and this tree then
+# The research papers are written there: an edit is committed and pushed in theory/ first, and this tree then
 # commits the new submodule commit. A pull that moves the recorded commit leaves theory/ checked out
 # at the old one until `git submodule update` runs, and this hook runs it.
 #
@@ -34,7 +34,7 @@ fi
 REPO=$(git rev-parse --show-toplevel 2>/dev/null) || exit 0
 cd "$REPO" || exit 0
 
-# A clone that has not initialized the submodule is not an error. It reads the books with
+# A clone that has not initialized the submodule is not an error. It reads the research papers with
 # `git submodule update --init theory` when it wants them.
 if [ ! -e theory/.git ]; then
     exit 0

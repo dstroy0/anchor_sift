@@ -22,7 +22,7 @@
 # WHAT THIS COSTS
 #
 # Git stores these as symlinks. A clone on a machine without core.symlinks and Developer Mode gets a
-# short text file holding a path instead of the file, and the book build fails oddly. That is
+# short text file holding a path instead of the file, and the research paper build fails oddly. That is
 # acceptable while both trees are local, and it is the thing to remember if this is ever cloned
 # fresh.
 

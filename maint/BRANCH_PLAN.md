@@ -71,7 +71,7 @@ This is a real piece of work and it is a prerequisite, not a detail.
     src/scripts/build_ntt.ps1                   how to build it
     docs/twiddle-proof.md
     theory/theory/precision/                           main.tex, titlepage, chapter_twiddle_proof
-    theory/preamble.tex, theory/macros.tex      layout the book needs
+    theory/preamble.tex, theory/macros.tex      layout the research paper needs
     LICENSE
     README.md                                   A NEW ONE. The current README describes the viewers.
 

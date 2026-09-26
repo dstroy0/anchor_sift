@@ -5,7 +5,7 @@
 
 **Everything here reads a corpus through the engine and reports a number.** It uses `src/`, it does not extend it, and it writes nothing outside `build/`.
 
-The rule against `examples/`: an example demonstrates the method on one corpus and is written to be read. A survey runs the method across everything to answer a question the books ask. Both read a corpus through `src/`, and the difference is who the output is for.
+The rule against `examples/`: an example demonstrates the method on one corpus and is written to be read. A survey runs the method across everything to answer a question the research papers ask. Both read a corpus through `src/`, and the difference is who the output is for.
 
 ## survey
 

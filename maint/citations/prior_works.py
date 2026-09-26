@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Two questions about prior work, asked of the books before they are published.
+# Two questions about prior work, asked of the research papers before they are published.
 #
 #   python maint/citations/prior_works.py                 report both
 #   python maint/citations/prior_works.py --claims        priority claims only
@@ -24,7 +24,7 @@
 #      says plainly that the reading has not been done.
 #
 #   2. A QUOTED PASSAGE WITH NO ATTRIBUTION. Somebody else's sentences, set in quotation marks,
-#      carried in a book that is about to be posted publicly under a license. Unattributed, it is
+#      carried in a research paper that is about to be posted publicly under a license. Unattributed, it is
 #      either a copyright problem or a note that was filed in the wrong place. docs_check already
 #      finds these spans, to EXEMPT them from its own register checks. Nothing has been asking
 #      whether they are attributed.
@@ -107,7 +107,7 @@ def _repository_root():
 
 ROOT = _repository_root()
 
-# The books and the pages. src/ and maint/ are excluded: a comment claiming a method is new is
+# The research papers and the pages. src/ and maint/ are excluded: a comment claiming a method is new is
 # worth catching too, but the first pass is aimed at what gets posted.
 DEFAULT_ROOTS = ("theory", "docs", "README.md")
 CHECKED = (".tex", ".md")
@@ -167,7 +167,7 @@ DISCLAIMERS = (
     r"\bwhere that is known the precedent is named\b",
 )
 
-# What a reference looks like in these books: a LaTeX citation, a bracketed key, or a surname
+# What a reference looks like in these research papers: a LaTeX citation, a bracketed key, or a surname
 # standing against a year, the shape citations.py's second pass reads.
 REFERENCES = (
     r"\\(cite|citep|citet|footcite|autocite)\w*\s*[\[{]",

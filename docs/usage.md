@@ -37,10 +37,10 @@ Only `representation` knows a domain exists. It has `atom`, `game`, `particle`, 
 | `src/` | points and values, no domain. The engine |
 | `evidence/` | the claims. The proofs, and the R and MATLAB ports |
 | `examples/` | a corpus, through `src/`. Numbered demonstrations |
-| `theory/` | the books, and the ledger they cite |
-| `maint/` | the repository itself. Records, gates, prose checks, fetchers, the book build |
+| `theory/` | the research papers, and the ledger they cite |
+| `maint/` | the repository itself. Records, gates, prose checks, fetchers, the research paper build |
 
-`maint/` is sorted into categories and holds no loose scripts. `maint/README.md` states what belongs in each, including `maint/data/` for external material and `maint/analysis/` for the surveys the books ask for.
+`maint/` is sorted into categories and holds no loose scripts. `maint/README.md` states what belongs in each, including `maint/data/` for external material and `maint/analysis/` for the surveys the research papers ask for.
 
 ## Reading the result
 

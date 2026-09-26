@@ -82,7 +82,7 @@ length, and a bond length is that oracle. Those are coordinated additions, not t
 alone, and until they land the remaining stages would be transcriptions of the plan and not the
 
 What each stage will do, and the predictions each makes, is stated in `theory/theory/chemistry` before the
-readers exist, in the design-only posture the exact-arithmetic chapter of the image-transforms book
+readers exist, in the design-only posture the exact-arithmetic chapter of the image-transforms research paper
 uses.
 
 ## Running one
