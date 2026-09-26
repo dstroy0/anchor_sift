@@ -4,7 +4,6 @@
 # file moves, since a moved file starts again at zero under its new name.
 docs/aiming-the-engine.md	36
 docs/arm-records.md	14
-docs/audit-2026-09-11.md	36
 docs/boundary-counting.md	21
 docs/boundary-reading.md	11
 docs/failure-modes.md	14
