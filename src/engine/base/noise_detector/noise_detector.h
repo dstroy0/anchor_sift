@@ -262,6 +262,32 @@ typedef struct
 long noise_crosstalk_volume(const unsigned short *volume, const unsigned long long extent[4],
                             NoiseCrosstalkReading *reading, EngineError *error);
 
+// C14, charge before the gain (build plan item 38). A bias series (no light, no exposure) and a dark series (no light,
+// exposed for a named Δt) of one extent: over each, Σ I over every voxel-frame and Σ d^2 over every frame difference.
+// With M voxel-frames and P frame differences a series, the bias mean A_b / M is O (with the fixed pattern's mean),
+// and the bias E[d^2] / 2 = Q_b / (2 P) is the level-free sum R^2 + σ_J^2 + σ_kTC^2. Dark electrons enter before the
+// gain, so the dark mean less the bias mean is g D Δt and the dark E[d^2] / 2 less the bias's is g^2 D Δt; g is their
+// ratio. Each reading is a numerator over a positive denominator.
+typedef struct
+{
+    AnchorExactInteger offset;
+    AnchorExactInteger offset_denominator;
+    AnchorExactInteger level_free;
+    AnchorExactInteger level_free_denominator;
+    AnchorExactInteger dark_level;
+    AnchorExactInteger dark_level_denominator;
+    AnchorExactInteger dark_square;
+    AnchorExactInteger dark_square_denominator;
+    // set where the dark mean differs from the bias mean
+    int gain_read;
+    AnchorExactInteger gain;
+    AnchorExactInteger gain_denominator;
+} NoiseChargeReading;
+
+// refuses series of fewer than two frames, or whose squares could pass 64 bits a sum
+long noise_charge_series(const unsigned short *bias, const unsigned short *dark, const unsigned long long extent[4],
+                         NoiseChargeReading *reading, EngineError *error);
+
 // The root noise of a box: a span of frames and a place the caller names, an object's in the cell workbook. Each term the
 // noise vector table names as shared is a pattern in fewer dimensions than the box, one value for every place along
 // the axes it is kept on and the same along the axes it is shared along. A term's pattern over a box is the box's mean

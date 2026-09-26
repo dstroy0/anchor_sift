@@ -28,6 +28,8 @@
 
 #define SIM_SPIKE_PURPOSE 0x5350494B45ull
 
+#define SIM_RESET_PURPOSE 0x5245534554ull
+
 // the camera's shot laws, 0 for none: sim_poisson_four_cumulants, the camera's own, whose first four cumulants are
 // each S, a Poisson count's; and Binomial(4S, 1/2) - S, of mean and variance S but symmetric (third cumulant 0,
 // fourth -S/2), kept for a sim to read beside it
@@ -81,6 +83,11 @@ typedef struct
     unsigned long long spike_numerator;
     unsigned long long spike_denominator;
     unsigned long long spike_electrons;
+    // charge before and beside the gain (rows 2, 3 and 6), each 0 unless set: the dark electrons a voxel collects a
+    // frame at the camera's exposure, D Δt, drawn with the light by the shot law; and a reset offset of this variance
+    // drawn per voxel-frame (kTC), level-free like the read
+    unsigned long long dark;
+    unsigned long long reset_square;
 } SimCamera;
 
 typedef struct
@@ -192,18 +199,19 @@ static inline __host__ __device__ unsigned long long sim_pattern(const SimCamera
 static inline __host__ __device__ long long sim_value(const SimCamera *camera, unsigned long long counter,
                                                       unsigned long long voxel, unsigned long long electrons)
 {
+    // the light's electrons and the dark's are drawn together, before the gain
+    const unsigned long long charge = electrons + camera->dark;
     // an electron count is far below 2^62, the signal's bound in every scene here
-    long long collected = (long long)electrons;
+    long long collected = (long long)charge;
     if (camera->shot == SIM_SHOT_SYMMETRIC)
     {
         // a head count of at most 4 S is far below 2^62
-        collected = (long long)sim_binomial_half(camera->key ^ SIM_SHOT_PURPOSE, counter, 4ull * electrons)
-                  - collected;
+        collected = (long long)sim_binomial_half(camera->key ^ SIM_SHOT_PURPOSE, counter, 4ull * charge) - collected;
     }
     else if (camera->shot == SIM_SHOT_POISSON)
     {
         // a count of at most 4 S is far below 2^62
-        collected = (long long)sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, electrons);
+        collected = (long long)sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, charge);
     }
     long long read = 0ll;
     if (camera->read_square != 0ull)
@@ -211,6 +219,12 @@ static inline __host__ __device__ long long sim_value(const SimCamera *camera, u
         // a head count of at most 4 r^2 is far below 2^62
         read = (long long)sim_binomial_half(camera->key ^ SIM_READ_PURPOSE, counter, 4ull * camera->read_square)
              - (2ll * (long long)camera->read_square);
+    }
+    if (camera->reset_square != 0ull)
+    {
+        // a head count of at most 4 kTC is far below 2^62
+        read += (long long)sim_binomial_half(camera->key ^ SIM_RESET_PURPOSE, counter, 4ull * camera->reset_square)
+              - (2ll * (long long)camera->reset_square);
     }
     // the offset, pattern and gain are each far below 2^31 in every camera here
     return (long long)camera->offset + (long long)sim_pattern(camera, voxel) + ((long long)camera->gain * collected)

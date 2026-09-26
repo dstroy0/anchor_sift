@@ -67,6 +67,16 @@
 // crosstalk along x: 1/8 of each neighbour's value after the draw
 #define TERMS_CROSSTALK_EIGHTHS 1ull
 
+// charge before the gain: no light, gain 2, a reset variance of 4 beside the read's 4, and 16 dark electrons a frame
+// at the first exposure, 32 at the second, twice as long
+#define TERMS_CHARGE_GAIN 2ull
+
+#define TERMS_RESET_SQUARE 4ull
+
+#define TERMS_DARK 16ull
+
+#define TERMS_EXPOSURES 2ull
+
 static const unsigned long long TERMS_EXTENT[4] = {TERMS_FRAMES, TERMS_DEPTH, TERMS_HEIGHT, TERMS_WIDTH};
 
 static void terms_within(SimTally *tally, const char *what, long long read, long long expected, long long reach)
@@ -415,6 +425,41 @@ static void terms_crosstalk(SimTally *tally, const unsigned short *lanes, unsign
     }
 }
 
+// C14 read back (build plan item 38). A bias series and a dark series, no light: the bias mean is O, the bias
+// E[d^2] / 2 is R^2 + kTC, the dark mean less the bias's is g D Δt, the dark E[d^2] / 2 less the bias's is g^2 D Δt,
+// and their ratio is g. Over 96 frames of 32 x 128 x 128, with a Poisson dark shot, the standard errors at 16 dark
+// electrons are about 1/2500 (O), 1/500 (R^2 + kTC), 1/800 (g D Δt), 1/55 (g^2 D Δt) and 1/1700 (g), and at 32 about
+// 1/600, 1/30 and 1/1900 for the last three, so each reach is at least 5 of them.
+static void terms_charge(SimTally *tally, const unsigned short *bias, const unsigned short *dark,
+                         const SimCamera *camera)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseChargeReading reading;
+    const int good = noise_charge_series(bias, dark, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good, "the charge pass read the series");
+    if (good == 0)
+    {
+        return;
+    }
+    // the offset, variances, gain and dark electrons are each far below 2^31
+    const long long gain = (long long)camera->gain;
+    const long long dark_electrons = (long long)camera->dark;
+    terms_ratio_within(tally, "O, the bias mean", &reading.offset, &reading.offset_denominator,
+                       (long long)camera->offset, 1ull, 1ull, 500ull);
+    terms_ratio_within(tally, "R^2 + kTC, the bias E[d^2] / 2", &reading.level_free, &reading.level_free_denominator,
+                       (long long)(camera->read_square + camera->reset_square), 1ull, 1ull, 100ull);
+    terms_ratio_within(tally, "g D dt, the dark mean less the bias's", &reading.dark_level,
+                       &reading.dark_level_denominator, gain * dark_electrons, 1ull, 1ull, 100ull);
+    terms_ratio_within(tally, "g^2 D dt, the dark E[d^2] / 2 less the bias's", &reading.dark_square,
+                       &reading.dark_square_denominator, gain * gain * dark_electrons, 1ull, 1ull, 5ull);
+    sim_check(tally, reading.gain_read != 0, "the dark mean differs from the bias's, so g reads");
+    if (reading.gain_read != 0)
+    {
+        terms_ratio_within(tally, "g, their ratio", &reading.gain, &reading.gain_denominator, gain, 1ull, 1ull, 300ull);
+    }
+}
+
 // The clip pass against the plant: spikes at 128 in one voxel-frame of 1024, dips never. At 16 and 32 a symmetric
 // shot's null holds its spikes and dips equal within 5 standard errors; a Poisson shot's upper tail is longer than its
 // lower, so its null's spikes outnumber its dips by more than 5.
@@ -736,6 +781,38 @@ int main(void)
             terms_crosstalk(&tally, lanes, TERMS_CROSSTALK_EIGHTHS);
         }
         free(drawn);
+        sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  charge before the gain: no light, offset 20, gain 2, read variance 4, reset variance"
+                                    " 4, a Poisson dark shot; a bias series, then a dark series at 16 and at 32 dark"
+                                    " electrons a frame\n");
+        // no fixed pattern, so each series draws on its own key as a second series of one camera would
+        terms_camera(&camera);
+        camera.gain = TERMS_CHARGE_GAIN;
+        camera.pattern_reach = 0ull;
+        camera.reset_square = TERMS_RESET_SQUARE;
+        scene.background = 0ull;
+        unsigned short *const bias = (unsigned short *)malloc((size_t)lane_bytes);
+        sim_check(&tally, bias != NULL, "the bias series");
+        if ((bias != NULL) && terms_render(&tally, &scene, &camera, device_lanes, bias, count))
+        {
+            for (unsigned long long exposure = 1ull; exposure <= TERMS_EXPOSURES; exposure += 1ull)
+            {
+                camera.key = TERMS_KEY + exposure;
+                camera.dark = exposure * TERMS_DARK;
+                scriptura_text(&tally.line, "    ");
+                scriptura_decimal(&tally.line, camera.dark, 1u);
+                scriptura_text(&tally.line, " dark electrons a frame\n");
+                if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+                {
+                    terms_charge(&tally, bias, lanes, &camera);
+                }
+            }
+        }
+        free(bias);
+        scene.background = TERMS_BACKGROUND;
         sim_flush(&tally);
     }
     cudaFree(device_lanes);
