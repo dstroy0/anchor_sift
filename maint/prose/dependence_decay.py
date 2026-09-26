@@ -35,7 +35,7 @@ THE NULL IS FREE AND IT IS DRAWN, NOT DERIVED
 
 Estimated MI is biased UPWARD at finite sample: with V*V cells and limited counts, independent data
 still produces a positive number, and the bias grows as the table gets sparse. Deriving that bias is
-possible and this tree has a rule about deriving things - seven derived bars in one session, every
+possible and this tree has a rule about deriving things - seven derived bars in one night, every
 one too low, always the same direction.
 
 So it is measured. Shuffling the tokens destroys arrangement and keeps every count identical, which

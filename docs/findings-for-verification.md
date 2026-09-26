@@ -1,11 +1,11 @@
-# Engine session findings, for verification
+# Engine findings, for verification
 
-**Purpose:** Hand the theorist every claim this session produced, each with where it is recorded and the exact command or argument that settles it. None of it has to be taken on my word.
+**Purpose:** Check every claim the engine work of 2026-09-16 produced against where it is recorded and the exact command or argument that settles it, without taking any of it on trust.
 **Scope:** `src/engine/c/`, `test/engine/`, `maint/engine/`, `docs/steering.md`, `theory/workbooks/anchor_sift/chapters/chapter_anchor_sift_workbook.tex`, and the engine workbook chapter staged for upstream.
 
 Every claim below is in one of three states. **Holds** means checked and standing. **Retracted** means it was published here and is now withdrawn, with the reason. **Open** means it is not settled and is not to be quoted as though it were.
 
-Builds referenced are MSVC 19.44 x64 Release and MinGW gcc, both exercised. Run everything from the worktree root.
+Builds referenced are MSVC 19.44 x64 Release and MinGW gcc, both exercised. Run everything from the repository root.
 
     maint/engine/build_engine.ps1     # Windows, imports MSVC, compiles the device rasterizer
     maint/engine/build_engine.sh      # POSIX or Git Bash, pins gcc or clang where MSVC has no environment
@@ -24,7 +24,7 @@ Builds referenced are MSVC 19.44 x64 Release and MinGW gcc, both exercised. Run 
 
 **Check:** `grep -n "set_source_files_properties" src/engine/c/CMakeLists.txt`.
 
-### F3. The vectorized scan actually runs, and this is asserted rather than assumed
+### F3. The vectorized scan actually runs, and a test asserts it
 
 A correctness suite cannot detect an unused implementation: an engine compiled, graded and never called returns the reference engine's answer. Every differential passes. That defect was live here, AVX2 built and benched while the planner ran its own scalar loop. Two counters make the wiring assertable and `test_steer` requires a 100 percent share.
 
@@ -34,7 +34,7 @@ A correctness suite cannot detect an unused implementation: an engine compiled, 
 
 Reads per alignment, unsteered to best steered: uniform 1.003 to 1.003, synthetic skewed 1.562 to 1.001, skewed 1.877 to 1.067, period 16 1.187 to an exact 1.000 with one probe where the unsteered route places four, natural AGPL English text 1.072 to an exact 1.000.
 
-**Corrected 2026-09-16 after the theorist ran it.** An earlier form of this entry gave the license text as 1.072 to 1.066 and called it the weakest field. 1.066 is the recursive reorder column; the field's result is its best route and that is 1.000 on coarms. **Uniform is the weakest field** and it is weak for a reason worth stating: a uniform field has no rarity for the steering to spend. No route moves it and 1.003 to 1.003 is the honest worst case.
+**Corrected 2026-09-16 after a rerun.** An earlier form of this entry gave the license text as 1.072 to 1.066 and called it the weakest field. 1.066 is the recursive reorder column; the field's result is its best route and that is 1.000 on coarms. **Uniform is the weakest field** and it is weak for a reason worth stating: a uniform field has no rarity for the steering to spend. No route moves it and 1.003 to 1.003 is the honest worst case.
 
 Two things one field could not show. Steering pays nothing on a uniform field, where no symbol is rarer than another. And the mechanisms separate: on the skewed field the recursive reorder moves 1.877 to 1.875 while spawning coarms moves it to 1.067. The spawning pays and the ordering does not.
 
@@ -60,7 +60,7 @@ A descent stops, recurses, or refuses. It stops when the destroy test fires, rec
 
 A probe rejects a definite set of alignments; a probe set rejects their union; `f(P)` counting that union is monotone because adding a probe un-rejects nothing, and submodular because an alignment already rejected contributes nothing when rejected again. Neither property assumes anything about the corpus. Choosing the candidate leaving fewest survivors is choosing the largest marginal gain, because the alive count is fixed at the level. Nemhauser, Wolsey and Fisher 1978 then gives at least `1 - 1/e` of the best probe set of the same size.
 
-**Confirmed by the theorist.** Two scope limits they and I agree on: the bound is on alignments rejected and not on reads, and it assumes the argmax is exact, which holds at `sample_stride` one and not above it, where greedy is running on an estimate.
+**Confirmed on a second reading.** It has two scope limits: the bound is on alignments rejected and not on reads, and it assumes the argmax is exact, which holds at `sample_stride` one and not above it, where greedy is running on an estimate.
 
 ### F8. The sweep enumerates the whole legal probe set
 
@@ -88,9 +88,9 @@ A probe rejects a definite set of alignments; a probe set rejects their union; `
 
 Recorded as "around one percent of the cycles the worst rule gives up". Measured, with the gate in F10 fixed so the driver runs at all, it is **0.035** on x64 MSVC 19.44 at Release, 39 of 42 rows, 9131790 cycles. The one percent corresponds to no run recoverable from this tree.
 
-**And 0.035 does not reproduce either.** The theorist ran the same bench under gcc and got 41 of 42 at 86511 cycles, share 0.000. A hundredfold gap in cycles, not rounding, and both are real runs. The figure belongs to the toolchain that produced it and must be quoted with one. A rule scored by row count is fragile precisely where two engines sit within noise of each other. That is the argument the bench's own closing note makes for scoring by cycles given up.
+**And 0.035 does not reproduce either.** The same bench under gcc gives 41 of 42 at 86511 cycles, share 0.000. A hundredfold gap in cycles, not rounding, and both are real runs. The figure belongs to the toolchain that produced it and must be quoted with one. A rule scored by row count is fragile precisely where two engines sit within noise of each other. That is the argument the bench's own closing note makes for scoring by cycles given up.
 
-**The needle length term is dead weight on this data, which R1 never mentioned.** Flatness alone ties the kernel exactly, same rows and same cycles on the theorist's run. The length term changes no answer across 42 rows. "Flatness then length, as documented" scores strictly worse than the flatness it contains, and the shipped rule of length alone is worse than both. So the document is beaten by the kernel it documents and the kernel is behaviorally the simpler rule. The sweep's own text already supports it: a structured corpus takes the free order engine at every length, and the ceiling of 16 it used to carry survives at no value. A tunable with no reader is an integration point, never deleted and never called unimplemented. It is named and kept until a row is found where it pays.
+**The needle length term is dead weight on this data, which R1 never mentioned.** Flatness alone ties the kernel exactly, same rows and same cycles on the gcc run. The length term changes no answer across 42 rows. "Flatness then length, as documented" scores strictly worse than the flatness it contains, and the shipped rule of length alone is worse than both. So the document is beaten by the kernel it documents and the kernel is behaviorally the simpler rule. The sweep's own text already supports it: a structured corpus takes the free order engine at every length, and the ceiling of 16 it used to carry survives at no value. A tunable with no reader is an integration point, never deleted and never called unimplemented. It is named and kept until a row is found where it pays.
 
 ### R2. The steering figure from one corpus
 
@@ -98,17 +98,17 @@ Recorded as "around one percent of the cycles the worst rule gives up". Measured
 
 ### R3. Submodularity discharging the destroy premise
 
-I claimed diminishing returns makes the non-increasing enumeration premise unnecessary. **Refuted by the theorist with a counterexample.** Alignments `{1,2,3}`. Let `R_p` be empty with candidate set `{p}` at level 0: best marginal gain zero, destroy fires. Let the candidate set at level 1 be `{p,q}` with `R_q = {1,2,3}`: nothing was placed, the population is unchanged, `q` has gain three. Stopping rejects none, continuing rejects all, and `f` is monotone and submodular throughout.
+I claimed diminishing returns makes the non-increasing enumeration premise unnecessary. **Refuted by a counterexample.** Alignments `{1,2,3}`. Let `R_p` be empty with candidate set `{p}` at level 0: best marginal gain zero, destroy fires. Let the candidate set at level 1 be `{p,q}` with `R_q = {1,2,3}`: nothing was placed, the population is unchanged, `q` has gain three. Stopping rejects none, continuing rejects all, and `f` is monotone and submodular throughout.
 
 Submodularity bounds the gain of a **fixed** candidate as the placed set grows. It says nothing about a candidate absent from the earlier set, because there is no earlier gain to bound it by. The enumeration premise is load bearing and stays stated.
 
-### R4. Three classifications of the engine, two of them mine and wrong
+### R4. Three classifications of the engine, all three wrong
 
 **First:** the engine is a total language, every loop bounded before the run. The halting question does not arise. Wrong. That analyzed one **invocation** and concluded about the **system**, and a system halting on every input decides its own halting. The claim needed the outer loop and never looked at it. The outer loop is self examination and nothing bounds it. The methodological error is the durable finding and survives whatever the answer is.
 
 **Second:** the engine is Turing complete. Wrong, and further from the truth than the first. Failing to halt is not Turing completeness; a process can fail to halt by cycling among three states. Turing completeness needs storage that grows during execution.
 
-**Third:** the engine is a linear bounded automaton, tape linear in input. Wrong, and Douglas broke it: the corpus is not the input, it is a window. **The universe is the tape and the exam set is the surviving set.** An LBA's bound is linear in an input this construction does not have, because the engine chooses what it reads next.
+**Third:** the engine is a linear bounded automaton, tape linear in input. Wrong: the corpus is not the input, it is a window. **The universe is the tape and the exam set is the surviving set.** An LBA's bound is linear in an input this construction does not have, because the engine chooses what it reads next.
 
 ### R5. The read floor's attainment, and a row in the wrong units
 
@@ -120,7 +120,7 @@ That row was also briefly printed inside the route table, whose column counts pr
 
 I presented the equality oracle as lifting a constraint on the engine. It lifted one on the C entries only, and the framing implied more than that.
 
-The python cascade has never needed bytes. `survivors` reads `places.get(needle[offset], ())` and `positions_by_symbol` builds `places` with `setdefault(value, set())` over any iterable. A symbol there is a dict key and the requirement is equality and hashability (`src/engine/python/sift/anchors.py:104`, `src/engine/python/sift/anchors.py:110-115`). `examples/crystallography/5_sift/lattice_breaks_the_product_rule.py` runs the cascade over crystals with element strings as symbols, importing `representation.exact` and `representation.structure.crystal` and no shared library at all. Checked, not taken: the crystallography session reported it and both claims verify.
+The python cascade has never needed bytes. `survivors` reads `places.get(needle[offset], ())` and `positions_by_symbol` builds `places` with `setdefault(value, set())` over any iterable. A symbol there is a dict key and the requirement is equality and hashability (`src/engine/python/sift/anchors.py:104`, `src/engine/python/sift/anchors.py:110-115`). `examples/crystallography/5_sift/lattice_breaks_the_product_rule.py` runs the cascade over crystals with element strings as symbols, importing `representation.exact` and `representation.structure.crystal` and no shared library at all. Both claims were checked against the source and verify.
 
 So the C entries were narrower than the proof they implement AND narrower than the python engine they are graded against, and the byte framing in the C headers is what a reader would have concluded the construction required.
 
@@ -128,7 +128,7 @@ So the C entries were narrower than the proof they implement AND narrower than t
 
 ### F11. The projection needs transitivity and the descent does not, which is a soundness precondition
 
-Found by the crystallography session pointing at the protein subject, verified here.
+Found while pointing the engine at the protein subject, and verified.
 
 A descent's oracle is asked only whether two positions agree. That is a pairwise necessary condition and it survives any predicate whatever, including one that is not transitive.
 
@@ -136,49 +136,49 @@ A descent's oracle is asked only whether two positions agree. That is a pairwise
 
 **The case that motivates having an oracle is the case that breaks it.** `examples/proteins/5_sift/protein_domain.py:66-74` matches a point within a tolerance of a displaced position, and its docstring states why exact equality is the wrong test on a continuous domain: coordinates are real. Two occurrences of one motif never land on identical voxel offsets. A tolerance relation is not transitive, since `a` within tolerance of `b` and `b` of `c` does not put `a` within tolerance of `c`. That predicate is sound in a descent and unsound in the projection.
 
-Verifying transitivity costs a cube of the field. This is a precondition and not a check. It is stated in the header at the declaration, loudly, because the failure mode is a wrong answer and not a refusal.
+Verifying transitivity costs a cube of the field, and nothing verifies it. The precondition is stated in the header at the declaration, loudly, because the failure mode is a wrong answer and not a refusal.
 
 **Check:** read the warning on `anchor_field_project` in `src/engine/c/engine/anchor_sift.h`, and `examples/proteins/5_sift/protein_domain.py:66-74` for the predicate that breaks it.
 
 ### F12. A crystal derived field would be half selected by crystal system, and the selection tracks mineral family
 
-Measured by the crystallography session over `build/cod` with `maint/analysis/survey/crystal_gate_census.py`, reported here because it is a trap for this engine's benches and not for theirs.
+Measured over `build/cod` with `maint/analysis/survey/crystal_gate_census.py`. It is recorded here as a trap for this engine's benches.
 
 Of 7459 entries, 3708 are admitted to the exact reading (49.7 percent), 3747 are refused for a cell that is not right angled (50.2 percent), and 4 carry no cell. The refusal is nowhere near uniform: spinel 96.1 percent admitted, garnet 98.0, olivine 95.3, melilite 95.4, perovskite 91.0, against feldspar 2.3, apatite 2.4, amphibole 4.2, tourmaline 4.6, carbonate 5.2, clay 8.8, serpentine 10.0.
 
 The gate selects by crystal system, and crystal system is confounded with mineral family. **Any field drawn from that cache is the cubic and orthorhombic half of it**, with the monoclinic and triclinic families all but absent, and a bench run over it would report a property of that half while naming the whole corpus.
 
-Nothing in the engine touches it today. `bench_lattice` and `bench_coherence` build synthetic periods and are unaffected, and F4's natural field is the AGPL licence text. It is recorded because F4 establishes the habit of reaching for a natural field, and this is the natural field nearest to hand.
+Nothing in the engine touches it today. `bench_lattice` and `bench_coherence` build synthetic periods and are unaffected, and F4's natural field is the AGPL license text. It is recorded because F4 establishes the habit of reaching for a natural field, and this is the natural field nearest to hand.
 
 **Check:** `maint/analysis/survey/crystal_gate_census.py` over `build/cod`, in the crystallography worktree.
 
 ### R7. "Nothing is committed" was wrong
 
-I told the crystallography session that nothing of the engine work was committed and that there was no branch to merge. The second half holds for this session's work. The first half does not.
+I wrote that nothing of the engine work was committed and that there was no branch to merge. The second half holds for the work described here. The first half does not.
 
-`0474582 src anchor_sift rewrite`, authored 2026-09-16 08:47:49, is HEAD of `worktree-engine-steer-exact` and touches `src/engine/c/portable/anchor_sift.{c,h}`, three benches, `CMakeLists.txt` and `test/engine/test_arm_agreement.c`. Verified by `git log` and `git show` here after they reported it from their own worktree.
+`0474582 src anchor_sift rewrite`, authored 2026-09-16 08:47:49, is HEAD of `worktree-engine-steer-exact` and touches `src/engine/c/portable/anchor_sift.{c,h}`, three benches, `CMakeLists.txt` and `test/engine/test_arm_agreement.c`. Verified by `git log` and `git show`.
 
 So the rewrite is in the tree and only the work on top of it is uncommitted. The distinction matters to whoever commits next, because a commit lands on a branch that has already moved and not on a branch that has not.
 
 ### R8. The overflow merged by arrival order, and the header claimed it merged by rarity
 
-Measured by the theorist on a 400 class field, corrected here.
+Measured on a 400 class field, and corrected.
 
 The header stated that classes beyond 255 share rank 255 and that those are the commonest, since ranks run rarest first. The reasoning is sound. The code did not implement it. The overflow was assigned inside the discovery pass, before the rarity sort ran at all. The merged set was chosen by **arrival order**.
 
-Two fields with the same frequency multiset and opposite arrangements, 256 classes at nine occurrences and 144 at one: the merged sets had mean occupancies of 1.06 and 9.00. Same count merged either way, 400 minus 256 plus 1. The mechanism is exactly the table filling. A histogram cannot tell those two fields apart, which puts this in the same class as every other arrangement-invisible-to-a-histogram defect in this workbook.
+Two fields with the same frequency multiset and opposite arrangements, 256 classes at nine occurrences and 144 at one: the merged sets had mean occupancies of 1.06 and 9.00. Same count merged either way, 400 minus 256 plus 1. The table filling up is the mechanism. A histogram cannot tell those two fields apart, which puts this in the same class as every other arrangement-invisible-to-a-histogram defect in this workbook.
 
 **The natural arrangement is the harmful one.** A class occurring once has one chance to arrive early; a class occurring nine times has nine. Rare classes therefore arrive late and the overflow ate exactly them, at mean occupancy 1.06. The rarest class is the best probe the steering has. The degradation spent the thing the projection exists to find.
 
-**Fixed by refusing.** A field holding more classes than a byte rank can name now returns 0 with `distinct` set to 0, instead of degrading silently. That also enforces the advice already given to three sessions whose fields are this shape: do not project, hand the oracle to a descent, which needs no ranks, no closure and no table. Tested: 400 distinct classes refused, `distinct` reporting 0.
+**Fixed by refusing.** A field holding more classes than a byte rank can name now returns 0 with `distinct` set to 0, instead of degrading silently. That also enforces the standing advice for fields of this shape: do not project, hand the oracle to a descent, which needs no ranks, no closure and no table. Tested: 400 distinct classes refused, `distinct` reporting 0.
 
-The theorist's alternative fix, labelling with a separate `uint32_t` array of `length` entries so the component count runs unbounded and the clamp applies at relabel time, would make the original sentence true. It needs a caller supplied label array, because the kernel allocates nothing, and it is not taken here. Refusing is smaller and it is the honest answer for a byte ranked output.
+The alternative fix, labeling with a separate `uint32_t` array of `length` entries so the component count runs unbounded and the clamp applies at relabel time, would make the original sentence true. It needs a caller supplied label array, because the kernel allocates nothing, and it is not taken here. Refusing is smaller and it is the honest answer for a byte ranked output.
 
 **Also fixed:** `distinct` used to report 256 on a 400 class field. A caller could not distinguish a field with exactly 256 classes from one that had overflowed and was running degraded. Both reported 256.
 
 ### F13. The projection's inequality is strict, and it is reachable
 
-Measured by the theorist on the same 400 class field, 2448 positions, 256 ranks, needle length 4.
+Measured on the same 400 class field, 2448 positions, 256 ranks, needle length 4.
 
 Across every needle position: 150 needles where the projected survivor count is strictly above the exact one, and **zero** where it falls below. Sample rows show exact 6 against projected 150.
 
@@ -188,13 +188,13 @@ Unchanged under the transitive closure, for a stated reason: a different rank me
 
 ### R9. The volume renderer documented a census parameter it discards
 
-Found by the theorist in published code, verified here, fixed at `ca62234`.
+Found in published code, verified, and fixed at `ca62234`.
 
 `anchor_volume_render_host` took a `census` parameter documented as "Rarity source for ANCHOR_CHANNEL_RARITY, or NULL". It discarded it (`src/engine/c/render/anchor_raster.c:473`) and built its own from `corpus` (`src/engine/c/render/anchor_raster.c:502`). A document describing behavior the code does not have.
 
 **The failure it enables has no symptom.** A caller passing NULL is correct, and every caller in this tree passes NULL. Nothing crashed and nothing was unsound. A caller passing a census built over something ELSE, a reference distribution or a census taken over a sampled slice, would have that rarity source silently replaced by one computed from the corpus in front of it. The render succeeds. The picture is plausible. Nothing reports anything.
 
-**Verification passed straight over it.** The theorist tested this renderer the same morning and reported 20 volume rows filled 32768 with 0 collisions, which is true and which never touches this parameter. "The volume renderer is verified" was a sentence both of us wrote and it did not cover this.
+**Verification passed straight over it.** A test of this renderer the same morning reported 20 volume rows filled 32768 with 0 collisions, which is true and never touches this parameter. "The volume renderer is verified" was written twice, and it did not cover this.
 
 **Fixed by correcting the document, not by removing the parameter**, because a tunable with no reader is an integration point that is never deleted and never described as unimplemented. The declaration now says the call builds its own census from `corpus`, that this parameter is reserved for a caller supplied rarity source, and that an earlier form of the line called it the rarity source and was wrong. The same note sits at the discard site. A reader of either meets it.
 
@@ -204,7 +204,7 @@ Found by the theorist in published code, verified here, fixed at `ca62234`.
 
 ### F15. O1 settled: one descent is bounded above by a constant, and depth IS data dependent
 
-**Premise replaced 2026-09-16 after Douglas caught it. The conclusion stands; the reasoning under it did not.**
+**Premise replaced 2026-09-16. The conclusion stands; the reasoning under it did not.**
 
 The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:676`, which said "Nothing in the descent lets corpus content change the DEPTH, only the choice made at a level". **That line is false on the default path**, it is now corrected in the header, and this entry no longer uses it.
 
@@ -218,17 +218,17 @@ The first version of this entry rested on `src/engine/c/portable/anchor_sift.h:6
 
 **The corrected classification.** One descent is a finite automaton WITH data dependent control flow, bounded above by a constant. It is not a fixed depth decision procedure, because the destroy test is a genuine conditional branch on data deciding whether to recurse. The constant is what still rules out universality.
 
-**Why removing the cap would not reach universality over a fixed corpus.** The probe family is fixed by `needle_len` and `max_length`, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent halts with or without the bound. A growing corpus grows the family. That is why O2 is still the one term and the tag route still the target.
+**Why removing the cap would not reach universality over a fixed corpus.** The probe family is fixed by `needle_len` and `max_length`, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent halts with or without the bound. A growing corpus grows the family, and O2 therefore remains the one term, with the tag route still the target.
 
 **One argument from the earlier version is retired outright.** It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating: non-cycling on a finite state space forces termination instead of permitting unbounded depth.
 
-**Scope, stated tightly.** This classifies a SINGLE DESCENT over a fixed corpus and needle. `wanted` is `args->count`, a caller supplied value. A caller may compute it from data; within one descent it is fixed and the above holds, and across descents that is the caller's loop, which is exactly the boundary O2 draws.
+**Scope, stated tightly.** This classifies a SINGLE DESCENT over a fixed corpus and needle. `wanted` is `args->count`, a caller supplied value. A caller may compute it from data; within one descent it is fixed and the above holds, and across descents that is the caller's loop, the boundary O2 draws.
 
 **O1 and O2 are one question asked either side of one interface.** With the corpus nailed down the answer is a fixed depth decision procedure and no coarm count can make it otherwise. With a caller backed reader over a store the previous descent extended, the fixed corpus premise is gone and the outer composite can be universal by the tag system route. O1 was never a hard question that happened to be open; its answer is determined by the interface, and O2 is the only thing that moves it.
 
 ### O5. WANT: the survivor series the destroy rule actually reads
 
-Found by the theorist while writing `docs/inspection-points.md`, and it is sharper now than it would have been this morning.
+Found while writing `docs/inspection-points.md`, and sharper now than it would have been this morning.
 
 The engine computes `best_standing` at every level of the descent and compares it against `steer_truthy_total` to decide whether to stop. Then it discards it. `placed` reports the depth reached, and the raster's `DEATH_LEVEL` channel reports which probe killed each alignment, and **nothing between those two reports the survivor count at each level**, the number the decision actually turned on.
 
@@ -240,13 +240,13 @@ The shape would be a caller supplied array of `count` entries, filled with the s
 
 ### O2. WANT: the one term that would make the engine a computer
 
-**Reframed 2026-09-16 on Douglas's steer, relayed through the theorist.** His words: we are off by one term, that is all, and it just needs unbounding. This entry used to read as a blocker on a classification question. It is a capability somebody might ask for, and it is one interface change.
+**Reframed 2026-09-16.** The engine is off by one term, and that term just needs unbounding. This entry used to read as a blocker on a classification question. It is a capability somebody might ask for, and one interface change.
 
 **The term.** The entries take `const uint8_t *corpus` with a `corpus_len`, which is a window nailed down. The engine cannot ask for more universe. The change is a reader the engine may call for more, in place of a pointer and a length.
 
 **Why that is sufficient and not merely necessary**, the part that was missing. Unbounded READ alone does not buy universality: a finite automaton over an infinite read-only input is still a finite automaton, because nothing it computes can come back to it. But a reader is a callback the CALLER backs, and a caller can back it with a store that the previous descent's results extend. The write lives in the caller's loop, the engine stays `const`, and the engine still ends up reading what it itself produced. No write primitive enters the engine at all.
 
-**What it composes into, and this is what makes it cheap to keep.** Growth happens only BETWEEN descents, on the refuse branch: the "ask another slightly different question" shape. Inside a descent survivors still only shrink. Soundness, the anytime property and termination are all intact at the inner level, since all three follow from that one monotonicity. The result is a Turing complete outer machine whose every inner step is a sound, terminating, interruptible filter. The universality lives in the composition and the inner loop does not change.
+**What it composes into, and why it is cheap to keep.** Growth happens only BETWEEN descents, on the refuse branch: the "ask another slightly different question" shape. Inside a descent survivors still only shrink. Soundness, the anytime property and termination are all intact at the inner level, since all three follow from that one monotonicity. The result is a Turing complete outer machine whose every inner step is a sound, terminating, interruptible filter. The universality lives in the composition and the inner loop does not change.
 
 **The reduction target is named. Nobody owes a universality proof.** Read a window, act on what was read, append, continue is a tag system. Post introduced them in 1943, Minsky proved 2-tag systems universal in 1961, Cocke and Minsky tightened it in 1964. What would be owed is an encoding into that shape, not a proof from scratch.
 
@@ -258,7 +258,7 @@ The shape would be a caller supplied array of `count` entries, filled with the s
 
 ### F14. O3 measured: the oracle is flat in alphabet size and the table is not, with a crossover
 
-Built and measured by the theorist, who went looking for where the table route WINS and not for the flat line. Both routes answer the same question, ordering four candidate needle offsets by symbol rarity. Table is a direct indexed counter per symbol value, the census generalized to a four byte symbol. Oracle is `anchor_steer_plan_recursive` with `any` set. Four byte symbols, needle 16, each timing repeated to at least 60 ms.
+Built to find where the table route WINS. The flat line was not the target. Both routes answer the same question, ordering four candidate needle offsets by symbol rarity. Table is a direct indexed counter per symbol value, the census generalized to a four byte symbol. Oracle is `anchor_steer_plan_recursive` with `any` set. Four byte symbols, needle 16, each timing repeated to at least 60 ms.
 
 **Alphabet grows, corpus fixed at 131072:**
 
@@ -277,7 +277,7 @@ The oracle column is flat across a 65536 fold increase in sigma, with no trend. 
 
 **The crossover is at roughly six times the corpus length.** Fitting the table above 2^20 gives about `0.16 + 1.78e-6 * sigma` ms, meeting the oracle's 1.6 ms near sigma 809000 against a corpus of 131072. Table wins below it, oracle wins above and keeps winning.
 
-**The durable claim is the memory and not the time.** Sigma 2^32 is not measured and was not allocated: 16.0 GB of counters at four bytes a slot. The theorist's own caveat against the timing is the reason to prefer the memory claim. The table route in the bench callocs and frees its counters every iteration, and a real caller searching many needles against one fixed corpus builds the census once and amortizes it, which widens the table's time advantage and means the time column overstates the oracle's case. Memory does not amortize. 16 GB is 16 GB whether it is paid once or a thousand times.
+**The durable claim is about memory.** Sigma 2^32 is not measured and was not allocated: 16.0 GB of counters at four bytes a slot. The timing carries a caveat, and that caveat is the reason to prefer the memory claim. The table route in the bench callocs and frees its counters every iteration, and a real caller searching many needles against one fixed corpus builds the census once and amortizes it, which widens the table's time advantage and means the time column overstates the oracle's case. Memory does not amortize. 16 GB is 16 GB whether it is paid once or a thousand times.
 
 **One behavioral note from the same run.** `placed` came back 2 at sigma 2^8 and 2^12 and 1 from 2^16 up: at a large alphabet the first probe cuts the survivors far enough that a second adds nothing. That also explains why the oracle's small sigma rows are its slowest. It is doing more work there, not suffering from sigma.
 
@@ -287,13 +287,13 @@ So the claim boundary in O3 is now partly closed. The trend is measured, it is t
 
 I killed my own best candidate for a problem the engine uniquely solves. Main and Lorentz give `Omega(n log n)` for repetition detection over a general alphabet, which reads like a barrier the engine walks past. It is not: the bound is `Theta(n log sigma)` and the `n log n` form assumes `Omega(n)` distinct symbols. At `sigma = 256` the factor is 8 and it is linear. On byte corpora the engine beats nothing asymptotically.
 
-I then observed that the regime which would demonstrate the advantage and the regime we cannot test are the same regime. The theorist's answer is that this is escapable and it is the only item here that would produce a new number: you cannot test `sigma` unenumerable, but you **can** test `sigma` growing. Four byte symbols give `sigma = 2^32`, or exact rational symbols compared by equality. Measure the engine's state against a bad character table's as `sigma` climbs. The table grows linearly in `sigma` and the engine's state stays at `m` bits. A flat line against a rising one over three or four decades is the demonstration and it never needs the untestable limit. The claim to make is about the trend, which is measurable, and not the limit, which is not.
+I then observed that the regime which would demonstrate the advantage and the regime no test can reach are the same regime. That is escapable, and it is the only item here that would produce a new number: you cannot test `sigma` unenumerable, but you **can** test `sigma` growing. Four byte symbols give `sigma = 2^32`, or exact rational symbols compared by equality. Measure the engine's state against a bad character table's as `sigma` climbs. The table grows linearly in `sigma` and the engine's state stays at `m` bits. A flat line against a rising one over three or four decades is the demonstration and it never needs the untestable limit. The claim to make is about the trend, which is measurable, and not the limit, which is not.
 
 **Not built.**
 
 ### R10. The space lower bound does not apply to the exact path, and the engine is far above it
 
-**Withdrawn.** O4 read: online exact pattern matching carries an `Omega(m)` bits space lower bound and the engine carries `m` bits, which implied the engine sits at a space optimum. The theorist read the paper. It does not, and the truth runs the other way.
+**Withdrawn.** O4 read: online exact pattern matching carries an `Omega(m)` bits space lower bound and the engine carries `m` bits, which implied the engine sits at a space optimum. The paper, read in full, says otherwise, and the truth runs the other way.
 
 Clifford, Jalsenius, Porat and Sach, "Space Lower Bounds for Online Pattern Matching", arXiv:1106.4412, CPM 2011. Abstract verbatim, checked here against the paper and not against a summary:
 
@@ -307,9 +307,9 @@ Clifford, Jalsenius, Porat and Sach, "Space Lower Bounds for Online Pattern Matc
 
 **The exact byte path falls on the `Omega(log m)` and `O(log^2 m)` side.** Porat and Porat, FOCS 2009, do exact pattern matching in a stream in `O(log m log n)` bits. So the engine carrying `m` bits on the exact path is not meeting a lower bound. It is roughly `m` over a known upper bound.
 
-**The rank projected path is the candidate case and nothing is asserted about it.** Matching on equivalence classes, where a needle position of rank `r` accepts any corpus symbol of rank `r`, is pattern matching with character classes, which the paper names explicitly as an `Omega(m)` case. The reduction has not been written and the theorem is not claimed to transfer. What is established is only that the projected path is where this citation plausibly applies and the exact path is where it plainly does not. That is the opposite of how the entry read.
+**The rank projected path is the candidate case and nothing is asserted about it.** Matching on equivalence classes, where a needle position of rank `r` accepts any corpus symbol of rank `r`, is pattern matching with character classes, which the paper names explicitly as an `Omega(m)` case. The reduction has not been written and the theorem is not claimed to transfer. The only established point is that the projected path is where this citation plausibly applies and the exact path is where it plainly does not. That is the opposite of how the entry read.
 
-**Also corrected: the bound is not deterministic only.** Verbatim: "We require that the correct answer is given at each position with constant probability." It binds randomized algorithms too. A summarizer told the theorist deterministic only and the abstract contradicted it. "The lower bound is only for deterministic algorithms" is exactly the plausible sentence that would otherwise have been written here.
+**Also corrected: the bound is not deterministic only.** Verbatim: "We require that the correct answer is given at each position with constant probability." It binds randomized algorithms too. A summary said deterministic only, and the abstract contradicted it. "The lower bound is only for deterministic algorithms" is the plausible sentence that would otherwise have been written here.
 
 **Why the engine carries `m` bits anyway, and it is an interface cost and not a theorem.** The `O(log^2 m)` route is fingerprinting, reached by combining Karp-Rabin with KMP. Karp-Rabin needs arithmetic on symbols, treating them as numbers modulo a prime. `AnchorField` exposes equality alone: no order, no hash, no element size, no arithmetic. The engine cannot reach that regime, and the reason is its own oracle.
 
@@ -319,9 +319,9 @@ Clifford, Jalsenius, Porat and Sach, "Space Lower Bounds for Online Pattern Matc
 
 Sources: [arXiv:1106.4412](https://arxiv.org/abs/1106.4412) for the lower bounds and the dichotomy; Porat and Porat, "Exact and Approximate Pattern Matching in the Streaming Model", FOCS 2009, 315 to 323, for the `O(log m log n)` upper bound.
 
-## What the theorist is asked to do
+## What to verify next
 
-Transcribe the holds and the retractions into the workbooks in their own words, and verify and not copy. The three I most want attacked are F5, because the domain and range argument is mine and short enough to be wrong quickly; F8, because F7's bound depends on the enumeration being complete and I have asserted completeness from reading the loops and not from a test; and O1, which is open and which two competent arguments currently split.
+Transcribe the holds and the retractions into the workbooks, verified and not copied. The three most worth attacking are F5, because the domain and range argument is short enough to be wrong quickly; F8, because F7's bound depends on the enumeration being complete and completeness is asserted from reading the loops and not from a test; and O1, which two arguments split before F15 settled it.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-16
