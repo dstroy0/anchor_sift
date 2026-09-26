@@ -396,7 +396,10 @@ def pretty(stem):
 def markdown_chapter(book, source, chapters):
     chapter = Chapter(THEORY / book, source, chapters)
     title = []
-    body = convert_blocks(source.read_text(encoding="utf-8").splitlines(), chapter, title)
+    # An HTML comment is for the markdown's readers and tools, such as docs_check's quoting fences,
+    # and does not reach the book.
+    text = re.sub(r"<!--.*?-->", "", source.read_text(encoding="utf-8"), flags=re.S)
+    body = convert_blocks(text.splitlines(), chapter, title)
     heading = title[0] if title else pretty(source.stem)
     return "\n".join(
         [
