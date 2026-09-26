@@ -241,12 +241,12 @@ TABLE & T[|a| mod 2\textasciicircum{}b], 1 ≤ b ≤ min(32, w\_\allowbreak{}a) 
 \item It is refused when |Λ\_\allowbreak{}t| ≥ the prime or the padded total > 2\textasciicircum{}31 − 1, and the longest padded axis is ≤ 2\textasciicircum{}23.
 \item v* = argmax A, ties to the least Σ\_\allowbreak{}a w\_\allowbreak{}a·v\_\allowbreak{}a², then the least index.
 \end{itemize}
-\item C\_\allowbreak{}\{t,t′\}a, b = Σ\_\allowbreak{}x [L\_\allowbreak{}t(x) = a]·[P\_\allowbreak{}\{t′\}(x + v)]·[L\_\allowbreak{}\{t′\}(x + v) = b]. Its reductions:
+\item \texttt{C\_\allowbreak{}\{t,t′\}[a, b](v)} = Σ\_\allowbreak{}x [L\_\allowbreak{}t(x) = a]·[P\_\allowbreak{}\{t′\}(x + v)]·[L\_\allowbreak{}\{t′\}(x + v) = b]. Its reductions:
 
 \begin{itemize}
 \item the argmax over v;
 \item the climb (\texttt{climb\_\allowbreak{}machine.\allowbreak{}cu}): S(v′) is the climber's count at lag v′, over v′ ∈ v + \{−1, 0, 1\}³. It moves to the v′ ≠ v with S(v′) > S(v), the largest, ties to the least w\_\allowbreak{}z·z² + y² + x². It stops when none exceeds S(v), and holds S(v). The landing is a majority vote (one pass picks, one counts) of the leaf under each of the climber's voxels at the lag and along a spiral around it, the most agreed kept;
-\item the transpose, C\_\allowbreak{}\{t′,t\}b, a = C\_\allowbreak{}\{t,t′\}a, b;
+\item the transpose, \texttt{C\_\allowbreak{}\{t′,t\}[b, a](−v)} = \texttt{C\_\allowbreak{}\{t,t′\}[a, b](v)};
 \item box sums at nested widths from one summed-area table;
 \item the tent;
 \item the moments, at v = 0 with weight φ ∈ \{1, x, x xᵀ\}.
@@ -414,7 +414,7 @@ TABLE & T[|a| mod 2\textasciicircum{}b], 1 ≤ b ≤ min(32, w\_\allowbreak{}a) 
 
 \tablerecord{\textbf{M5. The correlation operator C}}
 \begin{description}
-\item[{the algebra it holds to}] C\_\allowbreak{}\{t,t′\}a, b = Σ\_\allowbreak{}x [L\_\allowbreak{}t(x) = a] · [P\_\allowbreak{}\{t′\}(x + v)] · [L\_\allowbreak{}\{t′\}(x + v) = b]: one count of labeled positive voxels under a shift, read by different reductions (A4).
+\item[{the algebra it holds to}] \texttt{C\_\allowbreak{}\{t,t′\}[a, b](v)} = Σ\_\allowbreak{}x [L\_\allowbreak{}t(x) = a] · [P\_\allowbreak{}\{t′\}(x + v)] · [L\_\allowbreak{}\{t′\}(x + v) = b]: one count of labeled positive voxels under a shift, read by different reductions (A4).
 \item[{does today}] \texttt{shift\_\allowbreak{}agreement}: the argmax of the unlabeled sum over every v, by an NTT mod 998,244,353, exact because every count is below the prime. \texttt{climb\_\allowbreak{}machine}: a local argmax per label from a start lag, 26 neighbours a step; \texttt{-\allowbreak{}-\allowbreak{}box} reads C at the 27 shifts around every climbed lag; \texttt{-\allowbreak{}-\allowbreak{}core} the nested widths; extents per label. \texttt{body\_\allowbreak{}overlap}: C at one lag.
 \item[{wants}] One C per frame pair over a window of shifts, then only reads: sums, local argmax, transpose, box sums by one summed-area table (A4). The window is the one open design choice, and it must come from the request, not a scale. The search read against the integrated noise floor (M8, Doug, 23 September): a count at a shift is weighed by how far it departs from what the noise functionals predict there, so the climb and the null draws spend work only where the field departs from the floor.
 \item[{tried, and what it gave}] The box (\texttt{-\allowbreak{}-\allowbreak{}box}, 23 September): \textbf{proved}. C is read at the 27 shifts around every climbed lag and at the drift, for every forward pair and every null draw. A cell meeting more labels than the kernel's table writes its raw pieces and the host merges them, with no cap. At the climbed lag, C sums to the climb's held count on every climber; the climbed lag is the highest of its 27 neighbours on every climber; at the drift, C equals \texttt{body\_\allowbreak{}overlap} on every label (numbers in the cell book's on\_\allowbreak{}the\_\allowbreak{}engine.md, since they were taken on a program's sample). The core per width: \textbf{proved} at width 0 against C at the climbed lag, 35,755 of 35,755 (numbers in the cell table, row 13).
@@ -436,10 +436,10 @@ TABLE & T[|a| mod 2\textasciicircum{}b], 1 ≤ b ≤ min(32, w\_\allowbreak{}a) 
 \begin{description}
 \item[{the algebra it holds to}] The heaviest one-to-one set on exact integer costs.
 \item[{does today}] \texttt{heaviest\_\allowbreak{}matching}.
-\item[{wants}] —
+\item[{wants}] none
 \item[{tried, and what it gave}] Used by the cell program's \texttt{-\allowbreak{}-\allowbreak{}print-\allowbreak{}match} (cell table, row 7).
 \item[{status}] built
-\item[{next}] —
+\item[{next}] none
 \end{description}
 
 \tablerecord{\textbf{M8. The entropy history}}
@@ -476,10 +476,10 @@ TABLE & T[|a| mod 2\textasciicircum{}b], 1 ≤ b ≤ min(32, w\_\allowbreak{}a) 
 \begin{description}
 \item[{the algebra it holds to}] β(n): n's rung among the Fibonacci numbers that fit the word.
 \item[{does today}] \texttt{golden\_\allowbreak{}bands}, \texttt{band\_\allowbreak{}of}, 92 rungs (every Fibonacci number below 2⁶⁴: a word's width, not a scale).
-\item[{wants}] —
-\item[{tried, and what it gave}] —
+\item[{wants}] none
+\item[{tried, and what it gave}] none
 \item[{status}] built
-\item[{next}] —
+\item[{next}] none
 \end{description}
 
 \tablerecord{\textbf{M12. Errors and integrity}}
@@ -617,7 +617,7 @@ The positive set is P(x) = [R(x) > 0].
 \item \textbf{Probes by LCA.} Two voxels share a component at level r exactly when r ≤ λ(LCA(ν(x), ν(x′))). Sort k probes by in(ν). The partition at every level at once is given by the k − 1 levels λ(LCA(p\_\allowbreak{}i, p\_\allowbreak{}\{i+1\})) of neighbours in that order: at level r, neighbours i, i + 1 are together exactly when r ≤ that level, and a probe whose own level is below r is absent. The slide's bisection over levels becomes k − 1 LCA queries (theory).
 \item \textbf{The overlap at every level from one count.} For a lag v, the own-node pair table J(v)[n, n′] = |\{ x : ν\_\allowbreak{}t(x) = n, P\_\allowbreak{}\{t+1\}(x + v), ν\_\allowbreak{}\{t+1\}(x + v) = n′ \}|. Then for components A at level r of t and B at level r′ of t + 1:
 
-C\_\allowbreak{}\{r,r′\}A, B = Σ\_\allowbreak{}\{n ∈ sub(A)\} Σ\_\allowbreak{}\{n′ ∈ sub(B)\} J(v)[n, n′]
+\texttt{C\_\allowbreak{}\{r,r′\}[A, B](v)} = Σ\_\allowbreak{}\{n ∈ sub(A)\} Σ\_\allowbreak{}\{n′ ∈ sub(B)\} J(v)[n, n′]
 
 a rectangle sum over the two DFS ranges, so one summed-area table of J answers every pair of levels. The census (one partner, unpaired, mutual, forked) is the degrees of the support of C at the chosen levels. Today's overlap recounts per sampled cut (theory).
 \end{itemize}
@@ -630,14 +630,14 @@ With own-node moments μ(n) = Σ\_\allowbreak{}\{ν(x)=n\} (1, x, x xᵀ), every
 
 For frames t, t′, a shift v, a label a of t and a label b of t′ (or ∅, a positive voxel under no label):
 
-C\_\allowbreak{}\{t,t′\}a, b = Σ\_\allowbreak{}x [L\_\allowbreak{}t(x) = a] · [P\_\allowbreak{}\{t′\}(x + v)] · [L\_\allowbreak{}\{t′\}(x + v) = b]
+\texttt{C\_\allowbreak{}\{t,t′\}[a, b](v)} = Σ\_\allowbreak{}x [L\_\allowbreak{}t(x) = a] · [P\_\allowbreak{}\{t′\}(x + v)] · [L\_\allowbreak{}\{t′\}(x + v) = b]
 
 With a weight φ(x) ∈ \{1, x, x xᵀ\} at v = 0, t′ = t and b = a, the same sum gives the moments. Its reductions:
 
 \begin{itemize}
 \item the argmax over v of the sum over all labels (\texttt{shift\_\allowbreak{}agreement});
 \item a local argmax per label from a start lag (\texttt{climb\_\allowbreak{}machine});
-\item a transpose: C\_\allowbreak{}\{t′,t\}b, a = C\_\allowbreak{}\{t,t′\}a, b;
+\item a transpose: \texttt{C\_\allowbreak{}\{t′,t\}[b, a](−v)} = \texttt{C\_\allowbreak{}\{t,t′\}[a, b](v)};
 \item box sums over nested widths around a lag, from one summed-area table over v (the core: each width is the box on top of the one below);
 \item the autocorrelation of a box, a tent, over one frame's own C (the contact form).
 \end{itemize}

@@ -41,7 +41,7 @@ It also says where the difficulty went. The one-term form moves the whole of f i
 | a composed network is itself a function to compose again | **keys of keys.** A composed key is a step in another program (noise_sieve_tower.md §9) | yes | **proved** for linear keys |
 | a general nonlinear φ on an edge | **a pointwise step as a table on the lane's alphabet.** Every value a lane can hold is pushed through the step once, and the table is the function (noise_sieve_tower.md §2). On a finite alphabet any one-variable function is exactly a table, so no spline is needed and nothing is fitted | yes, by construction | theory: not built |
 | KAN's SiLU base term, which takes whatever the spline does not | **the noise, determined rather than absorbed**: the medium subtracted exactly, the residue held whole, and the floor measured per voxel and bit (the next section) | yes | **proved** (the residue lossless) and **measured** (the floor) |
-| coefficients c_i fitted by gradient descent | nothing is fitted; a scale comes from the data (order = period, M2) or the request | — | absent, by the engine's rule (no chosen numbers) |
+| coefficients c_i fitted by gradient descent | nothing is fitted; a scale comes from the data (order = period, M2) or the request | none | absent, by the engine's rule (no chosen numbers) |
 
 ## Same skeleton, a different noise term
 

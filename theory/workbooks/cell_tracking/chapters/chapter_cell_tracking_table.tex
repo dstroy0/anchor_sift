@@ -545,7 +545,7 @@ What it gives the tracker is physics, with none of its numbers written in:
 \item[{wants}] Nothing further now.
 \item[{tried, and what it gave}] none
 \item[{status}] built
-\item[{next}] —
+\item[{next}] none
 \end{description}
 
 \tablerecord{\textbf{12. The noise floor: what is not a body}}
@@ -729,22 +729,22 @@ Almost every stage above is the machine's correlation C (A4) followed by a diffe
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3587\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6413\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3570\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6430\linewidth-2\tabcolsep\relax}}
 \toprule
 stage & the read of C \\
 \midrule
 \endhead
-E2 moments m, S, M & C\_\allowbreak{}\{t,t\}[a, a](0) weighted by 1, x, x xᵀ \\
-E3 drift d & argmax\_\allowbreak{}v Σ\_\allowbreak{}\{a,b\} C\_\allowbreak{}\{t,t+1\}a, b \\
-E4 climb A\_\allowbreak{}b(v) & Σ\_\allowbreak{}\{b′ ∪ ∅\} C\_\allowbreak{}\{t,t+1\}b, b′, climbed to a local maximum v*\_\allowbreak{}b from d \\
+E2 moments m, S, M & \texttt{C\_\allowbreak{}\{t,t\}[a, a](0)} weighted by 1, x, x xᵀ \\
+E3 drift d & argmax\_\allowbreak{}v Σ\_\allowbreak{}\{a,b\} \texttt{C\_\allowbreak{}\{t,t+1\}[a, b](v)} \\
+E4 climb A\_\allowbreak{}b(v) & Σ\_\allowbreak{}\{b′ ∪ ∅\} \texttt{C\_\allowbreak{}\{t,t+1\}[b, b′](v)}, climbed to a local maximum v*\_\allowbreak{}b from d \\
 E4 landing by mass & argmax\_\allowbreak{}\{b′\} C\_\allowbreak{}\{t,t+1\}b, b′ \\
-the backward climb & the same box transposed: C\_\allowbreak{}\{t+1,t\}b′, b = C\_\allowbreak{}\{t,t+1\}b, b′ \\
+the backward climb & the same box transposed: \texttt{C\_\allowbreak{}\{t+1,t\}[b′, b](−v)} = \texttt{C\_\allowbreak{}\{t,t+1\}[b, b′](v)} \\
 E5 null h⁰ & Σ\_\allowbreak{}\{b′ ∪ ∅\} C\_\allowbreak{}\{t,t\_\allowbreak{}k\}b, b′, in a null frame \\
-E6 overlap T & C\_\allowbreak{}\{t,t+1\}b, b′ \\
+E6 overlap T & \texttt{C\_\allowbreak{}\{t,t+1\}[b, b′](d)} \\
 the transform T* & C\_\allowbreak{}\{t,t+1\}b, b′, so Σ\_\allowbreak{}\{b′\} T* + T*(b, ∅) = h(b) \\
 E8 link weight W & Σ over each object's members of T \\
 C1 jitter core, every width & S\_\allowbreak{}w[b, b′] = Σ\_\allowbreak{}\{‖u‖∞ ≤ w\} C\_\allowbreak{}\{t,t+1\}[b, b′](v*\_\allowbreak{}b + u): nested boxes around v*\_\allowbreak{}b \\
-contact κ\_\allowbreak{}w (row 6) & Σ\_\allowbreak{}v (B\_\allowbreak{}w ⋆ B\_\allowbreak{}w)(v) · C\_\allowbreak{}\{t,t\}A, B: the box's autocorrelation, a tent, over the frame's own box \\
+contact κ\_\allowbreak{}w (row 6) & Σ\_\allowbreak{}v (B\_\allowbreak{}w ⋆ B\_\allowbreak{}w)(v) · \texttt{C\_\allowbreak{}\{t,t\}[A, B](v)}: the box's autocorrelation, a tent, over the frame's own box \\
 the slide and the census (row 1) & C at pairs of levels, a rectangle sum of the own-node table (A2) \\
 velocity, division, print & the moments above, read in pairs and triples \\
 \bottomrule

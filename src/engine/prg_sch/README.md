@@ -118,7 +118,7 @@ if (engine_record_imprint(&request, &record, &error) == ENGINE_REFUSED) { /* the
    scratch its divisions need.
 
 The imprint and the layout are the serial work, done once. The sweep then runs that key over every lane
-([imprint_key_cycle.md](../../../theory_bucket/cell_tracking/imprint_key_cycle.md)).
+([imprint_key_cycle.md](../../../theory/workbooks/engine/imprint_key_cycle.md)).
 
 ## Sweeping
 

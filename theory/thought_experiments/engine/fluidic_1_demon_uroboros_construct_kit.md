@@ -14,7 +14,7 @@ The hypercomputational fluidic architecture processes infinite information strea
 
 To monitor structural integrity without collapsing or altering the computational state, the architecture uses non-perturbative diagnostic probes and an intelligent observer entity.
 
-*   **The "Demon" Observer:** A trans-dimensional entity whose position is governed by a probability wave $|\psi|^2$, collapsing naturally onto "hot bits"—zones of maximum torsion, deflection, and relativistic acceleration ($c$) where informational elision occurs.
+*   **The "Demon" Observer:** A trans-dimensional entity whose position is governed by a probability wave $|\psi|^2$, collapsing naturally onto "hot bits": zones of maximum torsion, deflection, and relativistic acceleration ($c$) where informational elision occurs.
 *   **Neutrino-Like Chords:** Weak-interaction diagnostic beams that pierce clean through the tower's diameter from boundary to boundary. 
 *   **Cross-Sectional Illumination:** The trajectory of a neutrino chord is governed by field geometry, velocity, and alignment:
     $$\Delta \vec{x} = \int_{0}^{D} \mathcal{K}(\vec{v}_{\text{chord}}, \vec{B}_{\text{boundary}}) \, dl$$

@@ -28,7 +28,7 @@ Rather than relying on physical motion or fluid damping, rule propagation mimics
 ## 4. The Crystal Melting & 2D Collapse
 The execution phase bypasses sequential iteration through a state transition:
 * **The Melting Phase:** The rigid boundaries of the intermediate tower floors temporarily dissolve under the weight of the incoming rule flash.
-* **Crystal Alignment:** All bitwise operators and exact limb structures snap into a zero-noise, perfect phase lock—forming a temporary crystal of pure information.
+* **Crystal Alignment:** All bitwise operators and exact limb structures snap into a zero-noise, perfect phase lock, forming a temporary crystal of pure information.
 * **The 2D Collapse:** The entire lattice collapses instantly into a clean, uniform output plane for inspection.
 
 ---

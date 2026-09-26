@@ -4,7 +4,7 @@
 
 **Scope:** `engine/daemon`: the daemon (`tessera_daemon.c`), the client calls (`tessera.h`,
 `tessera_client.c`), and the suite in `test/`. The theory (the accounting, backfill, the deadline heap) is in
-[tessera_scheduler.md](../../../theory_bucket/cell_tracking/tessera_scheduler.md).
+[tessera_scheduler.md](../../../theory/workbooks/engine/tessera_scheduler.md).
 
 ## What it does
 
