@@ -5,7 +5,7 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOP="$(cd "$TEST/.." && pwd)"
+TOP="$(cd "$TEST/../.." && pwd)"
 source "$TOP/maint/build_stamp.sh"
 build_stamp exact_transform_test
 
@@ -34,8 +34,8 @@ for WIDTH in ${EXACT_TEST_WIDTHS:-"-DANCHOR_EXACT_LIMBS=128u" "-DANCHOR_EXACT_LI
     NAME="$(echo "$WIDTH" | tr -cd '0-9')"
     BINARY="$OUT/exact_transform_test_$NAME$SUFFIX"
     rm -f "$BINARY"
-    nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "$WIDTH" "$@" -I "$TOP/anchor_sift/src/engine/base" -o "$BINARY" \
-        "$TEST/exact_transform_test.cu" "$TOP/anchor_sift/src/engine/base/no_rounding/exact_integer.c" > "$OUT/build_$NAME.log" 2>&1
+    nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "$WIDTH" "$@" -I "$TOP/src/engine/base" -o "$BINARY" \
+        "$TEST/exact_transform_test.cu" "$TOP/src/engine/base/no_rounding/exact_integer.c" > "$OUT/build_$NAME.log" 2>&1
     [ -f "$BINARY" ] || { echo "  build failed at $WIDTH:"; cat "$OUT/build_$NAME.log"; exit 1; }
     "$BINARY"
     RESULT=$?

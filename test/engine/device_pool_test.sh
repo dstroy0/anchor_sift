@@ -3,10 +3,10 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOP="$(cd "$TEST/.." && pwd)"
-DEVICE_POOL="$TOP/anchor_sift/src/engine/base/device_pool"
-NO_ROUNDING="$TOP/anchor_sift/src/engine/base/no_rounding"
-SCRIPTURA="$TOP/anchor_sift/src/engine/base/scriptura"
+TOP="$(cd "$TEST/../.." && pwd)"
+DEVICE_POOL="$TOP/src/engine/base/device_pool"
+NO_ROUNDING="$TOP/src/engine/base/no_rounding"
+SCRIPTURA="$TOP/src/engine/base/scriptura"
 source "$TOP/maint/build_stamp.sh"
 source "$TOP/maint/tessera_build.sh"
 build_stamp device_pool_test
@@ -45,7 +45,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/anchor_sift/src/engine" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$TOP/src/engine" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()
@@ -69,7 +69,7 @@ done
 tessera_build pool "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/device_pool_test.cu" "$TOP/anchor_sift/src/engine/sims/sim_job.cu" "$DEVICE_POOL/device_pool.cu" \
+    "$TEST/device_pool_test.cu" "$TOP/src/engine/sims/sim_job.cu" "$DEVICE_POOL/device_pool.cu" \
     "$OUT/tessera_measure_pool.$EXTENSION" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL" \
     "${MEASURE_LIBRARIES[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }

@@ -3,9 +3,9 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOP="$(cd "$TEST/.." && pwd)"
-TOWER="$TOP/engine/base/tower"
-DEVICE_POOL="$TOP/engine/base/device_pool"
+TOP="$(cd "$TEST/../.." && pwd)"
+TOWER="$TOP/src/engine/base/tower"
+DEVICE_POOL="$TOP/src/engine/base/device_pool"
 source "$TOP/maint/build_stamp.sh"
 build_stamp tower_edge_test
 
@@ -39,7 +39,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/engine" -I "$TOWER" -I "$DEVICE_POOL")
+INCLUDES=(-I "$TOP/src/engine" -I "$TOWER" -I "$DEVICE_POOL")
 rm -f "$BINARY"
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
     "$TEST/tower_edge_test.cu" "$TOWER/tower.cu" "$DEVICE_POOL/device_pool.cu"
