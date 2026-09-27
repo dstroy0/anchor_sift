@@ -164,6 +164,23 @@ The load also builds the program for the device (`base/cycle/cycle.cu`), trying 
 Each build is kept in a cache: `$CYCLE_CACHE`, else `%LOCALAPPDATA%\cycle` or `~/.cache/cycle`. A build is found
 by its text and used only where that text matches byte for byte.
 
+The lane's text is written from a **ruleset**, one for each of the first two ways: `base/emit/rulesets/ptx.krs` for
+PTX and `base/emit/rulesets/c.krs` for C source, read once a process from that folder, or from the folder
+`$CYCLE_RULESETS` names. The emitter decides what each step does, and the ruleset decides how the target spells it.
+A ruleset is a text file whose first line is `krs 1`, and every other line is one entry:
+- `ruleset`, `toolchain` and `header` name the target, what builds its text and where the text's opening lines
+  come from;
+- `bank` spells a bank of registers, `{n}` the register's number, and `fixed` spells one register the lane holds
+  throughout;
+- `form` names a piece of text and its parameters, and the text is the rest of the line after `= `, where `{p}` is
+  parameter p's argument and `\t`, `\n` and `\\` are a tab, a line's end and a backslash;
+- `construct`, a form built from more basic ones, is refused: nothing reads one yet.
+
+A line that begins with `#` is a comment. The emitter lists every form, bank and register it needs, with the
+parameters each takes. A ruleset that lacks one, holds one the emitter does not name, or gives one other
+parameters is refused whole, and the report says why. A refused `ptx.krs` sends its programs to the C source, and a
+refused `c.krs` leaves a program the PTX does not hold on the interpreter.
+
 A compiled program runs on as many thread blocks as the device holds at once, or fewer where the lanes need fewer.
 Each launch chooses its own thread count: as many threads as the registers' shared memory holds, or, where the
 lanes are few, each processor's share of them in whole warps. A launch of a few thousand lanes then reaches every

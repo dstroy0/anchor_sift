@@ -1,0 +1,40 @@
+krs 1
+# C source, the record machine's second target: a step is one call into the operator block, whose registers are its
+# places in shared memory, and NVRTC compiles the lane. The format is the comment at the head of ptx.krs. The C source
+# takes no bank and names no register; its header is the operator block's prelude.
+ruleset c
+toolchain nvrtc
+header prelude
+
+# the program's text around the lane
+form program_note steps major minor compiler_major compiler_minor block = // a record program of {steps} steps, for sm_{major}{minor}, NVRTC {compiler_major}.{compiler_minor}, against the operator block {block}\n
+form lane_open = \nextern "C" __device__ void cycle_lane(const CycleCompiledLaunch *launch, const u64 lane)\n{\n    int good = 1;\n
+form member_open member members limbs =     const u64 body{member} = (launch->index != nullptr) ? (u64)launch->index[(lane * {members}ull) + {member}ull]\n                    : ((launch->bodies[{member}] == 1ull) ? 0ull : lane);\n    good = ((good != 0) && (body{member} < launch->bodies[{member}])) ? 1 : 0;\n    const u32 *const atom{member} = &launch->in[{member}][((good != 0) ? body{member} : 0ull) * {limbs}ull];\n
+form record_open limbs =     u32 *const record = &launch->out[lane * {limbs}ull];\n    for (u32 limb = 0u; limb < {limbs}u; limb += 1u)\n    {\n        record[limb] = 0u;\n    }\n    do\n    {\n        if (good == 0)\n        {\n            break;\n        }\n
+form lane_close =     } while (0);\n    if (good == 0)\n    {\n        atomicAdd(launch->refused, 1u);\n    }\n}\n
+
+# the steps, each one call into the operator block: a register is its place and its limbs
+form field member in_limbs left right place limbs =             cycle_field(atom{member}, {in_limbs}u, {left}u, {right}u, {place}u, {limbs}u);\n
+form field_signed member in_limbs left right place limbs =             cycle_field_signed(atom{member}, {in_limbs}u, {left}u, {right}u, {place}u, {limbs}u);\n
+form constant low high place limbs =             cycle_constant({low}u, {high}u, {place}u, {limbs}u);\n
+form lane_number place limbs =             cycle_lane_index(lane, {place}u, {limbs}u);\n
+form product place limbs left left_limbs right right_limbs =             cycle_product({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u);\n
+form compare place limbs left left_limbs right right_limbs =             cycle_compare({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u);\n
+form sum place limbs left left_limbs right right_limbs =             cycle_sum({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, 0u);\n
+form difference place limbs left left_limbs right right_limbs =             cycle_sum({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, 1u);\n
+form xor place limbs left left_limbs right right_limbs =             cycle_bitwise({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, 1u);\n
+form and place limbs left left_limbs right right_limbs =             cycle_bitwise({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, 0u);\n
+form absolute place limbs left left_limbs =             cycle_absolute({place}u, {limbs}u, {left}u, {left_limbs}u);\n
+form table place limbs left offset index_bits =             cycle_table({place}u, {limbs}u, {left}u, launch->tables, {offset}u, {index_bits}u);\n
+form wrap place limbs left left_limbs bits =             cycle_wrap({place}u, {limbs}u, {left}u, {left_limbs}u, {bits}u);\n
+form gcd place limbs left left_limbs right right_limbs scratch wide =             cycle_gcd({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u, {wide}u);\n
+
+# the steps that refuse the lane: a ladder whose right is not positive, a zero divisor, an exact quotient that leaves
+# a remainder
+form ladder place limbs left left_limbs right right_limbs scratch =             good = cycle_ladder({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u);\n            if (good == 0)\n            {\n                break;\n            }\n
+form quotient place limbs left left_limbs right right_limbs scratch wide =             good = cycle_quotient({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u, {wide}u);\n            if (good == 0)\n            {\n                break;\n            }\n
+form remainder place limbs left left_limbs right right_limbs scratch wide =             good = cycle_remainder({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u, {wide}u);\n            if (good == 0)\n            {\n                break;\n            }\n
+form exact_quotient place limbs left left_limbs right right_limbs scratch wide =             good = cycle_exact_quotient({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u, {wide}u);\n            if (good == 0)\n            {\n                break;\n            }\n
+
+# a register written into the record at its offset
+form put out_limbs offset bits place limbs =             cycle_put(record, {out_limbs}u, {offset}u, {bits}u, {place}u, {limbs}u);\n

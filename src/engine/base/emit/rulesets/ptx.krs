@@ -1,0 +1,167 @@
+krs 1
+# NVIDIA PTX, the record machine's first target. A line is one entry and its first word the entry's kind:
+#   ruleset <name>                     the target this file describes
+#   toolchain <name>                   what turns the text into a program the target loads
+#   header <name>                      where the text's opening lines come from
+#   bank <name> = <spelling>           a bank of registers, {n} the register's number in it
+#   fixed <name> = <spelling>          one register every lane holds throughout
+#   form <name> <parameter>... = <text>
+#   construct <name> <parameter>...    a form built from more basic ones, its lines to `end`, each a form or a
+#                                      construct and its arguments
+# A form's text is the rest of its line after "= ", byte for byte, where \t is a tab, \n a line's end and \\ a
+# backslash, and {p} is parameter p's argument; a brace that does not close a parameter's name is itself. A line that
+# begins with # is a comment, and a blank line is nothing.
+ruleset ptx
+toolchain nvjitlink
+header probe_nvrtc
+
+# the lane's registers
+bank file = %v{n}
+bank sign = %g{n}
+bank out = %o{n}
+bank atom = %a{n}
+bank temporary = %t{n}
+bank wide = %w{n}
+bank predicate = %p{n}
+bank member = %member{n}
+fixed zero = %zero
+fixed lane_number = %lane_number
+fixed record = %record
+fixed index = %index
+fixed body = %body
+fixed bodies = %bodies
+fixed tables = %tables
+fixed threads = %threads
+fixed word_base = %word_base
+fixed word_stride = %word_stride
+fixed sign_base = %sign_base
+fixed indexed = %indexed
+fixed one = %one
+fixed good = %good
+
+# the program's text around the lane
+form program_note steps major minor compiler_major compiler_minor block = // a record program of {steps} steps, for sm_{major}{minor}, NVRTC {compiler_major}.{compiler_minor}, as PTX against the operator block {block}\n
+form shared_extern = \n.extern .shared .align 4 .b8 cycle_words[];\n
+form callee_declare_answered function = \n.extern .func (.param .b32 func_retval0) {function}\n(\n
+form callee_declare function = \n.extern .func {function}\n(\n
+form callee_parameter function at = \t.param .b32 {function}_param_{at},\n
+form callee_parameter_last function at = \t.param .b32 {function}_param_{at}\n
+form callee_close = )\n;\n
+form lane_open = \n.visible .func cycle_lane(\n\t.param .b64 cycle_lane_param_0,\n\t.param .b64 cycle_lane_param_1\n)\n{\n
+form lane_body = \n
+form lane_close = }\n
+
+# the lane's declarations
+form declare_predicates count = \t.reg .pred \t%p<{count}>;\n
+form declare_fixed_predicates = \t.reg .pred \t%indexed, %one, %good;\n
+form declare_file count = \t.reg .b32 \t%v<{count}>;\n
+form declare_signs count = \t.reg .b32 \t%g<{count}>;\n
+form declare_out count = \t.reg .b32 \t%o<{count}>;\n
+form declare_atoms count = \t.reg .b32 \t%a<{count}>;\n
+form declare_temporaries count = \t.reg .b32 \t%t<{count}>;\n
+form declare_wides count = \t.reg .b64 \t%w<{count}>;\n
+form declare_fixed_words = \t.reg .b32 \t%zero, %thread, %threads, %word_base, %word_stride, %sign_base;\n
+form declare_fixed_wides = \t.reg .b64 \t%launch, %lane_number, %record, %index, %body, %bodies, %tables;\n
+form declare_members count = \t.reg .b64 \t%member<{count}>;\n
+
+# the lane's opening and close
+form open_launch = \tld.param.u64 \t%launch, [cycle_lane_param_0];\n\tld.param.u64 \t%lane_number, [cycle_lane_param_1];\n\tmov.u32 \t%zero, 0;\n
+form launch_load to offset = \tld.u64 \t{to}, [%launch+{offset}];\n
+form to_global to = \tcvta.to.global.u64 \t{to}, {to};\n
+form shared_open = \tmov.u32 \t%thread, %tid.x;\n\tmov.u32 \t%threads, %ntid.x;\n\tmov.u32 \t%word_base, cycle_words;\n\tadd.u32 \t%sign_base, %word_base, %thread;\n
+form shared_close = \tmad.lo.u32 \t%word_base, %thread, 4, %word_base;\n\tshl.b32 \t%word_stride, %threads, 2;\n
+form guarded_load where to address = \t@{where} ld.global.nc.u32 \t{to}, [{address}];\n
+form guarded_widen where to from = \t@{where} cvt.u64.u32 \t{to}, {from};\n
+form open_refused_unless where = \t@!{where} bra \t$Lrefused_open;\n
+form refuse where at = \t@{where} bra \t$Lrefused{at};\n
+form label_refused_open = $Lrefused_open:\n
+form label_refused at = $Lrefused{at}:\n
+form count_add address = \tred.global.add.u32 \t[{address}], 1;\n
+form return = \tret;\n
+form step_note at operation = \t// step {at}, operation {operation}\n
+
+# carry chains through a register's limbs: alone for a register of one limb, else first, middle and last
+form add_alone to left right = \tadd.u32 \t{to}, {left}, {right};\n
+form add_first to left right = \tadd.cc.u32 \t{to}, {left}, {right};\n
+form add_middle to left right = \taddc.cc.u32 \t{to}, {left}, {right};\n
+form add_last to left right = \taddc.u32 \t{to}, {left}, {right};\n
+form subtract_alone to left right = \tsub.u32 \t{to}, {left}, {right};\n
+form subtract_first to left right = \tsub.cc.u32 \t{to}, {left}, {right};\n
+form subtract_middle to left right = \tsubc.cc.u32 \t{to}, {left}, {right};\n
+form subtract_last to left right = \tsubc.u32 \t{to}, {left}, {right};\n
+# the subtract chain whose top limb leaves its borrow for borrow_read
+form borrow_alone to left right = \tsub.cc.u32 \t{to}, {left}, {right};\n
+form borrow_first to left right = \tsub.cc.u32 \t{to}, {left}, {right};\n
+form borrow_middle to left right = \tsubc.cc.u32 \t{to}, {left}, {right};\n
+form borrow_last to left right = \tsubc.cc.u32 \t{to}, {left}, {right};\n
+form borrow_read held where = \tsubc.u32 \t{held}, %zero, %zero;\n\tsetp.ne.u32 \t{where}, {held}, 0;\n
+
+# a word's arithmetic
+form word_copy to from = \tmov.b32 \t{to}, {from};\n
+form word_set to value = \tmov.u32 \t{to}, {value};\n
+form word_and to left right = \tand.b32 \t{to}, {left}, {right};\n
+form word_or to left right = \tor.b32 \t{to}, {left}, {right};\n
+form word_xor to left right = \txor.b32 \t{to}, {left}, {right};\n
+form word_shift_left to from bits = \tshl.b32 \t{to}, {from}, {bits};\n
+form word_shift_right to from bits = \tshr.b32 \t{to}, {from}, {bits};\n
+form word_funnel_right to low high bits = \tshf.r.clamp.b32 \t{to}, {low}, {high}, {bits};\n
+form word_multiply to left right = \tmul.lo.u32 \t{to}, {left}, {right};\n
+form word_multiply_add to left right added = \tmad.lo.u32 \t{to}, {left}, {right}, {added};\n
+form word_divide to left right = \tdiv.u32 \t{to}, {left}, {right};\n
+form word_select to chosen otherwise where = \tselp.b32 \t{to}, {chosen}, {otherwise}, {where};\n
+form product_low to left right added = \tmad.lo.cc.u32 \t{to}, {left}, {right}, {added};\n
+form product_high to left right = \tmadc.hi.u32 \t{to}, {left}, {right}, %zero;\n
+
+# a sign's arithmetic, a signed word of -1, 0 or 1
+form sign_set to value = \tmov.s32 \t{to}, {value};\n
+form sign_select to chosen otherwise where = \tselp.s32 \t{to}, {chosen}, {otherwise}, {where};\n
+form sign_multiply to left right = \tmul.lo.s32 \t{to}, {left}, {right};\n
+form sign_absolute to from = \tabs.s32 \t{to}, {from};\n
+form sign_negate to from = \tneg.s32 \t{to}, {from};\n
+
+# tests, each setting a predicate
+form test_nonzero where value = \tsetp.ne.u32 \t{where}, {value}, 0;\n
+form test_zero where value = \tsetp.eq.u32 \t{where}, {value}, 0;\n
+form test_negative where value = \tsetp.lt.s32 \t{where}, {value}, 0;\n
+form test_signed_zero where value = \tsetp.eq.s32 \t{where}, {value}, 0;\n
+form test_signed_differ where left right = \tsetp.ne.s32 \t{where}, {left}, {right};\n
+form test_signed_greater where left right = \tsetp.gt.s32 \t{where}, {left}, {right};\n
+form test_wide_nonzero where value = \tsetp.ne.u64 \t{where}, {value}, 0;\n
+form test_wide_equal where left right = \tsetp.eq.u64 \t{where}, {left}, {right};\n
+form test_wide_below where left right = \tsetp.lt.u64 \t{where}, {left}, {right};\n
+form test_wide_below_and where left right also = \tsetp.lt.and.u64 \t{where}, {left}, {right}, {also};\n
+form predicate_xor where left right = \txor.pred \t{where}, {left}, {right};\n
+form predicate_and where left right = \tand.pred \t{where}, {left}, {right};\n
+
+# 64-bit words: addresses, the lane's number and a division's parts
+form wide_from_word to from = \tcvt.u64.u32 \t{to}, {from};\n
+form word_from_wide to from = \tcvt.u32.u64 \t{to}, {from};\n
+form wide_pack to low high = \tmov.b64 \t{to}, {{low}, {high}};\n
+form wide_unpack low high from = \tmov.b64 \t{{low}, {high}}, {from};\n
+form wide_multiply to left right = \tmul.lo.u64 \t{to}, {left}, {right};\n
+form wide_multiply_word to left right = \tmul.wide.u32 \t{to}, {left}, {right};\n
+form wide_add to left right = \tadd.s64 \t{to}, {left}, {right};\n
+form wide_add_unsigned to left right = \tadd.u64 \t{to}, {left}, {right};\n
+form wide_shift_left to from bits = \tshl.b64 \t{to}, {from}, {bits};\n
+form wide_select to chosen otherwise where = \tselp.b64 \t{to}, {chosen}, {otherwise}, {where};\n
+form wide_divide to left right = \tdiv.u64 \t{to}, {left}, {right};\n
+
+# memory: the members' and the tables' words, the record's words, and shared memory
+form global_load to address offset = \tld.global.nc.u32 \t{to}, [{address}+{offset}];\n
+form record_store offset from = \tst.global.u32 \t[%record+{offset}], {from};\n
+form shared_store address from = \tst.shared.u32 \t[{address}], {from};\n
+form shared_store_byte address from = \tst.shared.u8 \t[{address}], {from};\n
+form shared_load to address = \tld.shared.u32 \t{to}, [{address}];\n
+form shared_load_signed_byte to address = \tld.shared.s8 \t{to}, [{address}];\n
+
+# a call into the operator block by the calling convention
+form call_open = \t{\n
+form call_argument at value = \t.param .b32 param{at};\n\tst.param.b32 \t[param{at}+0], {value};\n
+form call_answer_declare = \t.param .b32 retval0;\n
+form call_answered function = \tcall (retval0), {function}, (
+form call function = \tcall {function}, (
+form call_parameter_first at = param{at}
+form call_parameter_next at = , param{at}
+form call_parameters_close = );\n
+form answer_load to = \tld.param.b32 \t{to}, [retval0+0];\n
+form call_close = \t}\n
