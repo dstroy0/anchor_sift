@@ -12,8 +12,9 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 set(SIFT_WARNINGS $<$<C_COMPILER_ID:GNU,Clang>:-O2 -Wall -Wextra>)
 
+# the repository's root, two above this file: bench/, test/engine/ and LICENSES/ lie there
 if(NOT DEFINED ANCHOR_SIFT_ROOT)
-    get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
+    get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../.." ABSOLUTE)
 endif()
 
 
@@ -220,29 +221,29 @@ else()
     target_link_libraries(anchor_exact_arms INTERFACE anchor_exact_portable)
 endif()
 
-add_executable(bench_exact_arms ../bench/bench_exact_arms.c)
+add_executable(bench_exact_arms ${ANCHOR_SIFT_ROOT}/bench/bench_exact_arms.c)
 target_link_libraries(bench_exact_arms PRIVATE anchor_exact_arms anchor_exact_portable)
 target_compile_options(bench_exact_arms PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_exact ../bench/bench_exact.c)
+add_executable(bench_exact ${ANCHOR_SIFT_ROOT}/bench/bench_exact.c)
 target_link_libraries(bench_exact PRIVATE anchor_exact_portable)
 target_compile_options(bench_exact PRIVATE ${SIFT_WARNINGS})
 
-add_library(bench_corpora STATIC ../bench/bench_corpora.c)
-target_include_directories(bench_corpora PUBLIC ../bench)
+add_library(bench_corpora STATIC ${ANCHOR_SIFT_ROOT}/bench/bench_corpora.c)
+target_include_directories(bench_corpora PUBLIC ${ANCHOR_SIFT_ROOT}/bench)
 target_compile_options(bench_corpora PRIVATE ${SIFT_WARNINGS})
 
 # Reads, which travel between machines and are what an asymptotic claim is made of.
-add_executable(bench_scaling_reads ../bench/bench_scaling.c)
+add_executable(bench_scaling_reads ${ANCHOR_SIFT_ROOT}/bench/bench_scaling.c)
 target_link_libraries(bench_scaling_reads PRIVATE anchor_sift_kernel_counted bench_corpora)
 target_compile_options(bench_scaling_reads PRIVATE ${SIFT_WARNINGS})
 
 # Cycles, which belong to the machine that produced them and are for the dispatch decision alone.
-add_executable(bench_scaling_cycles ../bench/bench_scaling.c)
+add_executable(bench_scaling_cycles ${ANCHOR_SIFT_ROOT}/bench/bench_scaling.c)
 target_link_libraries(bench_scaling_cycles PRIVATE anchor_sift_kernel bench_corpora)
 target_compile_options(bench_scaling_cycles PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_dispatch ../bench/bench_dispatch.c)
+add_executable(bench_dispatch ${ANCHOR_SIFT_ROOT}/bench/bench_dispatch.c)
 target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 
@@ -255,20 +256,20 @@ if(EXISTS "${ANCHOR_SIFT_ROOT}/test/engine/test_steer.c")
     target_link_libraries(test_adversarial PRIVATE anchor_sift_kernel)
 endif()
 
-add_executable(bench_raster ../bench/bench_raster.c)
+add_executable(bench_raster ${ANCHOR_SIFT_ROOT}/bench/bench_raster.c)
 target_link_libraries(bench_raster PRIVATE anchor_raster anchor_sift_kernel)
 target_compile_options(bench_raster PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_steer_arms ../bench/bench_steer_arms.c)
+add_executable(bench_steer_arms ${ANCHOR_SIFT_ROOT}/bench/bench_steer_arms.c)
 target_link_libraries(bench_steer_arms PRIVATE anchor_sift_kernel)
 target_compile_options(bench_steer_arms PRIVATE ${SIFT_WARNINGS})
 
 
-add_executable(bench_sigma ../bench/bench_sigma.c)
+add_executable(bench_sigma ${ANCHOR_SIFT_ROOT}/bench/bench_sigma.c)
 target_link_libraries(bench_sigma PRIVATE anchor_sift_kernel)
 target_compile_options(bench_sigma PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_coherence ../bench/bench_coherence.c)
+add_executable(bench_coherence ${ANCHOR_SIFT_ROOT}/bench/bench_coherence.c)
 target_link_libraries(bench_coherence PRIVATE anchor_sift_kernel_counted bench_corpora)
 target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 
@@ -288,7 +289,7 @@ int main(void) { double _Complex held = 1.0 + (2.0 * I); return (int)creal(held 
     ANCHOR_CC_HAS_COMPLEX)
 set(ANCHOR_UNTIMED_BENCHES bench_scaling_reads bench_scaling_cycles)
 if(ANCHOR_CC_HAS_COMPLEX)
-    add_executable(bench_lattice ../bench/bench_lattice.c)
+    add_executable(bench_lattice ${ANCHOR_SIFT_ROOT}/bench/bench_lattice.c)
     target_compile_options(bench_lattice PRIVATE ${SIFT_WARNINGS})
     if(NOT WIN32)
         target_link_libraries(bench_lattice PRIVATE m)

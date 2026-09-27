@@ -1375,20 +1375,6 @@ static void magnitude_shift_down(uint32_t *value, size_t bits)
     }
 }
 
-// the caller keeps the shifted value inside the width
-static void magnitude_shift_up(uint32_t *value, size_t bits)
-{
-    const size_t whole = bits / LIMB_BITS;
-    const unsigned int part = (unsigned int)(bits % LIMB_BITS);
-    for (size_t at = (size_t)ANCHOR_EXACT_LIMBS; at > 0u; at--)
-    {
-        const size_t to = at - 1u;
-        const uint32_t low = (to >= whole) ? value[to - whole] : 0u;
-        const uint32_t below = ((to >= (whole + 1u)) && (part != 0u)) ? value[to - whole - 1u] : 0u;
-        value[to] = (part == 0u) ? low : ((low << part) | (below >> (LIMB_BITS - part)));
-    }
-}
-
 // result[0, left_count + right_count) = left . right on the ladder: the transform once both reach its rung, Karatsuba
 // or long multiplication below it, each stepping down when its workspace cannot be held
 static void limbs_ladder_product(uint32_t *result, const uint32_t *left, size_t left_count, const uint32_t *right,

@@ -17,10 +17,12 @@
  * depth is data-dependent and unbounded. This suite drives that composition and grades it against the
  * controls a recursive search needs.
  *
- *   POSITIVE CONTROL. A field with one planted occurrence over N alignments cannot be isolated in
- *   fewer than log2(N) binary probes, because each probe splits the survivors by one byte value and
- *   carries at most one bit. With N past 2000 that is at least eleven probes. Isolating the target
- *   composes well past one descent's cap of four. The lone survivor is then verified against the
+ *   POSITIVE CONTROL. A field with one planted occurrence over N alignments. A probe asks every
+ *   survivor one yes-or-no question, whether its byte at one offset is the needle's, and keeps the
+ *   target's side. Sides that halved the survivors would take log2(N) probes, eleven with N past
+ *   2000. The descent places the probe that prunes most and a side can be under half, so a given
+ *   target can take fewer; the run prints how many. Isolating the target composes past one
+ *   descent's cap of four, which the case checks. The lone survivor is then verified against the
  *   whole needle with a full compare before it is called found, which is this tree's rule that a
  *   survivor is not a match until the exact compare confirms it, carried into the recursive setting.
  *   The premise that the target is unique is checked, not assumed: a repeated target would stall the
@@ -91,7 +93,7 @@ static size_t o2_alive(const uint8_t *const survivors, const size_t alignments)
  * @param[in]  alignments How many.
  * @param[in]  max_depth  Levels to run at most. The anytime control passes a small one.
  * @param[out] depth_out  Probes actually placed [BORROWS].
- * @param[out] sum_out    Sum of survivor counts down the levels, the read cost [BORROWS].
+ * @param[out] sum_out    Sum of the survivors each placed level read, the read cost [BORROWS].
  * @return                Alignments still standing when the composition stopped.
  * @note The first call resets, every later call resumes. The loop stops when a level prunes nothing,
  *       the destroy rule, or when one alignment is left, or at the depth ceiling.
@@ -107,6 +109,8 @@ static size_t o2_compose(const uint8_t *const corpus, const uint8_t *const needl
 
     while (depth < max_depth)
     {
+        // What this level reads: every alignment on the first, its parent's survivors after that.
+        const size_t standing = alive;
         size_t offset = 0u;
         const size_t placed = ANCHOR_STEER_CALL(anchor_steer_spawn_coarms, AnchorSteerDescent,
                                                 .offsets = &offset,
@@ -128,7 +132,7 @@ static size_t o2_compose(const uint8_t *const corpus, const uint8_t *const needl
             break;
         }
         depth += 1u;
-        survivor_sum += (uint64_t)alive;
+        survivor_sum += (uint64_t)standing;
         if (alive <= 1u)
         {
             break;
@@ -170,8 +174,8 @@ static int o2_case_found_past_cap(void)
         return 1;
     }
 
-    // A binary field, where each probe carries at most one bit and isolating one of N alignments
-    // therefore takes at least log2(N) probes.
+    // A binary field, where a probe keeps the survivors whose byte at one offset is the needle's,
+    // about half of them, so isolating one of N alignments takes more probes than one descent holds.
     uint64_t state = 0x0123456789ABCDEFULL;
     o2_fill(corpus, 2u, &state);
 
@@ -327,8 +331,8 @@ static int o2_case_anytime_superset(void)
         return 1;
     }
 
-    // Three levels, short of the eleven or more that isolation needs. The target sits inside a
-    // superset larger than one.
+    // Three levels, too few to isolate the target on this field, which the premise check below
+    // confirms. The target sits inside a superset larger than one.
     size_t depth = 0u;
     uint64_t survivor_sum = 0u;
     const size_t left = o2_compose(corpus, corpus + origin, survivors, alignments, 3u, &depth,

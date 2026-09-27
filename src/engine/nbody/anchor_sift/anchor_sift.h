@@ -750,7 +750,7 @@ extern "C"
      *
      * @note THE PLANNER IS ALLOWED TO BE WRONG. Ordering cannot change which alignments survive, since
      *       an alignment survives only when every anchor agrees and a conjunction is order independent.
-     *      , a planner that samples, guesses badly, or is outright defective costs speed and cannot
+     *       So a planner that samples, guesses badly, or is outright defective costs speed and cannot
      *       cost correctness. That is what makes `sample_stride` safe: planning on a subset risks a
      *       worse order and never a wrong count.
      * @note Does nothing and returns 0 where any pointer is null, where `count` is zero, or where
