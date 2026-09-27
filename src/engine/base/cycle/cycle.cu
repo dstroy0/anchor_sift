@@ -524,9 +524,11 @@ struct CycleRecord
     unsigned long long local_bytes;
     unsigned int places;
     unsigned int threads;
+    unsigned long long thread_bytes;
     unsigned long long register_bytes;
     unsigned long long shared_bytes;
     unsigned long long resident;
+    unsigned long long processors;
 };
 
 struct CycleRecordLaunch
@@ -2941,14 +2943,17 @@ static const CyclePtxCallee s_cycle_ptx_callees[] = {
 // the most arguments a callee takes, the eight cycle_ptx_call passes
 #define CYCLE_PTX_ARGUMENTS_MOST 8u
 
-// a lane being written: its steps' text; the temporaries, 64-bit temporaries and predicates the step being written has
-// taken and the most any step took; where each member's words begin among the atoms' words and which are loaded; which
-// of the block's functions it calls and whether it reads the tables; and the scratch's first place and width, which
-// every call shares
+// a lane being written: its steps' text and the step being written; the temporaries, 64-bit temporaries and predicates
+// that step has taken and the most any step took; where each member's words begin among the atoms' words, which are
+// loaded, and each one's first and last reader; which of the block's functions it calls and whether it reads the
+// tables; the scratch's first place and width, which every call shares; for each record word, 1 past the last step
+// whose put lays it (0 for a word no put lays) and the first such step; for each step, 1 where the lane can leave it
+// refused, and the 32-bit words its own temporaries take
 struct CyclePtx
 {
     const EngineRecordLayout *layout;
     std::string text;
+    unsigned int at;
     unsigned int temps;
     unsigned int temps_most;
     unsigned int wides;
@@ -2957,10 +2962,16 @@ struct CyclePtx
     unsigned int predicates_most;
     unsigned int atom_first[ENGINE_RECORD_MEMBERS_MAX];
     std::vector<unsigned char> loaded;
+    std::vector<unsigned int> atom_read_first;
+    std::vector<unsigned int> atom_read_last;
     unsigned int called[CYCLE_PTX_CALLEES];
     unsigned int tables;
     unsigned int scratch;
     unsigned int wide;
+    std::vector<unsigned int> put_last;
+    std::vector<unsigned int> put_first;
+    std::vector<unsigned char> refuses;
+    std::vector<unsigned int> step_words;
 };
 
 // a step as its emitter reads it: the step, and its register's place and its operands'
@@ -3011,6 +3022,14 @@ static std::string cycle_ptx_wide(CyclePtx *ptx)
 static std::string cycle_ptx_predicate(CyclePtx *ptx)
 {
     return cycle_ptx_take("p", &ptx->predicates, &ptx->predicates_most);
+}
+
+// the lane leaves the step being written refused where `refused` holds, for the store of the record words it has not
+// stored yet: those whose last put is this step's or a later one's
+static void cycle_ptx_refuse(CyclePtx *ptx, const std::string &refused)
+{
+    ptx->refuses[ptx->at] = 1u;
+    cycle_emit(ptx->text, "\t@%s bra \t$Lrefused%u;\n", refused.c_str(), ptx->at);
 }
 
 // a register's first `count` limbs at `place`, then %zero up to `width`: a register read past its limbs reads 0
@@ -3139,7 +3158,9 @@ static std::string cycle_ptx_atom(CyclePtx *ptx, unsigned int member, unsigned i
     {
         cycle_emit(ptx->text, "\tld.global.nc.u32 \t%s, [%%member%u+%u];\n", name.c_str(), member, 4u * word);
         ptx->loaded[at] = 1u;
+        ptx->atom_read_first[at] = ptx->at;
     }
+    ptx->atom_read_last[at] = ptx->at;
     return name;
 }
 
@@ -3480,7 +3501,7 @@ static void cycle_ptx_short_division(CyclePtx *ptx, const CyclePtxStep *at)
     const std::string left_sign = cycle_ptx_register("g", at->left_place);
     const std::string nothing = cycle_ptx_predicate(ptx);
     cycle_emit(ptx->text, "\tsetp.eq.u32 \t%s, %s, 0;\n", nothing.c_str(), divisor.c_str());
-    cycle_emit(ptx->text, "\t@%s bra \t$Lrefused;\n", nothing.c_str());
+    cycle_ptx_refuse(ptx, nothing);
     const std::string carried = cycle_ptx_temporary(ptx);
     const std::string taken = cycle_ptx_temporary(ptx);
     const std::string wide_divisor = cycle_ptx_wide(ptx);
@@ -3528,12 +3549,12 @@ static void cycle_ptx_short_division(CyclePtx *ptx, const CyclePtxStep *at)
     {
         const std::string remains = cycle_ptx_predicate(ptx);
         cycle_emit(ptx->text, "\tsetp.ne.u32 \t%s, %s, 0;\n", remains.c_str(), carried.c_str());
-        cycle_emit(ptx->text, "\t@%s bra \t$Lrefused;\n", remains.c_str());
+        cycle_ptx_refuse(ptx, remains);
         if (left_limbs > limbs)
         {
             const std::vector<std::string> outgrown(quotient.begin() + (std::ptrdiff_t)limbs, quotient.end());
             const std::string over = cycle_ptx_nonzero(ptx, outgrown, left_limbs - limbs);
-            cycle_emit(ptx->text, "\t@%s bra \t$Lrefused;\n", over.c_str());
+            cycle_ptx_refuse(ptx, over);
         }
     }
     const std::string held = cycle_ptx_temporary(ptx);
@@ -3616,7 +3637,7 @@ static void cycle_ptx_call(CyclePtx *ptx, const CyclePtxStep *at, unsigned int c
     {
         const std::string refused = cycle_ptx_predicate(ptx);
         cycle_emit(ptx->text, "\tsetp.eq.s32 \t%s, %s, 0;\n", refused.c_str(), answer.c_str());
-        cycle_emit(ptx->text, "\t@%s bra \t$Lrefused;\n", refused.c_str());
+        cycle_ptx_refuse(ptx, refused);
     }
 }
 
@@ -3628,8 +3649,37 @@ static int cycle_ptx_never_negative(unsigned int operation)
         || (operation == ENGINE_RECORD_TABLE) || (operation == ENGINE_RECORD_GCD);
 }
 
+// the record words a step's put lays, [*low, *high): its out_bits' words from out_offset / 32, one more where the put
+// is shifted within a word, and none at or past the record's limbs; empty for a step that puts nothing
+static void cycle_ptx_put_words(const EngineRecordLayout *layout, const DeviceRecordStep *step, unsigned int *low,
+                                unsigned int *high)
+{
+    const unsigned int words = (step->out_bits + 31u) / 32u;
+    const unsigned int first = step->out_offset / 32u;
+    const unsigned long long past = (unsigned long long)first + words + (((step->out_offset % 32u) != 0u) ? 1u : 0u);
+    // clipped to the record's limbs, a 32-bit count
+    const unsigned int end = (unsigned int)((past < layout->out_limbs) ? past : layout->out_limbs);
+    *low = (step->out_bits == 0u) ? 0u : ((first < end) ? first : end);
+    *high = (step->out_bits == 0u) ? 0u : end;
+}
+
+// each record word stored as the last put that lays it ends, so the lane does not hold it to its end
+static void cycle_ptx_store_laid(CyclePtx *ptx, const DeviceRecordStep *step)
+{
+    unsigned int low = 0u;
+    unsigned int high = 0u;
+    cycle_ptx_put_words(ptx->layout, step, &low, &high);
+    for (unsigned int word = low; word < high; word += 1u)
+    {
+        if (ptx->put_last[word] == (ptx->at + 1u))
+        {
+            cycle_emit(ptx->text, "\tst.global.u32 \t[%%record+%u], %%o%u;\n", 4u * word, word);
+        }
+    }
+}
+
 // the step's register laid into the record's words at out_offset, out_bits of it, as two's complement where its sign
-// is negative, as cycle_put lays it; the words are the lane's own registers until the lane ends
+// is negative, as cycle_put lays it; each word is the lane's own register until its last put
 static void cycle_ptx_put(CyclePtx *ptx, const CyclePtxStep *at)
 {
     const DeviceRecordStep *const step = at->step;
@@ -3657,6 +3707,17 @@ static void cycle_ptx_put(CyclePtx *ptx, const CyclePtxStep *at)
         cycle_ptx_select(ptx, word, negated, held, negative, words);
     }
     cycle_ptx_mask(ptx, word[words - 1u], top);
+    unsigned int low_word = 0u;
+    unsigned int high_word = 0u;
+    cycle_ptx_put_words(ptx->layout, step, &low_word, &high_word);
+    for (unsigned int laid = low_word; laid < high_word; laid += 1u)
+    {
+        if (ptx->put_first[laid] == ptx->at)
+        {
+            // the word's first put: its register begins here, cleared, and not at the lane's open
+            cycle_emit(ptx->text, "\tmov.u32 \t%%o%u, 0;\n", laid);
+        }
+    }
     const std::string moved = cycle_ptx_temporary(ptx);
     for (unsigned int each = 0u; each < words; each += 1u)
     {
@@ -3718,6 +3779,7 @@ static int cycle_ptx_step(CyclePtx *ptx, unsigned int at)
     view.place = step->place;
     view.left_place = cycle_program_reads_left(operation) ? layout->step_table[step->left].place : 0u;
     view.right_place = cycle_program_reads_right(operation) ? layout->step_table[step->right].place : 0u;
+    ptx->at = at;
     ptx->temps = 0u;
     ptx->wides = 0u;
     ptx->predicates = 0u;
@@ -3780,7 +3842,10 @@ static int cycle_ptx_step(CyclePtx *ptx, unsigned int at)
     if (step->out_bits != 0u)
     {
         cycle_ptx_put(ptx, &view);
+        cycle_ptx_store_laid(ptx, step);
     }
+    // a 64-bit temporary takes two words
+    ptx->step_words[at] = ptx->temps + (2u * ptx->wides);
     return 1;
 }
 
@@ -3807,23 +3872,28 @@ static void cycle_ptx_declare(std::string &text, const CyclePtx *ptx, unsigned i
     cycle_emit(text, "\t.reg .b64 \t%%member<%u>;\n", ENGINE_RECORD_MEMBERS_MAX);
 }
 
-// the lane's opening: its launch and number, the record's words cleared, and each member's atom found as
-// cycle_program_source finds it, a lane whose atom lies past its member refused before any step; then the program's
-// tables, and the lane's places in shared memory where it calls the operator block
+// the lane's opening: its launch and number, the record's words no put lays stored as 0, and each member's atom found
+// as cycle_program_source finds it, a lane whose atom lies past its member refused before any step; then the words a
+// refusal would leave unlaid stored as 0, the program's tables, and the lane's places in shared memory where it calls
+// the operator block
 static void cycle_ptx_open(std::string &text, const CyclePtx *ptx, unsigned int places, int calls)
 {
     const EngineRecordLayout *const layout = ptx->layout;
     text += "\tld.param.u64 \t%launch, [cycle_lane_param_0];\n";
     text += "\tld.param.u64 \t%lane_number, [cycle_lane_param_1];\n";
     text += "\tmov.u32 \t%zero, 0;\n";
-    for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
-    {
-        cycle_emit(text, "\tmov.u32 \t%%o%u, 0;\n", word);
-    }
     cycle_emit(text, "\tld.u64 \t%%record, [%%launch+%zu];\n", offsetof(CycleCompiledLaunch, out));
     text += "\tcvta.to.global.u64 \t%record, %record;\n";
     cycle_emit(text, "\tmul.lo.u64 \t%%w0, %%lane_number, %u;\n", 4u * layout->out_limbs);
     text += "\tadd.s64 \t%record, %record, %w0;\n";
+    // a word no put lays is 0 on every lane, refused or not, and is stored before anything can refuse
+    for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
+    {
+        if (ptx->put_last[word] == 0u)
+        {
+            cycle_emit(text, "\tst.global.u32 \t[%%record+%u], %%zero;\n", 4u * word);
+        }
+    }
     cycle_emit(text, "\tld.u64 \t%%index, [%%launch+%zu];\n", offsetof(CycleCompiledLaunch, index));
     text += "\tsetp.ne.u64 \t%indexed, %index, 0;\n";
     text += "\tcvta.to.global.u64 \t%index, %index;\n";
@@ -3849,7 +3919,21 @@ static void cycle_ptx_open(std::string &text, const CyclePtx *ptx, unsigned int 
         cycle_emit(text, "\tmul.lo.u64 \t%%w0, %%body, %u;\n", 4u * layout->in_limbs[member]);
         cycle_emit(text, "\tadd.s64 \t%%member%u, %%member%u, %%w0;\n", member, member);
     }
-    text += "\t@!%good bra \t$Lrefused;\n";
+    text += "\t@!%good bra \t$Lrefused_open;\n";
+    // a word whose first put comes at or after a step the lane can leave refused is 0 in the record until its last put
+    // stores it, so the refusal stores only the words it holds in flight
+    unsigned int refusal_first = layout->steps;
+    for (unsigned int at = 0u; (at < layout->steps) && (refusal_first == layout->steps); at += 1u)
+    {
+        refusal_first = (ptx->refuses[at] != 0u) ? at : refusal_first;
+    }
+    for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
+    {
+        if ((ptx->put_last[word] != 0u) && (ptx->put_first[word] >= refusal_first))
+        {
+            cycle_emit(text, "\tst.global.u32 \t[%%record+%u], %%zero;\n", 4u * word);
+        }
+    }
     if (ptx->tables != 0u)
     {
         cycle_emit(text, "\tld.u64 \t%%tables, [%%launch+%zu];\n", offsetof(CycleCompiledLaunch, tables));
@@ -3869,28 +3953,124 @@ static void cycle_ptx_open(std::string &text, const CyclePtx *ptx, unsigned int 
     }
 }
 
-// the lane's close: a refused lane counted, and every lane's record stored whole, the words its puts laid before it
-// ended
-static void cycle_ptx_close(std::string &text, const EngineRecordLayout *layout)
+// a refused lane counted in the launch's refusals
+static void cycle_ptx_count_refused(std::string &text)
 {
-    text += "\tbra \t$Lstore;\n";
-    text += "$Lrefused:\n";
     cycle_emit(text, "\tld.u64 \t%%w0, [%%launch+%zu];\n", offsetof(CycleCompiledLaunch, refused));
     text += "\tcvta.to.global.u64 \t%w0, %w0;\n";
     text += "\tred.global.add.u32 \t[%w0], 1;\n";
-    text += "$Lstore:\n";
-    for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
-    {
-        cycle_emit(text, "\tst.global.u32 \t[%%record+%u], %%o%u;\n", 4u * word, word);
-    }
-    text += "\tret;\n";
 }
 
-// a program's lane as PTX under the header this toolkit writes, and the places a thread holds in shared memory for the
-// steps that call the operator block: the file's and the scratch's, 0 where no step calls. It names the device, NVRTC
-// and the operator block it is linked against; empty where a step is one the lane does not hold
+// the lane's close. A lane that ran every step has stored each record word as its last put laid it, and returns. A lane
+// refused leaves its record as its puts laid it before it ended, as the interpreter does: refused at the open, every
+// word the steps lay is 0; refused at a step, it stores the words it holds in flight, their first put before that step
+// and their last put that step or a later one. Every other word is already in the record, laid or 0
+static void cycle_ptx_close(std::string &text, const CyclePtx *ptx)
+{
+    const EngineRecordLayout *const layout = ptx->layout;
+    text += "\tret;\n";
+    text += "$Lrefused_open:\n";
+    cycle_ptx_count_refused(text);
+    for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
+    {
+        if (ptx->put_last[word] != 0u)
+        {
+            cycle_emit(text, "\tst.global.u32 \t[%%record+%u], %%zero;\n", 4u * word);
+        }
+    }
+    text += "\tret;\n";
+    for (unsigned int at = 0u; at < layout->steps; at += 1u)
+    {
+        if (ptx->refuses[at] == 0u)
+        {
+            continue;
+        }
+        cycle_emit(text, "$Lrefused%u:\n", at);
+        cycle_ptx_count_refused(text);
+        for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
+        {
+            // put_last is 1 past the last put's step
+            if ((ptx->put_last[word] > at) && (ptx->put_first[word] < at))
+            {
+                cycle_emit(text, "\tst.global.u32 \t[%%record+%u], %%o%u;\n", 4u * word, word);
+            }
+        }
+        text += "\tret;\n";
+    }
+}
+
+// the 32-bit words every lane holds throughout: %zero, %thread, %threads, %word_base, %word_stride and %sign_base, and
+// the seven 64-bit %launch, %lane_number, %record, %index, %body, %bodies and %tables; each member's atom address adds
+// two more
+#define CYCLE_PTX_HELD_WORDS 20u
+
+// the most 32-bit words the lane holds live at once, reckoned from the lifetimes its text gives ptxas: each value's
+// limbs and sign from its step to its last reader, each record word from its first put to its last, each atom word from
+// its first reader to its last, each step's own temporaries at that step, and the words every lane holds throughout
+static unsigned int cycle_ptx_live_most(const CyclePtx *ptx)
+{
+    const EngineRecordLayout *const layout = ptx->layout;
+    const unsigned int steps = layout->steps;
+    std::vector<unsigned int> read_last(steps);
+    for (unsigned int at = 0u; at < steps; at += 1u)
+    {
+        read_last[at] = at;
+    }
+    // every operand is an earlier step, so the readers seen in order leave each value's last one
+    for (unsigned int at = 0u; at < steps; at += 1u)
+    {
+        const DeviceRecordStep *const step = &layout->step_table[at];
+        if (cycle_program_reads_left(step->operation))
+        {
+            read_last[step->left] = at;
+        }
+        if (cycle_program_reads_right(step->operation))
+        {
+            read_last[step->right] = at;
+        }
+    }
+    // the change in live words at each step, their count its running sum
+    std::vector<long long> change((size_t)steps + 1u, 0ll);
+    for (unsigned int at = 0u; at < steps; at += 1u)
+    {
+        const long long value = (long long)layout->step_table[at].limbs + 1ll;
+        change[at] += value + (long long)ptx->step_words[at];
+        change[read_last[at] + 1u] -= value;
+        change[at + 1u] -= (long long)ptx->step_words[at];
+    }
+    for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
+    {
+        if (ptx->put_last[word] != 0u)
+        {
+            change[ptx->put_first[word]] += 1ll;
+            change[ptx->put_last[word]] -= 1ll;
+        }
+    }
+    for (size_t atom = 0u; atom < ptx->loaded.size(); atom += 1u)
+    {
+        if (ptx->loaded[atom] != 0u)
+        {
+            change[ptx->atom_read_first[atom]] += 1ll;
+            change[(size_t)ptx->atom_read_last[atom] + 1u] -= 1ll;
+        }
+    }
+    long long live = 0ll;
+    long long most = 0ll;
+    for (unsigned int at = 0u; at < steps; at += 1u)
+    {
+        live += change[at];
+        most = (live > most) ? live : most;
+    }
+    // at most the file's limbs and signs, the record's words, the atoms' words and one step's temporaries, far under 2^32
+    return (unsigned int)most + CYCLE_PTX_HELD_WORDS + (2u * layout->members);
+}
+
+// a program's lane as PTX under the header this toolkit writes, the places a thread holds in shared memory for the
+// steps that call the operator block (the file's and the scratch's, 0 where no step calls), and the most words it holds
+// live at once. It names the device, NVRTC and the operator block it is linked against; empty where a step is one the
+// lane does not hold
 static std::string cycle_program_ptx(const EngineRecordLayout *layout, const CycleOperatorBlock *operators,
-                                     const std::string &header, unsigned int *places)
+                                     const std::string &header, unsigned int *places, unsigned int *live)
 {
     CyclePtx ptx{};
     ptx.layout = layout;
@@ -3904,8 +4084,15 @@ static std::string cycle_program_ptx(const EngineRecordLayout *layout, const Cyc
         atoms += layout->in_limbs[member];
     }
     ptx.loaded.assign(atoms, (unsigned char)0u);
+    ptx.atom_read_first.assign(atoms, 0u);
+    ptx.atom_read_last.assign(atoms, 0u);
     ptx.scratch = layout->file_limbs;
-    // the calls that work in the scratch share it at the widest of their widths
+    ptx.put_last.assign(layout->out_limbs, 0u);
+    ptx.put_first.assign(layout->out_limbs, 0u);
+    ptx.refuses.assign(layout->steps, (unsigned char)0u);
+    ptx.step_words.assign(layout->steps, 0u);
+    // the calls that work in the scratch share it at the widest of their widths, and each record word's first and last
+    // put are found before any step is written
     for (unsigned int at = 0u; at < layout->steps; at += 1u)
     {
         const DeviceRecordStep *const step = &layout->step_table[at];
@@ -3915,6 +4102,14 @@ static std::string cycle_program_ptx(const EngineRecordLayout *layout, const Cyc
             ptx.wide = (step->left_limbs > ptx.wide) ? step->left_limbs : ptx.wide;
             ptx.wide = (step->right_limbs > ptx.wide) ? step->right_limbs : ptx.wide;
             ptx.wide = (step->limbs > ptx.wide) ? step->limbs : ptx.wide;
+        }
+        unsigned int low = 0u;
+        unsigned int high = 0u;
+        cycle_ptx_put_words(layout, step, &low, &high);
+        for (unsigned int word = low; word < high; word += 1u)
+        {
+            ptx.put_first[word] = (ptx.put_last[word] == 0u) ? at : ptx.put_first[word];
+            ptx.put_last[word] = at + 1u;
         }
     }
     for (unsigned int at = 0u; at < layout->steps; at += 1u)
@@ -3961,8 +4156,9 @@ static std::string cycle_program_ptx(const EngineRecordLayout *layout, const Cyc
     text += "\n";
     cycle_ptx_open(text, &ptx, *places, calls);
     text += ptx.text;
-    cycle_ptx_close(text, layout);
+    cycle_ptx_close(text, &ptx);
     text += "}\n";
+    *live = cycle_ptx_live_most(&ptx);
     return text;
 }
 
@@ -4163,10 +4359,82 @@ static int cycle_program_hold(const EngineRecordLayout *layout, CycleRecord *rec
     return 1;
 }
 
+// a hold on a program loaded in this process given back, where `kernel` is one; the last hold released unloads it
+static void cycle_program_release(cudaKernel_t kernel)
+{
+    for (size_t at = 0u; (kernel != NULL) && (at < s_cycle_programs.size()); at += 1u)
+    {
+        if (s_cycle_programs[at].kernel == kernel)
+        {
+            s_cycle_programs[at].holders -= 1ull;
+            if (s_cycle_programs[at].holders == 0ull)
+            {
+                cudaLibraryUnload(s_cycle_programs[at].library);
+                s_cycle_programs.erase(s_cycle_programs.begin() + (std::ptrdiff_t)at);
+            }
+            break;
+        }
+    }
+}
+
+// Rule (i): a program held as PTX routed between its two rulesets by its local frame against the device's stack limit.
+// A frame past the limit has the runtime grow the stack for every resident thread at a run's first launch, and
+// cycle_stack_return gives it back once the run is done: 7.449 to 10.130 ms a run on the record tests, against 0.127 to
+// 1.630 ms for frames within the limit (26 September, engine_table item 11(f)). Past the limit the program is built as
+// C source as well, and the smaller frame runs, which is the C source's wherever it fits and the PTX's does not; the
+// other's hold is given back. Where the C source does not build, or its frame cannot be read, the PTX runs
+static void cycle_record_route(const EngineRecordLayout *layout, CycleRecord *record,
+                               const CycleOperatorBlock *operators, int lto, int report)
+{
+    cudaFuncAttributes attributes;
+    size_t limit = 0u;
+    if ((cudaDeviceGetLimit(&limit, cudaLimitStackSize) != cudaSuccess)
+        || (cudaFuncGetAttributes(&attributes, (const void *)record->kernel) != cudaSuccess)
+        || (attributes.localSizeBytes <= limit))
+    {
+        // an error the runtime still holds is the attempt's own, dropped before a run reads it as its own
+        cudaGetLastError();
+        return;
+    }
+    const cudaKernel_t ptx = record->kernel;
+    const unsigned int ptx_places = record->places;
+    const size_t ptx_frame = attributes.localSizeBytes;
+    const auto began = std::chrono::steady_clock::now();
+    const std::string source = cycle_program_source(layout, operators);
+    const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+    const int built = !source.empty() && cycle_program_hold(layout, record, operators, source, 0, lto, written, report);
+    const int read = built && (cudaFuncGetAttributes(&attributes, (const void *)record->kernel) == cudaSuccess);
+    const size_t source_frame = (read != 0) ? attributes.localSizeBytes : 0u;
+    const int source_runs = (read != 0) && (source_frame < ptx_frame);
+    if (source_runs != 0)
+    {
+        cycle_program_release(ptx);
+        record->places = cycle_program_places(layout);
+    }
+    else
+    {
+        if (built != 0)
+        {
+            cycle_program_release(record->kernel);
+        }
+        record->kernel = ptx;
+        record->places = ptx_places;
+    }
+    cudaGetLastError();
+    if (report != 0)
+    {
+        char held[64];
+        snprintf(held, sizeof(held), "a %zu-byte frame", source_frame);
+        fprintf(stderr, "  cycle: a program of %u steps as PTX holds a %zu-byte local frame, past the %zu-byte stack "
+                        "limit; as C source, %s: it runs as %s\n",
+                layout->steps, ptx_frame, limit, (read != 0) ? held : "not built", (source_runs != 0) ? "C" : "PTX");
+    }
+}
+
 // the program's lane written as PTX and built, else its C source compiled by NVRTC and built, found in this process or
 // the cache where either was built before, and the places it holds in shared memory set. PTX is not written where the
-// block is LTO-IR or CYCLE_RECORD_NVRTC=1. 0 where it stays on the interpreter: no NVRTC or nvJitLink, a step neither
-// holds, or a compile, link or load that failed
+// block is LTO-IR or CYCLE_RECORD_NVRTC=1, and a program held as PTX is routed by rule (i). 0 where it stays on the
+// interpreter: no NVRTC or nvJitLink, a step neither holds, or a compile, link or load that failed
 static int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
 {
     const int report = cycle_environment_set("CYCLE_RECORD_REPORT");
@@ -4201,12 +4469,20 @@ static int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *r
     {
         const std::string &header = cycle_ptx_header(major, minor, report);
         unsigned int places = 0u;
+        unsigned int live = 0u;
         const auto began = std::chrono::steady_clock::now();
-        const std::string ptx = header.empty() ? std::string() : cycle_program_ptx(layout, operators, header, &places);
+        const std::string ptx = header.empty() ? std::string()
+                                               : cycle_program_ptx(layout, operators, header, &places, &live);
         const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+        if ((report != 0) && !ptx.empty())
+        {
+            fprintf(stderr, "  cycle: a program of %u steps as PTX holds at most %u words live a lane\n", layout->steps,
+                    live);
+        }
         if (!ptx.empty() && cycle_program_hold(layout, record, operators, ptx, 1, lto, written, report))
         {
             record->places = places;
+            cycle_record_route(layout, record, operators, lto, report);
             return 1;
         }
         if (report != 0)
@@ -4288,6 +4564,9 @@ static int cycle_record_share(CycleRecord *record, size_t kernel_bytes)
     }
     // at most CYCLE_BLOCK threads, and at most the device's shared memory a thread block, both far under 2^31
     record->threads = (unsigned int)threads;
+    record->thread_bytes = thread_bytes;
+    // a count of processors is positive where the runtime gave it
+    record->processors = (unsigned long long)processors;
     record->register_bytes = threads * thread_bytes;
     record->shared_bytes = record->register_bytes + kernel_bytes;
     int blocks = 0;
@@ -4445,21 +4724,8 @@ extern "C" void cycle_record_release(CycleRecord *record)
     cudaFree(record->device_tables);
     cudaFree(record->hot);
     cudaFree(record->device_block);
-    // the record gives back its hold on the program it loaded, compiled or left on the interpreter after, and the last
-    // hold released unloads it
-    for (size_t at = 0u; (record->kernel != NULL) && (at < s_cycle_programs.size()); at += 1u)
-    {
-        if (s_cycle_programs[at].kernel == record->kernel)
-        {
-            s_cycle_programs[at].holders -= 1ull;
-            if (s_cycle_programs[at].holders == 0ull)
-            {
-                cudaLibraryUnload(s_cycle_programs[at].library);
-                s_cycle_programs.erase(s_cycle_programs.begin() + (std::ptrdiff_t)at);
-            }
-            break;
-        }
-    }
+    // the record gives back its hold on the program it loaded, compiled or left on the interpreter after
+    cycle_program_release(record->kernel);
     free(record->block);
     free(record);
 }
@@ -4484,12 +4750,19 @@ extern "C" unsigned int cycle_record_in_limbs(const CycleRecord *record, unsigne
 // block back only between launches, when it is sealed: a device block whose seal does not hold (written while no launch
 // held it), a launch that failed, or a launch that left the block anywhere but yielded or done refuses the run, and
 // the host's copy is left sealed at the fault with the error's module and site. It runs on as many thread blocks as the
-// device holds at once, or fewer where the lanes need fewer, each of the threads its registers' shared memory holds.
+// device holds at once, or fewer where the lanes need fewer. A thread block takes the threads its registers' shared
+// memory holds, or where the lanes are few, their share of the device's processors in whole warps, so that a launch of
+// a few thousand lanes reaches every processor and not only a few thread blocks' worth.
 static int cycle_record_resident(const CycleRecord *record, CycleCompiledLaunch program, EngineError *error)
 {
-    const unsigned long long needed = (program.count + record->threads - 1ull) / record->threads;
+    const unsigned long long share = (program.count + record->processors - 1ull) / record->processors;
+    const unsigned long long warps = ((share + 31ull) / 32ull) * 32ull;
+    // at most record->threads, itself at most CYCLE_BLOCK
+    const unsigned int threads = (unsigned int)((warps < record->threads) ? warps : record->threads);
+    const unsigned long long needed = (program.count + threads - 1ull) / threads;
     // the device's thread blocks at once are a small count, far under 2^31
     const unsigned int blocks = (unsigned int)((needed < record->resident) ? needed : record->resident);
+    const unsigned long long register_bytes = threads * record->thread_bytes;
     EngineProgramBlock *const block = record->block;
     const unsigned long long ttl = 1000ull * cycle_environment_microseconds("CYCLE_RECORD_TTL",
                                                                               CYCLE_PROGRAM_TTL_MICROSECONDS);
@@ -4501,9 +4774,10 @@ static int cycle_record_resident(const CycleRecord *record, CycleCompiledLaunch 
     block->generation = generation;
     block->command = ENGINE_PROGRAM_RUN;
     block->grant_registers = record->registers;
-    block->grant_threads = (unsigned long long)blocks * record->threads;
+    block->grant_threads = (unsigned long long)blocks * threads;
     block->grant_bytes = record->local_bytes * block->grant_threads;
-    block->grant_shared = record->shared_bytes;
+    // the kernel's own shared memory, and its threads' registers at this launch's threads
+    block->grant_shared = (record->shared_bytes - record->register_bytes) + register_bytes;
     block->state = ENGINE_PROGRAM_LAID;
     block->span = record->file_limbs;
     block->ttl = ttl;
@@ -4545,8 +4819,8 @@ static int cycle_record_resident(const CycleRecord *record, CycleCompiledLaunch 
         void *arguments[1] = {&program};
         // a library's kernel handle is what the runtime launches in place of a kernel's address
         ok = ok
-          && CYCLE_TOOK(cudaLaunchKernel((const void *)record->kernel, dim3(blocks), dim3(record->threads), arguments,
-                                         (size_t)record->register_bytes, 0),
+          && CYCLE_TOOK(cudaLaunchKernel((const void *)record->kernel, dim3(blocks), dim3(threads), arguments,
+                                         (size_t)register_bytes, 0),
                         program.out, error);
         ok = ok && CYCLE_TOOK(cudaDeviceSynchronize(), program.out, error);
         unsigned int refused = 0u;
@@ -4749,8 +5023,9 @@ extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
     }
     if ((ok != 0) && (report != 0) && (compiled != 0))
     {
-        fprintf(stderr, "  cycle: the program ran %llu launches, %llu check-ins, %.3f ms on the device\n",
-                record->block->launches, record->block->checkin, (double)record->block->runtime / 1e6);
+        fprintf(stderr, "  cycle: the program ran %llu launches, %llu check-ins, %.3f ms on the device, %llu threads\n",
+                record->block->launches, record->block->checkin, (double)record->block->runtime / 1e6,
+                record->block->grant_threads);
     }
     // the frame's reservation is given back whether or not the sweep held
     const int returned = cycle_stack_return(stack, request->device_out, error);

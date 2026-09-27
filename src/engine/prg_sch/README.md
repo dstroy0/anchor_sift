@@ -148,12 +148,26 @@ The load also builds the program for the device (`base/cycle/cycle.cu`), trying 
    A step that loops on its values calls into the operator block, and its operands pass through shared memory.
    Those steps are a gcd, a ladder, a division by more than one limb, and a product of more than 1,024 limb
    products.
+
+   Each word of the output record is stored as soon as the last step that lays it has run, so the lane does not
+   hold its outputs to its end. With `CYCLE_RECORD_REPORT=1` the load says the most words a lane holds live at once.
+
+   **Rule (i).** Once the PTX is built, its local frame, the bytes a thread spills past its registers, is read
+   against the device's stack limit. A frame within the limit runs. A frame past it makes the runtime grow the stack
+   for every resident thread at a run's first launch, and the stack is given back once the run is done: 7.4 to
+   10.1 ms a run on the record tests, against 0.1 to 1.6 ms for frames within the limit. The program is then built
+   as C source as well, and whichever of the two has the smaller frame runs; the other build is released.
 2. **C source.** Where the lane cannot be written in PTX, it is C source, each step one call into the operator block.
    NVRTC compiles it and nvJitLink links it the same way. Its registers lie in shared memory.
 3. **The interpreter.** Where neither builds, the interpreter runs the program. It is also the oracle both are held to.
 
 Each build is kept in a cache: `$CYCLE_CACHE`, else `%LOCALAPPDATA%\cycle` or `~/.cache/cycle`. A build is found
 by its text and used only where that text matches byte for byte.
+
+A compiled program runs on as many thread blocks as the device holds at once, or fewer where the lanes need fewer.
+Each launch chooses its own thread count: as many threads as the registers' shared memory holds, or, where the
+lanes are few, each processor's share of them in whole warps. A launch of a few thousand lanes then reaches every
+processor, not only a few thread blocks' worth.
 
 Six switches, read at each load or run:
 
