@@ -275,7 +275,7 @@ static char keymath_never_negative(const EngineRecordStep &doing, const std::vec
 }
 
 // a coefficient or constant of a linear form stays within this, so a sum of two and the product by a constant are
-// checked in one word
+// checked in one word before either is formed: two at the limit sum to 2^63, past a signed word
 #define KEYMATH_COEFFICIENT_MOST (1ll << 62)
 
 // a register as a linear form: integer coefficients over atoms, each an earlier register the form does not open (a
@@ -301,13 +301,22 @@ static long long keymath_magnitude(long long value)
     return (value < 0ll) ? -value : value;
 }
 
+// left + right, each within KEYMATH_COEFFICIENT_MOST, into *sum; 0, and *sum 0, where the sum would pass it. The test
+// is made before the sum is formed, and each side of it stays within the limit, so no word overflows
+static int keymath_sum_held(long long left, long long right, long long *sum)
+{
+    const int held = (right >= 0ll) ? (left <= (KEYMATH_COEFFICIENT_MOST - right))
+                                    : (left >= (-KEYMATH_COEFFICIENT_MOST - right));
+    *sum = held ? (left + right) : 0ll;
+    return held;
+}
+
 // left + sign right, the terms merged by atom; 0 where a coefficient or the constant would pass
 // KEYMATH_COEFFICIENT_MOST
 static int keymath_form_add(const KeymathForm &left, const KeymathForm &right, long long sign, KeymathForm *sum)
 {
-    sum->constant = left.constant + (sign * right.constant);
     sum->terms.clear();
-    int held = keymath_magnitude(sum->constant) <= KEYMATH_COEFFICIENT_MOST;
+    int held = keymath_sum_held(left.constant, sign * right.constant, &sum->constant);
     size_t at_left = 0u;
     size_t at_right = 0u;
     while (held && ((at_left < left.terms.size()) || (at_right < right.terms.size())))
@@ -319,11 +328,11 @@ static int keymath_form_add(const KeymathForm &left, const KeymathForm &right, l
                             || ((at_right < right.terms.size())
                                 && (right.terms[at_right].first <= left.terms[at_left].first));
         const unsigned int atom = take_left ? left.terms[at_left].first : right.terms[at_right].first;
-        const long long coefficient = (take_left ? left.terms[at_left].second : 0ll)
-                                    + (take_right ? (sign * right.terms[at_right].second) : 0ll);
+        long long coefficient = 0ll;
+        held = keymath_sum_held(take_left ? left.terms[at_left].second : 0ll,
+                                take_right ? (sign * right.terms[at_right].second) : 0ll, &coefficient);
         at_left += take_left ? 1u : 0u;
         at_right += take_right ? 1u : 0u;
-        held = keymath_magnitude(coefficient) <= KEYMATH_COEFFICIENT_MOST;
         if (held && (coefficient != 0ll))
         {
             sum->terms.push_back(std::pair<unsigned int, long long>(atom, coefficient));
@@ -343,8 +352,12 @@ static int keymath_form_scale(const KeymathForm &form, long long factor, Keymath
     for (size_t at = 0u; held && (at < form.terms.size()) && (factor != 0ll); at += 1u)
     {
         held = keymath_magnitude(form.terms[at].second) <= most;
-        scaled->terms.push_back(
-            std::pair<unsigned int, long long>(form.terms[at].first, form.terms[at].second * factor));
+        // a coefficient past the limit is not multiplied, since its product can pass a signed word
+        if (held)
+        {
+            scaled->terms.push_back(
+                std::pair<unsigned int, long long>(form.terms[at].first, form.terms[at].second * factor));
+        }
     }
     return held;
 }

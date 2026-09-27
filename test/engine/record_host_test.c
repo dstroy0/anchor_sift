@@ -327,6 +327,25 @@ static void host_members(HostProgram *program)
     memcpy(program->outputs, outputs, sizeof(outputs));
 }
 
+// the linear forms' limit (keymath, KEYMATH_COEFFICIENT_MOST, 2^62): 2^62 added to itself, the sum added to itself,
+// and the first sum times 3. The sums pass the limit, so each is an atom of its own width, 64 and 65 bits, and the
+// product 66; a sum formed past a signed word would give 2^64 a width of 1 bit
+static void host_form_limit(HostProgram *program)
+{
+    memset(program, 0, sizeof(*program));
+    program->name = "form limit";
+    program->members = 1u;
+    program->in_limbs[0] = 1u;
+    host_step(program, ENGINE_RECORD_CONSTANT, 0u, 0x40000000u, 0u);
+    host_step(program, ENGINE_RECORD_SUM, 0u, 0u, 0u);
+    host_step(program, ENGINE_RECORD_SUM, 1u, 1u, 0u);
+    host_step(program, ENGINE_RECORD_CONSTANT, 3u, 0u, 0u);
+    host_step(program, ENGINE_RECORD_PRODUCT, 1u, 3u, 0u);
+    const unsigned int outputs[] = {2u, 4u};
+    program->output_count = (unsigned int)(sizeof(outputs) / sizeof(outputs[0]));
+    memcpy(program->outputs, outputs, sizeof(outputs));
+}
+
 // a program the host must refuse on the atoms given: the whole run refuses, a request error of the cycle module
 static void host_refused(HostTally *tally, const HostProgram *program, const unsigned int *atoms, const char *what)
 {
@@ -440,6 +459,24 @@ int main(void)
     free(index);
     free(atoms[0]);
     free(atoms[1]);
+
+    // drawn last and from no stream, so every digest above stays as it was
+    host_form_limit(&program);
+    HostLoaded limit;
+    const int laid = host_load(&program, 0, &limit);
+    const unsigned int doubled_bits = laid ? limit.key.term[2].bits : 0u;
+    const unsigned int tripled_bits = laid ? limit.key.term[4].bits : 0u;
+    if (laid)
+    {
+        host_free(&limit);
+    }
+    printf("  form limit: 2^64 takes %u bits, 3 . 2^63 takes %u\n", doubled_bits, tripled_bits);
+    host_check(&tally, (doubled_bits >= 65u) && (tripled_bits >= 66u),
+               "a sum past the linear forms' limit takes the bits its value needs");
+    atoms[0] = (unsigned int *)calloc(HOST_TEST_LANES, sizeof(unsigned int));
+    ran = (atoms[0] != NULL) && host_run(&tally, &program, 0, atoms, one_body, NULL, &records);
+    free(records);
+    free(atoms[0]);
 
     printf("  record host test: %u checks, %u failed\n", tally.checks, tally.failed);
     return (tally.failed == 0u) ? 0 : 1;
