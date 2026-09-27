@@ -4,7 +4,7 @@
 
 WHAT IS BEING TESTED
 
-`docs/arm-records.md` states that an arm is identified by its topology together with its weight, and
+`theory/workbooks/anchor_sift/arm-records.md` states that an arm is identified by its topology together with its weight, and
 that a shape is one realization of that. If the claim holds, then redrawing an arm as a different
 shape carrying the same topology and the same weight leaves every letter of the reading unchanged. A
 reading that moves under such a redraw depends on how the arm was drawn, and that is a defect in the
@@ -111,7 +111,7 @@ IDENTITY = ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0))
 
 
 # -------------------------------------------------------------------------------------------------
-# The record, as `docs/arm-records.md` defines it.
+# The record, as `theory/workbooks/anchor_sift/arm-records.md` defines it.
 # -------------------------------------------------------------------------------------------------
 
 class Arm(object):
@@ -427,7 +427,7 @@ def compared(points, live, drawn):
     """One drawing against the reference, at the three levels a redraw can move something.
 
     `weight` is the arm itself, `points` is its topology, `letter` is what a caller reads. The
-    claim in `docs/arm-records.md` is about the first two. The third is a consequence and is
+    claim in `theory/workbooks/anchor_sift/arm-records.md` is about the first two. The third is a consequence and is
     reported because it is the quantity anybody would have checked.
     """
     plain = by_sign_test(points)

@@ -1,7 +1,7 @@
 # The engine's correctness does not depend on its control flow
 
 **Purpose:** Prove that the count is exact for every probe set, that the refinement loop's invariant is its own postcondition, that an arbitrary planner cannot endanger the answer, and that the descent terminates without a depth cap.
-**Scope:** `src/engine/nbody/anchor_sift/anchor_sift.{h,c}`, `docs/steering.md`
+**Scope:** `src/engine/nbody/anchor_sift/anchor_sift.{h,c}`
 **Note, 26 September:** this scope first named `src/engine/c/portable/anchor_steer.{h,c}` and `src/engine/c/portable/anchor_sift.h`. Commit `510577b` (16 September) folded the steer files into `anchor_sift.{h,c}`, `0954259` (16 September) renamed `src/engine/c/portable/` to `src/engine/c/engine/`, and `bdaed61` (24 September) moved those to `src/engine/nbody/anchor_sift/`, where they are at anchor_sift `1948ae1`.
 
 ## Contents
@@ -114,7 +114,8 @@ diverges at step `k`, then interrupting and sweeping with `S_k` returns `N`.**
 computability, or termination of anything. No such hypothesis can be needed to discharge it. Each
 defined `S_i` is a plan; apply Theorem 1. For the divergent case, `S_k` is a plan; apply Theorem 1. ∎
 
-This is the theorem worth stating to anyone who has read the guide's claim about halting. It says the
+This is the theorem worth stating to anyone who has read the header's claim about halting
+(`src/engine/nbody/anchor_sift/anchor_sift.h:731-742`). It says the
 planner slot accepts an arbitrary computation, including one that decides an undecidable question and
 therefore never returns, without the answer depending on it. The undecidability is real and it is
 confined to the planner, where nothing reads its result as a precondition for correctness.
@@ -279,8 +280,9 @@ solver emitting a certificate that a small verified program checks. The generato
 arbitrary precisely because nothing it produces is believed without the check.
 
 **Streaming to itself.** The generator's input can be the engine's own output: the census, the
-surviving alignment set, the lag profile `A(d)`, and the reads per alignment that the companion
-document identifies as an arrangement measurement. The loop closes. The engine measures the object,
+surviving alignment set, the lag profile `A(d)`, and the reads per alignment that
+[ENGINE_DIRECTIONS.md](ENGINE_DIRECTIONS.md#its-own-cost-is-the-arrangement-measurement) identifies as
+an arrangement measurement. The loop closes. The engine measures the object,
 generates new questions from that measurement, probes, and measures again.
 
 The feedback is safe for the same reason the planner is. By Theorem 1 the plan's contents cannot
@@ -384,7 +386,7 @@ already maximizing without saying so.
 
 **Christian Coester, Elias Koutsoupias and Marek Zbysiński**, *The k-server conjecture is true*,
 arXiv:2609.15979v1, 14 September 2026. Not prior art for anything here, and listed because it
-prompted Theorem 8 and because its method matches what section 7 of the companion document proposes.
+prompted Theorem 8 and because its method matches what section 7 of [ENGINE_DIRECTIONS.md](ENGINE_DIRECTIONS.md#probe-selection-is-a-determinantal-point-process) proposes.
 Their abstract states that the work function is represented as a matrix encoding all feasible paths,
 that the minimum and addition of optimal-cost algebra become addition and multiplication of formal
 expressions, and that each work function value is the determinant of `k` columns. A `k`-subset's

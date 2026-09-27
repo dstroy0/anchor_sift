@@ -40,13 +40,19 @@ On Windows use `maint/engine/build_engine.ps1`, the same two forms. It imports t
 Drive the configure yourself with CMake directly for the lower-level path:
 
 ```sh
-cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake -S src/engine -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build/engine_c
 ```
 
 That produces the benches and the tests. `bench_lattice` needs C99 `_Complex` and does not build under MSVC, which supplies the types without the operators; build it with GCC or Clang, and every other target builds under all three.
 
-`src/engine/c/engine/anchor_sift.c` compiles on its own with no build system at all, if you only want the search kernel.
+The search kernel builds with no build system at all, if that is all you want. It is four portable sources and two include paths:
+
+```sh
+gcc -std=c11 -Isrc/engine/nbody/anchor_sift -Isrc/engine/base/no_rounding your_program.c \
+    src/engine/nbody/anchor_sift/anchor_sift.c src/engine/nbody/anchor_sift/scan_portable.c \
+    src/engine/base/no_rounding/exact_integer.c src/engine/base/no_rounding/arm_portable.c
+```
 
 ## The research papers
 
@@ -91,7 +97,7 @@ The Salishan papers come from the ICSNL archive:
 python maint/data/salishan/get_papers.py
 ```
 
-The hand extractions are not fetchable. They are transcribed out of published papers and live in a closed repository, described in [Research](research/index.md). Everything that does not read a paper or a table runs without them.
+The hand extractions are not fetchable. They are transcribed out of published papers and live in a closed repository, described in the README under [What is not here](https://github.com/dstroy0/anchor_sift#what-is-not-here). Everything that does not read a paper or a table runs without them.
 
 ## Checks
 

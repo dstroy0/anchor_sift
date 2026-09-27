@@ -72,7 +72,7 @@ TEMPLATE = os.path.join(HERE, "orrery_view_template.html")
 
 
 def draw(seed):
-    """The same small generator the other tools use. That a seed means one scene everywhere."""
+    """The same small generator the other tools use. A seed gives the same stream in every tool."""
     state = (seed ^ 0x9E3779B97F4A7C15) & 0xFFFFFFFFFFFFFFFF
     while True:
         state = (state * 6364136223846793005 + 1442695040888963407) & 0xFFFFFFFFFFFFFFFF

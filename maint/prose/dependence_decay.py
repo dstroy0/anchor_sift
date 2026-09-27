@@ -163,7 +163,7 @@ writing inside it.
     python maint/prose/dependence_decay.py --band
     python maint/prose/dependence_decay.py --twoband --length 200000
     python maint/prose/dependence_decay.py --scramble
-    python maint/prose/dependence_decay.py --file docs/aiming-the-engine.md
+    python maint/prose/dependence_decay.py --file theory/workbooks/anchor_sift/aiming-the-engine.md
 """
 
 import argparse

@@ -1,7 +1,7 @@
 # Directions the engine's own proofs already license
 
 **Purpose:** Collect the capabilities that follow from what the engine has already proved, and the Laplacian construction that replaces its planning cost with a determinant.
-**Scope:** `src/engine/nbody/anchor_sift/anchor_sift.{h,c}`, `docs/steering.md`
+**Scope:** `src/engine/nbody/anchor_sift/anchor_sift.{h,c}`
 **Note, 26 September:** this scope first named `src/engine/c/portable/anchor_steer.{h,c}` and `src/engine/c/portable/anchor_sift.h`. Commit `510577b` (16 September) folded the steer files into `anchor_sift.{h,c}`, `0954259` (16 September) renamed `src/engine/c/portable/` to `src/engine/c/engine/`, and `bdaed61` (24 September) moved those to `src/engine/nbody/anchor_sift/`, where they are at anchor_sift `1948ae1`.
 
 ## Contents
@@ -26,7 +26,7 @@ Every probe is a necessary condition of an occurrence, any conjunction of probes
 occurrence and the full compare removes the false survivors. The count is exact for any probe set.
 
 The sift is therefore a sound filter and its errors are one directional. A discrepancy is always an
-over-count and is detectable without knowing the answer (`README.md:97`).
+over-count and is detectable without knowing the answer (`README.md:138`).
 
 A probe's agreement at shift `d` from a true occurrence is exactly a lag `d` self-agreement event in
 the corpus. Writing `A(d)` for the fraction of positions where the corpus agrees with itself at lag
@@ -44,7 +44,7 @@ before, every survivor set is identical, and the count is unchanged. Take `f` to
 pseudorandom permutation and the engine counts occurrences in a corpus nobody running it can read,
 for a needle nobody running it can read.
 
-This is a capability the alphabet claim already bought. `README.md:99` states that nothing is
+This is a capability the alphabet claim already bought. `README.md:140` states that nothing is
 indexed and no table is built over the alphabet, and that a real-valued or unenumerable alphabet
 costs nothing. An engine that never enumerates symbols cannot notice that the symbols were replaced.
 
@@ -93,10 +93,10 @@ unreliability in that one direction alone.
 
 ## Its own cost is the arrangement measurement
 
-`README.md:105` records an open problem. Collision entropy is permutation invariant and cannot see an
-arrangement, and a period-16 counter therefore reads 4.0 bits while the dispatcher calls a perfectly structured
-corpus memoryless. The note states that fixing it needs a quantity that reads arrangement and that no
-threshold on collision entropy reaches it.
+`README.md:150` records a blindness in the dispatcher. Collision entropy is permutation invariant and
+cannot see an arrangement, and a period-16 counter therefore reads 4.0 bits while the dispatcher calls a
+perfectly structured corpus memoryless. The note states that reading arrangement needs a different
+quantity. `anchor_sift_anchors_for` supplies one only where the period the corpus repeats at is known.
 
 The engine already measures that quantity and reports it in another column.
 
@@ -111,7 +111,7 @@ histogram is permutation invariant and the measurement is not, because the measu
 of `A(d)` over the shifts the search actually visits.
 
 **The gap between predicted `q` and measured `q` is arrangement information, and it is the quantity
-`README.md:105` says is needed.** A permuted corpus has an identical histogram and a different
+`README.md:150` says is needed.** A permuted corpus has an identical histogram and a different
 measured `q`. The period-16 counter reads `2^-4` predicted and close to 1 measured, the largest gap
 the statistic can show.
 
@@ -189,9 +189,10 @@ destroy rule catches what the prediction missed, and the gap between them is mea
 
 ## Planning without touching the corpus
 
-The guide records that planning cost is stated and unmeasured, and that `anchor_steer_sweep_probes`
+The header states planning cost as a worst case and does not measure it. `anchor_steer_sweep_probes`
 performs about `wanted * needle_len^2 * max_length^2 * alignments / sample_stride` byte comparisons
-at worst, which exceeds the scan it plans for on any but a short needle. That is the engine's
+at worst, which exceeds the scan it plans for on any but a short needle
+(`src/engine/nbody/anchor_sift/anchor_sift.h:934-942`). That is the engine's
 sharpest open cost problem, and the determinant removes its dominant factor.
 
 Scoring a candidate today walks the alignments. Scoring a candidate by determinant walks a `k` by `k`
@@ -267,8 +268,8 @@ built on, and the reason a determinantal process is the right object: it is the 
 distribution carrying prescribed marginals with negative correlation.
 
 **Robert S. Boyer and J Strother Moore**, 1977, and **R. Nigel Horspool**, 1980, for the shift rules
-that skip alignments without reading them. That is the prior art the companion document measures the
-engine against.
+that skip alignments without reading them. This engine visits every alignment by construction, and
+no figure in these documents compares its reads against theirs.
 
 Further reading used for the determinantal material:
 <https://arxiv.org/pdf/2204.02570>, <https://arxiv.org/html/math/0204325v1>

@@ -1,7 +1,7 @@
 # Using it
 
 **Purpose:** Run the measure on something of your own, and know which of the six parts you are calling.
-**Scope:** `src/engine/python/`, `examples/`.
+**Scope:** `src/engine/python/`, `src/engine/nbody/anchor_sift/anchor_sift.h`, `examples/`.
 
 ## The shortest thing that works
 
@@ -26,7 +26,7 @@ Run an example with no argument and it prints the usage line and stops.
 | `sift` | filter candidates with a necessary condition |
 | `oracle` | check against ground truth somebody else published |
 
-Only `representation` knows a domain exists. It has `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text` under it. Everything downstream sees points and values.
+Only `representation` knows a domain exists. It has `atom`, `constants`, `game`, `particle`, `picture`, `sound`, `structure` and `text` under it. Everything downstream sees points and values.
 
 `src/engine/python/README.md` is the map.
 
@@ -58,11 +58,11 @@ The floor moves with sample size. One computed on a large corpus bounds nothing 
 |---|---|---|
 | `language` | 60 | corpora, orthographies, dialect borders |
 | `any_corpus` | 19 | any symbol sequence, domain unspecified |
+| `game_theory` | 16 | games, by how open the result stays after a move |
+| `proteins` | 13 | backbone coordinates |
 | `particle_physics` | 11 | atoms and particles as exact quantum numbers |
-| `game_theory` | 9 | games, by how open the result stays after a move |
 | `crystallography` | 9 | cell edges, against published ones |
 | `art` | 9 | images as byte sequences |
-| `proteins` | 8 | backbone coordinates |
 | `cell_tracking` | 7 | cell positions across frames |
 | `chemistry` | 5 | molecules as atoms and bonds |
 | `source` | 4 | source code as a symbol stream |
@@ -73,9 +73,31 @@ Every example carries a catalog number in its header, `LNG-4-012` and so on. A c
 
 ## The search kernel
 
-```sh
-./build/engine_c/bench_lattice
+`anchor_steer_count` counts the occurrences of a needle in a corpus. Its last argument is 1 to order the probes by rarity and 0 to leave them in spatial order, and the count is the same either way (`src/engine/nbody/anchor_sift/anchor_sift.h:952-978`). Both buffers are [BORROWS] for the call.
+
+```c
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "anchor_sift.h"
+
+int main(void)
+{
+    const char *corpus = "abracadabra abracadabra";
+    const char *needle = "abra";
+    const size_t corpus_len = strlen(corpus);
+    const size_t needle_len = strlen(needle);
+
+    const size_t count = anchor_steer_count((const uint8_t *)corpus, corpus_len,
+                                            (const uint8_t *)needle, needle_len, 1);
+    printf("%lu occurrences, scanned by the %s engine\n", (unsigned long)count,
+           anchor_steer_best_engine()->name);
+    return 0;
+}
 ```
+
+Built with the four-source line in [Setup](setup.md#the-c-engine) under gcc on x86-64 Windows, it prints `4 occurrences, scanned by the portable engine`.
 
 The sift is a sound filter: no arrangement of anchors can lose a true occurrence. Errors are one directional and any discrepancy is an over-count. It carries `m` bits of state for a pattern of length `m`, with no table over the alphabet. A real-valued or unenumerable alphabet costs it nothing.
 

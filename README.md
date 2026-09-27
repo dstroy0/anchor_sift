@@ -95,13 +95,13 @@ Each directory serves one purpose.
 
 |                             | what it operates on          |                                                                                                   |
 | --------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------- |
-| `src/`                      | points and values, no domain | the engine: the Python in `src/engine/python/`, the C in `src/engine/c/` with its benches in `bench/` |
+| `src/`                      | points and values, no domain | the engine: the Python in `src/engine/python/`, the C in `src/engine/` with its benches in `bench/` |
 | `test/`                     | the engine                   | the C correctness checks in `test/engine/`, the maintenance tests, and the published test vectors |
 | `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                            |
 | `examples/`                 | a corpus, through `src/`     | 159 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
 | `maint/`                    | the repository itself        | records, gates, prose checks, the research paper build, the data fetchers and the Salishan pipeline         |
 | `theory/`                   | the argument                 | seventeen research papers                                                                                   |
-| `docs/`                     | the reader                   | setup, usage, steering, rendering and the verification notes                                      |
+| `docs/`                     | the reader                   | setup, usage, and the proofs the search kernel's count rests on                                   |
 
 `examples/README.md` explains the stages and how to run a script. `maint/README.md` maps the maintenance tools. `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
 
@@ -133,7 +133,7 @@ The full set lives one per file under `src/engine/python/` and in the C renderer
 
 ## The sift
 
-`src/engine/c/engine/anchor_sift.c` builds and runs with a C11 compiler alone. It is the whole engine in one translation unit: the search, the steering that places its probes, and the scan underneath both. The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
+`src/engine/nbody/anchor_sift/anchor_sift.c` holds the search and the steering that places its probes. With the portable scan beside it and the exact integer arithmetic under `src/engine/base/no_rounding/`, it builds and runs with a C11 compiler alone, four sources and no build system (`docs/setup.md`). The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
 
 **It is a sound filter.** A subset of a pattern's points is a necessary condition. No arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
 
@@ -190,7 +190,7 @@ The graders the scripts run after a build are `test_steer`, `test_adversarial`, 
 
 ### Rendering the object, flat and solid
 
-The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps and not the same one at two sizes. `docs/rendering.md` covers both.
+The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps and not the same one at two sizes. `theory/workbooks/anchor_sift/rendering.md` covers both.
 
 `AnchorRasterConfig` renders a sheet: `width` by `height`, one of four layouts, one of five channels, a reduce rule for cells several alignments land on, and a gain. `AnchorVolumeConfig` renders a block: `width` by `height` by `depth`, one of four volume layouts, and the same five channels, the same two reduce rules and the same gain, named by reference to the same enums, because a channel means one thing in this tree.
 
