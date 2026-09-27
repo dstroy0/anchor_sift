@@ -3,7 +3,7 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MODULE="$(cd "$TEST/.." && pwd)"
+MODULE="$(cd "$TEST/../../../src/engine/nbody/max_tree" && pwd)"
 TOP="$(cd "$MODULE/../../../.." && pwd)"
 source "$TOP/maint/build_stamp.sh"
 build_stamp max_tree_test

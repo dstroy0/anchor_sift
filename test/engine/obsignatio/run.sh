@@ -3,7 +3,7 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MODULE="$(cd "$TEST/.." && pwd)"
+MODULE="$(cd "$TEST/../../../src/engine/base/obsignatio" && pwd)"
 TOP="$(cd "$MODULE/../../.." && pwd)"
 SCRIPTURA="$TOP/engine/base/scriptura"
 # maint/ is at the repository's root, one above src/

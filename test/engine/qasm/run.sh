@@ -5,8 +5,8 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOP="$(cd "$TEST/../../../../.." && pwd)"
-source "$TEST/../build.sh"
+TOP="$(cd "$TEST/../../.." && pwd)"
+source "$TOP/src/engine/base/qasm/build.sh"
 qasm_build qasm_test || exit 1
 qasm_link "$QASM/qasm_bitstring.cu" qasm_bitstring || exit 1
 CLI="$BINARY"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-# Sourced by run.sh and test/run.sh with TOP set. qasm_build <label> builds the qasm objects, the record machine's
+# Sourced by run.sh and test/engine/qasm/run.sh with TOP set. qasm_build <label> builds the qasm objects, the record machine's
 # modules and the tessera daemon into $OUT; qasm_link <source> <name> then links one program there as $BINARY.
 
 QASM="$TOP/src/engine/base/qasm"
