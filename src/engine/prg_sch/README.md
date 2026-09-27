@@ -134,6 +134,38 @@ if (engine_record_imprint(&request, &record, &error) == ENGINE_REFUSED) { /* the
 The imprint and the layout are the serial work, done once. The sweep then runs that key over every lane
 ([imprint_key_cycle.md](../../../theory/workbooks/engine/imprint_key_cycle.md)).
 
+## How the device runs a program
+
+The load also builds the program for the device (`base/cycle/cycle.cu`), trying three ways in order:
+
+1. **PTX.** The lane is written in PTX, NVIDIA's assembly, and nvJitLink assembles it as it links it against the
+   **operator block**, where every operation is compiled once for the device. Each step is unrolled at its widths
+   into straight-line code over registers the lane holds itself:
+   - a sum or a difference is carry chains through its limbs;
+   - a product is its schoolbook rows, one limb product at a time;
+   - a division by one limb is a long division from the top limb.
+
+   A step that loops on its values calls into the operator block, and its operands pass through shared memory.
+   Those steps are a gcd, a ladder, a division by more than one limb, and a product of more than 1,024 limb
+   products.
+2. **C source.** Where the lane cannot be written in PTX, it is C source, each step one call into the operator block.
+   NVRTC compiles it and nvJitLink links it the same way. Its registers lie in shared memory.
+3. **The interpreter.** Where neither builds, the interpreter runs the program. It is also the oracle both are held to.
+
+Each build is kept in a cache: `$CYCLE_CACHE`, else `%LOCALAPPDATA%\cycle` or `~/.cache/cycle`. A build is found
+by its text and used only where that text matches byte for byte.
+
+Six switches, read at each load or run:
+
+| switch | effect |
+|---|---|
+| `CYCLE_RECORD_INTERPRET=1` | every program stays on the interpreter |
+| `CYCLE_RECORD_CHECK=1` | every launch runs both, and a launch whose records or refusals differ is refused |
+| `CYCLE_RECORD_REPORT=1` | stderr says how each program was built and how long each kernel ran |
+| `CYCLE_RECORD_TTL=<microseconds>` | a launch's time to live |
+| `CYCLE_RECORD_LTO=1` | the operator block and the programs are built as LTO-IR and linked with link-time optimization; no PTX is written |
+| `CYCLE_RECORD_NVRTC=1` | every lane is written as C source |
+
 ## Sweeping
 
 ```c

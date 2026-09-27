@@ -1267,22 +1267,27 @@ __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
 
 // The record program compiled. Every record operation lives once, in the operator block: a function of its own, the
 // interpreter's arithmetic with its widths taken as arguments, compiled by NVRTC once for this device and kept in the
-// cache. A program's source is its steps alone, each one call into the block with its places and widths as constants
-// over the register file key_schedule laid, file_limbs the most it holds live at once. It is compiled as relocatable
-// code and linked against the block by nvJitLink into the cubin that is loaded. A program of any length compiles. Its
+// cache. A program's lane is written first as PTX (cycle_program_ptx): each step unrolled at its widths into
+// straight-line assembly over registers the lane holds, or a call into the block for a step that loops on its values,
+// and nvJitLink assembles it as it links it against the block, with no compiler between. Where the lane cannot be written
+// so, or its PTX does not build, the lane is C source instead, its steps alone, each one call into the block with its
+// places and widths as constants over the register file key_schedule laid, file_limbs the most it holds live at once,
+// compiled by NVRTC as relocatable code and linked the same way. A program of any length builds either way. The block's
 // registers lie in the thread block's shared memory, sized exactly from its widths, and a thread block holds as many
-// threads as that shared memory fits. The interpreter above stays the oracle, and the fallback for a program NVRTC or
-// nvJitLink cannot build, this process cannot load or shared memory cannot hold one thread's registers for.
+// threads as that shared memory fits; a PTX lane that calls nothing takes none. The interpreter above stays the oracle,
+// and the fallback for a program neither way builds, this process cannot load or shared memory cannot hold one
+// thread's registers for.
 //
 // The compiled program runs as a resident program with a block (EngineProgramBlock) in device memory. Its thread blocks
 // take lanes a round at a time from one counter, check in to the block as they go, and leave once the launch has run
 // its time to live or the block's command says to. The last one out writes where the program stands, and the run
 // launches it again from there until every lane is done: a launch never outlives the display driver's watchdog, and no
-// lane runs twice. The host reads the block only once a launch has ended. Five switches, read at each load or run:
+// lane runs twice. The host reads the block only once a launch has ended. Six switches, read at each load or run:
 // CYCLE_RECORD_INTERPRET=1 keeps every program on the interpreter, CYCLE_RECORD_CHECK=1 runs both on every launch and
 // refuses the launch where their records or refusals differ, CYCLE_RECORD_REPORT=1 says on stderr where each program
-// came from and how long each kernel ran, CYCLE_RECORD_TTL=<microseconds> sets a launch's time to live, and
-// CYCLE_RECORD_LTO=1 builds the block and the programs as LTO-IR and links them with link-time optimization.
+// came from and how long each kernel ran, CYCLE_RECORD_TTL=<microseconds> sets a launch's time to live,
+// CYCLE_RECORD_LTO=1 builds the block and the programs as LTO-IR and links them with link-time optimization, which
+// writes no PTX, and CYCLE_RECORD_NVRTC=1 writes every lane as C source.
 
 static_assert(ENGINE_RECORD_MEMBERS_MAX == 3u, "cycle: the compiled program's launch holds three members");
 
@@ -2193,6 +2198,10 @@ struct CycleCompiler
     decltype(&nvrtcGetCUBIN) cubin;
     decltype(&nvrtcGetLTOIRSize) ltoir_size;
     decltype(&nvrtcGetLTOIR) ltoir;
+    // PTX is read once a process, for its header alone (cycle_ptx_header); an NVRTC without it leaves every program's
+    // lane to the C source
+    decltype(&nvrtcGetPTXSize) ptx_size;
+    decltype(&nvrtcGetPTX) ptx;
     decltype(&nvrtcGetProgramLogSize) log_size;
     decltype(&nvrtcGetProgramLog) log;
     decltype(&nvrtcDestroyProgram) destroy;
@@ -2317,6 +2326,8 @@ static int cycle_compiler_ready(void)
     compiler->cubin = (decltype(&nvrtcGetCUBIN))cycle_compiler_symbol(library, "nvrtcGetCUBIN");
     compiler->ltoir_size = (decltype(&nvrtcGetLTOIRSize))cycle_compiler_symbol(library, "nvrtcGetLTOIRSize");
     compiler->ltoir = (decltype(&nvrtcGetLTOIR))cycle_compiler_symbol(library, "nvrtcGetLTOIR");
+    compiler->ptx_size = (decltype(&nvrtcGetPTXSize))cycle_compiler_symbol(library, "nvrtcGetPTXSize");
+    compiler->ptx = (decltype(&nvrtcGetPTX))cycle_compiler_symbol(library, "nvrtcGetPTX");
     compiler->log_size = (decltype(&nvrtcGetProgramLogSize))cycle_compiler_symbol(library, "nvrtcGetProgramLogSize");
     compiler->log = (decltype(&nvrtcGetProgramLog))cycle_compiler_symbol(library, "nvrtcGetProgramLog");
     compiler->destroy = (decltype(&nvrtcDestroyProgram))cycle_compiler_symbol(library, "nvrtcDestroyProgram");
@@ -2388,6 +2399,33 @@ static int cycle_program_reads_right(unsigned int operation)
         || (operation == ENGINE_RECORD_GCD) || (operation == ENGINE_RECORD_EXACT_QUOTIENT);
 }
 
+// 1 where the operation reads a left register: every one but the fields, the constant and the lane's number
+static int cycle_program_reads_left(unsigned int operation)
+{
+    return (operation != ENGINE_RECORD_FIELD) && (operation != ENGINE_RECORD_FIELD_SIGNED)
+        && (operation != ENGINE_RECORD_CONSTANT) && (operation != ENGINE_RECORD_LANE);
+}
+
+// 1 where a compiled program holds the step as it is laid: its operands are earlier steps, each read whole (a table
+// reads its source's low limb alone, and key_schedule leaves its left_limbs 0), its own limbs lie inside the file, and
+// a field reads a member the program has, a signed field's top bit inside its limbs. A step that fails this leaves the
+// whole program on the interpreter
+static int cycle_program_held(const EngineRecordLayout *layout, unsigned int at)
+{
+    const DeviceRecordStep *const step = &layout->step_table[at];
+    const unsigned int operation = step->operation;
+    const int reads_left = cycle_program_reads_left(operation);
+    const int reads_left_whole = reads_left && (operation != ENGINE_RECORD_TABLE);
+    const int field = (operation == ENGINE_RECORD_FIELD) || (operation == ENGINE_RECORD_FIELD_SIGNED);
+    return (step->limbs != 0u) && !(reads_left && (step->left >= at))
+        && !(reads_left_whole && !cycle_program_operand(layout, at, step->left, step->left_limbs))
+        && !(cycle_program_reads_right(operation) && !cycle_program_operand(layout, at, step->right, step->right_limbs))
+        && (((unsigned long long)step->place + step->limbs) <= (unsigned long long)layout->file_limbs)
+        && (!field || (step->member < layout->members))
+        && ((operation != ENGINE_RECORD_FIELD_SIGNED)
+            || ((step->right != 0u) && (((step->right - 1u) / 32u) < step->limbs)));
+}
+
 // one step's source, one call into the operator block and its put; 0 for a step this compiler does not hold, which
 // leaves the whole program on the interpreter. `wide` is the width the program's scratch is laid at, and the scratch's
 // places follow the file's
@@ -2397,13 +2435,7 @@ static int cycle_program_step(const EngineRecordLayout *layout, unsigned int at,
     const DeviceRecordStep *const step = &layout->step_table[at];
     const unsigned int operation = step->operation;
     const unsigned int limbs = step->limbs;
-    const int reads_left = (operation != ENGINE_RECORD_FIELD) && (operation != ENGINE_RECORD_FIELD_SIGNED)
-                        && (operation != ENGINE_RECORD_CONSTANT) && (operation != ENGINE_RECORD_LANE);
-    // a table reads its source's low limb alone, and key_schedule leaves its left_limbs 0
-    const int reads_left_whole = reads_left && (operation != ENGINE_RECORD_TABLE);
-    if ((limbs == 0u) || (reads_left && (step->left >= at))
-        || (reads_left_whole && !cycle_program_operand(layout, at, step->left, step->left_limbs))
-        || (cycle_program_reads_right(operation) && !cycle_program_operand(layout, at, step->right, step->right_limbs)))
+    if (!cycle_program_held(layout, at))
     {
         return 0;
     }
@@ -2414,20 +2446,10 @@ static int cycle_program_step(const EngineRecordLayout *layout, unsigned int at,
     // every register is its step's place in the file, and its sign the sign at that place. key_schedule frees an
     // operand's place only once the step after its last reader begins, so no step's value lies over its own operands
     const unsigned int place = step->place;
-    const unsigned int left_place = reads_left ? layout->step_table[left].place : 0u;
+    const unsigned int left_place = cycle_program_reads_left(operation) ? layout->step_table[left].place : 0u;
     const unsigned int right_place = cycle_program_reads_right(operation) ? layout->step_table[right].place : 0u;
-    // the step's own limbs lie inside the file, and an operand's inside its own step's
-    if (((unsigned long long)place + limbs) > (unsigned long long)layout->file_limbs)
-    {
-        return 0;
-    }
     if ((operation == ENGINE_RECORD_FIELD) || (operation == ENGINE_RECORD_FIELD_SIGNED))
     {
-        if ((step->member >= layout->members) || ((operation == ENGINE_RECORD_FIELD_SIGNED)
-                                                  && ((right == 0u) || (((right - 1u) / 32u) >= limbs))))
-        {
-            return 0;
-        }
         cycle_emit(text, "            cycle_field%s(atom%u, %uu, %uu, %uu, %uu, %uu);\n",
                    (operation == ENGINE_RECORD_FIELD_SIGNED) ? "_signed" : "", step->member,
                    layout->in_limbs[step->member], left, right, place, limbs);
@@ -2776,9 +2798,10 @@ static std::vector<char> cycle_program_compile(const std::string &source, const 
 }
 
 // a program's relocatable image linked against the operator block's by nvJitLink into one cubin, with link-time
-// optimization where `lto`; empty where it refuses, its log then on stderr when reporting
+// optimization where `lto`; where `ptx` the program is PTX's text, NUL and all, which nvJitLink assembles as it links.
+// Empty where it refuses, its log then on stderr when reporting
 static std::vector<char> cycle_program_link(const CycleOperatorBlock *operators, const std::vector<char> &object,
-                                            int lto, int report)
+                                            int lto, int ptx, int report)
 {
     CycleLinker *const linker = &s_cycle_linker;
     std::vector<char> cubin;
@@ -2791,10 +2814,12 @@ static std::vector<char> cycle_program_link(const CycleOperatorBlock *operators,
         return cubin;
     }
     const nvJitLinkInputType kind = (lto != 0) ? NVJITLINK_INPUT_LTOIR : NVJITLINK_INPUT_CUBIN;
+    const nvJitLinkInputType program_kind = (ptx != 0) ? NVJITLINK_INPUT_PTX : kind;
     size_t size = 0u;
     const int linked = (linker->add(handle, kind, operators->image.data(), operators->image.size(), "cycle_operators")
                         == NVJITLINK_SUCCESS)
-                    && (linker->add(handle, kind, object.data(), object.size(), "cycle_program") == NVJITLINK_SUCCESS)
+                    && (linker->add(handle, program_kind, object.data(), object.size(), "cycle_program")
+                        == NVJITLINK_SUCCESS)
                     && (linker->complete(handle) == NVJITLINK_SUCCESS)
                     && (linker->cubin_size(handle, &size) == NVJITLINK_SUCCESS) && (size != 0u);
     if (linked)
@@ -2856,9 +2881,1292 @@ static const CycleOperatorBlock *cycle_operator_block(int major, int minor, int 
     return (operators->ready != 0) ? operators : NULL;
 }
 
-// the program found in this process, else in the cache, else compiled, linked against the operator block and kept in
-// both, then loaded as a library. 0 where it stays on the interpreter: a step not held, no NVRTC or nvJitLink, or a
-// compile, link or load that failed
+// The record program as PTX. The lane is written in NVIDIA's own assembly, with no compiler between the steps and
+// ptxas: each step unrolled at its widths into straight-line PTX over registers the lane holds itself. The file is %v
+// by place and its signs %g by place, as key_schedule laid them; the record's words are %o, laid by each put and stored
+// once as the lane ends; the atoms' words are %a, each loaded at its first reader. What a compiler would loop over a
+// register's limbs is written out here limb by limb from the program's own widths, so ptxas is handed the unrolled
+// block and has nothing to unroll. The rules the unrolling follows are PTX's, held as data: the carry chains a
+// register's limbs are laid through (s_cycle_ptx_add and the two after it) and the operator block's functions a lane
+// calls by the calling convention (s_cycle_ptx_callees). The steps that loop on their values call into the block: the
+// gcd, the golden ladder, a division by more than one limb, and a product too wide to unroll. Their operands go to
+// their places in shared memory, where the block reads them, and the result comes back; a program that calls nothing
+// takes no shared memory. Every step is the interpreter's arithmetic limb for limb, branch-free where the interpreter
+// branches on a sign or a borrow, and CYCLE_RECORD_CHECK=1 holds the two to each other.
+
+// the most limb products a lane unrolls a product into; a wider product calls the operator block
+#define CYCLE_PTX_PRODUCT_MOST 1024u
+
+// a carry chain through a register's limbs: the one instruction a register of one limb takes, then the first, the
+// middle and the last of a longer one, each setting or reading the carry flag as PTX defines them
+struct CyclePtxChain
+{
+    const char *alone;
+    const char *first;
+    const char *middle;
+    const char *last;
+};
+
+static const CyclePtxChain s_cycle_ptx_add = {"add.u32", "add.cc.u32", "addc.cc.u32", "addc.u32"};
+
+static const CyclePtxChain s_cycle_ptx_subtract = {"sub.u32", "sub.cc.u32", "subc.cc.u32", "subc.u32"};
+
+// the subtract chain whose top limb leaves its borrow in the carry flag, for cycle_ptx_borrowed to read
+static const CyclePtxChain s_cycle_ptx_borrow = {"sub.cc.u32", "sub.cc.u32", "subc.cc.u32", "subc.cc.u32"};
+
+// one of the operator block's functions a lane calls: the operation it does, its name, its arguments, each 32 bits,
+// and 1 where it answers whether the lane holds
+struct CyclePtxCallee
+{
+    unsigned int operation;
+    const char *name;
+    unsigned int arguments;
+    unsigned int answers;
+};
+
+// the arguments are the step's place and limbs, its operands' places and limbs, then the scratch's first place and the
+// width it is laid at, as s_cycle_prelude declares them
+static const CyclePtxCallee s_cycle_ptx_callees[] = {
+    {ENGINE_RECORD_PRODUCT, "cycle_product", 6u, 0u},
+    {ENGINE_RECORD_LADDER, "cycle_ladder", 7u, 1u},
+    {ENGINE_RECORD_QUOTIENT, "cycle_quotient", 8u, 1u},
+    {ENGINE_RECORD_REMAINDER, "cycle_remainder", 8u, 1u},
+    {ENGINE_RECORD_GCD, "cycle_gcd", 8u, 0u},
+    {ENGINE_RECORD_EXACT_QUOTIENT, "cycle_exact_quotient", 8u, 1u},
+};
+
+// a handful of functions, counted whole in 32 bits
+#define CYCLE_PTX_CALLEES ((unsigned int)(sizeof(s_cycle_ptx_callees) / sizeof(s_cycle_ptx_callees[0])))
+
+// the most arguments a callee takes, the eight cycle_ptx_call passes
+#define CYCLE_PTX_ARGUMENTS_MOST 8u
+
+// a lane being written: its steps' text; the temporaries, 64-bit temporaries and predicates the step being written has
+// taken and the most any step took; where each member's words begin among the atoms' words and which are loaded; which
+// of the block's functions it calls and whether it reads the tables; and the scratch's first place and width, which
+// every call shares
+struct CyclePtx
+{
+    const EngineRecordLayout *layout;
+    std::string text;
+    unsigned int temps;
+    unsigned int temps_most;
+    unsigned int wides;
+    unsigned int wides_most;
+    unsigned int predicates;
+    unsigned int predicates_most;
+    unsigned int atom_first[ENGINE_RECORD_MEMBERS_MAX];
+    std::vector<unsigned char> loaded;
+    unsigned int called[CYCLE_PTX_CALLEES];
+    unsigned int tables;
+    unsigned int scratch;
+    unsigned int wide;
+};
+
+// a step as its emitter reads it: the step, and its register's place and its operands'
+struct CyclePtxStep
+{
+    const DeviceRecordStep *step;
+    unsigned int place;
+    unsigned int left_place;
+    unsigned int right_place;
+};
+
+static std::string cycle_ptx_register(const char *bank, unsigned int at)
+{
+    char name[32];
+    snprintf(name, sizeof(name), "%%%s%u", bank, at);
+    return std::string(name);
+}
+
+// the next of a bank's registers for the step being written, the most any step took kept for the lane to declare
+static std::string cycle_ptx_take(const char *bank, unsigned int *taken, unsigned int *most)
+{
+    const std::string name = cycle_ptx_register(bank, *taken);
+    *taken += 1u;
+    *most = (*taken > *most) ? *taken : *most;
+    return name;
+}
+
+static std::string cycle_ptx_temporary(CyclePtx *ptx)
+{
+    return cycle_ptx_take("t", &ptx->temps, &ptx->temps_most);
+}
+
+static std::vector<std::string> cycle_ptx_temporaries(CyclePtx *ptx, unsigned int count)
+{
+    std::vector<std::string> names(count);
+    for (unsigned int at = 0u; at < count; at += 1u)
+    {
+        names[at] = cycle_ptx_temporary(ptx);
+    }
+    return names;
+}
+
+static std::string cycle_ptx_wide(CyclePtx *ptx)
+{
+    return cycle_ptx_take("w", &ptx->wides, &ptx->wides_most);
+}
+
+static std::string cycle_ptx_predicate(CyclePtx *ptx)
+{
+    return cycle_ptx_take("p", &ptx->predicates, &ptx->predicates_most);
+}
+
+// a register's first `count` limbs at `place`, then %zero up to `width`: a register read past its limbs reads 0
+static std::vector<std::string> cycle_ptx_limbs(unsigned int place, unsigned int count, unsigned int width)
+{
+    std::vector<std::string> names(width, std::string("%zero"));
+    for (unsigned int at = 0u; (at < count) && (at < width); at += 1u)
+    {
+        names[at] = cycle_ptx_register("v", place + at);
+    }
+    return names;
+}
+
+// one chain laid through `limbs` limbs from the lowest: each limb of `to` is left's and right's by the chain's
+// instruction for its place in the chain
+static void cycle_ptx_chain(CyclePtx *ptx, const CyclePtxChain *chain, const std::vector<std::string> &to,
+                            const std::vector<std::string> &left, const std::vector<std::string> &right,
+                            unsigned int limbs)
+{
+    for (unsigned int at = 0u; at < limbs; at += 1u)
+    {
+        const char *const instruction = (limbs == 1u) ? chain->alone
+                                      : ((at == 0u) ? chain->first
+                                                    : ((at == (limbs - 1u)) ? chain->last : chain->middle));
+        cycle_emit(ptx->text, "\t%s \t%s, %s, %s;\n", instruction, to[at].c_str(), left[at].c_str(),
+                   right[at].c_str());
+    }
+}
+
+// to = -from modulo 2^(32 limbs), the two's complement, as zero less the register
+static void cycle_ptx_negate(CyclePtx *ptx, const std::vector<std::string> &to, const std::vector<std::string> &from,
+                             unsigned int limbs)
+{
+    const std::vector<std::string> zero(limbs, std::string("%zero"));
+    cycle_ptx_chain(ptx, &s_cycle_ptx_subtract, to, zero, from, limbs);
+}
+
+// a predicate set where the borrow chain just laid borrowed past its top limb, read from the carry flag it left
+static std::string cycle_ptx_borrowed(CyclePtx *ptx)
+{
+    const std::string borrow = cycle_ptx_temporary(ptx);
+    const std::string borrowed = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\tsubc.u32 \t%s, %%zero, %%zero;\n", borrow.c_str());
+    cycle_emit(ptx->text, "\tsetp.ne.u32 \t%s, %s, 0;\n", borrowed.c_str(), borrow.c_str());
+    return borrowed;
+}
+
+// a limb kept to its low `kept` bits where kept is under 32; kept is reckoned as the interpreter reckons it, in 32
+// bits, wrapping
+static void cycle_ptx_mask(CyclePtx *ptx, const std::string &limb, unsigned int kept)
+{
+    if (kept < 32u)
+    {
+        cycle_emit(ptx->text, "\tand.b32 \t%s, %s, %u;\n", limb.c_str(), limb.c_str(), (1u << kept) - 1u);
+    }
+}
+
+// to = chosen where `where` holds, else otherwise, limb by limb
+static void cycle_ptx_select(CyclePtx *ptx, const std::vector<std::string> &to, const std::vector<std::string> &chosen,
+                             const std::vector<std::string> &otherwise, const std::string &where, unsigned int limbs)
+{
+    for (unsigned int at = 0u; at < limbs; at += 1u)
+    {
+        cycle_emit(ptx->text, "\tselp.b32 \t%s, %s, %s, %s;\n", to[at].c_str(), chosen[at].c_str(),
+                   otherwise[at].c_str(), where.c_str());
+    }
+}
+
+// a predicate set where any of the first `limbs` limbs is not zero
+static std::string cycle_ptx_nonzero(CyclePtx *ptx, const std::vector<std::string> &value, unsigned int limbs)
+{
+    const std::string nonzero = cycle_ptx_predicate(ptx);
+    if (limbs == 1u)
+    {
+        cycle_emit(ptx->text, "\tsetp.ne.u32 \t%s, %s, 0;\n", nonzero.c_str(), value[0].c_str());
+        return nonzero;
+    }
+    const std::string any = cycle_ptx_temporary(ptx);
+    cycle_emit(ptx->text, "\tor.b32 \t%s, %s, %s;\n", any.c_str(), value[0].c_str(), value[1].c_str());
+    for (unsigned int at = 2u; at < limbs; at += 1u)
+    {
+        cycle_emit(ptx->text, "\tor.b32 \t%s, %s, %s;\n", any.c_str(), any.c_str(), value[at].c_str());
+    }
+    cycle_emit(ptx->text, "\tsetp.ne.u32 \t%s, %s, 0;\n", nonzero.c_str(), any.c_str());
+    return nonzero;
+}
+
+// a predicate set where bit `bit` of the register is 1
+static std::string cycle_ptx_bit(CyclePtx *ptx, const std::vector<std::string> &value, unsigned int bit)
+{
+    const std::string held = cycle_ptx_temporary(ptx);
+    const std::string set = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\tand.b32 \t%s, %s, %u;\n", held.c_str(), value[bit / 32u].c_str(), 1u << (bit % 32u));
+    cycle_emit(ptx->text, "\tsetp.ne.u32 \t%s, %s, 0;\n", set.c_str(), held.c_str());
+    return set;
+}
+
+// the step's sign: `held`, a register or an immediate, where its register is not zero, and 0 where it is
+static void cycle_ptx_sign(CyclePtx *ptx, const CyclePtxStep *at, const std::string &held)
+{
+    const unsigned int limbs = at->step->limbs;
+    const std::string nonzero = cycle_ptx_nonzero(ptx, cycle_ptx_limbs(at->place, limbs, limbs), limbs);
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, %s, 0, %s;\n", cycle_ptx_register("g", at->place).c_str(), held.c_str(),
+               nonzero.c_str());
+}
+
+// the step's sign as -1 where `negative` holds and 1 where not, and 0 where its register is zero
+static void cycle_ptx_sign_negative(CyclePtx *ptx, const CyclePtxStep *at, const std::string &negative)
+{
+    const std::string held = cycle_ptx_temporary(ptx);
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, -1, 1, %s;\n", held.c_str(), negative.c_str());
+    cycle_ptx_sign(ptx, at, held);
+}
+
+// word `word` of a member's atom, loaded once at its first reader, and %zero past the atom's limbs. The lane runs its
+// steps in one straight line, which a refused lane leaves for good, so every later reader follows the load
+static std::string cycle_ptx_atom(CyclePtx *ptx, unsigned int member, unsigned int word)
+{
+    if (word >= ptx->layout->in_limbs[member])
+    {
+        return std::string("%zero");
+    }
+    const unsigned int at = ptx->atom_first[member] + word;
+    const std::string name = cycle_ptx_register("a", at);
+    if (ptx->loaded[at] == 0u)
+    {
+        cycle_emit(ptx->text, "\tld.global.nc.u32 \t%s, [%%member%u+%u];\n", name.c_str(), member, 4u * word);
+        ptx->loaded[at] = 1u;
+    }
+    return name;
+}
+
+// a field, unsigned or signed, gathered as cycle_record_field gathers it: each limb its two atom words funnel-shifted,
+// masked to the bits left where fewer than 32 are. A signed field whose top bit is set is negated within its bits, the
+// magnitude kept and the sign -1
+static void cycle_ptx_field(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const unsigned int limbs = step->limbs;
+    const unsigned int bits = step->right;
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, limbs, limbs);
+    for (unsigned int limb = 0u; limb < limbs; limb += 1u)
+    {
+        const unsigned int bit = step->left + (32u * limb);
+        const unsigned int shift = bit % 32u;
+        const std::string low = cycle_ptx_atom(ptx, step->member, bit / 32u);
+        if (shift == 0u)
+        {
+            cycle_emit(ptx->text, "\tmov.b32 \t%s, %s;\n", value[limb].c_str(), low.c_str());
+        }
+        else
+        {
+            const std::string high = cycle_ptx_atom(ptx, step->member, (bit / 32u) + 1u);
+            cycle_emit(ptx->text, "\tshf.r.clamp.b32 \t%s, %s, %s, %u;\n", value[limb].c_str(), low.c_str(),
+                       high.c_str(), shift);
+        }
+        cycle_ptx_mask(ptx, value[limb], bits - (32u * limb));
+    }
+    if (step->operation == ENGINE_RECORD_FIELD)
+    {
+        cycle_ptx_sign(ptx, at, std::string("1"));
+        return;
+    }
+    const std::string negative = cycle_ptx_bit(ptx, value, bits - 1u);
+    const std::vector<std::string> negated = cycle_ptx_temporaries(ptx, limbs);
+    cycle_ptx_negate(ptx, negated, value, limbs);
+    cycle_ptx_mask(ptx, negated[limbs - 1u], bits - (32u * (limbs - 1u)));
+    cycle_ptx_select(ptx, value, negated, value, negative, limbs);
+    cycle_ptx_sign_negative(ptx, at, negative);
+}
+
+// a constant's two words, every limb above them cleared, its sign known as it is written
+static void cycle_ptx_constant(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    for (unsigned int limb = 0u; limb < step->limbs; limb += 1u)
+    {
+        const unsigned int word = (limb == 0u) ? step->left : ((limb == 1u) ? step->right : 0u);
+        cycle_emit(ptx->text, "\tmov.u32 \t%s, %u;\n", cycle_ptx_register("v", at->place + limb).c_str(), word);
+    }
+    const int nonzero = (step->left != 0u) || ((step->limbs > 1u) && (step->right != 0u));
+    cycle_emit(ptx->text, "\tmov.s32 \t%s, %d;\n", cycle_ptx_register("g", at->place).c_str(), nonzero ? 1 : 0);
+}
+
+// the lane's own number, its two words and every limb above them cleared; never negative
+static void cycle_ptx_lane(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const unsigned int limbs = at->step->limbs;
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, limbs, limbs);
+    if (limbs == 1u)
+    {
+        cycle_emit(ptx->text, "\tcvt.u32.u64 \t%s, %%lane_number;\n", value[0].c_str());
+    }
+    else
+    {
+        cycle_emit(ptx->text, "\tmov.b64 \t{%s, %s}, %%lane_number;\n", value[0].c_str(), value[1].c_str());
+    }
+    for (unsigned int limb = 2u; limb < limbs; limb += 1u)
+    {
+        cycle_emit(ptx->text, "\tmov.u32 \t%s, 0;\n", value[limb].c_str());
+    }
+    const std::string counted = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\tsetp.ne.u64 \t%s, %%lane_number, 0;\n", counted.c_str());
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, 1, 0, %s;\n", cycle_ptx_register("g", at->place).c_str(), counted.c_str());
+}
+
+// the magnitude, and a sign of 1 for any register not zero
+static void cycle_ptx_absolute(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, step->limbs, step->limbs);
+    const std::vector<std::string> left = cycle_ptx_limbs(at->left_place, step->left_limbs, step->limbs);
+    for (unsigned int limb = 0u; limb < step->limbs; limb += 1u)
+    {
+        cycle_emit(ptx->text, "\tmov.b32 \t%s, %s;\n", value[limb].c_str(), left[limb].c_str());
+    }
+    cycle_emit(ptx->text, "\tabs.s32 \t%s, %s;\n", cycle_ptx_register("g", at->place).c_str(),
+               cycle_ptx_register("g", at->left_place).c_str());
+}
+
+// the order of two signed registers, as cycle_record_operate takes it: signs that differ order the registers alone,
+// and signs that agree order them by their magnitudes, read from their difference's borrow and whether it is zero,
+// times the sign. The order is the step's sign, and its low limb 1 where the registers differ
+static void cycle_ptx_compare(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const unsigned int width = (step->left_limbs > step->right_limbs) ? step->left_limbs : step->right_limbs;
+    const std::vector<std::string> difference = cycle_ptx_temporaries(ptx, width);
+    cycle_ptx_chain(ptx, &s_cycle_ptx_borrow, difference, cycle_ptx_limbs(at->left_place, step->left_limbs, width),
+                    cycle_ptx_limbs(at->right_place, step->right_limbs, width), width);
+    const std::string below = cycle_ptx_borrowed(ptx);
+    const std::string differs = cycle_ptx_nonzero(ptx, difference, width);
+    const std::string left_sign = cycle_ptx_register("g", at->left_place);
+    const std::string right_sign = cycle_ptx_register("g", at->right_place);
+    const std::string sign = cycle_ptx_register("g", at->place);
+    const std::string order = cycle_ptx_temporary(ptx);
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, -1, 1, %s;\n", order.c_str(), below.c_str());
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, %s, 0, %s;\n", order.c_str(), order.c_str(), differs.c_str());
+    cycle_emit(ptx->text, "\tmul.lo.s32 \t%s, %s, %s;\n", order.c_str(), left_sign.c_str(), order.c_str());
+    const std::string greater = cycle_ptx_predicate(ptx);
+    const std::string apart = cycle_ptx_temporary(ptx);
+    cycle_emit(ptx->text, "\tsetp.gt.s32 \t%s, %s, %s;\n", greater.c_str(), left_sign.c_str(), right_sign.c_str());
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, 1, -1, %s;\n", apart.c_str(), greater.c_str());
+    const std::string unlike = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\tsetp.ne.s32 \t%s, %s, %s;\n", unlike.c_str(), left_sign.c_str(), right_sign.c_str());
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, %s, %s, %s;\n", sign.c_str(), apart.c_str(), order.c_str(),
+               unlike.c_str());
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, step->limbs, step->limbs);
+    cycle_emit(ptx->text, "\tabs.s32 \t%s, %s;\n", value[0].c_str(), sign.c_str());
+    for (unsigned int limb = 1u; limb < step->limbs; limb += 1u)
+    {
+        cycle_emit(ptx->text, "\tmov.u32 \t%s, 0;\n", value[limb].c_str());
+    }
+}
+
+// the sum or the difference of two signed registers, branch-free: the magnitudes' sum, their difference with its
+// borrow, and that difference negated are all taken, and the signs choose among them as cycle_record_operate does.
+// Signs that agree, or either one zero, add, and take the left's sign where it has one; signs that differ subtract the
+// lesser magnitude from the greater, the borrow saying which is greater, and take the greater's sign
+static void cycle_ptx_sum(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const unsigned int limbs = step->limbs;
+    const unsigned int width = (step->left_limbs > step->right_limbs) ? step->left_limbs : step->right_limbs;
+    const unsigned int reach = (width > limbs) ? width : limbs;
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, limbs, limbs);
+    const std::string left_sign = cycle_ptx_register("g", at->left_place);
+    cycle_ptx_chain(ptx, &s_cycle_ptx_add, value, cycle_ptx_limbs(at->left_place, step->left_limbs, limbs),
+                    cycle_ptx_limbs(at->right_place, step->right_limbs, limbs), limbs);
+    // the difference runs over every limb either operand holds, so its borrow is their order
+    const std::vector<std::string> difference = cycle_ptx_temporaries(ptx, reach);
+    cycle_ptx_chain(ptx, &s_cycle_ptx_borrow, difference, cycle_ptx_limbs(at->left_place, step->left_limbs, reach),
+                    cycle_ptx_limbs(at->right_place, step->right_limbs, reach), reach);
+    const std::string below = cycle_ptx_borrowed(ptx);
+    const std::vector<std::string> negated = cycle_ptx_temporaries(ptx, limbs);
+    cycle_ptx_negate(ptx, negated, difference, limbs);
+    std::string addend_sign = cycle_ptx_register("g", at->right_place);
+    if (step->operation == ENGINE_RECORD_DIFFERENCE)
+    {
+        const std::string turned = cycle_ptx_temporary(ptx);
+        cycle_emit(ptx->text, "\tneg.s32 \t%s, %s;\n", turned.c_str(), addend_sign.c_str());
+        addend_sign = turned;
+    }
+    const std::string signs = cycle_ptx_temporary(ptx);
+    const std::string opposed = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\tmul.lo.s32 \t%s, %s, %s;\n", signs.c_str(), left_sign.c_str(), addend_sign.c_str());
+    cycle_emit(ptx->text, "\tsetp.lt.s32 \t%s, %s, 0;\n", opposed.c_str(), signs.c_str());
+    cycle_ptx_select(ptx, difference, negated, difference, below, limbs);
+    cycle_ptx_select(ptx, value, difference, value, opposed, limbs);
+    const std::string greater = cycle_ptx_temporary(ptx);
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, %s, %s, %s;\n", greater.c_str(), addend_sign.c_str(), left_sign.c_str(),
+               below.c_str());
+    const std::string leads = cycle_ptx_predicate(ptx);
+    const std::string kept = cycle_ptx_temporary(ptx);
+    cycle_emit(ptx->text, "\tsetp.ne.s32 \t%s, %s, 0;\n", leads.c_str(), left_sign.c_str());
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, %s, %s, %s;\n", kept.c_str(), left_sign.c_str(), addend_sign.c_str(),
+               leads.c_str());
+    cycle_emit(ptx->text, "\tselp.s32 \t%s, %s, %s, %s;\n", greater.c_str(), greater.c_str(), kept.c_str(),
+               opposed.c_str());
+    cycle_ptx_sign(ptx, at, greater);
+}
+
+// the product truncated to the step's limbs, cycle_record_product's schoolbook rows unrolled: each limb product a
+// mad.lo and madc.hi pair on the carry flag with the row's carry added in, and the row's last carry run up the limbs
+// above it. The sign is the operands' signs multiplied, as the interpreter takes it
+static void cycle_ptx_product(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const unsigned int limbs = step->limbs;
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, limbs, limbs);
+    for (unsigned int limb = 0u; limb < limbs; limb += 1u)
+    {
+        cycle_emit(ptx->text, "\tmov.u32 \t%s, 0;\n", value[limb].c_str());
+    }
+    const std::string carry = cycle_ptx_temporary(ptx);
+    const std::string upper = cycle_ptx_temporary(ptx);
+    for (unsigned int low = 0u; low < step->left_limbs; low += 1u)
+    {
+        const std::string multiplier = cycle_ptx_register("v", at->left_place + low);
+        for (unsigned int high = 0u; (high < step->right_limbs) && ((low + high) < limbs); high += 1u)
+        {
+            const std::string multiplicand = cycle_ptx_register("v", at->right_place + high);
+            const char *const to = value[low + high].c_str();
+            cycle_emit(ptx->text, "\tmad.lo.cc.u32 \t%s, %s, %s, %s;\n", to, multiplier.c_str(), multiplicand.c_str(),
+                       to);
+            if (high == 0u)
+            {
+                cycle_emit(ptx->text, "\tmadc.hi.u32 \t%s, %s, %s, %%zero;\n", carry.c_str(), multiplier.c_str(),
+                           multiplicand.c_str());
+            }
+            else
+            {
+                cycle_emit(ptx->text, "\tmadc.hi.u32 \t%s, %s, %s, %%zero;\n", upper.c_str(), multiplier.c_str(),
+                           multiplicand.c_str());
+                cycle_emit(ptx->text, "\tadd.cc.u32 \t%s, %s, %s;\n", to, to, carry.c_str());
+                cycle_emit(ptx->text, "\taddc.u32 \t%s, %s, %%zero;\n", carry.c_str(), upper.c_str());
+            }
+        }
+        if ((low + step->right_limbs) < limbs)
+        {
+            const unsigned int above = limbs - (low + step->right_limbs);
+            const std::vector<std::string> run(value.begin() + (std::ptrdiff_t)(low + step->right_limbs), value.end());
+            std::vector<std::string> added(above, std::string("%zero"));
+            added[0] = carry;
+            cycle_ptx_chain(ptx, &s_cycle_ptx_add, run, run, added, above);
+        }
+    }
+    cycle_emit(ptx->text, "\tmul.lo.s32 \t%s, %s, %s;\n", cycle_ptx_register("g", at->place).c_str(),
+               cycle_ptx_register("g", at->left_place).c_str(), cycle_ptx_register("g", at->right_place).c_str());
+}
+
+// a table's row: the source's low index_bits select it, and its limbs are loaded from the program's tables at
+// table_offset + index . limbs, reckoned in 32 bits as the interpreter reckons it
+static void cycle_ptx_table(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    ptx->tables = 1u;
+    const std::string index = cycle_ptx_temporary(ptx);
+    const std::string source = cycle_ptx_register("v", at->left_place);
+    if (step->index_bits >= 32u)
+    {
+        cycle_emit(ptx->text, "\tmov.b32 \t%s, %s;\n", index.c_str(), source.c_str());
+    }
+    else
+    {
+        cycle_emit(ptx->text, "\tand.b32 \t%s, %s, %u;\n", index.c_str(), source.c_str(),
+                   (1u << step->index_bits) - 1u);
+    }
+    cycle_emit(ptx->text, "\tmul.lo.u32 \t%s, %s, %u;\n", index.c_str(), index.c_str(), step->limbs);
+    cycle_emit(ptx->text, "\tadd.u32 \t%s, %s, %u;\n", index.c_str(), index.c_str(), step->table_offset);
+    const std::string address = cycle_ptx_wide(ptx);
+    cycle_emit(ptx->text, "\tmul.wide.u32 \t%s, %s, 4;\n", address.c_str(), index.c_str());
+    cycle_emit(ptx->text, "\tadd.s64 \t%s, %%tables, %s;\n", address.c_str(), address.c_str());
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, step->limbs, step->limbs);
+    for (unsigned int limb = 0u; limb < step->limbs; limb += 1u)
+    {
+        cycle_emit(ptx->text, "\tld.global.nc.u32 \t%s, [%s+%u];\n", value[limb].c_str(), address.c_str(), 4u * limb);
+    }
+    cycle_ptx_sign(ptx, at, std::string("1"));
+}
+
+// the xor or the and of two registers' two's complements, each taken over the step's limbs by negating where its sign
+// is negative, then read back as a magnitude: negated again where the result's sign is negative, which is the xor's
+// where exactly one operand is and the and's where both are
+static void cycle_ptx_bitwise(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const unsigned int limbs = step->limbs;
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, limbs, limbs);
+    const std::string left_negative = cycle_ptx_predicate(ptx);
+    const std::string right_negative = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\tsetp.lt.s32 \t%s, %s, 0;\n", left_negative.c_str(),
+               cycle_ptx_register("g", at->left_place).c_str());
+    cycle_emit(ptx->text, "\tsetp.lt.s32 \t%s, %s, 0;\n", right_negative.c_str(),
+               cycle_ptx_register("g", at->right_place).c_str());
+    const std::vector<std::string> left = cycle_ptx_limbs(at->left_place, step->left_limbs, limbs);
+    const std::vector<std::string> right = cycle_ptx_limbs(at->right_place, step->right_limbs, limbs);
+    const std::vector<std::string> one = cycle_ptx_temporaries(ptx, limbs);
+    const std::vector<std::string> other = cycle_ptx_temporaries(ptx, limbs);
+    cycle_ptx_negate(ptx, one, left, limbs);
+    cycle_ptx_select(ptx, one, one, left, left_negative, limbs);
+    cycle_ptx_negate(ptx, other, right, limbs);
+    cycle_ptx_select(ptx, other, other, right, right_negative, limbs);
+    const char *const operation = (step->operation == ENGINE_RECORD_XOR) ? "xor" : "and";
+    for (unsigned int limb = 0u; limb < limbs; limb += 1u)
+    {
+        cycle_emit(ptx->text, "\t%s.b32 \t%s, %s, %s;\n", operation, value[limb].c_str(), one[limb].c_str(),
+                   other[limb].c_str());
+    }
+    const std::string negative = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\t%s.pred \t%s, %s, %s;\n", operation, negative.c_str(), left_negative.c_str(),
+               right_negative.c_str());
+    const std::vector<std::string> negated = cycle_ptx_temporaries(ptx, limbs);
+    cycle_ptx_negate(ptx, negated, value, limbs);
+    cycle_ptx_select(ptx, value, negated, value, negative, limbs);
+    cycle_ptx_sign_negative(ptx, at, negative);
+}
+
+// the left register wrapped to wrap_bits of two's complement and read back signed, as cycle_record_wrap wraps it: a
+// wrap wider than the step's limbs passes the register through, and any other takes its two's complement over the
+// limbs, keeps the wrap's bits, and negates within them where the top one is set
+static void cycle_ptx_wrap(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const unsigned int limbs = step->limbs;
+    const unsigned int bits = step->wrap_bits;
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, limbs, limbs);
+    const std::vector<std::string> left = cycle_ptx_limbs(at->left_place, step->left_limbs, limbs);
+    const std::string left_sign = cycle_ptx_register("g", at->left_place);
+    if (bits > (32u * limbs))
+    {
+        for (unsigned int limb = 0u; limb < limbs; limb += 1u)
+        {
+            cycle_emit(ptx->text, "\tmov.b32 \t%s, %s;\n", value[limb].c_str(), left[limb].c_str());
+        }
+        cycle_emit(ptx->text, "\tmov.b32 \t%s, %s;\n", cycle_ptx_register("g", at->place).c_str(), left_sign.c_str());
+        return;
+    }
+    const std::string left_negative = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\tsetp.lt.s32 \t%s, %s, 0;\n", left_negative.c_str(), left_sign.c_str());
+    const std::vector<std::string> complement = cycle_ptx_temporaries(ptx, limbs);
+    cycle_ptx_negate(ptx, complement, left, limbs);
+    cycle_ptx_select(ptx, value, complement, left, left_negative, limbs);
+    const unsigned int kept = bits - (32u * (limbs - 1u));
+    cycle_ptx_mask(ptx, value[limbs - 1u], kept);
+    const std::string negative = cycle_ptx_bit(ptx, value, bits - 1u);
+    const std::vector<std::string> negated = cycle_ptx_temporaries(ptx, limbs);
+    cycle_ptx_negate(ptx, negated, value, limbs);
+    cycle_ptx_mask(ptx, negated[limbs - 1u], kept);
+    cycle_ptx_select(ptx, value, negated, value, negative, limbs);
+    cycle_ptx_sign_negative(ptx, at, negative);
+}
+
+// a division by a divisor of one limb, cycle_record_divide's one-limb long division unrolled from the numerator's top
+// limb down: each limb's quotient word by div, and the carried remainder the limb less the quotient word times the
+// divisor, which is exact in 32 bits since it is below the divisor. The numerator's zero limbs above its used ones
+// divide to zero and carry nothing, as the interpreter's skipping them does. A zero divisor refuses the lane; an exact
+// quotient refuses a remainder and a quotient that outgrows its register, as the inverse's multiply back does
+static void cycle_ptx_short_division(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const unsigned int operation = step->operation;
+    const unsigned int limbs = step->limbs;
+    const unsigned int left_limbs = step->left_limbs;
+    const std::vector<std::string> value = cycle_ptx_limbs(at->place, limbs, limbs);
+    const std::string divisor = cycle_ptx_register("v", at->right_place);
+    const std::string left_sign = cycle_ptx_register("g", at->left_place);
+    const std::string nothing = cycle_ptx_predicate(ptx);
+    cycle_emit(ptx->text, "\tsetp.eq.u32 \t%s, %s, 0;\n", nothing.c_str(), divisor.c_str());
+    cycle_emit(ptx->text, "\t@%s bra \t$Lrefused;\n", nothing.c_str());
+    const std::string carried = cycle_ptx_temporary(ptx);
+    const std::string taken = cycle_ptx_temporary(ptx);
+    const std::string wide_divisor = cycle_ptx_wide(ptx);
+    const std::string part = cycle_ptx_wide(ptx);
+    std::vector<std::string> quotient(left_limbs);
+    for (unsigned int word = 0u; word < left_limbs; word += 1u)
+    {
+        quotient[word] = ((operation != ENGINE_RECORD_REMAINDER) && (word < limbs)) ? value[word]
+                                                                                   : cycle_ptx_temporary(ptx);
+    }
+    cycle_emit(ptx->text, "\tcvt.u64.u32 \t%s, %s;\n", wide_divisor.c_str(), divisor.c_str());
+    for (unsigned int word = left_limbs; word > 0u; word -= 1u)
+    {
+        const std::string numerator = cycle_ptx_register("v", at->left_place + word - 1u);
+        const char *const quotient_word = quotient[word - 1u].c_str();
+        if (word == left_limbs)
+        {
+            // nothing is carried into the top limb, so its word divides alone
+            cycle_emit(ptx->text, "\tdiv.u32 \t%s, %s, %s;\n", quotient_word, numerator.c_str(), divisor.c_str());
+        }
+        else
+        {
+            cycle_emit(ptx->text, "\tmov.b64 \t%s, {%s, %s};\n", part.c_str(), numerator.c_str(), carried.c_str());
+            cycle_emit(ptx->text, "\tdiv.u64 \t%s, %s, %s;\n", part.c_str(), part.c_str(), wide_divisor.c_str());
+            cycle_emit(ptx->text, "\tcvt.u32.u64 \t%s, %s;\n", quotient_word, part.c_str());
+        }
+        cycle_emit(ptx->text, "\tmul.lo.u32 \t%s, %s, %s;\n", taken.c_str(), quotient_word, divisor.c_str());
+        cycle_emit(ptx->text, "\tsub.u32 \t%s, %s, %s;\n", carried.c_str(), numerator.c_str(), taken.c_str());
+    }
+    if (operation == ENGINE_RECORD_REMAINDER)
+    {
+        cycle_emit(ptx->text, "\tmov.b32 \t%s, %s;\n", value[0].c_str(), carried.c_str());
+        for (unsigned int limb = 1u; limb < limbs; limb += 1u)
+        {
+            cycle_emit(ptx->text, "\tmov.u32 \t%s, 0;\n", value[limb].c_str());
+        }
+        cycle_ptx_sign(ptx, at, left_sign);
+        return;
+    }
+    for (unsigned int limb = left_limbs; limb < limbs; limb += 1u)
+    {
+        cycle_emit(ptx->text, "\tmov.u32 \t%s, 0;\n", value[limb].c_str());
+    }
+    if (operation == ENGINE_RECORD_EXACT_QUOTIENT)
+    {
+        const std::string remains = cycle_ptx_predicate(ptx);
+        cycle_emit(ptx->text, "\tsetp.ne.u32 \t%s, %s, 0;\n", remains.c_str(), carried.c_str());
+        cycle_emit(ptx->text, "\t@%s bra \t$Lrefused;\n", remains.c_str());
+        if (left_limbs > limbs)
+        {
+            const std::vector<std::string> outgrown(quotient.begin() + (std::ptrdiff_t)limbs, quotient.end());
+            const std::string over = cycle_ptx_nonzero(ptx, outgrown, left_limbs - limbs);
+            cycle_emit(ptx->text, "\t@%s bra \t$Lrefused;\n", over.c_str());
+        }
+    }
+    const std::string held = cycle_ptx_temporary(ptx);
+    cycle_emit(ptx->text, "\tmul.lo.s32 \t%s, %s, %s;\n", held.c_str(), left_sign.c_str(),
+               cycle_ptx_register("g", at->right_place).c_str());
+    cycle_ptx_sign(ptx, at, held);
+}
+
+// a register's limbs and its sign to their places in shared memory where `out`, else back from them: place p of this
+// thread is word p . threads + thread, and its sign the byte at p . threads + thread past every place's word, as the
+// operator block lays them
+static void cycle_ptx_share(CyclePtx *ptx, unsigned int place, unsigned int limbs, int out)
+{
+    const std::string address = cycle_ptx_temporary(ptx);
+    for (unsigned int limb = 0u; limb < limbs; limb += 1u)
+    {
+        const std::string word = cycle_ptx_register("v", place + limb);
+        cycle_emit(ptx->text, "\tmad.lo.u32 \t%s, %%word_stride, %u, %%word_base;\n", address.c_str(), place + limb);
+        if (out != 0)
+        {
+            cycle_emit(ptx->text, "\tst.shared.u32 \t[%s], %s;\n", address.c_str(), word.c_str());
+        }
+        else
+        {
+            cycle_emit(ptx->text, "\tld.shared.u32 \t%s, [%s];\n", word.c_str(), address.c_str());
+        }
+    }
+    const std::string sign = cycle_ptx_register("g", place);
+    cycle_emit(ptx->text, "\tmad.lo.u32 \t%s, %%threads, %u, %%sign_base;\n", address.c_str(), place);
+    if (out != 0)
+    {
+        cycle_emit(ptx->text, "\tst.shared.u8 \t[%s], %s;\n", address.c_str(), sign.c_str());
+    }
+    else
+    {
+        cycle_emit(ptx->text, "\tld.shared.s8 \t%s, [%s];\n", sign.c_str(), address.c_str());
+    }
+}
+
+// a step the operator block does: its operands to their places in shared memory, one call by the calling convention,
+// and its register and sign back from its own. A function that answers refuses the lane with 0
+static void cycle_ptx_call(CyclePtx *ptx, const CyclePtxStep *at, unsigned int callee)
+{
+    const DeviceRecordStep *const step = at->step;
+    const CyclePtxCallee *const called = &s_cycle_ptx_callees[callee];
+    ptx->called[callee] = 1u;
+    cycle_ptx_share(ptx, at->left_place, step->left_limbs, 1);
+    cycle_ptx_share(ptx, at->right_place, step->right_limbs, 1);
+    const unsigned int arguments[CYCLE_PTX_ARGUMENTS_MOST] = {at->place,         step->limbs,       at->left_place,
+                                                              step->left_limbs,  at->right_place,   step->right_limbs,
+                                                              ptx->scratch,      ptx->wide};
+    const std::string answer = (called->answers != 0u) ? cycle_ptx_temporary(ptx) : std::string();
+    ptx->text += "\t{\n";
+    for (unsigned int argument = 0u; argument < called->arguments; argument += 1u)
+    {
+        cycle_emit(ptx->text, "\t.param .b32 param%u;\n\tst.param.b32 \t[param%u+0], %u;\n", argument, argument,
+                   arguments[argument]);
+    }
+    if (called->answers != 0u)
+    {
+        ptx->text += "\t.param .b32 retval0;\n";
+        cycle_emit(ptx->text, "\tcall (retval0), %s, (", called->name);
+    }
+    else
+    {
+        cycle_emit(ptx->text, "\tcall %s, (", called->name);
+    }
+    for (unsigned int argument = 0u; argument < called->arguments; argument += 1u)
+    {
+        cycle_emit(ptx->text, "%sparam%u", (argument != 0u) ? ", " : "", argument);
+    }
+    ptx->text += ");\n";
+    if (called->answers != 0u)
+    {
+        cycle_emit(ptx->text, "\tld.param.b32 \t%s, [retval0+0];\n", answer.c_str());
+    }
+    ptx->text += "\t}\n";
+    cycle_ptx_share(ptx, at->place, step->limbs, 0);
+    if (called->answers != 0u)
+    {
+        const std::string refused = cycle_ptx_predicate(ptx);
+        cycle_emit(ptx->text, "\tsetp.eq.s32 \t%s, %s, 0;\n", refused.c_str(), answer.c_str());
+        cycle_emit(ptx->text, "\t@%s bra \t$Lrefused;\n", refused.c_str());
+    }
+}
+
+// 1 where an operation's register is never negative, so its put needs no two's complement
+static int cycle_ptx_never_negative(unsigned int operation)
+{
+    return (operation == ENGINE_RECORD_FIELD) || (operation == ENGINE_RECORD_CONSTANT)
+        || (operation == ENGINE_RECORD_LANE) || (operation == ENGINE_RECORD_ABSOLUTE)
+        || (operation == ENGINE_RECORD_TABLE) || (operation == ENGINE_RECORD_GCD);
+}
+
+// the step's register laid into the record's words at out_offset, out_bits of it, as two's complement where its sign
+// is negative, as cycle_put lays it; the words are the lane's own registers until the lane ends
+static void cycle_ptx_put(CyclePtx *ptx, const CyclePtxStep *at)
+{
+    const DeviceRecordStep *const step = at->step;
+    const unsigned int words = (step->out_bits + 31u) / 32u;
+    const unsigned int top = step->out_bits - (32u * (words - 1u));
+    const unsigned int first = step->out_offset / 32u;
+    const unsigned int shift = step->out_offset % 32u;
+    const unsigned int out_limbs = ptx->layout->out_limbs;
+    const std::vector<std::string> held = cycle_ptx_limbs(at->place, step->limbs, words);
+    const std::vector<std::string> word = cycle_ptx_temporaries(ptx, words);
+    if (cycle_ptx_never_negative(step->operation) != 0)
+    {
+        for (unsigned int each = 0u; each < words; each += 1u)
+        {
+            cycle_emit(ptx->text, "\tmov.b32 \t%s, %s;\n", word[each].c_str(), held[each].c_str());
+        }
+    }
+    else
+    {
+        const std::string negative = cycle_ptx_predicate(ptx);
+        cycle_emit(ptx->text, "\tsetp.lt.s32 \t%s, %s, 0;\n", negative.c_str(),
+                   cycle_ptx_register("g", at->place).c_str());
+        const std::vector<std::string> negated = cycle_ptx_temporaries(ptx, words);
+        cycle_ptx_negate(ptx, negated, held, words);
+        cycle_ptx_select(ptx, word, negated, held, negative, words);
+    }
+    cycle_ptx_mask(ptx, word[words - 1u], top);
+    const std::string moved = cycle_ptx_temporary(ptx);
+    for (unsigned int each = 0u; each < words; each += 1u)
+    {
+        const unsigned int low = first + each;
+        if ((low < out_limbs) && (shift == 0u))
+        {
+            const std::string record = cycle_ptx_register("o", low);
+            cycle_emit(ptx->text, "\tor.b32 \t%s, %s, %s;\n", record.c_str(), record.c_str(), word[each].c_str());
+        }
+        else if (low < out_limbs)
+        {
+            const std::string record = cycle_ptx_register("o", low);
+            cycle_emit(ptx->text, "\tshl.b32 \t%s, %s, %u;\n", moved.c_str(), word[each].c_str(), shift);
+            cycle_emit(ptx->text, "\tor.b32 \t%s, %s, %s;\n", record.c_str(), record.c_str(), moved.c_str());
+        }
+        if ((shift != 0u) && ((low + 1u) < out_limbs))
+        {
+            const std::string record = cycle_ptx_register("o", low + 1u);
+            cycle_emit(ptx->text, "\tshr.b32 \t%s, %s, %u;\n", moved.c_str(), word[each].c_str(), 32u - shift);
+            cycle_emit(ptx->text, "\tor.b32 \t%s, %s, %s;\n", record.c_str(), record.c_str(), moved.c_str());
+        }
+    }
+}
+
+// the operator block's function a step calls, an index into s_cycle_ptx_callees, or CYCLE_PTX_CALLEES for a step the
+// lane unrolls: every one but the gcd, the ladder, a division by more than one limb, and a product of more than
+// CYCLE_PTX_PRODUCT_MOST limb products
+static unsigned int cycle_ptx_callee(const DeviceRecordStep *step)
+{
+    const unsigned int operation = step->operation;
+    const int divides = (operation == ENGINE_RECORD_QUOTIENT) || (operation == ENGINE_RECORD_REMAINDER)
+                     || (operation == ENGINE_RECORD_EXACT_QUOTIENT);
+    const int unrolled = ((operation == ENGINE_RECORD_PRODUCT)
+                          && (((unsigned long long)step->left_limbs * step->right_limbs) <= CYCLE_PTX_PRODUCT_MOST))
+                      || (divides && (step->right_limbs == 1u));
+    for (unsigned int callee = 0u; (unrolled == 0) && (callee < CYCLE_PTX_CALLEES); callee += 1u)
+    {
+        if (s_cycle_ptx_callees[callee].operation == operation)
+        {
+            return callee;
+        }
+    }
+    return CYCLE_PTX_CALLEES;
+}
+
+// one step of the lane and its put; 0 for a step the lane does not hold, which leaves the program to the C source
+static int cycle_ptx_step(CyclePtx *ptx, unsigned int at)
+{
+    const EngineRecordLayout *const layout = ptx->layout;
+    const DeviceRecordStep *const step = &layout->step_table[at];
+    const unsigned int operation = step->operation;
+    // a wrap of no bits has no top bit to read
+    if (!cycle_program_held(layout, at) || ((operation == ENGINE_RECORD_WRAP) && (step->wrap_bits == 0u)))
+    {
+        return 0;
+    }
+    CyclePtxStep view;
+    view.step = step;
+    view.place = step->place;
+    view.left_place = cycle_program_reads_left(operation) ? layout->step_table[step->left].place : 0u;
+    view.right_place = cycle_program_reads_right(operation) ? layout->step_table[step->right].place : 0u;
+    ptx->temps = 0u;
+    ptx->wides = 0u;
+    ptx->predicates = 0u;
+    cycle_emit(ptx->text, "\t// step %u, operation %u\n", at, operation);
+    const unsigned int callee = cycle_ptx_callee(step);
+    if (callee < CYCLE_PTX_CALLEES)
+    {
+        cycle_ptx_call(ptx, &view, callee);
+    }
+    else if ((operation == ENGINE_RECORD_FIELD) || (operation == ENGINE_RECORD_FIELD_SIGNED))
+    {
+        cycle_ptx_field(ptx, &view);
+    }
+    else if (operation == ENGINE_RECORD_CONSTANT)
+    {
+        cycle_ptx_constant(ptx, &view);
+    }
+    else if (operation == ENGINE_RECORD_LANE)
+    {
+        cycle_ptx_lane(ptx, &view);
+    }
+    else if (operation == ENGINE_RECORD_ABSOLUTE)
+    {
+        cycle_ptx_absolute(ptx, &view);
+    }
+    else if (operation == ENGINE_RECORD_COMPARE)
+    {
+        cycle_ptx_compare(ptx, &view);
+    }
+    else if ((operation == ENGINE_RECORD_SUM) || (operation == ENGINE_RECORD_DIFFERENCE))
+    {
+        cycle_ptx_sum(ptx, &view);
+    }
+    else if (operation == ENGINE_RECORD_PRODUCT)
+    {
+        cycle_ptx_product(ptx, &view);
+    }
+    else if (operation == ENGINE_RECORD_TABLE)
+    {
+        cycle_ptx_table(ptx, &view);
+    }
+    else if ((operation == ENGINE_RECORD_XOR) || (operation == ENGINE_RECORD_AND))
+    {
+        cycle_ptx_bitwise(ptx, &view);
+    }
+    else if (operation == ENGINE_RECORD_WRAP)
+    {
+        cycle_ptx_wrap(ptx, &view);
+    }
+    else if ((operation == ENGINE_RECORD_QUOTIENT) || (operation == ENGINE_RECORD_REMAINDER)
+             || (operation == ENGINE_RECORD_EXACT_QUOTIENT))
+    {
+        cycle_ptx_short_division(ptx, &view);
+    }
+    else
+    {
+        // an operation this lane does not know
+        return 0;
+    }
+    if (step->out_bits != 0u)
+    {
+        cycle_ptx_put(ptx, &view);
+    }
+    return 1;
+}
+
+// the lane's registers, each bank as many as the lane takes
+static void cycle_ptx_declare(std::string &text, const CyclePtx *ptx, unsigned int atoms)
+{
+    const EngineRecordLayout *const layout = ptx->layout;
+    if (ptx->predicates_most != 0u)
+    {
+        cycle_emit(text, "\t.reg .pred \t%%p<%u>;\n", ptx->predicates_most);
+    }
+    text += "\t.reg .pred \t%indexed, %one, %good;\n";
+    cycle_emit(text, "\t.reg .b32 \t%%v<%u>;\n", layout->file_limbs);
+    cycle_emit(text, "\t.reg .b32 \t%%g<%u>;\n", layout->file_limbs);
+    cycle_emit(text, "\t.reg .b32 \t%%o<%u>;\n", layout->out_limbs);
+    if (atoms != 0u)
+    {
+        cycle_emit(text, "\t.reg .b32 \t%%a<%u>;\n", atoms);
+    }
+    cycle_emit(text, "\t.reg .b32 \t%%t<%u>;\n", ptx->temps_most);
+    cycle_emit(text, "\t.reg .b64 \t%%w<%u>;\n", ptx->wides_most);
+    text += "\t.reg .b32 \t%zero, %thread, %threads, %word_base, %word_stride, %sign_base;\n";
+    text += "\t.reg .b64 \t%launch, %lane_number, %record, %index, %body, %bodies, %tables;\n";
+    cycle_emit(text, "\t.reg .b64 \t%%member<%u>;\n", ENGINE_RECORD_MEMBERS_MAX);
+}
+
+// the lane's opening: its launch and number, the record's words cleared, and each member's atom found as
+// cycle_program_source finds it, a lane whose atom lies past its member refused before any step; then the program's
+// tables, and the lane's places in shared memory where it calls the operator block
+static void cycle_ptx_open(std::string &text, const CyclePtx *ptx, unsigned int places, int calls)
+{
+    const EngineRecordLayout *const layout = ptx->layout;
+    text += "\tld.param.u64 \t%launch, [cycle_lane_param_0];\n";
+    text += "\tld.param.u64 \t%lane_number, [cycle_lane_param_1];\n";
+    text += "\tmov.u32 \t%zero, 0;\n";
+    for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
+    {
+        cycle_emit(text, "\tmov.u32 \t%%o%u, 0;\n", word);
+    }
+    cycle_emit(text, "\tld.u64 \t%%record, [%%launch+%zu];\n", offsetof(CycleCompiledLaunch, out));
+    text += "\tcvta.to.global.u64 \t%record, %record;\n";
+    cycle_emit(text, "\tmul.lo.u64 \t%%w0, %%lane_number, %u;\n", 4u * layout->out_limbs);
+    text += "\tadd.s64 \t%record, %record, %w0;\n";
+    cycle_emit(text, "\tld.u64 \t%%index, [%%launch+%zu];\n", offsetof(CycleCompiledLaunch, index));
+    text += "\tsetp.ne.u64 \t%indexed, %index, 0;\n";
+    text += "\tcvta.to.global.u64 \t%index, %index;\n";
+    for (unsigned int member = 0u; member < layout->members; member += 1u)
+    {
+        // with no index, lane i reads record i of a member, or its one record where it has one
+        cycle_emit(text, "\tld.u64 \t%%bodies, [%%launch+%zu];\n",
+                   offsetof(CycleCompiledLaunch, bodies) + (8u * (size_t)member));
+        text += "\tsetp.eq.u64 \t%one, %bodies, 1;\n";
+        text += "\tselp.b64 \t%body, 0, %lane_number, %one;\n";
+        cycle_emit(text, "\tmul.lo.u64 \t%%w0, %%lane_number, %u;\n", layout->members);
+        cycle_emit(text, "\tadd.u64 \t%%w0, %%w0, %u;\n", member);
+        text += "\tshl.b64 \t%w0, %w0, 2;\n";
+        text += "\tadd.s64 \t%w0, %index, %w0;\n";
+        text += "\t@%indexed ld.global.nc.u32 \t%t0, [%w0];\n";
+        text += "\t@%indexed cvt.u64.u32 \t%body, %t0;\n";
+        text += (member == 0u) ? "\tsetp.lt.u64 \t%good, %body, %bodies;\n"
+                               : "\tsetp.lt.and.u64 \t%good, %body, %bodies, %good;\n";
+        text += "\tselp.b64 \t%body, %body, 0, %good;\n";
+        cycle_emit(text, "\tld.u64 \t%%member%u, [%%launch+%zu];\n", member,
+                   offsetof(CycleCompiledLaunch, in) + (8u * (size_t)member));
+        cycle_emit(text, "\tcvta.to.global.u64 \t%%member%u, %%member%u;\n", member, member);
+        cycle_emit(text, "\tmul.lo.u64 \t%%w0, %%body, %u;\n", 4u * layout->in_limbs[member]);
+        cycle_emit(text, "\tadd.s64 \t%%member%u, %%member%u, %%w0;\n", member, member);
+    }
+    text += "\t@!%good bra \t$Lrefused;\n";
+    if (ptx->tables != 0u)
+    {
+        cycle_emit(text, "\tld.u64 \t%%tables, [%%launch+%zu];\n", offsetof(CycleCompiledLaunch, tables));
+        text += "\tcvta.to.global.u64 \t%tables, %tables;\n";
+    }
+    if (calls != 0)
+    {
+        // a word's address is cycle_words + 4 (place . threads + thread), a sign's cycle_words + 4 places . threads +
+        // place . threads + thread
+        text += "\tmov.u32 \t%thread, %tid.x;\n";
+        text += "\tmov.u32 \t%threads, %ntid.x;\n";
+        text += "\tmov.u32 \t%word_base, cycle_words;\n";
+        text += "\tadd.u32 \t%sign_base, %word_base, %thread;\n";
+        cycle_emit(text, "\tmad.lo.u32 \t%%sign_base, %%threads, %u, %%sign_base;\n", 4u * places);
+        text += "\tmad.lo.u32 \t%word_base, %thread, 4, %word_base;\n";
+        text += "\tshl.b32 \t%word_stride, %threads, 2;\n";
+    }
+}
+
+// the lane's close: a refused lane counted, and every lane's record stored whole, the words its puts laid before it
+// ended
+static void cycle_ptx_close(std::string &text, const EngineRecordLayout *layout)
+{
+    text += "\tbra \t$Lstore;\n";
+    text += "$Lrefused:\n";
+    cycle_emit(text, "\tld.u64 \t%%w0, [%%launch+%zu];\n", offsetof(CycleCompiledLaunch, refused));
+    text += "\tcvta.to.global.u64 \t%w0, %w0;\n";
+    text += "\tred.global.add.u32 \t[%w0], 1;\n";
+    text += "$Lstore:\n";
+    for (unsigned int word = 0u; word < layout->out_limbs; word += 1u)
+    {
+        cycle_emit(text, "\tst.global.u32 \t[%%record+%u], %%o%u;\n", 4u * word, word);
+    }
+    text += "\tret;\n";
+}
+
+// a program's lane as PTX under the header this toolkit writes, and the places a thread holds in shared memory for the
+// steps that call the operator block: the file's and the scratch's, 0 where no step calls. It names the device, NVRTC
+// and the operator block it is linked against; empty where a step is one the lane does not hold
+static std::string cycle_program_ptx(const EngineRecordLayout *layout, const CycleOperatorBlock *operators,
+                                     const std::string &header, unsigned int *places)
+{
+    CyclePtx ptx{};
+    ptx.layout = layout;
+    // the lane's opening takes %t0 and %w0 before any step does
+    ptx.temps_most = 1u;
+    ptx.wides_most = 1u;
+    unsigned int atoms = 0u;
+    for (unsigned int member = 0u; member < layout->members; member += 1u)
+    {
+        ptx.atom_first[member] = atoms;
+        atoms += layout->in_limbs[member];
+    }
+    ptx.loaded.assign(atoms, (unsigned char)0u);
+    ptx.scratch = layout->file_limbs;
+    // the calls that work in the scratch share it at the widest of their widths
+    for (unsigned int at = 0u; at < layout->steps; at += 1u)
+    {
+        const DeviceRecordStep *const step = &layout->step_table[at];
+        const unsigned int callee = cycle_ptx_callee(step);
+        if ((callee < CYCLE_PTX_CALLEES) && (s_cycle_ptx_callees[callee].arguments > 6u))
+        {
+            ptx.wide = (step->left_limbs > ptx.wide) ? step->left_limbs : ptx.wide;
+            ptx.wide = (step->right_limbs > ptx.wide) ? step->right_limbs : ptx.wide;
+            ptx.wide = (step->limbs > ptx.wide) ? step->limbs : ptx.wide;
+        }
+    }
+    for (unsigned int at = 0u; at < layout->steps; at += 1u)
+    {
+        if (cycle_ptx_step(&ptx, at) == 0)
+        {
+            return std::string();
+        }
+    }
+    int calls = 0;
+    for (unsigned int callee = 0u; callee < CYCLE_PTX_CALLEES; callee += 1u)
+    {
+        calls = calls || (ptx.called[callee] != 0u);
+    }
+    *places = (calls != 0) ? (layout->file_limbs + ((ptx.wide != 0u) ? CYCLE_RECORD_SCRATCH(ptx.wide) : 0u)) : 0u;
+    std::string text;
+    cycle_emit(text, "// a record program of %u steps, for sm_%d%d, NVRTC %d.%d, as PTX against the operator block "
+                     "%016llx\n",
+               layout->steps, operators->major, operators->minor, s_cycle_compiler.major, s_cycle_compiler.minor,
+               operators->hash);
+    text += header;
+    if (calls != 0)
+    {
+        text += "\n.extern .shared .align 4 .b8 cycle_words[];\n";
+    }
+    for (unsigned int callee = 0u; callee < CYCLE_PTX_CALLEES; callee += 1u)
+    {
+        const CyclePtxCallee *const called = &s_cycle_ptx_callees[callee];
+        if (ptx.called[callee] == 0u)
+        {
+            continue;
+        }
+        cycle_emit(text, "\n.extern .func %s%s\n(\n", (called->answers != 0u) ? "(.param .b32 func_retval0) " : "",
+                   called->name);
+        for (unsigned int argument = 0u; argument < called->arguments; argument += 1u)
+        {
+            cycle_emit(text, "\t.param .b32 %s_param_%u%s\n", called->name, argument,
+                       ((argument + 1u) < called->arguments) ? "," : "");
+        }
+        text += ")\n;\n";
+    }
+    text += "\n.visible .func cycle_lane(\n\t.param .b64 cycle_lane_param_0,\n\t.param .b64 cycle_lane_param_1\n)\n{\n";
+    cycle_ptx_declare(text, &ptx, atoms);
+    text += "\n";
+    cycle_ptx_open(text, &ptx, *places, calls);
+    text += ptx.text;
+    cycle_ptx_close(text, layout);
+    text += "}\n";
+    return text;
+}
+
+// the .version, .target and .address_size lines of a PTX text, the first of each, in that order; empty where one is
+// missing or the address size is not 64, which the lane's pointers are written for
+static std::string cycle_ptx_header_lines(const char *ptx)
+{
+    std::string version;
+    std::string target;
+    std::string address_size;
+    const char *line = ptx;
+    while (*line != '\0')
+    {
+        const char *const end = strchr(line, '\n');
+        // a line ends past its start, so its length is never negative
+        const size_t length = (end != NULL) ? (size_t)(end - line) : strlen(line);
+        const std::string held(line, length);
+        if (version.empty() && (held.compare(0u, 9u, ".version ") == 0))
+        {
+            version = held;
+        }
+        else if (target.empty() && (held.compare(0u, 8u, ".target ") == 0))
+        {
+            target = held;
+        }
+        else if (address_size.empty() && (held.compare(0u, 14u, ".address_size ") == 0))
+        {
+            address_size = held;
+        }
+        line = (end != NULL) ? (end + 1) : (line + length);
+    }
+    const int whole = !version.empty() && !target.empty() && (address_size == ".address_size 64");
+    return whole ? (version + "\n" + target + "\n" + address_size + "\n") : std::string();
+}
+
+// PTX's header as this toolkit writes it for the device, asked of NVRTC once a process by compiling an empty kernel to
+// PTX, the answer kept in the cache against the question: the one part of PTX's rules the lane does not carry itself
+struct CyclePtxHeader
+{
+    int tried;
+    int major;
+    int minor;
+    std::string lines;
+};
+
+static CyclePtxHeader s_cycle_ptx_header;
+
+// the header's three lines; empty where NVRTC cannot be asked or does not answer, which leaves programs to the C source
+static const std::string &cycle_ptx_header(int major, int minor, int report)
+{
+    CyclePtxHeader *const header = &s_cycle_ptx_header;
+    if ((header->tried != 0) && (header->major == major) && (header->minor == minor))
+    {
+        return header->lines;
+    }
+    header->tried = 1;
+    header->major = major;
+    header->minor = minor;
+    header->lines.clear();
+    CycleCompiler *const compiler = &s_cycle_compiler;
+    if ((compiler->ptx_size == NULL) || (compiler->ptx == NULL))
+    {
+        return header->lines;
+    }
+    std::string question;
+    cycle_emit(question, "// PTX's header, asked for sm_%d%d of NVRTC %d.%d\n", major, minor, compiler->major,
+               compiler->minor);
+    question += "extern \"C\" __global__ void cycle_probe(void)\n{\n}\n";
+    const std::string folder = cycle_cache_folder();
+    const std::string path = folder.empty() ? std::string() : cycle_cache_path(folder, question);
+    const std::vector<char> kept = path.empty() ? std::vector<char>() : cycle_cache_read(path, question);
+    std::string answer(kept.begin(), kept.end());
+    const int found = !answer.empty();
+    nvrtcProgram program = NULL;
+    if (!found && (compiler->create(&program, question.c_str(), "cycle_probe.cu", 0, NULL, NULL) == NVRTC_SUCCESS))
+    {
+        char architecture[48];
+        snprintf(architecture, sizeof(architecture), "--gpu-architecture=compute_%d%d", major, minor);
+        const char *const options[] = {architecture};
+        size_t size = 0u;
+        if ((compiler->compile(program, 1, options) == NVRTC_SUCCESS)
+            && (compiler->ptx_size(program, &size) == NVRTC_SUCCESS) && (size > 1u))
+        {
+            std::vector<char> ptx(size);
+            if (compiler->ptx(program, ptx.data()) == NVRTC_SUCCESS)
+            {
+                ptx[size - 1u] = '\0';
+                answer = cycle_ptx_header_lines(ptx.data());
+            }
+        }
+        compiler->destroy(&program);
+        if (!answer.empty() && !path.empty())
+        {
+            cycle_cache_write(folder, path, question, std::vector<char>(answer.begin(), answer.end()));
+        }
+    }
+    header->lines = answer;
+    if (report != 0)
+    {
+        fprintf(stderr, "  cycle: PTX's header for sm_%d%d %s: %s\n", major, minor,
+                found ? "read from the cache" : "asked of NVRTC", answer.empty() ? "none" : answer.c_str());
+    }
+    return header->lines;
+}
+
+// the program found in this process by its text, else in the cache, else built and kept in both, then loaded as a
+// library: PTX where `ptx`, which nvJitLink assembles as it links it against the operator block, else C source that
+// NVRTC compiles first. `written` is the milliseconds the text took to write, for the report. 0 where the build or the
+// load failed
+static int cycle_program_hold(const EngineRecordLayout *layout, CycleRecord *record, const CycleOperatorBlock *operators,
+                              const std::string &text, int ptx, int lto, double written, int report)
+{
+    const char *const kind = (ptx != 0) ? "PTX" : ((lto != 0) ? "LTO-IR" : "relocatable cubin");
+    for (size_t at = 0u; at < s_cycle_programs.size(); at += 1u)
+    {
+        if (s_cycle_programs[at].source == text)
+        {
+            s_cycle_programs[at].holders += 1ull;
+            record->kernel = s_cycle_programs[at].kernel;
+            record->compiled = 1u;
+            if (report != 0)
+            {
+                fprintf(stderr, "  cycle: a program of %u steps found in this process, as %s\n", layout->steps, kind);
+            }
+            return 1;
+        }
+    }
+    const std::string folder = cycle_cache_folder();
+    const std::string path = folder.empty() ? std::string() : cycle_cache_path(folder, text);
+    std::vector<char> cubin = path.empty() ? std::vector<char>() : cycle_cache_read(path, text);
+    const int found = !cubin.empty();
+    size_t object_bytes = 0u;
+    double compile_milliseconds = 0.0;
+    double link_milliseconds = 0.0;
+    if (!found)
+    {
+        const auto began = std::chrono::steady_clock::now();
+        // PTX goes to nvJitLink as its text with the NUL that ends it
+        const std::vector<char> object = (ptx != 0)
+                                       ? std::vector<char>(text.c_str(), text.c_str() + text.size() + 1u)
+                                       : cycle_program_compile(text, "cycle_program.cu", operators->major,
+                                                               operators->minor, lto, report);
+        const auto compiled = std::chrono::steady_clock::now();
+        cubin = object.empty() ? std::vector<char>() : cycle_program_link(operators, object, lto, ptx, report);
+        const auto linked = std::chrono::steady_clock::now();
+        object_bytes = object.size();
+        compile_milliseconds = std::chrono::duration<double, std::milli>(compiled - began).count();
+        link_milliseconds = std::chrono::duration<double, std::milli>(linked - compiled).count();
+        if (!cubin.empty() && !path.empty())
+        {
+            cycle_cache_write(folder, path, text, cubin);
+        }
+    }
+    CycleCompiledProgram program;
+    program.library = NULL;
+    program.kernel = NULL;
+    program.holders = 1ull;
+    const int loaded = !cubin.empty()
+                    && (cudaLibraryLoadData(&program.library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u) == cudaSuccess)
+                    && (cudaLibraryGetKernel(&program.kernel, program.library, "cycle_program") == cudaSuccess);
+    if (!loaded)
+    {
+        if (program.library != NULL)
+        {
+            cudaLibraryUnload(program.library);
+        }
+        if (report != 0)
+        {
+            fprintf(stderr, "  cycle: a program of %u steps as %s did not build (%s)\n", layout->steps, kind,
+                    cubin.empty() ? ((ptx != 0) ? "nvJitLink refused it" : "NVRTC or nvJitLink refused it")
+                                  : "its cubin did not load");
+        }
+        return 0;
+    }
+    program.source = text;
+    s_cycle_programs.push_back(program);
+    record->kernel = program.kernel;
+    record->compiled = 1u;
+    if ((report != 0) && found)
+    {
+        fprintf(stderr, "  cycle: a program of %u steps read from the cache, %zu bytes of cubin, as %s\n",
+                layout->steps, cubin.size(), kind);
+    }
+    else if ((report != 0) && (ptx != 0))
+    {
+        fprintf(stderr, "  cycle: a program of %u steps for sm_%d%d as PTX: written in %.1f ms to %zu bytes, "
+                        "assembled and linked in %.1f ms to %zu bytes of cubin\n",
+                layout->steps, operators->major, operators->minor, written, object_bytes, link_milliseconds,
+                cubin.size());
+    }
+    else if (report != 0)
+    {
+        fprintf(stderr, "  cycle: a program of %u steps for sm_%d%d as %s: written in %.1f ms, compiled in %.1f ms to "
+                        "%zu bytes, linked in %.1f ms to %zu bytes of cubin\n",
+                layout->steps, operators->major, operators->minor, kind, written, compile_milliseconds, object_bytes,
+                link_milliseconds, cubin.size());
+    }
+    return 1;
+}
+
+// the program's lane written as PTX and built, else its C source compiled by NVRTC and built, found in this process or
+// the cache where either was built before, and the places it holds in shared memory set. PTX is not written where the
+// block is LTO-IR or CYCLE_RECORD_NVRTC=1. 0 where it stays on the interpreter: no NVRTC or nvJitLink, a step neither
+// holds, or a compile, link or load that failed
 static int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
 {
     const int report = cycle_environment_set("CYCLE_RECORD_REPORT");
@@ -2889,7 +4197,28 @@ static int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *r
         }
         return 0;
     }
+    if ((lto == 0) && (cycle_environment_set("CYCLE_RECORD_NVRTC") == 0))
+    {
+        const std::string &header = cycle_ptx_header(major, minor, report);
+        unsigned int places = 0u;
+        const auto began = std::chrono::steady_clock::now();
+        const std::string ptx = header.empty() ? std::string() : cycle_program_ptx(layout, operators, header, &places);
+        const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+        if (!ptx.empty() && cycle_program_hold(layout, record, operators, ptx, 1, lto, written, report))
+        {
+            record->places = places;
+            return 1;
+        }
+        if (report != 0)
+        {
+            fprintf(stderr, "  cycle: a program of %u steps goes to NVRTC (%s)\n", layout->steps,
+                    header.empty() ? "PTX's header could not be read" : (ptx.empty() ? "a step the lane does not hold"
+                                                                                    : "its PTX did not build"));
+        }
+    }
+    const auto began = std::chrono::steady_clock::now();
     const std::string source = cycle_program_source(layout, operators);
+    const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
     if (source.empty())
     {
         if (report != 0)
@@ -2899,78 +4228,15 @@ static int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *r
         }
         return 0;
     }
-    for (size_t at = 0u; at < s_cycle_programs.size(); at += 1u)
+    if (!cycle_program_hold(layout, record, operators, source, 0, lto, written, report))
     {
-        if (s_cycle_programs[at].source == source)
-        {
-            s_cycle_programs[at].holders += 1ull;
-            record->kernel = s_cycle_programs[at].kernel;
-            record->compiled = 1u;
-            if (report != 0)
-            {
-                fprintf(stderr, "  cycle: a program of %u steps found in this process\n", layout->steps);
-            }
-            return 1;
-        }
-    }
-    const std::string folder = cycle_cache_folder();
-    const std::string path = folder.empty() ? std::string() : cycle_cache_path(folder, source);
-    std::vector<char> cubin = path.empty() ? std::vector<char>() : cycle_cache_read(path, source);
-    const int found = !cubin.empty();
-    size_t object_bytes = 0u;
-    double compile_milliseconds = 0.0;
-    double link_milliseconds = 0.0;
-    if (!found)
-    {
-        const auto began = std::chrono::steady_clock::now();
-        const std::vector<char> object = cycle_program_compile(source, "cycle_program.cu", major, minor, lto, report);
-        const auto compiled = std::chrono::steady_clock::now();
-        cubin = object.empty() ? std::vector<char>() : cycle_program_link(operators, object, lto, report);
-        const auto linked = std::chrono::steady_clock::now();
-        object_bytes = object.size();
-        compile_milliseconds = std::chrono::duration<double, std::milli>(compiled - began).count();
-        link_milliseconds = std::chrono::duration<double, std::milli>(linked - compiled).count();
-        if (!cubin.empty() && !path.empty())
-        {
-            cycle_cache_write(folder, path, source, cubin);
-        }
-    }
-    CycleCompiledProgram program;
-    program.library = NULL;
-    program.kernel = NULL;
-    program.holders = 1ull;
-    const int loaded = !cubin.empty()
-                    && (cudaLibraryLoadData(&program.library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u) == cudaSuccess)
-                    && (cudaLibraryGetKernel(&program.kernel, program.library, "cycle_program") == cudaSuccess);
-    if (!loaded)
-    {
-        if (program.library != NULL)
-        {
-            cudaLibraryUnload(program.library);
-        }
         if (report != 0)
         {
-            fprintf(stderr, "  cycle: a program of %u steps runs on the interpreter (%s)\n", layout->steps,
-                    cubin.empty() ? "NVRTC or nvJitLink refused it" : "its cubin did not load");
+            fprintf(stderr, "  cycle: a program of %u steps runs on the interpreter\n", layout->steps);
         }
         return 0;
     }
-    program.source = source;
-    s_cycle_programs.push_back(program);
-    record->kernel = program.kernel;
-    record->compiled = 1u;
-    if ((report != 0) && found)
-    {
-        fprintf(stderr, "  cycle: a program of %u steps read from the cache, %zu bytes of cubin\n", layout->steps,
-                cubin.size());
-    }
-    else if (report != 0)
-    {
-        fprintf(stderr, "  cycle: a program of %u steps for sm_%d%d as %s: compiled in %.1f ms to %zu bytes, linked in "
-                        "%.1f ms to %zu bytes of cubin\n",
-                layout->steps, major, minor, (lto != 0) ? "LTO-IR" : "relocatable cubin", compile_milliseconds,
-                object_bytes, link_milliseconds, cubin.size());
-    }
+    record->places = cycle_program_places(layout);
     return 1;
 }
 
@@ -2993,10 +4259,11 @@ extern "C" const EngineProgramBlock *cycle_record_block(const CycleRecord *recor
 
 // the compiled program's registers laid in shared memory: a thread's places a word each and the file's signs a byte
 // each, for as many threads as one thread block's shared memory holds beside the kernel's own, a whole number of warps
-// up to CYCLE_BLOCK where a warp fits. The kernel is let take that much and prefers shared memory to L1, and the device
-// is asked how many such thread blocks it holds at once. 0 where not one thread's registers fit or the runtime refuses
-// any of it, which leaves the program on the interpreter
-static int cycle_record_share(CycleRecord *record, const EngineRecordLayout *layout, size_t kernel_bytes)
+// up to CYCLE_BLOCK where a warp fits. A program written as PTX that calls nothing holds its registers itself and takes
+// no places, and runs CYCLE_BLOCK threads a thread block. The kernel is let take that much and prefers shared memory to
+// L1, and the device is asked how many such thread blocks it holds at once. 0 where not one thread's registers fit or
+// the runtime refuses any of it, which leaves the program on the interpreter
+static int cycle_record_share(CycleRecord *record, size_t kernel_bytes)
 {
     int device = 0;
     int most = 0;
@@ -3007,12 +4274,12 @@ static int cycle_record_share(CycleRecord *record, const EngineRecordLayout *lay
     {
         return 0;
     }
-    record->places = cycle_program_places(layout);
-    const unsigned long long thread_bytes = (4ull * record->places) + record->file_limbs;
+    const unsigned long long thread_bytes = (record->places != 0u) ? ((4ull * record->places) + record->file_limbs)
+                                                                    : 0ull;
     // a device's shared memory a thread block is never negative
     const unsigned long long room = ((unsigned long long)most > kernel_bytes) ? ((unsigned long long)most - kernel_bytes)
                                                                                : 0ull;
-    const unsigned long long fit = room / thread_bytes;
+    const unsigned long long fit = (thread_bytes != 0ull) ? (room / thread_bytes) : CYCLE_BLOCK;
     const unsigned long long held = (fit < CYCLE_BLOCK) ? fit : CYCLE_BLOCK;
     const unsigned long long threads = (held >= 32ull) ? (held - (held % 32ull)) : held;
     if (threads == 0ull)
@@ -3147,7 +4414,7 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
         record->local_bytes = (unsigned long long)attributes.localSizeBytes;
     }
     // a compiled program whose registers shared memory cannot hold runs on the interpreter
-    record->compiled = ((attributed != 0) && cycle_record_share(record, layout, attributes.sharedSizeBytes)) ? 1u : 0u;
+    record->compiled = ((attributed != 0) && cycle_record_share(record, attributes.sharedSizeBytes)) ? 1u : 0u;
     if ((cycle_environment_set("CYCLE_RECORD_REPORT") != 0) && (record->compiled != 0u))
     {
         fprintf(stderr, "  cycle: the program holds %llu registers a thread, a %llu-byte local frame and %u places a "
