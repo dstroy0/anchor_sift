@@ -4,7 +4,8 @@
 
 // The emitter: a record program's lane written as text for its target, in that target's ruleset (emit/rulesets). It
 // decides what each step does and the ruleset spells it. It reads no device and loads no library: the record machine
-// (cycle/cycle.cu) names the target, and compiles, links, caches and launches what the emitter writes
+// (cycle/cycle.cu) picks the language, and compiles, links, caches and launches what the emitter writes. This header
+// is the base every language inherits; each language's class is in its own header
 
 #include "engine_config.h"
 
@@ -61,11 +62,38 @@ struct CycleEmitTarget
 // a ruleset read against its emitter's schema, held once a process
 struct CycleRuleset;
 
-// ptx.krs; NULL where it is refused
-const CycleRuleset *cycle_ruleset_ptx(int report);
+// what a language's emitter asks of its ruleset (emit_rules.h)
+struct CycleRuleSchema;
 
-// c.krs; NULL where it is refused
-const CycleRuleset *cycle_ruleset_source(int report);
+// The emitter's base: what every language shares, and no language. It reads a language's ruleset from its .krs file
+// against the schema the language gives it (the file, the toolchain and header its path builds with, and the forms,
+// banks and held registers its emitter writes), and writes forms in it. A language is a class that inherits it, in a
+// file of its own (emit_ptx.h, emit_source.h), and writes a program's lane in its ruleset
+class CycleEmit
+{
+public:
+    CycleEmit(const CycleEmit &) = delete;
+    CycleEmit &operator=(const CycleEmit &) = delete;
+    virtual ~CycleEmit();
+
+    // the language's ruleset, read once a process; NULL where it is refused, `report` saying which on stderr
+    const CycleRuleset *ruleset(int report);
+
+    // a program's lane in the language under `header`, the places a thread holds in shared memory and the most words
+    // it holds live at once (0 where the language does not reckon them); empty where the ruleset is not read, or the
+    // program is one the language does not hold
+    virtual std::string program(const EngineRecordLayout *layout, const CycleEmitTarget *target,
+                                const std::string &header, unsigned int *places, unsigned int *live) = 0;
+
+protected:
+    explicit CycleEmit(const CycleRuleSchema *schema);
+
+    // the ruleset once ruleset() has read it, else NULL
+    const CycleRuleset *ready(void) const;
+
+private:
+    CycleRuleset *rules;
+};
 
 // A ruleset read from outside the emitter, by the names its .krs file gives, for a probe that asks the target how it
 // answers each form (the cell's membership queries, engine_table.md item 11(f) 4). The emitter itself writes by the
@@ -86,15 +114,5 @@ std::string cycle_ruleset_fixed(const CycleRuleset *rules, const std::string &na
 
 // a thread's places for a program as C source: the file's, then the scratch's
 unsigned int cycle_program_places(const EngineRecordLayout *layout);
-
-// a program's lane as C source in `rules`; empty where the program is one it does not hold
-std::string cycle_program_source(const EngineRecordLayout *layout, const CycleEmitTarget *target,
-                                 const CycleRuleset *rules);
-
-// a program's lane as PTX in `rules` under `header`, the places a thread holds and the most words live at once; empty
-// where the program is one it does not hold
-std::string cycle_program_ptx(const EngineRecordLayout *layout, const CycleEmitTarget *target,
-                              const CycleRuleset *rules, const std::string &header, unsigned int *places,
-                              unsigned int *live);
 
 #endif

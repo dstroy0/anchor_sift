@@ -136,7 +136,7 @@ The imprint and the layout are the serial work, done once. The sweep then runs t
 
 ## How the device runs a program
 
-The load also builds the program for the device (`base/cycle/cycle.cu`), trying three ways in order:
+The load also builds the program for the device (`base/cycle/cycle_compile.cu`), trying three ways in order:
 
 1. **PTX.** The lane is written in PTX, NVIDIA's assembly, and nvJitLink assembles it as it links it against the
    **operator block**, where every operation is compiled once for the device. Each step is unrolled at its widths
@@ -166,8 +166,10 @@ by its text and used only where that text matches byte for byte.
 
 The lane's text is written from a **ruleset**, one for each of the first two ways: `base/emit/rulesets/ptx.krs` for
 PTX and `base/emit/rulesets/c.krs` for C source, read once a process from that folder, or from the folder
-`$CYCLE_RULESETS` names. The emitter (`base/emit/emit.cu`) decides what each step does, and the ruleset decides how
-the target spells it.
+`$CYCLE_RULESETS` names. The emitter decides what each step does, and the ruleset decides how the target spells it.
+Its base class, `CycleEmit` (`base/emit/emit.{h,cu}`), reads and writes rulesets and names no language. Each language
+is a class that inherits it, in files of its own: `CycleEmitPtx` (`emit_ptx.{h,cu}`) and `CycleEmitSource`
+(`emit_source.{h,cu}`). The record machine picks the language.
 A ruleset is a text file whose first line is `krs 1`, and every other line is one entry:
 - `ruleset`, `toolchain` and `header` name the target, what builds its text and where the text's opening lines
   come from;

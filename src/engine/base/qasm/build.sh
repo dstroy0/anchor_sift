@@ -96,7 +96,7 @@ qasm_build()
             scriptura*) SCRIPTURA_OBJECTS+=("$object") ;;
         esac
     done
-    for source in "$QASM/qasm.cu" "$QASM/qasm_self.cu" "$CYCLE/cycle.cu" "$EMIT/emit.cu" "$KEYMATH/keymath.cu" \
+    for source in "$QASM/qasm.cu" "$QASM/qasm_self.cu" "$CYCLE"/cycle*.cu "$EMIT"/emit*.cu "$KEYMATH/keymath.cu" \
                   "$KEY_SCHEDULE/key_schedule.cu"; do
         object="$OUT/$(basename "$source" .cu)_cu.$EXTENSION"
         qasm_cu_object "$source" "$object" || return 1

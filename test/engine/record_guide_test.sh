@@ -70,7 +70,7 @@ done
 tessera_build guide "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/record_guide_test.cu" "$TOP/src/engine/sims/sim_job.cu" "$CYCLE/cycle.cu" "$EMIT/emit.cu" \
+    "$TEST/record_guide_test.cu" "$TOP/src/engine/sims/sim_job.cu" "$CYCLE"/cycle*.cu "$EMIT"/emit*.cu \
     "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
 

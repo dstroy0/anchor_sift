@@ -65,7 +65,7 @@ fi
 # chaitin_omega runs its reduction, and pi_tower its BBP terms, as programs on the engine's record machine
 HOST_SOURCES=()
 if [ "$SIM" = "chaitin_omega" ] || [ "$SIM" = "pi_tower" ]; then
-    MODULE_SOURCES+=("$CYCLE/cycle.cu" "$EMIT/emit.cu" "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu")
+    MODULE_SOURCES+=("$CYCLE"/cycle*.cu "$EMIT"/emit*.cu "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu")
     HOST_SOURCES+=("$CYCLE/cycle.c")
 fi
 

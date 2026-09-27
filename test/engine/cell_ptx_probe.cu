@@ -14,7 +14,7 @@
 // A question the device refuses prints "error <code> <name>" for the CUDA error it gave, then the error the next
 // allocation gives, "after <code> <name>", and exits 3. One the toolchain refuses prints "refused" and its log, and
 // exits 4. Exit 2 where the probe could not ask at all
-#include "../../src/engine/base/emit/emit.h"
+#include "../../src/engine/base/emit/emit_ptx.h"
 
 #include <cuda_runtime.h>
 #include <nvJitLink.h>
@@ -726,7 +726,7 @@ int main(int count, char **arguments)
     const int major = properties.major;
     const int minor = properties.minor;
     const std::string header = probe_header(major, minor);
-    ProbeWriter writer = {cycle_ruleset_ptx(1), 0, PROBE_TEMPORARIES, PROBE_WIDES, PROBE_PREDICATES};
+    ProbeWriter writer = {cycle_emit_ptx().ruleset(1), 0, PROBE_TEMPORARIES, PROBE_WIDES, PROBE_PREDICATES};
     if ((writer.rules == NULL) || header.empty())
     {
         printf("the ruleset was refused, or NVRTC gave no header\n");

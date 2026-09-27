@@ -64,7 +64,7 @@ done
 nvcc "${HOST_FLAGS[@]}" -o "$BINARY" "${OBJECTS[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: the cell's PTX test did not link"; exit 1; }
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" -I "$TOP/src/engine" -o "$PROBE" "$TEST/cell_ptx_probe.cu" \
-    "$EMIT/emit.cu" -lnvrtc -lnvJitLink
+    "$EMIT"/emit*.cu -lnvrtc -lnvJitLink
 [ -f "$PROBE" ] || { echo "  build failed: the PTX probe did not build"; exit 1; }
 
 mkdir -p "$OUT/probes" "$OUT/probes_flagless"
