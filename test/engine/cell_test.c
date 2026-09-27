@@ -18,6 +18,22 @@
 #define CELL_TEST_SIGNAL(posix_) (posix_)
 #endif
 
+// how the part answers an integer division by zero and INT_MIN / -1: x86 faults on both (#DE); AArch64 returns a
+// quotient of 0 for a zero divisor and INT_MIN for the overflow; RISC-V returns all ones (-1) and INT_MIN. Each
+// answered quotient is the probe's printed line
+#if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
+#define CELL_TEST_DIVISION_FAULTS 1
+#define CELL_TEST_ZERO_QUOTIENT ""
+#elif defined(__aarch64__) || defined(_M_ARM64)
+#define CELL_TEST_DIVISION_FAULTS 0
+#define CELL_TEST_ZERO_QUOTIENT "0\n"
+#elif defined(__riscv)
+#define CELL_TEST_DIVISION_FAULTS 0
+#define CELL_TEST_ZERO_QUOTIENT "-1\n"
+#else
+#error "the cell test knows how x86, AArch64 and RISC-V answer a division; add this part's answer"
+#endif
+
 #define CELL_TEST_ROOM 256u
 // a question's limit, and the shorter one the probe that hangs is given
 #define CELL_TEST_LIMIT 30000000ull
@@ -87,6 +103,21 @@ static void cell_test_fault(CellTest *test, const char *question, unsigned long 
 #endif
 }
 
+// a question the part answers where another faults: the probe exits 0, having printed exactly `printed`
+static void cell_test_answered(CellTest *test, const char *question, const char *printed)
+{
+    char *const command[] = {(char *)test->probe, (char *)question, NULL};
+    CellAnswer answer;
+    char output[CELL_TEST_ROOM];
+    char what[256];
+    const int asked = cell_test_ask(test, question, command, CELL_TEST_LIMIT, &answer, output, sizeof(output));
+    snprintf(what, sizeof(what), "%s is answered, not faulted: the quotient %.*s", question,
+             (int)(strlen(printed) - 1u), printed);
+    cell_test_check(test, asked && (answer.ending == CELL_ENDING_EXITED) && (answer.code == 0ull)
+                              && (strcmp(output, printed) == 0),
+                    what);
+}
+
 // the cell asks again from a fresh process, and the answer is the plain exit
 static void cell_test_fresh(CellTest *test, const char *after)
 {
@@ -141,9 +172,15 @@ int main(int count, char **arguments)
     cell_test_check(&test, asked && (strcmp(small, "out: a ") == 0) && length_held,
                     "a room of 8 keeps 7 bytes and a zero, and counts the whole output");
 
+#if CELL_TEST_DIVISION_FAULTS
     cell_test_fault(&test, "divide_by_zero", 0xC0000094ull, CELL_TEST_SIGNAL(SIGFPE), CELL_FAULT_ARITHMETIC);
     cell_test_fresh(&test, "a division by zero");
     cell_test_fault(&test, "divide_overflow", 0xC0000095ull, CELL_TEST_SIGNAL(SIGFPE), CELL_FAULT_ARITHMETIC);
+#else
+    cell_test_answered(&test, "divide_by_zero", CELL_TEST_ZERO_QUOTIENT);
+    cell_test_fresh(&test, "a division by zero");
+    cell_test_answered(&test, "divide_overflow", "-2147483648\n");
+#endif
     cell_test_fault(&test, "read_address", 0xC0000005ull, CELL_TEST_SIGNAL(SIGSEGV), CELL_FAULT_ADDRESS);
     cell_test_fresh(&test, "a read of an address out of range");
     cell_test_fault(&test, "illegal_instruction", 0xC000001Dull, CELL_TEST_SIGNAL(SIGILL), CELL_FAULT_INSTRUCTION);
