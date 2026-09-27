@@ -58,7 +58,7 @@ If you want the build somewhere else, put `BUILD_OUT=/some/folder` in front: `BU
 
 ## Step 3: make the set (do this once)
 
-The movies are big and slow to read. So first, the program copies every movie into its own compressed format, called `.kcr`. The folder it copies them into is called the **set**.
+The movies are big and slow to read. So first, the program copies every movie into its own compression format, called `.kcr`. The folder it copies them into is called the **set**.
 
 The set must **not** be inside the source folder. Put it next to it:
 
@@ -86,7 +86,7 @@ When it is done, the set holds one folder per movie, with the movie's `.kcr` in 
 ```
 D:/kaggle_project_data/biohub_cell_tracking_set/train/
     44b6_0113de3b/
-        44b6_0113de3b.kcr      <- the compressed movie (--ingest)
+        44b6_0113de3b.kcr      <- the crystal, its own compression format (--ingest)
         44b6_0113de3b.oapx     <- its noise floor (--run entropy or --run floor)
         44b6_0113de3b.bapx     <- its body table, when one has been written
     flattened.iapx             <- every body of every movie as one number each (--run flatten)
