@@ -65,8 +65,8 @@ DEFINES=(-DBODY_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
          -DSHIFT_AGREEMENT_BUILD_DLL=1)
 MODULES=(engine/base/stack engine/base/apxrep engine/base/compression engine/base/tower engine/base/device_pool
          engine/base/entropy_history engine/base/noise_detector engine/base/schedule engine/base/keymath
-         engine/base/key_schedule engine/base/cycle engine/base/radix_keys engine/base/unit_sweep engine/base/obsignatio
-         engine/base/residual engine/nbody/max_tree engine/nbody/flatten engine/base/golden_bands
+         engine/base/key_schedule engine/base/cycle engine/base/emit engine/base/radix_keys engine/base/unit_sweep
+         engine/base/obsignatio engine/base/residual engine/nbody/max_tree engine/nbody/flatten engine/base/golden_bands
          engine/base/residual_survey engine/nbody/grow engine/base/shift_agreement engine/nbody/climb_machine
          engine/nbody/body_overlap engine/nbody/fingerprint engine/nbody/print_pair engine/nbody/velocity
          engine/nbody/division engine/nbody/marginal engine/nbody/contact_side engine/nbody/box_history

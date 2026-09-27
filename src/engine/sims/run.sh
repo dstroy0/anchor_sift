@@ -26,6 +26,7 @@ TOWER="$TOP/engine/base/tower"
 DEVICE_POOL="$TOP/engine/base/device_pool"
 COMPRESSION="$TOP/engine/base/compression"
 CYCLE="$TOP/engine/base/cycle"
+EMIT="$TOP/engine/base/emit"
 KEYMATH="$TOP/engine/base/keymath"
 KEY_SCHEDULE="$TOP/engine/base/key_schedule"
 ENTROPY_HISTORY="$TOP/engine/base/entropy_history"
@@ -64,7 +65,7 @@ fi
 # chaitin_omega runs its reduction, and pi_tower its BBP terms, as programs on the engine's record machine
 HOST_SOURCES=()
 if [ "$SIM" = "chaitin_omega" ] || [ "$SIM" = "pi_tower" ]; then
-    MODULE_SOURCES+=("$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu")
+    MODULE_SOURCES+=("$CYCLE/cycle.cu" "$EMIT/emit.cu" "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu")
     HOST_SOURCES+=("$CYCLE/cycle.c")
 fi
 

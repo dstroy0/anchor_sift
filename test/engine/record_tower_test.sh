@@ -5,6 +5,7 @@ set -u
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../.." && pwd)"
 CYCLE="$TOP/src/engine/base/cycle"
+EMIT="$TOP/src/engine/base/emit"
 KEYMATH="$TOP/src/engine/base/keymath"
 KEY_SCHEDULE="$TOP/src/engine/base/key_schedule"
 TOWER="$TOP/src/engine/base/tower"
@@ -71,9 +72,9 @@ done
 tessera_build tower "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/record_tower_test.cu" "$TOP/src/engine/sims/sim_job.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" \
-    "$KEY_SCHEDULE/key_schedule.cu" "$TOWER/tower.cu" "$DEVICE_POOL/device_pool.cu" "${OBJECTS[@]}" \
-    "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
+    "$TEST/record_tower_test.cu" "$TOP/src/engine/sims/sim_job.cu" "$CYCLE/cycle.cu" "$EMIT/emit.cu" \
+    "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu" "$TOWER/tower.cu" "$DEVICE_POOL/device_pool.cu" \
+    "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "$TESSERA_SEAL"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
 
 "$BINARY"

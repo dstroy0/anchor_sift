@@ -7,6 +7,7 @@ QASM="$TOP/src/engine/base/qasm"
 SCRIPTURA="$TOP/src/engine/base/scriptura"
 NO_ROUNDING="$TOP/src/engine/base/no_rounding"
 CYCLE="$TOP/src/engine/base/cycle"
+EMIT="$TOP/src/engine/base/emit"
 KEYMATH="$TOP/src/engine/base/keymath"
 KEY_SCHEDULE="$TOP/src/engine/base/key_schedule"
 OBSIGNATIO="$TOP/src/engine/base/obsignatio"
@@ -95,7 +96,7 @@ qasm_build()
             scriptura*) SCRIPTURA_OBJECTS+=("$object") ;;
         esac
     done
-    for source in "$QASM/qasm.cu" "$QASM/qasm_self.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" \
+    for source in "$QASM/qasm.cu" "$QASM/qasm_self.cu" "$CYCLE/cycle.cu" "$EMIT/emit.cu" "$KEYMATH/keymath.cu" \
                   "$KEY_SCHEDULE/key_schedule.cu"; do
         object="$OUT/$(basename "$source" .cu)_cu.$EXTENSION"
         qasm_cu_object "$source" "$object" || return 1

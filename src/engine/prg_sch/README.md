@@ -166,7 +166,8 @@ by its text and used only where that text matches byte for byte.
 
 The lane's text is written from a **ruleset**, one for each of the first two ways: `base/emit/rulesets/ptx.krs` for
 PTX and `base/emit/rulesets/c.krs` for C source, read once a process from that folder, or from the folder
-`$CYCLE_RULESETS` names. The emitter decides what each step does, and the ruleset decides how the target spells it.
+`$CYCLE_RULESETS` names. The emitter (`base/emit/emit.cu`) decides what each step does, and the ruleset decides how
+the target spells it.
 A ruleset is a text file whose first line is `krs 1`, and every other line is one entry:
 - `ruleset`, `toolchain` and `header` name the target, what builds its text and where the text's opening lines
   come from;

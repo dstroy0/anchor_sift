@@ -66,7 +66,7 @@ echo "  exact integer: $((EXACT_LIMBS * 32)) bits, $EXACT_DIGITS digits, for a q
 FUNCTIONALS=(src/engine/prg_sch/run_cfg src/engine/base/cfg_json src/engine/prg_sch/run_log src/engine/base/stack
              src/engine/base/krep src/engine/base/compression src/engine/base/tower src/engine/base/entropy_history
              src/engine/base/schedule src/engine/base/keymath src/engine/base/key_schedule src/engine/base/cycle
-             src/engine/base/radix_keys src/engine/base/unit_sweep src/engine/base/obsignatio src/engine/base/residual
+             src/engine/base/emit src/engine/base/radix_keys src/engine/base/unit_sweep src/engine/base/obsignatio src/engine/base/residual
              src/engine/nbody/max_tree src/engine/nbody/flatten examples/cell_tracking/src/track
              src/engine/base/golden_bands src/engine/prg_sch/answer_key src/engine/base/residual_survey
              src/engine/nbody/grow src/engine/base/shift_agreement src/engine/nbody/climb_machine
