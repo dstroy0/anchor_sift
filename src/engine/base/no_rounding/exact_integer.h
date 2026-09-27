@@ -430,8 +430,9 @@ typedef char anchor_exact_rungs_in_order[((ANCHOR_EXACT_TRANSFORM_LIMBS) >= (ANC
      * @param[in]  digits Decimal places to carry the value at.
      * @param[out] value  Where the result is written [BORROWS].
      * @return            ANCHOR_EXACT_OK, ANCHOR_EXACT_NOT_DECIMAL where the text is not plain decimal,
-     *                    or ANCHOR_EXACT_WILL_NOT_FIT where the value carries more decimal places than
-     *                    `digits` holds or needs more limbs than the width holds.
+     *                    or ANCHOR_EXACT_WILL_NOT_FIT where the value, or its uncertainty, carries more
+     *                    decimal places than `digits` holds, or the value needs more limbs than the width
+     *                    holds.
      * @note The accepted text is, in order: any spaces, tabs, carriage returns or line feeds; an
      *       optional + or -; one or more ASCII digits with at most one decimal point among them, where
      *       either side of the point may be empty but not both; an optional uncertainty of one or more
@@ -440,7 +441,9 @@ typedef char anchor_exact_rungs_in_order[((ANCHOR_EXACT_TRANSFORM_LIMBS) >= (ANC
      *       ANCHOR_EXACT_WILL_NOT_FIT. representation.exact.units accepts exactly the same text.
      * @note Trailing zeros after the point are not counted as places. ".000" reads as zero and
      *       "1.2300" reads at two places.
-     * @note The uncertainty is dropped and the call still returns ANCHOR_EXACT_OK. A reading of
+     * @note The uncertainty is dropped from the result, and it is still sized as
+     *       anchor_exact_from_measured sizes it: an uncertainty printed past `digits` places is
+     *       ANCHOR_EXACT_WILL_NOT_FIT, "1.00000000000000000000000000(1)" at 24 among them. A reading of
      *       deposited coordinates wants only the value. anchor_exact_from_measured returns both.
      * @note The result equals the value of the text. Text carrying fewer places than `digits` is
      *       padded with zeros, which is exact for the text. Where the text is a truncated expansion of

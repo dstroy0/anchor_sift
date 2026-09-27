@@ -91,7 +91,7 @@ static unsigned long long run_job_declared(const RunInputs *inputs, const char *
                 return 0ull;
             }
         }
-        else if (engine_kcr_head(inputs->set, inputs->samples[at], extent, &error) == 0L)
+        else if (engine_iapx_head(inputs->set, inputs->samples[at], extent, &error) == 0L)
         {
             lanes = extent[0] * extent[1] * extent[2] * extent[3];
         }
@@ -461,7 +461,7 @@ static int run_fingerprint(const RunInputs *inputs)
     memset(&error, 0, sizeof(error));
     if (flatten_read(inputs->set, &held, &error) == 0)
     {
-        track_error_report("run fingerprint: the set's .ksh", &error);
+        track_error_report("run fingerprint: flattened.iapx", &error);
         return 1;
     }
     FingerprintRequest print;
@@ -588,7 +588,7 @@ static int run_flattened_prepare(const RunInputs *inputs, FlattenHeld *held, uns
     memset(&error, 0, sizeof(error));
     if (flatten_read(inputs->set, held, &error) == 0)
     {
-        track_error_report("the set's .ksh", &error);
+        track_error_report("flattened.iapx", &error);
         return 0;
     }
     const unsigned int sample_bits = held->layout.bits[MAX_TREE_FIELD_SAMPLE];
@@ -610,7 +610,7 @@ static int run_flattened_prepare(const RunInputs *inputs, FlattenHeld *held, uns
     }
     if (good == 0)
     {
-        fprintf(stderr, "  the .ksh in %s does not hold its samples in order\n", inputs->set);
+        fprintf(stderr, "  flattened.iapx in %s does not hold its samples in order\n", inputs->set);
         return 0;
     }
     rules->flattened = held->magnitudes;
@@ -1468,7 +1468,7 @@ int main(int argc, char **argv)
             EngineSetRequest prove = crystals;
             prove.error = &error;
             prove.report = &report;
-            failures = (engine_kcr_prove_set(&prove) == 0L) ? 0 : 1;
+            failures = (engine_iapx_prove_set(&prove) == 0L) ? 0 : 1;
             engine_prove_print(&prove, stdout);
             free(report.samples);
             if (failures != 0)

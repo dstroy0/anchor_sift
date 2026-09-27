@@ -231,10 +231,11 @@ extern "C"
      * @note Every engine is sound. The choice costs speed and never correctness. A wrong dispatch is
      *       therefore a performance defect instead of a wrong answer.
      * @note One term, decided by anchor_steer_prefers_free in exact integer arithmetic. A corpus whose
-     *       effective alphabet 2^H2 reaches 85 percent of the symbols it uses takes the free order
-     *       engine, and every other corpus takes the short circuiting one. Since 2^H2 is total squared
-     *       over the sum of squared counts, the comparison clears its denominators into
-     *       100*total^2 >= 85*distinct*sum(count^2) and holds no floating point value anywhere.
+     *       effective alphabet 2^H2 reaches 85 percent of the symbols it uses, a flat corpus, takes the
+     *       short circuiting engine, and every other corpus takes the free order one. Since 2^H2 is
+     *       total squared over the sum of squared counts, the comparison clears its denominators into
+     *       100*total^2 >= 85*distinct*sum(count^2), which holds for the short circuiting engine, and
+     *       holds no floating point value anywhere.
      *       Scored against the clock over 42 rows by bench_dispatch: 39 of 42 giving up 9131790 cycles
      *       at a share of 0.035 on x64 MSVC 19.44 Release, and 41 of 42 giving up 86511 at 0.000 under
      *       gcc. A hundredfold gap in cycles between two real runs. The figure belongs to the
@@ -327,7 +328,9 @@ extern "C"
      *
      *           100 * total^2  >=  85 * distinct * sum(count^2)
      *
-     *       which is a comparison between two exact integers. No logarithm is taken, no power of two is
+     *       which is a comparison between two exact integers; where it holds, the corpus is flat and
+     *       takes the short circuiting engine (0), and where it fails, the free order engine (1). No
+     *       logarithm is taken, no power of two is
      *       approximated by a series, and the threshold is the exact rational 85/100 and not the
      *       nearest double to 0.85.
      * @note Both sides outgrow 64 bits on a corpus of any size, since total^2 passes 2^64 at a four

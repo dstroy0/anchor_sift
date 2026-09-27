@@ -87,12 +87,13 @@ When it is done, the set holds one folder per movie, with the movie's `.kcr` in 
 D:/kaggle_project_data/biohub_cell_tracking_set/train/
     44b6_0113de3b/
         44b6_0113de3b.kcr      <- the compressed movie (--ingest)
-        44b6_0113de3b.knf      <- its noise floor (--run entropy or --run floor)
-        44b6_0113de3b.kcs      <- its body table, when one has been written
-    train.ksh                  <- every body of every movie as one number each (--run flatten)
+        44b6_0113de3b.oapx     <- its noise floor (--run entropy or --run floor)
+        44b6_0113de3b.bapx     <- its body table, when one has been written
+    flattened.iapx             <- every body of every movie as one number each (--run flatten)
 ```
 
-The `.ksh` is named after the set's own folder: a set at `.../train` keeps it at `.../train/train.ksh`.
+A set ingested before the `.kcr` holds `<sample>.iapx` crystals of the older kind, which the engine does not read:
+ingest it again.
 
 The right answers (`.geff`) are **not** copied. The program reads them straight from the source when it scores.
 
@@ -225,11 +226,11 @@ The program does two different jobs, and they never mix.
 |---|---|
 | `schedule` | work out how many frames fit on your graphics card at once and write the plan to the path given by `--plan` |
 | `kcr-prove` | unpack every copy in the set from the copy alone and check that every node of its seal holds |
-| `entropy` | work out the noise floor of each movie and store it next to its `.kcr` as `.knf` |
-| `floor` | lay down that noise floor, keeping a `.knf` that already matches its `.kcr`. If the `.cfg` turns `floor` on, this part runs first without being asked |
-| `flatten` | turn every body in every frame of the set into one number and save them all as the set's `.ksh` (`<set>/<set folder name>.ksh`) |
+| `entropy` | work out the noise floor of each movie and store it next to its `.kcr` as `.oapx` |
+| `floor` | lay down that noise floor, keeping a `.oapx` that already matches its `.kcr`. If the `.cfg` turns `floor` on, this part runs first without being asked |
+| `flatten` | turn every body in every frame of the set into one number and save them all as the set's `flattened.iapx` (`<set>/flattened.iapx`) |
 | `track` | link the cells and score the links (step 5). This is what runs when you give no `--run` at all |
-| `fingerprint` | read the set's `.ksh`, give every body a print, and check the prints on the graphics card against the same work done on the processor |
+| `fingerprint` | read the set's `flattened.iapx`, give every body a print, and check the prints on the graphics card against the same work done on the processor |
 
 For example, to check every copy, lay down the noise floor, and then track, in that order:
 
