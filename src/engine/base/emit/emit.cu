@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 #include <cstddef>
+#include <functional>
 #include <initializer_list>
 #include <string>
 #include <vector>
@@ -332,6 +333,42 @@ struct CycleForm
     std::vector<unsigned int> slots;
 };
 
+// what one argument of a construct's line is: text written as it stands, the construct's own parameter at a slot, or
+// a scratch register of a bank, `number` naming it within one writing of the construct
+enum CycleConstructArgumentKind
+{
+    CYCLE_CONSTRUCT_TEXT = 0,
+    CYCLE_CONSTRUCT_PARAMETER = 1,
+    CYCLE_CONSTRUCT_SCRATCH = 2
+};
+
+struct CycleConstructArgument
+{
+    CycleConstructArgumentKind kind;
+    unsigned int slot;
+    unsigned int number;
+    std::string text;
+};
+
+// one line of a construct: a form, or a construct given before it in the file, and its arguments
+struct CycleConstructLine
+{
+    unsigned int form;
+    std::vector<CycleConstructArgument> arguments;
+};
+
+// a form built from more basic ones (engine_table.md item 11(f) 5): where the target's own instruction for a form
+// leaves its rules, the ruleset gives the form as a construct of the same name and parameters, and each writing of
+// the form writes the construct's lines. No lines is the form as its text gives it
+struct CycleConstruct
+{
+    std::vector<CycleConstructLine> lines;
+};
+
+// a scratch register a construct takes: a fresh register of the bank at that place in the schema, or empty where the
+// writer has none of that bank to give
+typedef std::function<std::string(unsigned int bank)> CycleScratch;
+
 // a ruleset read from its file against its emitter's schema: where it was read, and why it was refused where it was;
 // its own name, the toolchain that builds its text and where its header comes from; each bank's spelling of a
 // register, each held register's spelling, and each form, by their places in the schema; and which of them the file
@@ -349,9 +386,13 @@ struct CycleRuleset
     std::vector<CycleForm> banks;
     std::vector<std::string> fixed;
     std::vector<CycleForm> forms;
+    std::vector<CycleConstruct> constructs;
     std::vector<unsigned char> bank_given;
     std::vector<unsigned char> fixed_given;
     std::vector<unsigned char> form_given;
+    // the construct being read, its place among the forms (the form count where none is), and its parameters' names
+    unsigned int building;
+    std::vector<std::string> building_parameters;
 };
 
 static CycleRuleset s_cycle_ptx_ruleset;
@@ -508,8 +549,91 @@ static std::string cycle_ruleset_entry(CycleRuleset *rules, const std::string &k
         rules->form_given[named] = 1u;
         return std::string();
     }
-    return (kind == "construct") ? std::string("a construction is not read by this emitter yet")
-                                 : ("no entry is of the kind " + kind);
+    if (kind == "construct")
+    {
+        // a construct's head is its name and parameters as a form's is, with no text: its lines follow, to `end`
+        const unsigned int named = cycle_ruleset_find(schema->forms, schema->form_count, name);
+        if ((equals != std::string::npos) || (named == schema->form_count)
+            || (parameters.size() != schema->forms[named].parameters) || (rules->form_given[named] != 0u))
+        {
+            return "the construct " + name + " is not a form the emitter writes, takes other parameters, or is given "
+                   "twice";
+        }
+        rules->building = named;
+        rules->building_parameters = parameters;
+        rules->constructs[named].lines.clear();
+        return std::string();
+    }
+    return "no entry is of the kind " + kind;
+}
+
+// one line of the construct being read: `end` closes it, and any other line is a form, or a construct given before
+// it in the file, and its arguments, split at spaces. An argument that is one of the construct's parameters stands for
+// that parameter's argument, {bank:n} for scratch register n of that bank, taken fresh each time the construct is
+// written, and any other word for itself. Empty where the line holds, else why it does not
+static std::string cycle_ruleset_construct_line(CycleRuleset *rules, const std::string &line)
+{
+    const CycleRuleSchema *const schema = rules->schema;
+    CycleConstruct *const construct = &rules->constructs[rules->building];
+    const std::string building = schema->forms[rules->building].spelling;
+    if (line == "end")
+    {
+        if (construct->lines.empty())
+        {
+            return "the construct " + building + " has no lines";
+        }
+        rules->form_given[rules->building] = 1u;
+        rules->building = schema->form_count;
+        return std::string();
+    }
+    const std::vector<std::string> words = cycle_ruleset_words(line);
+    const unsigned int named = words.empty() ? schema->form_count
+                                             : cycle_ruleset_find(schema->forms, schema->form_count, words[0]);
+    // a form or construct the file has given already: one given later, or the construct itself, would make a loop
+    if ((named == schema->form_count) || (rules->form_given[named] == 0u)
+        || ((words.size() - 1u) != schema->forms[named].parameters))
+    {
+        return "the construct " + building + " writes " + (words.empty() ? std::string() : words[0])
+             + ", which the file has not given before it or which takes other arguments";
+    }
+    CycleConstructLine written;
+    written.form = named;
+    for (size_t at = 1u; at < words.size(); at += 1u)
+    {
+        const std::string &word = words[at];
+        CycleConstructArgument argument = {CYCLE_CONSTRUCT_TEXT, 0u, 0u, word};
+        for (size_t parameter = 0u; parameter < rules->building_parameters.size(); parameter += 1u)
+        {
+            if (word == rules->building_parameters[parameter])
+            {
+                argument.kind = CYCLE_CONSTRUCT_PARAMETER;
+                // a parameter's place among a form's few, held whole in 32 bits
+                argument.slot = (unsigned int)parameter;
+            }
+        }
+        const size_t colon = word.find(':');
+        const int braced = (word.size() > 4u) && (word[0] == '{') && (word[word.size() - 1u] == '}')
+                        && (colon != std::string::npos);
+        if (braced)
+        {
+            const unsigned int bank = cycle_ruleset_find(schema->banks, schema->bank_count, word.substr(1u, colon - 1u));
+            const std::string digits = word.substr(colon + 1u, word.size() - colon - 2u);
+            const int counted = !digits.empty() && (digits.size() < 6u)
+                             && (digits.find_first_not_of("0123456789") == std::string::npos);
+            if ((bank == schema->bank_count) || !counted)
+            {
+                return "the construct " + building + " takes a scratch register " + word
+                     + " of no bank the ruleset gives, or with no number";
+            }
+            argument.kind = CYCLE_CONSTRUCT_SCRATCH;
+            argument.slot = bank;
+            // five digits at most, held whole in 32 bits
+            argument.number = (unsigned int)strtoul(digits.c_str(), NULL, 10);
+        }
+        written.arguments.push_back(argument);
+    }
+    construct->lines.push_back(written);
+    return std::string();
 }
 
 // the ruleset at `path` read whole into `rules` against its schema: 1 where its first line is krs 1, every entry holds,
@@ -522,6 +646,8 @@ static int cycle_ruleset_read(CycleRuleset *rules, const std::string &path)
     rules->banks.assign(schema->bank_count, CycleForm());
     rules->fixed.assign(schema->fixed_count, std::string());
     rules->forms.assign(schema->form_count, CycleForm());
+    rules->constructs.assign(schema->form_count, CycleConstruct());
+    rules->building = schema->form_count;
     rules->bank_given.assign(schema->bank_count, 0u);
     rules->fixed_given.assign(schema->fixed_count, 0u);
     rules->form_given.assign(schema->form_count, 0u);
@@ -552,18 +678,25 @@ static int cycle_ruleset_read(CycleRuleset *rules, const std::string &path)
         number += 1u;
         at = end + 1u;
         const size_t space = line.find(' ');
+        const int constructing = rules->building != schema->form_count;
         const std::string why = (number == 1u) ? ((line == "krs 1") ? std::string() : std::string("it is not krs 1"))
                               : ((line.empty() || (line[0] == '#'))
                                      ? std::string()
-                                     : cycle_ruleset_entry(rules, line.substr(0u, space),
-                                                           (space == std::string::npos) ? std::string()
-                                                                                        : line.substr(space + 1u)));
+                                     : (constructing ? cycle_ruleset_construct_line(rules, line)
+                                                     : cycle_ruleset_entry(rules, line.substr(0u, space),
+                                                                           (space == std::string::npos)
+                                                                               ? std::string()
+                                                                               : line.substr(space + 1u))));
         if (!why.empty())
         {
             char where[32];
             snprintf(where, sizeof(where), "line %u: ", number);
             rules->refused = where + why;
         }
+    }
+    if (rules->refused.empty() && (rules->building != schema->form_count))
+    {
+        rules->refused = "the construct " + std::string(schema->forms[rules->building].spelling) + " has no end";
     }
     for (unsigned int bank = 0u; rules->refused.empty() && (bank < schema->bank_count); bank += 1u)
     {
@@ -634,24 +767,126 @@ const CycleRuleset *cycle_ruleset_source(int report)
     return cycle_ruleset_load(&s_cycle_source_ruleset, &s_cycle_source_schema, report);
 }
 
-// form `name` of `rules` appended to `text`, its arguments in the order of its parameters; `broken` set, and nothing
-// written, where they are not as many as the form takes
-static void cycle_ruleset_write(const CycleRuleset *rules, std::string &text, unsigned int name,
-                                std::initializer_list<std::string> arguments, int *broken)
+// form `name` of `rules` appended to `text`, `argument` holding as many arguments as it takes, in the order of its
+// parameters: its text cut at them, or where the ruleset gives it as a construct, each of the construct's lines
+// written the same way, a scratch register taken of `scratch` the first time a writing names it. `broken` set where a
+// scratch register cannot be taken
+static void cycle_ruleset_spell(const CycleRuleset *rules, std::string &text, unsigned int name,
+                                const std::string *argument, const CycleScratch &scratch, int *broken)
+{
+    const CycleConstruct *const construct = &rules->constructs[name];
+    if (construct->lines.empty())
+    {
+        const CycleForm *const form = &rules->forms[name];
+        text += form->pieces[0];
+        for (size_t at = 0u; at < form->slots.size(); at += 1u)
+        {
+            text += argument[form->slots[at]];
+            text += form->pieces[at + 1u];
+        }
+        return;
+    }
+    // the scratch registers this writing has taken, each by its bank and number
+    std::vector<unsigned int> scratch_bank;
+    std::vector<unsigned int> scratch_number;
+    std::vector<std::string> scratch_taken;
+    for (const CycleConstructLine &line : construct->lines)
+    {
+        std::vector<std::string> arguments;
+        for (const CycleConstructArgument &given : line.arguments)
+        {
+            size_t found = scratch_taken.size();
+            for (size_t at = 0u; (given.kind == CYCLE_CONSTRUCT_SCRATCH) && (at < scratch_taken.size()); at += 1u)
+            {
+                found = ((scratch_bank[at] == given.slot) && (scratch_number[at] == given.number)) ? at : found;
+            }
+            if ((given.kind == CYCLE_CONSTRUCT_SCRATCH) && (found == scratch_taken.size()))
+            {
+                const std::string taken = scratch(given.slot);
+                *broken = *broken || taken.empty();
+                scratch_bank.push_back(given.slot);
+                scratch_number.push_back(given.number);
+                scratch_taken.push_back(taken);
+            }
+            arguments.push_back((given.kind == CYCLE_CONSTRUCT_TEXT)        ? given.text
+                                : (given.kind == CYCLE_CONSTRUCT_PARAMETER) ? argument[given.slot]
+                                                                            : scratch_taken[found]);
+        }
+        cycle_ruleset_spell(rules, text, line.form, arguments.data(), scratch, broken);
+    }
+}
+
+// the scratch a writer with no registers of its own to give answers: none
+static std::string cycle_ruleset_no_scratch(unsigned int bank)
+{
+    (void)bank;
+    return std::string();
+}
+
+// form `name` of `rules` appended to `text`, its arguments in the order of its parameters, a construct's scratch taken
+// of `scratch`; `broken` set, and nothing written, where they are not as many as the form takes
+static void cycle_ruleset_write_taking(const CycleRuleset *rules, std::string &text, unsigned int name,
+                                       std::initializer_list<std::string> arguments, const CycleScratch &scratch,
+                                       int *broken)
 {
     if (arguments.size() != rules->schema->forms[name].parameters)
     {
         *broken = 1;
         return;
     }
-    const CycleForm *const form = &rules->forms[name];
-    const std::string *const argument = arguments.begin();
-    text += form->pieces[0];
+    cycle_ruleset_spell(rules, text, name, arguments.begin(), scratch, broken);
+}
+
+// the same, by a writer with no scratch to give: a construct that takes scratch breaks what it is written into
+static void cycle_ruleset_write(const CycleRuleset *rules, std::string &text, unsigned int name,
+                                std::initializer_list<std::string> arguments, int *broken)
+{
+    cycle_ruleset_write_taking(rules, text, name, arguments, CycleScratch(cycle_ruleset_no_scratch), broken);
+}
+
+// a form written by the name its .krs file gives it, for a reader outside the emitter (emit.h), a construct's scratch
+// taken of `scratch` by its bank's name
+int cycle_ruleset_form(const CycleRuleset *rules, const std::string &name, const std::vector<std::string> &arguments,
+                       const std::function<std::string(const std::string &bank)> &scratch, std::string &text)
+{
+    const CycleRuleSchema *const schema = rules->schema;
+    const unsigned int named = cycle_ruleset_find(schema->forms, schema->form_count, name);
+    if ((named == schema->form_count) || (arguments.size() != schema->forms[named].parameters))
+    {
+        return 0;
+    }
+    int broken = 0;
+    const CycleScratch by_place = [&](unsigned int bank) {
+        return scratch(std::string(schema->banks[bank].spelling));
+    };
+    cycle_ruleset_spell(rules, text, named, arguments.data(), by_place, &broken);
+    return (broken == 0) ? 1 : 0;
+}
+
+std::string cycle_ruleset_register(const CycleRuleset *rules, const std::string &bank, unsigned int number)
+{
+    const CycleRuleSchema *const schema = rules->schema;
+    const unsigned int named = cycle_ruleset_find(schema->banks, schema->bank_count, bank);
+    if (named == schema->bank_count)
+    {
+        return std::string();
+    }
+    // a bank's spelling takes one parameter, the register's number, in every slot it is cut at
+    const CycleForm *const form = &rules->banks[named];
+    std::string spelled = form->pieces[0];
     for (size_t at = 0u; at < form->slots.size(); at += 1u)
     {
-        text += argument[form->slots[at]];
-        text += form->pieces[at + 1u];
+        spelled += std::to_string(number);
+        spelled += form->pieces[at + 1u];
     }
+    return spelled;
+}
+
+std::string cycle_ruleset_fixed(const CycleRuleset *rules, const std::string &name)
+{
+    const CycleRuleSchema *const schema = rules->schema;
+    const unsigned int named = cycle_ruleset_find(schema->fixed, schema->fixed_count, name);
+    return (named == schema->fixed_count) ? std::string() : rules->fixed[named];
 }
 
 // The record program as C source, in the ruleset c.krs: each step one call into the operator block, whose registers
@@ -916,13 +1151,26 @@ static std::string cycle_ptx_number(unsigned long long value)
     return std::to_string(value);
 }
 
+static std::string cycle_ptx_temporary(CyclePtx *ptx);
+
+static std::string cycle_ptx_wide(CyclePtx *ptx);
+
+static std::string cycle_ptx_predicate(CyclePtx *ptx);
+
 // form `name` of the lane's ruleset written into `text` with `arguments` in its parameters' places. A form written with
-// other arguments than it takes writes nothing and marks the lane broken, and its program goes to the C source
+// other arguments than it takes writes nothing and marks the lane broken, and its program goes to the C source. A form
+// the ruleset gives as a construct takes its scratch as the step's own temporaries, 64-bit temporaries and predicates,
+// fresh for the step and declared with them; a construct that takes scratch of another bank breaks the lane
 static void cycle_ptx_form(CyclePtx *ptx, std::string &text, CycleFormName name,
                            std::initializer_list<std::string> arguments)
 {
+    const CycleScratch scratch = [ptx](unsigned int bank) {
+        return (bank == CYCLE_BANK_TEMPORARY) ? cycle_ptx_temporary(ptx)
+             : ((bank == CYCLE_BANK_WIDE) ? cycle_ptx_wide(ptx)
+                                          : ((bank == CYCLE_BANK_PREDICATE) ? cycle_ptx_predicate(ptx) : std::string()));
+    };
     // a form's name is its place in the schema, from 0
-    cycle_ruleset_write(ptx->rules, text, (unsigned int)name, arguments, &ptx->broken);
+    cycle_ruleset_write_taking(ptx->rules, text, (unsigned int)name, arguments, scratch, &ptx->broken);
 }
 
 // register `at` of a bank, as the ruleset spells it

@@ -175,7 +175,14 @@ A ruleset is a text file whose first line is `krs 1`, and every other line is on
   throughout;
 - `form` names a piece of text and its parameters, and the text is the rest of the line after `= `, where `{p}` is
   parameter p's argument and `\t`, `\n` and `\\` are a tab, a line's end and a backslash;
-- `construct`, a form built from more basic ones, is refused: nothing reads one yet.
+- `construct` gives a form as one built from more basic ones: its head is the form's name and parameters, with no
+  text, and its lines run to `end`. Each line is a form, or a construct given earlier in the file, and its
+  arguments, split at spaces. An argument that is one of the construct's parameters stands for that parameter's
+  argument, `{bank:n}` for scratch register n of one of the ruleset's banks, and any other word for itself. Each time
+  the form is written, its construct's lines are written in its place, and each scratch register is a fresh one: in
+  PTX, one of the step's own temporaries, 64-bit temporaries or predicates, declared with them. A ruleset may give a
+  form as a form or as a construct, not both. `test/engine/rulesets/flagless/ptx.krs` gives the carry chains and the
+  product this way, with no instruction that sets or reads the condition code.
 
 A line that begins with `#` is a comment. The emitter lists every form, bank and register it needs, with the
 parameters each takes. A ruleset that lacks one, holds one the emitter does not name, or gives one other

@@ -8,7 +8,9 @@
 
 #include "engine_config.h"
 
+#include <functional>
 #include <string>
+#include <vector>
 
 // the division operations' scratch per lane, in limbs: long division holds the normalized numerator (one limb
 // over) and divisor; the gcd holds its three remainders ahead of that; the exact quotient holds the shifted
@@ -64,6 +66,23 @@ const CycleRuleset *cycle_ruleset_ptx(int report);
 
 // c.krs; NULL where it is refused
 const CycleRuleset *cycle_ruleset_source(int report);
+
+// A ruleset read from outside the emitter, by the names its .krs file gives, for a probe that asks the target how it
+// answers each form (the cell's membership queries, engine_table.md item 11(f) 4). The emitter itself writes by the
+// places in its schema
+
+// form `name` appended to `text`, its arguments in the order of its parameters; 0, and nothing written, where the
+// ruleset writes no form of that name or the form takes another count of arguments. Where the ruleset gives the form
+// as a construct (a line `construct <name> <parameter>...`, its lines to `end`), each scratch register {bank:n} it names
+// is asked of `scratch` by the bank's name once a writing, and 0 where `scratch` answers empty
+int cycle_ruleset_form(const CycleRuleset *rules, const std::string &name, const std::vector<std::string> &arguments,
+                       const std::function<std::string(const std::string &bank)> &scratch, std::string &text);
+
+// register `number` of the bank `bank`; empty where the ruleset has no bank of that name
+std::string cycle_ruleset_register(const CycleRuleset *rules, const std::string &bank, unsigned int number);
+
+// the register every lane holds throughout named `name`; empty where the ruleset holds none of that name
+std::string cycle_ruleset_fixed(const CycleRuleset *rules, const std::string &name);
 
 // a thread's places for a program as C source: the file's, then the scratch's
 unsigned int cycle_program_places(const EngineRecordLayout *layout);
