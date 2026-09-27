@@ -9,6 +9,8 @@ That is the construction. Every domain is that one sentence with a different ans
 | [Setup](setup.md)             | dependencies, building the engine, building the research papers                         |
 | [Using it](usage.md)          | run the measure on something of your own                                      |
 | [Research](research/index.md) | the research papers in `theory/`, and how to build them |
+| [Why the count is exact](ENGINE_PROOF.md) | the engine's correctness does not depend on its control flow |
+| [What the proofs license](ENGINE_DIRECTIONS.md) | directions the engine's own proofs already license |
 
 The repository is at [github.com/dstroy0/anchor_sift](https://github.com/dstroy0/anchor_sift). Its README covers the algorithm, the areas of research, and the licensing.
 
