@@ -29,6 +29,11 @@ case "$(uname -s)" in
         {
             nvcc -ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor -Xcompiler -W4 -O2 "${INCLUDES[@]}" "$@" -lpdh
         }
+        build_seal()
+        {
+            build_device -c "$@"
+        }
+        DEVICE_TOOLCHAIN=1
         LONG_PATHS=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$TOP/engine/long_paths.manifest")")
         ;;
     *)
@@ -38,10 +43,29 @@ case "$(uname -s)" in
         {
             cc -std=c11 -O2 -Wall -Wextra "${INCLUDES[@]}" "$@"
         }
-        build_device()
-        {
-            nvcc -O2 -Xcompiler -Wall "${INCLUDES[@]}" "$@" -ldl
-        }
+        if command -v nvcc > /dev/null 2>&1; then
+            build_device()
+            {
+                nvcc -O2 -Xcompiler -Wall "${INCLUDES[@]}" "$@" -ldl
+            }
+            build_seal()
+            {
+                build_device -c "$@"
+            }
+            DEVICE_TOOLCHAIN=1
+        else
+            # a part with no CUDA toolchain (the Pi) builds the seal as C++ and links with c++; the daemon and
+            # tessera_run are built and tested, and the two tests that take device memory are not
+            build_device()
+            {
+                c++ -O2 -Wall -Wextra "${INCLUDES[@]}" "$@" -ldl -lpthread
+            }
+            build_seal()
+            {
+                c++ -std=c++17 -O2 -Wall -Wextra "${INCLUDES[@]}" -c -x c++ "$@"
+            }
+            DEVICE_TOOLCHAIN=0
+        fi
         LONG_PATHS=()
         ;;
 esac
@@ -64,14 +88,18 @@ run_one tessera_ledger_test
 build_host "$TEST/tessera_frame_test.c" "$MODULE/tessera_frame.c" -o "$OUT/tessera_frame_test$SUFFIX"
 run_one tessera_frame_test
 if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
-    MEASURE_OBJECT="$OUT/tessera_measure_host.$OBJECT"
-    SELF_OBJECT="$OUT/tessera_self_host.$OBJECT"
-    rm -f "$MEASURE_OBJECT" "$SELF_OBJECT"
-    build_host -c "$MODULE/tessera_measure.c" -o "$MEASURE_OBJECT"
-    build_host -c "$MODULE/tessera_self.c" -o "$SELF_OBJECT"
-    build_device "$TEST/tessera_measure_test.cu" "$MEASURE_OBJECT" "$SELF_OBJECT" "${LONG_PATHS[@]}" \
-        -o "$OUT/tessera_measure_test$SUFFIX"
-    run_one tessera_measure_test
+    if [ "$DEVICE_TOOLCHAIN" = "1" ]; then
+        MEASURE_OBJECT="$OUT/tessera_measure_host.$OBJECT"
+        SELF_OBJECT="$OUT/tessera_self_host.$OBJECT"
+        rm -f "$MEASURE_OBJECT" "$SELF_OBJECT"
+        build_host -c "$MODULE/tessera_measure.c" -o "$MEASURE_OBJECT"
+        build_host -c "$MODULE/tessera_self.c" -o "$SELF_OBJECT"
+        build_device "$TEST/tessera_measure_test.cu" "$MEASURE_OBJECT" "$SELF_OBJECT" "${LONG_PATHS[@]}" \
+            -o "$OUT/tessera_measure_test$SUFFIX"
+        run_one tessera_measure_test
+    else
+        echo "  tessera_measure_test not built: no CUDA toolchain"
+    fi
 
     # the tests' daemons answer endpoints of their own ($TESSERA_RUNTIME), apart from the daemons real jobs use: a pipe
     # name on Windows, and on Linux a short folder, since a socket's path holds 108 bytes
@@ -92,7 +120,7 @@ if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
     done
     SEAL_OBJECT="$OUT/obsignatio_tessera.$OBJECT"
     rm -f "$SEAL_OBJECT"
-    build_device -c "$OBSIGNATIO/obsignatio.cu" -o "$SEAL_OBJECT"
+    build_seal "$OBSIGNATIO/obsignatio.cu" -o "$SEAL_OBJECT"
     DAEMON_OBJECTS=()
     CLIENT_OBJECTS=()
     for object in "${OBJECTS[@]}"; do
@@ -105,9 +133,13 @@ if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
     done
     build_device "${DAEMON_OBJECTS[@]}" "$SEAL_OBJECT" "${LONG_PATHS[@]}" -o "$OUT/tessera_daemon$SUFFIX"
     [ -f "$OUT/tessera_daemon$SUFFIX" ] || { echo "  build failed: the daemon did not link"; FAILED=1; }
-    build_device "$TEST/tessera_job_test.cu" "${CLIENT_OBJECTS[@]}" "$SEAL_OBJECT" "${LONG_PATHS[@]}" \
-        -o "$OUT/tessera_job_test$SUFFIX"
-    if [ -f "$OUT/tessera_job_test$SUFFIX" ]; then
+    if [ "$DEVICE_TOOLCHAIN" = "1" ]; then
+        build_device "$TEST/tessera_job_test.cu" "${CLIENT_OBJECTS[@]}" "$SEAL_OBJECT" "${LONG_PATHS[@]}" \
+            -o "$OUT/tessera_job_test$SUFFIX"
+    fi
+    if [ "$DEVICE_TOOLCHAIN" != "1" ]; then
+        echo "  tessera_job_test not built: no CUDA toolchain"
+    elif [ -f "$OUT/tessera_job_test$SUFFIX" ]; then
         # the test damages the history on purpose, so it runs in a state of its own; the daemon it starts inherits it
         STATE="$OUT/tessera_state"
         rm -rf "$STATE"

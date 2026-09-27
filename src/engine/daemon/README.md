@@ -45,6 +45,13 @@ daemon also links `tessera_ledger.c`, `tessera_measure.c` and obsignatio (`engin
 and `pdh` on Windows. On Linux both link `-ldl -lpthread`. It uses obsignatio's host seal (`obsignatio_seal`, `obsignatio_seal_holds`), and it never makes a CUDA
 context of its own.
 
+Tessera builds on a part with no CUDA toolchain too, the Raspberry Pi first, so a run there is a tessera job as it is
+here. Where `nvcc` is not on the path, `test/run.sh` compiles obsignatio.cu as C++ (its kernels and the calls that
+launch them are left out, and a request for device memory is refused) and links with `c++`. It builds and tests the
+ledger, the frame, the daemon and tessera_run, and does not build the measure and job tests, which take device
+memory. On a Raspberry Pi 5 (Linux aarch64, 4 cores, two kept for the desktop, so jobs are given 2), 27 September:
+every test exited 0, and the tessera_run test gave 15 checks, 0 failed.
+
 ## Starting the daemon
 
 **You normally don't start it.** A client that finds no daemon starts one itself, as long as its ask names the

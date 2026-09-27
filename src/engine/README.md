@@ -51,7 +51,7 @@ it:
 |---|---|
 | `daemon/test/run.sh` | the tessera suite (ledger, frame, measure, job), and the daemon into the run's build directory |
 | `sims/run.sh <sim> [-- arguments]` | one sim, its modules, the tessera client, and a daemon beside the sim. The sims are `nbody_lattice`, `knf_identity`, `noise_floor`, `noise_terms`, `period_power`, `root_universal`, `ask_state`, `ka_psi`, `chaitin_omega`, `fixed_pattern` and `classify_reject_recover`. Each prints its readings and exits 0 only when every check holds |
-| `base/obsignatio/test/run.sh` | the seal against its test vectors (`test_vectors.json`) |
+| `base/obsignatio/test/run.sh` | the seal against its test vectors (`test_vectors.json`); where `nvcc` is not on the path, the seal as C++ and the host's questions alone |
 | `CMakeLists.txt` | the C side only: the exact integer, the sift, the renderer, their arms and the benches. None of the CUDA engine |
 
 The sims pick the device architecture from `nvidia-smi` (`sm_<compute capability>`, else `sm_86`), or take it from

@@ -1,11 +1,20 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "obsignatio.h"
 
+// a part with no CUDA toolchain (the Pi, tessera on every target) compiles the seal as C++: the functions the host and
+// the device share are the host's alone, and the kernels and the calls that launch them are left out
+#if defined(__CUDACC__)
 #include <cuda_runtime.h>
+#define OBSIGNATIO_SHARED __host__ __device__
+#else
+#define OBSIGNATIO_SHARED
+#endif
 
 #include <string.h>
 
+#if defined(__CUDACC__)
 static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success");
+#endif
 
 // cudaError_t enumerates non-negative codes below INT_MAX, so the status converts to int exactly
 #define OBSIGNATIO_TOOK(call_, evacaddr_, error_) \
@@ -72,12 +81,12 @@ typedef struct
     unsigned long long count;
 } ObsignatioSource;
 
-__host__ __device__ static inline unsigned int obsignatio_rotate(unsigned int word, unsigned int count)
+OBSIGNATIO_SHARED static inline unsigned int obsignatio_rotate(unsigned int word, unsigned int count)
 {
     return (word >> count) | (word << (32u - count));
 }
 
-__host__ __device__ static inline void obsignatio_mix(unsigned int *state, unsigned int first, unsigned int second,
+OBSIGNATIO_SHARED static inline void obsignatio_mix(unsigned int *state, unsigned int first, unsigned int second,
                                                       unsigned int third, unsigned int fourth,
                                                       unsigned int message_first, unsigned int message_second)
 {
@@ -91,7 +100,7 @@ __host__ __device__ static inline void obsignatio_mix(unsigned int *state, unsig
     state[second] = obsignatio_rotate(state[second] ^ state[third], 7u);
 }
 
-__host__ __device__ static inline void obsignatio_round(unsigned int *state, const unsigned int *message)
+OBSIGNATIO_SHARED static inline void obsignatio_round(unsigned int *state, const unsigned int *message)
 {
     obsignatio_mix(state, 0u, 4u, 8u, 12u, message[0], message[1]);
     obsignatio_mix(state, 1u, 5u, 9u, 13u, message[2], message[3]);
@@ -103,7 +112,7 @@ __host__ __device__ static inline void obsignatio_round(unsigned int *state, con
     obsignatio_mix(state, 3u, 4u, 9u, 14u, message[14], message[15]);
 }
 
-__host__ __device__ static inline void obsignatio_permute(unsigned int *message)
+OBSIGNATIO_SHARED static inline void obsignatio_permute(unsigned int *message)
 {
     const unsigned int held[OBSIGNATIO_BLOCK_WORDS] = {message[2],  message[6],  message[3],  message[10],
                                                        message[7],  message[0],  message[4],  message[13],
@@ -115,7 +124,7 @@ __host__ __device__ static inline void obsignatio_permute(unsigned int *message)
     }
 }
 
-__host__ __device__ static inline void obsignatio_compress(const unsigned int *chaining, const unsigned int *block,
+OBSIGNATIO_SHARED static inline void obsignatio_compress(const unsigned int *chaining, const unsigned int *block,
                                                            unsigned long long counter, unsigned int block_bytes,
                                                            unsigned int flags, unsigned int *out)
 {
@@ -142,7 +151,7 @@ __host__ __device__ static inline void obsignatio_compress(const unsigned int *c
     }
 }
 
-__host__ __device__ static inline unsigned int obsignatio_source_byte(const ObsignatioSource *source,
+OBSIGNATIO_SHARED static inline unsigned int obsignatio_source_byte(const ObsignatioSource *source,
                                                                       unsigned long long at)
 {
     if (source->bytes != NULL)
@@ -170,7 +179,7 @@ __host__ __device__ static inline unsigned int obsignatio_source_byte(const Obsi
     return (unsigned int)((pair >> shift) & ((1ull << take) - 1ull));
 }
 
-__host__ __device__ static inline void obsignatio_block_load(const ObsignatioSource *source, unsigned long long start,
+OBSIGNATIO_SHARED static inline void obsignatio_block_load(const ObsignatioSource *source, unsigned long long start,
                                                              unsigned int count, unsigned int *block)
 {
     for (unsigned int word = 0u; word < OBSIGNATIO_BLOCK_WORDS; word += 1u)
@@ -183,7 +192,7 @@ __host__ __device__ static inline void obsignatio_block_load(const ObsignatioSou
     }
 }
 
-__host__ __device__ static inline void obsignatio_chunk(const unsigned int *key, unsigned int mode,
+OBSIGNATIO_SHARED static inline void obsignatio_chunk(const unsigned int *key, unsigned int mode,
                                                         const ObsignatioSource *source, unsigned long long offset,
                                                         unsigned int count, unsigned long long chunk,
                                                         ObsignatioNode *node)
@@ -214,7 +223,7 @@ __host__ __device__ static inline void obsignatio_chunk(const unsigned int *key,
     }
 }
 
-__host__ __device__ static inline void obsignatio_parent(const unsigned int *key, unsigned int mode,
+OBSIGNATIO_SHARED static inline void obsignatio_parent(const unsigned int *key, unsigned int mode,
                                                          const unsigned int *left, const unsigned int *right,
                                                          ObsignatioNode *node)
 {
@@ -229,7 +238,7 @@ __host__ __device__ static inline void obsignatio_parent(const unsigned int *key
     node->flags = mode | OBSIGNATIO_PARENT;
 }
 
-__host__ __device__ static inline void obsignatio_chaining(const ObsignatioNode *node, unsigned int *chaining)
+OBSIGNATIO_SHARED static inline void obsignatio_chaining(const ObsignatioNode *node, unsigned int *chaining)
 {
     unsigned int out[OBSIGNATIO_BLOCK_WORDS];
     obsignatio_compress(node->chaining, node->block, node->counter, node->block_bytes, node->flags, out);
@@ -239,7 +248,7 @@ __host__ __device__ static inline void obsignatio_chaining(const ObsignatioNode 
     }
 }
 
-__host__ __device__ static inline void obsignatio_root(const ObsignatioNode *node, unsigned char *out,
+OBSIGNATIO_SHARED static inline void obsignatio_root(const ObsignatioNode *node, unsigned char *out,
                                                        unsigned long long out_bytes)
 {
     for (unsigned long long start = 0ull; start < out_bytes; start += OBSIGNATIO_BLOCK_BYTES)
@@ -258,7 +267,7 @@ __host__ __device__ static inline void obsignatio_root(const ObsignatioNode *nod
     }
 }
 
-__host__ __device__ static inline void obsignatio_digest(const unsigned int *key, unsigned int mode,
+OBSIGNATIO_SHARED static inline void obsignatio_digest(const unsigned int *key, unsigned int mode,
                                                          const ObsignatioSource *source, unsigned char *out,
                                                          unsigned long long out_bytes)
 {
@@ -359,6 +368,7 @@ extern "C" long obsignatio_signum(const ObsignatioSignumRequest *request)
     return 0L;
 }
 
+#if defined(__CUDACC__)
 __global__ static void obsignatio_chunk_kernel(const unsigned char *bytes, unsigned long long messages,
                                                unsigned long long length, unsigned long long stride,
                                                unsigned long long chunks, ObsignatioKey key, unsigned int mode,
@@ -587,6 +597,30 @@ extern "C" long obsignatio_bits(const ObsignatioBitsRequest *request)
     cudaFree(device_broken);
     return good ? 0L : OBSIGNATIO_REFUSED;
 }
+#else
+// a part with no CUDA toolchain has no device memory to seal: a request for it is refused, a resource the part lacks
+extern "C" long obsignatio_many(const ObsignatioManyRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return OBSIGNATIO_REFUSED;
+    }
+    engine_error_check(0, ENGINE_ERROR_RESOURCE, ENGINE_MODULE_OBSIGNATIO, (unsigned int)__LINE__,
+                       (const void *)request, request->error);
+    return OBSIGNATIO_REFUSED;
+}
+
+extern "C" long obsignatio_bits(const ObsignatioBitsRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return OBSIGNATIO_REFUSED;
+    }
+    engine_error_check(0, ENGINE_ERROR_RESOURCE, ENGINE_MODULE_OBSIGNATIO, (unsigned int)__LINE__,
+                       (const void *)request, request->error);
+    return OBSIGNATIO_REFUSED;
+}
+#endif
 
 #define OBSIGNATIO_CONTEXT_PREFIX "obsignatio aeterna 2026-09-23 "
 

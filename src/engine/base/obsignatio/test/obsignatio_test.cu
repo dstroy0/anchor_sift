@@ -2,7 +2,11 @@
 #include "obsignatio.h"
 #include "scriptura.h"
 
+// a part with no CUDA toolchain builds the test as C++ and asks the host's questions alone: the vectors, the level
+// keys and the seal, and that a request for device memory is refused
+#if defined(__CUDACC__)
 #include <cuda_runtime.h>
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -227,6 +231,7 @@ static long test_signum(const unsigned char *bytes, unsigned long long count, co
     return obsignatio_signum(&request);
 }
 
+#if defined(__CUDACC__)
 static long test_many(const unsigned char *device_bytes, unsigned long long messages, unsigned long long length,
                       unsigned long long stride, const unsigned char *key, unsigned int mode,
                       unsigned char *device_signa)
@@ -236,6 +241,7 @@ static long test_many(const unsigned char *device_bytes, unsigned long long mess
     const ObsignatioManyRequest request = {device_bytes, messages, length, stride, key, mode, device_signa, &error};
     return obsignatio_many(&request);
 }
+#endif
 
 static const unsigned char *test_mode_key(unsigned int mode, const TestVectors *vectors,
                                           const unsigned char *context_key)
@@ -281,6 +287,7 @@ static void test_host_vectors(const TestVectors *vectors, const unsigned char *p
     }
 }
 
+#if defined(__CUDACC__)
 static void test_device_vectors(const TestVectors *vectors, const unsigned char *pattern,
                                 const unsigned char *context_key, TestTally *tally)
 {
@@ -567,6 +574,7 @@ static void test_fail_closed(const TestVectors *vectors, const unsigned char *pa
     const ObsignatioManyRequest nothing = {NULL, 0ull, 1ull, 1ull, NULL, OBSIGNATIO_MODE_HASH, NULL, &error};
     test_count(tally, (obsignatio_many(&nothing) == 0L) && (error.kind == ENGINE_ERROR_NONE));
 }
+#endif
 
 static void test_level_keys(TestTally *tally)
 {
@@ -669,6 +677,7 @@ static void test_seal(const unsigned char *pattern, TestTally *tally)
     test_count(tally, obsignatio_seal(NULL) == OBSIGNATIO_REFUSED);
 }
 
+#if defined(__CUDACC__)
 static int test_lanes_host(const unsigned char *lane_bytes, const unsigned long long *extent, unsigned char *nodes)
 {
     unsigned char keys[OBSIGNATIO_EXTENT_AXES][OBSIGNATIO_KEY_BYTES];
@@ -1129,6 +1138,26 @@ static void test_bits_closed(const TestVectors *vectors, TestTally *tally)
     test_bit_device_release(&device);
     test_bit_stream_release(&stream);
 }
+#else
+// with no device, a request for device memory is refused as a resource the part lacks, and one with no error is refused
+static void test_device_refused(TestTally *tally)
+{
+    unsigned char bytes[OBSIGNATIO_SIGNUM_BYTES] = {0};
+    unsigned char signa[OBSIGNATIO_SIGNUM_BYTES];
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    const ObsignatioManyRequest many = {bytes, 1ull, 1ull, 1ull, NULL, OBSIGNATIO_MODE_HASH, signa, &error};
+    test_count(tally, (obsignatio_many(&many) == OBSIGNATIO_REFUSED) && (error.kind == ENGINE_ERROR_RESOURCE)
+                          && (error.module == ENGINE_MODULE_OBSIGNATIO));
+    test_count(tally, obsignatio_many(NULL) == OBSIGNATIO_REFUSED);
+    memset(&error, 0, sizeof(error));
+    const unsigned long long offsets[2] = {0ull, 0ull};
+    const ObsignatioBitsRequest bits = {NULL, offsets, 1ull, 0ull, NULL, OBSIGNATIO_MODE_HASH, signa, &error};
+    test_count(tally, (obsignatio_bits(&bits) == OBSIGNATIO_REFUSED) && (error.kind == ENGINE_ERROR_RESOURCE)
+                          && (error.module == ENGINE_MODULE_OBSIGNATIO));
+    test_count(tally, obsignatio_bits(NULL) == OBSIGNATIO_REFUSED);
+}
+#endif
 
 static int test_staged(ScripturaLine *line, const char *text, unsigned int columns)
 {
@@ -1199,12 +1228,16 @@ int main(int argc, char **argv)
         return 2;
     }
     unsigned char *const pattern = (unsigned char *)malloc((size_t)vectors.longest + 1u);
+    unsigned char context_key[OBSIGNATIO_KEY_BYTES];
+#if defined(__CUDACC__)
     unsigned char *device_pattern = NULL;
     unsigned char *device_signum = NULL;
-    unsigned char context_key[OBSIGNATIO_KEY_BYTES];
     const int ready = (pattern != NULL)
                    && (cudaMalloc((void **)&device_pattern, (size_t)vectors.longest + 1u) == cudaSuccess)
                    && (cudaMalloc((void **)&device_signum, OBSIGNATIO_SIGNUM_BYTES) == cudaSuccess);
+#else
+    const int ready = pattern != NULL;
+#endif
     if (ready == 0)
     {
         fputs("  the test could not place its pattern\n", stderr);
@@ -1215,8 +1248,13 @@ int main(int argc, char **argv)
         // a byte index taken modulo 251 lies below 256
         pattern[byte] = (unsigned char)(byte % TEST_PATTERN_PERIOD);
     }
-    const int placed = (cudaMemcpy(device_pattern, pattern, (size_t)vectors.longest + 1u, cudaMemcpyHostToDevice)
-                        == cudaSuccess)
+#if defined(__CUDACC__)
+    const int copied = cudaMemcpy(device_pattern, pattern, (size_t)vectors.longest + 1u, cudaMemcpyHostToDevice)
+                    == cudaSuccess;
+#else
+    const int copied = 1;
+#endif
+    const int placed = copied
                     && (test_signum((const unsigned char *)vectors.context, strlen(vectors.context), NULL,
                                     OBSIGNATIO_MODE_CONTEXT, context_key, OBSIGNATIO_KEY_BYTES)
                         == 0L);
@@ -1225,6 +1263,7 @@ int main(int argc, char **argv)
         fputs("  the test could not place its pattern or context key\n", stderr);
         return 2;
     }
+#if defined(__CUDACC__)
     TestTally tallies[] = {{"host vectors", 0ull, 0ull, 0ull},   {"device vectors", 0ull, 0ull, 0ull},
                            {"device context", 0ull, 0ull, 0ull}, {"every length", 0ull, 0ull, 0ull},
                            {"bit flips", 0ull, 0ull, 0ull},      {"determinism", 0ull, 0ull, 0ull},
@@ -1248,6 +1287,16 @@ int main(int argc, char **argv)
     test_bits_locality(&tallies[12]);
     test_bits_closed(&vectors, &tallies[13]);
     test_seal(pattern, &tallies[14]);
+#else
+    TestTally tallies[] = {{"host vectors", 0ull, 0ull, 0ull},
+                           {"level keys", 0ull, 0ull, 0ull},
+                           {"seal", 0ull, 0ull, 0ull},
+                           {"device refused", 0ull, 0ull, 0ull}};
+    test_host_vectors(&vectors, pattern, context_key, &tallies[0]);
+    test_level_keys(&tallies[1]);
+    test_seal(pattern, &tallies[2]);
+    test_device_refused(&tallies[3]);
+#endif
     const unsigned int count = (unsigned int)(sizeof(tallies) / sizeof(tallies[0]));
     const int reported = test_report(tallies, count, argv[1]);
     unsigned long long failures = (reported != 0) ? 0ull : 1ull;
@@ -1255,8 +1304,10 @@ int main(int argc, char **argv)
     {
         failures += tallies[index].failures;
     }
+#if defined(__CUDACC__)
     cudaFree(device_signum);
     cudaFree(device_pattern);
+#endif
     free(pattern);
     test_vectors_release(&vectors);
     return (failures == 0ull) ? 0 : 1;

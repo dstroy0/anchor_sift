@@ -105,16 +105,19 @@ WAITED="$(thousandths "admitted after" s "$SCRATCH/after.err")"
 [ "$GIVEN" -gt 0 ] && [ "$WAITED" -ge 1000 ]
 check "a job of 1 processor waited for one holding all $GIVEN ($WAITED ms)" $?
 
-# 3: two jobs of 2 processors each, together
-"$RUN" --processors 2 --name burn_pair_first -- "$BURN" 1 2000 0 > "$SCRATCH/first.out" 2> "$SCRATCH/first.err" &
+# 3: two jobs of 2 processors each, together; of 1 each where the host gives jobs fewer than 4 (a Pi's four cores,
+# two kept for the desktop, give 2)
+PAIR=2
+[ "$GIVEN" -lt 4 ] && PAIR=1
+"$RUN" --processors "$PAIR" --name burn_pair_first -- "$BURN" 1 2000 0 > "$SCRATCH/first.out" 2> "$SCRATCH/first.err" &
 FIRST=$!
 sleep 0.5
-"$RUN" --processors 2 --name burn_pair_second -- "$BURN" 1 100 0 > "$SCRATCH/second.out" 2> "$SCRATCH/second.err"
+"$RUN" --processors "$PAIR" --name burn_pair_second -- "$BURN" 1 100 0 > "$SCRATCH/second.out" 2> "$SCRATCH/second.err"
 wait "$FIRST"
 cat "$SCRATCH/first.err" "$SCRATCH/second.err"
 WAITED="$(thousandths "admitted after" s "$SCRATCH/second.err")"
 [ "$WAITED" -ge 0 ] && [ "$WAITED" -lt 500 ]
-check "two jobs that fit ran at once (the second waited $WAITED ms)" $?
+check "two jobs of $PAIR that fit ran at once (the second waited $WAITED ms)" $?
 
 # 4: refusals
 "$RUN" --processors 999 -- "$BURN" 1 10 0 2> "$SCRATCH/many.err"
