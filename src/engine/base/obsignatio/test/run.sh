@@ -6,7 +6,8 @@ TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODULE="$(cd "$TEST/.." && pwd)"
 TOP="$(cd "$MODULE/../../.." && pwd)"
 SCRIPTURA="$TOP/engine/base/scriptura"
-source "$TOP/maint/build_stamp.sh"
+# maint/ is at the repository's root, one above src/
+source "$(cd "$TOP/.." && pwd)/maint/build_stamp.sh"
 build_stamp obsignatio_test
 
 HOST_FLAGS=()

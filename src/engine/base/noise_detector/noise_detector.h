@@ -3,6 +3,7 @@
 #define NOISE_DETECTOR_H
 
 #include "engine_config.h"
+#include "exact_integer.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -178,6 +179,160 @@ long noise_clips_volume(const unsigned short *volume, const unsigned long long e
 
 long noise_moments_volume(const unsigned short *volume, const unsigned long long extent[4],
                           long long cumulants[NOISE_MOMENT_CUMULANTS], EngineError *error);
+
+// The line over the level (build plan item 38): the least-squares line through points each weighted by a count, held
+// as three exact integers over one denominator. count points sit at an integer place, and their readings sum to total.
+// A level is a place over level_scale and a reading a total's share over reading_scale, so with N = sum of counts,
+// A = sum of count place, B = sum of count place^2, T = sum of totals and C = sum of place total, the line is
+//   slope = level_scale (N C - A T) / D,  intercept = (T B - A C) / D,  D = reading_scale (N B - A^2)
+// in readings per level and in readings at level 0.
+typedef struct
+{
+    AnchorExactInteger samples;
+    AnchorExactInteger along;
+    AnchorExactInteger along_square;
+    AnchorExactInteger measured;
+    AnchorExactInteger cross;
+} NoiseLineSums;
+
+typedef struct
+{
+    AnchorExactInteger slope;
+    AnchorExactInteger intercept;
+    AnchorExactInteger denominator;
+} NoiseLine;
+
+void noise_line_sums_zero(NoiseLineSums *sums);
+
+// count points at place whose readings sum to total; on a refusal the sums are unchanged
+long noise_line_sums_add(NoiseLineSums *sums, unsigned long long count, unsigned long long place,
+                         const AnchorExactInteger *total, EngineError *error);
+
+// refuses where the places do not span two levels (D would be 0), a scale is 0, or a product passes the exact
+// integer's width; on a refusal the line is unchanged
+long noise_line_fit(const NoiseLineSums *sums, unsigned long long level_scale, unsigned long long reading_scale,
+                    NoiseLine *line, EngineError *error);
+
+// C15, the cumulant ladder, and C19, the single-electron tail (build plan item 38). The moment pass's quiet static
+// blocks, each block's k-statistics read against its voxel's level over the frames of the voxel's other blocks, so a
+// block's own values never set the level it is read at; then each cumulant's line over that level in lane units.
+#define NOISE_LADDER_ORDERS 3u
+
+typedef struct
+{
+    // the lines of k2, k3 and k4 against the level
+    NoiseLine cumulant[NOISE_LADDER_ORDERS];
+    unsigned long long blocks;
+    unsigned long long left_out;
+    // s3 >= s2^2 and s2 s4 >= s3^2, each cross-multiplied over the slopes' positive denominators
+    int rising;
+    int convex;
+    // C19 from the k2 and k3 lines, set where s3 is not 0: O = -c3 / s3 and R^2 = (c2 s3 - c3 s2) / s3, each a
+    // numerator over a positive denominator. O is the offset only where rising and convex both hold.
+    int tail;
+    AnchorExactInteger offset;
+    AnchorExactInteger offset_denominator;
+    AnchorExactInteger read_square;
+    AnchorExactInteger read_square_denominator;
+} NoiseLadderReading;
+
+// refuses a volume with fewer than two whole blocks of frames, or whose blocks' levels do not span two values
+long noise_ladder_volume(const unsigned short *volume, const unsigned long long extent[4], NoiseLadderReading *reading,
+                         EngineError *error);
+
+// C20, crosstalk in the neighbour correlation (build plan item 38). Along y and along x, over the same voxels (those
+// whose voxel three steps on is inside the view), every frame pair's difference d': the pairs, Σ d'^2, and the
+// products Σ d'(v) d'(v + s δ) for the steps s = 1, 2 and 3, C1, C2 and C3. A draw shared with each neighbour by α after
+// it is made leaves V = Σ d'^2 - 2 C2, α = C1 / (2 V) and α^2 = C2 / V, which agree where C1^2 = 4 C2 V, and C3 = 0.
+// The detector reads the sums exactly; how near to agreement and to 0 a reading must come is not set here.
+#define NOISE_CROSSTALK_AXES 2u
+
+#define NOISE_CROSSTALK_STEPS 3u
+
+typedef struct
+{
+    unsigned long long pairs[NOISE_CROSSTALK_AXES];
+    AnchorExactInteger squares[NOISE_CROSSTALK_AXES];
+    AnchorExactInteger steps[NOISE_CROSSTALK_AXES][NOISE_CROSSTALK_STEPS];
+    // V = Σ d'^2 - 2 C2
+    AnchorExactInteger spread[NOISE_CROSSTALK_AXES];
+} NoiseCrosstalkReading;
+
+// refuses a volume of fewer than two frames or one whose products could pass 64 bits a sum
+long noise_crosstalk_volume(const unsigned short *volume, const unsigned long long extent[4],
+                            NoiseCrosstalkReading *reading, EngineError *error);
+
+// C14, charge before the gain (build plan item 38). A bias series (no light, no exposure) and a dark series (no light,
+// exposed for a named Δt) of one extent: over each, Σ I over every voxel-frame and Σ d^2 over every frame difference.
+// With M voxel-frames and P frame differences a series, the bias mean A_b / M is O (with the fixed pattern's mean),
+// and the bias E[d^2] / 2 = Q_b / (2 P) is the level-free sum R^2 + σ_J^2 + σ_kTC^2. Dark electrons enter before the
+// gain, so the dark mean less the bias mean is g D Δt and the dark E[d^2] / 2 less the bias's is g^2 D Δt; g is their
+// ratio. Each reading is a numerator over a positive denominator.
+typedef struct
+{
+    AnchorExactInteger offset;
+    AnchorExactInteger offset_denominator;
+    AnchorExactInteger level_free;
+    AnchorExactInteger level_free_denominator;
+    AnchorExactInteger dark_level;
+    AnchorExactInteger dark_level_denominator;
+    AnchorExactInteger dark_square;
+    AnchorExactInteger dark_square_denominator;
+    // set where the dark mean differs from the bias mean
+    int gain_read;
+    AnchorExactInteger gain;
+    AnchorExactInteger gain_denominator;
+} NoiseChargeReading;
+
+// refuses series of fewer than two frames, or whose squares could pass 64 bits a sum
+long noise_charge_series(const unsigned short *bias, const unsigned short *dark, const unsigned long long extent[4],
+                         NoiseChargeReading *reading, EngineError *error);
+
+// C17, the structure function against the shared scale (build plan item 38). Over each voxel and its x neighbour whose
+// mean level over the frames lies in 40 to 199, at each lag k of the flicker pass, every frame pair's
+// y = (d_k - d_{k,x})^2 against q = (Σ_t I - Σ_t I_x)^2 = (T (L - L_x))^2 and the pair's total M = Σ_t I + Σ_t I_x:
+// per lag and level bin of 8, the pairs N and the sums of M, M^2, q, q^2, M q, y, M y and q y. A scale 1 + ε_t shared
+// by the whole volume moves d_k - d_{k,x} by (ε_{t+k} - ε_t) times the pair's light apart, so y rises over
+// (L - L_x)^2 with slope D_a(k) = E[(ε_{t+k} - ε_t)^2], the scale's structure function, above 2 D(k), the pair's own
+// noise. The own noise grows with the level, and a bin of 8 still holds a spread of it, so y is fitted against M and q
+// together within each bin, the least squares of the line above over two places, pooled over the bins: with each bin's
+// centred sums N Σ u v - Σ u Σ v summed over the bins as MM, QQ, MQ, MY and QY,
+// D_a(k) = T^2 (MM QY - MQ MY) / (MM QQ - MQ^2), and the intercept is the pairs' mean y less D_a(k) times their mean
+// (L - L_x)^2. Each reading is a numerator over a positive denominator.
+typedef struct
+{
+    unsigned long long pairs[NOISE_FLICKER_LAGS];
+    // set where q is not a line in M within every bin, so MM QQ - MQ^2 is positive
+    int read[NOISE_FLICKER_LAGS];
+    AnchorExactInteger slope[NOISE_FLICKER_LAGS];
+    AnchorExactInteger slope_denominator[NOISE_FLICKER_LAGS];
+    AnchorExactInteger intercept[NOISE_FLICKER_LAGS];
+    AnchorExactInteger intercept_denominator[NOISE_FLICKER_LAGS];
+} NoiseStructureReading;
+
+// refuses a volume of fewer than two frames or two columns, of more than 65536 frames, or whose sums could pass 128
+// bits
+long noise_structure_volume(const unsigned short *volume, const unsigned long long extent[4],
+                            NoiseStructureReading *reading, EngineError *error);
+
+// Rows 18 and 19, what a camera pixel holds in every plane. Over each pixel (y, x), its values in the z planes below
+// the middle and in those from the middle up, each summed over the frames: lo and hi, over n_lo and n_hi values. An
+// offset o or a gain g (1 + p) fixed at a pixel puts the same amount into both halves' means, and the draws,
+// independent between planes, share nothing, so the halves' covariance across the P pixels,
+// C = (P Σ lo hi - Σ lo Σ hi) / (P^2 n_lo n_hi), is var(o) + var(p) (g S)^2 under a flat light S. Read at several
+// lights, C's line over the level squared has slope var(p) and intercept var(o). With it, the mean level
+// Σ (lo + hi) / (P (n_lo + n_hi)). Each is a numerator over a positive denominator.
+typedef struct
+{
+    AnchorExactInteger covariance;
+    AnchorExactInteger covariance_denominator;
+    AnchorExactInteger level;
+    AnchorExactInteger level_denominator;
+} NoiseHalvesReading;
+
+// refuses a volume of fewer than two planes, or whose sums could pass 128 bits
+long noise_halves_volume(const unsigned short *volume, const unsigned long long extent[4], NoiseHalvesReading *reading,
+                         EngineError *error);
 
 // The root noise of a box: a span of frames and a place the caller names, an object's in the cell workbook. Each term the
 // noise vector table names as shared is a pattern in fewer dimensions than the box, one value for every place along

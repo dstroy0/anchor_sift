@@ -57,6 +57,68 @@
 // to the fourth over the static blocks, and third to about 0.1
 #define TERMS_SHOT_BACKGROUND 16ull
 
+// the ladder's scene: 1 electron plus 1 a column along x, read at gain 2
+#define TERMS_LADDER_BACKGROUND 1ull
+
+#define TERMS_LADDER_RAMP 1ull
+
+#define TERMS_LADDER_GAIN 2ll
+
+// crosstalk along x: 1/8 of each neighbour's value after the draw
+#define TERMS_CROSSTALK_EIGHTHS 1ull
+
+// charge before the gain: no light, gain 2, a reset variance of 4 beside the read's 4, and 16 dark electrons a frame
+// at the first exposure, 32 at the second, twice as long
+#define TERMS_CHARGE_GAIN 2ull
+
+#define TERMS_RESET_SQUARE 4ull
+
+#define TERMS_DARK 16ull
+
+#define TERMS_EXPOSURES 2ull
+
+// thinning: 64 electrons of light, each counted electron kept with chance a / 4 for a from 1 to 4
+#define TERMS_THIN_LIGHT 64ull
+
+#define TERMS_THIN_BITS 2u
+
+#define TERMS_THIN_STEPS 4ull
+
+// optical crosstalk: (1, 2, 1) / 4 along x over a plant along x of period 16 and amplitude 64
+#define TERMS_BLUR_EIGHTHS 2ull
+
+#define TERMS_BLUR_PERIOD 16ull
+
+#define TERMS_BLUR_AMPLITUDE 64ull
+
+#define TERMS_BLUR_KEY 0x424C5552ull
+
+// the structure function against the shared scale: a plant along x over the whole width, 60 to 180 electrons, and a
+// scale of 4 octaves of variance 1024 over 2^10, about 1 +- 6%
+#define TERMS_STRUCTURE_BACKGROUND 60ull
+
+#define TERMS_STRUCTURE_AMPLITUDE 120ull
+
+#define TERMS_STRUCTURE_KEY 0x5354525543ull
+
+#define TERMS_SCALE_SQUARE 1024ull
+
+#define TERMS_SCALE_OCTAVES 4u
+
+#define TERMS_SCALE_BITS 10u
+
+// the gain pattern: flat lights of 100, 200 and 400 electrons, each pixel's gain (1024 + p) / 1024, p in [-32, 32]
+#define TERMS_GAIN_PATTERN_REACH 32ull
+
+#define TERMS_GAIN_PATTERN_BITS 10u
+
+#define TERMS_FLAT_LIGHTS 3u
+
+static const unsigned long long TERMS_FLAT_LIGHT[TERMS_FLAT_LIGHTS] = {100ull, 200ull, 400ull};
+
+// the halves' covariance's reaches at each light with the gain pattern, in lane units squared
+static const unsigned long long TERMS_FLAT_REACH[TERMS_FLAT_LIGHTS][2] = {{1ull, 10ull}, {1ull, 5ull}, {2ull, 5ull}};
+
 static const unsigned long long TERMS_EXTENT[4] = {TERMS_FRAMES, TERMS_DEPTH, TERMS_HEIGHT, TERMS_WIDTH};
 
 static void terms_within(SimTally *tally, const char *what, long long read, long long expected, long long reach)
@@ -252,6 +314,435 @@ static void terms_shot_law(SimTally *tally, const unsigned short *lanes, unsigne
     {
         terms_within(tally, said[order], cumulants[order], expected[order], reach[order]);
     }
+}
+
+// numerator / denominator, the denominator positive, within reach_numerator / reach_denominator of expected_numerator
+// / expected_denominator: the difference cross-multiplied, |numerator ed rd - en denominator rd| against rn
+// denominator ed
+static void terms_ratio_within(SimTally *tally, const char *what, const AnchorExactInteger *numerator,
+                               const AnchorExactInteger *denominator, long long expected_numerator,
+                               unsigned long long expected_denominator, unsigned long long reach_numerator,
+                               unsigned long long reach_denominator)
+{
+    ScripturaLine *const line = &tally->line;
+    scriptura_text(line, "    ");
+    scriptura_text(line, what);
+    scriptura_text(line, ": read ");
+    sim_ratio_print(line, numerator, denominator, 4u);
+    scriptura_text(line, ", the plant predicts ");
+    // printed in lowest terms: a magnitude below 2^63 re-signs exactly
+    unsigned long long common = (expected_numerator < 0ll) ? (unsigned long long)(-expected_numerator)
+                                                          : (unsigned long long)expected_numerator;
+    unsigned long long other = expected_denominator;
+    while (other != 0ull)
+    {
+        const unsigned long long rest = common % other;
+        common = other;
+        other = rest;
+    }
+    common = (common == 0ull) ? 1ull : common;
+    // the common factor divides the numerator's magnitude, so the quotient keeps its sign and range
+    scriptura_signed(line, expected_numerator / (long long)common);
+    if ((expected_denominator / common) != 1ull)
+    {
+        scriptura_character(line, '/');
+        scriptura_decimal(line, expected_denominator / common, 1u);
+    }
+    scriptura_text(line, " within ");
+    scriptura_decimal(line, reach_numerator, 1u);
+    if (reach_denominator != 1ull)
+    {
+        scriptura_character(line, '/');
+        scriptura_decimal(line, reach_denominator, 1u);
+    }
+    scriptura_character(line, '\n');
+    AnchorExactInteger left;
+    AnchorExactInteger right;
+    AnchorExactInteger term;
+    sim_exact_signed(&term, expected_numerator);
+    int good = sim_exact_scaled(numerator, expected_denominator, &left)
+            && sim_exact_scaled(&left, reach_denominator, &left) && sim_exact_product(&term, denominator, &right)
+            && sim_exact_scaled(&right, reach_denominator, &right) && sim_exact_less(&left, &right, &left);
+    left.sign = (left.sign < 0) ? 1 : left.sign;
+    good = good && sim_exact_scaled(denominator, reach_numerator, &right)
+        && sim_exact_scaled(&right, expected_denominator, &right) && (anchor_exact_compare(&left, &right) <= 0);
+    sim_check(tally, good, what);
+}
+
+// C15 and C19 read back (build plan item 38). A Poisson shot at gain g over a ramp of levels, offset O and read
+// variance r^2, no fixed pattern: at a level L = O + g S the cumulants are k2 = g (L - O) + r^2, k3 = g^2 (L - O) and
+// k4 = g^3 (L - O) - r^2 / 2, so the ladder's slopes are g, g^2 and g^3, the k3 line crosses 0 at O, and the k2 line
+// reads r^2 there. A Poisson count holds both checks with equality, so the sim prints them and checks neither. Each
+// reach is about 5 standard errors of its reading over the static blocks here: the quiet static quarter of the view,
+// levels 22 to 84, 19 blocks of 5 frames a voxel.
+static void terms_ladder(SimTally *tally, const unsigned short *lanes)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseLadderReading reading;
+    const int good = noise_ladder_volume(lanes, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good, "the ladder read the volume");
+    if (good == 0)
+    {
+        return;
+    }
+    ScripturaLine *const line = &tally->line;
+    scriptura_text(line, "    ");
+    scriptura_decimal(line, reading.blocks, 1u);
+    scriptura_text(line, " blocks kept, ");
+    scriptura_decimal(line, reading.left_out, 1u);
+    scriptura_text(line, " left out; s3 >= s2^2 ");
+    scriptura_text(line, (reading.rising != 0) ? "holds" : "fails");
+    scriptura_text(line, ", s2 s4 >= s3^2 ");
+    scriptura_text(line, (reading.convex != 0) ? "holds" : "fails");
+    scriptura_character(line, '\n');
+    const long long gain = TERMS_LADDER_GAIN;
+    terms_ratio_within(tally, "s2, the k2 line's slope", &reading.cumulant[0].slope, &reading.cumulant[0].denominator,
+                       gain, 1ull, 1ull, 50ull);
+    terms_ratio_within(tally, "s3, the k3 line's slope", &reading.cumulant[1].slope, &reading.cumulant[1].denominator,
+                       gain * gain, 1ull, 1ull, 4ull);
+    terms_ratio_within(tally, "s4, the k4 line's slope", &reading.cumulant[2].slope, &reading.cumulant[2].denominator,
+                       gain * gain * gain, 1ull, 3ull, 1ull);
+    sim_check(tally, reading.tail != 0, "the k3 line has a slope, so the tail reads");
+    if (reading.tail == 0)
+    {
+        return;
+    }
+    // the offset and the read variance are each far below 2^31
+    terms_ratio_within(tally, "O, where the k3 line crosses 0", &reading.offset, &reading.offset_denominator,
+                       (long long)TERMS_OFFSET, 1ull, 3ull, 1ull);
+    terms_ratio_within(tally, "R^2, the k2 line at O", &reading.read_square, &reading.read_square_denominator,
+                       (long long)TERMS_READ_SQUARE, 1ull, 6ull, 1ull);
+}
+
+// crosstalk along x: every voxel takes alpha = TERMS_CROSSTALK_EIGHTHS / 8 of each x neighbour's value after the
+// draw, rounded to the nearest, read from a copy so each mixes unmixed values; the first and last columns take their
+// one neighbour
+static void terms_crosstalk_mix(unsigned short *lanes, const unsigned short *drawn)
+{
+    const unsigned long long rows = TERMS_FRAMES * TERMS_DEPTH * TERMS_HEIGHT;
+    for (unsigned long long row = 0ull; row < rows; row += 1ull)
+    {
+        const unsigned short *const from = &drawn[row * TERMS_WIDTH];
+        unsigned short *const into = &lanes[row * TERMS_WIDTH];
+        for (unsigned long long x = 0ull; x < TERMS_WIDTH; x += 1ull)
+        {
+            const unsigned long long left = (x != 0ull) ? from[x - 1ull] : 0ull;
+            const unsigned long long right = ((x + 1ull) < TERMS_WIDTH) ? from[x + 1ull] : 0ull;
+            const unsigned long long mixed = from[x] + (((TERMS_CROSSTALK_EIGHTHS * (left + right)) + 4ull) / 8ull);
+            // the scene's lanes are near 120, so a lane plus a quarter of two more stays far below 65536
+            into[x] = (unsigned short)mixed;
+        }
+    }
+}
+
+// C20 read back (build plan item 38): along x, a draw shared by alpha with each neighbour gives alpha = C1 / (2 V),
+// alpha^2 = C2 / V and C3 / V = 0; along y nothing is shared, so all three read 0. Over M products of frame
+// differences, each difference sharing a frame with the next, the null's C1 / (2 V) has a standard error of
+// sqrt(3/2) / (2 sqrt(M)) and C2 / V and C3 / V twice that: at M = 95 x 32 x 128 x 125, about 1/11000 and 1/5700, so
+// each reach is about 11 of them, room for the mix's larger ones.
+static void terms_crosstalk(SimTally *tally, const unsigned short *lanes, unsigned long long along_x_eighths)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseCrosstalkReading reading;
+    const int good = noise_crosstalk_volume(lanes, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good, "the crosstalk pass read the volume");
+    if (good == 0)
+    {
+        return;
+    }
+    const char *const axis_names[NOISE_CROSSTALK_AXES] = {"along y", "along x"};
+    for (unsigned int axis = 0u; axis < NOISE_CROSSTALK_AXES; axis += 1u)
+    {
+        // the planted share is a few eighths, far below 2^31
+        const long long eighths = (axis == 1u) ? (long long)along_x_eighths : 0ll;
+        scriptura_text(&tally->line, "    ");
+        scriptura_text(&tally->line, axis_names[axis]);
+        scriptura_text(&tally->line, ", over ");
+        scriptura_decimal(&tally->line, reading.pairs[axis], 1u);
+        scriptura_text(&tally->line, " frame differences\n");
+        AnchorExactInteger twice;
+        const int doubled = sim_exact_scaled(&reading.spread[axis], 2ull, &twice);
+        sim_check(tally, doubled && (reading.spread[axis].sign > 0), "V is positive");
+        if ((doubled == 0) || (reading.spread[axis].sign <= 0))
+        {
+            continue;
+        }
+        // no share reads as 0, not 0/8
+        const unsigned long long eighth = (eighths != 0ll) ? 8ull : 1ull;
+        terms_ratio_within(tally, "  alpha, C1 / (2 V)", &reading.steps[axis][0], &twice, eighths, eighth, 1ull,
+                           1000ull);
+        terms_ratio_within(tally, "  alpha^2, C2 / V", &reading.steps[axis][1], &reading.spread[axis],
+                           eighths * eighths, eighth * eighth, 1ull, 500ull);
+        terms_ratio_within(tally, "  C3 / V", &reading.steps[axis][2], &reading.spread[axis], 0ll, 1ull, 1ull, 500ull);
+    }
+}
+
+// C14 read back (build plan item 38). A bias series and a dark series, no light: the bias mean is O, the bias
+// E[d^2] / 2 is R^2 + kTC, the dark mean less the bias's is g D Δt, the dark E[d^2] / 2 less the bias's is g^2 D Δt,
+// and their ratio is g. Over 96 frames of 32 x 128 x 128, with a Poisson dark shot, the standard errors at 16 dark
+// electrons are about 1/2500 (O), 1/500 (R^2 + kTC), 1/800 (g D Δt), 1/55 (g^2 D Δt) and 1/1700 (g), and at 32 about
+// 1/600, 1/30 and 1/1900 for the last three, so each reach is at least 5 of them.
+static void terms_charge(SimTally *tally, const unsigned short *bias, const unsigned short *dark,
+                         const SimCamera *camera)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseChargeReading reading;
+    const int good = noise_charge_series(bias, dark, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good, "the charge pass read the series");
+    if (good == 0)
+    {
+        return;
+    }
+    // the offset, variances, gain and dark electrons are each far below 2^31
+    const long long gain = (long long)camera->gain;
+    const long long dark_electrons = (long long)camera->dark;
+    terms_ratio_within(tally, "O, the bias mean", &reading.offset, &reading.offset_denominator,
+                       (long long)camera->offset, 1ull, 1ull, 500ull);
+    terms_ratio_within(tally, "R^2 + kTC, the bias E[d^2] / 2", &reading.level_free, &reading.level_free_denominator,
+                       (long long)(camera->read_square + camera->reset_square), 1ull, 1ull, 100ull);
+    terms_ratio_within(tally, "g D dt, the dark mean less the bias's", &reading.dark_level,
+                       &reading.dark_level_denominator, gain * dark_electrons, 1ull, 1ull, 100ull);
+    terms_ratio_within(tally, "g^2 D dt, the dark E[d^2] / 2 less the bias's", &reading.dark_square,
+                       &reading.dark_square_denominator, gain * gain * dark_electrons, 1ull, 1ull, 5ull);
+    sim_check(tally, reading.gain_read != 0, "the dark mean differs from the bias's, so g reads");
+    if (reading.gain_read != 0)
+    {
+        terms_ratio_within(tally, "g, their ratio", &reading.gain, &reading.gain_denominator, gain, 1ull, 1ull, 300ull);
+    }
+}
+
+// C16 read back (build plan item 38). A lit series against the bias, as C14 reads a dark one: the lit mean less the
+// bias's is g q S and the lit E[d^2] / 2 less the bias's is g^2 f' q S, so their ratio is g f'. A count of Fano factor
+// f thinned by q holds f' - 1 = q (f - 1), and where the excess follows the thinning, f' = F^2 f at every q. The
+// standard error of the ratio is under 1/1000 in every run here, so a reach of 1/200 is at least 5 of them.
+static void terms_thinned(SimTally *tally, const unsigned short *bias, const unsigned short *lit, long long expected,
+                          unsigned long long expected_denominator)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseChargeReading reading;
+    const int good = noise_charge_series(bias, lit, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good && (reading.gain_read != 0), "the charge pass read the lit series against the bias");
+    if ((good == 0) || (reading.gain_read == 0))
+    {
+        return;
+    }
+    terms_ratio_within(tally, "  g f', the lit ratio", &reading.gain, &reading.gain_denominator, expected,
+                       expected_denominator, 1ull, 200ull);
+}
+
+// Row 16 read back: the light is blurred before the draw, so every column's mean over the frames, z and y is the
+// offset, the pattern's column mean and g times the blurred light, within 1/8 of a lane unit, 6 to 8 standard errors
+// over its 393,216 voxel-frames at levels 120 to 184; and the kernel moves the planted light by more than 1
+// somewhere.
+static void terms_blur(SimTally *tally, const unsigned short *lanes, const SimScene *scene, const SimCamera *camera)
+{
+    const unsigned long long plane = TERMS_HEIGHT * TERMS_WIDTH;
+    const unsigned long long voxels = TERMS_DEPTH * plane;
+    const unsigned long long samples = TERMS_FRAMES * TERMS_DEPTH * TERMS_HEIGHT;
+    unsigned long long worst = 0ull;
+    unsigned long long moved = 0ull;
+    for (unsigned long long x = 0ull; x < TERMS_WIDTH; x += 1ull)
+    {
+        // a column index is far below 2^63
+        const long long place[SIM_AXES] = {0ll, 0ll, (long long)x};
+        const unsigned long long light = sim_light(scene, camera, 0ull, place);
+        const unsigned long long planted = sim_signal(scene, 0ull, place);
+        const unsigned long long shift = (light > planted) ? (light - planted) : (planted - light);
+        moved = (shift > moved) ? shift : moved;
+        unsigned long long pattern = 0ull;
+        unsigned long long total = 0ull;
+        for (unsigned long long z = 0ull; z < TERMS_DEPTH; z += 1ull)
+        {
+            for (unsigned long long y = 0ull; y < TERMS_HEIGHT; y += 1ull)
+            {
+                const unsigned long long voxel = (((z * TERMS_HEIGHT) + y) * TERMS_WIDTH) + x;
+                pattern += sim_pattern(camera, voxel);
+                for (unsigned long long frame = 0ull; frame < TERMS_FRAMES; frame += 1ull)
+                {
+                    total += lanes[(frame * voxels) + voxel];
+                }
+            }
+        }
+        const unsigned long long expected = (samples * (camera->offset + (camera->gain * light)))
+                                          + (TERMS_FRAMES * pattern);
+        const unsigned long long apart = (total > expected) ? (total - expected) : (expected - total);
+        worst = (apart > worst) ? apart : worst;
+    }
+    scriptura_text(&tally->line, "    the worst column's mean less the blurred light's: ");
+    sim_fraction_print(&tally->line, worst, samples, 4u);
+    scriptura_text(&tally->line, " lane units; the kernel moves the planted light by up to ");
+    scriptura_decimal(&tally->line, moved, 1u);
+    scriptura_text(&tally->line, " electrons\n");
+    sim_check(tally, (8ull * worst) <= samples, "every column's mean is the blurred light's within 1/8");
+    sim_check(tally, moved > 1ull, "the kernel moves the planted light by more than 1 somewhere");
+}
+
+// C17 read back (build plan item 38). The scale moves a pair's d_k - d_{k,x} by (ε_{t+k} - ε_t) g (S - S_x), and
+// L - L_x = g (S - S_x)(1 + mean ε), so D_a(k) reads the scale path's mean squared step over (1 + mean ε)^2, from the
+// path the camera drew: 10^6 T^2 Σ_t (e_{t+k} - e_t)^2 / ((T - k)(2^b T + Σ_t e_t)^2) in millionths. The intercept
+// reads the pairs' own noise, the mean over the pairs in 40 to 199 and their frame pairs of g^2 times the four
+// lights plus 4 R^2; the rounded scale adds about 1/3 to it. The slope's standard error, estimated from the plant, is
+// under 100 millionths at every lag and the intercept's about 0.2, so the reaches of 500 millionths and 1 are at least
+// 5 of them.
+static void terms_structure(SimTally *tally, const unsigned short *lanes, const SimScene *scene,
+                            const SimCamera *camera)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    // the reading's 28 exact integers are held off the stack
+    NoiseStructureReading *const reading = (NoiseStructureReading *)malloc(sizeof(NoiseStructureReading));
+    const int good = (reading != NULL) && (noise_structure_volume(lanes, TERMS_EXTENT, reading, &error) == 0L);
+    sim_check(tally, good, "the structure pass read the volume");
+    unsigned long long *const light = (unsigned long long *)malloc(TERMS_WIDTH * TERMS_FRAMES
+                                                                   * sizeof(unsigned long long));
+    sim_check(tally, light != NULL, "the lights' table");
+    if ((good == 0) || (light == NULL))
+    {
+        free(reading);
+        free(light);
+        return;
+    }
+    // the light at every column and frame, exactly as the camera drew it: the scene has no body, so every z and y of a
+    // column holds the same light
+    for (unsigned long long x = 0ull; x < TERMS_WIDTH; x += 1ull)
+    {
+        // a column index is far below 2^63
+        const long long place[SIM_AXES] = {0ll, 0ll, (long long)x};
+        for (unsigned long long frame = 0ull; frame < TERMS_FRAMES; frame += 1ull)
+        {
+            light[(x * TERMS_FRAMES) + frame] = sim_light(scene, camera, frame, place);
+        }
+    }
+    long long path[TERMS_FRAMES];
+    long long path_total = 0ll;
+    long long least = 0ll;
+    long long most = 0ll;
+    for (unsigned long long frame = 0ull; frame < TERMS_FRAMES; frame += 1ull)
+    {
+        path[frame] = (camera->scale_bits != 0u) ? sim_scale(camera, frame) : 0ll;
+        path_total += path[frame];
+        least = ((frame == 0ull) || (path[frame] < least)) ? path[frame] : least;
+        most = ((frame == 0ull) || (path[frame] > most)) ? path[frame] : most;
+    }
+    const long long unit = (camera->scale_bits != 0u) ? (1ll << camera->scale_bits) : 1ll;
+    scriptura_text(&tally->line, "    e_t from ");
+    scriptura_signed(&tally->line, least);
+    scriptura_text(&tally->line, " to ");
+    scriptura_signed(&tally->line, most);
+    scriptura_text(&tally->line, ", summing to ");
+    scriptura_signed(&tally->line, path_total);
+    scriptura_text(&tally->line, " over the frames\n");
+    // the gain, offset and read variance are each far below 2^31
+    const unsigned long long gain = camera->gain;
+    const char *const said[NOISE_FLICKER_LAGS] = {"lag 1", "lag 2", "lag 4", "lag 8", "lag 16", "lag 32", "lag 64"};
+    for (unsigned int lag = 0u; lag < NOISE_FLICKER_LAGS; lag += 1u)
+    {
+        const unsigned long long apart = 1ull << lag;
+        const unsigned long long frame_pairs = TERMS_FRAMES - apart;
+        unsigned long long steps = 0ull;
+        for (unsigned long long frame = 0ull; frame < frame_pairs; frame += 1ull)
+        {
+            const long long step = path[frame + apart] - path[frame];
+            // a step of a few hundred squares far below 2^63, and re-signs exactly
+            steps += (unsigned long long)(step * step);
+        }
+        // the pairs in 40 to 199 by their lights' totals, and their own noise over the frame pairs
+        unsigned long long included = 0ull;
+        unsigned long long own = 0ull;
+        for (unsigned long long x = 0ull; (x + 1ull) < TERMS_WIDTH; x += 1ull)
+        {
+            const unsigned long long *const here = &light[x * TERMS_FRAMES];
+            const unsigned long long *const beside = &light[(x + 1ull) * TERMS_FRAMES];
+            unsigned long long totals = 0ull;
+            for (unsigned long long frame = 0ull; frame < TERMS_FRAMES; frame += 1ull)
+            {
+                totals += (2ull * camera->offset) + (gain * (here[frame] + beside[frame]));
+            }
+            const unsigned long long level_bin = totals / (16ull * TERMS_FRAMES);
+            if ((level_bin < 5ull) || (level_bin > 24ull))
+            {
+                continue;
+            }
+            included += 1ull;
+            for (unsigned long long frame = 0ull; frame < frame_pairs; frame += 1ull)
+            {
+                own += (gain * gain * (here[frame] + here[frame + apart] + beside[frame] + beside[frame + apart]))
+                     + (4ull * camera->read_square);
+            }
+        }
+        scriptura_text(&tally->line, "    ");
+        scriptura_text(&tally->line, said[lag]);
+        scriptura_text(&tally->line, ", over ");
+        scriptura_decimal(&tally->line, reading->pairs[lag], 1u);
+        scriptura_text(&tally->line, " frame pairs\n");
+        sim_check(tally, reading->read[lag] != 0, "some bin's q spans two values, so the line reads");
+        if (reading->read[lag] == 0)
+        {
+            continue;
+        }
+        // the unit times the frames, and the path's total, are each far below 2^31
+        const long long level = (unit * (long long)TERMS_FRAMES) + path_total;
+        // each factor is small here: the product stays far below 2^63, the denominator below 2^64
+        const long long expected = (long long)(1000000ull * TERMS_FRAMES * TERMS_FRAMES * steps);
+        const unsigned long long expected_denominator = frame_pairs * (unsigned long long)(level * level);
+        AnchorExactInteger millionths;
+        const int scaled = sim_exact_scaled(&reading->slope[lag], 1000000ull, &millionths);
+        sim_check(tally, scaled, "the slope in millionths");
+        if (scaled)
+        {
+            terms_ratio_within(tally, "  D_a(k), millionths", &millionths, &reading->slope_denominator[lag], expected,
+                               expected_denominator, 500ull, 1ull);
+        }
+        // the own noise summed is far below 2^63
+        terms_ratio_within(tally, "  2 D(k), the pairs' own noise", &reading->intercept[lag],
+                           &reading->intercept_denominator[lag], (long long)own, included * frame_pairs, 1ull, 1ull);
+    }
+    free(reading);
+    free(light);
+}
+
+// Rows 18 and 19 read back. Under a flat light S the halves' covariance is var(p) (g S)^2 over the pixels' drawn p,
+// (P Σ p^2 - (Σ p)^2) g^2 S^2 / (P^2 2^(2b)): the fixed pattern is drawn per voxel, so no two planes share it, and the
+// null reads 0. The pattern and the draws, independent between the halves with variance h^2 in a half's mean, spread
+// the reading by sqrt((var(p) g^2 S^2 2 h^2 + h^4) / P): about 1/70, 1/33 and 1/15 lane units squared at the three
+// lights with the gain pattern, and 1/260 to 1/190 in the null, so the reaches of 1/10, 1/5 and 2/5, and 1/30, are
+// each at least 6 of them.
+static void terms_halves(SimTally *tally, const unsigned short *lanes, const SimCamera *camera,
+                         unsigned long long light, unsigned long long reach_numerator,
+                         unsigned long long reach_denominator)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    NoiseHalvesReading reading;
+    const int good = noise_halves_volume(lanes, TERMS_EXTENT, &reading, &error) == 0L;
+    sim_check(tally, good, "the halves pass read the volume");
+    if (good == 0)
+    {
+        return;
+    }
+    const unsigned long long pixels = TERMS_HEIGHT * TERMS_WIDTH;
+    long long spread = 0ll;
+    unsigned long long spread_square = 0ull;
+    for (unsigned long long pixel = 0ull; pixel < pixels; pixel += 1ull)
+    {
+        const long long own = sim_gain_spread(camera, pixel);
+        spread += own;
+        // a spread of at most 32 squares exactly
+        spread_square += (unsigned long long)(own * own);
+    }
+    // P Σ p^2 - (Σ p)^2 is below 2^40 here, and g S below 2^10, so the product is far below 2^63
+    const long long varied = (long long)(pixels * spread_square) - (spread * spread);
+    const long long gained = (long long)(camera->gain * light);
+    const unsigned long long unit = (camera->gain_pattern_bits != 0u) ? (1ull << camera->gain_pattern_bits) : 1ull;
+    scriptura_text(&tally->line, "    the level: ");
+    sim_ratio_print(&tally->line, &reading.level, &reading.level_denominator, 4u);
+    scriptura_character(&tally->line, '\n');
+    terms_ratio_within(tally, "  the halves' covariance", &reading.covariance, &reading.covariance_denominator,
+                       varied * gained * gained, pixels * pixels * unit * unit, reach_numerator, reach_denominator);
 }
 
 // The clip pass against the plant: spikes at 128 in one voxel-frame of 1024, dips never. At 16 and 32 a symmetric
@@ -539,6 +1030,198 @@ int main(void)
             terms_spikes(&tally, lanes, 0ull, laws[each]);
         }
         sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  the ladder and the tail: a Poisson shot at gain 2 over 1 to 128 electrons along x,"
+                                    " offset 20, read variance 4, no fixed pattern\n");
+        terms_camera(&camera);
+        // the gain is a small positive constant
+        camera.gain = (unsigned long long)TERMS_LADDER_GAIN;
+        camera.pattern_reach = 0ull;
+        scene.background = TERMS_LADDER_BACKGROUND;
+        scene.ramp = TERMS_LADDER_RAMP;
+        if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+        {
+            terms_ladder(&tally, lanes);
+        }
+        scene.background = TERMS_BACKGROUND;
+        scene.ramp = 0ull;
+        sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  crosstalk read in the null\n");
+        terms_camera(&camera);
+        unsigned short *const drawn = (unsigned short *)malloc((size_t)lane_bytes);
+        sim_check(&tally, drawn != NULL, "the crosstalk copy");
+        if ((drawn != NULL) && terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+        {
+            terms_crosstalk(&tally, lanes, 0ull);
+            sim_flush(&tally);
+            scriptura_text(&tally.line, "  the null with each voxel taking 1/8 of each x neighbour's value after the draw"
+                                        "\n");
+            memcpy(drawn, lanes, (size_t)lane_bytes);
+            terms_crosstalk_mix(lanes, drawn);
+            terms_crosstalk(&tally, lanes, TERMS_CROSSTALK_EIGHTHS);
+        }
+        free(drawn);
+        sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  charge before the gain: no light, offset 20, gain 2, read variance 4, reset variance"
+                                    " 4, a Poisson dark shot; a bias series, then a dark series at 16 and at 32 dark"
+                                    " electrons a frame\n");
+        // no fixed pattern, so each series draws on its own key as a second series of one camera would
+        terms_camera(&camera);
+        camera.gain = TERMS_CHARGE_GAIN;
+        camera.pattern_reach = 0ull;
+        camera.reset_square = TERMS_RESET_SQUARE;
+        scene.background = 0ull;
+        unsigned short *const bias = (unsigned short *)malloc((size_t)lane_bytes);
+        sim_check(&tally, bias != NULL, "the bias series");
+        if ((bias != NULL) && terms_render(&tally, &scene, &camera, device_lanes, bias, count))
+        {
+            for (unsigned long long exposure = 1ull; exposure <= TERMS_EXPOSURES; exposure += 1ull)
+            {
+                camera.key = TERMS_KEY + exposure;
+                camera.dark = exposure * TERMS_DARK;
+                scriptura_text(&tally.line, "    ");
+                scriptura_decimal(&tally.line, camera.dark, 1u);
+                scriptura_text(&tally.line, " dark electrons a frame\n");
+                if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+                {
+                    terms_charge(&tally, bias, lanes, &camera);
+                }
+            }
+            sim_flush(&tally);
+            scriptura_text(&tally.line, "  thinning: 64 electrons of light against the same bias, each counted electron"
+                                        " kept with chance q = a/4; g f' = g (1 + q (f - 1))\n");
+            camera.dark = 0ull;
+            scene.background = TERMS_THIN_LIGHT;
+            const unsigned long long thin_laws[3] = {SIM_SHOT_POISSON, SIM_SHOT_HALF, SIM_SHOT_PAIRED};
+            // each law's Fano factor, a numerator over a denominator
+            const long long fano_numerator[3] = {1ll, 1ll, 2ll};
+            const long long fano_denominator[3] = {1ll, 2ll, 1ll};
+            const char *const thin_names[3] = {"    the Poisson count, f = 1\n", "    Binomial(2S, 1/2), f = 1/2\n",
+                                               "    twice a Poisson count of pairs, f = 2\n"};
+            for (unsigned int law = 0u; law < 3u; law += 1u)
+            {
+                scriptura_text(&tally.line, thin_names[law]);
+                camera.shot = thin_laws[law];
+                camera.keep_bits = TERMS_THIN_BITS;
+                for (unsigned long long keep = 1ull; keep <= TERMS_THIN_STEPS; keep += 1ull)
+                {
+                    camera.key = TERMS_KEY + (16ull * (law + 1ull)) + keep;
+                    camera.keep_numerator = keep;
+                    scriptura_text(&tally.line, "    q = ");
+                    scriptura_decimal(&tally.line, keep, 1u);
+                    scriptura_text(&tally.line, "/4\n");
+                    if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+                    {
+                        // g (4 d + a (n - d)) / (4 d), each term a few units
+                        const long long denominator = 4ll * fano_denominator[law];
+                        const long long numerator = (long long)camera.gain
+                                                  * (denominator + ((long long)keep
+                                                                    * (fano_numerator[law] - fano_denominator[law])));
+                        terms_thinned(&tally, bias, lanes, numerator, (unsigned long long)denominator);
+                    }
+                }
+                sim_flush(&tally);
+            }
+            scriptura_text(&tally.line, "    the Poisson count thinned, then the excess, F^2 = 2: g f' = 2 g at every q\n");
+            camera.shot = SIM_SHOT_POISSON;
+            camera.excess = 1u;
+            for (unsigned long long keep = 1ull; keep <= TERMS_THIN_STEPS; keep += 3ull)
+            {
+                camera.key = TERMS_KEY + 128ull + keep;
+                camera.keep_numerator = keep;
+                scriptura_text(&tally.line, "    q = ");
+                scriptura_decimal(&tally.line, keep, 1u);
+                scriptura_text(&tally.line, "/4\n");
+                if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+                {
+                    // the gain is a small positive constant
+                    terms_thinned(&tally, bias, lanes, 2ll * (long long)camera.gain, 1ull);
+                }
+            }
+        }
+        free(bias);
+        scene.background = TERMS_BACKGROUND;
+        sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  optical crosstalk: a plant along x of period 16 and amplitude 64 over 100 electrons,"
+                                    " blurred by (1, 2, 1)/4 along x before the draw\n");
+        terms_camera(&camera);
+        camera.blur_eighths = TERMS_BLUR_EIGHTHS;
+        scene.plant_axis = 2u;
+        scene.plant_period = TERMS_BLUR_PERIOD;
+        scene.plant_amplitude = TERMS_BLUR_AMPLITUDE;
+        scene.plant_key = TERMS_BLUR_KEY;
+        if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+        {
+            terms_blur(&tally, lanes, &scene, &camera);
+            terms_neighbours(&tally, lanes, 0ll);
+            terms_crosstalk(&tally, lanes, 0ull);
+        }
+        scene.plant_period = 0ull;
+        scene.plant_amplitude = 0ull;
+        sim_flush(&tally);
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  the structure function against the shared scale: a plant along x of 60 to 180"
+                                    " electrons, no fixed pattern; the null, then a light scale of 4 octaves of variance"
+                                    " 1024 over 2^10, octave o held 2^o frames\n");
+        terms_camera(&camera);
+        camera.pattern_reach = 0ull;
+        scene.background = TERMS_STRUCTURE_BACKGROUND;
+        scene.plant_axis = 2u;
+        scene.plant_period = TERMS_WIDTH;
+        scene.plant_amplitude = TERMS_STRUCTURE_AMPLITUDE;
+        scene.plant_key = TERMS_STRUCTURE_KEY;
+        for (unsigned int scaled = 0u; scaled < 2u; scaled += 1u)
+        {
+            scriptura_text(&tally.line, (scaled != 0u) ? "    the scale\n" : "    the null\n");
+            camera.scale_square = (scaled != 0u) ? TERMS_SCALE_SQUARE : 0ull;
+            camera.scale_octaves = (scaled != 0u) ? TERMS_SCALE_OCTAVES : 0u;
+            camera.scale_bits = (scaled != 0u) ? TERMS_SCALE_BITS : 0u;
+            if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+            {
+                terms_structure(&tally, lanes, &scene, &camera);
+            }
+            sim_flush(&tally);
+        }
+        scene.background = TERMS_BACKGROUND;
+        scene.plant_period = 0ull;
+        scene.plant_amplitude = 0ull;
+    }
+    if (good)
+    {
+        scriptura_text(&tally.line, "  the gain pattern: flat lights of 100, 200 and 400 electrons, the fixed pattern per"
+                                    " voxel; the null, then each pixel's gain (1024 + p)/1024, p in [-32, 32]\n");
+        terms_camera(&camera);
+        for (unsigned int patterned = 0u; patterned < 2u; patterned += 1u)
+        {
+            scriptura_text(&tally.line, (patterned != 0u) ? "    the gain pattern\n" : "    the null\n");
+            camera.gain_pattern_reach = (patterned != 0u) ? TERMS_GAIN_PATTERN_REACH : 0ull;
+            camera.gain_pattern_bits = (patterned != 0u) ? TERMS_GAIN_PATTERN_BITS : 0u;
+            for (unsigned int flat = 0u; flat < TERMS_FLAT_LIGHTS; flat += 1u)
+            {
+                scene.background = TERMS_FLAT_LIGHT[flat];
+                if (terms_render(&tally, &scene, &camera, device_lanes, lanes, count))
+                {
+                    terms_halves(&tally, lanes, &camera, TERMS_FLAT_LIGHT[flat],
+                                 (patterned != 0u) ? TERMS_FLAT_REACH[flat][0] : 1ull,
+                                 (patterned != 0u) ? TERMS_FLAT_REACH[flat][1] : 30ull);
+                }
+            }
+            sim_flush(&tally);
+        }
+        scene.background = TERMS_BACKGROUND;
     }
     cudaFree(device_lanes);
     free(lanes);

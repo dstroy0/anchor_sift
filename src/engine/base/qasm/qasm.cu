@@ -705,6 +705,7 @@ static int qasm_sweep(QasmSpace *space, const QasmProgram *programs, const QasmG
         run.index = space->index;
         run.count = lanes;
         run.out = space->out;
+        run.error = error;
         if (!QASM_HELD(cycle_record_run_host(&run) != CYCLE_REFUSED, gate, error, ENGINE_ERROR_LOGIC))
         {
             return 0;
@@ -778,6 +779,7 @@ static int qasm_probabilities(QasmSpace *space, const QasmProgram *program, Qasm
         run.bodies[0] = lanes;
         run.count = lanes;
         run.out = space->out;
+        run.error = error;
         if (!QASM_HELD(cycle_record_run_host(&run) != CYCLE_REFUSED, space, error, ENGINE_ERROR_LOGIC))
         {
             return 0;

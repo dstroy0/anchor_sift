@@ -85,7 +85,9 @@ qasm_build()
     SCRIPTURA_OBJECTS=()
     local source
     local object
-    for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$CYCLE/cycle.c" "$QASM/qasm.c"; do
+    for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "$CYCLE/cycle.c" "$QASM/qasm.c" \
+                  "$QASM/qasm_field.c" "$QASM/qasm_dense.c" "$QASM/qasm_chain.c" "$QASM/qasm_symbolic.c" \
+                  "$QASM/qasm_lens.c"; do
         object="$OUT/$(basename "$source" .c)_c.$EXTENSION"
         qasm_c_object "$source" "$object" || return 1
         OBJECTS+=("$object")
@@ -93,7 +95,8 @@ qasm_build()
             scriptura*) SCRIPTURA_OBJECTS+=("$object") ;;
         esac
     done
-    for source in "$QASM/qasm.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu"; do
+    for source in "$QASM/qasm.cu" "$QASM/qasm_self.cu" "$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" \
+                  "$KEY_SCHEDULE/key_schedule.cu"; do
         object="$OUT/$(basename "$source" .cu)_cu.$EXTENSION"
         qasm_cu_object "$source" "$object" || return 1
         OBJECTS+=("$object")

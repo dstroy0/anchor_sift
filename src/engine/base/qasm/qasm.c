@@ -38,13 +38,13 @@ typedef struct
 {
     AnchorExactInteger num;
     AnchorExactInteger den;
-} QasmRational;
+} QasmFraction;
 
 // a + b pi
 typedef struct
 {
-    QasmRational a;
-    QasmRational b;
+    QasmFraction a;
+    QasmFraction b;
 } QasmAngle;
 
 typedef enum
@@ -172,14 +172,14 @@ static int qasm_exact_is_zero(const AnchorExactInteger *value)
     return value->sign == 0;
 }
 
-static void qasm_rational_integer(QasmRational *value, long long integer)
+static void qasm_fraction_integer(QasmFraction *value, long long integer)
 {
     qasm_exact_set(&value->num, (integer < 0) ? (unsigned long long)(-integer) : (unsigned long long)integer,
                    integer < 0);
     qasm_exact_set(&value->den, 1ull, 0);
 }
 
-static int qasm_rational_reduce(QasmParser *parser, QasmRational *value)
+static int qasm_fraction_reduce(QasmParser *parser, QasmFraction *value)
 {
     if (qasm_exact_is_zero(&value->num))
     {
@@ -202,8 +202,8 @@ static int qasm_rational_reduce(QasmParser *parser, QasmRational *value)
     return 1;
 }
 
-static int qasm_rational_add(QasmParser *parser, const QasmRational *left, const QasmRational *right, int subtract,
-                             QasmRational *result)
+static int qasm_fraction_add(QasmParser *parser, const QasmFraction *left, const QasmFraction *right, int subtract,
+                             QasmFraction *result)
 {
     AnchorExactInteger one;
     AnchorExactInteger two;
@@ -221,57 +221,57 @@ static int qasm_rational_add(QasmParser *parser, const QasmRational *left, const
         return 0;
     }
     result->den = den;
-    return qasm_rational_reduce(parser, result);
+    return qasm_fraction_reduce(parser, result);
 }
 
-static int qasm_rational_multiply(QasmParser *parser, const QasmRational *left, const QasmRational *right,
-                                  QasmRational *result)
+static int qasm_fraction_multiply(QasmParser *parser, const QasmFraction *left, const QasmFraction *right,
+                                  QasmFraction *result)
 {
-    QasmRational made;
+    QasmFraction made;
     if (!qasm_exact_ok(parser, anchor_exact_multiply(&left->num, &right->num, &made.num))
      || !qasm_exact_ok(parser, anchor_exact_multiply(&left->den, &right->den, &made.den)))
     {
         return 0;
     }
     *result = made;
-    return qasm_rational_reduce(parser, result);
+    return qasm_fraction_reduce(parser, result);
 }
 
-static int qasm_rational_divide(QasmParser *parser, const QasmRational *left, const QasmRational *right,
-                                QasmRational *result)
+static int qasm_fraction_divide(QasmParser *parser, const QasmFraction *left, const QasmFraction *right,
+                                QasmFraction *result)
 {
-    QasmRational made;
+    QasmFraction made;
     if (!qasm_exact_ok(parser, anchor_exact_multiply(&left->num, &right->den, &made.num))
      || !qasm_exact_ok(parser, anchor_exact_multiply(&left->den, &right->num, &made.den)))
     {
         return 0;
     }
     *result = made;
-    return qasm_rational_reduce(parser, result);
+    return qasm_fraction_reduce(parser, result);
 }
 
 static void qasm_angle_rational(QasmAngle *angle, long long a_num, long long a_den, long long b_num, long long b_den)
 {
-    qasm_rational_integer(&angle->a, a_num);
+    qasm_fraction_integer(&angle->a, a_num);
     qasm_exact_set(&angle->a.den, (unsigned long long)a_den, 0);
-    qasm_rational_integer(&angle->b, b_num);
+    qasm_fraction_integer(&angle->b, b_num);
     qasm_exact_set(&angle->b.den, (unsigned long long)b_den, 0);
 }
 
 static int qasm_angle_add(QasmParser *parser, const QasmAngle *left, const QasmAngle *right, int subtract,
                           QasmAngle *result)
 {
-    return qasm_rational_add(parser, &left->a, &right->a, subtract, &result->a)
-        && qasm_rational_add(parser, &left->b, &right->b, subtract, &result->b);
+    return qasm_fraction_add(parser, &left->a, &right->a, subtract, &result->a)
+        && qasm_fraction_add(parser, &left->b, &right->b, subtract, &result->b);
 }
 
 static int qasm_angle_scale(QasmParser *parser, const QasmAngle *angle, long long num, long long den, QasmAngle *result)
 {
-    QasmRational factor;
-    qasm_rational_integer(&factor, num);
+    QasmFraction factor;
+    qasm_fraction_integer(&factor, num);
     qasm_exact_set(&factor.den, (unsigned long long)den, 0);
-    return qasm_rational_multiply(parser, &angle->a, &factor, &result->a)
-        && qasm_rational_multiply(parser, &angle->b, &factor, &result->b);
+    return qasm_fraction_multiply(parser, &angle->a, &factor, &result->a)
+        && qasm_fraction_multiply(parser, &angle->b, &factor, &result->b);
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -300,7 +300,7 @@ static int qasm_fixed_divide_small(QasmParser *parser, const AnchorExactInteger 
 }
 
 // the rational times 2^QASM_GUARD_BITS times `with` (or 2^QASM_GUARD_BITS alone when with is NULL), toward zero
-static int qasm_fixed_rational(QasmParser *parser, const QasmRational *value, const AnchorExactInteger *with,
+static int qasm_fixed_rational(QasmParser *parser, const QasmFraction *value, const AnchorExactInteger *with,
                                AnchorExactInteger *result)
 {
     AnchorExactInteger scaled;
@@ -364,7 +364,7 @@ static int qasm_cos_sin(QasmParser *parser, const QasmAngle *angle, AnchorExactI
                         unsigned long long *slack)
 {
     // b mod 2, exactly: b - 2 floor(b / 2)
-    QasmRational b = angle->b;
+    QasmFraction b = angle->b;
     {
         AnchorExactInteger twice_den;
         AnchorExactInteger turns;
@@ -385,7 +385,7 @@ static int qasm_cos_sin(QasmParser *parser, const QasmAngle *angle, AnchorExactI
             }
         }
         b.num = remainder;
-        if (!qasm_rational_reduce(parser, &b))
+        if (!qasm_fraction_reduce(parser, &b))
         {
             return 0;
         }
@@ -901,7 +901,7 @@ static int qasm_number(QasmParser *parser, const QasmToken *token, QasmAngle *va
             return 0;
         }
     }
-    QasmRational number;
+    QasmFraction number;
     if (!qasm_exact_ok(parser, anchor_exact_from_decimal(text, mantissa_end, places, &number.num)))
     {
         return 0;
@@ -919,12 +919,12 @@ static int qasm_number(QasmParser *parser, const QasmToken *token, QasmAngle *va
     {
         return 0;
     }
-    if (!qasm_rational_reduce(parser, &number))
+    if (!qasm_fraction_reduce(parser, &number))
     {
         return 0;
     }
     value->a = number;
-    qasm_rational_integer(&value->b, 0);
+    qasm_fraction_integer(&value->b, 0);
     return 1;
 }
 
@@ -1039,8 +1039,8 @@ static int qasm_term(QasmParser *parser, const QasmScope *scope, QasmAngle *valu
                                                     : "a parameter divides by zero");
                 return 0;
             }
-            if (!qasm_rational_divide(parser, &value->a, &right.a, &value->a)
-             || !qasm_rational_divide(parser, &value->b, &right.a, &value->b))
+            if (!qasm_fraction_divide(parser, &value->a, &right.a, &value->a)
+             || !qasm_fraction_divide(parser, &value->b, &right.a, &value->b))
             {
                 return 0;
             }
@@ -1053,11 +1053,11 @@ static int qasm_term(QasmParser *parser, const QasmScope *scope, QasmAngle *valu
         }
         // (a1 + b1 pi)(a2 + b2 pi) with b1 b2 = 0
         QasmAngle made;
-        QasmRational cross;
-        if (!qasm_rational_multiply(parser, &value->a, &right.a, &made.a)
-         || !qasm_rational_multiply(parser, &value->a, &right.b, &made.b)
-         || !qasm_rational_multiply(parser, &value->b, &right.a, &cross)
-         || !qasm_rational_add(parser, &made.b, &cross, 0, &made.b))
+        QasmFraction cross;
+        if (!qasm_fraction_multiply(parser, &value->a, &right.a, &made.a)
+         || !qasm_fraction_multiply(parser, &value->a, &right.b, &made.b)
+         || !qasm_fraction_multiply(parser, &value->b, &right.a, &cross)
+         || !qasm_fraction_add(parser, &made.b, &cross, 0, &made.b))
         {
             return 0;
         }
@@ -1296,10 +1296,10 @@ static int qasm_quarter_turns(QasmParser *parser, const QasmAngle *angle)
     {
         return -1;
     }
-    QasmRational twice;
-    QasmRational two;
-    qasm_rational_integer(&two, 2);
-    if (!qasm_rational_multiply(parser, &angle->b, &two, &twice))
+    QasmFraction twice;
+    QasmFraction two;
+    qasm_fraction_integer(&two, 2);
+    if (!qasm_fraction_multiply(parser, &angle->b, &two, &twice))
     {
         return -1;
     }

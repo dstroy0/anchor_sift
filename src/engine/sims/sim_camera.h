@@ -28,12 +28,31 @@
 
 #define SIM_SPIKE_PURPOSE 0x5350494B45ull
 
+#define SIM_RESET_PURPOSE 0x5245534554ull
+
+#define SIM_THIN_PURPOSE 0x5448494Eull
+
+#define SIM_EXCESS_PURPOSE 0x455843455353ull
+
+#define SIM_SCALE_PURPOSE 0x5343414C45ull
+
+#define SIM_GAIN_PATTERN_PURPOSE 0x50524E55ull
+
+#define SIM_GAIN_ROUND_PURPOSE 0x524F554E44ull
+
 // the camera's shot laws, 0 for none: sim_poisson_four_cumulants, the camera's own, whose first four cumulants are
 // each S, a Poisson count's; and Binomial(4S, 1/2) - S, of mean and variance S but symmetric (third cumulant 0,
 // fourth -S/2), kept for a sim to read beside it
 #define SIM_SHOT_POISSON 1ull
 
 #define SIM_SHOT_SYMMETRIC 2ull
+
+// two more counts for a sim to thin (rows 13 and 14): Binomial(2S, 1/2), of mean S and variance S / 2, Fano factor
+// 1/2, a sub-Poisson source; and twice the camera's Poisson count of S / 2 pairs, S even, of mean S and variance 2 S,
+// Fano factor 2, a bunched source
+#define SIM_SHOT_HALF 3ull
+
+#define SIM_SHOT_PAIRED 4ull
 
 typedef struct
 {
@@ -81,6 +100,32 @@ typedef struct
     unsigned long long spike_numerator;
     unsigned long long spike_denominator;
     unsigned long long spike_electrons;
+    // charge before and beside the gain (rows 2, 3 and 6), each 0 unless set: the dark electrons a voxel collects a
+    // frame at the camera's exposure, D Δt, drawn with the light by the shot law; and a reset offset of this variance
+    // drawn per voxel-frame (kTC), level-free like the read
+    unsigned long long dark;
+    unsigned long long reset_square;
+    // a count law's stages after the draw, each off unless set (rows 12 to 14): every counted electron kept with
+    // chance keep_numerator / 2^keep_bits, keep_bits 1 to 16 (quantum efficiency, a binomial thinning); then, where
+    // excess is set, every electron left doubled or lost with chance 1/2, F^2 = 2 (an electron-multiplying register)
+    unsigned long long keep_numerator;
+    unsigned int keep_bits;
+    unsigned int excess;
+    // optical crosstalk (row 16), 0 unless set, 1 to 4: the light takes blur_eighths / 8 of each x neighbour's before
+    // the draw and keeps (8 - 2 blur_eighths) / 8 of its own, rounded to the nearest; an edge voxel's missing
+    // neighbour is itself
+    unsigned long long blur_eighths;
+    // a light scale shared by the whole volume, with memory (row 10), off unless scale_bits is set, 1 to 32: frame t's
+    // light times (2^scale_bits + e_t) / 2^scale_bits before the draw, rounded to the nearest, e_t the sum of
+    // scale_octaves draws of variance scale_square, octave o's held for 2^o frames
+    unsigned long long scale_square;
+    unsigned int scale_octaves;
+    unsigned int scale_bits;
+    // a gain per camera pixel (PRNU, row 19), off unless gain_pattern_bits is set, 1 to 32: the pixel (y, x)'s gain is
+    // gain (2^gain_pattern_bits + p) / 2^gain_pattern_bits in every plane, p drawn once in [-reach, reach] with
+    // gain_pattern_reach below 2^gain_pattern_bits, and the gained count rounded by chance so its mean is exact
+    unsigned long long gain_pattern_reach;
+    unsigned int gain_pattern_bits;
 } SimCamera;
 
 typedef struct
@@ -180,6 +225,56 @@ static inline __host__ __device__ unsigned long long sim_signal(const SimScene *
     return electrons;
 }
 
+// a draw of variance square about 0: Binomial(4 square, 1/2) - 2 square
+static inline __host__ __device__ long long sim_centred(unsigned long long key, unsigned long long counter,
+                                                        unsigned long long square)
+{
+    // a head count of at most 4 square is far below 2^62
+    return (long long)sim_binomial_half(key, counter, 4ull * square) - (2ll * (long long)square);
+}
+
+// the shared scale's e_t in frame t: scale_octaves draws of variance scale_square, octave o's held for 2^o frames
+static inline __host__ __device__ long long sim_scale(const SimCamera *camera, unsigned long long frame)
+{
+    long long shared = 0ll;
+    for (unsigned int octave = 0u; octave < camera->scale_octaves; octave += 1u)
+    {
+        // octave o's draw changes only when frame >> o does
+        const unsigned long long held = ((frame >> octave) * camera->scale_octaves) + octave;
+        shared += sim_centred(camera->key ^ SIM_SCALE_PURPOSE, held, camera->scale_square);
+    }
+    return shared;
+}
+
+// The light a voxel's draw is made from: the scene's signal, blurred along x before the draw, then scaled by the
+// shared scale, each where the camera says so.
+static inline __host__ __device__ unsigned long long sim_light(const SimScene *scene, const SimCamera *camera,
+                                                               unsigned long long frame, const long long *place)
+{
+    unsigned long long light = sim_signal(scene, frame, place);
+    if (camera->blur_eighths != 0ull)
+    {
+        long long beside[SIM_AXES] = {place[0], place[1], place[2] - 1ll};
+        const unsigned long long left = (place[2] > 0ll) ? sim_signal(scene, frame, beside) : light;
+        beside[2] = place[2] + 1ll;
+        // a column index inside the view is non-negative and below the extent
+        const unsigned long long right = (((unsigned long long)place[2] + 1ull) < scene->extent[2])
+                                             ? sim_signal(scene, frame, beside)
+                                             : light;
+        light = (((8ull - (2ull * camera->blur_eighths)) * light) + (camera->blur_eighths * (left + right)) + 4ull)
+              / 8ull;
+    }
+    if (camera->scale_bits != 0u)
+    {
+        // the unit is far below 2^62, and the scale is held at 1 at least
+        const long long unit = 1ll << camera->scale_bits;
+        const long long scale = unit + sim_scale(camera, frame);
+        const unsigned long long held = (scale < 1ll) ? 1ull : (unsigned long long)scale;
+        light = ((light * held) + (1ull << (camera->scale_bits - 1u))) >> camera->scale_bits;
+    }
+    return light;
+}
+
 static inline __host__ __device__ unsigned long long sim_pattern(const SimCamera *camera, unsigned long long voxel)
 {
     if (camera->pattern_reach == 0ull)
@@ -189,21 +284,83 @@ static inline __host__ __device__ unsigned long long sim_pattern(const SimCamera
     return sim_draw_below(camera->key ^ SIM_PATTERN_PURPOSE, voxel, camera->pattern_reach + 1ull);
 }
 
-static inline __host__ __device__ long long sim_value(const SimCamera *camera, unsigned long long counter,
-                                                      unsigned long long voxel, unsigned long long electrons)
+// each of count electrons kept with chance numerator / 2^bits, bits 1 to 16: a word holds 64 / bits electrons' draws,
+// so a counter's SIM_COUNTER_STRIDE words hold that many each
+static inline __host__ __device__ unsigned long long sim_thinned(unsigned long long key, unsigned long long counter,
+                                                                 unsigned long long count, unsigned long long numerator,
+                                                                 unsigned int bits)
 {
+    const unsigned long long per_word = 64ull / bits;
+    const unsigned long long mask = (1ull << bits) - 1ull;
+    unsigned long long kept = 0ull;
+    unsigned long long word = 0ull;
+    for (unsigned long long done = 0ull; done < count; done += per_word)
+    {
+        unsigned long long draw = sim_draw(key, (counter * SIM_COUNTER_STRIDE) + word);
+        const unsigned long long left = count - done;
+        const unsigned long long taken = (left < per_word) ? left : per_word;
+        for (unsigned long long electron = 0ull; electron < taken; electron += 1ull)
+        {
+            kept += ((draw & mask) < numerator) ? 1ull : 0ull;
+            draw >>= bits;
+        }
+        word += 1ull;
+    }
+    return kept;
+}
+
+// a camera pixel's p, its gain's departure in units of 2^-gain_pattern_bits, 0 where the camera has no gain pattern
+static inline __host__ __device__ long long sim_gain_spread(const SimCamera *camera, unsigned long long pixel)
+{
+    if (camera->gain_pattern_bits == 0u)
+    {
+        return 0ll;
+    }
+    // the reach is below 2^32 in every camera here, so the draw and the difference fit a long long
+    return (long long)sim_draw_below(camera->key ^ SIM_GAIN_PATTERN_PURPOSE, pixel,
+                                     (2ull * camera->gain_pattern_reach) + 1ull)
+         - (long long)camera->gain_pattern_reach;
+}
+
+static inline __host__ __device__ long long sim_value(const SimCamera *camera, unsigned long long counter,
+                                                      unsigned long long voxel, unsigned long long pixel,
+                                                      unsigned long long electrons)
+{
+    // the light's electrons and the dark's are drawn together, before the gain
+    const unsigned long long charge = electrons + camera->dark;
     // an electron count is far below 2^62, the signal's bound in every scene here
-    long long collected = (long long)electrons;
+    long long collected = (long long)charge;
     if (camera->shot == SIM_SHOT_SYMMETRIC)
     {
         // a head count of at most 4 S is far below 2^62
-        collected = (long long)sim_binomial_half(camera->key ^ SIM_SHOT_PURPOSE, counter, 4ull * electrons)
-                  - collected;
+        collected = (long long)sim_binomial_half(camera->key ^ SIM_SHOT_PURPOSE, counter, 4ull * charge) - collected;
     }
-    else if (camera->shot == SIM_SHOT_POISSON)
+    else
     {
-        // a count of at most 4 S is far below 2^62
-        collected = (long long)sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, electrons);
+        unsigned long long count = charge;
+        if (camera->shot == SIM_SHOT_POISSON)
+        {
+            count = sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, charge);
+        }
+        else if (camera->shot == SIM_SHOT_HALF)
+        {
+            count = sim_binomial_half(camera->key ^ SIM_SHOT_PURPOSE, counter, 2ull * charge);
+        }
+        else if (camera->shot == SIM_SHOT_PAIRED)
+        {
+            count = 2ull * sim_poisson_four_cumulants(camera->key ^ SIM_SHOT_PURPOSE, counter, charge / 2ull);
+        }
+        if (camera->keep_bits != 0u)
+        {
+            count = sim_thinned(camera->key ^ SIM_THIN_PURPOSE, counter, count, camera->keep_numerator,
+                                camera->keep_bits);
+        }
+        if (camera->excess != 0u)
+        {
+            count = 2ull * sim_binomial_half(camera->key ^ SIM_EXCESS_PURPOSE, counter, count);
+        }
+        // a count of at most 4 S, doubled, is far below 2^62
+        collected = (long long)count;
     }
     long long read = 0ll;
     if (camera->read_square != 0ull)
@@ -212,17 +369,28 @@ static inline __host__ __device__ long long sim_value(const SimCamera *camera, u
         read = (long long)sim_binomial_half(camera->key ^ SIM_READ_PURPOSE, counter, 4ull * camera->read_square)
              - (2ll * (long long)camera->read_square);
     }
+    if (camera->reset_square != 0ull)
+    {
+        // a head count of at most 4 kTC is far below 2^62
+        read += (long long)sim_binomial_half(camera->key ^ SIM_RESET_PURPOSE, counter, 4ull * camera->reset_square)
+              - (2ll * (long long)camera->reset_square);
+    }
     // the offset, pattern and gain are each far below 2^31 in every camera here
-    return (long long)camera->offset + (long long)sim_pattern(camera, voxel) + ((long long)camera->gain * collected)
-         + read;
-}
-
-// a draw of variance square about 0: Binomial(4 square, 1/2) - 2 square
-static inline __host__ __device__ long long sim_centred(unsigned long long key, unsigned long long counter,
-                                                        unsigned long long square)
-{
-    // a head count of at most 4 square is far below 2^62
-    return (long long)sim_binomial_half(key, counter, 4ull * square) - (2ll * (long long)square);
+    long long gained = (long long)camera->gain * collected;
+    if (camera->gain_pattern_bits != 0u)
+    {
+        const long long unit = 1ll << camera->gain_pattern_bits;
+        const long long scaled = gained * (unit + sim_gain_spread(camera, pixel));
+        // the quotient toward minus infinity, then up by one with the chance of the remainder over the unit, so the
+        // gained count's mean is exact
+        const long long below = (scaled / unit) - ((((scaled % unit) != 0ll) && (scaled < 0ll)) ? 1ll : 0ll);
+        // the remainder lies in [0, unit), so it re-signs exactly
+        const unsigned long long remainder = (unsigned long long)(scaled - (below * unit));
+        const unsigned long long chance = sim_draw_below(camera->key ^ SIM_GAIN_ROUND_PURPOSE, counter,
+                                                         (unsigned long long)unit);
+        gained = below + ((chance < remainder) ? 1ll : 0ll);
+    }
+    return (long long)camera->offset + (long long)sim_pattern(camera, voxel) + gained + read;
 }
 
 // The terms a camera shares across voxels or carries across frames: an offset drawn per frame for each row, column
@@ -282,13 +450,15 @@ static __global__ void sim_render_kernel(SimScene scene, SimCamera camera, unsig
     place[0] = (long long)(voxel / (scene.extent[1] * scene.extent[2]));
     place[1] = (long long)((voxel / scene.extent[2]) % scene.extent[1]);
     place[2] = (long long)(voxel % scene.extent[2]);
-    const unsigned long long electrons = sim_signal(&scene, frame, place);
+    const unsigned long long electrons = sim_light(&scene, &camera, frame, place);
     if (signal != NULL)
     {
         // the signal of every scene here is far below 2^32
         signal[index] = (unsigned int)electrons;
     }
-    const long long value = sim_value(&camera, index, voxel, electrons)
+    // a camera pixel is a (y, x), the same in every plane
+    const unsigned long long pixel = voxel % (scene.extent[1] * scene.extent[2]);
+    const long long value = sim_value(&camera, index, voxel, pixel, electrons)
                           + sim_shared(&camera, &scene, frame, place, voxel, index);
     if ((value < 0ll) || (value > SIM_LANE_MOST))
     {

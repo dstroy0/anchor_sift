@@ -68,6 +68,128 @@ static unsigned int gaussian_word(long long value)
     return (unsigned int)((unsigned long long)value & ((1ull << GAUSSIAN_TEST_FIELD_BITS) - 1ull));
 }
 
+// The inverse floor, (c, d) -> ((c + d) / 2, (d - c) / 2), is z -> z / (1 + i): a SUM, a DIFFERENCE and two
+// EXACT_QUOTIENTs by the constant 2. On the pairs of equal parity, the floor's image, it is exact; a pair of mixed parity
+// leaves a remainder, and the machine refuses its lane. So j inverse floors run on c + d i exactly where (1 + i)^j
+// divides it, its (1 + i)-adic valuation at least j, and the lane is refused otherwise.
+#define GAUSSIAN_TEST_INVERSE_STEPS_PER_FLOOR 4u
+
+// the two fields and the constant 2, then four steps a floor
+#define GAUSSIAN_TEST_INVERSE_STEPS (3u + (GAUSSIAN_TEST_INVERSE_STEPS_PER_FLOOR * GAUSSIAN_TEST_FLOORS))
+
+// the inverse programs' fields: floor 8's registers are 28 bits signed, and the chosen pairs' below 32
+#define GAUSSIAN_TEST_INVERSE_FIELD_BITS 32u
+
+// the chosen pairs: w (1 + i)^k for k from 0 to 9 and six drawn w of valuation 0, then 0, which every floor divides
+#define GAUSSIAN_TEST_POWERS 10u
+
+#define GAUSSIAN_TEST_UNITS 6u
+
+#define GAUSSIAN_TEST_PAIRS ((GAUSSIAN_TEST_POWERS * GAUSSIAN_TEST_UNITS) + 1u)
+
+typedef struct
+{
+    EngineRecordKey key;
+    EngineRecordLayout layout;
+    CycleRecord *record;
+} GaussianLoaded;
+
+// `floors` inverse floors on (c, d) in fields 0 and 1, every floor's two registers output; imprinted and laid, and
+// loaded onto the device by the caller once the job is admitted
+static int gaussian_inverse_lay(unsigned int floors, GaussianLoaded *loaded, EngineError *error)
+{
+    EngineRecordStep steps[GAUSSIAN_TEST_INVERSE_STEPS];
+    unsigned int outputs[GAUSSIAN_TEST_OUTPUTS];
+    steps[0] = EngineRecordStep{ENGINE_RECORD_FIELD_SIGNED, 0u, 0u, 0u};
+    steps[1] = EngineRecordStep{ENGINE_RECORD_FIELD_SIGNED, 1u, 0u, 0u};
+    steps[2] = EngineRecordStep{ENGINE_RECORD_CONSTANT, 2u, 0u, 0u};
+    unsigned int real_before = 0u;
+    unsigned int imaginary_before = 1u;
+    for (unsigned int level = 1u; level <= floors; level += 1u)
+    {
+        const unsigned int at = 3u + (GAUSSIAN_TEST_INVERSE_STEPS_PER_FLOOR * (level - 1u));
+        steps[at] = EngineRecordStep{ENGINE_RECORD_SUM, real_before, imaginary_before, 0u};
+        steps[at + 1u] = EngineRecordStep{ENGINE_RECORD_DIFFERENCE, imaginary_before, real_before, 0u};
+        steps[at + 2u] = EngineRecordStep{ENGINE_RECORD_EXACT_QUOTIENT, at, 2u, 0u};
+        steps[at + 3u] = EngineRecordStep{ENGINE_RECORD_EXACT_QUOTIENT, at + 1u, 2u, 0u};
+        outputs[2u * (level - 1u)] = at + 2u;
+        outputs[(2u * (level - 1u)) + 1u] = at + 3u;
+        real_before = at + 2u;
+        imaginary_before = at + 3u;
+    }
+    const unsigned int field_bits[2] = {GAUSSIAN_TEST_INVERSE_FIELD_BITS, GAUSSIAN_TEST_INVERSE_FIELD_BITS};
+    const unsigned int field_offset[2] = {0u, 32u};
+    const unsigned int in_limbs[ENGINE_RECORD_MEMBERS_MAX] = {2u, 0u, 0u};
+    memset(loaded, 0, sizeof(*loaded));
+    const KeymathRecordRequest imprint = {steps,   3u + (GAUSSIAN_TEST_INVERSE_STEPS_PER_FLOOR * floors),
+                                          field_bits, 2u, 1u, outputs, 2u * floors, NULL, 0u, &loaded->key, error};
+    const KeyScheduleRecordRequest lay = {&loaded->key, field_offset, 2u, in_limbs, 1, &loaded->layout, error};
+    return (keymath_record_imprint(&imprint) != KEYMATH_REFUSED)
+        && (key_schedule_record_lay(&lay) != KEY_SCHEDULE_REFUSED);
+}
+
+static void gaussian_inverse_release(GaussianLoaded *loaded)
+{
+    if (loaded->record != NULL)
+    {
+        cycle_record_release(loaded->record);
+    }
+    key_schedule_record_release(&loaded->layout);
+    keymath_record_release(&loaded->key);
+}
+
+// One run of a loaded inverse program over `lanes` pairs, on the host and on the device: 1 where both ran and their
+// records agree word for word, 0 where both refused, and -1 where they part.
+static int gaussian_inverse_run(const GaussianLoaded *loaded, const unsigned int *atoms, unsigned int lanes,
+                                unsigned int *host_out, unsigned int *device_out, EngineError *error)
+{
+    const size_t out_bytes = (size_t)lanes * loaded->layout.out_limbs * sizeof(unsigned int);
+    const CycleRecordHostRequest host = {&loaded->layout, {atoms, NULL, NULL}, {lanes, 0ull, 0ull}, NULL, lanes,
+                                         host_out, error};
+    const int host_ran = cycle_record_run_host(&host) == (long)lanes;
+    unsigned int *device_atoms = NULL;
+    unsigned int *device_record = NULL;
+    const int placed = (cudaMalloc((void **)&device_atoms, (size_t)lanes * 2u * sizeof(unsigned int)) == cudaSuccess)
+                    && (cudaMalloc((void **)&device_record, out_bytes) == cudaSuccess)
+                    && (cudaMemcpy(device_atoms, atoms, (size_t)lanes * 2u * sizeof(unsigned int),
+                                   cudaMemcpyHostToDevice)
+                        == cudaSuccess);
+    int device_ran = 0;
+    if (placed != 0)
+    {
+        const CycleRecordRunRequest run = {loaded->record, {device_atoms, NULL, NULL}, {lanes, 0ull, 0ull}, NULL,
+                                           lanes, device_record, error};
+        device_ran = (cycle_record_run(&run) == (long)lanes)
+                  && (cudaMemcpy(device_out, device_record, out_bytes, cudaMemcpyDeviceToHost) == cudaSuccess);
+    }
+    cudaFree(device_atoms);
+    cudaFree(device_record);
+    if ((placed == 0) || (host_ran != device_ran))
+    {
+        return -1;
+    }
+    if (host_ran == 0)
+    {
+        return 0;
+    }
+    return (memcmp(host_out, device_out, out_bytes) == 0) ? 1 : -1;
+}
+
+// the (1 + i)-adic valuation of c + d i, counted up to `most`: 0 counts as `most`, since every power divides it
+static unsigned int gaussian_valuation(long long real_part, long long imaginary_part, unsigned int most)
+{
+    unsigned int valuation = 0u;
+    while ((valuation < most) && ((real_part != 0ll) || (imaginary_part != 0ll))
+           && (((real_part - imaginary_part) % 2ll) == 0ll))
+    {
+        const long long next_real = (real_part + imaginary_part) / 2ll;
+        imaginary_part = (imaginary_part - real_part) / 2ll;
+        real_part = next_real;
+        valuation += 1u;
+    }
+    return ((real_part == 0ll) && (imaginary_part == 0ll)) ? most : valuation;
+}
+
 // `bits` of a record at `offset` as two's complement
 static long long gaussian_take(const unsigned int *record, unsigned int offset, unsigned int bits)
 {
@@ -121,13 +243,29 @@ int main(int count, char **arguments)
     int good = keymath_record_imprint(&imprint) != KEYMATH_REFUSED;
     const KeyScheduleRecordRequest lay = {&key, field_offset, 2u, in_limbs, 1, &layout, &error};
     good = good && (key_schedule_record_lay(&lay) != KEY_SCHEDULE_REFUSED);
-    // the job declares what the test puts on the device: the lanes' fields, their records and the step table
+    // one inverse program for each count of floors, 1 to 8; inverse[0] is unused
+    GaussianLoaded inverse[GAUSSIAN_TEST_FLOORS + 1u];
+    memset(inverse, 0, sizeof(inverse));
+    for (unsigned int floors = 1u; floors <= GAUSSIAN_TEST_FLOORS; floors += 1u)
+    {
+        good = good && gaussian_inverse_lay(floors, &inverse[floors], &error);
+    }
+    // the job declares what the test puts on the device at once: the lanes' fields, their records and the step table,
+    // for the wider of the forward floors and the eight inverse floors
+    const unsigned int widest_out = (good != 0) ? ((layout.out_limbs > inverse[GAUSSIAN_TEST_FLOORS].layout.out_limbs)
+                                                       ? layout.out_limbs
+                                                       : inverse[GAUSSIAN_TEST_FLOORS].layout.out_limbs)
+                                                : 0u;
     const unsigned long long declared = ((unsigned long long)GAUSSIAN_TEST_LANES * 2ull * sizeof(unsigned int))
-                                      + ((unsigned long long)GAUSSIAN_TEST_LANES * layout.out_limbs * sizeof(unsigned int))
-                                      + ((unsigned long long)GAUSSIAN_TEST_STEPS * sizeof(DeviceRecordStep));
+                                      + ((unsigned long long)GAUSSIAN_TEST_LANES * widest_out * sizeof(unsigned int))
+                                      + ((unsigned long long)GAUSSIAN_TEST_INVERSE_STEPS * sizeof(DeviceRecordStep));
     good = good && sim_job_submit(&tally, "record_gaussian_test", count, arguments, declared);
     good = good && (cycle_record_load(&layout, &record, &error) != CYCLE_REFUSED);
-    sim_check(&tally, good, "the Gaussian floors imprint, lay and load");
+    for (unsigned int floors = 1u; floors <= GAUSSIAN_TEST_FLOORS; floors += 1u)
+    {
+        good = good && (cycle_record_load(&inverse[floors].layout, &inverse[floors].record, &error) != CYCLE_REFUSED);
+    }
+    sim_check(&tally, good, "the Gaussian floors and the inverse floors imprint, lay and load");
 
     // the pair's norm doubles a floor, so its registers widen a bit every second floor: floor k is 24 + ceil(k / 2)
     int widths = good;
@@ -246,6 +384,135 @@ int main(int count, char **arguments)
         scriptura_decimal(&tally.line, (unsigned long long)key.term[2u * level].bits, 1u);
     }
     scriptura_text(&tally.line, " bits, half a bit a floor, as the values grow\n");
+
+    // eight inverse floors take floor 8's 16 z back through z (1 + i)^(8 - k) to z, on every lane
+    const unsigned int inverse_limbs = (good != 0) ? inverse[GAUSSIAN_TEST_FLOORS].layout.out_limbs : 0u;
+    unsigned int *const eight = (unsigned int *)calloc((size_t)GAUSSIAN_TEST_LANES * 2u, sizeof(unsigned int));
+    unsigned int *const inverse_host = (unsigned int *)calloc((size_t)GAUSSIAN_TEST_LANES * inverse_limbs + 1u,
+                                                              sizeof(unsigned int));
+    unsigned int *const inverse_device = (unsigned int *)calloc((size_t)GAUSSIAN_TEST_LANES * inverse_limbs + 1u,
+                                                                sizeof(unsigned int));
+    int returned = (host_ran != 0) && (eight != NULL) && (inverse_host != NULL) && (inverse_device != NULL);
+    const DeviceRecordStep *const eighth_real = &layout.step_table[2u * GAUSSIAN_TEST_FLOORS];
+    const DeviceRecordStep *const eighth_imaginary = &layout.step_table[(2u * GAUSSIAN_TEST_FLOORS) + 1u];
+    for (unsigned int lane = 0u; (returned != 0) && (lane < GAUSSIAN_TEST_LANES); lane += 1u)
+    {
+        const unsigned int *const lane_record = &device_out[(size_t)lane * out_limbs];
+        // floor 8's values lie in [-2^27, 2^27), so their low 32 bits of two's complement hold the whole value
+        eight[2u * lane] = (unsigned int)(unsigned long long)gaussian_take(lane_record, eighth_real->out_offset,
+                                                                           eighth_real->out_bits);
+        eight[(2u * lane) + 1u] = (unsigned int)(unsigned long long)gaussian_take(
+            lane_record, eighth_imaginary->out_offset, eighth_imaginary->out_bits);
+    }
+    returned = returned
+            && (gaussian_inverse_run(&inverse[GAUSSIAN_TEST_FLOORS], eight, GAUSSIAN_TEST_LANES, inverse_host,
+                                     inverse_device, &error)
+                == 1);
+    for (unsigned int lane = 0u; (returned != 0) && (lane < GAUSSIAN_TEST_LANES); lane += 1u)
+    {
+        const unsigned int *const lane_record = &inverse_device[(size_t)lane * inverse_limbs];
+        for (unsigned int level = 1u; level <= GAUSSIAN_TEST_FLOORS; level += 1u)
+        {
+            const unsigned int at = 3u + (GAUSSIAN_TEST_INVERSE_STEPS_PER_FLOOR * (level - 1u));
+            const DeviceRecordStep *const real_step = &inverse[GAUSSIAN_TEST_FLOORS].layout.step_table[at + 2u];
+            const DeviceRecordStep *const imaginary_step = &inverse[GAUSSIAN_TEST_FLOORS].layout.step_table[at + 3u];
+            const long long real_at = gaussian_take(lane_record, real_step->out_offset, real_step->out_bits);
+            const long long imaginary_at = gaussian_take(lane_record, imaginary_step->out_offset,
+                                                         imaginary_step->out_bits);
+            // k inverse floors from 16 z leave z (1 + i)^(8 - k)
+            const long long power_real = s_gaussian_power_real[GAUSSIAN_TEST_FLOORS - level];
+            const long long power_imaginary = s_gaussian_power_imaginary[GAUSSIAN_TEST_FLOORS - level];
+            returned = returned && (real_at == ((real[lane] * power_real) - (imaginary[lane] * power_imaginary)))
+                    && (imaginary_at == ((real[lane] * power_imaginary) + (imaginary[lane] * power_real)));
+        }
+    }
+    sim_check(&tally, returned,
+              "eight inverse floors take 16 z back through z (1 + i)^(8 - k) to z on every lane, the host's and the "
+              "device's records alike");
+
+    // The chosen pairs, each run alone through j inverse floors for j from 1 to 8: refused exactly where its valuation
+    // is below j, and otherwise its every level is z / (1 + i)^k, taken on the CPU by the Gaussian division.
+    long long pair_real[GAUSSIAN_TEST_PAIRS];
+    long long pair_imaginary[GAUSSIAN_TEST_PAIRS];
+    int valued = 1;
+    for (unsigned int unit = 0u; unit < GAUSSIAN_TEST_UNITS; unit += 1u)
+    {
+        // w = a + b i with a - b odd, so 1 + i does not divide it: two drawn 20-bit values, b moved to a's other parity
+        const long long a = (long long)(gaussian_random() & 0xFFFFFu) - 0x80000ll;
+        long long b = (long long)(gaussian_random() & 0xFFFFFu) - 0x80000ll;
+        b += (((a - b) % 2ll) == 0ll) ? 1ll : 0ll;
+        long long real_part = a;
+        long long imaginary_part = b;
+        for (unsigned int power = 0u; power < GAUSSIAN_TEST_POWERS; power += 1u)
+        {
+            const unsigned int index = (unit * GAUSSIAN_TEST_POWERS) + power;
+            pair_real[index] = real_part;
+            pair_imaginary[index] = imaginary_part;
+            valued = valued && (gaussian_valuation(real_part, imaginary_part, GAUSSIAN_TEST_POWERS) == power);
+            // z (1 + i) = (a - b) + (a + b) i: below 2^25 in magnitude at the ninth power, inside the 32-bit fields
+            const long long next_real = real_part - imaginary_part;
+            imaginary_part = real_part + imaginary_part;
+            real_part = next_real;
+        }
+    }
+    pair_real[GAUSSIAN_TEST_PAIRS - 1u] = 0ll;
+    pair_imaginary[GAUSSIAN_TEST_PAIRS - 1u] = 0ll;
+    sim_check(&tally, valued, "the chosen pairs w (1 + i)^k have valuation k on the CPU, for k from 0 to 9");
+    int agreed = returned;
+    int refusals = returned;
+    int quotients = returned;
+    unsigned long long ran_count = 0ull;
+    unsigned long long refused_count = 0ull;
+    for (unsigned int floors = 1u; (agreed != 0) && (floors <= GAUSSIAN_TEST_FLOORS); floors += 1u)
+    {
+        for (unsigned int pair = 0u; (agreed != 0) && (pair < GAUSSIAN_TEST_PAIRS); pair += 1u)
+        {
+            // each value lies below 2^25 in magnitude, so its low 32 bits of two's complement hold it whole
+            const unsigned int atoms_pair[2] = {(unsigned int)(unsigned long long)pair_real[pair],
+                                                (unsigned int)(unsigned long long)pair_imaginary[pair]};
+            memset(&error, 0, sizeof(error));
+            const int ran = gaussian_inverse_run(&inverse[floors], atoms_pair, 1u, inverse_host, inverse_device, &error);
+            agreed = ran >= 0;
+            const int divides = gaussian_valuation(pair_real[pair], pair_imaginary[pair], GAUSSIAN_TEST_FLOORS)
+                             >= floors;
+            refusals = refusals && ((ran == 1) == (divides != 0));
+            ran_count += (ran == 1) ? 1ull : 0ull;
+            refused_count += (ran == 0) ? 1ull : 0ull;
+            long long real_part = pair_real[pair];
+            long long imaginary_part = pair_imaginary[pair];
+            for (unsigned int level = 1u; (ran == 1) && (level <= floors); level += 1u)
+            {
+                // z / (1 + i) = z (1 - i) / 2, exact on the pairs of equal parity
+                const long long next_real = (real_part + imaginary_part) / 2ll;
+                imaginary_part = (imaginary_part - real_part) / 2ll;
+                real_part = next_real;
+                const unsigned int at = 3u + (GAUSSIAN_TEST_INVERSE_STEPS_PER_FLOOR * (level - 1u));
+                const DeviceRecordStep *const real_step = &inverse[floors].layout.step_table[at + 2u];
+                const DeviceRecordStep *const imaginary_step = &inverse[floors].layout.step_table[at + 3u];
+                quotients = quotients
+                         && (gaussian_take(inverse_device, real_step->out_offset, real_step->out_bits) == real_part)
+                         && (gaussian_take(inverse_device, imaginary_step->out_offset, imaginary_step->out_bits)
+                             == imaginary_part);
+            }
+        }
+    }
+    sim_check(&tally, agreed, "every run's host and device agree: both refuse the lane, or both run to one record");
+    sim_check(&tally, refusals,
+              "j inverse floors refuse a pair exactly where (1 + i)^j does not divide it: a pair of mixed parity is a "
+              "lane the machine refuses");
+    sim_check(&tally, quotients, "where they run, each level is z / (1 + i)^k, the Gaussian division on the CPU");
+    scriptura_text(&tally.line, "  the chosen pairs through 1 to 8 inverse floors: ");
+    scriptura_decimal(&tally.line, ran_count, 1u);
+    scriptura_text(&tally.line, " runs, ");
+    scriptura_decimal(&tally.line, refused_count, 1u);
+    scriptura_text(&tally.line, " refused\n");
+    free(eight);
+    free(inverse_host);
+    free(inverse_device);
+    for (unsigned int floors = 1u; floors <= GAUSSIAN_TEST_FLOORS; floors += 1u)
+    {
+        gaussian_inverse_release(&inverse[floors]);
+    }
 
     cudaFree(device_atoms);
     cudaFree(device_record);
