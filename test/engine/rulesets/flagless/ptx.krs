@@ -30,6 +30,7 @@ bank temporary = %t{n}
 bank wide = %w{n}
 bank predicate = %p{n}
 bank member = %member{n}
+bank immediate = {n}
 fixed zero = %zero
 fixed lane_number = %lane_number
 fixed record = %record

@@ -24,6 +24,8 @@ bank temporary = %t{n}
 bank wide = %w{n}
 bank predicate = %p{n}
 bank member = %member{n}
+# a word's value written into a form, a PTX immediate
+bank immediate = {n}
 fixed zero = %zero
 fixed lane_number = %lane_number
 fixed record = %record
