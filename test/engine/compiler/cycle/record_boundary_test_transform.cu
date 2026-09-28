@@ -5,9 +5,9 @@
 static unsigned long long s_boundary_state = 0xB0DA7C0FFEE5EEDull;
 
 // 2^RANGE times T's matrix and T^-1's, column i the image of 2^RANGE e_i: [output][input]
-long long s_boundary_forward_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
+long long g_boundary_forward_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
 
-long long s_boundary_inverse_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
+long long g_boundary_inverse_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
 
 unsigned int boundary_random(void)
 {
@@ -241,8 +241,8 @@ void boundary_matrices(void)
         boundary_host_inverse(unit, inverse);
         for (unsigned int output = 0u; output < BOUNDARY_TEST_SAMPLES; output += 1u)
         {
-            s_boundary_forward_matrix[output][input] = forward[output];
-            s_boundary_inverse_matrix[output][input] = inverse[output];
+            g_boundary_forward_matrix[output][input] = forward[output];
+            g_boundary_inverse_matrix[output][input] = inverse[output];
         }
     }
 }

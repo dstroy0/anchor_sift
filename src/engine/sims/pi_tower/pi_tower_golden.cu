@@ -150,12 +150,12 @@ void pi_tower_golden(SimResults *results, const PiTowerTurn &turn, const std::ve
 }
 
 // set by an interrupt: the run stops after the sweep it is in and reports how far it reached
-volatile sig_atomic_t s_pi_tower_stopped = 0;
+volatile sig_atomic_t g_pi_tower_stopped = 0;
 
 void pi_tower_stop(int signal_number)
 {
     (void)signal_number;
-    s_pi_tower_stopped = 1;
+    g_pi_tower_stopped = 1;
 }
 
 unsigned int pi_tower_bit_length(const PiWide &value)

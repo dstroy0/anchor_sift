@@ -22,9 +22,9 @@ _Static_assert(ANCHOR_EXACT_LIMBS >= MAX_TREE_KEY_LIMBS,
                "the exact type must be at least as wide as a face's key, the residual and its name");
 #endif
 
-extern AnchorExactInteger s_asked_left;
+extern AnchorExactInteger g_asked_left;
 
-extern AnchorExactInteger s_asked_right;
+extern AnchorExactInteger g_asked_right;
 
 void max_tree_ask_ready(void);
 

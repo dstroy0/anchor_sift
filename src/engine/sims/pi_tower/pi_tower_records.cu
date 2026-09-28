@@ -74,7 +74,7 @@ int pi_tower_covered(const PiTowerTurn &turn, const PiWide &cell, const PiWide &
     if (pi_tower_compare(count, pi_tower_power_two(turn.range)) > 0)
     {
         // a record past the range may stand below count. The gaps are not known
-        s_pi_tower_records_short = 1;
+        g_pi_tower_records_short = 1;
     }
     const PiTowerRecord &lowest = pi_tower_record_before(turn.lowest, count);
     const PiTowerRecord &highest = pi_tower_record_before(turn.highest, count);

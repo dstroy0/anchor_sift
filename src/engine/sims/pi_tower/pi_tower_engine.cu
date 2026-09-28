@@ -126,7 +126,7 @@ void pi_tower_deep(SimResults *results, int count, char **arguments, const PiWid
     pi_tower_print_decimal(&results->line, position);
     scriptura_text(&results->line, ", on the engine\n");
     sim_flush(results);
-    s_pi_tower_stopped = 0;
+    g_pi_tower_stopped = 0;
     void (*const was)(int) = signal(SIGINT, pi_tower_stop);
     PiTowerBbpRun run;
     const int ran = pi_tower_bbp_sum(results, &bbp, 1, &run);
@@ -176,7 +176,7 @@ int pi_tower_request(const char *text, PiWide *value)
     {
         return 0;
     }
-    s_pi_tower_refused = 0;
+    g_pi_tower_refused = 0;
     const char *walk = text;
     PiWide base;
     if (pi_tower_digits(&walk, &base) == 0)
@@ -195,7 +195,7 @@ int pi_tower_request(const char *text, PiWide *value)
         }
         // base^exponent by squaring, over the exponent's bits from the top
         *value = pi_tower_unsigned(1ull);
-        for (unsigned int bit = pi_tower_bit_length(exponent); (bit > 0u) && (s_pi_tower_refused == 0); bit -= 1u)
+        for (unsigned int bit = pi_tower_bit_length(exponent); (bit > 0u) && (g_pi_tower_refused == 0); bit -= 1u)
         {
             *value = pi_tower_product(*value, *value);
             if (((exponent.limb[(bit - 1u) / 32u] >> ((bit - 1u) % 32u)) & 1u) != 0u)
@@ -204,7 +204,7 @@ int pi_tower_request(const char *text, PiWide *value)
             }
         }
     }
-    return (*walk == '\0') && (value->sign != 0) && (s_pi_tower_refused == 0);
+    return (*walk == '\0') && (value->sign != 0) && (g_pi_tower_refused == 0);
 }
 
 // a resolution from the request, from 1 to 2^20

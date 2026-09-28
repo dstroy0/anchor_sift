@@ -215,7 +215,7 @@ int max_tree_reserve(size_t voxels, EngineError *error);
 
 int max_tree_grow_bodies(size_t bodies, EngineError *error);
 
-extern int s_max_tree_profile;
+extern int g_max_tree_profile;
 
 void max_tree_stage(unsigned int stage, unsigned long long *mark);
 

@@ -123,9 +123,9 @@ typedef struct
 // the host's own T or T^-1 over n values
 typedef void (*BoundaryMap)(const long long *in, long long *out);
 
-extern long long s_boundary_forward_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
+extern long long g_boundary_forward_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
 
-extern long long s_boundary_inverse_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
+extern long long g_boundary_inverse_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
 
 unsigned int boundary_random(void);
 

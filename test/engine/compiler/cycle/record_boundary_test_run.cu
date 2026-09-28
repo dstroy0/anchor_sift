@@ -295,9 +295,9 @@ void boundary_bands(BoundaryResults *results)
     for (unsigned int at = 0u; at < BOUNDARY_TEST_SAMPLES; at += 1u)
     {
         const unsigned int band = boundary_band(at);
-        const int here = boundary_row_range(s_boundary_forward_matrix, at);
+        const int here = boundary_row_range(g_boundary_forward_matrix, at);
         range[band] = (here > range[band]) ? here : range[band];
-        const int back = boundary_row_range(s_boundary_inverse_matrix, at);
+        const int back = boundary_row_range(g_boundary_inverse_matrix, at);
         inverse_range = (back > inverse_range) ? back : inverse_range;
     }
     int counted = range[0] == (int)(3u * BOUNDARY_TEST_LEVELS);

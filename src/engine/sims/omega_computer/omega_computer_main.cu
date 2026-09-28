@@ -205,7 +205,7 @@ int main(int count, char **arguments)
                 scriptura_text(&results.line, ", start ");
                 scriptura_decimal(&results.line, start, 1u);
                 scriptura_text(&results.line, " tokens, peak ");
-                scriptura_decimal(&results.line, s_omega_computer_peak, 1u);
+                scriptura_decimal(&results.line, g_omega_computer_peak, 1u);
                 scriptura_text(&results.line, " tokens\n");
                 sim_flush(&results);
             }

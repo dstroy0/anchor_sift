@@ -4,7 +4,7 @@
 
 DicomResident g_dicom_resident;
 
-unsigned int s_dicom_keyed;
+unsigned int g_dicom_keyed;
 
 unsigned long long dicom_little(const unsigned char *bytes, unsigned int count)
 {

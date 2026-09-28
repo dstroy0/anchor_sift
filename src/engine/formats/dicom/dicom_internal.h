@@ -91,7 +91,7 @@ extern DicomResident g_dicom_resident;
 
 static const DicomSlice *s_dicom_sorting;
 
-extern unsigned int s_dicom_keyed;
+extern unsigned int g_dicom_keyed;
 
 unsigned long long dicom_little(const unsigned char *bytes, unsigned int count);
 

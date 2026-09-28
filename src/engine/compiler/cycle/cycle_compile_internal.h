@@ -54,7 +54,7 @@ struct CycleCompiler
     decltype(&nvrtcDestroyProgram) destroy;
 };
 
-extern CycleCompiler s_cycle_compiler;
+extern CycleCompiler g_cycle_compiler;
 
 // nvJitLink, loaded once a process first links: each call by the versioned name the header was built against
 struct CycleLinker
@@ -71,7 +71,7 @@ struct CycleLinker
     decltype(&nvJitLinkDestroy) destroy;
 };
 
-extern CycleLinker s_cycle_linker;
+extern CycleLinker g_cycle_linker;
 
 // what a lane is written for, one device and one kind of link, named once a process: the device, and the text that
 // names it with the prelude a C lane opens with, whose hash each program's first line carries. Nothing is compiled

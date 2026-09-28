@@ -251,8 +251,8 @@ void boundary_volume(BoundaryResults *results)
     int inverse_sign = 0;
     double forward_bits = 0.0;
     double inverse_bits = 0.0;
-    const int forward = boundary_unimodular(s_boundary_forward_matrix, &forward_sign, &forward_bits);
-    const int inverse = boundary_unimodular(s_boundary_inverse_matrix, &inverse_sign, &inverse_bits);
+    const int forward = boundary_unimodular(g_boundary_forward_matrix, &forward_sign, &forward_bits);
+    const int inverse = boundary_unimodular(g_boundary_inverse_matrix, &inverse_sign, &inverse_bits);
     int identity = 1;
     for (unsigned int row = 0u; row < BOUNDARY_TEST_SAMPLES; row += 1u)
     {
@@ -261,7 +261,7 @@ void boundary_volume(BoundaryResults *results)
             long long entry = 0ll;
             for (unsigned int at = 0u; at < BOUNDARY_TEST_SAMPLES; at += 1u)
             {
-                entry += s_boundary_forward_matrix[row][at] * s_boundary_inverse_matrix[at][column];
+                entry += g_boundary_forward_matrix[row][at] * g_boundary_inverse_matrix[at][column];
             }
             identity = identity && (entry == ((row == column) ? (1ll << (2u * BOUNDARY_TEST_RANGE)) : 0ll));
         }

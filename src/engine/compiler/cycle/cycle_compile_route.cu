@@ -125,7 +125,7 @@ void cycle_program_release(cudaKernel_t kernel)
 static TargetInfo cycle_target_info(const CycleTarget *lane_target)
 {
     return TargetInfo{lane_target->hash,      lane_target->major,     lane_target->minor,
-                      s_cycle_compiler.major, s_cycle_compiler.minor, g_cycle_prelude};
+                      g_cycle_compiler.major, g_cycle_compiler.minor, g_cycle_prelude};
 }
 
 // Rule (i): a program held as PTX routed between its two rulesets by its local frame against the device's stack limit.

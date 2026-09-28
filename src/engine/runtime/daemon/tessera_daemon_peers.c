@@ -71,7 +71,7 @@ static void daemon_peer_gone(TesseraPeer *peer)
     {
         daemon_job_dropped(peer, now, s_daemon_reason_closed);
     }
-    TesseraPeer **link = &s_daemon.peers;
+    TesseraPeer **link = &g_daemon.peers;
     while ((*link != NULL) && (*link != peer))
     {
         link = &(*link)->next;
@@ -80,10 +80,10 @@ static void daemon_peer_gone(TesseraPeer *peer)
     {
         *link = peer->next;
     }
-    s_daemon.peer_count -= 1ull;
-    if ((s_daemon.peer_count == 0ull) && (s_daemon.ledger.job_count == 0ull))
+    g_daemon.peer_count -= 1ull;
+    if ((g_daemon.peer_count == 0ull) && (g_daemon.ledger.job_count == 0ull))
     {
-        tessera_ledger_idle(&s_daemon.ledger, now, s_daemon.ledger.idle_microseconds);
+        tessera_ledger_idle(&g_daemon.ledger, now, g_daemon.ledger.idle_microseconds);
         daemon_signal_changed();
     }
     daemon_unlock();
@@ -230,9 +230,9 @@ int daemon_peer_start(TesseraPeer *peer, unsigned long long pid)
         return 0;
     }
     daemon_lock();
-    peer->next = s_daemon.peers;
-    s_daemon.peers = peer;
-    s_daemon.peer_count += 1ull;
+    peer->next = g_daemon.peers;
+    g_daemon.peers = peer;
+    g_daemon.peer_count += 1ull;
     daemon_unlock();
 #if defined(_WIN32)
     const HANDLE thread = CreateThread(NULL, 0u, daemon_peer, peer, 0u, NULL);
@@ -290,11 +290,11 @@ int daemon_arguments(int count, char **arguments, unsigned long long *idle)
         char *end = NULL;
         if (strcmp(arguments[at], "--device") == 0)
         {
-            have_device = daemon_hex(arguments[at + 1], s_daemon.device, TESSERA_DEVICE_BYTES);
+            have_device = daemon_hex(arguments[at + 1], g_daemon.device, TESSERA_DEVICE_BYTES);
         }
         else if (strcmp(arguments[at], "--luid") == 0)
         {
-            s_daemon.luid = strtoull(arguments[at + 1], &end, 16);
+            g_daemon.luid = strtoull(arguments[at + 1], &end, 16);
             have_luid = (end != arguments[at + 1]) && (*end == '\0');
         }
         else if (strcmp(arguments[at], "--idle") == 0)

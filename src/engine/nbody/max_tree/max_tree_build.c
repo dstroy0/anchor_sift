@@ -2,8 +2,8 @@
 // max_tree_build.c: the tree built
 #include "max_tree_internal.h"
 
-AnchorExactInteger s_asked_left;
-AnchorExactInteger s_asked_right;
+AnchorExactInteger g_asked_left;
+AnchorExactInteger g_asked_right;
 static unsigned int s_asked_ready = 0u;
 
 static void max_tree_exact_of(const unsigned int *residual, unsigned int voxel, AnchorExactInteger *value)
@@ -32,8 +32,8 @@ void max_tree_ask_ready(void)
 {
     if (s_asked_ready == 0u)
     {
-        anchor_exact_zero(&s_asked_left);
-        anchor_exact_zero(&s_asked_right);
+        anchor_exact_zero(&g_asked_left);
+        anchor_exact_zero(&g_asked_right);
         s_asked_ready = 1u;
     }
 }
@@ -41,16 +41,16 @@ void max_tree_ask_ready(void)
 int max_tree_selects(const unsigned int *residual, unsigned int voxel)
 {
     max_tree_ask_ready();
-    max_tree_exact_of(residual, voxel, &s_asked_left);
-    return (s_asked_left.sign > 0) ? 1 : 0;
+    max_tree_exact_of(residual, voxel, &g_asked_left);
+    return (g_asked_left.sign > 0) ? 1 : 0;
 }
 
 int max_tree_before(const unsigned int *residual, unsigned int left, unsigned int right)
 {
     max_tree_ask_ready();
-    max_tree_exact_of(residual, left, &s_asked_left);
-    max_tree_exact_of(residual, right, &s_asked_right);
-    const int order = anchor_exact_compare(&s_asked_left, &s_asked_right);
+    max_tree_exact_of(residual, left, &g_asked_left);
+    max_tree_exact_of(residual, right, &g_asked_right);
+    const int order = anchor_exact_compare(&g_asked_left, &g_asked_right);
     if (order != 0)
     {
         return (order > 0) ? -1 : 1;
@@ -61,9 +61,9 @@ int max_tree_before(const unsigned int *residual, unsigned int left, unsigned in
 int max_tree_same(const unsigned int *residual, unsigned int left, unsigned int right)
 {
     max_tree_ask_ready();
-    max_tree_exact_of(residual, left, &s_asked_left);
-    max_tree_exact_of(residual, right, &s_asked_right);
-    return anchor_exact_equal(&s_asked_left, &s_asked_right);
+    max_tree_exact_of(residual, left, &g_asked_left);
+    max_tree_exact_of(residual, right, &g_asked_right);
+    return anchor_exact_equal(&g_asked_left, &g_asked_right);
 }
 
 static const unsigned int *s_ordering_residual = NULL;

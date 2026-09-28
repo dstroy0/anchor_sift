@@ -82,7 +82,7 @@ void cycle_cache_write(const std::string &folder, const std::string &path, const
 std::vector<char> cycle_program_compile(const std::string &source, const char *name, int major, int minor, int lto,
                                         int report)
 {
-    CycleCompiler *const compiler = &s_cycle_compiler;
+    CycleCompiler *const compiler = &g_cycle_compiler;
     std::vector<char> image;
     nvrtcProgram program = NULL;
     if (compiler->create(&program, source.c_str(), name, 0, NULL, NULL) != NVRTC_SUCCESS)
@@ -125,7 +125,7 @@ std::vector<char> cycle_program_compile(const std::string &source, const char *n
 std::vector<char> cycle_program_link(const CycleTarget *lane_target, const std::vector<char> &object, int lto, int ptx,
                                      int report)
 {
-    CycleLinker *const linker = &s_cycle_linker;
+    CycleLinker *const linker = &g_cycle_linker;
     std::vector<char> cubin;
     char architecture[32];
     snprintf(architecture, sizeof(architecture), "-arch=sm_%d%d", lane_target->major, lane_target->minor);
@@ -231,7 +231,7 @@ const std::string &cycle_ptx_header(int major, int minor, int report)
     header->major = major;
     header->minor = minor;
     header->lines.clear();
-    CycleCompiler *const compiler = &s_cycle_compiler;
+    CycleCompiler *const compiler = &g_cycle_compiler;
     if ((compiler->ptx_size == NULL) || (compiler->ptx == NULL))
     {
         return header->lines;

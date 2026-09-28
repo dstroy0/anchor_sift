@@ -237,7 +237,7 @@ int dicom_order_slices(const void *left, const void *right)
 {
     const DicomSlice *const one = &s_dicom_sorting[*(const unsigned long long *)left];
     const DicomSlice *const other = &s_dicom_sorting[*(const unsigned long long *)right];
-    if (s_dicom_keyed != 0u)
+    if (g_dicom_keyed != 0u)
     {
         const int keyed = anchor_exact_compare(&one->key.mantissa, &other->key.mantissa);
         if (keyed != 0)

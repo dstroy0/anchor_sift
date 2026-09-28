@@ -86,14 +86,14 @@ typedef struct
     int living;
 } TesseraDaemon;
 
-extern TesseraDaemon s_daemon;
+extern TesseraDaemon g_daemon;
 #if (defined(_WIN32))
 
-extern CONDITION_VARIABLE s_daemon_changed;
+extern CONDITION_VARIABLE g_daemon_changed;
 #endif
 #if !(defined(_WIN32))
 
-extern pthread_cond_t s_daemon_changed;
+extern pthread_cond_t g_daemon_changed;
 #endif
 
 void daemon_lock(void);

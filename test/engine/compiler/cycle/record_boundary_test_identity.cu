@@ -39,7 +39,7 @@ void boundary_written(BoundaryResults *results)
     if (loads != 0)
     {
         int range = 0;
-        boundary_precision(results, &loaded, program, boundary_host_inverse, s_boundary_inverse_matrix,
+        boundary_precision(results, &loaded, program, boundary_host_inverse, g_boundary_inverse_matrix,
                            BOUNDARY_TEST_INVERSE_RANGE, 1, "written (T^-1 then T)", &range);
         boundary_check(results, range == (int)BOUNDARY_TEST_INVERSE_RANGE, "T^-1's range L + 2 is met on the device");
         boundary_free(&loaded);
@@ -80,7 +80,7 @@ void boundary_read_off(BoundaryResults *results)
     if (loads != 0)
     {
         int range = 0;
-        boundary_precision(results, &loaded, program, boundary_host_forward, s_boundary_forward_matrix,
+        boundary_precision(results, &loaded, program, boundary_host_forward, g_boundary_forward_matrix,
                            BOUNDARY_TEST_RANGE, 0, "read off (T)", &range);
         boundary_check(results, range == (int)BOUNDARY_TEST_RANGE, "T's range 3L is met on the device");
         boundary_through(results, &loaded, program);
@@ -161,7 +161,7 @@ static void boundary_through(BoundaryResults *results, BoundaryLoaded *loaded, c
                 expected = before;
                 for (unsigned int input = 0u; input < n; input += 1u)
                 {
-                    expected += s_boundary_forward_matrix[at][input] * added[((size_t)pair * n) + input];
+                    expected += g_boundary_forward_matrix[at][input] * added[((size_t)pair * n) + input];
                 }
             }
             else if (kind == 2u)

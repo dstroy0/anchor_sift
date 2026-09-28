@@ -63,9 +63,9 @@ static int max_tree_grade_codes(const unsigned int *residual, unsigned int depth
 
 extern "C" long max_tree_objects(const MaxTreeObjectsRequest *request)
 {
-    if (s_max_tree_profile < 0)
+    if (g_max_tree_profile < 0)
     {
-        s_max_tree_profile = (getenv("MAX_TREE_PROFILE") != NULL) ? 1 : 0;
+        g_max_tree_profile = (getenv("MAX_TREE_PROFILE") != NULL) ? 1 : 0;
     }
     unsigned long long stage_mark = engine_clock_microseconds();
     if ((request == NULL) || (request->error == NULL))

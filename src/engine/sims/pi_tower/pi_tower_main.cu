@@ -269,7 +269,7 @@ static void pi_tower_fill(SimResults *results, const PiTowerTurn &turn, const st
     sim_check(results, found_home,
               "at every resolution cell 0 is etched again after the fill, then the fill's last cell, at steps the "
               "floors name");
-    sim_check(results, s_pi_tower_records_short == 0, "every count searched stands within the records' range");
+    sim_check(results, g_pi_tower_records_short == 0, "every count searched stands within the records' range");
     scriptura_text(&results->line,
                    "  the second run, cell 0 to the first run's last cell, has the first run's period at ");
     scriptura_decimal(&results->line, same_period, 1u);
@@ -278,5 +278,5 @@ static void pi_tower_fill(SimResults *results, const PiTowerTurn &turn, const st
     scriptura_text(&results->line, " resolutions\n");
     sim_flush(results);
     sim_check(results, touched, "at every resolution the last cell's first touch is the step that fills the boundary");
-    sim_check(results, s_pi_tower_refused == 0, "no exact operation outgrew the width");
+    sim_check(results, g_pi_tower_refused == 0, "no exact operation outgrew the width");
 }

@@ -351,11 +351,11 @@ int max_tree_grow_bodies(size_t bodies, EngineError *error)
 static const char *const MAX_TREE_STAGE_NAMES[MAX_TREE_STAGES] = {"codes", "contract", "levels",   "label", "peak",
                                                                   "mark",  "census",   "download", "grade"};
 static unsigned long long s_max_tree_stage_us[MAX_TREE_STAGES];
-int s_max_tree_profile = -1;
+int g_max_tree_profile = -1;
 
 void max_tree_stage(unsigned int stage, unsigned long long *mark)
 {
-    if (s_max_tree_profile <= 0)
+    if (g_max_tree_profile <= 0)
     {
         return;
     }
@@ -367,7 +367,7 @@ void max_tree_stage(unsigned int stage, unsigned long long *mark)
 
 extern "C" void max_tree_profile_report(void)
 {
-    for (unsigned int stage = 0u; (s_max_tree_profile > 0) && (stage < MAX_TREE_STAGES); stage += 1u)
+    for (unsigned int stage = 0u; (g_max_tree_profile > 0) && (stage < MAX_TREE_STAGES); stage += 1u)
     {
         printf("    %-10s %8llu ms\n", MAX_TREE_STAGE_NAMES[stage], s_max_tree_stage_us[stage] / 1000ull);
     }

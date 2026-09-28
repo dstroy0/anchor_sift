@@ -47,7 +47,7 @@ int pi_tower_bbp_sum(SimResults *results, PiTowerBbp *bbp, int report, PiTowerBb
          sim_status_check(results, cudaMemcpy(total, landed, sum_bytes, cudaMemcpyDeviceToDevice), "engine: the total");
     const std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
     double next_report = 1.0;
-    while ((ok != 0) && (s_pi_tower_stopped == 0) && (pi_tower_compare(pi_tower_unsigned(run->done), bbp->terms) < 0))
+    while ((ok != 0) && (g_pi_tower_stopped == 0) && (pi_tower_compare(pi_tower_unsigned(run->done), bbp->terms) < 0))
     {
         const PiWide left = pi_tower_difference(bbp->terms, pi_tower_unsigned(run->done));
         const unsigned long long sweep =

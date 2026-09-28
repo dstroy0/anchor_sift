@@ -20,14 +20,14 @@ _Alignas(8) static const
 _Alignas(8) static const
     char s_daemon_history_unsaved[] = "  tessera daemon: the history could not be sealed and saved in ";
 
-TesseraDaemon s_daemon;
+TesseraDaemon g_daemon;
 #if (defined(_WIN32))
 static SRWLOCK s_daemon_lock = SRWLOCK_INIT;
-CONDITION_VARIABLE s_daemon_changed = CONDITION_VARIABLE_INIT;
+CONDITION_VARIABLE g_daemon_changed = CONDITION_VARIABLE_INIT;
 #endif
 #if !(defined(_WIN32))
 static pthread_mutex_t s_daemon_lock = PTHREAD_MUTEX_INITIALIZER;
-pthread_cond_t s_daemon_changed;
+pthread_cond_t g_daemon_changed;
 #endif
 
 void daemon_lock(void)
@@ -51,9 +51,9 @@ void daemon_unlock(void)
 void daemon_signal_changed(void)
 {
 #if defined(_WIN32)
-    WakeAllConditionVariable(&s_daemon_changed);
+    WakeAllConditionVariable(&g_daemon_changed);
 #else
-    pthread_cond_broadcast(&s_daemon_changed);
+    pthread_cond_broadcast(&g_daemon_changed);
 #endif
 }
 
@@ -103,11 +103,11 @@ void daemon_wait_until(unsigned long long when)
         // a wait below INFINITE fits a DWORD
         milliseconds = (wait_milliseconds < (unsigned long long)INFINITE) ? (DWORD)wait_milliseconds : (INFINITE - 1u);
     }
-    SleepConditionVariableSRW(&s_daemon_changed, &s_daemon_lock, milliseconds, 0u);
+    SleepConditionVariableSRW(&g_daemon_changed, &s_daemon_lock, milliseconds, 0u);
 #else
     if (when == TESSERA_DAEMON_FOREVER)
     {
-        pthread_cond_wait(&s_daemon_changed, &s_daemon_lock);
+        pthread_cond_wait(&g_daemon_changed, &s_daemon_lock);
         return;
     }
     struct timespec until;
@@ -115,7 +115,7 @@ void daemon_wait_until(unsigned long long when)
     until.tv_sec = (time_t)(when / TESSERA_DAEMON_MILLION);
     // a remainder below a million microseconds is below a billion nanoseconds
     until.tv_nsec = (long)((when % TESSERA_DAEMON_MILLION) * 1000ull);
-    pthread_cond_timedwait(&s_daemon_changed, &s_daemon_lock, &until);
+    pthread_cond_timedwait(&g_daemon_changed, &s_daemon_lock, &until);
 #endif
 }
 
@@ -153,7 +153,7 @@ int daemon_directories_make(const char *path)
 
 int daemon_state_file(const char *name, char *path)
 {
-    const int written = snprintf(path, ENGINE_PATH_CAPACITY, "%s%s%s", s_daemon.state,
+    const int written = snprintf(path, ENGINE_PATH_CAPACITY, "%s%s%s", g_daemon.state,
 #if defined(_WIN32)
                                  "\\",
 #else
@@ -217,7 +217,7 @@ int daemon_history_load(void)
         memcpy(kept.signum.bytes, bytes + at, ENGINE_SIGNUM_BYTES);
         kept.peak = daemon_get_long(bytes + at + ENGINE_SIGNUM_BYTES);
         kept.duration = daemon_get_long(bytes + at + ENGINE_SIGNUM_BYTES + 8u);
-        ok = tessera_ledger_remember(&s_daemon.ledger, &kept);
+        ok = tessera_ledger_remember(&g_daemon.ledger, &kept);
     }
     free(bytes);
     if (!ok)
@@ -236,7 +236,7 @@ int daemon_history_save(void)
         return 0;
     }
     // every record, then the seal over them all; a history that is not saved is said so, never dropped silently
-    const unsigned long long sealed = s_daemon.ledger.history_count * TESSERA_HISTORY_RECORD;
+    const unsigned long long sealed = g_daemon.ledger.history_count * TESSERA_HISTORY_RECORD;
     const unsigned long long total = sealed + OBSIGNATIO_SIGNUM_BYTES;
     unsigned char *const bytes = (unsigned char *)malloc((size_t)total);
     if (bytes == NULL)
@@ -244,9 +244,9 @@ int daemon_history_save(void)
         fprintf(stderr, "%s%s\n", s_daemon_history_unsaved, path);
         return 0;
     }
-    for (unsigned long long at = 0ull; at < s_daemon.ledger.history_count; at += 1ull)
+    for (unsigned long long at = 0ull; at < g_daemon.ledger.history_count; at += 1ull)
     {
-        const TesseraHistory *const kept = &s_daemon.ledger.history[at];
+        const TesseraHistory *const kept = &g_daemon.ledger.history[at];
         unsigned char *const record = bytes + (at * TESSERA_HISTORY_RECORD);
         memcpy(record, kept->signum.bytes, ENGINE_SIGNUM_BYTES);
         daemon_put_long(record + ENGINE_SIGNUM_BYTES, kept->peak);
@@ -275,7 +275,7 @@ int daemon_history_save(void)
 static int daemon_ticket_path(unsigned long long identity, const TesseraPeer *peer, int make, char *path)
 {
     char folder[ENGINE_PATH_CAPACITY];
-    if (!tessera_path_lost(s_daemon.device, identity, &peer->signum, folder, ENGINE_PATH_CAPACITY) ||
+    if (!tessera_path_lost(g_daemon.device, identity, &peer->signum, folder, ENGINE_PATH_CAPACITY) ||
         (make && !daemon_directories_make(folder)))
     {
         return 0;

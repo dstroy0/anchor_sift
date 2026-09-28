@@ -61,9 +61,9 @@ static void max_tree_key_exact(const unsigned int *key, AnchorExactInteger *valu
 static int max_tree_stronger(const unsigned int *keys, unsigned int face, unsigned int standing)
 {
     max_tree_ask_ready();
-    max_tree_key_exact(&keys[(size_t)face * MAX_TREE_KEY_LIMBS], &s_asked_left);
-    max_tree_key_exact(&keys[(size_t)standing * MAX_TREE_KEY_LIMBS], &s_asked_right);
-    return (anchor_exact_compare(&s_asked_left, &s_asked_right) > 0) ? 1 : 0;
+    max_tree_key_exact(&keys[(size_t)face * MAX_TREE_KEY_LIMBS], &g_asked_left);
+    max_tree_key_exact(&keys[(size_t)standing * MAX_TREE_KEY_LIMBS], &g_asked_right);
+    return (anchor_exact_compare(&g_asked_left, &g_asked_right) > 0) ? 1 : 0;
 }
 
 int max_tree_poc(const unsigned int *residual, unsigned int depth, unsigned int height, unsigned int width,

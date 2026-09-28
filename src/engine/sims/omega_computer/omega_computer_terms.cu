@@ -280,4 +280,4 @@ int omega_computer_grows_forever(const std::vector<int> &stored, const std::vect
 
 // normal order under a step and a size budget, watched by Brent's cycle finder and the growth proof; on a halt `term`
 // is left holding the normal form
-size_t s_omega_computer_peak = 0u;
+size_t g_omega_computer_peak = 0u;

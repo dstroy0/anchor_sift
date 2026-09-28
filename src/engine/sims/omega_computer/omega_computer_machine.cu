@@ -5,7 +5,7 @@
 OmegaComputerFate omega_computer_rewrite(std::vector<int> &term, unsigned int steps, unsigned int tokens,
                                          unsigned long long *taken)
 {
-    s_omega_computer_peak = term.size();
+    g_omega_computer_peak = term.size();
     std::vector<int> next;
     std::vector<int> stored = term;
     std::vector<size_t> stored_ends;
@@ -27,7 +27,7 @@ OmegaComputerFate omega_computer_rewrite(std::vector<int> &term, unsigned int st
                     ? OMEGA_COMPUTER_NOT_HEAD
                     : ((redex < least) ? redex : least);
         term.swap(next);
-        s_omega_computer_peak = (term.size() > s_omega_computer_peak) ? term.size() : s_omega_computer_peak;
+        g_omega_computer_peak = (term.size() > g_omega_computer_peak) ? term.size() : g_omega_computer_peak;
         if (term == stored)
         {
             return OMEGA_COMPUTER_LOOPS;

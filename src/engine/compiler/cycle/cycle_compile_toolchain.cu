@@ -2,9 +2,9 @@
 // cycle_compile_toolchain.cu: the environment, the compiler and linker, and the cache's names
 #include "cycle_compile_internal.h"
 
-CycleCompiler s_cycle_compiler;
+CycleCompiler g_cycle_compiler;
 
-CycleLinker s_cycle_linker;
+CycleLinker g_cycle_linker;
 
 int cycle_environment_set(const char *name)
 {
@@ -49,7 +49,7 @@ static void *cycle_compiler_symbol(void *library, const char *name)
 
 int cycle_compiler_ready(void)
 {
-    CycleCompiler *const compiler = &s_cycle_compiler;
+    CycleCompiler *const compiler = &g_cycle_compiler;
     if (compiler->tried != 0)
     {
         return compiler->ready;
@@ -99,7 +99,7 @@ static void *cycle_linker_symbol(void *library, const char *call)
 
 int cycle_linker_ready(void)
 {
-    CycleLinker *const linker = &s_cycle_linker;
+    CycleLinker *const linker = &g_cycle_linker;
     if (linker->tried != 0)
     {
         return linker->ready;
@@ -139,7 +139,7 @@ std::string cycle_target_source(int major, int minor, int lto)
 {
     std::string text;
     cycle_format(text, "// a record program's lane, for sm_%d%d, NVRTC %d.%d, as %s\n", major, minor,
-                 s_cycle_compiler.major, s_cycle_compiler.minor, (lto != 0) ? "LTO-IR" : "relocatable cubin");
+                 g_cycle_compiler.major, g_cycle_compiler.minor, (lto != 0) ? "LTO-IR" : "relocatable cubin");
     text += g_cycle_prelude;
     return text;
 }

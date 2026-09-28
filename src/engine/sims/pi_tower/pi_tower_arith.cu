@@ -2,16 +2,16 @@
 // pi_tower_arith.cu: exact arithmetic and first hits
 #include "pi_tower_internal.h"
 
-int s_pi_tower_refused = 0;
+int g_pi_tower_refused = 0;
 
 // set where a search asks for a record past the range the records were held to
-int s_pi_tower_records_short = 0;
+int g_pi_tower_records_short = 0;
 
 static void pi_tower_took(AnchorExactStatus status)
 {
     if (status != ANCHOR_EXACT_OK)
     {
-        s_pi_tower_refused = 1;
+        g_pi_tower_refused = 1;
     }
 }
 

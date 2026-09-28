@@ -178,7 +178,7 @@ int omega_computer_grows_forever(const std::vector<int> &stored, const std::vect
                                  unsigned int stored_range, const std::vector<int> &term, unsigned int least,
                                  std::vector<size_t> &ends);
 
-extern size_t s_omega_computer_peak;
+extern size_t g_omega_computer_peak;
 
 OmegaComputerFate omega_computer_rewrite(std::vector<int> &term, unsigned int steps, unsigned int tokens,
                                          unsigned long long *taken);

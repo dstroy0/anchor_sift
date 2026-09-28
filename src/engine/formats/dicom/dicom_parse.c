@@ -322,7 +322,7 @@ int dicom_sort(EngineError *error)
         }
     }
     s_dicom_sorting = resident->slices;
-    s_dicom_keyed = resident->keyed;
+    g_dicom_keyed = resident->keyed;
     qsort(resident->order, (size_t)resident->count, sizeof(unsigned long long), dicom_order_slices);
     s_dicom_sorting = NULL;
     return 1;

@@ -132,9 +132,9 @@
 // the deepest resolution the exact turn is held at; past it a resolution is read on the engine alone
 #define PI_TOWER_EXACT_MAX (1ull << 20u)
 
-extern int s_pi_tower_refused;
+extern int g_pi_tower_refused;
 
-extern int s_pi_tower_records_short;
+extern int g_pi_tower_records_short;
 
 typedef AnchorExactInteger PiWide;
 
@@ -276,7 +276,7 @@ typedef struct
     PiWide sum;
 } PiTowerBbpRun;
 
-extern volatile sig_atomic_t s_pi_tower_stopped;
+extern volatile sig_atomic_t g_pi_tower_stopped;
 
 void pi_tower_stop(int signal_number);
 
