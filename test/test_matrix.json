@@ -606,7 +606,7 @@
       }
     },
     "record_tower": {
-      "desc": "The record tower test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
+      "desc": "The record tower test, its lanes compiled as PTX and kept as PTX (rule (i) off); every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_tower_test.sh",
       "src": [
         "+<engine/analysis/tower/*>",
@@ -623,7 +623,8 @@
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
-        "CYCLE_RECORD_REPORT": "1"
+        "CYCLE_RECORD_REPORT": "1",
+        "CYCLE_RECORD_KEEP_PTX": "1"
       }
     },
     "record_tower_c": {

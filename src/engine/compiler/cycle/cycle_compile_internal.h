@@ -21,13 +21,14 @@
 // take lanes a round at a time from one counter, check in to the block as they go, and leave once the launch has run
 // its time to live or the block's command says to. The last one out writes where the program stands, and the run
 // launches it again from there until every lane is done: a launch never outlives the display driver's watchdog, and no
-// lane runs twice. The host reads the block only once a launch has ended. Seven switches, read at each load or run:
+// lane runs twice. The host reads the block only once a launch has ended. Eight switches, read at each load or run:
 // CYCLE_RECORD_INTERPRET=1 keeps every program on the interpreter, CYCLE_RECORD_CHECK=1 runs both on every launch and
 // errors on the launch where their records or errors differ, CYCLE_RECORD_REPORT=1 says on stderr where each program
 // came from and how long each kernel ran, CYCLE_RECORD_TTL=<microseconds> sets a launch's time to live,
 // CYCLE_RECORD_LTO=1 builds the programs as LTO-IR and links each with link-time optimization, which writes no PTX,
 // CYCLE_RECORD_NVRTC=1 writes every lane as C source, and CYCLE_RECORD_HOST_C=1 writes it so and builds it with the
-// host's compiler, to run on the host (cycle_compile_host.cu). An eighth, CODEGEN_DEVICE=1, has the device write each
+// host's compiler, to run on the host (cycle_compile_host.cu), and CYCLE_RECORD_KEEP_PTX=1 turns rule (i) off
+// (cycle_record_route). A ninth, CODEGEN_DEVICE=1, has the device write each
 // lane from its step table and holds its text to the host code generator's (cycle_codegen_on_device), the assembly
 // printer's own lane included: the assembly printer runs on the interpreter while it writes that one.
 

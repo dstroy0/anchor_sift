@@ -133,7 +133,8 @@ static TargetInfo cycle_target_info(const CycleTarget *lane_target)
 // cycle_stack_return gives it back once the run is done: 7.449 to 10.130 ms a run on the record tests, against 0.127 to
 // 1.630 ms for frames within the limit (26 September, engine_table item 11(f)). Past the limit the program is built as
 // C source as well, and the smaller frame runs, the C source's wherever it fits and the PTX's does not; the
-// other's hold is given back. Where the C source does not build, or its frame cannot be read, the PTX runs
+// other's hold is given back. Where the C source does not build, or its frame cannot be read, the PTX runs.
+// CYCLE_RECORD_KEEP_PTX=1 turns the rule off: a program held as PTX runs as PTX
 static void cycle_record_route(const EngineRecordLayout *layout, CycleRecord *record, const CycleTarget *lane_target,
                                int lto, int report)
 {
@@ -381,7 +382,10 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
         if (!ptx.empty() && cycle_program_load(layout, record, lane_target, ptx, 1, lto, written, report))
         {
             record->places = places;
-            cycle_record_route(layout, record, lane_target, lto, report);
+            if (cycle_environment_set("CYCLE_RECORD_KEEP_PTX") == 0)
+            {
+                cycle_record_route(layout, record, lane_target, lto, report);
+            }
             return 1;
         }
         if (report != 0)
