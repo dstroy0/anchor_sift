@@ -263,20 +263,18 @@ std::vector<ProbeQuestion> probe_questions(ProbeWriter *writer)
         out[2] = ((in[0] & 0x80000000u) != 0u) ? 1u : 0u;
         return 1;
     });
-    form("test_signed_zero", {p[0], t[0]});
-    form("test_signed_differ", {p[1], t[0], t[1]});
-    form("test_signed_greater", {p[2], t[0], t[1]});
+    // a signed word is zero where its bits are, which test_zero above asks
+    form("test_signed_differ", {p[0], t[0], t[1]});
+    form("test_signed_greater", {p[1], t[0], t[1]});
     read_out(0u, 0u);
     read_out(1u, 1u);
-    read_out(2u, 2u);
-    ask("test_signed_zero, test_signed_differ, test_signed_greater", 3u, [](const unsigned int *in, unsigned int *out) {
+    ask("test_signed_differ, test_signed_greater", 2u, [](const unsigned int *in, unsigned int *out) {
         // a word read as its two's complement value
         const long long left = (long long)(int)in[0];
         // a word read as its two's complement value
         const long long right = (long long)(int)in[1];
-        out[0] = (left == 0ll) ? 1u : 0u;
-        out[1] = (left != right) ? 1u : 0u;
-        out[2] = (left > right) ? 1u : 0u;
+        out[0] = (left != right) ? 1u : 0u;
+        out[1] = (left > right) ? 1u : 0u;
         return 1;
     });
     form("wide_pack", {w[0], t[0], t[1]});
