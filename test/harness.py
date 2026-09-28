@@ -421,6 +421,9 @@ TESSERA_RUN_CANDIDATES = (
 SCRIPT_BUILD = os.path.join(os.path.dirname(ROOT), "build", "harness")
 # a suite admitted and silent this long is hung
 IDLE_SECONDS = 1800
+# the processors a suite reserves where its env names none: a suite that links cached objects peaks near one, and
+# the daemon still holds a suite's kept peak where that is more
+PROCESSORS = 2
 CHECKS_LINE = re.compile(r"(\d+) checks, (\d+) failed")
 EXIT_LINE = re.compile(r"test exit (\d+)")
 
@@ -487,6 +490,8 @@ def script_command(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD):
     env["BUILD_OUT"] = out
     # one compile cache for every suite, pinned or not: a tree's objects are compiled by its first suite
     env["COMPILE_CACHE_DIR"] = os.path.join(os.path.dirname(ROOT), "build", "compile_cache").replace("\\", "/")
+    # a suite compiles what the cache lacks as many at a time as the processors it reserves
+    env["COMPILE_CACHE_JOBS"] = str(e.get("processors", PROCESSORS))
     if "CYCLE_RECORD_CHECK" in env or "CYCLE_RECORD_REPORT" in env:
         cache = os.path.join(out, "cycle_cache")
         os.makedirs(cache, exist_ok=True)
@@ -502,7 +507,7 @@ def script_command(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD):
     cmd = [
         tessera,
         "--processors",
-        str(e.get("processors", 4)),
+        str(e.get("processors", PROCESSORS)),
         "--name",
         "harness " + name,
         "--",

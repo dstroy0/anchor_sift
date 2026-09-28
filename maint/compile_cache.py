@@ -12,7 +12,7 @@ also writes, beside the objects, the roots and the headers whose names two of th
 
 `nvcc` stands in for nvcc. Each .cu, .c or .cpp among the arguments is compiled alone with `-c` and every other
 argument but the output, into COMPILE_CACHE_DIR under a name made from the key, those arguments and the source's path;
-the ones not there yet are compiled COMPILE_CACHE_JOBS at a time (4 by default, what a harness job reserves). The
+the ones not there yet are compiled COMPILE_CACHE_JOBS at a time (4 by default; the harness sets the processors a suite reserves). The
 call is then made again with each source replaced by its object, which only links. nvcc compiles each source of a
 call apart without -rdc, so the objects are the ones it would have made. A call that asks for anything else (-E, -M,
 -x, -rdc, -dc, -dlink, -ptx, -cubin, -fatbin, -lib, -shared, --version, no source) goes to nvcc as it is, and so does
