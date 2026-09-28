@@ -1,240 +1,174 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// asm_printer_program.cu: the assembly printer's program built
+// asm_printer_program.cu: the ruleset flattened for the core's build, its memory, and what the build laid out kept
 #include "asm_printer_internal.h"
 
-// a word's number among the words, the word taken on where it is new
-unsigned int asm_printer_word(AsmPrinterWords *words, const std::string &word)
+// `text` taken on as a text of the flattened ruleset, its number returned
+static unsigned int asm_printer_flat_text(AsmPrinterFlat *flat, const std::string &text)
 {
-    const auto found = words->numbered.find(word);
-    if (found != words->numbered.end())
-    {
-        return found->second;
-    }
-    // the words are far fewer than 2^32; the layout refuses more than its tables hold
-    const unsigned int number = (unsigned int)words->words.size();
-    words->words.push_back(word);
-    words->numbered[word] = number;
-    return number;
+    // the ruleset's texts and letters are far fewer than 2^32; the build refuses more than its tables hold
+    const AsmPrinterCoreText taken = {(unsigned int)flat->letters.size(), (unsigned int)text.size()};
+    flat->letters.insert(flat->letters.end(), text.begin(), text.end());
+    flat->texts.push_back(taken);
+    return (unsigned int)(flat->texts.size() - 1u);
 }
 
-unsigned int asm_printer_part(AsmPrinterWords *words, const std::array<unsigned int, ASM_PRINTER_PIECES> &part)
+// the ruleset, the target and the header flattened for the core: each form's pieces and slots, whether it is given as
+// a construct, each bank's pieces and count of slots, each fixed register's text and the header's, in the host's order
+void asm_printer_flatten(const Ruleset *rules, const TargetInfo *target, const std::string &header,
+                         AsmPrinterFlat *flat)
 {
-    const auto found = words->part_numbered.find(part);
-    if (found != words->part_numbered.end())
+    *flat = AsmPrinterFlat{};
+    AsmPrinterCoreRules *const flattened = &flat->rules;
+    for (unsigned int form = 0u; form < OPCODE_COUNT; form += 1u)
     {
-        return found->second;
-    }
-    const unsigned int number = (unsigned int)words->parts.size();
-    words->parts.push_back(part);
-    words->part_numbered[part] = number;
-    return number;
-}
-
-// the least count of index bits that holds `count` rows, at least 1
-static unsigned int asm_printer_index_bits(unsigned long long count)
-{
-    unsigned int bits = 1u;
-    while ((1ull << bits) < count)
-    {
-        bits += 1u;
-    }
-    return bits;
-}
-
-static unsigned int asm_printer_step(AsmPrinterSteps *printer_steps, EngineRecordOperation operation, unsigned int left,
-                                     unsigned int right)
-{
-    printer_steps->steps.push_back({operation, left, right, 0u});
-    // the program's steps are a few hundred
-    return (unsigned int)(printer_steps->steps.size() - 1u);
-}
-
-static unsigned int asm_printer_constant(AsmPrinterSteps *printer_steps, unsigned int value)
-{
-    return asm_printer_step(printer_steps, ENGINE_RECORD_CONSTANT, value, 0u);
-}
-
-// 1 where left < right, else 0: the compare's order is -1, 0 or 1, and 1 less it, halved toward zero, is 1 only at -1
-static unsigned int asm_printer_below(AsmPrinterSteps *printer_steps, unsigned int left, unsigned int right)
-{
-    const unsigned int order = asm_printer_step(printer_steps, ENGINE_RECORD_COMPARE, left, right);
-    const unsigned int lessened = asm_printer_step(printer_steps, ENGINE_RECORD_DIFFERENCE, printer_steps->one, order);
-    return asm_printer_step(printer_steps, ENGINE_RECORD_QUOTIENT, lessened, printer_steps->two);
-}
-
-// the assembly printer's steps, a lane a byte; its one output is the byte, a table's entry of 8 bits
-unsigned int asm_printer_program_build(AsmPrinterSteps *printer_steps)
-{
-    printer_steps->one = asm_printer_constant(printer_steps, 1u);
-    printer_steps->two = asm_printer_constant(printer_steps, 2u);
-    const unsigned int ten = asm_printer_constant(printer_steps, 10u);
-    const unsigned int zero_letter = asm_printer_constant(printer_steps, (unsigned int)'0');
-    const unsigned int rows = asm_printer_constant(printer_steps, ASM_PRINTER_PART_ROWS);
-    const unsigned int nothing = asm_printer_constant(printer_steps, 0u);
-    // the record's fields
-    const unsigned int part = asm_printer_step(printer_steps, ENGINE_RECORD_FIELD, ASM_PRINTER_FIELD_PART, 0u);
-    const unsigned int first = asm_printer_step(printer_steps, ENGINE_RECORD_FIELD, ASM_PRINTER_FIELD_FIRST, 0u);
-    unsigned int before[ASM_PRINTER_SLOTS];
-    unsigned int after[ASM_PRINTER_SLOTS];
-    unsigned int number[ASM_PRINTER_SLOTS];
-    unsigned int numbered[ASM_PRINTER_SLOTS];
-    for (unsigned int slot = 0u; slot < ASM_PRINTER_SLOTS; slot += 1u)
-    {
-        before[slot] = asm_printer_step(printer_steps, ENGINE_RECORD_FIELD, ASM_PRINTER_FIELD_SLOT(slot, 0u), 0u);
-        after[slot] = asm_printer_step(printer_steps, ENGINE_RECORD_FIELD, ASM_PRINTER_FIELD_SLOT(slot, 1u), 0u);
-        number[slot] = asm_printer_step(printer_steps, ENGINE_RECORD_FIELD, ASM_PRINTER_FIELD_SLOT(slot, 2u), 0u);
-        numbered[slot] = asm_printer_step(printer_steps, ENGINE_RECORD_FIELD, ASM_PRINTER_FIELD_SLOT(slot, 3u), 0u);
-    }
-    // the byte's place in its part, below 2^31 as the layout holds the lanes, kept to one word
-    const unsigned int lane = asm_printer_step(printer_steps, ENGINE_RECORD_LANE, 0u, 0u);
-    const unsigned int apart = asm_printer_step(printer_steps, ENGINE_RECORD_DIFFERENCE, lane, first);
-    const unsigned int place = asm_printer_step(printer_steps, ENGINE_RECORD_WRAP, apart, 32u);
-    // the part's pieces
-    const unsigned int part_row = asm_printer_step(printer_steps, ENGINE_RECORD_PRODUCT, part, rows);
-    unsigned int piece[ASM_PRINTER_PIECES];
-    for (unsigned int at = 0u; at < ASM_PRINTER_PIECES; at += 1u)
-    {
-        const unsigned int row = (at == 0u) ? part_row
-                                            : asm_printer_step(printer_steps, ENGINE_RECORD_SUM, part_row,
-                                                               asm_printer_constant(printer_steps, at));
-        piece[at] = asm_printer_step(printer_steps, ENGINE_RECORD_TABLE, row, ASM_PRINTER_TABLE_PIECE);
-    }
-    // each slot's number's digits: none where it has no number, else 1 and one more for each power of ten at or below
-    // it
-    unsigned int digits[ASM_PRINTER_SLOTS];
-    for (unsigned int slot = 0u; slot < ASM_PRINTER_SLOTS; slot += 1u)
-    {
-        unsigned int counted = printer_steps->one;
-        unsigned int power = 1u;
-        for (unsigned int more = 1u; more < ASM_PRINTER_DIGITS; more += 1u)
+        // the forms' pieces and slots are a few hundred
+        flattened->form_piece_first[form] = (unsigned int)flat->texts.size();
+        flattened->form_slot_first[form] = (unsigned int)flat->slots.size();
+        flattened->form_construct[form] = rules->constructs[form].lines.empty() ? 0u : 1u;
+        for (const std::string &piece : rules->forms[form].pieces)
         {
-            power *= 10u;
-            const unsigned int reached =
-                asm_printer_below(printer_steps, asm_printer_constant(printer_steps, power - 1u), number[slot]);
-            counted = asm_printer_step(printer_steps, ENGINE_RECORD_SUM, counted, reached);
+            asm_printer_flat_text(flat, piece);
         }
-        digits[slot] = asm_printer_step(printer_steps, ENGINE_RECORD_PRODUCT, numbered[slot], counted);
+        flat->slots.insert(flat->slots.end(), rules->forms[form].slots.begin(), rules->forms[form].slots.end());
     }
-    // the atoms in order, each a word by its number or a slot's digits, and its length
-    unsigned int word[ASM_PRINTER_ATOMS];
-    unsigned int length[ASM_PRINTER_ATOMS];
-    unsigned int slot_of[ASM_PRINTER_ATOMS];
-    int digited[ASM_PRINTER_ATOMS];
-    for (unsigned int atom = 0u; atom < ASM_PRINTER_ATOMS; atom += 1u)
+    flattened->form_piece_first[OPCODE_COUNT] = (unsigned int)flat->texts.size();
+    flattened->form_slot_first[OPCODE_COUNT] = (unsigned int)flat->slots.size();
+    for (unsigned int bank = 0u; bank < REGCLASS_COUNT; bank += 1u)
     {
-        const unsigned int slot = atom / 4u;
-        const unsigned int within = atom % 4u;
-        slot_of[atom] = slot;
-        digited[atom] = within == 2u;
-        word[atom] =
-            (within == 0u) ? piece[slot] : ((within == 1u) ? before[slot] : ((within == 3u) ? after[slot] : 0u));
-        length[atom] = (digited[atom] != 0)
-                           ? digits[slot]
-                           : asm_printer_step(printer_steps, ENGINE_RECORD_TABLE, word[atom], ASM_PRINTER_TABLE_LENGTH);
-    }
-    // where each atom begins in the part's text, and past the last
-    unsigned int start[ASM_PRINTER_ATOMS + 1u];
-    start[0] = nothing;
-    for (unsigned int atom = 0u; atom < ASM_PRINTER_ATOMS; atom += 1u)
-    {
-        start[atom + 1u] = asm_printer_step(printer_steps, ENGINE_RECORD_SUM, start[atom], length[atom]);
-    }
-    unsigned int below[ASM_PRINTER_ATOMS + 1u];
-    for (unsigned int atom = 0u; atom <= ASM_PRINTER_ATOMS; atom += 1u)
-    {
-        below[atom] = asm_printer_below(printer_steps, place, start[atom]);
-    }
-    // the byte: the letter of the one atom the place lies in, 0 where it lies in none
-    unsigned int byte = nothing;
-    for (unsigned int atom = 0u; atom < ASM_PRINTER_ATOMS; atom += 1u)
-    {
-        const unsigned int reached =
-            asm_printer_step(printer_steps, ENGINE_RECORD_DIFFERENCE, printer_steps->one, below[atom]);
-        const unsigned int inside = asm_printer_step(printer_steps, ENGINE_RECORD_PRODUCT, reached, below[atom + 1u]);
-        const unsigned int offset = asm_printer_step(printer_steps, ENGINE_RECORD_DIFFERENCE, place, start[atom]);
-        unsigned int letter = 0u;
-        if (digited[atom] == 0)
+        const InstrTemplate *const bank_form = &rules->banks[bank];
+        flattened->bank_piece_first[bank] = (unsigned int)flat->texts.size();
+        // a bank's slots are one where it is read, and a count far below 2^32 where it is not
+        flattened->bank_slots[bank] = (unsigned int)bank_form->slots.size();
+        for (const std::string &piece : bank_form->pieces)
         {
-            const unsigned int begins =
-                asm_printer_step(printer_steps, ENGINE_RECORD_TABLE, word[atom], ASM_PRINTER_TABLE_START);
-            const unsigned int at = asm_printer_step(printer_steps, ENGINE_RECORD_SUM, begins, offset);
-            letter = asm_printer_step(printer_steps, ENGINE_RECORD_TABLE, at, ASM_PRINTER_TABLE_LETTER);
-        }
-        else
-        {
-            // the digit at `offset` from the left is the number over ten to the digits left after it, modulo ten; a
-            // place outside the atom reads some power, never 0, and its letter is not taken
-            const unsigned int slot = slot_of[atom];
-            const unsigned int last =
-                asm_printer_step(printer_steps, ENGINE_RECORD_DIFFERENCE, digits[slot], printer_steps->one);
-            const unsigned int exponent = asm_printer_step(printer_steps, ENGINE_RECORD_DIFFERENCE, last, offset);
-            const unsigned int power =
-                asm_printer_step(printer_steps, ENGINE_RECORD_TABLE, exponent, ASM_PRINTER_TABLE_POWER);
-            const unsigned int shifted = asm_printer_step(printer_steps, ENGINE_RECORD_QUOTIENT, number[slot], power);
-            const unsigned int digit = asm_printer_step(printer_steps, ENGINE_RECORD_REMAINDER, shifted, ten);
-            letter = asm_printer_step(printer_steps, ENGINE_RECORD_SUM, digit, zero_letter);
-        }
-        const unsigned int taken = asm_printer_step(printer_steps, ENGINE_RECORD_PRODUCT, inside, letter);
-        byte = asm_printer_step(printer_steps, ENGINE_RECORD_SUM, byte, taken);
-    }
-    return asm_printer_step(printer_steps, ENGINE_RECORD_TABLE, byte, ASM_PRINTER_TABLE_BYTE);
-}
-
-// the tables laid out from the words and the parts, each row a word, into `values`, each table's rows a power of two
-void asm_printer_tables(const AsmPrinterWords *words, std::vector<unsigned int> (&values)[ASM_PRINTER_TABLES],
-                        EngineRecordTable (&tables)[ASM_PRINTER_TABLES])
-{
-    const unsigned int part_bits =
-        asm_printer_index_bits((unsigned long long)words->parts.size() * ASM_PRINTER_PART_ROWS);
-    const unsigned int word_bits = asm_printer_index_bits(words->words.size());
-    unsigned long long letters = 0ull;
-    for (const std::string &word : words->words)
-    {
-        letters += word.size();
-    }
-    const unsigned int letter_bits = asm_printer_index_bits(letters);
-    values[ASM_PRINTER_TABLE_PIECE].assign(1ull << part_bits, 0u);
-    for (size_t part = 0u; part < words->parts.size(); part += 1u)
-    {
-        for (unsigned int piece = 0u; piece < ASM_PRINTER_PIECES; piece += 1u)
-        {
-            values[ASM_PRINTER_TABLE_PIECE][(part * ASM_PRINTER_PART_ROWS) + piece] = words->parts[part][piece];
+            asm_printer_flat_text(flat, piece);
         }
     }
-    values[ASM_PRINTER_TABLE_LENGTH].assign(1ull << word_bits, 0u);
-    values[ASM_PRINTER_TABLE_START].assign(1ull << word_bits, 0u);
-    values[ASM_PRINTER_TABLE_LETTER].assign(1ull << letter_bits, 0u);
-    unsigned int letter_count = 0u;
-    for (size_t number = 0u; number < words->words.size(); number += 1u)
+    for (unsigned int fixed = 0u; fixed < PHYSREG_COUNT; fixed += 1u)
     {
-        const std::string &word = words->words[number];
-        // the layout holds every word's length and first letter below 2^16
-        values[ASM_PRINTER_TABLE_LENGTH][number] = (unsigned int)word.size();
-        values[ASM_PRINTER_TABLE_START][number] = letter_count;
-        for (const char letter : word)
-        {
-            values[ASM_PRINTER_TABLE_LETTER][letter_count] = (unsigned int)(unsigned char)letter;
-            letter_count += 1u;
-        }
+        flattened->fixed_text[fixed] = asm_printer_flat_text(flat, rules->fixed[fixed]);
     }
-    // ten to each power a 32-bit word has a digit at, and 1 at the rest, where no lane divides by 0
-    values[ASM_PRINTER_TABLE_POWER].assign(16u, 1u);
-    unsigned int power = 1u;
-    for (unsigned int exponent = 0u; exponent < ASM_PRINTER_DIGITS; exponent += 1u)
+    flattened->header_text = asm_printer_flat_text(flat, header);
+    flattened->block_hash = target->block_hash;
+    // a device's compute capability and NVRTC's version are small counts, never negative
+    flattened->target_numbers[0] = (unsigned int)target->major;
+    flattened->target_numbers[1] = (unsigned int)target->minor;
+    flattened->target_numbers[2] = (unsigned int)target->nvrtc_major;
+    flattened->target_numbers[3] = (unsigned int)target->nvrtc_minor;
+    // a vector's data is NULL where it is empty, and the core reads the letters at 0 for the empty word
+    flat->letters.push_back(0u);
+    flattened->letters = flat->letters.data();
+    flattened->texts = flat->texts.data();
+    flat->slots.push_back(0u);
+    flattened->slots = flat->slots.data();
+}
+
+void asm_printer_capacities(const AsmPrinterFlat *flat, unsigned int step_capacity, AsmPrinterCoreBuild *build)
+{
+    // every word is a text of the ruleset, the empty word, the minus or the hash; every letter is a text's, the minus's
+    // or the hash's; each form takes a part for each four slots and one for none, and the header one more
+    unsigned int form_parts = 0u;
+    for (unsigned int form = 0u; form < OPCODE_COUNT; form += 1u)
     {
-        values[ASM_PRINTER_TABLE_POWER][exponent] = power;
-        power = (exponent < (ASM_PRINTER_DIGITS - 1u)) ? (10u * power) : power;
+        const unsigned int slots = flat->rules.form_slot_first[form + 1u] - flat->rules.form_slot_first[form];
+        form_parts += (slots == 0u) ? 1u : ((slots + ASM_PRINTER_SLOTS - 1u) / ASM_PRINTER_SLOTS);
     }
-    values[ASM_PRINTER_TABLE_BYTE].assign(256u, 0u);
-    for (unsigned int byte = 0u; byte < 256u; byte += 1u)
+    // the texts, letters and slots are a few thousand
+    build->word_capacity = (unsigned int)flat->texts.size() + 3u;
+    build->letter_capacity = (unsigned int)flat->letters.size() + 1u + ASM_PRINTER_HASH_DIGITS;
+    build->form_part_capacity = form_parts;
+    build->part_capacity = form_parts + 1u;
+    build->slot_capacity = flat->rules.form_slot_first[OPCODE_COUNT];
+    build->step_capacity = step_capacity;
+    // past ASM_PRINTER_TABLE_BITS_MAX the build ends before its tables, so no table is wider
+    for (unsigned int table = 0u; table < ASM_PRINTER_TABLE_POWER; table += 1u)
     {
-        values[ASM_PRINTER_TABLE_BYTE][byte] = byte;
+        build->table_capacity[table] = 1u << ASM_PRINTER_TABLE_BITS_MAX;
     }
-    tables[ASM_PRINTER_TABLE_PIECE] = {part_bits, ASM_PRINTER_WORD_BITS, values[ASM_PRINTER_TABLE_PIECE].data()};
-    tables[ASM_PRINTER_TABLE_LENGTH] = {word_bits, ASM_PRINTER_WORD_BITS, values[ASM_PRINTER_TABLE_LENGTH].data()};
-    tables[ASM_PRINTER_TABLE_START] = {word_bits, ASM_PRINTER_WORD_BITS, values[ASM_PRINTER_TABLE_START].data()};
-    tables[ASM_PRINTER_TABLE_LETTER] = {letter_bits, 8u, values[ASM_PRINTER_TABLE_LETTER].data()};
-    // 10^9 is below 2^30
-    tables[ASM_PRINTER_TABLE_POWER] = {4u, 30u, values[ASM_PRINTER_TABLE_POWER].data()};
-    tables[ASM_PRINTER_TABLE_BYTE] = {8u, 8u, values[ASM_PRINTER_TABLE_BYTE].data()};
+    build->table_capacity[ASM_PRINTER_TABLE_POWER] = ASM_PRINTER_POWER_ROWS;
+    build->table_capacity[ASM_PRINTER_TABLE_BYTE] = ASM_PRINTER_BYTE_ROWS;
+}
+
+void asm_printer_memory_size(AsmPrinterMemory *memory, AsmPrinterCoreBuild *build)
+{
+    // an empty vector's data is NULL, and every list is given at least one word
+    memory->word_start.assign((size_t)build->word_capacity + 1u, 0u);
+    memory->word_length.assign((size_t)build->word_capacity + 1u, 0u);
+    memory->word_letters.assign((size_t)build->letter_capacity + 1u, 0u);
+    memory->part_pieces.assign(((size_t)build->part_capacity * ASM_PRINTER_PIECES) + 1u, 0u);
+    memory->part_lanes.assign((size_t)build->part_capacity + 1u, 0u);
+    memory->form_parts.assign((size_t)build->form_part_capacity + 1u, 0u);
+    memory->slot_parameters.assign((size_t)build->slot_capacity + 1u, 0u);
+    memory->steps.assign((size_t)build->step_capacity, EngineRecordStep{});
+    build->word_start = memory->word_start.data();
+    build->word_length = memory->word_length.data();
+    build->word_letters = memory->word_letters.data();
+    build->part_pieces = memory->part_pieces.data();
+    build->part_lanes = memory->part_lanes.data();
+    build->form_parts = memory->form_parts.data();
+    build->slot_parameters = memory->slot_parameters.data();
+    build->steps = memory->steps.data();
+    for (unsigned int table = 0u; table < ASM_PRINTER_TABLES; table += 1u)
+    {
+        memory->values[table].assign(build->table_capacity[table], 0u);
+        build->values[table] = memory->values[table].data();
+    }
+}
+
+void asm_printer_keep(const AsmPrinterCoreBuild *build, AsmPrinterRuleset *text_rules)
+{
+    text_rules->word_lengths.assign(build->word_length, build->word_length + build->words);
+    text_rules->part_lanes.assign(build->part_lanes, build->part_lanes + build->parts);
+    text_rules->form_part_first.assign(build->form_part_first, build->form_part_first + OPCODE_COUNT + 1u);
+    text_rules->form_parts.assign(build->form_parts, build->form_parts + build->form_part_count);
+    text_rules->form_slot_first.assign(build->form_slot_first, build->form_slot_first + OPCODE_COUNT + 1u);
+    text_rules->slot_parameters.assign(build->slot_parameters, build->slot_parameters + build->slot_count);
+    for (unsigned int bank = 0u; bank < REGCLASS_COUNT; bank += 1u)
+    {
+        text_rules->bank_before[bank] = build->bank_before[bank];
+        text_rules->bank_after[bank] = build->bank_after[bank];
+    }
+    for (unsigned int fixed = 0u; fixed < PHYSREG_COUNT; fixed += 1u)
+    {
+        text_rules->fixed_word[fixed] = build->fixed_word[fixed];
+    }
+    text_rules->minus_word = build->minus_word;
+    text_rules->hash_word = build->hash_word;
+    text_rules->header_part = build->header_part;
+    for (unsigned int number = 0u; number < 4u; number += 1u)
+    {
+        text_rules->target_numbers[number] = build->target_numbers[number];
+    }
+    // what keymath and key_schedule take, kept for the device's layout, each table pointing at its values where they
+    // are kept
+    AsmPrinterProgram *const program = &text_rules->program;
+    program->steps.assign(build->steps, build->steps + build->step_count);
+    program->field_bits.assign(build->field_bits, build->field_bits + ASM_PRINTER_FIELDS);
+    program->field_offset.assign(build->field_offset, build->field_offset + ASM_PRINTER_FIELDS);
+    program->values.assign(ASM_PRINTER_TABLES, std::vector<unsigned int>());
+    program->tables.assign(build->tables, build->tables + ASM_PRINTER_TABLES);
+    for (unsigned int table = 0u; table < ASM_PRINTER_TABLES; table += 1u)
+    {
+        const size_t rows = (size_t)1u << build->tables[table].index_bits;
+        program->values[table].assign(build->values[table], build->values[table] + rows);
+        program->tables[table].values = program->values[table].data();
+    }
+    program->output = build->output;
+}
+
+const char *asm_printer_ended(unsigned int end)
+{
+    switch (end)
+    {
+    case ASM_PRINTER_CORE_CONSTRUCT:
+        return "a form is given as a construct, whose scratch the code generator takes";
+    case ASM_PRINTER_CORE_HEADER:
+        return "the header holds a byte 0";
+    case ASM_PRINTER_CORE_BANK:
+        return "a bank writes its register with other than one number";
+    case ASM_PRINTER_CORE_TABLES:
+        return "the ruleset and the header hold more words or letters than the assembly printer's tables hold";
+    default:
+        return "the assembly printer's build ran past its memory";
+    }
 }

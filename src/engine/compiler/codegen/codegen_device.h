@@ -74,4 +74,15 @@ int codegen_device_instrs(const EngineRecordLayout *layout, const std::vector<un
 // 1 where two layouts are the same word for word: their sizes, step tables and tables' values
 int layout_same(const EngineRecordLayout *left, const EngineRecordLayout *right);
 
+// asm_printer_ruleset_build on the device: the schema checked and the scratch taken on the host, which are the
+// reader's, then the build (asm_printer_core.h) in one device thread and the program laid out by the device
+// (layout_device). The program's key is not kept, and its output is the program's. 1 where it is built, else 0 and why
+// in `refused`, as the host's build refuses, or where the device refused a call or the build has no device
+int asm_printer_ruleset_device(const Ruleset *rules, const TargetInfo *target, const std::string &header,
+                               AsmPrinterRuleset *text_rules, std::string *refused);
+
+// 1 where two builds of a ruleset are the same word for word: their scratch and lists, the program's steps, fields,
+// tables and output, and its layout
+int asm_printer_ruleset_same(const AsmPrinterRuleset *left, const AsmPrinterRuleset *right);
+
 #endif

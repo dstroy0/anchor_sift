@@ -215,6 +215,8 @@ static unsigned long long codegen_device_scan(DeviceArena *memory, const Counted
     return (unsigned long long)last_count + (unsigned long long)last_sum;
 }
 
+int asm_printer_program_device(const AsmPrinterProgram *program, EngineRecordLayout *text_layout, std::string *refused);
+
 int asm_printer_program_placed(const AsmPrinterRuleset *text_rules, EngineRecordLayout *text_layout,
                                std::string *refused);
 

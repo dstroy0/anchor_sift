@@ -236,10 +236,34 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
     const int has_costs = generator.program_schedule_costs(&costs);
     s_cycle_codegen_depth += 1;
     const int built = asm_printer_ruleset_build(rules, target, header, &text_rules, &refused);
-    const int ran = built && codegen_device(layout, &text_rules, places, has_costs ? &costs : NULL, &written, &refused);
+    // the ruleset built on the device as well, and the device's written from where it is the host's word for word
+    AsmPrinterRuleset device_rules{};
+    std::string device_refused;
+    const int device_built = built && asm_printer_ruleset_device(rules, target, header, &device_rules, &device_refused);
+    const int rules_same = device_built && asm_printer_ruleset_same(&device_rules, &text_rules);
+    if (rules_same != 0)
+    {
+        fprintf(stderr, "  cycle: the device built the assembly printer's ruleset, word for word the host's\n");
+    }
+    else if (device_built != 0)
+    {
+        fprintf(stderr, "  cycle: the device built the assembly printer's ruleset apart from the host's; the host's "
+                        "is written from\n");
+    }
+    else if (built != 0)
+    {
+        fprintf(stderr, "  cycle: the device did not build the assembly printer's ruleset (%s)\n",
+                device_refused.c_str());
+    }
+    const int ran = built && codegen_device(layout, (rules_same != 0) ? &device_rules : &text_rules, places,
+                                            has_costs ? &costs : NULL, &written, &refused);
     if (built)
     {
         asm_printer_ruleset_release(&text_rules);
+    }
+    if (device_built)
+    {
+        asm_printer_ruleset_release(&device_rules);
     }
     s_cycle_codegen_depth -= 1;
     size_t differs = 0u;

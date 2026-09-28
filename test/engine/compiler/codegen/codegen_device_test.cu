@@ -140,6 +140,17 @@ static void device_language(DeviceResults *results, const std::string &name, Cod
         printf("  %s: the assembly printer does not take the ruleset (%s)\n", lane.c_str(), refused.c_str());
         return;
     }
+    AsmPrinterRuleset device_rules{};
+    std::string rules_refused;
+    const int rules_built =
+        asm_printer_ruleset_device(rules, &target, std::string(s_device_header), &device_rules, &rules_refused);
+    device_check(results, rules_built && asm_printer_ruleset_same(&device_rules, &text_rules),
+                 lane + ": the device builds the assembly printer's ruleset word for word the host's" +
+                     device_why(rules_built, rules_refused));
+    if (rules_built)
+    {
+        asm_printer_ruleset_release(&device_rules);
+    }
     std::string written;
     const int wrote = codegen_device(layout, &text_rules, places, written_costs, &written, &refused);
     device_check(results, wrote && !text.empty() && (written == text),

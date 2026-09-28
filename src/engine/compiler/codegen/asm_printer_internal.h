@@ -7,67 +7,57 @@
 #include "../key_schedule/key_schedule.h"
 #include "../keymath/keymath.h"
 #include "asm_printer.h"
+#include "asm_printer_core.h"
 #include "ruleset_reader.h"
 
 #include <stddef.h>
 #include <stdio.h>
 
-#include <array>
-#include <map>
 #include <string>
 #include <vector>
 
-// the fields as the program reads them: the part, the first lane, then each slot's word before, word after, number and
-// whether it has one
-#define ASM_PRINTER_FIELD_PART 0u
-#define ASM_PRINTER_FIELD_FIRST 1u
-#define ASM_PRINTER_FIELD_SLOT(slot_, which_) (2u + (4u * (slot_)) + (which_))
-#define ASM_PRINTER_FIELDS (2u + (4u * ASM_PRINTER_SLOTS))
-
-// the tables: each part's pieces by part . 8 + piece, each word's length and first letter by its number, the letters
-// of every word end to end, ten to each power a digit is taken at, and a byte as itself
-enum AsmPrinterTable
+// the ruleset, the target and the header as the core's build reads them, in host memory: every text's letters end to
+// end, the texts and the forms' slots, and the core's view of them, which points into the three
+struct AsmPrinterFlat
 {
-    ASM_PRINTER_TABLE_PIECE = 0,
-    ASM_PRINTER_TABLE_LENGTH = 1,
-    ASM_PRINTER_TABLE_START = 2,
-    ASM_PRINTER_TABLE_LETTER = 3,
-    ASM_PRINTER_TABLE_POWER = 4,
-    ASM_PRINTER_TABLE_BYTE = 5,
-    ASM_PRINTER_TABLES = 6
+    std::vector<unsigned char> letters;
+    std::vector<AsmPrinterCoreText> texts;
+    std::vector<unsigned int> slots;
+    AsmPrinterCoreRules rules;
 };
 
-// the rows a part takes in the pieces table, a power of two past its pieces
-#define ASM_PRINTER_PART_ROWS 8u
+void asm_printer_flatten(const Ruleset *rules, const TargetInfo *target, const std::string &header,
+                         AsmPrinterFlat *flat);
 
-// the widest word number, length and letter offset the tables hold, and the widest index a table takes from a 16-bit
-// field or entry
-#define ASM_PRINTER_TABLE_BITS_MAX 16u
-
-// the text being laid out: the words, each once, by their numbers, 0 the empty word; and the parts, each once
-struct AsmPrinterWords
+// the memory a build lays out into, sized from the flattened ruleset by asm_printer_memory_size, its steps by
+// `step_capacity`
+struct AsmPrinterMemory
 {
-    std::vector<std::string> words;
-    std::map<std::string, unsigned int> numbered;
-    std::vector<std::array<unsigned int, ASM_PRINTER_PIECES>> parts;
-    std::map<std::array<unsigned int, ASM_PRINTER_PIECES>, unsigned int> part_numbered;
-};
-
-unsigned int asm_printer_word(AsmPrinterWords *words, const std::string &word);
-
-unsigned int asm_printer_part(AsmPrinterWords *words, const std::array<unsigned int, ASM_PRINTER_PIECES> &part);
-
-// the assembly printer's steps being laid out
-struct AsmPrinterSteps
-{
+    std::vector<unsigned int> word_start;
+    std::vector<unsigned int> word_length;
+    std::vector<unsigned char> word_letters;
+    std::vector<unsigned int> part_pieces;
+    std::vector<unsigned int> part_lanes;
+    std::vector<unsigned int> form_parts;
+    std::vector<unsigned int> slot_parameters;
     std::vector<EngineRecordStep> steps;
-    unsigned int one;
-    unsigned int two;
+    std::vector<unsigned int> values[ASM_PRINTER_TABLES];
 };
 
-unsigned int asm_printer_program_build(AsmPrinterSteps *printer_steps);
+// the capacities a build of `flat` takes, every count but the steps' held exactly, into `build`
+void asm_printer_capacities(const AsmPrinterFlat *flat, unsigned int step_capacity, AsmPrinterCoreBuild *build);
 
-void asm_printer_tables(const AsmPrinterWords *words, std::vector<unsigned int> (&values)[ASM_PRINTER_TABLES],
-                        EngineRecordTable (&tables)[ASM_PRINTER_TABLES]);
+// `memory` sized to `build`'s capacities, and `build` pointed at it
+void asm_printer_memory_size(AsmPrinterMemory *memory, AsmPrinterCoreBuild *build);
+
+// the steps the first build is given; a build left full runs again with twice as many
+#define ASM_PRINTER_STEP_CAPACITY 1024u
+
+// what a finished build laid out, its memory in host memory, kept in `text_rules`: the lists and the program's steps,
+// fields, tables and output
+void asm_printer_keep(const AsmPrinterCoreBuild *build, AsmPrinterRuleset *text_rules);
+
+// why a build ended as `end`, as the host's build said it
+const char *asm_printer_ended(unsigned int end);
 
 #endif

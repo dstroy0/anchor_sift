@@ -40,13 +40,11 @@ void codegen_device_launched(DeviceArena *memory)
     memory->ok = (memory->ok != 0) && (cudaGetLastError() == cudaSuccess);
 }
 
-// the assembly printer laid out by the device from what asm_printer_ruleset_build kept of it, into `text_layout`, which
-// the caller gives back by key_schedule_record_release: 1 where it is laid out and is the host's word for word, else 0
-// and why
-int asm_printer_program_placed(const AsmPrinterRuleset *text_rules, EngineRecordLayout *text_layout,
-                               std::string *refused)
+// the assembly printer laid out by the device from what a build kept of it, into `text_layout`, which the caller gives
+// back by key_schedule_record_release: 1 where it is laid out, else 0 and why
+int asm_printer_program_device(const AsmPrinterProgram *program, EngineRecordLayout *text_layout, std::string *refused)
 {
-    const AsmPrinterProgram &kept = text_rules->program;
+    const AsmPrinterProgram &kept = *program;
     const unsigned int in_limbs[ENGINE_RECORD_MEMBERS_MAX] = {ASM_PRINTER_RECORD_LIMBS, 0u, 0u};
     LayoutRequest request{};
     request.steps = kept.steps.data();
@@ -68,7 +66,20 @@ int asm_printer_program_placed(const AsmPrinterRuleset *text_rules, EngineRecord
         *refused = "the device did not lay out the assembly printer (" + why + ")";
         return 0;
     }
-    if (layout_same(text_layout, &kept.layout) == 0)
+    return 1;
+}
+
+// the assembly printer laid out by the device from what asm_printer_ruleset_build kept of it, into `text_layout`, which
+// the caller gives back by key_schedule_record_release: 1 where it is laid out and is the host's word for word, else 0
+// and why
+int asm_printer_program_placed(const AsmPrinterRuleset *text_rules, EngineRecordLayout *text_layout,
+                               std::string *refused)
+{
+    if (asm_printer_program_device(&text_rules->program, text_layout, refused) == 0)
+    {
+        return 0;
+    }
+    if (layout_same(text_layout, &text_rules->program.layout) == 0)
     {
         key_schedule_record_release(text_layout);
         *refused = "the device laid out the assembly printer apart from the host's";

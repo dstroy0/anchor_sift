@@ -2,67 +2,20 @@
 // asm_printer_layout.cu: the program and rulesets laid out, and the host's lists
 #include "asm_printer_internal.h"
 
-// the assembly printer and its tables laid out from `words` into `program`'s key and layout: 1 where they are, else 0
-// and why in `refused`, a text of more words, letters or parts than the tables hold refused
-static int asm_printer_program_layout(const AsmPrinterWords *words, AsmPrinterProgram *program, std::string *refused)
+// the assembly printer's program, as the build kept it, encoded by keymath and laid out by key_schedule into
+// `program`'s key and layout: 1 where they are, else 0 and why in `refused`
+static int asm_printer_program_layout(AsmPrinterProgram *program, std::string *refused)
 {
-    unsigned long long letters = 0ull;
-    for (const std::string &word : words->words)
-    {
-        letters += word.size();
-    }
-    if ((letters >= (1ull << ASM_PRINTER_TABLE_BITS_MAX)) ||
-        (words->words.size() > (1ull << ASM_PRINTER_TABLE_BITS_MAX)) ||
-        (((unsigned long long)words->parts.size() * ASM_PRINTER_PART_ROWS) > (1ull << ASM_PRINTER_TABLE_BITS_MAX)))
-    {
-        *refused = "the ruleset and the header hold more words or letters than the assembly printer's tables hold";
-        return 0;
-    }
-    std::vector<unsigned int> values[ASM_PRINTER_TABLES];
-    EngineRecordTable tables[ASM_PRINTER_TABLES];
-    asm_printer_tables(words, values, tables);
-    AsmPrinterSteps printer_steps;
-    const unsigned int output = asm_printer_program_build(&printer_steps);
-    unsigned int field_bits[ASM_PRINTER_FIELDS];
-    unsigned int field_offset[ASM_PRINTER_FIELDS];
-    field_bits[ASM_PRINTER_FIELD_PART] = ASM_PRINTER_PART_BITS;
-    field_offset[ASM_PRINTER_FIELD_PART] = 0u;
-    field_bits[ASM_PRINTER_FIELD_FIRST] = ASM_PRINTER_FIRST_BITS;
-    field_offset[ASM_PRINTER_FIELD_FIRST] = ASM_PRINTER_FIRST_AT;
-    for (unsigned int slot = 0u; slot < ASM_PRINTER_SLOTS; slot += 1u)
-    {
-        const unsigned int base = ASM_PRINTER_SLOT_AT + (slot * ASM_PRINTER_SLOT_BITS);
-        const unsigned int bits[4] = {ASM_PRINTER_WORD_BITS, ASM_PRINTER_WORD_BITS, ASM_PRINTER_NUMBER_BITS, 1u};
-        const unsigned int at[4] = {base, base + ASM_PRINTER_WORD_BITS, base + (2u * ASM_PRINTER_WORD_BITS),
-                                    base + (2u * ASM_PRINTER_WORD_BITS) + ASM_PRINTER_NUMBER_BITS};
-        for (unsigned int which = 0u; which < 4u; which += 1u)
-        {
-            field_bits[ASM_PRINTER_FIELD_SLOT(slot, which)] = bits[which];
-            field_offset[ASM_PRINTER_FIELD_SLOT(slot, which)] = at[which];
-        }
-    }
-    // what keymath and key_schedule take, kept for the device's layout, each table pointing at its values where they
-    // are kept
-    program->steps = printer_steps.steps;
-    program->field_bits.assign(field_bits, field_bits + ASM_PRINTER_FIELDS);
-    program->field_offset.assign(field_offset, field_offset + ASM_PRINTER_FIELDS);
-    program->values.assign(values, values + ASM_PRINTER_TABLES);
-    program->tables.assign(tables, tables + ASM_PRINTER_TABLES);
-    for (unsigned int table = 0u; table < ASM_PRINTER_TABLES; table += 1u)
-    {
-        program->tables[table].values = program->values[table].data();
-    }
-    program->output = output;
     EngineError error{};
     // the steps are a few hundred
-    const KeymathRecordRequest encode_request = {printer_steps.steps.data(),
-                                                 (unsigned int)printer_steps.steps.size(),
-                                                 field_bits,
+    const KeymathRecordRequest encode_request = {program->steps.data(),
+                                                 (unsigned int)program->steps.size(),
+                                                 program->field_bits.data(),
                                                  ASM_PRINTER_FIELDS,
                                                  1u,
-                                                 &output,
+                                                 &program->output,
                                                  1u,
-                                                 tables,
+                                                 program->tables.data(),
                                                  ASM_PRINTER_TABLES,
                                                  &program->key,
                                                  &error};
@@ -73,8 +26,8 @@ static int asm_printer_program_layout(const AsmPrinterWords *words, AsmPrinterPr
         return 0;
     }
     const unsigned int in_limbs[ENGINE_RECORD_MEMBERS_MAX] = {ASM_PRINTER_RECORD_LIMBS, 0u, 0u};
-    const KeyScheduleRecordRequest layout_request = {&program->key,    field_offset, ASM_PRINTER_FIELDS, in_limbs, 1,
-                                                     &program->layout, &error};
+    const KeyScheduleRecordRequest layout_request = {
+        &program->key, program->field_offset.data(), ASM_PRINTER_FIELDS, in_limbs, 1, &program->layout, &error};
     if (key_schedule_record_layout(&layout_request) == KEY_SCHEDULE_ERROR)
     {
         *refused = "key_schedule refused the assembly printer";
@@ -85,9 +38,10 @@ static int asm_printer_program_layout(const AsmPrinterWords *words, AsmPrinterPr
     return 1;
 }
 
-// Every word and part a lane the core decides can be written in, laid out before any lane is: each form's parts from
-// its pieces, its slots four to a part and one part for a form of none, each bank's words around its number, each held
-// register's word, the minus, the target's hash and the header, whole
+// the schema checked and the scratch taken, which are the reader's, then the build: every word and part a lane the core
+// decides can be written in, the lists, the program and its tables, laid out by the core (asm_printer_core.h) the
+// device runs as well, its steps given twice the memory each time they run past it; then the program encoded and laid
+// out
 int asm_printer_ruleset_build(const Ruleset *rules, const TargetInfo *target, const std::string &header,
                               AsmPrinterRuleset *text_rules, std::string *refused)
 {
@@ -105,83 +59,29 @@ int asm_printer_ruleset_build(const Ruleset *rules, const TargetInfo *target, co
     }
     const unsigned int scratch_banks[3] = {REGCLASS_TEMPORARY, REGCLASS_WIDE, REGCLASS_PREDICATE};
     ruleset_scratch(rules, scratch_banks, &text_rules->scratch);
-    AsmPrinterWords words;
-    asm_printer_word(&words, std::string());
-    for (unsigned int form = 0u; form < OPCODE_COUNT; form += 1u)
+    AsmPrinterFlat flat;
+    asm_printer_flatten(rules, target, header, &flat);
+    AsmPrinterMemory memory;
+    AsmPrinterCoreBuild build{};
+    build.rules = flat.rules;
+    unsigned int step_capacity = ASM_PRINTER_STEP_CAPACITY;
+    for (;;)
     {
-        if (!rules->constructs[form].lines.empty())
+        asm_printer_capacities(&flat, step_capacity, &build);
+        asm_printer_memory_size(&memory, &build);
+        if (asm_printer_core_ruleset_build(&build) != 0)
         {
-            *refused = "a form is given as a construct, whose scratch the code generator takes";
+            break;
+        }
+        if ((build.end != ASM_PRINTER_CORE_FULL) || (step_capacity >= (1u << 30u)))
+        {
+            *refused = asm_printer_ended(build.end);
             return 0;
         }
-        const std::vector<std::string> &pieces = rules->forms[form].pieces;
-        const std::vector<unsigned int> &slots = rules->forms[form].slots;
-        // the parts and the slots' parameters, a few hundred of each
-        text_rules->form_part_first.push_back((unsigned int)text_rules->form_parts.size());
-        text_rules->form_slot_first.push_back((unsigned int)text_rules->slot_parameters.size());
-        text_rules->slot_parameters.insert(text_rules->slot_parameters.end(), slots.begin(), slots.end());
-        for (size_t first_slot = 0u; (first_slot == 0u) || (first_slot < slots.size()); first_slot += ASM_PRINTER_SLOTS)
-        {
-            const size_t left = slots.size() - first_slot;
-            const size_t taken = (left < ASM_PRINTER_SLOTS) ? left : ASM_PRINTER_SLOTS;
-            const int last = (first_slot + taken) == slots.size();
-            std::array<unsigned int, ASM_PRINTER_PIECES> part{};
-            for (size_t slot = 0u; slot < taken; slot += 1u)
-            {
-                part[slot] = asm_printer_word(&words, pieces[first_slot + slot]);
-            }
-            part[taken] = last ? asm_printer_word(&words, pieces[slots.size()]) : 0u;
-            text_rules->form_parts.push_back(asm_printer_part(&words, part));
-            if (last)
-            {
-                break;
-            }
-        }
+        step_capacity *= 2u;
     }
-    text_rules->form_part_first.push_back((unsigned int)text_rules->form_parts.size());
-    text_rules->form_slot_first.push_back((unsigned int)text_rules->slot_parameters.size());
-    for (unsigned int bank = 0u; bank < REGCLASS_COUNT; bank += 1u)
-    {
-        const InstrTemplate *const bank_form = &rules->banks[bank];
-        if (bank_form->slots.size() != 1u)
-        {
-            *refused = "a bank writes its register with other than one number";
-            return 0;
-        }
-        text_rules->bank_before[bank] = asm_printer_word(&words, bank_form->pieces[0]);
-        text_rules->bank_after[bank] = asm_printer_word(&words, bank_form->pieces[1]);
-    }
-    for (unsigned int fixed = 0u; fixed < PHYSREG_COUNT; fixed += 1u)
-    {
-        text_rules->fixed_word[fixed] = asm_printer_word(&words, rules->fixed[fixed]);
-    }
-    char block[32];
-    snprintf(block, sizeof(block), "%016llx", target->block_hash);
-    text_rules->minus_word = asm_printer_word(&words, std::string("-"));
-    text_rules->hash_word = asm_printer_word(&words, std::string(block));
-    std::array<unsigned int, ASM_PRINTER_PIECES> header_part{};
-    header_part[0] = asm_printer_word(&words, header);
-    text_rules->header_part = asm_printer_part(&words, header_part);
-    // a device's compute capability and NVRTC's version are small counts, never negative
-    text_rules->target_numbers[0] = (unsigned int)target->major;
-    text_rules->target_numbers[1] = (unsigned int)target->minor;
-    text_rules->target_numbers[2] = (unsigned int)target->nvrtc_major;
-    text_rules->target_numbers[3] = (unsigned int)target->nvrtc_minor;
-    // each word's length and each part's lanes, below 2^16 as the program's layout holds the letters
-    for (const std::string &word : words.words)
-    {
-        text_rules->word_lengths.push_back((unsigned int)word.size());
-    }
-    for (const std::array<unsigned int, ASM_PRINTER_PIECES> &part : words.parts)
-    {
-        unsigned int lanes = 0u;
-        for (const unsigned int piece : part)
-        {
-            lanes += text_rules->word_lengths[piece];
-        }
-        text_rules->part_lanes.push_back(lanes);
-    }
-    return asm_printer_program_layout(&words, &text_rules->program, refused);
+    asm_printer_keep(&build, text_rules);
+    return asm_printer_program_layout(&text_rules->program, refused);
 }
 
 void asm_printer_ruleset_release(AsmPrinterRuleset *text_rules)
