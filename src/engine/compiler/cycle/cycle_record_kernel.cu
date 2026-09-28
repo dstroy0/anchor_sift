@@ -160,6 +160,7 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
     record->file_limbs = layout->file_limbs;
     memcpy(record->in_limbs, layout->in_limbs, sizeof(record->in_limbs));
     record->out_limbs = layout->out_limbs;
+    record->table_words = layout->table_word_count;
     for (unsigned int step = 0u; step < layout->steps; step += 1u)
     {
         const unsigned int operation = layout->step_table[step].operation;
@@ -174,9 +175,12 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
         // its place, and the error is dropped before a run reads the runtime's last error as its own
         cudaGetLastError();
     }
+    // a host program holds no device grant: it runs as one thread of one thread block
+    const int host = (record->compiled != 0u) && (record->host_program != NULL);
+    record->threads = (host != 0) ? 1u : record->threads;
     cudaFuncAttributes attributes;
-    const int attributed =
-        (record->compiled != 0u) && (cudaFuncGetAttributes(&attributes, (const void *)record->kernel) == cudaSuccess);
+    const int attributed = (record->compiled != 0u) && (host == 0) &&
+                           (cudaFuncGetAttributes(&attributes, (const void *)record->kernel) == cudaSuccess);
     if (attributed != 0)
     {
         // a register count and a frame's bytes are never negative
@@ -184,8 +188,14 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
         record->local_bytes = (unsigned long long)attributes.localSizeBytes;
     }
     // a compiled program whose registers shared memory cannot hold runs on the interpreter
-    record->compiled = ((attributed != 0) && cycle_record_share(record, attributes.sharedSizeBytes)) ? 1u : 0u;
-    if ((cycle_environment_set("CYCLE_RECORD_REPORT") != 0) && (record->compiled != 0u))
+    record->compiled =
+        ((host != 0) || ((attributed != 0) && cycle_record_share(record, attributes.sharedSizeBytes))) ? 1u : 0u;
+    if ((cycle_environment_set("CYCLE_RECORD_REPORT") != 0) && (host != 0))
+    {
+        fprintf(stderr, "  cycle: the program holds %u places a thread, and runs on the host as one thread\n",
+                record->places);
+    }
+    else if ((cycle_environment_set("CYCLE_RECORD_REPORT") != 0) && (record->compiled != 0u))
     {
         fprintf(stderr,
                 "  cycle: the program holds %llu registers a thread, a %llu-byte local frame and %u places a "
@@ -219,6 +229,7 @@ extern "C" void cycle_record_release(CycleRecord *record)
     cudaFree(record->device_block);
     // the record gives back its hold on the program it loaded, compiled or left on the interpreter after
     cycle_program_release(record->kernel);
+    cycle_host_program_release(record->host_program);
     free(record->block);
     free(record);
 }

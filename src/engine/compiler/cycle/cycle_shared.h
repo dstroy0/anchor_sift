@@ -71,7 +71,11 @@ static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success"
 // and local_bytes are the compiled kernel's registers a thread and local frame a thread, the grant it runs within.
 // places are a thread's registers in shared memory and threads a thread block's; register_bytes is the shared memory a
 // thread block's registers take, the launch's dynamic shared memory, and shared_bytes all a thread block holds, the
-// kernel's own beside them; resident is the thread blocks the device holds at once
+// kernel's own beside them; resident is the thread blocks the device holds at once. host_program is the resident of a
+// program the host's compiler built (CYCLE_RECORD_HOST_C=1), which runs on the host; NULL where the program is the
+// device's. table_words is the words of the program's tables
+typedef void (*CycleHostEntry)(CycleCompiledLaunch launch);
+
 struct CycleRecord
 {
     unsigned int steps;
@@ -97,6 +101,8 @@ struct CycleRecord
     unsigned long long shared_bytes;
     unsigned long long resident;
     unsigned long long processors;
+    CycleHostEntry host_program;
+    unsigned long long table_words;
 };
 
 // a launch's time to live where CYCLE_RECORD_TTL names none, well inside Windows' 2 s watchdog
@@ -121,6 +127,15 @@ unsigned long long cycle_environment_microseconds(const char *name, unsigned lon
 int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record);
 
 void cycle_program_release(cudaKernel_t kernel);
+
+// a program's C source built by the host's compiler and loaded for `record`, 0 where it did not build; a kept host
+// program given back; and a host program run resident on the host (cycle_compile_host.cu)
+int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *record, const std::string &source,
+                            unsigned int places, double written, int report);
+
+void cycle_host_program_release(CycleHostEntry entry);
+
+int cycle_host_resident(const CycleRecord *record, CycleCompiledLaunch program, EngineError *error);
 
 // the prelude a C lane opens with, which names the launch and the lane's types (cycle_prelude.cu)
 extern const char g_cycle_prelude[];

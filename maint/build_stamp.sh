@@ -38,6 +38,23 @@ if [ "${COMPILE_CACHE:-1}" != 0 ] && [ -n "$COMPILE_CACHE_NVCC" ] && [ -n "$COMP
     }
 fi
 
+# the host compiler a program built on the host (CYCLE_RECORD_HOST_C=1) is compiled by: on Windows nvcc, handed
+# MSVC's folder as CYCLE_HOST_CCBIN, found as the suites find it
+case "$(uname -s)" in
+    MINGW*|MSYS*|CYGWIN*)
+        if [ -z "${CYCLE_HOST_CCBIN:-}" ]; then
+            CYCLE_HOST_CCBIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2> /dev/null | tail -1)"
+            if [ -z "$CYCLE_HOST_CCBIN" ]; then
+                CYCLE_HOST_CCBIN="$(ls -d "/c/Program Files/Microsoft Visual Studio"/*/*/VC/Tools/MSVC/*/bin/Hostx64/x64 2> /dev/null | tail -1)"
+            fi
+            if [ -n "$CYCLE_HOST_CCBIN" ]; then
+                CYCLE_HOST_CCBIN="$(cygpath -w "$CYCLE_HOST_CCBIN")"
+            fi
+        fi
+        export CYCLE_HOST_CCBIN
+        ;;
+esac
+
 build_stamp()
 {
     local label="$1"

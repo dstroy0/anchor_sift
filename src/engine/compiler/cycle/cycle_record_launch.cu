@@ -133,7 +133,8 @@ static int cycle_record_launch(const CycleRecord *record, const CycleRecordLaunc
         program.out = launch.out;
         program.error = launch.error;
         program.count = launch.count;
-        ok = cycle_record_resident(record, program, error);
+        ok = (record->host_program != NULL) ? cycle_host_resident(record, program, error)
+                                            : cycle_record_resident(record, program, error);
     }
     else if ((ok != 0) && (record->file_limbs <= 64u) && (record->divides != 0u))
     {
@@ -182,15 +183,14 @@ static int cycle_record_check(const CycleRecord *record, CycleRecordLaunch launc
     unsigned int interpreted_error = 0u;
     unsigned int *interpreted = NULL;
     float interpreted_milliseconds = 0.0f;
-    int ok =
-        CYCLE_STATUS_CHECK(
-            cudaMemcpy(&compiled_error, record->device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost),
-            record->device_error, error) &&
-        CYCLE_STATUS_CHECK(
-            cudaMemcpy(compiled_records.data(), launch.out, words * sizeof(unsigned int), cudaMemcpyDeviceToHost),
-            launch.out, error) &&
-        CYCLE_STATUS_CHECK(cudaMalloc((void **)&interpreted, words * sizeof(unsigned int)), &interpreted, error) &&
-        CYCLE_STATUS_CHECK(cudaMemset(record->device_error, 0, sizeof(unsigned int)), record->device_error, error);
+    int ok = CYCLE_STATUS_CHECK(
+                 cudaMemcpy(&compiled_error, record->device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost),
+                 record->device_error, error) &&
+             CYCLE_STATUS_CHECK(
+                 cudaMemcpy(compiled_records.data(), launch.out, words * sizeof(unsigned int), cudaMemcpyDeviceToHost),
+                 launch.out, error) &&
+             CYCLE_STATUS_CHECK(cudaMalloc((void **)&interpreted, words * sizeof(unsigned int)), &interpreted, error) &&
+             CYCLE_STATUS_CHECK(cudaMemset(record->device_error, 0, sizeof(unsigned int)), record->device_error, error);
     launch.out = interpreted;
     ok = ok && cycle_record_launch(record, launch, blocks, 0, (report != 0) ? &interpreted_milliseconds : NULL, error);
     ok = ok &&
@@ -273,9 +273,8 @@ extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
     unsigned int error_count = 1u;
     size_t stack = 0u;
     float milliseconds = 0.0f;
-    int ok =
-        CYCLE_STATUS_CHECK(cudaDeviceGetLimit(&stack, cudaLimitStackSize), &stack, error) &&
-        CYCLE_STATUS_CHECK(cudaMemset(record->device_error, 0, sizeof(unsigned int)), record->device_error, error);
+    int ok = CYCLE_STATUS_CHECK(cudaDeviceGetLimit(&stack, cudaLimitStackSize), &stack, error) &&
+             CYCLE_STATUS_CHECK(cudaMemset(record->device_error, 0, sizeof(unsigned int)), record->device_error, error);
     ok = ok && cycle_record_launch(record, launch, blocks, compiled, (report != 0) ? &milliseconds : NULL, error);
     ok = ok && ((check == 0) || cycle_record_check(record, launch, blocks, milliseconds, report, error));
     if ((ok != 0) && (report != 0) && (check == 0))

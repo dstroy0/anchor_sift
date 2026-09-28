@@ -318,7 +318,8 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
 
 // the program's lane written as PTX and built, else its C source compiled by NVRTC and built, found in this process or
 // the cache where either was built before, and the places it holds in shared memory set. PTX is not written where the
-// block is LTO-IR or CYCLE_RECORD_NVRTC=1, and a program held as PTX is routed by rule (i). 0 where it stays on the
+// block is LTO-IR, CYCLE_RECORD_NVRTC=1 or CYCLE_RECORD_HOST_C=1, and a program held as PTX is routed by rule (i).
+// Under CYCLE_RECORD_HOST_C=1 the C source is built by the host's compiler in place of NVRTC. 0 where it stays on the
 // interpreter: no NVRTC or nvJitLink, a step neither holds, a C source whose ruleset c.krs errored, a compile, link
 // or load that failed, or the assembly printer run while it writes its own lane
 int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
@@ -354,7 +355,8 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
     }
     const CycleTarget *const lane_target = cycle_target(major, minor, lto, report);
     const TargetInfo target = cycle_target_info(lane_target);
-    if ((lto == 0) && (cycle_environment_set("CYCLE_RECORD_NVRTC") == 0))
+    const int host = cycle_environment_set("CYCLE_RECORD_HOST_C");
+    if ((lto == 0) && (host == 0) && (cycle_environment_set("CYCLE_RECORD_NVRTC") == 0))
     {
         PtxTarget &generator = ptx_target();
         const Ruleset *const rules = generator.ruleset(report);
@@ -415,7 +417,9 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
         }
         return 0;
     }
-    if (!cycle_program_load(layout, record, lane_target, source, 0, lto, written, report))
+    const int loaded = (host != 0) ? cycle_host_program_load(layout, record, source, source_places, written, report)
+                                   : cycle_program_load(layout, record, lane_target, source, 0, lto, written, report);
+    if (loaded == 0)
     {
         if (report != 0)
         {

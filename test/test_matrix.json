@@ -184,7 +184,7 @@
       }
     },
     "record_bitwise_c": {
-      "desc": "The record bitwise test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record bitwise test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_bitwise_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -200,7 +200,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_bitwise_codegen_device": {
@@ -243,7 +243,7 @@
       }
     },
     "record_boundary_c": {
-      "desc": "The record boundary test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record boundary test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_boundary_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -259,7 +259,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_c": {
@@ -299,7 +299,7 @@
       }
     },
     "record_coherence_c": {
-      "desc": "The record coherence test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record coherence test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_coherence_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -315,7 +315,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_divide": {
@@ -338,7 +338,7 @@
       }
     },
     "record_divide_c": {
-      "desc": "The record divide test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record divide test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_divide_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -354,7 +354,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_gaussian": {
@@ -377,7 +377,7 @@
       }
     },
     "record_gaussian_c": {
-      "desc": "The record gaussian test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record gaussian test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_gaussian_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -393,7 +393,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_guide": {
@@ -416,7 +416,7 @@
       }
     },
     "record_guide_c": {
-      "desc": "The record guide test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record guide test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_guide_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -432,7 +432,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_host": {
@@ -469,7 +469,7 @@
       }
     },
     "record_lane_c": {
-      "desc": "The record lane test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record lane test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_lane_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -485,7 +485,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_order": {
@@ -508,7 +508,7 @@
       }
     },
     "record_order_c": {
-      "desc": "The record order test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record order test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_order_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -524,7 +524,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_speed": {
@@ -547,7 +547,7 @@
       }
     },
     "record_speed_c": {
-      "desc": "The record speed test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record speed test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_speed_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -563,7 +563,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_table": {
@@ -586,7 +586,7 @@
       }
     },
     "record_table_c": {
-      "desc": "The record table test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record table test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_table_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
@@ -602,7 +602,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_tower": {
@@ -627,7 +627,7 @@
       }
     },
     "record_tower_c": {
-      "desc": "The record tower test, its lanes compiled as C source through NVRTC; every compiled launch held to the interpreter.",
+      "desc": "The record tower test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_tower_test.sh",
       "src": [
         "+<engine/analysis/tower/*>",
@@ -645,7 +645,7 @@
       "env": {
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
-        "CYCLE_RECORD_NVRTC": "1"
+        "CYCLE_RECORD_HOST_C": "1"
       }
     },
     "record_vhdl": {
