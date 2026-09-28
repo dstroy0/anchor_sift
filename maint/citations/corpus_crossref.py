@@ -26,7 +26,7 @@
 # That direction is reversed here. The speakers are named in paper_config, they are named in the
 # research papers, and this check keeps them named as the tree grows.
 #
-# The licence on the corpus turns on that attribution, and so does the condition of use in
+# The license on the corpus turns on that attribution, and so does the condition of use in
 # SECURITY.md. Neither survives an example that prints a Lushootseed word with no idea where it
 # came from.
 #

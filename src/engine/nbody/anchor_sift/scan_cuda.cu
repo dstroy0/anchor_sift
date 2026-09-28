@@ -52,9 +52,8 @@
  * @param[in]     offset     Needle offset the probe sits at.
  * @param[in,out] standing   Where the count is accumulated [BORROWS].
  */
-__global__ static void scan_kernel(const unsigned char *corpus, size_t alignments,
-                                   const unsigned char *alive, unsigned char wanted, size_t offset,
-                                   unsigned int *standing)
+__global__ static void scan_kernel(const unsigned char *corpus, size_t alignments, const unsigned char *alive,
+                                   unsigned char wanted, size_t offset, unsigned int *standing)
 {
     const size_t at = (size_t)blockIdx.x * (size_t)blockDim.x + (size_t)threadIdx.x;
     if (at >= alignments)
@@ -81,20 +80,20 @@ extern "C" int anchor_steer_cuda_available(void)
     return (devices > 0) ? 1 : 0;
 }
 
-extern "C" int anchor_steer_cuda_describe(char *text, size_t room)
+extern "C" int anchor_steer_cuda_describe(char *text, size_t capacity)
 {
     int devices = 0;
     if ((cudaGetDeviceCount(&devices) != cudaSuccess) || (devices <= 0))
     {
         return 0;
     }
-    cudaDeviceProp held;
-    if (cudaGetDeviceProperties(&held, 0) != cudaSuccess)
+    cudaDeviceProp properties;
+    if (cudaGetDeviceProperties(&properties, 0) != cudaSuccess)
     {
         return 0;
     }
-    (void)snprintf(text, room, "%s, compute %d.%d, %d SMs", held.name, held.major, held.minor,
-                   held.multiProcessorCount);
+    (void)snprintf(text, capacity, "%s, compute %d.%d, %d SMs", properties.name, properties.major, properties.minor,
+                   properties.multiProcessorCount);
     return 1;
 }
 
@@ -105,8 +104,8 @@ extern "C" int anchor_steer_cuda_describe(char *text, size_t room)
  *       anchor_steer_truthy_after_portable, which would count it a second time. The loop is the same
  *       one the portable arm runs.
  */
-static size_t scan_host_fallback(const unsigned char *corpus, size_t alignments,
-                                 const unsigned char *alive, unsigned char wanted, size_t offset)
+static size_t scan_host_fallback(const unsigned char *corpus, size_t alignments, const unsigned char *alive,
+                                 unsigned char wanted, size_t offset)
 {
     size_t standing = 0u;
     for (size_t at = 0u; at < alignments; at += 1u)
@@ -123,8 +122,8 @@ static size_t scan_host_fallback(const unsigned char *corpus, size_t alignments,
     return standing;
 }
 
-extern "C" size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t alignments,
-                                                 const uint8_t *alive, uint8_t wanted, size_t offset)
+extern "C" size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t alignments, const uint8_t *alive,
+                                                 uint8_t wanted, size_t offset)
 {
     /* Counted before the argument check. A caller passing nothing still records that this arm was
      * the one asked. The claim the counters carry is which arm RAN and not what it returned. */
@@ -145,21 +144,25 @@ extern "C" size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t a
     unsigned int *device_standing = NULL;
     size_t answer = (size_t)-1;
 
-    if ((cudaMalloc((void **)&device_corpus, corpus_bytes) != cudaSuccess) || (cudaMalloc((void **)&device_alive, alignments) != cudaSuccess) || (cudaMalloc((void **)&device_standing, sizeof(unsigned int)) != cudaSuccess))
+    if ((cudaMalloc((void **)&device_corpus, corpus_bytes) != cudaSuccess) ||
+        (cudaMalloc((void **)&device_alive, alignments) != cudaSuccess) ||
+        (cudaMalloc((void **)&device_standing, sizeof(unsigned int)) != cudaSuccess))
     {
         goto done;
     }
 
-    if ((cudaMemcpy(device_corpus, host_corpus, corpus_bytes, cudaMemcpyHostToDevice) != cudaSuccess) || (cudaMemcpy(device_alive, host_alive, alignments, cudaMemcpyHostToDevice) != cudaSuccess) || (cudaMemset(device_standing, 0, sizeof(unsigned int)) != cudaSuccess))
+    if ((cudaMemcpy(device_corpus, host_corpus, corpus_bytes, cudaMemcpyHostToDevice) != cudaSuccess) ||
+        (cudaMemcpy(device_alive, host_alive, alignments, cudaMemcpyHostToDevice) != cudaSuccess) ||
+        (cudaMemset(device_standing, 0, sizeof(unsigned int)) != cudaSuccess))
     {
         goto done;
     }
 
     {
-        const unsigned int blocks = (unsigned int)((alignments + (size_t)ANCHOR_STEER_GPU_BLOCK - 1u) / (size_t)ANCHOR_STEER_GPU_BLOCK);
-        scan_kernel<<<blocks, ANCHOR_STEER_GPU_BLOCK>>>(device_corpus, alignments, device_alive,
-                                                        (unsigned char)wanted, offset,
-                                                        device_standing);
+        const unsigned int blocks =
+            (unsigned int)((alignments + (size_t)ANCHOR_STEER_GPU_BLOCK - 1u) / (size_t)ANCHOR_STEER_GPU_BLOCK);
+        scan_kernel<<<blocks, ANCHOR_STEER_GPU_BLOCK>>>(device_corpus, alignments, device_alive, (unsigned char)wanted,
+                                                        offset, device_standing);
         if ((cudaGetLastError() != cudaSuccess) || (cudaDeviceSynchronize() != cudaSuccess))
         {
             goto done;
@@ -167,12 +170,12 @@ extern "C" size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t a
     }
 
     {
-        unsigned int held = 0u;
-        if (cudaMemcpy(&held, device_standing, sizeof(unsigned int), cudaMemcpyDeviceToHost) != cudaSuccess)
+        unsigned int host_count = 0u;
+        if (cudaMemcpy(&host_count, device_standing, sizeof(unsigned int), cudaMemcpyDeviceToHost) != cudaSuccess)
         {
             goto done;
         }
-        answer = (size_t)held;
+        answer = (size_t)host_count;
     }
 
 done:

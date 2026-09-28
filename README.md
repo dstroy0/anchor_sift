@@ -133,7 +133,7 @@ The full set lives one per file under `src/engine/python/` and in the C renderer
 
 ## The sift
 
-`src/engine/nbody/anchor_sift/anchor_sift.c` holds the search and the steering that places its probes. With the portable scan beside it and the exact integer arithmetic under `src/engine/base/no_rounding/`, it builds and runs with a C11 compiler alone, four sources and no build system (`docs/setup.md`). The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
+`src/engine/nbody/anchor_sift/anchor_sift_*.c` holds the search and the steering that places its probes. With the portable scan beside it and the exact integer arithmetic under `src/engine/arithmetic/no_rounding/`, it builds and runs with a C11 compiler alone, four sources and no build system (`docs/setup.md`). The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
 
 **It is a sound filter.** A subset of a pattern's points is a necessary condition. No arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
 

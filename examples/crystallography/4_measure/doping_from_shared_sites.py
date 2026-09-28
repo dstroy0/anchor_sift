@@ -113,7 +113,7 @@ def doped_sites(text):
     an empty list and not with rows. A deposit that has rows and no usable coordinate used to be
     counted readable with nothing shared, and is now counted unreadable.
 
-    The new behaviour is the more correct one, an entry nothing could be read from is not an entry
+    The new behavior is the more correct one, an entry nothing could be read from is not an entry
     that was read and found clean, but it feeds the "entries read" figure directly, and nothing in
     the change announces itself at the call site. It is the reason this measure and the stage six
     oracle report slightly different counts of shared positions from one corpus: the oracle has no

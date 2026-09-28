@@ -57,15 +57,15 @@ def load_arms(directory):
     return vectors, len(paths)
 
 
-def standardise(vectors):
-    """Centre and scale each position's vector so correlation is a dot product."""
+def standardize(vectors):
+    """Center and scale each position's vector so correlation is a dot product."""
     out = []
     for row in vectors:
         count = len(row)
         mean = sum(row) / float(count)
-        centred = [v - mean for v in row]
-        norm = math.sqrt(sum(v * v for v in centred))
-        out.append([v / norm for v in centred] if norm > 0 else [0.0] * count)
+        centered = [v - mean for v in row]
+        norm = math.sqrt(sum(v * v for v in centered))
+        out.append([v / norm for v in centered] if norm > 0 else [0.0] * count)
     return out
 
 
@@ -151,7 +151,7 @@ def main():
           % (arms, 1.0 / math.sqrt(arms)))
     print()
 
-    unit = standardise(vectors)
+    unit = standardize(vectors)
     observed, group = tightest_cluster(unit)
 
     print("=" * 76)
@@ -185,7 +185,7 @@ def main():
             copy = list(row)
             rng.shuffle(copy)
             shuffled.append(copy)
-        value, _ = tightest_cluster(standardise(shuffled))
+        value, _ = tightest_cluster(standardize(shuffled))
         draws.append(value)
     draws.sort()
 

@@ -110,11 +110,11 @@ def language_of(path, given):
 
 
 def header_of(lines):
-    """The licence block at the top, which states a licence instead of describing code."""
+    """The license block at the top, which states a license instead of describing code."""
     if not lines:
         return []
 
-    # A C licence block opens with /* and runs to its close, and it carries description lines
+    # A C license block opens with /* and runs to its close, and it carries description lines
     # after the SPDX line. Stopping at the first of those printed an opening with no closing,
     # which reads as a file that will not compile.
     if lines[0].lstrip().startswith("/*"):

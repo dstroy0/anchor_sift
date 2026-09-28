@@ -45,22 +45,22 @@ static unsigned int frame_of_unified(const CoherenceInputs *inputs, unsigned int
     return low;
 }
 
-int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, const char *directory)
+int export_capacity(const EngineBuffers *buffers, const CoherenceInputs *inputs, const char *directory)
 {
-    char path[ENGINE_PATH_ROOM];
+    char path[ENGINE_PATH_CAPACITY];
     const int written = snprintf(path, sizeof(path), "%s/%s.smp", directory, inputs->sample);
     const size_t unified = inputs->unified_first[inputs->frame_count];
     const unsigned int link_total = inputs->unified_start[unified];
     unsigned long long *const cells = (unsigned long long *)calloc((unified + 1u) * 12u, sizeof(unsigned long long));
     unsigned int *const frame_table = (unsigned int *)calloc(((size_t)inputs->frame_count + 1u) * 12u, sizeof(unsigned int));
     unsigned int *const links = (unsigned int *)malloc(((size_t)link_total + 1u) * 3u * sizeof(unsigned int));
-    size_t contact_room = 1u << 16u;
+    size_t contact_capacity = 1u << 16u;
     size_t contact_total = 0u;
-    unsigned int *contacts = (unsigned int *)malloc(contact_room * 3u * sizeof(unsigned int));
-    int good = (written > 0) && ((size_t)written < sizeof(path)) && (cells != NULL) && (frame_table != NULL)
+    unsigned int *contacts = (unsigned int *)malloc(contact_capacity * 3u * sizeof(unsigned int));
+    int ok = (written > 0) && ((size_t)written < sizeof(path)) && (cells != NULL) && (frame_table != NULL)
             && (links != NULL) && (contacts != NULL);
 
-    for (unsigned int frame = 0u; (good != 0) && (frame < inputs->frame_count); frame += 1u)
+    for (unsigned int frame = 0u; (ok != 0) && (frame < inputs->frame_count); frame += 1u)
     {
         const TreeFrame *const tree = &inputs->frames[frame];
         for (unsigned int leaf = 0u; leaf < tree->leaf_count; leaf += 1u)
@@ -79,9 +79,9 @@ int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
             cell[11] += (tree->exposed != NULL) ? tree->exposed[leaf] : 0u;
         }
         unsigned long long *const keys = (unsigned long long *)malloc(((size_t)tree->joined_count + 1u) * sizeof(unsigned long long));
-        good = (keys != NULL);
+        ok = (keys != NULL);
         unsigned int key_count = 0u;
-        for (unsigned int pair = 0u; (good != 0) && (tree->contact_faces != NULL) && (pair < tree->joined_count); pair += 1u)
+        for (unsigned int pair = 0u; (ok != 0) && (tree->contact_faces != NULL) && (pair < tree->joined_count); pair += 1u)
         {
             const unsigned int first = inputs->unified_of[inputs->node_offset[frame] + tree->object_of[tree->joined[2u * pair]]];
             const unsigned int second = inputs->unified_of[inputs->node_offset[frame] + tree->object_of[tree->joined[2u * pair + 1u]]];
@@ -96,7 +96,7 @@ int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
             keys[key_count] = ((unsigned long long)low << 42u) | ((unsigned long long)high << 20u) | tree->contact_faces[pair];
             key_count += 1u;
         }
-        good = (good != 0) && radix_sort_keys(keys, key_count);
+        ok = (ok != 0) && radix_sort_keys(keys, key_count);
         frame_table[(size_t)frame * 12u] = tree->time;
         frame_table[(size_t)frame * 12u + 1u] = (tree->forward != NULL) ? 1u : 0u;
         for (unsigned int axis = 0u; axis < 3u; axis += 1u)
@@ -106,7 +106,7 @@ int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
         frame_table[(size_t)frame * 12u + 5u] = inputs->unified_first[frame];
         frame_table[(size_t)frame * 12u + 6u] = inputs->unified_first[frame + 1u] - inputs->unified_first[frame];
         frame_table[(size_t)frame * 12u + 9u] = (unsigned int)contact_total;
-        for (unsigned int at = 0u; (good != 0) && (at < key_count);)
+        for (unsigned int at = 0u; (ok != 0) && (at < key_count);)
         {
             const unsigned long long pair = keys[at] >> 20u;
             unsigned long long faces = 0ULL;
@@ -115,13 +115,13 @@ int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
                 faces += keys[at] & 0xFFFFFULL;
                 at += 1u;
             }
-            if (contact_total == contact_room)
+            if (contact_total == contact_capacity)
             {
-                contact_room *= 2u;
-                unsigned int *const grown = (unsigned int *)realloc(contacts, contact_room * 3u * sizeof(unsigned int));
+                contact_capacity *= 2u;
+                unsigned int *const grown = (unsigned int *)realloc(contacts, contact_capacity * 3u * sizeof(unsigned int));
                 if (grown == NULL)
                 {
-                    good = 0;
+                    ok = 0;
                     break;
                 }
                 contacts = grown;
@@ -134,7 +134,7 @@ int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
         frame_table[(size_t)frame * 12u + 10u] = (unsigned int)contact_total - frame_table[(size_t)frame * 12u + 9u];
         free(keys);
     }
-    for (unsigned int link = 0u; (good != 0) && (link < link_total); link += 1u)
+    for (unsigned int link = 0u; (ok != 0) && (link < link_total); link += 1u)
     {
         const unsigned int source = (unsigned int)(inputs->unified_link[link] >> 32u);
         const unsigned int child = (unsigned int)(inputs->unified_link[link] & 0xFFFFFFFFULL);
@@ -154,9 +154,9 @@ int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
     {
         edge_total += (inputs->edge_status[edge] >= 0) ? 1u : 0u;
     }
-    FILE *const out = (good != 0) ? fopen(path, "wb") : NULL;
-    good = (out != NULL);
-    if (good != 0)
+    FILE *const out = (ok != 0) ? fopen(path, "wb") : NULL;
+    ok = (out != NULL);
+    if (ok != 0)
     {
         const unsigned int header[12] = {0x31525443u, 1u, inputs->frame_count, buffers->depth, buffers->height,
                                          buffers->width, (unsigned int)unified, link_total, (unsigned int)contact_total,
@@ -209,14 +209,14 @@ int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
             }
             fwrite(record, sizeof(int), 9u, out);
         }
-        good = (ferror(out) == 0);
+        ok = (ferror(out) == 0);
         fclose(out);
     }
     free(cells);
     free(frame_table);
     free(links);
     free(contacts);
-    return good;
+    return ok;
 }
 
 static unsigned int object_cell_of_node(const CoherenceInputs *inputs, long node)
@@ -233,8 +233,8 @@ static unsigned int object_cell_of_node(const CoherenceInputs *inputs, long node
 int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, const unsigned int *runs,
                          const unsigned int *first_run, const unsigned int *leaf_runs, const TreeRules *rules)
 {
-    char vertex_path[ENGINE_PATH_ROOM];
-    char index_path[ENGINE_PATH_ROOM];
+    char vertex_path[ENGINE_PATH_CAPACITY];
+    char index_path[ENGINE_PATH_CAPACITY];
     const int vertex_written = snprintf(vertex_path, sizeof(vertex_path), "%s/%s.vbo", rules->object_directory, inputs->sample);
     const int index_written = snprintf(index_path, sizeof(index_path), "%s/%s.ibo", rules->object_directory, inputs->sample);
     const unsigned int frame_count = inputs->frame_count;
@@ -257,13 +257,13 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
     unsigned int *const cells = (unsigned int *)malloc(((size_t)cell_count + 1u) * 4u * sizeof(unsigned int));
     unsigned int *const links = (unsigned int *)malloc(((size_t)link_count + 1u) * 2u * sizeof(unsigned int));
     unsigned int *const edges = (unsigned int *)malloc(((size_t)edge_count + 1u) * 3u * sizeof(unsigned int));
-    int good = (vertex_written > 0) && ((size_t)vertex_written < sizeof(vertex_path)) && (index_written > 0)
+    int ok = (vertex_written > 0) && ((size_t)vertex_written < sizeof(vertex_path)) && (index_written > 0)
             && ((size_t)index_written < sizeof(index_path)) && frame_table && leaves && sums && cells && links && edges;
 
     unsigned int leaf_base = 0u;
     unsigned int aberrant_leaves = 0u;
     unsigned int aberrant_voxels = 0u;
-    for (unsigned int frame = 0u; good && (frame < frame_count); frame += 1u)
+    for (unsigned int frame = 0u; ok && (frame < frame_count); frame += 1u)
     {
         const TreeFrame *const tree = &inputs->frames[frame];
         unsigned int *const row = &frame_table[(size_t)frame * 10u];
@@ -301,20 +301,20 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
         leaf_base += tree->leaf_count;
     }
     unsigned int wide_sums = 0u;
-    for (size_t slot = 0u; good && (slot < (size_t)cell_count * 4u); slot += 1u)
+    for (size_t slot = 0u; ok && (slot < (size_t)cell_count * 4u); slot += 1u)
     {
         wide_sums += (unsigned int)!!(sums[slot] >> 32u);
         cells[slot] = (unsigned int)sums[slot];
     }
     fprintf(stderr, "  object %s: %u aberrant leaves, %u aberrant voxels, %u wide sums\n", inputs->sample, aberrant_leaves,
             aberrant_voxels, wide_sums);
-    for (unsigned int link = 0u; good && (link < link_count); link += 1u)
+    for (unsigned int link = 0u; ok && (link < link_count); link += 1u)
     {
         links[2u * link] = (unsigned int)(inputs->unified_link[link] >> 32u);
         links[(2u * link) + 1u] = (unsigned int)(inputs->unified_link[link] & 0xFFFFFFFFULL);
     }
     unsigned int scored = 0u;
-    for (unsigned int edge = 0u; good && (edge < inputs->key->edge_count); edge += 1u)
+    for (unsigned int edge = 0u; ok && (edge < inputs->key->edge_count); edge += 1u)
     {
         const long source = node_slot_of(inputs->key, inputs->key->edge_ends[2u * edge]);
         const long target = node_slot_of(inputs->key, inputs->key->edge_ends[(2u * edge) + 1u]);
@@ -325,33 +325,33 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
     }
 
     // The .vbo carries the frames, leaves, cells, runs and cfg; the .ibo carries the links and edges that index them.
-    FILE *const vertex_out = good ? fopen(vertex_path, "wb") : NULL;
-    good = good && vertex_out;
-    if (good)
+    FILE *const vertex_out = ok ? fopen(vertex_path, "wb") : NULL;
+    ok = ok && vertex_out;
+    if (ok)
     {
         const unsigned int cfg_bytes = (unsigned int)rules->cfg_length;
         const unsigned char padding[4] = {0u, 0u, 0u, 0u};
         const unsigned int header[16] = {0x314F4256u, 1u, frame_count, buffers->depth, buffers->height, buffers->width,
                                          leaf_count, run_count, cell_count, link_count, edge_count, aberrant_leaves,
                                          aberrant_voxels, wide_sums, cfg_bytes, 0u};
-        good = (fwrite(header, sizeof(unsigned int), 16u, vertex_out) == 16u)
+        ok = (fwrite(header, sizeof(unsigned int), 16u, vertex_out) == 16u)
             && (fwrite(frame_table, sizeof(unsigned int), (size_t)frame_count * 10u, vertex_out) == (size_t)frame_count * 10u)
             && (fwrite(leaves, sizeof(unsigned int), (size_t)leaf_count * 4u, vertex_out) == (size_t)leaf_count * 4u)
             && (fwrite(cells, sizeof(unsigned int), (size_t)cell_count * 4u, vertex_out) == (size_t)cell_count * 4u)
             && (fwrite(runs, sizeof(unsigned int), run_count, vertex_out) == run_count)
             && (fwrite(rules->cfg_text, 1u, cfg_bytes, vertex_out) == cfg_bytes)
             && (fwrite(padding, 1u, (4u - (cfg_bytes & 3u)) & 3u, vertex_out) == ((4u - (cfg_bytes & 3u)) & 3u));
-        good = (fclose(vertex_out) == 0) && good;
+        ok = (fclose(vertex_out) == 0) && ok;
     }
-    FILE *const index_out = good ? fopen(index_path, "wb") : NULL;
-    good = good && index_out;
-    if (good)
+    FILE *const index_out = ok ? fopen(index_path, "wb") : NULL;
+    ok = ok && index_out;
+    if (ok)
     {
         const unsigned int header[4] = {0x314F4249u, 1u, link_count, edge_count};
-        good = (fwrite(header, sizeof(unsigned int), 4u, index_out) == 4u)
+        ok = (fwrite(header, sizeof(unsigned int), 4u, index_out) == 4u)
             && (fwrite(links, sizeof(unsigned int), (size_t)link_count * 2u, index_out) == (size_t)link_count * 2u)
             && (fwrite(edges, sizeof(unsigned int), (size_t)edge_count * 3u, index_out) == (size_t)edge_count * 3u);
-        good = (fclose(index_out) == 0) && good;
+        ok = (fclose(index_out) == 0) && ok;
     }
     free(frame_table);
     free(leaves);
@@ -359,7 +359,7 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
     free(cells);
     free(links);
     free(edges);
-    return good;
+    return ok;
 }
 
 int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *out)
@@ -375,17 +375,17 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
     unsigned int *const unified_size = (unsigned int *)calloc((size_t)inputs->unified_count + 1u, sizeof(unsigned int));
     unsigned int *const landing = (unsigned int *)calloc((size_t)inputs->unified_count + 1u, sizeof(unsigned int));
     unsigned int *const touched = (unsigned int *)malloc(((size_t)inputs->unified_count + 1u) * sizeof(unsigned int));
-    size_t cell_room = 1u << 16u;
-    unsigned int *cell_voxels = (unsigned int *)malloc(cell_room * sizeof(unsigned int));
-    int good = (failing_time != NULL) && (leaf_at_peak[0] != NULL) && (leaf_at_peak[1] != NULL) && (mask != NULL)
+    size_t cell_capacity = 1u << 16u;
+    unsigned int *cell_voxels = (unsigned int *)malloc(cell_capacity * sizeof(unsigned int));
+    int ok = (failing_time != NULL) && (leaf_at_peak[0] != NULL) && (leaf_at_peak[1] != NULL) && (mask != NULL)
             && (leaf_in_cell != NULL) && (unified_size != NULL) && (landing != NULL) && (touched != NULL)
             && (cell_voxels != NULL) && (inputs->volume != NULL);
-    for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
+    for (size_t voxel = 0u; (ok != 0) && (voxel < voxels); voxel += 1u)
     {
         leaf_at_peak[0][voxel] = -1;
         leaf_at_peak[1][voxel] = -1;
     }
-    for (unsigned int edge = 0u; (good != 0) && (edge < key->edge_count); edge += 1u)
+    for (unsigned int edge = 0u; (ok != 0) && (edge < key->edge_count); edge += 1u)
     {
         if ((inputs->edge_status[edge] >= 1) && (inputs->edge_status[edge] <= 3))
         {
@@ -394,27 +394,27 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
         }
     }
 
-    for (unsigned int frame = 0u; (good != 0) && (frame + 1u < inputs->frame_count); frame += 1u)
+    for (unsigned int frame = 0u; (ok != 0) && (frame + 1u < inputs->frame_count); frame += 1u)
     {
         const TreeFrame *const earlier = &inputs->frames[frame];
         if ((failing_time[earlier->time] == 0u) || (earlier->forward == NULL))
         {
             continue;
         }
-        TreeFrame held[2];
-        memset(held, 0, sizeof(held));
-        for (unsigned int slot = 0u; (good != 0) && (slot < 2u); slot += 1u)
+        TreeFrame tree_frames[2];
+        memset(tree_frames, 0, sizeof(tree_frames));
+        for (unsigned int slot = 0u; (ok != 0) && (slot < 2u); slot += 1u)
         {
-            good = ((earlier->time + slot) < inputs->volume_frames);
-            if (good != 0)
+            ok = ((earlier->time + slot) < inputs->volume_frames);
+            if (ok != 0)
             {
                 memcpy(buffers->volume, &inputs->volume[(size_t)(earlier->time + slot) * voxels],
                        voxels * sizeof(unsigned short));
             }
-            good = (good != 0) && (track_frame_bodies(buffers, slot, &held[slot]) != 0);
-            for (unsigned int leaf = 0u; (good != 0) && (leaf < held[slot].leaf_count); leaf += 1u)
+            ok = (ok != 0) && (track_frame_bodies(buffers, slot, &tree_frames[slot]) != 0);
+            for (unsigned int leaf = 0u; (ok != 0) && (leaf < tree_frames[slot].leaf_count); leaf += 1u)
             {
-                leaf_at_peak[slot][held[slot].peaks[leaf]] = (int)leaf;
+                leaf_at_peak[slot][tree_frames[slot].peaks[leaf]] = (int)leaf;
             }
         }
         const unsigned int *const labels_before = buffers->labels[0];
@@ -425,7 +425,7 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
         const unsigned int offset_after = inputs->node_offset[frame + 1u];
         const TreeFrame *const later = &inputs->frames[frame + 1u];
 
-        for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
+        for (size_t voxel = 0u; (ok != 0) && (voxel < voxels); voxel += 1u)
         {
             if (((positive_after[voxel / 64u] >> (voxel % 64u)) & 1ULL) == 0ULL)
             {
@@ -438,7 +438,7 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
             }
         }
 
-        for (unsigned int edge = 0u; (good != 0) && (edge < key->edge_count); edge += 1u)
+        for (unsigned int edge = 0u; (ok != 0) && (edge < key->edge_count); edge += 1u)
         {
             const int status = inputs->edge_status[edge];
             if ((status < 0) || (status > 3))
@@ -470,7 +470,7 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
             }
             memset(mask, 0, words * sizeof(unsigned long long));
             size_t cell_size = 0u;
-            for (size_t voxel = 0u; (good != 0) && (voxel < voxels); voxel += 1u)
+            for (size_t voxel = 0u; (ok != 0) && (voxel < voxels); voxel += 1u)
             {
                 if (((positive_before[voxel / 64u] >> (voxel % 64u)) & 1ULL) == 0ULL)
                 {
@@ -482,13 +482,13 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
                     continue;
                 }
                 mask[voxel / 64u] |= 1ULL << (voxel % 64u);
-                if (cell_size == cell_room)
+                if (cell_size == cell_capacity)
                 {
-                    cell_room *= 2u;
-                    unsigned int *const grown = (unsigned int *)realloc(cell_voxels, cell_room * sizeof(unsigned int));
+                    cell_capacity *= 2u;
+                    unsigned int *const grown = (unsigned int *)realloc(cell_voxels, cell_capacity * sizeof(unsigned int));
                     if (grown == NULL)
                     {
-                        good = 0;
+                        ok = 0;
                         break;
                     }
                     cell_voxels = grown;
@@ -510,8 +510,8 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
             motion.before = mask;
             motion.after = positive_after;
             motion.counts = NULL;
-            good = (good != 0) && (cell_size > 0u) && (shift_agreement_run(&motion) == 0L);
-            if (good == 0)
+            ok = (ok != 0) && (cell_size > 0u) && (shift_agreement_run(&motion) == 0L);
+            if (ok == 0)
             {
                 break;
             }
@@ -601,20 +601,20 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
                 view.agree_true = agreement[2];
                 view.land_true = land_true;
                 view.land_objects = touched_count;
-                good = render_case(buffers, inputs, &view);
+                ok = render_case(buffers, inputs, &view);
             }
         }
 
         for (unsigned int slot = 0u; slot < 2u; slot += 1u)
         {
-            for (unsigned int leaf = 0u; leaf < held[slot].leaf_count; leaf += 1u)
+            for (unsigned int leaf = 0u; leaf < tree_frames[slot].leaf_count; leaf += 1u)
             {
-                leaf_at_peak[slot][held[slot].peaks[leaf]] = -1;
+                leaf_at_peak[slot][tree_frames[slot].peaks[leaf]] = -1;
             }
-            free(held[slot].peaks);
-            free(held[slot].sizes);
-            free(held[slot].sums);
-            free(held[slot].joined);
+            free(tree_frames[slot].peaks);
+            free(tree_frames[slot].sizes);
+            free(tree_frames[slot].sums);
+            free(tree_frames[slot].joined);
         }
         for (unsigned int node = offset_after; node < inputs->node_offset[frame + 2u]; node += 1u)
         {
@@ -631,5 +631,5 @@ int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *
     free(leaf_at_peak[0]);
     free(leaf_at_peak[1]);
     free(failing_time);
-    return good;
+    return ok;
 }

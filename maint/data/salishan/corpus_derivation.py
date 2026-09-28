@@ -1033,7 +1033,7 @@ def main():
             "* **One person read every table.** The three channels catch different kinds "
             "of mistake but they do not catch a systematic misreading of one "
             "orthography, because the same reading produced the row and the expectation. "
-            "This is the largest unmodelled term and no amount of trials touches it.\n"
+            "This is the largest unmodeled term and no amount of trials touches it.\n"
         )
         handle.write(
             "* **Direction one and direction two share a source.** Both ask questions of "

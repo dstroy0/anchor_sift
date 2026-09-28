@@ -45,7 +45,7 @@ and `"1"`, and every non-empty string is truthy in this language, `"0"` included
 
 **Symptom:** every clear bit counted as set. The share table would have been the placement's
 distribution instead of the state's, and it would have looked entirely plausible: eight numbers,
-totalling one, changing as the clock advanced.
+totaling one, changing as the clock advanced.
 
 **Caught before it shipped**, by writing the comparison against `charCodeAt` out of habit and then
 noticing the version above it did not.
@@ -215,7 +215,7 @@ is.** The lit set has 256 degrees of freedom.
 | 15 | 256 | 256 | 0 | 3.474e-3 |
 | 16 | 289 | 256 | 0 | 1.524e-1 |
 
-Measured at full depth and no conduction, the most favourable case: both kernels sit below one and
+Measured at full depth and no conduction, the most favorable case: both kernels sit below one and
 both are diagonal, so either can only shrink a singular value. The map reaches the rank its
 coefficient count allows at every degree below the source count, leaving the shortfall in coefficients as the
 entire cause of the blindness.
@@ -261,7 +261,7 @@ handedness.
 ### 4.5 The octant tiling
 
 Eight congruent spherical triangles, three right angles each, area `pi/2` by Girard, eight of them
-totalling `4*pi`. Measured shares total **1.000000000000000**. Determinants split **4 at +1 and 4 at
+totaling `4*pi`. Measured shares total **1.000000000000000**. Determinants split **4 at +1 and 4 at
 -1**, so the eight frames divide evenly between rotations of the first and rotations with a mirror
 in them.
 
@@ -369,7 +369,7 @@ can register is 1/weight, about 6.5e-3 here, and a threshold at 1e-6 sits far be
 reading is able to do and filters nothing, because there is nothing to filter. Across states of
 differing weight two signatures can approach arbitrarily closely -- 62/124 and 63/126 are both
 exactly one half -- so the threshold does have a job, and the job is deciding which unequal-weight
-states count as the same signature. **That is a modelling choice and it is currently stated as
+states count as the same signature. **That is a modeling choice and it is currently stated as
 precision.**
 
 Recorded this way because the correction came from measuring the null instead of reasoning about it,

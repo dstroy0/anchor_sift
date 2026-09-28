@@ -91,7 +91,7 @@ def main():
                 row = dict(zip(header, line.rstrip("\n").split("\t")))
                 previous[int(row["draws"])] = row
 
-    print("  %d edges, engines %d ms, %s" % (len(rows), milliseconds, options.label or "unlabelled"))
+    print("  %d edges, engines %d ms, %s" % (len(rows), milliseconds, options.label or "unlabeled"))
     print("    %-6s %-17s %-17s %-12s %-12s %-12s" % ("draws", "correct beat null", "failing beat null", "correct share",
                                                        "failing share", "separation"))
     lines = []

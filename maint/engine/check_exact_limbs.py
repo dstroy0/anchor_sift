@@ -14,7 +14,7 @@
 # the first routine forever, including on the days both are wrong.
 #
 # A python integer is arbitrary precision and is implemented by somebody else. It has no fixed
-# width, no limb, no carry the author of exact_integer.c wrote, and no shared line of code. Where the
+# width, no limb, no carry the author of exact_integer_*.c wrote, and no shared line of code. Where the
 # two disagree the disagreement is real.
 #
 # WHAT THIS CHECK CANNOT SEE
@@ -176,11 +176,11 @@ def version_lock(out):
     Returns 1 where they agree, 0 where they do not.
     """
     limbs = constant(
-        "src/engine/base/no_rounding/exact_integer.h",
+        "src/engine/arithmetic/no_rounding/exact_integer.h",
         r"#define\s+ANCHOR_EXACT_LIMBS\s+(\d+)",
     )
     floor = constant(
-        "src/engine/base/no_rounding/exact_integer.h",
+        "src/engine/arithmetic/no_rounding/exact_integer.h",
         r"#define\s+ANCHOR_EXACT_DIGITS\s+(\d+)",
     )
     scale = constant(

@@ -181,7 +181,7 @@ def main():
     # The integration is only valid to the extent the target is constant across the window, which
     # is established for rounds 6 to 16 and assumed for nothing else. So the deep window is also
     # run in shorter pieces, because a target that is not constant across 41 rounds would be
-    # cancelled by integrating over all of them and would show in a piece.
+    # canceled by integrating over all of them and would show in a piece.
     print("\n" + ("=" * 68))
     print("  The same chain past the collapse, where everything reads flat")
     print("=" * 68)

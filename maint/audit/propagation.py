@@ -52,7 +52,7 @@ def trace(block, rounds):
     """Every interior value the compression produces, kept rather than discarded.
 
     Returns the schedule, the state after each round, and the six intermediates inside each round.
-    Nothing is summarised here: summarising is what a boundary reading does and it is the thing
+    Nothing is summarized here: summarizing is what a boundary reading does and it is the thing
     being avoided.
     """
     w = list(block)

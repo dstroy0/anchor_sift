@@ -56,7 +56,7 @@ LADDER = (20, 30, 40, 50)
 # where this tool has not been run still builds its research paper.
 PICTURE = os.path.join(ROOT, "build", "theory", "figures", "precision_floor.png")
 
-# Colors chosen so the figure reads in print and in grey. The two arms differ in marker as well as
+# Colors chosen so the figure reads in print and in gray. The two arms differ in marker as well as
 # in color, because a reader with a monochrome copy still has to tell them apart.
 INK = {"host": "#1b3a5c", "device": "#a4471f", "decimal": "#2c6e49"}
 MARK = {"host": "o", "device": "^", "decimal": "s"}

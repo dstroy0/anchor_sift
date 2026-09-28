@@ -39,54 +39,55 @@ static int answer_key_order(const void *left, const void *right)
     return (one > other) - (one < other);
 }
 
-int hold_answer_key(const AnswerKeyTruth *truth, AnswerKey *key)
+int answer_key_build(const AnswerKeyTruth *truth, AnswerKey *key)
 {
     memset(key, 0, sizeof(*key));
     const unsigned long long identity_limit = 0x7FFFFFFFFFFFFFFFull;
-    int good = (truth->nodes < 0xFFFFFFFFull) && (truth->edges < 0xFFFFFFFFull);
-    AnswerKeyNode *const nodes = good ? (AnswerKeyNode *)malloc(((size_t)truth->nodes + 1u) * sizeof(AnswerKeyNode)) : NULL;
-    good = good && (nodes != NULL);
-    for (unsigned long long node = 0ull; good && (node < truth->nodes); node += 1ull)
+    int ok = (truth->nodes < 0xFFFFFFFFull) && (truth->edges < 0xFFFFFFFFull);
+    AnswerKeyNode *const nodes =
+        ok ? (AnswerKeyNode *)malloc(((size_t)truth->nodes + 1u) * sizeof(AnswerKeyNode)) : NULL;
+    ok = ok && (nodes != NULL);
+    for (unsigned long long node = 0ull; ok && (node < truth->nodes); node += 1ull)
     {
-        good = (truth->node_identity[node] <= identity_limit);
+        ok = (truth->node_identity[node] <= identity_limit);
         nodes[node].identity = (long long)truth->node_identity[node];
-        for (unsigned int axis = 0u; good && (axis < 4u); axis += 1u)
+        for (unsigned int axis = 0u; ok && (axis < 4u); axis += 1u)
         {
             const long long place = truth->node_place[(node * 4ull) + axis];
-            good = (place >= 0ll) && (place <= 0x7FFFFFFFll);
+            ok = (place >= 0ll) && (place <= 0x7FFFFFFFll);
             nodes[node].place[axis] = (int)place;
         }
     }
-    if (good)
+    if (ok)
     {
         qsort(nodes, (size_t)truth->nodes, sizeof(AnswerKeyNode), answer_key_order);
     }
-    for (unsigned long long node = 1ull; good && (node < truth->nodes); node += 1ull)
+    for (unsigned long long node = 1ull; ok && (node < truth->nodes); node += 1ull)
     {
-        good = (nodes[node - 1ull].identity != nodes[node].identity);
+        ok = (nodes[node - 1ull].identity != nodes[node].identity);
     }
-    key->node_count = good ? (unsigned int)truth->nodes : 0u;
-    key->edge_count = good ? (unsigned int)truth->edges : 0u;
-    key->node_identity = good ? (long long *)malloc(((size_t)key->node_count + 1u) * sizeof(long long)) : NULL;
-    key->node_coordinates = good ? (int *)malloc(((size_t)key->node_count + 1u) * 4u * sizeof(int)) : NULL;
-    key->edge_ends = good ? (long long *)malloc(((size_t)key->edge_count + 1u) * 2u * sizeof(long long)) : NULL;
-    good = good && (key->node_identity != NULL) && (key->node_coordinates != NULL) && (key->edge_ends != NULL);
-    for (unsigned int node = 0u; good && (node < key->node_count); node += 1u)
+    key->node_count = ok ? (unsigned int)truth->nodes : 0u;
+    key->edge_count = ok ? (unsigned int)truth->edges : 0u;
+    key->node_identity = ok ? (long long *)malloc(((size_t)key->node_count + 1u) * sizeof(long long)) : NULL;
+    key->node_coordinates = ok ? (int *)malloc(((size_t)key->node_count + 1u) * 4u * sizeof(int)) : NULL;
+    key->edge_ends = ok ? (long long *)malloc(((size_t)key->edge_count + 1u) * 2u * sizeof(long long)) : NULL;
+    ok = ok && (key->node_identity != NULL) && (key->node_coordinates != NULL) && (key->edge_ends != NULL);
+    for (unsigned int node = 0u; ok && (node < key->node_count); node += 1u)
     {
         key->node_identity[node] = nodes[node].identity;
         memcpy(&key->node_coordinates[(size_t)node * 4u], nodes[node].place, sizeof(nodes[node].place));
     }
-    for (size_t end = 0u; good && (end < (size_t)key->edge_count * 2u); end += 1u)
+    for (size_t end = 0u; ok && (end < (size_t)key->edge_count * 2u); end += 1u)
     {
-        good = (truth->edge_ends[end] <= identity_limit);
+        ok = (truth->edge_ends[end] <= identity_limit);
         key->edge_ends[end] = (long long)truth->edge_ends[end];
     }
     free(nodes);
-    if (good == 0)
+    if (ok == 0)
     {
         release_answer_key(key);
     }
-    return good;
+    return ok;
 }
 
 void release_answer_key(AnswerKey *key)

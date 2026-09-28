@@ -1,4 +1,4 @@
-"""Reports which bench outputs differ between optimisation arms, ignoring wall clock.
+"""Reports which bench outputs differ between optimization arms, ignoring wall clock.
 
 A bench built at -O0 and at -O2 runs at different speeds, so any line reporting elapsed time or a
 rate differs between arms for a reason that has nothing to do with arithmetic. Comparing whole
@@ -78,7 +78,7 @@ def main():
 
     print()
     print("=" * 78)
-    print("  Numbers that moved with the optimiser")
+    print("  Numbers that moved with the optimizer")
     print("=" * 78)
     if not dirty:
         print("  none")

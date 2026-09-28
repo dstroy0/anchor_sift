@@ -24,7 +24,7 @@
 #
 # The shuffle is carried as the floor and it is not optional. Both arms rise with the window, from
 # 3.71 to 4.19 bits on the shuffled rows, and a shuffle holds nothing beyond one symbol. That
-# rise is the estimator and not the text. It spoils the absolute rates and leaves the widening
+# rise belongs to the estimator. It spoils the absolute rates and leaves the widening
 # distance between the two arms standing.
 #
 # None of this is a separate technique from compression. The entropy rate of a source is the rate an

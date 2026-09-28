@@ -62,7 +62,7 @@ def by_bytes(lines, kb_per_page):
 
 
 def write_page(chunk, first_lineno, name, font, cw, size):
-    """One page: the line number in grey, the line in black, clipped at 160 columns."""
+    """One page: the line number in gray, the line in black, clipped at 160 columns."""
     lh = size + 5
     widest = min(max((len(x) for x in chunk), default=1), 160)
     W = int(cw * (widest + 7)) + 24

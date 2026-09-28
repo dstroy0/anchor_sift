@@ -26,29 +26,49 @@ static const char *log_path(void)
 
 char g_rules_line[256] = {0};
 
-void rules_line(const TreeRules *rules, char *line, size_t room)
+void rules_line(const TreeRules *rules, char *line, size_t capacity)
 {
     const struct
     {
         const char *name;
         int on;
     } every[] = {
-        {"pick", rules->pick}, {"share", rules->share}, {"agree", rules->agree}, {"unbound", rules->unbound},
-        {"cast", rules->cast}, {"parallax", rules->parallax}, {"arc", rules->arc}, {"settle", rules->settle},
-        {"focus", rules->focus}, {"web", rules->web}, {"damp", rules->damp}, {"dish", rules->dish}, {"vote", rules->vote}, {"mutual", rules->mutual}, {"tower", rules->tower}, {"mass", rules->mass}, {"forest", rules->forest}, {"cohere", rules->cohere}, {"accrue", rules->accrue},
+        {"pick", rules->pick},
+        {"share", rules->share},
+        {"agree", rules->agree},
+        {"unbound", rules->unbound},
+        {"cast", rules->cast},
+        {"parallax", rules->parallax},
+        {"arc", rules->arc},
+        {"settle", rules->settle},
+        {"focus", rules->focus},
+        {"web", rules->web},
+        {"damp", rules->damp},
+        {"dish", rules->dish},
+        {"vote", rules->vote},
+        {"mutual", rules->mutual},
+        {"tower", rules->tower},
+        {"mass", rules->mass},
+        {"forest", rules->forest},
+        {"cohere", rules->cohere},
+        {"accrue", rules->accrue},
         {"merge-split", rules->merge_split},
-        {"merge-target", rules->merge_target}, {"forward-only", rules->forward_only},
-        {"keep-view", rules->keep_view}, {"resolve", rules->resolve}, {"sticky", rules->sticky},
-        {"motion-check", rules->motion_check}, {"climb", rules->climb},
+        {"merge-target", rules->merge_target},
+        {"forward-only", rules->forward_only},
+        {"keep-view", rules->keep_view},
+        {"resolve", rules->resolve},
+        {"sticky", rules->sticky},
+        {"motion-check", rules->motion_check},
+        {"climb", rules->climb},
     };
     line[0] = '\0';
     for (unsigned int slot = 0u; slot < (unsigned int)(sizeof(every) / sizeof(every[0])); slot += 1u)
     {
         const size_t at = strlen(line);
-        const int fits = (every[slot].on != 0) && ((at + strlen(every[slot].name) + 2u) < room);
+        const int fits = (every[slot].on != 0) && ((at + strlen(every[slot].name) + 2u) < capacity);
         if (fits != 0)
         {
-            snprintf(&line[at], room - at, " %s", every[slot].name);
+            snprintf(&line[at], capacity - at, " %s", every[slot].name);
         }
     }
 }
@@ -69,14 +89,14 @@ FILE *log_open(void)
     return log;
 }
 
-void log_when(char *when, size_t room)
+void log_when(char *when, size_t capacity)
 {
     const time_t now = time(NULL);
     const struct tm *const broken = localtime(&now);
     when[0] = '\0';
     if (broken != NULL)
     {
-        strftime(when, room, "%Y-%m-%dT%H:%M:%S", broken);
+        strftime(when, capacity, "%Y-%m-%dT%H:%M:%S", broken);
     }
 }
 

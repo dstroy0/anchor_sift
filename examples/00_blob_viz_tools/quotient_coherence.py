@@ -37,7 +37,7 @@ run on differences with no structure in them, which has to return the baseline f
 returning the right answer licenses reading the measured arm, and if the control moves then the
 measurement is not trusted whatever it says.
 
-Per-pair normalisation happens before averaging, never after, since one large difference would
+Per-pair normalization happens before averaging, never after, since one large difference would
 otherwise set the mean and the answer would describe the biggest change instead of the usual one.
 
 Pairs whose difference is under the grain are counted and reported separately. They did not move,

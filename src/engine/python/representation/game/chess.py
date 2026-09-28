@@ -10,7 +10,7 @@
 #
 # Blackjack, checkers endgames and small deck poker all have a true answer this tree can compute. A
 # chess position after four plies has more continuations than the other three games have positions,
-# so here the outcome distribution has to be estimated. That is the point of including it. An
+# and here the outcome distribution has to be estimated. It is included for that reason. An
 # estimator that is wrong on blackjack is caught immediately; an estimator that is wrong on chess is
 # not caught by anything local. The only thing standing behind a chess number is whether the same
 # estimator reproduced the solved games. This backend is where the measurement stops being checkable
@@ -24,7 +24,7 @@
 # Not modeled: the fifty move rule, threefold repetition and insufficient material. Each of those
 # turns a long game into a draw, and this subject reports a game the budget did not finish as
 # UNRESOLVED and not as a draw. Folding them in would move mass onto DRAW for positions the
-# search never actually resolved, the one thing the enumerator is built not to do.
+# search never actually resolved, and the enumerator is built never to do that.
 
 from representation.game import rules
 

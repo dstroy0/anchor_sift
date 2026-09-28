@@ -278,7 +278,7 @@ def main():
             "# Julie Wolfe, University of Victoria. Papers for the International\n"
         )
         handle.write(
-            "# Conference on Salish and Neighbouring Languages 60, UBCWPL, 2025.\n"
+            "# Conference on Salish and Neighboring Languages 60, UBCWPL, 2025.\n"
         )
         handle.write("#\n")
         handle.write(

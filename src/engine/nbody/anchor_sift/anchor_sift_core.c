@@ -1,0 +1,285 @@
+
+// anchor_sift_core.c: the sift: naive, in order, free, choice and run
+#include "anchor_sift_internal.h"
+
+#if ANCHOR_SIFT_COUNT_READS
+
+uint64_t anchor_sift_probes = 0u;
+uint64_t anchor_sift_verifications = 0u;
+
+void anchor_sift_counters_reset(void)
+{
+    anchor_sift_probes = 0u;
+    anchor_sift_verifications = 0u;
+}
+
+/* One corpus byte read by an anchor probe. */
+#define ANCHOR_SIFT_PROBED() (anchor_sift_probes += 1u)
+/* A fixed number of probe reads, for the engine that issues all of them whatever any one returns. */
+#define ANCHOR_SIFT_PROBED_N(count_) (anchor_sift_probes += (uint64_t)(count_))
+/* One exact compare, which reads at most needle_len bytes and usually far fewer, since a memcmp
+ * stops at the first difference. The count is therefore a bound on the verification reads and not
+ * a measurement of them, and the bench reports it as a bound. */
+#define ANCHOR_SIFT_VERIFIED() (anchor_sift_verifications += 1u)
+
+#else
+
+#define ANCHOR_SIFT_PROBED() ((void)0)
+#define ANCHOR_SIFT_PROBED_N(count_) ((void)(count_))
+#define ANCHOR_SIFT_VERIFIED() ((void)0)
+
+#endif
+
+/**
+ * @brief Chooses anchor offsets, one drawn inside each evenly sized cell of the needle.
+ *
+ * @param[out] offsets    Where the chosen offsets are written [BORROWS].
+ * @param[in]  wanted     How many to choose, at least one.
+ * @param[in]  needle_len Length of the needle they index.
+ * @note One draw per cell keeps the spread and gives the anchor set no period of its own. An even
+ *       comb shares a period with whatever the domain carries, the failure this avoids.
+ * @warning A needle of length zero has no in-range offset to choose. The clamp below computes
+ *          needle_len - 1u, and on size_t that wraps to SIZE_MAX instead of saturating. Every
+ *          offset lands far outside both the corpus and the needle. The engines answer length zero
+ *          before reaching here; this bounds it at the declaration as well, because the engines are
+ *          exported and the clamp reads exactly like the guard that would have prevented it.
+ */
+static void choose_offsets(size_t *offsets, size_t wanted, size_t needle_len)
+{
+    if (needle_len == 0u)
+    {
+        for (size_t slot = 0u; slot < wanted; slot += 1u)
+        {
+            offsets[slot] = 0u;
+        }
+        return;
+    }
+
+    const size_t cell = needle_len / wanted;
+
+    for (size_t slot = 0u; slot < wanted; slot += 1u)
+    {
+        const size_t inside = (cell > 1u) ? ((slot * 7u) % cell) : 0u;
+        offsets[slot] = (slot * cell) + inside;
+        if (offsets[slot] >= needle_len)
+        {
+            offsets[slot] = needle_len - 1u;
+        }
+    }
+}
+
+size_t anchor_sift_naive(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle, size_t needle_len)
+{
+    size_t found = 0u;
+
+    for (size_t at = 0u; (at + needle_len) <= corpus_len; at += 1u)
+    {
+        ANCHOR_SIFT_VERIFIED();
+        if (memcmp(corpus + at, needle, needle_len) == 0)
+        {
+            found += 1u;
+        }
+    }
+    return found;
+}
+
+/**
+ * @brief The in order engine with the anchor count supplied.
+ *
+ * @param[in] corpus     Bytes to search [BORROWS].
+ * @param[in] corpus_len How many.
+ * @param[in] needle     Bytes to find [BORROWS].
+ * @param[in] needle_len How many.
+ * @param[in] anchors    How many anchors to place, at least one and at most ANCHOR_SIFT_ANCHORS.
+ * @return               How many alignments match exactly.
+ * @note Only this engine takes a count. The free order engine's advantage is that its comparisons
+ *       are written out and fold into one value with one branch behind them, and a loop over a
+ *       runtime count gives that back. A corpus whose count wants reducing is a coherent one, and
+ *       a coherent corpus dispatches here anyway.
+ * @note A needle of length zero occurs at every alignment, and the naive engine returns
+ *       that count. That case is handed to it and not answered a second way here. An anchor
+ *       cannot be placed in a needle with no bytes, and bounding the offsets is not enough on its
+ *       own: at length zero the alignment loop runs one further than the corpus. The last
+ *       alignment reads one past its end, and the anchor reads element zero of a needle that has
+ *       none. Both are reads outside memory the caller owns.
+ */
+static size_t sift_inorder_n(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                             size_t anchors)
+{
+    if (needle_len == 0u)
+    {
+        return anchor_sift_naive(corpus, corpus_len, needle, needle_len);
+    }
+
+    size_t offsets[ANCHOR_SIFT_ANCHORS];
+    size_t found = 0u;
+
+    choose_offsets(offsets, anchors, needle_len);
+
+    for (size_t at = 0u; (at + needle_len) <= corpus_len; at += 1u)
+    {
+        size_t slot = 0u;
+        while (slot < anchors)
+        {
+            ANCHOR_SIFT_PROBED();
+            if (corpus[at + offsets[slot]] != needle[offsets[slot]])
+            {
+                break;
+            }
+            slot += 1u;
+        }
+        if (slot == anchors)
+        {
+            ANCHOR_SIFT_VERIFIED();
+            if (memcmp(corpus + at, needle, needle_len) == 0)
+            {
+                found += 1u;
+            }
+        }
+    }
+    return found;
+}
+
+size_t anchor_sift_inorder(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle, size_t needle_len)
+{
+    return sift_inorder_n(corpus, corpus_len, needle, needle_len, ANCHOR_SIFT_ANCHORS);
+}
+
+size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t *needle, size_t needle_len)
+{
+    // Length zero goes to the naive engine, for the reason recorded on sift_inorder_n. This engine
+    // carries the test separately because it is exported and a caller reaches it without passing
+    // through the dispatcher. It is also the engine where bounding the offsets alone would not have
+    // been enough: the read below happens before the alignment loop. A zeroed offset still
+    // takes element zero of a needle that has none.
+    if (needle_len == 0u)
+    {
+        return anchor_sift_naive(corpus, corpus_len, needle, needle_len);
+    }
+
+    size_t offsets[ANCHOR_SIFT_ANCHORS];
+    uint8_t wanted[ANCHOR_SIFT_ANCHORS];
+    size_t found = 0u;
+
+    choose_offsets(offsets, ANCHOR_SIFT_ANCHORS, needle_len);
+    for (size_t slot = 0u; slot < ANCHOR_SIFT_ANCHORS; slot += 1u)
+    {
+        wanted[slot] = needle[offsets[slot]];
+    }
+
+    for (size_t at = 0u; (at + needle_len) <= corpus_len; at += 1u)
+    {
+        // No short circuit. Four loads issue together, the comparisons fold into one value, and the
+        // branch is taken once. This is the dependency depth two arrangement.
+        ANCHOR_SIFT_PROBED_N(ANCHOR_SIFT_ANCHORS);
+        const unsigned agree =
+            (unsigned)(corpus[at + offsets[0]] == wanted[0]) & (unsigned)(corpus[at + offsets[1]] == wanted[1]) &
+            (unsigned)(corpus[at + offsets[2]] == wanted[2]) & (unsigned)(corpus[at + offsets[3]] == wanted[3]);
+        if (agree != 0u)
+        {
+            ANCHOR_SIFT_VERIFIED();
+            if (memcmp(corpus + at, needle, needle_len) == 0)
+            {
+                found += 1u;
+            }
+        }
+    }
+    return found;
+}
+
+/* The threshold that used to live here, ANCHOR_SIFT_FLAT_SHARE at 0.85, moved into
+ * anchor_steer_prefers_free as the exact rational 85/100 and is gone from this file. It is not left
+ * defined and unread: a constant nobody reads is how a rule that has been removed goes on looking
+ * like a rule that is still enforced.
+ *
+ * What it meant is unchanged. It is how close the effective alphabet has to sit to the symbols
+ * actually used before a corpus counts as memoryless, and it was swept by bench_dispatch and not
+ * chosen. Every threshold from 0.34 to 0.96 scores identically on the corpora measured, since the
+ * three of them read 0.96, 0.33 and 1.00 and nothing sits between. Clearing the denominators did not
+ * re-open that sweep; 85/100 is the same value carried exactly instead of rounded. */
+
+AnchorSiftEngine anchor_sift_choose(const AnchorSiftPlan *plan)
+{
+    // No plan is no statistics, and the engine that needs none is the naive one. BOTH POINTERS ARE
+    // TESTED HERE and neither test is delegated to the callee. anchor_steer_prefers_free returns 0
+    // on a null census. Delegating would work and would leave this function reading as though it
+    // dereferences an unchecked pointer. The next person to read it could not tell it is safe
+    // without opening another file.
+    if ((plan == NULL) || (plan->census == NULL))
+    {
+        return anchor_sift_naive;
+    }
+
+    // A flat corpus refutes almost every alignment on the first probe. Short circuiting reads one
+    // byte where the free order engine reads four. A structured one refutes on the first probe often
+    // enough to make the loop trip count vary, and a varying trip count costs a mispredicted branch
+    // per alignment. The branchless engine exists to avoid that.
+    //
+    // THE RULE IS THE SAME ONE AND THE ARITHMETIC IS NOT. It asked whether the effective alphabet
+    // 2^H2 reaches ANCHOR_SIFT_FLAT_SHARE of the symbols used, computed by taking a logarithm and
+    // approximating a power of two with three terms of a series. That constant no longer exists;
+    // it is named here because this paragraph records what was replaced. Writing 2^H2 as total^2
+    // over the sum of squared counts clears both denominators and leaves
+    //
+    //     100 * total^2  >=  85 * distinct * sum(count^2)
+    //
+    // which is a comparison between two exact integers, carried in the limb form where it outgrows
+    // 64 bits. No logarithm is taken, no series is evaluated, and the threshold is the exact
+    // rational 85/100 instead of the nearest double to 0.85. anchor_steer_prefers_free holds that
+    // comparison and the sweep in test_steer grades it against the double form it replaced.
+    return anchor_steer_prefers_free(plan->census) ? anchor_sift_free : anchor_sift_inorder;
+}
+
+size_t anchor_sift_anchors_for(const AnchorSiftPlan *plan)
+{
+    // No plan is no known period, and an unknown period is the case the full anchor set is for.
+    // Returning the maximum reads more than a known period would need and can lose nothing.
+    if (plan == NULL)
+    {
+        return ANCHOR_SIFT_ANCHORS;
+    }
+
+    // Every anchor after the first tests the congruence the first one already tested. The reads
+    // they perform are their only contribution.
+    if (plan->period != 0u)
+    {
+        return 1u;
+    }
+    return ANCHOR_SIFT_ANCHORS;
+}
+
+size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
+                       size_t needle_len)
+{
+    const AnchorSiftEngine chosen = anchor_sift_choose(plan);
+
+    // Held and dispatched and not re-asked, because the choice is now three ways and not two.
+    // Reaching the tail on a null plan would have run the in order engine with the full anchor set,
+    // the outcome the guard in anchor_sift_choose was added to prevent.
+    if (chosen == anchor_sift_naive)
+    {
+        return anchor_sift_naive(corpus, corpus_len, needle, needle_len);
+    }
+    if (chosen == anchor_sift_free)
+    {
+        return anchor_sift_free(corpus, corpus_len, needle, needle_len);
+    }
+    return sift_inorder_n(corpus, corpus_len, needle, needle_len, anchor_sift_anchors_for(plan));
+}
+
+const char *anchor_sift_engine_name(AnchorSiftEngine engine)
+{
+    if (engine == anchor_sift_naive)
+    {
+        return "naive";
+    }
+    if (engine == anchor_sift_inorder)
+    {
+        return "anchor_inorder";
+    }
+    if (engine == anchor_sift_free)
+    {
+        return "anchor_free";
+    }
+    return "unknown";
+}

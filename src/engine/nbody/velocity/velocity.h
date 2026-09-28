@@ -5,10 +5,11 @@
 #include "engine_config.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-#define VELOCITY_REFUSED (-1L)
+#define VELOCITY_ERROR (-1L)
 
 #define VELOCITY_EARLIER 0u
 
@@ -32,15 +33,15 @@ extern "C" {
 
 #define VELOCITY_OUTPUTS ((2u * ENGINE_AXES) + 2u)
 
-typedef struct
-{
-    unsigned int mass_field;
-    unsigned int sum_field[ENGINE_AXES];
-    unsigned int lag_field[ENGINE_AXES];
-} VelocityRequest;
+    typedef struct
+    {
+        unsigned int mass_field;
+        unsigned int sum_field[ENGINE_AXES];
+        unsigned int lag_field[ENGINE_AXES];
+    } VelocityRequest;
 
-long velocity_program(const VelocityRequest *request, EngineRecordStep program[VELOCITY_STEPS],
-                      unsigned int outputs[VELOCITY_OUTPUTS]);
+    long velocity_program(const VelocityRequest *request, EngineRecordStep program[VELOCITY_STEPS],
+                          unsigned int outputs[VELOCITY_OUTPUTS]);
 
 #ifdef __cplusplus
 }

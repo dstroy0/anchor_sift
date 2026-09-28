@@ -3,8 +3,11 @@
 #
 # The permutation null measure, in R.
 #
-# This is a port of evidence/proofs/posits/proof_conservation.py and it computes the same number. Where the
-# two disagree the Python is the reference, because every figure in the ledger came out of it.
+# This is a port of the rare half in src/engine/python/measure/dispersion.py, the tail that
+# evidence/proofs/posits/proof_conservation.py computes too. It computes the same measure and not the same
+# number: the null is a shuffle, R draws it from its own generator, and a value agrees with the Python's
+# only as far as the reseeding floor allows. Where the two disagree past that the Python is the
+# reference, because every figure in the ledger came out of it.
 #
 #   source("evidence/sims/r/departure.R")
 #   anchor_sift_file("corpus.sym")
@@ -14,8 +17,9 @@
 # byte, and on any text that is not ASCII the two measure different sequences.
 #
 # What it measures: how far a sequence sits from a shuffle of itself, read through the gaps between
-# repeated symbols. A memoryless source returns about 1.00. Natural language returns 0.48 to 0.76.
-# Below 1 means the live sequence is more dispersed than its own shuffle, which is clustering.
+# repeated symbols. In the Python reference's recorded figures a memoryless source returns about 1.00
+# and natural language 0.48 to 0.76; no run of this port prints them. Below 1 means the live sequence
+# is more dispersed than its own shuffle, which is clustering.
 
 # Symbols occurring fewer times than this carry no usable gap statistic and are dropped.
 ANCHOR_SIFT_MIN_OCCURRENCES <- 32L
@@ -25,8 +29,10 @@ ANCHOR_SIFT_SEEDS <- 12L
 
 #' Population standard deviation, which is what the reference implementation uses.
 #'
-#' R's sd() divides by n-1. Python's statistics.pstdev divides by n. Using the wrong one shifts
-#' every ratio by sqrt(n/(n-1)), which is small and is still a different number.
+#' R's sd() divides by n-1. Python's statistics.pstdev divides by n, and a symbol's spread is the
+#' reference's only with it. The departure would not show the wrong one: the live sequence and its
+#' shuffle hold the same count of each symbol, so the same number of gaps, and the factor cancels in
+#' every ratio. The floor's sd over seeds is where it would not cancel.
 anchor_sift_pstdev <- function(values) {
   count <- length(values)
   if (count < 1L) {

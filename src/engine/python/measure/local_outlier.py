@@ -10,7 +10,7 @@
 # The Hampel identifier is the standard rank test for an outlier: take the window around a point, its
 # median and its median absolute deviation, and flag the point when it sits more than a few MADs from
 # the median. The "few" is the whole problem. It is a constant the author picks, 1.4826 times some
-# chosen number of deviations, and it is exactly the judgement-picked tolerance this tree does not
+# chosen number of deviations, and it is a judgment-picked tolerance of the kind this tree does not
 # allow. Change it and the count of outliers changes, and nothing in the data said what it should be.
 #
 # The fix is the tree's standing move: draw the boundary from the data instead of choosing it. The
@@ -31,7 +31,7 @@
 from reference.windowed import _window, window_median
 
 
-def neighbour_median(values, index, radius):
+def neighbor_median(values, index, radius):
     """The median of the window around `index` with the sample at `index` left out.
 
     The value the neighbors agree on, which the sample under test does not get to vote on.
@@ -46,7 +46,7 @@ def band_top(values, index, radius):
     could have produced; a sample beyond it is one they could not. Returns 0 where the neighbors all
     agree, the case that makes a lone impulse unmistakable.
     """
-    middle = neighbour_median(values, index, radius)
+    middle = neighbor_median(values, index, radius)
     neighbors = _window(values, index, radius, include_center=False)
     if not neighbors:
         return 0
@@ -62,7 +62,7 @@ def is_outlier(values, index, radius):
     """
     if (index < radius) or (index + radius >= len(values)):
         return False
-    middle = neighbour_median(values, index, radius)
+    middle = neighbor_median(values, index, radius)
     return abs(values[index] - middle) > band_top(values, index, radius)
 
 

@@ -64,8 +64,8 @@ static int steer_sve_present(void)
 #endif
 }
 
-size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments,
-                                     const uint8_t *alive, uint8_t wanted, size_t offset)
+size_t anchor_steer_truthy_after_sve(const uint8_t *corpus, size_t alignments, const uint8_t *alive, uint8_t wanted,
+                                     size_t offset)
 {
     /* Counted before the argument check. A caller passing nothing still records that this arm
      * was the one asked. The claim the counters carry is which arm RAN and not what it returned. */

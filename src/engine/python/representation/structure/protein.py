@@ -6,7 +6,7 @@
 #
 #   Usage:  from representation.structure.protein import fetch, atoms, density, backbone, walk
 #
-# Laying every atom into a grid discards the order, and what is left is a scatter of points in a box
+# Laying every atom into a grid discards the order and leaves a scatter of points in a box
 # that is mostly empty, where most of a line drawn through it crosses vacuum. Taking the step from
 # one alpha carbon to the next keeps the order and discards the bonds, since an alpha carbon is
 # already a summary of a residue and the step between two of them is not a bond. Walking the backbone
@@ -105,7 +105,8 @@ def density(points, side, blur):
     radius = sum(axis ** 2 for axis in axes)
     kernel = numpy.exp(-2.0 * (numpy.pi ** 2) * (blur ** 2) * radius / (side ** 2))
     smooth = numpy.real(numpy.fft.ifftn(numpy.fft.fftn(grid) * kernel))
-    return to_levels(smooth)
+    levels = to_levels(smooth.ravel())
+    return None if levels is None else numpy.asarray(levels).reshape(smooth.shape)
 
 
 def backbone(text, least=64):
@@ -232,7 +233,7 @@ def phi_psi(text):
     are. Nothing is rounded to form them. The only irrational step is the atan2 itself, and it is
     not taken here. The caller is handed Y, and the two integers C and S whose product C * sqrt(S)
     is X, and renders the angle to a stated precision. This mirrors representation.exact: the reader
-    stays integer, and the one place an irrational is unavoidable is named and deferred, not buried
+    stays integer, and the single place an irrational is unavoidable is named and deferred, not buried
     in a float that fixes a precision nobody chose.
 
     X is returned split because its own sqrt is where the irrational sits. atan2(Y, dot . |b2|) and
@@ -329,7 +330,7 @@ def phi_psi(text):
 # A run of points, the kind `walk` returns, is fixed by where its first three points sit and, from
 # the fourth on, by how each point stands on the three before it: a bond length, the angle it turns
 # through, and the dihedral about the bond it shares with its predecessor. Those three terms hold no
-# position and no orientation. They are what survives moving or turning the whole run. `phi_psi`
+# position and no orientation. They survive moving or turning the whole run unchanged. `phi_psi`
 # makes this statement for the two torsions of a residue; the same holds for every point of the
 # backbone. `internal_coords` reads the terms off a run and `rebuild` walks them back; handed the
 # terms read off a run, `rebuild` returns that run.
@@ -343,7 +344,7 @@ def internal_coords(atoms):
     angle it makes at that point with the one before that, and the dihedral about the shared bond.
 
     Returns three float arrays the length of `atoms`, the seed entries left at zero. The dihedral
-    sign is the one `rebuild` reads back. `rebuild(atoms[:3], *internal_coords(atoms))` reproduces
+    sign follows the convention `rebuild` reads back. `rebuild(atoms[:3], *internal_coords(atoms))` reproduces
     `atoms`.
     """
     count = len(atoms)
@@ -425,9 +426,9 @@ def rebuild(seed, bond, angle, dihedral, steer=None):
 # A walk that steers reads a table that says, at each place it might go, true or false: this place is
 # allowed, that one is not. The mechanism is here, in the engine, because the walk is here. What the
 # table means is not: a caller builds it, from the Ramachandran grid or anything else, and hands the
-# walk a `steer` that consults it. `nearest_truthy` is the one piece of that a walk needs from the
+# walk a `steer` that consults it. `nearest_truthy` is the single piece of that a walk needs from the
 # engine and cannot get from the table alone, since a table only answers about the place it is asked
-# and not where the nearest allowed place is. It knows true from false and nothing more. It serves
+# and not where the nearest allowed place is. It knows only true from false. It serves
 # any table, and the reference data that fills a particular one stays out of the engine.
 
 

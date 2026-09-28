@@ -23,10 +23,10 @@
 # This is the whole reason this module carries its own scale instead of using representation.exact
 # directly. A translation of 1/2 is 0.5 exactly. A translation of 1/3 is not a decimal at all:
 # 10**D factors into 2**D and 5**D and three divides neither. No number of decimal places holds
-# a third. The scale in exact.py is enormous and it does not help, because the problem is not size.
+# a third. The scale in exact.py is very large and it does not help, because the problem is not size.
 #
 # A trigonal or hexagonal space group is full of thirds. '-y,x-y,z' with 'x+2/3,y+1/3,z+1/3' is an
-# ordinary R centred operation, and the corpus is full of R-3 and R-3c. Carrying those through a
+# ordinary R centered operation, and the corpus is full of R-3 and R-3c. Carrying those through a
 # decimal scale would round them, and a rounded symmetry copy lands next to the atom it should have
 # landed on and not on it. Two sites that are one place stop comparing equal and the doping
 # at that place disappears. The failure would be silent and would look like an absence of doping.
@@ -126,7 +126,7 @@ def operations(text):
 
     Returns a list of operations, each a tuple of three (cx, cy, cz, translation) rows, one per
     output axis. An entry publishing no operations gets the identity alone, the honest
-    reading: the deposit said nothing. The only copy known is the one written down.
+    reading: the deposit said nothing. The only copy known is the copy written down.
 
     Duplicate operations are dropped. A deposit repeating 'x,y,z' does not have two identities.
     """
@@ -176,11 +176,11 @@ def expand(points, ops):
     """Every point carried through every operation, reduced into one cell.
 
     `points` is an iterable of ((a, b, c), value) with the coordinates exact integers at
-    representation.exact.SCALE_DIGITS, which is what crystal.site_table plus exact.scaled produces.
+    representation.exact.SCALE_DIGITS, as crystal.site_table plus exact.scaled produces them.
     Returns the same shape with coordinates in this module's units, reduced modulo SYM_SCALE.
 
-    A point on a special position maps to itself under some operations and the repeats are dropped,
-    so the result holds each distinct (place, value) once. That matters for a doping reading: a
+    A point on a special position maps to itself under some operations and the repeats are dropped:
+    the result holds each distinct (place, value) once. That matters for a doping reading: a
     position holding one element that simply appears four times is not contested, and a position
     holding two elements is, however many operations put them there.
     """

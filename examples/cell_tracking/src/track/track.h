@@ -61,11 +61,11 @@ typedef struct
     unsigned int print_limbs;
     int velocity;
     const CycleRecord *velocity_record;
-    const EngineRecordRequest *velocity_imprint;
+    const EngineRecordRequest *velocity_encode_request;
     int mass_band;
     int division;
     const CycleRecord *division_record;
-    const EngineRecordRequest *division_imprint;
+    const EngineRecordRequest *division_encode_request;
     int marginal;
     int box;
     int core;
@@ -73,9 +73,9 @@ typedef struct
     unsigned int unit_sweep;
     int contact_side;
     const CycleRecord *contact_difference_record;
-    const EngineRecordRequest *contact_difference_imprint;
+    const EngineRecordRequest *contact_difference_encode_request;
     const CycleRecord *contact_kept_record;
-    const EngineRecordRequest *contact_kept_imprint;
+    const EngineRecordRequest *contact_kept_encode_request;
     const unsigned int *flattened;
     unsigned int flattened_limbs;
     unsigned int flattened_samples;
@@ -129,20 +129,20 @@ typedef struct
     int *backward_lag;
     int *check_forward_lag;
     int *check_backward_lag;
-    unsigned int *forward_held;
+    unsigned int *forward_final_score;
     unsigned int null_count;
     unsigned int arm_count;
     int *arm_forward;
-    unsigned int *null_held;
+    unsigned int *null_final_score;
     unsigned int triple_count;
     unsigned int *triple_start;
     unsigned int *triple_after;
     unsigned int *triple_shared;
     unsigned int *triple_still;
     unsigned int object_count;
-    unsigned int *held_target;
-    unsigned int *held_count;
-    unsigned int *held_rounds;
+    unsigned int *majority_target;
+    unsigned int *majority_count;
+    unsigned int *majority_agreed_rounds;
     unsigned int *object_of;
     unsigned int *member_start;
     unsigned int *members;
@@ -161,7 +161,7 @@ typedef struct
     unsigned long long wrong;
     unsigned long long unlinked;
     unsigned long long missed;
-} EdgeTally;
+} EdgeResults;
 
 typedef struct
 {
@@ -180,19 +180,19 @@ typedef struct
     unsigned int depth;
     unsigned int height;
     unsigned int width;
-    unsigned int peak_room;
+    unsigned int peak_capacity;
     unsigned short *volume;
     unsigned int *peak_indices;
     unsigned int *sizes;
     unsigned long long *sums;
     unsigned int *peak_limbs;
     EngineBody *bodies;
-    unsigned int pair_room;
+    unsigned int pair_capacity;
     unsigned int *adjacency;
     unsigned int *joined;
     unsigned int *labels[2];
     unsigned long long *positive[2];
-    unsigned int overlap_room;
+    unsigned int overlap_capacity;
     unsigned int *overlap_before;
     unsigned int *overlap_after;
     unsigned int *overlap_shared;

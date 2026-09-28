@@ -77,7 +77,7 @@ def score_against(reading, families=None):
     """How many languages with a relative present sit nearest one of their own.
 
     `reading` maps a language to a vector. Returns how many landed on a relative, how many were
-    scoreable at all, and the misses, which are usually the informative part: Dutch to Norwegian,
+    scoreable, and the misses, which are usually the informative part: Dutch to Norwegian,
     French to Spanish, Czech to Russian, Albanian to Italian is a reading finding the right
     neighborhood and then picking wrongly inside it.
 

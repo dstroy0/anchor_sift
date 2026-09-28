@@ -11,7 +11,7 @@ the first, the quantity is a fact about the header and not about SHA-256, and ev
 this workbook would need re-reading as a property of block 125552.
 
 Each header is built from the block's own fields and then **verified against that block's published
-hash** before it is used. Bitcoin's serialisation reverses the two hashes and stores the integers
+hash** before it is used. Bitcoin's serialization reverses the two hashes and stores the integers
 little-endian, and this project has already had a prevhash byte order wrong once. A header that does
 not reproduce its own block id is not used, and that refusal is reported instead of measuring the wrong bytes.
 
@@ -40,7 +40,7 @@ RATIO = re.compile(r"order two over order one half\s*:\s*([0-9.]+)")
 
 
 def build_header(block):
-    """The eighty bytes as Bitcoin serialises them, hashes reversed and integers little-endian."""
+    """The eighty bytes as Bitcoin serializes them, hashes reversed and integers little-endian."""
     return (
         struct.pack("<I", block["version"])
         + bytes.fromhex(block["previousblockhash"])[::-1]

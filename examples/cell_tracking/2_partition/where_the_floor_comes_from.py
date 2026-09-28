@@ -11,7 +11,7 @@
 # displacement and not all of it: 0.1479 px mean against 0.2222 px for the whole lag alone, and a
 # residual that is largest at whole-number displacements and near zero at the half. The reading
 # offered there for that floor is feature width, that a blob six pixels across still agrees
-# substantially at the neighbouring lag when the displacement is exact.
+# substantially at the neighboring lag when the displacement is exact.
 #
 # THAT IS A GUESS UNTIL IT IS SWEPT, and this file sweeps it. theory/workbooks/anchor_sift records ten separate
 # bounds in this work that had to come back off, each one a quantity chosen because something had to
@@ -71,11 +71,11 @@ def field(rng, width):
     canvas = numpy.zeros((SIDE, SIDE), dtype=numpy.float64)
     margin = max(3.0 * width, 4.0)
     for _ in range(count):
-        centre_row = rng.uniform(margin, SIDE - margin)
-        centre_column = rng.uniform(margin, SIDE - margin)
+        center_row = rng.uniform(margin, SIDE - margin)
+        center_column = rng.uniform(margin, SIDE - margin)
         brightness = rng.uniform(0.5, 1.0)
         canvas += brightness * numpy.exp(
-            -(((rows - centre_row) ** 2) + ((columns - centre_column) ** 2))
+            -(((rows - center_row) ** 2) + ((columns - center_column) ** 2))
             / (2.0 * width * width))
     return canvas, count
 

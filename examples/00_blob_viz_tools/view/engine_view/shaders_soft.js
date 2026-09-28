@@ -22,7 +22,7 @@ struct SoftOut {
   @builtin(position) place: vec4<f32>,
   @location(0) local: vec2<f32>,
   @location(1) @interpolate(flat) inverse: vec3<f32>,
-  @location(2) @interpolate(flat) colour: vec4<f32>,
+  @location(2) @interpolate(flat) color: vec4<f32>,
   @location(3) @interpolate(flat) cell: u32,
   @location(4) @interpolate(flat) far: f32,
 }
@@ -68,15 +68,15 @@ fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   let z = (lay.z_scale * (2 * i32(voxel / lay.plane) - i32(lay.depth) + 1)) / 2 + step.z;
   let half = vec2<f32>(f32(lay.half_w), f32(lay.half_h));
   let middle = project(x, y, z, frame);
-  let centre = middle.xy * half;
+  let center = middle.xy * half;
   // A voxel and a layer on the screen, each measured over 32 of them so the integer turn's rounding is a 32nd.
-  let across_x = (project(x + 64, y, z, frame).xy * half - centre) / 32.0;
-  let across_y = (project(x, y + 64, z, frame).xy * half - centre) / 32.0;
-  let across_z = (project(x, y, z + 32 * lay.z_scale, frame).xy * half - centre) / 32.0;
+  let across_x = (project(x + 64, y, z, frame).xy * half - center) / 32.0;
+  let across_y = (project(x, y + 64, z, frame).xy * half - center) / 32.0;
+  let across_z = (project(x, y, z + 32 * lay.z_scale, frame).xy * half - center) / 32.0;
   // The distance is the cell's, taken at its centroid: every run of a cell carries one weight, so where two cells
   // overlap on the screen the nearer one wins throughout, never row by row.
-  let own_centre = centroid(cell) + step;
-  let far = farness(project(own_centre.x, own_centre.y, own_centre.z, frame).z);
+  let own_center = centroid(cell) + step;
+  let far = farness(project(own_center.x, own_center.y, own_center.z, frame).z);
   let reach = f32(lay.soft_radius) * 0.5 * (1.0 + 0.35 * far);
   let a = across_x * (f32(span) * 0.5 + reach);
   let b = across_y * reach;
@@ -94,7 +94,7 @@ fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   let eased = u32(ease(lay.progress));
   let shown = select(select(true, grain < eased, frame == lay.frame_now + 1u), grain >= eased, frame == lay.frame_now);
   var out: SoftOut;
-  out.place = select(HIDDEN, vec4<f32>((centre + offset) / half, middle.z, 1.0), shown);
+  out.place = select(HIDDEN, vec4<f32>((center + offset) / half, middle.z, 1.0), shown);
   out.local = offset;
   out.inverse = vec3<f32>(m11, -m01, m00) / determinant;
   out.cell = cell + 1u;
@@ -102,7 +102,7 @@ fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   // The cell's own lift or dim, as its body and wall take it, so the blur of neighbors of one lineage differs too.
   let own = 0.84 + 0.32 * f32((cell * 2246822519u) >> 24u) / 255.0;
   let tone = min(lit(cell, frame, 256u).rgb * own, vec3<f32>(1.0));
-  out.colour = vec4<f32>(tone, f32(lay.soft_alpha) / 255.0);
+  out.color = vec4<f32>(tone, f32(lay.soft_alpha) / 255.0);
   return out;
 }
 
@@ -121,10 +121,10 @@ fn falloff_of(input: SoftOut) -> f32 {
 fn soft_fragment(input: SoftOut) -> SoftDrawn {
   let d = input.local;
   let q = input.inverse.x * d.x * d.x + 2.0 * input.inverse.y * d.x * d.y + input.inverse.z * d.y * d.y;
-  let alpha = input.colour.a * exp(-3.125 * q) * f32(q < 1.0) * (1.0 - 0.3 * input.far);
+  let alpha = input.color.a * exp(-3.125 * q) * f32(q < 1.0) * (1.0 - 0.3 * input.far);
   let far = input.far;
   let weight = alpha * clamp(1.0 / (0.001 + far * far * far * far), 0.01, 1000.0);
-  return SoftDrawn(vec4<f32>(input.colour.rgb * alpha * weight, alpha * weight), vec4<f32>(alpha));
+  return SoftDrawn(vec4<f32>(input.color.rgb * alpha * weight, alpha * weight), vec4<f32>(alpha));
 }
 
 @group(0) @binding(6) var<storage, read> shape: array<i32>;
@@ -140,10 +140,10 @@ fn cell_ellipse(vertex: u32, cell: u32, wall: bool) -> SoftOut {
   let middle = centroid(cell) + step_of(cell, frame);
   let half = vec2<f32>(f32(lay.half_w), f32(lay.half_h));
   let projected = project(middle.x, middle.y, middle.z, frame);
-  let centre = projected.xy * half;
-  let per_x = (project(middle.x + 64, middle.y, middle.z, frame).xy * half - centre) / 32.0;
-  let per_y = (project(middle.x, middle.y + 64, middle.z, frame).xy * half - centre) / 32.0;
-  let per_z = (project(middle.x, middle.y, middle.z + 32 * lay.z_scale, frame).xy * half - centre) / 32.0;
+  let center = projected.xy * half;
+  let per_x = (project(middle.x + 64, middle.y, middle.z, frame).xy * half - center) / 32.0;
+  let per_y = (project(middle.x, middle.y + 64, middle.z, frame).xy * half - center) / 32.0;
+  let per_z = (project(middle.x, middle.y, middle.z + 32 * lay.z_scale, frame).xy * half - center) / 32.0;
   let at = 6u * cell;
   let zz = f32(shape[at]) / 256.0;
   let yy = f32(shape[at + 1u]) / 256.0;
@@ -178,7 +178,7 @@ fn cell_ellipse(vertex: u32, cell: u32, wall: bool) -> SoftOut {
   let shown = select(select(false, grain < eased, next), grain >= eased, now);
   let kept = select(true, chosen_bit(cell) == 1u, lay.only_chosen == 1u) && (size >= lay.min_voxels);
   var out: SoftOut;
-  out.place = select(HIDDEN, vec4<f32>((centre + offset) / half, projected.z, 1.0), shown && kept);
+  out.place = select(HIDDEN, vec4<f32>((center + offset) / half, projected.z, 1.0), shown && kept);
   out.local = offset;
   out.inverse = vec3<f32>(n11, -n01, n00) / determinant;
   out.cell = cell + 1u;
@@ -199,7 +199,7 @@ fn cell_ellipse(vertex: u32, cell: u32, wall: bool) -> SoftOut {
   // with distance and sprawl; a body's tone is the cell's own at the body's opacity times its solidity.
   let typical = f32(max(lay.typical_voxels, 1u));
   let solid = smoothstep(0.1, 0.4, compact) * (1.0 - smoothstep(8.0 * typical, 32.0 * typical, f32(size)));
-  out.colour = select(vec4<f32>(tone, solid * f32(lay.body_alpha) / 255.0),
+  out.color = select(vec4<f32>(tone, solid * f32(lay.body_alpha) / 255.0),
                       vec4<f32>(tone + (vec3<f32>(1.0) - tone) * (f32(lay.wall_tone) / 255.0), (1.0 - 0.35 * far) * solid), wall);
   return out;
 }
@@ -238,7 +238,7 @@ fn map_cell(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instanc
   // The map texture is EV.MAP_SIZE texels across; a unit of the fitted projection is half of that.
   let half = vec2<f32>(f32(${EV.MAP_SIZE}) * 0.5);
   let projected = map_place(middle.x, middle.y, middle.z);
-  let centre = projected.xy * half;
+  let center = projected.xy * half;
   // Where it falls is overhead and still; what falls is the shape the camera is making of it.
   let turned = map_turn(middle.x, middle.y, middle.z) * half;
   let per_x = (map_turn(middle.x + 64, middle.y, middle.z) * half - turned) / 32.0;
@@ -273,12 +273,12 @@ fn map_cell(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instanc
   let typical = f32(max(lay.typical_voxels, 1u));
   let solid = smoothstep(0.1, 0.4, compact) * (1.0 - smoothstep(8.0 * typical, 32.0 * typical, f32(size)));
   var out: SoftOut;
-  out.place = select(HIDDEN, vec4<f32>((centre + offset) / half, projected.z, 1.0), shown && kept && (solid >= 0.5));
+  out.place = select(HIDDEN, vec4<f32>((center + offset) / half, projected.z, 1.0), shown && kept && (solid >= 0.5));
   out.local = offset;
   out.inverse = vec3<f32>(m11, -m01, m00) / determinant;
   out.cell = cell + 1u;
   out.far = 0.0;
-  out.colour = vec4<f32>(0.0);
+  out.color = vec4<f32>(0.0);
   return out;
 }
 
@@ -294,9 +294,9 @@ fn map_cell_fragment(input: SoftOut) -> MapDrawn {
   return MapDrawn(input.cell, select(1.0, input.place.z, falloff > 0.0));
 }
 
-// The plane holds the whole volume and not its near face: every cell adds its own colour where its ellipse
+// The plane holds the whole volume and not its near face: every cell adds its own color where its ellipse
 // covers, nothing tested against depth and nothing hidden behind anything else. The weight added beside the
-// colour is what the composite divides by, so a place many cells reach reads as all of their colours together
+// color is what the composite divides by, so a place many cells reach reads as all of their colors together
 // rather than as whichever of them happened to lie nearest the camera.
 @fragment
 fn map_paint_fragment(input: SoftOut) -> @location(0) vec4<f32> {
@@ -343,11 +343,11 @@ fn body_fragment(input: SoftOut) -> SoftDrawn {
                    + light_at(normal, lay.light2_x, lay.light2_y, lay.light2_z, lay.light2_strength, count > 2u)
                    + light_at(normal, lay.light3_x, lay.light3_y, lay.light3_z, lay.light3_strength, count > 3u);
   let falloff = clamp(1.0 - q, 0.0, 1.0);
-  let alpha = input.colour.a * smoothstep(0.0, 0.12, falloff);
+  let alpha = input.color.a * smoothstep(0.0, 0.12, falloff);
   let far = input.far;
   let weight = alpha * clamp(1.0 / (0.001 + far * far * far * far), 0.01, 1000.0);
-  let colour = min(input.colour.rgb * shade, vec3<f32>(1.0));
-  return SoftDrawn(vec4<f32>(colour * alpha * weight, alpha * weight), vec4<f32>(alpha));
+  let color = min(input.color.rgb * shade, vec3<f32>(1.0));
+  return SoftDrawn(vec4<f32>(color * alpha * weight, alpha * weight), vec4<f32>(alpha));
 }
 
 // The wall's cell at a pixel is the nearest cell there, and between cells at one depth the one whose ellipse is most
@@ -358,7 +358,7 @@ fn body_fragment(input: SoftOut) -> SoftDrawn {
 @fragment
 fn wall_soft_fragment(input: SoftOut) -> WallDrawn {
   let falloff = falloff_of(input);
-  return WallDrawn(input.cell, input.colour, select(1.0, input.place.z + (1.0 - falloff) * 0.00025, falloff > 0.0));
+  return WallDrawn(input.cell, input.color, select(1.0, input.place.z + (1.0 - falloff) * 0.00025, falloff > 0.0));
 }`;
 
 EV.SOFT_COMPOSITE = EV.PRELUDE + `
@@ -373,7 +373,7 @@ EV.SOFT_COMPOSITE = EV.PRELUDE + `
 // so the image and what the engine made of it stand in the same place at the same turn. The pixel is carried back
 // through the turn, the brightest voxel along it stands, and the slider says how much of it is seen against the
 // representation. Nothing of the two is drawn twice: one fades in as the other fades out.
-fn slide_grey(pixel: vec2<i32>) -> vec2<f32> {
+fn slide_gray(pixel: vec2<i32>) -> vec2<f32> {
   let wide = i32(lay.half_w);
   let high = i32(lay.half_h);
   // Back through the view's own placing: the pixel as the turned place it came from, before the zoom and the pan.
@@ -398,8 +398,8 @@ fn slide_grey(pixel: vec2<i32>) -> vec2<f32> {
     brightest = max(brightest, read * u32(held) * lay.raw_on);
   }
   let span = max(lay.window_high, lay.window_low + 1u) - lay.window_low;
-  let grey = f32(min(max(brightest, lay.window_low) - lay.window_low, span)) / f32(span);
-  return vec2<f32>(grey * f32(lay.raw_on), select(0.0, 1.0, held_any && (lay.raw_on == 1u)));
+  let gray = f32(min(max(brightest, lay.window_low) - lay.window_low, span)) / f32(span);
+  return vec2<f32>(gray * f32(lay.raw_on), select(0.0, 1.0, held_any && (lay.raw_on == 1u)));
 }
 
 @vertex
@@ -450,7 +450,7 @@ fn compose(@builtin(position) at: vec4<f32>) -> @location(0) vec4<f32> {
   // The slider between what the microscope saw and what the engine made of it: at nothing only the cells stand,
   // at full only the slide, and between them each is there in its own measure, in the same place at the same turn.
   let slide = f32(lay.slide) / 255.0;
-  let seen = slide_grey(pixel);
+  let seen = slide_gray(pixel);
   let slide_alpha = seen.y * slide;
   let ours = alpha * (1.0 - slide);
   let together = ours + slide_alpha * (1.0 - ours);

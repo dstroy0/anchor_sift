@@ -19,31 +19,34 @@ if [ "${1:-}" = "--" ]; then
     SIM_ARGUMENTS=("$@")
 fi
 
-SCRIPTURA="$TOP/engine/base/scriptura"
-NO_ROUNDING="$TOP/engine/base/no_rounding"
-PERIOD="$TOP/engine/base/period"
-TOWER="$TOP/engine/base/tower"
-DEVICE_POOL="$TOP/engine/base/device_pool"
-COMPRESSION="$TOP/engine/base/compression"
-CYCLE="$TOP/engine/base/cycle"
-KEYMATH="$TOP/engine/base/keymath"
-KEY_SCHEDULE="$TOP/engine/base/key_schedule"
-ENTROPY_HISTORY="$TOP/engine/base/entropy_history"
-NOISE_DETECTOR="$TOP/engine/base/noise_detector"
+SCRIPTURA="$TOP/engine/runtime/scriptura"
+NO_ROUNDING="$TOP/engine/arithmetic/no_rounding"
+PERIOD="$TOP/engine/analysis/period"
+TOWER="$TOP/engine/analysis/tower"
+DEVICE_POOL="$TOP/engine/runtime/device_pool"
+COMPRESSION="$TOP/engine/analysis/compression"
+CYCLE="$TOP/engine/compiler/cycle"
+CODEGEN="$TOP/engine/compiler/codegen"
+KEYMATH="$TOP/engine/compiler/keymath"
+KEY_SCHEDULE="$TOP/engine/compiler/key_schedule"
+ENTROPY_HISTORY="$TOP/engine/analysis/entropy_history"
+NOISE_DETECTOR="$TOP/engine/analysis/noise_detector"
 # maint/ is at the repository's root, one above src/
 source "$(cd "$TOP/.." && pwd)/maint/build_stamp.sh"
 build_stamp "sim_$SIM"
 
 case "$SIM" in
-    fixed_pattern|classify_reject_recover) SOURCE="$SIMS/art/$SIM.cu" ;;
-    *) SOURCE="$SIMS/$SIM/$SIM.cu" ;;
+    fixed_pattern|classify_reject_recover) SOURCES=("$SIMS/art/$SIM.cu") ;;
+    *) SOURCES=("$SIMS/$SIM"/*.cu) ;;
 esac
+NOISE_DETECTOR_SOURCES=("$NOISE_DETECTOR"/noise_detector_{flicker,lines,lines_summary,neighbors,clips,pixels}.cu
+                        "$NOISE_DETECTOR"/noise_detector_{moments,ladder,crosstalk,structure,halves,root}.cu)
 MODULE_SOURCES=()
 if [ "$SIM" = "period_power" ]; then
-    MODULE_SOURCES+=("$PERIOD/period.cu" "$DEVICE_POOL/device_pool.cu")
+    MODULE_SOURCES+=("$PERIOD"/period_{measure,select}.cu "$DEVICE_POOL/device_pool.cu")
 fi
 if [ "$SIM" = "root_universal" ]; then
-    MODULE_SOURCES+=("$TOWER/tower.cu" "$DEVICE_POOL/device_pool.cu" "$COMPRESSION/compression.cu")
+    MODULE_SOURCES+=("$TOWER"/tower_{kernels,run,record}.cu "$DEVICE_POOL/device_pool.cu" "$COMPRESSION/compression.cu")
 fi
 if [ "$SIM" = "knf_identity" ]; then
     MODULE_SOURCES+=("$ENTROPY_HISTORY/entropy_history.cu")
@@ -51,20 +54,20 @@ fi
 # noise_terms reads each planted volume back through the noise detector's volume readings, and noise_floor fits its
 # transfer curves by the detector's line over the level
 if [ "$SIM" = "noise_terms" ] || [ "$SIM" = "noise_floor" ]; then
-    MODULE_SOURCES+=("$NOISE_DETECTOR/noise_detector.cu")
+    MODULE_SOURCES+=("${NOISE_DETECTOR_SOURCES[@]}")
 fi
 # noise_root finds each planted term as a box's root noise, pricing it through the tower and compression's coder
 if [ "$SIM" = "noise_root" ]; then
-    MODULE_SOURCES+=("$NOISE_DETECTOR/noise_detector.cu" "$TOWER/tower.cu" "$DEVICE_POOL/device_pool.cu"
+    MODULE_SOURCES+=("${NOISE_DETECTOR_SOURCES[@]}" "$TOWER"/tower_{kernels,run,record}.cu "$DEVICE_POOL/device_pool.cu"
                      "$COMPRESSION/compression.cu")
 fi
 if [ "$SIM" = "floor_match" ] || [ "$SIM" = "floor_track" ]; then
-    MODULE_SOURCES+=("$TOWER/tower.cu" "$DEVICE_POOL/device_pool.cu")
+    MODULE_SOURCES+=("$TOWER"/tower_{kernels,run,record}.cu "$DEVICE_POOL/device_pool.cu")
 fi
 # chaitin_omega runs its reduction, and pi_tower its BBP terms, as programs on the engine's record machine
 HOST_SOURCES=()
 if [ "$SIM" = "chaitin_omega" ] || [ "$SIM" = "pi_tower" ]; then
-    MODULE_SOURCES+=("$CYCLE/cycle.cu" "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu")
+    MODULE_SOURCES+=("$CYCLE"/cycle*.cu "$CODEGEN"/*.cu "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu")
     HOST_SOURCES+=("$CYCLE/cycle.c")
 fi
 
@@ -102,12 +105,12 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-DAEMON_DIRECTORY="$TOP/engine/daemon"
-OBSIGNATIO="$TOP/engine/base/obsignatio"
+DAEMON_DIRECTORY="$TOP/engine/runtime/daemon"
+OBSIGNATIO="$TOP/engine/runtime/obsignatio"
 INCLUDES=(-I "$TOP/engine" -I "$SIMS" -I "$SCRIPTURA" -I "$NO_ROUNDING" -I "$PERIOD" -I "$TOWER" -I "$DEVICE_POOL"
           -I "$COMPRESSION" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$DAEMON_DIRECTORY" -I "$OBSIGNATIO")
 if [ "$SIM" = "knf_identity" ]; then
-    INCLUDES+=(-I "$TOP/engine/base" -I "$ENTROPY_HISTORY")
+    INCLUDES+=(-I "$TOP/engine/codecs/crc" -I "$ENTROPY_HISTORY")
 fi
 if [ "$SIM" = "noise_terms" ] || [ "$SIM" = "noise_root" ] || [ "$SIM" = "noise_floor" ]; then
     INCLUDES+=(-I "$NOISE_DETECTOR")
@@ -133,7 +136,8 @@ build_object()
 }
 OBJECTS=()
 SCRIPTURA_OBJECTS=()
-for source in "$SCRIPTURA"/*.c "$NO_ROUNDING/exact_integer.c" "${HOST_SOURCES[@]}"; do
+for source in "$SCRIPTURA"/*.c "$NO_ROUNDING"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
+              "${HOST_SOURCES[@]}"; do
     object="$OUT/$(basename "$source" .c)_sim.$EXTENSION"
     build_object "$source" "$object"
     OBJECTS+=("$object")
@@ -145,30 +149,35 @@ done
 # a sim that uses the device is a job on the device's tessera daemon: the client goes into the sim, and the daemon
 # is built beside it, where the sim starts it when none answers
 DAEMON_OBJECTS=()
-for name in tessera_client tessera_paths tessera_frame tessera_self tessera_ledger tessera_measure tessera_daemon; do
+for name in tessera_client_{socket,jobs} tessera_paths tessera_frame tessera_self tessera_ledger tessera_measure \
+            tessera_daemon_{state,admission,peers,main}; do
     object="$OUT/${name}_sim.$EXTENSION"
     build_object "$DAEMON_DIRECTORY/$name.c" "$object"
     case "$name" in
-        tessera_client) OBJECTS+=("$object") ;;
+        tessera_client_*) OBJECTS+=("$object") ;;
         tessera_paths|tessera_frame|tessera_self) OBJECTS+=("$object"); DAEMON_OBJECTS+=("$object") ;;
         *) DAEMON_OBJECTS+=("$object") ;;
     esac
 done
-SEAL_OBJECT="$OUT/obsignatio_sim.$EXTENSION"
-rm -f "$SEAL_OBJECT"
-nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${WIDTH[@]}" "${INCLUDES[@]}" -c "$OBSIGNATIO/obsignatio.cu" -o "$SEAL_OBJECT"
-[ -f "$SEAL_OBJECT" ] || { echo "  build failed: obsignatio.cu did not compile"; exit 1; }
+SEAL_OBJECTS=()
+for name in obsignatio_{hash,seal}; do
+    object="$OUT/${name}_sim.$EXTENSION"
+    rm -f "$object"
+    nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${WIDTH[@]}" "${INCLUDES[@]}" -c "$OBSIGNATIO/$name.cu" -o "$object"
+    [ -f "$object" ] || { echo "  build failed: $name.cu did not compile"; exit 1; }
+    SEAL_OBJECTS+=("$object")
+done
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*) DAEMON="$OUT/tessera_daemon.exe"; DAEMON_LIBRARIES=(-lpdh) ;;
     *) DAEMON="$OUT/tessera_daemon"; DAEMON_LIBRARIES=(-ldl -lpthread) ;;
 esac
 rm -f "$DAEMON"
 nvcc "${HOST_FLAGS[@]}" "${GENCODE[@]}" "${LONG_PATHS[@]}" -o "$DAEMON" "${DAEMON_OBJECTS[@]}" "${SCRIPTURA_OBJECTS[@]}" \
-    "$SEAL_OBJECT" "${DAEMON_LIBRARIES[@]}"
+    "${SEAL_OBJECTS[@]}" "${DAEMON_LIBRARIES[@]}"
 [ -f "$DAEMON" ] || { echo "  build failed: the tessera daemon did not link"; exit 1; }
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${WIDTH[@]}" "${INCLUDES[@]}" "${LONG_PATHS[@]}" -o "$BINARY" \
-    "$SOURCE" "$SIMS/sim_job.cu" "${MODULE_SOURCES[@]}" "${OBJECTS[@]}" "$SEAL_OBJECT"
+    "${SOURCES[@]}" "$SIMS/sim_job.cu" "${MODULE_SOURCES[@]}" "${OBJECTS[@]}" "${SEAL_OBJECTS[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build $SIM"; exit 1; }
 
 "$BINARY" "${SIM_ARGUMENTS[@]}"

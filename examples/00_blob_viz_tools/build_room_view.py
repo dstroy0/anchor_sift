@@ -80,7 +80,7 @@ def drift(stream, speed):
     """A velocity in a direction nobody chose, at the speed asked for.
 
     Drawn over the sphere of directions and never by picking three numbers in a box, since a box
-    favours its corners and a cloud drawn that way drifts along the diagonals. The bias is small
+    favors its corners and a cloud drawn that way drifts along the diagonals. The bias is small
     enough to look like nothing and large enough to survive averaging, the worst size for
     a defect to be.
     """
@@ -176,7 +176,7 @@ def main():
         sys.stderr.write("--shell takes one of: %s\n" % ", ".join(SHELLS))
         return 2
     # Checked here and never left to the page. An unknown shape reaches the page as a word it does
-    # not recognise, the page falls through to its own default, and the caller gets a sphere while
+    # not recognize, the page falls through to its own default, and the caller gets a sphere while
     # having asked for something else with no message anywhere saying so.
     if core not in CORES:
         sys.stderr.write("--core takes one of: %s\n" % ", ".join(CORES))

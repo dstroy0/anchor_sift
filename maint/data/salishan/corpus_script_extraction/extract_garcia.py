@@ -366,7 +366,7 @@ def main():
         handle.write(
             "# Hannon and Anna Stacey. Papers for the International Conference on Salish\n"
         )
-        handle.write("# and Neighbouring Languages 59, UBCWPL, 2024.\n")
+        handle.write("# and Neighboring Languages 59, UBCWPL, 2024.\n")
         handle.write(
             "# Transcribed by Anna Stacey and Ella Hannon. Translations by Kʷəɬtəzétkʷu.\n"
         )

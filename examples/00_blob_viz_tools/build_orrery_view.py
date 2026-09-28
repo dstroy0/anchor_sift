@@ -220,14 +220,14 @@ def recover(curve, span, frames, bodies):
     function never sees, and a recovery that agrees is agreeing with the scene and not with itself.
     """
     middle = sum(curve) / len(curve)
-    centred = [one - middle for one in curve]
+    centered = [one - middle for one in curve]
 
     # Padded eight times past the transform the data alone needs. Padding adds no resolution and
     # this is not asking it to: a period whose peak lands between two bins is read at whichever bin
     # is nearer, and the radius that comes back from a period read off by half a bin is wrong by
     # more than the whole recovery is worth. The interpolation puts the peak where it belongs.
-    padded = dsp.next_power(len(centred)) * 8
-    magnitudes = dsp.spectrum(centred, dsp.window("hann", len(centred)), padded)
+    padded = dsp.next_power(len(centered)) * 8
+    magnitudes = dsp.spectrum(centered, dsp.window("hann", len(centered)), padded)
 
     # A peak has to stand above the noise before it is called a period, since a curve with one deep
     # dip has power at every harmonic of that dip and reading them all back gives a tidy row of
@@ -240,7 +240,7 @@ def recover(curve, span, frames, bodies):
     # as a system too faint to recover and was a window measured in the wrong units.
     ranked = sorted(magnitudes)
     floor = ranked[len(ranked) // 2]
-    oversample = max(1, padded // len(centred))
+    oversample = max(1, padded // len(centered))
 
     # A harmonic sum instead of a bare peak list. A body's swing is smooth and not a sine. It
     # puts power at twice its frequency and at three times it, and those extra peaks read back as

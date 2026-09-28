@@ -36,10 +36,10 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
   let down = i32(at.y) - lay.slice_y0;
   let inside = (right >= 0) && (down >= 0) && (right < lay.slice_w) && (down < lay.slice_h);
   // The image: the volume itself laid flat on the plane. The square's pixel is a place on that plane, in the same
-  // doubled and centred units the cells are turned in, and the ray behind it is walked back through the volume by
+  // doubled and centered units the cells are turned in, and the ray behind it is walked back through the volume by
   // the camera's own turn read the other way round: what the cells' turn scatters out, this gathers in. The
   // brightest voxel along the ray stands. So the whole volume is on the plane, and none of it is a box held still.
-  // The plane is overhead and holds still, so the pixel is the column straight under it, the image centred in
+  // The plane is overhead and holds still, so the pixel is the column straight under it, the image centered in
   // the square with row zero at the top. Nothing here turns; only what falls on the plane does.
   let column = vec2<i32>(i32(lay.width) / 2 + ((right - lay.slice_w / 2) * 256) / max(lay.slice_scale, 1),
                          i32(lay.height) / 2 + ((down - lay.slice_h / 2) * 256) / max(lay.slice_scale, 1));
@@ -56,7 +56,7 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
   }
   raw_value = raw_value * u32(on_image) * lay.raw_on;
   let span = max(lay.window_high, lay.window_low + 1u) - lay.window_low;
-  let grey = (min(max(raw_value, lay.window_low) - lay.window_low, span) * 255u) / span * lay.raw_on * u32(on_image);
+  let gray = (min(max(raw_value, lay.window_low) - lay.window_low, span) * 255u) / span * lay.raw_on * u32(on_image);
   // The cells: the square's pixel read as a texel of the turned, projected cell numbers.
   let size = i32(textureDimensions(ids).x);
   let texel = vec2<i32>((right * size) / max(lay.slice_w, 1), (down * size) / max(lay.slice_h, 1));
@@ -66,7 +66,7 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
   let filled = id != 0u;
   let cell = select(0u, id - 1u, filled);
   let picked = chosen_bit(cell) * u32(filled);
-  // The plane's colour is every cell that reaches this place, divided by how much of them reached it, so a cell
+  // The plane's color is every cell that reaches this place, divided by how much of them reached it, so a cell
   // behind another still shows through: what is drawn is the whole volume flattened and not its nearest face.
   let gathered = textureLoad(painted, clamp(texel, vec2<i32>(0), vec2<i32>(size - 1)), 0);
   let reached = gathered.a;
@@ -75,7 +75,7 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
   let covered = u32(clamp(reached, 0.0, 1.0) * 255.0);
   let alpha = select((covered * 88u) / 255u, 255u, outline && filled);
   let tone = select(flattened, vec3<u32>(255u), outline && filled && (picked == 1u));
-  let mixed = (vec3<u32>(grey) * (256u - alpha) + tone * alpha) / 256u;
+  let mixed = (vec3<u32>(gray) * (256u - alpha) + tone * alpha) / 256u;
   let hovered = u32(filled && (lay.hover_cell == id)) * 40u;
   let shown = min(mixed + vec3<u32>(hovered), vec3<u32>(255u));
   return Drawn(select(vec4<f32>(0.03, 0.035, 0.045, 1.0), vec4<f32>(vec3<f32>(shown) / 255.0, 1.0), inside),

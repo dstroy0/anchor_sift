@@ -150,7 +150,7 @@ def main():
     print()
     print("  %d parameter cells per constant, %d constants" % (len(grid), len(constants)))
     print("  a cell is reported only if its residual sits far enough below the precision that")
-    print("  coefficients that size could not have cancelled there by accident")
+    print("  coefficients that size could not have canceled there by accident")
     print()
     print("    constant   base  power  stride   largest coeff   residual bits   verdict")
 

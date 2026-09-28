@@ -21,11 +21,11 @@ Four backends live here and they are deliberately different in kind:
     poker       chance and hidden information, decided by an external hand ranking
     chess       perfect information, no chance, and far too large to solve
 
-The first three give a solved arm. Chess does not, and that is the point of including it: it is the
+The first three give a solved arm. Chess does not, and it is included for that reason: it is the
 only one of the four where the number has to be estimated. It is the only one where the estimator
 can be wrong without the disagreement showing up locally.
 
-Every backend exposes the same six calls and nothing else. The measurement code never learns
+Every backend exposes the same six calls and no others. The measurement code never learns
 which game it is reading. See `rules.py` for the protocol those calls satisfy.
 
 Two more modules live beside the backends. They write a position as points carrying values, and
@@ -41,7 +41,7 @@ number sitting on it. This is the subject that answers a question the workbook h
 was written. Every reach claim in this work is quantified over a set nobody has enumerated, and
 closing one needs a controlled series inside one domain with an outside answer attached to every
 row. Subtraction games supply exactly that: the arithmetic to make a row is free, the number of rows
-is unbounded, and the answer each row is scored against is a theorem and not a reading. Nim's is
+is unbounded, and the answer each row is scored against is a proved theorem. Nim's is
 Bouton's from 1901 and Wythoff's is Wythoff's from 1907.
 
 Nothing downstream of this directory learns that a game exists.

@@ -109,13 +109,13 @@ static int write_png_rgb(const char *path, const unsigned char *rgb, unsigned in
     png_chunk(handle, "IHDR", header, 13u);
     png_chunk(handle, "IDAT", stream, at);
     png_chunk(handle, "IEND", NULL, 0u);
-    const int good = (ferror(handle) == 0);
+    const int ok = (ferror(handle) == 0);
     fclose(handle);
     free(stream);
-    return good;
+    return ok;
 }
 
-static void object_colour(unsigned int object, unsigned char *rgb)
+static void object_color(unsigned int object, unsigned char *rgb)
 {
     const unsigned int mixed = object * 2654435761u;
     rgb[0] = (unsigned char)(80u + ((mixed >> 3u) % 160u));
@@ -124,7 +124,7 @@ static void object_colour(unsigned int object, unsigned char *rgb)
 }
 
 static void paint_voxel(unsigned char *rgb, unsigned int width, unsigned int left, int row, int column,
-                        unsigned int inset, const unsigned char *colour)
+                        unsigned int inset, const unsigned char *color)
 {
     if ((row < 0) || (column < 0) || (row >= (int)VIS_CROP) || (column >= (int)VIS_CROP))
     {
@@ -136,20 +136,20 @@ static void paint_voxel(unsigned char *rgb, unsigned int width, unsigned int lef
         {
             const size_t pixel = ((size_t)((unsigned int)row * VIS_SCALE + down) * width
                                   + left + (unsigned int)column * VIS_SCALE + across) * 3u;
-            rgb[pixel] = colour[0];
-            rgb[pixel + 1u] = colour[1];
-            rgb[pixel + 2u] = colour[2];
+            rgb[pixel] = color[0];
+            rgb[pixel + 1u] = color[1];
+            rgb[pixel + 2u] = color[2];
         }
     }
 }
 
 static void paint_marker(unsigned char *rgb, unsigned int width, unsigned int left, int row, int column,
-                         const unsigned char *colour)
+                         const unsigned char *color)
 {
     for (int step = -2; step <= 2; step += 1)
     {
-        paint_voxel(rgb, width, left, row + step, column, 1u, colour);
-        paint_voxel(rgb, width, left, row, column + step, 1u, colour);
+        paint_voxel(rgb, width, left, row + step, column, 1u, color);
+        paint_voxel(rgb, width, left, row, column + step, 1u, color);
     }
 }
 
@@ -165,7 +165,7 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
                                     (unsigned short *)malloc((size_t)plane * sizeof(unsigned short))};
     unsigned int *const object[2] = {(unsigned int *)malloc((size_t)VIS_CROP * VIS_CROP * sizeof(unsigned int)),
                                      (unsigned int *)malloc((size_t)VIS_CROP * VIS_CROP * sizeof(unsigned int))};
-    int good = (rgb != NULL) && (raw[0] != NULL) && (raw[1] != NULL) && (object[0] != NULL) && (object[1] != NULL);
+    int ok = (rgb != NULL) && (raw[0] != NULL) && (raw[1] != NULL) && (object[0] != NULL) && (object[1] != NULL);
 
     const int top = (view->from[2] - (int)(VIS_CROP / 2u) < 0) ? 0
                   : ((view->from[2] + (int)(VIS_CROP / 2u) > (int)buffers->height) ? (int)buffers->height - (int)VIS_CROP
@@ -178,15 +178,15 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
     const unsigned int offsets[2] = {view->offset_before, view->offset_after};
     const TreeFrame *const tree[2] = {view->earlier, view->later};
     unsigned int brightest = 1u;
-    for (unsigned int side = 0u; (good != 0) && (side < 2u); side += 1u)
+    for (unsigned int side = 0u; (ok != 0) && (side < 2u); side += 1u)
     {
-        good = (times[side] < inputs->volume_frames) && (slice[side] >= 0) && ((unsigned int)slice[side] < buffers->depth);
-        if (good != 0)
+        ok = (times[side] < inputs->volume_frames) && (slice[side] >= 0) && ((unsigned int)slice[side] < buffers->depth);
+        if (ok != 0)
         {
             memcpy(raw[side], &inputs->volume[((size_t)times[side] * voxels) + ((size_t)slice[side] * plane)],
                    (size_t)plane * sizeof(unsigned short));
         }
-        for (unsigned int down = 0u; (good != 0) && (down < VIS_CROP); down += 1u)
+        for (unsigned int down = 0u; (ok != 0) && (down < VIS_CROP); down += 1u)
         {
             for (unsigned int across = 0u; across < VIS_CROP; across += 1u)
             {
@@ -213,7 +213,7 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
     const unsigned char yellow[3] = {255u, 230u, 30u};
     const unsigned char white[3] = {255u, 255u, 255u};
     const unsigned char magenta[3] = {255u, 60u, 255u};
-    for (unsigned int side = 0u; (good != 0) && (side < 2u); side += 1u)
+    for (unsigned int side = 0u; (ok != 0) && (side < 2u); side += 1u)
     {
         const unsigned int left = side * (panel + VIS_GAP);
         for (unsigned int down = 0u; down < VIS_CROP; down += 1u)
@@ -223,17 +223,17 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
                 const unsigned int flat = (unsigned int)(top + (int)down) * buffers->width + (unsigned int)(left_column + (int)across);
                 const unsigned int gray = (unsigned int)raw[side][flat] * 255u / brightest;
                 const unsigned int id = object[side][down * VIS_CROP + across];
-                unsigned char colour[3] = {(unsigned char)gray, (unsigned char)gray, (unsigned char)gray};
+                unsigned char color[3] = {(unsigned char)gray, (unsigned char)gray, (unsigned char)gray};
                 if (id != VIS_NO_OBJECT)
                 {
                     unsigned char own[3];
-                    object_colour(id, own);
+                    object_color(id, own);
                     int boundary = 0;
-                    const int neighbours[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+                    const int neighbors[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
                     for (unsigned int which = 0u; which < 4u; which += 1u)
                     {
-                        const int near_row = (int)down + neighbours[which][0];
-                        const int near_column = (int)across + neighbours[which][1];
+                        const int near_row = (int)down + neighbors[which][0];
+                        const int near_column = (int)across + neighbors[which][1];
                         const unsigned int near = ((near_row < 0) || (near_column < 0) || (near_row >= (int)VIS_CROP)
                                                    || (near_column >= (int)VIS_CROP))
                                                 ? id
@@ -242,7 +242,7 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
                     }
                     for (unsigned int channel = 0u; channel < 3u; channel += 1u)
                     {
-                        colour[channel] = (unsigned char)((gray * 5u + (unsigned int)own[channel] * 3u) / 8u);
+                        color[channel] = (unsigned char)((gray * 5u + (unsigned int)own[channel] * 3u) / 8u);
                     }
                     if (boundary != 0)
                     {
@@ -268,12 +268,12 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
                         {
                             highlight = red;
                         }
-                        colour[0] = highlight[0];
-                        colour[1] = highlight[1];
-                        colour[2] = highlight[2];
+                        color[0] = highlight[0];
+                        color[1] = highlight[1];
+                        color[2] = highlight[2];
                     }
                 }
-                paint_voxel(rgb, width, left, (int)down, (int)across, 0u, colour);
+                paint_voxel(rgb, width, left, (int)down, (int)across, 0u, color);
             }
         }
         for (unsigned int node = 0u; node < inputs->key->node_count; node += 1u)
@@ -285,7 +285,7 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
             }
         }
     }
-    if (good != 0)
+    if (ok != 0)
     {
         const unsigned int peak = view->earlier->peaks[view->source_leaf];
         const unsigned int peak_rest = peak % plane;
@@ -298,10 +298,10 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
         paint_marker(rgb, width, panel + VIS_GAP, peak_place[1] + lag[1] - top, peak_place[2] + lag[2] - left_column,
                      magenta);
 
-        char path[ENGINE_PATH_ROOM];
+        char path[ENGINE_PATH_CAPACITY];
         const int written = snprintf(path, sizeof(path), "%s/%s_t%u_edge%u.png", inputs->vis_directory, inputs->sample,
                                      view->earlier->time, view->edge);
-        good = (written > 0) && ((size_t)written < sizeof(path)) && write_png_rgb(path, rgb, width, height);
+        ok = (written > 0) && ((size_t)written < sizeof(path)) && write_png_rgb(path, rgb, width, height);
         unsigned int linked_count = links_begin[1] - links_begin[0];
         int linked_true = 0;
         for (unsigned int link = links_begin[0]; link < links_begin[1]; link += 1u)
@@ -332,5 +332,5 @@ int render_case(const EngineBuffers *buffers, const CoherenceInputs *inputs, con
     free(raw[1]);
     free(object[0]);
     free(object[1]);
-    return good;
+    return ok;
 }

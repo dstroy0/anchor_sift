@@ -7,7 +7,7 @@ horizontal-stripe hypothesis, which was not the one being made.
 
 The right instrument sums along lines of every slope and not along one. That is a Radon or
 Hough transform, and it is the same operation as the Doppler scan a few arms earlier - integrate
-along a hypothesised trajectory and see which hypothesis adds coherently - carried out in
+along a hypothesized trajectory and see which hypothesis adds coherently - carried out in
 (bit, round) space instead of (residue, round).
 
 Each round is standardized across its own 512 bits first. The very large shallow values and the
@@ -47,7 +47,7 @@ def load():
 PLATEAU = 6.0e7
 
 
-def standardise(values):
+def standardize(values):
     """Z-score within one round, over the live cells only.
 
     Dead cells are set to zero and never dropped, so every round keeps the same 512 positions and
@@ -96,7 +96,7 @@ def main():
     cells = float((STEPS * BITS))
     peak = math.sqrt(2.0 * math.log(cells))
 
-    print("Slant-stack of the input-bit field. Each round standardised across its own 512 bits,")
+    print("Slant-stack of the input-bit field. Each round standardized across its own 512 bits,")
     print("then summed along every line of slope %.0f to %.0f bits per round at every offset.\n"
           % (SLOWEST, FASTEST))
     print("A stack over %d rounds gains sqrt(rounds) on anything lying along that line." % 64)
@@ -112,7 +112,7 @@ def main():
         rounds = [r for r in range(first, last + 1) if r in field]
         if len(rounds) < 4:
             continue
-        planes = [standardise([field[r][b] for b in range(BITS)]) for r in rounds]
+        planes = [standardize([field[r][b] for b in range(BITS)]) for r in rounds]
         best, slope, offset = stack(rounds, planes)
         verdict = "STRUCTURE" if abs(best) > peak else "flat"
         print("  %-12s %8d %10.2f %10.2f %10d %10s"
@@ -130,7 +130,7 @@ def main():
     print("  %8s %10s %12s %10s" % ("-" * 8, "-" * 10, "-" * 12, "-" * 10))
 
     rounds = [r for r in range(1, 23) if r in field]
-    planes = [standardise([field[r][b] for b in range(BITS)]) for r in rounds]
+    planes = [standardize([field[r][b] for b in range(BITS)]) for r in rounds]
     depth = len(rounds)
     gain = math.sqrt(float(depth))
 

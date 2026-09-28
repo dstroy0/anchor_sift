@@ -17,7 +17,7 @@
 #   apply(state, move) the position the move reaches
 #   verdict(state)     WIN, LOSS, DRAW from PLAYER_ONE's side, or None where the game continues
 #
-# WHAT THIS DOES NOT DO, AND WHY THAT IS THE POINT
+# WHAT THIS DOES NOT DO, AND WHY IT MATTERS
 #
 # A search that runs out of depth has to do something with the positions it never resolved. The
 # usual answer is an evaluation function: score the unresolved position and fold that score into the
@@ -83,8 +83,8 @@ class Budget(object):
     running unbounded; exhausting it also returns UNRESOLVED and not a guess.
 
     Both are inputs of the measurement and both are printed alongside it. A result computed at
-    plies=4 and one computed at plies=8 are different measurements of the same position and this is
-    what tells them apart.
+    plies=4 and one computed at plies=8 are different measurements of the same position, and these
+    tell them apart.
     """
 
     def __init__(self, plies, nodes=400000):
@@ -245,8 +245,8 @@ def _choose(children, policy):
     scores = [expected_score(child) for child in children]
     target = max(scores) if policy == BEST else min(scores)
 
-    # Every move achieving the target is kept and mixed uniformly. Keeping the whole tied set rather
-    # than the first one found matters: the objective asks for the best next move to be one or a set
+    # Every move achieving the target is kept and mixed uniformly. Keeping the whole tied set
+    # matters: the objective asks for the best next move to be one or a set
     # of one, and a set of size three is a real answer about the position, not an artifact of the
     # order the move generator happened to emit.
     tied = [child for child, score in zip(children, scores) if score == target]
@@ -313,7 +313,7 @@ def rollout(backend, state, budget, conditioning, generator):
             continue
 
         # A sampled arm under BEST or WORST still has to look one ply ahead to know what best means.
-        # It is a shallow look on purpose: this arm exists to be a different route to the same
+        # It is a deliberately shallow look: this arm exists to be a different route to the same
         # number, and giving it the enumerator's depth would make it the same route twice.
         state = backend.apply(
             state, _shallow_pick(backend, state, legal, policy, generator)

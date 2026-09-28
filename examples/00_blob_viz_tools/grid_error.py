@@ -20,7 +20,7 @@ evaluation is made against a number.
 
 WHAT IT REPORTS
 
-Three things, because the error depends on the state and a single state's number does not generalise.
+Three things, because the error depends on the state and a single state's number does not generalize.
 
   per degree      error for a field confined to one degree, so any state's error follows from its
                   own power spectrum without rerunning this
@@ -84,7 +84,7 @@ def synthesize_at(total, top, colatitudes, longitudes):
     grid costs the point count times 121; splitting it costs the row count times 121 plus the point
     count times 21, and returns the same numbers.
 
-    sphere_field.synthesize does this on its own fixed grid of cell centres. This one takes the
+    sphere_field.synthesize does this on its own fixed grid of cell centers. This one takes the
     angles, because the samples wanted here sit at chosen offsets inside a cell.
     """
     root_two = math.sqrt(2.0)
@@ -198,7 +198,7 @@ def deposit_field(top, radius_fraction, tau, count=GOLDEN_DEPOSITS):
 def value_error(total, top, rows=ROWS, columns=COLUMNS, inside=INSIDE):
     """Largest and root mean square error of the drawn picture, as a fraction of the field's range.
 
-    Normalised on the peak to peak range of the field itself, because that range is what a reader
+    Normalized on the peak to peak range of the field itself, because that range is what a reader
     sees on screen: an error of a tenth of the range is a tenth of the whole picture's contrast.
     """
     vertices = vertex_values(total, top, rows, columns)
@@ -237,7 +237,7 @@ def gradient_error(total, top, rows=ROWS, columns=COLUMNS, inside=INSIDE, skip_r
 
     The polar rings are skipped. The longitude term carries a division by the sine of the
     colatitude, and at a pole every column of the grid is the same point, so the quantity being
-    measured there is a property of the grid's parameterisation and not of the drawn picture.
+    measured there is a property of the grid's parameterization and not of the drawn picture.
     """
     vertices = vertex_values(total, top, rows, columns)
     corners = corners_of(vertices)

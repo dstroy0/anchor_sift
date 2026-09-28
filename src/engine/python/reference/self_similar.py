@@ -10,8 +10,8 @@
 # This is the non-local means idea, reached through the one construction the tree already uses. A
 # periodic background groups the positions congruent modulo a period and averages each group; the
 # group key is a POSITION. This groups the positions that carry the same surrounding CONTEXT and
-# averages each group; the group key is a piece of CONTENT. Everything else is identical, and that is
-# the point: non-local means and a comb filter are one operation over two different groupings.
+# averages each group; the group key is a piece of CONTENT. Everything else is identical,
+# and it shows that non-local means and a comb filter are one operation over two different groupings.
 # Nothing is ported between them.
 #
 # The invariant it rejects against is repetition of context. A motif that occurs many times, at
@@ -37,8 +37,8 @@
 #
 # Two routes build the group mean and share no code: one keys a dictionary by the context and averages
 # each bucket; the other, for each center, scans every center and averages those whose context equals
-# it. They reach the same rational by different work. Their agreeing is a check and not a
-# restatement. A native-C route is the natural hardening and is not claimed here.
+# it. They reach the same rational by different work. Their agreeing is an
+# independent check. A native-C route is the natural hardening and is not claimed here.
 
 from fractions import Fraction
 

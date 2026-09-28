@@ -68,7 +68,7 @@ def main():
         print("  %d arms of mixed depth, %s to %s nonces, %s in total"
               % (width, format(min(depths), ","), format(max(depths), ","), format(total, ",")))
         print("  mixed depths pool exactly: every arm is referenced to 2c - N, so deviations add")
-        print("  and variances add with them. Nothing is fitted and nothing is normalised.")
+        print("  and variances add with them. Nothing is fitted and nothing is normalized.")
     print("  each arm is a DIFFERENT header, so the arms are independent observations of the")
     print("  construction rather than deeper observations of one instance")
     print()

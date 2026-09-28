@@ -37,7 +37,8 @@ typedef struct
 static long long pattern_floor_divide(long long numerator, long long denominator)
 {
     const long long quotient = numerator / denominator;
-    return ((numerator % denominator) != 0ll) && ((numerator < 0ll) != (denominator < 0ll)) ? (quotient - 1ll) : quotient;
+    return ((numerator % denominator) != 0ll) && ((numerator < 0ll) != (denominator < 0ll)) ? (quotient - 1ll)
+                                                                                            : quotient;
 }
 
 static void pattern_moving_scene(long long *scene, unsigned long long key)
@@ -54,10 +55,11 @@ static void pattern_moving_scene(long long *scene, unsigned long long key)
         }
         for (unsigned long long at = PATTERN_FRAMES - 1ull; at > 0ull; at -= 1ull)
         {
-            const unsigned long long other = sim_draw_below(key ^ 0x5348554Full, (pixel * PATTERN_FRAMES) + at, at + 1ull);
-            const long long held = members[at];
+            const unsigned long long other =
+                sim_draw_below(key ^ 0x5348554Full, (pixel * PATTERN_FRAMES) + at, at + 1ull);
+            const long long temporary = members[at];
             members[at] = members[other];
-            members[other] = held;
+            members[other] = temporary;
         }
         for (unsigned long long step = 0ull; step < PATTERN_FRAMES; step += 1ull)
         {
@@ -72,8 +74,8 @@ static void pattern_fixed(long long *pattern, unsigned long long key)
     for (unsigned long long pixel = 0ull; pixel < PATTERN_FRAME; pixel += 1ull)
     {
         // the draw is below 2 A + 1, a small non-negative integer
-        pattern[pixel] = (long long)sim_draw_below(key ^ 0x5A5Aull, pixel, (2ull * PATTERN_AMPLITUDE) + 1ull)
-                       - PATTERN_AMPLITUDE;
+        pattern[pixel] =
+            (long long)sim_draw_below(key ^ 0x5A5Aull, pixel, (2ull * PATTERN_AMPLITUDE) + 1ull) - PATTERN_AMPLITUDE;
         total += pattern[pixel];
     }
     // the frame is 64, far below 2^63
@@ -90,8 +92,8 @@ static void pattern_impulses(long long *values, unsigned long long count, unsign
     {
         const unsigned long long at = sim_draw_below(key, 2ull * impulse, PATTERN_LENGTH);
         // the draw is below 4 swing + 1, a small non-negative integer
-        values[at] = (long long)sim_draw_below(key, (2ull * impulse) + 1ull, (4ull * PATTERN_SWING) + 1ull)
-                   - (2ll * PATTERN_SWING);
+        values[at] = (long long)sim_draw_below(key, (2ull * impulse) + 1ull, (4ull * PATTERN_SWING) + 1ull) -
+                     (2ll * PATTERN_SWING);
     }
 }
 
@@ -106,11 +108,11 @@ static void pattern_print_share(ScripturaLine *line, const AnchorExactInteger *n
     }
 }
 
-static int pattern_remove(SimTally *tally, PatternWork *work, const long long *noisy, const long long *target,
+static int pattern_remove(SimResults *results, PatternWork *work, const long long *noisy, const long long *target,
                           unsigned long long period, AnchorExactInteger *numerator, AnchorExactInteger *denominator)
 {
-    EnergyReading unused;
-    if (energy_recover(tally, noisy, PATTERN_LENGTH, period, work->sums, &unused) == 0)
+    EnergyMeasurement unused;
+    if (energy_recover(results, noisy, PATTERN_LENGTH, period, work->sums, &unused) == 0)
     {
         return 0;
     }
@@ -120,43 +122,44 @@ static int pattern_remove(SimTally *tally, PatternWork *work, const long long *n
 
 int main(void)
 {
-    char room[SIM_LINE_ROOM];
-    SimTally tally;
-    sim_open(&tally, room);
+    char line_buffer[SIM_LINE_CAPACITY];
+    SimResults results;
+    sim_open(&results, line_buffer);
     PatternWork *const work = (PatternWork *)calloc(1u, sizeof(PatternWork));
-    sim_check(&tally, work != NULL, "work buffers");
+    sim_check(&results, work != NULL, "work buffers");
     if (work == NULL)
     {
-        return sim_close(&tally, "fixed pattern");
+        return sim_close(&results, "fixed pattern");
     }
-    if (!sim_job_submit(&tally, "fixed_pattern", 0, NULL, sizeof(PatternWork)))
+    if (!sim_job_submit(&results, "fixed_pattern", 0, NULL, sizeof(PatternWork)))
     {
         free(work);
-        return sim_close(&tally, "fixed pattern");
+        return sim_close(&results, "fixed pattern");
     }
-    ScripturaLine *const line = &tally.line;
+    ScripturaLine *const line = &results.line;
     pattern_moving_scene(work->scene, PATTERN_KEY);
     pattern_fixed(work->pattern, PATTERN_KEY);
     for (unsigned long long at = 0ull; at < PATTERN_LENGTH; at += 1ull)
     {
         work->stack[at] = work->scene[at] + work->pattern[at % PATTERN_FRAME];
     }
-    scriptura_text(line, "  fixed-pattern video noise removed to the bit (ART-4-005, ported)\n  declared inputs: frame=8x8 frames=48 swing=20 pattern=40 draws=8 key=0x");
+    scriptura_text(line, "  fixed-pattern video noise removed to the bit (ART-4-005, ported)\n  declared inputs: "
+                         "frame=8x8 frames=48 swing=20 pattern=40 draws=8 key=0x");
     scriptura_hex(line, PATTERN_KEY, 1u);
     scriptura_text(line, "\n\n");
 
-    EnergyReading live;
-    int good = energy_recover(&tally, work->stack, PATTERN_LENGTH, PATTERN_FRAME, work->sums, &live);
+    EnergyMeasurement live;
+    int ok = energy_recover(&results, work->stack, PATTERN_LENGTH, PATTERN_FRAME, work->sums, &live);
     energy_shuffle(work->stack, work->shuffled, PATTERN_LENGTH, sim_draw(PATTERN_KEY, 0x4445414Full));
     AnchorExactInteger dead_numerator;
     AnchorExactInteger dead_denominator;
     int dead = 0;
-    if (good && live.found)
+    if (ok && live.found)
     {
-        EnergyReading ignored;
-        good = energy_recover(&tally, work->shuffled, PATTERN_LENGTH, live.period, work->sums, &ignored);
-        dead = good && energy_ratio(work->shuffled, PATTERN_LENGTH, work->sums, live.period, &dead_numerator,
-                                    &dead_denominator);
+        EnergyMeasurement ignored;
+        ok = energy_recover(&results, work->shuffled, PATTERN_LENGTH, live.period, work->sums, &ignored);
+        dead = ok && energy_ratio(work->shuffled, PATTERN_LENGTH, work->sums, live.period, &dead_numerator,
+                                  &dead_denominator);
     }
     scriptura_text(line, "  identify: detector period ");
     scriptura_decimal(line, live.period, 1u);
@@ -172,36 +175,37 @@ int main(void)
         scriptura_text(line, "none");
     }
     scriptura_character(line, '\n');
-    sim_check(&tally, good && live.found && (live.period == PATTERN_FRAME), "the detector reads the frame period");
+    sim_check(&results, ok && live.found && (live.period == PATTERN_FRAME), "the detector reads the frame period");
 
-    good = good && (energy_recover(&tally, work->stack, PATTERN_LENGTH, PATTERN_FRAME, work->sums, &live) != 0);
-    good = good && energy_welford(&tally, work->stack, PATTERN_LENGTH, PATTERN_FRAME, work->welford_numerator,
-                                  work->welford_denominator);
+    ok = ok && (energy_recover(&results, work->stack, PATTERN_LENGTH, PATTERN_FRAME, work->sums, &live) != 0);
+    ok = ok && energy_welford(&results, work->stack, PATTERN_LENGTH, PATTERN_FRAME, work->welford_numerator,
+                              work->welford_denominator);
     const long long *const batch = &work->sums[energy_phase_base(PATTERN_FRAME)];
     unsigned long long agree = 0ull;
     unsigned long long broken_from_batch = 0ull;
     unsigned long long broken_from_welford = 0ull;
     unsigned long long exact = 0ull;
-    for (unsigned long long phase = 0ull; good && (phase < PATTERN_FRAME); phase += 1ull)
+    for (unsigned long long phase = 0ull; ok && (phase < PATTERN_FRAME); phase += 1ull)
     {
         // a phase's member count and the Welford denominator are both below 2^16
         const long long members = (long long)energy_members(PATTERN_LENGTH, PATTERN_FRAME, phase);
         const long long denominator = (long long)work->welford_denominator[phase];
         agree += ((batch[phase] * denominator) == (work->welford_numerator[phase] * members)) ? 1ull : 0ull;
         broken_from_batch += ((batch[phase] * members) != (batch[phase] * (members + 1ll))) ? 1ull : 0ull;
-        broken_from_welford += ((batch[phase] * denominator) != (work->welford_numerator[phase] * (members + 1ll))) ? 1ull
-                                                                                                                      : 0ull;
+        broken_from_welford +=
+            ((batch[phase] * denominator) != (work->welford_numerator[phase] * (members + 1ll))) ? 1ull : 0ull;
     }
-    for (unsigned long long at = 0ull; good && (at < PATTERN_LENGTH); at += 1ull)
+    for (unsigned long long at = 0ull; ok && (at < PATTERN_LENGTH); at += 1ull)
     {
         // the member count is below 2^16
         const long long members = (long long)energy_members(PATTERN_LENGTH, PATTERN_FRAME, at % PATTERN_FRAME);
-        exact += (((members * work->stack[at]) - batch[at % PATTERN_FRAME]) == (members * work->scene[at])) ? 1ull : 0ull;
+        exact +=
+            (((members * work->stack[at]) - batch[at % PATTERN_FRAME]) == (members * work->scene[at])) ? 1ull : 0ull;
     }
     AnchorExactInteger share_numerator;
     AnchorExactInteger share_denominator;
-    good = good && pattern_remove(&tally, work, work->stack, work->scene, PATTERN_FRAME, &share_numerator,
-                                  &share_denominator);
+    ok = ok &&
+         pattern_remove(&results, work, work->stack, work->scene, PATTERN_FRAME, &share_numerator, &share_denominator);
     scriptura_text(line, "  reject: batch and incremental (Welford) routes agree on ");
     scriptura_decimal(line, agree, 1u);
     scriptura_text(line, " of 64 phases\n  reject: the broken route splits from both on ");
@@ -215,38 +219,41 @@ int main(void)
     scriptura_text(line, " values\n  reject: noise reduction ");
     pattern_print_share(line, &share_numerator, &share_denominator);
     scriptura_text(line, "\n\n");
-    sim_check(&tally, agree == PATTERN_FRAME, "batch and incremental routes agree bit-exact");
-    sim_check(&tally, (broken_from_batch != 0ull) && (broken_from_welford != 0ull), "the broken route splits from both");
-    sim_check(&tally, exact == PATTERN_LENGTH, "the residual equals the moving scene as integers");
-    sim_check(&tally, good && (anchor_exact_compare(&share_numerator, &share_denominator) == 0),
+    sim_check(&results, agree == PATTERN_FRAME, "batch and incremental routes agree bit-exact");
+    sim_check(&results, (broken_from_batch != 0ull) && (broken_from_welford != 0ull),
+              "the broken route splits from both");
+    sim_check(&results, exact == PATTERN_LENGTH, "the residual equals the moving scene as integers");
+    sim_check(&results, ok && (anchor_exact_compare(&share_numerator, &share_denominator) == 0),
               "the noise reduction is exactly 1");
 
-    EnergyReading null_reading;
-    good = good && energy_recover(&tally, work->shuffled, PATTERN_LENGTH, PATTERN_FRAME, work->sums, &null_reading);
+    EnergyMeasurement null_measurement;
+    ok = ok && energy_recover(&results, work->shuffled, PATTERN_LENGTH, PATTERN_FRAME, work->sums, &null_measurement);
     AnchorExactInteger wrong_numerator;
     AnchorExactInteger wrong_denominator;
-    good = good && pattern_remove(&tally, work, work->stack, work->scene, PATTERN_FRAME - 1ull, &wrong_numerator,
-                                  &wrong_denominator);
+    ok = ok && pattern_remove(&results, work, work->stack, work->scene, PATTERN_FRAME - 1ull, &wrong_numerator,
+                              &wrong_denominator);
     scriptura_text(line, "  null: the shuffled stack reads period ");
-    scriptura_decimal(line, null_reading.period, 1u);
+    scriptura_decimal(line, null_measurement.period, 1u);
     scriptura_text(line, " at ");
-    energy_print(line, &null_reading);
+    energy_print(line, &null_measurement);
     scriptura_text(line, "\n  null: rejecting at the wrong period 63 reduces the noise by ");
     pattern_print_share(line, &wrong_numerator, &wrong_denominator);
     scriptura_text(line, "\n\n");
-    sim_flush(&tally);
+    sim_flush(&results);
 
-    EnergyReading top;
+    EnergyMeasurement top;
     unsigned long long reached = 0ull;
-    good = good && energy_band_top(&tally, work->stack, PATTERN_LENGTH, PATTERN_FRAME, PATTERN_DRAWS,
-                                   PATTERN_KEY ^ 0x42414E44ull, work->shuffled, work->sums, &top, &reached);
-    scriptura_text(line, "  negative controls: the 100% is licensed by the 0% the wrong noise scores\n  null band over 8 shuffles (");
+    ok = ok && energy_band_top(&results, work->stack, PATTERN_LENGTH, PATTERN_FRAME, PATTERN_DRAWS,
+                               PATTERN_KEY ^ 0x42414E44ull, work->shuffled, work->sums, &top, &reached);
+    scriptura_text(line, "  negative controls: the 100% is licensed by the band declining the wrong noise\n  null band "
+                         "over 8 shuffles (");
     scriptura_decimal(line, reached, 1u);
     scriptura_text(line, " reached a period), top ");
     energy_print(line, &top);
     scriptura_text(line, "\n  case                      live ratio   above band  outcome\n");
-    const char *const case_name[3] = {"matched pattern         ", "no pattern              ", "wrong kind (impulses)   "};
-    for (unsigned int arm = 0u; good && (arm < 3u); arm += 1u)
+    const char *const case_name[3] = {"matched pattern         ", "no pattern              ",
+                                      "wrong kind (impulses)   "};
+    for (unsigned int arm = 0u; ok && (arm < 3u); arm += 1u)
     {
         for (unsigned long long at = 0ull; at < PATTERN_LENGTH; at += 1ull)
         {
@@ -256,9 +263,9 @@ int main(void)
         {
             pattern_impulses(work->arm, PATTERN_LENGTH / 12ull, PATTERN_KEY ^ 0x494D50ull);
         }
-        EnergyReading seen;
-        good = energy_recover(&tally, work->arm, PATTERN_LENGTH, PATTERN_FRAME, work->sums, &seen);
-        const int present = good && energy_above(&seen, &top);
+        EnergyMeasurement seen;
+        ok = energy_recover(&results, work->arm, PATTERN_LENGTH, PATTERN_FRAME, work->sums, &seen);
+        const int present = ok && energy_above(&seen, &top);
         scriptura_text(line, "  ");
         scriptura_text(line, case_name[arm]);
         energy_print(line, &seen);
@@ -267,7 +274,7 @@ int main(void)
         {
             AnchorExactInteger got_numerator;
             AnchorExactInteger got_denominator;
-            good = pattern_remove(&tally, work, work->arm, work->scene, seen.period, &got_numerator, &got_denominator);
+            ok = pattern_remove(&results, work, work->arm, work->scene, seen.period, &got_numerator, &got_denominator);
             scriptura_text(line, "remove, reduction ");
             pattern_print_share(line, &got_numerator, &got_denominator);
         }
@@ -277,20 +284,20 @@ int main(void)
         }
         else
         {
-            scriptura_text(line, "decline, the noise left intact (reduction 0%)");
+            scriptura_text(line, "decline, the noise left intact (nothing removed)");
         }
         scriptura_character(line, '\n');
-        sim_check(&tally, present == (arm == 0u), "only the matched pattern clears the band");
+        sim_check(&results, present == (arm == 0u), "only the matched pattern clears the band");
     }
     scriptura_character(line, '\n');
-    sim_flush(&tally);
+    sim_flush(&results);
 
     const long long depth[PATTERN_DEPTHS] = {0ll, 5ll, 15ll, 30ll};
     scriptura_text(line, "  floor: a static scene feature cannot be told from a fixed pattern\n  depth   reduction\n");
     int falling = 1;
     AnchorExactInteger last_numerator;
     AnchorExactInteger last_denominator;
-    for (unsigned int level = 0u; good && (level < PATTERN_DEPTHS); level += 1u)
+    for (unsigned int level = 0u; ok && (level < PATTERN_DEPTHS); level += 1u)
     {
         for (unsigned long long at = 0ull; at < PATTERN_LENGTH; at += 1ull)
         {
@@ -299,7 +306,8 @@ int main(void)
         }
         AnchorExactInteger floor_numerator;
         AnchorExactInteger floor_denominator;
-        good = pattern_remove(&tally, work, work->arm, work->target, PATTERN_FRAME, &floor_numerator, &floor_denominator);
+        ok = pattern_remove(&results, work, work->arm, work->target, PATTERN_FRAME, &floor_numerator,
+                            &floor_denominator);
         scriptura_text(line, "  ");
         // every depth is a small non-negative integer
         scriptura_decimal_columns(line, (unsigned long long)depth[level], 5u);
@@ -309,14 +317,15 @@ int main(void)
         if (level > 0u)
         {
             int order = 0;
-            falling = falling && sim_ratio_compare(&floor_numerator, &floor_denominator, &last_numerator, &last_denominator,
-                                                   &order)
-                   && (order < 0);
+            falling =
+                falling &&
+                sim_ratio_compare(&floor_numerator, &floor_denominator, &last_numerator, &last_denominator, &order) &&
+                (order < 0);
         }
         last_numerator = floor_numerator;
         last_denominator = floor_denominator;
     }
-    sim_check(&tally, good && falling, "the reduction falls with every deeper static feature");
+    sim_check(&results, ok && falling, "the reduction falls with every deeper static feature");
     free(work);
-    return sim_close(&tally, "fixed pattern");
+    return sim_close(&results, "fixed pattern");
 }

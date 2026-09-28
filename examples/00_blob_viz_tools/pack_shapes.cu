@@ -6,7 +6,7 @@
  * WHAT IS ON THE DEVICE AND WHAT IS NOT
  *
  * Greedy packing is sequential by definition: whether a point is kept depends on every point kept
- * before it. What parallelises is the expensive half, which is asking one candidate whether it
+ * before it. What parallelizes is the expensive half, which is asking one candidate whether it
  * clears every point already kept. So the device answers that for a batch at a time and the host
  * walks the batch in order, settling the few candidates that clear the kept set against each other.
  *
@@ -107,7 +107,7 @@ __host__ __device__ inline void place(float *out, int dims, int shape, uint64_t 
     }
 
     /* The cross-polytope: the surface where the coordinates sum to one in absolute value. Drawn by
-     * taking exponentials and normalising their sum, which lands uniformly over each facet, then
+     * taking exponentials and normalizing their sum, which lands uniformly over each facet, then
      * giving every coordinate its own sign. */
     float total = 0.0f;
     for (at = 0; at < dims; at++)
@@ -340,17 +340,17 @@ int main(int argc, char **argv)
     float gap = fraction * typical;
     float limit = gap * gap;
 
-    int room = 300000;
-    if (cudaMalloc(&kept, (size_t)room * dims * sizeof(float)) != cudaSuccess)
+    int capacity = 300000;
+    if (cudaMalloc(&kept, (size_t)capacity * dims * sizeof(float)) != cudaSuccess)
     {
-        fprintf(stderr, "the device refused room for the kept set\n");
+        fprintf(stderr, "the device refused memory for the kept set\n");
         return 1;
     }
 
     std::vector<float> here((size_t)batch * dims);
     std::vector<int> clear((size_t)batch);
     std::vector<float> mine;
-    mine.reserve((size_t)room * dims);
+    mine.reserve((size_t)capacity * dims);
     int count = 0;
     int tried = 0;
     int quiet = 0;
@@ -390,20 +390,20 @@ int main(int argc, char **argv)
                 continue;
             }
             const float *candidate = &here[(size_t)index * dims];
-            bool good = true;
-            for (int other = 0; other < added && good; other++)
+            bool accepted = true;
+            for (int other = 0; other < added && accepted; other++)
             {
                 const float *earlier = &mine[(size_t)(was + other) * dims];
                 if (apart(candidate, earlier, dims) < limit)
                 {
-                    good = false;
+                    accepted = false;
                 }
             }
-            if (!good)
+            if (!accepted)
             {
                 continue;
             }
-            if (count >= room)
+            if (count >= capacity)
             {
                 break;
             }
@@ -417,7 +417,7 @@ int main(int argc, char **argv)
             cudaMemcpy(kept + (size_t)was * dims, &mine[(size_t)was * dims],
                        (size_t)added * dims * sizeof(float), cudaMemcpyHostToDevice);
         }
-        if (count >= room)
+        if (count >= capacity)
         {
             break;
         }

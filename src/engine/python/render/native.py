@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# The C renderer reached from Python through ctypes, which is how Python renders on the device.
+# The C renderer reached from Python through ctypes, the route Python takes to render on the device.
 #
 #   Usage:  from render.native import load, raster_render, volume_render, raster_host
 #
@@ -18,7 +18,7 @@
 # library named anchor_render. A caller that knows where the build put it passes the path.
 #
 # The structures below mirror AnchorRasterConfig, AnchorVolumeConfig and AnchorRasterProbe in
-# src/engine/c/render/anchor_raster.h field for field. ctypes lays them out under the same ABI the C
+# src/engine/render/anchor_raster.h field for field. ctypes lays them out under the same ABI the C
 # library was built with, and the grader compares the bytes this binding returns against the pure
 # Python arm. A layout that did not match would fail and not pass quietly.
 

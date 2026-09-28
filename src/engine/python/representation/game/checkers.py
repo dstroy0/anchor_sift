@@ -21,11 +21,11 @@
 # an adjacent enemy into the empty square beyond. Capturing is mandatory: where any capture exists,
 # only captures are legal. A capture that can continue must continue. One move is a whole jump
 # chain and not a single hop. A man reaching the far rank becomes a king and the move ends there,
-# the standard rule and is the one place a chain stops early. Kings move and capture in all
+# the standard rule and the only place a chain stops early. Kings move and capture in all
 # four diagonal directions. A player with no pieces, or with no legal move, has lost.
 #
 # There is no draw by repetition or by inaction here. A game that does not finish inside the declared
-# budget returns UNRESOLVED, which is what the enumerator is for. Calling an unfinished game a draw
+# budget returns UNRESOLVED, the outcome the enumerator exists to report. Calling an unfinished game a draw
 # would put mass on an outcome that was never reached.
 
 from representation.game import rules

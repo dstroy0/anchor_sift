@@ -1,0 +1,82 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#ifndef PERIOD_H
+#define PERIOD_H
+
+#include "engine_config.h"
+
+#include <stdio.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+#define PERIOD_ERROR (-1L)
+
+    typedef struct
+    {
+        unsigned long long numerator;
+        unsigned long long denominator;
+    } PeriodMargin;
+
+    typedef struct
+    {
+        unsigned long long extent;
+        unsigned long long period;
+        unsigned long long candidate;
+        unsigned long long lags;
+        unsigned long long pairs_per_lag;
+        unsigned long long agreement_at_candidate;
+        unsigned long long agreement_beside_candidate;
+        unsigned long long agreement_at_double;
+        unsigned long long agreement_beside_double;
+        PeriodMargin margin;
+        unsigned long long band_count;
+        PeriodMargin band_bottom;
+        PeriodMargin band_top;
+    } PeriodAxis;
+
+    typedef struct
+    {
+        unsigned int rank;
+        unsigned long long voxels;
+        unsigned long long collisions;
+        unsigned long long draws;
+        PeriodAxis axis[ENGINE_ARRAY_RANK];
+    } PeriodMeasurement;
+
+    typedef struct
+    {
+        const unsigned short *device_lanes;
+        unsigned int rank;
+        unsigned long long extent[ENGINE_ARRAY_RANK];
+        unsigned long long draws;
+        EngineSignum content;
+        const PeriodMargin *null_top;
+        unsigned long long *agreement;
+        unsigned long long agreement_capacity;
+        PeriodMargin *band;
+        unsigned long long band_capacity;
+        PeriodMeasurement *measurement;
+        EngineError *error;
+    } PeriodRequest;
+
+    unsigned long long period_agreement_entries(unsigned int rank, const unsigned long long *extent);
+
+    // The bytes of the device pool period_read and period_draw keep after they return, for `voxels` lanes and `entries`
+    // agreement counts (period_agreement_entries): the histogram, the agreement and a shuffled copy of the lanes. The
+    // pool grows to the most voxels and the most entries asked so far, and a job over several extents declares it for
+    // the most of each. 0 for no voxels or more than 2^32 - 1, which the calls refuse.
+    unsigned long long period_reserve_bytes(unsigned long long voxels, unsigned long long entries);
+
+    long period_read(const PeriodRequest *request);
+
+    long period_draw(const PeriodRequest *request, unsigned long long draw, PeriodMargin *heights);
+
+    int period_print(const PeriodMeasurement *measurement, FILE *file);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

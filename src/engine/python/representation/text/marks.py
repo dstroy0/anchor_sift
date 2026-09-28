@@ -10,7 +10,7 @@
 # choosing which one. This removes a named channel while every letter stays on the page, which is a
 # far sharper instrument and is available in exactly one place.
 #
-# Three of the languages held here carry tone and none of them lets it be taken out. Chinese fuses it
+# Three of the languages held here carry tone, and in each of them it cannot be taken out. Chinese fuses it
 # into the character. Removing it removes the word. Thai spreads it across marks and the class of
 # the initial consonant together. No set of codepoints is the tone. Japanese never writes its
 # pitch accent at all.

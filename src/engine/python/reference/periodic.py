@@ -76,7 +76,7 @@ def mean_background_incremental(values, period):
     Each phase class is read on its own stride and its mean is grown by the Welford update, exact in
     Fraction: the mean after i members is the mean after i minus one plus the new member's distance
     from it over i. It shares no sum, no traversal and no division count with `mean_background`.
-    The two agreeing is a check and not a restatement. Where they disagree, one carries a defect.
+    The two agreeing is an independent check. Where they disagree, one carries a defect.
     """
     means = [None] * period
     length = len(values)

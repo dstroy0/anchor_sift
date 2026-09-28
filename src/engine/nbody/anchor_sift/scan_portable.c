@@ -18,14 +18,14 @@
  *       C11 compiler runs, and every other scan arm returns the same count or has a defect. That is
  *       the contract AnchorSteerEngine carries, the same one the exact arms carry in no_rounding.
  * @note It counts a scan call and never a wide call. anchor_steer_scan_calls and
- *       anchor_steer_wide_calls are defined in anchor_sift.c and declared in the header; a wide arm
+ *       anchor_steer_wide_calls are defined in anchor_sift_steer_count.c and declared in the header; a wide arm
  *       counts both. Wide over total is the share served on the vector path.
  */
 
 #include "anchor_sift.h"
 
-size_t anchor_steer_truthy_after_portable(const uint8_t *corpus, size_t alignments,
-                                          const uint8_t *alive, uint8_t wanted, size_t offset)
+size_t anchor_steer_truthy_after_portable(const uint8_t *corpus, size_t alignments, const uint8_t *alive,
+                                          uint8_t wanted, size_t offset)
 {
     anchor_steer_scan_calls += 1u;
 
@@ -51,7 +51,7 @@ size_t anchor_steer_truthy_after_portable(const uint8_t *corpus, size_t alignmen
 
 const AnchorSteerEngine *anchor_steer_portable_engine(void)
 {
-    static const AnchorSteerEngine engine = { "portable", anchor_steer_truthy_after_portable };
+    static const AnchorSteerEngine engine = {"portable", anchor_steer_truthy_after_portable};
 
     return &engine;
 }

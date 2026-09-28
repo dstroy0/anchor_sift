@@ -22,7 +22,7 @@
 <text x="76" y="409" font-size="14" fill="#0b0d11" font-weight="700" text-anchor="middle">3</text>
 <text x="100" y="409" font-size="17" fill="#e6ebf2" font-weight="600" text-anchor="start">Keep it as runs</text>
 <text x="100" y="433" font-size="15" fill="#98a2b3" font-weight="400" text-anchor="start">each body becomes the stretches of voxels it holds along each row, and the frame is those</text>
-<text x="100" y="454" font-size="15" fill="#98a2b3" font-weight="400" text-anchor="start">runs: about 27 times smaller than the labelled volume</text>
+<text x="100" y="454" font-size="15" fill="#98a2b3" font-weight="400" text-anchor="start">runs: about 27 times smaller than the labeled volume</text>
 <rect x="880" y="394" width="12" height="22" rx="4" fill="#56B4E9"/>
 <text x="902" y="411" font-size="14" fill="#98a2b3" font-weight="400" text-anchor="start">4,327 ms</text>
 <circle cx="76" cy="482" r="13" fill="#E69F00"/>
@@ -33,7 +33,7 @@
 <text x="962" y="489" font-size="14" fill="#98a2b3" font-weight="400" text-anchor="start">25,879 ms</text>
 <circle cx="76" cy="560" r="13" fill="#E69F00"/>
 <text x="76" y="565" font-size="14" fill="#0b0d11" font-weight="700" text-anchor="middle">5</text>
-<text x="100" y="565" font-size="17" fill="#e6ebf2" font-weight="600" text-anchor="start">Meet the neighbours</text>
+<text x="100" y="565" font-size="17" fill="#e6ebf2" font-weight="600" text-anchor="start">Meet the neighbors</text>
 <text x="100" y="589" font-size="15" fill="#98a2b3" font-weight="400" text-anchor="start">the positive voxels two frames share, body by body, at that shift</text>
 <rect x="880" y="550" width="14" height="22" rx="4" fill="#E69F00"/>
 <text x="904" y="567" font-size="14" fill="#98a2b3" font-weight="400" text-anchor="start">5,352 ms</text>
@@ -83,7 +83,7 @@
 <text x="64" y="1414" font-size="22" fill="#e6ebf2" font-weight="600" text-anchor="start">What comes out</text>
 <text x="64" y="1446" font-size="16" fill="#e6ebf2" font-weight="400" text-anchor="start">One sample of 16 frames, 64 x 256 x 256 voxels, as one file, including the .cfg that made it:</text>
 <rect x="64" y="1466" width="816" height="30" rx="4" fill="#2a3140"/>
-<text x="892" y="1487" font-size="15" fill="#98a2b3" font-weight="400" text-anchor="start">268,435,456 bytes as labelled voxels</text>
+<text x="892" y="1487" font-size="15" fill="#98a2b3" font-weight="400" text-anchor="start">268,435,456 bytes as labeled voxels</text>
 <rect x="64" y="1506" width="30" height="30" rx="4" fill="#56B4E9"/>
 <text x="106" y="1527" font-size="15" fill="#98a2b3" font-weight="400" text-anchor="start">9,927,668 bytes as runs, 27 times smaller</text>
 <text x="64" y="1572" font-size="15" fill="#e6ebf2" font-weight="400" text-anchor="start">All 25 objects together are 528,664,080 bytes. The viewer page streams one into a single buffer on the graphics card and</text>

@@ -2,14 +2,14 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Pull down a volume of the Salish and neighbouring languages proceedings and find what it documents
+# Pull down a volume of the Salish and neighboring languages proceedings and find what it documents
 # about morphology, for Section 4.13 of theory/workbooks/anchor_sift.
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/icsnl_probe.py [url] [name]
 #
 # Every measurement here so far needed a corpus with the grammar of each word written beside it, and no
 # such thing exists for any Salishan language. What does exist is description. The International
-# Conference on Salish and Neighbouring Languages has met since 1966 and its papers are posted openly by
+# Conference on Salish and Neighboring Languages has met since 1966 and its papers are posted openly by
 # the University of British Columbia, and those papers carry affix inventories, ordering templates and
 # glossed examples written down by people who did the field work.
 #

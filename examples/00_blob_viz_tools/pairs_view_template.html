@@ -64,7 +64,7 @@ button:hover { border-color: #ffe14d; }
   <div class="line"><span class="swatch" style="background:#3dd6ff"></span>bottom set, top clear</div>
   <div class="line"><span class="swatch" style="background:#2b3550"></span>both clear</div>
   <div class="line" style="color:#626a78; margin-top:9px">a line is one bit and its antipode,
-    read as one thing. Flip which end is set and the colour flips.</div>
+    read as one thing. Flip which end is set and the color flips.</div>
 </div>
 
 <div id="digest"></div>
@@ -81,8 +81,8 @@ stage.appendChild(renderer.domElement);
 
 var R = 12;
 
-// Colours for the four ordered states of a pair. Cyan and magenta are opposite hues on purpose:
-// flipping which end is set flips the colour, which is the reading asked for. Yellow for both set,
+// Colors for the four ordered states of a pair. Cyan and magenta are opposite hues on purpose:
+// flipping which end is set flips the color, which is the reading asked for. Yellow for both set,
 // a dim slate for both clear so a cold line is present without shouting.
 var HOT = new THREE.Color(0xffe14d);
 var TOP = new THREE.Color(0xff3d81);
@@ -91,7 +91,7 @@ var COLD = new THREE.Color(0x2b3550);
 
 // One cylinder per pair, because a WebGL line is one pixel wide on most drivers and reads as a
 // thread. A cylinder is real geometry with a real radius, so "not too thin" is a number the reader
-// can turn. Vertex colours down its length carry the gradient: a mixed pair runs hot at the set end
+// can turn. Vertex colors down its length carry the gradient: a mixed pair runs hot at the set end
 // to cold at the clear end, so the line shows which bit is which and not only that they differ.
 var pairs = DATA.pairs;
 var lines = [];
@@ -100,7 +100,7 @@ scene.add(group);
 
 var baseGeometry = new THREE.CylinderGeometry(1, 1, 1, 10, 1);
 // The cylinder is built along Y from -0.5 to +0.5. Tag each vertex with how far along it is, 0 at
-// the bottom end and 1 at the top, so the two ends can be coloured independently per frame.
+// the bottom end and 1 at the top, so the two ends can be colored independently per frame.
 var along = [];
 var pos = baseGeometry.attributes.position;
 for (var v = 0; v < pos.count; v++) { along.push(pos.getY(v) + 0.5); }
@@ -111,8 +111,8 @@ function makeLine(dir) {
   var mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ vertexColors: true }));
 
   // Orient the cylinder's Y axis onto the pair's diameter and stretch it end to end. The endpoints
-  // are +dir*R and -dir*R, so the centre of the cylinder is the origin: the line passes through the
-  // centre exactly, which is the whole point of the construction.
+  // are +dir*R and -dir*R, so the center of the cylinder is the origin: the line passes through the
+  // center exactly, which is the whole point of the construction.
   var axis = new THREE.Vector3(dir[0], dir[1], dir[2]).normalize();
   var quat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), axis);
   mesh.quaternion.copy(quat);
@@ -185,26 +185,26 @@ function paint(roundIndex) {
 
     // The two ends of this cylinder. "a" is bit `a` at one end, "b" at the other; which end is the
     // geometric top depends on how the axis was oriented, tracked at build time.
-    var aColour = a ? HOT : COLD;
-    var bColour = b ? HOT : COLD;
-    // Mixed pairs get the order hue rather than two greys, so a flip of which bit is set is a change
-    // of colour and not only of which end glows.
+    var aColor = a ? HOT : COLD;
+    var bColor = b ? HOT : COLD;
+    // Mixed pairs get the order hue rather than two grays, so a flip of which bit is set is a change
+    // of color and not only of which end glows.
     if (a !== b) {
-      aColour = a ? TOP : COLD;
-      bColour = b ? BOT : COLD;
+      aColor = a ? TOP : COLD;
+      bColor = b ? BOT : COLD;
     }
-    var topEnd = lines[i].userData.top === 1 ? aColour : bColour;
-    var botEnd = lines[i].userData.top === 1 ? bColour : aColour;
+    var topEnd = lines[i].userData.top === 1 ? aColor : bColor;
+    var botEnd = lines[i].userData.top === 1 ? bColor : aColor;
 
-    var colour = lines[i].geometry.attributes.color;
+    var color = lines[i].geometry.attributes.color;
     for (var v = 0; v < along.length; v++) {
       var t = along[v];
-      colour.setXYZ(v,
+      color.setXYZ(v,
         botEnd.r + (topEnd.r - botEnd.r) * t,
         botEnd.g + (topEnd.g - botEnd.g) * t,
         botEnd.b + (topEnd.b - botEnd.b) * t);
     }
-    colour.needsUpdate = true;
+    color.needsUpdate = true;
 
     var lit = (a && b);
     lines[i].material.opacity = lit ? 1.0 : (a || b ? 0.92 : 0.5);

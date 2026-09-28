@@ -258,7 +258,7 @@ def main():
             "# nɬeʔkepmxcín. Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica\n"
         )
         handle.write(
-            "# Reid. Papers for the International Conference on Salish and Neighbouring\n"
+            "# Reid. Papers for the International Conference on Salish and Neighboring\n"
         )
         handle.write("# Languages 61, Vancouver, BC: UBCWPL, 2026.\n")
         handle.write("#\n")

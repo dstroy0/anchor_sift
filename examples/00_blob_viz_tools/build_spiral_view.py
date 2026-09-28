@@ -16,7 +16,7 @@ count. What they buy is not flat, and it does not all scale alike:
     agreement      as two to the arm count, because each further arm halves the chance that a run
                    of agreeing signs is coincidence
 
-So the size of a point is its pooled deviation, which answers HOW LARGE, and the colour is how many
+So the size of a point is its pooled deviation, which answers HOW LARGE, and the color is how many
 arms agreed on its sign, which answers WHETHER IT IS ANYTHING. Those are different questions and
 the drawing keeps them apart.
 

@@ -91,7 +91,7 @@ def contains(table, item, bits, hashes, seed=0):
 
 
 def false_positive_rate(table, absent, bits, hashes, seed=0):
-    """The share of items known to be absent that the filter nonetheless reports present.
+    """The share of items known to be absent that the filter still reports present.
 
     The measured floor, drawn from items that were never added, not a rate assumed from the arithmetic.
     The caller prints it beside the predicted rate so the two can be compared.

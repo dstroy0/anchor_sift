@@ -243,7 +243,7 @@ def main():
             "# years before publication. Transcribed and interpreted by Hank Nater.\n"
         )
         handle.write(
-            "# Papers for the International Conference on Salish and Neighbouring\n"
+            "# Papers for the International Conference on Salish and Neighboring\n"
         )
         handle.write("# Languages 50, UBCWPL 40, 2015.\n")
         handle.write(

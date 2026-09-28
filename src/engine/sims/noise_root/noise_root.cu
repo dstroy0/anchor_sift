@@ -25,8 +25,8 @@
 
 #define ROOT_WIDTH 64ull
 
-// an offset of 300 and 100 electrons at gain 1 with a read variance of 4: a voxel's independent variance is 104, and
-// the offset keeps the strongest planted term inside the lane
+// an offset of 300 and 100 electrons at gain 1 with a read variance of 4: a background voxel's independent variance is
+// 104 and a body voxel's 404, and the offset keeps the strongest planted term inside the lane
 #define ROOT_OFFSET 300ull
 
 #define ROOT_BACKGROUND 100ull
@@ -38,7 +38,7 @@
 
 static const unsigned long long ROOT_SQUARES[ROOT_STRENGTHS] = {64ull, 256ull, 1024ull};
 
-// the object: one body standing at the view's middle, 300 electrons over the reaches 3, 7 and 7
+// the object: one body standing at the view's middle, 300 electrons over the radii 3, 7 and 7
 #define ROOT_BRIGHTNESS 300ull
 
 // the null, then each term planted alone at each strength
@@ -64,9 +64,9 @@ static long root_cost(const int *values, const unsigned long long extent[4], uns
     const int *coefficients = NULL;
     unsigned int *scratch = NULL;
     unsigned int floors = 0u;
-    int good = (cudaMalloc((void **)&device_values, (size_t)lanes * sizeof(int)) == cudaSuccess)
-            && (cudaMemcpy(device_values, values, (size_t)lanes * sizeof(int), cudaMemcpyHostToDevice) == cudaSuccess);
-    if (good)
+    int ok = (cudaMalloc((void **)&device_values, (size_t)lanes * sizeof(int)) == cudaSuccess) &&
+             (cudaMemcpy(device_values, values, (size_t)lanes * sizeof(int), cudaMemcpyHostToDevice) == cudaSuccess);
+    if (ok)
     {
         TowerLiftRequest lift;
         memset(&lift, 0, sizeof(lift));
@@ -76,9 +76,9 @@ static long root_cost(const int *values, const unsigned long long extent[4], uns
         lift.scratch = &scratch;
         lift.floors = &floors;
         lift.error = error;
-        good = tower_lift(&lift) == 0L;
+        ok = tower_lift(&lift) == 0L;
     }
-    if (good)
+    if (ok)
     {
         unsigned long long chunks = 0ull;
         const unsigned long long *offsets = NULL;
@@ -93,10 +93,10 @@ static long root_cost(const int *values, const unsigned long long extent[4], uns
         code.offsets = &offsets;
         code.stream = &stream;
         code.error = error;
-        good = compression_encode(&code) == 0L;
+        ok = compression_encode(&code) == 0L;
     }
     cudaFree(device_values);
-    return good ? 0L : -1L;
+    return ok ? 0L : -1L;
 }
 
 static void root_camera(SimCamera *camera, unsigned int planted, unsigned long long square)
@@ -128,11 +128,11 @@ static unsigned long long root_plant(unsigned short *lanes, unsigned int planted
             for (unsigned long long pixel = 0ull; pixel < plane; pixel += 1ull)
             {
                 const unsigned long long counter = (planted == NOISE_ROOT_PIXELS) ? pixel : ((frame * plane) + pixel);
-                const long long value = (long long)lanes[at] + sim_centred(ROOT_KEY ^ purpose, counter, square);
-                clipped += ((value < 0ll) || (value > SIM_LANE_MOST)) ? 1ull : 0ull;
-                const long long held = (value < 0ll) ? 0ll : ((value > SIM_LANE_MOST) ? SIM_LANE_MOST : value);
+                const long long value = (long long)lanes[at] + sim_centerd(ROOT_KEY ^ purpose, counter, square);
+                clipped += ((value < 0ll) || (value > SIM_LANE_MAX)) ? 1ull : 0ull;
+                const long long clamped = (value < 0ll) ? 0ll : ((value > SIM_LANE_MAX) ? SIM_LANE_MAX : value);
                 // held is clamped to the u16 lane's range just above
-                lanes[at] = (unsigned short)held;
+                lanes[at] = (unsigned short)clamped;
                 at += 1ull;
             }
         }
@@ -180,10 +180,10 @@ static void root_signed_columns(ScripturaLine *line, long long value, unsigned i
 
 int main(void)
 {
-    char room[SIM_LINE_ROOM];
-    SimTally tally;
-    sim_open(&tally, room);
-    ScripturaLine *const line = &tally.line;
+    char line_buffer[SIM_LINE_CAPACITY];
+    SimResults results;
+    sim_open(&results, line_buffer);
+    ScripturaLine *const line = &results.line;
     const unsigned long long count = ROOT_FRAMES * ROOT_DEPTH * ROOT_HEIGHT * ROOT_WIDTH;
     const unsigned long long lane_bytes = count * sizeof(unsigned short);
     unsigned long long box[4];
@@ -193,27 +193,27 @@ int main(void)
     }
     const unsigned long long voxels = box[0] * box[1] * box[2] * box[3];
     // the scene's lanes, a priced lattice's copy, and the tower's and the coder's pools for the box
-    const unsigned long long declared = lane_bytes + (voxels * sizeof(int)) + tower_hold_bytes(voxels)
-                                      + compression_hold_bytes(voxels);
-    int good = sim_job_submit(&tally, "noise_root", 0, NULL, declared);
+    const unsigned long long declared =
+        lane_bytes + (voxels * sizeof(int)) + tower_reserve_bytes(voxels) + compression_reserve_bytes(voxels);
+    int ok = sim_job_submit(&results, "noise_root", 0, NULL, declared);
     unsigned short *const lanes = (unsigned short *)malloc((size_t)lane_bytes);
     int *const values = (int *)malloc((size_t)voxels * sizeof(int));
     int *const residual = (int *)malloc((size_t)voxels * sizeof(int));
     int *const pattern = (int *)malloc((size_t)voxels * sizeof(int));
     int *const returned = (int *)malloc((size_t)voxels * sizeof(int));
     unsigned short *device_lanes = NULL;
-    good = good && (lanes != NULL) && (values != NULL) && (residual != NULL) && (pattern != NULL)
-        && (returned != NULL) && sim_took(&tally, cudaMalloc((void **)&device_lanes, (size_t)lane_bytes), "lanes");
-    sim_check(&tally, good, "the scene's buffers");
+    ok = ok && (lanes != NULL) && (values != NULL) && (residual != NULL) && (pattern != NULL) && (returned != NULL) &&
+         sim_status_check(&results, cudaMalloc((void **)&device_lanes, (size_t)lane_bytes), "lanes");
+    sim_check(&results, ok, "the scene's buffers");
 
     SimBody body;
     memset(&body, 0, sizeof(body));
-    body.centre[0] = 8ll;
-    body.centre[1] = 32ll;
-    body.centre[2] = 32ll;
-    body.reach[0] = 3ll;
-    body.reach[1] = 7ll;
-    body.reach[2] = 7ll;
+    body.center[0] = 8ll;
+    body.center[1] = 32ll;
+    body.center[2] = 32ll;
+    body.range[0] = 3ll;
+    body.range[1] = 7ll;
+    body.range[2] = 7ll;
     body.brightness = ROOT_BRIGHTNESS;
     body.ended = ROOT_FRAMES;
     body.parent = -1ll;
@@ -227,15 +227,18 @@ int main(void)
     scene.bodies = 1u;
     scene.body = &body;
 
-    scriptura_text(line, "  the root noise of an object's box: 16 frames x z 2 to 13 x y 16 to 47 x x 16 to 47 around one"
-                         " standing body of 300 e, over 100 e at offset 300, read variance 4, a Poisson shot\n");
-    scriptura_text(line, "  each term planted alone at variances 64, 256 and 1024, against a voxel's independent 104; a"
-                         " term's saving is the box's coded bits less its residual's and its pattern's, through the"
-                         " tower and compression's coder\n");
-    scriptura_text(line, "  planted  variance    box bits      rows   columns    planes    pixels    stacks  root     per"
-                         " mille  return\n");
-    sim_flush(&tally);
-    for (unsigned int run = 0u; good && (run < ROOT_RUNS); run += 1u)
+    scriptura_text(line,
+                   "  the root noise of an object's box: 16 frames x z 2 to 13 x y 16 to 47 x x 16 to 47 around one"
+                   " standing body of 300 e, over 100 e at offset 300, read variance 4, a Poisson shot\n");
+    scriptura_text(line,
+                   "  each term planted alone at variances 64, 256 and 1024, against a background voxel's independent"
+                   " 104 and a body voxel's 404; a term's saving is the box's coded bits less its residual's and"
+                   " its pattern's, through the tower and compression's coder\n");
+    scriptura_text(line,
+                   "  planted  variance    box bits      rows   columns    planes    pixels    stacks  root     per"
+                   " mille  return\n");
+    sim_flush(&results);
+    for (unsigned int run = 0u; ok && (run < ROOT_RUNS); run += 1u)
     {
         const unsigned int planted = (run == 0u) ? NOISE_ROOT_TERMS : ((run - 1u) / ROOT_STRENGTHS);
         const unsigned int strength = (run == 0u) ? 0u : ((run - 1u) % ROOT_STRENGTHS);
@@ -243,23 +246,23 @@ int main(void)
         SimCamera camera;
         root_camera(&camera, planted, square);
         unsigned long long clipped = 0ull;
-        good = sim_render(&tally, &scene, &camera, device_lanes, NULL, NULL, &clipped)
-            && sim_took(&tally, cudaMemcpy(lanes, device_lanes, (size_t)lane_bytes, cudaMemcpyDeviceToHost),
-                        "lanes read");
-        if (good && ((planted == NOISE_ROOT_PIXELS) || (planted == NOISE_ROOT_STACKS)))
+        ok = sim_render(&results, &scene, &camera, device_lanes, NULL, NULL, &clipped) &&
+             sim_status_check(&results, cudaMemcpy(lanes, device_lanes, (size_t)lane_bytes, cudaMemcpyDeviceToHost),
+                              "lanes read");
+        if (ok && ((planted == NOISE_ROOT_PIXELS) || (planted == NOISE_ROOT_STACKS)))
         {
             clipped += root_plant(lanes, planted, square);
         }
-        sim_check(&tally, good && (clipped == 0ull), "the scene rendered with no lane clipped");
-        if (good == 0)
+        sim_check(&results, ok && (clipped == 0ull), "the scene rendered with no lane clipped");
+        if (ok == 0)
         {
             break;
         }
         root_box_take(lanes, values);
         EngineError error;
         memset(&error, 0, sizeof(error));
-        NoiseRootReading reading;
-        memset(&reading, 0, sizeof(reading));
+        NoiseRootMeasurement measurement;
+        memset(&measurement, 0, sizeof(measurement));
         NoiseRootRequest request;
         memset(&request, 0, sizeof(request));
         request.volume = lanes;
@@ -267,29 +270,28 @@ int main(void)
         memcpy(request.low, ROOT_LOW, sizeof(request.low));
         memcpy(request.high, ROOT_HIGH, sizeof(request.high));
         request.cost = root_cost;
-        request.reading = &reading;
+        request.measurement = &measurement;
         request.residual = residual;
         request.pattern = pattern;
         request.error = &error;
-        good = noise_root_box(&request) == 0L;
-        sim_check(&tally, good, "the detector priced the box and every term's yank");
-        if (good == 0)
+        ok = noise_root_box(&request) == 0L;
+        sim_check(&results, ok, "the detector priced the box and every term's yank");
+        if (ok == 0)
         {
             break;
         }
         int exact = 0;
-        if (reading.root < NOISE_ROOT_TERMS)
+        if (measurement.root < NOISE_ROOT_TERMS)
         {
             NoiseReturnRequest back;
             memset(&back, 0, sizeof(back));
             back.residual = residual;
             back.pattern = pattern;
-            back.term = reading.root;
+            back.term = measurement.root;
             memcpy(back.box, box, sizeof(back.box));
             back.values = returned;
             back.error = &error;
-            exact = (noise_root_return(&back) == 0L)
-                 && (memcmp(returned, values, (size_t)voxels * sizeof(int)) == 0);
+            exact = (noise_root_return(&back) == 0L) && (memcmp(returned, values, (size_t)voxels * sizeof(int)) == 0);
         }
         else
         {
@@ -298,35 +300,38 @@ int main(void)
         scriptura_text(line, "  ");
         scriptura_text_columns(line, ROOT_NAMES[planted], 7u);
         scriptura_decimal_columns(line, square, 10u);
-        scriptura_decimal_columns(line, reading.box_bits, 12u);
+        scriptura_decimal_columns(line, measurement.box_bits, 12u);
         for (unsigned int term = 0u; term < NOISE_ROOT_TERMS; term += 1u)
         {
-            root_signed_columns(line, reading.saved[term], 10u);
+            root_signed_columns(line, measurement.saved[term], 10u);
         }
         scriptura_text(line, "  ");
-        scriptura_text_columns(line, ROOT_NAMES[reading.root], 7u);
+        scriptura_text_columns(line, ROOT_NAMES[measurement.root], 7u);
         // a root saves more than 0 and less than the box's bits, which are a few million here, so the box's bits
         // convert to long long exactly and 1000 times the saving is far below 2^63
-        const long long per_mille = (reading.root < NOISE_ROOT_TERMS)
-                                      ? ((1000ll * reading.saved[reading.root]) / (long long)reading.box_bits)
-                                      : 0ll;
+        const long long per_mille =
+            (measurement.root < NOISE_ROOT_TERMS)
+                ? ((1000ll * measurement.saved[measurement.root]) / (long long)measurement.box_bits)
+                : 0ll;
         root_signed_columns(line, per_mille, 11u);
         scriptura_text(line, (exact != 0) ? "  exact\n" : "  differs\n");
-        sim_flush(&tally);
+        sim_flush(&results);
         if (planted == NOISE_ROOT_TERMS)
         {
-            sim_check(&tally, reading.root == NOISE_ROOT_TERMS, "the null names no root");
+            sim_check(&results, measurement.root == NOISE_ROOT_TERMS, "the null names no root");
         }
         else
         {
-            sim_check(&tally, (reading.root == planted) || (reading.root == NOISE_ROOT_TERMS),
+            sim_check(&results, (measurement.root == planted) || (measurement.root == NOISE_ROOT_TERMS),
                       "the root is the planted term or none, never another term");
         }
         if ((planted != NOISE_ROOT_TERMS) && (strength == (ROOT_STRENGTHS - 1u)))
         {
-            sim_check(&tally, reading.root == planted, "at the strongest, the root is the planted term");
+            sim_check(&results, measurement.root == planted, "at the strongest, the root is the planted term");
         }
-        sim_check(&tally, exact != 0, "the root's residual and pattern return the box exactly");
+        // the residual is the box less the pattern in ints, so the sum is the box by construction; what this checks
+        // is that noise_root_return spreads the pattern over the places the yank took it from
+        sim_check(&results, exact != 0, "the root's residual and pattern return the box exactly");
     }
     cudaFree(device_lanes);
     free(lanes);
@@ -334,5 +339,5 @@ int main(void)
     free(residual);
     free(pattern);
     free(returned);
-    return sim_close(&tally, "noise root");
+    return sim_close(&results, "noise root");
 }

@@ -3,7 +3,7 @@ set -u
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$HERE/../.." && pwd)"
-ENGINE="$TOP/src/engine/base/no_rounding"
+ENGINE="$TOP/src/engine/arithmetic/no_rounding"
 source "$TOP/maint/build_stamp.sh"
 build_stamp cell_shift
 rm -f "$OUT/cell_shift.exe"
@@ -25,7 +25,7 @@ if command -v nvcc >/dev/null 2>&1 && [ -n "$MSVC_BIN" ] && [ -n "$CAP" ]; then
         -o "$OUT/cell_shift.exe" \
         "$HERE/src/cell_shift.c" \
         "$ENGINE/arm_cuda.cu" \
-        "$ENGINE/exact_integer.c" \
+        "$ENGINE"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
         "$ENGINE/arm_portable.c"
     STATUS=$?
 else
@@ -33,7 +33,7 @@ else
     cc -O2 -std=c11 -I "$ENGINE" \
         -o "$OUT/cell_shift.exe" \
         "$HERE/src/cell_shift.c" \
-        "$ENGINE/exact_integer.c" \
+        "$ENGINE"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
         "$ENGINE/arm_portable.c"
     STATUS=$?
 fi

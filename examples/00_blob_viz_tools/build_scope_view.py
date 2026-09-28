@@ -10,9 +10,9 @@ same depth, because the question they answer together is not answerable by any o
                         lives and the depth where it collapses are one glance rather than a scrub
     matched filter      the whole trajectory of the pre-registered waveform through depth
 
-WHAT THE COLOURS CARRY
+WHAT THE COLORS CARRY
 
-The stick colouring is selectable because different questions want different tags, and two of them
+The stick coloring is selectable because different questions want different tags, and two of them
 are structural rather than decorative:
 
     hot     lit or unlit, which is the state itself
@@ -103,7 +103,7 @@ def lit_per_round(words):
     return out
 
 
-def standardised_spectrum():
+def standardized_spectrum():
     """Each class's deviation from the class mean, in units of the scatter of the other classes.
 
     The common mode is removed first because incomplete avalanche and the schedule's light cone are
@@ -151,7 +151,7 @@ def main():
         "id": block["id"],
         "spikes": spike_directions(),
         "rounds": lit_per_round(header_words(block)),
-        "spectrum": standardised_spectrum(),
+        "spectrum": standardized_spectrum(),
         "waveform": list(WAVEFORM),
         "sigma0": list(SIGMA0),
         "sigma1": list(SIGMA1),

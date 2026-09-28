@@ -78,7 +78,7 @@
     <h1>Combed Spiral</h1>
     <p class="sub">SHA-256's 256 output bit positions, placed on the golden spiral — index <i>k</i>
       at height 1−2(k+0.5)/256, longitude <i>k</i>γ — so there is no seam and no pole pile, and a
-      cluster on the surface is a cluster in the data. <b>Size is pooled deviation, colour is how
+      cluster on the surface is a cluster in the data. <b>Size is pooled deviation, color is how
       many arms agree on the sign.</b> Those answer different questions: depth says how large,
       arms say whether it is anything at all.</p>
     <div class="tallies" id="tallies"></div>
@@ -108,8 +108,8 @@
   </div>
 
   <div class="levers">
-    <div class="lever"><span>Colour by</span>
-      <div class="seg" role="group" id="segColour">
+    <div class="lever"><span>Color by</span>
+      <div class="seg" role="group" id="segColor">
         <button data-v="agree" aria-pressed="true">agreement</button>
         <button data-v="sign" aria-pressed="false">sign</button>
         <button data-v="word" aria-pressed="false">word</button>
@@ -148,7 +148,7 @@
 const DATA = /*DATA*/;
 const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const state = { colour:"agree", thread:true, spin:!reduce, scale:100, yaw:0.5, pitch:-0.3 };
+const state = { color:"agree", thread:true, spin:!reduce, scale:100, yaw:0.5, pitch:-0.3 };
 
 const half = DATA.arms / 2;
 const maxDev = Math.max(...DATA.points.map(p => Math.abs(p.deviation))) || 1;
@@ -166,8 +166,8 @@ const wordHue = (w) => "hsl(" + Math.round(18 + w*42) + ",58%," +
    document.documentElement.dataset.theme !== "dark" ? "38%" : "60%") + ")";
 
 function tint(p){
-  if (state.colour === "word") return wordHue(p.word);
-  if (state.colour === "sign") return p.high ? css("--high") : css("--low");
+  if (state.color === "word") return wordHue(p.word);
+  if (state.color === "sign") return p.high ? css("--high") : css("--low");
   const lean = (p.agree - half) / (DATA.arms - half);   // 0 at chance, 1 at unanimous
   return lean > 0.55 ? css("--mark") : (p.high ? css("--high") : css("--low"));
 }
@@ -240,7 +240,7 @@ function seg(id,key,cast){ const g=document.getElementById(id);
   g.addEventListener("click",(e)=>{ const b=e.target.closest("button"); if(!b) return;
     [...g.querySelectorAll("button")].forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
     state[key]=cast(b.dataset.v); draw(); }); }
-seg("segColour","colour",String);
+seg("segColor","color",String);
 seg("segThread","thread",(v)=>v==="1");
 seg("segSpin","spin",(v)=>v==="1");
 document.getElementById("scale").addEventListener("input",(e)=>{

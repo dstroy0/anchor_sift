@@ -17,7 +17,7 @@
 # was there and what it hashed to, which is enough to tie a number in the ledger to exact bytes
 # without the bytes leaving the closed repository.
 #
-# The record survives a withdrawal. The corpus licence says the material can be refocused on the
+# The record survives a withdrawal. The corpus license says the material can be refocused on the
 # communities' request and never made available again, and a hash of a file that no longer exists is
 # still a true statement about what a measurement was taken over. A copy of the file would not be.
 #

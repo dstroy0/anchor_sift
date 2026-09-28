@@ -497,7 +497,7 @@ def main():
 
         # An entry this search returns that is already cached but carries no family gets one
         # written now. The corpus was built before families were recorded. Without this the
-        # first twelve hundred entries would stay unlabelled forever. It costs no extra request:
+        # first twelve hundred entries would stay unlabeled forever. It costs no extra request:
         # the search response is already in hand and only the CIF fetch is skipped.
         numbers = []
         for row in (found if isinstance(found, list) else []):

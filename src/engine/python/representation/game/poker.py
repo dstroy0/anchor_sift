@@ -8,7 +8,7 @@
 #           game = poker.Poker(ranks=6, suits=2, hand=3)   # small enough to solve
 #           game = poker.Poker(ranks=13, suits=4, hand=5)  # the real deck, sampled only
 #
-# The deck size is a parameter and that is the whole design. The same rules, the same evaluator and
+# The design rests on one choice: the deck size is a parameter. The same rules, the same evaluator and
 # the same discard decision run on a twelve card deck that can be enumerated outright and on a fifty
 # two card deck that cannot. That gives the two arms something to agree about: the solved arm runs on
 # the small deck, the sampled arm runs on both, and where they overlap they have to match. An
@@ -95,7 +95,7 @@ def evaluate(hand):
     for rank in ranks:
         counts[rank] = counts.get(rank, 0) + 1
 
-    # Groups ordered by size first and by rank second, which is exactly the tie break order.
+    # Groups ordered by size first and by rank second, the tie break order exactly.
     groups = sorted(counts.items(), key=lambda item: (item[1], item[0]), reverse=True)
     shape = tuple(size for _, size in groups)
     ordered = tuple(rank for rank, _ in groups)

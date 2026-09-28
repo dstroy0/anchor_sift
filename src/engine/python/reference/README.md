@@ -3,11 +3,18 @@
 **Purpose:** Build the background a departure is measured against, out of the data itself. No model has to be assumed.
 **Scope:** `src/engine/python/reference/`
 
-| module          | what it holds                                                            |
-| --------------- | ------------------------------------------------------------------------ |
-| `shuffles.py`   | `permuted`, `block_shuffled`, `scrambled_within`                         |
-| `ciphers.py`    | `substitute`, `repeat_key`, `keystream`, `counter`, `coset`, `seat_span` |
-| `unselected.py` | `sqrt_two_digits`, `prime_gaps`, `seated`. Structure nobody produced     |
+| module            | what it holds                                                                                                                          |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `shuffles.py`     | `permuted`, `block_shuffled`, `scrambled_within`                                                                                       |
+| `ciphers.py`      | `substitute`, `repeat_key`, `keystream`, `counter`, `coset`, `seat_span`                                                               |
+| `unselected.py`   | `sqrt_two_digits`, `prime_gaps`, `seated`. Structure nobody produced                                                                   |
+| `periodic.py`     | `phase_totals`, `mean_background`, `mean_background_incremental`, `mean_residual`, `consensus_majority`, `consensus_median`, `restore` |
+| `self_similar.py` | `context_of`, `context_groups`, `similar_background`, `similar_background_scanned`, `similar_residual`                                 |
+| `windowed.py`     | `window_median`, `window_median_counted`, `median_filtered`, `restore_at`                                                              |
+| `fields.py`       | `build`, `stretched`                                                                                                                   |
+| `exact_ratio.py`  | `reduced`, `whole`, `add`, `sub`, `mul`, `over`, `compare`, `sign`, `to_float`                                                         |
+| `bitfield.py`     | `pack`, `whole_range`, `present`, `count`, `only_in`, `shared`, `same`                                                                 |
+| `atom.py`         | `position_vector`, `radial_magnitude_squared`, `bands`, `occupancy`, `occupied_bands`, `full_bands`, `valence`                         |
 
 `unselected.py` is the control this work went longest without, and it refuted the strong claim when it arrived. Every corpus departing from the null had been made by a person. The measure detecting arrangement and the measure detecting human production were not separated by anything measured. The gaps between primes return 0.93, outside the band every memoryless arm occupies, and nothing authored the primes.
 

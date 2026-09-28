@@ -1,0 +1,334 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+// cell_ptx_probe_main.cu: the header, the kernel, building, running and main
+#include "cell_ptx_probe_internal.h"
+
+// PTX's header for the device, asked of NVRTC by compiling an empty kernel to PTX: the .version, .target and
+// .address_size lines. Empty where NVRTC does not answer
+static std::string probe_header(int major, int minor)
+{
+    const char question[] = "extern \"C\" __global__ void cell_header(void)\n{\n}\n";
+    nvrtcProgram program = NULL;
+    std::string lines;
+    if (nvrtcCreateProgram(&program, question, "cell_header.cu", 0, NULL, NULL) != NVRTC_SUCCESS)
+    {
+        return lines;
+    }
+    char architecture[48];
+    snprintf(architecture, sizeof(architecture), "--gpu-architecture=compute_%d%d", major, minor);
+    const char *const options[] = {architecture};
+    size_t size = 0u;
+    if ((nvrtcCompileProgram(program, 1, options) == NVRTC_SUCCESS) &&
+        (nvrtcGetPTXSize(program, &size) == NVRTC_SUCCESS) && (size > 1u))
+    {
+        std::vector<char> ptx(size);
+        if (nvrtcGetPTX(program, ptx.data()) == NVRTC_SUCCESS)
+        {
+            ptx[size - 1u] = '\0';
+            const char *const wanted[] = {".version ", ".target ", ".address_size "};
+            for (const char *const start : wanted)
+            {
+                const char *const found = strstr(ptx.data(), start);
+                const char *const end = (found != NULL) ? strchr(found, '\n') : NULL;
+                // a line ends past its start
+                lines += (end != NULL) ? (std::string(found, (size_t)(end - found)) + "\n") : std::string();
+            }
+        }
+    }
+    nvrtcDestroyProgram(&program);
+    return lines;
+}
+
+// the kernel: the header, then an entry of this probe's own that finds its case, loads its eight words into
+// temporaries 0 to 7 through the ruleset's global_load, sets outputs 8 to 11 to 0, runs the body, and stores the
+// outputs through the ruleset's record_store, the record register set to the case's output
+static std::string probe_kernel(ProbeWriter *writer, const std::string &header, const std::string &body)
+{
+    std::string text = header;
+    text += "\n.visible .entry cell_ask(\n\t.param .u64 cell_ask_in,\n\t.param .u64 cell_ask_out,\n\t.param .u32 "
+            "cell_ask_count\n)\n{\n";
+    text += "\t.reg .pred \t%cell_past;\n\t.reg .b32 \t%cell_word<4>;\n\t.reg .b64 \t%cell_wide<4>;\n";
+    const std::string declared = std::to_string(PROBE_DECLARED);
+    probe_form(writer, text, "declare_predicates", {declared});
+    probe_form(writer, text, "declare_fixed_predicates", {});
+    probe_form(writer, text, "declare_temporaries", {declared});
+    probe_form(writer, text, "declare_wides", {declared});
+    probe_form(writer, text, "declare_fixed_words", {});
+    probe_form(writer, text, "declare_fixed_wides", {});
+    probe_form(writer, text, "word_set", {ruleset_physreg(writer->rules, "zero"), "0"});
+    text += "\tld.param.u64 \t%cell_wide0, [cell_ask_in];\n\tld.param.u64 \t%cell_wide1, [cell_ask_out];\n";
+    text += "\tld.param.u32 \t%cell_word0, [cell_ask_count];\n\tmov.u32 \t%cell_word1, %ctaid.x;\n";
+    text += "\tmov.u32 \t%cell_word2, %ntid.x;\n\tmov.u32 \t%cell_word3, %tid.x;\n";
+    text += "\tmad.lo.u32 \t%cell_word1, %cell_word1, %cell_word2, %cell_word3;\n";
+    text += "\tsetp.ge.u32 \t%cell_past, %cell_word1, %cell_word0;\n\t@%cell_past bra \t$Lcell_done;\n";
+    text += "\tcvta.to.global.u64 \t%cell_wide0, %cell_wide0;\n\tcvta.to.global.u64 \t%cell_wide1, %cell_wide1;\n";
+    text += "\tmul.wide.u32 \t%cell_wide2, %cell_word1, 32;\n\tadd.s64 \t%cell_wide2, %cell_wide0, %cell_wide2;\n";
+    text += "\tmul.wide.u32 \t%cell_wide3, %cell_word1, 16;\n\tadd.s64 \t%cell_wide3, %cell_wide1, %cell_wide3;\n";
+    for (unsigned int word = 0u; word < PROBE_IN_WORDS; word += 1u)
+    {
+        probe_form(writer, text, "global_load",
+                   {probe_temporary(writer, word), "%cell_wide2", std::to_string(word * 4u)});
+    }
+    for (unsigned int word = 0u; word < PROBE_OUT_WORDS; word += 1u)
+    {
+        probe_form(writer, text, "word_set", {probe_temporary(writer, 8u + word), "0"});
+    }
+    text += body;
+    text += "\tmov.b64 \t" + ruleset_physreg(writer->rules, "record") + ", %cell_wide3;\n";
+    for (unsigned int word = 0u; word < PROBE_OUT_WORDS; word += 1u)
+    {
+        probe_form(writer, text, "record_store", {std::to_string(word * 4u), probe_temporary(writer, 8u + word)});
+    }
+    text += "$Lcell_done:\n";
+    probe_form(writer, text, "return", {});
+    text += "}\n";
+    return text;
+}
+
+// the kernel's text assembled by nvJitLink for the device and loaded: 1 and the kernel, or 0 with the log printed
+static int probe_build(const std::string &text, int major, int minor, cudaLibrary_t *library, cudaKernel_t *kernel)
+{
+    char architecture[32];
+    snprintf(architecture, sizeof(architecture), "-arch=sm_%d%d", major, minor);
+    const char *options[] = {architecture};
+    nvJitLinkHandle handle = NULL;
+    if (nvJitLinkCreate(&handle, 1u, options) != NVJITLINK_SUCCESS)
+    {
+        printf("refused: nvJitLink could not be made\n");
+        return 0;
+    }
+    size_t size = 0u;
+    const int linked = (nvJitLinkAddData(handle, NVJITLINK_INPUT_PTX, text.c_str(), text.size() + 1u, "cell_ask") ==
+                        NVJITLINK_SUCCESS) &&
+                       (nvJitLinkComplete(handle) == NVJITLINK_SUCCESS) &&
+                       (nvJitLinkGetLinkedCubinSize(handle, &size) == NVJITLINK_SUCCESS) && (size != 0u);
+    std::vector<char> cubin(linked ? size : 0u);
+    const int taken = linked && (nvJitLinkGetLinkedCubin(handle, cubin.data()) == NVJITLINK_SUCCESS);
+    if (!taken)
+    {
+        size_t log_size = 0u;
+        std::vector<char> log(1u, '\0');
+        if ((nvJitLinkGetErrorLogSize(handle, &log_size) == NVJITLINK_SUCCESS) && (log_size > 1u))
+        {
+            log.assign(log_size, '\0');
+            nvJitLinkGetErrorLog(handle, log.data());
+        }
+        printf("refused: nvJitLink did not assemble the kernel\n%s\n", log.data());
+    }
+    nvJitLinkDestroy(&handle);
+    return taken && (cudaLibraryLoadData(library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u) == cudaSuccess) &&
+           (cudaLibraryGetKernel(kernel, *library, "cell_ask") == cudaSuccess);
+}
+
+// the kernel run over `count` cases of `in`, its outputs into `out`; the CUDA error the run gave
+static cudaError_t probe_run(cudaKernel_t kernel, const unsigned int *in, unsigned int *out, unsigned int count)
+{
+    unsigned int *device_in = NULL;
+    unsigned int *device_out = NULL;
+    const size_t in_bytes = (size_t)count * PROBE_IN_WORDS * sizeof(unsigned int);
+    const size_t out_bytes = (size_t)count * PROBE_OUT_WORDS * sizeof(unsigned int);
+    cudaError_t status = cudaMalloc((void **)&device_in, in_bytes);
+    status = (status == cudaSuccess) ? cudaMalloc((void **)&device_out, out_bytes) : status;
+    status = (status == cudaSuccess) ? cudaMemcpy(device_in, in, in_bytes, cudaMemcpyHostToDevice) : status;
+    void *arguments[] = {(void *)&device_in, (void *)&device_out, (void *)&count};
+    const unsigned int blocks = (count + PROBE_THREADS - 1u) / PROBE_THREADS;
+    status = (status == cudaSuccess)
+                 ? cudaLaunchKernel((const void *)kernel, dim3(blocks), dim3(PROBE_THREADS), arguments, 0u, NULL)
+                 : status;
+    status = (status == cudaSuccess) ? cudaDeviceSynchronize() : status;
+    status = (status == cudaSuccess) ? cudaMemcpy(out, device_out, out_bytes, cudaMemcpyDeviceToHost) : status;
+    cudaFree(device_in);
+    cudaFree(device_out);
+    return status;
+}
+
+// the error a question the device refused gave, then the error the next allocation gives: whether the context
+// survived the refusal
+static int probe_refused(cudaError_t status)
+{
+    printf("error %d %s\n", (int)status, cudaGetErrorName(status));
+    void *after = NULL;
+    const cudaError_t next = cudaMalloc(&after, 4u);
+    printf("after %d %s\n", (int)next, cudaGetErrorName(next));
+    return 3;
+}
+
+static int probe_membership(ProbeWriter *writer, const std::string &header, int major, int minor)
+{
+    const std::vector<ProbeQuestion> questions = probe_questions(writer);
+    if (writer->broken)
+    {
+        return 2;
+    }
+    std::vector<unsigned int> in((size_t)PROBE_CASES * PROBE_IN_WORDS);
+    for (unsigned int number = 0u; number < PROBE_CASES; number += 1u)
+    {
+        probe_case(number, &in[(size_t)number * PROBE_IN_WORDS]);
+    }
+    std::vector<unsigned int> out((size_t)PROBE_CASES * PROBE_OUT_WORDS);
+    unsigned int disagreed = 0u;
+    for (const ProbeQuestion &question : questions)
+    {
+        const std::string text = probe_kernel(writer, header, question.body);
+        cudaLibrary_t library = NULL;
+        cudaKernel_t kernel = NULL;
+        if (writer->broken || !probe_build(text, major, minor, &library, &kernel))
+        {
+            printf("%s: not built\n", question.name.c_str());
+            return 2;
+        }
+        const cudaError_t status = probe_run(kernel, in.data(), out.data(), PROBE_CASES);
+        cudaLibraryUnload(library);
+        if (status != cudaSuccess)
+        {
+            printf("%s: ", question.name.c_str());
+            return probe_refused(status);
+        }
+        unsigned int agree = 0u;
+        unsigned int differ = 0u;
+        unsigned int undefined = 0u;
+        std::vector<unsigned int> seen;
+        for (unsigned int number = 0u; number < PROBE_CASES; number += 1u)
+        {
+            const unsigned int *const case_in = &in[(size_t)number * PROBE_IN_WORDS];
+            const unsigned int *const case_out = &out[(size_t)number * PROBE_OUT_WORDS];
+            unsigned int wanted[PROBE_OUT_WORDS] = {0u, 0u, 0u, 0u};
+            if (!question.rule(case_in, wanted))
+            {
+                undefined += 1u;
+                // the device's answer to a question the rule leaves undefined, each distinct word once, the first four
+                for (unsigned int word = 0u; (word < question.outputs) && (seen.size() < 4u); word += 1u)
+                {
+                    int known = 0;
+                    for (const unsigned int earlier : seen)
+                    {
+                        known = known || (earlier == case_out[word]);
+                    }
+                    if (!known)
+                    {
+                        seen.push_back(case_out[word]);
+                    }
+                }
+                continue;
+            }
+            int agrees = 1;
+            for (unsigned int word = 0u; word < question.outputs; word += 1u)
+            {
+                agrees = agrees && (case_out[word] == wanted[word]);
+            }
+            agree += agrees ? 1u : 0u;
+            if (!agrees && (differ < 3u))
+            {
+                printf("  %s differs on case %u: in %08x %08x %08x %08x %08x %08x, device %08x %08x %08x %08x, host "
+                       "%08x %08x %08x %08x\n",
+                       question.name.c_str(), number, case_in[0], case_in[1], case_in[2], case_in[3], case_in[4],
+                       case_in[5], case_out[0], case_out[1], case_out[2], case_out[3], wanted[0], wanted[1], wanted[2],
+                       wanted[3]);
+            }
+            differ += agrees ? 0u : 1u;
+        }
+        disagreed += (differ != 0u) ? 1u : 0u;
+        printf("form %s: %u cases, %u agree, %u differ", question.name.c_str(), agree + differ, agree, differ);
+        if (undefined != 0u)
+        {
+            printf(", %u undefined, the device answering", undefined);
+            for (const unsigned int word : seen)
+            {
+                printf(" %08x", word);
+            }
+        }
+        printf("\n");
+    }
+    printf("membership: %zu questions, %u with a case that differs\n", questions.size(), disagreed);
+    return (disagreed == 0u) ? 0 : 1;
+}
+
+// a kernel whose body is `body` alone, run over one case; `address` names the case's input, which the body may
+// replace. Exit 0 where the device answers, 3 where it refuses the run, 4 where the toolchain refuses the kernel
+static int probe_single(ProbeWriter *writer, const std::string &header, const std::string &body, int major, int minor)
+{
+    const std::string text = probe_kernel(writer, header, body);
+    cudaLibrary_t library = NULL;
+    cudaKernel_t kernel = NULL;
+    if (writer->broken)
+    {
+        return 2;
+    }
+    if (!probe_build(text, major, minor, &library, &kernel))
+    {
+        return 4;
+    }
+    unsigned int in[PROBE_IN_WORDS] = {6u, 7u, 0u, 0u, 0u, 0u, 0u, 0u};
+    unsigned int out[PROBE_OUT_WORDS] = {0u, 0u, 0u, 0u};
+    const cudaError_t status = probe_run(kernel, in, out, 1u);
+    if (status != cudaSuccess)
+    {
+        return probe_refused(status);
+    }
+    printf("answered %08x %08x %08x %08x\n", out[0], out[1], out[2], out[3]);
+    cudaLibraryUnload(library);
+    return 0;
+}
+
+int main(int count, char **arguments)
+{
+    const char *const question = (count > 1) ? arguments[1] : "";
+    int device = 0;
+    cudaDeviceProp properties;
+    if ((cudaGetDevice(&device) != cudaSuccess) || (cudaGetDeviceProperties(&properties, device) != cudaSuccess))
+    {
+        printf("no device\n");
+        return 2;
+    }
+    const int major = properties.major;
+    const int minor = properties.minor;
+    const std::string header = probe_header(major, minor);
+    ProbeWriter writer = {ptx_target().ruleset(1), 0, PROBE_TEMPORARIES, PROBE_WIDES, PROBE_PREDICATES};
+    if ((writer.rules == NULL) || header.empty())
+    {
+        printf("the ruleset was refused, or NVRTC gave no header\n");
+        return 2;
+    }
+    printf("sm_%d%d, %s", major, minor, header.c_str());
+    const std::string t8 = probe_temporary(&writer, 8u);
+    const std::string t0 = probe_temporary(&writer, 0u);
+    const std::string w0 = probe_wide(&writer, 0u);
+    if (strcmp(question, "membership") == 0)
+    {
+        return probe_membership(&writer, header, major, minor);
+    }
+    if (strcmp(question, "alive") == 0)
+    {
+        std::string body;
+        probe_form(&writer, body, "add_alone", {t8, t0, probe_temporary(&writer, 1u)});
+        return probe_single(&writer, header, body, major, minor);
+    }
+    if (strcmp(question, "address") == 0)
+    {
+        // the load reads the sixteenth byte of the device's address space
+        std::string body;
+        probe_form(&writer, body, "word_set", {t0, "16"});
+        probe_form(&writer, body, "wide_from_word", {w0, t0});
+        probe_form(&writer, body, "global_load", {t8, w0, "0"});
+        return probe_single(&writer, header, body, major, minor);
+    }
+    if (strcmp(question, "misaligned") == 0)
+    {
+        // the case's own input, one byte in: a 32-bit load from an address that is not a multiple of 4
+        std::string body = "\tadd.s64 \t%cell_wide2, %cell_wide2, 1;\n";
+        probe_form(&writer, body, "global_load", {t8, "%cell_wide2", "0"});
+        return probe_single(&writer, header, body, major, minor);
+    }
+    if (strcmp(question, "trap") == 0)
+    {
+        return probe_single(&writer, header, "\ttrap;\n", major, minor);
+    }
+    if (strcmp(question, "lacking") == 0)
+    {
+        return probe_single(&writer, header,
+                            "\t{\n\t.reg .pred \t%cell_elected;\n\t.reg .b32 \t%cell_leader;\n"
+                            "\telect.sync \t%cell_leader|%cell_elected, 0xffffffff;\n\t}\n",
+                            major, minor);
+    }
+    printf("no question \"%s\"\n", question);
+    return 2;
+}

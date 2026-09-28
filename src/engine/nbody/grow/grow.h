@@ -5,14 +5,15 @@
 #include "engine_config.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-#define GROW_REFUSED (-1L)
+#define GROW_ERROR (-1L)
 
-long grow_leaves(const EngineBody *bodies, unsigned int count, EngineLeaves *leaves, EngineError *error);
+    long grow_leaves(const EngineBody *bodies, unsigned int count, EngineLeaves *leaves, EngineError *error);
 
-void grow_group_voxels(const EngineGroupRequest *request);
+    void grow_group_voxels(const EngineGroupRequest *request);
 
 #ifdef __cplusplus
 }

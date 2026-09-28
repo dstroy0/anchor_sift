@@ -21,14 +21,20 @@ itself depends on it.
 
 ## Where things live
 
-A module's place depends on whether its request carries a body count.
+A module's place depends on whether its request carries a body count. The folders below `nbody/` never see a body.
 
-- `base/` never sees a body. It holds the lattice, its representation and codecs, the tower, the seal, exact
-  arithmetic, the measures of the lattice itself, and the scheduler.
+- `formats/` reads and writes the source and stored formats (zarr, tiff, hdf5, nifti, nrrd, dicom, npy, the stack,
+  cfg_json, apxrep, krep), and `codecs/` holds their compressors and the CRC.
+- `arithmetic/` holds exact arithmetic (`no_rounding/`) and the exact decimal and double fields.
+- `analysis/` holds the measures of the lattice itself: the tower, the residual, the period, compression, the entropy
+  history, shift agreement, the noise detector and the rest.
+- `compiler/` holds the record compiler: keymath, key_schedule, the cycle machine, code generation and the cell.
+- `runtime/` holds the seal (`obsignatio/`), the device pool, the scheduler, the radix keys, scriptura, and tessera,
+  the one daemon per device that admits every process's device jobs
+  ([runtime/daemon/README.md](runtime/daemon/README.md)).
+- `quantum/` holds the qasm reader and its device code.
 - `nbody/` is defined over n ≥ 1 bodies, n = 1 being its base case. There is no single-body folder, because one body
   is the case n = 1, not a separate machine.
-- `daemon/` holds tessera, the one daemon per device that admits every process's device jobs
-  ([daemon/README.md](daemon/README.md)).
 - `prg_sch/` holds the programs and schedules that compose the two: the cfgs and the n-body program.
   [prg_sch/README.md](prg_sch/README.md) is how to write a program for the machine. The tracker's run programs and
   its answer key are cell tracking's own, in `../cell_tracking/src/` (`run_cfg`, `run_log`, `answer_key`).
@@ -36,27 +42,27 @@ A module's place depends on whether its request carries a body count.
 - `sims/` holds the simulations. Each builds a lattice whose answer is known and grades a measurement against it, on
   the device, in exact integers.
 
-`engine.cu`, `engine.h` and `engine_config.h` sit at the top. `engine.cu` is the entry layer, the only file that
+`engine_*.cu`, `engine.h` and `engine_config.h` sit at the top. `engine_*.cu` is the entry layer, the only file that
 reaches every module. `engine.h` declares its calls, and `engine_config.h` the types every module shares.
 
 # General use
 
 ## Building
 
-The engine is CUDA C++ with C modules, compiled by `nvcc`. No script under `engine/` builds `engine.cu` itself: the
-program that links the engine compiles `engine.cu` and the modules it reaches. The scripts here build and run parts of
+The engine is CUDA C++ with C modules, compiled by `nvcc`. No script under `engine/` builds `engine_*.cu` itself: the
+program that links the engine compiles `engine_*.cu` and the modules it reaches. The scripts here build and run parts of
 it:
 
 | script | builds and runs |
 |---|---|
-| `daemon/test/run.sh` | the tessera suite (ledger, frame, measure, job), and the daemon into the run's build directory |
+| `../../test/engine/runtime/daemon/run.sh` | the tessera suite (ledger, frame, measure, job), and the daemon into the run's build directory |
 | `sims/run.sh <sim> [-- arguments]` | one sim, its modules, the tessera client, and a daemon beside the sim. The sims are `nbody_lattice`, `knf_identity`, `noise_floor`, `noise_terms`, `period_power`, `root_universal`, `ask_state`, `ka_psi`, `chaitin_omega`, `fixed_pattern` and `classify_reject_recover`. Each prints its readings and exits 0 only when every check holds |
-| `base/obsignatio/test/run.sh` | the seal against its test vectors (`test_vectors.json`) |
+| `../../test/engine/runtime/obsignatio/run.sh` | the seal against its test vectors (`test_vectors.json`); where `nvcc` is not on the path, the seal as C++ and the host's questions alone |
 | `CMakeLists.txt` | the C side only: the exact integer, the sift, the renderer, their arms and the benches. None of the CUDA engine |
 
 The sims pick the device architecture from `nvidia-smi` (`sm_<compute capability>`, else `sm_86`), or take it from
 `SIM_ARCHES`. On Windows each binary embeds `long_paths.manifest`, which lets it open paths past 260 characters.
-`ENGINE_PATH_ROOM` is 32,768 bytes on Windows and `PATH_MAX` elsewhere, taken from `<linux/limits.h>` on Linux.
+`ENGINE_PATH_CAPACITY` is 32,768 bytes on Windows and `PATH_MAX` elsewhere, taken from `<linux/limits.h>` on Linux.
 
 **The tracker's modules are not here.** `bodies`, `group_objects`, `link_objects`, `relate_frames`, `run_cfg`,
 `run_log` and `answer_key` include `track.h`, the tracker's header, and live beside it in the tracker's tree
@@ -66,16 +72,16 @@ The sims pick the device architecture from `nvidia-smi` (`sm_<compute capability
 
 ## Calls and results
 
-Every call that can fail returns `ENGINE_REFUSED` (−1) on failure. On success it returns 0 or a count: the bits of a
-key, the lanes swept or the bodies found. Each module has its own refusal of the same value (`CYCLE_REFUSED`,
-`MAX_TREE_REFUSED`, `TESSERA_REFUSED`, …).
+Every call that can fail returns `ENGINE_ERROR` (−1) on failure. On success it returns 0 or a count: the bits of a
+key, the lanes swept or the bodies found. Each module has its own refusal of the same value (`CYCLE_ERROR`,
+`MAX_TREE_ERROR`, `TESSERA_ERROR`, …).
 
 | purpose | calls |
 |---|---|
-| the lattice machine | `engine_key_imprint`, `engine_key_release` |
-| the record machine | `engine_record_imprint`, `engine_record_sweep`, `engine_record_host` |
-| the residual | `engine_residual`, `engine_residual_tally` |
-| one frame's bodies | `engine_frame_bodies`, `engine_bodies_tally`, `engine_group_voxels` |
+| the lattice machine | `engine_key_encode`, `engine_key_release` |
+| the record machine | `engine_record_encode`, `engine_record_sweep`, `engine_record_host` |
+| the residual | `engine_residual`, `engine_residual_results` |
+| one frame's bodies | `engine_frame_bodies`, `engine_bodies_results`, `engine_group_voxels` |
 | sources | `engine_source_find`, `engine_source_lanes`, `engine_source_samples`, `engine_source_read` |
 | the set | `engine_sample_path`, `engine_set_samples`, `engine_ingest_set`, `engine_ingest_print`, `engine_iapx_prove_set`, `engine_prove_print`, `engine_iapx_head`, `engine_iapx_load`, `engine_side_release` |
 | entropy | `engine_entropy_set`, `engine_entropy_cloud`, `engine_entropy_history_read`, `engine_entropy_history_release` |
@@ -85,7 +91,7 @@ key, the lanes swept or the bodies found. Each module has its own refusal of the
 | errors and helpers | `engine_error_read`, `engine_error_clear`, `engine_percent_of`, `engine_order_keys`, `engine_sort_unique` |
 
 `iapx` in a call's name is the crystal's old suffix. The file those calls read and write is `.kcr`
-(`ENTRY_CRYSTAL_SUFFIX`, `engine.cu`).
+(`ENTRY_CRYSTAL_SUFFIX`, `engine_*.cu`).
 
 ## Errors
 
@@ -96,7 +102,7 @@ names the first thing that failed, and nothing after it overwrites that.
 | field | holds |
 |---|---|
 | `kind` | `ENGINE_ERROR_REQUEST` (1, the caller asked for something the call refuses), `ENGINE_ERROR_RESOURCE` (2, memory, a CUDA call or a file failed; `status` is the CUDA status or `errno`) or `ENGINE_ERROR_LOGIC` (3, a check the engine proves did not hold, such as a rebuilt voxel that differs) |
-| `module` | the `EngineModule` that raised it: engine 0, max_tree 1, flatten 2, decimal_double 3, unit_sweep 4, cycle 5, keymath 6, key_schedule 7, residual 8, grow 9, apxrep 10, compression 11, tower 12, entropy_history 13, zip 14, npy 15, dicom 16, obsignatio 17, tessera 18, period 19, qasm 20, noise_detector 21, device_pool 22 |
+| `module` | the `EngineModule` that raised it: engine 0, max_tree 1, flatten 2, decimal_double 3, unit_sweep 4, cycle 5, keymath 6, key_schedule 7, residual 8, grow 9, apxrep 10, compression 11, tower 12, entropy_history 13, zip 14, npy 15, dicom 16, obsignatio 17, tessera 18, period 19, qasm 20, noise_detector 21, device_pool 22, cell 23 |
 | `site` | the source line of the check that failed |
 | `execaddr` | the return address inside the check, the code that failed |
 | `evacaddr` | the address of the object the check was about |
@@ -113,8 +119,8 @@ The set, body, entropy and frame entries also keep the first error they raise in
 `engine_source_find(source, sample, …)` looks for `<source>/<sample>` with each suffix in turn: `.ome.zarr`, `.zarr`,
 `.n5`, `.ome.tiff`, `.ome.tif`, `.tiff`, `.tif`, `.hdf5`, `.h5`, `.ims`, `.npz`, `.npy`, `.nhdr`, `.nrrd`, `.nii.gz`,
 `.nii`, `.hdr`, `.stack`. When `source` is a file, it is an archive, and the sample names a member of it. The readers
-are `base/zarr`, `zip`, `tiff`, `hdf5`, `npy`, `nrrd`, `nifti`, `dicom` and `stack`, and the codecs they call are
-`base/blosc`, `zstd`, `lz4`, `snappy`, `inflate`.
+are `formats/zarr`, `zip`, `tiff`, `hdf5`, `npy`, `nrrd`, `nifti`, `dicom` and `stack`, and the codecs they call are
+`codecs/blosc`, `zstd`, `lz4`, `snappy`, `inflate`.
 
 `engine_source_read` reads one source whole into 16-bit lanes in t z y x order:
 
@@ -139,16 +145,16 @@ EngineError error = {0};
 EngineSampleRecord records[count];
 EngineSetReport report = {records};
 const EngineIngestRequest ingest = {source, set, samples, count, axes, &error, &report};
-if (engine_ingest_set(&ingest) == ENGINE_REFUSED) { /* error names the first failure */ }
+if (engine_ingest_set(&ingest) == ENGINE_ERROR) { /* error names the first failure */ }
 engine_ingest_print(&ingest, stdout);
 ```
 
 For each sample, in the order named, `engine_ingest_set`:
 
-1. reads the source (`engine_source_read`) and packs the side bytes (`base/deflate`);
+1. reads the source (`engine_source_read`) and packs the side bytes (`codecs/deflate`);
 2. lifts the lanes on the device through the tower (`tower_lift`) and codes the coefficients (`compression_encode`)
    into the stored stream;
-3. seals it (`base/obsignatio`, keyed BLAKE3 at every level): a node per row, plane, volume and lane, a leaf per
+3. seals it (`runtime/obsignatio`, keyed BLAKE3 at every level): a node per row, plane, volume and lane, a leaf per
    stored chunk, then the stream, the side bytes stored and inflated, the members, and the sample's root over all of
    them;
 4. writes the crystal (`apxrep_input_write`), reads it back, checks every chunk and root against the seal, lowers it
@@ -172,8 +178,8 @@ extent `[t, z, y, x]`.
 
 ## The residual
 
-The residual is a lattice program run on the key machine (`base/residual`, `base/keymath`, `base/key_schedule`,
-`base/cycle`). `residual_program` writes four steps:
+The residual is a lattice program run on the key machine (`analysis/residual`, `compiler/keymath`, `compiler/key_schedule`,
+`compiler/cycle`). `residual_program` writes four steps:
 
 1. `ENGINE_SMOOTH` by `smooth_orders`;
 2. `ENGINE_KEEP`;
@@ -185,7 +191,7 @@ smoothed lattice times 2^(sum of background orders), minus its background-smooth
 `ENGINE_RESIDUAL_LIMBS` (9) 32-bit limbs.
 
 An order n's window starts floor((n + 1) / 2) voxels before the voxel. A background order must be even, so that both
-terms are centred on one point. A smooth order may be odd. On an axis where it is odd, both terms, and the residual
+terms are centerd on one point. A smooth order may be odd. On an axis where it is odd, both terms, and the residual
 with them, sit half a voxel before the voxel of the lane's index. `offset_halves` receives that place per axis in half
 voxels: -1 where the smooth order is odd, 0 where it is even. A request with an odd smooth order and no
 `offset_halves` is refused.
@@ -200,14 +206,14 @@ engine_residual(&residual, &device_residual);   // one frame: depth × height ×
 
 `unit_sweep` picks the route:
 
-- `ENGINE_RESIDUAL_BY_UNIT_SWEEP` (0): `base/unit_sweep` applies the unit steps directly.
-- `ENGINE_RESIDUAL_BY_KEY` (1): the imprinted key runs on `base/cycle`.
+- `ENGINE_RESIDUAL_BY_UNIT_SWEEP` (0): `analysis/unit_sweep` applies the unit steps directly.
+- `ENGINE_RESIDUAL_BY_KEY` (1): the imprinted key runs on `compiler/cycle`.
 - `ENGINE_RESIDUAL_BOTH_PROVED` (2): both run, and every lane is compared. A frame whose lanes differ is refused as a
   logic error.
 
 The key is imprinted once and kept while the orders stay the same. The device buffers are kept while the voxel count
 stays the same. The returned pointer is the engine's, valid until the next call. A frame may hold at most
-2^32 − 1 lanes divided by 9. `engine_residual_tally` returns the frames run, proved and differing, and the time spent
+2^32 − 1 lanes divided by 9. `engine_residual_results` returns the frames run, proved and differing, and the time spent
 in each route.
 
 ## One frame's bodies
@@ -223,7 +229,7 @@ in each route.
 It returns the body count. An `EngineBody` carries the moments (6), the coordinate sums (3), its residual level
 (9 limbs), `peak`, `mass` and `touches`. It also carries the fields the relating steps fill: `code`, `sample`,
 `frame`, `id`, `state`, `parent`, `forward`, `backward` and `velocity`. `engine_group_voxels` lists the voxels of each
-leaf by the labels, in leaf order. `engine_bodies_tally` returns the frames, bodies and levels seen.
+leaf by the labels, in leaf order. `engine_bodies_results` returns the frames, bodies and levels seen.
 
 ## What a sample keeps beside its crystal
 
@@ -234,7 +240,7 @@ leaf by the labels, in leaf order. `engine_bodies_tally` returns the frames, bod
 | `<sample>.bapx` | `engine_bodies_write` | the body table: `ENGINE_BODY_WORDS` (11) words per body (peak, mass, 3 sums, 6 moments), where each frame starts, and a CRC-64 over the words |
 
 `engine_entropy_set` loads each crystal through its proof and projects the history
-(`base/entropy_history`). Each voxel's flips must keep parity with its net change, or the sample is refused ("entropy
+(`analysis/entropy_history`). Each voxel's flips must keep parity with its net change, or the sample is refused ("entropy
 not conserved"). It then writes the history, reads it back and compares. With `keep` set, a sample whose history was
 made from the crystal's current root is skipped. `engine_entropy_cloud` reads only the cloud.
 
@@ -253,7 +259,7 @@ tracker drives them frame to frame, and the tracker is not in this tree (`track.
 
 | module | entry | takes → gives | runs on |
 |---|---|---|---|
-| `base/shift_agreement` | `shift_agreement_host`, `shift_agreement_run` | two frames' packed words and the axes' extents (up to 8 axes) → the agreement at every lag, by a transform modulo 998,244,353. The voxel count must be below that prime | host and device |
+| `analysis/shift_agreement` | `shift_agreement_host`, `shift_agreement_run` | two frames' packed words and the axes' extents (up to 8 axes) → the agreement at every lag, by a transform modulo 998,244,353. The voxel count must be below that prime | host and device |
 | `nbody/body_overlap` | `body_overlap_host`, `body_overlap_run`, `body_overlap_run_on_device` | two frames' labels and positive words under a lag → each overlapping pair of bodies (by peak) and its voxel count | host and device |
 | `nbody/heaviest_matching` | `heaviest_matching_run` | the pairs and their counts → the pairs chosen, a matching of greatest weight | host |
 | `nbody/climb_machine` | `climb_machine_open`, `_store`, `_pend`, `_run`, `_box`, `_core`, `_extents`, `_close` | each frame's labels, positive words, peaks and contacts, then frame pairs with a lag → each leaf's landing forward and backward, with the lags | device |
@@ -284,10 +290,10 @@ The tracker's own modules (`bodies`, `group_objects`, `link_objects`, `relate_fr
 
 ## Two machines on one runner
 
-- **The lattice machine** (`engine_key_imprint`) takes `EngineStep`s (`ENGINE_SMOOTH`, `ENGINE_KEEP`,
+- **The lattice machine** (`engine_key_encode`) takes `EngineStep`s (`ENGINE_SMOOTH`, `ENGINE_KEEP`,
   `ENGINE_SCALE_SUBTRACT`) and imprints them into one exact key over the lattice's three axes. The residual is its
   program.
-- **The record machine** (`engine_record_imprint`, `engine_record_sweep`, `engine_record_host`) runs a straight-line
+- **The record machine** (`engine_record_encode`, `engine_record_sweep`, `engine_record_host`) runs a straight-line
   program of exact integer steps over up to 3 members' records, one lane per output record, on the device or on the
   host. The host run uses the exact integer library, and a program is proved by the two agreeing word for word.
 
@@ -295,16 +301,18 @@ The tracker's own modules (`bodies`, `group_objects`, `link_objects`, `relate_fr
 the index, the tables, a worked example, and the machine's limits:
 
 - `ENGINE_RECORD_MEMBERS_MAX`: 3 members;
-- `ENGINE_RECORD_LIMBS_MOST`: 256 limbs live in the register file, each register's sign beside it.
+- `ENGINE_RECORD_LIMBS_MAX`: 256 limbs live in the register file, each register's sign beside it.
 
 The step count has no limit. Floors of steps stack in one program, and with register reuse a lane runs the whole
 stack in one launch.
 
-Every step is imprinted by `base/keymath`, laid out by `base/key_schedule` and run by `base/cycle`.
+Every step is imprinted by `compiler/keymath`, laid out by `compiler/key_schedule` and run by `compiler/cycle`. With
+`CODEGEN_DEVICE=1` the device lays the program as well, from one source with the host's (`keymath_core.h`,
+`key_schedule_core.h`), and the device's layout is loaded where it is the host's word for word.
 
 ## The config (`.cfg`)
 
-A run is configured by one JSON object (the tracker's `run_cfg`, parsed by `base/cfg_json`). Examples are in `prg_sch/cfg/`.
+A run is configured by one JSON object (the tracker's `run_cfg`, parsed by `formats/cfg_json`). Examples are in `prg_sch/cfg/`.
 `apply_cfg` refuses anything it does not know and names the line and column.
 
 | key | holds |
@@ -320,14 +328,14 @@ A run is configured by one JSON object (the tracker's `run_cfg`, parsed by `base
 `write_cfg` writes the effective config back in the same form, leaving out `arms`. `input.set`'s refusal message still says `.iapx`; the set holds `.kcr`.
 
 The tracker's `run_log` names the run log and records each run's rules. Its `answer_key` holds a truth graph's nodes
-and edges sorted for lookup. `base/schedule`'s `schedule_program` measures the device's free memory and plans against two
+and edges sorted for lookup. `runtime/schedule`'s `schedule_program` measures the device's free memory and plans against two
 thirds of it. It splits each sample's frames into chunks that fit, with consecutive chunks sharing one frame. It then
 writes each chunk as a stage, with the bytes it needs, as JSON to the path the caller sets in `g_schedule_path`
 (`nbody_program/program.json` in [prg_sch/README.md](prg_sch/README.md)). Nothing reads that plan back yet.
 
 # The daemon and device sharing
 
-[daemon/README.md](daemon/README.md) is the full guide: starting the daemon, submitting, what each ticket means, the
+[runtime/daemon/README.md](runtime/daemon/README.md) is the full guide: starting the daemon, submitting, what each ticket means, the
 job test, Linux, and the service files. In short:
 
 - **One daemon per device.** Every process that wants the device's memory submits a job to it
@@ -349,7 +357,7 @@ job test, Linux, and the service files. In short:
 - **The frame** between client and daemon is 128 bytes (`TESSERA_FRAME_BYTES`).
 
 **The reservation, as the code stands.** The working tree reserves each job the larger of its declaration and its
-signum's kept peak (`tessera_ledger_wants`, `daemon/tessera_ledger.c`). Admission, the head's shadow, the backfill's
+signum's kept peak (`tessera_ledger_wants`, `runtime/daemon/tessera_ledger.c`). Admission, the head's shadow, the backfill's
 spare and the reservation all use that figure. Doug's stated rule is different: "We reserve what they ask for and then
 if it cost less we remember that for next time". The max rule was committed in 9dac66e (24 September) and is not approved
 by him; it is waiting on his decision.
@@ -361,7 +369,7 @@ by him; it is waiting on his decision.
 | endpoint | `\\.\pipe\tessera-<uuid>` | `$TESSERA_RUNTIME`, else `$XDG_RUNTIME_DIR`, else `/tmp`, then `/tessera-<uuid>.sock` | the same as Linux |
 | one daemon | `FILE_FLAG_FIRST_PIPE_INSTANCE` | a lock file, and a live endpoint answering | the same as Linux |
 | measures | each job's pid, through the PDH counter under WDDM | each job's pid, through NVML | each client reports its own bytes through dxcore (`tessera_self.c`), and the daemon runs in reported mode (`tessera_self_paravirtual` reads `/proc/sys/kernel/osrelease`) |
-| service | none: the first client starts it | systemd user units `daemon/service/tessera@.socket` and `tessera@.service`, one instance per device UUID, with the socket handed over as fd 3 | the same as Linux |
+| service | none: the first client starts it | systemd user units `runtime/daemon/service/tessera@.socket` and `tessera@.service`, one instance per device UUID, with the socket handed over as fd 3 | the same as Linux |
 
 In a container, mount the host's socket and name its folder with `TESSERA_RUNTIME`. The daemon reads a client's pid
 with `SO_PEERCRED`, which gives the pid in the host's namespace. Native Linux (NVML by pid) has not run here, because this
@@ -379,36 +387,37 @@ never touch the device, and they submit nothing.
 
 | file | steps |
 |---|---|
-| `engine.cu`, `engine.h`, `engine_config.h` | 1–6: the entries and the shared types |
+| `engine_*.cu`, `engine.h`, `engine_config.h` | 1–6: the entries and the shared types |
 | `CMakeLists.txt` | builds the exact integer, the sift, the renderer, their arms and the repository's `bench/`; the CUDA arms join wherever a CUDA compiler is found, and `bench_lattice` wherever the C compiler has C99 `_Complex`, which MSVC's does not |
-| `base/stack/stack.{cu,h}` | 1 |
-| `base/zarr/zarr.{c,h}`, `base/zip/zip.{c,h}`, `base/dicom/dicom.{c,h}`, `base/npy/npy.{c,h}`, `base/nrrd/nrrd.{c,h}`, `base/nifti/nifti.{c,h}`, `base/tiff/tiff.{c,h}`, `base/hdf5/hdf5.{c,h}` | 1: the source readers |
-| `base/blosc/blosc.{c,h}`, `base/zstd/zstd.{c,h}`, `base/lz4/lz4.{c,h}`, `base/snappy/snappy.{c,h}`, `base/inflate/inflate.{c,h}` | 1: the codecs the readers call |
-| `base/deflate/deflate.{c,h}` | 1, 3: packs the side bytes the crystal stores |
-| `base/cfg_json/cfg_json.{c,h}` | 1, and the runs: JSON metadata and cfgs |
-| `base/double_fields/double_fields.{c,h}`, `base/decimal_double/decimal_double.{c,h}` | 1, 6: a source's floating and decimal fields made exact |
-| `base/obsignatio/obsignatio.{cu,h}`, `base/obsignatio/test/` | 2 |
-| `base/crc.h`, `base/crc_key.h` | 2, 3: the CRC-64 checks the seal is replacing (stage B) |
-| `base/apxrep/apxrep.{cu,h}` | 2, 3: frames the crystal, its seal and the other engine files |
-| `base/compression/compression.{cu,h}`, `base/tower/tower.{cu,h}` | 3: the tower can lay reversible lookup edges between its floors (`TowerEdge`, a permutation of a coefficient's low bits), which `tower_lower` undoes in reverse order. `tower_record_lift` and `tower_record_lower` emit T and T⁻¹ as record floors into a caller's program, one block to a lane, each floor focused from a ruleset of lifting steps (`TowerLiftingStep`); with none named, the ruleset is the kernels' 5/3. The coefficients, the scratch, the flag and the mismatch count are slices of one device pool. Compression's chunk bits, chunk offsets and scan scratch are slices of a second pool, and its stream, sized by the values once they are measured, is a pool of its own. `tower_hold_bytes` and `compression_hold_bytes` give a lattice's pool bytes before any device work, which the driver declares |
-| `base/device_pool/device_pool.{cu,h}` | 1–6: a job's device buffers as slices of one allocation. A plan lays each slice at the running sum rounded up to 256 bytes, and the pool is that sum rounded up to the 2 MiB page once. The bytes a job declares are then known before any device work. Takes run in the plan's order, a take past the pool is refused, and a return gives every slice back |
-| `base/residual/residual.{cu,h}`, `base/residual_survey/residual_survey.{cu,h}`, `base/unit_sweep/unit_sweep.{cu,h}` | 4 |
-| `base/entropy_history/entropy_history.{cu,h}` | 4 |
-| `base/shift_agreement/shift_agreement.{c,cu,h}` | 4, 6: the lag at which two frames agree |
-| `base/period/period.{cu,h}` | 4: the period of each axis of one lattice, with the exact counts that decide it |
-| `base/golden_bands/golden_bands.{cu,h}` | 5: the bands a value falls into |
-| `base/cycle/cycle.{c,cu,h}`, `base/keymath/keymath.{cu,h}`, `base/key_schedule/key_schedule.{cu,h}`, `base/radix_keys/radix_keys.h` | 4, 5, 6: the imprinted key machine every exact pass runs on |
-| `base/no_rounding/` | 4, 5, 6: the exact integer and its arms |
-| `base/qasm/qasm.h`, `base/qasm/qasm_field.c`, `base/qasm/qasm_dense.c`, `base/qasm/qasm_chain.c`, `base/qasm/qasm_symbolic.c`, `base/qasm/qasm_lens.c`, `base/qasm/test/` | none of the six: exact qubit states, error module 20 (`ENGINE_MODULE_QASM`). The C port of the four Python models that sit beside it in `base/qasm/`: exact_qubits.py, mps_qubits.py, symbolic_qubits.py and boundary_lens.py. `qasm.h` is the only public header. `qasm_field.c`: exact rationals and Q(√2)[i] numbers on the exact integer (`base/no_rounding`, 128 limbs by default); a value past that width refuses and never wraps. `qasm_dense.c`: the dense statevector, with X, Y, Z, S, H, CNOT, CZ, the controlled phase, and a general 2×2 or 4×4 matrix gate. `qasm_chain.c`: the exact matrix-product state, run unchanged over Q(√2)[i] or `Q(√2)[i](ω)`; after each two-site gate the bond is cut to its exact rank by Gaussian elimination (M = C·F). It also holds the boundary-lens expectation ⟨ψ\|O\|ψ⟩, contracted edge-inward. `qasm_symbolic.c`: `Q(√2)[i](ω)` rational functions in rat_make's canonical form, evaluated at a number and printed in symbolic_qubits.py's text form. `qasm_lens.c`: boundary_lens.py's reduced-round SHA-256 wedge-field invariants (rank, complement, degree-2 lift rank, curvature vanish counts, fibers, clock closure). The witness root is the engine's seal (`obsignatio_seal`), where the Python used a keyed blake2b. The digests therefore differ from the Python's by construction. The test checks that a seal repeats and that a one-rational or one-bit change moves it. `test/run.sh` builds and runs its test on the host: 39 checks, 0 failed (25 September), every value one the Python printed. Two are regression checks from a review: the bond at the widest site index reads 0, and w^(bits−1) at w = 2 evaluates to 2^(bits−1). At round 16 (mid 13, p 13, q 8, 6 bits, seed 2024) every vanished curvature sample on both strands came from a degenerate draw (a = 0, b = 0 or a = b), 30 forward and 14 backward, and none of the 370 forward and 386 backward non-degenerate draws vanished: at this aperture the curvature column counts degenerate draws, and the field shows no flat direction (a machine count on the Python model). Not built: a device arm; a place in the engine library build; anchor_sift's fixed-point qasm (qasm.h, qasm.c, qasm.cu, the QASM text reader and its tests), which reaches this tree through the anchor_sift submodule (`anchor_sift/src/engine/base/qasm/`, pinned at e3f79a5) and is not built into the engine here. |
-| `base/scriptura/scriptura.{c,h}`, `base/scriptura/scriptura_arm.h`, `base/scriptura/scriptura_arm_<set>.c` | 1–6: every report's formatting and memory scans, one memory arm per instruction set, chosen once at first use |
-| `base/schedule/schedule.{cu,h}` | 1–6: the program's stages against the device |
-| `daemon/tessera.h`, `daemon/tessera_frame.c`, `daemon/tessera_ledger.{c,h}`, `daemon/tessera_measure.{c,h}`, `daemon/tessera_self.c`, `daemon/tessera_client.c`, `daemon/tessera_daemon.c`, `daemon/tessera_paths.c`, `daemon/test/` | 1–6: the device scheduler every step's device work passes through. The daemon is built and run by `test/run.sh`, and `tessera_job_test` drives the client against it end to end (25 checks, 0 failed). The history and the lost tickets are sealed, and a damaged, cut or unsealed history is refused. Every sim that uses the device submits a job (`sims/sim_job.cu`). Under WSL 2 each client reports its own device bytes through dxcore (`tessera_self.c`), and the daemon runs in reported mode. [daemon/README.md](daemon/README.md) covers submitting jobs and starting the daemon |
-| `render/anchor_raster.{c,h}`, `render/raster_cuda.cu` | 4–6: renders a step's state as a sheet or a volume |
-| `nbody/max_tree/max_tree.{c,cu,h}`, `nbody/grow/grow.{cu,h}` | 5 |
+| `formats/stack/stack.{cu,h}` | 1 |
+| `formats/zarr/zarr.h`, `formats/zarr/zarr_*.c`, `codecs/zip/zip.h`, `codecs/zip/zip_*.c`, `formats/dicom/dicom.h`, `formats/dicom/dicom_*.c`, `formats/npy/npy.h`, `formats/npy/npy_*.c`, `formats/nrrd/nrrd.h`, `formats/nrrd/nrrd_*.c`, `formats/nifti/nifti.{c,h}`, `formats/tiff/tiff.h`, `formats/tiff/tiff_*.c`, `formats/hdf5/hdf5.h`, `formats/hdf5/hdf5_*.c` | 1: the source readers |
+| `codecs/blosc/blosc.{c,h}`, `codecs/zstd/zstd.h`, `codecs/zstd/zstd_*.c`, `codecs/lz4/lz4.{c,h}`, `codecs/snappy/snappy.{c,h}`, `codecs/inflate/inflate.h`, `codecs/inflate/inflate_*.c` | 1: the codecs the readers call |
+| `codecs/deflate/deflate.h`, `codecs/deflate/deflate_*.c` | 1, 3: packs the side bytes the crystal stores |
+| `formats/cfg_json/cfg_json.{c,h}` | 1, and the runs: JSON metadata and cfgs |
+| `arithmetic/double_fields/double_fields.{c,h}`, `arithmetic/decimal_double/decimal_double.{c,h}` | 1, 6: a source's floating and decimal fields made exact |
+| `runtime/obsignatio/obsignatio.h`, `runtime/obsignatio/obsignatio_*.cu`, `../../test/engine/runtime/obsignatio/` | 2 |
+| `codecs/crc/crc.h`, `codecs/crc/crc_key.h` | 2, 3: the CRC-64 checks the seal is replacing (stage B) |
+| `formats/apxrep/apxrep.h`, `formats/apxrep/apxrep_*.cu` | 2, 3: frames the crystal, its seal and the other engine files |
+| `analysis/compression/compression.{cu,h}`, `analysis/tower/tower.h`, `analysis/tower/tower_*.cu` | 3: the tower can lay reversible lookup edges between its floors (`TowerEdge`, a permutation of a coefficient's low bits), which `tower_lower` undoes in reverse order. `tower_record_lift` and `tower_record_lower` emit T and T⁻¹ as record floors into a caller's program, one block to a lane, each floor focused from a ruleset of lifting steps (`TowerLiftingStep`); with none named, the ruleset is the kernels' 5/3. The coefficients, the scratch, the flag and the mismatch count are slices of one device pool. Compression's chunk bits, chunk offsets and scan scratch are slices of a second pool, and its stream, sized by the values once they are measured, is a pool of its own. `tower_reserve_bytes` and `compression_reserve_bytes` give a lattice's pool bytes before any device work, which the driver declares |
+| `runtime/device_pool/device_pool.{cu,h}` | 1–6: a job's device buffers as slices of one allocation. A plan lays each slice at the running sum rounded up to 256 bytes, and the pool is that sum rounded up to the 2 MiB page once. The bytes a job declares are then known before any device work. Takes run in the plan's order, a take past the pool is refused, and a return gives every slice back |
+| `analysis/residual/residual.{cu,h}`, `analysis/residual_survey/residual_survey.{cu,h}`, `analysis/unit_sweep/unit_sweep.{cu,h}` | 4 |
+| `analysis/entropy_history/entropy_history.{cu,h}` | 4 |
+| `analysis/shift_agreement/shift_agreement.{c,h}`, `analysis/shift_agreement/shift_agreement_*.cu` | 4, 6: the lag at which two frames agree |
+| `analysis/period/period.h`, `analysis/period/period_*.cu` | 4: the period of each axis of one lattice, with the exact counts that decide it |
+| `analysis/golden_bands/golden_bands.{cu,h}` | 5: the bands a value falls into |
+| `compiler/cycle/cycle.{c,h}`, `compiler/cycle/cycle_{sweep,launch}.cu` (the key sweep), `cycle_record_*.cu` (the record interpreter and calls), `cycle_prelude.cu` (the prelude a C lane opens with), `cycle_compile_*.cu` (a program compiled), `cycle_shared.h`; `compiler/codegen/emit.{cu,h}` (the code generator's base class), `codegen_core.h` (the register lane's decisions, host and device), `code_generator.{cu,h}` (the register lane), `ptx_target.{cu,h}`, `c_target.{cu,h}` and `vhdl_target.{cu,h}` (a language each), `asm_printer.h`, `asm_printer_*.cu` (the assembly printer, a record program that writes a lane's text), `codegen_device.h`, `codegen_device_*.cu` (the lane written on the device, and the program laid there), `ruleset_reader.h`, `compiler/codegen/rulesets/{ptx,c,vhdl}.krs`, `compiler/keymath/keymath.{cu,h}`, `keymath_core.h` (the record imprint, host and device), `compiler/key_schedule/key_schedule.{cu,h}`, `key_schedule_core.h` (the record lay, host and device), `runtime/radix_keys/radix_keys.h` | 4, 5, 6: the imprinted key machine every exact pass runs on |
+| `compiler/cell/cell.{c,h}` | none of the six: the cell, a probe runner, error module 23 (`ENGINE_MODULE_CELL`). Each probe, a small program that asks the target one question, runs in a child process the cell can lose (a job object on Windows, a process group on POSIX), and the cell records how it ended: exited, signaled, faulted, out of time or not started, the code, the rule a signal or fault names (arithmetic, address, instruction, stack, trap, abort), its output and its time. `test/engine/compiler/cell/cell_test.sh` asks the host part (17 checks, 0 failed on Windows and on WSL, 27 September); `test/engine/compiler/cell/cell_ptx_test.sh` asks the device in `ptx.krs`'s own forms, written through `ruleset_opcode` (`compiler/codegen/target.h`): 55 arithmetic, test and conversion forms over 65,536 cases each against the host's integers, and the illegal operations, each from a fresh process (10 checks, 0 failed, 27 September). Not in the engine library build |
+| `arithmetic/no_rounding/` | 4, 5, 6: the exact integer and its arms |
+| `quantum/qasm/qasm.h`, `quantum/qasm/qasm_field_*.c`, `quantum/qasm/qasm_dense.c`, `quantum/qasm/qasm_chain_*.c`, `quantum/qasm/qasm_symbolic_*.c`, `quantum/qasm/qasm_lens_*.c`, `../../test/engine/quantum/qasm/` | none of the six: exact qubit states, error module 20 (`ENGINE_MODULE_QASM`). The C port of the four Python models that sit beside it in `quantum/qasm/`: exact_qubits.py, mps_qubits.py, symbolic_qubits.py and boundary_lens.py. `qasm.h` is the only public header. `qasm_field_*.c`: exact rationals and Q(√2)[i] numbers on the exact integer (`arithmetic/no_rounding`, 128 limbs by default); a value past that width refuses and never wraps. `qasm_dense.c`: the dense statevector, with X, Y, Z, S, H, CNOT, CZ, the controlled phase, and a general 2×2 or 4×4 matrix gate. `qasm_chain_*.c`: the exact matrix-product state, run unchanged over Q(√2)[i] or `Q(√2)[i](ω)`; after each two-site gate the bond is cut to its exact rank by Gaussian elimination (M = C·F). It also holds the boundary-lens expectation ⟨ψ\|O\|ψ⟩, contracted edge-inward. `qasm_symbolic_*.c`: `Q(√2)[i](ω)` rational functions in rat_make's canonical form, evaluated at a number and printed in symbolic_qubits.py's text form. `qasm_lens_*.c`: boundary_lens.py's reduced-round SHA-256 wedge-field invariants (rank, complement, degree-2 lift rank, curvature vanish counts, fibers, clock closure). The witness root is the engine's seal (`obsignatio_seal`), where the Python used a keyed blake2b. The digests therefore differ from the Python's by construction. The test checks that a seal repeats and that a one-rational or one-bit change moves it. `../../test/engine/quantum/qasm/run.sh` builds and runs its test on the host: 39 checks, 0 failed (25 September), every value one the Python printed. Two are regression checks from a review: the bond at the widest site index reads 0, and w^(bits−1) at w = 2 evaluates to 2^(bits−1). At round 16 (mid 13, p 13, q 8, 6 bits, seed 2024) every vanished curvature sample on both strands came from a degenerate draw (a = 0, b = 0 or a = b), 30 forward and 14 backward, and none of the 370 forward and 386 backward non-degenerate draws vanished: at this aperture the curvature column counts degenerate draws, and the field shows no flat direction (a machine count on the Python model). Not built: a device arm; a place in the engine library build; anchor_sift's fixed-point qasm (qasm.h, qasm_{exact,trig,lexer,expression,gates,statements,read}.c, qasm_device_*.cu, the QASM text reader and its tests), which reaches this tree through the anchor_sift submodule (`anchor_sift/src/engine/quantum/qasm/`, pinned at e3f79a5) and is not built into the engine here. |
+| `runtime/scriptura/scriptura.{c,h}`, `runtime/scriptura/scriptura_arm.h`, `runtime/scriptura/scriptura_arm_<set>.c` | 1–6: every report's formatting and memory scans, one memory arm per instruction set, chosen once at first use |
+| `runtime/schedule/schedule.{cu,h}` | 1–6: the program's stages against the device |
+| `runtime/daemon/tessera.h`, `runtime/daemon/tessera_frame.c`, `runtime/daemon/tessera_ledger.{c,h}`, `runtime/daemon/tessera_measure.{c,h}`, `runtime/daemon/tessera_self.c`, `runtime/daemon/tessera_client_*.c`, `runtime/daemon/tessera_daemon_*.c`, `runtime/daemon/tessera_paths.c`, `../../test/engine/runtime/daemon/` | 1–6: the device scheduler every step's device work passes through. The daemon is built and run by `../../test/engine/runtime/daemon/run.sh`, and `tessera_job_test` drives the client against it end to end (25 checks, 0 failed). The history and the lost tickets are sealed, and a damaged, cut or unsealed history is refused. Every sim that uses the device submits a job (`sims/sim_job.cu`). Under WSL 2 each client reports its own device bytes through dxcore (`tessera_self.c`), and the daemon runs in reported mode. [runtime/daemon/README.md](runtime/daemon/README.md) covers submitting jobs and starting the daemon |
+| `render/anchor_raster.h`, `render/anchor_raster_*.c`, `render/raster_cuda_*.cu` | 4–6: renders a step's state as a sheet or a volume |
+| `nbody/max_tree/max_tree.h`, `nbody/max_tree/max_tree_*.c`, `nbody/max_tree/max_tree_device_*.cu`, `nbody/grow/grow.{cu,h}` | 5 |
 | `nbody/flatten/flatten.{cu,h}` | 5: the bodies' magnitudes flattened and stored |
 | `nbody/fingerprint/fingerprint.{cu,h}`, `nbody/print_pair/print_pair.{cu,h}` | 6: a body's print, and a pair of prints |
 | `nbody/body_overlap/body_overlap.{c,cu,h}`, `nbody/heaviest_matching/heaviest_matching.{c,h}` | 6 |
-| `nbody/velocity/velocity.{cu,h}`, `nbody/division/division.{cu,h}`, `nbody/contact_side/contact_side.{cu,h}`, `nbody/box_history/box_history.{cu,h}`, `nbody/climb_machine/climb_machine.{cu,h}`, `nbody/climb_machine/spiral_table.h`, `nbody/marginal/marginal.{c,cu,h}` | 6 |
+| `nbody/velocity/velocity.{cu,h}`, `nbody/division/division.{cu,h}`, `nbody/contact_side/contact_side.{cu,h}`, `nbody/box_history/box_history.{cu,h}`, `nbody/climb_machine/climb_machine.h`, `nbody/climb_machine/climb_machine_*.cu`, `nbody/climb_machine/spiral_table.h`, `nbody/marginal/marginal.{c,cu,h}` | 6 |
 | `nbody/anchor_sift/` | 6: the sift, its scan arms per instruction set |
 | `prg_sch/cfg/`, `prg_sch/nbody_program/` | the runs that compose steps 1–6 |
 | `sims/run.sh`, `sims/sim.h` | the sims' build, their checks and keyed draws, and exact rationals printed through the exact integer |
@@ -416,7 +425,7 @@ never touch the device, and they submit nothing.
 | `sims/nbody_lattice/` | 5, 6: moving and dividing bodies with their truth, the camera law's two moments against the planted law, and `--out <dir>` for `lattice.npy` and `truth.tsv` |
 | `sims/knf_identity/` | 4: the entropy history's identity by spatial null permutation, on the nbody lattice's law in a 64³ cube over 177 frames (16 whole windows). E couples every voxel's centered window densities with its z, y and x neighbors on the torus. The 48 exact cube motions, each with a torus translation, carry the history as a whole and keep E and the cloud. The departure curve of E runs over tile sizes 1 to 64 under two inverse nulls: a shuffle inside each tile, and a rigid move of whole tiles. At every size the whole is its tiles plus its seams, exactly. Each body's box has its own curve. Alike voxels are identified at the 1/(draws + 1) rate. A single flipped bit leaves the history unchanged exactly when the window rule says |
 | `sims/noise_floor/` | 4: the Kolmogorov mock (linear-generator noise recovered by Berlekamp–Massey), the linear complexity of every bit plane, the photon transfer curve with motion removed by the truth and by the data alone, and the neighbor coherence of frame differences |
-| `sims/noise_terms/` | 4: each noise vector term planted in the camera law and read back by `base/noise_detector`: the lines' row, column and plane readings, the structure function under flicker octaves, the neighbor correlation at every reach under a mix along z, the clips' boxes and spikes, and both shot laws' second, third and fourth cumulants against the plant |
+| `sims/noise_terms/` | 4: each noise vector term planted in the camera law and read back by `analysis/noise_detector`: the lines' row, column and plane readings, the structure function under flicker octaves, the neighbor correlation at every reach under a mix along z, the clips' boxes and spikes, and both shot laws' second, third and fourth cumulants against the plant |
 | `sims/period_power/` | 4: `period_read` on planted periods from no plant to a strong one, at 8 and 19 draws: its power, which multiple it reads, and the false-period rate on the unplanted axes |
 | `sims/root_universal/` | 3: the tower with reversible lookup edges between its floors, on camera-law volumes. Random edge programs rebuild every lane through lift, code, wipe, decode and lower. Two edges on one floor fold into the table that composes them, in order, and a floor between them blocks the fold. It also measures what an unfitted edge costs the coder, by table width and by floor |
 | `sims/ask_state/` | a qubit carried exactly as the answer distribution of a complete ask, in exact rationals on the exact integer. There are two asks: a rational tetrahedral one, and the true SIC in Q(√3), where the square root is carried by its relation (√3)² = 3. State to answers to state is exact, and the phase falls out of the ask. The valid set holds the pure states on its boundary. The crossing rule has negative weights. It also counts how many distributions of a grid are states |
@@ -426,9 +435,9 @@ never touch the device, and they submit nothing.
 
 ## The exact integer, and the arms that read it
 
-`base/no_rounding/exact_integer.{c,h}` holds an exact integer as a fixed width array of 32 bit limbs. The directory name states what the arithmetic is for. It removes rounding, and a comparison is then exact. It is the same value anchor_sift's `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
+`arithmetic/no_rounding/exact_integer.h`, `arithmetic/no_rounding/exact_integer_*.c` holds an exact integer as a fixed width array of 32 bit limbs. The directory name states what the arithmetic is for. It removes rounding, and a comparison is then exact. It is the same value anchor_sift's `src/engine/python/representation/exact.py` ingests, in a different transform: Python carries the arbitrary precision form, this carries the fixed width form, and a GPU carries the same fixed width form one warp to a number. No arm gets its own arithmetic doctrine.
 
-Fixed width is the only bound the representation has, and it is declared instead of discovered. The default is 128 limbs, 4096 bits, holding the 1024 decimal digits the Python side ingests at (`base/no_rounding/exact_integer.h`, `ANCHOR_EXACT_LIMBS`). This tree's build fits it to 256 limbs, from `ENGINE_RECORD_LIMBS_MOST`. A build selects any power of two from 1 limb up, given in limbs or in bits (`ANCHOR_EXACT_BITS`), with no ceiling, and the header refuses any other width at compile time. Every arm is graded from 1 limb to 32768 by `check_exact_widths.sh`, and the portable reference to 4,194,304 bits by `test/exact_transform_test`. A power of two keeps the top magnitude bit at one fixed position as the width doubles. The sign is held apart from the limbs. A value that will not fit returns `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
+Fixed width is the only bound the representation has, and it is declared instead of discovered. The default is 128 limbs, 4096 bits, holding the 1024 decimal digits the Python side ingests at (`arithmetic/no_rounding/exact_integer.h`, `ANCHOR_EXACT_LIMBS`). This tree's build fits it to 256 limbs, from `ENGINE_RECORD_LIMBS_MAX`. A build selects any power of two from 1 limb up, given in limbs or in bits (`ANCHOR_EXACT_BITS`), with no ceiling, and the header refuses any other width at compile time. Every arm is graded from 1 limb to 32768 by `check_exact_widths.sh`, and the portable reference to 4,194,304 bits by `test/exact_transform_test`. A power of two keeps the top magnitude bit at one fixed position as the width doubles. The sign is held apart from the limbs. A value that will not fit returns `ANCHOR_EXACT_WILL_NOT_FIT` instead of wrapping.
 
 In this tree's copy the width has no ceiling. A build names it in bits (`ANCHOR_EXACT_BITS`) or in 32-bit limbs (`ANCHOR_EXACT_LIMBS`): any power of two from 32 bits up. The one not given follows from the other, and static asserts refuse a width that is not a power of two, is below 32 bits, or where the two names disagree. `ANCHOR_EXACT_DIGITS`, when not given, is the most decimal digits the width holds, up to the 1024 the Python side ingests at. The default 4096-bit build is unchanged. A call's width-sized working copies are one room, placed at compile time: on the stack up to `ANCHOR_EXACT_STACK_LIMBS` (4096 limbs), and from the heap beyond it. A room that cannot be held returns `ANCHOR_EXACT_WILL_NOT_FIT`. No width is bounded by a stack. The caller still holds its own values; at widths past the stack it holds them from the heap.
 
@@ -455,22 +464,22 @@ bash maint/engine/check_exact_widths.sh
 bash maint/engine/check_exact_widths.sh --gpu
 ```
 
-A width below 4096 bits cannot hold the 1024 digit floor. A narrower build names the floor it does hold, 38 digits at 128 bits. The engine needs 8 limbs. Its dispatch rule reaches 143 bits on a 64 bit census, and `nbody/anchor_sift/anchor_sift.c:23-39` refuses a narrower width by name. The exact integer and every arm build and grade down to 1 limb. `check_exact_widths.sh` builds each width in its own tree under `build/exact_widths/` and grades it three ways: the rows of `bench_exact` against Python integers, every host arm against portable, and `test_steer` from 8 limbs up. `--gpu` adds the CUDA arm through `build_gpu_arm.sh`, which prints whether the device itself answered as well as whether the arm agreed.
+A width below 4096 bits cannot hold the 1024 digit floor. A narrower build names the floor it does hold, 38 digits at 128 bits. The engine needs 8 limbs. Its dispatch rule reaches 143 bits on a 64 bit census, and `nbody/anchor_sift/anchor_sift_internal.h:28-44` refuses a narrower width by name. The exact integer and every arm build and grade down to 1 limb. `check_exact_widths.sh` builds each width in its own tree under `build/exact_widths/` and grades it three ways: the rows of `bench_exact` against Python integers, every host arm against portable, and `test_steer` from 8 limbs up. `--gpu` adds the CUDA arm through `build_gpu_arm.sh`, which prints whether the device itself answered as well as whether the arm agreed.
 
 The run shrinks as the width grows, from 4096 positions at 128 limbs and below to 64 from 8192 limbs up. At the widest width one position is 128 KiB on the host and twice that on the device.
 
 An **arm** is one implementation of the operations the measure asks for. Every arm answers the same counts, and the portable C11 one is the reference. Where two disagree, one of them has a defect and nothing about the difference is a tradeoff.
 
-Every arm is one file in `base/no_rounding/`, named for its instruction set. The set of arms is a directory listing.
+Every arm is one file in `arithmetic/no_rounding/`, named for its instruction set. The set of arms is a directory listing.
 
 | file                              | arm                        | instruction                                         |
 | --------------------------------- | -------------------------- | --------------------------------------------------- |
-| `base/no_rounding/arm_portable.c` | `portable`                 | none, C11 alone                                     |
-| `base/no_rounding/arm_avx2.c`     | `avx2-win` or `avx2-linux` | `vpcmpeqd` on `ymm`, eight limbs at once            |
-| `base/no_rounding/arm_avx512.c`   | `avx512-unrun`             | `vpcmpeqd` on `zmm` against a mask, sixteen at once |
-| `base/no_rounding/arm_neon.c`     | `neon`                     | `cmeq` and `uminv`, four limbs at once              |
-| `base/no_rounding/arm_sve.c`      | `sve-unrun`                | `whilelo`, `cmpne`, whatever length the part has    |
-| `base/no_rounding/arm_cuda.cu`    | `cuda`                     | one position per thread, not one limb per lane      |
+| `arithmetic/no_rounding/arm_portable.c` | `portable`                 | none, C11 alone                                     |
+| `arithmetic/no_rounding/arm_avx2.c`     | `avx2-win` or `avx2-linux` | `vpcmpeqd` on `ymm`, eight limbs at once            |
+| `arithmetic/no_rounding/arm_avx512.c`   | `avx512-unrun`             | `vpcmpeqd` on `zmm` against a mask, sixteen at once |
+| `arithmetic/no_rounding/arm_neon.c`     | `neon`                     | `cmeq` and `uminv`, four limbs at once              |
+| `arithmetic/no_rounding/arm_sve.c`      | `sve-unrun`                | `whilelo`, `cmpne`, whatever length the part has    |
+| `arithmetic/no_rounding/arm_cuda.cu`    | `cuda`                     | one position per thread, not one limb per lane      |
 
 The AVX2 arm is one file for every x86 build. It carries both detection paths, MSVC's `cpuid` and the builtin GCC and Clang share, and reports the operating system in its own name so two builds running the same instructions are still told apart in a row. Every arm asks the processor at run time before it is used, because the build machine and the running machine are not the same machine.
 
@@ -524,10 +533,10 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 
 | file                                                                | what it is                                                                        |
 | ------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `nbody/anchor_sift/anchor_sift.{c,h}`                               | the search, the steering and the portable scan, with no clock and no output       |
+| `nbody/anchor_sift/anchor_sift.h`, `nbody/anchor_sift/anchor_sift_*.c`                               | the search, the steering and the portable scan, with no clock and no output       |
 | `nbody/anchor_sift/scan_<set>.c`                                    | one wide scan arm per instruction set                                             |
-| `base/no_rounding/`                                                 | the exact integer and every arm that reads it, one file per instruction set       |
-| `render/anchor_raster.{c,h}`, `render/raster_cuda.cu`               | the direct renderer, host and device                                              |
+| `arithmetic/no_rounding/`                                                 | the exact integer and every arm that reads it, one file per instruction set       |
+| `render/anchor_raster.h`, `render/anchor_raster_*.c`, `render/raster_cuda_*.cu`               | the direct renderer, host and device                                              |
 | `bench/bench_corpora.{c,h}`                                         | the generated corpora and the two statistics a dispatch decision reads            |
 | `bench/bench_lattice.c`                                             | soundness, where the claim actually lives                                         |
 | `bench/bench_scaling.c`                                             | what the sift costs per alignment as the corpus grows                             |
@@ -541,6 +550,7 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 | `test/exact_divide_test.cu`, `test/exact_divide_test.sh` | the exact integer's division. Long division rebuilds numerator = quotient · divisor + remainder over 200,000 edge-shaped trials to 8 limbs and 4,000 at every width, with the remainder below the divisor and the signs of truncation. It also holds in a case that runs the add-back step. Exact division returns the quotient of every product, for odd and even divisors, and refuses a value one past a product. The gcd divides both values, contains their shared factor and leaves coprime cofactors, and it equals Euclid's on the long division. A zero divisor is refused |
 | `test/record_divide_test.cu`, `test/record_divide_test.sh` | the division record operations (`ENGINE_RECORD_QUOTIENT`, `_REMAINDER`, `_GCD`, `_EXACT_QUOTIENT`) on the register bit arrays. The device's own long division, Euclid and multiply-and-mask quotient must equal the host's word for word, and the host runs the exact integer library. This holds over 4,096 signed 160-bit lanes in the 64-limb file and 512 lanes of 2,048-bit numerators in the 256-limb file, including the add-back case. Every decoded lane meets numerator = quotient · divisor + remainder and the gcd's divisibility, and every exact quotient returns its factor. A zero divisor and an inexact quotient refuse on both sides, and a step reading a later one is refused at imprint |
 | `test/record_guide_test.cu`, `test/record_guide_test.sh` | the worked example of [prg_sch/README.md](prg_sch/README.md), run as written: bodies moved by x + v · dt over one shared time-step record paired in by the index, with the side of the origin. It checks the imprint's derived widths (32, 33, 1) and the packed outputs (bits 0 to 33 and 34 to 35 of a 2-limb record). The device must equal the host word for word over 1,000 bodies, with every value decoded exact. A step reading itself is refused at imprint, and an index past its member at the sweep. 11 checks, 0 failed |
+| `test/record_host_test.c`, `test/record_host_test.sh` | the host's record machine on any part, with no device and no CUDA toolchain (item 11(f) 6): programs over all 18 record operations, imprinted, laid and run by `cycle_record_run_host` over 4,096 lanes from one xorshift stream, each printing a digest of its inputs and of every output word. Two parts whose lines match run the record machine word for word alike, and the device's record tests hold the device to this oracle. It also holds a reused register layout to the unreused one, and a zero divisor and an inexact quotient to a refused run. The same six digests on Windows (MSVC, x86-64), WSL (gcc, x86_64) and a Raspberry Pi 5 (gcc, AArch64), 9 checks, 0 failed on each, 27 September |
 | `test/exact_transform_test.cu`, `test/exact_transform_test.sh` | the multiplication ladder, at three widths: 128 limbs, 4096 limbs (stack rooms), and 4,194,304 bits (heap rooms, four times past the old ceiling). The ladder, and the transform alone, both equal a long multiplication kept in the test, balanced and unbalanced, keyed and all-ones, across every rung boundary up to half the width (65,536-limb operands at 4M bits). Each product divides back to its factors, exactly and with a remainder, and the gcd holds a factor. Each rung is timed, and the crossovers are measured from those times. Extra arguments reach nvcc as defines |
 | `test/tower_edge_test.cu`, `test/tower_edge_test.sh`                | the tower's reversible lookup edges: one edge, edges stacked on one floor and edges on every floor all lift and lower back to the exact lanes. The edges change the crystal. A table that is not a permutation, a width out of range and a floor past the collapsed floor are all refused, and a refusal leaves no state behind. A Bennett edge, (x, y) → (x, y ⊕ f(x)), carries a lossy f (|x|, a comparison) as a permutation of the widened field: it round-trips, f(x) reads out of the carrier, and the same f laid bare is refused |
 | `test/device_pool_test.cu`, `test/device_pool_test.sh` | the device pool: slices laid at offsets worked by hand, page rounding on either side of a page, a plan past 2^62 bytes spoiled and its hold refused, kernels marking and reading back every slice with nothing between them, a take past the pool refused and the pool left as it was. The tower's four buffers for 1,100,000 voxels cost 10,485,760 bytes as one pool, its plan to the byte, and 14,680,064 as four allocations, read through the counter tessera's daemon reads (28 checks, 0 failed) |

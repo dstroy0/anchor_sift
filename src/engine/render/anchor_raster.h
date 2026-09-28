@@ -26,7 +26,7 @@
  *
  * HOST AND DEVICE PRODUCE THE SAME BYTES. That is the contract, and it is gradeable and not
  * aspirational: the raster is integer valued throughout. Agreement is exact and a difference of
- * one in one pixel is a defect. This is the same contract base/no_rounding/arm.h states for the arms, kept for
+ * one in one pixel is a defect. This is the same contract arithmetic/no_rounding/arm.h states for the arms, kept for
  * the same reason.
  *
  * @note Downsampling takes the MINIMUM death level over the alignments mapping to a pixel. Minimum
@@ -62,8 +62,8 @@ extern "C"
      * periodicity that a row layout smears across a scanline stands up as a column stripe.
      *
      * @note Every transform here is a bijection on the cell index computed in integer arithmetic.
- *       The device reproduces it exactly and no transform can drop or duplicate an alignment.
- */
+     *       The device reproduces it exactly and no transform can drop or duplicate an alignment.
+     */
     typedef enum
     {
         ANCHOR_LAYOUT_ROWS = 0,       /**< Row major. Corpus order runs left to right, top to bottom. */
@@ -115,8 +115,8 @@ extern "C"
      *
      * @note One structure drives both arms. A caller changing a field changes the host and the device
      *       render together, and the grader compares them under whatever configuration it was given
- *       and not under a fixed one.
- */
+     *       and not under a fixed one.
+     */
     typedef struct
     {
         size_t width;                /**< Pixels across. Non-zero. */
@@ -159,8 +159,8 @@ extern "C"
      * @brief One probe as the rasterizer needs it, matching AnchorProbe in anchor_sift.h.
      *
      * @note Declared here instead of including the engine header so the device translation unit
- *       compiles without pulling in the limb library it does not use. The two layouts are identical
-     *       and anchor_raster.c asserts that at compile time.
+     *       compiles without pulling in the limb library it does not use. The two layouts are identical
+     *       and anchor_raster_*.c asserts that at compile time.
      * @note Declared above the volume surface below, which names this type in a signature. A structure
      *       cannot name a type the compiler has not seen, and this header has been reordered once
      *       already for the same reason.
@@ -268,10 +268,9 @@ extern "C"
      *       anchor_volume_device stay public because a grader has to call one specific arm and compare
      *       it against the other. That comparison is the only check on the device copy.
      */
-    int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
-                                  const uint8_t *corpus, size_t corpus_len, const uint8_t *needle,
-                                  size_t needle_len, const AnchorRasterProbe *probes,
-                                  size_t probe_count, const void *census);
+    int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config, const uint8_t *corpus,
+                                  size_t corpus_len, const uint8_t *needle, size_t needle_len,
+                                  const AnchorRasterProbe *probes, size_t probe_count, const void *census);
 
     /**
      * @brief Renders a volume on whichever arm this machine has, preferring the device.
@@ -326,12 +325,11 @@ extern "C"
      * @param[in] config Render configuration, read for the extents [BORROWS].
      * @return           1 on success, 0 where the file could not be written.
      *
-     * @note Netpbm has no volume format. This writes the block raw and states its shape in a sidecar
- *       instead of inventing a container. A generated file says it is generated and names its
+     * @note Netpbm has no volume format. This writes the block raw and states its extent in a sidecar
+     *       instead of inventing a container. A generated file says it is generated and names its
      *       generator, which the sidecar does.
      */
-    int anchor_volume_write_raw(const char *path, const uint8_t *voxels,
-                                const AnchorVolumeConfig *config);
+    int anchor_volume_write_raw(const char *path, const uint8_t *voxels, const AnchorVolumeConfig *config);
 
     /** @brief Name of a volume layout, for a caller printing a row. Never null. */
     const char *anchor_volume_layout_name(AnchorVolumeLayout layout);
@@ -355,9 +353,9 @@ extern "C"
      * @note Rejects and writes nothing where a pointer is null, where `width` or `height` is zero,
      *       where `needle_len` is zero, or where `needle_len` exceeds `corpus_len`.
      */
-    int anchor_raster_host(uint8_t *pixels, const AnchorRasterConfig *config, const uint8_t *corpus,
-                           size_t corpus_len, const uint8_t *needle, size_t needle_len,
-                           const AnchorRasterProbe *probes, size_t probe_count);
+    int anchor_raster_host(uint8_t *pixels, const AnchorRasterConfig *config, const uint8_t *corpus, size_t corpus_len,
+                           const uint8_t *needle, size_t needle_len, const AnchorRasterProbe *probes,
+                           size_t probe_count);
 
     /**
      * @brief Pixel index an alignment lands on under a configuration's layout.
@@ -368,7 +366,7 @@ extern "C"
      * @return               Cell index inside `width * height`.
      * @note Exposed because the device rasterizer calls the same function, which is what keeps one
      *       transform and not two that agree until somebody edits one.
- */
+     */
     size_t anchor_raster_cell(const AnchorRasterConfig *config, size_t at, size_t alignments);
 
     /**
@@ -379,9 +377,8 @@ extern "C"
      * @return                The pixel value before reduction.
      * @note Shared with the device for the same reason anchor_raster_cell is.
      */
-    uint8_t anchor_raster_sample(const AnchorRasterConfig *config, const uint8_t *corpus,
-                                 const uint8_t *needle, size_t needle_len,
-                                 const AnchorRasterProbe *probes, size_t probe_count, size_t at,
+    uint8_t anchor_raster_sample(const AnchorRasterConfig *config, const uint8_t *corpus, const uint8_t *needle,
+                                 size_t needle_len, const AnchorRasterProbe *probes, size_t probe_count, size_t at,
                                  const uint64_t *occurrences, uint64_t total);
 
     /** @brief Name of a layout, for a caller printing a row. Never null. */

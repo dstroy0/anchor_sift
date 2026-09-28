@@ -11,7 +11,7 @@
 #
 # Open archives run by the publishers themselves. Nothing else is reached. Math-Net.Ru is the Russian
 # Academy of Sciences' own archive and carries Doklady Akademii Nauk, which is where Kolmogorov 1958
-# and Sinai 1959 appeared. That is the publisher offering its own back catalogue, not a mirror and
+# and Sinai 1959 appeared. That is the publisher offering its own back catalog, not a mirror and
 # not a shadow library.
 #
 # A paywalled article is recorded and left. Three attempts against Baeza-Yates and Regnier returned

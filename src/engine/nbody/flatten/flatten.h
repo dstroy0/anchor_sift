@@ -38,10 +38,10 @@ typedef struct
     int *offset_halves;
     unsigned long long bodies;
     unsigned int *magnitudes;
-} FlattenHeld;
+} FlattenResident;
 
-int flatten_read(const char *set, FlattenHeld *held, EngineError *error);
+int flatten_read(const char *set, FlattenResident *resident, EngineError *error);
 
-void flatten_release(FlattenHeld *held);
+void flatten_release(FlattenResident *resident);
 
 #endif

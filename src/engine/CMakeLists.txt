@@ -12,13 +12,18 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 set(SIFT_WARNINGS $<$<C_COMPILER_ID:GNU,Clang>:-O2 -Wall -Wextra>)
 
+# the repository's root, two above this file: bench/, test/engine/ and LICENSES/ lie there
 if(NOT DEFINED ANCHOR_SIFT_ROOT)
-    get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
+    get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../.." ABSOLUTE)
 endif()
 
 
-add_library(anchor_exact_portable STATIC base/no_rounding/exact_integer.c base/no_rounding/arm_portable.c)
-target_include_directories(anchor_exact_portable PUBLIC base/no_rounding)
+add_library(anchor_exact_portable STATIC arithmetic/no_rounding/exact_integer_add.c
+    arithmetic/no_rounding/exact_integer_limbs.c arithmetic/no_rounding/exact_integer_multiply.c
+    arithmetic/no_rounding/exact_integer_divide.c arithmetic/no_rounding/exact_integer_gcd.c
+    arithmetic/no_rounding/exact_integer_decimal.c arithmetic/no_rounding/exact_integer_hash.c
+    arithmetic/no_rounding/arm_portable.c)
+target_include_directories(anchor_exact_portable PUBLIC arithmetic/no_rounding)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
 
@@ -31,7 +36,9 @@ if(ANCHOR_EXACT_DIGITS)
     target_compile_definitions(anchor_exact_portable PUBLIC ANCHOR_EXACT_DIGITS=${ANCHOR_EXACT_DIGITS}u)
 endif()
 
-set(ANCHOR_SIFT_SOURCES nbody/anchor_sift/anchor_sift.c nbody/anchor_sift/scan_portable.c)
+set(ANCHOR_SIFT_SOURCES nbody/anchor_sift/anchor_sift_core.c nbody/anchor_sift/anchor_sift_steer.c
+    nbody/anchor_sift/anchor_sift_field.c nbody/anchor_sift/anchor_sift_steer_plan.c
+    nbody/anchor_sift/anchor_sift_steer_count.c nbody/anchor_sift/scan_portable.c)
 set(ANCHOR_SIFT_DEFINES "")
 
 
@@ -81,13 +88,13 @@ endif()
 
 
 add_library(anchor_sift_kernel STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel PUBLIC nbody/anchor_sift base/no_rounding)
+target_include_directories(anchor_sift_kernel PUBLIC nbody/anchor_sift arithmetic/no_rounding)
 target_compile_definitions(anchor_sift_kernel PUBLIC ${ANCHOR_SIFT_DEFINES})
 target_link_libraries(anchor_sift_kernel PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
 add_library(anchor_sift_kernel_counted STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel_counted PUBLIC nbody/anchor_sift base/no_rounding)
+target_include_directories(anchor_sift_kernel_counted PUBLIC nbody/anchor_sift arithmetic/no_rounding)
 target_compile_definitions(anchor_sift_kernel_counted PUBLIC ${ANCHOR_SIFT_DEFINES}
     ANCHOR_SIFT_COUNT_READS=1)
 target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)
@@ -112,7 +119,7 @@ if(NOT CMAKE_CUDA_COMPILER AND NOT ANCHOR_SKIP_CUDA)
     endif()
 endif()
 
-set(ANCHOR_RASTER_SOURCES render/anchor_raster.c)
+set(ANCHOR_RASTER_SOURCES render/anchor_raster_host.c render/anchor_raster_output.c)
 set(ANCHOR_RASTER_DEFINES "")
 if(CMAKE_CUDA_COMPILER)
     enable_language(CUDA)
@@ -127,7 +134,7 @@ if(CMAKE_CUDA_COMPILER)
             set(CMAKE_CUDA_ARCHITECTURES 86)
         endif()
     endif()
-    list(APPEND ANCHOR_RASTER_SOURCES render/raster_cuda.cu)
+    list(APPEND ANCHOR_RASTER_SOURCES render/raster_cuda_kernels.cu render/raster_cuda_entry.cu)
     list(APPEND ANCHOR_RASTER_DEFINES ANCHOR_RASTER_HAVE_CUDA=1)
     message(STATUS "anchor_raster: device arm compiled in, architectures ${CMAKE_CUDA_ARCHITECTURES}")
 else()
@@ -160,7 +167,7 @@ set(ANCHOR_ARM_INCLUDES "")
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     # One AVX2 arm for every x86 build. It carries both detection paths, MSVC's cpuid and the
     # builtin GCC and Clang share. There is no per operating system copy to disagree with it.
-    list(APPEND ANCHOR_ARM_SOURCES base/no_rounding/arm_avx2.c)
+    list(APPEND ANCHOR_ARM_SOURCES arithmetic/no_rounding/arm_avx2.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_AVX2=1)
     # -mavx2 permits the intrinsics in this translation unit. It does not permit the compiler to
     # assume AVX2 anywhere else, because no other translation unit is built with it.
@@ -170,7 +177,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
         list(APPEND ANCHOR_ARM_OPTIONS /arch:AVX2)
     endif()
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
-    list(APPEND ANCHOR_ARM_SOURCES base/no_rounding/arm_neon.c)
+    list(APPEND ANCHOR_ARM_SOURCES arithmetic/no_rounding/arm_neon.c)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_NEON=1)
     # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build
     # does need one, and asks for the softfp ABI's NEON.
@@ -184,7 +191,7 @@ include(CheckCCompilerFlag)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)$" AND NOT MSVC)
     check_c_compiler_flag("-mavx512f -mavx512bw -mavx512vl" ANCHOR_CC_TAKES_AVX512)
     if(ANCHOR_CC_TAKES_AVX512)
-        add_library(anchor_exact_avx512 STATIC base/no_rounding/arm_avx512.c)
+        add_library(anchor_exact_avx512 STATIC arithmetic/no_rounding/arm_avx512.c)
         target_link_libraries(anchor_exact_avx512 PUBLIC anchor_exact_portable)
         target_compile_definitions(anchor_exact_avx512 PUBLIC ANCHOR_EXACT_HAVE_AVX512=1)
         target_compile_options(anchor_exact_avx512
@@ -194,7 +201,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)$" AND NOT MSVC)
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
     check_c_compiler_flag("-march=armv8.2-a+sve" ANCHOR_CC_TAKES_SVE)
     if(ANCHOR_CC_TAKES_SVE)
-        add_library(anchor_exact_sve STATIC base/no_rounding/arm_sve.c)
+        add_library(anchor_exact_sve STATIC arithmetic/no_rounding/arm_sve.c)
         target_link_libraries(anchor_exact_sve PUBLIC anchor_exact_portable)
         target_compile_definitions(anchor_exact_sve PUBLIC ANCHOR_EXACT_HAVE_SVE=1)
         target_compile_options(anchor_exact_sve PRIVATE ${SIFT_WARNINGS} -march=armv8.2-a+sve)
@@ -203,7 +210,7 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
 endif()
 
 if(CMAKE_CUDA_COMPILER)
-    list(APPEND ANCHOR_ARM_SOURCES base/no_rounding/arm_cuda.cu)
+    list(APPEND ANCHOR_ARM_SOURCES arithmetic/no_rounding/arm_cuda.cu)
     list(APPEND ANCHOR_ARM_DEFINES ANCHOR_EXACT_HAVE_CUDA=1)
 endif()
 
@@ -220,63 +227,67 @@ else()
     target_link_libraries(anchor_exact_arms INTERFACE anchor_exact_portable)
 endif()
 
-add_executable(bench_exact_arms ../bench/bench_exact_arms.c)
+add_executable(bench_exact_arms ${ANCHOR_SIFT_ROOT}/bench/bench_exact_arms.c)
 target_link_libraries(bench_exact_arms PRIVATE anchor_exact_arms anchor_exact_portable)
 target_compile_options(bench_exact_arms PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_exact ../bench/bench_exact.c)
+add_executable(bench_exact ${ANCHOR_SIFT_ROOT}/bench/bench_exact.c)
 target_link_libraries(bench_exact PRIVATE anchor_exact_portable)
 target_compile_options(bench_exact PRIVATE ${SIFT_WARNINGS})
 
-add_library(bench_corpora STATIC ../bench/bench_corpora.c)
-target_include_directories(bench_corpora PUBLIC ../bench)
+add_library(bench_corpora STATIC ${ANCHOR_SIFT_ROOT}/bench/bench_corpora.c)
+target_include_directories(bench_corpora PUBLIC ${ANCHOR_SIFT_ROOT}/bench)
 target_compile_options(bench_corpora PRIVATE ${SIFT_WARNINGS})
 
 # Reads, which travel between machines and are what an asymptotic claim is made of.
-add_executable(bench_scaling_reads ../bench/bench_scaling.c)
+add_executable(bench_scaling_reads ${ANCHOR_SIFT_ROOT}/bench/bench_scaling.c)
 target_link_libraries(bench_scaling_reads PRIVATE anchor_sift_kernel_counted bench_corpora)
 target_compile_options(bench_scaling_reads PRIVATE ${SIFT_WARNINGS})
 
 # Cycles, which belong to the machine that produced them and are for the dispatch decision alone.
-add_executable(bench_scaling_cycles ../bench/bench_scaling.c)
+add_executable(bench_scaling_cycles ${ANCHOR_SIFT_ROOT}/bench/bench_scaling.c)
 target_link_libraries(bench_scaling_cycles PRIVATE anchor_sift_kernel bench_corpora)
 target_compile_options(bench_scaling_cycles PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_dispatch ../bench/bench_dispatch.c)
+add_executable(bench_dispatch ${ANCHOR_SIFT_ROOT}/bench/bench_dispatch.c)
 target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 
 # The engine's tests live in the anchor_sift tree this was forked from; a fork without them builds without them.
-if(EXISTS "${ANCHOR_SIFT_ROOT}/test/engine/test_steer.c")
-    add_executable(test_steer ${ANCHOR_SIFT_ROOT}/test/engine/test_steer.c)
+set(ANCHOR_SIFT_TESTS "${ANCHOR_SIFT_ROOT}/test/engine/nbody/anchor_sift")
+if(EXISTS "${ANCHOR_SIFT_TESTS}/test_steer_checks.c")
+    add_executable(test_steer ${ANCHOR_SIFT_TESTS}/test_steer_checks.c ${ANCHOR_SIFT_TESTS}/test_steer_grading.c
+        ${ANCHOR_SIFT_TESTS}/test_steer_projection.c)
     target_link_libraries(test_steer PRIVATE anchor_sift_kernel bench_corpora)
     target_compile_definitions(test_steer PRIVATE ANCHOR_SIFT_SOURCE_ROOT="${ANCHOR_SIFT_ROOT}")
-    add_executable(test_adversarial "${ANCHOR_SIFT_ROOT}/test/engine/test_adversarial.c")
+    add_executable(test_adversarial ${ANCHOR_SIFT_TESTS}/test_adversarial_cases.c
+        ${ANCHOR_SIFT_TESTS}/test_adversarial_plans.c ${ANCHOR_SIFT_TESTS}/test_adversarial_joint.c
+        ${ANCHOR_SIFT_TESTS}/test_adversarial_projection.c)
     target_link_libraries(test_adversarial PRIVATE anchor_sift_kernel)
 endif()
 
-add_executable(bench_raster ../bench/bench_raster.c)
+add_executable(bench_raster ${ANCHOR_SIFT_ROOT}/bench/bench_raster.c)
 target_link_libraries(bench_raster PRIVATE anchor_raster anchor_sift_kernel)
 target_compile_options(bench_raster PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_steer_arms ../bench/bench_steer_arms.c)
+add_executable(bench_steer_arms ${ANCHOR_SIFT_ROOT}/bench/bench_steer_arms.c)
 target_link_libraries(bench_steer_arms PRIVATE anchor_sift_kernel)
 target_compile_options(bench_steer_arms PRIVATE ${SIFT_WARNINGS})
 
 
-add_executable(bench_sigma ../bench/bench_sigma.c)
+add_executable(bench_sigma ${ANCHOR_SIFT_ROOT}/bench/bench_sigma.c)
 target_link_libraries(bench_sigma PRIVATE anchor_sift_kernel)
 target_compile_options(bench_sigma PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_coherence ../bench/bench_coherence.c)
+add_executable(bench_coherence ${ANCHOR_SIFT_ROOT}/bench/bench_coherence.c)
 target_link_libraries(bench_coherence PRIVATE anchor_sift_kernel_counted bench_corpora)
 target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 
-if(EXISTS "${ANCHOR_SIFT_ROOT}/test/engine/test_arm_agreement.c")
-    add_executable(test_arm_agreement "${ANCHOR_SIFT_ROOT}/test/engine/test_arm_agreement.c")
+if(EXISTS "${ANCHOR_SIFT_ROOT}/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
+    add_executable(test_arm_agreement "${ANCHOR_SIFT_ROOT}/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
     target_link_libraries(test_arm_agreement PRIVATE anchor_sift_kernel)
     target_compile_options(test_arm_agreement PRIVATE ${SIFT_WARNINGS})
-    add_executable(test_o2_spawn "${ANCHOR_SIFT_ROOT}/test/engine/test_o2_spawn.c")
+    add_executable(test_o2_spawn "${ANCHOR_SIFT_ROOT}/test/engine/nbody/anchor_sift/test_o2_spawn.c")
     target_link_libraries(test_o2_spawn PRIVATE anchor_sift_kernel)
     target_compile_options(test_o2_spawn PRIVATE ${SIFT_WARNINGS})
 endif()
@@ -288,7 +299,7 @@ int main(void) { double _Complex held = 1.0 + (2.0 * I); return (int)creal(held 
     ANCHOR_CC_HAS_COMPLEX)
 set(ANCHOR_UNTIMED_BENCHES bench_scaling_reads bench_scaling_cycles)
 if(ANCHOR_CC_HAS_COMPLEX)
-    add_executable(bench_lattice ../bench/bench_lattice.c)
+    add_executable(bench_lattice ${ANCHOR_SIFT_ROOT}/bench/bench_lattice.c)
     target_compile_options(bench_lattice PRIVATE ${SIFT_WARNINGS})
     if(NOT WIN32)
         target_link_libraries(bench_lattice PRIVATE m)

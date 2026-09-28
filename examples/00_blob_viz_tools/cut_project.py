@@ -107,14 +107,14 @@ def spectrum_peaks(points, lines, span):
     A periodic set puts everything at multiples of one frequency. This one does not.
     """
     middle = sum(points) / len(points)
-    centred = [one - middle for one in points]
+    centered = [one - middle for one in points]
     found = []
     step = span / lines
     for index in range(1, lines + 1):
         freq = index * step
         real = 0.0
         imag = 0.0
-        for one in centred:
+        for one in centered:
             angle = freq * one
             real += math.cos(angle)
             imag += math.sin(angle)

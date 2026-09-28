@@ -7,7 +7,7 @@ trough falls on is a longitude-weighted average of where the machines actually a
 
 That makes the right picture a polar one. Twenty-four hours of UTC close a circle, and so do three
 hundred and sixty degrees of longitude, so the daily count plotted on a dial IS the planet seen
-down its own axis with the hashrate drawn as radius. Nothing is being analogised: the two axes are
+down its own axis with the hashrate drawn as radius. Nothing is being analogized: the two axes are
 the same axis.
 
 WHAT THE VIEW MAKES YOU SAY OUT LOUD

@@ -16,7 +16,7 @@
 # The two are here together because they are the same shape of game with opposite answers. Nim's
 # losing positions carry a structure a shift can find. Wythoff's carry one it cannot, because the
 # positions sit on a line of irrational slope and nothing on such a line ever repeats. A reader that
-# reports structure on both is reporting an artefact on one of them, and this is the pair that says
+# reports structure on both is reporting an artifact on one of them, and this is the pair that says
 # which.
 #
 # Neither grid is generated from the theorem it is checked against. Wythoff's is played out by the

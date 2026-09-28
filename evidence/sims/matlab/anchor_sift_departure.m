@@ -7,11 +7,15 @@ function value = anchor_sift_departure(seats, seed, min_occurrences)
 %
 %   seats is a vector of symbols, for example double(uint8(text)).
 %
-%   A memoryless source returns about 1.00. Natural language returns 0.48 to 0.76. Below 1 means
-%   the live sequence is more dispersed than its own shuffle, which is clustering.
+%   In the Python reference's recorded figures a memoryless source returns about 1.00 and natural
+%   language 0.48 to 0.76; no run of this port prints them. Below 1 means the live sequence is more
+%   dispersed than its own shuffle, which is clustering.
 %
-%   This is a port of evidence/proofs/posits/proof_conservation.py and computes the same number. Where the
-%   two disagree the Python is the reference, because every figure in the ledger came out of it.
+%   This is a port of the rare half in src/engine/python/measure/dispersion.py, the tail that
+%   evidence/proofs/posits/proof_conservation.py computes too. It computes the same measure and not the
+%   same number: the null is a shuffle, drawn here from this language's own generator, and a value agrees
+%   with the Python's only as far as the reseeding floor allows. Where the two disagree past that the
+%   Python is the reference, because every figure in the ledger came out of it.
 %
 %   Runs unchanged on Octave.
 %

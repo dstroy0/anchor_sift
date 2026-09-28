@@ -69,7 +69,7 @@ def _data_of(word):
 def syndrome_decode(word):
     """Decode by the parity-check syndrome: the failed checks name the flipped bit, and it is flipped.
 
-    The syndrome read as a binary number is the one-based position of the single bit that must flip to
+    The syndrome read as a binary number is the position, counted from one, of the single bit that must flip to
     satisfy every check, or zero when the word already does. Returns the four data bits and the position
     corrected (0 for none). This is the necessary-condition route: it never enumerates a codeword, it
     asks which single flip makes every condition hold.

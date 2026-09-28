@@ -10,11 +10,11 @@ extern const char *g_log_path;
 
 extern char g_rules_line[256];
 
-void rules_line(const TreeRules *rules, char *line, size_t room);
+void rules_line(const TreeRules *rules, char *line, size_t capacity);
 
 FILE *log_open(void);
 
-void log_when(char *when, size_t room);
+void log_when(char *when, size_t capacity);
 
 const char *log_rules(void);
 

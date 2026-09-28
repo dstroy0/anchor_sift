@@ -347,14 +347,14 @@ def policy_stands(_ignored=None):
         ordered = sorted(usable, key=lambda one: one["voxels"])
         total = sum(one["voxels"] for one in ordered)
         running = 0
-        centre = ordered[-1]["voxels"]
+        center = ordered[-1]["voxels"]
         for one in ordered:
             running += one["voxels"]
             if running * 2 >= total:
-                centre = one["voxels"]
+                center = one["voxels"]
                 break
         return [one for one in usable
-                if ((one["voxels"] * 2) >= centre) and (one["voxels"] <= (centre * 2))]
+                if ((one["voxels"] * 2) >= center) and (one["voxels"] <= (center * 2))]
     return pick
 
 

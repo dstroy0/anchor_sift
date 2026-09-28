@@ -12,7 +12,7 @@
 #
 # A genome will not serve. The selection that shaped language shaped the organism, leaving a
 # biological sequence dependent on the hypothesis, and all biology shares one machinery in any case.
-# What is needed is a domain under no selection at all, and mathematics supplies two.
+# The control needs a domain under no selection, and mathematics supplies two.
 #
 # What they settled, and it refuted the strong claim. The digits of the square root of two return
 # 1.00, sitting at the null as a number conjectured normal should. The gaps between primes return

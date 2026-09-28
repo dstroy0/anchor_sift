@@ -223,7 +223,7 @@ def main():
             "# Hank Nater, Independent Linguist. Papers for the International Conference\n"
         )
         handle.write(
-            "# on Salish and Neighbouring Languages 59, Vancouver, BC: UBCWPL, 2024.\n"
+            "# on Salish and Neighboring Languages 59, Vancouver, BC: UBCWPL, 2024.\n"
         )
         handle.write("#\n")
         handle.write(

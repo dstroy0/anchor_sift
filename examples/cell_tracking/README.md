@@ -10,7 +10,7 @@ Follow the steps below in order. Do not skip any. Every command is typed exactly
 2. **The CUDA toolkit**, which gives you a program called `nvcc`. To check you have it, open a terminal and type `nvcc --version`. If it says "not found", install the CUDA toolkit from NVIDIA first.
 3. **On Windows only: Visual Studio Build Tools 2022.** `nvcc` needs it to work. You do not open it; the build script finds it on its own.
 4. **Git Bash** on Windows, or any normal terminal on Linux. Every command below runs in that terminal, not in PowerShell and not in cmd.
-5. **The exact integer code.** It comes with this repository, at `../../src/engine/base/no_rounding`, and the build finds it there on its own. To build against another copy, type `export ANCHOR_EXACT_ROOT=/your/path/to/no_rounding` before you build.
+5. **The exact integer code.** It comes with this repository, at `../../src/engine/arithmetic/no_rounding`, and the build finds it there on its own. To build against another copy, type `export ANCHOR_EXACT_ROOT=/your/path/to/no_rounding` before you build.
 6. **About 90 GB of free disk space** for the compressed copy of the training movies (step 3).
 
 ## Step 1: get the data
@@ -58,7 +58,7 @@ If you want the build somewhere else, put `BUILD_OUT=/some/folder` in front: `BU
 
 ## Step 3: make the set (do this once)
 
-The movies are big and slow to read. So first, the program copies every movie into its own compressed format, called `.kcr`. The folder it copies them into is called the **set**.
+The movies are big and slow to read. So first, the program copies every movie into its own compression format, called `.kcr`. The folder it copies them into is called the **set**.
 
 The set must **not** be inside the source folder. Put it next to it:
 
@@ -86,13 +86,14 @@ When it is done, the set holds one folder per movie, with the movie's `.kcr` in 
 ```
 D:/kaggle_project_data/biohub_cell_tracking_set/train/
     44b6_0113de3b/
-        44b6_0113de3b.kcr      <- the compressed movie (--ingest)
-        44b6_0113de3b.knf      <- its noise floor (--run entropy or --run floor)
-        44b6_0113de3b.kcs      <- its body table, when one has been written
-    train.ksh                  <- every body of every movie as one number each (--run flatten)
+        44b6_0113de3b.kcr      <- the crystal, its own compression format (--ingest)
+        44b6_0113de3b.oapx     <- its noise floor (--run entropy or --run floor)
+        44b6_0113de3b.bapx     <- its body table, when one has been written
+    flattened.iapx             <- every body of every movie as one number each (--run flatten)
 ```
 
-The `.ksh` is named after the set's own folder: a set at `.../train` keeps it at `.../train/train.ksh`.
+A set ingested before the `.kcr` holds `<sample>.iapx` crystals of the older kind, which the engine does not read:
+ingest it again.
 
 The right answers (`.geff`) are **not** copied. The program reads them straight from the source when it scores.
 
@@ -225,11 +226,11 @@ The program does two different jobs, and they never mix.
 |---|---|
 | `schedule` | work out how many frames fit on your graphics card at once and write the plan to the path given by `--plan` |
 | `kcr-prove` | unpack every copy in the set from the copy alone and check that every node of its seal holds |
-| `entropy` | work out the noise floor of each movie and store it next to its `.kcr` as `.knf` |
-| `floor` | lay down that noise floor, keeping a `.knf` that already matches its `.kcr`. If the `.cfg` turns `floor` on, this part runs first without being asked |
-| `flatten` | turn every body in every frame of the set into one number and save them all as the set's `.ksh` (`<set>/<set folder name>.ksh`) |
+| `entropy` | work out the noise floor of each movie and store it next to its `.kcr` as `.oapx` |
+| `floor` | lay down that noise floor, keeping a `.oapx` that already matches its `.kcr`. If the `.cfg` turns `floor` on, this part runs first without being asked |
+| `flatten` | turn every body in every frame of the set into one number and save them all as the set's `flattened.iapx` (`<set>/flattened.iapx`) |
 | `track` | link the cells and score the links (step 5). This is what runs when you give no `--run` at all |
-| `fingerprint` | read the set's `.ksh`, give every body a print, and check the prints on the graphics card against the same work done on the processor |
+| `fingerprint` | read the set's `flattened.iapx`, give every body a print, and check the prints on the graphics card against the same work done on the processor |
 
 For example, to check every copy, lay down the noise floor, and then track, in that order:
 
@@ -249,7 +250,7 @@ Other flags:
 ## Sharing the graphics card
 
 Every run goes through **tessera**, the one scheduler for your graphics card
-([../../src/engine/daemon/README.md](../../src/engine/daemon/README.md)). `--ingest` is one job, and so is each `--run` part. Before
+([../../src/engine/runtime/daemon/README.md](../../src/engine/runtime/daemon/README.md)). `--ingest` is one job, and so is each `--run` part. Before
 the part starts, the program asks tessera for room on the card. The part runs only once tessera admits it, and when
 the part ends the program releases the job. If no tessera is running, the program starts the `tessera_daemon.exe`
 beside it. The daemon closes by itself a few seconds after the last job ends.
@@ -291,7 +292,7 @@ way to run without it.
 | `its .kcr in ... did not load and prove` | you have not done step 3 for that movie, or `set` points at the wrong folder |
 | `the source's N axes are not all named t z y x` | add `--axes` (see step 3) |
 | `usage: track_driver ...` | it did not get a set or any movie names; check the `input` part of the `.cfg` |
-| `tessera: ... the daemon (...) did not take the job` | `tessera_daemon.exe` is missing from beside the program (rebuild), or its history was refused (the daemon names the file; see [../../src/engine/daemon/README.md](../../src/engine/daemon/README.md)) |
+| `tessera: ... the daemon (...) did not take the job` | `tessera_daemon.exe` is missing from beside the program (rebuild), or its history was refused (the daemon names the file; see [../../src/engine/runtime/daemon/README.md](../../src/engine/runtime/daemon/README.md)) |
 | `tessera: ... was held past its holding time and lost` | the job declared more than its kept peak; rerun with `--override` if that is meant |
 
 ## Where the results are written up

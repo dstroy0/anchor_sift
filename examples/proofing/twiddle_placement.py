@@ -18,7 +18,7 @@ THE PLACEMENT, AND WHY IT HAS AN EXACT NULL
 The twiddles are w_j = omega^j for j in [0, n), which is n points equally spaced around a circle.
 This tree already reads a ring placement exactly: deflection is the magnitude and is blind to a
 rotation by construction, torsion is the phase and recovers the turn with its sign. A placement
-turned by whole steps is the same set relabelled, so its null is not small, it is zero.
+turned by whole steps is the same set relabeled, so its null is not small, it is zero.
 
 For the twiddle table the statement is arithmetic and needs no geometry at all:
 
