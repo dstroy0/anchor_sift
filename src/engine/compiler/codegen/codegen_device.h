@@ -74,6 +74,11 @@ int codegen_device_instrs(const EngineRecordLayout *layout, const std::vector<un
 // 1 where two layouts are the same word for word: their sizes, step tables and tables' values
 int layout_same(const EngineRecordLayout *left, const EngineRecordLayout *right);
 
+// the program of `request` laid out by the device, the path every program takes, and held to `layout`, the host's
+// layout of it, word for word: 1 where the two agree, the host's released and the device's left in `layout`, the line
+// on stderr where `report` asks; else 0 with the reason on stderr, the host's left in `layout`
+int layout_device_held(const LayoutRequest *request, EngineRecordLayout *layout, int report);
+
 // asm_printer_ruleset_build on the device: the schema checked on the host, the scratch taken by the device
 // (ruleset_scratch_device), then the build (asm_printer_core.h) in one device thread and the program laid out by the
 // device (layout_device). The program's key is not kept, and its output is the program's. 1 where it is built, else 0

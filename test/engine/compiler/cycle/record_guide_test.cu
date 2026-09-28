@@ -2,10 +2,11 @@
 //
 // The worked example of engine/prg_sch/README.md, run as written: a two-member program that moves each body by its
 // velocity over a shared time step, x' = x + v . dt, and says which side of the origin it lands on. The program is
-// encoded, laid out and loaded by the three calls engine_record_encode makes, swept on the device with an index that
-// pairs every body with the one time-step record, run again on the host, and each record decoded and checked
-// against the arithmetic done directly. The test is one job on the device's tessera daemon, submitted before the
-// program is loaded onto the device.
+// encoded, laid out on the host and on the device and loaded by the calls engine_record_encode makes, swept on the
+// device with an index that pairs every body with the one time-step record, run again on the host, and each record
+// decoded and checked against the arithmetic done directly. The test is one job on the device's tessera daemon,
+// submitted before the program is loaded onto the device.
+#include "codegen_device.h"
 #include "cycle.h"
 #include "exact_integer.h"
 #include "key_schedule.h"
@@ -131,6 +132,11 @@ int main(int count, char **arguments)
     const KeyScheduleRecordRequest layout_request = {&key, field_offset, 3u, in_limbs, 1, &layout, &error};
     ok = ok && (key_schedule_record_layout(&layout_request) != KEY_SCHEDULE_ERROR);
     guide_check(&results, ok, "the example program lays out");
+    // the program laid out on the device as well, held to the host's layout, and the device's loaded
+    const LayoutRequest device_request = {full,     7u,           field_bits, field_offset, 3u, 2u,
+                                          in_limbs, full_outputs, 2u,         NULL,         0u, 1};
+    ok = ok && (layout_device_held(&device_request, &layout, 1) != 0);
+    guide_check(&results, ok, "the device lays out the example program word for word the host's");
     // outputs are packed in the order named, each one bit wider than its register for the sign
     guide_check(&results,
                 ok && (layout.step_table[4].out_offset == 0u) && (layout.step_table[4].out_bits == 34u) &&

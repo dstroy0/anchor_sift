@@ -169,7 +169,14 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
                                ? 1u
                                : 0u;
     }
-    if ((cycle_environment_set("CYCLE_RECORD_INTERPRET") == 0) && (cycle_record_compile(layout, record) == 0))
+    const int compiled =
+        (cycle_environment_set("CYCLE_RECORD_INTERPRET") == 0) ? cycle_record_compile(layout, record, error) : 0;
+    if (compiled == (int)CYCLE_ERROR)
+    {
+        cycle_record_release(record);
+        return CYCLE_ERROR;
+    }
+    if ((cycle_environment_set("CYCLE_RECORD_INTERPRET") == 0) && (compiled == 0))
     {
         // every call above held, and an error the runtime still holds is the attempt's own: the interpreter runs in
         // its place, and the error is dropped before a run reads the runtime's last error as its own

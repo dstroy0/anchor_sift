@@ -203,26 +203,6 @@
         "CYCLE_RECORD_HOST_C": "1"
       }
     },
-    "record_bitwise_codegen_device": {
-      "desc": "The record bitwise test with the code generator on the device: each lane written by the device, byte for byte the host's.",
-      "script": "test/engine/compiler/cycle/record_bitwise_test.sh",
-      "src": [
-        "+<engine/arithmetic/no_rounding/*>",
-        "+<engine/compiler/codegen/*>",
-        "+<engine/compiler/cycle/*>",
-        "+<engine/compiler/key_schedule/*>",
-        "+<engine/compiler/keymath/*>",
-        "+<engine/runtime/scriptura/*>"
-      ],
-      "tests": [
-        "engine/compiler/cycle"
-      ],
-      "env": {
-        "CYCLE_RECORD_CHECK": "1",
-        "CYCLE_RECORD_REPORT": "1",
-        "CODEGEN_DEVICE": "1"
-      }
-    },
     "record_boundary": {
       "desc": "The record boundary test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
       "script": "test/engine/compiler/cycle/record_boundary_test.sh",

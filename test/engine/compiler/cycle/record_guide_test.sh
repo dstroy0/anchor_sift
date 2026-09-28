@@ -46,7 +46,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$NO_ROUNDING" -I "$SCRIPTURA"
+INCLUDES=(-I "$TOP/src/engine" -I "$CYCLE" -I "$CODEGEN" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$NO_ROUNDING" -I "$SCRIPTURA"
           "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()

@@ -125,9 +125,10 @@ int cycle_environment_set(const char *name);
 
 unsigned long long cycle_environment_microseconds(const char *name, unsigned long long otherwise);
 
-// a program's lane compiled and kept for `record`, 0 where it stays on the interpreter, and a kept kernel's
-// library given back (cycle_compile_route.cu)
-int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record);
+// a program's lane compiled and kept for `record`, 0 where it stays on the interpreter, and CYCLE_ERROR in `error`
+// where the device wrote the lane apart from the host's; and a kept kernel's library given back
+// (cycle_compile_route.cu)
+int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record, EngineError *error);
 
 void cycle_program_release(cudaKernel_t kernel);
 

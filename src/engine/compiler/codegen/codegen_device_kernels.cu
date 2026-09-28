@@ -3,6 +3,8 @@
 // tables
 #include "codegen_device_internal.h"
 
+#include <stdio.h>
+
 int layout_same(const EngineRecordLayout *left, const EngineRecordLayout *right)
 {
     int same = (left->steps == right->steps) && (left->members == right->members) &&
@@ -16,6 +18,33 @@ int layout_same(const EngineRecordLayout *left, const EngineRecordLayout *right)
     return same &&
            ((left->table_word_count == 0ull) || (memcmp(left->table_values, right->table_values,
                                                         (size_t)left->table_word_count * sizeof(unsigned int)) == 0));
+}
+
+int layout_device_held(const LayoutRequest *request, EngineRecordLayout *layout, int report)
+{
+    EngineRecordLayout device_layout{};
+    std::string error;
+    if (layout_device(request, &device_layout, &error) == 0)
+    {
+        fprintf(stderr, "  codegen: the device did not lay out a program of %u steps (%s)\n", layout->steps,
+                error.c_str());
+        return 0;
+    }
+    if (layout_same(&device_layout, layout) == 0)
+    {
+        fprintf(stderr, "  codegen: the device laid out a program of %u steps apart from the host's\n", layout->steps);
+        key_schedule_record_release(&device_layout);
+        return 0;
+    }
+    if (report != 0)
+    {
+        fprintf(stderr,
+                "  codegen: the device laid out a program of %u steps, %u limbs of file, word for word the host's\n",
+                device_layout.steps, device_layout.file_limbs);
+    }
+    key_schedule_record_release(layout);
+    *layout = device_layout;
+    return 1;
 }
 #if (defined(__CUDACC__))
 

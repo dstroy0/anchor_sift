@@ -90,41 +90,17 @@ extern "C" void engine_key_release(CycleKey *key)
     cycle_key_release(key);
 }
 
-// With CODEGEN_DEVICE=1 the program is laid out on the device as well (layout_device, codegen_device.h), keymath's
-// encoding and key_schedule's layout each in one thread, and checked against the host's layout: where the two agree
-// word for word, the device's is the one loaded; where they do not, or the device did not lay it out, the host's is,
-// and the report says which
-static void engine_record_layout_device(const EngineRecordRequest *request, EngineRecordLayout *layout)
+// The program laid out on the device (layout_device_held, codegen_device.h), keymath's encoding and key_schedule's
+// layout each in one thread, the path every program takes, and held to the host's layout word for word: 1 and the
+// device's layout in `layout` where the two agree, else 0 with the reason on stderr, the host's layout left in `layout`
+static int engine_record_layout_device(const EngineRecordRequest *request, EngineRecordLayout *layout)
 {
-    const char *const asked = getenv("CODEGEN_DEVICE");
-    if ((asked == NULL) || (asked[0] != '1'))
-    {
-        return;
-    }
     const LayoutRequest layout_request = {request->steps,        request->count,       request->field_bits,
                                           request->field_offset, request->fields,      request->members,
                                           request->in_limbs,     request->outputs,     request->output_count,
                                           request->tables,       request->table_count, request->reuse};
-    EngineRecordLayout device_layout{};
-    std::string error;
-    if (layout_device(&layout_request, &device_layout, &error) == 0)
-    {
-        fprintf(stderr, "  engine: the device did not lay out a program of %u steps (%s); the host's is loaded\n",
-                layout->steps, error.c_str());
-        return;
-    }
-    if (layout_same(&device_layout, layout) == 0)
-    {
-        fprintf(stderr,
-                "  engine: the device laid out a program of %u steps apart from the host's; the host's is loaded\n",
-                layout->steps);
-        key_schedule_record_release(&device_layout);
-        return;
-    }
-    fprintf(stderr, "  engine: the device laid out a program of %u steps, %u limbs of file, word for word the host's\n",
-            device_layout.steps, device_layout.file_limbs);
-    key_schedule_record_release(layout);
-    *layout = device_layout;
+    const char *const report = getenv("CYCLE_RECORD_REPORT");
+    return layout_device_held(&layout_request, layout, (report != NULL) && (report[0] == '1'));
 }
 
 extern "C" long engine_record_encode(const EngineRecordRequest *request, CycleRecord **record, EngineError *error)
@@ -164,7 +140,11 @@ extern "C" long engine_record_encode(const EngineRecordRequest *request, CycleRe
     {
         return ENGINE_ERROR;
     }
-    engine_record_layout_device(request, &layout);
+    if (!ENGINE_CHECK(engine_record_layout_device(request, &layout) != 0, request->steps, error, ENGINE_ERROR_LOGIC))
+    {
+        key_schedule_record_release(&layout);
+        return ENGINE_ERROR;
+    }
     for (unsigned int output = 0u;
          (request->output_offset != NULL) && (request->output_bits != NULL) && (output < request->output_count);
          output += 1u)

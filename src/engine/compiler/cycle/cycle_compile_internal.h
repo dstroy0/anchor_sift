@@ -28,9 +28,9 @@
 // CYCLE_RECORD_LTO=1 builds the programs as LTO-IR and links each with link-time optimization, which writes no PTX,
 // CYCLE_RECORD_NVRTC=1 writes every lane as C source, and CYCLE_RECORD_HOST_C=1 writes it so and builds it with the
 // host's compiler, to run on the host (cycle_compile_host.cu), and CYCLE_RECORD_KEEP_PTX=1 turns rule (i) off
-// (cycle_record_route). A ninth, CODEGEN_DEVICE=1, has the device write each
-// lane from its step table and holds its text to the host code generator's (cycle_codegen_on_device), the assembly
-// printer's own lane included: the assembly printer runs on the interpreter while it writes that one.
+// (cycle_record_route). No switch turns the device's writing off: the device writes each lane from its step table,
+// and its text is held to the host code generator's (cycle_codegen_on_device), the assembly printer's own lane
+// included: the assembly printer runs on the interpreter while it writes that one.
 
 static_assert(ENGINE_RECORD_MEMBERS_MAX == 3u, "cycle: the compiled program's launch holds three members");
 

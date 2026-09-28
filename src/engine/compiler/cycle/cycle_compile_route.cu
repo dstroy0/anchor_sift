@@ -205,30 +205,28 @@ static thread_local int s_cycle_codegen_depth = 0;
 // the texts the device wrote in this process and the host's matched; each is written once
 static std::vector<std::string> s_cycle_codegen_written;
 
-// 1 where CODEGEN_DEVICE=1 asks the device to write the lane being written, and the assembly printer is not writing its
-// own lane
-static int cycle_codegen_device_asked(void)
-{
-    return (s_cycle_codegen_depth < CYCLE_CODEGEN_OWN_LANE) && cycle_environment_set("CODEGEN_DEVICE");
-}
-
-// The lane as the device writes it from the step table (codegen_device.h): the ruleset's written forms laid out once
-// for the target and the header, the forms decided on the device a thread a step, laid out as the assembly printer's
-// records there, written by the record machine a lane a byte and gathered, and the text checked against the host code
-// generator's byte for byte. Where the two agree the device's text is the one built; where they do not, or the device
-// did not write it, the host's is, and the report says which. The device splits the lane where `generator`'s program()
-// splits it. A text the device wrote before in this process is not written again
-static void cycle_codegen_on_device(const CodeGenerator &generator, const Ruleset *rules, const TargetInfo *target,
-                                    const std::string &header, const EngineRecordLayout *layout, unsigned int places,
-                                    std::string &text)
+// The lane as the device writes it from the step table (codegen_device.h), the path every lane takes: the ruleset's
+// file read on the device and its written forms laid out once for the target and the header, the forms decided on the
+// device a thread a step, laid out as the assembly printer's records there, written by the record machine a lane a byte
+// and gathered. The host code generator's text is the check: the device's ruleset, its written forms and its text are
+// held to the host's word for word and byte for byte. Returns 1 where the device's text is the one built, and 0, with
+// the step that differed on stderr, where the device did not write it or any of the three is apart from the host's.
+// The device splits the lane where `generator`'s program() splits it. A text the device wrote before in this process
+// is not written again
+static int cycle_codegen_on_device(const CodeGenerator &generator, const Ruleset *rules, const TargetInfo *target,
+                                   const std::string &header, const EngineRecordLayout *layout, unsigned int places,
+                                   int report, std::string &text)
 {
     for (size_t at = 0u; at < s_cycle_codegen_written.size(); at += 1u)
     {
         if (s_cycle_codegen_written[at] == text)
         {
-            fprintf(stderr, "  cycle: the device wrote a program of %u steps, %zu bytes, before in this process\n",
-                    layout->steps, text.size());
-            return;
+            if (report != 0)
+            {
+                fprintf(stderr, "  cycle: the device wrote a program of %u steps, %zu bytes, before in this process\n",
+                        layout->steps, text.size());
+            }
+            return 1;
         }
     }
     AsmPrinterRuleset text_rules{};
@@ -248,12 +246,14 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
     {
         device_read.tried = rules->tried;
         device_read.ready = rules->ready;
-        fprintf(stderr, "  cycle: the device read the ruleset %s as the host did\n", rules->name.c_str());
+        if (report != 0)
+        {
+            fprintf(stderr, "  cycle: the device read the ruleset %s as the host did\n", rules->name.c_str());
+        }
     }
     else if (read_ran != 0)
     {
-        fprintf(stderr, "  cycle: the device read the ruleset %s apart from the host; the host's is built from\n",
-                rules->name.c_str());
+        fprintf(stderr, "  cycle: the device read the ruleset %s apart from the host\n", rules->name.c_str());
     }
     else if (built != 0)
     {
@@ -266,22 +266,26 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
     const int device_built = built && asm_printer_ruleset_device((read_same != 0) ? &device_read : rules, target,
                                                                  header, &device_rules, &device_error);
     const int rules_same = device_built && asm_printer_ruleset_same(&device_rules, &text_rules);
-    if (rules_same != 0)
+    if ((rules_same != 0) && (report != 0))
     {
         fprintf(stderr, "  cycle: the device built the assembly printer's ruleset, word for word the host's\n");
     }
-    else if (device_built != 0)
+    else if ((rules_same == 0) && (device_built != 0))
     {
-        fprintf(stderr, "  cycle: the device built the assembly printer's ruleset apart from the host's; the host's "
-                        "is written from\n");
+        fprintf(stderr, "  cycle: the device built the assembly printer's ruleset apart from the host's\n");
     }
-    else if (built != 0)
+    else if ((rules_same == 0) && (built != 0))
     {
         fprintf(stderr, "  cycle: the device did not build the assembly printer's ruleset (%s)\n",
                 device_error.c_str());
     }
-    const int ran = built && codegen_device(layout, (rules_same != 0) ? &device_rules : &text_rules, places,
-                                            has_costs ? &costs : NULL, &written, &error);
+    // the lane is written only from the device's own ruleset, read and built where it is the host's
+    if ((built != 0) && ((read_same == 0) || (rules_same == 0)))
+    {
+        error = "its ruleset on the device is not the host's";
+    }
+    const int ran = (read_same != 0) && (rules_same != 0) &&
+                    codegen_device(layout, &device_rules, places, has_costs ? &costs : NULL, &written, &error);
     if (built)
     {
         asm_printer_ruleset_release(&text_rules);
@@ -296,25 +300,29 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
     {
         differs += 1u;
     }
-    if ((ran != 0) && (written == text))
+    const int same = (ran != 0) && (written == text);
+    if ((same != 0) && (report != 0))
     {
-        text = written;
-        s_cycle_codegen_written.push_back(written);
         fprintf(stderr, "  cycle: the device wrote a program of %u steps, %zu bytes, byte for byte the host's\n",
                 layout->steps, written.size());
     }
-    else if (ran != 0)
+    else if ((same == 0) && (ran != 0))
     {
         fprintf(stderr,
                 "  cycle: the device wrote a program of %u steps as %zu bytes against the host's %zu, apart "
-                "from byte %zu; the host's is built\n",
+                "from byte %zu\n",
                 layout->steps, written.size(), text.size(), differs);
     }
-    else
+    else if (same == 0)
     {
-        fprintf(stderr, "  cycle: the device did not write a program of %u steps (%s); the host's is built\n",
-                layout->steps, error.c_str());
+        fprintf(stderr, "  cycle: the device did not write a program of %u steps (%s)\n", layout->steps, error.c_str());
     }
+    if (same != 0)
+    {
+        text = written;
+        s_cycle_codegen_written.push_back(written);
+    }
+    return same;
 }
 
 // the program's lane written as PTX and built, else its C source compiled by NVRTC and built, found in this process or
@@ -322,8 +330,10 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
 // block is LTO-IR, CYCLE_RECORD_NVRTC=1 or CYCLE_RECORD_HOST_C=1, and a program held as PTX is routed by rule (i).
 // Under CYCLE_RECORD_HOST_C=1 the C source is built by the host's compiler in place of NVRTC. 0 where it stays on the
 // interpreter: no NVRTC or nvJitLink, a step neither holds, a C source whose ruleset c.krs errored, a compile, link
-// or load that failed, or the assembly printer run while it writes its own lane
-int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
+// or load that failed, or the assembly printer run while it writes its own lane. Every lane is written by the device
+// (cycle_codegen_on_device) but the assembly printer's own: CYCLE_ERROR, with ENGINE_ERROR_LOGIC in `error`, where
+// the device's lane is not the host code generator's
+int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record, EngineError *error)
 {
     const int report = cycle_environment_set("CYCLE_RECORD_REPORT");
     const int lto = cycle_environment_set("CYCLE_RECORD_LTO");
@@ -370,9 +380,11 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
                               : generator.program(layout, &target, header, &places, &live);
         const double written =
             std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
-        if ((cycle_codegen_device_asked() != 0) && !ptx.empty())
+        if (!ptx.empty() &&
+            !CYCLE_CHECK(cycle_codegen_on_device(generator, rules, &target, header, layout, places, report, ptx),
+                         layout, error, ENGINE_ERROR_LOGIC))
         {
-            cycle_codegen_on_device(generator, rules, &target, header, layout, places, ptx);
+            return (int)CYCLE_ERROR;
         }
         if ((report != 0) && !ptx.empty())
         {
@@ -406,10 +418,12 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
                                                                            &source_places, &source_live)
                                                 : std::string();
     const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
-    if ((cycle_codegen_device_asked() != 0) && !source.empty())
+    if (!source.empty() &&
+        !CYCLE_CHECK(cycle_codegen_on_device(source_generator, source_rules, &target, std::string(target.prelude),
+                                             layout, source_places, report, source),
+                     layout, error, ENGINE_ERROR_LOGIC))
     {
-        cycle_codegen_on_device(source_generator, source_rules, &target, std::string(target.prelude), layout,
-                                source_places, source);
+        return (int)CYCLE_ERROR;
     }
     if (source.empty())
     {

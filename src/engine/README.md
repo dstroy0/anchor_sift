@@ -306,9 +306,10 @@ the index, the tables, a worked example, and the machine's limits:
 The step count has no limit. Floors of steps stack in one program, and with register reuse a lane runs the whole
 stack in one launch.
 
-Every step is imprinted by `compiler/keymath`, laid out by `compiler/key_schedule` and run by `compiler/cycle`. With
-`CODEGEN_DEVICE=1` the device lays the program as well, from one source with the host's (`keymath_core.h`,
-`key_schedule_core.h`), and the device's layout is loaded where it is the host's word for word.
+Every step is imprinted by `compiler/keymath`, laid out by `compiler/key_schedule` and run by `compiler/cycle`. The
+device lays out every program and writes every lane, from one source with the host's (`keymath_core.h`,
+`key_schedule_core.h`, `codegen_core.h`). The host's layout and lane are the check: the device's are loaded where they
+are the host's word for word, and a program whose layout or lane differs is an error.
 
 ## The config (`.cfg`)
 
