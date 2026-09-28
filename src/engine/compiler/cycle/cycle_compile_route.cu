@@ -236,10 +236,33 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
     const int has_costs = generator.program_schedule_costs(&costs);
     s_cycle_codegen_depth += 1;
     const int built = asm_printer_ruleset_build(rules, target, header, &text_rules, &refused);
+    // the ruleset's file read on the device as well, and the device's built from where it is the host's as read
+    Ruleset device_read{};
+    device_read.schema = rules->schema;
+    std::string read_refused;
+    const int read_ran = built && ruleset_read_device(&device_read, rules->path, &read_refused);
+    const int read_same = read_ran && ruleset_same(&device_read, rules);
+    if (read_same != 0)
+    {
+        device_read.tried = rules->tried;
+        device_read.ready = rules->ready;
+        fprintf(stderr, "  cycle: the device read the ruleset %s as the host did\n", rules->name.c_str());
+    }
+    else if (read_ran != 0)
+    {
+        fprintf(stderr, "  cycle: the device read the ruleset %s apart from the host; the host's is built from\n",
+                rules->name.c_str());
+    }
+    else if (built != 0)
+    {
+        fprintf(stderr, "  cycle: the device did not read the ruleset %s (%s)\n", rules->name.c_str(),
+                read_refused.c_str());
+    }
     // the ruleset built on the device as well, and the device's written from where it is the host's word for word
     AsmPrinterRuleset device_rules{};
     std::string device_refused;
-    const int device_built = built && asm_printer_ruleset_device(rules, target, header, &device_rules, &device_refused);
+    const int device_built = built && asm_printer_ruleset_device((read_same != 0) ? &device_read : rules, target,
+                                                                 header, &device_rules, &device_refused);
     const int rules_same = device_built && asm_printer_ruleset_same(&device_rules, &text_rules);
     if (rules_same != 0)
     {

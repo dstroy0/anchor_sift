@@ -140,6 +140,12 @@ static void device_language(DeviceResults *results, const std::string &name, Cod
         printf("  %s: the assembly printer does not take the ruleset (%s)\n", lane.c_str(), refused.c_str());
         return;
     }
+    Ruleset device_read{};
+    device_read.schema = rules->schema;
+    std::string read_refused;
+    const int read_ran = ruleset_read_device(&device_read, rules->path, &read_refused);
+    device_check(results, read_ran && ruleset_same(&device_read, rules),
+                 lane + ": the device reads the ruleset's file as the host does" + device_why(read_ran, read_refused));
     AsmPrinterRuleset device_rules{};
     std::string rules_refused;
     const int rules_built =

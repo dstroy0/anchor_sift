@@ -3,6 +3,7 @@
 #ifndef TARGET_INTERNAL_H
 #define TARGET_INTERNAL_H
 
+#include "ruleset_flat.h"
 #include "ruleset_reader.h"
 #include "target.h"
 
@@ -19,9 +20,5 @@
 std::string ruleset_folder(void);
 
 unsigned int ruleset_find(const RulesetName *names, unsigned int count, const std::string &word);
-
-std::string ruleset_entry(Ruleset *rules, const std::string &kind, const std::string &rest);
-
-std::string ruleset_pseudo_line(Ruleset *rules, const std::string &line);
 
 #endif

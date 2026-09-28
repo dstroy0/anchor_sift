@@ -104,7 +104,10 @@ int asm_printer_ruleset_device(const Ruleset *rules, const TargetInfo *target, c
         return 0;
     }
     const unsigned int scratch_banks[3] = {REGCLASS_TEMPORARY, REGCLASS_WIDE, REGCLASS_PREDICATE};
-    ruleset_scratch(rules, scratch_banks, &text_rules->scratch);
+    if (ruleset_scratch_device(rules, scratch_banks, &text_rules->scratch, refused) == 0)
+    {
+        return 0;
+    }
     AsmPrinterFlat flat;
     asm_printer_flatten(rules, target, header, &flat);
     DeviceArena rules_arena{};

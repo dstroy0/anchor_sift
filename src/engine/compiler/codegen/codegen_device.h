@@ -74,15 +74,30 @@ int codegen_device_instrs(const EngineRecordLayout *layout, const std::vector<un
 // 1 where two layouts are the same word for word: their sizes, step tables and tables' values
 int layout_same(const EngineRecordLayout *left, const EngineRecordLayout *right);
 
-// asm_printer_ruleset_build on the device: the schema checked and the scratch taken on the host, which are the
-// reader's, then the build (asm_printer_core.h) in one device thread and the program laid out by the device
-// (layout_device). The program's key is not kept, and its output is the program's. 1 where it is built, else 0 and why
-// in `refused`, as the host's build refuses, or where the device refused a call or the build has no device
+// asm_printer_ruleset_build on the device: the schema checked on the host, the scratch taken by the device
+// (ruleset_scratch_device), then the build (asm_printer_core.h) in one device thread and the program laid out by the
+// device (layout_device). The program's key is not kept, and its output is the program's. 1 where it is built, else 0
+// and why in `refused`, as the host's build refuses, or where the device refused a call or the build has no device
 int asm_printer_ruleset_device(const Ruleset *rules, const TargetInfo *target, const std::string &header,
                                AsmPrinterRuleset *text_rules, std::string *refused);
 
 // 1 where two builds of a ruleset are the same word for word: their scratch and lists, the program's steps, fields,
 // tables and output, and its layout
 int asm_printer_ruleset_same(const AsmPrinterRuleset *left, const AsmPrinterRuleset *right);
+
+// the ruleset at `path` read into `rules` against rules->schema as the host's reader reads it, the file opened on the
+// host and its lines read in one device thread (ruleset_core.h): 1 where the device read it, `rules` then as the
+// host's reader leaves them, read or refused; 0, and why in `refused`, where the device refused a call or the build has
+// no device
+int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *refused);
+
+// ruleset_scratch laid out in one device thread (ruleset_core_scratch.h): 1 where it was; 0, and why in `refused`,
+// where the device refused a call or the build has no device
+int ruleset_scratch_device(const Ruleset *rules, const unsigned int *banks, std::vector<unsigned int> *scratch,
+                           std::string *refused);
+
+// 1 where two rulesets are the same as read: their schema, path, reason, names, banks, registers, forms, constructs,
+// which were given, and the construct being read with its parameters
+int ruleset_same(const Ruleset *left, const Ruleset *right);
 
 #endif

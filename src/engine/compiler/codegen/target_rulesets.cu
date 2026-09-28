@@ -7,89 +7,24 @@
 // header, else 0 with the reason in rules->refused. A line that begins with # is a comment, and a blank line is nothing
 static int ruleset_read(Ruleset *rules, const std::string &path)
 {
-    const RulesetSchema *const schema = rules->schema;
-    rules->path = path;
-    rules->banks.assign(schema->bank_count, InstrTemplate());
-    rules->fixed.assign(schema->fixed_count, std::string());
-    rules->forms.assign(schema->form_count, InstrTemplate());
-    rules->constructs.assign(schema->form_count, Pseudo());
-    rules->building = schema->form_count;
-    rules->bank_given.assign(schema->bank_count, 0u);
-    rules->fixed_given.assign(schema->fixed_count, 0u);
-    rules->form_given.assign(schema->form_count, 0u);
-    FILE *const file = fopen(path.c_str(), "rb");
-    if (file == NULL)
+    std::string ruleset_text;
+    if (ruleset_file(rules, path, &ruleset_text) == 0)
     {
-        rules->refused = "it could not be opened";
         return 0;
     }
-    std::string ruleset_text;
-    char block[4096];
-    size_t read = fread(block, 1u, sizeof(block), file);
-    while (read != 0u)
-    {
-        ruleset_text.append(block, read);
-        read = fread(block, 1u, sizeof(block), file);
-    }
-    fclose(file);
-    unsigned int number = 0u;
-    size_t at = 0u;
-    while ((at < ruleset_text.size()) && rules->refused.empty())
-    {
-        const size_t found = ruleset_text.find('\n', at);
-        const size_t end = (found == std::string::npos) ? ruleset_text.size() : found;
-        // a checkout that ends its lines with a carriage return as well leaves each line as it was written
-        const size_t kept = ((end > at) && (ruleset_text[end - 1u] == '\r')) ? (end - 1u) : end;
-        const std::string line = ruleset_text.substr(at, kept - at);
-        number += 1u;
-        at = end + 1u;
-        const size_t space = line.find(' ');
-        const int constructing = rules->building != schema->form_count;
-        const std::string why =
-            (number == 1u)
-                ? ((line == "krs 1") ? std::string() : std::string("it is not krs 1"))
-                : ((line.empty() || (line[0] == '#'))
-                       ? std::string()
-                       : (constructing
-                              ? ruleset_pseudo_line(rules, line)
-                              : ruleset_entry(rules, line.substr(0u, space),
-                                              (space == std::string::npos) ? std::string() : line.substr(space + 1u))));
-        if (!why.empty())
-        {
-            char where[32];
-            snprintf(where, sizeof(where), "line %u: ", number);
-            rules->refused = where + why;
-        }
-    }
-    if (rules->refused.empty() && (rules->building != schema->form_count))
-    {
-        rules->refused = "the construct " + std::string(schema->forms[rules->building].text) + " has no end";
-    }
-    for (unsigned int bank = 0u; rules->refused.empty() && (bank < schema->bank_count); bank += 1u)
-    {
-        if (rules->bank_given[bank] == 0u)
-        {
-            rules->refused = "the bank " + std::string(schema->banks[bank].text) + " is not given";
-        }
-    }
-    for (unsigned int fixed = 0u; rules->refused.empty() && (fixed < schema->fixed_count); fixed += 1u)
-    {
-        if (rules->fixed_given[fixed] == 0u)
-        {
-            rules->refused = "the register " + std::string(schema->fixed[fixed].text) + " is not given";
-        }
-    }
-    for (unsigned int named = 0u; rules->refused.empty() && (named < schema->form_count); named += 1u)
-    {
-        if (rules->form_given[named] == 0u)
-        {
-            rules->refused = "the form " + std::string(schema->forms[named].text) + " is not given";
-        }
-    }
-    if (rules->refused.empty() && (rules->name.empty() || rules->toolchain.empty() || rules->header.empty()))
-    {
-        rules->refused = "its ruleset, toolchain or header is not named";
-    }
+    // the file read by the core (ruleset_core.h) the device runs as well
+    RulesetFlat flat;
+    ruleset_flat_schema(rules->schema, &flat);
+    RulesetCoreRead read{};
+    read.schema = flat.schema;
+    read.text = (const unsigned char *)ruleset_text.data();
+    // ruleset_file holds a ruleset below RULESET_FILE_MAX letters
+    read.text_length = (unsigned int)ruleset_text.size();
+    ruleset_capacities(read.text_length, &read);
+    RulesetMemory memory;
+    ruleset_memory_size(&memory, &read);
+    ruleset_core_read(&read);
+    ruleset_keep(&read, ruleset_text, rules);
     return rules->refused.empty() ? 1 : 0;
 }
 
@@ -229,57 +164,32 @@ void ruleset_write_list(const Ruleset *rules, std::string &text, unsigned int na
     ruleset_opcode_text(rules, text, name, arguments.data(), scratch, broken);
 }
 
-// the scratch form `name` takes in one writing, laid out into its four words of `scratch` once and marked in `counted`:
-// each scratch register its lines name, once, and what each form its lines write takes, which a construct given before
-// it in the file has laid out, and the recursion ends
-static void ruleset_scratch_of(const Ruleset *rules, const unsigned int *banks, unsigned int name,
-                               std::vector<unsigned int> *scratch, std::vector<unsigned char> *counted)
-{
-    if ((*counted)[name] != 0u)
-    {
-        return;
-    }
-    (*counted)[name] = 1u;
-    std::vector<unsigned int> taken_bank;
-    std::vector<unsigned int> taken_number;
-    for (const PseudoLine &line : rules->constructs[name].lines)
-    {
-        for (const PseudoOperand &given : line.arguments)
-        {
-            int found = 0;
-            for (size_t at = 0u; (given.kind == PSEUDO_SCRATCH) && (at < taken_bank.size()); at += 1u)
-            {
-                found = found || ((taken_bank[at] == given.slot) && (taken_number[at] == given.number));
-            }
-            if ((given.kind != PSEUDO_SCRATCH) || (found != 0))
-            {
-                continue;
-            }
-            taken_bank.push_back(given.slot);
-            taken_number.push_back(given.number);
-            const unsigned int bank_index =
-                (given.slot == banks[0]) ? 0u : ((given.slot == banks[1]) ? 1u : ((given.slot == banks[2]) ? 2u : 3u));
-            (*scratch)[(4u * name) + bank_index] =
-                (bank_index == 3u) ? 1u : ((*scratch)[(4u * name) + bank_index] + 1u);
-        }
-        ruleset_scratch_of(rules, banks, line.form, scratch, counted);
-        for (unsigned int bank_index = 0u; bank_index < 3u; bank_index += 1u)
-        {
-            (*scratch)[(4u * name) + bank_index] += (*scratch)[(4u * line.form) + bank_index];
-        }
-        (*scratch)[(4u * name) + 3u] |= (*scratch)[(4u * line.form) + 3u];
-    }
-}
-
 void ruleset_scratch(const Ruleset *rules, const unsigned int *banks, std::vector<unsigned int> *scratch)
 {
+    // laid out by the core (ruleset_core_scratch.h) the device runs as well
     const unsigned int forms = rules->schema->form_count;
-    std::vector<unsigned char> counted(forms, (unsigned char)0u);
-    scratch->assign(4u * (size_t)forms, 0u);
-    for (unsigned int name = 0u; name < forms; name += 1u)
-    {
-        ruleset_scratch_of(rules, banks, name, scratch, &counted);
-    }
+    RulesetFlatConstructs flat;
+    ruleset_flat_constructs(rules, &flat);
+    std::vector<unsigned char> counted((size_t)forms + 1u, (unsigned char)0u);
+    std::vector<RulesetCoreFrame> frames((size_t)forms + 1u, RulesetCoreFrame{});
+    std::vector<unsigned int> taken_bank(flat.arguments.size(), 0u);
+    std::vector<unsigned int> taken_number(flat.arguments.size(), 0u);
+    scratch->assign((4u * (size_t)forms) + 1u, 0u);
+    RulesetCoreScratch laid_out{};
+    laid_out.constructs = flat.constructs.data();
+    laid_out.lines = flat.lines.data();
+    laid_out.arguments = flat.arguments.data();
+    laid_out.form_count = forms;
+    laid_out.banks[0] = banks[0];
+    laid_out.banks[1] = banks[1];
+    laid_out.banks[2] = banks[2];
+    laid_out.scratch = scratch->data();
+    laid_out.counted = counted.data();
+    laid_out.frames = frames.data();
+    laid_out.taken_bank = taken_bank.data();
+    laid_out.taken_number = taken_number.data();
+    ruleset_core_scratch(&laid_out);
+    scratch->resize(4u * (size_t)forms);
 }
 
 // a form written by the name its .krs file gives it, for a reader outside the code generator (target.h), a construct's
