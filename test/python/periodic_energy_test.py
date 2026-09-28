@@ -232,7 +232,7 @@ def main():
             if line.startswith("results "):
                 print("  %-19s      engine %s" % ("", line))
 
-    print("\n  %d case(s), %d failed; probe exit %d, %d block(s) printed\n" % (
+    print("\n  %d checks, %d failed; probe exit %d, %d block(s) printed\n" % (
         len(graded), failed, ran.returncode, len(blocks)))
     return 0 if failed == 0 and ran.returncode == 0 else 1
 

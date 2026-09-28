@@ -144,7 +144,7 @@ def main():
             dispatched = render.render_volume(config, corpus, needle, probes, lib=lib)
             failed += row("volume", volume_names[layout], channel_names[channel], py, c, dispatched)
 
-    print("\n  %d check(s), %d failed\n" % (len(raster_layouts + volume_layouts) * len(channels), failed))
+    print("\n  %d checks, %d failed\n" % (len(raster_layouts + volume_layouts) * len(channels), failed))
     return 0 if failed == 0 else 1
 
 

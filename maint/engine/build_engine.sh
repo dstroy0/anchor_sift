@@ -249,6 +249,8 @@ python_grader shift_agreement_test.py ANCHOR_SHIFT_LIB shift_agreement_host.dll 
 echo ""
 if [ "$failed" -ne 0 ]; then
     echo "[!] $failed grader(s) failed"
+    echo "  engine c test exit 1"
     exit 1
 fi
 echo "[+] all graders passed"
+echo "  engine c test exit 0"

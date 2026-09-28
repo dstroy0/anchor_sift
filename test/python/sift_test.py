@@ -261,7 +261,7 @@ def main():
                 name if at == 0 else "", side, found["naive"][at][0], "%d/%d" % (inorder[1], inorder[2]),
                 found["steer 1"][at][1], found["choose"][at], len(items) if at else "",
                 "" if at == 0 else ("%d differ ok" % len(differ) if ok else "FAILS: " + ", ".join(differ))))
-    print("\n  %d case(s), %d failed\n" % (graded, failed))
+    print("\n  %d checks, %d failed\n" % (graded, failed))
     return 0 if failed == 0 else 1
 
 

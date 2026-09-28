@@ -235,7 +235,7 @@ def main():
                 crc(c[2]), crc(py[2]), diff, "ok" if ok else "FAILS"))
         failed += 0 if ok else 1
 
-    print("\n  %d case(s), %d failed\n" % (graded, failed))
+    print("\n  %d checks, %d failed\n" % (graded, failed))
     return 0 if failed == 0 else 1
 
 

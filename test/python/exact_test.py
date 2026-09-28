@@ -172,8 +172,8 @@ def main():
         print("  %4s %4s %-30s %-34s %-34s %s" % (kind, index, ascii(text)[:30], c_shown, py_shown, verdict))
 
     total = sum(counts.values())
-    print("\n  %d row(s): %d agree, %d in error by the C's width alone, %d failed\n"
-          % (total, counts["ok"], counts["width"], counts["FAILS"]))
+    print("\n  %d checks, %d failed: %d agree, %d in error by the C's width alone\n"
+          % (total, counts["FAILS"], counts["ok"], counts["width"]))
     return 0 if counts["FAILS"] == 0 and total > 0 else 1
 
 
