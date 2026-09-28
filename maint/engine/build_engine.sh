@@ -162,7 +162,7 @@ fi
 # anchor_sift_kernel, the whole engine in one translation unit.
 echo "[*] building"
 for target in anchor_sift_kernel anchor_sift_kernel_counted anchor_raster anchor_render \
-              anchor_exact_portable \
+              anchor_exact_portable anchor_sift_host shift_agreement_host \
               test_steer test_adversarial test_arm_agreement bench_steer_arms bench_raster \
               bench_exact_arms bench_exact bench_dispatch bench_coherence \
               bench_scaling_reads bench_scaling_cycles; do
@@ -205,6 +205,46 @@ for grader in test_steer test_adversarial test_arm_agreement bench_steer_arms be
         failed=$((failed + 1))
     fi
 done
+
+# The Python graders in test/python that grade a host build. Each is handed, in its environment variable, the program
+# or library this build made, so none of them finds an older one elsewhere under build/. The first name found in $bin
+# is the one given.
+python_grader()
+{
+    script="$1"
+    variable="$2"
+    shift 2
+    path=""
+    for name in "$@"; do
+        if [ -f "$bin/$name" ]; then
+            path="$bin/$name"
+            break
+        fi
+    done
+    echo ""
+    echo "[*] test/python/$script"
+    if [ -z "$path" ]; then
+        echo "[!] $script: none of $* was built" >&2
+        failed=$((failed + 1))
+        return 0
+    fi
+    # a Windows Python reads a Windows path
+    if command -v cygpath >/dev/null 2>&1; then
+        path=$(cygpath -m "$path")
+    fi
+    if ! env "$variable=$path" python "$root/test/python/$script"; then
+        echo "[!] $script reported a failure" >&2
+        failed=$((failed + 1))
+    fi
+}
+
+python_grader exact_test.py ANCHOR_BENCH_EXACT bench_exact.exe bench_exact
+python_grader render_test.py ANCHOR_RENDER_LIB anchor_render.dll libanchor_render.dll libanchor_render.so \
+    libanchor_render.dylib
+python_grader sift_test.py ANCHOR_SIFT_LIB anchor_sift_host.dll libanchor_sift_host.dll libanchor_sift_host.so \
+    libanchor_sift_host.dylib
+python_grader shift_agreement_test.py ANCHOR_SHIFT_LIB shift_agreement_host.dll libshift_agreement_host.dll \
+    libshift_agreement_host.so libshift_agreement_host.dylib
 
 echo ""
 if [ "$failed" -ne 0 ]; then

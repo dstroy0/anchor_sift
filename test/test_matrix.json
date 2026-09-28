@@ -63,11 +63,12 @@
       ]
     },
     "engine_c": {
-      "desc": "The C engine through its CMake, then its graders (test_steer, test_adversarial, test_arm_agreement and the benches).",
+      "desc": "The C engine through its CMake, then its graders (test_steer, test_adversarial, test_arm_agreement and the benches), then test/python's host graders (exact_test, render_test, sift_test, shift_agreement_test) on what it built.",
       "script": "maint/engine/build_engine.sh",
       "src": [],
       "tests": [
-        "maint/engine"
+        "maint/engine",
+        "python"
       ]
     },
     "exact_divide": {
@@ -123,6 +124,36 @@
       ],
       "tests": [
         "engine/analysis/period"
+      ]
+    },
+    
+    "python_period": {
+      "desc": "measure.period graded against period_read and period_draw, line for line: test/python/period_test.py over period_probe, a tessera job.",
+      "script": "test/python/period_test.sh",
+      "src": [
+        "+<engine/analysis/period/*>",
+        "+<engine/arithmetic/no_rounding/*>",
+        "+<engine/python/*>",
+        "+<engine/runtime/device_pool/*>",
+        "+<engine/runtime/scriptura/*>",
+        "+<engine/sims/*>"
+      ],
+      "tests": [
+        "python"
+      ]
+    },
+    
+    "python_periodic_energy": {
+      "desc": "measure.periodic_energy graded against sims/art/periodic_energy.h, line for line: test/python/periodic_energy_test.py over periodic_energy_probe, a tessera job.",
+      "script": "test/python/periodic_energy_test.sh",
+      "src": [
+        "+<engine/arithmetic/no_rounding/*>",
+        "+<engine/python/*>",
+        "+<engine/runtime/scriptura/*>",
+        "+<engine/sims/*>"
+      ],
+      "tests": [
+        "python"
       ]
     },
     "qasm": {

@@ -18,11 +18,12 @@ if(NOT DEFINED ANCHOR_SIFT_ROOT)
 endif()
 
 
-add_library(anchor_exact_portable STATIC arithmetic/no_rounding/exact_integer_add.c
+set(ANCHOR_EXACT_PORTABLE_SOURCES arithmetic/no_rounding/exact_integer_add.c
     arithmetic/no_rounding/exact_integer_limbs.c arithmetic/no_rounding/exact_integer_multiply.c
     arithmetic/no_rounding/exact_integer_divide.c arithmetic/no_rounding/exact_integer_gcd.c
     arithmetic/no_rounding/exact_integer_decimal.c arithmetic/no_rounding/exact_integer_hash.c
     arithmetic/no_rounding/arm_portable.c)
+add_library(anchor_exact_portable STATIC ${ANCHOR_EXACT_PORTABLE_SOURCES})
 target_include_directories(anchor_exact_portable PUBLIC arithmetic/no_rounding)
 target_compile_options(anchor_exact_portable PRIVATE ${SIFT_WARNINGS})
 
@@ -99,6 +100,28 @@ target_compile_definitions(anchor_sift_kernel_counted PUBLIC ${ANCHOR_SIFT_DEFIN
     ANCHOR_SIFT_COUNT_READS=1)
 target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel_counted PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
+
+# The shared libraries test/python's graders load through ctypes. anchor_sift_host is the kernel's host arms with the
+# read counters, and the exact integer sources compiled into it, so no static library has to be position independent;
+# on Windows test/python/anchor_sift_probe.def names its exports. shift_agreement_host is shift_agreement.c alone.
+add_library(anchor_sift_host SHARED ${ANCHOR_SIFT_SOURCES} ${ANCHOR_EXACT_PORTABLE_SOURCES})
+target_include_directories(anchor_sift_host PRIVATE nbody/anchor_sift arithmetic/no_rounding)
+target_compile_definitions(anchor_sift_host PRIVATE ${ANCHOR_SIFT_DEFINES} ANCHOR_SIFT_COUNT_READS=1)
+if(ANCHOR_EXACT_LIMBS)
+    target_compile_definitions(anchor_sift_host PRIVATE ANCHOR_EXACT_LIMBS=${ANCHOR_EXACT_LIMBS}u)
+endif()
+if(ANCHOR_EXACT_DIGITS)
+    target_compile_definitions(anchor_sift_host PRIVATE ANCHOR_EXACT_DIGITS=${ANCHOR_EXACT_DIGITS}u)
+endif()
+target_compile_options(anchor_sift_host PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
+if(WIN32)
+    target_sources(anchor_sift_host PRIVATE ${ANCHOR_SIFT_ROOT}/test/python/anchor_sift_probe.def)
+endif()
+
+add_library(shift_agreement_host SHARED analysis/shift_agreement/shift_agreement.c)
+target_include_directories(shift_agreement_host PRIVATE analysis/shift_agreement ${CMAKE_CURRENT_SOURCE_DIR})
+target_compile_definitions(shift_agreement_host PRIVATE SHIFT_AGREEMENT_BUILD_DLL=1)
+target_compile_options(shift_agreement_host PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
 option(ANCHOR_SKIP_CUDA "Do not look for a CUDA toolchain" OFF)
 
