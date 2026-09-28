@@ -11,6 +11,7 @@
 #include "crc.h"
 #include "krep.h"
 #include "vhdl_target.h"
+#include "yosys_script.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -229,12 +230,14 @@ static int construction_measure(const Ruleset *rules, const std::string &package
         {
             continue;
         }
+        const std::string script = yosys_script().synthesis("alone.v", "form_alone", std::string());
         const std::string synthesize =
             "cd '" + work +
             "' && ghdl --synth --std=08 --out=verilog alone.vhd -e form_alone > alone.v 2> synth.log && "
-            "yosys -p \"read_verilog alone.v; synth -top form_alone; ltp -noff\" > yosys.log 2>&1";
+            "yosys -s alone.ys > yosys.log 2>&1";
         *cost = 0ull;
-        return (system(synthesize.c_str()) == 0) && construction_after(work + "/yosys.log", "(length=", cost);
+        return !script.empty() && construction_write(work + "/alone.ys", script) && (system(synthesize.c_str()) == 0) &&
+               construction_after(work + "/yosys.log", "(length=", cost);
     }
     return 0;
 }

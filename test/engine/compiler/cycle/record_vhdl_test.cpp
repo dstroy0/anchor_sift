@@ -13,6 +13,7 @@
 #include "krep.h"
 #include "record_image.h"
 #include "vhdl_target.h"
+#include "yosys_script.h"
 
 #include <stddef.h>
 #include <stdio.h>
@@ -153,17 +154,18 @@ struct VhdlTrial
 };
 
 // the program in the work folder's program.vhd, its resident and its lane, synthesized into `trial` from the resident
-// down: GHDL's synthesis as Verilog, then Yosys's generic synthesis. The memories Yosys inferred are its $mem_v2 cells
-// where its synthesis stops before the fine stage, since the generic fine stage maps each memory to flops; a read port
-// is registered where Yosys took the flops its word lands in into the port, as a block RAM's read is
+// down: GHDL's synthesis as Verilog, then Yosys's generic synthesis by the script yosys.krs writes. The memories Yosys
+// inferred are its $mem_v2 cells where its synthesis stops before the fine stage, since the generic fine stage maps
+// each memory to flops; a read port is registered where Yosys took the flops its word lands in into the port, as a
+// block RAM's read is
 static void vhdl_synthesize(const VhdlPlace *place, VhdlTrial *trial)
 {
+    const std::string script = yosys_script().synthesis("synth.v", "cycle_program_unit", "memories.log");
     const std::string command =
         "cd '" + place->work + "' && ghdl --synth --std=08 -gwords=" + std::to_string(VHDL_TEST_SYNTHESIS_WORDS) +
-        " --out=verilog program.vhd -e cycle_program_unit > synth.v 2> synth.log && yosys -p \"read_verilog synth.v; "
-        "synth -top cycle_program_unit -run :fine; tee -q -o memories.log stat; "
-        "synth -top cycle_program_unit -run fine:; stat; ltp -noff\" > yosys.log 2>&1";
-    const int status = system(command.c_str());
+        " --out=verilog program.vhd -e cycle_program_unit > synth.v 2> synth.log && yosys -s synth.ys > yosys.log 2>&1";
+    const int status =
+        (!script.empty() && vhdl_write(place->work + "/synth.ys", script)) ? system(command.c_str()) : -1;
     trial->memories = vhdl_after(place->work + "/memories.log", "$mem_v2");
     trial->registered = vhdl_lines(place->work + "/yosys.log", "merging output FF");
     trial->cells = vhdl_after(place->work + "/yosys.log", "Number of cells:");
@@ -209,7 +211,7 @@ static int vhdl_report(VhdlResults *results, const VhdlPlace *place, const std::
                               : (trial->read && host_ran && (trial->error == 0u) && (trial->records == host_records));
     vhdl_check(results, passed,
                what + (errors ? " as VHDL errors on a lane where the host errors on the run"
-                               : " as VHDL writes the host's records word for word"));
+                              : " as VHDL writes the host's records word for word"));
     if (place->synthesis && trial->read)
     {
         printf("  %s, synthesized over %u words: %llu memories inferred, %llu read ports registered, %llu cells, the "

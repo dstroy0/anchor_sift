@@ -44,11 +44,10 @@ done
 c++ -o "$BINARY" "${OBJECTS[@]}" -lpthread
 [ -f "$BINARY" ] || { echo "  build failed: the tool did not link"; exit 1; }
 
-WORK="$OUT/kcs_work"
-rm -rf "$WORK"
-mkdir -p "$WORK"
+# the work folder is the system's own temporary folder, as record_vhdl_test.sh's is
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/vhdl_construction_set.XXXXXX")"
+trap 'rm -rf "$WORK"' EXIT
 "$BINARY" "$WORK" "$CODEGEN/rulesets/vhdl.krs" "$OUT/vhdl.kcs"
 STATUS=$?
-rm -rf "$WORK"
 echo "  vhdl construction set exit $STATUS"
 exit "$STATUS"

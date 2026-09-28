@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # The record machine's lane as VHDL held to the host oracle, where GHDL is on the path: the code generator, keymath and
 # key_schedule and krep are host code in .cu files and the test C++, compiled as C++; cycle.c, the exact integer's
-# pieces and scriptura as C. GHDL analyzes and runs each program's lane in a work folder under the build's output. Where the
-# build's output holds vhdl.kcs (vhdl_construction_set.sh), the lane is cut by that construction set as well.
+# pieces and scriptura as C. GHDL analyzes and runs each program's lane in a work folder in the system's temporary folder. Where
+# the build's output holds vhdl.kcs (vhdl_construction_set.sh), the lane is cut by that construction set as well.
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -43,9 +43,10 @@ done
 c++ -o "$BINARY" "${OBJECTS[@]}" -lpthread
 [ -f "$BINARY" ] || { echo "  build failed: the test did not link"; exit 1; }
 
-WORK="$OUT/vhdl_work"
-rm -rf "$WORK"
-mkdir -p "$WORK"
+# the work folder is the system's own temporary folder, not the build's output: a synthesis writes its Verilog in small
+# pieces, and a drive the system shares with another (WSL's /mnt) takes each one slowly
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/record_vhdl.XXXXXX")"
+trap 'rm -rf "$WORK"' EXIT
 # where Yosys is on the path too, each lane is synthesized as well
 SYNTHESIS=()
 if command -v yosys > /dev/null 2>&1; then
@@ -57,6 +58,5 @@ if [ -f "$OUT/vhdl.kcs" ]; then
 fi
 "$BINARY" "$WORK" "$TEST/record_vhdl_bench.vhd" "${SYNTHESIS[@]}" "${CONSTRUCTION[@]}"
 STATUS=$?
-rm -rf "$WORK"
 echo "  record vhdl test exit $STATUS"
 exit "$STATUS"

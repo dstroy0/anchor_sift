@@ -1,0 +1,22 @@
+krs 1
+# Yosys's generic synthesis of a lane GHDL wrote as Verilog, as a script Yosys reads a command a line (yosys -s). The
+# format is the comment at the head of ptx.krs. The script is synth's own passes, lightened: each opt is opt -fast in
+# place of synth's full opt and opt -full, and fsm and share are left out: the cost read is the lane as it is written,
+# its state register as the process holds it and each operation its own operator. What the passes give is the netlist
+# its cost is read from: the memories memory -nomap infers before the fine stage maps them to flops, the read ports it
+# registers ("merging output FF"), the cells stat counts, and the longest path ltp walks ("(length=").
+ruleset yosys
+toolchain yosys
+header read_source
+
+# the Verilog GHDL wrote
+form read_source source = read_verilog {source}\n
+# the design's hierarchy from its top, its processes as cells, and its arithmetic and memories as coarse cells
+form coarse top = hierarchy -check -top {top}\nproc\nopt_expr\nopt_clean\nopt -fast -nodffe -nosdff\nwreduce\npeepopt\nopt_clean\nalumacc\nopt -fast\nmemory -nomap\nopt_clean\n
+# the coarse netlist's statistics written quietly to a log, while its memories are still cells
+form memories log = tee -q -o {log} stat\n
+# the memories mapped to flops, the coarse cells to gates, and the gates to a netlist by abc's fast script, which folds
+# the gates' constants itself: no opt runs between the maps
+form fine = memory_map\ntechmap\nabc -fast\nopt -fast\n
+# the netlist's cells and its longest path, flops cut
+form measure = stat\nltp -noff\n
