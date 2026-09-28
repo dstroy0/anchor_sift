@@ -7,6 +7,7 @@
 #include "../key_schedule/key_schedule.h"
 #include "../key_schedule/key_schedule_core.h"
 #include "../keymath/keymath_core.h"
+#include "codegen_device.h"
 
 #include <stddef.h>
 #include <stdlib.h>

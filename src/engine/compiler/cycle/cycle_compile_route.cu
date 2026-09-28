@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // cycle_compile_route.cu: holding programs, the route and the device's code generator
+#include "../codegen/ruleset_reader.h"
 #include "cycle_compile_internal.h"
 
 static std::vector<CycleCompiledProgram> s_cycle_programs;
