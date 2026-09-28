@@ -362,6 +362,6 @@ int main(void)
 
     cudaFree(rig.device_lanes);
     free(rig.host);
-    printf("  tower edge test %d checks %d failed\n", s_checks, s_failed);
+    printf("  tower edge test: %d checks, %d failed\n", s_checks, s_failed);
     return (s_failed == 0) ? 0 : 1;
 }
