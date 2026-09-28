@@ -12,6 +12,7 @@ tessera_run, which admits it on the device's daemon, and the daemon decides what
     harness.py run codegen_device cell    those suites alone
     harness.py run --report-out PATH      and write the run's summary as a Markdown table
     harness.py run --at HASH              the suites of anchor_sift as it was at a commit
+    harness.py run --idle SECONDS         a suite silent this long once admitted is hung (1800; 0 never)
 
 --at exports the commit once, with git archive, to build/trees/<commit> beside the repository
 (fetching it from origin where this clone does not hold it) and runs that tree's matrix there; its
@@ -50,6 +51,7 @@ import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import tarfile
@@ -417,6 +419,8 @@ TESSERA_RUN_CANDIDATES = (
     os.path.join(ROOT, "build", "tessera_host", "tessera_run"),
 )
 SCRIPT_BUILD = os.path.join(os.path.dirname(ROOT), "build", "harness")
+# a suite admitted and silent this long is hung
+IDLE_SECONDS = 1800
 CHECKS_LINE = re.compile(r"(\d+) checks, (\d+) failed")
 EXIT_LINE = re.compile(r"test exit (\d+)")
 
@@ -508,13 +512,50 @@ def script_command(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD):
     return cmd, env
 
 
-def script_run_one(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD):
-    """Run one env's suite. Returns (name, status, checks, failed, exit, log path, seconds)."""
+def script_end_tree(process):
+    """End a suite's job and every process it started."""
+    if os.name == "nt":
+        subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"], capture_output=True)
+    else:
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except OSError:
+            pass
+    process.wait()
+
+
+def script_run_one(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD, idle=IDLE_SECONDS):
+    """Run one env's suite. Returns (name, status, checks, failed, exit, log path, seconds). Once the daemon admits
+    it, a suite whose log does not grow for `idle` seconds (the env's "idle_seconds" where it names one) is hung: its
+    job and every process it started are ended, and it fails. The wait to be admitted prints nothing and is not
+    counted."""
     cmd, env = script_command(name, e, tessera, root, script_build)
     log = os.path.join(script_build, name + ".log")
+    idle = e.get("idle_seconds", idle)
     t0 = time.time()
+    hung = False
     with open(log, "w", encoding="utf-8", errors="replace") as fh:
-        rc = subprocess.run(cmd, cwd=root, env=env, stdout=fh, stderr=subprocess.STDOUT).returncode
+        process = subprocess.Popen(cmd, cwd=root, env=env, stdout=fh, stderr=subprocess.STDOUT,
+                                   start_new_session=(os.name != "nt"))
+        admitted = False
+        size = 0
+        grew = time.time()
+        while process.poll() is None:
+            time.sleep(5.0)
+            now_size = os.fstat(fh.fileno()).st_size
+            if now_size != size:
+                size = now_size
+                grew = time.time()
+                if not admitted:
+                    with open(log, encoding="utf-8", errors="replace") as seen:
+                        admitted = " admitted after " in seen.read()
+            elif admitted and idle > 0 and time.time() - grew > idle:
+                hung = True
+                script_end_tree(process)
+        rc = process.returncode
+        if hung:
+            fh.write("\n  harness: no output for %d s once admitted; the suite's processes were ended\n" % idle)
+            rc = rc or 1
     secs = time.time() - t0
     with open(log, encoding="utf-8", errors="replace") as fh:
         text = fh.read()
@@ -584,7 +625,7 @@ def cmd_run(a):
     t0 = time.time()
     # the daemon decides what runs beside what. The suites go to it together; -j bounds how many wait at once
     with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, a.jobs)) as pool:
-        futures = [pool.submit(script_run_one, n, table[n], tessera, root, script_build) for n in names]
+        futures = [pool.submit(script_run_one, n, table[n], tessera, root, script_build, a.idle) for n in names]
         for i, f in enumerate(concurrent.futures.as_completed(futures), 1):
             name, status, checks, failed, rc, log, secs = f.result()
             results.append((name, status, checks, failed, rc, log, secs))
@@ -699,6 +740,7 @@ def build_parser():
     p.add_argument("-v", "--verbose", action="store_true", help="print every suite's log path, not only the ones that did not pass")
     p.add_argument("--report-out", metavar="PATH", help="write the run's summary here")
     p.add_argument("--at", metavar="HASH", help="run the suites of anchor_sift as it was at this commit (fetched from origin if need be)")
+    p.add_argument("--idle", type=int, default=IDLE_SECONDS, metavar="SECONDS", help="end a suite whose log has not grown this long once admitted (0: never)")
     p.set_defaults(fn=cmd_run)
     return ap
 
