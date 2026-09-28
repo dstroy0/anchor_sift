@@ -641,3 +641,74 @@ extern "C" void krep_bodies_release(EngineBodyTable *table)
     table->frame_start = NULL;
     table->words = NULL;
 }
+
+extern "C" int krep_forms_write(const char *path, const KrepFormTable *table, EngineError *error)
+{
+    if (error == NULL)
+    {
+        return 0;
+    }
+    if (!KREP_HELD((path != NULL) && (table != NULL), &table, error, ENGINE_ERROR_REQUEST))
+    {
+        return 0;
+    }
+    const unsigned long long counts[3] = {table->forms, table->name_words, table->crc};
+    FILE *const out = fopen(path, "wb");
+    int good = KREP_IO(out != NULL, path, error)
+            && KREP_IO(krep_head_write(out, KREP_KIND_CONSTRUCTION_SET) != 0, out, error)
+            && KREP_IO(krep_words_write(out, counts, 3u) != 0, counts, error)
+            && KREP_IO(krep_words_write(out, table->words, (size_t)(table->forms + table->name_words)) != 0,
+                       table->words, error);
+    if (out != NULL)
+    {
+        good = KREP_IO(fclose(out) == 0, out, error) && good;
+    }
+    return good;
+}
+
+extern "C" int krep_forms_read(const char *path, KrepFormTable *table, EngineError *error)
+{
+    if (error == NULL)
+    {
+        return 0;
+    }
+    if (!KREP_HELD((path != NULL) && (table != NULL), &table, error, ENGINE_ERROR_REQUEST))
+    {
+        return 0;
+    }
+    memset(table, 0, sizeof(*table));
+    FILE *const back = fopen(path, "rb");
+    unsigned long long counts[3] = {0ull, 0ull, 0ull};
+    int good = KREP_IO(back != NULL, path, error)
+            && KREP_IO(krep_head_read(back, KREP_KIND_CONSTRUCTION_SET) != 0, back, error)
+            && KREP_IO(krep_words_read(back, counts, 3u) != 0, counts, error)
+            && KREP_HELD((counts[0] <= KREP_FORMS_MOST) && (counts[1] <= KREP_FORMS_MOST), counts, error,
+                         ENGINE_ERROR_LOGIC);
+    table->forms = good ? counts[0] : 0ull;
+    table->name_words = good ? counts[1] : 0ull;
+    table->crc = counts[2];
+    table->words = good ? (unsigned long long *)calloc((size_t)(table->forms + table->name_words) + 1u,
+                                                       sizeof(unsigned long long))
+                        : NULL;
+    good = good && KREP_HELD(table->words != NULL, &table->words, error, ENGINE_ERROR_RESOURCE)
+        && KREP_IO(krep_words_read(back, table->words, (size_t)(table->forms + table->name_words)) != 0, table->words,
+                   error)
+        && KREP_HELD(fgetc(back) == EOF, back, error, ENGINE_ERROR_LOGIC)
+        && KREP_HELD(crc_words(CRC_TABLE, table->words, (size_t)(table->forms + table->name_words)) == table->crc,
+                     &table->crc, error, ENGINE_ERROR_LOGIC);
+    if (back != NULL)
+    {
+        fclose(back);
+    }
+    if (good == 0)
+    {
+        krep_forms_release(table);
+    }
+    return good;
+}
+
+extern "C" void krep_forms_release(KrepFormTable *table)
+{
+    free(table->words);
+    table->words = NULL;
+}

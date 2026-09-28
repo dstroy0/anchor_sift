@@ -239,7 +239,7 @@ static int tessera_send(TesseraClient *client, const TesseraFrame *frame)
     }
     unsigned int sent = 0u;
 #if !defined(_WIN32)
-    // the measuring thread and the caller share the socket, so a frame goes out whole
+    // the measuring thread and the caller share the socket, and each frame goes out whole under the lock
     pthread_mutex_lock(&client->sending);
 #endif
     int whole = 1;
@@ -379,7 +379,7 @@ static void tessera_self_end(TesseraClient *client)
     pthread_mutex_unlock(&client->watch);
     pthread_join(client->measurer, NULL);
     client->measuring = 0;
-    // the last reading goes in before the release, so the peak kept holds the whole run
+    // the last reading goes in before the release: the peak kept holds the whole run
     tessera_self_report(client);
 #endif
 }

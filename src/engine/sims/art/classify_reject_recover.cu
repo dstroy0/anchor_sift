@@ -164,6 +164,8 @@ static long long classify_noise(unsigned long long key, unsigned long long at, u
     return (long long)sim_binomial_half(key, at, 4ull * variance) - (2ll * (long long)variance);
 }
 
+// present where the live reading clears the top of 8 shuffles' band; each case is one keyed draw, and a null reading
+// clears the top of 8 with chance 1/9 at most
 static void classify_detect(SimTally *tally, ClassifyWork *work, const char *name, int *present, int *good)
 {
     EnergyReading live;
@@ -234,11 +236,12 @@ static void classify_fixed_pattern(SimTally *tally, ClassifyWork *work, const ch
     {
         sim_ratio_print(line, &percent, &share_denominator, 4u);
     }
-    scriptura_text(line, "%\n                              uncertainty: ");
+    // both routes are exact means of the same values, so they agree on any input: the count checks the arithmetic
+    scriptura_text(line, "%\n                              the batch and incremental routes disagree on ");
     scriptura_decimal(line, flagged, 1u);
-    scriptura_text(line, " of 64 pixels flagged (the two routes disagree)\n\n");
+    scriptura_text(line, " of 64 pixels\n\n");
     sim_check(tally, good && (exact == CLASSIFY_LENGTH) && (flagged == 0ull),
-              "the subject is recovered bit-exact with zero uncertainty");
+              "the subject is recovered bit-exact, and the batch and incremental routes agree");
 }
 
 static void classify_repeat(SimTally *tally, ClassifyWork *work, const char *name, int expect_resolved_everywhere)
@@ -258,7 +261,7 @@ static void classify_repeat(SimTally *tally, ClassifyWork *work, const char *nam
     ScripturaLine *const line = &tally->line;
     scriptura_text(line, "  ");
     scriptura_text(line, name);
-    scriptura_text(line, " mode repeat: subject by per-pixel consensus (greatest count, and median)\n");
+    scriptura_text(line, " mode repeat: subject by per-pixel consensus (greatest count, and the lower median of 48)\n");
     scriptura_text(line, "                              exact on ");
     scriptura_decimal(line, resolved_exact, 1u);
     scriptura_text(line, " of the ");

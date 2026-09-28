@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "keymath.h"
+#include "keymath_core.h"
 
 #include <stdlib.h>
 #include <string.h>
 
-#include <utility>
 #include <vector>
 
 #define KEYMATH_HELD(held_, evacaddr_, error_, kind_) \
@@ -218,183 +218,8 @@ extern "C" void keymath_key_release(EngineKey *key)
     memset(key, 0, sizeof(*key));
 }
 
-static unsigned int keymath_word_bits(unsigned long long value)
-{
-    unsigned int bits = 0u;
-    while (value != 0ull)
-    {
-        bits += 1u;
-        value >>= 1u;
-    }
-    return bits;
-}
-
-static int keymath_record_reads(EngineRecordOperation operation)
-{
-    return (operation == ENGINE_RECORD_PRODUCT) || (operation == ENGINE_RECORD_SUM)
-        || (operation == ENGINE_RECORD_DIFFERENCE) || (operation == ENGINE_RECORD_LADDER)
-        || (operation == ENGINE_RECORD_ABSOLUTE) || (operation == ENGINE_RECORD_COMPARE)
-        || (operation == ENGINE_RECORD_QUOTIENT) || (operation == ENGINE_RECORD_REMAINDER)
-        || (operation == ENGINE_RECORD_GCD) || (operation == ENGINE_RECORD_EXACT_QUOTIENT)
-        || (operation == ENGINE_RECORD_XOR) || (operation == ENGINE_RECORD_AND);
-}
-
-// whether a step's register is never negative, read from its operation and its operands': a field read unsigned, a
-// constant, an absolute value, a gcd, a table's entry and the lane's number are never negative; so are a sum, product,
-// quotient, exact quotient or xor of two such, a remainder of one such (it carries the numerator's sign), an and with
-// one such, and a wrap that passes one such through unchanged
-static char keymath_never_negative(const EngineRecordStep &doing, const std::vector<char> &never_negative,
-                                   int wrap_passes)
-{
-    const EngineRecordOperation operation = doing.operation;
-    if ((operation == ENGINE_RECORD_FIELD) || (operation == ENGINE_RECORD_CONSTANT)
-        || (operation == ENGINE_RECORD_ABSOLUTE) || (operation == ENGINE_RECORD_GCD)
-        || (operation == ENGINE_RECORD_TABLE) || (operation == ENGINE_RECORD_LANE))
-    {
-        return 1;
-    }
-    if ((operation == ENGINE_RECORD_SUM) || (operation == ENGINE_RECORD_PRODUCT)
-        || (operation == ENGINE_RECORD_QUOTIENT) || (operation == ENGINE_RECORD_EXACT_QUOTIENT)
-        || (operation == ENGINE_RECORD_XOR))
-    {
-        return ((never_negative[doing.left] != 0) && (never_negative[doing.right] != 0)) ? 1 : 0;
-    }
-    if (operation == ENGINE_RECORD_REMAINDER)
-    {
-        return never_negative[doing.left];
-    }
-    if (operation == ENGINE_RECORD_AND)
-    {
-        return ((never_negative[doing.left] != 0) || (never_negative[doing.right] != 0)) ? 1 : 0;
-    }
-    if (operation == ENGINE_RECORD_WRAP)
-    {
-        return ((wrap_passes != 0) && (never_negative[doing.left] != 0)) ? 1 : 0;
-    }
-    return 0;
-}
-
-// a coefficient or constant of a linear form stays within this, so a sum of two and the product by a constant are
-// checked in one word before either is formed: two at the limit sum to 2^63, past a signed word
-#define KEYMATH_COEFFICIENT_MOST (1ll << 62)
-
-// a register as a linear form: integer coefficients over atoms, each an earlier register the form does not open (a
-// field, or any register no sum, difference or product by a constant made), plus a constant. Every register has one;
-// an atom's is itself with coefficient 1. Its width is read from the form (A16, Mathai and Thiang's bulk-boundary
-// map read as a restriction on the dual side): |x| <= |c| + sum |c_i| (2^(b_i) - 1) over the atoms' widths b_i
-struct KeymathForm
-{
-    long long constant;
-    std::vector<std::pair<unsigned int, long long>> terms;
-};
-
-static KeymathForm keymath_form_atom(unsigned int step)
-{
-    KeymathForm form;
-    form.constant = 0ll;
-    form.terms.assign(1u, std::pair<unsigned int, long long>(step, 1ll));
-    return form;
-}
-
-static long long keymath_magnitude(long long value)
-{
-    return (value < 0ll) ? -value : value;
-}
-
-// left + right, each within KEYMATH_COEFFICIENT_MOST, into *sum; 0, and *sum 0, where the sum would pass it. The test
-// is made before the sum is formed, and each side of it stays within the limit, so no word overflows
-static int keymath_sum_held(long long left, long long right, long long *sum)
-{
-    const int held = (right >= 0ll) ? (left <= (KEYMATH_COEFFICIENT_MOST - right))
-                                    : (left >= (-KEYMATH_COEFFICIENT_MOST - right));
-    *sum = held ? (left + right) : 0ll;
-    return held;
-}
-
-// left + sign right, the terms merged by atom; 0 where a coefficient or the constant would pass
-// KEYMATH_COEFFICIENT_MOST
-static int keymath_form_add(const KeymathForm &left, const KeymathForm &right, long long sign, KeymathForm *sum)
-{
-    sum->terms.clear();
-    int held = keymath_sum_held(left.constant, sign * right.constant, &sum->constant);
-    size_t at_left = 0u;
-    size_t at_right = 0u;
-    while (held && ((at_left < left.terms.size()) || (at_right < right.terms.size())))
-    {
-        const int take_left = (at_right == right.terms.size())
-                           || ((at_left < left.terms.size())
-                               && (left.terms[at_left].first <= right.terms[at_right].first));
-        const int take_right = (at_left == left.terms.size())
-                            || ((at_right < right.terms.size())
-                                && (right.terms[at_right].first <= left.terms[at_left].first));
-        const unsigned int atom = take_left ? left.terms[at_left].first : right.terms[at_right].first;
-        long long coefficient = 0ll;
-        held = keymath_sum_held(take_left ? left.terms[at_left].second : 0ll,
-                                take_right ? (sign * right.terms[at_right].second) : 0ll, &coefficient);
-        at_left += take_left ? 1u : 0u;
-        at_right += take_right ? 1u : 0u;
-        if (held && (coefficient != 0ll))
-        {
-            sum->terms.push_back(std::pair<unsigned int, long long>(atom, coefficient));
-        }
-    }
-    return held;
-}
-
-// the form times a constant; 0 where a coefficient or the constant would pass KEYMATH_COEFFICIENT_MOST
-static int keymath_form_scale(const KeymathForm &form, long long factor, KeymathForm *scaled)
-{
-    const long long most = (factor == 0ll) ? KEYMATH_COEFFICIENT_MOST
-                                           : (KEYMATH_COEFFICIENT_MOST / keymath_magnitude(factor));
-    int held = keymath_magnitude(form.constant) <= most;
-    scaled->constant = held ? (form.constant * factor) : 0ll;
-    scaled->terms.clear();
-    for (size_t at = 0u; held && (at < form.terms.size()) && (factor != 0ll); at += 1u)
-    {
-        held = keymath_magnitude(form.terms[at].second) <= most;
-        // a coefficient past the limit is not multiplied, since its product can pass a signed word
-        if (held)
-        {
-            scaled->terms.push_back(
-                std::pair<unsigned int, long long>(form.terms[at].first, form.terms[at].second * factor));
-        }
-    }
-    return held;
-}
-
-// a magnitude below 2^62 shifted up, as exact limbs
-static ExactLimbs keymath_shifted(unsigned long long magnitude, unsigned long long shift)
-{
-    ExactLimbs value((size_t)(shift / 32ull) + 3u, 0u);
-    const unsigned int part = (unsigned int)(shift % 32ull);
-    const size_t whole = (size_t)(shift / 32ull);
-    // the magnitude is below 2^62, so shifted by fewer than 32 bits it spans at most three limbs
-    const unsigned long long low = magnitude << part;
-    const unsigned long long high = (part == 0u) ? 0ull : (magnitude >> (64u - part));
-    value[whole] = (unsigned int)(low & 0xFFFFFFFFull);
-    value[whole + 1u] = (unsigned int)(low >> 32u);
-    value[whole + 2u] = (unsigned int)high;
-    return value;
-}
-
-// the bits a form's value needs: with B = |c| + sum |c_i| 2^(b_i), the value is at most B - 1 where any atom is read,
-// since each atom is below 2^(b_i), and at most |c| where none is
-static unsigned int keymath_form_bits(const KeymathForm &form, const std::vector<EngineRecordTerm> &terms)
-{
-    // a magnitude within KEYMATH_COEFFICIENT_MOST fits an unsigned word
-    ExactLimbs bound = keymath_shifted((unsigned long long)keymath_magnitude(form.constant), 0ull);
-    for (const std::pair<unsigned int, long long> &term : form.terms)
-    {
-        // a coefficient within KEYMATH_COEFFICIENT_MOST fits an unsigned word
-        const unsigned long long coefficient = (unsigned long long)keymath_magnitude(term.second);
-        bound = exact_sum(bound, keymath_shifted(coefficient, terms[term.first].bits));
-    }
-    const unsigned long long bits = exact_bit_length(form.terms.empty() ? bound : exact_less_one(bound));
-    // a form's atoms are registers of at most 32 ENGINE_RECORD_LIMBS_MOST bits, and its coefficients below 2^62, so
-    // its bound fits an unsigned int
-    return (unsigned int)bits;
-}
-
+// The record imprint: each step's term, width and form laid by keymath_core_record_imprint (keymath_core.h), which the
+// device runs as well, and the key laid from the terms, the outputs and the tables
 extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
 {
     if ((request == NULL) || (request->error == NULL))
@@ -412,220 +237,43 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
     }
     memset(request->key, 0, sizeof(*request->key));
     std::vector<EngineRecordTerm> terms(request->count);
-    std::vector<char> never_negative(request->count, 0);
-    std::vector<KeymathForm> forms(request->count);
-    for (unsigned int step = 0u; step < request->count; step += 1u)
+    std::vector<unsigned char> never_negative(request->count, (unsigned char)0u);
+    std::vector<KeymathCoreForm> forms(request->count);
+    std::vector<KeymathCoreTerm> arena;
+    unsigned int bound[KEYMATH_BOUND_LIMBS];
+    KeymathCoreImprint imprint{};
+    imprint.steps = request->steps;
+    imprint.count = request->count;
+    imprint.field_bits = request->field_bits;
+    imprint.fields = request->fields;
+    imprint.members = request->members;
+    imprint.outputs = request->outputs;
+    imprint.output_count = request->output_count;
+    imprint.tables = request->tables;
+    imprint.table_count = request->table_count;
+    imprint.terms = terms.data();
+    imprint.never_negative = never_negative.data();
+    imprint.forms = forms.data();
+    imprint.bound = bound;
+    unsigned long long capacity = (unsigned long long)request->count * KEYMATH_ARENA_PER_STEP;
+    int held = 0;
+    do
     {
-        const EngineRecordStep &doing = request->steps[step];
-        EngineRecordTerm &term = terms[step];
-        memset(&term, 0, sizeof(term));
-        term.operation = doing.operation;
-        term.left = doing.left;
-        term.right = doing.right;
-        if (!KEYMATH_HELD(!keymath_record_reads(doing.operation)
-                              || ((doing.left < step)
-                                  && ((doing.operation == ENGINE_RECORD_ABSOLUTE) || (doing.right < step))),
-                          &doing, error, ENGINE_ERROR_REQUEST))
-        {
-            return KEYMATH_REFUSED;
-        }
-        if ((doing.operation == ENGINE_RECORD_FIELD) || (doing.operation == ENGINE_RECORD_FIELD_SIGNED))
-        {
-            if (!KEYMATH_HELD((request->field_bits != NULL) && (doing.left < request->fields)
-                                  && (doing.member < request->members),
-                              &doing, error, ENGINE_ERROR_REQUEST))
-            {
-                return KEYMATH_REFUSED;
-            }
-            term.bits = request->field_bits[doing.left];
-            term.member = doing.member;
-        }
-        else if (doing.operation == ENGINE_RECORD_CONSTANT)
-        {
-            term.constant = ((unsigned long long)doing.right << 32u) | (unsigned long long)doing.left;
-            term.bits = keymath_word_bits(term.constant);
-        }
-        else if (doing.operation == ENGINE_RECORD_PRODUCT)
-        {
-            term.bits = terms[doing.left].bits + terms[doing.right].bits;
-        }
-        else if ((doing.operation == ENGINE_RECORD_SUM) || (doing.operation == ENGINE_RECORD_DIFFERENCE))
-        {
-            const unsigned int wider = (terms[doing.left].bits > terms[doing.right].bits) ? terms[doing.left].bits
-                                                                                        : terms[doing.right].bits;
-            term.bits = wider + 1u;
-        }
-        else if (doing.operation == ENGINE_RECORD_LADDER)
-        {
-            term.bits = keymath_word_bits((unsigned long long)ENGINE_GOLDEN_RUNGS - 1ull);
-        }
-        else if (doing.operation == ENGINE_RECORD_ABSOLUTE)
-        {
-            term.bits = terms[doing.left].bits;
-            term.right = doing.left;
-        }
-        else if (doing.operation == ENGINE_RECORD_COMPARE)
-        {
-            term.bits = 1u;
-        }
-        else if ((doing.operation == ENGINE_RECORD_QUOTIENT) || (doing.operation == ENGINE_RECORD_EXACT_QUOTIENT))
-        {
-            // a nonzero divisor is at least 1, so the quotient is no wider than the numerator. A constant divisor c
-            // takes floor(log2 c) bits off: |left| < 2^L and c >= 2^floor(log2 c) put |left| / c below
-            // 2^(L - floor(log2 c)). A zero constant narrows nothing and is refused where it divides.
-            term.bits = terms[doing.left].bits;
-            if (terms[doing.right].operation == ENGINE_RECORD_CONSTANT)
-            {
-                const unsigned int dropped = (terms[doing.right].bits == 0u) ? 0u : (terms[doing.right].bits - 1u);
-                term.bits = (term.bits > dropped) ? (term.bits - dropped) : 1u;
-            }
-        }
-        else if (doing.operation == ENGINE_RECORD_REMAINDER)
-        {
-            // the remainder is below both the divisor and the numerator
-            term.bits = (terms[doing.left].bits < terms[doing.right].bits) ? terms[doing.left].bits
-                                                                          : terms[doing.right].bits;
-        }
-        else if (doing.operation == ENGINE_RECORD_GCD)
-        {
-            // gcd(a, 0) = |a|, so only the wider operand bounds it
-            term.bits = (terms[doing.left].bits > terms[doing.right].bits) ? terms[doing.left].bits
-                                                                          : terms[doing.right].bits;
-        }
-        else if ((doing.operation == ENGINE_RECORD_XOR) || (doing.operation == ENGINE_RECORD_AND))
-        {
-            // both operands lie in the signed range of one bit over the wider, and so does any bitwise result there,
-            // down to -2^wider, whose magnitude takes that bit. An and with a register never negative lies between 0
-            // and that register, and the xor of two never negative lies below 2^wider, so neither takes the extra bit.
-            const unsigned int left_bits = terms[doing.left].bits;
-            const unsigned int right_bits = terms[doing.right].bits;
-            const unsigned int wider = (left_bits > right_bits) ? left_bits : right_bits;
-            const unsigned int narrower = (left_bits < right_bits) ? left_bits : right_bits;
-            const int left_kept = (never_negative[doing.left] != 0) ? 1 : 0;
-            const int right_kept = (never_negative[doing.right] != 0) ? 1 : 0;
-            term.bits = wider + 1u;
-            if ((doing.operation == ENGINE_RECORD_AND) && (left_kept != 0) && (right_kept != 0))
-            {
-                term.bits = narrower;
-            }
-            else if ((doing.operation == ENGINE_RECORD_AND) && ((left_kept != 0) || (right_kept != 0)))
-            {
-                term.bits = (left_kept != 0) ? left_bits : right_bits;
-            }
-            else if ((left_kept != 0) && (right_kept != 0))
-            {
-                term.bits = wider;
-            }
-        }
-        else if (doing.operation == ENGINE_RECORD_WRAP)
-        {
-            if (!KEYMATH_HELD((doing.left < step) && (doing.right >= ENGINE_RECORD_WRAP_BITS_LEAST), &doing, error,
-                              ENGINE_ERROR_REQUEST))
-            {
-                return KEYMATH_REFUSED;
-            }
-            // a register of fewer bits than the wrap already lies in its signed range and passes through; a wider one
-            // lands in [-2^(right - 1), 2^(right - 1)), whose magnitude takes all `right` bits at -2^(right - 1)
-            term.bits = (terms[doing.left].bits < doing.right) ? terms[doing.left].bits : doing.right;
-            // the one register read is the left, as the absolute's; the width rides in the term's constant
-            term.right = doing.left;
-            term.constant = (unsigned long long)doing.right;
-        }
-        else if (doing.operation == ENGINE_RECORD_TABLE)
-        {
-            if (!KEYMATH_HELD((request->tables != NULL) && (doing.left < step)
-                                  && (doing.right < request->table_count),
-                              &doing, error, ENGINE_ERROR_REQUEST))
-            {
-                return KEYMATH_REFUSED;
-            }
-            const EngineRecordTable &table = request->tables[doing.right];
-            if (!KEYMATH_HELD((table.index_bits >= 1u) && (table.index_bits <= ENGINE_RECORD_TABLE_INDEX_BITS_MOST)
-                                  && (table.index_bits <= terms[doing.left].bits) && (table.out_bits != 0u)
-                                  && (table.values != NULL),
-                              &table, error, ENGINE_ERROR_REQUEST))
-            {
-                return KEYMATH_REFUSED;
-            }
-            term.bits = table.out_bits;
-        }
-        else if (doing.operation == ENGINE_RECORD_LANE)
-        {
-            // the lane's number is known only at the sweep, so its register holds any lane a sweep can count; it reads
-            // nothing, and the step's left and right name nothing
-            term.bits = ENGINE_RECORD_LANE_BITS;
-            term.left = 0u;
-            term.right = 0u;
-        }
-        else
-        {
-            KEYMATH_HELD(0, &doing, error, ENGINE_ERROR_REQUEST);
-            return KEYMATH_REFUSED;
-        }
-        const int wrap_passes = (doing.operation == ENGINE_RECORD_WRAP) && (terms[doing.left].bits < doing.right);
-        // the register's form: a sum or difference adds its operands', a product by a constant scales the other's, a
-        // constant is its value, and a wrap that passes its register through keeps that register's form. The form's
-        // bound narrows the width the operation's own rule gave where it is tighter; where a form would outgrow its
-        // words, or for any other register, the register is an atom
-        KeymathForm &form = forms[step];
-        int formed = 0;
-        if ((doing.operation == ENGINE_RECORD_SUM) || (doing.operation == ENGINE_RECORD_DIFFERENCE))
-        {
-            formed = keymath_form_add(forms[doing.left], forms[doing.right],
-                                      (doing.operation == ENGINE_RECORD_SUM) ? 1ll : -1ll, &form);
-        }
-        else if ((doing.operation == ENGINE_RECORD_PRODUCT) && forms[doing.right].terms.empty())
-        {
-            formed = keymath_form_scale(forms[doing.left], forms[doing.right].constant, &form);
-        }
-        else if ((doing.operation == ENGINE_RECORD_PRODUCT) && forms[doing.left].terms.empty())
-        {
-            formed = keymath_form_scale(forms[doing.right], forms[doing.left].constant, &form);
-        }
-        else if ((doing.operation == ENGINE_RECORD_CONSTANT)
-                 && (term.constant <= (unsigned long long)KEYMATH_COEFFICIENT_MOST))
-        {
-            // the constant is at most KEYMATH_COEFFICIENT_MOST, so it fits a signed word
-            form.constant = (long long)term.constant;
-            form.terms.clear();
-            formed = 1;
-        }
-        else if (wrap_passes != 0)
-        {
-            form = forms[doing.left];
-            formed = 1;
-        }
-        if (formed != 0)
-        {
-            const unsigned int bound = keymath_form_bits(form, terms);
-            term.bits = (bound < term.bits) ? bound : term.bits;
-        }
-        else
-        {
-            form = keymath_form_atom(step);
-        }
-        term.bits = (term.bits == 0u) ? 1u : term.bits;
-        if (!KEYMATH_HELD(term.bits <= (32u * ENGINE_RECORD_LIMBS_MOST), &doing, error, ENGINE_ERROR_REQUEST))
-        {
-            return KEYMATH_REFUSED;
-        }
-        never_negative[step] = keymath_never_negative(doing, never_negative, wrap_passes);
-    }
-    for (unsigned int output = 0u; output < request->output_count; output += 1u)
+        arena.resize((size_t)capacity);
+        imprint.arena.terms = arena.data();
+        imprint.arena.capacity = capacity;
+        held = keymath_core_record_imprint(&imprint);
+        capacity *= 2ull;
+    } while ((held == 0) && (imprint.end == KEYMATH_CORE_FULL));
+    if (held == 0)
     {
-        if (!KEYMATH_HELD(request->outputs[output] < request->count, &request->outputs[output], error,
-                          ENGINE_ERROR_REQUEST))
-        {
-            return KEYMATH_REFUSED;
-        }
-        for (unsigned int before = 0u; before < output; before += 1u)
-        {
-            if (!KEYMATH_HELD(request->outputs[before] != request->outputs[output], &request->outputs[output], error,
-                              ENGINE_ERROR_REQUEST))
-            {
-                return KEYMATH_REFUSED;
-            }
-        }
+        // the step, its table or the output the imprint ended at
+        const void *const evacaddr = (imprint.end == KEYMATH_CORE_OUTPUT) ? (const void *)&request->outputs[imprint.at]
+                                   : (imprint.end == KEYMATH_CORE_TABLE)
+                                       ? (const void *)&request->tables[request->steps[imprint.at].right]
+                                       : (const void *)&request->steps[imprint.at];
+        KEYMATH_HELD(0, evacaddr, error, ENGINE_ERROR_REQUEST);
+        return KEYMATH_REFUSED;
     }
     EngineRecordKey *const key = request->key;
     key->term = (EngineRecordTerm *)malloc(terms.size() * sizeof(EngineRecordTerm));
@@ -653,7 +301,7 @@ extern "C" long keymath_record_imprint(const KeymathRecordRequest *request)
         for (unsigned int table = 0u; table < request->table_count; table += 1u)
         {
             const EngineRecordTable &source = request->tables[table];
-            // index_bits is at most 32, so the entry count is at most 2^32 and fits an unsigned long long
+            // index_bits is at most 32, and the entry count at most 2^32, which an unsigned long long holds
             const unsigned long long entries = 1ull << source.index_bits;
             const unsigned int out_limbs = (source.out_bits + 31u) / 32u;
             key->table[table].index_bits = source.index_bits;

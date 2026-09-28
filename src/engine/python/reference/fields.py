@@ -8,8 +8,8 @@
 #
 # Every reading of the spectral exponent until these existed was of a painting, where the plane is
 # the only authority on what the answer should be and there is nothing independent to catch a wrong
-# one. Shaping white noise in the frequency domain gives a field whose exponent was put in by hand,
-# so the answer exists before the measurement and a wrong reading cannot be argued into agreement
+# one. Shaping white noise in the frequency domain gives a field whose exponent was put in by hand.
+# The answer exists before the measurement and a wrong reading cannot be argued into agreement
 # afterward.
 #
 # That is a positive control for the spectral reading, which had none. Asked for 2.00 the reading
@@ -43,7 +43,9 @@ def build(dims, side, slope, rng):
     radius[(0,) * dims] = 1.0
     shaped = spectrum * (radius ** (-slope / 2.0))
     shaped[(0,) * dims] = 0.0
-    return to_levels(numpy.real(numpy.fft.ifftn(shaped)))
+    field = numpy.real(numpy.fft.ifftn(shaped))
+    levels = to_levels(field.ravel())
+    return None if levels is None else numpy.asarray(levels).reshape(field.shape)
 
 
 def stretched(dims, side, slope, rng, factors=None):
@@ -64,4 +66,6 @@ def stretched(dims, side, slope, rng, factors=None):
     radius[(0,) * dims] = 1.0
     shaped = spectrum * (radius ** (-slope / 2.0))
     shaped[(0,) * dims] = 0.0
-    return to_levels(numpy.real(numpy.fft.ifftn(shaped)))
+    field = numpy.real(numpy.fft.ifftn(shaped))
+    levels = to_levels(field.ravel())
+    return None if levels is None else numpy.asarray(levels).reshape(field.shape)

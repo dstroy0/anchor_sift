@@ -58,11 +58,11 @@ struct ProbeQuestion
 #define PROBE_PREDICATES 4u
 #define PROBE_DECLARED 1024u
 
-// the ruleset's spellings and a writer for its forms, which marks the text broken where a form is not written; the
+// the ruleset's written forms and a writer for its forms, which marks the text broken where a form is not written; the
 // next scratch register of each bank a construct may take
 struct ProbeWriter
 {
-    const CycleRuleset *rules;
+    const EmitRuleset *rules;
     int broken;
     unsigned int scratch_temporary;
     unsigned int scratch_wide;
@@ -71,9 +71,9 @@ struct ProbeWriter
 
 static std::string probe_register(ProbeWriter *writer, const char *bank, unsigned int number)
 {
-    const std::string spelled = cycle_ruleset_register(writer->rules, bank, number);
-    writer->broken = writer->broken || spelled.empty();
-    return spelled;
+    const std::string written = emit_ruleset_register(writer->rules, bank, number);
+    writer->broken = writer->broken || written.empty();
+    return written;
 }
 
 static std::string probe_temporary(ProbeWriter *writer, unsigned int number)
@@ -103,13 +103,13 @@ static std::string probe_scratch(ProbeWriter *writer, const std::string &bank)
         return std::string();
     }
     *next += 1u;
-    return cycle_ruleset_register(writer->rules, bank, *next - 1u);
+    return emit_ruleset_register(writer->rules, bank, *next - 1u);
 }
 
 static void probe_form(ProbeWriter *writer, std::string &text, const char *name, const std::vector<std::string> &arguments)
 {
     const auto scratch = [writer](const std::string &bank) { return probe_scratch(writer, bank); };
-    if (!cycle_ruleset_form(writer->rules, name, arguments, scratch, text))
+    if (!emit_ruleset_form(writer->rules, name, arguments, scratch, text))
     {
         fprintf(stderr, "  cell_ptx_probe: the ruleset does not write the form %s with %zu arguments\n", name,
                 arguments.size());
@@ -498,7 +498,7 @@ static std::string probe_kernel(ProbeWriter *writer, const std::string &header, 
     probe_form(writer, text, "declare_wides", {declared});
     probe_form(writer, text, "declare_fixed_words", {});
     probe_form(writer, text, "declare_fixed_wides", {});
-    probe_form(writer, text, "word_set", {cycle_ruleset_fixed(writer->rules, "zero"), "0"});
+    probe_form(writer, text, "word_set", {emit_ruleset_fixed(writer->rules, "zero"), "0"});
     text += "\tld.param.u64 \t%cell_wide0, [cell_ask_in];\n\tld.param.u64 \t%cell_wide1, [cell_ask_out];\n";
     text += "\tld.param.u32 \t%cell_word0, [cell_ask_count];\n\tmov.u32 \t%cell_word1, %ctaid.x;\n";
     text += "\tmov.u32 \t%cell_word2, %ntid.x;\n\tmov.u32 \t%cell_word3, %tid.x;\n";
@@ -517,7 +517,7 @@ static std::string probe_kernel(ProbeWriter *writer, const std::string &header, 
         probe_form(writer, text, "word_set", {probe_temporary(writer, 8u + word), "0"});
     }
     text += body;
-    text += "\tmov.b64 \t" + cycle_ruleset_fixed(writer->rules, "record") + ", %cell_wide3;\n";
+    text += "\tmov.b64 \t" + emit_ruleset_fixed(writer->rules, "record") + ", %cell_wide3;\n";
     for (unsigned int word = 0u; word < PROBE_OUT_WORDS; word += 1u)
     {
         probe_form(writer, text, "record_store", {std::to_string(word * 4u), probe_temporary(writer, 8u + word)});
@@ -726,7 +726,7 @@ int main(int count, char **arguments)
     const int major = properties.major;
     const int minor = properties.minor;
     const std::string header = probe_header(major, minor);
-    ProbeWriter writer = {cycle_emit_ptx().ruleset(1), 0, PROBE_TEMPORARIES, PROBE_WIDES, PROBE_PREDICATES};
+    ProbeWriter writer = {emit_ptx().ruleset(1), 0, PROBE_TEMPORARIES, PROBE_WIDES, PROBE_PREDICATES};
     if ((writer.rules == NULL) || header.empty())
     {
         printf("the ruleset was refused, or NVRTC gave no header\n");

@@ -15,7 +15,12 @@
 
 #define SIM_LINE_ROOM 8192ull
 
+// the words a counter owns in its key's run of counters: sim_binomial_half takes one word per 64 trials,
+// sim_poisson_four_cumulants one per 6 electrons and sim_thinned one per 64 / bits electrons, and a word past these
+// is drawn on a key of the counter's own (sim_counter_draw), so no count runs into the next counter's words
 #define SIM_COUNTER_STRIDE 65536ull
+
+#define SIM_COUNTER_PAST_PURPOSE 0x50415354ull
 
 struct TesseraClient;
 
@@ -53,6 +58,18 @@ static inline __host__ __device__ unsigned long long sim_draw_below(unsigned lon
     return sim_draw(key, counter) % bound;
 }
 
+// word `word` of a counter's draws: the first SIM_COUNTER_STRIDE lie in the counter's own stride of the key's counters,
+// and each word past them is drawn on a key made from the counter, so a count of any size keeps to its own words
+static inline __host__ __device__ unsigned long long sim_counter_draw(unsigned long long key, unsigned long long counter,
+                                                                      unsigned long long word)
+{
+    if (word < SIM_COUNTER_STRIDE)
+    {
+        return sim_draw(key, (counter * SIM_COUNTER_STRIDE) + word);
+    }
+    return sim_draw(key ^ sim_mix(counter ^ SIM_COUNTER_PAST_PURPOSE), word);
+}
+
 static inline __host__ __device__ unsigned long long sim_bits_set(unsigned long long word)
 {
     word = word - ((word >> 1u) & 0x5555555555555555ull);
@@ -68,7 +85,7 @@ static inline __host__ __device__ unsigned long long sim_binomial_half(unsigned 
     unsigned long long word = 0ull;
     for (unsigned long long done = 0ull; done < trials; done += 64ull)
     {
-        const unsigned long long draw = sim_draw(key, (counter * SIM_COUNTER_STRIDE) + word);
+        const unsigned long long draw = sim_counter_draw(key, counter, word);
         const unsigned long long left = trials - done;
         const unsigned long long kept = (left >= 64ull) ? draw : (draw & ((1ull << left) - 1ull));
         heads += sim_bits_set(kept);
@@ -97,7 +114,7 @@ static inline __host__ __device__ unsigned long long sim_poisson_four_cumulants(
     unsigned long long word = 0ull;
     for (unsigned long long done = 0ull; done < electrons; done += SIM_SHOT_DIGITS)
     {
-        unsigned long long digits = sim_draw(key, (counter * SIM_COUNTER_STRIDE) + word) % SIM_SHOT_DIGIT_WORD;
+        unsigned long long digits = sim_counter_draw(key, counter, word) % SIM_SHOT_DIGIT_WORD;
         const unsigned long long left = electrons - done;
         const unsigned long long taken = (left < SIM_SHOT_DIGITS) ? left : SIM_SHOT_DIGITS;
         for (unsigned long long digit = 0ull; digit < taken; digit += 1ull)
@@ -212,11 +229,13 @@ static inline int sim_ratio_compare(const AnchorExactInteger *numerator, const A
     return 1;
 }
 
+// the floor of numerator / denominator, both non-negative, by bisection below `bound`, which the caller knows the
+// quotient is under
 static inline unsigned long long sim_ratio_floor(const AnchorExactInteger *numerator,
-                                                 const AnchorExactInteger *denominator)
+                                                 const AnchorExactInteger *denominator, unsigned long long bound)
 {
     unsigned long long below = 0ull;
-    unsigned long long above = 0xFFFFFFFFFFFFFFFFull;
+    unsigned long long above = bound - 1ull;
     AnchorExactInteger trial;
     while (below < above)
     {
@@ -233,6 +252,58 @@ static inline unsigned long long sim_ratio_floor(const AnchorExactInteger *numer
     return below;
 }
 
+// one group of an exact integer's decimal digits: 10^9, the widest power of ten whose remainder shifted up a limb
+// still fits a word
+#define SIM_DECIMAL_GROUP 1000000000ull
+
+#define SIM_DECIMAL_GROUP_DIGITS 9u
+
+// 10^9 exceeds 2^29, so a magnitude of ANCHOR_EXACT_BITS bits has at most ANCHOR_EXACT_BITS / 29 + 1 groups
+#define SIM_DECIMAL_GROUPS ((((unsigned long long)(ANCHOR_EXACT_BITS)) / 29ull) + 1ull)
+
+// the count of limbs up to and including the top non-zero one; 0 for zero
+static inline unsigned long long sim_exact_limbs_used(const AnchorExactInteger *value)
+{
+    unsigned long long used = ANCHOR_EXACT_LIMBS;
+    while ((used > 0ull) && (value->limb[used - 1ull] == 0u))
+    {
+        used -= 1ull;
+    }
+    return used;
+}
+
+// the magnitude of `value` in decimal, every digit exact: each group of nine is the remainder of a short division of
+// the limbs by 10^9, taken from the top limb down
+static inline void sim_exact_decimal(ScripturaLine *line, const AnchorExactInteger *value)
+{
+    AnchorExactInteger work = *value;
+    unsigned int groups[SIM_DECIMAL_GROUPS];
+    unsigned long long count = 0ull;
+    unsigned long long used = sim_exact_limbs_used(&work);
+    do
+    {
+        unsigned long long remainder = 0ull;
+        for (unsigned long long index = used; index > 0ull; index -= 1ull)
+        {
+            const unsigned long long dividend = (remainder << 32u) | work.limb[index - 1ull];
+            // the remainder is below 10^9, so the dividend is below 10^9 * 2^32 and its quotient fits a limb
+            work.limb[index - 1ull] = (uint32_t)(dividend / SIM_DECIMAL_GROUP);
+            remainder = dividend % SIM_DECIMAL_GROUP;
+        }
+        // a remainder by 10^9 is below 2^30
+        groups[count] = (unsigned int)remainder;
+        count += 1ull;
+        used = sim_exact_limbs_used(&work);
+    } while (used > 0ull);
+    scriptura_decimal(line, groups[count - 1ull], 1u);
+    for (unsigned long long group = count - 1ull; group > 0ull; group -= 1ull)
+    {
+        scriptura_decimal(line, groups[group - 1ull], SIM_DECIMAL_GROUP_DIGITS);
+    }
+}
+
+// the ratio truncated, not rounded, to `places`, at any width the exact integer holds: the whole part is printed exact,
+// and the fraction is the floor of the remainder times 10^places over the denominator, which is below 10^places
 static inline void sim_ratio_print(ScripturaLine *line, const AnchorExactInteger *numerator,
                                    const AnchorExactInteger *denominator, unsigned int places)
 {
@@ -246,26 +317,28 @@ static inline void sim_ratio_print(ScripturaLine *line, const AnchorExactInteger
     const int negative = (top.sign * bottom.sign) < 0;
     top.sign = (top.sign == 0) ? 0 : 1;
     bottom.sign = 1;
-    if ((places > 0u) && (anchor_exact_scale_by_ten(&top, places) != ANCHOR_EXACT_OK))
+    AnchorExactInteger whole;
+    AnchorExactInteger rest;
+    if ((anchor_exact_divide(&top, &bottom, &whole, &rest) != ANCHOR_EXACT_OK)
+        || ((places > 0u) && (anchor_exact_scale_by_ten(&rest, places) != ANCHOR_EXACT_OK)))
     {
         scriptura_text(line, "too wide");
         return;
-    }
-    const unsigned long long scaled = sim_ratio_floor(&top, &bottom);
-    unsigned long long unit = 1ull;
-    for (unsigned int place = 0u; place < places; place += 1u)
-    {
-        unit *= 10ull;
     }
     if (negative)
     {
         scriptura_character(line, '-');
     }
-    scriptura_decimal(line, scaled / unit, 1u);
+    sim_exact_decimal(line, &whole);
     if (places > 0u)
     {
+        unsigned long long unit = 1ull;
+        for (unsigned int place = 0u; place < places; place += 1u)
+        {
+            unit *= 10ull;
+        }
         scriptura_character(line, '.');
-        scriptura_decimal(line, scaled % unit, places);
+        scriptura_decimal(line, sim_ratio_floor(&rest, &bottom, unit), places);
     }
 }
 
@@ -283,6 +356,8 @@ static inline int sim_took(SimTally *tally, cudaError_t status, const char *what
 {
     if (status != cudaSuccess)
     {
+        // the runtime's last error is taken here, once reported, so the next launch check does not read it again
+        (void)cudaGetLastError();
         sim_check(tally, 0, what);
         scriptura_text(&tally->line, "    cuda: ");
         scriptura_text(&tally->line, cudaGetErrorString(status));

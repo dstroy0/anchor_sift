@@ -37,6 +37,19 @@
 # reported
 # twelve findings on SHA-256 output, and a shuffle of the same bytes reported sixteen. Only a
 # null permutation makes a count mean anything.
+#
+# WHICH OF THESE THE ENGINE HOLDS IN C
+#
+# One. frame_shift is the Python route to shift_agreement_host in
+# src/engine/base/shift_agreement/shift_agreement.c: the lag carrying one frame's occupied voxels
+# onto the next, over up to eight axes, graded against it count for count by
+# test/python/shift_agreement_test.py. The C is a transform over a prime and this counts pairs, and
+# the two share no code. The engine form of recover_lattice_period, a candidate scored with its
+# double against the lags outside its family, is period_read in src/engine/base/period/period.cu.
+# It reads a device volume, holds its margin as an exact ratio, and adds a band drawn from
+# shuffles, and its Python route is measure/period.py, graded against it by test/python/period_test.py.
+# agreement, strongest_lags, recover_period, lattice_agreement, exact_agreement,
+# recover_exact_period and against_a_shuffle have no C counterpart.
 
 import numpy
 
@@ -247,6 +260,89 @@ def recover_lattice_period(grid, axis, most=None):
     neighbor = above if above >= below else below
     share = (neighbor / (score + neighbor)) if (score + neighbor) > 0.0 else 0.0
     return lag, (share if above >= below else -share), score
+
+
+# The limits shift_agreement_host refuses past (src/engine/base/shift_agreement/shift_agreement.h).
+FRAME_AXES = 8
+FRAME_PRIME = 998244353
+FRAME_LONGEST_AXIS = 1 << 23
+
+
+def _frame_padded(extent):
+    """The transform length the C gives an axis: the least power of two at or past 2 extent - 1."""
+    power = 1
+    while power < (2 * extent) - 1:
+        power <<= 1
+    return power
+
+
+def frame_shift(extents, before, after, weights=None):
+    """The lag carrying the most of one frame's occupied voxels onto the next, counted exactly.
+
+    The Python route to shift_agreement_host (src/engine/base/shift_agreement/shift_agreement.c at
+    anchor_sift 1789287). `before` and `after` are occupancy over the same box of `extents`, flat
+    and row major with the last axis fastest, one truthy or falsy entry a voxel. The count at a lag
+    vector d is how many voxels a occupied in `before` have a + d occupied in `after`, inside the
+    box, with no wrap. The C reaches every count at once through a number theoretic transform over
+    998244353; this counts the pairs one by one, and the two share no code.
+
+    The lag chosen has the largest count. A tie goes to the smallest sum over the axes
+    of weight times lag squared, and a tie there to the lag the C's scan meets first, its padded
+    index: each axis's lag read modulo that axis's transform length, the last axis fastest. With
+    nothing occupied in either frame every count is zero and the lag is all zeros.
+
+    `weights` defaults to one an axis. Returns (lag, agreement, counts), `lag` a tuple an axis and
+    `counts` a dict from lag tuple to count holding every lag with a nonzero count, or None where
+    the C refuses: no axes, more than 8, an extent of 0 or past 2^22, 998244353 voxels or more, or
+    a padded volume past 2^31 - 1 entries.
+    """
+    axes = len(extents)
+    if axes == 0 or axes > FRAME_AXES:
+        return None
+    weights = tuple(weights) if weights is not None else (1,) * axes
+    voxels = 1
+    padded_total = 1
+    padded = []
+    for extent in extents:
+        if extent == 0 or extent > FRAME_LONGEST_AXIS // 2:
+            return None
+        voxels *= extent
+        padded.append(_frame_padded(extent))
+        padded_total *= padded[-1]
+        if voxels >= FRAME_PRIME or padded_total > 0x7FFFFFFF:
+            return None
+
+    def coordinates(position):
+        place = []
+        for extent in reversed(extents):
+            place.append(position % extent)
+            position //= extent
+        return tuple(reversed(place))
+
+    occupied_after = {coordinates(at) for at in range(voxels) if after[at]}
+    counts = {}
+    for at in range(voxels):
+        if not before[at]:
+            continue
+        start = coordinates(at)
+        for end in occupied_after:
+            lag = tuple(e - s for s, e in zip(start, end))
+            counts[lag] = counts.get(lag, 0) + 1
+
+    if not counts:
+        return (0,) * axes, 0, counts
+
+    def padded_index(lag):
+        index = 0
+        for one, length in zip(lag, padded):
+            index = (index * length) + (one % length)
+        return index
+
+    def length_of(lag):
+        return sum(weight * one * one for weight, one in zip(weights, lag))
+
+    lag = min(counts, key=lambda one: (-counts[one], length_of(one), padded_index(one)))
+    return lag, counts[lag], counts
 
 
 def against_a_shuffle(data, seed=0x51F7, most=1200, stride=STRIDE):

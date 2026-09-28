@@ -38,7 +38,7 @@ unsigned int cycle_record_members(const CycleRecord *record);
 
 unsigned int cycle_record_in_limbs(const CycleRecord *record, unsigned int member);
 
-// 1 where the loaded program runs as its own compiled kernel, linked against the operator block; 0 where it runs on
+// 1 where the loaded program runs as its own compiled kernel, its resident written after its lane; 0 where it runs on
 // the interpreter (a step the compiler does not hold, NVRTC or nvJitLink not found, or CYCLE_RECORD_INTERPRET=1)
 int cycle_record_compiled(const CycleRecord *record);
 

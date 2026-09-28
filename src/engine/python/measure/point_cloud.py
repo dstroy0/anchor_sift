@@ -37,7 +37,7 @@ import numpy
 # Occurrences a value needs before its neighbor distances carry a statistic.
 MIN_OCCURRENCES = 32
 
-# Values that must clear the occurrence floor before a corpus is scored at all.
+# Values that must clear the occurrence floor before a corpus is scored.
 MIN_VALUES = 8
 
 # Points compared per value. The comparison count is quadratic in the points, and a large group is

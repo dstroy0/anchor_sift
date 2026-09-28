@@ -40,6 +40,8 @@
 
 #define SIM_GAIN_ROUND_PURPOSE 0x524F554E44ull
 
+#define SIM_OFFSET_PATTERN_PURPOSE 0x44534E55ull
+
 // the camera's shot laws, 0 for none: sim_poisson_four_cumulants, the camera's own, whose first four cumulants are
 // each S, a Poisson count's; and Binomial(4S, 1/2) - S, of mean and variance S but symmetric (third cumulant 0,
 // fourth -S/2), kept for a sim to read beside it
@@ -86,7 +88,7 @@ typedef struct
     unsigned long long gain;
     unsigned long long read_square;
     unsigned long long pattern_reach;
-    // the shot law, SIM_SHOT_POISSON or SIM_SHOT_SYMMETRIC, or 0 for none
+    // the shot law, SIM_SHOT_POISSON, SIM_SHOT_SYMMETRIC, SIM_SHOT_HALF or SIM_SHOT_PAIRED, or 0 for none
     unsigned long long shot;
     // the terms noise_vector_integration_table.md rows 7 to 11 plant, each 0 unless set: an offset of this variance
     // drawn per frame for each row, each column and each plane
@@ -126,6 +128,9 @@ typedef struct
     // gain_pattern_reach below 2^gain_pattern_bits, and the gained count rounded by chance so its mean is exact
     unsigned long long gain_pattern_reach;
     unsigned int gain_pattern_bits;
+    // an offset per camera pixel (DSNU, row 18), 0 unless set: the pixel (y, x)'s offset, drawn once in [0, reach], is
+    // added in every plane, where pattern_reach's is drawn anew at each voxel
+    unsigned long long offset_pattern_reach;
 } SimCamera;
 
 typedef struct
@@ -296,7 +301,7 @@ static inline __host__ __device__ unsigned long long sim_thinned(unsigned long l
     unsigned long long word = 0ull;
     for (unsigned long long done = 0ull; done < count; done += per_word)
     {
-        unsigned long long draw = sim_draw(key, (counter * SIM_COUNTER_STRIDE) + word);
+        unsigned long long draw = sim_counter_draw(key, counter, word);
         const unsigned long long left = count - done;
         const unsigned long long taken = (left < per_word) ? left : per_word;
         for (unsigned long long electron = 0ull; electron < taken; electron += 1ull)
@@ -320,6 +325,16 @@ static inline __host__ __device__ long long sim_gain_spread(const SimCamera *cam
     return (long long)sim_draw_below(camera->key ^ SIM_GAIN_PATTERN_PURPOSE, pixel,
                                      (2ull * camera->gain_pattern_reach) + 1ull)
          - (long long)camera->gain_pattern_reach;
+}
+
+// a camera pixel's fixed offset, 0 where the camera has no offset pattern
+static inline __host__ __device__ unsigned long long sim_offset_pattern(const SimCamera *camera, unsigned long long pixel)
+{
+    if (camera->offset_pattern_reach == 0ull)
+    {
+        return 0ull;
+    }
+    return sim_draw_below(camera->key ^ SIM_OFFSET_PATTERN_PURPOSE, pixel, camera->offset_pattern_reach + 1ull);
 }
 
 static inline __host__ __device__ long long sim_value(const SimCamera *camera, unsigned long long counter,
@@ -390,7 +405,8 @@ static inline __host__ __device__ long long sim_value(const SimCamera *camera, u
                                                          (unsigned long long)unit);
         gained = below + ((chance < remainder) ? 1ll : 0ll);
     }
-    return (long long)camera->offset + (long long)sim_pattern(camera, voxel) + gained + read;
+    return (long long)camera->offset + (long long)sim_pattern(camera, voxel)
+         + (long long)sim_offset_pattern(camera, pixel) + gained + read;
 }
 
 // The terms a camera shares across voxels or carries across frames: an offset drawn per frame for each row, column

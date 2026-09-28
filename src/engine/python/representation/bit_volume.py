@@ -77,8 +77,8 @@ def spectrum_excess(values, width=WIDTH, seed=SEED):
     """The gap a corpus opens over its own permuted null, at one window width.
 
     Three readings carried a private copy of this, which is three places for the width or the seed
-    to drift. The shuffle keeps every symbol frequency and destroys every arrangement. What is
-    left is the arrangement and cannot be the counts.
+    to drift. The shuffle keeps every symbol frequency and destroys every arrangement. Any
+    difference is the arrangement and cannot be the counts.
 
     Returns None where either arm leaves too few live bits to correlate.
     """

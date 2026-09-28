@@ -58,7 +58,7 @@ def web_of_codes(codes, width_of):
     """
     if len(codes) < (4 * width_of * width_of):
         return None
-    pairs = (codes[:-1] * width_of) + codes[1:]
+    pairs = [(one * width_of) + two for one, two in zip(codes, codes[1:])]
     grid = numpy.bincount(pairs, minlength=width_of * width_of).astype(numpy.float64)
     total = grid.sum()
     return (grid / total) if total > 0.0 else None

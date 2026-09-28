@@ -70,6 +70,25 @@ int krep_bodies_read(const char *path, EngineBodyTable *table, EngineError *erro
 
 void krep_bodies_release(EngineBodyTable *table);
 
+// a target's construction set for the compiler: each form's cost as the target measured it, then the forms' names,
+// each ended by a zero byte and the last word padded with zeros; words holds the costs and then the name words, and
+// crc is the CRC-64 of all of them
+#define KREP_FORMS_MOST 65536ull
+
+typedef struct
+{
+    unsigned long long forms;
+    unsigned long long name_words;
+    unsigned long long crc;
+    unsigned long long *words;
+} KrepFormTable;
+
+int krep_forms_write(const char *path, const KrepFormTable *table, EngineError *error);
+
+int krep_forms_read(const char *path, KrepFormTable *table, EngineError *error);
+
+void krep_forms_release(KrepFormTable *table);
+
 #ifdef __cplusplus
 }
 #endif

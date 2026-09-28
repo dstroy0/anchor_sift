@@ -181,7 +181,7 @@ static inline int sim_rational_equal(SimRational left, SimRational right)
     return held && (anchor_exact_compare(&left_cross, &right_cross) == 0);
 }
 
-// a reduced fraction when it fits a word; wider, the exact value printed to 12 places
+// a reduced fraction when it fits a word; wider, the exact value truncated to 12 places
 static inline void sim_rational_print(ScripturaLine *line, SimRational value)
 {
     long long numerator = 0ll;

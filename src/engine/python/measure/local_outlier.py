@@ -10,7 +10,7 @@
 # The Hampel identifier is the standard rank test for an outlier: take the window around a point, its
 # median and its median absolute deviation, and flag the point when it sits more than a few MADs from
 # the median. The "few" is the whole problem. It is a constant the author picks, 1.4826 times some
-# chosen number of deviations, and it is exactly the judgement-picked tolerance this tree does not
+# chosen number of deviations, and it is a judgment-picked tolerance of the kind this tree does not
 # allow. Change it and the count of outliers changes, and nothing in the data said what it should be.
 #
 # The fix is the tree's standing move: draw the boundary from the data instead of choosing it. The

@@ -4,7 +4,7 @@
 #
 # Turn a recording into the binary sound representation the interdialect comparison runs on.
 #
-# Imported, not run. binary_sound.py is the driver.
+# This module is imported and never run. binary_sound.py is the driver.
 #
 # Four facts about hearing decide the shape of everything below.
 #

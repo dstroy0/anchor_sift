@@ -106,7 +106,7 @@ typedef struct
     unsigned long long peer_count;
     int socket_activated;
 #if !defined(_WIN32)
-    // the socket file this daemon bound, so it removes that file and never one bound after it at the same path
+    // the socket file this daemon bound: it removes that file and never one bound after it at the same path
     dev_t endpoint_device;
     ino_t endpoint_inode;
 #endif
@@ -416,7 +416,7 @@ static int daemon_ticket_write(unsigned long long identity, const TesseraPeer *p
     {
         return 0;
     }
-    // the ticket names its job's signum whole, so a lost job is found again by its request
+    // the ticket names its job's signum whole: a lost job is found again by its request
     char signum[(2u * ENGINE_SIGNUM_BYTES) + 1u];
     for (unsigned int byte = 0u; byte < ENGINE_SIGNUM_BYTES; byte += 1u)
     {
@@ -1095,7 +1095,7 @@ static int daemon_socket_handed(void)
 static int daemon_refused(void)
 {
 #if !defined(_WIN32)
-    // the connections that made systemd start this daemon wait on its socket: each is closed unanswered, so its
+    // the connections that made systemd start this daemon wait on its socket: each is closed unanswered: its
     // client is refused and systemd has none left to start the daemon again for
     if (daemon_socket_handed())
     {
@@ -1124,7 +1124,7 @@ int main(int count, char **arguments)
         fputs(s_daemon_no_state, stderr);
         return daemon_refused();
     }
-    // the history is read before the endpoint exists, so no client reaches a daemon that then refuses its history
+    // the history is read before the endpoint exists: no client reaches a daemon that then refuses its history
     if (!tessera_ledger_open(&s_daemon.ledger))
     {
         fprintf(stderr, "  tessera daemon: the ledger could not be opened\n");

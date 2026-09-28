@@ -61,6 +61,11 @@
 // A resolution past 2^20, n given whole or as base^exponent (10^100 for a googol), is held as (2, n): its precision
 // and widths are printed exact, and the engine sums the depth-n terms sweep by sweep, printing the terms done and its
 // rate. Its digits are printed only once every term is summed.
+// 15. A segment: pi_tower segment d [digits], d whole or base^exponent, reads that many hex digits from position d + 1
+//     as windows at d, d + 20, d + 40, ..., each its own run on the engine. Every window certifies at least 24 digits,
+//     the 4 or more it certifies past the 20 it gives are the next window's first (D. H. Bailey, "The BBP Algorithm
+//     for Pi", 2006: a result at position d is checked by repeating it at d - 1 or d + 1), and where the segment starts
+//     at one of Bailey's published positions its head is his.
 
 #include "sim.h"
 
@@ -111,8 +116,9 @@
 
 #define PI_TOWER_BBP_GUARD 16u
 
-// a segment takes this many hex digits from each window, the least every window certifies
-#define PI_TOWER_SEGMENT_STEP (PI_TOWER_BBP_CERTIFIED / 4u)
+// a segment takes this many hex digits from each window, 4 fewer than the least a window must certify: the 4 or more
+// past them are checked against the next window's first
+#define PI_TOWER_SEGMENT_STEP ((PI_TOWER_BBP_CERTIFIED / 4u) - 4u)
 
 // the hex digits a segment reads when the request names none, and the most it may name
 #define PI_TOWER_SEGMENT_DIGITS 1000u
@@ -1302,6 +1308,8 @@ static void pi_tower_billiard(SimTally *tally, const PiWide &alpha, const std::v
         scriptura_decimal(&tally->line, near_corners[at], 1u);
         scriptura_text(&tally->line, (at + 1u < near_corners.size()) ? ", " : "\n");
     }
+    // pi is irrational, so no corner and no zero L can occur on the real walk; what these two checks measure is that
+    // the integer turn's carries decide every floor (uncertain is 0), so the walk read is the real one
     sim_check(tally, (corners == 0ull) && (uncertain == 0ull),
               "no wall hit on the walk is a corner, and every floor on it is the real floor: one wall always wins");
     sim_check(tally, (zero == 0ull) && (uncertain == 0ull),
@@ -2231,9 +2239,10 @@ static int pi_tower_segment_declared(const PiWide &position, unsigned int digits
     return 1;
 }
 
-// 15. A segment of `digits` hex digits from hex position d + 1, read as windows at d, d + 24, d + 48, ..., each its own
-// run on the engine. Each window must certify its 24 digits, and the digits it certifies past them must be the next
-// window's first (Bailey: "a result calculated at position d can be checked by repeating at position d - 1").
+// 15. A segment of `digits` hex digits from hex position d + 1, read as windows at d, d + 20, d + 40, ..., each its own
+// run on the engine. Each window must certify PI_TOWER_BBP_CERTIFIED / 4 = 24 digits and gives the segment its first
+// 20, and the 4 or more it certifies past them must be the next window's first (Bailey: "a result calculated at
+// position d can be checked by repeating at position d - 1").
 static PiTowerSegment pi_tower_bbp_segment(SimTally *tally, const PiWide &position, unsigned int digits,
                                            unsigned long long lanes, int report, std::string *segment)
 {
@@ -2263,7 +2272,7 @@ static PiTowerSegment pi_tower_bbp_segment(SimTally *tally, const PiWide &positi
         {
             result.windows += 1u;
             const std::string read = pi_tower_bbp_hex(&bbp, run.sum, certified / 4u);
-            result.certified = result.certified && (read.size() >= PI_TOWER_SEGMENT_STEP);
+            result.certified = result.certified && (read.size() >= (PI_TOWER_BBP_CERTIFIED / 4u));
             result.overlapped = result.overlapped && (read.compare(0u, pending.size(), pending) == 0);
             const size_t taken = ((digits - segment->size()) < PI_TOWER_SEGMENT_STEP) ? (digits - segment->size())
                                                                                      : PI_TOWER_SEGMENT_STEP;
@@ -2289,8 +2298,66 @@ static void pi_tower_segment_print(SimTally *tally, const PiWide &position, cons
     }
 }
 
-// 13, 14 and 15 on the engine: position 0 and Bailey's, the tower's deepest resolution asked for, and segments at 0
-// and at 10^6
+// 15 on the engine: the segment the request names, the job declared at its last window's bytes, and the segment printed
+// 64 digits a line; where it starts at one of Bailey's positions, its head against his
+static void pi_tower_segment_request(SimTally *tally, int count, char **arguments, const PiWide &position,
+                                     unsigned int digits)
+{
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    const unsigned long long lanes = pi_tower_bbp_lanes();
+    unsigned long long declared = 0ull;
+    const int planned = (lanes != 0ull) && pi_tower_segment_declared(position, digits, lanes, &declared, &error);
+    sim_check(tally, planned, "engine: keymath imprints and the scheduler lays the term, tail and pair programs");
+    if ((planned == 0) || !sim_job_submit(tally, "pi_tower", count, arguments, declared))
+    {
+        return;
+    }
+    scriptura_text(&tally->line, "  a segment on the engine: ");
+    scriptura_decimal(&tally->line, digits, 1u);
+    scriptura_text(&tally->line, " hex digits from position ");
+    pi_tower_print_decimal(&tally->line, pi_tower_sum(position, pi_tower_whole(1ull)));
+    scriptura_text(&tally->line, ", a window every ");
+    scriptura_decimal(&tally->line, PI_TOWER_SEGMENT_STEP, 1u);
+    scriptura_character(&tally->line, '\n');
+    sim_flush(tally);
+    std::string segment;
+    const PiTowerSegment result = pi_tower_bbp_segment(tally, position, digits, lanes, 1, &segment);
+    pi_tower_segment_print(tally, position, segment);
+    scriptura_text(&tally->line, "    ");
+    scriptura_decimal(&tally->line, result.windows, 1u);
+    scriptura_text(&tally->line, " windows\n");
+    sim_flush(tally);
+    sim_check(tally, result.ran && result.finished && (segment.size() == digits),
+              "engine: every window ran and summed all its terms");
+    sim_check(tally, result.certified, "every window certified at least 24 hex digits");
+    sim_check(tally, result.overlapped, "every window's digits past the 20 it gives are the next window's first");
+    int matched = 1;
+    unsigned int compared = 0u;
+    for (size_t at = 0u; at < PI_TOWER_PUBLISHED_COUNT; at += 1u)
+    {
+        const std::string expected = s_pi_tower_published[at].digits;
+        if ((pi_tower_compare(pi_tower_whole(s_pi_tower_published[at].position - 1ull), position) == 0)
+            && (segment.size() >= expected.size()))
+        {
+            scriptura_text(&tally->line, "    Bailey's at position ");
+            scriptura_decimal(&tally->line, s_pi_tower_published[at].position, 1u);
+            scriptura_text(&tally->line, ": ");
+            scriptura_text(&tally->line, expected.c_str());
+            scriptura_character(&tally->line, '\n');
+            matched = matched && (segment.compare(0u, expected.size(), expected) == 0);
+            compared += 1u;
+        }
+    }
+    if (compared != 0u)
+    {
+        sim_check(tally, matched, "the segment's head is Bailey's published digits at its position");
+    }
+    sim_flush(tally);
+}
+
+// 13 and 14 on the engine: position 0 and Bailey's, and the tower's deepest resolution asked for. 15, a segment, is a
+// request of its own (pi_tower_segment_request)
 static void pi_tower_engine(SimTally *tally, int count, char **arguments, const PiTowerTurn &turn, unsigned int depth)
 {
     EngineError error;
@@ -2529,9 +2596,29 @@ int main(int count, char **arguments)
         pi_tower_deep(&tally, count, arguments, deep);
         return sim_close(&tally, "pi tower");
     }
+    // 15: pi_tower segment d [digits], d whole or base^exponent and 0 allowed, digits 1 to PI_TOWER_SEGMENT_MOST
+    if ((count >= 3) && (count <= 4) && (strcmp(arguments[1], "segment") == 0))
+    {
+        PiWide position = pi_tower_whole(0ull);
+        PiWide digits = pi_tower_whole(PI_TOWER_SEGMENT_DIGITS);
+        const int placed = (strcmp(arguments[2], "0") == 0) || (pi_tower_request(arguments[2], &position) != 0);
+        const int sized = (count == 3)
+                       || ((pi_tower_request(arguments[3], &digits) != 0)
+                           && (pi_tower_compare(digits, pi_tower_whole(PI_TOWER_SEGMENT_MOST)) <= 0));
+        if ((placed != 0) && (sized != 0))
+        {
+            // at most PI_TOWER_SEGMENT_MOST, so an unsigned int holds it
+            pi_tower_segment_request(&tally, count, arguments, position, (unsigned int)pi_tower_word(digits));
+            return sim_close(&tally, "pi tower");
+        }
+    }
     if ((count > 1) && (single == 0) && (ranged == 0))
     {
-        scriptura_text(&tally.line, "  usage: pi_tower [n] or pi_tower [from] [to], resolutions 2^1 to 2^1048576 cells; pi_tower n\n  past 2^20, n whole or base^exponent, reads the depth-n turn on the engine alone\n");
+        scriptura_text(&tally.line, "  usage: pi_tower [n] or pi_tower [from] [to], resolutions 2^1 to 2^1048576 cells; pi_tower n\n  past 2^20, n whole or base^exponent, reads the depth-n turn on the engine alone; pi_tower segment d [digits]\n  reads that many hex digits (1 to ");
+        scriptura_decimal(&tally.line, PI_TOWER_SEGMENT_MOST, 1u);
+        scriptura_text(&tally.line, ", ");
+        scriptura_decimal(&tally.line, PI_TOWER_SEGMENT_DIGITS, 1u);
+        scriptura_text(&tally.line, " if none) from position d + 1 on the engine\n");
         sim_check(&tally, 0, "the request names its resolutions");
         return sim_close(&tally, "pi tower");
     }

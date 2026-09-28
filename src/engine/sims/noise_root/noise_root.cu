@@ -25,8 +25,8 @@
 
 #define ROOT_WIDTH 64ull
 
-// an offset of 300 and 100 electrons at gain 1 with a read variance of 4: a voxel's independent variance is 104, and
-// the offset keeps the strongest planted term inside the lane
+// an offset of 300 and 100 electrons at gain 1 with a read variance of 4: a background voxel's independent variance is
+// 104 and a body voxel's 404, and the offset keeps the strongest planted term inside the lane
 #define ROOT_OFFSET 300ull
 
 #define ROOT_BACKGROUND 100ull
@@ -229,9 +229,9 @@ int main(void)
 
     scriptura_text(line, "  the root noise of an object's box: 16 frames x z 2 to 13 x y 16 to 47 x x 16 to 47 around one"
                          " standing body of 300 e, over 100 e at offset 300, read variance 4, a Poisson shot\n");
-    scriptura_text(line, "  each term planted alone at variances 64, 256 and 1024, against a voxel's independent 104; a"
-                         " term's saving is the box's coded bits less its residual's and its pattern's, through the"
-                         " tower and compression's coder\n");
+    scriptura_text(line, "  each term planted alone at variances 64, 256 and 1024, against a background voxel's independent"
+                         " 104 and a body voxel's 404; a term's saving is the box's coded bits less its residual's and"
+                         " its pattern's, through the tower and compression's coder\n");
     scriptura_text(line, "  planted  variance    box bits      rows   columns    planes    pixels    stacks  root     per"
                          " mille  return\n");
     sim_flush(&tally);
@@ -326,6 +326,8 @@ int main(void)
         {
             sim_check(&tally, reading.root == planted, "at the strongest, the root is the planted term");
         }
+        // the residual is the box less the pattern in ints, so the sum is the box by construction; what this checks
+        // is that noise_root_return spreads the pattern over the places the yank took it from
         sim_check(&tally, exact != 0, "the root's residual and pattern return the box exactly");
     }
     cudaFree(device_lanes);

@@ -240,7 +240,7 @@ int main(void)
     unsigned long long reached = 0ull;
     good = good && energy_band_top(&tally, work->stack, PATTERN_LENGTH, PATTERN_FRAME, PATTERN_DRAWS,
                                    PATTERN_KEY ^ 0x42414E44ull, work->shuffled, work->sums, &top, &reached);
-    scriptura_text(line, "  negative controls: the 100% is licensed by the 0% the wrong noise scores\n  null band over 8 shuffles (");
+    scriptura_text(line, "  negative controls: the 100% is licensed by the band declining the wrong noise\n  null band over 8 shuffles (");
     scriptura_decimal(line, reached, 1u);
     scriptura_text(line, " reached a period), top ");
     energy_print(line, &top);
@@ -277,7 +277,7 @@ int main(void)
         }
         else
         {
-            scriptura_text(line, "decline, the noise left intact (reduction 0%)");
+            scriptura_text(line, "decline, the noise left intact (nothing removed)");
         }
         scriptura_character(line, '\n');
         sim_check(&tally, present == (arm == 0u), "only the matched pattern clears the band");

@@ -289,7 +289,7 @@ def sorted_into(text, english, language, margin=0.5):
 def calibrated_cut(counts, total, keep=0.99):
     """The cut that keeps the given share of the known-pure corpus.
 
-    Measured, not chosen. Nine papers were read by hand against their own layouts and their
+    The cut is measured. Nine papers were read by hand against their own layouts and their
     .pure.txt files are target-language speech alone. The score below which the
     language does not fall is a fact about this corpus, and not a threshold somebody picked.
     """

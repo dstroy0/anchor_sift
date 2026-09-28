@@ -12,6 +12,7 @@
 #include "grow.h"
 #include "hdf5.h"
 #include "deflate.h"
+#include "emit_device.h"
 #include "inflate.h"
 #include "keymath.h"
 #include "lz4.h"
@@ -160,6 +161,41 @@ extern "C" void engine_key_release(CycleKey *key)
     cycle_key_release(key);
 }
 
+// With EMIT_DEVICE=1 the program is laid on the device as well (emit_lay_device, emit_device.h), keymath's
+// imprint and key_schedule's lay each in one thread, and held to the host's layout: where the two agree word for word,
+// the device's is the one loaded; where they do not, or the device did not lay it, the host's is, and the report says
+// which
+static void engine_record_lay_device(const EngineRecordRequest *request, EngineRecordLayout *layout)
+{
+    const char *const asked = getenv("EMIT_DEVICE");
+    if ((asked == NULL) || (asked[0] != '1'))
+    {
+        return;
+    }
+    const EmitLayRequest lay = {request->steps,   request->count,   request->field_bits,   request->field_offset,
+                                 request->fields,  request->members, request->in_limbs,     request->outputs,
+                                 request->output_count, request->tables, request->table_count, request->reuse};
+    EngineRecordLayout laid{};
+    std::string refused;
+    if (emit_lay_device(&lay, &laid, &refused) == 0)
+    {
+        fprintf(stderr, "  engine: the device did not lay a program of %u steps (%s); the host's is loaded\n",
+                layout->steps, refused.c_str());
+        return;
+    }
+    if (emit_lay_same(&laid, layout) == 0)
+    {
+        fprintf(stderr, "  engine: the device laid a program of %u steps apart from the host's; the host's is loaded\n",
+                layout->steps);
+        key_schedule_record_release(&laid);
+        return;
+    }
+    fprintf(stderr, "  engine: the device laid a program of %u steps, %u limbs of file, word for word the host's\n",
+            laid.steps, laid.file_limbs);
+    key_schedule_record_release(layout);
+    *layout = laid;
+}
+
 extern "C" long engine_record_imprint(const EngineRecordRequest *request, CycleRecord **record, EngineError *error)
 {
     if (error == NULL)
@@ -189,6 +225,7 @@ extern "C" long engine_record_imprint(const EngineRecordRequest *request, CycleR
     {
         return ENGINE_REFUSED;
     }
+    engine_record_lay_device(request, &layout);
     for (unsigned int output = 0u; (request->output_offset != NULL) && (request->output_bits != NULL)
          && (output < request->output_count); output += 1u)
     {

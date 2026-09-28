@@ -100,7 +100,7 @@ static void lattice_print_scene(SimTally *tally, const SimScene *scene, const un
     scriptura_text(line, " founders, ");
     scriptura_decimal(line, LATTICE_DIVISIONS, 1u);
     scriptura_text(line, " divisions)\n");
-    scriptura_text(line, "  body parent born ended  first centroid z, y, x (exact, 3 places)            mass\n");
+    scriptura_text(line, "  body parent born ended  first centroid z, y, x (exact, truncated to 3 places)   mass\n");
     for (unsigned int index = 0u; index < scene->bodies; index += 1u)
     {
         const SimBody *const body = &scene->body[index];

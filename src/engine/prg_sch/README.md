@@ -149,7 +149,7 @@ The load also builds the program for the device (`base/cycle/cycle_compile.cu`),
    Those steps are a gcd, a ladder, a division by more than one limb, and a product of more than 1,024 limb
    products.
 
-   Each word of the output record is stored as soon as the last step that lays it has run, so the lane does not
+   Each word of the output record is stored as soon as the last step that lays it has run. The lane does not
    hold its outputs to its end. With `CYCLE_RECORD_REPORT=1` the load says the most words a lane holds live at once.
 
    **Rule (i).** Once the PTX is built, its local frame, the bytes a thread spills past its registers, is read
@@ -166,14 +166,14 @@ by its text and used only where that text matches byte for byte.
 
 The lane's text is written from a **ruleset**, one for each of the first two ways: `base/emit/rulesets/ptx.krs` for
 PTX and `base/emit/rulesets/c.krs` for C source, read once a process from that folder, or from the folder
-`$CYCLE_RULESETS` names. The emitter decides what each step does, and the ruleset decides how the target spells it.
-Its base class, `CycleEmit` (`base/emit/emit.{h,cu}`), reads and writes rulesets and names no language. Each language
-is a class that inherits it, in files of its own: `CycleEmitPtx` (`emit_ptx.{h,cu}`) and `CycleEmitSource`
+`$CYCLE_RULESETS` names. The emitter decides what each step does, and the ruleset decides how the target writes it.
+Its base class, `Emitter` (`base/emit/emit.{h,cu}`), reads and writes rulesets and names no language. Each language
+is a class that inherits it, in files of its own: `EmitPtx` (`emit_ptx.{h,cu}`) and `EmitSource`
 (`emit_source.{h,cu}`). The record machine picks the language.
 A ruleset is a text file whose first line is `krs 1`, and every other line is one entry:
 - `ruleset`, `toolchain` and `header` name the target, what builds its text and where the text's opening lines
   come from;
-- `bank` spells a bank of registers, `{n}` the register's number, and `fixed` spells one register the lane holds
+- `bank` writes a bank of registers, `{n}` the register's number, and `fixed` writes one register the lane holds
   throughout;
 - `form` names a piece of text and its parameters, and the text is the rest of the line after `= `, where `{p}` is
   parameter p's argument and `\t`, `\n` and `\\` are a tab, a line's end and a backslash;
@@ -250,7 +250,7 @@ or `CYCLE_LATCH_NONE` where no lane's is:
 - each warp takes the least of its threads' by a tree of shuffles;
 - one atomic minimum takes the least of the warps'.
 
-Only the lane comes back to the host. The minimum is associative, commutative and idempotent, so this grouping
+Only the lane comes back to the host. The minimum is associative, commutative and idempotent. This grouping
 returns the lane a serial scan from lane 0 returns. `cycle_record_latch_host` is that scan, over records on the host.
 The latch is a call on `base/cycle`. `engine_record_sweep` copies every record back to the host, and a latch through
 the engine's own entry is not built.

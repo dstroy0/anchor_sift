@@ -9,7 +9,7 @@
 # A rank background groups by neither position nor content but by NEARNESS: a value is estimated from
 # the window around it. The estimate is the median, the middle value of the window, the rank
 # statistic a majority of the window agrees on and the one an impulse cannot move, because dragging the
-# middle takes more than half the window and not one large value. That is why a median rejects the
+# middle takes more than half the window and not one large value. For that reason a median rejects the
 # replacement noise a mean cannot: the mean is the first moment and one impulse owns it, the median is
 # the middle rank and one impulse is just one more vote.
 #
@@ -35,7 +35,7 @@ def _window(values, index, radius, include_center):
 def window_median(values, index, radius, include_center=True):
     """The median of the window around `index`, by sorting. The lower middle on an even count.
 
-    `include_center` false reads the window with the center left out, which is what an outlier test
+    `include_center` false reads the window with the center left out, as an outlier test
     wants: the value the neighbors agree on, uncontaminated by the sample under test.
     """
     window = sorted(_window(values, index, radius, include_center))

@@ -28,7 +28,7 @@
 # and wrote down. Tiling a published cell reproduces the real arrangement, and the instrument is
 # then handed the voxels and asked to return the edge with nothing told to it.
 #
-# Why that matters more than another memoryless control. A memoryless process can only show that an
+# Why that matters more than another memoryless control. A memoryless process shows at most that an
 # instrument does not invent structure. It cannot show that the instrument finds structure that is
 # there, and this work reported a protein as unstructured twice before that distinction was drawn.
 #
@@ -84,7 +84,7 @@ OCCUPANCY = "_atom_site_occupancy"
 # plane the same way, leaving the set of agreeing lags unchanged. A period is a statement about
 # repetition and a defect that repeats perfectly does not disturb it.
 #
-# , a period was safe and nothing else was. A count of atoms, a density, a formula weight, an
+# Of the readings site_text feeds, a period alone was safe. A count of atoms, a density, a formula weight, an
 # occupancy sum, any distance between two sites: every one of those moves by exactly one spurious
 # atom per cell. Anyone consuming site_text for something other than a period needs that sentence
 # before they trust a number that came out of it.
@@ -156,8 +156,8 @@ def site_table(text, dummies=False):
     caller that needs the distinction gets it; one that does not can ignore the field.
 
     Sites the deposit marked `dum` in CALC_FLAG are dropped, because their coordinates are a
-    placeholder and not a position. Pass `dummies=True` to keep them, which is what a reading about
-    how deposits are written would want and what a reading about where atoms are would not.
+    placeholder that marks no position. Pass `dummies=True` to keep them: a reading about how
+    deposits are written wants them, and a reading about where atoms are does not.
     """
     lines = text.splitlines()
     rows = []

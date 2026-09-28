@@ -1,40 +1,161 @@
 krs 1
-# C source, the record machine's second target: a step is one call into the operator block, whose registers are its
-# places in shared memory, and NVRTC compiles the lane. The format is the comment at the head of ptx.krs. The C source
-# takes no bank and names no register; its header is the operator block's prelude.
+# C source, a language of the register lane (emit_lane.h), which NVRTC compiles under the prelude. The format is the
+# comment at the head of ptx.krs. The file and its signs lie in the thread block's shared memory: place p of this
+# thread is word p . threads + thread of cycle_words, and its sign the byte at sign_base + p . threads, past every
+# place's word: a lane's frame holds only its own temporaries. The other banks are the lane's own arrays, each
+# indexed only by numbers the text names; the compiler holds them as registers. A carry chain passes its carry in
+# the variable carry through cycle_c_add and cycle_c_subtract, which the lane's opening defines; a refusal and a loop
+# are a goto, and a lane that is done returns. A word's value is an unsigned 32-bit literal.
 ruleset c
 toolchain nvrtc
 header prelude
 
+# the lane's registers
+bank file = cycle_words[({n}u * threads) + thread]
+bank sign = ((s8 *)cycle_words)[sign_base + ({n}u * threads)]
+bank out = o[{n}]
+bank atom = a[{n}]
+bank temporary = t[{n}]
+bank wide = w[{n}]
+bank predicate = p[{n}]
+bank member = member[{n}]
+bank immediate = {n}u
+fixed zero = zero
+fixed lane_number = lane_number
+fixed record = record_address
+fixed index = index_address
+fixed body = body_number
+fixed bodies = bodies
+fixed tables = tables
+fixed threads = threads
+fixed sign_base = sign_base
+fixed indexed = indexed
+fixed one = one
+fixed good = good
+
 # the program's text around the lane
-form program_note steps major minor compiler_major compiler_minor block = // a record program of {steps} steps, for sm_{major}{minor}, NVRTC {compiler_major}.{compiler_minor}, against the operator block {block}\n
-form lane_open = \nextern "C" __device__ void cycle_lane(const CycleCompiledLaunch *launch, const u64 lane)\n{\n    int good = 1;\n
-form member_open member members limbs =     const u64 body{member} = (launch->index != nullptr) ? (u64)launch->index[(lane * {members}ull) + {member}ull]\n                    : ((launch->bodies[{member}] == 1ull) ? 0ull : lane);\n    good = ((good != 0) && (body{member} < launch->bodies[{member}])) ? 1 : 0;\n    const u32 *const atom{member} = &launch->in[{member}][((good != 0) ? body{member} : 0ull) * {limbs}ull];\n
-form record_open limbs =     u32 *const record = &launch->out[lane * {limbs}ull];\n    for (u32 limb = 0u; limb < {limbs}u; limb += 1u)\n    {\n        record[limb] = 0u;\n    }\n    do\n    {\n        if (good == 0)\n        {\n            break;\n        }\n
-form lane_close =     } while (0);\n    if (good == 0)\n    {\n        atomicAdd(launch->refused, 1u);\n    }\n}\n
+form program_note steps major minor compiler_major compiler_minor block = // a record program of {steps} steps, for sm_{major}{minor}, NVRTC {compiler_major}.{compiler_minor}, as C for the target {block}\n
+form lane_open = \nextern __shared__ u32 cycle_words[];\n\n// a 32-bit sum and its carry out, the carry in added\n__device__ static inline u32 cycle_c_add(const u32 left, const u32 right, const u32 carried, u32 *const carry)\n{\n    const u64 total = (u64)left + (u64)right + (u64)carried;\n    *carry = (u32)(total >> 32u);\n    return (u32)total;\n}\n\n// a 32-bit difference and its borrow out, the borrow in taken too\n__device__ static inline u32 cycle_c_subtract(const u32 left, const u32 right, const u32 borrowed, u32 *const borrow)\n{\n    const u64 total = (u64)left - (u64)right - (u64)borrowed;\n    *borrow = (u32)((total >> 32u) & 1u);\n    return (u32)total;\n}\n\n// a product's low word with a word added, and the sum's carry out\n__device__ static inline u32 cycle_c_product_low(const u32 left, const u32 right, const u32 added, u32 *const carry)\n{\n    const u64 total = (u64)(left * right) + (u64)added;\n    *carry = (u32)(total >> 32u);\n    return (u32)total;\n}\n\nextern "C" __device__ void cycle_lane(const CycleCompiledLaunch *launch_given, const u64 lane_given)\n{\n
+form lane_body =
+form lane_close = }\n
 
-# the steps, each one call into the operator block: a register is its place and its limbs
-form field member in_limbs left right place limbs =             cycle_field(atom{member}, {in_limbs}u, {left}u, {right}u, {place}u, {limbs}u);\n
-form field_signed member in_limbs left right place limbs =             cycle_field_signed(atom{member}, {in_limbs}u, {left}u, {right}u, {place}u, {limbs}u);\n
-form constant low high place limbs =             cycle_constant({low}u, {high}u, {place}u, {limbs}u);\n
-form lane_number place limbs =             cycle_lane_index(lane, {place}u, {limbs}u);\n
-form product place limbs left left_limbs right right_limbs =             cycle_product({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u);\n
-form compare place limbs left left_limbs right right_limbs =             cycle_compare({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u);\n
-form sum place limbs left left_limbs right right_limbs =             cycle_sum({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, 0u);\n
-form difference place limbs left left_limbs right right_limbs =             cycle_sum({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, 1u);\n
-form xor place limbs left left_limbs right right_limbs =             cycle_bitwise({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, 1u);\n
-form and place limbs left left_limbs right right_limbs =             cycle_bitwise({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, 0u);\n
-form absolute place limbs left left_limbs =             cycle_absolute({place}u, {limbs}u, {left}u, {left_limbs}u);\n
-form table place limbs left offset index_bits =             cycle_table({place}u, {limbs}u, {left}u, launch->tables, {offset}u, {index_bits}u);\n
-form wrap place limbs left left_limbs bits =             cycle_wrap({place}u, {limbs}u, {left}u, {left_limbs}u, {bits}u);\n
-form gcd place limbs left left_limbs right right_limbs scratch wide =             cycle_gcd({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u, {wide}u);\n
+# the lane's declarations
+form declare_predicates count =     int p[{count}];\n
+form declare_fixed_predicates =     int indexed, one, good;\n
+form declare_file count =
+form declare_signs count =
+form declare_out count =     u32 o[{count}];\n
+form declare_atoms count =     u32 a[{count}];\n
+form declare_temporaries count =     u32 t[{count}];\n
+form declare_wides count =     u64 w[{count}];\n
+form declare_fixed_words =     u32 zero, carry, thread, threads, sign_base;\n
+form declare_fixed_wides =     u64 launch, lane_number, record_address, index_address, body_number, bodies, tables;\n
+form declare_members count =     u64 member[{count}];\n
 
-# the steps that refuse the lane: a ladder whose right is not positive, a zero divisor, an exact quotient that leaves
-# a remainder
-form ladder place limbs left left_limbs right right_limbs scratch =             good = cycle_ladder({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u);\n            if (good == 0)\n            {\n                break;\n            }\n
-form quotient place limbs left left_limbs right right_limbs scratch wide =             good = cycle_quotient({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u, {wide}u);\n            if (good == 0)\n            {\n                break;\n            }\n
-form remainder place limbs left left_limbs right right_limbs scratch wide =             good = cycle_remainder({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u, {wide}u);\n            if (good == 0)\n            {\n                break;\n            }\n
-form exact_quotient place limbs left left_limbs right right_limbs scratch wide =             good = cycle_exact_quotient({place}u, {limbs}u, {left}u, {left_limbs}u, {right}u, {right_limbs}u, {scratch}u, {wide}u);\n            if (good == 0)\n            {\n                break;\n            }\n
+# the lane's opening and close
+form open_launch =     launch = (u64)launch_given;\n    lane_number = lane_given;\n    zero = 0u;\n    carry = 0u;\n
+form launch_load to offset =     {to} = *(const u64 *)(launch + {offset}ull);\n
+form to_global to =
+form shared_open =     thread = threadIdx.x;\n    threads = blockDim.x;\n    sign_base = thread;\n
+form shared_close =
+form guarded_load where to address =     if ({where})\n    {\n        {to} = *(const u32 *){address};\n    }\n
+form guarded_widen where to from =     if ({where})\n    {\n        {to} = (u64){from};\n    }\n
+form open_refused_unless where =     if (!{where})\n    {\n        goto refused_open;\n    }\n
+form refuse where at =     if ({where})\n    {\n        goto refused{at};\n    }\n
+form label_refused_open = refused_open:\n
+form label_refused at = refused{at}:\n
+form count_add address =     atomicAdd((u32 *){address}, 1u);\n
+form return =     return;\n
+form step_note at operation =     // step {at}, operation {operation}\n
 
-# a register written into the record at its offset
-form put out_limbs offset bits place limbs =             cycle_put(record, {out_limbs}u, {offset}u, {bits}u, {place}u, {limbs}u);\n
+# carry chains through a register's limbs: alone for a register of one limb, else first, middle and last
+form add_alone to left right =     {to} = {left} + {right};\n
+form add_first to left right =     {to} = cycle_c_add({left}, {right}, 0u, &carry);\n
+form add_middle to left right =     {to} = cycle_c_add({left}, {right}, carry, &carry);\n
+form add_last to left right =     {to} = {left} + {right} + carry;\n
+form subtract_alone to left right =     {to} = {left} - {right};\n
+form subtract_first to left right =     {to} = cycle_c_subtract({left}, {right}, 0u, &carry);\n
+form subtract_middle to left right =     {to} = cycle_c_subtract({left}, {right}, carry, &carry);\n
+form subtract_last to left right =     {to} = {left} - {right} - carry;\n
+# the subtract chain whose top limb leaves its borrow for borrow_read
+form borrow_alone to left right =     {to} = cycle_c_subtract({left}, {right}, 0u, &carry);\n
+form borrow_first to left right =     {to} = cycle_c_subtract({left}, {right}, 0u, &carry);\n
+form borrow_middle to left right =     {to} = cycle_c_subtract({left}, {right}, carry, &carry);\n
+form borrow_last to left right =     {to} = cycle_c_subtract({left}, {right}, carry, &carry);\n
+form borrow_read held where =     {held} = 0u - carry;\n    {where} = (carry != 0u);\n
+
+# a word's arithmetic
+form word_copy to from =     {to} = {from};\n
+form word_set to value =     {to} = (u32){value};\n
+form word_and to left right =     {to} = {left} & {right};\n
+form word_or to left right =     {to} = {left} | {right};\n
+form word_xor to left right =     {to} = {left} ^ {right};\n
+form word_shift_left to from bits =     {to} = {from} << {bits}u;\n
+form word_shift_right to from bits =     {to} = {from} >> {bits}u;\n
+form word_funnel_right to low high bits =     {to} = (u32)((((u64){high} << 32u) | (u64){low}) >> {bits}u);\n
+form word_multiply to left right =     {to} = {left} * {right};\n
+form word_multiply_add to left right added =     {to} = ({left} * {right}) + {added};\n
+form word_divide to left right =     {to} = {left} / {right};\n
+form word_select to chosen otherwise where =     {to} = ({where}) ? (u32){chosen} : (u32){otherwise};\n
+form product_low to left right added =     {to} = cycle_c_product_low({left}, {right}, {added}, &carry);\n
+form product_high to left right =     {to} = (u32)(((u64){left} * (u64){right}) >> 32u) + carry;\n
+
+# a sign's arithmetic, a signed byte of -1, 0 or 1
+form sign_set to value =     {to} = (s8)({value});\n
+form sign_select to chosen otherwise where =     {to} = (s8)(({where}) ? (int)({chosen}) : (int)({otherwise}));\n
+form sign_multiply to left right =     {to} = (s8)((int)(s8){left} * (int)(s8){right});\n
+form sign_absolute to from =     {to} = ((int)(s8){from} < 0) ? (u32)(-(int)(s8){from}) : (u32)(s8){from};\n
+form sign_negate to from =     {to} = (s8)(-(int)(s8){from});\n
+
+# tests, each setting a predicate
+form test_nonzero where value =     {where} = ({value} != 0u);\n
+form test_zero where value =     {where} = ({value} == 0u);\n
+form test_negative where value =     {where} = ((int){value} < 0);\n
+form test_signed_differ where left right =     {where} = ((int)(s8){left} != (int)({right}));\n
+form test_signed_greater where left right =     {where} = ((int)(s8){left} > (int)(s8){right});\n
+form test_wide_nonzero where value =     {where} = ({value} != 0ull);\n
+form test_wide_equal where left right =     {where} = ({left} == (u64){right});\n
+form test_wide_below where left right =     {where} = ({left} < {right});\n
+form test_wide_below_and where left right also =     {where} = ({left} < {right}) && {also};\n
+form predicate_xor where left right =     {where} = {left} ^ {right};\n
+form predicate_and where left right =     {where} = {left} && {right};\n
+
+# 64-bit words: addresses, the lane's number and a division's parts
+form wide_from_word to from =     {to} = (u64){from};\n
+form word_from_wide to from =     {to} = (u32){from};\n
+form wide_pack to low high =     {to} = ((u64){high} << 32u) | (u64){low};\n
+form wide_unpack low high from =     {low} = (u32){from};\n    {high} = (u32)({from} >> 32u);\n
+form wide_multiply to left right =     {to} = {left} * (u64){right};\n
+form wide_multiply_word to left right =     {to} = (u64){left} * (u64){right};\n
+form wide_add to left right =     {to} = {left} + {right};\n
+form wide_add_unsigned to left right =     {to} = {left} + (u64){right};\n
+form wide_shift_left to from bits =     {to} = {from} << {bits}u;\n
+form wide_select to chosen otherwise where =     {to} = ({where}) ? (u64){chosen} : (u64){otherwise};\n
+form wide_divide to left right =     {to} = {left} / {right};\n
+
+# memory: the members' and the tables' words and the record's words
+form global_load to address offset =     {to} = *(const u32 *)({address} + {offset}ull);\n
+form record_store offset from =     *(u32 *)(record_address + {offset}ull) = {from};\n
+
+# the states a target that clocks the lane a state at a time cuts it into (vhdl.krs); a C lane runs straight through
+form states_declare count =
+form state_start state =
+form state_open state =
+form state_next state refused =
+form state_exit =
+form dispatch_to refusal state =
+
+# a memory read's address named a state ahead of the read (vhdl.krs); a C load names its address itself
+form launch_ask offset =
+form global_ask address offset =
+form guarded_ask where address =
+form count_ask address =
+
+# a loop: its label, and the goto back to it where the predicate holds
+form loop_label loop = loop{loop}:\n
+form loop_back loop where =     if ({where})\n    {\n        goto loop{loop};\n    }\n
+form state_loop back where next =
+
+# the program resident around the lane: the kernel the record machine launches, which takes the launch's lanes a round
+# a thread block and holds the program to its block (vhdl.krs writes the same resident as a circuit)
+form program_unit launch_bytes count_offset hot_offset block_offset number_offset ttl_offset checkin_every_offset next_offset start_offset finished_offset checkins_offset owner_at command_at state_at offset_at step_at launch_time_at exectime_at checkin_at checkin_time_at run_command stop_command done_state stopped_state yielded_state = \n// the device's timer, in nanoseconds, where a device's compiler builds the text; 0 on a host that only compiles it\n__device__ __forceinline__ static u64 cycle_clock(void)\n{\n    u64 now = 0ull;\n#if defined(__CUDACC__)\n    asm volatile("mov.u64 %0, %%globaltimer;" : "=l"(now));\n#endif\n    return now;\n}\n\n// The program resident: each thread block takes the next round of lanes from the one counter, and before each round\n// its first thread reads the clock. Past the launch's time to live, or told by the block's command, the thread block\n// leaves without taking more; every so often it checks in to the block. The thread block that opens the launch runs\n// one round before the clock can send it out: every launch moves the program on however short its time to live. A\n// launch that does not find its number as the block's owner leaves at once and writes nothing. The last thread block\n// out writes where the program stands, its state last. The block's words are read at their byte offsets\nextern "C" __global__ void __launch_bounds__(256) cycle_program(CycleCompiledLaunch launch)\n{\n    __shared__ u64 claimed;\n    volatile u64 *const block = launch.block;\n    u64 checked = 0ull;\n    u64 rounds = 0ull;\n    int opened = 0;\n    if (threadIdx.x == 0u)\n    {\n        opened = (atomicCAS(&launch.hot->launch_start, 0ull, cycle_clock()) == 0ull) ? 1 : 0;\n    }\n    for (;;)\n    {\n        if (threadIdx.x == 0u)\n        {\n            const u64 now = cycle_clock();\n            const u64 ran = now - *(volatile u64 *)&launch.hot->launch_start;\n            int leave = (((opened == 0) || (rounds != 0ull)) && (ran >= launch.ttl)) ? 1 : 0;\n            if ((now - checked) >= launch.checkin_every)\n            {\n                checked = now;\n                const int owned = (block[{owner_at}u / 8u] == launch.launch_number) ? 1 : 0;\n                leave = ((owned == 0) || (block[{command_at}u / 8u] != {run_command}ull)) ? 1 : leave;\n                if (owned != 0)\n                {\n                    const u64 next = *(volatile u64 *)&launch.hot->next_lane;\n                    block[{checkin_at}u / 8u] = atomicAdd(&launch.hot->checkins, 1ull) + 1ull;\n                    block[{checkin_time_at}u / 8u] = now;\n                    block[{offset_at}u / 8u] = (next < launch.count) ? next : launch.count;\n                }\n            }\n            claimed = (leave != 0) ? launch.count : atomicAdd(&launch.hot->next_lane, (u64)blockDim.x);\n            rounds += 1ull;\n        }\n        __syncthreads();\n        const u64 first = claimed;\n        __syncthreads();\n        if (first >= launch.count)\n        {\n            break;\n        }\n        if ((first + threadIdx.x) < launch.count)\n        {\n            cycle_lane(&launch, first + threadIdx.x);\n        }\n    }\n    if (threadIdx.x == 0u)\n    {\n        __threadfence();\n        if (atomicAdd(&launch.hot->finished, 1ull) == ((u64)gridDim.x - 1ull))\n        {\n            const u64 now = cycle_clock();\n            const u64 next = *(volatile u64 *)&launch.hot->next_lane;\n            const u64 start = *(volatile u64 *)&launch.hot->launch_start;\n            if (block[{owner_at}u / 8u] == launch.launch_number)\n            {\n                const u64 command = block[{command_at}u / 8u];\n                block[{offset_at}u / 8u] = (next < launch.count) ? next : launch.count;\n                block[{step_at}u / 8u] = 0ull;\n                block[{launch_time_at}u / 8u] = start;\n                block[{exectime_at}u / 8u] = now - start;\n                block[{checkin_at}u / 8u] = atomicAdd(&launch.hot->checkins, 1ull) + 1ull;\n                block[{checkin_time_at}u / 8u] = now;\n                __threadfence();\n                block[{state_at}u / 8u] = (next >= launch.count) ? {done_state}ull\n                                        : ((command == {stop_command}ull) ? {stopped_state}ull : {yielded_state}ull);\n                __threadfence();\n            }\n        }\n    }\n}\n

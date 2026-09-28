@@ -27,8 +27,6 @@
 # particular letters they share, and binning three thousand characters or eighty into 32 codes merges
 # exactly those. The shared alphabet keeps what separates languages and loses what connects them.
 
-import numpy
-
 # Bits given to each character. The shared alphabet holds two to this many codes.
 WIDTHS = (3, 4, 5, 6, 7)
 
@@ -36,16 +34,18 @@ WIDTHS = (3, 4, 5, 6, 7)
 def as_codes(text, width):
     """Every character given a code in one alphabet shared by every language.
 
-    One code covers exactly one character, and a reading over them never straddles two. Returns the
-    codes and how many there are.
+    One code covers exactly one character, and a reading over them never straddles two. A symbol at
+    rank `place` of `size` takes the whole number of codes at or below place / size of the way
+    through the alphabet, found by integer division. Returns the codes as a list of integers and
+    how many there are.
     """
     counts = {}
     for symbol in text:
         counts[symbol] = counts.get(symbol, 0) + 1
     ranked = sorted(counts, key=lambda symbol: -counts[symbol])
 
-    size = float(len(ranked))
+    size = len(ranked)
     width_of = 1 << width
-    seat = {symbol: min(width_of - 1, int((place / size) * width_of))
+    seat = {symbol: min(width_of - 1, (place * width_of) // size)
             for place, symbol in enumerate(ranked)}
-    return numpy.asarray([seat[symbol] for symbol in text], dtype=numpy.int64), width_of
+    return [seat[symbol] for symbol in text], width_of

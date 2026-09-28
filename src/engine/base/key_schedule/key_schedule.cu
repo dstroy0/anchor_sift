@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "key_schedule.h"
+#include "key_schedule_core.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -126,142 +127,9 @@ extern "C" void key_schedule_release(EngineKeyLayout *layout)
     memset(layout, 0, sizeof(*layout));
 }
 
-typedef struct
-{
-    unsigned int offset;
-    unsigned int limbs;
-} KeyScheduleBlock;
-
-// The step indices a term reads, so a register can be freed once its last reader has run. A field, a
-// constant and the lane's number read no register; a table, an absolute and a wrap read one; the rest read two.
-static unsigned int key_schedule_refs(const EngineRecordTerm *term, unsigned int *refs)
-{
-    if ((term->operation == ENGINE_RECORD_PRODUCT) || (term->operation == ENGINE_RECORD_SUM)
-        || (term->operation == ENGINE_RECORD_DIFFERENCE) || (term->operation == ENGINE_RECORD_LADDER)
-        || (term->operation == ENGINE_RECORD_COMPARE) || (term->operation == ENGINE_RECORD_QUOTIENT)
-        || (term->operation == ENGINE_RECORD_REMAINDER) || (term->operation == ENGINE_RECORD_GCD)
-        || (term->operation == ENGINE_RECORD_EXACT_QUOTIENT) || (term->operation == ENGINE_RECORD_XOR)
-        || (term->operation == ENGINE_RECORD_AND))
-    {
-        refs[0] = term->left;
-        refs[1] = term->right;
-        return 2u;
-    }
-    if ((term->operation == ENGINE_RECORD_ABSOLUTE) || (term->operation == ENGINE_RECORD_TABLE)
-        || (term->operation == ENGINE_RECORD_WRAP))
-    {
-        refs[0] = term->left;
-        return 1u;
-    }
-    return 0u;
-}
-
-static unsigned int key_schedule_alloc(std::vector<KeyScheduleBlock> &freed, unsigned int limbs, unsigned int *top)
-{
-    for (size_t block = 0u; block < freed.size(); block += 1u)
-    {
-        if (freed[block].limbs >= limbs)
-        {
-            const unsigned int offset = freed[block].offset;
-            if (freed[block].limbs == limbs)
-            {
-                freed.erase(freed.begin() + (long)block);
-            }
-            else
-            {
-                freed[block].offset += limbs;
-                freed[block].limbs -= limbs;
-            }
-            return offset;
-        }
-    }
-    const unsigned int offset = *top;
-    *top += limbs;
-    return offset;
-}
-
-static void key_schedule_free(std::vector<KeyScheduleBlock> &freed, unsigned int offset, unsigned int limbs)
-{
-    KeyScheduleBlock block = {offset, limbs};
-    size_t at = 0u;
-    while ((at < freed.size()) && (freed[at].offset < offset))
-    {
-        at += 1u;
-    }
-    freed.insert(freed.begin() + (long)at, block);
-    for (size_t block_at = 0u; (block_at + 1u) < freed.size();)
-    {
-        if ((freed[block_at].offset + freed[block_at].limbs) == freed[block_at + 1u].offset)
-        {
-            freed[block_at].limbs += freed[block_at + 1u].limbs;
-            freed.erase(freed.begin() + (long)(block_at + 1u));
-        }
-        else
-        {
-            block_at += 1u;
-        }
-    }
-}
-
-// The register file's total limbs: with reuse, a register is freed once its last reader has run, and a
-// later step takes its place, so a long chain runs within ENGINE_RECORD_LIMBS_MOST; without reuse, every
-// step keeps its own place, the layout the proven programs were measured against.
-static int key_schedule_places(const EngineRecordKey *key, std::vector<DeviceRecordStep> &steps, int reuse,
-                               unsigned long long *file_limbs)
-{
-    if (reuse == 0)
-    {
-        unsigned long long place = 0ull;
-        for (unsigned int step = 0u; step < key->steps; step += 1u)
-        {
-            steps[step].place = (unsigned int)place;
-            place += steps[step].limbs;
-        }
-        *file_limbs = place;
-        return place <= (unsigned long long)ENGINE_RECORD_LIMBS_MOST;
-    }
-    std::vector<unsigned int> last_use(key->steps);
-    for (unsigned int step = 0u; step < key->steps; step += 1u)
-    {
-        last_use[step] = step;
-    }
-    for (unsigned int step = 0u; step < key->steps; step += 1u)
-    {
-        unsigned int refs[2];
-        const unsigned int count = key_schedule_refs(&key->term[step], refs);
-        for (unsigned int ref = 0u; ref < count; ref += 1u)
-        {
-            last_use[refs[ref]] = step;
-        }
-    }
-    // each register waits under its last reader, and is freed as the step after that reader begins: one pass over the
-    // stack, freeing the same registers at the same steps, in the same order, as a scan of every earlier step would
-    std::vector<std::vector<unsigned int>> ending(key->steps);
-    for (unsigned int step = 0u; step < key->steps; step += 1u)
-    {
-        ending[last_use[step]].push_back(step);
-    }
-    std::vector<KeyScheduleBlock> freed;
-    unsigned int top = 0u;
-    for (unsigned int step = 0u; step < key->steps; step += 1u)
-    {
-        if (step > 0u)
-        {
-            for (const unsigned int earlier : ending[step - 1u])
-            {
-                key_schedule_free(freed, steps[earlier].place, steps[earlier].limbs);
-            }
-        }
-        steps[step].place = key_schedule_alloc(freed, steps[step].limbs, &top);
-        if (top > (unsigned int)ENGINE_RECORD_LIMBS_MOST)
-        {
-            return 0;
-        }
-    }
-    *file_limbs = top;
-    return 1;
-}
-
+// The record lay: each step laid for the device and placed, and each output placed in the record, by
+// key_schedule_core_record_lay (key_schedule_core.h), which the device runs as well; the layout laid from them and the
+// key's tables
 extern "C" long key_schedule_record_lay(const KeyScheduleRecordRequest *request)
 {
     if ((request == NULL) || (request->error == NULL))
@@ -288,89 +156,35 @@ extern "C" long key_schedule_record_lay(const KeyScheduleRecordRequest *request)
     EngineRecordLayout *const layout = request->layout;
     memset(layout, 0, sizeof(*layout));
     std::vector<DeviceRecordStep> steps(key->steps);
+    std::vector<unsigned int> last_use(key->steps);
+    std::vector<unsigned int> ending_first((size_t)key->steps + 1u);
+    std::vector<unsigned int> ending(key->steps);
+    std::vector<KeyScheduleBlock> freed((size_t)key->steps + 1u);
     std::vector<unsigned long long> table_offset((size_t)key->tables + 1u, 0ull);
-    unsigned long long table_words = 0ull;
-    for (unsigned int table = 0u; table < key->tables; table += 1u)
+    KeyScheduleCoreLay lay{};
+    lay.terms = key->term;
+    lay.step_count = key->steps;
+    lay.outputs = key->output;
+    lay.output_count = key->outputs;
+    lay.tables = key->table;
+    lay.table_count = key->tables;
+    lay.field_offset = request->field_offset;
+    lay.fields = request->fields;
+    lay.in_limbs = request->in_limbs;
+    lay.reuse = request->reuse;
+    lay.steps = steps.data();
+    lay.last_use = last_use.data();
+    lay.ending_first = ending_first.data();
+    lay.ending = ending.data();
+    lay.freed = freed.data();
+    lay.table_offset = table_offset.data();
+    if (key_schedule_core_record_lay(&lay) == 0)
     {
-        table_offset[table] = table_words;
-        // index_bits is at most 32, so the entry count is at most 2^32
-        const unsigned long long entries = 1ull << key->table[table].index_bits;
-        table_words += entries * (unsigned long long)((key->table[table].out_bits + 31u) / 32u);
-    }
-    for (unsigned int step = 0u; step < key->steps; step += 1u)
-    {
-        const EngineRecordTerm &term = key->term[step];
-        DeviceRecordStep &device = steps[step];
-        memset(&device, 0, sizeof(device));
-        device.operation = (unsigned int)term.operation;
-        device.left = term.left;
-        device.right = term.right;
-        device.limbs = (term.bits + 31u) / 32u;
-        if ((term.operation == ENGINE_RECORD_FIELD) || (term.operation == ENGINE_RECORD_FIELD_SIGNED))
-        {
-            if (!KEY_SCHEDULE_HELD((request->field_offset != NULL) && (term.left < request->fields)
-                                       && (((unsigned long long)request->field_offset[term.left] + term.bits)
-                                           <= (32ull * (unsigned long long)request->in_limbs[term.member])),
-                                   &term, error, ENGINE_ERROR_REQUEST))
-            {
-                return KEY_SCHEDULE_REFUSED;
-            }
-            device.left = request->field_offset[term.left];
-            device.right = term.bits;
-            device.member = term.member;
-        }
-        else if (term.operation == ENGINE_RECORD_CONSTANT)
-        {
-            device.left = (unsigned int)(term.constant & 0xFFFFFFFFull);
-            device.right = (unsigned int)(term.constant >> 32u);
-        }
-        else if (term.operation == ENGINE_RECORD_TABLE)
-        {
-            if (!KEY_SCHEDULE_HELD((key->table != NULL) && (term.right < key->tables)
-                                       && (table_offset[term.right] <= 0x7FFFFFFFull),
-                                   &term, error, ENGINE_ERROR_REQUEST))
-            {
-                return KEY_SCHEDULE_REFUSED;
-            }
-            device.left = term.left;
-            device.index_bits = key->table[term.right].index_bits;
-            device.table_offset = (unsigned int)table_offset[term.right];
-        }
-        else if (term.operation == ENGINE_RECORD_WRAP)
-        {
-            // keymath took the width from the step's right, at least ENGINE_RECORD_WRAP_BITS_LEAST and an unsigned int
-            device.left_limbs = steps[term.left].limbs;
-            device.right_limbs = steps[term.right].limbs;
-            device.wrap_bits = (unsigned int)term.constant;
-        }
-        else if (term.operation == ENGINE_RECORD_LANE)
-        {
-            // the lane's number reads no register, so the step carries no operand's limbs
-            device.left_limbs = 0u;
-            device.right_limbs = 0u;
-        }
-        else
-        {
-            device.left_limbs = steps[term.left].limbs;
-            device.right_limbs = steps[term.right].limbs;
-        }
-    }
-    unsigned long long file_limbs = 0ull;
-    if (!KEY_SCHEDULE_HELD(key_schedule_places(key, steps, request->reuse, &file_limbs) != 0, key, error,
-                           ENGINE_ERROR_REQUEST))
-    {
-        return KEY_SCHEDULE_REFUSED;
-    }
-    unsigned long long out_bits = 0ull;
-    for (unsigned int output = 0u; output < key->outputs; output += 1u)
-    {
-        DeviceRecordStep &device = steps[key->output[output]];
-        device.out_offset = (unsigned int)out_bits;
-        device.out_bits = key->term[key->output[output]].bits + 1u;
-        out_bits += (unsigned long long)device.out_bits;
-    }
-    if (!KEY_SCHEDULE_HELD(out_bits <= 0x7FFFFFFFull, key->output, error, ENGINE_ERROR_REQUEST))
-    {
+        // the step, the key or the outputs the lay ended at
+        const void *const evacaddr = (lay.end == KEY_SCHEDULE_CORE_STEP) ? (const void *)&key->term[lay.at]
+                                   : (lay.end == KEY_SCHEDULE_CORE_FILE) ? (const void *)key
+                                                                         : (const void *)key->output;
+        KEY_SCHEDULE_HELD(0, evacaddr, error, ENGINE_ERROR_REQUEST);
         return KEY_SCHEDULE_REFUSED;
     }
     layout->step_table = (DeviceRecordStep *)malloc(steps.size() * sizeof(DeviceRecordStep));
@@ -379,7 +193,7 @@ extern "C" long key_schedule_record_lay(const KeyScheduleRecordRequest *request)
         return KEY_SCHEDULE_REFUSED;
     }
     memcpy(layout->step_table, steps.data(), steps.size() * sizeof(DeviceRecordStep));
-    if (table_words != 0ull)
+    if (table_offset[key->tables] != 0ull)
     {
         layout->table_values = (unsigned int *)malloc((size_t)(key->table_word_count + 1u) * sizeof(unsigned int));
         if (!KEY_SCHEDULE_HELD(layout->table_values != NULL, layout, error, ENGINE_ERROR_RESOURCE))
@@ -392,13 +206,14 @@ extern "C" long key_schedule_record_lay(const KeyScheduleRecordRequest *request)
     }
     layout->steps = key->steps;
     layout->members = key->members;
-    layout->file_limbs = (unsigned int)file_limbs;
+    // the file is at most ENGINE_RECORD_LIMBS_MOST limbs and the record's bits a 31-bit count, as the lay holds them
+    layout->file_limbs = (unsigned int)lay.file_limbs;
     for (unsigned int member = 0u; member < key->members; member += 1u)
     {
         layout->in_limbs[member] = request->in_limbs[member];
     }
-    layout->out_bits = (unsigned int)out_bits;
-    layout->out_limbs = (unsigned int)((out_bits + 31ull) / 32ull);
+    layout->out_bits = (unsigned int)lay.out_bits;
+    layout->out_limbs = (unsigned int)((lay.out_bits + 31ull) / 32ull);
     return (long)layout->file_limbs;
 }
 

@@ -7,23 +7,36 @@ This is the only part of the engine that knows a domain exists. Everything downs
 
 A subject goes in its own directory and anything shared across subjects sits here in the parent.
 
-| module                    | subject   | what it holds                                                                                              |
-| ------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
-| `bit_volume.py`           | shared    | `gray_bits`, `spectrum_gap`, `spectrum_excess`, `load_symbols`, for a corpus as points in a binary volume  |
-| `seating.py`              | shared    | `tightest`, `spread_of`. A canonical numbering, which keeps a reading from belonging to the numbering      |
-| `levels.py`               | shared    | `to_levels`. Real numbers held to the eight bits every corpus here is read at                              |
-| `text/corpus.py`          | text      | `load_language_texts`, `load_by_source`, `fold_lines`, and the constants `CAP`, `LEAST`, `SKIP`, `SOURCES` |
-| `text/symbols.py`         | text      | `utf8_shape` reads the encoding's own framing; `reseat` puts one symbol in one byte                        |
-| `text/case.py`            | text      | `case_runs`, `long_run_share`, `run_profile`. Letter case as a second channel                              |
-| `text/marks.py`           | text      | `strip_marks`, `every_mark`, `TONE`, `QUALITY`. Deleting one channel exactly                               |
-| `text/clusters.py`        | text      | `aksharas`. The unit a writing system keeps its context in, which is not always the codepoint              |
-| `text/indic.py`           | text      | `collapsed`. Every Indic script read at one set of distinctions                                            |
-| `text/shared_alphabet.py` | text      | `as_codes`, `WIDTHS`. One code space for a logographic language and a Celtic one                           |
-| `text/treebank.py`        | text      | `read_sentences`, `read_sentences_both`, `capped`, `TOKEN_CAP`. Tokens that arrive with their reading      |
-| `sound/envelope.py`       | sound     | `envelope`, `symbols_per_second`, for a waveform re-sliced to the scale its units occupy                   |
-| `picture/raster.py`       | picture   | `WIDTHS`, `as_grid`, `center_crop`, `as_points`. A row major file put back into its plane                  |
-| `structure/protein.py`    | structure | `fetch`, `atoms`, `density`, `backbone`, `walk`, `bonds`, `steps`. A deposited model read three ways       |
-| `structure/crystal.py`    | structure | `parse_cif`, `voxel_grid`, `tiles_for`, `VOXEL`. A published cell tiled into the arrangement it describes  |
+| module                       | subject   | what it holds                                                                                                                                                                         |
+| ---------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bit_volume.py`              | shared    | `gray_bits`, `spectrum_gap`, `spectrum_excess`, `load_symbols`, for a corpus as points in a binary volume                                                                             |
+| `seating.py`                 | shared    | `tightest`, `spread_of`. A canonical numbering, which keeps a reading from belonging to the numbering                                                                                 |
+| `levels.py`                  | shared    | `to_levels`. Real numbers held to the eight bits every corpus here is read at                                                                                                         |
+| `exact.py`                   | shared    | `units`, `at_scale`, `scaled`, `measured`, `product`, `shifted`, `placed`, `contested`, `along`. `scaled` and `measured` are the Python route to `exact_integer.c`'s decimal readers  |
+| `text/corpus.py`             | text      | `load_language_texts`, `load_by_source`, `fold_lines`, and the constants `CAP`, `LEAST`, `SKIP`, `SOURCES`                                                                            |
+| `text/symbols.py`            | text      | `utf8_shape` reads the encoding's own framing; `reseat` puts one symbol in one byte                                                                                                   |
+| `text/case.py`               | text      | `case_runs`, `long_run_share`, `run_profile`. Letter case as a second channel                                                                                                         |
+| `text/marks.py`              | text      | `strip_marks`, `every_mark`, `TONE`, `QUALITY`. Deleting one channel exactly                                                                                                          |
+| `text/clusters.py`           | text      | `aksharas`. The unit a writing system keeps its context in, which is not always the codepoint                                                                                         |
+| `text/indic.py`              | text      | `collapsed`. Every Indic script read at one set of distinctions                                                                                                                       |
+| `text/shared_alphabet.py`    | text      | `as_codes`, `WIDTHS`. One code space for a logographic language and a Celtic one                                                                                                      |
+| `text/treebank.py`           | text      | `read_sentences`, `read_sentences_both`, `capped`, `TOKEN_CAP`. Tokens that arrive with their reading                                                                                 |
+| `sound/envelope.py`          | sound     | `envelope`, `symbols_per_second`, for a waveform re-sliced to the scale its units occupy                                                                                              |
+| `sound/perceived_sound.py`   | sound     | `band_centers`, `band_gain`, `band_matrix`, `frame_chunks`, `heard_bands`, `envelope`, `segment_code`, `pitch`, `prosody_code`, `bits`, `decorrelated`, `code_profile`, `represented` |
+| `picture/raster.py`          | picture   | `WIDTHS`, `as_grid`, `center_crop`, `as_points`. A row major file put back into its plane                                                                                             |
+| `structure/protein.py`       | structure | `fetch`, `atoms`, `density`, `backbone`, `walk`, `bonds`, `steps`. A deposited model read three ways                                                                                  |
+| `structure/crystal.py`       | structure | `parse_cif`, `voxel_grid`, `tiles_for`, `VOXEL`. A published cell tiled into the arrangement it describes                                                                             |
+| `structure/symmetry.py`      | structure | `component`, `operations`, `at_symmetry_scale`, `expand`                                                                                                                              |
+| `atom/element.py`            | atom      | `capacity`, `symbol`, `atomic_number`, `electrons`, `group_signature`                                                                                                                 |
+| `particle/standard_model.py` | particle  | `fermions`, `generations`, `by_generation`, `signature`, `charge_sum_thirds`                                                                                                          |
+| `constants/naturals.py`      | constants | `pi`, `euler_e`, `root_two`, `ln_two`, `golden_ratio`, each to a count of places by two routes that must agree, and a `main` that prints them                                         |
+| `game/rules.py`              | game      | `empty_distribution`, `certain`, `blend`, `expected_score`, `outcome_distribution`, `best_moves`, `rollout`, `sampled_distribution`                                                   |
+| `game/board.py`              | game      | `opening`, `flips`, `legal`, `apply_move`, `pick_random`, `pick_greedy`, `pick_corner`, `play`, `occupied_seats`, `seats_row_major`, `seats_column_major`, `scattered`                |
+| `game/checkers.py`           | game      | `owner`, `is_king`, `forward_rows`, `on_board`, `dark`, `endgame`                                                                                                                     |
+| `game/chess.py`              | game      | `owner`, `on_board`, `from_layout`, `square_name`, `move_name`                                                                                                                        |
+| `game/combinatorial.py`      | game      | `grundy_subtraction`, `subtraction_period`, `nim_losses`, `wythoff_losses`, `wythoff_pairs`                                                                                           |
+| `game/poker.py`              | game      | `card`, `rank_of`, `suit_of`, `evaluate`, `show`                                                                                                                                      |
+| `game/blackjack.py`          | game      | `best_total`, `position`                                                                                                                                                              |
 
 `bit_volume`, `seating` and `levels` are in the parent because they read any corpus and know nothing about any of them. The subject directories know what a character encoding is, what a whale song unit is, what a decoder reported as a picture's width, or where a PDB record puts its coordinates, and each of those is knowledge about one kind of thing.
 

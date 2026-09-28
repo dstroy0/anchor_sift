@@ -45,12 +45,28 @@ daemon also links `tessera_ledger.c`, `tessera_measure.c` and obsignatio (`engin
 and `pdh` on Windows. On Linux both link `-ldl -lpthread`. It uses obsignatio's host seal (`obsignatio_seal`, `obsignatio_seal_holds`), and it never makes a CUDA
 context of its own.
 
-Tessera builds on a part with no CUDA toolchain too, the Raspberry Pi first, so a run there is a tessera job as it is
+Tessera builds on a part with no CUDA toolchain too, the Raspberry Pi first: a run there is a tessera job as it is
 here. Where `nvcc` is not on the path, `test/engine/daemon/run.sh` compiles obsignatio.cu as C++ (its kernels and the calls that
 launch them are left out, and a request for device memory is refused) and links with `c++`. It builds and tests the
 ledger, the frame, the daemon and tessera_run, and does not build the measure and job tests, which take device
-memory. On a Raspberry Pi 5 (Linux aarch64, 4 cores, two kept for the desktop, so jobs are given 2), 27 September:
+memory. On a Raspberry Pi 5 (Linux aarch64, 4 cores, two kept for the desktop and 2 given to jobs), 27 September:
 every test exited 0, and the tessera_run test gave 15 checks, 0 failed.
+
+## Two tesseras
+
+There are two tesseras, and they make the same decisions. The ledger's decisions (submit, admit, measure, release,
+the deadlines, the kept peaks) are one source, `tessera_ledger_core.h`, which C11 compiles for the host and nvcc for
+both the host and the device. The daemon's ledger (`tessera_ledger.c`) grows its rooms and then runs the core. The
+daemon stays as it is: it builds with no CUDA toolchain and makes no CUDA context. The device's tessera
+(`tessera_device.h`, `tessera_device.cu`) lays a ledger in the device's memory, and one thread makes a list of calls
+(`TesseraCall`) in order, each answered (`TesseraAnswer`). A call that could add more than the ledger's rooms hold is
+refused before it changes anything; the host grows the rooms on the device, and the run goes on from that call.
+The device's tessera builds only where `nvcc` is.
+
+`test/engine/daemon/tessera_device_test.sh` holds the two to each other. It makes one seeded stream of calls of each
+tessera, round by round: every answer must be the host's field for field, and the ledger each is left with must be
+the host's. The device's ledger starts with rooms of one, which makes it grow. The test is a job on the device's
+tessera daemon. It is written and has not been built or run.
 
 ## Starting the daemon
 

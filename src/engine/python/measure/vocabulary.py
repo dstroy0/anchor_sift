@@ -33,8 +33,6 @@
 
 import re
 
-import numpy
-
 # Words kept, taken by frequency over the whole set.
 COMMON_WORDS = 150
 
@@ -60,7 +58,7 @@ def common_vocabulary(texts, how_many=COMMON_WORDS):
 def word_profile(text, vocabulary, least=LEAST_WORDS):
     """How often this text uses each word of a shared vocabulary, as shares of its own length.
 
-    Returns None where the text holds too few words.
+    Returns a list of floats in the vocabulary's order, or None where the text holds too few words.
     """
     words = WORD.findall(text.lower())
     if len(words) < least:
@@ -70,5 +68,4 @@ def word_profile(text, vocabulary, least=LEAST_WORDS):
     for word in words:
         counts[word] = counts.get(word, 0) + 1
     total = float(len(words))
-    return numpy.asarray([counts.get(word, 0) / total for word in vocabulary],
-                         dtype=numpy.float64)
+    return [counts.get(word, 0) / total for word in vocabulary]

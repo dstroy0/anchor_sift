@@ -9,14 +9,15 @@ A reading is undetermined until its partition is fixed, in any dimension and in 
 
 **Estimated**, by a sweep of the coarse graining, taking the value where it stops moving. This extracts what the sample already carries and can reach nothing past it.
 
-**Supervised**, supplied as ground truth from outside the sample. Of the three, only this adds information the sample did not contain. It lives in `oracle` instead of here.
+**Supervised**, supplied as ground truth from outside the sample. Of the three, only this adds information the sample did not contain. It is kept in `oracle` instead of here.
 
-| module       | what it holds                                                                                      |
-| ------------ | -------------------------------------------------------------------------------------------------- |
-| `curves.py`  | `interleaved`, `interleave`, `hilbert_order`, `spread_bits`, for carrying n dimensions through one |
-| `coarsen.py` | `coarsen`, `commonest`, for keeping fewer distinctions, and a sweep of how few a result survives   |
+| module               | what it holds                                                                                      |
+| -------------------- | -------------------------------------------------------------------------------------------------- |
+| `curves.py`          | `interleaved`, `interleave`, `hilbert_order`, `spread_bits`, for carrying n dimensions through one |
+| `coarsen.py`         | `coarsen`, `commonest`, for keeping fewer distinctions, and a sweep of how few a result survives   |
+| `dimension_count.py` | `roughness`, `group_score`, `best_count`                                                           |
 
-Both are shared across subjects. Both sit here in the parent. Nothing under `partition` is subject specific yet.
+All three are shared across subjects. All three sit here in the parent. Nothing under `partition` is subject specific yet.
 
 ## Why a curve at all
 

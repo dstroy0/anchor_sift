@@ -11,7 +11,8 @@
 //    along the bits, so the longest run of equal bits at every difference L below N reads every line in every width,
 //    a line that wraps a row's end included. The device reads it, one thread a difference, and the host reads it again
 //    for pi.
-// 3. The shapes: rows of width 7, 16, 32, 64, 106, 113, 128 and 256 (7, 106 and 113 are pi's floors); the tower whose
+// 3. The shapes: rows of width 7, 16, 32, 64, 106, 113, 128 and 256 (7, 106 and 113 are the denominators of pi's
+//    convergents 22/7, 333/106 and 355/113; its floors, the partial quotients, are 3, 7, 15, 1, 292); the tower whose
 //    row k holds k bits; a disc filled by horizontal lines and the same disc filled ring by ring; the square spiral;
 //    and the twindragon, bit n at the Gaussian integer that n's binary digits name in base -1 + i. Each lays every bit
 //    on its own pixel. A shape's line is read along every step (dy, dx) with coprime parts of at most 6.
@@ -1456,7 +1457,9 @@ static void plane_ring_spiral_read(SimTally *tally, const std::vector<unsigned l
 
 // blind pairs (Doug, 24 September, the roots drawn over the unrolled rings): pi's unseen blocks, from block first past
 // the seen bits, each laid in the rings unrolled beside a shuffle of the same block, which is which decided by a keyed
-// coin, or where balanced by a keyed deal of pi to A in exactly half the pairs, and written only to blind_answer.txt
+// coin, or where balanced by a keyed deal of pi to A in exactly half the pairs, and written only to blind_answer.txt.
+// The coin is keyed by the block and the deal by the first block, so a round from --blind-from deals its own sides;
+// the round from block 0 keeps the sides it was shown with
 static int plane_blind(SimTally *tally, const std::vector<unsigned long long> &sizes, unsigned long long seen,
                        unsigned int first, unsigned int pairs, int balanced, const std::string &directory)
 {
@@ -1484,7 +1487,9 @@ static int plane_blind(SimTally *tally, const std::vector<unsigned long long> &s
     for (unsigned int pair = pairs; pair > 1u; pair -= 1u)
     {
         // the draw is below the pair count, so it narrows to unsigned int exactly
-        const unsigned int other = (unsigned int)sim_draw_below(PLANE_KEY ^ 0x42414C414E4345ull, pair - 1u, pair);
+        const unsigned int other = (unsigned int)sim_draw_below(PLANE_KEY ^ 0x42414C414E4345ull
+                                                                    ^ ((unsigned long long)first << 32u),
+                                                                pair - 1u, pair);
         std::swap(sides[pair - 1u], sides[other]);
     }
     std::vector<unsigned char> all;
@@ -1499,7 +1504,7 @@ static int plane_blind(SimTally *tally, const std::vector<unsigned long long> &s
         std::vector<unsigned char> other;
         plane_shuffle(mine, 7919u + first + pair, &other);
         const int pi_first = balanced ? (sides[pair] != 0u)
-                                      : ((sim_draw(PLANE_KEY ^ 0x424C494E44ull, pair) & 1ull) == 0ull);
+                                      : ((sim_draw(PLANE_KEY ^ 0x424C494E44ull, first + pair) & 1ull) == 0ull);
         const std::string stem = directory + "/blind_" + std::to_string(pair + 1u);
         good = plane_ring_unrolled(rings, pi_first ? mine.data() : other.data(), stem + "_A.png")
             && plane_ring_unrolled(rings, pi_first ? other.data() : mine.data(), stem + "_B.png");
@@ -2301,14 +2306,14 @@ int main(int count, char **arguments)
             scriptura_decimal(line, order[rank], 1u);
         }
         scriptura_character(line, '\n');
-        scriptura_text(line, "  pi's floors as differences:");
-        const unsigned int floors[3] = {7u, 106u, 113u};
-        for (unsigned int floor = 0u; floor < 3u; floor += 1u)
+        scriptura_text(line, "  pi's convergent denominators as differences:");
+        const unsigned int denominators[3] = {7u, 106u, 113u};
+        for (unsigned int convergent = 0u; convergent < 3u; convergent += 1u)
         {
             scriptura_text(line, "  ");
-            scriptura_decimal(line, longest[floors[floor]], 1u);
+            scriptura_decimal(line, longest[denominators[convergent]], 1u);
             scriptura_text(line, " at ");
-            scriptura_decimal(line, floors[floor], 1u);
+            scriptura_decimal(line, denominators[convergent], 1u);
         }
         scriptura_character(line, '\n');
         sim_flush(&tally);

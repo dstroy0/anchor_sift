@@ -153,15 +153,24 @@ def _layout(text):
     return sign, whole, fraction, uncertainty
 
 
-def units(text):
+def units(text, digits=SCALE_DIGITS):
     """Decimal text as (numerator, decimal places). The pair holds the number with nothing lost.
 
     A bracketed uncertainty is not part of the number and is dropped; `measured` keeps it. Raises
     ValueError on anything that is not plain decimal text in the grammar `_layout` documents,
     exponent notation included, since silently accepting one would put a rounding back in the path
     this exists to keep clear.
+
+    Raises WillNotFit where the text carries a bracket and prints more places than `digits`, dropped
+    or not. The bracket counts units of the last place printed, and a text printed past the scale
+    claims more precision than the reader was asked to hold. decimal_read in exact_integer.c sizes
+    it the same way for anchor_exact_from_decimal, and until 27 September this side read
+    "1.00000000000000000000000000(1)" as 1 at 24 places where the C refused it.
     """
-    sign, whole, fraction, _uncertainty = _layout(text)
+    sign, whole, fraction, uncertainty = _layout(text)
+    if uncertainty is not None and len(fraction) > digits:
+        raise WillNotFit("an uncertainty printed at %d places will not fit a scale of %d"
+                         % (len(fraction), digits))
 
     # Trailing zeros in the fraction are dropped before the places are counted. 1.2300 and 1.23 are
     # the same number, and a scale of two places holds both of them exactly. Counting the zeros as
@@ -192,7 +201,7 @@ def scaled(text, digits=SCALE_DIGITS):
     zeros, which is exact for the text and is not the digits of a longer number the text was cut
     from. A constant printed to 1000 places and read at 1024 carries 24 zero places.
     """
-    numerator, places = units(text)
+    numerator, places = units(text, digits)
     return at_scale(numerator, places, digits)
 
 
@@ -253,12 +262,12 @@ def placed(points):
 def contested(points):
     """Positions carrying more than one distinct value, as a lookup to the values at each.
 
-    `placed` above keeps the last value at a repeated position, which is what a reader that
-    overwrites does and is honest about being. It is also lossy in a way that is invisible
+    `placed` above keeps the last value at a repeated position, as any reader that
+    overwrites does, and it is honest about doing it. It is also lossy in a way that is invisible
     downstream: a position holding two different values arrives as one value, and which one depends
     on the order the source happened to list them in.
 
-    That order dependence is the whole of what this exists to expose. A position holding two values
+    This exists to expose that order dependence. A position holding two values
     is a fact about the source, not a collision to be resolved on the way in, and whether it should
     be resolved at all is a question for the domain and not for ingestion.
 
@@ -267,8 +276,8 @@ def contested(points):
     repeated itself and said nothing new.
 
     Domain blind, like everything else here. In a text this is one index carrying two symbols. In a
-    structure it is one crystallographic site carrying two elements, which is what a substitutional
-    dopant is.
+    structure it is one crystallographic site carrying two elements, as in a substitutional
+    dopant.
     """
     gathered = {}
     for position, value in points:

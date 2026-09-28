@@ -15,7 +15,7 @@
 #
 # The squared magnitude is the exact quantum the inspection holds. Its root is irrational and is the
 # continuum the quanta sample; the engine never takes the root. The field's configuration space is
-# hyper-exponential. The packed presence is a bignum and never a fixed width.
+# hyper-exponential. The packed presence is a bignum of whatever width it needs.
 
 from reference.bitfield import pack, present
 

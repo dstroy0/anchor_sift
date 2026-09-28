@@ -151,8 +151,14 @@ static inline int energy_recover(SimTally *tally, const long long *values, unsig
 {
     reading->found = 0;
     reading->period = 0ull;
+    // a reach below 2 holds no period to test, and is refused before the device is asked (the slot count at reach 0
+    // would wrap)
+    if ((length < 4ull) || (reach < 2ull))
+    {
+        return 0;
+    }
     const unsigned long long top = (reach < (length - 1ull)) ? reach : (length - 1ull);
-    if ((length < 4ull) || (energy_phase_sums(tally, values, length, top, sums) == 0))
+    if (energy_phase_sums(tally, values, length, top, sums) == 0)
     {
         return 0;
     }
@@ -184,6 +190,11 @@ static inline void energy_shuffle(const long long *values, long long *shuffled, 
                                   unsigned long long key)
 {
     memcpy(shuffled, values, (size_t)length * sizeof(long long));
+    // fewer than two values shuffle to themselves, and length - 1 would wrap at 0
+    if (length < 2ull)
+    {
+        return;
+    }
     for (unsigned long long at = length - 1ull; at > 0ull; at -= 1ull)
     {
         const unsigned long long other = sim_draw_below(key, at, at + 1ull);

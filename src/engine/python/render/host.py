@@ -9,13 +9,13 @@
 # A search produces one outcome per alignment: some probe rejected it, or every probe agreed and a
 # full compare decided it. That sequence is already an image. This turns it into one, on the CPU in
 # pure Python, and it shares no code with the C renderer. The two agreeing byte for byte is the check
-# the "two routes or it does not ship" rule asks for, and the grader in test/engine/test_render_python.py
+# the "two routes or it does not ship" rule asks for, and the grader in test/python/render_test.py
 # runs it. This route is the reference and the slow one; render/__init__ prefers the C engine, which
 # prefers the device, and falls back here when no shared library is present.
 #
 # Every value is an integer read off the same inputs the C arm reads. Nothing is a float and nothing
 # is normalized against the image. A pixel means the same thing at two sizes. The constants and the
-# arithmetic below are transcribed from src/engine/c/render/anchor_raster.c and are graded against it
+# arithmetic below are transcribed from src/engine/render/anchor_raster.c and are graded against it
 # and not trusted.
 
 import collections

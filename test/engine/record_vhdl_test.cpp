@@ -2,12 +2,17 @@
 //
 // The record machine's lane as VHDL held to the host oracle word for word (engine_table.md item 11(f), VHDL a
 // language of the register lane). record_host_test's programs, drawn from the same stream in the same order, are
-// imprinted, laid and run by cycle_record_run_host; each is written as VHDL by CycleEmitVhdl (emit/rulesets/vhdl.krs),
-// analyzed and run by GHDL under record_vhdl_bench.vhd over a memory image laid as the device lays its launch, and its
-// records compared with the host's word for word. Its lines give the same input digests as the host test's. A program
-// whose lane calls the operator block is not held in VHDL yet, and is counted as not held, not as held or failed.
-#include "record_programs.h"
+// imprinted, laid and run by cycle_record_run_host; each is written as VHDL by EmitVhdl (emit/rulesets/vhdl.krs),
+// analyzed and run by GHDL under record_vhdl_bench.vhd over a memory image laid as the device lays its launch
+// (record_image.h), its lanes run by the emitted cycle_program_unit as the device's resident kernel runs them, and its
+// records compared with the host's word for word; synthesis takes the program unit whole. Its lines give the same
+// input digests as the host test's. A program whose lane the emitter does not write is counted as not held, not as
+// held or failed.
+// Where a construction set is given, each program's lane is refined by it (engine_table M23): cut at the budgets the
+// loop proposes, each cut held to the host, and the least cost among the held kept.
+#include "record_image.h"
 #include "emit_vhdl.h"
+#include "krep.h"
 
 #include <stddef.h>
 #include <stdio.h>
@@ -15,13 +20,9 @@
 #include <string.h>
 
 #include <algorithm>
+#include <map>
 #include <string>
 #include <vector>
-
-// the launch's words at address 0 of the memory image, before every array
-#define VHDL_TEST_LAUNCH_WORDS 64u
-
-static_assert(sizeof(CycleCompiledLaunch) <= (4u * VHDL_TEST_LAUNCH_WORDS), "vhdl test: the launch fits its words");
 
 struct VhdlTally
 {
@@ -30,33 +31,58 @@ struct VhdlTally
     unsigned int not_held;
 };
 
-// where GHDL runs: the folder it analyzes into and runs in, and the bench's file
+// where GHDL runs: the folder it analyzes into and runs in, and the bench's file; 1 where each lane is also
+// synthesized; and 1 where a construction set was given, its forms' costs, and the dearest of them, which bounds the
+// budgets the refinement loop proposes
 struct VhdlPlace
 {
     std::string work;
     std::string bench;
+    int synthesis;
+    int constructed;
+    std::map<std::string, unsigned int> costs;
+    unsigned int budget;
 };
+
+// the construction set at `path` into `place`: each form's cost by its name, and the largest; 0 where it is not read
+// whole
+static int vhdl_construction(const char *path, VhdlPlace *place)
+{
+    KrepFormTable table;
+    EngineError error;
+    memset(&error, 0, sizeof(error));
+    if (krep_forms_read(path, &table, &error) == 0)
+    {
+        return 0;
+    }
+    std::string names;
+    for (unsigned long long at = 0ull; at < (8ull * table.name_words); at += 1ull)
+    {
+        names.push_back((char)((table.words[table.forms + (at / 8ull)] >> (8ull * (at % 8ull))) & 0xFFull));
+    }
+    size_t start = 0u;
+    for (unsigned long long form = 0ull; form < table.forms; form += 1ull)
+    {
+        const size_t end = names.find('\0', start);
+        // a form's cost is a path's length in cells, far under 2^32
+        const unsigned int cost = (unsigned int)table.words[form];
+        place->costs[names.substr(start, end - start)] = cost;
+        place->budget = (cost > place->budget) ? cost : place->budget;
+        start = end + 1u;
+    }
+    krep_forms_release(&table);
+    place->constructed = 1;
+    return 1;
+}
+
+// the memory a lane is synthesized over, in words: synthesis reads no image, and a small memory keeps the netlist small
+#define VHDL_TEST_SYNTHESIS_WORDS 256u
 
 static void vhdl_check(VhdlTally *tally, int held, const std::string &what)
 {
     tally->checks += 1u;
     tally->failed += held ? 0u : 1u;
     printf("  %s %s\n", held ? "ok  " : "FAIL", what.c_str());
-}
-
-// `count` words laid at the end of the image; their byte address
-static unsigned long long vhdl_lay(std::vector<unsigned int> &memory, const unsigned int *words, unsigned long long count)
-{
-    const unsigned long long address = 4ull * memory.size();
-    memory.insert(memory.end(), words, words + count);
-    return address;
-}
-
-// a 64-bit field of the launch, little-endian, at its byte offset
-static void vhdl_wide(std::vector<unsigned int> &memory, size_t offset, unsigned long long value)
-{
-    memory[offset / 4u] = (unsigned int)(value & 0xFFFFFFFFull);
-    memory[(offset / 4u) + 1u] = (unsigned int)(value >> 32u);
 }
 
 static int vhdl_write(const std::string &path, const std::string &text)
@@ -70,48 +96,145 @@ static int vhdl_write(const std::string &path, const std::string &text)
     return (fclose(file) == 0) && written;
 }
 
-// the image and its line of places, as record_vhdl_bench.vhd reads them
-static int vhdl_write_image(const std::string &path, const std::vector<unsigned int> &memory, unsigned long long lanes,
-                            unsigned long long records, unsigned long long record_words, unsigned long long refused)
-{
-    FILE *const file = fopen(path.c_str(), "wb");
-    if (file == NULL)
-    {
-        return 0;
-    }
-    fprintf(file, "%zu %llu %llu %llu %llu\n", memory.size(), lanes, records, record_words, refused);
-    for (const unsigned int word : memory)
-    {
-        fprintf(file, "%08X\n", word);
-    }
-    return fclose(file) == 0;
-}
-
-// the refusals and the records' words record_vhdl_bench.vhd wrote; 0 where they cannot be read whole
-static int vhdl_read(const std::string &path, unsigned long long words, unsigned int *refused,
-                     std::vector<unsigned int> &records)
+// the number after `label` on the first line of `path` that holds it; 0 where none does
+static unsigned long long vhdl_after(const std::string &path, const char *label)
 {
     FILE *const file = fopen(path.c_str(), "rb");
     if (file == NULL)
     {
-        return 0;
+        return 0ull;
     }
-    records.assign((size_t)words, 0u);
-    int held = fscanf(file, "%u", refused) == 1;
-    for (unsigned long long at = 0ull; held && (at < words); at += 1ull)
+    char line[1024];
+    unsigned long long found = 0ull;
+    while ((found == 0ull) && (fgets(line, sizeof(line), file) != NULL))
     {
-        held = fscanf(file, "%x", &records[(size_t)at]) == 1;
+        const char *const at = strstr(line, label);
+        found = (at != NULL) ? strtoull(at + strlen(label), NULL, 10) : 0ull;
     }
     fclose(file);
+    return found;
+}
+
+// the lines of `path` that hold `label`
+static unsigned long long vhdl_lines(const std::string &path, const char *label)
+{
+    FILE *const file = fopen(path.c_str(), "rb");
+    if (file == NULL)
+    {
+        return 0ull;
+    }
+    char line[1024];
+    unsigned long long found = 0ull;
+    while (fgets(line, sizeof(line), file) != NULL)
+    {
+        found += (strstr(line, label) != NULL) ? 1ull : 0ull;
+    }
+    fclose(file);
+    return found;
+}
+
+// what one cut of a lane gave: GHDL's run (read 1 where its records were read whole, the lanes refused, the records'
+// words and the clocks the lanes ran), and where it was synthesized (synthesized 1 where GHDL and Yosys both ran), the
+// memories Yosys inferred, the read ports it registered, its cells and its longest path between registers in cells.
+// Its cost is the clocks times the longest path, the lanes' run in cells of delay, or the clocks where it was not
+// synthesized
+struct VhdlTrial
+{
+    int read;
+    unsigned int refused;
+    std::vector<unsigned int> records;
+    unsigned long long clocks;
+    int synthesized;
+    unsigned long long memories;
+    unsigned long long registered;
+    unsigned long long cells;
+    unsigned long long path;
+    unsigned long long cost;
+};
+
+// the program in the work folder's program.vhd, its resident and its lane, synthesized into `trial` from the resident
+// down: GHDL's synthesis as Verilog, then Yosys's generic synthesis. The memories Yosys inferred are its $mem_v2 cells
+// where its synthesis stops before the fine stage, since the generic fine stage maps each memory to flops; a read port
+// is registered where Yosys took the flops its word lands in into the port, as a block RAM's read is
+static void vhdl_synthesize(const VhdlPlace *place, VhdlTrial *trial)
+{
+    const std::string command =
+        "cd '" + place->work + "' && ghdl --synth --std=08 -gwords=" + std::to_string(VHDL_TEST_SYNTHESIS_WORDS)
+        + " --out=verilog program.vhd -e cycle_program_unit > synth.v 2> synth.log && yosys -p \"read_verilog synth.v; "
+          "synth -top cycle_program_unit -run :fine; tee -q -o memories.log stat; "
+          "synth -top cycle_program_unit -run fine:; stat; ltp -noff\" > yosys.log 2>&1";
+    const int status = system(command.c_str());
+    trial->memories = vhdl_after(place->work + "/memories.log", "$mem_v2");
+    trial->registered = vhdl_lines(place->work + "/yosys.log", "merging output FF");
+    trial->cells = vhdl_after(place->work + "/yosys.log", "Number of cells:");
+    trial->path = vhdl_after(place->work + "/yosys.log", "(length=");
+    trial->synthesized = (status == 0) && (trial->cells != 0ull);
+}
+
+// `text` written as the work folder's program.vhd, run by GHDL under the bench over `image`, and where the place asks,
+// synthesized
+static void vhdl_try(const VhdlPlace *place, const std::string &text, const RecordImage *image, VhdlTrial *trial)
+{
+    *trial = VhdlTrial{0, 0u, {}, 0ull, 0, 0ull, 0ull, 0ull, 0ull, 0ull};
+    const std::string records_path = place->work + "/records.txt";
+    remove(records_path.c_str());
+    const int written = !text.empty() && vhdl_write(place->work + "/program.vhd", text)
+                     && record_image_write(place->work + "/memory.txt", image);
+    const std::string command = "cd '" + place->work + "' && ghdl -a --std=08 program.vhd '" + place->bench
+                              + "' > ghdl.log 2>&1 && ghdl --elab-run --std=08 record_vhdl_bench -gwords="
+                              + std::to_string(image->memory.size()) + " >> ghdl.log 2>&1";
+    const int status = written ? system(command.c_str()) : -1;
+    trial->read = (status == 0) && record_image_read(records_path, image, &trial->refused, trial->records,
+                                                     &trial->clocks);
+    if (trial->read == 0)
+    {
+        printf("  GHDL did not run the lane (status %d); its log begins:\n", status);
+        const std::string show = "head -20 '" + place->work + "/ghdl.log'";
+        fflush(stdout);
+        (void)system(show.c_str());
+    }
+    if (place->synthesis && trial->read)
+    {
+        vhdl_synthesize(place, trial);
+    }
+    trial->cost = trial->clocks * (trial->synthesized ? trial->path : 1ull);
+}
+
+// the lines and checks of one cut: its run held to the host's (a refusal where the host refuses the run), and where
+// it was synthesized, what synthesis gave. Returns 1 where its run is the host's
+static int vhdl_report(VhdlTally *tally, const VhdlPlace *place, const std::string &what, const VhdlTrial *trial,
+                       int refuses, int host_ran, const std::vector<unsigned int> &host_records)
+{
+    const int held = refuses ? (trial->read && !host_ran && (trial->refused != 0u))
+                             : (trial->read && host_ran && (trial->refused == 0u) && (trial->records == host_records));
+    vhdl_check(tally, held,
+               what + (refuses ? " as VHDL refuses a lane where the host refuses the run"
+                               : " as VHDL writes the host's records word for word"));
+    if (place->synthesis && trial->read)
+    {
+        printf("  %s, synthesized over %u words: %llu memories inferred, %llu read ports registered, %llu cells, the "
+               "longest path %llu cells; %llu clocks, cost %llu\n",
+               what.c_str(), VHDL_TEST_SYNTHESIS_WORDS, trial->memories, trial->registered, trial->cells, trial->path,
+               trial->clocks, trial->cost);
+        vhdl_check(tally, trial->synthesized, what + " is synthesized by GHDL and Yosys");
+    }
     return held;
 }
 
+// what each run of a program is given: the tally and the place
+struct VhdlRun
+{
+    VhdlTally *tally;
+    const VhdlPlace *place;
+};
+
 // the program laid, run on the host, written as VHDL and run by GHDL over the same atoms; its line printed and its
 // check made. `refuses` is 1 for a program the host must refuse: the lane as VHDL must then refuse a lane
-static void vhdl_run(VhdlTally *tally, const VhdlPlace *place, const HostProgram *program, int reuse,
-                     unsigned int *const *atoms, const unsigned long long *bodies, const unsigned int *index,
-                     int refuses)
+static void vhdl_run(void *context, const HostProgram *program, int reuse, unsigned int *const *atoms,
+                     const unsigned long long *bodies, const unsigned int *index, int refuses)
 {
+    VhdlTally *const tally = ((VhdlRun *)context)->tally;
+    const VhdlPlace *const place = ((VhdlRun *)context)->place;
     const std::string name = std::string(program->name) + (reuse ? " (registers reused)" : "");
     HostLoaded loaded;
     if (host_load(program, reuse, &loaded) == 0)
@@ -140,154 +263,120 @@ static void vhdl_run(VhdlTally *tally, const VhdlPlace *place, const HostProgram
     {
         inputs ^= host_digest(atoms[member], bodies[member] * layout->in_limbs[member]);
     }
-    CycleEmitVhdl &emit = cycle_emit_vhdl();
-    const CycleEmitTarget target = {0ull, 0, 0, 0, 0, ""};
+    EmitVhdl &emit = emit_vhdl();
+    const EmitTarget target = {0ull, 0, 0, 0, 0, ""};
     unsigned int places = 0u;
     unsigned int live = 0u;
     const std::string text =
         (emit.ruleset(1) != NULL) ? emit.program(layout, &target, std::string(), &places, &live) : std::string();
-    if (text.empty() || (places != 0u))
+    if (text.empty())
     {
-        printf("  %s: %u steps, not held in VHDL (%s)\n", name.c_str(), layout->steps,
-               text.empty() ? "a step the lane does not hold, or its ruleset refused"
-                            : "its lane calls the operator block, which is not written in VHDL yet");
+        printf("  %s: %u steps, not held in VHDL (a step the lane does not hold, or its ruleset refused)\n",
+               name.c_str(), layout->steps);
         tally->not_held += 1u;
         host_free(&loaded);
         return;
     }
-    // the image: the launch at 0, laid as CycleCompiledLaunch, then the members' atoms, the index, the tables, the
-    // records and the refusals
-    std::vector<unsigned int> memory(VHDL_TEST_LAUNCH_WORDS, 0u);
-    for (unsigned int member = 0u; member < layout->members; member += 1u)
-    {
-        const unsigned long long address =
-            vhdl_lay(memory, atoms[member], bodies[member] * layout->in_limbs[member]);
-        vhdl_wide(memory, offsetof(CycleCompiledLaunch, in) + (8u * (size_t)member), address);
-        vhdl_wide(memory, offsetof(CycleCompiledLaunch, bodies) + (8u * (size_t)member), bodies[member]);
-    }
-    if (index != NULL)
-    {
-        vhdl_wide(memory, offsetof(CycleCompiledLaunch, index),
-                  vhdl_lay(memory, index, (unsigned long long)HOST_TEST_LANES * layout->members));
-    }
-    if (layout->table_word_count != 0ull)
-    {
-        vhdl_wide(memory, offsetof(CycleCompiledLaunch, tables),
-                  vhdl_lay(memory, layout->table_values, layout->table_word_count));
-    }
-    const unsigned long long records = 4ull * memory.size();
-    memory.resize(memory.size() + (size_t)record_words, 0u);
-    const unsigned long long refused_at = 4ull * memory.size();
-    memory.push_back(0u);
-    vhdl_wide(memory, offsetof(CycleCompiledLaunch, out), records);
-    vhdl_wide(memory, offsetof(CycleCompiledLaunch, refused), refused_at);
-    vhdl_wide(memory, offsetof(CycleCompiledLaunch, count), HOST_TEST_LANES);
-    const std::string records_path = place->work + "/records.txt";
-    remove(records_path.c_str());
-    const int written = vhdl_write(place->work + "/program.vhd", text)
-                     && vhdl_write_image(place->work + "/memory.txt", memory, HOST_TEST_LANES, records, record_words,
-                                         refused_at);
-    const std::string command = "cd '" + place->work + "' && ghdl -a --std=08 program.vhd '" + place->bench
-                              + "' > ghdl.log 2>&1 && ghdl --elab-run --std=08 record_vhdl_bench >> ghdl.log 2>&1";
-    const int status = written ? system(command.c_str()) : -1;
-    unsigned int refused = 0u;
-    std::vector<unsigned int> vhdl_records;
-    const int read = (status == 0) && vhdl_read(records_path, record_words, &refused, vhdl_records);
-    if (read == 0)
-    {
-        printf("  %s: GHDL did not run the lane (status %d); its log begins:\n", name.c_str(), status);
-        const std::string show = "head -20 '" + place->work + "/ghdl.log'";
-        fflush(stdout);
-        (void)system(show.c_str());
-    }
+    const RecordImage image = record_image(layout, atoms, bodies, index);
     const int host_ran = ran == (long)HOST_TEST_LANES;
-    printf("  %s: %u steps, %u out limbs, %zu lines of VHDL, inputs %016llx, records %016llx as VHDL, %016llx on the "
-           "host, %u lanes refused as VHDL\n",
-           name.c_str(), layout->steps, layout->out_limbs, (size_t)std::count(text.begin(), text.end(), '\n'), inputs,
-           read ? host_digest(vhdl_records.data(), record_words) : 0ull,
-           host_ran ? host_digest(host_records.data(), record_words) : 0ull, refused);
-    if (refuses != 0)
+    const unsigned long long host_records_digest = host_ran ? host_digest(host_records.data(), record_words) : 0ull;
+
+    // the lane cut at the two ends of what a construction set can ask: only where the lane must be cut, and every form
+    // alone in a state of its own
+    const EmitLaneShape ends[2] = {{{}, 0u, EMIT_LANE_UNBOUNDED, EMIT_LANE_UNBOUNDED},
+                                    {{}, 1u, 1u, EMIT_LANE_UNBOUNDED}};
+    const char *const end_names[2] = {"cut where it must be", "every form alone"};
+    unsigned long long end_costs[2] = {0ull, 0ull};
+    for (unsigned int end = 0u; end < 2u; end += 1u)
     {
-        vhdl_check(tally, read && !host_ran && (refused != 0u),
-                   name + " as VHDL refuses a lane where the host refuses the run");
+        EmitLaneShaped shaped = {0u, 0u, 0u};
+        const std::string cut = emit.shaped(layout, &target, std::string(), &places, &live, ends[end], &shaped);
+        const std::string what = name + ", " + end_names[end];
+        if (end == 0u)
+        {
+            vhdl_check(tally, cut == text, name + ": program() is the lane cut where it must be");
+        }
+        VhdlTrial trial;
+        vhdl_try(place, cut, &image, &trial);
+        printf("  %s: %u steps, %u out limbs, %zu lines of VHDL, %u states, inputs %016llx, records %016llx as VHDL, "
+               "%016llx on the host, %u lanes refused as VHDL\n",
+               what.c_str(), layout->steps, layout->out_limbs, (size_t)std::count(cut.begin(), cut.end(), '\n'),
+               shaped.states, inputs, trial.read ? host_digest(trial.records.data(), record_words) : 0ull,
+               host_records_digest, trial.refused);
+        end_costs[end] = vhdl_report(tally, place, what, &trial, refuses, host_ran, host_records) ? trial.cost : 0ull;
     }
-    else
+
+    // the refinement loop (engine_table M23), where a construction set was given: the generator is the cut, its knob
+    // the budget a state is cut at, proposed from 1 and doubled until it passes twice the dearest form; the critic is
+    // GHDL's run held to the host on every lane and the cost measured. A budget whose lane is the text of one tried
+    // before is not tried again. A round is kept only where its lanes are the host's, and the best is the least cost
+    // among the kept
+    if (place->constructed == 0)
     {
-        vhdl_check(tally, read && host_ran && (refused == 0u) && (vhdl_records == host_records),
-                   name + " as VHDL writes the host's records word for word");
+        host_free(&loaded);
+        return;
     }
+    std::vector<std::string> tried;
+    unsigned long long best_cost = 0ull;
+    unsigned int best_budget = 0u;
+    unsigned int rounds = 0u;
+    for (unsigned int budget = 1u; budget <= (4u * place->budget); budget *= 2u)
+    {
+        const EmitLaneShape shape = {place->costs, 0u, budget, EMIT_LANE_UNBOUNDED};
+        EmitLaneShaped shaped = {0u, 0u, 0u};
+        const std::string cut = emit.shaped(layout, &target, std::string(), &places, &live, shape, &shaped);
+        if (std::find(tried.begin(), tried.end(), cut) != tried.end())
+        {
+            continue;
+        }
+        tried.push_back(cut);
+        rounds += 1u;
+        const std::string what = name + ", round " + std::to_string(rounds) + " at budget " + std::to_string(budget);
+        VhdlTrial trial;
+        vhdl_try(place, cut, &image, &trial);
+        printf("  %s: %u states (the most cost one chains %u, %u forms alone past the budget), records %016llx as "
+               "VHDL\n",
+               what.c_str(), shaped.states, shaped.most, shaped.over,
+               trial.read ? host_digest(trial.records.data(), record_words) : 0ull);
+        const int kept = vhdl_report(tally, place, what, &trial, refuses, host_ran, host_records);
+        if (kept && ((best_budget == 0u) || (trial.cost < best_cost)))
+        {
+            best_cost = trial.cost;
+            best_budget = budget;
+        }
+    }
+    printf("  %s: the refinement loop kept budget %u at cost %llu over %u rounds; cut where it must be costs %llu, "
+           "every form alone %llu\n",
+           name.c_str(), best_budget, best_cost, rounds, end_costs[0], end_costs[1]);
     host_free(&loaded);
 }
 
 int main(int argc, char **argv)
 {
-    if (argc != 3)
+    VhdlPlace place = {std::string(), std::string(), 0, 0, {}, 0u};
+    int usable = argc >= 3;
+    for (int at = 3; usable && (at < argc); at += 1)
     {
-        fprintf(stderr, "usage: record_vhdl_test <work folder> <record_vhdl_bench.vhd>\n");
+        const int construction = (strcmp(argv[at], "--construction") == 0) && ((at + 1) < argc);
+        place.synthesis = place.synthesis || (strcmp(argv[at], "--synthesis") == 0);
+        usable = construction ? vhdl_construction(argv[at + 1], &place) : (strcmp(argv[at], "--synthesis") == 0);
+        at += construction ? 1 : 0;
+    }
+    if (!usable)
+    {
+        fprintf(stderr, "usage: record_vhdl_test <work folder> <record_vhdl_bench.vhd> [--synthesis] "
+                        "[--construction <vhdl.kcs>], the construction set read whole\n");
         return 2;
     }
-    const VhdlPlace place = {std::string(argv[1]), std::string(argv[2])};
+    place.work = argv[1];
+    place.bench = argv[2];
     VhdlTally tally = {0u, 0u, 0u};
-    printf("  record vhdl test: %u lanes a program, ANCHOR_EXACT_LIMBS %u\n", HOST_TEST_LANES,
-           (unsigned int)ANCHOR_EXACT_LIMBS);
-    HostProgram program;
-    const unsigned long long one_body[1] = {HOST_TEST_LANES};
-
-    // drawn as record_host_test draws them, in its order
-    host_arithmetic(&program);
-    unsigned int *atoms[2] = {host_atoms(program.in_limbs[0], HOST_TEST_LANES), NULL};
-    vhdl_run(&tally, &place, &program, 0, atoms, one_body, NULL, 0);
-    vhdl_run(&tally, &place, &program, 1, atoms, one_body, NULL, 0);
-    free(atoms[0]);
-
-    host_division(&program);
-    atoms[0] = host_atoms(program.in_limbs[0], HOST_TEST_LANES);
-    vhdl_run(&tally, &place, &program, 0, atoms, one_body, NULL, 0);
-    HostProgram bare;
-    host_bare_divisor(&bare);
-    host_zero_divisor(atoms[0]);
-    vhdl_run(&tally, &place, &bare, 0, atoms, one_body, NULL, 1);
-    HostProgram inexact;
-    host_inexact(&inexact, &bare);
-    vhdl_run(&tally, &place, &inexact, 0, atoms, one_body, NULL, 1);
-    free(atoms[0]);
-
-    host_bitwise(&program);
-    atoms[0] = host_atoms(program.in_limbs[0], HOST_TEST_LANES);
-    vhdl_run(&tally, &place, &program, 0, atoms, one_body, NULL, 0);
-    free(atoms[0]);
-
-    unsigned int *const wide = (unsigned int *)malloc(512u * sizeof(unsigned int));
-    unsigned int *const narrow = (unsigned int *)malloc(4096u * sizeof(unsigned int));
-    host_tables(&program, wide, narrow);
-    atoms[0] = host_atoms(program.in_limbs[0], HOST_TEST_LANES);
-    vhdl_run(&tally, &place, &program, 0, atoms, one_body, NULL, 0);
-    free(atoms[0]);
-    free(wide);
-    free(narrow);
-
-    host_members(&program);
-    atoms[0] = host_atoms(program.in_limbs[0], HOST_TEST_FIRST_BODIES);
-    atoms[1] = host_atoms(program.in_limbs[1], HOST_TEST_SECOND_BODIES);
-    const unsigned long long bodies[2] = {HOST_TEST_FIRST_BODIES, HOST_TEST_SECOND_BODIES};
-    unsigned int *const index = (unsigned int *)malloc((size_t)HOST_TEST_LANES * 2u * sizeof(unsigned int));
-    for (unsigned int lane = 0u; lane < HOST_TEST_LANES; lane += 1u)
-    {
-        index[2u * lane] = host_random() % HOST_TEST_FIRST_BODIES;
-        index[(2u * lane) + 1u] = host_random() % HOST_TEST_SECOND_BODIES;
-    }
-    vhdl_run(&tally, &place, &program, 0, atoms, bodies, index, 0);
-    printf("  index %016llx\n", host_digest(index, (unsigned long long)HOST_TEST_LANES * 2u));
-    free(index);
-    free(atoms[0]);
-    free(atoms[1]);
-
-    host_form_limit(&program);
-    atoms[0] = (unsigned int *)calloc(HOST_TEST_LANES, sizeof(unsigned int));
-    atoms[1] = NULL;
-    vhdl_run(&tally, &place, &program, 0, atoms, one_body, NULL, 0);
-    free(atoms[0]);
-
+    printf("  record vhdl test: %u lanes a program, ANCHOR_EXACT_LIMBS %u, %s\n", HOST_TEST_LANES,
+           (unsigned int)ANCHOR_EXACT_LIMBS,
+           place.constructed ? ("a construction set of " + std::to_string(place.costs.size()) + " forms").c_str()
+                             : "no construction set");
+    VhdlRun run = {&tally, &place};
+    record_image_programs(&run, vhdl_run);
     printf("  record vhdl test: %u checks, %u failed, %u programs not held in VHDL\n", tally.checks, tally.failed,
            tally.not_held);
     return (tally.failed == 0u) ? 0 : 1;

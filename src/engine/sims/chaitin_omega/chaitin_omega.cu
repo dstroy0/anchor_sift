@@ -827,7 +827,8 @@ static void omega_host(const OmegaCounts *counts, unsigned int most, unsigned in
 #define OMEGA_BLOCK 128u
 
 // threads resident on a multiprocessor: each thread's rooms are read through the cache, and past this many they
-// crowd one another out of it (on an RTX 3070 at 38 bits, 256/256: 384 took 0.91 s, 512 1.01 s, 768 1.34 s)
+// crowd one another out of it (timings on an RTX 3070 at 38 bits, 256/256, that no kept log holds: 384 took 0.91 s,
+// 512 1.01 s, 768 1.34 s)
 #define OMEGA_THREADS_PER_SM 384u
 
 // the device's budgets, where the full ones are larger
@@ -3272,7 +3273,9 @@ int main(int argc, char **argv)
     if (on_engine != 0)
     {
         // every term the engine settled through 24 bits, run again by omega_run with steps enough to reach the step
-        // the engine settled it at and no token budget: the same fate at the same step, and the same normal form
+        // the engine settled it at and no token budget: the same fate, and for a halt the same step and the same
+        // normal form. A loop is held to its fate alone, and a term that grew, by the growth proof or parked as
+        // outgrown, is not run again
         std::atomic<int> every(1);
         omega_engine_threads(crossed.size(), workers,
                              [&crossed, &every](size_t first, size_t last)
@@ -3303,8 +3306,8 @@ int main(int argc, char **argv)
                                  }
                              });
         sim_check(&tally, (every.load() != 0) && !crossed.empty(),
-                  "every term the engine settled through 24 bits: omega_run gives the same fate at the same step "
-                  "and the same normal form");
+                  "every term the engine settled through 24 bits, those that grew aside: omega_run gives the same fate, "
+                  "and for a halt the same step and the same normal form");
     }
 
     // the mass past L, counted
@@ -3521,9 +3524,10 @@ int main(int argc, char **argv)
         scriptura_character(&tally.line, '\n');
         sim_flush(&tally);
     }
-    // BusyBeaverWiki's BB lambda (OEIS A333479) from 4 through 33 bits; 0 where no closed term exists. A row with a
-    // term still open holds only a lower bound, and the published value is the true maximum, so the two meeting
-    // means the run reached the champion; past 33 the champions outgrow any space here (327686 bits at 34)
+    // BusyBeaverWiki's BB lambda (OEIS A333479) from 4 through 33 bits; 0 where no closed term exists. The entries
+    // equal the terms of OEIS's b-file for A333479 at 4 to 33, read 26 September 2026. A row with a term still open
+    // holds only a lower bound, and the published value is the true maximum, so the two meeting means the run
+    // reached the champion; past 33 the champions outgrow any space here (327686 bits at 34)
     static const unsigned long long published_most[34] = {0ull,  0ull,  0ull,  0ull,  4ull,   0ull,   6ull,
                                                           7ull,  8ull,  9ull,  10ull, 11ull,  12ull,  13ull,
                                                           14ull, 15ull, 16ull, 17ull, 18ull,  19ull,  20ull,

@@ -4,8 +4,9 @@
 
 // What the record machine's files share: the headers, the checks and the record a program is held as. The
 // machine is cut into its functional chunks: cycle.cu the key sweep, cycle_record.cu the record interpreter
-// and the record calls, cycle_operators.cu the prelude and operator block NVRTC compiles, and cycle_compile.cu
-// NVRTC, nvJitLink, the cache and a program compiled. A kernel stays in the file that launches it
+// and the record calls, cycle_prelude.cu the prelude a C lane opens with, and cycle_compile.cu NVRTC,
+// nvJitLink, the cache and a program compiled. A kernel stays in the file that launches it; a compiled program's
+// kernel is its own text's (program_unit)
 
 #include "cycle.h"
 
@@ -13,9 +14,12 @@
 #include "../crc.h"
 #include "obsignatio.h"
 
-// the emitter, which writes a program's lane as PTX or C source for the target named here, and the launch it reads
+// the emitter, which writes a program's lane as PTX or C source for the target named here, and the launch it reads;
+// and its text program, which the device runs to write the lane's text again
 #include "../emit/emit_ptx.h"
 #include "../emit/emit_source.h"
+#include "../emit/emit_device.h"
+#include "../emit/emit_text.h"
 
 #include <cooperative_groups.h>
 #include <cuda_runtime.h>
@@ -53,7 +57,7 @@ static_assert(sizeof(unsigned long long) == 8u, "cycle: unsigned long long must 
 
 static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success");
 
-// cudaError_t enumerates non-negative codes below INT_MAX, so the status converts to int exactly
+// cudaError_t enumerates non-negative codes below INT_MAX; the status converts to int exactly
 #define CYCLE_TOOK(call_, evacaddr_, error_) \
     engine_status_check((int)(call_), ENGINE_MODULE_CYCLE, (unsigned int)__LINE__, (const void *)(evacaddr_), (error_))
 
@@ -117,10 +121,7 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record);
 
 void cycle_program_release(cudaKernel_t kernel);
 
-// every program and the operator block open with the prelude; the operator block follows it
-// (cycle_operators.cu)
+// the prelude a C lane opens with, which names the launch and the lane's types (cycle_prelude.cu)
 extern const char g_cycle_prelude[];
-
-extern const char g_cycle_operators[];
 
 #endif

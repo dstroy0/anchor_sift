@@ -652,7 +652,7 @@ template <unsigned int WIDE, unsigned int DIVIDES>
 __global__ static void cycle_record_kernel(CycleRecordLaunch launch)
 {
     unsigned int file[WIDE];
-    unsigned int scratch[(DIVIDES != 0u) ? CYCLE_RECORD_SCRATCH(WIDE) : 1u];
+    unsigned int scratch[(DIVIDES != 0u) ? EMIT_RECORD_SCRATCH(WIDE) : 1u];
     // a register's sign lies beside it, at its place in the file, so the steps are bounded by nothing held per step
     signed char sign[WIDE];
     const DeviceRecordStep *const steps = launch.steps;

@@ -1,7 +1,7 @@
 # The engine in Python, in six parts
 
 **Purpose:** Find the primitive you need without reading the whole tree, and know which part it belongs to before you add one.
-**Scope:** `src/engine/python/{representation,partition,reference,measure,sift,oracle}/`
+**Scope:** `src/engine/python/{representation,partition,reference,measure,sift,oracle}/`, with `render/` and `instrument/` beside them
 
 One construction runs through the six parts. Represent the object as points carrying values, fix a partition over those points, build the maximum entropy reference the partition allows, and read the departure from it. The sift kernel and the oracle sit either side, one discarding candidates and one supplying an answer from outside the sample.
 
@@ -14,7 +14,7 @@ One construction runs through the six parts. Represent the object as points carr
 | `sift`           | the sound filter, a necessary condition over any index set                                         |
 | `oracle`         | agreement with ground truth somebody else published                                                |
 
-Every module here is a primitive and none carries a `main`. What each one is for, run end to end on real corpora, is in `examples/` under the same six names. That split is deliberate: a worked example that other code imports stops being an example, and this tree spent a while with its most depended on module, at 32 importers, filed under `examples/` while the tooling reached into it.
+Every module here is a primitive. Two also carry a `main`: `representation/constants/naturals.py` prints the named constants to a count of places, and `instrument/english_sift.py` reads papers from the command line. What each one is for, run end to end on real corpora, is in `examples/` under the same six names. That split is deliberate: a worked example that other code imports stops being an example, and this tree spent a while with its most depended on module, at 32 importers, filed under `examples/` while the tooling reached into it.
 
 ## Reaching it
 
@@ -37,25 +37,42 @@ Inside a part, anything that knows about one kind of thing goes in its own direc
 
 The test is what the module would have to be told. A primitive that would need nothing changed to read a protein instead of a paragraph is shared. One that carries a fact about encodings, or about how long a whale call lasts, is a subject.
 
-Five subjects have their own directories so far: `text`, `sound`, `picture`, `structure` and `game`. All five sit under `representation`, the only part that knows a domain exists. `oracle` carries one subject, `language`, and its parent directory is deliberately empty. Everything downstream of representation sees points and values and cannot tell a painting from a paragraph. One instrument reads both.
+Eight subjects have their own directories so far: `atom`, `constants`, `game`, `particle`, `picture`, `sound`, `structure` and `text`. All eight sit under `representation`, the only one of the six parts that knows a domain exists. `instrument/`, outside the six, knows text. `oracle` carries one subject, `language`, and its parent directory is deliberately empty. Everything downstream of representation sees points and values and cannot tell a painting from a paragraph. One instrument reads both.
 
 ## Nothing here writes to a stream
 
 A primitive returns numbers. Printing them is the caller's, and an example that wants a table of results formats it in its own `main`. This is why `oracle.language.families.dravidian_check` hands back a dict of distances and verdicts instead of the paragraph three examples used to print from three copies of the same code.
 
+The two mains above are the exceptions. Each opens standard output and writes to it, and `english_sift`'s `check` writes to the stream its main hands it.
+
 ## Where the parts touch
 
-The parts are allowed to import each other and several have to. A transition web is a measure and the alphabet it is read over is a representation. A space filling curve is a partition and the exponent read along it is a measure. The split forbids one thing: a primitive living in one part while its callers assume it lives in another. That was the state this replaced.
+The parts are allowed to import each other and several have to. A transition web is a measure and the alphabet it is read over is a representation. A space filling curve is a partition and the exponent read along it is a measure. The split forbids one thing: a primitive kept in one part while its callers look for it in another. That was the state this replaced.
 
 The one boundary that does not bend is `oracle`. Supervision is the only one of the three ways a partition is fixed that adds information the sample did not hold. Anything carrying an answer from outside belongs there. `FAMILY`, the language tree written from philology before any distance is computed, is an oracle table and not a measure constant.
 
 ## The output arm
 
-`render/` is not one of the six. The six parts are the search; `render/` turns what the search saw into an image, as a sheet or a volume, and mirrors `src/engine/c/render/`. Its host arm is pure Python and shares no code with the C renderer. The two agreeing byte for byte is a check, run by `test/engine/test_render_python.py`. `render_raster` and `render_volume` prefer the device: where the C shared library is reachable they pass through the C dispatch, which renders on the CUDA arm when one is present, and where it is not they fall back to the pure Python host. Python owns no device path because the library ban forbids it one. The device is reached only through C.
+`render/` is not one of the six. The six parts are the search; `render/` turns what the search saw into an image, as a sheet or a volume, and mirrors `src/engine/render/`. Its host arm is pure Python and shares no code with the C renderer. The two agreeing byte for byte is a check, run by `test/python/render_test.py`. `render_raster` and `render_volume` prefer the device: where the C shared library is reachable they pass through the C dispatch, which renders on the CUDA arm when one is present, and where it is not they fall back to the pure Python host. Python owns no device path because the library ban forbids it one. The device is reached only through C.
 
-## The C implementation
+## The instrument
 
-`src/engine/c/` holds the sift as C11, with its own bench. It shares no code with this and is not a binding for it. The two implement the same construction and are checked against each other by agreeing on counts. Where they disagree, one of them has a defect.
+`instrument/` is not one of the six either. It holds the language reading of theory/anchor_sift written once: `anchor_sift.py` carries its sections 1 to 4 (`squash`, `distance`, `self_distance`, `reading`), `corpus_gate.py` reads every corpus, with the purity check of its section 4.13, and `english_sift.py` finds the language in a paper by knowing English and taking what is left.
+
+## Routes to the engine in C and CUDA
+
+Six routes here mirror the engine at anchor_sift 1789287. Each shares no code with the engine and is not a binding for it. A grader under `test/python/` runs both sides on the same inputs and prints each side's numbers, and where they disagree one of them has a defect. A grader that needs the device builds a probe under `test/python/` that calls the engine's own entry points.
+
+| Python route                                              | the engine it mirrors                                                                                      | grader                                                                         |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `render/host.py`, and `render_raster`, `render_volume`    | `src/engine/render/anchor_raster.c`, and the dispatch that prefers the device                              | `render_test.py`, byte for byte                                                |
+| `representation/exact.py`, `scaled` and `measured`        | `anchor_exact_from_decimal`, `anchor_exact_from_measured` in `src/engine/base/no_rounding/exact_integer.c` | `exact_test.py`, text for text                                                 |
+| `measure/shift_agreement.py`, `frame_shift`               | `shift_agreement_host` in `src/engine/base/shift_agreement/shift_agreement.c`                              | `shift_agreement_test.py`, count for count                                     |
+| `measure/period.py`                                       | `period_read` and `period_draw` in `src/engine/base/period/period.cu`                                      | `period_test.py` with `period_probe.cu`, line for line                         |
+| `measure/periodic_energy.py`, the `energy_` functions     | `src/engine/sims/art/periodic_energy.h`                                                                    | `periodic_energy_test.py` with `periodic_energy_probe.cu`, line for line       |
+| `sift/anchors.py`, the functions under the kernel's names | `src/engine/nbody/anchor_sift/anchor_sift.c`, with its bench under `bench/`                                | `sift_test.py` with `anchor_sift_probe.def`, count for count and read for read |
+
+The rest of this tree is not graded against the engine.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-08

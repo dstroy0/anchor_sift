@@ -20,7 +20,7 @@
 # A second failure was caught later and on a different kind of object, and stable_period at the
 # bottom of this file is what came out of it. Handed a sequence with no period at all, this function
 # returns a number, and that number is not weak: on nine aperiodic words it cleared a shuffle floor
-# by three to twenty nine times, so no margin test refuses it. It is the denominator of a continued
+# by three to twenty nine times, and no margin test refuses it. It is the denominator of a continued
 # fraction convergent of the word's slope, because a rotation by an irrational really does agree with
 # itself at the denominator of a good rational approximation to that irrational. The agreement is
 # real, the lag is real, and only the word "period" on the output is false.
@@ -74,8 +74,8 @@ def sequence_period(series, longest=LONGEST):
     return scored[0][1], scored[0][0]
 
 
-# Windows `stable_period` reads at. Four of them, roughly doubling, so a sequence agreeing with
-# itself at a growing lag has room to move and a real period has no reason to.
+# Windows `stable_period` reads at. Four of them, roughly doubling: a sequence agreeing with
+# itself at a growing lag has room to move there, and a real period has no reason to.
 WINDOWS = (16, 32, 64, 128)
 
 
@@ -85,7 +85,7 @@ def stable_period(series, windows=WINDOWS):
     `sequence_period` returns a number on a sequence that has no period, the number clears a shuffle
     floor by three to twenty nine times, and it is still not a period. A word built from a rotation
     by an irrational agrees with itself at the denominator of any good rational approximation to that
-    irrational, so the detector finds a real agreement at a real lag and only the name on the output
+    irrational. The detector finds a real agreement at a real lag and only the name on the output
     is wrong. No margin test refuses those readings, because nothing is weak about them.
 
     A period is a property of a sequence. An approximation is a property of a sequence and a window
@@ -96,8 +96,8 @@ def stable_period(series, windows=WINDOWS):
     (None, None) where they did not. A caller wanting the older behavior calls sequence_period, which
     is unchanged; this is a second question and not a correction to that one.
 
-    Windows shorter than the series can support are skipped rather than counted as disagreement,
-    since sequence_period needs four full periods and returns None below that. Where fewer than two
+    Windows shorter than the series can support are skipped. They add no disagreement, since
+    sequence_period needs four full periods and returns None below that. Where fewer than two
     windows could read at all the answer is None, because one window agreeing with itself is not the
     test.
     """

@@ -343,11 +343,17 @@ int main(void)
     const unsigned long long shape[ROOT_EXTENTS][4] = {{4ull, 12ull, 48ull, 48ull}, {3ull, 13ull, 37ull, 41ull}};
     RootVolume volume[ROOT_EXTENTS];
     memset(volume, 0, sizeof(volume));
-    unsigned long long declared = 0ull;
+    // both volumes' device lanes, the tower's and the coder's pools for the larger, and the table of the widest edge; the
+    // coded stream, sized by the values, is left to the kept peak
+    unsigned long long declared = (unsigned long long)ROOT_TABLE_ROOM * sizeof(unsigned int);
+    unsigned long long lanes_declared = 0ull;
     for (unsigned int shaped = 0u; shaped < ROOT_EXTENTS; shaped += 1u)
     {
-        declared += shape[shaped][0] * shape[shaped][1] * shape[shaped][2] * shape[shaped][3] * sizeof(unsigned short);
+        const unsigned long long lanes = shape[shaped][0] * shape[shaped][1] * shape[shaped][2] * shape[shaped][3];
+        declared += lanes * sizeof(unsigned short);
+        lanes_declared = (lanes > lanes_declared) ? lanes : lanes_declared;
     }
+    declared += tower_hold_bytes(lanes_declared) + compression_hold_bytes(lanes_declared);
     int good = sim_job_submit(&tally, "root_universal", 0, NULL, declared);
     unsigned long long lanes_most = 0ull;
     for (unsigned int shaped = 0u; shaped < ROOT_EXTENTS; shaped += 1u)
@@ -466,6 +472,8 @@ int main(void)
     scriptura_decimal_columns(line, blocks, 24u);
     scriptura_character(line, '\n');
     sim_flush(&tally);
+    // "differs" is read on these keyed draws: tables that agree on every value the crystal holds would lay the same
+    // crystal swapped or split, so the last two checks show order and blocking on these volumes, not for every table
     sim_check(&tally, folds == ROOT_FOLD_VOLUMES, "two edges on one floor fold into the one table that composes them");
     sim_check(&tally, orders == ROOT_FOLD_VOLUMES, "the fold keeps order: the swapped pair lays a different crystal");
     sim_check(&tally, blocks == ROOT_FOLD_VOLUMES, "a floor between two edges blocks the fold");

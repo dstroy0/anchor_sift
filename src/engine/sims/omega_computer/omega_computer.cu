@@ -6,7 +6,10 @@
 // 2^-|M| over the M that halt, is bracketed between two exact dyadics, as chaitin_omega brackets its Omega.
 // Tromp's universal machine U is itself such a term, of 190 bits (J. Tromp, the AIT repository, ait/uni.lam, with the
 // improvements by 50_ft_lock and Sean Palmer; the bits are those of Tromp's `blc blc`, whose size optimizer was
-// reproduced to read them off). Given the bits of a closed M and then the rest of its input, U reduces to M applied to
+// reproduced to read them off). uni.lam, read 26 September 2026, gives uni's text and its size, 190 bits, and not its
+// bits: no translation of that text that only inlines its lets or lays them as redexes comes to fewer than 209 bits,
+// since the optimizer also reduces, so the bits here are checked by Tromp's test below and not against a published
+// string. Given the bits of a closed M and then the rest of its input, U reduces to M applied to
 // the rest. So a machine made of the machine is U reading code(M), and the nesting d deep is U reading d - 1 copies of
 // its own code and then code(M):
 //   depth 0: M nil,  depth d: U (code(U)^(d-1) code(M) nil).
@@ -571,7 +574,7 @@ static int omega_computer_thunk(OmegaComputerMachine *machine, int term, int env
     thunk.value = 0;
     thunk.value_cells = -1;
     machine->thunks.push_back(thunk);
-    // the cells are held below OMEGA_COMPUTER_CELLS_MOST, 2^25
+    // the cells are held below OMEGA_COMPUTER_CELLS_MOST, 2^27
     return (int)(machine->thunks.size() - 1u);
 }
 
@@ -581,7 +584,7 @@ static int omega_computer_cell(std::vector<OmegaComputerCell> &cells, int thunk,
     cell.thunk = thunk;
     cell.next = next;
     cells.push_back(cell);
-    // the cells are held below OMEGA_COMPUTER_CELLS_MOST, 2^25
+    // the cells are held below OMEGA_COMPUTER_CELLS_MOST, 2^27
     return (int)(cells.size() - 1u);
 }
 

@@ -13,7 +13,9 @@
 
 #define POWER_DRAW_COUNTS 2u
 
-#define POWER_SIGMAS_SQUARED 25ull
+// a count of false periods over n chances at 1/(draws + 1) each may exceed n p by 5 sqrt(n p), this squared over n p:
+// the binomial's spread is sqrt(n p (1 - p)), so the reach is 5.30 of it at 8 draws and 5.13 at 19
+#define POWER_REACH_SQUARED 25ull
 
 typedef struct
 {
@@ -129,15 +131,15 @@ int main(void)
             const unsigned long long axes = 2ull * POWER_VOLUMES;
             const unsigned long long scaled = (draws + 1ull) * result.false_other_axes;
             const unsigned long long excess = (scaled > axes) ? (scaled - axes) : 0ull;
-            sim_check(&tally, (excess * excess) <= (POWER_SIGMAS_SQUARED * axes * (draws + 1ull)),
-                      "the unplanted axes' false periods lie within 5 sigma of 1/(draws + 1)");
+            sim_check(&tally, (excess * excess) <= (POWER_REACH_SQUARED * axes * (draws + 1ull)),
+                      "the unplanted axes' false periods exceed n/(draws + 1) by at most 5 sqrt(n p)");
             if (amplitude[level] == 0ull)
             {
                 const unsigned long long scaled_x = (draws + 1ull)
                                                   * (result.found + result.found_multiple + result.found_elsewhere);
                 const unsigned long long excess_x = (scaled_x > POWER_VOLUMES) ? (scaled_x - POWER_VOLUMES) : 0ull;
-                sim_check(&tally, (excess_x * excess_x) <= (POWER_SIGMAS_SQUARED * POWER_VOLUMES * (draws + 1ull)),
-                          "with nothing planted, x's false periods lie within 5 sigma of 1/(draws + 1)");
+                sim_check(&tally, (excess_x * excess_x) <= (POWER_REACH_SQUARED * POWER_VOLUMES * (draws + 1ull)),
+                          "with nothing planted, x's false periods exceed n/(draws + 1) by at most 5 sqrt(n p)");
             }
             if (level + 1u == POWER_AMPLITUDES)
             {

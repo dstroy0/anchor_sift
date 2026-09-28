@@ -1,18 +1,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "cycle_shared.h"
 
-// The record program compiled. Every record operation lives once, in the operator block: a function of its own, the
-// interpreter's arithmetic with its widths taken as arguments, compiled by NVRTC once for this device and kept in the
-// cache. A program's lane is written first as PTX (CycleEmitPtx::program): each step unrolled at its widths into
-// straight-line assembly over registers the lane holds, or a call into the block for a step that loops on its values,
-// and nvJitLink assembles it as it links it against the block, with no compiler between. Where the lane cannot be written
-// so, or its PTX does not build, the lane is C source instead, its steps alone, each one call into the block with its
-// places and widths as constants over the register file key_schedule laid, file_limbs the most it holds live at once,
-// compiled by NVRTC as relocatable code and linked the same way. A program of any length builds either way. The block's
-// registers lie in the thread block's shared memory, sized exactly from its widths, and a thread block holds as many
-// threads as that shared memory fits; a PTX lane that calls nothing takes none. The interpreter above stays the oracle,
-// and the fallback for a program neither way builds, this process cannot load or shared memory cannot hold one
-// thread's registers for.
+// The record program compiled. Nothing hand-written is linked with it: the language's own forms write every record
+// operation into the lane and the resident kernel that runs the lanes after it (program_unit), and one text is the
+// whole program. A program is written first as PTX (EmitPtx::program): each step unrolled at its widths into
+// straight-line assembly over registers the lane holds, a step that loops on its values a loop of the same forms, and
+// nvJitLink assembles and links it alone, with no compiler between. Where the lane cannot be written so, or its
+// PTX does not build, the lane is C source instead (EmitSource::program), the same lane in c.krs with its file and
+// signs in the thread block's shared memory, file_limbs the most it holds live at once, compiled by NVRTC as
+// relocatable code and linked alone the same way. A program of any length builds either way. A thread block holds as many
+// threads as its shared memory fits of the C lane's places; a PTX lane takes none. The interpreter above stays the
+// oracle, and the fallback for a program neither way builds, this process cannot load or shared memory cannot hold one
+// thread's places for.
 //
 // The compiled program runs as a resident program with a block (EngineProgramBlock) in device memory. Its thread blocks
 // take lanes a round at a time from one counter, check in to the block as they go, and leave once the launch has run
@@ -22,8 +21,9 @@
 // CYCLE_RECORD_INTERPRET=1 keeps every program on the interpreter, CYCLE_RECORD_CHECK=1 runs both on every launch and
 // refuses the launch where their records or refusals differ, CYCLE_RECORD_REPORT=1 says on stderr where each program
 // came from and how long each kernel ran, CYCLE_RECORD_TTL=<microseconds> sets a launch's time to live,
-// CYCLE_RECORD_LTO=1 builds the block and the programs as LTO-IR and links them with link-time optimization, which
-// writes no PTX, and CYCLE_RECORD_NVRTC=1 writes every lane as C source.
+// CYCLE_RECORD_LTO=1 builds the programs as LTO-IR and links each with link-time optimization, which writes no PTX,
+// and CYCLE_RECORD_NVRTC=1 writes every lane as C source. A seventh, EMIT_DEVICE=1, has the device write each
+// lane from its step table and holds its text to the host emitter's (cycle_emit_on_device).
 
 static_assert(ENGINE_RECORD_MEMBERS_MAX == 3u, "cycle: the compiled program's launch holds three members");
 
@@ -68,10 +68,10 @@ struct CycleLinker
 
 static CycleLinker s_cycle_linker;
 
-// the operator block for one device and one kind of link, built once a process: its source, and the relocatable
-// cubin or LTO-IR every program is linked against. hash names the block in each program's source, so a program's
-// cubin is found in the cache only against the block it was linked with
-struct CycleOperatorBlock
+// what a lane is written for, one device and one kind of link, named once a process: the device, and the text that
+// names it with the prelude a C lane opens with, whose hash each program's first line carries. Nothing is compiled
+// for it: every program's text holds its own resident (program_unit), and a program is built alone
+struct CycleLaneTarget
 {
     int tried;
     int ready;
@@ -79,11 +79,10 @@ struct CycleOperatorBlock
     int minor;
     unsigned long long hash;
     std::string source;
-    std::vector<char> image;
 };
 
-// the block for relocatable cubin, then the block for LTO-IR
-static CycleOperatorBlock s_cycle_operator_blocks[2];
+// the target for relocatable cubin, then the target for LTO-IR
+static CycleLaneTarget s_cycle_lane_targets[2];
 
 // a program compiled in this process, found again by its whole source, and the records loaded that hold it: the last
 // one released unloads it
@@ -123,7 +122,7 @@ static void cycle_emit(std::string &text, const char *format, ...)
     va_start(arguments, format);
     const int written = vsnprintf(line, sizeof(line), format, arguments);
     va_end(arguments);
-    // a line the room does not hold is cut, and the source then fails to compile rather than run wrong; written is
+    // a line the room does not hold is cut, and the source then fails to compile and never runs wrong; written is
     // read as a size only once it is known positive
     text.append(line, ((written > 0) && ((size_t)written < sizeof(line))) ? (size_t)written : sizeof(line) - 1u);
 }
@@ -225,30 +224,13 @@ static int cycle_linker_ready(void)
     return linker->ready;
 }
 
-// the operator block's source for the device and the kind of link, which names both: the block's words the kernel
-// reads and writes and the command and states it compares, from the one layout, then the prelude and the operators
-static std::string cycle_operator_source(int major, int minor, int lto)
+// the target's text for the device and the kind of link, which names both, then the prelude
+static std::string cycle_lane_target_source(int major, int minor, int lto)
 {
     std::string text;
-    cycle_emit(text, "// the operator block, for sm_%d%d, NVRTC %d.%d, as %s\n", major, minor, s_cycle_compiler.major,
+    cycle_emit(text, "// a record program's lane, for sm_%d%d, NVRTC %d.%d, as %s\n", major, minor, s_cycle_compiler.major,
                s_cycle_compiler.minor, (lto != 0) ? "LTO-IR" : "relocatable cubin");
-    cycle_emit(text, "#define CYCLE_GOLDEN_RUNGS %uu\n", ENGINE_GOLDEN_RUNGS);
-    cycle_emit(text, "#define CYCLE_BLOCK_OWNER %zuu\n", offsetof(EngineProgramBlock, owner) / 8u);
-    cycle_emit(text, "#define CYCLE_BLOCK_COMMAND %zuu\n", offsetof(EngineProgramBlock, command) / 8u);
-    cycle_emit(text, "#define CYCLE_BLOCK_STATE %zuu\n", offsetof(EngineProgramBlock, state) / 8u);
-    cycle_emit(text, "#define CYCLE_BLOCK_OFFSET %zuu\n", offsetof(EngineProgramBlock, offset) / 8u);
-    cycle_emit(text, "#define CYCLE_BLOCK_STEP %zuu\n", offsetof(EngineProgramBlock, step) / 8u);
-    cycle_emit(text, "#define CYCLE_BLOCK_LAUNCH_TIME %zuu\n", offsetof(EngineProgramBlock, launch_time) / 8u);
-    cycle_emit(text, "#define CYCLE_BLOCK_EXECTIME %zuu\n", offsetof(EngineProgramBlock, exectime) / 8u);
-    cycle_emit(text, "#define CYCLE_BLOCK_CHECKIN %zuu\n", offsetof(EngineProgramBlock, checkin) / 8u);
-    cycle_emit(text, "#define CYCLE_BLOCK_CHECKIN_TIME %zuu\n", offsetof(EngineProgramBlock, checkin_time) / 8u);
-    cycle_emit(text, "#define CYCLE_PROGRAM_RUN %uull\n", (unsigned int)ENGINE_PROGRAM_RUN);
-    cycle_emit(text, "#define CYCLE_PROGRAM_STOP %uull\n", (unsigned int)ENGINE_PROGRAM_STOP);
-    cycle_emit(text, "#define CYCLE_PROGRAM_YIELDED %uull\n", (unsigned int)ENGINE_PROGRAM_YIELDED);
-    cycle_emit(text, "#define CYCLE_PROGRAM_DONE %uull\n", (unsigned int)ENGINE_PROGRAM_DONE);
-    cycle_emit(text, "#define CYCLE_PROGRAM_STOPPED %uull\n", (unsigned int)ENGINE_PROGRAM_STOPPED);
     text += g_cycle_prelude;
-    text += g_cycle_operators;
     return text;
 }
 
@@ -291,8 +273,8 @@ static unsigned long long cycle_source_hash(const std::string &source)
     return hash;
 }
 
-// a source's file in the cache, the image built from it (a program's linked cubin, the operator block's relocatable
-// cubin or LTO-IR): its source's FNV-1a in hex. The name need not be unique: a file is used only where the source it
+// a source's file in the cache, the image built from it (a program's linked cubin, or an answer asked of NVRTC): its
+// source's FNV-1a in hex. The name need not be unique: a file is used only where the source it
 // holds is this source, byte for byte
 static std::string cycle_cache_path(const std::string &folder, const std::string &source)
 {
@@ -419,16 +401,16 @@ static std::vector<char> cycle_program_compile(const std::string &source, const 
     return image;
 }
 
-// a program's relocatable image linked against the operator block's by nvJitLink into one cubin, with link-time
-// optimization where `lto`; where `ptx` the program is PTX's text, NUL and all, which nvJitLink assembles as it links.
-// Empty where it refuses, its log then on stderr when reporting
-static std::vector<char> cycle_program_link(const CycleOperatorBlock *operators, const std::vector<char> &object,
+// a program's relocatable image linked alone by nvJitLink into one cubin, its resident and its lane in the one text,
+// with link-time optimization where `lto`; where `ptx` the program is PTX's text, NUL and all, which nvJitLink
+// assembles as it links. Empty where it refuses, its log then on stderr when reporting
+static std::vector<char> cycle_program_link(const CycleLaneTarget *lane_target, const std::vector<char> &object,
                                             int lto, int ptx, int report)
 {
     CycleLinker *const linker = &s_cycle_linker;
     std::vector<char> cubin;
     char architecture[32];
-    snprintf(architecture, sizeof(architecture), "-arch=sm_%d%d", operators->major, operators->minor);
+    snprintf(architecture, sizeof(architecture), "-arch=sm_%d%d", lane_target->major, lane_target->minor);
     const char *options[] = {architecture, "-lto"};
     nvJitLinkHandle handle = NULL;
     if (linker->create(&handle, (lto != 0) ? 2u : 1u, options) != NVJITLINK_SUCCESS)
@@ -438,9 +420,7 @@ static std::vector<char> cycle_program_link(const CycleOperatorBlock *operators,
     const nvJitLinkInputType kind = (lto != 0) ? NVJITLINK_INPUT_LTOIR : NVJITLINK_INPUT_CUBIN;
     const nvJitLinkInputType program_kind = (ptx != 0) ? NVJITLINK_INPUT_PTX : kind;
     size_t size = 0u;
-    const int linked = (linker->add(handle, kind, operators->image.data(), operators->image.size(), "cycle_operators")
-                        == NVJITLINK_SUCCESS)
-                    && (linker->add(handle, program_kind, object.data(), object.size(), "cycle_program")
+    const int linked = (linker->add(handle, program_kind, object.data(), object.size(), "cycle_program")
                         == NVJITLINK_SUCCESS)
                     && (linker->complete(handle) == NVJITLINK_SUCCESS)
                     && (linker->cubin_size(handle, &size) == NVJITLINK_SUCCESS) && (size != 0u);
@@ -465,42 +445,26 @@ static std::vector<char> cycle_program_link(const CycleOperatorBlock *operators,
     return cubin;
 }
 
-// the operator block for the device and the kind of link, built once a process: found in the cache, else compiled and
-// kept there. NULL where NVRTC refuses it
-static const CycleOperatorBlock *cycle_operator_block(int major, int minor, int lto, int report)
+// the target for the device and the kind of link, named once a process; it builds nothing and is always ready
+static const CycleLaneTarget *cycle_lane_target(int major, int minor, int lto, int report)
 {
-    CycleOperatorBlock *const operators = &s_cycle_operator_blocks[(lto != 0) ? 1 : 0];
-    if ((operators->tried != 0) && (operators->major == major) && (operators->minor == minor))
+    CycleLaneTarget *const lane_target = &s_cycle_lane_targets[(lto != 0) ? 1 : 0];
+    if ((lane_target->tried != 0) && (lane_target->major == major) && (lane_target->minor == minor))
     {
-        return (operators->ready != 0) ? operators : NULL;
+        return lane_target;
     }
-    operators->tried = 1;
-    operators->major = major;
-    operators->minor = minor;
-    operators->source = cycle_operator_source(major, minor, lto);
-    operators->hash = cycle_source_hash(operators->source);
-    const auto began = std::chrono::steady_clock::now();
-    const std::string folder = cycle_cache_folder();
-    const std::string path = folder.empty() ? std::string() : cycle_cache_path(folder, operators->source);
-    operators->image = path.empty() ? std::vector<char>() : cycle_cache_read(path, operators->source);
-    const int found = !operators->image.empty();
-    if (!found)
+    lane_target->tried = 1;
+    lane_target->ready = 1;
+    lane_target->major = major;
+    lane_target->minor = minor;
+    lane_target->source = cycle_lane_target_source(major, minor, lto);
+    lane_target->hash = cycle_source_hash(lane_target->source);
+    if (report != 0)
     {
-        operators->image = cycle_program_compile(operators->source, "cycle_operators.cu", major, minor, lto, report);
-        if (!operators->image.empty() && !path.empty())
-        {
-            cycle_cache_write(folder, path, operators->source, operators->image);
-        }
+        fprintf(stderr, "  cycle: lanes written for sm_%d%d as %s against %016llx, each with its own resident\n", major,
+                minor, (lto != 0) ? "LTO-IR" : "relocatable cubin", lane_target->hash);
     }
-    const double milliseconds = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
-    operators->ready = operators->image.empty() ? 0 : 1;
-    if ((report != 0) && (operators->ready != 0))
-    {
-        fprintf(stderr, "  cycle: the operator block %016llx, %zu bytes of %s, %s for sm_%d%d in %.1f ms\n",
-                operators->hash, operators->image.size(), (lto != 0) ? "LTO-IR" : "relocatable cubin",
-                found ? "read from the cache" : "compiled", major, minor, milliseconds);
-    }
-    return (operators->ready != 0) ? operators : NULL;
+    return lane_target;
 }
 
 // the .version, .target and .address_size lines of a PTX text, the first of each, in that order; empty where one is
@@ -514,7 +478,7 @@ static std::string cycle_ptx_header_lines(const char *ptx)
     while (*line != '\0')
     {
         const char *const end = strchr(line, '\n');
-        // a line ends past its start, so its length is never negative
+        // a line ends past its start, and its length is never negative
         const size_t length = (end != NULL) ? (size_t)(end - line) : strlen(line);
         const std::string held(line, length);
         if (version.empty() && (held.compare(0u, 9u, ".version ") == 0))
@@ -606,10 +570,10 @@ static const std::string &cycle_ptx_header(int major, int minor, int report)
 }
 
 // the program found in this process by its text, else in the cache, else built and kept in both, then loaded as a
-// library: PTX where `ptx`, which nvJitLink assembles as it links it against the operator block, else C source that
+// library: PTX where `ptx`, which nvJitLink assembles as it links it alone, else C source that
 // NVRTC compiles first. `written` is the milliseconds the text took to write, for the report. 0 where the build or the
 // load failed
-static int cycle_program_hold(const EngineRecordLayout *layout, CycleRecord *record, const CycleOperatorBlock *operators,
+static int cycle_program_hold(const EngineRecordLayout *layout, CycleRecord *record, const CycleLaneTarget *lane_target,
                               const std::string &text, int ptx, int lto, double written, int report)
 {
     const char *const kind = (ptx != 0) ? "PTX" : ((lto != 0) ? "LTO-IR" : "relocatable cubin");
@@ -640,10 +604,10 @@ static int cycle_program_hold(const EngineRecordLayout *layout, CycleRecord *rec
         // PTX goes to nvJitLink as its text with the NUL that ends it
         const std::vector<char> object = (ptx != 0)
                                        ? std::vector<char>(text.c_str(), text.c_str() + text.size() + 1u)
-                                       : cycle_program_compile(text, "cycle_program.cu", operators->major,
-                                                               operators->minor, lto, report);
+                                       : cycle_program_compile(text, "cycle_program.cu", lane_target->major,
+                                                               lane_target->minor, lto, report);
         const auto compiled = std::chrono::steady_clock::now();
-        cubin = object.empty() ? std::vector<char>() : cycle_program_link(operators, object, lto, ptx, report);
+        cubin = object.empty() ? std::vector<char>() : cycle_program_link(lane_target, object, lto, ptx, report);
         const auto linked = std::chrono::steady_clock::now();
         object_bytes = object.size();
         compile_milliseconds = std::chrono::duration<double, std::milli>(compiled - began).count();
@@ -687,14 +651,14 @@ static int cycle_program_hold(const EngineRecordLayout *layout, CycleRecord *rec
     {
         fprintf(stderr, "  cycle: a program of %u steps for sm_%d%d as PTX: written in %.1f ms to %zu bytes, "
                         "assembled and linked in %.1f ms to %zu bytes of cubin\n",
-                layout->steps, operators->major, operators->minor, written, object_bytes, link_milliseconds,
+                layout->steps, lane_target->major, lane_target->minor, written, object_bytes, link_milliseconds,
                 cubin.size());
     }
     else if (report != 0)
     {
         fprintf(stderr, "  cycle: a program of %u steps for sm_%d%d as %s: written in %.1f ms, compiled in %.1f ms to "
                         "%zu bytes, linked in %.1f ms to %zu bytes of cubin\n",
-                layout->steps, operators->major, operators->minor, kind, written, compile_milliseconds, object_bytes,
+                layout->steps, lane_target->major, lane_target->minor, kind, written, compile_milliseconds, object_bytes,
                 link_milliseconds, cubin.size());
     }
     return 1;
@@ -718,11 +682,10 @@ void cycle_program_release(cudaKernel_t kernel)
     }
 }
 
-// the target the emitter writes a lane for: the operator block it is linked against, the device that block was built
-// for, the NVRTC loaded, and the prelude
-static CycleEmitTarget cycle_emit_target(const CycleOperatorBlock *operators)
+// the target the emitter writes a lane for: the target's hash, its device, the NVRTC loaded, and the prelude
+static EmitTarget cycle_emit_target(const CycleLaneTarget *lane_target)
 {
-    return CycleEmitTarget{operators->hash, operators->major, operators->minor, s_cycle_compiler.major,
+    return EmitTarget{lane_target->hash, lane_target->major, lane_target->minor, s_cycle_compiler.major,
                            s_cycle_compiler.minor, g_cycle_prelude};
 }
 
@@ -730,10 +693,10 @@ static CycleEmitTarget cycle_emit_target(const CycleOperatorBlock *operators)
 // A frame past the limit has the runtime grow the stack for every resident thread at a run's first launch, and
 // cycle_stack_return gives it back once the run is done: 7.449 to 10.130 ms a run on the record tests, against 0.127 to
 // 1.630 ms for frames within the limit (26 September, engine_table item 11(f)). Past the limit the program is built as
-// C source as well, and the smaller frame runs, which is the C source's wherever it fits and the PTX's does not; the
+// C source as well, and the smaller frame runs, the C source's wherever it fits and the PTX's does not; the
 // other's hold is given back. Where the C source does not build, or its frame cannot be read, the PTX runs
 static void cycle_record_route(const EngineRecordLayout *layout, CycleRecord *record,
-                               const CycleOperatorBlock *operators, int lto, int report)
+                               const CycleLaneTarget *lane_target, int lto, int report)
 {
     cudaFuncAttributes attributes;
     size_t limit = 0u;
@@ -748,10 +711,10 @@ static void cycle_record_route(const EngineRecordLayout *layout, CycleRecord *re
     const cudaKernel_t ptx = record->kernel;
     const unsigned int ptx_places = record->places;
     const size_t ptx_frame = attributes.localSizeBytes;
-    CycleEmitSource &emit = cycle_emit_source();
-    const CycleRuleset *const rules = emit.ruleset(report);
+    EmitSource &emit = emit_source();
+    const EmitRuleset *const rules = emit.ruleset(report);
     const auto began = std::chrono::steady_clock::now();
-    const CycleEmitTarget target = cycle_emit_target(operators);
+    const EmitTarget target = cycle_emit_target(lane_target);
     unsigned int source_places = 0u;
     unsigned int source_live = 0u;
     const std::string source = (rules != NULL)
@@ -759,7 +722,7 @@ static void cycle_record_route(const EngineRecordLayout *layout, CycleRecord *re
                                                   &source_live)
                                    : std::string();
     const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
-    const int built = !source.empty() && cycle_program_hold(layout, record, operators, source, 0, lto, written, report);
+    const int built = !source.empty() && cycle_program_hold(layout, record, lane_target, source, 0, lto, written, report);
     const int read = built && (cudaFuncGetAttributes(&attributes, (const void *)record->kernel) == cudaSuccess);
     const size_t source_frame = (read != 0) ? attributes.localSizeBytes : 0u;
     const int source_runs = (read != 0) && (source_frame < ptx_frame);
@@ -788,6 +751,61 @@ static void cycle_record_route(const EngineRecordLayout *layout, CycleRecord *re
     }
 }
 
+// 1 while the device writes a lane: the text program's own lane, which it runs to write text, is then the host's
+static thread_local int s_cycle_writing_device = 0;
+
+// 1 where EMIT_DEVICE=1 asks the device to write the lane being written, and no writing is under way
+static int cycle_device_asked(void)
+{
+    return (s_cycle_writing_device == 0) && cycle_environment_set("EMIT_DEVICE");
+}
+
+// The lane as the device writes it from the step table (emit_device.h): the ruleset's written forms laid once for the
+// target and the header, the forms decided on the device a thread a step, laid as the text program's records there,
+// written by the record machine a lane a byte and gathered, and the text held to the host emitter's byte for byte. Where
+// the two agree the device's text is the one built; where they do not, or the device did not write it, the host's is,
+// and the report says which. The device cuts the lane where `emit`'s program() cuts it
+static void cycle_emit_on_device(const EmitLane &emit, const EmitRuleset *rules, const EmitTarget *target,
+                                 const std::string &header, const EngineRecordLayout *layout, unsigned int places,
+                                 std::string &text)
+{
+    EmitTextRuleset text_rules{};
+    std::string refused;
+    std::string written;
+    EmitLaneCut cut;
+    const int cuts = emit.program_cut(&cut);
+    s_cycle_writing_device = 1;
+    const int laid = emit_text_ruleset_lay(rules, target, header, &text_rules, &refused);
+    const int ran = laid && emit_device(layout, &text_rules, places, cuts ? &cut : NULL, &written, &refused);
+    if (laid)
+    {
+        emit_text_ruleset_release(&text_rules);
+    }
+    s_cycle_writing_device = 0;
+    size_t differs = 0u;
+    while ((differs < written.size()) && (differs < text.size()) && (written[differs] == text[differs]))
+    {
+        differs += 1u;
+    }
+    if ((ran != 0) && (written == text))
+    {
+        text = written;
+        fprintf(stderr, "  cycle: the device wrote a program of %u steps, %zu bytes, byte for byte the host's\n",
+                layout->steps, written.size());
+    }
+    else if (ran != 0)
+    {
+        fprintf(stderr, "  cycle: the device wrote a program of %u steps as %zu bytes against the host's %zu, apart "
+                        "from byte %zu; the host's is built\n",
+                layout->steps, written.size(), text.size(), differs);
+    }
+    else
+    {
+        fprintf(stderr, "  cycle: the device did not write a program of %u steps (%s); the host's is built\n",
+                layout->steps, refused.c_str());
+    }
+}
+
 // the program's lane written as PTX and built, else its C source compiled by NVRTC and built, found in this process or
 // the cache where either was built before, and the places it holds in shared memory set. PTX is not written where the
 // block is LTO-IR or CYCLE_RECORD_NVRTC=1, and a program held as PTX is routed by rule (i). 0 where it stays on the
@@ -812,39 +830,32 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
         }
         return 0;
     }
-    const CycleOperatorBlock *const operators = cycle_operator_block(major, minor, lto, report);
-    if (operators == NULL)
-    {
-        if (report != 0)
-        {
-            fprintf(stderr, "  cycle: a program of %u steps runs on the interpreter (the operator block did not "
-                            "compile)\n",
-                    layout->steps);
-        }
-        return 0;
-    }
-    const CycleEmitTarget target = cycle_emit_target(operators);
+    const CycleLaneTarget *const lane_target = cycle_lane_target(major, minor, lto, report);
+    const EmitTarget target = cycle_emit_target(lane_target);
     if ((lto == 0) && (cycle_environment_set("CYCLE_RECORD_NVRTC") == 0))
     {
-        CycleEmitPtx &emit = cycle_emit_ptx();
-        const CycleRuleset *const rules = emit.ruleset(report);
+        EmitPtx &emit = emit_ptx();
+        const EmitRuleset *const rules = emit.ruleset(report);
         const std::string &header = cycle_ptx_header(major, minor, report);
         unsigned int places = 0u;
         unsigned int live = 0u;
         const auto began = std::chrono::steady_clock::now();
-        const std::string ptx = ((rules == NULL) || header.empty())
-                                    ? std::string()
-                                    : emit.program(layout, &target, header, &places, &live);
+        std::string ptx = ((rules == NULL) || header.empty()) ? std::string()
+                                                              : emit.program(layout, &target, header, &places, &live);
         const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+        if ((cycle_device_asked() != 0) && !ptx.empty())
+        {
+            cycle_emit_on_device(emit, rules, &target, header, layout, places, ptx);
+        }
         if ((report != 0) && !ptx.empty())
         {
             fprintf(stderr, "  cycle: a program of %u steps as PTX holds at most %u words live a lane\n", layout->steps,
                     live);
         }
-        if (!ptx.empty() && cycle_program_hold(layout, record, operators, ptx, 1, lto, written, report))
+        if (!ptx.empty() && cycle_program_hold(layout, record, lane_target, ptx, 1, lto, written, report))
         {
             record->places = places;
-            cycle_record_route(layout, record, operators, lto, report);
+            cycle_record_route(layout, record, lane_target, lto, report);
             return 1;
         }
         if (report != 0)
@@ -856,16 +867,20 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
                                      : "its PTX did not build");
         }
     }
-    CycleEmitSource &source_emit = cycle_emit_source();
-    const CycleRuleset *const source_rules = source_emit.ruleset(report);
+    EmitSource &source_emit = emit_source();
+    const EmitRuleset *const source_rules = source_emit.ruleset(report);
     const auto began = std::chrono::steady_clock::now();
     unsigned int source_places = 0u;
     unsigned int source_live = 0u;
-    const std::string source = (source_rules != NULL)
-                                   ? source_emit.program(layout, &target, std::string(target.prelude), &source_places,
-                                                         &source_live)
-                                   : std::string();
+    std::string source = (source_rules != NULL) ? source_emit.program(layout, &target, std::string(target.prelude),
+                                                                      &source_places, &source_live)
+                                                : std::string();
     const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+    if ((cycle_device_asked() != 0) && !source.empty())
+    {
+        cycle_emit_on_device(source_emit, source_rules, &target, std::string(target.prelude), layout, source_places,
+                             source);
+    }
     if (source.empty())
     {
         if (report != 0)
@@ -876,7 +891,7 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
         }
         return 0;
     }
-    if (!cycle_program_hold(layout, record, operators, source, 0, lto, written, report))
+    if (!cycle_program_hold(layout, record, lane_target, source, 0, lto, written, report))
     {
         if (report != 0)
         {

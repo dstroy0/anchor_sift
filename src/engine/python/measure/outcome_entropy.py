@@ -17,9 +17,9 @@
 # exact integer weights over deck counts and uniform move priors. Two distributions computed by
 # different routes can be compared with `==` and not with a tolerance. The logarithm is where that
 # ends. log2 of a rational is irrational except at powers of two. The entropy is a float and
-# carries a float's sixteen digits and no more.
+# carries a float's sixteen digits at most.
 #
-# That boundary is drawn on purpose and it is drawn as late as possible. Every probability reported
+# That boundary is deliberate and it is drawn as late as possible. Every probability reported
 # beside an entropy here is the exact rational, not a rounded copy of it. A reader who distrusts
 # the entropy can recompute it. The quantity that gets compared between conditionings is the
 # distribution; the entropy is a summary of it.

@@ -27,11 +27,14 @@
 
 #define FLOOR_FOUNDERS 8u
 
-#define FLOOR_SIGMAS_SQUARED 25ll
+// the static pairs' neighbour correlation is held within 5 / sqrt(N) of 0, this squared times N. A frame difference
+// shares a frame with the next, so over 23 frame pairs a voxel the product sum spreads by sqrt(1.478) of an
+// independent one's, and the reach is about 4.1 standard errors
+#define FLOOR_CORRELATION_REACH_SQUARED 25ll
 
-#define FLOOR_SLOPE_PARTS 50ull
-
-#define FLOOR_INTERCEPT_REACH 6ll
+// the truth route's slope and intercept are held within 5 standard errors of the law, this squared, and the intercept
+// at least 5 above 0
+#define FLOOR_ERROR_REACH_SQUARED 25ull
 
 typedef struct
 {
@@ -313,7 +316,7 @@ static void floor_planes(SimTally *tally, const unsigned short *lanes, unsigned 
         scriptura_decimal(line, per_plane, 1u);
         scriptura_text(line, " streams of ");
         scriptura_decimal(line, FLOOR_STREAM_BITS, 1u);
-        scriptura_text(line, " consecutive lanes a plane\n    plane  mean complexity / n   streams read as random (within 16 of n/2)\n");
+        scriptura_text(line, " consecutive lanes a plane\n    plane  mean complexity / n   streams read as random (at least n/2 - 16)\n");
         unsigned long long random_low_planes = 0ull;
         for (unsigned int plane = 0u; plane < FLOOR_PLANES; plane += 1u)
         {
@@ -473,6 +476,86 @@ static void floor_bins_close(FloorBins *bins)
     cudaFree(bins->count);
 }
 
+// The truth route's spreads, D^2 times a bound on its intercept's and its slope's variance (Derived). A pair whose
+// signal holds at S reads y = d^2, d = X' - X, X = offset + pattern + g Poisson(S) + read, the read
+// Binomial(4 r^2, 1/2) - 2 r^2 with kappa4 = -r^2 / 2. The pattern cancels in d, sigma^2 = g^2 S + r^2,
+// k4 = kappa4(X) = g^4 S - r^2 / 2, kappa4(d) = 2 k4, and var(y) = v = 8 sigma^4 + 2 k4. Two pairs sharing a frame
+// have cov(y, y') = c = mu4 - sigma^4 = 2 sigma^4 + k4 >= 0, and pairs sharing none are independent. The bound
+// assumes pairs correlate only within one voxel's run of held pairs, and a run holds one level: each run carries one
+// weight, and a run of m pairs has variance m v + 2 (m - 1) c = m (v + 2 c) - 2 c <= m u, with
+// u = v + 2 c = 12 sigma^4 + 4 k4 = 12 (g^2 S + r^2)^2 + 4 g^4 S - 2 r^2. With N, A and B the counts' sums of 1, S
+// and S^2 and D = N B - A^2, the fit's intercept is a D = sum y (B - A S) and its slope b D = sum y (N S - A), and
+// Va = sum_S count(S) (B - A S)^2 u(S) >= D^2 var(a), Vb = sum_S count(S) (N S - A)^2 u(S) >= D^2 var(b).
+static int floor_spreads(const unsigned long long *count, const SimCamera *camera, AnchorExactInteger *intercept_spread,
+                         AnchorExactInteger *slope_spread)
+{
+    AnchorExactInteger samples;
+    AnchorExactInteger along;
+    AnchorExactInteger along_square;
+    anchor_exact_zero(&samples);
+    anchor_exact_zero(&along);
+    anchor_exact_zero(&along_square);
+    anchor_exact_zero(intercept_spread);
+    anchor_exact_zero(slope_spread);
+    int good = 1;
+    for (unsigned long long level = 0ull; good && (level < FLOOR_LEVELS); level += 1ull)
+    {
+        if (count[level] == 0ull)
+        {
+            continue;
+        }
+        AnchorExactInteger number;
+        AnchorExactInteger weighted;
+        AnchorExactInteger squared;
+        sim_exact_whole(&number, count[level]);
+        good = sim_exact_sum(&samples, &number, &samples) && sim_exact_scaled(&number, level, &weighted)
+            && sim_exact_sum(&along, &weighted, &along) && sim_exact_scaled(&weighted, level, &squared)
+            && sim_exact_sum(&along_square, &squared, &along_square);
+    }
+    AnchorExactInteger gain;
+    AnchorExactInteger gain_square;
+    AnchorExactInteger gain_fourth;
+    AnchorExactInteger read;
+    AnchorExactInteger read_twice;
+    sim_exact_whole(&gain, camera->gain);
+    sim_exact_whole(&read, camera->read_square);
+    good = good && sim_exact_product(&gain, &gain, &gain_square)
+        && sim_exact_product(&gain_square, &gain_square, &gain_fourth) && sim_exact_scaled(&read, 2ull, &read_twice);
+    for (unsigned long long level = 0ull; good && (level < FLOOR_LEVELS); level += 1ull)
+    {
+        if (count[level] == 0ull)
+        {
+            continue;
+        }
+        // u(S) = 12 (g^2 S + r^2)^2 + 4 g^4 S - 2 r^2, non-negative for a whole r^2
+        AnchorExactInteger shot;
+        AnchorExactInteger variance;
+        AnchorExactInteger fourth;
+        AnchorExactInteger fourth_twelve;
+        AnchorExactInteger shot_fourth;
+        AnchorExactInteger spread;
+        AnchorExactInteger unit;
+        // a level is below 2^18, so 4 S fits a word
+        good = sim_exact_scaled(&gain_square, level, &shot) && sim_exact_sum(&shot, &read, &variance)
+            && sim_exact_product(&variance, &variance, &fourth) && sim_exact_scaled(&fourth, 12ull, &fourth_twelve)
+            && sim_exact_scaled(&gain_fourth, 4ull * level, &shot_fourth)
+            && sim_exact_sum(&fourth_twelve, &shot_fourth, &spread) && sim_exact_less(&spread, &read_twice, &unit);
+        // the intercept's weight B - A S and the slope's N S - A, each squared, times count(S) u(S)
+        AnchorExactInteger product;
+        AnchorExactInteger weight;
+        AnchorExactInteger weight_square;
+        AnchorExactInteger counted;
+        AnchorExactInteger term;
+        good = good && sim_exact_scaled(&along, level, &product) && sim_exact_less(&along_square, &product, &weight)
+            && sim_exact_product(&weight, &weight, &weight_square) && sim_exact_scaled(&weight_square, count[level], &counted)
+            && sim_exact_product(&counted, &unit, &term) && sim_exact_sum(intercept_spread, &term, intercept_spread);
+        good = good && sim_exact_scaled(&samples, level, &product) && sim_exact_less(&product, &along, &weight)
+            && sim_exact_product(&weight, &weight, &weight_square) && sim_exact_scaled(&weight_square, count[level], &counted)
+            && sim_exact_product(&counted, &unit, &term) && sim_exact_sum(slope_spread, &term, slope_spread);
+    }
+    return good;
+}
+
 static void floor_print_correlation(ScripturaLine *line, const char *name, unsigned long long product,
                                     unsigned long long here)
 {
@@ -517,16 +600,25 @@ static void floor_transfer(SimTally *tally, const SimScene *scene, const SimCame
     }
     unsigned long long *const count = (unsigned long long *)malloc(FLOOR_LEVELS * sizeof(unsigned long long));
     unsigned long long *const total = (unsigned long long *)malloc(FLOOR_LEVELS * sizeof(unsigned long long));
-    good = good && (count != NULL) && (total != NULL);
+    // the truth route's counts, kept for its spreads after the other routes reuse count
+    unsigned long long *const truth_count = (unsigned long long *)malloc(FLOOR_LEVELS * sizeof(unsigned long long));
+    good = good && (count != NULL) && (total != NULL) && (truth_count != NULL);
     FloorLine fit[FLOOR_ROUTES];
     for (unsigned int route = 0u; good && (route < FLOOR_ROUTES); route += 1u)
     {
         good = floor_bins_fit(tally, &bins[route], count, total, &fit[route]);
+        if (good && (route == 0u))
+        {
+            memcpy(truth_count, count, FLOOR_LEVELS * sizeof(unsigned long long));
+        }
     }
     FloorCoherence coherence;
     good = good && sim_took(tally, cudaMemcpy(&coherence, device_coherence, sizeof(FloorCoherence), cudaMemcpyDeviceToHost),
                             "coherence read");
     sim_check(tally, good, "the transfer curve's three routes were measured");
+    // the truth route's D = N B - A^2, checked positive before any ratio over it
+    const int spanned = good && (fit[0].denominator.sign > 0);
+    sim_check(tally, spanned, "the truth route's levels span two: D = N B - A^2 > 0");
     if (good)
     {
         ScripturaLine *const line = &tally->line;
@@ -552,21 +644,44 @@ static void floor_transfer(SimTally *tally, const SimScene *scene, const SimCame
         scriptura_character(line, '\n');
         floor_print_fit(line, "      ", &fit[2]);
 
+        // the truth route's standard errors squared, SE^2 = V / D^2, from floor_spreads' bounds (Derived); every check
+        // squares both sides against 25 V, exact
+        AnchorExactInteger intercept_spread;
+        AnchorExactInteger slope_spread;
+        AnchorExactInteger denominator_square;
+        const int spread = spanned && floor_spreads(truth_count, camera, &intercept_spread, &slope_spread)
+                        && sim_exact_product(&fit[0].denominator, &fit[0].denominator, &denominator_square);
+        sim_check(tally, spread, "the truth route's spreads were formed");
+        if (spread != 0)
+        {
+            scriptura_text(line, "      SE^2 bounded above: intercept ");
+            sim_ratio_print(line, &intercept_spread, &denominator_square, 8u);
+            scriptura_text(line, ", slope ");
+            sim_ratio_print(line, &slope_spread, &denominator_square, 8u);
+            scriptura_character(line, '\n');
+        }
         AnchorExactInteger law;
         AnchorExactInteger scaled;
         AnchorExactInteger apart;
-        sim_exact_whole(&law, 2ull * camera->gain * camera->gain);
-        good = sim_exact_product(&law, &fit[0].denominator, &scaled) && sim_exact_less(&fit[0].slope, &scaled, &apart);
-        apart.sign = (apart.sign < 0) ? 1 : apart.sign;
+        AnchorExactInteger apart_square;
         AnchorExactInteger bound;
-        good = good && sim_exact_scaled(&apart, FLOOR_SLOPE_PARTS, &apart) && (anchor_exact_compare(&apart, &scaled) <= 0);
-        sim_check(tally, good, "the truth route's slope lies within 2% of 2 g^2");
+        sim_exact_whole(&law, 2ull * camera->gain * camera->gain);
+        good = spread && sim_exact_product(&law, &fit[0].denominator, &scaled)
+            && sim_exact_less(&fit[0].slope, &scaled, &apart) && sim_exact_product(&apart, &apart, &apart_square)
+            && sim_exact_scaled(&slope_spread, FLOOR_ERROR_REACH_SQUARED, &bound)
+            && (anchor_exact_compare(&apart_square, &bound) <= 0);
+        sim_check(tally, good, "the truth route's slope lies within 5 SE_b of 2 g^2");
         sim_exact_whole(&law, 2ull * camera->read_square);
-        good = sim_exact_product(&law, &fit[0].denominator, &scaled) && sim_exact_less(&fit[0].intercept, &scaled, &apart);
-        apart.sign = (apart.sign < 0) ? 1 : apart.sign;
-        sim_exact_signed(&law, FLOOR_INTERCEPT_REACH);
-        good = good && sim_exact_product(&law, &fit[0].denominator, &bound) && (anchor_exact_compare(&apart, &bound) <= 0);
-        sim_check(tally, good, "the truth route's intercept lies within 6 of 2 r^2");
+        good = spread && sim_exact_product(&law, &fit[0].denominator, &scaled)
+            && sim_exact_less(&fit[0].intercept, &scaled, &apart) && sim_exact_product(&apart, &apart, &apart_square)
+            && sim_exact_scaled(&intercept_spread, FLOOR_ERROR_REACH_SQUARED, &bound)
+            && (anchor_exact_compare(&apart_square, &bound) <= 0);
+        sim_check(tally, good, "the truth route's intercept lies within 5 SE_a of 2 r^2");
+        good = spread && (fit[0].intercept.sign > 0)
+            && sim_exact_product(&fit[0].intercept, &fit[0].intercept, &apart_square)
+            && sim_exact_scaled(&intercept_spread, FLOOR_ERROR_REACH_SQUARED, &bound)
+            && (anchor_exact_compare(&apart_square, &bound) >= 0);
+        sim_check(tally, good, "the truth route's intercept stands at least 5 SE_a above 0: the read noise is there");
 
         scriptura_text(line, "  the neighbour coherence of d (x against x + 1)\n");
         floor_print_correlation(line, "    truth-static pairs: ", coherence.neighbour_product, coherence.square_here);
@@ -582,12 +697,13 @@ static void floor_transfer(SimTally *tally, const SimScene *scene, const SimCame
         sim_exact_whole(&term, coherence.square_here);
         sim_exact_whole(&right, coherence.square_beside);
         good = good && sim_exact_product(&term, &right, &right);
-        // twenty-five, the square of five sigma, is a small positive constant
-        good = good && sim_exact_scaled(&right, (unsigned long long)FLOOR_SIGMAS_SQUARED, &right);
+        // twenty-five, the reach squared, is a small positive constant
+        good = good && sim_exact_scaled(&right, (unsigned long long)FLOOR_CORRELATION_REACH_SQUARED, &right);
         sim_exact_whole(&term, coherence.both_static);
         good = good && sim_exact_product(&left, &term, &left) && (anchor_exact_compare(&left, &right) <= 0);
-        sim_check(tally, good, "static pairs' neighbour correlation lies within 5 sigma of 0");
+        sim_check(tally, good, "static pairs' neighbour correlation lies within 5 / sqrt(N) of 0, about 4.1 sigma");
     }
+    free(truth_count);
     free(total);
     free(count);
     cudaFree(device_coherence);

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// Finding x in a for less than half of a (Doug, 25 September: "say we want to find x and x is on floor 2, we have
-// the knf, we only need to &&"). a is one camera-law frame of n samples. The engine's tower lifts it, and floor 2 is
+// Finding x on a's floor 2 for less than half of a (Doug, 25 September: "say we want to find x and x is on floor 2, we
+// have the knf, we only need to &&"). a is one camera-law frame of n samples. The engine's tower lifts it, and floor 2 is
 // the approximation after two levels: the 16^3 corner, m = n / 64 values, read from the engine by lowering that
 // corner as its own tower and held to the host's own two-level lifting. Floor 2's values are laid once as 16 bit
 // planes. A query x then reads no value at all: the positions holding x are the and, over the planes, of each plane
@@ -501,6 +501,8 @@ int main(int count, char **arguments)
               "every value on floor 2 is found at exactly the positions the host's scan finds");
     sim_check(&tally, good && (sides[1].held == MATCH_QUERIES_EACH) && (sides[1].found == 0ull),
               "every value not on floor 2 is found nowhere");
+    // the query kernel stops at the 16th plane, so the reads hold by construction; the check records that the bound,
+    // 16 m / 32 plane words, sits below n / 2
     sim_check(&tally, good && (sides[0].most <= full) && (sides[1].most <= full) && (full < half),
               "no query reads more than 16 m / 32 plane words, below half of a");
 

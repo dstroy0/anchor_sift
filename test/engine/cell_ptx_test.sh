@@ -63,8 +63,17 @@ for source in "$CELL/cell.c" "$TEST/cell_ptx_test.c"; do
 done
 nvcc "${HOST_FLAGS[@]}" -o "$BINARY" "${OBJECTS[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: the cell's PTX test did not link"; exit 1; }
+# the probe reads rulesets and writes forms; the emitter's text program (emit_text.cu) and the emitter on the
+# device (emit_device.cu) run on the record machine, which the probe does not link
+EMITTER=()
+for source in "$EMIT"/emit*.cu; do
+    case "$(basename "$source")" in
+        emit_text.cu|emit_device.cu) ;;
+        *) EMITTER+=("$source") ;;
+    esac
+done
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" -I "$TOP/src/engine" -o "$PROBE" "$TEST/cell_ptx_probe.cu" \
-    "$EMIT"/emit*.cu -lnvrtc -lnvJitLink
+    "${EMITTER[@]}" -lnvrtc -lnvJitLink
 [ -f "$PROBE" ] || { echo "  build failed: the PTX probe did not build"; exit 1; }
 
 mkdir -p "$OUT/probes" "$OUT/probes_flagless"

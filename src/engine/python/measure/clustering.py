@@ -16,7 +16,7 @@
 # read as an ordering and not as a grouping.
 #
 # Average linkage is used here. Ward's pushes toward equal sized groups, and the question is
-# usually whether unequal groups are there at all.
+# usually whether unequal groups exist.
 #
 # Reading curves by eye is where this work has gone wrong before: a curve that looks like its
 # neighbor is an impression, and the impression survives until something counts it.

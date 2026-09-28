@@ -19,7 +19,7 @@
 # use almost all of what a byte holds and clipping reaches only the tail beyond three. All five
 # copies had already made that trade.
 
-import numpy
+import math
 
 # Levels per standard deviation. Three standard deviations then span 2 to 254.
 PER_DEVIATION = 42.0
@@ -31,12 +31,19 @@ MIDDLE = 128.0
 def to_levels(series, per_deviation=PER_DEVIATION, middle=MIDDLE):
     """A run of real numbers as whole levels in a byte, centered on the mean.
 
-    Returns None where the series does not vary, since there is no spread to scale by and every
-    value would land on the same level.
+    Returns a bytearray, one level to a value. Returns None where the series does not vary, since
+    there is no spread to scale by and every value would land on the same level.
+
+    The sums are math.fsum, correctly rounded. A level is the nearest whole number with halves going
+    to the even one, as numpy.rint rounds, and it is held to 0 through 255.
     """
-    floats = numpy.asarray(series, dtype=numpy.float64)
-    spread = floats.std()
+    floats = [float(value) for value in series]
+    if not floats:
+        return bytearray()
+    count = len(floats)
+    mean = math.fsum(floats) / count
+    spread = math.sqrt(math.fsum((value - mean) * (value - mean) for value in floats) / count)
     if spread <= 0.0:
         return None
-    scaled = (floats - floats.mean()) / spread
-    return numpy.clip(numpy.rint((scaled * per_deviation) + middle), 0, 255).astype(numpy.uint8)
+    return bytearray(min(255, max(0, round((((value - mean) / spread) * per_deviation) + middle)))
+                     for value in floats)

@@ -7,13 +7,13 @@
 
 #include "emit_lane.h"
 
-class CycleEmitPtx : public CycleEmitLane
+class EmitPtx : public EmitLane
 {
 public:
-    CycleEmitPtx(void);
+    EmitPtx(void);
 };
 
 // the PTX emitter a process holds, its ruleset read at its first call to ruleset()
-CycleEmitPtx &cycle_emit_ptx(void);
+EmitPtx &emit_ptx(void);
 
 #endif

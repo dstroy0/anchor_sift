@@ -2,12 +2,12 @@
 #include "emit_ptx.h"
 
 // the lane as PTX: ptx.krs, which nvJitLink assembles, its header asked of NVRTC
-CycleEmitPtx::CycleEmitPtx(void) : CycleEmitLane("ptx.krs", "nvjitlink", "probe_nvrtc")
+EmitPtx::EmitPtx(void) : EmitLane("ptx.krs", "nvjitlink", "probe_nvrtc", EMIT_LANE_UNBOUNDED, 0)
 {
 }
 
-CycleEmitPtx &cycle_emit_ptx(void)
+EmitPtx &emit_ptx(void)
 {
-    static CycleEmitPtx emit;
+    static EmitPtx emit;
     return emit;
 }

@@ -29,7 +29,9 @@
 
 #define KNF_FLIPS 8192u
 
-#define KNF_SIGMAS_SQUARED 25ull
+// the controls' identified count over n volumes at 1/(draws + 1) each may exceed n p by 5 sqrt(n p), this squared over
+// n p: the binomial's spread is sqrt(n p (1 - p)), so at 19 draws the reach is 5.13 of it
+#define KNF_REACH_SQUARED 25ull
 
 #define KNF_BOX_FIELDS 6u
 
@@ -856,8 +858,8 @@ static void knf_controls(SimTally *tally, unsigned short *device_lanes, unsigned
     const unsigned long long scaled = (KNF_DRAWS + 1ull) * identified;
     const unsigned long long excess = (scaled > KNF_CONTROLS) ? (scaled - KNF_CONTROLS) : 0ull;
     sim_check(tally, projected == KNF_CONTROLS, "every control volume renders and projects");
-    sim_check(tally, (excess * excess) <= (KNF_SIGMAS_SQUARED * KNF_CONTROLS * (KNF_DRAWS + 1ull)),
-              "alike voxels are identified within 5 sigma of 1/(draws + 1)");
+    sim_check(tally, (excess * excess) <= (KNF_REACH_SQUARED * KNF_CONTROLS * (KNF_DRAWS + 1ull)),
+              "alike voxels are identified in at most n/(draws + 1) + 5 sqrt(n p) of the n controls");
 }
 
 int main(int count, char **arguments)

@@ -8,6 +8,6 @@ knowledge around it: that a PDB ATOM record puts its coordinates in fixed column
 location marker repeats an atom, that a backbone runs nitrogen to alpha carbon to carbon and around
 again, and that those three bonds are fixed by chemistry near 1.46, 1.52 and 1.33 angstroms.
 
-That last fact is why this subject is here at all. Every other set in this work was built to a known
+That last fact is the reason this subject is included. Every other set in this work was built to a known
 answer or has no known answer, and a bond length is one nobody here chose.
 """

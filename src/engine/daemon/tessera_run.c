@@ -645,7 +645,7 @@ static int run_folder_exists(const char *path)
     return (attributes != INVALID_FILE_ATTRIBUTES) && ((attributes & FILE_ATTRIBUTE_DIRECTORY) != 0u);
 }
 
-// the parent's record, shared only for reading: while this process lives no other opens it for writing, which is how
+// the parent's record, shared only for reading: while this process lives no other opens it for writing, and by that
 // its child finds that it lives, from Windows or from inside WSL
 static int run_record_make(RunChannel *channel, const char *path)
 {
